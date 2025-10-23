@@ -35,7 +35,7 @@ export default function Section2() {
             
             <h2 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-zinc-900 leading-tight mb-6 md:mb-8" data-testid="text-section2-heading">
               The results-driven{' '}
-              <span className="text-[#c4ff4d]">
+              <span className="text-[#5ce1e6]">
                 Social First Agency
               </span>{' '}
               you've been looking for
@@ -91,10 +91,10 @@ export default function Section2() {
                   <div className="text-center flex-1 flex items-center justify-center">
                     <p className="text-base md:text-lg lg:text-xl font-bold text-white leading-tight px-2">
                       <span className="inline-block animate-[fadeInUp_0.8s_ease-out]">We</span>{' '}
-                      <span className="inline-block animate-[fadeInUp_0.8s_ease-out_0.1s] text-[#c4ff4d]">blend</span>{' '}
+                      <span className="inline-block animate-[fadeInUp_0.8s_ease-out_0.1s] text-[#5ce1e6]">blend</span>{' '}
                       <span className="inline-block animate-[fadeInUp_0.8s_ease-out_0.2s]">creative</span>{' '}
                       <span className="inline-block animate-[fadeInUp_0.8s_ease-out_0.3s]">and</span>{' '}
-                      <span className="inline-block animate-[fadeInUp_0.8s_ease-out_0.4s] text-[#c4ff4d]">performance</span>
+                      <span className="inline-block animate-[fadeInUp_0.8s_ease-out_0.4s] text-[#5ce1e6]">performance</span>
                     </p>
                   </div>
                   
@@ -128,19 +128,19 @@ export default function Section2() {
                 />
               </svg>
               
-              {/* Green accent swooshes - top left */}
+              {/* Turquoise accent swooshes - top left */}
               <div className="absolute -top-3 -left-1 md:-top-4 md:-left-2">
                 <svg width="40" height="40" viewBox="0 0 50 50" fill="none">
-                  <path d="M 5 25 Q 15 20 25 25" stroke="#c4ff4d" strokeWidth="2.5" strokeLinecap="round" fill="none"/>
-                  <path d="M 25 5 Q 20 15 25 25" stroke="#c4ff4d" strokeWidth="2.5" strokeLinecap="round" fill="none"/>
+                  <path d="M 5 25 Q 15 20 25 25" stroke="#5ce1e6" strokeWidth="2.5" strokeLinecap="round" fill="none"/>
+                  <path d="M 25 5 Q 20 15 25 25" stroke="#5ce1e6" strokeWidth="2.5" strokeLinecap="round" fill="none"/>
                 </svg>
               </div>
               
-              {/* Green accent swooshes - bottom right */}
+              {/* Turquoise accent swooshes - bottom right */}
               <div className="absolute -bottom-3 -right-1 md:-bottom-4 md:-right-2">
                 <svg width="40" height="40" viewBox="0 0 50 50" fill="none">
-                  <path d="M 25 25 Q 35 30 45 25" stroke="#c4ff4d" strokeWidth="2.5" strokeLinecap="round" fill="none"/>
-                  <path d="M 25 25 Q 30 35 25 45" stroke="#c4ff4d" strokeWidth="2.5" strokeLinecap="round" fill="none"/>
+                  <path d="M 25 25 Q 35 30 45 25" stroke="#5ce1e6" strokeWidth="2.5" strokeLinecap="round" fill="none"/>
+                  <path d="M 25 25 Q 30 35 25 45" stroke="#5ce1e6" strokeWidth="2.5" strokeLinecap="round" fill="none"/>
                 </svg>
               </div>
             </div>
