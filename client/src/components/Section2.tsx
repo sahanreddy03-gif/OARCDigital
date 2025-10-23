@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { useState, useEffect } from "react";
 import { SiFacebook, SiInstagram, SiLinkedin, SiX, SiYoutube, SiSpotify } from "react-icons/si";
-import phoneOutline from '@assets/phone-04_1761255932992.webp';
 
 export default function Section2() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -108,13 +107,26 @@ export default function Section2() {
                 </div>
               </div>
               
-              {/* Phone outline image */}
-              <img 
-                src={phoneOutline} 
-                alt="Phone mockup" 
-                className="absolute inset-0 w-full h-full pointer-events-none object-contain"
-                data-testid="phone-outline"
-              />
+              {/* Hand-drawn phone outline - Simple single border like Social Shepherd */}
+              <svg className="absolute inset-0 w-full h-full pointer-events-none" preserveAspectRatio="none" viewBox="0 0 200 355" fill="none">
+                {/* Notch cutout */}
+                <path 
+                  d="M 65 2 L 65 6 Q 68 9 72 9 L 128 9 Q 132 9 135 6 L 135 2" 
+                  stroke="#1a1a1a" 
+                  strokeWidth="3"
+                  fill="none"
+                  strokeLinecap="round"
+                />
+                {/* Main phone outline - hand-drawn style */}
+                <path 
+                  d="M 13 32 Q 11 28 13 25 L 14 18 Q 16 13 20 10 L 29 6 Q 36 3 47 2 L 153 2 Q 164 3 171 6 L 180 10 Q 184 13 186 18 L 187 25 Q 189 28 187 32 L 187 323 Q 189 327 187 331 L 186 338 Q 184 343 180 346 L 171 350 Q 164 353 153 354 L 47 354 Q 36 353 29 350 L 20 346 Q 16 343 14 338 L 13 331 Q 11 327 13 323 Z" 
+                  stroke="#1a1a1a" 
+                  strokeWidth="3"
+                  fill="none"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
               
               {/* Turquoise accent swooshes - top left */}
               <div className="absolute -top-3 -left-1 md:-top-4 md:-left-2">
