@@ -8,17 +8,23 @@ export default function HeroSection() {
       {/* Mobile Layout - Clean bottom-aligned layout */}
       <div className="md:hidden absolute inset-0">
         <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url(${heroBackground})` }}
+          className="absolute inset-0 bg-cover bg-no-repeat"
+          style={{ 
+            backgroundImage: `url(${heroBackground})`,
+            backgroundPosition: '60% center'
+          }}
         />
-        {/* Stronger gradient to highlight text more */}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent from-0% via-zinc-950/75 via-50% to-zinc-950/95 to-95%"></div>
+        {/* Lighter gradient to show more color */}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent from-0% via-zinc-950/60 via-50% to-zinc-950/85 to-95%"></div>
       </div>
 
-      {/* Desktop Layout - Horizontal with side fade (STAYS EXACTLY SAME - PERFECT) */}
+      {/* Desktop Layout - Horizontal with side fade - Shifted right to show more color */}
       <div 
-        className="hidden md:block absolute inset-0 bg-cover bg-no-repeat bg-left-center"
-        style={{ backgroundImage: `url(${heroBackground})` }}
+        className="hidden md:block absolute inset-0 bg-cover bg-no-repeat"
+        style={{ 
+          backgroundImage: `url(${heroBackground})`,
+          backgroundPosition: '35% center'
+        }}
       />
       <div className="hidden md:block absolute inset-0 bg-gradient-to-r from-black/80 via-black/30 to-transparent"></div>
       <div className="hidden md:block absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/50"></div>
