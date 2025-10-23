@@ -26,15 +26,15 @@ export default function FloatingChipCarousel() {
             key={index} 
             className="inline-flex flex-shrink-0"
           >
-            <div className="group flex items-center gap-3 px-4 py-2.5 bg-white/95 backdrop-blur-sm rounded-full shadow-lg hover:shadow-xl transition-all cursor-pointer border border-white/20">
-              <div className="w-12 h-12 md:w-14 md:h-14 rounded-lg overflow-hidden flex-shrink-0">
+            <div className="group flex items-center gap-2 md:gap-3 px-3 md:px-4 py-2 md:py-2.5 bg-white/95 backdrop-blur-sm rounded-full shadow-lg hover:shadow-xl transition-all cursor-pointer border border-white/20">
+              <div className="w-10 h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 rounded-md md:rounded-lg overflow-hidden flex-shrink-0">
                 <img 
                   src={service.image} 
                   alt={service.text}
                   className="w-full h-full object-cover"
                 />
               </div>
-              <span className="text-sm md:text-base font-bold text-gray-900 pr-2 whitespace-nowrap">
+              <span className="text-xs md:text-sm lg:text-base font-bold text-gray-900 pr-1 md:pr-2 whitespace-nowrap">
                 {service.text}
               </span>
             </div>
