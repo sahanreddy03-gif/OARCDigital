@@ -13,11 +13,11 @@ export default function Section2() {
             </p>
             
             <h2 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-zinc-900 leading-tight mb-8 md:mb-10" data-testid="text-section2-heading">
-              The AI-powered{' '}
-              <span className="text-[#c4ff4d]">
-                creative agency
+              The results-driven{' '}
+              <span className="text-[#5ce1e6]">
+                Social First Agency
               </span>{' '}
-              driving revenue growth
+              you've been looking for
             </h2>
 
             <div className="flex flex-col gap-4 w-full sm:flex-row sm:gap-5">
@@ -41,28 +41,34 @@ export default function Section2() {
             </div>
           </div>
 
-          {/* Right Visual - Placeholder for now */}
+          {/* Right Visual - Phone Mockup */}
           <div className="order-1 lg:order-2 flex justify-center lg:justify-end">
-            <div className="relative w-full max-w-[300px] md:max-w-[400px] lg:max-w-[450px] aspect-[9/16]">
-              <div className="absolute inset-0 bg-gradient-to-br from-zinc-900 via-zinc-800 to-zinc-900 rounded-[2.5rem] md:rounded-[3rem] shadow-2xl flex items-center justify-center border-8 md:border-[10px] border-zinc-800">
-                <div className="w-full h-full bg-gradient-to-br from-[#c4ff4d]/20 to-zinc-900/80 rounded-[2rem] md:rounded-[2.5rem] flex items-center justify-center p-8">
-                  <div className="text-center">
-                    <Palette className="w-20 h-20 md:w-24 md:h-24 mb-4 mx-auto text-[#c4ff4d]" />
-                    <p className="text-white text-lg md:text-xl font-bold">AI Creative</p>
-                    <p className="text-white/70 text-sm md:text-base mt-2">Innovation</p>
+            <div className="relative w-full max-w-[240px] md:max-w-[280px] lg:max-w-[320px] aspect-[9/19.5]">
+              {/* Phone frame */}
+              <div className="absolute inset-0 bg-zinc-900 rounded-[2rem] md:rounded-[2.5rem] shadow-2xl overflow-hidden border-[10px] md:border-[12px] border-zinc-900">
+                {/* Phone screen */}
+                <div className="w-full h-full bg-gradient-to-br from-purple-900 via-indigo-900 to-zinc-900 flex items-center justify-center">
+                  <div className="w-full h-full bg-cover bg-center opacity-80" style={{
+                    backgroundImage: 'linear-gradient(135deg, rgba(147, 51, 234, 0.3) 0%, rgba(79, 70, 229, 0.3) 50%, rgba(17, 24, 39, 0.3) 100%)'
+                  }}>
+                    <div className="flex items-center justify-center h-full">
+                      <Palette className="w-16 h-16 md:w-20 md:h-20 text-[#5ce1e6] opacity-60" />
+                    </div>
                   </div>
                 </div>
+                {/* Notch */}
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-6 bg-zinc-900 rounded-b-2xl"></div>
               </div>
               {/* Decorative accent strokes */}
-              <div className="absolute -top-4 -right-4 w-16 h-16 md:w-20 md:h-20">
+              <div className="absolute -top-3 -right-3 w-12 h-12 md:w-14 md:h-14">
                 <svg viewBox="0 0 80 80" fill="none" className="w-full h-full">
-                  <path d="M10 10 L70 10" stroke="#c4ff4d" strokeWidth="4" strokeLinecap="round"/>
-                  <path d="M70 10 L70 70" stroke="#c4ff4d" strokeWidth="4" strokeLinecap="round"/>
+                  <path d="M10 10 L70 10" stroke="#5ce1e6" strokeWidth="4" strokeLinecap="round"/>
+                  <path d="M70 10 L70 70" stroke="#5ce1e6" strokeWidth="4" strokeLinecap="round"/>
                 </svg>
               </div>
-              <div className="absolute -bottom-6 -left-6 w-20 h-20 md:w-24 md:h-24">
+              <div className="absolute -bottom-4 -left-4 w-14 h-14 md:w-16 md:h-16">
                 <svg viewBox="0 0 100 100" fill="none" className="w-full h-full">
-                  <path d="M20 80 L80 20" stroke="#c4ff4d" strokeWidth="4" strokeLinecap="round"/>
+                  <path d="M20 80 L80 20" stroke="#5ce1e6" strokeWidth="4" strokeLinecap="round"/>
                 </svg>
               </div>
             </div>
