@@ -40,8 +40,8 @@ export default function Navigation() {
             >
               Contact Us
             </Button>
-            <button className="lg:hidden p-2 rounded-md text-white" data-testid="button-menu">
-              <Menu className="w-4 h-4 md:w-5 md:h-5" />
+            <button className="lg:hidden p-1.5 rounded-md text-white" data-testid="button-menu">
+              <Menu className="w-5 h-5" />
             </button>
           </div>
         </div>

@@ -5,24 +5,34 @@ import heroBackground from '@assets/generated_images/Ultra_High_Quality_Hero_Bac
 export default function HeroSection() {
   return (
     <section className="relative h-screen flex flex-col overflow-hidden bg-black">
-      {/* Background - vertical for mobile, horizontal for desktop */}
+      {/* Mobile Layout - Image on top, content below */}
+      <div className="md:hidden absolute inset-0 flex flex-col">
+        {/* Top section - Hero Image (40% of screen) */}
+        <div className="h-[40%] relative overflow-hidden">
+          <div 
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            style={{ backgroundImage: `url(${heroBackground})` }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black"></div>
+        </div>
+        
+        {/* Bottom section - Dark content area (60% of screen) */}
+        <div className="flex-1 bg-gradient-to-b from-black via-black/95 to-black"></div>
+      </div>
+
+      {/* Desktop Layout - Horizontal with side fade (STAYS EXACTLY SAME - PERFECT) */}
       <div 
-        className="absolute inset-0 bg-cover bg-no-repeat bg-center md:bg-left-center"
+        className="hidden md:block absolute inset-0 bg-cover bg-no-repeat bg-left-center"
         style={{ backgroundImage: `url(${heroBackground})` }}
       />
-      
-      {/* Mobile gradients - vertical fade from top down */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/85 via-black/50 to-black/70 md:hidden"></div>
-      
-      {/* Desktop gradients - horizontal fade from left (LAPTOP VERSION - PERFECT) */}
       <div className="hidden md:block absolute inset-0 bg-gradient-to-r from-black/80 via-black/30 to-transparent"></div>
       <div className="hidden md:block absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/50"></div>
       <div className="hidden md:block absolute inset-0 bg-gradient-to-l from-transparent via-black/10 to-black/60"></div>
       
       <div className="relative flex-1 flex flex-col justify-between pt-14 md:pt-24 pb-2 md:pb-3">
         <div className="max-w-7xl w-full mx-auto px-4 md:px-8 lg:px-12 flex items-center flex-1">
-          {/* Mobile layout - centered content */}
-          <div className="w-full md:max-w-2xl text-center md:text-left py-2 md:py-6">
+          {/* Mobile - centered content in bottom dark area */}
+          <div className="w-full md:max-w-2xl text-center md:text-left py-4 md:py-6">
             <div className="mb-2 md:mb-3">
               <span className="text-[9px] md:text-[10px] lg:text-xs uppercase tracking-[0.2em] font-bold text-white leading-none">
                 WHERE CREATIVITY MEETS REVENUE
@@ -55,8 +65,6 @@ export default function HeroSection() {
                 <span className="whitespace-nowrap">Malta's #1</span>
                 <span className="text-white/50">•</span>
                 <span className="whitespace-nowrap">AI Employees Available</span>
-                <span className="text-white/50 hidden sm:inline">•</span>
-                <span className="whitespace-nowrap hidden sm:inline">Intelligence-Powered Social Media</span>
               </div>
             </div>
           </div>
