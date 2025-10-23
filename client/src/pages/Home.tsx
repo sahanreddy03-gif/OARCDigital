@@ -2,7 +2,6 @@ import Navigation from "@/components/Navigation";
 import HeroSection from "@/components/HeroSection";
 import Section2 from "@/components/Section2";
 import Section3 from "@/components/Section3";
-import SplitSection from "@/components/SplitSection";
 import Section5 from "@/components/Section5";
 import LetsTalkSection from "@/components/LetsTalkSection";
 import AICreativeSection from "@/components/AICreativeSection";
@@ -20,7 +19,6 @@ export default function Home() {
       <HeroSection />
       <Section2 />
       <Section3 />
-      <SplitSection />
       <Section5 />
       <LetsTalkSection />
       <AICreativeSection />
