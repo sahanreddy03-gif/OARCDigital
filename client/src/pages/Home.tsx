@@ -4,6 +4,8 @@ import Section2 from "@/components/Section2";
 import Section3 from "@/components/Section3";
 import SplitSection from "@/components/SplitSection";
 import Section5 from "@/components/Section5";
+import LetsTalkSection from "@/components/LetsTalkSection";
+import AICreativeSection from "@/components/AICreativeSection";
 import ServiceGrid from "@/components/ServiceGrid";
 import PerformanceMetrics from "@/components/PerformanceMetrics";
 import CTASections from "@/components/CTASections";
@@ -20,6 +22,8 @@ export default function Home() {
       <Section3 />
       <SplitSection />
       <Section5 />
+      <LetsTalkSection />
+      <AICreativeSection />
       <ServiceGrid />
       <PerformanceMetrics />
       <CTASections />
