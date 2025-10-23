@@ -1,4 +1,4 @@
-import aiExcellence from '@assets/generated_images/AI_Market_Intelligence_Dashboard_fe27fd70.png';
+import aiExcellence from '@assets/739d30f2ecb844e9c1186e62ca63efbda518ff4a-1050x1200_1761257258076.avif';
 import creativeStrategy from '@assets/generated_images/Creative_Strategy_Team_Collaboration_9cdc63b0.png';
 import revenueCentered from '@assets/generated_images/Revenue_Automation_System_cc084f86.png';
 
@@ -22,12 +22,17 @@ const differentiators = [
 
 export default function Section5() {
   return (
-    <section className="py-16 md:py-24 lg:py-32 bg-[#0d2818]" data-testid="section-5">
-      <div className="container mx-auto px-4 md:px-6 lg:px-12">
+    <section className="relative py-16 md:py-24 lg:py-32 overflow-hidden" data-testid="section-5">
+      {/* Gradient background similar to hero - black with warm orange/amber tones */}
+      <div className="absolute inset-0 bg-gradient-to-br from-black via-zinc-900 to-orange-950/40"></div>
+      <div className="absolute inset-0 bg-gradient-to-tr from-amber-950/20 via-transparent to-orange-900/30"></div>
+      <div className="absolute inset-0 bg-black/40"></div>
+      
+      <div className="relative container mx-auto px-4 md:px-6 lg:px-12">
         {/* Section heading */}
         <div className="text-center mb-12 md:mb-16 lg:mb-20">
           <h2 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-white tracking-tight">
-            Our <span className="italic">difference</span>
+            Our <span className="italic">Difference</span>
           </h2>
         </div>
 
