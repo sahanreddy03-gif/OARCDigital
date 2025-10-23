@@ -1,19 +1,18 @@
-import brandImage from '@assets/generated_images/Brand_Identity_Design_d96ef0dd.png';
-import socialMedia from '@assets/generated_images/Social_Media_Ad_Creative_1692b2b1.png';
-import videoProduction from '@assets/generated_images/Video_Production_Still_f3b287b8.png';
-import aiArtwork from '@assets/generated_images/AI_Generated_Artwork_Sample_21a12eed.png';
-import keyArt from '@assets/generated_images/Key_Art_Composition_Card_eb4acb99.png';
-import motionGraphics from '@assets/generated_images/Motion_Graphics_Card_dcb90033.png';
+import sample1 from '@assets/generated_images/Carousel_Sample_1_402ef8ac.png';
+import sample2 from '@assets/generated_images/Carousel_Sample_2_e622a0fd.png';
+import sample3 from '@assets/generated_images/Carousel_Sample_3_8ce5a9d3.png';
+import sample4 from '@assets/generated_images/Carousel_Sample_4_8e1c7e2e.png';
+import sample5 from '@assets/generated_images/Carousel_Sample_5_1febb1b4.png';
 
 const services = [
-  { text: "Brand Image Library", image: brandImage },
-  { text: "Key Art Composition", image: keyArt },
-  { text: "Adding Motion To Static", image: motionGraphics },
-  { text: "Character Development", image: videoProduction },
-  { text: "Voiceover Generation", image: aiArtwork },
-  { text: "AI-Enhanced Motion", image: socialMedia },
-  { text: "Rapid Idea Testing", image: videoProduction },
-  { text: "Social Media Content", image: socialMedia },
+  { text: "Brand Image Library", image: sample1 },
+  { text: "Key Art Composition", image: sample2 },
+  { text: "Adding Motion To Static", image: sample3 },
+  { text: "Character Development", image: sample4 },
+  { text: "Voiceover Generation", image: sample5 },
+  { text: "AI-Enhanced Motion", image: sample3 },
+  { text: "Rapid Idea Testing", image: sample2 },
+  { text: "Social Media Content", image: sample1 },
 ];
 
 export default function FloatingChipCarousel() {
@@ -27,15 +26,15 @@ export default function FloatingChipCarousel() {
             key={index} 
             className="inline-flex flex-shrink-0"
           >
-            <div className="group flex items-center gap-2.5 px-3.5 py-2 bg-white/95 backdrop-blur-sm rounded-full shadow-md hover:shadow-lg transition-all cursor-pointer border border-white/50">
-              <div className="w-9 h-9 md:w-11 md:h-11 rounded-md overflow-hidden flex-shrink-0 bg-gray-100">
+            <div className="group flex items-center gap-3 px-4 py-2.5 bg-white/95 backdrop-blur-sm rounded-full shadow-lg hover:shadow-xl transition-all cursor-pointer border border-white/20">
+              <div className="w-12 h-12 md:w-14 md:h-14 rounded-lg overflow-hidden flex-shrink-0">
                 <img 
                   src={service.image} 
                   alt={service.text}
                   className="w-full h-full object-cover"
                 />
               </div>
-              <span className="text-xs md:text-sm font-semibold text-gray-900 pr-1.5 whitespace-nowrap">
+              <span className="text-sm md:text-base font-bold text-gray-900 pr-2 whitespace-nowrap">
                 {service.text}
               </span>
             </div>

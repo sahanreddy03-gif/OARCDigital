@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import FloatingChipCarousel from "./FloatingChipCarousel";
-import heroBackground from '@assets/generated_images/Premium_Artistic_Forest_Hero_Background_01273737.png';
+import heroBackground from '@assets/generated_images/Ultra_High_Quality_Hero_Background_5edfbd6f.png';
 
 export default function HeroSection() {
   return (
@@ -40,6 +40,14 @@ export default function HeroSection() {
           >
             Start Talking
           </Button>
+
+          <div className="mt-6 flex items-center gap-3 text-white/80 text-xs md:text-sm font-medium">
+            <span className="whitespace-nowrap">Malta's #1</span>
+            <span className="text-white/50">•</span>
+            <span className="whitespace-nowrap">AI Employees Available</span>
+            <span className="text-white/50">•</span>
+            <span className="whitespace-nowrap">Intelligence-Powered Social Media</span>
+          </div>
         </div>
       </div>
 

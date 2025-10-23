@@ -1,6 +1,5 @@
 import Navigation from "@/components/Navigation";
 import HeroSection from "@/components/HeroSection";
-import BrandLogos from "@/components/BrandLogos";
 import SplitSection from "@/components/SplitSection";
 import DifferentiatorCards from "@/components/DifferentiatorCards";
 import ServiceGrid from "@/components/ServiceGrid";
@@ -15,7 +14,6 @@ export default function Home() {
     <div className="min-h-screen">
       <Navigation />
       <HeroSection />
-      <BrandLogos />
       <SplitSection />
       <DifferentiatorCards />
       <ServiceGrid />
