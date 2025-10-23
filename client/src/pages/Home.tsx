@@ -3,7 +3,7 @@ import HeroSection from "@/components/HeroSection";
 import Section2 from "@/components/Section2";
 import Section3 from "@/components/Section3";
 import SplitSection from "@/components/SplitSection";
-import DifferentiatorCards from "@/components/DifferentiatorCards";
+import Section5 from "@/components/Section5";
 import ServiceGrid from "@/components/ServiceGrid";
 import PerformanceMetrics from "@/components/PerformanceMetrics";
 import CTASections from "@/components/CTASections";
@@ -19,7 +19,7 @@ export default function Home() {
       <Section2 />
       <Section3 />
       <SplitSection />
-      <DifferentiatorCards />
+      <Section5 />
       <ServiceGrid />
       <PerformanceMetrics />
       <CTASections />
