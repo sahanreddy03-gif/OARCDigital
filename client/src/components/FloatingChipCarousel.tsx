@@ -20,21 +20,22 @@ export default function FloatingChipCarousel() {
 
   return (
     <div className="w-full overflow-hidden">
-      <div className="flex animate-scroll whitespace-nowrap gap-2 md:gap-2">
+      <div className="flex animate-scroll whitespace-nowrap gap-3 md:gap-2">
         {duplicatedServices.map((service, index) => (
           <div 
             key={index} 
             className="inline-flex flex-shrink-0"
           >
-            <div className="group flex items-center gap-2 md:gap-2 px-4 md:px-3 py-2.5 md:py-2 bg-white/95 backdrop-blur-sm rounded-full shadow-lg hover:shadow-xl transition-all cursor-pointer border border-white/20">
-              <div className="w-12 h-12 md:w-10 md:h-10 lg:w-12 lg:h-12 rounded-md overflow-hidden flex-shrink-0">
+            <div className="group flex items-center gap-3 md:gap-2 px-4 md:px-3 py-3 md:py-2 bg-white/95 backdrop-blur-sm rounded-full shadow-lg hover:shadow-xl transition-all cursor-pointer border border-white/20">
+              {/* Mobile: 56px, Tablet+: 48px images */}
+              <div className="w-[56px] h-[56px] md:w-12 md:h-12 rounded-lg md:rounded-md overflow-hidden flex-shrink-0 bg-white">
                 <img 
                   src={service.image} 
                   alt={service.text}
                   className="w-full h-full object-cover"
                 />
               </div>
-              <span className="text-sm md:text-xs lg:text-sm font-bold text-gray-900 pr-1 md:pr-1 whitespace-nowrap">
+              <span className="text-sm md:text-xs lg:text-sm font-bold text-gray-900 pr-2 md:pr-1 whitespace-nowrap">
                 {service.text}
               </span>
             </div>
