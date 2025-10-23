@@ -1,5 +1,6 @@
 import Navigation from "@/components/Navigation";
 import HeroSection from "@/components/HeroSection";
+import Section2 from "@/components/Section2";
 import SplitSection from "@/components/SplitSection";
 import DifferentiatorCards from "@/components/DifferentiatorCards";
 import ServiceGrid from "@/components/ServiceGrid";
@@ -14,6 +15,7 @@ export default function Home() {
     <div className="min-h-screen">
       <Navigation />
       <HeroSection />
+      <Section2 />
       <SplitSection />
       <DifferentiatorCards />
       <ServiceGrid />
