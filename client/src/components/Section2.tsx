@@ -1,9 +1,9 @@
 import { Button } from "@/components/ui/button";
-import { Palette } from "lucide-react";
+import { Palette, Check } from "lucide-react";
 
 export default function Section2() {
   return (
-    <section className="relative bg-white py-16 md:py-24 lg:py-32">
+    <section className="relative bg-white py-12 md:py-16 lg:py-20">
       <div className="container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left Content */}
@@ -12,7 +12,7 @@ export default function Section2() {
               OARC Digital
             </p>
             
-            <h2 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-zinc-900 leading-tight mb-8 md:mb-10" data-testid="text-section2-heading">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-zinc-900 leading-tight mb-6 md:mb-8" data-testid="text-section2-heading">
               The results-driven{' '}
               <span className="text-[#5ce1e6]">
                 Social First Agency
@@ -41,35 +41,43 @@ export default function Section2() {
             </div>
           </div>
 
-          {/* Right Visual - Phone Mockup */}
+          {/* Right Visual - Phone Mockup with Hand-Drawn Border */}
           <div className="order-1 lg:order-2 flex justify-center lg:justify-end">
-            <div className="relative w-full max-w-[240px] md:max-w-[280px] lg:max-w-[320px] aspect-[9/19.5]">
-              {/* Phone frame */}
-              <div className="absolute inset-0 bg-zinc-900 rounded-[2rem] md:rounded-[2.5rem] shadow-2xl overflow-hidden border-[10px] md:border-[12px] border-zinc-900">
-                {/* Phone screen */}
-                <div className="w-full h-full bg-gradient-to-br from-purple-900 via-indigo-900 to-zinc-900 flex items-center justify-center">
-                  <div className="w-full h-full bg-cover bg-center opacity-80" style={{
-                    backgroundImage: 'linear-gradient(135deg, rgba(147, 51, 234, 0.3) 0%, rgba(79, 70, 229, 0.3) 50%, rgba(17, 24, 39, 0.3) 100%)'
-                  }}>
-                    <div className="flex items-center justify-center h-full">
-                      <Palette className="w-16 h-16 md:w-20 md:h-20 text-[#5ce1e6] opacity-60" />
-                    </div>
-                  </div>
+            <div className="relative w-full max-w-[180px] md:max-w-[200px] lg:max-w-[220px] aspect-[9/19.5]">
+              {/* Phone content background */}
+              <div className="absolute inset-0 bg-gradient-to-br from-purple-900 via-indigo-900 to-zinc-900 rounded-[1.5rem] flex items-center justify-center overflow-hidden">
+                <div className="w-full h-full flex items-center justify-center">
+                  <Palette className="w-12 h-12 md:w-14 md:h-14 text-[#5ce1e6] opacity-60" />
                 </div>
                 {/* Notch */}
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-6 bg-zinc-900 rounded-b-2xl"></div>
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-20 h-5 bg-zinc-900 rounded-b-xl"></div>
               </div>
-              {/* Decorative accent strokes */}
-              <div className="absolute -top-3 -right-3 w-12 h-12 md:w-14 md:h-14">
-                <svg viewBox="0 0 80 80" fill="none" className="w-full h-full">
-                  <path d="M10 10 L70 10" stroke="#5ce1e6" strokeWidth="4" strokeLinecap="round"/>
-                  <path d="M70 10 L70 70" stroke="#5ce1e6" strokeWidth="4" strokeLinecap="round"/>
-                </svg>
-              </div>
-              <div className="absolute -bottom-4 -left-4 w-14 h-14 md:w-16 md:h-16">
-                <svg viewBox="0 0 100 100" fill="none" className="w-full h-full">
-                  <path d="M20 80 L80 20" stroke="#5ce1e6" strokeWidth="4" strokeLinecap="round"/>
-                </svg>
+              
+              {/* Hand-drawn double border effect */}
+              <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 180 390" fill="none" xmlns="http://www.w3.org/2000/svg">
+                {/* Outer sketchy border */}
+                <path 
+                  d="M 25 8 Q 90 5 155 8 L 172 195 Q 175 300 172 382 Q 90 385 25 382 L 8 195 Q 5 100 25 8 Z" 
+                  stroke="#18181b" 
+                  strokeWidth="2.5" 
+                  fill="none"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                {/* Inner sketchy border */}
+                <path 
+                  d="M 28 11 Q 90 8 152 11 L 168 195 Q 171 298 168 378 Q 90 381 28 378 L 12 195 Q 9 103 28 11 Z" 
+                  stroke="#18181b" 
+                  strokeWidth="2" 
+                  fill="none"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+              
+              {/* Feather/Tick accent in turquoise - top right corner */}
+              <div className="absolute -top-2 -right-2 w-8 h-8 md:w-10 md:h-10">
+                <Check className="w-full h-full text-[#5ce1e6]" strokeWidth={3} />
               </div>
             </div>
           </div>
