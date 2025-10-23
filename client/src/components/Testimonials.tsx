@@ -24,45 +24,51 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section className="py-24 md:py-32 bg-background">
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <div className="text-center mb-16">
-          <p className="text-sm uppercase tracking-wide font-semibold text-primary mb-4">
+    <section className="py-20 md:py-28 bg-gradient-to-br from-primary/5 via-chart-2/5 to-background relative overflow-hidden">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-chart-4/10 via-transparent to-transparent"></div>
+      
+      <div className="relative max-w-7xl mx-auto px-6 md:px-12">
+        <div className="text-center mb-12 md:mb-16">
+          <p className="text-xs uppercase tracking-wider font-bold text-primary mb-4">
             Our Credibility
           </p>
-          <h2 className="text-4xl md:text-5xl font-bold font-display tracking-tight mb-4">
-            What our <span className="italic">clients say</span>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black font-display tracking-tight mb-4">
+            What our <span className="italic font-black">clients say</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base text-muted-foreground max-w-2xl mx-auto">
             Real results from real partnerships
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-6 md:gap-8">
           {testimonials.map((testimonial, index) => (
             <Card 
               key={index}
-              className="p-8 hover-elevate hover:shadow-xl transition-all"
+              className="relative p-6 md:p-8 hover-elevate hover:shadow-2xl transition-all duration-500 bg-gradient-to-br from-background to-background/80 backdrop-blur-sm border-2 group overflow-hidden"
               data-testid={`card-testimonial-${index}`}
             >
-              <div className="flex gap-1 mb-6">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 fill-chart-5 text-chart-5" />
-                ))}
-              </div>
-
-              <blockquote className="text-lg leading-relaxed mb-6">
-                "{testimonial.quote}"
-              </blockquote>
-
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-chart-2 flex items-center justify-center text-primary-foreground font-semibold">
-                  {testimonial.author.split(' ').map(n => n[0]).join('')}
+              <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-primary/10 to-transparent rounded-full blur-2xl"></div>
+              
+              <div className="relative">
+                <div className="flex gap-1 mb-6">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-4 h-4 fill-chart-5 text-chart-5" />
+                  ))}
                 </div>
-                <div>
-                  <div className="font-semibold" data-testid={`text-author-${index}`}>{testimonial.author}</div>
-                  <div className="text-sm text-muted-foreground">
-                    {testimonial.role}, {testimonial.company}
+
+                <blockquote className="text-base md:text-lg leading-relaxed mb-6 font-medium">
+                  "{testimonial.quote}"
+                </blockquote>
+
+                <div className="flex items-center gap-4 pt-4 border-t border-border/50">
+                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-primary via-chart-2 to-chart-4 flex items-center justify-center text-primary-foreground font-bold text-lg shadow-lg">
+                    {testimonial.author.split(' ').map(n => n[0]).join('')}
+                  </div>
+                  <div>
+                    <div className="font-bold text-lg" data-testid={`text-author-${index}`}>{testimonial.author}</div>
+                    <div className="text-sm text-muted-foreground">
+                      {testimonial.role}, {testimonial.company}
+                    </div>
                   </div>
                 </div>
               </div>
