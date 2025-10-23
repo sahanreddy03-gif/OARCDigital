@@ -1,6 +1,7 @@
 import Navigation from "@/components/Navigation";
 import HeroSection from "@/components/HeroSection";
 import Section2 from "@/components/Section2";
+import Section3 from "@/components/Section3";
 import SplitSection from "@/components/SplitSection";
 import DifferentiatorCards from "@/components/DifferentiatorCards";
 import ServiceGrid from "@/components/ServiceGrid";
@@ -16,6 +17,7 @@ export default function Home() {
       <Navigation />
       <HeroSection />
       <Section2 />
+      <Section3 />
       <SplitSection />
       <DifferentiatorCards />
       <ServiceGrid />
