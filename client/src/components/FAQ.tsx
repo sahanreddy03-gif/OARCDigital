@@ -34,27 +34,32 @@ const faqs = [
 
 export default function FAQ() {
   return (
-    <section className="py-24 md:py-32 bg-muted/30">
+    <section className="py-20 md:py-28 bg-background">
       <div className="max-w-4xl mx-auto px-6 md:px-12">
-        <div className="text-center mb-16">
-          <p className="text-sm uppercase tracking-wide font-semibold text-primary mb-4">
+        <div className="text-center mb-12 md:mb-16">
+          <p className="text-xs uppercase tracking-wider font-bold text-primary mb-4">
             Frequently Asked Questions
           </p>
-          <h2 className="text-4xl md:text-5xl font-bold font-display tracking-tight mb-4">
-            Questions from our <span className="italic">clients & partners</span>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black font-display tracking-tight mb-4">
+            Questions from our <span className="italic font-black">clients & partners</span>
           </h2>
-          <p className="text-lg text-muted-foreground">
+          <p className="text-base text-muted-foreground">
             Everything you need to know about working with OARC Digital
           </p>
         </div>
 
-        <Accordion type="single" collapsible className="w-full">
+        <Accordion type="single" collapsible className="w-full space-y-4">
           {faqs.map((faq, index) => (
-            <AccordionItem key={index} value={`item-${index}`} data-testid={`faq-item-${index}`}>
-              <AccordionTrigger className="text-left text-lg font-semibold">
+            <AccordionItem 
+              key={index} 
+              value={`item-${index}`} 
+              data-testid={`faq-item-${index}`}
+              className="border border-border/50 rounded-lg px-6 hover-elevate transition-all"
+            >
+              <AccordionTrigger className="text-left text-base md:text-lg font-bold hover:no-underline py-4">
                 {faq.question}
               </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground leading-relaxed">
+              <AccordionContent className="text-muted-foreground leading-relaxed pb-4">
                 {faq.answer}
               </AccordionContent>
             </AccordionItem>

@@ -3,8 +3,10 @@ import FloatingChipCarousel from "./FloatingChipCarousel";
 
 export default function HeroSection() {
   return (
-    <section className="relative pt-32 md:pt-48 pb-24 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
+    <section className="relative pt-24 md:pt-32 pb-12 md:pb-16 overflow-hidden bg-gradient-to-br from-primary/5 via-chart-2/5 to-background">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent"></div>
+      
+      <div className="relative max-w-7xl mx-auto px-6 md:px-12">
         <div className="text-center max-w-5xl mx-auto">
           <div className="inline-block mb-6">
             <span className="text-sm uppercase tracking-wide font-semibold text-primary">
@@ -43,7 +45,7 @@ export default function HeroSection() {
         </div>
       </div>
 
-      <div className="mt-16">
+      <div className="relative mt-12 md:mt-16">
         <FloatingChipCarousel />
       </div>
     </section>

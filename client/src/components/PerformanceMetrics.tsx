@@ -60,26 +60,26 @@ function Counter({ end, prefix = "", suffix = "", duration = 2000 }: { end: numb
 
 export default function PerformanceMetrics() {
   return (
-    <section className="py-24 md:py-32 bg-foreground text-background">
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <div className="text-center mb-16">
-          <p className="text-sm uppercase tracking-wide font-semibold text-background/60 mb-4">
+    <section className="py-16 md:py-20 bg-foreground text-background">
+      <div className="max-w-6xl mx-auto px-6 md:px-12">
+        <div className="text-center mb-12">
+          <p className="text-xs uppercase tracking-wider font-bold text-background/60 mb-3">
             Measurable Success
           </p>
-          <h2 className="text-4xl md:text-5xl font-bold font-display tracking-tight">
-            The proof is in the <span className="italic">results</span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black font-display tracking-tight">
+            The proof is in the <span className="italic font-black">results</span>
           </h2>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
           {metrics.map((metric, index) => (
-            <div key={index} className="text-center space-y-3" data-testid={`metric-${index}`}>
+            <div key={index} className="text-center space-y-2" data-testid={`metric-${index}`}>
               <Counter 
                 end={metric.value} 
                 prefix={metric.prefix}
                 suffix={metric.suffix}
               />
-              <p className="text-sm uppercase tracking-wide font-medium text-background/70">
+              <p className="text-xs md:text-sm uppercase tracking-wide font-semibold text-background/60">
                 {metric.label}
               </p>
             </div>
