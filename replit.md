@@ -122,3 +122,41 @@ Preferred communication style: Simple, everyday language.
 - Image assets stored in `attached_assets/` directory
 - Static assets served via Vite in development
 - Design reference documents and client notes preserved in attached_assets
+
+## Homepage Sections - Current Implementation
+
+### Section 1 - Hero Section
+- Custom user background image (AVIF) positioned at 35% center (desktop) and 60% center (mobile)
+- Green CTA button: #c4ff4d ("Start Talking")
+- FloatingChipCarousel with 14 service chips
+- Dark gradient overlays to ensure text readability
+
+### Section 2 - Social First Agency
+- Hand-drawn SVG phone mockup with cycling gradient backgrounds
+- 6 social media icons (Facebook, Instagram, LinkedIn, X, YouTube, Spotify)
+- Animated text "We blend creative and performance" with turquoise (#5ce1e6) highlights
+- White background section
+
+### Section 3 - Brand Carousel
+- Centered heading "We grow ambitious brands with Social, Paid, Creative and Influencer" (all black text)
+- Continuous right-to-left carousel with 18 brand logos
+- White background section
+
+### Section 5 - Our Difference
+- **Background**: Black-based gradients matching hero section color palette for cohesive website flow
+  - Multiple layered gradients: pure black, zinc-950, zinc-900
+  - Subtle warm orange glow on right side (12% opacity)
+  - Radial gradients for depth
+- **Heading**: "Our Difference" with "Difference" in exact green (#c4ff4d) matching hero CTA button
+- **Images**: Three custom AVIF images
+  - AI Excellence: 739d30f2ecb844e9c1186e62ca63efbda518ff4a-1050x1200_1761257258076.avif
+  - Our Creative Strategy: db64abcfab31dccdde04f1fb8be45337dfb692e9-1392x1392_1761257777037.avif  
+  - Revenue Centered: 07c35cf0cbddd33390e2f878e287f38703ae7b26-1040x904_1761258187346.avif
+- **Layout**: 3-column grid (desktop), vertical stack (mobile)
+- **Interactions**: Descriptions appear on hover (desktop only), always visible (mobile)
+
+## Brand Color Scheme
+- **Primary Green**: #c4ff4d (used for CTAs and accent highlights)
+- **Turquoise Accent**: #5ce1e6 (used for content highlights on white backgrounds)
+- **Black/Dark**: Black, zinc-950, zinc-900 (primary dark colors)
+- **Warm Tones**: Subtle orange/amber accents for depth and visual interest
