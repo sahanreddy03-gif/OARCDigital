@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import FloatingChipCarousel from "./FloatingChipCarousel";
-import heroBackground from '@assets/generated_images/Artistic_Hero_Background_Illustration_ff3373eb.png';
+import heroBackground from '@assets/stock_images/artistic_autumn_fore_45707b80.jpg';
 
 export default function HeroSection() {
   return (
@@ -21,21 +21,21 @@ export default function HeroSection() {
           </div>
 
           <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black font-display tracking-tight leading-[1.05] mb-6 text-white">
-            AI-powered creative,
+            AI-Powered Marketing
             <br />
-            <span className="italic font-serif">delivered at scale</span>
+            <span className="italic font-serif">Agency That Drives Revenue</span>
           </h1>
 
           <p className="text-base md:text-lg text-white/90 max-w-xl leading-relaxed mb-8">
-            AI-certified creative talent + custom AI workflows + the latest AI tools = faster delivery, more efficiency, and real money saved for your team.
+            AI-Certified Talent + Custom AI Workflows + Ruthless Automation + Guaranteed Results = More Effective. Lower Cost. More Sales.
           </p>
 
           <Button 
             size="lg" 
             className="rounded-full text-base md:text-lg px-10 py-6 h-auto font-bold bg-[#c4ff4d] text-black hover:bg-[#b5ef3d] shadow-xl hover:shadow-2xl transition-all"
-            data-testid="button-book-demo"
+            data-testid="button-start-talking"
           >
-            Book a demo
+            Start Talking
           </Button>
         </div>
       </div>
