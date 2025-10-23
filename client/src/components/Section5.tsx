@@ -23,23 +23,23 @@ const differentiators = [
 export default function Section5() {
   return (
     <section className="relative py-16 md:py-24 lg:py-32 overflow-hidden" data-testid="section-5">
-      {/* Dynamic gradient background with strong orange on right side */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black via-zinc-900 to-orange-600/30"></div>
-      <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-transparent to-orange-500/40"></div>
-      <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-amber-600/20 to-orange-400/30"></div>
+      {/* Background matching hero section - black with subtle warm tones on right */}
+      <div className="absolute inset-0 bg-black"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-black via-zinc-950 to-zinc-900/80"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-transparent to-orange-950/20"></div>
       
-      {/* Radial gradient for more depth on right */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_100%_50%,rgba(251,146,60,0.25),transparent_70%)]"></div>
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_0%_50%,rgba(0,0,0,0.6),transparent_50%)]"></div>
+      {/* Subtle warm glow on right - mimicking hero's color reveal */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_100%_50%,rgba(251,146,60,0.12),transparent_60%)]"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_0%_50%,rgba(0,0,0,0.8),transparent_40%)]"></div>
       
-      {/* Subtle overlay for richness */}
-      <div className="absolute inset-0 bg-black/30"></div>
+      {/* Very subtle overlay for depth */}
+      <div className="absolute inset-0 bg-black/20"></div>
       
       <div className="relative container mx-auto px-4 md:px-6 lg:px-12">
-        {/* Section heading */}
+        {/* Section heading with exact green from hero CTA */}
         <div className="text-center mb-12 md:mb-16 lg:mb-20">
           <h2 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-white tracking-tight">
-            Our <span className="italic">Difference</span>
+            Our <span className="italic" style={{ color: '#c4ff4d' }}>Difference</span>
           </h2>
         </div>
 
