@@ -155,6 +155,37 @@ Preferred communication style: Simple, everyday language.
 - **Layout**: 3-column grid (desktop), vertical stack (mobile)
 - **Interactions**: Descriptions appear on hover (desktop only), always visible (mobile)
 
+### Section 6 - Let's Talk
+- **Background**: White section for visual contrast after dark Section 5
+- **Heading**: "Let's Talk" in large bold text
+- **OARC Brand Display**: "OARC" in extra-large typography (6xl to 8xl)
+- **Four-Pillar Grid**: Responsive grid explaining OARC acronym
+  - Desktop (lg): 4 columns - single horizontal row
+  - Tablet (md): 2 columns - 2x2 grid layout
+  - Mobile: 1 column - vertical stack
+  - All four pillars: Optimised, AI, Revenue, Creative
+  - Each pillar: Green heading (#c4ff4d), gray description text (zinc-600)
+- **Tagline**: "Super Talented . Super Fast . Super Responsive"
+  - Horizontal layout with dot separators (desktop)
+  - Vertical stack (mobile)
+
+### Section 7 - AI Creative Services
+- **Background**: White background
+- **Heading**: "Every type of creative work you'll ever need and more"
+  - "and more" styled in italic green (#c4ff4d)
+- **Carousel**: Superside-inspired right-to-left infinite carousel
+  - 18 unique service cards (duplicated 3x for seamless loop)
+  - 90-second animation duration
+  - Gradient fade overlays on left and right edges
+  - Pauses on hover
+- **Service Cards**:
+  - 380px width (desktop), 300px (mobile)
+  - 4:3 aspect ratio images
+  - Rounded corners (rounded-2xl)
+  - Hover effect: image scales to 1.05
+  - "NEW" badges on Design Systems and Product Design (green #c4ff4d)
+- **18 Services**: Ad creative, Social media creative, Presentation design, Illustration design, Branding services, eBooks & report design, Concept creation, Print design, Packaging & merchandise design, Video production, Motion design, Immersive design, Email creation, Web design, Design Systems (NEW), Product Design (NEW), AI-enhanced creative, AI-consulting
+
 ## Brand Color Scheme
 - **Primary Green**: #c4ff4d (used for CTAs and accent highlights)
 - **Turquoise Accent**: #5ce1e6 (used for content highlights on white backgrounds)
