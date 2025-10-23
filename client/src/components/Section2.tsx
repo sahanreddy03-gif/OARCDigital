@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { useState, useEffect } from "react";
+import { SiFacebook, SiInstagram, SiLinkedin, SiX, SiYoutube, SiSpotify } from "react-icons/si";
 
 export default function Section2() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -77,16 +78,31 @@ export default function Section2() {
                     data-testid={`phone-background-${index}`}
                   />
                 ))}
-                {/* Overlay content with animated text */}
-                <div className="absolute inset-0 flex items-center justify-center bg-black/30 p-4">
-                  <div className="text-center">
-                    <p className="text-lg md:text-xl lg:text-2xl font-bold text-white leading-tight">
+                {/* Overlay content with animated text and social icons */}
+                <div className="absolute inset-0 flex flex-col items-center justify-between bg-black/30 p-4 md:p-6">
+                  {/* Top row - 3 social icons */}
+                  <div className="flex gap-3 md:gap-4 items-center animate-[fadeInUp_0.8s_ease-out]" data-testid="social-icons-top">
+                    <SiFacebook className="w-6 h-6 md:w-7 md:h-7 text-white/80 hover:text-white transition-colors" />
+                    <SiInstagram className="w-6 h-6 md:w-7 md:h-7 text-white/80 hover:text-white transition-colors" />
+                    <SiLinkedin className="w-6 h-6 md:w-7 md:h-7 text-white/80 hover:text-white transition-colors" />
+                  </div>
+                  
+                  {/* Center text */}
+                  <div className="text-center flex-1 flex items-center justify-center">
+                    <p className="text-base md:text-lg lg:text-xl font-bold text-white leading-tight px-2">
                       <span className="inline-block animate-[fadeInUp_0.8s_ease-out]">We</span>{' '}
                       <span className="inline-block animate-[fadeInUp_0.8s_ease-out_0.1s] text-[#5ce1e6]">blend</span>{' '}
                       <span className="inline-block animate-[fadeInUp_0.8s_ease-out_0.2s]">creative</span>{' '}
                       <span className="inline-block animate-[fadeInUp_0.8s_ease-out_0.3s]">and</span>{' '}
                       <span className="inline-block animate-[fadeInUp_0.8s_ease-out_0.4s] text-[#5ce1e6]">performance</span>
                     </p>
+                  </div>
+                  
+                  {/* Bottom row - 3 social icons */}
+                  <div className="flex gap-3 md:gap-4 items-center animate-[fadeInUp_0.8s_ease-out_0.5s]" data-testid="social-icons-bottom">
+                    <SiX className="w-6 h-6 md:w-7 md:h-7 text-white/80 hover:text-white transition-colors" />
+                    <SiYoutube className="w-6 h-6 md:w-7 md:h-7 text-white/80 hover:text-white transition-colors" />
+                    <SiSpotify className="w-6 h-6 md:w-7 md:h-7 text-white/80 hover:text-white transition-colors" />
                   </div>
                 </div>
               </div>
