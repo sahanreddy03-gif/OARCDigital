@@ -63,7 +63,7 @@ export default function Section2() {
 
           {/* Right Visual - Phone Mockup - Smaller with Animated Background */}
           <div className="order-1 lg:order-2 flex justify-center lg:justify-end items-center">
-            <div className="relative w-full max-w-[200px] md:max-w-[240px] lg:max-w-[280px]" style={{ aspectRatio: '9/19' }}>
+            <div className="relative w-full max-w-[200px] md:max-w-[240px] lg:max-w-[280px]" style={{ aspectRatio: '9/16' }}>
               {/* Phone interior with animated Instagram/Reels-style backgrounds */}
               <div className="absolute inset-4 md:inset-5 rounded-[1.5rem] overflow-hidden">
                 {backgrounds.map((bg, index) => (
@@ -77,14 +77,20 @@ export default function Section2() {
                     data-testid={`phone-background-${index}`}
                   />
                 ))}
-                {/* Overlay content */}
-                <div className="absolute inset-0 flex items-center justify-center bg-black/20">
-                  <p className="text-3xl md:text-4xl font-bold text-white/90">The</p>
+                {/* Overlay content with animated text */}
+                <div className="absolute inset-0 flex items-center justify-center bg-black/30 p-4">
+                  <div className="text-center animate-pulse">
+                    <p className="text-lg md:text-xl lg:text-2xl font-bold text-white leading-tight">
+                      The results-driven{' '}
+                      <span className="text-[#5ce1e6]">Social First Agency</span>{' '}
+                      you've been looking for
+                    </p>
+                  </div>
                 </div>
               </div>
               
               {/* Hand-drawn phone outline - Simple single border like Social Shepherd */}
-              <svg className="absolute inset-0 w-full h-full pointer-events-none" preserveAspectRatio="none" viewBox="0 0 200 425" fill="none">
+              <svg className="absolute inset-0 w-full h-full pointer-events-none" preserveAspectRatio="none" viewBox="0 0 200 355" fill="none">
                 {/* Notch cutout */}
                 <path 
                   d="M 65 2 L 65 6 Q 68 9 72 9 L 128 9 Q 132 9 135 6 L 135 2" 
@@ -95,7 +101,7 @@ export default function Section2() {
                 />
                 {/* Main phone outline - hand-drawn style */}
                 <path 
-                  d="M 13 32 Q 11 28 13 25 L 14 18 Q 16 13 20 10 L 29 6 Q 36 3 47 2 L 153 2 Q 164 3 171 6 L 180 10 Q 184 13 186 18 L 187 25 Q 189 28 187 32 L 187 393 Q 189 397 187 401 L 186 408 Q 184 413 180 416 L 171 420 Q 164 423 153 424 L 47 424 Q 36 423 29 420 L 20 416 Q 16 413 14 408 L 13 401 Q 11 397 13 393 Z" 
+                  d="M 13 32 Q 11 28 13 25 L 14 18 Q 16 13 20 10 L 29 6 Q 36 3 47 2 L 153 2 Q 164 3 171 6 L 180 10 Q 184 13 186 18 L 187 25 Q 189 28 187 32 L 187 323 Q 189 327 187 331 L 186 338 Q 184 343 180 346 L 171 350 Q 164 353 153 354 L 47 354 Q 36 353 29 350 L 20 346 Q 16 343 14 338 L 13 331 Q 11 327 13 323 Z" 
                   stroke="#1a1a1a" 
                   strokeWidth="3"
                   fill="none"
