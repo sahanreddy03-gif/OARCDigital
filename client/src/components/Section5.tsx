@@ -1,116 +1,104 @@
-import { useState } from "react";
-import marketIntelligence from '@assets/generated_images/AI_Market_Intelligence_Image_37e917d2.png';
-import creativeStrategy from '@assets/generated_images/Creative_Strategy_Image_4f7ee50c.png';
-import revenueCentered from '@assets/generated_images/Revenue_Centered_Image_633860e7.png';
+import aiExcellence from '@assets/generated_images/AI_Market_Intelligence_Dashboard_fe27fd70.png';
+import creativeStrategy from '@assets/generated_images/Creative_Strategy_Team_Collaboration_9cdc63b0.png';
+import revenueCentered from '@assets/generated_images/Revenue_Automation_System_cc084f86.png';
 
 const differentiators = [
   {
     title: "AI Excellence",
-    description: "With dedicated AI systems, advanced automation and expert implementation, projects can be completed with unprecedented speed and accuracy.",
-    image: marketIntelligence,
+    description: "We spot the gaps by uncovering competitors, customers, and seasonal patterns you're missing.",
+    image: aiExcellence,
   },
   {
     title: "Our Creative Strategy",
-    description: "Superside-inspired creative solutions that combine data-driven insights with artistic excellence to deliver campaigns that resonate.",
+    description: "We create the edge with organic, local-first ideas that actually connect with your audience.",
     image: creativeStrategy,
   },
   {
     title: "Revenue Centered",
-    description: "Every decision, every campaign, every creative output is optimized for one goal: driving measurable revenue growth for your business.",
+    description: "We engage & convert through automated follow-ups that keep leads warm and drive real sales.",
     image: revenueCentered,
   },
 ];
 
 export default function Section5() {
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-
   return (
-    <section className="py-16 md:py-24 lg:py-32 bg-[#0a1628]" data-testid="section-5">
-      <div className="container mx-auto px-4">
+    <section className="py-16 md:py-24 lg:py-32 bg-[#0d2818]" data-testid="section-5">
+      <div className="container mx-auto px-4 md:px-6 lg:px-12">
         {/* Section heading */}
-        <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
+        <div className="text-center mb-12 md:mb-16 lg:mb-20">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-white tracking-tight">
             Our <span className="italic">difference</span>
           </h2>
         </div>
 
-        {/* Desktop: Grid with hover interactions */}
-        <div className="hidden md:grid md:grid-cols-3 gap-6 lg:gap-8">
+        {/* Desktop: Grid with CSS hover interactions */}
+        <div className="hidden md:grid md:grid-cols-3 gap-6 lg:gap-8 xl:gap-10">
           {differentiators.map((item, index) => (
             <div
               key={index}
-              className="relative group cursor-pointer rounded-2xl overflow-hidden bg-[#0f1e36] transition-all duration-500"
-              onMouseEnter={() => setHoveredIndex(index)}
-              onMouseLeave={() => setHoveredIndex(null)}
+              className="relative cursor-pointer card-hover-container"
               data-testid={`desktop-card-${index}`}
             >
-              {/* Image background */}
-              <div className="aspect-[4/5] relative overflow-hidden">
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-                {/* Dark overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
-                
-                {/* Title - always visible */}
-                <div className="absolute bottom-0 left-0 right-0 p-6 lg:p-8">
-                  <h3 className="text-2xl lg:text-3xl xl:text-4xl font-normal text-white">
-                    <span className="italic font-light">{item.title}</span>
+              {/* Card container */}
+              <div className="relative overflow-visible rounded-xl">
+                {/* Image - always visible */}
+                <div className="aspect-[4/3] relative overflow-hidden bg-gray-900 rounded-xl">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-full object-cover transition-transform duration-700"
+                  />
+                </div>
+
+                {/* Content below image - always visible */}
+                <div className="mt-6 pb-6 border-b-2 border-white/20">
+                  <h3 className="text-2xl lg:text-3xl xl:text-4xl font-light text-white">
+                    <span className="italic">{item.title}</span>
                   </h3>
                 </div>
-              </div>
 
-              {/* Description - appears on hover */}
-              <div
-                className={`absolute inset-0 bg-white p-6 lg:p-8 flex flex-col justify-end transition-all duration-500 ${
-                  hoveredIndex === index
-                    ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-full"
-                }`}
-              >
-                <h3 className="text-2xl lg:text-3xl xl:text-4xl font-normal text-gray-900 mb-4">
-                  <span className="italic font-light">{item.title}</span>
-                </h3>
-                <p className="text-base lg:text-lg text-gray-700 leading-relaxed">
-                  {item.description}
-                </p>
+                {/* Description - appears on hover with CSS */}
+                <div className="card-description mt-4">
+                  <p className="text-base lg:text-lg text-white/80 leading-relaxed">
+                    {item.description}
+                  </p>
+                </div>
               </div>
             </div>
           ))}
         </div>
 
-        {/* Mobile: Scroll-snap with smooth animations */}
+        {/* Mobile: Simple vertical stack */}
         <div
-          className="md:hidden snap-y snap-mandatory overflow-y-scroll h-[80vh] scrollbar-hide"
+          className="md:hidden flex flex-col gap-12"
           data-testid="mobile-scroll-container"
-          style={{ scrollBehavior: "smooth" }}
         >
           {differentiators.map((item, index) => (
             <div
               key={index}
-              className="snap-start snap-always h-[80vh] flex items-center justify-center px-4"
+              className="w-full"
               data-testid={`mobile-card-${index}`}
             >
-              <div className="w-full max-w-md rounded-2xl overflow-hidden bg-[#0f1e36] shadow-2xl">
+              <div className="w-full">
                 {/* Image */}
-                <div className="aspect-[4/5] relative overflow-hidden">
+                <div className="aspect-[4/3] relative overflow-hidden bg-gray-900 rounded-xl">
                   <img
                     src={item.image}
                     alt={item.title}
                     className="w-full h-full object-cover"
                   />
-                  {/* Dark overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
                 </div>
 
-                {/* Content - always visible on mobile */}
-                <div className="p-6 bg-white">
-                  <h3 className="text-2xl sm:text-3xl font-normal text-gray-900 mb-3">
-                    <span className="italic font-light">{item.title}</span>
+                {/* Content below image with separator line */}
+                <div className="mt-6 pb-4 border-b-2 border-white/20">
+                  <h3 className="text-2xl sm:text-3xl font-light text-white">
+                    <span className="italic">{item.title}</span>
                   </h3>
-                  <p className="text-base text-gray-700 leading-relaxed">
+                </div>
+
+                {/* Description - always visible */}
+                <div className="mt-4">
+                  <p className="text-base sm:text-lg text-white/80 leading-relaxed">
                     {item.description}
                   </p>
                 </div>
@@ -120,14 +108,35 @@ export default function Section5() {
         </div>
       </div>
 
-      {/* Hide scrollbar on mobile */}
+      {/* CSS for hover interaction - DESKTOP ONLY */}
       <style>{`
-        .scrollbar-hide::-webkit-scrollbar {
-          display: none;
+        /* Desktop only: hide descriptions by default, show on hover */
+        @media (min-width: 768px) {
+          .card-hover-container .card-description {
+            opacity: 0;
+            transform: translateY(-1rem);
+            visibility: hidden;
+            transition: opacity 500ms ease-in-out, transform 500ms ease-in-out, visibility 500ms;
+          }
+
+          .card-hover-container:hover .card-description {
+            opacity: 1;
+            transform: translateY(0);
+            visibility: visible;
+          }
+          
+          .card-hover-container:hover img {
+            transform: scale(1.05);
+          }
         }
-        .scrollbar-hide {
-          -ms-overflow-style: none;
-          scrollbar-width: none;
+        
+        /* Mobile: descriptions always visible */
+        @media (max-width: 767px) {
+          .card-description {
+            opacity: 1;
+            transform: translateY(0);
+            visibility: visible;
+          }
         }
       `}</style>
     </section>
