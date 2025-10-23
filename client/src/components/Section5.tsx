@@ -23,10 +23,17 @@ const differentiators = [
 export default function Section5() {
   return (
     <section className="relative py-16 md:py-24 lg:py-32 overflow-hidden" data-testid="section-5">
-      {/* Gradient background similar to hero - black with warm orange/amber tones */}
-      <div className="absolute inset-0 bg-gradient-to-br from-black via-zinc-900 to-orange-950/40"></div>
-      <div className="absolute inset-0 bg-gradient-to-tr from-amber-950/20 via-transparent to-orange-900/30"></div>
-      <div className="absolute inset-0 bg-black/40"></div>
+      {/* Dynamic gradient background with strong orange on right side */}
+      <div className="absolute inset-0 bg-gradient-to-r from-black via-zinc-900 to-orange-600/30"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-transparent to-orange-500/40"></div>
+      <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-amber-600/20 to-orange-400/30"></div>
+      
+      {/* Radial gradient for more depth on right */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_100%_50%,rgba(251,146,60,0.25),transparent_70%)]"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_0%_50%,rgba(0,0,0,0.6),transparent_50%)]"></div>
+      
+      {/* Subtle overlay for richness */}
+      <div className="absolute inset-0 bg-black/30"></div>
       
       <div className="relative container mx-auto px-4 md:px-6 lg:px-12">
         {/* Section heading */}
