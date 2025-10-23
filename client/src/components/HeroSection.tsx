@@ -11,8 +11,8 @@ export default function HeroSection() {
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: `url(${heroBackground})` }}
         />
-        {/* Single gentle gradient on lower half only */}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent from-0% via-zinc-950/65 via-55% to-zinc-950/90 to-100%"></div>
+        {/* Stronger gradient to highlight text more */}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent from-0% via-zinc-950/75 via-50% to-zinc-950/95 to-95%"></div>
       </div>
 
       {/* Desktop Layout - Horizontal with side fade (STAYS EXACTLY SAME - PERFECT) */}
@@ -31,7 +31,7 @@ export default function HeroSection() {
           <div className="max-w-7xl w-full mx-auto px-5 md:px-8 lg:px-12">
             <div className="w-full md:max-w-2xl text-center md:text-left">
               {/* Local backdrop behind text for mobile */}
-              <div className="relative md:before:content-none before:absolute before:inset-0 before:-z-10 before:bg-black/40 before:blur-xl before:rounded-[32px] before:-m-4 md:before:m-0">
+              <div className="relative md:before:content-none before:absolute before:inset-0 before:-z-10 before:bg-black/50 before:blur-xl before:rounded-[32px] before:-m-4 md:before:m-0">
                 <div className="mb-3 md:mb-3">
                   <span className="text-[11px] md:text-[10px] lg:text-xs uppercase tracking-[0.2em] font-bold text-white leading-none">
                     WHERE CREATIVITY MEETS REVENUE
@@ -64,6 +64,8 @@ export default function HeroSection() {
                     <span className="whitespace-nowrap">Malta's #1</span>
                     <span className="text-white/50">•</span>
                     <span className="whitespace-nowrap">AI Employees Available</span>
+                    <span className="text-white/50">•</span>
+                    <span className="whitespace-nowrap">Intelligence-Powered Social Media</span>
                   </div>
                 </div>
               </div>
