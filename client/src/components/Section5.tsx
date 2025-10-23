@@ -1,6 +1,6 @@
 import aiExcellence from '@assets/739d30f2ecb844e9c1186e62ca63efbda518ff4a-1050x1200_1761257258076.avif';
 import creativeStrategy from '@assets/db64abcfab31dccdde04f1fb8be45337dfb692e9-1392x1392_1761257777037.avif';
-import revenueCentered from '@assets/generated_images/Revenue_Automation_System_cc084f86.png';
+import revenueCentered from '@assets/07c35cf0cbddd33390e2f878e287f38703ae7b26-1040x904_1761258187346.avif';
 
 const differentiators = [
   {
