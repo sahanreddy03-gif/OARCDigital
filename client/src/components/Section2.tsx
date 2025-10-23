@@ -1,3 +1,6 @@
+import { Button } from "@/components/ui/button";
+import { Palette } from "lucide-react";
+
 export default function Section2() {
   return (
     <section className="relative bg-white py-16 md:py-24 lg:py-32">
@@ -17,21 +20,24 @@ export default function Section2() {
               driving revenue growth
             </h2>
 
-            <div className="flex flex-col sm:flex-row gap-4 md:gap-5">
-              <button 
-                className="inline-flex items-center justify-center px-6 md:px-8 py-3 md:py-4 bg-zinc-900 text-white text-sm md:text-base font-bold rounded-full hover-elevate active-elevate-2 transition-all whitespace-nowrap"
+            <div className="flex flex-col gap-4 w-full sm:flex-row sm:gap-5">
+              <Button 
+                size="lg"
+                className="bg-zinc-900 text-white font-bold rounded-full w-full sm:w-auto flex-shrink-0"
                 data-testid="button-browse-services"
               >
                 Browse Our Services
-              </button>
+              </Button>
               
-              <button 
-                className="inline-flex items-center justify-center gap-2 px-6 md:px-8 py-3 md:py-4 bg-transparent border-2 border-zinc-900 text-zinc-900 text-sm md:text-base font-bold rounded-full hover-elevate active-elevate-2 transition-all whitespace-nowrap"
+              <Button 
+                variant="outline"
+                size="lg"
+                className="border-2 border-zinc-900 text-zinc-900 font-bold rounded-full bg-transparent w-full sm:w-auto flex-shrink-0"
                 data-testid="button-meet-team"
               >
                 Meet The Team
                 <span aria-hidden="true">→</span>
-              </button>
+              </Button>
             </div>
           </div>
 
@@ -41,7 +47,7 @@ export default function Section2() {
               <div className="absolute inset-0 bg-gradient-to-br from-zinc-900 via-zinc-800 to-zinc-900 rounded-[2.5rem] md:rounded-[3rem] shadow-2xl flex items-center justify-center border-8 md:border-[10px] border-zinc-800">
                 <div className="w-full h-full bg-gradient-to-br from-[#c4ff4d]/20 to-zinc-900/80 rounded-[2rem] md:rounded-[2.5rem] flex items-center justify-center p-8">
                   <div className="text-center">
-                    <div className="text-6xl md:text-7xl mb-4">🎨</div>
+                    <Palette className="w-20 h-20 md:w-24 md:h-24 mb-4 mx-auto text-[#c4ff4d]" />
                     <p className="text-white text-lg md:text-xl font-bold">AI Creative</p>
                     <p className="text-white/70 text-sm md:text-base mt-2">Innovation</p>
                   </div>
