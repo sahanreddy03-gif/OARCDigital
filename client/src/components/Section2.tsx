@@ -79,11 +79,13 @@ export default function Section2() {
                 ))}
                 {/* Overlay content with animated text */}
                 <div className="absolute inset-0 flex items-center justify-center bg-black/30 p-4">
-                  <div className="text-center animate-pulse">
+                  <div className="text-center">
                     <p className="text-lg md:text-xl lg:text-2xl font-bold text-white leading-tight">
-                      The results-driven{' '}
-                      <span className="text-[#5ce1e6]">Social First Agency</span>{' '}
-                      you've been looking for
+                      <span className="inline-block animate-[fadeInUp_0.8s_ease-out]">We</span>{' '}
+                      <span className="inline-block animate-[fadeInUp_0.8s_ease-out_0.1s] text-[#5ce1e6]">blend</span>{' '}
+                      <span className="inline-block animate-[fadeInUp_0.8s_ease-out_0.2s]">creative</span>{' '}
+                      <span className="inline-block animate-[fadeInUp_0.8s_ease-out_0.3s]">and</span>{' '}
+                      <span className="inline-block animate-[fadeInUp_0.8s_ease-out_0.4s] text-[#5ce1e6]">performance</span>
                     </p>
                   </div>
                 </div>
