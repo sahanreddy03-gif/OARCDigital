@@ -75,11 +75,7 @@ export default function Section3() {
           }`}
           data-testid="section-3-heading"
         >
-          We grow ambitious brands with{" "}
-          <span className="text-[#5ce1e6]">Social</span>,{" "}
-          <span className="text-[#5ce1e6]">Paid</span>,{" "}
-          <span className="text-[#5ce1e6]">Creative</span> and{" "}
-          <span className="text-[#5ce1e6]">Influencer</span>
+          We grow ambitious brands with Social, Paid, Creative and Influencer
         </h2>
 
         {/* Brands that trust us subheading */}
