@@ -5,20 +5,24 @@ import heroBackground from '@assets/generated_images/Ultra_High_Quality_Hero_Bac
 export default function HeroSection() {
   return (
     <section className="relative h-screen flex flex-col overflow-hidden bg-black">
-      {/* Background with proper positioning for all devices */}
+      {/* Background - vertical for mobile, horizontal for desktop */}
       <div 
         className="absolute inset-0 bg-cover bg-no-repeat bg-center md:bg-left-center"
         style={{ backgroundImage: `url(${heroBackground})` }}
       />
       
-      {/* Multiple gradient overlays for fade effect like Superside */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/30 to-transparent"></div>
-      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/50"></div>
-      <div className="absolute inset-0 bg-gradient-to-l from-transparent via-black/10 to-black/60"></div>
+      {/* Mobile gradients - vertical fade from top down */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/85 via-black/50 to-black/70 md:hidden"></div>
       
-      <div className="relative flex-1 flex flex-col justify-between pt-16 md:pt-24 pb-2 md:pb-3">
+      {/* Desktop gradients - horizontal fade from left (LAPTOP VERSION - PERFECT) */}
+      <div className="hidden md:block absolute inset-0 bg-gradient-to-r from-black/80 via-black/30 to-transparent"></div>
+      <div className="hidden md:block absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/50"></div>
+      <div className="hidden md:block absolute inset-0 bg-gradient-to-l from-transparent via-black/10 to-black/60"></div>
+      
+      <div className="relative flex-1 flex flex-col justify-between pt-14 md:pt-24 pb-2 md:pb-3">
         <div className="max-w-7xl w-full mx-auto px-4 md:px-8 lg:px-12 flex items-center flex-1">
-          <div className="max-w-2xl py-4 md:py-6">
+          {/* Mobile layout - centered content */}
+          <div className="w-full md:max-w-2xl text-center md:text-left py-2 md:py-6">
             <div className="mb-2 md:mb-3">
               <span className="text-[9px] md:text-[10px] lg:text-xs uppercase tracking-[0.2em] font-bold text-white leading-none">
                 WHERE CREATIVITY MEETS REVENUE
@@ -34,24 +38,26 @@ export default function HeroSection() {
               </span>
             </h1>
 
-            <p className="text-xs md:text-sm lg:text-base text-white/90 max-w-xl leading-relaxed mb-3 md:mb-4 font-normal">
+            <p className="text-xs md:text-sm lg:text-base text-white/90 max-w-xl mx-auto md:mx-0 leading-relaxed mb-3 md:mb-4 font-normal">
               AI-Certified Talent + Custom AI Workflows + Ruthless Automation + Guaranteed Results = More Effective. Lower Cost. More Sales.
             </p>
 
-            <Button 
-              size="default" 
-              className="rounded-full text-xs md:text-sm px-6 md:px-8 py-4 md:py-5 h-auto font-bold bg-[#c4ff4d] text-black hover:bg-[#b5ef3d] shadow-xl hover:shadow-2xl transition-all border-0"
-              data-testid="button-start-talking"
-            >
-              Start Talking
-            </Button>
+            <div className="flex flex-col items-center md:items-start gap-2 md:gap-3">
+              <Button 
+                size="default" 
+                className="rounded-full text-xs md:text-sm px-6 md:px-8 py-4 md:py-5 h-auto font-bold bg-[#c4ff4d] text-black hover:bg-[#b5ef3d] shadow-xl hover:shadow-2xl transition-all border-0"
+                data-testid="button-start-talking"
+              >
+                Start Talking
+              </Button>
 
-            <div className="mt-2 md:mt-3 flex flex-wrap items-center gap-1.5 md:gap-2 text-white text-[9px] md:text-[10px] font-semibold px-2.5 md:px-3 py-1 md:py-1.5 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 inline-flex max-w-max">
-              <span className="whitespace-nowrap">Malta's #1</span>
-              <span className="text-white/50">•</span>
-              <span className="whitespace-nowrap">AI Employees Available</span>
-              <span className="text-white/50 hidden sm:inline">•</span>
-              <span className="whitespace-nowrap hidden sm:inline">Intelligence-Powered Social Media</span>
+              <div className="flex flex-wrap items-center justify-center md:justify-start gap-1.5 md:gap-2 text-white text-[9px] md:text-[10px] font-semibold px-2.5 md:px-3 py-1 md:py-1.5 bg-white/10 backdrop-blur-sm rounded-full border border-white/20">
+                <span className="whitespace-nowrap">Malta's #1</span>
+                <span className="text-white/50">•</span>
+                <span className="whitespace-nowrap">AI Employees Available</span>
+                <span className="text-white/50 hidden sm:inline">•</span>
+                <span className="whitespace-nowrap hidden sm:inline">Intelligence-Powered Social Media</span>
+              </div>
             </div>
           </div>
         </div>
