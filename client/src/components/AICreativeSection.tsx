@@ -130,10 +130,11 @@ const services = [
   },
 ];
 
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 
 export default function AICreativeSection() {
   const trackRef = useRef<HTMLDivElement>(null);
+  const [selectedIndex, setSelectedIndex] = useState(0);
   
   // Duplicate services for seamless loop
   const duplicatedServices = [...services, ...services, ...services];
@@ -145,21 +146,33 @@ export default function AICreativeSection() {
     let isDown = false;
     let startX: number;
     let scrollLeft: number;
+    let velocity = 0;
+    let lastX: number;
+    let dragStartTime: number;
+    let animationTimeout: NodeJS.Timeout;
     
     const handleMouseDown = (e: MouseEvent) => {
       isDown = true;
+      dragStartTime = Date.now();
+      lastX = e.pageX;
       track.classList.add('dragging');
       startX = e.pageX - track.offsetLeft;
       scrollLeft = track.scrollLeft;
       track.style.animationPlayState = 'paused';
+      velocity = 0;
+      clearTimeout(animationTimeout);
     };
     
     const handleTouchStart = (e: TouchEvent) => {
       isDown = true;
+      dragStartTime = Date.now();
+      lastX = e.touches[0].pageX;
       track.classList.add('dragging');
       startX = e.touches[0].pageX - track.offsetLeft;
       scrollLeft = track.scrollLeft;
       track.style.animationPlayState = 'paused';
+      velocity = 0;
+      clearTimeout(animationTimeout);
     };
     
     const handleMouseMove = (e: MouseEvent) => {
@@ -168,6 +181,10 @@ export default function AICreativeSection() {
       const x = e.pageX - track.offsetLeft;
       const walk = (x - startX) * 2;
       track.scrollLeft = scrollLeft - walk;
+      
+      // Track velocity for momentum
+      velocity = e.pageX - lastX;
+      lastX = e.pageX;
     };
     
     const handleTouchMove = (e: TouchEvent) => {
@@ -175,15 +192,64 @@ export default function AICreativeSection() {
       const x = e.touches[0].pageX - track.offsetLeft;
       const walk = (x - startX) * 2;
       track.scrollLeft = scrollLeft - walk;
+      
+      // Track velocity for momentum
+      velocity = e.touches[0].pageX - lastX;
+      lastX = e.touches[0].pageX;
     };
     
     const handleEnd = () => {
+      if (!isDown) return;
       isDown = false;
       track.classList.remove('dragging');
-      // Resume animation after drag
-      setTimeout(() => {
-        track.style.animationPlayState = 'running';
-      }, 500);
+      
+      const dragDuration = Date.now() - dragStartTime;
+      
+      // Apply momentum for quick flicks
+      if (Math.abs(velocity) > 5 && dragDuration < 200) {
+        const momentum = velocity * 3;
+        track.scrollLeft = track.scrollLeft - momentum;
+      }
+      
+      // Snap to nearest card
+      const cards = track.querySelectorAll('.carousel-card');
+      if (cards.length > 0) {
+        const cardWidth = (cards[0] as HTMLElement).offsetWidth;
+        const gap = 24; // gap-6 = 24px
+        const cardWithGap = cardWidth + gap;
+        
+        const currentScroll = track.scrollLeft;
+        const nearestIndex = Math.round(currentScroll / cardWithGap);
+        const targetScroll = nearestIndex * cardWithGap;
+        
+        // Update selected index
+        setSelectedIndex(nearestIndex % 18);
+        
+        // Smooth snap animation
+        const startScroll = currentScroll;
+        const distance = targetScroll - startScroll;
+        const duration = 300;
+        const startTime = performance.now();
+        
+        const animateSnap = (currentTime: number) => {
+          const elapsed = currentTime - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          const easeProgress = 1 - Math.pow(1 - progress, 3);
+          
+          track.scrollLeft = startScroll + distance * easeProgress;
+          
+          if (progress < 1) {
+            requestAnimationFrame(animateSnap);
+          } else {
+            // Resume auto-scroll after user interaction
+            animationTimeout = setTimeout(() => {
+              track.style.animationPlayState = 'running';
+            }, 2000);
+          }
+        };
+        
+        requestAnimationFrame(animateSnap);
+      }
     };
     
     track.addEventListener('mousedown', handleMouseDown);
@@ -202,6 +268,7 @@ export default function AICreativeSection() {
       track.removeEventListener('mouseup', handleEnd);
       track.removeEventListener('touchend', handleEnd);
       track.removeEventListener('mouseleave', handleEnd);
+      clearTimeout(animationTimeout);
     };
   }, []);
 
