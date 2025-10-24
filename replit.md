@@ -226,3 +226,30 @@ Preferred communication style: Simple, everyday language.
 - **Turquoise Accent**: #5ce1e6 (used for content highlights on white backgrounds)
 - **Black/Dark**: Black, zinc-950, zinc-900 (primary dark colors)
 - **Warm Tones**: Subtle orange/amber accents for depth and visual interest
+
+## Carousel Features - Snap-to-Card Functionality
+
+### Implementation Status (Completed)
+All three carousels now feature interactive snap-to-card functionality, allowing users to manually drag/swipe and select individual services with precise snapping behavior.
+
+### Technical Implementation
+- **Components**: AICreativeSection, HireAIEmployeesSection, LetsTalkRevenueSection
+- **Animation Duration**: 60-second auto-scroll cycle (reduced from 90s)
+- **Snap Animation**: 300ms cubic easing using requestAnimationFrame for 60fps
+- **Card Layout**: 380px width (desktop), 300px (mobile) with 24px gap between cards
+- **Velocity Tracking**: Quick flicks (>5px velocity in <200ms) apply 3x momentum before snapping
+- **Auto-Resume**: Carousel resumes auto-scrolling 2 seconds after user interaction ends
+- **State Management**: selectedIndex tracks currently centered card (0-17, cycling through 18 unique items)
+
+### User Interaction Patterns
+1. **Slow Drag**: User drags carousel slowly → snaps to nearest card on release
+2. **Quick Flick**: Fast swipe gesture → applies momentum, then snaps to card
+3. **Precision Selection**: Drag to position between cards → automatically centers nearest card
+4. **Touch Support**: Full touch/swipe support on mobile devices with same snap behavior
+
+### Testing Verified
+- Snap-to-card works across all viewport sizes (375px mobile, 768px tablet, 1920px desktop)
+- Smooth animations without janky transitions
+- Proper centering of selected cards
+- Momentum physics for natural feel
+- Auto-resume functionality after user interaction
