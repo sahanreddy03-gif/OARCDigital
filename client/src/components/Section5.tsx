@@ -23,17 +23,21 @@ const differentiators = [
 export default function Section5() {
   return (
     <section className="relative py-16 md:py-24 lg:py-32 overflow-hidden" data-testid="section-5">
-      {/* Background matching hero section - black with subtle warm tones on right */}
+      {/* Background matching hero section - black with warm orange/reddish tones */}
       <div className="absolute inset-0 bg-black"></div>
-      <div className="absolute inset-0 bg-gradient-to-r from-black via-zinc-950 to-zinc-900/80"></div>
-      <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-transparent to-orange-950/20"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-black via-zinc-950/90 to-orange-950/50"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-black/50 via-transparent to-orange-900/35"></div>
       
-      {/* Subtle warm glow on right - mimicking hero's color reveal */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_100%_50%,rgba(251,146,60,0.12),transparent_60%)]"></div>
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_0%_50%,rgba(0,0,0,0.8),transparent_40%)]"></div>
+      {/* Enhanced warm orange/reddish glow - matching hero's vibrant colors */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_100%_50%,rgba(251,146,60,0.25),transparent_55%)]"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_80%_20%,rgba(234,88,12,0.20),transparent_60%)]"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_0%_50%,rgba(0,0,0,0.7),transparent_45%)]"></div>
       
-      {/* Very subtle overlay for depth */}
-      <div className="absolute inset-0 bg-black/20"></div>
+      {/* Warm reddish accent on bottom right */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_90%_80%,rgba(220,38,38,0.15),transparent_50%)]"></div>
+      
+      {/* Final overlay for depth and cohesion */}
+      <div className="absolute inset-0 bg-gradient-to-t from-orange-950/10 to-transparent"></div>
       
       <div className="relative container mx-auto px-4 md:px-6 lg:px-12">
         {/* Section heading with exact green from hero CTA */}
