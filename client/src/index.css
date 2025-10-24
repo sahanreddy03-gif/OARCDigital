@@ -360,4 +360,36 @@
       transform: scale(1);
     }
   }
+
+  /* Shared Carousel Styles for AI Creative, AI Employees, and Revenue sections */
+  .carousel-track {
+    display: flex;
+    gap: 2rem;
+    animation: scroll-rtl 90s linear infinite;
+    width: fit-content;
+  }
+
+  .carousel-card {
+    flex-shrink: 0;
+    width: 300px;
+  }
+
+  @media (min-width: 768px) {
+    .carousel-card {
+      width: 380px;
+    }
+  }
+
+  .carousel-track:hover {
+    animation-play-state: paused;
+  }
+
+  @keyframes scroll-rtl {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-33.333%);
+    }
+  }
 }

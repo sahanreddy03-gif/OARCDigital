@@ -5,6 +5,8 @@ import Section3 from "@/components/Section3";
 import Section5 from "@/components/Section5";
 import LetsTalkSection from "@/components/LetsTalkSection";
 import AICreativeSection from "@/components/AICreativeSection";
+import HireAIEmployeesSection from "@/components/HireAIEmployeesSection";
+import LetsTalkRevenueSection from "@/components/LetsTalkRevenueSection";
 import PerformanceMetrics from "@/components/PerformanceMetrics";
 import CTASections from "@/components/CTASections";
 import Testimonials from "@/components/Testimonials";
@@ -21,6 +23,8 @@ export default function Home() {
       <Section5 />
       <LetsTalkSection />
       <AICreativeSection />
+      <HireAIEmployeesSection />
+      <LetsTalkRevenueSection />
       <PerformanceMetrics />
       <CTASections />
       <Testimonials />
