@@ -144,7 +144,7 @@ export default function AICreativeSection() {
           </h2>
           <p className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-zinc-900 tracking-tight">
             you'll ever need
-            <span className="italic text-[#c4ff4d]"> and more</span>
+            <span className="italic text-[#5ce1e6]"> and more</span>
           </p>
         </div>
       </div>

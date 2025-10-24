@@ -17,7 +17,7 @@ export default function LetsTalkSection() {
             {/* Four-part OARC Explanation Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10 mb-12">
               <div className="text-center" data-testid="optimised-section">
-                <div className="text-4xl md:text-5xl font-black text-[#c4ff4d] mb-3">
+                <div className="text-4xl md:text-5xl font-black text-[#5ce1e6] mb-3">
                   Optimised
                 </div>
                 <p className="text-base md:text-lg text-zinc-600 leading-relaxed">
@@ -26,7 +26,7 @@ export default function LetsTalkSection() {
               </div>
               
               <div className="text-center" data-testid="ai-section">
-                <div className="text-4xl md:text-5xl font-black text-[#c4ff4d] mb-3">
+                <div className="text-4xl md:text-5xl font-black text-[#5ce1e6] mb-3">
                   AI
                 </div>
                 <p className="text-base md:text-lg text-zinc-600 leading-relaxed">
@@ -35,7 +35,7 @@ export default function LetsTalkSection() {
               </div>
               
               <div className="text-center" data-testid="revenue-section">
-                <div className="text-4xl md:text-5xl font-black text-[#c4ff4d] mb-3">
+                <div className="text-4xl md:text-5xl font-black text-[#5ce1e6] mb-3">
                   Revenue
                 </div>
                 <p className="text-base md:text-lg text-zinc-600 leading-relaxed">
@@ -44,7 +44,7 @@ export default function LetsTalkSection() {
               </div>
               
               <div className="text-center" data-testid="creative-section">
-                <div className="text-4xl md:text-5xl font-black text-[#c4ff4d] mb-3">
+                <div className="text-4xl md:text-5xl font-black text-[#5ce1e6] mb-3">
                   Creative
                 </div>
                 <p className="text-base md:text-lg text-zinc-600 leading-relaxed">
