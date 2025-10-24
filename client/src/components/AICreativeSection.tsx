@@ -190,44 +190,6 @@ export default function AICreativeSection() {
           ))}
         </div>
       </div>
-
-      {/* Carousel CSS Animation */}
-      <style>{`
-        .carousel-track {
-          display: flex;
-          gap: 2rem;
-          animation: scroll-rtl 90s linear infinite;
-          width: fit-content;
-        }
-
-        .carousel-card {
-          flex-shrink: 0;
-          width: 380px;
-          cursor: pointer;
-        }
-
-        @media (max-width: 768px) {
-          .carousel-card {
-            width: 300px;
-          }
-          .carousel-track {
-            gap: 1.5rem;
-          }
-        }
-
-        @keyframes scroll-rtl {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(-33.333%);
-          }
-        }
-
-        .carousel-track:hover {
-          animation-play-state: paused;
-        }
-      `}</style>
     </section>
   );
 }

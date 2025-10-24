@@ -185,6 +185,41 @@ Preferred communication style: Simple, everyday language.
   - Hover effect: image scales to 1.05
   - "NEW" badges on Design Systems and Product Design (green #c4ff4d)
 - **18 Services**: Ad creative, Social media creative, Presentation design, Illustration design, Branding services, eBooks & report design, Concept creation, Print design, Packaging & merchandise design, Video production, Motion design, Immersive design, Email creation, Web design, Design Systems (NEW), Product Design (NEW), AI-enhanced creative, AI-consulting
+- **Images**: Professional stock photography from attached_assets/stock_images/
+
+### Section 8 - Hire AI Employees
+- **Background**: White background
+- **Heading**: "Hire AI Employees"
+  - Subheading: "Scale your team instantly with AI-powered employees for every role"
+- **Carousel**: Identical carousel style to Section 7
+  - 18 AI employee roles (duplicated 3x for seamless loop)
+  - 90-second right-to-left animation
+  - Gradient fade overlays, pauses on hover
+- **Employee Cards**:
+  - 380px width (desktop), 300px (mobile)
+  - 4:3 aspect ratio professional stock images
+  - Category badges in green (#c4ff4d)
+  - Hover effect: image scales to 1.05
+- **18 Roles**: Sales Development Rep, Customer Support Agent, Administrative Assistant, Marketing Coordinator, HR Recruiter, Social Media Manager, Content Writer, Data Analyst, Lead Qualifier, Email Manager, Meeting Coordinator, Financial Analyst, Quality Assurance, Project Manager, Research Analyst, Travel Coordinator, Account Manager, Technical Support
+- **Categories**: Sales & Revenue, Customer Success, Operations, Marketing, Human Resources, Content, Analytics, Finance, Support, Strategy
+- **Images**: Professional stock photography from attached_assets/stock_images/
+
+### Section 9 - Let's Talk Revenue
+- **Background**: White background
+- **Heading**: "Let's Talk Revenue"
+  - Subheading: "Automate your entire revenue stack from lead to cash"
+- **Carousel**: Identical carousel style to Sections 7 & 8
+  - 18 revenue automation services (duplicated 3x for seamless loop)
+  - 90-second right-to-left animation
+  - Gradient fade overlays, pauses on hover
+- **Service Cards**:
+  - 380px width (desktop), 300px (mobile)
+  - 4:3 aspect ratio professional stock images
+  - Category badges in turquoise (#5ce1e6)
+  - Hover effect: image scales to 1.05
+- **18 Services**: Revenue Recognition, Subscription Billing, Payment Collection, Lead Generation, Pipeline Management, Sales Forecasting, Marketing Automation, Campaign Orchestration, Customer Lifecycle, Contract Management, Revenue Analytics, Growth Analytics, Workflow Automation, Data Integration, Performance Tracking, Compliance Management, Revenue Intelligence, Funnel Optimization
+- **Categories**: Financial Automation, Billing & Payments, Growth Engine, Sales Ops, Revenue Intelligence, Marketing Ops, Customer Success, Operations
+- **Images**: Professional stock photography from attached_assets/stock_images/
 
 ## Brand Color Scheme
 - **Primary Green**: #c4ff4d (used for CTAs and accent highlights)
