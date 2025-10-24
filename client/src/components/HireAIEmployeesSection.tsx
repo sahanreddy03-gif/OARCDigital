@@ -1,22 +1,22 @@
-// Import stock images - matching the images from AICreativeSection
-import salesDevRep from '@assets/stock_images/sales-dev-rep-9uyqe4bvd-1734644643913.jpeg';
-import customerSupport from '@assets/stock_images/customer-support-i57yqvzgg-1734644643974.jpeg';
-import adminAssistant from '@assets/stock_images/admin-assistant-5ruhd41wr-1734644644014.jpeg';
-import marketingCoord from '@assets/stock_images/marketing-coordinator-rzkc60vr9-1734644644048.jpeg';
-import hrRecruiter from '@assets/stock_images/hr-recruiter-mvmr6s2z9-1734644644089.jpeg';
-import socialMedia from '@assets/stock_images/social-media-manager-jqnkwpjg7-1734644644127.jpeg';
-import contentWriter from '@assets/stock_images/content-writer-1wmu7tg35-1734644644160.jpeg';
-import dataAnalyst from '@assets/stock_images/data-analyst-gznqp43vq-1734644644204.jpeg';
-import leadQualifier from '@assets/stock_images/lead-qualifier-7gwdehfqm-1734644644249.jpeg';
-import emailManager from '@assets/stock_images/email-manager-tgzvs6ot6-1734644644289.jpeg';
-import meetingCoord from '@assets/stock_images/meeting-coordinator-9rk5k9zg4-1734644644318.jpeg';
-import financialAnalyst from '@assets/stock_images/financial-analyst-ffux0r8r-1734644644360.jpeg';
-import qualityAssurance from '@assets/stock_images/quality-assurance-w9r5ubmzd-1734644644399.jpeg';
-import projectManager from '@assets/stock_images/project-manager-xb0z52f9s-1734644644440.jpeg';
-import researchAnalyst from '@assets/stock_images/research-analyst-h4c7x19k1-1734644644481.jpeg';
-import travelCoordinator from '@assets/stock_images/travel-coordinator-45pxk18vl-1734644644523.jpeg';
-import accountManager from '@assets/stock_images/account-manager-w1zdjbw5n-1734644644550.jpeg';
-import technicalSupport from '@assets/stock_images/technical-support-gvh5yqoh8-1734644644590.jpeg';
+// Import stock images from available assets
+import salesDevRep from '@assets/stock_images/professional_sales_r_664f92e1.jpg';
+import customerSupport from '@assets/stock_images/customer_support_age_3dc30c2b.jpg';
+import adminAssistant from '@assets/stock_images/administrative_assis_29a8cede.jpg';
+import marketingCoord from '@assets/stock_images/marketing_coordinato_07711488.jpg';
+import hrRecruiter from '@assets/stock_images/hr_recruiter_intervi_a2bb2926.jpg';
+import socialMedia from '@assets/stock_images/social_media_manager_c1d1c7a1.jpg';
+import contentWriter from '@assets/stock_images/content_writer_copyw_b2e16fb5.jpg';
+import dataAnalyst from '@assets/stock_images/data_analyst_busines_2273e6c3.jpg';
+import leadQualifier from '@assets/stock_images/lead_generation_qual_8e5b0d01.jpg';
+import emailManager from '@assets/stock_images/email_management_inb_28a2e38a.jpg';
+import meetingCoord from '@assets/stock_images/meeting_coordinator__9e9824c0.jpg';
+import financialAnalyst from '@assets/stock_images/financial_analyst_ac_a7ca6914.jpg';
+import qualityAssurance from '@assets/stock_images/quality_assurance_te_3da1a1e3.jpg';
+import projectManager from '@assets/stock_images/project_manager_agil_eb024bff.jpg';
+import researchAnalyst from '@assets/stock_images/research_analyst_mar_25bf90c5.jpg';
+import travelCoordinator from '@assets/stock_images/travel_coordinator_b_ed44bec5.jpg';
+import accountManager from '@assets/stock_images/account_manager_clie_a209606c.jpg';
+import technicalSupport from '@assets/stock_images/technical_support_it_0a2f3fa2.jpg';
 
 const employees = [
   {
