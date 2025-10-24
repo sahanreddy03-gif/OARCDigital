@@ -361,17 +361,42 @@
     }
   }
 
+  /* OARC Scroll Animation */
+  .oarc-item {
+    opacity: 0;
+    transform: translateY(30px) scale(0.9);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .oarc-item.oarc-visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  /* Creative floating effect on hover */
+  .oarc-item:hover {
+    transform: translateY(-5px) scale(1.02);
+  }
+
   /* Shared Carousel Styles for AI Creative, AI Employees, and Revenue sections */
   .carousel-track {
     display: flex;
     gap: 2rem;
-    animation: scroll-rtl 90s linear infinite;
+    animation: scroll-rtl 60s linear infinite;
     width: fit-content;
+    cursor: grab;
+    user-select: none;
+  }
+
+  .carousel-track.dragging {
+    cursor: grabbing;
+    animation-play-state: paused;
   }
 
   .carousel-card {
     flex-shrink: 0;
     width: 300px;
+    pointer-events: auto;
   }
 
   @media (min-width: 768px) {
@@ -380,9 +405,10 @@
     }
   }
 
-  .carousel-track:hover {
+  /* Remove hover pause - we'll handle this in JavaScript for better control */
+  /* .carousel-track:hover {
     animation-play-state: paused;
-  }
+  } */
 
   @keyframes scroll-rtl {
     0% {

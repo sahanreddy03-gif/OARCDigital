@@ -136,8 +136,78 @@ const employees: AIEmployee[] = [
   },
 ];
 
+import { useRef, useEffect } from 'react';
+
 export default function HireAIEmployeesSection() {
+  const trackRef = useRef<HTMLDivElement>(null);
   const duplicatedEmployees = [...employees, ...employees, ...employees];
+  
+  useEffect(() => {
+    const track = trackRef.current;
+    if (!track) return;
+
+    let isDown = false;
+    let startX: number;
+    let scrollLeft: number;
+    
+    const handleMouseDown = (e: MouseEvent) => {
+      isDown = true;
+      track.classList.add('dragging');
+      startX = e.pageX - track.offsetLeft;
+      scrollLeft = track.scrollLeft;
+      track.style.animationPlayState = 'paused';
+    };
+    
+    const handleTouchStart = (e: TouchEvent) => {
+      isDown = true;
+      track.classList.add('dragging');
+      startX = e.touches[0].pageX - track.offsetLeft;
+      scrollLeft = track.scrollLeft;
+      track.style.animationPlayState = 'paused';
+    };
+    
+    const handleMouseMove = (e: MouseEvent) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - track.offsetLeft;
+      const walk = (x - startX) * 2;
+      track.scrollLeft = scrollLeft - walk;
+    };
+    
+    const handleTouchMove = (e: TouchEvent) => {
+      if (!isDown) return;
+      const x = e.touches[0].pageX - track.offsetLeft;
+      const walk = (x - startX) * 2;
+      track.scrollLeft = scrollLeft - walk;
+    };
+    
+    const handleEnd = () => {
+      isDown = false;
+      track.classList.remove('dragging');
+      // Resume animation after drag
+      setTimeout(() => {
+        track.style.animationPlayState = 'running';
+      }, 500);
+    };
+    
+    track.addEventListener('mousedown', handleMouseDown);
+    track.addEventListener('touchstart', handleTouchStart);
+    track.addEventListener('mousemove', handleMouseMove);
+    track.addEventListener('touchmove', handleTouchMove);
+    track.addEventListener('mouseup', handleEnd);
+    track.addEventListener('touchend', handleEnd);
+    track.addEventListener('mouseleave', handleEnd);
+    
+    return () => {
+      track.removeEventListener('mousedown', handleMouseDown);
+      track.removeEventListener('touchstart', handleTouchStart);
+      track.removeEventListener('mousemove', handleMouseMove);
+      track.removeEventListener('touchmove', handleTouchMove);
+      track.removeEventListener('mouseup', handleEnd);
+      track.removeEventListener('touchend', handleEnd);
+      track.removeEventListener('mouseleave', handleEnd);
+    };
+  }, []);
 
   return (
     <section className="relative bg-white py-16 md:py-20 lg:py-24 overflow-hidden" data-testid="section-hire-ai-employees">
@@ -160,7 +230,7 @@ export default function HireAIEmployeesSection() {
         <div className="absolute right-0 top-0 bottom-0 w-32 md:w-48 lg:w-64 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
 
         {/* Scrolling Carousel */}
-        <div className="carousel-track" data-testid="ai-employees-carousel-track">
+        <div className="carousel-track" data-testid="ai-employees-carousel-track" ref={trackRef}>
           {duplicatedEmployees.map((employee, index) => (
             <div
               key={index}

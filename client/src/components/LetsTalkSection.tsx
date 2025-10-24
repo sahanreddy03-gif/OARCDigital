@@ -1,4 +1,33 @@
+import { useEffect, useRef } from 'react';
+
 export default function LetsTalkSection() {
+  const oarcRefs = useRef<(HTMLDivElement | null)[]>([]);
+  
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry, index) => {
+          if (entry.isIntersecting) {
+            // Add staggered delay for each OARC item
+            setTimeout(() => {
+              entry.target.classList.add('oarc-visible');
+            }, index * 150);
+          }
+        });
+      },
+      { 
+        threshold: 0.2,
+        rootMargin: '0px 0px -50px 0px'
+      }
+    );
+
+    oarcRefs.current.forEach((ref) => {
+      if (ref) observer.observe(ref);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section className="relative bg-white py-16 md:py-20 lg:py-24" data-testid="section-lets-talk">
       <div className="container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl">
@@ -16,7 +45,11 @@ export default function LetsTalkSection() {
             
             {/* Four-part OARC Explanation Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10 mb-12">
-              <div className="text-center" data-testid="optimised-section">
+              <div 
+                className="text-center oarc-item" 
+                data-testid="optimised-section"
+                ref={el => oarcRefs.current[0] = el}
+              >
                 <div className="text-4xl md:text-5xl font-black text-[#5ce1e6] mb-3">
                   Optimised
                 </div>
@@ -25,7 +58,11 @@ export default function LetsTalkSection() {
                 </p>
               </div>
               
-              <div className="text-center" data-testid="ai-section">
+              <div 
+                className="text-center oarc-item" 
+                data-testid="ai-section"
+                ref={el => oarcRefs.current[1] = el}
+              >
                 <div className="text-4xl md:text-5xl font-black text-[#5ce1e6] mb-3">
                   AI
                 </div>
@@ -34,7 +71,11 @@ export default function LetsTalkSection() {
                 </p>
               </div>
               
-              <div className="text-center" data-testid="revenue-section">
+              <div 
+                className="text-center oarc-item" 
+                data-testid="revenue-section"
+                ref={el => oarcRefs.current[2] = el}
+              >
                 <div className="text-4xl md:text-5xl font-black text-[#5ce1e6] mb-3">
                   Revenue
                 </div>
@@ -43,7 +84,11 @@ export default function LetsTalkSection() {
                 </p>
               </div>
               
-              <div className="text-center" data-testid="creative-section">
+              <div 
+                className="text-center oarc-item" 
+                data-testid="creative-section"
+                ref={el => oarcRefs.current[3] = el}
+              >
                 <div className="text-4xl md:text-5xl font-black text-[#5ce1e6] mb-3">
                   Creative
                 </div>
