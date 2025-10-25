@@ -1,0 +1,71 @@
+Thanks — this plan makes sense. Confirming scope and approach; proceed now with Phase 1 and follow the rules below.
+
+✅ Scope summary (confirmed)
+- Build full OARC Digital site per blueprint: ~20–30 service landing pages + Our Work, Why Us, Resources, Pricing, Enterprise, Contact, Services hub.
+- Visual-first, cinematic hero loops, Lottie micro-interactions, pinned OARC scroll story.
+- Image pipeline for 8K masters → responsive WebP/AVIF + MP4/WebM outputs.
+- SEO, accessibility, and performance optimization required.
+
+🔧 Workflow decisions (do this, no extra approvals needed)
+1. **Git workflow / PRs**
+   - Preferred: **push to an external GitHub repo** and open PRs so I can review changes. Create branch `oarc/blueprint` and push initial commits there.
+   - If GitHub is not connected / possible: use Replit’s workspace **checkpoints** AND also commit local git branch `oarc/blueprint` in the project. For review, provide a Replit **staging preview URL** for every milestone PR/checkpoint.
+   - PR naming convention: `oarc/blueprint: <feature>` (e.g. `oarc/blueprint: skeleton routes & nav`).
+
+2. **Branching & Milestones**
+   - Create `oarc/blueprint` and land Phase 1 artifacts there.
+   - Provide one visible preview URL for each major milestone (Phase 1, Phase 2 first five pages, full assets batch).
+
+3. **If you can push PRs to GitHub**:
+   - Open a PR and attach the staging preview URL, screenshots (desktop + mobile), and a short checklist of what changed.
+   - Request review from `REVIEW_CONTACT.md` (I will populate later). If no contact exists, add comment “Waiting for owner approval”.
+
+🎨 Assets & 8K masters (practical decision)
+- **I understand you cannot produce photoreal 8K masters in-house**. Do this:
+  1. For Phase 1 → use **high-quality licensed placeholders** that are art-directed (no obvious generic selfies). Mark any placeholder files clearly with `-placeholder` suffix.
+  2. Implement the **Sharp + ffmpeg** image/video pipeline now so that when true 8K masters arrive they can be dropped into `/design-assets/masters/` and the pipeline auto-generates web assets.
+  3. For the first 5 pages: create *art-directed placeholders* that follow the per-page art briefs in the blueprint (unique composition, motion where relevant). Save placeholders under `/design-assets/masters/{page-slug}/{page-slug}-hero-master-placeholder.{tiff|mov}`.
+  4. In `manifest.json` mark `placeholder: true`. Add a `"replaceBy": "owner"` note so they won’t be shipped to production without sign-off.
+- **When real 8K masters are provided** (by client or design team) the pipeline will reprocess and overwrite web exports automatically.
+
+⚙️ Phase plan (start now)
+- **Phase 1 (start immediately)**:
+  - Add routing (Wouter/React Router as in repo).
+  - Create skeleton pages for all routes listed in the blueprint.
+  - Implement reusable components: `Hero`, `Layout`, `FooterCTA`, `ServiceGrid`, `CaseGrid`, `TrustedLogos`, `MetricCounters`, `TestimonialCarousel`, `PinnedScrollStory` (skeleton versions OK).
+  - Preserve homepage exactly — do not edit copy or visual behaviour.
+  - Add top navigation / mega-menu with link targets for all pages.
+  - Add `specs/README.md` with environment variable placeholders, PR checklist, and preview instructions.
+  - Commit to `oarc/blueprint` and push. Provide a preview URL.
+
+- **Phase 2 (after I review Phase 1)**:
+  - Build the first 5 pages (Hire AI Employees, Revenue Automation, Web Design, Ad Creative, Social Media Creative) fully with content from the blueprint, placeholders for hero assets, basic CSS/Framer Motion animations (no GSAP initially).
+  - Implement the image pipeline scripts (`scripts/generate-assets.js`) and `manifest.json` with placeholder entries.
+  - Deliverables: 5 functioning pages + preview.
+
+- **Phase 3 (post-approval)**:
+  - Produce remaining service pages, case pages, fine animations (GSAP ScrollTrigger / Lottie), accessibility/performance pass, final assets swap.
+
+📌 Deliverable & acceptance rules
+- Mark all placeholder assets as `-placeholder` and `placeholder: true` in `manifest.json`.
+- PR must include: preview URL, desktop & mobile screenshots, `link-qa.csv` (link map), and checklist:
+  - Homepage unchanged (visual diff)
+  - All new routes exist and nav links point correctly
+  - Placeholder hero assets present & manifest entries correct
+  - Basic animations not blocking rendering (no janky initial paint)
+- I will review the Phase 1 branch; after I approve you can proceed to Phase 2.
+
+📁 Files you must create in the repo now (Phase 1)
+- `branch`: `oarc/blueprint`
+- `specs/README.md` — include ENV placeholders and PR checklist
+- `design-assets/manifest.json` — initial empty manifest
+- `scripts/generate-assets.js` — image/video pipeline skeleton (using sharp + ffmpeg)
+- `content/services/*.json` — include the first 5 content JSONs I provided
+- `design-assets/masters/{slug}/*-placeholder.*` — placeholders for the first 5 pages
+
+
+
+⏭ Next step I expect from you (already authorized)
+- Start Phase 1 now. Create the branch `oarc/blueprint`, commit the skeleton, push to GitHub if available, and post a staging preview URL here in the thread for my review. If GitHub is unavailable, use Replit checkpoint + preview URL and mention `checkpoint:phase1`.
+
+Thanks — start Phase 1 and tag me with the preview link. I’ll review the skeleton and respond with Phase 2 sign-off or corrections.

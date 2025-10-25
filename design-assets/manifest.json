@@ -1,0 +1,81 @@
+{
+  "version": "1.0.0",
+  "generated": "Phase 1 - Initial Manifest",
+  "assets": {},
+  "placeholders": {
+    "note": "All assets marked with placeholder:true must be replaced before production deployment",
+    "replaceBy": "owner"
+  },
+  "pages": {
+    "hire-ai-employees": {
+      "hero": {
+        "placeholder": true,
+        "masterPath": "/design-assets/masters/hire-ai-employees/hire-ai-employees-hero-master-placeholder.mov",
+        "webVariants": [],
+        "altText": "AI-powered employee dashboard showing automated ticket resolution and KPI metrics",
+        "description": "Cinematic loop: phone/desktop UI with support ticket auto-resolved, neural mesh flow, KPI spike animation",
+        "palette": "deep charcoal background, electric teal highlights, soft white UI",
+        "loopDuration": "6s"
+      }
+    },
+    "revenue-automation": {
+      "hero": {
+        "placeholder": true,
+        "masterPath": "/design-assets/masters/revenue-automation/revenue-automation-hero-master-placeholder.mov",
+        "webVariants": [],
+        "altText": "Abstract data network showing automated revenue pipeline with connected nodes",
+        "description": "Network motion: nodes for ad creative, CRM, customers, pulsing on conversions",
+        "palette": "dark background, neon teal highlights",
+        "loopDuration": "5s"
+      }
+    },
+    "web-design": {
+      "hero": {
+        "placeholder": true,
+        "masterPath": "/design-assets/masters/web-design/web-design-hero-master-placeholder.tiff",
+        "webVariants": [],
+        "altText": "Modern website design with interactive micro-animations and clean UI",
+        "description": "Screen mockups with Lottie micro-interactions, landing page animation",
+        "palette": "warm neutral background, subtle card shadows",
+        "loopDuration": "N/A (static with micro-interactions)"
+      }
+    },
+    "ad-creative": {
+      "hero": {
+        "placeholder": true,
+        "masterPath": "/design-assets/masters/ad-creative/ad-creative-hero-master-placeholder.mov",
+        "webVariants": [],
+        "altText": "Fast-paced montage of vertical video ads with performance metrics overlay",
+        "description": "Fast cuts of vertical video ads, creative frames, rising KPI overlay",
+        "palette": "bold colors, quick rhythm",
+        "loopDuration": "4-6s"
+      }
+    },
+    "social-media-creative": {
+      "hero": {
+        "placeholder": true,
+        "masterPath": "/design-assets/masters/social-media-creative/social-media-creative-hero-master-placeholder.mov",
+        "webVariants": [],
+        "altText": "Social media feed with engaging content and user interaction animations",
+        "description": "Feed-style loop: vertical video montage, floating user comments, overlay CTA pop",
+        "palette": "warm, social-native saturation",
+        "loopDuration": "5-8s"
+      }
+    }
+  },
+  "imageFormats": {
+    "sizes": [3840, 2048, 1600, 1200, 800, 480],
+    "formats": ["avif", "webp"],
+    "quality": 70,
+    "lqip": true
+  },
+  "videoFormats": {
+    "formats": ["mp4", "webm"],
+    "codecs": {
+      "mp4": "h264",
+      "webm": "vp9"
+    },
+    "maxSize": "5MB",
+    "poster": true
+  }
+}
