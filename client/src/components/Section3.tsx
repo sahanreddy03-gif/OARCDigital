@@ -68,7 +68,7 @@ export default function Section3() {
         {/* Heading - animates from center when scrolling */}
         <h2
           ref={headingRef}
-          className={`text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-center mb-8 md:mb-10 lg:mb-12 transition-all duration-1000 ${
+          className={`text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-8 md:mb-10 lg:mb-12 transition-all duration-1000 ${
             isVisible
               ? "opacity-100 translate-x-0"
               : "opacity-0 translate-x-[-50%]"

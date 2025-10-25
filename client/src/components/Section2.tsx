@@ -48,17 +48,11 @@ export default function Section2() {
               OARC Digital
             </p>
             
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-zinc-900 leading-tight mb-4" data-testid="text-section2-heading">
-              The results-driven{' '}
-              <span className="text-[#5ce1e6]">
-                Social First Agency
-              </span>{' '}
+            <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-zinc-900 leading-tight mb-6 md:mb-8" data-testid="text-section2-heading">
+              The results-driven<br />
+              <span className="text-[#5ce1e6]">Social First Agency</span><br />
               you've been looking for
             </h2>
-            
-            <p className="text-lg md:text-xl text-zinc-600 mb-6 md:mb-8" data-testid="text-section2-subtitle">
-              We grow ambitious brands with Social, Paid, Creative and Influencer
-            </p>
 
             <div className="flex flex-col gap-4 w-full sm:flex-row sm:gap-5">
               <Button 
