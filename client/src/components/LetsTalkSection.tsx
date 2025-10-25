@@ -29,7 +29,7 @@ export default function LetsTalkSection() {
   }, []);
 
   return (
-    <section className="relative bg-white py-16 md:py-20 lg:py-24" data-testid="section-lets-talk">
+    <section className="relative bg-white py-12 md:py-16 lg:py-20" data-testid="section-lets-talk">
       <div className="container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl">
         {/* Let's Talk Heading */}
         <div className="text-center mb-12 md:mb-16">
@@ -50,7 +50,7 @@ export default function LetsTalkSection() {
                 data-testid="optimised-section"
                 ref={el => oarcRefs.current[0] = el}
               >
-                <div className="text-4xl md:text-5xl font-black text-[#5ce1e6] mb-3">
+                <div className="text-4xl md:text-5xl font-black text-[#c4ff4d] mb-3">
                   Optimised
                 </div>
                 <p className="text-base md:text-lg text-zinc-600 leading-relaxed">
@@ -63,7 +63,7 @@ export default function LetsTalkSection() {
                 data-testid="ai-section"
                 ref={el => oarcRefs.current[1] = el}
               >
-                <div className="text-4xl md:text-5xl font-black text-[#5ce1e6] mb-3">
+                <div className="text-4xl md:text-5xl font-black text-[#c4ff4d] mb-3">
                   AI
                 </div>
                 <p className="text-base md:text-lg text-zinc-600 leading-relaxed">
@@ -76,7 +76,7 @@ export default function LetsTalkSection() {
                 data-testid="revenue-section"
                 ref={el => oarcRefs.current[2] = el}
               >
-                <div className="text-4xl md:text-5xl font-black text-[#5ce1e6] mb-3">
+                <div className="text-4xl md:text-5xl font-black text-[#c4ff4d] mb-3">
                   Revenue
                 </div>
                 <p className="text-base md:text-lg text-zinc-600 leading-relaxed">
@@ -89,7 +89,7 @@ export default function LetsTalkSection() {
                 data-testid="creative-section"
                 ref={el => oarcRefs.current[3] = el}
               >
-                <div className="text-4xl md:text-5xl font-black text-[#5ce1e6] mb-3">
+                <div className="text-4xl md:text-5xl font-black text-[#c4ff4d] mb-3">
                   Creative
                 </div>
                 <p className="text-base md:text-lg text-zinc-600 leading-relaxed">

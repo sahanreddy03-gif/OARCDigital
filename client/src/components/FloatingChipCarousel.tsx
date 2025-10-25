@@ -1,17 +1,18 @@
-import digitalMarketing from '@assets/generated_images/Digital_Marketing_Service_Icon_93caaf8d.png';
-import socialMedia from '@assets/generated_images/Social_Media_Management_Icon_3934084f.png';
-import aiVideo from '@assets/generated_images/AI_Video_Production_Icon_4b03c9f2.png';
-import branding from '@assets/generated_images/Branding_Services_Icon_691585a9.png';
-import rapidTesting from '@assets/generated_images/Rapid_Idea_Testing_Icon_7cadb672.png';
-import leadGen from '@assets/generated_images/Lead_Generation_Icon_e2638821.png';
-import creativeAds from '@assets/generated_images/Creative_Ad_Campaigns_Icon_fa6472fb.png';
-import customerAcquisition from '@assets/generated_images/Customer_Acquisition_Strategy_Icon_3ad38521.png';
-import funnelAutomation from '@assets/generated_images/Funnel_Automation_Icon_fce2ba04.png';
-import aiCopywriting from '@assets/generated_images/AI_Copywriting_Icon_09e6ed5d.png';
-import websiteDesign from '@assets/generated_images/Website_Design_Icon_3730d680.png';
-import adminAI from '@assets/generated_images/Admin_AI_Employees_Icon_61b4d44c.png';
-import salesAI from '@assets/generated_images/Sales_AI_Employees_Icon_2a768208.png';
-import supportAI from '@assets/generated_images/Support_AI_Employees_Icon_3cc3a07e.png';
+// Premium 8K quality stock images for homepage carousel
+import digitalMarketing from '@assets/stock_images/digital_marketing_st_73e0d5ea.jpg';
+import socialMedia from '@assets/stock_images/social_media_managem_8e61c86d.jpg';
+import aiVideo from '@assets/stock_images/video_production_stu_abf9b7e6.jpg';
+import branding from '@assets/stock_images/branding_design_logo_def8ba83.jpg';
+import rapidTesting from '@assets/stock_images/rapid_prototyping_te_8f533efd.jpg';
+import leadGen from '@assets/stock_images/lead_generation_sale_842797d5.jpg';
+import creativeAds from '@assets/stock_images/creative_advertising_30aa5822.jpg';
+import customerAcquisition from '@assets/stock_images/customer_acquisition_f9d88ee5.jpg';
+import funnelAutomation from '@assets/stock_images/marketing_automation_0c8f4dcc.jpg';
+import aiCopywriting from '@assets/stock_images/copywriting_content__42613a28.jpg';
+import websiteDesign from '@assets/stock_images/website_design_ui_ux_4ef0c7cd.jpg';
+import adminAI from '@assets/stock_images/administrative_assis_c2205c82.jpg';
+import salesAI from '@assets/stock_images/sales_professional_b_92ff4f35.jpg';
+import supportAI from '@assets/stock_images/customer_support_hel_973ef702.jpg';
 
 const services = [
   { text: "Digital Marketing", image: digitalMarketing },
@@ -42,17 +43,17 @@ export default function FloatingChipCarousel() {
             className="inline-flex flex-shrink-0"
             data-testid={`carousel-chip-${index}`}
           >
-            <div className="group flex items-center gap-3 md:gap-2 px-4 md:px-3 py-3 md:py-2 bg-white/95 backdrop-blur-sm rounded-full shadow-lg hover:shadow-xl transition-all cursor-pointer border border-white/20">
-              {/* Mobile: 56px, Tablet+: 48px images */}
-              <div className="w-[56px] h-[56px] md:w-12 md:h-12 rounded-lg md:rounded-md overflow-hidden flex-shrink-0 bg-white">
+            <div className="group flex items-center gap-3 md:gap-2 px-4 md:px-3 py-3 md:py-2 bg-white/95 backdrop-blur-sm rounded-full shadow-lg hover:shadow-2xl hover:scale-105 hover:bg-white transition-all duration-300 cursor-pointer border border-white/20 hover:border-[#c4ff4d]/30">
+              {/* Enhanced Mobile: 60px, Tablet+: 52px professional images */}
+              <div className="w-[60px] h-[60px] md:w-[52px] md:h-[52px] rounded-xl md:rounded-lg overflow-hidden flex-shrink-0 bg-zinc-100 ring-2 ring-white/50 group-hover:ring-[#c4ff4d]/40 transition-all duration-300">
                 <img 
                   src={service.image} 
                   alt={service.text}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
                   data-testid={`carousel-image-${service.text.toLowerCase().replace(/\s+/g, '-')}`}
                 />
               </div>
-              <span className="text-sm md:text-xs lg:text-sm font-bold text-gray-900 pr-2 md:pr-1 whitespace-nowrap" data-testid={`carousel-text-${service.text.toLowerCase().replace(/\s+/g, '-')}`}>
+              <span className="text-sm md:text-xs lg:text-sm font-bold text-gray-900 group-hover:text-zinc-950 pr-2 md:pr-1 whitespace-nowrap transition-colors duration-300" data-testid={`carousel-text-${service.text.toLowerCase().replace(/\s+/g, '-')}`}>
                 {service.text}
               </span>
             </div>

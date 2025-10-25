@@ -8,15 +8,15 @@ import socialMedia from '@assets/stock_images/social_media_manager_c1d1c7a1.jpg'
 import contentWriter from '@assets/stock_images/content_writer_copyw_b2e16fb5.jpg';
 import dataAnalyst from '@assets/stock_images/data_analyst_busines_2273e6c3.jpg';
 import leadQualifier from '@assets/stock_images/lead_generation_qual_8e5b0d01.jpg';
-import emailManager from '@assets/stock_images/email_management_inb_28a2e38a.jpg';
+import emailManager from '@assets/stock_images/professional_email_m_4945b6d9.jpg';
 import meetingCoord from '@assets/stock_images/meeting_coordinator__9e9824c0.jpg';
 import financialAnalyst from '@assets/stock_images/financial_analyst_ac_a7ca6914.jpg';
 import qualityAssurance from '@assets/stock_images/quality_assurance_te_3da1a1e3.jpg';
 import projectManager from '@assets/stock_images/project_manager_agil_eb024bff.jpg';
 import researchAnalyst from '@assets/stock_images/research_analyst_mar_25bf90c5.jpg';
 import travelCoordinator from '@assets/stock_images/travel_coordinator_b_ed44bec5.jpg';
-import accountManager from '@assets/stock_images/account_manager_clie_a209606c.jpg';
-import technicalSupport from '@assets/stock_images/technical_support_it_0a2f3fa2.jpg';
+import accountManager from '@assets/stock_images/business_account_man_049b6a5c.jpg';
+import technicalSupport from '@assets/stock_images/technical_support_sp_a9de34aa.jpg';
 
 const employees = [
   {

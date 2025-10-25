@@ -3,14 +3,14 @@ import socialMedia from '@assets/stock_images/social_media_creativ_8b2d8cae.jpg'
 import presentation from '@assets/stock_images/professional_present_2e93e298.jpg';
 import illustration from '@assets/stock_images/digital_illustration_cc904733.jpg';
 import branding from '@assets/stock_images/professional_brandin_f3b9b991.jpg';
-import ebook from '@assets/stock_images/ebook_report_design__49ba2f95.jpg';
+import ebook from '@assets/stock_images/professional_ebook_r_b4e00d62.jpg';
 import concept from '@assets/stock_images/creative_concept_dev_96d7b938.jpg';
 import printDesign from '@assets/stock_images/professional_print_d_ac873095.jpg';
 import packaging from '@assets/stock_images/product_packaging_de_0ef4ba86.jpg';
 import video from '@assets/stock_images/video_production_fil_418b397b.jpg';
-import motion from '@assets/stock_images/motion_graphics_anim_1c720306.jpg';
+import motion from '@assets/stock_images/motion_graphics_desi_d998cbd0.jpg';
 import immersive from '@assets/stock_images/immersive_design_vir_c9997440.jpg';
-import email from '@assets/stock_images/email_newsletter_des_50f406c8.jpg';
+import email from '@assets/stock_images/professional_email_n_6c68b0a1.jpg';
 import webDesign from '@assets/stock_images/modern_web_design_we_927d8700.jpg';
 import designSystems from '@assets/stock_images/design_system_compon_362ff5cd.jpg';
 import productDesign from '@assets/stock_images/product_design_app_i_3c5ffe87.jpg';
@@ -273,25 +273,41 @@ export default function AICreativeSection() {
   }, []);
 
   return (
-    <section className="relative bg-white py-16 md:py-20 lg:py-24 overflow-hidden" data-testid="section-ai-creative">
-      <div className="container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl mb-12 md:mb-16">
+    <section className="relative py-16 md:py-20 lg:py-24 overflow-hidden" data-testid="section-ai-creative">
+      {/* Black/Orange Background - matching "Our Difference" section */}
+      <div className="absolute inset-0 bg-black"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-black via-zinc-950/90 to-orange-950/50"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-black/50 via-transparent to-orange-900/35"></div>
+      
+      {/* Warm orange glow */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_100%_50%,rgba(251,146,60,0.25),transparent_55%)]"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_80%_20%,rgba(234,88,12,0.20),transparent_60%)]"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_0%_50%,rgba(0,0,0,0.7),transparent_45%)]"></div>
+      
+      {/* Warm accent on bottom right */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_90%_80%,rgba(220,38,38,0.15),transparent_50%)]"></div>
+      
+      {/* Final overlay for depth */}
+      <div className="absolute inset-0 bg-gradient-to-t from-orange-950/10 to-transparent"></div>
+
+      <div className="relative container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl mb-12 md:mb-16">
         {/* Section Header */}
         <div className="text-center">
-          <h2 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-zinc-900 tracking-tight mb-4" data-testid="text-ai-creative-heading">
+          <h2 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white tracking-tight mb-4" data-testid="text-ai-creative-heading">
             Every type of creative work
           </h2>
-          <p className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-zinc-900 tracking-tight">
+          <p className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white tracking-tight">
             you'll ever need
-            <span className="italic text-[#5ce1e6]"> and more</span>
+            <span className="italic" style={{ color: '#c4ff4d' }}> and more</span>
           </p>
         </div>
       </div>
 
       {/* Carousel Container */}
       <div className="relative w-full">
-        {/* Gradient Overlays for fade effect */}
-        <div className="absolute left-0 top-0 bottom-0 w-32 md:w-48 lg:w-64 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
-        <div className="absolute right-0 top-0 bottom-0 w-32 md:w-48 lg:w-64 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
+        {/* Gradient Overlays for fade effect - dark gradients */}
+        <div className="absolute left-0 top-0 bottom-0 w-32 md:w-48 lg:w-64 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none"></div>
+        <div className="absolute right-0 top-0 bottom-0 w-32 md:w-48 lg:w-64 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none"></div>
 
         {/* Scrolling Carousel */}
         <div className="carousel-track" data-testid="carousel-track" ref={trackRef}>
@@ -317,10 +333,10 @@ export default function AICreativeSection() {
 
               {/* Service Info */}
               <div className="px-2">
-                <h3 className="text-2xl lg:text-3xl font-bold text-zinc-900 mb-2">
+                <h3 className="text-2xl lg:text-3xl font-bold text-white mb-2">
                   {service.title}
                 </h3>
-                <p className="text-base lg:text-lg text-zinc-600 leading-relaxed">
+                <p className="text-base lg:text-lg text-white/80 leading-relaxed">
                   {service.subtitle}
                 </p>
               </div>
