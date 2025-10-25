@@ -12,7 +12,6 @@ import CTASections from "@/components/CTASections";
 import Testimonials from "@/components/Testimonials";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
-import LayeredSections from "@/components/LayeredSections";
 
 export default function Home() {
   return (
@@ -23,14 +22,9 @@ export default function Home() {
       <Section3 />
       <Section5 />
       <LetsTalkSection />
-      
-      {/* Layered sections with scroll animations */}
-      <LayeredSections>
-        <AICreativeSection />
-        <HireAIEmployeesSection />
-        <LetsTalkRevenueSection />
-      </LayeredSections>
-      
+      <AICreativeSection />
+      <HireAIEmployeesSection />
+      <LetsTalkRevenueSection />
       <PerformanceMetrics />
       <CTASections />
       <Testimonials />

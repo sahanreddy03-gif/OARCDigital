@@ -32,12 +32,11 @@ const services = [
 ];
 
 export default function FloatingChipCarousel() {
-  // Duplicate exactly 2 times for seamless -50% translateX animation
-  const duplicatedServices = [...services, ...services];
+  const duplicatedServices = [...services, ...services, ...services];
 
   return (
     <div className="w-full overflow-hidden">
-      <div className="flex animate-scroll-fast whitespace-nowrap gap-3 md:gap-2">
+      <div className="flex animate-scroll whitespace-nowrap gap-3 md:gap-2">
         {duplicatedServices.map((service, index) => (
           <div 
             key={index} 
