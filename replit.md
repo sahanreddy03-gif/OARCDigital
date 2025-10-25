@@ -30,10 +30,13 @@ Preferred communication style: Simple, everyday language.
 - **Animation:** Smooth CSS keyframe carousels, Intersection Observer for scroll-triggered letter reveals, and performance-conscious transitions.
 
 **Key Features:**
-- **Homepage Sections:** Hero, Social First Agency, Brand Carousel, Our Difference, Let's Talk OARC, AI Creative Services, Hire AI Employees, Let's Talk Revenue. Each section has a distinct visual style with sophisticated two-palette alternating system (black/orange and white backgrounds).
-- **Carousel Functionality:** Interactive snap-to-card functionality with auto-scrolling, momentum physics for quick flicks, and auto-resume after user interaction.
-- **Homepage FloatingChipCarousel:** Premium 8K stock images with enhanced animations (scale-105 hover, shadow-2xl, ring highlights with green accent, 500ms image zoom transitions)
+- **Homepage Sections:** Hero, Social First Agency, Brand Carousel, Our Difference, Let's Talk OARC, AI Creative Services, Hire AI Employees, Let's Talk Revenue, Performance Metrics, CTA Sections, Brand Showcase, Testimonials. Each section has a distinct visual style with sophisticated two-palette alternating system (black/orange and white backgrounds).
+- **Carousel Functionality:** Fixed animation glitch by changing from 3x to 2x duplication (matches -50% translation). Includes 17 services: Paid Advertising, Media Buying, Website Design, Influencer Marketing, and more. Premium 8K stock images with enhanced animations (scale-105 hover, shadow-2xl, ring highlights with green accent, 500ms image zoom transitions).
+- **Social First Agency Section:** Reduced heading size (text-3xl/4xl/5xl for 3-line display), subtitle "We grow ambitious brands with Social, Paid, Creative and Influencer", phone content cycles through 3 messages with larger font (text-xl/2xl/3xl).
+- **Section Headings:** Reduced font sizes across AI Creative, Hire AI Employees, and Let's Talk Revenue sections from text-5xl-8xl to text-4xl-6xl for better readability and visual balance.
 - **Let's Talk OARC Section:** Compact, single-section design with 2x2 grid layout (desktop) and vertical stack (mobile). Features giant decorative letters (10-14rem) in orange-600/10, condensed copy, and scroll-triggered animations. Uses orange-600 (#ea580c) for titles with WCAG-compliant 3.55:1 contrast ratio on white background. Total height: ~100vh (vs previous 400vh+ design) for optimal user experience without excessive scrolling.
+- **Brand Showcase Section:** New Superside-inspired grid showcasing 6 case studies with 8K stock images, hover effects (scale, overlay, arrow rotation), metric badges showing results, and responsive 3/2/1 column layout. Features "View All Case Studies" CTA.
+- **Testimonials Redesign:** Complete overhaul with large professional headshot images, featured testimonial layout (image left, content right on desktop), metric badges, navigation controls (prev/next buttons), thumbnail grid with active state highlighting, and smooth state-managed transitions.
 
 ### External Dependencies
 

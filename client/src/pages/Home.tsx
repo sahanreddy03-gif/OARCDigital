@@ -9,6 +9,7 @@ import HireAIEmployeesSection from "@/components/HireAIEmployeesSection";
 import LetsTalkRevenueSection from "@/components/LetsTalkRevenueSection";
 import PerformanceMetrics from "@/components/PerformanceMetrics";
 import CTASections from "@/components/CTASections";
+import BrandShowcaseSection from "@/components/BrandShowcaseSection";
 import Testimonials from "@/components/Testimonials";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
@@ -27,6 +28,7 @@ export default function Home() {
       <LetsTalkRevenueSection />
       <PerformanceMetrics />
       <CTASections />
+      <BrandShowcaseSection />
       <Testimonials />
       <FAQ />
       <Footer />

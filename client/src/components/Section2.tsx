@@ -4,6 +4,7 @@ import { SiFacebook, SiInstagram, SiLinkedin, SiX, SiYoutube, SiSpotify } from "
 
 export default function Section2() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [currentTextIndex, setCurrentTextIndex] = useState(0);
   
   // Array of gradient backgrounds to simulate Instagram/Reels style content
   const backgrounds = [
@@ -15,12 +16,26 @@ export default function Section2() {
     'linear-gradient(135deg, #30cfd0 0%, #330867 100%)',
   ];
   
+  // Text content to display in phone
+  const textContent = [
+    "We blend creative and performance",
+    "Mastering the New Rules of Branding",
+    "OARC Digital"
+  ];
+  
   useEffect(() => {
-    const interval = setInterval(() => {
+    const bgInterval = setInterval(() => {
       setCurrentImageIndex((prev) => (prev + 1) % backgrounds.length);
-    }, 2000); // Change every 2 seconds
+    }, 2000); // Change background every 2 seconds
     
-    return () => clearInterval(interval);
+    const textInterval = setInterval(() => {
+      setCurrentTextIndex((prev) => (prev + 1) % textContent.length);
+    }, 3000); // Change text every 3 seconds
+    
+    return () => {
+      clearInterval(bgInterval);
+      clearInterval(textInterval);
+    };
   }, []);
   
   return (
@@ -33,13 +48,17 @@ export default function Section2() {
               OARC Digital
             </p>
             
-            <h2 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-zinc-900 leading-tight mb-6 md:mb-8" data-testid="text-section2-heading">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-zinc-900 leading-tight mb-4" data-testid="text-section2-heading">
               The results-driven{' '}
               <span className="text-[#5ce1e6]">
                 Social First Agency
               </span>{' '}
               you've been looking for
             </h2>
+            
+            <p className="text-lg md:text-xl text-zinc-600 mb-6 md:mb-8" data-testid="text-section2-subtitle">
+              We grow ambitious brands with Social, Paid, Creative and Influencer
+            </p>
 
             <div className="flex flex-col gap-4 w-full sm:flex-row sm:gap-5">
               <Button 
@@ -87,14 +106,10 @@ export default function Section2() {
                     <SiLinkedin className="w-6 h-6 md:w-7 md:h-7 text-white/80 hover:text-white transition-colors" />
                   </div>
                   
-                  {/* Center text */}
-                  <div className="text-center flex-1 flex items-center justify-center">
-                    <p className="text-base md:text-lg lg:text-xl font-bold text-white leading-tight px-2">
-                      <span className="inline-block animate-[fadeInUp_0.8s_ease-out]">We</span>{' '}
-                      <span className="inline-block animate-[fadeInUp_0.8s_ease-out_0.1s] text-[#5ce1e6]">blend</span>{' '}
-                      <span className="inline-block animate-[fadeInUp_0.8s_ease-out_0.2s]">creative</span>{' '}
-                      <span className="inline-block animate-[fadeInUp_0.8s_ease-out_0.3s]">and</span>{' '}
-                      <span className="inline-block animate-[fadeInUp_0.8s_ease-out_0.4s] text-[#5ce1e6]">performance</span>
+                  {/* Center text - cycling through different messages */}
+                  <div className="text-center flex-1 flex items-center justify-center px-3">
+                    <p className="text-xl md:text-2xl lg:text-3xl font-black text-white leading-tight transition-opacity duration-500" data-testid="phone-text-content">
+                      {textContent[currentTextIndex]}
                     </p>
                   </div>
                   

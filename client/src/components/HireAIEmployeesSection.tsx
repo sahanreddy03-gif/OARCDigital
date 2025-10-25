@@ -274,7 +274,7 @@ export default function HireAIEmployeesSection() {
       <div className="container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl mb-12 md:mb-16">
         {/* Section Header */}
         <div className="text-center">
-          <h2 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-zinc-900 tracking-tight mb-4" data-testid="text-ai-employees-heading">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-zinc-900 tracking-tight mb-4" data-testid="text-ai-employees-heading">
             Hire AI Employees
           </h2>
           <p className="text-2xl md:text-3xl lg:text-4xl font-semibold text-zinc-600">

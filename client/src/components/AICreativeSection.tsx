@@ -293,10 +293,10 @@ export default function AICreativeSection() {
       <div className="relative container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl mb-12 md:mb-16">
         {/* Section Header */}
         <div className="text-center">
-          <h2 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white tracking-tight mb-4" data-testid="text-ai-creative-heading">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tight mb-4" data-testid="text-ai-creative-heading">
             Every type of creative work
           </h2>
-          <p className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white tracking-tight">
+          <p className="text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tight">
             you'll ever need
             <span className="italic" style={{ color: '#c4ff4d' }}> and more</span>
           </p>
