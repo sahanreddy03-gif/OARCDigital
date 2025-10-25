@@ -1,105 +1,170 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 export default function LetsTalkSection() {
-  const oarcRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const sectionRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const [visibleSections, setVisibleSections] = useState<Set<number>>(new Set());
   
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry, index) => {
-          if (entry.isIntersecting) {
-            // Add staggered delay for each OARC item
-            setTimeout(() => {
-              entry.target.classList.add('oarc-visible');
-            }, index * 150);
+        entries.forEach((entry) => {
+          const index = sectionRefs.current.indexOf(entry.target as HTMLDivElement);
+          if (entry.isIntersecting && index !== -1) {
+            setVisibleSections(prev => new Set(prev).add(index));
           }
         });
       },
       { 
-        threshold: 0.2,
-        rootMargin: '0px 0px -50px 0px'
+        threshold: 0.6,
+        rootMargin: '-10% 0px -10% 0px'
       }
     );
 
-    oarcRefs.current.forEach((ref) => {
+    sectionRefs.current.forEach((ref) => {
       if (ref) observer.observe(ref);
     });
 
     return () => observer.disconnect();
   }, []);
 
+  const sections = [
+    {
+      title: "This is OARC.",
+      subtitle: null,
+      letter: null,
+      accent: false
+    },
+    {
+      title: "Optimised",
+      subtitle: "Nothing wasted. Everything aligned.",
+      letter: "O",
+      accent: true
+    },
+    {
+      title: "AI-Driven",
+      subtitle: "Systems that learn and multiply your output.",
+      letter: "A",
+      accent: true
+    },
+    {
+      title: "Revenue",
+      subtitle: "We focus on what matters.",
+      letter: "R",
+      accent: true
+    },
+    {
+      title: "Creative",
+      subtitle: "We win attention that converts.",
+      letter: "C",
+      accent: true
+    },
+    {
+      title: "Built for brands that demand exponential growth.",
+      subtitle: null,
+      letter: null,
+      accent: false
+    }
+  ];
+
   return (
-    <section className="relative bg-white py-12 md:py-16 lg:py-20" data-testid="section-lets-talk">
+    <section className="relative bg-white" data-testid="section-lets-talk">
       <div className="container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl">
-        {/* Let's Talk Heading */}
-        <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-zinc-900 tracking-tight mb-8">
-            Let's Talk
-          </h2>
+        {sections.map((section, index) => {
+          const isVisible = visibleSections.has(index);
+          const isIntro = index === 0;
+          const isOutro = index === sections.length - 1;
           
-          {/* OARC Branding with Creative Explanation */}
-          <div className="max-w-4xl mx-auto mb-10">
-            <div className="text-6xl md:text-7xl lg:text-8xl font-black text-zinc-900 mb-8" data-testid="text-oarc-brand">
-              OARC
+          return (
+            <div
+              key={index}
+              ref={el => sectionRefs.current[index] = el}
+              className="min-h-[60vh] md:min-h-[70vh] flex items-center justify-center py-12 md:py-16 lg:py-20"
+              data-testid={`oarc-section-${index}`}
+            >
+              <div className="text-center max-w-5xl mx-auto w-full">
+                {/* Letter Display - Large animated letter */}
+                {section.letter && (
+                  <div 
+                    className="mb-8 md:mb-12 overflow-hidden"
+                    style={{
+                      opacity: isVisible ? 1 : 0,
+                      transform: isVisible ? 'translateY(0) scale(1)' : 'translateY(50px) scale(0.8)',
+                      transition: 'all 1.2s cubic-bezier(0.34, 1.56, 0.64, 1)'
+                    }}
+                  >
+                    <div className="text-[12rem] md:text-[16rem] lg:text-[20rem] xl:text-[24rem] font-black leading-none text-orange-500/10 select-none">
+                      {section.letter}
+                    </div>
+                  </div>
+                )}
+                
+                {/* Title */}
+                <div 
+                  className="overflow-hidden mb-4 md:mb-6"
+                  style={{
+                    opacity: isVisible ? 1 : 0,
+                    transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
+                    transition: 'all 0.8s ease-out',
+                    transitionDelay: section.letter ? '0.3s' : '0s'
+                  }}
+                >
+                  <h2 
+                    className={`font-black tracking-tight ${
+                      isIntro || isOutro 
+                        ? 'text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-zinc-900' 
+                        : 'text-5xl md:text-6xl lg:text-7xl xl:text-8xl'
+                    } ${section.accent ? 'text-orange-500' : 'text-zinc-900'}`}
+                    data-testid={`title-${section.title.toLowerCase().replace(/[^a-z]/g, '-')}`}
+                  >
+                    {section.title}
+                  </h2>
+                </div>
+                
+                {/* Subtitle */}
+                {section.subtitle && (
+                  <div 
+                    className="overflow-hidden"
+                    style={{
+                      opacity: isVisible ? 1 : 0,
+                      transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
+                      transition: 'all 0.8s ease-out',
+                      transitionDelay: '0.5s'
+                    }}
+                  >
+                    <p className="text-xl md:text-2xl lg:text-3xl text-zinc-600 max-w-3xl mx-auto leading-relaxed">
+                      {section.subtitle}
+                    </p>
+                  </div>
+                )}
+
+                {/* Animated dot indicator for scrolling */}
+                {index < sections.length - 1 && (
+                  <div 
+                    className="mt-12 md:mt-16"
+                    style={{
+                      opacity: isVisible ? 0.3 : 0,
+                      transition: 'opacity 1s ease-out',
+                      transitionDelay: '0.8s'
+                    }}
+                  >
+                    <div className="w-2 h-2 bg-orange-500 rounded-full mx-auto animate-pulse" />
+                  </div>
+                )}
+              </div>
             </div>
-            
-            {/* Four-part OARC Explanation Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10 mb-12">
-              <div 
-                className="text-center oarc-item" 
-                data-testid="optimised-section"
-                ref={el => oarcRefs.current[0] = el}
-              >
-                <div className="text-4xl md:text-5xl font-black text-[#c4ff4d] mb-3">
-                  Optimised
-                </div>
-                <p className="text-base md:text-lg text-zinc-600 leading-relaxed">
-                  Precision-engineered strategies that maximize every marketing dollar through data-driven insights and continuous optimization
-                </p>
-              </div>
-              
-              <div 
-                className="text-center oarc-item" 
-                data-testid="ai-section"
-                ref={el => oarcRefs.current[1] = el}
-              >
-                <div className="text-4xl md:text-5xl font-black text-[#c4ff4d] mb-3">
-                  AI
-                </div>
-                <p className="text-base md:text-lg text-zinc-600 leading-relaxed">
-                  Cutting-edge artificial intelligence powers our creative workflows, automating repetitive tasks while amplifying human creativity
-                </p>
-              </div>
-              
-              <div 
-                className="text-center oarc-item" 
-                data-testid="revenue-section"
-                ref={el => oarcRefs.current[2] = el}
-              >
-                <div className="text-4xl md:text-5xl font-black text-[#c4ff4d] mb-3">
-                  Revenue
-                </div>
-                <p className="text-base md:text-lg text-zinc-600 leading-relaxed">
-                  Every campaign, every creative, every strategy is laser-focused on one thing: driving measurable revenue growth for your business
-                </p>
-              </div>
-              
-              <div 
-                className="text-center oarc-item" 
-                data-testid="creative-section"
-                ref={el => oarcRefs.current[3] = el}
-              >
-                <div className="text-4xl md:text-5xl font-black text-[#c4ff4d] mb-3">
-                  Creative
-                </div>
-                <p className="text-base md:text-lg text-zinc-600 leading-relaxed">
-                  Bold, innovative, and attention-grabbing designs that break through the noise and make your brand impossible to ignore
-                </p>
-              </div>
-            </div>
-          </div>
-          
-          {/* Tagline */}
+          );
+        })}
+        
+        {/* Tagline - After all sections */}
+        <div 
+          ref={el => sectionRefs.current[sections.length] = el}
+          className="py-16 md:py-20 text-center"
+          style={{
+            opacity: visibleSections.has(sections.length) ? 1 : 0,
+            transform: visibleSections.has(sections.length) ? 'translateY(0)' : 'translateY(30px)',
+            transition: 'all 0.8s ease-out'
+          }}
+        >
           <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6 text-2xl md:text-3xl lg:text-4xl font-bold text-zinc-900">
             <span data-testid="text-super-talented">Super Talented</span>
             <span className="hidden md:inline text-zinc-400">·</span>
