@@ -1,0 +1,103 @@
+{
+  "slug": "social-media-creative",
+  "title": "Social Media Creative",
+  "category": "Creative Services",
+  "meta": {
+    "title": "Social Media Creative — OARC Digital",
+    "description": "High-volume social content and strategy that builds awareness and converts—scroll-stopping creative across TikTok, Instagram, and YouTube."
+  },
+  "hero": {
+    "headline": "Social-first creative.",
+    "subheadline": "Content that builds attention and converts — volume, velocity, and creative precision.",
+    "primaryCTA": {
+      "text": "Start a social pilot",
+      "href": "/contact"
+    },
+    "secondaryCTA": {
+      "text": "View example feed",
+      "href": "#examples"
+    }
+  },
+  "benefits": [
+    {
+      "text": "Scalable content output tuned to platform behavior."
+    },
+    {
+      "text": "Native-first formats that respect each channel's audience."
+    },
+    {
+      "text": "Composer + analytics workflow for fast iteration."
+    }
+  ],
+  "metrics": [
+    {
+      "value": "40-120%",
+      "label": "increase in organic engagement",
+      "description": "for pilot campaigns"
+    },
+    {
+      "value": "20-35%",
+      "label": "content production cost savings",
+      "description": "vs ad-hoc freelance sourcing"
+    },
+    {
+      "value": "Custom",
+      "label": "pieces per week delivered",
+      "description": "per plan (package dependent)"
+    }
+  ],
+  "included": [
+    "Content calendar, short-form video (15–60s), Reels/TikTok native creatives, caption & test ideas.",
+    "Community prompts & engagement playbook.",
+    "Paid+organic coordination and UGC integration."
+  ],
+  "howItWorks": [
+    {
+      "step": 1,
+      "title": "Strategy Sprint",
+      "description": "Audience, tones, top-performing formats."
+    },
+    {
+      "step": 2,
+      "title": "Bulk Production",
+      "description": "Weekly content drops with A/B hooks."
+    },
+    {
+      "step": 3,
+      "title": "Amplify",
+      "description": "Paid promotion for best-performing creative."
+    }
+  ],
+  "caseStudies": [
+    {
+      "client": "F&B Chain",
+      "problem": "Low store visits",
+      "solution": "Localized UGC + targeted geo-ads",
+      "result": "In-store footfall ↑22%"
+    },
+    {
+      "client": "SaaS Brand",
+      "problem": "Low demo signups from social",
+      "solution": "Value-driven short form + gated CTA",
+      "result": "Demo signups ↑45%"
+    }
+  ],
+  "faq": [
+    {
+      "question": "How many assets per month?",
+      "answer": "Depends on plan — typical ranges: 8, 20, 40 pieces/month."
+    },
+    {
+      "question": "Do you handle comments/community?",
+      "answer": "Yes — optional community management add-on."
+    },
+    {
+      "question": "Do you use influencers?",
+      "answer": "We run influencer sourcing & managed campaigns as an add-on."
+    },
+    {
+      "question": "Will you track creative performance?",
+      "answer": "Yes — weekly reporting and content-level attribution."
+    }
+  ]
+}

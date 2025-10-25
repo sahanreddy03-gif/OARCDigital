@@ -1,0 +1,103 @@
+{
+  "slug": "hire-ai-employees",
+  "title": "Hire AI Employees",
+  "category": "OARC Solutions",
+  "meta": {
+    "title": "Hire AI Employees — OARC Digital",
+    "description": "Scale your team instantly with trained AI-powered employees for marketing, sales, support and ops. Reduce cost, increase output, deploy in days."
+  },
+  "hero": {
+    "headline": "Hire AI employees",
+    "subheadline": "Cut cost, scale capacity. Trained AI employees for marketing, sales, support and operations.",
+    "primaryCTA": {
+      "text": "Book a 15-min demo",
+      "href": "/contact"
+    },
+    "secondaryCTA": {
+      "text": "Explore AI team packages",
+      "href": "#packages"
+    }
+  },
+  "benefits": [
+    {
+      "text": "Deploy role-specific AI in days — no hiring lag."
+    },
+    {
+      "text": "Reduce repetitive labor costs while keeping quality control."
+    },
+    {
+      "text": "24/7 availability across chat, email, outreach and analytics."
+    }
+  ],
+  "metrics": [
+    {
+      "value": "40%",
+      "label": "reduction in support costs",
+      "description": "(typical)"
+    },
+    {
+      "value": "2×",
+      "label": "increase in qualified lead throughput"
+    },
+    {
+      "value": "<24h",
+      "label": "deployment for core roles",
+      "description": "(pilot)"
+    }
+  ],
+  "included": [
+    "Dedicated AI roles: Support Agent, Sales Qualifier, Marketing Copywriter, Ops Automator.",
+    "Playbook training on your brand voice and SOPs.",
+    "Dashboard & audit logs for oversight.",
+    "Integration with CRM/Slack/email + monthly tuning."
+  ],
+  "howItWorks": [
+    {
+      "step": 1,
+      "title": "Discover",
+      "description": "Quick audit of workflows and outcomes (48–72h)."
+    },
+    {
+      "step": 2,
+      "title": "Pilot",
+      "description": "Spin up 1–3 AI employees trained to your playbook (1–2 weeks)."
+    },
+    {
+      "step": 3,
+      "title": "Scale",
+      "description": "Expand roles and tune models to KPIs (ongoing)."
+    }
+  ],
+  "caseStudies": [
+    {
+      "client": "Local Retailer",
+      "problem": "Expensive 24/7 support",
+      "solution": "AI Support + Ticket triage",
+      "result": "35% cost reduction + 60% faster response times"
+    },
+    {
+      "client": "SaaS Scaleup",
+      "problem": "Top-of-funnel lead qualification lag",
+      "solution": "AI Sales Qualifier that pre-qualifies leads and books demos",
+      "result": "Qualified lead rate +28%"
+    }
+  ],
+  "faq": [
+    {
+      "question": "Are AI employees replacing my team?",
+      "answer": "No — they augment teams, handle repetitive tasks, and free humans for high-value work."
+    },
+    {
+      "question": "How is data handled?",
+      "answer": "Your data remains private. We train role models on your dataset with enterprise-grade encryption and audit logs."
+    },
+    {
+      "question": "How long till results?",
+      "answer": "Pilots return measurable impact within 2–6 weeks depending on scope."
+    },
+    {
+      "question": "Who owns the outputs?",
+      "answer": "You retain ownership. We give you logs, prompts, and exportable models."
+    }
+  ]
+}
