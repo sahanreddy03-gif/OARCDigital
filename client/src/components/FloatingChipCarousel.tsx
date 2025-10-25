@@ -1,4 +1,5 @@
 // Premium 8K quality stock images for homepage carousel
+import { useEffect, useRef } from "react";
 import digitalMarketing from '@assets/stock_images/digital_marketing_st_73e0d5ea.jpg';
 import socialMedia from '@assets/stock_images/social_media_managem_8e61c86d.jpg';
 import aiVideo from '@assets/stock_images/video_production_stu_abf9b7e6.jpg';
@@ -38,12 +39,71 @@ const services = [
 ];
 
 export default function FloatingChipCarousel() {
-  // Triple duplication for seamless infinite scroll with no visible loop on mobile
-  const duplicatedServices = [...services, ...services, ...services];
+  const trackRef = useRef<HTMLDivElement>(null);
+  const animationRef = useRef<number>();
+
+  // Double duplication for seamless loop
+  const duplicatedServices = [...services, ...services];
+
+  useEffect(() => {
+    const track = trackRef.current;
+    if (!track) return;
+
+    // Determine speed based on screen size
+    const isMobile = window.innerWidth < 768;
+    const speed = isMobile ? 0.5 : 0.3; // Pixels per frame (faster on mobile)
+
+    let currentTranslate = 0;
+    let contentWidth = 0;
+
+    // Measure actual rendered width of one complete set (including gaps)
+    const measureWidth = () => {
+      // Since we have 2x duplication, the total scrollWidth is 2x one set
+      // So one set width = scrollWidth / 2
+      if (track.scrollWidth > 0) {
+        contentWidth = track.scrollWidth / 2;
+      }
+    };
+
+    // Animation loop
+    const animate = () => {
+      currentTranslate -= speed;
+
+      // Reset seamlessly when we've scrolled past one full set
+      if (Math.abs(currentTranslate) >= contentWidth) {
+        currentTranslate = 0;
+      }
+
+      // Apply transform directly to avoid state updates every frame
+      if (track) {
+        track.style.transform = `translateX(${currentTranslate}px)`;
+      }
+
+      animationRef.current = requestAnimationFrame(animate);
+    };
+
+    // Start animation after measuring
+    setTimeout(() => {
+      measureWidth();
+      if (contentWidth > 0) {
+        animate();
+      }
+    }, 100);
+
+    return () => {
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
+      }
+    };
+  }, []);
 
   return (
     <div className="w-full overflow-hidden">
-      <div className="flex animate-scroll-smooth-mobile md:animate-scroll-smooth whitespace-nowrap gap-3 md:gap-2">
+      <div 
+        ref={trackRef}
+        className="flex whitespace-nowrap gap-3 md:gap-2"
+        style={{ willChange: 'transform' }}
+      >
         {duplicatedServices.map((service, index) => (
           <div 
             key={index} 
