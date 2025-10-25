@@ -1,0 +1,102 @@
+BUILD OARC DIGITAL — FULL SITE BLUEPRINT & IMPLEMENTATION
+
+Context:
+- Project = OARC Digital (AI-powered creative & revenue automation agency). Homepage is already in this Replit project (entry: /index.html and /src/main.tsx). Preserve current homepage exactly and reuse components/styles where possible. :contentReference[oaicite:8]{index=8}
+- Reference style & information: Superside’s site and the attached Superside analysis document should be used as primary design/inspiration references (layout, content structure, animation style, service landing page granularity). Use those patterns liberally. :contentReference[oaicite:9]{index=9} :contentReference[oaicite:10]{index=10}
+
+Deliverables:
+1) Convert current project into a component-driven React+TS site with routing so each of the following pages exist and are linked from the top nav:
+   - Home (preserve)
+   - Services (category landing)
+   - All service landing pages (see Services list below)
+   - Our Work (portfolio index + case study pages)
+   - Why Us (team / process / AI excellence)
+   - Resources (guides)
+   - Pricing
+   - Enterprise
+   - Contact / Book a demo
+
+Services (create each as a long-form landing page):
+- Ad Creative
+- Social Media Creative
+- Branding & Identity
+- Presentation & Pitch
+- Illustration
+- Print & Packaging
+- Video Production
+- Motion Design
+- Immersive / 3D / AR
+- Email Creative
+- Web Design & Landing Pages
+- Design Systems
+- AI-Powered Creative
+- AI Consulting
+- HIRE AI EMPLOYEES (OARC) — dedicated page
+- REVENUE AUTOMATION & GROWTH (OARC) — dedicated page
+- Growth & Performance Marketing
+- Paid Media & AdOps
+- Organic Social Strategy
+
+2) Use the page template pattern:
+   - Hero (full-bleed with video/Lottie or high-res art) + H1 + short sub + primary CTA
+   - Why/problem section (1 short block)
+   - What we offer (card grid)
+   - How it works (3-step / pinned scroll story for OARC)
+   - Case studies gallery
+   - Metrics counters
+   - Testimonials
+   - Closing CTA block
+
+3) Content & copy expectations:
+   - Copy must be original, non-generic, benefit-focused, and tailored per service. Use the supplied short hero & scroll lines for OARC (see prompt examples above).
+   - If copying wording/format from Superside for structure is helpful, you may use it as a layout reference but do not replicate generic phrases; rewrite for OARC voice.
+
+4) Visual assets & images:
+   - Keep 8K design masters in /assets/masters but serve responsive WebP/AVIF per breakpoint using an automated image pipeline.
+   - Hero loops: short 3–8s MP4/WebM or Lottie. Use Lottie for UI microinteractions and GSAP ScrollTrigger for cinematic pinned sequences.
+   - All hero & key images must be ultra-high-quality (source masters 8K). On the web serve multiple sizes and lazy-load larger ones.
+
+5) Animations & interaction rules:
+   - Section entrances: fade/slide 180–220ms easing.
+   - CTA hover: scale or glow 150–180ms.
+   - Pinned scroll story (for the OARC hero section) must pin, then step through the four scroll states:
+     “Optimised…”, “AI-Driven…”, “Revenue…”, “Creative…”, then unlock to the hero CTA.
+   - Counters animate on scroll; testimonial carousel auto-play with manual controls.
+
+6) Technical:
+   - Routes: /services/[slug], /our-work/[slug], /resources/[slug]
+   - Components: Hero, ServiceGrid, FeatureCard, CaseGrid, TrustedLogos, TestimonialCarousel, MetricCounters, PinnedScrollStory
+   - Image pipeline: Sharp (or Replit-compatible tool) to generate WebP/AVIF + srcset.
+   - SEO: metaTitle, metaDesc, OG image per page, schema.org JSON-LD for case studies.
+   - Performance: critical CSS for hero, preconnect fonts, lazy-load non-critical assets.
+
+7) Accessibility:
+   - Alt text, correct heading order, keyboard focus, aria roles for carousels.
+
+8) Content-first tasks (priority order):
+   1. Map top nav & mega-menu and create skeleton routes/pages.
+   2. Export existing homepage into component layout (preserve).
+   3. Implement global components (Hero, FooterCTA).
+   4. Build 5 highest-priority service pages first: Hire AI Employees, Revenue Automation, Web Design, Ad Creative, Social Media Creative — complete with copy, assets, and case thumbnails.
+   5. Auto-generate remaining service pages using the same templates (write unique copy per page).
+   6. Populate Our Work with 8 sample case studies (realistic content and outcomes).
+   7. Final pass: imagery quality check, accessibility, performance audit.
+
+Design permission:
+- You are allowed to copy Superside’s layout, animation patterns, and structure as a design reference. For content, replicate structure but use original OARC copy (do not wholesale copy text). Use Superside only as UI/UX/section-reference. :contentReference[oaicite:11]{index=11}
+
+References: Use attachments “Superside Website Analysis for Replit’s Blueprint.pdf” and “Superside Website Structure and Pages.pdf” as LOE + design reference. :contentReference[oaicite:12]{index=12} :contentReference[oaicite:13]{index=13}
+
+Deliverable format:
+- Fully linked site within this Replit project (routes working).
+- A `/design-assets` folder with master 8K imagery + exported web versions.
+- A `/specs/README.md` that lists each page, hero copy, CTA text, image filenames for each section, chosen animation library and precise animation timings.
+- A short `handoff.zip` (or repo branch) containing image masters and the README for you to review.
+
+Performance & Quality bar: Everything must feel cinematic, non-generic, modern (2025-grade). Animations should be subtle & purposeful. Copy must be crisp, benefit-first, and conversion-optimized.
+
+If you understand, start by:
+1) Creating the skeleton routes and components and committing to a new branch `oarc/blueprint`.
+2) I will review the first 5 completed service pages and approve before you generate the remaining pages.
+
+End of prompt.
