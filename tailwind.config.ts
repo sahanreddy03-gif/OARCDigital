@@ -101,6 +101,10 @@ export default {
           "0%": { transform: "translateX(0)" },
           "100%": { transform: "translateX(-50%)" },
         },
+        "scroll-smooth": {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-33.333%)" },
+        },
         "scroll-reverse": {
           "0%": { transform: "translateX(-50%)" },
           "100%": { transform: "translateX(0)" },
@@ -112,6 +116,8 @@ export default {
         "scroll": "scroll 15s linear infinite",
         "scroll-fast": "scroll 10s linear infinite",
         "scroll-mobile": "scroll 8s linear infinite",
+        "scroll-smooth": "scroll-smooth 30s linear infinite",
+        "scroll-smooth-mobile": "scroll-smooth 20s linear infinite",
         "scroll-reverse": "scroll-reverse 20s linear infinite",
       },
     },
