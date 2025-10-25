@@ -43,7 +43,7 @@ export default function FloatingChipCarousel() {
 
   return (
     <div className="w-full overflow-hidden">
-      <div className="flex animate-scroll whitespace-nowrap gap-3 md:gap-2">
+      <div className="flex animate-scroll-mobile md:animate-scroll whitespace-nowrap gap-3 md:gap-2">
         {duplicatedServices.map((service, index) => (
           <div 
             key={index} 
