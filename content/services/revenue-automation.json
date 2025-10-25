@@ -1,0 +1,101 @@
+{
+  "slug": "revenue-automation",
+  "title": "Revenue Automation & Growth",
+  "category": "OARC Solutions",
+  "meta": {
+    "title": "Revenue Automation & Growth Systems — OARC Digital",
+    "description": "Automate revenue workflows and run AI-driven funnels that scale. Integrate CRM, ad signals and creative to multiply conversions."
+  },
+  "hero": {
+    "headline": "Revenue, automated.",
+    "subheadline": "Systems that learn, multiply output, and convert more of your traffic into revenue.",
+    "primaryCTA": {
+      "text": "Show me the demo",
+      "href": "/contact"
+    },
+    "secondaryCTA": {
+      "text": "Request an enterprise review",
+      "href": "/enterprise"
+    }
+  },
+  "benefits": [
+    {
+      "text": "Turn ad spend into predictable pipeline with automated follow-ups."
+    },
+    {
+      "text": "Real-time signals connect creative performance to spend and optimize bids."
+    },
+    {
+      "text": "Automated experiments that compound wins across audiences."
+    }
+  ],
+  "metrics": [
+    {
+      "value": "25-45%",
+      "label": "cost per acquisition reduction",
+      "description": "(typical with automation tuning)"
+    },
+    {
+      "value": "30-60%",
+      "label": "increase in pipeline conversion rate"
+    },
+    {
+      "value": "Auto LTV",
+      "label": "modeling for smarter budgeting"
+    }
+  ],
+  "included": [
+    "Revenue pipeline audits, automated follow-up sequences, audience re-engagement flows.",
+    "Signal layer integration: ad platforms → CRM → CDP → email/SMS.",
+    "Automation playbooks & governance for privacy/compliance."
+  ],
+  "howItWorks": [
+    {
+      "step": 1,
+      "title": "Audit & Connect",
+      "description": "Map existing funnels and data sources."
+    },
+    {
+      "step": 2,
+      "title": "Automate & Test",
+      "description": "Build orchestration & experiment automation."
+    },
+    {
+      "step": 3,
+      "title": "Optimize & Scale",
+      "description": "Tune models and expand winning flows."
+    }
+  ],
+  "caseStudies": [
+    {
+      "client": "D2C Brand",
+      "problem": "Low checkout conversion",
+      "solution": "Dynamic retargeting + automated cart recovery flows",
+      "result": "+38% revenue from retargeting segment"
+    },
+    {
+      "client": "B2B SaaS",
+      "problem": "Long sales cycles",
+      "solution": "Lead scoring + nurtures triggered by intent signals",
+      "result": "Sales-qualified leads ↑45%, demo-to-deal time reduced 22%"
+    }
+  ],
+  "faq": [
+    {
+      "question": "Which CRMs do you support?",
+      "answer": "We integrate with major CRMs (Salesforce, HubSpot, Pipedrive) and custom APIs."
+    },
+    {
+      "question": "Is this just 'set and forget'?",
+      "answer": "No — initial automation plus continuous optimization; we run experiments and update flows."
+    },
+    {
+      "question": "What about data security?",
+      "answer": "Encrypted integrations and role-based access; logs and rollback available."
+    },
+    {
+      "question": "How do you charge?",
+      "answer": "Options: monthly retainer + value-based success fees for enterprise setups."
+    }
+  ]
+}

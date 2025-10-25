@@ -1,179 +1,221 @@
-import Navigation from "@/components/Navigation";
-import Footer from "@/components/Footer";
-import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
-import { ArrowLeft, Check } from "lucide-react";
-import { Link, useParams } from "wouter";
+import { useRoute } from "wouter";
+import { useState, useEffect } from "react";
+import Layout from "@/components/layout/Layout";
+import Hero from "@/components/reusable/Hero";
+import MetricCounters from "@/components/reusable/MetricCounters";
+import ServiceGrid from "@/components/reusable/ServiceGrid";
+import HowItWorks from "@/components/reusable/HowItWorks";
+import FAQ from "@/components/reusable/FAQ";
 
-const serviceData: Record<string, {
+interface ServiceContent {
+  slug: string;
   title: string;
-  subtitle: string;
-  description: string;
-  features: string[];
-  benefits: string[];
-}> = {
-  "ai-creative": {
-    title: "AI Creative",
-    subtitle: "AI-powered creative production at scale",
-    description: "From video production to brand imagery, we deliver AI-powered creative that converts. Our team combines cutting-edge AI technology with human creativity to produce stunning visuals, engaging videos, and compelling content that drives results.",
-    features: [
-      "Character Design & Development",
-      "Voice + Avatar Generation",
-      "Social Media Content Creation",
-      "Motion Graphics & Animation",
-      "Product Visuals & Photography",
-      "Reels & TikToks Production",
-      "Professional Video Production",
-      "Brand Image & Identity",
-      "Website & Landing Page Design",
-    ],
-    benefits: [
-      "60% more efficient than traditional creative production",
-      "Maintain brand consistency across all channels",
-      "Scale content production without scaling costs",
-      "Faster turnaround times with AI assistance",
-      "Professional quality with human oversight",
-    ],
-  },
-  "ai-employees": {
-    title: "Hire AI Employees",
-    subtitle: "Scale your team with AI-powered employees",
-    description: "Add specialized AI employees to your team for sales, support, and administration. Our AI employees are trained on your business processes and integrate seamlessly with your existing tools, providing 24/7 availability without the overhead.",
-    features: [
-      "Sales AI Employees - Lead qualification and outreach",
-      "Support AI Employees - Customer service and troubleshooting",
-      "Admin AI Employees - Data entry and scheduling",
-      "Custom training on your business processes",
-      "Integration with existing tools and systems",
-      "Continuous learning and improvement",
-      "24/7 availability and instant response",
-    ],
-    benefits: [
-      "Reduce staffing costs by up to 70%",
-      "Instant scalability during peak periods",
-      "Consistent quality and brand voice",
-      "Free up human employees for strategic work",
-      "Multilingual support capabilities",
-    ],
-  },
-  "revenue-automation": {
-    title: "Revenue Automation",
-    subtitle: "Automated funnels that convert leads into customers",
-    description: "Build automated marketing and sales funnels that work 24/7 to convert leads into paying customers. Our revenue automation combines AI-powered follow-ups, personalized nurturing, and intelligent lead scoring to maximize conversion rates.",
-    features: [
-      "Automated lead capture and qualification",
-      "Intelligent email and SMS follow-up sequences",
-      "Personalized content delivery",
-      "Multi-channel nurture campaigns",
-      "Lead scoring and prioritization",
-      "Sales funnel optimization",
-      "ROI tracking and reporting",
-    ],
-    benefits: [
-      "Never miss a lead with automated follow-ups",
-      "Increase conversion rates by up to 180%",
-      "Reduce sales cycle length",
-      "Maximize lifetime customer value",
-      "Full visibility into funnel performance",
-    ],
-  },
-};
+  category: string;
+  meta: {
+    title: string;
+    description: string;
+  };
+  hero: {
+    headline: string;
+    subheadline: string;
+    primaryCTA: {
+      text: string;
+      href: string;
+    };
+    secondaryCTA?: {
+      text: string;
+      href: string;
+    };
+  };
+  benefits: Array<{ text: string }>;
+  metrics: Array<{
+    value: string;
+    label: string;
+    description?: string;
+  }>;
+  included: string[];
+  howItWorks: Array<{
+    step: number;
+    title: string;
+    description: string;
+  }>;
+  caseStudies: Array<{
+    client: string;
+    problem: string;
+    solution: string;
+    result: string;
+  }>;
+  faq: Array<{
+    question: string;
+    answer: string;
+  }>;
+}
 
 export default function ServiceDetail() {
-  const params = useParams();
-  const serviceKey = params.service || "ai-creative";
-  const service = serviceData[serviceKey] || serviceData["ai-creative"];
+  const [, params] = useRoute("/services/:service");
+  const [content, setContent] = useState<ServiceContent | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
-  return (
-    <div className="min-h-screen">
-      <Navigation />
+  useEffect(() => {
+    async function loadContent() {
+      if (!params?.service) return;
       
-      <section className="pt-32 pb-16 bg-gradient-to-br from-primary/10 via-chart-2/10 to-background">
-        <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <Link href="/">
-            <Button variant="ghost" className="mb-8" data-testid="button-back">
-              <ArrowLeft className="w-4 h-4 mr-2" />
-              Back to Home
-            </Button>
-          </Link>
+      try {
+        setLoading(true);
+        const response = await fetch(`/content/services/${params.service}.json`);
+        
+        if (!response.ok) {
+          throw new Error(`Service content not found for ${params.service}`);
+        }
+        
+        const data = await response.json();
+        setContent(data);
+        
+        // Update meta tags
+        document.title = data.meta.title;
+        const metaDesc = document.querySelector('meta[name="description"]');
+        if (metaDesc) {
+          metaDesc.setAttribute('content', data.meta.description);
+        }
+      } catch (err) {
+        setError(err instanceof Error ? err.message : 'Failed to load service content');
+      } finally {
+        setLoading(false);
+      }
+    }
 
-          <h1 className="text-5xl md:text-6xl font-bold font-display tracking-tight mb-6">
-            {service.title}
-          </h1>
-          <p className="text-2xl text-muted-foreground mb-8 max-w-3xl">
-            {service.subtitle}
-          </p>
-          <Button size="lg" className="rounded-full" data-testid="button-get-started">
-            Get Started
-          </Button>
-        </div>
-      </section>
+    loadContent();
+  }, [params?.service]);
 
-      <section className="py-24 bg-background">
-        <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <div className="grid md:grid-cols-2 gap-16">
-            <div>
-              <h2 className="text-3xl font-bold font-display mb-6">About This Service</h2>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                {service.description}
-              </p>
-            </div>
-
-            <Card className="p-8">
-              <h3 className="text-2xl font-bold font-display mb-6">Key Benefits</h3>
-              <ul className="space-y-4">
-                {service.benefits.map((benefit, index) => (
-                  <li key={index} className="flex items-start gap-3">
-                    <div className="w-5 h-5 rounded-full bg-chart-4/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <Check className="w-3 h-3 text-chart-4" />
-                    </div>
-                    <span className="text-muted-foreground">{benefit}</span>
-                  </li>
-                ))}
-              </ul>
-            </Card>
+  if (loading) {
+    return (
+      <Layout>
+        <div className="min-h-screen flex items-center justify-center">
+          <div className="text-center">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#c4ff4d] mx-auto mb-4"></div>
+            <p className="text-gray-400">Loading service...</p>
           </div>
         </div>
-      </section>
+      </Layout>
+    );
+  }
 
-      <section className="py-24 bg-muted/30">
-        <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <h2 className="text-4xl font-bold font-display mb-12 text-center">What's Included</h2>
-          
-          <div className="grid md:grid-cols-3 gap-6">
-            {service.features.map((feature, index) => (
-              <Card key={index} className="p-6 hover-elevate hover:shadow-lg transition-all" data-testid={`card-feature-${index}`}>
-                <div className="flex items-start gap-3">
-                  <div className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <Check className="w-4 h-4 text-primary" />
-                  </div>
-                  <p className="font-medium">{feature}</p>
-                </div>
-              </Card>
+  if (error || !content) {
+    return (
+      <Layout>
+        <div className="min-h-screen flex items-center justify-center">
+          <div className="text-center">
+            <h1 className="text-4xl font-bold mb-4">Service Not Found</h1>
+            <p className="text-gray-400 mb-8">{error || 'This service page is not yet available.'}</p>
+            <a
+              href="/services"
+              className="inline-block bg-[#c4ff4d] text-gray-900 px-6 py-3 rounded-full font-semibold hover:bg-[#b3e842] transition-colors"
+            >
+              View All Services
+            </a>
+          </div>
+        </div>
+      </Layout>
+    );
+  }
+
+  return (
+    <Layout>
+      {/* Hero Section */}
+      <Hero
+        headline={content.hero.headline}
+        subheadline={content.hero.subheadline}
+        primaryCTA={content.hero.primaryCTA}
+        secondaryCTA={content.hero.secondaryCTA}
+      />
+
+      {/* Benefits Section */}
+      <section className="py-16 px-4 bg-white text-gray-900">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12" data-testid="text-benefits-title">
+            Key Benefits
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {content.benefits.map((benefit, index) => (
+              <div
+                key={index}
+                className="p-6 rounded-xl bg-gray-50 border border-gray-200"
+                data-testid={`benefit-${index}`}
+              >
+                <p className="font-medium text-gray-900">{benefit.text}</p>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="py-24 bg-primary text-primary-foreground">
-        <div className="max-w-4xl mx-auto px-6 md:px-12 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold font-display mb-6">
-            Ready to get started?
-          </h2>
-          <p className="text-xl text-primary-foreground/80 mb-8 max-w-2xl mx-auto">
-            Let's discuss how {service.title.toLowerCase()} can transform your business and drive real revenue growth.
-          </p>
-          <Button 
-            size="lg" 
-            className="rounded-full bg-background text-primary hover:bg-background/90"
-            data-testid="button-contact-sales"
-          >
-            Contact Sales
-          </Button>
+      {/* Metrics Section */}
+      <section className="bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white py-16">
+        <MetricCounters metrics={content.metrics} />
+      </section>
+
+      {/* What's Included */}
+      <section className="bg-white text-gray-900">
+        <ServiceGrid items={content.included} title="What's Included" />
+      </section>
+
+      {/* How It Works */}
+      <section className="bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white">
+        <HowItWorks steps={content.howItWorks} />
+      </section>
+
+      {/* Case Studies */}
+      <section className="py-20 px-4 bg-white text-gray-900">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12" data-testid="text-case-studies-title">
+          Success Stories
+        </h2>
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+          {content.caseStudies.map((study, index) => (
+            <div
+              key={index}
+              className="p-8 rounded-xl bg-gray-50 border border-gray-200"
+              data-testid={`case-study-${index}`}
+            >
+              <div className="text-sm font-semibold text-[#ea580c] mb-3">{study.client}</div>
+              <div className="mb-4">
+                <span className="font-semibold">Problem: </span>
+                <span className="text-gray-700">{study.problem}</span>
+              </div>
+              <div className="mb-4">
+                <span className="font-semibold">Solution: </span>
+                <span className="text-gray-700">{study.solution}</span>
+              </div>
+              <div className="p-4 bg-[#c4ff4d]/10 border border-[#c4ff4d]/30 rounded-lg">
+                <span className="font-semibold text-gray-900">Result: </span>
+                <span className="text-gray-900">{study.result}</span>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
-      <Footer />
-    </div>
+      {/* FAQ */}
+      <section className="bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white">
+        <FAQ items={content.faq} />
+      </section>
+
+      {/* Final CTA */}
+      <section className="py-20 px-4 bg-[#c4ff4d] text-gray-900">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">Ready to get started?</h2>
+          <p className="text-xl mb-8 text-gray-800">
+            Let's discuss how {content.title.toLowerCase()} can transform your business.
+          </p>
+          <a
+            href="/contact"
+            className="inline-block bg-gray-900 text-white px-10 py-4 rounded-full font-semibold text-lg hover:bg-gray-800 transition-colors"
+            data-testid="button-final-cta"
+          >
+            Book a Consultation
+          </a>
+        </div>
+      </section>
+    </Layout>
   );
 }

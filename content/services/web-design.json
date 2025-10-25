@@ -1,0 +1,103 @@
+{
+  "slug": "web-design",
+  "title": "Web Design & Landing Pages",
+  "category": "Creative Services",
+  "meta": {
+    "title": "Web Design & Landing Pages — OARC Digital",
+    "description": "High-converting websites and landing pages designed for conversions — fast builds, modular design systems, and motion-led interactions."
+  },
+  "hero": {
+    "headline": "Web design that converts.",
+    "subheadline": "Pixel-perfect sites and landing pages—fast to launch, faster to convert.",
+    "primaryCTA": {
+      "text": "Build my page",
+      "href": "/contact"
+    },
+    "secondaryCTA": {
+      "text": "View templates",
+      "href": "#templates"
+    }
+  },
+  "benefits": [
+    {
+      "text": "Conversion-first design, A/B-ready from day one."
+    },
+    {
+      "text": "Modular pages built with design systems for fast iteration."
+    },
+    {
+      "text": "Motion and content optimized for attention retention."
+    }
+  ],
+  "metrics": [
+    {
+      "value": "18-40%",
+      "label": "uplift in conversion rate",
+      "description": "post-launch"
+    },
+    {
+      "value": "50%",
+      "label": "faster time-to-launch",
+      "description": "with modular templates"
+    },
+    {
+      "value": "<0.8s",
+      "label": "average hero LCP",
+      "description": "(optimized setup)"
+    }
+  ],
+  "included": [
+    "UX audit, wireframes, high-fidelity design, Webflow/React implementation, analytics setup.",
+    "Design tokens and CMS for content editors.",
+    "A/B testing and post-launch tuning."
+  ],
+  "howItWorks": [
+    {
+      "step": 1,
+      "title": "Research & Wireframe",
+      "description": "Rapid user/goal workshop and wireframes."
+    },
+    {
+      "step": 2,
+      "title": "Design & Build",
+      "description": "High-fidelity design, dev handoff or Webflow build."
+    },
+    {
+      "step": 3,
+      "title": "Optimize",
+      "description": "A/B tests and iterative improvements."
+    }
+  ],
+  "caseStudies": [
+    {
+      "client": "Fintech Startup",
+      "problem": "Low landing conversion",
+      "solution": "New funnel landing + Lottie micro-interactions",
+      "result": "+72% conversion on paid channels"
+    },
+    {
+      "client": "Hospitality Chain",
+      "problem": "Slow booking flow",
+      "solution": "Streamlined booking UI + trust microcopy",
+      "result": "Booking completion ↑31%"
+    }
+  ],
+  "faq": [
+    {
+      "question": "Do you provide CMS?",
+      "answer": "Yes — content editing via headless CMS or Webflow CMS depending on stack."
+    },
+    {
+      "question": "Can you create templates for multiple campaigns?",
+      "answer": "Yes — modular components allow productionizing landing pages."
+    },
+    {
+      "question": "What tech stacks do you use?",
+      "answer": "React/Vite, Next.js, Webflow, Tailwind, or custom stacks per requirement."
+    },
+    {
+      "question": "Do you include analytics?",
+      "answer": "Yes — GA4, server-side tracking, conversion pixels, and dashboards."
+    }
+  ]
+}
