@@ -33,7 +33,7 @@ Preferred communication style: Simple, everyday language.
 - **Homepage Sections:** Hero, Social First Agency, Brand Carousel, Our Difference, Let's Talk OARC, AI Creative Services, Hire AI Employees, Let's Talk Revenue. Each section has a distinct visual style with sophisticated two-palette alternating system (black/orange and white backgrounds).
 - **Carousel Functionality:** Interactive snap-to-card functionality with auto-scrolling, momentum physics for quick flicks, and auto-resume after user interaction.
 - **Homepage FloatingChipCarousel:** Premium 8K stock images with enhanced animations (scale-105 hover, shadow-2xl, ring highlights with green accent, 500ms image zoom transitions)
-- **Let's Talk OARC Section:** Cinematic scroll-triggered letter reveals with 6 vertically scrolling sections. Features giant decorative letters (12-24rem) in orange-600/10, condensed copy, and smooth IntersectionObserver animations. Uses orange-600 (#ea580c) for titles with WCAG-compliant 3.55:1 contrast ratio on white background.
+- **Let's Talk OARC Section:** Compact, single-section design with 2x2 grid layout (desktop) and vertical stack (mobile). Features giant decorative letters (10-14rem) in orange-600/10, condensed copy, and scroll-triggered animations. Uses orange-600 (#ea580c) for titles with WCAG-compliant 3.55:1 contrast ratio on white background. Total height: ~100vh (vs previous 400vh+ design) for optimal user experience without excessive scrolling.
 
 ### External Dependencies
 
