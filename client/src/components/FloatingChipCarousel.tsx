@@ -3,13 +3,16 @@ import digitalMarketing from '@assets/stock_images/digital_marketing_st_73e0d5ea
 import socialMedia from '@assets/stock_images/social_media_managem_8e61c86d.jpg';
 import aiVideo from '@assets/stock_images/video_production_stu_abf9b7e6.jpg';
 import branding from '@assets/stock_images/branding_design_logo_def8ba83.jpg';
+import paidAdvertising from '@assets/stock_images/paid_advertising_cam_32402c75.jpg';
+import mediaBuying from '@assets/stock_images/media_buying_profess_46c30c8a.jpg';
+import websiteDesign from '@assets/stock_images/website_design_ui_ux_4ef0c7cd.jpg';
+import influencerMarketing from '@assets/stock_images/influencer_marketing_bb368e00.jpg';
 import rapidTesting from '@assets/stock_images/rapid_prototyping_te_8f533efd.jpg';
 import leadGen from '@assets/stock_images/lead_generation_sale_842797d5.jpg';
 import creativeAds from '@assets/stock_images/creative_advertising_30aa5822.jpg';
 import customerAcquisition from '@assets/stock_images/customer_acquisition_f9d88ee5.jpg';
 import funnelAutomation from '@assets/stock_images/marketing_automation_0c8f4dcc.jpg';
 import aiCopywriting from '@assets/stock_images/copywriting_content__42613a28.jpg';
-import websiteDesign from '@assets/stock_images/website_design_ui_ux_4ef0c7cd.jpg';
 import adminAI from '@assets/stock_images/administrative_assis_c2205c82.jpg';
 import salesAI from '@assets/stock_images/sales_professional_b_92ff4f35.jpg';
 import supportAI from '@assets/stock_images/customer_support_hel_973ef702.jpg';
@@ -19,20 +22,24 @@ const services = [
   { text: "Social Media Management", image: socialMedia },
   { text: "AI Video Production", image: aiVideo },
   { text: "Branding Services", image: branding },
+  { text: "Paid Advertising", image: paidAdvertising },
+  { text: "Media Buying", image: mediaBuying },
+  { text: "Website Design", image: websiteDesign },
+  { text: "Influencer Marketing", image: influencerMarketing },
   { text: "Rapid Idea Testing", image: rapidTesting },
   { text: "Lead Generation", image: leadGen },
   { text: "Creative Ad Campaigns", image: creativeAds },
   { text: "Customer Acquisition Strategy", image: customerAcquisition },
   { text: "Funnel Automation", image: funnelAutomation },
   { text: "AI Copywriting", image: aiCopywriting },
-  { text: "Website Design", image: websiteDesign },
   { text: "Admin AI Employees", image: adminAI },
   { text: "Sales AI Employees", image: salesAI },
   { text: "Support AI Employees", image: supportAI },
 ];
 
 export default function FloatingChipCarousel() {
-  const duplicatedServices = [...services, ...services, ...services];
+  // Fixed: Duplicate 2x to match the -50% translation in animate-scroll (no more glitch!)
+  const duplicatedServices = [...services, ...services];
 
   return (
     <div className="w-full overflow-hidden">
