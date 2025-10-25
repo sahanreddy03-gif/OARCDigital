@@ -92,7 +92,10 @@ export default function LetsTalkSection() {
                       transition: 'all 1.2s cubic-bezier(0.34, 1.56, 0.64, 1)'
                     }}
                   >
-                    <div className="text-[12rem] md:text-[16rem] lg:text-[20rem] xl:text-[24rem] font-black leading-none text-orange-500/10 select-none">
+                    <div 
+                      className="text-[12rem] md:text-[16rem] lg:text-[20rem] xl:text-[24rem] font-black leading-none text-orange-600/10 select-none"
+                      aria-hidden="true"
+                    >
                       {section.letter}
                     </div>
                   </div>
@@ -113,7 +116,7 @@ export default function LetsTalkSection() {
                       isIntro || isOutro 
                         ? 'text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-zinc-900' 
                         : 'text-5xl md:text-6xl lg:text-7xl xl:text-8xl'
-                    } ${section.accent ? 'text-orange-500' : 'text-zinc-900'}`}
+                    } ${section.accent ? 'text-orange-600' : 'text-zinc-900'}`}
                     data-testid={`title-${section.title.toLowerCase().replace(/[^a-z]/g, '-')}`}
                   >
                     {section.title}
@@ -146,8 +149,9 @@ export default function LetsTalkSection() {
                       transition: 'opacity 1s ease-out',
                       transitionDelay: '0.8s'
                     }}
+                    aria-hidden="true"
                   >
-                    <div className="w-2 h-2 bg-orange-500 rounded-full mx-auto animate-pulse" />
+                    <div className="w-2 h-2 bg-orange-600 rounded-full mx-auto animate-pulse" />
                   </div>
                 )}
               </div>
