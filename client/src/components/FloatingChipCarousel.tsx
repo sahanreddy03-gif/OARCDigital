@@ -38,12 +38,12 @@ const services = [
 ];
 
 export default function FloatingChipCarousel() {
-  // Fixed: Duplicate 2x to match the -50% translation in animate-scroll (no more glitch!)
-  const duplicatedServices = [...services, ...services];
+  // Triple duplication for seamless infinite scroll with no visible loop on mobile
+  const duplicatedServices = [...services, ...services, ...services];
 
   return (
     <div className="w-full overflow-hidden">
-      <div className="flex animate-scroll-mobile md:animate-scroll whitespace-nowrap gap-3 md:gap-2">
+      <div className="flex animate-scroll-smooth-mobile md:animate-scroll-smooth whitespace-nowrap gap-3 md:gap-2">
         {duplicatedServices.map((service, index) => (
           <div 
             key={index} 
