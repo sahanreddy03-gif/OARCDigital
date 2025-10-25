@@ -7,40 +7,36 @@ import executiveMan2 from '@assets/stock_images/professional_busines_69be6204.jp
 
 const testimonials = [
   {
-    quote: "OARC Digital transformed our marketing approach. Their AI-powered strategies delivered a 320% ROI in just 6 months. The team's expertise and responsiveness are unmatched.",
+    quote: "OARC Digital transformed our marketing approach. Their AI-powered strategies delivered a 320% ROI in just 6 months.",
     author: "Sarah Chen",
     role: "Chief Marketing Officer",
     company: "TechVentures Inc.",
     image: executiveWoman1,
-    metric: "320% ROI",
-    metricLabel: "in 6 months"
+    metric: "320% ROI"
   },
   {
-    quote: "Working with OARC has been game-changing. They don't just execute—they think strategically about our business goals and deliver results that matter. Best investment we've made.",
+    quote: "Working with OARC has been game-changing. They think strategically about our business goals and deliver results that matter.",
     author: "Michael Rodriguez",
     role: "Founder & CEO",
     company: "Growth Labs",
     image: executiveMan1,
-    metric: "$2.4M ARR",
-    metricLabel: "additional revenue"
+    metric: "$2.4M ARR"
   },
   {
-    quote: "The combination of AI technology and human creativity is what sets OARC apart. They've helped us scale our content production 10x while maintaining exceptional quality.",
+    quote: "The combination of AI technology and human creativity is what sets OARC apart. They've helped us scale 10x while maintaining quality.",
     author: "Emma Thompson",
     role: "VP of Marketing",
     company: "InnovateCo",
     image: executiveWoman2,
-    metric: "10x Content",
-    metricLabel: "production scale"
+    metric: "10x Scale"
   },
   {
-    quote: "OARC Digital isn't just a vendor—they're a true partner in our growth. Their strategic insights and execution have been instrumental in our market expansion.",
+    quote: "OARC Digital isn't just a vendor—they're a true partner in our growth. Their strategic insights have been instrumental in our expansion.",
     author: "David Park",
     role: "Chief Revenue Officer",
     company: "Scale Systems",
     image: executiveMan2,
-    metric: "+450%",
-    metricLabel: "lead generation"
+    metric: "+450%"
   },
 ];
 
@@ -58,136 +54,102 @@ export default function Testimonials() {
   const activeTestimonial = testimonials[activeIndex];
 
   return (
-    <section className="relative py-16 md:py-20 lg:py-24 overflow-hidden bg-gradient-to-br from-zinc-50 to-zinc-100">
-      {/* Subtle background elements */}
+    <section className="relative py-14 md:py-20 overflow-hidden bg-gradient-to-br from-zinc-50 to-zinc-100">
+      {/* Subtle background */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-orange-200/20 to-transparent rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-zinc-200/30 to-transparent rounded-full blur-3xl"></div>
       </div>
       
-      <div className="relative container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl">
+      <div className="relative container mx-auto px-6 md:px-8 lg:px-12 max-w-6xl">
         {/* Section Header */}
-        <div className="text-center mb-12 md:mb-16">
-          <p className="text-sm uppercase tracking-wider font-bold text-orange-600 mb-4" data-testid="text-testimonials-eyebrow">
+        <div className="text-center mb-10 md:mb-12">
+          <p className="text-sm uppercase tracking-wider font-bold text-orange-600 mb-3" data-testid="text-testimonials-eyebrow">
             Our Credibility
           </p>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-zinc-900 mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-zinc-900 mb-3">
             Trusted by Industry Leaders
           </h2>
-          <p className="text-xl md:text-2xl text-zinc-600 max-w-3xl mx-auto">
-            Real results from real partnerships with ambitious brands
+          <p className="text-lg md:text-xl text-zinc-600 max-w-2xl mx-auto">
+            Real results from real partnerships
           </p>
         </div>
 
-        {/* Main Featured Testimonial - Large Format */}
-        <div className="mb-8 md:mb-12">
-          <div className="bg-white rounded-3xl overflow-hidden shadow-2xl hover-elevate transition-all duration-700">
-            <div className="grid lg:grid-cols-2 gap-0">
-              {/* Left: Image */}
-              <div className="relative h-80 lg:h-auto overflow-hidden bg-gradient-to-br from-zinc-100 to-zinc-200">
-                <img 
-                  src={activeTestimonial.image} 
-                  alt={activeTestimonial.author}
-                  className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
-                  data-testid="testimonial-featured-image"
-                />
-                {/* Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
-                
-                {/* Metric Badge */}
-                <div className="absolute bottom-6 left-6 bg-[#c4ff4d] text-zinc-900 px-6 py-3 rounded-2xl shadow-lg">
-                  <div className="text-3xl font-black">{activeTestimonial.metric}</div>
-                  <div className="text-sm font-semibold">{activeTestimonial.metricLabel}</div>
+        {/* Compact Featured Testimonial */}
+        <div className="bg-white rounded-2xl md:rounded-3xl overflow-hidden shadow-xl hover-elevate transition-all duration-500">
+          <div className="grid md:grid-cols-[200px_1fr] lg:grid-cols-[240px_1fr] gap-0">
+            {/* Left: Compact Image */}
+            <div className="relative h-64 md:h-auto overflow-hidden bg-gradient-to-br from-zinc-100 to-zinc-200">
+              <img 
+                src={activeTestimonial.image} 
+                alt={activeTestimonial.author}
+                className="w-full h-full object-cover"
+                data-testid="testimonial-featured-image"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
+            </div>
+
+            {/* Right: Content */}
+            <div className="p-6 md:p-8 lg:p-10 flex flex-col justify-between">
+              {/* Quote Icon */}
+              <div className="mb-4">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center shadow-md">
+                  <Quote className="w-6 h-6 text-white" />
                 </div>
               </div>
 
-              {/* Right: Content */}
-              <div className="p-8 md:p-12 lg:p-16 flex flex-col justify-between">
-                {/* Quote Icon */}
-                <div className="mb-6">
-                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center shadow-lg">
-                    <Quote className="w-8 h-8 text-white" />
-                  </div>
-                </div>
+              {/* Quote */}
+              <blockquote className="text-xl md:text-2xl lg:text-3xl font-bold text-zinc-900 leading-tight mb-6 flex-1">
+                "{activeTestimonial.quote}"
+              </blockquote>
 
-                {/* Quote */}
-                <blockquote className="text-2xl md:text-3xl lg:text-4xl font-bold text-zinc-900 leading-tight mb-8 flex-1">
-                  "{activeTestimonial.quote}"
-                </blockquote>
-
+              {/* Bottom Row - Author Info & Navigation */}
+              <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-5">
                 {/* Author Info */}
-                <div>
-                  <div className="mb-6">
-                    <div className="text-2xl font-black text-zinc-900" data-testid="testimonial-author-name">
+                <div className="flex items-center gap-4">
+                  {/* Metric Badge */}
+                  <div className="bg-[#c4ff4d] text-zinc-900 px-4 py-2.5 rounded-xl shadow-sm">
+                    <div className="text-2xl font-black leading-none">{activeTestimonial.metric}</div>
+                  </div>
+                  
+                  {/* Author Details */}
+                  <div>
+                    <div className="text-lg font-black text-zinc-900" data-testid="testimonial-author-name">
                       {activeTestimonial.author}
                     </div>
-                    <div className="text-lg text-zinc-600 font-medium mt-1">
+                    <div className="text-sm text-zinc-600 font-medium">
                       {activeTestimonial.role}
                     </div>
-                    <div className="text-base text-zinc-500 font-medium">
+                    <div className="text-sm text-zinc-500">
                       {activeTestimonial.company}
                     </div>
                   </div>
+                </div>
 
-                  {/* Navigation */}
-                  <div className="flex items-center gap-4">
-                    <button
-                      onClick={prevTestimonial}
-                      className="w-12 h-12 rounded-full bg-zinc-900 text-white flex items-center justify-center hover-elevate active-elevate-2 transition-all duration-300"
-                      data-testid="button-testimonial-prev"
-                      aria-label="Previous testimonial"
-                    >
-                      <ChevronLeft className="w-6 h-6" />
-                    </button>
-                    <button
-                      onClick={nextTestimonial}
-                      className="w-12 h-12 rounded-full bg-zinc-900 text-white flex items-center justify-center hover-elevate active-elevate-2 transition-all duration-300"
-                      data-testid="button-testimonial-next"
-                      aria-label="Next testimonial"
-                    >
-                      <ChevronRight className="w-6 h-6" />
-                    </button>
-                    <div className="text-sm font-semibold text-zinc-600 ml-2">
-                      {activeIndex + 1} / {testimonials.length}
-                    </div>
+                {/* Navigation */}
+                <div className="flex items-center gap-3">
+                  <button
+                    onClick={prevTestimonial}
+                    className="w-10 h-10 rounded-full bg-zinc-900 text-white flex items-center justify-center hover-elevate active-elevate-2 transition-all duration-300"
+                    data-testid="button-testimonial-prev"
+                    aria-label="Previous testimonial"
+                  >
+                    <ChevronLeft className="w-5 h-5" />
+                  </button>
+                  <div className="text-sm font-bold text-zinc-600">
+                    {activeIndex + 1} / {testimonials.length}
                   </div>
+                  <button
+                    onClick={nextTestimonial}
+                    className="w-10 h-10 rounded-full bg-zinc-900 text-white flex items-center justify-center hover-elevate active-elevate-2 transition-all duration-300"
+                    data-testid="button-testimonial-next"
+                    aria-label="Next testimonial"
+                  >
+                    <ChevronRight className="w-5 h-5" />
+                  </button>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-
-        {/* Thumbnail Navigation */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {testimonials.map((testimonial, index) => (
-            <button
-              key={index}
-              onClick={() => setActiveIndex(index)}
-              className={`group relative overflow-hidden rounded-2xl transition-all duration-500 ${
-                index === activeIndex 
-                  ? 'ring-4 ring-orange-500 scale-105' 
-                  : 'hover-elevate opacity-70 hover:opacity-100'
-              }`}
-              data-testid={`button-testimonial-${index}`}
-            >
-              <div className="aspect-square">
-                <img 
-                  src={testimonial.image} 
-                  alt={testimonial.author}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-                <div className={`absolute inset-0 bg-gradient-to-t from-black/60 to-transparent transition-opacity duration-300 ${
-                  index === activeIndex ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
-                }`}></div>
-                <div className={`absolute bottom-0 left-0 right-0 p-4 text-white transform transition-all duration-300 ${
-                  index === activeIndex ? 'translate-y-0 opacity-100' : 'translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100'
-                }`}>
-                  <div className="text-sm font-bold">{testimonial.author}</div>
-                  <div className="text-xs opacity-90">{testimonial.company}</div>
-                </div>
-              </div>
-            </button>
-          ))}
         </div>
       </div>
     </section>
