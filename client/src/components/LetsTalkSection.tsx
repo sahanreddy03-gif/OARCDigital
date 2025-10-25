@@ -1,114 +1,164 @@
-import { useEffect, useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
+import { useRef } from 'react';
 
-export default function LetsTalkSection() {
-  const oarcRefs = useRef<(HTMLDivElement | null)[]>([]);
-  
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry, index) => {
-          if (entry.isIntersecting) {
-            // Add staggered delay for each OARC item
-            setTimeout(() => {
-              entry.target.classList.add('oarc-visible');
-            }, index * 150);
-          }
-        });
-      },
-      { 
-        threshold: 0.2,
-        rootMargin: '0px 0px -50px 0px'
+function CinematicScreen({ 
+  title, 
+  subtitle, 
+  index,
+  isFirst = false,
+  isLast = false 
+}: { 
+  title: string; 
+  subtitle: string | null; 
+  index: number;
+  isFirst?: boolean;
+  isLast?: boolean;
+}) {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { 
+    once: false,
+    amount: 0.5 // Trigger when 50% of section is in view
+  });
+
+  const fadeSlideUpVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: 60 
+    },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: [0.25, 0.1, 0.25, 1]
       }
-    );
-
-    oarcRefs.current.forEach((ref) => {
-      if (ref) observer.observe(ref);
-    });
-
-    return () => observer.disconnect();
-  }, []);
+    }
+  };
 
   return (
-    <section className="relative bg-white py-12 md:py-16 lg:py-20" data-testid="section-lets-talk">
-      <div className="container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl">
-        {/* Let's Talk Heading */}
-        <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-zinc-900 tracking-tight mb-8">
-            Let's Talk
-          </h2>
-          
-          {/* OARC Branding with Creative Explanation */}
-          <div className="max-w-4xl mx-auto mb-10">
-            <div className="text-6xl md:text-7xl lg:text-8xl font-black text-zinc-900 mb-8" data-testid="text-oarc-brand">
-              OARC
-            </div>
-            
-            {/* Four-part OARC Explanation Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10 mb-12">
-              <div 
-                className="text-center oarc-item" 
-                data-testid="optimised-section"
-                ref={el => oarcRefs.current[0] = el}
-              >
-                <div className="text-4xl md:text-5xl font-black text-[#c4ff4d] mb-3">
-                  Optimised
-                </div>
-                <p className="text-base md:text-lg text-zinc-600 leading-relaxed">
-                  Precision-engineered strategies that maximize every marketing dollar through data-driven insights and continuous optimization
-                </p>
-              </div>
-              
-              <div 
-                className="text-center oarc-item" 
-                data-testid="ai-section"
-                ref={el => oarcRefs.current[1] = el}
-              >
-                <div className="text-4xl md:text-5xl font-black text-[#c4ff4d] mb-3">
-                  AI
-                </div>
-                <p className="text-base md:text-lg text-zinc-600 leading-relaxed">
-                  Cutting-edge artificial intelligence powers our creative workflows, automating repetitive tasks while amplifying human creativity
-                </p>
-              </div>
-              
-              <div 
-                className="text-center oarc-item" 
-                data-testid="revenue-section"
-                ref={el => oarcRefs.current[2] = el}
-              >
-                <div className="text-4xl md:text-5xl font-black text-[#c4ff4d] mb-3">
-                  Revenue
-                </div>
-                <p className="text-base md:text-lg text-zinc-600 leading-relaxed">
-                  Every campaign, every creative, every strategy is laser-focused on one thing: driving measurable revenue growth for your business
-                </p>
-              </div>
-              
-              <div 
-                className="text-center oarc-item" 
-                data-testid="creative-section"
-                ref={el => oarcRefs.current[3] = el}
-              >
-                <div className="text-4xl md:text-5xl font-black text-[#c4ff4d] mb-3">
-                  Creative
-                </div>
-                <p className="text-base md:text-lg text-zinc-600 leading-relaxed">
-                  Bold, innovative, and attention-grabbing designs that break through the noise and make your brand impossible to ignore
-                </p>
-              </div>
-            </div>
-          </div>
-          
-          {/* Tagline */}
-          <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6 text-2xl md:text-3xl lg:text-4xl font-bold text-zinc-900">
-            <span data-testid="text-super-talented">Super Talented</span>
-            <span className="hidden md:inline text-zinc-400">·</span>
-            <span data-testid="text-super-fast">Super Fast</span>
-            <span className="hidden md:inline text-zinc-400">·</span>
-            <span data-testid="text-super-responsive">Super Responsive</span>
-          </div>
-        </div>
-      </div>
+    <div
+      ref={ref}
+      className="relative w-full h-screen flex flex-col items-center justify-center snap-start snap-always px-6 md:px-12 lg:px-16"
+      data-testid={`oarc-screen-${index}`}
+    >
+      <motion.div
+        initial="hidden"
+        animate={isInView ? "visible" : "hidden"}
+        variants={fadeSlideUpVariants}
+        className="text-center max-w-5xl"
+      >
+        {/* Title */}
+        <h2 
+          className={`font-black text-white tracking-tight leading-[0.95] mb-6 md:mb-8 ${
+            subtitle 
+              ? 'text-5xl md:text-7xl lg:text-8xl xl:text-9xl' 
+              : isFirst 
+                ? 'text-6xl md:text-8xl lg:text-9xl xl:text-[10rem]'
+                : 'text-4xl md:text-5xl lg:text-6xl xl:text-7xl'
+          }`}
+          data-testid={`oarc-title-${index}`}
+        >
+          {title}
+        </h2>
+        
+        {/* Subtitle */}
+        {subtitle && (
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ 
+              delay: 0.3,
+              duration: 0.6,
+              ease: [0.25, 0.1, 0.25, 1]
+            }}
+            className="text-xl md:text-2xl lg:text-3xl xl:text-4xl text-white/80 font-light tracking-wide leading-relaxed"
+            data-testid={`oarc-subtitle-${index}`}
+          >
+            {subtitle}
+          </motion.p>
+        )}
+      </motion.div>
+
+      {/* Scroll indicator - only show on first screen */}
+      {isFirst && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: isInView ? 1 : 0 }}
+          transition={{ delay: 1.5 }}
+          className="absolute bottom-8 md:bottom-12"
+          data-testid="scroll-indicator"
+        >
+          <motion.div
+            animate={{ y: [0, 10, 0] }}
+            transition={{ 
+              repeat: Infinity, 
+              duration: 1.5,
+              ease: "easeInOut"
+            }}
+            className="w-6 h-10 border-2 border-white/40 rounded-full flex items-start justify-center p-2"
+          >
+            <div className="w-1.5 h-1.5 bg-white/60 rounded-full" />
+          </motion.div>
+        </motion.div>
+      )}
+    </div>
+  );
+}
+
+export default function LetsTalkSection() {
+  const screens = [
+    {
+      id: 0,
+      title: "This is OARC.",
+      subtitle: null
+    },
+    {
+      id: 1,
+      title: "Optimised.",
+      subtitle: "Nothing wasted. Everything aligned."
+    },
+    {
+      id: 2,
+      title: "AI-Driven.",
+      subtitle: "Systems that learn and multiply your output."
+    },
+    {
+      id: 3,
+      title: "Revenue.",
+      subtitle: "We focus on what matters."
+    },
+    {
+      id: 4,
+      title: "Creative.",
+      subtitle: "We win attention that converts."
+    },
+    {
+      id: 5,
+      title: "Built for brands that demand exponential growth.",
+      subtitle: null
+    }
+  ];
+
+  return (
+    <section 
+      className="relative w-full h-screen overflow-y-scroll snap-y snap-mandatory"
+      style={{ 
+        scrollSnapType: 'y mandatory',
+        scrollBehavior: 'smooth',
+        background: 'linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0f0f0f 100%)'
+      }}
+      data-testid="section-oarc-cinematic"
+    >
+      {screens.map((screen, index) => (
+        <CinematicScreen
+          key={screen.id}
+          title={screen.title}
+          subtitle={screen.subtitle}
+          index={index}
+          isFirst={index === 0}
+          isLast={index === screens.length - 1}
+        />
+      ))}
     </section>
   );
 }
