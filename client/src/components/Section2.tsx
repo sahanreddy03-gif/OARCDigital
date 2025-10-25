@@ -48,10 +48,10 @@ export default function Section2() {
               OARC Digital
             </p>
             
-            <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-zinc-900 leading-tight mb-6 md:mb-8" data-testid="text-section2-heading">
-              The results-driven<br />
-              <span className="text-[#5ce1e6]">Social First Agency</span><br />
-              you've been looking for
+            <h2 className="text-[1.625rem] md:text-4xl lg:text-5xl xl:text-6xl font-bold text-zinc-900 leading-tight mb-6 md:mb-8" data-testid="text-section2-heading">
+              <span className="block whitespace-nowrap">The results-driven</span>
+              <span className="text-[#5ce1e6] block whitespace-nowrap">Social First Agency</span>
+              <span className="block whitespace-nowrap">you've been looking for</span>
             </h2>
 
             <div className="flex flex-col gap-4 w-full sm:flex-row sm:gap-5">
