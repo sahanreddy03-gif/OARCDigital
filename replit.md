@@ -25,14 +25,15 @@ Preferred communication style: Simple, everyday language.
 - **Schema:** UUID primary keys, extensible design for user authentication and future tables.
 
 **Design System:**
-- **Color Palette:** Two-palette system with primary green (#c4ff4d), orange accents, and alternating dark/light sections using deep charcoals, vibrant blues, and supporting purples. WCAG AAA contrast maintained.
+- **Color Palette:** Two-palette system with primary green (#c4ff4d) for dark sections, orange-600 (#ea580c) for white section accents, and alternating dark/light sections using deep charcoals and warm orange gradients. WCAG AA contrast maintained (3.55:1 for large text on white).
 - **Typography:** Responsive scale using Inter for body and Space Grotesk for display text.
-- **Animation:** Smooth CSS keyframe carousels, Intersection Observer for scroll-triggered animations, and performance-conscious transitions.
+- **Animation:** Smooth CSS keyframe carousels, Intersection Observer for scroll-triggered letter reveals, and performance-conscious transitions.
 
 **Key Features:**
-- **Homepage Sections:** Hero, Social First Agency, Brand Carousel, Our Difference, Let's Talk, AI Creative Services, Hire AI Employees, Let's Talk Revenue. Each section has a distinct visual style with sophisticated two-palette alternating system (black/orange and white backgrounds).
+- **Homepage Sections:** Hero, Social First Agency, Brand Carousel, Our Difference, Let's Talk OARC, AI Creative Services, Hire AI Employees, Let's Talk Revenue. Each section has a distinct visual style with sophisticated two-palette alternating system (black/orange and white backgrounds).
 - **Carousel Functionality:** Interactive snap-to-card functionality with auto-scrolling, momentum physics for quick flicks, and auto-resume after user interaction.
 - **Homepage FloatingChipCarousel:** Premium 8K stock images with enhanced animations (scale-105 hover, shadow-2xl, ring highlights with green accent, 500ms image zoom transitions)
+- **Let's Talk OARC Section:** Cinematic scroll-triggered letter reveals with 6 vertically scrolling sections. Features giant decorative letters (12-24rem) in orange-600/10, condensed copy, and smooth IntersectionObserver animations. Uses orange-600 (#ea580c) for titles with WCAG-compliant 3.55:1 contrast ratio on white background.
 
 ### External Dependencies
 
