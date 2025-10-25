@@ -16,6 +16,10 @@ import designSystems from '@assets/stock_images/design_system_compon_362ff5cd.jp
 import productDesign from '@assets/stock_images/product_design_app_i_3c5ffe87.jpg';
 import aiEnhanced from '@assets/stock_images/ai_artificial_intell_5f3c3d5c.jpg';
 import aiConsulting from '@assets/stock_images/ai_consulting_techno_7ced77f9.jpg';
+import paidAdvertising from '@assets/stock_images/paid_advertising_dig_a01e2d8b.jpg';
+import seoOptimization from '@assets/stock_images/search_engine_optimi_d699237f.jpg';
+import influencerMarketing from '@assets/stock_images/influencer_marketing_f4e5d82e.jpg';
+import aiMarketingAutomation from '@assets/stock_images/ai_marketing_automat_6a24dc68.jpg';
 
 const services = [
   {
@@ -103,6 +107,13 @@ const services = [
     category: "Digital & Web"
   },
   {
+    title: "SEO Optimization",
+    subtitle: "Rank higher and attract qualified traffic",
+    image: seoOptimization,
+    category: "Digital & Web",
+    badge: "NEW"
+  },
+  {
     title: "Design Systems",
     subtitle: "Robust design systems that drive visual consistency",
     image: designSystems,
@@ -127,6 +138,27 @@ const services = [
     subtitle: "Maximize AI with tailored strategies",
     image: aiConsulting,
     category: "AI-Powered"
+  },
+  {
+    title: "AI Marketing Automations",
+    subtitle: "Intelligent campaigns that scale effortlessly",
+    image: aiMarketingAutomation,
+    category: "AI-Powered",
+    badge: "NEW"
+  },
+  {
+    title: "Paid Advertising",
+    subtitle: "Data-driven campaigns that maximize ROI",
+    image: paidAdvertising,
+    category: "Marketing & Growth",
+    badge: "NEW"
+  },
+  {
+    title: "Influencer Marketing",
+    subtitle: "Amplify your reach with authentic partnerships",
+    image: influencerMarketing,
+    category: "Marketing & Growth",
+    badge: "NEW"
   },
 ];
 

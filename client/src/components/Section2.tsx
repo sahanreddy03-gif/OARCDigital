@@ -4,6 +4,7 @@ import { SiFacebook, SiInstagram, SiLinkedin, SiX, SiYoutube, SiSpotify } from "
 
 export default function Section2() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [currentTextIndex, setCurrentTextIndex] = useState(0);
   
   // Array of gradient backgrounds to simulate Instagram/Reels style content
   const backgrounds = [
@@ -15,12 +16,36 @@ export default function Section2() {
     'linear-gradient(135deg, #30cfd0 0%, #330867 100%)',
   ];
   
+  // Dynamic rotating text content
+  const textContent = [
+    {
+      text: "We blend creative and performance",
+      highlights: ["blend", "performance"]
+    },
+    {
+      text: "Mastering the new rules of branding",
+      highlights: ["new rules"]
+    },
+    {
+      text: "OARC Digital",
+      highlights: ["OARC"]
+    }
+  ];
+  
   useEffect(() => {
-    const interval = setInterval(() => {
+    const backgroundInterval = setInterval(() => {
       setCurrentImageIndex((prev) => (prev + 1) % backgrounds.length);
-    }, 2000); // Change every 2 seconds
+    }, 2000); // Change background every 2 seconds
     
-    return () => clearInterval(interval);
+    return () => clearInterval(backgroundInterval);
+  }, []);
+  
+  useEffect(() => {
+    const textInterval = setInterval(() => {
+      setCurrentTextIndex((prev) => (prev + 1) % textContent.length);
+    }, 3000); // Change text every 3 seconds
+    
+    return () => clearInterval(textInterval);
   }, []);
   
   return (
@@ -87,15 +112,32 @@ export default function Section2() {
                     <SiLinkedin className="w-6 h-6 md:w-7 md:h-7 text-white/80 hover:text-white transition-colors" />
                   </div>
                   
-                  {/* Center text */}
-                  <div className="text-center flex-1 flex items-center justify-center">
-                    <p className="text-base md:text-lg lg:text-xl font-bold text-white leading-tight px-2">
-                      <span className="inline-block animate-[fadeInUp_0.8s_ease-out]">We</span>{' '}
-                      <span className="inline-block animate-[fadeInUp_0.8s_ease-out_0.1s] text-[#5ce1e6]">blend</span>{' '}
-                      <span className="inline-block animate-[fadeInUp_0.8s_ease-out_0.2s]">creative</span>{' '}
-                      <span className="inline-block animate-[fadeInUp_0.8s_ease-out_0.3s]">and</span>{' '}
-                      <span className="inline-block animate-[fadeInUp_0.8s_ease-out_0.4s] text-[#5ce1e6]">performance</span>
-                    </p>
+                  {/* Center text - Dynamic rotating content */}
+                  <div className="text-center flex-1 flex items-center justify-center px-3 md:px-4">
+                    {textContent.map((content, index) => (
+                      <p 
+                        key={index}
+                        className={`absolute text-xl md:text-2xl lg:text-3xl font-bold text-white leading-tight px-2 transition-opacity duration-500 ${
+                          currentTextIndex === index ? 'opacity-100' : 'opacity-0'
+                        }`}
+                        data-testid={`phone-text-${index}`}
+                      >
+                        {content.text.split(' ').map((word, wordIndex) => {
+                          const isHighlighted = content.highlights.some(highlight => 
+                            highlight.toLowerCase().includes(word.toLowerCase()) || 
+                            word.toLowerCase().includes(highlight.toLowerCase())
+                          );
+                          return (
+                            <span 
+                              key={wordIndex}
+                              className={`inline-block ${isHighlighted ? 'text-[#c4ff4d]' : ''}`}
+                            >
+                              {word}{' '}
+                            </span>
+                          );
+                        })}
+                      </p>
+                    ))}
                   </div>
                   
                   {/* Bottom row - 3 social icons */}
