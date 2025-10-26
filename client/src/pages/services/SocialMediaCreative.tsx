@@ -50,6 +50,20 @@ export default function SocialMediaCreative() {
         </div>
       </section>
 
+      {/* Trusted By Section */}
+      <section className="py-12 px-4 bg-white border-b border-border">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center text-sm uppercase tracking-wider text-muted-foreground mb-8">
+            Trusted by 500+ of the world's biggest brands
+          </div>
+          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12 opacity-60">
+            {['Nike', 'Apple', 'Coca-Cola', 'Starbucks', 'Mercedes', 'Amazon', 'Netflix', 'Tesla'].map((brand, i) => (
+              <div key={i} className="text-xl md:text-2xl font-bold text-foreground">{brand}</div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Ready-to-Post Section */}
       <section className="py-20 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
@@ -89,8 +103,8 @@ export default function SocialMediaCreative() {
         </div>
       </section>
 
-      {/* Horizontal Scrolling Platform Showcase */}
-      <section className="py-20 bg-[hsl(270,100%,98%)] overflow-hidden">
+      {/* Horizontal Scrolling Platform Showcase - Large Cards */}
+      <section className="py-20 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 mb-12">
           <div className="text-sm uppercase tracking-wider text-[hsl(262,83%,58%)] mb-4">MADE FOR SOCIAL</div>
           <h2 className="text-5xl md:text-6xl font-bold">
@@ -98,32 +112,35 @@ export default function SocialMediaCreative() {
           </h2>
         </div>
 
-        {/* Horizontal scrolling container */}
+        {/* Horizontal scrolling container with larger cards matching Superside */}
         <div className="relative">
           <div className="flex gap-6 overflow-x-auto pb-6 px-4 scrollbar-hide snap-x snap-mandatory">
-            {/* Platform cards */}
             {[
-              { name: "Organic Social Content", icon: Instagram },
-              { name: "Video Content", icon: Youtube },
-              { name: "Post Design", icon: Instagram },
-              { name: "Social Collateral", icon: Facebook },
-              { name: "Response Guide", icon: Linkedin },
-              { name: "Social Concepts", icon: Instagram },
+              { name: "Organic Social Content", desc: "Engage your audience with authentic content that boosts organic reach and brand loyalty." },
+              { name: "Video Content", desc: "Optimize for algorithms and engagement across social media platforms like Instagram, TikTok, and YouTube." },
+              { name: "Post Design", desc: "Capture attention with visually stunning post designs that reflect your brand's identity." },
+              { name: "Social Collateral", desc: "From profile banners to stories, ensure every aspect of your presence is on-brand." },
+              { name: "Response Guide", desc: "Equip your team with a comprehensive guide to maintain a consistent brand voice." },
+              { name: "Social Concepts", desc: "Innovate and set yourself apart with unique concepts that set trends." },
             ].map((item, i) => (
-              <div key={i} className="flex-none w-80 snap-center">
-                <div className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow">
-                  {/* Image placeholder */}
-                  <div className="h-96 bg-gradient-to-br from-purple-200 to-pink-200 flex items-center justify-center">
-                    <div className="text-center text-muted-foreground">
-                      <item.icon className="h-12 w-12 mx-auto mb-2 opacity-50" />
-                      <div className="text-xs">Platform Example</div>
-                      <div className="text-xs mt-1">1440x1548</div>
+              <div key={i} className="flex-none w-[360px] md:w-[480px] snap-center group" data-testid={`card-service-${i}`}>
+                <div className="bg-white rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300">
+                  {/* Large image placeholder matching Superside's 1440x1548 aspect ratio */}
+                  <div className="relative h-[400px] md:h-[500px] bg-gradient-to-br from-purple-100 via-pink-100 to-purple-200 overflow-hidden">
+                    <div className="absolute inset-0 flex items-center justify-center opacity-40">
+                      <div className="text-center text-muted-foreground">
+                        <div className="text-sm font-medium mb-2">Asset Placeholder</div>
+                        <div className="text-xs">1440x1548px</div>
+                        <div className="text-xs mt-1">{item.name}</div>
+                      </div>
                     </div>
+                    {/* Hover effect */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   </div>
                   <div className="p-6">
-                    <h3 className="text-xl font-bold mb-2">{item.name}</h3>
-                    <p className="text-muted-foreground text-sm">
-                      Engage your audience with authentic and compelling content that boosts reach and loyalty.
+                    <h3 className="text-xl font-bold mb-3">{item.name}</h3>
+                    <p className="text-muted-foreground text-sm leading-relaxed">
+                      {item.desc}
                     </p>
                   </div>
                 </div>
