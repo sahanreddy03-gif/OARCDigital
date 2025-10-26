@@ -23,6 +23,14 @@ import CustomerAcquisition from "@/pages/services/CustomerAcquisition";
 import FunnelAutomation from "@/pages/services/FunnelAutomation";
 import DigitalMarketing from "@/pages/services/DigitalMarketing";
 import RapidIdeaTesting from "@/pages/services/RapidIdeaTesting";
+import PresentationPitch from "@/pages/services/PresentationPitch";
+import Illustration from "@/pages/services/Illustration";
+import PrintPackaging from "@/pages/services/PrintPackaging";
+import MotionDesign from "@/pages/services/MotionDesign";
+import Immersive3DAR from "@/pages/services/Immersive3DAR";
+import EmailCreative from "@/pages/services/EmailCreative";
+import DesignSystems from "@/pages/services/DesignSystems";
+import AIConsulting from "@/pages/services/AIConsulting";
 import OurWork from "@/pages/OurWork";
 import WhyUs from "@/pages/WhyUs";
 import Resources from "@/pages/Resources";
@@ -55,6 +63,14 @@ function Router() {
       <Route path="/services/funnel-automation" component={FunnelAutomation} />
       <Route path="/services/digital-marketing" component={DigitalMarketing} />
       <Route path="/services/rapid-idea-testing" component={RapidIdeaTesting} />
+      <Route path="/services/presentation-pitch" component={PresentationPitch} />
+      <Route path="/services/illustration" component={Illustration} />
+      <Route path="/services/print-packaging" component={PrintPackaging} />
+      <Route path="/services/motion-design" component={MotionDesign} />
+      <Route path="/services/immersive-3d-ar" component={Immersive3DAR} />
+      <Route path="/services/email-creative" component={EmailCreative} />
+      <Route path="/services/design-systems" component={DesignSystems} />
+      <Route path="/services/ai-consulting" component={AIConsulting} />
       
       {/* Fallback for other services */}
       <Route path="/services/:service" component={ServiceDetail} />
