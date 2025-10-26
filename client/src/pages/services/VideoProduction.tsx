@@ -34,13 +34,7 @@ export default function VideoProduction() {
         </div>
 
         <div className="absolute inset-0 opacity-20">
-          <div className="w-full h-full bg-gradient-to-br from-purple-900 to-pink-900 flex items-center justify-center">
-            <div className="text-white/50 text-center">
-              <div className="text-sm uppercase tracking-wider mb-2">Hero Asset</div>
-              <div className="text-xs">4K/UHD (3840x2160)</div>
-              <div className="text-xs mt-1">Video production reel</div>
-            </div>
-          </div>
+          <div className="w-full h-full bg-gradient-to-br from-purple-900 to-pink-900" />
         </div>
       </section>
 
@@ -110,11 +104,9 @@ export default function VideoProduction() {
                 <div className="bg-white rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300">
                   <div className="relative h-[300px] md:h-[400px] bg-gradient-to-br from-purple-100 via-pink-100 to-red-100 overflow-hidden flex items-center justify-center">
                     <item.icon className="h-24 w-24 text-purple-600/20" />
-                    <div className="absolute bottom-4 left-4 right-4 text-center text-muted-foreground">
-                      <div className="text-sm font-medium mb-1">Asset Placeholder</div>
-                      <div className="text-xs">768x880px</div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                      <div className="text-white text-sm font-medium">View Example →</div>
                     </div>
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   </div>
                   <div className="p-6">
                     <h3 className="text-xl font-bold mb-3">{item.name}</h3>
