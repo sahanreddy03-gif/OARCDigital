@@ -12,6 +12,8 @@ import WebDesign from "@/pages/services/WebDesign";
 import VideoProduction from "@/pages/services/VideoProduction";
 import HireAIEmployees from "@/pages/services/HireAIEmployees";
 import RevenueAutomation from "@/pages/services/RevenueAutomation";
+import PaidAdvertising from "@/pages/services/PaidAdvertising";
+import MediaBuying from "@/pages/services/MediaBuying";
 import OurWork from "@/pages/OurWork";
 import WhyUs from "@/pages/WhyUs";
 import Resources from "@/pages/Resources";
@@ -33,6 +35,8 @@ function Router() {
       <Route path="/services/video-production" component={VideoProduction} />
       <Route path="/services/hire-ai-employees" component={HireAIEmployees} />
       <Route path="/services/revenue-automation" component={RevenueAutomation} />
+      <Route path="/services/paid-advertising" component={PaidAdvertising} />
+      <Route path="/services/media-buying" component={MediaBuying} />
       
       {/* Fallback for other services */}
       <Route path="/services/:service" component={ServiceDetail} />
