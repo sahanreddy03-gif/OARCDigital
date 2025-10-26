@@ -2,25 +2,36 @@ import Layout from "@/components/layout/Layout";
 import { ArrowRight } from "lucide-react";
 
 const services = [
-  { slug: "hire-ai-employees", title: "Hire AI Employees", category: "OARC Solutions", available: true },
-  { slug: "revenue-automation", title: "Revenue Automation & Growth", category: "OARC Solutions", available: true },
-  { slug: "web-design", title: "Web Design & Landing Pages", category: "Creative Services", available: true },
+  // OARC Solutions / AI Services
+  { slug: "hire-ai-employees", title: "Hire AI Employees", category: "AI Services", available: true },
+  { slug: "revenue-automation", title: "Revenue Automation & Growth", category: "AI Services", available: true },
+  { slug: "ai-consulting", title: "AI Consulting", category: "AI Services", available: true },
+  
+  // Creative Services
+  { slug: "paid-advertising", title: "Paid Advertising", category: "Creative Services", available: true },
+  { slug: "media-buying", title: "Media Buying", category: "Creative Services", available: true },
+  { slug: "influencer-marketing", title: "Influencer Marketing", category: "Creative Services", available: true },
+  { slug: "social-media-management", title: "Social Media Management", category: "Creative Services", available: true },
+  { slug: "branding-services", title: "Branding & Identity", category: "Creative Services", available: true },
   { slug: "ad-creative", title: "Ad Creative", category: "Creative Services", available: true },
   { slug: "social-media-creative", title: "Social Media Creative", category: "Creative Services", available: true },
-  { slug: "branding-identity", title: "Branding & Identity", category: "Creative Services", available: false },
-  { slug: "presentation-pitch", title: "Presentation & Pitch", category: "Creative Services", available: false },
-  { slug: "illustration", title: "Illustration", category: "Creative Services", available: false },
-  { slug: "print-packaging", title: "Print & Packaging", category: "Creative Services", available: false },
-  { slug: "video-production", title: "Video Production", category: "Creative Services", available: false },
-  { slug: "motion-design", title: "Motion Design", category: "Creative Services", available: false },
-  { slug: "immersive-3d-ar", title: "Immersive / 3D / AR", category: "Creative Services", available: false },
-  { slug: "email-creative", title: "Email Creative", category: "Creative Services", available: false },
-  { slug: "design-systems", title: "Design Systems", category: "Creative Services", available: false },
-  { slug: "ai-powered-creative", title: "AI-Powered Creative", category: "AI Services", available: false },
-  { slug: "ai-consulting", title: "AI Consulting", category: "AI Services", available: false },
-  { slug: "growth-marketing", title: "Growth & Performance Marketing", category: "Marketing Services", available: false },
-  { slug: "paid-media", title: "Paid Media & AdOps", category: "Marketing Services", available: false },
-  { slug: "organic-social", title: "Organic Social Strategy", category: "Marketing Services", available: false },
+  { slug: "web-design", title: "Web Design & Landing Pages", category: "Creative Services", available: true },
+  { slug: "video-production", title: "Video Production", category: "Creative Services", available: true },
+  { slug: "ai-copywriting", title: "AI Copywriting", category: "Creative Services", available: true },
+  { slug: "presentation-pitch", title: "Presentation & Pitch", category: "Creative Services", available: true },
+  { slug: "illustration", title: "Illustration", category: "Creative Services", available: true },
+  { slug: "print-packaging", title: "Print & Packaging", category: "Creative Services", available: true },
+  { slug: "motion-design", title: "Motion Design", category: "Creative Services", available: true },
+  { slug: "immersive-3d-ar", title: "Immersive / 3D / AR", category: "Creative Services", available: true },
+  { slug: "email-creative", title: "Email Creative", category: "Creative Services", available: true },
+  { slug: "design-systems", title: "Design Systems", category: "Creative Services", available: true },
+  
+  // Growth & Marketing Services
+  { slug: "lead-generation", title: "Lead Generation", category: "Growth & Marketing Services", available: true },
+  { slug: "customer-acquisition", title: "Customer Acquisition", category: "Growth & Marketing Services", available: true },
+  { slug: "funnel-automation", title: "Funnel Automation", category: "Growth & Marketing Services", available: true },
+  { slug: "rapid-idea-testing", title: "Rapid Idea Testing", category: "Growth & Marketing Services", available: true },
+  { slug: "digital-marketing", title: "Digital Marketing", category: "Growth & Marketing Services", available: true },
 ];
 
 const categories = Array.from(new Set(services.map(s => s.category)));
