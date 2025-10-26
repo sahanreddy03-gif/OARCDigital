@@ -244,10 +244,10 @@ Include:
 npm run dev
 
 # Generate web assets from masters
-npm run generate-assets
+node scripts/generate-assets.js
 
 # Generate video variants
-npm run generate-video
+node scripts/generate-assets.js --video
 
 # Build for production
 npm run build
@@ -255,6 +255,8 @@ npm run build
 # Preview production build
 npm run preview
 ```
+
+**Note:** Asset generation scripts (`generate-assets` and `generate-video`) are run via `node` command since Replit doesn't allow direct package.json modifications. The script `scripts/generate-assets.js` handles both image and video processing.
 
 ## Phase 1 Status
 
