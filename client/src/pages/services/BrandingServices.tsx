@@ -10,6 +10,22 @@ export default function BrandingServices() {
     if (metaDescription) {
       metaDescription.setAttribute("content", "Full-service brand identity design. Logo design, brand guidelines, visual systems, messaging frameworks. Build brands that resonate and endure.");
     }
+    // Open Graph tags - always update content
+    let ogTitleMeta = document.querySelector('meta[property="og:title"]');
+    if (!ogTitleMeta) {
+      ogTitleMeta = document.createElement('meta');
+      ogTitleMeta.setAttribute('property', 'og:title');
+      document.head.appendChild(ogTitleMeta);
+    }
+    ogTitleMeta.setAttribute('content', 'Branding Services - Build Unforgettable Brand Identities | OARC Digital');
+    
+    let ogDescMeta = document.querySelector('meta[property="og:description"]');
+    if (!ogDescMeta) {
+      ogDescMeta = document.createElement('meta');
+      ogDescMeta.setAttribute('property', 'og:description');
+      document.head.appendChild(ogDescMeta);
+    }
+    ogDescMeta.setAttribute('content', 'Full-service brand identity design. Logo design, brand guidelines, visual systems, messaging frameworks. Build brands that resonate and endure.');
   }, []);
 
   return (
@@ -23,7 +39,7 @@ export default function BrandingServices() {
           <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto">
             From strategy to visual identity, we build cohesive brand systems that resonate with your audience and stand the test of time.
           </p>
-          <Button size="lg" className="bg-white text-orange-600 hover:bg-white/90 h-12 px-8" data-testid="button-get-started">
+          <Button size="lg" className="bg-white text-orange-600" data-testid="button-get-started">
             Start Your Rebrand
           </Button>
         </div>
@@ -121,7 +137,7 @@ export default function BrandingServices() {
           <p className="text-xl mb-8 text-white/90">
             Let's create a brand identity that resonates with your audience and stands the test of time.
           </p>
-          <Button size="lg" className="bg-white text-orange-600 hover:bg-white/90 h-12 px-8" data-testid="button-cta-primary">
+          <Button size="lg" className="bg-white text-orange-600" data-testid="button-cta-primary">
             Start Your Brand Project
           </Button>
         </div>

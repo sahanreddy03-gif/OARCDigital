@@ -10,6 +10,22 @@ export default function RapidIdeaTesting() {
     if (metaDescription) {
       metaDescription.setAttribute("content", "Test marketing ideas in days, not months. MVP campaigns, prototype testing, A/B experiments. Validate what works before scaling.");
     }
+    // Open Graph tags - always update content
+    let ogTitleMeta = document.querySelector('meta[property="og:title"]');
+    if (!ogTitleMeta) {
+      ogTitleMeta = document.createElement('meta');
+      ogTitleMeta.setAttribute('property', 'og:title');
+      document.head.appendChild(ogTitleMeta);
+    }
+    ogTitleMeta.setAttribute('content', 'Rapid Idea Testing - Validate Before You Scale | OARC Digital');
+    
+    let ogDescMeta = document.querySelector('meta[property="og:description"]');
+    if (!ogDescMeta) {
+      ogDescMeta = document.createElement('meta');
+      ogDescMeta.setAttribute('property', 'og:description');
+      document.head.appendChild(ogDescMeta);
+    }
+    ogDescMeta.setAttribute('content', 'Test marketing ideas in days, not months. MVP campaigns, prototype testing, A/B experiments. Validate what works before scaling.');
   }, []);
 
   return (
@@ -23,7 +39,7 @@ export default function RapidIdeaTesting() {
           <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto">
             Validate marketing ideas in days, not months. Run rapid experiments, test messaging, iterate fast, and scale winners with confidence.
           </p>
-          <Button size="lg" className="bg-white text-orange-600 hover:bg-white/90 h-12 px-8" data-testid="button-get-started">
+          <Button size="lg" className="bg-white text-orange-600" data-testid="button-get-started">
             Start Testing
           </Button>
         </div>
@@ -121,7 +137,7 @@ export default function RapidIdeaTesting() {
           <p className="text-xl mb-8 text-white/90">
             Stop guessing. Start testing. Validate what works before you scale.
           </p>
-          <Button size="lg" className="bg-white text-orange-600 hover:bg-white/90 h-12 px-8" data-testid="button-cta-primary">
+          <Button size="lg" className="bg-white text-orange-600" data-testid="button-cta-primary">
             Run Your First Test
           </Button>
         </div>

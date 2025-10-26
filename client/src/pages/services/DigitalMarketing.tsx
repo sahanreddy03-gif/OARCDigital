@@ -10,6 +10,22 @@ export default function DigitalMarketing() {
     if (metaDescription) {
       metaDescription.setAttribute("content", "Full-service digital marketing. Strategy, creative, paid media, SEO, social, content. Everything you need to grow online.");
     }
+    // Open Graph tags - always update content
+    let ogTitleMeta = document.querySelector('meta[property="og:title"]');
+    if (!ogTitleMeta) {
+      ogTitleMeta = document.createElement('meta');
+      ogTitleMeta.setAttribute('property', 'og:title');
+      document.head.appendChild(ogTitleMeta);
+    }
+    ogTitleMeta.setAttribute('content', 'Digital Marketing Services - Full-Service Growth Partner | OARC Digital');
+    
+    let ogDescMeta = document.querySelector('meta[property="og:description"]');
+    if (!ogDescMeta) {
+      ogDescMeta = document.createElement('meta');
+      ogDescMeta.setAttribute('property', 'og:description');
+      document.head.appendChild(ogDescMeta);
+    }
+    ogDescMeta.setAttribute('content', 'Full-service digital marketing. Strategy, creative, paid media, SEO, social, content. Everything you need to grow online.');
   }, []);
 
   return (
@@ -23,7 +39,7 @@ export default function DigitalMarketing() {
           <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto">
             Full-service digital marketing. Strategy, creative, paid media, SEO, social, content, analytics. Everything you need to grow online, all under one roof.
           </p>
-          <Button size="lg" className="bg-[#c4ff4d] text-slate-900 hover:bg-[#b8f042] h-12 px-8" data-testid="button-get-started">
+          <Button size="lg" className="bg-[#c4ff4d] text-slate-900" data-testid="button-get-started">
             Build Your Growth Plan
           </Button>
         </div>
@@ -121,7 +137,7 @@ export default function DigitalMarketing() {
           <p className="text-xl mb-8 text-white/90">
             One team. One strategy. Measurable results. Let's build your growth engine.
           </p>
-          <Button size="lg" className="bg-[#c4ff4d] text-slate-900 hover:bg-[#b8f042] h-12 px-8" data-testid="button-cta-primary">
+          <Button size="lg" className="bg-[#c4ff4d] text-slate-900" data-testid="button-cta-primary">
             Get Your Custom Plan
           </Button>
         </div>

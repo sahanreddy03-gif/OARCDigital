@@ -11,6 +11,22 @@ export default function MediaBuying() {
     if (metaDescription) {
       metaDescription.setAttribute("content", "Strategic media buying across digital, social, and traditional channels. Negotiate better rates, optimize placements, and maximize your advertising ROI.");
     }
+    // Open Graph tags - always update content
+    let ogTitleMeta = document.querySelector('meta[property="og:title"]');
+    if (!ogTitleMeta) {
+      ogTitleMeta = document.createElement('meta');
+      ogTitleMeta.setAttribute('property', 'og:title');
+      document.head.appendChild(ogTitleMeta);
+    }
+    ogTitleMeta.setAttribute('content', 'Media Buying Services - Maximize Ad Spend Efficiency | OARC Digital');
+    
+    let ogDescMeta = document.querySelector('meta[property="og:description"]');
+    if (!ogDescMeta) {
+      ogDescMeta = document.createElement('meta');
+      ogDescMeta.setAttribute('property', 'og:description');
+      document.head.appendChild(ogDescMeta);
+    }
+    ogDescMeta.setAttribute('content', 'Enterprise media buying that reduces costs by 40%. Negotiate better rates, optimize placements, scale winning campaigns.');
   }, []);
 
   return (
@@ -25,7 +41,7 @@ export default function MediaBuying() {
           <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto">
             Strategic media buying that negotiates better rates, secures premium placements, and maximizes ROI. We buy smarter, not harder.
           </p>
-          <Button size="lg" className="bg-white text-[hsl(221,91%,60%)] hover:bg-white/90 h-12 px-8" data-testid="button-get-started">
+          <Button size="lg" className="bg-white text-[hsl(221,91%,60%)]" data-testid="button-get-started">
             Optimize Your Media Spend
           </Button>
         </div>
@@ -183,10 +199,10 @@ export default function MediaBuying() {
             Leverage our buying power and relationships to stretch your media budget 35% further.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <Button size="lg" className="bg-white text-[hsl(221,91%,60%)] hover:bg-white/90 h-12 px-8" data-testid="button-cta-primary">
+            <Button size="lg" className="bg-white text-[hsl(221,91%,60%)]" data-testid="button-cta-primary">
               Get a Media Plan
             </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10 h-12 px-8" data-testid="button-cta-secondary">
+            <Button size="lg" variant="outline" className="border-white text-white" data-testid="button-cta-secondary">
               Talk to Our Team
             </Button>
           </div>

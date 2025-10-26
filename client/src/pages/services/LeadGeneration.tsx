@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/layout/Layout";
-import { Target, TrendingUp, Users, Zap, BarChart, DollarSign } from "lucide-react";
+import { Mail, Search, UserPlus, Megaphone, Calendar, Users } from "lucide-react";
 
 export default function LeadGeneration() {
   useEffect(() => {
@@ -10,6 +10,22 @@ export default function LeadGeneration() {
     if (metaDescription) {
       metaDescription.setAttribute("content", "B2B lead generation that fills your pipeline with qualified prospects. Outbound, inbound, and account-based strategies that deliver results.");
     }
+    // Open Graph tags - always update content
+    let ogTitleMeta = document.querySelector('meta[property="og:title"]');
+    if (!ogTitleMeta) {
+      ogTitleMeta = document.createElement('meta');
+      ogTitleMeta.setAttribute('property', 'og:title');
+      document.head.appendChild(ogTitleMeta);
+    }
+    ogTitleMeta.setAttribute('content', 'Lead Generation Services - Fill Your Pipeline | OARC Digital');
+    
+    let ogDescMeta = document.querySelector('meta[property="og:description"]');
+    if (!ogDescMeta) {
+      ogDescMeta = document.createElement('meta');
+      ogDescMeta.setAttribute('property', 'og:description');
+      document.head.appendChild(ogDescMeta);
+    }
+    ogDescMeta.setAttribute('content', 'B2B lead generation that fills your pipeline with qualified prospects. Outbound, inbound, and account-based strategies that deliver results.');
   }, []);
 
   return (
@@ -23,7 +39,7 @@ export default function LeadGeneration() {
           <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto">
             Multi-channel B2B lead generation. Outbound prospecting, inbound campaigns, and ABM strategies that deliver sales-ready leads.
           </p>
-          <Button size="lg" className="bg-white text-emerald-600 hover:bg-white/90 h-12 px-8" data-testid="button-get-started">
+          <Button size="lg" className="bg-white text-emerald-600" data-testid="button-get-started">
             Start Generating Leads
           </Button>
         </div>
@@ -68,12 +84,12 @@ export default function LeadGeneration() {
         <div className="relative">
           <div className="flex gap-6 overflow-x-auto pb-6 px-4 scrollbar-hide snap-x snap-mandatory">
             {[
-              { name: "Outbound Prospecting", desc: "Cold email, LinkedIn outreach, phone prospecting. Multi-touch sequences that book meetings with decision-makers.", icon: Target },
-              { name: "Inbound Lead Generation", desc: "Content marketing, SEO, gated assets, webinars. Attract prospects who are actively searching for solutions.", icon: TrendingUp },
-              { name: "Account-Based Marketing (ABM)", desc: "Target high-value accounts with personalized campaigns. Coordinate sales and marketing for enterprise deals.", icon: Users },
-              { name: "Paid Lead Generation", desc: "LinkedIn Ads, Google Ads, retargeting campaigns. Capture demand and convert clicks into qualified leads.", icon: Zap },
-              { name: "Event & Webinar Marketing", desc: "Virtual and in-person events that attract and qualify prospects. Pre, during, and post-event nurture sequences.", icon: BarChart },
-              { name: "Referral & Partner Programs", desc: "Build systems that turn customers and partners into lead generation engines. Incentive design and management.", icon: DollarSign },
+              { name: "Outbound Prospecting", desc: "Cold email sequences, LinkedIn outreach, phone prospecting. Multi-touch campaigns that book qualified meetings.", icon: Mail },
+              { name: "Inbound Lead Generation", desc: "SEO content, gated downloads, organic traffic. Attract decision-makers actively searching for your solution.", icon: Search },
+              { name: "Account-Based Marketing (ABM)", desc: "Personalized campaigns for high-value accounts. Multi-stakeholder outreach coordinated with sales teams.", icon: UserPlus },
+              { name: "Paid Lead Generation", desc: "LinkedIn Lead Gen Forms, Google Ads, retargeting. Capture demand and convert paid traffic into SQLs.", icon: Megaphone },
+              { name: "Event & Webinar Lead Gen", desc: "Virtual events, trade shows, webinars. Pre-event promotion, live engagement, post-event nurture sequences.", icon: Calendar },
+              { name: "Referral & Partner Channels", desc: "Customer referral programs, channel partnerships, affiliate networks. Turn relationships into lead sources.", icon: Users },
             ].map((strategy, i) => (
               <div key={i} className="flex-none w-[360px] md:w-[480px] snap-center group" data-testid={`card-strategy-${i}`}>
                 <div className="bg-white rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300 border border-border h-full">
@@ -121,7 +137,7 @@ export default function LeadGeneration() {
           <p className="text-xl mb-8 text-white/90">
             Let's build a lead generation engine that delivers qualified prospects every month.
           </p>
-          <Button size="lg" className="bg-white text-emerald-600 hover:bg-white/90 h-12 px-8" data-testid="button-cta-primary">
+          <Button size="lg" className="bg-white text-emerald-600" data-testid="button-cta-primary">
             Get Your Lead Gen Plan
           </Button>
         </div>

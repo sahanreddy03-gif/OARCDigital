@@ -10,6 +10,22 @@ export default function InfluencerMarketing() {
     if (metaDescription) {
       metaDescription.setAttribute("content", "End-to-end influencer marketing campaigns. From micro to mega influencers, we find creators, negotiate deals, manage campaigns, and track ROI.");
     }
+    // Open Graph tags - always update content
+    let ogTitleMeta = document.querySelector('meta[property="og:title"]');
+    if (!ogTitleMeta) {
+      ogTitleMeta = document.createElement('meta');
+      ogTitleMeta.setAttribute('property', 'og:title');
+      document.head.appendChild(ogTitleMeta);
+    }
+    ogTitleMeta.setAttribute('content', 'Influencer Marketing - Creator Partnerships That Convert | OARC Digital');
+    
+    let ogDescMeta = document.querySelector('meta[property="og:description"]');
+    if (!ogDescMeta) {
+      ogDescMeta = document.createElement('meta');
+      ogDescMeta.setAttribute('property', 'og:description');
+      document.head.appendChild(ogDescMeta);
+    }
+    ogDescMeta.setAttribute('content', 'End-to-end influencer marketing campaigns. From micro to mega influencers, we find creators, negotiate deals, manage campaigns, and track ROI.');
   }, []);
 
   return (
@@ -24,7 +40,7 @@ export default function InfluencerMarketing() {
           <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto">
             We find the perfect creators, negotiate the deals, manage the campaigns, and prove the ROI. Full-service influencer marketing from micro to mega.
           </p>
-          <Button size="lg" className="bg-white text-pink-600 hover:bg-white/90 h-12 px-8" data-testid="button-get-started">
+          <Button size="lg" className="bg-white text-pink-600" data-testid="button-get-started">
             Launch Your Campaign
           </Button>
         </div>
@@ -184,10 +200,10 @@ export default function InfluencerMarketing() {
             We'll find the creators, negotiate the deals, and prove the ROI. Let's talk.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <Button size="lg" className="bg-white text-pink-600 hover:bg-white/90 h-12 px-8" data-testid="button-cta-primary">
+            <Button size="lg" className="bg-white text-pink-600" data-testid="button-cta-primary">
               Start Your Campaign
             </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10 h-12 px-8" data-testid="button-cta-secondary">
+            <Button size="lg" variant="outline" className="border-white text-white" data-testid="button-cta-secondary">
               View Creator Network
             </Button>
           </div>
