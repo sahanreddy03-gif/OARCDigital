@@ -1,10 +1,18 @@
 import { Link } from "wouter";
+import { ArrowRight } from "lucide-react";
+import { getPreviewServices, servicesCatalog } from '@/config/servicesConfig';
 
 export default function Footer() {
+  // Show first 5 items from each category for footer
+  const aiCreativePreview = getPreviewServices('aiCreative').slice(0, 5);
+  const aiEmployeesPreview = getPreviewServices('aiEmployees').slice(0, 5);
+  const revenuePreview = getPreviewServices('revenue').slice(0, 5);
+
   return (
     <footer className="bg-foreground text-background py-16">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <div className="grid md:grid-cols-4 gap-12 mb-12">
+        <div className="grid md:grid-cols-5 gap-12 mb-12">
+          {/* Brand */}
           <div>
             <div className="font-display font-bold text-2xl mb-4">
               <span className="text-background">OARC</span>
@@ -15,31 +23,63 @@ export default function Footer() {
             </p>
           </div>
 
+          {/* AI Creative Services */}
           <div>
-            <h4 className="font-semibold mb-4">Services</h4>
+            <h4 className="font-semibold mb-4">{servicesCatalog.aiCreative.title}</h4>
             <ul className="space-y-2 text-sm text-background/60">
-              <li><Link href="/services/ai-creative" className="hover:text-background transition-colors">AI Creative</Link></li>
-              <li><Link href="/services/ai-employees" className="hover:text-background transition-colors">AI Employees</Link></li>
-              <li><Link href="/services/revenue-automation" className="hover:text-background transition-colors">Revenue Automation</Link></li>
+              {aiCreativePreview.map((service) => (
+                <li key={service.slug}>
+                  <Link href={`/services/${service.route || service.slug}`} className="hover:text-background transition-colors" data-testid={`link-footer-${service.slug}`}>
+                    {service.title}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
+          {/* AI Employees */}
+          <div>
+            <h4 className="font-semibold mb-4">{servicesCatalog.aiEmployees.title}</h4>
+            <ul className="space-y-2 text-sm text-background/60">
+              {aiEmployeesPreview.map((service) => (
+                <li key={service.slug}>
+                  <Link href={`/services/${service.route || service.slug}`} className="hover:text-background transition-colors" data-testid={`link-footer-${service.slug}`}>
+                    {service.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Revenue Automation */}
+          <div>
+            <h4 className="font-semibold mb-4">{servicesCatalog.revenue.title}</h4>
+            <ul className="space-y-2 text-sm text-background/60">
+              {revenuePreview.map((service) => (
+                <li key={service.slug}>
+                  <Link href={`/services/${service.route || service.slug}`} className="hover:text-background transition-colors" data-testid={`link-footer-${service.slug}`}>
+                    {service.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Quick Links */}
           <div>
             <h4 className="font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2 text-sm text-background/60">
-              <li><Link href="/" className="hover:text-background transition-colors">Home</Link></li>
-              <li><Link href="#why-us" className="hover:text-background transition-colors">Why Us</Link></li>
-              <li><Link href="#our-work" className="hover:text-background transition-colors">Our Work</Link></li>
-              <li><Link href="#resources" className="hover:text-background transition-colors">Resources</Link></li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="font-semibold mb-4">Legal</h4>
-            <ul className="space-y-2 text-sm text-background/60">
-              <li><a href="#" className="hover:text-background transition-colors">Privacy Policy</a></li>
-              <li><a href="#" className="hover:text-background transition-colors">Terms of Use</a></li>
-              <li><a href="#" className="hover:text-background transition-colors">Cookie Policy</a></li>
+              <li><Link href="/" className="hover:text-background transition-colors" data-testid="link-footer-home">Home</Link></li>
+              <li><Link href="#why-us" className="hover:text-background transition-colors" data-testid="link-footer-why-us">Why Us</Link></li>
+              <li><Link href="#our-work" className="hover:text-background transition-colors" data-testid="link-footer-our-work">Our Work</Link></li>
+              <li><Link href="#resources" className="hover:text-background transition-colors" data-testid="link-footer-resources">Resources</Link></li>
+              <li><Link href="#contact" className="hover:text-background transition-colors" data-testid="link-footer-contact">Contact</Link></li>
+              <li>
+                <Link href="/services" className="hover:text-background transition-colors flex items-center gap-1 text-primary font-semibold" data-testid="link-footer-browse-all">
+                  Browse all services
+                  <ArrowRight className="w-3 h-3" />
+                </Link>
+              </li>
             </ul>
           </div>
         </div>

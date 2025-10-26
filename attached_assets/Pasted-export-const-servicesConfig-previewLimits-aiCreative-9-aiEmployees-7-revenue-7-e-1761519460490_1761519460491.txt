@@ -1,0 +1,47 @@
+export const servicesConfig = {
+  previewLimits: { aiCreative: 9, aiEmployees: 7, revenue: 7 }
+};
+
+export const servicesCatalog = {
+  aiCreative: {
+    featured: "Social Media Management",
+    items: [
+      { title: "Social Media Management", slug: "social-media-management", badge: "Popular" },
+      { title: "Ad Creative", slug: "ad-creative" },
+      { title: "Web Design & Landing Pages", slug: "web-design" },
+      { title: "Video Production", slug: "video-production" },
+      { title: "Motion Design", slug: "motion-design" },
+      { title: "Branding & Identity", slug: "branding-identity" },
+      { title: "Design Systems", slug: "design-systems", badge: "New" },
+      { title: "Email Creative", slug: "email-creative" },
+      { title: "Presentation & Pitch", slug: "presentation-pitch" },
+      // ...rest appear on /services & mobile
+    ]
+  },
+  aiEmployees: {
+    featured: "Hire AI Employees",
+    items: [
+      { title: "Sales Development Rep (SDR)", slug: "ai-sdr", badge: "Popular" },
+      { title: "Customer Support Agent", slug: "ai-support" },
+      { title: "Social Media Manager (AI-assisted)", slug: "ai-social-manager" },
+      { title: "Content Writer (AI-assisted)", slug: "ai-content-writer" },
+      { title: "Data Analyst / BI Assistant", slug: "ai-data-analyst" },
+      { title: "Lead Qualifier / BDR Router", slug: "ai-lead-qualifier" },
+      { title: "Project Manager (Ops Automations)", slug: "ai-project-manager" },
+      // ...rest on /services & mobile
+    ]
+  },
+  revenue: {
+    featured: "Revenue Automation & Growth",
+    items: [
+      { title: "Revenue Automation & Growth", slug: "revenue-automation" },
+      { title: "Funnel Optimization (CRO & Growth)", slug: "funnel-optimization" },
+      { title: "Marketing Automation (Journeys & Orchestration)", slug: "marketing-automation" },
+      { title: "Revenue Intelligence (Insights & Predictions)", slug: "revenue-intelligence" },
+      { title: "Lead Generation (Signals & Enrichment)", slug: "lead-generation" },
+      { title: "Pipeline Management (CRM & Forecast)", slug: "pipeline-management" },
+      { title: "Performance Tracking (KPI & Alerts)", slug: "performance-tracking" },
+      // ...rest on /services & mobile
+    ]
+  }
+};
