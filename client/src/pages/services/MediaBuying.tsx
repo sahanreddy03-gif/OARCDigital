@@ -1,8 +1,9 @@
 import { useEffect } from "react";
 import { Link } from "wouter";
-import { DollarSign, TrendingUp, Target, Zap, ArrowRight, BarChart3 } from "lucide-react";
+import { DollarSign, TrendingUp, Target, Zap, ArrowRight, BarChart3, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/layout/Layout";
+import heroImage from "@assets/stock_images/media_strategy_plann_296ccd33.jpg";
 
 export default function MediaBuying() {
   useEffect(() => {
@@ -11,7 +12,6 @@ export default function MediaBuying() {
     if (metaDescription) {
       metaDescription.setAttribute("content", "Strategic media buying across digital, social, and traditional channels. Negotiate better rates, optimize placements, and maximize your advertising ROI.");
     }
-    // Open Graph tags - always update content
     let ogTitleMeta = document.querySelector('meta[property="og:title"]');
     if (!ogTitleMeta) {
       ogTitleMeta = document.createElement('meta');
@@ -31,44 +31,70 @@ export default function MediaBuying() {
 
   return (
     <Layout>
-      {/* Hero Section */}
-      <section className="relative min-h-[70vh] flex items-center justify-center bg-gradient-to-br from-[hsl(221,91%,60%)] via-[hsl(241,77%,55%)] to-[hsl(262,83%,58%)] text-white overflow-hidden">
-        <div className="absolute inset-0 bg-black/20"></div>
+      {/* Hero Section with Real Image */}
+      <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0">
+          <img 
+            src={heroImage}
+            alt="Media buying strategy planning"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/70 to-black/50"></div>
+        </div>
         <div className="relative z-10 text-center px-4 max-w-6xl mx-auto">
-          <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold text-white mb-6">
-            Stretch every ad dollar <span className="italic">further</span>
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 animate-in fade-in slide-in-from-bottom-4 duration-700">
+            Stretch every ad dollar <span className="italic bg-gradient-to-r from-[hsl(221,91%,60%)] via-[hsl(241,77%,55%)] to-[hsl(262,83%,58%)] text-transparent bg-clip-text">further</span>
           </h1>
-          <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto">
-            Strategic media buying that negotiates better rates, secures premium placements, and maximizes ROI. We buy smarter, not harder.
+          <p className="text-lg md:text-xl text-white/90 mb-8 max-w-3xl mx-auto animate-in fade-in slide-in-from-bottom-4 duration-700 delay-150">
+            Strategic media buying that negotiates better rates, secures premium placements, and maximizes ROI. Access exclusive inventory and pricing 25-40% below rate card.
           </p>
-          <Button size="lg" className="bg-white text-[hsl(221,91%,60%)]" data-testid="button-get-started">
-            Optimize Your Media Spend
-          </Button>
+          <div className="flex flex-wrap gap-4 justify-center animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300">
+            <Button size="lg" className="bg-white text-[hsl(221,91%,60%)] hover:bg-white/90" data-testid="button-get-started">
+              Optimize Your Media Spend
+            </Button>
+            <Button size="lg" variant="outline" className="border-white text-white bg-white/10 backdrop-blur-sm hover:bg-white/20" data-testid="button-view-case-studies">
+              View Case Studies
+            </Button>
+          </div>
         </div>
       </section>
 
-      {/* Metrics */}
-      <section className="py-20 px-4 bg-white">
+      {/* Trusted By */}
+      <section className="py-12 px-4 bg-white border-b border-border">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <div className="text-sm uppercase tracking-wider text-[hsl(221,91%,60%)] mb-4">MEDIA BUYING EXCELLENCE</div>
-            <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6">
-              Better rates. <span className="italic text-[hsl(262,83%,58%)]">Better placements.</span> Better results.
+          <div className="text-center text-sm uppercase tracking-wider text-muted-foreground mb-8">
+            Powering growth for ambitious brands
+          </div>
+          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12 opacity-60">
+            {['Performance Marketing Agencies', 'DTC Subscription Boxes', 'Mobile Game Publishers', 'Healthcare Brands', 'Regional Restaurant Chains', 'Fitness Apps'].map((type, i) => (
+              <div key={i} className="text-base md:text-lg font-bold text-foreground">{type}</div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Performance Metrics */}
+      <section className="py-16 px-4 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <div className="text-sm uppercase tracking-wider text-[hsl(221,91%,60%)] mb-3">MEDIA BUYING EXCELLENCE</div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+              Better rates. Better placements. Better results.
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Leverage our relationships with top publishers and platforms to secure inventory you can't access on your own—at prices 25-40% below rate card.
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Leverage our relationships with top publishers to secure exclusive inventory at prices you can't access alone
             </p>
           </div>
 
-          <div className="grid md:grid-cols-4 gap-8 mt-12">
+          <div className="grid md:grid-cols-4 gap-6 mt-10">
             {[
-              { value: "35%", label: "Average cost savings vs. rate card pricing" },
-              { value: "$75M+", label: "Total media spend negotiated annually" },
-              { value: "3.2x", label: "Average improvement in cost per acquisition" },
-              { value: "150+", label: "Publisher and platform partnerships" },
+              { value: "35%", label: "Average cost savings vs. rate card" },
+              { value: "$75M+", label: "Media spend negotiated annually" },
+              { value: "3.2x", label: "Average CPA improvement" },
+              { value: "150+", label: "Publisher partnerships" },
             ].map((stat, i) => (
-              <div key={i} className="text-center p-6 bg-[hsl(220,20%,98%)] rounded-xl" data-testid={`metric-${i}`}>
-                <div className="text-5xl font-bold text-[hsl(221,91%,60%)] mb-2">{stat.value}</div>
+              <div key={i} className="text-center p-6 bg-gradient-to-br from-[hsl(221,10%,98%)] to-white rounded-xl border border-border hover:shadow-lg transition-all duration-300 hover:-translate-y-1" data-testid={`metric-${i}`}>
+                <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-[hsl(221,91%,60%)] to-[hsl(262,83%,58%)] text-transparent bg-clip-text mb-2">{stat.value}</div>
                 <div className="text-sm text-muted-foreground">{stat.label}</div>
               </div>
             ))}
@@ -80,8 +106,8 @@ export default function MediaBuying() {
       <section className="py-20 bg-[hsl(220,20%,98%)] overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 mb-12">
           <div className="text-sm uppercase tracking-wider text-[hsl(221,91%,60%)] mb-4">OMNICHANNEL BUYING POWER</div>
-          <h2 className="text-5xl md:text-6xl font-bold">
-            Every channel. <span className="italic text-[hsl(262,83%,58%)]">Every audience.</span>
+          <h2 className="text-4xl md:text-5xl font-bold">
+            Every channel. <span className="italic bg-gradient-to-r from-[hsl(221,91%,60%)] to-[hsl(262,83%,58%)] text-transparent bg-clip-text">Every audience.</span>
           </h2>
         </div>
 
@@ -92,73 +118,108 @@ export default function MediaBuying() {
               { name: "Social Media Buying", desc: "Negotiate volume discounts on Meta, LinkedIn, TikTok, Snap, Pinterest. Secure premium placements and early beta access to new formats.", icon: TrendingUp },
               { name: "Video & CTV", desc: "YouTube, Hulu, Roku, Amazon Fire TV. Reach cord-cutters and connected TV audiences at scale with precision targeting.", icon: Zap },
               { name: "Audio & Podcast", desc: "Spotify, iHeartRadio, podcast networks. Tap into high-engagement audio inventory with host-read sponsorships and dynamic insertion.", icon: BarChart3 },
-              { name: "Out-of-Home (OOH)", desc: "Billboards, transit ads, digital signage. Physical placements in high-traffic locations. Geo-targeted, data-driven OOH at scale.", icon: DollarSign },
-              { name: "Traditional Media", desc: "TV, radio, print. Negotiate local and national buys. Integrated campaigns that bridge digital and traditional touchpoints.", icon: Target },
-            ].map((channel, i) => (
-              <div key={i} className="flex-none w-[360px] md:w-[480px] snap-center group" data-testid={`card-channel-${i}`}>
-                <div className="bg-white rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300 border border-border h-full">
-                  <div className="relative h-[300px] md:h-[350px] bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 overflow-hidden flex items-center justify-center">
-                    <channel.icon className="h-24 w-24 text-[hsl(221,91%,60%)]/20" />
-                  </div>
-                  <div className="p-6">
-                    <h3 className="text-2xl font-bold mb-3">{channel.name}</h3>
-                    <p className="text-muted-foreground">{channel.desc}</p>
-                  </div>
-                </div>
+              { name: "Premium Publisher Direct", desc: "Direct relationships with top-tier publishers. Access exclusive inventory, preferred rates, and first access to new ad products.", icon: DollarSign },
+              { name: "Native & Content", desc: "Outbrain, Taboola, and direct native placements. Non-disruptive ad formats that blend seamlessly with editorial content.", icon: CheckCircle2 },
+            ].map((service, i) => (
+              <div 
+                key={i} 
+                className="min-w-[320px] md:min-w-[400px] p-8 bg-white rounded-2xl border border-border snap-start hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+                data-testid={`service-${i}`}
+              >
+                <service.icon className="w-12 h-12 text-[hsl(221,91%,60%)] mb-4" />
+                <h3 className="text-2xl font-bold mb-3">{service.name}</h3>
+                <p className="text-muted-foreground leading-relaxed">{service.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Our Approach */}
+      {/* Case Studies */}
       <section className="py-20 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-5xl md:text-6xl font-bold">
-              Data-driven. <span className="italic text-[hsl(262,83%,58%)]">Relationship-powered.</span>
+          <div className="text-center mb-12">
+            <div className="text-sm uppercase tracking-wider text-[hsl(221,91%,60%)] mb-3">SUCCESS STORIES</div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+              Real campaigns. Real results.
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 gap-8">
             {[
-              { name: "Rate Negotiation", desc: "Leverage our $75M+ annual spend to negotiate rates 25-40% below standard pricing. Volume discounts, added value, and preferential terms." },
-              { name: "Audience Intelligence", desc: "Advanced data modeling to identify where your audience spends time. Buy impressions where they're most receptive and engaged." },
-              { name: "Inventory Optimization", desc: "Continuous monitoring and optimization. Shift budgets in real-time to high-performing placements and away from underperformers." },
-              { name: "Attribution & Measurement", desc: "Multi-touch attribution, incrementality testing, brand lift studies. Prove the impact of every channel and placement." },
-              { name: "Premium Access", desc: "First-look deals, exclusive inventory, beta testing new ad products. Our relationships unlock opportunities unavailable at list prices." },
-              { name: "Fraud Prevention", desc: "Ad verification, viewability tracking, bot detection. Ensure every impression is real, viewable, and brand-safe." },
-            ].map((item, i) => (
-              <div key={i} className="p-8 rounded-xl border border-border hover:border-[hsl(221,91%,60%)] hover:shadow-lg transition-all" data-testid={`card-approach-${i}`}>
-                <h3 className="text-2xl font-bold mb-3">{item.name}</h3>
-                <p className="text-muted-foreground">{item.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+              {
+                title: "Mobile Game Publisher Scales User Acquisition 4x",
+                industry: "Gaming",
+                challenge: "High CPI on major ad networks limiting growth potential",
+                solution: "Negotiated direct deals with premium mobile ad exchanges and secured exclusive inventory in high-value game apps",
+                results: [
+                  "42% reduction in CPI across all campaigns",
+                  "4.3x increase in daily install volume",
+                  "$2.5M monthly ad spend optimization",
+                  "Access to exclusive app inventory networks"
+                ]
+              },
+              {
+                title: "DTC Subscription Box Cuts Customer Acquisition Cost 38%",
+                industry: "E-commerce",
+                challenge: "Rising CPAs on Meta and Google threatening profitability",
+                solution: "Built omnichannel media plan with programmatic display, CTV, and podcast sponsorships to diversify beyond Meta/Google duopoly",
+                results: [
+                  "38% lower blended CAC across all channels",
+                  "27% increase in subscription conversion rate",
+                  "New high-performing channel: podcast sponsorships",
+                  "$890K annual savings on media costs"
+                ]
+              },
+              {
+                title: "Healthcare Brand Achieves 5.8x ROAS on Programmatic",
+                industry: "Healthcare",
+                challenge: "Needed to reach highly specific medical professional audience efficiently",
+                solution: "Leveraged first-party data and medical publisher relationships to secure premium inventory with guaranteed viewability",
+                results: [
+                  "5.8x ROAS on programmatic display campaigns",
+                  "91% viewability rate (vs 60% industry avg)",
+                  "35% lower CPM vs open exchange rates",
+                  "Access to exclusive medical publication inventory"
+                ]
+              },
+              {
+                title: "Regional Restaurant Chain Dominates Local CTV",
+                industry: "QSR / Restaurants",
+                challenge: "Competing with national chains on limited local marketing budget",
+                solution: "Negotiated geo-targeted CTV deals with Hulu, Roku, and YouTube TV for maximum local reach at competitive rates",
+                results: [
+                  "48% reduction in cost per completed view",
+                  "2.1M local impressions per month",
+                  "23% increase in foot traffic to locations",
+                  "Local market dominance vs national competitors"
+                ]
+              },
+            ].map((study, i) => (
+              <div key={i} className="p-8 bg-gradient-to-br from-[hsl(221,10%,98%)] to-white rounded-2xl border border-border hover:shadow-xl transition-all duration-300" data-testid={`case-study-${i}`}>
+                <div className="text-sm uppercase tracking-wider text-[hsl(221,91%,60%)] mb-2">{study.industry}</div>
+                <h3 className="text-2xl font-bold mb-4">{study.title}</h3>
+                
+                <div className="mb-4">
+                  <div className="text-sm font-semibold text-foreground mb-1">Challenge</div>
+                  <p className="text-sm text-muted-foreground">{study.challenge}</p>
+                </div>
 
-      {/* Process */}
-      <section className="py-20 px-4 bg-[hsl(220,20%,98%)]">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-5xl md:text-6xl font-bold">
-              How we maximize <span className="italic text-[hsl(262,83%,58%)]">your media investment</span>
-            </h2>
-          </div>
+                <div className="mb-4">
+                  <div className="text-sm font-semibold text-foreground mb-1">Solution</div>
+                  <p className="text-sm text-muted-foreground">{study.solution}</p>
+                </div>
 
-          <div className="space-y-8">
-            {[
-              { step: "01", title: "Audience & Channel Analysis", desc: "Map your target audience's media consumption. Identify the channels, publishers, and formats where they're most engaged and receptive." },
-              { step: "02", title: "Media Planning & Budget Allocation", desc: "Build integrated media plans that balance reach, frequency, and efficiency. Allocate budgets based on projected performance and strategic priorities." },
-              { step: "03", title: "Negotiation & Execution", desc: "Leverage relationships to secure preferential rates, added value, and premium placements. Execute buys across all channels simultaneously." },
-              { step: "04", title: "Performance Monitoring & Optimization", desc: "Track campaign performance in real-time. Optimize budgets, placements, and creative. Scale winners, pause underperformers." },
-            ].map((item, i) => (
-              <div key={i} className="flex gap-6 items-start p-8 bg-white rounded-xl border border-border" data-testid={`step-${i}`}>
-                <div className="text-6xl font-bold text-[hsl(221,91%,60%)]/20">{item.step}</div>
-                <div className="flex-1">
-                  <h3 className="text-2xl font-bold mb-2">{item.title}</h3>
-                  <p className="text-muted-foreground">{item.desc}</p>
+                <div>
+                  <div className="text-sm font-semibold text-foreground mb-2">Results</div>
+                  <ul className="space-y-2">
+                    {study.results.map((result, j) => (
+                      <li key={j} className="flex items-start gap-2">
+                        <CheckCircle2 className="w-4 h-4 text-[hsl(142,76%,36%)] mt-0.5 flex-shrink-0" />
+                        <span className="text-sm text-muted-foreground">{result}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
             ))}
@@ -166,46 +227,59 @@ export default function MediaBuying() {
         </div>
       </section>
 
-      {/* Social Proof */}
-      <section className="py-20 px-4 bg-white">
-        <div className="max-w-7xl mx-auto text-center">
-          <div className="mb-12">
-            <h2 className="text-5xl md:text-6xl font-bold">
-              Buying power <span className="italic text-[hsl(262,83%,58%)]">you can leverage</span>
+      {/* How It Works */}
+      <section className="py-20 px-4 bg-[hsl(220,20%,98%)]">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <div className="text-sm uppercase tracking-wider text-[hsl(221,91%,60%)] mb-3">OUR PROCESS</div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+              How we buy media smarter
             </h2>
           </div>
+
           <div className="grid md:grid-cols-3 gap-8">
             {[
-              { value: "$75M+", label: "Annual media spend negotiated" },
-              { value: "150+", label: "Active publisher partnerships" },
-              { value: "35%", label: "Average savings below rate card" },
-            ].map((metric, i) => (
-              <div key={i} className="text-center" data-testid={`final-metric-${i}`}>
-                <div className="text-6xl md:text-7xl font-bold text-[hsl(221,91%,60%)] mb-3">{metric.value}</div>
-                <div className="text-muted-foreground">{metric.label}</div>
+              {
+                step: "01",
+                title: "Media Planning & Strategy",
+                description: "Analyze your audience, goals, and budget. Build a custom media plan that identifies the right mix of channels, formats, and publishers to reach your targets efficiently."
+              },
+              {
+                step: "02",
+                title: "Negotiation & Procurement",
+                description: "Leverage our publisher relationships and buying power to negotiate preferred rates, secure premium inventory, and access exclusive placements not available through self-serve platforms."
+              },
+              {
+                step: "03",
+                title: "Execution & Optimization",
+                description: "Launch campaigns, monitor performance in real-time, optimize budgets toward top performers, and continuously test new inventory sources to improve efficiency."
+              },
+            ].map((item, i) => (
+              <div key={i} className="text-center" data-testid={`step-${i}`}>
+                <div className="inline-block text-5xl md:text-6xl font-bold bg-gradient-to-r from-[hsl(221,91%,60%)] to-[hsl(262,83%,58%)] text-transparent bg-clip-text mb-4">
+                  {item.step}
+                </div>
+                <h3 className="text-2xl font-bold mb-3">{item.title}</h3>
+                <p className="text-muted-foreground leading-relaxed">{item.description}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-20 px-4 bg-gradient-to-br from-[hsl(221,91%,60%)] to-[hsl(262,83%,58%)] text-white">
+      {/* CTA Section */}
+      <section className="py-20 px-4 bg-gradient-to-r from-[hsl(221,91%,60%)] to-[hsl(262,83%,58%)] text-white">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-5xl md:text-6xl font-bold mb-6">
-            Stop overpaying for media
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+            Ready to maximize your media investment?
           </h2>
           <p className="text-xl mb-8 text-white/90">
-            Leverage our buying power and relationships to stretch your media budget 35% further.
+            Get a free media plan and rate audit. See how much you could be saving.
           </p>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <Button size="lg" className="bg-white text-[hsl(221,91%,60%)]" data-testid="button-cta-primary">
-              Get a Media Plan
-            </Button>
-            <Button size="lg" variant="outline" className="border-white text-white" data-testid="button-cta-secondary">
-              Talk to Our Team
-            </Button>
-          </div>
+          <Button size="lg" className="bg-white text-[hsl(221,91%,60%)] hover:bg-white/90" data-testid="button-cta">
+            Get Your Free Media Audit
+            <ArrowRight className="ml-2 w-5 h-5" />
+          </Button>
         </div>
       </section>
     </Layout>

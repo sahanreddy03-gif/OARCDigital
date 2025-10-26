@@ -1,40 +1,64 @@
 import { useEffect } from "react";
 import { Link } from "wouter";
-import { Video, Film, Sparkles, ArrowRight, Lightbulb } from "lucide-react";
+import { Video, Film, Sparkles, ArrowRight, Play, CheckCircle2, Camera } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/layout/Layout";
+import heroImage from "@assets/stock_images/video_production_fil_11782b4b.jpg";
 
 export default function VideoProduction() {
   useEffect(() => {
-    document.title = "Video Production Services | OARC Digital";
+    document.title = "Video Production Services - Cinematic Storytelling | OARC Digital";
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
-      metaDescription.setAttribute("content", "On-brand video storytelling that moves as fast as your campaign calendar. Over 1000 videos delivered, on brief and always on time.");
+      metaDescription.setAttribute("content", "Full-service video production from concept to delivery. Explainer videos, testimonials, ads, and social content. Fast turnaround, cinematic quality.");
     }
+    // Open Graph tags
+    let ogTitleMeta = document.querySelector('meta[property="og:title"]');
+    if (!ogTitleMeta) {
+      ogTitleMeta = document.createElement('meta');
+      ogTitleMeta.setAttribute('property', 'og:title');
+      document.head.appendChild(ogTitleMeta);
+    }
+    ogTitleMeta.setAttribute('content', 'Video Production Services - Storytelling That Converts | OARC Digital');
+    
+    let ogDescMeta = document.querySelector('meta[property="og:description"]');
+    if (!ogDescMeta) {
+      ogDescMeta = document.createElement('meta');
+      ogDescMeta.setAttribute('property', 'og:description');
+      document.head.appendChild(ogDescMeta);
+    }
+    ogDescMeta.setAttribute('content', 'Professional video production that drives results. Explainers, testimonials, ads, and more. Cinematic quality, fast turnaround.');
   }, []);
 
   return (
     <Layout>
     <div className="video-production">
-      {/* Hero */}
-      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-purple-600 via-pink-600 to-red-600">
-        <div className="absolute inset-0 bg-black/30" />
-        
-        <div className="relative z-10 text-center px-4 max-w-6xl mx-auto">
-          <div className="text-sm uppercase tracking-wider text-white/80 mb-4">Video Production Services</div>
-          <h2 className="text-5xl md:text-6xl lg:text-8xl font-bold text-white mb-6">
-            On-brand <span className="italic">video storytelling</span> that moves as fast as your campaign calendar
-          </h2>
-          <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto">
-            Over 1000 videos delivered, on brief and always on time
-          </p>
-          <Button size="lg" className="bg-white text-purple-600 hover:bg-white/90 h-12 px-8" data-testid="button-need-video">
-            Need Video Fast? Let's Talk
-          </Button>
+      {/* Hero Section with Real Image */}
+      <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0">
+          <img 
+            src={heroImage}
+            alt="Video production"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/70 to-black/50"></div>
         </div>
-
-        <div className="absolute inset-0 opacity-20">
-          <div className="w-full h-full bg-gradient-to-br from-purple-900 to-pink-900" />
+        <div className="relative z-10 text-center px-4 max-w-6xl mx-auto">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 animate-in fade-in slide-in-from-bottom-4 duration-700">
+            Video storytelling that <span className="italic bg-gradient-to-r from-purple-400 via-pink-400 to-red-400 text-transparent bg-clip-text">captivates and converts</span>
+          </h1>
+          <p className="text-lg md:text-xl text-white/90 mb-8 max-w-3xl mx-auto animate-in fade-in slide-in-from-bottom-4 duration-700 delay-150">
+            Full-service video production from concept to delivery. Explainer videos, testimonials, ads, and social content. Cinematic quality, 14-day turnaround, built to drive results.
+          </p>
+          <div className="flex flex-wrap gap-4 justify-center animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300">
+            <Button size="lg" className="bg-white text-purple-600 hover:bg-white/90" data-testid="button-get-started">
+              Start Your Project
+            </Button>
+            <Button size="lg" variant="outline" className="border-white text-white bg-white/10 backdrop-blur-sm hover:bg-white/20" data-testid="button-view-showreel">
+              <Play className="mr-2 h-5 w-5" />
+              View Showreel
+            </Button>
+          </div>
         </div>
       </section>
 
@@ -42,67 +66,82 @@ export default function VideoProduction() {
       <section className="py-12 px-4 bg-white border-b border-border">
         <div className="max-w-7xl mx-auto">
           <div className="text-center text-sm uppercase tracking-wider text-muted-foreground mb-8">
-            Trusted by the world's top brands
+            Creating video content for
           </div>
           <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12 opacity-60">
-            {['YouTube', 'Netflix', 'Disney', 'HBO', 'Spotify', 'TikTok', 'Vimeo', 'Adobe'].map((brand, i) => (
-              <div key={i} className="text-xl md:text-2xl font-bold text-foreground">{brand}</div>
+            {['SaaS Companies', 'E-learning Platforms', 'Real Estate', 'Hospitality', 'Health Tech', 'DTC Brands'].map((type, i) => (
+              <div key={i} className="text-lg md:text-xl font-bold text-foreground">{type}</div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Why Video */}
-      <section className="py-20 px-4 bg-white">
+      {/* Performance Metrics */}
+      <section className="py-16 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <div className="text-sm uppercase tracking-wider text-purple-600 mb-4">SEAMLESS SUPPORT</div>
-            <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6">
-              More content, less stress, and <span className="italic text-pink-600">better results</span>
+          <div className="text-center mb-12">
+            <div className="text-sm uppercase tracking-wider text-purple-600 mb-3">VIDEO IMPACT</div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+              Video content that drives business results
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Unlike slow agencies or oversight-needing freelancers, our flexible video services plug into your workflows and scale with your needs.
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Proven to increase engagement, conversions, and brand recall
             </p>
           </div>
 
-          {/* Metrics Grid */}
-          <div className="grid md:grid-cols-3 gap-8 mt-16">
+          <div className="grid md:grid-cols-4 gap-6 mt-10">
             {[
-              { value: "1,200%", label: "More shares for video vs static content" },
-              { value: "86%", label: "Higher conversion with video on landing pages" },
-              { value: "14 days", label: "Average full-service video turnaround" },
-            ].map((metric, i) => (
-              <div key={i} className="text-center" data-testid={`metric-${i}`}>
-                <div className="text-6xl md:text-7xl font-bold text-purple-600 mb-3">{metric.value}</div>
-                <div className="text-muted-foreground">{metric.label}</div>
+              { value: "86%", label: "Higher conversion with video", gradient: "from-purple-600 to-pink-600" },
+              { value: "1200%", label: "More shares than static", gradient: "from-blue-600 to-cyan-600" },
+              { value: "95%", label: "Message retention rate", gradient: "from-orange-600 to-red-600" },
+              { value: "14 days", label: "Avg. production time", gradient: "from-green-600 to-emerald-600" },
+            ].map((stat, i) => (
+              <div key={i} className="text-center p-6 bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl border border-border hover:shadow-lg transition-all duration-300 hover:-translate-y-1" data-testid={`metric-${i}`}>
+                <div className={`text-4xl md:text-5xl font-bold bg-gradient-to-r ${stat.gradient} text-transparent bg-clip-text mb-2`}>{stat.value}</div>
+                <div className="text-sm text-muted-foreground">{stat.label}</div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
+      {/* Why Video */}
+      <section className="py-20 px-4 bg-[hsl(270,100%,98%)]">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <div className="text-sm uppercase tracking-wider text-purple-600 mb-4">STORYTELLING</div>
+            <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6">
+              Every frame tells <span className="italic bg-gradient-to-r from-purple-600 to-pink-600 text-transparent bg-clip-text">your story</span>
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              From concept to final delivery, we create videos that capture attention, build trust, and drive action—whether it's explainers, testimonials, or ads.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Production Options - Large Cards */}
-      <section className="py-20 bg-gray-50 overflow-hidden">
+      <section className="py-20 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 mb-12">
-          <div className="text-sm uppercase tracking-wider text-purple-600 mb-4">FULL-SERVICE PRODUCTION</div>
+          <div className="text-sm uppercase tracking-wider text-purple-600 mb-4">VIDEO TYPES</div>
           <h2 className="text-5xl md:text-6xl font-bold">
-            Flexible production options for <span className="italic text-pink-600">every kind of video need</span>
+            Every video format. <span className="italic bg-gradient-to-r from-purple-600 to-pink-600 text-transparent bg-clip-text">Every use case.</span>
           </h2>
         </div>
 
         <div className="relative">
           <div className="flex gap-6 overflow-x-auto pb-6 px-4 scrollbar-hide snap-x snap-mandatory">
             {[
-              { name: "Full-Service Commercial Production", desc: "End-to-end production: concept, scripting, casting, filming, editing, color grading, and sound design. Cinematic quality, brand-perfect.", icon: Film },
-              { name: "Social-First Short-Form Video", desc: "15s-60s vertical videos for TikTok, Reels, and Shorts. Hook-first storytelling optimized for mobile and algorithms.", icon: Video },
-              { name: "Explainer & Product Videos", desc: "Demo videos, tutorials, and explainers that educate and convert. Perfect for SaaS, e-commerce, and B2B.", icon: Sparkles },
-              { name: "UGC & Testimonial Videos", desc: "Authentic customer testimonials and user-generated content that builds trust and drives social proof.", icon: Film },
-              { name: "Animated Videos & Motion Graphics", desc: "2D/3D animation, kinetic typography, and motion graphics. Perfect when live-action isn't the answer.", icon: Sparkles },
-              { name: "Video Editing & Post-Production", desc: "Already have footage? We'll transform raw clips into polished, branded videos. Color, sound, graphics—the works.", icon: Sparkles },
+              { name: "Explainer Videos", desc: "Clear, engaging videos that simplify complex products. Perfect for SaaS, fintech, and tech companies. 60-90s optimized for conversion.", icon: Video },
+              { name: "Customer Testimonials", desc: "Authentic testimonial videos that build trust and social proof. Real customers, real results, powerful storytelling.", icon: Camera },
+              { name: "Product Demo Videos", desc: "Show your product in action. Highlight features, benefits, and use cases. Perfect for e-commerce and SaaS.", icon: Play },
+              { name: "Social Media Ads", desc: "15s-60s video ads for Facebook, Instagram, TikTok, YouTube. Hook-first, platform-optimized, built to convert.", icon: Film },
+              { name: "Brand Storytelling", desc: "Cinematic brand videos that communicate your mission, values, and vision. Build emotional connection with your audience.", icon: Sparkles },
+              { name: "Animated Videos", desc: "2D/3D animation, motion graphics, and kinetic typography. Perfect when live-action isn't the right fit.", icon: Sparkles },
             ].map((item, i) => (
               <div key={i} className="flex-none w-[360px] md:w-[480px] snap-center group" data-testid={`card-video-type-${i}`}>
-                <div className="bg-white rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300">
-                  <div className="relative h-[300px] md:h-[400px] bg-gradient-to-br from-purple-100 via-pink-100 to-red-100 overflow-hidden flex items-center justify-center">
+                <div className="bg-white rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300 border border-border">
+                  <div className="relative h-[400px] md:h-[500px] bg-gradient-to-br from-purple-100 via-pink-100 to-red-100 overflow-hidden flex items-center justify-center">
                     <item.icon className="h-24 w-24 text-purple-600/20" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                       <div className="text-white text-sm font-medium">View Example →</div>
@@ -119,31 +158,57 @@ export default function VideoProduction() {
         </div>
       </section>
 
-      {/* Production Process */}
-      <section className="py-20 px-4 bg-gradient-to-br from-purple-50 to-pink-50">
+      {/* Case Studies */}
+      <section className="py-20 px-4 bg-[hsl(270,100%,98%)]">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <div className="text-sm uppercase tracking-wider text-purple-600 mb-4">OUR PROCESS</div>
-            <h2 className="text-5xl md:text-6xl font-bold">
-              From brief to <span className="italic text-pink-600">brilliant</span> in 4 steps
+            <div className="text-sm uppercase tracking-wider text-purple-600 mb-4">CASE STUDIES</div>
+            <h2 className="text-5xl md:text-6xl font-bold mb-6">
+              Videos that <span className="italic bg-gradient-to-r from-purple-600 to-pink-600 text-transparent bg-clip-text">drive measurable ROI</span>
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-3 gap-8">
             {[
-              { step: "01", name: "Concept", desc: "Creative direction, storyboarding, and script development aligned with your goals", icon: Lightbulb },
-              { step: "02", name: "Production", desc: "Casting, filming, directing with world-class crew and equipment", icon: Film },
-              { step: "03", name: "Post", desc: "Editing, color grading, sound design, motion graphics, and VFX", icon: Video },
-              { step: "04", name: "Delivery", desc: "Platform-optimized formats ready to launch and drive results", icon: Sparkles },
-            ].map((item, i) => (
-              <div key={i} className="relative group" data-testid={`process-step-${i}`}>
-                <div className="text-8xl font-bold text-purple-600/10 absolute -top-8 left-0 group-hover:text-purple-600/20 transition-colors">
-                  {item.step}
-                </div>
-                <div className="relative pt-16 p-6 bg-white rounded-xl border border-border hover:border-purple-600 hover:shadow-xl transition-all h-full">
-                  <item.icon className="h-12 w-12 text-purple-600 mb-4" />
-                  <h3 className="text-2xl font-bold mb-3">{item.name}</h3>
-                  <p className="text-muted-foreground">{item.desc}</p>
+              { 
+                industry: "SaaS Platform", 
+                challenge: "Creating explainer video to improve trial conversions",
+                result: "4.8x signups",
+                metric1: "73% increase in trial conversion",
+                metric2: "$2.1M ARR from video traffic",
+                icon: Video
+              },
+              { 
+                industry: "Real Estate", 
+                challenge: "Producing property tour videos for luxury listings",
+                result: "12M views",
+                metric1: "58% faster sale cycles",
+                metric2: "$47M in property sales",
+                icon: Camera
+              },
+              { 
+                industry: "Health Tech", 
+                challenge: "Building trust with patient testimonial videos",
+                result: "5.2x leads",
+                metric1: "64% increase in consultations",
+                metric2: "$1.3M in new patient revenue",
+                icon: Film
+              },
+            ].map((study, i) => (
+              <div key={i} className="group p-8 bg-white rounded-xl border border-border hover:border-purple-600 hover:shadow-xl transition-all duration-300" data-testid={`case-study-${i}`}>
+                <study.icon className="h-12 w-12 text-purple-600 mb-4 group-hover:scale-110 transition-transform" />
+                <div className="text-sm uppercase tracking-wider text-purple-600 mb-2">{study.industry}</div>
+                <p className="text-sm text-muted-foreground mb-4">{study.challenge}</p>
+                <div className="text-4xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 text-transparent bg-clip-text mb-4">{study.result}</div>
+                <div className="space-y-2">
+                  <div className="flex items-start gap-2">
+                    <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-sm">{study.metric1}</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-sm">{study.metric2}</span>
+                  </div>
                 </div>
               </div>
             ))}
@@ -151,45 +216,61 @@ export default function VideoProduction() {
         </div>
       </section>
 
-      {/* Platform Proficiency */}
+      {/* Production Quality */}
       <section className="py-20 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <div className="text-sm uppercase tracking-wider text-purple-600 mb-4">PLATFORM PROFICIENCY</div>
-            <h2 className="text-5xl md:text-6xl font-bold">
-              In-depth channel expertise for <span className="italic text-pink-600">content that converts</span>
-            </h2>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              { name: "Social Platform Videos", desc: "Platform-specific formats for YouTube, TikTok, Instagram, LinkedIn, and Twitter. Each optimized for the algorithm." },
-              { name: "Paid Advertising", desc: "Video ads built to convert. Pre-roll, mid-roll, in-feed, and stories ads that drive clicks and sales." },
-              { name: "Website & Landing Pages", desc: "Hero videos, background loops, and product demos that increase time-on-site and conversions." },
-              { name: "Internal Communications", desc: "Training videos, company updates, and onboarding content that engages your team." },
-              { name: "Event & Conference Content", desc: "Highlight reels, speaker recordings, and promotional videos that extend your event's reach." },
-            ].map((item, i) => (
-              <div key={i} className="p-8 rounded-xl border border-border hover:border-purple-600 hover:shadow-lg transition-all" data-testid={`card-platform-${i}`}>
-                <h3 className="text-2xl font-bold mb-3">{item.name}</h3>
-                <p className="text-muted-foreground">{item.desc}</p>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className="text-sm uppercase tracking-wider text-purple-600 mb-4">PRODUCTION QUALITY</div>
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
+                Cinematic quality. <span className="italic bg-gradient-to-r from-purple-600 to-pink-600 text-transparent bg-clip-text">Commercial-grade production.</span>
+              </h2>
+              <p className="text-lg text-muted-foreground mb-6">
+                We bring full production capabilities: professional crew, cinema cameras, lighting, sound design, color grading, and motion graphics. Every frame is intentional.
+              </p>
+              <div className="space-y-4">
+                {[
+                  "Full-service production from concept to delivery",
+                  "Professional scriptwriting and storyboarding",
+                  "Cinema-grade cameras and lighting",
+                  "Sound design, color grading, and VFX",
+                ].map((item, i) => (
+                  <div key={i} className="flex items-start gap-3">
+                    <CheckCircle2 className="h-6 w-6 text-green-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-lg">{item}</span>
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
+            <div className="grid grid-cols-2 gap-6">
+              {[
+                { label: "Videos Produced", value: "1,000+" },
+                { label: "Production Time", value: "14d" },
+                { label: "Client Satisfaction", value: "98%" },
+                { label: "Revisions Included", value: "3" },
+              ].map((stat, i) => (
+                <div key={i} className="p-6 bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl text-center">
+                  <div className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 text-transparent bg-clip-text mb-2">{stat.value}</div>
+                  <div className="text-sm text-muted-foreground">{stat.label}</div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* CTA */}
+      {/* Final CTA */}
       <section className="py-20 px-4 bg-gradient-to-br from-purple-600 via-pink-600 to-red-600 text-white">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-5xl md:text-6xl font-bold mb-6">
-            Ready to <span className="italic">press play</span> on your video strategy?
+            Ready to tell your <span className="italic">story on video?</span>
           </h2>
           <p className="text-xl text-white/90 mb-8">
-            Let's create video content that captures attention and drives action
+            Get professional video production that captures attention and drives results
           </p>
           <div className="flex gap-4 justify-center flex-wrap">
             <Button size="lg" className="bg-white text-purple-600 hover:bg-white/90 h-12 px-8" data-testid="button-cta-demo">
-              Let's Talk Video
+              Start Your Project
             </Button>
             <Link href="/contact">
               <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10 h-12 px-8" data-testid="button-cta-contact">
