@@ -14,6 +14,15 @@ import HireAIEmployees from "@/pages/services/HireAIEmployees";
 import RevenueAutomation from "@/pages/services/RevenueAutomation";
 import PaidAdvertising from "@/pages/services/PaidAdvertising";
 import MediaBuying from "@/pages/services/MediaBuying";
+import InfluencerMarketing from "@/pages/services/InfluencerMarketing";
+import SocialMediaManagement from "@/pages/services/SocialMediaManagement";
+import BrandingServices from "@/pages/services/BrandingServices";
+import AICopywriting from "@/pages/services/AICopywriting";
+import LeadGeneration from "@/pages/services/LeadGeneration";
+import CustomerAcquisition from "@/pages/services/CustomerAcquisition";
+import FunnelAutomation from "@/pages/services/FunnelAutomation";
+import DigitalMarketing from "@/pages/services/DigitalMarketing";
+import RapidIdeaTesting from "@/pages/services/RapidIdeaTesting";
 import OurWork from "@/pages/OurWork";
 import WhyUs from "@/pages/WhyUs";
 import Resources from "@/pages/Resources";
@@ -37,6 +46,15 @@ function Router() {
       <Route path="/services/revenue-automation" component={RevenueAutomation} />
       <Route path="/services/paid-advertising" component={PaidAdvertising} />
       <Route path="/services/media-buying" component={MediaBuying} />
+      <Route path="/services/influencer-marketing" component={InfluencerMarketing} />
+      <Route path="/services/social-media-management" component={SocialMediaManagement} />
+      <Route path="/services/branding-services" component={BrandingServices} />
+      <Route path="/services/ai-copywriting" component={AICopywriting} />
+      <Route path="/services/lead-generation" component={LeadGeneration} />
+      <Route path="/services/customer-acquisition" component={CustomerAcquisition} />
+      <Route path="/services/funnel-automation" component={FunnelAutomation} />
+      <Route path="/services/digital-marketing" component={DigitalMarketing} />
+      <Route path="/services/rapid-idea-testing" component={RapidIdeaTesting} />
       
       {/* Fallback for other services */}
       <Route path="/services/:service" component={ServiceDetail} />
