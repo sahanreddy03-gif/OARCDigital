@@ -6,7 +6,7 @@ import Layout from "@/components/layout/Layout";
 import heroImage from "@assets/stock_images/automation_workflow__5f7d705f.jpg";
 
 export default function FunnelAutomation() {
-  useEffect() => {
+  useEffect(() => {
     document.title = "Funnel Automation Services - Convert More, Work Less | OARC Digital";
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
