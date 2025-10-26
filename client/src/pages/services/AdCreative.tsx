@@ -58,11 +58,24 @@ export default function AdCreative() {
           <div className="text-center mb-16">
             <div className="text-sm uppercase tracking-wider text-[hsl(221,91%,60%)] mb-4">CREATIVE THAT CONVERTS</div>
             <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6">
-              Your shortcut to <span className="italic text-[hsl(158,83%,39%)]">scroll-stopping</span> ads
+              Lower your CPA. <span className="italic text-[hsl(158,83%,39%)]">Increase ROAS.</span> Scale profitably.
             </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              From market research to bringing your bold ideas to life, our fully-stacked creative team is ready to help you smash bottlenecks and get results.
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Performance-focused ad creative backed by data. We A/B test every concept, optimize for conversion, and deliver ads that actually move metrics—not just look pretty.
             </p>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-8 mt-12">
+            {[
+              { value: "43%", label: "Average CPA reduction in first 90 days" },
+              { value: "2.8x", label: "Average ROAS improvement" },
+              { value: "50+", label: "Ad variations tested per campaign" },
+            ].map((stat, i) => (
+              <div key={i} className="text-center p-6 bg-white rounded-xl border border-border">
+                <div className="text-5xl font-bold text-[hsl(221,91%,60%)] mb-2">{stat.value}</div>
+                <div className="text-sm text-muted-foreground">{stat.label}</div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -79,12 +92,12 @@ export default function AdCreative() {
         <div className="relative">
           <div className="flex gap-6 overflow-x-auto pb-6 px-4 scrollbar-hide snap-x snap-mandatory">
             {[
-              { name: "Ad Design", desc: "Produce and scale static and interactive ad creative across multiple channels and platforms." },
-              { name: "Social Media Ads", desc: "Engage audiences with stunning static, motion, and video ads. Leverage AI, AR, and 3D." },
-              { name: "Display Ads", desc: "Never miss an opportunity with high-impact static and motion banners, interstitials, and digital formats." },
-              { name: "AI-Enhanced Ads", desc: "Leverage the latest AI design tools to build custom image libraries and test concepts quickly." },
-              { name: "Native Ads", desc: "Reach audiences with native ads that blend seamlessly into each platform's look and feel." },
-              { name: "Out-of-Home Ads", desc: "Extend campaigns to big screens, traditional billboards, airport banners, and more." },
+              { name: "Static Ad Creative", desc: "High-converting static ads optimized for Facebook, Instagram, TikTok, and Google Display. Test 20+ variants per week." },
+              { name: "Video & Motion Ads", desc: "15s, 30s, 60s video ads engineered for platform algorithms. Hooks tested to maximize 3-second retention." },
+              { name: "UGC-Style Ads", desc: "Authentic user-generated content that outperforms polished ads. Real creators, real results, better CTR." },
+              { name: "Dynamic Product Ads", desc: "Automated catalog ads with personalized product recommendations. Scale to thousands of SKUs effortlessly." },
+              { name: "Carousel & Collection Ads", desc: "Multi-product storytelling formats proven to increase AOV by 32%. Perfect for e-commerce brands." },
+              { name: "Retargeting Creative", desc: "Stage-aware creative that speaks to where customers are in the funnel. Cart abandonment to loyalty loops." },
             ].map((item, i) => (
               <div key={i} className="flex-none w-[360px] md:w-[480px] snap-center group" data-testid={`card-ad-type-${i}`}>
                 <div className="bg-white rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300 border border-border">
@@ -140,10 +153,10 @@ export default function AdCreative() {
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
-              { value: "15K+", label: "Ad creative projects completed" },
-              { value: "2,500+", label: "Brands using our ad services" },
-              { value: "40k+", label: "Hours dedicated to ad creative" },
-              { value: "4.9/5", label: "Average ad project rating" },
+              { value: "$200M+", label: "Ad spend managed for clients" },
+              { value: "500+", label: "Ad concepts tested weekly" },
+              { value: "2.1x", label: "Average CTR improvement" },
+              { value: "72hrs", label: "Turnaround for new creative" },
             ].map((metric, i) => (
               <div key={i} className="text-center" data-testid={`metric-${i}`}>
                 <div className="text-6xl md:text-7xl font-bold text-[hsl(221,91%,60%)] mb-3">{metric.value}</div>

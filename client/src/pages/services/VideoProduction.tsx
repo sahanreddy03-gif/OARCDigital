@@ -68,9 +68,9 @@ export default function VideoProduction() {
           {/* Metrics Grid */}
           <div className="grid md:grid-cols-3 gap-8 mt-16">
             {[
-              { value: "1200%", label: "More shares for social video over static content" },
-              { value: "80%", label: "Higher conversion on landing pages with video" },
-              { value: "1000+", label: "Video projects delivered to date" },
+              { value: "1,200%", label: "More shares for video vs static content" },
+              { value: "86%", label: "Higher conversion with video on landing pages" },
+              { value: "14 days", label: "Average full-service video turnaround" },
             ].map((metric, i) => (
               <div key={i} className="text-center" data-testid={`metric-${i}`}>
                 <div className="text-6xl md:text-7xl font-bold text-purple-600 mb-3">{metric.value}</div>
@@ -93,12 +93,12 @@ export default function VideoProduction() {
         <div className="relative">
           <div className="flex gap-6 overflow-x-auto pb-6 px-4 scrollbar-hide snap-x snap-mandatory">
             {[
-              { name: "Full-Service Commercial", desc: "Script, cast, shoot, edit, and animate. Your cinematic campaign starts here.", icon: Film },
-              { name: "Social-First Video", desc: "Made-for-platform content that is fast, fun, and built for thumb-stopping impact.", icon: Video },
-              { name: "Performance Video", desc: "Build paid campaigns that convert, optimize rollout by channel, experiment with an expert by your side.", icon: Sparkles },
-              { name: "Video Specialists", desc: "Only need the shoot? The edit? The voiceover? Plug our team into the gaps in yours.", icon: Film },
-              { name: "Just the Concept", desc: "Bring us your goals and we'll return a ready-to-produce creative concept.", icon: Sparkles },
-              { name: "AI-Enhanced Video", desc: "Adding motion, speeding up production, and getting to market faster with AI-human collaboration.", icon: Sparkles },
+              { name: "Full-Service Commercial Production", desc: "End-to-end production: concept, scripting, casting, filming, editing, color grading, and sound design. Cinematic quality, brand-perfect.", icon: Film },
+              { name: "Social-First Short-Form Video", desc: "15s-60s vertical videos for TikTok, Reels, and Shorts. Hook-first storytelling optimized for mobile and algorithms.", icon: Video },
+              { name: "Explainer & Product Videos", desc: "Demo videos, tutorials, and explainers that educate and convert. Perfect for SaaS, e-commerce, and B2B.", icon: Sparkles },
+              { name: "UGC & Testimonial Videos", desc: "Authentic customer testimonials and user-generated content that builds trust and drives social proof.", icon: Film },
+              { name: "Animated Videos & Motion Graphics", desc: "2D/3D animation, kinetic typography, and motion graphics. Perfect when live-action isn't the answer.", icon: Sparkles },
+              { name: "Video Editing & Post-Production", desc: "Already have footage? We'll transform raw clips into polished, branded videos. Color, sound, graphics—the works.", icon: Sparkles },
             ].map((item, i) => (
               <div key={i} className="flex-none w-[360px] md:w-[480px] snap-center group" data-testid={`card-video-type-${i}`}>
                 <div className="bg-white rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300">
@@ -161,11 +161,13 @@ export default function VideoProduction() {
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
-              { name: "YouTube, Meta, TikTok, LinkedIn", desc: "Designed to perform in-feed, in-stream, and on-platform. Optimized from day one." },
-              { name: "TV and Streaming", desc: "Broadcast-ready ads with cinematic polish, built to scale across channels and countries." },
-              { name: "Product Demos", desc: "Clear, on-brand videos that turn curious clicks into committed customers." },
+              { name: "Social Platform Videos", desc: "Platform-specific formats for YouTube, TikTok, Instagram, LinkedIn, and Twitter. Each optimized for the algorithm." },
+              { name: "Paid Advertising", desc: "Video ads built to convert. Pre-roll, mid-roll, in-feed, and stories ads that drive clicks and sales." },
+              { name: "Website & Landing Pages", desc: "Hero videos, background loops, and product demos that increase time-on-site and conversions." },
+              { name: "Internal Communications", desc: "Training videos, company updates, and onboarding content that engages your team." },
+              { name: "Event & Conference Content", desc: "Highlight reels, speaker recordings, and promotional videos that extend your event's reach." },
             ].map((item, i) => (
               <div key={i} className="p-8 rounded-xl border border-border hover:border-purple-600 hover:shadow-lg transition-all" data-testid={`card-platform-${i}`}>
                 <h3 className="text-2xl font-bold mb-3">{item.name}</h3>
