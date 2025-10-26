@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Link } from "wouter";
-import { Bot, Users, MessageSquare, TrendingUp, Clock, DollarSign, ArrowRight } from "lucide-react";
+import { Bot, Users, MessageSquare, TrendingUp, Clock, DollarSign, ArrowRight, Database, Mail, Headphones, BarChart, Share2, Code, Check, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/layout/Layout";
 
@@ -153,13 +153,97 @@ export default function HireAIEmployees() {
         </div>
       </section>
 
+      {/* Integrations Ecosystem - ColdIQ Style */}
+      <section className="py-20 px-4 bg-white border-t border-border">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <div className="text-sm uppercase tracking-wider text-[hsl(262,83%,57%)] mb-4">INTEGRATIONS</div>
+            <h2 className="text-5xl md:text-6xl font-bold mb-6">
+              Connects with your <span className="italic text-[hsl(158,83%,39%)]">entire stack</span>
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              AI employees integrate seamlessly with the tools you already use
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-4 gap-6">
+            {[
+              { category: "CRM & Sales", tools: ["Salesforce", "HubSpot", "Pipedrive", "Close"], icon: Database },
+              { category: "Communication", tools: ["Gmail", "Outlook", "Slack", "Teams"], icon: Mail },
+              { category: "Customer Support", tools: ["Zendesk", "Intercom", "Freshdesk", "Help Scout"], icon: Headphones },
+              { category: "Analytics", tools: ["Google Analytics", "Mixpanel", "Amplitude", "Segment"], icon: BarChart },
+              { category: "Marketing", tools: ["Mailchimp", "ActiveCampaign", "Klaviyo", "SendGrid"], icon: TrendingUp },
+              { category: "Calendar", tools: ["Google Calendar", "Outlook", "Calendly", "Cal.com"], icon: Clock },
+              { category: "Social Media", tools: ["LinkedIn", "Twitter", "Facebook", "Instagram"], icon: Share2 },
+              { category: "Custom APIs", tools: ["REST API", "GraphQL", "Webhooks", "Zapier"], icon: Code },
+            ].map((item, i) => (
+              <div key={i} className="p-6 rounded-xl border border-border hover:border-[hsl(262,83%,57%)] hover:shadow-lg transition-all group" data-testid={`integration-${i}`}>
+                <item.icon className="h-8 w-8 text-[hsl(262,83%,57%)] mb-4 group-hover:scale-110 transition-transform" />
+                <h3 className="font-bold mb-3 text-sm uppercase tracking-wider text-[hsl(262,83%,57%)]">{item.category}</h3>
+                <div className="space-y-1">
+                  {item.tools.map((tool, j) => (
+                    <div key={j} className="text-sm text-muted-foreground">{tool}</div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Capabilities Matrix */}
+      <section className="py-20 px-4 bg-[hsl(0,0%,98%)]">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <div className="text-sm uppercase tracking-wider text-[hsl(262,83%,57%)] mb-4">CAPABILITIES</div>
+            <h2 className="text-5xl md:text-6xl font-bold mb-6">
+              What AI employees <span className="italic text-[hsl(158,83%,39%)]">can do</span>
+            </h2>
+          </div>
+
+          <div className="bg-white rounded-xl border border-border overflow-hidden">
+            <div className="overflow-x-auto">
+              <table className="w-full">
+                <thead className="bg-[hsl(262,83%,57%)]/5">
+                  <tr>
+                    <th className="text-left p-4 font-bold">Capability</th>
+                    <th className="text-center p-4 font-bold">SDR</th>
+                    <th className="text-center p-4 font-bold">Support</th>
+                    <th className="text-center p-4 font-bold">Content</th>
+                    <th className="text-center p-4 font-bold">Analyst</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {[
+                    { name: "24/7 Availability", sdr: true, support: true, content: true, analyst: true },
+                    { name: "Multi-language", sdr: true, support: true, content: true, analyst: false },
+                    { name: "Lead Qualification", sdr: true, support: false, content: false, analyst: false },
+                    { name: "Customer Queries", sdr: false, support: true, content: false, analyst: false },
+                    { name: "Content Generation", sdr: false, support: false, content: true, analyst: false },
+                    { name: "Data Analysis", sdr: false, support: false, content: false, analyst: true },
+                  ].map((row, i) => (
+                    <tr key={i} className="border-t border-border">
+                      <td className="p-4 font-medium">{row.name}</td>
+                      <td className="text-center p-4">{row.sdr ? <Check className="h-5 w-5 text-[hsl(158,83%,39%)] mx-auto" /> : <X className="h-5 w-5 text-muted-foreground/30 mx-auto" />}</td>
+                      <td className="text-center p-4">{row.support ? <Check className="h-5 w-5 text-[hsl(158,83%,39%)] mx-auto" /> : <X className="h-5 w-5 text-muted-foreground/30 mx-auto" />}</td>
+                      <td className="text-center p-4">{row.content ? <Check className="h-5 w-5 text-[hsl(158,83%,39%)] mx-auto" /> : <X className="h-5 w-5 text-muted-foreground/30 mx-auto" />}</td>
+                      <td className="text-center p-4">{row.analyst ? <Check className="h-5 w-5 text-[hsl(158,83%,39%)] mx-auto" /> : <X className="h-5 w-5 text-muted-foreground/30 mx-auto" />}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ROI Calculator Section */}
-      <section className="py-20 px-4 bg-[hsl(262,83%,57%)]/5">
+      <section className="py-20 px-4 bg-white">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Calculate your <span className="italic text-[hsl(158,83%,39%)]">ROI</span>
           </h2>
-          <div className="bg-white p-8 rounded-xl shadow-lg">
+          <div className="bg-[hsl(262,83%,57%)]/5 p-8 rounded-xl">
             <div className="grid md:grid-cols-2 gap-8 text-left">
               <div>
                 <div className="text-sm text-muted-foreground mb-2">Traditional Employee Cost</div>

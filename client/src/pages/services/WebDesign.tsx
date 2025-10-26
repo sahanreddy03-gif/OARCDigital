@@ -105,6 +105,50 @@ export default function WebDesign() {
         </div>
       </section>
 
+      {/* Before/After Transformations */}
+      <section className="py-20 px-4 bg-[hsl(210,20%,98%)]">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <div className="text-sm uppercase tracking-wider text-[hsl(220,65%,33%)] mb-4">TRANSFORMATION</div>
+            <h2 className="text-5xl md:text-6xl font-bold">
+              From <span className="italic text-[hsl(188,95%,43%)]">outdated</span> to outstanding
+            </h2>
+          </div>
+
+          <div className="space-y-16">
+            {[
+              { category: "E-commerce", before: "Cluttered product pages", after: "Clean, conversion-focused design" },
+              { category: "SaaS Platform", before: "Confusing navigation", after: "Intuitive user flows" },
+              { category: "Brand Site", before: "Generic template", after: "Custom brand experience" },
+            ].map((item, i) => (
+              <div key={i} className="grid md:grid-cols-2 gap-8" data-testid={`before-after-${i}`}>
+                {/* Before */}
+                <div className="group">
+                  <div className="mb-4">
+                    <span className="text-sm uppercase tracking-wider text-muted-foreground">Before</span>
+                    <h3 className="text-2xl font-bold mt-2">{item.before}</h3>
+                  </div>
+                  <div className="relative h-[400px] bg-gradient-to-br from-slate-200 to-slate-300 rounded-lg overflow-hidden border-2 border-red-300">
+                    <div className="absolute top-4 left-4 bg-red-500 text-white text-xs px-3 py-1 rounded-full">Before</div>
+                  </div>
+                </div>
+
+                {/* After */}
+                <div className="group">
+                  <div className="mb-4">
+                    <span className="text-sm uppercase tracking-wider text-muted-foreground">After</span>
+                    <h3 className="text-2xl font-bold mt-2">{item.after}</h3>
+                  </div>
+                  <div className="relative h-[400px] bg-gradient-to-br from-cyan-50 to-slate-50 rounded-lg overflow-hidden border-2 border-[hsl(188,95%,43%)]">
+                    <div className="absolute top-4 left-4 bg-[hsl(188,95%,43%)] text-white text-xs px-3 py-1 rounded-full">After</div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Metrics */}
       <section className="py-20 px-4 bg-white">
         <div className="max-w-7xl mx-auto">

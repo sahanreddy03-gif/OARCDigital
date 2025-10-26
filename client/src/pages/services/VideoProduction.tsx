@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Link } from "wouter";
-import { Video, Film, Sparkles, ArrowRight } from "lucide-react";
+import { Video, Film, Sparkles, ArrowRight, Lightbulb } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/layout/Layout";
 
@@ -112,6 +112,38 @@ export default function VideoProduction() {
                     <h3 className="text-xl font-bold mb-3">{item.name}</h3>
                     <p className="text-muted-foreground text-sm leading-relaxed">{item.desc}</p>
                   </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Production Process */}
+      <section className="py-20 px-4 bg-gradient-to-br from-purple-50 to-pink-50">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <div className="text-sm uppercase tracking-wider text-purple-600 mb-4">OUR PROCESS</div>
+            <h2 className="text-5xl md:text-6xl font-bold">
+              From brief to <span className="italic text-pink-600">brilliant</span> in 4 steps
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              { step: "01", name: "Concept", desc: "Creative direction, storyboarding, and script development aligned with your goals", icon: Lightbulb },
+              { step: "02", name: "Production", desc: "Casting, filming, directing with world-class crew and equipment", icon: Film },
+              { step: "03", name: "Post", desc: "Editing, color grading, sound design, motion graphics, and VFX", icon: Video },
+              { step: "04", name: "Delivery", desc: "Platform-optimized formats ready to launch and drive results", icon: Sparkles },
+            ].map((item, i) => (
+              <div key={i} className="relative group" data-testid={`process-step-${i}`}>
+                <div className="text-8xl font-bold text-purple-600/10 absolute -top-8 left-0 group-hover:text-purple-600/20 transition-colors">
+                  {item.step}
+                </div>
+                <div className="relative pt-16 p-6 bg-white rounded-xl border border-border hover:border-purple-600 hover:shadow-xl transition-all h-full">
+                  <item.icon className="h-12 w-12 text-purple-600 mb-4" />
+                  <h3 className="text-2xl font-bold mb-3">{item.name}</h3>
+                  <p className="text-muted-foreground">{item.desc}</p>
                 </div>
               </div>
             ))}
