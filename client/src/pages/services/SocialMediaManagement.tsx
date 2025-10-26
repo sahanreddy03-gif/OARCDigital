@@ -1,7 +1,8 @@
 import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/layout/Layout";
-import { Calendar, TrendingUp, Heart, MessageCircle, BarChart, Users } from "lucide-react";
+import { Calendar, TrendingUp, Heart, MessageCircle, BarChart, Users, ArrowRight, CheckCircle2 } from "lucide-react";
+import heroImage from "@assets/stock_images/social_media_manager_11df5838.jpg";
 
 export default function SocialMediaManagement() {
   useEffect(() => {
@@ -10,7 +11,6 @@ export default function SocialMediaManagement() {
     if (metaDescription) {
       metaDescription.setAttribute("content", "Full-service social media management. Content strategy, community management, engagement tactics, and analytics. Build loyal audiences across all platforms.");
     }
-    // Open Graph tags - always update content
     let ogTitleMeta = document.querySelector('meta[property="og:title"]');
     if (!ogTitleMeta) {
       ogTitleMeta = document.createElement('meta');
@@ -30,44 +30,70 @@ export default function SocialMediaManagement() {
 
   return (
     <Layout>
-      {/* Hero */}
-      <section className="relative min-h-[70vh] flex items-center justify-center bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-600 text-white overflow-hidden">
-        <div className="absolute inset-0 bg-black/20"></div>
+      {/* Hero Section with Real Image */}
+      <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0">
+          <img 
+            src={heroImage}
+            alt="Social media management"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/70 to-black/50"></div>
+        </div>
         <div className="relative z-10 text-center px-4 max-w-6xl mx-auto">
-          <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold text-white mb-6">
-            Build communities, not just <span className="italic">follower counts</span>
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 animate-in fade-in slide-in-from-bottom-4 duration-700">
+            Build communities, not just <span className="italic bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-600 text-transparent bg-clip-text">follower counts</span>
           </h1>
-          <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl text-white/90 mb-8 max-w-3xl mx-auto animate-in fade-in slide-in-from-bottom-4 duration-700 delay-150">
             Full-service social media management. From strategy to execution, we build engaged communities that drive real business results.
           </p>
-          <Button size="lg" className="bg-white text-blue-600" data-testid="button-get-started">
-            Get Started
-          </Button>
+          <div className="flex flex-wrap gap-4 justify-center animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300">
+            <Button size="lg" className="bg-white text-blue-600 hover:bg-white/90" data-testid="button-get-started">
+              Get Started
+            </Button>
+            <Button size="lg" variant="outline" className="border-white text-white bg-white/10 backdrop-blur-sm hover:bg-white/20" data-testid="button-view-case-studies">
+              View Case Studies
+            </Button>
+          </div>
         </div>
       </section>
 
-      {/* Metrics */}
-      <section className="py-20 px-4 bg-white">
+      {/* Trusted By */}
+      <section className="py-12 px-4 bg-white border-b border-border">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <div className="text-sm uppercase tracking-wider text-blue-600 mb-4">SOCIAL MEDIA EXCELLENCE</div>
-            <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6">
-              Daily management. <span className="italic text-indigo-600">Measurable growth.</span>
+          <div className="text-center text-sm uppercase tracking-wider text-muted-foreground mb-8">
+            Powering growth for leading brands
+          </div>
+          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12 opacity-60">
+            {['Hospitality Brands', 'Real Estate Firms', 'Fitness Studios', 'Local Restaurant Groups', 'Professional Services', 'Wellness Brands'].map((type, i) => (
+              <div key={i} className="text-base md:text-lg font-bold text-foreground">{type}</div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Performance Metrics */}
+      <section className="py-16 px-4 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <div className="text-sm uppercase tracking-wider text-blue-600 mb-3">SOCIAL MEDIA EXCELLENCE</div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+              Daily management. Measurable growth.
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              We don't just post content. We build strategies, engage communities, respond to customers, and drive business outcomes across every platform.
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              We don't just post content. We build strategies, engage communities, respond to customers, and drive business outcomes.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-4 gap-8 mt-12">
+          <div className="grid md:grid-cols-4 gap-6 mt-10">
             {[
-              { value: "850+", label: "Social accounts managed successfully" },
-              { value: "3.8x", label: "Average engagement rate improvement" },
-              { value: "2hr", label: "Average response time to comments/DMs" },
+              { value: "850+", label: "Social accounts managed" },
+              { value: "3.8x", label: "Avg. engagement rate lift" },
+              { value: "2hr", label: "Avg. response time" },
               { value: "95%", label: "Client retention rate" },
             ].map((stat, i) => (
-              <div key={i} className="text-center p-6 bg-blue-50 rounded-xl" data-testid={`metric-${i}`}>
-                <div className="text-5xl font-bold text-blue-600 mb-2">{stat.value}</div>
+              <div key={i} className="text-center p-6 bg-gradient-to-br from-blue-50 to-white rounded-xl border border-border hover:shadow-lg transition-all duration-300 hover:-translate-y-1" data-testid={`metric-${i}`}>
+                <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 text-transparent bg-clip-text mb-2">{stat.value}</div>
                 <div className="text-sm text-muted-foreground">{stat.label}</div>
               </div>
             ))}
@@ -79,8 +105,8 @@ export default function SocialMediaManagement() {
       <section className="py-20 bg-blue-50 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 mb-12">
           <div className="text-sm uppercase tracking-wider text-blue-600 mb-4">FULL-SERVICE MANAGEMENT</div>
-          <h2 className="text-5xl md:text-6xl font-bold">
-            Strategy to execution. <span className="italic text-indigo-600">Everything covered.</span>
+          <h2 className="text-4xl md:text-5xl font-bold">
+            Strategy to execution. <span className="italic bg-gradient-to-r from-blue-600 to-purple-600 text-transparent bg-clip-text">Everything covered.</span>
           </h2>
         </div>
 
@@ -94,15 +120,105 @@ export default function SocialMediaManagement() {
               { name: "Social Listening & Monitoring", desc: "Track brand mentions, competitor activity, industry trends, sentiment analysis. Stay ahead of conversations.", icon: MessageCircle },
               { name: "Analytics & Reporting", desc: "Track growth, engagement, reach, conversions. Weekly dashboards and monthly strategy reviews with actionable insights.", icon: BarChart },
             ].map((service, i) => (
-              <div key={i} className="flex-none w-[360px] md:w-[480px] snap-center group" data-testid={`card-service-${i}`}>
-                <div className="bg-white rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300 border border-border h-full">
-                  <div className="relative h-[300px] md:h-[350px] bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 overflow-hidden flex items-center justify-center">
-                    <service.icon className="h-24 w-24 text-blue-600/20" />
-                  </div>
-                  <div className="p-6">
-                    <h3 className="text-2xl font-bold mb-3">{service.name}</h3>
-                    <p className="text-muted-foreground">{service.desc}</p>
-                  </div>
+              <div 
+                key={i} 
+                className="min-w-[320px] md:min-w-[400px] p-8 bg-white rounded-2xl border border-border snap-start hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+                data-testid={`service-${i}`}
+              >
+                <service.icon className="w-12 h-12 text-blue-600 mb-4" />
+                <h3 className="text-2xl font-bold mb-3">{service.name}</h3>
+                <p className="text-muted-foreground leading-relaxed">{service.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Case Studies */}
+      <section className="py-20 px-4 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <div className="text-sm uppercase tracking-wider text-blue-600 mb-3">SUCCESS STORIES</div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+              Community building that works
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {[
+              {
+                title: "Boutique Hotel Chain Drives 42% Increase in Direct Bookings",
+                industry: "Hospitality",
+                challenge: "Competing with OTAs, needed to drive direct bookings via social",
+                solution: "Built Instagram-first content strategy showcasing property experiences, local attractions, and guest stories with strategic CTAs to booking page",
+                results: [
+                  "42% increase in direct booking conversions",
+                  "185% growth in Instagram following in 6 months",
+                  "8.7% average engagement rate (3x industry avg)",
+                  "$1.2M in attributed social media revenue"
+                ]
+              },
+              {
+                title: "Real Estate Firm Generates 320 Qualified Leads per Month",
+                industry: "Real Estate",
+                challenge: "Needed consistent lead generation in competitive market",
+                solution: "Daily property showcase content on Instagram and Facebook, neighborhood guides, agent profiles, and strategic lead magnets with nurture sequences",
+                results: [
+                  "320 qualified leads per month from social",
+                  "28% conversion rate on social leads",
+                  "450% ROI on social media management investment",
+                  "Top 3 real estate brand in local market"
+                ]
+              },
+              {
+                title: "Fitness Studio Fills 95% of Classes via Community Engagement",
+                industry: "Fitness & Wellness",
+                challenge: "Low class attendance and member engagement",
+                solution: "Hyper-local community building on Instagram, member spotlight features, workout tips, class previews, and engagement-driving challenges",
+                results: [
+                  "95% average class capacity (up from 62%)",
+                  "73% of new members discovered via Instagram",
+                  "2,400 local engaged followers in target demo",
+                  "4.9/5 star rating from community engagement"
+                ]
+              },
+              {
+                title: "Multi-Location Restaurant Group Grows to 85K Followers",
+                industry: "Restaurants / QSR",
+                challenge: "Needed to build brand awareness and drive foot traffic across 12 locations",
+                solution: "Food photography, behind-the-scenes content, location-specific Stories, user-generated content campaigns, and local influencer partnerships",
+                results: [
+                  "85K engaged followers across platforms",
+                  "23% increase in foot traffic across locations",
+                  "2.1M monthly impressions on Instagram",
+                  "Top 5 restaurant social presence in region"
+                ]
+              },
+            ].map((study, i) => (
+              <div key={i} className="p-8 bg-gradient-to-br from-blue-50 to-white rounded-2xl border border-border hover:shadow-xl transition-all duration-300" data-testid={`case-study-${i}`}>
+                <div className="text-sm uppercase tracking-wider text-blue-600 mb-2">{study.industry}</div>
+                <h3 className="text-2xl font-bold mb-4">{study.title}</h3>
+                
+                <div className="mb-4">
+                  <div className="text-sm font-semibold text-foreground mb-1">Challenge</div>
+                  <p className="text-sm text-muted-foreground">{study.challenge}</p>
+                </div>
+
+                <div className="mb-4">
+                  <div className="text-sm font-semibold text-foreground mb-1">Solution</div>
+                  <p className="text-sm text-muted-foreground">{study.solution}</p>
+                </div>
+
+                <div>
+                  <div className="text-sm font-semibold text-foreground mb-2">Results</div>
+                  <ul className="space-y-2">
+                    {study.results.map((result, j) => (
+                      <li key={j} className="flex items-start gap-2">
+                        <CheckCircle2 className="w-4 h-4 text-[hsl(142,76%,36%)] mt-0.5 flex-shrink-0" />
+                        <span className="text-sm text-muted-foreground">{result}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
             ))}
@@ -110,73 +226,59 @@ export default function SocialMediaManagement() {
         </div>
       </section>
 
-      {/* Platforms */}
-      <section className="py-20 px-4 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-5xl md:text-6xl font-bold">
-              Every platform. <span className="italic text-indigo-600">Every audience.</span>
-            </h2>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              { platform: "Instagram", desc: "Feed, Stories, Reels, IGTV. Visual storytelling for lifestyle, fashion, beauty, food, travel brands." },
-              { platform: "TikTok", desc: "Short-form video that captures Gen Z. Trending sounds, effects, hashtags. Viral potential." },
-              { platform: "LinkedIn", desc: "B2B thought leadership, company updates, employee advocacy. Professional networking at scale." },
-              { platform: "Twitter/X", desc: "Real-time engagement, news commentary, brand personality. Fast-moving conversations." },
-              { platform: "Facebook", desc: "Community building, events, groups, customer service. Reach older demographics effectively." },
-              { platform: "Pinterest", desc: "Visual discovery for e-commerce, home decor, recipes, DIY. Long-tail traffic driver." },
-            ].map((item, i) => (
-              <div key={i} className="p-8 rounded-xl border border-border hover:border-blue-600 hover:shadow-lg transition-all" data-testid={`card-platform-${i}`}>
-                <h3 className="text-2xl font-bold mb-3">{item.platform}</h3>
-                <p className="text-muted-foreground">{item.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Social Proof */}
+      {/* How It Works */}
       <section className="py-20 px-4 bg-blue-50">
-        <div className="max-w-7xl mx-auto text-center">
-          <div className="mb-12">
-            <h2 className="text-5xl md:text-6xl font-bold">
-              Trusted by brands that <span className="italic text-indigo-600">value community</span>
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <div className="text-sm uppercase tracking-wider text-blue-600 mb-3">OUR PROCESS</div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+              From strategy to daily management
             </h2>
           </div>
+
           <div className="grid md:grid-cols-3 gap-8">
             {[
-              { value: "850+", label: "Social accounts managed successfully" },
-              { value: "12M+", label: "Engaged followers across all clients" },
-              { value: "3.8x", label: "Average engagement rate lift" },
-            ].map((metric, i) => (
-              <div key={i} className="text-center" data-testid={`final-metric-${i}`}>
-                <div className="text-6xl md:text-7xl font-bold text-blue-600 mb-3">{metric.value}</div>
-                <div className="text-muted-foreground">{metric.label}</div>
+              {
+                step: "01",
+                title: "Strategy & Calendar Planning",
+                description: "Build content strategy, define content pillars, create editorial calendar. Research your audience and competitors to identify opportunities."
+              },
+              {
+                step: "02",
+                title: "Content Creation & Publishing",
+                description: "Create platform-optimized content daily. Publish at optimal times, engage with your community, and respond to comments and messages."
+              },
+              {
+                step: "03",
+                title: "Analytics & Optimization",
+                description: "Track performance metrics, identify top-performing content, optimize strategy based on data. Monthly reporting with actionable insights."
+              },
+            ].map((item, i) => (
+              <div key={i} className="text-center" data-testid={`step-${i}`}>
+                <div className="inline-block text-5xl md:text-6xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 text-transparent bg-clip-text mb-4">
+                  {item.step}
+                </div>
+                <h3 className="text-2xl font-bold mb-3">{item.title}</h3>
+                <p className="text-muted-foreground leading-relaxed">{item.description}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-20 px-4 bg-gradient-to-br from-blue-600 to-purple-600 text-white">
+      {/* CTA Section */}
+      <section className="py-20 px-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-5xl md:text-6xl font-bold mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Ready to build a real community?
           </h2>
           <p className="text-xl mb-8 text-white/90">
             Stop posting into the void. Start building engaged communities that drive business results.
           </p>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <Button size="lg" className="bg-white text-blue-600" data-testid="button-cta-primary">
-              Get a Free Audit
-            </Button>
-            <Button size="lg" variant="outline" className="border-white text-white" data-testid="button-cta-secondary">
-              Talk to Our Team
-            </Button>
-          </div>
+          <Button size="lg" className="bg-white text-blue-600 hover:bg-white/90" data-testid="button-cta">
+            Get a Free Audit
+            <ArrowRight className="ml-2 w-5 h-5" />
+          </Button>
         </div>
       </section>
     </Layout>

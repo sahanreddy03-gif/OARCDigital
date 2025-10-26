@@ -1,8 +1,9 @@
 import { useEffect } from "react";
 import { Link } from "wouter";
-import { Package, Award, Sparkles, ShoppingBag, Box, Tag } from "lucide-react";
+import { Package, Award, Sparkles, ShoppingBag, Box, Tag, CheckCircle2, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/layout/Layout";
+import heroImage from "@assets/stock_images/product_packaging_de_5860c269.jpg";
 
 export default function PrintPackaging() {
   useEffect(() => {
@@ -31,21 +32,28 @@ export default function PrintPackaging() {
 
   return (
     <Layout>
-      {/* Hero Section */}
-      <section className="relative min-h-[70vh] flex items-center justify-center bg-gradient-to-br from-[hsl(160,60%,45%)] via-[hsl(170,55%,50%)] to-[hsl(180,60%,55%)] text-white overflow-hidden">
-        <div className="absolute inset-0 bg-black/20"></div>
+      {/* Hero Section with Real Image */}
+      <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0">
+          <img 
+            src={heroImage}
+            alt="Product packaging design"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/70 to-black/50"></div>
+        </div>
         <div className="relative z-10 text-center px-4 max-w-6xl mx-auto">
-          <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold text-white mb-6">
-            Packaging that <span className="italic">flies off shelves</span>
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 animate-in fade-in slide-in-from-bottom-4 duration-700">
+            Packaging that <span className="italic bg-gradient-to-r from-[hsl(160,60%,45%)] via-[hsl(170,55%,50%)] to-[hsl(180,60%,55%)] text-transparent bg-clip-text">flies off shelves</span>
           </h1>
-          <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto">
-            Product packaging, labels, boxes, and print collateral designed to sell. From concept sketches to production-ready dielines. Retail-tested, consumer-loved.
+          <p className="text-lg md:text-xl text-white/90 mb-8 max-w-3xl mx-auto animate-in fade-in slide-in-from-bottom-4 duration-700 delay-150">
+            Product packaging designed to capture attention, communicate value, and drive sales. From initial concept to print-ready dielines. Retail-tested designs that turn browsers into buyers.
           </p>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <Button size="lg" className="bg-white text-[hsl(160,60%,45%)]" data-testid="button-get-started">
+          <div className="flex flex-wrap gap-4 justify-center animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300">
+            <Button size="lg" className="bg-white text-[hsl(160,60%,45%)] hover:bg-white/90" data-testid="button-get-started">
               Design My Packaging
             </Button>
-            <Button size="lg" variant="outline" className="border-white text-white" data-testid="button-view-work">
+            <Button size="lg" variant="outline" className="border-white text-white bg-white/10 backdrop-blur-sm hover:bg-white/20" data-testid="button-view-work">
               View Case Studies
             </Button>
           </div>
@@ -56,38 +64,38 @@ export default function PrintPackaging() {
       <section className="py-12 px-4 bg-white border-b border-border">
         <div className="max-w-7xl mx-auto">
           <div className="text-center text-sm uppercase tracking-wider text-muted-foreground mb-8">
-            Packaging for brands at retail
+            Designing for retail leaders
           </div>
           <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12 opacity-60">
-            {['CPG Brands', 'Food & Beverage', 'Beauty & Cosmetics', 'E-commerce', 'Luxury Goods', 'Retail Stores'].map((type, i) => (
+            {['CPG Startups', 'Food & Beverage Brands', 'Beauty & Skincare Lines', 'DTC E-commerce', 'Craft Breweries', 'Supplement Companies'].map((type, i) => (
               <div key={i} className="text-lg md:text-xl font-bold text-foreground">{type}</div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Performance Metrics */}
-      <section className="py-20 px-4 bg-white">
+      {/* Performance Metrics - REDUCED SIZE */}
+      <section className="py-16 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <div className="text-sm uppercase tracking-wider text-[hsl(160,60%,45%)] mb-4">PROVEN SALES IMPACT</div>
-            <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6">
+          <div className="text-center mb-12">
+            <div className="text-sm uppercase tracking-wider text-[hsl(160,60%,45%)] mb-3">PROVEN SALES IMPACT</div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">
               Stand out. <span className="italic text-[hsl(180,60%,55%)]">Sell more.</span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Great packaging doesn't just protect—it persuades. We design for the retail environment, where every detail matters.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-4 gap-8 mt-12">
+          <div className="grid md:grid-cols-4 gap-6 mt-10">
             {[
-              { value: "1,200+", label: "SKUs designed and launched to retail" },
-              { value: "41%", label: "Average sales lift after packaging redesign" },
-              { value: "98%", label: "First-time print approval rate" },
-              { value: "10 days", label: "Average turnaround for production files" },
+              { value: "1,200+", label: "SKUs launched to retail" },
+              { value: "41%", label: "Avg. sales lift post-redesign" },
+              { value: "98%", label: "First-time approval rate" },
+              { value: "10 days", label: "Production file turnaround" },
             ].map((stat, i) => (
-              <div key={i} className="text-center p-6 bg-[hsl(160,10%,98%)] rounded-xl" data-testid={`metric-${i}`}>
-                <div className="text-5xl font-bold text-[hsl(160,60%,45%)] mb-2">{stat.value}</div>
+              <div key={i} className="text-center p-6 bg-gradient-to-br from-[hsl(160,10%,98%)] to-white rounded-xl border border-border hover:shadow-lg transition-all duration-300 hover:-translate-y-1" data-testid={`metric-${i}`}>
+                <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-[hsl(160,60%,45%)] to-[hsl(180,60%,55%)] text-transparent bg-clip-text mb-2">{stat.value}</div>
                 <div className="text-sm text-muted-foreground">{stat.label}</div>
               </div>
             ))}
@@ -95,11 +103,62 @@ export default function PrintPackaging() {
         </div>
       </section>
 
+      {/* Case Study Section */}
+      <section className="py-20 px-4 bg-[hsl(160,10%,98%)]">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-sm uppercase tracking-wider text-[hsl(160,60%,45%)] mb-4">CLIENT SPOTLIGHT</div>
+          <h2 className="text-4xl md:text-5xl font-bold mb-12">
+            How premium packaging drove <span className="italic text-[hsl(180,60%,55%)]">shelf velocity for a CBD brand</span>
+          </h2>
+          
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <h3 className="text-2xl font-bold mb-4">The Challenge</h3>
+              <p className="text-lg text-muted-foreground mb-6">
+                A wellness CBD brand was struggling to compete in crowded health food stores. Their packaging looked "cheap" compared to premium competitors, despite having a superior product. They needed packaging that commanded higher price points and stood out on crowded shelves.
+              </p>
+              
+              <h3 className="text-2xl font-bold mb-4">Our Approach</h3>
+              <ul className="space-y-3 mb-6">
+                {[
+                  'Developed elevated unboxing experience with rigid boxes',
+                  'Introduced spot UV, embossing, and premium finishes',
+                  'Created modular label system for 12 product SKUs',
+                  'Designed retail display boxes and shelf merchandising'
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <CheckCircle2 className="h-5 w-5 text-[hsl(160,60%,45%)] flex-shrink-0 mt-0.5" />
+                    <span className="text-muted-foreground">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="bg-white rounded-xl p-8 border border-border">
+              <h3 className="text-xl font-bold mb-6">Results After Retail Launch</h3>
+              <div className="space-y-6">
+                {[
+                  { metric: '+127%', label: 'Shelf velocity increase' },
+                  { metric: '+$12', label: 'Average order value lift' },
+                  { metric: '76%', label: 'Customers kept packaging (vs 8% before)' },
+                  { metric: '3.8x', label: 'ROI on packaging investment' }
+                ].map((result, i) => (
+                  <div key={i} className="flex justify-between items-center pb-4 border-b border-border last:border-0">
+                    <span className="text-muted-foreground">{result.label}</span>
+                    <span className="text-2xl font-bold text-[hsl(160,60%,45%)]">{result.metric}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* What We Design */}
-      <section className="py-20 bg-[hsl(160,10%,98%)] overflow-hidden">
+      <section className="py-20 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 mb-12">
           <div className="text-sm uppercase tracking-wider text-[hsl(160,60%,45%)] mb-4">PACKAGING & PRINT SERVICES</div>
-          <h2 className="text-5xl md:text-6xl font-bold">
+          <h2 className="text-4xl md:text-5xl font-bold">
             Every format. <span className="italic text-[hsl(180,60%,55%)]">Print-perfect.</span>
           </h2>
         </div>
@@ -107,22 +166,60 @@ export default function PrintPackaging() {
         <div className="relative">
           <div className="flex gap-6 overflow-x-auto pb-6 px-4 scrollbar-hide snap-x snap-mandatory">
             {[
-              { name: "Product Packaging", desc: "Retail boxes, blister packs, clamshells, bags, pouches. Structural design, dielines, mockups. CMYK, Pantone, spot UV, embossing specs.", icon: Package },
-              { name: "Labels & Stickers", desc: "Product labels, wine/beer labels, ingredient panels, warning labels. Die-cut shapes, roll labels, waterproof materials. FDA/regulatory compliant.", icon: Tag },
-              { name: "Shipping Boxes & Mailers", desc: "E-commerce unboxing experiences. Corrugated boxes, custom mailers, tissue paper, inserts. Branded packaging that delights customers.", icon: Box },
-              { name: "Shopping Bags & Totes", desc: "Retail shopping bags, gift bags, branded totes. Paper, fabric, reusable materials. Handle options, custom sizes, eco-friendly choices.", icon: ShoppingBag },
-              { name: "Print Collateral", desc: "Brochures, catalogs, sell sheets, business cards, letterheads, envelopes. Trade show materials, posters, signage. Production-ready files.", icon: Award },
-              { name: "Luxury & Premium Packaging", desc: "Gift boxes, magnetic closure boxes, rigid boxes, foil stamping, embossing. High-end finishes for premium products and limited editions.", icon: Sparkles },
+              { 
+                name: "Product Packaging", 
+                desc: "Retail-ready boxes, blister packs, and custom structural designs that protect and persuade.",
+                features: ['Structural design', 'Die-lines & mockups', 'CMYK + Pantone specs', 'Embossing options'],
+                icon: Package 
+              },
+              { 
+                name: "Labels & Stickers", 
+                desc: "Product labels that comply with regulations while capturing attention on crowded shelves.",
+                features: ['Product labels', 'Ingredient panels', 'Die-cut shapes', 'FDA compliant'],
+                icon: Tag 
+              },
+              { 
+                name: "Shipping & Unboxing", 
+                desc: "E-commerce packaging that creates memorable first impressions and encourages social sharing.",
+                features: ['Custom mailers', 'Tissue inserts', 'Thank you cards', 'Branded tape'],
+                icon: Box 
+              },
+              { 
+                name: "Retail Displays", 
+                desc: "Point-of-purchase displays, counter cards, and merchandising that drives impulse purchases.",
+                features: ['POS displays', 'Shelf talkers', 'Counter cards', 'Signage systems'],
+                icon: ShoppingBag 
+              },
+              { 
+                name: "Print Collateral", 
+                desc: "Business cards to catalogs—every print piece designed for impact and brand consistency.",
+                features: ['Brochures & catalogs', 'Business cards', 'Sell sheets', 'Trade show materials'],
+                icon: Award 
+              },
+              { 
+                name: "Luxury Packaging", 
+                desc: "Premium finishes for high-end products. Rigid boxes, foil stamping, and magnetic closures.",
+                features: ['Rigid gift boxes', 'Foil stamping', 'Embossing', 'Magnetic closures'],
+                icon: Sparkles 
+              },
             ].map((service, i) => (
-              <div key={i} className="flex-none w-[360px] md:w-[480px] snap-center group" data-testid={`card-service-${i}`}>
-                <div className="bg-white rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300 border border-border h-full">
-                  <div className="relative h-[300px] md:h-[350px] bg-gradient-to-br from-teal-50 via-cyan-50 to-emerald-100 overflow-hidden flex items-center justify-center">
-                    <service.icon className="h-24 w-24 text-[hsl(160,60%,45%)]/20" />
+              <div key={i} className="flex-none w-[360px] md:w-[420px] snap-center group" data-testid={`card-service-${i}`}>
+                <div className="bg-white rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-border h-full">
+                  <div className="relative h-[280px] bg-gradient-to-br from-teal-50 via-cyan-50 to-emerald-100 overflow-hidden flex items-center justify-center">
+                    <service.icon className="h-20 w-20 text-[hsl(160,60%,45%)]/20" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   </div>
                   <div className="p-6">
-                    <h3 className="text-2xl font-bold mb-3">{service.name}</h3>
-                    <p className="text-muted-foreground">{service.desc}</p>
+                    <h3 className="text-xl font-bold mb-3">{service.name}</h3>
+                    <p className="text-sm text-muted-foreground mb-4">{service.desc}</p>
+                    <div className="space-y-2">
+                      {service.features.map((feature, idx) => (
+                        <div key={idx} className="flex items-center gap-2 text-sm text-muted-foreground">
+                          <CheckCircle2 className="h-4 w-4 text-[hsl(160,60%,45%)]" />
+                          <span>{feature}</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -134,17 +231,18 @@ export default function PrintPackaging() {
       {/* Final CTA */}
       <section className="py-20 px-4 bg-gradient-to-br from-[hsl(160,60%,45%)] to-[hsl(180,60%,55%)] text-white">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-5xl md:text-6xl font-bold mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Ready to design packaging that sells?
           </h2>
-          <p className="text-xl text-white/90 mb-8">
+          <p className="text-lg md:text-xl text-white/90 mb-8">
             From concept to retail shelves—let's create packaging that captivates customers and drives sales.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <Button size="lg" className="bg-white text-[hsl(160,60%,45%)]" data-testid="button-cta-primary">
+            <Button size="lg" className="bg-white text-[hsl(160,60%,45%)] hover:bg-white/90" data-testid="button-cta-primary">
               Start Your Project
+              <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
-            <Button size="lg" variant="outline" className="border-white text-white" data-testid="button-cta-secondary">
+            <Button size="lg" variant="outline" className="border-white text-white bg-white/10 backdrop-blur-sm hover:bg-white/20" data-testid="button-cta-secondary">
               Get a Quote
             </Button>
           </div>
