@@ -7,6 +7,11 @@ import Home from "@/pages/Home";
 import Services from "@/pages/Services";
 import ServiceDetail from "@/pages/ServiceDetail";
 import SocialMediaCreative from "@/pages/services/SocialMediaCreative";
+import AdCreative from "@/pages/services/AdCreative";
+import WebDesign from "@/pages/services/WebDesign";
+import VideoProduction from "@/pages/services/VideoProduction";
+import HireAIEmployees from "@/pages/services/HireAIEmployees";
+import RevenueAutomation from "@/pages/services/RevenueAutomation";
 import OurWork from "@/pages/OurWork";
 import WhyUs from "@/pages/WhyUs";
 import Resources from "@/pages/Resources";
@@ -20,8 +25,18 @@ function Router() {
     <Switch>
       <Route path="/" component={Home} />
       <Route path="/services" component={Services} />
+      
+      {/* Priority Service Pages - Unique Designs */}
       <Route path="/services/social-media-creative" component={SocialMediaCreative} />
+      <Route path="/services/ad-creative" component={AdCreative} />
+      <Route path="/services/web-design" component={WebDesign} />
+      <Route path="/services/video-production" component={VideoProduction} />
+      <Route path="/services/hire-ai-employees" component={HireAIEmployees} />
+      <Route path="/services/revenue-automation" component={RevenueAutomation} />
+      
+      {/* Fallback for other services */}
       <Route path="/services/:service" component={ServiceDetail} />
+      
       <Route path="/our-work" component={OurWork} />
       <Route path="/our-work/:slug" component={() => <div>Case Study Detail (Phase 3)</div>} />
       <Route path="/why-us" component={WhyUs} />
