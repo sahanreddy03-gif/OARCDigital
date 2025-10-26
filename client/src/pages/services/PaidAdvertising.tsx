@@ -81,7 +81,7 @@ export default function PaidAdvertising() {
 
           <div className="grid md:grid-cols-4 gap-8 mt-12">
             {[
-              { value: "2.8x", label: "Average ROAS improvement in 90 days" },
+              { value: "3.2x", label: "Average ROAS improvement in 90 days" },
               { value: "47%", label: "Average CPA reduction within 6 months" },
               { value: "$50M+", label: "Annual ad spend managed profitably" },
               { value: "89%", label: "Client retention rate year-over-year" },
