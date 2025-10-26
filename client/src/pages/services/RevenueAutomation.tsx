@@ -165,8 +165,53 @@ export default function RevenueAutomation() {
         </div>
       </section>
 
-      {/* How It Works */}
+      {/* Automation Workflows - Visual Diagrams */}
       <section className="py-20 px-4 bg-[hsl(0,0%,98%)]">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <div className="text-sm uppercase tracking-wider text-[hsl(158,83%,39%)] mb-4">WORKFLOWS</div>
+            <h2 className="text-5xl md:text-6xl font-bold mb-6">
+              Revenue automation <span className="italic text-[hsl(221,91%,60%)]">workflows</span> that work
+            </h2>
+          </div>
+
+          <div className="space-y-12">
+            {[
+              {
+                title: "Cold Email Outreach Flow",
+                steps: ["Lead Discovery", "Email Enrichment", "Personalization", "Send Campaign", "Auto Follow-ups", "Book Meetings"]
+              },
+              {
+                title: "LinkedIn Lead Gen Flow",
+                steps: ["Profile Visits", "Connection Requests", "Auto Messages", "Content Engagement", "CRM Sync", "Qualify Leads"]
+              },
+              {
+                title: "Multi-Channel Nurture Flow",
+                steps: ["Lead Enters System", "Email Sequence", "LinkedIn Touch", "Retargeting Ads", "Sales Alert", "Close Deal"]
+              },
+            ].map((workflow, i) => (
+              <div key={i} className="bg-white p-8 rounded-xl border border-border" data-testid={`workflow-${i}`}>
+                <h3 className="text-2xl font-bold mb-6">{workflow.title}</h3>
+                <div className="flex flex-wrap items-center gap-3">
+                  {workflow.steps.map((step, j) => (
+                    <div key={j} className="flex items-center">
+                      <div className="px-6 py-3 bg-[hsl(158,83%,39%)]/10 border-2 border-[hsl(158,83%,39%)] rounded-lg font-medium text-sm whitespace-nowrap">
+                        {step}
+                      </div>
+                      {j < workflow.steps.length - 1 && (
+                        <div className="mx-3 text-[hsl(158,83%,39%)]">→</div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* How It Works */}
+      <section className="py-20 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-5xl md:text-6xl font-bold mb-6">
