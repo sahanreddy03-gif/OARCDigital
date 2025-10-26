@@ -25,7 +25,7 @@ export default function HireAIEmployees() {
             Scale your team with <span className="italic">AI employees</span>
           </h1>
           <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto">
-            Automate sales, support, and operations 24/7. No hiring overhead. No training required. Just instant productivity.
+            Deploy AI employees in hours, not months. No recruiting, no onboarding, no payroll. Just instant productivity at 10% of the cost.
           </p>
           <Button size="lg" className="bg-white text-[hsl(262,83%,57%)] hover:bg-white/90 h-12 px-8" data-testid="button-get-started">
             Get Your AI Team

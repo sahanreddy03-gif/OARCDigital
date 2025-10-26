@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Link } from "wouter";
-import { Code, Smartphone, Zap, Layers, ArrowRight } from "lucide-react";
+import { Code, Smartphone, Zap, Layers, ArrowRight, TrendingUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/layout/Layout";
 
@@ -56,13 +56,26 @@ export default function WebDesign() {
       <section className="py-20 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <div className="text-sm uppercase tracking-wider text-[hsl(220,65%,33%)] mb-4">WHY WEB?</div>
+            <div className="text-sm uppercase tracking-wider text-[hsl(220,65%,33%)] mb-4">WHY WEB DESIGN MATTERS</div>
             <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6">
-              Your website isn't a billboard, it's a <span className="italic text-[hsl(188,95%,43%)]">growth engine</span>
+              Every page, <span className="italic text-[hsl(188,95%,43%)]">every pixel</span>, every click—optimized to convert
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Delivering digital experiences that actually convert takes more than pretty visuals. It takes UX strategy, brand consistency, and the ability to scale quickly.
+              Your website is working 24/7. Make every second count with conversion-focused design, lightning-fast load times, and experiences that turn visitors into customers.
             </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 mt-12">
+            {[
+              { value: "38%", label: "Average conversion rate increase" },
+              { value: "2.3s", label: "Page load time (industry avg: 4.7s)" },
+              { value: "94%", label: "Mobile-first design success rate" },
+            ].map((stat, i) => (
+              <div key={i} className="text-center p-6 bg-[hsl(220,20%,98%)] rounded-xl">
+                <div className="text-5xl font-bold text-[hsl(220,65%,33%)] mb-2">{stat.value}</div>
+                <div className="text-sm text-muted-foreground">{stat.label}</div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -79,12 +92,12 @@ export default function WebDesign() {
         <div className="relative">
           <div className="flex gap-6 overflow-x-auto pb-6 px-4 scrollbar-hide snap-x snap-mandatory">
             {[
-              { name: "Website Design", desc: "Website UX research, wireframes, responsive design, and high-fidelity UI, tailored to your goals.", icon: Layers },
-              { name: "Landing Pages", desc: "Funnel-stage pages that launch fast—fully optimized, mobile first, and on brand.", icon: Zap },
-              { name: "Design Systems", desc: "Reusable component libraries built to scale with consistency across all touchpoints.", icon: Code },
-              { name: "UX/UI Audits", desc: "Deep research into conversion leaks and usability gaps, plus expert recommendations.", icon: Smartphone },
-              { name: "Responsive Development", desc: "Pixel-perfect builds that work flawlessly across every device and browser.", icon: Smartphone },
-              { name: "Copy & Motion", desc: "Full-stack creative including headlines, content hierarchy, and animation.", icon: Zap },
+              { name: "Full Website Design", desc: "Conversion-optimized websites from sitemap to launch. UX research, wireframes, prototypes, and pixel-perfect UI. Built to scale.", icon: Layers },
+              { name: "High-Converting Landing Pages", desc: "Single-purpose pages engineered to convert. A/B test ready, mobile-first, and optimized for Core Web Vitals. Launch in 7 days.", icon: Zap },
+              { name: "E-commerce Design", desc: "Product pages, cart flows, checkout optimization. Reduce cart abandonment by 25%+ with proven UX patterns.", icon: Code },
+              { name: "Design System & Components", desc: "Scalable component libraries with documentation. Accelerate development by 3x while maintaining brand consistency.", icon: Layers },
+              { name: "Conversion Rate Optimization", desc: "Data-driven CRO audits, heatmaps, session recordings, A/B testing. Find and fix conversion leaks.", icon: TrendingUp },
+              { name: "Webflow & Framer Development", desc: "No-code development on Webflow or Framer. Full control, easy updates, blazing fast performance.", icon: Zap },
             ].map((item, i) => (
               <div key={i} className="flex-none w-[360px] md:w-[480px] snap-center group" data-testid={`card-service-${i}`}>
                 <div className="bg-white rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300 border border-border">
@@ -160,9 +173,9 @@ export default function WebDesign() {
           </div>
           <div className="grid md:grid-cols-3 gap-8">
             {[
-              { value: "30%+", label: "Average conversion increase after UX audit" },
-              { value: "50%", label: "Potential savings with modular design system" },
-              { value: "98%", label: "Of web projects delivered on or before deadline" },
+              { value: "400+", label: "Websites and landing pages designed" },
+              { value: "2.1M+", label: "Annual conversions generated" },
+              { value: "7 days", label: "Average landing page delivery" },
             ].map((metric, i) => (
               <div key={i} className="text-center" data-testid={`metric-${i}`}>
                 <div className="text-6xl md:text-7xl font-bold text-[hsl(220,65%,33%)] mb-3">{metric.value}</div>

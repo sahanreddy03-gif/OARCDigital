@@ -45,7 +45,7 @@ export default function RevenueAutomation() {
               Generate predictable, <span className="italic text-[hsl(221,91%,60%)]">scalable revenue</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Stop relying on manual outreach and unpredictable results. Build a revenue machine that works 24/7.
+              Turn manual outreach into automated pipeline. We build, manage, and optimize your entire revenue engine so you can focus on closing deals.
             </p>
           </div>
 
@@ -241,10 +241,10 @@ export default function RevenueAutomation() {
       {/* Social Proof */}
       <section className="py-20 px-4 bg-white">
         <div className="max-w-4xl mx-auto text-center">
-          <div className="text-6xl md:text-7xl font-bold text-[hsl(158,83%,39%)] mb-4">$50M+</div>
-          <div className="text-2xl md:text-3xl font-bold mb-4">in pipeline generated for clients</div>
+          <div className="text-6xl md:text-7xl font-bold text-[hsl(158,83%,39%)] mb-4">$150M+</div>
+          <div className="text-2xl md:text-3xl font-bold mb-4">in qualified pipeline generated for clients</div>
           <p className="text-xl text-muted-foreground">
-            Join 500+ companies automating their revenue growth
+            Join 800+ B2B companies that automated their outbound and scaled revenue
           </p>
         </div>
       </section>

@@ -71,11 +71,23 @@ export default function SocialMediaCreative() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <p className="text-xl text-muted-foreground mb-6">
-                Scaling your social ads and posts in-house? Easier said than done. Whether it's looming deadlines or limited resources, keeping up with the demand for compelling social media content is a challenge.
+                Social algorithms reward volume and consistency. To win, you need 20-50+ pieces of content per week—all platform-optimized, on-brand, and thumb-stopping.
               </p>
               <p className="text-xl text-muted-foreground mb-8">
-                Our fully-stacked creative team is ready to deliver high-performing content. On-brand, on-trend, and on your deadline.
+                Our social-first creative team produces unlimited content at a fixed monthly rate. No per-asset fees. No slowdowns. Just consistent, high-quality creative that keeps your feeds fresh and your audience engaged.
               </p>
+              <div className="grid grid-cols-3 gap-4 mb-8 text-center">
+                {[
+                  { value: "100+", label: "Posts per month" },
+                  { value: "24hr", label: "First draft delivery" },
+                  { value: "Unlimited", label: "Revisions" },
+                ].map((stat, i) => (
+                  <div key={i}>
+                    <div className="text-3xl font-bold text-[hsl(262,83%,58%)]">{stat.value}</div>
+                    <div className="text-xs text-muted-foreground">{stat.label}</div>
+                  </div>
+                ))}
+              </div>
               <Button size="lg" className="bg-[hsl(262,83%,58%)] hover:bg-[hsl(262,83%,50%)]" data-testid="button-get-started">
                 Get Started
                 <ArrowRight className="ml-2 h-5 w-5" />
@@ -110,12 +122,12 @@ export default function SocialMediaCreative() {
         <div className="relative">
           <div className="flex gap-6 overflow-x-auto pb-6 px-4 scrollbar-hide snap-x snap-mandatory">
             {[
-              { name: "Organic Social Content", desc: "Engage your audience with authentic content that boosts organic reach and brand loyalty." },
-              { name: "Video Content", desc: "Optimize for algorithms and engagement across social media platforms like Instagram, TikTok, and YouTube." },
-              { name: "Post Design", desc: "Capture attention with visually stunning post designs that reflect your brand's identity." },
-              { name: "Social Collateral", desc: "From profile banners to stories, ensure every aspect of your presence is on-brand." },
-              { name: "Response Guide", desc: "Equip your team with a comprehensive guide to maintain a consistent brand voice." },
-              { name: "Social Concepts", desc: "Innovate and set yourself apart with unique concepts that set trends." },
+              { name: "Instagram Content", desc: "Feed posts, Reels, Stories, and carousels optimized for Instagram's algorithm. Aesthetic and on-brand." },
+              { name: "TikTok & Short-Form Video", desc: "Hook-first vertical videos engineered for viral potential. Trending sounds, effects, and formats." },
+              { name: "LinkedIn Thought Leadership", desc: "Professional content that builds authority. Carousels, infographics, and text posts that drive engagement." },
+              { name: "Twitter/X Content", desc: "Witty copy, threads, and visual tweets that spark conversation and grow your following." },
+              { name: "Stories & Ephemeral Content", desc: "Daily Stories, polls, Q&As, and behind-the-scenes content to keep your audience engaged." },
+              { name: "Memes & Trend-Jacking", desc: "Capitalize on trending moments with on-brand memes and reactive content. Quick turnaround." },
             ].map((item, i) => (
               <div key={i} className="flex-none w-[360px] md:w-[480px] snap-center group" data-testid={`card-service-${i}`}>
                 <div className="bg-white rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300">
@@ -199,10 +211,10 @@ export default function SocialMediaCreative() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
-              { value: "20K+", label: "Social media creative projects completed" },
-              { value: "1,900+", label: "Total customers using our services" },
-              { value: "30k+", label: "Hours dedicated to social creative" },
-              { value: "4.8/5", label: "Average project approval rating" },
+              { value: "500M+", label: "Social impressions generated monthly" },
+              { value: "1,200+", label: "Pieces of content created weekly" },
+              { value: "3.4x", label: "Average engagement rate increase" },
+              { value: "24hrs", label: "Average turnaround time" },
             ].map((metric, i) => (
               <div key={i} className="text-center" data-testid={`metric-${i}`}>
                 <div className="text-6xl md:text-7xl font-bold text-[hsl(262,83%,58%)] mb-3">{metric.value}</div>
