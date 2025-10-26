@@ -33,14 +33,8 @@ export default function AdCreative() {
           </Button>
         </div>
 
-        <div className="absolute inset-0 opacity-30">
-          <div className="w-full h-full bg-gradient-to-br from-blue-900 to-green-900 flex items-center justify-center">
-            <div className="text-white/50 text-center">
-              <div className="text-sm uppercase tracking-wider mb-2">Hero Asset</div>
-              <div className="text-xs">4K/UHD (3840x2160)</div>
-              <div className="text-xs mt-1">Ad creative showcase</div>
-            </div>
-          </div>
+        <div className="absolute inset-0 opacity-20">
+          <div className="w-full h-full bg-gradient-to-br from-blue-900 to-green-900" />
         </div>
       </section>
 
@@ -95,14 +89,11 @@ export default function AdCreative() {
               <div key={i} className="flex-none w-[360px] md:w-[480px] snap-center group" data-testid={`card-ad-type-${i}`}>
                 <div className="bg-white rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300 border border-border">
                   <div className="relative h-[400px] md:h-[500px] bg-gradient-to-br from-blue-50 via-green-50 to-blue-100 overflow-hidden">
-                    <div className="absolute inset-0 flex items-center justify-center opacity-40">
-                      <div className="text-center text-muted-foreground">
-                        <div className="text-sm font-medium mb-2">Asset Placeholder</div>
-                        <div className="text-xs">1440x1548px</div>
-                        <div className="text-xs mt-1">{item.name}</div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                      <div className="text-white text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
+                        View Example →
                       </div>
                     </div>
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   </div>
                   <div className="p-6">
                     <h3 className="text-xl font-bold mb-3">{item.name}</h3>

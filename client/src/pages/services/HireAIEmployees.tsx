@@ -33,13 +33,7 @@ export default function HireAIEmployees() {
         </div>
 
         <div className="absolute inset-0 opacity-20">
-          <div className="w-full h-full bg-gradient-to-br from-purple-900 to-green-900 flex items-center justify-center">
-            <div className="text-white/50 text-center">
-              <div className="text-sm uppercase tracking-wider mb-2">Hero Asset</div>
-              <div className="text-xs">4K/UHD (3840x2160)</div>
-              <div className="text-xs mt-1">AI team illustration</div>
-            </div>
-          </div>
+          <div className="w-full h-full bg-gradient-to-br from-purple-900 to-green-900" />
         </div>
       </section>
 
@@ -109,11 +103,9 @@ export default function HireAIEmployees() {
                 <div className="bg-white rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300 border border-border h-full">
                   <div className="relative h-[280px] bg-gradient-to-br from-purple-50 via-green-50 to-purple-100 overflow-hidden flex items-center justify-center">
                     <Bot className="h-32 w-32 text-[hsl(262,83%,57%)]/20" />
-                    <div className="absolute bottom-4 left-4 right-4 text-center text-muted-foreground">
-                      <div className="text-sm font-medium mb-1">Asset Placeholder</div>
-                      <div className="text-xs">1920x1080px</div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                      <div className="text-white text-sm font-medium">Learn More →</div>
                     </div>
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   </div>
                   <div className="p-6">
                     <h3 className="text-xl font-bold mb-3">{role.name}</h3>
