@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { ChevronDown, ArrowRight } from 'lucide-react';
 import { Link } from 'wouter';
 import { getAllCategories } from '@/config/servicesConfig';
+import Navigation from '@/components/Navigation';
+import Footer from '@/components/Footer';
 import socialMediaImg from '@assets/stock_images/social_media_creativ_8b2d8cae.jpg';
 import aiEmployeesImg from '@assets/stock_images/professional_sales_r_664f92e1.jpg';
 import revenueImg from '@assets/stock_images/revenue_analytics_bu_e60e556f.jpg';
@@ -22,8 +24,11 @@ export default function Services() {
 
   return (
     <div className="min-h-screen bg-white">
+      {/* Navigation */}
+      <Navigation />
+
       {/* Header */}
-      <header className="bg-gradient-to-br from-zinc-900 via-zinc-800 to-black text-white py-20 px-6">
+      <header className="bg-gradient-to-br from-zinc-900 via-zinc-800 to-black text-white py-20 px-6 mt-14 md:mt-16 lg:mt-20">
         <div className="max-w-6xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 tracking-tight">
             Our Services
@@ -186,6 +191,9 @@ export default function Services() {
           </Link>
         </div>
       </section>
+
+      {/* Footer */}
+      <Footer />
     </div>
   );
 }
