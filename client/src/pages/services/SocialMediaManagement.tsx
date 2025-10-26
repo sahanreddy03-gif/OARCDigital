@@ -10,6 +10,22 @@ export default function SocialMediaManagement() {
     if (metaDescription) {
       metaDescription.setAttribute("content", "Full-service social media management. Content strategy, community management, engagement tactics, and analytics. Build loyal audiences across all platforms.");
     }
+    // Open Graph tags - always update content
+    let ogTitleMeta = document.querySelector('meta[property="og:title"]');
+    if (!ogTitleMeta) {
+      ogTitleMeta = document.createElement('meta');
+      ogTitleMeta.setAttribute('property', 'og:title');
+      document.head.appendChild(ogTitleMeta);
+    }
+    ogTitleMeta.setAttribute('content', 'Social Media Management - Community Building & Engagement | OARC Digital');
+    
+    let ogDescMeta = document.querySelector('meta[property="og:description"]');
+    if (!ogDescMeta) {
+      ogDescMeta = document.createElement('meta');
+      ogDescMeta.setAttribute('property', 'og:description');
+      document.head.appendChild(ogDescMeta);
+    }
+    ogDescMeta.setAttribute('content', 'Full-service social media management. Content strategy, community management, engagement tactics, and analytics. Build loyal audiences across all platforms.');
   }, []);
 
   return (
@@ -24,7 +40,7 @@ export default function SocialMediaManagement() {
           <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto">
             Full-service social media management. From strategy to execution, we build engaged communities that drive real business results.
           </p>
-          <Button size="lg" className="bg-white text-blue-600 hover:bg-white/90 h-12 px-8" data-testid="button-get-started">
+          <Button size="lg" className="bg-white text-blue-600" data-testid="button-get-started">
             Get Started
           </Button>
         </div>
@@ -154,10 +170,10 @@ export default function SocialMediaManagement() {
             Stop posting into the void. Start building engaged communities that drive business results.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <Button size="lg" className="bg-white text-blue-600 hover:bg-white/90 h-12 px-8" data-testid="button-cta-primary">
+            <Button size="lg" className="bg-white text-blue-600" data-testid="button-cta-primary">
               Get a Free Audit
             </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10 h-12 px-8" data-testid="button-cta-secondary">
+            <Button size="lg" variant="outline" className="border-white text-white" data-testid="button-cta-secondary">
               Talk to Our Team
             </Button>
           </div>

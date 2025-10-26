@@ -10,6 +10,22 @@ export default function CustomerAcquisition() {
     if (metaDescription) {
       metaDescription.setAttribute("content", "Data-driven customer acquisition strategies. Build repeatable, scalable systems that acquire customers profitably across every channel.");
     }
+    // Open Graph tags - always update content
+    let ogTitleMeta = document.querySelector('meta[property="og:title"]');
+    if (!ogTitleMeta) {
+      ogTitleMeta = document.createElement('meta');
+      ogTitleMeta.setAttribute('property', 'og:title');
+      document.head.appendChild(ogTitleMeta);
+    }
+    ogTitleMeta.setAttribute('content', 'Customer Acquisition Strategy - Growth Frameworks That Scale | OARC Digital');
+    
+    let ogDescMeta = document.querySelector('meta[property="og:description"]');
+    if (!ogDescMeta) {
+      ogDescMeta = document.createElement('meta');
+      ogDescMeta.setAttribute('property', 'og:description');
+      document.head.appendChild(ogDescMeta);
+    }
+    ogDescMeta.setAttribute('content', 'Data-driven customer acquisition strategies. Build repeatable, scalable systems that acquire customers profitably across every channel.');
   }, []);
 
   return (
@@ -23,7 +39,7 @@ export default function CustomerAcquisition() {
           <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto">
             Growth frameworks that work. Build repeatable, data-driven customer acquisition systems across paid, organic, and partner channels.
           </p>
-          <Button size="lg" className="bg-white text-indigo-600 hover:bg-white/90 h-12 px-8" data-testid="button-get-started">
+          <Button size="lg" className="bg-white text-indigo-600" data-testid="button-get-started">
             Build Your Growth Engine
           </Button>
         </div>
@@ -121,7 +137,7 @@ export default function CustomerAcquisition() {
           <p className="text-xl mb-8 text-white/90">
             Let's build a customer acquisition system that scales profitably.
           </p>
-          <Button size="lg" className="bg-white text-indigo-600 hover:bg-white/90 h-12 px-8" data-testid="button-cta-primary">
+          <Button size="lg" className="bg-white text-indigo-600" data-testid="button-cta-primary">
             Get Your Growth Plan
           </Button>
         </div>

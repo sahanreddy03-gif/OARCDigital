@@ -11,6 +11,22 @@ export default function PaidAdvertising() {
     if (metaDescription) {
       metaDescription.setAttribute("content", "Full-service paid advertising management. Google Ads, Meta, LinkedIn, TikTok. Lower CPA, increase ROAS, scale profitably with expert campaign management.");
     }
+    // Open Graph tags - always update content
+    let ogTitleMeta = document.querySelector('meta[property="og:title"]');
+    if (!ogTitleMeta) {
+      ogTitleMeta = document.createElement('meta');
+      ogTitleMeta.setAttribute('property', 'og:title');
+      document.head.appendChild(ogTitleMeta);
+    }
+    ogTitleMeta.setAttribute('content', 'Paid Advertising Services - Lower CPA, Higher ROAS | OARC Digital');
+    
+    let ogDescMeta = document.querySelector('meta[property="og:description"]');
+    if (!ogDescMeta) {
+      ogDescMeta = document.createElement('meta');
+      ogDescMeta.setAttribute('property', 'og:description');
+      document.head.appendChild(ogDescMeta);
+    }
+    ogDescMeta.setAttribute('content', 'Performance marketing that scales profitably. Google Ads, Meta Ads, LinkedIn, TikTok—optimized for maximum ROI.');
   }, []);
 
   return (
@@ -26,10 +42,10 @@ export default function PaidAdvertising() {
             Full-service paid campaign management across Google, Meta, LinkedIn, TikTok, and more. We don't just run ads—we build profitable growth engines.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <Button size="lg" className="bg-white text-[hsl(262,83%,58%)] hover:bg-white/90 h-12 px-8" data-testid="button-get-started">
+            <Button size="lg" className="bg-white text-[hsl(262,83%,58%)]" data-testid="button-get-started">
               Start Scaling
             </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10 h-12 px-8" data-testid="button-view-case-studies">
+            <Button size="lg" variant="outline" className="border-white text-white" data-testid="button-view-case-studies">
               View Case Studies
             </Button>
           </div>
@@ -203,10 +219,10 @@ export default function PaidAdvertising() {
             Stop guessing. Start growing. Get expert paid advertising management that delivers real ROI.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <Button size="lg" className="bg-white text-[hsl(262,83%,58%)] hover:bg-white/90 h-12 px-8" data-testid="button-cta-primary">
+            <Button size="lg" className="bg-white text-[hsl(262,83%,58%)]" data-testid="button-cta-primary">
               Get a Free Ad Audit
             </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10 h-12 px-8" data-testid="button-cta-secondary">
+            <Button size="lg" variant="outline" className="border-white text-white" data-testid="button-cta-secondary">
               Talk to Our Team
             </Button>
           </div>

@@ -10,6 +10,22 @@ export default function FunnelAutomation() {
     if (metaDescription) {
       metaDescription.setAttribute("content", "Automated marketing and sales funnels that convert 24/7. Email sequences, lead scoring, retargeting, nurture campaigns.");
     }
+    // Open Graph tags - always update content
+    let ogTitleMeta = document.querySelector('meta[property="og:title"]');
+    if (!ogTitleMeta) {
+      ogTitleMeta = document.createElement('meta');
+      ogTitleMeta.setAttribute('property', 'og:title');
+      document.head.appendChild(ogTitleMeta);
+    }
+    ogTitleMeta.setAttribute('content', 'Funnel Automation Services - Convert More, Work Less | OARC Digital');
+    
+    let ogDescMeta = document.querySelector('meta[property="og:description"]');
+    if (!ogDescMeta) {
+      ogDescMeta = document.createElement('meta');
+      ogDescMeta.setAttribute('property', 'og:description');
+      document.head.appendChild(ogDescMeta);
+    }
+    ogDescMeta.setAttribute('content', 'Automated marketing and sales funnels that convert 24/7. Email sequences, lead scoring, retargeting, nurture campaigns.');
   }, []);
 
   return (
@@ -23,7 +39,7 @@ export default function FunnelAutomation() {
           <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto">
             Automated email sequences, lead scoring, retargeting, and nurture campaigns. Build funnels that work 24/7 to turn prospects into customers.
           </p>
-          <Button size="lg" className="bg-white text-cyan-600 hover:bg-white/90 h-12 px-8" data-testid="button-get-started">
+          <Button size="lg" className="bg-white text-cyan-600" data-testid="button-get-started">
             Automate Your Funnel
           </Button>
         </div>
@@ -121,7 +137,7 @@ export default function FunnelAutomation() {
           <p className="text-xl mb-8 text-white/90">
             Build automated workflows that convert leads into customers 24/7.
           </p>
-          <Button size="lg" className="bg-white text-cyan-600 hover:bg-white/90 h-12 px-8" data-testid="button-cta-primary">
+          <Button size="lg" className="bg-white text-cyan-600" data-testid="button-cta-primary">
             Get Your Automation Plan
           </Button>
         </div>
