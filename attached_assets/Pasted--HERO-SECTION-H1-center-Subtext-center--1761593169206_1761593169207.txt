@@ -1,0 +1,86 @@
+───────────────────────────────────────────────
+[ HERO SECTION ]
+- H1 (center)
+- Subtext (center)
+- CTA Row (Button 1 + Ghost Button)
+- 3D Phone Layout (center cluster, layered depth)
+- Floating micro-icons (reactions, comments, shares)
+- Soft gradient background
+
+───────────────────────────────────────────────
+[ TRUST BAR ]
+- Thin line divider
+- 1 line trust text (small)
+- 5 micro-icons in a row (minimal)
+
+───────────────────────────────────────────────
+[ PROBLEM SECTION ]
+- Left: Headline + short paragraph (big whitespace)
+- Right: supporting graphic/shape/icon (minimal)
+
+───────────────────────────────────────────────
+[ SOLUTION: 3 PILLARS ]
+- 3 horizontal cards (Create / Manage / Convert)
+- Equal spacing
+- Glass style + gradient icon in each
+
+───────────────────────────────────────────────
+[ FULL SOCIAL STACK — FEATURE GRID ]
+- Title center
+- 3x4 grid (12 features with icons)
+- Equal spacing / lots of breathing room
+
+───────────────────────────────────────────────
+[ PLATFORM SCROLLER — HORIZONTAL ]
+- Title center
+- Horizontal scroll row:
+   [Instagram] [TikTok] [YouTube] [LinkedIn]
+- Mousewheel left-right on desktop
+- Snap points
+
+───────────────────────────────────────────────
+[ CONTENT SHOWCASE ]
+- Title
+- Video/image carousel (wide)
+- 3–5 showcase thumbnails with hover zoom
+
+───────────────────────────────────────────────
+[ MANAGEMENT SECTION ]
+- Left: Copy (bullets)
+- Right: Visual (phone mockup or screenshot)
+
+───────────────────────────────────────────────
+[ GROWTH ENGINE (PINNED STEPS) ]
+- Vertical scrollytelling
+- Step 1 → Step 2 → Step 3 → Step 4 → Step 5
+- Each step fades in as user scrolls
+
+───────────────────────────────────────────────
+[ ADD-ONS (3-MINI CARDS) ]
+- 3 small cards in a row
+- Influencers / UGC / Paid
+
+───────────────────────────────────────────────
+[ KPIs (3 ONLY) ]
+- Large centered metric text
+- Minimal subtext under each
+
+───────────────────────────────────────────────
+[ CASE STUDIES (3 CARDS) ]
+- 3 equal cards with hover zoom + shadow
+
+───────────────────────────────────────────────
+[ TESTIMONIAL SLIDER ]
+- Title
+- Horizontal slider (auto + manual)
+
+───────────────────────────────────────────────
+[ FINAL CTA ]
+- Big bold center headline
+- Primary CTA
+- Secondary CTA (link style)
+
+───────────────────────────────────────────────
+[ FAQ (5 ITEMS) ]
+- Accordion
+───────────────────────────────────────────────
