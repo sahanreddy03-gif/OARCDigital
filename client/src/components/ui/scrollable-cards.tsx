@@ -6,9 +6,10 @@ import { Button } from './button';
 interface ScrollableCardsProps {
   children: React.ReactNode;
   className?: string;
+  id?: string;
 }
 
-export function ScrollableCards({ children, className = '' }: ScrollableCardsProps) {
+export function ScrollableCards({ children, className = '', id = 'carousel' }: ScrollableCardsProps) {
   const [emblaRef, emblaApi] = useEmblaCarousel({
     align: 'start',
     containScroll: 'trimSnaps',
@@ -52,7 +53,7 @@ export function ScrollableCards({ children, className = '' }: ScrollableCardsPro
           variant="outline"
           onClick={scrollPrev}
           className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-white/90 backdrop-blur-sm shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-          data-testid="button-scroll-prev"
+          data-testid={`button-scroll-prev-${id}`}
         >
           <ChevronLeft className="h-5 w-5" />
         </Button>
@@ -64,14 +65,14 @@ export function ScrollableCards({ children, className = '' }: ScrollableCardsPro
           variant="outline"
           onClick={scrollNext}
           className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-white/90 backdrop-blur-sm shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-          data-testid="button-scroll-next"
+          data-testid={`button-scroll-next-${id}`}
         >
           <ChevronRight className="h-5 w-5" />
         </Button>
       )}
 
       {/* Scrollable Container */}
-      <div className="overflow-hidden" ref={emblaRef}>
+      <div className="overflow-hidden cursor-grab active:cursor-grabbing" ref={emblaRef}>
         <div className={`flex gap-6 ${className}`}>
           {children}
         </div>
