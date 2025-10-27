@@ -1,824 +1,441 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import Layout from "@/components/layout/Layout";
+import { motion, useScroll, useTransform, useInView } from "framer-motion";
+import { useRef } from "react";
 import { 
-  Palette, Video, Camera, TrendingUp, Heart, MessageCircle, BarChart, Users, 
-  ArrowRight, CheckCircle2, Instagram, Linkedin, Facebook, Play, Shield, Clock, Eye,
-  Repeat, Bell, Search, ShoppingBag, Award, FileText, Lightbulb, Target, Megaphone,
-  Sparkles, ChevronDown, Zap, Globe, TrendingDown, Share2, ThumbsUp, MessageSquare,
-  Star, Layers, Calendar, Mail, DollarSign, Settings
+  Instagram, Linkedin, Facebook, ArrowRight, Play, Video, Palette, Users,
+  Target, TrendingUp, BarChart, MessageCircle, Share2, Calendar, Bell,
+  Zap, Globe, ThumbsUp, Star, Award, CheckCircle2, ChevronRight, Eye,
+  Heart, Camera, Sparkles, Clock, Shield, Mail
 } from "lucide-react";
-import { SiTiktok, SiYoutube, SiSnapchat, SiPinterest } from "react-icons/si";
-import { CountUp } from "@/components/ui/count-up";
+import { SiTiktok, SiYoutube, SiSnapchat, SiPinterest, SiX } from "react-icons/si";
+
+// Animation component for scroll reveals
+function ScrollReveal({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 50 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+      transition={{ duration: 0.6, delay, ease: "easeOut" }}
+    >
+      {children}
+    </motion.div>
+  );
+}
 
 export default function SocialMediaCreativeManagement() {
-  const [openFaq, setOpenFaq] = useState<number | null>(null);
-  const [scrollY, setScrollY] = useState(0);
-  const [isSticky, setIsSticky] = useState(false);
+  const [activeCategory, setActiveCategory] = useState<'social' | 'paid' | 'influencer'>('social');
+  const heroRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"]
+  });
   
+  const heroOpacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
+  const heroScale = useTransform(scrollYProgress, [0, 1], [1, 0.95]);
+
   useEffect(() => {
-    document.title = "Social Media Creative & Management - Dominate Your Feed | OARC Digital";
+    document.title = "Social Media Creative & Management | OARC Digital";
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
-      metaDescription.setAttribute("content", "Full-funnel social—content, management, influencers and paid—engineered to capture attention and drive revenue. Reels, Stories, Carousels, UGC.");
+      metaDescription.setAttribute("content", "Your competitive edge in a crowded feed. Full-service social media creative, paid advertising, and influencer marketing.");
     }
-    
-    let ogTitleMeta = document.querySelector('meta[property="og:title"]');
-    if (!ogTitleMeta) {
-      ogTitleMeta = document.createElement('meta');
-      ogTitleMeta.setAttribute('property', 'og:title');
-      document.head.appendChild(ogTitleMeta);
-    }
-    ogTitleMeta.setAttribute('content', 'Social Media Creative & Management | OARC Digital');
-    
-    let ogDescMeta = document.querySelector('meta[property="og:description"]');
-    if (!ogDescMeta) {
-      ogDescMeta = document.createElement('meta');
-      ogDescMeta.setAttribute('property', 'og:description');
-      document.head.appendChild(ogDescMeta);
-    }
-    ogDescMeta.setAttribute('content', 'Full-funnel social—content, management, influencers and paid—engineered to capture attention and drive revenue.');
-
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-      setIsSticky(window.scrollY > 500);
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const toggleFaq = (index: number) => {
-    setOpenFaq(openFaq === index ? null : index);
+  const services = {
+    social: [
+      { name: "Organic Social Content", desc: "Daily posts, stories, reels optimized for engagement", icon: Palette },
+      { name: "Community Management", desc: "Active engagement, 2-hour response time", icon: MessageCircle },
+      { name: "Content Calendar", desc: "Strategic planning and scheduling", icon: Calendar },
+      { name: "Social Media Video", desc: "Reels, TikToks, YouTube Shorts, livestreams", icon: Video },
+      { name: "Post Design", desc: "Eye-catching graphics and carousels", icon: Palette },
+      { name: "Social Analytics", desc: "Performance tracking and insights", icon: BarChart },
+    ],
+    paid: [
+      { name: "Social Media Advertising", desc: "Paid campaigns across all platforms", icon: Target },
+      { name: "Campaign Management", desc: "Strategy, execution, optimization", icon: TrendingUp },
+      { name: "A/B Testing", desc: "Data-driven creative optimization", icon: BarChart },
+      { name: "Audience Targeting", desc: "Precision targeting for maximum ROI", icon: Users },
+      { name: "Retargeting Campaigns", desc: "Re-engage warm audiences", icon: Zap },
+      { name: "Performance Reporting", desc: "Detailed analytics and insights", icon: Award },
+    ],
+    influencer: [
+      { name: "Influencer Partnerships", desc: "Find and manage creator relationships", icon: Users },
+      { name: "UGC Strategy", desc: "Authentic user-generated content", icon: Camera },
+      { name: "Creator Management", desc: "Full campaign coordination", icon: Star },
+      { name: "Brand Ambassador Programs", desc: "Long-term partnerships", icon: Heart },
+      { name: "Campaign Tracking", desc: "Measure influencer ROI", icon: BarChart },
+      { name: "Content Rights", desc: "Usage licensing and management", icon: Shield },
+    ]
   };
+
+  const platforms = [
+    { name: "Instagram", icon: Instagram, color: "from-purple-600 to-pink-600", features: ["Reels", "Stories", "Shopping"] },
+    { name: "TikTok", icon: SiTiktok, color: "from-cyan-500 to-blue-600", features: ["Viral trends", "TikTok Shop", "Live"] },
+    { name: "LinkedIn", icon: Linkedin, color: "from-blue-700 to-blue-500", features: ["B2B", "Thought leadership", "Ads"] },
+    { name: "Facebook", icon: Facebook, color: "from-blue-600 to-indigo-600", features: ["Groups", "Marketplace", "Video"] },
+    { name: "YouTube", icon: SiYoutube, color: "from-red-600 to-red-500", features: ["Long-form", "Shorts", "Live streams"] },
+    { name: "Twitter/X", icon: SiX, color: "from-gray-900 to-gray-700", features: ["Real-time", "Threads", "Spaces"] },
+    { name: "Snapchat", icon: SiSnapchat, color: "from-yellow-400 to-yellow-500", features: ["AR lenses", "Spotlight", "Ads"] },
+    { name: "Pinterest", icon: SiPinterest, color: "from-red-600 to-pink-600", features: ["Idea Pins", "Shopping", "SEO"] },
+  ];
+
+  const stats = [
+    { value: "500+", label: "Brands Served" },
+    { value: "20K+", label: "Projects Completed" },
+    { value: "4.9/5", label: "Client Rating" },
+    { value: "60%", label: "Faster Delivery" },
+  ];
 
   return (
     <Layout>
-      {/* SECTION 1: HERO - 3D Phone Parallax */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-violet-100 via-white to-pink-50">
-        {/* Background Elements */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute w-96 h-96 bg-purple-500/20 rounded-full blur-3xl top-10 left-10 animate-pulse" style={{ animationDuration: '4s' }}></div>
-          <div className="absolute w-96 h-96 bg-pink-500/20 rounded-full blur-3xl bottom-20 right-20 animate-pulse" style={{ animationDuration: '5s' }}></div>
-          <div className="absolute w-64 h-64 bg-teal-400/20 rounded-full blur-3xl top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 animate-pulse" style={{ animationDuration: '6s' }}></div>
-        </div>
-
-        {/* 3D Phone Cluster */}
-        <div 
-          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] hidden lg:block"
-          style={{ 
-            transform: `translate(-50%, -50%) translateY(${scrollY * 0.3}px)`,
-            transition: 'transform 0.1s ease-out'
-          }}
-        >
-          {/* Center Phone - Main Reel/TikTok Style with Video Loop */}
-          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-30 w-56 h-[28rem] rounded-[2.5rem] bg-black shadow-2xl overflow-hidden border-8 border-gray-900" style={{ transform: 'perspective(1000px) rotateY(-8deg)' }}>
-            <div className="w-full h-full relative">
-              <video 
-                autoPlay 
-                loop 
-                muted 
-                playsInline
-                className="absolute inset-0 w-full h-full object-cover"
-                poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='224' height='448'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%238b5cf6'/%3E%3Cstop offset='50%25' stop-color='%23ec4899'/%3E%3Cstop offset='100%25' stop-color='%23f97316'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='224' height='448' fill='url(%23g)'/%3E%3C/svg%3E"
-              >
-                <source src="data:video/mp4;base64,AAAAIGZ0eXBpc29tAAACAGlzb21pc28yYXZjMW1wNDEAAAAIZnJlZQAAAu1tZGF0AAACrQYF//+p3EXpvebZSLeWLNgg2SPu73gyNjQgLSBjb3JlIDE2NCAtIEguMjY0L01QRUctNCBBVkMgY29kZWMgLSBDb3B5bGVmdCAyMDAzLTIwMjEgLSBodHRwOi8vd3d3LnZpZGVvbGFuLm9yZy94MjY0Lmh0bWwgLSBvcHRpb25zOiBjYWJhYz0xIHJlZj0zIGRlYmxvY2s9MTowOjAgYW5hbHlzZT0weDM6MHgxMTMgbWU9aGV4IHN1Ym1lPTcgcHN5PTEgcHN5X3JkPTEuMDA6MC4wMCBtaXhlZF9yZWY9MSBtZV9yYW5nZT0xNiBjaHJvbWFfbWU9MSB0cmVsbGlzPTEgOHg4ZGN0PTEgY3FtPTAgZGVhZHpvbmU9MjEsMTEgZmFzdF9wc2tpcD0xIGNocm9tYV9xcF9vZmZzZXQ9LTIgdGhyZWFkcz0xMiBsb29rYWhlYWRfdGhyZWFkcz0yIHNsaWNlZF90aHJlYWRzPTAgbnI9MCBkZWNpbWF0ZT0xIGludGVybGFjZWQ9MCBibHVyYXlfY29tcGF0PTAgY29uc3RyYWluZWRfaW50cmE9MCBiZnJhbWVzPTMgYl9weXJhbWlkPTIgYl9hZGFwdD0xIGJfYmlhcz0wIGRpcmVjdD0xIHdlaWdodGI9MSBvcGVuX2dvcD0wIHdlaWdodHA9MiBrZXlpbnQ9MjUwIGtleWludF9taW49MjUgc2NlbmVjdXQ9NDAgaW50cmFfcmVmcmVzaD0wIHJjX2xvb2thGVhZWFkPTQwIHJjPWNyZiBtYnRyZWU9MSBjcmY9MjMuMCBxY29tcD0wLjYwIHFwbWluPTAgcXBtYXg9NjkgcXBzdGVwPTQgaXBfcmF0aW89MS40MCBhcT0xOjEuMDAAgAAAAAwliIQAV/0TAAYdgAAABkBuaVRFRPyp//73/gAAAAlBmiRsQn/+nhAAAAMAAAMAVxSBACH21/lwYP/+5WkX/8zfgAAAAwVBnkJ4hX8SkbZgAAAAAwVBnmRFETwT/wAAAAMAAAMAVTJgCAAAApxBmmhJqEFsmUwIZ//+nhAAAAMAAAMAAwN/CIAAAAJ8QZqMSeEKUmUwUYI//+eEAAAAwAAAwADA3+yAAAAAlEGarEnhDomUwIR//yI/gAAAAMAAAMAVv/gAAAAq0GazEnhDyZTAjf//qeEAAAAwAAAwAMDf7IAAAAc0Ga7knhPyZTBBn/4YAAAAMAAAMAVv/gAAAALQZrxSeEfJlMEWfhgAAAAwAAAf8AAAD/QZ8CRTE8E/8AAAAFZaVvgAAAADtBnyZFPBP/AAAAwAAAwAVlpW+AAAApQZ9KRREsE/8AAAAFZaVvgAAAAGxBn2pFESsT/wAAAAMAVlpW+AAAAYhBn4xJ4Q/6eEAAAAwAAAwBWWlb4AAABQ0GfrknhD/6eEAAAAwAAAwBWWlb4AAAASQZGfoAAACqBm8AAAAD//PEA" type="video/mp4" />
-              </video>
-              <div className="absolute inset-0 bg-gradient-to-br from-purple-600/60 via-pink-600/60 to-orange-500/60"></div>
-              <div className="absolute inset-0 flex flex-col justify-between p-4 z-10">
-                <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 rounded-full bg-white/20 animate-pulse"></div>
-                  <div className="h-3 w-24 bg-white/20 rounded animate-pulse"></div>
-                </div>
-                <div>
-                  <Play className="w-16 h-16 text-white mx-auto mb-4 animate-pulse" style={{ animationDuration: '2s' }} />
-                  <div className="space-y-2">
-                    <div className="h-2 bg-white/20 rounded"></div>
-                    <div className="h-2 bg-white/20 rounded w-3/4"></div>
-                  </div>
-                </div>
-              </div>
+      {/* HERO SECTION - Superside Style */}
+      <motion.section 
+        ref={heroRef}
+        style={{ opacity: heroOpacity, scale: heroScale }}
+        className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-b from-gray-50 to-white"
+      >
+        <div className="max-w-6xl mx-auto px-4 text-center relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="mb-6"
+          >
+            <div className="inline-block px-4 py-2 bg-orange-100 rounded-full mb-8">
+              <span className="text-orange-600 font-semibold text-sm">SOCIAL MEDIA CREATIVE</span>
             </div>
-          </div>
-
-          {/* Left Phone - Carousel Auto-swipe with Video Loop */}
-          <div className="absolute left-0 top-1/2 -translate-y-1/2 z-20 w-48 h-96 rounded-[2rem] bg-black shadow-xl overflow-hidden border-8 border-gray-900" style={{ transform: 'perspective(1000px) rotateY(15deg) translateX(20px)' }}>
-            <div className="w-full h-full relative">
-              <video 
-                autoPlay 
-                loop 
-                muted 
-                playsInline
-                className="absolute inset-0 w-full h-full object-cover"
-                poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='192' height='384'%3E%3Cdefs%3E%3ClinearGradient id='g2' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2314b8a6'/%3E%3Cstop offset='100%25' stop-color='%232563eb'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='192' height='384' fill='url(%23g2)'/%3E%3C/svg%3E"
-              >
-                <source src="data:video/mp4;base64,AAAAIGZ0eXBpc29tAAACAGlzb21pc28yYXZjMW1wNDEAAAAIZnJlZQAAAu1tZGF0AAACrQYF//+p3EXpvebZSLeWLNgg2SPu73gyNjQgLSBjb3JlIDE2NCAtIEguMjY0L01QRUctNCBBVkMgY29kZWMgLSBDb3B5bGVmdCAyMDAzLTIwMjEgLSBodHRwOi8vd3d3LnZpZGVvbGFuLm9yZy94MjY0Lmh0bWwgLSBvcHRpb25zOiBjYWJhYz0xIHJlZj0zIGRlYmxvY2s9MTowOjAgYW5hbHlzZT0weDM6MHgxMTMgbWU9aGV4IHN1Ym1lPTcgcHN5PTEgcHN5X3JkPTEuMDA6MC4wMCBtaXhlZF9yZWY9MSBtZV9yYW5nZT0xNiBjaHJvbWFfbWU9MSB0cmVsbGlzPTEgOHg4ZGN0PTEgY3FtPTAgZGVhZHpvbmU9MjEsMTEgZmFzdF9wc2tpcD0xIGNocm9tYV9xcF9vZmZzZXQ9LTIgdGhyZWFkcz0xMiBsb29rYWhlYWRfdGhyZWFkcz0yIHNsaWNlZF90aHJlYWRzPTAgbnI9MCBkZWNpbWF0ZT0xIGludGVybGFjZWQ9MCBibHVyYXlfY29tcGF0PTAgY29uc3RyYWluZWRfaW50cmE9MCBiZnJhbWVzPTMgYl9weXJhbWlkPTIgYl9hZGFwdD0xIGJfYmlhcz0wIGRpcmVjdD0xIHdlaWdodGI9MSBvcGVuX2dvcD0wIHdlaWdodHA9MiBrZXlpbnQ9MjUwIGtleWludF9taW49MjUgc2NlbmVjdXQ9NDAgaW50cmFfcmVmcmVzaD0wIHJjX2xvb2thGVhZWFkPTQwIHJjPWNyZiBtYnRyZWU9MSBjcmY9MjMuMCBxY29tcD0wLjYwIHFwbWluPTAgcXBtYXg9NjkgcXBzdGVwPTQgaXBfcmF0aW89MS40MCBhcT0xOjEuMDAAgAAAAAwliIQAV/0TAAYdgAAABkBuaVRFRPyp//73/gAAAAlBmiRsQn/+nhAAAAMAAAMAVxSBACH21/lwYP/+5WkX/8zfgAAAAwVBnkJ4hX8SkbZgAAAAAwVBnmRFETwT/wAAAAMAAAMAVTJgCAAAApxBmmhJqEFsmUwIZ//+nhAAAAMAAAMAAwN/CIAAAAJ8QZqMSeEKUmUwUYI//+eEAAAAwAAAwADA3+yAAAAAlEGarEnhDomUwIR//yI/gAAAAMAAAMAVv/gAAAAq0GazEnhDyZTAjf//qeEAAAAwAAAwAMDf7IAAAAc0Ga7knhPyZTBBn/4YAAAAMAAAMAVv/gAAAALQZrxSeEfJlMEWfhgAAAAwAAAf8AAAD/QZ8CRTE8E/8AAAAFZaVvgAAAADtBnyZFPBP/AAAAwAAAwAVlpW+AAAApQZ9KRREsE/8AAAAFZaVvgAAAAGxBn2pFESsT/wAAAAMAVlpW+AAAAYhBn4xJ4Q/6eEAAAAwAAAwBWWlb4AAABQ0GfrknhD/6eEAAAAwAAAwBWWlb4AAAASQZGfoAAACqBm8AAAAD//PEA" type="video/mp4" />
-              </video>
-              <div className="absolute inset-0 bg-gradient-to-br from-teal-500/60 to-blue-600/60"></div>
-              <div className="absolute inset-0 flex items-center justify-center z-10">
-                <div className="w-full h-full relative">
-                  <div className="absolute inset-4 bg-white/10 rounded-lg animate-pulse" style={{ animationDuration: '4s' }}></div>
-                  <Camera className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 text-white z-10" />
-                  <div className="absolute bottom-4 left-4 right-4 flex gap-1">
-                    <div className="h-1 flex-1 bg-white/40 rounded"></div>
-                    <div className="h-1 flex-1 bg-white/40 rounded"></div>
-                    <div className="h-1 flex-1 bg-white rounded animate-pulse"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Right Phone - Story with Progress Bar and Video Loop */}
-          <div className="absolute right-0 top-1/2 -translate-y-1/2 z-20 w-48 h-96 rounded-[2rem] bg-black shadow-xl overflow-hidden border-8 border-gray-900" style={{ transform: 'perspective(1000px) rotateY(-15deg) translateX(-20px)' }}>
-            <div className="w-full h-full relative">
-              <video 
-                autoPlay 
-                loop 
-                muted 
-                playsInline
-                className="absolute inset-0 w-full h-full object-cover"
-                poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='192' height='384'%3E%3Cdefs%3E%3ClinearGradient id='g3' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23fbbf24'/%3E%3Cstop offset='100%25' stop-color='%23ec4899'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='192' height='384' fill='url(%23g3)'/%3E%3C/svg%3E"
-              >
-                <source src="data:video/mp4;base64,AAAAIGZ0eXBpc29tAAACAGlzb21pc28yYXZjMW1wNDEAAAAIZnJlZQAAAu1tZGF0AAACrQYF//+p3EXpvebZSLeWLNgg2SPu73gyNjQgLSBjb3JlIDE2NCAtIEguMjY0L01QRUctNCBBVkMgY29kZWMgLSBDb3B5bGVmdCAyMDAzLTIwMjEgLSBodHRwOi8vd3d3LnZpZGVvbGFuLm9yZy94MjY0Lmh0bWwgLSBvcHRpb25zOiBjYWJhYz0xIHJlZj0zIGRlYmxvY2s9MTowOjAgYW5hbHlzZT0weDM6MHgxMTMgbWU9aGV4IHN1Ym1lPTcgcHN5PTEgcHN5X3JkPTEuMDA6MC4wMCBtaXhlZF9yZWY9MSBtZV9yYW5nZT0xNiBjaHJvbWFfbWU9MSB0cmVsbGlzPTEgOHg4ZGN0PTEgY3FtPTAgZGVhZHpvbmU9MjEsMTEgZmFzdF9wc2tpcD0xIGNocm9tYV9xcF9vZmZzZXQ9LTIgdGhyZWFkcz0xMiBsb29rYWhlYWRfdGhyZWFkcz0yIHNsaWNlZF90aHJlYWRzPTAgbnI9MCBkZWNpbWF0ZT0xIGludGVybGFjZWQ9MCBibHVyYXlfY29tcGF0PTAgY29uc3RyYWluZWRfaW50cmE9MCBiZnJhbWVzPTMgYl9weXJhbWlkPTIgYl9hZGFwdD0xIGJfYmlhcz0wIGRpcmVjdD0xIHdlaWdodGI9MSBvcGVuX2dvcD0wIHdlaWdodHA9MiBrZXlpbnQ9MjUwIGtleWludF9taW49MjUgc2NlbmVjdXQ9NDAgaW50cmFfcmVmcmVzaD0wIHJjX2xvb2thGVhZWFkPTQwIHJjPWNyZiBtYnRyZWU9MSBjcmY9MjMuMCBxY29tcD0wLjYwIHFwbWluPTAgcXBtYXg9NjkgcXBzdGVwPTQgaXBfcmF0aW89MS40MCBhcT0xOjEuMDAAgAAAAAwliIQAV/0TAAYdgAAABkBuaVRFRPyp//73/gAAAAlBmiRsQn/+nhAAAAMAAAMAVxSBACH21/lwYP/+5WkX/8zfgAAAAwVBnkJ4hX8SkbZgAAAAAwVBnmRFETwT/wAAAAMAAAMAVTJgCAAAApxBmmhJqEFsmUwIZ//+nhAAAAMAAAMAAwN/CIAAAAJ8QZqMSeEKUmUwUYI//+eEAAAAwAAAwADA3+yAAAAAlEGarEnhDomUwIR//yI/gAAAAMAAAMAVv/gAAAAq0GazEnhDyZTAjf//qeEAAAAwAAAwAMDf7IAAAAc0Ga7knhPyZTBBn/4YAAAAMAAAMAVv/gAAAALQZrxSeEfJlMEWfhgAAAAwAAAf8AAAD/QZ8CRTE8E/8AAAAFZaVvgAAAADtBnyZFPBP/AAAAwAAAwAVlpW+AAAApQZ9KRREsE/8AAAAFZaVvgAAAAGxBn2pFESsT/wAAAAMAVlpW+AAAAYhBn4xJ4Q/6eEAAAAwAAAwBWWlb4AAABQ0GfrknhD/6eEAAAAwAAAwBWWlb4AAAASQZGfoAAACqBm8AAAAD//PEA" type="video/mp4" />
-              </video>
-              <div className="absolute inset-0 bg-gradient-to-br from-amber-400/60 to-pink-600/60"></div>
-              <div className="absolute top-4 left-4 right-4 flex gap-1 z-10">
-                <div className="h-0.5 flex-1 bg-white rounded overflow-hidden">
-                  <div className="h-full bg-white/60 animate-pulse" style={{ width: '100%', animationDuration: '3s' }}></div>
-                </div>
-                <div className="h-0.5 flex-1 bg-white/40 rounded"></div>
-                <div className="h-0.5 flex-1 bg-white/40 rounded"></div>
-              </div>
-              <div className="absolute inset-0 flex items-center justify-center z-10">
-                <Heart className="w-12 h-12 text-white animate-pulse" style={{ animationDuration: '1.5s' }} />
-              </div>
-              <div className="absolute bottom-6 left-4 right-4 z-10">
-                <div className="h-10 bg-white/20 rounded-full backdrop-blur-sm flex items-center px-4 gap-2">
-                  <MessageCircle className="w-4 h-4 text-white" />
-                  <div className="h-2 flex-1 bg-white/30 rounded"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Floating Icons */}
-          <div className="absolute top-10 right-10 animate-bounce" style={{ animationDuration: '3s' }}>
-            <div className="bg-white rounded-full p-3 shadow-lg">
-              <ThumbsUp className="w-5 h-5 text-purple-600" />
-            </div>
-          </div>
-          <div className="absolute bottom-20 left-10 animate-bounce" style={{ animationDuration: '4s', animationDelay: '0.5s' }}>
-            <div className="bg-white rounded-full p-3 shadow-lg">
-              <MessageSquare className="w-5 h-5 text-pink-600" />
-            </div>
-          </div>
-          <div className="absolute top-1/3 left-5 animate-bounce" style={{ animationDuration: '3.5s', animationDelay: '1s' }}>
-            <div className="bg-white rounded-full p-3 shadow-lg">
-              <Share2 className="w-5 h-5 text-teal-600" />
-            </div>
-          </div>
-        </div>
-
-        {/* Hero Content */}
-        <div className="relative z-40 text-center px-4 max-w-5xl mx-auto py-20">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 animate-in fade-in slide-in-from-bottom-4 duration-700 leading-tight">
-            <span className="bg-gradient-to-r from-purple-600 via-pink-600 to-purple-600 text-transparent bg-clip-text">
-              Dominate Social Media.
-            </span>
-            <br/>
-            Create. Influence. Convert.
-          </h1>
+          </motion.div>
           
-          <p className="text-lg md:text-xl lg:text-2xl text-gray-700 mb-10 max-w-3xl mx-auto leading-relaxed animate-in fade-in slide-in-from-bottom-4 duration-700 delay-100">
-            Full-funnel social—content, management, influencers and paid—engineered to capture attention and drive revenue.
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-200">
-            <Button 
-              size="lg" 
-              className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white h-14 px-8 text-lg shadow-lg hover:shadow-xl transition-all"
-              data-testid="button-start-pilot"
-            >
-              Start a Social Pilot
-              <ArrowRight className="ml-2 w-5 h-5" />
+          <motion.h1 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.1 }}
+            className="text-5xl md:text-7xl font-bold text-gray-900 mb-8 leading-tight"
+          >
+            Your <span className="italic text-orange-600">competitive edge</span><br />in a crowded feed
+          </motion.h1>
+          
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-xl md:text-2xl text-gray-600 mb-12 max-w-3xl mx-auto"
+          >
+            Slice through the chaos with social media content that gets your brand noticed and drives the results you want.
+          </motion.p>
+          
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="flex flex-col sm:flex-row gap-4 justify-center"
+          >
+            <Button size="lg" className="bg-orange-600 hover:bg-orange-700 text-white px-8" data-testid="button-book-demo">
+              Book a Demo
+              <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="border-2 border-purple-600 text-purple-600 hover:bg-purple-50 h-14 px-8 text-lg"
-              data-testid="button-see-work"
-            >
-              See Our Work
+            <Button size="lg" variant="outline" className="border-gray-300" data-testid="button-view-work">
+              View Our Work
             </Button>
-          </div>
-
-          {/* Micro Trust Chips */}
-          <div className="flex flex-wrap gap-3 justify-center text-sm animate-in fade-in duration-700 delay-300">
-            <span className="px-4 py-2 bg-white/60 backdrop-blur-sm rounded-full border border-purple-200 text-gray-700">
-              Reels. Stories. Carousels. UGC.
-            </span>
-            <span className="px-4 py-2 bg-white/60 backdrop-blur-sm rounded-full border border-pink-200 text-gray-700">
-              Instagram • TikTok • YouTube • LinkedIn
-            </span>
-          </div>
+          </motion.div>
         </div>
+
+        {/* Scroll indicator */}
+        <motion.div
+          animate={{ y: [0, 10, 0] }}
+          transition={{ duration: 1.5, repeat: Infinity }}
+          className="absolute bottom-8 left-1/2 -translate-x-1/2"
+        >
+          <ChevronRight className="h-6 w-6 text-gray-400 rotate-90" />
+        </motion.div>
+      </motion.section>
+
+      {/* SERVICES CAROUSEL - Horizontal Scroll */}
+      <section className="py-20 bg-white overflow-hidden">
+        <ScrollReveal>
+          <div className="max-w-7xl mx-auto px-4">
+            <div className="flex gap-6 overflow-x-auto pb-6 snap-x snap-mandatory scrollbar-hide" data-testid="services-carousel">
+              {[
+                { name: "Organic Social Media Content", image: "📱" },
+                { name: "Video Content", image: "🎥" },
+                { name: "Social Media Post Design", image: "🎨" },
+                { name: "Social Media Collateral", image: "✨" },
+                { name: "Social Media Response Guide", image: "💬" },
+                { name: "Social Media Concepts", image: "💡" },
+              ].map((service, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, x: 50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.5, delay: i * 0.1 }}
+                  viewport={{ once: true }}
+                  className="flex-shrink-0 w-72 snap-center"
+                  data-testid={`service-card-${i}`}
+                >
+                  <Card className="p-6 h-full hover-elevate">
+                    <div className="text-6xl mb-4">{service.image}</div>
+                    <h3 className="text-lg font-semibold text-gray-900">{service.name}</h3>
+                  </Card>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </ScrollReveal>
       </section>
 
-      {/* SECTION 2: TRUST BAR */}
-      <section className="py-12 border-y border-gray-200 bg-white">
-        <div className="max-w-7xl mx-auto px-4">
-          <p className="text-center text-sm text-gray-600 mb-6 font-medium">
-            Chosen by brands that demand attention, momentum and creative firepower.
-          </p>
-          <div className="flex flex-wrap gap-6 justify-center items-center">
-            {[
-              { label: "Retail", icon: ShoppingBag },
-              { label: "SaaS", icon: Layers },
-              { label: "Hospitality", icon: Award },
-              { label: "Ecommerce", icon: DollarSign },
-              { label: "Creators", icon: Star }
-            ].map((item, i) => (
-              <div key={i} className="flex items-center gap-2 text-gray-700">
-                <item.icon className="w-4 h-4 text-purple-600" />
-                <span className="text-sm font-medium">{item.label}</span>
-              </div>
-            ))}
+      {/* TRUSTED BY SECTION */}
+      <section className="py-12 bg-gray-50">
+        <ScrollReveal>
+          <div className="max-w-7xl mx-auto px-4 text-center">
+            <p className="text-sm text-gray-500 mb-8 uppercase tracking-wider">Trusted by 500+ of the world's biggest brands</p>
+            <div className="flex flex-wrap justify-center items-center gap-12 opacity-40">
+              {["Meta", "Amazon", "Shopify", "Reddit", "Coinbase", "Uber"].map((brand, i) => (
+                <div key={i} className="text-2xl font-bold text-gray-900">{brand}</div>
+              ))}
+            </div>
           </div>
-        </div>
+        </ScrollReveal>
       </section>
 
-      {/* SECTION 3: THE PROBLEM */}
-      <section className="py-32 bg-gradient-to-br from-gray-50 to-white">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-8">
-            The social game changed — most brands didn't.
-          </h2>
-          <p className="text-lg md:text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
-            Audiences scroll faster. Competition produces louder. Algorithms reward motion and volume.<br/><br/>
-            Yet most brands still post like it's 2018 — slow, static, and forgettable.<br/><br/>
-            To win today, you need a system that produces high-volume creative, manages daily momentum, and turns attention into revenue.
-          </p>
-        </div>
-      </section>
-
-      {/* SECTION 4: THE SOLUTION - 3 Pillars */}
-      <section className="py-32 bg-gradient-to-br from-violet-50 via-purple-50 to-pink-50">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              One partner. Every part of social — handled, end-to-end.
-            </h2>
-            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
-              We don't just post. We ideate, create, publish, manage, amplify and optimize — across organic, paid and influencer — with a system built for growth.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                title: "Create",
-                desc: "Short-form video, carousels, UGC & motion built on proven hooks.",
-                icon: Palette,
-                gradient: "from-purple-500 to-violet-600"
-              },
-              {
-                title: "Manage",
-                desc: "Calendars, posting, community, engagement & moderation.",
-                icon: Calendar,
-                gradient: "from-pink-500 to-rose-600"
-              },
-              {
-                title: "Convert",
-                desc: "Paid, influencers, analytics and optimization tied to KPIs.",
-                icon: TrendingUp,
-                gradient: "from-teal-500 to-cyan-600"
-              }
-            ].map((pillar, i) => (
-              <Card 
-                key={i} 
-                className="p-8 bg-white/60 backdrop-blur-lg border border-white/50 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
-                data-testid={`card-pillar-${pillar.title.toLowerCase()}`}
-              >
-                <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${pillar.gradient} flex items-center justify-center mb-6 shadow-lg`}>
-                  <pillar.icon className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-3">{pillar.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{pillar.desc}</p>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 5: FULL SOCIAL STACK - Feature Grid */}
+      {/* MAIN SERVICES - 3 Categories with Animations */}
       <section className="py-32 bg-white">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Everything your brand needs to grow on social — under one roof.
-            </h2>
-          </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              { icon: Video, label: "Short-form video: Reels, TikTok, Shorts" },
-              { icon: Layers, label: "Motion & carousels" },
-              { icon: Camera, label: "Story design & highlights" },
-              { icon: Users, label: "UGC & creator content" },
-              { icon: Calendar, label: "Content calendar + creative direction" },
-              { icon: Clock, label: "Posting & scheduling" },
-              { icon: MessageCircle, label: "Community engagement (DMs + comments)" },
-              { icon: Star, label: "Influencer sourcing & management" },
-              { icon: Target, label: "Paid social integration (Meta/TikTok)" },
-              { icon: BarChart, label: "Weekly reporting & insights" },
-              { icon: Repeat, label: "A/B creative testing" },
-              { icon: Zap, label: "Always-on optimization" }
-            ].map((feature, i) => (
-              <div 
-                key={i} 
-                className="flex items-start gap-4 p-6 rounded-xl hover:bg-purple-50 transition-all duration-300 group"
-                data-testid={`feature-${i}`}
-              >
-                <div className="flex-shrink-0">
-                  <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <feature.icon className="w-6 h-6 text-white" />
-                  </div>
-                </div>
-                <p className="text-gray-700 font-medium leading-relaxed">{feature.label}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 6: PLATFORM SCROLLER */}
-      <section className="py-32 bg-gradient-to-br from-purple-50 to-pink-50">
-        <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-12 text-center">
-            Platforms we dominate.
-          </h2>
-
-          <div className="flex overflow-x-auto gap-6 pb-6 snap-x snap-mandatory scrollbar-hide">
-            {[
-              { 
-                platform: "Instagram", 
-                icon: Instagram, 
-                desc: "storytelling, Reels, carousels, engagement",
-                color: "from-pink-500 via-purple-500 to-orange-500"
-              },
-              { 
-                platform: "TikTok", 
-                icon: SiTiktok, 
-                desc: "velocity, trends, UGC, virality",
-                color: "from-gray-900 to-teal-500"
-              },
-              { 
-                platform: "YouTube", 
-                icon: SiYoutube, 
-                desc: "Shorts + authority building",
-                color: "from-red-600 to-red-500"
-              },
-              { 
-                platform: "LinkedIn", 
-                icon: Linkedin, 
-                desc: "positioning, authority & pipeline",
-                color: "from-blue-600 to-blue-500"
-              }
-            ].map((platform, i) => (
-              <Card 
-                key={i}
-                className="flex-shrink-0 w-80 p-8 bg-white/80 backdrop-blur-lg border border-white/50 shadow-xl snap-center hover:shadow-2xl transition-all duration-300"
-                data-testid={`platform-${platform.platform.toLowerCase()}`}
-              >
-                <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${platform.color} flex items-center justify-center mb-6 shadow-lg`}>
-                  <platform.icon className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-3">{platform.platform}</h3>
-                <p className="text-gray-600 leading-relaxed">{platform.desc}</p>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 7: CONTENT SHOWCASE REEL */}
-      <section className="py-32 bg-white">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Content engineered to stop the scroll.
-            </h2>
-            <p className="text-lg md:text-xl text-gray-600">
-              Hooks, pacing, hierarchy and native-first execution.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-2 lg:grid-cols-5 gap-4">
-            {[
-              { label: "Reels / TikTok", gradient: "from-purple-500 to-pink-600" },
-              { label: "Motion ads", gradient: "from-pink-500 to-rose-600" },
-              { label: "Carousels", gradient: "from-orange-500 to-red-600" },
-              { label: "UGC", gradient: "from-teal-500 to-cyan-600" },
-              { label: "Story flows", gradient: "from-violet-500 to-purple-600" }
-            ].map((item, i) => (
-              <div 
-                key={i}
-                className="aspect-[9/16] rounded-2xl bg-gradient-to-br shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 cursor-pointer flex items-end p-6 relative overflow-hidden group"
-                data-testid={`showcase-${i}`}
-                style={{ backgroundImage: `linear-gradient(to bottom right, var(--tw-gradient-stops))` }}
-              >
-                <div className={`absolute inset-0 bg-gradient-to-br ${item.gradient} opacity-90 group-hover:opacity-100 transition-opacity`}></div>
-                <div className="relative z-10">
-                  <Play className="w-12 h-12 text-white mb-3 opacity-80 group-hover:opacity-100" />
-                  <p className="text-white font-bold text-lg">{item.label}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 8: MANAGEMENT SECTION */}
-      <section className="py-32 bg-gradient-to-br from-violet-50 to-purple-50">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                Daily momentum. Zero hassle.
+          <ScrollReveal>
+            <div className="text-center mb-16">
+              <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
+                Your shortcut to <span className="italic text-orange-600">scroll-stopping</span> content
               </h2>
-              <p className="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed">
-                We handle the daily execution that brands struggle to maintain — consistently, on-brand and on-time.
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                Scaling your social ads and posts in-house? Easier said than done. Whether it's looming deadlines or limited resources, keeping up with the demand for compelling social media content is a challenge. That's where we come in.
               </p>
+            </div>
+          </ScrollReveal>
 
-              <div className="space-y-4">
-                {[
-                  { icon: Clock, label: "Posting & scheduling (7 days if required)" },
-                  { icon: MessageCircle, label: "DM & comment moderation" },
-                  { icon: TrendingUp, label: "Trend & competitor tracking" },
-                  { icon: BarChart, label: "Weekly reporting" },
-                  { icon: Users, label: "Community building & engagement" }
-                ].map((item, i) => (
-                  <div key={i} className="flex items-center gap-4 p-4 bg-white/60 rounded-xl backdrop-blur-sm" data-testid={`management-${i}`}>
-                    <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center flex-shrink-0">
-                      <item.icon className="w-6 h-6 text-white" />
-                    </div>
-                    <p className="text-gray-700 font-medium">{item.label}</p>
+          {/* Category Tabs */}
+          <ScrollReveal delay={0.2}>
+            <div className="flex justify-center gap-4 mb-12" data-testid="category-tabs">
+              {[
+                { id: 'social' as const, label: 'Social Media', icon: Share2 },
+                { id: 'paid' as const, label: 'Paid Advertising', icon: Target },
+                { id: 'influencer' as const, label: 'Influencer Marketing', icon: Users }
+              ].map((cat) => (
+                <Button
+                  key={cat.id}
+                  variant={activeCategory === cat.id ? 'default' : 'outline'}
+                  size="lg"
+                  onClick={() => setActiveCategory(cat.id)}
+                  className={activeCategory === cat.id ? 'bg-orange-600 hover:bg-orange-700' : ''}
+                  data-testid={`tab-${cat.id}`}
+                >
+                  <cat.icon className="mr-2 h-5 w-5" />
+                  {cat.label}
+                </Button>
+              ))}
+            </div>
+          </ScrollReveal>
+
+          {/* Services Grid with Animation */}
+          <motion.div 
+            key={activeCategory}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+          >
+            {services[activeCategory].map((service, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                data-testid={`service-${activeCategory}-${i}`}
+              >
+                <Card className="p-8 h-full hover-elevate active-elevate-2 transition-all duration-300">
+                  <div className="bg-orange-100 rounded-full w-12 h-12 flex items-center justify-center mb-6">
+                    <service.icon className="h-6 w-6 text-orange-600" />
                   </div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">{service.name}</h3>
+                  <p className="text-gray-600">{service.desc}</p>
+                </Card>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* PLATFORM EXPERTISE - Slide Up Animation */}
+      <section className="py-32 bg-gradient-to-b from-gray-50 to-white">
+        <div className="max-w-7xl mx-auto px-4">
+          <ScrollReveal>
+            <div className="text-center mb-16">
+              <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
+                Expertise across <span className="italic text-orange-600">all social media platforms</span>
+              </h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                Rely on our in-depth expertise, as well as the ability to version and scale any kind of social media content across your key channels.
+              </p>
+            </div>
+          </ScrollReveal>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {platforms.map((platform, i) => (
+              <ScrollReveal key={i} delay={i * 0.1}>
+                <motion.div
+                  whileHover={{ y: -8 }}
+                  transition={{ duration: 0.3 }}
+                  data-testid={`platform-${platform.name.toLowerCase()}`}
+                >
+                  <Card className="p-8 text-center hover-elevate">
+                    <div className={`inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br ${platform.color} text-white mb-6`}>
+                      <platform.icon className="h-8 w-8" />
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-4">{platform.name}</h3>
+                    <div className="space-y-2">
+                      {platform.features.map((feature, j) => (
+                        <div key={j} className="flex items-center justify-center gap-2 text-sm text-gray-600">
+                          <CheckCircle2 className="h-4 w-4 text-green-600" />
+                          {feature}
+                        </div>
+                      ))}
+                    </div>
+                  </Card>
+                </motion.div>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* AI-ENHANCED SECTION - Parallax Effect */}
+      <section className="py-32 bg-white relative overflow-hidden">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          whileInView={{ opacity: 0.1, scale: 1 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true }}
+          className="absolute inset-0 flex items-center justify-center"
+        >
+          <Sparkles className="h-96 w-96 text-orange-600" />
+        </motion.div>
+
+        <div className="max-w-7xl mx-auto px-4 relative z-10">
+          <div className="grid md:grid-cols-2 gap-16 items-center">
+            <ScrollReveal>
+              <div>
+                <div className="inline-block px-4 py-2 bg-orange-100 rounded-full mb-6">
+                  <span className="text-orange-600 font-semibold text-sm">AI-ENHANCED</span>
+                </div>
+                <h2 className="text-5xl font-bold text-gray-900 mb-6">
+                  Powerful creative, <span className="italic text-orange-600">impressive</span> turnarounds
+                </h2>
+                <p className="text-xl text-gray-600 mb-8">
+                  By equipping the top 1% of global talent with the latest AI tools, we're able to deliver high-performing creative up to 60% faster.
+                </p>
+                <Button size="lg" className="bg-orange-600 hover:bg-orange-700 text-white" data-testid="button-ai-demo">
+                  Learn About AI Design
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </div>
+            </ScrollReveal>
+
+            <ScrollReveal delay={0.2}>
+              <div className="grid grid-cols-2 gap-6">
+                {stats.map((stat, i) => (
+                  <motion.div
+                    key={i}
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <Card className="p-8 text-center bg-gradient-to-br from-orange-50 to-pink-50">
+                      <div className="text-4xl font-bold text-orange-600 mb-2">{stat.value}</div>
+                      <div className="text-sm text-gray-600">{stat.label}</div>
+                    </Card>
+                  </motion.div>
                 ))}
               </div>
-            </div>
-
-            <div className="relative">
-              <div className="aspect-[9/16] max-w-sm mx-auto rounded-3xl bg-gradient-to-br from-purple-600 via-pink-600 to-orange-500 shadow-2xl flex items-center justify-center">
-                <div className="text-white text-center p-8">
-                  <Calendar className="w-24 h-24 mx-auto mb-4 opacity-90" />
-                  <p className="text-xl font-bold">Your social calendar,<br/>always full</p>
-                </div>
-              </div>
-            </div>
+            </ScrollReveal>
           </div>
         </div>
       </section>
 
-      {/* SECTION 9: GROWTH ENGINE - 5 Steps */}
-      <section className="py-32 bg-white">
-        <div className="max-w-5xl mx-auto px-4">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-16 text-center">
-            Our Social Growth Engine™
-          </h2>
-
-          <div className="space-y-12">
-            {[
-              { 
-                step: 1, 
-                title: "Discover", 
-                desc: "brand, voice, audience, competitors, data",
-                icon: Search,
-                gradient: "from-purple-500 to-purple-600"
-              },
-              { 
-                step: 2, 
-                title: "Plan", 
-                desc: "content calendar + hook map",
-                icon: Calendar,
-                gradient: "from-pink-500 to-pink-600"
-              },
-              { 
-                step: 3, 
-                title: "Create", 
-                desc: "video, UGC, motion, design",
-                icon: Palette,
-                gradient: "from-teal-500 to-teal-600"
-              },
-              { 
-                step: 4, 
-                title: "Amplify", 
-                desc: "paid + influencer + distribution",
-                icon: Megaphone,
-                gradient: "from-orange-500 to-orange-600"
-              },
-              { 
-                step: 5, 
-                title: "Optimize", 
-                desc: "weekly insights, improvements & iterations",
-                icon: TrendingUp,
-                gradient: "from-violet-500 to-violet-600"
-              }
-            ].map((step, i) => (
-              <div 
-                key={i} 
-                className="flex items-start gap-6 group"
-                data-testid={`step-${step.step}`}
-              >
-                <div className="flex-shrink-0">
-                  <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${step.gradient} flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform`}>
-                    <step.icon className="w-8 h-8 text-white" />
-                  </div>
-                </div>
-                <div>
-                  <div className="flex items-baseline gap-3 mb-2">
-                    <span className="text-sm font-bold text-gray-400">STEP {step.step}</span>
-                    <h3 className="text-2xl md:text-3xl font-bold text-gray-900">{step.title}</h3>
-                  </div>
-                  <p className="text-lg text-gray-600">{step.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 10: ADD-ONS (Influencer, UGC, Paid) */}
-      <section className="py-32 bg-gradient-to-br from-purple-50 to-pink-50">
+      {/* CASE STUDIES - Stagger Animation */}
+      <section className="py-32 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-12 text-center">
-            Add fuel to the fire.
-          </h2>
+          <ScrollReveal>
+            <div className="text-center mb-16">
+              <h2 className="text-5xl font-bold text-gray-900 mb-6">
+                These brands already stepped up their game <span className="italic text-orange-600">with OARC Digital</span>
+              </h2>
+            </div>
+          </ScrollReveal>
 
           <div className="grid md:grid-cols-3 gap-8">
             {[
-              {
-                title: "Influencers",
-                desc: "curated, managed, briefed, delivered",
-                icon: Star,
-                gradient: "from-purple-500 to-violet-600"
-              },
-              {
-                title: "UGC",
-                desc: "authentic faces that convert",
-                icon: Users,
-                gradient: "from-pink-500 to-rose-600"
-              },
-              {
-                title: "Paid Social",
-                desc: "scale winners, kill losers, grow revenue",
-                icon: Target,
-                gradient: "from-teal-500 to-cyan-600"
-              }
-            ].map((addon, i) => (
-              <Card 
-                key={i}
-                className="p-8 bg-white/60 backdrop-blur-lg border border-white/50 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
-                data-testid={`addon-${addon.title.toLowerCase()}`}
-              >
-                <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${addon.gradient} flex items-center justify-center mb-6 shadow-lg`}>
-                  <addon.icon className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-3">{addon.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{addon.desc}</p>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 11: KPIs */}
-      <section className="py-32 bg-white">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="grid md:grid-cols-3 gap-12 text-center">
-            <div data-testid="kpi-0">
-              <CountUp 
-                end={72} 
-                prefix="+" 
-                suffix="%" 
-                className="text-5xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 text-transparent bg-clip-text mb-4"
-              />
-              <p className="text-lg text-gray-600">average engagement uplift (pilot programs)</p>
-            </div>
-            <div data-testid="kpi-1">
-              <CountUp 
-                end={3} 
-                suffix="×" 
-                className="text-5xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 text-transparent bg-clip-text mb-4"
-              />
-              <p className="text-lg text-gray-600">faster content velocity (vs internal teams)</p>
-            </div>
-            <div data-testid="kpi-2">
-              <CountUp 
-                end={24} 
-                suffix="/7" 
-                className="text-5xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 text-transparent bg-clip-text mb-4"
-              />
-              <p className="text-lg text-gray-600">execution (no downtime)</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 12: CASE STUDIES */}
-      <section className="py-32 bg-gradient-to-br from-violet-50 to-purple-50">
-        <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-16 text-center">
-            Proven results, not promises.
-          </h2>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                industry: "F&B brand",
-                result: "+38% engagement in 60 days",
-                method: "Reels + UGC + geo-targeting"
-              },
-              {
-                industry: "SaaS startup",
-                result: "4× content output and 31% more demos",
-                method: "from social"
-              },
-              {
-                industry: "Ecommerce brand",
-                result: "+27% revenue",
-                method: "from social-driven audiences"
-              }
+              { industry: "SaaS", brand: "Tech Platform", service: "Social Media Creative" },
+              { industry: "E-commerce", brand: "Fashion Brand", service: "Ad Creative" },
+              { industry: "Food & Beverages", brand: "Restaurant Chain", service: "Influencer Marketing" },
             ].map((study, i) => (
-              <Card 
-                key={i}
-                className="p-8 bg-white/60 backdrop-blur-lg border border-white/50 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
-                data-testid={`case-${i}`}
-              >
-                <div className="text-sm font-bold text-purple-600 mb-3 uppercase tracking-wide">{study.industry}</div>
-                <div className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">{study.result}</div>
-                <p className="text-gray-600">({study.method})</p>
-              </Card>
+              <ScrollReveal key={i} delay={i * 0.15}>
+                <motion.div
+                  whileHover={{ y: -12 }}
+                  transition={{ duration: 0.3 }}
+                  data-testid={`case-study-${i}`}
+                >
+                  <Card className="p-8 hover-elevate h-full bg-gradient-to-br from-white to-orange-50">
+                    <div className="aspect-video bg-gradient-to-br from-orange-200 to-pink-200 rounded-lg mb-6"></div>
+                    <div className="text-xs font-semibold text-orange-600 mb-2 uppercase">{study.industry}</div>
+                    <h3 className="text-2xl font-bold text-gray-900 mb-2">{study.brand}</h3>
+                    <p className="text-gray-600">{study.service}</p>
+                  </Card>
+                </motion.div>
+              </ScrollReveal>
             ))}
           </div>
         </div>
       </section>
 
-      {/* SECTION 13: TESTIMONIALS */}
-      <section className="py-32 bg-white">
-        <div className="max-w-5xl mx-auto px-4">
-          <div className="flex overflow-x-auto gap-8 pb-6 snap-x snap-mandatory scrollbar-hide">
-            {[
-              {
-                quote: "OARC transformed our social from static posts to a revenue channel. The quality and speed are unmatched.",
-                author: "Sarah Chen",
-                role: "CMO, TechFlow"
-              },
-              {
-                quote: "Finally, a partner that understands social velocity. Our engagement tripled in 90 days.",
-                author: "Marcus Williams",
-                role: "Founder, Lumina Eats"
-              },
-              {
-                quote: "They don't just create content—they build momentum. Our community has never been more engaged.",
-                author: "Priya Patel",
-                role: "Marketing Director, StyleCo"
-              }
-            ].map((testimonial, i) => (
-              <Card 
-                key={i}
-                className="flex-shrink-0 w-full md:w-96 p-8 bg-gradient-to-br from-purple-50 to-pink-50 border-none shadow-xl snap-center"
-                data-testid={`testimonial-${i}`}
-              >
-                <div className="mb-6">
-                  <Star className="w-6 h-6 text-amber-400 fill-amber-400 inline" />
-                  <Star className="w-6 h-6 text-amber-400 fill-amber-400 inline" />
-                  <Star className="w-6 h-6 text-amber-400 fill-amber-400 inline" />
-                  <Star className="w-6 h-6 text-amber-400 fill-amber-400 inline" />
-                  <Star className="w-6 h-6 text-amber-400 fill-amber-400 inline" />
-                </div>
-                <p className="text-lg text-gray-700 mb-6 leading-relaxed italic">"{testimonial.quote}"</p>
-                <div>
-                  <div className="font-bold text-gray-900">{testimonial.author}</div>
-                  <div className="text-sm text-gray-600">{testimonial.role}</div>
-                </div>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 14: FINAL CTA */}
-      <section className="py-32 bg-gradient-to-br from-purple-600 via-pink-600 to-orange-500 text-white">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+      {/* FINAL CTA - Scale Animation */}
+      <section className="py-32 bg-gradient-to-br from-orange-600 to-pink-600 text-white relative overflow-hidden">
+        <motion.div
+          initial={{ scale: 0 }}
+          whileInView={{ scale: 1 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: true }}
+          className="max-w-4xl mx-auto px-4 text-center relative z-10"
+        >
+          <h2 className="text-5xl md:text-6xl font-bold mb-8">
             Ready to dominate your category?
           </h2>
-          <p className="text-xl md:text-2xl mb-10 opacity-90">
-            Let's build a social system that creates, influences and converts 24/7.
+          <p className="text-xl mb-12 opacity-90">
+            Let's create scroll-stopping content that drives real results for your brand.
           </p>
-
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
-              size="lg" 
-              className="bg-white text-purple-600 hover:bg-gray-100 h-14 px-8 text-lg shadow-xl"
-              data-testid="button-final-cta-pilot"
-            >
-              Start a Social Pilot
-              <ArrowRight className="ml-2 w-5 h-5" />
+            <Button size="lg" variant="outline" className="bg-white text-orange-600 hover:bg-gray-100 border-0" data-testid="button-final-cta">
+              Book Your Demo
+              <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="border-2 border-white text-white bg-white/10 backdrop-blur-sm hover:bg-white/20 h-14 px-8 text-lg"
-              data-testid="button-final-cta-call"
-            >
-              Book a Strategy Call
+            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10" data-testid="button-contact">
+              Contact Sales
             </Button>
           </div>
-        </div>
+        </motion.div>
+
+        {/* Animated background */}
+        <motion.div
+          animate={{ rotate: 360 }}
+          transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
+          className="absolute -top-1/2 -right-1/2 w-full h-full opacity-10"
+        >
+          <Sparkles className="h-full w-full" />
+        </motion.div>
       </section>
-
-      {/* SECTION 15: FAQ */}
-      <section className="py-32 bg-white">
-        <div className="max-w-3xl mx-auto px-4">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-12 text-center">
-            FAQ
-          </h2>
-
-          <div className="space-y-4">
-            {[
-              {
-                q: "How fast can we start?",
-                a: "We can kick off a pilot within 7-10 days. Discovery, strategy alignment, and initial content creation begin immediately."
-              },
-              {
-                q: "Do you work with small or large brands?",
-                a: "Both. We scale our services to match your needs—from startups needing velocity to enterprises requiring high-volume production."
-              },
-              {
-                q: "Can you do only creative or only management?",
-                a: "Yes. While we excel at full-stack social, you can engage us for creative production only or management only based on your needs."
-              },
-              {
-                q: "Do you handle influencers & paid?",
-                a: "Absolutely. We source influencers, manage partnerships, and integrate paid social campaigns to amplify your organic efforts."
-              },
-              {
-                q: "What does a pilot include?",
-                a: "30-60 days of content production, posting, community management, and performance tracking. It's designed to prove ROI before long-term commitment."
-              }
-            ].map((faq, i) => (
-              <div 
-                key={i} 
-                className="border border-gray-200 rounded-xl overflow-hidden"
-                data-testid={`faq-${i}`}
-              >
-                <button
-                  onClick={() => toggleFaq(i)}
-                  className="w-full flex items-center justify-between p-6 text-left hover:bg-gray-50 transition-colors"
-                >
-                  <span className="font-bold text-gray-900 text-lg pr-4">{faq.q}</span>
-                  <ChevronDown 
-                    className={`w-6 h-6 text-purple-600 flex-shrink-0 transition-transform ${openFaq === i ? 'rotate-180' : ''}`}
-                  />
-                </button>
-                {openFaq === i && (
-                  <div className="px-6 pb-6 text-gray-600 leading-relaxed">
-                    {faq.a}
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Mobile Sticky CTA */}
-      {isSticky && (
-        <div className="fixed bottom-0 left-0 right-0 z-50 p-4 bg-white border-t border-gray-200 shadow-lg lg:hidden animate-in slide-in-from-bottom-full duration-300">
-          <Button 
-            size="lg" 
-            className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white"
-            data-testid="button-sticky-cta"
-          >
-            Start a Social Pilot
-            <ArrowRight className="ml-2 w-5 h-5" />
-          </Button>
-        </div>
-      )}
-
-      <style dangerouslySetInnerHTML={{__html: `
-        .scrollbar-hide::-webkit-scrollbar {
-          display: none;
-        }
-        .scrollbar-hide {
-          -ms-overflow-style: none;
-          scrollbar-width: none;
-        }
-      `}} />
     </Layout>
   );
 }
