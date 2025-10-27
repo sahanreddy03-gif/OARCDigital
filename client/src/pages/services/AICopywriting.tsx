@@ -214,7 +214,7 @@ export default function AICopywriting() {
                 </div>
               </div>
             ))}
-          </div>
+          </ScrollableCards>
         </div>
       </section>
 

@@ -132,7 +132,7 @@ export default function MediaBuying() {
                 <p className="text-muted-foreground leading-relaxed">{service.desc}</p>
               </div>
             ))}
-          </div>
+          </ScrollableCards>
         </div>
       </section>
 

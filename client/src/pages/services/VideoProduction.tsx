@@ -155,7 +155,7 @@ export default function VideoProduction() {
                 </div>
               </div>
             ))}
-          </div>
+          </ScrollableCards>
         </div>
       </section>
 

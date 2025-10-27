@@ -225,7 +225,7 @@ export default function PrintPackaging() {
                 </div>
               </div>
             ))}
-          </div>
+          </ScrollableCards>
         </div>
       </section>
 

@@ -214,7 +214,7 @@ export default function DigitalMarketing() {
                 </div>
               </div>
             ))}
-          </div>
+          </ScrollableCards>
         </div>
       </section>
 

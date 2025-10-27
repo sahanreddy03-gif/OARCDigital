@@ -225,7 +225,7 @@ export default function Illustration() {
                 </div>
               </div>
             ))}
-          </div>
+          </ScrollableCards>
         </div>
       </section>
 

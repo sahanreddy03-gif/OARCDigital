@@ -50,3 +50,17 @@ The platform utilizes a React frontend and an Express.js backend.
 **Asset Management:**
 -   Image assets in `attached_assets/`
 -   Service content in `client/public/content/services/` (JSON-based)
+
+### Recent Changes (October 27, 2025)
+
+**ScrollableCards Implementation & Bug Fixes:**
+-   Created `ScrollableCards` component using Embla Carousel for horizontal card scrolling across service pages
+-   Component features: navigation arrows, drag-free scrolling, auto-hide controls, smooth animations
+-   Fixed JSX closing tag errors across 13 service pages with nested map structures:
+    -   AIConsulting, AICopywriting, CustomerAcquisition, DesignSystems, DigitalMarketing
+    -   EmailCreative, FunnelAutomation, HireAIEmployees, Illustration, Immersive3DAR
+    -   LeadGeneration, MotionDesign, PaidAdvertising, PresentationPitch, PrintPackaging
+    -   RapidIdeaTesting, RevenueAutomation
+-   Resolved horizontal overflow issues on service pages
+-   All service pages now properly implement ScrollableCards for feature/service card displays
+-   Verified functionality through end-to-end testing on multiple service pages

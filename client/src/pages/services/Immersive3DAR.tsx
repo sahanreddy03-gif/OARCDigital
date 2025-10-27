@@ -214,7 +214,7 @@ export default function Immersive3DAR() {
                 </div>
               </div>
             ))}
-          </div>
+          </ScrollableCards>
         </div>
       </section>
 
