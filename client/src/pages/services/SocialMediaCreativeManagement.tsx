@@ -1,32 +1,35 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
 import Layout from "@/components/layout/Layout";
-import { ScrollableCards } from "@/components/ui/scrollable-cards";
 import { 
   Palette, Video, Camera, TrendingUp, Heart, MessageCircle, BarChart, Users, 
-  ArrowRight, CheckCircle2, Instagram, Linkedin, Facebook, Globe, Zap,
-  Target, Megaphone, Sparkles, ChevronDown, Play, Shield, Clock, Eye,
-  Repeat, Bell, Search, ShoppingBag, Award, FileText, Lightbulb, TrendingDown
+  ArrowRight, CheckCircle2, Instagram, Linkedin, Facebook, Play, Shield, Clock, Eye,
+  Repeat, Bell, Search, ShoppingBag, Award, FileText, Lightbulb, Target, Megaphone,
+  Sparkles, ChevronDown, Zap, Globe, TrendingDown, Share2, ThumbsUp, MessageSquare,
+  Star, Layers, Calendar, Mail, DollarSign, Settings
 } from "lucide-react";
 import { SiTiktok, SiYoutube, SiSnapchat, SiPinterest } from "react-icons/si";
-import heroImage from "@assets/stock_images/professional_social__d031bd94.jpg";
 
 export default function SocialMediaCreativeManagement() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
-
+  const [scrollY, setScrollY] = useState(0);
+  const [isSticky, setIsSticky] = useState(false);
+  
   useEffect(() => {
-    document.title = "Social Media Creative & Management - Your Competitive Edge | OARC Digital";
+    document.title = "Social Media Creative & Management - Dominate Your Feed | OARC Digital";
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
-      metaDescription.setAttribute("content", "Slice through the chaos with social media content that gets your brand noticed and drives results. Full-service creative, management, and growth - all in one.");
+      metaDescription.setAttribute("content", "Full-funnel social—content, management, influencers and paid—engineered to capture attention and drive revenue. Reels, Stories, Carousels, UGC.");
     }
+    
     let ogTitleMeta = document.querySelector('meta[property="og:title"]');
     if (!ogTitleMeta) {
       ogTitleMeta = document.createElement('meta');
       ogTitleMeta.setAttribute('property', 'og:title');
       document.head.appendChild(ogTitleMeta);
     }
-    ogTitleMeta.setAttribute('content', 'Social Media Creative & Management - Your Competitive Edge | OARC Digital');
+    ogTitleMeta.setAttribute('content', 'Social Media Creative & Management | OARC Digital');
     
     let ogDescMeta = document.querySelector('meta[property="og:description"]');
     if (!ogDescMeta) {
@@ -34,7 +37,15 @@ export default function SocialMediaCreativeManagement() {
       ogDescMeta.setAttribute('property', 'og:description');
       document.head.appendChild(ogDescMeta);
     }
-    ogDescMeta.setAttribute('content', 'Slice through the chaos with social media content that gets your brand noticed and drives results. Full-service creative, management, and growth - all in one.');
+    ogDescMeta.setAttribute('content', 'Full-funnel social—content, management, influencers and paid—engineered to capture attention and drive revenue.');
+
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+      setIsSticky(window.scrollY > 500);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const toggleFaq = (index: number) => {
@@ -43,643 +54,656 @@ export default function SocialMediaCreativeManagement() {
 
   return (
     <Layout>
-      {/* Hero Section */}
-      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0">
-          <img 
-            src={heroImage}
-            alt="Social media creative and management"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-br from-black/85 via-black/75 to-black/60"></div>
+      {/* SECTION 1: HERO - 3D Phone Parallax */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-violet-100 via-white to-pink-50">
+        {/* Background Elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute w-96 h-96 bg-purple-500/20 rounded-full blur-3xl top-10 left-10 animate-pulse" style={{ animationDuration: '4s' }}></div>
+          <div className="absolute w-96 h-96 bg-pink-500/20 rounded-full blur-3xl bottom-20 right-20 animate-pulse" style={{ animationDuration: '5s' }}></div>
+          <div className="absolute w-64 h-64 bg-teal-400/20 rounded-full blur-3xl top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 animate-pulse" style={{ animationDuration: '6s' }}></div>
         </div>
-        <div className="relative z-10 text-center px-4 max-w-7xl mx-auto">
-          <div className="inline-block px-4 py-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-white text-sm mb-6 animate-in fade-in duration-700">
-            SOCIAL MEDIA CREATIVE & MANAGEMENT
+
+        {/* 3D Phone Cluster */}
+        <div 
+          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] hidden lg:block"
+          style={{ 
+            transform: `translate(-50%, -50%) translateY(${scrollY * 0.3}px)`,
+            transition: 'transform 0.1s ease-out'
+          }}
+        >
+          {/* Center Phone */}
+          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-30 w-56 h-[28rem] rounded-[2.5rem] bg-black shadow-2xl overflow-hidden border-8 border-gray-900" style={{ transform: 'perspective(1000px) rotateY(-8deg)' }}>
+            <div className="w-full h-full bg-gradient-to-br from-purple-600 via-pink-600 to-orange-500 flex items-center justify-center">
+              <Play className="w-16 h-16 text-white" />
+            </div>
           </div>
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-8 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-100 leading-tight">
-            Your <span className="italic bg-gradient-to-r from-orange-400 via-pink-500 to-purple-600 text-transparent bg-clip-text">competitive edge</span><br/>in a crowded feed
+
+          {/* Left Phone */}
+          <div className="absolute left-0 top-1/2 -translate-y-1/2 z-20 w-48 h-96 rounded-[2rem] bg-black shadow-xl overflow-hidden border-8 border-gray-900" style={{ transform: 'perspective(1000px) rotateY(15deg) translateX(20px)' }}>
+            <div className="w-full h-full bg-gradient-to-br from-teal-500 to-blue-600 flex items-center justify-center">
+              <Camera className="w-12 h-12 text-white" />
+            </div>
+          </div>
+
+          {/* Right Phone */}
+          <div className="absolute right-0 top-1/2 -translate-y-1/2 z-20 w-48 h-96 rounded-[2rem] bg-black shadow-xl overflow-hidden border-8 border-gray-900" style={{ transform: 'perspective(1000px) rotateY(-15deg) translateX(-20px)' }}>
+            <div className="w-full h-full bg-gradient-to-br from-amber-400 to-pink-600 flex items-center justify-center">
+              <Heart className="w-12 h-12 text-white" />
+            </div>
+          </div>
+
+          {/* Floating Icons */}
+          <div className="absolute top-10 right-10 animate-bounce" style={{ animationDuration: '3s' }}>
+            <div className="bg-white rounded-full p-3 shadow-lg">
+              <ThumbsUp className="w-5 h-5 text-purple-600" />
+            </div>
+          </div>
+          <div className="absolute bottom-20 left-10 animate-bounce" style={{ animationDuration: '4s', animationDelay: '0.5s' }}>
+            <div className="bg-white rounded-full p-3 shadow-lg">
+              <MessageSquare className="w-5 h-5 text-pink-600" />
+            </div>
+          </div>
+          <div className="absolute top-1/3 left-5 animate-bounce" style={{ animationDuration: '3.5s', animationDelay: '1s' }}>
+            <div className="bg-white rounded-full p-3 shadow-lg">
+              <Share2 className="w-5 h-5 text-teal-600" />
+            </div>
+          </div>
+        </div>
+
+        {/* Hero Content */}
+        <div className="relative z-40 text-center px-4 max-w-5xl mx-auto py-20">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 animate-in fade-in slide-in-from-bottom-4 duration-700 leading-tight">
+            <span className="bg-gradient-to-r from-purple-600 via-pink-600 to-purple-600 text-transparent bg-clip-text">
+              Dominate Social Media.
+            </span>
+            <br/>
+            Create. Influence. Convert.
           </h1>
-          <p className="text-xl md:text-2xl text-white/90 mb-10 max-w-4xl mx-auto leading-relaxed animate-in fade-in slide-in-from-bottom-4 duration-700 delay-200">
-            Slice through the chaos with scroll-stopping content and full-service management that builds communities, drives engagement, and delivers measurable business results.
+          
+          <p className="text-lg md:text-xl lg:text-2xl text-gray-700 mb-10 max-w-3xl mx-auto leading-relaxed animate-in fade-in slide-in-from-bottom-4 duration-700 delay-100">
+            Full-funnel social—content, management, influencers and paid—engineered to capture attention and drive revenue.
           </p>
-          <div className="flex flex-wrap gap-4 justify-center animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300">
-            <Button size="lg" className="bg-white text-black hover:bg-white/90 h-14 px-8 text-lg" data-testid="button-get-started">
-              Get Started
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-200">
+            <Button 
+              size="lg" 
+              className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white h-14 px-8 text-lg shadow-lg hover:shadow-xl transition-all"
+              data-testid="button-start-pilot"
+            >
+              Start a Social Pilot
               <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
-            <Button size="lg" variant="outline" className="border-white text-white bg-white/10 backdrop-blur-sm hover:bg-white/20 h-14 px-8 text-lg" data-testid="button-view-work">
-              <Play className="mr-2 w-5 h-5" />
-              View Our Work
+            <Button 
+              size="lg" 
+              variant="outline" 
+              className="border-2 border-purple-600 text-purple-600 hover:bg-purple-50 h-14 px-8 text-lg"
+              data-testid="button-see-work"
+            >
+              See Our Work
             </Button>
           </div>
-        </div>
-      </section>
 
-      {/* Trusted By - Animated Logo Ticker */}
-      <section className="py-12 px-4 bg-white border-b border-border">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center text-sm uppercase tracking-wider text-muted-foreground mb-8">
-            Trusted by 500+ of the world's biggest brands
-          </div>
-          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12 opacity-60">
-            {['E-commerce', 'SaaS', 'Financial Services', 'Hospitality', 'Food & Beverage', 'Wellness', 'Real Estate', 'Professional Services'].map((type, i) => (
-              <div key={i} className="text-base md:text-lg font-bold text-foreground">{type}</div>
-            ))}
+          {/* Micro Trust Chips */}
+          <div className="flex flex-wrap gap-3 justify-center text-sm animate-in fade-in duration-700 delay-300">
+            <span className="px-4 py-2 bg-white/60 backdrop-blur-sm rounded-full border border-purple-200 text-gray-700">
+              Reels. Stories. Carousels. UGC.
+            </span>
+            <span className="px-4 py-2 bg-white/60 backdrop-blur-sm rounded-full border border-pink-200 text-gray-700">
+              Instagram • TikTok • YouTube • LinkedIn
+            </span>
           </div>
         </div>
       </section>
 
-      {/* Performance Metrics */}
-      <section className="py-20 px-4 bg-gradient-to-br from-orange-50 via-pink-50 to-purple-50">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <div className="text-sm uppercase tracking-wider text-orange-600 mb-3">PROVEN IMPACT</div>
-            <h2 className="text-4xl md:text-6xl font-bold mb-6">
-              Data-driven success for our customers
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              We don't just create beautiful content—we deliver measurable business results through strategic creativity and hands-on management.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+      {/* SECTION 2: TRUST BAR */}
+      <section className="py-12 border-y border-gray-200 bg-white">
+        <div className="max-w-7xl mx-auto px-4">
+          <p className="text-center text-sm text-gray-600 mb-6 font-medium">
+            Chosen by brands that demand attention, momentum and creative firepower.
+          </p>
+          <div className="flex flex-wrap gap-6 justify-center items-center">
             {[
-              { value: "20K+", label: "Social media projects completed", icon: CheckCircle2 },
-              { value: "3.8x", label: "Average engagement rate increase", icon: TrendingUp },
-              { value: "850+", label: "Social accounts managed", icon: Users },
-              { value: "4.8/5", label: "Average project approval rating", icon: Heart },
-            ].map((stat, i) => (
-              <div key={i} className="text-center p-8 bg-white rounded-2xl border border-border hover:shadow-xl transition-all duration-500 hover:-translate-y-2 group" data-testid={`metric-${i}`}>
-                <stat.icon className="w-12 h-12 mx-auto mb-4 text-orange-600 group-hover:scale-110 transition-transform duration-300" />
-                <div className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-orange-600 via-pink-600 to-purple-600 text-transparent bg-clip-text mb-3">{stat.value}</div>
-                <div className="text-sm text-muted-foreground">{stat.label}</div>
+              { label: "Retail", icon: ShoppingBag },
+              { label: "SaaS", icon: Layers },
+              { label: "Hospitality", icon: Award },
+              { label: "Ecommerce", icon: DollarSign },
+              { label: "Creators", icon: Star }
+            ].map((item, i) => (
+              <div key={i} className="flex items-center gap-2 text-gray-700">
+                <item.icon className="w-4 h-4 text-purple-600" />
+                <span className="text-sm font-medium">{item.label}</span>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Ready-to-Post Banner */}
-      <section className="py-16 px-4 bg-gradient-to-br from-purple-600 via-pink-600 to-orange-600 text-white">
-        <div className="max-w-5xl mx-auto text-center">
-          <div className="text-sm uppercase tracking-wider text-white/80 mb-4">READY-TO-POST</div>
-          <h2 className="text-4xl md:text-6xl font-bold mb-6">
-            Your shortcut to <span className="italic underline decoration-wavy decoration-white/40 underline-offset-8">scroll-stopping</span> content
+      {/* SECTION 3: THE PROBLEM */}
+      <section className="py-32 bg-gradient-to-br from-gray-50 to-white">
+        <div className="max-w-4xl mx-auto px-4 text-center">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-8">
+            The social game changed — most brands didn't.
           </h2>
-          <p className="text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
-            Scaling your social ads and posts in-house? Easier said than done. Whether it's looming deadlines or limited resources, keeping up with demand for compelling social media content is a challenge. <strong>That's where we come in.</strong>
+          <p className="text-lg md:text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
+            Audiences scroll faster. Competition produces louder. Algorithms reward motion and volume.<br/><br/>
+            Yet most brands still post like it's 2018 — slow, static, and forgettable.<br/><br/>
+            To win today, you need a system that produces high-volume creative, manages daily momentum, and turns attention into revenue.
           </p>
         </div>
       </section>
 
-      {/* Comprehensive Social Solutions */}
-      <section className="py-24 px-4 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="max-w-3xl mx-auto text-center mb-16">
-            <div className="text-sm uppercase tracking-wider text-orange-600 mb-4">MADE FOR SOCIAL</div>
-            <h2 className="text-5xl md:text-6xl font-bold mb-6">
-              Creative that <span className="italic bg-gradient-to-r from-orange-600 via-pink-600 to-purple-600 text-transparent bg-clip-text">clicks</span>
+      {/* SECTION 4: THE SOLUTION - 3 Pillars */}
+      <section className="py-32 bg-gradient-to-br from-violet-50 via-purple-50 to-pink-50">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+              One partner. Every part of social — handled, end-to-end.
             </h2>
-            <p className="text-xl text-muted-foreground">
-              Show up on Instagram, Facebook, TikTok, LinkedIn, and everything in between with creative designed to connect with and grow your audience.
+            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+              We don't just post. We ideate, create, publish, manage, amplify and optimize — across organic, paid and influencer — with a system built for growth.
             </p>
           </div>
 
-          <ScrollableCards id="services" className="pb-8">
+          <div className="grid md:grid-cols-3 gap-8">
             {[
-              { 
-                name: "Organic Social Media Content", 
-                desc: "Engage your audience with authentic and compelling content that boosts your organic reach and brand loyalty. Platform-optimized posts, Stories, Reels, and carousel posts that drive real engagement.",
-                icon: Heart,
-                gradient: "from-pink-500 to-rose-500",
-                features: ["Daily posting schedules", "Platform-native formats", "Hashtag strategy", "Trend integration"]
-              },
-              { 
-                name: "Social Media Video Content", 
-                desc: "Optimize for algorithms and engagement across social media platforms like Instagram, TikTok, and YouTube. Livestream and UGC support available. Hook-first vertical videos engineered for viral potential.",
-                icon: Video,
-                gradient: "from-purple-500 to-indigo-500",
-                features: ["Short-form video", "Reels & TikToks", "YouTube content", "Livestream support"]
-              },
-              { 
-                name: "Social Media Post Design", 
-                desc: "Capture attention with visually stunning post designs that reflect your brand's identity and message. Aesthetic-first design optimized for visual-first algorithms and thumb-stopping creativity.",
+              {
+                title: "Create",
+                desc: "Short-form video, carousels, UGC & motion built on proven hooks.",
                 icon: Palette,
-                gradient: "from-orange-500 to-amber-500",
-                features: ["Custom graphics", "Brand templates", "Carousel designs", "Story templates"]
+                gradient: "from-purple-500 to-violet-600"
               },
-              { 
-                name: "Social Media Collateral", 
-                desc: "From profile banners to highlight covers, ensure every aspect of your social media presence is on-brand and impactful. Complete visual identity systems for all platforms.",
-                icon: Camera,
-                gradient: "from-cyan-500 to-blue-500",
-                features: ["Profile design", "Cover photos", "Highlight covers", "Link-in-bio pages"]
+              {
+                title: "Manage",
+                desc: "Calendars, posting, community, engagement & moderation.",
+                icon: Calendar,
+                gradient: "from-pink-500 to-rose-600"
               },
-              { 
-                name: "Social Media Response Guide", 
-                desc: "Equip your team with a comprehensive guide to maintain a consistent and engaging brand voice across all interactions. Templates, tone guidelines, and crisis protocols.",
-                icon: FileText,
-                gradient: "from-green-500 to-emerald-500",
-                features: ["Brand voice guide", "Response templates", "Crisis management", "Escalation protocols"]
-              },
-              { 
-                name: "Social Media Concepts", 
-                desc: "Innovate and set yourself apart from the competition with unique concepts that set trends and engage audiences in new ways. Campaign ideation and creative direction.",
-                icon: Lightbulb,
-                gradient: "from-yellow-500 to-orange-500",
-                features: ["Campaign ideation", "Creative direction", "Trend forecasting", "Concept testing"]
-              },
-              { 
-                name: "Community Management", 
-                desc: "Respond to comments, DMs, and mentions. Moderate discussions, handle customer service inquiries, build relationships with your followers. 2-hour average response time.",
-                icon: MessageCircle,
-                gradient: "from-indigo-500 to-purple-500",
-                features: ["Daily engagement", "DM responses", "Comment moderation", "Customer service"]
-              },
-              { 
-                name: "Social Media Analytics", 
-                desc: "Track funnel performance, analyze engagement patterns, identify growth opportunities. Data-driven insights that inform strategy and optimize results month over month.",
-                icon: BarChart,
-                gradient: "from-violet-500 to-fuchsia-500",
-                features: ["Performance tracking", "Competitive analysis", "ROI reporting", "Growth insights"]
-              },
-              { 
-                name: "Social Media Advertising", 
-                desc: "Supercharge organic content with paid amplification. Strategic targeting, A/B testing, and performance optimization across all platforms. On average, ads from influencers perform 7x better.",
-                icon: Target,
-                gradient: "from-red-500 to-pink-500",
-                features: ["Paid campaigns", "Ad creative", "Audience targeting", "Budget optimization"]
-              },
-              { 
-                name: "Influencer Marketing", 
-                desc: "Create the most engaged, captivating & ROI-focused influencer marketing campaigns. Strategic partnerships with creators who align with your brand. Guaranteed results and performance.",
-                icon: Users,
-                gradient: "from-teal-500 to-cyan-500",
-                features: ["Influencer sourcing", "Campaign management", "Contract negotiation", "Performance tracking"]
-              },
-              { 
-                name: "Social Listening & Monitoring", 
-                desc: "Track brand mentions, monitor sentiment, identify opportunities and threats in real-time. Stay ahead of the conversation and protect your reputation.",
-                icon: Search,
-                gradient: "from-slate-500 to-gray-600",
-                features: ["Brand monitoring", "Sentiment analysis", "Competitor tracking", "Trend identification"]
-              },
-              { 
-                name: "Crisis Management", 
-                desc: "Rapid response protocols for negative feedback, PR incidents, or viral controversies. 24/7 monitoring and immediate action plans to protect your brand reputation.",
-                icon: Shield,
-                gradient: "from-rose-600 to-red-600",
-                features: ["24/7 monitoring", "Response protocols", "Reputation management", "Stakeholder communication"]
-              },
-              { 
-                name: "Social Commerce", 
-                desc: "Turn your social channels into revenue-generating storefronts. Instagram Shop, Facebook Shops, TikTok Shop, Pinterest catalogs. Seamless shopping experiences.",
-                icon: ShoppingBag,
-                gradient: "from-emerald-500 to-green-600",
-                features: ["Shop setup", "Product tagging", "Checkout optimization", "Sales tracking"]
-              },
-              { 
-                name: "Content Calendar Management", 
-                desc: "Strategic planning and scheduling across all platforms. Coordinated campaigns, seasonal content, product launches. Never miss a posting opportunity.",
-                icon: Clock,
-                gradient: "from-blue-600 to-indigo-600",
-                features: ["Content planning", "Multi-platform scheduling", "Campaign coordination", "Approval workflows"]
-              },
-              { 
-                name: "UGC Strategy & Management", 
-                desc: "Amplify authentic customer voices. Source, curate, and leverage user-generated content to build trust and social proof. Rights management and creator partnerships.",
-                icon: Award,
-                gradient: "from-amber-500 to-yellow-600",
-                features: ["UGC sourcing", "Rights management", "Creator partnerships", "Content curation"]
-              },
-              { 
-                name: "Social SEO Optimization", 
-                desc: "Optimize your social content for search discovery. Keyword research, profile optimization, hashtag strategy. Make your content discoverable across platforms and Google.",
+              {
+                title: "Convert",
+                desc: "Paid, influencers, analytics and optimization tied to KPIs.",
                 icon: TrendingUp,
-                gradient: "from-purple-600 to-pink-600",
-                features: ["Profile optimization", "Keyword research", "Hashtag strategy", "Search discovery"]
-              },
-            ].map((service, i) => (
-              <div key={i} className="flex-none w-[380px] md:w-[460px]" data-testid={`service-card-${i}`}>
-                <div className="h-full p-8 bg-white rounded-2xl border border-border hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group overflow-hidden relative">
-                  <div className="absolute top-0 right-0 w-32 h-32 opacity-5">
-                    <div className={`w-full h-full rounded-full bg-gradient-to-br ${service.gradient} blur-2xl`}></div>
-                  </div>
-                  <div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${service.gradient} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                    <service.icon className="w-8 h-8 text-white" />
-                  </div>
-                  <h3 className="text-2xl font-bold mb-4">{service.name}</h3>
-                  <p className="text-muted-foreground leading-relaxed mb-6">{service.desc}</p>
-                  <div className="grid grid-cols-2 gap-2">
-                    {service.features.map((feature, j) => (
-                      <div key={j} className="flex items-center gap-2 text-sm">
-                        <CheckCircle2 className={`w-4 h-4 bg-gradient-to-br ${service.gradient} text-transparent`} style={{WebkitBackgroundClip: 'text', backgroundClip: 'text'}} />
-                        <span className="text-muted-foreground">{feature}</span>
-                      </div>
-                    ))}
-                  </div>
+                gradient: "from-teal-500 to-cyan-600"
+              }
+            ].map((pillar, i) => (
+              <Card 
+                key={i} 
+                className="p-8 bg-white/60 backdrop-blur-lg border border-white/50 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
+                data-testid={`card-pillar-${pillar.title.toLowerCase()}`}
+              >
+                <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${pillar.gradient} flex items-center justify-center mb-6 shadow-lg`}>
+                  <pillar.icon className="w-8 h-8 text-white" />
                 </div>
-              </div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-3">{pillar.title}</h3>
+                <p className="text-gray-600 leading-relaxed">{pillar.desc}</p>
+              </Card>
             ))}
-          </ScrollableCards>
+          </div>
         </div>
       </section>
 
-      {/* Platform Expertise */}
-      <section className="py-24 px-4 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white overflow-hidden relative">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(139,92,246,0.1),transparent_50%)]"></div>
-        <div className="max-w-7xl mx-auto relative z-10">
-          <div className="max-w-3xl mx-auto text-center mb-16">
-            <div className="text-sm uppercase tracking-wider text-orange-400 mb-4">PLATFORM MASTERY</div>
-            <h2 className="text-5xl md:text-6xl font-bold mb-6">
-              Expertise across <span className="italic bg-gradient-to-r from-orange-400 via-pink-400 to-purple-400 text-transparent bg-clip-text">all social media platforms</span>
+      {/* SECTION 5: FULL SOCIAL STACK - Feature Grid */}
+      <section className="py-32 bg-white">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+              Everything your brand needs to grow on social — under one roof.
             </h2>
-            <p className="text-xl text-white/80">
-              Rely on our in-depth expertise to version and scale any kind of social media content—static, motion, or video—across all your key social media channels.
-            </p>
           </div>
 
-          <ScrollableCards id="platforms" className="pb-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              { icon: Video, label: "Short-form video: Reels, TikTok, Shorts" },
+              { icon: Layers, label: "Motion & carousels" },
+              { icon: Camera, label: "Story design & highlights" },
+              { icon: Users, label: "UGC & creator content" },
+              { icon: Calendar, label: "Content calendar + creative direction" },
+              { icon: Clock, label: "Posting & scheduling" },
+              { icon: MessageCircle, label: "Community engagement (DMs + comments)" },
+              { icon: Star, label: "Influencer sourcing & management" },
+              { icon: Target, label: "Paid social integration (Meta/TikTok)" },
+              { icon: BarChart, label: "Weekly reporting & insights" },
+              { icon: Repeat, label: "A/B creative testing" },
+              { icon: Zap, label: "Always-on optimization" }
+            ].map((feature, i) => (
+              <div 
+                key={i} 
+                className="flex items-start gap-4 p-6 rounded-xl hover:bg-purple-50 transition-all duration-300 group"
+                data-testid={`feature-${i}`}
+              >
+                <div className="flex-shrink-0">
+                  <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <feature.icon className="w-6 h-6 text-white" />
+                  </div>
+                </div>
+                <p className="text-gray-700 font-medium leading-relaxed">{feature.label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 6: PLATFORM SCROLLER */}
+      <section className="py-32 bg-gradient-to-br from-purple-50 to-pink-50">
+        <div className="max-w-7xl mx-auto px-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-12 text-center">
+            Platforms we dominate.
+          </h2>
+
+          <div className="flex overflow-x-auto gap-6 pb-6 snap-x snap-mandatory scrollbar-hide">
             {[
               { 
                 platform: "Instagram", 
-                desc: "Captivate Instagram's visually-driven audience with stunning graphics and innovative content formats. Feed posts, Reels, Stories, and carousels optimized for maximum engagement.",
-                icon: Instagram,
-                color: "from-pink-500 via-purple-500 to-orange-500",
-                features: ["Reels mastery", "Story strategies", "Carousel posts", "Shopping tags"]
+                icon: Instagram, 
+                desc: "storytelling, Reels, carousels, engagement",
+                color: "from-pink-500 via-purple-500 to-orange-500"
               },
               { 
                 platform: "TikTok", 
-                desc: "Tap into the power of viral content with TikTok creatives designed for maximum shareability and engagement. Hook-first storytelling that captures Gen Z and millennial attention.",
-                icon: SiTiktok,
-                color: "from-cyan-400 via-pink-400 to-purple-500",
-                features: ["Viral trends", "Sound strategy", "Effects & filters", "TikTok Shop"]
-              },
-              { 
-                platform: "LinkedIn", 
-                desc: "Position your brand as an industry leader with professional and engaging content designed for LinkedIn's business-focused community. Thought leadership and B2B growth.",
-                icon: Linkedin,
-                color: "from-blue-600 to-blue-400",
-                features: ["Thought leadership", "Company pages", "Employee advocacy", "B2B targeting"]
-              },
-              { 
-                platform: "Facebook", 
-                desc: "Maximize engagement with custom creative tailored for Facebook's unique audience and platform capabilities. Community building and group management strategies.",
-                icon: Facebook,
-                color: "from-blue-500 to-indigo-600",
-                features: ["Community groups", "Live video", "Facebook Shops", "Event promotion"]
+                icon: SiTiktok, 
+                desc: "velocity, trends, UGC, virality",
+                color: "from-gray-900 to-teal-500"
               },
               { 
                 platform: "YouTube", 
-                desc: "Optimize viewer interaction with tailored creatives designed for YouTube's diverse audience and video-friendly platform features. Long-form and Shorts strategies.",
-                icon: SiYoutube,
-                color: "from-red-500 to-pink-500",
-                features: ["Long-form content", "YouTube Shorts", "Thumbnail design", "SEO optimization"]
+                icon: SiYoutube, 
+                desc: "Shorts + authority building",
+                color: "from-red-600 to-red-500"
               },
               { 
-                platform: "Twitter/X", 
-                desc: "Real-time engagement and trend-jacking for cultural relevance. Witty copy, thread storytelling, and visual tweets that spark conversation and drive reach.",
-                icon: Globe,
-                color: "from-sky-400 to-blue-500",
-                features: ["Thread creation", "Trend-jacking", "Spaces hosting", "Community notes"]
-              },
-              { 
-                platform: "Snapchat", 
-                desc: "Reach younger audiences with AR lenses, filters, and Stories. Authentic, ephemeral content that drives engagement with Gen Z and millennials.",
-                icon: SiSnapchat,
-                color: "from-yellow-400 to-yellow-600",
-                features: ["AR lenses", "Snap Ads", "Stories", "Spotlight content"]
-              },
-              { 
-                platform: "Pinterest", 
-                desc: "Drive traffic and conversions with visually-rich Pins and boards. Shopping integration, idea Pins, and SEO optimization for discovery.",
-                icon: SiPinterest,
-                color: "from-red-600 to-pink-600",
-                features: ["Idea Pins", "Shopping Pins", "Board strategy", "SEO optimization"]
-              },
+                platform: "LinkedIn", 
+                icon: Linkedin, 
+                desc: "positioning, authority & pipeline",
+                color: "from-blue-600 to-blue-500"
+              }
             ].map((platform, i) => (
-              <div key={i} className="flex-none w-[380px] md:w-[460px]" data-testid={`platform-card-${i}`}>
-                <div className="h-full p-8 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-500 hover:-translate-y-2 group relative overflow-hidden">
-                  <div className="absolute top-0 right-0 w-40 h-40 opacity-10">
-                    <div className={`w-full h-full rounded-full bg-gradient-to-br ${platform.color} blur-3xl group-hover:scale-150 transition-transform duration-700`}></div>
-                  </div>
-                  <div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${platform.color} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 relative z-10`}>
-                    <platform.icon className="w-8 h-8 text-white" />
-                  </div>
-                  <h3 className="text-2xl font-bold mb-4 text-white relative z-10">{platform.platform}</h3>
-                  <p className="text-white/70 leading-relaxed mb-6 relative z-10">{platform.desc}</p>
-                  <div className="grid grid-cols-2 gap-2 relative z-10">
-                    {platform.features.map((feature, j) => (
-                      <div key={j} className="flex items-center gap-2 text-sm">
-                        <CheckCircle2 className="w-4 h-4 text-white/60" />
-                        <span className="text-white/70">{feature}</span>
-                      </div>
-                    ))}
-                  </div>
+              <Card 
+                key={i}
+                className="flex-shrink-0 w-80 p-8 bg-white/80 backdrop-blur-lg border border-white/50 shadow-xl snap-center hover:shadow-2xl transition-all duration-300"
+                data-testid={`platform-${platform.platform.toLowerCase()}`}
+              >
+                <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${platform.color} flex items-center justify-center mb-6 shadow-lg`}>
+                  <platform.icon className="w-8 h-8 text-white" />
                 </div>
-              </div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-3">{platform.platform}</h3>
+                <p className="text-gray-600 leading-relaxed">{platform.desc}</p>
+              </Card>
             ))}
-          </ScrollableCards>
+          </div>
         </div>
       </section>
 
-      {/* AI-Enhanced Workflows */}
-      <section className="py-24 px-4 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+      {/* SECTION 7: CONTENT SHOWCASE REEL */}
+      <section className="py-32 bg-white">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+              Content engineered to stop the scroll.
+            </h2>
+            <p className="text-lg md:text-xl text-gray-600">
+              Hooks, pacing, hierarchy and native-first execution.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 lg:grid-cols-5 gap-4">
+            {[
+              { label: "Reels / TikTok", gradient: "from-purple-500 to-pink-600" },
+              { label: "Motion ads", gradient: "from-pink-500 to-rose-600" },
+              { label: "Carousels", gradient: "from-orange-500 to-red-600" },
+              { label: "UGC", gradient: "from-teal-500 to-cyan-600" },
+              { label: "Story flows", gradient: "from-violet-500 to-purple-600" }
+            ].map((item, i) => (
+              <div 
+                key={i}
+                className="aspect-[9/16] rounded-2xl bg-gradient-to-br shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 cursor-pointer flex items-end p-6 relative overflow-hidden group"
+                data-testid={`showcase-${i}`}
+                style={{ backgroundImage: `linear-gradient(to bottom right, var(--tw-gradient-stops))` }}
+              >
+                <div className={`absolute inset-0 bg-gradient-to-br ${item.gradient} opacity-90 group-hover:opacity-100 transition-opacity`}></div>
+                <div className="relative z-10">
+                  <Play className="w-12 h-12 text-white mb-3 opacity-80 group-hover:opacity-100" />
+                  <p className="text-white font-bold text-lg">{item.label}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 8: MANAGEMENT SECTION */}
+      <section className="py-32 bg-gradient-to-br from-violet-50 to-purple-50">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <div className="text-sm uppercase tracking-wider text-orange-600 mb-4">AI-ENHANCED</div>
-              <h2 className="text-5xl md:text-6xl font-bold mb-6">
-                Powerful creative, <span className="italic bg-gradient-to-r from-orange-600 via-pink-600 to-purple-600 text-transparent bg-clip-text">impressive</span> turnarounds
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                Daily momentum. Zero hassle.
               </h2>
-              <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-                By equipping the top 1% of global talent with the latest AI tools, we deliver high-performing social creative <strong className="text-foreground">up to 60% faster.</strong> Our AI-enhanced workflows help us move with speed and precision—amplifying creativity and bringing more value to your brand.
+              <p className="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed">
+                We handle the daily execution that brands struggle to maintain — consistently, on-brand and on-time.
               </p>
+
               <div className="space-y-4">
                 {[
-                  "24-hour first draft delivery on most content",
-                  "Unlimited revisions until you're 100% satisfied",
-                  "AI-powered trend analysis and content ideation",
-                  "Scalable content production (20-50+ posts/week)",
-                  "Real-time performance optimization",
-                  "Automated A/B testing and analytics"
+                  { icon: Clock, label: "Posting & scheduling (7 days if required)" },
+                  { icon: MessageCircle, label: "DM & comment moderation" },
+                  { icon: TrendingUp, label: "Trend & competitor tracking" },
+                  { icon: BarChart, label: "Weekly reporting" },
+                  { icon: Users, label: "Community building & engagement" }
                 ].map((item, i) => (
-                  <div key={i} className="flex items-start gap-3 group hover:translate-x-2 transition-transform duration-300">
-                    <Zap className="w-6 h-6 text-orange-600 flex-shrink-0 mt-1 group-hover:scale-110 transition-transform" />
-                    <span className="text-lg">{item}</span>
+                  <div key={i} className="flex items-center gap-4 p-4 bg-white/60 rounded-xl backdrop-blur-sm" data-testid={`management-${i}`}>
+                    <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center flex-shrink-0">
+                      <item.icon className="w-6 h-6 text-white" />
+                    </div>
+                    <p className="text-gray-700 font-medium">{item.label}</p>
                   </div>
                 ))}
               </div>
-              <Button size="lg" className="mt-8 bg-gradient-to-r from-orange-600 to-purple-600 text-white" data-testid="button-ai-services">
-                Explore AI Services
-                <ArrowRight className="ml-2 w-5 h-5" />
-              </Button>
             </div>
-            <div className="grid grid-cols-2 gap-6">
-              {[
-                { value: "60%", label: "Faster turnaround", icon: Zap, color: "from-orange-500 to-pink-500" },
-                { value: "100+", label: "Posts per month", icon: Sparkles, color: "from-purple-500 to-indigo-500" },
-                { value: "24hrs", label: "First draft delivery", icon: Clock, color: "from-cyan-500 to-blue-500" },
-                { value: "∞", label: "Unlimited revisions", icon: Repeat, color: "from-green-500 to-emerald-500" },
-              ].map((stat, i) => (
-                <div key={i} className={`p-8 bg-gradient-to-br ${stat.color} rounded-2xl text-center text-white hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:scale-105 group`}>
-                  <stat.icon className="w-12 h-12 mx-auto mb-4 text-white group-hover:scale-125 transition-transform duration-300" />
-                  <div className="text-5xl font-bold mb-2">{stat.value}</div>
-                  <div className="text-sm font-medium text-white/90">{stat.label}</div>
+
+            <div className="relative">
+              <div className="aspect-[9/16] max-w-sm mx-auto rounded-3xl bg-gradient-to-br from-purple-600 via-pink-600 to-orange-500 shadow-2xl flex items-center justify-center">
+                <div className="text-white text-center p-8">
+                  <Calendar className="w-24 h-24 mx-auto mb-4 opacity-90" />
+                  <p className="text-xl font-bold">Your social calendar,<br/>always full</p>
                 </div>
-              ))}
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Case Studies */}
-      <section className="py-24 px-4 bg-gradient-to-br from-slate-50 to-white overflow-hidden">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <div className="text-sm uppercase tracking-wider text-orange-600 mb-4">SUCCESS STORIES</div>
-            <h2 className="text-5xl md:text-6xl font-bold mb-6">
-              Brands that stepped up their game <span className="italic bg-gradient-to-r from-orange-600 via-pink-600 to-purple-600 text-transparent bg-clip-text">with OARC Digital</span>
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Real results from real brands across industries. See how our strategic social media approach drives business growth.
-            </p>
-          </div>
+      {/* SECTION 9: GROWTH ENGINE - 5 Steps */}
+      <section className="py-32 bg-white">
+        <div className="max-w-5xl mx-auto px-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-16 text-center">
+            Our Social Growth Engine™
+          </h2>
 
-          <ScrollableCards id="case-studies" className="pb-8">
+          <div className="space-y-12">
+            {[
+              { 
+                step: 1, 
+                title: "Discover", 
+                desc: "brand, voice, audience, competitors, data",
+                icon: Search,
+                color: "purple"
+              },
+              { 
+                step: 2, 
+                title: "Plan", 
+                desc: "content calendar + hook map",
+                icon: Calendar,
+                color: "pink"
+              },
+              { 
+                step: 3, 
+                title: "Create", 
+                desc: "video, UGC, motion, design",
+                icon: Palette,
+                color: "teal"
+              },
+              { 
+                step: 4, 
+                title: "Amplify", 
+                desc: "paid + influencer + distribution",
+                icon: Megaphone,
+                color: "orange"
+              },
+              { 
+                step: 5, 
+                title: "Optimize", 
+                desc: "weekly insights, improvements & iterations",
+                icon: TrendingUp,
+                color: "violet"
+              }
+            ].map((step, i) => (
+              <div 
+                key={i} 
+                className="flex items-start gap-6 group"
+                data-testid={`step-${step.step}`}
+              >
+                <div className="flex-shrink-0">
+                  <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br from-${step.color}-500 to-${step.color}-600 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform`}>
+                    <step.icon className="w-8 h-8 text-white" />
+                  </div>
+                </div>
+                <div>
+                  <div className="flex items-baseline gap-3 mb-2">
+                    <span className="text-sm font-bold text-gray-400">STEP {step.step}</span>
+                    <h3 className="text-2xl md:text-3xl font-bold text-gray-900">{step.title}</h3>
+                  </div>
+                  <p className="text-lg text-gray-600">{step.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 10: ADD-ONS (Influencer, UGC, Paid) */}
+      <section className="py-32 bg-gradient-to-br from-purple-50 to-pink-50">
+        <div className="max-w-7xl mx-auto px-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-12 text-center">
+            Add fuel to the fire.
+          </h2>
+
+          <div className="grid md:grid-cols-3 gap-8">
             {[
               {
-                company: "E-commerce Fashion Brand",
-                industry: "E-commerce",
-                challenge: "Low engagement and struggling to convert followers to customers",
-                results: [
-                  "287% follower growth in 6 months",
-                  "4.3x engagement rate increase",
-                  "$1.8M in social-driven revenue",
-                  "42% of total sales from social channels"
-                ],
-                gradient: "from-pink-500 to-rose-500",
-                metrics: { impressions: "70M+", collaborations: "500+", outcome: "Sold Out Lines" }
+                title: "Influencers",
+                desc: "curated, managed, briefed, delivered",
+                icon: Star,
+                gradient: "from-purple-500 to-violet-600"
               },
               {
-                company: "Food & Beverage Startup",
-                industry: "Food & Bev",
-                challenge: "Building brand awareness in competitive market",
-                results: [
-                  "12M impressions in first quarter",
-                  "350% increase in UGC mentions",
-                  "Sold out product lines via Instagram",
-                  "Top 3 trending food brand on TikTok"
-                ],
-                gradient: "from-orange-500 to-amber-500",
-                metrics: { impressions: "70M+", collaborations: "500+", outcome: "Sold Out" }
+                title: "UGC",
+                desc: "authentic faces that convert",
+                icon: Users,
+                gradient: "from-pink-500 to-rose-600"
               },
               {
-                company: "SaaS Platform Launch",
-                industry: "Technology",
-                challenge: "Launching in 15 western markets simultaneously",
-                results: [
-                  "500M+ impressions across 15 countries",
-                  "Millions of app downloads in first 90 days",
-                  "Top 10 trending app in all markets",
-                  "#1 social media growth campaign"
-                ],
-                gradient: "from-blue-500 to-cyan-500",
-                metrics: { impressions: "500M+", countries: "15", outcome: "Millions of Downloads" }
+                title: "Paid Social",
+                desc: "scale winners, kill losers, grow revenue",
+                icon: Target,
+                gradient: "from-teal-500 to-cyan-600"
+              }
+            ].map((addon, i) => (
+              <Card 
+                key={i}
+                className="p-8 bg-white/60 backdrop-blur-lg border border-white/50 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
+                data-testid={`addon-${addon.title.toLowerCase()}`}
+              >
+                <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${addon.gradient} flex items-center justify-center mb-6 shadow-lg`}>
+                  <addon.icon className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-3">{addon.title}</h3>
+                <p className="text-gray-600 leading-relaxed">{addon.desc}</p>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 11: KPIs */}
+      <section className="py-32 bg-white">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="grid md:grid-cols-3 gap-12 text-center">
+            {[
+              { stat: "+72%", label: "average engagement uplift (pilot programs)" },
+              { stat: "3×", label: "faster content velocity (vs internal teams)" },
+              { stat: "24/7", label: "execution (no downtime)" }
+            ].map((kpi, i) => (
+              <div key={i} data-testid={`kpi-${i}`}>
+                <div className="text-5xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 text-transparent bg-clip-text mb-4">
+                  {kpi.stat}
+                </div>
+                <p className="text-lg text-gray-600">{kpi.label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 12: CASE STUDIES */}
+      <section className="py-32 bg-gradient-to-br from-violet-50 to-purple-50">
+        <div className="max-w-7xl mx-auto px-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-16 text-center">
+            Proven results, not promises.
+          </h2>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                industry: "F&B brand",
+                result: "+38% engagement in 60 days",
+                method: "Reels + UGC + geo-targeting"
               },
               {
-                company: "Gaming Hardware Brand",
-                industry: "Gaming",
-                challenge: "Standing out in saturated gaming market",
-                results: [
-                  "13M impressions in first campaign",
-                  "26M ad placement views",
-                  "1.1M stream followers generated",
-                  "Top 3 gaming brand on Twitch"
-                ],
-                gradient: "from-purple-500 to-indigo-500",
-                metrics: { impressions: "13M", views: "26M", followers: "1.1M" }
+                industry: "SaaS startup",
+                result: "4× content output and 31% more demos",
+                method: "from social"
               },
               {
-                company: "Wellness Coach",
-                industry: "Wellness",
-                challenge: "Converting social following to course sales",
-                results: [
-                  "5.2x increase in course leads",
-                  "95% class capacity from Instagram",
-                  "$520K in attributed course sales",
-                  "4.9/5 community engagement rating"
-                ],
-                gradient: "from-green-500 to-emerald-500",
-                metrics: { increase: "5.2x", capacity: "95%", revenue: "$520K" }
-              },
-              {
-                company: "Real Estate Firm",
-                industry: "Real Estate",
-                challenge: "Competing with large agencies for visibility",
-                results: [
-                  "320 qualified leads per month",
-                  "28% conversion rate on social leads",
-                  "450% ROI on social investment",
-                  "Top 3 real estate brand in market"
-                ],
-                gradient: "from-violet-500 to-purple-500",
-                metrics: { leads: "320/mo", conversion: "28%", roi: "450%" }
-              },
+                industry: "Ecommerce brand",
+                result: "+27% revenue",
+                method: "from social-driven audiences"
+              }
             ].map((study, i) => (
-              <div key={i} className="flex-none w-[420px] md:w-[500px]" data-testid={`case-study-${i}`}>
-                <div className="h-full p-8 bg-white rounded-2xl border border-border hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group">
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="text-xs uppercase tracking-wider text-orange-600 font-bold">{study.industry}</div>
-                    <div className={`px-3 py-1 rounded-full bg-gradient-to-r ${study.gradient} text-white text-xs font-bold`}>
-                      Case Study
-                    </div>
-                  </div>
-                  <h3 className="text-2xl font-bold mb-4 group-hover:text-orange-600 transition-colors">{study.company}</h3>
-                  <div className="mb-6">
-                    <div className="text-sm font-semibold text-muted-foreground mb-2">Challenge</div>
-                    <p className="text-sm leading-relaxed">{study.challenge}</p>
-                  </div>
-                  <div className="mb-6">
-                    <div className="text-sm font-semibold mb-3">Key Results</div>
-                    <div className="space-y-3">
-                      {study.results.map((result, j) => (
-                        <div key={j} className="flex items-start gap-3 group/item hover:translate-x-2 transition-transform">
-                          <div className={`w-6 h-6 rounded-full bg-gradient-to-br ${study.gradient} flex items-center justify-center flex-shrink-0 group-hover/item:scale-110 transition-transform`}>
-                            <CheckCircle2 className="w-4 h-4 text-white" />
-                          </div>
-                          <span className="text-sm font-medium leading-relaxed">{result}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                  <div className="pt-4 border-t border-border">
-                    <div className="flex flex-wrap gap-3">
-                      {Object.entries(study.metrics).map(([key, value], j) => (
-                        <div key={j} className="text-center">
-                          <div className={`text-2xl font-bold bg-gradient-to-r ${study.gradient} text-transparent bg-clip-text`}>{value}</div>
-                          <div className="text-xs uppercase tracking-wider text-muted-foreground">{key}</div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <Card 
+                key={i}
+                className="p-8 bg-white/60 backdrop-blur-lg border border-white/50 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
+                data-testid={`case-${i}`}
+              >
+                <div className="text-sm font-bold text-purple-600 mb-3 uppercase tracking-wide">{study.industry}</div>
+                <div className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">{study.result}</div>
+                <p className="text-gray-600">({study.method})</p>
+              </Card>
             ))}
-          </ScrollableCards>
+          </div>
         </div>
       </section>
 
-      {/* How We Do It - Process */}
-      <section className="py-24 px-4 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <div className="text-sm uppercase tracking-wider text-orange-600 mb-4">OUR PROCESS</div>
-            <h2 className="text-5xl md:text-6xl font-bold mb-6">
-              How we do it
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              From comprehensive analysis to continuous optimization, our proven 5-step process delivers results.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-5 gap-8">
+      {/* SECTION 13: TESTIMONIALS */}
+      <section className="py-32 bg-white">
+        <div className="max-w-5xl mx-auto px-4">
+          <div className="flex overflow-x-auto gap-8 pb-6 snap-x snap-mandatory scrollbar-hide">
             {[
               {
-                step: "01",
-                title: "Strategy",
-                desc: "Comprehensive A-to-Z analysis of your social footprint. Define approach and service combination for maximum impact and cultural relevance.",
-                icon: Target
+                quote: "OARC transformed our social from static posts to a revenue channel. The quality and speed are unmatched.",
+                author: "Sarah Chen",
+                role: "CMO, TechFlow"
               },
               {
-                step: "02",
-                title: "Insight",
-                desc: "Reverse engineer from desired outcomes. Research audience, platforms, and content that captures attention and drives action.",
-                icon: Lightbulb
+                quote: "Finally, a partner that understands social velocity. Our engagement tripled in 90 days.",
+                author: "Marcus Williams",
+                role: "Founder, Lumina Eats"
               },
               {
-                step: "03",
-                title: "Creative",
-                desc: "Shareable, engaging, performance-focused content for the social generation across all platforms. Data meets creativity.",
-                icon: Sparkles
-              },
-              {
-                step: "04",
-                title: "Management",
-                desc: "Daily publishing, community engagement, customer service, and real-time trend monitoring. We're your in-house team.",
-                icon: Users
-              },
-              {
-                step: "05",
-                title: "Optimization",
-                desc: "Continuous testing, analytics, and strategy refinement based on performance data. Month-over-month growth.",
-                icon: TrendingUp
-              },
-            ].map((item, i) => (
-              <div key={i} className="text-center group hover:-translate-y-3 transition-all duration-500" data-testid={`process-step-${i}`}>
-                <div className="text-7xl md:text-8xl font-bold bg-gradient-to-br from-orange-600 via-pink-600 to-purple-600 text-transparent bg-clip-text mb-4 group-hover:scale-110 transition-transform duration-300">
-                  {item.step}
+                quote: "They don't just create content—they build momentum. Our community has never been more engaged.",
+                author: "Priya Patel",
+                role: "Marketing Director, StyleCo"
+              }
+            ].map((testimonial, i) => (
+              <Card 
+                key={i}
+                className="flex-shrink-0 w-full md:w-96 p-8 bg-gradient-to-br from-purple-50 to-pink-50 border-none shadow-xl snap-center"
+                data-testid={`testimonial-${i}`}
+              >
+                <div className="mb-6">
+                  <Star className="w-6 h-6 text-amber-400 fill-amber-400 inline" />
+                  <Star className="w-6 h-6 text-amber-400 fill-amber-400 inline" />
+                  <Star className="w-6 h-6 text-amber-400 fill-amber-400 inline" />
+                  <Star className="w-6 h-6 text-amber-400 fill-amber-400 inline" />
+                  <Star className="w-6 h-6 text-amber-400 fill-amber-400 inline" />
                 </div>
-                <div className="mb-4">
-                  <item.icon className="w-12 h-12 mx-auto text-orange-600 group-hover:scale-125 transition-transform duration-300" />
+                <p className="text-lg text-gray-700 mb-6 leading-relaxed italic">"{testimonial.quote}"</p>
+                <div>
+                  <div className="font-bold text-gray-900">{testimonial.author}</div>
+                  <div className="text-sm text-gray-600">{testimonial.role}</div>
                 </div>
-                <h3 className="text-xl font-bold mb-3">{item.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
-              </div>
+              </Card>
             ))}
           </div>
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <section className="py-24 px-4 bg-gradient-to-br from-slate-50 to-white">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-16">
-            <div className="text-sm uppercase tracking-wider text-orange-600 mb-4">FAQ</div>
-            <h2 className="text-5xl md:text-6xl font-bold mb-6">
-              Frequently asked questions
-            </h2>
+      {/* SECTION 14: FINAL CTA */}
+      <section className="py-32 bg-gradient-to-br from-purple-600 via-pink-600 to-orange-500 text-white">
+        <div className="max-w-4xl mx-auto px-4 text-center">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+            Ready to dominate your category?
+          </h2>
+          <p className="text-xl md:text-2xl mb-10 opacity-90">
+            Let's build a social system that creates, influences and converts 24/7.
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button 
+              size="lg" 
+              className="bg-white text-purple-600 hover:bg-gray-100 h-14 px-8 text-lg shadow-xl"
+              data-testid="button-final-cta-pilot"
+            >
+              Start a Social Pilot
+              <ArrowRight className="ml-2 w-5 h-5" />
+            </Button>
+            <Button 
+              size="lg" 
+              variant="outline" 
+              className="border-2 border-white text-white bg-white/10 backdrop-blur-sm hover:bg-white/20 h-14 px-8 text-lg"
+              data-testid="button-final-cta-call"
+            >
+              Book a Strategy Call
+            </Button>
           </div>
+        </div>
+      </section>
+
+      {/* SECTION 15: FAQ */}
+      <section className="py-32 bg-white">
+        <div className="max-w-3xl mx-auto px-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-12 text-center">
+            FAQ
+          </h2>
 
           <div className="space-y-4">
             {[
               {
-                question: "What is your social strategy approach?",
-                answer: "As your global social agency, we always start with a comprehensive A-to-Z analysis of your social media footprint to understand how our work would fit into the overall marketing mix and your customer journey. We then define which approach and combination of our services is the most effective route to success, ensuring we amplify your message rather than confusing it."
+                q: "How fast can we start?",
+                a: "We can kick off a pilot within 7-10 days. Discovery, strategy alignment, and initial content creation begin immediately."
               },
               {
-                question: "What platforms do you support?",
-                answer: "We support all major social media platforms including Instagram, TikTok, LinkedIn, Facebook, YouTube, Twitter/X, Snapchat, Pinterest, and Threads. We create platform-native content optimized for each channel's unique algorithm, audience, and format requirements."
+                q: "Do you work with small or large brands?",
+                a: "Both. We scale our services to match your needs—from startups needing velocity to enterprises requiring high-volume production."
               },
               {
-                question: "How quickly can you deliver content?",
-                answer: "With our AI-enhanced workflows, we deliver first drafts within 24 hours for most content types. We offer unlimited revisions and guarantee you'll be 100% satisfied before publishing. For ongoing management, we maintain consistent daily/weekly posting schedules."
+                q: "Can you do only creative or only management?",
+                a: "Yes. While we excel at full-stack social, you can engage us for creative production only or management only based on your needs."
               },
               {
-                question: "Do you offer influencer marketing?",
-                answer: "Yes! We create strategic, results-driven influencer marketing campaigns with guaranteed ROI. From influencer sourcing and contract negotiation to campaign management and performance tracking, we handle every aspect of your influencer partnerships."
+                q: "Do you handle influencers & paid?",
+                a: "Absolutely. We source influencers, manage partnerships, and integrate paid social campaigns to amplify your organic efforts."
               },
               {
-                question: "What kind of results can I expect?",
-                answer: "Our clients typically see 3-4x engagement rate increases, significant follower growth, and measurable revenue attribution from social channels. We provide detailed analytics and reporting so you can track ROI and performance metrics that matter to your business."
-              },
-              {
-                question: "How does community management work?",
-                answer: "Our team responds to comments, DMs, and mentions with an average 2-hour response time during business hours. We moderate discussions, handle customer service inquiries, and build authentic relationships with your followers while maintaining your brand voice."
+                q: "What does a pilot include?",
+                a: "30-60 days of content production, posting, community management, and performance tracking. It's designed to prove ROI before long-term commitment."
               }
             ].map((faq, i) => (
-              <div key={i} className="bg-white rounded-xl border border-border overflow-hidden hover:shadow-lg transition-all duration-300" data-testid={`faq-${i}`}>
+              <div 
+                key={i} 
+                className="border border-gray-200 rounded-xl overflow-hidden"
+                data-testid={`faq-${i}`}
+              >
                 <button
                   onClick={() => toggleFaq(i)}
-                  className="w-full p-6 text-left flex items-center justify-between hover:bg-slate-50 transition-colors"
+                  className="w-full flex items-center justify-between p-6 text-left hover:bg-gray-50 transition-colors"
                 >
-                  <span className="text-lg font-bold pr-8">{faq.question}</span>
-                  <ChevronDown className={`w-6 h-6 text-orange-600 flex-shrink-0 transition-transform duration-300 ${openFaq === i ? 'rotate-180' : ''}`} />
+                  <span className="font-bold text-gray-900 text-lg pr-4">{faq.q}</span>
+                  <ChevronDown 
+                    className={`w-6 h-6 text-purple-600 flex-shrink-0 transition-transform ${openFaq === i ? 'rotate-180' : ''}`}
+                  />
                 </button>
                 {openFaq === i && (
-                  <div className="px-6 pb-6 animate-in slide-in-from-top-2 duration-300">
-                    <p className="text-muted-foreground leading-relaxed">{faq.answer}</p>
+                  <div className="px-6 pb-6 text-gray-600 leading-relaxed">
+                    {faq.a}
                   </div>
                 )}
               </div>
@@ -688,30 +712,29 @@ export default function SocialMediaCreativeManagement() {
         </div>
       </section>
 
-      {/* Final CTA */}
-      <section className="py-24 px-4 bg-gradient-to-br from-orange-600 via-pink-600 to-purple-600 text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(255,255,255,0.1),transparent_50%)]"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,rgba(255,255,255,0.1),transparent_50%)]"></div>
-        <div className="max-w-5xl mx-auto text-center relative z-10">
-          <h2 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-            Ready to dominate your feed?
-          </h2>
-          <p className="text-2xl md:text-3xl text-white/90 mb-10 leading-relaxed">
-            Let's create social content that captivates, engages, and converts.<br/>
-            <strong>Full-service. Performance-driven. Results guaranteed.</strong>
-          </p>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <Button size="lg" className="bg-white text-purple-600 hover:bg-white/90 h-16 px-10 text-lg font-bold" data-testid="button-cta-primary">
-              Get Started Today
-              <ArrowRight className="ml-2 w-6 h-6" />
-            </Button>
-            <Button size="lg" variant="outline" className="border-white text-white bg-white/10 backdrop-blur-sm hover:bg-white/20 h-16 px-10 text-lg font-bold" data-testid="button-cta-secondary">
-              <Play className="mr-2 w-6 h-6" />
-              See Our Work
-            </Button>
-          </div>
+      {/* Mobile Sticky CTA */}
+      {isSticky && (
+        <div className="fixed bottom-0 left-0 right-0 z-50 p-4 bg-white border-t border-gray-200 shadow-lg lg:hidden animate-in slide-in-from-bottom-full duration-300">
+          <Button 
+            size="lg" 
+            className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white"
+            data-testid="button-sticky-cta"
+          >
+            Start a Social Pilot
+            <ArrowRight className="ml-2 w-5 h-5" />
+          </Button>
         </div>
-      </section>
+      )}
+
+      <style dangerouslySetInnerHTML={{__html: `
+        .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+        }
+        .scrollbar-hide {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+      `}} />
     </Layout>
   );
 }
