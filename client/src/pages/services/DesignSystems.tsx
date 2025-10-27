@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Link } from "wouter";
 import { Layers, Code, Palette, FileText, Settings, Zap, CheckCircle2, Component, Layout as LayoutIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ScrollableCards } from "@/components/ui/scrollable-cards";
 import Layout from "@/components/layout/Layout";
 import heroImage from "@assets/stock_images/ui_ux_design_system__f9e4fa54.jpg";
 
@@ -154,7 +155,7 @@ export default function DesignSystems() {
         </div>
 
         <div className="relative">
-          <div className="flex gap-6 overflow-x-auto pb-6 px-4 scrollbar-hide snap-x snap-mandatory">
+          <ScrollableCards>
             {[
               { 
                 name: "Component Libraries", 
@@ -193,7 +194,7 @@ export default function DesignSystems() {
                 features: ["Auto-generated code", "Version control", "Change tracking", "Automated updates"]
               },
             ].map((component, i) => (
-              <div key={i} className="flex-none w-[340px] md:w-[420px] snap-center group" data-testid={`card-component-${i}`}>
+              <div key={i} className="flex-none w-[340px] md:w-[420px] group" data-testid={`card-component-${i}`}>
                 <div className="bg-white rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-500 border border-border h-full hover:-translate-y-2">
                   <div className="relative h-48 bg-gradient-to-br from-[hsl(140,60%,45%)]/10 via-[hsl(150,55%,50%)]/10 to-[hsl(160,60%,55%)]/10 overflow-hidden flex items-center justify-center">
                     <component.icon className="h-16 w-16 text-[hsl(140,60%,45%)]/30 group-hover:scale-110 transition-transform duration-500" />

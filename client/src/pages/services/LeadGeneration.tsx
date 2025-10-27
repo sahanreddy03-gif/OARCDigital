@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Link } from "wouter";
 import { Mail, Search, UserPlus, Megaphone, Calendar, Users, CheckCircle2, Target } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ScrollableCards } from "@/components/ui/scrollable-cards";
 import Layout from "@/components/layout/Layout";
 import heroImage from "@assets/stock_images/sales_team_handshake_272ba86a.jpg";
 
@@ -154,7 +155,7 @@ export default function LeadGeneration() {
         </div>
 
         <div className="relative">
-          <div className="flex gap-6 overflow-x-auto pb-6 px-4 scrollbar-hide snap-x snap-mandatory">
+          <ScrollableCards>
             {[
               { 
                 name: "Outbound Prospecting", 
@@ -193,7 +194,7 @@ export default function LeadGeneration() {
                 features: ["Referral programs", "Partner portals", "Co-marketing", "Revenue sharing"]
               },
             ].map((channel, i) => (
-              <div key={i} className="flex-none w-[340px] md:w-[420px] snap-center group" data-testid={`card-channel-${i}`}>
+              <div key={i} className="flex-none w-[340px] md:w-[420px] group" data-testid={`card-channel-${i}`}>
                 <div className="bg-white rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-500 border border-border h-full hover:-translate-y-2">
                   <div className="relative h-48 bg-gradient-to-br from-emerald-100/50 via-teal-100/50 to-cyan-100/50 overflow-hidden flex items-center justify-center">
                     <channel.icon className="h-16 w-16 text-emerald-600/30 group-hover:scale-110 transition-transform duration-500" />

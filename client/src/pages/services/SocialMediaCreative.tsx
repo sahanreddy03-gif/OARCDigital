@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Link } from "wouter";
 import { Instagram, Youtube, Linkedin, Facebook, ArrowRight, TrendingUp, Sparkles, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ScrollableCards } from "@/components/ui/scrollable-cards";
 import Layout from "@/components/layout/Layout";
 import heroImage from "@assets/stock_images/social_media_content_74d332d2.jpg";
 
@@ -128,8 +129,8 @@ export default function SocialMediaCreative() {
           </h2>
         </div>
 
-        <div className="relative">
-          <div className="flex gap-6 overflow-x-auto pb-6 px-4 scrollbar-hide snap-x snap-mandatory">
+        <div className="px-4">
+          <ScrollableCards>
             {[
               { name: "Instagram Content", desc: "Feed posts, Reels, Stories, and carousels. Aesthetic-first design optimized for Instagram's visual-first algorithm." },
               { name: "TikTok & Short-Form Video", desc: "Hook-first vertical videos engineered for viral potential. Trending sounds, effects, and native editing styles." },
@@ -138,7 +139,7 @@ export default function SocialMediaCreative() {
               { name: "Stories & Ephemeral Content", desc: "Daily Stories, polls, Q&As, and BTS content. Keep your audience engaged between main posts." },
               { name: "Memes & Trend-Jacking", desc: "Capitalize on trending moments with on-brand reactive content. Quick turnaround for cultural relevance." },
             ].map((item, i) => (
-              <div key={i} className="flex-none w-[360px] md:w-[480px] snap-center group" data-testid={`card-platform-${i}`}>
+              <div key={i} className="flex-none w-[360px] md:w-[480px] group" data-testid={`card-platform-${i}`}>
                 <div className="bg-white rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300 border border-border">
                   <div className="relative h-[400px] md:h-[500px] bg-gradient-to-br from-purple-50 via-pink-50 to-purple-100 overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
@@ -154,7 +155,7 @@ export default function SocialMediaCreative() {
                 </div>
               </div>
             ))}
-          </div>
+          </ScrollableCards>
         </div>
       </section>
 

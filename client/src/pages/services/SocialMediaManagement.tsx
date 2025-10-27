@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/layout/Layout";
+import { ScrollableCards } from "@/components/ui/scrollable-cards";
 import { Calendar, TrendingUp, Heart, MessageCircle, BarChart, Users, ArrowRight, CheckCircle2 } from "lucide-react";
 import heroImage from "@assets/stock_images/social_media_manager_11df5838.jpg";
 
@@ -110,8 +111,8 @@ export default function SocialMediaManagement() {
           </h2>
         </div>
 
-        <div className="relative">
-          <div className="flex gap-6 overflow-x-auto pb-6 px-4 scrollbar-hide snap-x snap-mandatory">
+        <div className="px-4">
+          <ScrollableCards>
             {[
               { name: "Strategy & Planning", desc: "Audience research, content pillars, editorial calendars, platform-specific strategies. Build the foundation for consistent growth.", icon: Calendar },
               { name: "Content Creation & Publishing", desc: "Original posts, curated content, Stories, Reels, carousels. Platform-optimized content published daily across all channels.", icon: TrendingUp },
@@ -122,7 +123,7 @@ export default function SocialMediaManagement() {
             ].map((service, i) => (
               <div 
                 key={i} 
-                className="min-w-[320px] md:min-w-[400px] p-8 bg-white rounded-2xl border border-border snap-start hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+                className="flex-none w-[320px] md:w-[400px] p-8 bg-white rounded-2xl border border-border hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
                 data-testid={`service-${i}`}
               >
                 <service.icon className="w-12 h-12 text-blue-600 mb-4" />
@@ -130,7 +131,7 @@ export default function SocialMediaManagement() {
                 <p className="text-muted-foreground leading-relaxed">{service.desc}</p>
               </div>
             ))}
-          </div>
+          </ScrollableCards>
         </div>
       </section>
 

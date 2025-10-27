@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Link } from "wouter";
 import { Box as BoxIcon, Smartphone, Glasses, Package, Layers, Sparkles, CheckCircle2, Eye, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ScrollableCards } from "@/components/ui/scrollable-cards";
 import Layout from "@/components/layout/Layout";
 import heroImage from "@assets/stock_images/virtual_reality_vr_h_6d01f361.jpg";
 
@@ -154,7 +155,7 @@ export default function Immersive3DAR() {
         </div>
 
         <div className="relative">
-          <div className="flex gap-6 overflow-x-auto pb-6 px-4 scrollbar-hide snap-x snap-mandatory">
+          <ScrollableCards>
             {[
               { 
                 name: "3D Product Modeling", 
@@ -193,7 +194,7 @@ export default function Immersive3DAR() {
                 features: ["VR experiences", "Metaverse activations", "Virtual events", "WebXR compatible"]
               },
             ].map((service, i) => (
-              <div key={i} className="flex-none w-[340px] md:w-[420px] snap-center group" data-testid={`card-service-${i}`}>
+              <div key={i} className="flex-none w-[340px] md:w-[420px] group" data-testid={`card-service-${i}`}>
                 <div className="bg-white rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-500 border border-border h-full hover:-translate-y-2">
                   <div className="relative h-48 bg-gradient-to-br from-[hsl(200,75%,45%)]/10 via-[hsl(210,70%,50%)]/10 to-[hsl(220,75%,55%)]/10 overflow-hidden flex items-center justify-center">
                     <service.icon className="h-16 w-16 text-[hsl(200,75%,45%)]/30 group-hover:scale-110 transition-transform duration-500" />

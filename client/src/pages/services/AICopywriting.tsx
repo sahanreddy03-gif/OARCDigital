@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Link } from "wouter";
 import { Sparkles, Zap, FileText, TrendingUp, Target, BarChart, CheckCircle2, PenTool, MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ScrollableCards } from "@/components/ui/scrollable-cards";
 import Layout from "@/components/layout/Layout";
 import heroImage from "@assets/stock_images/business_team_meetin_02cb9e40.jpg";
 
@@ -154,7 +155,7 @@ export default function AICopywriting() {
         </div>
 
         <div className="relative">
-          <div className="flex gap-6 overflow-x-auto pb-6 px-4 scrollbar-hide snap-x snap-mandatory">
+          <ScrollableCards>
             {[
               { 
                 name: "Blog Posts & Articles", 
@@ -193,7 +194,7 @@ export default function AICopywriting() {
                 features: ["Headline formulas", "Benefit bullets", "CTA copy", "Trust signals"]
               },
             ].map((type, i) => (
-              <div key={i} className="flex-none w-[340px] md:w-[420px] snap-center group" data-testid={`card-type-${i}`}>
+              <div key={i} className="flex-none w-[340px] md:w-[420px] group" data-testid={`card-type-${i}`}>
                 <div className="bg-white rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-500 border border-border h-full hover:-translate-y-2">
                   <div className="relative h-48 bg-gradient-to-br from-[hsl(280,70%,55%)]/10 via-[hsl(300,81%,60%)]/10 to-[hsl(320,81%,60%)]/10 overflow-hidden flex items-center justify-center">
                     <type.icon className="h-16 w-16 text-[hsl(280,70%,55%)]/30 group-hover:scale-110 transition-transform duration-500" />

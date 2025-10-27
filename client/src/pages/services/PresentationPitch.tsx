@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Link } from "wouter";
 import { Presentation, Sparkles, TrendingUp, Users, FileText, Award, CheckCircle2, DollarSign, Briefcase } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ScrollableCards } from "@/components/ui/scrollable-cards";
 import Layout from "@/components/layout/Layout";
 import heroImage from "@assets/stock_images/business_presentatio_3e68f00a.jpg";
 
@@ -154,7 +155,7 @@ export default function PresentationPitch() {
         </div>
 
         <div className="relative">
-          <div className="flex gap-6 overflow-x-auto pb-6 px-4 scrollbar-hide snap-x snap-mandatory">
+          <ScrollableCards>
             {[
               { 
                 name: "Investor Pitch Decks", 
@@ -193,7 +194,7 @@ export default function PresentationPitch() {
                 features: ["Process docs", "Best practices", "Interactive workshops", "Certification programs"]
               },
             ].map((type, i) => (
-              <div key={i} className="flex-none w-[340px] md:w-[420px] snap-center group" data-testid={`card-type-${i}`}>
+              <div key={i} className="flex-none w-[340px] md:w-[420px] group" data-testid={`card-type-${i}`}>
                 <div className="bg-white rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-500 border border-border h-full hover:-translate-y-2">
                   <div className="relative h-48 bg-gradient-to-br from-[hsl(220,70%,50%)]/10 via-[hsl(240,70%,55%)]/10 to-[hsl(260,70%,60%)]/10 overflow-hidden flex items-center justify-center">
                     <type.icon className="h-16 w-16 text-[hsl(220,70%,50%)]/30 group-hover:scale-110 transition-transform duration-500" />

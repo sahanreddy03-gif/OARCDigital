@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Link } from "wouter";
 import { Mail, TrendingUp, Zap, Users, BarChart, Eye, CheckCircle2, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ScrollableCards } from "@/components/ui/scrollable-cards";
 import Layout from "@/components/layout/Layout";
 import heroImage from "@assets/stock_images/email_marketing_lapt_bf28184c.jpg";
 
@@ -164,7 +165,7 @@ export default function EmailCreative() {
         </div>
 
         <div className="relative">
-          <div className="flex gap-6 overflow-x-auto pb-6 px-4 scrollbar-hide snap-x snap-mandatory">
+          <ScrollableCards>
             {[
               { 
                 name: "Campaign Emails", 
@@ -203,7 +204,7 @@ export default function EmailCreative() {
                 icon: Eye 
               },
             ].map((service, i) => (
-              <div key={i} className="flex-none w-[360px] md:w-[420px] snap-center group" data-testid={`card-service-${i}`}>
+              <div key={i} className="flex-none w-[360px] md:w-[420px] group" data-testid={`card-service-${i}`}>
                 <div className="bg-white rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-border h-full">
                   <div className="relative h-[280px] bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-100 overflow-hidden flex items-center justify-center">
                     <service.icon className="h-20 w-20 text-[hsl(25,85%,55%)]/20" />
