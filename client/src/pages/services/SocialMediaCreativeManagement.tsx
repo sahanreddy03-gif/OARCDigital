@@ -10,6 +10,7 @@ import {
   Star, Layers, Calendar, Mail, DollarSign, Settings
 } from "lucide-react";
 import { SiTiktok, SiYoutube, SiSnapchat, SiPinterest } from "react-icons/si";
+import { CountUp } from "@/components/ui/count-up";
 
 export default function SocialMediaCreativeManagement() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -425,35 +426,35 @@ export default function SocialMediaCreativeManagement() {
                 title: "Discover", 
                 desc: "brand, voice, audience, competitors, data",
                 icon: Search,
-                color: "purple"
+                gradient: "from-purple-500 to-purple-600"
               },
               { 
                 step: 2, 
                 title: "Plan", 
                 desc: "content calendar + hook map",
                 icon: Calendar,
-                color: "pink"
+                gradient: "from-pink-500 to-pink-600"
               },
               { 
                 step: 3, 
                 title: "Create", 
                 desc: "video, UGC, motion, design",
                 icon: Palette,
-                color: "teal"
+                gradient: "from-teal-500 to-teal-600"
               },
               { 
                 step: 4, 
                 title: "Amplify", 
                 desc: "paid + influencer + distribution",
                 icon: Megaphone,
-                color: "orange"
+                gradient: "from-orange-500 to-orange-600"
               },
               { 
                 step: 5, 
                 title: "Optimize", 
                 desc: "weekly insights, improvements & iterations",
                 icon: TrendingUp,
-                color: "violet"
+                gradient: "from-violet-500 to-violet-600"
               }
             ].map((step, i) => (
               <div 
@@ -462,7 +463,7 @@ export default function SocialMediaCreativeManagement() {
                 data-testid={`step-${step.step}`}
               >
                 <div className="flex-shrink-0">
-                  <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br from-${step.color}-500 to-${step.color}-600 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform`}>
+                  <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${step.gradient} flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform`}>
                     <step.icon className="w-8 h-8 text-white" />
                   </div>
                 </div>
@@ -527,18 +528,29 @@ export default function SocialMediaCreativeManagement() {
       <section className="py-32 bg-white">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid md:grid-cols-3 gap-12 text-center">
-            {[
-              { stat: "+72%", label: "average engagement uplift (pilot programs)" },
-              { stat: "3×", label: "faster content velocity (vs internal teams)" },
-              { stat: "24/7", label: "execution (no downtime)" }
-            ].map((kpi, i) => (
-              <div key={i} data-testid={`kpi-${i}`}>
-                <div className="text-5xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 text-transparent bg-clip-text mb-4">
-                  {kpi.stat}
-                </div>
-                <p className="text-lg text-gray-600">{kpi.label}</p>
+            <div data-testid="kpi-0">
+              <CountUp 
+                end={72} 
+                prefix="+" 
+                suffix="%" 
+                className="text-5xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 text-transparent bg-clip-text mb-4"
+              />
+              <p className="text-lg text-gray-600">average engagement uplift (pilot programs)</p>
+            </div>
+            <div data-testid="kpi-1">
+              <CountUp 
+                end={3} 
+                suffix="×" 
+                className="text-5xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 text-transparent bg-clip-text mb-4"
+              />
+              <p className="text-lg text-gray-600">faster content velocity (vs internal teams)</p>
+            </div>
+            <div data-testid="kpi-2">
+              <div className="text-5xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 text-transparent bg-clip-text mb-4">
+                24/7
               </div>
-            ))}
+              <p className="text-lg text-gray-600">execution (no downtime)</p>
+            </div>
           </div>
         </div>
       </section>
