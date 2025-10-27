@@ -76,14 +76,14 @@ export default function SocialMediaCreativeManagement() {
   };
 
   const platforms = [
-    { name: "Instagram", icon: Instagram, color: "from-purple-600 to-pink-600", features: ["Reels", "Stories", "Shopping"] },
-    { name: "TikTok", icon: SiTiktok, color: "from-cyan-500 to-blue-600", features: ["Viral trends", "TikTok Shop", "Live"] },
+    { name: "Instagram", icon: Instagram, color: "from-purple-600 to-purple-700", features: ["Reels", "Stories", "Shopping"] },
+    { name: "TikTok", icon: SiTiktok, color: "from-blue-500 to-blue-600", features: ["Viral trends", "TikTok Shop", "Live"] },
     { name: "LinkedIn", icon: Linkedin, color: "from-blue-700 to-blue-500", features: ["B2B", "Thought leadership", "Ads"] },
     { name: "Facebook", icon: Facebook, color: "from-blue-600 to-indigo-600", features: ["Groups", "Marketplace", "Video"] },
-    { name: "YouTube", icon: SiYoutube, color: "from-red-600 to-red-500", features: ["Long-form", "Shorts", "Live streams"] },
-    { name: "Twitter/X", icon: SiX, color: "from-gray-900 to-gray-700", features: ["Real-time", "Threads", "Spaces"] },
-    { name: "Snapchat", icon: SiSnapchat, color: "from-yellow-400 to-yellow-500", features: ["AR lenses", "Spotlight", "Ads"] },
-    { name: "Pinterest", icon: SiPinterest, color: "from-red-600 to-pink-600", features: ["Idea Pins", "Shopping", "SEO"] },
+    { name: "YouTube", icon: SiYoutube, color: "from-purple-500 to-purple-600", features: ["Long-form", "Shorts", "Live streams"] },
+    { name: "Twitter/X", icon: SiX, color: "from-blue-800 to-blue-900", features: ["Real-time", "Threads", "Spaces"] },
+    { name: "Snapchat", icon: SiSnapchat, color: "from-blue-400 to-blue-500", features: ["AR lenses", "Spotlight", "Ads"] },
+    { name: "Pinterest", icon: SiPinterest, color: "from-purple-600 to-blue-600", features: ["Idea Pins", "Shopping", "SEO"] },
   ];
 
   const stats = [
@@ -163,12 +163,12 @@ export default function SocialMediaCreativeManagement() {
           <div className="max-w-7xl mx-auto px-4">
             <div className="flex gap-6 overflow-x-auto pb-6 snap-x snap-mandatory scrollbar-hide" data-testid="services-carousel">
               {[
-                { name: "Organic Social Media Content", icon: Share2, color: "from-blue-500 to-cyan-500" },
-                { name: "Video Content", icon: Video, color: "from-purple-500 to-pink-500" },
-                { name: "Social Media Post Design", icon: Palette, color: "from-orange-500 to-red-500" },
-                { name: "Social Media Collateral", icon: Sparkles, color: "from-green-500 to-emerald-500" },
-                { name: "Social Media Response Guide", icon: MessageCircle, color: "from-indigo-500 to-purple-500" },
-                { name: "Social Media Concepts", icon: Lightbulb, color: "from-yellow-500 to-orange-500" },
+                { name: "Organic Social Media Content", icon: Share2, color: "from-blue-500 to-blue-600" },
+                { name: "Video Content", icon: Video, color: "from-purple-500 to-purple-600" },
+                { name: "Social Media Post Design", icon: Palette, color: "from-blue-600 to-purple-500" },
+                { name: "Social Media Collateral", icon: Sparkles, color: "from-purple-600 to-blue-500" },
+                { name: "Social Media Response Guide", icon: MessageCircle, color: "from-blue-500 to-purple-600" },
+                { name: "Social Media Concepts", icon: Lightbulb, color: "from-purple-500 to-blue-600" },
               ].map((service, i) => (
                 <motion.div
                   key={i}
@@ -301,7 +301,7 @@ export default function SocialMediaCreativeManagement() {
                     <div className="space-y-2">
                       {platform.features.map((feature, j) => (
                         <div key={j} className="flex items-center justify-center gap-2 text-sm text-gray-600">
-                          <CheckCircle2 className="h-4 w-4 text-green-600" />
+                          <CheckCircle2 className="h-4 w-4 text-blue-600" />
                           {feature}
                         </div>
                       ))}
@@ -418,11 +418,11 @@ export default function SocialMediaCreativeManagement() {
             Let's create scroll-stopping content that drives real results for your brand.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" variant="outline" className="bg-white text-blue-600 border-0" data-testid="button-final-cta">
+            <Button size="lg" variant="secondary" data-testid="button-final-cta">
               Book Your Demo
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
-            <Button size="lg" variant="outline" className="border-white text-white" data-testid="button-contact">
+            <Button size="lg" variant="outline" data-testid="button-contact">
               Contact Sales
             </Button>
           </div>
