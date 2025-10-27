@@ -72,24 +72,94 @@ export default function SocialMediaCreativeManagement() {
             transition: 'transform 0.1s ease-out'
           }}
         >
-          {/* Center Phone */}
+          {/* Center Phone - Main Reel/TikTok Style with Video Loop */}
           <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-30 w-56 h-[28rem] rounded-[2.5rem] bg-black shadow-2xl overflow-hidden border-8 border-gray-900" style={{ transform: 'perspective(1000px) rotateY(-8deg)' }}>
-            <div className="w-full h-full bg-gradient-to-br from-purple-600 via-pink-600 to-orange-500 flex items-center justify-center">
-              <Play className="w-16 h-16 text-white" />
+            <div className="w-full h-full relative">
+              <video 
+                autoPlay 
+                loop 
+                muted 
+                playsInline
+                className="absolute inset-0 w-full h-full object-cover"
+                poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='224' height='448'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%238b5cf6'/%3E%3Cstop offset='50%25' stop-color='%23ec4899'/%3E%3Cstop offset='100%25' stop-color='%23f97316'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='224' height='448' fill='url(%23g)'/%3E%3C/svg%3E"
+              >
+                <source src="data:video/mp4;base64,AAAAIGZ0eXBpc29tAAACAGlzb21pc28yYXZjMW1wNDEAAAAIZnJlZQAAAu1tZGF0AAACrQYF//+p3EXpvebZSLeWLNgg2SPu73gyNjQgLSBjb3JlIDE2NCAtIEguMjY0L01QRUctNCBBVkMgY29kZWMgLSBDb3B5bGVmdCAyMDAzLTIwMjEgLSBodHRwOi8vd3d3LnZpZGVvbGFuLm9yZy94MjY0Lmh0bWwgLSBvcHRpb25zOiBjYWJhYz0xIHJlZj0zIGRlYmxvY2s9MTowOjAgYW5hbHlzZT0weDM6MHgxMTMgbWU9aGV4IHN1Ym1lPTcgcHN5PTEgcHN5X3JkPTEuMDA6MC4wMCBtaXhlZF9yZWY9MSBtZV9yYW5nZT0xNiBjaHJvbWFfbWU9MSB0cmVsbGlzPTEgOHg4ZGN0PTEgY3FtPTAgZGVhZHpvbmU9MjEsMTEgZmFzdF9wc2tpcD0xIGNocm9tYV9xcF9vZmZzZXQ9LTIgdGhyZWFkcz0xMiBsb29rYWhlYWRfdGhyZWFkcz0yIHNsaWNlZF90aHJlYWRzPTAgbnI9MCBkZWNpbWF0ZT0xIGludGVybGFjZWQ9MCBibHVyYXlfY29tcGF0PTAgY29uc3RyYWluZWRfaW50cmE9MCBiZnJhbWVzPTMgYl9weXJhbWlkPTIgYl9hZGFwdD0xIGJfYmlhcz0wIGRpcmVjdD0xIHdlaWdodGI9MSBvcGVuX2dvcD0wIHdlaWdodHA9MiBrZXlpbnQ9MjUwIGtleWludF9taW49MjUgc2NlbmVjdXQ9NDAgaW50cmFfcmVmcmVzaD0wIHJjX2xvb2thGVhZWFkPTQwIHJjPWNyZiBtYnRyZWU9MSBjcmY9MjMuMCBxY29tcD0wLjYwIHFwbWluPTAgcXBtYXg9NjkgcXBzdGVwPTQgaXBfcmF0aW89MS40MCBhcT0xOjEuMDAAgAAAAAwliIQAV/0TAAYdgAAABkBuaVRFRPyp//73/gAAAAlBmiRsQn/+nhAAAAMAAAMAVxSBACH21/lwYP/+5WkX/8zfgAAAAwVBnkJ4hX8SkbZgAAAAAwVBnmRFETwT/wAAAAMAAAMAVTJgCAAAApxBmmhJqEFsmUwIZ//+nhAAAAMAAAMAAwN/CIAAAAJ8QZqMSeEKUmUwUYI//+eEAAAAwAAAwADA3+yAAAAAlEGarEnhDomUwIR//yI/gAAAAMAAAMAVv/gAAAAq0GazEnhDyZTAjf//qeEAAAAwAAAwAMDf7IAAAAc0Ga7knhPyZTBBn/4YAAAAMAAAMAVv/gAAAALQZrxSeEfJlMEWfhgAAAAwAAAf8AAAD/QZ8CRTE8E/8AAAAFZaVvgAAAADtBnyZFPBP/AAAAwAAAwAVlpW+AAAApQZ9KRREsE/8AAAAFZaVvgAAAAGxBn2pFESsT/wAAAAMAVlpW+AAAAYhBn4xJ4Q/6eEAAAAwAAAwBWWlb4AAABQ0GfrknhD/6eEAAAAwAAAwBWWlb4AAAASQZGfoAAACqBm8AAAAD//PEA" type="video/mp4" />
+              </video>
+              <div className="absolute inset-0 bg-gradient-to-br from-purple-600/60 via-pink-600/60 to-orange-500/60"></div>
+              <div className="absolute inset-0 flex flex-col justify-between p-4 z-10">
+                <div className="flex items-center gap-2">
+                  <div className="w-8 h-8 rounded-full bg-white/20 animate-pulse"></div>
+                  <div className="h-3 w-24 bg-white/20 rounded animate-pulse"></div>
+                </div>
+                <div>
+                  <Play className="w-16 h-16 text-white mx-auto mb-4 animate-pulse" style={{ animationDuration: '2s' }} />
+                  <div className="space-y-2">
+                    <div className="h-2 bg-white/20 rounded"></div>
+                    <div className="h-2 bg-white/20 rounded w-3/4"></div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
-          {/* Left Phone */}
+          {/* Left Phone - Carousel Auto-swipe with Video Loop */}
           <div className="absolute left-0 top-1/2 -translate-y-1/2 z-20 w-48 h-96 rounded-[2rem] bg-black shadow-xl overflow-hidden border-8 border-gray-900" style={{ transform: 'perspective(1000px) rotateY(15deg) translateX(20px)' }}>
-            <div className="w-full h-full bg-gradient-to-br from-teal-500 to-blue-600 flex items-center justify-center">
-              <Camera className="w-12 h-12 text-white" />
+            <div className="w-full h-full relative">
+              <video 
+                autoPlay 
+                loop 
+                muted 
+                playsInline
+                className="absolute inset-0 w-full h-full object-cover"
+                poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='192' height='384'%3E%3Cdefs%3E%3ClinearGradient id='g2' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2314b8a6'/%3E%3Cstop offset='100%25' stop-color='%232563eb'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='192' height='384' fill='url(%23g2)'/%3E%3C/svg%3E"
+              >
+                <source src="data:video/mp4;base64,AAAAIGZ0eXBpc29tAAACAGlzb21pc28yYXZjMW1wNDEAAAAIZnJlZQAAAu1tZGF0AAACrQYF//+p3EXpvebZSLeWLNgg2SPu73gyNjQgLSBjb3JlIDE2NCAtIEguMjY0L01QRUctNCBBVkMgY29kZWMgLSBDb3B5bGVmdCAyMDAzLTIwMjEgLSBodHRwOi8vd3d3LnZpZGVvbGFuLm9yZy94MjY0Lmh0bWwgLSBvcHRpb25zOiBjYWJhYz0xIHJlZj0zIGRlYmxvY2s9MTowOjAgYW5hbHlzZT0weDM6MHgxMTMgbWU9aGV4IHN1Ym1lPTcgcHN5PTEgcHN5X3JkPTEuMDA6MC4wMCBtaXhlZF9yZWY9MSBtZV9yYW5nZT0xNiBjaHJvbWFfbWU9MSB0cmVsbGlzPTEgOHg4ZGN0PTEgY3FtPTAgZGVhZHpvbmU9MjEsMTEgZmFzdF9wc2tpcD0xIGNocm9tYV9xcF9vZmZzZXQ9LTIgdGhyZWFkcz0xMiBsb29rYWhlYWRfdGhyZWFkcz0yIHNsaWNlZF90aHJlYWRzPTAgbnI9MCBkZWNpbWF0ZT0xIGludGVybGFjZWQ9MCBibHVyYXlfY29tcGF0PTAgY29uc3RyYWluZWRfaW50cmE9MCBiZnJhbWVzPTMgYl9weXJhbWlkPTIgYl9hZGFwdD0xIGJfYmlhcz0wIGRpcmVjdD0xIHdlaWdodGI9MSBvcGVuX2dvcD0wIHdlaWdodHA9MiBrZXlpbnQ9MjUwIGtleWludF9taW49MjUgc2NlbmVjdXQ9NDAgaW50cmFfcmVmcmVzaD0wIHJjX2xvb2thGVhZWFkPTQwIHJjPWNyZiBtYnRyZWU9MSBjcmY9MjMuMCBxY29tcD0wLjYwIHFwbWluPTAgcXBtYXg9NjkgcXBzdGVwPTQgaXBfcmF0aW89MS40MCBhcT0xOjEuMDAAgAAAAAwliIQAV/0TAAYdgAAABkBuaVRFRPyp//73/gAAAAlBmiRsQn/+nhAAAAMAAAMAVxSBACH21/lwYP/+5WkX/8zfgAAAAwVBnkJ4hX8SkbZgAAAAAwVBnmRFETwT/wAAAAMAAAMAVTJgCAAAApxBmmhJqEFsmUwIZ//+nhAAAAMAAAMAAwN/CIAAAAJ8QZqMSeEKUmUwUYI//+eEAAAAwAAAwADA3+yAAAAAlEGarEnhDomUwIR//yI/gAAAAMAAAMAVv/gAAAAq0GazEnhDyZTAjf//qeEAAAAwAAAwAMDf7IAAAAc0Ga7knhPyZTBBn/4YAAAAMAAAMAVv/gAAAALQZrxSeEfJlMEWfhgAAAAwAAAf8AAAD/QZ8CRTE8E/8AAAAFZaVvgAAAADtBnyZFPBP/AAAAwAAAwAVlpW+AAAApQZ9KRREsE/8AAAAFZaVvgAAAAGxBn2pFESsT/wAAAAMAVlpW+AAAAYhBn4xJ4Q/6eEAAAAwAAAwBWWlb4AAABQ0GfrknhD/6eEAAAAwAAAwBWWlb4AAAASQZGfoAAACqBm8AAAAD//PEA" type="video/mp4" />
+              </video>
+              <div className="absolute inset-0 bg-gradient-to-br from-teal-500/60 to-blue-600/60"></div>
+              <div className="absolute inset-0 flex items-center justify-center z-10">
+                <div className="w-full h-full relative">
+                  <div className="absolute inset-4 bg-white/10 rounded-lg animate-pulse" style={{ animationDuration: '4s' }}></div>
+                  <Camera className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 text-white z-10" />
+                  <div className="absolute bottom-4 left-4 right-4 flex gap-1">
+                    <div className="h-1 flex-1 bg-white/40 rounded"></div>
+                    <div className="h-1 flex-1 bg-white/40 rounded"></div>
+                    <div className="h-1 flex-1 bg-white rounded animate-pulse"></div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
-          {/* Right Phone */}
+          {/* Right Phone - Story with Progress Bar and Video Loop */}
           <div className="absolute right-0 top-1/2 -translate-y-1/2 z-20 w-48 h-96 rounded-[2rem] bg-black shadow-xl overflow-hidden border-8 border-gray-900" style={{ transform: 'perspective(1000px) rotateY(-15deg) translateX(-20px)' }}>
-            <div className="w-full h-full bg-gradient-to-br from-amber-400 to-pink-600 flex items-center justify-center">
-              <Heart className="w-12 h-12 text-white" />
+            <div className="w-full h-full relative">
+              <video 
+                autoPlay 
+                loop 
+                muted 
+                playsInline
+                className="absolute inset-0 w-full h-full object-cover"
+                poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='192' height='384'%3E%3Cdefs%3E%3ClinearGradient id='g3' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23fbbf24'/%3E%3Cstop offset='100%25' stop-color='%23ec4899'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='192' height='384' fill='url(%23g3)'/%3E%3C/svg%3E"
+              >
+                <source src="data:video/mp4;base64,AAAAIGZ0eXBpc29tAAACAGlzb21pc28yYXZjMW1wNDEAAAAIZnJlZQAAAu1tZGF0AAACrQYF//+p3EXpvebZSLeWLNgg2SPu73gyNjQgLSBjb3JlIDE2NCAtIEguMjY0L01QRUctNCBBVkMgY29kZWMgLSBDb3B5bGVmdCAyMDAzLTIwMjEgLSBodHRwOi8vd3d3LnZpZGVvbGFuLm9yZy94MjY0Lmh0bWwgLSBvcHRpb25zOiBjYWJhYz0xIHJlZj0zIGRlYmxvY2s9MTowOjAgYW5hbHlzZT0weDM6MHgxMTMgbWU9aGV4IHN1Ym1lPTcgcHN5PTEgcHN5X3JkPTEuMDA6MC4wMCBtaXhlZF9yZWY9MSBtZV9yYW5nZT0xNiBjaHJvbWFfbWU9MSB0cmVsbGlzPTEgOHg4ZGN0PTEgY3FtPTAgZGVhZHpvbmU9MjEsMTEgZmFzdF9wc2tpcD0xIGNocm9tYV9xcF9vZmZzZXQ9LTIgdGhyZWFkcz0xMiBsb29rYWhlYWRfdGhyZWFkcz0yIHNsaWNlZF90aHJlYWRzPTAgbnI9MCBkZWNpbWF0ZT0xIGludGVybGFjZWQ9MCBibHVyYXlfY29tcGF0PTAgY29uc3RyYWluZWRfaW50cmE9MCBiZnJhbWVzPTMgYl9weXJhbWlkPTIgYl9hZGFwdD0xIGJfYmlhcz0wIGRpcmVjdD0xIHdlaWdodGI9MSBvcGVuX2dvcD0wIHdlaWdodHA9MiBrZXlpbnQ9MjUwIGtleWludF9taW49MjUgc2NlbmVjdXQ9NDAgaW50cmFfcmVmcmVzaD0wIHJjX2xvb2thGVhZWFkPTQwIHJjPWNyZiBtYnRyZWU9MSBjcmY9MjMuMCBxY29tcD0wLjYwIHFwbWluPTAgcXBtYXg9NjkgcXBzdGVwPTQgaXBfcmF0aW89MS40MCBhcT0xOjEuMDAAgAAAAAwliIQAV/0TAAYdgAAABkBuaVRFRPyp//73/gAAAAlBmiRsQn/+nhAAAAMAAAMAVxSBACH21/lwYP/+5WkX/8zfgAAAAwVBnkJ4hX8SkbZgAAAAAwVBnmRFETwT/wAAAAMAAAMAVTJgCAAAApxBmmhJqEFsmUwIZ//+nhAAAAMAAAMAAwN/CIAAAAJ8QZqMSeEKUmUwUYI//+eEAAAAwAAAwADA3+yAAAAAlEGarEnhDomUwIR//yI/gAAAAMAAAMAVv/gAAAAq0GazEnhDyZTAjf//qeEAAAAwAAAwAMDf7IAAAAc0Ga7knhPyZTBBn/4YAAAAMAAAMAVv/gAAAALQZrxSeEfJlMEWfhgAAAAwAAAf8AAAD/QZ8CRTE8E/8AAAAFZaVvgAAAADtBnyZFPBP/AAAAwAAAwAVlpW+AAAApQZ9KRREsE/8AAAAFZaVvgAAAAGxBn2pFESsT/wAAAAMAVlpW+AAAAYhBn4xJ4Q/6eEAAAAwAAAwBWWlb4AAABQ0GfrknhD/6eEAAAAwAAAwBWWlb4AAAASQZGfoAAACqBm8AAAAD//PEA" type="video/mp4" />
+              </video>
+              <div className="absolute inset-0 bg-gradient-to-br from-amber-400/60 to-pink-600/60"></div>
+              <div className="absolute top-4 left-4 right-4 flex gap-1 z-10">
+                <div className="h-0.5 flex-1 bg-white rounded overflow-hidden">
+                  <div className="h-full bg-white/60 animate-pulse" style={{ width: '100%', animationDuration: '3s' }}></div>
+                </div>
+                <div className="h-0.5 flex-1 bg-white/40 rounded"></div>
+                <div className="h-0.5 flex-1 bg-white/40 rounded"></div>
+              </div>
+              <div className="absolute inset-0 flex items-center justify-center z-10">
+                <Heart className="w-12 h-12 text-white animate-pulse" style={{ animationDuration: '1.5s' }} />
+              </div>
+              <div className="absolute bottom-6 left-4 right-4 z-10">
+                <div className="h-10 bg-white/20 rounded-full backdrop-blur-sm flex items-center px-4 gap-2">
+                  <MessageCircle className="w-4 h-4 text-white" />
+                  <div className="h-2 flex-1 bg-white/30 rounded"></div>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -546,9 +616,11 @@ export default function SocialMediaCreativeManagement() {
               <p className="text-lg text-gray-600">faster content velocity (vs internal teams)</p>
             </div>
             <div data-testid="kpi-2">
-              <div className="text-5xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 text-transparent bg-clip-text mb-4">
-                24/7
-              </div>
+              <CountUp 
+                end={24} 
+                suffix="/7" 
+                className="text-5xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 text-transparent bg-clip-text mb-4"
+              />
               <p className="text-lg text-gray-600">execution (no downtime)</p>
             </div>
           </div>
