@@ -1,0 +1,147 @@
+🌟 MESSAGE 2 of 3 — DESIGN + ANIMATION BLUEPRINT (FOR REPLIT TO EXECUTE)
+
+Below is the complete visual, layout, animation, and UX specification for this page. This ensures that when Replit builds it — the result matches the premium, cinematic landing page you are envisioning.
+
+⸻
+
+🎨 1. PAGE DESIGN SYSTEM
+
+Color Direction (Bright, Elite, Vibrant — NOT Dark)
+
+Usage	Colors
+Primary Accent	Electric Purple (#8B5CF6) or Neon Violet
+Secondary Accent	Magenta / Hot Pink (#EC4899)
+Accent Highlights	Teal (#2DD4BF) or Amber (#FBBF24) — for small sparks & micro details
+Background (Main)	Soft light gradient (Violet → White) or Very Soft Charcoal (only in certain sections)
+UI Elements	Frosted glass / translucent cards
+
+Gradient Example (Hero + CTA elements):
+linear-gradient(135deg, #8B5CF6 0%, #EC4899 50%, #2DD4BF 100%)
+
+Rule: color = energy, background = clean. We avoid a dark, heavy look.
+
+⸻
+
+Typography (Premium + Confident)
+
+Type	Style
+H1	64–72px desktop / 36–42px mobile
+H2	40–48px desktop / 28–32px mobile
+H3	26–32px desktop / 20–22px mobile
+Body	16–18px (light, spacious line-height)
+Buttons	Semi-bold, uppercase or strong verb tone
+
+Use a clean geometric font (like Outfit, Söhne, or Inter Tight with proper weight contrast).
+
+⸻
+
+Spacing
+	•	Vertical spacing: 120–160px between sections (desktop), 80–110px (mobile)
+	•	Max content width: 1180–1280px
+	•	Whitespace: generous — like Superside, not compact or cramped
+
+⸻
+
+📱 2. MOBILE + DESKTOP EXPERIENCE RULES
+
+Device	Behavior
+Desktop	Parallax, layered visuals, wide breathing space
+Mobile	Snap sections, swipe carousels, simplify parallax
+Sticky CTA on Mobile	Bottom sticky bar: “Start a Social Pilot”
+Tap Targets	Minimum 44px
+
+
+⸻
+
+🔥 3. HERO SECTION — 3D PHONE PARALLAX (SIGNATURE MOMENT)
+
+Visual Structure
+	•	Foreground: 3 floating phones, angled slightly differently
+	•	Midground: UI spark elements (likes, comments, notification dots — tiny, subtle motion)
+	•	Background: Soft gradient + bokeh + motion particles (low opacity, slow)
+
+What plays inside the three phones
+
+Phone	Content
+Center (Main)	Reel/TikTok style 9:16 clip — smooth motion, 6–8s loop
+Left	Social carousel auto-swiping
+Right	Story UI with progress bar animation
+
+Parallax Rules
+
+Layer	Movement
+Background	slowest (1x)
+Mid layer	medium (1.5x)
+Phones	fastest (2–2.5x)
+
+	•	Tilt-on-mouse effect: max 4–6 degrees, very smooth
+	•	Mobile fallback: no tilt, only subtle fade/delay stagger
+
+Performance Constraint
+	•	Combined hero loops ≤ 900KB desktop / 600KB mobile
+	•	Video export: 1080×1920, 24–30fps, 1.5–2.5 Mbps, H.264 + WebM fallback
+	•	Use poster image for LCP
+
+⸻
+
+🌀 4. SCROLL ANIMATION BLUEPRINT (SECTION-BY-SECTION)
+
+Section	Animation Style
+Hero	Parallax + Fade stagger
+Trust Bar	Fade-in (120ms) after hero
+Problem	Fade-up (200–250ms), slight 20px slide
+Solution (3 cards)	Staggered card reveal (100ms delay each)
+Full Stack Grid	Appear in rows, 120ms stagger
+Platform Scroller	Horizontal snap (ScrollTrigger + CSS snap)
+Content Showcase	Light fade + hover zoom
+Management Section	Left-to-right slide + fade
+Growth Engine	Scroll-pinned steps (like Socially Powerful storytelling)
+Add-ons	Fade-up fast (clean and simple)
+KPIs	Count-up animation + subtle pulse
+Case Studies	Card-lift on hover, reveal on scroll
+Testimonials	Auto-slide, manual swipe on mobile
+Final CTA	Fade-up strong + glowing edge on button
+
+Important: No “bouncy” animations — everything should feel premium, controlled, cinematic.
+
+⸻
+
+📌 5. COMPONENT DESIGN RULES
+
+Cards
+	•	Glassmorphism
+	•	Soft shadows (blur, low opacity)
+	•	Hover: +3–4px lift, subtle glow
+
+Buttons
+	•	Primary CTA: gradient fill, micro-hover glow
+	•	Secondary CTA: outline + soft hover fill
+
+Icons
+	•	Thin line icons
+	•	Tiny motion (Lottie optional)
+
+Case Studies
+	•	3 cards
+	•	Hover = zoom 4–6% + shadow intensify
+
+⸻
+
+⚡ 6. PERFORMANCE & UX RULES
+	•	Lazy-load all non-hero assets
+	•	Preload hero phone videos
+	•	Use IntersectionObserver to trigger animations, not scroll on every frame
+	•	Avoid heavy GIFs — use MP4/WebM or Lottie
+	•	Maintain 60fps
+
+⸻
+
+✅ END OF MESSAGE 2
+
+If this is approved, I will now send:
+
+📌 MESSAGE 3 — “REPLIT DEVELOPER BUILD BLOCK”
+
+→ The final copy–paste instruction you will give Replit to build this page exactly as designed.
+
+Reply: “Continue 3/3”
