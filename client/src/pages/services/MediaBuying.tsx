@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Link } from "wouter";
 import { DollarSign, TrendingUp, Target, Zap, ArrowRight, BarChart3, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ScrollableCards } from "@/components/ui/scrollable-cards";
 import Layout from "@/components/layout/Layout";
 import heroImage from "@assets/stock_images/media_strategy_plann_296ccd33.jpg";
 
@@ -112,7 +113,7 @@ export default function MediaBuying() {
         </div>
 
         <div className="relative">
-          <div className="flex gap-6 overflow-x-auto pb-6 px-4 scrollbar-hide snap-x snap-mandatory">
+          <ScrollableCards>
             {[
               { name: "Programmatic Display", desc: "Real-time bidding, private marketplaces, direct deals. Automated buying that targets your audience across millions of websites and apps.", icon: Target },
               { name: "Social Media Buying", desc: "Negotiate volume discounts on Meta, LinkedIn, TikTok, Snap, Pinterest. Secure premium placements and early beta access to new formats.", icon: TrendingUp },
@@ -123,7 +124,7 @@ export default function MediaBuying() {
             ].map((service, i) => (
               <div 
                 key={i} 
-                className="min-w-[320px] md:min-w-[400px] p-8 bg-white rounded-2xl border border-border snap-start hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+                className="flex-none w-[320px] md:min-w-[400px] p-8 bg-white rounded-2xl border border-border hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
                 data-testid={`service-${i}`}
               >
                 <service.icon className="w-12 h-12 text-[hsl(221,91%,60%)] mb-4" />

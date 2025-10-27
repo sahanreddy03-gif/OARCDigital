@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Link } from "wouter";
 import { Target, TrendingUp, Users, Zap, BarChart, Globe, CheckCircle2, Megaphone } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ScrollableCards } from "@/components/ui/scrollable-cards";
 import Layout from "@/components/layout/Layout";
 import heroImage from "@assets/stock_images/media_strategy_plann_9ca291d2.jpg";
 
@@ -154,7 +155,7 @@ export default function DigitalMarketing() {
         </div>
 
         <div className="relative">
-          <div className="flex gap-6 overflow-x-auto pb-6 px-4 scrollbar-hide snap-x snap-mandatory">
+          <ScrollableCards>
             {[
               { 
                 name: "Digital Strategy & Planning", 
@@ -193,7 +194,7 @@ export default function DigitalMarketing() {
                 features: ["Attribution modeling", "Conversion tracking", "A/B testing", "Custom dashboards"]
               },
             ].map((service, i) => (
-              <div key={i} className="flex-none w-[340px] md:w-[420px] snap-center group" data-testid={`card-service-${i}`}>
+              <div key={i} className="flex-none w-[340px] md:w-[420px] group" data-testid={`card-service-${i}`}>
                 <div className="bg-white rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-500 border border-border h-full hover:-translate-y-2">
                   <div className="relative h-48 bg-gradient-to-br from-slate-50 via-gray-50 to-zinc-50 overflow-hidden flex items-center justify-center">
                     <service.icon className="h-16 w-16 text-slate-900/30 group-hover:scale-110 transition-transform duration-500" />

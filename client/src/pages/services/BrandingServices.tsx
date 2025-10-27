@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
+import { ScrollableCards } from "@/components/ui/scrollable-cards";
 import Layout from "@/components/layout/Layout";
 import { Palette, Sparkles, BookOpen, Target, Box, FileText, ArrowRight, CheckCircle2 } from "lucide-react";
 import heroImage from "@assets/stock_images/branding_design_logo_562a38a3.jpg";
@@ -111,7 +112,7 @@ export default function BrandingServices() {
         </div>
 
         <div className="relative">
-          <div className="flex gap-6 overflow-x-auto pb-6 px-4 scrollbar-hide snap-x snap-mandatory">
+          <ScrollableCards>
             {[
               { name: "Brand Strategy & Positioning", desc: "Audience research, competitive analysis, brand archetype definition, value proposition. Build the strategic foundation.", icon: Target },
               { name: "Logo & Visual Identity", desc: "Custom logo design, color palette, typography system, visual style guide. Cohesive visual language across all touchpoints.", icon: Palette },
@@ -122,7 +123,7 @@ export default function BrandingServices() {
             ].map((service, i) => (
               <div 
                 key={i} 
-                className="min-w-[320px] md:min-w-[400px] p-8 bg-white rounded-2xl border border-border snap-start hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+                className="flex-none w-[320px] md:min-w-[400px] p-8 bg-white rounded-2xl border border-border hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
                 data-testid={`service-${i}`}
               >
                 <service.icon className="w-12 h-12 text-orange-600 mb-4" />

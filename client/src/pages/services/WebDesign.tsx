@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Link } from "wouter";
 import { Code, Smartphone, Zap, Layers, ArrowRight, TrendingUp, CheckCircle2, Gauge } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ScrollableCards } from "@/components/ui/scrollable-cards";
 import Layout from "@/components/layout/Layout";
 import heroImage from "@assets/stock_images/web_developer_coding_c71e23d7.jpg";
 
@@ -129,7 +130,7 @@ export default function WebDesign() {
         </div>
 
         <div className="relative">
-          <div className="flex gap-6 overflow-x-auto pb-6 px-4 scrollbar-hide snap-x snap-mandatory">
+          <ScrollableCards>
             {[
               { name: "Full Website Design", desc: "Conversion-optimized websites from sitemap to launch. UX research, wireframes, prototypes, and pixel-perfect UI. Built to scale.", icon: Layers },
               { name: "High-Converting Landing Pages", desc: "Single-purpose pages engineered to convert. A/B test ready, mobile-first, and optimized for Core Web Vitals. Launch in 7 days.", icon: Zap },
@@ -138,7 +139,7 @@ export default function WebDesign() {
               { name: "Conversion Rate Optimization", desc: "Data-driven CRO audits, heatmaps, session recordings, and A/B testing. Find and fix conversion leaks.", icon: TrendingUp },
               { name: "Webflow & No-Code Development", desc: "Launch fast on Webflow or Framer. Full control, easy updates, blazing performance. No developer required.", icon: Gauge },
             ].map((item, i) => (
-              <div key={i} className="flex-none w-[360px] md:w-[480px] snap-center group" data-testid={`card-service-${i}`}>
+              <div key={i} className="flex-none w-[360px] md:w-[480px] group" data-testid={`card-service-${i}`}>
                 <div className="bg-white rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300 border border-border">
                   <div className="relative h-[400px] md:h-[500px] bg-gradient-to-br from-slate-50 via-cyan-50 to-slate-100 overflow-hidden flex items-center justify-center">
                     <item.icon className="h-24 w-24 text-[hsl(220,65%,33%)]/20" />

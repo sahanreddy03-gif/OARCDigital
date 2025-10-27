@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Link } from "wouter";
 import { Palette, Sparkles, Image, Users, Book, Zap, CheckCircle2, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ScrollableCards } from "@/components/ui/scrollable-cards";
 import Layout from "@/components/layout/Layout";
 import heroImage from "@assets/stock_images/artist_illustration__034f8f53.jpg";
 
@@ -164,7 +165,7 @@ export default function Illustration() {
         </div>
 
         <div className="relative">
-          <div className="flex gap-6 overflow-x-auto pb-6 px-4 scrollbar-hide snap-x snap-mandatory">
+          <ScrollableCards>
             {[
               { 
                 name: "Editorial Illustration", 
@@ -203,7 +204,7 @@ export default function Illustration() {
                 icon: Palette 
               },
             ].map((style, i) => (
-              <div key={i} className="flex-none w-[360px] md:w-[420px] snap-center group" data-testid={`card-style-${i}`}>
+              <div key={i} className="flex-none w-[360px] md:w-[420px] group" data-testid={`card-style-${i}`}>
                 <div className="bg-white rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-border h-full">
                   <div className="relative h-[280px] bg-gradient-to-br from-rose-50 via-pink-50 to-orange-100 overflow-hidden flex items-center justify-center">
                     <style.icon className="h-20 w-20 text-[hsl(340,75%,55%)]/20" />

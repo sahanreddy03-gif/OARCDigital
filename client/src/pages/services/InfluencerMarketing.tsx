@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
+import { ScrollableCards } from "@/components/ui/scrollable-cards";
 import Layout from "@/components/layout/Layout";
 import { Users, TrendingUp, Heart, Zap, Target, BarChart3, ArrowRight, CheckCircle2 } from "lucide-react";
 import heroImage from "@assets/stock_images/influencer_content_c_ff5bd1bd.jpg";
@@ -111,7 +112,7 @@ export default function InfluencerMarketing() {
         </div>
 
         <div className="relative">
-          <div className="flex gap-6 overflow-x-auto pb-6 px-4 scrollbar-hide snap-x snap-mandatory">
+          <ScrollableCards>
             {[
               { name: "Influencer Discovery & Vetting", desc: "Find creators who align with your brand values and audience. Vet for engagement quality, audience authenticity, and brand safety.", icon: Users },
               { name: "Campaign Strategy & Planning", desc: "Define goals, KPIs, messaging, content guidelines. Build campaigns that ladder up to your marketing objectives.", icon: Target },
@@ -122,7 +123,7 @@ export default function InfluencerMarketing() {
             ].map((service, i) => (
               <div 
                 key={i} 
-                className="min-w-[320px] md:min-w-[400px] p-8 bg-white rounded-2xl border border-border snap-start hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+                className="flex-none w-[320px] md:min-w-[400px] p-8 bg-white rounded-2xl border border-border hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
                 data-testid={`service-${i}`}
               >
                 <service.icon className="w-12 h-12 text-pink-600 mb-4" />

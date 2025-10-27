@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Link } from "wouter";
 import { Bot, Users, MessageSquare, TrendingUp, Clock, DollarSign, CheckCircle2, Database, Mail, Headphones, BarChart, Share2, Code, Check, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ScrollableCards } from "@/components/ui/scrollable-cards";
 import Layout from "@/components/layout/Layout";
 import heroImage from "@assets/stock_images/artificial_intellige_a2f9df87.jpg";
 
@@ -154,7 +155,7 @@ export default function HireAIEmployees() {
         </div>
 
         <div className="relative">
-          <div className="flex gap-6 overflow-x-auto pb-6 px-4 scrollbar-hide snap-x snap-mandatory">
+          <ScrollableCards>
             {[
               { 
                 name: "AI SDR (Sales Development Rep)", 
@@ -187,7 +188,7 @@ export default function HireAIEmployees() {
                 features: ["Smart prioritization", "Auto-responses", "Calendar sync", "Follow-up tracking"]
               },
             ].map((role, i) => (
-              <div key={i} className="flex-none w-[340px] md:w-[420px] snap-center group" data-testid={`card-role-${i}`}>
+              <div key={i} className="flex-none w-[340px] md:w-[420px] group" data-testid={`card-role-${i}`}>
                 <div className="bg-white rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-500 border border-border h-full hover:-translate-y-2">
                   <div className="relative h-48 bg-gradient-to-br from-[hsl(262,83%,58%)]/10 via-[hsl(300,81%,60%)]/10 to-[hsl(158,83%,39%)]/10 overflow-hidden flex items-center justify-center">
                     <role.icon className="h-16 w-16 text-[hsl(262,83%,58%)]/30 group-hover:scale-110 transition-transform duration-500" />

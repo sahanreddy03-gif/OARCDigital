@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Link } from "wouter";
 import { Film, Zap, Play, Sparkles, Move, Layers, CheckCircle2, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ScrollableCards } from "@/components/ui/scrollable-cards";
 import Layout from "@/components/layout/Layout";
 import heroImage from "@assets/stock_images/motion_graphics_anim_5e0b9119.jpg";
 
@@ -164,7 +165,7 @@ export default function MotionDesign() {
         </div>
 
         <div className="relative">
-          <div className="flex gap-6 overflow-x-auto pb-6 px-4 scrollbar-hide snap-x snap-mandatory">
+          <ScrollableCards>
             {[
               { 
                 name: "Logo Animations", 
@@ -203,7 +204,7 @@ export default function MotionDesign() {
                 icon: Film 
               },
             ].map((service, i) => (
-              <div key={i} className="flex-none w-[360px] md:w-[420px] snap-center group" data-testid={`card-service-${i}`}>
+              <div key={i} className="flex-none w-[360px] md:w-[420px] group" data-testid={`card-service-${i}`}>
                 <div className="bg-white rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-border h-full">
                   <div className="relative h-[280px] bg-gradient-to-br from-purple-50 via-fuchsia-50 to-pink-100 overflow-hidden flex items-center justify-center">
                     <service.icon className="h-20 w-20 text-[hsl(280,70%,50%)]/20" />

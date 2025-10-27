@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Link } from "wouter";
 import { Zap, TrendingUp, Target, Users, BarChart, Sparkles, CheckCircle2, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ScrollableCards } from "@/components/ui/scrollable-cards";
 import Layout from "@/components/layout/Layout";
 import heroImage from "@assets/stock_images/automation_workflow__5f7d705f.jpg";
 
@@ -154,7 +155,7 @@ export default function FunnelAutomation() {
         </div>
 
         <div className="relative">
-          <div className="flex gap-6 overflow-x-auto pb-6 px-4 scrollbar-hide snap-x snap-mandatory">
+          <ScrollableCards>
             {[
               { 
                 name: "Lead Nurture Sequences", 
@@ -193,7 +194,7 @@ export default function FunnelAutomation() {
                 features: ["Funnel analytics", "A/B testing", "Drop-off analysis", "Performance dashboards"]
               },
             ].map((workflow, i) => (
-              <div key={i} className="flex-none w-[340px] md:w-[420px] snap-center group" data-testid={`card-workflow-${i}`}>
+              <div key={i} className="flex-none w-[340px] md:w-[420px] group" data-testid={`card-workflow-${i}`}>
                 <div className="bg-white rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-500 border border-border h-full hover:-translate-y-2">
                   <div className="relative h-48 bg-gradient-to-br from-cyan-100/50 via-blue-100/50 to-indigo-100/50 overflow-hidden flex items-center justify-center">
                     <workflow.icon className="h-16 w-16 text-cyan-600/30 group-hover:scale-110 transition-transform duration-500" />

@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Link } from "wouter";
 import { TrendingUp, Target, Users, Zap, BarChart, DollarSign, CheckCircle2, Repeat } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ScrollableCards } from "@/components/ui/scrollable-cards";
 import Layout from "@/components/layout/Layout";
 import heroImage from "@assets/stock_images/business_growth_char_93cbee9e.jpg";
 
@@ -154,7 +155,7 @@ export default function CustomerAcquisition() {
         </div>
 
         <div className="relative">
-          <div className="flex gap-6 overflow-x-auto pb-6 px-4 scrollbar-hide snap-x snap-mandatory">
+          <ScrollableCards>
             {[
               { 
                 name: "Channel Mix Optimization", 
@@ -193,7 +194,7 @@ export default function CustomerAcquisition() {
                 features: ["Attribution modeling", "Cohort analysis", "Incrementality tests", "Custom dashboards"]
               },
             ].map((framework, i) => (
-              <div key={i} className="flex-none w-[340px] md:w-[420px] snap-center group" data-testid={`card-framework-${i}`}>
+              <div key={i} className="flex-none w-[340px] md:w-[420px] group" data-testid={`card-framework-${i}`}>
                 <div className="bg-white rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-500 border border-border h-full hover:-translate-y-2">
                   <div className="relative h-48 bg-gradient-to-br from-indigo-100/50 via-purple-100/50 to-pink-100/50 overflow-hidden flex items-center justify-center">
                     <framework.icon className="h-16 w-16 text-indigo-600/30 group-hover:scale-110 transition-transform duration-500" />

@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Link } from "wouter";
 import { Sparkles, Target, Zap, BarChart, ArrowRight, TrendingUp, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ScrollableCards } from "@/components/ui/scrollable-cards";
 import Layout from "@/components/layout/Layout";
 import heroImage from "@assets/stock_images/graphic_designer_cre_7d022172.jpg";
 
@@ -129,7 +130,7 @@ export default function AdCreative() {
         </div>
 
         <div className="relative">
-          <div className="flex gap-6 overflow-x-auto pb-6 px-4 scrollbar-hide snap-x snap-mandatory">
+          <ScrollableCards>
             {[
               { name: "Static Display Ads", desc: "High-converting static ads for Facebook, Instagram, TikTok, and Google Display. Test 20+ variants per week to find winners." },
               { name: "Video & Motion Ads", desc: "15s, 30s, 60s video ads engineered for retention. Hooks tested to maximize 3-second watch rate and CTR." },
@@ -138,7 +139,7 @@ export default function AdCreative() {
               { name: "Carousel & Collection Ads", desc: "Multi-product storytelling that increases AOV by 32%. Perfect for showcasing collections and product lines." },
               { name: "Retargeting Creative", desc: "Stage-aware creative that speaks to funnel position. Cart abandonment, browse abandonment, upsells, and loyalty." },
             ].map((item, i) => (
-              <div key={i} className="flex-none w-[360px] md:w-[480px] snap-center group" data-testid={`card-ad-type-${i}`}>
+              <div key={i} className="flex-none w-[360px] md:w-[480px] group" data-testid={`card-ad-type-${i}`}>
                 <div className="bg-white rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300 border border-border">
                   <div className="relative h-[400px] md:h-[500px] bg-gradient-to-br from-purple-50 via-pink-50 to-purple-100 overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
@@ -154,7 +155,7 @@ export default function AdCreative() {
                 </div>
               </div>
             ))}
-          </div>
+          </ScrollableCards>
         </div>
       </section>
 

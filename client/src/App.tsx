@@ -6,7 +6,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import Home from "@/pages/Home";
 import Services from "@/pages/Services";
 import ServiceDetail from "@/pages/ServiceDetail";
-import SocialMediaCreative from "@/pages/services/SocialMediaCreative";
+import SocialMediaCreativeManagement from "@/pages/services/SocialMediaCreativeManagement";
 import AdCreative from "@/pages/services/AdCreative";
 import WebDesign from "@/pages/services/WebDesign";
 import VideoProduction from "@/pages/services/VideoProduction";
@@ -15,7 +15,6 @@ import RevenueAutomation from "@/pages/services/RevenueAutomation";
 import PaidAdvertising from "@/pages/services/PaidAdvertising";
 import MediaBuying from "@/pages/services/MediaBuying";
 import InfluencerMarketing from "@/pages/services/InfluencerMarketing";
-import SocialMediaManagement from "@/pages/services/SocialMediaManagement";
 import BrandingServices from "@/pages/services/BrandingServices";
 import AICopywriting from "@/pages/services/AICopywriting";
 import LeadGeneration from "@/pages/services/LeadGeneration";
@@ -46,7 +45,9 @@ function Router() {
       <Route path="/services" component={Services} />
       
       {/* Priority Service Pages - Unique Designs */}
-      <Route path="/services/social-media-creative" component={SocialMediaCreative} />
+      <Route path="/services/social-media-creative-management" component={SocialMediaCreativeManagement} />
+      <Route path="/services/social-media-creative" component={SocialMediaCreativeManagement} />
+      <Route path="/services/social-media-management" component={SocialMediaCreativeManagement} />
       <Route path="/services/ad-creative" component={AdCreative} />
       <Route path="/services/web-design" component={WebDesign} />
       <Route path="/services/video-production" component={VideoProduction} />
@@ -55,7 +56,6 @@ function Router() {
       <Route path="/services/paid-advertising" component={PaidAdvertising} />
       <Route path="/services/media-buying" component={MediaBuying} />
       <Route path="/services/influencer-marketing" component={InfluencerMarketing} />
-      <Route path="/services/social-media-management" component={SocialMediaManagement} />
       <Route path="/services/branding-services" component={BrandingServices} />
       <Route path="/services/ai-copywriting" component={AICopywriting} />
       <Route path="/services/lead-generation" component={LeadGeneration} />

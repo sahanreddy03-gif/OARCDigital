@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Link } from "wouter";
 import { Package, Award, Sparkles, ShoppingBag, Box, Tag, CheckCircle2, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ScrollableCards } from "@/components/ui/scrollable-cards";
 import Layout from "@/components/layout/Layout";
 import heroImage from "@assets/stock_images/product_packaging_de_5860c269.jpg";
 
@@ -164,7 +165,7 @@ export default function PrintPackaging() {
         </div>
 
         <div className="relative">
-          <div className="flex gap-6 overflow-x-auto pb-6 px-4 scrollbar-hide snap-x snap-mandatory">
+          <ScrollableCards>
             {[
               { 
                 name: "Product Packaging", 
@@ -203,7 +204,7 @@ export default function PrintPackaging() {
                 icon: Sparkles 
               },
             ].map((service, i) => (
-              <div key={i} className="flex-none w-[360px] md:w-[420px] snap-center group" data-testid={`card-service-${i}`}>
+              <div key={i} className="flex-none w-[360px] md:w-[420px] group" data-testid={`card-service-${i}`}>
                 <div className="bg-white rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-border h-full">
                   <div className="relative h-[280px] bg-gradient-to-br from-teal-50 via-cyan-50 to-emerald-100 overflow-hidden flex items-center justify-center">
                     <service.icon className="h-20 w-20 text-[hsl(160,60%,45%)]/20" />
