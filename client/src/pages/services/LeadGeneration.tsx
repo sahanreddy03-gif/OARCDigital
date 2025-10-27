@@ -214,7 +214,7 @@ export default function LeadGeneration() {
                 </div>
               </div>
             ))}
-          </div>
+          </ScrollableCards>
         </div>
       </section>
 

@@ -225,7 +225,7 @@ export default function MotionDesign() {
                 </div>
               </div>
             ))}
-          </div>
+          </ScrollableCards>
         </div>
       </section>
 

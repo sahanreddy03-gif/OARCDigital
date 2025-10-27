@@ -214,7 +214,7 @@ export default function RevenueAutomation() {
                 </div>
               </div>
             ))}
-          </div>
+          </ScrollableCards>
         </div>
       </section>
 

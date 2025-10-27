@@ -214,7 +214,7 @@ export default function RapidIdeaTesting() {
                 </div>
               </div>
             ))}
-          </div>
+          </ScrollableCards>
         </div>
       </section>
 

@@ -214,7 +214,7 @@ export default function AIConsulting() {
                 </div>
               </div>
             ))}
-          </div>
+          </ScrollableCards>
         </div>
       </section>
 

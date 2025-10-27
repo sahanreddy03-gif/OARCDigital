@@ -154,7 +154,7 @@ export default function WebDesign() {
                 </div>
               </div>
             ))}
-          </div>
+          </ScrollableCards>
         </div>
       </section>
 

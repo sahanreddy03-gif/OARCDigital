@@ -214,7 +214,7 @@ export default function DesignSystems() {
                 </div>
               </div>
             ))}
-          </div>
+          </ScrollableCards>
         </div>
       </section>
 

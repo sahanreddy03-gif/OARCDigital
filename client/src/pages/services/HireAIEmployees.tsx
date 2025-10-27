@@ -208,7 +208,7 @@ export default function HireAIEmployees() {
                 </div>
               </div>
             ))}
-          </div>
+          </ScrollableCards>
         </div>
       </section>
 

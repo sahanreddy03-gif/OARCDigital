@@ -214,7 +214,7 @@ export default function PresentationPitch() {
                 </div>
               </div>
             ))}
-          </div>
+          </ScrollableCards>
         </div>
       </section>
 

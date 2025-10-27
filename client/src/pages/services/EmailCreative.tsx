@@ -225,7 +225,7 @@ export default function EmailCreative() {
                 </div>
               </div>
             ))}
-          </div>
+          </ScrollableCards>
         </div>
       </section>
 
