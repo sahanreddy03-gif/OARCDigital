@@ -8,7 +8,7 @@ import {
   Instagram, Linkedin, Facebook, ArrowRight, Play, Video, Palette, Users,
   Target, TrendingUp, BarChart, MessageCircle, Share2, Calendar, Bell,
   Zap, Globe, ThumbsUp, Star, Award, CheckCircle2, ChevronRight, Eye,
-  Heart, Camera, Sparkles, Clock, Shield, Mail
+  Heart, Camera, Sparkles, Clock, Shield, Mail, Lightbulb
 } from "lucide-react";
 import { SiTiktok, SiYoutube, SiSnapchat, SiPinterest, SiX } from "react-icons/si";
 
@@ -108,8 +108,8 @@ export default function SocialMediaCreativeManagement() {
             transition={{ duration: 0.8 }}
             className="mb-6"
           >
-            <div className="inline-block px-4 py-2 bg-orange-100 rounded-full mb-8">
-              <span className="text-orange-600 font-semibold text-sm">SOCIAL MEDIA CREATIVE</span>
+            <div className="inline-block px-4 py-2 bg-blue-100 rounded-full mb-8">
+              <span className="text-blue-600 font-semibold text-sm">SOCIAL MEDIA CREATIVE</span>
             </div>
           </motion.div>
           
@@ -119,7 +119,7 @@ export default function SocialMediaCreativeManagement() {
             transition={{ duration: 0.8, delay: 0.1 }}
             className="text-5xl md:text-7xl font-bold text-gray-900 mb-8 leading-tight"
           >
-            Your <span className="italic text-orange-600">competitive edge</span><br />in a crowded feed
+            Your <span className="italic text-blue-600">competitive edge</span><br />in a crowded feed
           </motion.h1>
           
           <motion.p 
@@ -137,11 +137,11 @@ export default function SocialMediaCreativeManagement() {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
-            <Button size="lg" className="bg-orange-600 hover:bg-orange-700 text-white px-8" data-testid="button-book-demo">
+            <Button size="lg" className="px-8" data-testid="button-book-demo">
               Book a Demo
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
-            <Button size="lg" variant="outline" className="border-gray-300" data-testid="button-view-work">
+            <Button size="lg" variant="outline" data-testid="button-view-work">
               View Our Work
             </Button>
           </motion.div>
@@ -163,12 +163,12 @@ export default function SocialMediaCreativeManagement() {
           <div className="max-w-7xl mx-auto px-4">
             <div className="flex gap-6 overflow-x-auto pb-6 snap-x snap-mandatory scrollbar-hide" data-testid="services-carousel">
               {[
-                { name: "Organic Social Media Content", image: "📱" },
-                { name: "Video Content", image: "🎥" },
-                { name: "Social Media Post Design", image: "🎨" },
-                { name: "Social Media Collateral", image: "✨" },
-                { name: "Social Media Response Guide", image: "💬" },
-                { name: "Social Media Concepts", image: "💡" },
+                { name: "Organic Social Media Content", icon: Share2, color: "from-blue-500 to-cyan-500" },
+                { name: "Video Content", icon: Video, color: "from-purple-500 to-pink-500" },
+                { name: "Social Media Post Design", icon: Palette, color: "from-orange-500 to-red-500" },
+                { name: "Social Media Collateral", icon: Sparkles, color: "from-green-500 to-emerald-500" },
+                { name: "Social Media Response Guide", icon: MessageCircle, color: "from-indigo-500 to-purple-500" },
+                { name: "Social Media Concepts", icon: Lightbulb, color: "from-yellow-500 to-orange-500" },
               ].map((service, i) => (
                 <motion.div
                   key={i}
@@ -180,7 +180,9 @@ export default function SocialMediaCreativeManagement() {
                   data-testid={`service-card-${i}`}
                 >
                   <Card className="p-6 h-full hover-elevate">
-                    <div className="text-6xl mb-4">{service.image}</div>
+                    <div className={`inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br ${service.color} text-white mb-4`}>
+                      <service.icon className="h-8 w-8" />
+                    </div>
                     <h3 className="text-lg font-semibold text-gray-900">{service.name}</h3>
                   </Card>
                 </motion.div>
@@ -210,7 +212,7 @@ export default function SocialMediaCreativeManagement() {
           <ScrollReveal>
             <div className="text-center mb-16">
               <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
-                Your shortcut to <span className="italic text-orange-600">scroll-stopping</span> content
+                Your shortcut to <span className="italic text-blue-600">scroll-stopping</span> content
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
                 Scaling your social ads and posts in-house? Easier said than done. Whether it's looming deadlines or limited resources, keeping up with the demand for compelling social media content is a challenge. That's where we come in.
@@ -231,7 +233,6 @@ export default function SocialMediaCreativeManagement() {
                   variant={activeCategory === cat.id ? 'default' : 'outline'}
                   size="lg"
                   onClick={() => setActiveCategory(cat.id)}
-                  className={activeCategory === cat.id ? 'bg-orange-600 hover:bg-orange-700' : ''}
                   data-testid={`tab-${cat.id}`}
                 >
                   <cat.icon className="mr-2 h-5 w-5" />
@@ -258,8 +259,8 @@ export default function SocialMediaCreativeManagement() {
                 data-testid={`service-${activeCategory}-${i}`}
               >
                 <Card className="p-8 h-full hover-elevate active-elevate-2 transition-all duration-300">
-                  <div className="bg-orange-100 rounded-full w-12 h-12 flex items-center justify-center mb-6">
-                    <service.icon className="h-6 w-6 text-orange-600" />
+                  <div className="bg-blue-100 rounded-full w-12 h-12 flex items-center justify-center mb-6">
+                    <service.icon className="h-6 w-6 text-blue-600" />
                   </div>
                   <h3 className="text-xl font-bold text-gray-900 mb-3">{service.name}</h3>
                   <p className="text-gray-600">{service.desc}</p>
@@ -276,7 +277,7 @@ export default function SocialMediaCreativeManagement() {
           <ScrollReveal>
             <div className="text-center mb-16">
               <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
-                Expertise across <span className="italic text-orange-600">all social media platforms</span>
+                Expertise across <span className="italic text-blue-600">all social media platforms</span>
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
                 Rely on our in-depth expertise, as well as the ability to version and scale any kind of social media content across your key channels.
@@ -322,23 +323,23 @@ export default function SocialMediaCreativeManagement() {
           viewport={{ once: true }}
           className="absolute inset-0 flex items-center justify-center"
         >
-          <Sparkles className="h-96 w-96 text-orange-600" />
+          <Sparkles className="h-96 w-96 text-blue-600/20" />
         </motion.div>
 
         <div className="max-w-7xl mx-auto px-4 relative z-10">
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <ScrollReveal>
               <div>
-                <div className="inline-block px-4 py-2 bg-orange-100 rounded-full mb-6">
-                  <span className="text-orange-600 font-semibold text-sm">AI-ENHANCED</span>
+                <div className="inline-block px-4 py-2 bg-blue-100 rounded-full mb-6">
+                  <span className="text-blue-600 font-semibold text-sm">AI-ENHANCED</span>
                 </div>
                 <h2 className="text-5xl font-bold text-gray-900 mb-6">
-                  Powerful creative, <span className="italic text-orange-600">impressive</span> turnarounds
+                  Powerful creative, <span className="italic text-blue-600">impressive</span> turnarounds
                 </h2>
                 <p className="text-xl text-gray-600 mb-8">
                   By equipping the top 1% of global talent with the latest AI tools, we're able to deliver high-performing creative up to 60% faster.
                 </p>
-                <Button size="lg" className="bg-orange-600 hover:bg-orange-700 text-white" data-testid="button-ai-demo">
+                <Button size="lg" data-testid="button-ai-demo">
                   Learn About AI Design
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
@@ -353,8 +354,8 @@ export default function SocialMediaCreativeManagement() {
                     whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <Card className="p-8 text-center bg-gradient-to-br from-orange-50 to-pink-50">
-                      <div className="text-4xl font-bold text-orange-600 mb-2">{stat.value}</div>
+                    <Card className="p-8 text-center bg-gradient-to-br from-blue-50 to-purple-50">
+                      <div className="text-4xl font-bold text-blue-600 mb-2">{stat.value}</div>
                       <div className="text-sm text-gray-600">{stat.label}</div>
                     </Card>
                   </motion.div>
@@ -371,7 +372,7 @@ export default function SocialMediaCreativeManagement() {
           <ScrollReveal>
             <div className="text-center mb-16">
               <h2 className="text-5xl font-bold text-gray-900 mb-6">
-                These brands already stepped up their game <span className="italic text-orange-600">with OARC Digital</span>
+                These brands already stepped up their game <span className="italic text-blue-600">with OARC Digital</span>
               </h2>
             </div>
           </ScrollReveal>
@@ -388,9 +389,9 @@ export default function SocialMediaCreativeManagement() {
                   transition={{ duration: 0.3 }}
                   data-testid={`case-study-${i}`}
                 >
-                  <Card className="p-8 hover-elevate h-full bg-gradient-to-br from-white to-orange-50">
-                    <div className="aspect-video bg-gradient-to-br from-orange-200 to-pink-200 rounded-lg mb-6"></div>
-                    <div className="text-xs font-semibold text-orange-600 mb-2 uppercase">{study.industry}</div>
+                  <Card className="p-8 hover-elevate h-full bg-gradient-to-br from-white to-blue-50">
+                    <div className="aspect-video bg-gradient-to-br from-blue-200 to-purple-200 rounded-lg mb-6"></div>
+                    <div className="text-xs font-semibold text-blue-600 mb-2 uppercase">{study.industry}</div>
                     <h3 className="text-2xl font-bold text-gray-900 mb-2">{study.brand}</h3>
                     <p className="text-gray-600">{study.service}</p>
                   </Card>
@@ -402,7 +403,7 @@ export default function SocialMediaCreativeManagement() {
       </section>
 
       {/* FINAL CTA - Scale Animation */}
-      <section className="py-32 bg-gradient-to-br from-orange-600 to-pink-600 text-white relative overflow-hidden">
+      <section className="py-32 bg-gradient-to-br from-blue-600 to-purple-600 text-white relative overflow-hidden">
         <motion.div
           initial={{ scale: 0 }}
           whileInView={{ scale: 1 }}
@@ -417,11 +418,11 @@ export default function SocialMediaCreativeManagement() {
             Let's create scroll-stopping content that drives real results for your brand.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" variant="outline" className="bg-white text-orange-600 hover:bg-gray-100 border-0" data-testid="button-final-cta">
+            <Button size="lg" variant="outline" className="bg-white text-blue-600 border-0" data-testid="button-final-cta">
               Book Your Demo
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10" data-testid="button-contact">
+            <Button size="lg" variant="outline" className="border-white text-white" data-testid="button-contact">
               Contact Sales
             </Button>
           </div>
