@@ -30,13 +30,13 @@ export const servicesCatalog: Record<string, ServiceCategory> = {
     title: 'AI Creative Services',
     description: 'Every type of creative work you\'ll ever need—powered by AI and human expertise',
     featured: {
-      title: 'Social Media Management',
-      slug: 'social-media-management',
+      title: 'Social Media Creative & Management',
+      slug: 'social-media-creative-management',
       badge: 'Popular',
       icon: Megaphone
     },
     items: [
-      { title: 'Social Media Management', slug: 'social-media-management', badge: 'Popular', icon: Megaphone },
+      { title: 'Social Media Creative & Management', slug: 'social-media-creative-management', badge: 'Popular', icon: Megaphone },
       { title: 'Ad Creative', slug: 'ad-creative', icon: Palette },
       { title: 'Web Design & Landing Pages', slug: 'web-design', icon: Globe },
       { title: 'Video Production', slug: 'video-production', icon: Video },
@@ -45,7 +45,6 @@ export const servicesCatalog: Record<string, ServiceCategory> = {
       { title: 'Design Systems', slug: 'design-systems', badge: 'New', icon: Layout },
       { title: 'Email Creative', slug: 'email-creative', icon: Mail },
       { title: 'Presentation & Pitch', slug: 'presentation-pitch', icon: Presentation },
-      { title: 'Social Media Creative', slug: 'social-media-creative', icon: Image },
       { title: 'Illustration', slug: 'illustration', icon: Palette },
       { title: 'Print & Packaging', slug: 'print-packaging', icon: Package },
       { title: 'Immersive 3D / AR', slug: 'immersive-3d-ar', icon: Layers },
