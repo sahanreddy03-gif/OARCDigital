@@ -54,7 +54,7 @@ export default function SocialMediaCreativeManagement() {
         "Feed Optimisation & Shopping"
       ],
       learnMore: "Learn more about Paid",
-      link: "#"
+      link: "/services/paid"
     },
     {
       title: "Creative",
