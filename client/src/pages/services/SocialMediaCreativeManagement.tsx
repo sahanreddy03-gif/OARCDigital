@@ -1,437 +1,238 @@
 import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
 import Layout from "@/components/layout/Layout";
 import { useEffect } from "react";
 import { 
-  ArrowRight, Check, Play, Award, TrendingUp, Users, Target,
-  Lightbulb, MessageCircle, Palette, BarChart, Calendar, 
-  Zap, Eye, Share2, Camera, Film, Layout as LayoutIcon,
-  Sparkles, Shield, Video, Star, CheckCircle2
+  ArrowRight, CheckCircle, Smartphone, Target, Palette, Users,
+  Instagram, Linkedin, Facebook
 } from "lucide-react";
+import { SiTiktok, SiYoutube, SiSnapchat, SiPinterest, SiGoogle } from "react-icons/si";
 
-// Import high-quality stock images
-import teamWorkingImg from "@assets/stock_images/creative_team_workin_f6ad2574.jpg";
-import productionImg from "@assets/stock_images/behind_the_scenes_vi_512df08f.jpg";
-import strategyImg from "@assets/stock_images/social_media_marketi_c5c9fc0c.jpg";
-import socialMediaPhoneImg from "@assets/stock_images/instagram_tiktok_mob_ed4787dd.jpg";
+// Import award and team photos
+import awardTeamImg from "@assets/stock_images/award_ceremony_busin_81e5ff09.jpg";
+import largeTeamImg from "@assets/stock_images/large_company_team_p_32054de0.jpg";
 
 export default function SocialMediaCreativeManagement() {
   useEffect(() => {
-    document.title = "Social Media Creative & Management | OARC Digital";
+    document.title = "How we help | OARC Digital";
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
-      metaDescription.setAttribute("content", "We grow cult-like social communities with platform-specific social strategies. Full-service social media creative, paid advertising, and influencer marketing.");
+      metaDescription.setAttribute("content", "We specialise in Social, Paid, Creative, Influencer and Strategy and work with fast-growth brands and household names across the globe.");
     }
   }, []);
 
-  const services = {
-    social: [
-      { name: "Social Strategy", icon: Lightbulb },
-      { name: "Channel and Community Management", icon: MessageCircle },
-      { name: "Social-first Content Creation", icon: Palette },
-      { name: "Social Listening & Insights", icon: BarChart },
-      { name: "Content Calendar Management", icon: Calendar },
-      { name: "Performance Analytics", icon: TrendingUp },
-    ],
-    paid: [
-      { name: "Paid Social & Paid Search", icon: Target },
-      { name: "Full-Funnel Media Strategy", icon: Zap },
-      { name: "Planning, Buying, Creative, Analytics, Testing and more", icon: Award },
-      { name: "Feed Optimisation & Shopping", icon: Share2 },
-      { name: "Campaign Management", icon: BarChart },
-      { name: "Retargeting & Optimisation", icon: Eye },
-    ],
-    creative: [
-      { name: "Organic & Paid Social Video", icon: Video },
-      { name: "UGC to High-Production", icon: Camera },
-      { name: "Creative Strategy, Art Direction & Campaigns", icon: Sparkles },
-      { name: "Motion Design, Animation and Graphics", icon: Film },
-      { name: "Campaign Creative", icon: LayoutIcon },
-      { name: "Social-first Graphics & Design", icon: Palette },
-    ],
-    influencer: [
-      { name: "End-to-end Campaign Management", icon: Users },
-      { name: "Brand Awareness and Direct-Response Objectives", icon: Star },
-      { name: "Content Creators for UGC Content", icon: Camera },
-      { name: "Wrap Reports and Analysis", icon: BarChart },
-      { name: "Micro, Macro, Celebrity Campaigns", icon: Award },
-      { name: "Rights & Licensing", icon: Shield },
-    ]
-  };
-
-  const stats = [
-    { value: "500+", label: "Brands Served" },
-    { value: "2.5B+", label: "Impressions Delivered" },
-    { value: "350%", label: "Avg. ROI Increase" },
-    { value: "4.9/5", label: "Client Satisfaction" },
+  const services = [
+    {
+      title: "Social",
+      icon: Smartphone,
+      description: "We grow cult-like social communities with platform-specific social strategies",
+      points: [
+        "Social Strategy",
+        "Channel and Community Management",
+        "Social-first Content Creation",
+        "Social Listening & Insights"
+      ],
+      learnMore: "Learn more about Social"
+    },
+    {
+      title: "Paid",
+      icon: Target,
+      description: "We deliver performance-driven Paid Social and Paid Search campaigns",
+      points: [
+        "Paid Social & Paid Search",
+        "Full-Funnel Media Strategy",
+        "Planning, Buying, Creative, Analytics, Testing and more.",
+        "Feed Optimisation & Shopping"
+      ],
+      learnMore: "Learn more about Paid"
+    },
+    {
+      title: "Creative",
+      icon: Palette,
+      description: "Delivering outstanding Creative across Video, Design and Motion",
+      points: [
+        "Organic & Paid Social Video",
+        "UGC to High-Production",
+        "Creative Strategy, Art Direction & Campaigns",
+        "Motion Design, Animation and Graphics"
+      ],
+      learnMore: "Learn more about Creative"
+    },
+    {
+      title: "Influencer",
+      icon: Users,
+      description: "We deliver brand awareness and direct-response Influencer & Creator campaigns",
+      points: [
+        "End-to-end Campaign Management",
+        "Brand Awareness and Direct-Response Objectives",
+        "Content Creators for UGC Content",
+        "Wrap Reports and Analysis"
+      ],
+      learnMore: "Learn more about Influencer"
+    }
   ];
 
-  const whyChooseUs = [
-    {
-      title: "Platform Partners",
-      description: "We're agency partners with Meta, TikTok, and Pinterest with access to unique insights and beta tests."
-    },
-    {
-      title: "Specialists",
-      description: "Our team consists of Social Strategists, Content Creators, Videographers, Influencer Managers & Analysts."
-    },
-    {
-      title: "Social-first Content",
-      description: "We create engaging platform-specific content for each algorithm whilst building your brand and driving ROI."
-    },
-    {
-      title: "Custom Reporting",
-      description: "We design & build custom reports that align with your business goals, priorities and core KPIs."
-    },
-    {
-      title: "Award-Winning",
-      description: "Multi-award winning agency delivering exceptional results across social, paid, creative, and influencer."
-    },
-    {
-      title: "Data-Driven",
-      description: "93% of our clients increase their ROAS and revenue within the first 3 months of working together."
-    }
+  const platformIcons = [
+    { Icon: Instagram, label: "Instagram" },
+    { Icon: Facebook, label: "Facebook" },
+    { Icon: SiGoogle, label: "Google" },
+    { Icon: SiPinterest, label: "Pinterest" },
+    { Icon: SiSnapchat, label: "Snapchat" },
+    { Icon: SiTiktok, label: "TikTok" },
+    { Icon: SiYoutube, label: "YouTube" }
   ];
 
   return (
     <Layout>
-      {/* Hero Section - Social Shepherd Style */}
-      <section className="bg-white pt-20 pb-16">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-teal-50 border border-teal-200 rounded-full mb-6">
-                <Award className="h-4 w-4 text-teal-600" />
-                <span className="text-teal-700 text-sm font-semibold">Award-Winning Agency</span>
+      {/* How we help - Teal Card */}
+      <section className="py-12 px-4 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <div className="bg-[#5FD4C4] rounded-3xl p-10 md:p-16 mb-8" data-testid="card-how-we-help">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-black mb-6">
+              How we help
+            </h1>
+            <p className="text-lg md:text-xl text-black leading-relaxed max-w-3xl">
+              We specialise in Social, Paid, Creative, Influencer and Strategy and work with fast-growth brands and household names across the globe.
+            </p>
+          </div>
+
+          {/* Award Image */}
+          <div className="mb-12">
+            <img 
+              src={awardTeamImg}
+              alt="Best Large Social Agency"
+              className="w-full rounded-3xl shadow-lg h-[400px] object-cover"
+              data-testid="img-award-team"
+            />
+          </div>
+
+          {/* Service Cards Grid */}
+          <div className="grid md:grid-cols-2 gap-8 mb-16">
+            {services.map((service, idx) => (
+              <div 
+                key={idx}
+                className="bg-white border-2 border-gray-100 rounded-3xl p-8 hover-elevate"
+                data-testid={`card-service-${service.title.toLowerCase()}`}
+              >
+                {/* Icon */}
+                <div className="w-16 h-16 bg-black rounded-xl flex items-center justify-center mb-6">
+                  <service.icon className="h-8 w-8 text-white" />
+                </div>
+
+                {/* Title */}
+                <h2 className="text-3xl md:text-4xl font-black text-black mb-4">
+                  {service.title}
+                </h2>
+
+                {/* Description */}
+                <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+                  {service.description}
+                </p>
+
+                {/* Bullet Points */}
+                <ul className="space-y-3 mb-8">
+                  {service.points.map((point, i) => (
+                    <li key={i} className="flex items-start gap-3">
+                      <CheckCircle className="h-5 w-5 text-[#5FD4C4] flex-shrink-0 mt-1" />
+                      <span className="text-gray-800">{point}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                {/* Learn More Button */}
+                <Button 
+                  variant="outline" 
+                  className="w-full border-2 border-black text-black hover:bg-black hover:text-white text-base py-6 rounded-full font-semibold"
+                  data-testid={`button-learn-${service.title.toLowerCase()}`}
+                >
+                  {service.learnMore}
+                </Button>
               </div>
-              
-              <h1 className="text-5xl md:text-7xl font-black text-gray-900 mb-6 leading-tight">
-                Social Media Creative & Management
-              </h1>
-              
-              <p className="text-2xl text-gray-600 mb-8 leading-relaxed">
-                We grow cult-like social communities with platform-specific social strategies
-              </p>
-              
-              <p className="text-lg text-gray-500 mb-10">
-                Are you lacking a social strategy that's driving your brand forward? Our team knows how to craft always-on and campaign activity that elevates your content & community across your social channels.
-              </p>
-              
+            ))}
+          </div>
+
+          {/* Working Across Platform Icons */}
+          <div className="mb-16">
+            <h2 className="text-2xl md:text-3xl font-black text-black text-center mb-8">
+              Working Across
+            </h2>
+            <div className="flex justify-center items-center gap-6 flex-wrap">
+              {platformIcons.map((platform, idx) => (
+                <div 
+                  key={idx}
+                  className="w-12 h-12 flex items-center justify-center"
+                  data-testid={`icon-platform-${idx}`}
+                >
+                  <platform.Icon className="h-10 w-10 text-black" />
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Brand Logos Section */}
+          <div className="mb-16">
+            <p className="text-center text-lg text-gray-700 mb-8">
+              We work with brands across multiple industries and verticals…
+            </p>
+            <div className="grid grid-cols-3 md:grid-cols-6 gap-8 items-center justify-items-center opacity-60">
+              {/* Placeholder brand logos - will be filled with actual logos */}
+              {[1, 2, 3, 4, 5, 6].map((i) => (
+                <div key={i} className="text-sm font-bold text-gray-400" data-testid={`brand-${i}`}>
+                  BRAND
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Final CTA - Teal Card with Team Photo */}
+          <div className="bg-[#5FD4C4] rounded-3xl overflow-hidden" data-testid="card-final-cta">
+            <div className="p-10 md:p-16">
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-black mb-6">
+                Don't be <span className="text-white">sheepish</span> let's talk
+              </h2>
               <Button 
                 size="lg"
-                className="bg-teal-600 hover:bg-teal-700 text-white px-8 text-lg"
+                className="bg-black text-white hover:bg-gray-800 rounded-full px-10 py-6 text-lg font-semibold"
                 data-testid="button-lets-chat"
               >
-                Let's chat
-                <ArrowRight className="ml-2 h-5 w-5" />
+                Let's Chat
+                <div className="ml-3 w-10 h-10 bg-black rounded-full flex items-center justify-center border-2 border-white">
+                  <ArrowRight className="h-5 w-5 text-white" />
+                </div>
               </Button>
             </div>
             
-            <div className="relative">
+            {/* Team Photo at bottom of card */}
+            <div className="w-full">
               <img 
-                src={teamWorkingImg} 
-                alt="Creative team working together"
-                className="rounded-2xl shadow-2xl w-full h-[600px] object-cover"
-                data-testid="img-hero"
+                src={largeTeamImg}
+                alt="OARC Digital Team"
+                className="w-full h-[400px] object-cover"
+                data-testid="img-team"
               />
-              <div className="absolute -bottom-6 -left-6 bg-teal-600 text-white p-6 rounded-xl shadow-xl">
-                <div className="text-4xl font-black mb-1">7+</div>
-                <div className="text-sm">Years of Excellence</div>
-              </div>
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* Stats Bar */}
-      <section className="bg-gray-50 py-16 border-y">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {stats.map((stat, i) => (
-              <div key={i} className="text-center" data-testid={`stat-${i}`}>
-                <div className="text-5xl font-black text-teal-600 mb-2">{stat.value}</div>
-                <div className="text-gray-600 text-sm font-medium">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* How We Help - Services Grid */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-5xl md:text-6xl font-black text-gray-900 mb-4">
-              How we help
-            </h2>
-            <p className="text-xl text-gray-600 max-w-4xl mx-auto">
-              We specialise in Social, Paid, Creative, Influencer and work with fast-growth brands and household names across the globe.
+          {/* Newsletter Section */}
+          <div className="mt-16 bg-black text-white rounded-3xl p-10 md:p-16 text-center">
+            <p className="text-lg mb-6">
+              Stay in touch with the herd and receive up to date insights, strategies and news.
             </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-8 mb-16">
-            {/* Social Card */}
-            <Card className="p-10 bg-gradient-to-br from-teal-50 to-cyan-50 border-teal-200 hover-elevate group cursor-pointer">
-              <h3 className="text-3xl font-black text-gray-900 mb-4">Social</h3>
-              <p className="text-lg text-gray-700 mb-6">
-                We grow cult-like social communities with platform-specific social strategies
-              </p>
-              <ul className="space-y-3 mb-8">
-                {services.social.map((service, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <Check className="h-5 w-5 text-teal-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700">{service.name}</span>
-                  </li>
-                ))}
-              </ul>
-              <Button variant="outline" className="group-hover:bg-teal-600 group-hover:text-white group-hover:border-teal-600 transition-colors" data-testid="button-learn-social">
-                Learn more about Social
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
-            </Card>
-
-            {/* Paid Card */}
-            <Card className="p-10 bg-gradient-to-br from-purple-50 to-pink-50 border-purple-200 hover-elevate group cursor-pointer">
-              <h3 className="text-3xl font-black text-gray-900 mb-4">Paid</h3>
-              <p className="text-lg text-gray-700 mb-6">
-                We deliver performance-driven Paid Social and Paid Search campaigns
-              </p>
-              <ul className="space-y-3 mb-8">
-                {services.paid.map((service, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <Check className="h-5 w-5 text-purple-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700">{service.name}</span>
-                  </li>
-                ))}
-              </ul>
-              <Button variant="outline" className="group-hover:bg-purple-600 group-hover:text-white group-hover:border-purple-600 transition-colors" data-testid="button-learn-paid">
-                Learn more about Paid
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
-            </Card>
-
-            {/* Creative Card */}
-            <Card className="p-10 bg-gradient-to-br from-orange-50 to-amber-50 border-orange-200 hover-elevate group cursor-pointer">
-              <h3 className="text-3xl font-black text-gray-900 mb-4">Creative</h3>
-              <p className="text-lg text-gray-700 mb-6">
-                Delivering outstanding Creative across Video, Design and Motion
-              </p>
-              <ul className="space-y-3 mb-8">
-                {services.creative.map((service, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <Check className="h-5 w-5 text-orange-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700">{service.name}</span>
-                  </li>
-                ))}
-              </ul>
-              <Button variant="outline" className="group-hover:bg-orange-600 group-hover:text-white group-hover:border-orange-600 transition-colors" data-testid="button-learn-creative">
-                Learn more about Creative
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
-            </Card>
-
-            {/* Influencer Card */}
-            <Card className="p-10 bg-gradient-to-br from-emerald-50 to-teal-50 border-emerald-200 hover-elevate group cursor-pointer">
-              <h3 className="text-3xl font-black text-gray-900 mb-4">Influencer</h3>
-              <p className="text-lg text-gray-700 mb-6">
-                We deliver brand awareness and direct-response Influencer & Creator campaigns
-              </p>
-              <ul className="space-y-3 mb-8">
-                {services.influencer.map((service, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <Check className="h-5 w-5 text-emerald-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700">{service.name}</span>
-                  </li>
-                ))}
-              </ul>
-              <Button variant="outline" className="group-hover:bg-emerald-600 group-hover:text-white group-hover:border-emerald-600 transition-colors" data-testid="button-learn-influencer">
-                Learn more about Influencer
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Social-first Strategies Section with Image */}
-      <section className="py-24 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-6">
-                Social-first strategies, for our social-first world
-              </h2>
-              <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                We work with brands that are looking to lead their industry and thrive in this social-first world.
-              </p>
-              <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                We're not here to tick boxes but to push the boundaries, deliver significant brand growth and captivate your audience with social-first content. We focus on outcomes, not outputs.
-              </p>
-              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                We've designed our team to ensure we're ready for all challenges. It includes strategists, community & channel managers, content creators, videographers, designers, paid social experts, influencer managers and analytics leads.
-              </p>
-              <Button size="lg" className="bg-teal-600 hover:bg-teal-700 text-white" data-testid="button-get-in-touch-1">
-                Get In Touch To See How We Can Help You
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </div>
-            <div>
-              <img 
-                src={productionImg} 
-                alt="Behind the scenes video production"
-                className="rounded-2xl shadow-2xl w-full h-[500px] object-cover"
-                data-testid="img-production"
+            <div className="flex gap-3 max-w-md mx-auto">
+              <input 
+                type="email"
+                placeholder="Email"
+                className="flex-1 px-6 py-4 rounded-full bg-gray-800 border-none text-white placeholder-gray-400"
+                data-testid="input-email"
               />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Platform-specific Content Section with Image */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div className="order-2 lg:order-1">
-              <img 
-                src={strategyImg} 
-                alt="Social media strategy planning"
-                className="rounded-2xl shadow-2xl w-full h-[500px] object-cover"
-                data-testid="img-strategy"
-              />
-            </div>
-            <div className="order-1 lg:order-2">
-              <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-6">
-                Platform-specific social content
-              </h2>
-              <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                We know each algorithm inside and out. They're all different, and so they should be treated that way.
-              </p>
-              <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                Creating content for specific platforms is vital for growth, rather than a cookie-cutter approach of re-posting everywhere. Our strategists and planners are built to deliver narratives that align with the individual platform algorithms.
-              </p>
-              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                Our team has both the technical and creative capabilities to ensure we're delivering content that adapts to algorithm changes.
-              </p>
-              <Button size="lg" className="bg-teal-600 hover:bg-teal-700 text-white" data-testid="button-get-in-touch-2">
-                Get In Touch To See How We Can Help You
-                <ArrowRight className="ml-2 h-5 w-5" />
+              <Button 
+                size="lg"
+                className="bg-white text-black hover:bg-gray-100 rounded-full px-8"
+                data-testid="button-submit-email"
+              >
+                <ArrowRight className="h-5 w-5" />
               </Button>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Data-Driven Approach Section with Image */}
-      <section className="py-24 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-teal-50 border border-teal-200 rounded-full mb-6">
-                <Award className="h-5 w-5 text-teal-600" />
-                <span className="text-teal-700 text-sm font-semibold">Best Large Social Agency</span>
-              </div>
-              <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-6">
-                We take a data-driven approach to social
-              </h2>
-              <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                Data-driven strategies combined with our creativity are exactly why we've been able to win awards such as Best Large Social Agency and deliver incredible results time and time again.
-              </p>
-              <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                A lot of social agencies and brands create content for the sake of it without any reasoning behind what they're creating.
-              </p>
-              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                We dive deep into content analysis and why each piece is either performing or underperforming. This leads us to make adjustments to our content plans on a weekly and monthly and overarching strategy on a quarterly basis.
-              </p>
-              <Button size="lg" className="bg-teal-600 hover:bg-teal-700 text-white" data-testid="button-get-in-touch-3">
-                Get In Touch To See How We Can Help You
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </div>
-            <div>
-              <img 
-                src={socialMediaPhoneImg} 
-                alt="Social media content on mobile"
-                className="rounded-2xl shadow-2xl w-full h-[500px] object-cover"
-                data-testid="img-social-phone"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Video Content Showcase Section */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-4">
-              Checkout our latest Social content
-            </h2>
-            <p className="text-xl text-gray-600">
-              Platform-specific video content that drives engagement and results
-            </p>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
-              <div key={i} className="relative group cursor-pointer" data-testid={`video-card-${i}`}>
-                <div className="aspect-[9/16] bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl overflow-hidden hover-elevate">
-                  <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-teal-500/20 to-cyan-500/20">
-                    <Play className="h-16 w-16 text-white drop-shadow-lg" />
-                  </div>
-                </div>
-                <div className="mt-3">
-                  <p className="text-sm font-semibold text-gray-900">Sample Video {i}</p>
-                  <p className="text-xs text-gray-500">Click for sound</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Why Choose Us Section */}
-      <section className="py-24 bg-gradient-to-br from-teal-600 to-cyan-600 text-white">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-black mb-4">
-              Why OARC Digital?
-            </h2>
-            <p className="text-xl text-teal-50">
-              We're not just another agency - we're your strategic growth partner
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {whyChooseUs.map((item, i) => (
-              <div key={i} className="bg-white/10 backdrop-blur-sm p-8 rounded-xl border border-white/20 hover-elevate" data-testid={`why-card-${i}`}>
-                <div className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center mb-4">
-                  <CheckCircle2 className="h-6 w-6 text-white" />
-                </div>
-                <h3 className="text-xl font-bold mb-3">{item.title}</h3>
-                <p className="text-teal-50 leading-relaxed">{item.description}</p>
-              </div>
-            ))}
-          </div>
-
-          <div className="text-center mt-16">
-            <Button size="lg" variant="outline" className="bg-white text-teal-600 hover:bg-gray-100 border-0 px-8" data-testid="button-final-cta">
-              Get In Touch To See How We Can Help You
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      {/* Final CTA */}
-      <section className="py-24 bg-white">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-5xl md:text-6xl font-black text-gray-900 mb-6">
-            Don't be <span className="text-teal-600">sheepish</span> – let's talk
-          </h2>
-          <Button size="lg" className="bg-teal-600 hover:bg-teal-700 text-white text-lg px-12" data-testid="button-lets-chat-final">
-            Let's chat
-            <ArrowRight className="ml-2 h-5 w-5" />
-          </Button>
         </div>
       </section>
     </Layout>
