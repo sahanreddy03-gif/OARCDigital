@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/layout/Layout";
 import { useEffect, useState } from "react";
+import { Link } from "wouter";
 import { 
   ArrowRight, CheckCircle, MessageSquare, Star, Target, Users, Settings, Play,
   ChevronLeft, ChevronRight
@@ -148,15 +149,17 @@ export default function Social() {
             Our team knows how to craft always-on and campaign activity that elevates your content & community across your social channels.
           </p>
 
-          <button
-            className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-lg font-semibold hover-elevate active-elevate-2 mb-12"
-            data-testid="button-lets-chat-hero"
-          >
-            Let's Chat
-            <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center border-2 border-white">
-              <ArrowRight className="h-5 w-5 text-white" />
-            </div>
-          </button>
+          <Link href="/contact">
+            <button
+              className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-lg font-semibold hover-elevate active-elevate-2 mb-12"
+              data-testid="button-lets-chat-hero"
+            >
+              Let's Chat
+              <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center border-2 border-white">
+                <ArrowRight className="h-5 w-5 text-white" />
+              </div>
+            </button>
+          </Link>
 
           {/* Conference Room Image */}
           <img 
@@ -187,15 +190,17 @@ export default function Social() {
             We've designed our team to ensure we're ready for all challenges. It includes strategists, community & channel managers, content creators, videographers, designers, paid social experts, influencer managers and analytics leads.
           </p>
 
-          <button
-            className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-lg font-semibold hover-elevate active-elevate-2"
-            data-testid="button-get-in-touch-1"
-          >
-            Get In Touch To See How We Can Help You
-            <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center border-2 border-white">
-              <ArrowRight className="h-5 w-5 text-white" />
-            </div>
-          </button>
+          <Link href="/contact">
+            <button
+              className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-lg font-semibold hover-elevate active-elevate-2"
+              data-testid="button-get-in-touch-1"
+            >
+              Get In Touch To See How We Can Help You
+              <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center border-2 border-white">
+                <ArrowRight className="h-5 w-5 text-white" />
+              </div>
+            </button>
+          </Link>
         </div>
       </section>
 
@@ -225,15 +230,17 @@ export default function Social() {
             Our team has both the technical and creative capabilities to ensure we're delivering content that adapts to algorithm changes.
           </p>
 
-          <button
-            className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-lg font-semibold hover-elevate active-elevate-2"
-            data-testid="button-get-in-touch-2"
-          >
-            Get In Touch To See How We Can Help You
-            <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center border-2 border-white">
-              <ArrowRight className="h-5 w-5 text-white" />
-            </div>
-          </button>
+          <Link href="/contact">
+            <button
+              className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-lg font-semibold hover-elevate active-elevate-2"
+              data-testid="button-get-in-touch-2"
+            >
+              Get In Touch To See How We Can Help You
+              <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center border-2 border-white">
+                <ArrowRight className="h-5 w-5 text-white" />
+              </div>
+            </button>
+          </Link>
         </div>
       </section>
 
@@ -263,15 +270,17 @@ export default function Social() {
             We dive deep into content analysis and why each piece is either performing or underperforming. This leads us to make adjustments to our content plans on a weekly and monthly and overarching strategy on a quarterly basis.
           </p>
 
-          <button
-            className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-lg font-semibold hover-elevate active-elevate-2"
-            data-testid="button-get-in-touch-3"
-          >
-            Get In Touch To See How We Can Help You
-            <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center border-2 border-white">
-              <ArrowRight className="h-5 w-5 text-white" />
-            </div>
-          </button>
+          <Link href="/contact">
+            <button
+              className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-lg font-semibold hover-elevate active-elevate-2"
+              data-testid="button-get-in-touch-3"
+            >
+              Get In Touch To See How We Can Help You
+              <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center border-2 border-white">
+                <ArrowRight className="h-5 w-5 text-white" />
+              </div>
+            </button>
+          </Link>
         </div>
       </section>
 
@@ -495,15 +504,17 @@ export default function Social() {
             </p>
           </div>
 
-          <button
-            className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-lg font-semibold hover-elevate active-elevate-2 mt-8"
-            data-testid="button-get-in-touch-final"
-          >
-            Get In Touch To See How We Can Help You
-            <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center border-2 border-white">
-              <ArrowRight className="h-5 w-5 text-white" />
-            </div>
-          </button>
+          <Link href="/contact">
+            <button
+              className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-lg font-semibold hover-elevate active-elevate-2 mt-8"
+              data-testid="button-get-in-touch-final"
+            >
+              Get In Touch To See How We Can Help You
+              <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center border-2 border-white">
+                <ArrowRight className="h-5 w-5 text-white" />
+              </div>
+            </button>
+          </Link>
         </div>
       </section>
 
@@ -515,15 +526,17 @@ export default function Social() {
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-black mb-8">
                 Don't be <span className="text-white">sheepish</span><br />let's talk
               </h2>
-              <button
-                className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-lg font-semibold hover-elevate active-elevate-2"
-                data-testid="button-lets-chat-final"
-              >
-                Let's Chat
-                <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
-                  <ArrowRight className="h-5 w-5 text-black" />
-                </div>
-              </button>
+              <Link href="/contact">
+                <button
+                  className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-lg font-semibold hover-elevate active-elevate-2"
+                  data-testid="button-lets-chat-final"
+                >
+                  Let's Chat
+                  <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+                    <ArrowRight className="h-5 w-5 text-black" />
+                  </div>
+                </button>
+              </Link>
             </div>
             
             <div className="w-full">
