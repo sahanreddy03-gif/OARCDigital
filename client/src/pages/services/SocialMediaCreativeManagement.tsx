@@ -1,440 +1,512 @@
-import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import Layout from "@/components/layout/Layout";
-import { motion, useScroll, useTransform, useInView } from "framer-motion";
-import { useRef } from "react";
+import { motion, useInView, useScroll, useTransform, AnimatePresence } from "framer-motion";
+import { useRef, useState } from "react";
 import { 
-  Instagram, Linkedin, Facebook, ArrowRight, Play, Video, Palette, Users,
-  Target, TrendingUp, BarChart, MessageCircle, Share2, Calendar, Bell,
-  Zap, Globe, ThumbsUp, Star, Award, CheckCircle2, ChevronRight, Eye,
-  Heart, Camera, Sparkles, Clock, Shield, Mail, Lightbulb
+  Zap, Sparkles, TrendingUp, Eye, Heart, Share2, MessageCircle,
+  Video, Image, Users, Target, BarChart, Rocket, Star, ArrowRight,
+  Instagram, Play, ThumbsUp, Award, Crown, Flame
 } from "lucide-react";
-import { SiTiktok, SiYoutube, SiSnapchat, SiPinterest, SiX } from "react-icons/si";
 
-// Animation component for scroll reveals
-function ScrollReveal({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-  
+// Animated word component
+function AnimatedWord({ children, delay = 0 }: { children: string; delay?: number }) {
   return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 50 }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-      transition={{ duration: 0.6, delay, ease: "easeOut" }}
+    <motion.span
+      initial={{ opacity: 0, y: 50, rotateX: 90 }}
+      animate={{ opacity: 1, y: 0, rotateX: 0 }}
+      transition={{ 
+        duration: 0.8, 
+        delay,
+        type: "spring",
+        stiffness: 100
+      }}
+      className="inline-block mx-1"
+      style={{ transformStyle: "preserve-3d" }}
     >
       {children}
-    </motion.div>
+    </motion.span>
+  );
+}
+
+// Floating particle component
+function FloatingParticle({ delay, duration, x, y }: { delay: number; duration: number; x: number; y: number }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, scale: 0 }}
+      animate={{ 
+        opacity: [0, 1, 1, 0],
+        scale: [0, 1, 1, 0],
+        y: [0, -100, -200, -300],
+        x: [0, x, x * 1.5, x * 2]
+      }}
+      transition={{ 
+        duration,
+        delay,
+        repeat: Infinity,
+        ease: "easeInOut"
+      }}
+      className="absolute w-2 h-2 rounded-full bg-gradient-to-r from-pink-500 to-purple-500"
+      style={{ 
+        left: `${Math.random() * 100}%`,
+        top: `${Math.random() * 100}%`
+      }}
+    />
   );
 }
 
 export default function SocialMediaCreativeManagement() {
-  const [activeCategory, setActiveCategory] = useState<'social' | 'paid' | 'influencer'>('social');
+  const [activeService, setActiveService] = useState(0);
   const heroRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: heroRef,
     offset: ["start start", "end start"]
   });
-  
-  const heroOpacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
-  const heroScale = useTransform(scrollYProgress, [0, 1], [1, 0.95]);
 
-  useEffect(() => {
-    document.title = "Social Media Creative & Management | OARC Digital";
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute("content", "Your competitive edge in a crowded feed. Full-service social media creative, paid advertising, and influencer marketing.");
+  const y = useTransform(scrollYProgress, [0, 1], ['0%', '50%']);
+  const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0.5, 0]);
+
+  const services = [
+    {
+      icon: Flame,
+      title: "Viral Content Creation",
+      description: "Content that stops thumbs and starts conversations",
+      features: ["Scroll-Stopping Visuals", "Trend Jacking", "Algorithm Hacking", "Viral Mechanics"],
+      color: "from-orange-500 via-red-500 to-pink-500"
+    },
+    {
+      icon: Zap,
+      title: "Dopamine-Driven Design",
+      description: "Visual crack cocaine for your audience's feed",
+      features: ["Addictive Visuals", "Color Psychology", "Motion Graphics", "Instant Impact"],
+      color: "from-yellow-400 via-orange-500 to-red-500"
+    },
+    {
+      icon: TrendingUp,
+      title: "Growth Engineering",
+      description: "Turn scrollers into followers, followers into fanatics",
+      features: ["Engagement Optimization", "Viral Loops", "Community Building", "Data-Driven Content"],
+      color: "from-green-400 via-emerald-500 to-teal-500"
+    },
+    {
+      icon: Crown,
+      title: "Platform Domination",
+      description: "Own every feed, every platform, every algorithm",
+      features: ["Multi-Platform Strategy", "Algorithm Mastery", "Trend Forecasting", "Platform-Native Content"],
+      color: "from-purple-500 via-pink-500 to-rose-500"
     }
-  }, []);
-
-  const services = {
-    social: [
-      { name: "Organic Social Content", desc: "Daily posts, stories, reels optimized for engagement", icon: Palette },
-      { name: "Community Management", desc: "Active engagement, 2-hour response time", icon: MessageCircle },
-      { name: "Content Calendar", desc: "Strategic planning and scheduling", icon: Calendar },
-      { name: "Social Media Video", desc: "Reels, TikToks, YouTube Shorts, livestreams", icon: Video },
-      { name: "Post Design", desc: "Eye-catching graphics and carousels", icon: Palette },
-      { name: "Social Analytics", desc: "Performance tracking and insights", icon: BarChart },
-    ],
-    paid: [
-      { name: "Social Media Advertising", desc: "Paid campaigns across all platforms", icon: Target },
-      { name: "Campaign Management", desc: "Strategy, execution, optimization", icon: TrendingUp },
-      { name: "A/B Testing", desc: "Data-driven creative optimization", icon: BarChart },
-      { name: "Audience Targeting", desc: "Precision targeting for maximum ROI", icon: Users },
-      { name: "Retargeting Campaigns", desc: "Re-engage warm audiences", icon: Zap },
-      { name: "Performance Reporting", desc: "Detailed analytics and insights", icon: Award },
-    ],
-    influencer: [
-      { name: "Influencer Partnerships", desc: "Find and manage creator relationships", icon: Users },
-      { name: "UGC Strategy", desc: "Authentic user-generated content", icon: Camera },
-      { name: "Creator Management", desc: "Full campaign coordination", icon: Star },
-      { name: "Brand Ambassador Programs", desc: "Long-term partnerships", icon: Heart },
-      { name: "Campaign Tracking", desc: "Measure influencer ROI", icon: BarChart },
-      { name: "Content Rights", desc: "Usage licensing and management", icon: Shield },
-    ]
-  };
-
-  const platforms = [
-    { name: "Instagram", icon: Instagram, color: "from-purple-600 to-purple-700", features: ["Reels", "Stories", "Shopping"] },
-    { name: "TikTok", icon: SiTiktok, color: "from-blue-500 to-blue-600", features: ["Viral trends", "TikTok Shop", "Live"] },
-    { name: "LinkedIn", icon: Linkedin, color: "from-blue-700 to-blue-500", features: ["B2B", "Thought leadership", "Ads"] },
-    { name: "Facebook", icon: Facebook, color: "from-blue-600 to-indigo-600", features: ["Groups", "Marketplace", "Video"] },
-    { name: "YouTube", icon: SiYoutube, color: "from-purple-500 to-purple-600", features: ["Long-form", "Shorts", "Live streams"] },
-    { name: "Twitter/X", icon: SiX, color: "from-blue-800 to-blue-900", features: ["Real-time", "Threads", "Spaces"] },
-    { name: "Snapchat", icon: SiSnapchat, color: "from-blue-400 to-blue-500", features: ["AR lenses", "Spotlight", "Ads"] },
-    { name: "Pinterest", icon: SiPinterest, color: "from-purple-600 to-blue-600", features: ["Idea Pins", "Shopping", "SEO"] },
   ];
 
   const stats = [
-    { value: "500+", label: "Brands Served" },
-    { value: "20K+", label: "Projects Completed" },
-    { value: "4.9/5", label: "Client Rating" },
-    { value: "60%", label: "Faster Delivery" },
+    { icon: Eye, value: "10M+", label: "Monthly Views", color: "text-cyan-400" },
+    { icon: Heart, value: "500K+", label: "Engagement Rate", color: "text-pink-500" },
+    { icon: Rocket, value: "300%", label: "Growth Average", color: "text-purple-500" },
+    { icon: Star, value: "4.9/5", label: "Client Rating", color: "text-yellow-400" }
   ];
 
   return (
     <Layout>
-      {/* HERO SECTION - Superside Style */}
-      <motion.section 
+      {/* Ultra-Animated Hero Section */}
+      <section 
         ref={heroRef}
-        style={{ opacity: heroOpacity, scale: heroScale }}
-        className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-b from-gray-50 to-white"
+        className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-purple-900 via-pink-800 to-orange-700"
       >
-        <div className="max-w-6xl mx-auto px-4 text-center relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="mb-6"
-          >
-            <div className="inline-block px-4 py-2 bg-blue-100 rounded-full mb-8">
-              <span className="text-blue-600 font-semibold text-sm">SOCIAL MEDIA CREATIVE</span>
-            </div>
-          </motion.div>
-          
-          <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1 }}
-            className="text-5xl md:text-7xl font-bold text-gray-900 mb-8 leading-tight"
-          >
-            Your <span className="italic text-blue-600">competitive edge</span><br />in a crowded feed
-          </motion.h1>
-          
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-xl md:text-2xl text-gray-600 mb-12 max-w-3xl mx-auto"
-          >
-            Slice through the chaos with social media content that gets your brand noticed and drives the results you want.
-          </motion.p>
-          
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center"
-          >
-            <Button size="lg" className="px-8" data-testid="button-book-demo">
-              Book a Demo
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
-            <Button size="lg" variant="outline" data-testid="button-view-work">
-              View Our Work
-            </Button>
-          </motion.div>
+        {/* Animated Background Particles */}
+        <div className="absolute inset-0 overflow-hidden">
+          {[...Array(30)].map((_, i) => (
+            <FloatingParticle 
+              key={i}
+              delay={i * 0.2}
+              duration={8 + Math.random() * 4}
+              x={-50 + Math.random() * 100}
+              y={-200 - Math.random() * 200}
+            />
+          ))}
         </div>
 
-        {/* Scroll indicator */}
+        {/* Animated Grid */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff10_1px,transparent_1px),linear-gradient(to_bottom,#ffffff10_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
+
+        <motion.div 
+          style={{ y, opacity }}
+          className="relative z-10 max-w-7xl mx-auto px-4 text-center"
+        >
+          {/* Eyebrow */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
+            className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 backdrop-blur-xl border border-white/20 rounded-full mb-8"
+          >
+            <Sparkles className="h-5 w-5 text-yellow-400 animate-pulse" />
+            <span className="text-white font-semibold">OARC DIGITAL SOCIAL MEDIA</span>
+            <Sparkles className="h-5 w-5 text-yellow-400 animate-pulse" />
+          </motion.div>
+
+          {/* Animated Title - Word by Word */}
+          <h1 className="text-6xl md:text-8xl font-black mb-8 leading-none">
+            <div className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-pink-500 to-purple-600">
+              {["Social", "Media", "That"].map((word, i) => (
+                <AnimatedWord key={i} delay={i * 0.2}>
+                  {word}
+                </AnimatedWord>
+              ))}
+            </div>
+            <div className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-orange-500 to-red-600 mt-4">
+              {["DOESN'T", "SUCK"].map((word, i) => (
+                <AnimatedWord key={i} delay={0.6 + i * 0.2}>
+                  {word}
+                </AnimatedWord>
+              ))}
+            </div>
+          </h1>
+
+          {/* Subtitle with Stagger */}
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.2, duration: 0.8 }}
+            className="text-2xl md:text-4xl text-white/90 mb-12 max-w-4xl mx-auto font-light"
+          >
+            We create{" "}
+            <motion.span
+              animate={{ 
+                color: ["#ff0080", "#ff8c00", "#00ff88", "#0088ff", "#ff0080"],
+              }}
+              transition={{ duration: 3, repeat: Infinity }}
+              className="font-bold"
+            >
+              dopamine-inducing
+            </motion.span>
+            {" "}content that stops the scroll & starts conversations
+          </motion.p>
+
+          {/* CTA Buttons with Morphing */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.6 }}
+            className="flex flex-col sm:flex-row gap-6 justify-center items-center"
+          >
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Button 
+                size="lg"
+                className="text-xl px-12 py-8 bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 border-0 shadow-2xl shadow-pink-500/50"
+                data-testid="button-explosive-demo"
+              >
+                <Rocket className="mr-2 h-6 w-6" />
+                Get Explosive Results
+              </Button>
+            </motion.div>
+            
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Button 
+                size="lg"
+                variant="outline"
+                className="text-xl px-12 py-8 bg-white/10 backdrop-blur-xl border-white/30 text-white hover:bg-white/20"
+                data-testid="button-view-viral-work"
+              >
+                <Eye className="mr-2 h-6 w-6" />
+                See Viral Work
+              </Button>
+            </motion.div>
+          </motion.div>
+
+          {/* Floating Icons */}
+          <div className="absolute inset-0 pointer-events-none">
+            {[Instagram, Video, Image, Heart, Share2, MessageCircle].map((Icon, i) => (
+              <motion.div
+                key={i}
+                animate={{
+                  y: [0, -20, 0],
+                  rotate: [0, 5, -5, 0],
+                }}
+                transition={{
+                  duration: 3 + i,
+                  repeat: Infinity,
+                  delay: i * 0.5
+                }}
+                className="absolute"
+                style={{
+                  left: `${10 + i * 15}%`,
+                  top: `${20 + (i % 2) * 50}%`,
+                }}
+              >
+                <Icon className="h-12 w-12 text-white/20" />
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Scroll Indicator */}
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 1.5, repeat: Infinity }}
           className="absolute bottom-8 left-1/2 -translate-x-1/2"
         >
-          <ChevronRight className="h-6 w-6 text-gray-400 rotate-90" />
+          <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
+            <motion.div
+              animate={{ y: [0, 12, 0] }}
+              transition={{ duration: 1.5, repeat: Infinity }}
+              className="w-1 h-2 bg-white rounded-full mt-2"
+            />
+          </div>
         </motion.div>
-      </motion.section>
-
-      {/* SERVICES CAROUSEL - Horizontal Scroll */}
-      <section className="py-20 bg-white overflow-hidden">
-        <ScrollReveal>
-          <div className="max-w-7xl mx-auto px-4">
-            <div className="flex gap-6 overflow-x-auto pb-6 snap-x snap-mandatory scrollbar-hide" data-testid="services-carousel">
-              {[
-                { name: "Organic Social Media Content", icon: Share2, color: "from-blue-500 to-blue-600" },
-                { name: "Video Content", icon: Video, color: "from-purple-500 to-purple-600" },
-                { name: "Social Media Post Design", icon: Palette, color: "from-blue-600 to-purple-500" },
-                { name: "Social Media Collateral", icon: Sparkles, color: "from-purple-600 to-blue-500" },
-                { name: "Social Media Response Guide", icon: MessageCircle, color: "from-blue-500 to-purple-600" },
-                { name: "Social Media Concepts", icon: Lightbulb, color: "from-purple-500 to-blue-600" },
-              ].map((service, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, x: 50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5, delay: i * 0.1 }}
-                  viewport={{ once: true }}
-                  className="flex-shrink-0 w-72 snap-center"
-                  data-testid={`service-card-${i}`}
-                >
-                  <Card className="p-6 h-full hover-elevate">
-                    <div className={`inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br ${service.color} text-white mb-4`}>
-                      <service.icon className="h-8 w-8" />
-                    </div>
-                    <h3 className="text-lg font-semibold text-gray-900">{service.name}</h3>
-                  </Card>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </ScrollReveal>
       </section>
 
-      {/* TRUSTED BY SECTION */}
-      <section className="py-12 bg-gray-50">
-        <ScrollReveal>
-          <div className="max-w-7xl mx-auto px-4 text-center">
-            <p className="text-sm text-gray-500 mb-8 uppercase tracking-wider">Trusted by 500+ of the world's biggest brands</p>
-            <div className="flex flex-wrap justify-center items-center gap-12 opacity-40">
-              {["Meta", "Amazon", "Shopify", "Reddit", "Coinbase", "Uber"].map((brand, i) => (
-                <div key={i} className="text-2xl font-bold text-gray-900">{brand}</div>
-              ))}
-            </div>
-          </div>
-        </ScrollReveal>
-      </section>
-
-      {/* MAIN SERVICES - 3 Categories with Animations */}
-      <section className="py-32 bg-white">
-        <div className="max-w-7xl mx-auto px-4">
-          <ScrollReveal>
-            <div className="text-center mb-16">
-              <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
-                Your shortcut to <span className="italic text-blue-600">scroll-stopping</span> content
-              </h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Scaling your social ads and posts in-house? Easier said than done. Whether it's looming deadlines or limited resources, keeping up with the demand for compelling social media content is a challenge. That's where we come in.
-              </p>
-            </div>
-          </ScrollReveal>
-
-          {/* Category Tabs */}
-          <ScrollReveal delay={0.2}>
-            <div className="flex justify-center gap-4 mb-12" data-testid="category-tabs">
-              {[
-                { id: 'social' as const, label: 'Social Media', icon: Share2 },
-                { id: 'paid' as const, label: 'Paid Advertising', icon: Target },
-                { id: 'influencer' as const, label: 'Influencer Marketing', icon: Users }
-              ].map((cat) => (
-                <Button
-                  key={cat.id}
-                  variant={activeCategory === cat.id ? 'default' : 'outline'}
-                  size="lg"
-                  onClick={() => setActiveCategory(cat.id)}
-                  data-testid={`tab-${cat.id}`}
-                >
-                  <cat.icon className="mr-2 h-5 w-5" />
-                  {cat.label}
-                </Button>
-              ))}
-            </div>
-          </ScrollReveal>
-
-          {/* Services Grid with Animation */}
-          <motion.div 
-            key={activeCategory}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
-          >
-            {services[activeCategory].map((service, i) => (
+      {/* Stats Counter Section */}
+      <section className="py-20 bg-black relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 to-pink-900/20" />
+        
+        <div className="max-w-7xl mx-auto px-4 relative z-10">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {stats.map((stat, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                data-testid={`service-${activeCategory}-${i}`}
+                initial={{ opacity: 0, scale: 0.5 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1, type: "spring" }}
+                whileHover={{ scale: 1.1, rotate: [0, -5, 5, 0] }}
+                className="text-center"
+                data-testid={`stat-${i}`}
               >
-                <Card className="p-8 h-full hover-elevate active-elevate-2 transition-all duration-300">
-                  <div className="bg-blue-100 rounded-full w-12 h-12 flex items-center justify-center mb-6">
-                    <service.icon className="h-6 w-6 text-blue-600" />
+                <div className="flex justify-center mb-4">
+                  <motion.div
+                    animate={{ rotate: 360 }}
+                    transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                  >
+                    <stat.icon className={`h-12 w-12 ${stat.color}`} />
+                  </motion.div>
+                </div>
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  className={`text-5xl md:text-6xl font-black ${stat.color} mb-2`}
+                >
+                  {stat.value}
+                </motion.div>
+                <div className="text-white/70 text-lg">{stat.label}</div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Services Section with 3D Cards */}
+      <section className="py-32 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 relative overflow-hidden">
+        {/* Animated Background */}
+        <div className="absolute inset-0">
+          <motion.div
+            animate={{ 
+              backgroundPosition: ["0% 0%", "100% 100%"],
+            }}
+            transition={{ duration: 20, repeat: Infinity, repeatType: "reverse" }}
+            className="absolute inset-0 opacity-30"
+            style={{
+              backgroundImage: "radial-gradient(circle, #ff00ff 1px, transparent 1px)",
+              backgroundSize: "50px 50px"
+            }}
+          />
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-20"
+          >
+            <h2 className="text-5xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-pink-600 mb-6">
+              What We Do
+            </h2>
+            <p className="text-2xl text-white/80 max-w-3xl mx-auto">
+              We don't just make content. We engineer{" "}
+              <span className="text-yellow-400 font-bold">viral moments</span>
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {services.map((service, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.2 }}
+                whileHover={{ scale: 1.03, rotateY: 5, z: 50 }}
+                style={{ transformStyle: "preserve-3d" }}
+                data-testid={`service-card-${i}`}
+              >
+                <Card className={`p-8 bg-gradient-to-br ${service.color} border-0 shadow-2xl hover:shadow-pink-500/50 transition-all duration-500 group`}>
+                  <div className="flex items-start gap-6 mb-6">
+                    <motion.div
+                      whileHover={{ rotate: 360, scale: 1.2 }}
+                      transition={{ duration: 0.6 }}
+                      className="p-4 bg-black/30 backdrop-blur-xl rounded-2xl"
+                    >
+                      <service.icon className="h-10 w-10 text-white" />
+                    </motion.div>
+                    <div className="flex-1">
+                      <h3 className="text-3xl font-black text-white mb-2 group-hover:scale-105 transition-transform">
+                        {service.title}
+                      </h3>
+                      <p className="text-white/90 text-lg">
+                        {service.description}
+                      </p>
+                    </div>
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">{service.name}</h3>
-                  <p className="text-gray-600">{service.desc}</p>
+
+                  <div className="grid grid-cols-2 gap-3">
+                    {service.features.map((feature, j) => (
+                      <motion.div
+                        key={j}
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.1 * j }}
+                        className="flex items-center gap-2 text-white/90 bg-black/20 backdrop-blur-sm px-4 py-2 rounded-lg"
+                      >
+                        <Sparkles className="h-4 w-4 text-yellow-300" />
+                        <span className="text-sm font-medium">{feature}</span>
+                      </motion.div>
+                    ))}
+                  </div>
+
+                  <motion.div
+                    whileHover={{ x: 5 }}
+                    className="mt-6"
+                  >
+                    <Button
+                      variant="ghost"
+                      className="text-white hover:bg-white/20 w-full justify-between group/btn"
+                      data-testid={`button-learn-${i}`}
+                    >
+                      <span className="text-lg font-semibold">Learn More</span>
+                      <ArrowRight className="h-5 w-5 group-hover/btn:translate-x-2 transition-transform" />
+                    </Button>
+                  </motion.div>
                 </Card>
               </motion.div>
             ))}
-          </motion.div>
-        </div>
-      </section>
-
-      {/* PLATFORM EXPERTISE - Slide Up Animation */}
-      <section className="py-32 bg-gradient-to-b from-gray-50 to-white">
-        <div className="max-w-7xl mx-auto px-4">
-          <ScrollReveal>
-            <div className="text-center mb-16">
-              <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
-                Expertise across <span className="italic text-blue-600">all social media platforms</span>
-              </h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Rely on our in-depth expertise, as well as the ability to version and scale any kind of social media content across your key channels.
-              </p>
-            </div>
-          </ScrollReveal>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {platforms.map((platform, i) => (
-              <ScrollReveal key={i} delay={i * 0.1}>
-                <motion.div
-                  whileHover={{ y: -8 }}
-                  transition={{ duration: 0.3 }}
-                  data-testid={`platform-${platform.name.toLowerCase()}`}
-                >
-                  <Card className="p-8 text-center hover-elevate">
-                    <div className={`inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br ${platform.color} text-white mb-6`}>
-                      <platform.icon className="h-8 w-8" />
-                    </div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-4">{platform.name}</h3>
-                    <div className="space-y-2">
-                      {platform.features.map((feature, j) => (
-                        <div key={j} className="flex items-center justify-center gap-2 text-sm text-gray-600">
-                          <CheckCircle2 className="h-4 w-4 text-blue-600" />
-                          {feature}
-                        </div>
-                      ))}
-                    </div>
-                  </Card>
-                </motion.div>
-              </ScrollReveal>
-            ))}
           </div>
         </div>
       </section>
 
-      {/* AI-ENHANCED SECTION - Parallax Effect */}
-      <section className="py-32 bg-white relative overflow-hidden">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          whileInView={{ opacity: 0.1, scale: 1 }}
-          transition={{ duration: 1 }}
-          viewport={{ once: true }}
-          className="absolute inset-0 flex items-center justify-center"
-        >
-          <Sparkles className="h-96 w-96 text-blue-600/20" />
-        </motion.div>
+      {/* Platform Domination Section */}
+      <section className="py-32 bg-black relative overflow-hidden">
+        <div className="absolute inset-0">
+          <motion.div
+            animate={{ rotate: 360 }}
+            transition={{ duration: 50, repeat: Infinity, ease: "linear" }}
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-purple-500/20 to-pink-500/20 blur-3xl rounded-full"
+          />
+        </div>
 
         <div className="max-w-7xl mx-auto px-4 relative z-10">
-          <div className="grid md:grid-cols-2 gap-16 items-center">
-            <ScrollReveal>
-              <div>
-                <div className="inline-block px-4 py-2 bg-blue-100 rounded-full mb-6">
-                  <span className="text-blue-600 font-semibold text-sm">AI-ENHANCED</span>
-                </div>
-                <h2 className="text-5xl font-bold text-gray-900 mb-6">
-                  Powerful creative, <span className="italic text-blue-600">impressive</span> turnarounds
-                </h2>
-                <p className="text-xl text-gray-600 mb-8">
-                  By equipping the top 1% of global talent with the latest AI tools, we're able to deliver high-performing creative up to 60% faster.
-                </p>
-                <Button size="lg" data-testid="button-ai-demo">
-                  Learn About AI Design
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-              </div>
-            </ScrollReveal>
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-6xl md:text-8xl font-black mb-6">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-red-500 to-pink-600">
+                WE OWN
+              </span>
+              <br />
+              <span className="text-white">EVERY PLATFORM</span>
+            </h2>
+          </motion.div>
 
-            <ScrollReveal delay={0.2}>
-              <div className="grid grid-cols-2 gap-6">
-                {stats.map((stat, i) => (
-                  <motion.div
-                    key={i}
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <Card className="p-8 text-center bg-gradient-to-br from-blue-50 to-purple-50">
-                      <div className="text-4xl font-bold text-blue-600 mb-2">{stat.value}</div>
-                      <div className="text-sm text-gray-600">{stat.label}</div>
-                    </Card>
-                  </motion.div>
-                ))}
-              </div>
-            </ScrollReveal>
-          </div>
-        </div>
-      </section>
-
-      {/* CASE STUDIES - Stagger Animation */}
-      <section className="py-32 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4">
-          <ScrollReveal>
-            <div className="text-center mb-16">
-              <h2 className="text-5xl font-bold text-gray-900 mb-6">
-                These brands already stepped up their game <span className="italic text-blue-600">with OARC Digital</span>
-              </h2>
-            </div>
-          </ScrollReveal>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              { industry: "SaaS", brand: "Tech Platform", service: "Social Media Creative" },
-              { industry: "E-commerce", brand: "Fashion Brand", service: "Ad Creative" },
-              { industry: "Food & Beverages", brand: "Restaurant Chain", service: "Influencer Marketing" },
-            ].map((study, i) => (
-              <ScrollReveal key={i} delay={i * 0.15}>
-                <motion.div
-                  whileHover={{ y: -12 }}
-                  transition={{ duration: 0.3 }}
-                  data-testid={`case-study-${i}`}
-                >
-                  <Card className="p-8 hover-elevate h-full bg-gradient-to-br from-white to-blue-50">
-                    <div className="aspect-video bg-gradient-to-br from-blue-200 to-purple-200 rounded-lg mb-6"></div>
-                    <div className="text-xs font-semibold text-blue-600 mb-2 uppercase">{study.industry}</div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-2">{study.brand}</h3>
-                    <p className="text-gray-600">{study.service}</p>
-                  </Card>
-                </motion.div>
-              </ScrollReveal>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {["Instagram", "TikTok", "YouTube", "LinkedIn", "Twitter", "Facebook", "Pinterest", "Snapchat"].map((platform, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, scale: 0 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1, type: "spring" }}
+                whileHover={{ scale: 1.1, rotate: [0, -5, 5, 0] }}
+                className="bg-gradient-to-br from-purple-900 to-pink-900 p-6 rounded-2xl text-center border border-pink-500/30 hover:border-pink-500 transition-all"
+                data-testid={`platform-${i}`}
+              >
+                <div className="text-4xl font-black text-white mb-2">{platform}</div>
+                <div className="text-pink-300 text-sm">Dominating</div>
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* FINAL CTA - Scale Animation */}
-      <section className="py-32 bg-gradient-to-br from-blue-600 to-purple-600 text-white relative overflow-hidden">
-        <motion.div
-          initial={{ scale: 0 }}
-          whileInView={{ scale: 1 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          viewport={{ once: true }}
-          className="max-w-4xl mx-auto px-4 text-center relative z-10"
-        >
-          <h2 className="text-5xl md:text-6xl font-bold mb-8">
-            Ready to dominate your category?
-          </h2>
-          <p className="text-xl mb-12 opacity-90">
-            Let's create scroll-stopping content that drives real results for your brand.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" variant="secondary" data-testid="button-final-cta">
-              Book Your Demo
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
-            <Button size="lg" variant="outline" data-testid="button-contact">
-              Contact Sales
-            </Button>
-          </div>
-        </motion.div>
+      {/* Final CTA */}
+      <section className="py-32 bg-gradient-to-br from-pink-600 via-purple-600 to-indigo-600 relative overflow-hidden">
+        {/* Animated particles */}
+        <div className="absolute inset-0">
+          {[...Array(50)].map((_, i) => (
+            <motion.div
+              key={i}
+              animate={{
+                y: [0, -1000],
+                opacity: [0, 1, 0]
+              }}
+              transition={{
+                duration: 3 + Math.random() * 2,
+                repeat: Infinity,
+                delay: Math.random() * 5
+              }}
+              className="absolute w-1 h-1 bg-white rounded-full"
+              style={{
+                left: `${Math.random() * 100}%`,
+                bottom: 0
+              }}
+            />
+          ))}
+        </div>
 
-        {/* Animated background */}
         <motion.div
-          animate={{ rotate: 360 }}
-          transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
-          className="absolute -top-1/2 -right-1/2 w-full h-full opacity-10"
+          initial={{ opacity: 0, scale: 0.8 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          className="max-w-5xl mx-auto px-4 text-center relative z-10"
         >
-          <Sparkles className="h-full w-full" />
+          <motion.div
+            animate={{ rotate: [0, 360] }}
+            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+            className="inline-block mb-8"
+          >
+            <Flame className="h-24 w-24 text-yellow-300" />
+          </motion.div>
+
+          <h2 className="text-6xl md:text-8xl font-black text-white mb-8">
+            Ready to Go
+            <br />
+            <span className="text-yellow-300">VIRAL?</span>
+          </h2>
+
+          <p className="text-2xl text-white/90 mb-12 max-w-3xl mx-auto">
+            Stop posting into the void. Start creating content that people can't help but share.
+          </p>
+
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <Button
+              size="lg"
+              className="text-2xl px-16 py-10 bg-black hover:bg-gray-900 text-white border-0 shadow-2xl"
+              data-testid="button-final-cta"
+            >
+              <Rocket className="mr-3 h-8 w-8" />
+              Launch My Campaign
+              <Sparkles className="ml-3 h-8 w-8" />
+            </Button>
+          </motion.div>
         </motion.div>
       </section>
     </Layout>
