@@ -1,0 +1,570 @@
+import { useState } from 'react';
+import { Link } from 'wouter';
+import { ArrowRight, CheckCircle, ChevronLeft, ChevronRight, BarChart, Palette, Settings, Target, TrendingUp, Play } from 'lucide-react';
+import { SiMeta, SiGoogle, SiTiktok, SiPinterest } from 'react-icons/si';
+import Layout from '@/components/layout/Layout';
+import formalTeamImg from '@assets/stock_images/formal_business_team_e3dbd64c.jpg';
+import conferenceTeamImg from '@assets/stock_images/business_team_at_con_35a6f7e7.jpg';
+import studioImg from '@assets/stock_images/podcast_studio_recor_a6925bd7.jpg';
+import largeTeamImg from '@assets/stock_images/large_corporate_team_3b815cb4.jpg';
+
+export default function Paid() {
+  const [currentService, setCurrentService] = useState(0);
+  const [currentBenefit, setCurrentBenefit] = useState(0);
+
+  const services = [
+    {
+      icon: Target,
+      title: 'Strategy',
+      description: 'We develop your multi-channel Paid Media strategy',
+      items: [
+        'Media Planning',
+        'Performance Creative Strategy',
+        'Channel Strategy',
+        'Budget Allocation & Pacing'
+      ]
+    },
+    {
+      icon: TrendingUp,
+      title: 'Media Buying',
+      description: 'We manage Paid Social, Paid Search and Display',
+      items: [
+        'Campaign Management',
+        'Optimisation',
+        'Copywriting',
+        'A/B Testing'
+      ]
+    },
+    {
+      icon: BarChart,
+      title: 'Analytics & Reporting',
+      description: 'We provide bespoke analytics and reporting solutions',
+      items: [
+        'Custom Reporting Dashboard',
+        'Visualisation Tools',
+        'Tag Implementation',
+        'GA4'
+      ]
+    },
+    {
+      icon: Palette,
+      title: 'Creative',
+      description: 'We deliver creative strategy and asset production for Paid',
+      items: [
+        'Paid Social Video',
+        'Graphic Design',
+        'UGC for Paid',
+        'Adapting Existing Assets'
+      ]
+    },
+    {
+      icon: Settings,
+      title: 'Feed Management',
+      description: 'We manage your product feed for optimal Shopping performance',
+      items: [
+        'Feed Optimisation',
+        'Feed A/B Tests',
+        'CSS (Comparison Shopping Service)'
+      ]
+    }
+  ];
+
+  const benefits = [
+    {
+      title: 'Multi-Award Winning',
+      description: 'We\'ve won multiple awards for our Paid Media campaigns, including Best Direct Response Campaign, Best Integrated Campaign and Best Use of Facebook/Instagram Ads'
+    },
+    {
+      title: 'Data-driven Approach',
+      description: 'We take a data-driven approach, which has helped us achieve consistent results, with 93% of our clients increasing their ROAS and revenue within the first 3 months of working together.'
+    },
+    {
+      title: 'Channel Partners',
+      description: 'We\'ve been recognised by Meta, Google, TikTok and Pinterest as their agency partners, so we\'re able to access Beta\'s and insights others can\'t.'
+    },
+    {
+      title: 'Creative',
+      description: 'We understand creative and what ad creatives are driving performance at every stage of the funnel.'
+    },
+    {
+      title: 'Analytics & Reporting',
+      description: 'We build holistic reports using Looker Studio and Funnel to provide in-depth insight.'
+    }
+  ];
+
+  const nextService = () => {
+    setCurrentService((prev) => (prev + 1) % services.length);
+  };
+
+  const prevBenefit = () => {
+    setCurrentBenefit((prev) => (prev - 1 + benefits.length) % benefits.length);
+  };
+
+  const nextBenefit = () => {
+    setCurrentBenefit((prev) => (prev + 1) % benefits.length);
+  };
+
+  return (
+    <Layout
+      title="Paid Media Services - OARC Digital"
+      description="Performance-driven Paid Social and Paid Search campaigns that deliver sustainable growth and incrementality in profitability, growth and brand uplift."
+    >
+      {/* Hero Section */}
+      <section className="py-16 px-4 bg-white">
+        <div className="max-w-4xl mx-auto">
+          <div className="mb-4">
+            <div className="flex items-center gap-2 mb-6">
+              <div className="w-8 h-0.5 bg-black"></div>
+            </div>
+          </div>
+
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-black mb-8" data-testid="heading-paid">
+            Paid
+          </h1>
+
+          <h2 className="text-2xl md:text-3xl font-black text-black mb-6">
+            We deliver performance-driven Paid Social and Paid Search campaigns
+          </h2>
+
+          <p className="text-lg text-gray-700 mb-4">
+            Are you not happy with your current performance and looking for a partner that can drive sustainable growth that delivers incrementality in profitability, growth and brand uplift?
+          </p>
+
+          <p className="text-lg text-gray-700 mb-8">
+            We leverage Social and Search channels with platform-specific performance creative to drive growth at all stages of the funnel.
+          </p>
+
+          <Link href="/contact">
+            <button
+              className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-lg font-semibold hover-elevate active-elevate-2"
+              data-testid="button-lets-chat-hero"
+            >
+              Let's Chat
+              <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+                <ArrowRight className="h-5 w-5 text-black" />
+              </div>
+            </button>
+          </Link>
+        </div>
+      </section>
+
+      {/* Award Team Photo */}
+      <section className="py-0 px-4 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <img 
+            src={formalTeamImg}
+            alt="OARC Digital Award Ceremony"
+            className="w-full h-[400px] md:h-[500px] object-cover rounded-3xl"
+            data-testid="img-award-team"
+          />
+        </div>
+      </section>
+
+      {/* Award-Winning Agency Section */}
+      <section className="py-16 px-4 bg-white">
+        <div className="max-w-4xl mx-auto">
+          <div className="flex items-center gap-2 mb-6">
+            <div className="w-8 h-0.5 bg-black"></div>
+          </div>
+
+          <h2 className="text-4xl md:text-5xl font-black text-black mb-6">
+            We're an Award-Winning Paid Media Agency
+          </h2>
+
+          <p className="text-lg text-gray-700 mb-4">
+            Having recently won 'Best Integrated Paid Media Campaign', Best Use of Facebook & Instagram Ads' and 'Best Direct Response Campaign' the Year', we know how to build and optimise full-funnel Paid Media strategies that grow brands at scale.
+          </p>
+
+          <p className="text-lg text-gray-700 mb-4">
+            Our team manages Paid Social and Paid Search for scaleups, household names, and global brands. So, we know how to scale ad accounts, drive incrementality, deliver creative strategies and create a dramatic shift in performance.
+          </p>
+
+          <p className="text-lg text-gray-700 mb-8">
+            We're also agency partners with Meta, Google (Premier Partner status), TikTok and Pinterest which give us access to unique insight, ad credits and beta tests.
+          </p>
+
+          <Link href="/contact">
+            <button
+              className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-lg font-semibold hover-elevate active-elevate-2"
+              data-testid="button-get-in-touch-1"
+            >
+              Get In Touch To See How We Can Help You
+              <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+                <ArrowRight className="h-5 w-5 text-black" />
+              </div>
+            </button>
+          </Link>
+        </div>
+      </section>
+
+      {/* Platform Partners */}
+      <section className="py-12 px-4 bg-white">
+        <div className="max-w-4xl mx-auto">
+          <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12">
+            <div className="w-16 h-16 bg-black rounded-lg flex items-center justify-center" data-testid="icon-meta">
+              <SiMeta className="h-8 w-8 text-white" />
+            </div>
+            <div className="w-16 h-16 bg-black rounded-lg flex items-center justify-center" data-testid="icon-google">
+              <SiGoogle className="h-8 w-8 text-white" />
+            </div>
+            <div className="w-16 h-16 bg-black rounded-lg flex items-center justify-center" data-testid="icon-tiktok">
+              <SiTiktok className="h-8 w-8 text-white" />
+            </div>
+            <div className="w-16 h-16 bg-black rounded-lg flex items-center justify-center" data-testid="icon-pinterest">
+              <SiPinterest className="h-8 w-8 text-white" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Conference Team Photo */}
+      <section className="py-8 px-4 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <img 
+            src={conferenceTeamImg}
+            alt="OARC Digital Team at Conference"
+            className="w-full h-[400px] md:h-[500px] object-cover rounded-3xl"
+            data-testid="img-conference-team"
+          />
+        </div>
+      </section>
+
+      {/* Strategic Approach Section */}
+      <section className="py-16 px-4 bg-white">
+        <div className="max-w-4xl mx-auto">
+          <div className="flex items-center gap-2 mb-6">
+            <div className="w-8 h-0.5 bg-black"></div>
+          </div>
+
+          <h2 className="text-4xl md:text-5xl font-black text-black mb-6">
+            Our Strategic Approach to Future Proofing Your Brand
+          </h2>
+
+          <p className="text-lg text-gray-700 mb-4">
+            The Paid Media landscape is ever-changing, and that's why we constantly stay on top of it.
+          </p>
+
+          <p className="text-lg text-gray-700 mb-4">
+            We're here to be your eyes and ears of what's happening, how platforms are changing and how we need to be adapting our strategy for you.
+          </p>
+
+          <p className="text-lg text-gray-700 mb-8">
+            We'll then work with you to deliver the direction of your Paid Media strategy and then implement campaign management, optimisation, creative strategy, channel management, budget allocation, attribution modelling, feed optimisation and analytics.
+          </p>
+
+          <Link href="/contact">
+            <button
+              className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-lg font-semibold hover-elevate active-elevate-2"
+              data-testid="button-get-in-touch-2"
+            >
+              Get In Touch To See How We Can Help You
+              <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+                <ArrowRight className="h-5 w-5 text-black" />
+              </div>
+            </button>
+          </Link>
+        </div>
+      </section>
+
+      {/* Studio Photo */}
+      <section className="py-8 px-4 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <img 
+            src={studioImg}
+            alt="OARC Digital Studio"
+            className="w-full h-[400px] md:h-[500px] object-cover rounded-3xl"
+            data-testid="img-studio"
+          />
+        </div>
+      </section>
+
+      {/* Reporting Section */}
+      <section className="py-16 px-4 bg-white">
+        <div className="max-w-4xl mx-auto">
+          <div className="flex items-center gap-2 mb-6">
+            <div className="w-8 h-0.5 bg-black"></div>
+          </div>
+
+          <h2 className="text-4xl md:text-5xl font-black text-black mb-6">
+            Reporting, Analysis and Attribution Modelling
+          </h2>
+
+          <p className="text-lg text-gray-700 mb-4">
+            To make the right decisions with your paid media spend, it's important to have a robust reporting solution that can break down all your data into easily digestible numbers.
+          </p>
+
+          <p className="text-lg text-gray-700 mb-4">
+            Our custom reporting breaks down each channel and shows you which campaigns, audiences, creative and copy are driving performance.
+          </p>
+
+          <p className="text-lg text-gray-700 mb-8">
+            We're also able to build in metrics that are vital for your business to track, making it completely bespoke to you.
+          </p>
+
+          <Link href="/contact">
+            <button
+              className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-lg font-semibold hover-elevate active-elevate-2"
+              data-testid="button-contact"
+            >
+              Contact
+              <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+                <ArrowRight className="h-5 w-5 text-black" />
+              </div>
+            </button>
+          </Link>
+        </div>
+      </section>
+
+      {/* Services Carousel */}
+      <section className="py-16 px-4 bg-gray-50">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-black text-black mb-2">
+            Our full-service Paid Media offering...
+          </h2>
+
+          {/* Carousel Dots */}
+          <div className="flex items-center justify-start gap-2 mb-8">
+            {services.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => setCurrentService(idx)}
+                className={`h-2 rounded-full transition-all ${
+                  idx === currentService ? 'w-8 bg-[#5FD4C4]' : 'w-2 bg-gray-300'
+                }`}
+                data-testid={`dot-service-${idx}`}
+              />
+            ))}
+          </div>
+
+          {/* Service Card */}
+          <div className="bg-white rounded-3xl p-10 mb-8" data-testid="card-service-current">
+            <div className="flex items-start gap-6 mb-6">
+              <div className="w-16 h-16 bg-black rounded-lg flex items-center justify-center flex-shrink-0">
+                {(() => {
+                  const Icon = services[currentService].icon;
+                  return <Icon className="h-8 w-8 text-white" />;
+                })()}
+              </div>
+              <div className="flex-1">
+                <h3 className="text-3xl font-black text-black mb-2">
+                  {services[currentService].title}
+                </h3>
+                <p className="text-lg text-gray-700">
+                  {services[currentService].description}
+                </p>
+              </div>
+            </div>
+
+            <div className="space-y-3 mb-8">
+              {services[currentService].items.map((item, idx) => (
+                <div key={idx} className="flex items-center gap-3">
+                  <CheckCircle className="h-5 w-5 text-[#5FD4C4] flex-shrink-0" />
+                  <span className="text-base text-gray-700">{item}</span>
+                </div>
+              ))}
+            </div>
+
+            <button
+              onClick={nextService}
+              className="w-12 h-12 rounded-full border-2 border-black flex items-center justify-center hover-elevate active-elevate-2"
+              data-testid="button-next-service"
+            >
+              <ArrowRight className="h-5 w-5 text-black" />
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* Case Studies Section */}
+      <section className="py-16 px-4 bg-gray-50">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-black text-black mb-8">
+            How we've used Paid to grow our clients
+          </h2>
+
+          <Link href="/contact">
+            <button className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-lg font-semibold hover-elevate active-elevate-2 mb-8">
+              View All Case Studies
+              <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center border-2 border-white">
+                <ArrowRight className="h-5 w-5 text-white" />
+              </div>
+            </button>
+          </Link>
+
+          <div className="relative bg-gradient-to-br from-gray-800 to-gray-900 rounded-3xl overflow-hidden h-[500px]" data-testid="card-case-study">
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+            <div className="absolute bottom-0 left-0 right-0 p-10 text-white">
+              <div className="flex gap-3 mb-4">
+                <span className="px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-semibold">
+                  Paid Media
+                </span>
+                <span className="px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-semibold">
+                  Creative
+                </span>
+              </div>
+              <h3 className="text-3xl font-black mb-2">Passenger</h3>
+              <p className="text-lg text-gray-200">
+                Increased Revenue by 10x with Paid Social & Search - Award Winning Campaign
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Performance Creatives Section */}
+      <section className="py-16 px-4 bg-gray-50">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-black text-black mb-2">
+            Checkout our latest <span className="text-[#5FD4C4]">Performance Creatives</span>
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+            <div className="relative bg-gray-300 rounded-3xl overflow-hidden h-[400px] group" data-testid="card-video-1">
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-20 h-20 bg-[#5FD4C4] rounded-full flex items-center justify-center">
+                  <Play className="h-10 w-10 text-white ml-1" />
+                </div>
+              </div>
+              <div className="absolute bottom-0 left-0 right-0 p-6">
+                <h3 className="text-xl font-black text-white">New Store Opening for Uniqlo</h3>
+              </div>
+            </div>
+
+            <div className="relative bg-gray-300 rounded-3xl overflow-hidden h-[400px] group" data-testid="card-video-2">
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-20 h-20 bg-[#5FD4C4] rounded-full flex items-center justify-center">
+                  <Play className="h-10 w-10 text-white ml-1" />
+                </div>
+              </div>
+              <div className="absolute bottom-0 left-0 right-0 p-6">
+                <h3 className="text-xl font-black text-white">Glasses Direct</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Social Shepherd Carousel */}
+      <section className="py-16 px-4 bg-gray-50">
+        <div className="max-w-4xl mx-auto">
+          <div className="flex items-center justify-between mb-8">
+            <h2 className="text-4xl md:text-5xl font-black text-black">
+              Why The Social Shepherd?
+            </h2>
+            <div className="flex gap-3">
+              <button
+                onClick={prevBenefit}
+                className="w-12 h-12 rounded-full border-2 border-black flex items-center justify-center hover-elevate active-elevate-2"
+                data-testid="button-prev-benefit"
+              >
+                <ChevronLeft className="h-5 w-5 text-black" />
+              </button>
+              <button
+                onClick={nextBenefit}
+                className="w-12 h-12 rounded-full border-2 border-black flex items-center justify-center hover-elevate active-elevate-2"
+                data-testid="button-next-benefit"
+              >
+                <ChevronRight className="h-5 w-5 text-black" />
+              </button>
+            </div>
+          </div>
+
+          {/* Carousel Dots */}
+          <div className="flex items-center justify-start gap-2 mb-8">
+            {benefits.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => setCurrentBenefit(idx)}
+                className={`h-2 rounded-full transition-all ${
+                  idx === currentBenefit ? 'w-8 bg-[#5FD4C4]' : 'w-2 bg-gray-300'
+                }`}
+                data-testid={`dot-benefit-${idx}`}
+              />
+            ))}
+          </div>
+
+          {/* Benefit Card */}
+          <div className="bg-[#5FD4C4] text-black rounded-3xl p-10" data-testid="card-benefit-current">
+            <div className="w-16 h-16 bg-black rounded-full flex items-center justify-center mb-6">
+              <CheckCircle className="h-8 w-8 text-[#5FD4C4]" />
+            </div>
+
+            <h3 className="text-2xl md:text-3xl font-black text-black mb-4">
+              {benefits[currentBenefit].title}
+            </h3>
+
+            <p className="text-lg text-black">
+              {benefits[currentBenefit].description}
+            </p>
+          </div>
+
+          <Link href="/contact">
+            <button
+              className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-lg font-semibold hover-elevate active-elevate-2 mt-8"
+              data-testid="button-get-in-touch-final"
+            >
+              Get In Touch To See How We Can Help You
+              <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center border-2 border-white">
+                <ArrowRight className="h-5 w-5 text-white" />
+              </div>
+            </button>
+          </Link>
+        </div>
+      </section>
+
+      {/* Final CTA Section */}
+      <section className="py-16 px-4 bg-white">
+        <div className="max-w-4xl mx-auto">
+          <div className="bg-[#5FD4C4] rounded-3xl overflow-hidden" data-testid="card-final-cta">
+            <div className="p-10 md:p-16">
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-black mb-8">
+                Don't be <span className="text-white">sheepish</span><br />let's talk
+              </h2>
+              <Link href="/contact">
+                <button
+                  className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-lg font-semibold hover-elevate active-elevate-2"
+                  data-testid="button-lets-chat-final"
+                >
+                  Let's Chat
+                  <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+                    <ArrowRight className="h-5 w-5 text-black" />
+                  </div>
+                </button>
+              </Link>
+            </div>
+            
+            <div className="w-full">
+              <img 
+                src={largeTeamImg}
+                alt="OARC Digital Team"
+                className="w-full h-[400px] object-cover"
+                data-testid="img-team-final"
+              />
+            </div>
+          </div>
+
+          {/* Newsletter Section */}
+          <div className="mt-8 bg-black text-white rounded-3xl p-10 text-center">
+            <p className="text-lg mb-6">
+              Stay in touch with the herd and receive up to date insights, strategies and news.
+            </p>
+            <div className="flex gap-3 max-w-md mx-auto">
+              <input 
+                type="email"
+                placeholder="Email"
+                className="flex-1 px-6 py-4 rounded-full bg-gray-800 border-none text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#5FD4C4]"
+                data-testid="input-email-newsletter"
+              />
+              <button
+                className="bg-white text-black rounded-full px-8 py-4 hover-elevate active-elevate-2"
+                data-testid="button-submit-newsletter"
+              >
+                <ArrowRight className="h-5 w-5" />
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </Layout>
+  );
+}
