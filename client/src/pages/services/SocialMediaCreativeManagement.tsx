@@ -11,6 +11,14 @@ import { SiTiktok, SiYoutube, SiSnapchat, SiPinterest, SiGoogle } from "react-ic
 import awardTeamImg from "@assets/stock_images/award_ceremony_busin_81e5ff09.jpg";
 import largeTeamImg from "@assets/stock_images/large_company_team_p_32054de0.jpg";
 
+// Import brand logos
+import brandLogo1 from "@assets/stock_images/corporate_brand_logo_7fa71d75.jpg";
+import brandLogo2 from "@assets/stock_images/corporate_brand_logo_3ecd3c3a.jpg";
+import brandLogo3 from "@assets/stock_images/corporate_brand_logo_53ee2baf.jpg";
+import brandLogo4 from "@assets/stock_images/corporate_brand_logo_36956200.jpg";
+import brandLogo5 from "@assets/stock_images/corporate_brand_logo_fa7a9043.jpg";
+import brandLogo6 from "@assets/stock_images/corporate_brand_logo_45511c03.jpg";
+
 export default function SocialMediaCreativeManagement() {
   useEffect(() => {
     document.title = "How we help | OARC Digital";
@@ -81,6 +89,10 @@ export default function SocialMediaCreativeManagement() {
     { Icon: SiYoutube, label: "YouTube" }
   ];
 
+  const brandLogos = [
+    brandLogo1, brandLogo2, brandLogo3, brandLogo4, brandLogo5, brandLogo6
+  ];
+
   return (
     <Layout>
       {/* How we help - Teal Card */}
@@ -138,13 +150,14 @@ export default function SocialMediaCreativeManagement() {
                   ))}
                 </ul>
 
-                {/* Learn More Button */}
-                <Button 
-                  variant="outline" 
-                  className="w-full border-2 border-black text-black hover:bg-black hover:text-white text-base py-6 rounded-full font-semibold"
+                {/* Learn More Button - Exact Social Shepherd style */}
+                <Button
+                  variant="outline"
+                  className="w-full border border-black text-black rounded-full font-semibold"
                   data-testid={`button-learn-${service.title.toLowerCase()}`}
                 >
                   {service.learnMore}
+                  <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </div>
             ))}
@@ -173,11 +186,14 @@ export default function SocialMediaCreativeManagement() {
             <p className="text-center text-lg text-gray-700 mb-8">
               We work with brands across multiple industries and verticals…
             </p>
-            <div className="grid grid-cols-3 md:grid-cols-6 gap-8 items-center justify-items-center opacity-60">
-              {/* Placeholder brand logos - will be filled with actual logos */}
-              {[1, 2, 3, 4, 5, 6].map((i) => (
-                <div key={i} className="text-sm font-bold text-gray-400" data-testid={`brand-${i}`}>
-                  BRAND
+            <div className="grid grid-cols-3 md:grid-cols-6 gap-8 items-center justify-items-center">
+              {brandLogos.map((logo, i) => (
+                <div key={i} className="h-12 flex items-center justify-center" data-testid={`brand-${i + 1}`}>
+                  <img 
+                    src={logo}
+                    alt={`Brand ${i + 1}`}
+                    className="max-h-full w-auto object-contain opacity-70 grayscale hover:opacity-100 hover:grayscale-0 transition-all"
+                  />
                 </div>
               ))}
             </div>
@@ -186,19 +202,18 @@ export default function SocialMediaCreativeManagement() {
           {/* Final CTA - Teal Card with Team Photo */}
           <div className="bg-[#5FD4C4] rounded-3xl overflow-hidden" data-testid="card-final-cta">
             <div className="p-10 md:p-16">
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-black mb-6">
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-black mb-8">
                 Don't be <span className="text-white">sheepish</span> let's talk
               </h2>
-              <Button 
-                size="lg"
-                className="bg-black text-white hover:bg-gray-800 rounded-full px-10 py-6 text-lg font-semibold"
+              <button
+                className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-lg font-semibold hover-elevate active-elevate-2"
                 data-testid="button-lets-chat"
               >
                 Let's Chat
-                <div className="ml-3 w-10 h-10 bg-black rounded-full flex items-center justify-center border-2 border-white">
-                  <ArrowRight className="h-5 w-5 text-white" />
+                <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+                  <ArrowRight className="h-5 w-5 text-black" />
                 </div>
-              </Button>
+              </button>
             </div>
             
             {/* Team Photo at bottom of card */}
@@ -221,16 +236,15 @@ export default function SocialMediaCreativeManagement() {
               <input 
                 type="email"
                 placeholder="Email"
-                className="flex-1 px-6 py-4 rounded-full bg-gray-800 border-none text-white placeholder-gray-400"
+                className="flex-1 px-6 py-4 rounded-full bg-gray-800 border-none text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#5FD4C4]"
                 data-testid="input-email"
               />
-              <Button 
-                size="lg"
-                className="bg-white text-black hover:bg-gray-100 rounded-full px-8"
+              <button
+                className="bg-white text-black rounded-full px-8 py-4 hover-elevate active-elevate-2"
                 data-testid="button-submit-email"
               >
                 <ArrowRight className="h-5 w-5" />
-              </Button>
+              </button>
             </div>
           </div>
         </div>
