@@ -67,7 +67,7 @@ export default function SocialMediaCreativeManagement() {
         "Motion Design, Animation and Graphics"
       ],
       learnMore: "Learn more about Creative",
-      link: "#"
+      link: "/services/creative"
     },
     {
       title: "Influencer",

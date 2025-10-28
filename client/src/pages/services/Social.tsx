@@ -133,6 +133,10 @@ export default function Social() {
       {/* Hero Section */}
       <section className="py-12 px-4 bg-white">
         <div className="max-w-4xl mx-auto">
+          <div className="flex items-center gap-2 mb-6">
+            <div className="w-8 h-0.5 bg-black"></div>
+          </div>
+          
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-black mb-8" data-testid="heading-social">
             Social
           </h1>

@@ -9,6 +9,7 @@ import ServiceDetail from "@/pages/ServiceDetail";
 import SocialMediaCreativeManagement from "@/pages/services/SocialMediaCreativeManagement";
 import Social from "@/pages/services/Social";
 import Paid from "@/pages/services/Paid";
+import Creative from "@/pages/services/Creative";
 import AdCreative from "@/pages/services/AdCreative";
 import WebDesign from "@/pages/services/WebDesign";
 import VideoProduction from "@/pages/services/VideoProduction";
@@ -52,6 +53,7 @@ function Router() {
       <Route path="/services/social-media-management" component={SocialMediaCreativeManagement} />
       <Route path="/services/social" component={Social} />
       <Route path="/services/paid" component={Paid} />
+      <Route path="/services/creative" component={Creative} />
       <Route path="/services/ad-creative" component={AdCreative} />
       <Route path="/services/web-design" component={WebDesign} />
       <Route path="/services/video-production" component={VideoProduction} />

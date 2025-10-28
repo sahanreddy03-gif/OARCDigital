@@ -1,94 +1,100 @@
 import { useState } from 'react';
 import { Link } from 'wouter';
-import { ArrowRight, CheckCircle, ChevronLeft, ChevronRight, BarChart, Palette, Settings, Target, TrendingUp, Play } from 'lucide-react';
-import { SiMeta, SiGoogle, SiTiktok, SiPinterest } from 'react-icons/si';
+import { ArrowRight, CheckCircle, ChevronLeft, ChevronRight, Camera, Palette, Briefcase, Video, FileText, Play } from 'lucide-react';
 import Layout from '@/components/layout/Layout';
-import formalTeamImg from '@assets/stock_images/formal_business_team_e3dbd64c.jpg';
-import conferenceTeamImg from '@assets/stock_images/business_team_at_con_35a6f7e7.jpg';
-import studioImg from '@assets/stock_images/podcast_studio_recor_a6925bd7.jpg';
+import videoProductionImg from '@assets/stock_images/video_production_beh_bd5a9a1a.jpg';
+import cameraMonitorImg from '@assets/stock_images/camera_monitor_displ_2de527a0.jpg';
+import designWorkspaceImg from '@assets/stock_images/graphic_designer_wor_df6aa1c0.jpg';
 import largeTeamImg from '@assets/stock_images/large_corporate_team_3b815cb4.jpg';
 
-export default function Paid() {
+export default function Creative() {
   const [currentService, setCurrentService] = useState(0);
   const [currentBenefit, setCurrentBenefit] = useState(0);
 
   const services = [
     {
-      icon: Target,
-      title: 'Strategy',
-      description: 'We develop your multi-channel Paid Media strategy',
+      icon: Camera,
+      title: 'Capabilities',
+      description: 'We deliver creative for social in a variety of ways',
       items: [
-        'Media Planning',
-        'Performance Creative Strategy',
-        'Channel Strategy',
-        'Budget Allocation & Pacing'
+        'Strategy',
+        'Videography',
+        'Photography',
+        'Art Direction',
+        'Graphic & Motion Design, AR and Animation'
       ]
     },
     {
-      icon: TrendingUp,
-      title: 'Media Buying',
-      description: 'We manage Paid Social, Paid Search and Display',
+      icon: Video,
+      title: 'Paid Social Creative',
+      description: 'We produce Paid Social creative',
       items: [
-        'Campaign Management',
-        'Optimisation',
-        'Copywriting',
-        'A/B Testing'
-      ]
-    },
-    {
-      icon: BarChart,
-      title: 'Analytics & Reporting',
-      description: 'We provide bespoke analytics and reporting solutions',
-      items: [
-        'Custom Reporting Dashboard',
-        'Visualisation Tools',
-        'Tag Implementation',
-        'GA4'
+        'Full-funnel Paid Social creative',
+        'High-production Video',
+        'UGC',
+        'Design'
       ]
     },
     {
       icon: Palette,
-      title: 'Creative',
-      description: 'We deliver creative strategy and asset production for Paid',
+      title: 'Campaigns',
+      description: 'We deliver social-first Creative campaigns',
       items: [
-        'Paid Social Video',
-        'Graphic Design',
-        'UGC for Paid',
-        'Adapting Existing Assets'
+        'Strategy',
+        'Campaign Ideation',
+        'Planning, Scriptwriting, Briefing',
+        'Production and Post-Production',
+        'Insights & Analysis'
       ]
     },
     {
-      icon: Settings,
-      title: 'Feed Management',
-      description: 'We manage your product feed for optimal Shopping performance',
+      icon: Briefcase,
+      title: 'Creative Services',
+      description: 'We handle the logistics side of production',
       items: [
-        'Feed Optimisation',
-        'Feed A/B Tests',
-        'CSS (Comparison Shopping Service)'
+        'Talent & Location Sourcing',
+        'International Shoots',
+        'Logistic Management',
+        'Props Sourcing'
+      ]
+    },
+    {
+      icon: FileText,
+      title: 'Organic Social Creative',
+      description: 'We produce social-first creative for organic social',
+      items: [
+        'Reels',
+        'TikTok',
+        'UGC',
+        'Design'
       ]
     }
   ];
 
   const benefits = [
     {
-      title: 'Multi-Award Winning',
-      description: 'We\'ve won multiple awards for our Paid Media campaigns, including Best Direct Response Campaign, Best Integrated Campaign and Best Use of Facebook/Instagram Ads'
+      title: 'Social Creative specialists',
+      description: 'We\'re not just creatives, but social creatives. Our team understands the algorithms and what makes them tick.'
     },
     {
-      title: 'Data-driven Approach',
-      description: 'We take a data-driven approach, which has helped us achieve consistent results, with 93% of our clients increasing their ROAS and revenue within the first 3 months of working together.'
+      title: 'Dedicated studio space',
+      description: 'We\'ve built a custom studio within our HQ, which means we can turn around content without always needing to hire out expensive locations.'
     },
     {
-      title: 'Channel Partners',
-      description: 'We\'ve been recognised by Meta, Google, TikTok and Pinterest as their agency partners, so we\'re able to access Beta\'s and insights others can\'t.'
+      title: 'Partnerships at the major social platforms',
+      description: 'We have partnerships at the major social platforms, which gives us insight into what\'s working today and in the future.'
     },
     {
-      title: 'Creative',
-      description: 'We understand creative and what ad creatives are driving performance at every stage of the funnel.'
+      title: 'Organic & Paid Social Creative',
+      description: 'We also produce Paid Social creative that increases your ROAS and lowers customer acquisition costs.'
     },
     {
-      title: 'Analytics & Reporting',
-      description: 'We build holistic reports using Looker Studio and Funnel to provide in-depth insight.'
+      title: 'Our creative gets results',
+      description: 'From producing videos that receive millions of views to building long-term creative strategies that shift brand perception, our creative gets results.'
+    },
+    {
+      title: 'Flexible and transparent team',
+      description: 'We built custom solutions based on your challenges and needs. Get in touch to see how we can help.'
     }
   ];
 
@@ -106,8 +112,8 @@ export default function Paid() {
 
   return (
     <Layout
-      title="Paid Media Services - OARC Digital"
-      description="Performance-driven Paid Social and Paid Search campaigns that deliver sustainable growth and incrementality in profitability, growth and brand uplift."
+      title="Creative Services - OARC Digital"
+      description="Delivering outstanding Creative across Video, Design and Motion. Social-first creative specialists producing content that gets results."
     >
       {/* Hero Section */}
       <section className="py-16 px-4 bg-white">
@@ -116,20 +122,20 @@ export default function Paid() {
             <div className="w-8 h-0.5 bg-black"></div>
           </div>
 
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-black mb-8" data-testid="heading-paid">
-            Paid
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-black mb-8" data-testid="heading-creative">
+            Creative
           </h1>
 
           <h2 className="text-2xl md:text-3xl font-black text-black mb-6">
-            We deliver performance-driven Paid Social and Paid Search campaigns
+            Delivering outstanding Creative across Video, Design and Motion
           </h2>
 
           <p className="text-lg text-gray-700 mb-4">
-            Are you not happy with your current performance and looking for a partner that can drive sustainable growth that delivers incrementality in profitability, growth and brand uplift?
+            Is your creative uninspiring, not getting the results you're looking for and not platform-specific?
           </p>
 
           <p className="text-lg text-gray-700 mb-8">
-            We leverage Social and Search channels with platform-specific performance creative to drive growth at all stages of the funnel.
+            Whether you're in need of always-on content or campaign creative, we have the full capabilities across our Creative Strategy and Studios to bring your project to life.
           </p>
 
           <Link href="/contact">
@@ -146,19 +152,19 @@ export default function Paid() {
         </div>
       </section>
 
-      {/* Award Team Photo */}
-      <section className="py-0 px-4 bg-white">
+      {/* Video Production Photo */}
+      <section className="py-8 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
           <img 
-            src={formalTeamImg}
-            alt="OARC Digital Award Ceremony"
+            src={videoProductionImg}
+            alt="Video Production Behind the Scenes"
             className="w-full h-[400px] md:h-[500px] object-cover rounded-3xl"
-            data-testid="img-award-team"
+            data-testid="img-video-production"
           />
         </div>
       </section>
 
-      {/* Award-Winning Agency Section */}
+      {/* Social Creative Specialists Section */}
       <section className="py-16 px-4 bg-white">
         <div className="max-w-4xl mx-auto">
           <div className="flex items-center gap-2 mb-6">
@@ -166,19 +172,19 @@ export default function Paid() {
           </div>
 
           <h2 className="text-4xl md:text-5xl font-black text-black mb-6">
-            We're an Award-Winning Paid Media Agency
+            We're social creative specialists
           </h2>
 
           <p className="text-lg text-gray-700 mb-4">
-            Having recently won 'Best Integrated Paid Media Campaign', Best Use of Facebook & Instagram Ads' and 'Best Direct Response Campaign' the Year', we know how to build and optimise full-funnel Paid Media strategies that grow brands at scale.
+            Gone are the days when you can use cutdowns of campaigns and chuck them on social. Creative needs to be produced by specialists that understand the algorithms of where it's being distributed and the purpose of each piece of content.
           </p>
 
           <p className="text-lg text-gray-700 mb-4">
-            Our team manages Paid Social and Paid Search for scaleups, household names, and global brands. So, we know how to scale ad accounts, drive incrementality, deliver creative strategies and create a dramatic shift in performance.
+            Our team solely work on social and digital creatives... that's all they do. That's why brands work with us instead of your traditional creative or production agencies.
           </p>
 
           <p className="text-lg text-gray-700 mb-8">
-            We're also agency partners with Meta, Google (Premier Partner status), TikTok and Pinterest which give us access to unique insight, ad credits and beta tests.
+            Whether it's Creative for Campaigns, Always-On or TikTok, Reels, Feed, Stories or Paid Social - we've got you covered.
           </p>
 
           <Link href="/contact">
@@ -195,39 +201,19 @@ export default function Paid() {
         </div>
       </section>
 
-      {/* Platform Partners */}
-      <section className="py-12 px-4 bg-white">
-        <div className="max-w-4xl mx-auto">
-          <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12">
-            <div className="w-16 h-16 bg-black rounded-lg flex items-center justify-center" data-testid="icon-meta">
-              <SiMeta className="h-8 w-8 text-white" />
-            </div>
-            <div className="w-16 h-16 bg-black rounded-lg flex items-center justify-center" data-testid="icon-google">
-              <SiGoogle className="h-8 w-8 text-white" />
-            </div>
-            <div className="w-16 h-16 bg-black rounded-lg flex items-center justify-center" data-testid="icon-tiktok">
-              <SiTiktok className="h-8 w-8 text-white" />
-            </div>
-            <div className="w-16 h-16 bg-black rounded-lg flex items-center justify-center" data-testid="icon-pinterest">
-              <SiPinterest className="h-8 w-8 text-white" />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Conference Team Photo */}
+      {/* Camera Monitor Photo */}
       <section className="py-8 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
           <img 
-            src={conferenceTeamImg}
-            alt="OARC Digital Team at Conference"
+            src={cameraMonitorImg}
+            alt="Camera Monitor Display"
             className="w-full h-[400px] md:h-[500px] object-cover rounded-3xl"
-            data-testid="img-conference-team"
+            data-testid="img-camera-monitor"
           />
         </div>
       </section>
 
-      {/* Strategic Approach Section */}
+      {/* Strategy to Delivery Section */}
       <section className="py-16 px-4 bg-white">
         <div className="max-w-4xl mx-auto">
           <div className="flex items-center gap-2 mb-6">
@@ -235,19 +221,19 @@ export default function Paid() {
           </div>
 
           <h2 className="text-4xl md:text-5xl font-black text-black mb-6">
-            Our Strategic Approach to Future Proofing Your Brand
+            Our creatives spans from strategy to delivery
           </h2>
 
           <p className="text-lg text-gray-700 mb-4">
-            The Paid Media landscape is ever-changing, and that's why we constantly stay on top of it.
+            Our Studio includes a range of talented strategists, art directors, copywriters, creators, videographers, designers, and animators.
           </p>
 
           <p className="text-lg text-gray-700 mb-4">
-            We're here to be your eyes and ears of what's happening, how platforms are changing and how we need to be adapting our strategy for you.
+            We truly understand what works on Social and Digital channels which allows us to deliver industry-leading creative for our clients.
           </p>
 
           <p className="text-lg text-gray-700 mb-8">
-            We'll then work with you to deliver the direction of your Paid Media strategy and then implement campaign management, optimisation, creative strategy, channel management, budget allocation, attribution modelling, feed optimisation and analytics.
+            See some of our teams' work further below.
           </p>
 
           <Link href="/contact">
@@ -264,19 +250,19 @@ export default function Paid() {
         </div>
       </section>
 
-      {/* Studio Photo */}
+      {/* Design Workspace Photo */}
       <section className="py-8 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
           <img 
-            src={studioImg}
-            alt="OARC Digital Studio"
+            src={designWorkspaceImg}
+            alt="Design Workspace"
             className="w-full h-[400px] md:h-[500px] object-cover rounded-3xl"
-            data-testid="img-studio"
+            data-testid="img-design-workspace"
           />
         </div>
       </section>
 
-      {/* Reporting Section */}
+      {/* Always-on Content Section */}
       <section className="py-16 px-4 bg-white">
         <div className="max-w-4xl mx-auto">
           <div className="flex items-center gap-2 mb-6">
@@ -284,27 +270,23 @@ export default function Paid() {
           </div>
 
           <h2 className="text-4xl md:text-5xl font-black text-black mb-6">
-            Reporting, Analysis and Attribution Modelling
+            Always-on content and creative campaigns
           </h2>
 
           <p className="text-lg text-gray-700 mb-4">
-            To make the right decisions with your paid media spend, it's important to have a robust reporting solution that can break down all your data into easily digestible numbers.
-          </p>
-
-          <p className="text-lg text-gray-700 mb-4">
-            Our custom reporting breaks down each channel and shows you which campaigns, audiences, creative and copy are driving performance.
+            Whether you're looking for a retained creative agency that can produce social-first content or someone to deliver a large-scale creative project, we are set up to deliver.
           </p>
 
           <p className="text-lg text-gray-700 mb-8">
-            We're also able to build in metrics that are vital for your business to track, making it completely bespoke to you.
+            We're flexible and agile to your individual needs and know how to deliver creative that will excite you and your audience.
           </p>
 
           <Link href="/contact">
             <button
               className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-lg font-semibold hover-elevate active-elevate-2"
-              data-testid="button-contact"
+              data-testid="button-get-in-touch-3"
             >
-              Contact
+              Get In Touch To See How We Can Help You
               <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
                 <ArrowRight className="h-5 w-5 text-black" />
               </div>
@@ -317,7 +299,7 @@ export default function Paid() {
       <section className="py-16 px-4 bg-gray-50">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-black text-black mb-2">
-            Our full-service Paid Media offering...
+            Our full-service Creative offering...
           </h2>
 
           {/* Carousel Dots */}
@@ -373,62 +355,81 @@ export default function Paid() {
         </div>
       </section>
 
-      {/* Case Studies Section */}
-      <section className="py-16 px-4 bg-gray-50">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-black text-black mb-8">
-            How we've used Paid to grow our clients
-          </h2>
-
-          <Link href="/contact">
-            <button className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-lg font-semibold hover-elevate active-elevate-2 mb-8">
-              View All Case Studies
-              <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center border-2 border-white">
-                <ArrowRight className="h-5 w-5 text-white" />
-              </div>
-            </button>
-          </Link>
-
-          <div className="relative bg-gradient-to-br from-gray-800 to-gray-900 rounded-3xl overflow-hidden h-[500px]" data-testid="card-case-study">
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
-            <div className="absolute bottom-0 left-0 right-0 p-10 text-white">
-              <div className="flex gap-3 mb-4">
-                <span className="px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-semibold">
-                  Paid Media
-                </span>
-                <span className="px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-semibold">
-                  Creative
-                </span>
-              </div>
-              <h3 className="text-3xl font-black mb-2">Passenger</h3>
-              <p className="text-lg text-gray-200">
-                Increased Revenue by 10x with Paid Social & Search - Award Winning Campaign
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Performance Creatives Section */}
-      <section className="py-16 px-4 bg-gray-50">
+      {/* Campaign Creatives Section */}
+      <section className="py-16 px-4 bg-white">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-black text-black mb-2">
-            Checkout our latest <span className="text-[#5FD4C4]">Performance Creatives</span>
+            Checkout our latest <span className="text-[#5FD4C4]">Campaign Creatives</span>
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
-            <div className="relative bg-gray-300 rounded-3xl overflow-hidden h-[400px] group" data-testid="card-video-1">
+          <div className="grid grid-cols-2 gap-6 mt-8">
+            <div className="relative bg-gray-300 rounded-3xl overflow-hidden h-[400px] group" data-testid="card-video-campaign-1">
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="w-20 h-20 bg-[#5FD4C4] rounded-full flex items-center justify-center">
                   <Play className="h-10 w-10 text-white ml-1" />
                 </div>
               </div>
               <div className="absolute bottom-0 left-0 right-0 p-6">
-                <h3 className="text-xl font-black text-white">New Store Opening for Uniqlo</h3>
+                <h3 className="text-xl font-black text-white">19 Crimes x Halloween</h3>
               </div>
             </div>
 
-            <div className="relative bg-gray-300 rounded-3xl overflow-hidden h-[400px] group" data-testid="card-video-2">
+            <div className="relative bg-gray-300 rounded-3xl overflow-hidden h-[400px] group" data-testid="card-video-campaign-2">
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-20 h-20 bg-[#5FD4C4] rounded-full flex items-center justify-center">
+                  <Play className="h-10 w-10 text-white ml-1" />
+                </div>
+              </div>
+              <div className="absolute bottom-0 left-0 right-0 p-6">
+                <h3 className="text-xl font-black text-white">Very Lazy x Beneath the Cloves</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Organic Social Creatives Section */}
+      <section className="py-16 px-4 bg-white">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-black text-black mb-2">
+            Checkout our latest <span className="text-[#5FD4C4]">Organic Social Creatives</span>
+          </h2>
+
+          <div className="grid grid-cols-2 gap-6 mt-8">
+            <div className="relative bg-gray-300 rounded-3xl overflow-hidden h-[400px] group" data-testid="card-video-organic-1">
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-20 h-20 bg-[#5FD4C4] rounded-full flex items-center justify-center">
+                  <Play className="h-10 w-10 text-white ml-1" />
+                </div>
+              </div>
+              <div className="absolute bottom-0 left-0 right-0 p-6">
+                <h3 className="text-xl font-black text-white">easyJet Holidays</h3>
+              </div>
+            </div>
+
+            <div className="relative bg-gray-300 rounded-3xl overflow-hidden h-[400px] group" data-testid="card-video-organic-2">
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-20 h-20 bg-[#5FD4C4] rounded-full flex items-center justify-center">
+                  <Play className="h-10 w-10 text-white ml-1" />
+                </div>
+              </div>
+              <div className="absolute bottom-0 left-0 right-0 p-6">
+                <h3 className="text-xl font-black text-white">VeryLazy</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Paid Social Creatives Section */}
+      <section className="py-16 px-4 bg-white">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-black text-black mb-2">
+            Checkout our latest <span className="text-[#5FD4C4]">Paid Social Creatives</span>
+          </h2>
+
+          <div className="grid grid-cols-2 gap-6 mt-8">
+            <div className="relative bg-gray-300 rounded-3xl overflow-hidden h-[400px] group" data-testid="card-video-paid-1">
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="w-20 h-20 bg-[#5FD4C4] rounded-full flex items-center justify-center">
                   <Play className="h-10 w-10 text-white ml-1" />
@@ -436,6 +437,17 @@ export default function Paid() {
               </div>
               <div className="absolute bottom-0 left-0 right-0 p-6">
                 <h3 className="text-xl font-black text-white">Glasses Direct</h3>
+              </div>
+            </div>
+
+            <div className="relative bg-gray-300 rounded-3xl overflow-hidden h-[400px] group" data-testid="card-video-paid-2">
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-20 h-20 bg-[#5FD4C4] rounded-full flex items-center justify-center">
+                  <Play className="h-10 w-10 text-white ml-1" />
+                </div>
+              </div>
+              <div className="absolute bottom-0 left-0 right-0 p-6">
+                <h3 className="text-xl font-black text-white">Adapted Assets for Passenger</h3>
               </div>
             </div>
           </div>
@@ -482,16 +494,16 @@ export default function Paid() {
           </div>
 
           {/* Benefit Card */}
-          <div className="bg-[#5FD4C4] text-black rounded-3xl p-10" data-testid="card-benefit-current">
-            <div className="w-16 h-16 bg-black rounded-full flex items-center justify-center mb-6">
+          <div className="bg-black text-white rounded-3xl p-10" data-testid="card-benefit-current">
+            <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mb-6">
               <CheckCircle className="h-8 w-8 text-[#5FD4C4]" />
             </div>
 
-            <h3 className="text-2xl md:text-3xl font-black text-black mb-4">
+            <h3 className="text-2xl md:text-3xl font-black text-white mb-4">
               {benefits[currentBenefit].title}
             </h3>
 
-            <p className="text-lg text-black">
+            <p className="text-lg text-gray-200">
               {benefits[currentBenefit].description}
             </p>
           </div>
