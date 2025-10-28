@@ -58,3 +58,26 @@ The platform utilizes a React frontend and an Express.js backend.
 **Asset Management:**
 -   Image assets in `attached_assets/`
 -   Service content in `client/public/content/services/` (JSON-based)
+
+### Recent Changes
+**October 28, 2025:**
+-   Added decorative line symbol (w-8 h-0.5 bg-black) before hero headings on Social, Paid, and Creative service pages for exact Social Shepherd clone consistency
+-   Created Creative services page (`/services/creative`) with 14 sections:
+    1. Hero section with decorative line + "Delivering outstanding Creative across Video, Design and Motion" heading
+    2. Video production behind-the-scenes photo
+    3. "We're social creative specialists" content section with CTA
+    4. Camera monitor display photo
+    5. "Our creatives spans from strategy to delivery" content section with CTA
+    6. Design workspace dual monitors photo
+    7. "Always-on content and creative campaigns" content section with CTA
+    8. "Our full-service Creative offering" single-card carousel (5 services)
+    9. "Checkout our latest Campaign Creatives" video showcase section (2 videos)
+    10. "Checkout our latest Organic Social Creatives" video showcase section (2 videos)
+    11. "Checkout our latest Paid Social Creatives" video showcase section (2 videos)
+    12. "Why The Social Shepherd?" benefits carousel (6 benefits)
+    13. Final teal CTA card (#5FD4C4) with team photo
+    14. Newsletter signup section
+-   All CTAs on Creative page link to `/contact`
+-   Creative page follows exact Social Shepherd design: teal #5FD4C4, font-black headings, rounded-3xl corners, black square icons with white symbols, teal play buttons and checkmarks
+-   Stock images downloaded: video production setup, camera monitor, design workspace
+-   Page tested and passed comprehensive E2E tests (39 verification steps)
