@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/layout/Layout";
 import { useEffect } from "react";
+import { Link } from "wouter";
 import { 
   ArrowRight, CheckCircle, Smartphone, Target, Palette, Users,
   Instagram, Linkedin, Facebook
@@ -39,7 +40,8 @@ export default function SocialMediaCreativeManagement() {
         "Social-first Content Creation",
         "Social Listening & Insights"
       ],
-      learnMore: "Learn more about Social"
+      learnMore: "Learn more about Social",
+      link: "/services/social"
     },
     {
       title: "Paid",
@@ -51,7 +53,8 @@ export default function SocialMediaCreativeManagement() {
         "Planning, Buying, Creative, Analytics, Testing and more.",
         "Feed Optimisation & Shopping"
       ],
-      learnMore: "Learn more about Paid"
+      learnMore: "Learn more about Paid",
+      link: "#"
     },
     {
       title: "Creative",
@@ -63,7 +66,8 @@ export default function SocialMediaCreativeManagement() {
         "Creative Strategy, Art Direction & Campaigns",
         "Motion Design, Animation and Graphics"
       ],
-      learnMore: "Learn more about Creative"
+      learnMore: "Learn more about Creative",
+      link: "#"
     },
     {
       title: "Influencer",
@@ -75,7 +79,8 @@ export default function SocialMediaCreativeManagement() {
         "Content Creators for UGC Content",
         "Wrap Reports and Analysis"
       ],
-      learnMore: "Learn more about Influencer"
+      learnMore: "Learn more about Influencer",
+      link: "#"
     }
   ];
 
@@ -151,14 +156,16 @@ export default function SocialMediaCreativeManagement() {
                 </ul>
 
                 {/* Learn More Button - Exact Social Shepherd style */}
-                <Button
-                  variant="outline"
-                  className="w-full border border-black text-black rounded-full font-semibold"
-                  data-testid={`button-learn-${service.title.toLowerCase()}`}
-                >
-                  {service.learnMore}
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
+                <Link href={service.link}>
+                  <Button
+                    variant="outline"
+                    className="w-full border border-black text-black rounded-full font-semibold"
+                    data-testid={`button-learn-${service.title.toLowerCase()}`}
+                  >
+                    {service.learnMore}
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </Link>
               </div>
             ))}
           </div>
