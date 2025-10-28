@@ -1,7 +1,7 @@
 # OARC Digital - Marketing Agency Platform
 
 ### Overview
-OARC Digital (Optimised AI Revenue Creativity) is a marketing agency platform built with React and Express, showcasing AI-powered creative services, AI employees, and revenue automation solutions. It targets a premium market with a high-end aesthetic and sophisticated animations, aiming to provide a scalable platform for AI-powered marketing. The project features a multi-page architecture supporting 25 distinct service offerings and 6 supporting pages.
+OARC Digital (Optimised AI Revenue Creativity) is a marketing agency platform built with React and Express. It aims to provide AI-powered creative services, AI employees, and revenue automation solutions to a premium market. The platform features a high-end aesthetic, sophisticated animations, and a multi-page architecture supporting 25 distinct service offerings and 6 supporting pages.
 
 ### User Preferences
 Preferred communication style: Simple, everyday language.
@@ -11,12 +11,17 @@ The platform utilizes a React frontend and an Express.js backend.
 
 **Frontend:**
 -   **Framework:** React 18+ with TypeScript, using Vite.
--   **UI/Styling:** Shadcn/ui (New York style) based on Radix UI, Tailwind CSS with a custom HSL-based color palette, Inter and Space Grotesk typography, and CSS animations.
+-   **UI/Styling:** Shadcn/ui (New York style) based on Radix UI, Tailwind CSS with a custom HSL-based color palette, Inter and Space Grotesk typography, and CSS animations (including Framer Motion for scroll animations).
 -   **State Management & Routing:** Wouter for routing, TanStack Query for server state, React Hook Form with Zod for form validation.
--   **Design System:** Features a two-palette color system (primary green, orange-600 accents), responsive typography, and performance-conscious CSS animations.
--   **Key Features:** Includes a comprehensive homepage, 25 distinct service pages covering creative, growth, and AI services, and consistent component standards (e.g., Shadcn Button defaults, SPA-safe Open Graph tags, mobile-first responsive design).
--   **Service Pages:** Dynamically loaded content, SEO meta tags, and consistent content strategy emphasizing performance metrics and differentiation.
+-   **Design System:** Features a two-palette color system (primary green, orange-600 accents, with recent designs incorporating teal/turquoise and blue/purple brand colors), responsive typography, and performance-conscious CSS animations. All Shadcn buttons use default variants.
+-   **Key Features:** Comprehensive homepage, 25 distinct service pages covering creative, growth, and AI services, consistent component standards, SPA-safe Open Graph tags, and mobile-first responsive design. Service pages include dynamically loaded content and SEO meta tags.
 -   **Navigation:** Superside-inspired master services page (`/services`) with an accordion layout, a desktop hover mega menu, and footer service categories, ensuring all 25 service pages are accessible.
+-   **Interactive Elements:** Enhanced `ScrollableCards` component with mouse drag support, grab/grabbing cursor states, and unique test IDs for multiple instances. Carousels feature navigation dots and arrow buttons appearing on hover.
+-   **Page Design Examples (Social Shepherd and Superside inspired):**
+    -   Sections include hero, award recognition, platform partner logos, strategic approach content, full-service carousels, case studies, creative showcases, benefits carousels, and CTA cards.
+    -   Specific designs feature exact brand color replication (e.g., Social Shepherd's teal #5FD4C4), font-black headings, rounded-3xl corners on images/cards, black square icons with white symbols, and teal checkmarks.
+    -   Superside-inspired pages feature parallax scroll effects, horizontal scrolling service carousels, 3-category service tabs with interactive animations, platform expertise sections, AI-enhanced sections, stats grids, and case studies with stagger animations.
+    -   Employs `ScrollReveal` component for fade-in + slide-up animations, hero parallax effects, and 60fps smooth animations with GPU acceleration.
 
 **Backend:**
 -   **Framework:** Express.js with TypeScript.
@@ -29,9 +34,12 @@ The platform utilizes a React frontend and an Express.js backend.
 
 **Third-Party UI Libraries:**
 -   Radix UI
+-   Shadcn/ui
 -   Embla Carousel
 -   Lucide React (icons)
 -   CMDK (command palette)
+-   Framer Motion (for animations)
+-   react-icons (for social media icons)
 
 **Database & Infrastructure:**
 -   Neon Database (PostgreSQL serverless)
@@ -50,178 +58,3 @@ The platform utilizes a React frontend and an Express.js backend.
 **Asset Management:**
 -   Image assets in `attached_assets/`
 -   Service content in `client/public/content/services/` (JSON-based)
-
-### Recent Changes (October 28, 2025)
-
-**Social Shepherd Exact Clone - Social Services Page:**
--   Created pixel-perfect clone of Social Shepherd's Social page at `/services/social`
--   **13 Complete Sections:**
-    1. Hero Section: "Social" heading with description and "Let's Chat" CTA
-    2. Conference room meeting image
-    3. "Social-first strategies, for our social-first world" content section
-    4. Gaming/arcade neon lights image  
-    5. "Platform-specific social content" section
-    6. Award ceremony team photo
-    7. "We take a data-driven approach to social" content section
-    8. "Our full-service Social offering" carousel (5 services)
-    9. "Our Social Case Studies" with BEYBLADE case study card
-    10. "Checkout our latest Social content" with 2 video placeholders
-    11. "Why Social Shepherd?" benefits carousel (5 benefits)
-    12. Final teal CTA card with "Don't be sheepish let's talk" and team photo
-    13. Newsletter section with email signup
--   **Interactive Carousels:**
-    -   Services carousel: 5 cards (Channel & Community Management, Content Creation, Paid Social, Influencer & UGC, Reporting & Insights)
-    -   Benefits carousel: 5 cards (Meta Business Partner, Specialists, Engaging content, Custom reports, Social transformation)
-    -   Both with navigation dots and arrow buttons
--   **Design Specifications:**
-    -   Exact teal color (#5FD4C4) matching Social Shepherd
-    -   Font-black (900 weight) headings throughout
-    -   Rounded-3xl (24px) corners on all images and cards
-    -   Black square icons with white symbols
-    -   Teal checkmarks for bullet points and benefit icons
--   **Navigation & CTAs:**
-    -   All 6 CTA buttons properly linked to `/contact`
-    -   Accessible from `/services/social-media-creative-management` via "Learn more about Social" button
-    -   Route registered at `/services/social`
--   **High-Quality Stock Images:**
-    -   Conference room business meeting
-    -   Gaming arcade with neon lights
-    -   Award ceremony formal team photo
-    -   Large team photo for final CTA
-    -   Video content placeholders
--   **E2E Testing:** All tests passed - navigation, carousels, CTAs, visual elements verified
-
-**Social Shepherd Exact Clone - Social Media Creative & Management Page:**
--   Created pixel-perfect clone of Social Shepherd's services page at `/services/social-media-creative-management`
--   **Exact Design Specifications:**
-    -   Teal color palette: #5FD4C4 (rgb(95,212,196)) - Social Shepherd's exact brand color
-    -   Typography: Font-black (900 weight) for all headings, clean sans-serif body text
-    -   Rounded corners: rounded-3xl (24px) throughout entire page
-    -   Layout structure matches screenshot references exactly
--   **Page Sections (Exact Clone):**
-    1. Teal "How we help" card - Large hero section explaining service offerings
-    2. Award ceremony team photo - Full-width image showcasing team recognition
-    3. 4 Service cards grid (2x2 layout):
-        -   Social (Smartphone icon) - 4 service points
-        -   Paid (Target icon) - 4 service points
-        -   Creative (Palette icon) - 4 service points
-        -   Influencer (Users icon) - 4 service points
-        -   Each card: Black square icon, checkmark bullets, outline button with arrow
-    4. "Working Across" platform icons - 7 social platforms (Instagram, Facebook, Google, Pinterest, Snapchat, TikTok, YouTube)
-    5. Brand logos carousel - 6 corporate logos with grayscale hover effect (NOTE: Uses stock logos instead of Social Shepherd's client logos due to copyright)
-    6. Final teal CTA card - "Don't be sheepish let's talk" with team photo
-    7. Newsletter section - Black card with email signup
--   **Component Implementation:**
-    -   Service card buttons: Shadcn Button with outline variant, thin border, arrow icon
-    -   "Let's Chat" CTA: Black button with white arrow circle (black arrow inside)
-    -   Platform icons: Lucide React and react-icons social media icons
-    -   High-quality stock photos: Award ceremony team, large team photo
--   **Design Details:**
-    -   Black square icons (16x16) with white symbols for each service
-    -   Checkmark bullets using CheckCircle from Lucide React in teal color
-    -   Hover effects on brand logos (opacity and grayscale removal)
-    -   Responsive grid layouts for mobile/tablet/desktop
--   **Known Limitation:**
-    -   Brand logos use high-quality stock corporate logos instead of Social Shepherd's exact client logos (Arla, Fiverr, etc.) due to copyright restrictions
-    -   All other visual elements are exact pixel-perfect clones
-
-### Recent Changes (October 28, 2025)
-
-**Social Media Creative & Management Page - Social Shepherd Theme Replication:**
--   Rebuilt `/services/social-media-creative-management` replicating Social Shepherd's exact design approach
--   **Design Philosophy:** Clean, professional aesthetic with teal/turquoise brand identity and high-quality imagery
--   **Color Palette:** Social Shepherd-inspired teal/turquoise theme
-    -   Primary Brand Color: Teal-600 (#0d9488) and Cyan accents
-    -   Backgrounds: Clean white and light gray-50
-    -   Service Cards: Teal/cyan, purple/pink, orange/amber, emerald/teal gradients
-    -   CTA Buttons: Consistent teal-600 with white text
--   **High-Quality Stock Images:**
-    -   Hero: Creative team working together in modern office
-    -   Production: Behind-the-scenes video production/creative studio
-    -   Strategy: Social media marketing strategy planning workspace
-    -   Social Phone: Instagram/TikTok mobile phone social media content
--   **Layout Structure (Social Shepherd-inspired):**
-    1. Large hero section with 2-column image/text layout and award badge
-    2. Stats bar with 4 key metrics (teal numbers)
-    3. Service grid with 4 cards in 2x2 layout (Social, Paid, Creative, Influencer)
-    4. Multiple content sections alternating image/text (social-first strategies, platform-specific content, data-driven approach)
-    5. Video content showcase grid (8 video placeholders with play buttons)
-    6. Why choose us section with teal/cyan gradient background and 6 benefit cards
-    7. Final CTA with "Don't be sheepish – let's talk" tagline
--   **Content Structure:**
-    -   Professional service descriptions matching Social Shepherd's approach
-    -   Social: 6 services (Strategy, Community Management, Content Creation, Analytics, etc.)
-    -   Paid: 6 services (Paid Social & Search, Full-Funnel Strategy, Optimization, etc.)
-    -   Creative: 6 services (Video, UGC, Art Direction, Motion Design, etc.)
-    -   Influencer: 6 services (Campaign Management, Brand Awareness, UGC, Analysis, etc.)
--   **Professional Features:**
-    -   Award badges ("Award-Winning Agency", "Best Large Social Agency")
-    -   Platform partner recognition (Meta, TikTok, Pinterest)
-    -   Data-driven approach messaging
-    -   Team specialist highlights
-    -   Custom reporting capabilities
--   **Accessibility & SEO:**
-    -   SEO optimized with page-specific title and meta description
-    -   High-resolution professional stock photography
-    -   Clean typography with bold, black font weights
-    -   WCAG-compliant color contrasts
-
-### Recent Changes (October 27, 2025)
-
-**Social Media Creative & Management Page - Superside-Inspired Rebuild:**
--   Completely rebuilt `/services/social-media-creative-management` with Superside.com design inspiration
--   Clean, minimalist professional aesthetic with high-end scroll animations
--   **11-Section Page Structure:**
-    1. Hero Section - Parallax scroll effects with opacity/scale transforms
-    2. Services Carousel - Horizontal scrolling with 6 service cards
-    3. Trusted By Section - Brand logos
-    4. 3-Category Service Tabs - Social, Paid, Influencer (18 total services)
-    5. Platform Expertise - All 8 major platforms (Instagram, TikTok, LinkedIn, Facebook, YouTube, Twitter/X, Snapchat, Pinterest)
-    6. AI-Enhanced Section - Parallax sparkles background
-    7. Stats Grid - 4 metrics with hover effects
-    8. Case Studies - 3 cards with stagger animation
-    9. Final CTA - Scale-in animation with rotating background
-    10. Scroll Indicator - Animated chevron
-    11. SEO Meta Tags
--   **Framer Motion Scroll Animations:**
-    -   ScrollReveal component: Fade-in + slide-up on viewport entry (once: true)
-    -   Hero parallax: Opacity and scale based on scroll position
-    -   Service carousel: Stagger animation (50ms delay per card, x-axis slide)
-    -   Service grid: Stagger reveals on tab switch
-    -   Platform cards: Individual fade-up + hover lift
-    -   Stats: Hover scale effects
-    -   Case studies: Stagger with hover lift (-12px translateY)
-    -   Final CTA: Scale-in from 0 to 1 on viewport
-    -   Background sparkles: 60s continuous rotation
--   **Brand Color Compliance:**
-    -   All accent colors use brand blue (#5B7FFF / 240 80% 60%)
-    -   Secondary accents use purple (280 70% 55%)
-    -   NO orange, green, yellow, red, or pink colors
-    -   All gradients use blue-to-purple or blue-to-blue combinations
--   **Shadcn Component Compliance:**
-    -   All buttons use default variants (default, outline, secondary)
-    -   NO custom hover states or bg-* overrides
-    -   Built-in hover-elevate and active-elevate-2 utilities handle interactions
--   **3-Category Service Structure:**
-    -   Interactive tabs with smooth animations
-    -   Social: 6 services (Organic content, Community management, Calendar, Video, Post design, Analytics)
-    -   Paid: 6 services (Advertising, Campaign management, A/B testing, Targeting, Retargeting, Reporting)
-    -   Influencer: 6 services (Partnerships, UGC strategy, Creator management, Ambassadors, Tracking, Content rights)
--   **Platform Coverage:**
-    -   8 platforms with gradient icon backgrounds and 3 key features each
-    -   All using brand-compliant blue/purple gradients
--   **Performance:**
-    -   60fps smooth animations with GPU acceleration
-    -   Viewport optimization (once: true prevents re-animation)
-    -   Passive scroll listeners
-    -   Stagger delays prevent animation overload
-
-**ScrollableCards Component - Mouse Drag Functionality:**
--   Enhanced `ScrollableCards` component with full mouse drag scrolling support
--   Configuration: `dragFree: true` enables free-form horizontal dragging
--   Added grab/grabbing cursor states for visual feedback
--   Implemented unique test IDs via optional `id` prop to support multiple carousel instances
--   Component now accepts configurable `id` parameter (defaults to 'carousel')
--   Button test IDs are unique per instance: `button-scroll-prev-${id}`, `button-scroll-next-${id}`
--   Navigation arrows appear on hover with smooth opacity transitions
--   Fixed horizontal overflow issues across all service pages
