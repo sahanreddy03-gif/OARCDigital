@@ -1,8 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import Layout from "@/components/layout/Layout";
-import { motion, useInView, useScroll, useTransform, AnimatePresence } from "framer-motion";
-import { useRef, useState } from "react";
+import { motion, useInView, useScroll, useTransform, AnimatePresence, useReducedMotion } from "framer-motion";
+import { useRef, useState, useEffect, useMemo } from "react";
 import { 
   Zap, Sparkles, TrendingUp, Eye, Heart, Share2, MessageCircle,
   Video, Image, Users, Target, BarChart, Rocket, Star, ArrowRight,
@@ -30,26 +30,34 @@ function AnimatedWord({ children, delay = 0 }: { children: string; delay?: numbe
 }
 
 // Floating particle component
-function FloatingParticle({ delay, duration, x, y }: { delay: number; duration: number; x: number; y: number }) {
+function FloatingParticle({ delay, duration, x, y, left, top, shouldAnimate }: { 
+  delay: number; 
+  duration: number; 
+  x: number; 
+  y: number; 
+  left: number;
+  top: number;
+  shouldAnimate: boolean;
+}) {
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0 }}
-      animate={{ 
+      animate={shouldAnimate ? { 
         opacity: [0, 1, 1, 0],
         scale: [0, 1, 1, 0],
         y: [0, -100, -200, -300],
         x: [0, x, x * 1.5, x * 2]
-      }}
-      transition={{ 
+      } : { opacity: 0.3, scale: 1 }}
+      transition={shouldAnimate ? { 
         duration,
         delay,
         repeat: Infinity,
         ease: "easeInOut"
-      }}
+      } : {}}
       className="absolute w-2 h-2 rounded-full bg-gradient-to-r from-pink-500 to-purple-500"
       style={{ 
-        left: `${Math.random() * 100}%`,
-        top: `${Math.random() * 100}%`
+        left: `${left}%`,
+        top: `${top}%`
       }}
     />
   );
@@ -58,6 +66,8 @@ function FloatingParticle({ delay, duration, x, y }: { delay: number; duration: 
 export default function SocialMediaCreativeManagement() {
   const [activeService, setActiveService] = useState(0);
   const heroRef = useRef(null);
+  const shouldReduceMotion = useReducedMotion();
+  
   const { scrollYProgress } = useScroll({
     target: heroRef,
     offset: ["start start", "end start"]
@@ -65,6 +75,39 @@ export default function SocialMediaCreativeManagement() {
 
   const y = useTransform(scrollYProgress, [0, 1], ['0%', '50%']);
   const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0.5, 0]);
+
+  // SEO
+  useEffect(() => {
+    document.title = "Social Media Creative & Management | OARC Digital";
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute("content", "Ultra-modern social media creative services that stop the scroll. Viral content creation, dopamine-driven design, and platform domination strategies.");
+    }
+  }, []);
+
+  // Memoize particle positions to prevent layout jumps
+  const particles = useMemo(() => 
+    Array.from({ length: 30 }, (_, i) => ({
+      id: i,
+      delay: i * 0.2,
+      duration: 8 + Math.random() * 4,
+      x: -50 + Math.random() * 100,
+      y: -200 - Math.random() * 200,
+      left: Math.random() * 100,
+      top: Math.random() * 100
+    })),
+    []
+  );
+
+  const ctaParticles = useMemo(() =>
+    Array.from({ length: 50 }, (_, i) => ({
+      id: i,
+      duration: 3 + Math.random() * 2,
+      delay: Math.random() * 5,
+      left: Math.random() * 100
+    })),
+    []
+  );
 
   const services = [
     {
@@ -113,13 +156,16 @@ export default function SocialMediaCreativeManagement() {
       >
         {/* Animated Background Particles */}
         <div className="absolute inset-0 overflow-hidden">
-          {[...Array(30)].map((_, i) => (
+          {particles.map((particle) => (
             <FloatingParticle 
-              key={i}
-              delay={i * 0.2}
-              duration={8 + Math.random() * 4}
-              x={-50 + Math.random() * 100}
-              y={-200 - Math.random() * 200}
+              key={particle.id}
+              delay={particle.delay}
+              duration={particle.duration}
+              x={particle.x}
+              y={particle.y}
+              left={particle.left}
+              top={particle.top}
+              shouldAnimate={!shouldReduceMotion}
             />
           ))}
         </div>
@@ -170,9 +216,9 @@ export default function SocialMediaCreativeManagement() {
           >
             We create{" "}
             <motion.span
-              animate={{ 
+              animate={!shouldReduceMotion ? { 
                 color: ["#ff0080", "#ff8c00", "#00ff88", "#0088ff", "#ff0080"],
-              }}
+              } : {}}
               transition={{ duration: 3, repeat: Infinity }}
               className="font-bold"
             >
@@ -223,10 +269,10 @@ export default function SocialMediaCreativeManagement() {
             {[Instagram, Video, Image, Heart, Share2, MessageCircle].map((Icon, i) => (
               <motion.div
                 key={i}
-                animate={{
+                animate={!shouldReduceMotion ? {
                   y: [0, -20, 0],
                   rotate: [0, 5, -5, 0],
-                }}
+                } : {}}
                 transition={{
                   duration: 3 + i,
                   repeat: Infinity,
@@ -279,7 +325,7 @@ export default function SocialMediaCreativeManagement() {
               >
                 <div className="flex justify-center mb-4">
                   <motion.div
-                    animate={{ rotate: 360 }}
+                    animate={!shouldReduceMotion ? { rotate: 360 } : {}}
                     transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
                   >
                     <stat.icon className={`h-12 w-12 ${stat.color}`} />
@@ -402,7 +448,7 @@ export default function SocialMediaCreativeManagement() {
       <section className="py-32 bg-black relative overflow-hidden">
         <div className="absolute inset-0">
           <motion.div
-            animate={{ rotate: 360 }}
+            animate={!shouldReduceMotion ? { rotate: 360 } : {}}
             transition={{ duration: 50, repeat: Infinity, ease: "linear" }}
             className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-purple-500/20 to-pink-500/20 blur-3xl rounded-full"
           />
@@ -448,21 +494,21 @@ export default function SocialMediaCreativeManagement() {
       <section className="py-32 bg-gradient-to-br from-pink-600 via-purple-600 to-indigo-600 relative overflow-hidden">
         {/* Animated particles */}
         <div className="absolute inset-0">
-          {[...Array(50)].map((_, i) => (
+          {ctaParticles.map((particle) => (
             <motion.div
-              key={i}
-              animate={{
+              key={particle.id}
+              animate={!shouldReduceMotion ? {
                 y: [0, -1000],
                 opacity: [0, 1, 0]
-              }}
+              } : { opacity: 0.3 }}
               transition={{
-                duration: 3 + Math.random() * 2,
+                duration: particle.duration,
                 repeat: Infinity,
-                delay: Math.random() * 5
+                delay: particle.delay
               }}
               className="absolute w-1 h-1 bg-white rounded-full"
               style={{
-                left: `${Math.random() * 100}%`,
+                left: `${particle.left}%`,
                 bottom: 0
               }}
             />
@@ -476,7 +522,7 @@ export default function SocialMediaCreativeManagement() {
           className="max-w-5xl mx-auto px-4 text-center relative z-10"
         >
           <motion.div
-            animate={{ rotate: [0, 360] }}
+            animate={!shouldReduceMotion ? { rotate: [0, 360] } : {}}
             transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
             className="inline-block mb-8"
           >
