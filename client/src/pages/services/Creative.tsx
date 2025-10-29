@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'wouter';
 import { ArrowRight, CheckCircle, ChevronLeft, ChevronRight, Camera, Palette, Briefcase, Video, FileText, Play } from 'lucide-react';
 import Layout from '@/components/layout/Layout';
@@ -10,6 +10,14 @@ import largeTeamImg from '@assets/stock_images/large_corporate_team_3b815cb4.jpg
 export default function Creative() {
   const [currentService, setCurrentService] = useState(0);
   const [currentBenefit, setCurrentBenefit] = useState(0);
+
+  useEffect(() => {
+    document.title = "Creative Services | OARC Digital";
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute("content", "Delivering outstanding Creative across Video, Design and Motion. Social-first creative specialists producing content that gets results.");
+    }
+  }, []);
 
   const services = [
     {
@@ -111,10 +119,7 @@ export default function Creative() {
   };
 
   return (
-    <Layout
-      title="Creative Services - OARC Digital"
-      description="Delivering outstanding Creative across Video, Design and Motion. Social-first creative specialists producing content that gets results."
-    >
+    <Layout>
       {/* Hero Section */}
       <section className="py-16 px-4 bg-white">
         <div className="max-w-4xl mx-auto">
