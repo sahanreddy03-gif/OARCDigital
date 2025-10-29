@@ -152,21 +152,11 @@ export default function Paid() {
         </div>
       </section>
 
-      {/* Image Left + Text Right Section */}
+      {/* Text Left + Image Right Section */}
       <section className="py-14 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Image - Left */}
-            <div>
-              <img 
-                src={formalTeamImg}
-                alt="OARC Digital Award Ceremony"
-                className="w-full rounded-3xl h-[500px] object-cover"
-                data-testid="img-award-team"
-              />
-            </div>
-
-            {/* Text - Right */}
+            {/* Text - Left */}
             <div>
               <div className="flex items-center gap-2 mb-4">
                 <div className="w-6 h-0.5 bg-black"></div>
@@ -217,15 +207,35 @@ export default function Paid() {
                 </button>
               </Link>
             </div>
+
+            {/* Image - Right */}
+            <div>
+              <img 
+                src={formalTeamImg}
+                alt="OARC Digital Award Ceremony"
+                className="w-full rounded-3xl h-[500px] object-cover"
+                data-testid="img-award-team"
+              />
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Text Left + Image Right Section */}
+      {/* Image Left + Text Right Section */}
       <section className="py-14 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Text - Left */}
+            {/* Image - Left */}
+            <div>
+              <img 
+                src={conferenceTeamImg}
+                alt="OARC Digital Team at Conference"
+                className="w-full rounded-3xl h-[500px] object-cover"
+                data-testid="img-conference-team"
+              />
+            </div>
+
+            {/* Text - Right */}
             <div>
               <div className="flex items-center gap-2 mb-4">
                 <div className="w-6 h-0.5 bg-black"></div>
@@ -259,16 +269,6 @@ export default function Paid() {
                   </div>
                 </button>
               </Link>
-            </div>
-
-            {/* Image - Right */}
-            <div>
-              <img 
-                src={conferenceTeamImg}
-                alt="OARC Digital Team at Conference"
-                className="w-full rounded-3xl h-[500px] object-cover"
-                data-testid="img-conference-team"
-              />
             </div>
           </div>
         </div>

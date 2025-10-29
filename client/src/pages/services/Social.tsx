@@ -168,21 +168,11 @@ export default function Social() {
         </div>
       </section>
 
-      {/* Image Left + Text Right Section */}
+      {/* Text Left + Image Right Section */}
       <section className="py-14 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Image - Left */}
-            <div>
-              <img 
-                src={conferenceImg}
-                alt="Team meeting in modern office"
-                className="w-full rounded-3xl h-[500px] object-cover"
-                data-testid="img-conference"
-              />
-            </div>
-
-            {/* Text - Right */}
+            {/* Text - Left */}
             <div>
               <div className="flex items-center gap-2 mb-4">
                 <div className="w-6 h-0.5 bg-black"></div>
@@ -217,15 +207,35 @@ export default function Social() {
                 </button>
               </Link>
             </div>
+
+            {/* Image - Right */}
+            <div>
+              <img 
+                src={conferenceImg}
+                alt="Team meeting in modern office"
+                className="w-full rounded-3xl h-[500px] object-cover"
+                data-testid="img-conference"
+              />
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Text Left + Image Right Section */}
+      {/* Image Left + Text Right Section */}
       <section className="py-14 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Text - Left */}
+            {/* Image - Left */}
+            <div>
+              <img 
+                src={arcadeImg}
+                alt="Gaming arcade with neon lights"
+                className="w-full rounded-3xl h-[500px] object-cover"
+                data-testid="img-arcade"
+              />
+            </div>
+
+            {/* Text - Right */}
             <div>
               <div className="flex items-center gap-2 mb-4">
                 <div className="w-6 h-0.5 bg-black"></div>
@@ -260,35 +270,15 @@ export default function Social() {
                 </button>
               </Link>
             </div>
-
-            {/* Image - Right */}
-            <div>
-              <img 
-                src={arcadeImg}
-                alt="Gaming arcade with neon lights"
-                className="w-full rounded-3xl h-[500px] object-cover"
-                data-testid="img-arcade"
-              />
-            </div>
           </div>
         </div>
       </section>
 
-      {/* Image Left + Text Right Section */}
+      {/* Text Left + Image Right Section */}
       <section className="py-14 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Image - Left */}
-            <div>
-              <img 
-                src={awardTeamImg}
-                alt="Award ceremony team photo"
-                className="w-full rounded-3xl h-[500px] object-cover"
-                data-testid="img-award"
-              />
-            </div>
-
-            {/* Text - Right */}
+            {/* Text - Left */}
             <div>
               <div className="flex items-center gap-2 mb-4">
                 <div className="w-6 h-0.5 bg-black"></div>
@@ -322,6 +312,16 @@ export default function Social() {
                   </div>
                 </button>
               </Link>
+            </div>
+
+            {/* Image - Right */}
+            <div>
+              <img 
+                src={awardTeamImg}
+                alt="Award ceremony team photo"
+                className="w-full rounded-3xl h-[500px] object-cover"
+                data-testid="img-award"
+              />
             </div>
           </div>
         </div>

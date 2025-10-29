@@ -152,21 +152,11 @@ export default function Influencer() {
         </div>
       </section>
 
-      {/* Image Left + Text Right Section */}
+      {/* Section 1: Text Left + Image Right */}
       <section className="py-14 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Image - Left */}
-            <div>
-              <img 
-                src={picnicImg}
-                alt="Influencer Marketing Flat Lay"
-                className="w-full rounded-3xl h-[500px] object-cover"
-                data-testid="img-picnic-scene"
-              />
-            </div>
-
-            {/* Text - Right */}
+            {/* Text - Left */}
             <div>
               <div className="flex items-center gap-2 mb-4">
                 <div className="w-6 h-0.5 bg-black"></div>
@@ -205,15 +195,35 @@ export default function Influencer() {
                 </button>
               </Link>
             </div>
+
+            {/* Image - Right */}
+            <div>
+              <img 
+                src={picnicImg}
+                alt="Influencer Marketing Flat Lay"
+                className="w-full rounded-3xl h-[500px] object-cover"
+                data-testid="img-picnic-scene"
+              />
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Text Left + Image Right Section */}
+      {/* Section 2: Image Left + Text Right */}
       <section className="py-14 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Text - Left */}
+            {/* Image - Left */}
+            <div>
+              <img 
+                src={skincareImg}
+                alt="Skincare Products"
+                className="w-full rounded-3xl h-[500px] object-cover"
+                data-testid="img-skincare-products"
+              />
+            </div>
+
+            {/* Text - Right */}
             <div>
               <div className="flex items-center gap-2 mb-4">
                 <div className="w-6 h-0.5 bg-black"></div>
@@ -244,35 +254,15 @@ export default function Influencer() {
                 </button>
               </Link>
             </div>
-
-            {/* Image - Right */}
-            <div>
-              <img 
-                src={skincareImg}
-                alt="Skincare Products"
-                className="w-full rounded-3xl h-[500px] object-cover"
-                data-testid="img-skincare-products"
-              />
-            </div>
           </div>
         </div>
       </section>
 
-      {/* Image Left + Text Right Section */}
+      {/* Section 3: Text Left + Image Right */}
       <section className="py-14 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Image - Left */}
-            <div>
-              <img 
-                src={packageImg}
-                alt="Package Delivery"
-                className="w-full rounded-3xl h-[500px] object-cover"
-                data-testid="img-package-delivery"
-              />
-            </div>
-
-            {/* Text - Right */}
+            {/* Text - Left */}
             <div>
               <div className="flex items-center gap-2 mb-4">
                 <div className="w-6 h-0.5 bg-black"></div>
@@ -310,6 +300,16 @@ export default function Influencer() {
                   </div>
                 </button>
               </Link>
+            </div>
+
+            {/* Image - Right */}
+            <div>
+              <img 
+                src={packageImg}
+                alt="Package Delivery"
+                className="w-full rounded-3xl h-[500px] object-cover"
+                data-testid="img-package-delivery"
+              />
             </div>
           </div>
         </div>
