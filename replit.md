@@ -61,6 +61,7 @@ The platform utilizes a React frontend and an Express.js backend.
 
 ### Recent Changes
 **October 29, 2025:**
+-   **Services Dropdown Menu Fix:** Fixed navigation mega menu hover behavior - extended parent hover area with `pb-2` and removed gap between button and dropdown to prevent menu from closing when cursor moves from Services button to menu items
 -   **Alternating Grid Layout Implementation:** Restructured all four service pages (Social, Paid, Creative, Influencer) from stacked vertical sections to alternating left-right horizontal grid layout matching Social Shepherd's exact design:
     -   **Pattern:** Section 1: Text Left + Image Right → Section 2: Image Left + Text Right → Section 3: Text Left + Image Right
     -   **Grid Structure:** All content sections use `grid grid-cols-1 lg:grid-cols-2 gap-12 items-center` for responsive 2-column layout

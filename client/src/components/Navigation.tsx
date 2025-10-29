@@ -34,7 +34,7 @@ export default function Navigation() {
             
             {/* Services Mega Menu */}
             <div
-              className="relative"
+              className="relative pb-2"
               onMouseEnter={() => setShowServicesMenu(true)}
               onMouseLeave={() => setShowServicesMenu(false)}
             >
@@ -45,7 +45,7 @@ export default function Navigation() {
 
               {/* Mega Menu Dropdown */}
               {showServicesMenu && (
-                <div className="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-[800px] bg-white rounded-2xl shadow-2xl border border-zinc-200 p-8 z-50">
+                <div className="absolute top-full left-1/2 -translate-x-1/2 w-[800px] bg-white rounded-2xl shadow-2xl border border-zinc-200 p-8 z-50">
                   <div className="grid grid-cols-3 gap-8">
                     {/* AI Creative */}
                     <div>
