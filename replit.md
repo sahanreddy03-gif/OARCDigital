@@ -60,6 +60,21 @@ The platform utilizes a React frontend and an Express.js backend.
 -   Service content in `client/public/content/services/` (JSON-based)
 
 ### Recent Changes
+**October 29, 2025:**
+-   **Service Carousel Redesign (3-Card Grid):** Transformed all service carousels from single-card view to 3-card grid layout (`grid-cols-1 md:grid-cols-3`) on Social, Paid, Creative, and Influencer pages
+    -   Implemented wraparound logic using `[0, 1, 2].map((offset) => { const actualIdx = (currentService + offset) % services.length; ... })` pattern
+    -   Navigation button appears only on the 3rd card
+    -   Carousel dots and navigation work seamlessly with the grid layout
+-   **Decorative Element Update:** Changed hero section decorative from single line (w-8 h-0.5) to two small hyphens (two w-6 h-0.5 divs with gap-2) for exact Social Shepherd matching across all four service pages
+-   **Typography Refinement:** Reduced font sizes across all service pages for better visual hierarchy:
+    -   Main headings: text-5xl/6xl/7xl → text-4xl/5xl/6xl
+    -   Section headings: text-3xl/4xl/5xl → text-2xl/3xl/4xl
+    -   Body text: text-lg → text-base
+    -   Carousel card headings: text-2xl/3xl → text-xl/2xl
+    -   Carousel descriptions: text-base → text-sm
+-   **Unified Spacing:** Standardized all section padding to py-14 (previously mixed py-16 and py-12) for consistent vertical rhythm
+-   **Testing:** All changes verified with comprehensive E2E tests on Social, Paid, and Creative service pages - all tests passed successfully
+
 **October 28, 2025:**
 -   Added decorative line symbol (w-8 h-0.5 bg-black) before hero headings on Social, Paid, Creative, and Influencer service pages for exact Social Shepherd clone consistency
 -   Created Creative services page (`/services/creative`) with 14 sections:
