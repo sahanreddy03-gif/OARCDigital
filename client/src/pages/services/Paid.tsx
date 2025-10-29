@@ -274,53 +274,56 @@ export default function Paid() {
         </div>
       </section>
 
-      {/* Studio Photo */}
-      <section className="py-8 px-4 bg-white">
-        <div className="max-w-6xl mx-auto">
-          <img 
-            src={studioImg}
-            alt="OARC Digital Studio"
-            className="w-full h-[400px] md:h-[500px] object-cover rounded-3xl"
-            data-testid="img-studio"
-          />
-        </div>
-      </section>
-
-      {/* Reporting Section */}
+      {/* Text Left + Image Right Section */}
       <section className="py-14 px-4 bg-white">
-        <div className="max-w-4xl mx-auto">
-          <div className="flex items-center gap-2 mb-4">
-            <div className="w-6 h-0.5 bg-black" data-testid="decorative-line-1"></div>
-            <div className="w-6 h-0.5 bg-black" data-testid="decorative-line-2"></div>
-          </div>
-
-          <h2 className="text-3xl md:text-4xl font-black text-black mb-6">
-            Reporting, Analysis and Attribution Modelling
-          </h2>
-
-          <p className="text-base text-gray-700 mb-4">
-            To make the right decisions with your paid media spend, it's important to have a robust reporting solution that can break down all your data into easily digestible numbers.
-          </p>
-
-          <p className="text-base text-gray-700 mb-4">
-            Our custom reporting breaks down each channel and shows you which campaigns, audiences, creative and copy are driving performance.
-          </p>
-
-          <p className="text-base text-gray-700 mb-8">
-            We're also able to build in metrics that are vital for your business to track, making it completely bespoke to you.
-          </p>
-
-          <Link href="/contact">
-            <button
-              className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-lg font-semibold hover-elevate active-elevate-2"
-              data-testid="button-contact"
-            >
-              Contact
-              <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
-                <ArrowRight className="h-5 w-5 text-black" />
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Text - Left */}
+            <div>
+              <div className="flex items-center gap-2 mb-4">
+                <div className="w-6 h-0.5 bg-black"></div>
+                <div className="w-6 h-0.5 bg-black"></div>
               </div>
-            </button>
-          </Link>
+
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-black mb-6">
+                Reporting, Analysis and Attribution Modelling
+              </h2>
+
+              <p className="text-base text-gray-700 mb-4">
+                To make the right decisions with your paid media spend, it's important to have a robust reporting solution that can break down all your data into easily digestible numbers.
+              </p>
+
+              <p className="text-base text-gray-700 mb-4">
+                Our custom reporting breaks down each channel and shows you which campaigns, audiences, creative and copy are driving performance.
+              </p>
+
+              <p className="text-base text-gray-700 mb-6">
+                We're also able to build in metrics that are vital for your business to track, making it completely bespoke to you.
+              </p>
+
+              <Link href="/contact">
+                <button
+                  className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2"
+                  data-testid="button-contact"
+                >
+                  Contact
+                  <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+                    <ArrowRight className="h-5 w-5 text-black" />
+                  </div>
+                </button>
+              </Link>
+            </div>
+
+            {/* Image - Right */}
+            <div>
+              <img 
+                src={studioImg}
+                alt="OARC Digital Studio"
+                className="w-full rounded-3xl h-[500px] object-cover"
+                data-testid="img-studio"
+              />
+            </div>
+          </div>
         </div>
       </section>
 

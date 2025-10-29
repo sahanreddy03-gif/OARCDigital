@@ -61,6 +61,14 @@ The platform utilizes a React frontend and an Express.js backend.
 
 ### Recent Changes
 **October 29, 2025:**
+-   **Alternating Grid Layout Implementation:** Restructured all four service pages (Social, Paid, Creative, Influencer) from stacked vertical sections to alternating left-right horizontal grid layout matching Social Shepherd's exact design:
+    -   **Pattern:** Section 1: Text Left + Image Right → Section 2: Image Left + Text Right → Section 3: Text Left + Image Right
+    -   **Grid Structure:** All content sections use `grid grid-cols-1 lg:grid-cols-2 gap-12 items-center` for responsive 2-column layout
+    -   **Image Specifications:** Standardized all images to `w-full rounded-3xl h-[500px] object-cover` with exact 500px height
+    -   **Container Widths:** Grid sections use max-w-6xl, standalone sections use max-w-4xl
+    -   **Button Consistency:** All buttons use text-base sizing (changed from text-lg)
+    -   **Section Spacing:** Maintained py-14 standardization for vertical rhythm
+-   **Paid Page Third Section:** Converted standalone Studio Photo and Reporting sections into unified Text Left + Image Right grid section to complete the alternating pattern
 -   **Service Carousel Redesign (3-Card Grid):** Transformed all service carousels from single-card view to 3-card grid layout (`grid-cols-1 md:grid-cols-3`) on Social, Paid, Creative, and Influencer pages
     -   Implemented wraparound logic using `[0, 1, 2].map((offset) => { const actualIdx = (currentService + offset) % services.length; ... })` pattern
     -   Navigation button appears only on the 3rd card
@@ -72,8 +80,7 @@ The platform utilizes a React frontend and an Express.js backend.
     -   Body text: text-lg → text-base
     -   Carousel card headings: text-2xl/3xl → text-xl/2xl
     -   Carousel descriptions: text-base → text-sm
--   **Unified Spacing:** Standardized all section padding to py-14 (previously mixed py-16 and py-12) for consistent vertical rhythm
--   **Testing:** All changes verified with comprehensive E2E tests on Social, Paid, and Creative service pages - all tests passed successfully
+-   **Testing:** All changes verified with comprehensive E2E tests across all four service pages - all tests passed successfully, confirming correct alternating pattern implementation, grid structure, image styling, and cross-page consistency
 
 **October 28, 2025:**
 -   Added decorative line symbol (w-8 h-0.5 bg-black) before hero headings on Social, Paid, Creative, and Influencer service pages for exact Social Shepherd clone consistency
