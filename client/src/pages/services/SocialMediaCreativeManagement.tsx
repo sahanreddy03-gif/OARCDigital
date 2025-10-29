@@ -80,7 +80,7 @@ export default function SocialMediaCreativeManagement() {
         "Wrap Reports and Analysis"
       ],
       learnMore: "Learn more about Influencer",
-      link: "#"
+      link: "/services/influencer"
     }
   ];
 
