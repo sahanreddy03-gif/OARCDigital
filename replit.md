@@ -61,6 +61,23 @@ The platform utilizes a React frontend and an Express.js backend.
 
 ### Recent Changes
 **October 29, 2025:**
+-   **Tefal Case Study Page:** Created comprehensive Tefal case study page at `/case-studies/tefal` with black background and hot pink/magenta (#FF0080) accent color scheme:
+    -   Hero section with full-width background image and white overlay title
+    -   About section with platforms grid (Instagram, Snapchat, TikTok, YouTube) and pink service badges on black background
+    -   Stats section featuring three pink cards: 70M+ impressions, 500+ collaborations, SOLD OUT product lines
+    -   Challenge section with pink "CHALLENGE" heading and social media embeds
+    -   Strategy section with influencer content grid on black background
+    -   Results section with pink "RESULTS" heading
+    -   Product images grid, Start Project CTA, and Get In Touch section
+    -   Related case studies carousel with navigation controls
+    -   All sections follow Socially Powerful's exact design: uppercase headings, bold typography, rounded corners
+-   **Case Study Integration:** Updated Social page case study card:
+    -   Changed title from "BEYBLADE" to "Raising new product awareness and selling out product lines for Tefal"
+    -   Updated description to reference influencer partnerships and award-winning campaigns
+    -   Added clickable Link wrapper navigating to `/case-studies/tefal`
+    -   Updated badge labels to "Influencer Marketing" and "Paid Social"
+    -   Added hover-elevate effect for better UX
+-   **Branding Consistency Update:** Replaced all "Why Social Shepherd?" / "Why The Social Shepherd?" references with "Why OARC Digital?" across all four service pages (Social, Paid, Creative, Influencer) to ensure consistent OARC Digital branding throughout the platform
 -   **Social Page Image Replacement:** Updated all 5 key images on Social services page with new photos:
     -   First section: Watermelon beach photo (people with watermelon slices)
     -   Second section: "Let's get social" red background sign
