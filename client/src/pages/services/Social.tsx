@@ -426,31 +426,33 @@ export default function Social() {
           </button>
 
           {/* Case Study Card */}
-          <div className="relative rounded-3xl overflow-hidden shadow-lg" data-testid="card-case-study">
-            <img 
-              src={beybladeImg}
-              alt="Beyblade"
-              className="w-full rounded-3xl h-[500px] object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
-              <div className="absolute bottom-0 left-0 right-0 p-8">
-                <div className="flex gap-2 mb-4">
-                  <span className="bg-white text-black px-4 py-1 rounded-full text-sm font-semibold">
-                    Organic Social
-                  </span>
-                  <span className="bg-white text-black px-4 py-1 rounded-full text-sm font-semibold">
-                    Creative
-                  </span>
+          <Link href="/case-studies/tefal">
+            <div className="relative rounded-3xl overflow-hidden shadow-lg cursor-pointer hover-elevate" data-testid="card-case-study">
+              <img 
+                src={beybladeImg}
+                alt="Tefal Case Study"
+                className="w-full rounded-3xl h-[500px] object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
+                <div className="absolute bottom-0 left-0 right-0 p-8">
+                  <div className="flex gap-2 mb-4">
+                    <span className="bg-white text-black px-4 py-1 rounded-full text-sm font-semibold">
+                      Influencer Marketing
+                    </span>
+                    <span className="bg-white text-black px-4 py-1 rounded-full text-sm font-semibold">
+                      Paid Social
+                    </span>
+                  </div>
+                  <h3 className="text-3xl font-black text-white mb-3">
+                    Raising new product awareness and selling out product lines for Tefal
+                  </h3>
+                  <p className="text-white text-lg">
+                    Sold out product lines through strategic influencer partnerships and award-winning social campaigns.
+                  </p>
                 </div>
-                <h3 className="text-3xl font-black text-white mb-3">
-                  BEYBLADE
-                </h3>
-                <p className="text-white text-lg">
-                  Grew +30k followers on TikTok, +393k organic video views, and an 8.21% engagement rate in 6 months.
-                </p>
               </div>
             </div>
-          </div>
+          </Link>
         </div>
       </section>
 
@@ -507,7 +509,7 @@ export default function Social() {
         <div className="max-w-4xl mx-auto">
           <div className="flex items-center justify-between mb-8">
             <h2 className="text-3xl md:text-4xl font-black text-black">
-              Why Social Shepherd?
+              Why OARC Digital?
             </h2>
             <div className="flex gap-2">
               <button
