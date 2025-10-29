@@ -132,7 +132,7 @@ export default function Social() {
     <Layout>
       {/* Hero Section */}
       <section className="py-14 px-4 bg-white">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <div className="flex items-center gap-2 mb-4">
             <div className="w-6 h-0.5 bg-black" data-testid="decorative-line-1"></div>
             <div className="w-6 h-0.5 bg-black" data-testid="decorative-line-2"></div>
@@ -156,7 +156,7 @@ export default function Social() {
 
           <Link href="/contact">
             <button
-              className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-lg font-semibold hover-elevate active-elevate-2 mb-12"
+              className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2"
               data-testid="button-lets-chat-hero"
             >
               Let's Chat
@@ -165,127 +165,165 @@ export default function Social() {
               </div>
             </button>
           </Link>
-
-          {/* Conference Room Image */}
-          <img 
-            src={conferenceImg}
-            alt="Team meeting in modern office"
-            className="w-full rounded-3xl shadow-lg h-[500px] object-cover"
-            data-testid="img-conference"
-          />
         </div>
       </section>
 
-      {/* Social-first Strategies Section */}
-      <section className="py-14 px-4 bg-gray-50">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-black mb-6">
-            Social-first strategies, for our social-first world
-          </h2>
-
-          <p className="text-base text-black mb-6">
-            We work with brands that are looking to lead their industry and thrive in this social-first world.
-          </p>
-
-          <p className="text-base text-black mb-6">
-            We're not here to tick boxes but to push the boundaries, deliver significant brand growth and captivate your audience with social-first content. We focus on outcomes, not outputs.
-          </p>
-
-          <p className="text-base text-black mb-8">
-            We've designed our team to ensure we're ready for all challenges. It includes strategists, community & channel managers, content creators, videographers, designers, paid social experts, influencer managers and analytics leads.
-          </p>
-
-          <Link href="/contact">
-            <button
-              className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-lg font-semibold hover-elevate active-elevate-2"
-              data-testid="button-get-in-touch-1"
-            >
-              Get In Touch To See How We Can Help You
-              <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center border-2 border-white">
-                <ArrowRight className="h-5 w-5 text-white" />
-              </div>
-            </button>
-          </Link>
-        </div>
-      </section>
-
-      {/* Platform-specific Content Section */}
+      {/* Image Left + Text Right Section */}
       <section className="py-14 px-4 bg-white">
-        <div className="max-w-4xl mx-auto">
-          <img 
-            src={arcadeImg}
-            alt="Gaming arcade with neon lights"
-            className="w-full rounded-3xl shadow-lg h-[500px] object-cover mb-12"
-            data-testid="img-arcade"
-          />
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Image - Left */}
+            <div>
+              <img 
+                src={conferenceImg}
+                alt="Team meeting in modern office"
+                className="w-full rounded-3xl h-[500px] object-cover"
+                data-testid="img-conference"
+              />
+            </div>
 
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-black mb-6">
-            Platform-specific social content
-          </h2>
-
-          <p className="text-base text-black mb-6">
-            We know each algorithm inside and out. They're all different, and so they should be treated that way.
-          </p>
-
-          <p className="text-base text-black mb-6">
-            Creating content for specific platforms is vital for growth, rather than a cookie-cutter approach of re-posting everywhere. Our strategists and planners are built to deliver narratives that align with the individual platform algorithms.
-          </p>
-
-          <p className="text-base text-black mb-8">
-            Our team has both the technical and creative capabilities to ensure we're delivering content that adapts to algorithm changes.
-          </p>
-
-          <Link href="/contact">
-            <button
-              className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-lg font-semibold hover-elevate active-elevate-2"
-              data-testid="button-get-in-touch-2"
-            >
-              Get In Touch To See How We Can Help You
-              <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center border-2 border-white">
-                <ArrowRight className="h-5 w-5 text-white" />
+            {/* Text - Right */}
+            <div>
+              <div className="flex items-center gap-2 mb-4">
+                <div className="w-6 h-0.5 bg-black"></div>
+                <div className="w-6 h-0.5 bg-black"></div>
               </div>
-            </button>
-          </Link>
+
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-black mb-6">
+                Social-first strategies, for our social-first world
+              </h2>
+
+              <p className="text-base text-black mb-4">
+                We work with brands that are looking to lead their industry and thrive in this social-first world.
+              </p>
+
+              <p className="text-base text-black mb-4">
+                We're not here to tick boxes but to push the boundaries, deliver significant brand growth and captivate your audience with social-first content. We focus on outcomes, not outputs.
+              </p>
+
+              <p className="text-base text-black mb-6">
+                We've designed our team to ensure we're ready for all challenges. It includes strategists, community & channel managers, content creators, videographers, designers, paid social experts, influencer managers and analytics leads.
+              </p>
+
+              <Link href="/contact">
+                <button
+                  className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2"
+                  data-testid="button-get-in-touch-1"
+                >
+                  Get In Touch To See How We Can Help You
+                  <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center border-2 border-white">
+                    <ArrowRight className="h-5 w-5 text-white" />
+                  </div>
+                </button>
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Data-driven Approach Section */}
-      <section className="py-14 px-4 bg-gray-50">
-        <div className="max-w-4xl mx-auto">
-          <img 
-            src={awardTeamImg}
-            alt="Award ceremony team photo"
-            className="w-full rounded-3xl shadow-lg h-[500px] object-cover mb-12"
-            data-testid="img-award"
-          />
-
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-black mb-6">
-            We take a data-driven approach to social
-          </h2>
-
-          <p className="text-base text-black mb-6">
-            Data-driven strategies combined with our creativity are exactly why we've been able to win awards such as Best Large Social Agency and deliver incredible results time and time again.
-          </p>
-
-          <p className="text-base text-black mb-6">
-            A lot of social agencies and brands create content for the sake of it without any reasoning behind what they're creating.
-          </p>
-
-          <p className="text-base text-black mb-8">
-            We dive deep into content analysis and why each piece is either performing or underperforming. This leads us to make adjustments to our content plans on a weekly and monthly and overarching strategy on a quarterly basis.
-          </p>
-
-          <Link href="/contact">
-            <button
-              className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-lg font-semibold hover-elevate active-elevate-2"
-              data-testid="button-get-in-touch-3"
-            >
-              Get In Touch To See How We Can Help You
-              <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center border-2 border-white">
-                <ArrowRight className="h-5 w-5 text-white" />
+      {/* Text Left + Image Right Section */}
+      <section className="py-14 px-4 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Text - Left */}
+            <div>
+              <div className="flex items-center gap-2 mb-4">
+                <div className="w-6 h-0.5 bg-black"></div>
+                <div className="w-6 h-0.5 bg-black"></div>
               </div>
-            </button>
-          </Link>
+
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-black mb-6">
+                Platform-specific social content
+              </h2>
+
+              <p className="text-base text-black mb-4">
+                We know each algorithm inside and out. They're all different, and so they should be treated that way.
+              </p>
+
+              <p className="text-base text-black mb-4">
+                Creating content for specific platforms is vital for growth, rather than a cookie-cutter approach of re-posting everywhere. Our strategists and planners are built to deliver narratives that align with the individual platform algorithms.
+              </p>
+
+              <p className="text-base text-black mb-6">
+                Our team has both the technical and creative capabilities to ensure we're delivering content that adapts to algorithm changes.
+              </p>
+
+              <Link href="/contact">
+                <button
+                  className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2"
+                  data-testid="button-get-in-touch-2"
+                >
+                  Get In Touch To See How We Can Help You
+                  <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center border-2 border-white">
+                    <ArrowRight className="h-5 w-5 text-white" />
+                  </div>
+                </button>
+              </Link>
+            </div>
+
+            {/* Image - Right */}
+            <div>
+              <img 
+                src={arcadeImg}
+                alt="Gaming arcade with neon lights"
+                className="w-full rounded-3xl h-[500px] object-cover"
+                data-testid="img-arcade"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Image Left + Text Right Section */}
+      <section className="py-14 px-4 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Image - Left */}
+            <div>
+              <img 
+                src={awardTeamImg}
+                alt="Award ceremony team photo"
+                className="w-full rounded-3xl h-[500px] object-cover"
+                data-testid="img-award"
+              />
+            </div>
+
+            {/* Text - Right */}
+            <div>
+              <div className="flex items-center gap-2 mb-4">
+                <div className="w-6 h-0.5 bg-black"></div>
+                <div className="w-6 h-0.5 bg-black"></div>
+              </div>
+
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-black mb-6">
+                We take a data-driven approach to social
+              </h2>
+
+              <p className="text-base text-black mb-4">
+                Data-driven strategies combined with our creativity are exactly why we've been able to win awards such as Best Large Social Agency and deliver incredible results time and time again.
+              </p>
+
+              <p className="text-base text-black mb-4">
+                A lot of social agencies and brands create content for the sake of it without any reasoning behind what they're creating.
+              </p>
+
+              <p className="text-base text-black mb-6">
+                We dive deep into content analysis and why each piece is either performing or underperforming. This leads us to make adjustments to our content plans on a weekly and monthly and overarching strategy on a quarterly basis.
+              </p>
+
+              <Link href="/contact">
+                <button
+                  className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2"
+                  data-testid="button-get-in-touch-3"
+                >
+                  Get In Touch To See How We Can Help You
+                  <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center border-2 border-white">
+                    <ArrowRight className="h-5 w-5 text-white" />
+                  </div>
+                </button>
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 
