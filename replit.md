@@ -61,7 +61,7 @@ The platform utilizes a React frontend and an Express.js backend.
 
 ### Recent Changes
 **October 28, 2025:**
--   Added decorative line symbol (w-8 h-0.5 bg-black) before hero headings on Social, Paid, and Creative service pages for exact Social Shepherd clone consistency
+-   Added decorative line symbol (w-8 h-0.5 bg-black) before hero headings on Social, Paid, Creative, and Influencer service pages for exact Social Shepherd clone consistency
 -   Created Creative services page (`/services/creative`) with 14 sections:
     1. Hero section with decorative line + "Delivering outstanding Creative across Video, Design and Motion" heading
     2. Video production behind-the-scenes photo
@@ -81,3 +81,20 @@ The platform utilizes a React frontend and an Express.js backend.
 -   Creative page follows exact Social Shepherd design: teal #5FD4C4, font-black headings, rounded-3xl corners, black square icons with white symbols, teal play buttons and checkmarks
 -   Stock images downloaded: video production setup, camera monitor, design workspace
 -   Page tested and passed comprehensive E2E tests (39 verification steps)
+-   Created Influencer services page (`/services/influencer`) with 13 sections:
+    1. Hero section with decorative line + "We deliver brand awareness and direct-response Influencer & Creator campaigns" heading
+    2. Flat lay picnic scene photo
+    3. "Human-led influencer approach" content section with CTA
+    4. Skincare products photo
+    5. "End-to-end Campaign Management" content section with CTA
+    6. Package delivery photo
+    7. "Creators for User-generated Content" content section with CTA
+    8. "Our full-service Influencer and Creator offering" single-card carousel (3 services)
+    9. "How we've used Influencers to grow our clients" case study carousel (2 case studies: Bio-Oil, Lumene)
+    10. "Checkout our latest Influencer content" video showcase section (5 videos in grid)
+    11. "Why The Social Shepherd?" benefits carousel (5 benefits)
+    12. Final teal CTA card (#5FD4C4) with team photo
+    13. Newsletter signup section
+-   All CTAs on Influencer page link to `/contact`
+-   Stock images downloaded: flat lay picnic, skincare products, package delivery
+-   Influencer page tested and passed comprehensive E2E tests (41 verification steps)

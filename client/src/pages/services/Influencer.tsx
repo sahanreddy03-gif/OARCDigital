@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'wouter';
 import { ArrowRight, CheckCircle, ChevronLeft, ChevronRight, Megaphone, Users, FileText, Play } from 'lucide-react';
 import Layout from '@/components/layout/Layout';
@@ -11,6 +11,14 @@ export default function Influencer() {
   const [currentService, setCurrentService] = useState(0);
   const [currentCaseStudy, setCurrentCaseStudy] = useState(0);
   const [currentBenefit, setCurrentBenefit] = useState(0);
+
+  useEffect(() => {
+    document.title = "Influencer Marketing Services | OARC Digital";
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute("content", "We deliver brand awareness and direct-response Influencer & Creator campaigns. Expert end-to-end campaign management.");
+    }
+  }, []);
 
   const services = [
     {
@@ -105,10 +113,7 @@ export default function Influencer() {
   };
 
   return (
-    <Layout
-      title="Influencer Marketing Services - OARC Digital"
-      description="We deliver brand awareness and direct-response Influencer & Creator campaigns. Expert end-to-end campaign management."
-    >
+    <Layout>
       {/* Hero Section */}
       <section className="py-16 px-4 bg-white">
         <div className="max-w-4xl mx-auto">
