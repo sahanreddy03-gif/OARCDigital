@@ -116,7 +116,7 @@ export default function Paid() {
     <Layout>
       {/* Hero Section */}
       <section className="py-14 px-4 bg-white">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <div className="flex items-center gap-2 mb-4">
             <div className="w-6 h-0.5 bg-black" data-testid="decorative-line-1"></div>
             <div className="w-6 h-0.5 bg-black" data-testid="decorative-line-2"></div>
@@ -134,13 +134,13 @@ export default function Paid() {
             Are you not happy with your current performance and looking for a partner that can drive sustainable growth that delivers incrementality in profitability, growth and brand uplift?
           </p>
 
-          <p className="text-base text-gray-700 mb-8">
+          <p className="text-base text-gray-700 mb-6">
             We leverage Social and Search channels with platform-specific performance creative to drive growth at all stages of the funnel.
           </p>
 
           <Link href="/contact">
             <button
-              className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-lg font-semibold hover-elevate active-elevate-2"
+              className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2"
               data-testid="button-lets-chat-hero"
             >
               Let's Chat
@@ -152,123 +152,125 @@ export default function Paid() {
         </div>
       </section>
 
-      {/* Award Team Photo */}
-      <section className="py-0 px-4 bg-white">
+      {/* Image Left + Text Right Section */}
+      <section className="py-14 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
-          <img 
-            src={formalTeamImg}
-            alt="OARC Digital Award Ceremony"
-            className="w-full h-[400px] md:h-[500px] object-cover rounded-3xl"
-            data-testid="img-award-team"
-          />
-        </div>
-      </section>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Image - Left */}
+            <div>
+              <img 
+                src={formalTeamImg}
+                alt="OARC Digital Award Ceremony"
+                className="w-full rounded-3xl h-[500px] object-cover"
+                data-testid="img-award-team"
+              />
+            </div>
 
-      {/* Award-Winning Agency Section */}
-      <section className="py-14 px-4 bg-white">
-        <div className="max-w-4xl mx-auto">
-          <div className="flex items-center gap-2 mb-4">
-            <div className="w-6 h-0.5 bg-black" data-testid="decorative-line-1"></div>
-            <div className="w-6 h-0.5 bg-black" data-testid="decorative-line-2"></div>
-          </div>
-
-          <h2 className="text-3xl md:text-4xl font-black text-black mb-6">
-            We're an Award-Winning Paid Media Agency
-          </h2>
-
-          <p className="text-base text-gray-700 mb-4">
-            Having recently won 'Best Integrated Paid Media Campaign', Best Use of Facebook & Instagram Ads' and 'Best Direct Response Campaign' the Year', we know how to build and optimise full-funnel Paid Media strategies that grow brands at scale.
-          </p>
-
-          <p className="text-base text-gray-700 mb-4">
-            Our team manages Paid Social and Paid Search for scaleups, household names, and global brands. So, we know how to scale ad accounts, drive incrementality, deliver creative strategies and create a dramatic shift in performance.
-          </p>
-
-          <p className="text-base text-gray-700 mb-8">
-            We're also agency partners with Meta, Google (Premier Partner status), TikTok and Pinterest which give us access to unique insight, ad credits and beta tests.
-          </p>
-
-          <Link href="/contact">
-            <button
-              className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-lg font-semibold hover-elevate active-elevate-2"
-              data-testid="button-get-in-touch-1"
-            >
-              Get In Touch To See How We Can Help You
-              <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
-                <ArrowRight className="h-5 w-5 text-black" />
+            {/* Text - Right */}
+            <div>
+              <div className="flex items-center gap-2 mb-4">
+                <div className="w-6 h-0.5 bg-black"></div>
+                <div className="w-6 h-0.5 bg-black"></div>
               </div>
-            </button>
-          </Link>
-        </div>
-      </section>
 
-      {/* Platform Partners */}
-      <section className="py-14 px-4 bg-white">
-        <div className="max-w-4xl mx-auto">
-          <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12">
-            <div className="w-16 h-16 bg-black rounded-lg flex items-center justify-center" data-testid="icon-meta">
-              <SiMeta className="h-8 w-8 text-white" />
-            </div>
-            <div className="w-16 h-16 bg-black rounded-lg flex items-center justify-center" data-testid="icon-google">
-              <SiGoogle className="h-8 w-8 text-white" />
-            </div>
-            <div className="w-16 h-16 bg-black rounded-lg flex items-center justify-center" data-testid="icon-tiktok">
-              <SiTiktok className="h-8 w-8 text-white" />
-            </div>
-            <div className="w-16 h-16 bg-black rounded-lg flex items-center justify-center" data-testid="icon-pinterest">
-              <SiPinterest className="h-8 w-8 text-white" />
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-black mb-6">
+                We're an Award-Winning Paid Media Agency
+              </h2>
+
+              <p className="text-base text-gray-700 mb-4">
+                Having recently won 'Best Integrated Paid Media Campaign', Best Use of Facebook & Instagram Ads' and 'Best Direct Response Campaign' the Year', we know how to build and optimise full-funnel Paid Media strategies that grow brands at scale.
+              </p>
+
+              <p className="text-base text-gray-700 mb-4">
+                Our team manages Paid Social and Paid Search for scaleups, household names, and global brands. So, we know how to scale ad accounts, drive incrementality, deliver creative strategies and create a dramatic shift in performance.
+              </p>
+
+              <p className="text-base text-gray-700 mb-6">
+                We're also agency partners with Meta, Google (Premier Partner status), TikTok and Pinterest which give us access to unique insight, ad credits and beta tests.
+              </p>
+
+              {/* Platform Partners */}
+              <div className="flex flex-wrap items-center gap-6 mb-8">
+                <div className="w-14 h-14 bg-black rounded-lg flex items-center justify-center" data-testid="icon-meta">
+                  <SiMeta className="h-7 w-7 text-white" />
+                </div>
+                <div className="w-14 h-14 bg-black rounded-lg flex items-center justify-center" data-testid="icon-google">
+                  <SiGoogle className="h-7 w-7 text-white" />
+                </div>
+                <div className="w-14 h-14 bg-black rounded-lg flex items-center justify-center" data-testid="icon-tiktok">
+                  <SiTiktok className="h-7 w-7 text-white" />
+                </div>
+                <div className="w-14 h-14 bg-black rounded-lg flex items-center justify-center" data-testid="icon-pinterest">
+                  <SiPinterest className="h-7 w-7 text-white" />
+                </div>
+              </div>
+
+              <Link href="/contact">
+                <button
+                  className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2"
+                  data-testid="button-get-in-touch-1"
+                >
+                  Get In Touch To See How We Can Help You
+                  <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+                    <ArrowRight className="h-5 w-5 text-black" />
+                  </div>
+                </button>
+              </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Conference Team Photo */}
-      <section className="py-8 px-4 bg-white">
+      {/* Text Left + Image Right Section */}
+      <section className="py-14 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
-          <img 
-            src={conferenceTeamImg}
-            alt="OARC Digital Team at Conference"
-            className="w-full h-[400px] md:h-[500px] object-cover rounded-3xl"
-            data-testid="img-conference-team"
-          />
-        </div>
-      </section>
-
-      {/* Strategic Approach Section */}
-      <section className="py-14 px-4 bg-white">
-        <div className="max-w-4xl mx-auto">
-          <div className="flex items-center gap-2 mb-4">
-            <div className="w-6 h-0.5 bg-black" data-testid="decorative-line-1"></div>
-            <div className="w-6 h-0.5 bg-black" data-testid="decorative-line-2"></div>
-          </div>
-
-          <h2 className="text-3xl md:text-4xl font-black text-black mb-6">
-            Our Strategic Approach to Future Proofing Your Brand
-          </h2>
-
-          <p className="text-base text-gray-700 mb-4">
-            The Paid Media landscape is ever-changing, and that's why we constantly stay on top of it.
-          </p>
-
-          <p className="text-base text-gray-700 mb-4">
-            We're here to be your eyes and ears of what's happening, how platforms are changing and how we need to be adapting our strategy for you.
-          </p>
-
-          <p className="text-base text-gray-700 mb-8">
-            We'll then work with you to deliver the direction of your Paid Media strategy and then implement campaign management, optimisation, creative strategy, channel management, budget allocation, attribution modelling, feed optimisation and analytics.
-          </p>
-
-          <Link href="/contact">
-            <button
-              className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-lg font-semibold hover-elevate active-elevate-2"
-              data-testid="button-get-in-touch-2"
-            >
-              Get In Touch To See How We Can Help You
-              <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
-                <ArrowRight className="h-5 w-5 text-black" />
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Text - Left */}
+            <div>
+              <div className="flex items-center gap-2 mb-4">
+                <div className="w-6 h-0.5 bg-black"></div>
+                <div className="w-6 h-0.5 bg-black"></div>
               </div>
-            </button>
-          </Link>
+
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-black mb-6">
+                Our Strategic Approach to Future Proofing Your Brand
+              </h2>
+
+              <p className="text-base text-gray-700 mb-4">
+                The Paid Media landscape is ever-changing, and that's why we constantly stay on top of it.
+              </p>
+
+              <p className="text-base text-gray-700 mb-4">
+                We're here to be your eyes and ears of what's happening, how platforms are changing and how we need to be adapting our strategy for you.
+              </p>
+
+              <p className="text-base text-gray-700 mb-6">
+                We'll then work with you to deliver the direction of your Paid Media strategy and then implement campaign management, optimisation, creative strategy, channel management, budget allocation, attribution modelling, feed optimisation and analytics.
+              </p>
+
+              <Link href="/contact">
+                <button
+                  className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2"
+                  data-testid="button-get-in-touch-2"
+                >
+                  Get In Touch To See How We Can Help You
+                  <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+                    <ArrowRight className="h-5 w-5 text-black" />
+                  </div>
+                </button>
+              </Link>
+            </div>
+
+            {/* Image - Right */}
+            <div>
+              <img 
+                src={conferenceTeamImg}
+                alt="OARC Digital Team at Conference"
+                className="w-full rounded-3xl h-[500px] object-cover"
+                data-testid="img-conference-team"
+              />
+            </div>
+          </div>
         </div>
       </section>
 

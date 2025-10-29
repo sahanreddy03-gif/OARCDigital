@@ -116,7 +116,7 @@ export default function Influencer() {
     <Layout>
       {/* Hero Section */}
       <section className="py-14 px-4 bg-white">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <div className="flex items-center gap-2 mb-4">
             <div className="w-6 h-0.5 bg-black" data-testid="decorative-line-1"></div>
             <div className="w-6 h-0.5 bg-black" data-testid="decorative-line-2"></div>
@@ -134,13 +134,13 @@ export default function Influencer() {
             We help brands drive growth, change brand perception and produce creative influencer campaigns.
           </p>
 
-          <p className="text-base text-gray-700 mb-8">
+          <p className="text-base text-gray-700 mb-6">
             Whether you're looking for a one-off campaign or a long-term retained influencer partner - we could be the agency for you.
           </p>
 
           <Link href="/contact">
             <button
-              className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-lg font-semibold hover-elevate active-elevate-2"
+              className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2"
               data-testid="button-lets-chat-hero"
             >
               Let's Chat
@@ -152,157 +152,166 @@ export default function Influencer() {
         </div>
       </section>
 
-      {/* Picnic Scene Photo */}
-      <section className="py-8 px-4 bg-white">
-        <div className="max-w-6xl mx-auto">
-          <img 
-            src={picnicImg}
-            alt="Influencer Marketing Flat Lay"
-            className="w-full h-[400px] md:h-[500px] object-cover rounded-3xl"
-            data-testid="img-picnic-scene"
-          />
-        </div>
-      </section>
-
-      {/* Human-led Influencer Approach Section */}
+      {/* Image Left + Text Right Section */}
       <section className="py-14 px-4 bg-white">
-        <div className="max-w-4xl mx-auto">
-          <div className="flex items-center gap-2 mb-4">
-            <div className="w-6 h-0.5 bg-black" data-testid="decorative-line-1"></div>
-            <div className="w-6 h-0.5 bg-black" data-testid="decorative-line-2"></div>
-          </div>
-
-          <h2 className="text-3xl md:text-4xl font-black text-black mb-6">
-            Human-led influencer approach
-          </h2>
-
-          <p className="text-base text-gray-700 mb-4">
-            Too many influencer agencies rely solely on tech and influencer search platforms to guide their entire campaign, but we knew there was a better way.
-          </p>
-
-          <p className="text-base text-gray-700 mb-4">
-            We take a more human-led approach and then use tech to confirm our research and campaign development.
-          </p>
-
-          <p className="text-base text-gray-700 mb-4">
-            This looks at how we research potential influencers, how we analyse their metrics, and how they have performed on previous campaigns.
-          </p>
-
-          <p className="text-base text-gray-700 mb-8">
-            Our team is extremely thorough when it comes to the planning phase, so we can truly get the best influencers for your brand, while delivering efficiency of your budget.
-          </p>
-
-          <Link href="/contact">
-            <button
-              className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-lg font-semibold hover-elevate active-elevate-2"
-              data-testid="button-get-in-touch-1"
-            >
-              Get In Touch To See How We Can Help You
-              <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
-                <ArrowRight className="h-5 w-5 text-black" />
-              </div>
-            </button>
-          </Link>
-        </div>
-      </section>
-
-      {/* Skincare Products Photo */}
-      <section className="py-8 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
-          <img 
-            src={skincareImg}
-            alt="Skincare Products"
-            className="w-full h-[400px] md:h-[500px] object-cover rounded-3xl"
-            data-testid="img-skincare-products"
-          />
-        </div>
-      </section>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Image - Left */}
+            <div>
+              <img 
+                src={picnicImg}
+                alt="Influencer Marketing Flat Lay"
+                className="w-full rounded-3xl h-[500px] object-cover"
+                data-testid="img-picnic-scene"
+              />
+            </div>
 
-      {/* End-to-end Campaign Management Section */}
-      <section className="py-14 px-4 bg-white">
-        <div className="max-w-4xl mx-auto">
-          <div className="flex items-center gap-2 mb-4">
-            <div className="w-6 h-0.5 bg-black" data-testid="decorative-line-1"></div>
-            <div className="w-6 h-0.5 bg-black" data-testid="decorative-line-2"></div>
-          </div>
-
-          <h2 className="text-3xl md:text-4xl font-black text-black mb-6">
-            End-to-end Campaign Management
-          </h2>
-
-          <p className="text-base text-gray-700 mb-4">
-            We can handle it all, from campaign strategy, research, insights, outreach, briefing, approvals, payment, analysis, and delivery.
-          </p>
-
-          <p className="text-base text-gray-700 mb-8">
-            Some brands want to be heavily involved, while others prefer a hands-off approach. So our ways of working allow us to mould to your exact needs.
-          </p>
-
-          <Link href="/contact">
-            <button
-              className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-lg font-semibold hover-elevate active-elevate-2"
-              data-testid="button-get-in-touch-2"
-            >
-              Get In Touch To See How We Can Help You
-              <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
-                <ArrowRight className="h-5 w-5 text-black" />
+            {/* Text - Right */}
+            <div>
+              <div className="flex items-center gap-2 mb-4">
+                <div className="w-6 h-0.5 bg-black"></div>
+                <div className="w-6 h-0.5 bg-black"></div>
               </div>
-            </button>
-          </Link>
+
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-black mb-6">
+                Human-led influencer approach
+              </h2>
+
+              <p className="text-base text-gray-700 mb-4">
+                Too many influencer agencies rely solely on tech and influencer search platforms to guide their entire campaign, but we knew there was a better way.
+              </p>
+
+              <p className="text-base text-gray-700 mb-4">
+                We take a more human-led approach and then use tech to confirm our research and campaign development.
+              </p>
+
+              <p className="text-base text-gray-700 mb-4">
+                This looks at how we research potential influencers, how we analyse their metrics, and how they have performed on previous campaigns.
+              </p>
+
+              <p className="text-base text-gray-700 mb-6">
+                Our team is extremely thorough when it comes to the planning phase, so we can truly get the best influencers for your brand, while delivering efficiency of your budget.
+              </p>
+
+              <Link href="/contact">
+                <button
+                  className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2"
+                  data-testid="button-get-in-touch-1"
+                >
+                  Get In Touch To See How We Can Help You
+                  <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+                    <ArrowRight className="h-5 w-5 text-black" />
+                  </div>
+                </button>
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Package Delivery Photo */}
-      <section className="py-8 px-4 bg-white">
+      {/* Text Left + Image Right Section */}
+      <section className="py-14 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
-          <img 
-            src={packageImg}
-            alt="Package Delivery"
-            className="w-full h-[400px] md:h-[500px] object-cover rounded-3xl"
-            data-testid="img-package-delivery"
-          />
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Text - Left */}
+            <div>
+              <div className="flex items-center gap-2 mb-4">
+                <div className="w-6 h-0.5 bg-black"></div>
+                <div className="w-6 h-0.5 bg-black"></div>
+              </div>
+
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-black mb-6">
+                End-to-end Campaign Management
+              </h2>
+
+              <p className="text-base text-gray-700 mb-4">
+                We can handle it all, from campaign strategy, research, insights, outreach, briefing, approvals, payment, analysis, and delivery.
+              </p>
+
+              <p className="text-base text-gray-700 mb-6">
+                Some brands want to be heavily involved, while others prefer a hands-off approach. So our ways of working allow us to mould to your exact needs.
+              </p>
+
+              <Link href="/contact">
+                <button
+                  className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2"
+                  data-testid="button-get-in-touch-2"
+                >
+                  Get In Touch To See How We Can Help You
+                  <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+                    <ArrowRight className="h-5 w-5 text-black" />
+                  </div>
+                </button>
+              </Link>
+            </div>
+
+            {/* Image - Right */}
+            <div>
+              <img 
+                src={skincareImg}
+                alt="Skincare Products"
+                className="w-full rounded-3xl h-[500px] object-cover"
+                data-testid="img-skincare-products"
+              />
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Creators for UGC Section */}
+      {/* Image Left + Text Right Section */}
       <section className="py-14 px-4 bg-white">
-        <div className="max-w-4xl mx-auto">
-          <div className="flex items-center gap-2 mb-4">
-            <div className="w-6 h-0.5 bg-black" data-testid="decorative-line-1"></div>
-            <div className="w-6 h-0.5 bg-black" data-testid="decorative-line-2"></div>
-          </div>
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Image - Left */}
+            <div>
+              <img 
+                src={packageImg}
+                alt="Package Delivery"
+                className="w-full rounded-3xl h-[500px] object-cover"
+                data-testid="img-package-delivery"
+              />
+            </div>
 
-          <h2 className="text-3xl md:text-4xl font-black text-black mb-6">
-            Creators for User-generated Content
-          </h2>
-
-          <p className="text-base text-gray-700 mb-4">
-            Not only do we deliver Influencer campaigns, but we've built our creator pools, who can produce social-first content for your social channels.
-          </p>
-
-          <p className="text-base text-gray-700 mb-4">
-            Creators have a unique ability to create content that's socially native, produced specifically for each individual platform, so we decided to harness it!
-          </p>
-
-          <p className="text-base text-gray-700 mb-4">
-            Not used for their 'influence', but as another means of production. We then use that content on your owned brand channels, not their own channels.
-          </p>
-
-          <p className="text-base text-gray-700 mb-8">
-            So if you're a brand looking for UGC content for Organic or Paid channels or a creator yourself, get in touch.
-          </p>
-
-          <Link href="/contact">
-            <button
-              className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-lg font-semibold hover-elevate active-elevate-2"
-              data-testid="button-get-in-touch-3"
-            >
-              Get In Touch To See How We Can Help You
-              <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
-                <ArrowRight className="h-5 w-5 text-black" />
+            {/* Text - Right */}
+            <div>
+              <div className="flex items-center gap-2 mb-4">
+                <div className="w-6 h-0.5 bg-black"></div>
+                <div className="w-6 h-0.5 bg-black"></div>
               </div>
-            </button>
-          </Link>
+
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-black mb-6">
+                Creators for User-generated Content
+              </h2>
+
+              <p className="text-base text-gray-700 mb-4">
+                Not only do we deliver Influencer campaigns, but we've built our creator pools, who can produce social-first content for your social channels.
+              </p>
+
+              <p className="text-base text-gray-700 mb-4">
+                Creators have a unique ability to create content that's socially native, produced specifically for each individual platform, so we decided to harness it!
+              </p>
+
+              <p className="text-base text-gray-700 mb-4">
+                Not used for their 'influence', but as another means of production. We then use that content on your owned brand channels, not their own channels.
+              </p>
+
+              <p className="text-base text-gray-700 mb-6">
+                So if you're a brand looking for UGC content for Organic or Paid channels or a creator yourself, get in touch.
+              </p>
+
+              <Link href="/contact">
+                <button
+                  className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2"
+                  data-testid="button-get-in-touch-3"
+                >
+                  Get In Touch To See How We Can Help You
+                  <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+                    <ArrowRight className="h-5 w-5 text-black" />
+                  </div>
+                </button>
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 

@@ -122,7 +122,7 @@ export default function Creative() {
     <Layout>
       {/* Hero Section */}
       <section className="py-14 px-4 bg-white">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <div className="flex items-center gap-2 mb-4">
             <div className="w-6 h-0.5 bg-black" data-testid="decorative-line-1"></div>
             <div className="w-6 h-0.5 bg-black" data-testid="decorative-line-2"></div>
@@ -146,7 +146,7 @@ export default function Creative() {
 
           <Link href="/contact">
             <button
-              className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-lg font-semibold hover-elevate active-elevate-2"
+              className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2"
               data-testid="button-lets-chat-hero"
             >
               Let's Chat
@@ -158,149 +158,158 @@ export default function Creative() {
         </div>
       </section>
 
-      {/* Video Production Photo */}
-      <section className="py-8 px-4 bg-white">
-        <div className="max-w-6xl mx-auto">
-          <img 
-            src={videoProductionImg}
-            alt="Video Production Behind the Scenes"
-            className="w-full h-[400px] md:h-[500px] object-cover rounded-3xl"
-            data-testid="img-video-production"
-          />
-        </div>
-      </section>
-
-      {/* Social Creative Specialists Section */}
+      {/* Section 1: Image Left + Text Right */}
       <section className="py-14 px-4 bg-white">
-        <div className="max-w-4xl mx-auto">
-          <div className="flex items-center gap-2 mb-4">
-            <div className="w-6 h-0.5 bg-black" data-testid="decorative-line-1"></div>
-            <div className="w-6 h-0.5 bg-black" data-testid="decorative-line-2"></div>
-          </div>
-
-          <h2 className="text-3xl md:text-4xl font-black text-black mb-6">
-            We're social creative specialists
-          </h2>
-
-          <p className="text-base text-gray-700 mb-4">
-            Gone are the days when you can use cutdowns of campaigns and chuck them on social. Creative needs to be produced by specialists that understand the algorithms of where it's being distributed and the purpose of each piece of content.
-          </p>
-
-          <p className="text-base text-gray-700 mb-4">
-            Our team solely work on social and digital creatives... that's all they do. That's why brands work with us instead of your traditional creative or production agencies.
-          </p>
-
-          <p className="text-base text-gray-700 mb-8">
-            Whether it's Creative for Campaigns, Always-On or TikTok, Reels, Feed, Stories or Paid Social - we've got you covered.
-          </p>
-
-          <Link href="/contact">
-            <button
-              className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-lg font-semibold hover-elevate active-elevate-2"
-              data-testid="button-get-in-touch-1"
-            >
-              Get In Touch To See How We Can Help You
-              <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
-                <ArrowRight className="h-5 w-5 text-black" />
-              </div>
-            </button>
-          </Link>
-        </div>
-      </section>
-
-      {/* Camera Monitor Photo */}
-      <section className="py-8 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
-          <img 
-            src={cameraMonitorImg}
-            alt="Camera Monitor Display"
-            className="w-full h-[400px] md:h-[500px] object-cover rounded-3xl"
-            data-testid="img-camera-monitor"
-          />
-        </div>
-      </section>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Image - Left */}
+            <div>
+              <img 
+                src={videoProductionImg}
+                alt="Video Production Behind the Scenes"
+                className="w-full h-[500px] object-cover rounded-3xl"
+                data-testid="img-video-production"
+              />
+            </div>
 
-      {/* Strategy to Delivery Section */}
-      <section className="py-14 px-4 bg-white">
-        <div className="max-w-4xl mx-auto">
-          <div className="flex items-center gap-2 mb-4">
-            <div className="w-6 h-0.5 bg-black" data-testid="decorative-line-1"></div>
-            <div className="w-6 h-0.5 bg-black" data-testid="decorative-line-2"></div>
-          </div>
-
-          <h2 className="text-3xl md:text-4xl font-black text-black mb-6">
-            Our creatives spans from strategy to delivery
-          </h2>
-
-          <p className="text-base text-gray-700 mb-4">
-            Our Studio includes a range of talented strategists, art directors, copywriters, creators, videographers, designers, and animators.
-          </p>
-
-          <p className="text-base text-gray-700 mb-4">
-            We truly understand what works on Social and Digital channels which allows us to deliver industry-leading creative for our clients.
-          </p>
-
-          <p className="text-base text-gray-700 mb-8">
-            See some of our teams' work further below.
-          </p>
-
-          <Link href="/contact">
-            <button
-              className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-lg font-semibold hover-elevate active-elevate-2"
-              data-testid="button-get-in-touch-2"
-            >
-              Get In Touch To See How We Can Help You
-              <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
-                <ArrowRight className="h-5 w-5 text-black" />
+            {/* Text - Right */}
+            <div>
+              <div className="flex items-center gap-2 mb-4">
+                <div className="w-6 h-0.5 bg-black"></div>
+                <div className="w-6 h-0.5 bg-black"></div>
               </div>
-            </button>
-          </Link>
+
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-black mb-6">
+                We're social creative specialists
+              </h2>
+
+              <p className="text-base text-gray-700 mb-4">
+                Gone are the days when you can use cutdowns of campaigns and chuck them on social. Creative needs to be produced by specialists that understand the algorithms of where it's being distributed and the purpose of each piece of content.
+              </p>
+
+              <p className="text-base text-gray-700 mb-4">
+                Our team solely work on social and digital creatives... that's all they do. That's why brands work with us instead of your traditional creative or production agencies.
+              </p>
+
+              <p className="text-base text-gray-700 mb-6">
+                Whether it's Creative for Campaigns, Always-On or TikTok, Reels, Feed, Stories or Paid Social - we've got you covered.
+              </p>
+
+              <Link href="/contact">
+                <button
+                  className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2"
+                  data-testid="button-get-in-touch-1"
+                >
+                  Get In Touch To See How We Can Help You
+                  <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+                    <ArrowRight className="h-5 w-5 text-black" />
+                  </div>
+                </button>
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Design Workspace Photo */}
-      <section className="py-8 px-4 bg-white">
+      {/* Section 2: Text Left + Image Right */}
+      <section className="py-14 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
-          <img 
-            src={designWorkspaceImg}
-            alt="Design Workspace"
-            className="w-full h-[400px] md:h-[500px] object-cover rounded-3xl"
-            data-testid="img-design-workspace"
-          />
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Text - Left */}
+            <div>
+              <div className="flex items-center gap-2 mb-4">
+                <div className="w-6 h-0.5 bg-black"></div>
+                <div className="w-6 h-0.5 bg-black"></div>
+              </div>
+
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-black mb-6">
+                Our creatives spans from strategy to delivery
+              </h2>
+
+              <p className="text-base text-gray-700 mb-4">
+                Our Studio includes a range of talented strategists, art directors, copywriters, creators, videographers, designers, and animators.
+              </p>
+
+              <p className="text-base text-gray-700 mb-4">
+                We truly understand what works on Social and Digital channels which allows us to deliver industry-leading creative for our clients.
+              </p>
+
+              <p className="text-base text-gray-700 mb-6">
+                See some of our teams' work further below.
+              </p>
+
+              <Link href="/contact">
+                <button
+                  className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2"
+                  data-testid="button-get-in-touch-2"
+                >
+                  Get In Touch To See How We Can Help You
+                  <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+                    <ArrowRight className="h-5 w-5 text-black" />
+                  </div>
+                </button>
+              </Link>
+            </div>
+
+            {/* Image - Right */}
+            <div>
+              <img 
+                src={cameraMonitorImg}
+                alt="Camera Monitor Display"
+                className="w-full h-[500px] object-cover rounded-3xl"
+                data-testid="img-camera-monitor"
+              />
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Always-on Content Section */}
+      {/* Section 3: Image Left + Text Right */}
       <section className="py-14 px-4 bg-white">
-        <div className="max-w-4xl mx-auto">
-          <div className="flex items-center gap-2 mb-4">
-            <div className="w-6 h-0.5 bg-black" data-testid="decorative-line-1"></div>
-            <div className="w-6 h-0.5 bg-black" data-testid="decorative-line-2"></div>
-          </div>
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Image - Left */}
+            <div>
+              <img 
+                src={designWorkspaceImg}
+                alt="Design Workspace"
+                className="w-full h-[500px] object-cover rounded-3xl"
+                data-testid="img-design-workspace"
+              />
+            </div>
 
-          <h2 className="text-3xl md:text-4xl font-black text-black mb-6">
-            Always-on content and creative campaigns
-          </h2>
-
-          <p className="text-base text-gray-700 mb-4">
-            Whether you're looking for a retained creative agency that can produce social-first content or someone to deliver a large-scale creative project, we are set up to deliver.
-          </p>
-
-          <p className="text-base text-gray-700 mb-8">
-            We're flexible and agile to your individual needs and know how to deliver creative that will excite you and your audience.
-          </p>
-
-          <Link href="/contact">
-            <button
-              className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-lg font-semibold hover-elevate active-elevate-2"
-              data-testid="button-get-in-touch-3"
-            >
-              Get In Touch To See How We Can Help You
-              <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
-                <ArrowRight className="h-5 w-5 text-black" />
+            {/* Text - Right */}
+            <div>
+              <div className="flex items-center gap-2 mb-4">
+                <div className="w-6 h-0.5 bg-black"></div>
+                <div className="w-6 h-0.5 bg-black"></div>
               </div>
-            </button>
-          </Link>
+
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-black mb-6">
+                Always-on content and creative campaigns
+              </h2>
+
+              <p className="text-base text-gray-700 mb-4">
+                Whether you're looking for a retained creative agency that can produce social-first content or someone to deliver a large-scale creative project, we are set up to deliver.
+              </p>
+
+              <p className="text-base text-gray-700 mb-6">
+                We're flexible and agile to your individual needs and know how to deliver creative that will excite you and your audience.
+              </p>
+
+              <Link href="/contact">
+                <button
+                  className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2"
+                  data-testid="button-get-in-touch-3"
+                >
+                  Get In Touch To See How We Can Help You
+                  <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+                    <ArrowRight className="h-5 w-5 text-black" />
+                  </div>
+                </button>
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -527,7 +536,7 @@ export default function Creative() {
 
           <Link href="/contact">
             <button
-              className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-lg font-semibold hover-elevate active-elevate-2 mt-8"
+              className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2 mt-8"
               data-testid="button-get-in-touch-final"
             >
               Get In Touch To See How We Can Help You
@@ -549,45 +558,15 @@ export default function Creative() {
               </h2>
               <Link href="/contact">
                 <button
-                  className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-lg font-semibold hover-elevate active-elevate-2"
-                  data-testid="button-lets-chat-final"
+                  className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2"
+                  data-testid="button-final-cta"
                 >
-                  Let's Chat
+                  Get In Touch
                   <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
                     <ArrowRight className="h-5 w-5 text-black" />
                   </div>
                 </button>
               </Link>
-            </div>
-            
-            <div className="w-full">
-              <img 
-                src={largeTeamImg}
-                alt="OARC Digital Team"
-                className="w-full h-[400px] object-cover"
-                data-testid="img-team-final"
-              />
-            </div>
-          </div>
-
-          {/* Newsletter Section */}
-          <div className="mt-8 bg-black text-white rounded-3xl p-10 text-center">
-            <p className="text-lg mb-6">
-              Stay in touch with the herd and receive up to date insights, strategies and news.
-            </p>
-            <div className="flex gap-3 max-w-md mx-auto">
-              <input 
-                type="email"
-                placeholder="Email"
-                className="flex-1 px-6 py-4 rounded-full bg-gray-800 border-none text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#5FD4C4]"
-                data-testid="input-email-newsletter"
-              />
-              <button
-                className="bg-white text-black rounded-full px-8 py-4 hover-elevate active-elevate-2"
-                data-testid="button-submit-newsletter"
-              >
-                <ArrowRight className="h-5 w-5" />
-              </button>
             </div>
           </div>
         </div>
