@@ -61,6 +61,13 @@ The platform utilizes a React frontend and an Express.js backend.
 
 ### Recent Changes
 **October 29, 2025:**
+-   **Social Page Image Replacement:** Updated all 5 key images on Social services page with new photos:
+    -   First section: Watermelon beach photo (people with watermelon slices)
+    -   Second section: "Let's get social" red background sign
+    -   Third section: Awards ceremony team in formal wear
+    -   Case studies section: Woman with phone in industrial setting
+    -   Final CTA: Large team photo in warehouse/studio
+    -   All images standardized to `w-full rounded-3xl h-[500px] object-cover`
 -   **Services Dropdown Menu Fix:** Fixed navigation mega menu hover behavior - extended parent hover area with `pb-2` and removed gap between button and dropdown to prevent menu from closing when cursor moves from Services button to menu items
 -   **Alternating Grid Layout Implementation:** Restructured all four service pages (Social, Paid, Creative, Influencer) from stacked vertical sections to alternating left-right horizontal grid layout matching Social Shepherd's exact design:
     -   **Pattern:** Section 1: Text Left + Image Right → Section 2: Image Left + Text Right → Section 3: Text Left + Image Right

@@ -8,11 +8,11 @@ import {
 } from "lucide-react";
 
 // Import images
-import conferenceImg from "@assets/stock_images/modern_conference_ro_94a391e3.jpg";
-import arcadeImg from "@assets/stock_images/arcade_gaming_neon_l_d8a02dc3.jpg";
-import awardTeamImg from "@assets/stock_images/formal_business_team_1042bacf.jpg";
-import largeTeamImg from "@assets/stock_images/large_company_team_p_32054de0.jpg";
-import beybladeImg from "@assets/stock_images/beyblade_toy_spinnin_7828a062.jpg";
+import conferenceImg from "@assets/pexels-kabaa10-4931332_1761760043394.jpg";
+import arcadeImg from "@assets/WhatsApp Image 2025-10-29 at 17.09.19_b134f824_1761760222324.jpg";
+import awardTeamImg from "@assets/Best-Large-Social-Agency_1761760464709.webp";
+import largeTeamImg from "@assets/pexels-bertellifotografia-2467506_1761761073217.jpg";
+import beybladeImg from "@assets/TefalPictures-32-scaled_1761760754960.jpg";
 import videoImg1 from "@assets/stock_images/social_media_content_75f5c57d.jpg";
 import videoImg2 from "@assets/stock_images/social_media_content_806a81e8.jpg";
 
@@ -430,7 +430,7 @@ export default function Social() {
             <img 
               src={beybladeImg}
               alt="Beyblade"
-              className="w-full h-[500px] object-cover"
+              className="w-full rounded-3xl h-[500px] object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
               <div className="absolute bottom-0 left-0 right-0 p-8">
@@ -595,7 +595,7 @@ export default function Social() {
               <img 
                 src={largeTeamImg}
                 alt="OARC Digital Team"
-                className="w-full h-[400px] object-cover"
+                className="w-full rounded-3xl h-[500px] object-cover"
                 data-testid="img-team-final"
               />
             </div>
