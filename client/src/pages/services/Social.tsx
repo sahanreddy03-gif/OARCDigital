@@ -131,25 +131,26 @@ export default function Social() {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="py-12 px-4 bg-white">
+      <section className="py-14 px-4 bg-white">
         <div className="max-w-4xl mx-auto">
-          <div className="flex items-center gap-2 mb-6">
-            <div className="w-8 h-0.5 bg-black"></div>
+          <div className="flex items-center gap-2 mb-4">
+            <div className="w-6 h-0.5 bg-black" data-testid="decorative-line-1"></div>
+            <div className="w-6 h-0.5 bg-black" data-testid="decorative-line-2"></div>
           </div>
           
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-black mb-8" data-testid="heading-social">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-black mb-6" data-testid="heading-social">
             Social
           </h1>
           
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-black mb-6">
+          <h2 className="text-xl md:text-2xl lg:text-3xl font-black text-black mb-5">
             We grow cult-like social communities with platform-specific social strategies
           </h2>
 
-          <p className="text-lg text-black mb-6">
+          <p className="text-base text-black mb-5">
             Are you lacking a social strategy that's driving your brand forward?
           </p>
 
-          <p className="text-lg text-black mb-8">
+          <p className="text-base text-black mb-6">
             Our team knows how to craft always-on and campaign activity that elevates your content & community across your social channels.
           </p>
 
@@ -176,21 +177,21 @@ export default function Social() {
       </section>
 
       {/* Social-first Strategies Section */}
-      <section className="py-16 px-4 bg-gray-50">
+      <section className="py-14 px-4 bg-gray-50">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-black mb-6">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-black mb-6">
             Social-first strategies, for our social-first world
           </h2>
 
-          <p className="text-lg text-black mb-6">
+          <p className="text-base text-black mb-6">
             We work with brands that are looking to lead their industry and thrive in this social-first world.
           </p>
 
-          <p className="text-lg text-black mb-6">
+          <p className="text-base text-black mb-6">
             We're not here to tick boxes but to push the boundaries, deliver significant brand growth and captivate your audience with social-first content. We focus on outcomes, not outputs.
           </p>
 
-          <p className="text-lg text-black mb-8">
+          <p className="text-base text-black mb-8">
             We've designed our team to ensure we're ready for all challenges. It includes strategists, community & channel managers, content creators, videographers, designers, paid social experts, influencer managers and analytics leads.
           </p>
 
@@ -209,7 +210,7 @@ export default function Social() {
       </section>
 
       {/* Platform-specific Content Section */}
-      <section className="py-16 px-4 bg-white">
+      <section className="py-14 px-4 bg-white">
         <div className="max-w-4xl mx-auto">
           <img 
             src={arcadeImg}
@@ -218,19 +219,19 @@ export default function Social() {
             data-testid="img-arcade"
           />
 
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-black mb-6">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-black mb-6">
             Platform-specific social content
           </h2>
 
-          <p className="text-lg text-black mb-6">
+          <p className="text-base text-black mb-6">
             We know each algorithm inside and out. They're all different, and so they should be treated that way.
           </p>
 
-          <p className="text-lg text-black mb-6">
+          <p className="text-base text-black mb-6">
             Creating content for specific platforms is vital for growth, rather than a cookie-cutter approach of re-posting everywhere. Our strategists and planners are built to deliver narratives that align with the individual platform algorithms.
           </p>
 
-          <p className="text-lg text-black mb-8">
+          <p className="text-base text-black mb-8">
             Our team has both the technical and creative capabilities to ensure we're delivering content that adapts to algorithm changes.
           </p>
 
@@ -249,7 +250,7 @@ export default function Social() {
       </section>
 
       {/* Data-driven Approach Section */}
-      <section className="py-16 px-4 bg-gray-50">
+      <section className="py-14 px-4 bg-gray-50">
         <div className="max-w-4xl mx-auto">
           <img 
             src={awardTeamImg}
@@ -258,19 +259,19 @@ export default function Social() {
             data-testid="img-award"
           />
 
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-black mb-6">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-black mb-6">
             We take a data-driven approach to social
           </h2>
 
-          <p className="text-lg text-black mb-6">
+          <p className="text-base text-black mb-6">
             Data-driven strategies combined with our creativity are exactly why we've been able to win awards such as Best Large Social Agency and deliver incredible results time and time again.
           </p>
 
-          <p className="text-lg text-black mb-6">
+          <p className="text-base text-black mb-6">
             A lot of social agencies and brands create content for the sake of it without any reasoning behind what they're creating.
           </p>
 
-          <p className="text-lg text-black mb-8">
+          <p className="text-base text-black mb-8">
             We dive deep into content analysis and why each piece is either performing or underperforming. This leads us to make adjustments to our content plans on a weekly and monthly and overarching strategy on a quarterly basis.
           </p>
 
@@ -289,12 +290,12 @@ export default function Social() {
       </section>
 
       {/* Full-Service Social Offering Section */}
-      <section className="py-16 px-4 bg-white">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-black mb-2">
+      <section className="py-14 px-4 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-black mb-2">
             Our full-service
           </h2>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-black mb-8">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-black mb-8">
             Social offering...
           </h2>
 
@@ -312,40 +313,49 @@ export default function Social() {
             ))}
           </div>
 
-          {/* Service Card */}
-          <div className="bg-white border-2 border-gray-100 rounded-3xl p-10 mb-8" data-testid="card-service-current">
-            <div className="flex items-start justify-between mb-6">
-              <div className="w-16 h-16 bg-black rounded-xl flex items-center justify-center">
-                {(() => {
-                  const Icon = services[currentService].icon;
-                  return <Icon className="h-8 w-8 text-white" />;
-                })()}
-              </div>
-              <button
-                onClick={nextService}
-                className="w-12 h-12 bg-black rounded-full flex items-center justify-center hover-elevate"
-                data-testid="button-next-service"
-              >
-                <ArrowRight className="h-5 w-5 text-white" />
-              </button>
-            </div>
+          {/* Grid of 3 Service Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            {[0, 1, 2].map((offset) => {
+              const actualIdx = (currentService + offset) % services.length;
+              const service = services[actualIdx];
+              const Icon = service.icon;
+              
+              return (
+                <div key={actualIdx} className="bg-white border-2 border-gray-100 rounded-3xl p-8" data-testid={`card-service-${actualIdx}`}>
+                  <div className="flex items-start justify-between mb-6">
+                    <div className="w-14 h-14 bg-black rounded-xl flex items-center justify-center">
+                      <Icon className="h-7 w-7 text-white" />
+                    </div>
+                    {offset === 2 && (
+                      <button
+                        onClick={nextService}
+                        className="w-11 h-11 bg-black rounded-full flex items-center justify-center hover-elevate"
+                        data-testid="button-next-service"
+                      >
+                        <ArrowRight className="h-4 w-4 text-white" />
+                      </button>
+                    )}
+                  </div>
 
-            <h3 className="text-2xl md:text-3xl font-black text-black mb-4">
-              {services[currentService].title}
-            </h3>
+                  <h3 className="text-xl md:text-2xl font-black text-black mb-3">
+                    {service.title}
+                  </h3>
 
-            <p className="text-lg text-gray-700 mb-6">
-              {services[currentService].description}
-            </p>
+                  <p className="text-sm text-gray-700 mb-5">
+                    {service.description}
+                  </p>
 
-            <ul className="space-y-3">
-              {services[currentService].points.map((point, i) => (
-                <li key={i} className="flex items-start gap-3">
-                  <CheckCircle className="h-5 w-5 text-[#5FD4C4] flex-shrink-0 mt-1" />
-                  <span className="text-gray-800">{point}</span>
-                </li>
-              ))}
-            </ul>
+                  <ul className="space-y-2">
+                    {service.points.map((point, i) => (
+                      <li key={i} className="flex items-start gap-2">
+                        <CheckCircle className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-1" />
+                        <span className="text-sm text-gray-800">{point}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              );
+            })}
           </div>
 
           <button
@@ -361,7 +371,7 @@ export default function Social() {
       </section>
 
       {/* Case Studies Section */}
-      <section className="py-16 px-4 bg-gray-50">
+      <section className="py-14 px-4 bg-gray-50">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-black text-black mb-6">
             Our Social Case Studies
@@ -407,7 +417,7 @@ export default function Social() {
       </section>
 
       {/* Latest Social Content Section */}
-      <section className="py-16 px-4 bg-white">
+      <section className="py-14 px-4 bg-white">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-black text-black mb-2">
             Checkout our latest
@@ -455,7 +465,7 @@ export default function Social() {
       </section>
 
       {/* Why Social Shepherd Section */}
-      <section className="py-16 px-4 bg-gray-50">
+      <section className="py-14 px-4 bg-gray-50">
         <div className="max-w-4xl mx-auto">
           <div className="flex items-center justify-between mb-8">
             <h2 className="text-3xl md:text-4xl font-black text-black">
@@ -523,7 +533,7 @@ export default function Social() {
       </section>
 
       {/* Final CTA Section */}
-      <section className="py-16 px-4 bg-white">
+      <section className="py-14 px-4 bg-white">
         <div className="max-w-4xl mx-auto">
           <div className="bg-[#5FD4C4] rounded-3xl overflow-hidden" data-testid="card-final-cta">
             <div className="p-10 md:p-16">

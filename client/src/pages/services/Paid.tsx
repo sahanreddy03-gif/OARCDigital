@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'wouter';
 import { ArrowRight, CheckCircle, ChevronLeft, ChevronRight, BarChart, Palette, Settings, Target, TrendingUp, Play } from 'lucide-react';
 import { SiMeta, SiGoogle, SiTiktok, SiPinterest } from 'react-icons/si';
@@ -104,31 +104,37 @@ export default function Paid() {
     setCurrentBenefit((prev) => (prev + 1) % benefits.length);
   };
 
+  useEffect(() => {
+    document.title = "Paid Media Services | OARC Digital";
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute("content", "Performance-driven Paid Social and Paid Search campaigns that deliver sustainable growth and incrementality in profitability, growth and brand uplift.");
+    }
+  }, []);
+
   return (
-    <Layout
-      title="Paid Media Services - OARC Digital"
-      description="Performance-driven Paid Social and Paid Search campaigns that deliver sustainable growth and incrementality in profitability, growth and brand uplift."
-    >
+    <Layout>
       {/* Hero Section */}
-      <section className="py-16 px-4 bg-white">
+      <section className="py-14 px-4 bg-white">
         <div className="max-w-4xl mx-auto">
-          <div className="flex items-center gap-2 mb-6">
-            <div className="w-8 h-0.5 bg-black"></div>
+          <div className="flex items-center gap-2 mb-4">
+            <div className="w-6 h-0.5 bg-black" data-testid="decorative-line-1"></div>
+            <div className="w-6 h-0.5 bg-black" data-testid="decorative-line-2"></div>
           </div>
 
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-black mb-8" data-testid="heading-paid">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-black mb-6" data-testid="heading-paid">
             Paid
           </h1>
 
-          <h2 className="text-2xl md:text-3xl font-black text-black mb-6">
+          <h2 className="text-xl md:text-2xl lg:text-3xl font-black text-black mb-5">
             We deliver performance-driven Paid Social and Paid Search campaigns
           </h2>
 
-          <p className="text-lg text-gray-700 mb-4">
+          <p className="text-base text-gray-700 mb-4">
             Are you not happy with your current performance and looking for a partner that can drive sustainable growth that delivers incrementality in profitability, growth and brand uplift?
           </p>
 
-          <p className="text-lg text-gray-700 mb-8">
+          <p className="text-base text-gray-700 mb-8">
             We leverage Social and Search channels with platform-specific performance creative to drive growth at all stages of the funnel.
           </p>
 
@@ -159,25 +165,26 @@ export default function Paid() {
       </section>
 
       {/* Award-Winning Agency Section */}
-      <section className="py-16 px-4 bg-white">
+      <section className="py-14 px-4 bg-white">
         <div className="max-w-4xl mx-auto">
-          <div className="flex items-center gap-2 mb-6">
-            <div className="w-8 h-0.5 bg-black"></div>
+          <div className="flex items-center gap-2 mb-4">
+            <div className="w-6 h-0.5 bg-black" data-testid="decorative-line-1"></div>
+            <div className="w-6 h-0.5 bg-black" data-testid="decorative-line-2"></div>
           </div>
 
-          <h2 className="text-4xl md:text-5xl font-black text-black mb-6">
+          <h2 className="text-3xl md:text-4xl font-black text-black mb-6">
             We're an Award-Winning Paid Media Agency
           </h2>
 
-          <p className="text-lg text-gray-700 mb-4">
+          <p className="text-base text-gray-700 mb-4">
             Having recently won 'Best Integrated Paid Media Campaign', Best Use of Facebook & Instagram Ads' and 'Best Direct Response Campaign' the Year', we know how to build and optimise full-funnel Paid Media strategies that grow brands at scale.
           </p>
 
-          <p className="text-lg text-gray-700 mb-4">
+          <p className="text-base text-gray-700 mb-4">
             Our team manages Paid Social and Paid Search for scaleups, household names, and global brands. So, we know how to scale ad accounts, drive incrementality, deliver creative strategies and create a dramatic shift in performance.
           </p>
 
-          <p className="text-lg text-gray-700 mb-8">
+          <p className="text-base text-gray-700 mb-8">
             We're also agency partners with Meta, Google (Premier Partner status), TikTok and Pinterest which give us access to unique insight, ad credits and beta tests.
           </p>
 
@@ -196,7 +203,7 @@ export default function Paid() {
       </section>
 
       {/* Platform Partners */}
-      <section className="py-12 px-4 bg-white">
+      <section className="py-14 px-4 bg-white">
         <div className="max-w-4xl mx-auto">
           <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12">
             <div className="w-16 h-16 bg-black rounded-lg flex items-center justify-center" data-testid="icon-meta">
@@ -228,25 +235,26 @@ export default function Paid() {
       </section>
 
       {/* Strategic Approach Section */}
-      <section className="py-16 px-4 bg-white">
+      <section className="py-14 px-4 bg-white">
         <div className="max-w-4xl mx-auto">
-          <div className="flex items-center gap-2 mb-6">
-            <div className="w-8 h-0.5 bg-black"></div>
+          <div className="flex items-center gap-2 mb-4">
+            <div className="w-6 h-0.5 bg-black" data-testid="decorative-line-1"></div>
+            <div className="w-6 h-0.5 bg-black" data-testid="decorative-line-2"></div>
           </div>
 
-          <h2 className="text-4xl md:text-5xl font-black text-black mb-6">
+          <h2 className="text-3xl md:text-4xl font-black text-black mb-6">
             Our Strategic Approach to Future Proofing Your Brand
           </h2>
 
-          <p className="text-lg text-gray-700 mb-4">
+          <p className="text-base text-gray-700 mb-4">
             The Paid Media landscape is ever-changing, and that's why we constantly stay on top of it.
           </p>
 
-          <p className="text-lg text-gray-700 mb-4">
+          <p className="text-base text-gray-700 mb-4">
             We're here to be your eyes and ears of what's happening, how platforms are changing and how we need to be adapting our strategy for you.
           </p>
 
-          <p className="text-lg text-gray-700 mb-8">
+          <p className="text-base text-gray-700 mb-8">
             We'll then work with you to deliver the direction of your Paid Media strategy and then implement campaign management, optimisation, creative strategy, channel management, budget allocation, attribution modelling, feed optimisation and analytics.
           </p>
 
@@ -277,25 +285,26 @@ export default function Paid() {
       </section>
 
       {/* Reporting Section */}
-      <section className="py-16 px-4 bg-white">
+      <section className="py-14 px-4 bg-white">
         <div className="max-w-4xl mx-auto">
-          <div className="flex items-center gap-2 mb-6">
-            <div className="w-8 h-0.5 bg-black"></div>
+          <div className="flex items-center gap-2 mb-4">
+            <div className="w-6 h-0.5 bg-black" data-testid="decorative-line-1"></div>
+            <div className="w-6 h-0.5 bg-black" data-testid="decorative-line-2"></div>
           </div>
 
-          <h2 className="text-4xl md:text-5xl font-black text-black mb-6">
+          <h2 className="text-3xl md:text-4xl font-black text-black mb-6">
             Reporting, Analysis and Attribution Modelling
           </h2>
 
-          <p className="text-lg text-gray-700 mb-4">
+          <p className="text-base text-gray-700 mb-4">
             To make the right decisions with your paid media spend, it's important to have a robust reporting solution that can break down all your data into easily digestible numbers.
           </p>
 
-          <p className="text-lg text-gray-700 mb-4">
+          <p className="text-base text-gray-700 mb-4">
             Our custom reporting breaks down each channel and shows you which campaigns, audiences, creative and copy are driving performance.
           </p>
 
-          <p className="text-lg text-gray-700 mb-8">
+          <p className="text-base text-gray-700 mb-8">
             We're also able to build in metrics that are vital for your business to track, making it completely bespoke to you.
           </p>
 
@@ -314,9 +323,9 @@ export default function Paid() {
       </section>
 
       {/* Services Carousel */}
-      <section className="py-16 px-4 bg-gray-50">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-black text-black mb-2">
+      <section className="py-14 px-4 bg-gray-50">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-black mb-8">
             Our full-service Paid Media offering...
           </h2>
 
@@ -334,49 +343,57 @@ export default function Paid() {
             ))}
           </div>
 
-          {/* Service Card */}
-          <div className="bg-white rounded-3xl p-10 mb-8" data-testid="card-service-current">
-            <div className="flex items-start gap-6 mb-6">
-              <div className="w-16 h-16 bg-black rounded-lg flex items-center justify-center flex-shrink-0">
-                {(() => {
-                  const Icon = services[currentService].icon;
-                  return <Icon className="h-8 w-8 text-white" />;
-                })()}
-              </div>
-              <div className="flex-1">
-                <h3 className="text-3xl font-black text-black mb-2">
-                  {services[currentService].title}
-                </h3>
-                <p className="text-lg text-gray-700">
-                  {services[currentService].description}
-                </p>
-              </div>
-            </div>
+          {/* Grid of 3 Service Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            {[0, 1, 2].map((offset) => {
+              const actualIdx = (currentService + offset) % services.length;
+              const service = services[actualIdx];
+              const Icon = service.icon;
+              
+              return (
+                <div key={actualIdx} className="bg-white border-2 border-gray-100 rounded-3xl p-8" data-testid={`card-service-${actualIdx}`}>
+                  <div className="flex items-start justify-between mb-6">
+                    <div className="w-14 h-14 bg-black rounded-xl flex items-center justify-center">
+                      <Icon className="h-7 w-7 text-white" />
+                    </div>
+                    {offset === 2 && (
+                      <button
+                        onClick={nextService}
+                        className="w-11 h-11 bg-black rounded-full flex items-center justify-center hover-elevate"
+                        data-testid="button-next-service"
+                      >
+                        <ArrowRight className="h-4 w-4 text-white" />
+                      </button>
+                    )}
+                  </div>
 
-            <div className="space-y-3 mb-8">
-              {services[currentService].items.map((item, idx) => (
-                <div key={idx} className="flex items-center gap-3">
-                  <CheckCircle className="h-5 w-5 text-[#5FD4C4] flex-shrink-0" />
-                  <span className="text-base text-gray-700">{item}</span>
+                  <h3 className="text-xl md:text-2xl font-black text-black mb-3">
+                    {service.title}
+                  </h3>
+
+                  <p className="text-sm text-gray-700 mb-5">
+                    {service.description}
+                  </p>
+
+                  <ul className="space-y-2">
+                    {service.items.map((item, i) => (
+                      <li key={i} className="flex items-start gap-2">
+                        <CheckCircle className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-1" />
+                        <span className="text-sm text-gray-800">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-              ))}
-            </div>
-
-            <button
-              onClick={nextService}
-              className="w-12 h-12 rounded-full border-2 border-black flex items-center justify-center hover-elevate active-elevate-2"
-              data-testid="button-next-service"
-            >
-              <ArrowRight className="h-5 w-5 text-black" />
-            </button>
+              );
+            })}
           </div>
         </div>
       </section>
 
       {/* Case Studies Section */}
-      <section className="py-16 px-4 bg-gray-50">
+      <section className="py-14 px-4 bg-gray-50">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-black text-black mb-8">
+          <h2 className="text-3xl md:text-4xl font-black text-black mb-8">
             How we've used Paid to grow our clients
           </h2>
 
@@ -410,9 +427,9 @@ export default function Paid() {
       </section>
 
       {/* Performance Creatives Section */}
-      <section className="py-16 px-4 bg-gray-50">
+      <section className="py-14 px-4 bg-gray-50">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-black text-black mb-2">
+          <h2 className="text-3xl md:text-4xl font-black text-black mb-2">
             Checkout our latest <span className="text-[#5FD4C4]">Performance Creatives</span>
           </h2>
 
@@ -443,10 +460,10 @@ export default function Paid() {
       </section>
 
       {/* Why Social Shepherd Carousel */}
-      <section className="py-16 px-4 bg-gray-50">
+      <section className="py-14 px-4 bg-gray-50">
         <div className="max-w-4xl mx-auto">
           <div className="flex items-center justify-between mb-8">
-            <h2 className="text-4xl md:text-5xl font-black text-black">
+            <h2 className="text-3xl md:text-4xl font-black text-black">
               Why The Social Shepherd?
             </h2>
             <div className="flex gap-3">
@@ -511,11 +528,11 @@ export default function Paid() {
       </section>
 
       {/* Final CTA Section */}
-      <section className="py-16 px-4 bg-white">
+      <section className="py-14 px-4 bg-white">
         <div className="max-w-4xl mx-auto">
           <div className="bg-[#5FD4C4] rounded-3xl overflow-hidden" data-testid="card-final-cta">
             <div className="p-10 md:p-16">
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-black mb-8">
+              <h2 className="text-3xl md:text-4xl lg:text-6xl font-black text-black mb-8">
                 Don't be <span className="text-white">sheepish</span><br />let's talk
               </h2>
               <Link href="/contact">
