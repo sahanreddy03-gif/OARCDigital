@@ -115,13 +115,14 @@ export default function Influencer() {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="py-16 px-4 bg-white">
+      <section className="py-14 px-4 bg-white">
         <div className="max-w-4xl mx-auto">
-          <div className="flex items-center gap-2 mb-6">
-            <div className="w-8 h-0.5 bg-black"></div>
+          <div className="flex items-center gap-2 mb-4">
+            <div className="w-6 h-0.5 bg-black" data-testid="decorative-line-1"></div>
+            <div className="w-6 h-0.5 bg-black" data-testid="decorative-line-2"></div>
           </div>
 
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-black mb-8" data-testid="heading-influencer">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-black mb-8" data-testid="heading-influencer">
             Influencer
           </h1>
 
@@ -129,11 +130,11 @@ export default function Influencer() {
             We deliver brand awareness and direct-response Influencer & Creator campaigns
           </h2>
 
-          <p className="text-lg text-gray-700 mb-4">
+          <p className="text-base text-gray-700 mb-4">
             We help brands drive growth, change brand perception and produce creative influencer campaigns.
           </p>
 
-          <p className="text-lg text-gray-700 mb-8">
+          <p className="text-base text-gray-700 mb-8">
             Whether you're looking for a one-off campaign or a long-term retained influencer partner - we could be the agency for you.
           </p>
 
@@ -164,29 +165,30 @@ export default function Influencer() {
       </section>
 
       {/* Human-led Influencer Approach Section */}
-      <section className="py-16 px-4 bg-white">
+      <section className="py-14 px-4 bg-white">
         <div className="max-w-4xl mx-auto">
-          <div className="flex items-center gap-2 mb-6">
-            <div className="w-8 h-0.5 bg-black"></div>
+          <div className="flex items-center gap-2 mb-4">
+            <div className="w-6 h-0.5 bg-black" data-testid="decorative-line-1"></div>
+            <div className="w-6 h-0.5 bg-black" data-testid="decorative-line-2"></div>
           </div>
 
-          <h2 className="text-4xl md:text-5xl font-black text-black mb-6">
+          <h2 className="text-3xl md:text-4xl font-black text-black mb-6">
             Human-led influencer approach
           </h2>
 
-          <p className="text-lg text-gray-700 mb-4">
+          <p className="text-base text-gray-700 mb-4">
             Too many influencer agencies rely solely on tech and influencer search platforms to guide their entire campaign, but we knew there was a better way.
           </p>
 
-          <p className="text-lg text-gray-700 mb-4">
+          <p className="text-base text-gray-700 mb-4">
             We take a more human-led approach and then use tech to confirm our research and campaign development.
           </p>
 
-          <p className="text-lg text-gray-700 mb-4">
+          <p className="text-base text-gray-700 mb-4">
             This looks at how we research potential influencers, how we analyse their metrics, and how they have performed on previous campaigns.
           </p>
 
-          <p className="text-lg text-gray-700 mb-8">
+          <p className="text-base text-gray-700 mb-8">
             Our team is extremely thorough when it comes to the planning phase, so we can truly get the best influencers for your brand, while delivering efficiency of your budget.
           </p>
 
@@ -217,21 +219,22 @@ export default function Influencer() {
       </section>
 
       {/* End-to-end Campaign Management Section */}
-      <section className="py-16 px-4 bg-white">
+      <section className="py-14 px-4 bg-white">
         <div className="max-w-4xl mx-auto">
-          <div className="flex items-center gap-2 mb-6">
-            <div className="w-8 h-0.5 bg-black"></div>
+          <div className="flex items-center gap-2 mb-4">
+            <div className="w-6 h-0.5 bg-black" data-testid="decorative-line-1"></div>
+            <div className="w-6 h-0.5 bg-black" data-testid="decorative-line-2"></div>
           </div>
 
-          <h2 className="text-4xl md:text-5xl font-black text-black mb-6">
+          <h2 className="text-3xl md:text-4xl font-black text-black mb-6">
             End-to-end Campaign Management
           </h2>
 
-          <p className="text-lg text-gray-700 mb-4">
+          <p className="text-base text-gray-700 mb-4">
             We can handle it all, from campaign strategy, research, insights, outreach, briefing, approvals, payment, analysis, and delivery.
           </p>
 
-          <p className="text-lg text-gray-700 mb-8">
+          <p className="text-base text-gray-700 mb-8">
             Some brands want to be heavily involved, while others prefer a hands-off approach. So our ways of working allow us to mould to your exact needs.
           </p>
 
@@ -262,29 +265,30 @@ export default function Influencer() {
       </section>
 
       {/* Creators for UGC Section */}
-      <section className="py-16 px-4 bg-white">
+      <section className="py-14 px-4 bg-white">
         <div className="max-w-4xl mx-auto">
-          <div className="flex items-center gap-2 mb-6">
-            <div className="w-8 h-0.5 bg-black"></div>
+          <div className="flex items-center gap-2 mb-4">
+            <div className="w-6 h-0.5 bg-black" data-testid="decorative-line-1"></div>
+            <div className="w-6 h-0.5 bg-black" data-testid="decorative-line-2"></div>
           </div>
 
-          <h2 className="text-4xl md:text-5xl font-black text-black mb-6">
+          <h2 className="text-3xl md:text-4xl font-black text-black mb-6">
             Creators for User-generated Content
           </h2>
 
-          <p className="text-lg text-gray-700 mb-4">
+          <p className="text-base text-gray-700 mb-4">
             Not only do we deliver Influencer campaigns, but we've built our creator pools, who can produce social-first content for your social channels.
           </p>
 
-          <p className="text-lg text-gray-700 mb-4">
+          <p className="text-base text-gray-700 mb-4">
             Creators have a unique ability to create content that's socially native, produced specifically for each individual platform, so we decided to harness it!
           </p>
 
-          <p className="text-lg text-gray-700 mb-4">
+          <p className="text-base text-gray-700 mb-4">
             Not used for their 'influence', but as another means of production. We then use that content on your owned brand channels, not their own channels.
           </p>
 
-          <p className="text-lg text-gray-700 mb-8">
+          <p className="text-base text-gray-700 mb-8">
             So if you're a brand looking for UGC content for Organic or Paid channels or a creator yourself, get in touch.
           </p>
 
@@ -303,9 +307,9 @@ export default function Influencer() {
       </section>
 
       {/* Services Carousel */}
-      <section className="py-16 px-4 bg-gray-50">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-black text-black mb-2">
+      <section className="py-14 px-4 bg-gray-50">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-black mb-8">
             Our full-service Influencer and Creator offering...
           </h2>
 
@@ -323,49 +327,57 @@ export default function Influencer() {
             ))}
           </div>
 
-          {/* Service Card */}
-          <div className="bg-white rounded-3xl p-10 mb-8" data-testid="card-service-current">
-            <div className="flex items-start gap-6 mb-6">
-              <div className="w-16 h-16 bg-black rounded-lg flex items-center justify-center flex-shrink-0">
-                {(() => {
-                  const Icon = services[currentService].icon;
-                  return <Icon className="h-8 w-8 text-white" />;
-                })()}
-              </div>
-              <div className="flex-1">
-                <h3 className="text-3xl font-black text-black mb-2">
-                  {services[currentService].title}
-                </h3>
-                <p className="text-lg text-gray-700">
-                  {services[currentService].description}
-                </p>
-              </div>
-            </div>
+          {/* Grid of 3 Service Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            {[0, 1, 2].map((offset) => {
+              const actualIdx = (currentService + offset) % services.length;
+              const service = services[actualIdx];
+              const Icon = service.icon;
+              
+              return (
+                <div key={actualIdx} className="bg-white border-2 border-gray-100 rounded-3xl p-8" data-testid={`card-service-${actualIdx}`}>
+                  <div className="flex items-start justify-between mb-6">
+                    <div className="w-14 h-14 bg-black rounded-xl flex items-center justify-center">
+                      <Icon className="h-7 w-7 text-white" />
+                    </div>
+                    {offset === 2 && (
+                      <button
+                        onClick={nextService}
+                        className="w-11 h-11 bg-black rounded-full flex items-center justify-center hover-elevate"
+                        data-testid="button-next-service"
+                      >
+                        <ArrowRight className="h-4 w-4 text-white" />
+                      </button>
+                    )}
+                  </div>
 
-            <div className="space-y-3 mb-8">
-              {services[currentService].items.map((item, idx) => (
-                <div key={idx} className="flex items-center gap-3">
-                  <CheckCircle className="h-5 w-5 text-[#5FD4C4] flex-shrink-0" />
-                  <span className="text-base text-gray-700">{item}</span>
+                  <h3 className="text-xl md:text-2xl font-black text-black mb-3">
+                    {service.title}
+                  </h3>
+
+                  <p className="text-sm text-gray-700 mb-5">
+                    {service.description}
+                  </p>
+
+                  <ul className="space-y-2">
+                    {service.items.map((item, i) => (
+                      <li key={i} className="flex items-start gap-2">
+                        <CheckCircle className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-1" />
+                        <span className="text-sm text-gray-800">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-              ))}
-            </div>
-
-            <button
-              onClick={nextService}
-              className="w-12 h-12 rounded-full border-2 border-black flex items-center justify-center hover-elevate active-elevate-2"
-              data-testid="button-next-service"
-            >
-              <ArrowRight className="h-5 w-5 text-black" />
-            </button>
+              );
+            })}
           </div>
         </div>
       </section>
 
       {/* Case Studies Carousel */}
-      <section className="py-16 px-4 bg-white">
+      <section className="py-14 px-4 bg-white">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-black text-black mb-8">
+          <h2 className="text-3xl md:text-4xl font-black text-black mb-8">
             How we've used Influencers to grow our clients
           </h2>
 
@@ -419,9 +431,9 @@ export default function Influencer() {
       </section>
 
       {/* Latest Influencer Content Section */}
-      <section className="py-16 px-4 bg-white">
+      <section className="py-14 px-4 bg-white">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-black text-black mb-2">
+          <h2 className="text-3xl md:text-4xl font-black text-black mb-2">
             Checkout our latest <span className="text-[#5FD4C4]">Influencer content</span>
           </h2>
 
@@ -449,10 +461,10 @@ export default function Influencer() {
       </section>
 
       {/* Why Social Shepherd Carousel */}
-      <section className="py-16 px-4 bg-gray-50">
+      <section className="py-14 px-4 bg-gray-50">
         <div className="max-w-4xl mx-auto">
           <div className="flex items-center justify-between mb-8">
-            <h2 className="text-4xl md:text-5xl font-black text-black">
+            <h2 className="text-3xl md:text-4xl font-black text-black">
               Why The Social Shepherd?
             </h2>
             <div className="flex gap-3">
@@ -517,11 +529,11 @@ export default function Influencer() {
       </section>
 
       {/* Final CTA Section */}
-      <section className="py-16 px-4 bg-white">
+      <section className="py-14 px-4 bg-white">
         <div className="max-w-4xl mx-auto">
           <div className="bg-[#5FD4C4] rounded-3xl overflow-hidden" data-testid="card-final-cta">
             <div className="p-10 md:p-16">
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-black mb-8">
+              <h2 className="text-3xl md:text-4xl lg:text-6xl font-black text-black mb-8">
                 Don't be <span className="text-white">sheepish</span><br />let's talk
               </h2>
               <Link href="/contact">

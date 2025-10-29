@@ -121,13 +121,14 @@ export default function Creative() {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="py-16 px-4 bg-white">
+      <section className="py-14 px-4 bg-white">
         <div className="max-w-4xl mx-auto">
-          <div className="flex items-center gap-2 mb-6">
-            <div className="w-8 h-0.5 bg-black"></div>
+          <div className="flex items-center gap-2 mb-4">
+            <div className="w-6 h-0.5 bg-black" data-testid="decorative-line-1"></div>
+            <div className="w-6 h-0.5 bg-black" data-testid="decorative-line-2"></div>
           </div>
 
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-black mb-8" data-testid="heading-creative">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-black mb-8" data-testid="heading-creative">
             Creative
           </h1>
 
@@ -135,11 +136,11 @@ export default function Creative() {
             Delivering outstanding Creative across Video, Design and Motion
           </h2>
 
-          <p className="text-lg text-gray-700 mb-4">
+          <p className="text-base text-gray-700 mb-4">
             Is your creative uninspiring, not getting the results you're looking for and not platform-specific?
           </p>
 
-          <p className="text-lg text-gray-700 mb-8">
+          <p className="text-base text-gray-700 mb-8">
             Whether you're in need of always-on content or campaign creative, we have the full capabilities across our Creative Strategy and Studios to bring your project to life.
           </p>
 
@@ -170,25 +171,26 @@ export default function Creative() {
       </section>
 
       {/* Social Creative Specialists Section */}
-      <section className="py-16 px-4 bg-white">
+      <section className="py-14 px-4 bg-white">
         <div className="max-w-4xl mx-auto">
-          <div className="flex items-center gap-2 mb-6">
-            <div className="w-8 h-0.5 bg-black"></div>
+          <div className="flex items-center gap-2 mb-4">
+            <div className="w-6 h-0.5 bg-black" data-testid="decorative-line-1"></div>
+            <div className="w-6 h-0.5 bg-black" data-testid="decorative-line-2"></div>
           </div>
 
-          <h2 className="text-4xl md:text-5xl font-black text-black mb-6">
+          <h2 className="text-3xl md:text-4xl font-black text-black mb-6">
             We're social creative specialists
           </h2>
 
-          <p className="text-lg text-gray-700 mb-4">
+          <p className="text-base text-gray-700 mb-4">
             Gone are the days when you can use cutdowns of campaigns and chuck them on social. Creative needs to be produced by specialists that understand the algorithms of where it's being distributed and the purpose of each piece of content.
           </p>
 
-          <p className="text-lg text-gray-700 mb-4">
+          <p className="text-base text-gray-700 mb-4">
             Our team solely work on social and digital creatives... that's all they do. That's why brands work with us instead of your traditional creative or production agencies.
           </p>
 
-          <p className="text-lg text-gray-700 mb-8">
+          <p className="text-base text-gray-700 mb-8">
             Whether it's Creative for Campaigns, Always-On or TikTok, Reels, Feed, Stories or Paid Social - we've got you covered.
           </p>
 
@@ -219,25 +221,26 @@ export default function Creative() {
       </section>
 
       {/* Strategy to Delivery Section */}
-      <section className="py-16 px-4 bg-white">
+      <section className="py-14 px-4 bg-white">
         <div className="max-w-4xl mx-auto">
-          <div className="flex items-center gap-2 mb-6">
-            <div className="w-8 h-0.5 bg-black"></div>
+          <div className="flex items-center gap-2 mb-4">
+            <div className="w-6 h-0.5 bg-black" data-testid="decorative-line-1"></div>
+            <div className="w-6 h-0.5 bg-black" data-testid="decorative-line-2"></div>
           </div>
 
-          <h2 className="text-4xl md:text-5xl font-black text-black mb-6">
+          <h2 className="text-3xl md:text-4xl font-black text-black mb-6">
             Our creatives spans from strategy to delivery
           </h2>
 
-          <p className="text-lg text-gray-700 mb-4">
+          <p className="text-base text-gray-700 mb-4">
             Our Studio includes a range of talented strategists, art directors, copywriters, creators, videographers, designers, and animators.
           </p>
 
-          <p className="text-lg text-gray-700 mb-4">
+          <p className="text-base text-gray-700 mb-4">
             We truly understand what works on Social and Digital channels which allows us to deliver industry-leading creative for our clients.
           </p>
 
-          <p className="text-lg text-gray-700 mb-8">
+          <p className="text-base text-gray-700 mb-8">
             See some of our teams' work further below.
           </p>
 
@@ -268,21 +271,22 @@ export default function Creative() {
       </section>
 
       {/* Always-on Content Section */}
-      <section className="py-16 px-4 bg-white">
+      <section className="py-14 px-4 bg-white">
         <div className="max-w-4xl mx-auto">
-          <div className="flex items-center gap-2 mb-6">
-            <div className="w-8 h-0.5 bg-black"></div>
+          <div className="flex items-center gap-2 mb-4">
+            <div className="w-6 h-0.5 bg-black" data-testid="decorative-line-1"></div>
+            <div className="w-6 h-0.5 bg-black" data-testid="decorative-line-2"></div>
           </div>
 
-          <h2 className="text-4xl md:text-5xl font-black text-black mb-6">
+          <h2 className="text-3xl md:text-4xl font-black text-black mb-6">
             Always-on content and creative campaigns
           </h2>
 
-          <p className="text-lg text-gray-700 mb-4">
+          <p className="text-base text-gray-700 mb-4">
             Whether you're looking for a retained creative agency that can produce social-first content or someone to deliver a large-scale creative project, we are set up to deliver.
           </p>
 
-          <p className="text-lg text-gray-700 mb-8">
+          <p className="text-base text-gray-700 mb-8">
             We're flexible and agile to your individual needs and know how to deliver creative that will excite you and your audience.
           </p>
 
@@ -301,9 +305,9 @@ export default function Creative() {
       </section>
 
       {/* Services Carousel */}
-      <section className="py-16 px-4 bg-gray-50">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-black text-black mb-2">
+      <section className="py-14 px-4 bg-gray-50">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-black mb-8">
             Our full-service Creative offering...
           </h2>
 
@@ -321,49 +325,57 @@ export default function Creative() {
             ))}
           </div>
 
-          {/* Service Card */}
-          <div className="bg-white rounded-3xl p-10 mb-8" data-testid="card-service-current">
-            <div className="flex items-start gap-6 mb-6">
-              <div className="w-16 h-16 bg-black rounded-lg flex items-center justify-center flex-shrink-0">
-                {(() => {
-                  const Icon = services[currentService].icon;
-                  return <Icon className="h-8 w-8 text-white" />;
-                })()}
-              </div>
-              <div className="flex-1">
-                <h3 className="text-3xl font-black text-black mb-2">
-                  {services[currentService].title}
-                </h3>
-                <p className="text-lg text-gray-700">
-                  {services[currentService].description}
-                </p>
-              </div>
-            </div>
+          {/* Grid of 3 Service Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            {[0, 1, 2].map((offset) => {
+              const actualIdx = (currentService + offset) % services.length;
+              const service = services[actualIdx];
+              const Icon = service.icon;
+              
+              return (
+                <div key={actualIdx} className="bg-white border-2 border-gray-100 rounded-3xl p-8" data-testid={`card-service-${actualIdx}`}>
+                  <div className="flex items-start justify-between mb-6">
+                    <div className="w-14 h-14 bg-black rounded-xl flex items-center justify-center">
+                      <Icon className="h-7 w-7 text-white" />
+                    </div>
+                    {offset === 2 && (
+                      <button
+                        onClick={nextService}
+                        className="w-11 h-11 bg-black rounded-full flex items-center justify-center hover-elevate"
+                        data-testid="button-next-service"
+                      >
+                        <ArrowRight className="h-4 w-4 text-white" />
+                      </button>
+                    )}
+                  </div>
 
-            <div className="space-y-3 mb-8">
-              {services[currentService].items.map((item, idx) => (
-                <div key={idx} className="flex items-center gap-3">
-                  <CheckCircle className="h-5 w-5 text-[#5FD4C4] flex-shrink-0" />
-                  <span className="text-base text-gray-700">{item}</span>
+                  <h3 className="text-xl md:text-2xl font-black text-black mb-3">
+                    {service.title}
+                  </h3>
+
+                  <p className="text-sm text-gray-700 mb-5">
+                    {service.description}
+                  </p>
+
+                  <ul className="space-y-2">
+                    {service.items.map((item, i) => (
+                      <li key={i} className="flex items-start gap-2">
+                        <CheckCircle className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-1" />
+                        <span className="text-sm text-gray-800">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-              ))}
-            </div>
-
-            <button
-              onClick={nextService}
-              className="w-12 h-12 rounded-full border-2 border-black flex items-center justify-center hover-elevate active-elevate-2"
-              data-testid="button-next-service"
-            >
-              <ArrowRight className="h-5 w-5 text-black" />
-            </button>
+              );
+            })}
           </div>
         </div>
       </section>
 
       {/* Campaign Creatives Section */}
-      <section className="py-16 px-4 bg-white">
+      <section className="py-14 px-4 bg-white">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-black text-black mb-2">
+          <h2 className="text-3xl md:text-4xl font-black text-black mb-2">
             Checkout our latest <span className="text-[#5FD4C4]">Campaign Creatives</span>
           </h2>
 
@@ -394,9 +406,9 @@ export default function Creative() {
       </section>
 
       {/* Organic Social Creatives Section */}
-      <section className="py-16 px-4 bg-white">
+      <section className="py-14 px-4 bg-white">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-black text-black mb-2">
+          <h2 className="text-3xl md:text-4xl font-black text-black mb-2">
             Checkout our latest <span className="text-[#5FD4C4]">Organic Social Creatives</span>
           </h2>
 
@@ -427,9 +439,9 @@ export default function Creative() {
       </section>
 
       {/* Paid Social Creatives Section */}
-      <section className="py-16 px-4 bg-white">
+      <section className="py-14 px-4 bg-white">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-black text-black mb-2">
+          <h2 className="text-3xl md:text-4xl font-black text-black mb-2">
             Checkout our latest <span className="text-[#5FD4C4]">Paid Social Creatives</span>
           </h2>
 
@@ -460,10 +472,10 @@ export default function Creative() {
       </section>
 
       {/* Why Social Shepherd Carousel */}
-      <section className="py-16 px-4 bg-gray-50">
+      <section className="py-14 px-4 bg-gray-50">
         <div className="max-w-4xl mx-auto">
           <div className="flex items-center justify-between mb-8">
-            <h2 className="text-4xl md:text-5xl font-black text-black">
+            <h2 className="text-3xl md:text-4xl font-black text-black">
               Why The Social Shepherd?
             </h2>
             <div className="flex gap-3">
@@ -528,11 +540,11 @@ export default function Creative() {
       </section>
 
       {/* Final CTA Section */}
-      <section className="py-16 px-4 bg-white">
+      <section className="py-14 px-4 bg-white">
         <div className="max-w-4xl mx-auto">
           <div className="bg-[#5FD4C4] rounded-3xl overflow-hidden" data-testid="card-final-cta">
             <div className="p-10 md:p-16">
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-black mb-8">
+              <h2 className="text-3xl md:text-4xl lg:text-6xl font-black text-black mb-8">
                 Don't be <span className="text-white">sheepish</span><br />let's talk
               </h2>
               <Link href="/contact">
