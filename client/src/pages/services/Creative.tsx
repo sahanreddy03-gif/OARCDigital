@@ -158,21 +158,11 @@ export default function Creative() {
         </div>
       </section>
 
-      {/* Section 1: Image Left + Text Right */}
+      {/* Section 1: Text Left + Image Right */}
       <section className="py-14 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Image - Left */}
-            <div>
-              <img 
-                src={videoProductionImg}
-                alt="Video Production Behind the Scenes"
-                className="w-full h-[500px] object-cover rounded-3xl"
-                data-testid="img-video-production"
-              />
-            </div>
-
-            {/* Text - Right */}
+            {/* Text - Left */}
             <div>
               <div className="flex items-center gap-2 mb-4">
                 <div className="w-6 h-0.5 bg-black"></div>
@@ -207,15 +197,35 @@ export default function Creative() {
                 </button>
               </Link>
             </div>
+
+            {/* Image - Right */}
+            <div>
+              <img 
+                src={videoProductionImg}
+                alt="Video Production Behind the Scenes"
+                className="w-full rounded-3xl h-[500px] object-cover"
+                data-testid="img-video-production"
+              />
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Section 2: Text Left + Image Right */}
+      {/* Section 2: Image Left + Text Right */}
       <section className="py-14 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Text - Left */}
+            {/* Image - Left */}
+            <div>
+              <img 
+                src={cameraMonitorImg}
+                alt="Camera Monitor Display"
+                className="w-full rounded-3xl h-[500px] object-cover"
+                data-testid="img-camera-monitor"
+              />
+            </div>
+
+            {/* Text - Right */}
             <div>
               <div className="flex items-center gap-2 mb-4">
                 <div className="w-6 h-0.5 bg-black"></div>
@@ -250,35 +260,15 @@ export default function Creative() {
                 </button>
               </Link>
             </div>
-
-            {/* Image - Right */}
-            <div>
-              <img 
-                src={cameraMonitorImg}
-                alt="Camera Monitor Display"
-                className="w-full h-[500px] object-cover rounded-3xl"
-                data-testid="img-camera-monitor"
-              />
-            </div>
           </div>
         </div>
       </section>
 
-      {/* Section 3: Image Left + Text Right */}
+      {/* Section 3: Text Left + Image Right */}
       <section className="py-14 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Image - Left */}
-            <div>
-              <img 
-                src={designWorkspaceImg}
-                alt="Design Workspace"
-                className="w-full h-[500px] object-cover rounded-3xl"
-                data-testid="img-design-workspace"
-              />
-            </div>
-
-            {/* Text - Right */}
+            {/* Text - Left */}
             <div>
               <div className="flex items-center gap-2 mb-4">
                 <div className="w-6 h-0.5 bg-black"></div>
@@ -308,6 +298,16 @@ export default function Creative() {
                   </div>
                 </button>
               </Link>
+            </div>
+
+            {/* Image - Right */}
+            <div>
+              <img 
+                src={designWorkspaceImg}
+                alt="Design Workspace"
+                className="w-full rounded-3xl h-[500px] object-cover"
+                data-testid="img-design-workspace"
+              />
             </div>
           </div>
         </div>
