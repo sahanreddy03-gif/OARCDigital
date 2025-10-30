@@ -155,29 +155,29 @@ export default function Navigation() {
       {showMobileMenu && (
         <div className="lg:hidden absolute top-full left-0 right-0 bg-white shadow-xl border-b border-zinc-200 max-h-[80vh] overflow-y-auto">
           <div className="px-6 py-6 space-y-4">
-            <Link href="/" data-testid="link-mobile-home">
-              <div className="text-base font-semibold text-zinc-900 py-2" onClick={() => setShowMobileMenu(false)}>
+            <Link href="/" data-testid="link-mobile-home" onClick={() => setShowMobileMenu(false)}>
+              <div className="text-base font-semibold text-zinc-900 py-2">
                 Home
               </div>
             </Link>
-            <Link href="#why-us" data-testid="link-mobile-why-us">
-              <div className="text-base font-semibold text-zinc-900 py-2" onClick={() => setShowMobileMenu(false)}>
+            <Link href="#why-us" data-testid="link-mobile-why-us" onClick={() => setShowMobileMenu(false)}>
+              <div className="text-base font-semibold text-zinc-900 py-2">
                 Why Us
               </div>
             </Link>
-            <Link href="/services" data-testid="link-mobile-all-services">
-              <div className="text-base font-semibold text-[#ea580c] py-2 flex items-center gap-2" onClick={() => setShowMobileMenu(false)}>
+            <Link href="/services" data-testid="link-mobile-all-services" onClick={() => setShowMobileMenu(false)}>
+              <div className="text-base font-semibold text-[#ea580c] py-2 flex items-center gap-2">
                 All Services
                 <ArrowRight className="w-4 h-4" />
               </div>
             </Link>
-            <Link href="#our-work" data-testid="link-mobile-our-work">
-              <div className="text-base font-semibold text-zinc-900 py-2" onClick={() => setShowMobileMenu(false)}>
+            <Link href="#our-work" data-testid="link-mobile-our-work" onClick={() => setShowMobileMenu(false)}>
+              <div className="text-base font-semibold text-zinc-900 py-2">
                 Our Work
               </div>
             </Link>
-            <Link href="#resources" data-testid="link-mobile-resources">
-              <div className="text-base font-semibold text-zinc-900 py-2" onClick={() => setShowMobileMenu(false)}>
+            <Link href="#resources" data-testid="link-mobile-resources" onClick={() => setShowMobileMenu(false)}>
+              <div className="text-base font-semibold text-zinc-900 py-2">
                 Resources
               </div>
             </Link>
