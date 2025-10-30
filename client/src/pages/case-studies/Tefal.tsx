@@ -4,6 +4,14 @@ import { ArrowRight, ChevronLeft, ChevronRight, Instagram, Youtube } from 'lucid
 import { SiSnapchat, SiTiktok } from 'react-icons/si';
 import Layout from '@/components/layout/Layout';
 import tefalHeroImg from '@assets/TefalPictures-32-scaled_1761760754960.jpg';
+import tefalAboutImg from '@assets/HOME-LAME-3-About-Tefal_1761767129107.jpg';
+import influencer1 from '@assets/image_1761768268453.png';
+import influencer2 from '@assets/image_1761768297418.png';
+import product1 from '@assets/IMG_7903_1761750487084.png';
+import product2 from '@assets/IMG_7904_1761750487084.png';
+import product3 from '@assets/IMG_7905_1761750487084.png';
+import socialEmbed1 from '@assets/IMG_7906_1761750487084.png';
+import socialEmbed2 from '@assets/IMG_7907_1761750487084.png';
 
 export default function TefalCaseStudy() {
   const [currentRelatedCase, setCurrentRelatedCase] = useState(0);
@@ -198,19 +206,23 @@ export default function TefalCaseStudy() {
             Navigating these challenges was, without doubt, a meticulous endeavor, requiring an acute understanding of emerging consumer trends and digital platforms.
           </p>
 
-          {/* Social Media Embeds Placeholder Grid */}
+          {/* Social Media Content Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
-            <div className="bg-gray-100 rounded-2xl h-[400px] flex items-center justify-center">
-              <div className="text-center text-gray-500">
-                <Instagram className="h-12 w-12 mx-auto mb-4" />
-                <p className="text-sm">Instagram Embed</p>
-              </div>
+            <div className="bg-gray-100 rounded-2xl overflow-hidden h-[400px]">
+              <img 
+                src={socialEmbed1}
+                alt="Tefal Social Media Content"
+                className="w-full h-full object-cover"
+                data-testid="img-social-content-1"
+              />
             </div>
-            <div className="bg-gray-100 rounded-2xl h-[400px] flex items-center justify-center">
-              <div className="text-center text-gray-500">
-                <SiTiktok className="h-12 w-12 mx-auto mb-4" />
-                <p className="text-sm">TikTok Embed</p>
-              </div>
+            <div className="bg-gray-100 rounded-2xl overflow-hidden h-[400px]">
+              <img 
+                src={socialEmbed2}
+                alt="Tefal Social Media Campaign"
+                className="w-full h-full object-cover"
+                data-testid="img-social-content-2"
+              />
             </div>
           </div>
         </div>
@@ -234,14 +246,20 @@ export default function TefalCaseStudy() {
           {/* Influencer Images Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
             <div className="bg-gray-800 rounded-2xl overflow-hidden h-[350px]">
-              <div className="h-full flex items-center justify-center text-gray-400">
-                Influencer Content 1
-              </div>
+              <img 
+                src={influencer1}
+                alt="Tefal Influencer Marketing Content"
+                className="w-full h-full object-cover"
+                data-testid="img-influencer-1"
+              />
             </div>
             <div className="bg-gray-800 rounded-2xl overflow-hidden h-[350px]">
-              <div className="h-full flex items-center justify-center text-gray-400">
-                Influencer Content 2
-              </div>
+              <img 
+                src={influencer2}
+                alt="Tefal Influencer Campaign"
+                className="w-full h-full object-cover"
+                data-testid="img-influencer-2"
+              />
             </div>
           </div>
         </div>
@@ -284,14 +302,29 @@ export default function TefalCaseStudy() {
       <section className="py-16 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-gray-200 rounded-2xl h-[350px] flex items-center justify-center text-gray-500">
-              Kitchen Setup
+            <div className="bg-gray-200 rounded-2xl h-[350px] overflow-hidden">
+              <img 
+                src={product1}
+                alt="Tefal Product Showcase"
+                className="w-full h-full object-cover"
+                data-testid="img-product-1"
+              />
             </div>
-            <div className="bg-gray-200 rounded-2xl h-[350px] flex items-center justify-center text-gray-500">
-              Food Product
+            <div className="bg-gray-200 rounded-2xl h-[350px] overflow-hidden">
+              <img 
+                src={product2}
+                alt="Tefal Product Line"
+                className="w-full h-full object-cover"
+                data-testid="img-product-2"
+              />
             </div>
-            <div className="bg-gray-200 rounded-2xl h-[350px] flex items-center justify-center text-gray-500">
-              Cooking Scene
+            <div className="bg-gray-200 rounded-2xl h-[350px] overflow-hidden">
+              <img 
+                src={product3}
+                alt="Tefal Kitchen Products"
+                className="w-full h-full object-cover"
+                data-testid="img-product-3"
+              />
             </div>
           </div>
         </div>
