@@ -4,8 +4,8 @@ import { ArrowRight, ChevronLeft, ChevronRight, Instagram, Youtube } from 'lucid
 import { SiSnapchat, SiTiktok } from 'react-icons/si';
 import Layout from '@/components/layout/Layout';
 import tefalHeroImg from '@assets/TefalPictures-32-scaled_1761760754960.jpg';
-import tefalAboutImg from '@assets/HOME-LAME-3-About-Tefal_1761841999155.jpg';
-import tefalVideoImg from '@assets/image_1761842039642.png';
+import tefalAboutImg from '@assets/HOME-LAME-3-About-Tefal_1761847874021.jpg';
+import tefalVideoImg from '@assets/image_1761847809835.png';
 import strategyImg1 from '@assets/image_1761842073206.png';
 import strategyImg2 from '@assets/Tefal-Influencer-Marketing-Agency-3_1761842114850.jpg';
 import socialContent1 from '@assets/image_1761842150822.png';
