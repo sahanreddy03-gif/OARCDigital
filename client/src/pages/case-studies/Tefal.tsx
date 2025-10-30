@@ -8,11 +8,11 @@ import tefalAboutImg from '@assets/HOME-LAME-3-About-Tefal_1761841999155.jpg';
 import tefalVideoImg from '@assets/image_1761842039642.png';
 import strategyImg1 from '@assets/image_1761842073206.png';
 import strategyImg2 from '@assets/Tefal-Influencer-Marketing-Agency-3_1761842114850.jpg';
-import socialContent1 from '@assets/stock_images/social_media_content_7dd82e6d.jpg';
-import socialContent2 from '@assets/stock_images/social_media_content_8b8950f0.jpg';
-import productImg1 from '@assets/stock_images/tefal_kitchen_produc_2e6c688e.jpg';
-import productImg2 from '@assets/stock_images/tefal_kitchen_produc_836774ac.jpg';
-import productImg3 from '@assets/stock_images/tefal_kitchen_produc_0465a160.jpg';
+import socialContent1 from '@assets/image_1761842150822.png';
+import socialContent2 from '@assets/image_1761842207125.png';
+import productImg1 from '@assets/Tefal-Marketing-Agency_1761842232532.jpg';
+import productImg2 from '@assets/Tefal-Influencer-Marketing-Agency-4_1761842232532.jpg';
+import productImg3 from '@assets/Tefal-Influencer-Marketing-Agency-1_1761842169383.jpg';
 
 export default function TefalCaseStudy() {
   const [currentRelatedCase, setCurrentRelatedCase] = useState(0);
