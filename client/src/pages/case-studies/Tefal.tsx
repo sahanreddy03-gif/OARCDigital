@@ -8,6 +8,11 @@ import tefalAboutImg from '@assets/HOME-LAME-3-About-Tefal_1761841999155.jpg';
 import tefalVideoImg from '@assets/image_1761842039642.png';
 import strategyImg1 from '@assets/image_1761842073206.png';
 import strategyImg2 from '@assets/Tefal-Influencer-Marketing-Agency-3_1761842114850.jpg';
+import socialContent1 from '@assets/stock_images/social_media_content_7dd82e6d.jpg';
+import socialContent2 from '@assets/stock_images/social_media_content_8b8950f0.jpg';
+import productImg1 from '@assets/stock_images/tefal_kitchen_produc_2e6c688e.jpg';
+import productImg2 from '@assets/stock_images/tefal_kitchen_produc_836774ac.jpg';
+import productImg3 from '@assets/stock_images/tefal_kitchen_produc_0465a160.jpg';
 
 export default function TefalCaseStudy() {
   const [currentRelatedCase, setCurrentRelatedCase] = useState(0);
@@ -212,19 +217,23 @@ export default function TefalCaseStudy() {
             Navigating these challenges was, without doubt, a meticulous endeavor, requiring an acute understanding of emerging consumer trends and digital platforms.
           </p>
 
-          {/* Social Media Content Grid - Placeholders */}
+          {/* Social Media Content Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
-            <div className="bg-gray-100 rounded-2xl h-[400px] flex items-center justify-center">
-              <div className="text-center text-gray-500">
-                <Instagram className="h-12 w-12 mx-auto mb-4" />
-                <p className="text-sm">Social Media Content</p>
-              </div>
+            <div className="bg-gray-100 rounded-2xl h-[400px] overflow-hidden">
+              <img 
+                src={socialContent1}
+                alt="Instagram Social Media Content Creation"
+                className="w-full h-full object-cover"
+                data-testid="img-social-content-1"
+              />
             </div>
-            <div className="bg-gray-100 rounded-2xl h-[400px] flex items-center justify-center">
-              <div className="text-center text-gray-500">
-                <SiTiktok className="h-12 w-12 mx-auto mb-4" />
-                <p className="text-sm">Social Media Content</p>
-              </div>
+            <div className="bg-gray-100 rounded-2xl h-[400px] overflow-hidden">
+              <img 
+                src={socialContent2}
+                alt="TikTok Social Media Content Creation"
+                className="w-full h-full object-cover"
+                data-testid="img-social-content-2"
+              />
             </div>
           </div>
         </div>
@@ -300,18 +309,33 @@ export default function TefalCaseStudy() {
         </div>
       </section>
 
-      {/* Product Images Grid - Placeholders */}
+      {/* Product Images Grid */}
       <section className="py-16 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-gray-200 rounded-2xl h-[350px] flex items-center justify-center text-gray-500">
-              Product Image
+            <div className="bg-gray-200 rounded-2xl h-[350px] overflow-hidden">
+              <img 
+                src={productImg1}
+                alt="Tefal Kitchen Product 1"
+                className="w-full h-full object-cover"
+                data-testid="img-product-1"
+              />
             </div>
-            <div className="bg-gray-200 rounded-2xl h-[350px] flex items-center justify-center text-gray-500">
-              Product Image
+            <div className="bg-gray-200 rounded-2xl h-[350px] overflow-hidden">
+              <img 
+                src={productImg2}
+                alt="Tefal Kitchen Product 2"
+                className="w-full h-full object-cover"
+                data-testid="img-product-2"
+              />
             </div>
-            <div className="bg-gray-200 rounded-2xl h-[350px] flex items-center justify-center text-gray-500">
-              Product Image
+            <div className="bg-gray-200 rounded-2xl h-[350px] overflow-hidden">
+              <img 
+                src={productImg3}
+                alt="Tefal Kitchen Product 3"
+                className="w-full h-full object-cover"
+                data-testid="img-product-3"
+              />
             </div>
           </div>
         </div>
