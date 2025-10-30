@@ -6,6 +6,8 @@ import Layout from '@/components/layout/Layout';
 import tefalHeroImg from '@assets/TefalPictures-32-scaled_1761760754960.jpg';
 import tefalAboutImg from '@assets/HOME-LAME-3-About-Tefal_1761841999155.jpg';
 import tefalVideoImg from '@assets/image_1761842039642.png';
+import strategyImg1 from '@assets/image_1761842073206.png';
+import strategyImg2 from '@assets/Tefal-Influencer-Marketing-Agency-3_1761842114850.jpg';
 
 export default function TefalCaseStudy() {
   const [currentRelatedCase, setCurrentRelatedCase] = useState(0);
@@ -243,17 +245,23 @@ export default function TefalCaseStudy() {
             This structured digital path-way represented a combination of our strategy. We recognized Tefal's talent was in both best-in-class product planning and thought leadership around "making life easier," creating an opportunity worth exploring. With this multifaceted approach, we identified the best practices across industries that could be deployed with our partner.
           </p>
 
-          {/* Influencer Images Grid - Placeholders */}
+          {/* Influencer Images Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
             <div className="bg-gray-800 rounded-2xl overflow-hidden h-[350px]">
-              <div className="h-full flex items-center justify-center text-gray-400">
-                Influencer Content
-              </div>
+              <img 
+                src={strategyImg1}
+                alt="Creators for User-generated Content"
+                className="w-full h-full object-cover"
+                data-testid="img-strategy-1"
+              />
             </div>
             <div className="bg-gray-800 rounded-2xl overflow-hidden h-[350px]">
-              <div className="h-full flex items-center justify-center text-gray-400">
-                Influencer Content
-              </div>
+              <img 
+                src={strategyImg2}
+                alt="Tefal Influencer Marketing Campaign"
+                className="w-full h-full object-cover"
+                data-testid="img-strategy-2"
+              />
             </div>
           </div>
         </div>
