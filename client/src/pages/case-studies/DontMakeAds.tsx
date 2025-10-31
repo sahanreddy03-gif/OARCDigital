@@ -6,6 +6,9 @@ import relatedCase1 from '@assets/IMG_7949_1761931806299.png';
 import challengeImg1 from '@assets/IMG_7969_1761934914497.png';
 import challengeImg2 from '@assets/IMG_7970_1761934905389.png';
 import strategyImg from '@assets/IMG_7972_1761935442823.png';
+import resultsImg1 from '@assets/IMG_7969_1761940684139.png';
+import resultsImg2 from '@assets/IMG_7971_1761940684140.png';
+import resultsImg3 from '@assets/IMG_7976_1761940684140.png';
 
 export default function DontMakeAdsCaseStudy() {
   const relatedCases = [
@@ -234,16 +237,28 @@ export default function DontMakeAdsCaseStudy() {
             </div>
           </div>
 
-          {/* Results Images - Placeholder */}
+          {/* Results Images */}
           <div className="grid grid-cols-3 gap-4 mt-12">
-            <div className="bg-gray-100 rounded-lg aspect-[3/4] flex items-center justify-center">
-              <span className="text-gray-400 text-sm">Video Thumbnail</span>
+            <div className="rounded-lg overflow-hidden">
+              <img 
+                src={resultsImg1}
+                alt="How to get started with TikTok Shopping"
+                className="w-full h-full object-cover"
+              />
             </div>
-            <div className="bg-gray-100 rounded-lg aspect-[3/4] flex items-center justify-center">
-              <span className="text-gray-400 text-sm">Video Thumbnail</span>
+            <div className="rounded-lg overflow-hidden">
+              <img 
+                src={resultsImg2}
+                alt="Try running your promotions for a longer duration"
+                className="w-full h-full object-cover"
+              />
             </div>
-            <div className="bg-gray-100 rounded-lg aspect-[3/4] flex items-center justify-center">
-              <span className="text-gray-400 text-sm">Video Thumbnail</span>
+            <div className="rounded-lg overflow-hidden">
+              <img 
+                src={resultsImg3}
+                alt="Happy Small Business Saturday"
+                className="w-full h-full object-cover"
+              />
             </div>
           </div>
         </div>
