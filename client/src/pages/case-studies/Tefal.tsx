@@ -185,7 +185,7 @@ export default function TefalCaseStudy() {
         <div className="max-w-5xl mx-auto">
           <div className="relative bg-gray-900 rounded-2xl overflow-hidden">
             <img 
-              src={tefalVideoImg}
+              src={tefalHeroImg}
               alt="Case Study Video - How OARC Digital Sold-Out Small Appliances for Tefal Using Influencers"
               className="w-full"
               data-testid="img-video-placeholder"
