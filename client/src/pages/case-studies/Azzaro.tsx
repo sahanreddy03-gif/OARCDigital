@@ -4,6 +4,9 @@ import { Link } from 'wouter';
 import { ArrowRight } from 'lucide-react';
 import { SiTiktok } from 'react-icons/si';
 import Layout from '@/components/layout/Layout';
+import challengeImg1 from '@assets/IMG_7990_1761953778756.png';
+import challengeImg2 from '@assets/IMG_7989_1761953778756.png';
+import challengeImg3 from '@assets/IMG_7987_1761953778756.png';
 
 export default function AzzaroCaseStudy() {
   const relatedCases = [
@@ -124,16 +127,28 @@ export default function AzzaroCaseStudy() {
             </p>
           </div>
 
-          {/* Challenge Images - Placeholder for now */}
+          {/* Challenge Images */}
           <div className="grid grid-cols-3 gap-4">
-            <div className="bg-gray-800 rounded-lg aspect-[3/4] flex items-center justify-center">
-              <span className="text-gray-400 text-sm">TikTok Video 1</span>
+            <div className="rounded-lg overflow-hidden">
+              <img 
+                src={challengeImg1}
+                alt="Azzaro fragrance TikTok content - luxury transformation"
+                className="w-full h-full object-cover"
+              />
             </div>
-            <div className="bg-gray-800 rounded-lg aspect-[3/4] flex items-center justify-center">
-              <span className="text-gray-400 text-sm">TikTok Video 2</span>
+            <div className="rounded-lg overflow-hidden">
+              <img 
+                src={challengeImg2}
+                alt="Azzaro Parfums Partner TikTok campaign"
+                className="w-full h-full object-cover"
+              />
             </div>
-            <div className="bg-gray-800 rounded-lg aspect-[3/4] flex items-center justify-center">
-              <span className="text-gray-400 text-sm">TikTok Video 3</span>
+            <div className="rounded-lg overflow-hidden">
+              <img 
+                src={challengeImg3}
+                alt="Azzaro The Most Wanted TikTok influencer content"
+                className="w-full h-full object-cover"
+              />
             </div>
           </div>
         </div>
