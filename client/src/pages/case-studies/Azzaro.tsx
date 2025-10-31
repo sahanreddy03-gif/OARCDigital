@@ -7,6 +7,8 @@ import Layout from '@/components/layout/Layout';
 import challengeImg1 from '@assets/IMG_7990_1761953778756.png';
 import challengeImg2 from '@assets/IMG_7989_1761953778756.png';
 import challengeImg3 from '@assets/IMG_7987_1761953778756.png';
+import strategyImg1 from '@assets/IMG_7986_1761954243676.png';
+import strategyImg2 from '@assets/IMG_7985_1761954243676.png';
 
 export default function AzzaroCaseStudy() {
   const relatedCases = [
@@ -179,13 +181,21 @@ export default function AzzaroCaseStudy() {
             </p>
           </div>
 
-          {/* Strategy Images - Placeholder */}
+          {/* Strategy Images */}
           <div className="grid grid-cols-2 gap-4 mt-8">
-            <div className="bg-gray-100 rounded-lg aspect-video flex items-center justify-center">
-              <span className="text-gray-400 text-sm">Strategy Image 1</span>
+            <div className="rounded-lg overflow-hidden">
+              <img 
+                src={strategyImg1}
+                alt="Azzaro influencer content - transformation aesthetic"
+                className="w-full h-full object-cover"
+              />
             </div>
-            <div className="bg-gray-100 rounded-lg aspect-video flex items-center justify-center">
-              <span className="text-gray-400 text-sm">Strategy Image 2</span>
+            <div className="rounded-lg overflow-hidden">
+              <img 
+                src={strategyImg2}
+                alt="Azzaro TikTok creator content - men's grooming"
+                className="w-full h-full object-cover"
+              />
             </div>
           </div>
         </div>
