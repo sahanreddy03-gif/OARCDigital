@@ -5,6 +5,7 @@ import Layout from '@/components/layout/Layout';
 import relatedCase1 from '@assets/IMG_7949_1761931806299.png';
 import challengeImg1 from '@assets/IMG_7969_1761934914497.png';
 import challengeImg2 from '@assets/IMG_7970_1761934905389.png';
+import strategyImg from '@assets/IMG_7972_1761935442823.png';
 
 export default function DontMakeAdsCaseStudy() {
   const relatedCases = [
@@ -189,9 +190,13 @@ export default function DontMakeAdsCaseStudy() {
             </p>
           </div>
 
-          {/* Strategy Image - Placeholder */}
-          <div className="mt-8 bg-gray-800 rounded-lg aspect-video flex items-center justify-center">
-            <span className="text-gray-400 text-sm">Strategy Content Image</span>
+          {/* Strategy Image */}
+          <div className="mt-8 rounded-lg overflow-hidden">
+            <img 
+              src={strategyImg}
+              alt="TikTok Promote Strategy Content"
+              className="w-full h-full object-cover"
+            />
           </div>
         </div>
       </section>
