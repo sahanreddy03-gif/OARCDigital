@@ -13,6 +13,9 @@ import socialContent2 from '@assets/IMG_7945_1761930827804.jpeg';
 import productImg1 from '@assets/Tefal-Marketing-Agency_1761842232532.jpg';
 import productImg2 from '@assets/Tefal-Influencer-Marketing-Agency-4_1761842232532.jpg';
 import productImg3 from '@assets/Tefal-Influencer-Marketing-Agency-1_1761842169383.jpg';
+import relatedCase1 from '@assets/IMG_7949_1761931806299.png';
+import relatedCase2 from '@assets/IMG_7950_1761931806299.png';
+import relatedCase3 from '@assets/IMG_7951_1761931806299.jpeg';
 
 export default function TefalCaseStudy() {
   const [currentRelatedCase, setCurrentRelatedCase] = useState(0);
@@ -21,17 +24,20 @@ export default function TefalCaseStudy() {
     {
       title: "Don't Make Ads",
       category: "TikTok",
-      stats: { impressions: "33M", engagement: "+450K", ctr: "2M" }
+      stats: { impressions: "33M", engagement: "+450K", ctr: "2M" },
+      image: relatedCase1
     },
     {
       title: "Introducing Luxury Fragrance",
       category: "Instagram",
-      stats: { reach: "59M", engagement: "1.5M", conversions: "20+" }
+      stats: { reach: "59M", engagement: "1.5M", conversions: "20+" },
+      image: relatedCase2
     },
     {
       title: "Raising Awareness",
       category: "Multi-Channel",
-      stats: { impressions: "30M", reach: "10%", ctr: "5%" }
+      stats: { impressions: "30M", reach: "10%", ctr: "5%" },
+      image: relatedCase3
     }
   ];
 
@@ -386,7 +392,13 @@ export default function TefalCaseStudy() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {relatedCases.map((caseStudy, idx) => (
-              <div key={idx} className="bg-gray-900 rounded-2xl overflow-hidden h-[400px] relative group">
+              <div key={idx} className="rounded-2xl overflow-hidden h-[400px] relative group">
+                <img 
+                  src={caseStudy.image}
+                  alt={caseStudy.title}
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/80" />
                 <div className="absolute top-4 left-4">
                   <span className="bg-[#FF0080] text-white px-4 py-2 rounded text-xs font-bold uppercase">
                     Case Study
