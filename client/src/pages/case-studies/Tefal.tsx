@@ -33,7 +33,7 @@ export default function TefalCaseStudy() {
       category: "Instagram",
       stats: { reach: "59M", engagement: "1.5M", conversions: "20+" },
       image: relatedCase2,
-      link: "#"
+      link: "/case-studies/azzaro"
     },
     {
       title: "Raising Awareness",

@@ -42,6 +42,7 @@ import Enterprise from "@/pages/Enterprise";
 import Contact from "@/pages/Contact";
 import TefalCaseStudy from "@/pages/case-studies/Tefal";
 import DontMakeAdsCaseStudy from "@/pages/case-studies/DontMakeAds";
+import AzzaroCaseStudy from "@/pages/case-studies/Azzaro";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -88,6 +89,7 @@ function Router() {
       <Route path="/our-work" component={OurWork} />
       <Route path="/case-studies/tefal" component={TefalCaseStudy} />
       <Route path="/case-studies/dont-make-ads" component={DontMakeAdsCaseStudy} />
+      <Route path="/case-studies/azzaro" component={AzzaroCaseStudy} />
       <Route path="/our-work/:slug" component={() => <div>Case Study Detail (Phase 3)</div>} />
       <Route path="/why-us" component={WhyUs} />
       <Route path="/resources" component={Resources} />
