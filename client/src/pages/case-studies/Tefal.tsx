@@ -77,16 +77,6 @@ export default function TefalCaseStudy() {
       {/* About Section - Black Background */}
       <section className="py-20 px-4 bg-black">
         <div className="max-w-6xl mx-auto">
-          {/* About Image */}
-          <div className="mb-12">
-            <img 
-              src={tefalAboutImg}
-              alt="About Tefal"
-              className="w-full rounded-2xl"
-              data-testid="img-about-tefal"
-            />
-          </div>
-
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             {/* Left Column - Content */}
             <div>
@@ -185,7 +175,7 @@ export default function TefalCaseStudy() {
         <div className="max-w-5xl mx-auto">
           <div className="relative bg-gray-900 rounded-2xl overflow-hidden">
             <img 
-              src={tefalHeroImg}
+              src={tefalAboutImg}
               alt="Case Study Video - How OARC Digital Sold-Out Small Appliances for Tefal Using Influencers"
               className="w-full"
               data-testid="img-video-placeholder"
