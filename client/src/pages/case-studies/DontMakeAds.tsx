@@ -3,6 +3,8 @@ import { ArrowRight } from 'lucide-react';
 import { SiTiktok } from 'react-icons/si';
 import Layout from '@/components/layout/Layout';
 import relatedCase1 from '@assets/IMG_7949_1761931806299.png';
+import challengeImg1 from '@assets/IMG_7969_1761934914497.png';
+import challengeImg2 from '@assets/IMG_7970_1761934905389.png';
 
 export default function DontMakeAdsCaseStudy() {
   const relatedCases = [
@@ -150,13 +152,21 @@ export default function DontMakeAdsCaseStudy() {
             </p>
           </div>
 
-          {/* Challenge Images - Placeholder for now */}
+          {/* Challenge Images */}
           <div className="grid grid-cols-2 gap-4">
-            <div className="bg-gray-100 rounded-lg aspect-[3/4] flex items-center justify-center">
-              <span className="text-gray-400 text-sm">TikTok Content Image</span>
+            <div className="rounded-lg overflow-hidden">
+              <img 
+                src={challengeImg1}
+                alt="How to get started with TikTok Shopping"
+                className="w-full h-full object-cover"
+              />
             </div>
-            <div className="bg-gray-100 rounded-lg aspect-[3/4] flex items-center justify-center">
-              <span className="text-gray-400 text-sm">TikTok Content Image</span>
+            <div className="rounded-lg overflow-hidden">
+              <img 
+                src={challengeImg2}
+                alt="How to get your Ads approved"
+                className="w-full h-full object-cover"
+              />
             </div>
           </div>
         </div>
