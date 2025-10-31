@@ -41,6 +41,7 @@ import Pricing from "@/pages/Pricing";
 import Enterprise from "@/pages/Enterprise";
 import Contact from "@/pages/Contact";
 import TefalCaseStudy from "@/pages/case-studies/Tefal";
+import DontMakeAdsCaseStudy from "@/pages/case-studies/DontMakeAds";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -86,6 +87,7 @@ function Router() {
       
       <Route path="/our-work" component={OurWork} />
       <Route path="/case-studies/tefal" component={TefalCaseStudy} />
+      <Route path="/case-studies/dont-make-ads" component={DontMakeAdsCaseStudy} />
       <Route path="/our-work/:slug" component={() => <div>Case Study Detail (Phase 3)</div>} />
       <Route path="/why-us" component={WhyUs} />
       <Route path="/resources" component={Resources} />
