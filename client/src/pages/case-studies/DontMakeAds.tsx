@@ -16,19 +16,22 @@ export default function DontMakeAdsCaseStudy() {
       title: "Selling Out Product Lines",
       category: "Tefal",
       stats: { impressions: "70M+", collaborations: "500+", result: "SOLD OUT" },
-      image: relatedCase1
+      image: relatedCase1,
+      link: "/case-studies/tefal"
     },
     {
       title: "Introducing Luxury Fragrance",
-      category: "Instagram",
+      category: "Azzaro",
       stats: { reach: "59M", engagement: "1.5M", conversions: "20+" },
-      image: relatedCase1
+      image: relatedCase1,
+      link: "/case-studies/azzaro"
     },
     {
       title: "Raising Awareness",
       category: "Multi-Channel",
       stats: { impressions: "30M", reach: "10%", ctr: "5%" },
-      image: relatedCase1
+      image: relatedCase1,
+      link: "#"
     }
   ];
 
@@ -304,30 +307,32 @@ export default function DontMakeAdsCaseStudy() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {relatedCases.map((caseStudy, idx) => (
-              <div key={idx} className="rounded-2xl overflow-hidden h-[400px] relative group">
-                <img 
-                  src={caseStudy.image}
-                  alt={caseStudy.title}
-                  className="absolute inset-0 w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/80" />
-                <div className="absolute top-4 left-4">
-                  <span className="bg-[#FF0080] text-white px-4 py-2 rounded text-xs font-bold uppercase">
-                    Case Study
-                  </span>
-                </div>
-                <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <h3 className="text-xl font-black text-white mb-4">{caseStudy.title}</h3>
-                  <div className="grid grid-cols-3 gap-2 text-center">
-                    {Object.entries(caseStudy.stats).map(([key, value], i) => (
-                      <div key={i} className="bg-white/20 backdrop-blur-sm rounded px-2 py-2">
-                        <div className="text-lg font-black text-white">{value}</div>
-                        <div className="text-[10px] text-gray-300 uppercase">{key}</div>
-                      </div>
-                    ))}
+              <Link key={idx} href={caseStudy.link}>
+                <div className="rounded-2xl overflow-hidden h-[400px] relative group cursor-pointer hover-elevate">
+                  <img 
+                    src={caseStudy.image}
+                    alt={caseStudy.title}
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/80" />
+                  <div className="absolute top-4 left-4">
+                    <span className="bg-[#FF0080] text-white px-4 py-2 rounded text-xs font-bold uppercase">
+                      Case Study
+                    </span>
+                  </div>
+                  <div className="absolute bottom-0 left-0 right-0 p-6">
+                    <h3 className="text-xl font-black text-white mb-4">{caseStudy.title}</h3>
+                    <div className="grid grid-cols-3 gap-2 text-center">
+                      {Object.entries(caseStudy.stats).map(([key, value], i) => (
+                        <div key={i} className="bg-white/20 backdrop-blur-sm rounded px-2 py-2">
+                          <div className="text-lg font-black text-white">{value}</div>
+                          <div className="text-[10px] text-gray-300 uppercase">{key}</div>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
