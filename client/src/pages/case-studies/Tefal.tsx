@@ -6,7 +6,7 @@ import Layout from '@/components/layout/Layout';
 import tefalHeroImg from '@assets/TefalPictures-32-scaled_1761760754960.jpg';
 import tefalAboutImg from '@assets/HOME-LAME-3-About-Tefal_1761847874021.jpg';
 import tefalVideoImg from '@assets/image_1761847809835.png';
-import strategyImg1 from '@assets/image_1761842073206.png';
+import strategyImg1 from '@assets/IMG_7948_1761931325601.jpeg';
 import strategyImg2 from '@assets/Tefal-Influencer-Marketing-Agency-3_1761842114850.jpg';
 import socialContent1 from '@assets/IMG_7944_1761930827804.jpeg';
 import socialContent2 from '@assets/IMG_7945_1761930827804.jpeg';
