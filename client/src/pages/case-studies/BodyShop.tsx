@@ -11,7 +11,6 @@ import strategyImg1 from '@assets/IMG_7997_1761955811646.jpeg';
 import strategyImg2 from '@assets/IMG_7994_1761955811646.jpeg';
 import tefalHeroImg from '@assets/TefalPictures-32-scaled_1761760754960.jpg';
 import dontMakeAdsHeroImg from '@assets/TikTok-for-Business-Marketing-Agenct_1761842288035.png';
-import azzaroHeroImg from '@assets/IMG_7990_1761953778756.png';
 
 export default function BodyShopCaseStudy() {
   useEffect(() => {
@@ -32,13 +31,6 @@ export default function BodyShopCaseStudy() {
       subtitle: "TikTok's authentic success stories garner 2 million likes and 400K NEW followers.",
       image: dontMakeAdsHeroImg,
       link: '/case-studies/dont-make-ads'
-    },
-    {
-      id: 'azzaro',
-      title: 'Azzaro',
-      subtitle: 'Introducing a luxury fragrance Azzaro to the TikTok community.',
-      image: azzaroHeroImg,
-      link: '/case-studies/azzaro'
     }
   ];
 
