@@ -37,10 +37,10 @@ export default function TefalCaseStudy() {
     },
     {
       title: "Raising Awareness",
-      category: "Multi-Channel",
-      stats: { impressions: "30M", reach: "10%", ctr: "5%" },
+      category: "The Body Shop",
+      stats: { impressions: "30M", uplift: "15%", reach: "17M" },
       image: relatedCase3,
-      link: "#"
+      link: "/case-studies/body-shop"
     }
   ];
 
