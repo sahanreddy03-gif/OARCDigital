@@ -3,6 +3,8 @@ import { ArrowRight } from 'lucide-react';
 import { SiTiktok } from 'react-icons/si';
 import Layout from '@/components/layout/Layout';
 import relatedCase1 from '@assets/IMG_7949_1761931806299.png';
+import tefalHeroImg from '@assets/tefal-hero-bg_1761949476870.png';
+import azzaroHeroImg from '@assets/azzaro-hero-bg_1761953324644.png';
 import challengeImg1 from '@assets/IMG_7969_1761934914497.png';
 import challengeImg2 from '@assets/IMG_7970_1761934905389.png';
 import strategyImg from '@assets/IMG_7972_1761935442823.png';
@@ -16,14 +18,14 @@ export default function DontMakeAdsCaseStudy() {
       title: "Selling Out Product Lines",
       category: "Tefal",
       stats: { impressions: "70M+", collaborations: "500+", result: "SOLD OUT" },
-      image: relatedCase1,
+      image: tefalHeroImg,
       link: "/case-studies/tefal"
     },
     {
       title: "Introducing Luxury Fragrance",
       category: "Azzaro",
       stats: { reach: "59M", engagement: "1.5M", conversions: "20+" },
-      image: relatedCase1,
+      image: azzaroHeroImg,
       link: "/case-studies/azzaro"
     },
     {
@@ -192,7 +194,7 @@ export default function DontMakeAdsCaseStudy() {
           
           <div className="space-y-4 text-white text-base leading-relaxed">
             <p>
-              Socially Powerful curated and produced content to inform small business owners how to use TikTok to grow their business and the benefits of using TikTok Promote. We did this by identifying and collaborating with successful Small Businesses on TikTok. Content curated by Socially Powerful – filmed by the small business owners, then edited and published on the TikTok Small Business page and adapted for paid social.
+              OARC Digital curated and produced content to inform small business owners how to use TikTok to grow their business and the benefits of using TikTok Promote. We did this by identifying and collaborating with successful Small Businesses on TikTok. Content curated by OARC Digital – filmed by the small business owners, then edited and published on the TikTok Small Business page and adapted for paid social.
             </p>
           </div>
 
@@ -275,7 +277,7 @@ export default function DontMakeAdsCaseStudy() {
           </h2>
 
           <p className="text-base text-gray-400 mb-10 leading-relaxed max-w-3xl mx-auto">
-            Socially Powerful is a global leading social media and influencer marketing agency, with offices across Europe, USA, Asia and the Middle-East.
+            OARC Digital is a global leading social media and influencer marketing agency, with offices across Europe, USA, Asia and the Middle-East.
           </p>
 
           <p className="text-base text-gray-400 mb-10 leading-relaxed max-w-3xl mx-auto">

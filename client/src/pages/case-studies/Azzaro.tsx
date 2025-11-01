@@ -9,6 +9,8 @@ import challengeImg2 from '@assets/IMG_7989_1761953778756.png';
 import challengeImg3 from '@assets/IMG_7987_1761953778756.png';
 import strategyImg1 from '@assets/IMG_7986_1761954243676.png';
 import strategyImg2 from '@assets/IMG_7985_1761954243676.png';
+import tefalHeroImg from '@assets/tefal-hero-bg_1761949476870.png';
+import dontMakeAdsHeroImg from '@assets/tiktok-hero-bg_1761949476870.png';
 
 export default function AzzaroCaseStudy() {
   const relatedCases = [
@@ -16,14 +18,14 @@ export default function AzzaroCaseStudy() {
       id: 'tefal',
       title: 'Tefal',
       subtitle: 'Selling out product lines of household products for Tefal.',
-      image: '/placeholder-tefal.jpg',
+      image: tefalHeroImg,
       link: '/case-studies/tefal'
     },
     {
       id: 'dont-make-ads',
       title: "Don't Make Ads",
       subtitle: "TikTok's authentic success stories garner 2 million likes and 400K NEW followers.",
-      image: '/placeholder-tiktok.jpg',
+      image: dontMakeAdsHeroImg,
       link: '/case-studies/dont-make-ads'
     }
   ];
@@ -248,7 +250,7 @@ export default function AzzaroCaseStudy() {
           </h2>
 
           <p className="text-base text-gray-400 mb-10 leading-relaxed max-w-3xl mx-auto">
-            Socially Powerful is a global leading social media and influencer marketing agency, with offices across Europe, USA, Asia and the Middle-East.
+            OARC Digital is a global leading social media and influencer marketing agency, with offices across Europe, USA, Asia and the Middle-East.
           </p>
 
           <p className="text-base text-gray-400 mb-10 leading-relaxed max-w-3xl mx-auto">
@@ -277,10 +279,12 @@ export default function AzzaroCaseStudy() {
             {relatedCases.map((caseStudy) => (
               <Link key={caseStudy.id} href={caseStudy.link}>
                 <Card className="overflow-hidden hover-elevate cursor-pointer" data-testid={`card-case-study-${caseStudy.id}`}>
-                  <div className="aspect-video bg-gray-200 relative">
-                    <div className="absolute inset-0 flex items-center justify-center text-gray-400">
-                      {caseStudy.title} Image
-                    </div>
+                  <div className="aspect-video bg-gray-200 relative overflow-hidden">
+                    <img 
+                      src={caseStudy.image}
+                      alt={`${caseStudy.title} case study`}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                   <CardContent className="p-6">
                     <h3 className="text-2xl font-black text-black mb-2">{caseStudy.title}</h3>
@@ -301,7 +305,7 @@ export default function AzzaroCaseStudy() {
           </h2>
 
           <p className="text-base text-gray-400 mb-10 leading-relaxed max-w-3xl mx-auto">
-            Socially Powerful is a global leading social media and influencer marketing agency, with offices across Europe, USA, Asia and the Middle-East.
+            OARC Digital is a global leading social media and influencer marketing agency, with offices across Europe, USA, Asia and the Middle-East.
           </p>
 
           <p className="text-base text-gray-400 mb-10 leading-relaxed max-w-3xl mx-auto">
