@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Link } from 'wouter';
@@ -13,6 +14,10 @@ import dontMakeAdsHeroImg from '@assets/TikTok-for-Business-Marketing-Agenct_176
 import azzaroHeroImg from '@assets/IMG_7990_1761953778756.png';
 
 export default function BodyShopCaseStudy() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const relatedCases = [
     {
       id: 'tefal',
