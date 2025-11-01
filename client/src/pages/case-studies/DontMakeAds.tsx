@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Link } from 'wouter';
 import { ArrowRight } from 'lucide-react';
 import { SiTiktok } from 'react-icons/si';
@@ -13,6 +14,10 @@ import resultsImg2 from '@assets/IMG_7971_1761940684140.png';
 import resultsImg3 from '@assets/IMG_7976_1761940684140.png';
 
 export default function DontMakeAdsCaseStudy() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const relatedCases = [
     {
       title: "Selling Out Product Lines",

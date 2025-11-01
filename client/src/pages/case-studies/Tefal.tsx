@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'wouter';
 import { ArrowRight, ChevronLeft, ChevronRight, Instagram, Youtube } from 'lucide-react';
 import { SiSnapchat, SiTiktok } from 'react-icons/si';
@@ -19,6 +19,10 @@ import relatedCase3 from '@assets/IMG_7951_1761931806299.jpeg';
 
 export default function TefalCaseStudy() {
   const [currentRelatedCase, setCurrentRelatedCase] = useState(0);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const relatedCases = [
     {
