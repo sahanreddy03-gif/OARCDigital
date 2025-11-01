@@ -6,6 +6,8 @@ import { SiInstagram, SiPinterest, SiSnapchat, SiTiktok, SiYoutube } from 'react
 import Layout from '@/components/layout/Layout';
 import challengeImg1 from '@assets/IMG_7995_1761955512246.png';
 import challengeImg2 from '@assets/IMG_7996_1761955512246.jpeg';
+import strategyImg1 from '@assets/IMG_7997_1761955811646.jpeg';
+import strategyImg2 from '@assets/IMG_7994_1761955811646.jpeg';
 
 export default function BodyShopCaseStudy() {
   const relatedCases = [
@@ -196,13 +198,21 @@ export default function BodyShopCaseStudy() {
             </p>
           </div>
 
-          {/* Strategy Images - Placeholder */}
+          {/* Strategy Images */}
           <div className="grid grid-cols-2 gap-4 mt-8">
-            <div className="bg-gray-100 rounded-lg aspect-video flex items-center justify-center">
-              <span className="text-gray-400 text-sm">Strategy Image 1</span>
+            <div className="rounded-lg overflow-hidden">
+              <img 
+                src={strategyImg1}
+                alt="The Body Shop influencer campaign content"
+                className="w-full h-full object-cover"
+              />
             </div>
-            <div className="bg-gray-100 rounded-lg aspect-video flex items-center justify-center">
-              <span className="text-gray-400 text-sm">Strategy Image 2</span>
+            <div className="rounded-lg overflow-hidden">
+              <img 
+                src={strategyImg2}
+                alt="The Body Shop brand activism storytelling"
+                className="w-full h-full object-cover"
+              />
             </div>
           </div>
         </div>
