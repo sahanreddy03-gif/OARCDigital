@@ -4,6 +4,8 @@ import { Link } from 'wouter';
 import { ArrowRight } from 'lucide-react';
 import { SiInstagram, SiPinterest, SiSnapchat, SiTiktok, SiYoutube } from 'react-icons/si';
 import Layout from '@/components/layout/Layout';
+import challengeImg1 from '@assets/IMG_7995_1761955512246.png';
+import challengeImg2 from '@assets/IMG_7996_1761955512246.jpeg';
 
 export default function BodyShopCaseStudy() {
   const relatedCases = [
@@ -149,13 +151,21 @@ export default function BodyShopCaseStudy() {
             </p>
           </div>
 
-          {/* Challenge Images - Placeholder for Instagram embeds */}
+          {/* Challenge Images */}
           <div className="grid grid-cols-2 gap-4">
-            <div className="bg-gray-800 rounded-lg aspect-square flex items-center justify-center">
-              <span className="text-gray-400 text-sm">Instagram Post 1</span>
+            <div className="rounded-lg overflow-hidden">
+              <img 
+                src={challengeImg1}
+                alt="The Body Shop event - women empowerment campaign"
+                className="w-full h-full object-cover"
+              />
             </div>
-            <div className="bg-gray-800 rounded-lg aspect-square flex items-center justify-center">
-              <span className="text-gray-400 text-sm">Instagram Post 2</span>
+            <div className="rounded-lg overflow-hidden">
+              <img 
+                src={challengeImg2}
+                alt="The Body Shop influencer collaboration - brand activism"
+                className="w-full h-full object-cover"
+              />
             </div>
           </div>
         </div>
