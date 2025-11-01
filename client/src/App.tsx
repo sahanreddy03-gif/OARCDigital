@@ -44,6 +44,7 @@ import TefalCaseStudy from "@/pages/case-studies/Tefal";
 import DontMakeAdsCaseStudy from "@/pages/case-studies/DontMakeAds";
 import AzzaroCaseStudy from "@/pages/case-studies/Azzaro";
 import BodyShopCaseStudy from "@/pages/case-studies/BodyShop";
+import LenovoLegionCaseStudy from "@/pages/case-studies/LenovoLegion";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -92,6 +93,7 @@ function Router() {
       <Route path="/case-studies/dont-make-ads" component={DontMakeAdsCaseStudy} />
       <Route path="/case-studies/azzaro" component={AzzaroCaseStudy} />
       <Route path="/case-studies/body-shop" component={BodyShopCaseStudy} />
+      <Route path="/case-studies/lenovo-legion" component={LenovoLegionCaseStudy} />
       <Route path="/our-work/:slug" component={() => <div>Case Study Detail (Phase 3)</div>} />
       <Route path="/why-us" component={WhyUs} />
       <Route path="/resources" component={Resources} />
