@@ -9,8 +9,8 @@ import challengeImg2 from '@assets/IMG_7989_1761953778756.png';
 import challengeImg3 from '@assets/IMG_7987_1761953778756.png';
 import strategyImg1 from '@assets/IMG_7986_1761954243676.png';
 import strategyImg2 from '@assets/IMG_7985_1761954243676.png';
-import tefalHeroImg from '@assets/tefal-hero-bg_1761949476870.png';
-import dontMakeAdsHeroImg from '@assets/tiktok-hero-bg_1761949476870.png';
+import tefalHeroImg from '@assets/TefalPictures-32-scaled_1761760754960.jpg';
+import dontMakeAdsHeroImg from '@assets/TikTok-for-Business-Marketing-Agenct_1761842288035.png';
 
 export default function AzzaroCaseStudy() {
   const relatedCases = [

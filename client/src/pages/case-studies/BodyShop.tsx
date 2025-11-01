@@ -8,9 +8,9 @@ import challengeImg1 from '@assets/IMG_7995_1761955512246.png';
 import challengeImg2 from '@assets/IMG_7996_1761955512246.jpeg';
 import strategyImg1 from '@assets/IMG_7997_1761955811646.jpeg';
 import strategyImg2 from '@assets/IMG_7994_1761955811646.jpeg';
-import tefalHeroImg from '@assets/tefal-hero-bg_1761949476870.png';
-import dontMakeAdsHeroImg from '@assets/tiktok-hero-bg_1761949476870.png';
-import azzaroHeroImg from '@assets/azzaro-hero-bg_1761953324644.png';
+import tefalHeroImg from '@assets/TefalPictures-32-scaled_1761760754960.jpg';
+import dontMakeAdsHeroImg from '@assets/TikTok-for-Business-Marketing-Agenct_1761842288035.png';
+import azzaroHeroImg from '@assets/IMG_7990_1761953778756.png';
 
 export default function BodyShopCaseStudy() {
   const relatedCases = [
