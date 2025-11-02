@@ -397,7 +397,7 @@ export default function Paid() {
 
       {/* Case Studies Section */}
       <section className="py-14 px-4 bg-gray-50">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-black text-black mb-8">
             How we've used Paid to grow our clients
           </h2>
@@ -411,47 +411,87 @@ export default function Paid() {
             </button>
           </Link>
 
-          <Link href="/case-studies/lenovo-legion">
-            <div className="relative bg-gradient-to-br from-gray-800 to-gray-900 rounded-3xl overflow-hidden h-[500px] hover-elevate active-elevate-2 cursor-pointer" data-testid="card-case-study-lenovo">
-              <img
-                src="https://sociallypowerful.com/wp-content/uploads/2023/07/Danny-New.png"
-                alt="Lenovo Legion Gaming Setup"
-                className="absolute inset-0 w-full h-full object-cover opacity-50"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent"></div>
-              <div className="absolute bottom-0 left-0 right-0 p-10 text-white">
-                <div className="flex gap-3 mb-4">
-                  <span className="px-4 py-2 bg-[#FF0080] backdrop-blur-sm rounded-full text-sm font-semibold">
-                    Paid Media
-                  </span>
-                  <span className="px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-semibold">
-                    Gaming
-                  </span>
-                  <span className="px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-semibold">
-                    Social Strategy
-                  </span>
-                </div>
-                <h3 className="text-3xl font-black mb-2">Lenovo Legion</h3>
-                <p className="text-lg text-gray-200 mb-4">
-                  Making Lenovo Legion stand out in a saturated gaming market.
-                </p>
-                <div className="grid grid-cols-3 gap-6 mt-6">
-                  <div>
-                    <div className="text-3xl font-black text-[#FF0080]">13M</div>
-                    <div className="text-sm text-gray-300">Impressions</div>
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* Lenovo Legion Case Study */}
+            <Link href="/case-studies/lenovo-legion">
+              <div className="relative bg-gradient-to-br from-gray-800 to-gray-900 rounded-3xl overflow-hidden h-[500px] hover-elevate active-elevate-2 cursor-pointer" data-testid="card-case-study-lenovo">
+                <img
+                  src="https://sociallypowerful.com/wp-content/uploads/2023/07/Danny-New.png"
+                  alt="Lenovo Legion Gaming Setup"
+                  className="absolute inset-0 w-full h-full object-cover opacity-50"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent"></div>
+                <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
+                  <div className="flex gap-2 mb-3 flex-wrap">
+                    <span className="px-3 py-1 bg-[#FF0080] backdrop-blur-sm rounded-full text-xs font-semibold">
+                      Paid Media
+                    </span>
+                    <span className="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-xs font-semibold">
+                      Gaming
+                    </span>
                   </div>
-                  <div>
-                    <div className="text-3xl font-black text-[#FF0080]">26M</div>
-                    <div className="text-sm text-gray-300">Ad Placement Views</div>
-                  </div>
-                  <div>
-                    <div className="text-3xl font-black text-[#FF0080]">1.1M</div>
-                    <div className="text-sm text-gray-300">Stream Followers</div>
+                  <h3 className="text-2xl font-black mb-2">Lenovo Legion</h3>
+                  <p className="text-sm text-gray-200 mb-3">
+                    Making Lenovo Legion stand out in a saturated gaming market.
+                  </p>
+                  <div className="grid grid-cols-3 gap-3 mt-4">
+                    <div>
+                      <div className="text-2xl font-black text-[#FF0080]">13M</div>
+                      <div className="text-xs text-gray-300">Impressions</div>
+                    </div>
+                    <div>
+                      <div className="text-2xl font-black text-[#FF0080]">26M</div>
+                      <div className="text-xs text-gray-300">Ad Views</div>
+                    </div>
+                    <div>
+                      <div className="text-2xl font-black text-[#FF0080]">1.1M</div>
+                      <div className="text-xs text-gray-300">Followers</div>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </Link>
+            </Link>
+
+            {/* ESL Gaming Case Study */}
+            <Link href="/case-studies/esl-gaming">
+              <div className="relative bg-gradient-to-br from-gray-800 to-gray-900 rounded-3xl overflow-hidden h-[500px] hover-elevate active-elevate-2 cursor-pointer" data-testid="card-case-study-esl">
+                <img
+                  src="https://sociallypowerful.com/wp-content/uploads/2023/07/ESL1009_Frames_SS_002_ScheduleSS_Schedule.png"
+                  alt="ESL Gaming TikTok"
+                  className="absolute inset-0 w-full h-full object-cover opacity-50"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent"></div>
+                <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
+                  <div className="flex gap-2 mb-3 flex-wrap">
+                    <span className="px-3 py-1 bg-[#FF0080] backdrop-blur-sm rounded-full text-xs font-semibold">
+                      TikTok
+                    </span>
+                    <span className="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-xs font-semibold">
+                      Gaming
+                    </span>
+                  </div>
+                  <h3 className="text-2xl font-black mb-2">ESL Gaming</h3>
+                  <p className="text-sm text-gray-200 mb-3">
+                    Develop, manage and grow the ESL Gaming TikTok Channel.
+                  </p>
+                  <div className="grid grid-cols-3 gap-3 mt-4">
+                    <div>
+                      <div className="text-2xl font-black text-[#FF0080]">113%</div>
+                      <div className="text-xs text-gray-300">Follower Increase</div>
+                    </div>
+                    <div>
+                      <div className="text-2xl font-black text-[#FF0080]">13%</div>
+                      <div className="text-xs text-gray-300">Engagement</div>
+                    </div>
+                    <div>
+                      <div className="text-2xl font-black text-[#FF0080]">30K</div>
+                      <div className="text-xs text-gray-300">Avg Views</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Link>
+          </div>
         </div>
       </section>
 
