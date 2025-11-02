@@ -7,7 +7,7 @@ import { SiTiktok } from 'react-icons/si';
 import Layout from '@/components/layout/Layout';
 import tefalHeroImg from '@assets/TefalPictures-32-scaled_1761760754960.jpg';
 import dontMakeAdsHeroImg from '@assets/TikTok-for-Business-Marketing-Agenct_1761842288035.png';
-import azzaroHeroImg from '@assets/AZZARO_1761839965682.jpg';
+import bodyShopHeroImg from '@assets/The-Body-Shop-Social-Marketing-Agency_1761842288034.jpg';
 
 export default function GymGroupCaseStudy() {
   useEffect(() => {
@@ -30,11 +30,11 @@ export default function GymGroupCaseStudy() {
       link: '/case-studies/dont-make-ads'
     },
     {
-      id: 'azzaro',
-      title: 'Azzaro',
-      subtitle: 'Empowering the next generation of men to find their inner wanted man.',
-      image: azzaroHeroImg,
-      link: '/case-studies/azzaro'
+      id: 'body-shop',
+      title: 'The Body Shop',
+      subtitle: 'Celebrating authenticity and natural beauty with TikTok.',
+      image: bodyShopHeroImg,
+      link: '/case-studies/body-shop'
     }
   ];
 
