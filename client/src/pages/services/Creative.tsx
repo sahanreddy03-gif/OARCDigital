@@ -381,6 +381,67 @@ export default function Creative() {
         </div>
       </section>
 
+      {/* Case Studies Section */}
+      <section className="py-14 px-4 bg-gray-50">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-black text-black mb-8">
+            How we've used Creative to grow our clients
+          </h2>
+
+          <Link href="/our-work">
+            <button className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-lg font-semibold hover-elevate active-elevate-2 mb-8" data-testid="button-view-all-case-studies">
+              View All Case Studies
+              <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center border-2 border-white">
+                <ArrowRight className="h-5 w-5 text-white" />
+              </div>
+            </button>
+          </Link>
+
+          {/* The Gym Group Case Study */}
+          <Link href="/case-studies/gym-group">
+            <div className="relative bg-gradient-to-br from-gray-800 to-gray-900 rounded-3xl overflow-hidden h-[500px] hover-elevate active-elevate-2 cursor-pointer" data-testid="card-case-study-gym-group">
+              <img
+                src="https://sociallypowerful.com/wp-content/uploads/2023/08/The-Gym-Group-Socially-Powerful.png"
+                alt="The Gym Group TikTok Campaign"
+                className="absolute inset-0 w-full h-full object-cover opacity-50"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent"></div>
+              <div className="absolute bottom-0 left-0 right-0 p-10 text-white">
+                <div className="flex gap-3 mb-4 flex-wrap">
+                  <span className="px-4 py-2 bg-[#FF0080] backdrop-blur-sm rounded-full text-sm font-semibold">
+                    Creative
+                  </span>
+                  <span className="px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-semibold">
+                    TikTok
+                  </span>
+                  <span className="px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-semibold">
+                    Influencer Marketing
+                  </span>
+                </div>
+                <h3 className="text-3xl font-black mb-2">The Gym Group</h3>
+                <p className="text-lg text-gray-200 mb-4">
+                  Recruiting a whole new generation of gym-goers.
+                </p>
+                <div className="grid grid-cols-3 gap-6 mt-6">
+                  <div>
+                    <div className="text-3xl font-black text-[#FF0080]">1M</div>
+                    <div className="text-sm text-gray-300">Clicks</div>
+                  </div>
+                  <div>
+                    <div className="text-3xl font-black text-[#FF0080]">15M</div>
+                    <div className="text-sm text-gray-300">Views</div>
+                  </div>
+                  <div>
+                    <div className="text-3xl font-black text-[#FF0080]">500K</div>
+                    <div className="text-sm text-gray-300">Engagements</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </Link>
+        </div>
+      </section>
+
       {/* Campaign Creatives Section */}
       <section className="py-14 px-4 bg-white">
         <div className="max-w-4xl mx-auto">
