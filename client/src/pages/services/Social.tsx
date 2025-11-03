@@ -397,15 +397,17 @@ export default function Social() {
             })}
           </div>
 
-          <button
-            className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-lg font-semibold hover-elevate active-elevate-2"
-            data-testid="button-view-all-services"
-          >
-            View All Services
-            <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center border-2 border-white">
-              <ArrowRight className="h-5 w-5 text-white" />
-            </div>
-          </button>
+          <Link href="/services">
+            <button
+              className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-lg font-semibold hover-elevate active-elevate-2"
+              data-testid="button-view-all-services"
+            >
+              View All Services
+              <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center border-2 border-white">
+                <ArrowRight className="h-5 w-5 text-white" />
+              </div>
+            </button>
+          </Link>
         </div>
       </section>
 
@@ -416,15 +418,17 @@ export default function Social() {
             Our Social Case Studies
           </h2>
 
-          <button
-            className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2 mb-8"
-            data-testid="button-view-case-studies"
-          >
-            View All Case Studies
-            <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center border-2 border-white">
-              <ArrowRight className="h-5 w-5 text-white" />
-            </div>
-          </button>
+          <Link href="/our-work">
+            <button
+              className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2 mb-8"
+              data-testid="button-view-case-studies"
+            >
+              View All Case Studies
+              <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center border-2 border-white">
+                <ArrowRight className="h-5 w-5 text-white" />
+              </div>
+            </button>
+          </Link>
 
           {/* Case Study Card */}
           <Link href="/case-studies/tefal">
