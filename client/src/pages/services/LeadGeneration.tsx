@@ -8,6 +8,7 @@ import heroImage from "@assets/stock_images/sales_team_handshake_272ba86a.jpg";
 
 export default function LeadGeneration() {
   useEffect(() => {
+    window.scrollTo(0, 0);
     document.title = "Lead Generation Services - Fill Your Pipeline | OARC Digital";
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {

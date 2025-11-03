@@ -8,6 +8,7 @@ import heroImage from "@assets/stock_images/motion_graphics_anim_5e0b9119.jpg";
 
 export default function MotionDesign() {
   useEffect(() => {
+    window.scrollTo(0, 0);
     document.title = "Motion Design Services - Animation & Motion Graphics | OARC Digital";
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {

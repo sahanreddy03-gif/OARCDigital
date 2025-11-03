@@ -8,6 +8,7 @@ import heroImage from "@assets/stock_images/business_growth_char_93cbee9e.jpg";
 
 export default function CustomerAcquisition() {
   useEffect(() => {
+    window.scrollTo(0, 0);
     document.title = "Customer Acquisition Strategy - Growth Frameworks That Scale | OARC Digital";
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {

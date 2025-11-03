@@ -8,6 +8,7 @@ import heroImage from "@assets/stock_images/virtual_reality_vr_h_6d01f361.jpg";
 
 export default function Immersive3DAR() {
   useEffect(() => {
+    window.scrollTo(0, 0);
     document.title = "Immersive 3D & AR Services - Virtual Experiences | OARC Digital";
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {

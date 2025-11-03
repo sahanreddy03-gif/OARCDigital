@@ -13,6 +13,7 @@ export default function HireAIEmployees() {
   const [currentService, setCurrentService] = useState(0);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     document.title = "Hire AI Employees - Scale Your Team Instantly | OARC Digital";
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {

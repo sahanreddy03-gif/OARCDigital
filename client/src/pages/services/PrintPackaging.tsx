@@ -8,6 +8,7 @@ import heroImage from "@assets/stock_images/product_packaging_de_5860c269.jpg";
 
 export default function PrintPackaging() {
   useEffect(() => {
+    window.scrollTo(0, 0);
     document.title = "Print & Packaging Design Services | OARC Digital";
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {

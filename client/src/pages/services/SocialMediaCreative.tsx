@@ -8,6 +8,7 @@ import heroImage from "@assets/stock_images/social_media_content_74d332d2.jpg";
 
 export default function SocialMediaCreative() {
   useEffect(() => {
+    window.scrollTo(0, 0);
     document.title = "Social Media Creative Services - Scroll-Stopping Content | OARC Digital";
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {

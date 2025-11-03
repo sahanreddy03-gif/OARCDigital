@@ -13,6 +13,7 @@ export default function RevenueAutomation() {
   const [currentService, setCurrentService] = useState(0);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     document.title = "Revenue Automation - Maximize Profitability with AI | OARC Digital";
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {

@@ -8,6 +8,7 @@ import heroImage from "@assets/stock_images/innovation_startup_t_6fe40477.jpg";
 
 export default function RapidIdeaTesting() {
   useEffect(() => {
+    window.scrollTo(0, 0);
     document.title = "Rapid Idea Testing - Validate Before You Scale | OARC Digital";
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {

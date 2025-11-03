@@ -7,6 +7,7 @@ import heroImage from "@assets/stock_images/branding_design_logo_562a38a3.jpg";
 
 export default function BrandingServices() {
   useEffect(() => {
+    window.scrollTo(0, 0);
     document.title = "Branding Services - Build Unforgettable Brand Identities | OARC Digital";
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {

@@ -8,6 +8,7 @@ import heroImage from "@assets/stock_images/graphic_designer_cre_7d022172.jpg";
 
 export default function AdCreative() {
   useEffect(() => {
+    window.scrollTo(0, 0);
     document.title = "Ad Creative Services - Performance Creative That Converts | OARC Digital";
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {

@@ -22,6 +22,7 @@ import brandLogo6 from "@assets/stock_images/corporate_brand_logo_45511c03.jpg";
 
 export default function SocialMediaCreativeManagement() {
   useEffect(() => {
+    window.scrollTo(0, 0);
     document.title = "How we help | OARC Digital";
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {

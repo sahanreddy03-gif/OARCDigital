@@ -8,6 +8,7 @@ import heroImage from "@assets/stock_images/business_team_meetin_02cb9e40.jpg";
 
 export default function AICopywriting() {
   useEffect(() => {
+    window.scrollTo(0, 0);
     document.title = "AI Copywriting Services - Content at Scale | OARC Digital";
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {

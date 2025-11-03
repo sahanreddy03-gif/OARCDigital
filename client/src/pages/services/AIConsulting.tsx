@@ -10,6 +10,7 @@ export default function AIConsulting() {
   const [currentService, setCurrentService] = useState(0);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     document.title = "AI Consulting Services | OARC Digital";
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {

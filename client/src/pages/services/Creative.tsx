@@ -12,6 +12,7 @@ export default function Creative() {
   const [currentBenefit, setCurrentBenefit] = useState(0);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     document.title = "Creative Services | OARC Digital";
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {

@@ -105,6 +105,7 @@ export default function Paid() {
   };
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     document.title = "Paid Media Services | OARC Digital";
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {

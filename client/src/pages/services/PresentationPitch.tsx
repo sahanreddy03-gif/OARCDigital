@@ -8,6 +8,7 @@ import heroImage from "@assets/stock_images/business_presentatio_3e68f00a.jpg";
 
 export default function PresentationPitch() {
   useEffect(() => {
+    window.scrollTo(0, 0);
     document.title = "Presentation & Pitch Design Services | OARC Digital";
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
