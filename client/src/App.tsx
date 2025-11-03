@@ -49,6 +49,7 @@ import LenovoLegionCaseStudy from "@/pages/case-studies/LenovoLegion";
 import EslGamingCaseStudy from "@/pages/case-studies/EslGaming";
 import GymGroupCaseStudy from "@/pages/case-studies/GymGroup";
 import AntlerCaseStudy from "@/pages/case-studies/Antler";
+import SherwebAICaseStudy from "@/pages/case-studies/SherwebAI";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -103,6 +104,7 @@ function Router() {
       <Route path="/case-studies/esl-gaming" component={EslGamingCaseStudy} />
       <Route path="/case-studies/gym-group" component={GymGroupCaseStudy} />
       <Route path="/case-studies/antler" component={AntlerCaseStudy} />
+      <Route path="/case-studies/sherweb-ai-adoption" component={SherwebAICaseStudy} />
       <Route path="/our-work/:slug" component={() => <div>Case Study Detail (Phase 3)</div>} />
       <Route path="/why-us" component={WhyUs} />
       <Route path="/resources" component={Resources} />
