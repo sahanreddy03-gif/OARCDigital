@@ -1,302 +1,362 @@
-import { useEffect } from "react";
-import { Link } from "wouter";
-import { TrendingUp, Mail, Linkedin, Users, Zap, Target, BarChart, CheckCircle2, Sparkles } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { ScrollableCards } from "@/components/ui/scrollable-cards";
-import Layout from "@/components/layout/Layout";
-import heroImage from "@assets/stock_images/automation_workflow__a2b2e6e2.jpg";
+import { useState, useEffect } from 'react';
+import { Link } from 'wouter';
+import { ArrowRight, CheckCircle, Zap, TrendingUp, DollarSign, Clock } from 'lucide-react';
+import Layout from '@/components/layout/Layout';
+import heroImg from '@assets/stock_images/business_automation__26134094.jpg';
+import automationImg1 from '@assets/stock_images/business_automation__3ddf701d.jpg';
+import automationImg2 from '@assets/stock_images/revenue_growth_data__682db86c.jpg';
 
 export default function RevenueAutomation() {
+  const [currentService, setCurrentService] = useState(0);
+
   useEffect(() => {
-    document.title = "Revenue Automation & Growth - Automate Your Revenue Engine | OARC Digital";
+    document.title = "Revenue Automation - Maximize Profitability with AI | OARC Digital";
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
-      metaDescription.setAttribute("content", "Automate your entire revenue engine. From lead generation to deal closing, we build AI-powered systems that grow your business on autopilot.");
+      metaDescription.setAttribute("content", "Automate revenue operations end-to-end. From lead generation to billing, we build custom automation systems that save tens of thousands while increasing delivery speed 10x.");
     }
-    // Open Graph tags
-    let ogTitleMeta = document.querySelector('meta[property="og:title"]');
-    if (!ogTitleMeta) {
-      ogTitleMeta = document.createElement('meta');
-      ogTitleMeta.setAttribute('property', 'og:title');
-      document.head.appendChild(ogTitleMeta);
-    }
-    ogTitleMeta.setAttribute('content', 'Revenue Automation - Automate Your Revenue Engine | OARC Digital');
-    
-    let ogDescMeta = document.querySelector('meta[property="og:description"]');
-    if (!ogDescMeta) {
-      ogDescMeta = document.createElement('meta');
-      ogDescMeta.setAttribute('property', 'og:description');
-      document.head.appendChild(ogDescMeta);
-    }
-    ogDescMeta.setAttribute('content', 'From lead generation to deal closing, we build AI-powered systems that grow your business on autopilot. 3x revenue increase in 90 days.');
   }, []);
+
+  const services = [
+    {
+      icon: DollarSign,
+      title: 'Sales Automation',
+      description: 'Streamline your entire sales process',
+      items: [
+        'Automated Lead Outreach',
+        'CRM Auto-Updates',
+        'Multi-Channel Engagement',
+        'Smart Lead Scoring',
+        'Pipeline Management'
+      ]
+    },
+    {
+      icon: TrendingUp,
+      title: 'Revenue Operations',
+      description: 'End-to-end revenue workflow automation',
+      items: [
+        'Proposal Generation',
+        'Contract Automation',
+        'Invoice Processing',
+        'Payment Tracking',
+        'Revenue Reporting'
+      ]
+    },
+    {
+      icon: Zap,
+      title: 'Business Process Automation',
+      description: 'Eliminate manual tasks across operations',
+      items: [
+        'Data Entry Automation',
+        'Document Processing',
+        'Workflow Orchestration',
+        'Email & Communication',
+        'Report Generation'
+      ]
+    },
+    {
+      icon: Clock,
+      title: 'Integration & Sync',
+      description: 'Connect all your business systems',
+      items: [
+        'QuickBooks Integration',
+        'CRM Synchronization',
+        'API Connections',
+        'Database Management',
+        'Real-Time Data Sync'
+      ]
+    }
+  ];
+
+  const benefits = [
+    {
+      title: '10x Faster Operations',
+      description: 'Reduce process time from hours to minutes with intelligent automation that handles repetitive tasks at machine speed.'
+    },
+    {
+      title: 'Massive Cost Savings',
+      description: 'Save tens of thousands annually by eliminating manual labor and reducing errors that cost your business money.'
+    },
+    {
+      title: 'Scale Without Hiring',
+      description: 'Double your workload capacity without adding headcount. One client doubled their client work without hiring another accountant.'
+    },
+    {
+      title: 'Eliminate Human Error',
+      description: 'Remove costly mistakes from data entry, invoicing, and document processing with automated validation and checks.'
+    },
+    {
+      title: 'Instant Client Onboarding',
+      description: 'Reduce client onboarding from hours to seconds with automated workflows that collect information, generate documents, and set up systems.'
+    }
+  ];
+
+  const caseStudies = [
+    {
+      title: 'How Cleverly Achieved 10x Delivery Speed',
+      industry: 'Lead Generation',
+      description: 'Saved tens of thousands with automated workflows enabling 200+ accounts per manager.',
+      image: automationImg1,
+      slug: 'cleverly-automation'
+    },
+    {
+      title: 'Accounting Firm Doubles Revenue',
+      industry: 'Professional Services',
+      description: 'Doubled client work without hiring using automated proposal generation and billing.',
+      image: automationImg2,
+      slug: 'accounting-automation'
+    }
+  ];
+
+  const nextService = () => {
+    setCurrentService((prev) => (prev + 1) % services.length);
+  };
 
   return (
     <Layout>
-      {/* Hero Section with Real Image */}
-      <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
+      {/* Hero Section */}
+      <section className="relative h-[70vh] min-h-[500px] flex items-center">
         <div className="absolute inset-0">
           <img 
-            src={heroImage}
-            alt="Revenue automation workflow"
+            src={heroImg} 
+            alt="Business automation"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/70 to-black/50"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-transparent"></div>
         </div>
-        <div className="relative z-10 text-center px-4 max-w-6xl mx-auto">
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 animate-in fade-in slide-in-from-bottom-4 duration-700">
-            Automate your entire <span className="italic bg-gradient-to-r from-[hsl(158,83%,39%)] via-[hsl(200,83%,50%)] to-[hsl(221,91%,60%)] text-transparent bg-clip-text">revenue engine</span>
-          </h1>
-          <p className="text-lg md:text-xl text-white/90 mb-8 max-w-3xl mx-auto animate-in fade-in slide-in-from-bottom-4 duration-700 delay-150">
-            From lead generation to deal closing, we build AI-powered systems that grow your business on autopilot. Turn manual outreach into automated pipeline.
-          </p>
-          <div className="flex flex-wrap gap-4 justify-center animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300">
-            <Button size="lg" className="bg-white text-[hsl(158,83%,39%)] hover:bg-white/90" data-testid="button-get-started">
-              Start Growing Revenue
-            </Button>
-            <Button size="lg" variant="outline" className="border-white text-white bg-white/10 backdrop-blur-sm hover:bg-white/20" data-testid="button-view-case-studies">
-              View Automation Results
-            </Button>
-          </div>
-        </div>
-      </section>
+        
+        <div className="relative z-10 w-full px-6">
+          <div className="max-w-6xl mx-auto">
+            <div className="flex items-center gap-2 mb-4">
+              <div className="w-6 h-0.5 bg-white" data-testid="decorative-line-1"></div>
+              <div className="w-6 h-0.5 bg-white" data-testid="decorative-line-2"></div>
+            </div>
 
-      {/* Trusted By */}
-      <section className="py-12 px-4 bg-white border-b border-border">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center text-sm uppercase tracking-wider text-muted-foreground mb-8">
-            Powering automated revenue for leading companies
-          </div>
-          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12 opacity-60">
-            {['B2B Software', 'Agencies', 'Professional Services', 'Real Estate', 'Consulting', 'Financial Services'].map((type, i) => (
-              <div key={i} className="text-lg md:text-xl font-bold text-foreground">{type}</div>
-            ))}
-          </div>
-        </div>
-      </section>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6" data-testid="heading-revenue-automation">
+              Revenue Automation
+            </h1>
 
-      {/* Performance Metrics */}
-      <section className="py-16 px-4 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <div className="text-sm uppercase tracking-wider text-[hsl(158,83%,39%)] mb-3">REVENUE AUTOMATION RESULTS</div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              Generate predictable, scalable revenue
+            <h2 className="text-2xl md:text-3xl font-black text-white mb-6">
+              Automate your revenue operations from lead to payment
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Turn manual outreach into automated pipeline. We build and optimize your entire revenue engine
+
+            <p className="text-lg text-white/90 mb-8 max-w-3xl">
+              Save tens of thousands annually while increasing delivery speed 10x. From sales outreach to invoicing, we build custom automation systems that eliminate manual work and scale your business without hiring.
             </p>
+
+            <Link href="/contact">
+              <button
+                className="inline-flex items-center gap-3 bg-[#5FD4C4] text-black rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2"
+                data-testid="button-automate-revenue"
+              >
+                Automate Your Revenue
+                <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center">
+                  <ArrowRight className="h-5 w-5 text-white" />
+                </div>
+              </button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Services Carousel Section */}
+      <section className="py-14 px-4 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-black text-black mb-2">
+            Revenue Automation <span className="text-[#5FD4C4]">Services</span>
+          </h2>
+
+          <p className="text-base text-gray-700 mb-8">
+            Comprehensive automation for every revenue-generating function
+          </p>
+
+          {/* Carousel Dots */}
+          <div className="flex items-center justify-start gap-2 mb-8">
+            {services.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => setCurrentService(idx)}
+                className={`h-2 rounded-full transition-all ${
+                  idx === currentService ? 'w-8 bg-[#5FD4C4]' : 'w-2 bg-gray-300'
+                }`}
+                data-testid={`dot-service-${idx}`}
+              />
+            ))}
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6 mt-10">
-            {[
-              { icon: TrendingUp, value: "3x", label: "Avg. revenue increase in 90 days" },
-              { icon: Users, value: "10,000+", label: "Leads generated monthly" },
-              { icon: Zap, value: "90%", label: "Reduction in manual work" },
-            ].map((stat, i) => (
-              <div key={i} className="text-center p-8 bg-gradient-to-br from-[hsl(158,10%,98%)] to-white rounded-xl border border-border hover:shadow-lg transition-all duration-300 hover:-translate-y-1" data-testid={`metric-${i}`}>
-                <stat.icon className="h-16 w-16 text-[hsl(158,83%,39%)] mx-auto mb-4" />
-                <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-[hsl(158,83%,39%)] to-[hsl(221,91%,60%)] text-transparent bg-clip-text mb-3">{stat.value}</div>
-                <div className="text-sm text-muted-foreground">{stat.label}</div>
+          {/* Grid of 3 Service Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            {[0, 1, 2].map((offset) => {
+              const actualIdx = (currentService + offset) % services.length;
+              const service = services[actualIdx];
+              const Icon = service.icon;
+              
+              return (
+                <div key={actualIdx} className="bg-white border-2 border-gray-100 rounded-3xl p-8" data-testid={`card-service-${actualIdx}`}>
+                  <div className="flex items-start justify-between mb-6">
+                    <div className="w-14 h-14 bg-black rounded-xl flex items-center justify-center">
+                      <Icon className="h-7 w-7 text-white" />
+                    </div>
+                    {offset === 2 && (
+                      <button
+                        onClick={nextService}
+                        className="text-gray-400 hover:text-black transition-colors"
+                        data-testid="button-next-service"
+                      >
+                        <ArrowRight className="h-5 w-5" />
+                      </button>
+                    )}
+                  </div>
+                  <h3 className="text-xl font-bold text-black mb-3">{service.title}</h3>
+                  <p className="text-sm text-gray-600 mb-6">{service.description}</p>
+                  <ul className="space-y-3">
+                    {service.items.map((item, itemIdx) => (
+                      <li key={itemIdx} className="flex items-start gap-2">
+                        <CheckCircle className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                        <span className="text-sm text-gray-700">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Case Studies Section */}
+      <section className="py-14 px-4 bg-zinc-50">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-black text-black mb-2">
+            Client <span className="text-[#5FD4C4]">Success Stories</span>
+          </h2>
+
+          <p className="text-base text-gray-700 mb-8">
+            Real businesses saving tens of thousands with automation
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {caseStudies.map((study, idx) => (
+              <Link key={idx} href={`/case-studies/${study.slug}`}>
+                <div className="group bg-white border-2 border-gray-100 rounded-3xl overflow-hidden hover:border-[#5FD4C4] transition-all hover-elevate cursor-pointer" data-testid={`card-case-study-${study.slug}`}>
+                  <div className="relative h-64 overflow-hidden">
+                    <img 
+                      src={study.image} 
+                      alt={study.title}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                    <div className="absolute top-4 left-4 bg-[#5FD4C4] text-black text-xs font-bold px-3 py-1.5 rounded-full">
+                      {study.industry}
+                    </div>
+                  </div>
+                  <div className="p-6">
+                    <h3 className="text-xl font-bold text-black mb-2 group-hover:text-[#ea580c] transition-colors">
+                      {study.title}
+                    </h3>
+                    <p className="text-sm text-gray-600 mb-4">
+                      {study.description}
+                    </p>
+                    <div className="flex items-center gap-2 text-[#ea580c] font-semibold text-sm">
+                      Read Case Study
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Benefits Section */}
+      <section className="py-14 px-4 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-black text-black mb-2">
+            Why Choose <span className="text-[#5FD4C4]">OARC Digital</span>
+          </h2>
+
+          <p className="text-base text-gray-700 mb-8">
+            Proven results that transform business operations
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {benefits.map((benefit, idx) => (
+              <div key={idx} className="bg-zinc-50 rounded-2xl p-6" data-testid={`benefit-${idx}`}>
+                <h3 className="text-lg font-bold text-black mb-3">{benefit.title}</h3>
+                <p className="text-sm text-gray-600">{benefit.description}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Case Study Spotlight */}
-      <section className="py-16 px-4 bg-[hsl(158,10%,98%)]">
-        <div className="max-w-6xl mx-auto">
-          <div className="bg-white rounded-2xl overflow-hidden border border-border shadow-lg">
-            <div className="p-8 md:p-12">
-              <div className="text-sm uppercase tracking-wider text-[hsl(158,83%,39%)] mb-4">CASE STUDY</div>
-              <h3 className="text-3xl md:text-4xl font-bold mb-6">
-                How we automated a B2B software company's outbound to generate $4.2M in pipeline
-              </h3>
-              <div className="grid md:grid-cols-3 gap-8 mb-8">
-                <div>
-                  <div className="text-2xl font-bold text-[hsl(158,83%,39%)] mb-2">$4.2M pipeline</div>
-                  <div className="text-sm text-muted-foreground">Generated in 6 months</div>
-                </div>
-                <div>
-                  <div className="text-2xl font-bold text-[hsl(158,83%,39%)] mb-2">18% reply rate</div>
-                  <div className="text-sm text-muted-foreground">On automated cold emails</div>
-                </div>
-                <div>
-                  <div className="text-2xl font-bold text-[hsl(158,83%,39%)] mb-2">350 meetings</div>
-                  <div className="text-sm text-muted-foreground">Booked automatically</div>
-                </div>
-              </div>
-              <p className="text-muted-foreground mb-6">
-                We built a complete revenue automation stack including lead enrichment, email deliverability infrastructure, personalized outreach sequences, LinkedIn automation, and CRM integration. The system runs 24/7 finding prospects, sending personalized messages, booking meetings, and syncing everything to their CRM—all without manual intervention. Their sales team now focuses only on taking meetings and closing deals.
-              </p>
-              <div className="flex flex-wrap gap-3">
-                {['Lead Enrichment', 'Email Infrastructure', 'LinkedIn Automation', 'CRM Sync', 'Meeting Automation'].map((tag, i) => (
-                  <span key={i} className="px-3 py-1 bg-[hsl(158,10%,95%)] text-[hsl(158,83%,39%)] rounded-full text-sm font-medium">
-                    {tag}
-                  </span>
-                ))}
-              </div>
+      {/* ROI Highlight */}
+      <section className="py-16 px-4 bg-gradient-to-br from-zinc-900 via-zinc-800 to-black text-white">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-black mb-8">
+            Typical Client Results
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div>
+              <div className="text-5xl font-black text-[#5FD4C4] mb-3">10x</div>
+              <p className="text-base text-zinc-300">Faster Delivery Speed</p>
+            </div>
+            <div>
+              <div className="text-5xl font-black text-[#5FD4C4] mb-3">$50K+</div>
+              <p className="text-base text-zinc-300">Annual Cost Savings</p>
+            </div>
+            <div>
+              <div className="text-5xl font-black text-[#5FD4C4] mb-3">90%</div>
+              <p className="text-base text-zinc-300">Time Reduction</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Automation Stack */}
-      <section className="py-16 bg-white overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 mb-10">
-          <div className="text-sm uppercase tracking-wider text-[hsl(158,83%,39%)] mb-3">COMPLETE AUTOMATION STACK</div>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            From prospecting to <span className="italic text-[hsl(221,91%,60%)]">closed deals</span>
+      {/* CTA Section */}
+      <section className="py-20 px-4 bg-white">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black mb-6">
+            Ready to Automate Your Revenue?
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl">
-            Every tool you need to automate your revenue generation—fully integrated
+          <p className="text-lg text-gray-700 mb-8 max-w-2xl mx-auto">
+            Save tens of thousands while increasing your operational efficiency 10x.
           </p>
-        </div>
-
-        <div className="relative">
-          <ScrollableCards>
-            {[
-              { 
-                name: "Lead Generation Autopilot", 
-                desc: "AI finds and qualifies your ideal customers from 100+ data sources. Build targeted lists daily with verified emails and enriched data.",
-                icon: Users,
-                features: ["300+ leads/day", "Multi-source enrichment", "Intent signals", "Real-time verification"]
-              },
-              { 
-                name: "Email Deliverability Suite", 
-                desc: "Warm-up infrastructure, spam testing, inbox rotation. Land in inbox, not spam with 99% deliverability rates.",
-                icon: Mail,
-                features: ["99% inbox rate", "Domain health monitoring", "Auto warm-up", "Spam testing"]
-              },
-              { 
-                name: "LinkedIn Automation", 
-                desc: "Automate connection requests, messaging, and follow-ups. Scale LinkedIn outreach safely with personalized messages.",
-                icon: Linkedin,
-                features: ["Safe automation", "Personalized at scale", "Multi-account", "Connection tracking"]
-              },
-              { 
-                name: "AI-Powered Outreach", 
-                desc: "Personalized emails and messages written by AI. A/B testing and optimization built-in for maximum reply rates.",
-                icon: Sparkles,
-                features: ["90% personalization", "Auto A/B testing", "Learning algorithms", "Reply tracking"]
-              },
-              { 
-                name: "CRM Automation", 
-                desc: "Auto-sync leads, update records, score prospects, trigger workflows. Zero manual data entry, perfect data hygiene.",
-                icon: Target,
-                features: ["Auto data sync", "Lead scoring", "Pipeline automation", "Activity tracking"]
-              },
-              { 
-                name: "Deal Intelligence", 
-                desc: "AI analyzes deals, predicts close rates, recommends next actions. Know which deals to prioritize and how to win them.",
-                icon: BarChart,
-                features: ["Predictive scoring", "Win/loss analysis", "Action recommendations", "Pipeline forecasting"]
-              },
-            ].map((tool, i) => (
-              <div key={i} className="flex-none w-[340px] md:w-[420px] group" data-testid={`card-tool-${i}`}>
-                <div className="bg-white rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-500 border border-border h-full hover:-translate-y-2">
-                  <div className="relative h-48 bg-gradient-to-br from-[hsl(158,83%,39%)]/10 via-[hsl(200,83%,50%)]/10 to-[hsl(221,91%,60%)]/10 overflow-hidden flex items-center justify-center">
-                    <tool.icon className="h-16 w-16 text-[hsl(158,83%,39%)]/30 group-hover:scale-110 transition-transform duration-500" />
-                  </div>
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold mb-3 group-hover:text-[hsl(158,83%,39%)] transition-colors">{tool.name}</h3>
-                    <p className="text-sm text-muted-foreground mb-4">{tool.desc}</p>
-                    <div className="space-y-2">
-                      {tool.features.map((feature, j) => (
-                        <div key={j} className="flex items-center gap-2 text-sm">
-                          <CheckCircle2 className="h-4 w-4 text-[hsl(158,83%,39%)]" />
-                          <span>{feature}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
+          <Link href="/contact">
+            <button
+              className="inline-flex items-center gap-3 bg-[#5FD4C4] text-black rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2"
+              data-testid="button-start-automating"
+            >
+              Start Automating
+              <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center">
+                <ArrowRight className="h-5 w-5 text-white" />
               </div>
-            ))}
-          </ScrollableCards>
+            </button>
+          </Link>
         </div>
       </section>
 
-      {/* What's Included */}
-      <section className="py-16 px-4 bg-[hsl(158,10%,98%)]">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              Full-service revenue automation
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              We handle strategy, setup, management, and optimization—you focus on closing deals
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              { name: "ICP & Strategy Development", desc: "Deep research into your ideal customer profile, buying process, and pain points. Build targeting strategy that converts." },
-              { name: "Tech Stack Setup", desc: "Configure and integrate all automation tools. Email infrastructure, CRM, enrichment tools, LinkedIn automation, meeting schedulers." },
-              { name: "Campaign Development", desc: "Write personalized email sequences, LinkedIn messages, and follow-up cadences. A/B test everything for maximum performance." },
-              { name: "Infrastructure Management", desc: "Maintain email deliverability, manage domain health, rotate inboxes, warm up new domains. Keep everything running smoothly." },
-              { name: "Lead Generation & Enrichment", desc: "Daily lead list building from premium data sources. Verified emails, enriched profiles, intent signals, and contact tracking." },
-              { name: "Performance Optimization", desc: "Weekly testing and optimization. Improve reply rates, meeting booking rates, and pipeline conversion through systematic testing." },
-            ].map((item, i) => (
-              <div key={i} className="p-6 rounded-xl bg-white border border-border hover:border-[hsl(158,83%,39%)] hover:shadow-lg transition-all duration-300 hover:-translate-y-1" data-testid={`card-service-${i}`}>
-                <h3 className="text-lg font-bold mb-2">{item.name}</h3>
-                <p className="text-sm text-muted-foreground">{item.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Our Process */}
-      <section className="py-16 px-4 bg-white">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              From zero to <span className="italic text-[hsl(221,91%,60%)]">revenue machine</span> in 30 days
-            </h2>
-            <p className="text-lg text-muted-foreground">
-              A proven 4-phase launch process
-            </p>
-          </div>
-
-          <div className="space-y-6">
-            {[
-              { step: "01", title: "Strategy Session", desc: "We analyze your ICP, messaging, competitive landscape, and revenue goals. Define success metrics and build targeting strategy." },
-              { step: "02", title: "Tech Stack Setup", desc: "Install and configure all automation tools and integrations. Email infrastructure, CRM setup, data sources, meeting automation." },
-              { step: "03", title: "Campaign Launch", desc: "Launch multi-channel campaigns with AI-powered personalization. Start generating meetings within 7-14 days of launch." },
-              { step: "04", title: "Optimize & Scale", desc: "Continuously test messaging, audiences, and channels. Improve performance week over week and scale winning campaigns." },
-            ].map((item, i) => (
-              <div key={i} className="flex gap-6 items-start p-6 md:p-8 bg-gradient-to-br from-[hsl(158,10%,98%)] to-white rounded-xl border border-border hover:shadow-lg transition-all duration-300 hover:-translate-x-2" data-testid={`step-${i}`}>
-                <div className="text-5xl font-bold text-[hsl(158,83%,39%)]/20 flex-shrink-0">{item.step}</div>
-                <div className="flex-1">
-                  <h3 className="text-xl font-bold mb-2">{item.title}</h3>
-                  <p className="text-sm text-muted-foreground">{item.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="py-20 px-4 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[hsl(158,83%,39%)] via-[hsl(200,83%,50%)] to-[hsl(221,91%,60%)]"></div>
-        <div className="relative z-10 max-w-4xl mx-auto text-center text-white">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Ready to <span className="italic">automate your revenue?</span>
+      {/* Get In Touch Section */}
+      <section className="py-14 px-4 bg-zinc-50">
+        <div className="max-w-6xl mx-auto text-center">
+          <h2 className="text-2xl md:text-3xl font-black text-black mb-4">
+            Get In Touch
           </h2>
-          <p className="text-lg md:text-xl mb-8 text-white/90 max-w-2xl mx-auto">
-            Book a strategy call and we'll show you exactly how to 3x your pipeline in 90 days with revenue automation.
+          <p className="text-base text-gray-700 mb-6 max-w-2xl mx-auto">
+            Let's discuss how revenue automation can transform your business operations.
           </p>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <Button size="lg" className="bg-white text-[hsl(158,83%,39%)] hover:bg-white/90" data-testid="button-cta-primary">
-              Book Strategy Call
-            </Button>
-            <Button size="lg" variant="outline" className="border-white text-white bg-white/10 backdrop-blur-sm hover:bg-white/20" data-testid="button-cta-secondary">
-              View Case Studies
-            </Button>
-          </div>
+          <Link href="/contact">
+            <button
+              className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2"
+              data-testid="button-contact-us"
+            >
+              Contact Us
+              <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+                <ArrowRight className="h-5 w-5 text-black" />
+              </div>
+            </button>
+          </Link>
         </div>
       </section>
     </Layout>
