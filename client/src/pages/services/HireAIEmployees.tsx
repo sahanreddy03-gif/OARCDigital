@@ -5,6 +5,9 @@ import Layout from '@/components/layout/Layout';
 import heroImg from '@assets/stock_images/ai_software_developm_725be51d.jpg';
 import teamImg1 from '@assets/stock_images/luxury_fashion_retai_32a7703b.jpg';
 import teamImg2 from '@assets/stock_images/healthcare_patient_c_b0453f09.jpg';
+import codingTeamImg from '@assets/stock_images/ai_engineers_coding__8a2ab34e.jpg';
+import dataScientistsImg from '@assets/stock_images/data_scientists_anal_9fe47952.jpg';
+import remoteTeamImg from '@assets/stock_images/remote_work_team_vid_8868b77b.jpg';
 
 export default function HireAIEmployees() {
   const [currentService, setCurrentService] = useState(0);
@@ -159,6 +162,43 @@ export default function HireAIEmployees() {
         </div>
       </section>
 
+      {/* Section 1: Image Left + Text Right */}
+      <section className="py-14 px-4 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <img 
+                src={codingTeamImg} 
+                alt="AI engineering team working together"
+                className="w-full rounded-3xl h-[500px] object-cover"
+              />
+            </div>
+            <div>
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-black mb-6">
+                Elite AI engineers ready to join your team
+              </h2>
+              <p className="text-base text-gray-700 mb-6">
+                Access a curated network of top-tier AI engineering talent across the Americas. Our teams bring deep expertise in machine learning, generative AI, computer vision, and natural language processing—all working in your timezone.
+              </p>
+              <p className="text-base text-gray-700 mb-8">
+                Every engineer is rigorously vetted for technical excellence, communication skills, and cultural fit. From day one, they integrate seamlessly into your workflows, using your tools and following your processes.
+              </p>
+              <Link href="/contact">
+                <button
+                  className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2"
+                  data-testid="button-explore-talent"
+                >
+                  Explore Our Talent
+                  <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+                    <ArrowRight className="h-5 w-5 text-black" />
+                  </div>
+                </button>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Services Carousel Section */}
       <section className="py-14 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
@@ -224,8 +264,45 @@ export default function HireAIEmployees() {
         </div>
       </section>
 
-      {/* Featured Case Studies Section */}
+      {/* Section 2: Text Left + Image Right */}
       <section className="py-14 px-4 bg-zinc-50">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-black mb-6">
+                Seamless collaboration in your timezone
+              </h2>
+              <p className="text-base text-gray-700 mb-6">
+                Say goodbye to offshore communication barriers. Our AI engineering teams work during your business hours across North and South America, ensuring real-time collaboration when you need it most.
+              </p>
+              <p className="text-base text-gray-700 mb-8">
+                With cultural alignment and fluent English communication, our teams don't just deliver code—they become true partners in your AI journey, participating in standups, sprint planning, and strategy sessions just like in-house team members.
+              </p>
+              <Link href="/contact">
+                <button
+                  className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2"
+                  data-testid="button-meet-teams"
+                >
+                  Meet Our Teams
+                  <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+                    <ArrowRight className="h-5 w-5 text-black" />
+                  </div>
+                </button>
+              </Link>
+            </div>
+            <div>
+              <img 
+                src={remoteTeamImg} 
+                alt="Remote AI team video conference"
+                className="w-full rounded-3xl h-[500px] object-cover"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Case Studies Section */}
+      <section className="py-14 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-black text-black mb-2">
             Client <span className="text-[#5FD4C4]">Success Stories</span>
@@ -265,6 +342,43 @@ export default function HireAIEmployees() {
                 </div>
               </Link>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Section 3: Image Left + Text Right */}
+      <section className="py-14 px-4 bg-zinc-50">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <img 
+                src={dataScientistsImg} 
+                alt="Data scientists analyzing ML models"
+                className="w-full rounded-3xl h-[500px] object-cover"
+              />
+            </div>
+            <div>
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-black mb-6">
+                Proven track record with Fortune 500 companies
+              </h2>
+              <p className="text-base text-gray-700 mb-6">
+                For over 4 years, we've helped industry leaders scale their AI capabilities through our nearshore delivery model. From startups to Fortune 500 enterprises, our teams have delivered production-grade AI systems that drive real business value.
+              </p>
+              <p className="text-base text-gray-700 mb-8">
+                Whether you need to accelerate time-to-market, fill critical skill gaps, or scale capacity for a major initiative, our flexible engagement models adapt to your needs—from dedicated teams to project-based augmentation.
+              </p>
+              <Link href="/contact">
+                <button
+                  className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2"
+                  data-testid="button-view-case-studies"
+                >
+                  View Case Studies
+                  <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+                    <ArrowRight className="h-5 w-5 text-black" />
+                  </div>
+                </button>
+              </Link>
+            </div>
           </div>
         </div>
       </section>
