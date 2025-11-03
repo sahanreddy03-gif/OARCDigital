@@ -35,6 +35,7 @@ import Immersive3DAR from "@/pages/services/Immersive3DAR";
 import EmailCreative from "@/pages/services/EmailCreative";
 import DesignSystems from "@/pages/services/DesignSystems";
 import AIConsulting from "@/pages/services/AIConsulting";
+import MobileAppsDevelopment from "@/pages/services/MobileAppsDevelopment";
 import OurWork from "@/pages/OurWork";
 import WhyUs from "@/pages/WhyUs";
 import Resources from "@/pages/Resources";
@@ -53,6 +54,10 @@ import SherwebAICaseStudy from "@/pages/case-studies/SherwebAI";
 import PeopleReadyAICaseStudy from "@/pages/case-studies/PeopleReadyAI";
 import CleverlyCaseStudy from "@/pages/case-studies/Cleverly";
 import FanDuelChuckGPTCaseStudy from "@/pages/case-studies/FanDuelChuckGPT";
+import TapestryAutomation from "@/pages/case-studies/TapestryAutomation";
+import BancolombiaAutomation from "@/pages/case-studies/BancolombiaAutomation";
+import JBSAutomation from "@/pages/case-studies/JBSAutomation";
+import AcclaimAutism from "@/pages/case-studies/AcclaimAutism";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -94,6 +99,8 @@ function Router() {
       <Route path="/services/email-creative" component={EmailCreative} />
       <Route path="/services/design-systems" component={DesignSystems} />
       <Route path="/services/ai-consulting" component={AIConsulting} />
+      <Route path="/services/mobile-apps-development" component={MobileAppsDevelopment} />
+      <Route path="/services/mobile-applications-development" component={MobileAppsDevelopment} />
       
       {/* Fallback for other services */}
       <Route path="/services/:service" component={ServiceDetail} />
@@ -111,6 +118,14 @@ function Router() {
       <Route path="/case-studies/peopleready-ai-team" component={PeopleReadyAICaseStudy} />
       <Route path="/case-studies/cleverly-automation" component={CleverlyCaseStudy} />
       <Route path="/case-studies/fanduel-chuckgpt" component={FanDuelChuckGPTCaseStudy} />
+      <Route path="/case-studies/tapestry-automation" component={TapestryAutomation} />
+      <Route path="/case-study/tapestry-automation" component={TapestryAutomation} />
+      <Route path="/case-studies/bancolombia-automation" component={BancolombiaAutomation} />
+      <Route path="/case-study/bancolombia-automation" component={BancolombiaAutomation} />
+      <Route path="/case-studies/jbs-automation" component={JBSAutomation} />
+      <Route path="/case-study/jbs-automation" component={JBSAutomation} />
+      <Route path="/case-studies/acclaim-autism" component={AcclaimAutism} />
+      <Route path="/case-study/acclaim-autism" component={AcclaimAutism} />
       <Route path="/our-work/:slug" component={() => <div>Case Study Detail (Phase 3)</div>} />
       <Route path="/why-us" component={WhyUs} />
       <Route path="/resources" component={Resources} />
