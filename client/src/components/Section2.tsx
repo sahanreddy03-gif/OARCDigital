@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { useState, useEffect } from "react";
+import { Link } from "wouter";
 import { SiFacebook, SiInstagram, SiLinkedin, SiX, SiYoutube, SiSpotify } from "react-icons/si";
 
 export default function Section2() {
@@ -55,13 +56,15 @@ export default function Section2() {
             </h2>
 
             <div className="flex flex-col gap-4 w-full sm:flex-row sm:gap-5">
-              <Button 
-                size="lg"
-                className="bg-zinc-900 text-white font-bold rounded-full w-full sm:w-auto flex-shrink-0"
-                data-testid="button-browse-services"
-              >
-                Browse Our Services
-              </Button>
+              <Link href="/services/social-media-creative-management">
+                <Button 
+                  size="lg"
+                  className="bg-zinc-900 text-white font-bold rounded-full w-full sm:w-auto flex-shrink-0"
+                  data-testid="button-explore-social-services"
+                >
+                  Explore Social Services
+                </Button>
+              </Link>
               
               <Button 
                 variant="outline"
