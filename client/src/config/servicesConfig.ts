@@ -1,4 +1,4 @@
-import { Palette, Video, Sparkles, Users, TrendingUp, Megaphone, Globe, Presentation, Image, Package, Film, Layers, Mail, Layout, Cpu, DollarSign, Target, Zap, Lightbulb, BarChart3 } from 'lucide-react';
+import { Palette, Video, Sparkles, Users, TrendingUp, Megaphone, Globe, Presentation, Image, Package, Film, Layers, Mail, Layout, Cpu, DollarSign, Target, Zap, Lightbulb, BarChart3, Smartphone } from 'lucide-react';
 
 export interface ServiceItem {
   title: string;
@@ -39,10 +39,11 @@ export const servicesCatalog: Record<string, ServiceCategory> = {
       { title: 'Social Media Creative & Management', slug: 'social-media-creative-management', badge: 'Popular', icon: Megaphone },
       { title: 'Ad Creative', slug: 'ad-creative', icon: Palette },
       { title: 'Web Design & Landing Pages', slug: 'web-design', icon: Globe },
+      { title: 'Mobile Applications Development', slug: 'mobile-apps-development', badge: 'New', icon: Smartphone },
       { title: 'Video Production', slug: 'video-production', icon: Video },
       { title: 'Motion Design', slug: 'motion-design', icon: Film },
       { title: 'Branding & Identity', slug: 'branding-services', icon: Sparkles },
-      { title: 'Design Systems', slug: 'design-systems', badge: 'New', icon: Layout },
+      { title: 'Design Systems', slug: 'design-systems', icon: Layout },
       { title: 'Email Creative', slug: 'email-creative', icon: Mail },
       { title: 'Presentation & Pitch', slug: 'presentation-pitch', icon: Presentation },
       { title: 'Illustration', slug: 'illustration', icon: Palette },
