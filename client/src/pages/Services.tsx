@@ -1,198 +1,473 @@
-import { useState } from 'react';
-import { ChevronDown, ArrowRight } from 'lucide-react';
+import { useState, useEffect, useRef } from 'react';
+import { ArrowRight, Sparkles, Users, TrendingUp, ChevronDown } from 'lucide-react';
 import { Link } from 'wouter';
+import { motion, useScroll, useTransform, useInView } from 'framer-motion';
 import { getAllCategories } from '@/config/servicesConfig';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
-import socialMediaImg from '@assets/stock_images/social_media_creativ_8b2d8cae.jpg';
-import aiEmployeesImg from '@assets/stock_images/professional_sales_r_664f92e1.jpg';
-import revenueImg from '@assets/stock_images/revenue_analytics_bu_e60e556f.jpg';
+import heroImg from '@assets/stock_images/abstract_digital_tec_88cf0242.jpg';
+import creativeImg from '@assets/stock_images/creative_agency_team_2d8a0735.jpg';
+import growthImg from '@assets/stock_images/business_growth_char_f55804b3.jpg';
+import aiImg from '@assets/stock_images/artificial_intellige_c8e176df.jpg';
 
-const featuredImages: Record<string, string> = {
-  'social-media-management': socialMediaImg,
-  'hire-ai-employees': aiEmployeesImg,
-  'revenue-automation': revenueImg,
+const categoryImages: Record<string, string> = {
+  'aiCreative': creativeImg,
+  'revenue': growthImg,
+  'aiEmployees': aiImg,
 };
+
+const categoryIcons: Record<string, any> = {
+  'aiCreative': Sparkles,
+  'revenue': TrendingUp,
+  'aiEmployees': Users,
+};
+
+const categoryColors: Record<string, { gradient: string; accent: string; glow: string }> = {
+  'aiCreative': {
+    gradient: 'from-purple-600 via-pink-600 to-orange-600',
+    accent: '#ea580c',
+    glow: 'shadow-[0_0_50px_rgba(234,88,12,0.3)]'
+  },
+  'revenue': {
+    gradient: 'from-emerald-500 via-teal-500 to-cyan-500',
+    accent: '#5FD4C4',
+    glow: 'shadow-[0_0_50px_rgba(95,212,196,0.3)]'
+  },
+  'aiEmployees': {
+    gradient: 'from-blue-600 via-indigo-600 to-purple-600',
+    accent: '#8b5cf6',
+    glow: 'shadow-[0_0_50px_rgba(139,92,246,0.3)]'
+  },
+};
+
+function AnimatedCounter({ value, suffix = '' }: { value: number; suffix?: string }) {
+  const [count, setCount] = useState(0);
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: true });
+
+  useEffect(() => {
+    if (!isInView) return;
+
+    let start = 0;
+    const duration = 2000;
+    const increment = value / (duration / 16);
+
+    const timer = setInterval(() => {
+      start += increment;
+      if (start >= value) {
+        setCount(value);
+        clearInterval(timer);
+      } else {
+        setCount(Math.floor(start));
+      }
+    }, 16);
+
+    return () => clearInterval(timer);
+  }, [isInView, value]);
+
+  return <span ref={ref}>{count}{suffix}</span>;
+}
 
 export default function Services() {
   const categories = getAllCategories();
-  const [expandedCategory, setExpandedCategory] = useState('aiCreative');
+  const [activeCategory, setActiveCategory] = useState('aiCreative');
+  const heroRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"]
+  });
 
-  const toggleCategory = (categoryId: string) => {
-    setExpandedCategory(expandedCategory === categoryId ? '' : categoryId);
+  const heroY = useTransform(scrollYProgress, [0, 1], ['0%', '50%']);
+  const heroOpacity = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0.5, 0]);
+
+  const activeColor = categoryColors[activeCategory];
+  const activeCategoryData = categories.find(c => c.id === activeCategory);
+
+  // Remove duplicates by filtering out featured service from items list
+  const getUniqueServices = (category: typeof categories[0]) => {
+    return category.items.filter(item => item.slug !== category.featured.slug);
   };
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
-    <div className="min-h-screen bg-white">
-      {/* Navigation */}
+    <div className="min-h-screen bg-black text-white overflow-x-hidden">
       <Navigation />
 
-      {/* Header */}
-      <header className="bg-gradient-to-br from-zinc-900 via-zinc-800 to-black text-white py-20 px-6 mt-14 md:mt-16 lg:mt-20">
-        <div className="max-w-6xl mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 tracking-tight">
-            Our Services
-          </h1>
-          <p className="text-xl md:text-2xl text-zinc-300 max-w-3xl mx-auto leading-relaxed">
-            From AI-powered automation to creative excellence—discover how we transform businesses through innovation and results.
-          </p>
-        </div>
-      </header>
+      {/* Cinematic Hero with Parallax */}
+      <section ref={heroRef} className="relative h-screen flex items-center justify-center overflow-hidden mt-14 md:mt-16 lg:mt-20">
+        {/* Animated Background */}
+        <motion.div 
+          style={{ y: heroY }}
+          className="absolute inset-0"
+        >
+          <div className="absolute inset-0 bg-gradient-to-br from-black via-zinc-900 to-black z-10"></div>
+          <img 
+            src={heroImg}
+            alt="Hero Background"
+            className="w-full h-full object-cover opacity-20"
+          />
+          {/* Animated Glow Orbs */}
+          <motion.div
+            animate={{
+              scale: [1, 1.2, 1],
+              opacity: [0.3, 0.6, 0.3],
+            }}
+            transition={{
+              duration: 8,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+            className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-full blur-3xl"
+          ></motion.div>
+          <motion.div
+            animate={{
+              scale: [1.2, 1, 1.2],
+              opacity: [0.4, 0.7, 0.4],
+            }}
+            transition={{
+              duration: 10,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 1
+            }}
+            className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 rounded-full blur-3xl"
+          ></motion.div>
+        </motion.div>
 
-      {/* Services Accordion */}
-      <section className="py-16 md:py-24 px-6">
-        <div className="max-w-6xl mx-auto space-y-6">
-          {categories.map((category, index) => {
-            const isExpanded = expandedCategory === category.id;
-            const Icon = category.featured.icon;
+        {/* Hero Content */}
+        <motion.div 
+          style={{ opacity: heroOpacity }}
+          className="relative z-20 text-center px-6 max-w-6xl mx-auto"
+        >
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            <div className="inline-block mb-6">
+              <span className="px-6 py-3 bg-gradient-to-r from-purple-500/10 to-pink-500/10 border border-purple-500/20 rounded-full text-sm font-semibold text-purple-300 backdrop-blur-sm">
+                25+ Premium Services
+              </span>
+            </div>
+          </motion.div>
 
-            return (
-              <div
-                key={category.id}
-                className="border border-zinc-200 rounded-2xl overflow-hidden transition-all duration-300 hover:border-zinc-300"
-                data-testid={`category-${category.id}`}
+          <motion.h1 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="text-5xl md:text-7xl lg:text-8xl font-black mb-8 leading-tight"
+          >
+            <span className="bg-gradient-to-r from-white via-zinc-100 to-zinc-300 bg-clip-text text-transparent">
+              Elevate Your
+            </span>
+            <br />
+            <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-orange-400 bg-clip-text text-transparent">
+              Digital Presence
+            </span>
+          </motion.h1>
+
+          <motion.p 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="text-xl md:text-2xl text-zinc-400 max-w-3xl mx-auto mb-12 leading-relaxed"
+          >
+            From AI-powered automation to creative excellence—transform your business with cutting-edge services designed for the future.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+          >
+            <Link href="/contact">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="group relative px-8 py-5 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full font-bold text-lg overflow-hidden"
+                data-testid="button-start-project"
               >
-                {/* Category Header */}
-                <button
-                  onClick={() => toggleCategory(category.id)}
-                  className="w-full px-8 py-6 flex items-center justify-between bg-white hover:bg-zinc-50 transition-colors"
-                  data-testid={`button-toggle-${category.id}`}
+                <span className="relative z-10 flex items-center gap-3">
+                  Start Your Project
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </span>
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-r from-pink-600 to-orange-600"
+                  initial={{ x: "-100%" }}
+                  whileHover={{ x: 0 }}
+                  transition={{ duration: 0.3 }}
+                ></motion.div>
+              </motion.button>
+            </Link>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => {
+                const element = document.getElementById('services-section');
+                element?.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className="px-8 py-5 bg-white/5 hover:bg-white/10 backdrop-blur-sm border border-white/10 rounded-full font-bold text-lg transition-all"
+              data-testid="button-explore-services"
+            >
+              Explore Services
+            </motion.button>
+          </motion.div>
+        </motion.div>
+
+        {/* Scroll Indicator */}
+        <motion.div
+          animate={{
+            y: [0, 10, 0],
+          }}
+          transition={{
+            duration: 2,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+          className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-20"
+        >
+          <ChevronDown className="w-8 h-8 text-white/50" />
+        </motion.div>
+      </section>
+
+      {/* Stats Section */}
+      <section className="py-20 px-6 bg-gradient-to-b from-black to-zinc-900">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+            {[
+              { value: 25, suffix: '+', label: 'Premium Services' },
+              { value: 500, suffix: '+', label: 'Projects Delivered' },
+              { value: 98, suffix: '%', label: 'Client Satisfaction' }
+            ].map((stat, index) => (
+              <motion.div
+                key={stat.label}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="text-center"
+              >
+                <div className="text-6xl md:text-7xl font-black bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-4">
+                  <AnimatedCounter value={stat.value} suffix={stat.suffix} />
+                </div>
+                <div className="text-xl text-zinc-400">{stat.label}</div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Interactive Category Tabs */}
+      <section id="services-section" className="py-24 px-6 bg-zinc-900">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl md:text-6xl font-black mb-6">
+              <span className="bg-gradient-to-r from-white to-zinc-400 bg-clip-text text-transparent">
+                Choose Your Path
+              </span>
+            </h2>
+            <p className="text-xl text-zinc-400 max-w-2xl mx-auto">
+              Explore our three pillars of innovation
+            </p>
+          </motion.div>
+
+          {/* Category Pills */}
+          <div className="flex flex-wrap justify-center gap-4 mb-16">
+            {categories.map((category) => {
+              const Icon = categoryIcons[category.id];
+              const colors = categoryColors[category.id];
+              const isActive = activeCategory === category.id;
+
+              return (
+                <motion.button
+                  key={category.id}
+                  onClick={() => setActiveCategory(category.id)}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className={`group relative px-8 py-4 rounded-full font-bold text-lg transition-all duration-300 ${
+                    isActive 
+                      ? `bg-gradient-to-r ${colors.gradient} ${colors.glow}` 
+                      : 'bg-white/5 hover:bg-white/10 border border-white/10'
+                  }`}
+                  data-testid={`tab-${category.id}`}
                 >
-                  <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-full bg-[#c4ff4d]/10 flex items-center justify-center">
-                      {Icon && <Icon className="w-6 h-6 text-[#ea580c]" />}
-                    </div>
-                    <div className="text-left">
-                      <h2 className="text-2xl md:text-3xl font-bold text-zinc-900">
-                        {category.title}
-                      </h2>
-                      <p className="text-sm md:text-base text-zinc-600 mt-1">
-                        {category.description}
-                      </p>
+                  <span className="flex items-center gap-3">
+                    {Icon && <Icon className="w-5 h-5" />}
+                    {category.title}
+                  </span>
+                </motion.button>
+              );
+            })}
+          </div>
+
+          {/* Category Content */}
+          {activeCategoryData && (
+            <motion.div
+              key={activeCategory}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              {/* Featured Service */}
+              <Link href={`/services/${activeCategoryData.featured.route || activeCategoryData.featured.slug}`}>
+                <motion.div
+                  whileHover={{ y: -8 }}
+                  className="group relative overflow-hidden rounded-3xl mb-12 cursor-pointer"
+                  data-testid="card-featured-service"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-r from-black/80 to-transparent z-10"></div>
+                  <motion.div
+                    className={`absolute inset-0 bg-gradient-to-r ${activeColor.gradient} opacity-0 group-hover:opacity-20 transition-opacity duration-500 z-10`}
+                  ></motion.div>
+                  <img
+                    src={categoryImages[activeCategory]}
+                    alt={activeCategoryData.featured.title}
+                    className="w-full h-96 object-cover group-hover:scale-110 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 z-20 p-12 flex flex-col justify-center">
+                    {activeCategoryData.featured.badge && (
+                      <motion.span
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        className="inline-block w-fit px-6 py-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-full text-sm font-bold mb-6"
+                      >
+                        {activeCategoryData.featured.badge}
+                      </motion.span>
+                    )}
+                    <h3 className="text-5xl md:text-6xl font-black mb-6 text-white">
+                      {activeCategoryData.featured.title}
+                    </h3>
+                    <p className="text-xl text-zinc-300 mb-8 max-w-2xl">
+                      Our flagship service delivering exceptional results for businesses worldwide
+                    </p>
+                    <div className="flex items-center gap-3 text-white font-bold text-lg group-hover:gap-5 transition-all">
+                      Explore Service
+                      <motion.div
+                        whileHover={{ x: 5 }}
+                        className={`w-12 h-12 rounded-full bg-gradient-to-r ${activeColor.gradient} flex items-center justify-center`}
+                      >
+                        <ArrowRight className="w-6 h-6" />
+                      </motion.div>
                     </div>
                   </div>
-                  <ChevronDown
-                    className={`w-6 h-6 text-zinc-400 transition-transform duration-300 ${
-                      isExpanded ? 'rotate-180' : ''
-                    }`}
-                  />
-                </button>
+                </motion.div>
+              </Link>
 
-                {/* Category Content */}
-                {isExpanded && (
-                  <div className="p-8 bg-zinc-50 border-t border-zinc-200 animate-in fade-in slide-in-from-top-2 duration-300">
-                    {/* Featured Service Tile */}
-                    <Link href={`/services/${category.featured.route || category.featured.slug}`} data-testid={`link-featured-${category.featured.slug}`}>
-                      <div
-                        className="group relative overflow-hidden rounded-2xl bg-white border border-zinc-200 hover:border-[#c4ff4d] transition-all duration-300 hover:shadow-xl cursor-pointer mb-8"
+              {/* Service Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {getUniqueServices(activeCategoryData).map((service, index) => {
+                  const ServiceIcon = service.icon;
+
+                  return (
+                    <Link key={service.slug} href={`/services/${service.route || service.slug}`}>
+                      <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: index * 0.05 }}
+                        whileHover={{ y: -8, scale: 1.02 }}
+                        className="group relative p-8 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-white/30 transition-all duration-300 cursor-pointer overflow-hidden"
+                        data-testid={`card-service-${service.slug}`}
                       >
-                        <div className="grid md:grid-cols-2 gap-0">
-                          {/* Image */}
-                          <div className="relative h-64 md:h-auto overflow-hidden">
-                            <img
-                              src={featuredImages[category.featured.slug]}
-                              alt={category.featured.title}
-                              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent"></div>
-                            {category.featured.badge && (
-                              <div className="absolute top-6 left-6 bg-[#c4ff4d] text-zinc-900 text-xs font-bold px-4 py-2 rounded-full">
-                                {category.featured.badge}
-                              </div>
+                        {/* Hover Gradient */}
+                        <motion.div
+                          className={`absolute inset-0 bg-gradient-to-br ${activeColor.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}
+                        ></motion.div>
+
+                        <div className="relative z-10">
+                          {/* Icon */}
+                          {ServiceIcon && (
+                            <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${activeColor.gradient} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                              <ServiceIcon className="w-7 h-7 text-white" />
+                            </div>
+                          )}
+
+                          {/* Title & Badge */}
+                          <div className="flex items-start justify-between gap-3 mb-4">
+                            <h4 className="text-xl font-bold text-white group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-zinc-300 group-hover:bg-clip-text transition-all">
+                              {service.title}
+                            </h4>
+                            {service.badge && (
+                              <span className={`px-3 py-1 rounded-full text-xs font-bold ${
+                                service.badge === 'Popular' 
+                                  ? 'bg-orange-500/20 text-orange-300' 
+                                  : 'bg-blue-500/20 text-blue-300'
+                              }`}>
+                                {service.badge}
+                              </span>
                             )}
                           </div>
 
-                          {/* Content */}
-                          <div className="p-8 md:p-12 flex flex-col justify-center">
-                            <h3 className="text-3xl md:text-4xl font-bold text-zinc-900 mb-4 group-hover:text-[#ea580c] transition-colors">
-                              {category.featured.title}
-                            </h3>
-                            <p className="text-zinc-600 text-lg mb-6 leading-relaxed">
-                              Our most popular service with proven results
-                            </p>
-                            <div className="flex items-center gap-2 text-[#ea580c] font-semibold text-lg">
-                              View Service
-                              <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
-                            </div>
+                          {/* Arrow */}
+                          <div className="flex items-center justify-end">
+                            <motion.div
+                              whileHover={{ x: 5 }}
+                              className="w-10 h-10 rounded-full bg-white/5 group-hover:bg-white/10 flex items-center justify-center"
+                            >
+                              <ArrowRight className="w-5 h-5 text-zinc-400 group-hover:text-white transition-colors" />
+                            </motion.div>
                           </div>
                         </div>
-                      </div>
+                      </motion.div>
                     </Link>
-
-                    {/* All Services List */}
-                    <div className="space-y-2">
-                      <h4 className="text-sm font-semibold text-zinc-500 uppercase tracking-wide mb-4 px-2">
-                        All {category.title}
-                      </h4>
-                      <div className="grid gap-2">
-                        {category.items.map((service) => {
-                          const ServiceIcon = service.icon;
-                          return (
-                            <Link
-                              key={service.slug}
-                              href={`/services/${service.route || service.slug}`}
-                              data-testid={`link-service-${service.slug}`}
-                            >
-                              <div
-                                className="group flex items-center justify-between px-6 py-4 bg-white rounded-xl border border-zinc-200 hover:border-[#c4ff4d] hover:shadow-md transition-all duration-200 cursor-pointer"
-                              >
-                                <div className="flex items-center gap-4">
-                                  {ServiceIcon && (
-                                    <div className="w-10 h-10 rounded-lg bg-zinc-100 flex items-center justify-center group-hover:bg-[#c4ff4d]/10 transition-colors">
-                                      <ServiceIcon className="w-5 h-5 text-zinc-600 group-hover:text-[#ea580c] transition-colors" />
-                                    </div>
-                                  )}
-                                  <div className="flex items-center gap-3">
-                                    <span className="text-base md:text-lg font-semibold text-zinc-900 group-hover:text-[#ea580c] transition-colors">
-                                      {service.title}
-                                    </span>
-                                    {service.badge && (
-                                      <span className={`text-xs font-bold px-3 py-1 rounded-full ${
-                                        service.badge === 'Popular'
-                                          ? 'bg-[#c4ff4d] text-zinc-900'
-                                          : 'bg-zinc-200 text-zinc-700'
-                                      }`}>
-                                        {service.badge}
-                                      </span>
-                                    )}
-                                  </div>
-                                </div>
-                                <ArrowRight className="w-5 h-5 text-zinc-400 group-hover:text-[#ea580c] group-hover:translate-x-1 transition-all" />
-                              </div>
-                            </Link>
-                          );
-                        })}
-                      </div>
-                    </div>
-                  </div>
-                )}
+                  );
+                })}
               </div>
-            );
-          })}
+            </motion.div>
+          )}
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-20 px-6 bg-gradient-to-br from-zinc-900 via-zinc-800 to-black text-white">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Not sure which service you need?
-          </h2>
-          <p className="text-xl text-zinc-300 mb-8">
-            Let's talk about your goals and find the perfect solution.
-          </p>
-          <Link href="/contact">
-            <button
-              className="inline-block bg-[#c4ff4d] text-zinc-900 px-10 py-4 rounded-full font-semibold text-lg hover:bg-[#b3e842] transition-colors"
-              data-testid="button-contact-cta"
-            >
-              Get in Touch
-            </button>
-          </Link>
+      {/* CTA Section */}
+      <section className="relative py-32 px-6 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-900 via-pink-900 to-orange-900"></div>
+        <motion.div
+          animate={{
+            scale: [1, 1.1, 1],
+            rotate: [0, 5, 0],
+          }}
+          transition={{
+            duration: 15,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+          className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-purple-500/30 to-transparent rounded-full blur-3xl"
+        ></motion.div>
+
+        <div className="relative z-10 max-w-5xl mx-auto text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-5xl md:text-7xl font-black mb-8">
+              Ready to Transform <br />Your Business?
+            </h2>
+            <p className="text-xl md:text-2xl text-white/80 mb-12 max-w-3xl mx-auto">
+              Let's create something extraordinary together. Start your journey with OARC Digital today.
+            </p>
+            <Link href="/contact">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="px-12 py-6 bg-white text-black rounded-full font-black text-xl hover:bg-zinc-100 transition-colors"
+                data-testid="button-get-started-cta"
+              >
+                Get Started Now
+              </motion.button>
+            </Link>
+          </motion.div>
         </div>
       </section>
 
-      {/* Footer */}
       <Footer />
     </div>
   );
