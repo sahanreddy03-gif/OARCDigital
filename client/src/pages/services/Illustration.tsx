@@ -8,6 +8,7 @@ import heroImage from "@assets/stock_images/artist_illustration__034f8f53.jpg";
 
 export default function Illustration() {
   useEffect(() => {
+    window.scrollTo(0, 0);
     document.title = "Illustration Services - Custom Digital Art | OARC Digital";
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {

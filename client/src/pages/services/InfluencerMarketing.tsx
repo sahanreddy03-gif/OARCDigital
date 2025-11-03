@@ -7,6 +7,7 @@ import heroImage from "@assets/stock_images/influencer_content_c_ff5bd1bd.jpg";
 
 export default function InfluencerMarketing() {
   useEffect(() => {
+    window.scrollTo(0, 0);
     document.title = "Influencer Marketing Services - Creator Partnerships That Convert | OARC Digital";
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {

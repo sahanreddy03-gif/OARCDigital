@@ -8,6 +8,7 @@ import heroImage from "@assets/stock_images/automation_workflow__5f7d705f.jpg";
 
 export default function FunnelAutomation() {
   useEffect(() => {
+    window.scrollTo(0, 0);
     document.title = "Funnel Automation Services - Convert More, Work Less | OARC Digital";
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {

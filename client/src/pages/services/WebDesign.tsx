@@ -8,6 +8,7 @@ import heroImage from "@assets/stock_images/web_developer_coding_c71e23d7.jpg";
 
 export default function WebDesign() {
   useEffect(() => {
+    window.scrollTo(0, 0);
     document.title = "Web Design Services - Conversion-Optimized Websites | OARC Digital";
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {

@@ -21,6 +21,7 @@ export default function Social() {
   const [currentBenefit, setCurrentBenefit] = useState(0);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     document.title = "Social | OARC Digital";
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {

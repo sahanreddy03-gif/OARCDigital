@@ -8,6 +8,7 @@ import heroImage from "@assets/stock_images/ui_ux_design_system__f9e4fa54.jpg";
 
 export default function DesignSystems() {
   useEffect(() => {
+    window.scrollTo(0, 0);
     document.title = "Design Systems Services - Scalable Design Infrastructure | OARC Digital";
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {

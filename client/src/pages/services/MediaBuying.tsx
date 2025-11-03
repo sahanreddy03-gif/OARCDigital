@@ -8,6 +8,7 @@ import heroImage from "@assets/stock_images/media_strategy_plann_296ccd33.jpg";
 
 export default function MediaBuying() {
   useEffect(() => {
+    window.scrollTo(0, 0);
     document.title = "Media Buying Services - Maximize Ad Spend ROI | OARC Digital";
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {

@@ -8,6 +8,7 @@ import heroImage from "@assets/stock_images/video_production_fil_11782b4b.jpg";
 
 export default function VideoProduction() {
   useEffect(() => {
+    window.scrollTo(0, 0);
     document.title = "Video Production Services - Cinematic Storytelling | OARC Digital";
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {

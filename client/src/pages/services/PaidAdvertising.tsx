@@ -8,6 +8,7 @@ import heroImage from "@assets/stock_images/business_team_meetin_3a2f051d.jpg";
 
 export default function PaidAdvertising() {
   useEffect(() => {
+    window.scrollTo(0, 0);
     document.title = "Paid Advertising Services - Scale Profitably | OARC Digital";
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {

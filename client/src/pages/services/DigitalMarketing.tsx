@@ -8,6 +8,7 @@ import heroImage from "@assets/stock_images/media_strategy_plann_9ca291d2.jpg";
 
 export default function DigitalMarketing() {
   useEffect(() => {
+    window.scrollTo(0, 0);
     document.title = "Digital Marketing Services - Full-Service Growth Partner | OARC Digital";
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {

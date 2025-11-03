@@ -8,6 +8,7 @@ import heroImage from "@assets/stock_images/email_marketing_lapt_bf28184c.jpg";
 
 export default function EmailCreative() {
   useEffect(() => {
+    window.scrollTo(0, 0);
     document.title = "Email Creative Services - High-Converting Email Design | OARC Digital";
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {

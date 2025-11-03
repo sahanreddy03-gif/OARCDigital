@@ -7,6 +7,7 @@ import heroImage from "@assets/stock_images/social_media_manager_11df5838.jpg";
 
 export default function SocialMediaManagement() {
   useEffect(() => {
+    window.scrollTo(0, 0);
     document.title = "Social Media Management Services - Community Building & Engagement | OARC Digital";
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {

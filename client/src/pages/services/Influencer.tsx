@@ -15,6 +15,7 @@ export default function Influencer() {
   const [currentBenefit, setCurrentBenefit] = useState(0);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     document.title = "Influencer Marketing Services | OARC Digital";
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
