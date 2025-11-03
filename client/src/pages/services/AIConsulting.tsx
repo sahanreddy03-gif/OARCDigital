@@ -1,302 +1,332 @@
-import { useEffect } from "react";
-import { Link } from "wouter";
-import { Brain, TrendingUp, Zap, Target, Sparkles, BarChart, CheckCircle2, Cpu } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { ScrollableCards } from "@/components/ui/scrollable-cards";
-import Layout from "@/components/layout/Layout";
-import heroImage from "@assets/stock_images/consultant_strategy__2a8ff840.jpg";
+import { useState, useEffect } from 'react';
+import { Link } from 'wouter';
+import { ArrowRight, CheckCircle, Cpu, Target, Lightbulb, BarChart3 } from 'lucide-react';
+import Layout from '@/components/layout/Layout';
+import consultingImg1 from '@assets/stock_images/business_strategy_co_75cf4bec.jpg';
+import consultingImg2 from '@assets/stock_images/technology_innovatio_488c6366.jpg';
+import consultingImg3 from '@assets/stock_images/digital_transformati_8ce03e9d.jpg';
 
 export default function AIConsulting() {
+  const [currentService, setCurrentService] = useState(0);
+
   useEffect(() => {
-    document.title = "AI Consulting Services - AI Strategy & Implementation | OARC Digital";
+    document.title = "AI Consulting Services | OARC Digital";
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
-      metaDescription.setAttribute("content", "AI strategy consulting, implementation roadmaps, and AI transformation. From LLM integration to custom AI models. Turn AI hype into competitive advantage.");
+      metaDescription.setAttribute("content", "Transform your marketing creative operations with AI. Expert consulting to drive adoption, scale efficiency, and capture real business value.");
     }
-    // Open Graph tags - always update content
-    let ogTitleMeta = document.querySelector('meta[property="og:title"]');
-    if (!ogTitleMeta) {
-      ogTitleMeta = document.createElement('meta');
-      ogTitleMeta.setAttribute('property', 'og:title');
-      document.head.appendChild(ogTitleMeta);
-    }
-    ogTitleMeta.setAttribute('content', 'AI Consulting - Turn AI Into Competitive Advantage | OARC Digital');
-    
-    let ogDescMeta = document.querySelector('meta[property="og:description"]');
-    if (!ogDescMeta) {
-      ogDescMeta = document.createElement('meta');
-      ogDescMeta.setAttribute('property', 'og:description');
-      document.head.appendChild(ogDescMeta);
-    }
-    ogDescMeta.setAttribute('content', 'AI strategy consulting and implementation. LLM integration, custom models, AI transformation roadmaps from experts who build AI.');
   }, []);
+
+  const services = [
+    {
+      icon: Target,
+      title: 'AI Strategy & Roadmap',
+      description: 'Build a foundation for AI success',
+      items: [
+        'AI Readiness Assessment',
+        'Strategic AI Roadmap',
+        'Use Case Identification',
+        'ROI Planning',
+        'Change Management Strategy'
+      ]
+    },
+    {
+      icon: Cpu,
+      title: 'AI Implementation',
+      description: 'Deploy AI solutions that drive results',
+      items: [
+        'Custom AI Solutions',
+        'Tool Selection & Integration',
+        'Workflow Optimization',
+        'Process Automation',
+        'Quality Assurance'
+      ]
+    },
+    {
+      icon: Lightbulb,
+      title: 'Team Enablement',
+      description: 'Empower your team with AI skills',
+      items: [
+        'AI Training Programs',
+        'Hands-on Workshops',
+        'Best Practice Guides',
+        'Prompt Engineering',
+        'Continuous Learning'
+      ]
+    },
+    {
+      icon: BarChart3,
+      title: 'Performance & Scale',
+      description: 'Measure impact and optimize',
+      items: [
+        'KPI Development',
+        'Impact Measurement',
+        'Efficiency Tracking',
+        'Continuous Improvement',
+        'Scale Planning'
+      ]
+    }
+  ];
+
+  const benefits = [
+    {
+      title: 'Hands-On Expertise',
+      description: 'Our consultants deliver measurable business impact with deep AI experience across marketing and creative operations.'
+    },
+    {
+      title: 'Real-World Results',
+      description: 'We focus on capturing actual value, not just experimentation. Our clients see measurable efficiency gains and cost savings.'
+    },
+    {
+      title: 'Organizational Readiness',
+      description: 'We prepare your entire organization for AI adoption, from leadership alignment to team enablement.'
+    },
+    {
+      title: 'Custom Solutions',
+      description: 'Every business is unique. We design AI solutions tailored to your specific workflows and challenges.'
+    },
+    {
+      title: 'Future-Proof Strategy',
+      description: 'We enable your team for the AI-powered future with sustainable strategies and continuous innovation.'
+    }
+  ];
+
+  const caseStudies = [
+    {
+      title: 'How Sherweb Scaled AI Adoption',
+      industry: 'Software',
+      description: 'Creating a solid foundation for responsible AI use in creative teams with measurable impact.',
+      image: consultingImg1,
+      slug: 'sherweb-ai-adoption'
+    },
+    {
+      title: 'How a Fortune 500 Doubled AI Adoption',
+      industry: 'SaaS',
+      description: 'Strategic AI rollout and training program that doubled adoption rates across the organization.',
+      image: consultingImg2,
+      slug: 'fortune-500-ai-adoption'
+    }
+  ];
+
+  const nextService = () => {
+    setCurrentService((prev) => (prev + 1) % services.length);
+  };
 
   return (
     <Layout>
-      {/* Hero Section with Real Image */}
-      <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0">
-          <img 
-            src={heroImage}
-            alt="AI consulting strategy"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/70 to-black/50"></div>
-        </div>
-        <div className="relative z-10 text-center px-4 max-w-6xl mx-auto">
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 animate-in fade-in slide-in-from-bottom-4 duration-700">
-            Turn AI hype into <span className="italic bg-gradient-to-r from-[hsl(262,83%,58%)] via-[hsl(300,81%,60%)] to-[hsl(330,81%,60%)] text-transparent bg-clip-text">competitive advantage</span>
-          </h1>
-          <p className="text-lg md:text-xl text-white/90 mb-8 max-w-3xl mx-auto animate-in fade-in slide-in-from-bottom-4 duration-700 delay-150">
-            AI strategy consulting, implementation roadmaps, and transformation. From ChatGPT integration to custom models. We help you deploy AI that actually drives ROI.
-          </p>
-          <div className="flex flex-wrap gap-4 justify-center animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300">
-            <Button size="lg" className="bg-white text-[hsl(262,83%,58%)] hover:bg-white/90" data-testid="button-get-started">
-              Book AI Strategy Call
-            </Button>
-            <Button size="lg" variant="outline" className="border-white text-white bg-white/10 backdrop-blur-sm hover:bg-white/20" data-testid="button-view-case-studies">
-              View AI Case Studies
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      {/* Trusted By */}
-      <section className="py-12 px-4 bg-white border-b border-border">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center text-sm uppercase tracking-wider text-muted-foreground mb-8">
-            Advising companies on AI transformation
-          </div>
-          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12 opacity-60">
-            {['Tech Startups', 'Financial Services', 'Healthcare', 'Manufacturing', 'Logistics', 'Professional Services'].map((type, i) => (
-              <div key={i} className="text-lg md:text-xl font-bold text-foreground">{type}</div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Performance Metrics */}
-      <section className="py-16 px-4 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <div className="text-sm uppercase tracking-wider text-[hsl(262,83%,58%)] mb-3">AI TRANSFORMATION RESULTS</div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              Real impact from AI implementation
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              We help businesses unlock measurable value from AI across operations, revenue, and efficiency
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-4 gap-6 mt-10">
-            {[
-              { value: "67%", label: "Avg. efficiency gain" },
-              { value: "$2.4M", label: "Avg. cost savings/year" },
-              { value: "4.2x", label: "Avg. ROI on AI projects" },
-              { value: "90 days", label: "Avg. time to value" },
-            ].map((stat, i) => (
-              <div key={i} className="text-center p-6 bg-gradient-to-br from-[hsl(262,10%,98%)] to-white rounded-xl border border-border hover:shadow-lg transition-all duration-300 hover:-translate-y-1" data-testid={`metric-${i}`}>
-                <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-[hsl(262,83%,58%)] to-[hsl(330,81%,60%)] text-transparent bg-clip-text mb-2">{stat.value}</div>
-                <div className="text-sm text-muted-foreground">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Case Study Spotlight */}
-      <section className="py-16 px-4 bg-[hsl(262,10%,98%)]">
+      {/* Hero Section */}
+      <section className="py-14 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
-          <div className="bg-white rounded-2xl overflow-hidden border border-border shadow-lg">
-            <div className="p-8 md:p-12">
-              <div className="text-sm uppercase tracking-wider text-[hsl(262,83%,58%)] mb-4">CASE STUDY</div>
-              <h3 className="text-3xl md:text-4xl font-bold mb-6">
-                How we helped a healthcare company reduce claims processing time by 83% with custom AI
-              </h3>
-              <div className="grid md:grid-cols-3 gap-8 mb-8">
-                <div>
-                  <div className="text-2xl font-bold text-[hsl(262,83%,58%)] mb-2">83% faster</div>
-                  <div className="text-sm text-muted-foreground">Claims processing time reduced</div>
-                </div>
-                <div>
-                  <div className="text-2xl font-bold text-[hsl(262,83%,58%)] mb-2">$1.8M/year</div>
-                  <div className="text-sm text-muted-foreground">Operational cost savings</div>
-                </div>
-                <div>
-                  <div className="text-2xl font-bold text-[hsl(262,83%,58%)] mb-2">94% accuracy</div>
-                  <div className="text-sm text-muted-foreground">AI model performance</div>
-                </div>
+          <div className="flex items-center gap-2 mb-4">
+            <div className="w-6 h-0.5 bg-black" data-testid="decorative-line-1"></div>
+            <div className="w-6 h-0.5 bg-black" data-testid="decorative-line-2"></div>
+          </div>
+
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-black mb-8" data-testid="heading-ai-consulting">
+            AI Consulting
+          </h1>
+
+          <h2 className="text-2xl md:text-3xl font-black text-black mb-6">
+            Bring your marketing creative operations into the age of AI
+          </h2>
+
+          <p className="text-base text-gray-700 mb-4">
+            Global brands trust OARC Digital as the hands-on expert to help scale and succeed with generative AI.
+          </p>
+
+          <p className="text-base text-gray-700 mb-6">
+            Many experiment with AI, few capture real value. Our consultants deliver measurable business impact and enable organizational readiness for the future.
+          </p>
+
+          <Link href="/contact">
+            <button
+              className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2"
+              data-testid="button-book-demo"
+            >
+              Book a Demo
+              <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+                <ArrowRight className="h-5 w-5 text-black" />
               </div>
-              <p className="text-muted-foreground mb-6">
-                We built a custom LLM-powered system to automate medical claims processing, document classification, and fraud detection. The solution integrated with their existing EMR systems and included a human-in-the-loop review process. The company went from 5-day processing times to same-day turnaround while maintaining compliance.
-              </p>
-              <div className="flex flex-wrap gap-3">
-                {['Custom LLM Fine-tuning', 'OCR Integration', 'Legacy System API', 'Compliance Review', 'Real-time Dashboard'].map((tag, i) => (
-                  <span key={i} className="px-3 py-1 bg-[hsl(262,10%,95%)] text-[hsl(262,83%,58%)] rounded-full text-sm font-medium">
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </div>
+            </button>
+          </Link>
+        </div>
+      </section>
+
+      {/* Services Carousel Section */}
+      <section className="py-14 px-4 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-black text-black mb-2">
+            Our <span className="text-[#5FD4C4]">AI Consulting</span> Services
+          </h2>
+
+          <p className="text-base text-gray-700 mb-8">
+            End-to-end AI transformation for marketing and creative teams
+          </p>
+
+          {/* Carousel Dots */}
+          <div className="flex items-center justify-start gap-2 mb-8">
+            {services.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => setCurrentService(idx)}
+                className={`h-2 rounded-full transition-all ${
+                  idx === currentService ? 'w-8 bg-[#5FD4C4]' : 'w-2 bg-gray-300'
+                }`}
+                data-testid={`dot-service-${idx}`}
+              />
+            ))}
+          </div>
+
+          {/* Grid of 3 Service Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            {[0, 1, 2].map((offset) => {
+              const actualIdx = (currentService + offset) % services.length;
+              const service = services[actualIdx];
+              const Icon = service.icon;
+              
+              return (
+                <div key={actualIdx} className="bg-white border-2 border-gray-100 rounded-3xl p-8" data-testid={`card-service-${actualIdx}`}>
+                  <div className="flex items-start justify-between mb-6">
+                    <div className="w-14 h-14 bg-black rounded-xl flex items-center justify-center">
+                      <Icon className="h-7 w-7 text-white" />
+                    </div>
+                    {offset === 2 && (
+                      <button
+                        onClick={nextService}
+                        className="text-gray-400 hover:text-black transition-colors"
+                        data-testid="button-next-service"
+                      >
+                        <ArrowRight className="h-5 w-5" />
+                      </button>
+                    )}
+                  </div>
+                  <h3 className="text-xl font-bold text-black mb-3">{service.title}</h3>
+                  <p className="text-sm text-gray-600 mb-6">{service.description}</p>
+                  <ul className="space-y-3">
+                    {service.items.map((item, itemIdx) => (
+                      <li key={itemIdx} className="flex items-start gap-2">
+                        <CheckCircle className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                        <span className="text-sm text-gray-700">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* Services We Offer */}
-      <section className="py-16 bg-white overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 mb-10">
-          <div className="text-sm uppercase tracking-wider text-[hsl(262,83%,58%)] mb-3">AI CONSULTING SERVICES</div>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            From strategy to <span className="italic text-[hsl(330,81%,60%)]">deployment</span>
+      {/* Featured Case Studies Section */}
+      <section className="py-14 px-4 bg-zinc-50">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-black text-black mb-2">
+            Making AI <span className="text-[#5FD4C4]">Work For You</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl">
-            Comprehensive AI consulting that takes you from opportunity identification to production deployment
-          </p>
-        </div>
 
-        <div className="relative">
-          <ScrollableCards>
-            {[
-              { 
-                name: "AI Strategy & Roadmap", 
-                desc: "We assess your business operations, identify high-impact AI opportunities, and build a phased implementation plan. Clear ROI projections, resource requirements, and risk mitigation.",
-                icon: Target,
-                features: ["Opportunity assessment", "ROI modeling", "Implementation roadmap", "Risk analysis"]
-              },
-              { 
-                name: "LLM Integration", 
-                desc: "ChatGPT, Claude, GPT-4—we integrate leading LLMs into your workflows. Custom prompts, RAG systems, fine-tuning, and API orchestration that drives business value.",
-                icon: Brain,
-                features: ["API integration", "Prompt engineering", "RAG implementation", "Fine-tuning workflows"]
-              },
-              { 
-                name: "Custom AI Models", 
-                desc: "Build proprietary models trained on your data. Computer vision, NLP, forecasting, recommendation engines. We handle data prep, training, deployment, and monitoring.",
-                icon: Cpu,
-                features: ["Model architecture", "Training pipeline", "MLOps setup", "Performance monitoring"]
-              },
-              { 
-                name: "AI Process Automation", 
-                desc: "Automate document processing, data entry, customer support, and decision workflows with AI agents. We build, test, and deploy AI that works 24/7.",
-                icon: Zap,
-                features: ["Document AI", "Workflow automation", "AI agents", "Legacy integration"]
-              },
-              { 
-                name: "AI-Powered Analytics", 
-                desc: "Turn data into actionable insights with predictive models, anomaly detection, and forecasting. Real-time dashboards and automated reporting.",
-                icon: BarChart,
-                features: ["Predictive analytics", "Forecasting models", "Anomaly detection", "Custom dashboards"]
-              },
-              { 
-                name: "AI Governance & Ethics", 
-                desc: "Build responsible AI systems. Bias detection, explainability, compliance frameworks, and ethical guidelines. We help you deploy AI safely.",
-                icon: CheckCircle2,
-                features: ["Bias auditing", "Model explainability", "Compliance review", "Governance framework"]
-              },
-            ].map((service, i) => (
-              <div key={i} className="flex-none w-[340px] md:w-[420px] group" data-testid={`card-service-${i}`}>
-                <div className="bg-white rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-500 border border-border h-full hover:-translate-y-2">
-                  <div className="relative h-48 bg-gradient-to-br from-[hsl(262,83%,58%)]/10 via-[hsl(300,81%,60%)]/10 to-[hsl(330,81%,60%)]/10 overflow-hidden flex items-center justify-center">
-                    <service.icon className="h-16 w-16 text-[hsl(262,83%,58%)]/30 group-hover:scale-110 transition-transform duration-500" />
+          <p className="text-base text-gray-700 mb-8">
+            Real results from companies that partnered with OARC Digital
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {caseStudies.map((study, idx) => (
+              <Link key={idx} href={`/case-studies/${study.slug}`}>
+                <div className="group bg-white border-2 border-gray-100 rounded-3xl overflow-hidden hover:border-[#5FD4C4] transition-all hover-elevate cursor-pointer" data-testid={`card-case-study-${study.slug}`}>
+                  <div className="relative h-64 overflow-hidden">
+                    <img 
+                      src={study.image} 
+                      alt={study.title}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                    <div className="absolute top-4 left-4 bg-[#5FD4C4] text-black text-xs font-bold px-3 py-1.5 rounded-full">
+                      {study.industry}
+                    </div>
                   </div>
                   <div className="p-6">
-                    <h3 className="text-xl font-bold mb-3 group-hover:text-[hsl(262,83%,58%)] transition-colors">{service.name}</h3>
-                    <p className="text-sm text-muted-foreground mb-4">{service.desc}</p>
-                    <div className="space-y-2">
-                      {service.features.map((feature, j) => (
-                        <div key={j} className="flex items-center gap-2 text-sm">
-                          <CheckCircle2 className="h-4 w-4 text-[hsl(262,83%,58%)]" />
-                          <span>{feature}</span>
-                        </div>
-                      ))}
+                    <h3 className="text-xl font-bold text-black mb-2 group-hover:text-[#ea580c] transition-colors">
+                      {study.title}
+                    </h3>
+                    <p className="text-sm text-gray-600 mb-4">
+                      {study.description}
+                    </p>
+                    <div className="flex items-center gap-2 text-[#ea580c] font-semibold text-sm">
+                      Read Case Study
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
-          </ScrollableCards>
-        </div>
-      </section>
-
-      {/* What's Included */}
-      <section className="py-16 px-4 bg-[hsl(262,10%,98%)]">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              End-to-end AI implementation
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              From initial discovery to production deployment and ongoing optimization
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              { name: "Discovery & Assessment", desc: "Deep dive into your business processes, data infrastructure, and AI readiness. We identify quick wins and long-term opportunities with clear ROI projections." },
-              { name: "Data Strategy", desc: "Audit your data quality, structure pipelines, implement governance, and prepare datasets for AI training. Clean data is the foundation of successful AI." },
-              { name: "Proof of Concept", desc: "Rapid prototypes to validate technical feasibility and business value. Most POCs delivered in 2-4 weeks with measurable success criteria." },
-              { name: "Production Deployment", desc: "Scalable architecture, security hardening, API integration, and user training. We deploy AI systems that work reliably in production environments." },
-              { name: "Model Monitoring", desc: "Continuous performance tracking, drift detection, and retraining pipelines. We ensure your AI maintains accuracy over time." },
-              { name: "Team Enablement", desc: "Technical training, best practices documentation, and knowledge transfer. We build your team's AI capabilities for long-term success." },
-            ].map((item, i) => (
-              <div key={i} className="p-6 rounded-xl bg-white border border-border hover:border-[hsl(262,83%,58%)] hover:shadow-lg transition-all duration-300 hover:-translate-y-1" data-testid={`card-deliverable-${i}`}>
-                <h3 className="text-lg font-bold mb-2">{item.name}</h3>
-                <p className="text-sm text-muted-foreground">{item.desc}</p>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Our Process */}
-      <section className="py-16 px-4 bg-white">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              How we work: <span className="italic text-[hsl(330,81%,60%)]">Validate, build, scale</span>
-            </h2>
-            <p className="text-lg text-muted-foreground">
-              A proven 4-phase approach to AI transformation
-            </p>
-          </div>
-
-          <div className="space-y-6">
-            {[
-              { step: "01", title: "Strategic Assessment", desc: "We analyze your business processes, data infrastructure, and competitive landscape. We identify AI opportunities with the highest ROI potential and define clear success metrics. Most assessments complete in 1-2 weeks." },
-              { step: "02", title: "Proof of Concept", desc: "Build rapid prototypes to validate technical feasibility and business value. We test assumptions, measure performance, and demonstrate ROI before committing to full-scale implementation." },
-              { step: "03", title: "Production Build", desc: "Develop production-grade AI systems with proper architecture, security, monitoring, and integration. We handle data pipelines, model training, API development, and user interface design." },
-              { step: "04", title: "Scale & Optimize", desc: "Monitor performance, retrain models, expand to new use cases, and optimize costs. Continuous improvement ensures your AI systems deliver increasing value over time." },
-            ].map((item, i) => (
-              <div key={i} className="flex gap-6 items-start p-6 md:p-8 bg-gradient-to-br from-[hsl(262,10%,98%)] to-white rounded-xl border border-border hover:shadow-lg transition-all duration-300 hover:-translate-x-2" data-testid={`step-${i}`}>
-                <div className="text-5xl font-bold text-[hsl(262,83%,58%)]/20 flex-shrink-0">{item.step}</div>
-                <div className="flex-1">
-                  <h3 className="text-xl font-bold mb-2">{item.title}</h3>
-                  <p className="text-sm text-muted-foreground">{item.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="py-20 px-4 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[hsl(262,83%,58%)] via-[hsl(300,81%,60%)] to-[hsl(330,81%,60%)]"></div>
-        <div className="relative z-10 max-w-4xl mx-auto text-center text-white">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Ready to deploy AI that drives ROI?
+      {/* Benefits Section */}
+      <section className="py-14 px-4 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-black text-black mb-2">
+            Why <span className="text-[#5FD4C4]">OARC Digital</span>
           </h2>
-          <p className="text-lg md:text-xl mb-8 text-white/90 max-w-2xl mx-auto">
-            Book a free AI strategy call. We'll identify opportunities, assess feasibility, and show you exactly how AI can transform your business.
+
+          <p className="text-base text-gray-700 mb-8">
+            Expertise that drives real business transformation
           </p>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <Button size="lg" className="bg-white text-[hsl(262,83%,58%)] hover:bg-white/90" data-testid="button-cta-primary">
-              Book Strategy Call
-            </Button>
-            <Button size="lg" variant="outline" className="border-white text-white bg-white/10 backdrop-blur-sm hover:bg-white/20" data-testid="button-cta-secondary">
-              View AI Case Studies
-            </Button>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {benefits.map((benefit, idx) => (
+              <div key={idx} className="bg-zinc-50 rounded-2xl p-6" data-testid={`benefit-${idx}`}>
+                <h3 className="text-lg font-bold text-black mb-3">{benefit.title}</h3>
+                <p className="text-sm text-gray-600">{benefit.description}</p>
+              </div>
+            ))}
           </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 px-4 bg-gradient-to-br from-zinc-900 via-zinc-800 to-black text-white">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black mb-6">
+            Ready to Transform Your Creative Operations?
+          </h2>
+          <p className="text-lg text-zinc-300 mb-8 max-w-2xl mx-auto">
+            Let's discuss how AI can drive measurable impact in your organization.
+          </p>
+          <Link href="/contact">
+            <button
+              className="inline-flex items-center gap-3 bg-[#5FD4C4] text-black rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2"
+              data-testid="button-book-consultation"
+            >
+              Book a Consultation
+              <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center">
+                <ArrowRight className="h-5 w-5 text-white" />
+              </div>
+            </button>
+          </Link>
+        </div>
+      </section>
+
+      {/* Get In Touch Section */}
+      <section className="py-14 px-4 bg-white">
+        <div className="max-w-6xl mx-auto text-center">
+          <h2 className="text-2xl md:text-3xl font-black text-black mb-4">
+            Get In Touch
+          </h2>
+          <p className="text-base text-gray-700 mb-6 max-w-2xl mx-auto">
+            Ready to accelerate your AI journey? Our team is here to help you unlock the full potential of AI in your creative operations.
+          </p>
+          <Link href="/contact">
+            <button
+              className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2"
+              data-testid="button-contact-us"
+            >
+              Contact Us
+              <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+                <ArrowRight className="h-5 w-5 text-black" />
+              </div>
+            </button>
+          </Link>
         </div>
       </section>
     </Layout>
