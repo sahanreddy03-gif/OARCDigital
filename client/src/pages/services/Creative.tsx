@@ -5,7 +5,7 @@ import Layout from '@/components/layout/Layout';
 import videoProductionImg from '@assets/stock_images/video_production_beh_bd5a9a1a.jpg';
 import cameraMonitorImg from '@assets/stock_images/camera_monitor_displ_2de527a0.jpg';
 import designWorkspaceImg from '@assets/stock_images/graphic_designer_wor_df6aa1c0.jpg';
-import largeTeamImg from '@assets/stock_images/large_corporate_team_3b815cb4.jpg';
+import largeTeamImg from '@assets/stock_images/creative_agency_team_dc7efcf4.jpg';
 
 export default function Creative() {
   const [currentService, setCurrentService] = useState(0);

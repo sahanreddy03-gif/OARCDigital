@@ -6,7 +6,7 @@ import Layout from '@/components/layout/Layout';
 import formalTeamImg from '@assets/stock_images/formal_business_team_e3dbd64c.jpg';
 import conferenceTeamImg from '@assets/stock_images/business_team_at_con_35a6f7e7.jpg';
 import studioImg from '@assets/stock_images/podcast_studio_recor_a6925bd7.jpg';
-import largeTeamImg from '@assets/stock_images/large_corporate_team_3b815cb4.jpg';
+import largeTeamImg from '@assets/stock_images/paid_advertising_med_3d5d9fb1.jpg';
 
 export default function Paid() {
   const [currentService, setCurrentService] = useState(0);
