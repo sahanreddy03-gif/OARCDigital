@@ -11,6 +11,7 @@ import Social from "@/pages/services/Social";
 import Paid from "@/pages/services/Paid";
 import Creative from "@/pages/services/Creative";
 import Influencer from "@/pages/services/Influencer";
+import Branding from "@/pages/services/Branding";
 import AdCreative from "@/pages/services/AdCreative";
 import WebDesign from "@/pages/services/WebDesign";
 import VideoProduction from "@/pages/services/VideoProduction";
@@ -47,6 +48,7 @@ import BodyShopCaseStudy from "@/pages/case-studies/BodyShop";
 import LenovoLegionCaseStudy from "@/pages/case-studies/LenovoLegion";
 import EslGamingCaseStudy from "@/pages/case-studies/EslGaming";
 import GymGroupCaseStudy from "@/pages/case-studies/GymGroup";
+import AntlerCaseStudy from "@/pages/case-studies/Antler";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -63,6 +65,7 @@ function Router() {
       <Route path="/services/paid" component={Paid} />
       <Route path="/services/creative" component={Creative} />
       <Route path="/services/influencer" component={Influencer} />
+      <Route path="/services/branding" component={Branding} />
       <Route path="/services/ad-creative" component={AdCreative} />
       <Route path="/services/web-design" component={WebDesign} />
       <Route path="/services/video-production" component={VideoProduction} />
@@ -98,6 +101,7 @@ function Router() {
       <Route path="/case-studies/lenovo-legion" component={LenovoLegionCaseStudy} />
       <Route path="/case-studies/esl-gaming" component={EslGamingCaseStudy} />
       <Route path="/case-studies/gym-group" component={GymGroupCaseStudy} />
+      <Route path="/case-studies/antler" component={AntlerCaseStudy} />
       <Route path="/our-work/:slug" component={() => <div>Case Study Detail (Phase 3)</div>} />
       <Route path="/why-us" component={WhyUs} />
       <Route path="/resources" component={Resources} />
