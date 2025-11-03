@@ -6,6 +6,8 @@ import picnicImg from '@assets/stock_images/flat_lay_picnic_blan_e2f94356.jpg';
 import skincareImg from '@assets/stock_images/skincare_beauty_prod_d67a31ee.jpg';
 import packageImg from '@assets/stock_images/package_delivery_car_227b2f33.jpg';
 import largeTeamImg from '@assets/stock_images/large_corporate_team_3b815cb4.jpg';
+import tefalHeroImg from '@assets/TefalPictures-32-scaled_1761760754960.jpg';
+import bodyShopHeroImg from '@assets/The-Body-Shop-Social-Marketing-Agency_1761842288034.jpg';
 
 export default function Influencer() {
   const [currentService, setCurrentService] = useState(0);
@@ -58,14 +60,30 @@ export default function Influencer() {
 
   const caseStudies = [
     {
+      id: 'tefal',
       category: 'Influencer Marketing',
-      brand: 'Bio-Oil',
-      description: 'Reached 9.4M Users & 1.4M Views in a Video-First Brand Positioning Campaign'
+      brand: 'Tefal',
+      description: 'Selling out product lines of household products for Tefal.',
+      image: tefalHeroImg,
+      link: '/case-studies/tefal',
+      stats: [
+        { value: '500K', label: 'Engagements' },
+        { value: '6.6M', label: 'Impressions' },
+        { value: '69K', label: 'Clicks' }
+      ]
     },
     {
+      id: 'body-shop',
       category: 'Influencer Marketing',
-      brand: 'Lumene',
-      description: 'Micro-Influencer Campaign for Skincare Brand Generated 150k Video Views'
+      brand: 'The Body Shop',
+      description: 'Celebrating authenticity and natural beauty with TikTok.',
+      image: bodyShopHeroImg,
+      link: '/case-studies/body-shop',
+      stats: [
+        { value: '800K', label: 'Engagements' },
+        { value: '4.5M', label: 'Views' },
+        { value: '95K', label: 'New Followers' }
+      ]
     }
   ];
 
@@ -383,58 +401,55 @@ export default function Influencer() {
         </div>
       </section>
 
-      {/* Case Studies Carousel */}
-      <section className="py-14 px-4 bg-white">
-        <div className="max-w-4xl mx-auto">
+      {/* Case Studies Section */}
+      <section className="py-14 px-4 bg-gray-50">
+        <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-black text-black mb-8">
             How we've used Influencers to grow our clients
           </h2>
 
-          {/* Carousel Dots */}
-          <div className="flex items-center justify-start gap-2 mb-8">
-            {caseStudies.map((_, idx) => (
-              <button
-                key={idx}
-                onClick={() => setCurrentCaseStudy(idx)}
-                className={`h-2 rounded-full transition-all ${
-                  idx === currentCaseStudy ? 'w-8 bg-[#5FD4C4]' : 'w-2 bg-gray-300'
-                }`}
-                data-testid={`dot-case-study-${idx}`}
-              />
-            ))}
-          </div>
-
-          {/* Case Study Card */}
-          <div className="relative bg-gray-300 rounded-3xl overflow-hidden h-[400px] group" data-testid="card-case-study-current">
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
-            <div className="absolute bottom-0 left-0 right-0 p-8">
-              <div className="inline-block bg-white rounded-full px-4 py-2 mb-4">
-                <span className="text-sm font-semibold text-black">{caseStudies[currentCaseStudy].category}</span>
+          <Link href="/our-work">
+            <button className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-lg font-semibold hover-elevate active-elevate-2 mb-8" data-testid="button-view-all-case-studies">
+              View All Case Studies
+              <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center border-2 border-white">
+                <ArrowRight className="h-5 w-5 text-white" />
               </div>
-              <h3 className="text-3xl font-black text-white mb-3">
-                {caseStudies[currentCaseStudy].brand}
-              </h3>
-              <p className="text-lg text-white mb-4">
-                {caseStudies[currentCaseStudy].description}
-              </p>
-            </div>
-          </div>
+            </button>
+          </Link>
 
-          <div className="flex justify-center gap-3 mt-6">
-            <button
-              onClick={prevCaseStudy}
-              className="w-12 h-12 rounded-full border-2 border-black flex items-center justify-center hover-elevate active-elevate-2"
-              data-testid="button-prev-case-study"
-            >
-              <ChevronLeft className="h-5 w-5 text-black" />
-            </button>
-            <button
-              onClick={nextCaseStudy}
-              className="w-12 h-12 rounded-full border-2 border-black flex items-center justify-center hover-elevate active-elevate-2"
-              data-testid="button-next-case-study"
-            >
-              <ChevronRight className="h-5 w-5 text-black" />
-            </button>
+          {/* Case Studies Grid */}
+          <div className="grid md:grid-cols-2 gap-8">
+            {caseStudies.map((caseStudy) => (
+              <Link key={caseStudy.id} href={caseStudy.link}>
+                <div className="relative bg-gradient-to-br from-gray-800 to-gray-900 rounded-3xl overflow-hidden h-[500px] hover-elevate active-elevate-2 cursor-pointer" data-testid={`card-case-study-${caseStudy.id}`}>
+                  <img
+                    src={caseStudy.image}
+                    alt={caseStudy.brand}
+                    className="absolute inset-0 w-full h-full object-cover opacity-50"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent"></div>
+                  <div className="absolute bottom-0 left-0 right-0 p-10 text-white">
+                    <div className="flex gap-3 mb-4 flex-wrap">
+                      <span className="px-4 py-2 bg-[#FF0080] backdrop-blur-sm rounded-full text-sm font-semibold">
+                        {caseStudy.category}
+                      </span>
+                    </div>
+                    <h3 className="text-3xl font-black mb-2">{caseStudy.brand}</h3>
+                    <p className="text-lg text-gray-200 mb-4">
+                      {caseStudy.description}
+                    </p>
+                    <div className="grid grid-cols-3 gap-6 mt-6">
+                      {caseStudy.stats.map((stat, idx) => (
+                        <div key={idx}>
+                          <div className="text-3xl font-black text-[#FF0080]">{stat.value}</div>
+                          <div className="text-sm text-gray-300">{stat.label}</div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
@@ -449,10 +464,8 @@ export default function Influencer() {
           <div className="grid grid-cols-2 md:grid-cols-3 gap-6 mt-8">
             {[
               'Uniqlo Influencer x Fall/Winter',
-              'Bio Oil x Ruth Crilly',
               'Jungle Formula x Poppy Hollins',
-              'Carpetright Influencer',
-              'Lumene x TikTok'
+              'Carpetright Influencer'
             ].map((title, idx) => (
               <div key={idx} className="relative bg-gray-300 rounded-3xl overflow-hidden h-[350px] group" data-testid={`card-video-influencer-${idx + 1}`}>
                 <div className="absolute inset-0 flex items-center justify-center">
