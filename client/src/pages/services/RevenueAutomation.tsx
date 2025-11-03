@@ -5,6 +5,9 @@ import Layout from '@/components/layout/Layout';
 import heroImg from '@assets/stock_images/business_automation__26134094.jpg';
 import automationImg1 from '@assets/stock_images/banking_financial_se_82fcc7e7.jpg';
 import automationImg2 from '@assets/stock_images/food_supply_chain_au_9bb3c110.jpg';
+import dashboardImg from '@assets/stock_images/business_automation__96f86786.jpg';
+import salesTeamImg from '@assets/stock_images/sales_team_celebrati_85643ebb.jpg';
+import financialOpsImg from '@assets/stock_images/financial_business_o_84f6cc1f.jpg';
 
 export default function RevenueAutomation() {
   const [currentService, setCurrentService] = useState(0);
@@ -159,6 +162,43 @@ export default function RevenueAutomation() {
         </div>
       </section>
 
+      {/* Section 1: Image Left + Text Right */}
+      <section className="py-14 px-4 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <img 
+                src={dashboardImg} 
+                alt="Business automation dashboard with analytics"
+                className="w-full rounded-3xl h-[500px] object-cover"
+              />
+            </div>
+            <div>
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-black mb-6">
+                Automate everything from lead to cash
+              </h2>
+              <p className="text-base text-gray-700 mb-6">
+                Stop losing time and money to manual processes. We build intelligent automation systems that handle everything—from first contact to final payment. Imagine your CRM updating itself, proposals generating automatically, and invoices sending on schedule without human intervention.
+              </p>
+              <p className="text-base text-gray-700 mb-8">
+                Our clients save tens of thousands annually while delivering work 10x faster. One accounting firm doubled their client load without hiring a single new accountant. That's the power of end-to-end revenue automation.
+              </p>
+              <Link href="/contact">
+                <button
+                  className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2"
+                  data-testid="button-see-automation"
+                >
+                  See What's Possible
+                  <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+                    <ArrowRight className="h-5 w-5 text-black" />
+                  </div>
+                </button>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Services Carousel Section */}
       <section className="py-14 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
@@ -224,8 +264,45 @@ export default function RevenueAutomation() {
         </div>
       </section>
 
-      {/* Featured Case Studies Section */}
+      {/* Section 2: Text Left + Image Right */}
       <section className="py-14 px-4 bg-zinc-50">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-black mb-6">
+                Scale revenue without scaling headcount
+              </h2>
+              <p className="text-base text-gray-700 mb-6">
+                Every business hits a ceiling where more clients means more people. Not anymore. Our automation systems handle the repetitive work—data entry, follow-ups, document generation, invoicing—freeing your team to focus on strategic, revenue-generating activities.
+              </p>
+              <p className="text-base text-gray-700 mb-8">
+                The result? Clients close faster, onboarding happens in seconds instead of hours, and your team celebrates wins instead of drowning in admin work. Scale your revenue 2x, 3x, even 5x without the overhead.
+              </p>
+              <Link href="/contact">
+                <button
+                  className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2"
+                  data-testid="button-start-automating"
+                >
+                  Start Automating
+                  <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+                    <ArrowRight className="h-5 w-5 text-black" />
+                  </div>
+                </button>
+              </Link>
+            </div>
+            <div>
+              <img 
+                src={salesTeamImg} 
+                alt="Sales team celebrating success"
+                className="w-full rounded-3xl h-[500px] object-cover"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Case Studies Section */}
+      <section className="py-14 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-black text-black mb-2">
             Client <span className="text-[#5FD4C4]">Success Stories</span>
@@ -265,6 +342,43 @@ export default function RevenueAutomation() {
                 </div>
               </Link>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Section 3: Image Left + Text Right */}
+      <section className="py-14 px-4 bg-zinc-50">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <img 
+                src={financialOpsImg} 
+                alt="Financial operations and business workflow"
+                className="w-full rounded-3xl h-[500px] object-cover"
+              />
+            </div>
+            <div>
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-black mb-6">
+                Eliminate costly errors and delays
+              </h2>
+              <p className="text-base text-gray-700 mb-6">
+                Manual processes create mistakes. Invoicing errors, missed follow-ups, data entry typos, delayed proposals—each one costs you money and credibility. Our automation systems remove human error from the equation with built-in validation and checks.
+              </p>
+              <p className="text-base text-gray-700 mb-8">
+                From QuickBooks integration to CRM synchronization, we connect all your business systems so data flows perfectly. No more double-entry. No more version conflicts. Just clean, accurate data driving your revenue operations forward.
+              </p>
+              <Link href="/contact">
+                <button
+                  className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2"
+                  data-testid="button-get-started"
+                >
+                  Get Started Today
+                  <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+                    <ArrowRight className="h-5 w-5 text-black" />
+                  </div>
+                </button>
+              </Link>
+            </div>
           </div>
         </div>
       </section>
