@@ -66,6 +66,7 @@ function Router() {
       <Route path="/services/creative" component={Creative} />
       <Route path="/services/influencer" component={Influencer} />
       <Route path="/services/branding" component={Branding} />
+      <Route path="/services/branding-services" component={Branding} />
       <Route path="/services/ad-creative" component={AdCreative} />
       <Route path="/services/web-design" component={WebDesign} />
       <Route path="/services/video-production" component={VideoProduction} />
