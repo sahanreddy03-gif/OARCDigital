@@ -3,8 +3,8 @@ import { Link } from 'wouter';
 import { ArrowRight, CheckCircle, Users, Code, Zap, Target } from 'lucide-react';
 import Layout from '@/components/layout/Layout';
 import heroImg from '@assets/stock_images/ai_software_developm_725be51d.jpg';
-import teamImg1 from '@assets/stock_images/ai_software_developm_2652993c.jpg';
-import teamImg2 from '@assets/stock_images/ai_software_developm_58a580cd.jpg';
+import teamImg1 from '@assets/stock_images/luxury_fashion_retai_32a7703b.jpg';
+import teamImg2 from '@assets/stock_images/healthcare_patient_c_b0453f09.jpg';
 
 export default function HireAIEmployees() {
   const [currentService, setCurrentService] = useState(0);
@@ -93,18 +93,18 @@ export default function HireAIEmployees() {
 
   const caseStudies = [
     {
-      title: 'How a Staffing Firm Scaled with 30+ AI Engineers',
-      industry: 'Technology',
-      description: 'Accelerated digital transformation with seamlessly integrated nearshore AI engineering team.',
+      title: 'Tapestry: Real-Time Fashion Operations with AI',
+      industry: 'Luxury Retail',
+      description: 'SAP automation across Coach, Kate Spade, and Stuart Weitzman delivering real-time data validations.',
       image: teamImg1,
-      slug: 'peopleready-ai-team'
+      slug: 'tapestry-automation'
     },
     {
-      title: 'FanDuel Builds ChuckGPT AI Chatbot',
-      industry: 'Sports Betting',
-      description: 'From zero to tens of thousands of users within hours with custom AI chatbot development.',
+      title: 'Acclaim Autism: 83% Faster Patient Intake',
+      industry: 'Healthcare',
+      description: 'AI-powered document processing enabling families to access autism care services faster.',
       image: teamImg2,
-      slug: 'fanduel-chuckgpt'
+      slug: 'acclaim-autism'
     }
   ];
 

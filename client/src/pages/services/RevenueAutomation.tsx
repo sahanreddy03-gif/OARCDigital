@@ -3,8 +3,8 @@ import { Link } from 'wouter';
 import { ArrowRight, CheckCircle, Zap, TrendingUp, DollarSign, Clock } from 'lucide-react';
 import Layout from '@/components/layout/Layout';
 import heroImg from '@assets/stock_images/business_automation__26134094.jpg';
-import automationImg1 from '@assets/stock_images/business_automation__3ddf701d.jpg';
-import automationImg2 from '@assets/stock_images/revenue_growth_data__682db86c.jpg';
+import automationImg1 from '@assets/stock_images/banking_financial_se_82fcc7e7.jpg';
+import automationImg2 from '@assets/stock_images/food_supply_chain_au_9bb3c110.jpg';
 
 export default function RevenueAutomation() {
   const [currentService, setCurrentService] = useState(0);
@@ -93,18 +93,18 @@ export default function RevenueAutomation() {
 
   const caseStudies = [
     {
-      title: 'How Cleverly Achieved 10x Delivery Speed',
-      industry: 'Lead Generation',
-      description: 'Saved tens of thousands with automated workflows enabling 200+ accounts per manager.',
+      title: 'Bancolombia: 1,300% ROI Through Banking Automation',
+      industry: 'Banking & Finance',
+      description: 'Saving 127,000+ branch hours and generating $7M in new revenue for 14 million customers.',
       image: automationImg1,
-      slug: 'cleverly-automation'
+      slug: 'bancolombia-automation'
     },
     {
-      title: 'Accounting Firm Doubles Revenue',
-      industry: 'Professional Services',
-      description: 'Doubled client work without hiring using automated proposal generation and billing.',
+      title: 'JBS: $1M+ Annual Savings Through Supply Chain Automation',
+      industry: 'Food & Agriculture',
+      description: '210 intelligent automations saving 125,000 hours across global food operations.',
       image: automationImg2,
-      slug: 'accounting-automation'
+      slug: 'jbs-automation'
     }
   ];
 
