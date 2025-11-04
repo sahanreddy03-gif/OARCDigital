@@ -50,7 +50,7 @@ export default function ServiceGrid() {
           <p className="text-xs uppercase tracking-wider font-black text-primary mb-4">
             Let's Talk
           </p>
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-black font-display tracking-tight leading-[0.95]">
+          <h2 className="text-3xl md:text-5xl lg:text-6xl font-black font-display tracking-tight leading-[0.95]">
             Supertalented. Superfast. <span className="italic font-black">Super responsive.</span>
           </h2>
         </div>

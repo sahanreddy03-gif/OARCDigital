@@ -5,7 +5,7 @@ import { motion, useScroll, useTransform, useInView } from 'framer-motion';
 import { getAllCategories } from '@/config/servicesConfig';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
-import heroImg from '@assets/stock_images/abstract_digital_tec_88cf0242.jpg';
+import heroImg from '@assets/stock_images/modern_digital_techn_e168622b.jpg';
 import creativeImg from '@assets/stock_images/creative_agency_team_2d8a0735.jpg';
 import growthImg from '@assets/stock_images/business_growth_char_f55804b3.jpg';
 import aiImg from '@assets/stock_images/artificial_intellige_c8e176df.jpg';
@@ -98,17 +98,21 @@ export default function Services() {
 
       {/* Cinematic Hero with Parallax */}
       <section ref={heroRef} className="relative h-screen flex items-center justify-center overflow-hidden mt-14 md:mt-16 lg:mt-20">
-        {/* Animated Background */}
+        {/* Layered Background with Image */}
         <motion.div 
           style={{ y: heroY }}
           className="absolute inset-0"
         >
-          <div className="absolute inset-0 bg-gradient-to-br from-black via-zinc-900 to-black z-10"></div>
+          {/* Background Image Layer */}
           <img 
             src={heroImg}
-            alt="Hero Background"
-            className="w-full h-full object-cover opacity-20"
+            alt="Digital Technology Background"
+            className="w-full h-full object-cover"
           />
+          {/* Dark Gradient Wash for Text Contrast */}
+          <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-purple-900/40 to-black/90 z-10"></div>
+          {/* Additional Depth Layer */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent z-10"></div>
           {/* Animated Glow Orbs */}
           <motion.div
             animate={{
@@ -158,7 +162,7 @@ export default function Services() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-5xl md:text-7xl lg:text-8xl font-black mb-8 leading-tight"
+            className="text-4xl md:text-6xl lg:text-7xl font-black mb-8 leading-tight"
           >
             <span className="bg-gradient-to-r from-white via-zinc-100 to-zinc-300 bg-clip-text text-transparent">
               Elevate Your
@@ -173,7 +177,7 @@ export default function Services() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-xl md:text-2xl text-zinc-400 max-w-3xl mx-auto mb-12 leading-relaxed"
+            className="text-lg md:text-xl text-zinc-300 max-w-3xl mx-auto mb-12 leading-relaxed"
           >
             From AI-powered automation to creative excellence—transform your business with cutting-edge services designed for the future.
           </motion.p>
@@ -188,12 +192,12 @@ export default function Services() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="group relative px-8 py-5 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full font-bold text-lg overflow-hidden"
+                className="group relative px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full font-bold text-base overflow-hidden"
                 data-testid="button-start-project"
               >
-                <span className="relative z-10 flex items-center gap-3">
+                <span className="relative z-10 flex items-center gap-2">
                   Start Your Project
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </span>
                 <motion.div
                   className="absolute inset-0 bg-gradient-to-r from-pink-600 to-orange-600"
@@ -210,7 +214,7 @@ export default function Services() {
                 const element = document.getElementById('services-section');
                 element?.scrollIntoView({ behavior: 'smooth' });
               }}
-              className="px-8 py-5 bg-white/5 hover:bg-white/10 backdrop-blur-sm border border-white/10 rounded-full font-bold text-lg transition-all"
+              className="px-8 py-4 bg-white/5 hover:bg-white/10 backdrop-blur-sm border border-white/10 rounded-full font-bold text-base transition-all"
               data-testid="button-explore-services"
             >
               Explore Services
@@ -251,10 +255,10 @@ export default function Services() {
                 transition={{ delay: index * 0.1 }}
                 className="text-center"
               >
-                <div className="text-6xl md:text-7xl font-black bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-4">
+                <div className="text-5xl md:text-6xl font-black bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-4">
                   <AnimatedCounter value={stat.value} suffix={stat.suffix} />
                 </div>
-                <div className="text-xl text-zinc-400">{stat.label}</div>
+                <div className="text-lg text-zinc-400">{stat.label}</div>
               </motion.div>
             ))}
           </div>
@@ -270,12 +274,12 @@ export default function Services() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-6xl font-black mb-6">
+            <h2 className="text-3xl md:text-5xl font-black mb-6">
               <span className="bg-gradient-to-r from-white to-zinc-400 bg-clip-text text-transparent">
                 Choose Your Path
               </span>
             </h2>
-            <p className="text-xl text-zinc-400 max-w-2xl mx-auto">
+            <p className="text-lg text-zinc-400 max-w-2xl mx-auto">
               Explore our three pillars of innovation
             </p>
           </motion.div>
@@ -293,7 +297,7 @@ export default function Services() {
                   onClick={() => setActiveCategory(category.id)}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className={`group relative px-8 py-4 rounded-full font-bold text-lg transition-all duration-300 ${
+                  className={`group relative px-6 py-3 rounded-full font-bold text-base transition-all duration-300 ${
                     isActive 
                       ? `bg-gradient-to-r ${colors.gradient} ${colors.glow}` 
                       : 'bg-white/5 hover:bg-white/10 border border-white/10'
@@ -343,13 +347,13 @@ export default function Services() {
                         {activeCategoryData.featured.badge}
                       </motion.span>
                     )}
-                    <h3 className="text-5xl md:text-6xl font-black mb-6 text-white">
+                    <h3 className="text-3xl md:text-5xl font-black mb-6 text-white">
                       {activeCategoryData.featured.title}
                     </h3>
-                    <p className="text-xl text-zinc-300 mb-8 max-w-2xl">
+                    <p className="text-lg text-zinc-300 mb-8 max-w-2xl">
                       Our flagship service delivering exceptional results for businesses worldwide
                     </p>
-                    <div className="flex items-center gap-3 text-white font-bold text-lg group-hover:gap-5 transition-all">
+                    <div className="flex items-center gap-3 text-white font-bold text-base group-hover:gap-5 transition-all">
                       Explore Service
                       <motion.div
                         whileHover={{ x: 5 }}
@@ -448,17 +452,17 @@ export default function Services() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-5xl md:text-7xl font-black mb-8">
+            <h2 className="text-4xl md:text-6xl font-black mb-8">
               Ready to Transform <br />Your Business?
             </h2>
-            <p className="text-xl md:text-2xl text-white/80 mb-12 max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl text-white/80 mb-12 max-w-3xl mx-auto">
               Let's create something extraordinary together. Start your journey with OARC Digital today.
             </p>
             <Link href="/contact">
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-12 py-6 bg-white text-black rounded-full font-black text-xl hover:bg-zinc-100 transition-colors"
+                className="px-10 py-4 bg-white text-black rounded-full font-black text-base hover:bg-zinc-100 transition-colors"
                 data-testid="button-get-started-cta"
               >
                 Get Started Now
