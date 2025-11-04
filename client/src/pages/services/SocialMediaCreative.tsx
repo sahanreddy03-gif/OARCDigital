@@ -5,6 +5,9 @@ import { Button } from "@/components/ui/button";
 import { ScrollableCards } from "@/components/ui/scrollable-cards";
 import Layout from "@/components/layout/Layout";
 import heroImage from "@assets/stock_images/social_media_content_74d332d2.jpg";
+import socialImg1 from "@assets/stock_images/social_media_content_1291e113.jpg";
+import socialImg2 from "@assets/stock_images/social_media_content_c1be1c46.jpg";
+import socialImg3 from "@assets/stock_images/social_media_content_e4f88d3a.jpg";
 
 export default function SocialMediaCreative() {
   useEffect(() => {
@@ -142,7 +145,8 @@ export default function SocialMediaCreative() {
             ].map((item, i) => (
               <div key={i} className="flex-none w-[360px] md:w-[480px] group" data-testid={`card-platform-${i}`}>
                 <div className="bg-white rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300 border border-border">
-                  <div className="relative h-[400px] md:h-[500px] bg-gradient-to-br from-purple-50 via-pink-50 to-purple-100 overflow-hidden">
+                  <div className="relative h-[400px] md:h-[500px] overflow-hidden">
+                    <img src={[socialImg1, socialImg2, socialImg3][i % 3]} alt={item.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                       <div className="text-white text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
                         View Example →
