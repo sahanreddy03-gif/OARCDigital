@@ -63,7 +63,7 @@ export default function LetsTalkSection() {
         {/* Header */}
         <div className="text-center mb-12 md:mb-16">
           <h2 
-            className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-zinc-900 tracking-tight mb-4"
+            className="text-4xl md:text-5xl lg:text-6xl font-black text-zinc-900 tracking-tight mb-4"
             style={{
               opacity: isVisible ? 1 : 0,
               transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
@@ -73,7 +73,7 @@ export default function LetsTalkSection() {
             This is OARC.
           </h2>
           <p 
-            className="text-xl md:text-2xl text-zinc-600 max-w-3xl mx-auto"
+            className="text-lg md:text-xl text-zinc-600 max-w-3xl mx-auto"
             style={{
               opacity: isVisible ? 1 : 0,
               transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
@@ -115,7 +115,7 @@ export default function LetsTalkSection() {
               
               {/* Content */}
               <div className="relative z-10">
-                <h3 className="text-4xl md:text-5xl lg:text-6xl font-black text-orange-600 mb-4">
+                <h3 className="text-3xl md:text-4xl lg:text-5xl font-black text-orange-600 mb-4">
                   {pillar.title}
                 </h3>
                 <p className="text-lg md:text-xl text-zinc-600 leading-relaxed">

@@ -42,7 +42,7 @@ export default function Section5() {
       <div className="relative container mx-auto px-4 md:px-6 lg:px-12">
         {/* Section heading with exact green from hero CTA */}
         <div className="text-center mb-12 md:mb-16 lg:mb-20">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-white tracking-tight">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-white tracking-tight">
             Our <span className="italic" style={{ color: '#c4ff4d' }}>Difference</span>
           </h2>
         </div>
