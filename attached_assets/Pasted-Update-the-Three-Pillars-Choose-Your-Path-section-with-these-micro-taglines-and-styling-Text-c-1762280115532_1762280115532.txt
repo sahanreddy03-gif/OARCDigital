@@ -1,0 +1,38 @@
+Update the "Three Pillars / Choose Your Path" section with these micro-taglines and styling.
+
+Text changes:
+- AI Creative Services: "Content , media, and branding that captivate."
+- Hire AI Employees: "Your 24/7 digital workforce — smarter, faster, scalable."
+- Revenue Automation: "Automate growth. Amplify profit. Accelerate success."
+
+Placement:
+- Place each tagline directly below its corresponding pill/button.
+- Tagline should be visually associated with the button (centered under it, not under the card image).
+- Keep existing spacing rhythm so each pillar reads as a single unit (button → tagline → card).
+
+Design / typographic rules (desktop & mobile):
+- Font-family: inherit from current site body (match paragraph/subhead for consistency).
+- Font-size: 90% of button label size (or use 14px if button is 16px).
+- Line-height: 1.3
+- Font-weight: 500 (medium) or match existing subheading weight.
+- Color: #FFFFFF at 85% opacity (or rgba(255,255,255,0.85)) on dark backgrounds; if background is light, use #111111 at 85% opacity.
+- Text alignment: centered beneath the button.
+- Margins: margin-top: 10px; margin-bottom: 10px (adjust as needed for mobile).
+- Max width: allow text to wrap, but keep it visually aligned with the button width (centered).
+- No heavy animation; if using micro-animation, use a very subtle fade-in on scroll only.
+
+Accessibility:
+- Ensure contrast ratio >= 4.5:1 against the background. If contrast fails, slightly increase opacity or use a subtle background blur layer behind tagline.
+- Taglines must be keyboard-focusable if the button is focused (for screen reader context).
+
+Mobile rules:
+- Reduce font-size to 85% of desktop tagline (e.g., 12–13px).
+- Increase tap spacing: ensure at least 12–16px vertical spacing between button and tagline on mobile.
+- Prevent text clipping — allow 2 lines max with ellipsis fallback if overflow occurs.
+
+Consistency:
+- Keep the same micro-tagline styling for all three pillars.
+- Confirm visual balance on the actual device (test iPhone 12/13/14 viewport) and tweak margin-top between 8–12px as needed.
+
+Testing:
+- Provide screenshots of the section on both desktop and mobile after changes for review.
