@@ -40,6 +40,12 @@ const categoryColors: Record<string, { gradient: string; accent: string; glow: s
   },
 };
 
+const categoryTaglines: Record<string, string> = {
+  'aiCreative': 'Content, media, and branding that captivate.',
+  'revenue': 'Automate growth. Amplify profit. Accelerate success.',
+  'aiEmployees': 'Your 24/7 digital workforce — smarter, faster, scalable.',
+};
+
 function AnimatedCounter({ value, suffix = '' }: { value: number; suffix?: string }) {
   const [count, setCount] = useState(0);
   const ref = useRef<HTMLDivElement>(null);
@@ -285,30 +291,46 @@ export default function Services() {
           </motion.div>
 
           {/* Category Pills */}
-          <div className="flex flex-wrap justify-center gap-4 mb-16">
+          <div className="flex flex-wrap justify-center gap-8 mb-16">
             {categories.map((category) => {
               const Icon = categoryIcons[category.id];
               const colors = categoryColors[category.id];
               const isActive = activeCategory === category.id;
+              const tagline = categoryTaglines[category.id];
 
               return (
-                <motion.button
-                  key={category.id}
-                  onClick={() => setActiveCategory(category.id)}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className={`group relative px-6 py-3 rounded-full font-bold text-base transition-all duration-300 ${
-                    isActive 
-                      ? `bg-gradient-to-r ${colors.gradient} ${colors.glow}` 
-                      : 'bg-white/5 hover:bg-white/10 border border-white/10'
-                  }`}
-                  data-testid={`tab-${category.id}`}
-                >
-                  <span className="flex items-center gap-3">
-                    {Icon && <Icon className="w-5 h-5" />}
-                    {category.title}
-                  </span>
-                </motion.button>
+                <div key={category.id} className="flex flex-col items-center gap-3 md:gap-2.5">
+                  <motion.button
+                    onClick={() => setActiveCategory(category.id)}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className={`group relative px-6 py-3 rounded-full font-bold text-base transition-all duration-300 ${
+                      isActive 
+                        ? `bg-gradient-to-r ${colors.gradient} ${colors.glow}` 
+                        : 'bg-white/5 hover:bg-white/10 border border-white/10'
+                    }`}
+                    data-testid={`tab-${category.id}`}
+                    aria-describedby={`tagline-${category.id}`}
+                  >
+                    <span className="flex items-center gap-3">
+                      {Icon && <Icon className="w-5 h-5" />}
+                      {category.title}
+                    </span>
+                  </motion.button>
+                  
+                  {/* Micro-tagline */}
+                  <motion.p
+                    id={`tagline-${category.id}`}
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 0.85 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: 0.2 }}
+                    className="text-center text-white/85 font-medium text-xs md:text-sm leading-[1.3] max-w-[220px] px-2 line-clamp-2 overflow-hidden"
+                    data-testid={`tagline-${category.id}`}
+                  >
+                    {tagline}
+                  </motion.p>
+                </div>
               );
             })}
           </div>
