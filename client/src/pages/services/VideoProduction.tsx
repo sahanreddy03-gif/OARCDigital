@@ -5,6 +5,9 @@ import { Button } from "@/components/ui/button";
 import { ScrollableCards } from "@/components/ui/scrollable-cards";
 import Layout from "@/components/layout/Layout";
 import heroImage from "@assets/stock_images/video_production_fil_11782b4b.jpg";
+import videoImg1 from "@assets/stock_images/professional_video_p_57625a3b.jpg";
+import videoImg2 from "@assets/stock_images/professional_video_p_4775d034.jpg";
+import videoImg3 from "@assets/stock_images/professional_video_p_5547a3ec.jpg";
 
 export default function VideoProduction() {
   useEffect(() => {
@@ -134,20 +137,22 @@ export default function VideoProduction() {
         <div className="relative">
           <ScrollableCards>
             {[
-              { name: "Explainer Videos", desc: "Clear, engaging videos that simplify complex products. Perfect for SaaS, fintech, and tech companies. 60-90s optimized for conversion.", icon: Video },
-              { name: "Customer Testimonials", desc: "Authentic testimonial videos that build trust and social proof. Real customers, real results, powerful storytelling.", icon: Camera },
-              { name: "Product Demo Videos", desc: "Show your product in action. Highlight features, benefits, and use cases. Perfect for e-commerce and SaaS.", icon: Play },
-              { name: "Social Media Ads", desc: "15s-60s video ads for Facebook, Instagram, TikTok, YouTube. Hook-first, platform-optimized, built to convert.", icon: Film },
-              { name: "Brand Storytelling", desc: "Cinematic brand videos that communicate your mission, values, and vision. Build emotional connection with your audience.", icon: Sparkles },
-              { name: "Animated Videos", desc: "2D/3D animation, motion graphics, and kinetic typography. Perfect when live-action isn't the right fit.", icon: Sparkles },
+              { name: "Explainer Videos", desc: "Clear, engaging videos that simplify complex products. Perfect for SaaS, fintech, and tech companies. 60-90s optimized for conversion.", img: videoImg1 },
+              { name: "Customer Testimonials", desc: "Authentic testimonial videos that build trust and social proof. Real customers, real results, powerful storytelling.", img: videoImg2 },
+              { name: "Product Demo Videos", desc: "Show your product in action. Highlight features, benefits, and use cases. Perfect for e-commerce and SaaS.", img: videoImg3 },
+              { name: "Social Media Ads", desc: "15s-60s video ads for Facebook, Instagram, TikTok, YouTube. Hook-first, platform-optimized, built to convert.", img: videoImg1 },
+              { name: "Brand Storytelling", desc: "Cinematic brand videos that communicate your mission, values, and vision. Build emotional connection with your audience.", img: videoImg2 },
+              { name: "Animated Videos", desc: "2D/3D animation, motion graphics, and kinetic typography. Perfect when live-action isn't the right fit.", img: videoImg3 },
             ].map((item, i) => (
               <div key={i} className="flex-none w-[360px] md:w-[480px] group" data-testid={`card-video-type-${i}`}>
                 <div className="bg-white rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300 border border-border">
-                  <div className="relative h-[400px] md:h-[500px] bg-gradient-to-br from-purple-100 via-pink-100 to-red-100 overflow-hidden flex items-center justify-center">
-                    <item.icon className="h-24 w-24 text-purple-600/20" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                      <div className="text-white text-sm font-medium">View Example →</div>
-                    </div>
+                  <div className="relative h-[400px] md:h-[500px] overflow-hidden">
+                    <img 
+                      src={item.img} 
+                      alt={item.name}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                   </div>
                   <div className="p-6">
                     <h3 className="text-xl font-bold mb-3">{item.name}</h3>
