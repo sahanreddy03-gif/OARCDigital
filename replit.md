@@ -104,3 +104,26 @@ The platform features a React frontend and an Express.js backend, leveraging a m
     -   Enhanced mobile readability with no text overflow
     -   Consistent button styling across all pages
 -   **Testing:** All changes architect-reviewed (Pass ✓) and E2E tested - typography now appropriately sized, clear visual hierarchy established, mobile responsiveness excellent, no functional issues
+
+-   **Service Page Image Enhancement - Professional Stock Photography:** Replaced gradient placeholders across 4 key service pages with high-quality stock photography to elevate platform polish and visual appeal:
+    -   **Pages Updated:**
+        -   VideoProduction.tsx (/services/video-production) - 3 professional video production images
+        -   AdCreative.tsx (/services/ad-creative) - 3 creative advertising images
+        -   WebDesign.tsx (/services/web-design) - 3 modern web design images
+        -   MotionDesign.tsx (/services/motion-design) - 3 motion graphics images
+    -   **Implementation Details:**
+        -   Images imported from `@assets/stock_images/` directory
+        -   Cycling pattern using modulo operator: `[img1, img2, img3][i % 3]` for visual variety
+        -   Each image: `className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"`
+        -   Dark gradient overlay preserved for text readability with `pointer-events-none` to prevent hover interference
+    -   **CTA Cleanup:**
+        -   Removed empty "View Showreel" buttons from VideoProduction and MotionDesign pages (no destination)
+        -   Wrapped remaining main CTAs with Link components pointing to /contact page
+        -   Clean user experience with no dead-end buttons
+    -   **Hover Effect Fix:**
+        -   Added `pointer-events-none` to all gradient overlay divs to fix image scaling on hover
+        -   Ensures smooth scale-110 transform works correctly across all carousel cards
+    -   **File Status Note:**
+        -   SocialMediaCreative.tsx exists but is not used by any route (not updated)
+        -   Route /services/social-media-creative uses SocialMediaCreativeManagement.tsx instead (different structure)
+    -   **Testing:** Architect-reviewed (Pass ✓) and E2E tested - all images display correctly, hover effects work smoothly, CTAs properly linked, no gradient placeholders remain on active service pages
