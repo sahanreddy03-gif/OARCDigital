@@ -56,13 +56,11 @@ export default function VideoProduction() {
             Full-service video production from concept to delivery. Explainer videos, testimonials, ads, and social content. Cinematic quality, 14-day turnaround, built to drive results.
           </p>
           <div className="flex flex-wrap gap-4 justify-center animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300">
-            <Button size="lg" className="bg-white text-purple-600 hover:bg-white/90" data-testid="button-get-started">
-              Start Your Project
-            </Button>
-            <Button size="lg" variant="outline" className="border-white text-white bg-white/10 backdrop-blur-sm hover:bg-white/20" data-testid="button-view-showreel">
-              <Play className="mr-2 h-5 w-5" />
-              View Showreel
-            </Button>
+            <Link href="/contact">
+              <Button size="lg" className="bg-white text-purple-600 hover:bg-white/90" data-testid="button-get-started">
+                Start Your Project
+              </Button>
+            </Link>
           </div>
         </div>
       </section>

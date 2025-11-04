@@ -55,12 +55,11 @@ export default function MotionDesign() {
             Motion graphics that command attention and drive engagement. From logo reveals to complex explainer videos—we make your brand impossible to ignore in a scroll-obsessed world.
           </p>
           <div className="flex flex-wrap gap-4 justify-center animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300">
-            <Button size="lg" className="bg-white text-[hsl(280,70%,50%)] hover:bg-white/90" data-testid="button-get-started">
-              Animate Your Brand
-            </Button>
-            <Button size="lg" variant="outline" className="border-white text-white bg-white/10 backdrop-blur-sm hover:bg-white/20" data-testid="button-view-reel">
-              View Showreel
-            </Button>
+            <Link href="/contact">
+              <Button size="lg" className="bg-white text-[hsl(280,70%,50%)] hover:bg-white/90" data-testid="button-get-started">
+                Animate Your Brand
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
