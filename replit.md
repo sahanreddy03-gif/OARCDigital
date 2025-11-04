@@ -54,3 +54,53 @@ The platform features a React frontend and an Express.js backend, leveraging a m
 **Asset Management:**
 -   Image assets stored in `attached_assets/`
 -   Service content managed via JSON files in `client/public/content/services/`
+
+### Recent Changes
+**November 4, 2025:**
+-   **Three Pillars Micro-Taglines:** Added descriptive taglines below each category button in the Services page "Choose Your Path" section:
+    -   **AI Creative Services:** "Content, media, and branding that captivate."
+    -   **Revenue Automation:** "Automate growth. Amplify profit. Accelerate success."
+    -   **Hire AI Employees:** "Your 24/7 digital workforce — smarter, faster, scalable."
+-   **Typography Implementation:**
+    -   Mobile: 12px (text-xs) with 2-line max truncation
+    -   Desktop: 14px (text-sm/md:text-sm)
+    -   Line-height: 1.3, font-weight: 500
+    -   Color: rgba(255,255,255,0.85) for optimal contrast on dark background
+-   **Layout & Spacing:**
+    -   Each category now renders as flex column: button → tagline (gap-3 md:gap-2.5)
+    -   Container gap increased from gap-4 to gap-8 for better visual breathing room
+    -   Max-width: 220px to align with button width
+-   **Accessibility Features:**
+    -   Added `aria-describedby` linking buttons to taglines for screen readers
+    -   Unique IDs for each tagline (tagline-aiCreative, tagline-revenue, tagline-aiEmployees)
+    -   Proper semantic HTML structure
+-   **Animation:** Subtle fade-in on scroll (opacity 0→0.85, 0.5s duration with 0.2s delay)
+-   **Overflow Protection:** Line-clamp-2 with overflow-hidden for mobile text truncation
+-   **Testing:** Architect-reviewed (Pass ✓) and E2E tested across desktop/mobile viewports - all specifications met
+
+-   **Website-Wide Typography Rationalization:** Conducted comprehensive typography audit and refinement across entire platform for improved visual hierarchy, mobile responsiveness, and professional polish:
+    -   **Services Hero:** Reduced from text-8xl to text-7xl (desktop), added high-quality layered gradient background image with dark wash overlay for better text contrast
+    -   **Stats Counters:** Reduced from text-7xl to text-6xl for better proportion
+    -   **Homepage "This is OARC" Section:** Reduced from text-8xl to text-6xl
+    -   **"Our Difference" Section:** Reduced from text-7xl to text-5xl
+    -   **ServiceGrid Component:** Hero reduced from text-7xl to text-6xl
+    -   **AI Creative Services Section:** Headings reduced from text-6xl to text-5xl
+    -   **Hire AI Employees Section:** Headings reduced from text-6xl to text-5xl  
+    -   **Revenue Automation Section:** Headings reduced from text-6xl to text-5xl
+    -   **Category Tabs:** Reduced from text-lg to text-base
+    -   **All CTA Buttons:** Standardized to text-base with py-4 padding (previously mixed py-5/py-6)
+    -   **Icon Sizes:** Reduced ArrowRight icons from h-6 w-6 to h-5 w-5 for better proportion
+    -   **Mobile Typography:** All headings now cap at text-3xl or text-4xl on mobile, eliminating oversized text on small screens
+-   **Typography Scale Standards Established:**
+    -   Maximum hero text: lg:text-7xl (Services page only)
+    -   Section headings: lg:text-5xl to lg:text-6xl
+    -   Subsection headings: lg:text-3xl to lg:text-4xl
+    -   Body text: text-base to text-lg
+    -   Mobile starts at text-3xl/4xl and scales down proportionally
+-   **Visual Improvements:**
+    -   Better text hierarchy throughout platform
+    -   Improved scan-ability and legibility
+    -   More balanced spacing and proportions
+    -   Enhanced mobile readability with no text overflow
+    -   Consistent button styling across all pages
+-   **Testing:** All changes architect-reviewed (Pass ✓) and E2E tested - typography now appropriately sized, clear visual hierarchy established, mobile responsiveness excellent, no functional issues
