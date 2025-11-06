@@ -70,7 +70,7 @@ export default function Footer() {
             <h4 className="font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2 text-sm text-background/60">
               <li><Link href="/" className="hover:text-background transition-colors" data-testid="link-footer-home">Home</Link></li>
-              <li><Link href="#why-us" className="hover:text-background transition-colors" data-testid="link-footer-why-us">Why Us</Link></li>
+              <li><Link href="/why-us" className="hover:text-background transition-colors" data-testid="link-footer-why-us">Why Us</Link></li>
               <li><Link href="#our-work" className="hover:text-background transition-colors" data-testid="link-footer-our-work">Our Work</Link></li>
               <li><Link href="#resources" className="hover:text-background transition-colors" data-testid="link-footer-resources">Resources</Link></li>
               <li><Link href="#contact" className="hover:text-background transition-colors" data-testid="link-footer-contact">Contact</Link></li>

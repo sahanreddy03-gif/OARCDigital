@@ -28,7 +28,7 @@ export default function Navigation() {
             <Link href="/" className="text-xs xl:text-sm font-medium text-white/90 hover:text-white transition-colors" data-testid="link-home">
               Home
             </Link>
-            <Link href="#why-us" className="text-xs xl:text-sm font-medium text-white/90 hover:text-white transition-colors" data-testid="link-why-us">
+            <Link href="/why-us" className="text-xs xl:text-sm font-medium text-white/90 hover:text-white transition-colors" data-testid="link-why-us">
               Why Us
             </Link>
             
@@ -160,7 +160,7 @@ export default function Navigation() {
                 Home
               </div>
             </Link>
-            <Link href="#why-us" data-testid="link-mobile-why-us" onClick={() => setShowMobileMenu(false)}>
+            <Link href="/why-us" data-testid="link-mobile-why-us" onClick={() => setShowMobileMenu(false)}>
               <div className="text-base font-semibold text-zinc-900 py-2">
                 Why Us
               </div>
