@@ -56,6 +56,33 @@ The platform features a React frontend and an Express.js backend, leveraging a m
 -   Service content managed via JSON files in `client/public/content/services/`
 
 ### Recent Changes
+**November 6, 2025:**
+-   **Why Us Page Implementation:** Built comprehensive "Why Us" page (`/why-us`) following analysis of 15+ reference agency websites (Clay Global, Humaan, Instrument, Socially Powerful, The Social Shepherd, UiPath, DEPT Agency, etc.):
+    -   **Page Structure:**
+        -   Hero section with bold messaging positioning OARC as AI-powered transformation partner
+        -   5 differentiator cards: Creative+AI Fusion, AI Employees 24/7, Revenue Automation, End-to-End Transformation, Scalable Innovation
+        -   Stats/proof section with credibility metrics highlighting team expertise, project volume, and industry recognition
+        -   Clear CTA pathways to drive user engagement
+    -   **Design Implementation:**
+        -   Typography follows established hierarchy (hero text-4xl→text-7xl, section headers text-2xl→text-5xl, body text-base→text-lg)
+        -   Gradient backgrounds and card hover effects for premium aesthetic
+        -   Hover-elevate and active-elevate-2 utilities for polished interactions
+        -   Responsive grid layout (1 column mobile → 2 columns desktop for cards)
+        -   Dark mode ready via Layout wrapper and design tokens
+    -   **Navigation Integration:**
+        -   Updated Navigation.tsx (desktop and mobile menus) to route to `/why-us` instead of anchor link `#why-us`
+        -   Updated Footer.tsx quick links to use proper route
+        -   Page registered in App.tsx routing system
+    -   **SEO & Accessibility:**
+        -   Page title and meta description set via useEffect
+        -   Semantic HTML structure (section, heading hierarchy)
+        -   Data-testid attributes for critical interactive elements
+    -   **Code Quality:**
+        -   Componentized data arrays drive maintainable card/stat mapping
+        -   Clean separation of concerns
+        -   No ScrollReveal dependency (using built-in hover states)
+    -   **Testing:** Architect-reviewed (Pass ✓) - content quality, visual design, animations, responsiveness, integration, and accessibility all meet premium agency standards
+
 **November 4, 2025:**
 -   **Three Pillars Micro-Taglines:** Added descriptive taglines below each category button in the Services page "Choose Your Path" section:
     -   **AI Creative Services:** "Content, media, and branding that captivate."
