@@ -56,32 +56,48 @@ The platform features a React frontend and an Express.js backend, leveraging a m
 -   Service content managed via JSON files in `client/public/content/services/`
 
 ### Recent Changes
-**November 6, 2025:**
--   **Why Us Page Implementation:** Built comprehensive "Why Us" page (`/why-us`) following analysis of 15+ reference agency websites (Clay Global, Humaan, Instrument, Socially Powerful, The Social Shepherd, UiPath, DEPT Agency, etc.):
-    -   **Page Structure:**
-        -   Hero section with bold messaging positioning OARC as AI-powered transformation partner
-        -   5 differentiator cards: Creative+AI Fusion, AI Employees 24/7, Revenue Automation, End-to-End Transformation, Scalable Innovation
-        -   Stats/proof section with credibility metrics highlighting team expertise, project volume, and industry recognition
-        -   Clear CTA pathways to drive user engagement
-    -   **Design Implementation:**
-        -   Typography follows established hierarchy (hero text-4xl→text-7xl, section headers text-2xl→text-5xl, body text-base→text-lg)
-        -   Gradient backgrounds and card hover effects for premium aesthetic
-        -   Hover-elevate and active-elevate-2 utilities for polished interactions
-        -   Responsive grid layout (1 column mobile → 2 columns desktop for cards)
-        -   Dark mode ready via Layout wrapper and design tokens
-    -   **Navigation Integration:**
-        -   Updated Navigation.tsx (desktop and mobile menus) to route to `/why-us` instead of anchor link `#why-us`
-        -   Updated Footer.tsx quick links to use proper route
-        -   Page registered in App.tsx routing system
+**November 7, 2025:**
+-   **Why Us Page Complete Redesign - World-Class Premium Agency Experience:** Transformed entire Why Us page (`/why-us`) into cinematic, narrative-driven experience with 8 enhanced sections, advanced scroll animations, and rich interactive elements:
+    -   **Page Structure (8 Sections):**
+        -   **Cinematic Hero:** Bold headline "Where Creativity Meets Intelligent Automation" with emerald/teal gradients, dual CTAs, scroll indicator animation
+        -   **Belief Stack/Manifesto:** 3 core principles with numbered badges showcasing company philosophy
+        -   **Testimonials Proof Bar:** 2 testimonial quotes on deep slate-950 background for credibility
+        -   **Enhanced Differentiators:** 6 pillars (added "Global, Young, Fearless") with gradient overlays, icon animations, explicit accent colors
+        -   **Living Metrics:** 4 animated counters (50%, 10K+, 40%, 3x) that count up when scrolled into view
+        -   **Global Talent Team (NEW):** 6 international team members with locations (Singapore, Barcelona, Tokyo, New York, Mumbai, Copenhagen), specialties, and interactive cards
+        -   **Delivery Timeline:** 3-phase transformation journey with numbered steps and scroll-reveal animations
+        -   **Enhanced Final CTA:** Credibility metrics + dual CTAs with gradient backgrounds
+    -   **Technical Implementation:**
+        -   **ScrollReveal Component:** Custom scroll-triggered fade-in/slide-up animations using IntersectionObserver hook, configurable delays for stagger effects
+        -   **AnimatedCounter Component:** Extracts numeric values from strings (50%, 10K+, 40%, 3x), animates from 0 to target over 2 seconds, preserves and appends suffixes
+        -   **Explicit Tailwind Classes:** Fixed dynamic class purging issue by using conditional ternary operators for accent colors (emerald, orange, blue, purple, teal, pink)
+        -   **Color Palette:** Deep midnight backgrounds (slate-950/900/800), emerald/teal primaries, magenta/orange energy accents, glassmorphism panels
+    -   **Critical Bug Fixes:**
+        -   **AnimatedCounter:** Previously returned static values for strings with %, K, x, + symbols due to guard clauses - now properly extracts numeric portion, animates, then appends suffix
+        -   **Dynamic Tailwind Classes:** Replaced `bg-${item.accent}-500/10` runtime interpolation (gets purged) with explicit conditional rendering using ternary operators
+    -   **Design Features:**
+        -   Gradient hover effects on all cards with scale-110 icon transforms
+        -   Staggered scroll animations with 50ms-200ms delays
+        -   Responsive grid layouts (1 column mobile → 2-3 columns desktop)
+        -   Hover-elevate and active-elevate-2 utilities throughout
+        -   Typography follows established hierarchy (hero text-4xl→text-7xl, sections text-3xl→text-5xl)
+    -   **Global Talent Team Details:**
+        -   Alex Chen (Singapore) - Creative AI Director - AI-Enhanced Design
+        -   Sofia Rodriguez (Barcelona) - Automation Architect - Revenue Systems
+        -   Yuki Tanaka (Tokyo) - Motion & Video Lead - AI Video Production
+        -   Marcus Johnson (New York) - Growth Strategist - Data Analytics
+        -   Priya Sharma (Mumbai) - Content AI Specialist - AI Copywriting
+        -   Lars Nielsen (Copenhagen) - Innovation Lead - Emerging Tech
     -   **SEO & Accessibility:**
-        -   Page title and meta description set via useEffect
-        -   Semantic HTML structure (section, heading hierarchy)
-        -   Data-testid attributes for critical interactive elements
-    -   **Code Quality:**
-        -   Componentized data arrays drive maintainable card/stat mapping
-        -   Clean separation of concerns
-        -   No ScrollReveal dependency (using built-in hover states)
-    -   **Testing:** Architect-reviewed (Pass ✓) - content quality, visual design, animations, responsiveness, integration, and accessibility all meet premium agency standards
+        -   Page title: "Why OARC Digital | AI-Powered Creative & Automation Agency"
+        -   Meta description emphasizing global talent, AI creativity, revenue automation
+        -   Semantic HTML structure with proper heading hierarchy
+        -   Comprehensive data-testid attributes for all interactive elements
+    -   **Testing:** 
+        -   Architect-reviewed twice (Pass ✓) - initial implementation and post-fix validation
+        -   Comprehensive E2E testing across desktop (1280x720) and mobile (375x667)
+        -   Verified: hero animations, manifesto, testimonials, 6 differentiators with hover, animated counters, talent team cards, timeline phases, CTAs, navigation, responsive layout
+        -   Performance: No console errors, CLS=0, smooth scroll animations, 1244ms navigation duration
 
 **November 4, 2025:**
 -   **Three Pillars Micro-Taglines:** Added descriptive taglines below each category button in the Services page "Choose Your Path" section:
