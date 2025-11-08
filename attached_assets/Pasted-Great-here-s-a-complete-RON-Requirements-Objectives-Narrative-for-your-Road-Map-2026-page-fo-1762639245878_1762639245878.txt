@@ -1,0 +1,111 @@
+Great — here’s a complete RON (Requirements, Objectives, Narrative) for your “Road Map 2026” page for OARC Digital, designed so you can hand it straight to the dev team at Replit for build-out. It covers design structure, content, animation, visual references + a final prompt for them.
+
+⸻
+
+🧭 RON: Road Map 2026 Page
+
+Requirements
+	•	Page Title: “Road Map 2026”
+	•	Must follow your brand identity: bright orange (#FF6900 approx), electric green (#00FF88 approx), dark charcoal base (#0F0F0F)
+	•	High-end, cinematic design, engaging scroll animation on desktop + fully responsive on mobile
+	•	Timeline/roadmap visual + interactive segments showing your future systems and market focus (e.g., “Crystal System”, “Local Market Business Knowledge”, physical data gathering for industries)
+	•	Clean copywriting: persuasive, future-facing, innovative tone
+	•	Delivery of assets: hero imagery, timeline visuals, icons, animations (GSAP / Lottie recommended)
+	•	Page performance: optimized for speed (lazy-load visuals, SVG where possible, minimal blocking resources)
+	•	Accessibility: ensure mobile usability, readable text, contrast meets standards.
+
+Objectives
+	•	Show your audience what’s next for OARC Digital in 2026 — not just services but breakthrough systems, market expansion, data-driven creative.
+	•	Position OARC as a visionary partner: you’re not just doing digital marketing — you’re building the next generation of intelligence + creativity for businesses of all industries.
+	•	Drive engagement: inspire action (CTA) at end: “Let’s Build 2026 Together”.
+	•	Visualize complex ideas (AI systems + physical data + market knowledge) in an elegant way — not generic, but premium and distinct.
+
+Narrative & Structure
+
+Here’s the section-by-section story flow:
+
+Section 1 – Hero
+	•	Headline: “Road Map 2026 – The Next Chapter of Intelligent Creativity.”
+	•	Subline: “Our vision. Your growth. A system built to scale everything.”
+	•	Visual: Full-width motion background (e.g., abstract data lines moving, subtle gradient from dark charcoal → orange flare, green accents)
+	•	CTA Button: “Download the Full Strategy PDF” or “Explore the Journey”
+	•	Animation: hero elements fade in, then subtle parallax motion of background as user scrolls.
+
+Section 2 – Why 2026 Matters
+	•	Copy:
+“2026 isn’t just another year. It’s the year we unlock the Crystal System — our proprietary AI & local-market intelligence platform that gathers physical business data across industries and turns creativity into measurable output.”
+	•	Visual: Large stylised illustration/3D render showing “Crystal System” concept (think semi-transparent data sphere, network nodes, business icons).
+	•	Pull-out line: “Built for industries. Designed for disruption.”
+
+Section 3 – The Journey Timeline
+	•	Title: “Milestones That Matter”
+	•	Visual: A horizontal (desktop) or vertical (mobile) timeline path that winds or bends. On each milestone node show quarter/year + initiative. Example milestones:
+	•	Q1 2026 – Launch Crystal AI Module
+	•	Q2 2026 – Local Market Data Integration (50+ industries)
+	•	Q3 2026 – Creative Automation Platform v2.0
+	•	Q4 2026 – Global Scale Activation · 30 markets live
+	•	Copy for each milestone (one-line).
+	•	Animation: As user scrolls, path moves or glows, each node “lights up” on viewport entry.
+
+Section 4 – Key Initiatives
+	•	Title: “Core Systems & Capabilities”
+	•	Layout: 3-column grid (desktop) or stacked cards (mobile) of your major systems:
+	1.	Crystal System (AI + Physical Data) – “We merge business-level physical data with generative creative for unmatched insight.”
+	2.	Localised Intelligence Engine – “Living in every market, speaking every industry, delivering relevance at scale.”
+	3.	Creative Automation Platform – “Human creativity empowered by machine precision for faster, higher-impact output.”
+	•	Visuals: icon + short description + micro-animation (on hover or scroll)
+	•	Color accents: each card uses one accent (orange, green, electric teal) to differentiate.
+
+Section 5 – Future Impact on Clients
+	•	Title: “What This Means For You”
+	•	Copy:
+“Faster turn-around. Higher ROI. Market-true relevance. That’s the promise of 2026 with OARC.”
+	•	Metrics (animated counters): e.g., “2× Creative Output”, “45% Faster Time-to-Market”, “100+ Industries Covered”, “Global Reach: 30+ Markets”.
+	•	Visual: infographic style, icons, perhaps subtle motion background.
+
+Section 6 – How We Get There
+	•	Title: “Our Process”
+	•	3 step flow:
+	1.	Discover & Collate – “We gather physical market data, understand your business in context.”
+	2.	Strategize & Build – “We architect your creative-intelligence system and content engine.”
+	3.	Activate & Scale – “We deploy globally, iterate fast, measure results in real-time.”
+	•	Visual: cards or icons + arrows linking them. Animation: slide-in as you scroll.
+
+Section 7 – Final CTA
+	•	Headline: “Ready to build the future?”
+	•	Subline: “2026 is here. Let’s make it extraordinary.”
+	•	Button: “Let’s Build Together →”
+	•	Visual: dramatic full-width image or gradient with interactive particle motion.
+	•	Animation: button glows, particle background moves slowly.
+
+⸻
+
+🎨 Design / Visual References
+
+Use these references to show the dev/design team how the timeline and journey visuals should look. Focus on: winding path visuals, milestone nodes with glow, dark base + bright accent colours, smooth scroll animation.
+
+⸻
+
+📝 Final Prompt for Replit
+
+Project: OARC Digital – Road Map 2026 Page
+Clone Base: Use a high-end creative agency “roadmap” or “vision” page structure (e.g., winding journey timeline layout, scroll triggered animations).
+Brand Palette: Dark Charcoal (#0F0F0F background), Bright Orange (#FF6900 accent), Electric Green (#00FF88 highlight). Secondary accent: Electric Teal (#00C8D8).
+Typography: Large bold headings (uppercase where shown), body text clean sans-serif, strong contrast.
+Animations: GSAP scroll-trigger or Lottie micro-interactions. Timeline path glows and moves as you scroll. Milestones fade/zoom in. Metrics counters animate on viewport entry. Section backgrounds transition with subtle gradient shifts. Mobile first responsiveness is mandatory.
+Sections (in order):
+	1.	Hero – headline, subline, CTA
+	2.	Why 2026 Matters – large visual + copy
+	3.	The Journey Timeline – milestone path with scroll animation
+	4.	Core Systems & Capabilities – grid/cards
+	5.	Future Impact – metrics + copy
+	6.	How We Get There – 3-step flow
+	7.	Final CTA – headline, subline, button, visual ambience
+Assets to Provide: 8K quality visuals (timeline path render, icons for each initiative, background motion clip or particle overlay), copy text (see above), colour swatches, fonts list.
+Performance Requirements: Lazy-load heavy visuals, use SVG for icons/paths where possible, ensure mobile-first CSS, test on major browsers.
+Delivery Format: The page built in Replit, including all animations and responsive states. Provide link for review. Exportable version for inclusion in main site.
+Goal: To present OARC Digital’s 2026 vision in a bold, premium, innovative way — making it clear you’re not just executing marketing; you’re building intelligent systems and global scale for your clients.
+
+⸻
+
+If you like, I can pull live links to 3-5 existing agency pages with excellent roadmap/timeline layouts (that we can clone) and send you those so Replit picks the best one. Do you want those?
