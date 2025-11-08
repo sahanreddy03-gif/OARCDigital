@@ -38,6 +38,7 @@ import AIConsulting from "@/pages/services/AIConsulting";
 import MobileAppsDevelopment from "@/pages/services/MobileAppsDevelopment";
 import OurWork from "@/pages/OurWork";
 import WhyUs from "@/pages/WhyUs";
+import Roadmap2026 from "@/pages/Roadmap2026";
 import Resources from "@/pages/Resources";
 import Pricing from "@/pages/Pricing";
 import Enterprise from "@/pages/Enterprise";
@@ -128,6 +129,8 @@ function Router() {
       <Route path="/case-study/acclaim-autism" component={AcclaimAutism} />
       <Route path="/our-work/:slug" component={() => <div>Case Study Detail (Phase 3)</div>} />
       <Route path="/why-us" component={WhyUs} />
+      <Route path="/roadmap" component={Roadmap2026} />
+      <Route path="/roadmap-2026" component={Roadmap2026} />
       <Route path="/resources" component={Resources} />
       <Route path="/resources/:slug" component={() => <div>Resource Detail (Phase 3)</div>} />
       <Route path="/pricing" component={Pricing} />
