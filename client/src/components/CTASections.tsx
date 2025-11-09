@@ -5,6 +5,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
 import { useState } from "react";
 import { Calendar, Sparkles } from "lucide-react";
+import { Link } from "wouter";
 
 export default function CTASections() {
   const [formData, setFormData] = useState({
@@ -33,9 +34,11 @@ export default function CTASections() {
               <p className="text-muted-foreground leading-relaxed mb-6">
                 Discover our exciting plans for the future. New AI capabilities, expanded services, and innovative solutions coming your way.
               </p>
-              <Button variant="outline" size="lg" className="w-full rounded-full" data-testid="button-roadmap">
-                View Roadmap
-              </Button>
+              <Link href="/roadmap">
+                <Button variant="outline" size="lg" className="w-full rounded-full" data-testid="button-roadmap">
+                  View Roadmap
+                </Button>
+              </Link>
             </div>
           </Card>
 

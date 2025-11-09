@@ -295,14 +295,14 @@ export default function Roadmap2026() {
           </ScrollReveal>
 
           <ScrollReveal delay={200}>
-            <div className="relative p-12 rounded-2xl border border-[#FF6900]/20 bg-gradient-to-br from-[#FF6900]/5 via-transparent to-[#00FF88]/5 overflow-hidden">
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,105,0,0.1),transparent_70%)]" />
+            <div className="relative p-12 rounded-2xl border border-[#FF6900]/30 bg-gradient-to-br from-[#1A1A1A] to-[#0F0F0F] overflow-hidden">
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,105,0,0.15),transparent_70%)]" />
               <div className="relative z-10 text-center">
                 <Sparkles className="h-16 w-16 text-[#FF6900] mx-auto mb-6" />
                 <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
                   The Crystal System
                 </h3>
-                <p className="text-slate-400 text-base md:text-lg max-w-3xl mx-auto">
+                <p className="text-slate-200 text-base md:text-lg max-w-3xl mx-auto leading-relaxed">
                   A semi-transparent intelligence network that connects physical business data, AI-powered creativity, and market insights into one unified platform. Think of it as your creative nervous system—always sensing, always optimizing, always delivering results.
                 </p>
               </div>
@@ -358,16 +358,20 @@ export default function Roadmap2026() {
             {systems.map((system, index) => (
               <ScrollReveal key={index} delay={index * 100}>
                 <div
-                  className="group relative p-8 rounded-xl border border-slate-800 bg-slate-900/50 hover:bg-slate-900 transition-all duration-500 overflow-hidden h-full"
+                  className="group relative p-8 rounded-xl border transition-all duration-500 overflow-hidden h-full"
+                  style={{
+                    backgroundColor: index === 0 ? '#1A1A1A' : index === 1 ? '#00FF8808' : '#1A1A1A',
+                    borderColor: index === 0 ? '#FF690030' : index === 1 ? '#00FF8830' : '#00C8D830'
+                  }}
                   data-testid={`card-system-${index}`}
                 >
-                  <div className={`absolute inset-0 bg-gradient-to-br ${system.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+                  <div className={`absolute inset-0 bg-gradient-to-br ${system.gradient} opacity-50 group-hover:opacity-100 transition-opacity duration-500`} />
                   
                   <div className="relative z-10">
                     <div className="mb-6">
                       <div 
                         className="inline-flex p-4 rounded-xl group-hover:scale-110 transition-transform duration-500"
-                        style={{ backgroundColor: `${system.accentColor}15` }}
+                        style={{ backgroundColor: `${system.accentColor}20` }}
                       >
                         <system.icon 
                           className="h-8 w-8" 
@@ -384,7 +388,7 @@ export default function Roadmap2026() {
                     >
                       {system.subtitle}
                     </p>
-                    <p className="text-sm md:text-base text-slate-400 leading-relaxed">
+                    <p className="text-sm md:text-base text-slate-200 leading-relaxed">
                       {system.description}
                     </p>
                   </div>
@@ -452,8 +456,8 @@ export default function Roadmap2026() {
             {processSteps.map((step, index) => (
               <ScrollReveal key={index} delay={index * 100}>
                 <div className="relative">
-                  <div className="p-8 rounded-xl border border-slate-800 bg-slate-900/50 hover:border-[#00C8D8]/30 transition-all duration-500 h-full">
-                    <div className="text-6xl font-bold text-[#00C8D8]/20 mb-4">
+                  <div className="p-8 rounded-xl border border-[#00C8D8]/30 bg-[#1A1A1A] hover:border-[#00C8D8]/50 transition-all duration-500 h-full">
+                    <div className="text-6xl font-bold text-[#00C8D8]/30 mb-4">
                       {step.number}
                     </div>
                     <div className="mb-4">
@@ -462,13 +466,13 @@ export default function Roadmap2026() {
                     <h3 className="text-xl md:text-2xl font-bold text-white mb-3">
                       {step.title}
                     </h3>
-                    <p className="text-slate-400 text-sm md:text-base">
+                    <p className="text-slate-200 text-sm md:text-base leading-relaxed">
                       {step.description}
                     </p>
                   </div>
                   {index < processSteps.length - 1 && (
                     <div className="hidden md:block absolute top-1/2 -right-4 transform -translate-y-1/2">
-                      <ArrowRight className="h-8 w-8 text-[#00C8D8]/30" />
+                      <ArrowRight className="h-8 w-8 text-[#00C8D8]/50" />
                     </div>
                   )}
                 </div>
@@ -480,8 +484,9 @@ export default function Roadmap2026() {
 
       {/* Section 7 - Final CTA */}
       <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0F0F0F] via-[#FF6900]/20 to-[#00FF88]/20">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,105,0,0.2),transparent_70%)]" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#1A1A1A] via-[#FF6900]/10 to-[#00FF88]/10">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,105,0,0.15),transparent_70%)]" />
+          <div className="absolute inset-0 bg-[#0F0F0F]/60" />
         </div>
         
         <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
@@ -496,7 +501,7 @@ export default function Roadmap2026() {
           </ScrollReveal>
           
           <ScrollReveal delay={200}>
-            <p className="text-xl md:text-2xl lg:text-3xl font-semibold mb-12 text-slate-300">
+            <p className="text-xl md:text-2xl lg:text-3xl font-semibold mb-12 text-slate-100">
               2026 is here. Let's make it extraordinary.
             </p>
           </ScrollReveal>
