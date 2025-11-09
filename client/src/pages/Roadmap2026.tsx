@@ -108,7 +108,7 @@ function TimelineMilestone({
         <h3 className="text-xl md:text-2xl font-bold mb-2 text-white">
           {title}
         </h3>
-        <p className="text-slate-400 text-sm md:text-base">
+        <p className="text-slate-100 text-sm md:text-base">
           {description}
         </p>
       </div>
@@ -237,7 +237,7 @@ export default function Roadmap2026() {
           </ScrollReveal>
           
           <ScrollReveal delay={200}>
-            <p className="text-xl md:text-2xl lg:text-3xl font-semibold mb-8 text-slate-300">
+            <p className="text-xl md:text-2xl lg:text-3xl font-semibold mb-8 text-slate-100">
               Our vision. Your growth. A system built to scale everything.
             </p>
           </ScrollReveal>
@@ -282,7 +282,7 @@ export default function Roadmap2026() {
                 Why 2026 Matters
               </h2>
               <div className="max-w-4xl mx-auto">
-                <p className="text-lg md:text-xl lg:text-2xl text-slate-300 leading-relaxed mb-6">
+                <p className="text-lg md:text-xl lg:text-2xl text-white leading-relaxed mb-6">
                   2026 isn't just another year. It's the year we unlock the <span className="text-[#FF6900] font-bold">Crystal System</span> — our proprietary AI & local-market intelligence platform that gathers physical business data across industries and turns creativity into measurable output.
                 </p>
                 <div className="inline-block px-6 py-3 bg-gradient-to-r from-[#FF6900]/20 to-[#00FF88]/20 border border-[#FF6900]/30 rounded-full">
@@ -319,7 +319,7 @@ export default function Roadmap2026() {
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-white">
                 Milestones That Matter
               </h2>
-              <p className="text-lg md:text-xl text-slate-400 max-w-3xl mx-auto">
+              <p className="text-lg md:text-xl text-slate-100 max-w-3xl mx-auto">
                 Our roadmap to building the future of intelligent creativity—one quarter at a time
               </p>
             </div>
@@ -348,7 +348,7 @@ export default function Roadmap2026() {
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-white">
                 Core Systems & Capabilities
               </h2>
-              <p className="text-lg md:text-xl text-slate-400 max-w-3xl mx-auto">
+              <p className="text-lg md:text-xl text-slate-100 max-w-3xl mx-auto">
                 Three pillars powering the future of creative intelligence
               </p>
             </div>
@@ -407,7 +407,7 @@ export default function Roadmap2026() {
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-white">
                 What This Means For You
               </h2>
-              <p className="text-xl md:text-2xl lg:text-3xl font-semibold text-slate-300 max-w-4xl mx-auto">
+              <p className="text-xl md:text-2xl lg:text-3xl font-semibold text-white max-w-4xl mx-auto">
                 Faster turn-around. Higher ROI. Market-true relevance. That's the promise of 2026 with OARC.
               </p>
             </div>
@@ -428,7 +428,7 @@ export default function Roadmap2026() {
                   <div className="text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-[#FF6900] to-[#00FF88] bg-clip-text text-transparent mb-3">
                     <AnimatedCounter value={metric.value} />
                   </div>
-                  <div className="text-sm md:text-base text-slate-400 font-medium">
+                  <div className="text-sm md:text-base text-slate-100 font-medium">
                     {metric.label}
                   </div>
                 </div>
@@ -446,7 +446,7 @@ export default function Roadmap2026() {
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-white">
                 Our Process
               </h2>
-              <p className="text-lg md:text-xl text-slate-400 max-w-3xl mx-auto">
+              <p className="text-lg md:text-xl text-slate-100 max-w-3xl mx-auto">
                 Three strategic phases to transform your brand into an autonomous growth engine
               </p>
             </div>
