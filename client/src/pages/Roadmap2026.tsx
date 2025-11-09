@@ -274,7 +274,7 @@ export default function Roadmap2026() {
       </section>
 
       {/* Section 2 - Why 2026 Matters */}
-      <section className="py-20 md:py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-background via-[#FF6900]/5 to-background">
+      <section className="py-20 md:py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-[#0F0F0F] via-[#FF6900]/5 to-[#0F0F0F]">
         <div className="max-w-6xl mx-auto">
           <ScrollReveal>
             <div className="text-center mb-16">
@@ -341,7 +341,7 @@ export default function Roadmap2026() {
       </section>
 
       {/* Section 4 - Key Initiatives */}
-      <section className="py-20 md:py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-background via-[#00FF88]/5 to-background">
+      <section className="py-20 md:py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-[#0F0F0F] via-[#00FF88]/5 to-[#0F0F0F]">
         <div className="max-w-7xl mx-auto">
           <ScrollReveal>
             <div className="text-center mb-16">
@@ -439,7 +439,7 @@ export default function Roadmap2026() {
       </section>
 
       {/* Section 6 - How We Get There */}
-      <section className="py-20 md:py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-background via-[#00C8D8]/5 to-background">
+      <section className="py-20 md:py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-[#0F0F0F] via-[#00C8D8]/5 to-[#0F0F0F]">
         <div className="max-w-6xl mx-auto">
           <ScrollReveal>
             <div className="text-center mb-16">
