@@ -12,6 +12,7 @@ import CTASections from "@/components/CTASections";
 import BrandShowcaseSection from "@/components/BrandShowcaseSection";
 import Testimonials from "@/components/Testimonials";
 import FAQ from "@/components/FAQ";
+import RoadmapPreviewSection from "@/components/RoadmapPreviewSection";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -31,6 +32,7 @@ export default function Home() {
       <BrandShowcaseSection />
       <Testimonials />
       <FAQ />
+      <RoadmapPreviewSection />
       <Footer />
     </div>
   );
