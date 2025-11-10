@@ -1,8 +1,19 @@
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import FloatingChipCarousel from "./FloatingChipCarousel";
 import heroBackground from '@assets/d375f1d50d97b0de7953ca2cecd2b8aea2cd96b2-3524x1181_1761251957292.avif';
 
 export default function HeroSection() {
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   // Add CSS animations
   const styles = `
     @keyframes scan {
@@ -12,6 +23,10 @@ export default function HeroSection() {
     @keyframes float {
       0%, 100% { transform: translateY(0) translateX(0); opacity: 0.3; }
       50% { transform: translateY(-60px) translateX(30px); opacity: 0.8; }
+    }
+    @keyframes lightSweep {
+      0% { transform: translateX(-100%) rotate(-15deg); }
+      100% { transform: translateX(200%) rotate(-15deg); }
     }
   `;
   
@@ -48,7 +63,9 @@ export default function HeroSection() {
         className="hidden md:block absolute inset-0 bg-cover bg-no-repeat"
         style={{ 
           backgroundImage: `url(${heroBackground})`,
-          backgroundPosition: '35% center'
+          backgroundPosition: '35% center',
+          transform: `translateY(${scrollY * 0.3}px)`,
+          transition: 'transform 0.1s ease-out'
         }}
       />
       {/* AI Grid Overlay - Desktop */}
@@ -72,6 +89,12 @@ export default function HeroSection() {
       <div className="hidden md:block absolute w-full h-[2px] bg-gradient-to-r from-transparent via-[#c4ff4d]/30 to-transparent animate-[scan_5s_ease-in-out_infinite]" 
            style={{ top: '35%', boxShadow: '0 0 15px rgba(196, 255, 77, 0.3)' }} 
       />
+      {/* Light Sweep Effect */}
+      <div className="hidden md:block absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute w-1/3 h-[200%] -top-1/2 bg-gradient-to-r from-transparent via-white/5 to-transparent animate-[lightSweep_15s_ease-in-out_infinite]" 
+             style={{ animationDelay: '2s' }} 
+        />
+      </div>
       <div className="hidden md:block absolute inset-0 bg-gradient-to-r from-black/80 via-black/30 to-transparent"></div>
       <div className="hidden md:block absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/50"></div>
       <div className="hidden md:block absolute inset-0 bg-gradient-to-l from-transparent via-black/10 to-black/60"></div>
