@@ -59,6 +59,10 @@ import TapestryAutomation from "@/pages/case-studies/TapestryAutomation";
 import BancolombiaAutomation from "@/pages/case-studies/BancolombiaAutomation";
 import JBSAutomation from "@/pages/case-studies/JBSAutomation";
 import AcclaimAutism from "@/pages/case-studies/AcclaimAutism";
+import PDFHub from "@/pages/PDFHub";
+import PDFCompanyProfile from "@/pages/PDFCompanyProfile";
+import PDFOnePager from "@/pages/PDFOnePager";
+import PDFAICreativeProfile from "@/pages/PDFAICreativeProfile";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -136,6 +140,13 @@ function Router() {
       <Route path="/pricing" component={Pricing} />
       <Route path="/enterprise" component={Enterprise} />
       <Route path="/contact" component={Contact} />
+      
+      {/* PDF Documents for Client Proposals */}
+      <Route path="/pdf" component={PDFHub} />
+      <Route path="/pdf/company-profile" component={PDFCompanyProfile} />
+      <Route path="/pdf/one-pager" component={PDFOnePager} />
+      <Route path="/pdf/ai-creative-profile" component={PDFAICreativeProfile} />
+      
       <Route component={NotFound} />
     </Switch>
   );

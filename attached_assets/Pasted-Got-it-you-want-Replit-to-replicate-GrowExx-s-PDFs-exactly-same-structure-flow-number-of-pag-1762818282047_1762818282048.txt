@@ -1,0 +1,164 @@
+Got it ✅ — you want Replit to replicate GrowExx’s PDFs exactly — same structure, flow, number of pages, content density, layouts, icon placements, tone, and even style of case studies — but with OARC Digital’s branding, content, and industry focus substituted in without losing the professional polish.
+
+Here’s your final ultra-precise master prompt to send Replit — this will make them understand you mean copy the GrowExx documents exactly (not “inspired by,” but “structurally cloned and rebranded”).
+
+⸻
+
+🧾 FINAL PROMPT FOR REPLIT — BUILD OARC DIGITAL CAPABILITY DECK (GROWEXX REPLICA)
+
+⸻
+
+TASK:
+Build a professional, cinematic company profile PDF deck for OARC Digital, 100% based on the attached GrowExx PDFs — replicate the same page structure, layout system, iconography placement, and text hierarchy, but replace all GrowExx-specific references with OARC Digital identity, content, and services.
+
+You are allowed to copy the visual language, color composition, typography, layout spacing, and design logic from the GrowExx PDFs as closely as possible.
+Only the company identity, services, USPs, and visuals should change.
+
+⸻
+
+🧠 OVERALL OBJECTIVE
+
+The goal is to create an identical but rebranded version of GrowExx’s deck, reimagined for:
+
+OARC Digital — AI-Powered Creative & Revenue Automation Agency
+
+The new version should look like it came from the same global design studio — same premium polish, alignment, font hierarchy, and professional energy — but with OARC’s AI-driven, creative, futuristic positioning instead of GrowExx’s “software development” tone.
+
+⸻
+
+🏢 NEW COMPANY DETAILS TO REPLACE
+
+Company Name: OARC Digital
+Tagline: “Where Creativity Meets Intelligence”
+Headquarters: Malta
+Website: www.oarcdigital.com
+Founded: 2024
+
+⸻
+
+🧩 SERVICES TO SUBSTITUTE
+
+Replace GrowExx’s tech stack (AI/ML, Product Dev, etc.) with OARC’s structure:
+
+OARC Digital’s 3 Core Divisions:
+	1.	AI Creative — Branding, Social Media, Design Systems, Motion Graphics
+	2.	Hire AI Employees — AI-powered sales, customer support & marketing agents
+	3.	Revenue Automation — CRM, funnel automation, performance dashboards
+
+You may keep the same icon placements and card layout, just replace the descriptions accordingly.
+
+⸻
+
+📄 PAGE STRUCTURE (CLONE GROWEXX ORDER EXACTLY)
+
+Page	Description	Action
+1	Cover	Replace logo, colors, background — use orange & neon green theme with same gradient light burst
+2	About Company	Keep the same paragraph format. Replace content to describe OARC’s AI + Creative positioning
+3	Our Services	Replace tech services with OARC’s 3 main verticals. Keep GrowExx layout style (icons + blur cards)
+4	Why Choose Us	Replace GrowExx’s bullet points with OARC advantages (Creative + AI + Automation + Local + Global)
+5	Our Process	Keep same 4-step visual — rename to “Discover → Design → Deploy → Dominate”
+6	Case Studies	Keep same table/grid structure. Replace with 3 industries: Retail, Clinics, Hospitality (Maltese focus)
+7	Team or Expertise	Keep GrowExx format. Replace headshots & text with OARC divisions (AI Experts, Designers, Strategists)
+8	Technology & Tools	Replace with “AI & Creative Stack” (ChatGPT, Midjourney, HubSpot, Salesforce, n8n, etc.)
+9	Global Clients / Testimonials	Replace GrowExx’s testimonials with “Local & EU Clients” — even placeholders are fine
+10	Contact Page	Same layout — OARC logo, QR code to website, contact info, tagline: “The Future of Marketing is Intelligent.”
+
+
+⸻
+
+🎨 DESIGN REQUIREMENTS (VISUAL IDENTITY)
+
+Color Theme:
+	•	Base: Charcoal / Black
+	•	Primary: Electric Orange (#FF5A00)
+	•	Secondary: Neon Green (#00FF9C)
+	•	Accents: White text, soft grey highlights
+	•	Background pattern: Subtle light streaks / tech lines (like GrowExx)
+
+Typography:
+	•	Headings: Satoshi / Manrope (tight kerning, bold)
+	•	Body: Inter / Poppins
+	•	Use same size hierarchy and line spacing as GrowExx PDFs.
+
+Imagery:
+	•	Use AI-inspired tech visuals: holographic grids, gradient spheres, creative work mockups, dashboards.
+	•	Replace GrowExx’s app/product visuals with creative/AI system representations.
+	•	Keep layout proportions and composition identical (white space, balance, margins).
+
+Icons:
+	•	Use same icon family (flat vector tech icons).
+	•	Match GrowExx’s sizing and alignment exactly.
+
+⸻
+
+⚙️ ANIMATION / EXPORT (IF SUPPORTED)
+	•	If Replit supports motion export, add light fade transitions between sections (optional).
+	•	Export final as:
+	•	/pdf/OARC_Digital_Company_Profile.pdf
+	•	/assets/OARC_PDF_Backgrounds/ for background layers
+
+⸻
+
+🧾 CONTENT REPLACEMENT REFERENCES (OARC TEXT TO USE)
+
+ABOUT TEXT (replace GrowExx about):
+
+OARC Digital is a next-generation AI-powered creative and automation agency based in Malta.
+We combine design, intelligence, and data to build systems that amplify marketing performance and revenue growth.
+From storytelling to AI workflows, we help brands move faster, scale smarter, and connect deeper with their customers.
+
+⸻
+
+WHY US (replace GrowExx bullets):
+	•	AI + Creative + Revenue Automation in One System
+	•	Proven Framework: Discover → Design → Deploy → Dominate
+	•	Blending Global Quality with Local Market Insight
+	•	Scalable Systems, Measurable ROI
+	•	Always Ahead of Market Trends
+
+⸻
+
+CASE STUDY EXAMPLES (replace GrowExx ones):
+
+Client Type	Result	Solution
+Retail Chain	+120% ROI in 30 Days	AI CRM + WhatsApp Marketing
+Dental Studio	+32% more bookings	AI Funnel + Social Automation
+Café Brand	40% repeat rate increase	AI Retargeting + Creative Campaigns
+
+
+⸻
+
+CLOSING TEXT:
+
+“At OARC Digital, we believe creativity is data in motion — powered by AI.
+Our systems are designed not just to automate, but to accelerate your growth.”
+
+CTA:
+
+“Let’s Build Something Intelligent Together.”
+
+⸻
+
+🪄 DESIGN STYLE GUIDANCE
+
+If you’re unsure, copy GrowExx’s layout pixel by pixel.
+But enhance with:
+	•	Slight 3D depth (light shadows)
+	•	Subtle neon glow effects on headlines
+	•	Smoother gradient transitions (orange→green)
+	•	Cleaner typography spacing
+	•	Brighter icon contrast
+
+⸻
+
+📍 FINAL NOTE TO REPLIT
+
+“You are free to copy GrowExx’s visual composition exactly — including grids, spacing, visual flow, and layout.
+Just rebrand it fully for OARC Digital using our color palette, logo, and service structure.
+Keep all animations subtle and transitions clean.
+The goal is to make OARC Digital’s deck feel identical in professionalism, but more creative, more AI-driven, and visually sharper.”
+
+⸻
+
+Would you like me to now create the exact OARC Digital version of each section’s content (so it matches line-for-line with GrowExx but rewritten for OARC)?
+That way, Replit can just drop in text + visuals directly without confusion.
