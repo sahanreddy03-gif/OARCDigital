@@ -59,7 +59,7 @@ export default function ServiceGrid() {
           {services.map((service, index) => (
             <Link key={index} href={service.path}>
               <Card 
-                className="relative p-8 min-h-[450px] flex flex-col hover-elevate hover:shadow-2xl transition-all duration-500 cursor-pointer overflow-hidden group bg-background border-2"
+                className="relative p-8 min-h-[450px] flex flex-col hover-elevate hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 ease-in cursor-pointer overflow-hidden group bg-background border-2"
                 data-testid={`card-service-${index}`}
               >
                 <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">

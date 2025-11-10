@@ -37,6 +37,9 @@ export default function FAQ() {
     <section className="py-20 md:py-28 bg-background">
       <div className="max-w-4xl mx-auto px-6 md:px-12">
         <div className="text-center mb-12 md:mb-16">
+          <p className="text-sm text-muted-foreground italic mb-3">
+            Because transparency is part of our process.
+          </p>
           <p className="text-xs uppercase tracking-wider font-bold text-primary mb-4">
             Frequently Asked Questions
           </p>
@@ -54,7 +57,7 @@ export default function FAQ() {
               key={index} 
               value={`item-${index}`} 
               data-testid={`faq-item-${index}`}
-              className="border border-border/50 rounded-lg px-6 hover-elevate transition-all"
+              className="border border-border/50 rounded-lg px-6 hover-elevate hover:border-purple-400/60 hover:shadow-[0_0_15px_rgba(168,85,247,0.15)] transition-all duration-300"
             >
               <AccordionTrigger className="text-left text-base md:text-lg font-bold hover:no-underline py-4">
                 {faq.question}

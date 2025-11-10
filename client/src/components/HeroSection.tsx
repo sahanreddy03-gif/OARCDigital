@@ -3,8 +3,22 @@ import FloatingChipCarousel from "./FloatingChipCarousel";
 import heroBackground from '@assets/d375f1d50d97b0de7953ca2cecd2b8aea2cd96b2-3524x1181_1761251957292.avif';
 
 export default function HeroSection() {
+  // Add CSS animations
+  const styles = `
+    @keyframes scan {
+      0%, 100% { top: 20%; opacity: 0.4; }
+      50% { top: 80%; opacity: 0.8; }
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0) translateX(0); opacity: 0.3; }
+      50% { transform: translateY(-60px) translateX(30px); opacity: 0.8; }
+    }
+  `;
+  
   return (
-    <section className="relative h-screen flex flex-col overflow-hidden bg-black">
+    <>
+      <style>{styles}</style>
+      <section className="relative h-screen flex flex-col overflow-hidden bg-black">
       {/* Mobile Layout - Clean bottom-aligned layout */}
       <div className="md:hidden absolute inset-0">
         <div 
@@ -13,6 +27,17 @@ export default function HeroSection() {
             backgroundImage: `url(${heroBackground})`,
             backgroundPosition: '60% center'
           }}
+        />
+        {/* AI Grid Overlay - Mobile */}
+        <div className="absolute inset-0 opacity-[0.08]" 
+             style={{
+               backgroundImage: 'linear-gradient(rgba(196, 255, 77, 0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(196, 255, 77, 0.3) 1px, transparent 1px)',
+               backgroundSize: '40px 40px'
+             }} 
+        />
+        {/* Scanning line - Mobile */}
+        <div className="absolute w-full h-[2px] bg-gradient-to-r from-transparent via-[#c4ff4d]/40 to-transparent animate-[scan_4s_ease-in-out_infinite]" 
+             style={{ top: '30%', boxShadow: '0 0 10px rgba(196, 255, 77, 0.3)' }} 
         />
         {/* Lighter gradient to show more color */}
         <div className="absolute inset-0 bg-gradient-to-b from-transparent from-0% via-zinc-950/60 via-50% to-zinc-950/85 to-95%"></div>
@@ -25,6 +50,27 @@ export default function HeroSection() {
           backgroundImage: `url(${heroBackground})`,
           backgroundPosition: '35% center'
         }}
+      />
+      {/* AI Grid Overlay - Desktop */}
+      <div className="hidden md:block absolute inset-0 opacity-[0.06]" 
+           style={{
+             backgroundImage: 'linear-gradient(rgba(196, 255, 77, 0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(196, 255, 77, 0.3) 1px, transparent 1px)',
+             backgroundSize: '50px 50px'
+           }} 
+      />
+      {/* Floating light particles - Desktop */}
+      <div className="hidden md:block absolute w-1 h-1 rounded-full bg-[#c4ff4d] opacity-60 animate-[float_6s_ease-in-out_infinite]" 
+           style={{ top: '20%', left: '15%', boxShadow: '0 0 20px #c4ff4d' }} 
+      />
+      <div className="hidden md:block absolute w-1 h-1 rounded-full bg-[#c4ff4d] opacity-50 animate-[float_8s_ease-in-out_infinite]" 
+           style={{ top: '60%', left: '25%', boxShadow: '0 0 15px #c4ff4d', animationDelay: '2s' }} 
+      />
+      <div className="hidden md:block absolute w-1 h-1 rounded-full bg-[#c4ff4d] opacity-40 animate-[float_7s_ease-in-out_infinite]" 
+           style={{ top: '40%', left: '35%', boxShadow: '0 0 18px #c4ff4d', animationDelay: '4s' }} 
+      />
+      {/* Scanning line - Desktop */}
+      <div className="hidden md:block absolute w-full h-[2px] bg-gradient-to-r from-transparent via-[#c4ff4d]/30 to-transparent animate-[scan_5s_ease-in-out_infinite]" 
+           style={{ top: '35%', boxShadow: '0 0 15px rgba(196, 255, 77, 0.3)' }} 
       />
       <div className="hidden md:block absolute inset-0 bg-gradient-to-r from-black/80 via-black/30 to-transparent"></div>
       <div className="hidden md:block absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/50"></div>
@@ -53,8 +99,8 @@ export default function HeroSection() {
                   </span>
                 </h1>
 
-                <p className="text-[15px] md:text-sm lg:text-base text-white max-w-xl mx-auto md:mx-0 leading-relaxed mb-5 md:mb-4 font-normal">
-                  AI-Certified Talent + Custom AI Workflows + Ruthless Automation + Guaranteed Results = More Effective. Lower Cost. More Sales.
+                <p className="text-[15px] md:text-sm lg:text-base text-white max-w-xl mx-auto md:mx-0 leading-relaxed mb-5 md:mb-4 font-light tracking-wide">
+                  Certified AI talent + Tailored Workflows + Measurable Growth = Less Cost. More Reach + More Sales
                 </p>
 
                 <div className="flex flex-col items-center md:items-start gap-3 md:gap-3">
@@ -85,5 +131,6 @@ export default function HeroSection() {
         </div>
       </div>
     </section>
+    </>
   );
 }
