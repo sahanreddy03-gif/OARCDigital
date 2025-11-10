@@ -13,24 +13,49 @@ import BrandShowcaseSection from "@/components/BrandShowcaseSection";
 import Testimonials from "@/components/Testimonials";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
+import ScrollReveal from "@/components/ScrollReveal";
 
 export default function Home() {
   return (
     <div className="min-h-screen">
       <Navigation />
       <HeroSection />
-      <Section2 />
-      <Section3 />
-      <Section5 />
-      <LetsTalkSection />
-      <AICreativeSection />
-      <HireAIEmployeesSection />
-      <LetsTalkRevenueSection />
-      <PerformanceMetrics />
-      <CTASections />
-      <BrandShowcaseSection />
-      <Testimonials />
-      <FAQ />
+      <ScrollReveal>
+        <Section2 />
+      </ScrollReveal>
+      <ScrollReveal delay={100}>
+        <Section3 />
+      </ScrollReveal>
+      <ScrollReveal delay={150}>
+        <Section5 />
+      </ScrollReveal>
+      <ScrollReveal>
+        <LetsTalkSection />
+      </ScrollReveal>
+      <ScrollReveal delay={100}>
+        <AICreativeSection />
+      </ScrollReveal>
+      <ScrollReveal delay={150}>
+        <HireAIEmployeesSection />
+      </ScrollReveal>
+      <ScrollReveal>
+        <LetsTalkRevenueSection />
+      </ScrollReveal>
+      <ScrollReveal delay={100}>
+        <PerformanceMetrics />
+      </ScrollReveal>
+      <ScrollReveal delay={150}>
+        <CTASections />
+      </ScrollReveal>
+      <ScrollReveal>
+        <BrandShowcaseSection />
+      </ScrollReveal>
+      <ScrollReveal delay={100}>
+        <Testimonials />
+      </ScrollReveal>
+      <ScrollReveal delay={150}>
+        <FAQ />
+      </ScrollReveal>
       <Footer />
     </div>
   );
