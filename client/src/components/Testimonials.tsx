@@ -82,10 +82,14 @@ export default function Testimonials() {
               <img 
                 src={activeTestimonial.image} 
                 alt={activeTestimonial.author}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover grayscale opacity-80"
                 data-testid="testimonial-featured-image"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
+              {/* Company Watermark */}
+              <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1.5 rounded-lg shadow-sm">
+                <p className="text-xs font-black text-zinc-900">{activeTestimonial.company}</p>
+              </div>
             </div>
 
             {/* Right: Content */}
