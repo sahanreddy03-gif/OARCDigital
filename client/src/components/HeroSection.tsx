@@ -16,10 +16,6 @@ export default function HeroSection() {
 
   // Add CSS animations
   const styles = `
-    @keyframes scan {
-      0%, 100% { top: 20%; opacity: 0.4; }
-      50% { top: 80%; opacity: 0.8; }
-    }
     @keyframes float {
       0%, 100% { transform: translateY(0) translateX(0); opacity: 0.3; }
       50% { transform: translateY(-60px) translateX(30px); opacity: 0.8; }
@@ -27,6 +23,27 @@ export default function HeroSection() {
     @keyframes lightSweep {
       0% { transform: translateX(-100%) rotate(-15deg); }
       100% { transform: translateX(200%) rotate(-15deg); }
+    }
+    @keyframes scanHorizontal1 {
+      0% { transform: translateX(-100%); opacity: 0; }
+      10% { opacity: 0.4; }
+      90% { opacity: 0.4; }
+      100% { transform: translateX(100vw); opacity: 0; }
+    }
+    @keyframes scanHorizontal2 {
+      0% { transform: translateX(-100%); opacity: 0; }
+      10% { opacity: 0.3; }
+      90% { opacity: 0.3; }
+      100% { transform: translateX(100vw); opacity: 0; }
+    }
+    @keyframes gridPulse {
+      0%, 100% { opacity: 0.06; }
+      50% { opacity: 0.12; }
+    }
+    @keyframes particleFloat {
+      0%, 100% { transform: translate(0, 0); opacity: 0.4; }
+      33% { transform: translate(20px, -30px); opacity: 0.8; }
+      66% { transform: translate(-15px, -50px); opacity: 0.6; }
     }
   `;
   
@@ -43,16 +60,22 @@ export default function HeroSection() {
             backgroundPosition: '60% center'
           }}
         />
-        {/* AI Grid Overlay - Mobile */}
-        <div className="absolute inset-0 opacity-[0.08]" 
+        {/* AI Grid Overlay - Mobile with pulse */}
+        <div className="absolute inset-0 animate-[gridPulse_8s_ease-in-out_infinite]" 
              style={{
                backgroundImage: 'linear-gradient(rgba(196, 255, 77, 0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(196, 255, 77, 0.3) 1px, transparent 1px)',
                backgroundSize: '40px 40px'
              }} 
         />
-        {/* Scanning line - Mobile */}
-        <div className="absolute w-full h-[2px] bg-gradient-to-r from-transparent via-[#c4ff4d]/40 to-transparent animate-[scan_4s_ease-in-out_infinite]" 
-             style={{ top: '30%', boxShadow: '0 0 10px rgba(196, 255, 77, 0.3)' }} 
+        {/* Horizontal data streams - Mobile */}
+        <div className="absolute w-[200px] h-[1px] bg-gradient-to-r from-transparent via-[#c4ff4d]/50 to-transparent animate-[scanHorizontal1_8s_linear_infinite]" 
+             style={{ top: '25%', boxShadow: '0 0 8px rgba(196, 255, 77, 0.4)' }} 
+        />
+        <div className="absolute w-[150px] h-[1px] bg-gradient-to-r from-transparent via-[#c4ff4d]/40 to-transparent animate-[scanHorizontal2_10s_linear_infinite]" 
+             style={{ top: '45%', boxShadow: '0 0 6px rgba(196, 255, 77, 0.3)', animationDelay: '3s' }} 
+        />
+        <div className="absolute w-[180px] h-[1px] bg-gradient-to-r from-transparent via-[#c4ff4d]/35 to-transparent animate-[scanHorizontal1_12s_linear_infinite]" 
+             style={{ top: '65%', boxShadow: '0 0 7px rgba(196, 255, 77, 0.3)', animationDelay: '5s' }} 
         />
         {/* Lighter gradient to show more color */}
         <div className="absolute inset-0 bg-gradient-to-b from-transparent from-0% via-zinc-950/60 via-50% to-zinc-950/85 to-95%"></div>
@@ -68,26 +91,38 @@ export default function HeroSection() {
           transition: 'transform 0.1s ease-out'
         }}
       />
-      {/* AI Grid Overlay - Desktop */}
-      <div className="hidden md:block absolute inset-0 opacity-[0.06]" 
+      {/* AI Grid Overlay - Desktop with pulse */}
+      <div className="hidden md:block absolute inset-0 animate-[gridPulse_10s_ease-in-out_infinite]" 
            style={{
              backgroundImage: 'linear-gradient(rgba(196, 255, 77, 0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(196, 255, 77, 0.3) 1px, transparent 1px)',
              backgroundSize: '50px 50px'
            }} 
       />
-      {/* Floating light particles - Desktop */}
-      <div className="hidden md:block absolute w-1 h-1 rounded-full bg-[#c4ff4d] opacity-60 animate-[float_6s_ease-in-out_infinite]" 
+      {/* Floating light particles - Desktop with varied animation */}
+      <div className="hidden md:block absolute w-1.5 h-1.5 rounded-full bg-[#c4ff4d] animate-[particleFloat_8s_ease-in-out_infinite]" 
            style={{ top: '20%', left: '15%', boxShadow: '0 0 20px #c4ff4d' }} 
       />
-      <div className="hidden md:block absolute w-1 h-1 rounded-full bg-[#c4ff4d] opacity-50 animate-[float_8s_ease-in-out_infinite]" 
+      <div className="hidden md:block absolute w-1 h-1 rounded-full bg-[#c4ff4d] animate-[particleFloat_10s_ease-in-out_infinite]" 
            style={{ top: '60%', left: '25%', boxShadow: '0 0 15px #c4ff4d', animationDelay: '2s' }} 
       />
-      <div className="hidden md:block absolute w-1 h-1 rounded-full bg-[#c4ff4d] opacity-40 animate-[float_7s_ease-in-out_infinite]" 
+      <div className="hidden md:block absolute w-1.5 h-1.5 rounded-full bg-[#c4ff4d] animate-[particleFloat_9s_ease-in-out_infinite]" 
            style={{ top: '40%', left: '35%', boxShadow: '0 0 18px #c4ff4d', animationDelay: '4s' }} 
       />
-      {/* Scanning line - Desktop */}
-      <div className="hidden md:block absolute w-full h-[2px] bg-gradient-to-r from-transparent via-[#c4ff4d]/30 to-transparent animate-[scan_5s_ease-in-out_infinite]" 
-           style={{ top: '35%', boxShadow: '0 0 15px rgba(196, 255, 77, 0.3)' }} 
+      <div className="hidden md:block absolute w-1 h-1 rounded-full bg-[#c4ff4d] animate-[particleFloat_11s_ease-in-out_infinite]" 
+           style={{ top: '30%', left: '45%', boxShadow: '0 0 16px #c4ff4d', animationDelay: '6s' }} 
+      />
+      {/* Horizontal data streams - Desktop */}
+      <div className="hidden md:block absolute w-[300px] h-[1px] bg-gradient-to-r from-transparent via-[#c4ff4d]/40 to-transparent animate-[scanHorizontal1_10s_linear_infinite]" 
+           style={{ top: '28%', left: 0, boxShadow: '0 0 10px rgba(196, 255, 77, 0.4)' }} 
+      />
+      <div className="hidden md:block absolute w-[250px] h-[1px] bg-gradient-to-r from-transparent via-[#c4ff4d]/35 to-transparent animate-[scanHorizontal2_12s_linear_infinite]" 
+           style={{ top: '48%', left: 0, boxShadow: '0 0 8px rgba(196, 255, 77, 0.3)', animationDelay: '4s' }} 
+      />
+      <div className="hidden md:block absolute w-[280px] h-[1px] bg-gradient-to-r from-transparent via-[#c4ff4d]/30 to-transparent animate-[scanHorizontal1_14s_linear_infinite]" 
+           style={{ top: '68%', left: 0, boxShadow: '0 0 9px rgba(196, 255, 77, 0.3)', animationDelay: '7s' }} 
+      />
+      <div className="hidden md:block absolute w-[200px] h-[1px] bg-gradient-to-r from-transparent via-[#c4ff4d]/25 to-transparent animate-[scanHorizontal2_16s_linear_infinite]" 
+           style={{ top: '82%', left: 0, boxShadow: '0 0 7px rgba(196, 255, 77, 0.2)', animationDelay: '10s' }} 
       />
       {/* Light Sweep Effect */}
       <div className="hidden md:block absolute inset-0 overflow-hidden pointer-events-none">
@@ -123,7 +158,7 @@ export default function HeroSection() {
                 </h1>
 
                 <p className="text-[15px] md:text-sm lg:text-base text-white max-w-xl mx-auto md:mx-0 leading-relaxed mb-5 md:mb-4 font-light tracking-wide">
-                  Certified AI talent + Tailored Workflows + Measurable Growth = Less Cost. More Reach + More Sales
+                  Certified AI talent + Tailored Workflows + Measurable Growth = Less Cost. More Reach. More Sales
                 </p>
 
                 <div className="flex flex-col items-center md:items-start gap-3 md:gap-3">
