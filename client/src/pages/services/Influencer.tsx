@@ -2,10 +2,10 @@ import { useState, useEffect } from 'react';
 import { Link } from 'wouter';
 import { ArrowRight, CheckCircle, ChevronLeft, ChevronRight, Megaphone, Users, FileText, Play } from 'lucide-react';
 import Layout from '@/components/layout/Layout';
-import picnicImg from '@assets/stock_images/flat_lay_picnic_blan_e2f94356.jpg';
-import skincareImg from '@assets/stock_images/skincare_beauty_prod_d67a31ee.jpg';
-import packageImg from '@assets/stock_images/package_delivery_car_227b2f33.jpg';
-import largeTeamImg from '@assets/stock_images/influencer_marketing_a9826a49.jpg';
+import picnicImg from '@assets/stock_images/social_media_influen_3c07c2fc.jpg';
+import skincareImg from '@assets/stock_images/social_media_influen_496eb368.jpg';
+import packageImg from '@assets/stock_images/social_media_influen_0dbb3056.jpg';
+import largeTeamImg from '@assets/stock_images/digital_marketing_st_5a50cd8e.jpg';
 import tefalHeroImg from '@assets/TefalPictures-32-scaled_1761760754960.jpg';
 import bodyShopHeroImg from '@assets/The-Body-Shop-Social-Marketing-Agency_1761842288034.jpg';
 

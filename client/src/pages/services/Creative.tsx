@@ -2,10 +2,10 @@ import { useState, useEffect } from 'react';
 import { Link } from 'wouter';
 import { ArrowRight, CheckCircle, ChevronLeft, ChevronRight, Camera, Palette, Briefcase, Video, FileText, Play } from 'lucide-react';
 import Layout from '@/components/layout/Layout';
-import videoProductionImg from '@assets/stock_images/video_production_beh_bd5a9a1a.jpg';
-import cameraMonitorImg from '@assets/stock_images/camera_monitor_displ_2de527a0.jpg';
-import designWorkspaceImg from '@assets/stock_images/graphic_designer_wor_df6aa1c0.jpg';
-import largeTeamImg from '@assets/stock_images/creative_agency_team_dc7efcf4.jpg';
+import videoProductionImg from '@assets/stock_images/video_production_stu_19004f37.jpg';
+import cameraMonitorImg from '@assets/stock_images/video_production_stu_5144a38f.jpg';
+import designWorkspaceImg from '@assets/stock_images/creative_team_workin_79883382.jpg';
+import largeTeamImg from '@assets/stock_images/creative_team_workin_4b023730.jpg';
 
 export default function Creative() {
   const [currentService, setCurrentService] = useState(0);

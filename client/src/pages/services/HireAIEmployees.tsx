@@ -2,12 +2,12 @@ import { useState, useEffect } from 'react';
 import { Link } from 'wouter';
 import { ArrowRight, CheckCircle, Users, Code, Zap, Target } from 'lucide-react';
 import Layout from '@/components/layout/Layout';
-import heroImg from '@assets/stock_images/ai_software_developm_725be51d.jpg';
-import teamImg1 from '@assets/stock_images/luxury_fashion_retai_32a7703b.jpg';
-import teamImg2 from '@assets/stock_images/healthcare_patient_c_b0453f09.jpg';
-import codingTeamImg from '@assets/stock_images/ai_engineers_coding__8a2ab34e.jpg';
-import dataScientistsImg from '@assets/stock_images/data_scientists_anal_9fe47952.jpg';
-import remoteTeamImg from '@assets/stock_images/remote_work_team_vid_8868b77b.jpg';
+import heroImg from '@assets/stock_images/software_development_e22831c9.jpg';
+import teamImg1 from '@assets/stock_images/artificial_intellige_ec409837.jpg';
+import teamImg2 from '@assets/stock_images/artificial_intellige_12bf09cb.jpg';
+import codingTeamImg from '@assets/stock_images/software_development_bf22fbae.jpg';
+import dataScientistsImg from '@assets/stock_images/digital_marketing_st_e4117c4b.jpg';
+import remoteTeamImg from '@assets/stock_images/software_development_5606ca42.jpg';
 
 export default function HireAIEmployees() {
   const [currentService, setCurrentService] = useState(0);

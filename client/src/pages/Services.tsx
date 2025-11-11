@@ -24,19 +24,19 @@ const categoryIcons: Record<string, any> = {
 
 const categoryColors: Record<string, { gradient: string; accent: string; glow: string }> = {
   'aiCreative': {
-    gradient: 'from-orange-500 via-orange-600 to-red-600',
-    accent: '#FF5A00',
-    glow: 'shadow-[0_0_60px_rgba(255,90,0,0.4)]'
-  },
-  'revenue': {
-    gradient: 'from-[#00FF9C] via-green-400 to-[#c4ff4d]',
+    gradient: 'from-[#00FF9C] via-green-400 to-emerald-500',
     accent: '#00FF9C',
     glow: 'shadow-[0_0_60px_rgba(0,255,156,0.5)]'
   },
-  'aiEmployees': {
+  'revenue': {
     gradient: 'from-[#c4ff4d] via-lime-400 to-green-400',
     accent: '#c4ff4d',
-    glow: 'shadow-[0_0_60px_rgba(196,255,77,0.4)]'
+    glow: 'shadow-[0_0_60px_rgba(196,255,77,0.5)]'
+  },
+  'aiEmployees': {
+    gradient: 'from-green-400 via-emerald-400 to-[#00FF9C]',
+    accent: '#00FF9C',
+    glow: 'shadow-[0_0_60px_rgba(0,255,156,0.4)]'
   },
 };
 
