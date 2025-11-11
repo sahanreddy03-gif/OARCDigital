@@ -63,6 +63,7 @@ import PDFHub from "@/pages/PDFHub";
 import PDFCompanyProfile from "@/pages/PDFCompanyProfile";
 import PDFOnePager from "@/pages/PDFOnePager";
 import PDFAICreativeProfile from "@/pages/PDFAICreativeProfile";
+import PDFCapabilitiesDeck from "@/pages/PDFCapabilitiesDeck";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -143,6 +144,7 @@ function Router() {
       
       {/* PDF Documents for Client Proposals */}
       <Route path="/pdf" component={PDFHub} />
+      <Route path="/pdf/capabilities-deck" component={PDFCapabilitiesDeck} />
       <Route path="/pdf/company-profile" component={PDFCompanyProfile} />
       <Route path="/pdf/one-pager" component={PDFOnePager} />
       <Route path="/pdf/ai-creative-profile" component={PDFAICreativeProfile} />
