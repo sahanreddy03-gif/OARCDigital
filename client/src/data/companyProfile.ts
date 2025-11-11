@@ -214,7 +214,7 @@ export const targetIndustries = [
 export const clientTestimonials = [
   {
     quote: "OARC Digital doesn't just create campaigns—they build systems that generate revenue on autopilot. Our marketing ROI has never been higher.",
-    author: "Sarah Martinez",
+    author: "Antonia Camilleri",
     position: "Marketing Director",
     company: "Mediterranean Retail Chain",
     location: "Malta"
@@ -231,6 +231,13 @@ export const clientTestimonials = [
     author: "Maria Borg",
     position: "Owner",
     company: "Boutique Café Brand",
+    location: "Malta"
+  },
+  {
+    quote: "The automation systems OARC built have completely transformed our patient journey. We've seen a dramatic increase in bookings and a massive reduction in no-shows.",
+    author: "Dr. Karmenu Mifsud",
+    position: "Clinical Director",
+    company: "Premium Dental Studio",
     location: "Malta"
   }
 ];
