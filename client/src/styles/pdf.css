@@ -38,6 +38,7 @@
   background: #ffffff;
   color: #111111;
   line-height: 1.6;
+  position: relative;
 }
 
 /* OLD: Replaced by comprehensive deck styles below */
@@ -524,31 +525,70 @@
 }
 
 .pdf-section-header {
-  margin-bottom: 30px;
-  border-bottom: 3px solid #FF5A00;
-  padding-bottom: 15px;
+  margin-bottom: 32px;
+  position: relative;
+  padding-bottom: 16px;
+}
+
+.pdf-section-header::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(255, 90, 0, 0.8) 0%, rgba(0, 255, 156, 0.8) 50%, rgba(196, 255, 77, 0.8) 100%);
+}
+
+.pdf-section-header::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, #FF5A00, #00FF9C);
+  border-radius: 2px;
 }
 
 .pdf-section-header h2 {
   font-size: 32px;
-  font-weight: 800;
-  color: #1a1a1a;
-  margin: 0 0 5px 0;
+  font-weight: 900;
+  color: #0a0a0a;
+  margin: 0 0 6px 0;
+  letter-spacing: -0.5px;
 }
 
 .pdf-section-header p {
   font-size: 14px;
   color: #666;
   margin: 0;
-  font-weight: 500;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 12px;
 }
 
 .pdf-card {
   background: #ffffff;
-  border: 1px solid #e5e7eb;
-  border-radius: 12px;
-  padding: 24px;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 26px;
   page-break-inside: avoid;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.pdf-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, rgba(255, 90, 0, 0.3), rgba(0, 255, 156, 0.3), rgba(196, 255, 77, 0.3));
+  opacity: 0.5;
 }
 
 .hover-card {
