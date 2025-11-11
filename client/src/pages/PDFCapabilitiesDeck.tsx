@@ -1,13 +1,15 @@
-import { Zap, Users, TrendingUp, Target, Clock, Globe, Cpu, Palette, Database, Rocket } from "lucide-react";
+import { Zap, Users, TrendingUp, Target, Clock, Globe, Cpu, Palette, Database, Rocket, Sparkles } from "lucide-react";
 import { companyInfo, aboutText, coreServices, whyChooseUs, processSteps, caseStudies as maltaCaseStudies, technologyStack, clientTestimonials, keyDifferentiators } from "@/data/companyProfile";
 import { caseStudies as websiteCaseStudies } from "@/data/caseStudies";
 import { useEffect } from "react";
+import logoImage from "@assets/fdfdfd_1762818183304.png";
 
 export default function PDFCapabilitiesDeck() {
   const websiteCases = Object.values(websiteCaseStudies);
 
   useEffect(() => {
     document.title = "OARC Digital - Capabilities Deck | AI-Powered Marketing Agency";
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
 
   return (
@@ -17,6 +19,10 @@ export default function PDFCapabilitiesDeck() {
           {/* Dark background with gradient */}
           <div className="absolute inset-0 bg-gradient-to-br from-[#0a0a0a] via-[#1a1a1a] to-[#0f0f0f]"></div>
           
+          {/* Animated gradient orbs */}
+          <div className="absolute top-20 left-20 w-96 h-96 bg-gradient-to-br from-orange-500/20 to-transparent rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 right-20 w-96 h-96 bg-gradient-to-br from-green-500/20 to-transparent rounded-full blur-3xl"></div>
+          
           {/* Subtle grid pattern overlay */}
           <div className="absolute inset-0 opacity-10" style={{
             backgroundImage: `linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px)`,
@@ -25,7 +31,20 @@ export default function PDFCapabilitiesDeck() {
 
           {/* Content */}
           <div className="relative z-10 space-y-8">
-            {/* Logo & Brand */}
+            {/* Logo Symbol */}
+            <div className="flex justify-center mb-6">
+              <div className="relative">
+                <div className="absolute inset-0 bg-gradient-to-r from-orange-500 to-green-500 rounded-2xl blur-xl opacity-50"></div>
+                <img 
+                  src={logoImage} 
+                  alt="OARC Digital" 
+                  className="relative w-24 h-24 object-contain mix-blend-lighten"
+                  style={{ filter: 'drop-shadow(0 0 20px rgba(196, 255, 77, 0.3))' }}
+                />
+              </div>
+            </div>
+
+            {/* Brand */}
             <div className="space-y-4">
               <div className="font-display font-black text-6xl tracking-tight">
                 <span className="text-white">OARC</span>
@@ -50,18 +69,27 @@ export default function PDFCapabilitiesDeck() {
             </div>
 
             {/* Quick Stats */}
-            <div className="grid grid-cols-3 gap-8 max-w-3xl mx-auto pt-8">
-              <div className="text-center">
-                <div className="text-4xl font-black text-[#00FF9C]">100+</div>
-                <div className="text-sm text-white/60 uppercase tracking-wider mt-1">Campaigns</div>
+            <div className="grid grid-cols-3 gap-6 max-w-3xl mx-auto pt-8">
+              <div className="relative group">
+                <div className="absolute inset-0 bg-gradient-to-r from-green-500/30 to-transparent rounded-xl blur-lg group-hover:blur-xl transition-all"></div>
+                <div className="relative text-center p-5 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10">
+                  <div className="text-3xl font-black text-[#00FF9C] mb-1">100+</div>
+                  <div className="text-xs text-white/60 uppercase tracking-wider">Campaigns</div>
+                </div>
               </div>
-              <div className="text-center">
-                <div className="text-4xl font-black text-[#FF5A00]">6</div>
-                <div className="text-sm text-white/60 uppercase tracking-wider mt-1">Major Brands</div>
+              <div className="relative group">
+                <div className="absolute inset-0 bg-gradient-to-r from-orange-500/30 to-transparent rounded-xl blur-lg group-hover:blur-xl transition-all"></div>
+                <div className="relative text-center p-5 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10">
+                  <div className="text-3xl font-black text-[#FF5A00] mb-1">6</div>
+                  <div className="text-xs text-white/60 uppercase tracking-wider">Major Brands</div>
+                </div>
               </div>
-              <div className="text-center">
-                <div className="text-4xl font-black text-[#c4ff4d]">24/7</div>
-                <div className="text-sm text-white/60 uppercase tracking-wider mt-1">AI Systems</div>
+              <div className="relative group">
+                <div className="absolute inset-0 bg-gradient-to-r from-[#c4ff4d]/30 to-transparent rounded-xl blur-lg group-hover:blur-xl transition-all"></div>
+                <div className="relative text-center p-5 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10">
+                  <div className="text-3xl font-black text-[#c4ff4d] mb-1">24/7</div>
+                  <div className="text-xs text-white/60 uppercase tracking-wider">AI Systems</div>
+                </div>
               </div>
             </div>
 
