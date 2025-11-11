@@ -8,30 +8,12 @@ import logoImage from "@assets/fdfdfd_1762818183304.png";
 export default function PDFHub() {
   const pdfs = [
     {
-      id: "company-profile",
-      title: "OARC Digital Company Profile",
-      description: "Comprehensive 10-page company deck covering services, case studies, technology stack, and contact information. Perfect for detailed client presentations.",
-      pages: "10 pages",
+      id: "capabilities-deck",
+      title: "OARC Digital Capabilities Deck",
+      description: "Comprehensive 12-page capabilities deck showcasing services, global brand success stories, Malta/EU case studies, technology stack, pricing tiers, process workflow, and results dashboard. The complete OARC Digital story in one premium document.",
+      pages: "12 pages",
       icon: FileText,
-      path: "/pdf/company-profile",
-      color: "from-orange-500 to-orange-600"
-    },
-    {
-      id: "one-pager",
-      title: "One-Page Capability Overview",
-      description: "Condensed single-page overview of services, differentiators, technologies, and industries served. Ideal for quick introductions and email attachments.",
-      pages: "1 page",
-      icon: File,
-      path: "/pdf/one-pager",
-      color: "from-green-500 to-emerald-600"
-    },
-    {
-      id: "ai-creative",
-      title: "AI & Creative Services Profile",
-      description: "AI-focused 8-page deck highlighting AI capabilities, automation services, creative solutions, and AI-driven case studies. Best for tech-savvy prospects.",
-      pages: "8 pages",
-      icon: Brain,
-      path: "/pdf/ai-creative-profile",
+      path: "/pdf/capabilities-deck",
       color: "from-orange-500 to-green-500"
     }
   ];
@@ -54,7 +36,7 @@ export default function PDFHub() {
           </div>
 
           {/* PDF Cards */}
-          <div className="grid md:grid-cols-3 gap-8 mb-16">
+          <div className="grid md:grid-cols-1 max-w-2xl mx-auto gap-8 mb-16">
             {pdfs.map((pdf) => {
               const Icon = pdf.icon;
               return (
@@ -132,53 +114,51 @@ export default function PDFHub() {
               </div>
               
               <div>
-                <h3 className="text-lg font-semibold text-green-500 mb-3">Usage Recommendations</h3>
+                <h3 className="text-lg font-semibold text-green-500 mb-3">What's Inside</h3>
                 <ul className="space-y-2 text-slate-300">
                   <li className="flex gap-3">
                     <span className="text-green-500">•</span>
-                    <span><strong>Company Profile:</strong> For detailed client meetings and comprehensive proposals</span>
+                    <span><strong>Executive Snapshot:</strong> At-a-glance metrics and company overview</span>
                   </li>
                   <li className="flex gap-3">
                     <span className="text-green-500">•</span>
-                    <span><strong>One-Pager:</strong> For cold outreach, email attachments, and quick introductions</span>
+                    <span><strong>Global Brand Case Studies:</strong> Results from Gym Group, Azzaro, Body Shop, Tefal, Lenovo, ESL Gaming</span>
                   </li>
                   <li className="flex gap-3">
                     <span className="text-green-500">•</span>
-                    <span><strong>AI & Creative:</strong> For tech companies and AI-focused prospects</span>
+                    <span><strong>Malta & EU Success Stories:</strong> Local market expertise with measurable results</span>
                   </li>
                   <li className="flex gap-3">
                     <span className="text-green-500">•</span>
-                    <span><strong>Tip:</strong> Combine multiple PDFs for comprehensive client presentations</span>
+                    <span><strong>4D Framework:</strong> Our proven Discover → Design → Deploy → Dominate process</span>
                   </li>
                   <li className="flex gap-3">
                     <span className="text-green-500">•</span>
-                    <span><strong>Target:</strong> Malta and European market clients</span>
+                    <span><strong>Technology Stack:</strong> AI tools and platforms we leverage</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-green-500">•</span>
+                    <span><strong>Pricing Tiers:</strong> Starter, Growth, and Enterprise packages</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-green-500">•</span>
+                    <span><strong>Results Dashboard:</strong> Aggregate performance metrics across all clients</span>
                   </li>
                 </ul>
               </div>
             </div>
           </div>
 
-          {/* Quick Access Links */}
+          {/* Quick Access */}
           <div className="mt-12 text-center">
-            <h3 className="text-xl font-bold text-white mb-4">Quick Access Links</h3>
-            <div className="flex flex-wrap justify-center gap-4">
-              <Link href="/pdf/company-profile">
-                <Button variant="outline" className="text-white border-zinc-700 hover:border-orange-500">
-                  Company Profile (10p)
-                </Button>
-              </Link>
-              <Link href="/pdf/one-pager">
-                <Button variant="outline" className="text-white border-zinc-700 hover:border-green-500">
-                  One-Pager (1p)
-                </Button>
-              </Link>
-              <Link href="/pdf/ai-creative-profile">
-                <Button variant="outline" className="text-white border-zinc-700 hover:border-orange-500">
-                  AI & Creative (8p)
-                </Button>
-              </Link>
-            </div>
+            <p className="text-slate-400 mb-4">
+              This comprehensive deck combines all our capabilities, case studies, and pricing in one premium document—designed to match what top creative agencies send to prospects.
+            </p>
+            <Link href="/pdf/capabilities-deck">
+              <Button className="bg-gradient-to-r from-orange-500 to-green-500 text-white font-bold px-8 py-6 text-lg hover:opacity-90">
+                View Capabilities Deck
+              </Button>
+            </Link>
           </div>
         </div>
       </div>

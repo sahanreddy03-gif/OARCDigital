@@ -130,9 +130,6 @@ export default function Navigation() {
             <Link href="#resources" className="text-xs xl:text-sm font-medium text-white/90 hover:text-white transition-colors" data-testid="link-resources">
               Resources
             </Link>
-            <Link href="/pdf" className="text-xs xl:text-sm font-medium text-[#c4ff4d] hover:text-white transition-colors" data-testid="link-pdf">
-              Client PDFs
-            </Link>
           </div>
 
           <div className="flex items-center space-x-2 md:space-x-3">
@@ -182,11 +179,6 @@ export default function Navigation() {
             <Link href="#resources" data-testid="link-mobile-resources" onClick={() => setShowMobileMenu(false)}>
               <div className="text-base font-semibold text-zinc-900 py-2">
                 Resources
-              </div>
-            </Link>
-            <Link href="/pdf" data-testid="link-mobile-pdf" onClick={() => setShowMobileMenu(false)}>
-              <div className="text-base font-semibold text-[#ea580c] py-2">
-                Client PDFs
               </div>
             </Link>
           </div>

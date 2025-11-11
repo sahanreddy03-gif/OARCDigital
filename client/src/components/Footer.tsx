@@ -75,6 +75,7 @@ export default function Footer() {
               <li><Link href="#our-work" className="hover:text-background transition-colors" data-testid="link-footer-our-work">Our Work</Link></li>
               <li><Link href="#resources" className="hover:text-background transition-colors" data-testid="link-footer-resources">Resources</Link></li>
               <li><Link href="#contact" className="hover:text-background transition-colors" data-testid="link-footer-contact">Contact</Link></li>
+              <li><Link href="/pdf" className="hover:text-background transition-colors" data-testid="link-footer-pdf">Client PDFs</Link></li>
               <li>
                 <Link href="/services" className="hover:text-background transition-colors flex items-center gap-1 text-primary font-semibold" data-testid="link-footer-browse-all">
                   Browse all services
