@@ -2,12 +2,12 @@ import { useState, useEffect } from 'react';
 import { Link } from 'wouter';
 import { ArrowRight, CheckCircle, Zap, TrendingUp, DollarSign, Clock } from 'lucide-react';
 import Layout from '@/components/layout/Layout';
-import heroImg from '@assets/stock_images/business_automation__26134094.jpg';
-import automationImg1 from '@assets/stock_images/banking_financial_se_82fcc7e7.jpg';
-import automationImg2 from '@assets/stock_images/food_supply_chain_au_9bb3c110.jpg';
-import dashboardImg from '@assets/stock_images/business_automation__96f86786.jpg';
-import salesTeamImg from '@assets/stock_images/sales_team_celebrati_85643ebb.jpg';
-import financialOpsImg from '@assets/stock_images/financial_business_o_84f6cc1f.jpg';
+import heroImg from '@assets/stock_images/automation_technolog_5cf55af1.jpg';
+import automationImg1 from '@assets/stock_images/business_revenue_gro_a5fe035c.jpg';
+import automationImg2 from '@assets/stock_images/automation_technolog_fc043d68.jpg';
+import dashboardImg from '@assets/stock_images/business_revenue_gro_8da91583.jpg';
+import salesTeamImg from '@assets/stock_images/business_consulting__b093a06a.jpg';
+import financialOpsImg from '@assets/stock_images/automation_technolog_d8bbed9c.jpg';
 
 export default function RevenueAutomation() {
   const [currentService, setCurrentService] = useState(0);

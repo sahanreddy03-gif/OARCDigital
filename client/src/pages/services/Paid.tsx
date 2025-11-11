@@ -3,10 +3,10 @@ import { Link } from 'wouter';
 import { ArrowRight, CheckCircle, ChevronLeft, ChevronRight, BarChart, Palette, Settings, Target, TrendingUp, Play } from 'lucide-react';
 import { SiMeta, SiGoogle, SiTiktok, SiPinterest } from 'react-icons/si';
 import Layout from '@/components/layout/Layout';
-import formalTeamImg from '@assets/stock_images/formal_business_team_e3dbd64c.jpg';
-import conferenceTeamImg from '@assets/stock_images/business_team_at_con_35a6f7e7.jpg';
-import studioImg from '@assets/stock_images/podcast_studio_recor_a6925bd7.jpg';
-import largeTeamImg from '@assets/stock_images/paid_advertising_med_3d5d9fb1.jpg';
+import formalTeamImg from '@assets/stock_images/digital_advertising__84eb3355.jpg';
+import conferenceTeamImg from '@assets/stock_images/digital_advertising__e3a5e56c.jpg';
+import studioImg from '@assets/stock_images/graphic_design_creat_e05eb8ba.jpg';
+import largeTeamImg from '@assets/stock_images/digital_advertising__72c578c7.jpg';
 
 export default function Paid() {
   const [currentService, setCurrentService] = useState(0);

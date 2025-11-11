@@ -2,9 +2,9 @@ import { useState, useEffect } from 'react';
 import { Link } from 'wouter';
 import { ArrowRight, CheckCircle, Smartphone, Code, Zap, Users } from 'lucide-react';
 import Layout from '@/components/layout/Layout';
-import heroImg from '@assets/stock_images/mobile_app_developme_12e99cc2.jpg';
-import appImg1 from '@assets/stock_images/mobile_app_developme_41ccf1c2.jpg';
-import appImg2 from '@assets/stock_images/mobile_app_developme_51e6a80f.jpg';
+import heroImg from '@assets/stock_images/mobile_app_design_us_2b0d5cbd.jpg';
+import appImg1 from '@assets/stock_images/mobile_app_design_us_5eb8ced7.jpg';
+import appImg2 from '@assets/stock_images/mobile_app_design_us_1ba5497a.jpg';
 
 export default function MobileAppsDevelopment() {
   const [currentService, setCurrentService] = useState(0);

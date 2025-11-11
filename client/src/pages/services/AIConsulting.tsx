@@ -2,9 +2,9 @@ import { useState, useEffect } from 'react';
 import { Link } from 'wouter';
 import { ArrowRight, CheckCircle, Cpu, Target, Lightbulb, BarChart3 } from 'lucide-react';
 import Layout from '@/components/layout/Layout';
-import consultingImg1 from '@assets/stock_images/business_strategy_co_75cf4bec.jpg';
-import consultingImg2 from '@assets/stock_images/technology_innovatio_488c6366.jpg';
-import consultingImg3 from '@assets/stock_images/digital_transformati_8ce03e9d.jpg';
+import consultingImg1 from '@assets/stock_images/business_consulting__b093a06a.jpg';
+import consultingImg2 from '@assets/stock_images/business_consulting__4b14a0ea.jpg';
+import consultingImg3 from '@assets/stock_images/business_consulting__c7f465ad.jpg';
 
 export default function AIConsulting() {
   const [currentService, setCurrentService] = useState(0);
