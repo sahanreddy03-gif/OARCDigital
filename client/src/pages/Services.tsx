@@ -46,10 +46,8 @@ const categoryTaglines: Record<string, string> = {
   'aiEmployees': 'Your 24/7 digital workforce — smarter, faster, scalable.',
 };
 
-function AnimatedCounter({ value, suffix = '' }: { value: number; suffix?: string }) {
+function AnimatedCounterInline({ value, suffix = '', isInView }: { value: number; suffix?: string; isInView: boolean }) {
   const [count, setCount] = useState(0);
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true });
 
   useEffect(() => {
     if (!isInView) return;
@@ -71,7 +69,7 @@ function AnimatedCounter({ value, suffix = '' }: { value: number; suffix?: strin
     return () => clearInterval(timer);
   }, [isInView, value]);
 
-  return <span ref={ref}>{count}{suffix}</span>;
+  return <span>{count}{suffix}</span>;
 }
 
 export default function Services() {
@@ -265,21 +263,27 @@ export default function Services() {
               { value: 25, suffix: '+', label: 'Premium Services', color: 'from-[#00FF9C] to-green-400' },
               { value: 500, suffix: '+', label: 'Projects Delivered', color: 'from-[#c4ff4d] to-lime-400' },
               { value: 98, suffix: '%', label: 'Client Satisfaction', color: 'from-green-400 to-[#00FF9C]' }
-            ].map((stat, index) => (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="text-center p-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:border-[#00FF9C]/30 transition-all"
-              >
-                <div className={`text-3xl md:text-4xl font-black bg-gradient-to-r ${stat.color} bg-clip-text text-transparent mb-3`}>
-                  <AnimatedCounter value={stat.value} suffix={stat.suffix} />
-                </div>
-                <div className="text-sm text-zinc-400 font-medium">{stat.label}</div>
-              </motion.div>
-            ))}
+            ].map((stat, index) => {
+              const ref = useRef<HTMLDivElement>(null);
+              const isInView = useInView(ref, { once: true });
+              
+              return (
+                <motion.div
+                  key={stat.label}
+                  ref={ref}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="text-center p-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:border-[#00FF9C]/30 transition-all"
+                >
+                  <div className={`text-3xl md:text-4xl font-black bg-gradient-to-r ${stat.color} bg-clip-text text-transparent mb-3`}>
+                    <AnimatedCounterInline value={stat.value} suffix={stat.suffix} isInView={isInView} />
+                  </div>
+                  <div className="text-sm text-zinc-400 font-medium">{stat.label}</div>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -467,7 +471,7 @@ export default function Services() {
 
       {/* CTA Section */}
       <section className="relative py-32 px-6 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-purple-900 via-pink-900 to-orange-900"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-green-950 via-emerald-950 to-black"></div>
         <motion.div
           animate={{
             scale: [1, 1.1, 1],
@@ -478,7 +482,20 @@ export default function Services() {
             repeat: Infinity,
             ease: "easeInOut"
           }}
-          className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-purple-500/30 to-transparent rounded-full blur-3xl"
+          className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-[#00FF9C]/20 to-transparent rounded-full blur-3xl"
+        ></motion.div>
+        <motion.div
+          animate={{
+            scale: [1.1, 1, 1.1],
+            rotate: [5, 0, 5],
+          }}
+          transition={{
+            duration: 18,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 1
+          }}
+          className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-br from-[#c4ff4d]/20 to-transparent rounded-full blur-3xl"
         ></motion.div>
 
         <div className="relative z-10 max-w-5xl mx-auto text-center">
@@ -487,17 +504,17 @@ export default function Services() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl md:text-6xl font-black mb-8">
+            <h2 className="text-3xl md:text-5xl font-black mb-6">
               Ready to Transform <br />Your Business?
             </h2>
-            <p className="text-lg md:text-xl text-white/80 mb-12 max-w-3xl mx-auto">
+            <p className="text-base md:text-lg text-white/80 mb-10 max-w-3xl mx-auto">
               Let's create something extraordinary together. Start your journey with OARC Digital today.
             </p>
             <Link href="/contact">
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-10 py-4 bg-white text-black rounded-full font-black text-base hover:bg-zinc-100 transition-colors"
+                className="px-9 py-3.5 bg-gradient-to-r from-[#00FF9C] to-green-500 text-black rounded-full font-black text-sm hover:from-[#c4ff4d] hover:to-lime-400 transition-all"
                 data-testid="button-get-started-cta"
               >
                 Get Started Now
