@@ -221,7 +221,7 @@ export const clientTestimonials = [
   },
   {
     quote: "The AI sales agents are incredible. They handle lead qualification and initial outreach 24/7, freeing our team to focus on closing deals.",
-    author: "David Chen",
+    author: "Pieter van der Berg",
     position: "CEO",
     company: "EU Tech Startup",
     location: "Netherlands"

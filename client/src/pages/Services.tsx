@@ -5,10 +5,10 @@ import { motion, useScroll, useTransform, useInView } from 'framer-motion';
 import { getAllCategories } from '@/config/servicesConfig';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
-import heroImg from '@assets/stock_images/modern_digital_techn_e168622b.jpg';
-import creativeImg from '@assets/stock_images/creative_agency_team_2d8a0735.jpg';
-import growthImg from '@assets/stock_images/business_growth_char_f55804b3.jpg';
-import aiImg from '@assets/stock_images/artificial_intellige_c8e176df.jpg';
+import heroImg from '@assets/stock_images/digital_marketing_st_7e6d835f.jpg';
+import creativeImg from '@assets/stock_images/creative_team_workin_34aec086.jpg';
+import growthImg from '@assets/stock_images/business_revenue_gro_c01f15ff.jpg';
+import aiImg from '@assets/stock_images/artificial_intellige_3ed7faa2.jpg';
 
 const categoryImages: Record<string, string> = {
   'aiCreative': creativeImg,
@@ -24,19 +24,19 @@ const categoryIcons: Record<string, any> = {
 
 const categoryColors: Record<string, { gradient: string; accent: string; glow: string }> = {
   'aiCreative': {
-    gradient: 'from-purple-600 via-pink-600 to-orange-600',
-    accent: '#ea580c',
-    glow: 'shadow-[0_0_50px_rgba(234,88,12,0.3)]'
+    gradient: 'from-orange-500 via-orange-600 to-red-600',
+    accent: '#FF5A00',
+    glow: 'shadow-[0_0_60px_rgba(255,90,0,0.4)]'
   },
   'revenue': {
-    gradient: 'from-emerald-500 via-teal-500 to-cyan-500',
-    accent: '#5FD4C4',
-    glow: 'shadow-[0_0_50px_rgba(95,212,196,0.3)]'
+    gradient: 'from-[#00FF9C] via-green-400 to-[#c4ff4d]',
+    accent: '#00FF9C',
+    glow: 'shadow-[0_0_60px_rgba(0,255,156,0.5)]'
   },
   'aiEmployees': {
-    gradient: 'from-blue-600 via-indigo-600 to-purple-600',
-    accent: '#8b5cf6',
-    glow: 'shadow-[0_0_50px_rgba(139,92,246,0.3)]'
+    gradient: 'from-[#c4ff4d] via-lime-400 to-green-400',
+    accent: '#c4ff4d',
+    glow: 'shadow-[0_0_60px_rgba(196,255,77,0.4)]'
   },
 };
 
@@ -115,27 +115,27 @@ export default function Services() {
             alt="Digital Technology Background"
             className="w-full h-full object-cover"
           />
-          {/* Dark Gradient Wash for Text Contrast */}
-          <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-purple-900/40 to-black/90 z-10"></div>
+          {/* Dark Gradient Wash with Green Accent */}
+          <div className="absolute inset-0 bg-gradient-to-br from-black/85 via-green-950/30 to-black/90 z-10"></div>
           {/* Additional Depth Layer */}
           <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent z-10"></div>
-          {/* Animated Glow Orbs */}
+          {/* Animated Green Glow Orbs */}
           <motion.div
             animate={{
-              scale: [1, 1.2, 1],
-              opacity: [0.3, 0.6, 0.3],
+              scale: [1, 1.3, 1],
+              opacity: [0.2, 0.5, 0.2],
             }}
             transition={{
               duration: 8,
               repeat: Infinity,
               ease: "easeInOut"
             }}
-            className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-full blur-3xl"
+            className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-gradient-to-r from-[#00FF9C]/20 to-green-500/20 rounded-full blur-3xl"
           ></motion.div>
           <motion.div
             animate={{
               scale: [1.2, 1, 1.2],
-              opacity: [0.4, 0.7, 0.4],
+              opacity: [0.3, 0.6, 0.3],
             }}
             transition={{
               duration: 10,
@@ -143,7 +143,20 @@ export default function Services() {
               ease: "easeInOut",
               delay: 1
             }}
-            className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 rounded-full blur-3xl"
+            className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-gradient-to-r from-[#c4ff4d]/20 to-lime-500/20 rounded-full blur-3xl"
+          ></motion.div>
+          <motion.div
+            animate={{
+              scale: [1, 1.15, 1],
+              opacity: [0.25, 0.55, 0.25],
+            }}
+            transition={{
+              duration: 12,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 2
+            }}
+            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-orange-500/15 to-[#00FF9C]/15 rounded-full blur-3xl"
           ></motion.div>
         </motion.div>
 
@@ -158,7 +171,7 @@ export default function Services() {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <div className="inline-block mb-6">
-              <span className="px-6 py-3 bg-gradient-to-r from-purple-500/10 to-pink-500/10 border border-purple-500/20 rounded-full text-sm font-semibold text-purple-300 backdrop-blur-sm">
+              <span className="px-5 py-2.5 bg-gradient-to-r from-[#00FF9C]/10 to-green-500/10 border border-[#00FF9C]/30 rounded-full text-xs font-bold text-[#00FF9C] backdrop-blur-sm uppercase tracking-wider">
                 25+ Premium Services
               </span>
             </div>
@@ -168,13 +181,13 @@ export default function Services() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-4xl md:text-6xl lg:text-7xl font-black mb-8 leading-tight"
+            className="text-3xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight"
           >
             <span className="bg-gradient-to-r from-white via-zinc-100 to-zinc-300 bg-clip-text text-transparent">
               Elevate Your
             </span>
             <br />
-            <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-orange-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#00FF9C] via-[#c4ff4d] to-green-400 bg-clip-text text-transparent">
               Digital Presence
             </span>
           </motion.h1>
@@ -183,7 +196,7 @@ export default function Services() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-lg md:text-xl text-zinc-300 max-w-3xl mx-auto mb-12 leading-relaxed"
+            className="text-base md:text-lg text-zinc-300 max-w-2xl mx-auto mb-10 leading-relaxed"
           >
             From AI-powered automation to creative excellence—transform your business with cutting-edge services designed for the future.
           </motion.p>
@@ -198,7 +211,7 @@ export default function Services() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="group relative px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full font-bold text-base overflow-hidden"
+                className="group relative px-7 py-3.5 bg-gradient-to-r from-[#00FF9C] to-green-500 rounded-full font-bold text-sm overflow-hidden text-black"
                 data-testid="button-start-project"
               >
                 <span className="relative z-10 flex items-center gap-2">
@@ -206,7 +219,7 @@ export default function Services() {
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </span>
                 <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-pink-600 to-orange-600"
+                  className="absolute inset-0 bg-gradient-to-r from-[#c4ff4d] to-lime-400"
                   initial={{ x: "-100%" }}
                   whileHover={{ x: 0 }}
                   transition={{ duration: 0.3 }}
@@ -245,13 +258,13 @@ export default function Services() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-20 px-6 bg-gradient-to-b from-black to-zinc-900">
+      <section className="py-16 px-6 bg-gradient-to-b from-black via-zinc-950 to-zinc-900">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {[
-              { value: 25, suffix: '+', label: 'Premium Services' },
-              { value: 500, suffix: '+', label: 'Projects Delivered' },
-              { value: 98, suffix: '%', label: 'Client Satisfaction' }
+              { value: 25, suffix: '+', label: 'Premium Services', color: 'from-[#00FF9C] to-green-400' },
+              { value: 500, suffix: '+', label: 'Projects Delivered', color: 'from-[#c4ff4d] to-lime-400' },
+              { value: 98, suffix: '%', label: 'Client Satisfaction', color: 'from-green-400 to-[#00FF9C]' }
             ].map((stat, index) => (
               <motion.div
                 key={stat.label}
@@ -259,12 +272,12 @@ export default function Services() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="text-center"
+                className="text-center p-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:border-[#00FF9C]/30 transition-all"
               >
-                <div className="text-5xl md:text-6xl font-black bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-4">
+                <div className={`text-3xl md:text-4xl font-black bg-gradient-to-r ${stat.color} bg-clip-text text-transparent mb-3`}>
                   <AnimatedCounter value={stat.value} suffix={stat.suffix} />
                 </div>
-                <div className="text-lg text-zinc-400">{stat.label}</div>
+                <div className="text-sm text-zinc-400 font-medium">{stat.label}</div>
               </motion.div>
             ))}
           </div>
@@ -280,12 +293,12 @@ export default function Services() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-5xl font-black mb-6">
-              <span className="bg-gradient-to-r from-white to-zinc-400 bg-clip-text text-transparent">
+            <h2 className="text-2xl md:text-4xl font-black mb-5">
+              <span className="bg-gradient-to-r from-white via-[#00FF9C] to-white bg-clip-text text-transparent">
                 Choose Your Path
               </span>
             </h2>
-            <p className="text-lg text-zinc-400 max-w-2xl mx-auto">
+            <p className="text-base text-zinc-400 max-w-2xl mx-auto">
               Explore our three pillars of innovation
             </p>
           </motion.div>
