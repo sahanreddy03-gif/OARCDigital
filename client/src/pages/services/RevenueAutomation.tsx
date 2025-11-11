@@ -5,9 +5,9 @@ import Layout from '@/components/layout/Layout';
 import heroImg from '@assets/stock_images/automation_technolog_5cf55af1.jpg';
 import automationImg1 from '@assets/stock_images/business_revenue_gro_a5fe035c.jpg';
 import automationImg2 from '@assets/stock_images/automation_technolog_fc043d68.jpg';
-import dashboardImg from '@assets/stock_images/business_revenue_gro_8da91583.jpg';
-import salesTeamImg from '@assets/stock_images/business_consulting__b093a06a.jpg';
-import financialOpsImg from '@assets/stock_images/automation_technolog_d8bbed9c.jpg';
+import dashboardImg from '@assets/stock_images/financial_dashboard__226af471.jpg';
+import salesTeamImg from '@assets/stock_images/business_meeting_pre_11a921f2.jpg';
+import financialOpsImg from '@assets/stock_images/financial_dashboard__7725b2d7.jpg';
 
 export default function RevenueAutomation() {
   const [currentService, setCurrentService] = useState(0);
