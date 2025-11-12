@@ -56,8 +56,9 @@ export default function Footer() {
                   className="h-9 w-9 sm:h-10 sm:w-10 object-contain"
                   data-testid="img-footer-logo"
                 />
-                <div className="font-display font-black text-4xl text-white">
-                  OARC Digital
+                <div className="font-display font-black text-4xl">
+                  <span className="text-white">OARC </span>
+                  <span className="text-[#c4ff4d]">Digital</span>
                 </div>
               </div>
               <p className="text-zinc-400 text-lg font-medium max-w-md">

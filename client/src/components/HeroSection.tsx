@@ -143,16 +143,17 @@ export default function HeroSection() {
             <div className="w-full md:max-w-2xl text-center md:text-left">
               {/* Local backdrop behind text for mobile */}
               <div className="relative md:before:content-none before:absolute before:inset-0 before:-z-10 before:bg-black/50 before:blur-xl before:rounded-[32px] before:-m-4 md:before:m-0">
-                {/* OARC Digital Branding Badge */}
-                <div className="inline-flex items-center gap-2 px-4 py-2 bg-zinc-900/90 backdrop-blur-sm rounded-full mb-4 md:mb-4">
+                {/* OARC Digital Branding */}
+                <div className="flex items-center gap-3 mb-4 md:mb-4 justify-center md:justify-start">
                   <img 
                     src={companyLogo} 
                     alt="OARC Digital logo" 
                     className="h-12 w-12 sm:h-14 sm:w-14 object-contain"
                     data-testid="img-hero-logo"
                   />
-                  <span className="text-base md:text-lg font-bold text-white">
-                    OARC Digital
+                  <span className="text-2xl sm:text-3xl md:text-4xl font-bold">
+                    <span className="text-white">OARC </span>
+                    <span className="text-[#c4ff4d]">Digital</span>
                   </span>
                 </div>
                 

@@ -46,15 +46,16 @@ export default function Section2() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left Content */}
           <div className="order-2 lg:order-1">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-zinc-900 rounded-full mb-6 md:mb-8" data-testid="text-eyebrow">
+            <div className="flex items-center gap-2 mb-6 md:mb-8" data-testid="text-eyebrow">
               <img 
                 src={companyLogo} 
                 alt="OARC Digital logo" 
                 className="h-8 w-8 sm:h-9 sm:w-9 object-contain"
                 data-testid="img-section2-logo"
               />
-              <p className="text-sm md:text-base font-semibold text-white">
-                OARC Digital
+              <p className="text-sm md:text-base font-semibold">
+                <span className="text-zinc-900">OARC </span>
+                <span className="text-green-700">Digital</span>
               </p>
             </div>
             
