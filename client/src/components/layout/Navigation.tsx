@@ -21,14 +21,17 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2">
+          <Link href="/" className="flex items-center gap-2" data-testid="link-logo-home">
             <img 
               src={companyLogo} 
               alt="OARC Digital logo" 
               className="h-7 w-7 sm:h-8 sm:w-8 object-contain"
               data-testid="img-logo"
             />
-            <span className="text-2xl font-bold text-foreground" data-testid="link-home">OARC Digital</span>
+            <span className="text-2xl font-bold">
+              <span className="text-foreground">OARC </span>
+              <span className="text-[#c4ff4d]">Digital</span>
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
