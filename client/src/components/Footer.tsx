@@ -58,7 +58,7 @@ export default function Footer() {
                 />
                 <div className="font-display font-black text-4xl">
                   <span className="text-white">OARC </span>
-                  <span className="text-[#c4ff4d]">Digital</span>
+                  <span className="text-[#FF5A00]">Digital</span>
                 </div>
               </div>
               <p className="text-zinc-400 text-lg font-medium max-w-md">
