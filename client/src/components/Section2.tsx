@@ -55,7 +55,7 @@ export default function Section2() {
               />
               <p className="text-sm md:text-base font-bold">
                 <span className="text-zinc-900">OARC </span>
-                <span className="text-[#c4ff4d]">Digital</span>
+                <span className="text-[#4a7000]">Digital</span>
               </p>
             </div>
             
