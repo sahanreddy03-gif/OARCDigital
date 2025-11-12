@@ -136,11 +136,7 @@ export default function Influencer() {
       {/* Hero Section */}
       <section className="py-14 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
-          <div className="flex items-center gap-2 mb-4">
-            <div className="w-6 h-0.5 bg-black" data-testid="decorative-line-1"></div>
-            <div className="w-6 h-0.5 bg-black" data-testid="decorative-line-2"></div>
-          </div>
-
+          <div className="mb-4"></div>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-black mb-8" data-testid="heading-influencer">
             Influencer
           </h1>
@@ -177,11 +173,6 @@ export default function Influencer() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Text - Left */}
             <div>
-              <div className="flex items-center gap-2 mb-4">
-                <div className="w-6 h-0.5 bg-black"></div>
-                <div className="w-6 h-0.5 bg-black"></div>
-              </div>
-
               <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-black mb-6">
                 Human-led influencer approach
               </h2>
@@ -244,11 +235,6 @@ export default function Influencer() {
 
             {/* Text - Right */}
             <div>
-              <div className="flex items-center gap-2 mb-4">
-                <div className="w-6 h-0.5 bg-black"></div>
-                <div className="w-6 h-0.5 bg-black"></div>
-              </div>
-
               <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-black mb-6">
                 End-to-end Campaign Management
               </h2>
@@ -283,11 +269,6 @@ export default function Influencer() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Text - Left */}
             <div>
-              <div className="flex items-center gap-2 mb-4">
-                <div className="w-6 h-0.5 bg-black"></div>
-                <div className="w-6 h-0.5 bg-black"></div>
-              </div>
-
               <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-black mb-6">
                 Creators for User-generated Content
               </h2>

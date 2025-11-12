@@ -1,6 +1,7 @@
 import { Link } from "wouter";
 import { ArrowRight, Mail, Sparkles, Zap, TrendingUp, Award, Globe } from "lucide-react";
 import { getPreviewServices, servicesCatalog } from '@/config/servicesConfig';
+import companyLogo from "@assets/final 2_1762907995368.png";
 
 export default function Footer() {
   // Show first 5 items from each category for footer
@@ -48,9 +49,16 @@ export default function Footer() {
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8 mb-8">
             {/* Brand */}
             <div>
-              <div className="font-display font-black text-4xl mb-3">
-                <span className="text-white">OARC</span>
-                <span className="text-[#c4ff4d]"> Digital</span>
+              <div className="flex items-center gap-3 mb-3">
+                <img 
+                  src={companyLogo} 
+                  alt="OARC Digital logo" 
+                  className="h-9 w-9 sm:h-10 sm:w-10 object-contain"
+                  data-testid="img-footer-logo"
+                />
+                <div className="font-display font-black text-4xl text-white">
+                  OARC Digital
+                </div>
               </div>
               <p className="text-zinc-400 text-lg font-medium max-w-md">
                 Where Creativity Meets Intelligence. AI-powered marketing that drives real results.

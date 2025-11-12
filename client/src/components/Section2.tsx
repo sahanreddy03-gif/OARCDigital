@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { useState, useEffect } from "react";
 import { Link } from "wouter";
 import { SiFacebook, SiInstagram, SiLinkedin, SiX, SiYoutube, SiSpotify } from "react-icons/si";
+import companyLogo from "@assets/final 2_1762907995368.png";
 
 export default function Section2() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -45,9 +46,17 @@ export default function Section2() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left Content */}
           <div className="order-2 lg:order-1">
-            <p className="text-sm md:text-base font-semibold text-zinc-900 mb-6 md:mb-8" data-testid="text-eyebrow">
-              OARC Digital
-            </p>
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-zinc-900 rounded-full mb-6 md:mb-8" data-testid="text-eyebrow">
+              <img 
+                src={companyLogo} 
+                alt="OARC Digital logo" 
+                className="h-8 w-8 sm:h-9 sm:w-9 object-contain"
+                data-testid="img-section2-logo"
+              />
+              <p className="text-sm md:text-base font-semibold text-white">
+                OARC Digital
+              </p>
+            </div>
             
             <h2 className="text-[1.625rem] md:text-4xl lg:text-5xl xl:text-6xl font-bold text-zinc-900 leading-tight mb-6 md:mb-8" data-testid="text-section2-heading">
               <span className="block whitespace-nowrap">The results-driven</span>

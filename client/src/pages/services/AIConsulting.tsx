@@ -118,11 +118,7 @@ export default function AIConsulting() {
       {/* Hero Section */}
       <section className="py-14 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
-          <div className="flex items-center gap-2 mb-4">
-            <div className="w-6 h-0.5 bg-black" data-testid="decorative-line-1"></div>
-            <div className="w-6 h-0.5 bg-black" data-testid="decorative-line-2"></div>
-          </div>
-
+          <div className="mb-4"></div>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-black mb-8" data-testid="heading-ai-consulting">
             AI Consulting
           </h1>
