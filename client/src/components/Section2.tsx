@@ -53,9 +53,9 @@ export default function Section2() {
                 className="h-8 w-8 sm:h-9 sm:w-9 object-contain"
                 data-testid="img-section2-logo"
               />
-              <p className="text-sm md:text-base font-semibold">
+              <p className="text-sm md:text-base font-bold">
                 <span className="text-zinc-900">OARC </span>
-                <span className="text-green-700">Digital</span>
+                <span className="text-[#c4ff4d]">Digital</span>
               </p>
             </div>
             
