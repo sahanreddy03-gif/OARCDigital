@@ -143,7 +143,7 @@ export default function MobileAppsDevelopment() {
 
             <Link href="/contact">
               <button
-                className="inline-flex items-center gap-3 bg-[#5FD4C4] text-black rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2"
+                className="inline-flex items-center gap-3 bg-[#c4ff4d] text-black rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2"
                 data-testid="button-build-app"
               >
                 Build Your App
@@ -160,7 +160,7 @@ export default function MobileAppsDevelopment() {
       <section className="py-14 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-black text-black mb-2">
-            Mobile Development <span className="text-[#5FD4C4]">Services</span>
+            Mobile Development <span className="text-[#4a7000]">Services</span>
           </h2>
 
           <p className="text-base text-gray-700 mb-8">
@@ -174,7 +174,7 @@ export default function MobileAppsDevelopment() {
                 key={idx}
                 onClick={() => setCurrentService(idx)}
                 className={`h-2 rounded-full transition-all ${
-                  idx === currentService ? 'w-8 bg-[#5FD4C4]' : 'w-2 bg-gray-300'
+                  idx === currentService ? 'w-8 bg-[#4a7000]' : 'w-2 bg-gray-300'
                 }`}
                 data-testid={`dot-service-${idx}`}
               />
@@ -209,7 +209,7 @@ export default function MobileAppsDevelopment() {
                   <ul className="space-y-3">
                     {service.items.map((item, itemIdx) => (
                       <li key={itemIdx} className="flex items-start gap-2">
-                        <CheckCircle className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                        <CheckCircle className="h-4 w-4 text-[#4a7000] flex-shrink-0 mt-0.5" />
                         <span className="text-sm text-gray-700">{item}</span>
                       </li>
                     ))}
@@ -225,7 +225,7 @@ export default function MobileAppsDevelopment() {
       <section className="py-14 px-4 bg-zinc-50">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-black text-black mb-2">
-            Featured <span className="text-[#5FD4C4]">Case Studies</span>
+            Featured <span className="text-[#4a7000]">Case Studies</span>
           </h2>
 
           <p className="text-base text-gray-700 mb-8">
@@ -244,7 +244,7 @@ export default function MobileAppsDevelopment() {
                     />
                   </div>
                   <div className="p-6">
-                    <div className="text-xs font-bold text-[#5FD4C4] uppercase tracking-wider mb-2">
+                    <div className="text-xs font-bold text-[#4a7000] uppercase tracking-wider mb-2">
                       {study.industry}
                     </div>
                     <h3 className="text-xl font-bold text-black mb-3 group-hover:text-[#ea580c] transition-colors">
@@ -269,7 +269,7 @@ export default function MobileAppsDevelopment() {
       <section className="py-14 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-black text-black mb-2">
-            Why Choose <span className="text-[#5FD4C4]">OARC Digital</span>
+            Why Choose <span className="text-[#4a7000]">OARC Digital</span>
           </h2>
 
           <p className="text-base text-gray-700 mb-8">
@@ -295,15 +295,15 @@ export default function MobileAppsDevelopment() {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
-              <div className="text-5xl font-black text-[#5FD4C4] mb-3">5B+</div>
+              <div className="text-5xl font-black text-[#c4ff4d] mb-3">5B+</div>
               <p className="text-base text-zinc-300">Global Mobile Users</p>
             </div>
             <div>
-              <div className="text-5xl font-black text-[#5FD4C4] mb-3">70%</div>
+              <div className="text-5xl font-black text-[#c4ff4d] mb-3">70%</div>
               <p className="text-base text-zinc-300">Digital Time on Mobile</p>
             </div>
             <div>
-              <div className="text-5xl font-black text-[#5FD4C4] mb-3">$420B</div>
+              <div className="text-5xl font-black text-[#c4ff4d] mb-3">$420B</div>
               <p className="text-base text-zinc-300">App Store Revenue 2023</p>
             </div>
           </div>
@@ -321,7 +321,7 @@ export default function MobileAppsDevelopment() {
           </p>
           <Link href="/contact">
             <button
-              className="inline-flex items-center gap-3 bg-[#5FD4C4] text-black rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2"
+              className="inline-flex items-center gap-3 bg-[#c4ff4d] text-black rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2"
               data-testid="button-start-project"
             >
               Start Your Project
