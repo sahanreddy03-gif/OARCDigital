@@ -118,11 +118,7 @@ export default function Paid() {
       {/* Hero Section */}
       <section className="py-14 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
-          <div className="flex items-center gap-2 mb-4">
-            <div className="w-6 h-0.5 bg-black" data-testid="decorative-line-1"></div>
-            <div className="w-6 h-0.5 bg-black" data-testid="decorative-line-2"></div>
-          </div>
-
+          <div className="mb-4"></div>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-black mb-6" data-testid="heading-paid">
             Paid
           </h1>
@@ -159,11 +155,6 @@ export default function Paid() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Text - Left */}
             <div>
-              <div className="flex items-center gap-2 mb-4">
-                <div className="w-6 h-0.5 bg-black"></div>
-                <div className="w-6 h-0.5 bg-black"></div>
-              </div>
-
               <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-black mb-6">
                 We're an Award-Winning Paid Media Agency
               </h2>
@@ -238,11 +229,6 @@ export default function Paid() {
 
             {/* Text - Right */}
             <div>
-              <div className="flex items-center gap-2 mb-4">
-                <div className="w-6 h-0.5 bg-black"></div>
-                <div className="w-6 h-0.5 bg-black"></div>
-              </div>
-
               <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-black mb-6">
                 Our Strategic Approach to Future Proofing Your Brand
               </h2>
@@ -281,11 +267,6 @@ export default function Paid() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Text - Left */}
             <div>
-              <div className="flex items-center gap-2 mb-4">
-                <div className="w-6 h-0.5 bg-black"></div>
-                <div className="w-6 h-0.5 bg-black"></div>
-              </div>
-
               <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-black mb-6">
                 Reporting, Analysis and Attribution Modelling
               </h2>

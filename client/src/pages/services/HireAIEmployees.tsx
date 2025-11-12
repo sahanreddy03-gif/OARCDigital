@@ -131,11 +131,7 @@ export default function HireAIEmployees() {
         
         <div className="relative z-10 w-full px-6">
           <div className="max-w-6xl mx-auto">
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-6 h-0.5 bg-white" data-testid="decorative-line-1"></div>
-              <div className="w-6 h-0.5 bg-white" data-testid="decorative-line-2"></div>
-            </div>
-
+            <div className="mb-6"></div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6" data-testid="heading-hire-ai">
               Hire AI Engineering Teams
             </h1>
