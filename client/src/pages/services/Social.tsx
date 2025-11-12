@@ -326,7 +326,7 @@ export default function Social() {
                 key={idx}
                 onClick={() => setCurrentService(idx)}
                 className={`h-2 rounded-full transition-all ${
-                  idx === currentService ? 'w-8 bg-[#5FD4C4]' : 'w-2 bg-gray-300'
+                  idx === currentService ? 'w-8 bg-[#4a7000]' : 'w-2 bg-gray-300'
                 }`}
                 data-testid={`dot-service-${idx}`}
               />
@@ -368,7 +368,7 @@ export default function Social() {
                   <ul className="space-y-2">
                     {service.points.map((point, i) => (
                       <li key={i} className="flex items-start gap-2">
-                        <CheckCircle className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-1" />
+                        <CheckCircle className="h-4 w-4 text-[#4a7000] flex-shrink-0 mt-1" />
                         <span className="text-sm text-gray-800">{point}</span>
                       </li>
                     ))}
@@ -448,7 +448,7 @@ export default function Social() {
           <h2 className="text-3xl md:text-4xl font-black text-black mb-2">
             Checkout our latest
           </h2>
-          <h2 className="text-3xl md:text-4xl font-black text-[#5FD4C4] mb-8">
+          <h2 className="text-3xl md:text-4xl font-black text-[#4a7000] mb-8">
             Social content
           </h2>
 
@@ -461,7 +461,7 @@ export default function Social() {
                 className="w-full h-[400px] object-cover"
               />
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-20 h-20 bg-[#5FD4C4] rounded-full flex items-center justify-center">
+                <div className="w-20 h-20 bg-[#c4ff4d] rounded-full flex items-center justify-center">
                   <Play className="h-10 w-10 text-black fill-black ml-1" />
                 </div>
               </div>
@@ -478,7 +478,7 @@ export default function Social() {
                 className="w-full h-[400px] object-cover"
               />
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-20 h-20 bg-[#5FD4C4] rounded-full flex items-center justify-center">
+                <div className="w-20 h-20 bg-[#c4ff4d] rounded-full flex items-center justify-center">
                   <Play className="h-10 w-10 text-black fill-black ml-1" />
                 </div>
               </div>
@@ -522,7 +522,7 @@ export default function Social() {
                 key={idx}
                 onClick={() => setCurrentBenefit(idx)}
                 className={`h-2 rounded-full transition-all ${
-                  idx === currentBenefit ? 'w-8 bg-[#5FD4C4]' : 'w-2 bg-gray-300'
+                  idx === currentBenefit ? 'w-8 bg-[#4a7000]' : 'w-2 bg-gray-300'
                 }`}
                 data-testid={`dot-benefit-${idx}`}
               />
@@ -531,7 +531,7 @@ export default function Social() {
 
           {/* Benefit Card */}
           <div className="bg-black text-white rounded-3xl p-10" data-testid="card-benefit-current">
-            <div className="w-16 h-16 bg-[#5FD4C4] rounded-full flex items-center justify-center mb-6">
+            <div className="w-16 h-16 bg-[#4a7000] rounded-full flex items-center justify-center mb-6">
               <CheckCircle className="h-8 w-8 text-white" />
             </div>
 
@@ -561,10 +561,10 @@ export default function Social() {
       {/* Final CTA Section */}
       <section className="py-14 px-4 bg-white">
         <div className="max-w-4xl mx-auto">
-          <div className="bg-[#5FD4C4] rounded-3xl overflow-hidden" data-testid="card-final-cta">
+          <div className="bg-[#c4ff4d] rounded-3xl overflow-hidden" data-testid="card-final-cta">
             <div className="p-10 md:p-16">
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-black mb-8">
-                Don't be <span className="text-white">sheepish</span><br />let's talk
+                Don't be <span className="italic">sheepish</span><br />let's talk
               </h2>
               <Link href="/contact">
                 <button
@@ -598,7 +598,7 @@ export default function Social() {
               <input 
                 type="email"
                 placeholder="Email"
-                className="flex-1 px-6 py-4 rounded-full bg-gray-800 border-none text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#5FD4C4]"
+                className="flex-1 px-6 py-4 rounded-full bg-gray-800 border-none text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#4a7000]"
                 data-testid="input-email-newsletter"
               />
               <button
