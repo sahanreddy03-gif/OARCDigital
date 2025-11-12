@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import FloatingChipCarousel from "./FloatingChipCarousel";
 import heroBackground from '@assets/d375f1d50d97b0de7953ca2cecd2b8aea2cd96b2-3524x1181_1761251957292.avif';
+import companyLogo from "@assets/final 2_1762907995368.png";
 
 export default function HeroSection() {
   const [scrollY, setScrollY] = useState(0);
@@ -142,6 +143,19 @@ export default function HeroSection() {
             <div className="w-full md:max-w-2xl text-center md:text-left">
               {/* Local backdrop behind text for mobile */}
               <div className="relative md:before:content-none before:absolute before:inset-0 before:-z-10 before:bg-black/50 before:blur-xl before:rounded-[32px] before:-m-4 md:before:m-0">
+                {/* OARC Digital Branding Badge */}
+                <div className="inline-flex items-center gap-2 px-4 py-2 bg-zinc-900/90 backdrop-blur-sm rounded-full mb-4 md:mb-4">
+                  <img 
+                    src={companyLogo} 
+                    alt="OARC Digital logo" 
+                    className="h-12 w-12 sm:h-14 sm:w-14 object-contain"
+                    data-testid="img-hero-logo"
+                  />
+                  <span className="text-base md:text-lg font-bold text-white">
+                    OARC Digital
+                  </span>
+                </div>
+                
                 <div className="mb-3 md:mb-3">
                   <span className="text-[11px] md:text-[10px] lg:text-xs uppercase tracking-[0.2em] font-bold text-white leading-none">
                     WHERE CREATIVITY MEETS REVENUE
