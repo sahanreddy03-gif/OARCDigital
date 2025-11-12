@@ -143,18 +143,14 @@ export default function HeroSection() {
             <div className="w-full md:max-w-2xl text-center md:text-left">
               {/* Local backdrop behind text for mobile */}
               <div className="relative md:before:content-none before:absolute before:inset-0 before:-z-10 before:bg-black/50 before:blur-xl before:rounded-[32px] before:-m-4 md:before:m-0">
-                {/* OARC Digital Branding */}
-                <div className="flex items-center gap-3 mb-4 md:mb-4 justify-center md:justify-start">
+                {/* OARC Digital Logo Symbol Only */}
+                <div className="flex justify-center md:justify-start mb-4 md:mb-4">
                   <img 
                     src={companyLogo} 
-                    alt="OARC Digital logo" 
-                    className="h-12 w-12 sm:h-14 sm:w-14 object-contain"
+                    alt="OARC Digital" 
+                    className="h-16 w-16 sm:h-20 sm:w-20 md:h-24 md:w-24 object-contain"
                     data-testid="img-hero-logo"
                   />
-                  <span className="text-2xl sm:text-3xl md:text-4xl font-bold">
-                    <span className="text-white">OARC </span>
-                    <span className="text-[#c4ff4d]">Digital</span>
-                  </span>
                 </div>
                 
                 <div className="mb-3 md:mb-3">
