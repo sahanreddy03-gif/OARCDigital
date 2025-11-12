@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { Link } from "wouter";
 import { SiFacebook, SiInstagram, SiLinkedin, SiX, SiYoutube, SiSpotify } from "react-icons/si";
 import companyLogo from "@assets/final 2_1762907995368.png";
+import AdvancedScrollReveal, { StaggerContainer } from "@/components/AdvancedScrollReveal";
 
 export default function Section2() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -46,50 +47,56 @@ export default function Section2() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left Content */}
           <div className="order-2 lg:order-1">
-            <div className="flex items-center gap-2 mb-6 md:mb-8" data-testid="text-eyebrow">
-              <img 
-                src={companyLogo} 
-                alt="OARC Digital logo" 
-                className="h-8 w-8 sm:h-9 sm:w-9 object-contain"
-                data-testid="img-section2-logo"
-              />
-              <p className="text-sm md:text-base font-bold">
-                <span className="text-zinc-900">OARC </span>
-                <span className="text-[#4a7000]">Digital</span>
-              </p>
-            </div>
+            <AdvancedScrollReveal variant="fade" delay={100}>
+              <div className="flex items-center gap-2 mb-5 md:mb-6" data-testid="text-eyebrow">
+                <img 
+                  src={companyLogo} 
+                  alt="OARC Digital logo" 
+                  className="h-7 w-7 sm:h-8 sm:w-8 object-contain"
+                  data-testid="img-section2-logo"
+                />
+                <p className="text-xs md:text-sm font-semibold tracking-wide">
+                  <span className="text-zinc-900">OARC </span>
+                  <span className="text-[#4a7000]">Digital</span>
+                </p>
+              </div>
+            </AdvancedScrollReveal>
             
-            <h2 className="text-[1.625rem] md:text-4xl lg:text-5xl xl:text-6xl font-bold text-zinc-900 leading-tight mb-6 md:mb-8" data-testid="text-section2-heading">
-              <span className="block whitespace-nowrap">The results-driven</span>
-              <span className="text-[#5ce1e6] block whitespace-nowrap">Social First Agency</span>
-              <span className="block whitespace-nowrap">you've been looking for</span>
-            </h2>
+            <AdvancedScrollReveal variant="slide-up" delay={200}>
+              <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-zinc-900 leading-[1.15] tracking-tight mb-5 md:mb-7" data-testid="text-section2-heading">
+                <span className="block">The results-driven</span>
+                <span className="text-[#5ce1e6] block italic">Social First Agency</span>
+                <span className="block">you've been looking for</span>
+              </h2>
+            </AdvancedScrollReveal>
 
-            <div className="flex flex-col gap-4 w-full sm:flex-row sm:gap-5">
-              <Link href="/services/social-media-creative-management">
+            <AdvancedScrollReveal variant="slide-up" delay={300}>
+              <div className="flex flex-col gap-3 w-full sm:flex-row sm:gap-4">
+                <Link href="/services/social-media-creative-management">
+                  <Button 
+                    size="lg"
+                    className="bg-zinc-900 text-white font-semibold rounded-full w-full sm:w-auto flex-shrink-0 text-sm"
+                    data-testid="button-explore-social-services"
+                  >
+                    Explore Social Services
+                  </Button>
+                </Link>
+                
                 <Button 
+                  variant="outline"
                   size="lg"
-                  className="bg-zinc-900 text-white font-bold rounded-full w-full sm:w-auto flex-shrink-0"
-                  data-testid="button-explore-social-services"
+                  className="border-2 border-zinc-900 text-zinc-900 font-semibold rounded-full bg-transparent w-full sm:w-auto flex-shrink-0 text-sm"
+                  data-testid="button-meet-team"
                 >
-                  Explore Social Services
+                  Meet The Team
+                  <span aria-hidden="true">→</span>
                 </Button>
-              </Link>
-              
-              <Button 
-                variant="outline"
-                size="lg"
-                className="border-2 border-zinc-900 text-zinc-900 font-bold rounded-full bg-transparent w-full sm:w-auto flex-shrink-0"
-                data-testid="button-meet-team"
-              >
-                Meet The Team
-                <span aria-hidden="true">→</span>
-              </Button>
-            </div>
+              </div>
+            </AdvancedScrollReveal>
           </div>
 
           {/* Right Visual - Phone Mockup - Smaller with Animated Background */}
-          <div className="order-1 lg:order-2 flex justify-center lg:justify-end items-center">
+          <AdvancedScrollReveal variant="scale" delay={150} className="order-1 lg:order-2 flex justify-center lg:justify-end items-center">
             <div className="relative w-full max-w-[200px] md:max-w-[240px] lg:max-w-[280px]" style={{ aspectRatio: '9/16' }}>
               {/* Phone interior with animated Instagram/Reels-style backgrounds */}
               <div className="absolute inset-4 md:inset-5 rounded-[1.5rem] overflow-hidden">
@@ -166,7 +173,7 @@ export default function Section2() {
                 </svg>
               </div>
             </div>
-          </div>
+          </AdvancedScrollReveal>
         </div>
       </div>
     </section>
