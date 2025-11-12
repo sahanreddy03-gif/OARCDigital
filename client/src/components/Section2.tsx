@@ -57,7 +57,7 @@ export default function Section2() {
                 />
                 <p className="text-xs md:text-sm font-semibold tracking-wide">
                   <span className="text-zinc-900">OARC </span>
-                  <span className="text-[#4a7000]">Digital</span>
+                  <span className="text-[#FF5A00]">Digital</span>
                 </p>
               </div>
             </AdvancedScrollReveal>
