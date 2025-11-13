@@ -30,7 +30,7 @@ export default function Navigation() {
             />
             <span className="text-2xl font-bold">
               <span className="text-foreground">OARC </span>
-              <span className="text-[#c4ff4d]">Digital</span>
+              <span className="text-[#FF5A00]">Digital</span>
             </span>
           </Link>
 
