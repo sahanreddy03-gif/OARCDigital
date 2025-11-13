@@ -11,8 +11,7 @@ The platform features a React frontend and an Express.js backend, leveraging a m
 
 **Frontend:**
 -   **Framework & Language:** React 18+ with TypeScript, using Vite.
--   **UI/Styling:** Shadcn/ui (New York style) based on Radix UI, Tailwind CSS with a custom HSL-based color palette, Inter and Space Grotesk typography with Orbitron for brand logo text, and extensive CSS animations, including Framer Motion for scroll effects.
--   **Brand Typography (Nov 2025):** Orbitron font (Google Fonts, geometric sans-serif) applied to "OARC Digital" navigation branding across all pages. Distinctive features: Triangle-style letter "A" without horizontal crossbar, futuristic tech aesthetic, bold weights (400-900). Configured as `font-logo` family in Tailwind. Header adapts colors for readability: white text on dark hero backgrounds (homepage overlay nav), dark text on light backgrounds (internal pages standard nav). Orange accent (#FF5A00) maintained on "Digital" throughout.
+-   **UI/Styling:** Shadcn/ui (New York style) based on Radix UI, Tailwind CSS with a custom HSL-based color palette, Inter and Space Grotesk typography, and extensive CSS animations, including Framer Motion for scroll effects.
 -   **State Management & Routing:** Wouter for client-side routing, TanStack Query for server state management, and React Hook Form with Zod for form validation.
 -   **Design System:** Two-palette color system (primary green, orange-600 accents, with teal/turquoise and blue/purple brand colors), responsive typography, and performance-optimized CSS animations. Shadcn buttons use default variants.
 -   **Key Features:** Comprehensive homepage, 25 specialized service pages (creative, growth, AI services), consistent component standards, SPA-safe Open Graph tags, and mobile-first responsive design. Service pages include dynamically loaded content and SEO meta tags.

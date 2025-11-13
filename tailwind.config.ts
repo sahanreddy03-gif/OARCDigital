@@ -87,7 +87,6 @@ export default {
         serif: ["var(--font-serif)"],
         mono: ["var(--font-mono)"],
         display: ["'Space Grotesk'", "'Inter'", "sans-serif"],
-        logo: ["'Orbitron'", "'Space Grotesk'", "sans-serif"],
       },
       keyframes: {
         "accordion-down": {
