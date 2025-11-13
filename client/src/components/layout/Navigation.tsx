@@ -28,7 +28,7 @@ export default function Navigation() {
               className="h-7 w-7 sm:h-8 sm:w-8 object-contain"
               data-testid="img-logo"
             />
-            <span className="text-2xl font-bold">
+            <span className="text-2xl font-bold font-logo tracking-wide">
               <span className="text-foreground">OARC </span>
               <span className="text-[#FF5A00]">Digital</span>
             </span>
