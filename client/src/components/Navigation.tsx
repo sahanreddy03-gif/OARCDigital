@@ -4,6 +4,7 @@ import { Link } from "wouter";
 import { Menu, ChevronDown, ArrowRight, X } from "lucide-react";
 import { getPreviewServices, servicesCatalog } from '@/config/servicesConfig';
 import companyLogo from "@assets/final 2_1762907995368.png";
+import BrandLogo from './BrandLogo';
 
 export default function Navigation() {
   const [showServicesMenu, setShowServicesMenu] = useState(false);
@@ -24,10 +25,7 @@ export default function Navigation() {
               className="h-7 w-7 md:h-8 md:w-8 object-contain"
               data-testid="img-logo"
             />
-            <div className="font-logo font-bold text-lg md:text-xl lg:text-2xl tracking-wide">
-              <span className="text-white">OARC</span>
-              <span className="text-[#FF5A00]"> Digital</span>
-            </div>
+            <BrandLogo variant="white" className="text-lg md:text-xl lg:text-2xl" />
           </Link>
 
           {/* Desktop Menu */}

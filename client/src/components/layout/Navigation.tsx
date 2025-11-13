@@ -2,6 +2,7 @@ import { Link, useLocation } from "wouter";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import companyLogo from "@assets/final 2_1762907995368.png";
+import BrandLogo from '../BrandLogo';
 
 export default function Navigation() {
   const [location] = useLocation();
@@ -28,10 +29,7 @@ export default function Navigation() {
               className="h-7 w-7 sm:h-8 sm:w-8 object-contain"
               data-testid="img-logo"
             />
-            <span className="text-2xl font-bold font-logo tracking-wide">
-              <span className="text-foreground">OARC </span>
-              <span className="text-[#FF5A00]">Digital</span>
-            </span>
+            <BrandLogo variant="dark" className="text-2xl" />
           </Link>
 
           {/* Desktop Navigation */}
