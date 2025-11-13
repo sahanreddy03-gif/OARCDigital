@@ -33,7 +33,7 @@
       "description": "Generate platform-specific posts for LinkedIn, Twitter, Instagram, and Facebook—including captions, hashtags, and optimal posting times."
     },
     {
-      "icon":="Mail",
+      "icon": "Mail",
       "title": "Email Campaign Copy",
       "description": "Write subject lines, preview text, and email body copy optimized for opens, clicks, and conversions based on A/B test learnings."
     },
