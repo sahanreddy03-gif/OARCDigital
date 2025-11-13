@@ -1,22 +1,22 @@
-// Premium 8K quality stock images for homepage carousel
+// Custom carousel images for homepage hero section
 import { useEffect, useRef } from "react";
-import digitalMarketing from '@assets/stock_images/digital_marketing_st_73e0d5ea.jpg';
-import socialMedia from '@assets/stock_images/social_media_managem_8e61c86d.jpg';
-import aiVideo from '@assets/stock_images/video_production_stu_abf9b7e6.jpg';
-import branding from '@assets/stock_images/branding_design_logo_def8ba83.jpg';
-import paidAdvertising from '@assets/stock_images/paid_advertising_cam_32402c75.jpg';
-import mediaBuying from '@assets/stock_images/media_buying_profess_46c30c8a.jpg';
-import websiteDesign from '@assets/stock_images/website_design_ui_ux_4ef0c7cd.jpg';
-import influencerMarketing from '@assets/stock_images/influencer_marketing_bb368e00.jpg';
-import rapidTesting from '@assets/stock_images/rapid_prototyping_te_8f533efd.jpg';
-import leadGen from '@assets/stock_images/lead_generation_sale_842797d5.jpg';
-import creativeAds from '@assets/stock_images/creative_advertising_30aa5822.jpg';
-import customerAcquisition from '@assets/stock_images/customer_acquisition_f9d88ee5.jpg';
-import funnelAutomation from '@assets/stock_images/marketing_automation_0c8f4dcc.jpg';
-import aiCopywriting from '@assets/stock_images/copywriting_content__42613a28.jpg';
-import adminAI from '@assets/stock_images/administrative_assis_c2205c82.jpg';
-import salesAI from '@assets/stock_images/sales_professional_b_92ff4f35.jpg';
-import supportAI from '@assets/stock_images/customer_support_hel_973ef702.jpg';
+import digitalMarketing from '@assets/1_1763067301763.avif';
+import socialMedia from '@assets/stock_images/social_media_managem_8e61c86d.jpg'; // Keep old - file 2 missing
+import aiVideo from '@assets/3_1763067301764.avif';
+import branding from '@assets/4_1763067301765.avif';
+import paidAdvertising from '@assets/5_1763067301765.avif';
+import mediaBuying from '@assets/6_1763067301766.avif';
+import websiteDesign from '@assets/7_1763067301766.avif';
+import influencerMarketing from '@assets/8_1763067301767.avif';
+import rapidTesting from '@assets/9_1763067301767.avif';
+import leadGen from '@assets/stock_images/lead_generation_sale_842797d5.jpg'; // Keep old - file 10 missing
+import creativeAds from '@assets/11_1763067301767.avif';
+import customerAcquisition from '@assets/12_1763067301768.avif';
+import funnelAutomation from '@assets/13_1763067301768.avif';
+import aiCopywriting from '@assets/14_1763067301769.avif';
+import adminAI from '@assets/15_1763067301769.avif';
+import salesAI from '@assets/16_1763067301769.avif';
+import supportAI from '@assets/17_1763067301770.avif';
 
 const services = [
   { text: "Digital Marketing", image: digitalMarketing },
