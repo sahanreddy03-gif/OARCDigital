@@ -5,7 +5,7 @@ import { motion, useScroll, useTransform, useInView } from 'framer-motion';
 import { getAllCategories } from '@/config/servicesConfig';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
-import heroImg from '@assets/global-influencer-marketing-agency-socially-powerful_1763048685978.jpg';
+import heroImg from '@assets/837b9d2d4233bb346c214826035215a37160c085-3840x1432_1763049729526.avif';
 import creativeImg from '@assets/stock_images/creative_team_workin_34aec086.jpg';
 import growthImg from '@assets/stock_images/business_revenue_gro_c01f15ff.jpg';
 import aiImg from '@assets/stock_images/artificial_intellige_3ed7faa2.jpg';
