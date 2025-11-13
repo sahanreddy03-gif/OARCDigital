@@ -63,7 +63,7 @@ export default function Section3() {
   const duplicatedBrands = [...brands, ...brands, ...brands];
 
   return (
-    <section className="bg-white py-12 md:py-16 lg:py-20" data-testid="section-3">
+    <section className="relative bg-white py-12 md:py-16 lg:py-20" data-testid="section-3">
       <div className="container mx-auto px-4">
         {/* Heading - animates from center when scrolling */}
         <h2
@@ -112,6 +112,9 @@ export default function Section3() {
           </div>
         </div>
       </div>
+      
+      {/* Subtle gradient transition to next section */}
+      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-b from-transparent via-zinc-50 to-zinc-100 pointer-events-none"></div>
     </section>
   );
 }

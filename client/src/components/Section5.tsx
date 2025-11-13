@@ -1,6 +1,7 @@
 import aiExcellence from '@assets/739d30f2ecb844e9c1186e62ca63efbda518ff4a-1050x1200_1761257258076.avif';
 import creativeStrategy from '@assets/db64abcfab31dccdde04f1fb8be45337dfb692e9-1392x1392_1761257777037.avif';
 import revenueCentered from '@assets/07c35cf0cbddd33390e2f878e287f38703ae7b26-1040x904_1761258187346.avif';
+import sectionBackground from '@assets/This OARC_1763076281807.avif';
 
 const differentiators = [
   {
@@ -23,23 +24,24 @@ const differentiators = [
 export default function Section5() {
   return (
     <section className="relative py-16 md:py-24 lg:py-32 overflow-hidden" data-testid="section-5">
-      {/* Background matching hero section - black with warm orange/reddish tones */}
-      <div className="absolute inset-0 bg-black"></div>
-      <div className="absolute inset-0 bg-gradient-to-r from-black via-zinc-950/90 to-orange-950/50"></div>
-      <div className="absolute inset-0 bg-gradient-to-br from-black/50 via-transparent to-orange-900/35"></div>
+      {/* Background image - lowest layer */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0"
+        style={{ 
+          backgroundImage: `url(${sectionBackground})`
+        }}
+      ></div>
       
-      {/* Enhanced warm orange/reddish glow - matching hero's vibrant colors */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_100%_50%,rgba(251,146,60,0.25),transparent_55%)]"></div>
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_80%_20%,rgba(234,88,12,0.20),transparent_60%)]"></div>
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_0%_50%,rgba(0,0,0,0.7),transparent_45%)]"></div>
+      {/* Dark overlay for text readability - gradual darkening */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/70 to-black/80 z-[1]"></div>
       
-      {/* Warm reddish accent on bottom right */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_90%_80%,rgba(220,38,38,0.15),transparent_50%)]"></div>
+      {/* Additional warm overlay to maintain brand colors */}
+      <div className="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-transparent to-orange-950/30 z-[2]"></div>
       
-      {/* Final overlay for depth and cohesion */}
-      <div className="absolute inset-0 bg-gradient-to-t from-orange-950/10 to-transparent"></div>
+      {/* Smooth transition gradient from white (top) to dark - constrained to top only */}
+      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-white via-zinc-100/50 to-transparent z-[3] pointer-events-none"></div>
       
-      <div className="relative container mx-auto px-4 md:px-6 lg:px-12">
+      <div className="relative z-10 container mx-auto px-4 md:px-6 lg:px-12">
         {/* Section heading with exact green from hero CTA */}
         <div className="text-center mb-12 md:mb-16 lg:mb-20">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-white tracking-tight">
