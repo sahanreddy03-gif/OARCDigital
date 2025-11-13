@@ -16,6 +16,7 @@ import AdCreative from "@/pages/services/AdCreative";
 import WebDesign from "@/pages/services/WebDesign";
 import VideoProduction from "@/pages/services/VideoProduction";
 import HireAIEmployees from "@/pages/services/HireAIEmployees";
+import AIEmployeeService from "@/pages/services/AIEmployeeService";
 import RevenueAutomation from "@/pages/services/RevenueAutomation";
 import PaidAdvertising from "@/pages/services/PaidAdvertising";
 import MediaBuying from "@/pages/services/MediaBuying";
@@ -86,6 +87,13 @@ function Router() {
       <Route path="/services/web-design" component={WebDesign} />
       <Route path="/services/video-production" component={VideoProduction} />
       <Route path="/services/hire-ai-employees" component={HireAIEmployees} />
+      <Route path="/services/ai-sdr" component={AIEmployeeService} />
+      <Route path="/services/ai-support" component={AIEmployeeService} />
+      <Route path="/services/ai-marketing" component={AIEmployeeService} />
+      <Route path="/services/ai-writer" component={AIEmployeeService} />
+      <Route path="/services/ai-analyst" component={AIEmployeeService} />
+      <Route path="/services/ai-financial-analyst" component={AIEmployeeService} />
+      <Route path="/services/ai-admin" component={AIEmployeeService} />
       <Route path="/services/revenue-automation" component={RevenueAutomation} />
       <Route path="/services/paid-advertising" component={PaidAdvertising} />
       <Route path="/services/media-buying" component={MediaBuying} />

@@ -1,0 +1,85 @@
+{
+  "title": "AI Data Analyst",
+  "subtitle": "Transform raw data into actionable insights with automated analysis and reporting",
+  "description": "Deploy AI analysts that connect to your data sources, clean and analyze data, identify trends and anomalies, and generate executive-ready reports—no manual spreadsheet work required.",
+  "heroImage": "/api/placeholder/1200/600",
+  "benefits": [
+    {
+      "title": "Automated Data Collection",
+      "description": "Pull data from 50+ sources including Google Analytics, Salesforce, Stripe, ad platforms, and databases—all synced to a central warehouse automatically."
+    },
+    {
+      "title": "Intelligent Analysis",
+      "description": "AI identifies trends, correlations, outliers, and patterns in your data—surfacing insights humans might miss in massive datasets."
+    },
+    {
+      "title": "Natural Language Queries",
+      "description": "Ask questions in plain English like 'What drove the revenue spike last week?' and get instant answers with supporting visualizations."
+    },
+    {
+      "title": "Predictive Forecasting",
+      "description": "Use machine learning models to forecast sales, predict churn, estimate demand, and identify risks before they impact your business."
+    }
+  ],
+  "features": [
+    {
+      "icon": "BarChart3",
+      "title": "Executive Dashboards",
+      "description": "Auto-generate real-time dashboards showing KPIs, trends, and performance metrics tailored to each department or stakeholder."
+    },
+    {
+      "icon": "TrendingUp",
+      "title": "Trend Detection",
+      "description": "Automatically identify upward/downward trends, seasonal patterns, and unusual spikes—with alerts when metrics cross thresholds."
+    },
+    {
+      "icon": "FileText",
+      "title": "Automated Reporting",
+      "description": "Schedule weekly, monthly, or quarterly reports that compile data from multiple sources into polished PDFs or interactive dashboards."
+    },
+    {
+      "icon": "AlertCircle",
+      "title": "Anomaly Alerts",
+      "description": "Get instant notifications when data shows unexpected changes: sudden traffic drops, revenue dips, or unusual user behavior."
+    },
+    {
+      "icon": "Database",
+      "title": "Data Cleaning",
+      "description": "Automatically fix formatting issues, remove duplicates, fill missing values, and standardize data from inconsistent sources."
+    },
+    {
+      "icon": "Layers",
+      "title": "Multi-Source Integration",
+      "description": "Combine data from CRM, marketing platforms, finance tools, and product analytics into unified analysis without manual exports."
+    }
+  ],
+  "useCases": [
+    {
+      "title": "Marketing ROI Analysis",
+      "description": "Track campaign performance across Google Ads, Facebook, email, and organic—calculating true ROI by attributing revenue to each channel automatically."
+    },
+    {
+      "title": "Sales Performance Tracking",
+      "description": "Analyze win rates, deal velocity, pipeline health, and rep productivity by pulling CRM data daily and generating leaderboards and forecasts."
+    },
+    {
+      "title": "Customer Behavior Insights",
+      "description": "Identify which features drive retention, predict churn risk for individual accounts, and segment users by engagement patterns for targeted outreach."
+    }
+  ],
+  "integrations": [
+    "Google Analytics",
+    "Salesforce",
+    "HubSpot",
+    "Stripe",
+    "QuickBooks",
+    "BigQuery",
+    "Snowflake",
+    "Tableau"
+  ],
+  "metrics": {
+    "efficiency": "Save 30+ hours per week on manual reporting",
+    "speed": "Generate insights in minutes, not days",
+    "cost": "60% reduction in data analytics overhead"
+  }
+}

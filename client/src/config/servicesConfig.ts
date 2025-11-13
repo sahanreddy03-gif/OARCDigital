@@ -69,13 +69,13 @@ export const servicesCatalog: Record<string, ServiceCategory> = {
     },
     items: [
       { title: 'Hire AI Employees', slug: 'hire-ai-employees', badge: 'Popular', icon: Users },
-      { title: 'Sales Development Rep (SDR)', slug: 'ai-sdr', route: 'hire-ai-employees', icon: Target },
-      { title: 'Customer Support Agent', slug: 'ai-support', route: 'hire-ai-employees', icon: Users },
-      { title: 'Marketing Coordinator', slug: 'ai-marketing', route: 'hire-ai-employees', icon: Megaphone },
-      { title: 'Content Writer', slug: 'ai-writer', route: 'hire-ai-employees', icon: Palette },
-      { title: 'Data Analyst', slug: 'ai-analyst', route: 'hire-ai-employees', icon: BarChart3 },
-      { title: 'Social Media Manager', slug: 'ai-social', route: 'hire-ai-employees', icon: Megaphone },
-      { title: 'Administrative Assistant', slug: 'ai-admin', route: 'hire-ai-employees', icon: Layout },
+      { title: 'Sales Development Rep (SDR)', slug: 'ai-sdr', icon: Target },
+      { title: 'Customer Support Agent', slug: 'ai-support', icon: Users },
+      { title: 'Marketing Coordinator', slug: 'ai-marketing', icon: Megaphone },
+      { title: 'Content Writer', slug: 'ai-writer', icon: Palette },
+      { title: 'Data Analyst', slug: 'ai-analyst', icon: BarChart3 },
+      { title: 'Financial Analyst', slug: 'ai-financial-analyst', badge: 'New', icon: DollarSign },
+      { title: 'Administrative Assistant', slug: 'ai-admin', icon: Layout },
     ]
   },
   

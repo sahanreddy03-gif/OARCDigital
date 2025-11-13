@@ -1,0 +1,85 @@
+{
+  "title": "AI Administrative Assistant",
+  "subtitle": "Automate scheduling, email management, and administrative tasks to reclaim your time",
+  "description": "Deploy an AI administrative assistant that manages calendars, triages emails, schedules meetings, handles travel arrangements, and coordinates tasks—freeing executives and teams from routine admin work.",
+  "heroImage": "/api/placeholder/1200/600",
+  "benefits": [
+    {
+      "title": "Intelligent Calendar Management",
+      "description": "AI coordinates schedules across teams, finds optimal meeting times, handles rescheduling requests, and blocks focus time based on work patterns."
+    },
+    {
+      "title": "Email Triage & Responses",
+      "description": "Automatically classify emails by priority, draft responses to common requests, flag urgent items, and archive or file messages into folders."
+    },
+    {
+      "title": "Meeting Coordination",
+      "description": "Schedule internal meetings, book conference rooms, send calendar invites, prepare agendas, and distribute pre-read materials automatically."
+    },
+    {
+      "title": "Travel & Logistics",
+      "description": "Research flight options, book accommodations within budget, create detailed itineraries, and handle changes or cancellations on your behalf."
+    }
+  ],
+  "features": [
+    {
+      "icon": "Calendar",
+      "title": "Smart Scheduling",
+      "description": "AI learns scheduling preferences (no meetings before 10am, 30-min buffer between calls) and books appointments that respect these rules."
+    },
+    {
+      "icon": "Mail",
+      "title": "Email Inbox Management",
+      "description": "Sort incoming emails into categories, unsubscribe from unwanted lists, summarize long threads, and draft replies to routine inquiries."
+    },
+    {
+      "icon": "Users",
+      "title": "Meeting Preparation",
+      "description": "Pull relevant files, past meeting notes, and stakeholder context—then compile into pre-meeting briefs delivered an hour before each call."
+    },
+    {
+      "icon": "Plane",
+      "title": "Travel Booking",
+      "description": "Search flights, hotels, and car rentals based on your preferences and budget—presenting top 3 options for quick approval before booking."
+    },
+    {
+      "icon": "CheckSquare",
+      "title": "Task Management",
+      "description": "Track to-do items, send reminders for deadlines, follow up on pending requests, and update project management tools with task status."
+    },
+    {
+      "icon": "FileText",
+      "title": "Document Organization",
+      "description": "File emails and attachments into proper folders, rename files with clear naming conventions, and maintain organized shared drives."
+    }
+  ],
+  "useCases": [
+    {
+      "title": "Executive Support",
+      "description": "Manage C-level calendars with 30+ meetings per week: coordinate across time zones, prepare briefing docs, handle last-minute changes, and ensure no conflicts."
+    },
+    {
+      "title": "Sales Team Admin",
+      "description": "Book demo calls for AEs, send calendar invites to prospects, prepare account research briefs, and follow up with no-shows to reschedule automatically."
+    },
+    {
+      "title": "Event Coordination",
+      "description": "Manage company all-hands or team offsites: send save-the-dates, collect RSVPs, book venues, coordinate catering, and distribute agendas."
+    }
+  ],
+  "integrations": [
+    "Google Calendar",
+    "Microsoft Outlook",
+    "Gmail",
+    "Calendly",
+    "Zoom",
+    "Slack",
+    "Asana",
+    "Notion"
+  ],
+  "metrics": {
+    "efficiency": "Reclaim 15+ hours per week from admin tasks",
+    "speed": "Schedule meetings in under 60 seconds",
+    "cost": "50% reduction in administrative overhead"
+  }
+}

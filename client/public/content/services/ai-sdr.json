@@ -1,0 +1,85 @@
+{
+  "title": "AI Sales Development Rep (SDR)",
+  "subtitle": "Automate prospecting, qualification, and outreach to fill your pipeline 24/7",
+  "description": "Deploy an AI-powered SDR that identifies high-quality leads, personalizes outreach at scale, and books qualified meetings while your human team focuses on closing deals.",
+  "heroImage": "/api/placeholder/1200/600",
+  "benefits": [
+    {
+      "title": "24/7 Lead Qualification",
+      "description": "AI analyzes incoming leads against your ICP criteria, scores them automatically, and routes qualified prospects to the right sales rep instantly."
+    },
+    {
+      "title": "Personalized Outreach at Scale",
+      "description": "Generate custom email sequences, LinkedIn messages, and follow-ups tailored to each prospect's industry, pain points, and behavior."
+    },
+    {
+      "title": "Intelligent Meeting Booking",
+      "description": "Automatically schedule discovery calls with qualified leads, sync calendars, send reminders, and handle rescheduling requests."
+    },
+    {
+      "title": "CRM Auto-Sync",
+      "description": "Every interaction, email open, link click, and meeting is logged to your CRM with zero manual data entry required."
+    }
+  ],
+  "features": [
+    {
+      "icon": "Target",
+      "title": "Lead Enrichment & Scoring",
+      "description": "Automatically research prospects using LinkedIn, company websites, and databases to build rich profiles and assign priority scores."
+    },
+    {
+      "icon": "Mail",
+      "title": "Multi-Channel Sequences",
+      "description": "Orchestrate email, LinkedIn, and SMS touchpoints with AI-optimized timing and personalization based on engagement data."
+    },
+    {
+      "icon": "Calendar",
+      "title": "Smart Calendar Management",
+      "description": "Handle booking, rescheduling, and cancellations while respecting rep availability and time zones across global teams."
+    },
+    {
+      "icon": "BarChart3",
+      "title": "Performance Analytics",
+      "description": "Track open rates, response rates, meetings booked, and conversion metrics with real-time dashboards and insights."
+    },
+    {
+      "icon": "Zap",
+      "title": "Instant Follow-Ups",
+      "description": "Trigger contextual follow-ups within minutes of prospect actions like email opens, website visits, or content downloads."
+    },
+    {
+      "icon": "Users",
+      "title": "Territory Management",
+      "description": "Automatically assign leads to reps based on geography, industry, company size, or custom routing rules you define."
+    }
+  ],
+  "useCases": [
+    {
+      "title": "Inbound Lead Qualification",
+      "description": "AI SDR evaluates form submissions, asks qualifying questions via email, and books meetings only with leads that match your criteria—filtering out tire-kickers automatically."
+    },
+    {
+      "title": "Outbound Prospecting",
+      "description": "Upload target account lists and let AI research contacts, craft personalized outreach, and nurture prospects through multi-touch sequences until they respond or book a call."
+    },
+    {
+      "title": "Event Follow-Up",
+      "description": "After conferences or webinars, AI SDR sends personalized follow-ups to attendees, segments by engagement level, and schedules demos with hot prospects."
+    }
+  ],
+  "integrations": [
+    "Salesforce",
+    "HubSpot CRM",
+    "Outreach",
+    "Apollo.io",
+    "LinkedIn Sales Navigator",
+    "Calendly",
+    "Gmail",
+    "Slack"
+  ],
+  "metrics": {
+    "efficiency": "10x more leads qualified per day",
+    "speed": "Respond to inbound leads in under 60 seconds",
+    "cost": "80% reduction in SDR operational costs"
+  }
+}

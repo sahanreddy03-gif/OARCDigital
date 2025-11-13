@@ -1,0 +1,85 @@
+{
+  "title": "AI Marketing Coordinator",
+  "subtitle": "Automate campaign execution, performance tracking, and cross-channel coordination",
+  "description": "Deploy an AI marketing coordinator that manages campaign workflows, monitors performance metrics, coordinates cross-functional tasks, and ensures every launch runs smoothly.",
+  "heroImage": "/api/placeholder/1200/600",
+  "benefits": [
+    {
+      "title": "Campaign Workflow Automation",
+      "description": "Orchestrate multi-step campaigns across email, social, ads, and content—with automated handoffs between designers, copywriters, and managers."
+    },
+    {
+      "title": "Real-Time Performance Monitoring",
+      "description": "Track KPIs across all channels, detect underperforming campaigns early, and trigger alerts when metrics fall below targets."
+    },
+    {
+      "title": "Asset Management",
+      "description": "Organize campaign assets, track approvals, ensure brand compliance, and distribute finalized materials to the right channels automatically."
+    },
+    {
+      "title": "Cross-Team Coordination",
+      "description": "Sync tasks between marketing, design, sales, and product teams—updating project management tools and notifying stakeholders of changes."
+    }
+  ],
+  "features": [
+    {
+      "icon": "Calendar",
+      "title": "Campaign Scheduling",
+      "description": "Plan, schedule, and execute multi-channel campaigns with automated reminders, deadline tracking, and dependency management."
+    },
+    {
+      "icon": "BarChart3",
+      "title": "Analytics Dashboards",
+      "description": "Pull data from Google Analytics, Meta Ads, HubSpot, and more—generating unified reports that show ROI across all channels."
+    },
+    {
+      "icon": "CheckSquare",
+      "title": "Approval Workflows",
+      "description": "Route campaign materials through stakeholder reviews, track feedback, and consolidate approvals before launch."
+    },
+    {
+      "icon": "Zap",
+      "title": "Lead Handoff Automation",
+      "description": "When marketing campaigns generate leads, AI coordinator enriches data, scores quality, and syncs to CRM with campaign attribution."
+    },
+    {
+      "icon": "FileText",
+      "title": "Content Distribution",
+      "description": "Publish approved blog posts, social updates, and email campaigns to scheduled channels—handling formatting and platform-specific optimizations."
+    },
+    {
+      "icon": "AlertTriangle",
+      "title": "Anomaly Detection",
+      "description": "Identify sudden drops in traffic, email open rates, or ad performance—sending alerts with diagnostic data to investigate issues fast."
+    }
+  ],
+  "useCases": [
+    {
+      "title": "Product Launch Coordination",
+      "description": "Manage 50+ tasks across teams: brief designers, schedule social posts, coordinate PR outreach, track website updates, and compile launch metrics—all automated."
+    },
+    {
+      "title": "Event Marketing Automation",
+      "description": "Handle webinar promotion workflows: send invitation emails, post to social channels, remind registrants, sync attendee data to CRM, and follow up post-event."
+    },
+    {
+      "title": "Monthly Reporting",
+      "description": "Auto-generate executive marketing reports by pulling data from 10+ platforms, calculating key metrics, and creating visual dashboards—delivered on the 1st of each month."
+    }
+  ],
+  "integrations": [
+    "HubSpot Marketing",
+    "Salesforce Marketing Cloud",
+    "Google Analytics",
+    "Meta Business Suite",
+    "Mailchimp",
+    "Asana",
+    "Monday.com",
+    "Slack"
+  ],
+  "metrics": {
+    "efficiency": "Save 20+ hours per week on campaign coordination",
+    "speed": "Launch campaigns 3x faster",
+    "cost": "Reduce marketing operations overhead by 50%"
+  }
+}

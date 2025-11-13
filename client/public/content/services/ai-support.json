@@ -1,0 +1,85 @@
+{
+  "title": "AI Customer Support Agent",
+  "subtitle": "Resolve tickets faster with intelligent automation and 24/7 availability",
+  "description": "Deploy AI agents that handle common customer inquiries, escalate complex issues to human agents, and maintain your brand voice across email, chat, and social channels.",
+  "heroImage": "/api/placeholder/1200/600",
+  "benefits": [
+    {
+      "title": "Instant Ticket Triage",
+      "description": "AI classifies incoming tickets by urgency, category (billing, technical, account), and sentiment—routing each to the right team automatically."
+    },
+    {
+      "title": "Automated Resolutions",
+      "description": "Handle password resets, order status inquiries, FAQ questions, and basic troubleshooting without human intervention."
+    },
+    {
+      "title": "Multilingual Support",
+      "description": "Communicate with customers in 50+ languages with context-aware translations that preserve technical accuracy and brand tone."
+    },
+    {
+      "title": "Seamless Escalation",
+      "description": "When AI can't resolve an issue, it summarizes the conversation, gathers relevant data, and hands off to a human agent with full context."
+    }
+  ],
+  "features": [
+    {
+      "icon": "MessageSquare",
+      "title": "Intelligent Chatbots",
+      "description": "Deploy AI chat agents on your website that answer questions, guide users through processes, and collect information before escalating."
+    },
+    {
+      "icon": "Mail",
+      "title": "Email Auto-Response",
+      "description": "Generate contextual email replies based on ticket content, customer history, and your knowledge base—maintaining consistent quality."
+    },
+    {
+      "icon": "AlertCircle",
+      "title": "Smart Routing",
+      "description": "Analyze ticket content to identify urgency signals, technical keywords, and customer tier—then route to specialists instantly."
+    },
+    {
+      "icon": "TrendingUp",
+      "title": "Sentiment Analysis",
+      "description": "Detect frustrated or angry customers in real-time and prioritize their tickets or trigger manager alerts for immediate intervention."
+    },
+    {
+      "icon": "Clock",
+      "title": "24/7 Availability",
+      "description": "Provide instant responses outside business hours, reducing customer wait times and improving satisfaction scores."
+    },
+    {
+      "icon": "Database",
+      "title": "Knowledge Base Integration",
+      "description": "AI learns from your help docs, past tickets, and product documentation to provide accurate, company-specific answers."
+    }
+  ],
+  "useCases": [
+    {
+      "title": "E-commerce Order Support",
+      "description": "Automatically handle order tracking, return requests, shipping updates, and simple product questions—resolving 60% of tickets without human touch."
+    },
+    {
+      "title": "SaaS Technical Troubleshooting",
+      "description": "Guide users through common setup issues, password resets, and feature questions using step-by-step instructions from your knowledge base."
+    },
+    {
+      "title": "Social Media Monitoring",
+      "description": "Detect customer complaints on Twitter, Facebook, and Instagram—then respond with helpful solutions or escalate to your social team with context."
+    }
+  ],
+  "integrations": [
+    "Zendesk",
+    "Intercom",
+    "Freshdesk",
+    "Help Scout",
+    "Slack",
+    "Microsoft Teams",
+    "Salesforce Service Cloud",
+    "HubSpot Service Hub"
+  ],
+  "metrics": {
+    "efficiency": "60% of tickets resolved without human intervention",
+    "speed": "Average response time under 30 seconds",
+    "cost": "40% reduction in support costs"
+  }
+}
