@@ -53,20 +53,26 @@ const HERO_IMAGES: Record<string, string> = {
 
 export default function AIEmployeeService() {
   const [location] = useLocation();
-  const slug = location.split('/').pop() || '';
+  // Handle trailing slashes - filter out empty strings
+  const slug = location.split('/').filter(Boolean).pop() || '';
   const [content, setContent] = useState<ServiceContent | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const loadContent = async () => {
       try {
+        console.log('[AIEmployeeService] Loading content for slug:', slug);
         const response = await fetch(`/content/services/${slug}.json`);
+        console.log('[AIEmployeeService] Fetch response:', response.status, response.ok);
         if (response.ok) {
           const data = await response.json();
+          console.log('[AIEmployeeService] Content loaded successfully:', data.title);
           setContent(data);
+        } else {
+          console.error('[AIEmployeeService] Failed to load content:', response.status, response.statusText);
         }
       } catch (error) {
-        console.error('Error loading service content:', error);
+        console.error('[AIEmployeeService] Error loading service content:', error);
       } finally {
         setLoading(false);
       }
@@ -74,8 +80,11 @@ export default function AIEmployeeService() {
 
     if (slug) {
       loadContent();
+    } else {
+      console.error('[AIEmployeeService] No slug extracted from location:', location);
+      setLoading(false);
     }
-  }, [slug]);
+  }, [slug, location]);
 
   if (loading) {
     return (
