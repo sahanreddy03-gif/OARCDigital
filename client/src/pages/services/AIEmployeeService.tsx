@@ -99,7 +99,7 @@ export default function AIEmployeeService() {
         <div className="pt-32 px-6 text-center">
           <h1 className="text-4xl font-black text-white mb-4">Service Not Found</h1>
           <Link href="/services">
-            <button className="px-6 py-3 bg-gradient-to-r from-[#00FF9C] to-green-500 rounded-full font-bold text-black hover:scale-105 transition-transform">
+            <button className="px-6 py-3 bg-gradient-to-r from-[#00FF9C] to-green-500 rounded-full font-bold text-black hover:scale-105 transition-transform" data-testid="button-view-all-services-notfound">
               View All Services
             </button>
           </Link>
@@ -115,10 +115,10 @@ export default function AIEmployeeService() {
     <div className="min-h-screen bg-black text-white">
       <Navigation />
 
-      {/* Floating Gradient Orbs - make.com style */}
-      <div className="fixed inset-0 pointer-events-none overflow-hidden">
+      {/* Floating Gradient Orbs - make.com style with performance optimization */}
+      <div className="fixed inset-0 pointer-events-none overflow-hidden motion-reduce:hidden">
         <motion.div
-          className="absolute top-20 right-10 w-[500px] h-[500px] rounded-full bg-gradient-to-br from-purple-500/20 via-fuchsia-500/20 to-transparent blur-3xl"
+          className="absolute top-20 right-10 w-[300px] h-[300px] md:w-[500px] md:h-[500px] rounded-full bg-gradient-to-br from-purple-500/20 via-fuchsia-500/20 to-transparent blur-3xl [will-change:transform,opacity]"
           animate={{
             scale: [1, 1.2, 1],
             opacity: [0.3, 0.5, 0.3],
@@ -130,7 +130,7 @@ export default function AIEmployeeService() {
           }}
         />
         <motion.div
-          className="absolute bottom-40 left-10 w-[600px] h-[600px] rounded-full bg-gradient-to-br from-violet-500/20 via-purple-500/20 to-transparent blur-3xl"
+          className="absolute bottom-40 left-10 w-[350px] h-[350px] md:w-[600px] md:h-[600px] rounded-full bg-gradient-to-br from-violet-500/20 via-purple-500/20 to-transparent blur-3xl [will-change:transform,opacity]"
           animate={{
             scale: [1, 1.3, 1],
             opacity: [0.2, 0.4, 0.2],
@@ -142,7 +142,7 @@ export default function AIEmployeeService() {
           }}
         />
         <motion.div
-          className="absolute top-1/2 right-1/4 w-[450px] h-[450px] rounded-full bg-gradient-to-br from-fuchsia-500/15 via-pink-500/15 to-transparent blur-3xl"
+          className="absolute top-1/2 right-1/4 w-[250px] h-[250px] md:w-[450px] md:h-[450px] rounded-full bg-gradient-to-br from-fuchsia-500/15 via-pink-500/15 to-transparent blur-3xl [will-change:transform,opacity]"
           animate={{
             scale: [1, 1.15, 1],
             opacity: [0.25, 0.45, 0.25],
@@ -217,7 +217,7 @@ export default function AIEmployeeService() {
                   </button>
                 </Link>
                 <Link href="/services">
-                  <button className="px-8 py-4 bg-white/5 border border-purple-400/30 rounded-full font-bold text-base text-white hover:bg-white/10 hover:border-purple-400/50 transition-all duration-300">
+                  <button className="px-8 py-4 bg-white/5 border border-purple-400/30 rounded-full font-bold text-base text-white hover:bg-white/10 hover:border-purple-400/50 transition-all duration-300" data-testid="button-view-all-services-hero">
                     View All Services
                   </button>
                 </Link>
@@ -473,7 +473,7 @@ export default function AIEmployeeService() {
                 </button>
               </Link>
               <Link href="/our-work">
-                <button className="px-10 py-5 bg-white/5 border border-purple-400/30 rounded-full font-bold text-lg text-white hover:bg-white/10 hover:border-purple-400/50 transition-all duration-300">
+                <button className="px-10 py-5 bg-white/5 border border-purple-400/30 rounded-full font-bold text-lg text-white hover:bg-white/10 hover:border-purple-400/50 transition-all duration-300" data-testid="button-view-case-studies-cta">
                   View Case Studies
                 </button>
               </Link>
