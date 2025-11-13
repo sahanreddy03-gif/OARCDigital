@@ -19,11 +19,11 @@ export default function Section2() {
     'linear-gradient(135deg, #30cfd0 0%, #330867 100%)',
   ];
   
-  // Text content to display in phone
+  // Content to display in phone (text or logo)
   const textContent = [
-    "We blend creative and performance",
-    "Mastering the New Rules of Branding",
-    "OARC Digital"
+    { type: 'text', content: "We blend creative and performance" },
+    { type: 'text', content: "Mastering the New Rules of Branding" },
+    { type: 'logo', content: null }
   ];
   
   useEffect(() => {
@@ -120,11 +120,20 @@ export default function Section2() {
                     <SiLinkedin className="w-6 h-6 md:w-7 md:h-7 text-white/80 hover:text-white transition-colors" />
                   </div>
                   
-                  {/* Center text - cycling through different messages */}
+                  {/* Center text/logo - cycling through different messages */}
                   <div className="text-center flex-1 flex items-center justify-center px-3">
-                    <p className="text-xl md:text-2xl lg:text-3xl font-black text-white leading-tight transition-opacity duration-500" data-testid="phone-text-content">
-                      {textContent[currentTextIndex]}
-                    </p>
+                    {textContent[currentTextIndex]?.type === 'text' ? (
+                      <p className="text-xl md:text-2xl lg:text-3xl font-black text-white leading-tight transition-opacity duration-500" data-testid="phone-text-content">
+                        {textContent[currentTextIndex]?.content || ''}
+                      </p>
+                    ) : (
+                      <img 
+                        src={companyLogo} 
+                        alt="OARC logo" 
+                        className="w-20 h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 object-contain transition-opacity duration-500"
+                        data-testid="phone-logo-content"
+                      />
+                    )}
                   </div>
                   
                   {/* Bottom row - 3 social icons */}
