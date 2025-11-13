@@ -1,0 +1,85 @@
+{
+  "title": "AI Financial Analyst",
+  "subtitle": "Automate invoice processing, expense tracking, and financial reporting with precision",
+  "description": "Deploy AI financial analysts that process invoices, reconcile transactions, track expenses, generate financial reports, and ensure compliance—reducing manual accounting work by 80%.",
+  "heroImage": "/api/placeholder/1200/600",
+  "benefits": [
+    {
+      "title": "Automated Invoice Processing",
+      "description": "Extract data from invoices using OCR, validate against purchase orders, match to vendor records, and route for approval—no manual data entry required."
+    },
+    {
+      "title": "Real-Time Expense Tracking",
+      "description": "Monitor company spending across categories, detect budget overruns, flag duplicate payments, and provide spend visibility by department or project."
+    },
+    {
+      "title": "Financial Report Generation",
+      "description": "Auto-generate P&L statements, cash flow reports, balance sheets, and variance analyses on demand or on scheduled intervals."
+    },
+    {
+      "title": "Compliance & Audit Trails",
+      "description": "Maintain complete documentation of every transaction, approval, and change—ensuring audit readiness and regulatory compliance at all times."
+    }
+  ],
+  "features": [
+    {
+      "icon": "FileText",
+      "title": "Invoice OCR & Extraction",
+      "description": "Automatically read invoices from email or uploads, extract vendor name, amount, due date, line items—then sync to your accounting system."
+    },
+    {
+      "icon": "CreditCard",
+      "title": "Expense Categorization",
+      "description": "Classify transactions from bank feeds and credit cards into proper GL accounts using machine learning trained on your historical coding."
+    },
+    {
+      "icon": "DollarSign",
+      "title": "Payment Scheduling",
+      "description": "Track invoice due dates, schedule payments to optimize cash flow, send reminders to approvers, and flag early payment discounts."
+    },
+    {
+      "icon": "BarChart3",
+      "title": "Budget Monitoring",
+      "description": "Compare actual spend vs. budgets in real-time, alert managers when approaching limits, and forecast end-of-quarter variance."
+    },
+    {
+      "icon": "AlertTriangle",
+      "title": "Fraud Detection",
+      "description": "Identify duplicate invoices, suspicious vendor changes, unusual payment amounts, and policy violations before payments are processed."
+    },
+    {
+      "icon": "TrendingUp",
+      "title": "Financial Forecasting",
+      "description": "Analyze revenue trends, expense patterns, and seasonal fluctuations to generate 3-12 month financial projections and scenario models."
+    }
+  ],
+  "useCases": [
+    {
+      "title": "Accounts Payable Automation",
+      "description": "Process 500+ invoices per month: extract data, validate against POs, route for approval, schedule payments, and sync to QuickBooks or NetSuite automatically."
+    },
+    {
+      "title": "Monthly Financial Close",
+      "description": "Automate month-end close tasks: reconcile bank statements, categorize expenses, accrue unbilled costs, generate financial statements—reducing close time from 10 days to 3."
+    },
+    {
+      "title": "Vendor Management",
+      "description": "Track vendor spend, identify cost-saving opportunities, monitor payment terms compliance, and consolidate vendor data across multiple systems."
+    }
+  ],
+  "integrations": [
+    "QuickBooks",
+    "Xero",
+    "NetSuite",
+    "Stripe",
+    "Bill.com",
+    "Expensify",
+    "Ramp",
+    "Brex"
+  ],
+  "metrics": {
+    "efficiency": "Process 5x more invoices with the same team",
+    "speed": "Invoice processing time reduced from 5 days to 1 hour",
+    "cost": "80% reduction in AP processing costs"
+  }
+}

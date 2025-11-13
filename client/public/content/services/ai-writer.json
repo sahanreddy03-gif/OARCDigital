@@ -1,0 +1,85 @@
+{
+  "title": "AI Content Writer",
+  "subtitle": "Generate high-quality blog posts, social captions, and marketing copy at scale",
+  "description": "Deploy AI content writers that produce SEO-optimized articles, engaging social media posts, email campaigns, and product descriptions—all matching your brand voice and style guidelines.",
+  "heroImage": "/api/placeholder/1200/600",
+  "benefits": [
+    {
+      "title": "SEO-Optimized Articles",
+      "description": "Generate comprehensive blog posts with proper keyword placement, meta descriptions, header structure, and internal linking that ranks on Google."
+    },
+    {
+      "title": "Brand Voice Consistency",
+      "description": "Train AI on your existing content to replicate tone, style, vocabulary, and messaging guidelines across every piece it creates."
+    },
+    {
+      "title": "Multi-Format Content",
+      "description": "Transform one piece of content into multiple formats: blog post → social captions → email newsletter → video script—automatically."
+    },
+    {
+      "title": "Research Integration",
+      "description": "AI conducts real-time research using web search, competitor analysis, and industry reports to create factually accurate, up-to-date content."
+    }
+  ],
+  "features": [
+    {
+      "icon": "FileText",
+      "title": "Long-Form Blog Writing",
+      "description": "Produce 2,000+ word articles complete with outlines, subheadings, examples, statistics, and calls-to-action tailored to your audience."
+    },
+    {
+      "icon": "Hash",
+      "title": "Social Media Content",
+      "description": "Generate platform-specific posts for LinkedIn, Twitter, Instagram, and Facebook—including captions, hashtags, and optimal posting times."
+    },
+    {
+      "icon":="Mail",
+      "title": "Email Campaign Copy",
+      "description": "Write subject lines, preview text, and email body copy optimized for opens, clicks, and conversions based on A/B test learnings."
+    },
+    {
+      "icon": "ShoppingBag",
+      "title": "Product Descriptions",
+      "description": "Create compelling ecommerce product copy highlighting features, benefits, use cases, and addressing common customer questions."
+    },
+    {
+      "icon": "Search",
+      "title": "SEO Optimization",
+      "description": "Automatically insert target keywords, optimize readability scores, suggest internal links, and generate meta tags for search visibility."
+    },
+    {
+      "icon": "RefreshCw",
+      "title": "Content Repurposing",
+      "description": "Take existing content and rewrite it for different audiences, update outdated information, or adapt it to new platforms and formats."
+    }
+  ],
+  "useCases": [
+    {
+      "title": "Weekly Blog Publishing",
+      "description": "Maintain consistent publishing schedule by generating 4-8 SEO blog posts per month on industry topics, company updates, and thought leadership."
+    },
+    {
+      "title": "Social Media Calendar",
+      "description": "Populate 30 days of social content in minutes: product announcements, industry news commentary, customer success stories, and engagement posts."
+    },
+    {
+      "title": "Product Launch Content",
+      "description": "Rapidly create announcement blogs, feature explainer articles, comparison guides, FAQs, and promotional email sequences for new product releases."
+    }
+  ],
+  "integrations": [
+    "WordPress",
+    "Webflow",
+    "Contentful",
+    "Medium",
+    "LinkedIn",
+    "Twitter",
+    "Buffer",
+    "Hootsuite"
+  ],
+  "metrics": {
+    "efficiency": "Produce 10x more content with the same team",
+    "speed": "Draft blog posts in under 10 minutes",
+    "cost": "70% reduction in content production costs"
+  }
+}
