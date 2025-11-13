@@ -5,7 +5,7 @@ import { motion, useScroll, useTransform, useInView } from 'framer-motion';
 import { getAllCategories } from '@/config/servicesConfig';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
-import heroImg from '@assets/stock_images/digital_marketing_st_7e6d835f.jpg';
+import heroImg from '@assets/global-influencer-marketing-agency-socially-powerful_1763048685978.jpg';
 import creativeImg from '@assets/stock_images/creative_team_workin_34aec086.jpg';
 import growthImg from '@assets/stock_images/business_revenue_gro_c01f15ff.jpg';
 import aiImg from '@assets/stock_images/artificial_intellige_3ed7faa2.jpg';
@@ -24,19 +24,19 @@ const categoryIcons: Record<string, any> = {
 
 const categoryColors: Record<string, { gradient: string; accent: string; glow: string }> = {
   'aiCreative': {
-    gradient: 'from-[#00FF9C] via-green-400 to-emerald-500',
-    accent: '#00FF9C',
-    glow: 'shadow-[0_0_60px_rgba(0,255,156,0.5)]'
+    gradient: 'from-purple-500 via-fuchsia-500 to-pink-500',
+    accent: '#D946EF',
+    glow: 'shadow-[0_0_60px_rgba(217,70,239,0.6)]'
   },
   'revenue': {
-    gradient: 'from-[#c4ff4d] via-lime-400 to-green-400',
-    accent: '#c4ff4d',
-    glow: 'shadow-[0_0_60px_rgba(196,255,77,0.5)]'
+    gradient: 'from-violet-500 via-purple-500 to-fuchsia-500',
+    accent: '#A855F7',
+    glow: 'shadow-[0_0_60px_rgba(168,85,247,0.6)]'
   },
   'aiEmployees': {
-    gradient: 'from-green-400 via-emerald-400 to-[#00FF9C]',
-    accent: '#00FF9C',
-    glow: 'shadow-[0_0_60px_rgba(0,255,156,0.4)]'
+    gradient: 'from-fuchsia-500 via-purple-500 to-violet-500',
+    accent: '#C026D3',
+    glow: 'shadow-[0_0_60px_rgba(192,38,211,0.5)]'
   },
 };
 
@@ -112,27 +112,27 @@ export default function Services() {
             alt="Digital Technology Background"
             className="w-full h-full object-cover"
           />
-          {/* Dark Gradient Wash with Green Accent */}
-          <div className="absolute inset-0 bg-gradient-to-br from-black/85 via-green-950/30 to-black/90 z-10"></div>
+          {/* Dark Gradient Wash with Purple Accent */}
+          <div className="absolute inset-0 bg-gradient-to-br from-black/90 via-purple-950/40 to-black/95 z-10"></div>
           {/* Additional Depth Layer */}
           <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent z-10"></div>
-          {/* Animated Green Glow Orbs */}
+          {/* Animated Purple/Magenta Glow Orbs */}
           <motion.div
             animate={{
               scale: [1, 1.3, 1],
-              opacity: [0.2, 0.5, 0.2],
+              opacity: [0.15, 0.4, 0.15],
             }}
             transition={{
               duration: 8,
               repeat: Infinity,
               ease: "easeInOut"
             }}
-            className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-gradient-to-r from-[#00FF9C]/20 to-green-500/20 rounded-full blur-3xl"
+            className="absolute top-1/4 left-1/4 w-[550px] h-[550px] bg-gradient-to-r from-purple-600/25 to-fuchsia-600/25 rounded-full blur-3xl"
           ></motion.div>
           <motion.div
             animate={{
               scale: [1.2, 1, 1.2],
-              opacity: [0.3, 0.6, 0.3],
+              opacity: [0.2, 0.5, 0.2],
             }}
             transition={{
               duration: 10,
@@ -140,12 +140,12 @@ export default function Services() {
               ease: "easeInOut",
               delay: 1
             }}
-            className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-gradient-to-r from-[#c4ff4d]/20 to-lime-500/20 rounded-full blur-3xl"
+            className="absolute bottom-1/4 right-1/4 w-[550px] h-[550px] bg-gradient-to-r from-fuchsia-500/30 to-pink-500/30 rounded-full blur-3xl"
           ></motion.div>
           <motion.div
             animate={{
               scale: [1, 1.15, 1],
-              opacity: [0.25, 0.55, 0.25],
+              opacity: [0.18, 0.45, 0.18],
             }}
             transition={{
               duration: 12,
@@ -153,7 +153,7 @@ export default function Services() {
               ease: "easeInOut",
               delay: 2
             }}
-            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-orange-500/15 to-[#00FF9C]/15 rounded-full blur-3xl"
+            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-violet-500/20 to-purple-500/20 rounded-full blur-3xl"
           ></motion.div>
         </motion.div>
 
@@ -168,7 +168,7 @@ export default function Services() {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <div className="inline-block mb-6">
-              <span className="px-5 py-2.5 bg-gradient-to-r from-[#00FF9C]/10 to-green-500/10 border border-[#00FF9C]/30 rounded-full text-xs font-bold text-[#00FF9C] backdrop-blur-sm uppercase tracking-wider">
+              <span className="px-5 py-2.5 bg-gradient-to-r from-purple-500/10 to-fuchsia-500/10 border border-purple-400/40 rounded-full text-xs font-bold text-fuchsia-300 backdrop-blur-sm uppercase tracking-wider">
                 25+ Premium Services
               </span>
             </div>
@@ -184,7 +184,7 @@ export default function Services() {
               Elevate Your
             </span>
             <br />
-            <span className="bg-gradient-to-r from-[#00FF9C] via-[#c4ff4d] to-green-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-fuchsia-400 via-purple-400 to-violet-400 bg-clip-text text-transparent">
               Digital Presence
             </span>
           </motion.h1>
@@ -230,7 +230,7 @@ export default function Services() {
                 const element = document.getElementById('services-section');
                 element?.scrollIntoView({ behavior: 'smooth' });
               }}
-              className="px-8 py-4 bg-white/5 hover:bg-white/10 backdrop-blur-sm border border-white/10 rounded-full font-bold text-base transition-all"
+              className="px-8 py-4 bg-purple-500/10 hover:bg-purple-500/20 backdrop-blur-sm border border-purple-400/30 rounded-full font-bold text-base transition-all text-purple-200"
               data-testid="button-explore-services"
             >
               Explore Services
@@ -259,9 +259,9 @@ export default function Services() {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {[
-              { value: 25, suffix: '+', label: 'Premium Services', color: 'from-[#00FF9C] to-green-400' },
-              { value: 500, suffix: '+', label: 'Projects Delivered', color: 'from-[#c4ff4d] to-lime-400' },
-              { value: 98, suffix: '%', label: 'Client Satisfaction', color: 'from-green-400 to-[#00FF9C]' }
+              { value: 25, suffix: '+', label: 'Premium Services', color: 'from-purple-400 to-fuchsia-400' },
+              { value: 500, suffix: '+', label: 'Projects Delivered', color: 'from-fuchsia-400 to-pink-400' },
+              { value: 98, suffix: '%', label: 'Client Satisfaction', color: 'from-violet-400 to-purple-400' }
             ].map((stat, index) => {
               const ref = useRef<HTMLDivElement>(null);
               const isInView = useInView(ref, { once: true });
@@ -274,7 +274,7 @@ export default function Services() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="text-center p-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:border-[#00FF9C]/30 transition-all"
+                  className="text-center p-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:border-purple-400/40 transition-all"
                   data-testid={`stat-${index}`}
                 >
                   <div className={`text-3xl md:text-4xl font-black bg-gradient-to-r ${stat.color} bg-clip-text text-transparent mb-3`}>
@@ -298,7 +298,7 @@ export default function Services() {
             className="text-center mb-16"
           >
             <h2 className="text-2xl md:text-4xl font-black mb-5">
-              <span className="bg-gradient-to-r from-white via-[#00FF9C] to-white bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-white via-purple-300 to-white bg-clip-text text-transparent">
                 Choose Your Path
               </span>
             </h2>
@@ -359,7 +359,7 @@ export default function Services() {
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.2 }}
                     >
-                      <p className="text-sm text-[#00FF9C] font-bold mb-3 uppercase tracking-wider">
+                      <p className="text-sm text-fuchsia-300 font-bold mb-3 uppercase tracking-wider">
                         {categoryTaglines[activeCategory]}
                       </p>
                       <h3 className="text-3xl md:text-4xl font-black mb-6 text-white">
@@ -390,7 +390,7 @@ export default function Services() {
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: index * 0.05 }}
-                        className="group relative h-full p-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:border-[#00FF9C]/30 transition-all cursor-pointer"
+                        className="group relative h-full p-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:border-purple-400/50 transition-all cursor-pointer"
                         data-testid={`card-service-${service.slug}`}
                       >
                         {ServiceIcon && (
@@ -400,17 +400,17 @@ export default function Services() {
                         )}
                         
                         <div className="flex items-start justify-between gap-3 mb-4">
-                          <h4 className="text-base font-semibold text-white group-hover:text-[#00FF9C] transition-colors">
+                          <h4 className="text-base font-semibold text-white group-hover:text-purple-300 transition-colors">
                             {service.title}
                           </h4>
                           {service.badge && (
-                            <span className="px-2 py-0.5 rounded-full text-xs font-medium bg-[#00FF9C]/10 text-[#00FF9C] border border-[#00FF9C]/20">
+                            <span className="px-2 py-0.5 rounded-full text-xs font-medium bg-purple-500/10 text-purple-300 border border-purple-400/20">
                               {service.badge}
                             </span>
                           )}
                         </div>
                         
-                        <div className="flex items-center gap-2 text-[#00FF9C] text-xs font-semibold">
+                        <div className="flex items-center gap-2 text-purple-300 text-xs font-semibold">
                           Explore
                           <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
                         </div>
@@ -433,7 +433,7 @@ export default function Services() {
             viewport={{ once: true }}
           >
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-black mb-6">
-              <span className="bg-gradient-to-r from-white via-[#00FF9C] to-white bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-white via-purple-300 to-white bg-clip-text text-transparent">
                 Ready to Transform Your Business?
               </span>
             </h2>
