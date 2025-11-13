@@ -24,24 +24,21 @@ const differentiators = [
 export default function Section5() {
   return (
     <section className="relative py-16 md:py-24 lg:py-32 overflow-hidden" data-testid="section-5">
-      {/* Background image - lowest layer */}
+      {/* Background image */}
       <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ 
           backgroundImage: `url(${sectionBackground})`
         }}
       ></div>
       
-      {/* Dark overlay for text readability - gradual darkening */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/70 to-black/80 z-[1]"></div>
+      {/* Dark overlay for text readability */}
+      <div className="absolute inset-0 bg-black/70"></div>
       
       {/* Additional warm overlay to maintain brand colors */}
-      <div className="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-transparent to-orange-950/30 z-[2]"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-transparent to-orange-950/30"></div>
       
-      {/* Smooth transition gradient from white (top) to dark - constrained to top only */}
-      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-white via-zinc-100/50 to-transparent z-[3] pointer-events-none"></div>
-      
-      <div className="relative z-10 container mx-auto px-4 md:px-6 lg:px-12">
+      <div className="relative container mx-auto px-4 md:px-6 lg:px-12">
         {/* Section heading with exact green from hero CTA */}
         <div className="text-center mb-12 md:mb-16 lg:mb-20">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-white tracking-tight">

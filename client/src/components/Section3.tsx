@@ -112,9 +112,6 @@ export default function Section3() {
           </div>
         </div>
       </div>
-      
-      {/* Subtle gradient transition to next section */}
-      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-b from-transparent via-zinc-50 to-zinc-100 pointer-events-none"></div>
     </section>
   );
 }
