@@ -9,7 +9,7 @@ import mediaBuying from '@assets/6_1763067301766.avif';
 import websiteDesign from '@assets/7_1763067301766.avif';
 import influencerMarketing from '@assets/8_1763067301767.avif';
 import rapidTesting from '@assets/9_1763067301767.avif';
-import leadGen from '@assets/10_1763070904192.avif';
+import leadGen from '@assets/10_1763070990278.avif';
 import creativeAds from '@assets/11_1763067301767.avif';
 import customerAcquisition from '@assets/12_1763067301768.avif';
 import funnelAutomation from '@assets/13_1763067301768.avif';
