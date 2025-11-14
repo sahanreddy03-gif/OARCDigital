@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { ScrollableCards } from "@/components/ui/scrollable-cards";
 import Layout from "@/components/layout/Layout";
 import { Users, TrendingUp, Heart, Zap, Target, BarChart3, ArrowRight, CheckCircle2 } from "lucide-react";
-import heroImage from "@assets/stock_images/influencer_content_c_ff5bd1bd.jpg";
+import heroImage from '@assets/influencer_1763087034115.jpg';
 import influencerImg1 from "@assets/stock_images/influencer_marketing_e096cc44.jpg";
 import influencerImg2 from "@assets/stock_images/influencer_marketing_47b0ede7.jpg";
 import influencerImg3 from "@assets/stock_images/influencer_marketing_3b6f7762.jpg";
