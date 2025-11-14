@@ -4,7 +4,7 @@ import { Mail, TrendingUp, Zap, Users, BarChart, Eye, CheckCircle2, ArrowRight }
 import { Button } from "@/components/ui/button";
 import { ScrollableCards } from "@/components/ui/scrollable-cards";
 import Layout from "@/components/layout/Layout";
-import heroImage from "@assets/stock_images/email_marketing_lapt_bf28184c.jpg";
+import heroImage from '@assets/email craetion_1763085804635.avif';
 
 export default function EmailCreative() {
   useEffect(() => {

@@ -4,6 +4,7 @@ import adCreativeBanner from '@assets/ad creative_1763084489954.avif';
 import webDesignBanner from '@assets/web design_1763084519615.avif';
 import motionDesignBanner from '@assets/motion design_1763084597887.avif';
 import designSystemsBanner from '@assets/15_1763085718435.avif';
+import emailCreativeBanner from '@assets/email craetion_1763085804635.avif';
 
 import img1 from '@assets/1_1763083221531.avif';
 import img2 from '@assets/2_1763083221532.avif';
@@ -63,7 +64,7 @@ export const serviceImagesBySlug: Record<string, string> = {
   'motion-design': motionDesignBanner,
   'immersive-design': img12,
   'immersive-3d-ar': img12,
-  'email-creative': img13,
+  'email-creative': emailCreativeBanner,
   'web-design': webDesignBanner,
   'design-systems': designSystemsBanner,
   'product-design': img16,
