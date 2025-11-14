@@ -4,10 +4,12 @@ import { Video, Film, Sparkles, ArrowRight, Play, CheckCircle2, Camera } from "l
 import { Button } from "@/components/ui/button";
 import { ScrollableCards } from "@/components/ui/scrollable-cards";
 import Layout from "@/components/layout/Layout";
-import heroImage from "@assets/stock_images/video_production_fil_11782b4b.jpg";
+import { serviceImagesBySlug } from "@/assets/serviceImages";
 import videoImg1 from "@assets/stock_images/professional_video_p_57625a3b.jpg";
 import videoImg2 from "@assets/stock_images/professional_video_p_4775d034.jpg";
 import videoImg3 from "@assets/stock_images/professional_video_p_5547a3ec.jpg";
+
+const heroImage = serviceImagesBySlug['video-production'];
 
 export default function VideoProduction() {
   useEffect(() => {
