@@ -1,11 +1,20 @@
 import Layout from "@/components/layout/Layout";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { ArrowRight } from "lucide-react";
-import astronautBg from '@assets/IMG_8175_1763140846598.jpeg';
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+// Register GSAP plugins
+if (typeof window !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 export default function WhyUs() {
+  const heroImgRef = useRef<HTMLImageElement>(null);
+  const accentNeonRef = useRef<HTMLSpanElement>(null);
+
   useEffect(() => {
     window.scrollTo(0, 0);
     document.title = "Why OARC Digital | AI-Powered Creative & Automation Agency";
@@ -16,6 +25,45 @@ export default function WhyUs() {
         "Discover why OARC Digital is the intelligent choice for digital transformation. Global talent, AI-powered creativity, and revenue automation that transforms brands into autonomous growth engines."
       );
     }
+
+    // GSAP Parallax scrolling effects
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    
+    if (!prefersReducedMotion && heroImgRef.current && accentNeonRef.current) {
+      // Parallax on hero image
+      gsap.to(heroImgRef.current, {
+        yPercent: -6,
+        scale: 1.02,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: '.hero-premium',
+          start: 'top top',
+          end: 'bottom top',
+          scrub: 0.9
+        }
+      });
+
+      // Focal pop on enter
+      gsap.fromTo(
+        accentNeonRef.current,
+        { scale: 0.98, opacity: 0.9 },
+        {
+          scale: 1.06,
+          opacity: 1,
+          duration: 0.45,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: '.hero-premium',
+            start: 'top 80%',
+            toggleActions: 'play none none reverse'
+          }
+        }
+      );
+    }
+
+    return () => {
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    };
   }, []);
 
   const beliefs = [
@@ -116,71 +164,74 @@ export default function WhyUs() {
 
   return (
     <Layout>
-      {/* Hero Section - Cinematic Astronaut with Film Grain & Color Grading */}
-      <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden bg-black">
-        {/* Cinematic Background Image - Centered on Astronaut */}
-        <div className="absolute inset-0">
-          <img 
-            src={astronautBg}
-            alt="Astronaut working in creative office"
-            className="w-full h-full object-cover object-center scale-105 transform"
-            style={{ objectPosition: '50% 35%' }}
-          />
-          
-          {/* Cinematic Color Grading: Warm Amber + Deep Teal Shadows */}
-          <div 
-            aria-hidden="true" 
-            className="absolute inset-0 bg-gradient-to-b from-[rgba(20,8,6,0.5)] via-[rgba(20,8,6,0.4)] to-[rgba(10,25,30,0.65)] mix-blend-normal"
-          ></div>
-          
-          {/* Vignette Effect - Darker edges, bright center */}
-          <div 
-            aria-hidden="true" 
-            className="absolute inset-0 pointer-events-none"
-            style={{
-              background: 'radial-gradient(ellipse at center, rgba(0,0,0,0) 35%, rgba(0,0,0,0.6) 100%)'
-            }}
-          ></div>
-          
-          {/* Film Grain Overlay */}
-          <div 
-            aria-hidden="true" 
-            className="absolute inset-0 opacity-[0.08] mix-blend-overlay pointer-events-none"
-            style={{
-              backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noise\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.9\' numOctaves=\'4\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noise)\'/%3E%3C/svg%3E")',
-              backgroundRepeat: 'repeat',
-              backgroundSize: '100px 100px'
-            }}
-          ></div>
-        </div>
+      {/* HERO: Premium Visible Banner with Parallax */}
+      <section className="hero-premium relative min-h-[72vh] flex items-center justify-center overflow-hidden">
+        {/* Responsive hero image with srcset and lazy loading */}
+        <img
+          ref={heroImgRef}
+          className="hero-img absolute inset-0 w-full h-full object-cover object-center will-change-transform"
+          src="/hero-cinematic.jpg"
+          srcSet="/hero-cinematic.jpg 1920w, /hero-cinematic.jpg 1280w, /hero-cinematic.jpg 768w, /hero-cinematic.jpg 480w"
+          sizes="(max-width:640px) 100vw, (max-width:1024px) 80vw, 1200px"
+          alt="Hero - cinematic astronaut in creative office"
+          loading="lazy"
+          data-testid="img-hero"
+        />
         
-        <div className="relative z-20 max-w-7xl mx-auto px-6 md:px-12 py-32 text-center">
-          {/* Large Typography Hero */}
-          <div className="mb-16">
-            <h1 
-              className="text-[12vw] md:text-[10vw] lg:text-[8vw] font-bold leading-none tracking-tight mb-8 drop-shadow-2xl" 
-              data-testid="heading-hero"
+        {/* Color grade + vignette + film grain overlays */}
+        <div 
+          aria-hidden="true" 
+          className="absolute inset-0 bg-gradient-to-b from-[rgba(20,8,6,0.45)] via-[rgba(20,8,6,0.35)] to-[rgba(10,6,5,0.6)] mix-blend-normal"
+        ></div>
+        <div 
+          aria-hidden="true" 
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background: 'radial-gradient(ellipse at center, rgba(0,0,0,0) 40%, rgba(0,0,0,0.55) 100%)'
+          }}
+        ></div>
+        <div 
+          aria-hidden="true" 
+          className="absolute inset-0 opacity-[0.06] bg-repeat pointer-events-none"
+          style={{
+            backgroundImage: 'url(/grain.svg)',
+            backgroundSize: '100px 100px'
+          }}
+        ></div>
+
+        {/* Main content */}
+        <div className="relative z-20 max-w-3xl text-center px-6">
+          <p className="text-sm tracking-widest text-white/70 mb-3 uppercase" data-testid="text-hero-kicker">
+            Where Creativity Meets Revenue
+          </p>
+          <h1 className="text-white font-extrabold leading-tight text-[clamp(34px,8vw,72px)]" data-testid="heading-hero">
+            <span className="block reveal-line">WHY</span>
+            <span 
+              ref={accentNeonRef}
+              className="block reveal-line accent-neon text-[#00FF88]"
+              style={{
+                textShadow: '0 6px 24px rgba(0,255,136,0.3)',
+                WebkitTextStroke: '0.6px rgba(0,0,0,0.14)'
+              }}
             >
-              <span className="text-white">WHY</span>
-              <br />
-              <span 
-                className="text-[#00FF88]"
-                style={{ 
-                  textShadow: '0 6px 32px rgba(0,255,136,0.3), 0 0 60px rgba(0,255,136,0.2)' 
-                }}
-              >
-                OARC
-              </span>
-            </h1>
-          </div>
-          
-          <div className="max-w-3xl mx-auto space-y-8">
-            <p className="text-xl md:text-2xl lg:text-3xl font-light text-white/95 leading-relaxed drop-shadow-lg" data-testid="text-hero-tagline">
-              Where Creativity Meets Intelligent Automation
-            </p>
-            <p className="text-base md:text-lg text-white/75 leading-relaxed max-w-2xl mx-auto drop-shadow-md" data-testid="text-hero-description">
-              Global Talent. AI-Powered. Revenue-Driven. We're a collective of young, fearless creatives from across the globe—united by AI, driven by results, obsessed with building brands that grow on autopilot.
-            </p>
+              OARC
+            </span>
+          </h1>
+
+          <p className="mt-4 text-[16px] md:text-[18px] text-white/85 max-w-2xl mx-auto" data-testid="text-hero-tagline">
+            Certified AI talent + Tailored Workflows + Measurable Growth. Less Cost. More Reach.
+          </p>
+
+          {/* Glass CTA card */}
+          <div className="mt-8 inline-block">
+            <Link href="/contact">
+              <a className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-white/6 backdrop-blur-sm border border-white/10 hover:bg-[rgba(0,255,136,0.09)] transition-all duration-300" data-testid="button-hero-cta">
+                <span className="text-black bg-[#00FF88] px-3 py-1 rounded-full font-bold">
+                  Start Talking
+                </span>
+                <span className="text-white/90">Let's build revenue</span>
+              </a>
+            </Link>
           </div>
         </div>
       </section>
