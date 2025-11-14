@@ -16,7 +16,7 @@ const faqs = [
   },
   {
     question: "How quickly can we see results?",
-    answer: "Most clients see measurable improvements within 30-60 days. Initial setup and strategy development typically takes 1-2 weeks, followed by campaign launch and optimization. ROI varies by service but averages 320% within 6 months.",
+    answer: "Most clients see measurable improvements within 45-90 days. Initial setup and strategy development typically takes 2-3 weeks, followed by campaign launch and optimization. ROI varies by service but averages 185% within 8-12 months.",
   },
   {
     question: "Do you work with small businesses?",

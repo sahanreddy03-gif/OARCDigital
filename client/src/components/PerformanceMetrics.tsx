@@ -1,10 +1,10 @@
 import { useEffect, useState, useRef } from "react";
 
 const metrics = [
-  { value: 320, suffix: "%", label: "Average ROI", prefix: "" },
-  { value: 2.4, suffix: "M", label: "Cost Saved", prefix: "$" },
-  { value: 94, suffix: "%", label: "Customer Retention", prefix: "" },
-  { value: 180, suffix: "%", label: "Brand Recognition Growth", prefix: "" },
+  { value: 185, suffix: "%", label: "Average ROI", prefix: "" },
+  { value: 1.2, suffix: "M", label: "Efficiency Created", prefix: "$" },
+  { value: 87, suffix: "%", label: "Customer Retention", prefix: "" },
+  { value: 120, suffix: "%", label: "Brand Recognition Growth", prefix: "" },
 ];
 
 function Counter({ end, prefix = "", suffix = "", duration = 2000 }: { end: number; prefix?: string; suffix?: string; duration?: number }) {
