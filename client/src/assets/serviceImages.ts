@@ -5,6 +5,7 @@ import webDesignBanner from '@assets/web design_1763084519615.avif';
 import motionDesignBanner from '@assets/motion design_1763084597887.avif';
 import designSystemsBanner from '@assets/15_1763085718435.avif';
 import emailCreativeBanner from '@assets/email craetion_1763085804635.avif';
+import presentationDesignBanner from '@assets/presentation design_1763086077235.avif';
 
 import img1 from '@assets/1_1763083221531.avif';
 import img2 from '@assets/2_1763083221532.avif';
@@ -51,8 +52,8 @@ export const serviceImagesBySlug: Record<string, string> = {
   'ad-creative': adCreativeBanner,
   'social-media-creative': img2,
   'social-media-creative-management': img2,
-  'presentation-design': img3,
-  'presentation-pitch': img3,
+  'presentation-design': presentationDesignBanner,
+  'presentation-pitch': presentationDesignBanner,
   'illustration': img4,
   'branding-services': img5,
   'ebook-design': img6,

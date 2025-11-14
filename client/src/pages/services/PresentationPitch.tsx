@@ -4,7 +4,7 @@ import { Presentation, Sparkles, TrendingUp, Users, FileText, Award, CheckCircle
 import { Button } from "@/components/ui/button";
 import { ScrollableCards } from "@/components/ui/scrollable-cards";
 import Layout from "@/components/layout/Layout";
-import heroImage from "@assets/stock_images/business_presentatio_3e68f00a.jpg";
+import heroImage from '@assets/presentation design_1763086077235.avif';
 
 export default function PresentationPitch() {
   useEffect(() => {
