@@ -1,10 +1,10 @@
 import { useEffect, useState, useRef } from "react";
 
 const metrics = [
-  { value: 185, suffix: "%", label: "Average ROI", prefix: "" },
-  { value: 1.2, suffix: "M", label: "Efficiency Created", prefix: "$" },
-  { value: 87, suffix: "%", label: "Customer Retention", prefix: "" },
-  { value: 120, suffix: "%", label: "Brand Recognition Growth", prefix: "" },
+  { value: 68, suffix: "%", label: "Average ROI", prefix: "" },
+  { value: 420, suffix: "K", label: "Efficiency Created", prefix: "$" },
+  { value: 74, suffix: "%", label: "Customer Retention", prefix: "" },
+  { value: 48, suffix: "%", label: "Brand Recognition Growth", prefix: "" },
 ];
 
 function Counter({ end, prefix = "", suffix = "", duration = 2000 }: { end: number; prefix?: string; suffix?: string; duration?: number }) {
@@ -52,15 +52,15 @@ function Counter({ end, prefix = "", suffix = "", duration = 2000 }: { end: numb
   }, [isVisible, end, duration]);
 
   return (
-    <div ref={ref} className="text-5xl md:text-6xl font-bold font-display bg-gradient-to-br from-white via-orange-100 to-rose-100 bg-clip-text text-transparent">
-      {prefix}{count.toFixed(suffix === "M" ? 1 : 0)}{suffix}
+    <div ref={ref} className="text-3xl md:text-4xl font-bold font-display bg-gradient-to-br from-white via-orange-100 to-rose-100 bg-clip-text text-transparent">
+      {prefix}{count.toFixed(suffix === "M" || suffix === "K" ? 0 : 0)}{suffix}
     </div>
   );
 }
 
 export default function PerformanceMetrics() {
   return (
-    <section className="relative py-16 md:py-20 overflow-hidden bg-gradient-to-br from-zinc-900 via-zinc-800 to-zinc-900">
+    <section className="relative py-12 md:py-16 overflow-hidden bg-gradient-to-br from-zinc-900 via-zinc-800 to-zinc-900">
       {/* Subtle gradient overlays for depth */}
       <div className="absolute inset-0 bg-gradient-to-r from-orange-500/10 via-transparent to-rose-500/10 opacity-40"></div>
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl"></div>

@@ -133,11 +133,11 @@ export default function PDFCapabilitiesDeck() {
                 </div>
                 <div className="flex justify-between items-center pb-3 border-b border-white/10">
                   <span className="text-white/70">Avg. Engagement Boost</span>
-                  <span className="text-2xl font-black text-[#FF5A00]">+385%</span>
+                  <span className="text-2xl font-black text-[#FF5A00]">+165%</span>
                 </div>
                 <div className="flex justify-between items-center pb-3 border-b border-white/10">
                   <span className="text-white/70">Client ROI Increase</span>
-                  <span className="text-2xl font-black text-[#c4ff4d]">+120%</span>
+                  <span className="text-2xl font-black text-[#c4ff4d]">+68%</span>
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="text-white/70">AI Systems Deployed</span>
@@ -689,19 +689,19 @@ export default function PDFCapabilitiesDeck() {
           {/* Top Metrics */}
           <div className="grid grid-cols-4 gap-6 mb-8">
             <div className="pdf-card text-center bg-gradient-to-br from-[#FF5A00] to-[#FF8A40] text-white">
-              <div className="text-5xl font-black mb-2">120M+</div>
+              <div className="text-4xl font-black mb-2">120M+</div>
               <div className="text-sm uppercase tracking-wide opacity-90">Total Reach</div>
             </div>
             <div className="pdf-card text-center bg-gradient-to-br from-[#00FF9C] to-[#30FFB0] text-black">
-              <div className="text-5xl font-black mb-2">+385%</div>
+              <div className="text-4xl font-black mb-2">+165%</div>
               <div className="text-sm uppercase tracking-wide opacity-90">Avg Engagement</div>
             </div>
             <div className="pdf-card text-center bg-gradient-to-br from-[#c4ff4d] to-[#d4ff6d] text-black">
-              <div className="text-5xl font-black mb-2">+120%</div>
+              <div className="text-4xl font-black mb-2">+68%</div>
               <div className="text-sm uppercase tracking-wide opacity-90">Avg ROI</div>
             </div>
             <div className="pdf-card text-center bg-gradient-to-br from-[#1a1a1a] to-[#2a2a2a] text-white">
-              <div className="text-5xl font-black mb-2">50+</div>
+              <div className="text-4xl font-black mb-2">50+</div>
               <div className="text-sm uppercase tracking-wide opacity-90">AI Systems</div>
             </div>
           </div>

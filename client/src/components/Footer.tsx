@@ -69,15 +69,15 @@ export default function Footer() {
             {/* Quick Stats */}
             <div className="grid grid-cols-3 gap-3 sm:gap-6">
               <div className="group text-center p-3 sm:p-4 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 hover-elevate hover:border-orange-500/30 transition-all duration-300">
-                <div className="text-xl sm:text-2xl font-black bg-gradient-to-br from-orange-400 to-rose-400 bg-clip-text text-transparent mb-1">65+</div>
+                <div className="text-base sm:text-lg font-black bg-gradient-to-br from-orange-400 to-rose-400 bg-clip-text text-transparent mb-1">65+</div>
                 <div className="text-[10px] sm:text-xs text-zinc-400 uppercase tracking-wider group-hover:text-orange-400 transition-colors">Campaigns</div>
               </div>
               <div className="group text-center p-3 sm:p-4 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 hover-elevate hover:border-orange-500/30 transition-all duration-300">
-                <div className="text-xl sm:text-2xl font-black bg-gradient-to-br from-orange-400 to-rose-400 bg-clip-text text-transparent mb-1">185%</div>
-                <div className="text-[10px] sm:text-xs text-zinc-400 uppercase tracking-wider group-hover:text-orange-400 transition-colors">Avg Growth</div>
+                <div className="text-base sm:text-lg font-black bg-gradient-to-br from-orange-400 to-rose-400 bg-clip-text text-transparent mb-1">68%</div>
+                <div className="text-[10px] sm:text-xs text-zinc-400 uppercase tracking-wider group-hover:text-orange-400 transition-colors">Avg ROI</div>
               </div>
               <div className="group text-center p-3 sm:p-4 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 hover-elevate hover:border-orange-500/30 transition-all duration-300">
-                <div className="text-xl sm:text-2xl font-black bg-gradient-to-br from-orange-400 to-rose-400 bg-clip-text text-transparent mb-1">24/7</div>
+                <div className="text-base sm:text-lg font-black bg-gradient-to-br from-orange-400 to-rose-400 bg-clip-text text-transparent mb-1">24/7</div>
                 <div className="text-[10px] sm:text-xs text-zinc-400 uppercase tracking-wider group-hover:text-orange-400 transition-colors">AI Systems</div>
               </div>
             </div>

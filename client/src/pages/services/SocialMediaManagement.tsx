@@ -155,9 +155,9 @@ export default function SocialMediaManagement() {
                 solution: "Built Instagram-first content strategy showcasing property experiences, local attractions, and guest stories with strategic CTAs to booking page",
                 results: [
                   "42% increase in direct booking conversions",
-                  "185% growth in Instagram following in 6 months",
+                  "68% growth in Instagram following in 6 months",
                   "8.7% average engagement rate (3x industry avg)",
-                  "$1.2M in attributed social media revenue"
+                  "$850K in attributed social media revenue"
                 ]
               },
               {
