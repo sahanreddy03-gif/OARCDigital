@@ -4,7 +4,7 @@ import { TrendingUp, Target, Zap, BarChart, ArrowRight, DollarSign, CheckCircle2
 import { Button } from "@/components/ui/button";
 import { ScrollableCards } from "@/components/ui/scrollable-cards";
 import Layout from "@/components/layout/Layout";
-import heroImage from "@assets/stock_images/business_team_meetin_3a2f051d.jpg";
+import heroImage from '@assets/paid advertising_1763088406833.avif';
 
 export default function PaidAdvertising() {
   useEffect(() => {

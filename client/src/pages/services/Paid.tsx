@@ -3,7 +3,7 @@ import { Link } from 'wouter';
 import { ArrowRight, CheckCircle, ChevronLeft, ChevronRight, BarChart, Palette, Settings, Target, TrendingUp, Play } from 'lucide-react';
 import { SiMeta, SiGoogle, SiTiktok, SiPinterest } from 'react-icons/si';
 import Layout from '@/components/layout/Layout';
-import heroImage from '@assets/paid advertising_1763086555616.avif';
+import heroImage from '@assets/paid advertising_1763088406833.avif';
 import formalTeamImg from '@assets/stock_images/digital_advertising__84eb3355.jpg';
 import conferenceTeamImg from '@assets/stock_images/digital_advertising__e3a5e56c.jpg';
 import studioImg from '@assets/stock_images/graphic_design_creat_e05eb8ba.jpg';

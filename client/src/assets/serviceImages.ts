@@ -8,7 +8,7 @@ import emailCreativeBanner from '@assets/email craetion_1763085804635.avif';
 import presentationDesignBanner from '@assets/presentation design_1763086077235.avif';
 import illustrationBanner from '@assets/illustration desoigns_1763086173736.avif';
 import printPackagingBanner from '@assets/printy design_1763086257815.avif';
-import paidAdvertisingBanner from '@assets/paid advertising_1763086555616.avif';
+import paidAdvertisingBanner from '@assets/paid advertising_1763088406833.avif';
 import mediaBuyingBanner from '@assets/media buying_1763086700057.jpg';
 import influencerMarketingBanner from '@assets/influencer_1763087034115.jpg';
 import aiConsultingBanner from '@assets/ai consulting_1763087215182.avif';
