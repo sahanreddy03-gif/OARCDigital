@@ -205,20 +205,20 @@ export default function WhyUs() {
         {/* Main content */}
         <div className="relative z-20 max-w-3xl text-center px-6">
           <p className="text-sm tracking-widest text-white/70 mb-3 uppercase" data-testid="text-hero-kicker">
-            THE OARC DIFFERENCE
+            BUILT DIFFERENT
           </p>
           <h1 className="text-white font-extrabold leading-tight text-[var(--h1-mobile)] md:text-[var(--h1-tablet)] lg:text-[var(--h1-desktop)]" data-testid="heading-hero">
-            <span className="block reveal-line">Not Another Agency.</span>
+            <span className="block reveal-line">We Create Culture,</span>
             <span 
               ref={accentNeonRef}
               className="block reveal-line accent-neon"
             >
-              Your Revenue Partner.
+              Not Just Campaigns
             </span>
           </h1>
 
           <p className="mt-4 text-[16px] md:text-[18px] text-white/85 max-w-2xl mx-auto" data-testid="text-hero-tagline">
-            We don't just run campaigns. We build AI-powered systems that grow your revenue while traditional agencies are still chasing vanity metrics.
+            Most agencies follow trends. We make them. Through bold creative thinking and smart systems, we turn brands into movements that audiences can't ignore.
           </p>
 
           {/* Glass CTA card */}
@@ -277,13 +277,13 @@ export default function WhyUs() {
           </div>
 
           {/* Stats Grid */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 mb-24">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6 md:gap-8 mb-24">
             {stats.map((stat, index) => (
-              <div key={index} className="text-center p-8 border border-white/10" data-testid={`stat-${index}`}>
-                <div className="text-5xl md:text-6xl lg:text-7xl font-bold text-[#00FF88] mb-4">
+              <div key={index} className="text-center p-4 sm:p-6 md:p-8 border border-white/10" data-testid={`stat-${index}`}>
+                <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-[#00FF88] mb-2 sm:mb-3 md:mb-4">
                   {stat.value}
                 </div>
-                <div className="text-sm md:text-base text-white/60 uppercase tracking-wide">
+                <div className="text-xs sm:text-sm md:text-base text-white/60 uppercase tracking-wide">
                   {stat.label}
                 </div>
               </div>
@@ -409,12 +409,12 @@ export default function WhyUs() {
       {/* Final Statement - Quiet, Material, Clarity */}
       <section className="py-32 md:py-48 px-6 md:px-12 bg-white">
         <div className="max-w-5xl mx-auto text-center">
-          <h2 className="text-6xl md:text-7xl lg:text-8xl font-bold uppercase tracking-tight mb-16" data-testid="heading-quiet-material-clarity">
-            <span className="text-foreground">Quiet</span>
-            <span className="text-muted-foreground mx-4 md:mx-8">·</span>
-            <span className="text-foreground">Material</span>
-            <span className="text-muted-foreground mx-4 md:mx-8">·</span>
-            <span className="text-primary">Clarity</span>
+          <h2 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold uppercase mb-16 flex flex-wrap items-center justify-center gap-x-2 sm:gap-x-4 md:gap-x-8" data-testid="heading-quiet-material-clarity">
+            <span className="text-foreground whitespace-nowrap">Quiet</span>
+            <span className="text-muted-foreground">·</span>
+            <span className="text-foreground whitespace-nowrap">Material</span>
+            <span className="text-muted-foreground">·</span>
+            <span className="text-primary whitespace-nowrap">Clarity</span>
           </h2>
           
           <div className="space-y-8 max-w-3xl mx-auto mb-16">
