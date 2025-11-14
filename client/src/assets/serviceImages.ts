@@ -9,6 +9,7 @@ import presentationDesignBanner from '@assets/presentation design_1763086077235.
 import illustrationBanner from '@assets/illustration desoigns_1763086173736.avif';
 import printPackagingBanner from '@assets/printy design_1763086257815.avif';
 import paidAdvertisingBanner from '@assets/paid advertising_1763086555616.avif';
+import mediaBuyingBanner from '@assets/media buying_1763086700057.jpg';
 
 import img1 from '@assets/1_1763083221531.avif';
 import img2 from '@assets/2_1763083221532.avif';
@@ -76,4 +77,5 @@ export const serviceImagesBySlug: Record<string, string> = {
   'ai-consulting': img18,
   'paid': paidAdvertisingBanner,
   'paid-advertising': paidAdvertisingBanner,
+  'media-buying': mediaBuyingBanner,
 };

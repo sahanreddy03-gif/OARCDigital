@@ -4,7 +4,7 @@ import { DollarSign, TrendingUp, Target, Zap, ArrowRight, BarChart3, CheckCircle
 import { Button } from "@/components/ui/button";
 import { ScrollableCards } from "@/components/ui/scrollable-cards";
 import Layout from "@/components/layout/Layout";
-import heroImage from "@assets/stock_images/media_strategy_plann_296ccd33.jpg";
+import heroImage from '@assets/media buying_1763086700057.jpg';
 
 export default function MediaBuying() {
   useEffect(() => {
