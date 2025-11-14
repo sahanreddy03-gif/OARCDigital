@@ -4,7 +4,7 @@ import { Layers, Code, Palette, FileText, Settings, Zap, CheckCircle2, Component
 import { Button } from "@/components/ui/button";
 import { ScrollableCards } from "@/components/ui/scrollable-cards";
 import Layout from "@/components/layout/Layout";
-import heroImage from "@assets/stock_images/ui_ux_design_system__f9e4fa54.jpg";
+import heroImage from '@assets/15_1763085718435.avif';
 
 export default function DesignSystems() {
   useEffect(() => {
