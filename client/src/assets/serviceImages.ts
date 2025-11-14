@@ -11,6 +11,7 @@ import printPackagingBanner from '@assets/printy design_1763086257815.avif';
 import paidAdvertisingBanner from '@assets/paid advertising_1763086555616.avif';
 import mediaBuyingBanner from '@assets/media buying_1763086700057.jpg';
 import influencerMarketingBanner from '@assets/influencer_1763087034115.jpg';
+import aiConsultingBanner from '@assets/ai consulting_1763087215182.avif';
 
 import img1 from '@assets/1_1763083221531.avif';
 import img2 from '@assets/2_1763083221532.avif';
@@ -75,9 +76,9 @@ export const serviceImagesBySlug: Record<string, string> = {
   'design-systems': designSystemsBanner,
   'product-design': img16,
   'ai-enhanced-creative': img17,
-  'ai-consulting': img18,
   'paid': paidAdvertisingBanner,
   'paid-advertising': paidAdvertisingBanner,
   'media-buying': mediaBuyingBanner,
   'influencer-marketing': influencerMarketingBanner,
+  'ai-consulting': aiConsultingBanner,
 };

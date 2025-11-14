@@ -5,6 +5,7 @@ import Layout from '@/components/layout/Layout';
 import consultingImg1 from '@assets/stock_images/business_consulting__b093a06a.jpg';
 import consultingImg2 from '@assets/stock_images/business_consulting__4b14a0ea.jpg';
 import consultingImg3 from '@assets/stock_images/business_consulting__c7f465ad.jpg';
+import aiConsultingBanner from '@assets/ai consulting_1763087215182.avif';
 
 export default function AIConsulting() {
   const [currentService, setCurrentService] = useState(0);
@@ -115,23 +116,32 @@ export default function AIConsulting() {
 
   return (
     <Layout>
-      {/* Hero Section */}
-      <section className="py-14 px-4 bg-white">
-        <div className="max-w-6xl mx-auto">
+      {/* Hero Section - Subtle background with clean overlay */}
+      <section className="relative py-20 px-4 overflow-hidden">
+        <div className="absolute inset-0">
+          <img 
+            src={aiConsultingBanner}
+            alt="AI Consulting"
+            className="w-full h-full object-cover"
+          />
+          {/* Light overlay to maintain clean aesthetic and readability */}
+          <div className="absolute inset-0 bg-gradient-to-br from-white/95 via-white/90 to-white/85"></div>
+        </div>
+        <div className="relative z-10 max-w-6xl mx-auto">
           <div className="mb-4"></div>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-black mb-8" data-testid="heading-ai-consulting">
             AI Consulting
           </h1>
 
           <h2 className="text-2xl md:text-3xl font-black text-black mb-6">
-            Bring your marketing creative operations into the age of AI
+            Bring your marketing creative operations into the age of <span className="text-[#5FD4C4]">AI</span>
           </h2>
 
-          <p className="text-base text-gray-700 mb-4">
+          <p className="text-base text-gray-800 mb-4">
             Global brands trust OARC Digital as the hands-on expert to help scale and succeed with generative AI.
           </p>
 
-          <p className="text-base text-gray-700 mb-6">
+          <p className="text-base text-gray-800 mb-6">
             Many experiment with AI, few capture real value. Our consultants deliver measurable business impact and enable organizational readiness for the future.
           </p>
 
