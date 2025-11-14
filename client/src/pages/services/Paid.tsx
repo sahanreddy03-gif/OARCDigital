@@ -3,6 +3,7 @@ import { Link } from 'wouter';
 import { ArrowRight, CheckCircle, ChevronLeft, ChevronRight, BarChart, Palette, Settings, Target, TrendingUp, Play } from 'lucide-react';
 import { SiMeta, SiGoogle, SiTiktok, SiPinterest } from 'react-icons/si';
 import Layout from '@/components/layout/Layout';
+import heroImage from '@assets/paid advertising_1763086555616.avif';
 import formalTeamImg from '@assets/stock_images/digital_advertising__84eb3355.jpg';
 import conferenceTeamImg from '@assets/stock_images/digital_advertising__e3a5e56c.jpg';
 import studioImg from '@assets/stock_images/graphic_design_creat_e05eb8ba.jpg';
@@ -115,37 +116,36 @@ export default function Paid() {
 
   return (
     <Layout>
-      {/* Hero Section */}
-      <section className="py-14 px-4 bg-white">
-        <div className="max-w-6xl mx-auto">
-          <div className="mb-4"></div>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-black mb-6" data-testid="heading-paid">
-            Paid
+      {/* Hero Section with Banner Image */}
+      <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0">
+          <img 
+            src={heroImage}
+            alt="Paid advertising campaigns"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/70 to-black/50"></div>
+        </div>
+        <div className="relative z-10 text-center px-4 max-w-6xl mx-auto">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 animate-in fade-in slide-in-from-bottom-4 duration-700" data-testid="heading-paid">
+            Performance-driven <span className="italic bg-gradient-to-r from-[hsl(25,95%,53%)] via-[hsl(35,95%,58%)] to-[hsl(45,95%,63%)] text-transparent bg-clip-text">Paid Media</span>
           </h1>
-
-          <h2 className="text-xl md:text-2xl lg:text-3xl font-black text-black mb-5">
-            We deliver performance-driven Paid Social and Paid Search campaigns
-          </h2>
-
-          <p className="text-base text-gray-700 mb-4">
-            Are you not happy with your current performance and looking for a partner that can drive sustainable growth that delivers incrementality in profitability, growth and brand uplift?
+          <p className="text-lg md:text-xl text-white/90 mb-8 max-w-3xl mx-auto animate-in fade-in slide-in-from-bottom-4 duration-700 delay-150">
+            We deliver Paid Social and Paid Search campaigns that drive sustainable growth, delivering incrementality in profitability, growth and brand uplift. Leverage Social and Search channels with platform-specific performance creative to drive growth at all stages of the funnel.
           </p>
-
-          <p className="text-base text-gray-700 mb-6">
-            We leverage Social and Search channels with platform-specific performance creative to drive growth at all stages of the funnel.
-          </p>
-
-          <Link href="/contact">
-            <button
-              className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2"
-              data-testid="button-lets-chat-hero"
-            >
-              Let's Chat
-              <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
-                <ArrowRight className="h-5 w-5 text-black" />
-              </div>
-            </button>
-          </Link>
+          <div className="flex flex-wrap gap-4 justify-center animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300">
+            <Link href="/contact">
+              <button
+                className="inline-flex items-center gap-3 bg-white text-black rounded-full pl-10 pr-4 py-4 text-base font-semibold hover:bg-white/90 transition-colors"
+                data-testid="button-lets-chat-hero"
+              >
+                Let's Chat
+                <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center">
+                  <ArrowRight className="h-5 w-5 text-white" />
+                </div>
+              </button>
+            </Link>
+          </div>
         </div>
       </section>
 
