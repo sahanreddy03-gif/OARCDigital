@@ -14,6 +14,7 @@ if (typeof window !== 'undefined') {
 export default function WhyUs() {
   const heroImgRef = useRef<HTMLImageElement>(null);
   const accentNeonRef = useRef<HTMLSpanElement>(null);
+  const scrollTriggersRef = useRef<ScrollTrigger[]>([]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -31,38 +32,42 @@ export default function WhyUs() {
     
     if (!prefersReducedMotion && heroImgRef.current && accentNeonRef.current) {
       // Parallax on hero image
-      gsap.to(heroImgRef.current, {
-        yPercent: -6,
-        scale: 1.02,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: '.hero-premium',
-          start: 'top top',
-          end: 'bottom top',
-          scrub: 0.9
-        }
+      const parallaxTrigger = ScrollTrigger.create({
+        trigger: '.hero-premium',
+        start: 'top top',
+        end: 'bottom top',
+        scrub: 0.9,
+        animation: gsap.to(heroImgRef.current, {
+          yPercent: -6,
+          scale: 1.02,
+          ease: 'none'
+        })
       });
 
       // Focal pop on enter
-      gsap.fromTo(
-        accentNeonRef.current,
-        { scale: 0.98, opacity: 0.9 },
-        {
-          scale: 1.06,
-          opacity: 1,
-          duration: 0.45,
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: '.hero-premium',
-            start: 'top 80%',
-            toggleActions: 'play none none reverse'
+      const focalTrigger = ScrollTrigger.create({
+        trigger: '.hero-premium',
+        start: 'top 80%',
+        toggleActions: 'play none none reverse',
+        animation: gsap.fromTo(
+          accentNeonRef.current,
+          { scale: 0.98, opacity: 0.9 },
+          {
+            scale: 1.06,
+            opacity: 1,
+            duration: 0.45,
+            ease: 'power2.out'
           }
-        }
-      );
+        )
+      });
+
+      // Store references to this component's triggers only
+      scrollTriggersRef.current = [parallaxTrigger, focalTrigger];
     }
 
     return () => {
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+      // Only kill this component's ScrollTrigger instances
+      scrollTriggersRef.current.forEach(trigger => trigger.kill());
     };
   }, []);
 
