@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { ArrowRight } from "lucide-react";
+import astronautBg from '@assets/IMG_8175_1763140846598.jpeg';
 
 export default function WhyUs() {
   useEffect(() => {
@@ -115,8 +116,19 @@ export default function WhyUs() {
 
   return (
     <Layout>
-      {/* Hero Section - Bold Typography with Neon Accent */}
-      <section className="relative min-h-[80vh] flex items-center justify-center bg-[#0F0F0F] overflow-hidden">
+      {/* Hero Section - Bold Typography with Astronaut Background */}
+      <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <img 
+            src={astronautBg}
+            alt="Astronaut working in creative office"
+            className="w-full h-full object-cover"
+          />
+          {/* Dark overlay for text readability */}
+          <div className="absolute inset-0 bg-gradient-to-br from-black/85 via-black/80 to-black/75"></div>
+        </div>
+        
         <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 py-32 text-center">
           {/* Large Typography Hero */}
           <div className="mb-16">
