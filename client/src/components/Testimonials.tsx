@@ -92,14 +92,14 @@ export default function Testimonials() {
 
         {/* Enhanced Featured Testimonial */}
         <div className="relative">
-          {/* Gradient border effect */}
-          <div className="absolute inset-0 bg-gradient-to-r from-orange-500 to-orange-600 rounded-3xl blur-xl opacity-30"></div>
+          {/* Refined gradient border effect with rose gold accent */}
+          <div className="absolute inset-0 bg-gradient-to-r from-orange-500 via-rose-500 to-orange-400 rounded-3xl blur-xl opacity-25"></div>
           
           <div className="relative bg-zinc-800/90 backdrop-blur-xl rounded-3xl overflow-hidden shadow-2xl border border-zinc-700/50">
             <div className="grid md:grid-cols-[280px_1fr] gap-0">
               {/* Left: Premium Image Section */}
               <div className="relative h-80 md:h-auto overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-orange-500/20 to-orange-600/20"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-orange-500/15 via-rose-500/15 to-orange-400/15"></div>
                 <img 
                   src={activeTestimonial.image} 
                   alt={activeTestimonial.author}
@@ -115,7 +115,7 @@ export default function Testimonials() {
                       <Star key={i} className="w-3 h-3 fill-orange-500 text-orange-500" />
                     ))}
                   </div>
-                  <div className="bg-gradient-to-r from-orange-500 to-orange-600 text-white px-3 py-1.5 rounded-lg shadow-lg backdrop-blur-sm">
+                  <div className="bg-gradient-to-r from-orange-500 via-rose-500 to-orange-400 text-white px-3 py-1.5 rounded-lg shadow-lg backdrop-blur-sm">
                     <p className="text-xs font-black uppercase tracking-wide">{activeTestimonial.highlight}</p>
                   </div>
                 </div>
@@ -131,10 +131,10 @@ export default function Testimonials() {
 
               {/* Right: Content Section */}
               <div className="p-8 md:p-10 lg:p-12 flex flex-col justify-between">
-                {/* Quote Icon with glow */}
+                {/* Quote Icon with refined glow */}
                 <div className="mb-6">
-                  <div className="inline-flex w-14 h-14 rounded-2xl bg-gradient-to-br from-orange-500 to-orange-600 items-center justify-center shadow-lg relative">
-                    <div className="absolute inset-0 bg-orange-500 rounded-2xl blur-xl opacity-50"></div>
+                  <div className="inline-flex w-14 h-14 rounded-2xl bg-gradient-to-br from-orange-500 via-rose-500 to-orange-400 items-center justify-center shadow-lg relative">
+                    <div className="absolute inset-0 bg-gradient-to-br from-orange-500 to-rose-400 rounded-2xl blur-xl opacity-40"></div>
                     <Quote className="w-7 h-7 text-white relative z-10" />
                   </div>
                 </div>
@@ -148,10 +148,10 @@ export default function Testimonials() {
                 <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 border-t border-zinc-700/50 pt-6">
                   {/* Author & Metric */}
                   <div className="flex items-center gap-5">
-                    {/* Glowing Metric Badge */}
+                    {/* Premium Metric Badge with rose gold accent */}
                     <div className="relative">
-                      <div className="absolute inset-0 bg-gradient-to-r from-orange-500 to-orange-400 rounded-2xl blur-lg opacity-50"></div>
-                      <div className="relative bg-gradient-to-br from-orange-500 to-orange-600 text-white px-5 py-3 rounded-2xl shadow-xl">
+                      <div className="absolute inset-0 bg-gradient-to-r from-orange-500 via-rose-500 to-orange-400 rounded-2xl blur-lg opacity-40"></div>
+                      <div className="relative bg-gradient-to-br from-orange-500 via-rose-500 to-orange-400 text-white px-5 py-3 rounded-2xl shadow-xl">
                         <div className="flex items-center gap-1">
                           <TrendingUp className="w-5 h-5" />
                           <div className="text-2xl font-black leading-none">{activeTestimonial.metric}</div>
