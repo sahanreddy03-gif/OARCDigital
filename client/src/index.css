@@ -76,6 +76,14 @@
   --chart-4: 142 76% 36%;
   --chart-5: 30 95% 55%;
 
+  /* Brand accent green */
+  --accent-green: #00FF88;
+
+  /* Responsive typography for hero headings */
+  --h1-mobile: 38px;
+  --h1-tablet: 52px;
+  --h1-desktop: 64px;
+
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
   --font-serif: Georgia, serif;
   --font-mono: Menlo, monospace;
@@ -452,7 +460,7 @@
 
   /* Higher contrast for neon words - subtle stroke for legibility */
   .accent-neon {
-    color: #00FF88;
+    color: var(--accent-green);
     text-shadow: 0 6px 24px rgba(0,255,136,0.3);
     -webkit-text-stroke: 0.6px rgba(0,0,0,0.14);
   }

@@ -171,13 +171,11 @@ export default function WhyUs() {
     <Layout>
       {/* HERO: Premium Visible Banner with Parallax */}
       <section className="hero-premium relative min-h-[72vh] flex items-center justify-center overflow-hidden">
-        {/* Responsive hero image with srcset and lazy loading */}
+        {/* Responsive hero image with lazy loading */}
         <img
           ref={heroImgRef}
           className="hero-img absolute inset-0 w-full h-full object-cover object-center will-change-transform"
           src="/hero-cinematic.jpg"
-          srcSet="/hero-cinematic.jpg 1920w, /hero-cinematic.jpg 1280w, /hero-cinematic.jpg 768w, /hero-cinematic.jpg 480w"
-          sizes="(max-width:640px) 100vw, (max-width:1024px) 80vw, 1200px"
           alt="Hero - cinematic astronaut in creative office"
           loading="lazy"
           data-testid="img-hero"
@@ -207,19 +205,15 @@ export default function WhyUs() {
         {/* Main content */}
         <div className="relative z-20 max-w-3xl text-center px-6">
           <p className="text-sm tracking-widest text-white/70 mb-3 uppercase" data-testid="text-hero-kicker">
-            Where Creativity Meets Revenue
+            WHERE CREATIVITY MEETS REVENUE
           </p>
-          <h1 className="text-white font-extrabold leading-tight text-[clamp(34px,8vw,72px)]" data-testid="heading-hero">
-            <span className="block reveal-line">WHY</span>
+          <h1 className="text-white font-extrabold leading-tight text-[var(--h1-mobile)] md:text-[var(--h1-tablet)] lg:text-[var(--h1-desktop)]" data-testid="heading-hero">
+            <span className="block reveal-line">AI-Powered Marketing,</span>
             <span 
               ref={accentNeonRef}
-              className="block reveal-line accent-neon text-[#00FF88]"
-              style={{
-                textShadow: '0 6px 24px rgba(0,255,136,0.3)',
-                WebkitTextStroke: '0.6px rgba(0,0,0,0.14)'
-              }}
+              className="block reveal-line accent-neon"
             >
-              OARC
+              Revenue That Moves
             </span>
           </h1>
 
@@ -229,14 +223,16 @@ export default function WhyUs() {
 
           {/* Glass CTA card */}
           <div className="mt-8 inline-block">
-            <Link href="/contact">
-              <a className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-white/6 backdrop-blur-sm border border-white/10 hover:bg-[rgba(0,255,136,0.09)] transition-all duration-300" data-testid="button-hero-cta">
-                <span className="text-black bg-[#00FF88] px-3 py-1 rounded-full font-bold">
-                  Start Talking
-                </span>
-                <span className="text-white/90">Let's build revenue</span>
-              </a>
-            </Link>
+            <a 
+              href="/contact" 
+              className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-white/6 backdrop-blur-sm border border-white/10 hover:bg-[rgba(0,255,136,0.09)] transition-all duration-300" 
+              data-testid="button-hero-cta"
+            >
+              <span className="text-black px-3 py-1 rounded-full font-bold" style={{ backgroundColor: 'var(--accent-green)' }}>
+                Start Talking
+              </span>
+              <span className="text-white/90">Let's build revenue</span>
+            </a>
           </div>
         </div>
       </section>
