@@ -1,5 +1,9 @@
 // Centralized service images - used in carousel and individual service pages
+// Custom service banners
 import adCreativeBanner from '@assets/ad creative_1763084489954.avif';
+import webDesignBanner from '@assets/web design_1763084519615.avif';
+import motionDesignBanner from '@assets/motion design_1763084597887.avif';
+
 import img1 from '@assets/1_1763083221531.avif';
 import img2 from '@assets/2_1763083221532.avif';
 import img3 from '@assets/3_1763083221532.avif';
@@ -55,11 +59,11 @@ export const serviceImagesBySlug: Record<string, string> = {
   'print-packaging': img8,
   'packaging-design': img9,
   'video-production': img10,
-  'motion-design': img11,
+  'motion-design': motionDesignBanner,
   'immersive-design': img12,
   'immersive-3d-ar': img12,
   'email-creative': img13,
-  'web-design': img14,
+  'web-design': webDesignBanner,
   'design-systems': img15,
   'product-design': img16,
   'ai-enhanced-creative': img17,

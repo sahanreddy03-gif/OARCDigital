@@ -4,7 +4,7 @@ import { Code, Smartphone, Zap, Layers, ArrowRight, TrendingUp, CheckCircle2, Ga
 import { Button } from "@/components/ui/button";
 import { ScrollableCards } from "@/components/ui/scrollable-cards";
 import Layout from "@/components/layout/Layout";
-import heroImage from "@assets/stock_images/web_developer_coding_c71e23d7.jpg";
+import heroImage from '@assets/web design_1763084519615.avif';
 import webImg1 from "@assets/stock_images/modern_web_design_ux_d23df466.jpg";
 import webImg2 from "@assets/stock_images/modern_web_design_ux_62274473.jpg";
 import webImg3 from "@assets/stock_images/modern_web_design_ux_699e8c91.jpg";

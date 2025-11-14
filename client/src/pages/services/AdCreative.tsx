@@ -4,7 +4,7 @@ import { Sparkles, Target, Zap, BarChart, ArrowRight, TrendingUp, CheckCircle2 }
 import { Button } from "@/components/ui/button";
 import { ScrollableCards } from "@/components/ui/scrollable-cards";
 import Layout from "@/components/layout/Layout";
-import heroImage from "@assets/stock_images/graphic_designer_cre_7d022172.jpg";
+import heroImage from '@assets/ad creative_1763084489954.avif';
 import adImg1 from "@assets/stock_images/creative_advertising_b13aabf8.jpg";
 import adImg2 from "@assets/stock_images/creative_advertising_0f7921d3.jpg";
 import adImg3 from "@assets/stock_images/creative_advertising_3d5c5ae1.jpg";

@@ -4,7 +4,7 @@ import { Film, Zap, Play, Sparkles, Move, Layers, CheckCircle2, ArrowRight } fro
 import { Button } from "@/components/ui/button";
 import { ScrollableCards } from "@/components/ui/scrollable-cards";
 import Layout from "@/components/layout/Layout";
-import heroImage from "@assets/stock_images/motion_graphics_anim_5e0b9119.jpg";
+import heroImage from '@assets/motion design_1763084597887.avif';
 import motionImg1 from "@assets/stock_images/motion_graphics_anim_30522a7b.jpg";
 import motionImg2 from "@assets/stock_images/motion_graphics_anim_efb22394.jpg";
 import motionImg3 from "@assets/stock_images/motion_graphics_anim_aae15d3e.jpg";
