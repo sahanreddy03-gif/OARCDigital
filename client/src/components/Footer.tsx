@@ -67,25 +67,25 @@ export default function Footer() {
             </div>
 
             {/* Quick Stats */}
-            <div className="grid grid-cols-3 gap-6">
-              <div className="group text-center p-4 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 hover-elevate hover:border-orange-500/30 transition-all duration-300">
-                <div className="text-2xl font-black bg-gradient-to-br from-orange-400 to-rose-400 bg-clip-text text-transparent mb-1">65+</div>
-                <div className="text-xs text-zinc-400 uppercase tracking-wider group-hover:text-orange-400 transition-colors">Campaigns</div>
+            <div className="grid grid-cols-3 gap-3 sm:gap-6">
+              <div className="group text-center p-3 sm:p-4 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 hover-elevate hover:border-orange-500/30 transition-all duration-300">
+                <div className="text-xl sm:text-2xl font-black bg-gradient-to-br from-orange-400 to-rose-400 bg-clip-text text-transparent mb-1">65+</div>
+                <div className="text-[10px] sm:text-xs text-zinc-400 uppercase tracking-wider group-hover:text-orange-400 transition-colors">Campaigns</div>
               </div>
-              <div className="group text-center p-4 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 hover-elevate hover:border-orange-500/30 transition-all duration-300">
-                <div className="text-2xl font-black bg-gradient-to-br from-orange-400 to-rose-400 bg-clip-text text-transparent mb-1">185%</div>
-                <div className="text-xs text-zinc-400 uppercase tracking-wider group-hover:text-orange-400 transition-colors">Avg Growth</div>
+              <div className="group text-center p-3 sm:p-4 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 hover-elevate hover:border-orange-500/30 transition-all duration-300">
+                <div className="text-xl sm:text-2xl font-black bg-gradient-to-br from-orange-400 to-rose-400 bg-clip-text text-transparent mb-1">185%</div>
+                <div className="text-[10px] sm:text-xs text-zinc-400 uppercase tracking-wider group-hover:text-orange-400 transition-colors">Avg Growth</div>
               </div>
-              <div className="group text-center p-4 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 hover-elevate hover:border-orange-500/30 transition-all duration-300">
-                <div className="text-2xl font-black bg-gradient-to-br from-orange-400 to-rose-400 bg-clip-text text-transparent mb-1">24/7</div>
-                <div className="text-xs text-zinc-400 uppercase tracking-wider group-hover:text-orange-400 transition-colors">AI Systems</div>
+              <div className="group text-center p-3 sm:p-4 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 hover-elevate hover:border-orange-500/30 transition-all duration-300">
+                <div className="text-xl sm:text-2xl font-black bg-gradient-to-br from-orange-400 to-rose-400 bg-clip-text text-transparent mb-1">24/7</div>
+                <div className="text-[10px] sm:text-xs text-zinc-400 uppercase tracking-wider group-hover:text-orange-400 transition-colors">AI Systems</div>
               </div>
             </div>
           </div>
         </div>
 
         {/* Services Grid */}
-        <div className="grid md:grid-cols-4 gap-10 mb-12">
+        <div className="grid md:grid-cols-4 gap-10 mb-12" data-testid="footer-services">
 
           {/* AI Creative Services */}
           <div className="group">
