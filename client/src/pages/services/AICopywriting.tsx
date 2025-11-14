@@ -4,7 +4,9 @@ import { Sparkles, Zap, FileText, TrendingUp, Target, BarChart, CheckCircle2, Pe
 import { Button } from "@/components/ui/button";
 import { ScrollableCards } from "@/components/ui/scrollable-cards";
 import Layout from "@/components/layout/Layout";
-import heroImage from "@assets/stock_images/business_team_meetin_02cb9e40.jpg";
+import { serviceImagesBySlug } from "@/assets/serviceImages";
+
+const heroImage = serviceImagesBySlug['ai-copywriting'] || serviceImagesBySlug['ai-enhanced-creative'];
 
 export default function AICopywriting() {
   useEffect(() => {

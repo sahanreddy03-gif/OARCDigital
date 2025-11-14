@@ -7,6 +7,7 @@ import ServiceGrid from "@/components/reusable/ServiceGrid";
 import HowItWorks from "@/components/reusable/HowItWorks";
 import FAQ from "@/components/reusable/FAQ";
 import CaseStudyGrid from "@/components/reusable/CaseStudyGrid";
+import { serviceImagesBySlug } from "@/assets/serviceImages";
 
 interface ServiceContent {
   slug: string;
@@ -121,6 +122,9 @@ export default function ServiceDetail() {
     );
   }
 
+  // Get the hero background image based on the service slug
+  const heroBackgroundImage = params?.service ? serviceImagesBySlug[params.service] : undefined;
+
   return (
     <Layout>
       {/* Hero Section */}
@@ -129,6 +133,7 @@ export default function ServiceDetail() {
         subheadline={content.hero.subheadline}
         primaryCTA={content.hero.primaryCTA}
         secondaryCTA={content.hero.secondaryCTA}
+        backgroundImage={heroBackgroundImage}
       />
 
       {/* Benefits Section */}

@@ -25,16 +25,24 @@ export default function Hero({
 }: HeroProps) {
   return (
     <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white">
-      {/* Background Media - Placeholder for Phase 2 */}
+      {/* Background Media */}
       {backgroundVideo && (
         <div className="absolute inset-0 opacity-30">
           <div className="w-full h-full bg-gradient-to-br from-teal-900/20 to-blue-900/20" />
         </div>
       )}
       {!backgroundVideo && backgroundImage && (
-        <div className="absolute inset-0 opacity-20">
-          <div className="w-full h-full bg-gradient-to-br from-teal-900/20 to-blue-900/20" />
-        </div>
+        <>
+          <div className="absolute inset-0" data-testid="hero-background-image">
+            <img 
+              src={backgroundImage}
+              alt="Service background"
+              className="w-full h-full object-cover"
+            />
+          </div>
+          {/* Dark wash overlay for text readability */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/70 to-black/50"></div>
+        </>
       )}
 
       {/* Content */}

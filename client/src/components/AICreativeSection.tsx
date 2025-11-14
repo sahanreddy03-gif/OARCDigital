@@ -1,131 +1,114 @@
-import adCreative from '@assets/stock_images/professional_ad_crea_01a208c3.jpg';
-import socialMedia from '@assets/stock_images/social_media_creativ_8b2d8cae.jpg';
-import presentation from '@assets/stock_images/professional_present_2e93e298.jpg';
-import illustration from '@assets/stock_images/digital_illustration_cc904733.jpg';
-import branding from '@assets/stock_images/professional_brandin_f3b9b991.jpg';
-import ebook from '@assets/stock_images/professional_ebook_r_b4e00d62.jpg';
-import concept from '@assets/stock_images/creative_concept_dev_96d7b938.jpg';
-import printDesign from '@assets/stock_images/professional_print_d_ac873095.jpg';
-import packaging from '@assets/stock_images/product_packaging_de_0ef4ba86.jpg';
-import video from '@assets/stock_images/video_production_fil_418b397b.jpg';
-import motion from '@assets/stock_images/motion_graphics_desi_d998cbd0.jpg';
-import immersive from '@assets/stock_images/immersive_design_vir_c9997440.jpg';
-import email from '@assets/stock_images/professional_email_n_6c68b0a1.jpg';
-import webDesign from '@assets/stock_images/modern_web_design_we_927d8700.jpg';
-import designSystems from '@assets/stock_images/design_system_compon_362ff5cd.jpg';
-import productDesign from '@assets/stock_images/product_design_app_i_3c5ffe87.jpg';
-import aiEnhanced from '@assets/stock_images/ai_artificial_intell_5f3c3d5c.jpg';
-import aiConsulting from '@assets/stock_images/ai_consulting_techno_7ced77f9.jpg';
+import { serviceImages } from '@/assets/serviceImages';
 
 const services = [
   {
     title: "Ad creative",
     subtitle: "Eye-catching designs that perform",
-    image: adCreative,
+    image: serviceImages.adCreative,
     category: "Design & Static Creative"
   },
   {
     title: "Social media creative",
     subtitle: "Engaging assets for all platforms",
-    image: socialMedia,
+    image: serviceImages.socialMedia,
     category: "Design & Static Creative"
   },
   {
     title: "Presentation design",
     subtitle: "Captivating slides that tell your story",
-    image: presentation,
+    image: serviceImages.presentation,
     category: "Design & Static Creative"
   },
   {
     title: "Illustration design",
     subtitle: "Visual storytelling for your brand",
-    image: illustration,
+    image: serviceImages.illustration,
     category: "Design & Static Creative"
   },
   {
     title: "Branding services",
     subtitle: "Expertise & custom design services",
-    image: branding,
+    image: serviceImages.branding,
     category: "Design & Static Creative"
   },
   {
     title: "eBooks & report design",
     subtitle: "Your digital content supercharged",
-    image: ebook,
+    image: serviceImages.ebook,
     category: "Design & Static Creative"
   },
   {
     title: "Concept creation",
     subtitle: "Big ideas crafted for maximum impact",
-    image: concept,
+    image: serviceImages.concept,
     category: "Design & Static Creative"
   },
   {
     title: "Print design",
     subtitle: "Tangible designs that leave a lasting impression",
-    image: printDesign,
+    image: serviceImages.printDesign,
     category: "Design & Static Creative"
   },
   {
     title: "Packaging & merchandise design",
     subtitle: "Bring your brand to life",
-    image: packaging,
+    image: serviceImages.packaging,
     category: "Design & Static Creative"
   },
   {
     title: "Video production",
     subtitle: "Effortless video production at scale",
-    image: video,
+    image: serviceImages.video,
     category: "Motion & Video"
   },
   {
     title: "Motion design",
     subtitle: "For websites, ads, and presentations",
-    image: motion,
+    image: serviceImages.motion,
     category: "Motion & Video"
   },
   {
     title: "Immersive design",
     subtitle: "Innovative solutions for 3D/AR design services",
-    image: immersive,
+    image: serviceImages.immersive,
     category: "Motion & Video"
   },
   {
     title: "Email creation",
     subtitle: "Click-worthy emails that drive engagement",
-    image: email,
+    image: serviceImages.email,
     category: "Digital & Web"
   },
   {
     title: "Web design",
     subtitle: "Stunning websites and landing pages built to engage",
-    image: webDesign,
+    image: serviceImages.webDesign,
     category: "Digital & Web"
   },
   {
     title: "Design Systems",
     subtitle: "Robust design systems that drive visual consistency",
-    image: designSystems,
+    image: serviceImages.designSystems,
     category: "Digital & Web",
     badge: "NEW"
   },
   {
     title: "Product Design",
     subtitle: "Engaging & intuitive experiences",
-    image: productDesign,
+    image: serviceImages.productDesign,
     category: "Digital & Web",
     badge: "NEW"
   },
   {
     title: "AI-enhanced creative",
     subtitle: "Human brilliance powered by AI",
-    image: aiEnhanced,
+    image: serviceImages.aiEnhanced,
     category: "AI-Powered"
   },
   {
     title: "AI consulting",
     subtitle: "Maximize AI with tailored strategies",
-    image: aiConsulting,
+    image: serviceImages.aiConsulting,
     category: "AI-Powered"
   },
 ];
