@@ -47,21 +47,6 @@ export default function Section2() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left Content */}
           <div className="order-2 lg:order-1">
-            <AdvancedScrollReveal variant="fade" delay={100}>
-              <div className="flex items-center gap-2 mb-5 md:mb-6" data-testid="text-eyebrow">
-                <img 
-                  src={companyLogo} 
-                  alt="OARC Digital logo" 
-                  className="h-7 w-7 sm:h-8 sm:w-8 object-contain"
-                  data-testid="img-section2-logo"
-                />
-                <p className="text-xs md:text-sm font-semibold tracking-wide">
-                  <span className="text-zinc-900">OARC </span>
-                  <span className="text-[#FF5A00]">Digital</span>
-                </p>
-              </div>
-            </AdvancedScrollReveal>
-            
             <AdvancedScrollReveal variant="slide-up" delay={200}>
               <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-zinc-900 leading-[1.15] tracking-tight mb-5 md:mb-7" data-testid="text-section2-heading">
                 <span className="block">The results-driven</span>
