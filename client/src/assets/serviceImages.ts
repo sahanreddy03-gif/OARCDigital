@@ -8,6 +8,7 @@ import emailCreativeBanner from '@assets/email craetion_1763085804635.avif';
 import presentationDesignBanner from '@assets/presentation design_1763086077235.avif';
 import illustrationBanner from '@assets/illustration desoigns_1763086173736.avif';
 import printPackagingBanner from '@assets/printy design_1763086257815.avif';
+import paidAdvertisingBanner from '@assets/paid advertising_1763086555616.avif';
 
 import img1 from '@assets/1_1763083221531.avif';
 import img2 from '@assets/2_1763083221532.avif';
@@ -73,4 +74,6 @@ export const serviceImagesBySlug: Record<string, string> = {
   'product-design': img16,
   'ai-enhanced-creative': img17,
   'ai-consulting': img18,
+  'paid': paidAdvertisingBanner,
+  'paid-advertising': paidAdvertisingBanner,
 };
