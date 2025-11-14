@@ -427,4 +427,50 @@
   .scrollbar-hide::-webkit-scrollbar {
     display: none;  /* Chrome, Safari and Opera */
   }
+
+  /* Hero Premium Section Styles */
+  .hero-premium { 
+    position: relative;
+  }
+  
+  .hero-img { 
+    transform-origin: center;
+    transition: transform 0.9s cubic-bezier(.2,.9,.2,1);
+  }
+  
+  /* Subtle hover depth on desktop */
+  @media (hover: hover) {
+    .hero-premium:hover .hero-img { 
+      transform: scale(1.02) translateY(-6px);
+    }
+  }
+
+  .reveal-line { 
+    display: block;
+    will-change: transform, opacity;
+  }
+
+  /* Higher contrast for neon words - subtle stroke for legibility */
+  .accent-neon {
+    color: #00FF88;
+    text-shadow: 0 6px 24px rgba(0,255,136,0.3);
+    -webkit-text-stroke: 0.6px rgba(0,0,0,0.14);
+  }
+
+  /* Mobile scale tuning */
+  @media (max-width:640px) {
+    .hero-img { 
+      transform: translateY(0);
+    }
+  }
+
+  /* Accessibility: Respect reduced motion preference */
+  @media (prefers-reduced-motion: reduce) {
+    .hero-img {
+      transition: none !important;
+    }
+    .hero-premium:hover .hero-img {
+      transform: none !important;
+    }
+  }
 }
