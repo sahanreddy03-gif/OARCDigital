@@ -12,9 +12,9 @@ export default function Footer() {
   return (
     <footer className="relative bg-gradient-to-br from-zinc-950 via-zinc-900 to-zinc-950 text-white overflow-hidden">
       {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-hidden opacity-20">
-        <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-orange-500/30 to-transparent rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-gradient-to-br from-green-500/20 to-transparent rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
+      <div className="absolute inset-0 overflow-hidden opacity-15">
+        <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-orange-500/20 to-transparent rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-gradient-to-br from-orange-500/15 to-transparent rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
       </div>
 
       {/* Top CTA Section */}
@@ -69,15 +69,15 @@ export default function Footer() {
             {/* Quick Stats */}
             <div className="grid grid-cols-3 gap-6">
               <div className="text-center p-4 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10">
-                <div className="text-2xl font-black text-[#00FF9C] mb-1">100+</div>
+                <div className="text-2xl font-black text-orange-500 mb-1">100+</div>
                 <div className="text-xs text-zinc-400 uppercase tracking-wider">Campaigns</div>
               </div>
               <div className="text-center p-4 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10">
-                <div className="text-2xl font-black text-[#FF5A00] mb-1">385%</div>
+                <div className="text-2xl font-black text-orange-500 mb-1">385%</div>
                 <div className="text-xs text-zinc-400 uppercase tracking-wider">Avg Growth</div>
               </div>
               <div className="text-center p-4 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10">
-                <div className="text-2xl font-black text-[#c4ff4d] mb-1">24/7</div>
+                <div className="text-2xl font-black text-orange-500 mb-1">24/7</div>
                 <div className="text-xs text-zinc-400 uppercase tracking-wider">AI Systems</div>
               </div>
             </div>
@@ -114,7 +114,7 @@ export default function Footer() {
           {/* AI Employees */}
           <div className="group">
             <div className="flex items-center gap-2 mb-5">
-              <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-green-500 to-green-600 flex items-center justify-center">
+              <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center">
                 <TrendingUp className="w-5 h-5 text-white" />
               </div>
               <h4 className="font-black text-lg text-white">{servicesCatalog.aiEmployees.title}</h4>
@@ -124,10 +124,10 @@ export default function Footer() {
                 <li key={service.slug}>
                   <Link 
                     href={`/services/${service.route || service.slug}`} 
-                    className="text-zinc-400 hover:text-green-500 hover:translate-x-1 transition-all inline-flex items-center gap-2 group/link" 
+                    className="text-zinc-400 hover:text-orange-500 hover:translate-x-1 transition-all inline-flex items-center gap-2 group/link" 
                     data-testid={`link-footer-${service.slug}`}
                   >
-                    <div className="w-1 h-1 rounded-full bg-green-500/50 group-hover/link:bg-green-500"></div>
+                    <div className="w-1 h-1 rounded-full bg-orange-500/50 group-hover/link:bg-orange-500"></div>
                     {service.title}
                   </Link>
                 </li>
@@ -138,8 +138,8 @@ export default function Footer() {
           {/* Revenue Automation */}
           <div className="group">
             <div className="flex items-center gap-2 mb-5">
-              <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[#c4ff4d] to-[#a8e838] flex items-center justify-center">
-                <Award className="w-5 h-5 text-zinc-900" />
+              <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center">
+                <Award className="w-5 h-5 text-white" />
               </div>
               <h4 className="font-black text-lg text-white">{servicesCatalog.revenue.title}</h4>
             </div>
@@ -148,10 +148,10 @@ export default function Footer() {
                 <li key={service.slug}>
                   <Link 
                     href={`/services/${service.route || service.slug}`} 
-                    className="text-zinc-400 hover:text-[#c4ff4d] hover:translate-x-1 transition-all inline-flex items-center gap-2 group/link" 
+                    className="text-zinc-400 hover:text-orange-500 hover:translate-x-1 transition-all inline-flex items-center gap-2 group/link" 
                     data-testid={`link-footer-${service.slug}`}
                   >
-                    <div className="w-1 h-1 rounded-full bg-[#c4ff4d]/50 group-hover/link:bg-[#c4ff4d]"></div>
+                    <div className="w-1 h-1 rounded-full bg-orange-500/50 group-hover/link:bg-orange-500"></div>
                     {service.title}
                   </Link>
                 </li>
@@ -175,8 +175,8 @@ export default function Footer() {
               <li><Link href="/pdf" className="text-zinc-400 hover:text-white hover:translate-x-1 transition-all inline-flex items-center gap-2" data-testid="link-footer-pdf"><div className="w-1 h-1 rounded-full bg-zinc-500"></div>Client PDFs</Link></li>
               <li>
                 <Link href="/services" className="group/all inline-flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 border border-white/10 rounded-lg transition-all mt-2" data-testid="link-footer-browse-all">
-                  <span className="text-[#c4ff4d] font-bold text-xs uppercase tracking-wider">Browse All Services</span>
-                  <ArrowRight className="w-4 h-4 text-[#c4ff4d] group-hover/all:translate-x-1 transition-transform" />
+                  <span className="text-orange-500 font-bold text-xs uppercase tracking-wider">Browse All Services</span>
+                  <ArrowRight className="w-4 h-4 text-orange-500 group-hover/all:translate-x-1 transition-transform" />
                 </Link>
               </li>
             </ul>

@@ -52,7 +52,7 @@ function Counter({ end, prefix = "", suffix = "", duration = 2000 }: { end: numb
   }, [isVisible, end, duration]);
 
   return (
-    <div ref={ref} className="text-5xl md:text-6xl font-bold font-display text-primary">
+    <div ref={ref} className="text-5xl md:text-6xl font-bold font-display text-white">
       {prefix}{count.toFixed(suffix === "M" ? 1 : 0)}{suffix}
     </div>
   );
@@ -60,13 +60,13 @@ function Counter({ end, prefix = "", suffix = "", duration = 2000 }: { end: numb
 
 export default function PerformanceMetrics() {
   return (
-    <section className="py-16 md:py-20 bg-foreground text-background">
+    <section className="py-16 md:py-20 bg-gradient-to-br from-orange-500 to-orange-600 text-white">
       <div className="max-w-6xl mx-auto px-6 md:px-12">
         <div className="text-center mb-12">
-          <p className="text-xs uppercase tracking-wider font-bold text-background/60 mb-3">
+          <p className="text-xs uppercase tracking-wider font-bold text-white/70 mb-3">
             Measurable Success
           </p>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black font-display tracking-tight">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black font-display tracking-tight text-white">
             The proof is in the <span className="italic font-black">results</span>
           </h2>
         </div>
@@ -79,7 +79,7 @@ export default function PerformanceMetrics() {
                 prefix={metric.prefix}
                 suffix={metric.suffix}
               />
-              <p className="text-xs md:text-sm uppercase tracking-wide font-semibold text-background/60">
+              <p className="text-xs md:text-sm uppercase tracking-wide font-semibold text-white/70">
                 {metric.label}
               </p>
             </div>

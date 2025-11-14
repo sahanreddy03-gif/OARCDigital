@@ -68,9 +68,9 @@ export default function Testimonials() {
   return (
     <section className="relative py-14 md:py-20 overflow-hidden bg-gradient-to-br from-zinc-900 via-zinc-800 to-zinc-900">
       {/* Dynamic background elements */}
-      <div className="absolute inset-0 overflow-hidden opacity-30">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-br from-orange-500/30 to-transparent rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-br from-green-500/20 to-transparent rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+      <div className="absolute inset-0 overflow-hidden opacity-20">
+        <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-br from-orange-500/20 to-transparent rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-br from-orange-500/15 to-transparent rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
       </div>
       
       <div className="relative container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl">
@@ -93,13 +93,13 @@ export default function Testimonials() {
         {/* Enhanced Featured Testimonial */}
         <div className="relative">
           {/* Gradient border effect */}
-          <div className="absolute inset-0 bg-gradient-to-r from-orange-500 via-green-500 to-orange-500 rounded-3xl blur-xl opacity-30"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-orange-500 to-orange-600 rounded-3xl blur-xl opacity-30"></div>
           
           <div className="relative bg-zinc-800/90 backdrop-blur-xl rounded-3xl overflow-hidden shadow-2xl border border-zinc-700/50">
             <div className="grid md:grid-cols-[280px_1fr] gap-0">
               {/* Left: Premium Image Section */}
               <div className="relative h-80 md:h-auto overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-orange-500/20 to-green-500/20"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-orange-500/20 to-orange-600/20"></div>
                 <img 
                   src={activeTestimonial.image} 
                   alt={activeTestimonial.author}
@@ -150,8 +150,8 @@ export default function Testimonials() {
                   <div className="flex items-center gap-5">
                     {/* Glowing Metric Badge */}
                     <div className="relative">
-                      <div className="absolute inset-0 bg-gradient-to-r from-green-500 to-green-400 rounded-2xl blur-lg opacity-50"></div>
-                      <div className="relative bg-gradient-to-br from-[#00FF9C] to-[#00d884] text-zinc-900 px-5 py-3 rounded-2xl shadow-xl">
+                      <div className="absolute inset-0 bg-gradient-to-r from-orange-500 to-orange-400 rounded-2xl blur-lg opacity-50"></div>
+                      <div className="relative bg-gradient-to-br from-orange-500 to-orange-600 text-white px-5 py-3 rounded-2xl shadow-xl">
                         <div className="flex items-center gap-1">
                           <TrendingUp className="w-5 h-5" />
                           <div className="text-2xl font-black leading-none">{activeTestimonial.metric}</div>
