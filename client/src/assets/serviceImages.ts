@@ -1,4 +1,5 @@
 // Centralized service images - used in carousel and individual service pages
+import adCreativeBanner from '@assets/ad creative_1763084489954.avif';
 import img1 from '@assets/1_1763083221531.avif';
 import img2 from '@assets/2_1763083221532.avif';
 import img3 from '@assets/3_1763083221532.avif';
@@ -41,7 +42,7 @@ export const serviceImages = {
 
 // Mapping by service slug for easy lookup
 export const serviceImagesBySlug: Record<string, string> = {
-  'ad-creative': img1,
+  'ad-creative': adCreativeBanner,
   'social-media-creative': img2,
   'social-media-creative-management': img2,
   'presentation-design': img3,
