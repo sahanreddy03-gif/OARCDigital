@@ -205,20 +205,20 @@ export default function WhyUs() {
         {/* Main content */}
         <div className="relative z-20 max-w-3xl text-center px-6">
           <p className="text-sm tracking-widest text-white/70 mb-3 uppercase" data-testid="text-hero-kicker">
-            WHERE CREATIVITY MEETS REVENUE
+            THE OARC DIFFERENCE
           </p>
           <h1 className="text-white font-extrabold leading-tight text-[var(--h1-mobile)] md:text-[var(--h1-tablet)] lg:text-[var(--h1-desktop)]" data-testid="heading-hero">
-            <span className="block reveal-line">AI-Powered Marketing,</span>
+            <span className="block reveal-line">Not Another Agency.</span>
             <span 
               ref={accentNeonRef}
               className="block reveal-line accent-neon"
             >
-              Revenue That Moves
+              Your Revenue Partner.
             </span>
           </h1>
 
           <p className="mt-4 text-[16px] md:text-[18px] text-white/85 max-w-2xl mx-auto" data-testid="text-hero-tagline">
-            Certified AI talent + Tailored Workflows + Measurable Growth. Less Cost. More Reach.
+            We don't just run campaigns. We build AI-powered systems that grow your revenue while traditional agencies are still chasing vanity metrics.
           </p>
 
           {/* Glass CTA card */}
