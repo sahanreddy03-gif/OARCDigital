@@ -1,0 +1,82 @@
+<!-- HERO: premium visible banner -->
+<section class="hero-premium relative min-h-[72vh] flex items-center justify-center overflow-hidden">
+  <!-- responsive hero image with srcset and LQIP -->
+  <img
+    class="hero-img absolute inset-0 w-full h-full object-cover object-center will-change-transform"
+    src="/hero-cinematic.jpg"
+    srcset="/hero-cinematic-480w.webp 480w, /hero-cinematic-768w.webp 768w, /hero-cinematic-1280w.webp 1280w, /hero-cinematic-1920w.webp 1920w"
+    sizes="(max-width:640px) 100vw, (max-width:1024px) 80vw, 1200px"
+    alt="Hero - cinematic astronaut"
+    loading="lazy"
+    />
+  <!-- color grade + vignette + film grain -->
+  <div aria-hidden="true" class="absolute inset-0 bg-gradient-to-b from-[rgba(20,8,6,0.45)] via-[rgba(20,8,6,0.35)] to-[rgba(10,6,5,0.6)] mix-blend-normal"></div>
+  <div aria-hidden="true" class="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_center, rgba(0,0,0,0) 40%, rgba(0,0,0,0.55) 100%)]"></div>
+  <div aria-hidden="true" class="absolute inset-0 opacity-6 bg-[url('/grain.png')] bg-repeat"></div>
+
+  <!-- main content -->
+  <div class="relative z-20 max-w-3xl text-center px-6">
+    <p class="text-sm tracking-widest text-white/70 mb-3">WHERE CREATIVITY MEETS REVENUE</p>
+    <h1 class="text-white font-extrabold leading-tight text-[var(--h1-mobile)] md:text-[var(--h1-tablet)] lg:text-[var(--h1-desktop)]">
+      <span class="block reveal-line">AI-Powered Marketing,</span>
+      <span class="block reveal-line accent-neon">Revenue That Moves</span>
+    </h1>
+
+    <p class="mt-4 text-[16px] md:text-[18px] text-white/85 max-w-2xl mx-auto">Certified AI talent + Tailored Workflows + Measurable Growth. Less Cost. More Reach.</p>
+
+    <!-- glass CTA card -->
+    <div class="mt-8 inline-block">
+      <a href="#contact" class="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-white/6 backdrop-blur-sm border border-white/10 hover:bg-[rgba(204,255,51,0.09)] transition">
+        <span class="text-black bg-[var(--accent-green)] px-3 py-1 rounded-full font-bold">Start Talking</span>
+        <span class="text-white/90">Let’s build revenue</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+.hero-premium { position: relative; }
+.hero-img { transform-origin: center; transition: transform 0.9s cubic-bezier(.2,.9,.2,1); }
+.hero-premium:hover .hero-img { transform: scale(1.02) translateY(-6px); } /* subtle hover depth on desktop */
+
+.reveal-line { display:block; will-change: transform, opacity; }
+
+/* grain asset (small 30–80px tile), put /public/grain.png */
+.bg-grain { background-image: url('/grain.png'); opacity: 0.06; }
+
+/* higher contrast for neon words - subtle stroke for legibility */
+.accent-neon {
+  color: var(--accent-green);
+  text-shadow: 0 6px 24px rgba(204,255,51,0.06);
+  -webkit-text-stroke: 0.6px rgba(0,0,0,0.14);
+}
+
+/* mobile scale tuning */
+@media (max-width:640px) {
+  :root { --h1-mobile: 34px; }
+  .hero-img { transform: translateY(0); } /* no parallax transform on small devices by default */
+}
+
+/* parallax transforms via JS (GSAP) will apply translateY on .hero-img */
+
+// in useEffect after registering ScrollTrigger
+// small parallax on hero image + subtle focal zoom on hero reveal
+const heroImg = document.querySelector('.hero-img');
+if (heroImg && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  gsap.to(heroImg, {
+    yPercent: -6,
+    scale: 1.02,
+    ease: 'none',
+    scrollTrigger: {
+      trigger: '.hero-premium',
+      start: 'top top',
+      end: 'bottom top',
+      scrub: 0.9
+    }
+  });
+
+  // focal pop on enter
+  gsap.fromTo('.accent-neon', { scale: 0.98, opacity: 0.9 }, {
+    scale: 1.06, opacity: 1, duration: 0.45, ease: 'power2.out',
+    scrollTrigger: { trigger: '.hero-premium', start: 'top 80%', toggleActions: 'play none none reverse' }
+  });
+}

@@ -116,34 +116,69 @@ export default function WhyUs() {
 
   return (
     <Layout>
-      {/* Hero Section - Bold Typography with Astronaut Background */}
-      <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
-        {/* Background Image */}
+      {/* Hero Section - Cinematic Astronaut with Film Grain & Color Grading */}
+      <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden bg-black">
+        {/* Cinematic Background Image - Centered on Astronaut */}
         <div className="absolute inset-0">
           <img 
             src={astronautBg}
             alt="Astronaut working in creative office"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover object-center scale-105 transform"
+            style={{ objectPosition: '50% 35%' }}
           />
-          {/* Dark overlay for text readability */}
-          <div className="absolute inset-0 bg-gradient-to-br from-black/85 via-black/80 to-black/75"></div>
+          
+          {/* Cinematic Color Grading: Warm Amber + Deep Teal Shadows */}
+          <div 
+            aria-hidden="true" 
+            className="absolute inset-0 bg-gradient-to-b from-[rgba(20,8,6,0.5)] via-[rgba(20,8,6,0.4)] to-[rgba(10,25,30,0.65)] mix-blend-normal"
+          ></div>
+          
+          {/* Vignette Effect - Darker edges, bright center */}
+          <div 
+            aria-hidden="true" 
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              background: 'radial-gradient(ellipse at center, rgba(0,0,0,0) 35%, rgba(0,0,0,0.6) 100%)'
+            }}
+          ></div>
+          
+          {/* Film Grain Overlay */}
+          <div 
+            aria-hidden="true" 
+            className="absolute inset-0 opacity-[0.08] mix-blend-overlay pointer-events-none"
+            style={{
+              backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noise\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.9\' numOctaves=\'4\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noise)\'/%3E%3C/svg%3E")',
+              backgroundRepeat: 'repeat',
+              backgroundSize: '100px 100px'
+            }}
+          ></div>
         </div>
         
-        <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 py-32 text-center">
+        <div className="relative z-20 max-w-7xl mx-auto px-6 md:px-12 py-32 text-center">
           {/* Large Typography Hero */}
           <div className="mb-16">
-            <h1 className="text-[12vw] md:text-[10vw] lg:text-[8vw] font-bold leading-none tracking-tight mb-8" data-testid="heading-hero">
+            <h1 
+              className="text-[12vw] md:text-[10vw] lg:text-[8vw] font-bold leading-none tracking-tight mb-8 drop-shadow-2xl" 
+              data-testid="heading-hero"
+            >
               <span className="text-white">WHY</span>
               <br />
-              <span className="text-[#00FF88]">OARC</span>
+              <span 
+                className="text-[#00FF88]"
+                style={{ 
+                  textShadow: '0 6px 32px rgba(0,255,136,0.3), 0 0 60px rgba(0,255,136,0.2)' 
+                }}
+              >
+                OARC
+              </span>
             </h1>
           </div>
           
           <div className="max-w-3xl mx-auto space-y-8">
-            <p className="text-xl md:text-2xl lg:text-3xl font-light text-white/90 leading-relaxed" data-testid="text-hero-tagline">
+            <p className="text-xl md:text-2xl lg:text-3xl font-light text-white/95 leading-relaxed drop-shadow-lg" data-testid="text-hero-tagline">
               Where Creativity Meets Intelligent Automation
             </p>
-            <p className="text-base md:text-lg text-white/60 leading-relaxed max-w-2xl mx-auto" data-testid="text-hero-description">
+            <p className="text-base md:text-lg text-white/75 leading-relaxed max-w-2xl mx-auto drop-shadow-md" data-testid="text-hero-description">
               Global Talent. AI-Powered. Revenue-Driven. We're a collective of young, fearless creatives from across the globe—united by AI, driven by results, obsessed with building brands that grow on autopilot.
             </p>
           </div>
