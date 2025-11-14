@@ -4,7 +4,7 @@ import { Palette, Sparkles, Image, Users, Book, Zap, CheckCircle2, ArrowRight } 
 import { Button } from "@/components/ui/button";
 import { ScrollableCards } from "@/components/ui/scrollable-cards";
 import Layout from "@/components/layout/Layout";
-import heroImage from "@assets/stock_images/artist_illustration__034f8f53.jpg";
+import heroImage from '@assets/illustration desoigns_1763086173736.avif';
 
 export default function Illustration() {
   useEffect(() => {
