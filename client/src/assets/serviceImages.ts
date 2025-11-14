@@ -7,6 +7,7 @@ import designSystemsBanner from '@assets/15_1763085718435.avif';
 import emailCreativeBanner from '@assets/email craetion_1763085804635.avif';
 import presentationDesignBanner from '@assets/presentation design_1763086077235.avif';
 import illustrationBanner from '@assets/illustration desoigns_1763086173736.avif';
+import printPackagingBanner from '@assets/printy design_1763086257815.avif';
 
 import img1 from '@assets/1_1763083221531.avif';
 import img2 from '@assets/2_1763083221532.avif';
@@ -59,9 +60,9 @@ export const serviceImagesBySlug: Record<string, string> = {
   'branding-services': img5,
   'ebook-design': img6,
   'concept-creation': img7,
-  'print-design': img8,
-  'print-packaging': img8,
-  'packaging-design': img9,
+  'print-design': printPackagingBanner,
+  'print-packaging': printPackagingBanner,
+  'packaging-design': printPackagingBanner,
   'video-production': img10,
   'motion-design': motionDesignBanner,
   'immersive-design': img12,

@@ -4,7 +4,7 @@ import { Package, Award, Sparkles, ShoppingBag, Box, Tag, CheckCircle2, ArrowRig
 import { Button } from "@/components/ui/button";
 import { ScrollableCards } from "@/components/ui/scrollable-cards";
 import Layout from "@/components/layout/Layout";
-import heroImage from "@assets/stock_images/product_packaging_de_5860c269.jpg";
+import heroImage from '@assets/printy design_1763086257815.avif';
 
 export default function PrintPackaging() {
   useEffect(() => {
