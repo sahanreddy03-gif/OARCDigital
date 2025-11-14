@@ -69,11 +69,11 @@ export default function Footer() {
             {/* Quick Stats */}
             <div className="grid grid-cols-3 gap-6">
               <div className="text-center p-4 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10">
-                <div className="text-2xl font-black text-orange-500 mb-1">100+</div>
+                <div className="text-2xl font-black text-orange-500 mb-1">65+</div>
                 <div className="text-xs text-zinc-400 uppercase tracking-wider">Campaigns</div>
               </div>
               <div className="text-center p-4 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10">
-                <div className="text-2xl font-black text-orange-500 mb-1">385%</div>
+                <div className="text-2xl font-black text-orange-500 mb-1">185%</div>
                 <div className="text-xs text-zinc-400 uppercase tracking-wider">Avg Growth</div>
               </div>
               <div className="text-center p-4 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10">

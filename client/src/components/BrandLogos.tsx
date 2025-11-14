@@ -16,7 +16,7 @@ export default function BrandLogos() {
     <section className="py-10 md:py-12 bg-[#f5f1eb]">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <p className="text-center text-[10px] md:text-xs uppercase tracking-[0.15em] font-bold text-foreground/60 mb-8">
-          Trusted by 500+ of the world's top brands
+          Trusted by 150+ global brands
         </p>
         
         <div className="overflow-hidden">
