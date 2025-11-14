@@ -7,13 +7,13 @@ import executiveMan2 from '@assets/stock_images/professional_busines_c7c03839.jp
 
 const testimonials = [
   {
-    quote: "OARC Digital transformed our marketing approach. Their AI-powered strategies delivered a 185% ROI in just 8 months.",
+    quote: "OARC Digital transformed our marketing approach. Their AI-powered strategies delivered a 68% ROI in just 8 months.",
     author: "Sarah Chen",
     role: "Chief Marketing Officer",
     company: "TechVentures Inc.",
     industry: "SaaS",
     image: executiveWoman1,
-    metric: "185% ROI",
+    metric: "68% ROI",
     rating: 5,
     highlight: "AI Strategy"
   },
@@ -46,7 +46,7 @@ const testimonials = [
     company: "Scale Systems",
     industry: "B2B Tech",
     image: executiveMan2,
-    metric: "+220%",
+    metric: "+85%",
     rating: 5,
     highlight: "Partnership"
   },

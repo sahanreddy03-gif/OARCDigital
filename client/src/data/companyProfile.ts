@@ -117,9 +117,9 @@ export const caseStudies = [
     challenge: "Low online engagement and stagnant e-commerce growth despite strong in-store presence.",
     solution: "AI-powered social media content creation, WhatsApp marketing automation, and personalized email campaigns.",
     results: [
-      { metric: "ROI Increase", value: "+120%", period: "in 30 days" },
-      { metric: "Social Engagement", value: "+340%", period: "in 60 days" },
-      { metric: "E-commerce Revenue", value: "+95%", period: "in 90 days" }
+      { metric: "ROI Increase", value: "+48%", period: "in 30 days" },
+      { metric: "Social Engagement", value: "+165%", period: "in 60 days" },
+      { metric: "E-commerce Revenue", value: "+52%", period: "in 90 days" }
     ],
     technologies: ["ChatGPT-4", "n8n Automation", "WhatsApp Business API", "Klaviyo"],
     testimonial: "OARC Digital transformed our digital presence. The AI systems they built generate content and manage customer interactions 24/7."

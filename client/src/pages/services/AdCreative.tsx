@@ -95,13 +95,13 @@ export default function AdCreative() {
 
           <div className="grid md:grid-cols-4 gap-6 mt-10">
             {[
-              { value: "4.2x", label: "Avg. ROAS improvement", gradient: "from-purple-600 to-pink-600" },
-              { value: "51%", label: "Avg. CPA reduction", gradient: "from-blue-600 to-cyan-600" },
+              { value: "2.8x", label: "Avg. ROAS improvement", gradient: "from-purple-600 to-pink-600" },
+              { value: "28%", label: "Avg. CPA reduction", gradient: "from-blue-600 to-cyan-600" },
               { value: "50+", label: "Variants per campaign", gradient: "from-orange-600 to-red-600" },
               { value: "72hrs", label: "Creative turnaround", gradient: "from-green-600 to-emerald-600" },
             ].map((stat, i) => (
               <div key={i} className="text-center p-6 bg-gradient-to-br from-[hsl(262,10%,98%)] to-white rounded-xl border border-border hover:shadow-lg transition-all duration-300 hover:-translate-y-1" data-testid={`metric-${i}`}>
-                <div className={`text-4xl md:text-5xl font-bold bg-gradient-to-r ${stat.gradient} text-transparent bg-clip-text mb-2`}>{stat.value}</div>
+                <div className={`text-3xl md:text-4xl font-bold bg-gradient-to-r ${stat.gradient} text-transparent bg-clip-text mb-2`}>{stat.value}</div>
                 <div className="text-sm text-muted-foreground">{stat.label}</div>
               </div>
             ))}
@@ -179,25 +179,25 @@ export default function AdCreative() {
               { 
                 industry: "DTC Beauty Brand", 
                 challenge: "Scaling past $100K/mo ad spend without CPA increase",
-                result: "4.7x ROAS",
-                metric1: "47% CPA reduction",
-                metric2: "$2.3M revenue in 90 days",
+                result: "2.9x ROAS",
+                metric1: "32% CPA reduction",
+                metric2: "$1.8M revenue in 90 days",
                 icon: Sparkles
               },
               { 
                 industry: "Mobile Gaming", 
                 challenge: "Improving creative performance for user acquisition",
-                result: "3.2x CTR",
-                metric1: "62% cost per install reduction",
-                metric2: "180K+ new installs",
+                result: "2.4x CTR",
+                metric1: "38% cost per install reduction",
+                metric2: "120K+ new installs",
                 icon: Target
               },
               { 
                 industry: "Fintech App", 
                 challenge: "Converting high-intent users with performance creative",
-                result: "5.1x ROAS",
-                metric1: "39% conversion rate increase",
-                metric2: "$890K revenue increase",
+                result: "3.1x ROAS",
+                metric1: "24% conversion rate increase",
+                metric2: "$540K revenue increase",
                 icon: TrendingUp
               },
             ].map((study, i) => (
@@ -205,7 +205,7 @@ export default function AdCreative() {
                 <study.icon className="h-12 w-12 text-[hsl(262,83%,58%)] mb-4 group-hover:scale-110 transition-transform" />
                 <div className="text-sm uppercase tracking-wider text-[hsl(262,83%,58%)] mb-2">{study.industry}</div>
                 <p className="text-sm text-muted-foreground mb-4">{study.challenge}</p>
-                <div className="text-4xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 text-transparent bg-clip-text mb-4">{study.result}</div>
+                <div className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 text-transparent bg-clip-text mb-4">{study.result}</div>
                 <div className="space-y-2">
                   <div className="flex items-start gap-2">
                     <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
