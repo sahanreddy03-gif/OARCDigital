@@ -7,7 +7,6 @@ import LetsTalkSection from "@/components/LetsTalkSection";
 import AICreativeSection from "@/components/AICreativeSection";
 import HireAIEmployeesSection from "@/components/HireAIEmployeesSection";
 import LetsTalkRevenueSection from "@/components/LetsTalkRevenueSection";
-import PerformanceMetrics from "@/components/PerformanceMetrics";
 import CTASections from "@/components/CTASections";
 import BrandShowcaseSection from "@/components/BrandShowcaseSection";
 import Testimonials from "@/components/Testimonials";
@@ -42,16 +41,13 @@ export default function Home() {
         <LetsTalkRevenueSection />
       </ScrollReveal>
       <ScrollReveal delay={100}>
-        <PerformanceMetrics />
+        <Testimonials />
       </ScrollReveal>
       <ScrollReveal delay={150}>
         <CTASections />
       </ScrollReveal>
       <ScrollReveal>
         <BrandShowcaseSection />
-      </ScrollReveal>
-      <ScrollReveal delay={100}>
-        <Testimonials />
       </ScrollReveal>
       <ScrollReveal delay={150}>
         <FAQ />
