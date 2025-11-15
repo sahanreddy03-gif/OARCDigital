@@ -208,7 +208,7 @@ export default function WhyUs() {
   return (
     <Layout>
       {/* Hero Section - Premium Superside Style */}
-      <section className="hero-section-why-us relative min-h-[70vh] md:min-h-[85vh] flex items-center justify-center overflow-hidden bg-black -mt-[1px]" data-testid="section-hero">
+      <section className="hero-section-why-us relative min-h-[75vh] md:min-h-[90vh] flex items-center justify-center overflow-hidden bg-black -mt-20" data-testid="section-hero">
         <img
           ref={heroImgRef}
           src={heroImg}
@@ -216,10 +216,10 @@ export default function WhyUs() {
           className="absolute inset-0 w-full h-full object-cover opacity-40 will-change-transform"
           data-testid="img-hero"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/80"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/80"></div>
         
-        <div className="relative z-10 text-center px-6 max-w-6xl mx-auto py-20 md:py-32">
-          <p className="text-xs md:text-sm uppercase tracking-[0.4em] text-white/50 mb-8 font-bold" data-testid="text-hero-kicker">
+        <div className="relative z-10 text-center px-6 max-w-6xl mx-auto pt-8 pb-20 md:pt-12 md:pb-32">
+          <p className="text-xs md:text-sm uppercase tracking-[0.4em] text-white/60 mb-8 font-bold" data-testid="text-hero-kicker">
             WHY OARC
           </p>
           <h1 
