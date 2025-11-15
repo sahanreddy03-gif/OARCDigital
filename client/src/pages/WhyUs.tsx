@@ -760,63 +760,78 @@ export default function WhyUs() {
         </div>
       </section>
 
-      {/* Success in Numbers - Superside Style */}
-      <section className="bg-[#0A2818] py-20 md:py-32" data-testid="section-success-numbers">
+      {/* Success in Numbers - Exact Superside Clone */}
+      <section className="bg-[#0A2818] py-24 md:py-36 lg:py-44" data-testid="section-success-numbers">
         <div className="max-w-7xl mx-auto px-6">
           <ScrollReveal>
-            <div className="grid md:grid-cols-2 gap-12 md:gap-16 lg:gap-20 items-center">
-              {/* Left Column - Text */}
-              <div>
-                <p className="text-xs md:text-sm uppercase tracking-[0.3em] text-white/60 mb-6 font-semibold" data-testid="text-success-eyebrow">
-                  SUCCESS IN NUMBERS
-                </p>
-                <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 leading-tight" style={{ fontFamily: 'serif', letterSpacing: '-0.02em' }} data-testid="heading-success">
-                  The best return on your investment
-                </h2>
-                <p className="text-lg md:text-xl text-white/80 leading-relaxed" data-testid="text-success-description">
-                  Brands, teams and founders trust OARC Digital to deliver smart, conversion-focused creative at scale.
+            {/* Centered Header Section */}
+            <div className="text-center mb-16 md:mb-24">
+              <p className="text-xs md:text-sm uppercase tracking-[0.4em] text-white/50 mb-6 md:mb-8 font-medium" data-testid="text-success-eyebrow">
+                SUCCESS IN NUMBERS
+              </p>
+              <h2 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-normal text-white leading-tight" data-testid="heading-success">
+                The best return on <span className="italic font-serif">your investment</span>
+              </h2>
+            </div>
+
+            {/* Two Column Layout: Left Text + Right Stats Grid */}
+            <div className="grid md:grid-cols-2 gap-12 md:gap-16 lg:gap-20 items-start">
+              {/* Left Column - Description Text */}
+              <div className="md:pt-8">
+                <p className="text-base md:text-lg text-white/70 leading-relaxed max-w-md" data-testid="text-success-description">
+                  Startup, enterprises and mid-market companies trust OARC Digital to deliver pixel-perfect creative, at scale.
                 </p>
               </div>
 
               {/* Right Column - 2x2 Stats Grid */}
-              <div className="grid grid-cols-2 gap-8 md:gap-10">
-                {/* Stat 1: Brands */}
-                <div data-testid="stat-brands">
-                  <div className="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-2" style={{ letterSpacing: '-0.03em' }}>
-                    120+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-12 md:gap-x-16 md:gap-y-16">
+                {/* Stat 1: Projects */}
+                <div data-testid="stat-projects">
+                  <div className="text-6xl md:text-7xl lg:text-8xl font-light text-white mb-4" style={{ letterSpacing: '-0.02em' }}>
+                    500+
                   </div>
-                  <p className="text-sm md:text-base text-white/70 font-normal leading-tight">
-                    Brands partnered with OARC Digital
+                  <p className="text-sm md:text-base text-white/60 font-light leading-relaxed">
+                    Projects delivered to this day and counting.
                   </p>
                 </div>
 
-                {/* Stat 2: ROAS */}
-                <div data-testid="stat-roas">
-                  <div className="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-2" style={{ letterSpacing: '-0.03em' }}>
-                    3x
+                {/* Stat 2: Revenue */}
+                <div data-testid="stat-revenue">
+                  <div className="text-6xl md:text-7xl lg:text-8xl font-light text-white mb-4" style={{ letterSpacing: '-0.02em' }}>
+                    70k+
                   </div>
-                  <p className="text-sm md:text-base text-white/70 font-normal leading-tight">
-                    Average increase in ROAS
+                  <p className="text-sm md:text-base text-white/60 font-light leading-relaxed">
+                    In monthly recurring revenue generated for clients.
                   </p>
                 </div>
 
-                {/* Stat 3: Retention */}
-                <div data-testid="stat-retention">
-                  <div className="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-2" style={{ letterSpacing: '-0.03em' }}>
-                    92%
+                {/* Stat 3: ROI */}
+                <div data-testid="stat-roi">
+                  <div className="text-6xl md:text-7xl lg:text-8xl font-light text-white mb-4" style={{ letterSpacing: '-0.02em' }}>
+                    94%
                   </div>
-                  <p className="text-sm md:text-base text-white/70 font-normal leading-tight">
-                    Client retention rate
+                  <p className="text-sm md:text-base text-white/60 font-light leading-relaxed">
+                    Brands see a three-year ROI of 94% on their OARC Digital subscription.{' '}
+                    <span className="inline-block mt-2">
+                      <a href="#" className="text-white/70 hover:text-white underline transition-colors">
+                        Read more in the Forrester TEI report →
+                      </a>
+                    </span>
                   </p>
                 </div>
 
-                {/* Stat 4: Payback */}
+                {/* Stat 4: Payback Period */}
                 <div data-testid="stat-payback">
-                  <div className="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-2" style={{ letterSpacing: '-0.03em' }}>
-                    6
+                  <div className="text-6xl md:text-7xl lg:text-8xl font-light text-white mb-4" style={{ letterSpacing: '-0.02em', fontFamily: 'serif' }}>
+                    6 months
                   </div>
-                  <p className="text-sm md:text-base text-white/70 font-normal leading-tight">
-                    Typical payback period (months)
+                  <p className="text-sm md:text-base text-white/60 font-light leading-relaxed">
+                    Brands see a 6-month payback period on their OARC Digital subscription.{' '}
+                    <span className="inline-block mt-2">
+                      <a href="#" className="text-white/70 hover:text-white underline transition-colors">
+                        Read more in the Forrester TEI report →
+                      </a>
+                    </span>
                   </p>
                 </div>
               </div>
