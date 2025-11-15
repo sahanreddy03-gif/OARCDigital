@@ -17,7 +17,7 @@ import {
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import companyLogo from "@assets/final 2_1762907995368.png";
-import heroImg from "@assets/generated_images/Professional_agency_office_workspace_a047b567.png";
+import heroImg from "@assets/nnnnnnnnnn_1763249120461.avif";
 import visionEye from "@assets/pexels-burakkostak-18809_1763243435924.jpg";
 import experimentsWorkspace from "@assets/campaign-img1_1763245285586.png";
 import birthTeam from "@assets/pexels-thirdman-5257897 (1)_1763243949488.jpg";
@@ -207,15 +207,15 @@ export default function WhyUs() {
   return (
     <Layout>
       {/* Hero Section - Premium Superside Style */}
-      <section className="hero-section-why-us relative min-h-[70vh] md:min-h-[85vh] flex items-center justify-center overflow-hidden bg-black" data-testid="section-hero">
+      <section className="hero-section-why-us relative min-h-[70vh] md:min-h-[85vh] flex items-center justify-center overflow-hidden bg-black -mt-[1px]" data-testid="section-hero">
         <img
           ref={heroImgRef}
           src={heroImg}
           alt="OARC Digital Hero"
-          className="absolute inset-0 w-full h-full object-cover opacity-30 will-change-transform"
+          className="absolute inset-0 w-full h-full object-cover opacity-40 will-change-transform"
           data-testid="img-hero"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/90"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/80"></div>
         
         <div className="relative z-10 text-center px-6 max-w-6xl mx-auto py-20 md:py-32">
           <p className="text-xs md:text-sm uppercase tracking-[0.4em] text-white/50 mb-8 font-bold" data-testid="text-hero-kicker">
