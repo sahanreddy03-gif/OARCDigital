@@ -206,53 +206,66 @@ export default function WhyUs() {
 
   return (
     <Layout>
-      {/* Hero Section - Socially Powerful Style */}
-      <section className="hero-section-why-us relative min-h-[600px] md:min-h-[700px] flex items-center justify-center overflow-hidden bg-black" data-testid="section-hero">
+      {/* Hero Section - Premium Superside Style */}
+      <section className="hero-section-why-us relative min-h-[70vh] md:min-h-[85vh] flex items-center justify-center overflow-hidden bg-black" data-testid="section-hero">
         <img
           ref={heroImgRef}
           src={heroImg}
           alt="OARC Digital Hero"
-          className="absolute inset-0 w-full h-full object-cover opacity-40 will-change-transform"
+          className="absolute inset-0 w-full h-full object-cover opacity-30 will-change-transform"
           data-testid="img-hero"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/80"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/90"></div>
         
-        <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
-          <p className="text-sm uppercase tracking-[0.3em] text-white/60 mb-4" data-testid="text-hero-kicker">
-            why us
+        <div className="relative z-10 text-center px-6 max-w-6xl mx-auto py-20 md:py-32">
+          <p className="text-xs md:text-sm uppercase tracking-[0.4em] text-white/50 mb-8 font-bold" data-testid="text-hero-kicker">
+            WHY OARC
           </p>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-white leading-tight mb-6" data-testid="heading-hero">
+          <h1 
+            className="font-black text-white leading-[1.1] mb-10" 
+            style={{ 
+              fontSize: 'clamp(2.5rem, 8vw, 6rem)', 
+              letterSpacing: '-0.04em' 
+            }}
+            data-testid="heading-hero"
+          >
             What Is OARC Digital?
           </h1>
-          <p className="text-lg md:text-xl text-white/90 max-w-4xl mx-auto leading-relaxed mb-8" data-testid="text-hero-description">
-            OARC Digital is a <strong className="text-[#00FF9C]">global AI-powered marketing agency</strong> engineered to help brands win through intelligent creativity, revenue automation, and AI employees across all digital channels.
+          <p 
+            className="text-white/95 max-w-4xl mx-auto leading-relaxed mb-12 font-light" 
+            style={{ fontSize: 'clamp(1.125rem, 2.5vw, 1.5rem)' }}
+            data-testid="text-hero-description"
+          >
+            OARC Digital is a <strong className="text-[#00FF9C] font-semibold">global AI-powered marketing agency</strong> engineered to help brands win through intelligent creativity, revenue automation, and AI employees across all digital channels.
           </p>
-          <p className="text-base md:text-lg text-white/80 max-w-3xl mx-auto leading-relaxed" data-testid="text-hero-mission">
-            We partner with forward-thinking brands to create performance-driven campaigns powered by AI that cut through the noise and deliver measurable ROI (return on investment).
-          </p>
-          <p className="text-base md:text-lg text-white/80 max-w-3xl mx-auto leading-relaxed mt-4" data-testid="text-hero-positioning">
-            The mission of OARC Digital is to empower brands to connect with audiences through AI-enhanced creative, autonomous revenue systems, and platform-native automation.
-          </p>
-          <p className="text-base md:text-lg text-white/80 max-w-3xl mx-auto leading-relaxed mt-4" data-testid="text-hero-value-prop">
-            We are positioned as a full-service, AI-first agency that brings together strategy, automation, tech, and creativity to shape brand narratives that matter across all digital platforms, worldwide.
-          </p>
+          <div className="space-y-6 max-w-3xl mx-auto">
+            <p className="text-base md:text-lg text-white/75 leading-loose" data-testid="text-hero-mission">
+              We partner with forward-thinking brands to create performance-driven campaigns powered by AI that cut through the noise and deliver measurable ROI.
+            </p>
+            <p className="text-base md:text-lg text-white/75 leading-loose" data-testid="text-hero-positioning">
+              The mission of OARC Digital is to empower brands to connect with audiences through AI-enhanced creative, autonomous revenue systems, and platform-native automation.
+            </p>
+            <p className="text-base md:text-lg text-white/75 leading-loose" data-testid="text-hero-value-prop">
+              We are positioned as a full-service, AI-first agency that brings together strategy, automation, tech, and creativity to shape brand narratives that matter across all digital platforms, worldwide.
+            </p>
+          </div>
         </div>
       </section>
 
-      {/* Badges Section - 4 Awards/Achievements */}
-      <section className="bg-white py-16 md:py-20" data-testid="section-badges">
+      {/* Badges Section - 4 Pillars */}
+      <section className="bg-white py-24 md:py-36" data-testid="section-badges">
         <div className="max-w-7xl mx-auto px-6">
           <ScrollReveal>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-16">
               {badges.map((badge, index) => {
                 const IconComponent = badge.Icon;
                 return (
-                  <div key={index} className="text-center" data-testid={`badge-${index}`}>
-                    <div className="flex justify-center mb-3">
-                      <IconComponent className="w-16 h-16 md:w-20 md:h-20 text-[#FF5A00]" />
+                  <div key={index} className="text-center group" data-testid={`badge-${index}`}>
+                    <div className="flex justify-center mb-6 transform transition-transform duration-500 group-hover:scale-110">
+                      <IconComponent className="w-20 h-20 md:w-24 md:h-24 text-[#FF5A00] opacity-90" strokeWidth={1.5} />
                     </div>
-                    <h3 className="text-xl md:text-2xl font-bold text-zinc-900 mb-1">{badge.title}</h3>
-                    <p className="text-sm md:text-base text-zinc-600">{badge.subtitle}</p>
+                    <h3 className="text-xl md:text-2xl lg:text-3xl font-black text-zinc-900 mb-3" style={{ letterSpacing: '-0.02em' }}>{badge.title}</h3>
+                    <p className="text-sm md:text-base text-zinc-600 leading-relaxed">{badge.subtitle}</p>
                   </div>
                 );
               })}
@@ -261,61 +274,89 @@ export default function WhyUs() {
         </div>
       </section>
 
-      {/* Horizontal Scrolling Carousel - Campaign Images */}
-      <section className="bg-zinc-50 py-16" data-testid="section-carousel">
+      {/* Horizontal Scrolling Carousel - Campaign Showcase */}
+      <section className="bg-zinc-900 py-20 md:py-28 overflow-hidden" data-testid="section-carousel">
+        <div className="mb-12 md:mb-16 px-6">
+          <ScrollReveal>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-white text-center mb-4" style={{ letterSpacing: '-0.03em' }}>
+              Campaign Excellence
+            </h2>
+            <p className="text-base md:text-lg text-white/70 text-center max-w-2xl mx-auto">
+              Award-winning creative that drives results across industries
+            </p>
+          </ScrollReveal>
+        </div>
         <div 
           ref={carouselRef}
-          className="flex gap-6 overflow-x-scroll scrollbar-hide"
+          className="flex gap-6 md:gap-8 overflow-x-scroll scrollbar-hide px-6 md:px-12"
           style={{ scrollBehavior: 'auto' }}
           data-testid="carousel-container"
         >
           {carouselImages.map((img, index) => (
-            <div key={index} className="flex-shrink-0 w-80 md:w-96 h-64 md:h-80" data-testid={`carousel-item-${index}`}>
-              <img
-                src={img}
-                alt={`Campaign ${index + 1}`}
-                className="w-full h-full object-cover rounded-lg"
-              />
+            <div key={index} className="flex-shrink-0 w-80 md:w-[28rem] lg:w-[32rem] h-72 md:h-96 lg:h-[28rem] group hover-elevate" data-testid={`carousel-item-${index}`}>
+              <div className="relative w-full h-full overflow-hidden rounded-xl">
+                <img
+                  src={img}
+                  alt={`Campaign ${index + 1}`}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              </div>
             </div>
           ))}
         </div>
       </section>
 
       {/* OUR STORY Timeline Section */}
-      <section className="bg-white py-20 md:py-32" data-testid="section-story">
+      <section className="bg-white py-28 md:py-40" data-testid="section-story">
         <div className="max-w-7xl mx-auto px-6">
           <ScrollReveal>
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-black uppercase text-zinc-900 mb-4" data-testid="heading-our-story">
+            <div className="text-center mb-20 md:mb-28">
+              <p className="text-xs md:text-sm uppercase tracking-[0.4em] text-zinc-500 mb-8 font-bold">
+                THE JOURNEY
+              </p>
+              <h2 
+                className="font-black uppercase text-zinc-900 mb-6 leading-tight" 
+                style={{ 
+                  fontSize: 'clamp(2rem, 6vw, 4rem)',
+                  letterSpacing: '-0.03em'
+                }}
+                data-testid="heading-our-story"
+              >
                 OUR STORY
               </h2>
-              <p className="text-sm uppercase tracking-widest text-zinc-500 mb-8">timeline</p>
-              <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-zinc-900 mb-6" data-testid="heading-history">
+              <p className="text-sm uppercase tracking-[0.3em] text-zinc-400 mb-12">TIMELINE</p>
+              <h3 
+                className="font-bold text-zinc-900 mb-8" 
+                style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', letterSpacing: '-0.02em' }}
+                data-testid="heading-history"
+              >
                 THE HISTORY...SO FAR
               </h3>
-              <p className="text-lg md:text-xl text-zinc-700 max-w-3xl mx-auto leading-relaxed mb-4" data-testid="text-story-intro">
+              <p className="text-lg md:text-xl text-zinc-600 max-w-3xl mx-auto leading-loose mb-4" data-testid="text-story-intro">
                 People often ask us, what's your story? How did OARC Digital become a thing? What were you doing before OARC Digital?
               </p>
-              <p className="text-lg md:text-xl text-zinc-700 max-w-3xl mx-auto leading-relaxed mb-4">
+              <p className="text-lg md:text-xl text-zinc-600 max-w-3xl mx-auto leading-loose mb-8">
                 You can find out our history with the timeline below, where you can discover who we are and why we exist.
               </p>
-              <p className="text-2xl md:text-3xl font-bold text-zinc-900 mt-8">
+              <p className="text-2xl md:text-3xl lg:text-4xl font-black text-zinc-900 mt-10" style={{ letterSpacing: '-0.02em' }}>
                 So, hello, we're <span className="text-[#FF5A00]">OARC Digital</span>.
               </p>
             </div>
           </ScrollReveal>
 
           {/* Interactive Timeline */}
-          <div className="flex flex-wrap justify-center gap-4 md:gap-6 mb-20" data-testid="timeline">
+          <div className="flex flex-wrap justify-center gap-4 md:gap-6 mb-24 md:mb-32" data-testid="timeline">
             {timeline.map((item, index) => (
               <button
                 key={index}
                 onClick={() => setActiveTimeline(index)}
-                className={`px-6 py-3 rounded-lg font-bold text-base md:text-lg transition-all duration-300 ${
+                className={`px-8 py-4 rounded-xl font-black text-base md:text-lg transition-all duration-300 hover-elevate ${
                   activeTimeline === index
-                    ? 'bg-[#FF5A00] text-white'
-                    : 'bg-zinc-100 text-zinc-700 hover:bg-zinc-200'
+                    ? 'bg-[#FF5A00] text-white shadow-lg shadow-orange-500/30'
+                    : 'bg-zinc-100 text-zinc-700'
                 }`}
+                style={{ letterSpacing: '-0.01em' }}
                 data-testid={`timeline-${index}`}
               >
                 {item.year}
@@ -555,49 +596,167 @@ export default function WhyUs() {
         </div>
       </section>
 
-      {/* Story Behind OARC - Q&A Section */}
-      <section className="bg-zinc-50 py-20 md:py-32" data-testid="section-story-behind">
-        <div className="max-w-5xl mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-zinc-900 mb-12" data-testid="heading-story-behind">
-            What Is the Story Behind OARC Digital?
-          </h2>
-          <div className="prose prose-lg max-w-none">
-            <p className="text-lg text-zinc-700 leading-relaxed mb-4">
-              OARC Digital was born from a vision to merge human creativity with artificial intelligence long before AI became mainstream. It all began in 2015, when our founders started experimenting with early AI tools and automation systems.
-            </p>
-            <p className="text-lg text-zinc-700 leading-relaxed mb-4">
-              By 2020, OARC Digital was officially founded as an AI-first marketing agency—built from day one around intelligent systems, creative automation, and revenue optimization.
-            </p>
-            <p className="text-lg text-zinc-700 leading-relaxed mb-4">
-              The agency evolved from experimental AI projects into a global force, serving brands worldwide from our Malta headquarters. Today, OARC Digital combines AI-powered creative, autonomous revenue systems, and a global team of specialists to deliver campaigns that traditional agencies can't match.
-            </p>
-            <p className="text-lg text-zinc-700 leading-relaxed">
-              We've transformed from an automation startup into an AI-first powerhouse—and we're just getting started.
-            </p>
-          </div>
+      {/* Brand Showcase - Premium Client Gallery */}
+      <section className="bg-white py-24 md:py-40 overflow-hidden" data-testid="section-brand-showcase">
+        <div className="max-w-7xl mx-auto px-6">
+          <ScrollReveal>
+            <div className="text-center mb-16 md:mb-24">
+              <p className="text-xs md:text-sm uppercase tracking-[0.3em] text-zinc-500 mb-6 font-semibold" data-testid="text-brands-eyebrow">
+                TRUSTED BY GLOBAL BRANDS
+              </p>
+              <h2 className="text-4xl md:text-5xl lg:text-7xl font-black text-zinc-900 leading-tight mb-6" style={{ letterSpacing: '-0.03em' }} data-testid="heading-brands">
+                We Work With The Best
+              </h2>
+              <p className="text-lg md:text-xl text-zinc-600 max-w-3xl mx-auto leading-relaxed">
+                From fast-growing startups to global enterprises, we partner with brands that demand excellence in AI-powered marketing.
+              </p>
+            </div>
+          </ScrollReveal>
 
-          {/* When Was OARC Digital Founded? */}
-          <div className="mt-16 grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-zinc-900 mb-6" data-testid="heading-when-founded">
-                When Was OARC Digital Founded?
-              </h3>
-              <p className="text-lg text-zinc-700 leading-relaxed mb-4">
-                OARC Digital was founded in <strong>2020</strong>, but its origin dates back to 2015 when the founders began experimenting with AI-powered marketing automation.
-              </p>
-              <p className="text-lg text-zinc-700 leading-relaxed">
-                The agency evolved from this AI-driven movement into a global marketing powerhouse that combines creativity with intelligent automation.
-              </p>
+          {/* Animated Client Logo Marquee */}
+          <ScrollReveal delay={50}>
+            <div className="mb-20 md:mb-28 relative">
+              <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
+              <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
+              
+              <div className="overflow-hidden" data-testid="logo-marquee-container">
+                <div className="flex motion-reduce:animate-none" style={{ 
+                  animation: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'none' : 'marquee-scroll 40s linear infinite',
+                }} data-testid="logo-marquee">
+                  {/* First complete set */}
+                  <div className="flex flex-shrink-0 gap-16 md:gap-20 pr-16 md:pr-20">
+                    <div className="flex items-center justify-center min-w-[180px] md:min-w-[220px] h-20 text-xl md:text-2xl lg:text-3xl font-black text-zinc-300 hover:text-zinc-900 transition-colors duration-300 whitespace-nowrap">Gym Group</div>
+                    <div className="flex items-center justify-center min-w-[180px] md:min-w-[220px] h-20 text-xl md:text-2xl lg:text-3xl font-black text-zinc-300 hover:text-zinc-900 transition-colors duration-300 whitespace-nowrap">Azzaro</div>
+                    <div className="flex items-center justify-center min-w-[180px] md:min-w-[220px] h-20 text-xl md:text-2xl lg:text-3xl font-black text-zinc-300 hover:text-zinc-900 transition-colors duration-300 whitespace-nowrap">Body Shop</div>
+                    <div className="flex items-center justify-center min-w-[180px] md:min-w-[220px] h-20 text-xl md:text-2xl lg:text-3xl font-black text-zinc-300 hover:text-zinc-900 transition-colors duration-300 whitespace-nowrap">Tefal</div>
+                    <div className="flex items-center justify-center min-w-[180px] md:min-w-[220px] h-20 text-xl md:text-2xl lg:text-3xl font-black text-zinc-300 hover:text-zinc-900 transition-colors duration-300 whitespace-nowrap">Lenovo Legion</div>
+                    <div className="flex items-center justify-center min-w-[180px] md:min-w-[220px] h-20 text-xl md:text-2xl lg:text-3xl font-black text-zinc-300 hover:text-zinc-900 transition-colors duration-300 whitespace-nowrap">ESL Gaming</div>
+                    <div className="flex items-center justify-center min-w-[180px] md:min-w-[220px] h-20 text-xl md:text-2xl lg:text-3xl font-black text-zinc-300 hover:text-zinc-900 transition-colors duration-300 whitespace-nowrap">Biolage</div>
+                    <div className="flex items-center justify-center min-w-[180px] md:min-w-[220px] h-20 text-xl md:text-2xl lg:text-3xl font-black text-zinc-300 hover:text-zinc-900 transition-colors duration-300 whitespace-nowrap">IT Cosmetics</div>
+                  </div>
+                  {/* Second complete set - exact duplicate for seamless loop */}
+                  <div className="flex flex-shrink-0 gap-16 md:gap-20 pr-16 md:pr-20">
+                    <div className="flex items-center justify-center min-w-[180px] md:min-w-[220px] h-20 text-xl md:text-2xl lg:text-3xl font-black text-zinc-300 hover:text-zinc-900 transition-colors duration-300 whitespace-nowrap">Gym Group</div>
+                    <div className="flex items-center justify-center min-w-[180px] md:min-w-[220px] h-20 text-xl md:text-2xl lg:text-3xl font-black text-zinc-300 hover:text-zinc-900 transition-colors duration-300 whitespace-nowrap">Azzaro</div>
+                    <div className="flex items-center justify-center min-w-[180px] md:min-w-[220px] h-20 text-xl md:text-2xl lg:text-3xl font-black text-zinc-300 hover:text-zinc-900 transition-colors duration-300 whitespace-nowrap">Body Shop</div>
+                    <div className="flex items-center justify-center min-w-[180px] md:min-w-[220px] h-20 text-xl md:text-2xl lg:text-3xl font-black text-zinc-300 hover:text-zinc-900 transition-colors duration-300 whitespace-nowrap">Tefal</div>
+                    <div className="flex items-center justify-center min-w-[180px] md:min-w-[220px] h-20 text-xl md:text-2xl lg:text-3xl font-black text-zinc-300 hover:text-zinc-900 transition-colors duration-300 whitespace-nowrap">Lenovo Legion</div>
+                    <div className="flex items-center justify-center min-w-[180px] md:min-w-[220px] h-20 text-xl md:text-2xl lg:text-3xl font-black text-zinc-300 hover:text-zinc-900 transition-colors duration-300 whitespace-nowrap">ESL Gaming</div>
+                    <div className="flex items-center justify-center min-w-[180px] md:min-w-[220px] h-20 text-xl md:text-2xl lg:text-3xl font-black text-zinc-300 hover:text-zinc-900 transition-colors duration-300 whitespace-nowrap">Biolage</div>
+                    <div className="flex items-center justify-center min-w-[180px] md:min-w-[220px] h-20 text-xl md:text-2xl lg:text-3xl font-black text-zinc-300 hover:text-zinc-900 transition-colors duration-300 whitespace-nowrap">IT Cosmetics</div>
+                  </div>
+                </div>
+              </div>
+              
+              {/* CSS animation with proper seamless loop */}
+              <style>{`
+                @keyframes marquee-scroll {
+                  0% { transform: translateX(0); }
+                  100% { transform: translateX(-50%); }
+                }
+                @media (prefers-reduced-motion: reduce) {
+                  [style*="marquee-scroll"] {
+                    animation: none !important;
+                  }
+                }
+              `}</style>
             </div>
-            <div>
-              <img
-                src={heroImg}
-                alt="OARC Digital Founded"
-                className="w-full h-80 object-cover rounded-lg"
-                data-testid="img-founded"
-              />
+          </ScrollReveal>
+
+          {/* Flagship Campaign Gallery - 3 Column Grid */}
+          <ScrollReveal delay={100}>
+            <div className="grid md:grid-cols-3 gap-6 md:gap-8 mb-20">
+              <div className="group relative overflow-hidden rounded-lg aspect-[4/5] hover-elevate" data-testid="campaign-card-1">
+                <img
+                  src={carouselBiolage}
+                  alt="Biolage Campaign"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              </div>
+              <div className="group relative overflow-hidden rounded-lg aspect-[4/5] hover-elevate" data-testid="campaign-card-2">
+                <img
+                  src={carouselBeauty}
+                  alt="IT Cosmetics Campaign"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              </div>
+              <div className="group relative overflow-hidden rounded-lg aspect-[4/5] hover-elevate" data-testid="campaign-card-3">
+                <img
+                  src={carouselFashion}
+                  alt="Fashion Campaign"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              </div>
             </div>
-          </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* Founder's Manifesto - Editorial Section */}
+      <section className="bg-zinc-900 py-24 md:py-40" data-testid="section-manifesto">
+        <div className="max-w-6xl mx-auto px-6">
+          <ScrollReveal>
+            <div className="grid md:grid-cols-5 gap-12 md:gap-16 items-center">
+              {/* Left - Image Column (2/5) */}
+              <div className="md:col-span-2">
+                <div className="relative aspect-[3/4] overflow-hidden rounded-lg">
+                  <img
+                    src={birthTeam}
+                    alt="OARC Digital Team"
+                    className="w-full h-full object-cover"
+                    data-testid="img-manifesto"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/40 to-transparent"></div>
+                </div>
+              </div>
+
+              {/* Right - Content Column (3/5) */}
+              <div className="md:col-span-3">
+                <p className="text-xs md:text-sm uppercase tracking-[0.3em] text-orange-500 mb-8 font-bold" data-testid="text-manifesto-eyebrow">
+                  OUR PHILOSOPHY
+                </p>
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-white mb-10 leading-tight" style={{ letterSpacing: '-0.02em' }} data-testid="heading-manifesto">
+                  Built Different. Think AI-First.
+                </h2>
+                
+                {/* Pull Quotes */}
+                <div className="space-y-10">
+                  <div className="border-l-4 border-orange-500 pl-6" data-testid="quote-1">
+                    <p className="text-xl md:text-2xl text-white font-light italic leading-relaxed mb-3">
+                      "We don't add AI to marketing. We build marketing from AI."
+                    </p>
+                    <p className="text-sm text-zinc-400 uppercase tracking-wide">
+                      — OARC Digital Founders
+                    </p>
+                  </div>
+
+                  <p className="text-lg text-zinc-300 leading-relaxed" data-testid="manifesto-body-1">
+                    While other agencies retrofit AI into old workflows, we've architected every system, process, and campaign around intelligent automation from day one.
+                  </p>
+
+                  <div className="border-l-4 border-green-500 pl-6" data-testid="quote-2">
+                    <p className="text-xl md:text-2xl text-white font-light italic leading-relaxed mb-3">
+                      "Traditional agencies scale by hiring. We scale with AI employees."
+                    </p>
+                    <p className="text-sm text-zinc-400 uppercase tracking-wide">
+                      — The OARC Approach
+                    </p>
+                  </div>
+
+                  <p className="text-lg text-zinc-300 leading-relaxed" data-testid="manifesto-body-2">
+                    This isn't about efficiency. It's about unlocking possibilities that human-only teams can't achieve—predictive creative optimization, autonomous revenue systems, 24/7 campaign intelligence.
+                  </p>
+
+                  <p className="text-lg text-white font-semibold leading-relaxed" data-testid="manifesto-cta">
+                    We're not building the agency of tomorrow. We're building the agency that makes tomorrow irrelevant.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
