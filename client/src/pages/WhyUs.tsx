@@ -718,58 +718,58 @@ export default function WhyUs() {
                 <p className="text-xs md:text-sm uppercase tracking-[0.3em] text-orange-500 mb-8 font-bold" data-testid="text-manifesto-eyebrow">
                   OUR PHILOSOPHY
                 </p>
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-white mb-10 leading-tight" style={{ letterSpacing: '-0.02em' }} data-testid="heading-manifesto">
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-white mb-8 leading-tight" style={{ letterSpacing: '-0.02em' }} data-testid="heading-manifesto">
                   Built Different. Driven by Intelligence, Powered by Humans.
                 </h2>
                 
                 {/* Pull Quotes & Philosophy */}
-                <div className="space-y-10">
-                  <div className="border-l-4 border-orange-500 pl-6" data-testid="quote-1">
-                    <p className="text-xl md:text-2xl text-white font-light italic leading-relaxed mb-3">
+                <div className="space-y-6">
+                  <div className="border-l-4 border-orange-500 pl-5" data-testid="quote-1">
+                    <p className="text-lg md:text-xl text-white font-light italic leading-relaxed mb-2">
                       "We don't rely on AI alone. We combine AI with human creativity and business intelligence to produce work that actually grows revenue."
                     </p>
-                    <p className="text-sm text-zinc-400 uppercase tracking-wide">
+                    <p className="text-xs text-zinc-400 uppercase tracking-wide">
                       — OARC DIGITAL, FOUNDERS
                     </p>
                   </div>
 
-                  <p className="text-lg text-zinc-300 leading-relaxed" data-testid="manifesto-body-1">
+                  <p className="text-base text-zinc-300 leading-relaxed" data-testid="manifesto-body-1">
                     While most agencies treat AI as a shortcut or a gimmick, we use it the way it was meant to be used: as a force multiplier for human talent, strategic thinking, and business outcomes.
                   </p>
 
                   {/* Core Principles */}
-                  <div className="space-y-3 pl-6 border-l-2 border-zinc-700">
-                    <p className="text-base md:text-lg text-white leading-relaxed">
+                  <div className="space-y-2 pl-5 border-l-2 border-zinc-700">
+                    <p className="text-sm md:text-base text-white leading-relaxed">
                       <span className="font-bold text-green-500">AI</span> gives us scale.
                     </p>
-                    <p className="text-base md:text-lg text-white leading-relaxed">
+                    <p className="text-sm md:text-base text-white leading-relaxed">
                       <span className="font-bold text-orange-500">Creativity</span> gives us originality.
                     </p>
-                    <p className="text-base md:text-lg text-white leading-relaxed">
+                    <p className="text-sm md:text-base text-white leading-relaxed">
                       <span className="font-bold text-purple-400">Business economics</span> gives us direction.
                     </p>
-                    <p className="text-base md:text-lg text-white font-semibold leading-relaxed">
+                    <p className="text-sm md:text-base text-white font-semibold leading-relaxed">
                       Revenue is the result.
                     </p>
                   </div>
 
-                  <div className="border-l-4 border-green-500 pl-6" data-testid="quote-2">
-                    <p className="text-xl md:text-2xl text-white font-light italic leading-relaxed mb-3">
+                  <div className="border-l-4 border-green-500 pl-5" data-testid="quote-2">
+                    <p className="text-lg md:text-xl text-white font-light italic leading-relaxed mb-2">
                       "Tools don't build great campaigns. People do — with the right intelligence behind them."
                     </p>
-                    <p className="text-sm text-zinc-400 uppercase tracking-wide">
+                    <p className="text-xs text-zinc-400 uppercase tracking-wide">
                       — THE OARC APPROACH
                     </p>
                   </div>
 
-                  <p className="text-lg text-zinc-300 leading-relaxed" data-testid="manifesto-body-2">
+                  <p className="text-base text-zinc-300 leading-relaxed" data-testid="manifesto-body-2">
                     This isn't about automation. It's about precision, clarity and performance — using AI to eliminate the slow, repetitive tasks so our team can focus on strategy, storytelling, experimentation and ROI-driven execution.
                   </p>
 
-                  <p className="text-lg text-white font-semibold leading-relaxed" data-testid="manifesto-cta">
+                  <p className="text-base text-white font-semibold leading-relaxed" data-testid="manifesto-cta">
                     We're not a traditional agency.<br />
                     We're not an AI-only agency.<br />
-                    <span className="block mt-3 text-xl">
+                    <span className="block mt-2 text-lg">
                       We're the hybrid agency built for a world where human creativity and machine intelligence create unfair business advantage.
                     </span>
                   </p>
@@ -831,12 +831,7 @@ export default function WhyUs() {
                     94%
                   </div>
                   <p className="text-sm md:text-base text-white/60 font-light leading-relaxed">
-                    Brands see a three-year ROI of 94% on their OARC Digital subscription.{' '}
-                    <span className="inline-block mt-2">
-                      <a href="#" className="text-white/70 hover:text-white underline transition-colors">
-                        Read more in the Forrester TEI report →
-                      </a>
-                    </span>
+                    Brands see a three-year ROI of 94% on their OARC Digital subscription.
                   </p>
                 </div>
 
@@ -846,12 +841,7 @@ export default function WhyUs() {
                     6 months
                   </div>
                   <p className="text-sm md:text-base text-white/60 font-light leading-relaxed">
-                    Brands see a 6-month payback period on their OARC Digital subscription.{' '}
-                    <span className="inline-block mt-2">
-                      <a href="#" className="text-white/70 hover:text-white underline transition-colors">
-                        Read more in the Forrester TEI report →
-                      </a>
-                    </span>
+                    Brands see a 6-month payback period on their OARC Digital subscription.
                   </p>
                 </div>
               </div>
