@@ -305,9 +305,6 @@ export default function HireAIEmployeesSection() {
                   className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
                   data-testid={`carousel-image-admin-ai-employees`}
                 />
-                <div className="absolute top-4 right-4 bg-[#c4ff4d] text-zinc-900 text-xs font-bold px-3 py-1.5 rounded-full">
-                  {employee.category}
-                </div>
               </div>
 
               {/* Employee Info */}
