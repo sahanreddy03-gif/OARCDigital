@@ -1,0 +1,66 @@
+Prompt to Replit (delta from current design)
+
+You already built my “testimonial” section (screenshot I uploaded) with:
+– One big quote in the middle
+– One client name line below
+– Two stats in a row
+– Two round arrows at the bottom right
+
+Now I want you to transform this existing section so it looks and behaves like the Superside testimonials slider in the other screenshots I uploaded.
+Don’t change my colors or typography too much, just change the layout and structure.
+
+Make these changes:
+
+Add left avatar column
+
+On the left side, create a vertical column with circular client photos (avatars).
+
+The active testimonial avatar is full color and 100% opacity. The others are slightly faded (40–50% opacity).
+
+Move quote to the center column
+
+Keep my quote text, but move it to a center column.
+
+At the top of this column, show the client company name (like “TechVentures”) in small all-caps.
+
+Below that, show the big quote (keep the same font, but let important parts be bold).
+
+Under the quote, keep the client name + role line.
+
+Add stats + case-study area on the right
+
+On the right side, under the quote area, show 2–3 stats in one row, similar to Superside:
+
+Example: 68% – ROI increase in 8 months
+
+\$850K – Annual revenue growth
+
+Below the stats, add a small rectangular “case study” card:
+
+small thumbnail on the left
+
+company name and a short line like: How TechVentures scaled AI-powered campaigns with OARC Digital
+
+Navigation / carousel behavior
+
+Keep the up / down round arrow buttons, but move them to the vertical middle-right, next to the quote, like Superside.
+
+When I click up or down:
+
+Change the active testimonial (quote, stats, case study).
+
+Switch the active avatar on the left (new one becomes full opacity).
+
+Add a gentle fade/slide animation when changing testimonials.
+
+Optional: autoplay every 6–8 seconds and pause when user hovers over the section.
+
+Responsive behavior
+
+On desktop: 3 columns (avatars / quote / stats+card).
+
+On mobile: stack everything:
+
+avatar on top, quote under it, stats + case-study card below, arrows at the bottom or dots for navigation.
+
+Please implement this in React + Tailwind using my existing testimonial content, but structure and layout should be as close as possible to the Superside example.

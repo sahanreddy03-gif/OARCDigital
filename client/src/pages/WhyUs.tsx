@@ -19,7 +19,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import companyLogo from "@assets/final 2_1762907995368.png";
 import heroImg from "@assets/generated_images/Professional_agency_office_workspace_a047b567.png";
 import visionEye from "@assets/pexels-burakkostak-18809_1763243435924.jpg";
-import experimentsWorkspace from "@assets/image_1763243519050.png";
+import experimentsWorkspace from "@assets/campaign-img1_1763245285586.png";
 import birthTeam from "@assets/pexels-thirdman-5257897 (1)_1763243949488.jpg";
 import globalNetwork from "@assets/global-influencer-marketing-agency-socially-powerful_1763244062764.jpg";
 import maltaHub from "@assets/pexels-pham-ngoc-anh-170983008-14237665_1763244193737.jpg";
