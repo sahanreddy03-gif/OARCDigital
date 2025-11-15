@@ -20,6 +20,7 @@ import companyLogo from "@assets/final 2_1762907995368.png";
 import heroImg from "@assets/generated_images/Professional_agency_office_workspace_a047b567.png";
 import visionEye from "@assets/pexels-burakkostak-18809_1763243435924.jpg";
 import experimentsWorkspace from "@assets/image_1763243519050.png";
+import birthTeam from "@assets/pexels-thirdman-5257897 (1)_1763243949488.jpg";
 import carousel1 from "@assets/stock_images/modern_marketing_age_2cb6d515.jpg";
 import carousel3 from "@assets/stock_images/modern_marketing_age_0c16bbf6.jpg";
 import carouselWorkspace from "@assets/image_1763243239681.png";
@@ -385,7 +386,7 @@ export default function WhyUs() {
               <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>
                 <img
-                  src={timeline2}
+                  src={birthTeam}
                   alt="OARC Digital Founded"
                   className="w-full h-80 object-cover rounded-lg"
                   data-testid="img-milestone-founded"
