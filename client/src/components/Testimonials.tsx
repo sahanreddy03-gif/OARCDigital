@@ -131,25 +131,25 @@ export default function Testimonials() {
   return (
     <section 
       ref={sectionRef}
-      className="relative py-16 md:py-24 lg:py-32 overflow-hidden bg-[#E8E3D8]" 
+      className="relative py-8 md:py-12 lg:py-16 overflow-hidden bg-[#0A2818]" 
       data-testid="section-testimonials"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
-      <div className={`relative container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+      <div className={`relative container mx-auto px-4 md:px-6 lg:px-8 max-w-6xl transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
         
-        {/* Three Column Layout: Avatars | Quote | Stats+Case Study */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+        {/* Three Column Layout: Avatars | Quote | Stats */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-6 items-start">
           
           {/* Left Column: Avatar Stack (Hidden on mobile) */}
-          <div className="hidden lg:flex lg:col-span-2 flex-col gap-6" data-testid="avatar-stack">
+          <div className="hidden lg:flex lg:col-span-2 flex-col gap-3" data-testid="avatar-stack">
             {testimonials.map((testimonial, index) => (
               <button
                 key={index}
                 onClick={() => selectTestimonial(index)}
-                className={`relative w-24 h-24 rounded-full overflow-hidden border-2 transition-all duration-500 ${
+                className={`relative w-16 h-16 rounded-full overflow-hidden border-2 transition-all duration-500 ${
                   index === activeIndex 
-                    ? 'border-zinc-900 opacity-100 scale-105' 
+                    ? 'border-white opacity-100 scale-105' 
                     : 'border-transparent opacity-40 hover:opacity-60 scale-95'
                 }`}
                 data-testid={`avatar-${index}`}
@@ -174,14 +174,14 @@ export default function Testimonials() {
               }}
             >
               {/* Company Logo/Name */}
-              <div className="mb-6">
-                <h3 className="text-[10px] md:text-xs uppercase tracking-[0.25em] font-semibold text-zinc-800">
+              <div className="mb-3">
+                <h3 className="text-[9px] md:text-[10px] uppercase tracking-[0.25em] font-semibold text-white/60">
                   {activeTestimonial.companyLogo}
                 </h3>
               </div>
               
               {/* Quote */}
-              <blockquote className="text-xl md:text-2xl lg:text-3xl font-normal text-zinc-900 leading-snug mb-6 lg:mb-8" style={{ letterSpacing: '-0.01em' }} data-testid="testimonial-quote">
+              <blockquote className="text-base md:text-lg lg:text-xl font-normal text-white leading-snug mb-3 lg:mb-4" style={{ letterSpacing: '-0.01em' }} data-testid="testimonial-quote">
                 "{activeTestimonial.quote.split('OARC').map((part, i, arr) => (
                   <span key={i}>
                     {part}
@@ -191,59 +191,38 @@ export default function Testimonials() {
               </blockquote>
 
               {/* Author */}
-              <p className="text-xs md:text-sm text-zinc-600 font-normal" data-testid="testimonial-author">
+              <p className="text-[10px] md:text-xs text-white/60 font-normal" data-testid="testimonial-author">
                 {activeTestimonial.author}, {activeTestimonial.role}
               </p>
             </div>
           </div>
 
-          {/* Right Column: Stats + Case Study */}
-          <div className="lg:col-span-4 space-y-8">
+          {/* Right Column: Stats Only */}
+          <div className="lg:col-span-4">
             {/* Stats Grid (3 metrics) */}
-            <div className="grid grid-cols-2 lg:grid-cols-1 gap-5" data-testid="testimonial-stats">
+            <div className="grid grid-cols-3 lg:grid-cols-1 gap-3 lg:gap-4" data-testid="testimonial-stats">
               <div className="transition-all duration-700 delay-100">
-                <div className="text-3xl md:text-4xl lg:text-5xl font-light text-zinc-900 mb-1.5" style={{ letterSpacing: '-0.02em' }}>
+                <div className="text-2xl md:text-3xl lg:text-4xl font-light text-white mb-1" style={{ letterSpacing: '-0.02em' }}>
                   {activeTestimonial.metric1}
                 </div>
-                <div className="text-[11px] md:text-xs text-zinc-600 leading-tight font-normal">
+                <div className="text-[9px] md:text-[10px] text-white/60 leading-tight font-normal">
                   {activeTestimonial.metric1Label}
                 </div>
               </div>
               <div className="transition-all duration-700 delay-200">
-                <div className="text-3xl md:text-4xl lg:text-5xl font-light text-zinc-900 mb-1.5" style={{ letterSpacing: '-0.02em' }}>
+                <div className="text-2xl md:text-3xl lg:text-4xl font-light text-white mb-1" style={{ letterSpacing: '-0.02em' }}>
                   {activeTestimonial.metric2}
                 </div>
-                <div className="text-[11px] md:text-xs text-zinc-600 leading-tight font-normal">
+                <div className="text-[9px] md:text-[10px] text-white/60 leading-tight font-normal">
                   {activeTestimonial.metric2Label}
                 </div>
               </div>
               <div className="transition-all duration-700 delay-300">
-                <div className="text-3xl md:text-4xl lg:text-5xl font-light text-zinc-900 mb-1.5" style={{ letterSpacing: '-0.02em' }}>
+                <div className="text-2xl md:text-3xl lg:text-4xl font-light text-white mb-1" style={{ letterSpacing: '-0.02em' }}>
                   {activeTestimonial.metric3}
                 </div>
-                <div className="text-[11px] md:text-xs text-zinc-600 leading-tight font-normal">
+                <div className="text-[9px] md:text-[10px] text-white/60 leading-tight font-normal">
                   {activeTestimonial.metric3Label}
-                </div>
-              </div>
-            </div>
-
-            {/* Case Study Card - No Link */}
-            <div 
-              className="bg-white rounded-md overflow-hidden transition-all duration-500 delay-400"
-              data-testid="case-study-card"
-            >
-              <div className="flex gap-3 p-3">
-                <div className="flex-shrink-0 w-16 h-16 rounded overflow-hidden">
-                  <img 
-                    src={activeTestimonial.caseStudy.thumbnail} 
-                    alt={activeTestimonial.company}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="flex-1 min-w-0">
-                  <p className="text-xs md:text-sm font-medium text-zinc-900 leading-snug line-clamp-3">
-                    {activeTestimonial.caseStudy.title}
-                  </p>
                 </div>
               </div>
             </div>
@@ -251,42 +230,42 @@ export default function Testimonials() {
         </div>
 
         {/* Navigation Arrows - Middle Right Position */}
-        <div className="absolute right-6 md:right-8 lg:right-12 top-1/2 -translate-y-1/2 flex flex-col gap-3 lg:hidden xl:flex" data-testid="testimonial-navigation">
+        <div className="absolute right-4 md:right-6 top-1/2 -translate-y-1/2 flex flex-col gap-2 lg:hidden xl:flex" data-testid="testimonial-navigation">
           <button
             onClick={prevTestimonial}
-            className="w-12 h-12 rounded-full border-2 border-zinc-900 text-zinc-900 flex items-center justify-center hover:bg-zinc-900 hover:text-white transition-all duration-300"
+            className="w-8 h-8 rounded-full border border-white/30 text-white flex items-center justify-center hover:bg-white/10 transition-all duration-300"
             data-testid="button-testimonial-prev"
             aria-label="Previous testimonial"
           >
-            <ChevronUp className="w-5 h-5" />
+            <ChevronUp className="w-4 h-4" />
           </button>
           <button
             onClick={nextTestimonial}
-            className="w-12 h-12 rounded-full border-2 border-zinc-900 text-zinc-900 flex items-center justify-center hover:bg-zinc-900 hover:text-white transition-all duration-300"
+            className="w-8 h-8 rounded-full border border-white/30 text-white flex items-center justify-center hover:bg-white/10 transition-all duration-300"
             data-testid="button-testimonial-next"
             aria-label="Next testimonial"
           >
-            <ChevronDown className="w-5 h-5" />
+            <ChevronDown className="w-4 h-4" />
           </button>
         </div>
 
         {/* Mobile Navigation - Bottom */}
-        <div className="flex lg:hidden xl:hidden items-center justify-center gap-3 mt-8">
+        <div className="flex lg:hidden xl:hidden items-center justify-center gap-2 mt-4">
           <button
             onClick={prevTestimonial}
-            className="w-12 h-12 rounded-full border-2 border-zinc-900 text-zinc-900 flex items-center justify-center hover:bg-zinc-900 hover:text-white transition-all duration-300"
+            className="w-8 h-8 rounded-full border border-white/30 text-white flex items-center justify-center hover:bg-white/10 transition-all duration-300"
             data-testid="button-testimonial-prev-mobile"
             aria-label="Previous testimonial"
           >
-            <ChevronUp className="w-5 h-5" />
+            <ChevronUp className="w-4 h-4" />
           </button>
           <button
             onClick={nextTestimonial}
-            className="w-12 h-12 rounded-full border-2 border-zinc-900 text-zinc-900 flex items-center justify-center hover:bg-zinc-900 hover:text-white transition-all duration-300"
+            className="w-8 h-8 rounded-full border border-white/30 text-white flex items-center justify-center hover:bg-white/10 transition-all duration-300"
             data-testid="button-testimonial-next-mobile"
             aria-label="Next testimonial"
           >
-            <ChevronDown className="w-5 h-5" />
+            <ChevronDown className="w-4 h-4" />
           </button>
         </div>
       </div>
