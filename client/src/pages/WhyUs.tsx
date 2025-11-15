@@ -22,6 +22,7 @@ import visionEye from "@assets/pexels-burakkostak-18809_1763243435924.jpg";
 import experimentsWorkspace from "@assets/image_1763243519050.png";
 import birthTeam from "@assets/pexels-thirdman-5257897 (1)_1763243949488.jpg";
 import globalNetwork from "@assets/global-influencer-marketing-agency-socially-powerful_1763244062764.jpg";
+import maltaHub from "@assets/pexels-pham-ngoc-anh-170983008-14237665_1763244193737.jpg";
 import carousel1 from "@assets/stock_images/modern_marketing_age_2cb6d515.jpg";
 import carousel3 from "@assets/stock_images/modern_marketing_age_0c16bbf6.jpg";
 import carouselWorkspace from "@assets/image_1763243239681.png";
@@ -499,7 +500,7 @@ export default function WhyUs() {
               <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>
                 <img
-                  src={carousel3}
+                  src={maltaHub}
                   alt="Malta Hub"
                   className="w-full h-80 object-cover rounded-lg"
                   data-testid="img-milestone-malta"
