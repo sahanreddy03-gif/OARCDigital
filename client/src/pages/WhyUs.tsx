@@ -594,6 +594,71 @@ export default function WhyUs() {
         </div>
       </section>
 
+      {/* Success in Numbers - Superside Style */}
+      <section className="bg-[#0A2818] py-20 md:py-32" data-testid="section-success-numbers">
+        <div className="max-w-7xl mx-auto px-6">
+          <ScrollReveal>
+            <div className="grid md:grid-cols-2 gap-12 md:gap-16 lg:gap-20 items-center">
+              {/* Left Column - Text */}
+              <div>
+                <p className="text-xs md:text-sm uppercase tracking-[0.3em] text-white/60 mb-6 font-semibold" data-testid="text-success-eyebrow">
+                  SUCCESS IN NUMBERS
+                </p>
+                <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 leading-tight" style={{ fontFamily: 'serif', letterSpacing: '-0.02em' }} data-testid="heading-success">
+                  The best return on your investment
+                </h2>
+                <p className="text-lg md:text-xl text-white/80 leading-relaxed" data-testid="text-success-description">
+                  Brands, teams and founders trust OARC Digital to deliver smart, conversion-focused creative at scale.
+                </p>
+              </div>
+
+              {/* Right Column - 2x2 Stats Grid */}
+              <div className="grid grid-cols-2 gap-8 md:gap-10">
+                {/* Stat 1: Brands */}
+                <div data-testid="stat-brands">
+                  <div className="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-2" style={{ letterSpacing: '-0.03em' }}>
+                    120+
+                  </div>
+                  <p className="text-sm md:text-base text-white/70 font-normal leading-tight">
+                    Brands partnered with OARC Digital
+                  </p>
+                </div>
+
+                {/* Stat 2: ROAS */}
+                <div data-testid="stat-roas">
+                  <div className="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-2" style={{ letterSpacing: '-0.03em' }}>
+                    3x
+                  </div>
+                  <p className="text-sm md:text-base text-white/70 font-normal leading-tight">
+                    Average increase in ROAS
+                  </p>
+                </div>
+
+                {/* Stat 3: Retention */}
+                <div data-testid="stat-retention">
+                  <div className="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-2" style={{ letterSpacing: '-0.03em' }}>
+                    92%
+                  </div>
+                  <p className="text-sm md:text-base text-white/70 font-normal leading-tight">
+                    Client retention rate
+                  </p>
+                </div>
+
+                {/* Stat 4: Payback */}
+                <div data-testid="stat-payback">
+                  <div className="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-2" style={{ letterSpacing: '-0.03em' }}>
+                    6
+                  </div>
+                  <p className="text-sm md:text-base text-white/70 font-normal leading-tight">
+                    Typical payback period (months)
+                  </p>
+                </div>
+              </div>
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
       {/* Core Values Section */}
       <section className="bg-white py-20 md:py-32" data-testid="section-values">
         <div className="max-w-7xl mx-auto px-6">
