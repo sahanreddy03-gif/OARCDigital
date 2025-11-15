@@ -20,10 +20,12 @@ import companyLogo from "@assets/final 2_1762907995368.png";
 import heroImg from "@assets/generated_images/Professional_agency_office_workspace_a047b567.png";
 import aiNetworkBg from "@assets/generated_images/AI_technology_network_background_4abe0991.png";
 import carousel1 from "@assets/stock_images/modern_marketing_age_2cb6d515.jpg";
-import carousel2 from "@assets/stock_images/modern_marketing_age_6c56f10e.jpg";
 import carousel3 from "@assets/stock_images/modern_marketing_age_0c16bbf6.jpg";
-import carousel4 from "@assets/stock_images/modern_marketing_age_e315985d.jpg";
-import carousel5 from "@assets/stock_images/modern_marketing_age_c0cdbaf2.jpg";
+import carouselWorkspace from "@assets/image_1763243239681.png";
+import carouselBiolage from "@assets/Biolage-influencer-marketing-agency-socially-powerful_1763243258630.jpg";
+import carouselBeauty from "@assets/it-cosmetics-socially-powerful-marketing-agency-1_1763243258630.png";
+import carouselFashion from "@assets/joshua-rondeau-7mHMwHbJ_0o-unsplash-scaled-e1690895515404_1763243258631.jpg";
+import carouselJoy from "@assets/Screenshot-2023-08-01-at-16.06.24_1763243258631.png";
 import timeline1 from "@assets/stock_images/professional_busines_080c57eb.jpg";
 import timeline2 from "@assets/stock_images/professional_busines_617ecf1a.jpg";
 import timeline3 from "@assets/stock_images/professional_busines_838bb4c4.jpg";
@@ -141,9 +143,9 @@ export default function WhyUs() {
   }, []);
 
   const carouselImages = [
-    carousel1, carousel2, carousel3, carousel4, carousel5,
-    carousel1, carousel2, carousel3, carousel4, carousel5, // Duplicate for infinite scroll
-    carousel1, carousel2, carousel3, carousel4, carousel5
+    carouselWorkspace, carouselBiolage, carouselBeauty, carousel1, carouselFashion, carouselJoy, carousel3,
+    carouselWorkspace, carouselBiolage, carouselBeauty, carousel1, carouselFashion, carouselJoy, carousel3, // Duplicate for infinite scroll
+    carouselWorkspace, carouselBiolage, carouselBeauty, carousel1, carouselFashion, carouselJoy, carousel3
   ];
 
   const timeline = [
@@ -466,7 +468,7 @@ export default function WhyUs() {
               <div className="grid md:grid-cols-2 gap-12 items-center">
               <div className="md:order-2">
                 <img
-                  src={carousel2}
+                  src={carouselBiolage}
                   alt="AI Employees"
                   className="w-full h-80 object-cover rounded-lg"
                   data-testid="img-milestone-employees"
@@ -522,7 +524,7 @@ export default function WhyUs() {
               <div className="grid md:grid-cols-2 gap-12 items-center">
               <div className="md:order-2">
                 <img
-                  src={carousel4}
+                  src={carouselWorkspace}
                   alt="The Future"
                   className="w-full h-80 object-cover rounded-lg"
                   data-testid="img-milestone-future"
