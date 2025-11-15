@@ -718,58 +718,58 @@ export default function WhyUs() {
                 <p className="text-xs md:text-sm uppercase tracking-[0.3em] text-orange-500 mb-8 font-bold" data-testid="text-manifesto-eyebrow">
                   OUR PHILOSOPHY
                 </p>
-                <h2 className="text-xl md:text-2xl lg:text-3xl font-black text-white mb-6 leading-tight" style={{ letterSpacing: '-0.02em' }} data-testid="heading-manifesto">
+                <h2 className="text-lg md:text-xl lg:text-2xl font-black text-white mb-4 leading-tight" style={{ letterSpacing: '-0.02em' }} data-testid="heading-manifesto">
                   Built Different. Driven by Intelligence, Powered by Humans.
                 </h2>
                 
                 {/* Pull Quotes & Philosophy */}
-                <div className="space-y-5">
-                  <div className="border-l-4 border-orange-500 pl-4" data-testid="quote-1">
-                    <p className="text-base md:text-lg text-white font-light italic leading-relaxed mb-2">
+                <div className="space-y-4">
+                  <div className="border-l-3 border-orange-500 pl-3" data-testid="quote-1">
+                    <p className="text-sm md:text-base text-white font-light italic leading-snug mb-1.5">
                       "We don't rely on AI alone. We combine AI with human creativity and business intelligence to produce work that actually grows revenue."
                     </p>
-                    <p className="text-xs text-zinc-400 uppercase tracking-wide">
+                    <p className="text-[10px] text-zinc-400 uppercase tracking-wide">
                       — OARC DIGITAL, FOUNDERS
                     </p>
                   </div>
 
-                  <p className="text-sm text-zinc-300 leading-relaxed" data-testid="manifesto-body-1">
+                  <p className="text-xs md:text-sm text-zinc-300 leading-snug" data-testid="manifesto-body-1">
                     While most agencies treat AI as a shortcut or a gimmick, we use it the way it was meant to be used: as a force multiplier for human talent, strategic thinking, and business outcomes.
                   </p>
 
                   {/* Core Principles */}
-                  <div className="space-y-1.5 pl-4 border-l-2 border-zinc-700">
-                    <p className="text-xs md:text-sm text-white leading-relaxed">
+                  <div className="space-y-1 pl-3 border-l-2 border-zinc-700">
+                    <p className="text-[11px] md:text-xs text-white leading-snug">
                       <span className="font-bold text-green-500">AI</span> gives us scale.
                     </p>
-                    <p className="text-xs md:text-sm text-white leading-relaxed">
+                    <p className="text-[11px] md:text-xs text-white leading-snug">
                       <span className="font-bold text-orange-500">Creativity</span> gives us originality.
                     </p>
-                    <p className="text-xs md:text-sm text-white leading-relaxed">
+                    <p className="text-[11px] md:text-xs text-white leading-snug">
                       <span className="font-bold text-purple-400">Business economics</span> gives us direction.
                     </p>
-                    <p className="text-xs md:text-sm text-white font-semibold leading-relaxed">
+                    <p className="text-[11px] md:text-xs text-white font-semibold leading-snug">
                       Revenue is the result.
                     </p>
                   </div>
 
-                  <div className="border-l-4 border-green-500 pl-4" data-testid="quote-2">
-                    <p className="text-base md:text-lg text-white font-light italic leading-relaxed mb-2">
+                  <div className="border-l-3 border-green-500 pl-3" data-testid="quote-2">
+                    <p className="text-sm md:text-base text-white font-light italic leading-snug mb-1.5">
                       "Tools don't build great campaigns. People do — with the right intelligence behind them."
                     </p>
-                    <p className="text-xs text-zinc-400 uppercase tracking-wide">
+                    <p className="text-[10px] text-zinc-400 uppercase tracking-wide">
                       — THE OARC APPROACH
                     </p>
                   </div>
 
-                  <p className="text-sm text-zinc-300 leading-relaxed" data-testid="manifesto-body-2">
+                  <p className="text-xs md:text-sm text-zinc-300 leading-snug" data-testid="manifesto-body-2">
                     This isn't about automation. It's about precision, clarity and performance — using AI to eliminate the slow, repetitive tasks so our team can focus on strategy, storytelling, experimentation and ROI-driven execution.
                   </p>
 
-                  <p className="text-sm text-white font-semibold leading-relaxed" data-testid="manifesto-cta">
+                  <p className="text-xs md:text-sm text-white font-semibold leading-snug" data-testid="manifesto-cta">
                     We're not a traditional agency.<br />
                     We're not an AI-only agency.<br />
-                    <span className="block mt-2 text-base">
+                    <span className="block mt-1.5 text-sm">
                       We're the hybrid agency built for a world where human creativity and machine intelligence create unfair business advantage.
                     </span>
                   </p>
