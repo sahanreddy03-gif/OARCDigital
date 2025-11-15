@@ -100,12 +100,42 @@ export default function Footer() {
           <div>
             <h4 className="text-white text-base font-bold mb-6 tracking-tight">Main</h4>
             <ul className="space-y-3.5">
-              <li><Link href="/" className="text-zinc-400 hover:text-white transition-colors text-sm font-normal" data-testid="link-footer-home">Home</Link></li>
-              <li><Link href="/services" className="text-zinc-400 hover:text-white transition-colors text-sm font-normal" data-testid="link-footer-services">Our Services</Link></li>
-              <li><Link href="/why-us" className="text-zinc-400 hover:text-white transition-colors text-sm font-normal" data-testid="link-footer-why-us">Why Us</Link></li>
-              <li><Link href="/roadmap" className="text-zinc-400 hover:text-white transition-colors text-sm font-normal" data-testid="link-footer-roadmap">Road Map 2026</Link></li>
-              <li><Link href="#our-work" className="text-zinc-400 hover:text-white transition-colors text-sm font-normal" data-testid="link-footer-our-work">Our Work</Link></li>
-              <li><Link href="/pdf" className="text-zinc-400 hover:text-white transition-colors text-sm font-normal" data-testid="link-footer-pdf">Client PDFs</Link></li>
+              <li>
+                <Link href="/" className="group inline-flex items-center gap-1 text-zinc-400 hover:text-white transition-colors text-sm font-normal" data-testid="link-footer-home">
+                  <span>Home</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                </Link>
+              </li>
+              <li>
+                <Link href="/services" className="group inline-flex items-center gap-1 text-zinc-400 hover:text-white transition-colors text-sm font-normal" data-testid="link-footer-services">
+                  <span>Our Services</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                </Link>
+              </li>
+              <li>
+                <Link href="/why-us" className="group inline-flex items-center gap-1 text-zinc-400 hover:text-white transition-colors text-sm font-normal" data-testid="link-footer-why-us">
+                  <span>Why Us</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                </Link>
+              </li>
+              <li>
+                <Link href="/roadmap" className="group inline-flex items-center gap-1 text-zinc-400 hover:text-white transition-colors text-sm font-normal" data-testid="link-footer-roadmap">
+                  <span>Road Map 2026</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                </Link>
+              </li>
+              <li>
+                <Link href="#our-work" className="group inline-flex items-center gap-1 text-zinc-400 hover:text-white transition-colors text-sm font-normal" data-testid="link-footer-our-work">
+                  <span>Our Work</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                </Link>
+              </li>
+              <li>
+                <Link href="/pdf" className="group inline-flex items-center gap-1 text-zinc-400 hover:text-white transition-colors text-sm font-normal" data-testid="link-footer-pdf">
+                  <span>Client PDFs</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
