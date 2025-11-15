@@ -7,13 +7,13 @@ import ScrollReveal from '@/components/ScrollReveal';
 import { motion } from 'framer-motion';
 import * as Icons from 'lucide-react';
 
-import aiSDRImage from '@assets/generated_images/AI_SDR_hero_image_458ed52a.png';
-import aiSupportImage from '@assets/generated_images/Customer_Support_hero_image_c6c9343b.png';
-import aiMarketingImage from '@assets/generated_images/Marketing_Coordinator_hero_image_aafef841.png';
-import aiWriterImage from '@assets/generated_images/Content_Writer_hero_image_8a506c8d.png';
-import aiAnalystImage from '@assets/generated_images/Data_Analyst_hero_image_04a382b9.png';
-import aiFinancialImage from '@assets/generated_images/Financial_Analyst_hero_image_8d08d0ba.png';
-import aiAdminImage from '@assets/generated_images/Admin_Assistant_hero_image_5ca0370d.png';
+import aiSDRImage from '@assets/1_1763228440276.avif';
+import aiSupportImage from '@assets/2_1763228440277.jpg';
+import aiMarketingImage from '@assets/4_1763228440279.avif';
+import aiWriterImage from '@assets/7_1763228440280.avif';
+import aiAnalystImage from '@assets/8_1763228440280.avif';
+import aiFinancialImage from '@assets/12_1763228440282.jpg';
+import aiAdminImage from '@assets/3_1763228440278.jpg';
 
 interface ServiceContent {
   title: string;
@@ -243,11 +243,11 @@ export default function AIEmployeeService() {
                   className="relative"
                 >
                   <div className="absolute inset-0 bg-gradient-to-br from-purple-500/20 to-fuchsia-500/20 rounded-3xl blur-2xl transform scale-105"></div>
-                  <div className="relative overflow-hidden rounded-3xl border border-purple-400/30 shadow-2xl shadow-purple-500/20">
+                  <div className="relative overflow-hidden rounded-3xl border border-purple-400/30 shadow-2xl shadow-purple-500/20 aspect-[4/3]">
                     <img
                       src={heroImage}
                       alt={content.title}
-                      className="w-full h-auto object-cover"
+                      className="w-full h-full object-cover object-center"
                       data-testid="hero-image"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>

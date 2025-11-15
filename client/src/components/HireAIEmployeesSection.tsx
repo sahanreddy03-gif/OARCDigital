@@ -1,22 +1,22 @@
-// Import stock images from available assets
-import salesDevRep from '@assets/stock_images/professional_sales_r_664f92e1.jpg';
-import customerSupport from '@assets/stock_images/customer_support_age_3dc30c2b.jpg';
-import adminAssistant from '@assets/stock_images/administrative_assis_29a8cede.jpg';
-import marketingCoord from '@assets/stock_images/marketing_coordinato_07711488.jpg';
-import hrRecruiter from '@assets/stock_images/hr_recruiter_intervi_a2bb2926.jpg';
-import socialMedia from '@assets/stock_images/social_media_manager_c1d1c7a1.jpg';
-import contentWriter from '@assets/stock_images/content_writer_copyw_b2e16fb5.jpg';
-import dataAnalyst from '@assets/stock_images/data_analyst_busines_2273e6c3.jpg';
-import leadQualifier from '@assets/stock_images/lead_generation_qual_8e5b0d01.jpg';
-import emailManager from '@assets/stock_images/professional_email_m_4945b6d9.jpg';
-import meetingCoord from '@assets/stock_images/meeting_coordinator__9e9824c0.jpg';
-import financialAnalyst from '@assets/stock_images/financial_analyst_ac_a7ca6914.jpg';
-import qualityAssurance from '@assets/stock_images/quality_assurance_te_3da1a1e3.jpg';
-import projectManager from '@assets/stock_images/project_manager_agil_eb024bff.jpg';
-import researchAnalyst from '@assets/stock_images/research_analyst_mar_25bf90c5.jpg';
-import travelCoordinator from '@assets/stock_images/travel_coordinator_b_ed44bec5.jpg';
-import accountManager from '@assets/stock_images/business_account_man_049b6a5c.jpg';
-import technicalSupport from '@assets/stock_images/technical_support_sp_a9de34aa.jpg';
+// Import new AI employee images
+import salesDevRep from '@assets/1_1763228440276.avif';
+import customerSupport from '@assets/2_1763228440277.jpg';
+import adminAssistant from '@assets/3_1763228440278.jpg';
+import marketingCoord from '@assets/4_1763228440279.avif';
+import hrRecruiter from '@assets/5_1763228440279.avif';
+import socialMedia from '@assets/6_1763228440279.avif';
+import contentWriter from '@assets/7_1763228440280.avif';
+import dataAnalyst from '@assets/8_1763228440280.avif';
+import leadQualifier from '@assets/9_1763228440281.jpg';
+import emailManager from '@assets/10_1763228440281.avif';
+import meetingCoord from '@assets/11_1763228440281.jpg';
+import financialAnalyst from '@assets/12_1763228440282.jpg';
+import qualityAssurance from '@assets/13_1763228440282.avif';
+import projectManager from '@assets/14_1763228440283.avif';
+import researchAnalyst from '@assets/15_1763085718435.avif';
+import travelCoordinator from '@assets/16_1763228440283.jpg';
+import accountManager from '@assets/17_1763228440284.avif';
+import technicalSupport from '@assets/18_1763228440284.jpg';
 
 const employees = [
   {
@@ -302,7 +302,7 @@ export default function HireAIEmployeesSection() {
                 <img
                   src={employee.image}
                   alt={employee.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
                   data-testid={`carousel-image-admin-ai-employees`}
                 />
                 <div className="absolute top-4 right-4 bg-[#c4ff4d] text-zinc-900 text-xs font-bold px-3 py-1.5 rounded-full">
