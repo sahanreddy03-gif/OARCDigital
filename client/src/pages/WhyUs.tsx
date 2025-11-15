@@ -34,6 +34,7 @@ import carouselJoy from "@assets/Screenshot-2023-08-01-at-16.06.24_1763243258631
 import timeline1 from "@assets/stock_images/professional_busines_080c57eb.jpg";
 import timeline2 from "@assets/stock_images/professional_busines_617ecf1a.jpg";
 import timeline3 from "@assets/stock_images/professional_busines_838bb4c4.jpg";
+import { SuccessInNumbers } from "@/components/SuccessInNumbers";
 
 // Register GSAP plugins
 if (typeof window !== 'undefined') {
@@ -781,74 +782,7 @@ export default function WhyUs() {
       </section>
 
       {/* Success in Numbers - Exact Superside Clone */}
-      <section className="bg-[#0A2818] py-24 md:py-36 lg:py-44" data-testid="section-success-numbers">
-        <div className="max-w-7xl mx-auto px-6">
-          <ScrollReveal>
-            {/* Centered Header Section */}
-            <div className="text-center mb-16 md:mb-24">
-              <p className="text-xs md:text-sm uppercase tracking-[0.4em] text-white/50 mb-6 md:mb-8 font-medium" data-testid="text-success-eyebrow">
-                SUCCESS IN NUMBERS
-              </p>
-              <h2 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-normal text-white leading-tight" data-testid="heading-success">
-                The best return on <span className="italic font-serif">your investment</span>
-              </h2>
-            </div>
-
-            {/* Two Column Layout: Left Text + Right Stats Grid */}
-            <div className="grid md:grid-cols-2 gap-12 md:gap-16 lg:gap-20 items-start">
-              {/* Left Column - Description Text */}
-              <div className="md:pt-8">
-                <p className="text-base md:text-lg text-white/70 leading-relaxed max-w-md" data-testid="text-success-description">
-                  Startup, enterprises and mid-market companies trust OARC Digital to deliver pixel-perfect creative, at scale.
-                </p>
-              </div>
-
-              {/* Right Column - 2x2 Stats Grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-12 md:gap-x-16 md:gap-y-16">
-                {/* Stat 1: Projects */}
-                <div data-testid="stat-projects">
-                  <div className="text-6xl md:text-7xl lg:text-8xl font-light text-white mb-4" style={{ letterSpacing: '-0.02em' }}>
-                    500+
-                  </div>
-                  <p className="text-sm md:text-base text-white/60 font-light leading-relaxed">
-                    Projects delivered to this day and counting.
-                  </p>
-                </div>
-
-                {/* Stat 2: Revenue */}
-                <div data-testid="stat-revenue">
-                  <div className="text-6xl md:text-7xl lg:text-8xl font-light text-white mb-4" style={{ letterSpacing: '-0.02em' }}>
-                    70k+
-                  </div>
-                  <p className="text-sm md:text-base text-white/60 font-light leading-relaxed">
-                    In monthly recurring revenue generated for clients.
-                  </p>
-                </div>
-
-                {/* Stat 3: ROI */}
-                <div data-testid="stat-roi">
-                  <div className="text-6xl md:text-7xl lg:text-8xl font-light text-white mb-4" style={{ letterSpacing: '-0.02em' }}>
-                    94%
-                  </div>
-                  <p className="text-sm md:text-base text-white/60 font-light leading-relaxed">
-                    Brands see a three-year ROI of 94% on their OARC Digital subscription.
-                  </p>
-                </div>
-
-                {/* Stat 4: Payback Period */}
-                <div data-testid="stat-payback">
-                  <div className="text-6xl md:text-7xl lg:text-8xl font-light text-white mb-4" style={{ letterSpacing: '-0.02em', fontFamily: 'serif' }}>
-                    6 months
-                  </div>
-                  <p className="text-sm md:text-base text-white/60 font-light leading-relaxed">
-                    Brands see a 6-month payback period on their OARC Digital subscription.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </ScrollReveal>
-        </div>
-      </section>
+      <SuccessInNumbers />
 
       {/* Core Values Section */}
       <section className="bg-white py-20 md:py-32" data-testid="section-values">

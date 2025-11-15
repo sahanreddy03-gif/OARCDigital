@@ -10,6 +10,7 @@ import LetsTalkRevenueSection from "@/components/LetsTalkRevenueSection";
 import CTASections from "@/components/CTASections";
 import BrandShowcaseSection from "@/components/BrandShowcaseSection";
 import Testimonials from "@/components/Testimonials";
+import { SuccessInNumbers } from "@/components/SuccessInNumbers";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
@@ -40,6 +41,7 @@ export default function Home() {
       <ScrollReveal>
         <LetsTalkRevenueSection />
       </ScrollReveal>
+      <SuccessInNumbers />
       <ScrollReveal delay={100}>
         <Testimonials />
       </ScrollReveal>
