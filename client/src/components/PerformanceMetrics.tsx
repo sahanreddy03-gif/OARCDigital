@@ -1,13 +1,14 @@
 import { useEffect, useState, useRef } from "react";
+import successBg from '@assets/BACKGROUND IMAGE FOR SUCCESS IN OUR BUSINESS_1763233939151.avif';
 
 const metrics = [
-  { value: 68, suffix: "%", label: "Average ROI", prefix: "" },
-  { value: 420, suffix: "K", label: "Efficiency Created", prefix: "$" },
-  { value: 74, suffix: "%", label: "Customer Retention", prefix: "" },
-  { value: 48, suffix: "%", label: "Brand Recognition Growth", prefix: "" },
+  { value: 68, suffix: "%", label: "Average ROI" },
+  { value: 74, suffix: "%", label: "Customer Retention" },
+  { value: 48, suffix: "%", label: "Brand Growth" },
+  { value: 65, suffix: "+", label: "Campaigns Delivered" },
 ];
 
-function Counter({ end, prefix = "", suffix = "", duration = 2000 }: { end: number; prefix?: string; suffix?: string; duration?: number }) {
+function Counter({ end, suffix = "", duration = 2000 }: { end: number; suffix?: string; duration?: number }) {
   const [count, setCount] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -52,49 +53,47 @@ function Counter({ end, prefix = "", suffix = "", duration = 2000 }: { end: numb
   }, [isVisible, end, duration]);
 
   return (
-    <div ref={ref} className="text-5xl md:text-6xl font-bold font-display bg-gradient-to-br from-white via-orange-100 to-rose-100 bg-clip-text text-transparent">
-      {prefix}{count.toFixed(suffix === "M" || suffix === "K" ? 0 : 0)}{suffix}
+    <div ref={ref} className="text-6xl md:text-7xl lg:text-8xl font-black text-white mb-3" style={{ letterSpacing: '-0.03em' }}>
+      {count.toFixed(0)}{suffix}
     </div>
   );
 }
 
 export default function PerformanceMetrics() {
   return (
-    <section className="relative py-20 md:py-28 overflow-hidden bg-gradient-to-br from-zinc-900 via-zinc-800 to-zinc-900">
-      {/* Subtle gradient overlays for depth */}
-      <div className="absolute inset-0 bg-gradient-to-r from-orange-500/10 via-transparent to-rose-500/10 opacity-40"></div>
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-rose-500/10 rounded-full blur-3xl"></div>
-      
-      <div className="relative max-w-6xl mx-auto px-6 md:px-12">
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 bg-orange-500/10 border border-orange-500/20 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
-            <p className="text-sm uppercase tracking-wider font-bold text-orange-500">
-              Measurable Success
-            </p>
-          </div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black font-display tracking-tight text-white">
-            The proof is in the <span className="italic font-black bg-gradient-to-r from-orange-400 to-rose-400 bg-clip-text text-transparent">results</span>
+    <section className="relative py-20 md:py-32 overflow-hidden bg-zinc-900" data-testid="section-metrics">
+      {/* Background Image */}
+      <div className="absolute inset-0 opacity-30">
+        <img 
+          src={successBg} 
+          alt="" 
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-zinc-900/80 via-zinc-900/60 to-zinc-900/80"></div>
+      </div>
+
+      <div className="relative max-w-7xl mx-auto px-6 md:px-12">
+        {/* Header */}
+        <div className="text-center mb-16 md:mb-24">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 tracking-tight" style={{ letterSpacing: '-0.03em' }}>
+            Success in Numbers
           </h2>
+          <p className="text-lg md:text-xl text-zinc-400 max-w-2xl mx-auto font-normal">
+            The best return on your investment
+          </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+        {/* Metrics Grid */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
           {metrics.map((metric, index) => (
-            <div key={index} className="relative group" data-testid={`metric-${index}`}>
-              {/* Card with glassmorphism */}
-              <div className="relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 text-center space-y-3 hover-elevate transition-all duration-300 group-hover:border-orange-500/30">
-                {/* Gradient glow on hover */}
-                <div className="absolute inset-0 bg-gradient-to-br from-orange-500/0 to-rose-500/0 group-hover:from-orange-500/10 group-hover:to-rose-500/10 rounded-2xl transition-all duration-300 -z-10 blur-xl"></div>
-                
-                <Counter 
-                  end={metric.value} 
-                  prefix={metric.prefix}
-                  suffix={metric.suffix}
-                />
-                <p className="text-sm md:text-base uppercase tracking-wide font-semibold text-zinc-400 group-hover:text-orange-400 transition-colors">
-                  {metric.label}
-                </p>
-              </div>
+            <div key={index} className="text-center" data-testid={`metric-${index}`}>
+              <Counter 
+                end={metric.value} 
+                suffix={metric.suffix}
+              />
+              <p className="text-sm md:text-base text-zinc-400 font-normal">
+                {metric.label}
+              </p>
             </div>
           ))}
         </div>
