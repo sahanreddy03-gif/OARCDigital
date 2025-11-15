@@ -131,23 +131,23 @@ export default function Testimonials() {
   return (
     <section 
       ref={sectionRef}
-      className="relative py-8 md:py-12 lg:py-16 overflow-hidden bg-[#0A2818]" 
+      className="relative py-12 md:py-20 lg:py-24 overflow-hidden bg-[#0A2818]" 
       data-testid="section-testimonials"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
-      <div className={`relative container mx-auto px-4 md:px-6 lg:px-8 max-w-6xl transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+      <div className={`relative container mx-auto px-6 md:px-8 lg:px-10 max-w-7xl transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
         
         {/* Three Column Layout: Avatars | Quote | Stats */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-6 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-start">
           
           {/* Left Column: Avatar Stack (Hidden on mobile) */}
-          <div className="hidden lg:flex lg:col-span-2 flex-col gap-3" data-testid="avatar-stack">
+          <div className="hidden lg:flex lg:col-span-2 flex-col gap-4" data-testid="avatar-stack">
             {testimonials.map((testimonial, index) => (
               <button
                 key={index}
                 onClick={() => selectTestimonial(index)}
-                className={`relative w-16 h-16 rounded-full overflow-hidden border-2 transition-all duration-500 ${
+                className={`relative w-20 h-20 rounded-full overflow-hidden border-2 transition-all duration-500 ${
                   index === activeIndex 
                     ? 'border-white opacity-100 scale-105' 
                     : 'border-transparent opacity-40 hover:opacity-60 scale-95'
@@ -174,14 +174,14 @@ export default function Testimonials() {
               }}
             >
               {/* Company Logo/Name */}
-              <div className="mb-3">
-                <h3 className="text-[9px] md:text-[10px] uppercase tracking-[0.25em] font-semibold text-white/60">
+              <div className="mb-4">
+                <h3 className="text-[10px] md:text-xs uppercase tracking-[0.25em] font-semibold text-white/60">
                   {activeTestimonial.companyLogo}
                 </h3>
               </div>
               
               {/* Quote */}
-              <blockquote className="text-base md:text-lg lg:text-xl font-normal text-white leading-snug mb-3 lg:mb-4" style={{ letterSpacing: '-0.01em' }} data-testid="testimonial-quote">
+              <blockquote className="text-lg md:text-xl lg:text-2xl font-normal text-white leading-relaxed mb-5 lg:mb-6" style={{ letterSpacing: '-0.01em' }} data-testid="testimonial-quote">
                 "{activeTestimonial.quote.split('OARC').map((part, i, arr) => (
                   <span key={i}>
                     {part}
@@ -191,7 +191,7 @@ export default function Testimonials() {
               </blockquote>
 
               {/* Author */}
-              <p className="text-[10px] md:text-xs text-white/60 font-normal" data-testid="testimonial-author">
+              <p className="text-xs md:text-sm text-white/60 font-normal" data-testid="testimonial-author">
                 {activeTestimonial.author}, {activeTestimonial.role}
               </p>
             </div>
@@ -200,28 +200,28 @@ export default function Testimonials() {
           {/* Right Column: Stats Only */}
           <div className="lg:col-span-4">
             {/* Stats Grid (3 metrics) */}
-            <div className="grid grid-cols-3 lg:grid-cols-1 gap-3 lg:gap-4" data-testid="testimonial-stats">
+            <div className="grid grid-cols-3 lg:grid-cols-1 gap-4 lg:gap-6" data-testid="testimonial-stats">
               <div className="transition-all duration-700 delay-100">
-                <div className="text-2xl md:text-3xl lg:text-4xl font-light text-white mb-1" style={{ letterSpacing: '-0.02em' }}>
+                <div className="text-3xl md:text-4xl lg:text-5xl font-light text-white mb-2" style={{ letterSpacing: '-0.02em' }}>
                   {activeTestimonial.metric1}
                 </div>
-                <div className="text-[9px] md:text-[10px] text-white/60 leading-tight font-normal">
+                <div className="text-[10px] md:text-xs text-white/60 leading-tight font-normal">
                   {activeTestimonial.metric1Label}
                 </div>
               </div>
               <div className="transition-all duration-700 delay-200">
-                <div className="text-2xl md:text-3xl lg:text-4xl font-light text-white mb-1" style={{ letterSpacing: '-0.02em' }}>
+                <div className="text-3xl md:text-4xl lg:text-5xl font-light text-white mb-2" style={{ letterSpacing: '-0.02em' }}>
                   {activeTestimonial.metric2}
                 </div>
-                <div className="text-[9px] md:text-[10px] text-white/60 leading-tight font-normal">
+                <div className="text-[10px] md:text-xs text-white/60 leading-tight font-normal">
                   {activeTestimonial.metric2Label}
                 </div>
               </div>
               <div className="transition-all duration-700 delay-300">
-                <div className="text-2xl md:text-3xl lg:text-4xl font-light text-white mb-1" style={{ letterSpacing: '-0.02em' }}>
+                <div className="text-3xl md:text-4xl lg:text-5xl font-light text-white mb-2" style={{ letterSpacing: '-0.02em' }}>
                   {activeTestimonial.metric3}
                 </div>
-                <div className="text-[9px] md:text-[10px] text-white/60 leading-tight font-normal">
+                <div className="text-[10px] md:text-xs text-white/60 leading-tight font-normal">
                   {activeTestimonial.metric3Label}
                 </div>
               </div>
@@ -230,42 +230,42 @@ export default function Testimonials() {
         </div>
 
         {/* Navigation Arrows - Middle Right Position */}
-        <div className="absolute right-4 md:right-6 top-1/2 -translate-y-1/2 flex flex-col gap-2 lg:hidden xl:flex" data-testid="testimonial-navigation">
+        <div className="absolute right-6 md:right-8 top-1/2 -translate-y-1/2 flex flex-col gap-3 lg:hidden xl:flex" data-testid="testimonial-navigation">
           <button
             onClick={prevTestimonial}
-            className="w-8 h-8 rounded-full border border-white/30 text-white flex items-center justify-center hover:bg-white/10 transition-all duration-300"
+            className="w-10 h-10 rounded-full border border-white/30 text-white flex items-center justify-center hover:bg-white/10 transition-all duration-300"
             data-testid="button-testimonial-prev"
             aria-label="Previous testimonial"
           >
-            <ChevronUp className="w-4 h-4" />
+            <ChevronUp className="w-5 h-5" />
           </button>
           <button
             onClick={nextTestimonial}
-            className="w-8 h-8 rounded-full border border-white/30 text-white flex items-center justify-center hover:bg-white/10 transition-all duration-300"
+            className="w-10 h-10 rounded-full border border-white/30 text-white flex items-center justify-center hover:bg-white/10 transition-all duration-300"
             data-testid="button-testimonial-next"
             aria-label="Next testimonial"
           >
-            <ChevronDown className="w-4 h-4" />
+            <ChevronDown className="w-5 h-5" />
           </button>
         </div>
 
         {/* Mobile Navigation - Bottom */}
-        <div className="flex lg:hidden xl:hidden items-center justify-center gap-2 mt-4">
+        <div className="flex lg:hidden xl:hidden items-center justify-center gap-3 mt-6">
           <button
             onClick={prevTestimonial}
-            className="w-8 h-8 rounded-full border border-white/30 text-white flex items-center justify-center hover:bg-white/10 transition-all duration-300"
+            className="w-10 h-10 rounded-full border border-white/30 text-white flex items-center justify-center hover:bg-white/10 transition-all duration-300"
             data-testid="button-testimonial-prev-mobile"
             aria-label="Previous testimonial"
           >
-            <ChevronUp className="w-4 h-4" />
+            <ChevronUp className="w-5 h-5" />
           </button>
           <button
             onClick={nextTestimonial}
-            className="w-8 h-8 rounded-full border border-white/30 text-white flex items-center justify-center hover:bg-white/10 transition-all duration-300"
+            className="w-10 h-10 rounded-full border border-white/30 text-white flex items-center justify-center hover:bg-white/10 transition-all duration-300"
             data-testid="button-testimonial-next-mobile"
             aria-label="Next testimonial"
           >
-            <ChevronDown className="w-4 h-4" />
+            <ChevronDown className="w-5 h-5" />
           </button>
         </div>
       </div>
