@@ -16,7 +16,7 @@ export interface CaseStudy {
 }
 
 // Import thumbnails/hero images  
-import gymGroupImg from '@assets/stock_images/creative_agency_team_2d8a0735.jpg';
+import gymGroupImg from '@assets/IMG_8206_1763165592775.jpeg';
 import azzaroImg from '@assets/stock_images/luxury_fashion_retai_a6eca040.jpg';
 import bodyShopImg from '@assets/stock_images/influencer_marketing_3b6f7762.jpg';
 import tefalImg from '@assets/TefalPictures-32-scaled_1761760754960.jpg';
