@@ -21,6 +21,7 @@ import heroImg from "@assets/generated_images/Professional_agency_office_workspa
 import visionEye from "@assets/pexels-burakkostak-18809_1763243435924.jpg";
 import experimentsWorkspace from "@assets/image_1763243519050.png";
 import birthTeam from "@assets/pexels-thirdman-5257897 (1)_1763243949488.jpg";
+import globalNetwork from "@assets/global-influencer-marketing-agency-socially-powerful_1763244062764.jpg";
 import carousel1 from "@assets/stock_images/modern_marketing_age_2cb6d515.jpg";
 import carousel3 from "@assets/stock_images/modern_marketing_age_0c16bbf6.jpg";
 import carouselWorkspace from "@assets/image_1763243239681.png";
@@ -442,7 +443,7 @@ export default function WhyUs() {
               <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>
                 <img
-                  src={carousel1}
+                  src={globalNetwork}
                   alt="Global Expansion"
                   className="w-full h-80 object-cover rounded-lg"
                   data-testid="img-milestone-global"
