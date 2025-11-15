@@ -719,39 +719,59 @@ export default function WhyUs() {
                   OUR PHILOSOPHY
                 </p>
                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-white mb-10 leading-tight" style={{ letterSpacing: '-0.02em' }} data-testid="heading-manifesto">
-                  Built Different. Think AI-First.
+                  Built Different. Driven by Intelligence, Powered by Humans.
                 </h2>
                 
-                {/* Pull Quotes */}
+                {/* Pull Quotes & Philosophy */}
                 <div className="space-y-10">
                   <div className="border-l-4 border-orange-500 pl-6" data-testid="quote-1">
                     <p className="text-xl md:text-2xl text-white font-light italic leading-relaxed mb-3">
-                      "We don't add AI to marketing. We build marketing from AI."
+                      "We don't rely on AI alone. We combine AI with human creativity and business intelligence to produce work that actually grows revenue."
                     </p>
                     <p className="text-sm text-zinc-400 uppercase tracking-wide">
-                      — OARC Digital Founders
+                      — OARC DIGITAL, FOUNDERS
                     </p>
                   </div>
 
                   <p className="text-lg text-zinc-300 leading-relaxed" data-testid="manifesto-body-1">
-                    While other agencies retrofit AI into old workflows, we've architected every system, process, and campaign around intelligent automation from day one.
+                    While most agencies treat AI as a shortcut or a gimmick, we use it the way it was meant to be used: as a force multiplier for human talent, strategic thinking, and business outcomes.
                   </p>
+
+                  {/* Core Principles */}
+                  <div className="space-y-3 pl-6 border-l-2 border-zinc-700">
+                    <p className="text-base md:text-lg text-white leading-relaxed">
+                      <span className="font-bold text-green-500">AI</span> gives us scale.
+                    </p>
+                    <p className="text-base md:text-lg text-white leading-relaxed">
+                      <span className="font-bold text-orange-500">Creativity</span> gives us originality.
+                    </p>
+                    <p className="text-base md:text-lg text-white leading-relaxed">
+                      <span className="font-bold text-purple-400">Business economics</span> gives us direction.
+                    </p>
+                    <p className="text-base md:text-lg text-white font-semibold leading-relaxed">
+                      Revenue is the result.
+                    </p>
+                  </div>
 
                   <div className="border-l-4 border-green-500 pl-6" data-testid="quote-2">
                     <p className="text-xl md:text-2xl text-white font-light italic leading-relaxed mb-3">
-                      "Traditional agencies scale by hiring. We scale with AI employees."
+                      "Tools don't build great campaigns. People do — with the right intelligence behind them."
                     </p>
                     <p className="text-sm text-zinc-400 uppercase tracking-wide">
-                      — The OARC Approach
+                      — THE OARC APPROACH
                     </p>
                   </div>
 
                   <p className="text-lg text-zinc-300 leading-relaxed" data-testid="manifesto-body-2">
-                    This isn't about efficiency. It's about unlocking possibilities that human-only teams can't achieve—predictive creative optimization, autonomous revenue systems, 24/7 campaign intelligence.
+                    This isn't about automation. It's about precision, clarity and performance — using AI to eliminate the slow, repetitive tasks so our team can focus on strategy, storytelling, experimentation and ROI-driven execution.
                   </p>
 
                   <p className="text-lg text-white font-semibold leading-relaxed" data-testid="manifesto-cta">
-                    We're not building the agency of tomorrow. We're building the agency that makes tomorrow irrelevant.
+                    We're not a traditional agency.<br />
+                    We're not an AI-only agency.<br />
+                    <span className="block mt-3 text-xl">
+                      We're the hybrid agency built for a world where human creativity and machine intelligence create unfair business advantage.
+                    </span>
                   </p>
                 </div>
               </div>
