@@ -271,29 +271,35 @@ export default function LetsTalkRevenueSection() {
 
   return (
     <section className="relative py-16 md:py-20 lg:py-24 overflow-hidden" data-testid="section-revenue">
-      {/* Black/Orange Background - matching "Our Difference" section */}
-      <div className="absolute inset-0 bg-black"></div>
+      {/* Enhanced Premium Black/Orange Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-zinc-950 via-black to-zinc-900"></div>
       <div className="absolute inset-0 bg-gradient-to-r from-black via-zinc-950/90 to-orange-950/50"></div>
       <div className="absolute inset-0 bg-gradient-to-br from-black/50 via-transparent to-orange-900/35"></div>
       
-      {/* Warm orange glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_100%_50%,rgba(251,146,60,0.25),transparent_55%)]"></div>
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_80%_20%,rgba(234,88,12,0.20),transparent_60%)]"></div>
+      {/* Enhanced warm orange glow with more depth */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_100%_50%,rgba(251,146,60,0.28),transparent_55%)]"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_80%_20%,rgba(234,88,12,0.22),transparent_60%)]"></div>
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_0%_50%,rgba(0,0,0,0.7),transparent_45%)]"></div>
       
       {/* Warm accent on bottom right */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_90%_80%,rgba(220,38,38,0.15),transparent_50%)]"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_90%_80%,rgba(220,38,38,0.18),transparent_50%)]"></div>
+      
+      {/* Subtle grid pattern overlay for sophistication */}
+      <div className="absolute inset-0 opacity-[0.02]" style={{
+        backgroundImage: 'linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px)',
+        backgroundSize: '50px 50px'
+      }}></div>
       
       {/* Final overlay for depth */}
-      <div className="absolute inset-0 bg-gradient-to-t from-orange-950/10 to-transparent"></div>
+      <div className="absolute inset-0 bg-gradient-to-t from-orange-950/15 to-transparent"></div>
 
-      <div className="relative container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl mb-12 md:mb-16">
-        {/* Section Header */}
+      <div className="relative container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl mb-14 md:mb-20">
+        {/* Section Header - Enhanced Typography */}
         <div className="text-center">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-white tracking-tight mb-4" data-testid="text-revenue-heading">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-5 tracking-[-0.02em]" data-testid="text-revenue-heading" style={{ letterSpacing: '-0.03em' }}>
             Let's Talk Revenue
           </h2>
-          <p className="text-xl md:text-2xl lg:text-3xl font-semibold text-white/80">
+          <p className="text-lg md:text-xl lg:text-2xl font-medium text-white/85 tracking-tight max-w-4xl mx-auto leading-relaxed">
             Automate your entire revenue stack from lead to cash
           </p>
         </div>
@@ -301,9 +307,9 @@ export default function LetsTalkRevenueSection() {
 
       {/* Carousel Container */}
       <div className="relative w-full">
-        {/* Gradient Overlays for fade effect - dark gradients */}
-        <div className="absolute left-0 top-0 bottom-0 w-32 md:w-48 lg:w-64 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none"></div>
-        <div className="absolute right-0 top-0 bottom-0 w-32 md:w-48 lg:w-64 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none"></div>
+        {/* Enhanced Gradient Overlays with smoother fade */}
+        <div className="absolute left-0 top-0 bottom-0 w-40 md:w-56 lg:w-72 bg-gradient-to-r from-black via-black/80 to-transparent z-10 pointer-events-none"></div>
+        <div className="absolute right-0 top-0 bottom-0 w-40 md:w-56 lg:w-72 bg-gradient-to-l from-black via-black/80 to-transparent z-10 pointer-events-none"></div>
 
         {/* Scrolling Carousel */}
         <div className="carousel-track" data-testid="revenue-carousel-track" ref={trackRef}>
@@ -313,21 +319,23 @@ export default function LetsTalkRevenueSection() {
               className="carousel-card group"
               data-testid={`revenue-card-${index}`}
             >
-              {/* Image Container */}
-              <div className="relative w-full aspect-[4/3] overflow-hidden rounded-2xl bg-zinc-100 mb-6">
+              {/* Image Container - Enhanced with border and glow effect */}
+              <div className="relative w-full aspect-[4/3] overflow-hidden rounded-2xl bg-zinc-100 mb-6 ring-1 ring-orange-500/20 shadow-lg transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-orange-500/30 group-hover:ring-orange-500/40">
                 <img
                   src={service.image}
                   alt={service.title}
-                  className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                  className="w-full h-full object-cover object-center transition-all duration-700 group-hover:scale-105 group-hover:brightness-110"
                 />
+                {/* Premium overlay on hover */}
+                <div className="absolute inset-0 bg-gradient-to-t from-orange-900/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               </div>
 
-              {/* Service Info */}
+              {/* Service Info - Premium Typography */}
               <div className="px-2">
-                <h3 className="text-2xl lg:text-3xl font-bold text-white mb-2">
+                <h3 className="text-2xl lg:text-3xl font-bold text-white mb-2.5 tracking-tight leading-tight transition-all duration-300 group-hover:text-orange-400" style={{ letterSpacing: '-0.02em' }}>
                   {service.title}
                 </h3>
-                <p className="text-base lg:text-lg text-white/80 leading-relaxed">
+                <p className="text-base lg:text-lg text-white/85 leading-relaxed font-normal tracking-wide">
                   {service.subtitle}
                 </p>
               </div>

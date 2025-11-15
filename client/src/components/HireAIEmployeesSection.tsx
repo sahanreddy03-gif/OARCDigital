@@ -270,14 +270,25 @@ export default function HireAIEmployeesSection() {
   }, []);
 
   return (
-    <section className="relative bg-white py-16 md:py-20 lg:py-24 overflow-hidden" data-testid="section-hire-ai-employees">
-      <div className="container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl mb-12 md:mb-16">
-        {/* Section Header */}
+    <section className="relative py-16 md:py-20 lg:py-24 overflow-hidden" data-testid="section-hire-ai-employees">
+      {/* Sophisticated gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-zinc-50 via-white to-zinc-100"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_20%,rgba(168,85,247,0.08),transparent_50%)]"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_70%_80%,rgba(59,130,246,0.06),transparent_50%)]"></div>
+      
+      {/* Subtle noise texture overlay */}
+      <div className="absolute inset-0 opacity-[0.015]" style={{
+        backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 400 400\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.9\' numOctaves=\'4\' /%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\' /%3E%3C/svg%3E")',
+        backgroundRepeat: 'repeat'
+      }}></div>
+
+      <div className="relative container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl mb-14 md:mb-20">
+        {/* Section Header - Enhanced Typography */}
         <div className="text-center">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-zinc-900 tracking-tight mb-4" data-testid="text-ai-employees-heading">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-zinc-900 mb-5 tracking-[-0.02em]" data-testid="text-ai-employees-heading" style={{ letterSpacing: '-0.03em' }}>
             Hire AI Employees
           </h2>
-          <p className="text-xl md:text-2xl lg:text-3xl font-semibold text-zinc-600">
+          <p className="text-lg md:text-xl lg:text-2xl font-medium text-zinc-600 tracking-tight max-w-4xl mx-auto leading-relaxed">
             Scale your team instantly with AI-powered employees for every role
           </p>
         </div>
@@ -285,9 +296,9 @@ export default function HireAIEmployeesSection() {
 
       {/* Carousel Container */}
       <div className="relative w-full">
-        {/* Gradient Overlays for fade effect */}
-        <div className="absolute left-0 top-0 bottom-0 w-32 md:w-48 lg:w-64 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
-        <div className="absolute right-0 top-0 bottom-0 w-32 md:w-48 lg:w-64 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
+        {/* Enhanced Gradient Overlays with smoother fade */}
+        <div className="absolute left-0 top-0 bottom-0 w-40 md:w-56 lg:w-72 bg-gradient-to-r from-zinc-50 via-zinc-50/80 to-transparent z-10 pointer-events-none"></div>
+        <div className="absolute right-0 top-0 bottom-0 w-40 md:w-56 lg:w-72 bg-gradient-to-l from-zinc-50 via-zinc-50/80 to-transparent z-10 pointer-events-none"></div>
 
         {/* Scrolling Carousel */}
         <div className="carousel-track" data-testid="ai-employees-carousel-track" ref={trackRef}>
@@ -297,22 +308,24 @@ export default function HireAIEmployeesSection() {
               className="carousel-card group"
               data-testid={`employee-card-${index}`}
             >
-              {/* Image Container */}
-              <div className="relative w-full aspect-[4/3] overflow-hidden rounded-2xl bg-zinc-100 mb-6">
+              {/* Image Container - Enhanced with subtle border */}
+              <div className="relative w-full aspect-[4/3] overflow-hidden rounded-2xl bg-zinc-100 mb-6 ring-1 ring-zinc-200/50 shadow-sm transition-all duration-500 group-hover:shadow-xl group-hover:ring-zinc-300/70">
                 <img
                   src={employee.image}
                   alt={employee.title}
-                  className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                  className="w-full h-full object-cover object-center transition-all duration-700 group-hover:scale-105"
                   data-testid={`carousel-image-admin-ai-employees`}
                 />
+                {/* Subtle overlay on hover */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               </div>
 
-              {/* Employee Info */}
+              {/* Employee Info - Premium Typography */}
               <div className="px-2">
-                <h3 className="text-2xl lg:text-3xl font-bold text-zinc-900 mb-2">
+                <h3 className="text-2xl lg:text-3xl font-bold text-zinc-900 mb-2.5 tracking-tight leading-tight transition-colors duration-300 group-hover:text-purple-600" style={{ letterSpacing: '-0.02em' }}>
                   {employee.title}
                 </h3>
-                <p className="text-base lg:text-lg text-zinc-600 leading-relaxed">
+                <p className="text-base lg:text-lg text-zinc-600 leading-relaxed font-normal tracking-wide">
                   {employee.subtitle}
                 </p>
               </div>
