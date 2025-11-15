@@ -100,9 +100,9 @@ export default function WebDesign() {
               { value: "97%", label: "Mobile performance score", gradient: "from-purple-600 to-pink-600" },
               { value: "7 days", label: "Landing page launch", gradient: "from-orange-600 to-red-600" },
             ].map((stat, i) => (
-              <div key={i} className="text-center p-6 bg-gradient-to-br from-[hsl(220,10%,98%)] to-white rounded-xl border border-border hover:shadow-lg transition-all duration-300 hover:-translate-y-1" data-testid={`metric-${i}`}>
-                <div className={`text-4xl md:text-5xl font-bold bg-gradient-to-r ${stat.gradient} text-transparent bg-clip-text mb-2`}>{stat.value}</div>
-                <div className="text-sm text-muted-foreground">{stat.label}</div>
+              <div key={i} className="text-center p-8 bg-gradient-to-br from-[hsl(220,10%,98%)] to-white rounded-xl border border-border hover:shadow-lg transition-all duration-300 hover:-translate-y-1" data-testid={`metric-${i}`}>
+                <div className={`text-4xl md:text-5xl font-bold bg-gradient-to-r ${stat.gradient} text-transparent bg-clip-text mb-3`}>{stat.value}</div>
+                <div className="text-base text-muted-foreground font-semibold">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -254,8 +254,8 @@ export default function WebDesign() {
                 { label: "Launch Time", value: "7d" },
               ].map((stat, i) => (
                 <div key={i} className="p-6 bg-gradient-to-br from-slate-50 to-cyan-50 rounded-xl text-center">
-                  <div className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 text-transparent bg-clip-text mb-2">{stat.value}</div>
-                  <div className="text-sm text-muted-foreground">{stat.label}</div>
+                  <div className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 text-transparent bg-clip-text mb-3">{stat.value}</div>
+                  <div className="text-base text-muted-foreground font-semibold">{stat.label}</div>
                 </div>
               ))}
             </div>

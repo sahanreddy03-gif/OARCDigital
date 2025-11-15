@@ -98,9 +98,9 @@ export default function AICopywriting() {
               { value: "92%", label: "First-draft approval rate" },
               { value: "3 days", label: "Avg. turnaround time" },
             ].map((stat, i) => (
-              <div key={i} className="text-center p-6 bg-gradient-to-br from-[hsl(280,10%,98%)] to-white rounded-xl border border-border hover:shadow-lg transition-all duration-300 hover:-translate-y-1" data-testid={`metric-${i}`}>
-                <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-[hsl(280,70%,55%)] to-[hsl(320,81%,60%)] text-transparent bg-clip-text mb-2">{stat.value}</div>
-                <div className="text-sm text-muted-foreground">{stat.label}</div>
+              <div key={i} className="text-center p-8 bg-gradient-to-br from-[hsl(280,10%,98%)] to-white rounded-xl border border-border hover:shadow-lg transition-all duration-300 hover:-translate-y-1" data-testid={`metric-${i}`}>
+                <div className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-[hsl(280,70%,55%)] to-[hsl(320,81%,60%)] text-transparent bg-clip-text mb-3">{stat.value}</div>
+                <div className="text-base text-muted-foreground font-semibold">{stat.label}</div>
               </div>
             ))}
           </div>

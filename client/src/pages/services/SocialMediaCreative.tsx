@@ -100,9 +100,9 @@ export default function SocialMediaCreative() {
               { value: "100+", label: "Posts per month", gradient: "from-orange-600 to-red-600" },
               { value: "24hrs", label: "First draft delivery", gradient: "from-green-600 to-emerald-600" },
             ].map((stat, i) => (
-              <div key={i} className="text-center p-6 bg-gradient-to-br from-[hsl(262,10%,98%)] to-white rounded-xl border border-border hover:shadow-lg transition-all duration-300 hover:-translate-y-1" data-testid={`metric-${i}`}>
-                <div className={`text-4xl md:text-5xl font-bold bg-gradient-to-r ${stat.gradient} text-transparent bg-clip-text mb-2`}>{stat.value}</div>
-                <div className="text-sm text-muted-foreground">{stat.label}</div>
+              <div key={i} className="text-center p-8 bg-gradient-to-br from-[hsl(262,10%,98%)] to-white rounded-xl border border-border hover:shadow-lg transition-all duration-300 hover:-translate-y-1" data-testid={`metric-${i}`}>
+                <div className={`text-4xl md:text-5xl font-bold bg-gradient-to-r ${stat.gradient} text-transparent bg-clip-text mb-3`}>{stat.value}</div>
+                <div className="text-base text-muted-foreground font-semibold">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -256,8 +256,8 @@ export default function SocialMediaCreative() {
                 { label: "Response Time", value: "2hrs" },
               ].map((stat, i) => (
                 <div key={i} className="p-6 bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl text-center">
-                  <div className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 text-transparent bg-clip-text mb-2">{stat.value}</div>
-                  <div className="text-sm text-muted-foreground">{stat.label}</div>
+                  <div className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 text-transparent bg-clip-text mb-3">{stat.value}</div>
+                  <div className="text-base text-muted-foreground font-semibold">{stat.label}</div>
                 </div>
               ))}
             </div>

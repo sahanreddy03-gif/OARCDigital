@@ -101,9 +101,9 @@ export default function VideoProduction() {
               { value: "95%", label: "Message retention rate", gradient: "from-orange-600 to-red-600" },
               { value: "14 days", label: "Avg. production time", gradient: "from-green-600 to-emerald-600" },
             ].map((stat, i) => (
-              <div key={i} className="text-center p-6 bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl border border-border hover:shadow-lg transition-all duration-300 hover:-translate-y-1" data-testid={`metric-${i}`}>
-                <div className={`text-4xl md:text-5xl font-bold bg-gradient-to-r ${stat.gradient} text-transparent bg-clip-text mb-2`}>{stat.value}</div>
-                <div className="text-sm text-muted-foreground">{stat.label}</div>
+              <div key={i} className="text-center p-8 bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl border border-border hover:shadow-lg transition-all duration-300 hover:-translate-y-1" data-testid={`metric-${i}`}>
+                <div className={`text-4xl md:text-5xl font-bold bg-gradient-to-r ${stat.gradient} text-transparent bg-clip-text mb-3`}>{stat.value}</div>
+                <div className="text-base text-muted-foreground font-semibold">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -257,8 +257,8 @@ export default function VideoProduction() {
                 { label: "Revisions Included", value: "3" },
               ].map((stat, i) => (
                 <div key={i} className="p-6 bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl text-center">
-                  <div className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 text-transparent bg-clip-text mb-2">{stat.value}</div>
-                  <div className="text-sm text-muted-foreground">{stat.label}</div>
+                  <div className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 text-transparent bg-clip-text mb-3">{stat.value}</div>
+                  <div className="text-base text-muted-foreground font-semibold">{stat.label}</div>
                 </div>
               ))}
             </div>
