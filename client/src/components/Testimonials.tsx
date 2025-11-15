@@ -1,5 +1,9 @@
 import { useState, useEffect, useRef } from "react";
 import { ChevronUp, ChevronDown } from "lucide-react";
+import sarahChenImg from "@assets/sara chen_1763248379257.jpg";
+import michaelRodriguezImg from "@assets/michael_1763248379256.jpg";
+import emmaThompsonImg from "@assets/emma_1763248379256.jpg";
+import rajeevShuklaImg from "@assets/Rajeev sukla_1763248379257.jpg";
 
 const testimonials = [
   {
@@ -8,7 +12,7 @@ const testimonials = [
     quote: "For us it has been important to find a creative partner like OARC —a team we can trust to deliver quality work on time, even with short notices.",
     author: "Sarah Chen",
     role: "Head of Marketing and Comms at SatAir",
-    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Sarah",
+    avatar: sarahChenImg,
     metric1: "100",
     metric1Label: "Average NPS for design projects",
     metric2: "24h-48h",
@@ -23,10 +27,10 @@ const testimonials = [
   {
     company: "TECHVENTURES",
     companyLogo: "TECHVENTURES",
-    quote: "Superside took the time to learn about our company, applied their insights from various design projects and sought to meet our needs, even if it meant going through some additional edits.",
+    quote: "OARC Digital took the time to learn about our company, applied their insights from various design projects and sought to meet our needs, even if it meant going through some additional edits.",
     author: "Michael Rodriguez",
     role: "Chief Marketing Officer at TechVentures",
-    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Michael",
+    avatar: michaelRodriguezImg,
     metric1: "68%",
     metric1Label: "ROI increase in 8 months",
     metric2: "$850K",
@@ -44,7 +48,7 @@ const testimonials = [
     quote: "The combination of creativity and technology sets OARC apart. They've helped us scale 4x while maintaining exceptional quality.",
     author: "Emma Thompson",
     role: "VP of Marketing at InnovateCo",
-    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Emma",
+    avatar: emmaThompsonImg,
     metric1: "4x",
     metric1Label: "Business scaling achieved",
     metric2: "98%",
@@ -54,6 +58,24 @@ const testimonials = [
     caseStudy: {
       title: "How InnovateCo achieved 4x growth with AI creative automation",
       thumbnail: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=400&h=250&fit=crop"
+    }
+  },
+  {
+    company: "DIGITAL INNOVATIONS",
+    companyLogo: "DIGITAL INNOVATIONS",
+    quote: "Working with OARC Digital has transformed how we approach marketing. Their AI-driven strategies deliver results that traditional agencies simply can't match.",
+    author: "Rajeev Shukla",
+    role: "Founder & CEO at Digital Innovations",
+    avatar: rajeevShuklaImg,
+    metric1: "320%",
+    metric1Label: "Revenue growth in 12 months",
+    metric2: "15k+",
+    metric2Label: "Qualified leads generated",
+    metric3: "92%",
+    metric3Label: "Campaign success rate",
+    caseStudy: {
+      title: "How Digital Innovations achieved 3x revenue with OARC's AI automation",
+      thumbnail: "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=250&fit=crop"
     }
   },
 ];
@@ -152,24 +174,24 @@ export default function Testimonials() {
               }}
             >
               {/* Company Logo/Name */}
-              <div className="mb-8">
-                <h3 className="text-xs md:text-sm uppercase tracking-[0.3em] font-bold text-zinc-900">
+              <div className="mb-6">
+                <h3 className="text-[10px] md:text-xs uppercase tracking-[0.25em] font-semibold text-zinc-800">
                   {activeTestimonial.companyLogo}
                 </h3>
               </div>
               
               {/* Quote */}
-              <blockquote className="text-2xl md:text-3xl lg:text-4xl font-bold text-zinc-900 leading-tight mb-8 lg:mb-12" style={{ letterSpacing: '-0.02em' }} data-testid="testimonial-quote">
+              <blockquote className="text-xl md:text-2xl lg:text-3xl font-normal text-zinc-900 leading-snug mb-6 lg:mb-8" style={{ letterSpacing: '-0.01em' }} data-testid="testimonial-quote">
                 "{activeTestimonial.quote.split('OARC').map((part, i, arr) => (
                   <span key={i}>
                     {part}
-                    {i < arr.length - 1 && <span className="font-black">OARC</span>}
+                    {i < arr.length - 1 && <span className="font-semibold">OARC</span>}
                   </span>
                 ))}"
               </blockquote>
 
               {/* Author */}
-              <p className="text-sm md:text-base text-zinc-700 font-normal" data-testid="testimonial-author">
+              <p className="text-xs md:text-sm text-zinc-600 font-normal" data-testid="testimonial-author">
                 {activeTestimonial.author}, {activeTestimonial.role}
               </p>
             </div>
@@ -178,54 +200,52 @@ export default function Testimonials() {
           {/* Right Column: Stats + Case Study */}
           <div className="lg:col-span-4 space-y-8">
             {/* Stats Grid (3 metrics) */}
-            <div className="grid grid-cols-2 lg:grid-cols-1 gap-6" data-testid="testimonial-stats">
+            <div className="grid grid-cols-2 lg:grid-cols-1 gap-5" data-testid="testimonial-stats">
               <div className="transition-all duration-700 delay-100">
-                <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-zinc-900 mb-2" style={{ letterSpacing: '-0.03em' }}>
+                <div className="text-3xl md:text-4xl lg:text-5xl font-light text-zinc-900 mb-1.5" style={{ letterSpacing: '-0.02em' }}>
                   {activeTestimonial.metric1}
                 </div>
-                <div className="text-xs md:text-sm text-zinc-600 leading-tight">
+                <div className="text-[11px] md:text-xs text-zinc-600 leading-tight font-normal">
                   {activeTestimonial.metric1Label}
                 </div>
               </div>
               <div className="transition-all duration-700 delay-200">
-                <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-zinc-900 mb-2" style={{ letterSpacing: '-0.03em' }}>
+                <div className="text-3xl md:text-4xl lg:text-5xl font-light text-zinc-900 mb-1.5" style={{ letterSpacing: '-0.02em' }}>
                   {activeTestimonial.metric2}
                 </div>
-                <div className="text-xs md:text-sm text-zinc-600 leading-tight">
+                <div className="text-[11px] md:text-xs text-zinc-600 leading-tight font-normal">
                   {activeTestimonial.metric2Label}
                 </div>
               </div>
               <div className="transition-all duration-700 delay-300">
-                <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-zinc-900 mb-2" style={{ letterSpacing: '-0.03em' }}>
+                <div className="text-3xl md:text-4xl lg:text-5xl font-light text-zinc-900 mb-1.5" style={{ letterSpacing: '-0.02em' }}>
                   {activeTestimonial.metric3}
                 </div>
-                <div className="text-xs md:text-sm text-zinc-600 leading-tight">
+                <div className="text-[11px] md:text-xs text-zinc-600 leading-tight font-normal">
                   {activeTestimonial.metric3Label}
                 </div>
               </div>
             </div>
 
-            {/* Case Study Card */}
+            {/* Case Study Card - No Link */}
             <div 
-              className="bg-white rounded-lg overflow-hidden hover-elevate transition-all duration-500 delay-400"
+              className="bg-white rounded-md overflow-hidden transition-all duration-500 delay-400"
               data-testid="case-study-card"
             >
-              <a href="#" className="block">
-                <div className="flex gap-4 p-4">
-                  <div className="flex-shrink-0 w-20 h-20 rounded overflow-hidden">
-                    <img 
-                      src={activeTestimonial.caseStudy.thumbnail} 
-                      alt={activeTestimonial.company}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <p className="text-sm md:text-base font-semibold text-zinc-900 leading-tight line-clamp-3">
-                      {activeTestimonial.caseStudy.title}
-                    </p>
-                  </div>
+              <div className="flex gap-3 p-3">
+                <div className="flex-shrink-0 w-16 h-16 rounded overflow-hidden">
+                  <img 
+                    src={activeTestimonial.caseStudy.thumbnail} 
+                    alt={activeTestimonial.company}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
-              </a>
+                <div className="flex-1 min-w-0">
+                  <p className="text-xs md:text-sm font-medium text-zinc-900 leading-snug line-clamp-3">
+                    {activeTestimonial.caseStudy.title}
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
