@@ -1,135 +1,173 @@
 import { Button } from "@/components/ui/button";
+import { useState, useEffect } from "react";
 import { Link } from "wouter";
-import { Instagram, TrendingUp, Zap } from "lucide-react";
-import GrainOverlay from "./GrainOverlay";
+import { SiFacebook, SiInstagram, SiLinkedin, SiX, SiYoutube, SiSpotify } from "react-icons/si";
 import companyLogo from "@assets/final 2_1762907995368.png";
+import AdvancedScrollReveal, { StaggerContainer } from "@/components/AdvancedScrollReveal";
 
 export default function Section2() {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [currentTextIndex, setCurrentTextIndex] = useState(0);
+  
+  // Array of gradient backgrounds - OARC brand colors only (green + orange)
+  const backgrounds = [
+    'linear-gradient(135deg, #00FF9C 0%, #00D17D 100%)',
+    'linear-gradient(135deg, #FF5A00 0%, #FF7A2E 100%)',
+    'linear-gradient(135deg, #00FF9C 0%, #FF5A00 100%)',
+    'linear-gradient(135deg, #0A2818 0%, #00FF9C 100%)',
+    'linear-gradient(135deg, #FF5A00 0%, #1A1A1A 100%)',
+    'linear-gradient(135deg, #00D17D 0%, #FF7A2E 100%)',
+  ];
+  
+  // Content to display in phone (text or logo)
+  const textContent = [
+    { type: 'text', content: "We blend creative and performance" },
+    { type: 'text', content: "Mastering the New Rules of Branding" },
+    { type: 'logo', content: null }
+  ];
+  
+  useEffect(() => {
+    const bgInterval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % backgrounds.length);
+    }, 2000); // Change background every 2 seconds
+    
+    const textInterval = setInterval(() => {
+      setCurrentTextIndex((prev) => (prev + 1) % textContent.length);
+    }, 3000); // Change text every 3 seconds
+    
+    return () => {
+      clearInterval(bgInterval);
+      clearInterval(textInterval);
+    };
+  }, []);
+  
   return (
-    <section className="relative py-24 md:py-32 overflow-hidden diagonal-separator-bottom bg-white">
-      <GrainOverlay opacity={0.02} />
-      
-      <div className="relative container mx-auto px-6 md:px-12 max-w-7xl">
-        {/* Asymmetrical Grid */}
-        <div className="grid md:grid-cols-12 gap-12 md:gap-16 items-center">
-          
-          {/* Left: Large Content Block - Takes 7 columns */}
-          <div className="md:col-span-7 space-y-8" data-testid="section2-content">
-            {/* Floating Stat Badge */}
-            <div className="inline-flex items-center gap-3 glass px-6 py-3 rounded-full glow-green-hover">
-              <TrendingUp className="w-5 h-5 text-[#00FF9C]" />
-              <span className="text-sm font-bold text-zinc-900">Social-First Performance</span>
-            </div>
+    <section className="relative bg-white py-12 md:py-16 lg:py-20">
+      <div className="container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          {/* Left Content */}
+          <div className="order-2 lg:order-1">
+            <AdvancedScrollReveal variant="slide-up" delay={200}>
+              <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-zinc-900 leading-[1.15] tracking-tight mb-5 md:mb-7" data-testid="text-section2-heading">
+                <span className="block">The results-driven</span>
+                <span className="text-primary block italic">Social First Agency</span>
+                <span className="block">you've been looking for</span>
+              </h2>
+            </AdvancedScrollReveal>
 
-            {/* Massive Headline */}
-            <h2 className="space-y-2">
-              <span 
-                className="block font-bold text-zinc-900 leading-none"
-                style={{ 
-                  fontSize: 'clamp(2rem, 6vw, 3.5rem)',
-                  letterSpacing: '-0.03em'
-                }}
-              >
-                The results-driven
-              </span>
-              <span 
-                className="block font-bold leading-none"
-                style={{ 
-                  fontSize: 'clamp(2rem, 6vw, 3.5rem)',
-                  letterSpacing: '-0.03em',
-                  background: 'linear-gradient(135deg, #00FF9C 0%, #00D17D 100%)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text',
-                }}
-              >
-                Social First Agency
-              </span>
-              <span 
-                className="block font-bold text-zinc-900 leading-none"
-                style={{ 
-                  fontSize: 'clamp(2rem, 6vw, 3.5rem)',
-                  letterSpacing: '-0.03em'
-                }}
-              >
-                you've been looking for
-              </span>
-            </h2>
-
-            {/* Description */}
-            <p className="text-lg md:text-xl text-zinc-600 leading-relaxed max-w-2xl">
-              We blend creative excellence with performance marketing, mastering the new rules of branding in the social-first era. 
-              <span className="font-bold text-zinc-900"> Every post drives revenue.</span>
-            </p>
-
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link href="/services/social-media-creative-management">
-                <Button 
-                  size="lg"
-                  className="group glass-strong glow-green-hover rounded-xl px-8 py-6 text-base font-bold bg-zinc-900 text-white hover:bg-black transition-all"
-                  data-testid="button-explore-social-services"
-                >
-                  <span className="flex items-center gap-2">
+            <AdvancedScrollReveal variant="slide-up" delay={300}>
+              <div className="flex flex-col gap-3 w-full sm:flex-row sm:gap-4">
+                <Link href="/services/social-media-creative-management">
+                  <Button 
+                    size="lg"
+                    className="bg-zinc-900 text-white font-semibold rounded-full w-full sm:w-auto flex-shrink-0 text-sm"
+                    data-testid="button-explore-social-services"
+                  >
                     Explore Social Services
-                    <Zap className="w-5 h-5" />
-                  </span>
+                  </Button>
+                </Link>
+                
+                <Button 
+                  variant="outline"
+                  size="lg"
+                  className="border-2 border-zinc-900 text-zinc-900 font-semibold rounded-full bg-transparent w-full sm:w-auto flex-shrink-0 text-sm"
+                  data-testid="button-meet-team"
+                >
+                  Meet The Team
+                  <span aria-hidden="true">→</span>
                 </Button>
-              </Link>
-              
-              <Button 
-                variant="outline"
-                size="lg"
-                className="glass rounded-xl px-8 py-6 text-base font-bold text-zinc-900 border-zinc-300 hover:border-zinc-900 hover:bg-zinc-50 transition-all"
-                data-testid="button-meet-team"
-              >
-                Meet The Team →
-              </Button>
-            </div>
+              </div>
+            </AdvancedScrollReveal>
           </div>
 
-          {/* Right: Staggered Visual Cards - Takes 5 columns */}
-          <div className="md:col-span-5 relative" data-testid="section2-visual">
-            {/* Top Card - Floating Stats */}
-            <div className="glass-strong glow-green rounded-2xl p-8 mb-6 hover:-translate-y-2 transition-transform duration-500">
-              <Instagram className="w-12 h-12 text-[#00FF9C] mb-4" />
-              <div className="text-4xl font-bold text-zinc-900 mb-2">2.4M+</div>
-              <div className="text-zinc-600 font-semibold">Social Engagements/Month</div>
-            </div>
-
-            {/* Bottom Card - Animated Phone Mockup */}
-            <div className="relative glass-strong glow-orange rounded-2xl p-8 ml-8 hover:-translate-y-2 hover:rotate-1 transition-all duration-500">
-              <div className="aspect-[9/16] w-full max-w-[200px] mx-auto relative rounded-2xl overflow-hidden">
-                {/* Animated Gradient Background */}
-                <div 
-                  className="absolute inset-0 animate-pulse"
-                  style={{
-                    background: 'linear-gradient(135deg, #00FF9C 0%, #FF5A00 100%)'
-                  }}
-                />
-                
-                {/* Content Overlay */}
-                <div className="absolute inset-0 bg-black/20 flex flex-col items-center justify-center p-6">
-                  <img 
-                    src={companyLogo} 
-                    alt="OARC logo" 
-                    className="w-16 h-16 object-contain mb-4"
+          {/* Right Visual - Phone Mockup - Smaller with Animated Background */}
+          <AdvancedScrollReveal variant="scale" delay={150} className="order-1 lg:order-2 flex justify-center lg:justify-end items-center">
+            <div className="relative w-full max-w-[200px] md:max-w-[240px] lg:max-w-[280px]" style={{ aspectRatio: '9/16' }}>
+              {/* Phone interior with animated Instagram/Reels-style backgrounds */}
+              <div className="absolute inset-4 md:inset-5 rounded-[1.5rem] overflow-hidden">
+                {backgrounds.map((bg, index) => (
+                  <div
+                    key={index}
+                    className="absolute inset-0 transition-opacity duration-700"
+                    style={{
+                      background: bg,
+                      opacity: currentImageIndex === index ? 1 : 0,
+                    }}
+                    data-testid={`phone-background-${index}`}
                   />
-                  <p className="text-white font-bold text-center text-sm leading-tight">
-                    Mastering the New Rules of Branding
-                  </p>
+                ))}
+                {/* Overlay content with animated text and social icons */}
+                <div className="absolute inset-0 flex flex-col items-center justify-between bg-black/30 p-4 md:p-6">
+                  {/* Top row - 3 social icons */}
+                  <div className="flex gap-3 md:gap-4 items-center animate-[fadeInUp_0.8s_ease-out]" data-testid="social-icons-top">
+                    <SiFacebook className="w-6 h-6 md:w-7 md:h-7 text-white/80 hover:text-white transition-colors" />
+                    <SiInstagram className="w-6 h-6 md:w-7 md:h-7 text-white/80 hover:text-white transition-colors" />
+                    <SiLinkedin className="w-6 h-6 md:w-7 md:h-7 text-white/80 hover:text-white transition-colors" />
+                  </div>
+                  
+                  {/* Center text/logo - cycling through different messages */}
+                  <div className="text-center flex-1 flex items-center justify-center px-3">
+                    {textContent[currentTextIndex]?.type === 'text' ? (
+                      <p className="text-xl md:text-2xl lg:text-3xl font-bold text-white leading-tight transition-opacity duration-500" data-testid="phone-text-content" style={{ letterSpacing: '-0.02em' }}>
+                        {textContent[currentTextIndex]?.content || ''}
+                      </p>
+                    ) : (
+                      <img 
+                        src={companyLogo} 
+                        alt="OARC logo" 
+                        className="w-20 h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 object-contain transition-opacity duration-500"
+                        data-testid="phone-logo-content"
+                      />
+                    )}
+                  </div>
+                  
+                  {/* Bottom row - 3 social icons */}
+                  <div className="flex gap-3 md:gap-4 items-center animate-[fadeInUp_0.8s_ease-out_0.5s]" data-testid="social-icons-bottom">
+                    <SiX className="w-6 h-6 md:w-7 md:h-7 text-white/80 hover:text-white transition-colors" />
+                    <SiYoutube className="w-6 h-6 md:w-7 md:h-7 text-white/80 hover:text-white transition-colors" />
+                    <SiSpotify className="w-6 h-6 md:w-7 md:h-7 text-white/80 hover:text-white transition-colors" />
+                  </div>
                 </div>
               </div>
               
-              <div className="mt-4 text-center">
-                <div className="text-sm font-bold text-zinc-600">Live on all platforms</div>
+              {/* Hand-drawn phone outline - Simple single border like Social Shepherd */}
+              <svg className="absolute inset-0 w-full h-full pointer-events-none" preserveAspectRatio="none" viewBox="0 0 200 355" fill="none">
+                {/* Notch cutout */}
+                <path 
+                  d="M 65 2 L 65 6 Q 68 9 72 9 L 128 9 Q 132 9 135 6 L 135 2" 
+                  stroke="#1a1a1a" 
+                  strokeWidth="3"
+                  fill="none"
+                  strokeLinecap="round"
+                />
+                {/* Main phone outline - hand-drawn style */}
+                <path 
+                  d="M 13 32 Q 11 28 13 25 L 14 18 Q 16 13 20 10 L 29 6 Q 36 3 47 2 L 153 2 Q 164 3 171 6 L 180 10 Q 184 13 186 18 L 187 25 Q 189 28 187 32 L 187 323 Q 189 327 187 331 L 186 338 Q 184 343 180 346 L 171 350 Q 164 353 153 354 L 47 354 Q 36 353 29 350 L 20 346 Q 16 343 14 338 L 13 331 Q 11 327 13 323 Z" 
+                  stroke="#1a1a1a" 
+                  strokeWidth="3"
+                  fill="none"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+              
+              {/* Turquoise accent swooshes - top left */}
+              <div className="absolute -top-3 -left-1 md:-top-4 md:-left-2">
+                <svg width="40" height="40" viewBox="0 0 50 50" fill="none">
+                  <path d="M 5 25 Q 15 20 25 25" stroke="#5ce1e6" strokeWidth="2.5" strokeLinecap="round" fill="none"/>
+                  <path d="M 25 5 Q 20 15 25 25" stroke="#5ce1e6" strokeWidth="2.5" strokeLinecap="round" fill="none"/>
+                </svg>
+              </div>
+              
+              {/* Turquoise accent swooshes - bottom right */}
+              <div className="absolute -bottom-3 -right-1 md:-bottom-4 md:-right-2">
+                <svg width="40" height="40" viewBox="0 0 50 50" fill="none">
+                  <path d="M 25 25 Q 35 30 45 25" stroke="#5ce1e6" strokeWidth="2.5" strokeLinecap="round" fill="none"/>
+                  <path d="M 25 25 Q 30 35 25 45" stroke="#5ce1e6" strokeWidth="2.5" strokeLinecap="round" fill="none"/>
+                </svg>
               </div>
             </div>
-
-            {/* Floating Accent Glow */}
-            <div className="absolute -top-10 -right-10 w-40 h-40 bg-green-500/20 rounded-full blur-3xl -z-10" />
-            <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-orange-500/20 rounded-full blur-3xl -z-10" />
-          </div>
+          </AdvancedScrollReveal>
         </div>
       </div>
     </section>
