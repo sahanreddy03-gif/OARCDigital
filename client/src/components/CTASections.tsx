@@ -30,7 +30,7 @@ export default function CTASections() {
               <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-chart-2/20 to-chart-2/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                 <Calendar className="w-7 h-7 text-chart-2" />
               </div>
-              <h3 className="text-3xl md:text-4xl font-black font-display mb-4">Our Roadmap for 2026</h3>
+              <h3 className="text-3xl md:text-4xl font-bold font-display mb-4" style={{ letterSpacing: '-0.02em' }}>Our Roadmap for 2026</h3>
               <p className="text-muted-foreground leading-relaxed mb-6">
                 Discover our exciting plans for the future. New AI capabilities, expanded services, and innovative solutions coming your way.
               </p>
@@ -49,7 +49,7 @@ export default function CTASections() {
               <div className="w-14 h-14 rounded-xl bg-background/20 backdrop-blur-sm flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                 <Sparkles className="w-7 h-7 text-primary-foreground" />
               </div>
-              <h3 className="text-3xl md:text-4xl font-black font-display mb-4">Launching OARC AI Soon</h3>
+              <h3 className="text-3xl md:text-4xl font-bold font-display mb-4" style={{ letterSpacing: '-0.02em' }}>Launching OARC AI Soon</h3>
               <p className="text-primary-foreground/90 leading-relaxed mb-6">
                 Be the first to experience our revolutionary AI platform. Register now for exclusive early access.
               </p>

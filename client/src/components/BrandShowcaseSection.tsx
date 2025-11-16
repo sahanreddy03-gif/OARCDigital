@@ -61,9 +61,9 @@ export default function BrandShowcaseSection() {
                       </p>
                     </div>
                     
-                    {/* Metric Badge with KPI Glow */}
+                    {/* Metric Badge with KPI Glow - Elite Typography */}
                     <div className="inline-block bg-[#c4ff4d] text-zinc-900 px-4 py-2 rounded-lg group-hover:shadow-[0_0_20px_rgba(196,255,77,0.6)] transition-shadow duration-500">
-                      <div className="text-xl md:text-2xl font-black leading-none">{study.metrics.value}</div>
+                      <div className="text-xl md:text-2xl font-bold leading-none" style={{ letterSpacing: '-0.02em' }}>{study.metrics.value}</div>
                       <div className="text-xs font-semibold mt-0.5">{study.metrics.label}</div>
                     </div>
                   </div>

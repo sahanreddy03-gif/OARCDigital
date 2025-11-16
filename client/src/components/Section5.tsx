@@ -39,9 +39,9 @@ export default function Section5() {
       <div className="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-transparent to-orange-950/30"></div>
       
       <div className="relative container mx-auto px-4 md:px-6 lg:px-12">
-        {/* Section heading with exact green from hero CTA */}
+        {/* Section heading - Elite Typography */}
         <div className="text-center mb-12 md:mb-16 lg:mb-20">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-white tracking-tight">
+          <h2 className="font-bold text-white" style={{ fontSize: 'clamp(2rem, 6vw, 4rem)', letterSpacing: '-0.03em', lineHeight: '1.15' }}>
             Our <span className="italic" style={{ color: '#c4ff4d' }}>Difference</span>
           </h2>
         </div>

@@ -274,12 +274,12 @@ export default function AICreativeSection() {
       <div className="absolute inset-0 bg-gradient-to-t from-orange-950/10 to-transparent"></div>
 
       <div className="relative container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl mb-12 md:mb-16">
-        {/* Section Header */}
+        {/* Section Header - Elite Typography */}
         <div className="text-center">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-white tracking-tight mb-4" data-testid="text-ai-creative-heading">
+          <h2 className="font-bold text-white mb-4" data-testid="text-ai-creative-heading" style={{ fontSize: 'clamp(2rem, 6vw, 4rem)', letterSpacing: '-0.03em', lineHeight: '1.15' }}>
             Every type of creative work
           </h2>
-          <p className="text-3xl md:text-4xl lg:text-5xl font-black text-white tracking-tight">
+          <p className="font-bold text-white" style={{ fontSize: 'clamp(2rem, 6vw, 4rem)', letterSpacing: '-0.03em', lineHeight: '1.15' }}>
             you'll ever need
             <span className="italic" style={{ color: '#c4ff4d' }}> and more</span>
           </p>
