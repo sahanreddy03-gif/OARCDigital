@@ -43,15 +43,15 @@ export default function Home() {
       </ScrollReveal>
       <SuccessInNumbers />
       <ScrollReveal delay={100}>
-        <Testimonials />
-      </ScrollReveal>
-      <ScrollReveal delay={150}>
-        <CTASections />
-      </ScrollReveal>
-      <ScrollReveal>
         <BrandShowcaseSection />
       </ScrollReveal>
       <ScrollReveal delay={150}>
+        <Testimonials />
+      </ScrollReveal>
+      <ScrollReveal delay={200}>
+        <CTASections />
+      </ScrollReveal>
+      <ScrollReveal delay={100}>
         <FAQ />
       </ScrollReveal>
       <Footer />
