@@ -9,14 +9,14 @@ export default function Section2() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
   
-  // Array of gradient backgrounds to simulate Instagram/Reels style content
+  // Array of gradient backgrounds - OARC brand colors only (green + orange)
   const backgrounds = [
-    'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-    'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
-    'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
-    'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)',
-    'linear-gradient(135deg, #fa709a 0%, #fee140 100%)',
-    'linear-gradient(135deg, #30cfd0 0%, #330867 100%)',
+    'linear-gradient(135deg, #00FF9C 0%, #00D17D 100%)',
+    'linear-gradient(135deg, #FF5A00 0%, #FF7A2E 100%)',
+    'linear-gradient(135deg, #00FF9C 0%, #FF5A00 100%)',
+    'linear-gradient(135deg, #0A2818 0%, #00FF9C 100%)',
+    'linear-gradient(135deg, #FF5A00 0%, #1A1A1A 100%)',
+    'linear-gradient(135deg, #00D17D 0%, #FF7A2E 100%)',
   ];
   
   // Content to display in phone (text or logo)
@@ -50,7 +50,7 @@ export default function Section2() {
             <AdvancedScrollReveal variant="slide-up" delay={200}>
               <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-zinc-900 leading-[1.15] tracking-tight mb-5 md:mb-7" data-testid="text-section2-heading">
                 <span className="block">The results-driven</span>
-                <span className="text-[#5ce1e6] block italic">Social First Agency</span>
+                <span className="text-primary block italic">Social First Agency</span>
                 <span className="block">you've been looking for</span>
               </h2>
             </AdvancedScrollReveal>
