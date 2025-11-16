@@ -24,16 +24,15 @@ export default function BrandShowcaseSection() {
           {caseStudiesArray.map((study, index) => (
             <Link key={index} href={`/case-studies/${study.slug}`} asChild>
               <div
-                className={`group relative overflow-hidden rounded-xl md:rounded-2xl bg-zinc-900 hover-elevate hover:-translate-y-1 hover:rotate-1 transition-all duration-500 cursor-pointer ${study.gridClass}`}
+                className={`group relative overflow-hidden rounded-xl md:rounded-2xl bg-zinc-900 hover-elevate hover:-translate-y-1 transition-all duration-500 cursor-pointer ${study.gridClass}`}
                 data-testid={`card-case-study-${index}`}
-                style={{ perspective: '1000px' }}
               >
                 {/* Image */}
                 <div className="absolute inset-0">
                   <img
                     src={study.thumbnailImage}
                     alt={study.brand}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.05]"
                   />
                   {/* Gradient Overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent group-hover:from-black/90 group-hover:via-black/50 transition-all duration-500"></div>
@@ -46,7 +45,7 @@ export default function BrandShowcaseSection() {
                     <div className="inline-block px-3 py-1.5 bg-white/15 backdrop-blur-sm rounded-full text-white text-xs font-semibold border border-white/10">
                       {study.category}
                     </div>
-                    <div className="w-9 h-9 rounded-full bg-white/15 backdrop-blur-sm border border-white/10 flex items-center justify-center transform rotate-0 group-hover:rotate-45 transition-transform duration-500">
+                    <div className="w-9 h-9 rounded-full bg-white/15 backdrop-blur-sm border border-white/10 flex items-center justify-center transition-transform duration-500 group-hover:-translate-y-0.5">
                       <ArrowUpRight className="w-4 h-4 text-white" />
                     </div>
                   </div>
