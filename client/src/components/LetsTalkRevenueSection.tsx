@@ -296,7 +296,7 @@ export default function LetsTalkRevenueSection() {
       <div className="relative container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl mb-12 md:mb-16">
         {/* Section Header - Elite Typography (Reduced Size) */}
         <div className="text-center">
-          <h2 className="font-heading font-bold text-white mb-4" data-testid="text-revenue-heading" style={{ fontSize: 'clamp(2rem, 6vw, 4.5rem)', letterSpacing: '-0.04em', lineHeight: '1.15' }}>
+          <h2 className="font-heading font-bold text-white mb-4" data-testid="text-revenue-heading" style={{ fontSize: 'clamp(1.75rem, 5vw, 3.25rem)', letterSpacing: '-0.04em', lineHeight: '1.2' }}>
             Let's Talk Revenue
           </h2>
           <p className="text-base md:text-lg lg:text-xl font-medium text-white/85 tracking-tight max-w-4xl mx-auto leading-relaxed">
