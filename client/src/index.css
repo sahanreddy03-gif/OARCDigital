@@ -472,13 +472,36 @@
     }
   }
 
-  /* Accessibility: Respect reduced motion preference */
+  /* Accessibility: Comprehensive reduced motion support */
   @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
     .hero-img {
       transition: none !important;
     }
     .hero-premium:hover .hero-img {
       transform: none !important;
     }
+  }
+
+  /* Performance optimization: Add will-change for animated elements */
+  .hover-elevate,
+  .active-elevate-2,
+  [class*="transition-"],
+  [class*="animate-"],
+  .carousel-track,
+  .group:hover img {
+    will-change: transform, opacity;
+  }
+
+  /* Remove will-change after animation to free up resources */
+  .hover-elevate:not(:hover),
+  .active-elevate-2:not(:active),
+  .group:not(:hover) img {
+    will-change: auto;
   }
 }
