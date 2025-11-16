@@ -294,9 +294,9 @@ export default function LetsTalkRevenueSection() {
       <div className="absolute inset-0 bg-gradient-to-t from-orange-950/15 to-transparent"></div>
 
       <div className="relative container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl mb-14 md:mb-20">
-        {/* Section Header - Enhanced Typography */}
+        {/* Section Header - Elite Typography with Fluid Scaling */}
         <div className="text-center">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-5 tracking-[-0.02em]" data-testid="text-revenue-heading" style={{ letterSpacing: '-0.03em' }}>
+          <h2 className="font-bold text-white mb-5" data-testid="text-revenue-heading" style={{ fontSize: 'clamp(2.5rem, 8vw, 6rem)', letterSpacing: '-0.04em', lineHeight: '1.1' }}>
             Let's Talk Revenue
           </h2>
           <p className="text-lg md:text-xl lg:text-2xl font-medium text-white/85 tracking-tight max-w-4xl mx-auto leading-relaxed">
