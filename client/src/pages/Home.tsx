@@ -3,7 +3,6 @@ import HeroSection from "@/components/HeroSection";
 import Section2 from "@/components/Section2";
 import Section3 from "@/components/Section3";
 import Section5 from "@/components/Section5";
-import LetsTalkSection from "@/components/LetsTalkSection";
 import AICreativeSection from "@/components/AICreativeSection";
 import HireAIEmployeesSection from "@/components/HireAIEmployeesSection";
 import LetsTalkRevenueSection from "@/components/LetsTalkRevenueSection";
@@ -30,25 +29,24 @@ export default function Home() {
         <Section5 />
       </ScrollReveal>
       <ScrollReveal>
-        <LetsTalkSection />
-      </ScrollReveal>
-      <ScrollReveal delay={100}>
         <AICreativeSection />
       </ScrollReveal>
-      <ScrollReveal delay={150}>
+      <ScrollReveal delay={100}>
         <HireAIEmployeesSection />
       </ScrollReveal>
-      <ScrollReveal>
+      <ScrollReveal delay={150}>
         <LetsTalkRevenueSection />
       </ScrollReveal>
-      <SuccessInNumbers />
+      <ScrollReveal>
+        <SuccessInNumbers />
+      </ScrollReveal>
       <ScrollReveal delay={100}>
         <BrandShowcaseSection />
       </ScrollReveal>
       <ScrollReveal delay={150}>
         <Testimonials />
       </ScrollReveal>
-      <ScrollReveal delay={200}>
+      <ScrollReveal>
         <CTASections />
       </ScrollReveal>
       <ScrollReveal delay={100}>
