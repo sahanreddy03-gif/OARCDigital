@@ -6,15 +6,15 @@ export default function BrandShowcaseSection() {
   return (
     <section className="py-16 md:py-20 lg:py-24 bg-white relative overflow-hidden">
       <div className="container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl">
-        {/* Section Header */}
+        {/* Section Header - Elite Typography */}
         <div className="mb-10 md:mb-14">
           <p className="text-sm uppercase tracking-wider font-bold text-orange-600 mb-3" data-testid="text-showcase-eyebrow">
             Our Impact
           </p>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-zinc-900 mb-4">
+          <h2 className="font-bold text-zinc-900 mb-4" style={{ fontSize: 'clamp(2rem, 6vw, 4rem)', letterSpacing: '-0.03em', lineHeight: '1.15' }}>
             See how Top Brands use OARC Digital
           </h2>
-          <p className="text-lg md:text-xl text-zinc-600 max-w-3xl">
+          <p className="text-lg md:text-xl text-zinc-600 max-w-3xl leading-relaxed">
             From global giants to innovative startups, we deliver measurable results
           </p>
         </div>
@@ -54,7 +54,7 @@ export default function BrandShowcaseSection() {
                   {/* Bottom - Brand & Metric */}
                   <div>
                     <div className="mb-3 md:mb-4">
-                      <h3 className="text-2xl md:text-3xl font-black text-white mb-1">
+                      <h3 className="text-2xl md:text-3xl font-bold text-white mb-1" style={{ letterSpacing: '-0.02em' }}>
                         {study.brand}
                       </h3>
                       <p className="text-sm md:text-base text-white/80 font-medium">
