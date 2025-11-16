@@ -1,5 +1,5 @@
 // Import stock images from available assets
-import revenueRecognition from '@assets/stock_images/revenue_recognition__d0e2a777.jpg';
+import revenueRecognition from '@assets/Revenue_1763330734340.jpg';
 import subscriptionBilling from '@assets/stock_images/subscription_billing_17adc906.jpg';
 import paymentCollection from '@assets/stock_images/payment_processing_t_e00fc3c3.jpg';
 import leadGeneration from '@assets/stock_images/lead_generation_sale_55511085.jpg';
