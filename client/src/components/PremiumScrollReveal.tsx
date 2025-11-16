@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useLayoutEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -30,13 +30,19 @@ export default function PremiumScrollReveal({
     ? window.matchMedia('(prefers-reduced-motion: reduce)').matches 
     : false;
 
-  useEffect(() => {
-    if (!elementRef.current || prefersReducedMotion) return;
+  useLayoutEffect(() => {
+    if (!elementRef.current || prefersReducedMotion) {
+      return;
+    }
 
     const element = elementRef.current;
     
     let fromVars: gsap.TweenVars = {};
-    let toVars: gsap.TweenVars = {};
+    const baseToVars: gsap.TweenVars = {
+      ease: 'power3.out',
+      duration,
+      delay
+    };
 
     switch (animation) {
       case 'fade-up':
@@ -45,99 +51,86 @@ export default function PremiumScrollReveal({
           y: 60,
           scale: 0.98
         };
-        toVars = { 
-          opacity: 1, 
+        Object.assign(baseToVars, {
+          opacity: 1,
           y: 0,
-          scale: 1,
-          ease: 'power3.out',
-          duration,
-          delay
-        };
+          scale: 1
+        });
         break;
       case 'fade-in':
         fromVars = { opacity: 0 };
-        toVars = { 
-          opacity: 1, 
-          ease: 'power2.out',
-          duration,
-          delay
-        };
+        Object.assign(baseToVars, {
+          opacity: 1,
+          ease: 'power2.out'
+        });
         break;
       case 'scale':
         fromVars = { 
           opacity: 0, 
           scale: 0.9
         };
-        toVars = { 
+        Object.assign(baseToVars, {
           opacity: 1, 
           scale: 1,
-          ease: 'back.out(1.2)',
-          duration,
-          delay
-        };
+          ease: 'back.out(1.2)'
+        });
         break;
       case 'slide-left':
         fromVars = { 
           opacity: 0, 
           x: 100
         };
-        toVars = { 
+        Object.assign(baseToVars, {
           opacity: 1, 
-          x: 0,
-          ease: 'power3.out',
-          duration,
-          delay
-        };
+          x: 0
+        });
         break;
       case 'slide-right':
         fromVars = { 
           opacity: 0, 
           x: -100
         };
-        toVars = { 
+        Object.assign(baseToVars, {
           opacity: 1, 
-          x: 0,
-          ease: 'power3.out',
-          duration,
-          delay
-        };
+          x: 0
+        });
         break;
     }
 
     gsap.set(element, fromVars);
 
-    const scrollTriggerConfig: ScrollTrigger.Vars = {
-      trigger: element,
-      start: 'top 85%',
-      end: parallax ? 'bottom top' : undefined,
-      toggleActions: scrub ? undefined : 'play none none reverse',
-      scrub: scrub ? 1 : false,
-      markers: false
-    };
-
     if (parallax) {
-      gsap.to(element, {
-        y: -100 * parallaxSpeed,
-        ease: 'none',
-        scrollTrigger: {
-          ...scrollTriggerConfig,
-          scrub: 1
-        }
-      });
-      
-      gsap.to(element, {
-        ...toVars,
+      gsap.fromTo(element, fromVars, {
+        ...baseToVars,
         scrollTrigger: {
           trigger: element,
           start: 'top 85%',
           toggleActions: 'play none none reverse',
-          scrub: false
+          markers: false
+        }
+      });
+
+      gsap.to(element, {
+        y: -100 * parallaxSpeed,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: element,
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: 1,
+          markers: false
         }
       });
     } else {
-      gsap.to(element, {
-        ...toVars,
-        scrollTrigger: scrollTriggerConfig
+      gsap.fromTo(element, fromVars, {
+        ...baseToVars,
+        scrollTrigger: {
+          trigger: element,
+          start: 'top 85%',
+          toggleActions: scrub ? undefined : 'play none none reverse',
+          scrub: scrub ? 1 : false,
+          markers: false
+        }
       });
     }
 
@@ -150,10 +143,29 @@ export default function PremiumScrollReveal({
     };
   }, [animation, delay, duration, scrub, parallax, parallaxSpeed, prefersReducedMotion]);
 
+  const getInitialClass = (): string => {
+    if (prefersReducedMotion) return '';
+    
+    switch (animation) {
+      case 'fade-up':
+        return 'scroll-reveal-fade-up';
+      case 'fade-in':
+        return 'scroll-reveal-hidden';
+      case 'scale':
+        return 'scroll-reveal-scale';
+      case 'slide-left':
+        return 'scroll-reveal-slide-left';
+      case 'slide-right':
+        return 'scroll-reveal-slide-right';
+      default:
+        return 'scroll-reveal-hidden';
+    }
+  };
+
   return (
     <div 
       ref={elementRef}
-      className={`relative ${className}`}
+      className={`relative ${getInitialClass()} ${className}`}
       data-testid="premium-scroll-reveal"
     >
       {children}
@@ -179,8 +191,10 @@ export function StaggerReveal({
     ? window.matchMedia('(prefers-reduced-motion: reduce)').matches 
     : false;
 
-  useEffect(() => {
-    if (!containerRef.current || prefersReducedMotion) return;
+  useLayoutEffect(() => {
+    if (!containerRef.current || prefersReducedMotion) {
+      return;
+    }
 
     const container = containerRef.current;
     const items = container.children;
@@ -219,7 +233,7 @@ export function StaggerReveal({
   return (
     <div 
       ref={containerRef}
-      className={`relative ${className}`}
+      className={`relative ${prefersReducedMotion ? '' : 'scroll-reveal-hidden'} ${className}`}
       data-testid="stagger-reveal"
     >
       {children}
