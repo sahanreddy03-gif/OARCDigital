@@ -322,7 +322,7 @@ export default function HireAIEmployeesSection() {
 
               {/* Employee Info - Premium Typography */}
               <div className="px-2">
-                <h3 className="text-2xl lg:text-3xl font-bold text-zinc-900 mb-2.5 tracking-tight leading-tight transition-colors duration-300 group-hover:text-purple-600" style={{ letterSpacing: '-0.02em' }}>
+                <h3 className="text-2xl lg:text-3xl font-bold text-zinc-900 mb-2.5 tracking-tight leading-tight transition-colors duration-300 group-hover:text-primary" style={{ letterSpacing: '-0.02em' }}>
                   {employee.title}
                 </h3>
                 <p className="text-base lg:text-lg text-zinc-600 leading-relaxed font-normal tracking-wide">

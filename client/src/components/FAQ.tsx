@@ -57,7 +57,7 @@ export default function FAQ() {
               key={index} 
               value={`item-${index}`} 
               data-testid={`faq-item-${index}`}
-              className="border border-border/50 rounded-lg px-6 hover-elevate hover:border-purple-400/60 hover:shadow-[0_0_15px_rgba(168,85,247,0.15)] transition-all duration-300"
+              className="border border-border/50 rounded-lg px-6 hover-elevate hover:border-primary/60 hover:shadow-[0_0_15px_rgba(0,255,156,0.15)] transition-all duration-300"
             >
               <AccordionTrigger className="text-left text-base md:text-lg font-bold hover:no-underline py-4">
                 {faq.question}
