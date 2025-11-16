@@ -504,4 +504,194 @@
   .group:not(:hover) img {
     will-change: auto;
   }
+
+  /* ========================================
+     WORLD-CLASS VISUAL SYSTEM UTILITIES
+     ======================================== */
+
+  /* Glassmorphism - Premium frosted glass effect */
+  .glass {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .glass-strong {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(30px) saturate(200%);
+    -webkit-backdrop-filter: blur(30px) saturate(200%);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+  }
+
+  .dark .glass {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .dark .glass-strong {
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  /* Glow Effects - Neon borders and shadows */
+  .glow-green {
+    box-shadow: 
+      0 0 20px rgba(0, 255, 136, 0.3),
+      0 0 40px rgba(0, 255, 136, 0.2),
+      inset 0 0 20px rgba(0, 255, 136, 0.1);
+    border: 1px solid rgba(0, 255, 136, 0.5);
+  }
+
+  .glow-orange {
+    box-shadow: 
+      0 0 20px rgba(255, 90, 0, 0.3),
+      0 0 40px rgba(255, 90, 0, 0.2),
+      inset 0 0 20px rgba(255, 90, 0, 0.1);
+    border: 1px solid rgba(255, 90, 0, 0.5);
+  }
+
+  .glow-green-hover {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .glow-green-hover:hover {
+    box-shadow: 
+      0 0 30px rgba(0, 255, 136, 0.5),
+      0 0 60px rgba(0, 255, 136, 0.3),
+      inset 0 0 30px rgba(0, 255, 136, 0.15);
+    border-color: rgba(0, 255, 136, 0.8);
+  }
+
+  .glow-orange-hover {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .glow-orange-hover:hover {
+    box-shadow: 
+      0 0 30px rgba(255, 90, 0, 0.5),
+      0 0 60px rgba(255, 90, 0, 0.3),
+      inset 0 0 30px rgba(255, 90, 0, 0.15);
+    border-color: rgba(255, 90, 0, 0.8);
+  }
+
+  /* Neon Text Effects */
+  .text-glow-green {
+    color: #00FF9C;
+    text-shadow: 
+      0 0 10px rgba(0, 255, 156, 0.5),
+      0 0 20px rgba(0, 255, 156, 0.3),
+      0 0 30px rgba(0, 255, 156, 0.2);
+  }
+
+  .text-glow-orange {
+    color: #FF5A00;
+    text-shadow: 
+      0 0 10px rgba(255, 90, 0, 0.5),
+      0 0 20px rgba(255, 90, 0, 0.3),
+      0 0 30px rgba(255, 90, 0, 0.2);
+  }
+
+  /* Gradient Overlays */
+  .gradient-wash-green {
+    position: relative;
+  }
+
+  .gradient-wash-green::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(0, 255, 156, 0.1) 0%,
+      transparent 50%,
+      rgba(0, 255, 156, 0.05) 100%
+    );
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .gradient-wash-orange {
+    position: relative;
+  }
+
+  .gradient-wash-orange::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(255, 90, 0, 0.1) 0%,
+      transparent 50%,
+      rgba(255, 90, 0, 0.05) 100%
+    );
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* Diagonal Separators */
+  .diagonal-separator-top {
+    clip-path: polygon(0 0, 100% 5%, 100% 100%, 0% 100%);
+  }
+
+  .diagonal-separator-bottom {
+    clip-path: polygon(0 0, 100% 0, 100% 95%, 0% 100%);
+  }
+
+  .diagonal-separator-both {
+    clip-path: polygon(0 5%, 100% 0, 100% 95%, 0% 100%);
+  }
+
+  /* Magnetic Hover Effect */
+  .magnetic {
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+  }
+
+  /* Parallax Transform */
+  .parallax-slow {
+    will-change: transform;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .parallax-medium {
+    will-change: transform;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .parallax-fast {
+    will-change: transform;
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Marquee Animation */
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .marquee {
+    animation: marquee 40s linear infinite;
+  }
+
+  .marquee-slow {
+    animation: marquee 60s linear infinite;
+  }
+
+  .marquee-fast {
+    animation: marquee 20s linear infinite;
+  }
+
+  /* Hide marquee on reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .marquee,
+    .marquee-slow,
+    .marquee-fast {
+      animation: none !important;
+    }
+    .glass,
+    .glass-strong {
+      backdrop-filter: none !important;
+    }
+  }
 }
