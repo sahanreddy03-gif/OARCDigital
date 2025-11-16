@@ -274,12 +274,12 @@ export default function AICreativeSection() {
       <div className="absolute inset-0 bg-gradient-to-t from-orange-950/10 to-transparent"></div>
 
       <div className="relative container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl mb-12 md:mb-16">
-        {/* Section Header - Elite Typography */}
+        {/* Section Header - Elite Typography (Reduced Size) */}
         <div className="text-center">
-          <h2 className="font-bold text-white mb-4" data-testid="text-ai-creative-heading" style={{ fontSize: 'clamp(2rem, 6vw, 4rem)', letterSpacing: '-0.03em', lineHeight: '1.15' }}>
+          <h2 className="font-heading font-bold text-white mb-3" data-testid="text-ai-creative-heading" style={{ fontSize: 'clamp(1.75rem, 5vw, 3.25rem)', letterSpacing: '-0.03em', lineHeight: '1.2' }}>
             Every type of creative work
           </h2>
-          <p className="font-bold text-white" style={{ fontSize: 'clamp(2rem, 6vw, 4rem)', letterSpacing: '-0.03em', lineHeight: '1.15' }}>
+          <p className="font-heading font-bold text-white" style={{ fontSize: 'clamp(1.75rem, 5vw, 3.25rem)', letterSpacing: '-0.03em', lineHeight: '1.2' }}>
             you'll ever need
             <span className="italic" style={{ color: '#c4ff4d' }}> and more</span>
           </p>
@@ -300,28 +300,29 @@ export default function AICreativeSection() {
               className="carousel-card group"
               data-testid={`service-card-${index}`}
             >
-              {/* Image Container */}
-              <div className="relative w-full aspect-[4/3] overflow-hidden rounded-2xl bg-zinc-100 mb-6">
+              {/* Image Container with Overlaid Text - Superside Style */}
+              <div className="relative w-full aspect-[3/4] overflow-hidden rounded-xl bg-zinc-100">
                 <img
                   src={service.image}
                   alt={service.title}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
+                {/* Dark gradient overlay for text legibility */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+                
+                {/* Badge */}
                 {service.badge && (
-                  <div className="absolute top-4 right-4 bg-[#c4ff4d] text-zinc-900 text-xs font-bold px-3 py-1.5 rounded-full">
+                  <div className="absolute top-4 right-4 bg-[#c4ff4d] text-zinc-900 text-xs font-bold px-3 py-1.5 rounded-full z-10">
                     {service.badge}
                   </div>
                 )}
-              </div>
-
-              {/* Service Info */}
-              <div className="px-2">
-                <h3 className="text-2xl lg:text-3xl font-bold text-white mb-2">
-                  {service.title}
-                </h3>
-                <p className="text-base lg:text-lg text-white/80 leading-relaxed">
-                  {service.subtitle}
-                </p>
+                
+                {/* Service Title Overlaid on Image */}
+                <div className="absolute bottom-0 left-0 right-0 p-6">
+                  <h3 className="font-heading text-xl md:text-2xl lg:text-3xl font-bold text-white leading-tight" style={{ letterSpacing: '-0.02em' }}>
+                    {service.title}
+                  </h3>
+                </div>
               </div>
             </div>
           ))}

@@ -282,13 +282,13 @@ export default function HireAIEmployeesSection() {
         backgroundRepeat: 'repeat'
       }}></div>
 
-      <div className="relative container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl mb-14 md:mb-20">
-        {/* Section Header - Elite Typography */}
+      <div className="relative container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl mb-12 md:mb-16">
+        {/* Section Header - Elite Typography (Reduced Size) */}
         <div className="text-center">
-          <h2 className="font-bold text-zinc-900 mb-5" data-testid="text-ai-employees-heading" style={{ fontSize: 'clamp(2.5rem, 8vw, 6rem)', letterSpacing: '-0.04em', lineHeight: '1.1' }}>
+          <h2 className="font-heading font-bold text-zinc-900 mb-4" data-testid="text-ai-employees-heading" style={{ fontSize: 'clamp(2rem, 6vw, 4.5rem)', letterSpacing: '-0.04em', lineHeight: '1.15' }}>
             Hire AI Employees
           </h2>
-          <p className="text-lg md:text-xl lg:text-2xl font-medium text-zinc-600 tracking-tight max-w-4xl mx-auto leading-relaxed">
+          <p className="text-base md:text-lg lg:text-xl font-medium text-zinc-600 tracking-tight max-w-4xl mx-auto leading-relaxed">
             Scale your team instantly with AI-powered employees for every role
           </p>
         </div>
@@ -308,26 +308,25 @@ export default function HireAIEmployeesSection() {
               className="carousel-card group"
               data-testid={`employee-card-${index}`}
             >
-              {/* Image Container - Enhanced with subtle border */}
-              <div className="relative w-full aspect-[4/3] overflow-hidden rounded-2xl bg-zinc-100 mb-6 ring-1 ring-zinc-200/50 shadow-sm transition-all duration-500 group-hover:shadow-xl group-hover:ring-zinc-300/70">
+              {/* Image Container with Overlaid Text - Superside Style */}
+              <div className="relative w-full aspect-[3/4] overflow-hidden rounded-xl bg-zinc-100 ring-1 ring-zinc-200/50 shadow-sm transition-all duration-500 group-hover:shadow-xl group-hover:ring-zinc-300/70">
                 <img
                   src={employee.image}
                   alt={employee.title}
                   className="w-full h-full object-cover object-center transition-all duration-700 group-hover:scale-105"
                   data-testid={`carousel-image-admin-ai-employees`}
                 />
+                {/* Dark gradient overlay for text legibility */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/35 to-transparent"></div>
                 {/* Subtle overlay on hover */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              </div>
-
-              {/* Employee Info - Premium Typography */}
-              <div className="px-2">
-                <h3 className="text-2xl lg:text-3xl font-bold text-zinc-900 mb-2.5 tracking-tight leading-tight transition-colors duration-300 group-hover:text-primary" style={{ letterSpacing: '-0.02em' }}>
-                  {employee.title}
-                </h3>
-                <p className="text-base lg:text-lg text-zinc-600 leading-relaxed font-normal tracking-wide">
-                  {employee.subtitle}
-                </p>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                
+                {/* Employee Title Overlaid on Image */}
+                <div className="absolute bottom-0 left-0 right-0 p-6">
+                  <h3 className="font-heading text-xl md:text-2xl lg:text-3xl font-bold text-white leading-tight transition-all duration-300" style={{ letterSpacing: '-0.02em' }}>
+                    {employee.title}
+                  </h3>
+                </div>
               </div>
             </div>
           ))}

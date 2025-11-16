@@ -293,13 +293,13 @@ export default function LetsTalkRevenueSection() {
       {/* Final overlay for depth */}
       <div className="absolute inset-0 bg-gradient-to-t from-orange-950/15 to-transparent"></div>
 
-      <div className="relative container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl mb-14 md:mb-20">
-        {/* Section Header - Elite Typography with Fluid Scaling */}
+      <div className="relative container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl mb-12 md:mb-16">
+        {/* Section Header - Elite Typography (Reduced Size) */}
         <div className="text-center">
-          <h2 className="font-bold text-white mb-5" data-testid="text-revenue-heading" style={{ fontSize: 'clamp(2.5rem, 8vw, 6rem)', letterSpacing: '-0.04em', lineHeight: '1.1' }}>
+          <h2 className="font-heading font-bold text-white mb-4" data-testid="text-revenue-heading" style={{ fontSize: 'clamp(2rem, 6vw, 4.5rem)', letterSpacing: '-0.04em', lineHeight: '1.15' }}>
             Let's Talk Revenue
           </h2>
-          <p className="text-lg md:text-xl lg:text-2xl font-medium text-white/85 tracking-tight max-w-4xl mx-auto leading-relaxed">
+          <p className="text-base md:text-lg lg:text-xl font-medium text-white/85 tracking-tight max-w-4xl mx-auto leading-relaxed">
             Automate your entire revenue stack from lead to cash
           </p>
         </div>
@@ -319,25 +319,27 @@ export default function LetsTalkRevenueSection() {
               className="carousel-card group"
               data-testid={`revenue-card-${index}`}
             >
-              {/* Image Container - Enhanced with border and glow effect */}
-              <div className="relative w-full aspect-[4/3] overflow-hidden rounded-2xl bg-zinc-100 mb-6 ring-1 ring-orange-500/20 shadow-lg transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-orange-500/30 group-hover:ring-orange-500/40">
+              {/* Image Container with Overlaid Text - Superside Style (Keep Subtitle for Education) */}
+              <div className="relative w-full aspect-[3/4] overflow-hidden rounded-xl bg-zinc-100 ring-1 ring-orange-500/20 shadow-lg transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-orange-500/30 group-hover:ring-orange-500/40">
                 <img
                   src={service.image}
                   alt={service.title}
                   className="w-full h-full object-cover object-center transition-all duration-700 group-hover:scale-105 group-hover:brightness-110"
                 />
+                {/* Dark gradient overlay for text legibility */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
                 {/* Premium overlay on hover */}
                 <div className="absolute inset-0 bg-gradient-to-t from-orange-900/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              </div>
-
-              {/* Service Info - Premium Typography */}
-              <div className="px-2">
-                <h3 className="text-2xl lg:text-3xl font-bold text-white mb-2.5 tracking-tight leading-tight transition-all duration-300 group-hover:text-orange-400" style={{ letterSpacing: '-0.02em' }}>
-                  {service.title}
-                </h3>
-                <p className="text-base lg:text-lg text-white/85 leading-relaxed font-normal tracking-wide">
-                  {service.subtitle}
-                </p>
+                
+                {/* Service Info Overlaid on Image - Keep Subtitle for Education */}
+                <div className="absolute bottom-0 left-0 right-0 p-6">
+                  <h3 className="font-heading text-xl md:text-2xl lg:text-3xl font-bold text-white mb-2 leading-tight transition-all duration-300" style={{ letterSpacing: '-0.02em' }}>
+                    {service.title}
+                  </h3>
+                  <p className="text-sm md:text-base text-white/90 leading-relaxed font-normal">
+                    {service.subtitle}
+                  </p>
+                </div>
               </div>
             </div>
           ))}
