@@ -43,8 +43,8 @@ export default function FAQ() {
           <p className="text-xs uppercase tracking-wider font-bold text-primary mb-4">
             Frequently Asked Questions
           </p>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black font-display tracking-tight mb-4">
-            Questions from our <span className="italic font-black">clients & partners</span>
+          <h2 className="font-bold font-display mb-4" style={{ fontSize: 'clamp(2rem, 6vw, 4rem)', letterSpacing: '-0.03em', lineHeight: '1.15' }}>
+            Questions from our <span className="italic font-bold">clients & partners</span>
           </h2>
           <p className="text-base text-muted-foreground">
             Everything you need to know about working with OARC Digital

@@ -108,7 +108,7 @@ export default function Section2() {
                   {/* Center text/logo - cycling through different messages */}
                   <div className="text-center flex-1 flex items-center justify-center px-3">
                     {textContent[currentTextIndex]?.type === 'text' ? (
-                      <p className="text-xl md:text-2xl lg:text-3xl font-black text-white leading-tight transition-opacity duration-500" data-testid="phone-text-content">
+                      <p className="text-xl md:text-2xl lg:text-3xl font-bold text-white leading-tight transition-opacity duration-500" data-testid="phone-text-content" style={{ letterSpacing: '-0.02em' }}>
                         {textContent[currentTextIndex]?.content || ''}
                       </p>
                     ) : (

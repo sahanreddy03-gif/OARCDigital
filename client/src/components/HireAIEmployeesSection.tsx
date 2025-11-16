@@ -283,9 +283,9 @@ export default function HireAIEmployeesSection() {
       }}></div>
 
       <div className="relative container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl mb-14 md:mb-20">
-        {/* Section Header - Enhanced Typography */}
+        {/* Section Header - Elite Typography */}
         <div className="text-center">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-zinc-900 mb-5 tracking-[-0.02em]" data-testid="text-ai-employees-heading" style={{ letterSpacing: '-0.03em' }}>
+          <h2 className="font-bold text-zinc-900 mb-5" data-testid="text-ai-employees-heading" style={{ fontSize: 'clamp(2.5rem, 8vw, 6rem)', letterSpacing: '-0.04em', lineHeight: '1.1' }}>
             Hire AI Employees
           </h2>
           <p className="text-lg md:text-xl lg:text-2xl font-medium text-zinc-600 tracking-tight max-w-4xl mx-auto leading-relaxed">

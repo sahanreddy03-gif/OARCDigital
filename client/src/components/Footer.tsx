@@ -14,8 +14,8 @@ export default function Footer() {
       {/* Superside-inspired CTA Section */}
       <div className="relative border-b border-white/5">
         <div className="max-w-7xl mx-auto px-6 md:px-12 py-20 md:py-28 text-center">
-          {/* Massive Bold Heading - Superside Style */}
-          <h2 className="text-6xl md:text-8xl lg:text-9xl font-black text-white mb-8 leading-none tracking-tighter" style={{ letterSpacing: '-0.04em' }}>
+          {/* Massive Bold Heading - Elite Typography */}
+          <h2 className="font-bold text-white mb-8 leading-none" style={{ fontSize: 'clamp(3rem, 12vw, 8rem)', letterSpacing: '-0.04em' }}>
             GET IN<br />TOUCH
           </h2>
           
@@ -152,7 +152,7 @@ export default function Footer() {
               className="h-10 w-10 object-contain"
               data-testid="img-footer-logo"
             />
-            <div className="font-display font-black text-3xl">
+            <div className="font-display font-bold text-3xl" style={{ letterSpacing: '-0.02em' }}>
               <span className="text-white">OARC </span>
               <span className="text-[#FF5A00]">Digital</span>
             </div>
