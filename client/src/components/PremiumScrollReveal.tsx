@@ -153,7 +153,7 @@ export default function PremiumScrollReveal({
   return (
     <div 
       ref={elementRef}
-      className={className}
+      className={`relative ${className}`}
       data-testid="premium-scroll-reveal"
     >
       {children}
@@ -219,7 +219,7 @@ export function StaggerReveal({
   return (
     <div 
       ref={containerRef}
-      className={className}
+      className={`relative ${className}`}
       data-testid="stagger-reveal"
     >
       {children}
