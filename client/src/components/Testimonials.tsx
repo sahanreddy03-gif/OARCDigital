@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef } from "react";
 import { ChevronUp, ChevronDown } from "lucide-react";
-import GrainOverlay from "./GrainOverlay";
 import sarahChenImg from "@assets/sara chen_1763248379257.jpg";
 import michaelRodriguezImg from "@assets/michael_1763248379256.jpg";
 import emmaThompsonImg from "@assets/emma_1763248379256.jpg";
@@ -132,28 +131,26 @@ export default function Testimonials() {
   return (
     <section 
       ref={sectionRef}
-      className="relative py-20 md:py-28 lg:py-32 overflow-hidden bg-[#0A2818] diagonal-separator-both" 
+      className="relative py-12 md:py-20 lg:py-24 overflow-hidden bg-[#0A2818]" 
       data-testid="section-testimonials"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
-      <GrainOverlay opacity={0.06} />
-      <div className="absolute inset-0 gradient-wash-green" />
       <div className={`relative container mx-auto px-6 md:px-8 lg:px-10 max-w-7xl transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
         
         {/* Three Column Layout: Avatars | Quote | Stats */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-start">
           
-          {/* Left Column: Avatar Stack (Hidden on mobile) - Enhanced with Glass */}
+          {/* Left Column: Avatar Stack (Hidden on mobile) */}
           <div className="hidden lg:flex lg:col-span-2 flex-col gap-4" data-testid="avatar-stack">
             {testimonials.map((testimonial, index) => (
               <button
                 key={index}
                 onClick={() => selectTestimonial(index)}
-                className={`relative w-20 h-20 rounded-full overflow-hidden transition-all duration-500 magnetic ${
+                className={`relative w-20 h-20 rounded-full overflow-hidden border-2 transition-all duration-500 ${
                   index === activeIndex 
-                    ? 'glass-strong scale-110 shadow-[0_0_30px_rgba(0,255,156,0.5)]' 
-                    : 'glass opacity-50 hover:opacity-80 scale-95 hover:scale-100'
+                    ? 'border-white opacity-100 scale-105' 
+                    : 'border-transparent opacity-40 hover:opacity-60 scale-95'
                 }`}
                 data-testid={`avatar-${index}`}
                 aria-label={`View testimonial from ${testimonial.author}`}
@@ -202,29 +199,29 @@ export default function Testimonials() {
 
           {/* Right Column: Stats Only */}
           <div className="lg:col-span-4">
-            {/* Stats Grid (3 metrics) - Enhanced with Glass Cards */}
+            {/* Stats Grid (3 metrics) */}
             <div className="grid grid-cols-3 lg:grid-cols-1 gap-4 lg:gap-6" data-testid="testimonial-stats">
-              <div className="glass rounded-xl p-4 transition-all duration-700 delay-100 hover:glow-green">
-                <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-glow-green mb-2" style={{ letterSpacing: '-0.03em' }}>
+              <div className="transition-all duration-700 delay-100">
+                <div className="text-3xl md:text-4xl lg:text-5xl font-light text-white mb-2" style={{ letterSpacing: '-0.02em' }}>
                   {activeTestimonial.metric1}
                 </div>
-                <div className="text-[10px] md:text-xs text-white/80 leading-tight font-semibold uppercase tracking-wider">
+                <div className="text-[10px] md:text-xs text-white/60 leading-tight font-normal">
                   {activeTestimonial.metric1Label}
                 </div>
               </div>
-              <div className="glass rounded-xl p-4 transition-all duration-700 delay-200 hover:glow-green">
-                <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-glow-green mb-2" style={{ letterSpacing: '-0.03em' }}>
+              <div className="transition-all duration-700 delay-200">
+                <div className="text-3xl md:text-4xl lg:text-5xl font-light text-white mb-2" style={{ letterSpacing: '-0.02em' }}>
                   {activeTestimonial.metric2}
                 </div>
-                <div className="text-[10px] md:text-xs text-white/80 leading-tight font-semibold uppercase tracking-wider">
+                <div className="text-[10px] md:text-xs text-white/60 leading-tight font-normal">
                   {activeTestimonial.metric2Label}
                 </div>
               </div>
-              <div className="glass rounded-xl p-4 transition-all duration-700 delay-300 hover:glow-green">
-                <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-glow-green mb-2" style={{ letterSpacing: '-0.03em' }}>
+              <div className="transition-all duration-700 delay-300">
+                <div className="text-3xl md:text-4xl lg:text-5xl font-light text-white mb-2" style={{ letterSpacing: '-0.02em' }}>
                   {activeTestimonial.metric3}
                 </div>
-                <div className="text-[10px] md:text-xs text-white/80 leading-tight font-semibold uppercase tracking-wider">
+                <div className="text-[10px] md:text-xs text-white/60 leading-tight font-normal">
                   {activeTestimonial.metric3Label}
                 </div>
               </div>

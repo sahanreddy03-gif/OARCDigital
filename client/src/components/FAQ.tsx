@@ -4,8 +4,6 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import GrainOverlay from "./GrainOverlay";
-import { Sparkles } from "lucide-react";
 
 const faqs = [
   {
@@ -36,30 +34,21 @@ const faqs = [
 
 export default function FAQ() {
   return (
-    <section className="relative py-24 md:py-32 bg-gradient-to-b from-white to-zinc-50 diagonal-separator-both overflow-hidden">
-      <GrainOverlay opacity={0.02} />
-      
-      <div className="relative max-w-4xl mx-auto px-6 md:px-12">
-        <div className="text-center mb-16 md:mb-20">
-          <div className="inline-flex items-center gap-2 glass px-6 py-2 rounded-full mb-4">
-            <Sparkles className="w-4 h-4 text-[#00FF9C]" />
-            <span className="text-xs font-bold text-zinc-600 uppercase tracking-wider">
-              Frequently Asked Questions
-            </span>
-          </div>
-          
-          <h2 className="font-bold text-zinc-900 mb-6" style={{ fontSize: 'clamp(2.5rem, 8vw, 4.5rem)', letterSpacing: '-0.04em', lineHeight: '1.1' }}>
-            Questions from our <span className="text-glow-green italic">clients & partners</span>
+    <section className="py-20 md:py-28 bg-background">
+      <div className="max-w-4xl mx-auto px-6 md:px-12">
+        <div className="text-center mb-12 md:mb-16">
+          <p className="text-sm text-muted-foreground italic mb-3">
+            Because transparency is part of our process.
+          </p>
+          <p className="text-xs uppercase tracking-wider font-bold text-primary mb-4">
+            Frequently Asked Questions
+          </p>
+          <h2 className="font-bold font-display mb-4" style={{ fontSize: 'clamp(2rem, 6vw, 4rem)', letterSpacing: '-0.03em', lineHeight: '1.15' }}>
+            Questions from our <span className="italic font-bold">clients & partners</span>
           </h2>
-          
-          <p className="text-lg md:text-xl text-zinc-600 leading-relaxed max-w-2xl mx-auto">
+          <p className="text-base text-muted-foreground">
             Everything you need to know about working with OARC Digital
           </p>
-          
-          {/* Glowing Divider */}
-          <div className="mt-8 flex justify-center">
-            <div className="h-1 w-32 rounded-full bg-gradient-to-r from-transparent via-green-500 to-transparent" />
-          </div>
         </div>
 
         <Accordion type="single" collapsible className="w-full space-y-4">
@@ -68,7 +57,7 @@ export default function FAQ() {
               key={index} 
               value={`item-${index}`} 
               data-testid={`faq-item-${index}`}
-              className="glass rounded-xl px-6 hover:glow-green transition-all duration-500"
+              className="border border-border/50 rounded-lg px-6 hover-elevate hover:border-primary/60 hover:shadow-[0_0_15px_rgba(0,255,156,0.15)] transition-all duration-300"
             >
               <AccordionTrigger className="text-left text-base md:text-lg font-bold hover:no-underline py-4">
                 {faq.question}

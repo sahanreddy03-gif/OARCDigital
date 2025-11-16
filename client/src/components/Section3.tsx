@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from "react";
 import { 
   SiAmazon, 
   SiReddit, 
@@ -11,7 +12,6 @@ import {
   SiDropbox,
   SiEbay
 } from "react-icons/si";
-import GrainOverlay from "./GrainOverlay";
 
 const brands = [
   { name: "Amazon", icon: SiAmazon },
@@ -25,65 +25,91 @@ const brands = [
   { name: "Toyota", icon: SiToyota },
   { name: "Dropbox", icon: SiDropbox },
   { name: "eBay", icon: SiEbay },
+  { name: "Uniqlo", icon: null },
+  { name: "easyJet", icon: null },
+  { name: "Premier Inn", icon: null },
+  { name: "The Body Shop", icon: null },
+  { name: "Deliveroo", icon: null },
+  { name: "LVMH", icon: null },
+  { name: "Pfizer", icon: null },
 ];
 
 export default function Section3() {
-  // Triple the brands for seamless marquee
+  const headingRef = useRef<HTMLHeadingElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    if (headingRef.current) {
+      observer.observe(headingRef.current);
+    }
+
+    return () => {
+      if (headingRef.current) {
+        observer.unobserve(headingRef.current);
+      }
+    };
+  }, []);
+
+  // Triple the brands for seamless loop
   const duplicatedBrands = [...brands, ...brands, ...brands];
 
   return (
-    <section className="relative py-20 md:py-28 overflow-hidden bg-gradient-to-br from-zinc-50 to-zinc-100 diagonal-separator-both" data-testid="section-3">
-      <GrainOverlay opacity={0.03} />
-      
-      <div className="relative container mx-auto px-6 md:px-12">
-        {/* Centered Headline with Glow Effect */}
-        <div className="text-center mb-16 md:mb-20">
-          <div className="inline-block glass px-6 py-2 rounded-full mb-6">
-            <span className="text-sm font-bold text-zinc-600 uppercase tracking-wider">Trusted Globally</span>
-          </div>
-          
-          <h2 
-            className="font-bold text-zinc-900 max-w-4xl mx-auto"
-            style={{ 
-              fontSize: 'clamp(1.75rem, 5vw, 3rem)',
-              letterSpacing: '-0.03em',
-              lineHeight: '1.2'
-            }}
-            data-testid="section-3-heading"
-          >
-            We grow ambitious brands with <span className="text-glow-green">Social</span>, <span className="text-glow-orange">Paid</span>, Creative and Influencer
-          </h2>
-        </div>
+    <section className="relative bg-white py-12 md:py-16 lg:py-20" data-testid="section-3">
+      <div className="container mx-auto px-4">
+        {/* Heading - animates from center when scrolling */}
+        <h2
+          ref={headingRef}
+          className={`text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-4 md:mb-5 lg:mb-6 transition-all duration-1000 ${
+            isVisible
+              ? "opacity-100 translate-x-0"
+              : "opacity-0 translate-x-[-50%]"
+          }`}
+          data-testid="section-3-heading"
+        >
+          We grow ambitious brands with Social, Paid, Creative and Influencer
+        </h2>
 
-        {/* Glowing Marquee Rail */}
-        <div className="relative">
-          {/* Glow Effect Behind Marquee */}
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-green-500/10 to-transparent blur-xl" />
-          
-          {/* Marquee Container */}
-          <div className="relative glass-strong rounded-2xl p-8 overflow-hidden" data-testid="brand-carousel">
-            {/* Marquee Track */}
-            <div className="flex gap-12 md:gap-16 lg:gap-20 marquee-slow whitespace-nowrap">
-              {duplicatedBrands.map((brand, index) => (
-                <div
-                  key={index}
-                  className="inline-flex items-center justify-center flex-shrink-0 magnetic group"
-                  data-testid={`brand-logo-${index}`}
-                >
-                  {brand.icon && (
-                    <brand.icon
-                      className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 text-zinc-400 group-hover:text-zinc-900 transition-all duration-300"
-                      aria-label={brand.name}
-                    />
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
+        {/* Brands that trust us subheading */}
+        <p
+          className="text-center text-sm md:text-base font-semibold text-gray-500 mb-6 md:mb-7 lg:mb-8"
+          data-testid="brands-subheading"
+        >
+          Brands that trust us
+        </p>
 
-          {/* Edge Fade Gradients */}
-          <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-zinc-100 to-transparent pointer-events-none" />
-          <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-zinc-100 to-transparent pointer-events-none" />
+        {/* Brand logo carousel - slides right to left */}
+        <div className="w-full overflow-hidden" data-testid="brand-carousel">
+          <div className="flex animate-scroll-reverse gap-8 md:gap-12 lg:gap-16 whitespace-nowrap">
+            {duplicatedBrands.map((brand, index) => (
+              <div
+                key={index}
+                className="inline-flex items-center justify-center flex-shrink-0"
+                data-testid={`brand-logo-${index}`}
+              >
+                {brand.icon ? (
+                  <brand.icon
+                    className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 text-gray-400 hover:text-gray-700 transition-colors"
+                    aria-label={brand.name}
+                  />
+                ) : (
+                  <div className="flex items-center justify-center px-6 py-4 md:px-8 md:py-5 lg:px-10 lg:py-6 bg-gray-100 rounded-lg min-w-[120px] md:min-w-[140px] lg:min-w-[160px]">
+                    <span className="text-lg md:text-xl lg:text-2xl font-bold text-gray-700">
+                      {brand.name}
+                    </span>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

@@ -1,11 +1,7 @@
-import GrainOverlay from "./GrainOverlay";
-
 export function SuccessInNumbers() {
   return (
-    <section className="relative bg-[#0A2818] py-20 md:py-28 lg:py-32 diagonal-separator-both overflow-hidden" data-testid="section-success-numbers">
-      <GrainOverlay opacity={0.05} />
-      <div className="absolute inset-0 gradient-wash-green" />
-      <div className="relative max-w-7xl mx-auto px-6">
+    <section className="bg-[#0A2818] py-20 md:py-28 lg:py-32" data-testid="section-success-numbers">
+      <div className="max-w-7xl mx-auto px-6">
         {/* Centered Header Section */}
         <div className="text-center mb-12 md:mb-16">
           <p className="text-[10px] md:text-xs uppercase tracking-[0.4em] text-white/50 mb-4 md:mb-6 font-medium" data-testid="text-success-eyebrow">
