@@ -506,6 +506,31 @@
     transition: transform 0.1s ease-out;
   }
 
+  /* Premium scroll reveal initial states - GSAP inline styles will override these */
+  .scroll-reveal-hidden {
+    opacity: 0;
+  }
+
+  .scroll-reveal-fade-up {
+    opacity: 0;
+    transform: translateY(60px) scale(0.98);
+  }
+
+  .scroll-reveal-scale {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  .scroll-reveal-slide-left {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+
+  .scroll-reveal-slide-right {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+
   /* Premium scroll momentum */
   @supports (scroll-behavior: smooth) {
     html {
