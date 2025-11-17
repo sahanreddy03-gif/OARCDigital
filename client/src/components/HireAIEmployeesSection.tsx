@@ -147,6 +147,18 @@ export default function HireAIEmployeesSection() {
     let lastX: number;
     let dragStartTime: number;
     let animationTimeout: NodeJS.Timeout;
+    let scrollTimeout: NodeJS.Timeout;
+
+    // Pause carousel animation when user scrolls the page
+    const handlePageScroll = () => {
+      track.classList.add('page-scrolling');
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => {
+        track.classList.remove('page-scrolling');
+      }, 150); // Resume animation 150ms after scroll stops
+    };
+
+    window.addEventListener('scroll', handlePageScroll, { passive: true });
     
     const handleMouseDown = (e: MouseEvent) => {
       isDown = true;
@@ -265,7 +277,9 @@ export default function HireAIEmployeesSection() {
       track.removeEventListener('mouseup', handleEnd);
       track.removeEventListener('touchend', handleEnd);
       track.removeEventListener('mouseleave', handleEnd);
+      window.removeEventListener('scroll', handlePageScroll);
       clearTimeout(animationTimeout);
+      clearTimeout(scrollTimeout);
     };
   }, []);
 
