@@ -398,24 +398,25 @@
     width: fit-content;
     cursor: grab;
     user-select: none;
-    /* Disable auto-scroll on mobile by default to prevent scroll interference */
+    /* Explicitly disable auto-scroll on mobile to prevent scroll interference */
+    animation: none !important;
   }
 
   /* Enable auto-scroll only on desktop (1024px and up) where it doesn't interfere with page scroll */
   @media (min-width: 1024px) {
     .carousel-track {
-      animation: scroll-rtl 60s linear infinite;
+      animation: scroll-rtl 60s linear infinite !important;
     }
   }
 
   .carousel-track.dragging {
     cursor: grabbing;
-    animation-play-state: paused;
+    animation-play-state: paused !important;
   }
 
   /* Pause carousel animation when user is scrolling the page */
   .carousel-track.page-scrolling {
-    animation-play-state: paused;
+    animation-play-state: paused !important;
   }
 
   .carousel-card {
