@@ -395,14 +395,26 @@
   .carousel-track {
     display: flex;
     gap: 2rem;
-    animation: scroll-rtl 60s linear infinite;
     width: fit-content;
     cursor: grab;
     user-select: none;
+    /* Disable auto-scroll on mobile by default to prevent scroll interference */
+  }
+
+  /* Enable auto-scroll only on desktop (1024px and up) where it doesn't interfere with page scroll */
+  @media (min-width: 1024px) {
+    .carousel-track {
+      animation: scroll-rtl 60s linear infinite;
+    }
   }
 
   .carousel-track.dragging {
     cursor: grabbing;
+    animation-play-state: paused;
+  }
+
+  /* Pause carousel animation when user is scrolling the page */
+  .carousel-track.page-scrolling {
     animation-play-state: paused;
   }
 
