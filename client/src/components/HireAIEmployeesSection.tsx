@@ -132,9 +132,9 @@ const employees = [
 ];
 
 export default function HireAIEmployeesSection() {
-  // Use the new smooth drag hook with momentum (no auto-scroll for this section)
+  // Use the new smooth drag hook with continuous auto-scroll
   const trackRef = useSmoothCarouselDrag({
-    enableAutoScroll: false,
+    enableAutoScroll: true,
     dragMultiplier: 1.2,
     momentumDamping: 0.95
   });
