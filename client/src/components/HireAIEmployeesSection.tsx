@@ -149,13 +149,40 @@ export default function HireAIEmployeesSection() {
     let animationTimeout: NodeJS.Timeout;
     let scrollTimeout: NodeJS.Timeout;
 
-    // Pause carousel animation when user scrolls the page
+    // Check if viewport is mobile (< 1024px)
+    const isMobile = () => window.innerWidth < 1024;
+    
+    // Control animation based on viewport
+    const updateAnimation = () => {
+      if (isMobile()) {
+        // Forcefully disable animation on mobile with inline style that overrides CSS
+        track.style.setProperty('animation', 'none', 'important');
+        track.style.setProperty('animation-play-state', 'paused', 'important');
+      } else {
+        // Allow CSS animation on desktop by removing inline overrides
+        track.style.removeProperty('animation');
+        track.style.removeProperty('animation-play-state');
+      }
+    };
+
+    // Initialize animation state
+    updateAnimation();
+
+    // Update animation on window resize
+    const handleResize = () => {
+      updateAnimation();
+    };
+    window.addEventListener('resize', handleResize);
+
+    // Pause carousel animation when user scrolls the page (desktop only)
     const handlePageScroll = () => {
-      track.classList.add('page-scrolling');
-      clearTimeout(scrollTimeout);
-      scrollTimeout = setTimeout(() => {
-        track.classList.remove('page-scrolling');
-      }, 150); // Resume animation 150ms after scroll stops
+      if (!isMobile()) {
+        track.classList.add('page-scrolling');
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(() => {
+          track.classList.remove('page-scrolling');
+        }, 150); // Resume animation 150ms after scroll stops
+      }
     };
 
     window.addEventListener('scroll', handlePageScroll, { passive: true });
@@ -250,10 +277,12 @@ export default function HireAIEmployeesSection() {
           if (progress < 1) {
             requestAnimationFrame(animateSnap);
           } else {
-            // Resume auto-scroll after user interaction
-            animationTimeout = setTimeout(() => {
-              track.style.animationPlayState = 'running';
-            }, 2000);
+            // Resume auto-scroll after user interaction (desktop only)
+            if (!isMobile()) {
+              animationTimeout = setTimeout(() => {
+                track.style.animationPlayState = 'running';
+              }, 2000);
+            }
           }
         };
         
@@ -278,6 +307,7 @@ export default function HireAIEmployeesSection() {
       track.removeEventListener('touchend', handleEnd);
       track.removeEventListener('mouseleave', handleEnd);
       window.removeEventListener('scroll', handlePageScroll);
+      window.removeEventListener('resize', handleResize);
       clearTimeout(animationTimeout);
       clearTimeout(scrollTimeout);
     };
