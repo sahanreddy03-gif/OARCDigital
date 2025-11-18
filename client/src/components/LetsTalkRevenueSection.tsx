@@ -1,4 +1,5 @@
-import { useRef, useEffect, useState } from 'react';
+import { useRef, useEffect } from 'react';
+import { useMediaQuery } from '@/hooks/useMediaQuery';
 
 // Import stock images from available assets
 import revenueRecognition from '@assets/Revenue_1763330734340.jpg';
@@ -9,6 +10,16 @@ import pipelineManagement from '@assets/stock_images/sales_pipeline_crm_m_8d6a8f
 import salesForecasting from '@assets/stock_images/sales_forecasting_pr_70ce9011.jpg';
 import marketingAutomation from '@assets/stock_images/marketing_automation_b58519c5.jpg';
 import campaignOrchestration from '@assets/stock_images/campaign_management__00b31ed0.jpg';
+import customerLifecycle from '@assets/stock_images/customer_journey_lif_fde015a8.jpg';
+import contractManagement from '@assets/stock_images/contract_management__58a29851.jpg';
+import revenueAnalytics from '@assets/stock_images/revenue_analytics_bu_e60e556f.jpg';
+import growthAnalytics from '@assets/stock_images/growth_analytics_dat_e9148f21.jpg';
+import workflowAutomation from '@assets/stock_images/workflow_automation__c66dc346.jpg';
+import dataIntegration from '@assets/stock_images/data_integration_api_6b76bada.jpg';
+import performanceTracking from '@assets/stock_images/performance_tracking_566b96fc.jpg';
+import complianceManagement from '@assets/stock_images/compliance_managemen_af0e3f1a.jpg';
+import revenueIntelligence from '@assets/stock_images/business_intelligenc_ceaf6c99.jpg';
+import funnelOptimization from '@assets/stock_images/funnel_optimization__3bced87c.jpg';
 
 const services = [
   {
@@ -59,87 +70,172 @@ const services = [
     image: campaignOrchestration,
     category: "Marketing Ops"
   },
+  {
+    title: "Customer Lifecycle",
+    subtitle: "Journey mapping & optimization",
+    image: customerLifecycle,
+    category: "Customer Success"
+  },
+  {
+    title: "Contract Management",
+    subtitle: "CLM & renewal automation",
+    image: contractManagement,
+    category: "Sales Ops"
+  },
+  {
+    title: "Revenue Analytics",
+    subtitle: "Real-time performance dashboards",
+    image: revenueAnalytics,
+    category: "Revenue Intelligence"
+  },
+  {
+    title: "Growth Analytics",
+    subtitle: "Cohort & retention analysis",
+    image: growthAnalytics,
+    category: "Revenue Intelligence"
+  },
+  {
+    title: "Workflow Automation",
+    subtitle: "Process optimization & triggers",
+    image: workflowAutomation,
+    category: "Operations"
+  },
+  {
+    title: "Data Integration",
+    subtitle: "CRM & ERP synchronization",
+    image: dataIntegration,
+    category: "Operations"
+  },
+  {
+    title: "Performance Tracking",
+    subtitle: "KPI monitoring & alerting",
+    image: performanceTracking,
+    category: "Revenue Intelligence"
+  },
+  {
+    title: "Compliance Management",
+    subtitle: "Regulatory audit & reporting",
+    image: complianceManagement,
+    category: "Financial Automation"
+  },
+  {
+    title: "Revenue Intelligence",
+    subtitle: "AI-driven insights & predictions",
+    image: revenueIntelligence,
+    category: "Revenue Intelligence"
+  },
+  {
+    title: "Funnel Optimization",
+    subtitle: "Conversion rate & growth tracking",
+    image: funnelOptimization,
+    category: "Growth Engine"
+  },
 ];
 
 export default function LetsTalkRevenueSection() {
-  const sceneRef = useRef<HTMLDivElement>(null);
-  const [rotation, setRotation] = useState(0);
-  const [isDragging, setIsDragging] = useState(false);
-  const [isAutoRotating, setIsAutoRotating] = useState(true);
+  const trackRef = useRef<HTMLDivElement>(null);
+  const isDesktop = useMediaQuery('(min-width: 1024px)');
   
-  // Performance optimization: Use ref to avoid rebinding listeners on every rotation update
-  const rotationRef = useRef(0);
-  const dragStartRef = useRef({ x: 0, rotation: 0 });
-  const autoRotateRef = useRef<number | null>(null);
-
-  // Keep ref in sync with state
+  // Duplicate services only when needed (desktop only)
+  const duplicatedServices = isDesktop ? [...services, ...services, ...services] : [];
+  
   useEffect(() => {
-    rotationRef.current = rotation;
-  }, [rotation]);
+    const track = trackRef.current;
+    if (!track) return;
+    
+    // Early return if mobile, but ensure cleanup runs first for any existing listeners
+    if (!isDesktop) {
+      // Clean up any lingering classes/transforms from previous desktop state
+      track.classList.remove('dragging');
+      track.style.transform = '';
+      return;
+    }
 
-  const cardCount = services.length;
-  const theta = 360 / cardCount; // Angle between cards
-  const radius = Math.round((280 / 2) / Math.tan(Math.PI / cardCount)); // Cylinder radius
-
-  // Auto-rotation logic
-  useEffect(() => {
-    if (!isAutoRotating) return;
-
-    const animate = () => {
-      setRotation(prev => (prev + 0.1) % 360);
-      autoRotateRef.current = requestAnimationFrame(animate);
-    };
-
-    autoRotateRef.current = requestAnimationFrame(animate);
-
-    return () => {
-      if (autoRotateRef.current) {
-        cancelAnimationFrame(autoRotateRef.current);
-      }
-    };
-  }, [isAutoRotating]);
-
-  // Manual drag controls
-  useEffect(() => {
-    const scene = sceneRef.current;
-    if (!scene) return;
+    let isDragging = false;
+    let startPos = 0;
+    let currentTranslate = 0;
+    let prevTranslate = 0;
+    let animationID = 0;
 
     const handlePointerDown = (e: PointerEvent) => {
-      setIsDragging(true);
-      setIsAutoRotating(false);
-      // Read from ref to get current rotation value
-      dragStartRef.current = { x: e.clientX, rotation: rotationRef.current };
-      scene.setPointerCapture(e.pointerId);
+      isDragging = true;
+      startPos = e.pageX;
+      animationID = requestAnimationFrame(animation);
+      track.classList.add('dragging');
     };
 
     const handlePointerMove = (e: PointerEvent) => {
-      if (!isDragging) return;
-      const delta = e.clientX - dragStartRef.current.x;
-      const newRotation = dragStartRef.current.rotation + (delta * 0.5);
-      setRotation(newRotation);
-    };
-
-    const handlePointerUp = (e: PointerEvent) => {
       if (isDragging) {
-        setIsDragging(false);
-        scene.releasePointerCapture(e.pointerId);
-        // Resume auto-rotation after 2 seconds of no interaction
-        setTimeout(() => setIsAutoRotating(true), 2000);
+        const currentPosition = e.pageX;
+        currentTranslate = prevTranslate + currentPosition - startPos;
       }
     };
 
-    scene.addEventListener('pointerdown', handlePointerDown);
+    const handlePointerUp = () => {
+      isDragging = false;
+      cancelAnimationFrame(animationID);
+      prevTranslate = currentTranslate;
+      track.classList.remove('dragging');
+      track.style.transform = '';
+    };
+
+    const handleTouchStart = (e: TouchEvent) => {
+      isDragging = true;
+      startPos = e.touches[0].clientX;
+      animationID = requestAnimationFrame(animation);
+      track.classList.add('dragging');
+    };
+
+    const handleTouchMove = (e: TouchEvent) => {
+      if (isDragging) {
+        const currentPosition = e.touches[0].clientX;
+        currentTranslate = prevTranslate + currentPosition - startPos;
+      }
+    };
+
+    const handleTouchEnd = () => {
+      isDragging = false;
+      cancelAnimationFrame(animationID);
+      prevTranslate = currentTranslate;
+      track.classList.remove('dragging');
+      track.style.transform = '';
+    };
+
+    function animation() {
+      if (isDragging) {
+        setSliderPosition();
+        requestAnimationFrame(animation);
+      }
+    }
+
+    function setSliderPosition() {
+      if (track) track.style.transform = `translateX(${currentTranslate}px)`;
+    }
+
+    track.addEventListener('pointerdown', handlePointerDown);
     document.addEventListener('pointermove', handlePointerMove);
     document.addEventListener('pointerup', handlePointerUp);
     document.addEventListener('pointercancel', handlePointerUp);
+    track.addEventListener('touchstart', handleTouchStart);
+    track.addEventListener('touchmove', handleTouchMove);
+    track.addEventListener('touchend', handleTouchEnd);
 
     return () => {
-      scene.removeEventListener('pointerdown', handlePointerDown);
+      track.removeEventListener('pointerdown', handlePointerDown);
       document.removeEventListener('pointermove', handlePointerMove);
       document.removeEventListener('pointerup', handlePointerUp);
       document.removeEventListener('pointercancel', handlePointerUp);
+      track.removeEventListener('touchstart', handleTouchStart);
+      track.removeEventListener('touchmove', handleTouchMove);
+      track.removeEventListener('touchend', handleTouchEnd);
+      cancelAnimationFrame(animationID);
+      // Reset drag state on cleanup
+      prevTranslate = 0;
+      currentTranslate = 0;
+      track.style.transform = '';
+      track.classList.remove('dragging');
     };
-  }, [isDragging]);
+  }, [isDesktop]);
 
   return (
     <section className="relative py-16 md:py-20 lg:py-24 overflow-hidden" data-testid="section-lets-talk-revenue">
@@ -161,58 +257,71 @@ export default function LetsTalkRevenueSection() {
         </div>
       </div>
 
-      {/* 3D ROTATING CAROUSEL - ALL DEVICES */}
-      <div className="carousel-3d-container">
-        <div 
-          ref={sceneRef}
-          className={`carousel-3d-scene ${isDragging ? 'dragging' : ''}`}
-          style={{ 
-            transform: `rotateY(${rotation}deg)`,
-            transformStyle: 'preserve-3d'
-          }}
-        >
-          {services.map((service, index) => {
-            const angle = theta * index;
-            return (
-              <div
-                key={index}
-                className="carousel-3d-card"
-                style={{
-                  transform: `rotateY(${angle}deg) translateZ(${radius}px)`,
-                }}
-              >
-                <div className="relative w-full h-full overflow-hidden rounded-xl bg-zinc-100 shadow-2xl ring-1 ring-white/10">
-                  <img
-                    src={service.image}
-                    alt={service.title}
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent"></div>
-                  
-                  {/* Front card highlight */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-teal-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  
-                  <div className="absolute bottom-0 left-0 right-0 p-6">
-                    <p className="text-sm font-medium text-teal-300 mb-2 uppercase tracking-wider">
-                      {service.subtitle}
-                    </p>
-                    <h3 className="font-heading text-xl md:text-2xl lg:text-3xl font-bold text-white leading-tight" style={{ letterSpacing: '-0.02em' }}>
-                      {service.title}
-                    </h3>
-                  </div>
+      {/* MOBILE: Staggered Cascade Animation (< 1024px) */}
+      {!isDesktop && (
+      <div className="relative container mx-auto px-6">
+        <div className="grid grid-cols-2 gap-4 max-w-2xl mx-auto mobile-cascade-grid">
+          {services.slice(0, 8).map((service, index) => (
+            <div
+              key={index}
+              className="group"
+              data-testid={`mobile-revenue-card-${index}`}
+            >
+              <div className="relative w-full aspect-[3/4] overflow-hidden rounded-xl bg-zinc-100 shadow-lg">
+                <img
+                  src={service.image}
+                  alt={service.title}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+                
+                <div className="absolute bottom-0 left-0 right-0 p-4">
+                  <p className="text-xs font-medium text-teal-300 mb-1.5 uppercase tracking-wider">
+                    {service.subtitle}
+                  </p>
+                  <h3 className="font-heading text-base font-bold text-white leading-tight" style={{ letterSpacing: '-0.02em' }}>
+                    {service.title}
+                  </h3>
                 </div>
               </div>
-            );
-          })}
+            </div>
+          ))}
         </div>
       </div>
+      )}
 
-      {/* Interaction hint */}
-      <div className="text-center mt-8">
-        <p className="text-sm text-white/70 font-medium">
-          Drag to explore • Auto-rotates
-        </p>
+      {/* DESKTOP: Animated Carousel (≥ 1024px) */}
+      {isDesktop && (
+      <div className="relative w-full">
+        <div className="carousel-track" data-testid="revenue-carousel-track" ref={trackRef}>
+          {duplicatedServices.map((service, index) => (
+            <div
+              key={index}
+              className="carousel-card group"
+              data-testid={`revenue-card-${index}`}
+            >
+              <div className="relative w-full aspect-[3/4] overflow-hidden rounded-xl bg-zinc-100">
+                <img
+                  src={service.image}
+                  alt={service.title}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+                
+                <div className="absolute bottom-0 left-0 right-0 p-6">
+                  <p className="text-sm font-medium text-teal-300 mb-2 uppercase tracking-wider">
+                    {service.subtitle}
+                  </p>
+                  <h3 className="font-heading text-xl md:text-2xl lg:text-3xl font-bold text-white leading-tight" style={{ letterSpacing: '-0.02em' }}>
+                    {service.title}
+                  </h3>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
+      )}
     </section>
   );
 }
