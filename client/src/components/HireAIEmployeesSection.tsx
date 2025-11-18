@@ -1,5 +1,4 @@
-import { useRef, useEffect } from 'react';
-import { useMediaQuery } from '@/hooks/useMediaQuery';
+import { useSmoothCarouselDrag } from '@/hooks/useSmoothCarouselDrag';
 
 // Import new AI employee images
 import salesDevRep from '@assets/1_1763228440276.avif';
@@ -133,109 +132,15 @@ const employees = [
 ];
 
 export default function HireAIEmployeesSection() {
-  const trackRef = useRef<HTMLDivElement>(null);
-  const isDesktop = useMediaQuery('(min-width: 1024px)');
+  // Use the new smooth drag hook with momentum (no auto-scroll for this section)
+  const trackRef = useSmoothCarouselDrag({
+    enableAutoScroll: false,
+    dragMultiplier: 1.2,
+    momentumDamping: 0.95
+  });
   
-  // Duplicate employees only when needed (desktop only)
-  const duplicatedEmployees = isDesktop ? [...employees, ...employees, ...employees] : [];
-  
-  useEffect(() => {
-    const track = trackRef.current;
-    if (!track) return;
-    
-    // Early return if mobile, but ensure cleanup runs first for any existing listeners
-    if (!isDesktop) {
-      // Clean up any lingering classes/transforms from previous desktop state
-      track.classList.remove('dragging');
-      track.style.transform = '';
-      return;
-    }
-
-    let isDragging = false;
-    let startPos = 0;
-    let currentTranslate = 0;
-    let prevTranslate = 0;
-    let animationID = 0;
-
-    const handlePointerDown = (e: PointerEvent) => {
-      isDragging = true;
-      startPos = e.pageX;
-      animationID = requestAnimationFrame(animation);
-      track.classList.add('dragging');
-    };
-
-    const handlePointerMove = (e: PointerEvent) => {
-      if (isDragging) {
-        const currentPosition = e.pageX;
-        currentTranslate = prevTranslate + currentPosition - startPos;
-      }
-    };
-
-    const handlePointerUp = () => {
-      isDragging = false;
-      cancelAnimationFrame(animationID);
-      prevTranslate = currentTranslate;
-      track.classList.remove('dragging');
-      track.style.transform = '';
-    };
-
-    const handleTouchStart = (e: TouchEvent) => {
-      isDragging = true;
-      startPos = e.touches[0].clientX;
-      animationID = requestAnimationFrame(animation);
-      track.classList.add('dragging');
-    };
-
-    const handleTouchMove = (e: TouchEvent) => {
-      if (isDragging) {
-        const currentPosition = e.touches[0].clientX;
-        currentTranslate = prevTranslate + currentPosition - startPos;
-      }
-    };
-
-    const handleTouchEnd = () => {
-      isDragging = false;
-      cancelAnimationFrame(animationID);
-      prevTranslate = currentTranslate;
-      track.classList.remove('dragging');
-      track.style.transform = '';
-    };
-
-    function animation() {
-      if (isDragging) {
-        setSliderPosition();
-        requestAnimationFrame(animation);
-      }
-    }
-
-    function setSliderPosition() {
-      if (track) track.style.transform = `translateX(${currentTranslate}px)`;
-    }
-
-    track.addEventListener('pointerdown', handlePointerDown);
-    document.addEventListener('pointermove', handlePointerMove);
-    document.addEventListener('pointerup', handlePointerUp);
-    document.addEventListener('pointercancel', handlePointerUp);
-    track.addEventListener('touchstart', handleTouchStart);
-    track.addEventListener('touchmove', handleTouchMove);
-    track.addEventListener('touchend', handleTouchEnd);
-
-    return () => {
-      track.removeEventListener('pointerdown', handlePointerDown);
-      document.removeEventListener('pointermove', handlePointerMove);
-      document.removeEventListener('pointerup', handlePointerUp);
-      document.removeEventListener('pointercancel', handlePointerUp);
-      track.removeEventListener('touchstart', handleTouchStart);
-      track.removeEventListener('touchmove', handleTouchMove);
-      track.removeEventListener('touchend', handleTouchEnd);
-      cancelAnimationFrame(animationID);
-      // Reset drag state on cleanup
-      prevTranslate = 0;
-      currentTranslate = 0;
-      track.style.transform = '';
-      track.classList.remove('dragging');
-    };
-  }, [isDesktop]);
+  // Always triple employees for seamless looping
+  const duplicatedEmployees = [...employees, ...employees, ...employees];
 
   return (
     <section className="relative py-16 md:py-20 lg:py-24 overflow-hidden" data-testid="section-hire-ai-employees">
@@ -262,72 +167,16 @@ export default function HireAIEmployeesSection() {
         </div>
       </div>
 
-      {/* MOBILE: Multi-Speed Dual Columns (< 1024px) */}
-      {!isDesktop && (
-      <div className="relative h-[600px] overflow-hidden mobile-carousel-container">
-        <div className="flex gap-4 h-full px-6 max-w-2xl mx-auto">
-          {/* LEFT COLUMN: Fast Speed (30s) */}
-          <div className="flex-1 flex flex-col gap-4">
-            <div className="mobile-multispeed-left space-y-4">
-              {[...employees, ...employees].map((employee, index) => (
-                <div key={`left-${index}`} className="group">
-                  <div className="relative w-full aspect-[3/4] overflow-hidden rounded-xl bg-zinc-100 ring-1 ring-zinc-200/50 shadow-sm">
-                    <img
-                      src={employee.image}
-                      alt={employee.title}
-                      className="w-full h-full object-cover object-center transition-all duration-700 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/35 to-transparent"></div>
-                    
-                    <div className="absolute bottom-0 left-0 right-0 p-4">
-                      <h3 className="font-heading text-base font-bold text-white leading-tight" style={{ letterSpacing: '-0.02em' }}>
-                        {employee.title}
-                      </h3>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* RIGHT COLUMN: Slower Speed (45s) */}
-          <div className="flex-1 flex flex-col gap-4">
-            <div className="mobile-multispeed-right space-y-4">
-              {[...employees, ...employees].map((employee, index) => (
-                <div key={`right-${index}`} className="group">
-                  <div className="relative w-full aspect-[3/4] overflow-hidden rounded-xl bg-zinc-100 ring-1 ring-zinc-200/50 shadow-sm">
-                    <img
-                      src={employee.image}
-                      alt={employee.title}
-                      className="w-full h-full object-cover object-center transition-all duration-700 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/35 to-transparent"></div>
-                    
-                    <div className="absolute bottom-0 left-0 right-0 p-4">
-                      <h3 className="font-heading text-base font-bold text-white leading-tight" style={{ letterSpacing: '-0.02em' }}>
-                        {employee.title}
-                      </h3>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-      )}
-
-      {/* DESKTOP: Animated Carousel (≥ 1024px) */}
-      {isDesktop && (
+      {/* Smooth Draggable Carousel - Works on both mobile and desktop */}
       <div className="relative w-full">
-        <div className="carousel-track" data-testid="ai-employees-carousel-track" ref={trackRef}>
+        <div className="flex gap-4 md:gap-6 lg:gap-8 cursor-grab active:cursor-grabbing" data-testid="ai-employees-carousel-track" ref={trackRef} style={{ willChange: 'transform' }}>
           {duplicatedEmployees.map((employee, index) => (
             <div
               key={index}
-              className="carousel-card group"
+              className="flex-shrink-0 w-[240px] sm:w-[280px] md:w-[320px] lg:w-[380px] group"
               data-testid={`employee-card-${index}`}
             >
-              <div className="relative w-full aspect-[3/4] overflow-hidden rounded-xl bg-zinc-100 ring-1 ring-zinc-200/50 shadow-sm transition-all duration-500 group-hover:shadow-xl group-hover:ring-zinc-300/70">
+              <div className="relative w-full aspect-[3/4] overflow-hidden rounded-xl bg-zinc-100 ring-1 ring-zinc-200/50 shadow-lg transition-all duration-500 group-hover:shadow-xl group-hover:ring-zinc-300/70">
                 <img
                   src={employee.image}
                   alt={employee.title}
@@ -337,8 +186,8 @@ export default function HireAIEmployeesSection() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/35 to-transparent"></div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 
-                <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <h3 className="font-heading text-xl md:text-2xl lg:text-3xl font-bold text-white leading-tight transition-all duration-300" style={{ letterSpacing: '-0.02em' }}>
+                <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6">
+                  <h3 className="font-heading text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold text-white leading-tight transition-all duration-300" style={{ letterSpacing: '-0.02em' }}>
                     {employee.title}
                   </h3>
                 </div>
@@ -347,7 +196,6 @@ export default function HireAIEmployeesSection() {
           ))}
         </div>
       </div>
-      )}
     </section>
   );
 }

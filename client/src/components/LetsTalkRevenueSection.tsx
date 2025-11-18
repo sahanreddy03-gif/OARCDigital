@@ -1,5 +1,4 @@
-import { useRef, useEffect } from 'react';
-import { useMediaQuery } from '@/hooks/useMediaQuery';
+import { useSmoothCarouselDrag } from '@/hooks/useSmoothCarouselDrag';
 
 // Import stock images from available assets
 import revenueRecognition from '@assets/Revenue_1763330734340.jpg';
@@ -133,109 +132,15 @@ const services = [
 ];
 
 export default function LetsTalkRevenueSection() {
-  const trackRef = useRef<HTMLDivElement>(null);
-  const isDesktop = useMediaQuery('(min-width: 1024px)');
+  // Use the new smooth drag hook WITH auto-scroll enabled for revenue section
+  const trackRef = useSmoothCarouselDrag({
+    enableAutoScroll: true,
+    dragMultiplier: 1.2,
+    momentumDamping: 0.95
+  });
   
-  // Duplicate services only when needed (desktop only)
-  const duplicatedServices = isDesktop ? [...services, ...services, ...services] : [];
-  
-  useEffect(() => {
-    const track = trackRef.current;
-    if (!track) return;
-    
-    // Early return if mobile, but ensure cleanup runs first for any existing listeners
-    if (!isDesktop) {
-      // Clean up any lingering classes/transforms from previous desktop state
-      track.classList.remove('dragging');
-      track.style.transform = '';
-      return;
-    }
-
-    let isDragging = false;
-    let startPos = 0;
-    let currentTranslate = 0;
-    let prevTranslate = 0;
-    let animationID = 0;
-
-    const handlePointerDown = (e: PointerEvent) => {
-      isDragging = true;
-      startPos = e.pageX;
-      animationID = requestAnimationFrame(animation);
-      track.classList.add('dragging');
-    };
-
-    const handlePointerMove = (e: PointerEvent) => {
-      if (isDragging) {
-        const currentPosition = e.pageX;
-        currentTranslate = prevTranslate + currentPosition - startPos;
-      }
-    };
-
-    const handlePointerUp = () => {
-      isDragging = false;
-      cancelAnimationFrame(animationID);
-      prevTranslate = currentTranslate;
-      track.classList.remove('dragging');
-      track.style.transform = '';
-    };
-
-    const handleTouchStart = (e: TouchEvent) => {
-      isDragging = true;
-      startPos = e.touches[0].clientX;
-      animationID = requestAnimationFrame(animation);
-      track.classList.add('dragging');
-    };
-
-    const handleTouchMove = (e: TouchEvent) => {
-      if (isDragging) {
-        const currentPosition = e.touches[0].clientX;
-        currentTranslate = prevTranslate + currentPosition - startPos;
-      }
-    };
-
-    const handleTouchEnd = () => {
-      isDragging = false;
-      cancelAnimationFrame(animationID);
-      prevTranslate = currentTranslate;
-      track.classList.remove('dragging');
-      track.style.transform = '';
-    };
-
-    function animation() {
-      if (isDragging) {
-        setSliderPosition();
-        requestAnimationFrame(animation);
-      }
-    }
-
-    function setSliderPosition() {
-      if (track) track.style.transform = `translateX(${currentTranslate}px)`;
-    }
-
-    track.addEventListener('pointerdown', handlePointerDown);
-    document.addEventListener('pointermove', handlePointerMove);
-    document.addEventListener('pointerup', handlePointerUp);
-    document.addEventListener('pointercancel', handlePointerUp);
-    track.addEventListener('touchstart', handleTouchStart);
-    track.addEventListener('touchmove', handleTouchMove);
-    track.addEventListener('touchend', handleTouchEnd);
-
-    return () => {
-      track.removeEventListener('pointerdown', handlePointerDown);
-      document.removeEventListener('pointermove', handlePointerMove);
-      document.removeEventListener('pointerup', handlePointerUp);
-      document.removeEventListener('pointercancel', handlePointerUp);
-      track.removeEventListener('touchstart', handleTouchStart);
-      track.removeEventListener('touchmove', handleTouchMove);
-      track.removeEventListener('touchend', handleTouchEnd);
-      cancelAnimationFrame(animationID);
-      // Reset drag state on cleanup
-      prevTranslate = 0;
-      currentTranslate = 0;
-      track.style.transform = '';
-      track.classList.remove('dragging');
-    };
-  }, [isDesktop]);
+  // Always triple services for seamless looping
+  const duplicatedServices = [...services, ...services, ...services];
 
   return (
     <section className="relative py-16 md:py-20 lg:py-24 overflow-hidden" data-testid="section-lets-talk-revenue">
@@ -257,15 +162,14 @@ export default function LetsTalkRevenueSection() {
         </div>
       </div>
 
-      {/* MOBILE: Staggered Cascade Animation (< 1024px) */}
-      {!isDesktop && (
-      <div className="relative container mx-auto px-6">
-        <div className="grid grid-cols-2 gap-4 max-w-2xl mx-auto mobile-cascade-grid">
-          {services.slice(0, 8).map((service, index) => (
+      {/* Auto-scrolling Draggable Carousel - CSS animation on desktop with smooth drag on all devices */}
+      <div className="relative w-full">
+        <div className="carousel-track" data-testid="revenue-carousel-track" ref={trackRef}>
+          {duplicatedServices.map((service, index) => (
             <div
               key={index}
-              className="group"
-              data-testid={`mobile-revenue-card-${index}`}
+              className="carousel-card group"
+              data-testid={`revenue-card-${index}`}
             >
               <div className="relative w-full aspect-[3/4] overflow-hidden rounded-xl bg-zinc-100 shadow-lg">
                 <img
@@ -275,11 +179,11 @@ export default function LetsTalkRevenueSection() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
                 
-                <div className="absolute bottom-0 left-0 right-0 p-4">
-                  <p className="text-xs font-medium text-teal-300 mb-1.5 uppercase tracking-wider">
+                <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6">
+                  <p className="text-xs md:text-sm font-medium text-teal-300 mb-1.5 md:mb-2 uppercase tracking-wider">
                     {service.subtitle}
                   </p>
-                  <h3 className="font-heading text-base font-bold text-white leading-tight" style={{ letterSpacing: '-0.02em' }}>
+                  <h3 className="font-heading text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold text-white leading-tight" style={{ letterSpacing: '-0.02em' }}>
                     {service.title}
                   </h3>
                 </div>
@@ -288,40 +192,6 @@ export default function LetsTalkRevenueSection() {
           ))}
         </div>
       </div>
-      )}
-
-      {/* DESKTOP: Animated Carousel (≥ 1024px) */}
-      {isDesktop && (
-      <div className="relative w-full">
-        <div className="carousel-track" data-testid="revenue-carousel-track" ref={trackRef}>
-          {duplicatedServices.map((service, index) => (
-            <div
-              key={index}
-              className="carousel-card group"
-              data-testid={`revenue-card-${index}`}
-            >
-              <div className="relative w-full aspect-[3/4] overflow-hidden rounded-xl bg-zinc-100">
-                <img
-                  src={service.image}
-                  alt={service.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
-                
-                <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <p className="text-sm font-medium text-teal-300 mb-2 uppercase tracking-wider">
-                    {service.subtitle}
-                  </p>
-                  <h3 className="font-heading text-xl md:text-2xl lg:text-3xl font-bold text-white leading-tight" style={{ letterSpacing: '-0.02em' }}>
-                    {service.title}
-                  </h3>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-      )}
     </section>
   );
 }
