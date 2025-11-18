@@ -559,4 +559,87 @@
   .group:not(:hover) img {
     will-change: auto;
   }
+
+  /* ========================================
+     ULTRA-PREMIUM MOBILE CAROUSEL ANIMATIONS
+     ======================================== */
+
+  /* 1. AI CREATIVE: Dual-Column Opposite Direction Scroll */
+  @keyframes scroll-column-down {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-50%); }
+  }
+
+  @keyframes scroll-column-up {
+    0% { transform: translateY(-50%); }
+    100% { transform: translateY(0); }
+  }
+
+  .mobile-carousel-column-left {
+    animation: scroll-column-down 40s linear infinite;
+    will-change: transform;
+  }
+
+  .mobile-carousel-column-right {
+    animation: scroll-column-up 40s linear infinite;
+    will-change: transform;
+  }
+
+  .mobile-carousel-column-left.dragging,
+  .mobile-carousel-column-right.dragging {
+    animation-play-state: paused !important;
+  }
+
+  /* 2. REVENUE: Staggered Cascade Animation */
+  @keyframes cascade-float {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-10px) scale(1.02); }
+  }
+
+  .mobile-cascade-grid > * {
+    will-change: transform;
+  }
+
+  .mobile-cascade-grid > *:nth-child(1) { animation: cascade-float 3s ease-in-out infinite 0s; }
+  .mobile-cascade-grid > *:nth-child(2) { animation: cascade-float 3s ease-in-out infinite 0.2s; }
+  .mobile-cascade-grid > *:nth-child(3) { animation: cascade-float 3s ease-in-out infinite 0.4s; }
+  .mobile-cascade-grid > *:nth-child(4) { animation: cascade-float 3s ease-in-out infinite 0.6s; }
+  .mobile-cascade-grid > *:nth-child(5) { animation: cascade-float 3s ease-in-out infinite 0.8s; }
+  .mobile-cascade-grid > *:nth-child(6) { animation: cascade-float 3s ease-in-out infinite 1s; }
+  .mobile-cascade-grid > *:nth-child(7) { animation: cascade-float 3s ease-in-out infinite 1.2s; }
+  .mobile-cascade-grid > *:nth-child(8) { animation: cascade-float 3s ease-in-out infinite 1.4s; }
+
+  /* 3. AI EMPLOYEES: Multi-Speed Columns */
+  .mobile-multispeed-left {
+    animation: scroll-column-down 30s linear infinite;
+    will-change: transform;
+  }
+
+  .mobile-multispeed-right {
+    animation: scroll-column-down 45s linear infinite;
+    will-change: transform;
+  }
+
+  .mobile-multispeed-left.dragging,
+  .mobile-multispeed-right.dragging {
+    animation-play-state: paused !important;
+  }
+
+  /* Smooth touch interactions for all mobile carousels */
+  .mobile-carousel-container {
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+
+  /* Accessibility: Respect reduced motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    .mobile-carousel-column-left,
+    .mobile-carousel-column-right,
+    .mobile-multispeed-left,
+    .mobile-multispeed-right,
+    .mobile-cascade-grid > * {
+      animation: none !important;
+      will-change: auto !important;
+    }
+  }
 }

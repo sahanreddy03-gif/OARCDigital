@@ -247,39 +247,69 @@ export default function AICreativeSection() {
         </div>
       </div>
 
-      {/* MOBILE: Static Grid (< 1024px) */}
+      {/* MOBILE: Dual-Column Opposite Direction Scroll (< 1024px) */}
       {!isDesktop && (
-      <div className="relative container mx-auto px-6">
-        <div className="grid grid-cols-2 gap-4 max-w-2xl mx-auto">
-          {services.slice(0, 8).map((service, index) => (
-            <div
-              key={index}
-              className="group"
-              data-testid={`mobile-service-card-${index}`}
-            >
-              <div className="relative w-full aspect-[3/4] overflow-hidden rounded-xl bg-zinc-100">
-                <img
-                  src={service.image}
-                  alt={service.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  data-testid={`carousel-image-${service.title.toLowerCase().replace(/\s+/g, '-')}`}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
-                
-                {service.badge && (
-                  <div className="absolute top-3 right-3 bg-[#c4ff4d] text-zinc-900 text-xs font-bold px-2.5 py-1 rounded-full z-10">
-                    {service.badge}
+      <div className="relative h-[600px] overflow-hidden mobile-carousel-container">
+        <div className="flex gap-4 h-full px-6 max-w-2xl mx-auto">
+          {/* LEFT COLUMN: Scrolls DOWN (top to bottom) */}
+          <div className="flex-1 flex flex-col gap-4">
+            <div className="mobile-carousel-column-left space-y-4">
+              {[...services, ...services].map((service, index) => (
+                <div key={`left-${index}`} className="group">
+                  <div className="relative w-full aspect-[3/4] overflow-hidden rounded-xl bg-zinc-100">
+                    <img
+                      src={service.image}
+                      alt={service.title}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+                    
+                    {service.badge && (
+                      <div className="absolute top-3 right-3 bg-[#c4ff4d] text-zinc-900 text-xs font-bold px-2.5 py-1 rounded-full z-10">
+                        {service.badge}
+                      </div>
+                    )}
+                    
+                    <div className="absolute bottom-0 left-0 right-0 p-4">
+                      <h3 className="font-heading text-base font-bold text-white leading-tight" style={{ letterSpacing: '-0.02em' }}>
+                        {service.title}
+                      </h3>
+                    </div>
                   </div>
-                )}
-                
-                <div className="absolute bottom-0 left-0 right-0 p-4">
-                  <h3 className="font-heading text-base font-bold text-white leading-tight" style={{ letterSpacing: '-0.02em' }}>
-                    {service.title}
-                  </h3>
                 </div>
-              </div>
+              ))}
             </div>
-          ))}
+          </div>
+
+          {/* RIGHT COLUMN: Scrolls UP (bottom to top) */}
+          <div className="flex-1 flex flex-col gap-4">
+            <div className="mobile-carousel-column-right space-y-4">
+              {[...services, ...services].map((service, index) => (
+                <div key={`right-${index}`} className="group">
+                  <div className="relative w-full aspect-[3/4] overflow-hidden rounded-xl bg-zinc-100">
+                    <img
+                      src={service.image}
+                      alt={service.title}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+                    
+                    {service.badge && (
+                      <div className="absolute top-3 right-3 bg-[#c4ff4d] text-zinc-900 text-xs font-bold px-2.5 py-1 rounded-full z-10">
+                        {service.badge}
+                      </div>
+                    )}
+                    
+                    <div className="absolute bottom-0 left-0 right-0 p-4">
+                      <h3 className="font-heading text-base font-bold text-white leading-tight" style={{ letterSpacing: '-0.02em' }}>
+                        {service.title}
+                      </h3>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
       )}

@@ -257,17 +257,17 @@ export default function LetsTalkRevenueSection() {
         </div>
       </div>
 
-      {/* MOBILE: Static Grid (< 1024px) */}
+      {/* MOBILE: Staggered Cascade Animation (< 1024px) */}
       {!isDesktop && (
       <div className="relative container mx-auto px-6">
-        <div className="grid grid-cols-2 gap-4 max-w-2xl mx-auto">
+        <div className="grid grid-cols-2 gap-4 max-w-2xl mx-auto mobile-cascade-grid">
           {services.slice(0, 8).map((service, index) => (
             <div
               key={index}
               className="group"
               data-testid={`mobile-revenue-card-${index}`}
             >
-              <div className="relative w-full aspect-[3/4] overflow-hidden rounded-xl bg-zinc-100">
+              <div className="relative w-full aspect-[3/4] overflow-hidden rounded-xl bg-zinc-100 shadow-lg">
                 <img
                   src={service.image}
                   alt={service.title}

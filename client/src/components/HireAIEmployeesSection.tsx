@@ -262,33 +262,57 @@ export default function HireAIEmployeesSection() {
         </div>
       </div>
 
-      {/* MOBILE: Static Grid (< 1024px) */}
+      {/* MOBILE: Multi-Speed Dual Columns (< 1024px) */}
       {!isDesktop && (
-      <div className="relative container mx-auto px-6">
-        <div className="grid grid-cols-2 gap-4 max-w-2xl mx-auto">
-          {employees.slice(0, 8).map((employee, index) => (
-            <div
-              key={index}
-              className="group"
-              data-testid={`mobile-employee-card-${index}`}
-            >
-              <div className="relative w-full aspect-[3/4] overflow-hidden rounded-xl bg-zinc-100 ring-1 ring-zinc-200/50 shadow-sm">
-                <img
-                  src={employee.image}
-                  alt={employee.title}
-                  className="w-full h-full object-cover object-center transition-all duration-700 group-hover:scale-105"
-                  data-testid={`carousel-image-admin-ai-employees`}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/35 to-transparent"></div>
-                
-                <div className="absolute bottom-0 left-0 right-0 p-4">
-                  <h3 className="font-heading text-base font-bold text-white leading-tight" style={{ letterSpacing: '-0.02em' }}>
-                    {employee.title}
-                  </h3>
+      <div className="relative h-[600px] overflow-hidden mobile-carousel-container">
+        <div className="flex gap-4 h-full px-6 max-w-2xl mx-auto">
+          {/* LEFT COLUMN: Fast Speed (30s) */}
+          <div className="flex-1 flex flex-col gap-4">
+            <div className="mobile-multispeed-left space-y-4">
+              {[...employees, ...employees].map((employee, index) => (
+                <div key={`left-${index}`} className="group">
+                  <div className="relative w-full aspect-[3/4] overflow-hidden rounded-xl bg-zinc-100 ring-1 ring-zinc-200/50 shadow-sm">
+                    <img
+                      src={employee.image}
+                      alt={employee.title}
+                      className="w-full h-full object-cover object-center transition-all duration-700 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/35 to-transparent"></div>
+                    
+                    <div className="absolute bottom-0 left-0 right-0 p-4">
+                      <h3 className="font-heading text-base font-bold text-white leading-tight" style={{ letterSpacing: '-0.02em' }}>
+                        {employee.title}
+                      </h3>
+                    </div>
+                  </div>
                 </div>
-              </div>
+              ))}
             </div>
-          ))}
+          </div>
+
+          {/* RIGHT COLUMN: Slower Speed (45s) */}
+          <div className="flex-1 flex flex-col gap-4">
+            <div className="mobile-multispeed-right space-y-4">
+              {[...employees, ...employees].map((employee, index) => (
+                <div key={`right-${index}`} className="group">
+                  <div className="relative w-full aspect-[3/4] overflow-hidden rounded-xl bg-zinc-100 ring-1 ring-zinc-200/50 shadow-sm">
+                    <img
+                      src={employee.image}
+                      alt={employee.title}
+                      className="w-full h-full object-cover object-center transition-all duration-700 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/35 to-transparent"></div>
+                    
+                    <div className="absolute bottom-0 left-0 right-0 p-4">
+                      <h3 className="font-heading text-base font-bold text-white leading-tight" style={{ letterSpacing: '-0.02em' }}>
+                        {employee.title}
+                      </h3>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
       )}
