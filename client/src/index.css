@@ -642,4 +642,118 @@
       will-change: auto !important;
     }
   }
+
+  /* ========================================
+     3D ROTATING CYLINDER CAROUSEL (REVENUE)
+     ======================================== */
+
+  .carousel-3d-container {
+    perspective: 1200px;
+    position: relative;
+    width: 100%;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    contain: layout style paint;
+  }
+
+  .carousel-3d-scene {
+    width: 280px;
+    height: 380px;
+    position: relative;
+    transform-style: preserve-3d;
+    will-change: transform;
+    cursor: grab;
+    /* GPU acceleration */
+    transform: translate3d(0, 0, 0);
+  }
+
+  .carousel-3d-scene.dragging {
+    cursor: grabbing;
+  }
+
+  .carousel-3d-scene.auto-rotating {
+    animation: rotate3d 20s linear infinite;
+  }
+
+  @keyframes rotate3d {
+    from { transform: rotateY(0deg) translate3d(0, 0, 0); }
+    to { transform: rotateY(360deg) translate3d(0, 0, 0); }
+  }
+
+  .carousel-3d-card {
+    position: absolute;
+    width: 280px;
+    height: 380px;
+    left: 0;
+    top: 0;
+    backface-visibility: hidden;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    will-change: transform;
+    /* GPU acceleration */
+    transform: translate3d(0, 0, 0);
+  }
+
+  .carousel-3d-card img {
+    /* Image optimization for smooth rendering */
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+
+  /* Desktop: Larger 3D carousel */
+  @media (min-width: 1024px) {
+    .carousel-3d-container {
+      height: 600px;
+    }
+
+    .carousel-3d-scene {
+      width: 350px;
+      height: 470px;
+    }
+
+    .carousel-3d-card {
+      width: 350px;
+      height: 470px;
+    }
+  }
+
+  /* Accessibility */
+  @media (prefers-reduced-motion: reduce) {
+    .carousel-3d-scene.auto-rotating {
+      animation: none !important;
+    }
+  }
+
+  /* ========================================
+     PERFORMANCE OPTIMIZATIONS
+     ======================================== */
+  
+  /* Force GPU acceleration for smooth 60fps */
+  .carousel-track,
+  .mobile-carousel-column-left,
+  .mobile-carousel-column-right,
+  .mobile-multispeed-left,
+  .mobile-multispeed-right {
+    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    perspective: 1000px;
+    -webkit-perspective: 1000px;
+  }
+
+  /* Optimize image rendering for performance */
+  .carousel-card img,
+  .carousel-3d-card img {
+    will-change: transform;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+
+  /* Prevent layout shifts during animations */
+  .carousel-track,
+  .carousel-3d-scene {
+    contain: layout style paint;
+  }
 }
