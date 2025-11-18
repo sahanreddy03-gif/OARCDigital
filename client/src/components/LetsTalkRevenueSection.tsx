@@ -1,3 +1,6 @@
+import { useRef, useEffect } from 'react';
+import { useMediaQuery } from '@/hooks/useMediaQuery';
+
 // Import stock images from available assets
 import revenueRecognition from '@assets/Revenue_1763330734340.jpg';
 import subscriptionBilling from '@assets/stock_images/subscription_billing_17adc906.jpg';
@@ -129,229 +132,167 @@ const services = [
   },
 ];
 
-import { useRef, useEffect, useState } from 'react';
-
 export default function LetsTalkRevenueSection() {
   const trackRef = useRef<HTMLDivElement>(null);
-  const [selectedIndex, setSelectedIndex] = useState(0);
-  const duplicatedServices = [...services, ...services, ...services];
+  const isDesktop = useMediaQuery('(min-width: 1024px)');
+  
+  // Duplicate services only when needed (desktop only)
+  const duplicatedServices = isDesktop ? [...services, ...services, ...services] : [];
   
   useEffect(() => {
     const track = trackRef.current;
     if (!track) return;
-
-    let isDown = false;
-    let startX: number;
-    let scrollLeft: number;
-    let velocity = 0;
-    let lastX: number;
-    let dragStartTime: number;
-    let animationTimeout: NodeJS.Timeout;
-    let scrollTimeout: NodeJS.Timeout;
-
-    // Check if viewport is mobile (< 1024px)
-    const isMobile = () => window.innerWidth < 1024;
     
-    // Control animation based on viewport
-    const updateAnimation = () => {
-      if (isMobile()) {
-        // Forcefully disable animation on mobile with inline style that overrides CSS
-        track.style.setProperty('animation', 'none', 'important');
-        track.style.setProperty('animation-play-state', 'paused', 'important');
-      } else {
-        // Allow CSS animation on desktop by removing inline overrides
-        track.style.removeProperty('animation');
-        track.style.removeProperty('animation-play-state');
-      }
-    };
-
-    // Initialize animation state
-    updateAnimation();
-
-    // Update animation on window resize
-    const handleResize = () => {
-      updateAnimation();
-    };
-    window.addEventListener('resize', handleResize);
-
-    // Pause carousel animation when user scrolls the page (desktop only)
-    const handlePageScroll = () => {
-      if (!isMobile()) {
-        track.classList.add('page-scrolling');
-        clearTimeout(scrollTimeout);
-        scrollTimeout = setTimeout(() => {
-          track.classList.remove('page-scrolling');
-        }, 150); // Resume animation 150ms after scroll stops
-      }
-    };
-
-    window.addEventListener('scroll', handlePageScroll, { passive: true });
-    
-    const handleMouseDown = (e: MouseEvent) => {
-      isDown = true;
-      dragStartTime = Date.now();
-      lastX = e.pageX;
-      track.classList.add('dragging');
-      startX = e.pageX - track.offsetLeft;
-      scrollLeft = track.scrollLeft;
-      track.style.animationPlayState = 'paused';
-      velocity = 0;
-      clearTimeout(animationTimeout);
-    };
-    
-    const handleTouchStart = (e: TouchEvent) => {
-      isDown = true;
-      dragStartTime = Date.now();
-      lastX = e.touches[0].pageX;
-      track.classList.add('dragging');
-      startX = e.touches[0].pageX - track.offsetLeft;
-      scrollLeft = track.scrollLeft;
-      track.style.animationPlayState = 'paused';
-      velocity = 0;
-      clearTimeout(animationTimeout);
-    };
-    
-    const handleMouseMove = (e: MouseEvent) => {
-      if (!isDown) return;
-      e.preventDefault();
-      const x = e.pageX - track.offsetLeft;
-      const walk = (x - startX) * 2;
-      track.scrollLeft = scrollLeft - walk;
-      
-      // Track velocity for momentum
-      velocity = e.pageX - lastX;
-      lastX = e.pageX;
-    };
-    
-    const handleTouchMove = (e: TouchEvent) => {
-      if (!isDown) return;
-      const x = e.touches[0].pageX - track.offsetLeft;
-      const walk = (x - startX) * 2;
-      track.scrollLeft = scrollLeft - walk;
-      
-      // Track velocity for momentum
-      velocity = e.touches[0].pageX - lastX;
-      lastX = e.touches[0].pageX;
-    };
-    
-    const handleEnd = () => {
-      if (!isDown) return;
-      isDown = false;
+    // Early return if mobile, but ensure cleanup runs first for any existing listeners
+    if (!isDesktop) {
+      // Clean up any lingering classes/transforms from previous desktop state
       track.classList.remove('dragging');
-      
-      const dragDuration = Date.now() - dragStartTime;
-      
-      // Apply momentum for quick flicks
-      if (Math.abs(velocity) > 5 && dragDuration < 200) {
-        const momentum = velocity * 3;
-        track.scrollLeft = track.scrollLeft - momentum;
-      }
-      
-      // Snap to nearest card
-      const cards = track.querySelectorAll('.carousel-card');
-      if (cards.length > 0) {
-        const cardWidth = (cards[0] as HTMLElement).offsetWidth;
-        const gap = 24; // gap-6 = 24px
-        const cardWithGap = cardWidth + gap;
-        
-        const currentScroll = track.scrollLeft;
-        const nearestIndex = Math.round(currentScroll / cardWithGap);
-        const targetScroll = nearestIndex * cardWithGap;
-        
-        // Update selected index
-        setSelectedIndex(nearestIndex % 18);
-        
-        // Smooth snap animation
-        const startScroll = currentScroll;
-        const distance = targetScroll - startScroll;
-        const duration = 300;
-        const startTime = performance.now();
-        
-        const animateSnap = (currentTime: number) => {
-          const elapsed = currentTime - startTime;
-          const progress = Math.min(elapsed / duration, 1);
-          const easeProgress = 1 - Math.pow(1 - progress, 3);
-          
-          track.scrollLeft = startScroll + distance * easeProgress;
-          
-          if (progress < 1) {
-            requestAnimationFrame(animateSnap);
-          } else {
-            // Resume auto-scroll after user interaction (desktop only)
-            if (!isMobile()) {
-              animationTimeout = setTimeout(() => {
-                track.style.animationPlayState = 'running';
-              }, 2000);
-            }
-          }
-        };
-        
-        requestAnimationFrame(animateSnap);
+      track.style.transform = '';
+      return;
+    }
+
+    let isDragging = false;
+    let startPos = 0;
+    let currentTranslate = 0;
+    let prevTranslate = 0;
+    let animationID = 0;
+
+    const handlePointerDown = (e: PointerEvent) => {
+      isDragging = true;
+      startPos = e.pageX;
+      animationID = requestAnimationFrame(animation);
+      track.classList.add('dragging');
+    };
+
+    const handlePointerMove = (e: PointerEvent) => {
+      if (isDragging) {
+        const currentPosition = e.pageX;
+        currentTranslate = prevTranslate + currentPosition - startPos;
       }
     };
-    
-    track.addEventListener('mousedown', handleMouseDown);
+
+    const handlePointerUp = () => {
+      isDragging = false;
+      cancelAnimationFrame(animationID);
+      prevTranslate = currentTranslate;
+      track.classList.remove('dragging');
+      track.style.transform = '';
+    };
+
+    const handleTouchStart = (e: TouchEvent) => {
+      isDragging = true;
+      startPos = e.touches[0].clientX;
+      animationID = requestAnimationFrame(animation);
+      track.classList.add('dragging');
+    };
+
+    const handleTouchMove = (e: TouchEvent) => {
+      if (isDragging) {
+        const currentPosition = e.touches[0].clientX;
+        currentTranslate = prevTranslate + currentPosition - startPos;
+      }
+    };
+
+    const handleTouchEnd = () => {
+      isDragging = false;
+      cancelAnimationFrame(animationID);
+      prevTranslate = currentTranslate;
+      track.classList.remove('dragging');
+      track.style.transform = '';
+    };
+
+    function animation() {
+      if (isDragging) {
+        setSliderPosition();
+        requestAnimationFrame(animation);
+      }
+    }
+
+    function setSliderPosition() {
+      if (track) track.style.transform = `translateX(${currentTranslate}px)`;
+    }
+
+    track.addEventListener('pointerdown', handlePointerDown);
+    document.addEventListener('pointermove', handlePointerMove);
+    document.addEventListener('pointerup', handlePointerUp);
+    document.addEventListener('pointercancel', handlePointerUp);
     track.addEventListener('touchstart', handleTouchStart);
-    track.addEventListener('mousemove', handleMouseMove);
     track.addEventListener('touchmove', handleTouchMove);
-    track.addEventListener('mouseup', handleEnd);
-    track.addEventListener('touchend', handleEnd);
-    track.addEventListener('mouseleave', handleEnd);
-    
+    track.addEventListener('touchend', handleTouchEnd);
+
     return () => {
-      track.removeEventListener('mousedown', handleMouseDown);
+      track.removeEventListener('pointerdown', handlePointerDown);
+      document.removeEventListener('pointermove', handlePointerMove);
+      document.removeEventListener('pointerup', handlePointerUp);
+      document.removeEventListener('pointercancel', handlePointerUp);
       track.removeEventListener('touchstart', handleTouchStart);
-      track.removeEventListener('mousemove', handleMouseMove);
       track.removeEventListener('touchmove', handleTouchMove);
-      track.removeEventListener('mouseup', handleEnd);
-      track.removeEventListener('touchend', handleEnd);
-      track.removeEventListener('mouseleave', handleEnd);
-      window.removeEventListener('scroll', handlePageScroll);
-      window.removeEventListener('resize', handleResize);
-      clearTimeout(animationTimeout);
-      clearTimeout(scrollTimeout);
+      track.removeEventListener('touchend', handleTouchEnd);
+      cancelAnimationFrame(animationID);
+      // Reset drag state on cleanup
+      prevTranslate = 0;
+      currentTranslate = 0;
+      track.style.transform = '';
+      track.classList.remove('dragging');
     };
-  }, []);
+  }, [isDesktop]);
 
   return (
-    <section className="relative py-16 md:py-20 lg:py-24 overflow-hidden" data-testid="section-revenue">
-      {/* Enhanced Premium Black/Orange Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-zinc-950 via-black to-zinc-900"></div>
-      <div className="absolute inset-0 bg-gradient-to-r from-black via-zinc-950/90 to-orange-950/50"></div>
-      <div className="absolute inset-0 bg-gradient-to-br from-black/50 via-transparent to-orange-900/35"></div>
-      
-      {/* Enhanced warm orange glow with more depth */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_100%_50%,rgba(251,146,60,0.28),transparent_55%)]"></div>
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_80%_20%,rgba(234,88,12,0.22),transparent_60%)]"></div>
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_0%_50%,rgba(0,0,0,0.7),transparent_45%)]"></div>
-      
-      {/* Warm accent on bottom right */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_90%_80%,rgba(220,38,38,0.18),transparent_50%)]"></div>
-      
-      {/* Subtle grid pattern overlay for sophistication */}
-      <div className="absolute inset-0 opacity-[0.02]" style={{
-        backgroundImage: 'linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px)',
-        backgroundSize: '50px 50px'
-      }}></div>
-      
-      {/* Final overlay for depth */}
-      <div className="absolute inset-0 bg-gradient-to-t from-orange-950/15 to-transparent"></div>
+    <section className="relative py-16 md:py-20 lg:py-24 overflow-hidden" data-testid="section-lets-talk-revenue">
+      {/* Vibrant Teal/Turquoise Background - matching branding */}
+      <div className="absolute inset-0 bg-gradient-to-br from-cyan-600 via-teal-600 to-emerald-600"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_20%,rgba(255,255,255,0.15),transparent_50%)]"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_70%_80%,rgba(6,182,212,0.25),transparent_50%)]"></div>
+      <div className="absolute inset-0 bg-gradient-to-t from-teal-900/20 to-transparent"></div>
 
       <div className="relative container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl mb-12 md:mb-16">
-        {/* Section Header - Elite Typography (Reduced Size) */}
+        {/* Section Header - Elite Typography */}
         <div className="text-center">
-          <h2 className="font-heading font-bold text-white mb-4" data-testid="text-revenue-heading" style={{ fontSize: 'clamp(1.75rem, 5vw, 3.25rem)', letterSpacing: '-0.04em', lineHeight: '1.2' }}>
+          <h2 className="font-heading font-bold text-white mb-4" data-testid="text-lets-talk-revenue-heading" style={{ fontSize: 'clamp(1.75rem, 5vw, 3.25rem)', letterSpacing: '-0.04em', lineHeight: '1.2' }}>
             Let's Talk Revenue
           </h2>
-          <p className="text-base md:text-lg lg:text-xl font-medium text-white/85 tracking-tight max-w-4xl mx-auto leading-relaxed">
-            Automate your entire revenue stack from lead to cash
+          <p className="text-base md:text-lg lg:text-xl font-medium text-white/90 tracking-tight max-w-4xl mx-auto leading-relaxed">
+            End-to-end revenue automation to scale predictably
           </p>
         </div>
       </div>
 
-      {/* Carousel Container */}
+      {/* MOBILE: Static Grid (< 1024px) */}
+      {!isDesktop && (
+      <div className="relative container mx-auto px-6">
+        <div className="grid grid-cols-2 gap-4 max-w-2xl mx-auto">
+          {services.slice(0, 8).map((service, index) => (
+            <div
+              key={index}
+              className="group"
+              data-testid={`mobile-revenue-card-${index}`}
+            >
+              <div className="relative w-full aspect-[3/4] overflow-hidden rounded-xl bg-zinc-100">
+                <img
+                  src={service.image}
+                  alt={service.title}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+                
+                <div className="absolute bottom-0 left-0 right-0 p-4">
+                  <p className="text-xs font-medium text-teal-300 mb-1.5 uppercase tracking-wider">
+                    {service.subtitle}
+                  </p>
+                  <h3 className="font-heading text-base font-bold text-white leading-tight" style={{ letterSpacing: '-0.02em' }}>
+                    {service.title}
+                  </h3>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      )}
+
+      {/* DESKTOP: Animated Carousel (≥ 1024px) */}
+      {isDesktop && (
       <div className="relative w-full">
-        {/* Scrolling Carousel */}
         <div className="carousel-track" data-testid="revenue-carousel-track" ref={trackRef}>
           {duplicatedServices.map((service, index) => (
             <div
@@ -359,32 +300,28 @@ export default function LetsTalkRevenueSection() {
               className="carousel-card group"
               data-testid={`revenue-card-${index}`}
             >
-              {/* Image Container with Overlaid Text - Superside Style (Keep Subtitle for Education) */}
-              <div className="relative w-full aspect-[3/4] overflow-hidden rounded-xl bg-zinc-100 ring-1 ring-orange-500/20 shadow-lg transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-orange-500/30 group-hover:ring-orange-500/40">
+              <div className="relative w-full aspect-[3/4] overflow-hidden rounded-xl bg-zinc-100">
                 <img
                   src={service.image}
                   alt={service.title}
-                  className="w-full h-full object-cover object-center transition-all duration-700 group-hover:scale-105 group-hover:brightness-110"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
-                {/* Dark gradient overlay for text legibility */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
-                {/* Premium overlay on hover */}
-                <div className="absolute inset-0 bg-gradient-to-t from-orange-900/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 
-                {/* Service Info Overlaid on Image - Keep Subtitle for Education */}
                 <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <h3 className="font-heading text-xl md:text-2xl lg:text-3xl font-bold text-white mb-2 leading-tight transition-all duration-300" style={{ letterSpacing: '-0.02em' }}>
-                    {service.title}
-                  </h3>
-                  <p className="text-sm md:text-base text-white/90 leading-relaxed font-normal">
+                  <p className="text-sm font-medium text-teal-300 mb-2 uppercase tracking-wider">
                     {service.subtitle}
                   </p>
+                  <h3 className="font-heading text-xl md:text-2xl lg:text-3xl font-bold text-white leading-tight" style={{ letterSpacing: '-0.02em' }}>
+                    {service.title}
+                  </h3>
                 </div>
               </div>
             </div>
           ))}
         </div>
       </div>
+      )}
     </section>
   );
 }

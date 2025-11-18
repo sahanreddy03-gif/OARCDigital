@@ -1,3 +1,6 @@
+import { useRef, useEffect } from 'react';
+import { useMediaQuery } from '@/hooks/useMediaQuery';
+
 // Import new AI employee images
 import salesDevRep from '@assets/1_1763228440276.avif';
 import customerSupport from '@assets/2_1763228440277.jpg';
@@ -123,195 +126,116 @@ const employees = [
   },
   {
     title: "Technical Support",
-    subtitle: "IT helpdesk & troubleshooting",
+    subtitle: "Issue resolution & troubleshooting",
     image: technicalSupport,
-    category: "Support"
+    category: "Customer Success"
   },
 ];
 
-import { useRef, useEffect, useState } from 'react';
-
 export default function HireAIEmployeesSection() {
   const trackRef = useRef<HTMLDivElement>(null);
-  const [selectedIndex, setSelectedIndex] = useState(0);
-  const duplicatedEmployees = [...employees, ...employees, ...employees];
+  const isDesktop = useMediaQuery('(min-width: 1024px)');
+  
+  // Duplicate employees only when needed (desktop only)
+  const duplicatedEmployees = isDesktop ? [...employees, ...employees, ...employees] : [];
   
   useEffect(() => {
     const track = trackRef.current;
     if (!track) return;
-
-    let isDown = false;
-    let startX: number;
-    let scrollLeft: number;
-    let velocity = 0;
-    let lastX: number;
-    let dragStartTime: number;
-    let animationTimeout: NodeJS.Timeout;
-    let scrollTimeout: NodeJS.Timeout;
-
-    // Check if viewport is mobile (< 1024px)
-    const isMobile = () => window.innerWidth < 1024;
     
-    // Control animation based on viewport
-    const updateAnimation = () => {
-      if (isMobile()) {
-        // Forcefully disable animation on mobile with inline style that overrides CSS
-        track.style.setProperty('animation', 'none', 'important');
-        track.style.setProperty('animation-play-state', 'paused', 'important');
-      } else {
-        // Allow CSS animation on desktop by removing inline overrides
-        track.style.removeProperty('animation');
-        track.style.removeProperty('animation-play-state');
-      }
-    };
-
-    // Initialize animation state
-    updateAnimation();
-
-    // Update animation on window resize
-    const handleResize = () => {
-      updateAnimation();
-    };
-    window.addEventListener('resize', handleResize);
-
-    // Pause carousel animation when user scrolls the page (desktop only)
-    const handlePageScroll = () => {
-      if (!isMobile()) {
-        track.classList.add('page-scrolling');
-        clearTimeout(scrollTimeout);
-        scrollTimeout = setTimeout(() => {
-          track.classList.remove('page-scrolling');
-        }, 150); // Resume animation 150ms after scroll stops
-      }
-    };
-
-    window.addEventListener('scroll', handlePageScroll, { passive: true });
-    
-    const handleMouseDown = (e: MouseEvent) => {
-      isDown = true;
-      dragStartTime = Date.now();
-      lastX = e.pageX;
-      track.classList.add('dragging');
-      startX = e.pageX - track.offsetLeft;
-      scrollLeft = track.scrollLeft;
-      track.style.animationPlayState = 'paused';
-      velocity = 0;
-      clearTimeout(animationTimeout);
-    };
-    
-    const handleTouchStart = (e: TouchEvent) => {
-      isDown = true;
-      dragStartTime = Date.now();
-      lastX = e.touches[0].pageX;
-      track.classList.add('dragging');
-      startX = e.touches[0].pageX - track.offsetLeft;
-      scrollLeft = track.scrollLeft;
-      track.style.animationPlayState = 'paused';
-      velocity = 0;
-      clearTimeout(animationTimeout);
-    };
-    
-    const handleMouseMove = (e: MouseEvent) => {
-      if (!isDown) return;
-      e.preventDefault();
-      const x = e.pageX - track.offsetLeft;
-      const walk = (x - startX) * 2;
-      track.scrollLeft = scrollLeft - walk;
-      
-      // Track velocity for momentum
-      velocity = e.pageX - lastX;
-      lastX = e.pageX;
-    };
-    
-    const handleTouchMove = (e: TouchEvent) => {
-      if (!isDown) return;
-      const x = e.touches[0].pageX - track.offsetLeft;
-      const walk = (x - startX) * 2;
-      track.scrollLeft = scrollLeft - walk;
-      
-      // Track velocity for momentum
-      velocity = e.touches[0].pageX - lastX;
-      lastX = e.touches[0].pageX;
-    };
-    
-    const handleEnd = () => {
-      if (!isDown) return;
-      isDown = false;
+    // Early return if mobile, but ensure cleanup runs first for any existing listeners
+    if (!isDesktop) {
+      // Clean up any lingering classes/transforms from previous desktop state
       track.classList.remove('dragging');
-      
-      const dragDuration = Date.now() - dragStartTime;
-      
-      // Apply momentum for quick flicks
-      if (Math.abs(velocity) > 5 && dragDuration < 200) {
-        const momentum = velocity * 3;
-        track.scrollLeft = track.scrollLeft - momentum;
-      }
-      
-      // Snap to nearest card
-      const cards = track.querySelectorAll('.carousel-card');
-      if (cards.length > 0) {
-        const cardWidth = (cards[0] as HTMLElement).offsetWidth;
-        const gap = 24; // gap-6 = 24px
-        const cardWithGap = cardWidth + gap;
-        
-        const currentScroll = track.scrollLeft;
-        const nearestIndex = Math.round(currentScroll / cardWithGap);
-        const targetScroll = nearestIndex * cardWithGap;
-        
-        // Update selected index
-        setSelectedIndex(nearestIndex % 18);
-        
-        // Smooth snap animation
-        const startScroll = currentScroll;
-        const distance = targetScroll - startScroll;
-        const duration = 300;
-        const startTime = performance.now();
-        
-        const animateSnap = (currentTime: number) => {
-          const elapsed = currentTime - startTime;
-          const progress = Math.min(elapsed / duration, 1);
-          const easeProgress = 1 - Math.pow(1 - progress, 3);
-          
-          track.scrollLeft = startScroll + distance * easeProgress;
-          
-          if (progress < 1) {
-            requestAnimationFrame(animateSnap);
-          } else {
-            // Resume auto-scroll after user interaction (desktop only)
-            if (!isMobile()) {
-              animationTimeout = setTimeout(() => {
-                track.style.animationPlayState = 'running';
-              }, 2000);
-            }
-          }
-        };
-        
-        requestAnimationFrame(animateSnap);
+      track.style.transform = '';
+      return;
+    }
+
+    let isDragging = false;
+    let startPos = 0;
+    let currentTranslate = 0;
+    let prevTranslate = 0;
+    let animationID = 0;
+
+    const handlePointerDown = (e: PointerEvent) => {
+      isDragging = true;
+      startPos = e.pageX;
+      animationID = requestAnimationFrame(animation);
+      track.classList.add('dragging');
+    };
+
+    const handlePointerMove = (e: PointerEvent) => {
+      if (isDragging) {
+        const currentPosition = e.pageX;
+        currentTranslate = prevTranslate + currentPosition - startPos;
       }
     };
-    
-    track.addEventListener('mousedown', handleMouseDown);
+
+    const handlePointerUp = () => {
+      isDragging = false;
+      cancelAnimationFrame(animationID);
+      prevTranslate = currentTranslate;
+      track.classList.remove('dragging');
+      track.style.transform = '';
+    };
+
+    const handleTouchStart = (e: TouchEvent) => {
+      isDragging = true;
+      startPos = e.touches[0].clientX;
+      animationID = requestAnimationFrame(animation);
+      track.classList.add('dragging');
+    };
+
+    const handleTouchMove = (e: TouchEvent) => {
+      if (isDragging) {
+        const currentPosition = e.touches[0].clientX;
+        currentTranslate = prevTranslate + currentPosition - startPos;
+      }
+    };
+
+    const handleTouchEnd = () => {
+      isDragging = false;
+      cancelAnimationFrame(animationID);
+      prevTranslate = currentTranslate;
+      track.classList.remove('dragging');
+      track.style.transform = '';
+    };
+
+    function animation() {
+      if (isDragging) {
+        setSliderPosition();
+        requestAnimationFrame(animation);
+      }
+    }
+
+    function setSliderPosition() {
+      if (track) track.style.transform = `translateX(${currentTranslate}px)`;
+    }
+
+    track.addEventListener('pointerdown', handlePointerDown);
+    document.addEventListener('pointermove', handlePointerMove);
+    document.addEventListener('pointerup', handlePointerUp);
+    document.addEventListener('pointercancel', handlePointerUp);
     track.addEventListener('touchstart', handleTouchStart);
-    track.addEventListener('mousemove', handleMouseMove);
     track.addEventListener('touchmove', handleTouchMove);
-    track.addEventListener('mouseup', handleEnd);
-    track.addEventListener('touchend', handleEnd);
-    track.addEventListener('mouseleave', handleEnd);
-    
+    track.addEventListener('touchend', handleTouchEnd);
+
     return () => {
-      track.removeEventListener('mousedown', handleMouseDown);
+      track.removeEventListener('pointerdown', handlePointerDown);
+      document.removeEventListener('pointermove', handlePointerMove);
+      document.removeEventListener('pointerup', handlePointerUp);
+      document.removeEventListener('pointercancel', handlePointerUp);
       track.removeEventListener('touchstart', handleTouchStart);
-      track.removeEventListener('mousemove', handleMouseMove);
       track.removeEventListener('touchmove', handleTouchMove);
-      track.removeEventListener('mouseup', handleEnd);
-      track.removeEventListener('touchend', handleEnd);
-      track.removeEventListener('mouseleave', handleEnd);
-      window.removeEventListener('scroll', handlePageScroll);
-      window.removeEventListener('resize', handleResize);
-      clearTimeout(animationTimeout);
-      clearTimeout(scrollTimeout);
+      track.removeEventListener('touchend', handleTouchEnd);
+      cancelAnimationFrame(animationID);
+      // Reset drag state on cleanup
+      prevTranslate = 0;
+      currentTranslate = 0;
+      track.style.transform = '';
+      track.classList.remove('dragging');
     };
-  }, []);
+  }, [isDesktop]);
 
   return (
     <section className="relative py-16 md:py-20 lg:py-24 overflow-hidden" data-testid="section-hire-ai-employees">
@@ -327,7 +251,7 @@ export default function HireAIEmployeesSection() {
       }}></div>
 
       <div className="relative container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl mb-12 md:mb-16">
-        {/* Section Header - Elite Typography (Reduced Size) */}
+        {/* Section Header - Elite Typography */}
         <div className="text-center">
           <h2 className="font-heading font-bold text-zinc-900 mb-4" data-testid="text-ai-employees-heading" style={{ fontSize: 'clamp(1.75rem, 5vw, 3.25rem)', letterSpacing: '-0.04em', lineHeight: '1.2' }}>
             Hire AI Employees
@@ -338,9 +262,40 @@ export default function HireAIEmployeesSection() {
         </div>
       </div>
 
-      {/* Carousel Container */}
+      {/* MOBILE: Static Grid (< 1024px) */}
+      {!isDesktop && (
+      <div className="relative container mx-auto px-6">
+        <div className="grid grid-cols-2 gap-4 max-w-2xl mx-auto">
+          {employees.slice(0, 8).map((employee, index) => (
+            <div
+              key={index}
+              className="group"
+              data-testid={`mobile-employee-card-${index}`}
+            >
+              <div className="relative w-full aspect-[3/4] overflow-hidden rounded-xl bg-zinc-100 ring-1 ring-zinc-200/50 shadow-sm">
+                <img
+                  src={employee.image}
+                  alt={employee.title}
+                  className="w-full h-full object-cover object-center transition-all duration-700 group-hover:scale-105"
+                  data-testid={`carousel-image-admin-ai-employees`}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/35 to-transparent"></div>
+                
+                <div className="absolute bottom-0 left-0 right-0 p-4">
+                  <h3 className="font-heading text-base font-bold text-white leading-tight" style={{ letterSpacing: '-0.02em' }}>
+                    {employee.title}
+                  </h3>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      )}
+
+      {/* DESKTOP: Animated Carousel (≥ 1024px) */}
+      {isDesktop && (
       <div className="relative w-full">
-        {/* Scrolling Carousel */}
         <div className="carousel-track" data-testid="ai-employees-carousel-track" ref={trackRef}>
           {duplicatedEmployees.map((employee, index) => (
             <div
@@ -348,7 +303,6 @@ export default function HireAIEmployeesSection() {
               className="carousel-card group"
               data-testid={`employee-card-${index}`}
             >
-              {/* Image Container with Overlaid Text - Superside Style */}
               <div className="relative w-full aspect-[3/4] overflow-hidden rounded-xl bg-zinc-100 ring-1 ring-zinc-200/50 shadow-sm transition-all duration-500 group-hover:shadow-xl group-hover:ring-zinc-300/70">
                 <img
                   src={employee.image}
@@ -356,12 +310,9 @@ export default function HireAIEmployeesSection() {
                   className="w-full h-full object-cover object-center transition-all duration-700 group-hover:scale-105"
                   data-testid={`carousel-image-admin-ai-employees`}
                 />
-                {/* Dark gradient overlay for text legibility */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/35 to-transparent"></div>
-                {/* Subtle overlay on hover */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 
-                {/* Employee Title Overlaid on Image */}
                 <div className="absolute bottom-0 left-0 right-0 p-6">
                   <h3 className="font-heading text-xl md:text-2xl lg:text-3xl font-bold text-white leading-tight transition-all duration-300" style={{ letterSpacing: '-0.02em' }}>
                     {employee.title}
@@ -372,6 +323,7 @@ export default function HireAIEmployeesSection() {
           ))}
         </div>
       </div>
+      )}
     </section>
   );
 }
