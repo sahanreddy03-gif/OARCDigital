@@ -3,6 +3,7 @@ import HeroSection from "@/components/HeroSection";
 import Section2 from "@/components/Section2";
 import Section3 from "@/components/Section3";
 import Section5 from "@/components/Section5";
+import TechEnabledSection from "@/components/TechEnabledSection";
 import AICreativeSection from "@/components/AICreativeSection";
 import HireAIEmployeesSection from "@/components/HireAIEmployeesSection";
 import LetsTalkRevenueSection from "@/components/LetsTalkRevenueSection";
@@ -22,8 +23,9 @@ export default function Home() {
       <Section3 />
       <Section5 />
       <AICreativeSection />
-      <HireAIEmployeesSection />
+      <TechEnabledSection />
       <LetsTalkRevenueSection />
+      <HireAIEmployeesSection />
       <SuccessInNumbers />
       <BrandShowcaseSection />
       <Testimonials />
