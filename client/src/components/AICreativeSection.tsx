@@ -304,6 +304,9 @@ export default function AICreativeSection() {
         document.removeEventListener('pointerup', handleRightPointerUp);
         document.removeEventListener('pointercancel', handleRightPointerUp);
       };
+      
+      // START THE ANIMATION LOOP
+      animate();
     };
 
     return () => {
