@@ -144,11 +144,13 @@ export default function LetsTalkRevenueSection() {
 
   return (
     <section className="relative py-16 md:py-20 lg:py-24 overflow-hidden" data-testid="section-lets-talk-revenue">
-      {/* Vibrant Teal/Turquoise Background - matching branding */}
-      <div className="absolute inset-0 bg-gradient-to-br from-cyan-600 via-teal-600 to-emerald-600"></div>
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_20%,rgba(255,255,255,0.15),transparent_50%)]"></div>
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_70%_80%,rgba(6,182,212,0.25),transparent_50%)]"></div>
-      <div className="absolute inset-0 bg-gradient-to-t from-teal-900/20 to-transparent"></div>
+      {/* Elite Off-Black/Charcoal Background with Glassmorphism */}
+      <div className="absolute inset-0 bg-gradient-to-br from-zinc-900 via-zinc-800 to-neutral-900"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_-20%,rgba(96,165,250,0.12),transparent_50%)]"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_80%_80%,rgba(59,130,246,0.08),transparent_60%)]"></div>
+      <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+      {/* Glassmorphism overlay */}
+      <div className="absolute inset-0 backdrop-blur-[1px] bg-gradient-to-br from-white/[0.03] to-transparent"></div>
 
       <div className="relative container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl mb-12 md:mb-16">
         {/* Section Header - Elite Typography */}

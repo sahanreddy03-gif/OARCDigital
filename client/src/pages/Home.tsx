@@ -24,8 +24,8 @@ export default function Home() {
       <Section5 />
       <AICreativeSection />
       <TechEnabledSection />
-      <LetsTalkRevenueSection />
       <HireAIEmployeesSection />
+      <LetsTalkRevenueSection />
       <SuccessInNumbers />
       <BrandShowcaseSection />
       <Testimonials />
