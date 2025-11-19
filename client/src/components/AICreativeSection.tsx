@@ -136,6 +136,7 @@ export default function AICreativeSection() {
   const scrollTopLeftRef = useRef(0);
   const scrollTopRightRef = useRef(0);
   const animationIdRef = useRef<number>();
+  const cleanupHandlersRef = useRef<(() => void) | null>(null);
 
   // Desktop: triple services for seamless horizontal looping
   const duplicatedServices = [...services, ...services, ...services];
@@ -290,6 +291,19 @@ export default function AICreativeSection() {
       document.addEventListener('pointermove', handleRightPointerMove);
       document.addEventListener('pointerup', handleRightPointerUp);
       document.addEventListener('pointercancel', handleRightPointerUp);
+      
+      // Store cleanup function in ref
+      cleanupHandlersRef.current = () => {
+        leftColumn.removeEventListener('pointerdown', handleLeftPointerDown);
+        document.removeEventListener('pointermove', handleLeftPointerMove);
+        document.removeEventListener('pointerup', handleLeftPointerUp);
+        document.removeEventListener('pointercancel', handleLeftPointerUp);
+
+        rightColumn.removeEventListener('pointerdown', handleRightPointerDown);
+        document.removeEventListener('pointermove', handleRightPointerMove);
+        document.removeEventListener('pointerup', handleRightPointerUp);
+        document.removeEventListener('pointercancel', handleRightPointerUp);
+      };
     };
 
     return () => {
@@ -300,21 +314,16 @@ export default function AICreativeSection() {
         cancelAnimationFrame(animationIdRef.current);
       }
       
-      // Clean up event listeners only if they were added
+      // Call the cleanup function if it exists
+      if (cleanupHandlersRef.current) {
+        cleanupHandlersRef.current();
+        cleanupHandlersRef.current = null;
+      }
+      
+      // Reset state
+      isDraggingLeftRef.current = false;
+      isDraggingRightRef.current = false;
       if (leftColumn && rightColumn) {
-        leftColumn.removeEventListener('pointerdown', handleLeftPointerDown);
-        document.removeEventListener('pointermove', handleLeftPointerMove);
-        document.removeEventListener('pointerup', handleLeftPointerUp);
-        document.removeEventListener('pointercancel', handleLeftPointerUp);
-
-        rightColumn.removeEventListener('pointerdown', handleRightPointerDown);
-        document.removeEventListener('pointermove', handleRightPointerMove);
-        document.removeEventListener('pointerup', handleRightPointerUp);
-        document.removeEventListener('pointercancel', handleRightPointerUp);
-
-        // Reset state
-        isDraggingLeftRef.current = false;
-        isDraggingRightRef.current = false;
         leftColumn.style.transform = '';
         leftColumn.style.cursor = '';
         rightColumn.style.transform = '';
@@ -325,27 +334,21 @@ export default function AICreativeSection() {
 
   return (
     <section className="relative py-16 md:py-20 lg:py-24 overflow-hidden" data-testid="section-ai-creative">
-      {/* Black/Orange Background */}
-      <div className="absolute inset-0 bg-black"></div>
-      <div className="absolute inset-0 bg-gradient-to-r from-black via-zinc-950/90 to-orange-950/50"></div>
-      <div className="absolute inset-0 bg-gradient-to-br from-black/50 via-transparent to-orange-900/35"></div>
-      
-      {/* Warm orange glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_100%_50%,rgba(251,146,60,0.25),transparent_55%)]"></div>
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_80%_20%,rgba(234,88,12,0.20),transparent_60%)]"></div>
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_0%_50%,rgba(0,0,0,0.7),transparent_45%)]"></div>
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_90%_80%,rgba(220,38,38,0.15),transparent_50%)]"></div>
-      <div className="absolute inset-0 bg-gradient-to-t from-orange-950/10 to-transparent"></div>
+      {/* Elite Cream Background - Superside-inspired */}
+      <div className="absolute inset-0 bg-[#FAF9F6]"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-[#F5F4F1] via-[#FAF9F6] to-[#F0EDE6]"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_20%,rgba(255,255,255,0.8),transparent_50%)]"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_70%_80%,rgba(245,244,241,0.6),transparent_60%)]"></div>
 
       <div className="relative container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl mb-12 md:mb-16">
         {/* Section Header - Elite Typography */}
         <div className="text-center">
-          <h2 className="font-heading font-bold text-white mb-3" data-testid="text-ai-creative-heading" style={{ fontSize: 'clamp(1.75rem, 5vw, 3.25rem)', letterSpacing: '-0.03em', lineHeight: '1.2' }}>
+          <h2 className="font-heading font-bold text-zinc-900 mb-3" data-testid="text-ai-creative-heading" style={{ fontSize: 'clamp(1.75rem, 5vw, 3.25rem)', letterSpacing: '-0.03em', lineHeight: '1.2' }}>
             Every type of creative work
           </h2>
-          <p className="font-heading font-bold text-white" style={{ fontSize: 'clamp(1.75rem, 5vw, 3.25rem)', letterSpacing: '-0.03em', lineHeight: '1.2' }}>
+          <p className="font-heading font-bold text-zinc-900" style={{ fontSize: 'clamp(1.75rem, 5vw, 3.25rem)', letterSpacing: '-0.03em', lineHeight: '1.2' }}>
             you'll ever need
-            <span className="italic" style={{ color: '#c4ff4d' }}> and more</span>
+            <span className="italic text-[#16a34a]"> and more</span>
           </p>
         </div>
       </div>
@@ -389,12 +392,12 @@ export default function AICreativeSection() {
 
       {/* Mobile: Dual-Column Opposite Direction Infinite Scroll */}
       {!isDesktop && (
-        <div className="relative flex gap-3 px-4 h-[600px] overflow-hidden" data-testid="ai-creative-mobile-carousel">
+        <div className="relative flex gap-3 px-4 h-[520px] overflow-hidden" data-testid="ai-creative-mobile-carousel">
           {/* Left Column - Top to Bottom */}
           <div className="flex-1 relative h-full overflow-hidden">
             <div 
               ref={leftColumnRef} 
-              className="flex flex-col gap-3 cursor-grab active:cursor-grabbing" 
+              className="absolute top-0 left-0 right-0 flex flex-col gap-3 cursor-grab active:cursor-grabbing" 
               style={{ willChange: 'transform' }}
               data-testid="mobile-left-column"
             >
@@ -433,7 +436,7 @@ export default function AICreativeSection() {
           <div className="flex-1 relative h-full overflow-hidden">
             <div 
               ref={rightColumnRef} 
-              className="flex flex-col gap-3 cursor-grab active:cursor-grabbing" 
+              className="absolute top-0 left-0 right-0 flex flex-col gap-3 cursor-grab active:cursor-grabbing" 
               style={{ willChange: 'transform' }}
               data-testid="mobile-right-column"
             >

@@ -27,23 +27,23 @@ const TechEnabledSection = () => {
   ];
 
   return (
-    <section className="relative bg-background py-16 md:py-24 overflow-hidden">
+    <section className="relative bg-background py-12 md:py-16 overflow-hidden">
       <div className="container mx-auto px-4">
         <ScrollReveal delay={0}>
-          <div className="text-center max-w-4xl mx-auto mb-12">
-            <p className="text-sm md:text-base text-muted-foreground mb-4 tracking-wide uppercase">
+          <div className="text-center max-w-4xl mx-auto mb-8">
+            <p className="text-sm md:text-base text-muted-foreground mb-3 tracking-wide uppercase">
               easy & hassle-free
             </p>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-heading mb-6 leading-tight">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-heading mb-4 leading-tight">
               Tech enabled and made to{" "}
               <span className="italic">work for you.</span>
             </h2>
-            <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+            <p className="text-base md:text-lg text-muted-foreground mb-6 max-w-2xl mx-auto">
               No matter your creative need, submitting and managing a project is effortless.
             </p>
             <Link href="/contact">
               <Button 
-                size="lg" 
+                size="default" 
                 className="bg-primary hover:bg-primary/90 text-primary-foreground font-medium"
                 data-testid="button-tech-learn-more"
               >
@@ -53,14 +53,14 @@ const TechEnabledSection = () => {
           </div>
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 mt-16 md:mt-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mt-10 md:mt-12">
           {features.map((feature, index) => (
             <ScrollReveal key={index} delay={index * 0.1}>
               <div 
                 className="group hover-elevate rounded-lg overflow-hidden bg-card"
                 data-testid={`card-tech-feature-${index}`}
               >
-                <div className="aspect-[13/11] overflow-hidden bg-muted">
+                <div className="aspect-[4/3] overflow-hidden bg-muted">
                   <img
                     src={feature.image}
                     alt={feature.title}
@@ -68,11 +68,11 @@ const TechEnabledSection = () => {
                     loading="lazy"
                   />
                 </div>
-                <div className="p-6 md:p-8">
-                  <h3 className="text-xl md:text-2xl font-bold font-heading mb-3">
+                <div className="p-4 md:p-6">
+                  <h3 className="text-lg md:text-xl font-bold font-heading mb-2">
                     {feature.title}
                   </h3>
-                  <p className="text-muted-foreground leading-relaxed">
+                  <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
                     {feature.description}
                   </p>
                 </div>
