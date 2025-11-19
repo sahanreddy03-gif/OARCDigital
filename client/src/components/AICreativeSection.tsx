@@ -174,7 +174,6 @@ export default function AICreativeSection() {
       // Only start animation if heights are valid (images loaded)
       if (leftHeight > 0 && rightHeight > 0) {
         animationStarted = true;
-        console.log('[AICreative Mobile] Starting animation - leftHeight:', leftHeight, 'rightHeight:', rightHeight);
         startAnimation(leftHeight, rightHeight);
       }
     };
@@ -194,7 +193,7 @@ export default function AICreativeSection() {
     
     let leftScrollPosition = 0;  // Start at 0 for downward scroll  
     let rightScrollPosition = 0;
-    const scrollSpeed = 0.5; // pixels per frame
+    const scrollSpeed = 1.2; // pixels per frame - increased for faster smoother mobile animation
 
     const animate = () => {
       // Left column: downward scroll (container drifts down from -leftHeight to 0)
@@ -204,11 +203,6 @@ export default function AICreativeSection() {
         const normalizedLeft = ((leftScrollPosition % leftHeight) + leftHeight) % leftHeight;
         const translateValue = normalizedLeft - leftHeight;
         leftColumn.style.transform = `translateY(${translateValue}px)`;
-        
-        // Debug log every 60 frames (≈1 second)
-        if (Math.floor(leftScrollPosition) % 30 === 0) {
-          console.log('[AICreative Mobile] Left column translateY:', translateValue, 'Applied to:', leftColumn.dataset.testid);
-        }
       }
 
       // Right column: upward scroll (container moves up - content flows upward)
