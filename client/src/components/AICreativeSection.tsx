@@ -161,8 +161,35 @@ export default function AICreativeSection() {
     const rightColumn = rightColumnRef.current;
     if (!leftColumn || !rightColumn) return;
 
-    const leftHeight = leftColumn.scrollHeight / 2;
-    const rightHeight = rightColumn.scrollHeight / 2;
+    // Use ResizeObserver to detect when layout is ready (images loaded)
+    let animationStarted = false;
+    
+    const tryStartAnimation = () => {
+      if (animationStarted) return;
+      
+      const leftHeight = leftColumn.scrollHeight / 2;
+      const rightHeight = rightColumn.scrollHeight / 2;
+      
+      // Only start animation if heights are valid (images loaded)
+      if (leftHeight > 0 && rightHeight > 0) {
+        animationStarted = true;
+        console.log('[AICreative Mobile] Starting animation - leftHeight:', leftHeight, 'rightHeight:', rightHeight);
+        startAnimation(leftHeight, rightHeight);
+      }
+    };
+
+    // Try immediately in case images are cached
+    requestAnimationFrame(tryStartAnimation);
+    
+    // Also watch for resize events as images load
+    const observer = new ResizeObserver(() => {
+      tryStartAnimation();
+    });
+    
+    observer.observe(leftColumn);
+    observer.observe(rightColumn);
+
+    const startAnimation = (leftHeight: number, rightHeight: number) => {
     
     let leftScrollPosition = 0;  // Start at 0 for downward scroll  
     let rightScrollPosition = 0;
@@ -174,7 +201,13 @@ export default function AICreativeSection() {
         leftScrollPosition += scrollSpeed;
         // Normalize with double-modulo to handle negative values
         const normalizedLeft = ((leftScrollPosition % leftHeight) + leftHeight) % leftHeight;
-        leftColumn.style.transform = `translateY(${normalizedLeft - leftHeight}px)`;
+        const translateValue = normalizedLeft - leftHeight;
+        leftColumn.style.transform = `translateY(${translateValue}px)`;
+        
+        // Debug log every 60 frames (≈1 second)
+        if (Math.floor(leftScrollPosition) % 30 === 0) {
+          console.log('[AICreative Mobile] Left column translateY:', translateValue, 'Applied to:', leftColumn.dataset.testid);
+        }
       }
 
       // Right column: upward scroll (container moves up - content flows upward)
@@ -187,8 +220,6 @@ export default function AICreativeSection() {
 
       animationIdRef.current = requestAnimationFrame(animate);
     };
-
-    animationIdRef.current = requestAnimationFrame(animate);
 
     // Mobile drag handlers for left column
     const handleLeftPointerDown = (e: PointerEvent) => {
@@ -249,38 +280,46 @@ export default function AICreativeSection() {
       rightColumn.style.cursor = 'grab';
     };
 
-    // Add event listeners
-    leftColumn.addEventListener('pointerdown', handleLeftPointerDown);
-    document.addEventListener('pointermove', handleLeftPointerMove);
-    document.addEventListener('pointerup', handleLeftPointerUp);
-    document.addEventListener('pointercancel', handleLeftPointerUp);
+      // Add event listeners
+      leftColumn.addEventListener('pointerdown', handleLeftPointerDown);
+      document.addEventListener('pointermove', handleLeftPointerMove);
+      document.addEventListener('pointerup', handleLeftPointerUp);
+      document.addEventListener('pointercancel', handleLeftPointerUp);
 
-    rightColumn.addEventListener('pointerdown', handleRightPointerDown);
-    document.addEventListener('pointermove', handleRightPointerMove);
-    document.addEventListener('pointerup', handleRightPointerUp);
-    document.addEventListener('pointercancel', handleRightPointerUp);
+      rightColumn.addEventListener('pointerdown', handleRightPointerDown);
+      document.addEventListener('pointermove', handleRightPointerMove);
+      document.addEventListener('pointerup', handleRightPointerUp);
+      document.addEventListener('pointercancel', handleRightPointerUp);
+    };
 
     return () => {
+      // Clean up observer
+      observer.disconnect();
+      
       if (animationIdRef.current) {
         cancelAnimationFrame(animationIdRef.current);
       }
-      leftColumn.removeEventListener('pointerdown', handleLeftPointerDown);
-      document.removeEventListener('pointermove', handleLeftPointerMove);
-      document.removeEventListener('pointerup', handleLeftPointerUp);
-      document.removeEventListener('pointercancel', handleLeftPointerUp);
+      
+      // Clean up event listeners only if they were added
+      if (leftColumn && rightColumn) {
+        leftColumn.removeEventListener('pointerdown', handleLeftPointerDown);
+        document.removeEventListener('pointermove', handleLeftPointerMove);
+        document.removeEventListener('pointerup', handleLeftPointerUp);
+        document.removeEventListener('pointercancel', handleLeftPointerUp);
 
-      rightColumn.removeEventListener('pointerdown', handleRightPointerDown);
-      document.removeEventListener('pointermove', handleRightPointerMove);
-      document.removeEventListener('pointerup', handleRightPointerUp);
-      document.removeEventListener('pointercancel', handleRightPointerUp);
+        rightColumn.removeEventListener('pointerdown', handleRightPointerDown);
+        document.removeEventListener('pointermove', handleRightPointerMove);
+        document.removeEventListener('pointerup', handleRightPointerUp);
+        document.removeEventListener('pointercancel', handleRightPointerUp);
 
-      // Reset state
-      isDraggingLeftRef.current = false;
-      isDraggingRightRef.current = false;
-      leftColumn.style.transform = '';
-      leftColumn.style.cursor = '';
-      rightColumn.style.transform = '';
-      rightColumn.style.cursor = '';
+        // Reset state
+        isDraggingLeftRef.current = false;
+        isDraggingRightRef.current = false;
+        leftColumn.style.transform = '';
+        leftColumn.style.cursor = '';
+        rightColumn.style.transform = '';
+        rightColumn.style.cursor = '';
+      }
     };
   }, [isDesktop]);
 
@@ -313,7 +352,7 @@ export default function AICreativeSection() {
 
       {/* Desktop: Horizontal Auto-Scrolling Carousel */}
       {isDesktop && (
-        <div className="relative w-full">
+        <div className="relative w-full" data-testid="ai-creative-desktop-carousel">
           <div className="flex gap-4 md:gap-6 lg:gap-8 cursor-grab active:cursor-grabbing" data-testid="carousel-track" ref={trackRef} style={{ willChange: 'transform' }}>
             {duplicatedServices.map((service, index) => (
               <div
@@ -350,13 +389,14 @@ export default function AICreativeSection() {
 
       {/* Mobile: Dual-Column Opposite Direction Infinite Scroll */}
       {!isDesktop && (
-        <div className="relative flex gap-3 px-4 h-[600px] overflow-hidden">
+        <div className="relative flex gap-3 px-4 h-[600px] overflow-hidden" data-testid="ai-creative-mobile-carousel">
           {/* Left Column - Top to Bottom */}
           <div className="flex-1 relative h-full overflow-hidden">
             <div 
               ref={leftColumnRef} 
               className="flex flex-col gap-3 cursor-grab active:cursor-grabbing" 
               style={{ willChange: 'transform' }}
+              data-testid="mobile-left-column"
             >
               {leftColumnServices.map((service, index) => (
                 <div
@@ -395,6 +435,7 @@ export default function AICreativeSection() {
               ref={rightColumnRef} 
               className="flex flex-col gap-3 cursor-grab active:cursor-grabbing" 
               style={{ willChange: 'transform' }}
+              data-testid="mobile-right-column"
             >
               {rightColumnServices.map((service, index) => (
                 <div
