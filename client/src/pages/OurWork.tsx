@@ -3,24 +3,24 @@ import Layout from "@/components/layout/Layout";
 import { Link } from "wouter";
 import { ArrowUpRight } from "lucide-react";
 import { caseStudies } from "@/data/caseStudies";
+import SEOHead from "@/components/SEOHead";
+import { supportingPagesSEO } from "@/data/seoMetadata";
 
 export default function OurWork() {
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "Case Studies | OARC Digital - Proven Results for Leading Brands";
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute(
-        "content",
-        "Explore OARC Digital's portfolio of successful campaigns. From luxury brands to fitness leaders, see how we deliver measurable results through AI-powered creative and strategic marketing."
-      );
-    }
   }, []);
 
   const allCaseStudies = Object.values(caseStudies);
 
   return (
     <Layout>
+      <SEOHead
+        title={supportingPagesSEO.ourWork.title}
+        description={supportingPagesSEO.ourWork.description}
+        canonicalUrl={`https://oarcdigital.com${supportingPagesSEO.ourWork.path}`}
+        ogType={supportingPagesSEO.ourWork.ogType}
+      />
       {/* Hero Section */}
       <section className="py-20 md:py-32 bg-gradient-to-br from-zinc-900 to-black text-white">
         <div className="max-w-7xl mx-auto px-6 md:px-12">

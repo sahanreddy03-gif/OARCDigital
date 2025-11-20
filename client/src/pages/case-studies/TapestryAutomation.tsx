@@ -2,6 +2,8 @@ import { useEffect } from 'react';
 import { Link } from 'wouter';
 import { ArrowRight, Calendar, Building2 } from 'lucide-react';
 import Layout from '@/components/layout/Layout';
+import SEOHead from '@/components/SEOHead';
+import { caseStudiesSEO } from '@/data/seoMetadata';
 import heroImg from '@assets/stock_images/luxury_fashion_retai_32a7703b.jpg';
 import img1 from '@assets/stock_images/luxury_fashion_retai_7a69979f.jpg';
 import img2 from '@assets/stock_images/luxury_fashion_retai_855070e4.jpg';
@@ -15,15 +17,16 @@ import img8 from '@assets/stock_images/team_collaboration_b_c8b7e41b.jpg';
 export default function TapestryAutomation() {
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "Tapestry Luxury Fashion Automation Case Study | OARC Digital";
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute("content", "How OARC Digital automated SAP S/4HANA processes for Tapestry (Coach, Kate Spade, Stuart Weitzman), transforming financial planning, sales, and operations with near real-time data.");
-    }
   }, []);
 
   return (
     <Layout>
+      <SEOHead
+        title={caseStudiesSEO.tapestryAutomation.title}
+        description={caseStudiesSEO.tapestryAutomation.description}
+        canonicalUrl={`https://oarcdigital.com${caseStudiesSEO.tapestryAutomation.path}`}
+        ogType={caseStudiesSEO.tapestryAutomation.ogType}
+      />
       {/* Hero Section */}
       <section className="relative h-[70vh] min-h-[500px] flex items-end">
         <div className="absolute inset-0">

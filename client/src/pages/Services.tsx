@@ -5,6 +5,8 @@ import { motion, useScroll, useTransform, useInView } from 'framer-motion';
 import { getAllCategories } from '@/config/servicesConfig';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
+import SEOHead from '@/components/SEOHead';
+import { supportingPagesSEO } from '@/data/seoMetadata';
 import heroImg from '@assets/global-influencer-marketing-agency-socially-powerful_1763048685978.jpg';
 import creativeImg from '@assets/837b9d2d4233bb346c214826035215a37160c085-3840x1432_1763049729526.avif';
 import growthImg from '@assets/stock_images/business_revenue_gro_c01f15ff.jpg';
@@ -97,6 +99,12 @@ export default function Services() {
 
   return (
     <div className="min-h-screen bg-black text-white overflow-x-hidden">
+      <SEOHead
+        title={supportingPagesSEO.services.title}
+        description={supportingPagesSEO.services.description}
+        canonicalUrl={`https://oarcdigital.com${supportingPagesSEO.services.path}`}
+        ogType={supportingPagesSEO.services.ogType}
+      />
       <Navigation />
 
       {/* Cinematic Hero with Parallax */}

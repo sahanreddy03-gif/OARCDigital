@@ -5,6 +5,8 @@ import { Link } from 'wouter';
 import { ArrowRight } from 'lucide-react';
 import { SiTiktok } from 'react-icons/si';
 import Layout from '@/components/layout/Layout';
+import SEOHead from '@/components/SEOHead';
+import { caseStudiesSEO } from '@/data/seoMetadata';
 import challengeImg1 from '@assets/IMG_7990_1761953778756.png';
 import challengeImg2 from '@assets/IMG_7989_1761953778756.png';
 import challengeImg3 from '@assets/IMG_7987_1761953778756.png';
@@ -37,6 +39,12 @@ export default function AzzaroCaseStudy() {
 
   return (
     <Layout>
+      <SEOHead
+        title={caseStudiesSEO.azzaro.title}
+        description={caseStudiesSEO.azzaro.description}
+        canonicalUrl={`https://oarcdigital.com${caseStudiesSEO.azzaro.path}`}
+        ogType={caseStudiesSEO.azzaro.ogType}
+      />
       {/* Hero Section */}
       <section className="relative min-h-[60vh] flex items-center justify-center bg-black text-white overflow-hidden">
         <div 

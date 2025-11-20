@@ -2,6 +2,8 @@ import { useEffect } from 'react';
 import { Link } from 'wouter';
 import { ArrowRight, Calendar, Building2 } from 'lucide-react';
 import Layout from '@/components/layout/Layout';
+import SEOHead from '@/components/SEOHead';
+import { caseStudiesSEO } from '@/data/seoMetadata';
 import heroImg from '@assets/stock_images/ai_chatbot_customer__a2c79604.jpg';
 import img1 from '@assets/stock_images/ai_chatbot_customer__070fc7ce.jpg';
 import img2 from '@assets/stock_images/ai_chatbot_customer__fad0f638.jpg';
@@ -16,15 +18,16 @@ import img9 from '@assets/stock_images/business_strategy_co_75cf4bec.jpg';
 export default function FanDuelChuckGPT() {
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "FanDuel ChuckGPT AI Chatbot Case Study | OARC Digital";
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute("content", "How OARC Digital built ChuckGPT for FanDuel—an AI chatbot that scaled from zero to tens of thousands of users within hours.");
-    }
   }, []);
 
   return (
     <Layout>
+      <SEOHead
+        title={caseStudiesSEO.fanDuelChuckGPT.title}
+        description={caseStudiesSEO.fanDuelChuckGPT.description}
+        canonicalUrl={`https://oarcdigital.com${caseStudiesSEO.fanDuelChuckGPT.path}`}
+        ogType={caseStudiesSEO.fanDuelChuckGPT.ogType}
+      />
       {/* Hero Section */}
       <section className="relative h-[70vh] min-h-[500px] flex items-end">
         <div className="absolute inset-0">

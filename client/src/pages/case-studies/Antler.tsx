@@ -4,6 +4,8 @@ import { Button } from '@/components/ui/button';
 import { Link } from 'wouter';
 import { ArrowRight } from 'lucide-react';
 import Layout from '@/components/layout/Layout';
+import SEOHead from '@/components/SEOHead';
+import { caseStudiesSEO } from '@/data/seoMetadata';
 
 export default function AntlerCaseStudy() {
   useEffect(() => {
@@ -12,6 +14,12 @@ export default function AntlerCaseStudy() {
 
   return (
     <Layout>
+      <SEOHead
+        title={caseStudiesSEO.antler.title}
+        description={caseStudiesSEO.antler.description}
+        canonicalUrl={`https://oarcdigital.com${caseStudiesSEO.antler.path}`}
+        ogType={caseStudiesSEO.antler.ogType}
+      />
       {/* Hero Section */}
       <section className="relative min-h-[70vh] flex items-center justify-center bg-gradient-to-br from-purple-900 via-indigo-900 to-black text-white overflow-hidden">
         <div 

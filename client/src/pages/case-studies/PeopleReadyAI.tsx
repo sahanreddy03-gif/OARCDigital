@@ -2,6 +2,8 @@ import { useEffect } from 'react';
 import { Link } from 'wouter';
 import { ArrowRight, Calendar, Building2 } from 'lucide-react';
 import Layout from '@/components/layout/Layout';
+import SEOHead from '@/components/SEOHead';
+import { caseStudiesSEO } from '@/data/seoMetadata';
 import heroImg from '@assets/stock_images/ai_software_developm_725be51d.jpg';
 import img1 from '@assets/stock_images/ai_software_developm_2652993c.jpg';
 import img2 from '@assets/stock_images/ai_software_developm_58a580cd.jpg';
@@ -17,15 +19,16 @@ import img10 from '@assets/stock_images/business_strategy_co_75cf4bec.jpg';
 export default function PeopleReadyAI() {
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "PeopleReady AI Team Case Study | OARC Digital";
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute("content", "How OARC Digital helped PeopleReady scale their digital transformation with 30+ seamlessly integrated nearshore AI engineers.");
-    }
   }, []);
 
   return (
     <Layout>
+      <SEOHead
+        title={caseStudiesSEO.peopleReadyAI.title}
+        description={caseStudiesSEO.peopleReadyAI.description}
+        canonicalUrl={`https://oarcdigital.com${caseStudiesSEO.peopleReadyAI.path}`}
+        ogType={caseStudiesSEO.peopleReadyAI.ogType}
+      />
       {/* Hero Section */}
       <section className="relative h-[70vh] min-h-[500px] flex items-end">
         <div className="absolute inset-0">

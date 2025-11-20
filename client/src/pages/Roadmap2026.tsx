@@ -7,6 +7,8 @@ import {
   Brain, Target, Rocket, LineChart, CheckCircle2, Download
 } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
+import SEOHead from "@/components/SEOHead";
+import { supportingPagesSEO } from "@/data/seoMetadata";
 
 // Scroll-triggered animation wrapper
 function ScrollReveal({ children, delay = 0, className = "" }: { children: React.ReactNode; delay?: number; className?: string }) {
@@ -119,14 +121,6 @@ function TimelineMilestone({
 export default function Roadmap2026() {
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "Road Map 2026 | OARC Digital - The Future of Intelligent Creativity";
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute(
-        "content",
-        "Discover OARC Digital's 2026 vision: Crystal System AI, local market intelligence, and creative automation at global scale. The next chapter of intelligent creativity awaits."
-      );
-    }
   }, []);
 
   const milestones = [
@@ -209,6 +203,12 @@ export default function Roadmap2026() {
 
   return (
     <Layout>
+      <SEOHead
+        title={supportingPagesSEO.roadmap.title}
+        description={supportingPagesSEO.roadmap.description}
+        canonicalUrl={`https://oarcdigital.com${supportingPagesSEO.roadmap.path}`}
+        ogType={supportingPagesSEO.roadmap.ogType}
+      />
       {/* Section 1 - Hero */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* Animated Background */}
