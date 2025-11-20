@@ -179,9 +179,10 @@ export default function HireAIEmployeesSection() {
               <div className="relative w-full aspect-[3/4] overflow-hidden rounded-xl bg-zinc-100 ring-1 ring-zinc-200/50 shadow-lg transition-all duration-500 group-hover:shadow-xl group-hover:ring-zinc-300/70">
                 <img
                   src={employee.image}
-                  alt={employee.title}
+                  alt={`${employee.title} - AI-powered employee for hire`}
                   className="w-full h-full object-cover object-center transition-all duration-700 group-hover:scale-105"
                   data-testid={`carousel-image-admin-ai-employees`}
+                  loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/35 to-transparent"></div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>

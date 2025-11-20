@@ -141,8 +141,43 @@ export default function Footer() {
         </div>
       </div>
 
+      {/* Global Offices - Subtle */}
+      <div className="relative max-w-7xl mx-auto px-6 md:px-12 py-10 border-b border-white/5">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {/* Malta */}
+          <div>
+            <h5 className="text-zinc-500 text-xs uppercase tracking-wider mb-2 font-medium">Malta</h5>
+            <address className="text-zinc-400 text-sm not-italic leading-relaxed">
+              Seaside Spirit,<br />
+              Triq ix-Xatt, Ta' Xbiex<br />
+              XBX 1020, Malta
+            </address>
+          </div>
+
+          {/* India - Chennai */}
+          <div>
+            <h5 className="text-zinc-500 text-xs uppercase tracking-wider mb-2 font-medium">India — Chennai</h5>
+            <address className="text-zinc-400 text-sm not-italic leading-relaxed">
+              OARC Digital,<br />
+              Olympia Tech Park, SIDCO Industrial Estate,<br />
+              Guindy, Chennai 600032, India
+            </address>
+          </div>
+
+          {/* Dubai - JLT */}
+          <div>
+            <h5 className="text-zinc-500 text-xs uppercase tracking-wider mb-2 font-medium">Dubai — JLT</h5>
+            <address className="text-zinc-400 text-sm not-italic leading-relaxed">
+              OARC Digital,<br />
+              Cluster F, Jumeirah Lake Towers,<br />
+              Dubai, United Arab Emirates
+            </address>
+          </div>
+        </div>
+      </div>
+
       {/* Brand & Bottom Section */}
-      <div className="relative max-w-7xl mx-auto px-6 md:px-12 py-12 border-t border-white/5">
+      <div className="relative max-w-7xl mx-auto px-6 md:px-12 py-12">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8">
           {/* Brand */}
           <div className="flex items-center gap-3">
