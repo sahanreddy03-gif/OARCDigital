@@ -149,6 +149,146 @@ export default function WebDesign() {
         </div>
       </section>
 
+      {/* Who This Service Is For */}
+      <section className="py-20 px-4 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <div className="text-sm uppercase tracking-wider text-[hsl(220,65%,33%)] mb-4">WHO THIS IS FOR</div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              Built for ambitious <span className="italic bg-gradient-to-r from-[hsl(220,65%,33%)] to-[hsl(188,95%,43%)] text-transparent bg-clip-text">growth-focused</span> companies
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="bg-[hsl(210,20%,98%)] rounded-xl p-8 border border-border" data-testid="use-case-saas">
+              <h3 className="text-xl font-bold mb-4">SaaS & Tech Companies</h3>
+              <p className="text-muted-foreground mb-4">
+                High-converting product pages, demo request flows, and trial signup experiences. Built for companies needing measurable ROI from every visitor.
+              </p>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[hsl(220,65%,33%)] flex-shrink-0 mt-0.5" />
+                  <span>Conversion-optimized landing pages</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[hsl(220,65%,33%)] flex-shrink-0 mt-0.5" />
+                  <span>Product demo & trial signup flows</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[hsl(220,65%,33%)] flex-shrink-0 mt-0.5" />
+                  <span>Technical documentation sites</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-[hsl(210,20%,98%)] rounded-xl p-8 border border-border" data-testid="use-case-professional">
+              <h3 className="text-xl font-bold mb-4">Professional Services</h3>
+              <p className="text-muted-foreground mb-4">
+                Premium brand experiences that establish credibility and generate qualified leads. Perfect for consulting, legal, and financial services.
+              </p>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[hsl(220,65%,33%)] flex-shrink-0 mt-0.5" />
+                  <span>Authority-building brand sites</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[hsl(220,65%,33%)] flex-shrink-0 mt-0.5" />
+                  <span>Lead generation & contact forms</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[hsl(220,65%,33%)] flex-shrink-0 mt-0.5" />
+                  <span>Client portal experiences</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-[hsl(210,20%,98%)] rounded-xl p-8 border border-border" data-testid="use-case-ecommerce">
+              <h3 className="text-xl font-bold mb-4">E-commerce & DTC Brands</h3>
+              <p className="text-muted-foreground mb-4">
+                Fast, mobile-optimized shopping experiences with checkout flows that convert. Reduce cart abandonment and increase average order value.
+              </p>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[hsl(220,65%,33%)] flex-shrink-0 mt-0.5" />
+                  <span>Product pages that sell</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[hsl(220,65%,33%)] flex-shrink-0 mt-0.5" />
+                  <span>Optimized checkout experiences</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[hsl(220,65%,33%)] flex-shrink-0 mt-0.5" />
+                  <span>Mobile-first shopping flows</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-[hsl(210,20%,98%)] rounded-xl p-8 border border-border" data-testid="use-case-agencies">
+              <h3 className="text-xl font-bold mb-4">Marketing & Creative Agencies</h3>
+              <p className="text-muted-foreground mb-4">
+                Showcase your work with portfolio sites and project galleries that win clients. Built for agencies that need to stand out.
+              </p>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[hsl(220,65%,33%)] flex-shrink-0 mt-0.5" />
+                  <span>Portfolio & case study showcases</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[hsl(220,65%,33%)] flex-shrink-0 mt-0.5" />
+                  <span>Service page optimization</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[hsl(220,65%,33%)] flex-shrink-0 mt-0.5" />
+                  <span>Client onboarding experiences</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-[hsl(210,20%,98%)] rounded-xl p-8 border border-border" data-testid="use-case-b2b">
+              <h3 className="text-xl font-bold mb-4">B2B Technology</h3>
+              <p className="text-muted-foreground mb-4">
+                Complex products explained simply. Enterprise-grade websites that educate buyers and accelerate sales cycles.
+              </p>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[hsl(220,65%,33%)] flex-shrink-0 mt-0.5" />
+                  <span>Enterprise product showcases</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[hsl(220,65%,33%)] flex-shrink-0 mt-0.5" />
+                  <span>Multi-tier pricing pages</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[hsl(220,65%,33%)] flex-shrink-0 mt-0.5" />
+                  <span>Solution & integration pages</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-[hsl(210,20%,98%)] rounded-xl p-8 border border-border" data-testid="use-case-startups">
+              <h3 className="text-xl font-bold mb-4">Funded Startups</h3>
+              <p className="text-muted-foreground mb-4">
+                Launch fast with MVP websites that can scale. Built for startups needing to validate product-market fit and grow quickly.
+              </p>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[hsl(220,65%,33%)] flex-shrink-0 mt-0.5" />
+                  <span>Rapid MVP launches (7-14 days)</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[hsl(220,65%,33%)] flex-shrink-0 mt-0.5" />
+                  <span>Investor pitch pages</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[hsl(220,65%,33%)] flex-shrink-0 mt-0.5" />
+                  <span>Scalable design systems</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Case Studies */}
       <section className="py-20 px-4 bg-[hsl(210,20%,98%)]">
         <div className="max-w-7xl mx-auto">
@@ -246,6 +386,62 @@ export default function WebDesign() {
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Related Services / Internal CTAs */}
+      <section className="py-20 px-4 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <div className="text-sm uppercase tracking-wider text-[hsl(220,65%,33%)] mb-4">MAXIMIZE YOUR IMPACT</div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              Combine with these <span className="italic bg-gradient-to-r from-[hsl(220,65%,33%)] to-[hsl(188,95%,43%)] text-transparent bg-clip-text">complementary services</span>
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              A great website is just the start. Drive traffic, create content, and convert visitors with our full suite of services.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <Link href="/services/video-production">
+              <div className="group p-8 bg-[hsl(210,20%,98%)] rounded-xl border border-border hover:border-[hsl(220,65%,33%)] hover:shadow-xl transition-all duration-300 cursor-pointer" data-testid="related-service-video">
+                <div className="flex items-start justify-between mb-4">
+                  <h3 className="text-xl font-bold group-hover:text-[hsl(220,65%,33%)] transition-colors">Video Production</h3>
+                  <ArrowRight className="h-5 w-5 text-[hsl(220,65%,33%)] group-hover:translate-x-1 transition-transform" />
+                </div>
+                <p className="text-muted-foreground mb-4">
+                  Bring your website to life with explainer videos, product demos, and testimonials that boost conversions.
+                </p>
+                <div className="text-sm text-[hsl(220,65%,33%)] font-semibold">Learn More →</div>
+              </div>
+            </Link>
+
+            <Link href="/services/paid-advertising">
+              <div className="group p-8 bg-[hsl(210,20%,98%)] rounded-xl border border-border hover:border-[hsl(220,65%,33%)] hover:shadow-xl transition-all duration-300 cursor-pointer" data-testid="related-service-paid">
+                <div className="flex items-start justify-between mb-4">
+                  <h3 className="text-xl font-bold group-hover:text-[hsl(220,65%,33%)] transition-colors">Paid Advertising</h3>
+                  <ArrowRight className="h-5 w-5 text-[hsl(220,65%,33%)] group-hover:translate-x-1 transition-transform" />
+                </div>
+                <p className="text-muted-foreground mb-4">
+                  Drive qualified traffic to your new website with targeted Google, Facebook, and LinkedIn campaigns.
+                </p>
+                <div className="text-sm text-[hsl(220,65%,33%)] font-semibold">Learn More →</div>
+              </div>
+            </Link>
+
+            <Link href="/services/social-media-creative">
+              <div className="group p-8 bg-[hsl(210,20%,98%)] rounded-xl border border-border hover:border-[hsl(220,65%,33%)] hover:shadow-xl transition-all duration-300 cursor-pointer" data-testid="related-service-social">
+                <div className="flex items-start justify-between mb-4">
+                  <h3 className="text-xl font-bold group-hover:text-[hsl(220,65%,33%)] transition-colors">Social Media Creative</h3>
+                  <ArrowRight className="h-5 w-5 text-[hsl(220,65%,33%)] group-hover:translate-x-1 transition-transform" />
+                </div>
+                <p className="text-muted-foreground mb-4">
+                  Keep your brand consistent across all channels with scroll-stopping social content and ad creative.
+                </p>
+                <div className="text-sm text-[hsl(220,65%,33%)] font-semibold">Learn More →</div>
+              </div>
+            </Link>
           </div>
         </div>
       </section>

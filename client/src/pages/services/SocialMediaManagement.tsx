@@ -263,6 +263,202 @@ export default function SocialMediaManagement() {
         </div>
       </section>
 
+      {/* Who This Service Is For */}
+      <section className="py-20 px-4 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <div className="text-sm uppercase tracking-wider text-blue-600 mb-4">WHO THIS IS FOR</div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              Perfect for <span className="italic bg-gradient-to-r from-blue-600 to-purple-600 text-transparent bg-clip-text">brands serious about community</span>
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="bg-blue-50 rounded-xl p-8 border border-blue-100" data-testid="use-case-local">
+              <h3 className="text-xl font-bold mb-4">Local Businesses</h3>
+              <p className="text-gray-700 mb-4">
+                Build local brand awareness and drive foot traffic. Restaurants, retail, service businesses—engage your community where they spend time.
+              </p>
+              <ul className="space-y-2 text-sm text-gray-700">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
+                  <span>Local community building</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
+                  <span>Event promotion & coordination</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
+                  <span>Customer testimonials & UGC</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-blue-50 rounded-xl p-8 border border-blue-100" data-testid="use-case-ecommerce">
+              <h3 className="text-xl font-bold mb-4">E-commerce Brands</h3>
+              <p className="text-gray-700 mb-4">
+                Turn social into a sales channel. Daily posting, community engagement, and customer service that drives conversions and loyalty.
+              </p>
+              <ul className="space-y-2 text-sm text-gray-700">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
+                  <span>Product-focused content</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
+                  <span>Social commerce optimization</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
+                  <span>DM customer service & sales</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-blue-50 rounded-xl p-8 border border-blue-100" data-testid="use-case-hospitality">
+              <h3 className="text-xl font-bold mb-4">Hospitality & Travel</h3>
+              <p className="text-gray-700 mb-4">
+                Showcase experiences and drive bookings. Hotels, resorts, tour operators—inspire travelers with stunning visual storytelling.
+              </p>
+              <ul className="space-y-2 text-sm text-gray-700">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
+                  <span>Destination content & highlights</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
+                  <span>Guest testimonials & reviews</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
+                  <span>Seasonal offer promotion</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-blue-50 rounded-xl p-8 border border-blue-100" data-testid="use-case-fitness">
+              <h3 className="text-xl font-bold mb-4">Fitness & Wellness</h3>
+              <p className="text-gray-700 mb-4">
+                Build engaged communities that support your members. Studios, gyms, wellness brands—inspire and motivate through social.
+              </p>
+              <ul className="space-y-2 text-sm text-gray-700">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
+                  <span>Member spotlights & transformations</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
+                  <span>Workout tips & motivation</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
+                  <span>Class & event promotion</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-blue-50 rounded-xl p-8 border border-blue-100" data-testid="use-case-professional">
+              <h3 className="text-xl font-bold mb-4">Professional Services</h3>
+              <p className="text-gray-700 mb-4">
+                Build thought leadership and trust. Law firms, consultants, agencies—position your expertise through consistent social presence.
+              </p>
+              <ul className="space-y-2 text-sm text-gray-700">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
+                  <span>Thought leadership content</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
+                  <span>Industry insights & trends</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
+                  <span>Client testimonials & case studies</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-blue-50 rounded-xl p-8 border border-blue-100" data-testid="use-case-realestate">
+              <h3 className="text-xl font-bold mb-4">Real Estate</h3>
+              <p className="text-gray-700 mb-4">
+                Showcase properties and build local authority. Agents, brokers, developers—turn social into a lead generation machine.
+              </p>
+              <ul className="space-y-2 text-sm text-gray-700">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
+                  <span>Property showcase content</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
+                  <span>Market updates & insights</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
+                  <span>Community & neighborhood features</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Related Services */}
+      <section className="py-20 px-4 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <div className="text-sm uppercase tracking-wider text-blue-600 mb-4">AMPLIFY YOUR IMPACT</div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              Combine with <span className="italic bg-gradient-to-r from-blue-600 to-purple-600 text-transparent bg-clip-text">these services</span>
+            </h2>
+            <p className="text-lg text-gray-700 max-w-3xl mx-auto">
+              Social management is most powerful when paired with creative production and paid amplification.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <Link href="/services/social-media-creative">
+              <div className="group p-8 bg-blue-50 rounded-xl border border-blue-100 hover:border-blue-600 hover:shadow-xl transition-all duration-300 cursor-pointer" data-testid="related-service-creative">
+                <div className="flex items-start justify-between mb-4">
+                  <h3 className="text-xl font-bold group-hover:text-blue-600 transition-colors">Social Creative Production</h3>
+                  <ArrowRight className="h-5 w-5 text-blue-600 group-hover:translate-x-1 transition-transform" />
+                </div>
+                <p className="text-gray-700 mb-4">
+                  Professional content creation that elevates your social presence. High-quality visuals that stop the scroll.
+                </p>
+                <div className="text-sm text-blue-600 font-semibold">Learn More →</div>
+              </div>
+            </Link>
+
+            <Link href="/services/paid-advertising">
+              <div className="group p-8 bg-blue-50 rounded-xl border border-blue-100 hover:border-blue-600 hover:shadow-xl transition-all duration-300 cursor-pointer" data-testid="related-service-paid">
+                <div className="flex items-start justify-between mb-4">
+                  <h3 className="text-xl font-bold group-hover:text-blue-600 transition-colors">Paid Advertising</h3>
+                  <ArrowRight className="h-5 w-5 text-blue-600 group-hover:translate-x-1 transition-transform" />
+                </div>
+                <p className="text-gray-700 mb-4">
+                  Amplify your best organic content with paid campaigns. Turn engaged followers into customers.
+                </p>
+                <div className="text-sm text-blue-600 font-semibold">Learn More →</div>
+              </div>
+            </Link>
+
+            <Link href="/services/influencer-marketing">
+              <div className="group p-8 bg-blue-50 rounded-xl border border-blue-100 hover:border-blue-600 hover:shadow-xl transition-all duration-300 cursor-pointer" data-testid="related-service-influencer">
+                <div className="flex items-start justify-between mb-4">
+                  <h3 className="text-xl font-bold group-hover:text-blue-600 transition-colors">Influencer Marketing</h3>
+                  <ArrowRight className="h-5 w-5 text-blue-600 group-hover:translate-x-1 transition-transform" />
+                </div>
+                <p className="text-gray-700 mb-4">
+                  Expand reach through creator partnerships. Authentic content that builds trust and drives awareness.
+                </p>
+                <div className="text-sm text-blue-600 font-semibold">Learn More →</div>
+              </div>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-20 px-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
         <div className="max-w-4xl mx-auto text-center">

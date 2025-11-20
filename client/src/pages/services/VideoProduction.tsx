@@ -152,6 +152,146 @@ export default function VideoProduction() {
         </div>
       </section>
 
+      {/* Who This Service Is For */}
+      <section className="py-20 px-4 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <div className="text-sm uppercase tracking-wider text-purple-600 mb-4">WHO THIS IS FOR</div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              Video content for <span className="italic bg-gradient-to-r from-purple-600 to-pink-600 text-transparent bg-clip-text">every industry</span> and use case
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="bg-purple-50 rounded-xl p-8 border border-border" data-testid="use-case-saas">
+              <h3 className="text-xl font-bold mb-4">SaaS & Tech Companies</h3>
+              <p className="text-muted-foreground mb-4">
+                Explainer videos that simplify complex products and drive trial signups. Perfect for companies needing to educate prospects quickly.
+              </p>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-purple-600 flex-shrink-0 mt-0.5" />
+                  <span>Product explainer videos</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-purple-600 flex-shrink-0 mt-0.5" />
+                  <span>Demo & tutorial videos</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-purple-600 flex-shrink-0 mt-0.5" />
+                  <span>Customer testimonials</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-purple-50 rounded-xl p-8 border border-border" data-testid="use-case-ecommerce">
+              <h3 className="text-xl font-bold mb-4">E-commerce & DTC Brands</h3>
+              <p className="text-muted-foreground mb-4">
+                Product videos and social ads that stop scrollers and drive sales. Built for brands needing content that converts.
+              </p>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-purple-600 flex-shrink-0 mt-0.5" />
+                  <span>Product showcase videos</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-purple-600 flex-shrink-0 mt-0.5" />
+                  <span>Lifestyle & brand storytelling</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-purple-600 flex-shrink-0 mt-0.5" />
+                  <span>UGC-style social ads</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-purple-50 rounded-xl p-8 border border-border" data-testid="use-case-realestate">
+              <h3 className="text-xl font-bold mb-4">Real Estate & Hospitality</h3>
+              <p className="text-muted-foreground mb-4">
+                Cinematic property tours and venue showcases that sell premium experiences and accelerate decision-making.
+              </p>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-purple-600 flex-shrink-0 mt-0.5" />
+                  <span>Property tour videos</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-purple-600 flex-shrink-0 mt-0.5" />
+                  <span>Aerial drone footage</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-purple-600 flex-shrink-0 mt-0.5" />
+                  <span>Virtual walkthroughs</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-purple-50 rounded-xl p-8 border border-border" data-testid="use-case-healthcare">
+              <h3 className="text-xl font-bold mb-4">Healthcare & Medical</h3>
+              <p className="text-muted-foreground mb-4">
+                Patient education and testimonial videos that build trust and communicate complex medical information clearly.
+              </p>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-purple-600 flex-shrink-0 mt-0.5" />
+                  <span>Patient testimonials</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-purple-600 flex-shrink-0 mt-0.5" />
+                  <span>Procedure explainers</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-purple-600 flex-shrink-0 mt-0.5" />
+                  <span>Medical device demos</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-purple-50 rounded-xl p-8 border border-border" data-testid="use-case-education">
+              <h3 className="text-xl font-bold mb-4">Education & E-learning</h3>
+              <p className="text-muted-foreground mb-4">
+                Engaging educational content and course marketing videos that drive enrollments and improve learning outcomes.
+              </p>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-purple-600 flex-shrink-0 mt-0.5" />
+                  <span>Course promo videos</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-purple-600 flex-shrink-0 mt-0.5" />
+                  <span>Animated lesson content</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-purple-600 flex-shrink-0 mt-0.5" />
+                  <span>Student success stories</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-purple-50 rounded-xl p-8 border border-border" data-testid="use-case-corporate">
+              <h3 className="text-xl font-bold mb-4">Corporate & Enterprise</h3>
+              <p className="text-muted-foreground mb-4">
+                Internal communications, recruitment videos, and brand documentaries for large organizations.
+              </p>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-purple-600 flex-shrink-0 mt-0.5" />
+                  <span>Company culture videos</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-purple-600 flex-shrink-0 mt-0.5" />
+                  <span>Executive messaging</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-purple-600 flex-shrink-0 mt-0.5" />
+                  <span>Training & onboarding</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Case Studies */}
       <section className="py-20 px-4 bg-[hsl(270,100%,98%)]">
         <div className="max-w-7xl mx-auto">
@@ -249,6 +389,62 @@ export default function VideoProduction() {
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Related Services / Internal CTAs */}
+      <section className="py-20 px-4 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <div className="text-sm uppercase tracking-wider text-purple-600 mb-4">AMPLIFY YOUR IMPACT</div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              Pair video with these <span className="italic bg-gradient-to-r from-purple-600 to-pink-600 text-transparent bg-clip-text">powerful services</span>
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              Great video content deserves great distribution. Maximize ROI by combining video production with our complementary services.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <Link href="/services/web-design">
+              <div className="group p-8 bg-purple-50 rounded-xl border border-border hover:border-purple-600 hover:shadow-xl transition-all duration-300 cursor-pointer" data-testid="related-service-web">
+                <div className="flex items-start justify-between mb-4">
+                  <h3 className="text-xl font-bold group-hover:text-purple-600 transition-colors">Web Design</h3>
+                  <ArrowRight className="h-5 w-5 text-purple-600 group-hover:translate-x-1 transition-transform" />
+                </div>
+                <p className="text-muted-foreground mb-4">
+                  Embed your video content in high-converting landing pages and product showcases that turn viewers into customers.
+                </p>
+                <div className="text-sm text-purple-600 font-semibold">Learn More →</div>
+              </div>
+            </Link>
+
+            <Link href="/services/social-media-creative">
+              <div className="group p-8 bg-purple-50 rounded-xl border border-border hover:border-purple-600 hover:shadow-xl transition-all duration-300 cursor-pointer" data-testid="related-service-social">
+                <div className="flex items-start justify-between mb-4">
+                  <h3 className="text-xl font-bold group-hover:text-purple-600 transition-colors">Social Media Creative</h3>
+                  <ArrowRight className="h-5 w-5 text-purple-600 group-hover:translate-x-1 transition-transform" />
+                </div>
+                <p className="text-muted-foreground mb-4">
+                  Repurpose your video content into scroll-stopping social assets optimized for Instagram, TikTok, LinkedIn, and Facebook.
+                </p>
+                <div className="text-sm text-purple-600 font-semibold">Learn More →</div>
+              </div>
+            </Link>
+
+            <Link href="/services/paid-advertising">
+              <div className="group p-8 bg-purple-50 rounded-xl border border-border hover:border-purple-600 hover:shadow-xl transition-all duration-300 cursor-pointer" data-testid="related-service-paid">
+                <div className="flex items-start justify-between mb-4">
+                  <h3 className="text-xl font-bold group-hover:text-purple-600 transition-colors">Paid Advertising</h3>
+                  <ArrowRight className="h-5 w-5 text-purple-600 group-hover:translate-x-1 transition-transform" />
+                </div>
+                <p className="text-muted-foreground mb-4">
+                  Drive targeted traffic to your video content with YouTube ads, Facebook video campaigns, and LinkedIn sponsored content.
+                </p>
+                <div className="text-sm text-purple-600 font-semibold">Learn More →</div>
+              </div>
+            </Link>
           </div>
         </div>
       </section>

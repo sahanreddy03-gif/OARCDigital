@@ -243,6 +243,202 @@ export default function PresentationPitch() {
         </div>
       </section>
 
+      {/* Who This Service Is For */}
+      <section className="py-20 px-4 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <div className="text-sm uppercase tracking-wider text-[hsl(220,70%,50%)] mb-4">WHO THIS IS FOR</div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              Built for those who <span className="italic bg-gradient-to-r from-[hsl(220,70%,50%)] to-[hsl(260,70%,60%)] text-transparent bg-clip-text">need to persuade</span>
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="bg-[hsl(210,20%,98%)] rounded-xl p-8 border border-border hover-elevate" data-testid="use-case-startups">
+              <h3 className="text-xl font-bold mb-4">Venture-Backed Startups</h3>
+              <p className="text-muted-foreground mb-4">
+                Raise your next round with pitch decks that tell a compelling story. From seed to Series C, communicate traction, vision, and opportunity clearly.
+              </p>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#16a34a] flex-shrink-0 mt-0.5" />
+                  <span>Investor pitch decks for seed through Series C</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#16a34a] flex-shrink-0 mt-0.5" />
+                  <span>Financial projections and market analysis visualization</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#16a34a] flex-shrink-0 mt-0.5" />
+                  <span>Demo day presentations and roadshow materials</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-[hsl(210,20%,98%)] rounded-xl p-8 border border-border hover-elevate" data-testid="use-case-sales">
+              <h3 className="text-xl font-bold mb-4">Enterprise Sales Teams</h3>
+              <p className="text-muted-foreground mb-4">
+                Close bigger deals faster with sales decks that demonstrate ROI and address decision-maker concerns. Tailored for each prospect, built to convert.
+              </p>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#16a34a] flex-shrink-0 mt-0.5" />
+                  <span>Enterprise sales presentations with ROI calculators</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#16a34a] flex-shrink-0 mt-0.5" />
+                  <span>Customizable templates for prospect-specific pitches</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#16a34a] flex-shrink-0 mt-0.5" />
+                  <span>Case study showcases and proof-of-value slides</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-[hsl(210,20%,98%)] rounded-xl p-8 border border-border hover-elevate" data-testid="use-case-executives">
+              <h3 className="text-xl font-bold mb-4">C-Suite Executives</h3>
+              <p className="text-muted-foreground mb-4">
+                Board presentations, quarterly reviews, and strategic initiatives. Present complex data with clarity and make informed decisions faster.
+              </p>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#16a34a] flex-shrink-0 mt-0.5" />
+                  <span>Board meeting decks with KPI dashboards</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#16a34a] flex-shrink-0 mt-0.5" />
+                  <span>Quarterly business reviews and strategic planning</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#16a34a] flex-shrink-0 mt-0.5" />
+                  <span>Executive briefing materials and decision frameworks</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-[hsl(210,20%,98%)] rounded-xl p-8 border border-border hover-elevate" data-testid="use-case-consultants">
+              <h3 className="text-xl font-bold mb-4">Consulting Firms</h3>
+              <p className="text-muted-foreground mb-4">
+                Deliver client recommendations with polished, professional presentations. Strategic frameworks, findings, and action plans that drive implementation.
+              </p>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#16a34a] flex-shrink-0 mt-0.5" />
+                  <span>Strategy consulting deliverables and frameworks</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#16a34a] flex-shrink-0 mt-0.5" />
+                  <span>Client presentations and recommendation reports</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#16a34a] flex-shrink-0 mt-0.5" />
+                  <span>Workshop materials and stakeholder briefings</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-[hsl(210,20%,98%)] rounded-xl p-8 border border-border hover-elevate" data-testid="use-case-product">
+              <h3 className="text-xl font-bold mb-4">Product Teams & PMs</h3>
+              <p className="text-muted-foreground mb-4">
+                Launch products with compelling narratives. Roadmap presentations, feature announcements, and stakeholder updates that align teams and drive action.
+              </p>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#16a34a] flex-shrink-0 mt-0.5" />
+                  <span>Product launch presentations and go-to-market plans</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#16a34a] flex-shrink-0 mt-0.5" />
+                  <span>Roadmap reviews and feature prioritization decks</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#16a34a] flex-shrink-0 mt-0.5" />
+                  <span>Stakeholder alignment and cross-team presentations</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-[hsl(210,20%,98%)] rounded-xl p-8 border border-border hover-elevate" data-testid="use-case-speakers">
+              <h3 className="text-xl font-bold mb-4">Keynote Speakers & Thought Leaders</h3>
+              <p className="text-muted-foreground mb-4">
+                Command the stage with presentations that inspire and engage. From conference keynotes to webinars, deliver talks that resonate.
+              </p>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#16a34a] flex-shrink-0 mt-0.5" />
+                  <span>Conference keynotes and TEDx-style presentations</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#16a34a] flex-shrink-0 mt-0.5" />
+                  <span>Webinar slides and virtual presentation materials</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#16a34a] flex-shrink-0 mt-0.5" />
+                  <span>Speaker support decks and rehearsal materials</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Related Services */}
+      <section className="py-20 px-4 bg-[hsl(220,10%,98%)]">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <div className="text-sm uppercase tracking-wider text-[hsl(220,70%,50%)] mb-4">MAXIMIZE IMPACT</div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              Amplify your message with <span className="italic bg-gradient-to-r from-[hsl(220,70%,50%)] to-[hsl(260,70%,60%)] text-transparent bg-clip-text">complementary services</span>
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              A great pitch deck is just the beginning. Strengthen your brand, support it with data, and bring it to life with video.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <Link href="/services/branding">
+              <div className="group p-8 bg-white rounded-xl border border-border hover:border-[hsl(220,70%,50%)] hover:shadow-xl transition-all duration-300 cursor-pointer hover-elevate" data-testid="related-service-branding">
+                <div className="flex items-start justify-between mb-4">
+                  <h3 className="text-xl font-bold group-hover:text-[hsl(220,70%,50%)] transition-colors">Branding Services</h3>
+                  <ArrowRight className="h-5 w-5 text-[hsl(220,70%,50%)] group-hover:translate-x-1 transition-transform" />
+                </div>
+                <p className="text-muted-foreground mb-4">
+                  Strengthen your presentation with a cohesive brand identity. Ensure every slide reflects your professional positioning.
+                </p>
+                <div className="text-sm text-[hsl(220,70%,50%)] font-semibold">Learn More →</div>
+              </div>
+            </Link>
+
+            <Link href="/services/video-production">
+              <div className="group p-8 bg-white rounded-xl border border-border hover:border-[hsl(220,70%,50%)] hover:shadow-xl transition-all duration-300 cursor-pointer hover-elevate" data-testid="related-service-video">
+                <div className="flex items-start justify-between mb-4">
+                  <h3 className="text-xl font-bold group-hover:text-[hsl(220,70%,50%)] transition-colors">Video Production</h3>
+                  <ArrowRight className="h-5 w-5 text-[hsl(220,70%,50%)] group-hover:translate-x-1 transition-transform" />
+                </div>
+                <p className="text-muted-foreground mb-4">
+                  Embed product demos and customer testimonials in your deck. Video brings your story to life and increases engagement.
+                </p>
+                <div className="text-sm text-[hsl(220,70%,50%)] font-semibold">Learn More →</div>
+              </div>
+            </Link>
+
+            <Link href="/services/customer-acquisition">
+              <div className="group p-8 bg-white rounded-xl border border-border hover:border-[hsl(220,70%,50%)] hover:shadow-xl transition-all duration-300 cursor-pointer hover-elevate" data-testid="related-service-growth">
+                <div className="flex items-start justify-between mb-4">
+                  <h3 className="text-xl font-bold group-hover:text-[hsl(220,70%,50%)] transition-colors">Customer Acquisition</h3>
+                  <ArrowRight className="h-5 w-5 text-[hsl(220,70%,50%)] group-hover:translate-x-1 transition-transform" />
+                </div>
+                <p className="text-muted-foreground mb-4">
+                  Back your pitch with growth data. Show investors and buyers that you have a repeatable, scalable acquisition engine.
+                </p>
+                <div className="text-sm text-[hsl(220,70%,50%)] font-semibold">Learn More →</div>
+              </div>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="py-20 px-4 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-[hsl(220,70%,50%)] via-[hsl(240,70%,55%)] to-[hsl(260,70%,60%)]"></div>

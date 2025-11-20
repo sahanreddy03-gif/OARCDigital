@@ -259,6 +259,188 @@ export default function SocialMediaCreative() {
         </div>
       </section>
 
+      {/* Who This Service Is For */}
+      <section className="py-20 px-4 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center">
+            Who This Service Is For
+          </h2>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="p-8 bg-white border border-border rounded-xl hover-elevate" data-testid="use-case-ecommerce-dtc">
+              <h3 className="text-2xl font-bold mb-4">E-commerce & DTC Brands</h3>
+              <p className="text-lg text-muted-foreground mb-4">
+                Brands selling physical products need constant content to drive sales and build community. We create scroll-stopping content that converts followers into customers.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Product showcase content optimized for conversions</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">UGC-style content that drives authentic engagement</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Campaign creative for launches and seasonal promotions</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="p-8 bg-white border border-border rounded-xl hover-elevate" data-testid="use-case-content-creators">
+              <h3 className="text-2xl font-bold mb-4">Content Creators & Influencers</h3>
+              <p className="text-lg text-muted-foreground mb-4">
+                Creators need consistent, high-quality content to maintain growth and monetization. We help you post daily without burnout.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Daily content calendar with platform-specific posts</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Trending audio and effect integration</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Brand partnership content that maintains authenticity</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="p-8 bg-white border border-border rounded-xl hover-elevate" data-testid="use-case-food-beverage">
+              <h3 className="text-2xl font-bold mb-4">Food & Beverage Brands</h3>
+              <p className="text-lg text-muted-foreground mb-4">
+                Visual-first industries need stunning content that makes mouths water and drives foot traffic or online orders.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Appetizing food photography and videography</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Behind-the-scenes kitchen and team content</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Location-specific content for multi-location businesses</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="p-8 bg-white border border-border rounded-xl hover-elevate" data-testid="use-case-wellness-fitness">
+              <h3 className="text-2xl font-bold mb-4">Wellness & Fitness Coaches</h3>
+              <p className="text-lg text-muted-foreground mb-4">
+                Build authority and attract clients with educational content that demonstrates expertise and results.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Educational carousels and infographics</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Transformation stories and client testimonials</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Tip videos and workout demonstrations</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="p-8 bg-white border border-border rounded-xl hover-elevate" data-testid="use-case-saas-tech">
+              <h3 className="text-2xl font-bold mb-4">SaaS & Tech Companies</h3>
+              <p className="text-lg text-muted-foreground mb-4">
+                Humanize your tech brand with engaging content that educates prospects and nurtures leads through the buying journey.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Product tip videos and feature showcases</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Customer success stories and use cases</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Industry insights and thought leadership content</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="p-8 bg-white border border-border rounded-xl hover-elevate" data-testid="use-case-lifestyle-fashion">
+              <h3 className="text-2xl font-bold mb-4">Lifestyle & Fashion Brands</h3>
+              <p className="text-lg text-muted-foreground mb-4">
+                Aesthetic-first content that builds brand desire and drives engagement in highly competitive visual markets.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Trend-aware styling and lookbook content</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Influencer collaboration and partnership content</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Seasonal campaigns and collection launches</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Related Services */}
+      <section className="py-16 px-4 bg-zinc-50">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">
+            Services That Work Great Together
+          </h2>
+          <div className="grid md:grid-cols-3 gap-6">
+            <Link href="/services/social-media-management">
+              <div className="p-6 bg-white border border-border rounded-xl hover-elevate cursor-pointer transition-all" data-testid="related-service-social-management">
+                <h3 className="text-xl font-bold mb-3">Social Media Management</h3>
+                <p className="text-muted-foreground mb-4">
+                  We create the content—add full community management, scheduling, and strategy to maximize ROI.
+                </p>
+                <div className="flex items-center text-[hsl(262,83%,58%)] font-semibold">
+                  Learn More <ArrowRight className="w-4 h-4 ml-2" />
+                </div>
+              </div>
+            </Link>
+
+            <Link href="/services/paid-advertising">
+              <div className="p-6 bg-white border border-border rounded-xl hover-elevate cursor-pointer transition-all" data-testid="related-service-paid-ads">
+                <h3 className="text-xl font-bold mb-3">Paid Advertising</h3>
+                <p className="text-muted-foreground mb-4">
+                  Amplify your best-performing social content with targeted paid campaigns that drive measurable results.
+                </p>
+                <div className="flex items-center text-[hsl(262,83%,58%)] font-semibold">
+                  Learn More <ArrowRight className="w-4 h-4 ml-2" />
+                </div>
+              </div>
+            </Link>
+
+            <Link href="/services/influencer-marketing">
+              <div className="p-6 bg-white border border-border rounded-xl hover-elevate cursor-pointer transition-all" data-testid="related-service-influencer">
+                <h3 className="text-xl font-bold mb-3">Influencer Marketing</h3>
+                <p className="text-muted-foreground mb-4">
+                  Scale your social presence with influencer partnerships and authentic creator collaborations.
+                </p>
+                <div className="flex items-center text-[hsl(262,83%,58%)] font-semibold">
+                  Learn More <ArrowRight className="w-4 h-4 ml-2" />
+                </div>
+              </div>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Final CTA */}
       <section className="py-20 px-4 bg-gradient-to-br from-[hsl(262,83%,58%)] to-[hsl(330,81%,60%)] text-white">
         <div className="max-w-4xl mx-auto text-center">

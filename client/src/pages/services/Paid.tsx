@@ -588,6 +588,205 @@ export default function Paid() {
         </div>
       </section>
 
+      {/* Who This Service Is For */}
+      <section className="py-16 px-4 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <div className="text-sm uppercase tracking-wider text-black mb-3">WHO THIS IS FOR</div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+              For brands ready to <span className="italic text-[#5FD4C4]">scale with paid</span>
+            </h2>
+            <p className="text-lg text-gray-700 max-w-2xl mx-auto">
+              Performance-driven paid media strategies for every growth stage
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="p-6 rounded-xl bg-gray-50 border border-gray-200 hover-elevate" data-testid="use-case-ecommerce">
+              <h3 className="text-xl font-bold mb-3">E-commerce Brands</h3>
+              <p className="text-sm text-gray-700 mb-4">
+                Scale revenue with profitable paid campaigns across Google Shopping, Facebook, Instagram, and TikTok. Lower CAC while increasing LTV and ROAS.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <span>Shopping feed optimization</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <span>Dynamic retargeting</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <span>ROAS optimization</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="p-6 rounded-xl bg-gray-50 border border-gray-200 hover-elevate" data-testid="use-case-b2b-saas">
+              <h3 className="text-xl font-bold mb-3">B2B SaaS</h3>
+              <p className="text-sm text-gray-700 mb-4">
+                Generate qualified leads and demos with LinkedIn, Google Ads, and programmatic display. Build full-funnel campaigns that drive pipeline growth.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <span>LinkedIn lead generation</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <span>Search intent targeting</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <span>ABM campaigns</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="p-6 rounded-xl bg-gray-50 border border-gray-200 hover-elevate" data-testid="use-case-dtc">
+              <h3 className="text-xl font-bold mb-3">DTC Brands</h3>
+              <p className="text-sm text-gray-700 mb-4">
+                Build brand awareness and drive direct sales with omnichannel paid strategies. Test, iterate, and scale winners across Meta, TikTok, and Google.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <span>Creative testing frameworks</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <span>Multi-platform scaling</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <span>Brand lift measurement</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="p-6 rounded-xl bg-gray-50 border border-gray-200 hover-elevate" data-testid="use-case-mobile-apps">
+              <h3 className="text-xl font-bold mb-3">Mobile Apps</h3>
+              <p className="text-sm text-gray-700 mb-4">
+                Drive app installs and in-app conversions with performance campaigns across Apple Search Ads, Google UAC, and social platforms.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <span>App install optimization</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <span>In-app event tracking</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <span>LTV-based bidding</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="p-6 rounded-xl bg-gray-50 border border-gray-200 hover-elevate" data-testid="use-case-local-businesses">
+              <h3 className="text-xl font-bold mb-3">Local Businesses</h3>
+              <p className="text-sm text-gray-700 mb-4">
+                Drive foot traffic and local conversions with geo-targeted campaigns. Dominate local search and capture high-intent customers in your area.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <span>Local search domination</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <span>Geo-targeted campaigns</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <span>Store visit tracking</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="p-6 rounded-xl bg-gray-50 border border-gray-200 hover-elevate" data-testid="use-case-enterprise">
+              <h3 className="text-xl font-bold mb-3">Enterprise Brands</h3>
+              <p className="text-sm text-gray-700 mb-4">
+                Execute complex multi-market campaigns with advanced attribution, custom reporting, and strategic media planning across all channels.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <span>Multi-market coordination</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <span>Advanced attribution</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <span>Custom analytics dashboards</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Related Services */}
+      <section className="py-16 px-4 bg-gray-50">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <div className="text-sm uppercase tracking-wider text-black mb-3">MAXIMIZE PAID PERFORMANCE</div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+              Combine with these <span className="italic text-[#5FD4C4]">performance services</span>
+            </h2>
+            <p className="text-lg text-gray-700 max-w-2xl mx-auto">
+              Build a complete paid media engine that drives results
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            <Link href="/services/creative-services">
+              <div className="group p-8 bg-white rounded-xl border border-gray-200 hover:border-[#5FD4C4] hover:shadow-lg transition-all duration-300 cursor-pointer hover-elevate" data-testid="related-service-creative">
+                <div className="flex items-start justify-between mb-4">
+                  <h3 className="text-xl font-bold group-hover:text-[#5FD4C4] transition-colors">Creative Services</h3>
+                  <ArrowRight className="h-5 w-5 text-[#5FD4C4] group-hover:translate-x-1 transition-transform" />
+                </div>
+                <p className="text-sm text-gray-700 mb-4">
+                  Fuel your paid campaigns with high-converting creative. Test more, win more with platform-optimized ad creative at scale.
+                </p>
+                <div className="text-sm text-[#5FD4C4] font-semibold">Learn More →</div>
+              </div>
+            </Link>
+
+            <Link href="/services/analytics-tracking">
+              <div className="group p-8 bg-white rounded-xl border border-gray-200 hover:border-[#5FD4C4] hover:shadow-lg transition-all duration-300 cursor-pointer hover-elevate" data-testid="related-service-analytics">
+                <div className="flex items-start justify-between mb-4">
+                  <h3 className="text-xl font-bold group-hover:text-[#5FD4C4] transition-colors">Analytics & Tracking</h3>
+                  <ArrowRight className="h-5 w-5 text-[#5FD4C4] group-hover:translate-x-1 transition-transform" />
+                </div>
+                <p className="text-sm text-gray-700 mb-4">
+                  Make data-driven decisions with proper attribution, conversion tracking, and custom dashboards that show true paid media ROI.
+                </p>
+                <div className="text-sm text-[#5FD4C4] font-semibold">Learn More →</div>
+              </div>
+            </Link>
+
+            <Link href="/services/funnel-automation">
+              <div className="group p-8 bg-white rounded-xl border border-gray-200 hover:border-[#5FD4C4] hover:shadow-lg transition-all duration-300 cursor-pointer hover-elevate" data-testid="related-service-funnel-automation">
+                <div className="flex items-start justify-between mb-4">
+                  <h3 className="text-xl font-bold group-hover:text-[#5FD4C4] transition-colors">Funnel Automation</h3>
+                  <ArrowRight className="h-5 w-5 text-[#5FD4C4] group-hover:translate-x-1 transition-transform" />
+                </div>
+                <p className="text-sm text-gray-700 mb-4">
+                  Nurture paid traffic automatically with behavioral triggers and sequences that convert cold clicks into hot customers.
+                </p>
+                <div className="text-sm text-[#5FD4C4] font-semibold">Learn More →</div>
+              </div>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Final CTA Section */}
       <section className="py-14 px-4 bg-white">
         <div className="max-w-4xl mx-auto">

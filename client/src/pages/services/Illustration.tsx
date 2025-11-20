@@ -224,6 +224,188 @@ export default function Illustration() {
         </div>
       </section>
 
+      {/* Who This Service Is For */}
+      <section className="py-20 px-4 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center">
+            Who This Service Is For
+          </h2>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="p-8 bg-white border border-border rounded-xl hover-elevate" data-testid="use-case-dtc-ecommerce">
+              <h3 className="text-2xl font-bold mb-4">DTC & E-commerce Brands</h3>
+              <p className="text-lg text-muted-foreground mb-4">
+                Stand out from competitors using stock photos with custom illustrations that build brand recognition and emotional connection.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Product lifestyle and usage illustrations</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Packaging and label artwork</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Social media and email campaign graphics</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="p-8 bg-white border border-border rounded-xl hover-elevate" data-testid="use-case-tech-saas">
+              <h3 className="text-2xl font-bold mb-4">Tech & SaaS Companies</h3>
+              <p className="text-lg text-muted-foreground mb-4">
+                Simplify complex products and processes with clear, engaging illustrations that make technical concepts accessible.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Product feature and UI illustrations</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Technical diagrams and flowcharts</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Empty state and onboarding illustrations</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="p-8 bg-white border border-border rounded-xl hover-elevate" data-testid="use-case-publishers">
+              <h3 className="text-2xl font-bold mb-4">Publishers & Content Creators</h3>
+              <p className="text-lg text-muted-foreground mb-4">
+                Elevate editorial content with custom artwork that captures attention and makes articles instantly shareable.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Magazine covers and feature illustrations</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Blog header and social share graphics</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Infographics and data visualizations</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="p-8 bg-white border border-border rounded-xl hover-elevate" data-testid="use-case-childrens-brands">
+              <h3 className="text-2xl font-bold mb-4">Children's Brands & Education</h3>
+              <p className="text-lg text-muted-foreground mb-4">
+                Create engaging, age-appropriate illustrations that delight young audiences while building trust with parents.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Children's book and educational materials</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Character design for apps and games</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Learning material illustrations</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="p-8 bg-white border border-border rounded-xl hover-elevate" data-testid="use-case-health-wellness">
+              <h3 className="text-2xl font-bold mb-4">Health & Wellness Brands</h3>
+              <p className="text-lg text-muted-foreground mb-4">
+                Communicate care and expertise with approachable, calming illustrations that build trust in sensitive industries.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Medical and wellness infographics</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Patient education materials</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Product benefit visualizations</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="p-8 bg-white border border-border rounded-xl hover-elevate" data-testid="use-case-agencies">
+              <h3 className="text-2xl font-bold mb-4">Agencies & Marketing Teams</h3>
+              <p className="text-lg text-muted-foreground mb-4">
+                Add custom illustration capabilities to your team without hiring full-time illustrators or dealing with freelancer inconsistency.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">White-label illustration services</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Campaign and pitch deck visuals</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Scalable creative production</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Related Services */}
+      <section className="py-16 px-4 bg-[hsl(340,10%,98%)]">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">
+            Services That Work Great Together
+          </h2>
+          <div className="grid md:grid-cols-3 gap-6">
+            <Link href="/services/branding">
+              <div className="p-6 bg-white border border-border rounded-xl hover-elevate cursor-pointer transition-all" data-testid="related-service-branding">
+                <h3 className="text-xl font-bold mb-3">Branding Services</h3>
+                <p className="text-muted-foreground mb-4">
+                  Build a complete visual identity with custom illustrations integrated into your brand system.
+                </p>
+                <div className="flex items-center text-[hsl(340,75%,55%)] font-semibold">
+                  Learn More <ArrowRight className="w-4 h-4 ml-2" />
+                </div>
+              </div>
+            </Link>
+
+            <Link href="/services/motion-design">
+              <div className="p-6 bg-white border border-border rounded-xl hover-elevate cursor-pointer transition-all" data-testid="related-service-motion-design">
+                <h3 className="text-xl font-bold mb-3">Motion Design</h3>
+                <p className="text-muted-foreground mb-4">
+                  Bring your custom illustrations to life with professional animation and motion graphics.
+                </p>
+                <div className="flex items-center text-[hsl(340,75%,55%)] font-semibold">
+                  Learn More <ArrowRight className="w-4 h-4 ml-2" />
+                </div>
+              </div>
+            </Link>
+
+            <Link href="/services/print-packaging">
+              <div className="p-6 bg-white border border-border rounded-xl hover-elevate cursor-pointer transition-all" data-testid="related-service-print-packaging">
+                <h3 className="text-xl font-bold mb-3">Print & Packaging Design</h3>
+                <p className="text-muted-foreground mb-4">
+                  Apply your custom illustrations to physical packaging and print materials for a cohesive brand experience.
+                </p>
+                <div className="flex items-center text-[hsl(340,75%,55%)] font-semibold">
+                  Learn More <ArrowRight className="w-4 h-4 ml-2" />
+                </div>
+              </div>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Final CTA */}
       <section className="py-20 px-4 bg-gradient-to-br from-[hsl(340,75%,55%)] to-[hsl(10,80%,65%)] text-white">
         <div className="max-w-4xl mx-auto text-center">

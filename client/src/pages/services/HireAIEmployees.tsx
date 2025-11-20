@@ -308,6 +308,146 @@ export default function HireAIEmployees() {
         </div>
       </section>
 
+      {/* Who This Service Is For */}
+      <section className="py-14 px-4 bg-zinc-50">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-black text-black mb-2">
+            Who <span className="text-[#5FD4C4]">We Serve</span>
+          </h2>
+          <p className="text-base text-gray-700 mb-8">
+            AI engineering teams that seamlessly integrate with your organization
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="bg-white rounded-2xl p-8 border-2 border-gray-100" data-testid="use-case-startups">
+              <h3 className="text-xl font-bold text-black mb-4">Tech Startups & Scale-ups</h3>
+              <p className="text-sm text-gray-600 mb-4">
+                Move faster without the overhead of traditional hiring. Build AI features and products with experienced teams ready to ship on day one.
+              </p>
+              <ul className="space-y-2 text-sm text-gray-700">
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <span>Rapid MVP development</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <span>Cost-effective scaling</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <span>Flexible team size</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-white rounded-2xl p-8 border-2 border-gray-100" data-testid="use-case-enterprise">
+              <h3 className="text-xl font-bold text-black mb-4">Enterprise Companies</h3>
+              <p className="text-sm text-gray-600 mb-4">
+                Augment existing teams with specialized AI talent for major initiatives without long-term hiring commitments.
+              </p>
+              <ul className="space-y-2 text-sm text-gray-700">
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <span>Fill critical skill gaps</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <span>Project-based augmentation</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <span>Enterprise-grade security</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-white rounded-2xl p-8 border-2 border-gray-100" data-testid="use-case-saas">
+              <h3 className="text-xl font-bold text-black mb-4">SaaS & Software Companies</h3>
+              <p className="text-sm text-gray-600 mb-4">
+                Accelerate product development with ML engineers who understand SaaS metrics, user experience, and scalability challenges.
+              </p>
+              <ul className="space-y-2 text-sm text-gray-700">
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <span>AI feature development</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <span>Model optimization</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <span>Production deployment</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-white rounded-2xl p-8 border-2 border-gray-100" data-testid="use-case-agencies">
+              <h3 className="text-xl font-bold text-black mb-4">Agencies & Consultancies</h3>
+              <p className="text-sm text-gray-600 mb-4">
+                Deliver AI solutions to clients without maintaining a full-time AI engineering team. Scale capacity up or down with demand.
+              </p>
+              <ul className="space-y-2 text-sm text-gray-700">
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <span>White-label AI services</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <span>Client project support</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <span>Flexible engagement</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-white rounded-2xl p-8 border-2 border-gray-100" data-testid="use-case-ecommerce">
+              <h3 className="text-xl font-bold text-black mb-4">E-commerce & Retail</h3>
+              <p className="text-sm text-gray-600 mb-4">
+                Build recommendation engines, personalization systems, and inventory optimization with engineers experienced in retail AI.
+              </p>
+              <ul className="space-y-2 text-sm text-gray-700">
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <span>Recommendation systems</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <span>Demand forecasting</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <span>Visual search</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-white rounded-2xl p-8 border-2 border-gray-100" data-testid="use-case-healthcare">
+              <h3 className="text-xl font-bold text-black mb-4">Healthcare & Life Sciences</h3>
+              <p className="text-sm text-gray-600 mb-4">
+                Deploy HIPAA-compliant AI solutions with engineers experienced in healthcare data, medical imaging, and clinical workflows.
+              </p>
+              <ul className="space-y-2 text-sm text-gray-700">
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <span>Clinical data analysis</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <span>Medical imaging AI</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <span>HIPAA compliance</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Featured Case Studies Section */}
       <section className="py-14 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
@@ -390,8 +530,61 @@ export default function HireAIEmployees() {
         </div>
       </section>
 
-      {/* Benefits Section */}
+      {/* Related Services / Internal CTAs */}
       <section className="py-14 px-4 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-black text-black mb-2">
+            Amplify Your <span className="text-[#5FD4C4]">AI Impact</span>
+          </h2>
+          <p className="text-base text-gray-700 mb-8">
+            Pair AI engineering teams with these strategic services for comprehensive business transformation
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <Link href="/services/ai-consulting">
+              <div className="group bg-zinc-50 rounded-2xl p-8 border-2 border-gray-100 hover:border-[#5FD4C4] transition-all hover-elevate cursor-pointer" data-testid="related-service-consulting">
+                <div className="flex items-start justify-between mb-4">
+                  <h3 className="text-xl font-bold text-black group-hover:text-[#ea580c] transition-colors">AI Consulting</h3>
+                  <ArrowRight className="h-5 w-5 text-[#5FD4C4] group-hover:translate-x-1 transition-transform" />
+                </div>
+                <p className="text-sm text-gray-600 mb-4">
+                  Start with strategic AI consulting to develop your roadmap before building your AI engineering team.
+                </p>
+                <div className="text-sm text-[#ea580c] font-semibold">Explore AI Strategy →</div>
+              </div>
+            </Link>
+
+            <Link href="/services/revenue-automation">
+              <div className="group bg-zinc-50 rounded-2xl p-8 border-2 border-gray-100 hover:border-[#5FD4C4] transition-all hover-elevate cursor-pointer" data-testid="related-service-automation">
+                <div className="flex items-start justify-between mb-4">
+                  <h3 className="text-xl font-bold text-black group-hover:text-[#ea580c] transition-colors">Revenue Automation</h3>
+                  <ArrowRight className="h-5 w-5 text-[#5FD4C4] group-hover:translate-x-1 transition-transform" />
+                </div>
+                <p className="text-sm text-gray-600 mb-4">
+                  Let our AI teams build automated revenue workflows that transform your operations from lead to cash.
+                </p>
+                <div className="text-sm text-[#ea580c] font-semibold">View Automation →</div>
+              </div>
+            </Link>
+
+            <Link href="/services/web-design">
+              <div className="group bg-zinc-50 rounded-2xl p-8 border-2 border-gray-100 hover:border-[#5FD4C4] transition-all hover-elevate cursor-pointer" data-testid="related-service-web">
+                <div className="flex items-start justify-between mb-4">
+                  <h3 className="text-xl font-bold text-black group-hover:text-[#ea580c] transition-colors">Web Design</h3>
+                  <ArrowRight className="h-5 w-5 text-[#5FD4C4] group-hover:translate-x-1 transition-transform" />
+                </div>
+                <p className="text-sm text-gray-600 mb-4">
+                  Combine AI-powered development with high-converting web design for complete digital experiences.
+                </p>
+                <div className="text-sm text-[#ea580c] font-semibold">Explore Web Design →</div>
+              </div>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Benefits Section */}
+      <section className="py-14 px-4 bg-zinc-50">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-black text-black mb-2">
             Why <span className="text-[#5FD4C4]">OARC Digital</span>

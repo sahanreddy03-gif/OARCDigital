@@ -243,8 +243,71 @@ export default function PaidAdvertising() {
         </div>
       </section>
 
-      {/* Our Process */}
+      {/* Who This Service Is For */}
       <section className="py-16 px-4 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <div className="text-sm uppercase tracking-wider text-[hsl(262,83%,58%)] mb-3">WHO WE SERVE</div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+              Built for <span className="italic text-[hsl(330,81%,60%)]">ambitious brands</span>
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              From startups to Fortune 500, we scale paid advertising for companies ready to grow profitably
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              { 
+                title: "DTC & E-commerce Brands",
+                desc: "Scale profitably with Meta, Google Shopping, and TikTok campaigns optimized for ROAS. From product launches to seasonal peaks, we drive predictable growth.",
+                points: ["Shopping feed optimization", "Dynamic retargeting", "Creative testing", "Conversion tracking"]
+              },
+              { 
+                title: "B2B SaaS Companies",
+                desc: "Generate qualified leads and pipeline through LinkedIn, Google Search, and programmatic. We understand SaaS metrics and optimize for demo bookings and MRR growth.",
+                points: ["Lead gen campaigns", "Account-based targeting", "Free trial funnels", "Attribution modeling"]
+              },
+              { 
+                title: "Fintech & Financial Services",
+                desc: "Navigate compliance while driving customer acquisition through compliant ad strategies across Meta, Google, and LinkedIn.",
+                points: ["Compliant messaging", "Trust-building creative", "Fraud prevention", "High-intent targeting"]
+              },
+              { 
+                title: "Health & Wellness",
+                desc: "Drive qualified patient or customer acquisition with campaigns that respect industry regulations and build trust.",
+                points: ["HIPAA-compliant tracking", "Educational content", "Local targeting", "Reputation management"]
+              },
+              { 
+                title: "Consumer Apps",
+                desc: "Scale user acquisition profitably with app install campaigns, ASO, and in-app conversion optimization across all major platforms.",
+                points: ["App install campaigns", "Event optimization", "Cohort analysis", "Retention targeting"]
+              },
+              { 
+                title: "Professional Services",
+                desc: "Generate high-quality leads for law firms, consultancies, and agencies through search intent targeting and thought leadership content.",
+                points: ["Local service ads", "Retargeting sequences", "Case study promotion", "Professional targeting"]
+              }
+            ].map((useCase, i) => (
+              <div key={i} className="p-6 rounded-xl bg-gradient-to-br from-[hsl(262,10%,98%)] to-white border border-border hover:border-[hsl(262,83%,58%)] hover:shadow-lg transition-all duration-300 hover:-translate-y-1" data-testid={`use-case-${i}`}>
+                <h3 className="text-lg font-bold mb-3">{useCase.title}</h3>
+                <p className="text-sm text-muted-foreground mb-4">{useCase.desc}</p>
+                <div className="space-y-2">
+                  {useCase.points.map((point, j) => (
+                    <div key={j} className="flex items-center gap-2 text-sm">
+                      <CheckCircle2 className="h-3.5 w-3.5 text-[hsl(262,83%,58%)]" />
+                      <span className="text-muted-foreground">{point}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Our Process */}
+      <section className="py-16 px-4 bg-[hsl(262,10%,98%)]">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
@@ -270,6 +333,62 @@ export default function PaidAdvertising() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Related Services */}
+      <section className="py-16 px-4 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <div className="text-sm uppercase tracking-wider text-[hsl(262,83%,58%)] mb-3">COMPLETE SOLUTION</div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+              Maximize <span className="italic text-[hsl(330,81%,60%)]">campaign performance</span>
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Combine paid advertising with these services for end-to-end growth
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            <Link href="/services/social-media-creative">
+              <div className="group p-6 rounded-xl bg-gradient-to-br from-[hsl(262,10%,98%)] to-white border border-border hover:border-[hsl(262,83%,58%)] hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer" data-testid="related-service-creative">
+                <div className="flex items-start justify-between mb-4">
+                  <h3 className="text-lg font-bold group-hover:text-[hsl(262,83%,58%)] transition-colors">Social Media Creative</h3>
+                  <ArrowRight className="h-5 w-5 text-[hsl(262,83%,58%)] group-hover:translate-x-1 transition-transform" />
+                </div>
+                <p className="text-sm text-muted-foreground mb-4">
+                  Thumb-stopping creative that converts. We'll design and test ad variations that drive your ROAS higher.
+                </p>
+                <div className="text-sm text-[hsl(262,83%,58%)] font-semibold">Explore Creative Services →</div>
+              </div>
+            </Link>
+
+            <Link href="/services/web-design">
+              <div className="group p-6 rounded-xl bg-gradient-to-br from-[hsl(262,10%,98%)] to-white border border-border hover:border-[hsl(262,83%,58%)] hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer" data-testid="related-service-web">
+                <div className="flex items-start justify-between mb-4">
+                  <h3 className="text-lg font-bold group-hover:text-[hsl(262,83%,58%)] transition-colors">Web Design & CRO</h3>
+                  <ArrowRight className="h-5 w-5 text-[hsl(262,83%,58%)] group-hover:translate-x-1 transition-transform" />
+                </div>
+                <p className="text-sm text-muted-foreground mb-4">
+                  High-converting landing pages optimized for paid traffic. Turn clicks into customers with strategic design.
+                </p>
+                <div className="text-sm text-[hsl(262,83%,58%)] font-semibold">View Web Design →</div>
+              </div>
+            </Link>
+
+            <Link href="/services/revenue-automation">
+              <div className="group p-6 rounded-xl bg-gradient-to-br from-[hsl(262,10%,98%)] to-white border border-border hover:border-[hsl(262,83%,58%)] hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer" data-testid="related-service-automation">
+                <div className="flex items-start justify-between mb-4">
+                  <h3 className="text-lg font-bold group-hover:text-[hsl(262,83%,58%)] transition-colors">Revenue Automation</h3>
+                  <ArrowRight className="h-5 w-5 text-[hsl(262,83%,58%)] group-hover:translate-x-1 transition-transform" />
+                </div>
+                <p className="text-sm text-muted-foreground mb-4">
+                  Automate lead nurturing and follow-up to maximize the value of every click from your paid campaigns.
+                </p>
+                <div className="text-sm text-[hsl(262,83%,58%)] font-semibold">Explore Automation →</div>
+              </div>
+            </Link>
           </div>
         </div>
       </section>

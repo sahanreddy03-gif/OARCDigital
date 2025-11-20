@@ -274,6 +274,205 @@ export default function LeadGeneration() {
         </div>
       </section>
 
+      {/* Who This Service Is For */}
+      <section className="py-16 px-4 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <div className="text-sm uppercase tracking-wider text-emerald-600 mb-3">WHO THIS IS FOR</div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+              Built for businesses that need <span className="italic text-teal-600">predictable pipeline</span>
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Lead generation strategies tailored to your industry and ideal customer
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="p-6 rounded-xl bg-emerald-50 border border-border hover-elevate" data-testid="use-case-b2b-saas">
+              <h3 className="text-xl font-bold mb-3">B2B SaaS & Tech</h3>
+              <p className="text-sm text-muted-foreground mb-4">
+                Generate qualified leads through LinkedIn outreach, content marketing, and ABM campaigns. Fill your pipeline with decision-makers ready to buy.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle2 className="h-4 w-4 text-emerald-600 flex-shrink-0 mt-0.5" />
+                  <span>LinkedIn lead generation</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle2 className="h-4 w-4 text-emerald-600 flex-shrink-0 mt-0.5" />
+                  <span>Account-based marketing</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle2 className="h-4 w-4 text-emerald-600 flex-shrink-0 mt-0.5" />
+                  <span>Demo booking campaigns</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="p-6 rounded-xl bg-emerald-50 border border-border hover-elevate" data-testid="use-case-professional-services">
+              <h3 className="text-xl font-bold mb-3">Professional Services</h3>
+              <p className="text-sm text-muted-foreground mb-4">
+                Attract and convert high-value clients with content marketing, webinars, and strategic outreach. Build authority while generating qualified leads.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle2 className="h-4 w-4 text-emerald-600 flex-shrink-0 mt-0.5" />
+                  <span>Thought leadership content</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle2 className="h-4 w-4 text-emerald-600 flex-shrink-0 mt-0.5" />
+                  <span>Webinar lead generation</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle2 className="h-4 w-4 text-emerald-600 flex-shrink-0 mt-0.5" />
+                  <span>Consultation request flows</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="p-6 rounded-xl bg-emerald-50 border border-border hover-elevate" data-testid="use-case-agencies">
+              <h3 className="text-xl font-bold mb-3">Marketing Agencies</h3>
+              <p className="text-sm text-muted-foreground mb-4">
+                Generate qualified client leads with case studies, free audits, and strategic outreach. Scale your agency with predictable new business.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle2 className="h-4 w-4 text-emerald-600 flex-shrink-0 mt-0.5" />
+                  <span>Free audit campaigns</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle2 className="h-4 w-4 text-emerald-600 flex-shrink-0 mt-0.5" />
+                  <span>Case study promotion</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle2 className="h-4 w-4 text-emerald-600 flex-shrink-0 mt-0.5" />
+                  <span>Partnership lead gen</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="p-6 rounded-xl bg-emerald-50 border border-border hover-elevate" data-testid="use-case-real-estate">
+              <h3 className="text-xl font-bold mb-3">Real Estate & Insurance</h3>
+              <p className="text-sm text-muted-foreground mb-4">
+                Generate local leads through targeted ads, landing pages, and automated follow-up. Convert more prospects into clients with proven systems.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle2 className="h-4 w-4 text-emerald-600 flex-shrink-0 mt-0.5" />
+                  <span>Local lead generation</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle2 className="h-4 w-4 text-emerald-600 flex-shrink-0 mt-0.5" />
+                  <span>Landing page optimization</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle2 className="h-4 w-4 text-emerald-600 flex-shrink-0 mt-0.5" />
+                  <span>Automated follow-up</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="p-6 rounded-xl bg-emerald-50 border border-border hover-elevate" data-testid="use-case-financial-services">
+              <h3 className="text-xl font-bold mb-3">Financial Services</h3>
+              <p className="text-sm text-muted-foreground mb-4">
+                Generate qualified leads while maintaining compliance. Attract high-net-worth clients through educational content and strategic campaigns.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle2 className="h-4 w-4 text-emerald-600 flex-shrink-0 mt-0.5" />
+                  <span>Compliant lead generation</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle2 className="h-4 w-4 text-emerald-600 flex-shrink-0 mt-0.5" />
+                  <span>Educational content</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle2 className="h-4 w-4 text-emerald-600 flex-shrink-0 mt-0.5" />
+                  <span>High-value client targeting</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="p-6 rounded-xl bg-emerald-50 border border-border hover-elevate" data-testid="use-case-consulting">
+              <h3 className="text-xl font-bold mb-3">Consulting Firms</h3>
+              <p className="text-sm text-muted-foreground mb-4">
+                Position as the expert while generating qualified leads. Build a pipeline of ideal clients through thought leadership and strategic outreach.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle2 className="h-4 w-4 text-emerald-600 flex-shrink-0 mt-0.5" />
+                  <span>Authority positioning</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle2 className="h-4 w-4 text-emerald-600 flex-shrink-0 mt-0.5" />
+                  <span>Speaking & publishing leads</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle2 className="h-4 w-4 text-emerald-600 flex-shrink-0 mt-0.5" />
+                  <span>Referral network building</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Related Services */}
+      <section className="py-16 px-4 bg-emerald-50">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <div className="text-sm uppercase tracking-wider text-emerald-600 mb-3">BUILD A COMPLETE SYSTEM</div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+              Combine with these <span className="italic text-teal-600">powerful services</span>
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Turn leads into customers with our integrated marketing stack
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            <Link href="/services/funnel-automation">
+              <div className="group p-8 bg-white rounded-xl border border-border hover:border-emerald-600 hover:shadow-lg transition-all duration-300 cursor-pointer hover-elevate" data-testid="related-service-funnel-automation">
+                <div className="flex items-start justify-between mb-4">
+                  <h3 className="text-xl font-bold group-hover:text-emerald-600 transition-colors">Funnel Automation</h3>
+                  <ArrowRight className="h-5 w-5 text-emerald-600 group-hover:translate-x-1 transition-transform" />
+                </div>
+                <p className="text-sm text-muted-foreground mb-4">
+                  Nurture and convert your leads automatically with behavioral triggers and personalized sequences that work 24/7.
+                </p>
+                <div className="text-sm text-emerald-600 font-semibold">Learn More →</div>
+              </div>
+            </Link>
+
+            <Link href="/services/content-marketing">
+              <div className="group p-8 bg-white rounded-xl border border-border hover:border-emerald-600 hover:shadow-lg transition-all duration-300 cursor-pointer hover-elevate" data-testid="related-service-content-marketing">
+                <div className="flex items-start justify-between mb-4">
+                  <h3 className="text-xl font-bold group-hover:text-emerald-600 transition-colors">Content Marketing</h3>
+                  <ArrowRight className="h-5 w-5 text-emerald-600 group-hover:translate-x-1 transition-transform" />
+                </div>
+                <p className="text-sm text-muted-foreground mb-4">
+                  Attract ideal leads with high-value content that positions you as the expert and builds trust before the first conversation.
+                </p>
+                <div className="text-sm text-emerald-600 font-semibold">Learn More →</div>
+              </div>
+            </Link>
+
+            <Link href="/services/paid-advertising">
+              <div className="group p-8 bg-white rounded-xl border border-border hover:border-emerald-600 hover:shadow-lg transition-all duration-300 cursor-pointer hover-elevate" data-testid="related-service-paid-ads">
+                <div className="flex items-start justify-between mb-4">
+                  <h3 className="text-xl font-bold group-hover:text-emerald-600 transition-colors">Paid Advertising</h3>
+                  <ArrowRight className="h-5 w-5 text-emerald-600 group-hover:translate-x-1 transition-transform" />
+                </div>
+                <p className="text-sm text-muted-foreground mb-4">
+                  Scale your lead generation with targeted paid campaigns that capture demand and fill your pipeline faster.
+                </p>
+                <div className="text-sm text-emerald-600 font-semibold">Learn More →</div>
+              </div>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="py-20 px-4 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-emerald-600 via-teal-600 to-cyan-600"></div>

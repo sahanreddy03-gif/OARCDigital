@@ -568,6 +568,205 @@ export default function Social() {
         </div>
       </section>
 
+      {/* Who This Service Is For */}
+      <section className="py-16 px-4 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <div className="text-sm uppercase tracking-wider text-black mb-3">WHO THIS IS FOR</div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+              For brands ready to <span className="italic text-[#4a7000]">own social</span>
+            </h2>
+            <p className="text-lg text-gray-700 max-w-2xl mx-auto">
+              Platform-specific social strategies for every type of organization
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="p-6 rounded-xl bg-gray-50 border border-gray-200 hover-elevate" data-testid="use-case-consumer-brands">
+              <h3 className="text-xl font-bold mb-3">Consumer Brands</h3>
+              <p className="text-sm text-gray-700 mb-4">
+                Build cult-like communities on TikTok, Instagram, and emerging platforms. Create viral moments and authentic connections with your target audience.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle2 className="h-4 w-4 text-[#4a7000] flex-shrink-0 mt-0.5" />
+                  <span>Viral content strategies</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle2 className="h-4 w-4 text-[#4a7000] flex-shrink-0 mt-0.5" />
+                  <span>Community building</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle2 className="h-4 w-4 text-[#4a7000] flex-shrink-0 mt-0.5" />
+                  <span>Influencer partnerships</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="p-6 rounded-xl bg-gray-50 border border-gray-200 hover-elevate" data-testid="use-case-dtc-ecommerce">
+              <h3 className="text-xl font-bold mb-3">DTC E-commerce</h3>
+              <p className="text-sm text-gray-700 mb-4">
+                Drive sales through shoppable content, UGC, and strategic social commerce. Turn followers into customers with platform-native selling.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle2 className="h-4 w-4 text-[#4a7000] flex-shrink-0 mt-0.5" />
+                  <span>Social commerce optimization</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle2 className="h-4 w-4 text-[#4a7000] flex-shrink-0 mt-0.5" />
+                  <span>Shoppable content creation</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle2 className="h-4 w-4 text-[#4a7000] flex-shrink-0 mt-0.5" />
+                  <span>UGC campaign management</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="p-6 rounded-xl bg-gray-50 border border-gray-200 hover-elevate" data-testid="use-case-b2b-companies">
+              <h3 className="text-xl font-bold mb-3">B2B Companies</h3>
+              <p className="text-sm text-gray-700 mb-4">
+                Build thought leadership on LinkedIn and Twitter. Position executives as industry experts and generate qualified leads through social selling.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle2 className="h-4 w-4 text-[#4a7000] flex-shrink-0 mt-0.5" />
+                  <span>Executive positioning</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle2 className="h-4 w-4 text-[#4a7000] flex-shrink-0 mt-0.5" />
+                  <span>LinkedIn lead generation</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle2 className="h-4 w-4 text-[#4a7000] flex-shrink-0 mt-0.5" />
+                  <span>Thought leadership content</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="p-6 rounded-xl bg-gray-50 border border-gray-200 hover-elevate" data-testid="use-case-saas-tech">
+              <h3 className="text-xl font-bold mb-3">SaaS & Tech</h3>
+              <p className="text-sm text-gray-700 mb-4">
+                Educate your audience with platform-specific content. Build trust through tutorials, product demos, and customer success stories across channels.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle2 className="h-4 w-4 text-[#4a7000] flex-shrink-0 mt-0.5" />
+                  <span>Educational content series</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle2 className="h-4 w-4 text-[#4a7000] flex-shrink-0 mt-0.5" />
+                  <span>Product demo videos</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle2 className="h-4 w-4 text-[#4a7000] flex-shrink-0 mt-0.5" />
+                  <span>Customer story amplification</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="p-6 rounded-xl bg-gray-50 border border-gray-200 hover-elevate" data-testid="use-case-hospitality-travel">
+              <h3 className="text-xl font-bold mb-3">Hospitality & Travel</h3>
+              <p className="text-sm text-gray-700 mb-4">
+                Showcase experiences through stunning visuals and user-generated content. Drive bookings with Instagram, TikTok, and Pinterest strategies.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle2 className="h-4 w-4 text-[#4a7000] flex-shrink-0 mt-0.5" />
+                  <span>Visual storytelling</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle2 className="h-4 w-4 text-[#4a7000] flex-shrink-0 mt-0.5" />
+                  <span>UGC amplification</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle2 className="h-4 w-4 text-[#4a7000] flex-shrink-0 mt-0.5" />
+                  <span>Booking-driven content</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="p-6 rounded-xl bg-gray-50 border border-gray-200 hover-elevate" data-testid="use-case-entertainment-media">
+              <h3 className="text-xl font-bold mb-3">Entertainment & Media</h3>
+              <p className="text-sm text-gray-700 mb-4">
+                Build fandoms and drive engagement with behind-the-scenes content, exclusive drops, and interactive experiences across all platforms.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle2 className="h-4 w-4 text-[#4a7000] flex-shrink-0 mt-0.5" />
+                  <span>Fandom building</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle2 className="h-4 w-4 text-[#4a7000] flex-shrink-0 mt-0.5" />
+                  <span>Behind-the-scenes content</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle2 className="h-4 w-4 text-[#4a7000] flex-shrink-0 mt-0.5" />
+                  <span>Interactive campaigns</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Related Services */}
+      <section className="py-16 px-4 bg-gray-50">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <div className="text-sm uppercase tracking-wider text-black mb-3">AMPLIFY YOUR SOCIAL</div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+              Combine with these <span className="italic text-[#4a7000]">complementary services</span>
+            </h2>
+            <p className="text-lg text-gray-700 max-w-2xl mx-auto">
+              Build a complete social media powerhouse
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            <Link href="/services/influencer-marketing">
+              <div className="group p-8 bg-white rounded-xl border border-gray-200 hover:border-[#4a7000] hover:shadow-lg transition-all duration-300 cursor-pointer hover-elevate" data-testid="related-service-influencer">
+                <div className="flex items-start justify-between mb-4">
+                  <h3 className="text-xl font-bold group-hover:text-[#4a7000] transition-colors">Influencer Marketing</h3>
+                  <ArrowRight className="h-5 w-5 text-[#4a7000] group-hover:translate-x-1 transition-transform" />
+                </div>
+                <p className="text-sm text-gray-700 mb-4">
+                  Amplify your social reach with strategic influencer partnerships. Drive authenticity and scale your message through trusted voices.
+                </p>
+                <div className="text-sm text-[#4a7000] font-semibold">Learn More →</div>
+              </div>
+            </Link>
+
+            <Link href="/services/paid-advertising">
+              <div className="group p-8 bg-white rounded-xl border border-gray-200 hover:border-[#4a7000] hover:shadow-lg transition-all duration-300 cursor-pointer hover-elevate" data-testid="related-service-paid-social">
+                <div className="flex items-start justify-between mb-4">
+                  <h3 className="text-xl font-bold group-hover:text-[#4a7000] transition-colors">Paid Social</h3>
+                  <ArrowRight className="h-5 w-5 text-[#4a7000] group-hover:translate-x-1 transition-transform" />
+                </div>
+                <p className="text-sm text-gray-700 mb-4">
+                  Scale your organic success with targeted paid campaigns. Turn engagement into conversions with performance-driven paid social.
+                </p>
+                <div className="text-sm text-[#4a7000] font-semibold">Learn More →</div>
+              </div>
+            </Link>
+
+            <Link href="/services/creative-services">
+              <div className="group p-8 bg-white rounded-xl border border-gray-200 hover:border-[#4a7000] hover:shadow-lg transition-all duration-300 cursor-pointer hover-elevate" data-testid="related-service-creative">
+                <div className="flex items-start justify-between mb-4">
+                  <h3 className="text-xl font-bold group-hover:text-[#4a7000] transition-colors">Creative Services</h3>
+                  <ArrowRight className="h-5 w-5 text-[#4a7000] group-hover:translate-x-1 transition-transform" />
+                </div>
+                <p className="text-sm text-gray-700 mb-4">
+                  Fuel your social channels with high-volume, platform-optimized creative that stops the scroll and drives action.
+                </p>
+                <div className="text-sm text-[#4a7000] font-semibold">Learn More →</div>
+              </div>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Final CTA Section */}
       <section className="py-14 px-4 bg-white">
         <div className="max-w-4xl mx-auto">

@@ -264,6 +264,202 @@ export default function MediaBuying() {
         </div>
       </section>
 
+      {/* Who This Service Is For */}
+      <section className="py-20 px-4 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <div className="text-sm uppercase tracking-wider text-[hsl(221,91%,60%)] mb-4">WHO THIS IS FOR</div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              Built for <span className="italic bg-gradient-to-r from-[hsl(221,91%,60%)] to-[hsl(262,83%,58%)] text-transparent bg-clip-text">performance-driven teams</span>
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="bg-[hsl(220,20%,98%)] rounded-xl p-8 border border-gray-100" data-testid="use-case-ecommerce">
+              <h3 className="text-xl font-bold mb-4">E-commerce & DTC Brands</h3>
+              <p className="text-gray-700 mb-4">
+                Scale customer acquisition profitably. Strategic media buying across search, social, display, and programmatic channels.
+              </p>
+              <ul className="space-y-2 text-sm text-gray-700">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[hsl(221,91%,60%)] flex-shrink-0 mt-0.5" />
+                  <span>Multi-channel media strategies</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[hsl(221,91%,60%)] flex-shrink-0 mt-0.5" />
+                  <span>Performance & ROAS optimization</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[hsl(221,91%,60%)] flex-shrink-0 mt-0.5" />
+                  <span>Scaled customer acquisition</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-[hsl(220,20%,98%)] rounded-xl p-8 border border-gray-100" data-testid="use-case-b2b">
+              <h3 className="text-xl font-bold mb-4">B2B SaaS Companies</h3>
+              <p className="text-gray-700 mb-4">
+                Generate qualified leads at scale. Programmatic display, LinkedIn, search campaigns optimized for conversion efficiency.
+              </p>
+              <ul className="space-y-2 text-sm text-gray-700">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[hsl(221,91%,60%)] flex-shrink-0 mt-0.5" />
+                  <span>Lead generation campaigns</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[hsl(221,91%,60%)] flex-shrink-0 mt-0.5" />
+                  <span>Account-based marketing (ABM)</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[hsl(221,91%,60%)] flex-shrink-0 mt-0.5" />
+                  <span>CPL & CAC optimization</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-[hsl(220,20%,98%)] rounded-xl p-8 border border-gray-100" data-testid="use-case-agencies">
+              <h3 className="text-xl font-bold mb-4">Marketing Agencies</h3>
+              <p className="text-gray-700 mb-4">
+                White-label media buying for agencies. Access enterprise-level buying power and premium inventory on behalf of your clients.
+              </p>
+              <ul className="space-y-2 text-sm text-gray-700">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[hsl(221,91%,60%)] flex-shrink-0 mt-0.5" />
+                  <span>White-label solutions</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[hsl(221,91%,60%)] flex-shrink-0 mt-0.5" />
+                  <span>Enterprise buying power</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[hsl(221,91%,60%)] flex-shrink-0 mt-0.5" />
+                  <span>Premium inventory access</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-[hsl(220,20%,98%)] rounded-xl p-8 border border-gray-100" data-testid="use-case-enterprise">
+              <h3 className="text-xl font-bold mb-4">Enterprise Brands</h3>
+              <p className="text-gray-700 mb-4">
+                Sophisticated media strategies across national campaigns. TV, radio, OOH, programmatic, and digital at scale.
+              </p>
+              <ul className="space-y-2 text-sm text-gray-700">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[hsl(221,91%,60%)] flex-shrink-0 mt-0.5" />
+                  <span>Integrated media campaigns</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[hsl(221,91%,60%)] flex-shrink-0 mt-0.5" />
+                  <span>Traditional + digital mix</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[hsl(221,91%,60%)] flex-shrink-0 mt-0.5" />
+                  <span>Brand awareness & reach</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-[hsl(220,20%,98%)] rounded-xl p-8 border border-gray-100" data-testid="use-case-app">
+              <h3 className="text-xl font-bold mb-4">Mobile Apps</h3>
+              <p className="text-gray-700 mb-4">
+                User acquisition campaigns optimized for install volume and LTV. ASO, app store ads, programmatic, and social.
+              </p>
+              <ul className="space-y-2 text-sm text-gray-700">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[hsl(221,91%,60%)] flex-shrink-0 mt-0.5" />
+                  <span>User acquisition (UA) campaigns</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[hsl(221,91%,60%)] flex-shrink-0 mt-0.5" />
+                  <span>LTV & retention optimization</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[hsl(221,91%,60%)] flex-shrink-0 mt-0.5" />
+                  <span>App Store & Play Store ads</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-[hsl(220,20%,98%)] rounded-xl p-8 border border-gray-100" data-testid="use-case-local">
+              <h3 className="text-xl font-bold mb-4">Local & Regional Businesses</h3>
+              <p className="text-gray-700 mb-4">
+                Geo-targeted media buying for local markets. Radio, local TV, OOH, and hyper-local digital campaigns that drive foot traffic.
+              </p>
+              <ul className="space-y-2 text-sm text-gray-700">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[hsl(221,91%,60%)] flex-shrink-0 mt-0.5" />
+                  <span>Local market targeting</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[hsl(221,91%,60%)] flex-shrink-0 mt-0.5" />
+                  <span>Radio, TV, OOH campaigns</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[hsl(221,91%,60%)] flex-shrink-0 mt-0.5" />
+                  <span>Foot traffic & store visits</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Related Services */}
+      <section className="py-20 px-4 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <div className="text-sm uppercase tracking-wider text-[hsl(221,91%,60%)] mb-4">COMPLETE YOUR STRATEGY</div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              Maximize media <span className="italic bg-gradient-to-r from-[hsl(221,91%,60%)] to-[hsl(262,83%,58%)] text-transparent bg-clip-text">with these services</span>
+            </h2>
+            <p className="text-lg text-gray-700 max-w-3xl mx-auto">
+              Media buying is most effective when combined with creative production and strategic planning.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <Link href="/services/paid-advertising">
+              <div className="group p-8 bg-[hsl(220,20%,98%)] rounded-xl border border-gray-100 hover:border-[hsl(221,91%,60%)] hover:shadow-xl transition-all duration-300 cursor-pointer" data-testid="related-service-paid">
+                <div className="flex items-start justify-between mb-4">
+                  <h3 className="text-xl font-bold group-hover:text-[hsl(221,91%,60%)] transition-colors">Paid Advertising</h3>
+                  <ArrowRight className="h-5 w-5 text-[hsl(221,91%,60%)] group-hover:translate-x-1 transition-transform" />
+                </div>
+                <p className="text-gray-700 mb-4">
+                  Full-funnel paid media strategy and execution. Turn your media buys into high-performance campaigns.
+                </p>
+                <div className="text-sm text-[hsl(221,91%,60%)] font-semibold">Learn More →</div>
+              </div>
+            </Link>
+
+            <Link href="/services/social-media-creative">
+              <div className="group p-8 bg-[hsl(220,20%,98%)] rounded-xl border border-gray-100 hover:border-[hsl(221,91%,60%)] hover:shadow-xl transition-all duration-300 cursor-pointer" data-testid="related-service-creative">
+                <div className="flex items-start justify-between mb-4">
+                  <h3 className="text-xl font-bold group-hover:text-[hsl(221,91%,60%)] transition-colors">Creative Production</h3>
+                  <ArrowRight className="h-5 w-5 text-[hsl(221,91%,60%)] group-hover:translate-x-1 transition-transform" />
+                </div>
+                <p className="text-gray-700 mb-4">
+                  High-performing ad creative across all formats. Maximize your media investment with compelling creatives.
+                </p>
+                <div className="text-sm text-[hsl(221,91%,60%)] font-semibold">Learn More →</div>
+              </div>
+            </Link>
+
+            <Link href="/services/marketing-strategy">
+              <div className="group p-8 bg-[hsl(220,20%,98%)] rounded-xl border border-gray-100 hover:border-[hsl(221,91%,60%)] hover:shadow-xl transition-all duration-300 cursor-pointer" data-testid="related-service-strategy">
+                <div className="flex items-start justify-between mb-4">
+                  <h3 className="text-xl font-bold group-hover:text-[hsl(221,91%,60%)] transition-colors">Marketing Strategy</h3>
+                  <ArrowRight className="h-5 w-5 text-[hsl(221,91%,60%)] group-hover:translate-x-1 transition-transform" />
+                </div>
+                <p className="text-gray-700 mb-4">
+                  Strategic planning that aligns media buying with business goals. Optimize channel mix and budget allocation.
+                </p>
+                <div className="text-sm text-[hsl(221,91%,60%)] font-semibold">Learn More →</div>
+              </div>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-20 px-4 bg-gradient-to-r from-[hsl(221,91%,60%)] to-[hsl(262,83%,58%)] text-white">
         <div className="max-w-4xl mx-auto text-center">

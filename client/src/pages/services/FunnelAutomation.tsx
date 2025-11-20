@@ -274,6 +274,205 @@ export default function FunnelAutomation() {
         </div>
       </section>
 
+      {/* Who This Service Is For */}
+      <section className="py-16 px-4 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <div className="text-sm uppercase tracking-wider text-cyan-600 mb-3">WHO THIS IS FOR</div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+              Built for businesses ready to <span className="italic text-blue-600">scale with automation</span>
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Funnel automation that works for any business model or industry
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="p-6 rounded-xl bg-cyan-50 border border-border hover-elevate" data-testid="use-case-ecommerce">
+              <h3 className="text-xl font-bold mb-3">E-commerce Brands</h3>
+              <p className="text-sm text-muted-foreground mb-4">
+                Automate abandoned cart recovery, post-purchase upsells, and win-back campaigns. Turn email into your highest-ROI channel.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle2 className="h-4 w-4 text-cyan-600 flex-shrink-0 mt-0.5" />
+                  <span>Abandoned cart sequences</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle2 className="h-4 w-4 text-cyan-600 flex-shrink-0 mt-0.5" />
+                  <span>Post-purchase automation</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle2 className="h-4 w-4 text-cyan-600 flex-shrink-0 mt-0.5" />
+                  <span>Customer reactivation flows</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="p-6 rounded-xl bg-cyan-50 border border-border hover-elevate" data-testid="use-case-saas">
+              <h3 className="text-xl font-bold mb-3">SaaS Companies</h3>
+              <p className="text-sm text-muted-foreground mb-4">
+                Automate trial onboarding, feature adoption campaigns, and upgrade sequences. Move users through the value journey automatically.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle2 className="h-4 w-4 text-cyan-600 flex-shrink-0 mt-0.5" />
+                  <span>Trial-to-paid automation</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle2 className="h-4 w-4 text-cyan-600 flex-shrink-0 mt-0.5" />
+                  <span>Feature adoption sequences</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle2 className="h-4 w-4 text-cyan-600 flex-shrink-0 mt-0.5" />
+                  <span>Churn prevention workflows</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="p-6 rounded-xl bg-cyan-50 border border-border hover-elevate" data-testid="use-case-b2b-services">
+              <h3 className="text-xl font-bold mb-3">B2B Service Providers</h3>
+              <p className="text-sm text-muted-foreground mb-4">
+                Automate lead nurturing, proposal follow-ups, and client onboarding. Turn manual processes into scalable systems.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle2 className="h-4 w-4 text-cyan-600 flex-shrink-0 mt-0.5" />
+                  <span>Lead nurture campaigns</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle2 className="h-4 w-4 text-cyan-600 flex-shrink-0 mt-0.5" />
+                  <span>Proposal automation</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle2 className="h-4 w-4 text-cyan-600 flex-shrink-0 mt-0.5" />
+                  <span>Client onboarding flows</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="p-6 rounded-xl bg-cyan-50 border border-border hover-elevate" data-testid="use-case-digital-products">
+              <h3 className="text-xl font-bold mb-3">Digital Product Creators</h3>
+              <p className="text-sm text-muted-foreground mb-4">
+                Automate course delivery, upsell sequences, and community engagement. Scale your digital products without scaling your time.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle2 className="h-4 w-4 text-cyan-600 flex-shrink-0 mt-0.5" />
+                  <span>Course drip campaigns</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle2 className="h-4 w-4 text-cyan-600 flex-shrink-0 mt-0.5" />
+                  <span>Upsell automation</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle2 className="h-4 w-4 text-cyan-600 flex-shrink-0 mt-0.5" />
+                  <span>Engagement sequences</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="p-6 rounded-xl bg-cyan-50 border border-border hover-elevate" data-testid="use-case-memberships">
+              <h3 className="text-xl font-bold mb-3">Membership Sites</h3>
+              <p className="text-sm text-muted-foreground mb-4">
+                Automate member onboarding, content delivery, and renewal campaigns. Reduce churn and increase lifetime value automatically.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle2 className="h-4 w-4 text-cyan-600 flex-shrink-0 mt-0.5" />
+                  <span>Member welcome sequences</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle2 className="h-4 w-4 text-cyan-600 flex-shrink-0 mt-0.5" />
+                  <span>Content drip automation</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle2 className="h-4 w-4 text-cyan-600 flex-shrink-0 mt-0.5" />
+                  <span>Renewal reminders</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="p-6 rounded-xl bg-cyan-50 border border-border hover-elevate" data-testid="use-case-professional-services">
+              <h3 className="text-xl font-bold mb-3">Professional Services</h3>
+              <p className="text-sm text-muted-foreground mb-4">
+                Automate consultation booking, follow-up sequences, and client communication. Deliver premium service at scale.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle2 className="h-4 w-4 text-cyan-600 flex-shrink-0 mt-0.5" />
+                  <span>Booking confirmation automation</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle2 className="h-4 w-4 text-cyan-600 flex-shrink-0 mt-0.5" />
+                  <span>Client follow-up sequences</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle2 className="h-4 w-4 text-cyan-600 flex-shrink-0 mt-0.5" />
+                  <span>Referral request automation</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Related Services */}
+      <section className="py-16 px-4 bg-cyan-50">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <div className="text-sm uppercase tracking-wider text-cyan-600 mb-3">MAXIMIZE YOUR AUTOMATION</div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+              Pair with these <span className="italic text-blue-600">complementary services</span>
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Build a complete marketing automation stack that works 24/7
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            <Link href="/services/email-marketing">
+              <div className="group p-8 bg-white rounded-xl border border-border hover:border-cyan-600 hover:shadow-lg transition-all duration-300 cursor-pointer hover-elevate" data-testid="related-service-email-marketing">
+                <div className="flex items-start justify-between mb-4">
+                  <h3 className="text-xl font-bold group-hover:text-cyan-600 transition-colors">Email Marketing</h3>
+                  <ArrowRight className="h-5 w-5 text-cyan-600 group-hover:translate-x-1 transition-transform" />
+                </div>
+                <p className="text-sm text-muted-foreground mb-4">
+                  Build your email list and create campaigns that drive revenue. The perfect foundation for automation workflows.
+                </p>
+                <div className="text-sm text-cyan-600 font-semibold">Learn More →</div>
+              </div>
+            </Link>
+
+            <Link href="/services/lead-generation">
+              <div className="group p-8 bg-white rounded-xl border border-border hover:border-cyan-600 hover:shadow-lg transition-all duration-300 cursor-pointer hover-elevate" data-testid="related-service-lead-generation">
+                <div className="flex items-start justify-between mb-4">
+                  <h3 className="text-xl font-bold group-hover:text-cyan-600 transition-colors">Lead Generation</h3>
+                  <ArrowRight className="h-5 w-5 text-cyan-600 group-hover:translate-x-1 transition-transform" />
+                </div>
+                <p className="text-sm text-muted-foreground mb-4">
+                  Fill your funnel with qualified leads that your automation can nurture and convert into customers.
+                </p>
+                <div className="text-sm text-cyan-600 font-semibold">Learn More →</div>
+              </div>
+            </Link>
+
+            <Link href="/services/analytics-tracking">
+              <div className="group p-8 bg-white rounded-xl border border-border hover:border-cyan-600 hover:shadow-lg transition-all duration-300 cursor-pointer hover-elevate" data-testid="related-service-analytics">
+                <div className="flex items-start justify-between mb-4">
+                  <h3 className="text-xl font-bold group-hover:text-cyan-600 transition-colors">Analytics & Tracking</h3>
+                  <ArrowRight className="h-5 w-5 text-cyan-600 group-hover:translate-x-1 transition-transform" />
+                </div>
+                <p className="text-sm text-muted-foreground mb-4">
+                  Track funnel performance, identify drop-off points, and optimize every stage of your automation for maximum ROI.
+                </p>
+                <div className="text-sm text-cyan-600 font-semibold">Learn More →</div>
+              </div>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="py-20 px-4 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-cyan-600 via-blue-600 to-indigo-600"></div>

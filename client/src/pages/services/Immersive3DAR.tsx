@@ -243,6 +243,202 @@ export default function Immersive3DAR() {
         </div>
       </section>
 
+      {/* Who This Service Is For */}
+      <section className="py-20 px-4 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <div className="text-sm uppercase tracking-wider text-[hsl(200,75%,45%)] mb-4">WHO THIS IS FOR</div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              Perfect for <span className="italic bg-gradient-to-r from-[hsl(200,75%,45%)] to-[hsl(220,75%,55%)] text-transparent bg-clip-text">innovative brands</span>
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="bg-[hsl(200,10%,98%)] rounded-xl p-8 border border-gray-100" data-testid="use-case-ecommerce">
+              <h3 className="text-xl font-bold mb-4">E-commerce & Retail</h3>
+              <p className="text-gray-700 mb-4">
+                Reduce returns and increase conversions with AR try-on. Let customers visualize products in their space before buying.
+              </p>
+              <ul className="space-y-2 text-sm text-gray-700">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[hsl(200,75%,45%)] flex-shrink-0 mt-0.5" />
+                  <span>AR product visualization</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[hsl(200,75%,45%)] flex-shrink-0 mt-0.5" />
+                  <span>Virtual try-on experiences</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[hsl(200,75%,45%)] flex-shrink-0 mt-0.5" />
+                  <span>360° product views</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-[hsl(200,10%,98%)] rounded-xl p-8 border border-gray-100" data-testid="use-case-furniture">
+              <h3 className="text-xl font-bold mb-4">Furniture & Home Decor</h3>
+              <p className="text-gray-700 mb-4">
+                Help customers visualize furniture in their homes. AR placement experiences that reduce returns and boost confidence.
+              </p>
+              <ul className="space-y-2 text-sm text-gray-700">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[hsl(200,75%,45%)] flex-shrink-0 mt-0.5" />
+                  <span>"See it in your space" AR</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[hsl(200,75%,45%)] flex-shrink-0 mt-0.5" />
+                  <span>Room planning tools</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[hsl(200,75%,45%)] flex-shrink-0 mt-0.5" />
+                  <span>3D product configurators</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-[hsl(200,10%,98%)] rounded-xl p-8 border border-gray-100" data-testid="use-case-realestate">
+              <h3 className="text-xl font-bold mb-4">Real Estate & Architecture</h3>
+              <p className="text-gray-700 mb-4">
+                Showcase properties with immersive virtual tours. 3D walkthroughs that engage buyers and drive qualified leads.
+              </p>
+              <ul className="space-y-2 text-sm text-gray-700">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[hsl(200,75%,45%)] flex-shrink-0 mt-0.5" />
+                  <span>Virtual property tours</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[hsl(200,75%,45%)] flex-shrink-0 mt-0.5" />
+                  <span>Architectural visualizations</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[hsl(200,75%,45%)] flex-shrink-0 mt-0.5" />
+                  <span>Interactive floor plans</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-[hsl(200,10%,98%)] rounded-xl p-8 border border-gray-100" data-testid="use-case-automotive">
+              <h3 className="text-xl font-bold mb-4">Automotive</h3>
+              <p className="text-gray-700 mb-4">
+                Let customers explore and configure vehicles in 3D. Interactive car configurators and virtual showrooms.
+              </p>
+              <ul className="space-y-2 text-sm text-gray-700">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[hsl(200,75%,45%)] flex-shrink-0 mt-0.5" />
+                  <span>3D vehicle configurators</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[hsl(200,75%,45%)] flex-shrink-0 mt-0.5" />
+                  <span>Virtual test drives</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[hsl(200,75%,45%)] flex-shrink-0 mt-0.5" />
+                  <span>Feature exploration tools</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-[hsl(200,10%,98%)] rounded-xl p-8 border border-gray-100" data-testid="use-case-fashion">
+              <h3 className="text-xl font-bold mb-4">Fashion & Accessories</h3>
+              <p className="text-gray-700 mb-4">
+                Virtual try-on for glasses, jewelry, clothing. AR experiences that increase engagement and reduce returns.
+              </p>
+              <ul className="space-y-2 text-sm text-gray-700">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[hsl(200,75%,45%)] flex-shrink-0 mt-0.5" />
+                  <span>Virtual try-on (glasses, jewelry)</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[hsl(200,75%,45%)] flex-shrink-0 mt-0.5" />
+                  <span>Fit & sizing visualization</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[hsl(200,75%,45%)] flex-shrink-0 mt-0.5" />
+                  <span>Style recommendations</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-[hsl(200,10%,98%)] rounded-xl p-8 border border-gray-100" data-testid="use-case-education">
+              <h3 className="text-xl font-bold mb-4">Education & Museums</h3>
+              <p className="text-gray-700 mb-4">
+                Create immersive learning experiences. Virtual exhibits, interactive 3D models, and educational VR content.
+              </p>
+              <ul className="space-y-2 text-sm text-gray-700">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[hsl(200,75%,45%)] flex-shrink-0 mt-0.5" />
+                  <span>Virtual museum tours</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[hsl(200,75%,45%)] flex-shrink-0 mt-0.5" />
+                  <span>Interactive 3D models</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[hsl(200,75%,45%)] flex-shrink-0 mt-0.5" />
+                  <span>Educational VR experiences</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Related Services */}
+      <section className="py-20 px-4 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <div className="text-sm uppercase tracking-wider text-[hsl(200,75%,45%)] mb-4">ENHANCE YOUR EXPERIENCE</div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              Combine with <span className="italic bg-gradient-to-r from-[hsl(200,75%,45%)] to-[hsl(220,75%,55%)] text-transparent bg-clip-text">complementary services</span>
+            </h2>
+            <p className="text-lg text-gray-700 max-w-3xl mx-auto">
+              3D and AR work best as part of a complete digital experience strategy.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <Link href="/services/web-design">
+              <div className="group p-8 bg-[hsl(200,10%,98%)] rounded-xl border border-gray-100 hover:border-[hsl(200,75%,45%)] hover:shadow-xl transition-all duration-300 cursor-pointer" data-testid="related-service-web">
+                <div className="flex items-start justify-between mb-4">
+                  <h3 className="text-xl font-bold group-hover:text-[hsl(200,75%,45%)] transition-colors">Web Design & Development</h3>
+                  <ArrowRight className="h-5 w-5 text-[hsl(200,75%,45%)] group-hover:translate-x-1 transition-transform" />
+                </div>
+                <p className="text-gray-700 mb-4">
+                  Integrate 3D and AR experiences into beautiful, high-performing websites. Seamless user experiences.
+                </p>
+                <div className="text-sm text-[hsl(200,75%,45%)] font-semibold">Learn More →</div>
+              </div>
+            </Link>
+
+            <Link href="/services/paid-advertising">
+              <div className="group p-8 bg-[hsl(200,10%,98%)] rounded-xl border border-gray-100 hover:border-[hsl(200,75%,45%)] hover:shadow-xl transition-all duration-300 cursor-pointer" data-testid="related-service-paid">
+                <div className="flex items-start justify-between mb-4">
+                  <h3 className="text-xl font-bold group-hover:text-[hsl(200,75%,45%)] transition-colors">Paid Advertising</h3>
+                  <ArrowRight className="h-5 w-5 text-[hsl(200,75%,45%)] group-hover:translate-x-1 transition-transform" />
+                </div>
+                <p className="text-gray-700 mb-4">
+                  Drive traffic to your 3D and AR experiences. Showcase immersive content in high-impact ad campaigns.
+                </p>
+                <div className="text-sm text-[hsl(200,75%,45%)] font-semibold">Learn More →</div>
+              </div>
+            </Link>
+
+            <Link href="/services/social-media-creative">
+              <div className="group p-8 bg-[hsl(200,10%,98%)] rounded-xl border border-gray-100 hover:border-[hsl(200,75%,45%)] hover:shadow-xl transition-all duration-300 cursor-pointer" data-testid="related-service-creative">
+                <div className="flex items-start justify-between mb-4">
+                  <h3 className="text-xl font-bold group-hover:text-[hsl(200,75%,45%)] transition-colors">Creative Production</h3>
+                  <ArrowRight className="h-5 w-5 text-[hsl(200,75%,45%)] group-hover:translate-x-1 transition-transform" />
+                </div>
+                <p className="text-gray-700 mb-4">
+                  Create marketing assets that showcase your 3D and AR experiences. Video demos and social content.
+                </p>
+                <div className="text-sm text-[hsl(200,75%,45%)] font-semibold">Learn More →</div>
+              </div>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="py-20 px-4 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-[hsl(200,75%,45%)] via-[hsl(210,70%,50%)] to-[hsl(220,75%,55%)]"></div>
