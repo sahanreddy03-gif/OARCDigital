@@ -246,6 +246,188 @@ export default function AICopywriting() {
         </div>
       </section>
 
+      {/* Who This Service Is For */}
+      <section className="py-20 px-4 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center">
+            Who This Service Is For
+          </h2>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="p-8 bg-white border border-border rounded-xl hover-elevate" data-testid="use-case-content-teams">
+              <h3 className="text-2xl font-bold mb-4">Content Marketing Teams</h3>
+              <p className="text-lg text-muted-foreground mb-4">
+                Marketing teams publishing 50+ blog posts monthly need to scale content production without sacrificing quality or brand consistency.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">SEO-optimized blog posts and articles at scale</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Brand voice consistency across all content</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">10x faster production without quality compromise</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="p-8 bg-white border border-border rounded-xl hover-elevate" data-testid="use-case-ecommerce">
+              <h3 className="text-2xl font-bold mb-4">E-commerce Brands</h3>
+              <p className="text-lg text-muted-foreground mb-4">
+                Online retailers with hundreds or thousands of products need compelling, SEO-friendly product descriptions that convert browsers into buyers.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Thousands of product descriptions in days</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">SEO optimization for organic traffic</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Conversion-focused copy that sells</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="p-8 bg-white border border-border rounded-xl hover-elevate" data-testid="use-case-saas">
+              <h3 className="text-2xl font-bold mb-4">SaaS Companies</h3>
+              <p className="text-lg text-muted-foreground mb-4">
+                Software companies need ongoing content for product marketing, education, onboarding, and SEO to drive trial signups and reduce churn.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Feature guides and documentation</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Help center and knowledge base articles</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Email nurture sequences and onboarding content</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="p-8 bg-white border border-border rounded-xl hover-elevate" data-testid="use-case-agencies">
+              <h3 className="text-2xl font-bold mb-4">Agencies</h3>
+              <p className="text-lg text-muted-foreground mb-4">
+                Marketing agencies managing multiple clients need scalable content production to deliver consistent results without hiring additional writers.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">White-label content production</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Multi-client brand voice management</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Predictable capacity and fast turnaround</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="p-8 bg-white border border-border rounded-xl hover-elevate" data-testid="use-case-b2b-services">
+              <h3 className="text-2xl font-bold mb-4">B2B Service Providers</h3>
+              <p className="text-lg text-muted-foreground mb-4">
+                Professional services firms need thought leadership content, case studies, and educational resources to generate leads and build authority.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">White papers and research reports</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Case studies and success stories</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Industry insights and trend analysis</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="p-8 bg-white border border-border rounded-xl hover-elevate" data-testid="use-case-publishers">
+              <h3 className="text-2xl font-bold mb-4">Media & Publishers</h3>
+              <p className="text-lg text-muted-foreground mb-4">
+                Digital publishers need high volumes of quality content to maintain publication schedules, attract readers, and monetize through ads or subscriptions.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">News articles and evergreen content</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Listicles, how-tos, and guides</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">SEO content for organic traffic growth</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Related Services */}
+      <section className="py-16 px-4 bg-[hsl(280,10%,98%)]">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">
+            Services That Work Great Together
+          </h2>
+          <div className="grid md:grid-cols-3 gap-6">
+            <Link href="/services/digital-marketing">
+              <div className="p-6 bg-white border border-border rounded-xl hover-elevate cursor-pointer transition-all" data-testid="related-service-digital-marketing">
+                <h3 className="text-xl font-bold mb-3">Digital Marketing Services</h3>
+                <p className="text-muted-foreground mb-4">
+                  Combine AI-powered content with full-funnel marketing strategy for comprehensive growth.
+                </p>
+                <div className="flex items-center text-[hsl(280,70%,55%)] font-semibold">
+                  Learn More <ArrowRight className="w-4 h-4 ml-2" />
+                </div>
+              </div>
+            </Link>
+
+            <Link href="/services/email-creative">
+              <div className="p-6 bg-white border border-border rounded-xl hover-elevate cursor-pointer transition-all" data-testid="related-service-email-creative">
+                <h3 className="text-xl font-bold mb-3">Email Creative</h3>
+                <p className="text-muted-foreground mb-4">
+                  Beautiful email templates paired with AI-generated copy for high-converting campaigns.
+                </p>
+                <div className="flex items-center text-[hsl(280,70%,55%)] font-semibold">
+                  Learn More <ArrowRight className="w-4 h-4 ml-2" />
+                </div>
+              </div>
+            </Link>
+
+            <Link href="/services/social-media-creative">
+              <div className="p-6 bg-white border border-border rounded-xl hover-elevate cursor-pointer transition-all" data-testid="related-service-social-creative">
+                <h3 className="text-xl font-bold mb-3">Social Media Creative</h3>
+                <p className="text-muted-foreground mb-4">
+                  Scale social content creation with AI copywriting and professional creative design.
+                </p>
+                <div className="flex items-center text-[hsl(280,70%,55%)] font-semibold">
+                  Learn More <ArrowRight className="w-4 h-4 ml-2" />
+                </div>
+              </div>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="py-20 px-4 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-[hsl(280,70%,55%)] via-[hsl(300,81%,60%)] to-[hsl(320,81%,60%)]"></div>

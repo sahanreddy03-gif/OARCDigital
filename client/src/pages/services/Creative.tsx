@@ -606,6 +606,205 @@ export default function Creative() {
         </div>
       </section>
 
+      {/* Who This Service Is For */}
+      <section className="py-16 px-4 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <div className="text-sm uppercase tracking-wider text-black mb-3">WHO THIS IS FOR</div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+              For brands that need <span className="italic text-[#5FD4C4]">scroll-stopping creative</span>
+            </h2>
+            <p className="text-lg text-gray-700 max-w-2xl mx-auto">
+              High-volume creative production for performance marketers
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="p-6 rounded-xl bg-gray-50 border border-gray-200 hover-elevate" data-testid="use-case-performance-marketers">
+              <h3 className="text-xl font-bold mb-3">Performance Marketers</h3>
+              <p className="text-sm text-gray-700 mb-4">
+                Test more creative faster. Feed your paid campaigns with high-volume, platform-optimized creative that drives lower CPAs and higher ROAS.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <span>High-volume ad creative</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <span>Rapid iteration testing</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <span>Platform-specific formats</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="p-6 rounded-xl bg-gray-50 border border-gray-200 hover-elevate" data-testid="use-case-ecommerce">
+              <h3 className="text-xl font-bold mb-3">E-commerce Brands</h3>
+              <p className="text-sm text-gray-700 mb-4">
+                Scale product creative across catalogs. Create UGC-style content, product videos, and lifestyle imagery that converts browsers into buyers.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <span>Product photography</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <span>UGC-style content</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <span>Lifestyle imagery</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="p-6 rounded-xl bg-gray-50 border border-gray-200 hover-elevate" data-testid="use-case-social-first">
+              <h3 className="text-xl font-bold mb-3">Social-First Brands</h3>
+              <p className="text-sm text-gray-700 mb-4">
+                Fill your content calendar with platform-native creative. Short-form video, Reels, TikToks, Stories—all optimized for each algorithm.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <span>Short-form video</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <span>Platform-native content</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <span>Content calendar production</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="p-6 rounded-xl bg-gray-50 border border-gray-200 hover-elevate" data-testid="use-case-dtc-startups">
+              <h3 className="text-xl font-bold mb-3">DTC Startups</h3>
+              <p className="text-sm text-gray-700 mb-4">
+                Build your brand identity with professional creative on a startup budget. Get brand-quality assets without the agency markup.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <span>Brand identity creative</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <span>Startup-friendly pricing</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <span>Fast turnaround times</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="p-6 rounded-xl bg-gray-50 border border-gray-200 hover-elevate" data-testid="use-case-growth-teams">
+              <h3 className="text-xl font-bold mb-3">Growth Teams</h3>
+              <p className="text-sm text-gray-700 mb-4">
+                Support continuous testing with endless creative variations. Never run out of new angles, hooks, or concepts to test in your campaigns.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <span>Continuous creative testing</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <span>Endless variations</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <span>Rapid experimentation support</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="p-6 rounded-xl bg-gray-50 border border-gray-200 hover-elevate" data-testid="use-case-agencies">
+              <h3 className="text-xl font-bold mb-3">Agencies & Partners</h3>
+              <p className="text-sm text-gray-700 mb-4">
+                White-label creative production for your clients. Scale your agency without hiring in-house designers and video editors.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <span>White-label production</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <span>Agency partnership pricing</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <span>Scalable creative capacity</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Related Services */}
+      <section className="py-16 px-4 bg-gray-50">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <div className="text-sm uppercase tracking-wider text-black mb-3">AMPLIFY YOUR CREATIVE</div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+              Pair with these <span className="italic text-[#5FD4C4]">performance services</span>
+            </h2>
+            <p className="text-lg text-gray-700 max-w-2xl mx-auto">
+              Turn creative into conversions with our integrated services
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            <Link href="/services/paid-advertising">
+              <div className="group p-8 bg-white rounded-xl border border-gray-200 hover:border-[#5FD4C4] hover:shadow-lg transition-all duration-300 cursor-pointer hover-elevate" data-testid="related-service-paid-ads">
+                <div className="flex items-start justify-between mb-4">
+                  <h3 className="text-xl font-bold group-hover:text-[#5FD4C4] transition-colors">Paid Advertising</h3>
+                  <ArrowRight className="h-5 w-5 text-[#5FD4C4] group-hover:translate-x-1 transition-transform" />
+                </div>
+                <p className="text-sm text-gray-700 mb-4">
+                  Scale winning creative with paid campaigns. Put your best-performing assets to work across all paid channels.
+                </p>
+                <div className="text-sm text-[#5FD4C4] font-semibold">Learn More →</div>
+              </div>
+            </Link>
+
+            <Link href="/services/rapid-idea-testing">
+              <div className="group p-8 bg-white rounded-xl border border-gray-200 hover:border-[#5FD4C4] hover:shadow-lg transition-all duration-300 cursor-pointer hover-elevate" data-testid="related-service-rapid-testing">
+                <div className="flex items-start justify-between mb-4">
+                  <h3 className="text-xl font-bold group-hover:text-[#5FD4C4] transition-colors">Rapid Idea Testing</h3>
+                  <ArrowRight className="h-5 w-5 text-[#5FD4C4] group-hover:translate-x-1 transition-transform" />
+                </div>
+                <p className="text-sm text-gray-700 mb-4">
+                  Test creative concepts before full production. Validate winning angles and save budget on losers.
+                </p>
+                <div className="text-sm text-[#5FD4C4] font-semibold">Learn More →</div>
+              </div>
+            </Link>
+
+            <Link href="/services/social-media-management">
+              <div className="group p-8 bg-white rounded-xl border border-gray-200 hover:border-[#5FD4C4] hover:shadow-lg transition-all duration-300 cursor-pointer hover-elevate" data-testid="related-service-social-management">
+                <div className="flex items-start justify-between mb-4">
+                  <h3 className="text-xl font-bold group-hover:text-[#5FD4C4] transition-colors">Social Media Management</h3>
+                  <ArrowRight className="h-5 w-5 text-[#5FD4C4] group-hover:translate-x-1 transition-transform" />
+                </div>
+                <p className="text-sm text-gray-700 mb-4">
+                  Fill your social content calendar with platform-optimized creative that drives engagement and growth.
+                </p>
+                <div className="text-sm text-[#5FD4C4] font-semibold">Learn More →</div>
+              </div>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Final CTA Section */}
       <section className="py-14 px-4 bg-white">
         <div className="max-w-4xl mx-auto">

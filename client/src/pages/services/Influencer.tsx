@@ -542,6 +542,202 @@ export default function Influencer() {
         </div>
       </section>
 
+      {/* Who This Service Is For */}
+      <section className="py-20 px-4 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <div className="text-sm uppercase tracking-wider text-[#5FD4C4] mb-4">WHO THIS IS FOR</div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              Built for ambitious <span className="italic text-[#5FD4C4]">growth-focused</span> brands
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="bg-[hsl(210,20%,98%)] rounded-xl p-8 border border-gray-100" data-testid="use-case-beauty">
+              <h3 className="text-xl font-bold mb-4">Beauty & Skincare Brands</h3>
+              <p className="text-gray-700 mb-4">
+                Authentic product endorsements from trusted beauty creators. Drive awareness and sales through influencer tutorials, unboxings, and reviews.
+              </p>
+              <ul className="space-y-2 text-sm text-gray-700">
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <span>Micro-influencer campaigns for authentic reviews</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <span>Tutorial & how-to content creation</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <span>Product launch campaigns</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-[hsl(210,20%,98%)] rounded-xl p-8 border border-gray-100" data-testid="use-case-fashion">
+              <h3 className="text-xl font-bold mb-4">Fashion & E-commerce</h3>
+              <p className="text-gray-700 mb-4">
+                Break into competitive fashion markets with creator partnerships. Style content, haul videos, and brand ambassadorships that drive sales.
+              </p>
+              <ul className="space-y-2 text-sm text-gray-700">
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <span>Fashion influencer partnerships</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <span>Seasonal campaign management</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <span>Brand ambassador programs</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-[hsl(210,20%,98%)] rounded-xl p-8 border border-gray-100" data-testid="use-case-food">
+              <h3 className="text-xl font-bold mb-4">Food & Beverage Brands</h3>
+              <p className="text-gray-700 mb-4">
+                Create mouth-watering content with food bloggers and lifestyle creators. Recipe features, taste tests, and restaurant partnerships.
+              </p>
+              <ul className="space-y-2 text-sm text-gray-700">
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <span>Food blogger collaborations</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <span>Recipe content & taste tests</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <span>Restaurant & venue partnerships</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-[hsl(210,20%,98%)] rounded-xl p-8 border border-gray-100" data-testid="use-case-tech">
+              <h3 className="text-xl font-bold mb-4">Tech & SaaS Companies</h3>
+              <p className="text-gray-700 mb-4">
+                Build awareness with tech reviewers and industry experts. Product demos, feature highlights, and thought leadership content.
+              </p>
+              <ul className="space-y-2 text-sm text-gray-700">
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <span>Tech reviewer partnerships</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <span>Product demo content</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <span>B2B thought leadership campaigns</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-[hsl(210,20%,98%)] rounded-xl p-8 border border-gray-100" data-testid="use-case-lifestyle">
+              <h3 className="text-xl font-bold mb-4">Lifestyle & Wellness</h3>
+              <p className="text-gray-700 mb-4">
+                Partner with wellness advocates and lifestyle creators. Authentic storytelling that builds trust and drives health-conscious purchases.
+              </p>
+              <ul className="space-y-2 text-sm text-gray-700">
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <span>Wellness influencer campaigns</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <span>Lifestyle content partnerships</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <span>Health & fitness collaborations</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-[hsl(210,20%,98%)] rounded-xl p-8 border border-gray-100" data-testid="use-case-travel">
+              <h3 className="text-xl font-bold mb-4">Travel & Hospitality</h3>
+              <p className="text-gray-700 mb-4">
+                Showcase destinations and experiences through travel creators. Drive bookings with aspirational content and authentic travel stories.
+              </p>
+              <ul className="space-y-2 text-sm text-gray-700">
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <span>Travel blogger partnerships</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <span>Destination showcases</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <span>Hotel & venue collaborations</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Related Services */}
+      <section className="py-20 px-4 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <div className="text-sm uppercase tracking-wider text-[#5FD4C4] mb-4">MAXIMIZE YOUR IMPACT</div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              Combine with these <span className="italic text-[#5FD4C4]">complementary services</span>
+            </h2>
+            <p className="text-lg text-gray-700 max-w-3xl mx-auto">
+              Influencer campaigns work best as part of a complete marketing strategy. Amplify your results with these services.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <Link href="/services/social-media-creative">
+              <div className="group p-8 bg-[hsl(210,20%,98%)] rounded-xl border border-gray-100 hover:border-[#5FD4C4] hover:shadow-xl transition-all duration-300 cursor-pointer" data-testid="related-service-social">
+                <div className="flex items-start justify-between mb-4">
+                  <h3 className="text-xl font-bold group-hover:text-[#5FD4C4] transition-colors">Social Media Creative</h3>
+                  <ArrowRight className="h-5 w-5 text-[#5FD4C4] group-hover:translate-x-1 transition-transform" />
+                </div>
+                <p className="text-gray-700 mb-4">
+                  Amplify your influencer content with professional social creative. Repurpose UGC into scroll-stopping ads.
+                </p>
+                <div className="text-sm text-[#5FD4C4] font-semibold">Learn More →</div>
+              </div>
+            </Link>
+
+            <Link href="/services/paid-advertising">
+              <div className="group p-8 bg-[hsl(210,20%,98%)] rounded-xl border border-gray-100 hover:border-[#5FD4C4] hover:shadow-xl transition-all duration-300 cursor-pointer" data-testid="related-service-paid">
+                <div className="flex items-start justify-between mb-4">
+                  <h3 className="text-xl font-bold group-hover:text-[#5FD4C4] transition-colors">Paid Advertising</h3>
+                  <ArrowRight className="h-5 w-5 text-[#5FD4C4] group-hover:translate-x-1 transition-transform" />
+                </div>
+                <p className="text-gray-700 mb-4">
+                  Boost influencer content reach with paid social campaigns. Maximize ROI by combining organic and paid.
+                </p>
+                <div className="text-sm text-[#5FD4C4] font-semibold">Learn More →</div>
+              </div>
+            </Link>
+
+            <Link href="/services/social-media-management">
+              <div className="group p-8 bg-[hsl(210,20%,98%)] rounded-xl border border-gray-100 hover:border-[#5FD4C4] hover:shadow-xl transition-all duration-300 cursor-pointer" data-testid="related-service-management">
+                <div className="flex items-start justify-between mb-4">
+                  <h3 className="text-xl font-bold group-hover:text-[#5FD4C4] transition-colors">Social Media Management</h3>
+                  <ArrowRight className="h-5 w-5 text-[#5FD4C4] group-hover:translate-x-1 transition-transform" />
+                </div>
+                <p className="text-gray-700 mb-4">
+                  Maintain momentum with daily social management. Keep your community engaged between campaigns.
+                </p>
+                <div className="text-sm text-[#5FD4C4] font-semibold">Learn More →</div>
+              </div>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Final CTA Section */}
       <section className="py-14 px-4 bg-white">
         <div className="max-w-4xl mx-auto">

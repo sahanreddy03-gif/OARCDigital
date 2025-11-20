@@ -274,6 +274,188 @@ export default function DigitalMarketing() {
         </div>
       </section>
 
+      {/* Who This Service Is For */}
+      <section className="py-20 px-4 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center">
+            Who This Service Is For
+          </h2>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="p-8 bg-white border border-border rounded-xl hover-elevate" data-testid="use-case-multi-location">
+              <h3 className="text-2xl font-bold mb-4">Multi-Location Businesses</h3>
+              <p className="text-lg text-muted-foreground mb-4">
+                Franchises, retail chains, and service businesses with multiple locations need coordinated marketing that works locally and at scale.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Location-specific SEO and local search optimization</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Geo-targeted paid advertising campaigns</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Unified brand messaging across all channels</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="p-8 bg-white border border-border rounded-xl hover-elevate" data-testid="use-case-ecommerce">
+              <h3 className="text-2xl font-bold mb-4">E-commerce Stores</h3>
+              <p className="text-lg text-muted-foreground mb-4">
+                Online retailers need integrated marketing that drives traffic, converts visitors, and maximizes customer lifetime value.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Full-funnel campaigns from awareness to retention</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Shopping feed optimization and retargeting</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Email marketing and abandoned cart recovery</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="p-8 bg-white border border-border rounded-xl hover-elevate" data-testid="use-case-b2b-services">
+              <h3 className="text-2xl font-bold mb-4">B2B Service Providers</h3>
+              <p className="text-lg text-muted-foreground mb-4">
+                Professional services firms need sophisticated marketing that generates qualified leads and nurtures long sales cycles.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Thought leadership content and SEO strategy</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">LinkedIn and account-based marketing</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Lead nurturing and marketing automation</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="p-8 bg-white border border-border rounded-xl hover-elevate" data-testid="use-case-healthcare">
+              <h3 className="text-2xl font-bold mb-4">Healthcare Organizations</h3>
+              <p className="text-lg text-muted-foreground mb-4">
+                Medical practices, dental offices, and healthcare providers need compliant marketing that builds trust and attracts patients.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">HIPAA-compliant digital marketing</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Local SEO and reputation management</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Patient education content and email campaigns</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="p-8 bg-white border border-border rounded-xl hover-elevate" data-testid="use-case-saas-tech">
+              <h3 className="text-2xl font-bold mb-4">SaaS & Technology Companies</h3>
+              <p className="text-lg text-muted-foreground mb-4">
+                Tech companies need data-driven marketing that generates MQLs, reduces CAC, and scales efficiently.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Product-led content strategy and SEO</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Paid acquisition optimized for trial signups</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Multi-touch attribution and analytics</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="p-8 bg-white border border-border rounded-xl hover-elevate" data-testid="use-case-home-services">
+              <h3 className="text-2xl font-bold mb-4">Home Services Companies</h3>
+              <p className="text-lg text-muted-foreground mb-4">
+                HVAC, plumbing, roofing, and contracting businesses need local marketing that fills the calendar with qualified leads.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Google Local Services Ads and search campaigns</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Review generation and reputation management</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Seasonal campaign management</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Related Services */}
+      <section className="py-16 px-4 bg-slate-50">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">
+            Services That Work Great Together
+          </h2>
+          <div className="grid md:grid-cols-3 gap-6">
+            <Link href="/services/lead-generation">
+              <div className="p-6 bg-white border border-border rounded-xl hover-elevate cursor-pointer transition-all" data-testid="related-service-lead-generation">
+                <h3 className="text-xl font-bold mb-3">Lead Generation</h3>
+                <p className="text-muted-foreground mb-4">
+                  Complement your full-service marketing with specialized lead gen systems that fill your pipeline consistently.
+                </p>
+                <div className="flex items-center text-slate-900 font-semibold">
+                  Learn More <ArrowRight className="w-4 h-4 ml-2" />
+                </div>
+              </div>
+            </Link>
+
+            <Link href="/services/funnel-automation">
+              <div className="p-6 bg-white border border-border rounded-xl hover-elevate cursor-pointer transition-all" data-testid="related-service-funnel-automation">
+                <h3 className="text-xl font-bold mb-3">Funnel Automation</h3>
+                <p className="text-muted-foreground mb-4">
+                  Add intelligent automation to your marketing stack and scale lead nurturing without scaling headcount.
+                </p>
+                <div className="flex items-center text-slate-900 font-semibold">
+                  Learn More <ArrowRight className="w-4 h-4 ml-2" />
+                </div>
+              </div>
+            </Link>
+
+            <Link href="/services/ai-copywriting">
+              <div className="p-6 bg-white border border-border rounded-xl hover-elevate cursor-pointer transition-all" data-testid="related-service-ai-copywriting">
+                <h3 className="text-xl font-bold mb-3">AI Copywriting</h3>
+                <p className="text-muted-foreground mb-4">
+                  Scale your content production 10x with AI-powered copywriting that maintains brand voice and quality.
+                </p>
+                <div className="flex items-center text-slate-900 font-semibold">
+                  Learn More <ArrowRight className="w-4 h-4 ml-2" />
+                </div>
+              </div>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="py-20 px-4 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-gray-800 to-zinc-900"></div>

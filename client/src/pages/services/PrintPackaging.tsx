@@ -224,6 +224,202 @@ export default function PrintPackaging() {
         </div>
       </section>
 
+      {/* Who This Service Is For */}
+      <section className="py-20 px-4 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <div className="text-sm uppercase tracking-wider text-[hsl(160,60%,45%)] mb-4">WHO THIS IS FOR</div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              Designed for brands that <span className="italic bg-gradient-to-r from-[hsl(160,60%,45%)] to-[hsl(180,60%,55%)] text-transparent bg-clip-text">compete on shelves</span>
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="bg-[hsl(210,20%,98%)] rounded-xl p-8 border border-border hover-elevate" data-testid="use-case-cpg">
+              <h3 className="text-xl font-bold mb-4">CPG & Consumer Brands</h3>
+              <p className="text-muted-foreground mb-4">
+                Stand out in competitive retail environments with packaging that captures attention and communicates premium quality at a glance.
+              </p>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#16a34a] flex-shrink-0 mt-0.5" />
+                  <span>Shelf-optimized product packaging for retail</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#16a34a] flex-shrink-0 mt-0.5" />
+                  <span>Multi-SKU label systems and variant management</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#16a34a] flex-shrink-0 mt-0.5" />
+                  <span>Print-ready dielines and production files</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-[hsl(210,20%,98%)] rounded-xl p-8 border border-border hover-elevate" data-testid="use-case-beauty">
+              <h3 className="text-xl font-bold mb-4">Beauty & Skincare Brands</h3>
+              <p className="text-muted-foreground mb-4">
+                Premium packaging that reflects product quality. Luxury finishes, clean design, and sustainable materials that appeal to conscious consumers.
+              </p>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#16a34a] flex-shrink-0 mt-0.5" />
+                  <span>Luxury packaging with premium finishes and materials</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#16a34a] flex-shrink-0 mt-0.5" />
+                  <span>Sustainable packaging solutions and eco-certifications</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#16a34a] flex-shrink-0 mt-0.5" />
+                  <span>Product photography and art direction</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-[hsl(210,20%,98%)] rounded-xl p-8 border border-border hover-elevate" data-testid="use-case-food-bev">
+              <h3 className="text-xl font-bold mb-4">Food & Beverage Companies</h3>
+              <p className="text-muted-foreground mb-4">
+                FDA-compliant labeling that sells. Balance regulatory requirements with eye-catching design that drives purchase decisions.
+              </p>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#16a34a] flex-shrink-0 mt-0.5" />
+                  <span>FDA-compliant nutrition labels and ingredient panels</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#16a34a] flex-shrink-0 mt-0.5" />
+                  <span>Beverage label design and can/bottle packaging</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#16a34a] flex-shrink-0 mt-0.5" />
+                  <span>Point-of-sale displays and retail merchandising</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-[hsl(210,20%,98%)] rounded-xl p-8 border border-border hover-elevate" data-testid="use-case-luxury">
+              <h3 className="text-xl font-bold mb-4">Luxury & Premium Brands</h3>
+              <p className="text-muted-foreground mb-4">
+                Unboxing experiences that justify premium pricing. Rigid boxes, foil stamping, embossing, and magnetic closures that create moments of delight.
+              </p>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#16a34a] flex-shrink-0 mt-0.5" />
+                  <span>Rigid gift boxes with custom inserts and compartments</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#16a34a] flex-shrink-0 mt-0.5" />
+                  <span>Foil stamping, embossing, and specialty finishes</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#16a34a] flex-shrink-0 mt-0.5" />
+                  <span>Premium unboxing experiences for high-value products</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-[hsl(210,20%,98%)] rounded-xl p-8 border border-border hover-elevate" data-testid="use-case-ecommerce">
+              <h3 className="text-xl font-bold mb-4">E-commerce & DTC Brands</h3>
+              <p className="text-muted-foreground mb-4">
+                Shipping packaging that becomes part of your brand experience. Custom mailers, inserts, and thank you cards that drive repeat purchases and social sharing.
+              </p>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#16a34a] flex-shrink-0 mt-0.5" />
+                  <span>Custom e-commerce mailers and shipping boxes</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#16a34a] flex-shrink-0 mt-0.5" />
+                  <span>Branded tissue paper, stickers, and thank you cards</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#16a34a] flex-shrink-0 mt-0.5" />
+                  <span>Instagram-worthy unboxing experiences</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-[hsl(210,20%,98%)] rounded-xl p-8 border border-border hover-elevate" data-testid="use-case-retail">
+              <h3 className="text-xl font-bold mb-4">Retail & Wholesale Brands</h3>
+              <p className="text-muted-foreground mb-4">
+                Packaging systems that work across multiple retail channels. From big box stores to boutiques, maintain consistency while optimizing for each environment.
+              </p>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#16a34a] flex-shrink-0 mt-0.5" />
+                  <span>Multi-channel packaging strategies for retail distribution</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#16a34a] flex-shrink-0 mt-0.5" />
+                  <span>Shelf displays and point-of-purchase materials</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#16a34a] flex-shrink-0 mt-0.5" />
+                  <span>Bulk packaging and case design for wholesale</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Related Services */}
+      <section className="py-20 px-4 bg-[hsl(160,10%,98%)]">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <div className="text-sm uppercase tracking-wider text-[hsl(160,60%,45%)] mb-4">COMPLETE YOUR BRAND</div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              Amplify your packaging with <span className="italic bg-gradient-to-r from-[hsl(160,60%,45%)] to-[hsl(180,60%,55%)] text-transparent bg-clip-text">complementary services</span>
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              Great packaging is part of a complete brand ecosystem. Extend your visual identity across every touchpoint.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <Link href="/services/branding">
+              <div className="group p-8 bg-white rounded-xl border border-border hover:border-[hsl(160,60%,45%)] hover:shadow-xl transition-all duration-300 cursor-pointer hover-elevate" data-testid="related-service-branding">
+                <div className="flex items-start justify-between mb-4">
+                  <h3 className="text-xl font-bold group-hover:text-[hsl(160,60%,45%)] transition-colors">Branding Services</h3>
+                  <ArrowRight className="h-5 w-5 text-[hsl(160,60%,45%)] group-hover:translate-x-1 transition-transform" />
+                </div>
+                <p className="text-muted-foreground mb-4">
+                  Develop a complete brand identity before packaging design. Create a cohesive visual system that works across all materials.
+                </p>
+                <div className="text-sm text-[hsl(160,60%,45%)] font-semibold">Learn More →</div>
+              </div>
+            </Link>
+
+            <Link href="/services/video-production">
+              <div className="group p-8 bg-white rounded-xl border border-border hover:border-[hsl(160,60%,45%)] hover:shadow-xl transition-all duration-300 cursor-pointer hover-elevate" data-testid="related-service-video">
+                <div className="flex items-start justify-between mb-4">
+                  <h3 className="text-xl font-bold group-hover:text-[hsl(160,60%,45%)] transition-colors">Video Production</h3>
+                  <ArrowRight className="h-5 w-5 text-[hsl(160,60%,45%)] group-hover:translate-x-1 transition-transform" />
+                </div>
+                <p className="text-muted-foreground mb-4">
+                  Showcase your packaging with professional product photography and unboxing videos that drive social engagement.
+                </p>
+                <div className="text-sm text-[hsl(160,60%,45%)] font-semibold">Learn More →</div>
+              </div>
+            </Link>
+
+            <Link href="/services/social-media-creative">
+              <div className="group p-8 bg-white rounded-xl border border-border hover:border-[hsl(160,60%,45%)] hover:shadow-xl transition-all duration-300 cursor-pointer hover-elevate" data-testid="related-service-social">
+                <div className="flex items-start justify-between mb-4">
+                  <h3 className="text-xl font-bold group-hover:text-[hsl(160,60%,45%)] transition-colors">Social Media Creative</h3>
+                  <ArrowRight className="h-5 w-5 text-[hsl(160,60%,45%)] group-hover:translate-x-1 transition-transform" />
+                </div>
+                <p className="text-muted-foreground mb-4">
+                  Turn your packaging into shareable content. Create social campaigns that highlight your product design and unboxing experience.
+                </p>
+                <div className="text-sm text-[hsl(160,60%,45%)] font-semibold">Learn More →</div>
+              </div>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Final CTA */}
       <section className="py-20 px-4 bg-gradient-to-br from-[hsl(160,60%,45%)] to-[hsl(180,60%,55%)] text-white">
         <div className="max-w-4xl mx-auto text-center">

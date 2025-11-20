@@ -217,6 +217,198 @@ export default function SocialMediaCreativeManagement() {
             </div>
           </div>
 
+          {/* Who This Service Is For */}
+          <div className="mb-16">
+            <div className="text-center mb-12">
+              <div className="text-sm uppercase tracking-wider text-[#5FD4C4] mb-4">WHO THIS IS FOR</div>
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
+                Perfect for <span className="italic text-[#5FD4C4]">ambitious brands</span>
+              </h2>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div className="bg-white rounded-xl p-8 border-2 border-gray-100" data-testid="use-case-ecommerce">
+                <h3 className="text-xl font-bold mb-4">E-commerce Brands</h3>
+                <p className="text-gray-700 mb-4">
+                  Scale your online store with integrated social, paid, and creative strategies. Drive traffic and conversions across all channels.
+                </p>
+                <ul className="space-y-2 text-sm text-gray-700">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                    <span>Full-funnel marketing campaigns</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                    <span>Product photography & video</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                    <span>Social commerce optimization</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="bg-white rounded-xl p-8 border-2 border-gray-100" data-testid="use-case-dtc">
+                <h3 className="text-xl font-bold mb-4">DTC Startups</h3>
+                <p className="text-gray-700 mb-4">
+                  Launch and scale your brand with comprehensive marketing support. From strategy to execution across all digital channels.
+                </p>
+                <ul className="space-y-2 text-sm text-gray-700">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                    <span>Brand building campaigns</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                    <span>Content creation at scale</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                    <span>Performance marketing</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="bg-white rounded-xl p-8 border-2 border-gray-100" data-testid="use-case-saas">
+                <h3 className="text-xl font-bold mb-4">SaaS Companies</h3>
+                <p className="text-gray-700 mb-4">
+                  Generate qualified leads with strategic content and paid campaigns. Build authority and drive sign-ups across platforms.
+                </p>
+                <ul className="space-y-2 text-sm text-gray-700">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                    <span>Lead generation campaigns</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                    <span>Thought leadership content</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                    <span>Demo & product videos</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="bg-white rounded-xl p-8 border-2 border-gray-100" data-testid="use-case-lifestyle">
+                <h3 className="text-xl font-bold mb-4">Lifestyle Brands</h3>
+                <p className="text-gray-700 mb-4">
+                  Build engaged communities around your brand. Authentic storytelling that resonates with your target audience across all platforms.
+                </p>
+                <ul className="space-y-2 text-sm text-gray-700">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                    <span>Community building strategies</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                    <span>Influencer partnerships</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                    <span>UGC & brand storytelling</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="bg-white rounded-xl p-8 border-2 border-gray-100" data-testid="use-case-finance">
+                <h3 className="text-xl font-bold mb-4">Finance & FinTech</h3>
+                <p className="text-gray-700 mb-4">
+                  Navigate complex regulatory environments while building trust. Compliant creative that educates and converts at scale.
+                </p>
+                <ul className="space-y-2 text-sm text-gray-700">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                    <span>Compliant ad creative</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                    <span>Educational content</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                    <span>Trust-building campaigns</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="bg-white rounded-xl p-8 border-2 border-gray-100" data-testid="use-case-enterprise">
+                <h3 className="text-xl font-bold mb-4">Enterprise Brands</h3>
+                <p className="text-gray-700 mb-4">
+                  Coordinate global campaigns across multiple markets. Strategic creative production and media management at enterprise scale.
+                </p>
+                <ul className="space-y-2 text-sm text-gray-700">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                    <span>Multi-market campaigns</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                    <span>Localized content creation</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                    <span>Global brand consistency</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          {/* Related Services */}
+          <div className="mb-16">
+            <div className="text-center mb-12">
+              <div className="text-sm uppercase tracking-wider text-[#5FD4C4] mb-4">EXPLORE MORE</div>
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
+                Specialized <span className="italic text-[#5FD4C4]">service offerings</span>
+              </h2>
+              <p className="text-lg text-gray-700 max-w-3xl mx-auto">
+                Dive deeper into specific services that power our comprehensive approach.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-8">
+              <Link href="/services/paid-advertising">
+                <div className="group p-8 bg-white rounded-xl border-2 border-gray-100 hover:border-[#5FD4C4] hover:shadow-xl transition-all duration-300 cursor-pointer" data-testid="related-service-paid">
+                  <div className="flex items-start justify-between mb-4">
+                    <h3 className="text-xl font-bold group-hover:text-[#5FD4C4] transition-colors">Paid Advertising</h3>
+                    <ArrowRight className="h-5 w-5 text-[#5FD4C4] group-hover:translate-x-1 transition-transform" />
+                  </div>
+                  <p className="text-gray-700 mb-4">
+                    Performance-driven paid social and search campaigns. Maximize ROI with data-driven media buying.
+                  </p>
+                  <div className="text-sm text-[#5FD4C4] font-semibold">Learn More →</div>
+                </div>
+              </Link>
+
+              <Link href="/services/influencer-marketing">
+                <div className="group p-8 bg-white rounded-xl border-2 border-gray-100 hover:border-[#5FD4C4] hover:shadow-xl transition-all duration-300 cursor-pointer" data-testid="related-service-influencer">
+                  <div className="flex items-start justify-between mb-4">
+                    <h3 className="text-xl font-bold group-hover:text-[#5FD4C4] transition-colors">Influencer Marketing</h3>
+                    <ArrowRight className="h-5 w-5 text-[#5FD4C4] group-hover:translate-x-1 transition-transform" />
+                  </div>
+                  <p className="text-gray-700 mb-4">
+                    Connect with your audience through authentic creator partnerships. Build trust at scale.
+                  </p>
+                  <div className="text-sm text-[#5FD4C4] font-semibold">Learn More →</div>
+                </div>
+              </Link>
+
+              <Link href="/services/social-media-management">
+                <div className="group p-8 bg-white rounded-xl border-2 border-gray-100 hover:border-[#5FD4C4] hover:shadow-xl transition-all duration-300 cursor-pointer" data-testid="related-service-management">
+                  <div className="flex items-start justify-between mb-4">
+                    <h3 className="text-xl font-bold group-hover:text-[#5FD4C4] transition-colors">Social Management</h3>
+                    <ArrowRight className="h-5 w-5 text-[#5FD4C4] group-hover:translate-x-1 transition-transform" />
+                  </div>
+                  <p className="text-gray-700 mb-4">
+                    Daily community management and content publishing. Build engaged audiences that drive business results.
+                  </p>
+                  <div className="text-sm text-[#5FD4C4] font-semibold">Learn More →</div>
+                </div>
+              </Link>
+            </div>
+          </div>
+
           {/* Final CTA - Teal Card with Team Photo */}
           <div className="bg-[#5FD4C4] rounded-3xl overflow-hidden" data-testid="card-final-cta">
             <div className="p-10 md:p-16">

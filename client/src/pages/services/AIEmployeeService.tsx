@@ -442,6 +442,158 @@ export default function AIEmployeeService() {
         </ScrollReveal>
       </section>
 
+      {/* Who This Service Is For */}
+      <section className="py-24 px-6 bg-black">
+        <div className="max-w-7xl mx-auto">
+          <ScrollReveal>
+            <div className="text-center mb-16">
+              <div className="text-sm uppercase tracking-wider text-purple-400 mb-4">WHO THIS IS FOR</div>
+              <h2 className="text-4xl md:text-5xl font-black mb-6">
+                <span className="bg-gradient-to-r from-white via-purple-300 to-white bg-clip-text text-transparent">
+                  Built for forward-thinking teams
+                </span>
+              </h2>
+            </div>
+          </ScrollReveal>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              {
+                title: "Growing Startups",
+                description: "Scale faster without scaling headcount. AI employees help you punch above your weight class by automating repetitive tasks.",
+                items: ["Rapid scaling capabilities", "Cost-effective automation", "24/7 operations"]
+              },
+              {
+                title: "Enterprise Teams",
+                description: "Boost productivity across departments. Deploy AI employees that integrate seamlessly with existing workflows and tools.",
+                items: ["Enterprise-grade security", "Custom integrations", "Dedicated support"]
+              },
+              {
+                title: "Sales Organizations",
+                description: "Never miss a lead. AI SDRs qualify, nurture, and book meetings while your team closes deals.",
+                items: ["Lead qualification at scale", "Automated outreach", "Meeting scheduling"]
+              },
+              {
+                title: "Customer Support Teams",
+                description: "Deliver instant, accurate support 24/7. AI agents handle common queries while escalating complex issues to humans.",
+                items: ["Instant response times", "Multilingual support", "Seamless escalation"]
+              },
+              {
+                title: "Marketing Departments",
+                description: "Create content at scale. AI writers and analysts help you execute campaigns faster without sacrificing quality.",
+                items: ["Content generation", "Performance analysis", "Campaign optimization"]
+              },
+              {
+                title: "Operations & Finance",
+                description: "Automate data entry, reporting, and analysis. Free your team to focus on strategy instead of spreadsheets.",
+                items: ["Automated reporting", "Data analysis", "Process optimization"]
+              }
+            ].map((useCase, index) => (
+              <ScrollReveal key={index} delay={index * 0.1}>
+                <motion.div
+                  whileHover={{ scale: 1.02, y: -4 }}
+                  transition={{ duration: 0.3 }}
+                  className="group p-8 bg-white/5 rounded-2xl border border-white/10 hover:border-purple-400/50 hover:bg-white/10 transition-all duration-300"
+                  data-testid={`who-for-${index}`}
+                >
+                  <h3 className="text-xl font-bold text-white mb-4 group-hover:text-purple-300 transition-colors">{useCase.title}</h3>
+                  <p className="text-zinc-400 mb-4 leading-relaxed">{useCase.description}</p>
+                  <ul className="space-y-2">
+                    {useCase.items.map((item, i) => (
+                      <li key={i} className="flex items-start gap-2 text-sm text-zinc-400">
+                        <CheckCircle2 className="w-4 h-4 text-purple-400 flex-shrink-0 mt-0.5" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </motion.div>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Related Services */}
+      <section className="py-24 px-6 bg-zinc-950/50">
+        <div className="max-w-7xl mx-auto">
+          <ScrollReveal>
+            <div className="text-center mb-16">
+              <div className="text-sm uppercase tracking-wider text-purple-400 mb-4">COMPLETE YOUR STRATEGY</div>
+              <h2 className="text-4xl md:text-5xl font-black mb-6">
+                <span className="bg-gradient-to-r from-white via-purple-300 to-white bg-clip-text text-transparent">
+                  Maximize AI with these services
+                </span>
+              </h2>
+              <p className="text-lg text-zinc-400 max-w-3xl mx-auto">
+                AI employees work best as part of a comprehensive digital strategy.
+              </p>
+            </div>
+          </ScrollReveal>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <Link href="/services/marketing-strategy">
+              <ScrollReveal delay={0.1}>
+                <motion.div
+                  whileHover={{ scale: 1.02, y: -4 }}
+                  transition={{ duration: 0.3 }}
+                  className="group p-8 bg-white/5 rounded-2xl border border-white/10 hover:border-purple-400/50 hover:bg-white/10 transition-all duration-300 cursor-pointer"
+                  data-testid="related-service-strategy"
+                >
+                  <div className="flex items-start justify-between mb-4">
+                    <h3 className="text-xl font-bold text-white group-hover:text-purple-300 transition-colors">Marketing Strategy</h3>
+                    <ArrowRight className="w-5 h-5 text-purple-400 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                  <p className="text-zinc-400 mb-4">
+                    Strategic planning that aligns AI automation with business goals. Optimize workflows and maximize ROI.
+                  </p>
+                  <div className="text-sm text-purple-400 font-semibold">Learn More →</div>
+                </motion.div>
+              </ScrollReveal>
+            </Link>
+
+            <Link href="/services/paid-advertising">
+              <ScrollReveal delay={0.2}>
+                <motion.div
+                  whileHover={{ scale: 1.02, y: -4 }}
+                  transition={{ duration: 0.3 }}
+                  className="group p-8 bg-white/5 rounded-2xl border border-white/10 hover:border-purple-400/50 hover:bg-white/10 transition-all duration-300 cursor-pointer"
+                  data-testid="related-service-paid"
+                >
+                  <div className="flex items-start justify-between mb-4">
+                    <h3 className="text-xl font-bold text-white group-hover:text-purple-300 transition-colors">Paid Advertising</h3>
+                    <ArrowRight className="w-5 h-5 text-purple-400 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                  <p className="text-zinc-400 mb-4">
+                    Drive qualified leads to your AI-powered workflows. Performance campaigns that feed your automation.
+                  </p>
+                  <div className="text-sm text-purple-400 font-semibold">Learn More →</div>
+                </motion.div>
+              </ScrollReveal>
+            </Link>
+
+            <Link href="/services/web-design">
+              <ScrollReveal delay={0.3}>
+                <motion.div
+                  whileHover={{ scale: 1.02, y: -4 }}
+                  transition={{ duration: 0.3 }}
+                  className="group p-8 bg-white/5 rounded-2xl border border-white/10 hover:border-purple-400/50 hover:bg-white/10 transition-all duration-300 cursor-pointer"
+                  data-testid="related-service-web"
+                >
+                  <div className="flex items-start justify-between mb-4">
+                    <h3 className="text-xl font-bold text-white group-hover:text-purple-300 transition-colors">Web Design & Development</h3>
+                    <ArrowRight className="w-5 h-5 text-purple-400 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                  <p className="text-zinc-400 mb-4">
+                    Create seamless experiences where AI employees interact with users. Beautiful interfaces that drive conversions.
+                  </p>
+                  <div className="text-sm text-purple-400 font-semibold">Learn More →</div>
+                </motion.div>
+              </ScrollReveal>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="py-32 px-6 bg-gradient-to-b from-zinc-950/50 via-purple-950/20 to-black relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-purple-500/10 via-transparent to-transparent"></div>

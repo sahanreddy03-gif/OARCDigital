@@ -274,6 +274,205 @@ export default function CustomerAcquisition() {
         </div>
       </section>
 
+      {/* Who This Service Is For */}
+      <section className="py-16 px-4 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <div className="text-sm uppercase tracking-wider text-indigo-600 mb-3">WHO THIS IS FOR</div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+              Built for growth-minded <span className="italic text-purple-600">businesses</span>
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Customer acquisition strategies that work across industries and business models
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="p-6 rounded-xl bg-indigo-50 border border-border hover-elevate" data-testid="use-case-b2b-saas">
+              <h3 className="text-xl font-bold mb-3">B2B SaaS Companies</h3>
+              <p className="text-sm text-muted-foreground mb-4">
+                Scale from $1M to $10M ARR with predictable, repeatable customer acquisition systems across paid, organic, and partnership channels.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle2 className="h-4 w-4 text-indigo-600 flex-shrink-0 mt-0.5" />
+                  <span>Multi-channel acquisition testing</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle2 className="h-4 w-4 text-indigo-600 flex-shrink-0 mt-0.5" />
+                  <span>Product-led growth strategies</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle2 className="h-4 w-4 text-indigo-600 flex-shrink-0 mt-0.5" />
+                  <span>Trial-to-paid optimization</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="p-6 rounded-xl bg-indigo-50 border border-border hover-elevate" data-testid="use-case-consumer-apps">
+              <h3 className="text-xl font-bold mb-3">Consumer Apps & Mobile</h3>
+              <p className="text-sm text-muted-foreground mb-4">
+                Acquire users profitably across app stores, paid social, and organic channels. Optimize onboarding and activation for maximum retention.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle2 className="h-4 w-4 text-indigo-600 flex-shrink-0 mt-0.5" />
+                  <span>App store optimization (ASO)</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle2 className="h-4 w-4 text-indigo-600 flex-shrink-0 mt-0.5" />
+                  <span>Mobile attribution & analytics</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle2 className="h-4 w-4 text-indigo-600 flex-shrink-0 mt-0.5" />
+                  <span>Viral loop engineering</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="p-6 rounded-xl bg-indigo-50 border border-border hover-elevate" data-testid="use-case-ecommerce-dtc">
+              <h3 className="text-xl font-bold mb-3">E-commerce & DTC Brands</h3>
+              <p className="text-sm text-muted-foreground mb-4">
+                Build profitable customer acquisition engines for online stores. Lower CAC, increase LTV, and scale revenue through strategic channel optimization.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle2 className="h-4 w-4 text-indigo-600 flex-shrink-0 mt-0.5" />
+                  <span>Paid social & search optimization</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle2 className="h-4 w-4 text-indigo-600 flex-shrink-0 mt-0.5" />
+                  <span>Conversion rate optimization</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle2 className="h-4 w-4 text-indigo-600 flex-shrink-0 mt-0.5" />
+                  <span>Customer retention programs</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="p-6 rounded-xl bg-indigo-50 border border-border hover-elevate" data-testid="use-case-subscriptions">
+              <h3 className="text-xl font-bold mb-3">Subscription Services</h3>
+              <p className="text-sm text-muted-foreground mb-4">
+                Acquire subscribers profitably with strategies that maximize lifetime value. Reduce churn, increase retention, and build predictable MRR growth.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle2 className="h-4 w-4 text-indigo-600 flex-shrink-0 mt-0.5" />
+                  <span>Free trial optimization</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle2 className="h-4 w-4 text-indigo-600 flex-shrink-0 mt-0.5" />
+                  <span>Churn reduction strategies</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle2 className="h-4 w-4 text-indigo-600 flex-shrink-0 mt-0.5" />
+                  <span>Win-back campaigns</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="p-6 rounded-xl bg-indigo-50 border border-border hover-elevate" data-testid="use-case-marketplaces">
+              <h3 className="text-xl font-bold mb-3">Marketplace Platforms</h3>
+              <p className="text-sm text-muted-foreground mb-4">
+                Solve the chicken-and-egg problem with dual-sided acquisition strategies. Build network effects and scale supply and demand simultaneously.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle2 className="h-4 w-4 text-indigo-600 flex-shrink-0 mt-0.5" />
+                  <span>Two-sided marketplace growth</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle2 className="h-4 w-4 text-indigo-600 flex-shrink-0 mt-0.5" />
+                  <span>Network effects engineering</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle2 className="h-4 w-4 text-indigo-600 flex-shrink-0 mt-0.5" />
+                  <span>Supply-demand balancing</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="p-6 rounded-xl bg-indigo-50 border border-border hover-elevate" data-testid="use-case-funded-startups">
+              <h3 className="text-xl font-bold mb-3">Funded Startups</h3>
+              <p className="text-sm text-muted-foreground mb-4">
+                Deploy venture-backed capital efficiently with rapid experimentation frameworks. Find product-market fit faster and scale winners aggressively.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle2 className="h-4 w-4 text-indigo-600 flex-shrink-0 mt-0.5" />
+                  <span>Rapid channel testing</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle2 className="h-4 w-4 text-indigo-600 flex-shrink-0 mt-0.5" />
+                  <span>Capital-efficient scaling</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle2 className="h-4 w-4 text-indigo-600 flex-shrink-0 mt-0.5" />
+                  <span>Growth metrics dashboards</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Related Services */}
+      <section className="py-16 px-4 bg-indigo-50">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <div className="text-sm uppercase tracking-wider text-indigo-600 mb-3">COMPLETE YOUR GROWTH STACK</div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+              Combine with these <span className="italic text-purple-600">complementary services</span>
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Build a complete growth engine with our integrated marketing services
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            <Link href="/services/funnel-automation">
+              <div className="group p-8 bg-white rounded-xl border border-border hover:border-indigo-600 hover:shadow-lg transition-all duration-300 cursor-pointer hover-elevate" data-testid="related-service-funnel-automation">
+                <div className="flex items-start justify-between mb-4">
+                  <h3 className="text-xl font-bold group-hover:text-indigo-600 transition-colors">Funnel Automation</h3>
+                  <ArrowRight className="h-5 w-5 text-indigo-600 group-hover:translate-x-1 transition-transform" />
+                </div>
+                <p className="text-sm text-muted-foreground mb-4">
+                  Automate your acquisition funnel with behavioral triggers, lead scoring, and nurture campaigns that convert while you sleep.
+                </p>
+                <div className="text-sm text-indigo-600 font-semibold">Learn More →</div>
+              </div>
+            </Link>
+
+            <Link href="/services/paid-advertising">
+              <div className="group p-8 bg-white rounded-xl border border-border hover:border-indigo-600 hover:shadow-lg transition-all duration-300 cursor-pointer hover-elevate" data-testid="related-service-paid-ads">
+                <div className="flex items-start justify-between mb-4">
+                  <h3 className="text-xl font-bold group-hover:text-indigo-600 transition-colors">Paid Advertising</h3>
+                  <ArrowRight className="h-5 w-5 text-indigo-600 group-hover:translate-x-1 transition-transform" />
+                </div>
+                <p className="text-sm text-muted-foreground mb-4">
+                  Scale acquisition with data-driven paid campaigns across Google, Facebook, LinkedIn, and more. Lower CAC, maximize ROAS.
+                </p>
+                <div className="text-sm text-indigo-600 font-semibold">Learn More →</div>
+              </div>
+            </Link>
+
+            <Link href="/services/analytics-tracking">
+              <div className="group p-8 bg-white rounded-xl border border-border hover:border-indigo-600 hover:shadow-lg transition-all duration-300 cursor-pointer hover-elevate" data-testid="related-service-analytics">
+                <div className="flex items-start justify-between mb-4">
+                  <h3 className="text-xl font-bold group-hover:text-indigo-600 transition-colors">Analytics & Tracking</h3>
+                  <ArrowRight className="h-5 w-5 text-indigo-600 group-hover:translate-x-1 transition-transform" />
+                </div>
+                <p className="text-sm text-muted-foreground mb-4">
+                  Measure what matters with proper attribution, cohort analysis, and growth dashboards. Know exactly what's driving acquisition.
+                </p>
+                <div className="text-sm text-indigo-600 font-semibold">Learn More →</div>
+              </div>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="py-20 px-4 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600"></div>

@@ -243,6 +243,202 @@ export default function DesignSystems() {
         </div>
       </section>
 
+      {/* Who This Service Is For */}
+      <section className="py-20 px-4 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <div className="text-sm uppercase tracking-wider text-[hsl(140,60%,45%)] mb-4">WHO THIS IS FOR</div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              Built for teams that <span className="italic bg-gradient-to-r from-[hsl(140,60%,45%)] to-[hsl(160,60%,55%)] text-transparent bg-clip-text">ship at scale</span>
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="bg-[hsl(210,20%,98%)] rounded-xl p-8 border border-border hover-elevate" data-testid="use-case-enterprise">
+              <h3 className="text-xl font-bold mb-4">Enterprise Product Teams</h3>
+              <p className="text-muted-foreground mb-4">
+                Unify design and development across multiple products, teams, and platforms. Maintain brand consistency at scale while accelerating feature delivery.
+              </p>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#16a34a] flex-shrink-0 mt-0.5" />
+                  <span>Cross-platform component libraries (web, iOS, Android)</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#16a34a] flex-shrink-0 mt-0.5" />
+                  <span>Design token systems for global theming</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#16a34a] flex-shrink-0 mt-0.5" />
+                  <span>Governance frameworks for multi-team collaboration</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-[hsl(210,20%,98%)] rounded-xl p-8 border border-border hover-elevate" data-testid="use-case-product">
+              <h3 className="text-xl font-bold mb-4">Fast-Growing Product Companies</h3>
+              <p className="text-muted-foreground mb-4">
+                Ship features faster without sacrificing quality. Eliminate design debt and empower designers and developers to work in parallel.
+              </p>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#16a34a] flex-shrink-0 mt-0.5" />
+                  <span>Rapid prototyping with pre-built components</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#16a34a] flex-shrink-0 mt-0.5" />
+                  <span>Figma-to-code workflows that eliminate handoff friction</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#16a34a] flex-shrink-0 mt-0.5" />
+                  <span>Version-controlled design assets synced with code</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-[hsl(210,20%,98%)] rounded-xl p-8 border border-border hover-elevate" data-testid="use-case-saas">
+              <h3 className="text-xl font-bold mb-4">SaaS Platforms</h3>
+              <p className="text-muted-foreground mb-4">
+                Build cohesive multi-product experiences. Ensure every touchpoint feels like part of the same ecosystem, from dashboard to mobile app.
+              </p>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#16a34a] flex-shrink-0 mt-0.5" />
+                  <span>White-label theming for enterprise customers</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#16a34a] flex-shrink-0 mt-0.5" />
+                  <span>Dashboard component patterns and data viz libraries</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#16a34a] flex-shrink-0 mt-0.5" />
+                  <span>Accessibility-first components (WCAG AA/AAA)</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-[hsl(210,20%,98%)] rounded-xl p-8 border border-border hover-elevate" data-testid="use-case-agencies">
+              <h3 className="text-xl font-bold mb-4">Design & Development Agencies</h3>
+              <p className="text-muted-foreground mb-4">
+                Deliver client projects faster with reusable systems. Win bigger contracts by offering design system implementation as a premium service.
+              </p>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#16a34a] flex-shrink-0 mt-0.5" />
+                  <span>Client-ready component documentation and guidelines</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#16a34a] flex-shrink-0 mt-0.5" />
+                  <span>Starter kits and templates for rapid project kickoff</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#16a34a] flex-shrink-0 mt-0.5" />
+                  <span>Training programs to upskill internal teams</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-[hsl(210,20%,98%)] rounded-xl p-8 border border-border hover-elevate" data-testid="use-case-dev-shops">
+              <h3 className="text-xl font-bold mb-4">Development Shops & Studios</h3>
+              <p className="text-muted-foreground mb-4">
+                Reduce development time and minimize bugs with battle-tested component libraries. Ship pixel-perfect implementations every time.
+              </p>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#16a34a] flex-shrink-0 mt-0.5" />
+                  <span>Framework-agnostic components (React, Vue, Angular)</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#16a34a] flex-shrink-0 mt-0.5" />
+                  <span>TypeScript definitions and comprehensive API docs</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#16a34a] flex-shrink-0 mt-0.5" />
+                  <span>Automated visual regression testing setups</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-[hsl(210,20%,98%)] rounded-xl p-8 border border-border hover-elevate" data-testid="use-case-startups">
+              <h3 className="text-xl font-bold mb-4">Funded Startups Scaling Fast</h3>
+              <p className="text-muted-foreground mb-4">
+                Avoid technical debt from day one. Build a design system that scales with your team from 5 to 50+ people without major refactors.
+              </p>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#16a34a] flex-shrink-0 mt-0.5" />
+                  <span>MVP-ready starter components for quick launches</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#16a34a] flex-shrink-0 mt-0.5" />
+                  <span>Scalable architecture that grows with team size</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#16a34a] flex-shrink-0 mt-0.5" />
+                  <span>Documentation that onboards new hires in hours</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Related Services */}
+      <section className="py-20 px-4 bg-[hsl(140,10%,98%)]">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <div className="text-sm uppercase tracking-wider text-[hsl(140,60%,45%)] mb-4">EXTEND YOUR SYSTEM</div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              Power your design system with <span className="italic bg-gradient-to-r from-[hsl(140,60%,45%)] to-[hsl(160,60%,55%)] text-transparent bg-clip-text">complementary services</span>
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              A design system is the foundation. Bring it to life with product design, development, and strategic consulting.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <Link href="/services/branding">
+              <div className="group p-8 bg-white rounded-xl border border-border hover:border-[hsl(140,60%,45%)] hover:shadow-xl transition-all duration-300 cursor-pointer hover-elevate" data-testid="related-service-branding">
+                <div className="flex items-start justify-between mb-4">
+                  <h3 className="text-xl font-bold group-hover:text-[hsl(140,60%,45%)] transition-colors">Branding Services</h3>
+                  <ArrowRight className="h-5 w-5 text-[hsl(140,60%,45%)] group-hover:translate-x-1 transition-transform" />
+                </div>
+                <p className="text-muted-foreground mb-4">
+                  Establish your brand foundation before building a design system. Define colors, typography, and visual language that scales.
+                </p>
+                <div className="text-sm text-[hsl(140,60%,45%)] font-semibold">Learn More →</div>
+              </div>
+            </Link>
+
+            <Link href="/services/web-design">
+              <div className="group p-8 bg-white rounded-xl border border-border hover:border-[hsl(140,60%,45%)] hover:shadow-xl transition-all duration-300 cursor-pointer hover-elevate" data-testid="related-service-web-design">
+                <div className="flex items-start justify-between mb-4">
+                  <h3 className="text-xl font-bold group-hover:text-[hsl(140,60%,45%)] transition-colors">Web Design</h3>
+                  <ArrowRight className="h-5 w-5 text-[hsl(140,60%,45%)] group-hover:translate-x-1 transition-transform" />
+                </div>
+                <p className="text-muted-foreground mb-4">
+                  Apply your design system to real products. Build conversion-optimized websites using your component library.
+                </p>
+                <div className="text-sm text-[hsl(140,60%,45%)] font-semibold">Learn More →</div>
+              </div>
+            </Link>
+
+            <Link href="/services/ai-employee">
+              <div className="group p-8 bg-white rounded-xl border border-border hover:border-[hsl(140,60%,45%)] hover:shadow-xl transition-all duration-300 cursor-pointer hover-elevate" data-testid="related-service-ai-employee">
+                <div className="flex items-start justify-between mb-4">
+                  <h3 className="text-xl font-bold group-hover:text-[hsl(140,60%,45%)] transition-colors">AI Employees</h3>
+                  <ArrowRight className="h-5 w-5 text-[hsl(140,60%,45%)] group-hover:translate-x-1 transition-transform" />
+                </div>
+                <p className="text-muted-foreground mb-4">
+                  Automate design system maintenance with AI. Generate components, update documentation, and catch inconsistencies automatically.
+                </p>
+                <div className="text-sm text-[hsl(140,60%,45%)] font-semibold">Learn More →</div>
+              </div>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="py-20 px-4 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-[hsl(140,60%,45%)] via-[hsl(150,55%,50%)] to-[hsl(160,60%,55%)]"></div>

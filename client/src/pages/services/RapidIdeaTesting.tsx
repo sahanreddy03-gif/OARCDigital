@@ -274,6 +274,205 @@ export default function RapidIdeaTesting() {
         </div>
       </section>
 
+      {/* Who This Service Is For */}
+      <section className="py-16 px-4 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <div className="text-sm uppercase tracking-wider text-orange-600 mb-3">WHO THIS IS FOR</div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+              Built for teams that move <span className="italic text-yellow-600">fast</span>
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Rapid idea testing for innovators, product teams, and growth-minded organizations
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="p-6 rounded-xl bg-orange-50 border border-border hover-elevate" data-testid="use-case-startups">
+              <h3 className="text-xl font-bold mb-3">Early-Stage Startups</h3>
+              <p className="text-sm text-muted-foreground mb-4">
+                Test product-market fit with real market feedback. Validate messaging, positioning, and channel viability before burning through runway.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle2 className="h-4 w-4 text-orange-600 flex-shrink-0 mt-0.5" />
+                  <span>MVP messaging tests</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle2 className="h-4 w-4 text-orange-600 flex-shrink-0 mt-0.5" />
+                  <span>Channel viability validation</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle2 className="h-4 w-4 text-orange-600 flex-shrink-0 mt-0.5" />
+                  <span>Lean budget experiments</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="p-6 rounded-xl bg-orange-50 border border-border hover-elevate" data-testid="use-case-growth-stage">
+              <h3 className="text-xl font-bold mb-3">Growth-Stage Companies</h3>
+              <p className="text-sm text-muted-foreground mb-4">
+                Scale what works, kill what doesn't. Test new channels, messaging angles, and creative concepts before committing big budgets.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle2 className="h-4 w-4 text-orange-600 flex-shrink-0 mt-0.5" />
+                  <span>New channel testing</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle2 className="h-4 w-4 text-orange-600 flex-shrink-0 mt-0.5" />
+                  <span>Creative concept validation</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle2 className="h-4 w-4 text-orange-600 flex-shrink-0 mt-0.5" />
+                  <span>Audience segment experiments</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="p-6 rounded-xl bg-orange-50 border border-border hover-elevate" data-testid="use-case-product-teams">
+              <h3 className="text-xl font-bold mb-3">Product Teams</h3>
+              <p className="text-sm text-muted-foreground mb-4">
+                Validate feature launches, pricing changes, and go-to-market strategies with real user feedback before full rollout.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle2 className="h-4 w-4 text-orange-600 flex-shrink-0 mt-0.5" />
+                  <span>Feature messaging tests</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle2 className="h-4 w-4 text-orange-600 flex-shrink-0 mt-0.5" />
+                  <span>Pricing experiments</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle2 className="h-4 w-4 text-orange-600 flex-shrink-0 mt-0.5" />
+                  <span>Launch campaign validation</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="p-6 rounded-xl bg-orange-50 border border-border hover-elevate" data-testid="use-case-marketing-teams">
+              <h3 className="text-xl font-bold mb-3">Marketing Teams</h3>
+              <p className="text-sm text-muted-foreground mb-4">
+                Test campaign ideas, creative concepts, and messaging angles fast. Find winning campaigns through rapid experimentation.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle2 className="h-4 w-4 text-orange-600 flex-shrink-0 mt-0.5" />
+                  <span>Campaign concept testing</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle2 className="h-4 w-4 text-orange-600 flex-shrink-0 mt-0.5" />
+                  <span>Multi-variant creative tests</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle2 className="h-4 w-4 text-orange-600 flex-shrink-0 mt-0.5" />
+                  <span>Messaging angle experiments</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="p-6 rounded-xl bg-orange-50 border border-border hover-elevate" data-testid="use-case-ecommerce">
+              <h3 className="text-xl font-bold mb-3">E-commerce Brands</h3>
+              <p className="text-sm text-muted-foreground mb-4">
+                Test product launches, pricing strategies, and promotional campaigns before scaling. Optimize for maximum ROI with data-driven decisions.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle2 className="h-4 w-4 text-orange-600 flex-shrink-0 mt-0.5" />
+                  <span>Product launch tests</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle2 className="h-4 w-4 text-orange-600 flex-shrink-0 mt-0.5" />
+                  <span>Promo offer experiments</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle2 className="h-4 w-4 text-orange-600 flex-shrink-0 mt-0.5" />
+                  <span>Bundle & upsell testing</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="p-6 rounded-xl bg-orange-50 border border-border hover-elevate" data-testid="use-case-innovation-labs">
+              <h3 className="text-xl font-bold mb-3">Innovation Labs</h3>
+              <p className="text-sm text-muted-foreground mb-4">
+                Validate new business models, products, and services with lean experiments. De-risk innovation through systematic testing.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle2 className="h-4 w-4 text-orange-600 flex-shrink-0 mt-0.5" />
+                  <span>Business model validation</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle2 className="h-4 w-4 text-orange-600 flex-shrink-0 mt-0.5" />
+                  <span>Market demand testing</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle2 className="h-4 w-4 text-orange-600 flex-shrink-0 mt-0.5" />
+                  <span>Prototype feedback loops</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Related Services */}
+      <section className="py-16 px-4 bg-orange-50">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <div className="text-sm uppercase tracking-wider text-orange-600 mb-3">ACCELERATE YOUR GROWTH</div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+              Pair testing with these <span className="italic text-yellow-600">growth services</span>
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Turn validated ideas into scalable growth engines
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            <Link href="/services/customer-acquisition">
+              <div className="group p-8 bg-white rounded-xl border border-border hover:border-orange-600 hover:shadow-lg transition-all duration-300 cursor-pointer hover-elevate" data-testid="related-service-customer-acquisition">
+                <div className="flex items-start justify-between mb-4">
+                  <h3 className="text-xl font-bold group-hover:text-orange-600 transition-colors">Customer Acquisition</h3>
+                  <ArrowRight className="h-5 w-5 text-orange-600 group-hover:translate-x-1 transition-transform" />
+                </div>
+                <p className="text-sm text-muted-foreground mb-4">
+                  Once you've validated what works, scale it aggressively with systematic customer acquisition strategies across all channels.
+                </p>
+                <div className="text-sm text-orange-600 font-semibold">Learn More →</div>
+              </div>
+            </Link>
+
+            <Link href="/services/paid-advertising">
+              <div className="group p-8 bg-white rounded-xl border border-border hover:border-orange-600 hover:shadow-lg transition-all duration-300 cursor-pointer hover-elevate" data-testid="related-service-paid-ads">
+                <div className="flex items-start justify-between mb-4">
+                  <h3 className="text-xl font-bold group-hover:text-orange-600 transition-colors">Paid Advertising</h3>
+                  <ArrowRight className="h-5 w-5 text-orange-600 group-hover:translate-x-1 transition-transform" />
+                </div>
+                <p className="text-sm text-muted-foreground mb-4">
+                  Scale winning tests with paid campaigns. Take validated messaging and creative and turn it into profitable paid acquisition.
+                </p>
+                <div className="text-sm text-orange-600 font-semibold">Learn More →</div>
+              </div>
+            </Link>
+
+            <Link href="/services/analytics-tracking">
+              <div className="group p-8 bg-white rounded-xl border border-border hover:border-orange-600 hover:shadow-lg transition-all duration-300 cursor-pointer hover-elevate" data-testid="related-service-analytics">
+                <div className="flex items-start justify-between mb-4">
+                  <h3 className="text-xl font-bold group-hover:text-orange-600 transition-colors">Analytics & Tracking</h3>
+                  <ArrowRight className="h-5 w-5 text-orange-600 group-hover:translate-x-1 transition-transform" />
+                </div>
+                <p className="text-sm text-muted-foreground mb-4">
+                  Measure test results accurately with proper tracking, attribution, and analytics infrastructure for data-driven decisions.
+                </p>
+                <div className="text-sm text-orange-600 font-semibold">Learn More →</div>
+              </div>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="py-20 px-4 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-yellow-500 via-orange-500 to-red-500"></div>

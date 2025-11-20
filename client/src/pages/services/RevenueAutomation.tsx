@@ -308,6 +308,146 @@ export default function RevenueAutomation() {
         </div>
       </section>
 
+      {/* Who This Service Is For */}
+      <section className="py-14 px-4 bg-zinc-50">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-black text-black mb-2">
+            Who <span className="text-[#5FD4C4]">Benefits Most</span>
+          </h2>
+          <p className="text-base text-gray-700 mb-8">
+            Revenue automation transforms operations across industries
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="bg-white rounded-2xl p-8 border-2 border-gray-100" data-testid="use-case-accounting">
+              <h3 className="text-xl font-bold text-black mb-4">Accounting & Bookkeeping Firms</h3>
+              <p className="text-sm text-gray-600 mb-4">
+                Handle more clients without hiring. Automate client onboarding, data collection, and reporting workflows.
+              </p>
+              <ul className="space-y-2 text-sm text-gray-700">
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <span>Automated client onboarding</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <span>QuickBooks integration & sync</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <span>Report generation at scale</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-white rounded-2xl p-8 border-2 border-gray-100" data-testid="use-case-saas">
+              <h3 className="text-xl font-bold text-black mb-4">SaaS & Software Companies</h3>
+              <p className="text-sm text-gray-600 mb-4">
+                Accelerate sales cycles with automated proposal generation, CRM updates, and customer onboarding.
+              </p>
+              <ul className="space-y-2 text-sm text-gray-700">
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <span>Lead scoring & qualification</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <span>Proposal automation</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <span>Contract & onboarding flows</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-white rounded-2xl p-8 border-2 border-gray-100" data-testid="use-case-professional">
+              <h3 className="text-xl font-bold text-black mb-4">Professional Services</h3>
+              <p className="text-sm text-gray-600 mb-4">
+                Legal, consulting, and advisory firms using automation to streamline billing, document generation, and client management.
+              </p>
+              <ul className="space-y-2 text-sm text-gray-700">
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <span>Time tracking & invoicing</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <span>Document automation</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <span>Client communication workflows</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-white rounded-2xl p-8 border-2 border-gray-100" data-testid="use-case-agencies">
+              <h3 className="text-xl font-bold text-black mb-4">Marketing & Creative Agencies</h3>
+              <p className="text-sm text-gray-600 mb-4">
+                Manage multiple clients efficiently with automated reporting, billing, and project workflows.
+              </p>
+              <ul className="space-y-2 text-sm text-gray-700">
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <span>Client reporting automation</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <span>Recurring billing</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <span>Project management integration</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-white rounded-2xl p-8 border-2 border-gray-100" data-testid="use-case-ecommerce">
+              <h3 className="text-xl font-bold text-black mb-4">E-commerce & Retail</h3>
+              <p className="text-sm text-gray-600 mb-4">
+                Scale order processing, inventory management, and customer communications without adding staff.
+              </p>
+              <ul className="space-y-2 text-sm text-gray-700">
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <span>Order processing automation</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <span>Inventory sync & alerts</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <span>Customer email workflows</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-white rounded-2xl p-8 border-2 border-gray-100" data-testid="use-case-realestate">
+              <h3 className="text-xl font-bold text-black mb-4">Real Estate & Property Management</h3>
+              <p className="text-sm text-gray-600 mb-4">
+                Automate lead follow-up, tenant communications, and property management workflows.
+              </p>
+              <ul className="space-y-2 text-sm text-gray-700">
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <span>Lead nurturing sequences</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <span>Lease generation</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <span>Tenant communication</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Featured Case Studies Section */}
       <section className="py-14 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
@@ -390,8 +530,61 @@ export default function RevenueAutomation() {
         </div>
       </section>
 
-      {/* Benefits Section */}
+      {/* Related Services / Internal CTAs */}
       <section className="py-14 px-4 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-black text-black mb-2">
+            Maximize Your <span className="text-[#5FD4C4]">Automation Impact</span>
+          </h2>
+          <p className="text-base text-gray-700 mb-8">
+            Combine revenue automation with these complementary services for end-to-end business transformation
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <Link href="/services/ai-consulting">
+              <div className="group bg-zinc-50 rounded-2xl p-8 border-2 border-gray-100 hover:border-[#5FD4C4] transition-all hover-elevate cursor-pointer" data-testid="related-service-ai">
+                <div className="flex items-start justify-between mb-4">
+                  <h3 className="text-xl font-bold text-black group-hover:text-[#ea580c] transition-colors">AI Consulting</h3>
+                  <ArrowRight className="h-5 w-5 text-[#5FD4C4] group-hover:translate-x-1 transition-transform" />
+                </div>
+                <p className="text-sm text-gray-600 mb-4">
+                  Layer AI capabilities on top of your automated workflows to make smarter decisions and predict customer needs.
+                </p>
+                <div className="text-sm text-[#ea580c] font-semibold">Explore AI Solutions →</div>
+              </div>
+            </Link>
+
+            <Link href="/services/hire-ai-employees">
+              <div className="group bg-zinc-50 rounded-2xl p-8 border-2 border-gray-100 hover:border-[#5FD4C4] transition-all hover-elevate cursor-pointer" data-testid="related-service-hire">
+                <div className="flex items-start justify-between mb-4">
+                  <h3 className="text-xl font-bold text-black group-hover:text-[#ea580c] transition-colors">Hire AI Employees</h3>
+                  <ArrowRight className="h-5 w-5 text-[#5FD4C4] group-hover:translate-x-1 transition-transform" />
+                </div>
+                <p className="text-sm text-gray-600 mb-4">
+                  Scale beyond automation with AI employees that handle customer service, data analysis, and complex workflows.
+                </p>
+                <div className="text-sm text-[#ea580c] font-semibold">Meet AI Employees →</div>
+              </div>
+            </Link>
+
+            <Link href="/services/web-design">
+              <div className="group bg-zinc-50 rounded-2xl p-8 border-2 border-gray-100 hover:border-[#5FD4C4] transition-all hover-elevate cursor-pointer" data-testid="related-service-web">
+                <div className="flex items-start justify-between mb-4">
+                  <h3 className="text-xl font-bold text-black group-hover:text-[#ea580c] transition-colors">Web Design</h3>
+                  <ArrowRight className="h-5 w-5 text-[#5FD4C4] group-hover:translate-x-1 transition-transform" />
+                </div>
+                <p className="text-sm text-gray-600 mb-4">
+                  Build automated workflows into high-converting websites that turn visitors into qualified leads automatically.
+                </p>
+                <div className="text-sm text-[#ea580c] font-semibold">View Web Design →</div>
+              </div>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Benefits Section */}
+      <section className="py-14 px-4 bg-zinc-50">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-black text-black mb-2">
             Why Choose <span className="text-[#5FD4C4]">OARC Digital</span>

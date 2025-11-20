@@ -266,6 +266,202 @@ export default function InfluencerMarketing() {
         </div>
       </section>
 
+      {/* Who This Service Is For */}
+      <section className="py-20 px-4 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <div className="text-sm uppercase tracking-wider text-pink-600 mb-4">WHO THIS IS FOR</div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              Perfect for <span className="italic bg-gradient-to-r from-pink-600 to-orange-500 text-transparent bg-clip-text">brands ready to scale</span>
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="bg-pink-50 rounded-xl p-8 border border-pink-100" data-testid="use-case-ecommerce">
+              <h3 className="text-xl font-bold mb-4">E-commerce Brands</h3>
+              <p className="text-gray-700 mb-4">
+                Launch products with creator partnerships. Drive awareness, build social proof, and generate sales through authentic influencer content.
+              </p>
+              <ul className="space-y-2 text-sm text-gray-700">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-pink-600 flex-shrink-0 mt-0.5" />
+                  <span>Product launch campaigns</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-pink-600 flex-shrink-0 mt-0.5" />
+                  <span>Unboxing & review content</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-pink-600 flex-shrink-0 mt-0.5" />
+                  <span>Affiliate & discount code campaigns</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-pink-50 rounded-xl p-8 border border-pink-100" data-testid="use-case-dtc">
+              <h3 className="text-xl font-bold mb-4">DTC Brands</h3>
+              <p className="text-gray-700 mb-4">
+                Build brand awareness and social credibility through creator partnerships. Overcome the cold start problem with authentic endorsements.
+              </p>
+              <ul className="space-y-2 text-sm text-gray-700">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-pink-600 flex-shrink-0 mt-0.5" />
+                  <span>Brand awareness campaigns</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-pink-600 flex-shrink-0 mt-0.5" />
+                  <span>Trust & credibility building</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-pink-600 flex-shrink-0 mt-0.5" />
+                  <span>Founder-story collaborations</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-pink-50 rounded-xl p-8 border border-pink-100" data-testid="use-case-beauty">
+              <h3 className="text-xl font-bold mb-4">Beauty & Personal Care</h3>
+              <p className="text-gray-700 mb-4">
+                Drive product trials and build loyal communities through beauty creator partnerships. Tutorials, reviews, and before-after content.
+              </p>
+              <ul className="space-y-2 text-sm text-gray-700">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-pink-600 flex-shrink-0 mt-0.5" />
+                  <span>Tutorial & how-to content</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-pink-600 flex-shrink-0 mt-0.5" />
+                  <span>Before/after transformations</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-pink-600 flex-shrink-0 mt-0.5" />
+                  <span>Product comparison & reviews</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-pink-50 rounded-xl p-8 border border-pink-100" data-testid="use-case-saas">
+              <h3 className="text-xl font-bold mb-4">SaaS & Tech Products</h3>
+              <p className="text-gray-700 mb-4">
+                Educate prospects through tech influencer partnerships. Build trust with product demos, use-case content, and expert endorsements.
+              </p>
+              <ul className="space-y-2 text-sm text-gray-700">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-pink-600 flex-shrink-0 mt-0.5" />
+                  <span>Product demo & walkthrough content</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-pink-600 flex-shrink-0 mt-0.5" />
+                  <span>Use-case & solution campaigns</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-pink-600 flex-shrink-0 mt-0.5" />
+                  <span>Expert & thought leader partnerships</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-pink-50 rounded-xl p-8 border border-pink-100" data-testid="use-case-wellness">
+              <h3 className="text-xl font-bold mb-4">Health & Wellness</h3>
+              <p className="text-gray-700 mb-4">
+                Build trust through authentic wellness creator partnerships. Share transformation stories and build credible health-focused communities.
+              </p>
+              <ul className="space-y-2 text-sm text-gray-700">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-pink-600 flex-shrink-0 mt-0.5" />
+                  <span>Transformation story campaigns</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-pink-600 flex-shrink-0 mt-0.5" />
+                  <span>Wellness routine content</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-pink-600 flex-shrink-0 mt-0.5" />
+                  <span>Expert endorsement partnerships</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-pink-50 rounded-xl p-8 border border-pink-100" data-testid="use-case-lifestyle">
+              <h3 className="text-xl font-bold mb-4">Lifestyle & Home</h3>
+              <p className="text-gray-700 mb-4">
+                Showcase products in real-life settings through lifestyle creator partnerships. Drive aspirational content and shopping behavior.
+              </p>
+              <ul className="space-y-2 text-sm text-gray-700">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-pink-600 flex-shrink-0 mt-0.5" />
+                  <span>Lifestyle integration content</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-pink-600 flex-shrink-0 mt-0.5" />
+                  <span>Home tour & styling features</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-pink-600 flex-shrink-0 mt-0.5" />
+                  <span>Seasonal & trend campaigns</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Related Services */}
+      <section className="py-20 px-4 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <div className="text-sm uppercase tracking-wider text-pink-600 mb-4">MAXIMIZE IMPACT</div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              Amplify with <span className="italic bg-gradient-to-r from-pink-600 to-orange-500 text-transparent bg-clip-text">related services</span>
+            </h2>
+            <p className="text-lg text-gray-700 max-w-3xl mx-auto">
+              Influencer marketing works best when combined with paid amplification and creative production.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <Link href="/services/paid-advertising">
+              <div className="group p-8 bg-pink-50 rounded-xl border border-pink-100 hover:border-pink-600 hover:shadow-xl transition-all duration-300 cursor-pointer" data-testid="related-service-paid">
+                <div className="flex items-start justify-between mb-4">
+                  <h3 className="text-xl font-bold group-hover:text-pink-600 transition-colors">Paid Advertising</h3>
+                  <ArrowRight className="h-5 w-5 text-pink-600 group-hover:translate-x-1 transition-transform" />
+                </div>
+                <p className="text-gray-700 mb-4">
+                  Amplify your influencer content with paid media. Turn organic creator content into high-performing ads.
+                </p>
+                <div className="text-sm text-pink-600 font-semibold">Learn More →</div>
+              </div>
+            </Link>
+
+            <Link href="/services/social-media-creative">
+              <div className="group p-8 bg-pink-50 rounded-xl border border-pink-100 hover:border-pink-600 hover:shadow-xl transition-all duration-300 cursor-pointer" data-testid="related-service-creative">
+                <div className="flex items-start justify-between mb-4">
+                  <h3 className="text-xl font-bold group-hover:text-pink-600 transition-colors">Social Creative Production</h3>
+                  <ArrowRight className="h-5 w-5 text-pink-600 group-hover:translate-x-1 transition-transform" />
+                </div>
+                <p className="text-gray-700 mb-4">
+                  Professional content creation to complement influencer campaigns. UGC-style creative that converts.
+                </p>
+                <div className="text-sm text-pink-600 font-semibold">Learn More →</div>
+              </div>
+            </Link>
+
+            <Link href="/services/social-media-management">
+              <div className="group p-8 bg-pink-50 rounded-xl border border-pink-100 hover:border-pink-600 hover:shadow-xl transition-all duration-300 cursor-pointer" data-testid="related-service-management">
+                <div className="flex items-start justify-between mb-4">
+                  <h3 className="text-xl font-bold group-hover:text-pink-600 transition-colors">Social Media Management</h3>
+                  <ArrowRight className="h-5 w-5 text-pink-600 group-hover:translate-x-1 transition-transform" />
+                </div>
+                <p className="text-gray-700 mb-4">
+                  Maximize influencer ROI with daily community management. Keep the conversation going beyond campaigns.
+                </p>
+                <div className="text-sm text-pink-600 font-semibold">Learn More →</div>
+              </div>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-20 px-4 bg-gradient-to-r from-pink-500 to-orange-500 text-white">
         <div className="max-w-4xl mx-auto text-center">

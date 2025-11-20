@@ -320,6 +320,188 @@ export default function MobileAppsDevelopment() {
         </div>
       </section>
 
+      {/* Who This Service Is For */}
+      <section className="py-20 px-4 bg-zinc-50">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center">
+            Who This Service Is For
+          </h2>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="p-8 bg-white border border-border rounded-xl hover-elevate" data-testid="use-case-saas-startups">
+              <h3 className="text-2xl font-bold mb-4">SaaS Startups</h3>
+              <p className="text-lg text-muted-foreground mb-4">
+                B2B and B2C SaaS companies need native mobile apps to increase engagement and enable customers to access their platform anywhere.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Native iOS and Android apps for your web platform</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Real-time sync with web application data</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Push notifications and offline functionality</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="p-8 bg-white border border-border rounded-xl hover-elevate" data-testid="use-case-ecommerce">
+              <h3 className="text-2xl font-bold mb-4">E-commerce Brands</h3>
+              <p className="text-lg text-muted-foreground mb-4">
+                DTC brands and online retailers need mobile shopping experiences that drive repeat purchases and increase average order value.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Seamless shopping with saved payment methods</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Personalized product recommendations</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Order tracking and push notification updates</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="p-8 bg-white border border-border rounded-xl hover-elevate" data-testid="use-case-service-businesses">
+              <h3 className="text-2xl font-bold mb-4">Service Businesses</h3>
+              <p className="text-lg text-muted-foreground mb-4">
+                Healthcare, fitness, beauty, and professional services need booking apps that reduce no-shows and streamline operations.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Appointment booking and calendar management</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Automated reminders and rescheduling</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">In-app payments and membership management</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="p-8 bg-white border border-border rounded-xl hover-elevate" data-testid="use-case-fintech">
+              <h3 className="text-2xl font-bold mb-4">Fintech Companies</h3>
+              <p className="text-lg text-muted-foreground mb-4">
+                Financial services, payment platforms, and investment apps require secure, high-performance mobile applications with banking-grade reliability.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Bank-level security and compliance (PCI, SOC 2)</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Biometric authentication and fraud detection</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Real-time transaction processing</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="p-8 bg-white border border-border rounded-xl hover-elevate" data-testid="use-case-food-delivery">
+              <h3 className="text-2xl font-bold mb-4">Food & Beverage Delivery</h3>
+              <p className="text-lg text-muted-foreground mb-4">
+                Restaurants, ghost kitchens, and delivery services need custom ordering apps that reduce commission fees from third-party platforms.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Custom menu management and ordering system</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Real-time order tracking and driver dispatch</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Loyalty programs and customer retention features</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="p-8 bg-white border border-border rounded-xl hover-elevate" data-testid="use-case-social-platforms">
+              <h3 className="text-2xl font-bold mb-4">Social & Community Platforms</h3>
+              <p className="text-lg text-muted-foreground mb-4">
+                Build the next generation of social networks, community platforms, or creator economy tools with engaging mobile-first experiences.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">User-generated content and social feeds</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Real-time messaging and notifications</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Content moderation and community management tools</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Related Services */}
+      <section className="py-16 px-4 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">
+            Services That Work Great Together
+          </h2>
+          <div className="grid md:grid-cols-3 gap-6">
+            <Link href="/services/web-design">
+              <div className="p-6 bg-zinc-50 border border-border rounded-xl hover-elevate cursor-pointer transition-all" data-testid="related-service-web-design">
+                <h3 className="text-xl font-bold mb-3">Web Design & Development</h3>
+                <p className="text-muted-foreground mb-4">
+                  Build a responsive web platform that syncs seamlessly with your mobile apps for a unified experience.
+                </p>
+                <div className="flex items-center text-black font-semibold">
+                  Learn More <ArrowRight className="w-4 h-4 ml-2" />
+                </div>
+              </div>
+            </Link>
+
+            <Link href="/services/design-systems">
+              <div className="p-6 bg-zinc-50 border border-border rounded-xl hover-elevate cursor-pointer transition-all" data-testid="related-service-design-systems">
+                <h3 className="text-xl font-bold mb-3">Design Systems</h3>
+                <p className="text-muted-foreground mb-4">
+                  Create a unified design language that ensures consistency across mobile and web platforms.
+                </p>
+                <div className="flex items-center text-black font-semibold">
+                  Learn More <ArrowRight className="w-4 h-4 ml-2" />
+                </div>
+              </div>
+            </Link>
+
+            <Link href="/services/ai-creative">
+              <div className="p-6 bg-zinc-50 border border-border rounded-xl hover-elevate cursor-pointer transition-all" data-testid="related-service-ai-creative">
+                <h3 className="text-xl font-bold mb-3">AI Creative Services</h3>
+                <p className="text-muted-foreground mb-4">
+                  Power your app with AI-generated content, smart recommendations, and personalized experiences.
+                </p>
+                <div className="flex items-center text-black font-semibold">
+                  Learn More <ArrowRight className="w-4 h-4 ml-2" />
+                </div>
+              </div>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-20 px-4 bg-white">
         <div className="max-w-4xl mx-auto text-center">

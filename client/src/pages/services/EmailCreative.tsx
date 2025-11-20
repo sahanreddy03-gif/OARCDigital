@@ -224,6 +224,188 @@ export default function EmailCreative() {
         </div>
       </section>
 
+      {/* Who This Service Is For */}
+      <section className="py-20 px-4 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center">
+            Who This Service Is For
+          </h2>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="p-8 bg-white border border-border rounded-xl hover-elevate" data-testid="use-case-ecommerce">
+              <h3 className="text-2xl font-bold mb-4">E-commerce Brands</h3>
+              <p className="text-lg text-muted-foreground mb-4">
+                Online retailers sending hundreds of emails monthly need beautiful, conversion-focused templates that work flawlessly across all devices.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Product showcase emails optimized for mobile shopping</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Abandoned cart sequences that recover revenue</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Promotional campaign templates for launches and sales</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="p-8 bg-white border border-border rounded-xl hover-elevate" data-testid="use-case-saas">
+              <h3 className="text-2xl font-bold mb-4">SaaS Companies</h3>
+              <p className="text-lg text-muted-foreground mb-4">
+                Software companies need email designs that nurture free trials, onboard users, and reduce churn with educational content.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Multi-step onboarding sequences</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Feature announcement and product update emails</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Trial expiration and upgrade reminder campaigns</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="p-8 bg-white border border-border rounded-xl hover-elevate" data-testid="use-case-publishers">
+              <h3 className="text-2xl font-bold mb-4">Media & Publishing</h3>
+              <p className="text-lg text-muted-foreground mb-4">
+                Publishers and content creators need newsletter designs that maximize readership, engagement, and subscriber retention.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Scannable newsletter layouts with clear hierarchy</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Digest-style templates for curated content</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Subscription upsell and renewal campaigns</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="p-8 bg-white border border-border rounded-xl hover-elevate" data-testid="use-case-b2b-services">
+              <h3 className="text-2xl font-bold mb-4">B2B Services</h3>
+              <p className="text-lg text-muted-foreground mb-4">
+                Professional services firms need polished email designs that build credibility and nurture long B2B sales cycles.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Thought leadership newsletters</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Case study and white paper promotion emails</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Event invitation and webinar registration templates</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="p-8 bg-white border border-border rounded-xl hover-elevate" data-testid="use-case-course-creators">
+              <h3 className="text-2xl font-bold mb-4">Course Creators & Educators</h3>
+              <p className="text-lg text-muted-foreground mb-4">
+                Online educators need email designs that sell courses, deliver lessons, and keep students engaged throughout their learning journey.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Course launch and sales funnel emails</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Lesson delivery and drip content templates</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Student engagement and completion reminders</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="p-8 bg-white border border-border rounded-xl hover-elevate" data-testid="use-case-subscriptions">
+              <h3 className="text-2xl font-bold mb-4">Subscription Boxes & Memberships</h3>
+              <p className="text-lg text-muted-foreground mb-4">
+                Subscription businesses need emails that reduce churn, encourage referrals, and maximize customer lifetime value.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Monthly box reveal and unboxing emails</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Renewal reminders and win-back campaigns</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Referral program promotion templates</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Related Services */}
+      <section className="py-16 px-4 bg-[hsl(25,10%,98%)]">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">
+            Services That Work Great Together
+          </h2>
+          <div className="grid md:grid-cols-3 gap-6">
+            <Link href="/services/ai-copywriting">
+              <div className="p-6 bg-white border border-border rounded-xl hover-elevate cursor-pointer transition-all" data-testid="related-service-ai-copywriting">
+                <h3 className="text-xl font-bold mb-3">AI Copywriting</h3>
+                <p className="text-muted-foreground mb-4">
+                  Beautiful emails need compelling copy—scale your email content with AI-powered writing that converts.
+                </p>
+                <div className="flex items-center text-[hsl(25,85%,55%)] font-semibold">
+                  Learn More <ArrowRight className="w-4 h-4 ml-2" />
+                </div>
+              </div>
+            </Link>
+
+            <Link href="/services/funnel-automation">
+              <div className="p-6 bg-white border border-border rounded-xl hover-elevate cursor-pointer transition-all" data-testid="related-service-funnel-automation">
+                <h3 className="text-xl font-bold mb-3">Funnel Automation</h3>
+                <p className="text-muted-foreground mb-4">
+                  Automate your email sequences and nurture leads on autopilot with intelligent marketing automation.
+                </p>
+                <div className="flex items-center text-[hsl(25,85%,55%)] font-semibold">
+                  Learn More <ArrowRight className="w-4 h-4 ml-2" />
+                </div>
+              </div>
+            </Link>
+
+            <Link href="/services/digital-marketing">
+              <div className="p-6 bg-white border border-border rounded-xl hover-elevate cursor-pointer transition-all" data-testid="related-service-digital-marketing">
+                <h3 className="text-xl font-bold mb-3">Digital Marketing Services</h3>
+                <p className="text-muted-foreground mb-4">
+                  Integrate email with a full-funnel marketing strategy for maximum customer acquisition and retention.
+                </p>
+                <div className="flex items-center text-[hsl(25,85%,55%)] font-semibold">
+                  Learn More <ArrowRight className="w-4 h-4 ml-2" />
+                </div>
+              </div>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Final CTA */}
       <section className="py-20 px-4 bg-gradient-to-br from-[hsl(25,85%,55%)] to-[hsl(45,85%,65%)] text-white">
         <div className="max-w-4xl mx-auto text-center">

@@ -259,6 +259,188 @@ export default function AdCreative() {
         </div>
       </section>
 
+      {/* Who This Service Is For */}
+      <section className="py-20 px-4 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center">
+            Who This Service Is For
+          </h2>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="p-8 bg-white border border-border rounded-xl hover-elevate" data-testid="use-case-dtc">
+              <h3 className="text-2xl font-bold mb-4">Direct-to-Consumer Brands</h3>
+              <p className="text-lg text-muted-foreground mb-4">
+                E-commerce brands spending $50K+ monthly on ads need high-volume creative testing to find winning combinations that lower CPA and scale profitably.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Unlimited creative variants for continuous testing</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Platform-optimized formats (Meta, TikTok, Google)</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Data-driven iteration based on performance</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="p-8 bg-white border border-border rounded-xl hover-elevate" data-testid="use-case-agencies">
+              <h3 className="text-2xl font-bold mb-4">Performance Marketing Agencies</h3>
+              <p className="text-lg text-muted-foreground mb-4">
+                Agencies managing multiple client accounts need scalable creative production to test, iterate, and optimize ads without creative becoming a bottleneck.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">White-label creative services for all clients</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Fast turnaround for campaign launches</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Performance reporting and optimization</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="p-8 bg-white border border-border rounded-xl hover-elevate" data-testid="use-case-app-businesses">
+              <h3 className="text-2xl font-bold mb-4">App-Based Businesses</h3>
+              <p className="text-lg text-muted-foreground mb-4">
+                Mobile apps and SaaS platforms acquiring users through paid ads need creative that reduces cost-per-install and increases trial-to-paid conversion.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">App install campaign creative (iOS & Android)</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">User testimonials and product demos</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Feature highlight videos and carousels</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="p-8 bg-white border border-border rounded-xl hover-elevate" data-testid="use-case-subscriptions">
+              <h3 className="text-2xl font-bold mb-4">Subscription Services</h3>
+              <p className="text-lg text-muted-foreground mb-4">
+                Subscription boxes, meal kits, and membership services need engaging creative that showcases value and drives consistent new subscriber acquisition.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Unboxing videos and product reveals</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Comparison and value proposition creative</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Social proof and testimonial ads</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="p-8 bg-white border border-border rounded-xl hover-elevate" data-testid="use-case-b2b-saas">
+              <h3 className="text-2xl font-bold mb-4">B2B SaaS Companies</h3>
+              <p className="text-lg text-muted-foreground mb-4">
+                Business software companies need professional, results-focused creative that generates quality leads and showcases ROI to decision-makers.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">LinkedIn and display ad creative</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Case study and ROI-focused messaging</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Demo and trial signup campaigns</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="p-8 bg-white border border-border rounded-xl hover-elevate" data-testid="use-case-franchise">
+              <h3 className="text-2xl font-bold mb-4">Franchise & Multi-Location Businesses</h3>
+              <p className="text-lg text-muted-foreground mb-4">
+                Franchises and chains need scalable creative that maintains brand consistency while allowing local customization for geo-targeted campaigns.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Template-based creative for local markets</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Brand-compliant customization system</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-[#16a34a] mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">Performance tracking across locations</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Related Services */}
+      <section className="py-16 px-4 bg-zinc-50">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">
+            Services That Work Great Together
+          </h2>
+          <div className="grid md:grid-cols-3 gap-6">
+            <Link href="/services/paid-advertising">
+              <div className="p-6 bg-white border border-border rounded-xl hover-elevate cursor-pointer transition-all" data-testid="related-service-paid-ads">
+                <h3 className="text-xl font-bold mb-3">Paid Advertising</h3>
+                <p className="text-muted-foreground mb-4">
+                  Combine high-performance ad creative with expert media buying and campaign management.
+                </p>
+                <div className="flex items-center text-[hsl(262,83%,58%)] font-semibold">
+                  Learn More <ArrowRight className="w-4 h-4 ml-2" />
+                </div>
+              </div>
+            </Link>
+
+            <Link href="/services/rapid-idea-testing">
+              <div className="p-6 bg-white border border-border rounded-xl hover-elevate cursor-pointer transition-all" data-testid="related-service-rapid-testing">
+                <h3 className="text-xl font-bold mb-3">Rapid Idea Testing</h3>
+                <p className="text-muted-foreground mb-4">
+                  Test creative concepts quickly before scaling spend with validated winning angles.
+                </p>
+                <div className="flex items-center text-[hsl(262,83%,58%)] font-semibold">
+                  Learn More <ArrowRight className="w-4 h-4 ml-2" />
+                </div>
+              </div>
+            </Link>
+
+            <Link href="/services/ai-copywriting">
+              <div className="p-6 bg-white border border-border rounded-xl hover-elevate cursor-pointer transition-all" data-testid="related-service-ai-copywriting">
+                <h3 className="text-xl font-bold mb-3">AI Copywriting</h3>
+                <p className="text-muted-foreground mb-4">
+                  Scale ad copy production 10x with AI-powered writing optimized for conversions.
+                </p>
+                <div className="flex items-center text-[hsl(262,83%,58%)] font-semibold">
+                  Learn More <ArrowRight className="w-4 h-4 ml-2" />
+                </div>
+              </div>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Final CTA */}
       <section className="py-20 px-4 bg-gradient-to-br from-[hsl(262,83%,58%)] to-[hsl(330,81%,60%)] text-white">
         <div className="max-w-4xl mx-auto text-center">

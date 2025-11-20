@@ -263,6 +263,202 @@ export default function BrandingServices() {
         </div>
       </section>
 
+      {/* Who This Service Is For */}
+      <section className="py-20 px-4 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <div className="text-sm uppercase tracking-wider text-orange-600 mb-4">WHO THIS IS FOR</div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              Built for ambitious <span className="italic bg-gradient-to-r from-orange-600 to-red-500 text-transparent bg-clip-text">brand builders</span>
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="bg-[hsl(210,20%,98%)] rounded-xl p-8 border border-border hover-elevate" data-testid="use-case-startups">
+              <h3 className="text-xl font-bold mb-4">Early-Stage Startups</h3>
+              <p className="text-muted-foreground mb-4">
+                Launch with a strong brand foundation that attracts investors, customers, and top talent. Stand out in competitive markets from day one.
+              </p>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#16a34a] flex-shrink-0 mt-0.5" />
+                  <span>Investor-ready brand identity and pitch materials</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#16a34a] flex-shrink-0 mt-0.5" />
+                  <span>Strategic positioning to differentiate from competitors</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#16a34a] flex-shrink-0 mt-0.5" />
+                  <span>Scalable brand systems that grow with your company</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-[hsl(210,20%,98%)] rounded-xl p-8 border border-border hover-elevate" data-testid="use-case-rebrands">
+              <h3 className="text-xl font-bold mb-4">Companies Needing Rebrands</h3>
+              <p className="text-muted-foreground mb-4">
+                Evolve your brand to reflect growth, new markets, or strategic pivots. Modernize outdated identities while preserving brand equity.
+              </p>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#16a34a] flex-shrink-0 mt-0.5" />
+                  <span>Strategic rebrand roadmaps and stakeholder alignment</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#16a34a] flex-shrink-0 mt-0.5" />
+                  <span>Visual identity refresh while maintaining recognition</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#16a34a] flex-shrink-0 mt-0.5" />
+                  <span>Brand migration strategies and rollout plans</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-[hsl(210,20%,98%)] rounded-xl p-8 border border-border hover-elevate" data-testid="use-case-enterprise">
+              <h3 className="text-xl font-bold mb-4">Enterprise & Corporate</h3>
+              <p className="text-muted-foreground mb-4">
+                Unified brand architecture for complex organizations. Multi-brand portfolios, sub-brands, and internal brand systems at scale.
+              </p>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#16a34a] flex-shrink-0 mt-0.5" />
+                  <span>Master brand architecture and portfolio strategy</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#16a34a] flex-shrink-0 mt-0.5" />
+                  <span>Comprehensive brand governance and compliance tools</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#16a34a] flex-shrink-0 mt-0.5" />
+                  <span>Global brand consistency across markets and teams</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-[hsl(210,20%,98%)] rounded-xl p-8 border border-border hover-elevate" data-testid="use-case-dtc">
+              <h3 className="text-xl font-bold mb-4">DTC & E-commerce Brands</h3>
+              <p className="text-muted-foreground mb-4">
+                Create memorable brand experiences that drive customer loyalty and premium pricing. Stand out on digital shelves and in feeds.
+              </p>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#16a34a] flex-shrink-0 mt-0.5" />
+                  <span>Social-first brand identities optimized for feeds</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#16a34a] flex-shrink-0 mt-0.5" />
+                  <span>Packaging and unboxing experience design</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#16a34a] flex-shrink-0 mt-0.5" />
+                  <span>Brand storytelling that drives conversion and retention</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-[hsl(210,20%,98%)] rounded-xl p-8 border border-border hover-elevate" data-testid="use-case-b2b">
+              <h3 className="text-xl font-bold mb-4">B2B Tech Companies</h3>
+              <p className="text-muted-foreground mb-4">
+                Enterprise-grade brands that build trust and accelerate sales cycles. Communicate complex value propositions clearly and credibly.
+              </p>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#16a34a] flex-shrink-0 mt-0.5" />
+                  <span>Professional brand identities that win enterprise deals</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#16a34a] flex-shrink-0 mt-0.5" />
+                  <span>Sales enablement collateral and pitch materials</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#16a34a] flex-shrink-0 mt-0.5" />
+                  <span>Product branding and feature naming frameworks</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-[hsl(210,20%,98%)] rounded-xl p-8 border border-border hover-elevate" data-testid="use-case-agencies">
+              <h3 className="text-xl font-bold mb-4">Agencies & Creative Studios</h3>
+              <p className="text-muted-foreground mb-4">
+                Portfolio-worthy brand work that attracts premium clients. Build a distinctive agency brand that showcases your creative excellence.
+              </p>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#16a34a] flex-shrink-0 mt-0.5" />
+                  <span>Unique agency positioning and differentiation</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#16a34a] flex-shrink-0 mt-0.5" />
+                  <span>Portfolio presentation systems and case study templates</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#16a34a] flex-shrink-0 mt-0.5" />
+                  <span>Client-facing brand materials that close deals</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Related Services */}
+      <section className="py-20 px-4 bg-orange-50">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <div className="text-sm uppercase tracking-wider text-orange-600 mb-4">COMPLETE YOUR BRAND</div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              Amplify your brand with <span className="italic bg-gradient-to-r from-orange-600 to-red-500 text-transparent bg-clip-text">complementary services</span>
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              A strong brand identity is just the beginning. Bring it to life across digital and physical touchpoints.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <Link href="/services/web-design">
+              <div className="group p-8 bg-white rounded-xl border border-border hover:border-orange-600 hover:shadow-xl transition-all duration-300 cursor-pointer hover-elevate" data-testid="related-service-web">
+                <div className="flex items-start justify-between mb-4">
+                  <h3 className="text-xl font-bold group-hover:text-orange-600 transition-colors">Web Design</h3>
+                  <ArrowRight className="h-5 w-5 text-orange-600 group-hover:translate-x-1 transition-transform" />
+                </div>
+                <p className="text-muted-foreground mb-4">
+                  Bring your brand to life online with conversion-optimized websites that reflect your visual identity perfectly.
+                </p>
+                <div className="text-sm text-orange-600 font-semibold">Learn More →</div>
+              </div>
+            </Link>
+
+            <Link href="/services/design-systems">
+              <div className="group p-8 bg-white rounded-xl border border-border hover:border-orange-600 hover:shadow-xl transition-all duration-300 cursor-pointer hover-elevate" data-testid="related-service-design-systems">
+                <div className="flex items-start justify-between mb-4">
+                  <h3 className="text-xl font-bold group-hover:text-orange-600 transition-colors">Design Systems</h3>
+                  <ArrowRight className="h-5 w-5 text-orange-600 group-hover:translate-x-1 transition-transform" />
+                </div>
+                <p className="text-muted-foreground mb-4">
+                  Scale your brand consistently across all digital products with comprehensive design systems and component libraries.
+                </p>
+                <div className="text-sm text-orange-600 font-semibold">Learn More →</div>
+              </div>
+            </Link>
+
+            <Link href="/services/print-packaging">
+              <div className="group p-8 bg-white rounded-xl border border-border hover:border-orange-600 hover:shadow-xl transition-all duration-300 cursor-pointer hover-elevate" data-testid="related-service-print">
+                <div className="flex items-start justify-between mb-4">
+                  <h3 className="text-xl font-bold group-hover:text-orange-600 transition-colors">Print & Packaging</h3>
+                  <ArrowRight className="h-5 w-5 text-orange-600 group-hover:translate-x-1 transition-transform" />
+                </div>
+                <p className="text-muted-foreground mb-4">
+                  Extend your brand to physical touchpoints with premium packaging, collateral, and print materials that make an impact.
+                </p>
+                <div className="text-sm text-orange-600 font-semibold">Learn More →</div>
+              </div>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-20 px-4 bg-gradient-to-r from-amber-500 to-red-500 text-white">
         <div className="max-w-4xl mx-auto text-center">
