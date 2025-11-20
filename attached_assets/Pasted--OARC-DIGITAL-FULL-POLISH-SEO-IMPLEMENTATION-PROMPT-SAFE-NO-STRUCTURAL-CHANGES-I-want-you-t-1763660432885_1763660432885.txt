@@ -1,0 +1,231 @@
+
+
+OARC DIGITAL — FULL POLISH + SEO IMPLEMENTATION PROMPT (SAFE, NO STRUCTURAL CHANGES)
+
+I want you to improve and refine my website with a combination of:
+	•	premium UI polishing
+	•	world-class SEO
+	•	better consistency
+	•	performance improvements
+	•	service-page enrichment
+	•	subtle address placement
+	•	authentic metrics cleanup
+
+while preserving EVERYTHING about the brand structure and colour identity.
+
+⸻
+
+🔒 NON-NEGOTIABLE RULES — DO NOT BREAK THESE
+
+1. DO NOT change layout or structure.
+No section reordering, no relocating components, no redesign.
+
+2. DO NOT change the colour palette.
+No colour edits, no gradient changes, no theme alterations.
+
+3. DO NOT rewrite brand copy in a way that changes meaning.
+
+4. DO NOT add keyword stuffing.
+
+5. DO NOT slow down performance with heavy scripts or animations.
+
+6. DO NOT invent fake metrics, testimonials, or achievements.
+
+7. DO NOT change URL structure, routing, backend, or database code.
+
+Your changes must ONLY improve, polish, and optimise what is already there.
+
+⸻
+
+🧩 1. A) GLOBAL POLISHING (UI/UX)
+
+Apply the following without changing colours or structure:
+
+Typography
+	•	Establish a consistent H1 → H2 → H3 → body hierarchy.
+	•	Fix inconsistent font sizes, weights, and spacing.
+	•	Improve readability of long paragraphs with proper line-height & max-width.
+
+Spacing
+	•	Even out spacing between sections for smooth vertical rhythm.
+	•	Fix any areas that feel cramped, unbalanced, or too far apart.
+
+Card & Component Consistency
+	•	Make all cards (services, AI employees, creative, work sections) uniform in:
+	•	padding
+	•	corner radius
+	•	shadows
+	•	image aspect ratio
+	•	icon alignment
+
+Images
+	•	Standardize image sizes & aspect ratios.
+BUT DO NOT CHANGE THE SIZE OF THE CAROUSELS GRID PICTURES IN THE HOMEPAGE UNDER 3 PILLARS . Every type of creative work you will ever need , hire Ai employees and let’s talk revenue 
+	•	Use object-cover everywhere.
+	•	Add loading="lazy" to all below-the-fold media.
+
+✅ 1. SEO MUST FOLLOW THESE PRINCIPLES (BASED ON MY RESEARCH)
+
+These MUST be applied:
+
+A) People-first content (Google Helpful Content Update)
+	•	Content must answer user questions clearly
+	•	No fluff, no filler, no duplication
+	•	Prioritise clarity, accuracy, and usefulness
+	•	Demonstrate real expertise (E-E-A-T)
+
+B) AI Search + Voice Search Optimisation
+	•	Add clear Q&A blocks or FAQ schema
+	•	Use natural language and conversational phrasing
+	•	Structure pages so assistants (ChatGPT, Gemini, Bing AI) can extract answers
+	•	Avoid long, complicated sentences
+	•	Ensure headings clearly describe each section
+
+C) Local SEO (Malta priority)
+	•	Add subtle mentions of Malta where relevant
+	•	Add LocalBusiness schema with:
+	•	business name
+	•	correct address
+	•	phone number
+	•	website
+	•	Ensure NAP details are consistent across all pages
+	•	Add Malta-specific service descriptions when appropriate
+
+D) High-quality images + alt text for all images
+	•	Add descriptive alt text
+	•	Avoid spammy keyword stuffing in alt text
+	•	Keep alt text short and accurate
+
+E) Speed + Performance
+	•	Compress large images
+	•	Add lazy loading
+	•	Remove unused CSS/JS
+	•	Optimise shadcn/ui + Tailwind usage
+	•	Improve Core Web Vitals where possible
+	•	No heavy animations that hurt performance
+
+F) On-page SEO basics
+
+Every page must have:
+	•	1 unique <title>
+	•	1 unique meta description
+	•	One , then logical h2/h3 hierarchy
+	•	Clean URLs
+	•	Proper internal linking between services
+
+G) Structured Data (Schema.org)
+
+Add schema where relevant:
+	•	FAQPage for FAQ sections
+	•	LocalBusiness for the contact/about page
+	•	Service schema for each service page
+	•	BreadcrumbList for improved indexing
+
+Make sure the schema is valid and not spammy.
+
+2. FIX ALL SERVICE PAGES (CRITICAL)
+
+For each service page in:
+	•	AI Creative Services
+	•	Hire AI Employees
+	•	Revenue Automation / Let’s Talk Revenue
+
+Do the following:
+
+IF the service page has no image → add a high-quality, relevant image.
+
+But:
+	•	keep to my existing colour palette
+	•	avoid cheesy generic stock photos
+	•	use modern, clean images
+	•	must be performance-optimized
+
+IF the service page has thin content → improve it slightly.
+
+Rules for improving content:
+	•	keep meaning the same
+	•	do NOT invent fake claims
+	•	expand by adding:
+	•	clear benefits
+	•	who this service is for
+	•	what problems it solves
+	•	how OARC Digital uniquely delivers this
+
+NO keyword stuffing.
+NO fake data.
+NO long paragraphs; use readable structure.
+
+3. FOOTER CONSISTENCY
+	•	Use the strongest footer version across all pages
+	•	Ensure links work properly
+	•	Include NAP (Name, Address, Phone) for local SEO
+	•	Keep layout identical across all pages for brand trust
+	•	Do NOT modify colors
+
+⸻
+
+✅ 4. PERFORMANCE METRICS — FIX THIS (NEW)
+
+Currently the site has too many numbers (25+, 98%, 500+, etc.) which feels very unrealistic.
+If by any chance people find out that we we are fake we are done , And also not just the numbers the way you described them and terms are very generic so overall it looks very fake and very hyper and very boring , no one is going to look at that and most importantly in every service page we have the same format of and same style that makes it even more fake and maybe some or many service pages don’t need it and something else better we can do there in terms of content or designing or even a testimonial would be better in some places that looks very authentic and no generic 
+
+
+Fix this across ALL pages:
+	•	Reduce very much metric clutter
+	•	Remove duplicate or unnecessary number blocks
+	•	Keep only a small, focused set of key metrics
+	•	Make remaining metrics feel authentic, elite, and subtle
+	•	Improve typography so numbers don’t dominate visually
+	•	Ensure metric sections are smaller, not oversized
+	•	Avoid anything that looks exaggerated or “too good to be true”
+
+Do NOT invent new numbers.
+Do NOT inflate stats.
+
+Metrics must feel premium, tasteful, and trustworthy and must be different in all other places .
+
+4. FOOTER CONSISTENCY
+	•	Use the strongest footer pattern across the website.
+	•	Ensure links, social icons, and contact details are consistent.
+	•	Keep layout identical unless a specific page has a clearly better footer already.
+	•	Do NOT highlight the addresses too strongly — they must be subtle.
+
+Insert these 3 global addresses subtly into the footer:
+
+🇲🇹 Malta
+Seaside Spirit,
+Triq ix-Xatt, Ta’ Xbiex XBX 1020, Malta
+
+🇮🇳 India — Chennai
+OARC Digital,
+Olympia Tech Park, SIDCO Industrial Estate,
+Guindy, Chennai 600032, India
+
+🇦🇪 Dubai — JLT (Final)
+OARC Digital,
+Cluster F, Jumeirah Lake Towers,
+Dubai, United Arab Emirates
+
+Do NOT emphasise them.
+Do NOT enlarge.
+Do NOT highlight.
+Just include subtly.
+
+
+6. FINAL EXECUTION RULES
+
+Before making any changes:
+
+1. Scan the entire project
+2. Produce a 7–10 bullet plan of what you will do
+3. Then implement changes step-by-step
+4. Clearly list which files were modified and why
+
+And more importantly you need to be smart and a visionary to execute your this on a another whole worldly level with perfection and precision and premium feel with an ULTRA SMOOTH EXPERIENCE FOR A USER 
+
+Do NOT take creative control beyond polishing.
+Do NOT rebuild anything.
+Do NOT redesign.
+Do NOT change brand identity.
+
+
