@@ -2,6 +2,9 @@ import { useState, useEffect } from 'react';
 import { Link } from 'wouter';
 import { ArrowRight, CheckCircle, Zap, TrendingUp, DollarSign, Clock } from 'lucide-react';
 import Layout from '@/components/layout/Layout';
+import SEOHead from "@/components/SEOHead";
+import { revenueServicesSEO } from "@/data/seoMetadata";
+import { createServiceSchema } from "@/utils/structuredData";
 import heroImg from '@assets/stock_images/automation_technolog_5cf55af1.jpg';
 import automationImg1 from '@assets/stock_images/business_revenue_gro_a5fe035c.jpg';
 import automationImg2 from '@assets/stock_images/automation_technolog_fc043d68.jpg';
@@ -14,11 +17,6 @@ export default function RevenueAutomation() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "Revenue Automation - Maximize Profitability with AI | OARC Digital";
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute("content", "Automate revenue operations end-to-end. From lead generation to billing, we build custom automation systems that save tens of thousands while increasing delivery speed 10x.");
-    }
   }, []);
 
   const services = [
@@ -118,6 +116,18 @@ export default function RevenueAutomation() {
 
   return (
     <Layout>
+      <SEOHead
+        title={revenueServicesSEO.revenueAutomation.title}
+        description={revenueServicesSEO.revenueAutomation.description}
+        canonicalUrl={`https://oarcdigital.com${revenueServicesSEO.revenueAutomation.path}`}
+        ogType="article"
+        structuredData={createServiceSchema(
+          "Revenue Automation Services",
+          revenueServicesSEO.revenueAutomation.description,
+          "AI-Powered Revenue Operations"
+        )}
+        schemaId="service-revenue-automation"
+      />
       {/* Hero Section */}
       <section className="relative h-[70vh] min-h-[500px] flex items-center">
         <div className="absolute inset-0">

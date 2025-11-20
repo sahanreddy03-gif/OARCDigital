@@ -3,6 +3,9 @@ import { Link } from 'wouter';
 import { ArrowRight, CheckCircle, ChevronLeft, ChevronRight, BarChart, Palette, Settings, Target, TrendingUp, Play } from 'lucide-react';
 import { SiMeta, SiGoogle, SiTiktok, SiPinterest } from 'react-icons/si';
 import Layout from '@/components/layout/Layout';
+import SEOHead from "@/components/SEOHead";
+import { revenueServicesSEO } from "@/data/seoMetadata";
+import { createServiceSchema } from "@/utils/structuredData";
 import heroImage from '@assets/paid advertising_1763088406833.avif';
 import formalTeamImg from '@assets/stock_images/digital_advertising__84eb3355.jpg';
 import conferenceTeamImg from '@assets/stock_images/digital_advertising__e3a5e56c.jpg';
@@ -107,15 +110,22 @@ export default function Paid() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "Paid Media Services | OARC Digital";
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute("content", "Performance-driven Paid Social and Paid Search campaigns that deliver sustainable growth and incrementality in profitability, growth and brand uplift.");
-    }
   }, []);
 
   return (
     <Layout>
+      <SEOHead
+        title={revenueServicesSEO.paidAdvertising.title}
+        description={revenueServicesSEO.paidAdvertising.description}
+        canonicalUrl={`https://oarcdigital.com${revenueServicesSEO.paidAdvertising.path}`}
+        ogType="article"
+        structuredData={createServiceSchema(
+          "Paid Media Services",
+          revenueServicesSEO.paidAdvertising.description,
+          "Paid Advertising"
+        )}
+        schemaId="service-paid"
+      />
       {/* Hero Section with Banner Image */}
       <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">

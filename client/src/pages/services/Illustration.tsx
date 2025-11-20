@@ -4,36 +4,30 @@ import { Palette, Sparkles, Image, Users, Book, Zap, CheckCircle2, ArrowRight } 
 import { Button } from "@/components/ui/button";
 import { ScrollableCards } from "@/components/ui/scrollable-cards";
 import Layout from "@/components/layout/Layout";
+import SEOHead from "@/components/SEOHead";
+import { creativeServicesSEO } from "@/data/seoMetadata";
+import { createServiceSchema } from "@/utils/structuredData";
 import heroImage from '@assets/illustration desoigns_1763086173736.avif';
 
 export default function Illustration() {
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "Illustration Services - Custom Digital Art | OARC Digital";
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute("content", "Custom illustration for brands, products, and campaigns. Editorial, product, character, isometric, and icon design. Unlimited revisions, fast turnaround.");
-    }
-    // Open Graph tags - always update content
-    let ogTitleMeta = document.querySelector('meta[property="og:title"]');
-    if (!ogTitleMeta) {
-      ogTitleMeta = document.createElement('meta');
-      ogTitleMeta.setAttribute('property', 'og:title');
-      document.head.appendChild(ogTitleMeta);
-    }
-    ogTitleMeta.setAttribute('content', 'Custom Illustration Services - Unique Visual Storytelling | OARC Digital');
-    
-    let ogDescMeta = document.querySelector('meta[property="og:description"]');
-    if (!ogDescMeta) {
-      ogDescMeta = document.createElement('meta');
-      ogDescMeta.setAttribute('property', 'og:description');
-      document.head.appendChild(ogDescMeta);
-    }
-    ogDescMeta.setAttribute('content', 'Custom illustrations that bring your brand to life. Editorial, product, character design, and more.');
   }, []);
 
   return (
     <Layout>
+      <SEOHead
+        title={creativeServicesSEO.illustration.title}
+        description={creativeServicesSEO.illustration.description}
+        canonicalUrl={`https://oarcdigital.com${creativeServicesSEO.illustration.path}`}
+        ogType="article"
+        structuredData={createServiceSchema(
+          "Illustration Services",
+          creativeServicesSEO.illustration.description,
+          "Custom Digital Illustration"
+        )}
+        schemaId="service-illustration"
+      />
       {/* Hero Section with Real Image */}
       <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">

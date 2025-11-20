@@ -2,6 +2,9 @@ import { useState, useEffect } from 'react';
 import { Link } from 'wouter';
 import { ArrowRight, CheckCircle, ChevronLeft, ChevronRight, Megaphone, Users, FileText, Play } from 'lucide-react';
 import Layout from '@/components/layout/Layout';
+import SEOHead from "@/components/SEOHead";
+import { revenueServicesSEO } from "@/data/seoMetadata";
+import { createServiceSchema } from "@/utils/structuredData";
 import picnicImg from '@assets/stock_images/social_media_influen_3c07c2fc.jpg';
 import skincareImg from '@assets/stock_images/social_media_influen_496eb368.jpg';
 import packageImg from '@assets/stock_images/social_media_influen_0dbb3056.jpg';
@@ -16,11 +19,6 @@ export default function Influencer() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "Influencer Marketing Services | OARC Digital";
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute("content", "We deliver brand awareness and direct-response Influencer & Creator campaigns. Expert end-to-end campaign management.");
-    }
   }, []);
 
   const services = [
@@ -133,6 +131,18 @@ export default function Influencer() {
 
   return (
     <Layout>
+      <SEOHead
+        title={revenueServicesSEO.influencerMarketing.title}
+        description={revenueServicesSEO.influencerMarketing.description}
+        canonicalUrl={`https://oarcdigital.com${revenueServicesSEO.influencerMarketing.path}`}
+        ogType="article"
+        structuredData={createServiceSchema(
+          "Influencer Marketing Services",
+          revenueServicesSEO.influencerMarketing.description,
+          "Influencer Campaigns"
+        )}
+        schemaId="service-influencer"
+      />
       {/* Hero Section */}
       <section className="py-14 px-4 bg-white">
         <div className="max-w-6xl mx-auto">

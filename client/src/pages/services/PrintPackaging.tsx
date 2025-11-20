@@ -4,36 +4,30 @@ import { Package, Award, Sparkles, ShoppingBag, Box, Tag, CheckCircle2, ArrowRig
 import { Button } from "@/components/ui/button";
 import { ScrollableCards } from "@/components/ui/scrollable-cards";
 import Layout from "@/components/layout/Layout";
+import SEOHead from "@/components/SEOHead";
+import { creativeServicesSEO } from "@/data/seoMetadata";
+import { createServiceSchema } from "@/utils/structuredData";
 import heroImage from '@assets/printy design_1763086257815.avif';
 
 export default function PrintPackaging() {
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "Print & Packaging Design Services | OARC Digital";
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute("content", "Product packaging, print collateral, and branded materials. From concept to production-ready files. Retail packaging, labels, boxes, and more.");
-    }
-    // Open Graph tags - always update content
-    let ogTitleMeta = document.querySelector('meta[property="og:title"]');
-    if (!ogTitleMeta) {
-      ogTitleMeta = document.createElement('meta');
-      ogTitleMeta.setAttribute('property', 'og:title');
-      document.head.appendChild(ogTitleMeta);
-    }
-    ogTitleMeta.setAttribute('content', 'Print & Packaging Design - Shelf-Ready Packaging | OARC Digital');
-    
-    let ogDescMeta = document.querySelector('meta[property="og:description"]');
-    if (!ogDescMeta) {
-      ogDescMeta = document.createElement('meta');
-      ogDescMeta.setAttribute('property', 'og:description');
-      document.head.appendChild(ogDescMeta);
-    }
-    ogDescMeta.setAttribute('content', 'Product packaging and print design that sells. Retail-ready packaging, labels, boxes, and branded collateral.');
   }, []);
 
   return (
     <Layout>
+      <SEOHead
+        title={creativeServicesSEO.printPackaging.title}
+        description={creativeServicesSEO.printPackaging.description}
+        canonicalUrl={`https://oarcdigital.com${creativeServicesSEO.printPackaging.path}`}
+        ogType="article"
+        structuredData={createServiceSchema(
+          "Print & Packaging Design Services",
+          creativeServicesSEO.printPackaging.description,
+          "Product Packaging & Print Design"
+        )}
+        schemaId="service-print-packaging"
+      />
       {/* Hero Section with Real Image */}
       <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">

@@ -4,36 +4,30 @@ import { TrendingUp, Target, Zap, BarChart, ArrowRight, DollarSign, CheckCircle2
 import { Button } from "@/components/ui/button";
 import { ScrollableCards } from "@/components/ui/scrollable-cards";
 import Layout from "@/components/layout/Layout";
+import SEOHead from "@/components/SEOHead";
+import { revenueServicesSEO } from "@/data/seoMetadata";
+import { createServiceSchema } from "@/utils/structuredData";
 import heroImage from '@assets/paid advertising_1763088406833.avif';
 
 export default function PaidAdvertising() {
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "Paid Advertising Services - Scale Profitably | OARC Digital";
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute("content", "Full-service paid advertising management. Google Ads, Meta, LinkedIn, TikTok. Lower CPA, increase ROAS, scale profitably with expert campaign management.");
-    }
-    // Open Graph tags - always update content
-    let ogTitleMeta = document.querySelector('meta[property="og:title"]');
-    if (!ogTitleMeta) {
-      ogTitleMeta = document.createElement('meta');
-      ogTitleMeta.setAttribute('property', 'og:title');
-      document.head.appendChild(ogTitleMeta);
-    }
-    ogTitleMeta.setAttribute('content', 'Paid Advertising Services - Lower CPA, Higher ROAS | OARC Digital');
-    
-    let ogDescMeta = document.querySelector('meta[property="og:description"]');
-    if (!ogDescMeta) {
-      ogDescMeta = document.createElement('meta');
-      ogDescMeta.setAttribute('property', 'og:description');
-      document.head.appendChild(ogDescMeta);
-    }
-    ogDescMeta.setAttribute('content', 'Performance marketing that scales profitably. Google Ads, Meta Ads, LinkedIn, TikTok—optimized for maximum ROI.');
   }, []);
 
   return (
     <Layout>
+      <SEOHead
+        title={revenueServicesSEO.paidAdvertising.title}
+        description={revenueServicesSEO.paidAdvertising.description}
+        canonicalUrl={`https://oarcdigital.com${revenueServicesSEO.paidAdvertising.path}`}
+        ogType="article"
+        structuredData={createServiceSchema(
+          "Paid Advertising Services",
+          revenueServicesSEO.paidAdvertising.description,
+          "Performance Marketing"
+        )}
+        schemaId="service-paid-advertising"
+      />
       {/* Hero Section with Real Image */}
       <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">

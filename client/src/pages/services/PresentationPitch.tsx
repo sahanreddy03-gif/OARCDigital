@@ -4,36 +4,30 @@ import { Presentation, Sparkles, TrendingUp, Users, FileText, Award, CheckCircle
 import { Button } from "@/components/ui/button";
 import { ScrollableCards } from "@/components/ui/scrollable-cards";
 import Layout from "@/components/layout/Layout";
+import SEOHead from "@/components/SEOHead";
+import { creativeServicesSEO } from "@/data/seoMetadata";
+import { createServiceSchema } from "@/utils/structuredData";
 import heroImage from '@assets/presentation design_1763086077235.avif';
 
 export default function PresentationPitch() {
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "Presentation & Pitch Design Services | OARC Digital";
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute("content", "Pitch decks that close deals. Investor presentations, sales decks, keynote slides designed to persuade, impress, and win.");
-    }
-    // Open Graph tags - always update content
-    let ogTitleMeta = document.querySelector('meta[property="og:title"]');
-    if (!ogTitleMeta) {
-      ogTitleMeta = document.createElement('meta');
-      ogTitleMeta.setAttribute('property', 'og:title');
-      document.head.appendChild(ogTitleMeta);
-    }
-    ogTitleMeta.setAttribute('content', 'Presentation & Pitch Design - Close More Deals | OARC Digital');
-    
-    let ogDescMeta = document.querySelector('meta[property="og:description"]');
-    if (!ogDescMeta) {
-      ogDescMeta = document.createElement('meta');
-      ogDescMeta.setAttribute('property', 'og:description');
-      document.head.appendChild(ogDescMeta);
-    }
-    ogDescMeta.setAttribute('content', 'Pitch decks and presentations that win. Investor decks, sales presentations, keynote slides that persuade and close deals.');
   }, []);
 
   return (
     <Layout>
+      <SEOHead
+        title={creativeServicesSEO.presentationPitch.title}
+        description={creativeServicesSEO.presentationPitch.description}
+        canonicalUrl={`https://oarcdigital.com${creativeServicesSEO.presentationPitch.path}`}
+        ogType="article"
+        structuredData={createServiceSchema(
+          "Presentation & Pitch Design Services",
+          creativeServicesSEO.presentationPitch.description,
+          "Pitch Decks & Presentations"
+        )}
+        schemaId="service-presentation-pitch"
+      />
       {/* Hero Section with Real Image */}
       <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">

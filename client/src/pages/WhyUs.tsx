@@ -35,6 +35,8 @@ import timeline1 from "@assets/stock_images/professional_busines_080c57eb.jpg";
 import timeline2 from "@assets/stock_images/professional_busines_617ecf1a.jpg";
 import timeline3 from "@assets/stock_images/professional_busines_838bb4c4.jpg";
 import { SuccessInNumbers } from "@/components/SuccessInNumbers";
+import SEOHead from "@/components/SEOHead";
+import { supportingPagesSEO } from "@/data/seoMetadata";
 
 // Register GSAP plugins
 if (typeof window !== 'undefined') {
@@ -94,14 +96,6 @@ export default function WhyUs() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "Why OARC Digital | AI-Powered Marketing Agency Malta";
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute(
-        "content",
-        "Discover why OARC Digital is redefining digital marketing with AI-powered creativity, revenue automation, and intelligent systems. Based in Malta, serving global brands."
-      );
-    }
 
     // GSAP Parallax scrolling on hero
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -207,6 +201,12 @@ export default function WhyUs() {
 
   return (
     <Layout>
+      <SEOHead
+        title={supportingPagesSEO.whyUs.title}
+        description={supportingPagesSEO.whyUs.description}
+        canonicalUrl={`https://oarcdigital.com${supportingPagesSEO.whyUs.path}`}
+        ogType={supportingPagesSEO.whyUs.ogType}
+      />
       {/* Hero Section - Premium Superside Style */}
       <section className="hero-section-why-us relative min-h-[75vh] md:min-h-[90vh] flex items-center justify-center overflow-hidden bg-black -mt-20" data-testid="section-hero">
         <img

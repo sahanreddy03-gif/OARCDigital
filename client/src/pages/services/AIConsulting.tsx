@@ -2,6 +2,9 @@ import { useState, useEffect } from 'react';
 import { Link } from 'wouter';
 import { ArrowRight, CheckCircle, Cpu, Target, Lightbulb, BarChart3 } from 'lucide-react';
 import Layout from '@/components/layout/Layout';
+import SEOHead from "@/components/SEOHead";
+import { revenueServicesSEO } from "@/data/seoMetadata";
+import { createServiceSchema } from "@/utils/structuredData";
 import consultingImg1 from '@assets/stock_images/business_consulting__b093a06a.jpg';
 import consultingImg2 from '@assets/stock_images/business_consulting__4b14a0ea.jpg';
 import consultingImg3 from '@assets/stock_images/business_consulting__c7f465ad.jpg';
@@ -12,11 +15,6 @@ export default function AIConsulting() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "AI Consulting Services | OARC Digital";
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute("content", "Transform your marketing creative operations with AI. Expert consulting to drive adoption, scale efficiency, and capture real business value.");
-    }
   }, []);
 
   const services = [
@@ -116,6 +114,18 @@ export default function AIConsulting() {
 
   return (
     <Layout>
+      <SEOHead
+        title={revenueServicesSEO.aiConsulting.title}
+        description={revenueServicesSEO.aiConsulting.description}
+        canonicalUrl={`https://oarcdigital.com${revenueServicesSEO.aiConsulting.path}`}
+        ogType="article"
+        structuredData={createServiceSchema(
+          "AI Consulting Services",
+          revenueServicesSEO.aiConsulting.description,
+          "AI Strategy & Implementation"
+        )}
+        schemaId="service-ai-consulting"
+      />
       {/* Hero Section - Subtle background with clean overlay */}
       <section className="relative py-20 px-4 overflow-hidden">
         <div className="absolute inset-0">

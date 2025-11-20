@@ -1,6 +1,9 @@
 import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/layout/Layout";
+import SEOHead from "@/components/SEOHead";
+import { revenueServicesSEO } from "@/data/seoMetadata";
+import { createServiceSchema } from "@/utils/structuredData";
 import { ScrollableCards } from "@/components/ui/scrollable-cards";
 import { Calendar, TrendingUp, Heart, MessageCircle, BarChart, Users, ArrowRight, CheckCircle2 } from "lucide-react";
 import heroImage from "@assets/stock_images/social_media_manager_11df5838.jpg";
@@ -8,30 +11,22 @@ import heroImage from "@assets/stock_images/social_media_manager_11df5838.jpg";
 export default function SocialMediaManagement() {
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "Social Media Management Services - Community Building & Engagement | OARC Digital";
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute("content", "Full-service social media management. Content strategy, community management, engagement tactics, and analytics. Build loyal audiences across all platforms.");
-    }
-    let ogTitleMeta = document.querySelector('meta[property="og:title"]');
-    if (!ogTitleMeta) {
-      ogTitleMeta = document.createElement('meta');
-      ogTitleMeta.setAttribute('property', 'og:title');
-      document.head.appendChild(ogTitleMeta);
-    }
-    ogTitleMeta.setAttribute('content', 'Social Media Management - Community Building & Engagement | OARC Digital');
-    
-    let ogDescMeta = document.querySelector('meta[property="og:description"]');
-    if (!ogDescMeta) {
-      ogDescMeta = document.createElement('meta');
-      ogDescMeta.setAttribute('property', 'og:description');
-      document.head.appendChild(ogDescMeta);
-    }
-    ogDescMeta.setAttribute('content', 'Full-service social media management. Content strategy, community management, engagement tactics, and analytics. Build loyal audiences across all platforms.');
   }, []);
 
   return (
     <Layout>
+      <SEOHead
+        title={revenueServicesSEO.socialMediaManagement.title}
+        description={revenueServicesSEO.socialMediaManagement.description}
+        canonicalUrl={`https://oarcdigital.com${revenueServicesSEO.socialMediaManagement.path}`}
+        ogType="article"
+        structuredData={createServiceSchema(
+          "Social Media Management Services",
+          revenueServicesSEO.socialMediaManagement.description,
+          "Community Management"
+        )}
+        schemaId="service-social-media-management"
+      />
       {/* Hero Section with Real Image */}
       <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">

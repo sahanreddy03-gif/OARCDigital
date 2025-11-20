@@ -4,6 +4,9 @@ import { Instagram, Youtube, Linkedin, Facebook, ArrowRight, TrendingUp, Sparkle
 import { Button } from "@/components/ui/button";
 import { ScrollableCards } from "@/components/ui/scrollable-cards";
 import Layout from "@/components/layout/Layout";
+import SEOHead from "@/components/SEOHead";
+import { creativeServicesSEO } from "@/data/seoMetadata";
+import { createServiceSchema } from "@/utils/structuredData";
 import heroImage from "@assets/stock_images/social_media_content_74d332d2.jpg";
 import socialImg1 from "@assets/stock_images/social_media_content_1291e113.jpg";
 import socialImg2 from "@assets/stock_images/social_media_content_c1be1c46.jpg";
@@ -12,31 +15,22 @@ import socialImg3 from "@assets/stock_images/social_media_content_e4f88d3a.jpg";
 export default function SocialMediaCreative() {
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "Social Media Creative Services - Scroll-Stopping Content | OARC Digital";
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute("content", "Platform-optimized social media creative that drives engagement and conversions. Unlimited content creation for Instagram, TikTok, LinkedIn, and more.");
-    }
-    // Open Graph tags
-    let ogTitleMeta = document.querySelector('meta[property="og:title"]');
-    if (!ogTitleMeta) {
-      ogTitleMeta = document.createElement('meta');
-      ogTitleMeta.setAttribute('property', 'og:title');
-      document.head.appendChild(ogTitleMeta);
-    }
-    ogTitleMeta.setAttribute('content', 'Social Media Creative - Scroll-Stopping Content | OARC Digital');
-    
-    let ogDescMeta = document.querySelector('meta[property="og:description"]');
-    if (!ogDescMeta) {
-      ogDescMeta = document.createElement('meta');
-      ogDescMeta.setAttribute('property', 'og:description');
-      document.head.appendChild(ogDescMeta);
-    }
-    ogDescMeta.setAttribute('content', 'Unlimited social media content designed for engagement. Platform-specific creative that stops the scroll and drives results.');
   }, []);
 
   return (
     <Layout>
+      <SEOHead
+        title={creativeServicesSEO.socialMediaCreative.title}
+        description={creativeServicesSEO.socialMediaCreative.description}
+        canonicalUrl={`https://oarcdigital.com${creativeServicesSEO.socialMediaCreative.path}`}
+        ogType="article"
+        structuredData={createServiceSchema(
+          "Social Media Creative Services",
+          creativeServicesSEO.socialMediaCreative.description,
+          "Social Content Design"
+        )}
+        schemaId="service-social-media-creative"
+      />
     <div className="social-media-creative">
       {/* Hero Section with Real Image */}
       <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
