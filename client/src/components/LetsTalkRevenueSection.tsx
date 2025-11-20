@@ -176,8 +176,9 @@ export default function LetsTalkRevenueSection() {
               <div className="relative w-full aspect-[3/4] overflow-hidden rounded-xl bg-zinc-100 shadow-lg">
                 <img
                   src={service.image}
-                  alt={service.title}
+                  alt={`${service.title} - Revenue automation service`}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
                 

@@ -21,45 +21,25 @@ export function SuccessInNumbers() {
             </p>
           </div>
 
-          {/* Right Column - 2x2 Stats Grid */}
+          {/* Right Column - Focused Stats (Reduced & Refined) */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-10 md:gap-x-12 md:gap-y-12">
-            {/* Stat 1: Projects */}
-            <div data-testid="stat-projects">
-              <div className="text-5xl md:text-6xl lg:text-7xl font-light text-white mb-3" style={{ letterSpacing: '-0.02em' }}>
-                500+
+            {/* Stat 1: Client Satisfaction - More Authentic */}
+            <div data-testid="stat-satisfaction">
+              <div className="text-4xl md:text-5xl lg:text-6xl font-light text-white mb-3" style={{ letterSpacing: '-0.02em' }}>
+                Elite
               </div>
               <p className="text-xs md:text-sm text-white/60 font-light leading-snug">
-                Projects delivered to this day and counting.
+                Tier-1 brands trust OARC Digital for premium creative at scale.
               </p>
             </div>
 
-            {/* Stat 2: Revenue */}
-            <div data-testid="stat-revenue">
-              <div className="text-5xl md:text-6xl lg:text-7xl font-light text-white mb-3" style={{ letterSpacing: '-0.02em' }}>
-                70k+
+            {/* Stat 2: Global Reach - Subtle */}
+            <div data-testid="stat-global">
+              <div className="text-4xl md:text-5xl lg:text-6xl font-light text-white mb-3" style={{ letterSpacing: '-0.02em' }}>
+                3 Continents
               </div>
               <p className="text-xs md:text-sm text-white/60 font-light leading-snug">
-                In monthly recurring revenue generated for clients.
-              </p>
-            </div>
-
-            {/* Stat 3: ROI */}
-            <div data-testid="stat-roi">
-              <div className="text-5xl md:text-6xl lg:text-7xl font-light text-white mb-3" style={{ letterSpacing: '-0.02em' }}>
-                94%
-              </div>
-              <p className="text-xs md:text-sm text-white/60 font-light leading-snug">
-                Brands see a three-year ROI of 94% on their OARC Digital subscription.
-              </p>
-            </div>
-
-            {/* Stat 4: Payback Period */}
-            <div data-testid="stat-payback">
-              <div className="text-5xl md:text-6xl lg:text-7xl font-light text-white mb-3" style={{ letterSpacing: '-0.02em', fontFamily: 'serif' }}>
-                6 months
-              </div>
-              <p className="text-xs md:text-sm text-white/60 font-light leading-snug">
-                Brands see a 6-month payback period on their OARC Digital subscription.
+                Serving clients across Malta, Europe, Middle East, and Asia with local expertise.
               </p>
             </div>
           </div>

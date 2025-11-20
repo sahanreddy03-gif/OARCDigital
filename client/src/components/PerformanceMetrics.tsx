@@ -1,63 +1,10 @@
-import { useEffect, useState, useRef } from "react";
 import successBg from '@assets/BACKGROUND IMAGE FOR SUCCESS IN OUR BUSINESS_1763233939151.avif';
 
 const metrics = [
-  { value: 68, suffix: "%", label: "Average ROI" },
-  { value: 74, suffix: "%", label: "Customer Retention" },
-  { value: 48, suffix: "%", label: "Brand Growth" },
-  { value: 65, suffix: "+", label: "Campaigns Delivered" },
+  { label: "Client-First Approach", display: "Premium" },
+  { label: "Quality Over Quantity", display: "Elite" },
+  { label: "Strategic Partnership", display: "Dedicated" },
 ];
-
-function Counter({ end, suffix = "", duration = 2000 }: { end: number; suffix?: string; duration?: number }) {
-  const [count, setCount] = useState(0);
-  const [isVisible, setIsVisible] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
-
-  useEffect(() => {
-    if (!isVisible) return;
-
-    let startTime: number;
-    let animationFrame: number;
-
-    const animate = (currentTime: number) => {
-      if (!startTime) startTime = currentTime;
-      const progress = Math.min((currentTime - startTime) / duration, 1);
-      
-      const easeOutQuart = 1 - Math.pow(1 - progress, 4);
-      setCount(end * easeOutQuart);
-
-      if (progress < 1) {
-        animationFrame = requestAnimationFrame(animate);
-      }
-    };
-
-    animationFrame = requestAnimationFrame(animate);
-    return () => cancelAnimationFrame(animationFrame);
-  }, [isVisible, end, duration]);
-
-  return (
-    <div ref={ref} className="text-6xl md:text-7xl lg:text-8xl font-black text-white mb-3" style={{ letterSpacing: '-0.03em' }}>
-      {count.toFixed(0)}{suffix}
-    </div>
-  );
-}
 
 export default function PerformanceMetrics() {
   return (
@@ -83,15 +30,14 @@ export default function PerformanceMetrics() {
           </p>
         </div>
 
-        {/* Metrics Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+        {/* Metrics Grid - Premium Qualitative Approach */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-16 max-w-4xl mx-auto">
           {metrics.map((metric, index) => (
             <div key={index} className="text-center" data-testid={`metric-${index}`}>
-              <Counter 
-                end={metric.value} 
-                suffix={metric.suffix}
-              />
-              <p className="text-sm md:text-base text-zinc-400 font-normal">
+              <div className="text-3xl md:text-4xl font-light text-white mb-4" style={{ letterSpacing: '-0.02em' }}>
+                {metric.display}
+              </div>
+              <p className="text-sm md:text-base text-zinc-400 font-light leading-relaxed">
                 {metric.label}
               </p>
             </div>

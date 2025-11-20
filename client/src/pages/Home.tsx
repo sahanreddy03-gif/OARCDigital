@@ -13,10 +13,24 @@ import Testimonials from "@/components/Testimonials";
 import { SuccessInNumbers } from "@/components/SuccessInNumbers";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
+import SEOHead from "@/components/SEOHead";
+import { localBusinessSchema, organizationSchema } from "@/utils/structuredData";
 
 export default function Home() {
+  // Combine schemas for homepage
+  const homepageSchema = {
+    "@context": "https://schema.org",
+    "@graph": [localBusinessSchema, organizationSchema]
+  };
+
   return (
     <div className="min-h-screen overflow-x-hidden">
+      <SEOHead
+        title="OARC Digital | AI-Powered Creative & Marketing Agency in Malta"
+        description="Premium AI-powered creative services, AI employees, and revenue automation solutions. Elite marketing agency in Malta delivering world-class digital experiences across Europe, Middle East, and Asia."
+        canonicalUrl="https://oarcdigital.com"
+        structuredData={homepageSchema}
+      />
       <Navigation />
       <HeroSection />
       <Section2 />
