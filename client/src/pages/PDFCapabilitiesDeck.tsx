@@ -3,17 +3,25 @@ import { companyInfo, aboutText, coreServices, whyChooseUs, processSteps, caseSt
 import { caseStudies as websiteCaseStudies } from "@/data/caseStudies";
 import { useEffect } from "react";
 import logoImage from "@assets/fdfdfd_1762818183304.png";
+import SEOHead from "@/components/SEOHead";
+import { pdfPagesSEO } from "@/data/seoMetadata";
 
 export default function PDFCapabilitiesDeck() {
   const websiteCases = Object.values(websiteCaseStudies);
 
   useEffect(() => {
-    document.title = "OARC Digital - Capabilities Deck | AI-Powered Marketing Agency";
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
 
   return (
-    <div className="pdf-document bg-white">
+    <>
+      <SEOHead
+        title={pdfPagesSEO.capabilitiesDeck.title}
+        description={pdfPagesSEO.capabilitiesDeck.description}
+        canonicalUrl={`https://oarcdigital.com${pdfPagesSEO.capabilitiesDeck.path}`}
+        ogType={pdfPagesSEO.capabilitiesDeck.ogType}
+      />
+      <div className="pdf-document bg-white">
         {/* PAGE 1: COVER */}
         <div className="pdf-page pdf-cover flex flex-col items-center justify-center text-center relative overflow-hidden">
           {/* Dark background with gradient */}
@@ -825,5 +833,6 @@ export default function PDFCapabilitiesDeck() {
           </div>
         </div>
       </div>
+    </>
   );
 }

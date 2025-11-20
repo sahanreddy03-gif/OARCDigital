@@ -4,6 +4,8 @@ import { Video, Film, Sparkles, ArrowRight, Play, CheckCircle2, Camera } from "l
 import { Button } from "@/components/ui/button";
 import { ScrollableCards } from "@/components/ui/scrollable-cards";
 import Layout from "@/components/layout/Layout";
+import SEOHead from "@/components/SEOHead";
+import { creativeServicesSEO } from "@/data/seoMetadata";
 import { serviceImagesBySlug } from "@/assets/serviceImages";
 import videoImg1 from "@assets/stock_images/professional_video_p_57625a3b.jpg";
 import videoImg2 from "@assets/stock_images/professional_video_p_4775d034.jpg";
@@ -14,31 +16,16 @@ const heroImage = serviceImagesBySlug['video-production'];
 export default function VideoProduction() {
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "Video Production Services - Cinematic Storytelling | OARC Digital";
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute("content", "Full-service video production from concept to delivery. Explainer videos, testimonials, ads, and social content. Fast turnaround, cinematic quality.");
-    }
-    // Open Graph tags
-    let ogTitleMeta = document.querySelector('meta[property="og:title"]');
-    if (!ogTitleMeta) {
-      ogTitleMeta = document.createElement('meta');
-      ogTitleMeta.setAttribute('property', 'og:title');
-      document.head.appendChild(ogTitleMeta);
-    }
-    ogTitleMeta.setAttribute('content', 'Video Production Services - Storytelling That Converts | OARC Digital');
-    
-    let ogDescMeta = document.querySelector('meta[property="og:description"]');
-    if (!ogDescMeta) {
-      ogDescMeta = document.createElement('meta');
-      ogDescMeta.setAttribute('property', 'og:description');
-      document.head.appendChild(ogDescMeta);
-    }
-    ogDescMeta.setAttribute('content', 'Professional video production that drives results. Explainers, testimonials, ads, and more. Cinematic quality, fast turnaround.');
   }, []);
 
   return (
     <Layout>
+      <SEOHead
+        title={creativeServicesSEO.videoProduction.title}
+        description={creativeServicesSEO.videoProduction.description}
+        canonicalUrl={`https://oarcdigital.com${creativeServicesSEO.videoProduction.path}`}
+        ogType={creativeServicesSEO.videoProduction.ogType}
+      />
     <div className="video-production">
       {/* Hero Section with Real Image */}
       <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">

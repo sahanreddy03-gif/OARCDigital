@@ -4,6 +4,8 @@ import { Code, Smartphone, Zap, Layers, ArrowRight, TrendingUp, CheckCircle2, Ga
 import { Button } from "@/components/ui/button";
 import { ScrollableCards } from "@/components/ui/scrollable-cards";
 import Layout from "@/components/layout/Layout";
+import SEOHead from "@/components/SEOHead";
+import { creativeServicesSEO } from "@/data/seoMetadata";
 import heroImage from '@assets/web design_1763084519615.avif';
 import webImg1 from "@assets/stock_images/modern_web_design_ux_d23df466.jpg";
 import webImg2 from "@assets/stock_images/modern_web_design_ux_62274473.jpg";
@@ -12,31 +14,16 @@ import webImg3 from "@assets/stock_images/modern_web_design_ux_699e8c91.jpg";
 export default function WebDesign() {
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "Web Design Services - Conversion-Optimized Websites | OARC Digital";
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute("content", "High-performing web design and landing pages built to convert. Fast, scalable, mobile-first design with CRO built-in.");
-    }
-    // Open Graph tags
-    let ogTitleMeta = document.querySelector('meta[property="og:title"]');
-    if (!ogTitleMeta) {
-      ogTitleMeta = document.createElement('meta');
-      ogTitleMeta.setAttribute('property', 'og:title');
-      document.head.appendChild(ogTitleMeta);
-    }
-    ogTitleMeta.setAttribute('content', 'Web Design Services - Convert More Visitors | OARC Digital');
-    
-    let ogDescMeta = document.querySelector('meta[property="og:description"]');
-    if (!ogDescMeta) {
-      ogDescMeta = document.createElement('meta');
-      ogDescMeta.setAttribute('property', 'og:description');
-      document.head.appendChild(ogDescMeta);
-    }
-    ogDescMeta.setAttribute('content', 'Conversion-focused web design that turns visitors into customers. Lightning-fast, mobile-first, optimized for results.');
   }, []);
 
   return (
     <Layout>
+      <SEOHead
+        title={creativeServicesSEO.webDesign.title}
+        description={creativeServicesSEO.webDesign.description}
+        canonicalUrl={`https://oarcdigital.com${creativeServicesSEO.webDesign.path}`}
+        ogType={creativeServicesSEO.webDesign.ogType}
+      />
     <div className="web-design">
       {/* Hero Section with Real Image */}
       <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">

@@ -2,17 +2,14 @@ import { useState, useEffect } from 'react';
 import { Link } from 'wouter';
 import { ArrowRight, CheckCircle, Palette, Target, Layout as LayoutIcon, Sparkles } from 'lucide-react';
 import Layout from '@/components/layout/Layout';
+import SEOHead from '@/components/SEOHead';
+import { creativeServicesSEO } from '@/data/seoMetadata';
 
 export default function Branding() {
   const [currentService, setCurrentService] = useState(0);
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "Branding Services | OARC Digital";
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute("content", "Comprehensive branding services to reimagine your brand identity. From strategy to visual execution, we create exceptional brand experiences.");
-    }
   }, []);
 
   const services = [
@@ -95,6 +92,12 @@ export default function Branding() {
 
   return (
     <Layout>
+      <SEOHead
+        title={creativeServicesSEO.branding.title}
+        description={creativeServicesSEO.branding.description}
+        canonicalUrl={`https://oarcdigital.com${creativeServicesSEO.branding.path}`}
+        ogType={creativeServicesSEO.branding.ogType}
+      />
       {/* Hero Section */}
       <section className="py-14 px-4 bg-white">
         <div className="max-w-6xl mx-auto">

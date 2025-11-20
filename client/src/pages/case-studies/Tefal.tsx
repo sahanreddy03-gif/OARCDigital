@@ -3,6 +3,8 @@ import { Link } from 'wouter';
 import { ArrowRight, ChevronLeft, ChevronRight, Instagram, Youtube } from 'lucide-react';
 import { SiSnapchat, SiTiktok } from 'react-icons/si';
 import Layout from '@/components/layout/Layout';
+import SEOHead from '@/components/SEOHead';
+import { caseStudiesSEO } from '@/data/seoMetadata';
 import tefalHeroImg from '@assets/TefalPictures-32-scaled_1761760754960.jpg';
 import tefalAboutImg from '@assets/HOME-LAME-3-About-Tefal_1761847874021.jpg';
 import tefalVideoImg from '@assets/image_1761847809835.png';
@@ -58,6 +60,12 @@ export default function TefalCaseStudy() {
 
   return (
     <Layout>
+      <SEOHead
+        title={caseStudiesSEO.tefal.title}
+        description={caseStudiesSEO.tefal.description}
+        canonicalUrl={`https://oarcdigital.com${caseStudiesSEO.tefal.path}`}
+        ogType={caseStudiesSEO.tefal.ogType}
+      />
       {/* Hero Section with Background Image */}
       <section className="relative h-[60vh] min-h-[500px] bg-black overflow-hidden">
         <img 

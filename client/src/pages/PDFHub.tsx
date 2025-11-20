@@ -4,6 +4,8 @@ import { Button } from "@/components/ui/button";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import logoImage from "@assets/fdfdfd_1762818183304.png";
+import SEOHead from "@/components/SEOHead";
+import { pdfPagesSEO } from "@/data/seoMetadata";
 
 export default function PDFHub() {
   const pdfs = [
@@ -19,8 +21,15 @@ export default function PDFHub() {
   ];
 
   return (
-    <div className="min-h-screen bg-black">
-      <Navigation />
+    <>
+      <SEOHead
+        title={pdfPagesSEO.pdfHub.title}
+        description={pdfPagesSEO.pdfHub.description}
+        canonicalUrl={`https://oarcdigital.com${pdfPagesSEO.pdfHub.path}`}
+        ogType={pdfPagesSEO.pdfHub.ogType}
+      />
+      <div className="min-h-screen bg-black">
+        <Navigation />
       
       <div className="pt-32 pb-20 px-6">
         <div className="max-w-6xl mx-auto">
@@ -164,6 +173,7 @@ export default function PDFHub() {
       </div>
       
       <Footer />
-    </div>
+      </div>
+    </>
   );
 }

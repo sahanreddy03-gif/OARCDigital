@@ -2,6 +2,8 @@ import { useEffect } from 'react';
 import { Link } from 'wouter';
 import { ArrowRight, Calendar, Building2 } from 'lucide-react';
 import Layout from '@/components/layout/Layout';
+import SEOHead from '@/components/SEOHead';
+import { caseStudiesSEO } from '@/data/seoMetadata';
 import heroImg from '@assets/stock_images/food_supply_chain_au_9bb3c110.jpg';
 import img1 from '@assets/stock_images/food_supply_chain_au_e3896516.jpg';
 import img2 from '@assets/stock_images/food_supply_chain_au_88dc232a.jpg';
@@ -15,15 +17,16 @@ import img8 from '@assets/stock_images/team_collaboration_b_c8b7e41b.jpg';
 export default function JBSAutomation() {
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "JBS Food Supply Chain Automation Case Study | OARC Digital";
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute("content", "How OARC Digital saved JBS $1M+ annually, automated 125,000 hours of work, and deployed 210 intelligent automations across global food supply chain operations.");
-    }
   }, []);
 
   return (
     <Layout>
+      <SEOHead
+        title={caseStudiesSEO.jbsAutomation.title}
+        description={caseStudiesSEO.jbsAutomation.description}
+        canonicalUrl={`https://oarcdigital.com${caseStudiesSEO.jbsAutomation.path}`}
+        ogType={caseStudiesSEO.jbsAutomation.ogType}
+      />
       {/* Hero Section */}
       <section className="relative h-[70vh] min-h-[500px] flex items-end">
         <div className="absolute inset-0">

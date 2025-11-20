@@ -2,6 +2,8 @@ import { companyInfo, coreServices, keyDifferentiators, targetIndustries } from 
 import { Zap, Target, Clock, Globe, Cpu, TrendingUp } from "lucide-react";
 import "../styles/pdf.css";
 import logoImage from "@assets/fdfdfd_1762818183304.png";
+import SEOHead from "@/components/SEOHead";
+import { pdfPagesSEO } from "@/data/seoMetadata";
 
 const iconMap: Record<string, any> = {
   zap: Zap,
@@ -14,7 +16,14 @@ const iconMap: Record<string, any> = {
 
 export default function PDFOnePager() {
   return (
-    <div className="pdf-document">
+    <>
+      <SEOHead
+        title={pdfPagesSEO.onePager.title}
+        description={pdfPagesSEO.onePager.description}
+        canonicalUrl={`https://oarcdigital.com${pdfPagesSEO.onePager.path}`}
+        ogType={pdfPagesSEO.onePager.ogType}
+      />
+      <div className="pdf-document">
       {/* SINGLE PAGE */}
       <div className="pdf-page" style={{ padding: '50px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
         {/* Header */}
@@ -191,6 +200,7 @@ export default function PDFOnePager() {
           <li>Click Save</li>
         </ol>
       </div>
-    </div>
+      </div>
+    </>
   );
 }

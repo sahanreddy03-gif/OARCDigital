@@ -3,6 +3,8 @@ import { Link } from 'wouter';
 import { ArrowRight } from 'lucide-react';
 import { SiTiktok } from 'react-icons/si';
 import Layout from '@/components/layout/Layout';
+import SEOHead from '@/components/SEOHead';
+import { caseStudiesSEO } from '@/data/seoMetadata';
 import relatedCase1 from '@assets/IMG_7949_1761931806299.png';
 import tefalHeroImg from '@assets/TefalPictures-32-scaled_1761760754960.jpg';
 import azzaroHeroImg from '@assets/IMG_7990_1761953778756.png';
@@ -44,6 +46,12 @@ export default function DontMakeAdsCaseStudy() {
 
   return (
     <Layout>
+      <SEOHead
+        title={caseStudiesSEO.dontMakeAds.title}
+        description={caseStudiesSEO.dontMakeAds.description}
+        canonicalUrl={`https://oarcdigital.com${caseStudiesSEO.dontMakeAds.path}`}
+        ogType={caseStudiesSEO.dontMakeAds.ogType}
+      />
       {/* Hero Section with Background Image */}
       <section className="relative h-[60vh] min-h-[500px] bg-black overflow-hidden">
         <img 

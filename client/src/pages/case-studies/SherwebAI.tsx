@@ -2,6 +2,8 @@ import { useEffect } from 'react';
 import { Link } from 'wouter';
 import { ArrowRight, Calendar, Building2 } from 'lucide-react';
 import Layout from '@/components/layout/Layout';
+import SEOHead from '@/components/SEOHead';
+import { caseStudiesSEO } from '@/data/seoMetadata';
 import heroImg from '@assets/stock_images/team_collaboration_b_c8b7e41b.jpg';
 import img1 from '@assets/stock_images/team_collaboration_b_542d7c06.jpg';
 import img2 from '@assets/stock_images/business_strategy_co_75cf4bec.jpg';
@@ -17,15 +19,16 @@ import img10 from '@assets/stock_images/team_collaboration_b_e4204dcc.jpg';
 export default function SherwebAI() {
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "Sherweb AI Adoption Case Study | OARC Digital";
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute("content", "How OARC Digital helped Sherweb scale AI adoption with a solid foundation for responsible AI use in creative teams.");
-    }
   }, []);
 
   return (
     <Layout>
+      <SEOHead
+        title={caseStudiesSEO.sherwebAI.title}
+        description={caseStudiesSEO.sherwebAI.description}
+        canonicalUrl={`https://oarcdigital.com${caseStudiesSEO.sherwebAI.path}`}
+        ogType={caseStudiesSEO.sherwebAI.ogType}
+      />
       {/* Hero Section */}
       <section className="relative h-[70vh] min-h-[500px] flex items-end">
         <div className="absolute inset-0">

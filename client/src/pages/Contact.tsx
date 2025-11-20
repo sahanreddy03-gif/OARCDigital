@@ -1,8 +1,16 @@
 import Layout from "@/components/layout/Layout";
+import SEOHead from "@/components/SEOHead";
+import { supportingPagesSEO } from "@/data/seoMetadata";
 
 export default function Contact() {
   return (
     <Layout>
+      <SEOHead
+        title={supportingPagesSEO.contact.title}
+        description={supportingPagesSEO.contact.description}
+        canonicalUrl={`https://oarcdigital.com${supportingPagesSEO.contact.path}`}
+        ogType={supportingPagesSEO.contact.ogType}
+      />
       <div className="min-h-screen bg-background py-20 px-4">
         <div className="max-w-5xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">Contact & Book a Demo (Phase 1 Skeleton)</h1>

@@ -5,6 +5,8 @@ import { Link } from 'wouter';
 import { ArrowRight } from 'lucide-react';
 import { SiTiktok } from 'react-icons/si';
 import Layout from '@/components/layout/Layout';
+import SEOHead from '@/components/SEOHead';
+import { caseStudiesSEO } from '@/data/seoMetadata';
 import tefalHeroImg from '@assets/TefalPictures-32-scaled_1761760754960.jpg';
 import dontMakeAdsHeroImg from '@assets/TikTok-for-Business-Marketing-Agenct_1761842288035.png';
 import bodyShopHeroImg from '@assets/The-Body-Shop-Social-Marketing-Agency_1761842288034.jpg';
@@ -40,6 +42,12 @@ export default function GymGroupCaseStudy() {
 
   return (
     <Layout>
+      <SEOHead
+        title={caseStudiesSEO.gymGroup.title}
+        description={caseStudiesSEO.gymGroup.description}
+        canonicalUrl={`https://oarcdigital.com${caseStudiesSEO.gymGroup.path}`}
+        ogType={caseStudiesSEO.gymGroup.ogType}
+      />
       {/* Hero Section */}
       <section className="relative min-h-[60vh] flex items-center justify-center bg-black text-white overflow-hidden">
         <div 

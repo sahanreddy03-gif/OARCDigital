@@ -2,6 +2,8 @@ import { useEffect } from 'react';
 import { Link } from 'wouter';
 import { ArrowRight, Calendar, Building2 } from 'lucide-react';
 import Layout from '@/components/layout/Layout';
+import SEOHead from '@/components/SEOHead';
+import { caseStudiesSEO } from '@/data/seoMetadata';
 import heroImg from '@assets/stock_images/healthcare_patient_c_b0453f09.jpg';
 import img1 from '@assets/stock_images/healthcare_patient_c_82f1ca94.jpg';
 import img2 from '@assets/stock_images/healthcare_patient_c_6419333c.jpg';
@@ -15,15 +17,16 @@ import img8 from '@assets/stock_images/team_collaboration_b_c8b7e41b.jpg';
 export default function AcclaimAutism() {
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "Acclaim Autism Healthcare Automation Case Study | OARC Digital";
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute("content", "How OARC Digital reduced patient intake time by 83% for Acclaim Autism using AI-powered document processing, enabling faster access to critical autism care services.");
-    }
   }, []);
 
   return (
     <Layout>
+      <SEOHead
+        title={caseStudiesSEO.acclaimAutism.title}
+        description={caseStudiesSEO.acclaimAutism.description}
+        canonicalUrl={`https://oarcdigital.com${caseStudiesSEO.acclaimAutism.path}`}
+        ogType={caseStudiesSEO.acclaimAutism.ogType}
+      />
       {/* Hero Section */}
       <section className="relative h-[70vh] min-h-[500px] flex items-end">
         <div className="absolute inset-0">

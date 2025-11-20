@@ -2,6 +2,8 @@ import { useEffect } from 'react';
 import { Link } from 'wouter';
 import { ArrowRight, Calendar, Building2 } from 'lucide-react';
 import Layout from '@/components/layout/Layout';
+import SEOHead from '@/components/SEOHead';
+import { caseStudiesSEO } from '@/data/seoMetadata';
 import heroImg from '@assets/stock_images/business_automation__26134094.jpg';
 import img1 from '@assets/stock_images/business_automation__3ddf701d.jpg';
 import img2 from '@assets/stock_images/business_automation__eedc4fcc.jpg';
@@ -16,15 +18,16 @@ import img9 from '@assets/stock_images/business_strategy_co_75cf4bec.jpg';
 export default function Cleverly() {
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "Cleverly Revenue Automation Case Study | OARC Digital";
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute("content", "How OARC Digital helped Cleverly achieve 10x delivery speed increase and tens of thousands in cost savings through automated workflows.");
-    }
   }, []);
 
   return (
     <Layout>
+      <SEOHead
+        title={caseStudiesSEO.cleverly.title}
+        description={caseStudiesSEO.cleverly.description}
+        canonicalUrl={`https://oarcdigital.com${caseStudiesSEO.cleverly.path}`}
+        ogType={caseStudiesSEO.cleverly.ogType}
+      />
       {/* Hero Section */}
       <section className="relative h-[70vh] min-h-[500px] flex items-end">
         <div className="absolute inset-0">

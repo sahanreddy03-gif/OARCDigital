@@ -262,3 +262,135 @@ export const revenueServicesSEO: Record<string, PageSEO> = {
     ogType: 'article'
   }
 };
+
+export const caseStudiesSEO: Record<string, PageSEO> = {
+  acclaimAutism: {
+    title: 'Acclaim Autism Healthcare Automation Case Study | OARC Digital',
+    description: 'How OARC Digital reduced patient intake time by 83% for Acclaim Autism using AI-powered document processing, enabling faster access to critical autism care services.',
+    path: '/case-studies/acclaim-autism',
+    ogType: 'article'
+  },
+  antler: {
+    title: 'Antler Brand Reimagination Case Study | OARC Digital',
+    description: 'How OARC Digital reimagined the Antler brand, connecting new positioning and messaging platform to exceptional visual execution for the investor backing driven founders.',
+    path: '/case-studies/antler',
+    ogType: 'article'
+  },
+  azzaro: {
+    title: 'Azzaro TikTok Luxury Fragrance Campaign | OARC Digital',
+    description: 'How OARC Digital successfully introduced luxury fragrance brand Azzaro to the TikTok community, reaching millions through authentic influencer partnerships.',
+    path: '/case-studies/azzaro',
+    ogType: 'article'
+  },
+  bancolombiaAutomation: {
+    title: 'Bancolombia Banking Automation Case Study | OARC Digital',
+    description: 'How OARC Digital delivered 1,300% ROI for Bancolombia, saving 127,000+ hours in branches and generating $7M in new revenue streams through intelligent automation for 14M+ clients.',
+    path: '/case-studies/bancolombia-automation',
+    ogType: 'article'
+  },
+  bodyShop: {
+    title: 'The Body Shop Middle East Awareness Campaign | OARC Digital',
+    description: 'How OARC Digital raised awareness of The Body Shop\'s brand activism across Middle Eastern markets through targeted social media campaigns.',
+    path: '/case-studies/body-shop',
+    ogType: 'article'
+  },
+  cleverly: {
+    title: 'Cleverly Revenue Automation Case Study | OARC Digital',
+    description: 'How OARC Digital helped Cleverly achieve 10x delivery speed increase and tens of thousands in cost savings through automated workflows.',
+    path: '/case-studies/cleverly',
+    ogType: 'article'
+  },
+  dontMakeAds: {
+    title: 'TikTok Authentic Success Stories Case Study | OARC Digital',
+    description: 'How OARC Digital\'s "Don\'t Make Ads" approach garnered 2 million likes and 400K NEW TikTok followers through authentic storytelling.',
+    path: '/case-studies/dont-make-ads',
+    ogType: 'article'
+  },
+  eslGaming: {
+    title: 'ESL Gaming Social Media Campaign | OARC Digital',
+    description: 'How OARC Digital created engaging social media campaigns for ESL Gaming, connecting with gaming communities across multiple platforms.',
+    path: '/case-studies/esl-gaming',
+    ogType: 'article'
+  },
+  fanDuelChuckGPT: {
+    title: 'FanDuel ChuckGPT AI Chatbot Case Study | OARC Digital',
+    description: 'How OARC Digital built ChuckGPT for FanDuel—an AI chatbot that scaled from zero to tens of thousands of users within hours.',
+    path: '/case-studies/fanduel-chuckgpt',
+    ogType: 'article'
+  },
+  gymGroup: {
+    title: 'The Gym Group Social Media Campaign | OARC Digital',
+    description: 'How OARC Digital created impactful social media campaigns for The Gym Group, driving engagement and membership growth.',
+    path: '/case-studies/gym-group',
+    ogType: 'article'
+  },
+  jbsAutomation: {
+    title: 'JBS Food Supply Chain Automation Case Study | OARC Digital',
+    description: 'How OARC Digital saved JBS $1M+ annually, automated 125,000 hours of work, and deployed 210 intelligent automations across global food supply chain operations.',
+    path: '/case-studies/jbs-automation',
+    ogType: 'article'
+  },
+  lenovoLegion: {
+    title: 'Lenovo Legion Gaming Marketing Campaign | OARC Digital',
+    description: 'How OARC Digital created compelling gaming-focused marketing campaigns for Lenovo Legion, reaching gaming enthusiasts worldwide.',
+    path: '/case-studies/lenovo-legion',
+    ogType: 'article'
+  },
+  peopleReadyAI: {
+    title: 'PeopleReady AI Team Case Study | OARC Digital',
+    description: 'How OARC Digital helped PeopleReady scale their digital transformation with 30+ seamlessly integrated nearshore AI engineers.',
+    path: '/case-studies/people-ready-ai',
+    ogType: 'article'
+  },
+  sherwebAI: {
+    title: 'Sherweb AI Adoption Case Study | OARC Digital',
+    description: 'How OARC Digital helped Sherweb scale AI adoption with a solid foundation for responsible AI use in creative teams.',
+    path: '/case-studies/sherweb-ai',
+    ogType: 'article'
+  },
+  tapestryAutomation: {
+    title: 'Tapestry Luxury Fashion Automation Case Study | OARC Digital',
+    description: 'How OARC Digital automated SAP S/4HANA processes for Tapestry (Coach, Kate Spade, Stuart Weitzman), transforming financial planning, sales, and operations with near real-time data.',
+    path: '/case-studies/tapestry-automation',
+    ogType: 'article'
+  },
+  tefal: {
+    title: 'Tefal Product Launch Campaign Case Study | OARC Digital',
+    description: 'How OARC Digital sold out product lines for Tefal through innovative social media campaigns and influencer partnerships across multiple platforms.',
+    path: '/case-studies/tefal',
+    ogType: 'article'
+  }
+};
+
+export const pdfPagesSEO: Record<string, PageSEO> = {
+  pdfHub: {
+    title: 'Client Proposal Documents | OARC Digital Malta',
+    description: 'Professional PDF presentations and capability decks for client proposals. Comprehensive marketing, automation, and AI services documentation.',
+    path: '/pdf',
+    ogType: 'website'
+  },
+  capabilitiesDeck: {
+    title: 'Capabilities Deck | OARC Digital Malta',
+    description: 'Comprehensive capabilities deck showcasing OARC Digital services, global brand success stories, technology stack, pricing, and proven results.',
+    path: '/pdf/capabilities-deck',
+    ogType: 'website'
+  },
+  companyProfile: {
+    title: 'Company Profile | OARC Digital Malta',
+    description: 'Complete company profile featuring OARC Digital services, technology stack, case studies, and AI-powered marketing solutions.',
+    path: '/pdf/company-profile',
+    ogType: 'website'
+  },
+  onePager: {
+    title: 'One Page Overview | OARC Digital Malta',
+    description: 'Quick overview of OARC Digital AI-powered creative services, digital employees, and revenue automation solutions.',
+    path: '/pdf/one-pager',
+    ogType: 'website'
+  },
+  aiCreativeProfile: {
+    title: 'AI Creative Services Profile | OARC Digital Malta',
+    description: 'Detailed profile of OARC Digital AI-powered creative services including design, content creation, and marketing automation.',
+    path: '/pdf/ai-creative-profile',
+    ogType: 'website'
+  }
+};

@@ -2,6 +2,8 @@ import { useEffect } from 'react';
 import { Link } from 'wouter';
 import { ArrowRight, Calendar, Building2 } from 'lucide-react';
 import Layout from '@/components/layout/Layout';
+import SEOHead from '@/components/SEOHead';
+import { caseStudiesSEO } from '@/data/seoMetadata';
 import heroImg from '@assets/stock_images/banking_financial_se_82fcc7e7.jpg';
 import img1 from '@assets/stock_images/banking_financial_se_fbe0cd32.jpg';
 import img2 from '@assets/stock_images/banking_financial_se_4e680099.jpg';
@@ -15,15 +17,16 @@ import img8 from '@assets/stock_images/team_collaboration_b_c8b7e41b.jpg';
 export default function BancolombiaAutomation() {
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "Bancolombia Banking Automation Case Study | OARC Digital";
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute("content", "How OARC Digital delivered 1,300% ROI for Bancolombia, saving 127,000+ hours in branches and generating $7M in new revenue streams through intelligent automation for 14M+ clients.");
-    }
   }, []);
 
   return (
     <Layout>
+      <SEOHead
+        title={caseStudiesSEO.bancolombiaAutomation.title}
+        description={caseStudiesSEO.bancolombiaAutomation.description}
+        canonicalUrl={`https://oarcdigital.com${caseStudiesSEO.bancolombiaAutomation.path}`}
+        ogType={caseStudiesSEO.bancolombiaAutomation.ogType}
+      />
       {/* Hero Section */}
       <section className="relative h-[70vh] min-h-[500px] flex items-end">
         <div className="absolute inset-0">

@@ -8,6 +8,7 @@ import HowItWorks from "@/components/reusable/HowItWorks";
 import FAQ from "@/components/reusable/FAQ";
 import CaseStudyGrid from "@/components/reusable/CaseStudyGrid";
 import { serviceImagesBySlug } from "@/assets/serviceImages";
+import SEOHead from "@/components/SEOHead";
 
 interface ServiceContent {
   slug: string;
@@ -73,13 +74,6 @@ export default function ServiceDetail() {
         
         const data = await response.json();
         setContent(data);
-        
-        // Update meta tags
-        document.title = data.meta.title;
-        const metaDesc = document.querySelector('meta[name="description"]');
-        if (metaDesc) {
-          metaDesc.setAttribute('content', data.meta.description);
-        }
       } catch (err) {
         setError(err instanceof Error ? err.message : 'Failed to load service content');
       } finally {
@@ -127,6 +121,12 @@ export default function ServiceDetail() {
 
   return (
     <Layout>
+      <SEOHead
+        title={content.meta.title}
+        description={content.meta.description}
+        canonicalUrl={`https://oarcdigital.com/services/${params?.service}`}
+        ogType="article"
+      />
       {/* Hero Section */}
       <Hero
         headline={content.hero.headline}

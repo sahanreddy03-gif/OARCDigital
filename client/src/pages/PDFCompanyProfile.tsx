@@ -2,6 +2,8 @@ import { companyInfo, aboutText, coreServices, whyChooseUs, processSteps, caseSt
 import { Palette, Users, TrendingUp, Zap, Target, Clock, Globe, Cpu, Mail, Phone, MapPin, Globe2 } from "lucide-react";
 import "../styles/pdf.css";
 import logoImage from "@assets/fdfdfd_1762818183304.png";
+import SEOHead from "@/components/SEOHead";
+import { pdfPagesSEO } from "@/data/seoMetadata";
 
 const iconMap: Record<string, any> = {
   palette: Palette,
@@ -16,7 +18,14 @@ const iconMap: Record<string, any> = {
 
 export default function PDFCompanyProfile() {
   return (
-    <div className="pdf-document">
+    <>
+      <SEOHead
+        title={pdfPagesSEO.companyProfile.title}
+        description={pdfPagesSEO.companyProfile.description}
+        canonicalUrl={`https://oarcdigital.com${pdfPagesSEO.companyProfile.path}`}
+        ogType={pdfPagesSEO.companyProfile.ogType}
+      />
+      <div className="pdf-document">
       {/* COVER PAGE */}
       <div className="pdf-page pdf-cover">
         <div>
@@ -514,6 +523,7 @@ export default function PDFCompanyProfile() {
           <li>Click Save</li>
         </ol>
       </div>
-    </div>
+      </div>
+    </>
   );
 }
