@@ -2,36 +2,31 @@ import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ScrollableCards } from "@/components/ui/scrollable-cards";
 import Layout from "@/components/layout/Layout";
+import SEOHead from "@/components/SEOHead";
+import { creativeServicesSEO } from "@/data/seoMetadata";
+import { createServiceSchema } from "@/utils/structuredData";
 import { Palette, Sparkles, BookOpen, Target, Box, FileText, ArrowRight, CheckCircle2 } from "lucide-react";
 import heroImage from "@assets/stock_images/branding_design_logo_562a38a3.jpg";
 
 export default function BrandingServices() {
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "Branding Services - Build Unforgettable Brand Identities | OARC Digital";
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute("content", "Full-service brand identity design. Logo design, brand guidelines, visual systems, messaging frameworks. Build brands that resonate and endure.");
-    }
-    let ogTitleMeta = document.querySelector('meta[property="og:title"]');
-    if (!ogTitleMeta) {
-      ogTitleMeta = document.createElement('meta');
-      ogTitleMeta.setAttribute('property', 'og:title');
-      document.head.appendChild(ogTitleMeta);
-    }
-    ogTitleMeta.setAttribute('content', 'Branding Services - Build Unforgettable Brand Identities | OARC Digital');
-    
-    let ogDescMeta = document.querySelector('meta[property="og:description"]');
-    if (!ogDescMeta) {
-      ogDescMeta = document.createElement('meta');
-      ogDescMeta.setAttribute('property', 'og:description');
-      document.head.appendChild(ogDescMeta);
-    }
-    ogDescMeta.setAttribute('content', 'Full-service brand identity design. Logo design, brand guidelines, visual systems, messaging frameworks. Build brands that resonate and endure.');
   }, []);
 
   return (
     <Layout>
+      <SEOHead
+        title={creativeServicesSEO.branding.title}
+        description={creativeServicesSEO.branding.description}
+        canonicalUrl={`https://oarcdigital.com${creativeServicesSEO.branding.path}`}
+        ogType="article"
+        structuredData={createServiceSchema(
+          "Branding Services",
+          creativeServicesSEO.branding.description,
+          "Brand Identity Design"
+        )}
+        schemaId="service-branding-services"
+      />
       {/* Hero Section with Real Image */}
       <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">

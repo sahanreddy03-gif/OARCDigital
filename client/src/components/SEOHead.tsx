@@ -6,7 +6,8 @@ interface SEOHeadProps {
   canonicalUrl?: string;
   ogImage?: string;
   ogType?: string;
-  structuredData?: object;
+  structuredData?: object | object[];
+  schemaId?: string;
 }
 
 export default function SEOHead({
@@ -15,7 +16,8 @@ export default function SEOHead({
   canonicalUrl,
   ogImage = 'https://oarcdigital.com/og-image.jpg',
   ogType = 'website',
-  structuredData
+  structuredData,
+  schemaId = 'primary'
 }: SEOHeadProps) {
   useEffect(() => {
     // Set page title
@@ -78,17 +80,30 @@ export default function SEOHead({
       canonical.setAttribute('href', canonicalUrl);
     }
 
-    // Structured Data (JSON-LD)
+    // Structured Data (JSON-LD) - supports multiple schemas with unique IDs
     if (structuredData) {
-      let script = document.querySelector('script[type="application/ld+json"]');
+      const dataAttribute = `data-schema-id`;
+      let script = document.querySelector(`script[type="application/ld+json"][${dataAttribute}="${schemaId}"]`);
       if (!script) {
         script = document.createElement('script');
         script.setAttribute('type', 'application/ld+json');
+        script.setAttribute(dataAttribute, schemaId);
         document.head.appendChild(script);
       }
       script.textContent = JSON.stringify(structuredData);
     }
-  }, [title, description, canonicalUrl, ogImage, ogType, structuredData]);
+
+    // Cleanup function to remove this schema when component unmounts
+    return () => {
+      if (structuredData) {
+        const dataAttribute = `data-schema-id`;
+        const script = document.querySelector(`script[type="application/ld+json"][${dataAttribute}="${schemaId}"]`);
+        if (script) {
+          script.remove();
+        }
+      }
+    };
+  }, [title, description, canonicalUrl, ogImage, ogType, structuredData, schemaId]);
 
   return null;
 }

@@ -2,6 +2,9 @@ import { useState, useEffect } from 'react';
 import { Link } from 'wouter';
 import { ArrowRight, CheckCircle, ChevronLeft, ChevronRight, Camera, Palette, Briefcase, Video, FileText, Play } from 'lucide-react';
 import Layout from '@/components/layout/Layout';
+import SEOHead from "@/components/SEOHead";
+import { creativeServicesSEO } from "@/data/seoMetadata";
+import { createServiceSchema } from "@/utils/structuredData";
 import videoProductionImg from '@assets/stock_images/video_production_stu_19004f37.jpg';
 import cameraMonitorImg from '@assets/stock_images/video_production_stu_5144a38f.jpg';
 import designWorkspaceImg from '@assets/stock_images/creative_team_workin_79883382.jpg';
@@ -13,11 +16,6 @@ export default function Creative() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "Creative Services | OARC Digital";
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute("content", "Delivering outstanding Creative across Video, Design and Motion. Social-first creative specialists producing content that gets results.");
-    }
   }, []);
 
   const services = [
@@ -121,6 +119,18 @@ export default function Creative() {
 
   return (
     <Layout>
+      <SEOHead
+        title="Creative Services | Video, Design & Motion | OARC Digital"
+        description="Delivering outstanding Creative across Video, Design and Motion. Social-first creative specialists producing content that gets results."
+        canonicalUrl="https://oarcdigital.com/services/creative"
+        ogType="article"
+        structuredData={createServiceSchema(
+          "Creative Services",
+          "Full-service creative production including video, design, and motion graphics for social media and digital platforms.",
+          "Creative Production"
+        )}
+        schemaId="service-creative"
+      />
       {/* Hero Section */}
       <section className="py-14 px-4 bg-white">
         <div className="max-w-6xl mx-auto">

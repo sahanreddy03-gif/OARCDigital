@@ -4,35 +4,30 @@ import { DollarSign, TrendingUp, Target, Zap, ArrowRight, BarChart3, CheckCircle
 import { Button } from "@/components/ui/button";
 import { ScrollableCards } from "@/components/ui/scrollable-cards";
 import Layout from "@/components/layout/Layout";
+import SEOHead from "@/components/SEOHead";
+import { revenueServicesSEO } from "@/data/seoMetadata";
+import { createServiceSchema } from "@/utils/structuredData";
 import heroImage from '@assets/media buying_1763086700057.jpg';
 
 export default function MediaBuying() {
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "Media Buying Services - Maximize Ad Spend ROI | OARC Digital";
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute("content", "Strategic media buying across digital, social, and traditional channels. Negotiate better rates, optimize placements, and maximize your advertising ROI.");
-    }
-    let ogTitleMeta = document.querySelector('meta[property="og:title"]');
-    if (!ogTitleMeta) {
-      ogTitleMeta = document.createElement('meta');
-      ogTitleMeta.setAttribute('property', 'og:title');
-      document.head.appendChild(ogTitleMeta);
-    }
-    ogTitleMeta.setAttribute('content', 'Media Buying Services - Maximize Ad Spend Efficiency | OARC Digital');
-    
-    let ogDescMeta = document.querySelector('meta[property="og:description"]');
-    if (!ogDescMeta) {
-      ogDescMeta = document.createElement('meta');
-      ogDescMeta.setAttribute('property', 'og:description');
-      document.head.appendChild(ogDescMeta);
-    }
-    ogDescMeta.setAttribute('content', 'Enterprise media buying that reduces costs by 40%. Negotiate better rates, optimize placements, scale winning campaigns.');
   }, []);
 
   return (
     <Layout>
+      <SEOHead
+        title={revenueServicesSEO.mediaBuying.title}
+        description={revenueServicesSEO.mediaBuying.description}
+        canonicalUrl={`https://oarcdigital.com${revenueServicesSEO.mediaBuying.path}`}
+        ogType="article"
+        structuredData={createServiceSchema(
+          "Media Buying Services",
+          revenueServicesSEO.mediaBuying.description,
+          "Strategic Media Buying"
+        )}
+        schemaId="service-media-buying"
+      />
       {/* Hero Section with Real Image */}
       <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">

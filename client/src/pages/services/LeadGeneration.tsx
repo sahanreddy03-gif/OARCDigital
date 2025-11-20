@@ -4,36 +4,30 @@ import { Mail, Search, UserPlus, Megaphone, Calendar, Users, CheckCircle2, Targe
 import { Button } from "@/components/ui/button";
 import { ScrollableCards } from "@/components/ui/scrollable-cards";
 import Layout from "@/components/layout/Layout";
+import SEOHead from "@/components/SEOHead";
+import { revenueServicesSEO } from "@/data/seoMetadata";
+import { createServiceSchema } from "@/utils/structuredData";
 import heroImage from "@assets/stock_images/sales_team_handshake_272ba86a.jpg";
 
 export default function LeadGeneration() {
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "Lead Generation Services - Fill Your Pipeline | OARC Digital";
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute("content", "B2B lead generation that fills your pipeline with qualified prospects. Outbound, inbound, and account-based strategies that deliver results.");
-    }
-    // Open Graph tags - always update content
-    let ogTitleMeta = document.querySelector('meta[property="og:title"]');
-    if (!ogTitleMeta) {
-      ogTitleMeta = document.createElement('meta');
-      ogTitleMeta.setAttribute('property', 'og:title');
-      document.head.appendChild(ogTitleMeta);
-    }
-    ogTitleMeta.setAttribute('content', 'Lead Generation Services - Fill Your Pipeline | OARC Digital');
-    
-    let ogDescMeta = document.querySelector('meta[property="og:description"]');
-    if (!ogDescMeta) {
-      ogDescMeta = document.createElement('meta');
-      ogDescMeta.setAttribute('property', 'og:description');
-      document.head.appendChild(ogDescMeta);
-    }
-    ogDescMeta.setAttribute('content', 'B2B lead generation that fills your pipeline with qualified prospects. Outbound, inbound, and account-based strategies that deliver results.');
   }, []);
 
   return (
     <Layout>
+      <SEOHead
+        title={revenueServicesSEO.leadGeneration.title}
+        description={revenueServicesSEO.leadGeneration.description}
+        canonicalUrl={`https://oarcdigital.com${revenueServicesSEO.leadGeneration.path}`}
+        ogType="article"
+        structuredData={createServiceSchema(
+          "Lead Generation Services",
+          revenueServicesSEO.leadGeneration.description,
+          "B2B Lead Generation"
+        )}
+        schemaId="service-lead-generation"
+      />
       {/* Hero Section with Real Image */}
       <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">

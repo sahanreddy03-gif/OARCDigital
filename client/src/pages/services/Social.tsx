@@ -1,5 +1,8 @@
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/layout/Layout";
+import SEOHead from "@/components/SEOHead";
+import { revenueServicesSEO } from "@/data/seoMetadata";
+import { createServiceSchema } from "@/utils/structuredData";
 import { useEffect, useState } from "react";
 import { Link } from "wouter";
 import { 
@@ -22,11 +25,6 @@ export default function Social() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "Social | OARC Digital";
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute("content", "We grow cult-like social communities with platform-specific social strategies");
-    }
   }, []);
 
   const services = [
@@ -131,6 +129,18 @@ export default function Social() {
 
   return (
     <Layout>
+      <SEOHead
+        title={revenueServicesSEO.socialMediaManagement.title}
+        description={revenueServicesSEO.socialMediaManagement.description}
+        canonicalUrl={`https://oarcdigital.com${revenueServicesSEO.socialMediaManagement.path}`}
+        ogType="article"
+        structuredData={createServiceSchema(
+          "Social Media Services",
+          revenueServicesSEO.socialMediaManagement.description,
+          "Social Media Management"
+        )}
+        schemaId="service-social"
+      />
       {/* Hero Section */}
       <section className="py-14 px-4 bg-white">
         <div className="max-w-6xl mx-auto">

@@ -1,5 +1,8 @@
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/layout/Layout";
+import SEOHead from "@/components/SEOHead";
+import { creativeServicesSEO } from "@/data/seoMetadata";
+import { createServiceSchema } from "@/utils/structuredData";
 import { useEffect } from "react";
 import { Link } from "wouter";
 import { 
@@ -23,11 +26,6 @@ import brandLogo6 from "@assets/stock_images/corporate_brand_logo_45511c03.jpg";
 export default function SocialMediaCreativeManagement() {
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "How we help | OARC Digital";
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute("content", "We specialise in Social, Paid, Creative, Influencer and Strategy and work with fast-growth brands and household names across the globe.");
-    }
   }, []);
 
   const services = [
@@ -101,6 +99,18 @@ export default function SocialMediaCreativeManagement() {
 
   return (
     <Layout>
+      <SEOHead
+        title="How We Help | Social, Paid, Creative & Influencer Services | OARC Digital"
+        description="We specialise in Social, Paid, Creative, Influencer and Strategy and work with fast-growth brands and household names across the globe."
+        canonicalUrl="https://oarcdigital.com/services/how-we-help"
+        ogType="article"
+        structuredData={createServiceSchema(
+          "Comprehensive Marketing Services",
+          "Full-service marketing agency specializing in Social, Paid, Creative, Influencer and Strategy.",
+          "Marketing Services"
+        )}
+        schemaId="service-marketing-overview"
+      />
       {/* How we help - Teal Card */}
       <section className="py-12 px-4 bg-white">
         <div className="max-w-6xl mx-auto">

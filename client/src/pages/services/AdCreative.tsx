@@ -4,6 +4,9 @@ import { Sparkles, Target, Zap, BarChart, ArrowRight, TrendingUp, CheckCircle2 }
 import { Button } from "@/components/ui/button";
 import { ScrollableCards } from "@/components/ui/scrollable-cards";
 import Layout from "@/components/layout/Layout";
+import SEOHead from "@/components/SEOHead";
+import { creativeServicesSEO } from "@/data/seoMetadata";
+import { createServiceSchema } from "@/utils/structuredData";
 import heroImage from '@assets/ad creative_1763084489954.avif';
 import adImg1 from "@assets/stock_images/creative_advertising_b13aabf8.jpg";
 import adImg2 from "@assets/stock_images/creative_advertising_0f7921d3.jpg";
@@ -12,31 +15,22 @@ import adImg3 from "@assets/stock_images/creative_advertising_3d5c5ae1.jpg";
 export default function AdCreative() {
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "Ad Creative Services - Performance Creative That Converts | OARC Digital";
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute("content", "Performance-driven ad creative that lowers CPA and scales profitably. Unlimited creative iterations, A/B testing, and platform-optimized formats for every channel.");
-    }
-    // Open Graph tags
-    let ogTitleMeta = document.querySelector('meta[property="og:title"]');
-    if (!ogTitleMeta) {
-      ogTitleMeta = document.createElement('meta');
-      ogTitleMeta.setAttribute('property', 'og:title');
-      document.head.appendChild(ogTitleMeta);
-    }
-    ogTitleMeta.setAttribute('content', 'Ad Creative Services - Performance Creative | OARC Digital');
-    
-    let ogDescMeta = document.querySelector('meta[property="og:description"]');
-    if (!ogDescMeta) {
-      ogDescMeta = document.createElement('meta');
-      ogDescMeta.setAttribute('property', 'og:description');
-      document.head.appendChild(ogDescMeta);
-    }
-    ogDescMeta.setAttribute('content', 'High-converting ad creative designed to lower CPA and increase ROAS. Performance creative that actually moves metrics.');
   }, []);
 
   return (
     <Layout>
+      <SEOHead
+        title={creativeServicesSEO.adCreative.title}
+        description={creativeServicesSEO.adCreative.description}
+        canonicalUrl={`https://oarcdigital.com${creativeServicesSEO.adCreative.path}`}
+        ogType="article"
+        structuredData={createServiceSchema(
+          "Ad Creative Design Services",
+          creativeServicesSEO.adCreative.description,
+          "Performance Marketing Creative"
+        )}
+        schemaId="service-ad-creative"
+      />
     <div className="ad-creative">
       {/* Hero Section with Real Image */}
       <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">

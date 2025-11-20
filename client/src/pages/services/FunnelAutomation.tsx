@@ -4,36 +4,30 @@ import { Zap, TrendingUp, Target, Users, BarChart, Sparkles, CheckCircle2, Mail 
 import { Button } from "@/components/ui/button";
 import { ScrollableCards } from "@/components/ui/scrollable-cards";
 import Layout from "@/components/layout/Layout";
+import SEOHead from "@/components/SEOHead";
+import { revenueServicesSEO } from "@/data/seoMetadata";
+import { createServiceSchema } from "@/utils/structuredData";
 import heroImage from "@assets/stock_images/automation_workflow__5f7d705f.jpg";
 
 export default function FunnelAutomation() {
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "Funnel Automation Services - Convert More, Work Less | OARC Digital";
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute("content", "Automated marketing and sales funnels that convert 24/7. Email sequences, lead scoring, retargeting, nurture campaigns.");
-    }
-    // Open Graph tags - always update content
-    let ogTitleMeta = document.querySelector('meta[property="og:title"]');
-    if (!ogTitleMeta) {
-      ogTitleMeta = document.createElement('meta');
-      ogTitleMeta.setAttribute('property', 'og:title');
-      document.head.appendChild(ogTitleMeta);
-    }
-    ogTitleMeta.setAttribute('content', 'Funnel Automation Services - Convert More, Work Less | OARC Digital');
-    
-    let ogDescMeta = document.querySelector('meta[property="og:description"]');
-    if (!ogDescMeta) {
-      ogDescMeta = document.createElement('meta');
-      ogDescMeta.setAttribute('property', 'og:description');
-      document.head.appendChild(ogDescMeta);
-    }
-    ogDescMeta.setAttribute('content', 'Automated marketing and sales funnels that convert 24/7. Email sequences, lead scoring, retargeting, nurture campaigns.');
   }, []);
 
   return (
     <Layout>
+      <SEOHead
+        title={revenueServicesSEO.funnelAutomation.title}
+        description={revenueServicesSEO.funnelAutomation.description}
+        canonicalUrl={`https://oarcdigital.com${revenueServicesSEO.funnelAutomation.path}`}
+        ogType="article"
+        structuredData={createServiceSchema(
+          "Funnel Automation Services",
+          revenueServicesSEO.funnelAutomation.description,
+          "Marketing Automation"
+        )}
+        schemaId="service-funnel-automation"
+      />
       {/* Hero Section with Real Image */}
       <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">

@@ -4,6 +4,9 @@ import { Sparkles, Zap, FileText, TrendingUp, Target, BarChart, CheckCircle2, Pe
 import { Button } from "@/components/ui/button";
 import { ScrollableCards } from "@/components/ui/scrollable-cards";
 import Layout from "@/components/layout/Layout";
+import SEOHead from "@/components/SEOHead";
+import { creativeServicesSEO } from "@/data/seoMetadata";
+import { createServiceSchema } from "@/utils/structuredData";
 import { serviceImagesBySlug } from "@/assets/serviceImages";
 
 const heroImage = serviceImagesBySlug['ai-copywriting'] || serviceImagesBySlug['ai-enhanced-creative'];
@@ -11,31 +14,22 @@ const heroImage = serviceImagesBySlug['ai-copywriting'] || serviceImagesBySlug['
 export default function AICopywriting() {
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "AI Copywriting Services - Content at Scale | OARC Digital";
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute("content", "AI-powered copywriting at scale. Blog posts, product descriptions, ad copy, emails. Human-quality content, delivered 10x faster.");
-    }
-    // Open Graph tags - always update content
-    let ogTitleMeta = document.querySelector('meta[property="og:title"]');
-    if (!ogTitleMeta) {
-      ogTitleMeta = document.createElement('meta');
-      ogTitleMeta.setAttribute('property', 'og:title');
-      document.head.appendChild(ogTitleMeta);
-    }
-    ogTitleMeta.setAttribute('content', 'AI Copywriting Services - Content at Scale | OARC Digital');
-    
-    let ogDescMeta = document.querySelector('meta[property="og:description"]');
-    if (!ogDescMeta) {
-      ogDescMeta = document.createElement('meta');
-      ogDescMeta.setAttribute('property', 'og:description');
-      document.head.appendChild(ogDescMeta);
-    }
-    ogDescMeta.setAttribute('content', 'AI-powered copywriting at scale. Blog posts, product descriptions, ad copy, emails. Human-quality content, delivered 10x faster.');
   }, []);
 
   return (
     <Layout>
+      <SEOHead
+        title={creativeServicesSEO.aiCopywriting.title}
+        description={creativeServicesSEO.aiCopywriting.description}
+        canonicalUrl={`https://oarcdigital.com${creativeServicesSEO.aiCopywriting.path}`}
+        ogType="article"
+        structuredData={createServiceSchema(
+          "AI Copywriting Services",
+          creativeServicesSEO.aiCopywriting.description,
+          "AI-Powered Content Creation"
+        )}
+        schemaId="service-ai-copywriting"
+      />
       {/* Hero Section with Real Image */}
       <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">

@@ -2,6 +2,9 @@ import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ScrollableCards } from "@/components/ui/scrollable-cards";
 import Layout from "@/components/layout/Layout";
+import SEOHead from "@/components/SEOHead";
+import { revenueServicesSEO } from "@/data/seoMetadata";
+import { createServiceSchema } from "@/utils/structuredData";
 import { Users, TrendingUp, Heart, Zap, Target, BarChart3, ArrowRight, CheckCircle2 } from "lucide-react";
 import heroImage from '@assets/influencer_1763087034115.jpg';
 import influencerImg1 from "@assets/stock_images/influencer_marketing_e096cc44.jpg";
@@ -11,30 +14,22 @@ import influencerImg3 from "@assets/stock_images/influencer_marketing_3b6f7762.j
 export default function InfluencerMarketing() {
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "Influencer Marketing Services - Creator Partnerships That Convert | OARC Digital";
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute("content", "End-to-end influencer marketing campaigns. From micro to mega influencers, we find creators, negotiate deals, manage campaigns, and track ROI.");
-    }
-    let ogTitleMeta = document.querySelector('meta[property="og:title"]');
-    if (!ogTitleMeta) {
-      ogTitleMeta = document.createElement('meta');
-      ogTitleMeta.setAttribute('property', 'og:title');
-      document.head.appendChild(ogTitleMeta);
-    }
-    ogTitleMeta.setAttribute('content', 'Influencer Marketing - Creator Partnerships That Convert | OARC Digital');
-    
-    let ogDescMeta = document.querySelector('meta[property="og:description"]');
-    if (!ogDescMeta) {
-      ogDescMeta = document.createElement('meta');
-      ogDescMeta.setAttribute('property', 'og:description');
-      document.head.appendChild(ogDescMeta);
-    }
-    ogDescMeta.setAttribute('content', 'End-to-end influencer marketing campaigns. From micro to mega influencers, we find creators, negotiate deals, manage campaigns, and track ROI.');
   }, []);
 
   return (
     <Layout>
+      <SEOHead
+        title={revenueServicesSEO.influencerMarketing.title}
+        description={revenueServicesSEO.influencerMarketing.description}
+        canonicalUrl={`https://oarcdigital.com${revenueServicesSEO.influencerMarketing.path}`}
+        ogType="article"
+        structuredData={createServiceSchema(
+          "Influencer Marketing Services",
+          revenueServicesSEO.influencerMarketing.description,
+          "Creator Partnerships"
+        )}
+        schemaId="service-influencer-marketing"
+      />
       {/* Hero Section with Real Image */}
       <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">

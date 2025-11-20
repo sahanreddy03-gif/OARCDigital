@@ -2,6 +2,9 @@ import { useState, useEffect } from 'react';
 import { Link } from 'wouter';
 import { ArrowRight, CheckCircle, Smartphone, Code, Zap, Users } from 'lucide-react';
 import Layout from '@/components/layout/Layout';
+import SEOHead from "@/components/SEOHead";
+import { revenueServicesSEO } from "@/data/seoMetadata";
+import { createServiceSchema } from "@/utils/structuredData";
 import heroImg from '@assets/stock_images/mobile_app_design_us_2b0d5cbd.jpg';
 import appImg1 from '@assets/stock_images/mobile_app_design_us_5eb8ced7.jpg';
 import appImg2 from '@assets/stock_images/mobile_app_design_us_1ba5497a.jpg';
@@ -11,11 +14,6 @@ export default function MobileAppsDevelopment() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "Mobile App Development - iOS & Android | OARC Digital";
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute("content", "Build exceptional mobile experiences for iOS and Android. From concept to App Store, we create high-performance native and cross-platform applications that users love.");
-    }
   }, []);
 
   const services = [
@@ -115,6 +113,18 @@ export default function MobileAppsDevelopment() {
 
   return (
     <Layout>
+      <SEOHead
+        title={revenueServicesSEO.mobileAppsDevelopment.title}
+        description={revenueServicesSEO.mobileAppsDevelopment.description}
+        canonicalUrl={`https://oarcdigital.com${revenueServicesSEO.mobileAppsDevelopment.path}`}
+        ogType="article"
+        structuredData={createServiceSchema(
+          "Mobile App Development Services",
+          revenueServicesSEO.mobileAppsDevelopment.description,
+          "iOS & Android Development"
+        )}
+        schemaId="service-mobile-apps-development"
+      />
       {/* Hero Section */}
       <section className="relative h-[70vh] min-h-[500px] flex items-center">
         <div className="absolute inset-0">

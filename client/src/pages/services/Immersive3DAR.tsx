@@ -4,36 +4,30 @@ import { Box as BoxIcon, Smartphone, Glasses, Package, Layers, Sparkles, CheckCi
 import { Button } from "@/components/ui/button";
 import { ScrollableCards } from "@/components/ui/scrollable-cards";
 import Layout from "@/components/layout/Layout";
+import SEOHead from "@/components/SEOHead";
+import { creativeServicesSEO } from "@/data/seoMetadata";
+import { createServiceSchema } from "@/utils/structuredData";
 import heroImage from "@assets/stock_images/virtual_reality_vr_h_6d01f361.jpg";
 
 export default function Immersive3DAR() {
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "Immersive 3D & AR Services - Virtual Experiences | OARC Digital";
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute("content", "3D modeling, augmented reality experiences, virtual product tours, and immersive web experiences. Bring your products and ideas to life in 3D.");
-    }
-    // Open Graph tags - always update content
-    let ogTitleMeta = document.querySelector('meta[property="og:title"]');
-    if (!ogTitleMeta) {
-      ogTitleMeta = document.createElement('meta');
-      ogTitleMeta.setAttribute('property', 'og:title');
-      document.head.appendChild(ogTitleMeta);
-    }
-    ogTitleMeta.setAttribute('content', 'Immersive 3D & AR Services - Next-Gen Experiences | OARC Digital');
-    
-    let ogDescMeta = document.querySelector('meta[property="og:description"]');
-    if (!ogDescMeta) {
-      ogDescMeta = document.createElement('meta');
-      ogDescMeta.setAttribute('property', 'og:description');
-      document.head.appendChild(ogDescMeta);
-    }
-    ogDescMeta.setAttribute('content', '3D modeling, AR experiences, and immersive web design. Bring your products to life in stunning detail.');
   }, []);
 
   return (
     <Layout>
+      <SEOHead
+        title={creativeServicesSEO.immersive3DAR.title}
+        description={creativeServicesSEO.immersive3DAR.description}
+        canonicalUrl={`https://oarcdigital.com${creativeServicesSEO.immersive3DAR.path}`}
+        ogType="article"
+        structuredData={createServiceSchema(
+          "3D & AR Experiences Services",
+          creativeServicesSEO.immersive3DAR.description,
+          "Immersive Design"
+        )}
+        schemaId="service-immersive-3d-ar"
+      />
       {/* Hero Section with Real Image */}
       <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">

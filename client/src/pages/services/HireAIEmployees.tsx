@@ -2,6 +2,9 @@ import { useState, useEffect } from 'react';
 import { Link } from 'wouter';
 import { ArrowRight, CheckCircle, Users, Code, Zap, Target } from 'lucide-react';
 import Layout from '@/components/layout/Layout';
+import SEOHead from "@/components/SEOHead";
+import { aiEmployeeServicesSEO } from "@/data/seoMetadata";
+import { createServiceSchema } from "@/utils/structuredData";
 import heroImg from '@assets/stock_images/software_development_e22831c9.jpg';
 import teamImg1 from '@assets/stock_images/artificial_intellige_ec409837.jpg';
 import teamImg2 from '@assets/stock_images/artificial_intellige_12bf09cb.jpg';
@@ -14,11 +17,6 @@ export default function HireAIEmployees() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "Hire AI Employees - Scale Your Team Instantly | OARC Digital";
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute("content", "Access top AI engineering talent across the Americas. Scale your team with dedicated AI specialists who integrate seamlessly with your operations.");
-    }
   }, []);
 
   const services = [
@@ -118,6 +116,18 @@ export default function HireAIEmployees() {
 
   return (
     <Layout>
+      <SEOHead
+        title={aiEmployeeServicesSEO.hireAIEmployees.title}
+        description={aiEmployeeServicesSEO.hireAIEmployees.description}
+        canonicalUrl={`https://oarcdigital.com${aiEmployeeServicesSEO.hireAIEmployees.path}`}
+        ogType="article"
+        structuredData={createServiceSchema(
+          "AI Engineering Team Services",
+          aiEmployeeServicesSEO.hireAIEmployees.description,
+          "AI Talent Recruitment"
+        )}
+        schemaId="service-hire-ai-employees"
+      />
       {/* Hero Section */}
       <section className="relative h-[70vh] min-h-[500px] flex items-center">
         <div className="absolute inset-0">
