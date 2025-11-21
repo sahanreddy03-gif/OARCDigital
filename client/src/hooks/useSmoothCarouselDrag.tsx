@@ -42,10 +42,11 @@ export function useSmoothCarouselDrag({
       return position;
     };
 
-    // Auto-scroll animation (for revenue section)
+    // Auto-scroll animation (for revenue section) - Enhanced for speed and smoothness
     const autoScroll = () => {
       if (!isDraggingRef.current && enableAutoScroll) {
-        currentTranslateRef.current -= 0.5; // scroll speed
+        // Increased speed from 0.5 to 1.8 for faster, more dynamic scrolling
+        currentTranslateRef.current -= 1.8;
         
         // Wrap position
         currentTranslateRef.current = wrapPosition(currentTranslateRef.current);
