@@ -105,7 +105,6 @@ export default function WebDesign() {
                   <div className="relative h-[400px] md:h-[500px] overflow-hidden">
                     <img src={[webImg1, webImg2, webImg3][i % 3]} alt={item.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
                     </div>
-                  </div>
                   <div className="p-6">
                     <h3 className="text-xl font-bold mb-3">{item.name}</h3>
                     <p className="text-muted-foreground text-sm leading-relaxed">{item.desc}</p>
