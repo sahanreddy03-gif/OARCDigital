@@ -132,11 +132,11 @@ const services = [
 ];
 
 export default function LetsTalkRevenueSection() {
-  // Use the new smooth drag hook WITH auto-scroll enabled for revenue section
+  // Use the new smooth drag hook with enhanced responsiveness
   const trackRef = useSmoothCarouselDrag({
     enableAutoScroll: true,
-    dragMultiplier: 1.2,
-    momentumDamping: 0.95
+    dragMultiplier: 1.6, // Increased from 1.2 for more responsive manual control
+    momentumDamping: 0.92 // Slightly lower for smoother momentum decay
   });
   
   // Always triple services for seamless looping
