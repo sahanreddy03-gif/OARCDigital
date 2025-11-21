@@ -152,6 +152,9 @@ export default function Footer() {
               Triq ix-Xatt, Ta' Xbiex<br />
               XBX 1020, Malta
             </address>
+            <a href="tel:+35679711799" className="text-zinc-500 hover:text-zinc-300 text-xs mt-2 inline-block transition-colors" data-testid="link-phone-malta">
+              +356 7971 1799
+            </a>
           </div>
 
           {/* India - Chennai */}
@@ -162,6 +165,9 @@ export default function Footer() {
               Olympia Tech Park, SIDCO Industrial Estate,<br />
               Guindy, Chennai 600032, India
             </address>
+            <a href="tel:+919900555588" className="text-zinc-500 hover:text-zinc-300 text-xs mt-2 inline-block transition-colors" data-testid="link-phone-chennai">
+              +91 99005 55588
+            </a>
           </div>
 
           {/* Dubai - JLT */}
@@ -172,6 +178,9 @@ export default function Footer() {
               Cluster F, Jumeirah Lake Towers,<br />
               Dubai, United Arab Emirates
             </address>
+            <a href="tel:+971526472981" className="text-zinc-500 hover:text-zinc-300 text-xs mt-2 inline-block transition-colors" data-testid="link-phone-dubai">
+              +971 52 647 2981
+            </a>
           </div>
         </div>
       </div>
