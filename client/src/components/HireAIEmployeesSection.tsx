@@ -132,11 +132,11 @@ const employees = [
 ];
 
 export default function HireAIEmployeesSection() {
-  // Use the new smooth drag hook with continuous auto-scroll
+  // Use the new smooth drag hook with enhanced responsiveness
   const trackRef = useSmoothCarouselDrag({
     enableAutoScroll: true,
-    dragMultiplier: 1.2,
-    momentumDamping: 0.95
+    dragMultiplier: 1.6, // Increased from 1.2 for more responsive manual control
+    momentumDamping: 0.92 // Slightly lower for smoother momentum decay
   });
   
   // Always triple employees for seamless looping
