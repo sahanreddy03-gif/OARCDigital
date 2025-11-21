@@ -70,36 +70,6 @@ export default function DesignSystems() {
         </div>
       </section>
 
-      {/* Performance Metrics */}
-      <section className="py-16 px-4 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <div className="text-sm uppercase tracking-wider text-[hsl(140,60%,45%)] mb-3">PROVEN EFFICIENCY GAINS</div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              Consistency at scale. Velocity unlocked.
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Design systems eliminate redundancy, accelerate development, and ensure every touchpoint reflects your brand perfectly
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-4 gap-6 mt-10">
-            {[
-              { value: "67%", label: "Faster design-to-dev handoff" },
-              { value: "3.5x", label: "More screens shipped per sprint" },
-              { value: "92%", label: "Reduction in inconsistencies" },
-              { value: "40+", label: "Systems built for global brands" },
-            ].map((stat, i) => (
-              <div key={i} className="text-center p-8 bg-gradient-to-br from-[hsl(140,10%,98%)] to-white rounded-xl border border-border hover:shadow-lg transition-all duration-300 hover:-translate-y-1" data-testid={`metric-${i}`}>
-                <div className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-[hsl(140,60%,45%)] to-[hsl(160,60%,55%)] text-transparent bg-clip-text mb-3">{stat.value}</div>
-                <div className="text-base text-muted-foreground font-semibold">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Case Study Spotlight */}
       <section className="py-16 px-4 bg-[hsl(140,10%,98%)]">
         <div className="max-w-6xl mx-auto">
           <div className="bg-white rounded-2xl overflow-hidden border border-border shadow-lg">
@@ -406,7 +376,6 @@ export default function DesignSystems() {
                 <p className="text-muted-foreground mb-4">
                   Establish your brand foundation before building a design system. Define colors, typography, and visual language that scales.
                 </p>
-                <div className="text-sm text-[hsl(140,60%,45%)] font-semibold">Learn More →</div>
               </div>
             </Link>
 
@@ -419,7 +388,6 @@ export default function DesignSystems() {
                 <p className="text-muted-foreground mb-4">
                   Apply your design system to real products. Build conversion-optimized websites using your component library.
                 </p>
-                <div className="text-sm text-[hsl(140,60%,45%)] font-semibold">Learn More →</div>
               </div>
             </Link>
 
@@ -432,7 +400,6 @@ export default function DesignSystems() {
                 <p className="text-muted-foreground mb-4">
                   Automate design system maintenance with AI. Generate components, update documentation, and catch inconsistencies automatically.
                 </p>
-                <div className="text-sm text-[hsl(140,60%,45%)] font-semibold">Learn More →</div>
               </div>
             </Link>
           </div>

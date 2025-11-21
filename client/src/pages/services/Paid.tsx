@@ -754,7 +754,6 @@ export default function Paid() {
                 <p className="text-sm text-gray-700 mb-4">
                   Fuel your paid campaigns with high-converting creative. Test more, win more with platform-optimized ad creative at scale.
                 </p>
-                <div className="text-sm text-[#5FD4C4] font-semibold">Learn More →</div>
               </div>
             </Link>
 
@@ -767,7 +766,6 @@ export default function Paid() {
                 <p className="text-sm text-gray-700 mb-4">
                   Make data-driven decisions with proper attribution, conversion tracking, and custom dashboards that show true paid media ROI.
                 </p>
-                <div className="text-sm text-[#5FD4C4] font-semibold">Learn More →</div>
               </div>
             </Link>
 
@@ -780,7 +778,6 @@ export default function Paid() {
                 <p className="text-sm text-gray-700 mb-4">
                   Nurture paid traffic automatically with behavioral triggers and sequences that convert cold clicks into hot customers.
                 </p>
-                <div className="text-sm text-[#5FD4C4] font-semibold">Learn More →</div>
               </div>
             </Link>
           </div>

@@ -377,7 +377,6 @@ export default function SocialMediaCreativeManagement() {
                   <p className="text-gray-700 mb-4">
                     Performance-driven paid social and search campaigns. Maximize ROI with data-driven media buying.
                   </p>
-                  <div className="text-sm text-[#5FD4C4] font-semibold">Learn More →</div>
                 </div>
               </Link>
 
@@ -390,7 +389,6 @@ export default function SocialMediaCreativeManagement() {
                   <p className="text-gray-700 mb-4">
                     Connect with your audience through authentic creator partnerships. Build trust at scale.
                   </p>
-                  <div className="text-sm text-[#5FD4C4] font-semibold">Learn More →</div>
                 </div>
               </Link>
 
@@ -403,7 +401,6 @@ export default function SocialMediaCreativeManagement() {
                   <p className="text-gray-700 mb-4">
                     Daily community management and content publishing. Build engaged audiences that drive business results.
                   </p>
-                  <div className="text-sm text-[#5FD4C4] font-semibold">Learn More →</div>
                 </div>
               </Link>
             </div>

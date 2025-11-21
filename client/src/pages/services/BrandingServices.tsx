@@ -69,36 +69,6 @@ export default function BrandingServices() {
         </div>
       </section>
 
-      {/* Performance Metrics */}
-      <section className="py-16 px-4 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <div className="text-sm uppercase tracking-wider text-orange-600 mb-3">BRAND IDENTITY EXCELLENCE</div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              Strategy-first. Design-obsessed.
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Great brands aren't built on pretty logos alone. We start with strategy, define positioning, craft messaging, then bring it all to life visually.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-4 gap-6 mt-10">
-            {[
-              { value: "500+", label: "Brand identities created" },
-              { value: "94%", label: "Client satisfaction rate" },
-              { value: "12 days", label: "Avg. brand identity delivery" },
-              { value: "85%", label: "Brands still using our work 3+ years" },
-            ].map((stat, i) => (
-              <div key={i} className="text-center p-8 bg-gradient-to-br from-orange-50 to-white rounded-xl border border-border hover:shadow-lg transition-all duration-300 hover:-translate-y-1" data-testid={`metric-${i}`}>
-                <div className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-orange-600 to-red-500 text-transparent bg-clip-text mb-3">{stat.value}</div>
-                <div className="text-base text-muted-foreground font-semibold">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Services */}
       <section className="py-20 bg-orange-50 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 mb-12">
           <div className="text-sm uppercase tracking-wider text-orange-600 mb-4">COMPREHENSIVE BRANDING</div>
@@ -426,7 +396,6 @@ export default function BrandingServices() {
                 <p className="text-muted-foreground mb-4">
                   Bring your brand to life online with conversion-optimized websites that reflect your visual identity perfectly.
                 </p>
-                <div className="text-sm text-orange-600 font-semibold">Learn More →</div>
               </div>
             </Link>
 
@@ -439,7 +408,6 @@ export default function BrandingServices() {
                 <p className="text-muted-foreground mb-4">
                   Scale your brand consistently across all digital products with comprehensive design systems and component libraries.
                 </p>
-                <div className="text-sm text-orange-600 font-semibold">Learn More →</div>
               </div>
             </Link>
 
@@ -452,7 +420,6 @@ export default function BrandingServices() {
                 <p className="text-muted-foreground mb-4">
                   Extend your brand to physical touchpoints with premium packaging, collateral, and print materials that make an impact.
                 </p>
-                <div className="text-sm text-orange-600 font-semibold">Learn More →</div>
               </div>
             </Link>
           </div>

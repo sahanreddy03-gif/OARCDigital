@@ -70,36 +70,6 @@ export default function LeadGeneration() {
         </div>
       </section>
 
-      {/* Performance Metrics */}
-      <section className="py-16 px-4 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <div className="text-sm uppercase tracking-wider text-emerald-600 mb-3">PROVEN LEAD GENERATION RESULTS</div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              More leads, better quality, higher close rates
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              We don't just generate volume. We build systems that deliver qualified, sales-ready leads
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-4 gap-6 mt-10">
-            {[
-              { value: "12,000+", label: "Qualified leads monthly" },
-              { value: "38%", label: "Lead-to-opportunity rate" },
-              { value: "$850M+", label: "Pipeline value created" },
-              { value: "$18", label: "Avg. cost per qualified lead" },
-            ].map((stat, i) => (
-              <div key={i} className="text-center p-8 bg-gradient-to-br from-emerald-50 to-white rounded-xl border border-border hover:shadow-lg transition-all duration-300 hover:-translate-y-1" data-testid={`metric-${i}`}>
-                <div className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-emerald-600 to-cyan-600 text-transparent bg-clip-text mb-3">{stat.value}</div>
-                <div className="text-base text-muted-foreground font-semibold">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Case Study Spotlight */}
       <section className="py-16 px-4 bg-emerald-50">
         <div className="max-w-6xl mx-auto">
           <div className="bg-white rounded-2xl overflow-hidden border border-border shadow-lg">
@@ -440,7 +410,6 @@ export default function LeadGeneration() {
                 <p className="text-sm text-muted-foreground mb-4">
                   Nurture and convert your leads automatically with behavioral triggers and personalized sequences that work 24/7.
                 </p>
-                <div className="text-sm text-emerald-600 font-semibold">Learn More →</div>
               </div>
             </Link>
 
@@ -453,7 +422,6 @@ export default function LeadGeneration() {
                 <p className="text-sm text-muted-foreground mb-4">
                   Attract ideal leads with high-value content that positions you as the expert and builds trust before the first conversation.
                 </p>
-                <div className="text-sm text-emerald-600 font-semibold">Learn More →</div>
               </div>
             </Link>
 
@@ -466,7 +434,6 @@ export default function LeadGeneration() {
                 <p className="text-sm text-muted-foreground mb-4">
                   Scale your lead generation with targeted paid campaigns that capture demand and fill your pipeline faster.
                 </p>
-                <div className="text-sm text-emerald-600 font-semibold">Learn More →</div>
               </div>
             </Link>
           </div>

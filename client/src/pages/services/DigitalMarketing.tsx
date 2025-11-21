@@ -70,36 +70,6 @@ export default function DigitalMarketing() {
         </div>
       </section>
 
-      {/* Performance Metrics */}
-      <section className="py-16 px-4 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <div className="text-sm uppercase tracking-wider text-slate-700 mb-3">FULL-SERVICE DIGITAL MARKETING</div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              Strategy, creative, media, analytics
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Stop juggling agencies. One team, one strategy, one dashboard. Full-stack marketing that works together
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-4 gap-6 mt-10">
-            {[
-              { value: "350+", label: "Brands grown with full-service marketing" },
-              { value: "18", label: "Avg. channels managed per client" },
-              { value: "3.8x", label: "Avg. revenue growth YoY" },
-              { value: "91%", label: "Client retention rate" },
-            ].map((stat, i) => (
-              <div key={i} className="text-center p-8 bg-gradient-to-br from-slate-50 to-white rounded-xl border border-border hover:shadow-lg transition-all duration-300 hover:-translate-y-1" data-testid={`metric-${i}`}>
-                <div className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-slate-900 to-zinc-700 text-transparent bg-clip-text mb-3">{stat.value}</div>
-                <div className="text-base text-muted-foreground font-semibold">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Case Study Spotlight */}
       <section className="py-16 px-4 bg-slate-50">
         <div className="max-w-6xl mx-auto">
           <div className="bg-white rounded-2xl overflow-hidden border border-border shadow-lg">

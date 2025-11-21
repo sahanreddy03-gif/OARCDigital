@@ -70,36 +70,6 @@ export default function Immersive3DAR() {
         </div>
       </section>
 
-      {/* Performance Metrics */}
-      <section className="py-16 px-4 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <div className="text-sm uppercase tracking-wider text-[hsl(200,75%,45%)] mb-3">MEASURABLE IMPACT</div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              Immersive experiences. Real results.
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              3D and AR drive engagement, reduce returns, and increase conversions by letting customers interact with products before purchase
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-4 gap-6 mt-10">
-            {[
-              { value: "94%", label: "Higher engagement with 3D views" },
-              { value: "40%", label: "Return rate reduction (AR try-on)" },
-              { value: "2.7x", label: "Longer time on site" },
-              { value: "850+", label: "3D assets created" },
-            ].map((stat, i) => (
-              <div key={i} className="text-center p-8 bg-gradient-to-br from-[hsl(200,10%,98%)] to-white rounded-xl border border-border hover:shadow-lg transition-all duration-300 hover:-translate-y-1" data-testid={`metric-${i}`}>
-                <div className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-[hsl(200,75%,45%)] to-[hsl(220,75%,55%)] text-transparent bg-clip-text mb-3">{stat.value}</div>
-                <div className="text-base text-muted-foreground font-semibold">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Case Study Spotlight */}
       <section className="py-16 px-4 bg-[hsl(200,10%,98%)]">
         <div className="max-w-6xl mx-auto">
           <div className="bg-white rounded-2xl overflow-hidden border border-border shadow-lg">
@@ -406,7 +376,6 @@ export default function Immersive3DAR() {
                 <p className="text-gray-700 mb-4">
                   Integrate 3D and AR experiences into beautiful, high-performing websites. Seamless user experiences.
                 </p>
-                <div className="text-sm text-[hsl(200,75%,45%)] font-semibold">Learn More →</div>
               </div>
             </Link>
 
@@ -419,7 +388,6 @@ export default function Immersive3DAR() {
                 <p className="text-gray-700 mb-4">
                   Drive traffic to your 3D and AR experiences. Showcase immersive content in high-impact ad campaigns.
                 </p>
-                <div className="text-sm text-[hsl(200,75%,45%)] font-semibold">Learn More →</div>
               </div>
             </Link>
 
@@ -432,7 +400,6 @@ export default function Immersive3DAR() {
                 <p className="text-gray-700 mb-4">
                   Create marketing assets that showcase your 3D and AR experiences. Video demos and social content.
                 </p>
-                <div className="text-sm text-[hsl(200,75%,45%)] font-semibold">Learn More →</div>
               </div>
             </Link>
           </div>

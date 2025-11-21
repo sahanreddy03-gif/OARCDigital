@@ -546,7 +546,6 @@ export default function AIEmployeeService() {
                   <p className="text-zinc-400 mb-4">
                     Strategic planning that aligns AI automation with business goals. Optimize workflows and maximize ROI.
                   </p>
-                  <div className="text-sm text-purple-400 font-semibold">Learn More →</div>
                 </motion.div>
               </ScrollReveal>
             </Link>
@@ -566,7 +565,6 @@ export default function AIEmployeeService() {
                   <p className="text-zinc-400 mb-4">
                     Drive qualified leads to your AI-powered workflows. Performance campaigns that feed your automation.
                   </p>
-                  <div className="text-sm text-purple-400 font-semibold">Learn More →</div>
                 </motion.div>
               </ScrollReveal>
             </Link>
@@ -586,7 +584,6 @@ export default function AIEmployeeService() {
                   <p className="text-zinc-400 mb-4">
                     Create seamless experiences where AI employees interact with users. Beautiful interfaces that drive conversions.
                   </p>
-                  <div className="text-sm text-purple-400 font-semibold">Learn More →</div>
                 </motion.div>
               </ScrollReveal>
             </Link>

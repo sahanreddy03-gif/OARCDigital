@@ -68,36 +68,6 @@ export default function VideoProduction() {
         </div>
       </section>
 
-      {/* Performance Metrics */}
-      <section className="py-16 px-4 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <div className="text-sm uppercase tracking-wider text-purple-600 mb-3">VIDEO IMPACT</div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              Video content that drives business results
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Proven to increase engagement, conversions, and brand recall
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-4 gap-6 mt-10">
-            {[
-              { value: "86%", label: "Higher conversion with video", gradient: "from-purple-600 to-pink-600" },
-              { value: "1200%", label: "More shares than static", gradient: "from-blue-600 to-cyan-600" },
-              { value: "95%", label: "Message retention rate", gradient: "from-orange-600 to-red-600" },
-              { value: "14 days", label: "Avg. production time", gradient: "from-green-600 to-emerald-600" },
-            ].map((stat, i) => (
-              <div key={i} className="text-center p-8 bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl border border-border hover:shadow-lg transition-all duration-300 hover:-translate-y-1" data-testid={`metric-${i}`}>
-                <div className={`text-4xl md:text-5xl font-bold bg-gradient-to-r ${stat.gradient} text-transparent bg-clip-text mb-3`}>{stat.value}</div>
-                <div className="text-base text-muted-foreground font-semibold">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Why Video */}
       <section className="py-20 px-4 bg-[hsl(270,100%,98%)]">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
@@ -416,7 +386,6 @@ export default function VideoProduction() {
                 <p className="text-muted-foreground mb-4">
                   Embed your video content in high-converting landing pages and product showcases that turn viewers into customers.
                 </p>
-                <div className="text-sm text-purple-600 font-semibold">Learn More →</div>
               </div>
             </Link>
 
@@ -429,7 +398,6 @@ export default function VideoProduction() {
                 <p className="text-muted-foreground mb-4">
                   Repurpose your video content into scroll-stopping social assets optimized for Instagram, TikTok, LinkedIn, and Facebook.
                 </p>
-                <div className="text-sm text-purple-600 font-semibold">Learn More →</div>
               </div>
             </Link>
 
@@ -442,7 +410,6 @@ export default function VideoProduction() {
                 <p className="text-muted-foreground mb-4">
                   Drive targeted traffic to your video content with YouTube ads, Facebook video campaigns, and LinkedIn sponsored content.
                 </p>
-                <div className="text-sm text-purple-600 font-semibold">Learn More →</div>
               </div>
             </Link>
           </div>

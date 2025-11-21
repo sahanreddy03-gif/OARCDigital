@@ -772,7 +772,6 @@ export default function Creative() {
                 <p className="text-sm text-gray-700 mb-4">
                   Scale winning creative with paid campaigns. Put your best-performing assets to work across all paid channels.
                 </p>
-                <div className="text-sm text-[#5FD4C4] font-semibold">Learn More →</div>
               </div>
             </Link>
 
@@ -785,7 +784,6 @@ export default function Creative() {
                 <p className="text-sm text-gray-700 mb-4">
                   Test creative concepts before full production. Validate winning angles and save budget on losers.
                 </p>
-                <div className="text-sm text-[#5FD4C4] font-semibold">Learn More →</div>
               </div>
             </Link>
 
@@ -798,7 +796,6 @@ export default function Creative() {
                 <p className="text-sm text-gray-700 mb-4">
                   Fill your social content calendar with platform-optimized creative that drives engagement and growth.
                 </p>
-                <div className="text-sm text-[#5FD4C4] font-semibold">Learn More →</div>
               </div>
             </Link>
           </div>
