@@ -70,36 +70,6 @@ export default function RapidIdeaTesting() {
         </div>
       </section>
 
-      {/* Performance Metrics */}
-      <section className="py-16 px-4 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <div className="text-sm uppercase tracking-wider text-orange-600 mb-3">RAPID EXPERIMENTATION RESULTS</div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              Fail fast, win faster
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Stop betting the farm on untested ideas. Run lean experiments, validate hypotheses, and only scale what proves it works
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-4 gap-6 mt-10">
-            {[
-              { value: "2-7 days", label: "Time to initial results" },
-              { value: "850+", label: "Experiments run annually" },
-              { value: "68%", label: "Tests yield actionable insights" },
-              { value: "4.1x", label: "ROI on winning ideas scaled" },
-            ].map((stat, i) => (
-              <div key={i} className="text-center p-8 bg-gradient-to-br from-orange-50 to-white rounded-xl border border-border hover:shadow-lg transition-all duration-300 hover:-translate-y-1" data-testid={`metric-${i}`}>
-                <div className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-orange-600 to-red-600 text-transparent bg-clip-text mb-3">{stat.value}</div>
-                <div className="text-base text-muted-foreground font-semibold">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Case Study Spotlight */}
       <section className="py-16 px-4 bg-orange-50">
         <div className="max-w-6xl mx-auto">
           <div className="bg-white rounded-2xl overflow-hidden border border-border shadow-lg">
@@ -440,7 +410,6 @@ export default function RapidIdeaTesting() {
                 <p className="text-sm text-muted-foreground mb-4">
                   Once you've validated what works, scale it aggressively with systematic customer acquisition strategies across all channels.
                 </p>
-                <div className="text-sm text-orange-600 font-semibold">Learn More →</div>
               </div>
             </Link>
 
@@ -453,7 +422,6 @@ export default function RapidIdeaTesting() {
                 <p className="text-sm text-muted-foreground mb-4">
                   Scale winning tests with paid campaigns. Take validated messaging and creative and turn it into profitable paid acquisition.
                 </p>
-                <div className="text-sm text-orange-600 font-semibold">Learn More →</div>
               </div>
             </Link>
 
@@ -466,7 +434,6 @@ export default function RapidIdeaTesting() {
                 <p className="text-sm text-muted-foreground mb-4">
                   Measure test results accurately with proper tracking, attribution, and analytics infrastructure for data-driven decisions.
                 </p>
-                <div className="text-sm text-orange-600 font-semibold">Learn More →</div>
               </div>
             </Link>
           </div>

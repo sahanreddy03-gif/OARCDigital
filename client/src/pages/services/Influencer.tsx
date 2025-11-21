@@ -705,7 +705,6 @@ export default function Influencer() {
                 <p className="text-gray-700 mb-4">
                   Amplify your influencer content with professional social creative. Repurpose UGC into scroll-stopping ads.
                 </p>
-                <div className="text-sm text-[#5FD4C4] font-semibold">Learn More →</div>
               </div>
             </Link>
 
@@ -718,7 +717,6 @@ export default function Influencer() {
                 <p className="text-gray-700 mb-4">
                   Boost influencer content reach with paid social campaigns. Maximize ROI by combining organic and paid.
                 </p>
-                <div className="text-sm text-[#5FD4C4] font-semibold">Learn More →</div>
               </div>
             </Link>
 
@@ -731,7 +729,6 @@ export default function Influencer() {
                 <p className="text-gray-700 mb-4">
                   Maintain momentum with daily social management. Keep your community engaged between campaigns.
                 </p>
-                <div className="text-sm text-[#5FD4C4] font-semibold">Learn More →</div>
               </div>
             </Link>
           </div>

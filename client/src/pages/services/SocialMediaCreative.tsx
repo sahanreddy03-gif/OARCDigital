@@ -74,36 +74,6 @@ export default function SocialMediaCreative() {
         </div>
       </section>
 
-      {/* Performance Metrics */}
-      <section className="py-16 px-4 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <div className="text-sm uppercase tracking-wider text-[hsl(262,83%,58%)] mb-3">SOCIAL MEDIA MASTERY</div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              Content that captures attention and drives action
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Platform-specific creative optimized for algorithms and human behavior
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-4 gap-6 mt-10">
-            {[
-              { value: "3.8x", label: "Avg. engagement increase", gradient: "from-purple-600 to-pink-600" },
-              { value: "250%", label: "Follower growth rate", gradient: "from-blue-600 to-cyan-600" },
-              { value: "100+", label: "Posts per month", gradient: "from-orange-600 to-red-600" },
-              { value: "24hrs", label: "First draft delivery", gradient: "from-green-600 to-emerald-600" },
-            ].map((stat, i) => (
-              <div key={i} className="text-center p-8 bg-gradient-to-br from-[hsl(262,10%,98%)] to-white rounded-xl border border-border hover:shadow-lg transition-all duration-300 hover:-translate-y-1" data-testid={`metric-${i}`}>
-                <div className={`text-4xl md:text-5xl font-bold bg-gradient-to-r ${stat.gradient} text-transparent bg-clip-text mb-3`}>{stat.value}</div>
-                <div className="text-base text-muted-foreground font-semibold">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Ready-to-Post Section */}
       <section className="py-20 px-4 bg-[hsl(210,20%,98%)]">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
@@ -141,10 +111,6 @@ export default function SocialMediaCreative() {
                 <div className="bg-white rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300 border border-border">
                   <div className="relative h-[400px] md:h-[500px] overflow-hidden">
                     <img src={[socialImg1, socialImg2, socialImg3][i % 3]} alt={item.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none">
-                      <div className="text-white text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
-                        View Example →
-                      </div>
                     </div>
                   </div>
                   <div className="p-6">

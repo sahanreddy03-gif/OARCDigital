@@ -734,7 +734,6 @@ export default function Social() {
                 <p className="text-sm text-gray-700 mb-4">
                   Amplify your social reach with strategic influencer partnerships. Drive authenticity and scale your message through trusted voices.
                 </p>
-                <div className="text-sm text-[#4a7000] font-semibold">Learn More →</div>
               </div>
             </Link>
 
@@ -747,7 +746,6 @@ export default function Social() {
                 <p className="text-sm text-gray-700 mb-4">
                   Scale your organic success with targeted paid campaigns. Turn engagement into conversions with performance-driven paid social.
                 </p>
-                <div className="text-sm text-[#4a7000] font-semibold">Learn More →</div>
               </div>
             </Link>
 
@@ -760,7 +758,6 @@ export default function Social() {
                 <p className="text-sm text-gray-700 mb-4">
                   Fuel your social channels with high-volume, platform-optimized creative that stops the scroll and drives action.
                 </p>
-                <div className="text-sm text-[#4a7000] font-semibold">Learn More →</div>
               </div>
             </Link>
           </div>

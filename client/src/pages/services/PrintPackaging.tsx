@@ -387,7 +387,6 @@ export default function PrintPackaging() {
                 <p className="text-muted-foreground mb-4">
                   Develop a complete brand identity before packaging design. Create a cohesive visual system that works across all materials.
                 </p>
-                <div className="text-sm text-[hsl(160,60%,45%)] font-semibold">Learn More →</div>
               </div>
             </Link>
 
@@ -400,7 +399,6 @@ export default function PrintPackaging() {
                 <p className="text-muted-foreground mb-4">
                   Showcase your packaging with professional product photography and unboxing videos that drive social engagement.
                 </p>
-                <div className="text-sm text-[hsl(160,60%,45%)] font-semibold">Learn More →</div>
               </div>
             </Link>
 
@@ -413,7 +411,6 @@ export default function PrintPackaging() {
                 <p className="text-muted-foreground mb-4">
                   Turn your packaging into shareable content. Create social campaigns that highlight your product design and unboxing experience.
                 </p>
-                <div className="text-sm text-[hsl(160,60%,45%)] font-semibold">Learn More →</div>
               </div>
             </Link>
           </div>

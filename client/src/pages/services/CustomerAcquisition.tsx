@@ -70,36 +70,6 @@ export default function CustomerAcquisition() {
         </div>
       </section>
 
-      {/* Performance Metrics */}
-      <section className="py-16 px-4 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <div className="text-sm uppercase tracking-wider text-indigo-600 mb-3">CUSTOMER ACQUISITION RESULTS</div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              Predictable growth, profitable unit economics
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              We build acquisition systems that scale. Lower CAC, increase LTV, optimize every channel for maximum ROI
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-4 gap-6 mt-10">
-            {[
-              { value: "42%", label: "Avg. CAC reduction in 6 months" },
-              { value: "3.1x", label: "Avg. LTV:CAC improvement" },
-              { value: "250K+", label: "New customers acquired" },
-              { value: "18", label: "Avg. channels tested per client" },
-            ].map((stat, i) => (
-              <div key={i} className="text-center p-8 bg-gradient-to-br from-indigo-50 to-white rounded-xl border border-border hover:shadow-lg transition-all duration-300 hover:-translate-y-1" data-testid={`metric-${i}`}>
-                <div className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-indigo-600 to-pink-600 text-transparent bg-clip-text mb-3">{stat.value}</div>
-                <div className="text-base text-muted-foreground font-semibold">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Case Study Spotlight */}
       <section className="py-16 px-4 bg-indigo-50">
         <div className="max-w-6xl mx-auto">
           <div className="bg-white rounded-2xl overflow-hidden border border-border shadow-lg">
@@ -440,7 +410,6 @@ export default function CustomerAcquisition() {
                 <p className="text-sm text-muted-foreground mb-4">
                   Automate your acquisition funnel with behavioral triggers, lead scoring, and nurture campaigns that convert while you sleep.
                 </p>
-                <div className="text-sm text-indigo-600 font-semibold">Learn More →</div>
               </div>
             </Link>
 
@@ -453,7 +422,6 @@ export default function CustomerAcquisition() {
                 <p className="text-sm text-muted-foreground mb-4">
                   Scale acquisition with data-driven paid campaigns across Google, Facebook, LinkedIn, and more. Lower CAC, maximize ROAS.
                 </p>
-                <div className="text-sm text-indigo-600 font-semibold">Learn More →</div>
               </div>
             </Link>
 
@@ -466,7 +434,6 @@ export default function CustomerAcquisition() {
                 <p className="text-sm text-muted-foreground mb-4">
                   Measure what matters with proper attribution, cohort analysis, and growth dashboards. Know exactly what's driving acquisition.
                 </p>
-                <div className="text-sm text-indigo-600 font-semibold">Learn More →</div>
               </div>
             </Link>
           </div>

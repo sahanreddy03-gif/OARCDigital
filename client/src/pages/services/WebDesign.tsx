@@ -67,36 +67,6 @@ export default function WebDesign() {
         </div>
       </section>
 
-      {/* Performance Metrics */}
-      <section className="py-16 px-4 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <div className="text-sm uppercase tracking-wider text-[hsl(220,65%,33%)] mb-3">PERFORMANCE-DRIVEN</div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              Every pixel optimized for conversion
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Fast loading, mobile-first, and built with CRO principles from day one
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-4 gap-6 mt-10">
-            {[
-              { value: "42%", label: "Avg. conversion increase", gradient: "from-blue-600 to-cyan-600" },
-              { value: "1.8s", label: "Page load time", gradient: "from-green-600 to-emerald-600" },
-              { value: "97%", label: "Mobile performance score", gradient: "from-purple-600 to-pink-600" },
-              { value: "7 days", label: "Landing page launch", gradient: "from-orange-600 to-red-600" },
-            ].map((stat, i) => (
-              <div key={i} className="text-center p-8 bg-gradient-to-br from-[hsl(220,10%,98%)] to-white rounded-xl border border-border hover:shadow-lg transition-all duration-300 hover:-translate-y-1" data-testid={`metric-${i}`}>
-                <div className={`text-4xl md:text-5xl font-bold bg-gradient-to-r ${stat.gradient} text-transparent bg-clip-text mb-3`}>{stat.value}</div>
-                <div className="text-base text-muted-foreground font-semibold">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Why Web Design Matters */}
       <section className="py-20 px-4 bg-[hsl(210,20%,98%)]">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
@@ -134,8 +104,6 @@ export default function WebDesign() {
                 <div className="bg-white rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300 border border-border">
                   <div className="relative h-[400px] md:h-[500px] overflow-hidden">
                     <img src={[webImg1, webImg2, webImg3][i % 3]} alt={item.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none">
-                      <div className="text-white text-sm font-medium">View Example →</div>
                     </div>
                   </div>
                   <div className="p-6">
@@ -413,7 +381,6 @@ export default function WebDesign() {
                 <p className="text-muted-foreground mb-4">
                   Bring your website to life with explainer videos, product demos, and testimonials that boost conversions.
                 </p>
-                <div className="text-sm text-[hsl(220,65%,33%)] font-semibold">Learn More →</div>
               </div>
             </Link>
 
@@ -426,7 +393,6 @@ export default function WebDesign() {
                 <p className="text-muted-foreground mb-4">
                   Drive qualified traffic to your new website with targeted Google, Facebook, and LinkedIn campaigns.
                 </p>
-                <div className="text-sm text-[hsl(220,65%,33%)] font-semibold">Learn More →</div>
               </div>
             </Link>
 
@@ -439,7 +405,6 @@ export default function WebDesign() {
                 <p className="text-muted-foreground mb-4">
                   Keep your brand consistent across all channels with scroll-stopping social content and ad creative.
                 </p>
-                <div className="text-sm text-[hsl(220,65%,33%)] font-semibold">Learn More →</div>
               </div>
             </Link>
           </div>

@@ -70,36 +70,6 @@ export default function FunnelAutomation() {
         </div>
       </section>
 
-      {/* Performance Metrics */}
-      <section className="py-16 px-4 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <div className="text-sm uppercase tracking-wider text-cyan-600 mb-3">FUNNEL AUTOMATION RESULTS</div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              Convert more leads, work less
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Automated workflows that nurture leads, score prospects, trigger retargeting, and close deals
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-4 gap-6 mt-10">
-            {[
-              { value: "47%", label: "Avg. conversion rate lift" },
-              { value: "12 hours", label: "Time saved per week" },
-              { value: "8,500+", label: "Funnels built & optimized" },
-              { value: "4.2x", label: "Avg. ROI on automation" },
-            ].map((stat, i) => (
-              <div key={i} className="text-center p-8 bg-gradient-to-br from-cyan-50 to-white rounded-xl border border-border hover:shadow-lg transition-all duration-300 hover:-translate-y-1" data-testid={`metric-${i}`}>
-                <div className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-cyan-600 to-indigo-600 text-transparent bg-clip-text mb-3">{stat.value}</div>
-                <div className="text-base text-muted-foreground font-semibold">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Case Study Spotlight */}
       <section className="py-16 px-4 bg-cyan-50">
         <div className="max-w-6xl mx-auto">
           <div className="bg-white rounded-2xl overflow-hidden border border-border shadow-lg">
@@ -440,7 +410,6 @@ export default function FunnelAutomation() {
                 <p className="text-sm text-muted-foreground mb-4">
                   Build your email list and create campaigns that drive revenue. The perfect foundation for automation workflows.
                 </p>
-                <div className="text-sm text-cyan-600 font-semibold">Learn More →</div>
               </div>
             </Link>
 
@@ -453,7 +422,6 @@ export default function FunnelAutomation() {
                 <p className="text-sm text-muted-foreground mb-4">
                   Fill your funnel with qualified leads that your automation can nurture and convert into customers.
                 </p>
-                <div className="text-sm text-cyan-600 font-semibold">Learn More →</div>
               </div>
             </Link>
 
@@ -466,7 +434,6 @@ export default function FunnelAutomation() {
                 <p className="text-sm text-muted-foreground mb-4">
                   Track funnel performance, identify drop-off points, and optimize every stage of your automation for maximum ROI.
                 </p>
-                <div className="text-sm text-cyan-600 font-semibold">Learn More →</div>
               </div>
             </Link>
           </div>

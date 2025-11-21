@@ -70,36 +70,6 @@ export default function PresentationPitch() {
         </div>
       </section>
 
-      {/* Performance Metrics */}
-      <section className="py-16 px-4 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <div className="text-sm uppercase tracking-wider text-[hsl(220,70%,50%)] mb-3">PROVEN RESULTS</div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              Your story. Flawlessly told.
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Storytelling expertise combined with data visualization mastery—presentations that persuade, inspire, and win
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-4 gap-6 mt-10">
-            {[
-              { value: "$2.1B+", label: "Capital raised using our decks" },
-              { value: "67%", label: "Avg. close rate improvement" },
-              { value: "3,400+", label: "Presentations designed annually" },
-              { value: "48hrs", label: "Avg. turnaround time" },
-            ].map((stat, i) => (
-              <div key={i} className="text-center p-8 bg-gradient-to-br from-[hsl(220,10%,98%)] to-white rounded-xl border border-border hover:shadow-lg transition-all duration-300 hover:-translate-y-1" data-testid={`metric-${i}`}>
-                <div className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-[hsl(220,70%,50%)] to-[hsl(260,70%,60%)] text-transparent bg-clip-text mb-3">{stat.value}</div>
-                <div className="text-base text-muted-foreground font-semibold">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Case Study Spotlight */}
       <section className="py-16 px-4 bg-[hsl(220,10%,98%)]">
         <div className="max-w-6xl mx-auto">
           <div className="bg-white rounded-2xl overflow-hidden border border-border shadow-lg">
@@ -406,7 +376,6 @@ export default function PresentationPitch() {
                 <p className="text-muted-foreground mb-4">
                   Strengthen your presentation with a cohesive brand identity. Ensure every slide reflects your professional positioning.
                 </p>
-                <div className="text-sm text-[hsl(220,70%,50%)] font-semibold">Learn More →</div>
               </div>
             </Link>
 
@@ -419,7 +388,6 @@ export default function PresentationPitch() {
                 <p className="text-muted-foreground mb-4">
                   Embed product demos and customer testimonials in your deck. Video brings your story to life and increases engagement.
                 </p>
-                <div className="text-sm text-[hsl(220,70%,50%)] font-semibold">Learn More →</div>
               </div>
             </Link>
 
@@ -432,7 +400,6 @@ export default function PresentationPitch() {
                 <p className="text-muted-foreground mb-4">
                   Back your pitch with growth data. Show investors and buyers that you have a repeatable, scalable acquisition engine.
                 </p>
-                <div className="text-sm text-[hsl(220,70%,50%)] font-semibold">Learn More →</div>
               </div>
             </Link>
           </div>

@@ -70,36 +70,6 @@ export default function MediaBuying() {
         </div>
       </section>
 
-      {/* Performance Metrics */}
-      <section className="py-16 px-4 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <div className="text-sm uppercase tracking-wider text-[hsl(221,91%,60%)] mb-3">MEDIA BUYING EXCELLENCE</div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              Better rates. Better placements. Better results.
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Leverage our relationships with top publishers to secure exclusive inventory at prices you can't access alone
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-4 gap-6 mt-10">
-            {[
-              { value: "35%", label: "Average cost savings vs. rate card" },
-              { value: "$75M+", label: "Media spend negotiated annually" },
-              { value: "3.2x", label: "Average CPA improvement" },
-              { value: "150+", label: "Publisher partnerships" },
-            ].map((stat, i) => (
-              <div key={i} className="text-center p-8 bg-gradient-to-br from-[hsl(221,10%,98%)] to-white rounded-xl border border-border hover:shadow-lg transition-all duration-300 hover:-translate-y-1" data-testid={`metric-${i}`}>
-                <div className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-[hsl(221,91%,60%)] to-[hsl(262,83%,58%)] text-transparent bg-clip-text mb-3">{stat.value}</div>
-                <div className="text-base text-muted-foreground font-semibold">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Media Channels */}
       <section className="py-20 bg-[hsl(220,20%,98%)] overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 mb-12">
           <div className="text-sm uppercase tracking-wider text-[hsl(221,91%,60%)] mb-4">OMNICHANNEL BUYING POWER</div>
@@ -427,7 +397,6 @@ export default function MediaBuying() {
                 <p className="text-gray-700 mb-4">
                   Full-funnel paid media strategy and execution. Turn your media buys into high-performance campaigns.
                 </p>
-                <div className="text-sm text-[hsl(221,91%,60%)] font-semibold">Learn More →</div>
               </div>
             </Link>
 
@@ -440,7 +409,6 @@ export default function MediaBuying() {
                 <p className="text-gray-700 mb-4">
                   High-performing ad creative across all formats. Maximize your media investment with compelling creatives.
                 </p>
-                <div className="text-sm text-[hsl(221,91%,60%)] font-semibold">Learn More →</div>
               </div>
             </Link>
 
@@ -453,7 +421,6 @@ export default function MediaBuying() {
                 <p className="text-gray-700 mb-4">
                   Strategic planning that aligns media buying with business goals. Optimize channel mix and budget allocation.
                 </p>
-                <div className="text-sm text-[hsl(221,91%,60%)] font-semibold">Learn More →</div>
               </div>
             </Link>
           </div>

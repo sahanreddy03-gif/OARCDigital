@@ -69,36 +69,6 @@ export default function SocialMediaManagement() {
         </div>
       </section>
 
-      {/* Performance Metrics */}
-      <section className="py-16 px-4 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <div className="text-sm uppercase tracking-wider text-blue-600 mb-3">SOCIAL MEDIA EXCELLENCE</div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              Daily management. Measurable growth.
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              We don't just post content. We build strategies, engage communities, respond to customers, and drive business outcomes.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-4 gap-6 mt-10">
-            {[
-              { value: "850+", label: "Social accounts managed" },
-              { value: "3.8x", label: "Avg. engagement rate lift" },
-              { value: "2hr", label: "Avg. response time" },
-              { value: "95%", label: "Client retention rate" },
-            ].map((stat, i) => (
-              <div key={i} className="text-center p-8 bg-gradient-to-br from-blue-50 to-white rounded-xl border border-border hover:shadow-lg transition-all duration-300 hover:-translate-y-1" data-testid={`metric-${i}`}>
-                <div className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 text-transparent bg-clip-text mb-3">{stat.value}</div>
-                <div className="text-base text-muted-foreground font-semibold">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Services */}
       <section className="py-20 bg-blue-50 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 mb-12">
           <div className="text-sm uppercase tracking-wider text-blue-600 mb-4">FULL-SERVICE MANAGEMENT</div>
@@ -426,7 +396,6 @@ export default function SocialMediaManagement() {
                 <p className="text-gray-700 mb-4">
                   Professional content creation that elevates your social presence. High-quality visuals that stop the scroll.
                 </p>
-                <div className="text-sm text-blue-600 font-semibold">Learn More →</div>
               </div>
             </Link>
 
@@ -439,7 +408,6 @@ export default function SocialMediaManagement() {
                 <p className="text-gray-700 mb-4">
                   Amplify your best organic content with paid campaigns. Turn engaged followers into customers.
                 </p>
-                <div className="text-sm text-blue-600 font-semibold">Learn More →</div>
               </div>
             </Link>
 
@@ -452,7 +420,6 @@ export default function SocialMediaManagement() {
                 <p className="text-gray-700 mb-4">
                   Expand reach through creator partnerships. Authentic content that builds trust and drives awareness.
                 </p>
-                <div className="text-sm text-blue-600 font-semibold">Learn More →</div>
               </div>
             </Link>
           </div>
