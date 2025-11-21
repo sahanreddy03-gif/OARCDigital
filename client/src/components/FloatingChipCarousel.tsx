@@ -98,12 +98,10 @@ export default function FloatingChipCarousel() {
   }, []);
 
   return (
-    <div className="w-full overflow-hidden relative">
-      {/* Premium dark glass background with neon edge */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-black/60 backdrop-blur-sm border-t border-white/10"></div>
+    <div className="w-full overflow-hidden">
       <div 
         ref={trackRef}
-        className="flex whitespace-nowrap gap-3 md:gap-2 py-5 md:py-4 relative z-10"
+        className="flex whitespace-nowrap gap-3 md:gap-2"
         style={{ willChange: 'transform' }}
       >
         {duplicatedServices.map((service, index) => (
@@ -112,13 +110,13 @@ export default function FloatingChipCarousel() {
             className="inline-flex flex-shrink-0"
             data-testid={`carousel-chip-${index}`}
           >
-            <div className="group flex items-center gap-3 md:gap-2 px-4 md:px-3 py-3 md:py-2 bg-white/95 backdrop-blur-md rounded-full shadow-xl hover:shadow-2xl hover:scale-[1.02] hover:bg-white transition-all duration-500 cursor-pointer border border-white/30 hover:border-[#c4ff4d]/50 motion-reduce:transition-none motion-reduce:hover:scale-100" style={{ boxShadow: '0 0 0 rgba(196, 255, 77, 0)', '--tw-shadow-color': 'transparent' } as React.CSSProperties}>
+            <div className="group flex items-center gap-3 md:gap-2 px-4 md:px-3 py-3 md:py-2 bg-white/95 backdrop-blur-sm rounded-lg shadow-lg hover:shadow-2xl hover:scale-105 hover:bg-white transition-all duration-300 cursor-pointer border border-white/20 hover:border-[#c4ff4d]/30">
               {/* Enhanced Mobile: 60px, Tablet+: 52px professional images */}
-              <div className="w-[60px] h-[60px] md:w-[52px] md:h-[52px] rounded-xl md:rounded-lg overflow-hidden flex-shrink-0 bg-zinc-100 ring-2 ring-white/60 group-hover:ring-[#c4ff4d]/60 transition-all duration-500">
+              <div className="w-[60px] h-[60px] md:w-[52px] md:h-[52px] rounded-xl md:rounded-lg overflow-hidden flex-shrink-0 bg-zinc-100 ring-2 ring-white/50 group-hover:ring-[#c4ff4d]/40 transition-all duration-300">
                 <img 
                   src={service.image} 
                   alt={service.text}
-                  className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+                  className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
                   data-testid={`carousel-image-${service.text.toLowerCase().replace(/\s+/g, '-')}`}
                 />
               </div>
