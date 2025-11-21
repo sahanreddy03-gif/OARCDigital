@@ -61,7 +61,7 @@ export function useSmoothCarouselDrag({
       autoScroll();
     }
 
-    // Momentum animation
+    // Momentum animation - Enhanced to work with auto-scroll
     const applyMomentum = () => {
       if (!isDraggingRef.current && Math.abs(velocityRef.current) > 0.1) {
         velocityRef.current *= momentumDamping;
@@ -82,6 +82,9 @@ export function useSmoothCarouselDrag({
           track.style.transform = `translateX(${currentTranslateRef.current}px)`;
         }
         velocityRef.current = 0;
+        
+        // Resume auto-scroll if it was paused during momentum
+        // Auto-scroll loop will naturally continue in the next frame
       }
     };
 
@@ -143,12 +146,14 @@ export function useSmoothCarouselDrag({
       currentTranslateRef.current = wrapPosition(currentTranslateRef.current);
       track.style.transform = `translateX(${currentTranslateRef.current}px)`;
       
-      // Apply momentum for non-auto-scroll sections if velocity is high enough
-      if (!enableAutoScroll && Math.abs(velocityRef.current) > 0.5) {
-        velocityRef.current *= dragMultiplier;
+      // Apply momentum if velocity is high enough (works with and without auto-scroll)
+      if (Math.abs(velocityRef.current) > 0.5) {
+        // For auto-scroll carousels, use lighter momentum factor for smoother blending
+        const momentumFactor = enableAutoScroll ? 0.8 : dragMultiplier;
+        velocityRef.current *= momentumFactor;
         applyMomentum();
       } else {
-        // For auto-scroll or low velocity, just reset velocity
+        // Low velocity - just reset
         velocityRef.current = 0;
       }
     };
@@ -208,12 +213,14 @@ export function useSmoothCarouselDrag({
       currentTranslateRef.current = wrapPosition(currentTranslateRef.current);
       track.style.transform = `translateX(${currentTranslateRef.current}px)`;
       
-      // Apply momentum for non-auto-scroll sections if velocity is high enough
-      if (!enableAutoScroll && Math.abs(velocityRef.current) > 0.5) {
-        velocityRef.current *= dragMultiplier;
+      // Apply momentum if velocity is high enough (works with and without auto-scroll)
+      if (Math.abs(velocityRef.current) > 0.5) {
+        // For auto-scroll carousels, use lighter momentum factor for smoother blending
+        const momentumFactor = enableAutoScroll ? 0.8 : dragMultiplier;
+        velocityRef.current *= momentumFactor;
         applyMomentum();
       } else {
-        // For auto-scroll or low velocity, just reset velocity
+        // Low velocity - just reset
         velocityRef.current = 0;
       }
     };
