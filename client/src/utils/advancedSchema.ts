@@ -24,12 +24,13 @@ export function createAggregateRatingSchema(
   itemName: string,
   ratingValue: number,
   reviewCount: number,
-  bestRating: number = 5
+  bestRating: number = 5,
+  schemaType: 'Organization' | 'Service' | 'Product' | 'LocalBusiness' = 'Organization'
 ) {
   return {
     "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "OARC Digital",
+    "@type": schemaType,
+    "name": itemName,
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": ratingValue,
@@ -41,11 +42,15 @@ export function createAggregateRatingSchema(
 }
 
 // Review Schema - Individual testimonials
-export function createReviewSchema(reviews: Review[]) {
+export function createReviewSchema(
+  reviews: Review[],
+  itemName: string = "OARC Digital",
+  schemaType: 'Organization' | 'Service' | 'Product' | 'LocalBusiness' = 'Organization'
+) {
   return {
     "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "OARC Digital",
+    "@type": schemaType,
+    "name": itemName,
     "review": reviews.map(review => ({
       "@type": "Review",
       "author": {
