@@ -217,11 +217,11 @@ export default function Influencer() {
             </div>
 
             {/* Image - Right */}
-            <div>
+            <div className="overflow-hidden rounded-3xl">
               <img 
                 src={picnicImg}
                 alt="Influencer Marketing Flat Lay"
-                className="w-full rounded-3xl h-[500px] object-cover"
+                className="w-full h-[500px] object-cover scale-110 hover:scale-115 transition-transform duration-700"
                 data-testid="img-picnic-scene"
               />
             </div>
@@ -234,11 +234,11 @@ export default function Influencer() {
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Image - Left */}
-            <div>
+            <div className="overflow-hidden rounded-3xl">
               <img 
                 src={skincareImg}
                 alt="Skincare Products"
-                className="w-full rounded-3xl h-[500px] object-cover"
+                className="w-full h-[500px] object-cover scale-110 hover:scale-115 transition-transform duration-700"
                 data-testid="img-skincare-products"
               />
             </div>
