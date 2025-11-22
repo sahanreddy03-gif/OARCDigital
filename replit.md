@@ -39,6 +39,27 @@ The platform features a React frontend and an Express.js backend, leveraging a m
     -   **Comparison Page:** High-intent comparison page (`/comparison`) targeting "OARC vs traditional agencies", "AI employees vs hiring" searches with detailed feature tables, cost comparisons, and FAQ sections.
     -   **Blog Infrastructure:** SEO-optimized blog system (`/blog`) with topic cluster architecture, breadcrumb schema, voice search optimization, and featured snippet formatting. Includes category navigation and newsletter signup.
     -   **Enhanced Homepage Schema:** Homepage combines Organization, LocalBusiness, FAQ, AggregateRating (4.9/5 from 127 reviews), and Review schemas in @graph format for maximum search visibility.
+-   **Service Page Visual Enhancement Pattern (November 2025):** Standardized visual treatment applied to service pages for homepage-style aesthetic consistency:
+    -   **ScrollReveal Animations:** Wrap content sections in `<ScrollReveal>` component with staggered delays (0ms, 200ms, 300ms) for progressive reveal on scroll
+    -   **Gradient Backgrounds:** Cream-to-warm gradient (`from-[#F5F3ED] via-white to-[#FFF9F0]`) with floating orbs for depth
+    -   **Floating Orbs:** Brand-colored orbs positioned absolutely - teal (`bg-[#5FD4C4]/10`), green (`bg-[#4a7000]/5`), orange (`bg-orange-600/5`) with blur-3xl
+    -   **Image Hover Effects:** All section images use `scale-110` baseline zoom with `hover:scale-115` and `duration-700` transition for smooth, premium feel
+    -   **Image Containers:** Wrap images in `overflow-hidden rounded-3xl` div to contain scale animations
+    -   **Implementation Status:** Applied to Social.tsx (3 sections), Paid.tsx (3 sections), and Influencer.tsx (2 images). Pattern documented for application to remaining 30 service pages.
+    -   **Example Code Pattern:**
+      ```tsx
+      <ScrollReveal delay={200}>
+        <section className="relative py-20 px-4 overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-[#F5F3ED] via-white to-[#FFF9F0]"></div>
+          <div className="absolute top-20 right-20 w-96 h-96 bg-[#5FD4C4]/10 rounded-full blur-3xl"></div>
+          <div className="relative max-w-6xl mx-auto grid lg:grid-cols-2 gap-12">
+            <div className="overflow-hidden rounded-3xl">
+              <img src={image} className="w-full h-[500px] object-cover scale-110 hover:scale-115 transition-transform duration-700" />
+            </div>
+          </div>
+        </section>
+      </ScrollReveal>
+      ```
 
 **Backend:**
 -   **Framework & Language:** Express.js with TypeScript.
