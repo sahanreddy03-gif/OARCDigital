@@ -350,47 +350,9 @@ export default function AICreativeSection() {
         </div>
       </div>
 
-      {/* Desktop: Horizontal Auto-Scrolling Carousel */}
-      {isDesktop && (
-        <div className="relative w-full" data-testid="ai-creative-desktop-carousel">
-          <div className="flex gap-4 md:gap-6 lg:gap-8 cursor-grab active:cursor-grabbing" data-testid="carousel-track" ref={trackRef} style={{ willChange: 'transform' }}>
-            {duplicatedServices.map((service, index) => (
-              <div
-                key={index}
-                className="flex-shrink-0 w-[240px] sm:w-[280px] md:w-[320px] lg:w-[380px] group"
-                data-testid={`service-card-${index}`}
-              >
-                <div className="relative w-full aspect-[3/4] overflow-hidden rounded-xl bg-zinc-100 shadow-lg">
-                  <img
-                    src={service.image}
-                    alt={`${service.title} - AI-powered creative service in Malta`}
-                    className="w-full h-full object-cover scale-110 transition-transform duration-700 group-hover:scale-115"
-                    data-testid={`carousel-image-${service.title.toLowerCase().replace(/\s+/g, '-')}`}
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
-                  
-                  {service.badge && (
-                    <div className="absolute top-3 right-3 md:top-4 md:right-4 bg-[#c4ff4d] text-zinc-900 text-xs font-bold px-2.5 md:px-3 py-1 md:py-1.5 rounded-full z-10">
-                      {service.badge}
-                    </div>
-                  )}
-                  
-                  <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6">
-                    <h3 className="font-heading text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold text-white leading-tight" style={{ letterSpacing: '-0.02em' }}>
-                      {service.title}
-                    </h3>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
-
-      {/* Mobile: Dual-Column Opposite Direction Infinite Scroll */}
-      {!isDesktop && (
-        <div className="relative flex gap-3 px-4 h-[520px] overflow-hidden" data-testid="ai-creative-mobile-carousel">
+      {/* Dual-Column Opposite Direction Infinite Scroll (All Screen Sizes) */}
+      <div className="mx-auto" style={{ maxWidth: isDesktop ? '900px' : '100%' }}>
+        <div className={`relative flex gap-3 ${isDesktop ? 'gap-6' : 'gap-3 px-4'} h-[520px] ${isDesktop ? 'md:h-[720px]' : ''} overflow-hidden`} data-testid="ai-creative-mobile-carousel">
           {/* Left Column - Top to Bottom */}
           <div className="flex-1 relative h-full overflow-hidden">
             <div 
@@ -471,7 +433,7 @@ export default function AICreativeSection() {
             </div>
           </div>
         </div>
-      )}
+      </div>
     </section>
   );
 }
