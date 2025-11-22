@@ -6,7 +6,7 @@ import { createServiceSchema } from "@/utils/structuredData";
 import { useEffect, useState } from "react";
 import { Link } from "wouter";
 import { 
-  ArrowRight, CheckCircle, MessageSquare, Star, Target, Users, Settings, Play,
+  ArrowRight, CheckCircle, CheckCircle2, MessageSquare, Star, Target, Users, Settings, Play,
   ChevronLeft, ChevronRight
 } from "lucide-react";
 
@@ -749,7 +749,7 @@ export default function Social() {
               </div>
             </Link>
 
-            <Link href="/services/creative-services">
+            <Link href="/services/creative">
               <div className="group p-8 bg-white rounded-xl border border-gray-200 hover:border-[#4a7000] hover:shadow-lg transition-all duration-300 cursor-pointer hover-elevate" data-testid="related-service-creative">
                 <div className="flex items-start justify-between mb-4">
                   <h3 className="text-xl font-bold group-hover:text-[#4a7000] transition-colors">Creative Services</h3>
