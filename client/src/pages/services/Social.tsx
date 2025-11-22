@@ -5,6 +5,7 @@ import { revenueServicesSEO } from "@/data/seoMetadata";
 import { createServiceSchema } from "@/utils/structuredData";
 import { useEffect, useState } from "react";
 import { Link } from "wouter";
+import ScrollReveal from "@/components/ScrollReveal";
 import { 
   ArrowRight, CheckCircle, CheckCircle2, MessageSquare, Star, Target, Users, Settings, Play,
   ChevronLeft, ChevronRight
@@ -176,148 +177,163 @@ export default function Social() {
       </section>
 
       {/* Text Left + Image Right Section */}
-      <section className="py-14 px-4 bg-white">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Text - Left */}
-            <div>
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-black mb-6">
-                Social-first strategies, for our social-first world
-              </h2>
+      <ScrollReveal>
+        <section className="relative py-14 px-4 overflow-hidden">
+          {/* Gradient background with floating orbs */}
+          <div className="absolute inset-0 bg-gradient-to-br from-[#F5F3ED] via-white to-[#FFF9F0]"></div>
+          <div className="absolute top-20 right-20 w-96 h-96 bg-[#5FD4C4]/10 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 left-20 w-80 h-80 bg-[#4a7000]/5 rounded-full blur-3xl"></div>
+          
+          <div className="max-w-6xl mx-auto relative">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              {/* Text - Left */}
+              <div>
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-black mb-6">
+                  Social-first strategies, for our social-first world
+                </h2>
 
-              <p className="text-base text-black mb-4">
-                We work with brands that are looking to lead their industry and thrive in this social-first world.
-              </p>
+                <p className="text-base text-black mb-4">
+                  We work with brands that are looking to lead their industry and thrive in this social-first world.
+                </p>
 
-              <p className="text-base text-black mb-4">
-                We're not here to tick boxes but to push the boundaries, deliver significant brand growth and captivate your audience with social-first content. We focus on outcomes, not outputs.
-              </p>
+                <p className="text-base text-black mb-4">
+                  We're not here to tick boxes but to push the boundaries, deliver significant brand growth and captivate your audience with social-first content. We focus on outcomes, not outputs.
+                </p>
 
-              <p className="text-base text-black mb-6">
-                We've designed our team to ensure we're ready for all challenges. It includes strategists, community & channel managers, content creators, videographers, designers, paid social experts, influencer managers and analytics leads.
-              </p>
+                <p className="text-base text-black mb-6">
+                  We've designed our team to ensure we're ready for all challenges. It includes strategists, community & channel managers, content creators, videographers, designers, paid social experts, influencer managers and analytics leads.
+                </p>
 
-              <Link href="/contact">
-                <button
-                  className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2"
-                  data-testid="button-get-in-touch-1"
-                >
-                  Get In Touch To See How We Can Help You
-                  <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center border-2 border-white">
-                    <ArrowRight className="h-5 w-5 text-white" />
-                  </div>
-                </button>
-              </Link>
-            </div>
+                <Link href="/contact">
+                  <button
+                    className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2"
+                    data-testid="button-get-in-touch-1"
+                  >
+                    Get In Touch To See How We Can Help You
+                    <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center border-2 border-white">
+                      <ArrowRight className="h-5 w-5 text-white" />
+                    </div>
+                  </button>
+                </Link>
+              </div>
 
-            {/* Image - Right */}
-            <div>
-              <img 
-                src={conferenceImg}
-                alt="Team meeting in modern office"
-                className="w-full rounded-3xl h-[500px] object-cover"
-                data-testid="img-conference"
-              />
+              {/* Image - Right */}
+              <div className="overflow-hidden rounded-3xl">
+                <img 
+                  src={conferenceImg}
+                  alt="Team meeting in modern office"
+                  className="w-full h-[500px] object-cover scale-110 hover:scale-115 transition-transform duration-700"
+                  data-testid="img-conference"
+                />
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </ScrollReveal>
 
       {/* Image Left + Text Right Section */}
-      <section className="py-14 px-4 bg-white">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Image - Left */}
-            <div>
-              <img 
-                src={arcadeImg}
-                alt="Gaming arcade with neon lights"
-                className="w-full rounded-3xl h-[500px] object-cover"
-                data-testid="img-arcade"
-              />
-            </div>
+      <ScrollReveal delay={200}>
+        <section className="py-14 px-4 bg-white">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              {/* Image - Left */}
+              <div className="overflow-hidden rounded-3xl">
+                <img 
+                  src={arcadeImg}
+                  alt="Gaming arcade with neon lights"
+                  className="w-full h-[500px] object-cover scale-110 hover:scale-115 transition-transform duration-700"
+                  data-testid="img-arcade"
+                />
+              </div>
 
-            {/* Text - Right */}
-            <div>
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-black mb-6">
-                Platform-specific social content
-              </h2>
+              {/* Text - Right */}
+              <div>
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-black mb-6">
+                  Platform-specific social content
+                </h2>
 
-              <p className="text-base text-black mb-4">
-                We know each algorithm inside and out. They're all different, and so they should be treated that way.
-              </p>
+                <p className="text-base text-black mb-4">
+                  We know each algorithm inside and out. They're all different, and so they should be treated that way.
+                </p>
 
-              <p className="text-base text-black mb-4">
-                Creating content for specific platforms is vital for growth, rather than a cookie-cutter approach of re-posting everywhere. Our strategists and planners are built to deliver narratives that align with the individual platform algorithms.
-              </p>
+                <p className="text-base text-black mb-4">
+                  Creating content for specific platforms is vital for growth, rather than a cookie-cutter approach of re-posting everywhere. Our strategists and planners are built to deliver narratives that align with the individual platform algorithms.
+                </p>
 
-              <p className="text-base text-black mb-6">
-                Our team has both the technical and creative capabilities to ensure we're delivering content that adapts to algorithm changes.
-              </p>
+                <p className="text-base text-black mb-6">
+                  Our team has both the technical and creative capabilities to ensure we're delivering content that adapts to algorithm changes.
+                </p>
 
-              <Link href="/contact">
-                <button
-                  className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2"
-                  data-testid="button-get-in-touch-2"
-                >
-                  Get In Touch To See How We Can Help You
-                  <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center border-2 border-white">
-                    <ArrowRight className="h-5 w-5 text-white" />
-                  </div>
-                </button>
-              </Link>
+                <Link href="/contact">
+                  <button
+                    className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2"
+                    data-testid="button-get-in-touch-2"
+                  >
+                    Get In Touch To See How We Can Help You
+                    <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center border-2 border-white">
+                      <ArrowRight className="h-5 w-5 text-white" />
+                    </div>
+                  </button>
+                </Link>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </ScrollReveal>
 
       {/* Text Left + Image Right Section */}
-      <section className="py-14 px-4 bg-white">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Text - Left */}
-            <div>
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-black mb-6">
-                We take a data-driven approach to social
-              </h2>
+      <ScrollReveal delay={300}>
+        <section className="relative py-14 px-4 overflow-hidden">
+          {/* Gradient background */}
+          <div className="absolute inset-0 bg-gradient-to-br from-zinc-50 via-white to-[#FFF9F0]"></div>
+          <div className="absolute top-20 left-20 w-96 h-96 bg-orange-600/5 rounded-full blur-3xl"></div>
+          
+          <div className="max-w-6xl mx-auto relative">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              {/* Text - Left */}
+              <div>
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-black mb-6">
+                  We take a data-driven approach to social
+                </h2>
 
-              <p className="text-base text-black mb-4">
-                Data-driven strategies combined with our creativity are exactly why we've been able to win awards such as Best Large Social Agency and deliver incredible results time and time again.
-              </p>
+                <p className="text-base text-black mb-4">
+                  Data-driven strategies combined with our creativity are exactly why we've been able to win awards such as Best Large Social Agency and deliver incredible results time and time again.
+                </p>
 
-              <p className="text-base text-black mb-4">
-                A lot of social agencies and brands create content for the sake of it without any reasoning behind what they're creating.
-              </p>
+                <p className="text-base text-black mb-4">
+                  A lot of social agencies and brands create content for the sake of it without any reasoning behind what they're creating.
+                </p>
 
-              <p className="text-base text-black mb-6">
-                We dive deep into content analysis and why each piece is either performing or underperforming. This leads us to make adjustments to our content plans on a weekly and monthly and overarching strategy on a quarterly basis.
-              </p>
+                <p className="text-base text-black mb-6">
+                  We dive deep into content analysis and why each piece is either performing or underperforming. This leads us to make adjustments to our content plans on a weekly and monthly and overarching strategy on a quarterly basis.
+                </p>
 
-              <Link href="/contact">
-                <button
-                  className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2"
-                  data-testid="button-get-in-touch-3"
-                >
-                  Get In Touch To See How We Can Help You
-                  <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center border-2 border-white">
-                    <ArrowRight className="h-5 w-5 text-white" />
-                  </div>
-                </button>
-              </Link>
-            </div>
+                <Link href="/contact">
+                  <button
+                    className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2"
+                    data-testid="button-get-in-touch-3"
+                  >
+                    Get In Touch To See How We Can Help You
+                    <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center border-2 border-white">
+                      <ArrowRight className="h-5 w-5 text-white" />
+                    </div>
+                  </button>
+                </Link>
+              </div>
 
-            {/* Image - Right */}
-            <div>
-              <img 
-                src={awardTeamImg}
-                alt="Award ceremony team photo"
-                className="w-full rounded-3xl h-[500px] object-cover"
-                data-testid="img-award"
-              />
+              {/* Image - Right */}
+              <div className="overflow-hidden rounded-3xl">
+                <img 
+                  src={awardTeamImg}
+                  alt="Award ceremony team photo"
+                  className="w-full h-[500px] object-cover scale-110 hover:scale-115 transition-transform duration-700"
+                  data-testid="img-award"
+                />
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </ScrollReveal>
 
       {/* Full-Service Social Offering Section */}
       <section className="py-14 px-4 bg-white">
