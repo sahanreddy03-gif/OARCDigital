@@ -4,7 +4,7 @@
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import SEOHead from '@/components/SEOHead';
-import { createBreadcrumbSchema } from '@/utils/advancedSchema';
+import { createBreadcrumbSchema, createArticleSchema } from '@/utils/advancedSchema';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Calendar, Clock } from 'lucide-react';
 import { Link } from 'wouter';
@@ -82,13 +82,26 @@ export default function Blog() {
     { name: 'Blog', url: '/blog' }
   ]);
   
+  // Article schema for featured post (rich results)
+  const articleSchema = createArticleSchema(
+    featuredPost.title,
+    featuredPost.excerpt,
+    'https://oarcdigital.com/logo.png',
+    featuredPost.publishDate,
+    featuredPost.publishDate,
+    'OARC Digital Team'
+  );
+  
+  // Combine schemas for maximum SEO impact
+  const combinedSchema = [breadcrumbSchema, articleSchema];
+  
   return (
     <>
       <SEOHead
         title="OARC Digital Blog | AI Marketing, Creative Services & Growth Strategies"
         description="Expert insights on AI marketing, creative services, and revenue growth. Learn from real case studies, how-to guides, and industry best practices."
         canonicalUrl="https://oarcdigital.com/blog"
-        structuredData={breadcrumbSchema}
+        structuredData={combinedSchema}
         schemaId="blog"
       />
       
