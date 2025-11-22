@@ -143,7 +143,7 @@ export default function LetsTalkRevenueSection() {
   const duplicatedServices = [...services, ...services, ...services];
 
   return (
-    <section className="relative py-16 md:py-20 lg:py-24 overflow-hidden" data-testid="section-lets-talk-revenue">
+    <section className="relative py-12 md:py-16 lg:py-20 overflow-hidden" data-testid="section-lets-talk-revenue">
       {/* Elite Off-Black/Charcoal Background with Glassmorphism */}
       <div className="absolute inset-0 bg-gradient-to-br from-zinc-900 via-zinc-800 to-neutral-900"></div>
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_-20%,rgba(96,165,250,0.12),transparent_50%)]"></div>
@@ -177,7 +177,7 @@ export default function LetsTalkRevenueSection() {
                 <img
                   src={service.image}
                   alt={`${service.title} - Revenue automation service`}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  className="w-full h-full object-cover scale-110 transition-transform duration-700 group-hover:scale-115"
                   loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
