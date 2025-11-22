@@ -1,4 +1,5 @@
-import { useSmoothCarouselDrag } from '@/hooks/useSmoothCarouselDrag';
+import { useRef, useEffect } from 'react';
+import { useMediaQuery } from '@/hooks/useMediaQuery';
 
 // Import stock images from available assets
 import revenueRecognition from '@assets/Revenue_1763330734340.jpg';
@@ -132,15 +133,175 @@ const services = [
 ];
 
 export default function LetsTalkRevenueSection() {
-  // Use the new smooth drag hook with enhanced responsiveness
-  const trackRef = useSmoothCarouselDrag({
-    enableAutoScroll: true,
-    dragMultiplier: 1.6, // Increased from 1.2 for more responsive manual control
-    momentumDamping: 0.92 // Slightly lower for smoother momentum decay
-  });
+  const isDesktop = useMediaQuery('(min-width: 1024px)');
   
-  // Always triple services for seamless looping
-  const duplicatedServices = [...services, ...services, ...services];
+  // Dual column refs for infinite scroll animation
+  const leftColumnRef = useRef<HTMLDivElement>(null);
+  const rightColumnRef = useRef<HTMLDivElement>(null);
+  const isDraggingLeftRef = useRef(false);
+  const isDraggingRightRef = useRef(false);
+  const startYLeftRef = useRef(0);
+  const startYRightRef = useRef(0);
+  const scrollTopLeftRef = useRef(0);
+  const scrollTopRightRef = useRef(0);
+  const animationIdRef = useRef<number>();
+  const cleanupHandlersRef = useRef<(() => void) | null>(null);
+  
+  // Split services into two columns for dual-column layout
+  const leftColumnServices = [...services, ...services]; // Duplicate for seamless loop
+  const rightColumnServices = [...services, ...services]; // Duplicate for seamless loop
+
+  // Dual-column infinite scroll animation  
+  useEffect(() => {
+    const leftColumn = leftColumnRef.current;
+    const rightColumn = rightColumnRef.current;
+    if (!leftColumn || !rightColumn) return;
+
+    let animationStarted = false;
+    
+    const tryStartAnimation = () => {
+      if (animationStarted) return;
+      
+      const leftHeight = leftColumn.scrollHeight / 2;
+      const rightHeight = rightColumn.scrollHeight / 2;
+      
+      if (leftHeight > 0 && rightHeight > 0) {
+        animationStarted = true;
+        startAnimation(leftHeight, rightHeight);
+      }
+    };
+
+    requestAnimationFrame(tryStartAnimation);
+    
+    const observer = new ResizeObserver(() => {
+      tryStartAnimation();
+    });
+    
+    observer.observe(leftColumn);
+    observer.observe(rightColumn);
+
+    const startAnimation = (leftHeight: number, rightHeight: number) => {
+    
+    let leftScrollPosition = 0;
+    let rightScrollPosition = 0;
+    const scrollSpeed = 1.2;
+
+    const animate = () => {
+      if (!isDraggingLeftRef.current) {
+        leftScrollPosition += scrollSpeed;
+        const normalizedLeft = ((leftScrollPosition % leftHeight) + leftHeight) % leftHeight;
+        const translateValue = normalizedLeft - leftHeight;
+        leftColumn.style.transform = `translateY(${translateValue}px)`;
+      }
+
+      if (!isDraggingRightRef.current) {
+        rightScrollPosition += scrollSpeed;
+        const normalizedRight = ((rightScrollPosition % rightHeight) + rightHeight) % rightHeight;
+        rightColumn.style.transform = `translateY(-${normalizedRight}px)`;
+      }
+
+      animationIdRef.current = requestAnimationFrame(animate);
+    };
+
+    const handleLeftPointerDown = (e: PointerEvent) => {
+      isDraggingLeftRef.current = true;
+      startYLeftRef.current = e.clientY;
+      scrollTopLeftRef.current = leftScrollPosition;
+      leftColumn.style.cursor = 'grabbing';
+    };
+
+    const handleLeftPointerMove = (e: PointerEvent) => {
+      if (!isDraggingLeftRef.current) return;
+      e.preventDefault();
+      const deltaY = e.clientY - startYLeftRef.current;
+      const currentPosition = scrollTopLeftRef.current + deltaY;
+      const normalizedPosition = ((currentPosition % leftHeight) + leftHeight) % leftHeight;
+      leftColumn.style.transform = `translateY(${normalizedPosition - leftHeight}px)`;
+    };
+
+    const handleLeftPointerUp = (e: PointerEvent) => {
+      if (isDraggingLeftRef.current) {
+        const deltaY = e.clientY - startYLeftRef.current;
+        const rawPosition = scrollTopLeftRef.current + deltaY;
+        leftScrollPosition = ((rawPosition % leftHeight) + leftHeight) % leftHeight;
+      }
+      isDraggingLeftRef.current = false;
+      leftColumn.style.cursor = 'grab';
+    };
+
+    const handleRightPointerDown = (e: PointerEvent) => {
+      isDraggingRightRef.current = true;
+      startYRightRef.current = e.clientY;
+      scrollTopRightRef.current = rightScrollPosition;
+      rightColumn.style.cursor = 'grabbing';
+    };
+
+    const handleRightPointerMove = (e: PointerEvent) => {
+      if (!isDraggingRightRef.current) return;
+      e.preventDefault();
+      const deltaY = e.clientY - startYRightRef.current;
+      const currentPosition = scrollTopRightRef.current - deltaY;
+      const normalizedPosition = ((currentPosition % rightHeight) + rightHeight) % rightHeight;
+      rightColumn.style.transform = `translateY(-${normalizedPosition}px)`;
+    };
+
+    const handleRightPointerUp = (e: PointerEvent) => {
+      if (isDraggingRightRef.current) {
+        const deltaY = e.clientY - startYRightRef.current;
+        const rawPosition = scrollTopRightRef.current - deltaY;
+        rightScrollPosition = ((rawPosition % rightHeight) + rightHeight) % rightHeight;
+      }
+      isDraggingRightRef.current = false;
+      rightColumn.style.cursor = 'grab';
+    };
+
+      leftColumn.addEventListener('pointerdown', handleLeftPointerDown);
+      document.addEventListener('pointermove', handleLeftPointerMove);
+      document.addEventListener('pointerup', handleLeftPointerUp);
+      document.addEventListener('pointercancel', handleLeftPointerUp);
+
+      rightColumn.addEventListener('pointerdown', handleRightPointerDown);
+      document.addEventListener('pointermove', handleRightPointerMove);
+      document.addEventListener('pointerup', handleRightPointerUp);
+      document.addEventListener('pointercancel', handleRightPointerUp);
+      
+      cleanupHandlersRef.current = () => {
+        leftColumn.removeEventListener('pointerdown', handleLeftPointerDown);
+        document.removeEventListener('pointermove', handleLeftPointerMove);
+        document.removeEventListener('pointerup', handleLeftPointerUp);
+        document.removeEventListener('pointercancel', handleLeftPointerUp);
+
+        rightColumn.removeEventListener('pointerdown', handleRightPointerDown);
+        document.removeEventListener('pointermove', handleRightPointerMove);
+        document.removeEventListener('pointerup', handleRightPointerUp);
+        document.removeEventListener('pointercancel', handleRightPointerUp);
+      };
+      
+      animate();
+    };
+
+    return () => {
+      observer.disconnect();
+      
+      if (animationIdRef.current) {
+        cancelAnimationFrame(animationIdRef.current);
+      }
+      
+      if (cleanupHandlersRef.current) {
+        cleanupHandlersRef.current();
+        cleanupHandlersRef.current = null;
+      }
+      
+      isDraggingLeftRef.current = false;
+      isDraggingRightRef.current = false;
+      if (leftColumn && rightColumn) {
+        leftColumn.style.transform = '';
+        leftColumn.style.cursor = '';
+        rightColumn.style.transform = '';
+        rightColumn.style.cursor = '';
+      }
+    };
+  }, []);
 
   return (
     <section className="relative py-12 md:py-16 lg:py-20 overflow-hidden" data-testid="section-lets-talk-revenue">
@@ -164,35 +325,82 @@ export default function LetsTalkRevenueSection() {
         </div>
       </div>
 
-      {/* Auto-scrolling Draggable Carousel - CSS animation on desktop with smooth drag on all devices */}
-      <div className="relative w-full">
-        <div className="carousel-track" data-testid="revenue-carousel-track" ref={trackRef}>
-          {duplicatedServices.map((service, index) => (
-            <div
-              key={index}
-              className="carousel-card group"
-              data-testid={`revenue-card-${index}`}
+      {/* Dual-Column Opposite Direction Infinite Scroll (All Screen Sizes) */}
+      <div className="mx-auto" style={{ maxWidth: isDesktop ? '900px' : '100%' }}>
+        <div className={`relative flex ${isDesktop ? 'gap-6' : 'gap-3 px-4'} h-[520px] ${isDesktop ? 'md:h-[720px]' : ''} overflow-hidden`} data-testid="revenue-dual-carousel">
+          {/* Left Column - Top to Bottom */}
+          <div className="flex-1 relative h-full overflow-hidden">
+            <div 
+              ref={leftColumnRef} 
+              className="absolute top-0 left-0 right-0 flex flex-col gap-3 cursor-grab active:cursor-grabbing" 
+              style={{ willChange: 'transform' }}
+              data-testid="revenue-left-column"
             >
-              <div className="relative w-full aspect-[3/4] overflow-hidden rounded-xl bg-zinc-100 shadow-lg">
-                <img
-                  src={service.image}
-                  alt={`${service.title} - Revenue automation service`}
-                  className="w-full h-full object-cover scale-110 transition-transform duration-700 group-hover:scale-115"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
-                
-                <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6">
-                  <p className="text-xs md:text-sm font-medium text-teal-300 mb-1.5 md:mb-2 uppercase tracking-wider">
-                    {service.subtitle}
-                  </p>
-                  <h3 className="font-heading text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold text-white leading-tight" style={{ letterSpacing: '-0.02em' }}>
-                    {service.title}
-                  </h3>
+              {leftColumnServices.map((service, index) => (
+                <div
+                  key={`left-${index}`}
+                  className="flex-shrink-0 group"
+                  data-testid={`revenue-card-left-${index}`}
+                >
+                  <div className="relative w-full aspect-[3/4] overflow-hidden rounded-xl bg-zinc-100 shadow-lg">
+                    <img
+                      src={service.image}
+                      alt={`${service.title} - Revenue automation`}
+                      className="w-full h-full object-cover scale-110"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+                    
+                    <div className="absolute bottom-0 left-0 right-0 p-4">
+                      <p className="text-xs font-medium text-teal-300 mb-1.5 uppercase tracking-wider">
+                        {service.subtitle}
+                      </p>
+                      <h3 className="font-heading text-lg font-bold text-white leading-tight" style={{ letterSpacing: '-0.02em' }}>
+                        {service.title}
+                      </h3>
+                    </div>
+                  </div>
                 </div>
-              </div>
+              ))}
             </div>
-          ))}
+          </div>
+
+          {/* Right Column - Bottom to Top */}
+          <div className="flex-1 relative h-full overflow-hidden">
+            <div 
+              ref={rightColumnRef} 
+              className="absolute top-0 left-0 right-0 flex flex-col gap-3 cursor-grab active:cursor-grabbing" 
+              style={{ willChange: 'transform' }}
+              data-testid="revenue-right-column"
+            >
+              {rightColumnServices.map((service, index) => (
+                <div
+                  key={`right-${index}`}
+                  className="flex-shrink-0 group"
+                  data-testid={`revenue-card-right-${index}`}
+                >
+                  <div className="relative w-full aspect-[3/4] overflow-hidden rounded-xl bg-zinc-100 shadow-lg">
+                    <img
+                      src={service.image}
+                      alt={`${service.title} - Revenue automation`}
+                      className="w-full h-full object-cover scale-110"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+                    
+                    <div className="absolute bottom-0 left-0 right-0 p-4">
+                      <p className="text-xs font-medium text-teal-300 mb-1.5 uppercase tracking-wider">
+                        {service.subtitle}
+                      </p>
+                      <h3 className="font-heading text-lg font-bold text-white leading-tight" style={{ letterSpacing: '-0.02em' }}>
+                        {service.title}
+                      </h3>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>
