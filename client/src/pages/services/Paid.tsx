@@ -745,7 +745,7 @@ export default function Paid() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
-            <Link href="/services/creative-services">
+            <Link href="/services/creative">
               <div className="group p-8 bg-white rounded-xl border border-gray-200 hover:border-[#5FD4C4] hover:shadow-lg transition-all duration-300 cursor-pointer hover-elevate" data-testid="related-service-creative">
                 <div className="flex items-start justify-between mb-4">
                   <h3 className="text-xl font-bold group-hover:text-[#5FD4C4] transition-colors">Creative Services</h3>
@@ -757,10 +757,10 @@ export default function Paid() {
               </div>
             </Link>
 
-            <Link href="/services/analytics-tracking">
+            <Link href="/services/digital-marketing">
               <div className="group p-8 bg-white rounded-xl border border-gray-200 hover:border-[#5FD4C4] hover:shadow-lg transition-all duration-300 cursor-pointer hover-elevate" data-testid="related-service-analytics">
                 <div className="flex items-start justify-between mb-4">
-                  <h3 className="text-xl font-bold group-hover:text-[#5FD4C4] transition-colors">Analytics & Tracking</h3>
+                  <h3 className="text-xl font-bold group-hover:text-[#5FD4C4] transition-colors">Digital Marketing</h3>
                   <ArrowRight className="h-5 w-5 text-[#5FD4C4] group-hover:translate-x-1 transition-transform" />
                 </div>
                 <p className="text-sm text-gray-700 mb-4">
