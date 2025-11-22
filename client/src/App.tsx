@@ -65,6 +65,7 @@ import PDFCompanyProfile from "@/pages/PDFCompanyProfile";
 import PDFOnePager from "@/pages/PDFOnePager";
 import PDFAICreativeProfile from "@/pages/PDFAICreativeProfile";
 import PDFCapabilitiesDeck from "@/pages/PDFCapabilitiesDeck";
+import LocationService from "@/pages/LocationService";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -156,6 +157,9 @@ function Router() {
       <Route path="/pdf/company-profile" component={PDFCompanyProfile} />
       <Route path="/pdf/one-pager" component={PDFOnePager} />
       <Route path="/pdf/ai-creative-profile" component={PDFAICreativeProfile} />
+      
+      {/* Programmatic SEO - Location Pages */}
+      <Route path="/malta/:location/:service" component={LocationService} />
       
       <Route component={NotFound} />
     </Switch>
