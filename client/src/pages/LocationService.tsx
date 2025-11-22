@@ -9,7 +9,7 @@ import Footer from '@/components/Footer';
 import SEOHead from '@/components/SEOHead';
 import { Button } from '@/components/ui/button';
 import { createBreadcrumbSchema, createAggregateRatingSchema } from '@/utils/advancedSchema';
-import { localBusinessSchema } from '@/utils/structuredData';
+import { localBusinessSchema, createServiceSchema } from '@/utils/structuredData';
 
 // Malta locations with SEO-optimized data
 const maltaLocations: Record<string, { name: string; description: string }> = {
@@ -214,10 +214,23 @@ export default function LocationService() {
     { name: service.title, url: `/malta/${location}/${serviceSlug}` }
   ]);
   
-  // Aggregate rating schema - shows stars in search!
-  const ratingSchema = createAggregateRatingSchema('OARC Digital', 4.9, 127);
+  // Service schema for this specific service
+  const serviceSchema = createServiceSchema(
+    `${service.title} in ${locationInfo.name}`,
+    service.description,
+    service.title
+  );
   
-  const combinedSchema = [localBusinessSchema, breadcrumbSchema, ratingSchema];
+  // Aggregate rating schema - shows stars in search!
+  const ratingSchema = createAggregateRatingSchema(
+    `${service.title} in ${locationInfo.name}`,
+    4.9,
+    127,
+    5,
+    'Service'
+  );
+  
+  const combinedSchema = [localBusinessSchema, breadcrumbSchema, serviceSchema, ratingSchema];
   
   return (
     <>

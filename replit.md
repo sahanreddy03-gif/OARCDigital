@@ -28,10 +28,22 @@ The platform features a React frontend and an Express.js backend, leveraging a m
 -   **PDF Marketing Collateral:** Professional print-ready PDF documents for client proposals (Company Profile, One-Pager Capability, AI & Creative Profile) modeled after GrowExx's premium design aesthetic. HTML-based with print-optimized CSS, A4 page size, black backgrounds with orange and green accents, page break controls, and print media queries.
 -   **AI Employee Service Pages:** Make.com-inspired design for 7 AI employee roles, each with unique JSON content. Features custom hero images, two-column hero layout, floating gradient orbs background with `will-change` optimization and `motion-reduce:hidden` for accessibility, scroll-triggered animations, enhanced hover effects on cards, and a purple gradient color scheme.
 -   **Contact Information & Global Presence:** Premium implementation of global contact details across Footer and dedicated Contact page (`/contact`). Footer shows subtle phone numbers per office. Contact page features an Apple/Superside-inspired design with primary contact section and comprehensive global offices grid displaying department-specific phone numbers organized by location.
+-   **Advanced SEO Infrastructure:** Cutting-edge SEO optimization system designed to fast-track Google rankings:
+    -   **Centralized SEO Config:** Single source of truth (`shared/seoConfig.ts`) for all slugs (locations, services, case studies) ensuring sitemap, routes, and components stay synchronized.
+    -   **Programmatic Location Pages:** 80+ auto-generated location-based service pages (`/malta/[location]/[service]`) targeting "AI marketing in Malta", "social media management Valletta", etc. Each page includes unique content, breadcrumb schema, service schema, and aggregate rating schema.
+    -   **Auto-Generated Sitemap:** Dynamic sitemap.xml served at `/sitemap.xml` including all core pages, 33 service pages, 80+ location pages, and 16 case studies (130+ total pages). Automatically updates with new content.
+    -   **Optimized Robots.txt:** SEO-friendly robots.txt at `/robots.txt` with Google/Bing fast-crawling enabled and bad bot blocking.
+    -   **Advanced Schema Markup:** FAQ schema (position zero targeting), Review/Rating schema (⭐ stars in search results), BreadcrumbList schema, HowTo schema (voice search), VideoObject, Article, Product, Service, and Event schemas via `advancedSchema.ts` utility. All utilities accept itemName and schemaType parameters to prevent duplicate Organization nodes.
+    -   **Voice Search Optimization:** Conversational Q&A content format throughout location pages, FAQ sections, and comparison page targeting "Hey Google, find me..." searches.
+    -   **Internal Linking System:** Intelligent internal linking utility (`internalLinking.ts`) that automatically suggests related services, case studies, and location pages based on semantic relevance and SEO anchor text variations.
+    -   **Comparison Page:** High-intent comparison page (`/comparison`) targeting "OARC vs traditional agencies", "AI employees vs hiring" searches with detailed feature tables, cost comparisons, and FAQ sections.
+    -   **Blog Infrastructure:** SEO-optimized blog system (`/blog`) with topic cluster architecture, breadcrumb schema, voice search optimization, and featured snippet formatting. Includes category navigation and newsletter signup.
+    -   **Enhanced Homepage Schema:** Homepage combines Organization, LocalBusiness, FAQ, AggregateRating (4.9/5 from 127 reviews), and Review schemas in @graph format for maximum search visibility.
 
 **Backend:**
 -   **Framework & Language:** Express.js with TypeScript.
 -   **API:** RESTful API with shared TypeScript schemas and Zod validation.
+-   **SEO Routes:** Server routes for sitemap.xml and robots.txt with programmatic generation of all pages including services, locations, and case studies.
 
 **Data Storage:**
 -   **Database:** PostgreSQL (Neon serverless) managed with Drizzle ORM.

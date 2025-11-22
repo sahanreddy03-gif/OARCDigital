@@ -1,6 +1,7 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
+import { maltaLocations, locationServices, allServiceSlugs, allCaseStudySlugs } from "../shared/seoConfig";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // put application routes here
@@ -64,31 +65,17 @@ Disallow: /
 }
 
 function generateServicePages(): string {
-  const services = [
-    'social-media-creative-management', 'ad-creative', 'web-design', 'mobile-apps-development',
-    'video-production', 'motion-design', 'branding-services', 'design-systems', 'email-creative',
-    'presentation-pitch', 'illustration', 'print-packaging', 'immersive-3d-ar', 'ai-copywriting',
-    'paid-advertising', 'media-buying', 'influencer-marketing', 'ai-consulting',
-    'hire-ai-employees', 'ai-sdr', 'ai-support', 'ai-marketing', 'ai-writer', 'ai-analyst',
-    'ai-financial-analyst', 'ai-admin', 'revenue-automation', 'funnel-automation',
-    'lead-generation', 'customer-acquisition', 'digital-marketing', 'rapid-idea-testing'
-  ];
-  
-  return services.map(service => 
+  // Use centralized service slugs to ensure consistency
+  return allServiceSlugs.map(service => 
     `  <url><loc>https://oarcdigital.com/services/${service}</loc><lastmod>${new Date().toISOString().split('T')[0]}</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>`
   ).join('\n');
 }
 
 function generateLocationPages(): string {
-  const locations = ['valletta', 'sliema', 'st-julians', 'mosta', 'birkirkara', 'qormi', 'hamrun', 'naxxar', 'zabbar', 'attard'];
-  const topServices = [
-    'social-media-creative-management', 'digital-marketing', 'branding-services',
-    'web-design', 'video-production', 'ai-copywriting', 'hire-ai-employees', 'revenue-automation'
-  ];
-  
+  // Use centralized location and service data
   const pages: string[] = [];
-  locations.forEach(location => {
-    topServices.forEach(service => {
+  maltaLocations.forEach(location => {
+    locationServices.forEach(service => {
       pages.push(`  <url><loc>https://oarcdigital.com/malta/${location}/${service}</loc><lastmod>${new Date().toISOString().split('T')[0]}</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>`);
     });
   });
@@ -97,11 +84,8 @@ function generateLocationPages(): string {
 }
 
 function generateCaseStudyPages(): string {
-  const caseStudies = [
-    'tefal', 'azzaro', 'body-shop', 'dont-make-ads', 'lenovo-legion', 'esl-gaming'
-  ];
-  
-  return caseStudies.map(study => 
+  // Use centralized case study slugs
+  return allCaseStudySlugs.map(study => 
     `  <url><loc>https://oarcdigital.com/case-studies/${study}</loc><lastmod>${new Date().toISOString().split('T')[0]}</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>`
   ).join('\n');
 }

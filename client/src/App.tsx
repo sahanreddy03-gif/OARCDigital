@@ -66,6 +66,8 @@ import PDFOnePager from "@/pages/PDFOnePager";
 import PDFAICreativeProfile from "@/pages/PDFAICreativeProfile";
 import PDFCapabilitiesDeck from "@/pages/PDFCapabilitiesDeck";
 import LocationService from "@/pages/LocationService";
+import Comparison from "@/pages/Comparison";
+import Blog from "@/pages/Blog";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -150,6 +152,9 @@ function Router() {
       <Route path="/pricing" component={Pricing} />
       <Route path="/enterprise" component={Enterprise} />
       <Route path="/contact" component={Contact} />
+      <Route path="/comparison" component={Comparison} />
+      <Route path="/why-oarc" component={Comparison} />
+      <Route path="/blog" component={Blog} />
       
       {/* PDF Documents for Client Proposals */}
       <Route path="/pdf" component={PDFHub} />
