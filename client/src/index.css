@@ -421,11 +421,23 @@
 
   .carousel-card {
     flex-shrink: 0;
-    width: 300px;
+    width: 240px;
     pointer-events: auto;
   }
 
+  @media (min-width: 640px) {
+    .carousel-card {
+      width: 280px;
+    }
+  }
+
   @media (min-width: 768px) {
+    .carousel-card {
+      width: 320px;
+    }
+  }
+
+  @media (min-width: 1024px) {
     .carousel-card {
       width: 380px;
     }

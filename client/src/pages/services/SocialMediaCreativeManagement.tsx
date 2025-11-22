@@ -168,14 +168,16 @@ export default function SocialMediaCreativeManagement() {
 
                 {/* Learn More Button - Exact Social Shepherd style */}
                 <Link href={service.link}>
-                  <Button
-                    variant="outline"
-                    className="w-full border border-black text-black rounded-full font-semibold"
-                    data-testid={`button-learn-${service.title.toLowerCase()}`}
-                  >
-                    {service.learnMore}
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
+                  <a className="block w-full">
+                    <Button
+                      variant="outline"
+                      className="w-full border border-black text-black rounded-full font-semibold"
+                      data-testid={`button-learn-${service.title.toLowerCase()}`}
+                    >
+                      {service.learnMore}
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  </a>
                 </Link>
               </div>
             ))}

@@ -180,7 +180,7 @@ export default function HireAIEmployeesSection() {
                 <img
                   src={employee.image}
                   alt={`${employee.title} - AI-powered employee for hire`}
-                  className="w-full h-full object-cover object-center transition-all duration-700 group-hover:scale-105"
+                  className="w-full h-full object-cover object-center scale-110 transition-all duration-700 group-hover:scale-115"
                   data-testid={`carousel-image-admin-ai-employees`}
                   loading="lazy"
                 />

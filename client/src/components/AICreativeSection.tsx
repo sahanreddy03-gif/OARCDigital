@@ -364,7 +364,7 @@ export default function AICreativeSection() {
                   <img
                     src={service.image}
                     alt={`${service.title} - AI-powered creative service in Malta`}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    className="w-full h-full object-cover scale-110 transition-transform duration-700 group-hover:scale-115"
                     data-testid={`carousel-image-${service.title.toLowerCase().replace(/\s+/g, '-')}`}
                     loading="lazy"
                   />
@@ -409,7 +409,7 @@ export default function AICreativeSection() {
                     <img
                       src={service.image}
                       alt={`${service.title} - Premium creative work`}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover scale-110"
                       loading="lazy"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
@@ -449,7 +449,7 @@ export default function AICreativeSection() {
                     <img
                       src={service.image}
                       alt={`${service.title} - Premium creative work`}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover scale-110"
                       loading="lazy"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
