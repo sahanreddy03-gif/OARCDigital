@@ -7,7 +7,8 @@ import SEOHead from '@/components/SEOHead';
 import { Button } from '@/components/ui/button';
 import { Check, X, ArrowRight } from 'lucide-react';
 import { Link } from 'wouter';
-import { createBreadcrumbSchema } from '@/utils/advancedSchema';
+import { createBreadcrumbSchema, createAggregateRatingSchema } from '@/utils/advancedSchema';
+import { createServiceSchema } from '@/utils/structuredData';
 
 export default function Comparison() {
   const breadcrumbSchema = createBreadcrumbSchema([
@@ -15,13 +16,31 @@ export default function Comparison() {
     { name: 'Why OARC', url: '/comparison' }
   ]);
   
+  // Service schema for AI-powered marketing services
+  const serviceSchema = createServiceSchema(
+    'AI-Powered Marketing Services',
+    'OARC Digital delivers enterprise-grade AI marketing with 24/7 AI employees, 2-3 day turnaround, and 40-60% cost savings vs traditional agencies.',
+    'Marketing & Advertising'
+  );
+  
+  // Aggregate rating schema
+  const ratingSchema = createAggregateRatingSchema(
+    'OARC Digital Marketing Services',
+    4.9,
+    127,
+    5,
+    'Service'
+  );
+  
+  const combinedSchema = [breadcrumbSchema, serviceSchema, ratingSchema];
+  
   return (
     <>
       <SEOHead
         title="OARC Digital vs Traditional Agencies | Why Choose AI-Powered Marketing"
         description="Compare OARC Digital's AI-powered approach vs traditional marketing agencies. See why businesses choose our AI employees, faster delivery, and better results at lower costs."
         canonicalUrl="https://oarcdigital.com/comparison"
-        structuredData={breadcrumbSchema}
+        structuredData={combinedSchema}
         schemaId="comparison"
       />
       
