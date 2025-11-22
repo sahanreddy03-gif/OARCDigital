@@ -6,6 +6,7 @@ import Layout from '@/components/layout/Layout';
 import SEOHead from "@/components/SEOHead";
 import { revenueServicesSEO } from "@/data/seoMetadata";
 import { createServiceSchema } from "@/utils/structuredData";
+import ScrollReveal from "@/components/ScrollReveal";
 import heroImage from '@assets/paid advertising_1763088406833.avif';
 import formalTeamImg from '@assets/stock_images/digital_advertising__84eb3355.jpg';
 import conferenceTeamImg from '@assets/stock_images/digital_advertising__e3a5e56c.jpg';
@@ -160,164 +161,179 @@ export default function Paid() {
       </section>
 
       {/* Text Left + Image Right Section */}
-      <section className="py-14 px-4 bg-white">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Text - Left */}
-            <div>
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-black mb-6">
-                We're an Award-Winning Paid Media Agency
-              </h2>
+      <ScrollReveal>
+        <section className="relative py-14 px-4 overflow-hidden">
+          {/* Gradient background with floating orbs */}
+          <div className="absolute inset-0 bg-gradient-to-br from-[#F5F3ED] via-white to-[#FFF9F0]"></div>
+          <div className="absolute top-20 right-20 w-96 h-96 bg-[#5FD4C4]/10 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 left-20 w-80 h-80 bg-[#4a7000]/5 rounded-full blur-3xl"></div>
+          
+          <div className="max-w-6xl mx-auto relative">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              {/* Text - Left */}
+              <div>
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-black mb-6">
+                  We're an Award-Winning Paid Media Agency
+                </h2>
 
-              <p className="text-base text-gray-700 mb-4">
-                Having recently won 'Best Integrated Paid Media Campaign', Best Use of Facebook & Instagram Ads' and 'Best Direct Response Campaign' the Year', we know how to build and optimise full-funnel Paid Media strategies that grow brands at scale.
-              </p>
+                <p className="text-base text-gray-700 mb-4">
+                  Having recently won 'Best Integrated Paid Media Campaign', Best Use of Facebook & Instagram Ads' and 'Best Direct Response Campaign' the Year', we know how to build and optimise full-funnel Paid Media strategies that grow brands at scale.
+                </p>
 
-              <p className="text-base text-gray-700 mb-4">
-                Our team manages Paid Social and Paid Search for scaleups, household names, and global brands. So, we know how to scale ad accounts, drive incrementality, deliver creative strategies and create a dramatic shift in performance.
-              </p>
+                <p className="text-base text-gray-700 mb-4">
+                  Our team manages Paid Social and Paid Search for scaleups, household names, and global brands. So, we know how to scale ad accounts, drive incrementality, deliver creative strategies and create a dramatic shift in performance.
+                </p>
 
-              <p className="text-base text-gray-700 mb-6">
-                We're also agency partners with Meta, Google (Premier Partner status), TikTok and Pinterest which give us access to unique insight, ad credits and beta tests.
-              </p>
+                <p className="text-base text-gray-700 mb-6">
+                  We're also agency partners with Meta, Google (Premier Partner status), TikTok and Pinterest which give us access to unique insight, ad credits and beta tests.
+                </p>
 
-              {/* Platform Partners */}
-              <div className="flex flex-wrap items-center gap-6 mb-8">
-                <div className="w-14 h-14 bg-black rounded-lg flex items-center justify-center" data-testid="icon-meta">
-                  <SiMeta className="h-7 w-7 text-white" />
+                {/* Platform Partners */}
+                <div className="flex flex-wrap items-center gap-6 mb-8">
+                  <div className="w-14 h-14 bg-black rounded-lg flex items-center justify-center" data-testid="icon-meta">
+                    <SiMeta className="h-7 w-7 text-white" />
+                  </div>
+                  <div className="w-14 h-14 bg-black rounded-lg flex items-center justify-center" data-testid="icon-google">
+                    <SiGoogle className="h-7 w-7 text-white" />
+                  </div>
+                  <div className="w-14 h-14 bg-black rounded-lg flex items-center justify-center" data-testid="icon-tiktok">
+                    <SiTiktok className="h-7 w-7 text-white" />
+                  </div>
+                  <div className="w-14 h-14 bg-black rounded-lg flex items-center justify-center" data-testid="icon-pinterest">
+                    <SiPinterest className="h-7 w-7 text-white" />
+                  </div>
                 </div>
-                <div className="w-14 h-14 bg-black rounded-lg flex items-center justify-center" data-testid="icon-google">
-                  <SiGoogle className="h-7 w-7 text-white" />
-                </div>
-                <div className="w-14 h-14 bg-black rounded-lg flex items-center justify-center" data-testid="icon-tiktok">
-                  <SiTiktok className="h-7 w-7 text-white" />
-                </div>
-                <div className="w-14 h-14 bg-black rounded-lg flex items-center justify-center" data-testid="icon-pinterest">
-                  <SiPinterest className="h-7 w-7 text-white" />
-                </div>
+
+                <Link href="/contact">
+                  <button
+                    className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2"
+                    data-testid="button-get-in-touch-1"
+                  >
+                    Get In Touch To See How We Can Help You
+                    <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+                      <ArrowRight className="h-5 w-5 text-black" />
+                    </div>
+                  </button>
+                </Link>
               </div>
 
-              <Link href="/contact">
-                <button
-                  className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2"
-                  data-testid="button-get-in-touch-1"
-                >
-                  Get In Touch To See How We Can Help You
-                  <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
-                    <ArrowRight className="h-5 w-5 text-black" />
-                  </div>
-                </button>
-              </Link>
-            </div>
-
-            {/* Image - Right */}
-            <div>
-              <img 
-                src={formalTeamImg}
-                alt="OARC Digital Award Ceremony"
-                className="w-full rounded-3xl h-[500px] object-cover"
-                data-testid="img-award-team"
-              />
+              {/* Image - Right */}
+              <div className="overflow-hidden rounded-3xl">
+                <img 
+                  src={formalTeamImg}
+                  alt="OARC Digital Award Ceremony"
+                  className="w-full h-[500px] object-cover scale-110 hover:scale-115 transition-transform duration-700"
+                  data-testid="img-award-team"
+                />
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </ScrollReveal>
 
       {/* Image Left + Text Right Section */}
-      <section className="py-14 px-4 bg-white">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Image - Left */}
-            <div>
-              <img 
-                src={conferenceTeamImg}
-                alt="OARC Digital Team at Conference"
-                className="w-full rounded-3xl h-[500px] object-cover"
-                data-testid="img-conference-team"
-              />
-            </div>
+      <ScrollReveal delay={200}>
+        <section className="py-14 px-4 bg-white">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              {/* Image - Left */}
+              <div className="overflow-hidden rounded-3xl">
+                <img 
+                  src={conferenceTeamImg}
+                  alt="OARC Digital Team at Conference"
+                  className="w-full h-[500px] object-cover scale-110 hover:scale-115 transition-transform duration-700"
+                  data-testid="img-conference-team"
+                />
+              </div>
 
-            {/* Text - Right */}
-            <div>
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-black mb-6">
-                Our Strategic Approach to Future Proofing Your Brand
-              </h2>
+              {/* Text - Right */}
+              <div>
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-black mb-6">
+                  Our Strategic Approach to Future Proofing Your Brand
+                </h2>
 
-              <p className="text-base text-gray-700 mb-4">
-                The Paid Media landscape is ever-changing, and that's why we constantly stay on top of it.
-              </p>
+                <p className="text-base text-gray-700 mb-4">
+                  The Paid Media landscape is ever-changing, and that's why we constantly stay on top of it.
+                </p>
 
-              <p className="text-base text-gray-700 mb-4">
-                We're here to be your eyes and ears of what's happening, how platforms are changing and how we need to be adapting our strategy for you.
-              </p>
+                <p className="text-base text-gray-700 mb-4">
+                  We're here to be your eyes and ears of what's happening, how platforms are changing and how we need to be adapting our strategy for you.
+                </p>
 
-              <p className="text-base text-gray-700 mb-6">
-                We'll then work with you to deliver the direction of your Paid Media strategy and then implement campaign management, optimisation, creative strategy, channel management, budget allocation, attribution modelling, feed optimisation and analytics.
-              </p>
+                <p className="text-base text-gray-700 mb-6">
+                  We'll then work with you to deliver the direction of your Paid Media strategy and then implement campaign management, optimisation, creative strategy, channel management, budget allocation, attribution modelling, feed optimisation and analytics.
+                </p>
 
-              <Link href="/contact">
-                <button
-                  className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2"
-                  data-testid="button-get-in-touch-2"
-                >
-                  Get In Touch To See How We Can Help You
-                  <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
-                    <ArrowRight className="h-5 w-5 text-black" />
-                  </div>
-                </button>
-              </Link>
+                <Link href="/contact">
+                  <button
+                    className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2"
+                    data-testid="button-get-in-touch-2"
+                  >
+                    Get In Touch To See How We Can Help You
+                    <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+                      <ArrowRight className="h-5 w-5 text-black" />
+                    </div>
+                  </button>
+                </Link>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </ScrollReveal>
 
       {/* Text Left + Image Right Section */}
-      <section className="py-14 px-4 bg-white">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Text - Left */}
-            <div>
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-black mb-6">
-                Reporting, Analysis and Attribution Modelling
-              </h2>
+      <ScrollReveal delay={300}>
+        <section className="relative py-14 px-4 overflow-hidden">
+          {/* Gradient background */}
+          <div className="absolute inset-0 bg-gradient-to-br from-zinc-50 via-white to-[#FFF9F0]"></div>
+          <div className="absolute top-20 left-20 w-96 h-96 bg-orange-600/5 rounded-full blur-3xl"></div>
+          
+          <div className="max-w-6xl mx-auto relative">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              {/* Text - Left */}
+              <div>
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-black mb-6">
+                  Reporting, Analysis and Attribution Modelling
+                </h2>
 
-              <p className="text-base text-gray-700 mb-4">
-                To make the right decisions with your paid media spend, it's important to have a robust reporting solution that can break down all your data into easily digestible numbers.
-              </p>
+                <p className="text-base text-gray-700 mb-4">
+                  To make the right decisions with your paid media spend, it's important to have a robust reporting solution that can break down all your data into easily digestible numbers.
+                </p>
 
-              <p className="text-base text-gray-700 mb-4">
-                Our custom reporting breaks down each channel and shows you which campaigns, audiences, creative and copy are driving performance.
-              </p>
+                <p className="text-base text-gray-700 mb-4">
+                  Our custom reporting breaks down each channel and shows you which campaigns, audiences, creative and copy are driving performance.
+                </p>
 
-              <p className="text-base text-gray-700 mb-6">
-                We're also able to build in metrics that are vital for your business to track, making it completely bespoke to you.
-              </p>
+                <p className="text-base text-gray-700 mb-6">
+                  We're also able to build in metrics that are vital for your business to track, making it completely bespoke to you.
+                </p>
 
-              <Link href="/contact">
-                <button
-                  className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2"
-                  data-testid="button-contact"
-                >
-                  Contact
-                  <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
-                    <ArrowRight className="h-5 w-5 text-black" />
+                <Link href="/contact">
+                  <button
+                    className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2"
+                    data-testid="button-contact"
+                  >
+                    Contact
+                    <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+                      <ArrowRight className="h-5 w-5 text-black" />
                   </div>
                 </button>
               </Link>
             </div>
 
             {/* Image - Right */}
-            <div>
+            <div className="overflow-hidden rounded-3xl">
               <img 
                 src={studioImg}
                 alt="OARC Digital Studio"
-                className="w-full rounded-3xl h-[500px] object-cover"
+                className="w-full h-[500px] object-cover scale-110 hover:scale-115 transition-transform duration-700"
                 data-testid="img-studio"
               />
             </div>
           </div>
         </div>
       </section>
+    </ScrollReveal>
 
       {/* Services Carousel */}
       <section className="py-14 px-4 bg-gray-50">
