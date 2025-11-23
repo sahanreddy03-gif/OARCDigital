@@ -151,10 +151,10 @@ export default function HeroSection() {
         <div className="w-full">
           <div className="max-w-7xl w-full mx-auto px-5 md:px-8">
             <div className="w-full md:max-w-xl text-center md:text-left">
-              {/* Elite glassmorphism panel - subtle on desktop */}
-              <div className="relative md:before:content-none before:absolute before:inset-0 before:-z-10 before:bg-black/50 before:blur-xl before:rounded-[32px] before:-m-4 md:before:m-0 md:backdrop-blur-sm md:bg-black/20 md:rounded-[32px] md:p-6 md:border md:border-white/10">
+              {/* Mobile only: glassmorphism panel */}
+              <div className="relative md:before:content-none before:absolute before:inset-0 before:-z-10 before:bg-black/50 before:blur-xl before:rounded-[32px] before:-m-4">
                 {/* OARC Digital Logo Symbol Only */}
-                <div className="flex justify-center md:justify-start mb-4 md:mb-4">
+                <div className="flex justify-center md:justify-start mb-4 md:mb-3">
                   <img 
                     src={companyLogo} 
                     alt="OARC Digital" 
