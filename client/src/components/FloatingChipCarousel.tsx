@@ -116,9 +116,9 @@ export default function FloatingChipCarousel() {
             className="inline-flex flex-shrink-0"
             data-testid={`carousel-chip-${index}`}
           >
-            <div className="group flex items-center gap-2 md:gap-2 px-3 md:px-3 py-2 md:py-2 bg-white/95 backdrop-blur-sm rounded-lg shadow-lg hover:shadow-2xl hover:scale-105 hover:bg-white transition-all duration-300 cursor-pointer border border-white/20 hover:border-[#c4ff4d]/30">
-              {/* Smaller images on desktop for compact fit */}
-              <div className="w-[60px] h-[60px] md:w-[40px] md:h-[40px] rounded-lg overflow-hidden flex-shrink-0 bg-zinc-100 ring-2 ring-white/50 group-hover:ring-[#c4ff4d]/40 transition-all duration-300">
+            <div className="group flex items-center gap-2 md:gap-2.5 px-3 md:px-3.5 py-2 md:py-2.5 bg-white/95 backdrop-blur-sm rounded-lg shadow-lg hover:shadow-2xl hover:scale-105 hover:bg-white transition-all duration-300 cursor-pointer border border-white/20 hover:border-[#c4ff4d]/30">
+              {/* Bigger chips on desktop - 50px */}
+              <div className="w-[60px] h-[60px] md:w-[50px] md:h-[50px] rounded-lg overflow-hidden flex-shrink-0 bg-zinc-100 ring-2 ring-white/50 group-hover:ring-[#c4ff4d]/40 transition-all duration-300">
                 <img 
                   src={service.image} 
                   alt={service.text}
@@ -126,7 +126,7 @@ export default function FloatingChipCarousel() {
                   data-testid={`carousel-image-${service.text.toLowerCase().replace(/\s+/g, '-')}`}
                 />
               </div>
-              <span className="text-sm md:text-xs font-bold text-gray-900 group-hover:text-zinc-950 pr-1 md:pr-1 whitespace-nowrap transition-colors duration-300" data-testid={`carousel-text-${service.text.toLowerCase().replace(/\s+/g, '-')}`}>
+              <span className="text-sm md:text-sm font-bold text-gray-900 group-hover:text-zinc-950 pr-1 md:pr-2 whitespace-nowrap transition-colors duration-300" data-testid={`carousel-text-${service.text.toLowerCase().replace(/\s+/g, '-')}`}>
                 {service.text}
               </span>
             </div>
