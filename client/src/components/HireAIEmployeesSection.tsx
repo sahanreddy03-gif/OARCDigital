@@ -1,5 +1,4 @@
-import { useRef, useEffect } from 'react';
-import { useMediaQuery } from '@/hooks/useMediaQuery';
+import { useSmoothCarouselDrag } from '@/hooks/useSmoothCarouselDrag';
 
 // Import new AI employee images
 import salesDevRep from '@assets/1_1763228440276.avif';
@@ -133,189 +132,15 @@ const employees = [
 ];
 
 export default function HireAIEmployeesSection() {
-  const isDesktop = useMediaQuery('(min-width: 1024px)');
+  // Use the new smooth drag hook with enhanced responsiveness
+  const trackRef = useSmoothCarouselDrag({
+    enableAutoScroll: true,
+    dragMultiplier: 1.6, // Increased from 1.2 for more responsive manual control
+    momentumDamping: 0.92 // Slightly lower for smoother momentum decay
+  });
   
-  // Dual column refs for infinite scroll animation
-  const leftColumnRef = useRef<HTMLDivElement>(null);
-  const rightColumnRef = useRef<HTMLDivElement>(null);
-  const isDraggingLeftRef = useRef(false);
-  const isDraggingRightRef = useRef(false);
-  const startYLeftRef = useRef(0);
-  const startYRightRef = useRef(0);
-  const scrollTopLeftRef = useRef(0);
-  const scrollTopRightRef = useRef(0);
-  const animationIdRef = useRef<number>();
-  const cleanupHandlersRef = useRef<(() => void) | null>(null);
-  
-  // Split employees into two columns for dual-column layout
-  const leftColumnEmployees = [...employees, ...employees]; // Duplicate for seamless loop
-  const rightColumnEmployees = [...employees, ...employees]; // Duplicate for seamless loop
-
-  // Dual-column infinite scroll animation
-  useEffect(() => {
-    const leftColumn = leftColumnRef.current;
-    const rightColumn = rightColumnRef.current;
-    if (!leftColumn || !rightColumn) return;
-
-    // Use ResizeObserver to detect when layout is ready (images loaded)
-    let animationStarted = false;
-    
-    const tryStartAnimation = () => {
-      if (animationStarted) return;
-      
-      const leftHeight = leftColumn.scrollHeight / 2;
-      const rightHeight = rightColumn.scrollHeight / 2;
-      
-      // Only start animation if heights are valid (images loaded)
-      if (leftHeight > 0 && rightHeight > 0) {
-        animationStarted = true;
-        startAnimation(leftHeight, rightHeight);
-      }
-    };
-
-    // Try immediately in case images are cached
-    requestAnimationFrame(tryStartAnimation);
-    
-    // Also watch for resize events as images load
-    const observer = new ResizeObserver(() => {
-      tryStartAnimation();
-    });
-    
-    observer.observe(leftColumn);
-    observer.observe(rightColumn);
-
-    const startAnimation = (leftHeight: number, rightHeight: number) => {
-    
-    let leftScrollPosition = 0;  // Start at 0 for downward scroll  
-    let rightScrollPosition = 0;
-    const scrollSpeed = 1.2; // pixels per frame
-
-    const animate = () => {
-      // Left column: downward scroll
-      if (!isDraggingLeftRef.current) {
-        leftScrollPosition += scrollSpeed;
-        const normalizedLeft = ((leftScrollPosition % leftHeight) + leftHeight) % leftHeight;
-        const translateValue = normalizedLeft - leftHeight;
-        leftColumn.style.transform = `translateY(${translateValue}px)`;
-      }
-
-      // Right column: upward scroll
-      if (!isDraggingRightRef.current) {
-        rightScrollPosition += scrollSpeed;
-        const normalizedRight = ((rightScrollPosition % rightHeight) + rightHeight) % rightHeight;
-        rightColumn.style.transform = `translateY(-${normalizedRight}px)`;
-      }
-
-      animationIdRef.current = requestAnimationFrame(animate);
-    };
-
-    // Drag handlers for left column
-    const handleLeftPointerDown = (e: PointerEvent) => {
-      isDraggingLeftRef.current = true;
-      startYLeftRef.current = e.clientY;
-      scrollTopLeftRef.current = leftScrollPosition;
-      leftColumn.style.cursor = 'grabbing';
-    };
-
-    const handleLeftPointerMove = (e: PointerEvent) => {
-      if (!isDraggingLeftRef.current) return;
-      e.preventDefault();
-      const deltaY = e.clientY - startYLeftRef.current;
-      const currentPosition = scrollTopLeftRef.current + deltaY;
-      const normalizedPosition = ((currentPosition % leftHeight) + leftHeight) % leftHeight;
-      leftColumn.style.transform = `translateY(${normalizedPosition - leftHeight}px)`;
-    };
-
-    const handleLeftPointerUp = (e: PointerEvent) => {
-      if (isDraggingLeftRef.current) {
-        const deltaY = e.clientY - startYLeftRef.current;
-        const rawPosition = scrollTopLeftRef.current + deltaY;
-        leftScrollPosition = ((rawPosition % leftHeight) + leftHeight) % leftHeight;
-      }
-      isDraggingLeftRef.current = false;
-      leftColumn.style.cursor = 'grab';
-    };
-
-    // Drag handlers for right column
-    const handleRightPointerDown = (e: PointerEvent) => {
-      isDraggingRightRef.current = true;
-      startYRightRef.current = e.clientY;
-      scrollTopRightRef.current = rightScrollPosition;
-      rightColumn.style.cursor = 'grabbing';
-    };
-
-    const handleRightPointerMove = (e: PointerEvent) => {
-      if (!isDraggingRightRef.current) return;
-      e.preventDefault();
-      const deltaY = e.clientY - startYRightRef.current;
-      const currentPosition = scrollTopRightRef.current - deltaY;
-      const normalizedPosition = ((currentPosition % rightHeight) + rightHeight) % rightHeight;
-      rightColumn.style.transform = `translateY(-${normalizedPosition}px)`;
-    };
-
-    const handleRightPointerUp = (e: PointerEvent) => {
-      if (isDraggingRightRef.current) {
-        const deltaY = e.clientY - startYRightRef.current;
-        const rawPosition = scrollTopRightRef.current - deltaY;
-        rightScrollPosition = ((rawPosition % rightHeight) + rightHeight) % rightHeight;
-      }
-      isDraggingRightRef.current = false;
-      rightColumn.style.cursor = 'grab';
-    };
-
-      // Add event listeners
-      leftColumn.addEventListener('pointerdown', handleLeftPointerDown);
-      document.addEventListener('pointermove', handleLeftPointerMove);
-      document.addEventListener('pointerup', handleLeftPointerUp);
-      document.addEventListener('pointercancel', handleLeftPointerUp);
-
-      rightColumn.addEventListener('pointerdown', handleRightPointerDown);
-      document.addEventListener('pointermove', handleRightPointerMove);
-      document.addEventListener('pointerup', handleRightPointerUp);
-      document.addEventListener('pointercancel', handleRightPointerUp);
-      
-      // Store cleanup function in ref
-      cleanupHandlersRef.current = () => {
-        leftColumn.removeEventListener('pointerdown', handleLeftPointerDown);
-        document.removeEventListener('pointermove', handleLeftPointerMove);
-        document.removeEventListener('pointerup', handleLeftPointerUp);
-        document.removeEventListener('pointercancel', handleLeftPointerUp);
-
-        rightColumn.removeEventListener('pointerdown', handleRightPointerDown);
-        document.removeEventListener('pointermove', handleRightPointerMove);
-        document.removeEventListener('pointerup', handleRightPointerUp);
-        document.removeEventListener('pointercancel', handleRightPointerUp);
-      };
-      
-      // START THE ANIMATION LOOP
-      animate();
-    };
-
-    return () => {
-      // Clean up observer
-      observer.disconnect();
-      
-      if (animationIdRef.current) {
-        cancelAnimationFrame(animationIdRef.current);
-      }
-      
-      // Call the cleanup function if it exists
-      if (cleanupHandlersRef.current) {
-        cleanupHandlersRef.current();
-        cleanupHandlersRef.current = null;
-      }
-      
-      // Reset state
-      isDraggingLeftRef.current = false;
-      isDraggingRightRef.current = false;
-      if (leftColumn && rightColumn) {
-        leftColumn.style.transform = '';
-        leftColumn.style.cursor = '';
-        rightColumn.style.transform = '';
-        rightColumn.style.cursor = '';
-      }
-    };
-  }, []);
+  // Always triple employees for seamless looping
+  const duplicatedEmployees = [...employees, ...employees, ...employees];
 
   return (
     <section className="relative py-16 md:py-20 lg:py-24 overflow-hidden" data-testid="section-hire-ai-employees">
@@ -342,76 +167,34 @@ export default function HireAIEmployeesSection() {
         </div>
       </div>
 
-      {/* Dual-Column Opposite Direction Infinite Scroll (All Screen Sizes) */}
-      <div className="mx-auto" style={{ maxWidth: isDesktop ? '900px' : '100%' }}>
-        <div className={`relative flex ${isDesktop ? 'gap-6' : 'gap-3 px-4'} h-[520px] ${isDesktop ? 'md:h-[720px]' : ''} overflow-hidden`} data-testid="ai-employees-dual-carousel">
-          {/* Left Column - Top to Bottom */}
-          <div className="flex-1 relative h-full overflow-hidden">
-            <div 
-              ref={leftColumnRef} 
-              className="absolute top-0 left-0 right-0 flex flex-col gap-3 cursor-grab active:cursor-grabbing" 
-              style={{ willChange: 'transform' }}
-              data-testid="employees-left-column"
+      {/* Smooth Draggable Carousel - Works on both mobile and desktop */}
+      <div className="relative w-full">
+        <div className="flex gap-4 md:gap-6 lg:gap-8 cursor-grab active:cursor-grabbing" data-testid="ai-employees-carousel-track" ref={trackRef} style={{ willChange: 'transform' }}>
+          {duplicatedEmployees.map((employee, index) => (
+            <div
+              key={index}
+              className="flex-shrink-0 w-[240px] sm:w-[280px] md:w-[320px] lg:w-[380px] group"
+              data-testid={`employee-card-${index}`}
             >
-              {leftColumnEmployees.map((employee, index) => (
-                <div
-                  key={`left-${index}`}
-                  className="flex-shrink-0 group"
-                  data-testid={`employee-card-left-${index}`}
-                >
-                  <div className="relative w-full aspect-[3/4] overflow-hidden rounded-xl bg-zinc-100 ring-1 ring-zinc-200/50 shadow-lg">
-                    <img
-                      src={employee.image}
-                      alt={`${employee.title} - AI employee for hire`}
-                      className="w-full h-full object-cover scale-110"
-                      loading="lazy"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/35 to-transparent"></div>
-                    
-                    <div className="absolute bottom-0 left-0 right-0 p-4">
-                      <h3 className="font-heading text-lg font-bold text-white leading-tight" style={{ letterSpacing: '-0.02em' }}>
-                        {employee.title}
-                      </h3>
-                    </div>
-                  </div>
+              <div className="relative w-full aspect-[3/4] overflow-hidden rounded-xl bg-zinc-100 ring-1 ring-zinc-200/50 shadow-lg transition-all duration-500 group-hover:shadow-xl group-hover:ring-zinc-300/70">
+                <img
+                  src={employee.image}
+                  alt={`${employee.title} - AI-powered employee for hire`}
+                  className="w-full h-full object-cover object-center scale-110 transition-all duration-700 group-hover:scale-115"
+                  data-testid={`carousel-image-admin-ai-employees`}
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/35 to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                
+                <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6">
+                  <h3 className="font-heading text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold text-white leading-tight transition-all duration-300" style={{ letterSpacing: '-0.02em' }}>
+                    {employee.title}
+                  </h3>
                 </div>
-              ))}
+              </div>
             </div>
-          </div>
-
-          {/* Right Column - Bottom to Top */}
-          <div className="flex-1 relative h-full overflow-hidden">
-            <div 
-              ref={rightColumnRef} 
-              className="absolute top-0 left-0 right-0 flex flex-col gap-3 cursor-grab active:cursor-grabbing" 
-              style={{ willChange: 'transform' }}
-              data-testid="employees-right-column"
-            >
-              {rightColumnEmployees.map((employee, index) => (
-                <div
-                  key={`right-${index}`}
-                  className="flex-shrink-0 group"
-                  data-testid={`employee-card-right-${index}`}
-                >
-                  <div className="relative w-full aspect-[3/4] overflow-hidden rounded-xl bg-zinc-100 ring-1 ring-zinc-200/50 shadow-lg">
-                    <img
-                      src={employee.image}
-                      alt={`${employee.title} - AI employee for hire`}
-                      className="w-full h-full object-cover scale-110"
-                      loading="lazy"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/35 to-transparent"></div>
-                    
-                    <div className="absolute bottom-0 left-0 right-0 p-4">
-                      <h3 className="font-heading text-lg font-bold text-white leading-tight" style={{ letterSpacing: '-0.02em' }}>
-                        {employee.title}
-                      </h3>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>
