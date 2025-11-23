@@ -145,14 +145,14 @@ export default function HeroSection() {
       <div className="hidden md:block absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/50"></div>
       <div className="hidden md:block absolute inset-0 bg-gradient-to-l from-transparent via-black/10 to-black/60"></div>
       
-      {/* Mobile: Bottom-aligned flex column | Desktop: Centered with padding */}
-      <div className="relative flex-1 flex flex-col justify-end md:justify-between pt-14 md:pt-32 lg:pt-36 pb-6 md:pb-3">
+      {/* Mobile: Bottom-aligned flex column | Desktop: Also bottom-aligned with more space for carousel */}
+      <div className="relative flex-1 flex flex-col justify-end pt-14 md:pt-32 lg:pt-36 pb-6 md:pb-8">
         {/* Content wrapper */}
-        <div className="md:flex-1 md:flex md:items-center">
+        <div className="md:flex-1 md:flex md:items-end md:pb-8">
           <div className="max-w-7xl w-full mx-auto px-5 md:px-8 lg:px-16 xl:px-24">
             <div className="w-full md:max-w-2xl lg:max-w-3xl text-center md:text-left">
-              {/* Elite glassmorphism panel behind content */}
-              <div className="relative md:before:content-none before:absolute before:inset-0 before:-z-10 before:bg-black/50 before:blur-xl before:rounded-[32px] before:-m-4 md:before:m-0 md:backdrop-blur-sm md:bg-black/55 md:rounded-[48px] md:p-10 lg:p-12 md:border md:border-white/10 md:shadow-2xl">
+              {/* Elite glassmorphism panel behind content - lighter on desktop */}
+              <div className="relative md:before:content-none before:absolute before:inset-0 before:-z-10 before:bg-black/50 before:blur-xl before:rounded-[32px] before:-m-4 md:before:m-0 md:backdrop-blur-sm md:bg-black/30 md:rounded-[48px] md:p-10 lg:p-12 md:border md:border-white/10 md:shadow-2xl">
                 {/* OARC Digital Logo Symbol Only */}
                 <div className="flex justify-center md:justify-start mb-4 md:mb-4">
                   <img 
@@ -196,8 +196,8 @@ export default function HeroSection() {
           </div>
         </div>
 
-        {/* Carousel - in normal flow, bigger on mobile */}
-        <div className="w-full mt-8 md:mt-0 md:pb-0">
+        {/* Carousel - always visible at bottom */}
+        <div className="w-full mt-8 md:mt-6">
           <FloatingChipCarousel />
         </div>
       </div>
