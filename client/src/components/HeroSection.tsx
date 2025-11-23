@@ -145,14 +145,14 @@ export default function HeroSection() {
       <div className="hidden md:block absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/50"></div>
       <div className="hidden md:block absolute inset-0 bg-gradient-to-l from-transparent via-black/10 to-black/60"></div>
       
-      {/* Mobile: Bottom-aligned flex column | Desktop: Also bottom-aligned with more space for carousel */}
-      <div className="relative flex-1 flex flex-col justify-end pt-14 md:pt-32 lg:pt-36 pb-6 md:pb-8">
+      {/* Mobile: Bottom-aligned flex column | Desktop: Same compact layout */}
+      <div className="relative flex-1 flex flex-col justify-end pt-14 md:pt-20 pb-6 md:pb-6">
         {/* Content wrapper */}
-        <div className="md:flex-1 md:flex md:items-end md:pb-8">
-          <div className="max-w-7xl w-full mx-auto px-5 md:px-8 lg:px-16 xl:px-24">
-            <div className="w-full md:max-w-2xl lg:max-w-3xl text-center md:text-left">
-              {/* Elite glassmorphism panel behind content - lighter on desktop */}
-              <div className="relative md:before:content-none before:absolute before:inset-0 before:-z-10 before:bg-black/50 before:blur-xl before:rounded-[32px] before:-m-4 md:before:m-0 md:backdrop-blur-sm md:bg-black/30 md:rounded-[48px] md:p-10 lg:p-12 md:border md:border-white/10 md:shadow-2xl">
+        <div className="w-full">
+          <div className="max-w-7xl w-full mx-auto px-5 md:px-8">
+            <div className="w-full md:max-w-xl text-center md:text-left">
+              {/* Elite glassmorphism panel - subtle on desktop */}
+              <div className="relative md:before:content-none before:absolute before:inset-0 before:-z-10 before:bg-black/50 before:blur-xl before:rounded-[32px] before:-m-4 md:before:m-0 md:backdrop-blur-sm md:bg-black/20 md:rounded-[32px] md:p-6 md:border md:border-white/10">
                 {/* OARC Digital Logo Symbol Only */}
                 <div className="flex justify-center md:justify-start mb-4 md:mb-4">
                   <img 
@@ -169,23 +169,23 @@ export default function HeroSection() {
                   </span>
                 </div>
 
-                <h1 className="mb-5 md:mb-6 text-white animate-[fadeSlideUp_0.8s_ease-out]" style={{ fontSize: 'clamp(2rem, 7vw, 4.5rem)' }}>
-                  <span className="block font-bold tracking-tight leading-[0.95] md:leading-[0.9]">
+                <h1 className="mb-4 md:mb-4 text-white animate-[fadeSlideUp_0.8s_ease-out]" style={{ fontSize: 'clamp(2rem, 5vw, 2.5rem)' }}>
+                  <span className="block font-bold tracking-tight leading-[1.1]">
                     AI-Powered Marketing,
                   </span>
-                  <span className="block font-extralight italic font-serif tracking-tight leading-[0.95] md:leading-[0.9] mt-2 md:mt-1">
+                  <span className="block font-extralight italic font-serif tracking-tight leading-[1.1] mt-1">
                     Agency That Drives Revenue
                   </span>
                 </h1>
 
-                <p className="text-[15px] md:text-sm lg:text-base text-white/95 max-w-xl mx-auto md:mx-0 leading-relaxed mb-6 md:mb-5 font-light tracking-wide">
+                <p className="text-[15px] md:text-sm text-white/95 max-w-xl mx-auto md:mx-0 leading-relaxed mb-5 md:mb-4 font-light tracking-wide">
                   Certified AI talent + Tailored Workflows + Measurable Growth = Less Cost. More Reach. More Sales
                 </p>
 
-                <div className="flex flex-col items-center md:items-start gap-4 md:gap-2">
+                <div className="flex flex-col items-center md:items-start gap-3">
                   <Button 
                     size="lg" 
-                    className="rounded-full text-[15px] md:text-sm px-10 md:px-8 py-6 md:py-5 h-auto font-bold bg-[#c4ff4d] text-black hover:bg-[#b5ef3d] shadow-2xl hover:shadow-2xl transition-all border-0 hover-elevate"
+                    className="rounded-full text-[15px] md:text-sm px-10 md:px-7 py-6 md:py-4 h-auto font-bold bg-[#c4ff4d] text-black hover:bg-[#b5ef3d] shadow-2xl hover:shadow-2xl transition-all border-0 hover-elevate"
                     data-testid="button-start-talking"
                   >
                     Start Talking
@@ -196,8 +196,8 @@ export default function HeroSection() {
           </div>
         </div>
 
-        {/* Carousel - always visible at bottom */}
-        <div className="w-full mt-8 md:mt-6">
+        {/* Carousel - compact size on desktop */}
+        <div className="w-full mt-8 md:mt-5">
           <FloatingChipCarousel />
         </div>
       </div>
