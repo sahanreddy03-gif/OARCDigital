@@ -81,15 +81,22 @@ export default function FloatingChipCarousel() {
       animationRef.current = requestAnimationFrame(animate);
     };
 
-    // Start animation after measuring
-    setTimeout(() => {
+    // Ensure track starts at 0 position immediately
+    if (track) {
+      track.style.transform = 'translateX(0px)';
+    }
+
+    // Start animation after measuring - give more time for layout
+    const startTimer = setTimeout(() => {
       measureWidth();
       if (contentWidth > 0) {
+        currentTranslate = 0; // Reset to 0 before starting
         animate();
       }
-    }, 100);
+    }, 200);
 
     return () => {
+      clearTimeout(startTimer);
       if (animationRef.current) {
         cancelAnimationFrame(animationRef.current);
       }
