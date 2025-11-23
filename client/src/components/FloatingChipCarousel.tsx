@@ -49,9 +49,8 @@ export default function FloatingChipCarousel() {
     const track = trackRef.current;
     if (!track) return;
 
-    // Determine speed based on screen size
-    const isMobile = window.innerWidth < 768;
-    const speed = isMobile ? 0.5 : 0.3; // Pixels per frame (faster on mobile)
+    // Use consistent faster speed on all screen sizes
+    const speed = 0.5; // Pixels per frame
 
     let currentTranslate = 0;
     let contentWidth = 0;
@@ -101,7 +100,7 @@ export default function FloatingChipCarousel() {
     <div className="w-full overflow-hidden">
       <div 
         ref={trackRef}
-        className="flex whitespace-nowrap gap-3 md:gap-2"
+        className="flex whitespace-nowrap gap-3"
         style={{ willChange: 'transform' }}
       >
         {duplicatedServices.map((service, index) => (
@@ -110,9 +109,9 @@ export default function FloatingChipCarousel() {
             className="inline-flex flex-shrink-0"
             data-testid={`carousel-chip-${index}`}
           >
-            <div className="group flex items-center gap-3 md:gap-2 px-4 md:px-3 py-3 md:py-2 bg-white/95 backdrop-blur-sm rounded-lg shadow-lg hover:shadow-2xl hover:scale-105 hover:bg-white transition-all duration-300 cursor-pointer border border-white/20 hover:border-[#c4ff4d]/30">
-              {/* Enhanced Mobile: 60px, Tablet+: 52px professional images */}
-              <div className="w-[60px] h-[60px] md:w-[52px] md:h-[52px] rounded-xl md:rounded-lg overflow-hidden flex-shrink-0 bg-zinc-100 ring-2 ring-white/50 group-hover:ring-[#c4ff4d]/40 transition-all duration-300">
+            <div className="group flex items-center gap-3 px-4 py-3 bg-white/95 backdrop-blur-sm rounded-lg shadow-lg hover:shadow-2xl hover:scale-105 hover:bg-white transition-all duration-300 cursor-pointer border border-white/20 hover:border-[#c4ff4d]/30">
+              {/* Consistent 60px images on all screen sizes */}
+              <div className="w-[60px] h-[60px] rounded-xl overflow-hidden flex-shrink-0 bg-zinc-100 ring-2 ring-white/50 group-hover:ring-[#c4ff4d]/40 transition-all duration-300">
                 <img 
                   src={service.image} 
                   alt={service.text}
@@ -120,7 +119,7 @@ export default function FloatingChipCarousel() {
                   data-testid={`carousel-image-${service.text.toLowerCase().replace(/\s+/g, '-')}`}
                 />
               </div>
-              <span className="text-sm md:text-xs lg:text-sm font-bold text-gray-900 group-hover:text-zinc-950 pr-2 md:pr-1 whitespace-nowrap transition-colors duration-300" data-testid={`carousel-text-${service.text.toLowerCase().replace(/\s+/g, '-')}`}>
+              <span className="text-sm font-bold text-gray-900 group-hover:text-zinc-950 pr-2 whitespace-nowrap transition-colors duration-300" data-testid={`carousel-text-${service.text.toLowerCase().replace(/\s+/g, '-')}`}>
                 {service.text}
               </span>
             </div>
