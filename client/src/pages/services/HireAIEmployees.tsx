@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'wouter';
-import { ArrowRight, CheckCircle, Users, Code, Zap, Target } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Users, Code, Zap, Target } from 'lucide-react';
 import Layout from '@/components/layout/Layout';
 import SEOHead from "@/components/SEOHead";
 import { aiEmployeeServicesSEO } from "@/data/seoMetadata";

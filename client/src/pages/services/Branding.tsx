@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'wouter';
-import { ArrowRight, CheckCircle, Palette, Target, Layout as LayoutIcon, Sparkles } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Palette, Target, Layout as LayoutIcon, Sparkles } from 'lucide-react';
 import Layout from '@/components/layout/Layout';
 import SEOHead from '@/components/SEOHead';
 import { creativeServicesSEO } from '@/data/seoMetadata';

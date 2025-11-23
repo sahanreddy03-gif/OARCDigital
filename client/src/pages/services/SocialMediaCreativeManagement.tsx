@@ -6,7 +6,7 @@ import { createServiceSchema } from "@/utils/structuredData";
 import { useEffect } from "react";
 import { Link } from "wouter";
 import { 
-  ArrowRight, CheckCircle, Smartphone, Target, Palette, Users,
+  ArrowRight, CheckCircle2, Smartphone, Target, Palette, Users,
   Instagram, Linkedin, Facebook
 } from "lucide-react";
 import { SiTiktok, SiYoutube, SiSnapchat, SiPinterest, SiGoogle } from "react-icons/si";
