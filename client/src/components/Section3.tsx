@@ -28,7 +28,7 @@ const brands = [
   { name: "Uniqlo", icon: null },
   { name: "easyJet", icon: null },
   { name: "Premier Inn", icon: null },
-  { name: "The Body Shop", icon: null },
+  { name: "NaturalCare", icon: null },
   { name: "Deliveroo", icon: null },
   { name: "LVMH", icon: null },
   { name: "Pfizer", icon: null },

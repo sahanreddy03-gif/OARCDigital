@@ -395,12 +395,12 @@ export default function Creative() {
             </button>
           </Link>
 
-          {/* The Gym Group Case Study */}
-          <Link href="/case-studies/gym-group">
-            <div className="relative bg-gradient-to-br from-gray-800 to-gray-900 rounded-3xl overflow-hidden h-[500px] hover-elevate active-elevate-2 cursor-pointer" data-testid="card-case-study-gym-group">
+          {/* FitnessPro Network Case Study */}
+          <Link href="/case-studies/fitnesspro-network">
+            <div className="relative bg-gradient-to-br from-gray-800 to-gray-900 rounded-3xl overflow-hidden h-[500px] hover-elevate active-elevate-2 cursor-pointer" data-testid="card-case-study-fitnesspro">
               <img
                 src={fitnessImg1}
-                alt="The Gym Group TikTok Campaign"
+                alt="FitnessPro Network TikTok Campaign"
                 className="absolute inset-0 w-full h-full object-cover opacity-50"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent"></div>
@@ -416,7 +416,7 @@ export default function Creative() {
                     Influencer Marketing
                   </span>
                 </div>
-                <h3 className="text-3xl font-black mb-2">The Gym Group</h3>
+                <h3 className="text-3xl font-black mb-2">FitnessPro Network</h3>
                 <p className="text-lg text-gray-200 mb-4">
                   Inspiring a new wave of fitness enthusiasts.
                 </p>

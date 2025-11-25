@@ -95,18 +95,18 @@ export default function HireAIEmployees() {
 
   const caseStudies = [
     {
-      title: 'Tapestry: Real-Time Fashion Operations with AI',
+      title: 'Heritage Luxury Group: Real-Time Fashion Operations with AI',
       industry: 'Luxury Retail',
-      description: 'SAP automation across Coach, Kate Spade, and Stuart Weitzman delivering real-time data validations.',
+      description: 'SAP automation across multiple premium fashion brands delivering real-time data validations.',
       image: teamImg1,
-      slug: 'tapestry-automation'
+      slug: 'heritage-luxury-group'
     },
     {
-      title: 'Acclaim Autism: 83% Faster Patient Intake',
+      title: 'HealthPath AI: 83% Faster Patient Intake',
       industry: 'Healthcare',
-      description: 'AI-powered document processing enabling families to access autism care services faster.',
+      description: 'AI-powered document processing enabling families to access healthcare services faster.',
       image: teamImg2,
-      slug: 'acclaim-autism'
+      slug: 'healthpath-ai'
     }
   ];
 
