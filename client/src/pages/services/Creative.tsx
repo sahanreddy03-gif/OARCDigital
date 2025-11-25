@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'wouter';
-import { ArrowRight, CheckCircle2, ChevronLeft, ChevronRight, Camera, Palette, Briefcase, Video, FileText, Play } from 'lucide-react';
+import { ArrowRight, CheckCircle2, ChevronLeft, ChevronRight, Camera, Palette, Briefcase, Video, FileText } from 'lucide-react';
 import Layout from '@/components/layout/Layout';
 import SEOHead from "@/components/SEOHead";
 import { creativeServicesSEO } from "@/data/seoMetadata";
@@ -448,23 +448,13 @@ export default function Creative() {
           </h2>
 
           <div className="grid grid-cols-2 gap-6 mt-8">
-            <div className="relative bg-gray-300 rounded-3xl overflow-hidden h-[400px] group" data-testid="card-video-campaign-1">
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-20 h-20 bg-[#5FD4C4] rounded-full flex items-center justify-center">
-                  <Play className="h-10 w-10 text-white ml-1" />
-                </div>
-              </div>
+            <div className="relative bg-gray-300 rounded-3xl overflow-hidden h-[400px] group" data-testid="card-content-campaign-1">
               <div className="absolute bottom-0 left-0 right-0 p-6">
                 <h3 className="text-xl font-black text-white">19 Crimes x Halloween</h3>
               </div>
             </div>
 
-            <div className="relative bg-gray-300 rounded-3xl overflow-hidden h-[400px] group" data-testid="card-video-campaign-2">
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-20 h-20 bg-[#5FD4C4] rounded-full flex items-center justify-center">
-                  <Play className="h-10 w-10 text-white ml-1" />
-                </div>
-              </div>
+            <div className="relative bg-gray-300 rounded-3xl overflow-hidden h-[400px] group" data-testid="card-content-campaign-2">
               <div className="absolute bottom-0 left-0 right-0 p-6">
                 <h3 className="text-xl font-black text-white">Very Lazy x Beneath the Cloves</h3>
               </div>
@@ -481,23 +471,13 @@ export default function Creative() {
           </h2>
 
           <div className="grid grid-cols-2 gap-6 mt-8">
-            <div className="relative bg-gray-300 rounded-3xl overflow-hidden h-[400px] group" data-testid="card-video-organic-1">
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-20 h-20 bg-[#5FD4C4] rounded-full flex items-center justify-center">
-                  <Play className="h-10 w-10 text-white ml-1" />
-                </div>
-              </div>
+            <div className="relative bg-gray-300 rounded-3xl overflow-hidden h-[400px] group" data-testid="card-content-organic-1">
               <div className="absolute bottom-0 left-0 right-0 p-6">
                 <h3 className="text-xl font-black text-white">easyJet Holidays</h3>
               </div>
             </div>
 
-            <div className="relative bg-gray-300 rounded-3xl overflow-hidden h-[400px] group" data-testid="card-video-organic-2">
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-20 h-20 bg-[#5FD4C4] rounded-full flex items-center justify-center">
-                  <Play className="h-10 w-10 text-white ml-1" />
-                </div>
-              </div>
+            <div className="relative bg-gray-300 rounded-3xl overflow-hidden h-[400px] group" data-testid="card-content-organic-2">
               <div className="absolute bottom-0 left-0 right-0 p-6">
                 <h3 className="text-xl font-black text-white">VeryLazy</h3>
               </div>
@@ -514,23 +494,13 @@ export default function Creative() {
           </h2>
 
           <div className="grid grid-cols-2 gap-6 mt-8">
-            <div className="relative bg-gray-300 rounded-3xl overflow-hidden h-[400px] group" data-testid="card-video-paid-1">
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-20 h-20 bg-[#5FD4C4] rounded-full flex items-center justify-center">
-                  <Play className="h-10 w-10 text-white ml-1" />
-                </div>
-              </div>
+            <div className="relative bg-gray-300 rounded-3xl overflow-hidden h-[400px] group" data-testid="card-content-paid-1">
               <div className="absolute bottom-0 left-0 right-0 p-6">
                 <h3 className="text-xl font-black text-white">Glasses Direct</h3>
               </div>
             </div>
 
-            <div className="relative bg-gray-300 rounded-3xl overflow-hidden h-[400px] group" data-testid="card-video-paid-2">
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-20 h-20 bg-[#5FD4C4] rounded-full flex items-center justify-center">
-                  <Play className="h-10 w-10 text-white ml-1" />
-                </div>
-              </div>
+            <div className="relative bg-gray-300 rounded-3xl overflow-hidden h-[400px] group" data-testid="card-content-paid-2">
               <div className="absolute bottom-0 left-0 right-0 p-6">
                 <h3 className="text-xl font-black text-white">Adapted Assets for Passenger</h3>
               </div>
