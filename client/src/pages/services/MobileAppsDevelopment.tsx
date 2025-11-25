@@ -92,11 +92,11 @@ export default function MobileAppsDevelopment() {
 
   const caseStudies = [
     {
-      title: 'FanDuel: ChuckGPT AI Chatbot for Tens of Thousands',
-      industry: 'Sports Betting',
+      title: 'SportsAI Interactive: Celebrity AI Chatbot for Tens of Thousands',
+      industry: 'Sports Entertainment',
       description: 'Built and scaled custom AI chatbot to tens of thousands of users within hours of launch.',
       image: appImg1,
-      slug: 'fanduel-chuckgpt'
+      slug: 'sportsai-interactive'
     },
     {
       title: 'Enterprise Mobile Platform for Global Workforce',

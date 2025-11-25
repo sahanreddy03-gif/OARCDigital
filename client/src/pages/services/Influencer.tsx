@@ -59,12 +59,12 @@ export default function Influencer() {
 
   const caseStudies = [
     {
-      id: 'tefal',
+      id: 'homecraft-innovations',
       category: 'Influencer Marketing',
-      brand: 'Tefal',
-      description: 'Selling out product lines of household products for Tefal.',
+      brand: 'HomeCraft Innovations',
+      description: 'Selling out product lines of household products for HomeCraft Innovations.',
       image: tefalHeroImg,
-      link: '/case-studies/tefal',
+      link: '/case-studies/homecraft-innovations',
       stats: [
         { value: '500K', label: 'Engagements' },
         { value: '6.6M', label: 'Impressions' },
@@ -72,12 +72,12 @@ export default function Influencer() {
       ]
     },
     {
-      id: 'body-shop',
+      id: 'naturalcare-beauty',
       category: 'Influencer Marketing',
-      brand: 'The Body Shop',
+      brand: 'NaturalCare Beauty',
       description: 'Celebrating authenticity and natural beauty with TikTok.',
       image: bodyShopHeroImg,
-      link: '/case-studies/body-shop',
+      link: '/case-studies/naturalcare-beauty',
       stats: [
         { value: '800K', label: 'Engagements' },
         { value: '4.5M', label: 'Views' },

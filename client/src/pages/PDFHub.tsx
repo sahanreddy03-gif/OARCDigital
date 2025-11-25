@@ -131,7 +131,7 @@ export default function PDFHub() {
                   </li>
                   <li className="flex gap-3">
                     <span className="text-green-500">•</span>
-                    <span><strong>Global Brand Case Studies:</strong> Results from Gym Group, Azzaro, Body Shop, Tefal, Lenovo, ESL Gaming</span>
+                    <span><strong>Global Brand Case Studies:</strong> Results from FitnessPro, Luxe Essence, NaturalCare, HomeCraft, GamingTech, ProGamer</span>
                   </li>
                   <li className="flex gap-3">
                     <span className="text-green-500">•</span>

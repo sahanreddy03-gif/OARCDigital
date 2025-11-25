@@ -93,11 +93,11 @@ export default function AIConsulting() {
 
   const caseStudies = [
     {
-      title: 'How Sherweb Scaled AI Adoption',
+      title: 'How CloudBase Technologies Scaled AI Adoption',
       industry: 'Software',
       description: 'Creating a solid foundation for responsible AI use in creative teams with measurable impact.',
       image: consultingImg1,
-      slug: 'sherweb-ai-adoption'
+      slug: 'cloudbase-technologies'
     },
     {
       title: 'How a Fortune 500 Doubled AI Adoption',

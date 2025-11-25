@@ -424,12 +424,12 @@ export default function Paid() {
           </Link>
 
           <div className="grid md:grid-cols-2 gap-8">
-            {/* Lenovo Legion Case Study */}
-            <Link href="/case-studies/lenovo-legion">
-              <div className="relative bg-gradient-to-br from-gray-800 to-gray-900 rounded-3xl overflow-hidden h-[500px] hover-elevate active-elevate-2 cursor-pointer" data-testid="card-case-study-lenovo">
+            {/* GamingTech Elite Case Study */}
+            <Link href="/case-studies/gamingtech-elite">
+              <div className="relative bg-gradient-to-br from-gray-800 to-gray-900 rounded-3xl overflow-hidden h-[500px] hover-elevate active-elevate-2 cursor-pointer" data-testid="card-case-study-gamingtech">
                 <img
                   src={gamingImg1}
-                  alt="Lenovo Legion Gaming Setup"
+                  alt="GamingTech Elite Gaming Setup"
                   className="absolute inset-0 w-full h-full object-cover opacity-50"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent"></div>
@@ -442,9 +442,9 @@ export default function Paid() {
                       Gaming
                     </span>
                   </div>
-                  <h3 className="text-2xl font-black mb-2">Lenovo Legion</h3>
+                  <h3 className="text-2xl font-black mb-2">GamingTech Elite</h3>
                   <p className="text-sm text-gray-200 mb-3">
-                    Elevating Lenovo Legion to the forefront of gaming culture.
+                    Elevating GamingTech Elite to the forefront of gaming culture.
                   </p>
                   <div className="grid grid-cols-3 gap-3 mt-4">
                     <div>
@@ -464,12 +464,12 @@ export default function Paid() {
               </div>
             </Link>
 
-            {/* ESL Gaming Case Study */}
-            <Link href="/case-studies/esl-gaming">
-              <div className="relative bg-gradient-to-br from-gray-800 to-gray-900 rounded-3xl overflow-hidden h-[500px] hover-elevate active-elevate-2 cursor-pointer" data-testid="card-case-study-esl">
+            {/* ProGamer Network Case Study */}
+            <Link href="/case-studies/progamer-network">
+              <div className="relative bg-gradient-to-br from-gray-800 to-gray-900 rounded-3xl overflow-hidden h-[500px] hover-elevate active-elevate-2 cursor-pointer" data-testid="card-case-study-progamer">
                 <img
                   src={gamingImg2}
-                  alt="ESL Gaming TikTok"
+                  alt="ProGamer Network TikTok"
                   className="absolute inset-0 w-full h-full object-cover opacity-50"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent"></div>
@@ -482,9 +482,9 @@ export default function Paid() {
                       Gaming
                     </span>
                   </div>
-                  <h3 className="text-2xl font-black mb-2">ESL Gaming</h3>
+                  <h3 className="text-2xl font-black mb-2">ProGamer Network</h3>
                   <p className="text-sm text-gray-200 mb-3">
-                    Building and scaling the ESL Gaming TikTok presence.
+                    Building and scaling the ProGamer Network TikTok presence.
                   </p>
                   <div className="grid grid-cols-3 gap-3 mt-4">
                     <div>

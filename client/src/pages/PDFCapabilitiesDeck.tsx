@@ -258,7 +258,7 @@ export default function PDFCapabilitiesDeck() {
           </div>
 
           <div className="grid grid-cols-2 gap-6">
-            {/* Gym Group */}
+            {/* FitnessPro Network */}
             <div className="pdf-card case-study-card">
               <div className="case-study-badge">{websiteCases[0].category}</div>
               <h3 className="text-2xl font-black mb-2">{websiteCases[0].brand}</h3>
@@ -269,7 +269,7 @@ export default function PDFCapabilitiesDeck() {
               </div>
             </div>
 
-            {/* Azzaro */}
+            {/* Luxe Essence */}
             <div className="pdf-card case-study-card">
               <div className="case-study-badge">{websiteCases[1].category}</div>
               <h3 className="text-2xl font-black mb-2">{websiteCases[1].brand}</h3>
@@ -280,7 +280,7 @@ export default function PDFCapabilitiesDeck() {
               </div>
             </div>
 
-            {/* Body Shop */}
+            {/* NaturalCare Beauty */}
             <div className="pdf-card case-study-card">
               <div className="case-study-badge">{websiteCases[2].category}</div>
               <h3 className="text-2xl font-black mb-2">{websiteCases[2].brand}</h3>
@@ -291,7 +291,7 @@ export default function PDFCapabilitiesDeck() {
               </div>
             </div>
 
-            {/* Tefal */}
+            {/* HomeCraft Innovations */}
             <div className="pdf-card case-study-card">
               <div className="case-study-badge">{websiteCases[3].category}</div>
               <h3 className="text-2xl font-black mb-2">{websiteCases[3].brand}</h3>
@@ -311,7 +311,7 @@ export default function PDFCapabilitiesDeck() {
           </div>
 
           <div className="grid grid-cols-2 gap-6 mb-8">
-            {/* Lenovo Legion */}
+            {/* GamingTech Elite */}
             <div className="pdf-card case-study-card">
               <div className="case-study-badge">{websiteCases[4].category}</div>
               <h3 className="text-2xl font-black mb-2">{websiteCases[4].brand}</h3>
@@ -322,7 +322,7 @@ export default function PDFCapabilitiesDeck() {
               </div>
             </div>
 
-            {/* ESL Gaming */}
+            {/* ProGamer Network */}
             <div className="pdf-card case-study-card">
               <div className="case-study-badge">{websiteCases[5].category}</div>
               <h3 className="text-2xl font-black mb-2">{websiteCases[5].brand}</h3>
@@ -811,15 +811,15 @@ export default function PDFCapabilitiesDeck() {
             <div className="pt-12 border-t border-white/10">
               <p className="text-white/60 text-sm mb-4">Trusted by Global & Local Brands</p>
               <div className="flex justify-center gap-8 text-white/40 text-sm">
-                <span>The Gym Group</span>
+                <span>FitnessPro</span>
                 <span>•</span>
-                <span>Azzaro</span>
+                <span>Luxe Essence</span>
                 <span>•</span>
-                <span>The Body Shop</span>
+                <span>NaturalCare</span>
                 <span>•</span>
-                <span>Tefal</span>
+                <span>HomeCraft</span>
                 <span>•</span>
-                <span>Lenovo</span>
+                <span>GamingTech</span>
               </div>
             </div>
 

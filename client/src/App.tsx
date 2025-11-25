@@ -123,26 +123,22 @@ function Router() {
       <Route path="/services/:service" component={ServiceDetail} />
       
       <Route path="/our-work" component={OurWork} />
-      <Route path="/case-studies/tefal" component={TefalCaseStudy} />
-      <Route path="/case-studies/dont-make-ads" component={DontMakeAdsCaseStudy} />
-      <Route path="/case-studies/azzaro" component={AzzaroCaseStudy} />
-      <Route path="/case-studies/body-shop" component={BodyShopCaseStudy} />
-      <Route path="/case-studies/lenovo-legion" component={LenovoLegionCaseStudy} />
-      <Route path="/case-studies/esl-gaming" component={EslGamingCaseStudy} />
-      <Route path="/case-studies/gym-group" component={GymGroupCaseStudy} />
-      <Route path="/case-studies/antler" component={AntlerCaseStudy} />
-      <Route path="/case-studies/sherweb-ai-adoption" component={SherwebAICaseStudy} />
-      <Route path="/case-studies/peopleready-ai-team" component={PeopleReadyAICaseStudy} />
-      <Route path="/case-studies/cleverly-automation" component={CleverlyCaseStudy} />
-      <Route path="/case-studies/fanduel-chuckgpt" component={FanDuelChuckGPTCaseStudy} />
-      <Route path="/case-studies/tapestry-automation" component={TapestryAutomation} />
-      <Route path="/case-study/tapestry-automation" component={TapestryAutomation} />
-      <Route path="/case-studies/bancolombia-automation" component={BancolombiaAutomation} />
-      <Route path="/case-study/bancolombia-automation" component={BancolombiaAutomation} />
-      <Route path="/case-studies/jbs-automation" component={JBSAutomation} />
-      <Route path="/case-study/jbs-automation" component={JBSAutomation} />
-      <Route path="/case-studies/acclaim-autism" component={AcclaimAutism} />
-      <Route path="/case-study/acclaim-autism" component={AcclaimAutism} />
+      <Route path="/case-studies/homecraft-innovations" component={TefalCaseStudy} />
+      <Route path="/case-studies/authentic-stories" component={DontMakeAdsCaseStudy} />
+      <Route path="/case-studies/luxe-essence" component={AzzaroCaseStudy} />
+      <Route path="/case-studies/naturalcare-beauty" component={BodyShopCaseStudy} />
+      <Route path="/case-studies/gamingtech-elite" component={LenovoLegionCaseStudy} />
+      <Route path="/case-studies/progamer-network" component={EslGamingCaseStudy} />
+      <Route path="/case-studies/fitnesspro-network" component={GymGroupCaseStudy} />
+      <Route path="/case-studies/venturehub-co" component={AntlerCaseStudy} />
+      <Route path="/case-studies/cloudbase-technologies" component={SherwebAICaseStudy} />
+      <Route path="/case-studies/talentscale-solutions" component={PeopleReadyAICaseStudy} />
+      <Route path="/case-studies/streamflow-automation" component={CleverlyCaseStudy} />
+      <Route path="/case-studies/sportsai-interactive" component={FanDuelChuckGPTCaseStudy} />
+      <Route path="/case-studies/heritage-luxury-group" component={TapestryAutomation} />
+      <Route path="/case-studies/digital-finance-solutions" component={BancolombiaAutomation} />
+      <Route path="/case-studies/global-supply-systems" component={JBSAutomation} />
+      <Route path="/case-studies/healthpath-ai" component={AcclaimAutism} />
       <Route path="/our-work/:slug" component={() => <div>Case Study Detail (Phase 3)</div>} />
       <Route path="/why-us" component={WhyUs} />
       <Route path="/roadmap" component={Roadmap2026} />

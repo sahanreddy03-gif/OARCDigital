@@ -438,11 +438,11 @@ export default function Social() {
           </Link>
 
           {/* Case Study Card */}
-          <Link href="/case-studies/tefal">
+          <Link href="/case-studies/homecraft-innovations">
             <div className="relative rounded-3xl overflow-hidden shadow-lg cursor-pointer hover-elevate" data-testid="card-case-study">
               <img 
                 src={beybladeImg}
-                alt="Tefal Case Study"
+                alt="HomeCraft Innovations Case Study"
                 className="w-full rounded-3xl h-[500px] object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
@@ -456,7 +456,7 @@ export default function Social() {
                     </span>
                   </div>
                   <h3 className="text-3xl font-black text-white mb-3">
-                    Raising new product awareness and selling out product lines for Tefal
+                    Raising new product awareness and selling out product lines for HomeCraft Innovations
                   </h3>
                   <p className="text-white text-lg">
                     Sold out product lines through strategic influencer partnerships and award-winning social campaigns.

@@ -95,18 +95,18 @@ export default function RevenueAutomation() {
 
   const caseStudies = [
     {
-      title: 'Bancolombia: 1,300% ROI Through Banking Automation',
+      title: 'Digital Finance Solutions: 1,300% ROI Through Banking Automation',
       industry: 'Banking & Finance',
       description: 'Saving 127,000+ branch hours and generating $7M in new revenue for 14 million customers.',
       image: automationImg1,
-      slug: 'bancolombia-automation'
+      slug: 'digital-finance-solutions'
     },
     {
-      title: 'JBS: $1M+ Annual Savings Through Supply Chain Automation',
+      title: 'Global Supply Systems: $1M+ Annual Savings Through Supply Chain Automation',
       industry: 'Food & Agriculture',
       description: '210 intelligent automations saving 125,000 hours across global food operations.',
       image: automationImg2,
-      slug: 'jbs-automation'
+      slug: 'global-supply-systems'
     }
   ];
 

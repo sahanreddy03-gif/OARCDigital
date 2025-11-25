@@ -100,19 +100,19 @@ export function getLocationServiceLinks(service: string, limit: number = 3): Int
 export function getCaseStudyLinks(category: 'creative' | 'ai' | 'revenue', limit: number = 2): InternalLink[] {
   const caseStudies = {
     creative: [
-      { slug: 'tefal', title: 'Tefal Creative Campaign' },
-      { slug: 'azzaro', title: 'Azzaro Brand Refresh' },
-      { slug: 'body-shop', title: 'Body Shop Social Media' }
+      { slug: 'homecraft-innovations', title: 'HomeCraft Innovations Campaign' },
+      { slug: 'luxe-essence', title: 'Luxe Essence Brand Refresh' },
+      { slug: 'naturalcare-beauty', title: 'NaturalCare Beauty Social Media' }
     ],
     ai: [
-      { slug: 'sherweb-ai-adoption', title: 'Sherweb AI Implementation' },
-      { slug: 'peopleready-ai-team', title: 'PeopleReady AI Team' },
-      { slug: 'fanduel-chuckgpt', title: 'FanDuel ChuckGPT' }
+      { slug: 'cloudbase-technologies', title: 'CloudBase Technologies AI Implementation' },
+      { slug: 'talentscale-solutions', title: 'TalentScale Solutions AI Team' },
+      { slug: 'sportsai-interactive', title: 'SportsAI Interactive Chatbot' }
     ],
     revenue: [
-      { slug: 'tapestry-automation', title: 'Tapestry Revenue Automation' },
-      { slug: 'bancolombia-automation', title: 'Bancolombia Automation' },
-      { slug: 'cleverly-automation', title: 'Cleverly Growth Story' }
+      { slug: 'heritage-luxury-group', title: 'Heritage Luxury Group Automation' },
+      { slug: 'digital-finance-solutions', title: 'Digital Finance Solutions Automation' },
+      { slug: 'streamflow-automation', title: 'StreamFlow Automation Growth Story' }
     ]
   };
   
