@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'wouter';
-import { ArrowRight, CheckCircle2, ChevronLeft, ChevronRight, Megaphone, Users, FileText, Play } from 'lucide-react';
+import { ArrowRight, CheckCircle2, ChevronLeft, ChevronRight, Megaphone, Users, FileText } from 'lucide-react';
 import Layout from '@/components/layout/Layout';
 import SEOHead from "@/components/SEOHead";
 import { revenueServicesSEO } from "@/data/seoMetadata";
@@ -459,12 +459,7 @@ export default function Influencer() {
               'Jungle Formula x Poppy Hollins',
               'Carpetright Influencer'
             ].map((title, idx) => (
-              <div key={idx} className="relative bg-gray-300 rounded-3xl overflow-hidden h-[350px] group" data-testid={`card-video-influencer-${idx + 1}`}>
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-20 h-20 bg-[#5FD4C4] rounded-full flex items-center justify-center">
-                    <Play className="h-10 w-10 text-white ml-1" />
-                  </div>
-                </div>
+              <div key={idx} className="relative bg-gray-300 rounded-3xl overflow-hidden h-[350px] group" data-testid={`card-content-influencer-${idx + 1}`}>
                 <div className="absolute bottom-0 left-0 right-0 p-6">
                   <h3 className="text-lg font-black text-white">{title}</h3>
                 </div>

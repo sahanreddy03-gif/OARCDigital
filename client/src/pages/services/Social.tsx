@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import { Link } from "wouter";
 import ScrollReveal from "@/components/ScrollReveal";
 import { 
-  ArrowRight, CheckCircle, CheckCircle2, MessageSquare, Star, Target, Users, Settings, Play,
+  ArrowRight, CheckCircle, CheckCircle2, MessageSquare, Star, Target, Users, Settings,
   ChevronLeft, ChevronRight
 } from "lucide-react";
 
@@ -479,35 +479,25 @@ export default function Social() {
           </h2>
 
           <div className="grid grid-cols-2 gap-6">
-            {/* Video 1 */}
-            <div className="relative rounded-3xl overflow-hidden" data-testid="video-1">
+            {/* Content 1 */}
+            <div className="relative rounded-3xl overflow-hidden" data-testid="content-1">
               <img 
                 src={videoImg1}
                 alt="The Dungeons"
                 className="w-full h-[400px] object-cover"
               />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-20 h-20 bg-[#c4ff4d] rounded-full flex items-center justify-center">
-                  <Play className="h-10 w-10 text-black fill-black ml-1" />
-                </div>
-              </div>
               <div className="absolute bottom-4 left-4 right-4">
                 <h3 className="text-xl font-black text-white">The Dungeons</h3>
               </div>
             </div>
 
-            {/* Video 2 */}
-            <div className="relative rounded-3xl overflow-hidden" data-testid="video-2">
+            {/* Content 2 */}
+            <div className="relative rounded-3xl overflow-hidden" data-testid="content-2">
               <img 
                 src={videoImg2}
                 alt="Carpetright"
                 className="w-full h-[400px] object-cover"
               />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-20 h-20 bg-[#c4ff4d] rounded-full flex items-center justify-center">
-                  <Play className="h-10 w-10 text-black fill-black ml-1" />
-                </div>
-              </div>
               <div className="absolute bottom-4 left-4 right-4">
                 <h3 className="text-xl font-black text-white">Carpetright</h3>
               </div>
