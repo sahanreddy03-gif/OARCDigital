@@ -166,7 +166,7 @@ export default function SocialMediaCreativeManagement() {
                   ))}
                 </ul>
 
-                {/* Learn More Button - Exact Social Shepherd style */}
+                {/* Learn More Button */}
                 <Link href={service.link}>
                   <a className="block w-full">
                     <Button

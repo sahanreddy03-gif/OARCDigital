@@ -469,7 +469,7 @@ export default function Influencer() {
         </div>
       </section>
 
-      {/* Why Social Shepherd Carousel */}
+      {/* Why OARC Digital Carousel */}
       <section className="py-14 px-4 bg-gray-50">
         <div className="max-w-4xl mx-auto">
           <div className="flex items-center justify-between mb-8">
