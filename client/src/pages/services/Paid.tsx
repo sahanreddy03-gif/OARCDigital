@@ -14,6 +14,8 @@ import studioImg from '@assets/stock_images/graphic_design_creat_e05eb8ba.jpg';
 import largeTeamImg from '@assets/stock_images/digital_advertising__72c578c7.jpg';
 import gamingImg1 from '@assets/stock_images/gaming_esports_compu_611efecd.jpg';
 import gamingImg2 from '@assets/stock_images/gaming_esports_compu_315351f1.jpg';
+import retailStoreImg from '@assets/stock_images/retail_store_fashion_343ad2e2.jpg';
+import eyeglassesImg from '@assets/stock_images/eyeglasses_optical_s_879c2628.jpg';
 
 export default function Paid() {
   const [currentService, setCurrentService] = useState(0);
@@ -513,13 +515,25 @@ export default function Paid() {
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
-            <div className="relative bg-gray-300 rounded-3xl overflow-hidden h-[400px] group" data-testid="card-content-1">
+            <div className="relative rounded-3xl overflow-hidden h-[400px] group" data-testid="card-content-1">
+              <img 
+                src={retailStoreImg}
+                alt="New Store Opening for Uniqlo"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
               <div className="absolute bottom-0 left-0 right-0 p-6">
                 <h3 className="text-xl font-black text-white">New Store Opening for Uniqlo</h3>
               </div>
             </div>
 
-            <div className="relative bg-gray-300 rounded-3xl overflow-hidden h-[400px] group" data-testid="card-content-2">
+            <div className="relative rounded-3xl overflow-hidden h-[400px] group" data-testid="card-content-2">
+              <img 
+                src={eyeglassesImg}
+                alt="Glasses Direct"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
               <div className="absolute bottom-0 left-0 right-0 p-6">
                 <h3 className="text-xl font-black text-white">Glasses Direct</h3>
               </div>
