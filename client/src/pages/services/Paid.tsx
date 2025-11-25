@@ -169,7 +169,7 @@ export default function Paid() {
         <section className="relative py-14 px-4 overflow-hidden">
           {/* Gradient background with floating orbs */}
           <div className="absolute inset-0 bg-gradient-to-br from-[#F5F3ED] via-white to-[#FFF9F0]"></div>
-          <div className="absolute top-20 right-20 w-96 h-96 bg-[#5FD4C4]/10 rounded-full blur-3xl"></div>
+          <div className="absolute top-20 right-20 w-96 h-96 bg-[#c4ff4d]/10 rounded-full blur-3xl"></div>
           <div className="absolute bottom-20 left-20 w-80 h-80 bg-[#4a7000]/5 rounded-full blur-3xl"></div>
           
           <div className="max-w-6xl mx-auto relative">
@@ -353,7 +353,7 @@ export default function Paid() {
                 key={idx}
                 onClick={() => setCurrentService(idx)}
                 className={`h-2 rounded-full transition-all ${
-                  idx === currentService ? 'w-8 bg-[#5FD4C4]' : 'w-2 bg-gray-300'
+                  idx === currentService ? 'w-8 bg-[#c4ff4d]' : 'w-2 bg-gray-300'
                 }`}
                 data-testid={`dot-service-${idx}`}
               />
@@ -395,7 +395,7 @@ export default function Paid() {
                   <ul className="space-y-2">
                     {service.items.map((item, i) => (
                       <li key={i} className="flex items-start gap-2">
-                        <CheckCircle2 className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-1" />
+                        <CheckCircle2 className="h-4 w-4 text-[#c4ff4d] flex-shrink-0 mt-1" />
                         <span className="text-sm text-gray-800">{item}</span>
                       </li>
                     ))}
@@ -511,7 +511,7 @@ export default function Paid() {
       <section className="py-14 px-4 bg-gray-50">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-black text-black mb-2">
-            Checkout our latest <span className="text-[#5FD4C4]">Performance Creatives</span>
+            Checkout our latest <span className="text-[#c4ff4d]">Performance Creatives</span>
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
@@ -574,7 +574,7 @@ export default function Paid() {
                 key={idx}
                 onClick={() => setCurrentBenefit(idx)}
                 className={`h-2 rounded-full transition-all ${
-                  idx === currentBenefit ? 'w-8 bg-[#5FD4C4]' : 'w-2 bg-gray-300'
+                  idx === currentBenefit ? 'w-8 bg-[#c4ff4d]' : 'w-2 bg-gray-300'
                 }`}
                 data-testid={`dot-benefit-${idx}`}
               />
@@ -582,9 +582,9 @@ export default function Paid() {
           </div>
 
           {/* Benefit Card */}
-          <div className="bg-[#5FD4C4] text-black rounded-3xl p-10" data-testid="card-benefit-current">
+          <div className="bg-[#c4ff4d] text-black rounded-3xl p-10" data-testid="card-benefit-current">
             <div className="w-16 h-16 bg-black rounded-full flex items-center justify-center mb-6">
-              <CheckCircle2 className="h-8 w-8 text-[#5FD4C4]" />
+              <CheckCircle2 className="h-8 w-8 text-[#c4ff4d]" />
             </div>
 
             <h3 className="text-2xl md:text-3xl font-black text-black mb-4">
@@ -616,7 +616,7 @@ export default function Paid() {
           <div className="text-center mb-12">
             <div className="text-sm uppercase tracking-wider text-black mb-3">WHO THIS IS FOR</div>
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              For brands ready to <span className="italic text-[#5FD4C4]">scale with paid</span>
+              For brands ready to <span className="italic text-[#c4ff4d]">scale with paid</span>
             </h2>
             <p className="text-lg text-gray-700 max-w-2xl mx-auto">
               Performance-driven paid media strategies for every growth stage
@@ -631,15 +631,15 @@ export default function Paid() {
               </p>
               <ul className="space-y-2">
                 <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle2 className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
                   <span>Shopping feed optimization</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle2 className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
                   <span>Dynamic retargeting</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle2 className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
                   <span>ROAS optimization</span>
                 </li>
               </ul>
@@ -652,15 +652,15 @@ export default function Paid() {
               </p>
               <ul className="space-y-2">
                 <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle2 className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
                   <span>LinkedIn lead generation</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle2 className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
                   <span>Search intent targeting</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle2 className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
                   <span>ABM campaigns</span>
                 </li>
               </ul>
@@ -673,15 +673,15 @@ export default function Paid() {
               </p>
               <ul className="space-y-2">
                 <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle2 className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
                   <span>Creative testing frameworks</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle2 className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
                   <span>Multi-platform scaling</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle2 className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
                   <span>Brand lift measurement</span>
                 </li>
               </ul>
@@ -694,15 +694,15 @@ export default function Paid() {
               </p>
               <ul className="space-y-2">
                 <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle2 className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
                   <span>App install optimization</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle2 className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
                   <span>In-app event tracking</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle2 className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
                   <span>LTV-based bidding</span>
                 </li>
               </ul>
@@ -715,15 +715,15 @@ export default function Paid() {
               </p>
               <ul className="space-y-2">
                 <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle2 className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
                   <span>Local search domination</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle2 className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
                   <span>Geo-targeted campaigns</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle2 className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
                   <span>Store visit tracking</span>
                 </li>
               </ul>
@@ -736,15 +736,15 @@ export default function Paid() {
               </p>
               <ul className="space-y-2">
                 <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle2 className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
                   <span>Multi-market coordination</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle2 className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
                   <span>Advanced attribution</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle2 className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
                   <span>Custom analytics dashboards</span>
                 </li>
               </ul>
@@ -759,7 +759,7 @@ export default function Paid() {
           <div className="text-center mb-12">
             <div className="text-sm uppercase tracking-wider text-black mb-3">MAXIMIZE PAID PERFORMANCE</div>
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              Combine with these <span className="italic text-[#5FD4C4]">performance services</span>
+              Combine with these <span className="italic text-[#c4ff4d]">performance services</span>
             </h2>
             <p className="text-lg text-gray-700 max-w-2xl mx-auto">
               Build a complete paid media engine that drives results
@@ -768,10 +768,10 @@ export default function Paid() {
 
           <div className="grid md:grid-cols-3 gap-6">
             <Link href="/services/creative">
-              <div className="group p-8 bg-white rounded-xl border border-gray-200 hover:border-[#5FD4C4] hover:shadow-lg transition-all duration-300 cursor-pointer hover-elevate" data-testid="related-service-creative">
+              <div className="group p-8 bg-white rounded-xl border border-gray-200 hover:border-[#c4ff4d] hover:shadow-lg transition-all duration-300 cursor-pointer hover-elevate" data-testid="related-service-creative">
                 <div className="flex items-start justify-between mb-4">
-                  <h3 className="text-xl font-bold group-hover:text-[#5FD4C4] transition-colors">Creative Services</h3>
-                  <ArrowRight className="h-5 w-5 text-[#5FD4C4] group-hover:translate-x-1 transition-transform" />
+                  <h3 className="text-xl font-bold group-hover:text-[#c4ff4d] transition-colors">Creative Services</h3>
+                  <ArrowRight className="h-5 w-5 text-[#c4ff4d] group-hover:translate-x-1 transition-transform" />
                 </div>
                 <p className="text-sm text-gray-700 mb-4">
                   Fuel your paid campaigns with high-converting creative. Test more, win more with platform-optimized ad creative at scale.
@@ -780,10 +780,10 @@ export default function Paid() {
             </Link>
 
             <Link href="/services/digital-marketing">
-              <div className="group p-8 bg-white rounded-xl border border-gray-200 hover:border-[#5FD4C4] hover:shadow-lg transition-all duration-300 cursor-pointer hover-elevate" data-testid="related-service-analytics">
+              <div className="group p-8 bg-white rounded-xl border border-gray-200 hover:border-[#c4ff4d] hover:shadow-lg transition-all duration-300 cursor-pointer hover-elevate" data-testid="related-service-analytics">
                 <div className="flex items-start justify-between mb-4">
-                  <h3 className="text-xl font-bold group-hover:text-[#5FD4C4] transition-colors">Digital Marketing</h3>
-                  <ArrowRight className="h-5 w-5 text-[#5FD4C4] group-hover:translate-x-1 transition-transform" />
+                  <h3 className="text-xl font-bold group-hover:text-[#c4ff4d] transition-colors">Digital Marketing</h3>
+                  <ArrowRight className="h-5 w-5 text-[#c4ff4d] group-hover:translate-x-1 transition-transform" />
                 </div>
                 <p className="text-sm text-gray-700 mb-4">
                   Make data-driven decisions with proper attribution, conversion tracking, and custom dashboards that show true paid media ROI.
@@ -792,10 +792,10 @@ export default function Paid() {
             </Link>
 
             <Link href="/services/funnel-automation">
-              <div className="group p-8 bg-white rounded-xl border border-gray-200 hover:border-[#5FD4C4] hover:shadow-lg transition-all duration-300 cursor-pointer hover-elevate" data-testid="related-service-funnel-automation">
+              <div className="group p-8 bg-white rounded-xl border border-gray-200 hover:border-[#c4ff4d] hover:shadow-lg transition-all duration-300 cursor-pointer hover-elevate" data-testid="related-service-funnel-automation">
                 <div className="flex items-start justify-between mb-4">
-                  <h3 className="text-xl font-bold group-hover:text-[#5FD4C4] transition-colors">Funnel Automation</h3>
-                  <ArrowRight className="h-5 w-5 text-[#5FD4C4] group-hover:translate-x-1 transition-transform" />
+                  <h3 className="text-xl font-bold group-hover:text-[#c4ff4d] transition-colors">Funnel Automation</h3>
+                  <ArrowRight className="h-5 w-5 text-[#c4ff4d] group-hover:translate-x-1 transition-transform" />
                 </div>
                 <p className="text-sm text-gray-700 mb-4">
                   Nurture paid traffic automatically with behavioral triggers and sequences that convert cold clicks into hot customers.
@@ -809,7 +809,7 @@ export default function Paid() {
       {/* Final CTA Section */}
       <section className="py-14 px-4 bg-white">
         <div className="max-w-4xl mx-auto">
-          <div className="bg-[#5FD4C4] rounded-3xl overflow-hidden" data-testid="card-final-cta">
+          <div className="bg-[#c4ff4d] rounded-3xl overflow-hidden" data-testid="card-final-cta">
             <div className="p-10 md:p-16">
               <h2 className="text-3xl md:text-4xl lg:text-6xl font-black text-black mb-8">
                 Don't be <span className="text-white">sheepish</span><br />let's talk
@@ -846,7 +846,7 @@ export default function Paid() {
               <input 
                 type="email"
                 placeholder="Email"
-                className="flex-1 px-6 py-4 rounded-full bg-gray-800 border-none text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#5FD4C4]"
+                className="flex-1 px-6 py-4 rounded-full bg-gray-800 border-none text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#c4ff4d]"
                 data-testid="input-email-newsletter"
               />
               <button
