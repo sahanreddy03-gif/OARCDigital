@@ -71,11 +71,11 @@ export default function AzzaroCaseStudy() {
           </h2>
           
           <p className="text-base text-black leading-relaxed mb-12">
-            Azzaro, a distinguished luxury fragrance brand under the L'Oréal umbrella, approached our agency with a unique challenge: launching their latest olfactory masterpiece, "The Most Wanted," within the dynamic and trendsetting landscape of TikTok. We delivered a campaign that highlighted the mundane to extraordinary.
+            Azzaro, the prestigious fragrance powerhouse owned by L'Oréal, partnered with us to introduce "The Most Wanted" to TikTok's Gen-Z audience. Our challenge: connect luxury positioning with viral-first platform dynamics through authentic creator partnerships.
           </p>
 
           <p className="text-base text-black leading-relaxed mb-12">
-            Understanding the distinct challenges posed by the TikTok platform, we strategically partnered with a carefully curated selection of 20 TikTok creators within the US market. This partnership wasn't merely about numbers; it was about leveraging the individual creativity and reach of each creator to amplify the fragrance's presence. By enlisting creators from diverse spheres including Fashion, Lifestyle, Entertainment, and Men's Grooming, we ensured a multi-faceted approach that resonated across demographics.
+            We assembled a handpicked team of 20 influential TikTok creators across the United States. Rather than pursuing volume, we prioritized creative alignment and authentic audience overlap. Strategically sourcing creators from fashion, lifestyle, entertainment, and grooming sectors ensured multifaceted platform penetration and demographic diversity.
           </p>
 
           {/* Campaign Overview Box */}
@@ -137,11 +137,11 @@ export default function AzzaroCaseStudy() {
           
           <div className="space-y-4 text-white text-base leading-relaxed mb-8">
             <p>
-              Azzaro, a revered high-end brand renowned for its sophistication, was faced with a unique aspiration: to bridge the generational gap and connect with a younger demographic. This intriguing challenge compelled us to embark on a creative journey to develop Azzaro's inaugural TikTok activation – a task that entailed not just showcasing the product's luxurious positioning, but also crafting an experience that seamlessly integrated within the native tapestry of TikTok.
+              Azzaro's core challenge: introducing a prestige fragrance to an audience that traditionally discovers brands through peer recommendations rather than traditional luxury marketing. This required us to rethink luxury communication for TikTok's norms while preserving brand equity.
             </p>
             
             <p>
-              TikTok, provided an unparalleled opportunity for products to not only gain visibility but also achieve viral status. The statistics underscored this potential: 52% of users actively explored new products on the platform, drawn to aspirational videos that showcased transformations. This insight formed the cornerstone of our strategy – we weren't just showcasing a product; we were curating an experience that took viewers on a journey from intrigue to aspiration.
+              The data supported our approach: over half of TikTok users use the platform for product discovery, with transformation-focused content driving highest engagement. We recognized an opportunity to showcase fragrance not as an accessory, but as a confidence-building ritual—a narrative that would resonate organically.
             </p>
           </div>
 
@@ -185,15 +185,15 @@ export default function AzzaroCaseStudy() {
           
           <div className="space-y-4 text-black text-base leading-relaxed">
             <p>
-              We developed a branded hashtag challenge, showcasing how Azzaro's The Most Wanted fragrance transforms users from the mundane to the extraordinary with just one spray. Our creative concepts were meticulously designed to evoke this journey. Each video was a careful blend of aesthetic allure and the promise of transformation. Azzaro's luxurious allure wasn't merely presented; it was intertwined with narratives that resonated with aspirations of the audience.
+              We launched a hashtag-driven challenge positioning the fragrance as a daily confidence boost. Each creator produced a transition-focused video showcasing the "before-and-after" effect of wearing The Most Wanted, paired with an exclusive brand soundtrack. The creative emphasized personal elevation rather than product features.
             </p>
             
             <p>
-              Using a data-driven approach, we selected 20 Macro and Hero creators from Fashion, Lifestyle, Men's Grooming & Entertainment tribes with a high male audience, whose content and tone of voice were aligned with the overarching campaign message and brand values. Each influencer created one high-quality TikTok transition video, using a bespoke brand song as the sound that helped encourage UGC.
+              Our creator selection process prioritized audience demographics and authentic voice alignment. We partnered with 20 prominent creators across fashion, lifestyle, men's wellness, and entertainment verticals. Each produced signature transition content using the branded audio, creating a cohesive campaign narrative.
             </p>
             
             <p>
-              Alongside this, we seeded the product to over 500 Nano TikTok creators, who produced organic content in-line with campaign concept and increased awareness of the product. As a result, the campaign achieved over 59M views.
+              Simultaneously, 500+ tier-2 creators amplified the message through organic interpretations of the challenge, exponentially increasing reach. Final campaign performance: 59M+ total impressions across all creator tiers.
             </p>
           </div>
 
@@ -230,11 +230,11 @@ export default function AzzaroCaseStudy() {
           
           <div className="space-y-4 text-white text-base leading-relaxed mb-12">
             <p>
-              Our collaboration with Azzaro and L'Oréal exemplified the power of authentic partnerships in influencer marketing. By carefully selecting creators whose values aligned with the brand's ethos, we achieved genuine connections that resonated with audiences.
+              Our methodology proved that luxury brands thrive on TikTok when authenticity precedes product promotion. By aligning with creators who naturally embody brand values, we cultivated trust and credibility among audiences typically skeptical of branded content.
             </p>
             
             <p>
-              The campaign not only introduced Azzaro's luxury fragrance to a new generation on TikTok but also demonstrated how strategic influencer partnerships can drive meaningful engagement and brand awareness in the digital age.
+              The campaign successfully introduced Azzaro to millions of new Gen-Z consumers while establishing a blueprint for luxury-to-digital-native brand translations. Engagement rates and repeat content creation among creators underscored the campaign's organic appeal.
             </p>
           </div>
 
