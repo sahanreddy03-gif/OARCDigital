@@ -5,6 +5,19 @@ import { caseStudiesArray } from "@/data/caseStudies";
 export default function BrandShowcaseSection() {
   const featuredStudies = caseStudiesArray.slice(0, 6);
   
+  // Define the exact grid layout pattern from original design
+  const getGridClass = (index: number) => {
+    switch(index) {
+      case 0: return 'col-span-2 row-span-2'; // First card - big hero (full width, tall)
+      case 1: return 'col-span-1 row-span-1'; // Second card - left side
+      case 2: return 'col-span-1 row-span-1'; // Third card - right side
+      case 3: return 'col-span-1 row-span-1'; // Fourth card - half width
+      case 4: return 'col-span-2 row-span-1'; // Fifth card - full width
+      case 5: return 'col-span-1 row-span-1'; // Sixth card - half width
+      default: return 'col-span-1 row-span-1';
+    }
+  };
+  
   return (
     <section className="py-16 md:py-20 lg:py-24 bg-white relative overflow-hidden">
       <div className="container mx-auto px-4 md:px-8 lg:px-12 max-w-7xl">
@@ -21,19 +34,18 @@ export default function BrandShowcaseSection() {
           </p>
         </div>
 
-        {/* Mobile: 2-column uniform grid | Desktop: 3-column asymmetric */}
-        <div className="grid grid-cols-2 md:grid-cols-3 auto-rows-[180px] md:auto-rows-[280px] gap-3 md:gap-5 mb-8 md:mb-10">
+        {/* Grid Layout - 2 columns on mobile, 3 on desktop */}
+        <div className="grid grid-cols-2 md:grid-cols-3 auto-rows-[200px] md:auto-rows-[280px] gap-3 md:gap-5 mb-8 md:mb-10">
           {featuredStudies.map((study, index) => {
-            const desktopGridClass = study.gridClass
-              .replace('col-span-2', 'md:col-span-2')
-              .replace('col-span-1', 'md:col-span-1')
-              .replace('row-span-2', 'md:row-span-2')
-              .replace('row-span-1', 'md:row-span-1');
+            const gridClass = getGridClass(index);
+            // Apply col-span on all screens, row-span adjusts for mobile
+            const mobileAdjustedClass = gridClass
+              .replace('row-span-2', 'row-span-2');
             
             return (
               <Link key={index} href={`/case-studies/${study.slug}`} asChild>
                 <div
-                  className={`group relative overflow-hidden rounded-xl md:rounded-2xl bg-zinc-900 hover-elevate hover:-translate-y-1 transition-all duration-500 cursor-pointer ${desktopGridClass}`}
+                  className={`group relative overflow-hidden rounded-xl md:rounded-2xl bg-zinc-900 hover-elevate hover:-translate-y-1 transition-all duration-500 cursor-pointer ${mobileAdjustedClass}`}
                   data-testid={`card-case-study-${index}`}
                 >
                   {/* Image */}
@@ -43,36 +55,36 @@ export default function BrandShowcaseSection() {
                       alt={study.brand}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.05]"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
                   </div>
 
                   {/* Content */}
-                  <div className="relative h-full p-3 md:p-6 flex flex-col justify-between">
-                    {/* Top */}
+                  <div className="relative h-full p-4 md:p-6 flex flex-col justify-between">
+                    {/* Top - Category & Arrow */}
                     <div className="flex justify-between items-start">
-                      <div className="px-2 py-1 md:px-3 md:py-1.5 bg-white/15 backdrop-blur-sm rounded-full text-white text-[10px] md:text-xs font-semibold border border-white/10">
+                      <div className="px-2.5 py-1 md:px-3 md:py-1.5 bg-white/15 backdrop-blur-sm rounded-full text-white text-[11px] md:text-xs font-semibold border border-white/10">
                         {study.category}
                       </div>
-                      <div className="w-6 h-6 md:w-9 md:h-9 rounded-full bg-white/15 backdrop-blur-sm border border-white/10 flex items-center justify-center">
-                        <ArrowUpRight className="w-3 h-3 md:w-4 md:h-4 text-white" />
+                      <div className="w-7 h-7 md:w-9 md:h-9 rounded-full bg-white/15 backdrop-blur-sm border border-white/10 flex items-center justify-center">
+                        <ArrowUpRight className="w-3.5 h-3.5 md:w-4 md:h-4 text-white" />
                       </div>
                     </div>
 
-                    {/* Bottom */}
+                    {/* Bottom - Brand & Metric */}
                     <div>
                       <div className="mb-2 md:mb-4">
-                        <h3 className="text-sm md:text-2xl font-bold text-white leading-tight" style={{ letterSpacing: '-0.02em' }}>
+                        <h3 className="text-lg md:text-2xl lg:text-3xl font-bold text-white leading-tight" style={{ letterSpacing: '-0.02em' }}>
                           {study.brand}
                         </h3>
-                        <p className="text-[10px] md:text-sm text-white/80 font-medium leading-snug line-clamp-2 mt-0.5">
+                        <p className="text-xs md:text-sm text-white/80 font-medium leading-snug mt-0.5 line-clamp-2">
                           {study.description}
                         </p>
                       </div>
                       
                       {/* Metric Badge */}
-                      <div className="inline-block bg-[#c4ff4d] text-zinc-900 px-2 py-1 md:px-4 md:py-2 rounded-md md:rounded-lg">
-                        <div className="text-xs md:text-xl font-bold leading-none">{study.metrics.value}</div>
-                        <div className="text-[8px] md:text-xs font-semibold mt-0.5">{study.metrics.label}</div>
+                      <div className="inline-block bg-[#c4ff4d] text-zinc-900 px-3 py-1.5 md:px-4 md:py-2 rounded-lg group-hover:shadow-[0_0_20px_rgba(196,255,77,0.6)] transition-shadow duration-500">
+                        <div className="text-base md:text-xl font-bold leading-none">{study.metrics.value}</div>
+                        <div className="text-[9px] md:text-xs font-semibold mt-0.5">{study.metrics.label}</div>
                       </div>
                     </div>
                   </div>
