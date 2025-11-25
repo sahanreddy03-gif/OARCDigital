@@ -325,7 +325,7 @@ export default function Creative() {
                 key={idx}
                 onClick={() => setCurrentService(idx)}
                 className={`h-2 rounded-full transition-all ${
-                  idx === currentService ? 'w-8 bg-[#5FD4C4]' : 'w-2 bg-gray-300'
+                  idx === currentService ? 'w-8 bg-[#c4ff4d]' : 'w-2 bg-gray-300'
                 }`}
                 data-testid={`dot-service-${idx}`}
               />
@@ -367,7 +367,7 @@ export default function Creative() {
                   <ul className="space-y-2">
                     {service.items.map((item, i) => (
                       <li key={i} className="flex items-start gap-2">
-                        <CheckCircle2 className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-1" />
+                        <CheckCircle2 className="h-4 w-4 text-[#c4ff4d] flex-shrink-0 mt-1" />
                         <span className="text-sm text-gray-800">{item}</span>
                       </li>
                     ))}
@@ -444,7 +444,7 @@ export default function Creative() {
       <section className="py-14 px-4 bg-white">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-black text-black mb-2">
-            Checkout our latest <span className="text-[#5FD4C4]">Campaign Creatives</span>
+            Checkout our latest <span className="text-[#c4ff4d]">Campaign Creatives</span>
           </h2>
 
           <div className="grid grid-cols-2 gap-6 mt-8">
@@ -467,7 +467,7 @@ export default function Creative() {
       <section className="py-14 px-4 bg-white">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-black text-black mb-2">
-            Checkout our latest <span className="text-[#5FD4C4]">Organic Social Creatives</span>
+            Checkout our latest <span className="text-[#c4ff4d]">Organic Social Creatives</span>
           </h2>
 
           <div className="grid grid-cols-2 gap-6 mt-8">
@@ -490,7 +490,7 @@ export default function Creative() {
       <section className="py-14 px-4 bg-white">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-black text-black mb-2">
-            Checkout our latest <span className="text-[#5FD4C4]">Paid Social Creatives</span>
+            Checkout our latest <span className="text-[#c4ff4d]">Paid Social Creatives</span>
           </h2>
 
           <div className="grid grid-cols-2 gap-6 mt-8">
@@ -541,7 +541,7 @@ export default function Creative() {
                 key={idx}
                 onClick={() => setCurrentBenefit(idx)}
                 className={`h-2 rounded-full transition-all ${
-                  idx === currentBenefit ? 'w-8 bg-[#5FD4C4]' : 'w-2 bg-gray-300'
+                  idx === currentBenefit ? 'w-8 bg-[#c4ff4d]' : 'w-2 bg-gray-300'
                 }`}
                 data-testid={`dot-benefit-${idx}`}
               />
@@ -551,7 +551,7 @@ export default function Creative() {
           {/* Benefit Card */}
           <div className="bg-black text-white rounded-3xl p-10" data-testid="card-benefit-current">
             <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mb-6">
-              <CheckCircle2 className="h-8 w-8 text-[#5FD4C4]" />
+              <CheckCircle2 className="h-8 w-8 text-[#c4ff4d]" />
             </div>
 
             <h3 className="text-2xl md:text-3xl font-black text-white mb-4">
@@ -583,7 +583,7 @@ export default function Creative() {
           <div className="text-center mb-12">
             <div className="text-sm uppercase tracking-wider text-black mb-3">WHO THIS IS FOR</div>
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              For brands that need <span className="italic text-[#5FD4C4]">scroll-stopping creative</span>
+              For brands that need <span className="italic text-[#c4ff4d]">scroll-stopping creative</span>
             </h2>
             <p className="text-lg text-gray-700 max-w-2xl mx-auto">
               High-volume creative production for performance marketers
@@ -598,15 +598,15 @@ export default function Creative() {
               </p>
               <ul className="space-y-2">
                 <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle2 className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
                   <span>High-volume ad creative</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle2 className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
                   <span>Rapid iteration testing</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle2 className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
                   <span>Platform-specific formats</span>
                 </li>
               </ul>
@@ -619,15 +619,15 @@ export default function Creative() {
               </p>
               <ul className="space-y-2">
                 <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle2 className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
                   <span>Product photography</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle2 className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
                   <span>UGC-style content</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle2 className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
                   <span>Lifestyle imagery</span>
                 </li>
               </ul>
@@ -640,15 +640,15 @@ export default function Creative() {
               </p>
               <ul className="space-y-2">
                 <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle2 className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
                   <span>Short-form video</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle2 className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
                   <span>Platform-native content</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle2 className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
                   <span>Content calendar production</span>
                 </li>
               </ul>
@@ -661,15 +661,15 @@ export default function Creative() {
               </p>
               <ul className="space-y-2">
                 <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle2 className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
                   <span>Brand identity creative</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle2 className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
                   <span>Startup-friendly pricing</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle2 className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
                   <span>Fast turnaround times</span>
                 </li>
               </ul>
@@ -682,15 +682,15 @@ export default function Creative() {
               </p>
               <ul className="space-y-2">
                 <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle2 className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
                   <span>Continuous creative testing</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle2 className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
                   <span>Endless variations</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle2 className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
                   <span>Rapid experimentation support</span>
                 </li>
               </ul>
@@ -703,15 +703,15 @@ export default function Creative() {
               </p>
               <ul className="space-y-2">
                 <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle2 className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
                   <span>White-label production</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle2 className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
                   <span>Agency partnership pricing</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle2 className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
                   <span>Scalable creative capacity</span>
                 </li>
               </ul>
@@ -726,7 +726,7 @@ export default function Creative() {
           <div className="text-center mb-12">
             <div className="text-sm uppercase tracking-wider text-black mb-3">AMPLIFY YOUR CREATIVE</div>
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              Pair with these <span className="italic text-[#5FD4C4]">performance services</span>
+              Pair with these <span className="italic text-[#c4ff4d]">performance services</span>
             </h2>
             <p className="text-lg text-gray-700 max-w-2xl mx-auto">
               Turn creative into conversions with our integrated services
@@ -735,10 +735,10 @@ export default function Creative() {
 
           <div className="grid md:grid-cols-3 gap-6">
             <Link href="/services/paid-advertising">
-              <div className="group p-8 bg-white rounded-xl border border-gray-200 hover:border-[#5FD4C4] hover:shadow-lg transition-all duration-300 cursor-pointer hover-elevate" data-testid="related-service-paid-ads">
+              <div className="group p-8 bg-white rounded-xl border border-gray-200 hover:border-[#c4ff4d] hover:shadow-lg transition-all duration-300 cursor-pointer hover-elevate" data-testid="related-service-paid-ads">
                 <div className="flex items-start justify-between mb-4">
-                  <h3 className="text-xl font-bold group-hover:text-[#5FD4C4] transition-colors">Paid Advertising</h3>
-                  <ArrowRight className="h-5 w-5 text-[#5FD4C4] group-hover:translate-x-1 transition-transform" />
+                  <h3 className="text-xl font-bold group-hover:text-[#c4ff4d] transition-colors">Paid Advertising</h3>
+                  <ArrowRight className="h-5 w-5 text-[#c4ff4d] group-hover:translate-x-1 transition-transform" />
                 </div>
                 <p className="text-sm text-gray-700 mb-4">
                   Scale winning creative with paid campaigns. Put your best-performing assets to work across all paid channels.
@@ -747,10 +747,10 @@ export default function Creative() {
             </Link>
 
             <Link href="/services/rapid-idea-testing">
-              <div className="group p-8 bg-white rounded-xl border border-gray-200 hover:border-[#5FD4C4] hover:shadow-lg transition-all duration-300 cursor-pointer hover-elevate" data-testid="related-service-rapid-testing">
+              <div className="group p-8 bg-white rounded-xl border border-gray-200 hover:border-[#c4ff4d] hover:shadow-lg transition-all duration-300 cursor-pointer hover-elevate" data-testid="related-service-rapid-testing">
                 <div className="flex items-start justify-between mb-4">
-                  <h3 className="text-xl font-bold group-hover:text-[#5FD4C4] transition-colors">Rapid Idea Testing</h3>
-                  <ArrowRight className="h-5 w-5 text-[#5FD4C4] group-hover:translate-x-1 transition-transform" />
+                  <h3 className="text-xl font-bold group-hover:text-[#c4ff4d] transition-colors">Rapid Idea Testing</h3>
+                  <ArrowRight className="h-5 w-5 text-[#c4ff4d] group-hover:translate-x-1 transition-transform" />
                 </div>
                 <p className="text-sm text-gray-700 mb-4">
                   Test creative concepts before full production. Validate winning angles and save budget on losers.
@@ -759,10 +759,10 @@ export default function Creative() {
             </Link>
 
             <Link href="/services/social-media-management">
-              <div className="group p-8 bg-white rounded-xl border border-gray-200 hover:border-[#5FD4C4] hover:shadow-lg transition-all duration-300 cursor-pointer hover-elevate" data-testid="related-service-social-management">
+              <div className="group p-8 bg-white rounded-xl border border-gray-200 hover:border-[#c4ff4d] hover:shadow-lg transition-all duration-300 cursor-pointer hover-elevate" data-testid="related-service-social-management">
                 <div className="flex items-start justify-between mb-4">
-                  <h3 className="text-xl font-bold group-hover:text-[#5FD4C4] transition-colors">Social Media Management</h3>
-                  <ArrowRight className="h-5 w-5 text-[#5FD4C4] group-hover:translate-x-1 transition-transform" />
+                  <h3 className="text-xl font-bold group-hover:text-[#c4ff4d] transition-colors">Social Media Management</h3>
+                  <ArrowRight className="h-5 w-5 text-[#c4ff4d] group-hover:translate-x-1 transition-transform" />
                 </div>
                 <p className="text-sm text-gray-700 mb-4">
                   Fill your social content calendar with platform-optimized creative that drives engagement and growth.
@@ -776,7 +776,7 @@ export default function Creative() {
       {/* Final CTA Section */}
       <section className="py-14 px-4 bg-white">
         <div className="max-w-4xl mx-auto">
-          <div className="bg-[#5FD4C4] rounded-3xl overflow-hidden" data-testid="card-final-cta">
+          <div className="bg-[#c4ff4d] rounded-3xl overflow-hidden" data-testid="card-final-cta">
             <div className="p-10 md:p-16">
               <h2 className="text-3xl md:text-4xl lg:text-6xl font-black text-black mb-8">
                 Don't be <span className="text-white">sheepish</span><br />let's talk
