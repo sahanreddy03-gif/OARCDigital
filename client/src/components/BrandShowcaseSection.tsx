@@ -19,9 +19,9 @@ export default function BrandShowcaseSection() {
           </p>
         </div>
 
-        {/* Asymmetric Grid - Superside Style */}
+        {/* Asymmetric Grid - Superside Style - Only show first 6 on homepage */}
         <div className="grid grid-cols-1 md:grid-cols-3 auto-rows-[280px] gap-4 md:gap-5 mb-10">
-          {caseStudiesArray.map((study, index) => (
+          {caseStudiesArray.slice(0, 6).map((study, index) => (
             <Link key={index} href={`/case-studies/${study.slug}`} asChild>
               <div
                 className={`group relative overflow-hidden rounded-xl md:rounded-2xl bg-zinc-900 hover-elevate hover:-translate-y-1 transition-all duration-500 cursor-pointer ${study.gridClass}`}
