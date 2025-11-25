@@ -7,7 +7,7 @@ import Layout from '@/components/layout/Layout';
 import SEOHead from '@/components/SEOHead';
 import { caseStudiesSEO } from '@/data/seoMetadata';
 
-export default function AntlerCaseStudy() {
+export default function StartUpVenturesCaseStudy() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -30,10 +30,10 @@ export default function AntlerCaseStudy() {
         />
         <div className="relative z-10 text-center px-4 py-20 max-w-5xl mx-auto">
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-black uppercase mb-6" data-testid="heading-case-study-title">
-            Reimagining the Antler Brand
+            Reimagining the StartUp Ventures Brand
           </h1>
           <p className="text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto">
-            Antler is the investor backing the world's most driven founders from day zero to greatness.
+            StartUp Ventures is the investor backing the world's most driven founders from day zero to greatness.
           </p>
         </div>
       </section>
@@ -44,11 +44,11 @@ export default function AntlerCaseStudy() {
           <p className="text-sm font-bold text-gray-500 uppercase mb-4 tracking-wider">Project Summary</p>
           
           <h2 className="text-4xl md:text-5xl font-black text-black mb-8">
-            Reimagining the Antler Brand
+            Reimagining the StartUp Ventures Brand
           </h2>
 
           <p className="text-lg text-gray-700 mb-8 leading-relaxed">
-            Antler is the investor backing the world's most driven founders from day zero to greatness. Antler reached out to OARC Digital to help reimagine its brand and support in connecting its new positioning and messaging platform to a stand-out and exceptional visual execution.
+            StartUp Ventures is the investor backing the world's most driven founders from day zero to greatness. StartUp Ventures reached out to OARC Digital to help reimagine its brand and support in connecting its new positioning and messaging platform to a stand-out and exceptional visual execution.
           </p>
 
           {/* Project Details Grid */}
@@ -71,20 +71,20 @@ export default function AntlerCaseStudy() {
           <div className="grid md:grid-cols-2 gap-8 mb-8">
             <img
               src="https://cdn.sanity.io/images/k0dlbavy/production/ec8d392156780c07aeaca016fdea0454efb8dd5f-1360x1360.png?auto=format&fit=max&q=100&w=680"
-              alt="Antler Brand Identity 1"
+              alt="StartUp Ventures Brand Identity 1"
               className="w-full h-auto rounded-lg"
               data-testid="img-brand-1"
             />
             <div className="grid grid-rows-2 gap-8">
               <img
                 src="https://cdn.sanity.io/images/k0dlbavy/production/af995589daa0440380161d2575cf14d52a614fdb-1336x1780.png?auto=format&fit=max&q=100&w=668"
-                alt="Antler Brand Identity 2"
+                alt="StartUp Ventures Brand Identity 2"
                 className="w-full h-auto rounded-lg"
                 data-testid="img-brand-2"
               />
               <img
                 src="https://cdn.sanity.io/images/k0dlbavy/production/b03fa37dfffc62e78f0fb0d434c27c59a770ca66-1336x1780.png?auto=format&fit=max&q=100&w=668"
-                alt="Antler Brand Identity 3"
+                alt="StartUp Ventures Brand Identity 3"
                 className="w-full h-auto rounded-lg"
                 data-testid="img-brand-3"
               />
@@ -95,7 +95,7 @@ export default function AntlerCaseStudy() {
           <div className="mb-8">
             <img
               src="https://cdn.sanity.io/images/k0dlbavy/production/baf00df3836a5efac2367441a876bb82d533f93e-2672x890.png?auto=format&fit=max&q=100&w=1336"
-              alt="Antler Brand Banner 1"
+              alt="StartUp Ventures Brand Banner 1"
               className="w-full h-auto rounded-lg"
               data-testid="img-banner-1"
             />
@@ -105,19 +105,19 @@ export default function AntlerCaseStudy() {
           <div className="grid md:grid-cols-3 gap-8 mb-8">
             <img
               src="https://cdn.sanity.io/images/k0dlbavy/production/d5174502354d1b787282b15bc7e39ff606a54409-890x890.png?auto=format&fit=max&q=100&w=445"
-              alt="Antler Brand Element 1"
+              alt="StartUp Ventures Brand Element 1"
               className="w-full h-auto rounded-lg"
               data-testid="img-element-1"
             />
             <img
               src="https://cdn.sanity.io/images/k0dlbavy/production/fe4b223fef5bddf4f720d8fafcc2e8e111f5c688-892x890.png?auto=format&fit=max&q=100&w=446"
-              alt="Antler Brand Element 2"
+              alt="StartUp Ventures Brand Element 2"
               className="w-full h-auto rounded-lg"
               data-testid="img-element-2"
             />
             <img
               src="https://cdn.sanity.io/images/k0dlbavy/production/bcabc06390aaa8db67e1de835a73727103078d93-890x890.png?auto=format&fit=max&q=100&w=445"
-              alt="Antler Brand Element 3"
+              alt="StartUp Ventures Brand Element 3"
               className="w-full h-auto rounded-lg"
               data-testid="img-element-3"
             />
@@ -127,13 +127,13 @@ export default function AntlerCaseStudy() {
           <div className="space-y-8">
             <img
               src="https://cdn.sanity.io/images/k0dlbavy/production/429e8701748596b589b8c0a3a379a0d8948ae6f4-2672x890.png?auto=format&fit=max&q=100&w=1336"
-              alt="Antler Brand Banner 2"
+              alt="StartUp Ventures Brand Banner 2"
               className="w-full h-auto rounded-lg"
               data-testid="img-banner-2"
             />
             <img
               src="https://cdn.sanity.io/images/k0dlbavy/production/f624f7aeccb5bbd89d83169cac312a9b0c7f2aea-2672x890.png?auto=format&fit=max&q=100&w=1336"
-              alt="Antler Brand Banner 3"
+              alt="StartUp Ventures Brand Banner 3"
               className="w-full h-auto rounded-lg"
               data-testid="img-banner-3"
             />
@@ -147,7 +147,7 @@ export default function AntlerCaseStudy() {
           <div className="grid md:grid-cols-2 gap-12 items-center mb-12">
             <img
               src="https://cdn.sanity.io/images/k0dlbavy/production/aa5eb2abc48b4beeb634cb5d15089fa2814326fb-1336x891.png?auto=format&fit=max&q=100&w=668"
-              alt="Antler Brand Philosophy"
+              alt="StartUp Ventures Brand Philosophy"
               className="w-full h-auto rounded-lg"
               data-testid="img-philosophy"
             />
@@ -167,13 +167,13 @@ export default function AntlerCaseStudy() {
           <div className="grid md:grid-cols-2 gap-8 mb-8">
             <img
               src="https://cdn.sanity.io/images/k0dlbavy/production/f297153851f39ffc52149a224b01a27631c7d6c3-1336x761.png?auto=format&fit=max&q=100&w=668"
-              alt="Antler Application 1"
+              alt="StartUp Ventures Application 1"
               className="w-full h-auto rounded-lg"
               data-testid="img-app-1"
             />
             <img
               src="https://cdn.sanity.io/images/k0dlbavy/production/b02968d366f294d8a9dee4e95012ab360ff8b26e-1336x760.png?auto=format&fit=max&q=100&w=668"
-              alt="Antler Application 2"
+              alt="StartUp Ventures Application 2"
               className="w-full h-auto rounded-lg"
               data-testid="img-app-2"
             />
@@ -183,19 +183,19 @@ export default function AntlerCaseStudy() {
           <div className="grid md:grid-cols-3 gap-8 mb-8">
             <img
               src="https://cdn.sanity.io/images/k0dlbavy/production/75efc8437069169804fce44d9a487156dc5d52f8-840x890.png?auto=format&fit=max&q=100&w=420"
-              alt="Antler Vertical 1"
+              alt="StartUp Ventures Vertical 1"
               className="w-full h-auto rounded-lg"
               data-testid="img-vertical-1"
             />
             <img
               src="https://cdn.sanity.io/images/k0dlbavy/production/21a65f60639680592479fa1209322795b3a649a8-840x890.png?auto=format&fit=max&q=100&w=420"
-              alt="Antler Vertical 2"
+              alt="StartUp Ventures Vertical 2"
               className="w-full h-auto rounded-lg"
               data-testid="img-vertical-2"
             />
             <img
               src="https://cdn.sanity.io/images/k0dlbavy/production/63c401962d5c4c07d31d2432a755cf013813d102-841x890.png?auto=format&fit=max&q=100&w=421"
-              alt="Antler Vertical 3"
+              alt="StartUp Ventures Vertical 3"
               className="w-full h-auto rounded-lg"
               data-testid="img-vertical-3"
             />
@@ -205,13 +205,13 @@ export default function AntlerCaseStudy() {
           <div className="grid md:grid-cols-2 gap-8">
             <img
               src="https://cdn.sanity.io/images/k0dlbavy/production/87d9f4d688917278d5e790a22853eac5eb204e9d-1336x760.png?auto=format&fit=max&q=100&w=668"
-              alt="Antler Final 1"
+              alt="StartUp Ventures Final 1"
               className="w-full h-auto rounded-lg"
               data-testid="img-final-1"
             />
             <img
               src="https://cdn.sanity.io/images/k0dlbavy/production/fc0ec35476a2a37d4348b6965e3eec2a7afd31b8-1336x760.png?auto=format&fit=max&q=100&w=668"
-              alt="Antler Final 2"
+              alt="StartUp Ventures Final 2"
               className="w-full h-auto rounded-lg"
               data-testid="img-final-2"
             />
@@ -221,7 +221,7 @@ export default function AntlerCaseStudy() {
           <div className="mt-8">
             <img
               src="https://cdn.sanity.io/images/k0dlbavy/production/1e4a49388acd746b568c8ea60f66b070c1142b03-1336x761.png?auto=format&fit=max&q=100&w=668"
-              alt="Antler Complete Brand"
+              alt="StartUp Ventures Complete Brand"
               className="w-full h-auto rounded-lg mx-auto max-w-2xl"
               data-testid="img-complete"
             />

@@ -28,25 +28,25 @@ export default function TefalCaseStudy() {
 
   const relatedCases = [
     {
-      title: "Don't Make Ads",
+      title: "Authentic Stories",
       category: "TikTok",
       stats: { impressions: "33M", engagement: "+450K", ctr: "2M" },
       image: relatedCase1,
-      link: "/case-studies/dont-make-ads"
+      link: "/case-studies/authentic-stories"
     },
     {
-      title: "Introducing Luxury Fragrance",
+      title: "Luxe Essence Fragrance",
       category: "Instagram",
       stats: { reach: "59M", engagement: "1.5M", conversions: "20+" },
       image: relatedCase2,
-      link: "/case-studies/azzaro"
+      link: "/case-studies/luxe-essence"
     },
     {
-      title: "Raising Awareness",
-      category: "The Body Shop",
+      title: "NaturalCare Beauty",
+      category: "NaturalCare Beauty",
       stats: { impressions: "30M", uplift: "15%", reach: "17M" },
       image: relatedCase3,
-      link: "/case-studies/body-shop"
+      link: "/case-studies/naturalcare-beauty"
     }
   ];
 
@@ -61,16 +61,16 @@ export default function TefalCaseStudy() {
   return (
     <Layout>
       <SEOHead
-        title={caseStudiesSEO.tefal.title}
-        description={caseStudiesSEO.tefal.description}
-        canonicalUrl={`https://oarcdigital.com${caseStudiesSEO.tefal.path}`}
-        ogType={caseStudiesSEO.tefal.ogType}
+        title={caseStudiesSEO.homeCraftInnovations.title}
+        description={caseStudiesSEO.homeCraftInnovations.description}
+        canonicalUrl={`https://oarcdigital.com${caseStudiesSEO.homeCraftInnovations.path}`}
+        ogType={caseStudiesSEO.homeCraftInnovations.ogType}
       />
       {/* Hero Section with Background Image */}
       <section className="relative h-[60vh] min-h-[500px] bg-black overflow-hidden">
         <img 
           src={tefalHeroImg}
-          alt="Tefal Kitchen Products"
+          alt="HomeCraft Innovations Kitchen Products"
           className="absolute inset-0 w-full h-full object-cover opacity-80"
           data-testid="img-hero-background"
         />
@@ -110,7 +110,7 @@ export default function TefalCaseStudy() {
               </h2>
 
               <p className="text-base text-gray-300 mb-6 leading-relaxed">
-                Tefal targeted European market dominance in kitchen appliances through aggressive brand positioning and sales acceleration. The mission: establish Tefal as the category leader through strategic presence amplification and consumer engagement.
+                HomeCraft Innovations targeted European market dominance in kitchen appliances through aggressive brand positioning and sales acceleration. The mission: establish HomeCraft Innovations as the category leader through strategic presence amplification and consumer engagement.
               </p>
 
               <p className="text-base text-gray-300 mb-8 leading-relaxed">
@@ -197,7 +197,7 @@ export default function TefalCaseStudy() {
           <div className="relative bg-gray-900 rounded-2xl overflow-hidden">
             <img 
               src={tefalAboutImg}
-              alt="Case Study Video - How OARC Digital Sold-Out Small Appliances for Tefal Using Influencers"
+              alt="Case Study Video - How OARC Digital Sold-Out Small Appliances for HomeCraft Innovations Using Influencers"
               className="w-full"
               data-testid="img-video-placeholder"
             />
@@ -213,15 +213,15 @@ export default function TefalCaseStudy() {
           </h2>
 
           <h3 className="text-2xl md:text-3xl font-bold text-black mb-8">
-            Harnessing the power of influencers to grow brand love and raise awareness for Tefal.
+            Harnessing the power of influencers to grow brand love and raise awareness for HomeCraft Innovations.
           </h3>
 
           <p className="text-base text-gray-700 mb-6 leading-relaxed">
-            Since 2019, we've partnered with Tefal through transformative influencer-led campaigns. The mission extended beyond brand awareness—we sought to establish Tefal as the definitive authority in lifestyle convenience and kitchen innovation across social channels.
+            Since 2019, we've partnered with HomeCraft Innovations through transformative influencer-led campaigns. The mission extended beyond brand awareness—we sought to establish HomeCraft Innovations as the definitive authority in lifestyle convenience and kitchen innovation across social channels.
           </p>
 
           <p className="text-base text-gray-700 mb-6 leading-relaxed">
-            Consumer psychology remained constant: audiences seek products solving real problems and simplifying daily routines. Tefal's product advantage was clear. The channel opportunity was undeniable: Millennials and Gen-Z increasingly discover and evaluate kitchen products through TikTok, YouTube, and Instagram. Our challenge: translate product benefits into culturally resonant influencer narratives that drive both awareness and conversion.
+            Consumer psychology remained constant: audiences seek products solving real problems and simplifying daily routines. HomeCraft Innovations' product advantage was clear. The channel opportunity was undeniable: Millennials and Gen-Z increasingly discover and evaluate kitchen products through TikTok, YouTube, and Instagram. Our challenge: translate product benefits into culturally resonant influencer narratives that drive both awareness and conversion.
           </p>
 
           <p className="text-base text-gray-700 mb-10 leading-relaxed">
@@ -258,11 +258,11 @@ export default function TefalCaseStudy() {
           </h2>
 
           <h3 className="text-2xl md:text-3xl font-bold text-white mb-8 text-center">
-            Tefal's Success Story through Adaptive Strategy and Performance-Based Influencer Marketing
+            HomeCraft Innovations' Success Story through Adaptive Strategy and Performance-Based Influencer Marketing
           </h3>
 
           <p className="text-base text-gray-300 mb-10 leading-relaxed">
-            We positioned Tefal's value proposition—"making life easier"—as the psychological driver across all creator partnerships. Rather than generic product endorsements, we enabled influencers to share genuine daily-life integrations of Tefal products. This authenticity-first approach combined with our 500+ influencer network created compounding reach and credibility. Performance metrics guided constant optimization: engagement rates, conversion tracking, and audience demographic alignment informed real-time creator roster adjustments.
+            We positioned HomeCraft Innovations' value proposition—"making life easier"—as the psychological driver across all creator partnerships. Rather than generic product endorsements, we enabled influencers to share genuine daily-life integrations of HomeCraft Innovations products. This authenticity-first approach combined with our 500+ influencer network created compounding reach and credibility. Performance metrics guided constant optimization: engagement rates, conversion tracking, and audience demographic alignment informed real-time creator roster adjustments.
           </p>
 
           {/* Influencer Images Grid */}
@@ -278,7 +278,7 @@ export default function TefalCaseStudy() {
             <div className="bg-gray-800 rounded-2xl overflow-hidden h-[350px]">
               <img 
                 src={strategyImg2}
-                alt="Tefal Influencer Marketing Campaign"
+                alt="HomeCraft Innovations Influencer Marketing Campaign"
                 className="w-full h-full object-cover"
                 data-testid="img-strategy-2"
               />
@@ -295,11 +295,11 @@ export default function TefalCaseStudy() {
           </h2>
 
           <h3 className="text-2xl md:text-3xl font-bold text-black mb-8">
-            Selling out Tefal Product Lines through Strategic Paid Social Excellence and Lasting Influencer Partnerships.
+            Selling out HomeCraft Innovations Product Lines through Strategic Paid Social Excellence and Lasting Influencer Partnerships.
           </h3>
 
           <p className="text-base text-gray-700 mb-10 leading-relaxed">
-            Tefal achieved unprecedented market penetration through our integrated influencer + paid social framework. The results demonstrated that authentic creator partnerships—when combined with data-driven media investment—generate exponential ROI. Across 70M+ impressions and 500+ strategic creator relationships, Tefal didn't just achieve awareness—they achieved product sell-through that depleted inventory across multiple product lines.
+            HomeCraft Innovations achieved unprecedented market penetration through our integrated influencer + paid social framework. The results demonstrated that authentic creator partnerships—when combined with data-driven media investment—generate exponential ROI. Across 70M+ impressions and 500+ strategic creator relationships, HomeCraft Innovations didn't just achieve awareness—they achieved product sell-through that depleted inventory across multiple product lines.
           </p>
 
           {/* Repeat Stats */}
@@ -314,7 +314,7 @@ export default function TefalCaseStudy() {
             </div>
             <div className="bg-white border-4 border-gray-200 rounded-2xl p-8 text-center">
               <div className="text-4xl md:text-5xl font-black text-black mb-2">SOLD OUT</div>
-              <div className="text-sm font-semibold text-gray-600 uppercase tracking-wide">For Tefal</div>
+              <div className="text-sm font-semibold text-gray-600 uppercase tracking-wide">For HomeCraft Innovations</div>
             </div>
           </div>
         </div>
@@ -327,7 +327,7 @@ export default function TefalCaseStudy() {
             <div className="bg-gray-200 rounded-2xl h-[350px] overflow-hidden">
               <img 
                 src={productImg1}
-                alt="Tefal Kitchen Product 1"
+                alt="HomeCraft Innovations Kitchen Product 1"
                 className="w-full h-full object-cover"
                 data-testid="img-product-1"
               />
@@ -335,7 +335,7 @@ export default function TefalCaseStudy() {
             <div className="bg-gray-200 rounded-2xl h-[350px] overflow-hidden">
               <img 
                 src={productImg2}
-                alt="Tefal Kitchen Product 2"
+                alt="HomeCraft Innovations Kitchen Product 2"
                 className="w-full h-full object-cover"
                 data-testid="img-product-2"
               />
@@ -343,7 +343,7 @@ export default function TefalCaseStudy() {
             <div className="bg-gray-200 rounded-2xl h-[350px] overflow-hidden">
               <img 
                 src={productImg3}
-                alt="Tefal Kitchen Product 3"
+                alt="HomeCraft Innovations Kitchen Product 3"
                 className="w-full h-full object-cover"
                 data-testid="img-product-3"
               />
@@ -470,20 +470,20 @@ export default function TefalCaseStudy() {
           {/* Office Locations Grid */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-left">
             <div className="border-2 border-gray-700 rounded-lg p-4">
-              <h4 className="text-white font-bold text-sm mb-1">Fly Reels Collaborative,</h4>
-              <p className="text-gray-400 text-xs">Chennai India</p>
+              <h4 className="text-white font-bold text-sm mb-2">New York</h4>
+              <p className="text-gray-500 text-xs">United States</p>
             </div>
             <div className="border-2 border-gray-700 rounded-lg p-4">
-              <h4 className="text-white font-bold text-sm mb-1">Global Footprint Across</h4>
-              <p className="text-gray-400 text-xs">Europe, USA, MENA</p>
+              <h4 className="text-white font-bold text-sm mb-2">London</h4>
+              <p className="text-gray-500 text-xs">United Kingdom</p>
             </div>
             <div className="border-2 border-gray-700 rounded-lg p-4">
-              <h4 className="text-white font-bold text-sm mb-1">Greater Social</h4>
-              <p className="text-gray-400 text-xs">Islamabad Pakistan</p>
+              <h4 className="text-white font-bold text-sm mb-2">Dubai</h4>
+              <p className="text-gray-500 text-xs">United Arab Emirates</p>
             </div>
             <div className="border-2 border-gray-700 rounded-lg p-4">
-              <h4 className="text-white font-bold text-sm mb-1">Killer Ascent Agency</h4>
-              <p className="text-gray-400 text-xs">London UK</p>
+              <h4 className="text-white font-bold text-sm mb-2">Beijing</h4>
+              <p className="text-gray-500 text-xs">China</p>
             </div>
           </div>
         </div>

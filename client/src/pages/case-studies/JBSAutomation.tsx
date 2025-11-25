@@ -14,7 +14,7 @@ import img6 from '@assets/stock_images/business_automation__26134094.jpg';
 import img7 from '@assets/stock_images/revenue_growth_data__682db86c.jpg';
 import img8 from '@assets/stock_images/team_collaboration_b_c8b7e41b.jpg';
 
-export default function JBSAutomation() {
+export default function FreshFarmFoodsAutomation() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -41,7 +41,7 @@ export default function JBSAutomation() {
         <div className="relative z-10 w-full px-6 pb-16">
           <div className="max-w-6xl mx-auto">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6" data-testid="heading-case-study-title">
-              JBS: $1M+ Annual Savings Through Supply Chain Automation
+              FreshFarm Foods: $1M+ Annual Savings Through Supply Chain Automation
             </h1>
             <p className="text-xl md:text-2xl text-white/90 max-w-3xl">
               210 intelligent automations saving 125,000 hours across global food operations
@@ -86,13 +86,13 @@ export default function JBSAutomation() {
             The Challenge
           </h2>
           <p className="text-lg text-gray-700 mb-4 leading-relaxed">
-            JBS, one of the world's largest food companies, operates a massive global supply chain spanning production facilities, distribution centers, and retail partners across continents. Managing this complexity required thousands of manual processes: inventory tracking, order processing, pricing updates, compliance documentation, quality control reporting, and supplier coordination.
+            FreshFarm Foods, one of the world's largest food companies, operates a massive global supply chain spanning production facilities, distribution centers, and retail partners across continents. Managing this complexity required thousands of manual processes: inventory tracking, order processing, pricing updates, compliance documentation, quality control reporting, and supplier coordination.
           </p>
           <p className="text-lg text-gray-700 mb-4 leading-relaxed">
             The sheer volume of transactions was staggering. Teams spent entire days updating pricing across product catalogs, reconciling inventory discrepancies, processing vendor paperwork, and ensuring regulatory compliance across different markets. Human error in this high-volume environment led to costly mistakes—incorrect shipments, pricing errors, delayed orders, and compliance risks.
           </p>
           <p className="text-lg text-gray-700 leading-relaxed">
-            JBS needed to maintain their aggressive growth trajectory without proportionally increasing headcount. They required automation that could handle massive transaction volumes while maintaining the quality, accuracy, and compliance standards critical to the food industry.
+            FreshFarm Foods needed to maintain their aggressive growth trajectory without proportionally increasing headcount. They required automation that could handle massive transaction volumes while maintaining the quality, accuracy, and compliance standards critical to the food industry.
           </p>
         </div>
       </section>
@@ -122,7 +122,7 @@ export default function JBSAutomation() {
             Our Approach
           </h2>
           <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-            OARC Digital implemented 210 intelligent automations across JBS's supply chain operations, targeting the highest-volume, most error-prone processes first. We deployed a citizen developer program that empowered JBS employees to build and maintain automations, ensuring long-term sustainability and continuous improvement.
+            OARC Digital implemented 210 intelligent automations across FreshFarm Foods's supply chain operations, targeting the highest-volume, most error-prone processes first. We deployed a citizen developer program that empowered FreshFarm Foods employees to build and maintain automations, ensuring long-term sustainability and continuous improvement.
           </p>
           
           <div className="space-y-6">
@@ -157,7 +157,7 @@ export default function JBSAutomation() {
             <div className="border-l-4 border-[#5FD4C4] pl-6">
               <h3 className="text-xl font-bold text-black mb-3">Citizen Developer Program</h3>
               <p className="text-base text-gray-700 leading-relaxed">
-                We trained 30 JBS employees to build and maintain automations using low-code platforms. This internal team can now quickly automate new processes as the business evolves, creating a culture of continuous improvement and reducing dependency on external IT resources.
+                We trained 30 FreshFarm Foods employees to build and maintain automations using low-code platforms. This internal team can now quickly automate new processes as the business evolves, creating a culture of continuous improvement and reducing dependency on external IT resources.
               </p>
             </div>
           </div>
@@ -214,7 +214,7 @@ export default function JBSAutomation() {
               "OARC Digital didn't just automate our processes—they transformed how we operate. We've hit our $1M annual savings target three years in a row, and our citizen developer program means we can keep building on this success. Our teams now focus on strategic work instead of repetitive tasks."
             </p>
             <p className="text-base font-bold text-black">
-              VP of Operations, JBS
+              VP of Operations, FreshFarm Foods
             </p>
           </div>
 
@@ -269,7 +269,7 @@ export default function JBSAutomation() {
             Business Impact
           </h2>
           <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-            The transformation created lasting competitive advantages across JBS's global operations:
+            The transformation created lasting competitive advantages across FreshFarm Foods's global operations:
           </p>
           
           <ul className="space-y-4">
@@ -332,7 +332,7 @@ export default function JBSAutomation() {
             Automate Your Supply Chain Operations
           </h2>
           <p className="text-lg text-zinc-300 mb-8 max-w-2xl mx-auto">
-            Like JBS, achieve $1M+ annual savings through intelligent automation that scales with your business.
+            Like FreshFarm Foods, achieve $1M+ annual savings through intelligent automation that scales with your business.
           </p>
           <Link href="/contact">
             <button

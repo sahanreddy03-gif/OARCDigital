@@ -22,28 +22,28 @@ export default function BodyShopCaseStudy() {
 
   const relatedCases = [
     {
-      id: 'tefal',
-      title: 'Tefal',
-      subtitle: 'Selling out product lines of household products for Tefal.',
+      id: 'homecraft-innovations',
+      title: 'HomeCraft Innovations',
+      subtitle: 'Selling out product lines of household products through strategic campaigns.',
       image: tefalHeroImg,
-      link: '/case-studies/tefal'
+      link: '/case-studies/homecraft-innovations'
     },
     {
-      id: 'dont-make-ads',
-      title: "Don't Make Ads",
-      subtitle: "TikTok's authentic success stories garner 2 million likes and 400K NEW followers.",
+      id: 'authentic-stories',
+      title: "Authentic Stories",
+      subtitle: "TikTok's genuine content approach garners 2 million likes and 400K NEW followers.",
       image: dontMakeAdsHeroImg,
-      link: '/case-studies/dont-make-ads'
+      link: '/case-studies/authentic-stories'
     }
   ];
 
   return (
     <Layout>
       <SEOHead
-        title={caseStudiesSEO.bodyShop.title}
-        description={caseStudiesSEO.bodyShop.description}
-        canonicalUrl={`https://oarcdigital.com${caseStudiesSEO.bodyShop.path}`}
-        ogType={caseStudiesSEO.bodyShop.ogType}
+        title={caseStudiesSEO.naturalCareBeauty.title}
+        description={caseStudiesSEO.naturalCareBeauty.description}
+        canonicalUrl={`https://oarcdigital.com${caseStudiesSEO.naturalCareBeauty.path}`}
+        ogType={caseStudiesSEO.naturalCareBeauty.ogType}
       />
       {/* Hero Section */}
       <section className="relative min-h-[60vh] flex items-center justify-center bg-black text-white overflow-hidden">
@@ -70,11 +70,11 @@ export default function BodyShopCaseStudy() {
           </h2>
           
           <p className="text-base text-black leading-relaxed mb-6">
-            Over 18 months, we developed a comprehensive influencer partnership strategy positioning The Body Shop as a socially conscious brand. The initiative balanced purpose-driven storytelling with commercial objectives, addressing both brand perception and revenue targets across Middle Eastern markets.
+            Over 18 months, we developed a comprehensive influencer partnership strategy positioning NaturalCare Beauty as a socially conscious brand. The initiative balanced purpose-driven storytelling with commercial objectives, addressing both brand perception and revenue targets across Middle Eastern markets.
           </p>
 
           <p className="text-base text-black leading-relaxed mb-12">
-            The program operated on dual objectives: (1) repositioning The Body Shop as a values-first brand prioritizing social impact and ethical sourcing, and (2) driving measurable sales growth through multi-channel paid and organic influencer activation.
+            The program operated on dual objectives: (1) repositioning NaturalCare Beauty as a values-first brand prioritizing social impact and ethical sourcing, and (2) driving measurable sales growth through multi-channel paid and organic influencer activation.
           </p>
 
           {/* Campaign Overview Box */}
@@ -167,14 +167,14 @@ export default function BodyShopCaseStudy() {
             <div className="rounded-lg overflow-hidden">
               <img 
                 src={challengeImg1}
-                alt="The Body Shop event - women empowerment campaign"
+                alt="NaturalCare Beauty event - women empowerment campaign"
                 className="w-full h-full object-cover"
               />
             </div>
             <div className="rounded-lg overflow-hidden">
               <img 
                 src={challengeImg2}
-                alt="The Body Shop influencer collaboration - brand activism"
+                alt="NaturalCare Beauty influencer collaboration - brand activism"
                 className="w-full h-full object-cover"
               />
             </div>
@@ -195,7 +195,7 @@ export default function BodyShopCaseStudy() {
           
           <div className="space-y-4 text-black text-base leading-relaxed">
             <p>
-              We assembled a cohesive influencer coalition across the Middle East, each selected for authentic alignment with The Body Shop's activist positioning. Rather than transactional partnerships, we structured deep collaborations enabling creators to tell genuine stories about social impact.
+              We assembled a cohesive influencer coalition across the Middle East, each selected for authentic alignment with NaturalCare Beauty's activist positioning. Rather than transactional partnerships, we structured deep collaborations enabling creators to tell genuine stories about social impact.
             </p>
             
             <p>
@@ -212,14 +212,14 @@ export default function BodyShopCaseStudy() {
             <div className="rounded-lg overflow-hidden">
               <img 
                 src={strategyImg1}
-                alt="The Body Shop influencer campaign content"
+                alt="NaturalCare Beauty influencer campaign content"
                 className="w-full h-full object-cover"
               />
             </div>
             <div className="rounded-lg overflow-hidden">
               <img 
                 src={strategyImg2}
-                alt="The Body Shop brand activism storytelling"
+                alt="NaturalCare Beauty brand activism storytelling"
                 className="w-full h-full object-cover"
               />
             </div>
@@ -244,7 +244,7 @@ export default function BodyShopCaseStudy() {
             </p>
             
             <p>
-              Brand perception metrics improved significantly among target demographics. The Body Shop shifted from perceived luxury import to trusted values-aligned partner. Sales growth reflected this perception change, with both e-commerce and retail channels experiencing measurable uplift driven by influencer-generated awareness and credibility.
+              Brand perception metrics improved significantly among target demographics. NaturalCare Beauty shifted from perceived luxury import to trusted values-aligned partner. Sales growth reflected this perception change, with both e-commerce and retail channels experiencing measurable uplift driven by influencer-generated awareness and credibility.
             </p>
           </div>
 

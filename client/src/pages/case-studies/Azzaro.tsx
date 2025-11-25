@@ -23,28 +23,28 @@ export default function AzzaroCaseStudy() {
 
   const relatedCases = [
     {
-      id: 'tefal',
-      title: 'Tefal',
-      subtitle: 'Selling out product lines of household products for Tefal.',
+      id: 'homecraft-innovations',
+      title: 'HomeCraft Innovations',
+      subtitle: 'Selling out product lines of household products through strategic campaigns.',
       image: tefalHeroImg,
-      link: '/case-studies/tefal'
+      link: '/case-studies/homecraft-innovations'
     },
     {
-      id: 'dont-make-ads',
-      title: "Don't Make Ads",
-      subtitle: "TikTok's authentic success stories garner 2 million likes and 400K NEW followers.",
+      id: 'authentic-stories',
+      title: "Authentic Stories",
+      subtitle: "TikTok's genuine content approach garners 2 million likes and 400K NEW followers.",
       image: dontMakeAdsHeroImg,
-      link: '/case-studies/dont-make-ads'
+      link: '/case-studies/authentic-stories'
     }
   ];
 
   return (
     <Layout>
       <SEOHead
-        title={caseStudiesSEO.azzaro.title}
-        description={caseStudiesSEO.azzaro.description}
-        canonicalUrl={`https://oarcdigital.com${caseStudiesSEO.azzaro.path}`}
-        ogType={caseStudiesSEO.azzaro.ogType}
+        title={caseStudiesSEO.luxeEssence.title}
+        description={caseStudiesSEO.luxeEssence.description}
+        canonicalUrl={`https://oarcdigital.com${caseStudiesSEO.luxeEssence.path}`}
+        ogType={caseStudiesSEO.luxeEssence.ogType}
       />
       {/* Hero Section */}
       <section className="relative min-h-[60vh] flex items-center justify-center bg-black text-white overflow-hidden">
@@ -71,7 +71,7 @@ export default function AzzaroCaseStudy() {
           </h2>
           
           <p className="text-base text-black leading-relaxed mb-12">
-            Azzaro, the prestigious fragrance powerhouse owned by L'Oréal, partnered with us to introduce "The Most Wanted" to TikTok's Gen-Z audience. Our challenge: connect luxury positioning with viral-first platform dynamics through authentic creator partnerships.
+            Luxe Essence, the prestigious fragrance powerhouse, partnered with us to introduce their signature scent to TikTok's Gen-Z audience. Our challenge: connect luxury positioning with viral-first platform dynamics through authentic creator partnerships.
           </p>
 
           <p className="text-base text-black leading-relaxed mb-12">
@@ -137,7 +137,7 @@ export default function AzzaroCaseStudy() {
           
           <div className="space-y-4 text-white text-base leading-relaxed mb-8">
             <p>
-              Azzaro's core challenge: introducing a prestige fragrance to an audience that traditionally discovers brands through peer recommendations rather than traditional luxury marketing. This required us to rethink luxury communication for TikTok's norms while preserving brand equity.
+              Luxe Essence's core challenge: introducing a prestige fragrance to an audience that traditionally discovers brands through peer recommendations rather than traditional luxury marketing. This required us to rethink luxury communication for TikTok's norms while preserving brand equity.
             </p>
             
             <p>
@@ -150,21 +150,21 @@ export default function AzzaroCaseStudy() {
             <div className="rounded-lg overflow-hidden">
               <img 
                 src={challengeImg1}
-                alt="Azzaro fragrance TikTok content - luxury transformation"
+                alt="Luxe Essence fragrance TikTok content - luxury transformation"
                 className="w-full h-full object-cover"
               />
             </div>
             <div className="rounded-lg overflow-hidden">
               <img 
                 src={challengeImg2}
-                alt="Azzaro Parfums Partner TikTok campaign"
+                alt="Luxe Essence Partner TikTok campaign"
                 className="w-full h-full object-cover"
               />
             </div>
             <div className="rounded-lg overflow-hidden">
               <img 
                 src={challengeImg3}
-                alt="Azzaro The Most Wanted TikTok influencer content"
+                alt="Luxe Essence TikTok influencer content"
                 className="w-full h-full object-cover"
               />
             </div>
@@ -180,12 +180,12 @@ export default function AzzaroCaseStudy() {
           </h2>
           
           <h3 className="text-2xl md:text-3xl font-black text-black mb-6">
-            From mundane to extraordinary with Azzaro.
+            From mundane to extraordinary with Luxe Essence.
           </h3>
           
           <div className="space-y-4 text-black text-base leading-relaxed">
             <p>
-              We launched a hashtag-driven challenge positioning the fragrance as a daily confidence boost. Each creator produced a transition-focused video showcasing the "before-and-after" effect of wearing The Most Wanted, paired with an exclusive brand soundtrack. The creative emphasized personal elevation rather than product features.
+              We launched a hashtag-driven challenge positioning the fragrance as a daily confidence boost. Each creator produced a transition-focused video showcasing the "before-and-after" effect of wearing the signature scent, paired with an exclusive brand soundtrack. The creative emphasized personal elevation rather than product features.
             </p>
             
             <p>
@@ -202,14 +202,14 @@ export default function AzzaroCaseStudy() {
             <div className="rounded-lg overflow-hidden">
               <img 
                 src={strategyImg1}
-                alt="Azzaro influencer content - transformation aesthetic"
+                alt="Luxe Essence influencer content - transformation aesthetic"
                 className="w-full h-full object-cover"
               />
             </div>
             <div className="rounded-lg overflow-hidden">
               <img 
                 src={strategyImg2}
-                alt="Azzaro TikTok creator content - men's grooming"
+                alt="Luxe Essence TikTok creator content - men's grooming"
                 className="w-full h-full object-cover"
               />
             </div>
@@ -225,7 +225,7 @@ export default function AzzaroCaseStudy() {
           </h2>
           
           <h3 className="text-2xl md:text-3xl font-black text-white mb-6">
-            Celebrating authentic connections: Azzaro and L'Oréal's influencer campaign success!
+            Celebrating authentic connections: Luxe Essence's influencer campaign success!
           </h3>
           
           <div className="space-y-4 text-white text-base leading-relaxed mb-12">
@@ -234,7 +234,7 @@ export default function AzzaroCaseStudy() {
             </p>
             
             <p>
-              The campaign successfully introduced Azzaro to millions of new Gen-Z consumers while establishing a blueprint for luxury-to-digital-native brand translations. Engagement rates and repeat content creation among creators underscored the campaign's organic appeal.
+              The campaign successfully introduced Luxe Essence to millions of new Gen-Z consumers while establishing a blueprint for luxury-to-digital-native brand translations. Engagement rates and repeat content creation among creators underscored the campaign's organic appeal.
             </p>
           </div>
 

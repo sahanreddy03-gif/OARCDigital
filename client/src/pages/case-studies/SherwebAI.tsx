@@ -16,7 +16,7 @@ import img8 from '@assets/stock_images/technology_innovatio_2126c110.jpg';
 import img9 from '@assets/stock_images/digital_transformati_db8f74f7.jpg';
 import img10 from '@assets/stock_images/team_collaboration_b_e4204dcc.jpg';
 
-export default function SherwebAI() {
+export default function CloudPartnerSolutionsAI() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -34,7 +34,7 @@ export default function SherwebAI() {
         <div className="absolute inset-0">
           <img 
             src={heroImg} 
-            alt="Sherweb team collaboration"
+            alt="CloudPartner Solutions team collaboration"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
@@ -43,7 +43,7 @@ export default function SherwebAI() {
         <div className="relative z-10 w-full px-6 pb-16">
           <div className="max-w-6xl mx-auto">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6" data-testid="heading-case-study-title">
-              How Sherweb Scaled AI Adoption with OARC Digital
+              How CloudPartner Solutions Scaled AI Adoption with OARC Digital
             </h1>
             <p className="text-xl md:text-2xl text-white/90 max-w-3xl">
               Creating a solid foundation for responsible AI use in creative teams
@@ -88,7 +88,7 @@ export default function SherwebAI() {
             The Challenge
           </h2>
           <p className="text-lg text-gray-700 mb-4 leading-relaxed">
-            Sherweb, a leading software company, recognized the transformative potential of AI for their creative team but faced challenges in creating a structured adoption framework. Their marketing director needed a comprehensive strategy to ensure responsible AI use while driving measurable impact.
+            CloudPartner Solutions, a leading software company, recognized the transformative potential of AI for their creative team but faced challenges in creating a structured adoption framework. Their marketing director needed a comprehensive strategy to ensure responsible AI use while driving measurable impact.
           </p>
           <p className="text-lg text-gray-700 leading-relaxed">
             The team needed more than just AI tools—they required organizational readiness, leadership alignment, and a clear roadmap to avoid slowing down their AI journey.
@@ -121,14 +121,14 @@ export default function SherwebAI() {
             Our Approach
           </h2>
           <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-            OARC Digital implemented a comprehensive AI diagnostic and enablement program designed to create a solid foundation for AI adoption at Sherweb.
+            OARC Digital implemented a comprehensive AI diagnostic and enablement program designed to create a solid foundation for AI adoption at CloudPartner Solutions.
           </p>
           
           <div className="space-y-6">
             <div className="border-l-4 border-[#5FD4C4] pl-6">
               <h3 className="text-xl font-bold text-black mb-3">AI Readiness Diagnostic</h3>
               <p className="text-base text-gray-700 leading-relaxed">
-                We conducted a thorough assessment of Sherweb's creative operations, identifying opportunities, challenges, and readiness levels across the organization. This diagnostic provided the ammunition needed to drive adoption internally and align leadership.
+                We conducted a thorough assessment of CloudPartner Solutions's creative operations, identifying opportunities, challenges, and readiness levels across the organization. This diagnostic provided the ammunition needed to drive adoption internally and align leadership.
               </p>
             </div>
 
@@ -199,7 +199,7 @@ export default function SherwebAI() {
               "OARC Digital helped us create a solid foundation for responsible AI use in our creative team. The diagnostic gave me the ammunition to drive adoption internally and align leadership."
             </p>
             <p className="text-base font-bold text-black">
-              JP Mercier, Marketing Director at Sherweb
+              Marketing Director, CloudPartner Solutions
             </p>
           </div>
         </div>
@@ -235,7 +235,7 @@ export default function SherwebAI() {
             Building Momentum
           </h2>
           <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-            The success of the AI diagnostic and enablement program created lasting momentum at Sherweb. Without this structured approach, the team might have slowed down their AI journey. Instead, they're building on that momentum with:
+            The success of the AI diagnostic and enablement program created lasting momentum at CloudPartner Solutions. Without this structured approach, the team might have slowed down their AI journey. Instead, they're building on that momentum with:
           </p>
           
           <ul className="space-y-4">
@@ -304,7 +304,7 @@ export default function SherwebAI() {
             Transform Your AI Journey
           </h2>
           <p className="text-lg text-zinc-300 mb-8 max-w-2xl mx-auto">
-            Like Sherweb, unlock the full potential of AI in your creative operations with expert guidance.
+            Like CloudPartner Solutions, unlock the full potential of AI in your creative operations with expert guidance.
           </p>
           <Link href="/contact">
             <button

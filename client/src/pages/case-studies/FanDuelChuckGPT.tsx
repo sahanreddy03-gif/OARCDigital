@@ -15,7 +15,7 @@ import img7 from '@assets/stock_images/ai_software_developm_58a580cd.jpg';
 import img8 from '@assets/stock_images/team_collaboration_b_c8b7e41b.jpg';
 import img9 from '@assets/stock_images/business_strategy_co_75cf4bec.jpg';
 
-export default function FanDuelChuckGPT() {
+export default function BetSmartSportsBuddyAI() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -23,10 +23,10 @@ export default function FanDuelChuckGPT() {
   return (
     <Layout>
       <SEOHead
-        title={caseStudiesSEO.fanDuelChuckGPT.title}
-        description={caseStudiesSEO.fanDuelChuckGPT.description}
-        canonicalUrl={`https://oarcdigital.com${caseStudiesSEO.fanDuelChuckGPT.path}`}
-        ogType={caseStudiesSEO.fanDuelChuckGPT.ogType}
+        title={caseStudiesSEO.fanDuelSportsBuddyAI.title}
+        description={caseStudiesSEO.fanDuelSportsBuddyAI.description}
+        canonicalUrl={`https://oarcdigital.com${caseStudiesSEO.fanDuelSportsBuddyAI.path}`}
+        ogType={caseStudiesSEO.fanDuelSportsBuddyAI.ogType}
       />
       {/* Hero Section */}
       <section className="relative h-[70vh] min-h-[500px] flex items-end">
@@ -42,7 +42,7 @@ export default function FanDuelChuckGPT() {
         <div className="relative z-10 w-full px-6 pb-16">
           <div className="max-w-6xl mx-auto">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6" data-testid="heading-case-study-title">
-              FanDuel's ChuckGPT: Zero to Tens of Thousands in Hours
+              BetSmart's SportsBuddyAI: Zero to Tens of Thousands in Hours
             </h1>
             <p className="text-xl md:text-2xl text-white/90 max-w-3xl">
               Building a viral AI chatbot that extended a TV campaign into an interactive digital experience
@@ -87,13 +87,13 @@ export default function FanDuelChuckGPT() {
             The Challenge
           </h2>
           <p className="text-lg text-gray-700 mb-4 leading-relaxed">
-            FanDuel had a successful TV advertising campaign featuring NBA legend Charles Barkley. The campaign was generating buzz, but it was limited to traditional media. They wanted to extend the campaign into digital channels in a way that would create genuine user engagement and social sharing—not just another banner ad.
+            BetSmart had a successful TV advertising campaign featuring a beloved sports celebrity. The campaign was generating buzz, but it was limited to traditional media. They wanted to extend the campaign into digital channels in a way that would create genuine user engagement and social sharing—not just another banner ad.
           </p>
           <p className="text-lg text-gray-700 mb-4 leading-relaxed">
-            The vision: create an AI-powered chatbot that mimicked Charles Barkley's personality so users could actually "talk" to Chuck. This would extend the campaign beyond passive viewing into active participation, driving engagement and brand affinity.
+            The vision: create an AI-powered chatbot that mimicked the celebrity's personality so users could actually "talk" to their favorite sports personality. This would extend the campaign beyond passive viewing into active participation, driving engagement and brand affinity.
           </p>
           <p className="text-lg text-gray-700 leading-relaxed">
-            But there was a catch: the chatbot needed to launch quickly to capitalize on the TV campaign momentum, it had to scale instantly to handle viral traffic, and most critically—it needed multi-layer content moderation to protect the brand while maintaining Chuck's authentic personality.
+            But there was a catch: the chatbot needed to launch quickly to capitalize on the TV campaign momentum, it had to scale instantly to handle viral traffic, and most critically—it needed multi-layer content moderation to protect the brand while maintaining the celebrity's authentic personality.
           </p>
         </div>
       </section>
@@ -123,35 +123,35 @@ export default function FanDuelChuckGPT() {
             Our Approach
           </h2>
           <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-            OARC Digital built ChuckGPT—a custom AI chatbot powered by OpenAI technology with sophisticated personality modeling, brand guardrails, and infrastructure designed to handle massive scale from day one.
+            OARC Digital built SportsBuddyAI—a custom AI chatbot powered by OpenAI technology with sophisticated personality modeling, brand guardrails, and infrastructure designed to handle massive scale from day one.
           </p>
           
           <div className="space-y-6">
             <div className="border-l-4 border-[#5FD4C4] pl-6">
               <h3 className="text-xl font-bold text-black mb-3">Personality Modeling & AI Training</h3>
               <p className="text-base text-gray-700 leading-relaxed">
-                We developed a custom AI model that captured Charles Barkley's unique voice, humor, and personality. Using OpenAI's technology combined with proprietary training on Chuck's speech patterns and style, we created an AI that felt authentically "Chuck" while maintaining brand safety.
+                We developed a custom AI model that captured a beloved sports celebrity's unique voice, humor, and personality. Using OpenAI's technology combined with proprietary training on the celebrity's speech patterns and style, we created an AI that felt authentically engaging while maintaining brand safety.
               </p>
             </div>
 
             <div className="border-l-4 border-[#5FD4C4] pl-6">
               <h3 className="text-xl font-bold text-black mb-3">Multi-Layer Content Moderation</h3>
               <p className="text-base text-gray-700 leading-relaxed">
-                We implemented sophisticated content moderation with multiple layers of AI-powered filtering and brand guardrails. This ensured ChuckGPT maintained the authentic Barkley personality users loved while protecting FanDuel's brand from any inappropriate content—a critical balance for a public-facing AI.
+                We implemented sophisticated content moderation with multiple layers of AI-powered filtering and brand guardrails. This ensured SportsBuddyAI maintained the authentic celebrity personality users loved while protecting BetSmart's brand from any inappropriate content—a critical balance for a public-facing AI.
               </p>
             </div>
 
             <div className="border-l-4 border-[#5FD4C4] pl-6">
               <h3 className="text-xl font-bold text-black mb-3">Viral-Ready Infrastructure</h3>
               <p className="text-base text-gray-700 leading-relaxed">
-                We built ChuckGPT on cloud infrastructure designed to scale instantly. When the chatbot went viral within hours of launch, it seamlessly handled the surge from zero to tens of thousands of concurrent users without any downtime or performance degradation.
+                We built SportsBuddyAI on cloud infrastructure designed to scale instantly. When the chatbot went viral within hours of launch, it seamlessly handled the surge from zero to tens of thousands of concurrent users without any downtime or performance degradation.
               </p>
             </div>
 
             <div className="border-l-4 border-[#5FD4C4] pl-6">
               <h3 className="text-xl font-bold text-black mb-3">Physical & Digital Integration</h3>
               <p className="text-base text-gray-700 leading-relaxed">
-                Beyond the digital chatbot, we powered a physical ChuckGPT device used during live TNT broadcasts and Reddit AMA events. This multi-platform approach extended the campaign's reach and created unique content opportunities across channels.
+                Beyond the digital chatbot, we powered a physical SportsBuddyAI device used during live sports broadcasts and Reddit AMA events. This multi-platform approach extended the campaign's reach and created unique content opportunities across channels.
               </p>
             </div>
           </div>
@@ -205,10 +205,10 @@ export default function FanDuelChuckGPT() {
 
           <div className="bg-zinc-50 border-l-4 border-[#5FD4C4] p-8 rounded-r-2xl">
             <p className="text-lg text-gray-700 italic mb-4 leading-relaxed">
-              "OARC Digital took our TV campaign and transformed it into an interactive digital experience that fans absolutely loved. ChuckGPT went viral within hours and handled the surge flawlessly. The engagement and social sharing exceeded our wildest expectations."
+              "OARC Digital took our TV campaign and transformed it into an interactive digital experience that fans absolutely loved. SportsBuddyAI went viral within hours and handled the surge flawlessly. The engagement and social sharing exceeded our wildest expectations."
             </p>
             <p className="text-base font-bold text-black">
-              Marketing Director, FanDuel
+              Marketing Director, BetSmart
             </p>
           </div>
         </div>
@@ -244,26 +244,26 @@ export default function FanDuelChuckGPT() {
             Campaign Impact
           </h2>
           <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-            ChuckGPT wasn't just a technical success—it fundamentally transformed FanDuel's campaign ROI and brand engagement:
+            SportsBuddyAI wasn't just a technical success—it fundamentally transformed BetSmart's campaign ROI and brand engagement:
           </p>
           
           <ul className="space-y-4">
             <li className="flex items-start gap-3">
               <div className="w-2 h-2 bg-[#5FD4C4] rounded-full mt-2 flex-shrink-0"></div>
               <p className="text-base text-gray-700">
-                <strong>Extended TV campaign reach:</strong> Transformed passive TV viewers into active digital participants who could "talk" to Chuck
+                <strong>Extended TV campaign reach:</strong> Transformed passive TV viewers into active digital participants who could "talk" to their favorite celebrity
               </p>
             </li>
             <li className="flex items-start gap-3">
               <div className="w-2 h-2 bg-[#5FD4C4] rounded-full mt-2 flex-shrink-0"></div>
               <p className="text-base text-gray-700">
-                <strong>Massive social amplification:</strong> Users shared their conversations with ChuckGPT across social media, creating organic reach far beyond paid media
+                <strong>Massive social amplification:</strong> Users shared their conversations with SportsBuddyAI across social media, creating organic reach far beyond paid media
               </p>
             </li>
             <li className="flex items-start gap-3">
               <div className="w-2 h-2 bg-[#5FD4C4] rounded-full mt-2 flex-shrink-0"></div>
               <p className="text-base text-gray-700">
-                <strong>Multi-platform activation:</strong> Physical ChuckGPT device powered live TNT broadcasts and Reddit AMAs, creating unique content moments
+                <strong>Multi-platform activation:</strong> Physical SportsBuddyAI device powered live sports broadcasts and Reddit AMAs, creating unique content moments
               </p>
             </li>
             <li className="flex items-start gap-3">
@@ -314,7 +314,7 @@ export default function FanDuelChuckGPT() {
             Build Your AI-Powered Experience
           </h2>
           <p className="text-lg text-zinc-300 mb-8 max-w-2xl mx-auto">
-            Like FanDuel, create viral AI experiences that engage users and extend your campaigns.
+            Like BetSmart, create viral AI experiences that engage users and extend your campaigns.
           </p>
           <Link href="/contact">
             <button
