@@ -15,7 +15,7 @@ import img7 from '@assets/stock_images/revenue_growth_data__21757e1f.jpg';
 import img8 from '@assets/stock_images/team_collaboration_b_c8b7e41b.jpg';
 import img9 from '@assets/stock_images/business_strategy_co_75cf4bec.jpg';
 
-export default function Cleverly() {
+export default function LeadGenSolutions() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -42,7 +42,7 @@ export default function Cleverly() {
         <div className="relative z-10 w-full px-6 pb-16">
           <div className="max-w-6xl mx-auto">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6" data-testid="heading-case-study-title">
-              How Cleverly Achieved 10x Delivery Speed
+              How LeadGen Solutions Achieved 10x Delivery Speed
             </h1>
             <p className="text-xl md:text-2xl text-white/90 max-w-3xl">
               Saving tens of thousands with automated workflows enabling 200+ accounts per manager
@@ -87,10 +87,10 @@ export default function Cleverly() {
             The Challenge
           </h2>
           <p className="text-lg text-gray-700 mb-4 leading-relaxed">
-            Cleverly, a fast-growing lead generation agency, was facing a critical scalability problem. Their account managers were drowning in hundreds of man-hours spent on simple, mundane tasks like data entry, account management, and client onboarding.
+            LeadGen Solutions, a fast-growing lead generation agency, was facing a critical scalability problem. Their account managers were drowning in hundreds of man-hours spent on simple, mundane tasks like data entry, account management, and client onboarding.
           </p>
           <p className="text-lg text-gray-700 mb-4 leading-relaxed">
-            Manual processes meant each account manager could only handle 20-30 accounts effectively. With ambitious growth targets, Cleverly needed to either hire extensively or find a way to dramatically increase productivity per person. The cost of hiring at scale would eat into margins, while maintaining manual processes would bottleneck growth.
+            Manual processes meant each account manager could only handle 20-30 accounts effectively. With ambitious growth targets, LeadGen Solutions needed to either hire extensively or find a way to dramatically increase productivity per person. The cost of hiring at scale would eat into margins, while maintaining manual processes would bottleneck growth.
           </p>
           <p className="text-lg text-gray-700 leading-relaxed">
             Most critically, their onboarding process was slow and error-prone, leading to delayed client launches and inconsistent data quality across their systems.
@@ -123,7 +123,7 @@ export default function Cleverly() {
             Our Approach
           </h2>
           <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-            OARC Digital implemented a comprehensive automation system that transformed every aspect of Cleverly's operations—from data entry to account management to client onboarding. Our solution focused on three key areas:
+            OARC Digital implemented a comprehensive automation system that transformed every aspect of LeadGen Solutions's operations—from data entry to account management to client onboarding. Our solution focused on three key areas:
           </p>
           
           <div className="space-y-6">
@@ -201,7 +201,7 @@ export default function Cleverly() {
               "OARC Digital's automation systems transformed our entire business. We went from drowning in manual work to effortlessly managing 10x more accounts. The cost savings and efficiency gains have been game-changing for our growth trajectory."
             </p>
             <p className="text-base font-bold text-black">
-              Operations Director, Cleverly
+              Operations Director, LeadGen Solutions
             </p>
           </div>
         </div>
@@ -237,7 +237,7 @@ export default function Cleverly() {
             Business Impact
           </h2>
           <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-            The automation systems OARC Digital implemented didn't just improve efficiency—they fundamentally transformed Cleverly's business model and growth trajectory:
+            The automation systems OARC Digital implemented didn't just improve efficiency—they fundamentally transformed LeadGen Solutions's business model and growth trajectory:
           </p>
           
           <ul className="space-y-4">
@@ -268,7 +268,7 @@ export default function Cleverly() {
             <li className="flex items-start gap-3">
               <div className="w-2 h-2 bg-[#5FD4C4] rounded-full mt-2 flex-shrink-0"></div>
               <p className="text-base text-gray-700">
-                <strong>Enabled rapid scaling:</strong> With automation in place, Cleverly can now scale to any size without proportional headcount growth
+                <strong>Enabled rapid scaling:</strong> With automation in place, LeadGen Solutions can now scale to any size without proportional headcount growth
               </p>
             </li>
           </ul>
@@ -307,7 +307,7 @@ export default function Cleverly() {
             Automate Your Revenue Operations
           </h2>
           <p className="text-lg text-zinc-300 mb-8 max-w-2xl mx-auto">
-            Like Cleverly, achieve 10x delivery speed and massive cost savings with custom automation.
+            Like LeadGen Solutions, achieve 10x delivery speed and massive cost savings with custom automation.
           </p>
           <Link href="/contact">
             <button

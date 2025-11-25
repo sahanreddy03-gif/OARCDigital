@@ -41,7 +41,7 @@ export default function AcclaimAutism() {
         <div className="relative z-10 w-full px-6 pb-16">
           <div className="max-w-6xl mx-auto">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6" data-testid="heading-case-study-title">
-              Acclaim Autism: 83% Faster Patient Intake with AI
+              NeuroDiversity Connect: 83% Faster Patient Intake with AI
             </h1>
             <p className="text-xl md:text-2xl text-white/90 max-w-3xl">
               AI-powered document processing enabling families to access autism care services faster than ever
@@ -86,13 +86,13 @@ export default function AcclaimAutism() {
             The Challenge
           </h2>
           <p className="text-lg text-gray-700 mb-4 leading-relaxed">
-            Acclaim Autism provides critical behavioral health services to children with autism spectrum disorder. When families reach out for help, they're often desperate for immediate support. But the traditional patient intake process created frustrating delays—families submitted medical records, insurance documents, treatment histories, and assessment forms, then waited days or weeks while staff manually reviewed and processed everything.
+            NeuroDiversity Connect provides critical behavioral health services to children with autism spectrum disorder. When families reach out for help, they're often desperate for immediate support. But the traditional patient intake process created frustrating delays—families submitted medical records, insurance documents, treatment histories, and assessment forms, then waited days or weeks while staff manually reviewed and processed everything.
           </p>
           <p className="text-lg text-gray-700 mb-4 leading-relaxed">
             The manual document processing bottleneck meant administrative staff spent hours extracting information from medical PDFs, insurance cards, physician notes, and previous assessment reports. Every document required careful review to ensure accuracy, but the sheer volume meant families often waited weeks before their child could begin services.
           </p>
           <p className="text-lg text-gray-700 leading-relaxed">
-            For children with autism, early intervention is critical. Every day of delay impacts developmental outcomes. Acclaim Autism needed to dramatically accelerate their intake process while maintaining the accuracy and compliance standards required in healthcare—all without hiring additional administrative staff.
+            For children with autism, early intervention is critical. Every day of delay impacts developmental outcomes. NeuroDiversity Connect needed to dramatically accelerate their intake process while maintaining the accuracy and compliance standards required in healthcare—all without hiring additional administrative staff.
           </p>
         </div>
       </section>

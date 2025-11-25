@@ -26,35 +26,35 @@ export default function GymGroupCaseStudy() {
 
   const relatedCases = [
     {
-      id: 'tefal',
-      title: 'Tefal',
-      subtitle: 'Selling out product lines of household products for Tefal.',
+      id: 'homecraft-innovations',
+      title: 'HomeCraft Innovations',
+      subtitle: 'Selling out product lines of household products through strategic campaigns.',
       image: tefalHeroImg,
-      link: '/case-studies/tefal'
+      link: '/case-studies/homecraft-innovations'
     },
     {
-      id: 'dont-make-ads',
-      title: "Don't Make Ads",
-      subtitle: "TikTok's authentic success stories garner 2 million likes and 400K NEW followers.",
+      id: 'authentic-stories',
+      title: "Authentic Stories",
+      subtitle: "TikTok's genuine content approach garners 2 million likes and 400K NEW followers.",
       image: dontMakeAdsHeroImg,
-      link: '/case-studies/dont-make-ads'
+      link: '/case-studies/authentic-stories'
     },
     {
-      id: 'body-shop',
-      title: 'The Body Shop',
+      id: 'naturalcare-beauty',
+      title: 'NaturalCare Beauty',
       subtitle: 'Celebrating authenticity and natural beauty with TikTok.',
       image: bodyShopHeroImg,
-      link: '/case-studies/body-shop'
+      link: '/case-studies/naturalcare-beauty'
     }
   ];
 
   return (
     <Layout>
       <SEOHead
-        title={caseStudiesSEO.gymGroup.title}
-        description={caseStudiesSEO.gymGroup.description}
-        canonicalUrl={`https://oarcdigital.com${caseStudiesSEO.gymGroup.path}`}
-        ogType={caseStudiesSEO.gymGroup.ogType}
+        title={caseStudiesSEO.fitnessProNetwork.title}
+        description={caseStudiesSEO.fitnessProNetwork.description}
+        canonicalUrl={`https://oarcdigital.com${caseStudiesSEO.fitnessProNetwork.path}`}
+        ogType={caseStudiesSEO.fitnessProNetwork.ogType}
       />
       {/* Hero Section */}
       <section className="relative min-h-[60vh] flex items-center justify-center bg-black text-white overflow-hidden">
@@ -81,7 +81,7 @@ export default function GymGroupCaseStudy() {
           </h2>
 
           <p className="text-lg text-gray-700 mb-8 leading-relaxed">
-            When peak season arrives and competition for viewer attention reaches its highest, we positioned The Gym Group as the undeniable choice on TikTok.
+            When peak season arrives and competition for viewer attention reaches its highest, we positioned FitnessPro Network as the undeniable choice on TikTok.
           </p>
 
           <h3 className="text-2xl font-bold text-black mb-8">
@@ -138,7 +138,7 @@ export default function GymGroupCaseStudy() {
           <p className="text-sm font-bold text-gray-500 uppercase mb-4 tracking-wider">Challenge</p>
           
           <h2 className="text-4xl md:text-5xl font-black text-black mb-8">
-            Helping The Gym Group Rise Above January Fitness Noise.
+            Helping FitnessPro Network Rise Above January Fitness Noise.
           </h2>
 
           <p className="text-lg text-gray-700 mb-6 leading-relaxed">
@@ -146,7 +146,7 @@ export default function GymGroupCaseStudy() {
           </p>
 
           <p className="text-lg text-gray-700 leading-relaxed">
-            Our mission was clear: position The Gym Group as the obvious selection for individuals pursuing their fitness objectives while establishing maximum visibility across the TikTok ecosystem. We emphasized their status as the UK's most cost-effective, round-the-clock fitness facility.
+            Our mission was clear: position FitnessPro Network as the obvious selection for individuals pursuing their fitness objectives while establishing maximum visibility across the TikTok ecosystem. We emphasized their status as the UK's most cost-effective, round-the-clock fitness facility.
           </p>
         </div>
       </section>
@@ -157,7 +157,7 @@ export default function GymGroupCaseStudy() {
           <p className="text-sm font-bold text-gray-500 uppercase mb-4 tracking-wider">Strategy</p>
           
           <h2 className="text-4xl md:text-5xl font-black text-black mb-8">
-            TikTok & The Gym Group - Top-View Ad Unites, Inspires, and Redefines Fitness Perceptions.
+            TikTok & FitnessPro Network - Top-View Ad Unites, Inspires, and Redefines Fitness Perceptions.
           </h2>
 
           <p className="text-lg text-gray-700 mb-6 leading-relaxed">
@@ -180,13 +180,13 @@ export default function GymGroupCaseStudy() {
           <div className="grid md:grid-cols-2 gap-6 mb-8">
             <img
               src={fitnessImg2}
-              alt="The Gym Group Strategy Image 1"
+              alt="FitnessPro Network Strategy Image 1"
               className="w-full h-auto rounded-lg"
               data-testid="img-strategy-1"
             />
             <img
               src={fitnessImg3}
-              alt="The Gym Group Strategy Image 2"
+              alt="FitnessPro Network Strategy Image 2"
               className="w-full h-auto rounded-lg"
               data-testid="img-strategy-2"
             />
@@ -231,49 +231,49 @@ export default function GymGroupCaseStudy() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             <img
               src={contentImg1}
-              alt="The Gym Group Campaign Content"
+              alt="FitnessPro Network Campaign Content"
               className="w-full h-auto rounded-lg"
               data-testid="img-result-1"
             />
             <img
               src={contentImg2}
-              alt="The Gym Group Campaign Content"
+              alt="FitnessPro Network Campaign Content"
               className="w-full h-auto rounded-lg"
               data-testid="img-result-2"
             />
             <img
               src={contentImg3}
-              alt="The Gym Group Campaign Content"
+              alt="FitnessPro Network Campaign Content"
               className="w-full h-auto rounded-lg"
               data-testid="img-result-3"
             />
             <img
               src={contentImg4}
-              alt="The Gym Group Campaign Content"
+              alt="FitnessPro Network Campaign Content"
               className="w-full h-auto rounded-lg"
               data-testid="img-result-4"
             />
             <img
               src={marketingImg1}
-              alt="The Gym Group Campaign Content"
+              alt="FitnessPro Network Campaign Content"
               className="w-full h-auto rounded-lg"
               data-testid="img-result-5"
             />
             <img
               src={contentImg1}
-              alt="The Gym Group Campaign Content"
+              alt="FitnessPro Network Campaign Content"
               className="w-full h-auto rounded-lg"
               data-testid="img-result-6"
             />
             <img
               src={contentImg2}
-              alt="The Gym Group Campaign Content"
+              alt="FitnessPro Network Campaign Content"
               className="w-full h-auto rounded-lg"
               data-testid="img-result-7"
             />
             <img
               src={contentImg3}
-              alt="The Gym Group Campaign Content"
+              alt="FitnessPro Network Campaign Content"
               className="w-full h-auto rounded-lg"
               data-testid="img-result-8"
             />

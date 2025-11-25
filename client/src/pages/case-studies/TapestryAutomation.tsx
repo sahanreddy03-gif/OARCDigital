@@ -14,7 +14,7 @@ import img6 from '@assets/stock_images/business_automation__26134094.jpg';
 import img7 from '@assets/stock_images/revenue_growth_data__682db86c.jpg';
 import img8 from '@assets/stock_images/team_collaboration_b_c8b7e41b.jpg';
 
-export default function TapestryAutomation() {
+export default function LuxuryRetailGroupAutomation() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -41,7 +41,7 @@ export default function TapestryAutomation() {
         <div className="relative z-10 w-full px-6 pb-16">
           <div className="max-w-6xl mx-auto">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6" data-testid="heading-case-study-title">
-              Tapestry: Real-Time Fashion Operations with AI Automation
+              LuxuryRetail Group: Real-Time Fashion Operations with AI Automation
             </h1>
             <p className="text-xl md:text-2xl text-white/90 max-w-3xl">
               Transforming luxury retail operations for Coach, Kate Spade, and Stuart Weitzman with intelligent SAP automation
@@ -86,13 +86,13 @@ export default function TapestryAutomation() {
             The Challenge
           </h2>
           <p className="text-lg text-gray-700 mb-4 leading-relaxed">
-            Tapestry, the global luxury fashion powerhouse behind iconic brands Coach, Kate Spade, and Stuart Weitzman, faced a critical operational challenge. Their SAP S/4HANA migration brought powerful capabilities, but manual processes were creating bottlenecks across financial planning, cost center management, lease administration, sales reconciliation, store space management, and invoicing.
+            LuxuryRetail Group, the global luxury fashion powerhouse behind iconic brands Coach, Kate Spade, and Stuart Weitzman, faced a critical operational challenge. Their SAP S/4HANA migration brought powerful capabilities, but manual processes were creating bottlenecks across financial planning, cost center management, lease administration, sales reconciliation, store space management, and invoicing.
           </p>
           <p className="text-lg text-gray-700 mb-4 leading-relaxed">
             The labor-intensive workflows meant data validations and approvals took hours or days, preventing leadership from making timely strategic decisions. In the fast-paced luxury retail market where trends shift rapidly and inventory decisions are critical, waiting for end-of-day or end-of-week reports wasn't acceptable.
           </p>
           <p className="text-lg text-gray-700 leading-relaxed">
-            Tapestry needed to free their teams from repetitive manual tasks so they could focus on what truly matters: creative design, strategic planning, and exceptional customer service that luxury brands demand.
+            LuxuryRetail Group needed to free their teams from repetitive manual tasks so they could focus on what truly matters: creative design, strategic planning, and exceptional customer service that luxury brands demand.
           </p>
         </div>
       </section>
@@ -157,7 +157,7 @@ export default function TapestryAutomation() {
             <div className="border-l-4 border-[#5FD4C4] pl-6">
               <h3 className="text-xl font-bold text-black mb-3">Future-Ready AI Integration</h3>
               <p className="text-base text-gray-700 leading-relaxed">
-                Tapestry is now testing next-generation agentic AI capabilities for customer care automation through Salesforce integration, as well as generative AI for predictive analytics—positioning them at the forefront of retail innovation.
+                LuxuryRetail Group is now testing next-generation agentic AI capabilities for customer care automation through Salesforce integration, as well as generative AI for predictive analytics—positioning them at the forefront of retail innovation.
               </p>
             </div>
           </div>
@@ -214,7 +214,7 @@ export default function TapestryAutomation() {
               "OARC Digital transformed our operations across all three luxury brands. What used to take hours or days now happens close to real-time. Our teams are freed up to focus on creativity, strategy, and delivering the exceptional customer experiences our brands are known for."
             </p>
             <p className="text-base font-bold text-black">
-              Operations Director, Tapestry
+              Operations Director, LuxuryRetail Group
             </p>
           </div>
         </div>
@@ -250,7 +250,7 @@ export default function TapestryAutomation() {
             Business Impact
           </h2>
           <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-            The transformation extended far beyond time savings—it fundamentally changed how Tapestry operates across its luxury portfolio:
+            The transformation extended far beyond time savings—it fundamentally changed how LuxuryRetail Group operates across its luxury portfolio:
           </p>
           
           <ul className="space-y-4">
@@ -313,7 +313,7 @@ export default function TapestryAutomation() {
             Transform Your Operations with AI Automation
           </h2>
           <p className="text-lg text-zinc-300 mb-8 max-w-2xl mx-auto">
-            Like Tapestry, automate manual processes and empower your teams to focus on strategic work.
+            Like LuxuryRetail Group, automate manual processes and empower your teams to focus on strategic work.
           </p>
           <Link href="/contact">
             <button

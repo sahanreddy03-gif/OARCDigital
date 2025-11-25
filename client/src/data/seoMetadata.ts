@@ -264,100 +264,100 @@ export const revenueServicesSEO: Record<string, PageSEO> = {
 };
 
 export const caseStudiesSEO: Record<string, PageSEO> = {
-  acclaimAutism: {
-    title: 'Acclaim Autism Healthcare Automation Case Study | OARC Digital',
-    description: 'How OARC Digital reduced patient intake time by 83% for Acclaim Autism using AI-powered document processing, enabling faster access to critical autism care services.',
-    path: '/case-studies/acclaim-autism',
+  healthpathAI: {
+    title: 'HealthPath AI Healthcare Automation Case Study | OARC Digital',
+    description: 'How OARC Digital reduced patient intake time by 83% for HealthPath AI using AI-powered document processing, enabling faster access to critical healthcare services.',
+    path: '/case-studies/healthpath-ai',
     ogType: 'article'
   },
-  antler: {
-    title: 'Antler Brand Reimagination Case Study | OARC Digital',
-    description: 'How OARC Digital reimagined the Antler brand, connecting new positioning and messaging platform to exceptional visual execution for the investor backing driven founders.',
-    path: '/case-studies/antler',
+  ventureHubCo: {
+    title: 'VentureHub Co Brand Reimagination Case Study | OARC Digital',
+    description: 'How OARC Digital reimagined the VentureHub Co brand, connecting new positioning and messaging platform to exceptional visual execution for investor-backed founders.',
+    path: '/case-studies/venturehub-co',
     ogType: 'article'
   },
-  azzaro: {
-    title: 'Azzaro TikTok Luxury Fragrance Campaign | OARC Digital',
-    description: 'How OARC Digital successfully introduced luxury fragrance brand Azzaro to the TikTok community, reaching millions through authentic influencer partnerships.',
-    path: '/case-studies/azzaro',
+  luxeEssence: {
+    title: 'Luxe Essence TikTok Luxury Fragrance Campaign | OARC Digital',
+    description: 'How OARC Digital successfully introduced luxury fragrance brand Luxe Essence to the TikTok community, reaching millions through authentic influencer partnerships.',
+    path: '/case-studies/luxe-essence',
     ogType: 'article'
   },
-  bancolombiaAutomation: {
-    title: 'Bancolombia Banking Automation Case Study | OARC Digital',
-    description: 'How OARC Digital delivered 1,300% ROI for Bancolombia, saving 127,000+ hours in branches and generating $7M in new revenue streams through intelligent automation for 14M+ clients.',
-    path: '/case-studies/bancolombia-automation',
+  digitalFinanceSolutions: {
+    title: 'Digital Finance Solutions Banking Automation Case Study | OARC Digital',
+    description: 'How OARC Digital delivered 1,300% ROI for Digital Finance Solutions, saving 127,000+ hours in branches and generating $7M in new revenue streams through intelligent automation for 14M+ clients.',
+    path: '/case-studies/digital-finance-solutions',
     ogType: 'article'
   },
-  bodyShop: {
-    title: 'The Body Shop Middle East Awareness Campaign | OARC Digital',
-    description: 'How OARC Digital raised awareness of The Body Shop\'s brand activism across Middle Eastern markets through targeted social media campaigns.',
-    path: '/case-studies/body-shop',
+  naturalCareBeauty: {
+    title: 'NaturalCare Beauty Middle East Awareness Campaign | OARC Digital',
+    description: 'How OARC Digital raised awareness of NaturalCare Beauty\'s brand activism across Middle Eastern markets through targeted social media campaigns.',
+    path: '/case-studies/naturalcare-beauty',
     ogType: 'article'
   },
-  cleverly: {
-    title: 'Cleverly Revenue Automation Case Study | OARC Digital',
-    description: 'How OARC Digital helped Cleverly achieve 10x delivery speed increase and tens of thousands in cost savings through automated workflows.',
-    path: '/case-studies/cleverly',
+  streamFlowAutomation: {
+    title: 'StreamFlow Automation Revenue Automation Case Study | OARC Digital',
+    description: 'How OARC Digital helped StreamFlow Automation achieve 10x delivery speed increase and tens of thousands in cost savings through automated workflows.',
+    path: '/case-studies/streamflow-automation',
     ogType: 'article'
   },
-  dontMakeAds: {
-    title: 'TikTok Authentic Success Stories Case Study | OARC Digital',
-    description: 'How OARC Digital\'s "Don\'t Make Ads" approach garnered 2 million likes and 400K NEW TikTok followers through authentic storytelling.',
-    path: '/case-studies/dont-make-ads',
+  authenticStories: {
+    title: 'Authentic Stories TikTok Success Case Study | OARC Digital',
+    description: 'How OARC Digital\'s authentic content approach garnered 2 million likes and 400K NEW TikTok followers through genuine storytelling.',
+    path: '/case-studies/authentic-stories',
     ogType: 'article'
   },
-  eslGaming: {
-    title: 'ESL Gaming Social Media Campaign | OARC Digital',
-    description: 'How OARC Digital created engaging social media campaigns for ESL Gaming, connecting with gaming communities across multiple platforms.',
-    path: '/case-studies/esl-gaming',
+  proGamerNetwork: {
+    title: 'ProGamer Network Social Media Campaign | OARC Digital',
+    description: 'How OARC Digital created engaging social media campaigns for ProGamer Network, connecting with gaming communities across multiple platforms.',
+    path: '/case-studies/progamer-network',
     ogType: 'article'
   },
-  fanDuelChuckGPT: {
-    title: 'FanDuel ChuckGPT AI Chatbot Case Study | OARC Digital',
-    description: 'How OARC Digital built ChuckGPT for FanDuel—an AI chatbot that scaled from zero to tens of thousands of users within hours.',
-    path: '/case-studies/fanduel-chuckgpt',
+  sportsAIInteractive: {
+    title: 'SportsAI Interactive AI Chatbot Case Study | OARC Digital',
+    description: 'How OARC Digital built an AI chatbot for SportsAI Interactive that scaled from zero to tens of thousands of users within hours.',
+    path: '/case-studies/sportsai-interactive',
     ogType: 'article'
   },
-  gymGroup: {
-    title: 'The Gym Group Social Media Campaign | OARC Digital',
-    description: 'How OARC Digital created impactful social media campaigns for The Gym Group, driving engagement and membership growth.',
-    path: '/case-studies/gym-group',
+  fitnessProNetwork: {
+    title: 'FitnessPro Network Social Media Campaign | OARC Digital',
+    description: 'How OARC Digital created impactful social media campaigns for FitnessPro Network, driving engagement and membership growth.',
+    path: '/case-studies/fitnesspro-network',
     ogType: 'article'
   },
-  jbsAutomation: {
-    title: 'JBS Food Supply Chain Automation Case Study | OARC Digital',
-    description: 'How OARC Digital saved JBS $1M+ annually, automated 125,000 hours of work, and deployed 210 intelligent automations across global food supply chain operations.',
-    path: '/case-studies/jbs-automation',
+  globalSupplySystems: {
+    title: 'Global Supply Systems Food Supply Chain Automation Case Study | OARC Digital',
+    description: 'How OARC Digital saved Global Supply Systems $1M+ annually, automated 125,000 hours of work, and deployed 210 intelligent automations across global food supply chain operations.',
+    path: '/case-studies/global-supply-systems',
     ogType: 'article'
   },
-  lenovoLegion: {
-    title: 'Lenovo Legion Gaming Marketing Campaign | OARC Digital',
-    description: 'How OARC Digital created compelling gaming-focused marketing campaigns for Lenovo Legion, reaching gaming enthusiasts worldwide.',
-    path: '/case-studies/lenovo-legion',
+  gamingTechElite: {
+    title: 'GamingTech Elite Gaming Marketing Campaign | OARC Digital',
+    description: 'How OARC Digital created compelling gaming-focused marketing campaigns for GamingTech Elite, reaching gaming enthusiasts worldwide.',
+    path: '/case-studies/gamingtech-elite',
     ogType: 'article'
   },
-  peopleReadyAI: {
-    title: 'PeopleReady AI Team Case Study | OARC Digital',
-    description: 'How OARC Digital helped PeopleReady scale their digital transformation with 30+ seamlessly integrated nearshore AI engineers.',
-    path: '/case-studies/people-ready-ai',
+  talentScaleSolutions: {
+    title: 'TalentScale Solutions AI Team Case Study | OARC Digital',
+    description: 'How OARC Digital helped TalentScale Solutions scale their digital transformation with 30+ seamlessly integrated nearshore AI engineers.',
+    path: '/case-studies/talentscale-solutions',
     ogType: 'article'
   },
-  sherwebAI: {
-    title: 'Sherweb AI Adoption Case Study | OARC Digital',
-    description: 'How OARC Digital helped Sherweb scale AI adoption with a solid foundation for responsible AI use in creative teams.',
-    path: '/case-studies/sherweb-ai',
+  cloudBaseTechnologies: {
+    title: 'CloudBase Technologies AI Adoption Case Study | OARC Digital',
+    description: 'How OARC Digital helped CloudBase Technologies scale AI adoption with a solid foundation for responsible AI use in creative teams.',
+    path: '/case-studies/cloudbase-technologies',
     ogType: 'article'
   },
-  tapestryAutomation: {
-    title: 'Tapestry Luxury Fashion Automation Case Study | OARC Digital',
-    description: 'How OARC Digital automated SAP S/4HANA processes for Tapestry (Coach, Kate Spade, Stuart Weitzman), transforming financial planning, sales, and operations with near real-time data.',
-    path: '/case-studies/tapestry-automation',
+  heritageLuxuryGroup: {
+    title: 'Heritage Luxury Group Fashion Automation Case Study | OARC Digital',
+    description: 'How OARC Digital automated SAP S/4HANA processes for Heritage Luxury Group, transforming financial planning, sales, and operations with near real-time data.',
+    path: '/case-studies/heritage-luxury-group',
     ogType: 'article'
   },
-  tefal: {
-    title: 'Tefal Product Launch Campaign Case Study | OARC Digital',
-    description: 'How OARC Digital sold out product lines for Tefal through innovative social media campaigns and influencer partnerships across multiple platforms.',
-    path: '/case-studies/tefal',
+  homeCraftInnovations: {
+    title: 'HomeCraft Innovations Product Launch Campaign Case Study | OARC Digital',
+    description: 'How OARC Digital sold out product lines for HomeCraft Innovations through innovative social media campaigns and influencer partnerships across multiple platforms.',
+    path: '/case-studies/homecraft-innovations',
     ogType: 'article'
   }
 };

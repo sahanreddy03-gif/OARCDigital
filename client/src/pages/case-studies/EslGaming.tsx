@@ -22,35 +22,35 @@ export default function EslGamingCaseStudy() {
 
   const relatedCases = [
     {
-      id: 'dont-make-ads',
-      title: "Don't Make Ads",
-      subtitle: "TikTok's authentic success stories garner 2 million likes and 400K NEW followers.",
+      id: 'authentic-stories',
+      title: "Authentic Stories",
+      subtitle: "TikTok's genuine content approach garners 2 million likes and 400K NEW followers.",
       image: dontMakeAdsHeroImg,
-      link: '/case-studies/dont-make-ads'
+      link: '/case-studies/authentic-stories'
     },
     {
-      id: 'tefal',
-      title: 'Tefal',
-      subtitle: 'Selling out product lines of household products for Tefal.',
+      id: 'homecraft-innovations',
+      title: 'HomeCraft Innovations',
+      subtitle: 'Selling out product lines of household products through strategic campaigns.',
       image: tefalHeroImg,
-      link: '/case-studies/tefal'
+      link: '/case-studies/homecraft-innovations'
     },
     {
-      id: 'body-shop',
-      title: 'The Body Shop',
-      subtitle: "Raising awareness of The Body Shop's brand activism in the Middle-East.",
+      id: 'naturalcare-beauty',
+      title: 'NaturalCare Beauty',
+      subtitle: "Raising awareness of NaturalCare Beauty's brand activism in the Middle-East.",
       image: bodyShopHeroImg,
-      link: '/case-studies/body-shop'
+      link: '/case-studies/naturalcare-beauty'
     }
   ];
 
   return (
     <Layout>
       <SEOHead
-        title={caseStudiesSEO.eslGaming.title}
-        description={caseStudiesSEO.eslGaming.description}
-        canonicalUrl={`https://oarcdigital.com${caseStudiesSEO.eslGaming.path}`}
-        ogType={caseStudiesSEO.eslGaming.ogType}
+        title={caseStudiesSEO.proGamerNetwork.title}
+        description={caseStudiesSEO.proGamerNetwork.description}
+        canonicalUrl={`https://oarcdigital.com${caseStudiesSEO.proGamerNetwork.path}`}
+        ogType={caseStudiesSEO.proGamerNetwork.ogType}
       />
       {/* Hero Section */}
       <section className="relative min-h-[60vh] flex items-center justify-center bg-black text-white overflow-hidden">
@@ -77,7 +77,7 @@ export default function EslGamingCaseStudy() {
           </h2>
 
           <p className="text-lg text-gray-700 mb-8 leading-relaxed">
-            ESL Gaming approached us with ambitious expansion targets for their TikTok presence. Our mission: 50% follower growth while strengthening brand authority on the platform. We architected an eight-asset-per-week content system that balanced trending relevance with game-specific expertise (Counter-Strike 2, Dota 2), anchoring every piece to major ESL tournaments and community events. Strategic account optimization and platform growth consulting complemented organic content efforts.
+            ProGamer Network approached us with ambitious expansion targets for their TikTok presence. Our mission: 50% follower growth while strengthening brand authority on the platform. We architected an eight-asset-per-week content system that balanced trending relevance with game-specific expertise (Counter-Strike 2, Dota 2), anchoring every piece to major tournaments and community events. Strategic account optimization and platform growth consulting complemented organic content efforts.
           </p>
 
           <h3 className="text-2xl font-bold text-black mb-8">
@@ -138,7 +138,7 @@ export default function EslGamingCaseStudy() {
           </h2>
 
           <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-            Our challenge: scale @EslGaming beyond hardcore esports enthusiasts while maintaining authenticity with core gaming communities. The 50% growth target demanded strategic positioning that felt organic rather than corporate.
+            Our challenge: scale @ProGamerNetwork beyond hardcore esports enthusiasts while maintaining authenticity with core gaming communities. The 50% growth target demanded strategic positioning that felt organic rather than corporate.
           </p>
 
           <p className="text-lg text-gray-700 mb-6 leading-relaxed">
@@ -153,7 +153,7 @@ export default function EslGamingCaseStudy() {
           <p className="text-sm font-bold text-gray-500 uppercase mb-4 tracking-wider">Strategy</p>
           
           <h2 className="text-4xl md:text-5xl font-black text-black mb-8">
-            Captivating Core and New Audiences: A Multi-Pillared Content Strategy on TikTok for ESL.
+            Captivating Core and New Audiences: A Multi-Pillared Content Strategy on TikTok for ProGamer Network.
           </h2>
 
           <p className="text-lg text-gray-700 mb-6 leading-relaxed">
@@ -161,24 +161,24 @@ export default function EslGamingCaseStudy() {
           </p>
 
           <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-            Platform optimization was critical. We leveraged TikTok's native editing suite, trending audio, popular sounds, and community challenges while maintaining ESL's distinctive voice. Every piece combined entertainment value with authenticity. The formula: relatable humor + specialized esports knowledge + accessible production = content that bridges hardcore gamers and mainstream audiences.
+            Platform optimization was critical. We leveraged TikTok's native editing suite, trending audio, popular sounds, and community challenges while maintaining ProGamer Network's distinctive voice. Every piece combined entertainment value with authenticity. The formula: relatable humor + specialized esports knowledge + accessible production = content that bridges hardcore gamers and mainstream audiences.
           </p>
 
           <p className="text-lg text-gray-700 mb-12 leading-relaxed">
-            Consistency anchored growth. Eight weekly posts maintained algorithmic momentum and top-of-mind presence. This cadence demonstrated dedicated resource commitment, signaling to the algorithm and audience that ESL operates with professional discipline while maintaining community-first authenticity.
+            Consistency anchored growth. Eight weekly posts maintained algorithmic momentum and top-of-mind presence. This cadence demonstrated dedicated resource commitment, signaling to the algorithm and audience that ProGamer Network operates with professional discipline while maintaining community-first authenticity.
           </p>
 
           {/* Strategy Images */}
           <div className="grid md:grid-cols-2 gap-6 mb-8">
             <img
               src={gamingImg2}
-              alt="ESL Gaming Strategy Image 1"
+              alt="ProGamer Network Strategy Image 1"
               className="w-full h-auto rounded-lg"
               data-testid="img-strategy-1"
             />
             <img
               src={gamingImg3}
-              alt="ESL Gaming Strategy Image 2"
+              alt="ProGamer Network Strategy Image 2"
               className="w-full h-auto rounded-lg"
               data-testid="img-strategy-2"
             />
@@ -192,7 +192,7 @@ export default function EslGamingCaseStudy() {
           <p className="text-sm font-bold text-gray-500 uppercase mb-4 tracking-wider">Results</p>
           
           <h2 className="text-4xl md:text-5xl font-black text-black mb-8">
-            Strategic Triumph: 113% Follower Surge and 13% Engagement Rate on TikTok for ESL.
+            Strategic Triumph: 113% Follower Surge and 13% Engagement Rate on TikTok for ProGamer Network.
           </h2>
 
           <p className="text-lg text-gray-700 mb-6 leading-relaxed">
@@ -200,7 +200,7 @@ export default function EslGamingCaseStudy() {
           </p>
 
           <p className="text-lg text-gray-700 mb-12 leading-relaxed">
-            Engagement metrics proved audience resonance: 13% engagement rate significantly outpaced platform benchmarks and demonstrated genuine community connection rather than hollow vanity metrics. This data confirmed our cultural authenticity worked—audiences weren't just following; they were actively participating in ESL's gaming community.
+            Engagement metrics proved audience resonance: 13% engagement rate significantly outpaced platform benchmarks and demonstrated genuine community connection rather than hollow vanity metrics. This data confirmed our cultural authenticity worked—audiences weren't just following; they were actively participating in ProGamer Network's gaming community.
           </p>
 
           {/* Results Stats */}
@@ -223,91 +223,91 @@ export default function EslGamingCaseStudy() {
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
             <img
               src={gamingImg1}
-              alt="ESL Gaming TikTok Content"
+              alt="ProGamer Network TikTok Content"
               className="w-full h-auto rounded-lg"
               data-testid="img-result-1"
             />
             <img
               src={gamingImg2}
-              alt="ESL Gaming TikTok Content"
+              alt="ProGamer Network TikTok Content"
               className="w-full h-auto rounded-lg"
               data-testid="img-result-2"
             />
             <img
               src={gamingImg3}
-              alt="ESL Gaming TikTok Content"
+              alt="ProGamer Network TikTok Content"
               className="w-full h-auto rounded-lg"
               data-testid="img-result-3"
             />
             <img
               src={gamingImg4}
-              alt="ESL Gaming TikTok Content"
+              alt="ProGamer Network TikTok Content"
               className="w-full h-auto rounded-lg"
               data-testid="img-result-4"
             />
             <img
               src={gamingImg1}
-              alt="ESL Gaming TikTok Content"
+              alt="ProGamer Network TikTok Content"
               className="w-full h-auto rounded-lg"
               data-testid="img-result-5"
             />
             <img
               src={gamingImg2}
-              alt="ESL Gaming TikTok Content"
+              alt="ProGamer Network TikTok Content"
               className="w-full h-auto rounded-lg"
               data-testid="img-result-6"
             />
             <img
               src={gamingImg3}
-              alt="ESL Gaming TikTok Content"
+              alt="ProGamer Network TikTok Content"
               className="w-full h-auto rounded-lg"
               data-testid="img-result-7"
             />
             <img
               src={gamingImg4}
-              alt="ESL Gaming TikTok Content"
+              alt="ProGamer Network TikTok Content"
               className="w-full h-auto rounded-lg"
               data-testid="img-result-8"
             />
             <img
               src={gamingImg1}
-              alt="ESL Gaming TikTok Content"
+              alt="ProGamer Network TikTok Content"
               className="w-full h-auto rounded-lg"
               data-testid="img-result-9"
             />
             <img
               src={gamingImg2}
-              alt="ESL Gaming TikTok Content"
+              alt="ProGamer Network TikTok Content"
               className="w-full h-auto rounded-lg"
               data-testid="img-result-10"
             />
             <img
               src={gamingImg3}
-              alt="ESL Gaming TikTok Content"
+              alt="ProGamer Network TikTok Content"
               className="w-full h-auto rounded-lg"
               data-testid="img-result-11"
             />
             <img
               src={gamingImg4}
-              alt="ESL Gaming TikTok Content"
+              alt="ProGamer Network TikTok Content"
               className="w-full h-auto rounded-lg"
               data-testid="img-result-12"
             />
             <img
               src={gamingImg1}
-              alt="ESL Gaming TikTok Content"
+              alt="ProGamer Network TikTok Content"
               className="w-full h-auto rounded-lg"
               data-testid="img-result-13"
             />
             <img
               src={gamingImg2}
-              alt="ESL Gaming TikTok Content"
+              alt="ProGamer Network TikTok Content"
               className="w-full h-auto rounded-lg"
               data-testid="img-result-14"
             />
             <img
               src={gamingImg3}
-              alt="ESL Gaming TikTok Content"
+              alt="ProGamer Network TikTok Content"
               className="w-full h-auto rounded-lg"
               data-testid="img-result-15"
             />

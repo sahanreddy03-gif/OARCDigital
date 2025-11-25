@@ -23,40 +23,40 @@ export default function DontMakeAdsCaseStudy() {
   const relatedCases = [
     {
       title: "Selling Out Product Lines",
-      category: "Tefal",
+      category: "HomeCraft Innovations",
       stats: { impressions: "70M+", collaborations: "500+", result: "SOLD OUT" },
       image: tefalHeroImg,
-      link: "/case-studies/tefal"
+      link: "/case-studies/homecraft-innovations"
     },
     {
       title: "Introducing Luxury Fragrance",
-      category: "Azzaro",
+      category: "Luxe Essence",
       stats: { reach: "59M", engagement: "1.5M", conversions: "20+" },
       image: azzaroHeroImg,
-      link: "/case-studies/azzaro"
+      link: "/case-studies/luxe-essence"
     },
     {
       title: "Raising Awareness",
-      category: "The Body Shop",
+      category: "NaturalCare Beauty",
       stats: { impressions: "30M", uplift: "15%", reach: "17M" },
       image: relatedCase1,
-      link: "/case-studies/body-shop"
+      link: "/case-studies/naturalcare-beauty"
     }
   ];
 
   return (
     <Layout>
       <SEOHead
-        title={caseStudiesSEO.dontMakeAds.title}
-        description={caseStudiesSEO.dontMakeAds.description}
-        canonicalUrl={`https://oarcdigital.com${caseStudiesSEO.dontMakeAds.path}`}
-        ogType={caseStudiesSEO.dontMakeAds.ogType}
+        title={caseStudiesSEO.authenticStories.title}
+        description={caseStudiesSEO.authenticStories.description}
+        canonicalUrl={`https://oarcdigital.com${caseStudiesSEO.authenticStories.path}`}
+        ogType={caseStudiesSEO.authenticStories.ogType}
       />
       {/* Hero Section with Background Image */}
       <section className="relative h-[60vh] min-h-[500px] bg-black overflow-hidden">
         <img 
           src={relatedCase1}
-          alt="Don't Make Ads TikTok Campaign"
+          alt="Authentic Stories TikTok Campaign"
           className="absolute inset-0 w-full h-full object-cover opacity-50"
           data-testid="img-hero-background"
         />
@@ -104,7 +104,7 @@ export default function DontMakeAdsCaseStudy() {
             </p>
             
             <p className="text-[#FF0080] font-bold text-lg mt-8">
-              Our impact for TikTok on small businesses through authentic stories.
+              Our impact on small businesses through authentic stories.
             </p>
           </div>
 

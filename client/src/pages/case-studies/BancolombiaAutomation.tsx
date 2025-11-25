@@ -14,7 +14,7 @@ import img6 from '@assets/stock_images/business_automation__3ddf701d.jpg';
 import img7 from '@assets/stock_images/revenue_growth_data__682db86c.jpg';
 import img8 from '@assets/stock_images/team_collaboration_b_c8b7e41b.jpg';
 
-export default function BancolombiaAutomation() {
+export default function FinFlowBankAutomation() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -41,7 +41,7 @@ export default function BancolombiaAutomation() {
         <div className="relative z-10 w-full px-6 pb-16">
           <div className="max-w-6xl mx-auto">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6" data-testid="heading-case-study-title">
-              Bancolombia: 1,300% ROI Through Banking Automation
+              FinFlow Bank: 1,300% ROI Through Banking Automation
             </h1>
             <p className="text-xl md:text-2xl text-white/90 max-w-3xl">
               Saving 127,000+ branch hours and generating $7M in new revenue for 14 million customers
@@ -86,10 +86,10 @@ export default function BancolombiaAutomation() {
             The Challenge
           </h2>
           <p className="text-lg text-gray-700 mb-4 leading-relaxed">
-            As one of Latin America's largest financial institutions serving over 14 million clients, Bancolombia faced mounting operational challenges. Their branch staff spent countless hours on repetitive manual tasks—account verifications, document processing, compliance checks, transaction validations—leaving less time for the personalized customer service that differentiates great banks.
+            As one of Latin America's largest financial institutions serving over 14 million clients, FinFlow Bank faced mounting operational challenges. Their branch staff spent countless hours on repetitive manual tasks—account verifications, document processing, compliance checks, transaction validations—leaving less time for the personalized customer service that differentiates great banks.
           </p>
           <p className="text-lg text-gray-700 mb-4 leading-relaxed">
-            Customer expectations were rising. Digital-native competitors offered faster service and 24/7 availability. Meanwhile, Bancolombia's traditional processes created bottlenecks: loan applications took days to process, account openings required multiple branch visits, and back-office teams were overwhelmed with data entry and reconciliation work.
+            Customer expectations were rising. Digital-native competitors offered faster service and 24/7 availability. Meanwhile, FinFlow Bank's traditional processes created bottlenecks: loan applications took days to process, account openings required multiple branch visits, and back-office teams were overwhelmed with data entry and reconciliation work.
           </p>
           <p className="text-lg text-gray-700 leading-relaxed">
             The bank needed to transform operations across hundreds of branches without sacrificing the personal touch customers valued. They needed technology that could handle routine tasks at scale while improving—not replacing—the human customer experience.
@@ -214,7 +214,7 @@ export default function BancolombiaAutomation() {
               "OARC Digital's automation platform transformed how we serve our 14 million clients. Our branch teams now spend their time on high-value advisory services instead of paperwork, and our customers experience faster service with fewer errors. The 1,300% ROI speaks for itself."
             </p>
             <p className="text-base font-bold text-black">
-              Chief Operating Officer, Bancolombia
+              Chief Operating Officer, FinFlow Bank
             </p>
           </div>
 
@@ -261,7 +261,7 @@ export default function BancolombiaAutomation() {
             Business Impact
           </h2>
           <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-            The transformation extended across every aspect of Bancolombia's operations:
+            The transformation extended across every aspect of FinFlow Bank's operations:
           </p>
           
           <ul className="space-y-4">
@@ -324,7 +324,7 @@ export default function BancolombiaAutomation() {
             Achieve Similar Results in Financial Services
           </h2>
           <p className="text-lg text-zinc-300 mb-8 max-w-2xl mx-auto">
-            Like Bancolombia, transform your operations with intelligent automation that delivers measurable ROI.
+            Like FinFlow Bank, transform your operations with intelligent automation that delivers measurable ROI.
           </p>
           <Link href="/contact">
             <button

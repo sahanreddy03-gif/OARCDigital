@@ -22,35 +22,35 @@ export default function LenovoLegionCaseStudy() {
 
   const relatedCases = [
     {
-      id: 'tefal',
-      title: 'Tefal',
-      subtitle: 'Selling out product lines of household products for Tefal.',
+      id: 'homecraft-innovations',
+      title: 'HomeCraft Innovations',
+      subtitle: 'Selling out product lines of household products through strategic campaigns.',
       image: tefalHeroImg,
-      link: '/case-studies/tefal'
+      link: '/case-studies/homecraft-innovations'
     },
     {
-      id: 'dont-make-ads',
-      title: "Don't Make Ads",
-      subtitle: "TikTok's authentic success stories garner 2 million likes and 400K NEW followers.",
+      id: 'authentic-stories',
+      title: "Authentic Stories",
+      subtitle: "TikTok's genuine content approach garners 2 million likes and 400K NEW followers.",
       image: dontMakeAdsHeroImg,
-      link: '/case-studies/dont-make-ads'
+      link: '/case-studies/authentic-stories'
     },
     {
-      id: 'body-shop',
-      title: 'The Body Shop',
-      subtitle: "Raising awareness of The Body Shop's brand activism in the Middle-East.",
+      id: 'naturalcare-beauty',
+      title: 'NaturalCare Beauty',
+      subtitle: "Raising awareness of NaturalCare Beauty's brand activism in the Middle-East.",
       image: bodyShopHeroImg,
-      link: '/case-studies/body-shop'
+      link: '/case-studies/naturalcare-beauty'
     }
   ];
 
   return (
     <Layout>
       <SEOHead
-        title={caseStudiesSEO.lenovoLegion.title}
-        description={caseStudiesSEO.lenovoLegion.description}
-        canonicalUrl={`https://oarcdigital.com${caseStudiesSEO.lenovoLegion.path}`}
-        ogType={caseStudiesSEO.lenovoLegion.ogType}
+        title={caseStudiesSEO.gamingTechElite.title}
+        description={caseStudiesSEO.gamingTechElite.description}
+        canonicalUrl={`https://oarcdigital.com${caseStudiesSEO.gamingTechElite.path}`}
+        ogType={caseStudiesSEO.gamingTechElite.ogType}
       />
       {/* Hero Section */}
       <section className="relative min-h-[60vh] flex items-center justify-center bg-black text-white overflow-hidden">
@@ -77,11 +77,11 @@ export default function LenovoLegionCaseStudy() {
           </h2>
 
           <p className="text-lg text-gray-700 mb-8 leading-relaxed">
-            Lenovo Legion faced the challenge of differentiation in a competitive gaming hardware marketplace. Rather than pursuing generic performance benchmarks, they sought to build authentic community and cultural relevance within UK/Ireland gaming circles.
+            GamingTech Elite faced the challenge of differentiation in a competitive gaming hardware marketplace. Rather than pursuing generic performance benchmarks, they sought to build authentic community and cultural relevance within UK/Ireland gaming circles.
           </p>
 
           <p className="text-lg text-gray-700 mb-12 leading-relaxed">
-            The objective was transformational: shift from product-focused brand messaging toward cultural stewardship—positioning Legion as a gaming community fixture where enthusiasts gather, collaborate, and feel genuinely understood.
+            The objective was transformational: shift from product-focused brand messaging toward cultural stewardship—positioning GamingTech Elite as a gaming community fixture where enthusiasts gather, collaborate, and feel genuinely understood.
           </p>
 
           <h3 className="text-2xl font-bold text-black mb-8">
@@ -159,7 +159,7 @@ export default function LenovoLegionCaseStudy() {
           </p>
 
           <p className="text-lg text-gray-700 leading-relaxed">
-            Gaming audiences gravitate toward brands showing genuine peer-level communication and collaborative spirit. Competing purely on products meant invisibility. Legion needed structural differentiation through community-first positioning that competitors couldn't easily replicate.
+            Gaming audiences gravitate toward brands showing genuine peer-level communication and collaborative spirit. Competing purely on products meant invisibility. GamingTech Elite needed structural differentiation through community-first positioning that competitors couldn't easily replicate.
           </p>
         </div>
       </section>
@@ -170,7 +170,7 @@ export default function LenovoLegionCaseStudy() {
           <p className="text-sm font-bold text-gray-500 uppercase mb-4 tracking-wider">Strategy</p>
           
           <h2 className="text-4xl md:text-5xl font-black text-black mb-8">
-            How Legion's Authentic Gaming Strategy Created a Thriving Community and Skyrocketed Growth.
+            How GamingTech Elite's Authentic Gaming Strategy Created a Thriving Community and Skyrocketed Growth.
           </h2>
 
           <p className="text-lg text-gray-700 mb-6 leading-relaxed">
@@ -178,7 +178,7 @@ export default function LenovoLegionCaseStudy() {
           </p>
 
           <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-            The Legion Creator Collective became the brand's cultural ambassador. Composed of diverse gaming influencers and streamers, they maintained presence across YouTube, Twitch, Instagram, and TikTok. Rather than one-way promotion, creators co-developed content, ensuring endemic messaging that felt unscripted. Paid amplification targeted top-performing organic content, creating compound reach.
+            The Creator Collective became the brand's cultural ambassador. Composed of diverse gaming influencers and streamers, they maintained presence across YouTube, Twitch, Instagram, and TikTok. Rather than one-way promotion, creators co-developed content, ensuring endemic messaging that felt unscripted. Paid amplification targeted top-performing organic content, creating compound reach.
           </p>
 
           <p className="text-lg text-gray-700 mb-6 leading-relaxed">
@@ -186,20 +186,20 @@ export default function LenovoLegionCaseStudy() {
           </p>
 
           <p className="text-lg text-gray-700 mb-12 leading-relaxed">
-            The combined strategy—authentic voice + creator partnerships + interactive community management—established Legion as a uniquely relatable gaming brand. Content resonated through specificity and humor, designed for niche cultural participation. Two-way dialogue transformed followers into active community participants and brand advocates.
+            The combined strategy—authentic voice + creator partnerships + interactive community management—established GamingTech Elite as a uniquely relatable gaming brand. Content resonated through specificity and humor, designed for niche cultural participation. Two-way dialogue transformed followers into active community participants and brand advocates.
           </p>
 
           {/* Strategy Images */}
           <div className="grid md:grid-cols-2 gap-6 mb-8">
             <img
               src={gamingImg2}
-              alt="Lenovo Legion Strategy Image 1"
+              alt="GamingTech Elite Strategy Image 1"
               className="w-full h-auto rounded-lg"
               data-testid="img-strategy-1"
             />
             <img
               src={gamingImg3}
-              alt="Lenovo Legion Strategy Image 2"
+              alt="GamingTech Elite Strategy Image 2"
               className="w-full h-auto rounded-lg"
               data-testid="img-strategy-2"
             />
@@ -213,11 +213,11 @@ export default function LenovoLegionCaseStudy() {
           <p className="text-sm font-bold text-gray-500 uppercase mb-4 tracking-wider">Results</p>
           
           <h2 className="text-4xl md:text-5xl font-black text-black mb-8">
-            How Legion Became the UKI Gaming Community's Beloved Brand.
+            How GamingTech Elite Became the UKI Gaming Community's Beloved Brand.
           </h2>
 
           <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-            Our approach seamlessly weaved together what gamers love: relatability, influencer collaborations, captivating content, and friendly conversations. This catapulted Legion to the forefront of the UKI gaming scene, making us a brand gamers truly connect with.
+            Our approach seamlessly weaved together what gamers love: relatability, influencer collaborations, captivating content, and friendly conversations. This catapulted GamingTech Elite to the forefront of the UKI gaming scene, making us a brand gamers truly connect with.
           </p>
 
           <p className="text-lg text-gray-700 mb-12 leading-relaxed">

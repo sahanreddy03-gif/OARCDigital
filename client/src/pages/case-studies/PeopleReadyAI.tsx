@@ -16,7 +16,7 @@ import img8 from '@assets/stock_images/team_collaboration_b_d0b83af6.jpg';
 import img9 from '@assets/stock_images/team_collaboration_b_e4204dcc.jpg';
 import img10 from '@assets/stock_images/business_strategy_co_75cf4bec.jpg';
 
-export default function PeopleReadyAI() {
+export default function WorkForceConnectAI() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -43,7 +43,7 @@ export default function PeopleReadyAI() {
         <div className="relative z-10 w-full px-6 pb-16">
           <div className="max-w-6xl mx-auto">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6" data-testid="heading-case-study-title">
-              How PeopleReady Scaled with 30+ AI Engineers
+              How WorkForce Connect Scaled with 30+ AI Engineers
             </h1>
             <p className="text-xl md:text-2xl text-white/90 max-w-3xl">
               Accelerating digital transformation with seamlessly integrated nearshore AI engineering teams
@@ -88,7 +88,7 @@ export default function PeopleReadyAI() {
             The Challenge
           </h2>
           <p className="text-lg text-gray-700 mb-4 leading-relaxed">
-            PeopleReady, a leading on-demand staffing firm, needed to rapidly accelerate their digital transformation to compete in an increasingly technology-driven market. They required specialized AI engineering talent to build sophisticated matching algorithms, predictive analytics, and automation systems—but faced challenges with traditional hiring timelines and costs.
+            WorkForce Connect, a leading on-demand staffing firm, needed to rapidly accelerate their digital transformation to compete in an increasingly technology-driven market. They required specialized AI engineering talent to build sophisticated matching algorithms, predictive analytics, and automation systems—but faced challenges with traditional hiring timelines and costs.
           </p>
           <p className="text-lg text-gray-700 leading-relaxed">
             The company needed engineers who could seamlessly integrate with their existing teams, work in their timezone, and deliver high-quality code from day one. Most importantly, they needed a trusted partner who could scale their engineering capacity quickly without sacrificing quality.
@@ -121,7 +121,7 @@ export default function PeopleReadyAI() {
             Our Approach
           </h2>
           <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-            OARC Digital deployed a comprehensive nearshore AI engineering team that seamlessly integrated with PeopleReady's operations. Our approach focused on cultural alignment, technical excellence, and long-term partnership.
+            OARC Digital deployed a comprehensive nearshore AI engineering team that seamlessly integrated with WorkForce Connect's operations. Our approach focused on cultural alignment, technical excellence, and long-term partnership.
           </p>
           
           <div className="space-y-6">
@@ -135,14 +135,14 @@ export default function PeopleReadyAI() {
             <div className="border-l-4 border-[#5FD4C4] pl-6">
               <h3 className="text-xl font-bold text-black mb-3">Seamless Integration</h3>
               <p className="text-base text-gray-700 leading-relaxed">
-                Our nearshore delivery model ensured teams worked in overlapping timezones with PeopleReady's core team. We adopted their tools, processes, and communication patterns to create a truly integrated experience—not just outsourced development.
+                Our nearshore delivery model ensured teams worked in overlapping timezones with WorkForce Connect's core team. We adopted their tools, processes, and communication patterns to create a truly integrated experience—not just outsourced development.
               </p>
             </div>
 
             <div className="border-l-4 border-[#5FD4C4] pl-6">
               <h3 className="text-xl font-bold text-black mb-3">Agile Transformation</h3>
               <p className="text-base text-gray-700 leading-relaxed">
-                We transformed PeopleReady's workflow by implementing agile methodologies, continuous integration, and modern development practices. Our teams brought not just coding skills, but a culture of innovation and best practices.
+                We transformed WorkForce Connect's workflow by implementing agile methodologies, continuous integration, and modern development practices. Our teams brought not just coding skills, but a culture of innovation and best practices.
               </p>
             </div>
           </div>
@@ -199,7 +199,7 @@ export default function PeopleReadyAI() {
               "OARC Digital's nearshore delivery model has transformed the way we work. Their engineering teams seamlessly integrated with ours. We've trusted them for over 4 years with 30+ nearshore engineers."
             </p>
             <p className="text-base font-bold text-black">
-              Christopher Kapcar, VP of Technology at PeopleReady
+              VP of Technology, WorkForce Connect
             </p>
           </div>
         </div>
@@ -235,7 +235,7 @@ export default function PeopleReadyAI() {
             Long-Term Partnership Impact
           </h2>
           <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-            Over 4+ years, OARC Digital's nearshore AI engineering teams have become an integral part of PeopleReady's technology organization. Our partnership has delivered sustained value:
+            Over 4+ years, OARC Digital's nearshore AI engineering teams have become an integral part of WorkForce Connect's technology organization. Our partnership has delivered sustained value:
           </p>
           
           <ul className="space-y-4">
@@ -304,7 +304,7 @@ export default function PeopleReadyAI() {
             Scale Your AI Capabilities
           </h2>
           <p className="text-lg text-zinc-300 mb-8 max-w-2xl mx-auto">
-            Like PeopleReady, accelerate your digital transformation with dedicated AI engineering teams.
+            Like WorkForce Connect, accelerate your digital transformation with dedicated AI engineering teams.
           </p>
           <Link href="/contact">
             <button

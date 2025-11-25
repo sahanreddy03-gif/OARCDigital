@@ -24,9 +24,9 @@ import lenovoImg from '@assets/stock_images/modern_digital_techn_529f85c8.jpg';
 import eslImg from '@assets/stock_images/ai_artificial_intell_5f3c3d5c.jpg';
 
 export const caseStudies: Record<string, CaseStudy> = {
-  'gym-group': {
-    slug: 'gym-group',
-    brand: 'The Gym Group',
+  'fitnesspro-network': {
+    slug: 'fitnesspro-network',
+    brand: 'FitnessPro Network',
     category: 'Fitness & Lifestyle',
     description: 'Social Engagement Strategy',
     metrics: {
@@ -37,9 +37,9 @@ export const caseStudies: Record<string, CaseStudy> = {
     heroImage: gymGroupImg,
     gridClass: 'col-span-2 row-span-2'
   },
-  'azzaro': {
-    slug: 'azzaro',
-    brand: 'Azzaro',
+  'luxe-essence': {
+    slug: 'luxe-essence',
+    brand: 'Luxe Essence',
     category: 'Luxury Fragrance',
     description: 'Creator Partnership Launch',
     metrics: {
@@ -50,9 +50,9 @@ export const caseStudies: Record<string, CaseStudy> = {
     heroImage: azzaroImg,
     gridClass: 'col-span-1 row-span-1'
   },
-  'body-shop': {
-    slug: 'body-shop',
-    brand: 'The Body Shop',
+  'naturalcare-beauty': {
+    slug: 'naturalcare-beauty',
+    brand: 'NaturalCare Beauty',
     category: 'Beauty & Wellness',
     description: 'Values-Driven Activation',
     metrics: {
@@ -63,9 +63,9 @@ export const caseStudies: Record<string, CaseStudy> = {
     heroImage: bodyShopImg,
     gridClass: 'col-span-1 row-span-1'
   },
-  'tefal': {
-    slug: 'tefal',
-    brand: 'Tefal',
+  'homecraft-innovations': {
+    slug: 'homecraft-innovations',
+    brand: 'HomeCraft Innovations',
     category: 'Home & Kitchen',
     description: 'Inventory Acceleration',
     metrics: {
@@ -76,9 +76,9 @@ export const caseStudies: Record<string, CaseStudy> = {
     heroImage: tefalImg,
     gridClass: 'col-span-1 row-span-1'
   },
-  'lenovo-legion': {
-    slug: 'lenovo-legion',
-    brand: 'Lenovo Legion',
+  'gamingtech-elite': {
+    slug: 'gamingtech-elite',
+    brand: 'GamingTech Elite',
     category: 'Gaming Tech',
     description: 'Community Growth Initiative',
     metrics: {
@@ -89,9 +89,9 @@ export const caseStudies: Record<string, CaseStudy> = {
     heroImage: lenovoImg,
     gridClass: 'col-span-2 row-span-1'
   },
-  'esl-gaming': {
-    slug: 'esl-gaming',
-    brand: 'ESL Gaming',
+  'progamer-network': {
+    slug: 'progamer-network',
+    brand: 'ProGamer Network',
     category: 'Esports',
     description: 'Platform Expansion Strategy',
     metrics: {
