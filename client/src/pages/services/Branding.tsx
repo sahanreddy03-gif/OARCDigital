@@ -192,7 +192,7 @@ export default function Branding() {
                   <ul className="space-y-2">
                     {service.items.map((item, i) => (
                       <li key={i} className="flex items-start gap-2">
-                        <CheckCircle className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-1" />
+                        <CheckCircle2 className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-1" />
                         <span className="text-sm text-gray-800">{item}</span>
                       </li>
                     ))}

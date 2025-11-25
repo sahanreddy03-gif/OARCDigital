@@ -391,7 +391,7 @@ export default function Paid() {
                   <ul className="space-y-2">
                     {service.items.map((item, i) => (
                       <li key={i} className="flex items-start gap-2">
-                        <CheckCircle className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-1" />
+                        <CheckCircle2 className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-1" />
                         <span className="text-sm text-gray-800">{item}</span>
                       </li>
                     ))}
@@ -578,7 +578,7 @@ export default function Paid() {
           {/* Benefit Card */}
           <div className="bg-[#5FD4C4] text-black rounded-3xl p-10" data-testid="card-benefit-current">
             <div className="w-16 h-16 bg-black rounded-full flex items-center justify-center mb-6">
-              <CheckCircle className="h-8 w-8 text-[#5FD4C4]" />
+              <CheckCircle2 className="h-8 w-8 text-[#5FD4C4]" />
             </div>
 
             <h3 className="text-2xl md:text-3xl font-black text-black mb-4">
@@ -625,15 +625,15 @@ export default function Paid() {
               </p>
               <ul className="space-y-2">
                 <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
                   <span>Shopping feed optimization</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
                   <span>Dynamic retargeting</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
                   <span>ROAS optimization</span>
                 </li>
               </ul>
@@ -646,15 +646,15 @@ export default function Paid() {
               </p>
               <ul className="space-y-2">
                 <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
                   <span>LinkedIn lead generation</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
                   <span>Search intent targeting</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
                   <span>ABM campaigns</span>
                 </li>
               </ul>
@@ -667,15 +667,15 @@ export default function Paid() {
               </p>
               <ul className="space-y-2">
                 <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
                   <span>Creative testing frameworks</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
                   <span>Multi-platform scaling</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
                   <span>Brand lift measurement</span>
                 </li>
               </ul>
@@ -688,15 +688,15 @@ export default function Paid() {
               </p>
               <ul className="space-y-2">
                 <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
                   <span>App install optimization</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
                   <span>In-app event tracking</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
                   <span>LTV-based bidding</span>
                 </li>
               </ul>
@@ -709,15 +709,15 @@ export default function Paid() {
               </p>
               <ul className="space-y-2">
                 <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
                   <span>Local search domination</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
                   <span>Geo-targeted campaigns</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
                   <span>Store visit tracking</span>
                 </li>
               </ul>
@@ -730,15 +730,15 @@ export default function Paid() {
               </p>
               <ul className="space-y-2">
                 <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
                   <span>Multi-market coordination</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
                   <span>Advanced attribution</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
                   <span>Custom analytics dashboards</span>
                 </li>
               </ul>

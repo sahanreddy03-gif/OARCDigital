@@ -366,7 +366,7 @@ export default function Creative() {
                   <ul className="space-y-2">
                     {service.items.map((item, i) => (
                       <li key={i} className="flex items-start gap-2">
-                        <CheckCircle className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-1" />
+                        <CheckCircle2 className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-1" />
                         <span className="text-sm text-gray-800">{item}</span>
                       </li>
                     ))}
@@ -580,7 +580,7 @@ export default function Creative() {
           {/* Benefit Card */}
           <div className="bg-black text-white rounded-3xl p-10" data-testid="card-benefit-current">
             <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mb-6">
-              <CheckCircle className="h-8 w-8 text-[#5FD4C4]" />
+              <CheckCircle2 className="h-8 w-8 text-[#5FD4C4]" />
             </div>
 
             <h3 className="text-2xl md:text-3xl font-black text-white mb-4">
@@ -627,15 +627,15 @@ export default function Creative() {
               </p>
               <ul className="space-y-2">
                 <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
                   <span>High-volume ad creative</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
                   <span>Rapid iteration testing</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
                   <span>Platform-specific formats</span>
                 </li>
               </ul>
@@ -648,15 +648,15 @@ export default function Creative() {
               </p>
               <ul className="space-y-2">
                 <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
                   <span>Product photography</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
                   <span>UGC-style content</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
                   <span>Lifestyle imagery</span>
                 </li>
               </ul>
@@ -669,15 +669,15 @@ export default function Creative() {
               </p>
               <ul className="space-y-2">
                 <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
                   <span>Short-form video</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
                   <span>Platform-native content</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
                   <span>Content calendar production</span>
                 </li>
               </ul>
@@ -690,15 +690,15 @@ export default function Creative() {
               </p>
               <ul className="space-y-2">
                 <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
                   <span>Brand identity creative</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
                   <span>Startup-friendly pricing</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
                   <span>Fast turnaround times</span>
                 </li>
               </ul>
@@ -711,15 +711,15 @@ export default function Creative() {
               </p>
               <ul className="space-y-2">
                 <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
                   <span>Continuous creative testing</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
                   <span>Endless variations</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
                   <span>Rapid experimentation support</span>
                 </li>
               </ul>
@@ -732,15 +732,15 @@ export default function Creative() {
               </p>
               <ul className="space-y-2">
                 <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
                   <span>White-label production</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
                   <span>Agency partnership pricing</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
                   <span>Scalable creative capacity</span>
                 </li>
               </ul>
