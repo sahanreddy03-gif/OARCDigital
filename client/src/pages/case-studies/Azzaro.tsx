@@ -13,7 +13,7 @@ import challengeImg3 from '@assets/IMG_7987_1761953778756.png';
 import strategyImg1 from '@assets/IMG_7986_1761954243676.png';
 import strategyImg2 from '@assets/IMG_7985_1761954243676.png';
 import tefalHeroImg from '@assets/TefalPictures-32-scaled_1761760754960.jpg';
-import dontMakeAdsHeroImg from '@assets/TikTok-for-Business-Marketing-Agenct_1761842288035.png';
+import dontMakeAdsHeroImg from '@assets/generated_images/social_media_creators_marketing_image.png';
 import fragranceHeroImg from '@assets/stock_images/luxury_perfume_fragr_8ec132de.jpg';
 
 export default function AzzaroCaseStudy() {

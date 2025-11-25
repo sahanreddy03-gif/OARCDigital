@@ -12,7 +12,7 @@ import challengeImg2 from '@assets/IMG_7996_1761955512246.jpeg';
 import strategyImg1 from '@assets/IMG_7997_1761955811646.jpeg';
 import strategyImg2 from '@assets/IMG_7994_1761955811646.jpeg';
 import tefalHeroImg from '@assets/TefalPictures-32-scaled_1761760754960.jpg';
-import dontMakeAdsHeroImg from '@assets/TikTok-for-Business-Marketing-Agenct_1761842288035.png';
+import dontMakeAdsHeroImg from '@assets/generated_images/social_media_creators_marketing_image.png';
 import beautyHeroImg from '@assets/stock_images/beauty_skincare_cosm_560a8e27.jpg';
 
 export default function BodyShopCaseStudy() {

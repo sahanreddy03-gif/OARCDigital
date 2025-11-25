@@ -15,7 +15,7 @@ import socialContent2 from '@assets/IMG_7945_1761930827804.jpeg';
 import productImg1 from '@assets/Tefal-Marketing-Agency_1761842232532.jpg';
 import productImg2 from '@assets/Tefal-Influencer-Marketing-Agency-4_1761842232532.jpg';
 import productImg3 from '@assets/Tefal-Influencer-Marketing-Agency-1_1761842169383.jpg';
-import relatedCase1 from '@assets/IMG_7949_1761931806299.png';
+import relatedCase1 from '@assets/generated_images/social_media_creators_marketing_image.png';
 import relatedCase2 from '@assets/IMG_7950_1761931806299.png';
 import relatedCase3 from '@assets/IMG_7951_1761931806299.jpeg';
 

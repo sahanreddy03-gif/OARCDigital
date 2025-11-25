@@ -8,7 +8,7 @@ import Layout from '@/components/layout/Layout';
 import SEOHead from '@/components/SEOHead';
 import { caseStudiesSEO } from '@/data/seoMetadata';
 import tefalHeroImg from '@assets/TefalPictures-32-scaled_1761760754960.jpg';
-import dontMakeAdsHeroImg from '@assets/TikTok-for-Business-Marketing-Agenct_1761842288035.png';
+import dontMakeAdsHeroImg from '@assets/generated_images/social_media_creators_marketing_image.png';
 import bodyShopHeroImg from '@assets/IMG_7951_1761931806299.jpeg';
 import gamingImg1 from '@assets/stock_images/gaming_esports_compu_611efecd.jpg';
 import gamingImg2 from '@assets/stock_images/gaming_esports_compu_315351f1.jpg';

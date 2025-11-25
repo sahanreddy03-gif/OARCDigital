@@ -5,7 +5,7 @@ import { SiTiktok } from 'react-icons/si';
 import Layout from '@/components/layout/Layout';
 import SEOHead from '@/components/SEOHead';
 import { caseStudiesSEO } from '@/data/seoMetadata';
-import relatedCase1 from '@assets/IMG_7949_1761931806299.png';
+import relatedCase1 from '@assets/generated_images/social_media_creators_marketing_image.png';
 import tefalHeroImg from '@assets/TefalPictures-32-scaled_1761760754960.jpg';
 import azzaroHeroImg from '@assets/IMG_7990_1761953778756.png';
 import challengeImg1 from '@assets/IMG_7969_1761934914497.png';
