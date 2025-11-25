@@ -62,7 +62,7 @@ export default function LenovoLegionCaseStudy() {
         />
         <div className="relative z-10 text-center px-4 py-20">
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-black uppercase mb-4" data-testid="heading-case-study-title">
-            Elevating Lenovo Legion to the forefront of gaming culture.
+            Establishing authentic community leadership in competitive gaming markets.
           </h1>
         </div>
       </section>
@@ -73,7 +73,7 @@ export default function LenovoLegionCaseStudy() {
           <p className="text-sm font-bold text-gray-500 uppercase mb-4 tracking-wider">About</p>
           
           <h2 className="text-4xl md:text-5xl font-black text-black mb-8">
-            Building an Exceptional Gaming Brand Identity in the UKI's Competitive Social Marketing Sector.
+            Transforming gaming perception through community-first brand positioning.
           </h2>
 
           <p className="text-lg text-gray-700 mb-8 leading-relaxed">
