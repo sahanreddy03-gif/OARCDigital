@@ -125,15 +125,15 @@ export default function BodyShopCaseStudy() {
 
           {/* Stats - Pink Boxes */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-[#FF0080] rounded-2xl p-8 text-center text-white">
+            <div className="bg-[#c4ff4d] rounded-2xl p-8 text-center text-black">
               <div className="text-5xl md:text-6xl font-black mb-2">30M</div>
               <div className="text-sm font-semibold uppercase">Impressions</div>
             </div>
-            <div className="bg-[#FF0080] rounded-2xl p-8 text-center text-white">
+            <div className="bg-[#c4ff4d] rounded-2xl p-8 text-center text-black">
               <div className="text-5xl md:text-6xl font-black mb-2">15%</div>
               <div className="text-sm font-semibold uppercase">Uplift in Sales</div>
             </div>
-            <div className="bg-[#FF0080] rounded-2xl p-8 text-center text-white">
+            <div className="bg-[#c4ff4d] rounded-2xl p-8 text-center text-black">
               <div className="text-5xl md:text-6xl font-black mb-2">17M</div>
               <div className="text-sm font-semibold uppercase">Reach</div>
             </div>
@@ -144,7 +144,7 @@ export default function BodyShopCaseStudy() {
       {/* Challenge Section */}
       <section className="py-16 px-4 bg-black text-white">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-5xl md:text-6xl font-black text-[#FF0080] mb-8 uppercase">
+          <h2 className="text-5xl md:text-6xl font-black text-[#4a7000] mb-8 uppercase">
             Challenge
           </h2>
           
@@ -185,7 +185,7 @@ export default function BodyShopCaseStudy() {
       {/* Strategy Section */}
       <section className="py-16 px-4 bg-white">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-5xl md:text-6xl font-black text-[#FF0080] mb-8 uppercase">
+          <h2 className="text-5xl md:text-6xl font-black text-[#4a7000] mb-8 uppercase">
             Strategy
           </h2>
           
@@ -230,7 +230,7 @@ export default function BodyShopCaseStudy() {
       {/* Results Section */}
       <section className="py-16 px-4 bg-black text-white">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-5xl md:text-6xl font-black text-[#FF0080] mb-8 uppercase">
+          <h2 className="text-5xl md:text-6xl font-black text-[#4a7000] mb-8 uppercase">
             Results
           </h2>
           
@@ -250,15 +250,15 @@ export default function BodyShopCaseStudy() {
 
           {/* Results Stats - Pink Boxes */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-[#FF0080] rounded-2xl p-8 text-center text-white">
+            <div className="bg-[#c4ff4d] rounded-2xl p-8 text-center text-black">
               <div className="text-5xl md:text-6xl font-black mb-2">30M</div>
               <div className="text-sm font-semibold uppercase">Total Impressions</div>
             </div>
-            <div className="bg-[#FF0080] rounded-2xl p-8 text-center text-white">
+            <div className="bg-[#c4ff4d] rounded-2xl p-8 text-center text-black">
               <div className="text-5xl md:text-6xl font-black mb-2">15%</div>
               <div className="text-sm font-semibold uppercase">Sales Uplift</div>
             </div>
-            <div className="bg-[#FF0080] rounded-2xl p-8 text-center text-white">
+            <div className="bg-[#c4ff4d] rounded-2xl p-8 text-center text-black">
               <div className="text-5xl md:text-6xl font-black mb-2">17M</div>
               <div className="text-sm font-semibold uppercase">Total Reach</div>
             </div>
@@ -282,10 +282,10 @@ export default function BodyShopCaseStudy() {
           </p>
 
           <Link href="/contact">
-            <button className="inline-flex items-center gap-3 bg-[#FF0080] text-white rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2" data-testid="button-lets-talk">
+            <button className="inline-flex items-center gap-3 bg-[#c4ff4d] text-black rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2" data-testid="button-lets-talk">
               LET'S TALK.
               <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
-                <ArrowRight className="h-5 w-5 text-[#FF0080]" />
+                <ArrowRight className="h-5 w-5 text-[#4a7000]" />
               </div>
             </button>
           </Link>
@@ -338,7 +338,7 @@ export default function BodyShopCaseStudy() {
 
           <Link href="/contact">
             <Button 
-              className="bg-[#FF0080] hover:bg-[#FF0080] text-white rounded-full px-8 py-6 text-base font-semibold hover-elevate active-elevate-2"
+              className="bg-[#c4ff4d] text-black hover:bg-[#c4ff4d]/90 rounded-full px-8 py-6 text-base font-semibold hover-elevate active-elevate-2"
               data-testid="button-contact"
             >
               CONTACT US

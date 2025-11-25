@@ -68,7 +68,7 @@ export default function DontMakeAdsCaseStudy() {
           <span>{'>'}</span>
           <Link href="/our-work" className="hover:text-gray-300">Our Work</Link>
           <span>{'>'}</span>
-          <span className="text-[#FF0080]">Showing Small Businesse...</span>
+          <span className="text-[#4a7000]">Showing Small Businesse...</span>
         </div>
 
         {/* Hero Content */}
@@ -85,7 +85,7 @@ export default function DontMakeAdsCaseStudy() {
       <section className="py-16 px-4 bg-black">
         <div className="max-w-4xl mx-auto">
           <div className="mb-8">
-            <span className="bg-[#FF0080] text-white px-6 py-2 text-xs font-bold uppercase">
+            <span className="bg-[#c4ff4d] text-black px-6 py-2 text-xs font-bold uppercase">
               ABOUT
             </span>
           </div>
@@ -103,7 +103,7 @@ export default function DontMakeAdsCaseStudy() {
               We built a comprehensive TikTok channel strategy for a TikTok Official Account and developed a full-fledged content engine that harnessed the creative power of TikToker entrepreneurs, ensuring a dynamic and engaging content funnel.
             </p>
             
-            <p className="text-[#FF0080] font-bold text-lg mt-8">
+            <p className="text-[#4a7000] font-bold text-lg mt-8">
               Our impact on small businesses through authentic stories.
             </p>
           </div>
@@ -123,13 +123,13 @@ export default function DontMakeAdsCaseStudy() {
           <div className="mt-8">
             <h3 className="text-white font-bold mb-4">Services</h3>
             <div className="flex flex-wrap gap-3">
-              <span className="bg-[#FF0080] text-white px-6 py-3 text-sm font-bold uppercase">
+              <span className="bg-[#c4ff4d] text-black px-6 py-3 text-sm font-bold uppercase">
                 COMMUNITY MANAGEMENT
               </span>
-              <span className="bg-[#FF0080] text-white px-6 py-3 text-sm font-bold uppercase">
+              <span className="bg-[#c4ff4d] text-black px-6 py-3 text-sm font-bold uppercase">
                 CREATIVE
               </span>
-              <span className="bg-[#FF0080] text-white px-6 py-3 text-sm font-bold uppercase">
+              <span className="bg-[#c4ff4d] text-black px-6 py-3 text-sm font-bold uppercase">
                 SOCIAL VIDEO AND CONTENT PRODUCTION
               </span>
             </div>
@@ -137,15 +137,15 @@ export default function DontMakeAdsCaseStudy() {
 
           {/* Key Stats - Pink Boxes */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
-            <div className="bg-[#FF0080] rounded-2xl p-8 text-center">
+            <div className="bg-[#c4ff4d] text-black rounded-2xl p-8 text-center">
               <div className="text-5xl font-black text-white mb-2">32M</div>
               <div className="text-white text-sm font-semibold uppercase">VIEWS</div>
             </div>
-            <div className="bg-[#FF0080] rounded-2xl p-8 text-center">
+            <div className="bg-[#c4ff4d] text-black rounded-2xl p-8 text-center">
               <div className="text-5xl font-black text-white mb-2">+400K</div>
               <div className="text-white text-sm font-semibold uppercase">NEW FOLLOWERS</div>
             </div>
-            <div className="bg-[#FF0080] rounded-2xl p-8 text-center">
+            <div className="bg-[#c4ff4d] text-black rounded-2xl p-8 text-center">
               <div className="text-5xl font-black text-white mb-2">2M</div>
               <div className="text-white text-sm font-semibold uppercase">LIKES</div>
             </div>
@@ -156,7 +156,7 @@ export default function DontMakeAdsCaseStudy() {
       {/* Challenge Section */}
       <section className="py-16 px-4 bg-white">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-5xl md:text-6xl font-black text-[#FF0080] mb-8 uppercase">
+          <h2 className="text-5xl md:text-6xl font-black text-[#4a7000] mb-8 uppercase">
             CHALLENGE
           </h2>
           
@@ -225,7 +225,7 @@ export default function DontMakeAdsCaseStudy() {
       {/* Results Section */}
       <section className="py-16 px-4 bg-white">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-5xl md:text-6xl font-black text-[#FF0080] mb-8 uppercase">
+          <h2 className="text-5xl md:text-6xl font-black text-[#4a7000] mb-8 uppercase">
             RESULTS
           </h2>
           
@@ -298,10 +298,10 @@ export default function DontMakeAdsCaseStudy() {
           </p>
 
           <Link href="/contact">
-            <button className="inline-flex items-center gap-3 bg-[#FF0080] text-white rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2" data-testid="button-lets-talk">
+            <button className="inline-flex items-center gap-3 bg-[#c4ff4d] text-black rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2" data-testid="button-lets-talk">
               LET'S TALK.
               <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
-                <ArrowRight className="h-5 w-5 text-[#FF0080]" />
+                <ArrowRight className="h-5 w-5 text-[#4a7000]" />
               </div>
             </button>
           </Link>
@@ -312,12 +312,12 @@ export default function DontMakeAdsCaseStudy() {
       <section className="py-16 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
           <div className="mb-8">
-            <span className="bg-[#FF0080] text-white px-6 py-2 text-xs font-bold uppercase">
+            <span className="bg-[#c4ff4d] text-black px-6 py-2 text-xs font-bold uppercase">
               PROJECTS
             </span>
           </div>
           <h2 className="text-3xl md:text-4xl font-black text-black mb-8">
-            Check out some <span className="text-[#FF0080]">of our</span> related case studies
+            Check out some <span className="text-[#4a7000]">of our</span> related case studies
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -331,7 +331,7 @@ export default function DontMakeAdsCaseStudy() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/80" />
                   <div className="absolute top-4 left-4">
-                    <span className="bg-[#FF0080] text-white px-4 py-2 rounded text-xs font-bold uppercase">
+                    <span className="bg-[#c4ff4d] text-black px-4 py-2 rounded text-xs font-bold uppercase">
                       Case Study
                     </span>
                   </div>
@@ -365,10 +365,10 @@ export default function DontMakeAdsCaseStudy() {
           </p>
 
           <Link href="/contact">
-            <button className="inline-flex items-center gap-3 bg-[#FF0080] text-white rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2 mb-12" data-testid="button-work-with-us">
+            <button className="inline-flex items-center gap-3 bg-[#c4ff4d] text-black rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2 mb-12" data-testid="button-work-with-us">
               WORK WITH US
               <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
-                <ArrowRight className="h-5 w-5 text-[#FF0080]" />
+                <ArrowRight className="h-5 w-5 text-[#4a7000]" />
               </div>
             </button>
           </Link>
@@ -378,7 +378,7 @@ export default function DontMakeAdsCaseStudy() {
             <div className="border-2 border-gray-700 rounded-lg p-6">
               <h4 className="text-white font-bold text-base">7+ Years Experience in Influencer Marketing</h4>
             </div>
-            <div className="bg-[#FF0080] rounded-lg p-6">
+            <div className="bg-[#c4ff4d] text-black rounded-lg p-6">
               <h4 className="text-white font-bold text-base">Global Footprint Across London, New York, Beijing, Dubai and More</h4>
             </div>
             <div className="border-2 border-gray-700 rounded-lg p-6">

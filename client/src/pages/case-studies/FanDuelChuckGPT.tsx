@@ -178,7 +178,7 @@ export default function BetSmartSportsBuddyAI() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
             <div className="text-center p-8 bg-black rounded-2xl">
-              <div className="text-4xl md:text-5xl font-black text-[#FF0080] mb-3">
+              <div className="text-4xl md:text-5xl font-black text-[#4a7000] mb-3">
                 10,000+
               </div>
               <p className="text-sm text-white">
@@ -186,7 +186,7 @@ export default function BetSmartSportsBuddyAI() {
               </p>
             </div>
             <div className="text-center p-8 bg-black rounded-2xl">
-              <div className="text-4xl md:text-5xl font-black text-[#FF0080] mb-3">
+              <div className="text-4xl md:text-5xl font-black text-[#4a7000] mb-3">
                 Viral
               </div>
               <p className="text-sm text-white">
@@ -194,7 +194,7 @@ export default function BetSmartSportsBuddyAI() {
               </p>
             </div>
             <div className="text-center p-8 bg-black rounded-2xl">
-              <div className="text-4xl md:text-5xl font-black text-[#FF0080] mb-3">
+              <div className="text-4xl md:text-5xl font-black text-[#4a7000] mb-3">
                 Zero
               </div>
               <p className="text-sm text-white">
