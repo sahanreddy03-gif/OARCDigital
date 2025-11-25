@@ -130,7 +130,7 @@ export default function Section2() {
                 </div>
               </div>
               
-              {/* Hand-drawn phone outline - Simple single border like Social Shepherd */}
+              {/* Hand-drawn phone outline - Simple single border design */}
               <svg className="absolute inset-0 w-full h-full pointer-events-none" preserveAspectRatio="none" viewBox="0 0 200 355" fill="none">
                 {/* Notch cutout */}
                 <path 
