@@ -394,7 +394,7 @@ export default function Social() {
                   <ul className="space-y-2">
                     {service.points.map((point, i) => (
                       <li key={i} className="flex items-start gap-2">
-                        <CheckCircle className="h-4 w-4 text-[#4a7000] flex-shrink-0 mt-1" />
+                        <CheckCircle2 className="h-4 w-4 text-[#4a7000] flex-shrink-0 mt-1" />
                         <span className="text-sm text-gray-800">{point}</span>
                       </li>
                     ))}
@@ -558,7 +558,7 @@ export default function Social() {
           {/* Benefit Card */}
           <div className="bg-black text-white rounded-3xl p-10" data-testid="card-benefit-current">
             <div className="w-16 h-16 bg-[#4a7000] rounded-full flex items-center justify-center mb-6">
-              <CheckCircle className="h-8 w-8 text-white" />
+              <CheckCircle2 className="h-8 w-8 text-white" />
             </div>
 
             <h3 className="text-2xl md:text-3xl font-black text-white mb-4">

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'wouter';
-import { ArrowRight, CheckCircle, Smartphone, Code, Zap, Users } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Smartphone, Code, Zap, Users } from 'lucide-react';
 import Layout from '@/components/layout/Layout';
 import SEOHead from "@/components/SEOHead";
 import { revenueServicesSEO } from "@/data/seoMetadata";
@@ -219,7 +219,7 @@ export default function MobileAppsDevelopment() {
                   <ul className="space-y-3">
                     {service.items.map((item, itemIdx) => (
                       <li key={itemIdx} className="flex items-start gap-2">
-                        <CheckCircle className="h-4 w-4 text-[#4a7000] flex-shrink-0 mt-0.5" />
+                        <CheckCircle2 className="h-4 w-4 text-[#4a7000] flex-shrink-0 mt-0.5" />
                         <span className="text-sm text-gray-700">{item}</span>
                       </li>
                     ))}
