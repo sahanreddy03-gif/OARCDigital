@@ -184,7 +184,7 @@ export default function FinFlowBankAutomation() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
             <div className="text-center p-8 bg-black rounded-2xl">
-              <div className="text-4xl md:text-5xl font-black text-[#FF0080] mb-3">
+              <div className="text-4xl md:text-5xl font-black text-[#4a7000] mb-3">
                 1,300%
               </div>
               <p className="text-sm text-white">
@@ -192,7 +192,7 @@ export default function FinFlowBankAutomation() {
               </p>
             </div>
             <div className="text-center p-8 bg-black rounded-2xl">
-              <div className="text-4xl md:text-5xl font-black text-[#FF0080] mb-3">
+              <div className="text-4xl md:text-5xl font-black text-[#4a7000] mb-3">
                 127K+
               </div>
               <p className="text-sm text-white">
@@ -200,7 +200,7 @@ export default function FinFlowBankAutomation() {
               </p>
             </div>
             <div className="text-center p-8 bg-black rounded-2xl">
-              <div className="text-4xl md:text-5xl font-black text-[#FF0080] mb-3">
+              <div className="text-4xl md:text-5xl font-black text-[#4a7000] mb-3">
                 $7M
               </div>
               <p className="text-sm text-white">

@@ -130,15 +130,15 @@ export default function LenovoLegionCaseStudy() {
       {/* Stats Section */}
       <section className="py-16 px-4 bg-black text-white">
         <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
-          <div className="bg-[#FF0080] p-8 text-center">
+          <div className="bg-[#c4ff4d] text-black p-8 text-center">
             <div className="text-5xl font-black mb-2">13M</div>
             <div className="text-sm uppercase tracking-wider font-bold">Impressions</div>
           </div>
-          <div className="bg-[#FF0080] p-8 text-center">
+          <div className="bg-[#c4ff4d] text-black p-8 text-center">
             <div className="text-5xl font-black mb-2">26M</div>
             <div className="text-sm uppercase tracking-wider font-bold">Ad Placement Views</div>
           </div>
-          <div className="bg-[#FF0080] p-8 text-center">
+          <div className="bg-[#c4ff4d] text-black p-8 text-center">
             <div className="text-5xl font-black mb-2">1.1M</div>
             <div className="text-sm uppercase tracking-wider font-bold">Stream Followers</div>
           </div>
@@ -337,7 +337,7 @@ export default function LenovoLegionCaseStudy() {
                     <p className="text-xs font-bold text-gray-500 uppercase mb-2 tracking-wider">Case Study</p>
                     <h3 className="text-xl font-black text-black mb-2">{caseStudy.title}</h3>
                     <p className="text-sm text-gray-600 mb-4">{caseStudy.subtitle}</p>
-                    <div className="flex items-center text-[#FF0080] font-bold text-sm">
+                    <div className="flex items-center text-[#4a7000] font-bold text-sm">
                       <span>View Case Study</span>
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </div>
