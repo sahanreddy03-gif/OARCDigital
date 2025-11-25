@@ -197,8 +197,27 @@ export default function HeroSection() {
         </div>
 
         {/* Carousel - compact size on desktop */}
-        <div className="w-full mt-8 md:mt-5">
+        <div className="w-full mt-8 md:mt-5 relative">
           <FloatingChipCarousel />
+          {/* Curved green wave below carousel */}
+          <div className="absolute -bottom-8 md:-bottom-12 left-0 right-0 pointer-events-none">
+            <svg 
+              viewBox="0 0 1440 120" 
+              className="w-full h-auto"
+              preserveAspectRatio="none"
+            >
+              <path 
+                d="M0,60 C360,120 720,0 1080,60 C1260,90 1380,80 1440,60 L1440,120 L0,120 Z" 
+                fill="#c4ff4d"
+                opacity="0.4"
+              />
+              <path 
+                d="M0,80 C320,40 640,100 960,60 C1200,30 1360,70 1440,50 L1440,120 L0,120 Z" 
+                fill="#c4ff4d"
+                opacity="0.25"
+              />
+            </svg>
+          </div>
         </div>
       </div>
     </section>
