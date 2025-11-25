@@ -339,7 +339,7 @@ export default function Influencer() {
                 key={idx}
                 onClick={() => setCurrentService(idx)}
                 className={`h-2 rounded-full transition-all ${
-                  idx === currentService ? 'w-8 bg-[#5FD4C4]' : 'w-2 bg-gray-300'
+                  idx === currentService ? 'w-8 bg-[#c4ff4d]' : 'w-2 bg-gray-300'
                 }`}
                 data-testid={`dot-service-${idx}`}
               />
@@ -381,7 +381,7 @@ export default function Influencer() {
                   <ul className="space-y-2">
                     {service.items.map((item, i) => (
                       <li key={i} className="flex items-start gap-2">
-                        <CheckCircle2 className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-1" />
+                        <CheckCircle2 className="h-4 w-4 text-[#c4ff4d] flex-shrink-0 mt-1" />
                         <span className="text-sm text-gray-800">{item}</span>
                       </li>
                     ))}
@@ -450,7 +450,7 @@ export default function Influencer() {
       <section className="py-14 px-4 bg-white">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-black text-black mb-2">
-            Checkout our latest <span className="text-[#5FD4C4]">Influencer content</span>
+            Checkout our latest <span className="text-[#c4ff4d]">Influencer content</span>
           </h2>
 
           <div className="grid grid-cols-2 md:grid-cols-3 gap-6 mt-8">
@@ -501,7 +501,7 @@ export default function Influencer() {
                 key={idx}
                 onClick={() => setCurrentBenefit(idx)}
                 className={`h-2 rounded-full transition-all ${
-                  idx === currentBenefit ? 'w-8 bg-[#5FD4C4]' : 'w-2 bg-gray-300'
+                  idx === currentBenefit ? 'w-8 bg-[#c4ff4d]' : 'w-2 bg-gray-300'
                 }`}
                 data-testid={`dot-benefit-${idx}`}
               />
@@ -511,7 +511,7 @@ export default function Influencer() {
           {/* Benefit Card */}
           <div className="bg-black text-white rounded-3xl p-10" data-testid="card-benefit-current">
             <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mb-6">
-              <CheckCircle2 className="h-8 w-8 text-[#5FD4C4]" />
+              <CheckCircle2 className="h-8 w-8 text-[#c4ff4d]" />
             </div>
 
             <h3 className="text-2xl md:text-3xl font-black text-white mb-4">
@@ -541,9 +541,9 @@ export default function Influencer() {
       <section className="py-20 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <div className="text-sm uppercase tracking-wider text-[#5FD4C4] mb-4">WHO THIS IS FOR</div>
+            <div className="text-sm uppercase tracking-wider text-[#c4ff4d] mb-4">WHO THIS IS FOR</div>
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Built for ambitious <span className="italic text-[#5FD4C4]">growth-focused</span> brands
+              Built for ambitious <span className="italic text-[#c4ff4d]">growth-focused</span> brands
             </h2>
           </div>
 
@@ -555,15 +555,15 @@ export default function Influencer() {
               </p>
               <ul className="space-y-2 text-sm text-gray-700">
                 <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-4 h-4 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
                   <span>Micro-influencer campaigns for authentic reviews</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-4 h-4 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
                   <span>Tutorial & how-to content creation</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-4 h-4 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
                   <span>Product launch campaigns</span>
                 </li>
               </ul>
@@ -576,15 +576,15 @@ export default function Influencer() {
               </p>
               <ul className="space-y-2 text-sm text-gray-700">
                 <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-4 h-4 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
                   <span>Fashion influencer partnerships</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-4 h-4 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
                   <span>Seasonal campaign management</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-4 h-4 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
                   <span>Brand ambassador programs</span>
                 </li>
               </ul>
@@ -597,15 +597,15 @@ export default function Influencer() {
               </p>
               <ul className="space-y-2 text-sm text-gray-700">
                 <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-4 h-4 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
                   <span>Food blogger collaborations</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-4 h-4 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
                   <span>Recipe content & taste tests</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-4 h-4 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
                   <span>Restaurant & venue partnerships</span>
                 </li>
               </ul>
@@ -618,15 +618,15 @@ export default function Influencer() {
               </p>
               <ul className="space-y-2 text-sm text-gray-700">
                 <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-4 h-4 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
                   <span>Tech reviewer partnerships</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-4 h-4 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
                   <span>Product demo content</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-4 h-4 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
                   <span>B2B thought leadership campaigns</span>
                 </li>
               </ul>
@@ -639,15 +639,15 @@ export default function Influencer() {
               </p>
               <ul className="space-y-2 text-sm text-gray-700">
                 <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-4 h-4 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
                   <span>Wellness influencer campaigns</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-4 h-4 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
                   <span>Lifestyle content partnerships</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-4 h-4 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
                   <span>Health & fitness collaborations</span>
                 </li>
               </ul>
@@ -660,15 +660,15 @@ export default function Influencer() {
               </p>
               <ul className="space-y-2 text-sm text-gray-700">
                 <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-4 h-4 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
                   <span>Travel blogger partnerships</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-4 h-4 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
                   <span>Destination showcases</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-4 h-4 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
                   <span>Hotel & venue collaborations</span>
                 </li>
               </ul>
@@ -681,9 +681,9 @@ export default function Influencer() {
       <section className="py-20 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <div className="text-sm uppercase tracking-wider text-[#5FD4C4] mb-4">MAXIMIZE YOUR IMPACT</div>
+            <div className="text-sm uppercase tracking-wider text-[#c4ff4d] mb-4">MAXIMIZE YOUR IMPACT</div>
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Combine with these <span className="italic text-[#5FD4C4]">complementary services</span>
+              Combine with these <span className="italic text-[#c4ff4d]">complementary services</span>
             </h2>
             <p className="text-lg text-gray-700 max-w-3xl mx-auto">
               Influencer campaigns work best as part of a complete marketing strategy. Amplify your results with these services.
@@ -692,10 +692,10 @@ export default function Influencer() {
 
           <div className="grid md:grid-cols-3 gap-8">
             <Link href="/services/social-media-creative">
-              <div className="group p-8 bg-[hsl(210,20%,98%)] rounded-xl border border-gray-100 hover:border-[#5FD4C4] hover:shadow-xl transition-all duration-300 cursor-pointer" data-testid="related-service-social">
+              <div className="group p-8 bg-[hsl(210,20%,98%)] rounded-xl border border-gray-100 hover:border-[#c4ff4d] hover:shadow-xl transition-all duration-300 cursor-pointer" data-testid="related-service-social">
                 <div className="flex items-start justify-between mb-4">
-                  <h3 className="text-xl font-bold group-hover:text-[#5FD4C4] transition-colors">Social Media Creative</h3>
-                  <ArrowRight className="h-5 w-5 text-[#5FD4C4] group-hover:translate-x-1 transition-transform" />
+                  <h3 className="text-xl font-bold group-hover:text-[#c4ff4d] transition-colors">Social Media Creative</h3>
+                  <ArrowRight className="h-5 w-5 text-[#c4ff4d] group-hover:translate-x-1 transition-transform" />
                 </div>
                 <p className="text-gray-700 mb-4">
                   Amplify your influencer content with professional social creative. Repurpose UGC into scroll-stopping ads.
@@ -704,10 +704,10 @@ export default function Influencer() {
             </Link>
 
             <Link href="/services/paid-advertising">
-              <div className="group p-8 bg-[hsl(210,20%,98%)] rounded-xl border border-gray-100 hover:border-[#5FD4C4] hover:shadow-xl transition-all duration-300 cursor-pointer" data-testid="related-service-paid">
+              <div className="group p-8 bg-[hsl(210,20%,98%)] rounded-xl border border-gray-100 hover:border-[#c4ff4d] hover:shadow-xl transition-all duration-300 cursor-pointer" data-testid="related-service-paid">
                 <div className="flex items-start justify-between mb-4">
-                  <h3 className="text-xl font-bold group-hover:text-[#5FD4C4] transition-colors">Paid Advertising</h3>
-                  <ArrowRight className="h-5 w-5 text-[#5FD4C4] group-hover:translate-x-1 transition-transform" />
+                  <h3 className="text-xl font-bold group-hover:text-[#c4ff4d] transition-colors">Paid Advertising</h3>
+                  <ArrowRight className="h-5 w-5 text-[#c4ff4d] group-hover:translate-x-1 transition-transform" />
                 </div>
                 <p className="text-gray-700 mb-4">
                   Boost influencer content reach with paid social campaigns. Maximize ROI by combining organic and paid.
@@ -716,10 +716,10 @@ export default function Influencer() {
             </Link>
 
             <Link href="/services/social-media-management">
-              <div className="group p-8 bg-[hsl(210,20%,98%)] rounded-xl border border-gray-100 hover:border-[#5FD4C4] hover:shadow-xl transition-all duration-300 cursor-pointer" data-testid="related-service-management">
+              <div className="group p-8 bg-[hsl(210,20%,98%)] rounded-xl border border-gray-100 hover:border-[#c4ff4d] hover:shadow-xl transition-all duration-300 cursor-pointer" data-testid="related-service-management">
                 <div className="flex items-start justify-between mb-4">
-                  <h3 className="text-xl font-bold group-hover:text-[#5FD4C4] transition-colors">Social Media Management</h3>
-                  <ArrowRight className="h-5 w-5 text-[#5FD4C4] group-hover:translate-x-1 transition-transform" />
+                  <h3 className="text-xl font-bold group-hover:text-[#c4ff4d] transition-colors">Social Media Management</h3>
+                  <ArrowRight className="h-5 w-5 text-[#c4ff4d] group-hover:translate-x-1 transition-transform" />
                 </div>
                 <p className="text-gray-700 mb-4">
                   Maintain momentum with daily social management. Keep your community engaged between campaigns.
@@ -733,7 +733,7 @@ export default function Influencer() {
       {/* Final CTA Section */}
       <section className="py-14 px-4 bg-white">
         <div className="max-w-4xl mx-auto">
-          <div className="bg-[#5FD4C4] rounded-3xl overflow-hidden" data-testid="card-final-cta">
+          <div className="bg-[#c4ff4d] rounded-3xl overflow-hidden" data-testid="card-final-cta">
             <div className="p-10 md:p-16">
               <h2 className="text-3xl md:text-4xl lg:text-6xl font-black text-black mb-8">
                 Don't be <span className="text-white">sheepish</span><br />let's talk
@@ -770,7 +770,7 @@ export default function Influencer() {
               <input 
                 type="email"
                 placeholder="Email"
-                className="flex-1 px-6 py-4 rounded-full bg-gray-800 border-none text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#5FD4C4]"
+                className="flex-1 px-6 py-4 rounded-full bg-gray-800 border-none text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#c4ff4d]"
                 data-testid="input-email-newsletter"
               />
               <button
