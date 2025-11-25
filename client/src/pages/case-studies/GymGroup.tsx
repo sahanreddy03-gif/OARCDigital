@@ -13,11 +13,14 @@ import bodyShopHeroImg from '@assets/The-Body-Shop-Social-Marketing-Agency_17618
 import fitnessImg1 from '@assets/stock_images/fitness_gym_workout__500a23f2.jpg';
 import fitnessImg2 from '@assets/stock_images/fitness_gym_workout__6cda6782.jpg';
 import fitnessImg3 from '@assets/stock_images/fitness_gym_workout__509badd9.jpg';
-import contentImg1 from '@assets/stock_images/social_media_content_26e15f21.jpg';
-import contentImg2 from '@assets/stock_images/social_media_content_bcbe5825.jpg';
-import contentImg3 from '@assets/stock_images/social_media_content_6a45c387.jpg';
-import contentImg4 from '@assets/stock_images/social_media_content_3d687a65.jpg';
-import marketingImg1 from '@assets/stock_images/digital_marketing_te_2dcc8e58.jpg';
+import contentImg1 from '@assets/stock_images/fitness_gym_workout__43cec023.jpg';
+import contentImg2 from '@assets/stock_images/fitness_gym_workout__7fbcce24.jpg';
+import contentImg3 from '@assets/stock_images/fitness_gym_workout__a4da8115.jpg';
+import contentImg4 from '@assets/stock_images/fitness_gym_workout__d7caa1f0.jpg';
+import contentImg5 from '@assets/stock_images/gym_personal_trainin_fb56e04c.jpg';
+import contentImg6 from '@assets/stock_images/gym_personal_trainin_219a3467.jpg';
+import contentImg7 from '@assets/stock_images/gym_personal_trainin_17a601d1.jpg';
+import contentImg8 from '@assets/stock_images/gym_personal_trainin_fa5f5bec.jpg';
 
 export default function GymGroupCaseStudy() {
   useEffect(() => {
@@ -232,49 +235,49 @@ export default function GymGroupCaseStudy() {
             <img
               src={contentImg1}
               alt="FitnessPro Network Campaign Content"
-              className="w-full h-auto rounded-lg"
+              className="w-full h-48 object-cover rounded-lg"
               data-testid="img-result-1"
             />
             <img
               src={contentImg2}
               alt="FitnessPro Network Campaign Content"
-              className="w-full h-auto rounded-lg"
+              className="w-full h-48 object-cover rounded-lg"
               data-testid="img-result-2"
             />
             <img
               src={contentImg3}
               alt="FitnessPro Network Campaign Content"
-              className="w-full h-auto rounded-lg"
+              className="w-full h-48 object-cover rounded-lg"
               data-testid="img-result-3"
             />
             <img
               src={contentImg4}
               alt="FitnessPro Network Campaign Content"
-              className="w-full h-auto rounded-lg"
+              className="w-full h-48 object-cover rounded-lg"
               data-testid="img-result-4"
             />
             <img
-              src={marketingImg1}
+              src={contentImg5}
               alt="FitnessPro Network Campaign Content"
-              className="w-full h-auto rounded-lg"
+              className="w-full h-48 object-cover rounded-lg"
               data-testid="img-result-5"
             />
             <img
-              src={contentImg1}
+              src={contentImg6}
               alt="FitnessPro Network Campaign Content"
-              className="w-full h-auto rounded-lg"
+              className="w-full h-48 object-cover rounded-lg"
               data-testid="img-result-6"
             />
             <img
-              src={contentImg2}
+              src={contentImg7}
               alt="FitnessPro Network Campaign Content"
-              className="w-full h-auto rounded-lg"
+              className="w-full h-48 object-cover rounded-lg"
               data-testid="img-result-7"
             />
             <img
-              src={contentImg3}
+              src={contentImg8}
               alt="FitnessPro Network Campaign Content"
-              className="w-full h-auto rounded-lg"
+              className="w-full h-48 object-cover rounded-lg"
               data-testid="img-result-8"
             />
           </div>
