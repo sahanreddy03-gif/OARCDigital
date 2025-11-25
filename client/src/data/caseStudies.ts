@@ -28,7 +28,7 @@ export const caseStudies: Record<string, CaseStudy> = {
     slug: 'gym-group',
     brand: 'The Gym Group',
     category: 'Fitness & Lifestyle',
-    description: 'TikTok Campaign',
+    description: 'Social Engagement Strategy',
     metrics: {
       value: '15M',
       label: 'views'
@@ -41,7 +41,7 @@ export const caseStudies: Record<string, CaseStudy> = {
     slug: 'azzaro',
     brand: 'Azzaro',
     category: 'Luxury Fragrance',
-    description: 'Influencer Marketing',
+    description: 'Creator Partnership Launch',
     metrics: {
       value: '59M',
       label: 'reach'
@@ -54,7 +54,7 @@ export const caseStudies: Record<string, CaseStudy> = {
     slug: 'body-shop',
     brand: 'The Body Shop',
     category: 'Beauty & Wellness',
-    description: 'Authentic Content',
+    description: 'Values-Driven Activation',
     metrics: {
       value: '+420%',
       label: 'engagement'
@@ -67,7 +67,7 @@ export const caseStudies: Record<string, CaseStudy> = {
     slug: 'tefal',
     brand: 'Tefal',
     category: 'Home & Kitchen',
-    description: 'Product Sellout',
+    description: 'Inventory Acceleration',
     metrics: {
       value: '100%',
       label: 'sold out'
@@ -80,7 +80,7 @@ export const caseStudies: Record<string, CaseStudy> = {
     slug: 'lenovo-legion',
     brand: 'Lenovo Legion',
     category: 'Gaming Tech',
-    description: 'Launch Campaign',
+    description: 'Community Growth Initiative',
     metrics: {
       value: '+680%',
       label: 'engagement'
@@ -93,7 +93,7 @@ export const caseStudies: Record<string, CaseStudy> = {
     slug: 'esl-gaming',
     brand: 'ESL Gaming',
     category: 'Esports',
-    description: 'Tournament Promotion',
+    description: 'Platform Expansion Strategy',
     metrics: {
       value: '25M',
       label: 'impressions'
