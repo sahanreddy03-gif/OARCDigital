@@ -9,6 +9,7 @@ import videoProductionImg from '@assets/stock_images/video_production_stu_19004f
 import cameraMonitorImg from '@assets/stock_images/video_production_stu_5144a38f.jpg';
 import designWorkspaceImg from '@assets/stock_images/creative_team_workin_79883382.jpg';
 import largeTeamImg from '@assets/stock_images/creative_team_workin_4b023730.jpg';
+import fitnessImg1 from '@assets/stock_images/fitness_gym_workout__500a23f2.jpg';
 
 export default function Creative() {
   const [currentService, setCurrentService] = useState(0);
@@ -398,7 +399,7 @@ export default function Creative() {
           <Link href="/case-studies/gym-group">
             <div className="relative bg-gradient-to-br from-gray-800 to-gray-900 rounded-3xl overflow-hidden h-[500px] hover-elevate active-elevate-2 cursor-pointer" data-testid="card-case-study-gym-group">
               <img
-                src="https://sociallypowerful.com/wp-content/uploads/2023/08/The-Gym-Group-Socially-Powerful.png"
+                src={fitnessImg1}
                 alt="The Gym Group TikTok Campaign"
                 className="absolute inset-0 w-full h-full object-cover opacity-50"
               />
@@ -417,7 +418,7 @@ export default function Creative() {
                 </div>
                 <h3 className="text-3xl font-black mb-2">The Gym Group</h3>
                 <p className="text-lg text-gray-200 mb-4">
-                  Recruiting a whole new generation of gym-goers.
+                  Inspiring a new wave of fitness enthusiasts.
                 </p>
                 <div className="grid grid-cols-3 gap-6 mt-6">
                   <div>

@@ -34,7 +34,7 @@ export const caseStudies: Record<string, CaseStudy> = {
       label: 'views'
     },
     thumbnailImage: gymGroupImg,
-    heroImage: 'https://sociallypowerful.com/wp-content/uploads/2023/08/The-Gym-Group-Socially-Powerful.png',
+    heroImage: gymGroupImg,
     gridClass: 'col-span-2 row-span-2'
   },
   'azzaro': {
@@ -47,7 +47,7 @@ export const caseStudies: Record<string, CaseStudy> = {
       label: 'reach'
     },
     thumbnailImage: azzaroImg,
-    heroImage: 'https://sociallypowerful.com/wp-content/uploads/2023/08/LOreal-influencer-marketing-agency.png',
+    heroImage: azzaroImg,
     gridClass: 'col-span-1 row-span-1'
   },
   'body-shop': {
