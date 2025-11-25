@@ -1,7 +1,7 @@
-// Custom carousel images for homepage hero section
-import { useEffect, useRef } from "react";
+// 3D Curved Coverflow Carousel for homepage hero section
+import { useEffect, useRef, useState, useCallback } from "react";
 import digitalMarketing from '@assets/1_1763067301763.avif';
-import socialMedia from '@assets/stock_images/social_media_managem_8e61c86d.jpg'; // Keep old - file 2 missing
+import socialMedia from '@assets/stock_images/social_media_managem_8e61c86d.jpg';
 import aiVideo from '@assets/3_1763067301764.avif';
 import branding from '@assets/4_1763067301765.avif';
 import paidAdvertising from '@assets/5_1763067301765.avif';
@@ -38,59 +38,45 @@ const services = [
   { text: "Support AI Employees", image: supportAI },
 ];
 
-export default function FloatingChipCarousel() {
+// Flat carousel for portrait mobile
+function FlatCarousel() {
   const trackRef = useRef<HTMLDivElement>(null);
   const animationRef = useRef<number>();
-
-  // Double duplication for seamless loop
   const duplicatedServices = [...services, ...services];
 
   useEffect(() => {
     const track = trackRef.current;
     if (!track) return;
 
-    // Use consistent faster speed on all screen sizes
-    const speed = 0.5; // Pixels per frame
-
+    const speed = 0.5;
     let currentTranslate = 0;
     let contentWidth = 0;
 
-    // Measure actual rendered width of one complete set (including gaps)
     const measureWidth = () => {
-      // Since we have 2x duplication, the total scrollWidth is 2x one set
-      // So one set width = scrollWidth / 2
       if (track.scrollWidth > 0) {
         contentWidth = track.scrollWidth / 2;
       }
     };
 
-    // Animation loop
     const animate = () => {
       currentTranslate -= speed;
-
-      // Reset seamlessly when we've scrolled past one full set
       if (Math.abs(currentTranslate) >= contentWidth) {
         currentTranslate = 0;
       }
-
-      // Apply transform directly to avoid state updates every frame
       if (track) {
         track.style.transform = `translateX(${currentTranslate}px)`;
       }
-
       animationRef.current = requestAnimationFrame(animate);
     };
 
-    // Ensure track starts at 0 position immediately
     if (track) {
       track.style.transform = 'translateX(0px)';
     }
 
-    // Start animation after measuring - give more time for layout
     const startTimer = setTimeout(() => {
       measureWidth();
       if (contentWidth > 0) {
-        currentTranslate = 0; // Reset to 0 before starting
+        currentTranslate = 0;
         animate();
       }
     }, 200);
@@ -116,17 +102,15 @@ export default function FloatingChipCarousel() {
             className="inline-flex flex-shrink-0"
             data-testid={`carousel-chip-${index}`}
           >
-            <div className="group flex items-center gap-2.5 md:gap-3 px-3.5 md:px-4 py-2.5 md:py-3 bg-white/95 backdrop-blur-sm rounded-xl shadow-lg hover:shadow-2xl hover:scale-105 hover:bg-white transition-all duration-300 cursor-pointer border border-white/20 hover:border-[#c4ff4d]/30">
-              {/* Option A sizing - 70x70px images */}
-              <div className="w-[70px] h-[70px] rounded-xl overflow-hidden flex-shrink-0 bg-zinc-100 ring-2 ring-white/50 group-hover:ring-[#c4ff4d]/40 transition-all duration-300">
+            <div className="group flex items-center gap-2 px-3 py-2 bg-white/95 backdrop-blur-sm rounded-lg shadow-lg hover:shadow-2xl hover:scale-105 hover:bg-white transition-all duration-300 cursor-pointer border border-white/20 hover:border-[#c4ff4d]/30">
+              <div className="w-[50px] h-[50px] rounded-lg overflow-hidden flex-shrink-0 bg-zinc-100 ring-2 ring-white/50 group-hover:ring-[#c4ff4d]/40 transition-all duration-300">
                 <img 
                   src={service.image} 
                   alt={service.text}
                   className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
-                  data-testid={`carousel-image-${service.text.toLowerCase().replace(/\s+/g, '-')}`}
                 />
               </div>
-              <span className="text-sm md:text-base font-bold text-gray-900 group-hover:text-zinc-950 pr-1.5 md:pr-2.5 whitespace-nowrap transition-colors duration-300" data-testid={`carousel-text-${service.text.toLowerCase().replace(/\s+/g, '-')}`}>
+              <span className="text-xs font-bold text-gray-900 group-hover:text-zinc-950 pr-1 whitespace-nowrap transition-colors duration-300">
                 {service.text}
               </span>
             </div>
@@ -135,4 +119,146 @@ export default function FloatingChipCarousel() {
       </div>
     </div>
   );
+}
+
+// 3D Curved Coverflow for landscape/desktop
+function CurvedCarousel() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const animationRef = useRef<number>();
+  const [offset, setOffset] = useState(0);
+  
+  const visibleCount = 7;
+  const centerIndex = Math.floor(visibleCount / 2);
+  
+  useEffect(() => {
+    let currentOffset = 0;
+    const speed = 0.008;
+    
+    const animate = () => {
+      currentOffset += speed;
+      if (currentOffset >= services.length) {
+        currentOffset = 0;
+      }
+      setOffset(currentOffset);
+      animationRef.current = requestAnimationFrame(animate);
+    };
+    
+    animationRef.current = requestAnimationFrame(animate);
+    
+    return () => {
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
+      }
+    };
+  }, []);
+
+  const getCardStyle = useCallback((visualIndex: number) => {
+    const distanceFromCenter = visualIndex - centerIndex;
+    const normalizedDistance = distanceFromCenter / centerIndex;
+    
+    const scale = 1 + Math.abs(normalizedDistance) * 0.15;
+    const rotateY = -normalizedDistance * 35;
+    const translateZ = -Math.abs(normalizedDistance) * 60;
+    const translateX = distanceFromCenter * 220;
+    const opacity = 1 - Math.abs(normalizedDistance) * 0.2;
+    const blur = Math.abs(normalizedDistance) > 2 ? Math.abs(normalizedDistance) - 2 : 0;
+    
+    return {
+      transform: `translateX(${translateX}px) translateZ(${translateZ}px) rotateY(${rotateY}deg) scale(${scale})`,
+      opacity: Math.max(0.4, opacity),
+      filter: blur > 0 ? `blur(${blur}px)` : 'none',
+      zIndex: 10 - Math.abs(Math.round(distanceFromCenter)),
+    };
+  }, [centerIndex]);
+
+  const getVisibleServices = () => {
+    const items = [];
+    const baseIndex = Math.floor(offset);
+    const fraction = offset - baseIndex;
+    
+    for (let i = 0; i < visibleCount; i++) {
+      const serviceIndex = (baseIndex + i) % services.length;
+      const adjustedVisualIndex = i - fraction;
+      items.push({
+        service: services[serviceIndex],
+        visualIndex: adjustedVisualIndex,
+        key: `${serviceIndex}-${Math.floor(offset / services.length)}`,
+      });
+    }
+    return items;
+  };
+
+  return (
+    <div 
+      ref={containerRef}
+      className="w-full overflow-hidden relative"
+      style={{ 
+        perspective: '1200px',
+        perspectiveOrigin: 'center center',
+        height: '140px',
+      }}
+    >
+      <div 
+        className="absolute inset-0 flex items-center justify-center"
+        style={{ transformStyle: 'preserve-3d' }}
+      >
+        {getVisibleServices().map(({ service, visualIndex, key }) => {
+          const style = getCardStyle(visualIndex);
+          return (
+            <div
+              key={key}
+              className="absolute"
+              style={{
+                ...style,
+                transition: 'none',
+                willChange: 'transform, opacity',
+              }}
+              data-testid={`carousel-3d-chip-${service.text.toLowerCase().replace(/\s+/g, '-')}`}
+            >
+              <div className="group flex items-center gap-3 px-4 py-3 bg-white/95 backdrop-blur-sm rounded-xl shadow-lg hover:shadow-2xl hover:bg-white transition-all duration-300 cursor-pointer border border-white/20 hover:border-[#c4ff4d]/30">
+                <div className="w-[70px] h-[70px] rounded-xl overflow-hidden flex-shrink-0 bg-zinc-100 ring-2 ring-white/50 group-hover:ring-[#c4ff4d]/40 transition-all duration-300">
+                  <img 
+                    src={service.image} 
+                    alt={service.text}
+                    className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                  />
+                </div>
+                <span className="text-base font-bold text-gray-900 group-hover:text-zinc-950 pr-2.5 whitespace-nowrap transition-colors duration-300">
+                  {service.text}
+                </span>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+export default function FloatingChipCarousel() {
+  const [isLandscapeOrDesktop, setIsLandscapeOrDesktop] = useState(false);
+
+  useEffect(() => {
+    const checkOrientation = () => {
+      const isLandscape = window.matchMedia('(orientation: landscape)').matches;
+      const isWideScreen = window.innerWidth >= 768;
+      setIsLandscapeOrDesktop(isLandscape || isWideScreen);
+    };
+
+    checkOrientation();
+
+    window.addEventListener('resize', checkOrientation);
+    window.addEventListener('orientationchange', checkOrientation);
+
+    const mediaQuery = window.matchMedia('(orientation: landscape)');
+    mediaQuery.addEventListener('change', checkOrientation);
+
+    return () => {
+      window.removeEventListener('resize', checkOrientation);
+      window.removeEventListener('orientationchange', checkOrientation);
+      mediaQuery.removeEventListener('change', checkOrientation);
+    };
+  }, []);
+
+  return isLandscapeOrDesktop ? <CurvedCarousel /> : <FlatCarousel />;
 }
