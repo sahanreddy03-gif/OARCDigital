@@ -55,7 +55,7 @@ export default function BodyShopCaseStudy() {
         />
         <div className="relative z-10 text-center px-4 py-20">
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-black uppercase mb-4" data-testid="heading-case-study-title">
-            Amplifying The Body Shop's purpose-driven message across the Middle East.
+            Establishing values-driven brand authority through regional influencer networks.
           </h1>
         </div>
       </section>
@@ -66,7 +66,7 @@ export default function BodyShopCaseStudy() {
           <p className="text-sm font-bold text-gray-500 uppercase mb-4 tracking-wider">About</p>
           
           <h2 className="text-4xl md:text-5xl font-black text-black mb-8">
-            Driving Impact and Growing Sales: The Body Shop's 18-Month Influencer Journey.
+            Building authentic brand advocacy and sustained revenue growth.
           </h2>
           
           <p className="text-base text-black leading-relaxed mb-6">

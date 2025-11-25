@@ -62,7 +62,7 @@ export default function EslGamingCaseStudy() {
         />
         <div className="relative z-10 text-center px-4 py-20">
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-black uppercase mb-4" data-testid="heading-case-study-title">
-            Building and scaling the ESL Gaming TikTok presence.
+            Accelerating esports community engagement at massive scale.
           </h1>
         </div>
       </section>
@@ -73,7 +73,7 @@ export default function EslGamingCaseStudy() {
           <p className="text-sm font-bold text-gray-500 uppercase mb-4 tracking-wider">About</p>
           
           <h2 className="text-4xl md:text-5xl font-black text-black mb-8">
-            Creating and expanding the global ESL Gaming TikTok community.
+            Multiplying audience reach through strategic esports content distribution.
           </h2>
 
           <p className="text-lg text-gray-700 mb-8 leading-relaxed">

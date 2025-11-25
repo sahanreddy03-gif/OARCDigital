@@ -89,7 +89,7 @@ export default function TefalCaseStudy() {
         <div className="relative h-full flex items-center justify-center px-4">
           <div className="max-w-5xl text-center">
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-white leading-tight uppercase" data-testid="heading-hero">
-              SELLING OUT PRODUCT LINES OF HOUSEHOLD PRODUCTS FOR TEFAL.
+              ACHIEVING INVENTORY DEPLETION THROUGH INFLUENCER-DRIVEN CAMPAIGNS.
             </h1>
           </div>
         </div>
@@ -106,7 +106,7 @@ export default function TefalCaseStudy() {
               </div>
 
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-white mb-8">
-                Dominating European Markets with Innovation and Sales Excellence for Tefal.
+                Driving market leadership through creator partnerships and premium positioning.
               </h2>
 
               <p className="text-base text-gray-300 mb-6 leading-relaxed">

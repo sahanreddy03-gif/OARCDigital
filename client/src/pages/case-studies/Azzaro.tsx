@@ -56,7 +56,7 @@ export default function AzzaroCaseStudy() {
         />
         <div className="relative z-10 text-center px-4 py-20">
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-black uppercase mb-4" data-testid="heading-case-study-title">
-            Launching a premium fragrance experience for the TikTok generation.
+            Introducing luxury fragrance to Gen-Z through authentic creator partnerships.
           </h1>
         </div>
       </section>
@@ -67,7 +67,7 @@ export default function AzzaroCaseStudy() {
           <p className="text-sm font-bold text-gray-500 uppercase mb-4 tracking-wider">ABOUT</p>
           
           <h2 className="text-4xl md:text-5xl font-black text-black mb-8">
-            Elevating Azzaro from everyday to exceptional
+            Building luxury brand prestige through creator-driven engagement
           </h2>
           
           <p className="text-base text-black leading-relaxed mb-12">
