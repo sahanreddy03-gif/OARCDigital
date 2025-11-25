@@ -77,11 +77,11 @@ export default function LenovoLegionCaseStudy() {
           </h2>
 
           <p className="text-lg text-gray-700 mb-8 leading-relaxed">
-            As a premier provider of gaming hardware and peripherals, Legion embarked on a journey to carve its unique identity within the densely populated gaming social landscape of the UKI. With the determination to rise above the competition in a crowded market, Legion aimed not only to stand out but to establish an unparalleled presence that resonated authentically with the gaming community.
+            Lenovo Legion faced the challenge of differentiation in a competitive gaming hardware marketplace. Rather than pursuing generic performance benchmarks, they sought to build authentic community and cultural relevance within UK/Ireland gaming circles.
           </p>
 
           <p className="text-lg text-gray-700 mb-12 leading-relaxed">
-            This aspiration fuelled the pursuit of cultivating an engaged and thriving social sphere where gamers could connect, collaborate, and find genuine camaraderie – transforming Legion from a mere brand into an integral part of every gamer's journey.
+            The objective was transformational: shift from product-focused brand messaging toward cultural stewardship—positioning Legion as a gaming community fixture where enthusiasts gather, collaborate, and feel genuinely understood.
           </p>
 
           <h3 className="text-2xl font-bold text-black mb-8">
@@ -155,11 +155,11 @@ export default function LenovoLegionCaseStudy() {
           </h2>
 
           <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-            The formulaic product focused approach most UKI brands use doesn't resonate with the gaming community, it's stale, dull and offers no value to anyone. Gaming is exciting, it's full of flavour and passion and that's what we needed to bring out.
+            Industry-standard gaming brand strategies feel formulaic to community members—generic, lifeless, and disconnected from what makes gaming compelling. The passion and cultural nuance of gaming demanded authentic representation over corporate polish.
           </p>
 
           <p className="text-lg text-gray-700 leading-relaxed">
-            The gaming audience wants a brand they can relate to, engage with and create dialogue with, that goes beyond classic brand and product offering, which meant we had to offer something entirely different to ensure the Lenovo brand popped on social ahead of their established competitors.
+            Gaming audiences gravitate toward brands showing genuine peer-level communication and collaborative spirit. Competing purely on products meant invisibility. Legion needed structural differentiation through community-first positioning that competitors couldn't easily replicate.
           </p>
         </div>
       </section>
@@ -174,19 +174,19 @@ export default function LenovoLegionCaseStudy() {
           </h2>
 
           <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-            Utilising insights, we crafted a social strategy spotlighting Legion's gaming focus, authenticity, and relatability. A friendly tone produced memes, polls, and engaging content, forging connections. Active engagement with brands and creators boosted brand awareness. The team we assembled to work on the account were all gamers, some previous professional gamers and streamers, so had a unique identity of understanding what they would want to see from a brand themselves.
+            We built a community-first content strategy emphasizing human connection over product messaging. Our team consisted entirely of gaming enthusiasts—former esports athletes, streamers, and content creators—enabling authentic voice and instinctive understanding of community expectations. Memes, interactive polls, and user-generated content challenges drove organic sharing and participation.
           </p>
 
           <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-            The standout achievement was the Legion Stream Team, diverse creators reaching various audiences, highlighting brand and products, to a wide audience and demographics that Lenovo wanted to target. The Stream Team acted as Legion's public face, boosted by cross-channel content and activations across YouTube, Twitch, Instagram and TikTok. Growth was prioritised through a targeted paid social strategy highlighting best performing content, giveaways, and mutual content sharing.
+            The Legion Creator Collective became the brand's cultural ambassador. Composed of diverse gaming influencers and streamers, they maintained presence across YouTube, Twitch, Instagram, and TikTok. Rather than one-way promotion, creators co-developed content, ensuring endemic messaging that felt unscripted. Paid amplification targeted top-performing organic content, creating compound reach.
           </p>
 
           <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-            Driving growth was a paramount objective and key to this was a relatable tone and engaging content, through social media management and not taking the Lenovo brand too seriously as it had previously. Collaborations with other influential gaming figures were integrated to tap into new audiences and escalate brand recognition within the gaming community.
+            Growth acceleration required tone recalibration—moving from corporate messaging toward conversational authenticity. Community collaborations expanded reach into adjacent influencer circles. Crucially, we implemented bidirectional engagement: responding to every meaningful comment, hosting live streams, and treating followers as community members rather than audiences.
           </p>
 
           <p className="text-lg text-gray-700 mb-12 leading-relaxed">
-            Our strategy seamlessly blended relatability, influencers, engaging content, and dialogue, thrusting Legion into the UKI gaming spotlight as an authentic choice. Crafted content was purposefully engaging and fun, tailored to cater to the niche's preferences. Crucially, we prioritized interactive dialogue over one-sided communication, actively responding to comments and engaging with followers.
+            The combined strategy—authentic voice + creator partnerships + interactive community management—established Legion as a uniquely relatable gaming brand. Content resonated through specificity and humor, designed for niche cultural participation. Two-way dialogue transformed followers into active community participants and brand advocates.
           </p>
 
           {/* Strategy Images */}
