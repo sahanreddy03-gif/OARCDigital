@@ -12,6 +12,8 @@ import formalTeamImg from '@assets/stock_images/digital_advertising__84eb3355.jp
 import conferenceTeamImg from '@assets/stock_images/digital_advertising__e3a5e56c.jpg';
 import studioImg from '@assets/stock_images/graphic_design_creat_e05eb8ba.jpg';
 import largeTeamImg from '@assets/stock_images/digital_advertising__72c578c7.jpg';
+import gamingImg1 from '@assets/stock_images/gaming_esports_compu_611efecd.jpg';
+import gamingImg2 from '@assets/stock_images/gaming_esports_compu_315351f1.jpg';
 
 export default function Paid() {
   const [currentService, setCurrentService] = useState(0);
@@ -424,7 +426,7 @@ export default function Paid() {
             <Link href="/case-studies/lenovo-legion">
               <div className="relative bg-gradient-to-br from-gray-800 to-gray-900 rounded-3xl overflow-hidden h-[500px] hover-elevate active-elevate-2 cursor-pointer" data-testid="card-case-study-lenovo">
                 <img
-                  src="https://sociallypowerful.com/wp-content/uploads/2023/07/Danny-New.png"
+                  src={gamingImg1}
                   alt="Lenovo Legion Gaming Setup"
                   className="absolute inset-0 w-full h-full object-cover opacity-50"
                 />
@@ -440,7 +442,7 @@ export default function Paid() {
                   </div>
                   <h3 className="text-2xl font-black mb-2">Lenovo Legion</h3>
                   <p className="text-sm text-gray-200 mb-3">
-                    Making Lenovo Legion stand out in a saturated gaming market.
+                    Elevating Lenovo Legion to the forefront of gaming culture.
                   </p>
                   <div className="grid grid-cols-3 gap-3 mt-4">
                     <div>
@@ -464,7 +466,7 @@ export default function Paid() {
             <Link href="/case-studies/esl-gaming">
               <div className="relative bg-gradient-to-br from-gray-800 to-gray-900 rounded-3xl overflow-hidden h-[500px] hover-elevate active-elevate-2 cursor-pointer" data-testid="card-case-study-esl">
                 <img
-                  src="https://sociallypowerful.com/wp-content/uploads/2023/07/ESL1009_Frames_SS_002_ScheduleSS_Schedule.png"
+                  src={gamingImg2}
                   alt="ESL Gaming TikTok"
                   className="absolute inset-0 w-full h-full object-cover opacity-50"
                 />
@@ -480,7 +482,7 @@ export default function Paid() {
                   </div>
                   <h3 className="text-2xl font-black mb-2">ESL Gaming</h3>
                   <p className="text-sm text-gray-200 mb-3">
-                    Develop, manage and grow the ESL Gaming TikTok Channel.
+                    Building and scaling the ESL Gaming TikTok presence.
                   </p>
                   <div className="grid grid-cols-3 gap-3 mt-4">
                     <div>

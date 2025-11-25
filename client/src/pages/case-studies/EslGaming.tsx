@@ -10,6 +10,10 @@ import { caseStudiesSEO } from '@/data/seoMetadata';
 import dontMakeAdsHeroImg from '@assets/TikTok-for-Business-Marketing-Agenct_1761842288035.png';
 import tefalHeroImg from '@assets/TefalPictures-32-scaled_1761760754960.jpg';
 import bodyShopHeroImg from '@assets/IMG_7951_1761931806299.jpeg';
+import gamingImg1 from '@assets/stock_images/gaming_esports_compu_611efecd.jpg';
+import gamingImg2 from '@assets/stock_images/gaming_esports_compu_315351f1.jpg';
+import gamingImg3 from '@assets/stock_images/gaming_esports_compu_3ad523c7.jpg';
+import gamingImg4 from '@assets/stock_images/gaming_esports_compu_496ae89d.jpg';
 
 export default function EslGamingCaseStudy() {
   useEffect(() => {
@@ -53,12 +57,12 @@ export default function EslGamingCaseStudy() {
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-40"
           style={{
-            backgroundImage: 'url(https://sociallypowerful.com/wp-content/uploads/2023/07/ESL1009_Frames_SS_002_ScheduleSS_Schedule.png)'
+            backgroundImage: `url(${gamingImg1})`
           }}
         />
         <div className="relative z-10 text-center px-4 py-20">
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-black uppercase mb-4" data-testid="heading-case-study-title">
-            Develop, manage and grow the ESL Gaming TikTok Channel.
+            Building and scaling the ESL Gaming TikTok presence.
           </h1>
         </div>
       </section>
@@ -69,7 +73,7 @@ export default function EslGamingCaseStudy() {
           <p className="text-sm font-bold text-gray-500 uppercase mb-4 tracking-wider">About</p>
           
           <h2 className="text-4xl md:text-5xl font-black text-black mb-8">
-            Develop, manage and grow the global ESL Gaming TikTok channel.
+            Creating and expanding the global ESL Gaming TikTok community.
           </h2>
 
           <p className="text-lg text-gray-700 mb-8 leading-relaxed">
@@ -167,13 +171,13 @@ export default function EslGamingCaseStudy() {
           {/* Strategy Images */}
           <div className="grid md:grid-cols-2 gap-6 mb-8">
             <img
-              src="https://sociallypowerful.com/wp-content/uploads/2023/07/Screenshot-2023-09-14-at-10.47.04.png"
+              src={gamingImg2}
               alt="ESL Gaming Strategy Image 1"
               className="w-full h-auto rounded-lg"
               data-testid="img-strategy-1"
             />
             <img
-              src="https://sociallypowerful.com/wp-content/uploads/2023/07/Screenshot-2023-09-14-at-10.47.36.png"
+              src={gamingImg3}
               alt="ESL Gaming Strategy Image 2"
               className="w-full h-auto rounded-lg"
               data-testid="img-strategy-2"
@@ -218,91 +222,91 @@ export default function EslGamingCaseStudy() {
           {/* Results Screenshots Grid */}
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
             <img
-              src="https://sociallypowerful.com/wp-content/uploads/2023/07/Screenshot-2023-09-14-at-10.46.37-1.png"
+              src={gamingImg1}
               alt="ESL Gaming TikTok Content"
               className="w-full h-auto rounded-lg"
               data-testid="img-result-1"
             />
             <img
-              src="https://sociallypowerful.com/wp-content/uploads/2023/07/Screenshot-2023-09-14-at-10.47.04-1.png"
+              src={gamingImg2}
               alt="ESL Gaming TikTok Content"
               className="w-full h-auto rounded-lg"
               data-testid="img-result-2"
             />
             <img
-              src="https://sociallypowerful.com/wp-content/uploads/2023/07/Screenshot-2023-09-14-at-10.47.36-1.png"
+              src={gamingImg3}
               alt="ESL Gaming TikTok Content"
               className="w-full h-auto rounded-lg"
               data-testid="img-result-3"
             />
             <img
-              src="https://sociallypowerful.com/wp-content/uploads/2023/07/Screenshot-2023-09-14-at-10.50.05.png"
+              src={gamingImg4}
               alt="ESL Gaming TikTok Content"
               className="w-full h-auto rounded-lg"
               data-testid="img-result-4"
             />
             <img
-              src="https://sociallypowerful.com/wp-content/uploads/2023/07/Screenshot-2023-09-14-at-10.50.27.png"
+              src={gamingImg1}
               alt="ESL Gaming TikTok Content"
               className="w-full h-auto rounded-lg"
               data-testid="img-result-5"
             />
             <img
-              src="https://sociallypowerful.com/wp-content/uploads/2023/07/Screenshot-2023-09-14-at-10.50.46.png"
+              src={gamingImg2}
               alt="ESL Gaming TikTok Content"
               className="w-full h-auto rounded-lg"
               data-testid="img-result-6"
             />
             <img
-              src="https://sociallypowerful.com/wp-content/uploads/2023/07/Screenshot-2023-09-14-at-10.51.00.png"
+              src={gamingImg3}
               alt="ESL Gaming TikTok Content"
               className="w-full h-auto rounded-lg"
               data-testid="img-result-7"
             />
             <img
-              src="https://sociallypowerful.com/wp-content/uploads/2023/07/Screenshot-2023-09-14-at-10.51.07.png"
+              src={gamingImg4}
               alt="ESL Gaming TikTok Content"
               className="w-full h-auto rounded-lg"
               data-testid="img-result-8"
             />
             <img
-              src="https://sociallypowerful.com/wp-content/uploads/2023/07/Screenshot-2023-09-14-at-10.51.14.png"
+              src={gamingImg1}
               alt="ESL Gaming TikTok Content"
               className="w-full h-auto rounded-lg"
               data-testid="img-result-9"
             />
             <img
-              src="https://sociallypowerful.com/wp-content/uploads/2023/07/Screenshot-2023-09-14-at-10.51.36.png"
+              src={gamingImg2}
               alt="ESL Gaming TikTok Content"
               className="w-full h-auto rounded-lg"
               data-testid="img-result-10"
             />
             <img
-              src="https://sociallypowerful.com/wp-content/uploads/2023/07/Screenshot-2023-09-14-at-10.51.48.png"
+              src={gamingImg3}
               alt="ESL Gaming TikTok Content"
               className="w-full h-auto rounded-lg"
               data-testid="img-result-11"
             />
             <img
-              src="https://sociallypowerful.com/wp-content/uploads/2023/07/Screenshot-2023-09-14-at-10.51.58.png"
+              src={gamingImg4}
               alt="ESL Gaming TikTok Content"
               className="w-full h-auto rounded-lg"
               data-testid="img-result-12"
             />
             <img
-              src="https://sociallypowerful.com/wp-content/uploads/2023/07/Screenshot-2023-09-14-at-10.50.55.png"
+              src={gamingImg1}
               alt="ESL Gaming TikTok Content"
               className="w-full h-auto rounded-lg"
               data-testid="img-result-13"
             />
             <img
-              src="https://sociallypowerful.com/wp-content/uploads/2023/07/Screenshot-2023-09-14-at-10.52.06.png"
+              src={gamingImg2}
               alt="ESL Gaming TikTok Content"
               className="w-full h-auto rounded-lg"
               data-testid="img-result-14"
             />
             <img
-              src="https://sociallypowerful.com/wp-content/uploads/2023/07/Screenshot-2023-09-14-at-10.52.16.png"
+              src={gamingImg3}
               alt="ESL Gaming TikTok Content"
               className="w-full h-auto rounded-lg"
               data-testid="img-result-15"

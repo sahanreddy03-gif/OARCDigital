@@ -10,6 +10,14 @@ import { caseStudiesSEO } from '@/data/seoMetadata';
 import tefalHeroImg from '@assets/TefalPictures-32-scaled_1761760754960.jpg';
 import dontMakeAdsHeroImg from '@assets/TikTok-for-Business-Marketing-Agenct_1761842288035.png';
 import bodyShopHeroImg from '@assets/The-Body-Shop-Social-Marketing-Agency_1761842288034.jpg';
+import fitnessImg1 from '@assets/stock_images/fitness_gym_workout__500a23f2.jpg';
+import fitnessImg2 from '@assets/stock_images/fitness_gym_workout__6cda6782.jpg';
+import fitnessImg3 from '@assets/stock_images/fitness_gym_workout__509badd9.jpg';
+import contentImg1 from '@assets/stock_images/social_media_content_26e15f21.jpg';
+import contentImg2 from '@assets/stock_images/social_media_content_bcbe5825.jpg';
+import contentImg3 from '@assets/stock_images/social_media_content_6a45c387.jpg';
+import contentImg4 from '@assets/stock_images/social_media_content_3d687a65.jpg';
+import marketingImg1 from '@assets/stock_images/digital_marketing_te_2dcc8e58.jpg';
 
 export default function GymGroupCaseStudy() {
   useEffect(() => {
@@ -53,12 +61,12 @@ export default function GymGroupCaseStudy() {
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-40"
           style={{
-            backgroundImage: 'url(https://sociallypowerful.com/wp-content/uploads/2023/08/The-Gym-Group-Socially-Powerful.png)'
+            backgroundImage: `url(${fitnessImg1})`
           }}
         />
         <div className="relative z-10 text-center px-4 py-20">
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-black uppercase mb-4" data-testid="heading-case-study-title">
-            Recruiting a whole new generation of gym-goers.
+            Inspiring a new wave of fitness enthusiasts.
           </h1>
         </div>
       </section>
@@ -69,7 +77,7 @@ export default function GymGroupCaseStudy() {
           <p className="text-sm font-bold text-gray-500 uppercase mb-4 tracking-wider">About</p>
           
           <h2 className="text-4xl md:text-5xl font-black text-black mb-8">
-            We democratised gym culture for The Gym Group.
+            We transformed gym culture for The Gym Group.
           </h2>
 
           <p className="text-lg text-gray-700 mb-8 leading-relaxed">
@@ -171,13 +179,13 @@ export default function GymGroupCaseStudy() {
           {/* Strategy Images */}
           <div className="grid md:grid-cols-2 gap-6 mb-8">
             <img
-              src="https://sociallypowerful.com/wp-content/uploads/2023/08/Picture-1-2.png"
+              src={fitnessImg2}
               alt="The Gym Group Strategy Image 1"
               className="w-full h-auto rounded-lg"
               data-testid="img-strategy-1"
             />
             <img
-              src="https://sociallypowerful.com/wp-content/uploads/2023/08/Picture-2.png"
+              src={fitnessImg3}
               alt="The Gym Group Strategy Image 2"
               className="w-full h-auto rounded-lg"
               data-testid="img-strategy-2"
@@ -222,49 +230,49 @@ export default function GymGroupCaseStudy() {
           {/* Results Screenshots Grid */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             <img
-              src="https://sociallypowerful.com/wp-content/uploads/2023/08/Picture-1-2.png"
+              src={contentImg1}
               alt="The Gym Group Campaign Content"
               className="w-full h-auto rounded-lg"
               data-testid="img-result-1"
             />
             <img
-              src="https://sociallypowerful.com/wp-content/uploads/2023/09/1.png"
+              src={contentImg2}
               alt="The Gym Group Campaign Content"
               className="w-full h-auto rounded-lg"
               data-testid="img-result-2"
             />
             <img
-              src="https://sociallypowerful.com/wp-content/uploads/2023/09/11.png"
+              src={contentImg3}
               alt="The Gym Group Campaign Content"
               className="w-full h-auto rounded-lg"
               data-testid="img-result-3"
             />
             <img
-              src="https://sociallypowerful.com/wp-content/uploads/2023/09/2222-1.png"
+              src={contentImg4}
               alt="The Gym Group Campaign Content"
               className="w-full h-auto rounded-lg"
               data-testid="img-result-4"
             />
             <img
-              src="https://sociallypowerful.com/wp-content/uploads/2023/09/Gym-Group-Influencer-Marketing.png"
+              src={marketingImg1}
               alt="The Gym Group Campaign Content"
               className="w-full h-auto rounded-lg"
               data-testid="img-result-5"
             />
             <img
-              src="https://sociallypowerful.com/wp-content/uploads/2023/09/Gym-Group-Marketing-Agency.png"
+              src={contentImg1}
               alt="The Gym Group Campaign Content"
               className="w-full h-auto rounded-lg"
               data-testid="img-result-6"
             />
             <img
-              src="https://sociallypowerful.com/wp-content/uploads/2023/09/Pictu1re-1.png"
+              src={contentImg2}
               alt="The Gym Group Campaign Content"
               className="w-full h-auto rounded-lg"
               data-testid="img-result-7"
             />
             <img
-              src="https://sociallypowerful.com/wp-content/uploads/2023/09/Picture-1.png"
+              src={contentImg3}
               alt="The Gym Group Campaign Content"
               className="w-full h-auto rounded-lg"
               data-testid="img-result-8"

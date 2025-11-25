@@ -13,6 +13,7 @@ import strategyImg1 from '@assets/IMG_7997_1761955811646.jpeg';
 import strategyImg2 from '@assets/IMG_7994_1761955811646.jpeg';
 import tefalHeroImg from '@assets/TefalPictures-32-scaled_1761760754960.jpg';
 import dontMakeAdsHeroImg from '@assets/TikTok-for-Business-Marketing-Agenct_1761842288035.png';
+import beautyHeroImg from '@assets/stock_images/beauty_skincare_cosm_560a8e27.jpg';
 
 export default function BodyShopCaseStudy() {
   useEffect(() => {
@@ -49,12 +50,12 @@ export default function BodyShopCaseStudy() {
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-40"
           style={{
-            backgroundImage: 'url(https://sociallypowerful.com/wp-content/uploads/2023/07/The-Body-Shop-Social-Marketing-Agency.jpg)'
+            backgroundImage: `url(${beautyHeroImg})`
           }}
         />
         <div className="relative z-10 text-center px-4 py-20">
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-black uppercase mb-4" data-testid="heading-case-study-title">
-            Raising awareness of The Body Shop's brand activism in the Middle-East.
+            Amplifying The Body Shop's purpose-driven message across the Middle East.
           </h1>
         </div>
       </section>
@@ -65,7 +66,7 @@ export default function BodyShopCaseStudy() {
           <p className="text-sm font-bold text-gray-500 uppercase mb-4 tracking-wider">About</p>
           
           <h2 className="text-4xl md:text-5xl font-black text-black mb-8">
-            Empowering Change and Elevating Sales: The Body Shop's 18-Month Influencer Journey.
+            Driving Impact and Growing Sales: The Body Shop's 18-Month Influencer Journey.
           </h2>
           
           <p className="text-base text-black leading-relaxed mb-6">

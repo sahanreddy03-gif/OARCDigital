@@ -10,6 +10,10 @@ import { caseStudiesSEO } from '@/data/seoMetadata';
 import tefalHeroImg from '@assets/TefalPictures-32-scaled_1761760754960.jpg';
 import dontMakeAdsHeroImg from '@assets/TikTok-for-Business-Marketing-Agenct_1761842288035.png';
 import bodyShopHeroImg from '@assets/IMG_7951_1761931806299.jpeg';
+import gamingImg1 from '@assets/stock_images/gaming_esports_compu_611efecd.jpg';
+import gamingImg2 from '@assets/stock_images/gaming_esports_compu_315351f1.jpg';
+import gamingImg3 from '@assets/stock_images/gaming_esports_compu_3ad523c7.jpg';
+import gamingImg4 from '@assets/stock_images/gaming_esports_compu_496ae89d.jpg';
 
 export default function LenovoLegionCaseStudy() {
   useEffect(() => {
@@ -53,12 +57,12 @@ export default function LenovoLegionCaseStudy() {
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-40"
           style={{
-            backgroundImage: 'url(https://sociallypowerful.com/wp-content/uploads/2023/07/Danny-New.png)'
+            backgroundImage: `url(${gamingImg1})`
           }}
         />
         <div className="relative z-10 text-center px-4 py-20">
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-black uppercase mb-4" data-testid="heading-case-study-title">
-            Making Lenovo Legion stand out in a saturated gaming market.
+            Elevating Lenovo Legion to the forefront of gaming culture.
           </h1>
         </div>
       </section>
@@ -188,13 +192,13 @@ export default function LenovoLegionCaseStudy() {
           {/* Strategy Images */}
           <div className="grid md:grid-cols-2 gap-6 mb-8">
             <img
-              src="https://sociallypowerful.com/wp-content/uploads/2023/07/Lenovo-Legion-Marketing-Agency-1.png"
+              src={gamingImg2}
               alt="Lenovo Legion Strategy Image 1"
               className="w-full h-auto rounded-lg"
               data-testid="img-strategy-1"
             />
             <img
-              src="https://sociallypowerful.com/wp-content/uploads/2023/07/Lenovo-Legion-Marketing-Agency.png"
+              src={gamingImg3}
               alt="Lenovo Legion Strategy Image 2"
               className="w-full h-auto rounded-lg"
               data-testid="img-strategy-2"
@@ -239,50 +243,50 @@ export default function LenovoLegionCaseStudy() {
           {/* Memes Grid */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             <img
-              src="https://sociallypowerful.com/wp-content/uploads/2023/07/puss-in-boots-meme.png"
-              alt="Gaming Meme"
+              src={gamingImg1}
+              alt="Gaming Content"
               className="w-full h-auto rounded-lg"
               data-testid="img-meme-1"
             />
             <img
-              src="https://sociallypowerful.com/wp-content/uploads/2023/07/steam-summer-sale-meme.png"
-              alt="Gaming Meme"
+              src={gamingImg2}
+              alt="Gaming Content"
               className="w-full h-auto rounded-lg"
               data-testid="img-meme-2"
             />
             <img
-              src="https://sociallypowerful.com/wp-content/uploads/2023/07/im-waiting-meme.png"
-              alt="Gaming Meme"
+              src={gamingImg3}
+              alt="Gaming Content"
               className="w-full h-auto rounded-lg"
               data-testid="img-meme-3"
             />
             <img
-              src="https://sociallypowerful.com/wp-content/uploads/2023/07/plink-meme.png"
-              alt="Gaming Meme"
+              src={gamingImg4}
+              alt="Gaming Content"
               className="w-full h-auto rounded-lg"
               data-testid="img-meme-4"
             />
             <img
-              src="https://sociallypowerful.com/wp-content/uploads/2023/07/Gi-Hun-Meme-1.png"
-              alt="Gaming Meme"
+              src={gamingImg1}
+              alt="Gaming Content"
               className="w-full h-auto rounded-lg"
               data-testid="img-meme-5"
             />
             <img
-              src="https://sociallypowerful.com/wp-content/uploads/2023/07/hulk-meme.png"
-              alt="Gaming Meme"
+              src={gamingImg2}
+              alt="Gaming Content"
               className="w-full h-auto rounded-lg"
               data-testid="img-meme-6"
             />
             <img
-              src="https://sociallypowerful.com/wp-content/uploads/2023/07/Meme-Will-Byers.png"
-              alt="Gaming Meme"
+              src={gamingImg3}
+              alt="Gaming Content"
               className="w-full h-auto rounded-lg"
               data-testid="img-meme-7"
             />
             <img
-              src="https://sociallypowerful.com/wp-content/uploads/2023/07/puss-in-boots-meme.png"
-              alt="Gaming Meme"
+              src={gamingImg4}
+              alt="Gaming Content"
               className="w-full h-auto rounded-lg"
               data-testid="img-meme-8"
             />
