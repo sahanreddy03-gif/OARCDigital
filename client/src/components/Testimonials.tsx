@@ -131,13 +131,23 @@ export default function Testimonials() {
   return (
     <section 
       ref={sectionRef}
-      className="relative py-12 md:py-20 lg:py-24 overflow-hidden bg-[#0A2818]" 
+      className="relative py-16 md:py-24 lg:py-32 overflow-hidden bg-[#0A2818]" 
       data-testid="section-testimonials"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
       <div className={`relative container mx-auto px-6 md:px-8 lg:px-10 max-w-7xl transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
         
+        {/* Section Heading */}
+        <div className="text-center mb-10 md:mb-14 lg:mb-16">
+          <p className="text-[10px] md:text-xs uppercase tracking-[0.4em] text-white/50 mb-4 md:mb-5 font-medium" data-testid="text-testimonials-eyebrow">
+            TESTIMONIALS
+          </p>
+          <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-normal text-white leading-tight" data-testid="heading-testimonials">
+            What Our <span className="italic font-serif">Clients Say</span>
+          </h2>
+        </div>
+
         {/* Three Column Layout: Avatars | Quote | Stats */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-start">
           
@@ -181,7 +191,7 @@ export default function Testimonials() {
               </div>
               
               {/* Quote */}
-              <blockquote className="text-lg md:text-xl lg:text-2xl font-normal text-white leading-relaxed mb-5 lg:mb-6" style={{ letterSpacing: '-0.01em' }} data-testid="testimonial-quote">
+              <blockquote className="text-xl md:text-2xl lg:text-3xl xl:text-4xl font-normal text-white leading-relaxed mb-6 lg:mb-8" style={{ letterSpacing: '-0.01em' }} data-testid="testimonial-quote">
                 "{activeTestimonial.quote.split('OARC').map((part, i, arr) => (
                   <span key={i}>
                     {part}

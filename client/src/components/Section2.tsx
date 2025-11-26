@@ -44,11 +44,11 @@ export default function Section2() {
   return (
     <section className="relative bg-white py-12 md:py-16 lg:py-20">
       <div className="container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="grid grid-cols-2 gap-3 sm:gap-5 md:gap-8 lg:gap-10 items-center">
           {/* Left Content */}
-          <div className="order-2 lg:order-1">
+          <div className="col-span-1">
             <AdvancedScrollReveal variant="slide-up" delay={200}>
-              <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-zinc-900 leading-[1.15] tracking-tight mb-5 md:mb-7" data-testid="text-section2-heading">
+              <h2 className="text-base sm:text-xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-zinc-900 leading-[1.15] tracking-tight mb-3 sm:mb-5 md:mb-7" data-testid="text-section2-heading">
                 <span className="block">The results-driven</span>
                 <span className="text-primary block italic">Social First Agency</span>
                 <span className="block">you've been looking for</span>
@@ -56,11 +56,11 @@ export default function Section2() {
             </AdvancedScrollReveal>
 
             <AdvancedScrollReveal variant="slide-up" delay={300}>
-              <div className="flex flex-col gap-3 w-full sm:flex-row sm:gap-4">
+              <div className="flex flex-col gap-2 w-full sm:flex-row sm:gap-3">
                 <Link href="/services/social-media-creative-management">
                   <Button 
-                    size="lg"
-                    className="bg-zinc-900 text-white font-semibold rounded-full w-full sm:w-auto flex-shrink-0 text-sm"
+                    size="sm"
+                    className="bg-zinc-900 text-white font-semibold rounded-full w-full sm:w-auto flex-shrink-0 text-xs sm:text-sm md:size-default"
                     data-testid="button-explore-social-services"
                   >
                     Explore Social Services
@@ -69,8 +69,8 @@ export default function Section2() {
                 
                 <Button 
                   variant="outline"
-                  size="lg"
-                  className="border-2 border-zinc-900 text-zinc-900 font-semibold rounded-full bg-transparent w-full sm:w-auto flex-shrink-0 text-sm"
+                  size="sm"
+                  className="border-2 border-zinc-900 text-zinc-900 font-semibold rounded-full bg-transparent w-full sm:w-auto flex-shrink-0 text-xs sm:text-sm hidden sm:flex"
                   data-testid="button-meet-team"
                 >
                   Meet The Team
@@ -81,8 +81,8 @@ export default function Section2() {
           </div>
 
           {/* Right Visual - Phone Mockup - Smaller with Animated Background */}
-          <AdvancedScrollReveal variant="scale" delay={150} className="order-1 lg:order-2 flex justify-center lg:justify-end items-center">
-            <div className="relative w-full max-w-[200px] md:max-w-[240px] lg:max-w-[280px]" style={{ aspectRatio: '9/16' }}>
+          <AdvancedScrollReveal variant="scale" delay={150} className="col-span-1 flex justify-center lg:justify-end items-center">
+            <div className="relative w-full max-w-[140px] sm:max-w-[180px] md:max-w-[220px] lg:max-w-[260px]" style={{ aspectRatio: '9/16' }}>
               {/* Phone interior with animated Instagram/Reels-style backgrounds */}
               <div className="absolute inset-4 md:inset-5 rounded-[1.5rem] overflow-hidden">
                 {backgrounds.map((bg, index) => (

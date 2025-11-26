@@ -12,6 +12,10 @@ import CTASections from "@/components/CTASections";
 import BrandShowcaseSection from "@/components/BrandShowcaseSection";
 import Testimonials from "@/components/Testimonials";
 import { SuccessInNumbers } from "@/components/SuccessInNumbers";
+import ROICalculatorSection from "@/components/ROICalculatorSection";
+import MoneyBackGuaranteeSection from "@/components/MoneyBackGuaranteeSection";
+import BlogPreviewSection from "@/components/BlogPreviewSection";
+import NeedHelpCTA from "@/components/NeedHelpCTA";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
@@ -91,7 +95,11 @@ export default function Home() {
       <SuccessInNumbers />
       <BrandShowcaseSection />
       <Testimonials />
+      <ROICalculatorSection />
+      <MoneyBackGuaranteeSection />
+      <BlogPreviewSection />
       <CTASections />
+      <NeedHelpCTA />
       <FAQ />
       <Footer />
     </div>

@@ -143,7 +143,7 @@ export default function HireAIEmployeesSection() {
   const duplicatedEmployees = [...employees, ...employees, ...employees];
 
   return (
-    <section className="relative py-16 md:py-20 lg:py-24 overflow-hidden" data-testid="section-hire-ai-employees">
+    <section className="relative py-12 md:py-16 lg:py-20 overflow-hidden" data-testid="section-hire-ai-employees">
       {/* Sophisticated gradient background */}
       <div className="absolute inset-0 bg-gradient-to-br from-zinc-50 via-white to-zinc-100"></div>
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_20%,rgba(168,85,247,0.08),transparent_50%)]"></div>
@@ -155,7 +155,7 @@ export default function HireAIEmployeesSection() {
         backgroundRepeat: 'repeat'
       }}></div>
 
-      <div className="relative container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl mb-12 md:mb-16">
+      <div className="relative container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl mb-10 md:mb-12">
         {/* Section Header - Elite Typography */}
         <div className="text-center">
           <h2 className="font-heading font-bold text-zinc-900 mb-4" data-testid="text-ai-employees-heading" style={{ fontSize: 'clamp(1.75rem, 5vw, 3.25rem)', letterSpacing: '-0.04em', lineHeight: '1.2' }}>
@@ -169,11 +169,11 @@ export default function HireAIEmployeesSection() {
 
       {/* Smooth Draggable Carousel - Works on both mobile and desktop */}
       <div className="relative w-full">
-        <div className="flex gap-4 md:gap-6 lg:gap-8 cursor-grab active:cursor-grabbing" data-testid="ai-employees-carousel-track" ref={trackRef} style={{ willChange: 'transform' }}>
+        <div className="flex gap-4 md:gap-5 lg:gap-6 cursor-grab active:cursor-grabbing" data-testid="ai-employees-carousel-track" ref={trackRef} style={{ willChange: 'transform' }}>
           {duplicatedEmployees.map((employee, index) => (
             <div
               key={index}
-              className="flex-shrink-0 w-[240px] sm:w-[280px] md:w-[320px] lg:w-[380px] group"
+              className="flex-shrink-0 w-[220px] sm:w-[260px] md:w-[290px] lg:w-[320px] group"
               data-testid={`employee-card-${index}`}
             >
               <div className="relative w-full aspect-[3/4] overflow-hidden rounded-xl bg-zinc-100 ring-1 ring-zinc-200/50 shadow-lg transition-all duration-500 group-hover:shadow-xl group-hover:ring-zinc-300/70">
