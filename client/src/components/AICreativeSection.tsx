@@ -330,12 +330,7 @@ export default function AICreativeSection() {
   }, [isDesktop]);
 
   return (
-    <section className="relative py-16 md:py-20 lg:py-24 overflow-hidden" data-testid="section-ai-creative">
-      {/* Elite Cream Background - Superside-inspired */}
-      <div className="absolute inset-0 bg-[#FAF9F6]"></div>
-      <div className="absolute inset-0 bg-gradient-to-br from-[#F5F4F1] via-[#FAF9F6] to-[#F0EDE6]"></div>
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_20%,rgba(255,255,255,0.8),transparent_50%)]"></div>
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_70%_80%,rgba(245,244,241,0.6),transparent_60%)]"></div>
+    <section className="relative py-16 md:py-20 lg:py-24 overflow-hidden bg-white" data-testid="section-ai-creative">
 
       <div className="relative container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl mb-12 md:mb-16">
         {/* Section Header - Elite Typography */}
