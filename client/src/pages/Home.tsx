@@ -1,20 +1,19 @@
 import Navigation from "@/components/Navigation";
 import HeroSection from "@/components/HeroSection";
 import TrustedBrandsSection from "@/components/TrustedBrandsSection";
-import Section2 from "@/components/Section2";
-import Section3 from "@/components/Section3";
-import Section5 from "@/components/Section5";
-import TechEnabledSection from "@/components/TechEnabledSection";
 import AICreativeSection from "@/components/AICreativeSection";
+import Section2 from "@/components/Section2";
+import Section5 from "@/components/Section5";
 import HireAIEmployeesSection from "@/components/HireAIEmployeesSection";
+import TechEnabledSection from "@/components/TechEnabledSection";
 import LetsTalkRevenueSection from "@/components/LetsTalkRevenueSection";
-import CTASections from "@/components/CTASections";
+import { SuccessInNumbers } from "@/components/SuccessInNumbers";
 import BrandShowcaseSection from "@/components/BrandShowcaseSection";
 import Testimonials from "@/components/Testimonials";
-import { SuccessInNumbers } from "@/components/SuccessInNumbers";
 import ROICalculatorSection from "@/components/ROICalculatorSection";
 import MoneyBackGuaranteeSection from "@/components/MoneyBackGuaranteeSection";
 import BlogPreviewSection from "@/components/BlogPreviewSection";
+import CTASections from "@/components/CTASections";
 import NeedHelpCTA from "@/components/NeedHelpCTA";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
@@ -82,74 +81,87 @@ export default function Home() {
       <Navigation />
       <HeroSection />
       
+      {/* 1. Trusted by Top Brands - logo carousel */}
       <AdvancedScrollReveal variant="fade" delay={0} duration={0.7}>
         <TrustedBrandsSection />
       </AdvancedScrollReveal>
       
+      {/* 2. Creative Work - AI Creative showcase */}
       <AdvancedScrollReveal variant="slide-up" delay={50} duration={0.8}>
         <AICreativeSection />
       </AdvancedScrollReveal>
       
+      {/* 3. Phone Section - App/engagement showcase */}
       <AdvancedScrollReveal variant="slide-right" delay={0} duration={0.9}>
         <Section2 />
       </AdvancedScrollReveal>
       
-      <AdvancedScrollReveal variant="slide-left" delay={0} duration={0.9}>
-        <Section3 />
-      </AdvancedScrollReveal>
-      
+      {/* 4. Our Difference - What makes us different */}
       <AdvancedScrollReveal variant="slide-up" delay={50} duration={0.8}>
         <Section5 />
       </AdvancedScrollReveal>
       
+      {/* 5. Hire AI Employees */}
       <AdvancedScrollReveal variant="slide-up" delay={100} duration={0.8}>
         <HireAIEmployeesSection />
       </AdvancedScrollReveal>
       
-      <AdvancedScrollReveal variant="slide-right" delay={0} duration={0.9}>
+      {/* 6. Tech Enabled - Masonry grid */}
+      <AdvancedScrollReveal variant="slide-left" delay={0} duration={0.9}>
         <TechEnabledSection />
       </AdvancedScrollReveal>
       
+      {/* 7. Revenue and Workflow Automations */}
       <AdvancedScrollReveal variant="slide-up" delay={50} duration={0.8}>
         <LetsTalkRevenueSection />
       </AdvancedScrollReveal>
       
+      {/* 8. Success in Numbers - Stats */}
       <AdvancedScrollReveal variant="scale" delay={0} duration={0.9}>
         <SuccessInNumbers />
       </AdvancedScrollReveal>
       
+      {/* 9. Our Impact - Case studies showcase */}
       <AdvancedScrollReveal variant="fade" delay={50} duration={0.8}>
         <BrandShowcaseSection />
       </AdvancedScrollReveal>
       
+      {/* 10. Testimonials */}
       <AdvancedScrollReveal variant="slide-up" delay={0} duration={0.8}>
         <Testimonials />
       </AdvancedScrollReveal>
       
-      <AdvancedScrollReveal variant="slide-left" delay={50} duration={0.9}>
+      {/* 11. ROI Calculator - Interactive */}
+      <AdvancedScrollReveal variant="slide-right" delay={50} duration={0.9}>
         <ROICalculatorSection />
       </AdvancedScrollReveal>
       
+      {/* 12. Money-Back Guarantee */}
       <AdvancedScrollReveal variant="scale" delay={0} duration={0.8}>
         <MoneyBackGuaranteeSection />
       </AdvancedScrollReveal>
       
+      {/* 13. Blog Preview */}
       <AdvancedScrollReveal variant="slide-up" delay={50} duration={0.8}>
         <BlogPreviewSection />
       </AdvancedScrollReveal>
       
+      {/* 14. CTA Sections / Roadmap */}
       <AdvancedScrollReveal variant="fade" delay={0} duration={0.7}>
         <CTASections />
       </AdvancedScrollReveal>
       
+      {/* 15. Need Help? CTA bar */}
       <AdvancedScrollReveal variant="slide-up" delay={50} duration={0.8}>
         <NeedHelpCTA />
       </AdvancedScrollReveal>
       
+      {/* 16. FAQ */}
       <AdvancedScrollReveal variant="slide-up" delay={0} duration={0.8}>
         <FAQ />
       </AdvancedScrollReveal>
       
+      {/* 17. Footer */}
       <AdvancedScrollReveal variant="fade" delay={0} duration={0.6}>
         <Footer />
       </AdvancedScrollReveal>
