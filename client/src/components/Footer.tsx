@@ -19,14 +19,22 @@ export default function Footer() {
             GET IN<br />TOUCH
           </h2>
           
-          {/* Subtitle */}
-          <p className="text-lg md:text-xl text-zinc-400 max-w-3xl mx-auto mb-12 leading-relaxed font-normal">
-            We'll show you how to start powerful conversations, drive social engagement, build your brand, hit sales targets or meet other goals you have, wherever you are in the world.
-          </p>
+          {/* Taglines */}
+          <div className="flex flex-col gap-3 max-w-3xl mx-auto mb-12">
+            <p className="text-lg md:text-xl text-zinc-400 leading-relaxed font-normal">
+              Ready to 10x your revenue? Let's make it happen.
+            </p>
+            <p className="text-lg md:text-xl text-zinc-400 leading-relaxed font-normal">
+              Your growth is our obsession. Let's talk strategy.
+            </p>
+            <p className="text-lg md:text-xl text-zinc-400 leading-relaxed font-normal">
+              AI-powered results. Human-crafted relationships.
+            </p>
+          </div>
           
-          {/* Pink CTA Button - Superside Style */}
+          {/* Green CTA Button - OARC Style */}
           <Link href="#contact">
-            <button className="group relative px-10 py-5 bg-[#FF006B] hover:bg-[#E6005F] rounded-xl font-bold text-white text-lg shadow-2xl transition-all duration-300 hover:scale-105" data-testid="button-footer-cta">
+            <button className="group relative px-10 py-5 bg-[#c4ff4d] hover:bg-[#b0e845] rounded-xl font-bold text-black text-lg shadow-2xl transition-all duration-300 hover:scale-105" data-testid="button-footer-cta">
               <div className="relative flex items-center gap-3">
                 <span>WORK WITH US</span>
                 <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />

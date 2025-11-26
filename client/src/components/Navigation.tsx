@@ -30,8 +30,8 @@ export default function Navigation() {
             </div>
           </Link>
 
-          {/* Desktop Menu */}
-          <div className="hidden lg:flex items-center space-x-6 xl:space-x-8">
+          {/* Desktop Menu (also shown in landscape) */}
+          <div className="hidden lg:flex landscape-nav-desktop items-center space-x-6 xl:space-x-8">
             <Link href="/" className="text-xs xl:text-sm font-medium text-white/90 hover:text-white transition-colors" data-testid="link-home">
               Home
             </Link>
@@ -148,7 +148,7 @@ export default function Navigation() {
               Contact Us
             </Button>
             <button 
-              className="lg:hidden p-1.5 rounded-md text-white" 
+              className="lg:hidden landscape-nav-mobile-hidden p-1.5 rounded-md text-white" 
               data-testid="button-menu"
               onClick={() => setShowMobileMenu(!showMobileMenu)}
             >
@@ -158,9 +158,9 @@ export default function Navigation() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu (hidden in landscape) */}
       {showMobileMenu && (
-        <div className="lg:hidden absolute top-full left-0 right-0 bg-white shadow-xl border-b border-zinc-200 max-h-[80vh] overflow-y-auto">
+        <div className="lg:hidden landscape-nav-mobile-hidden absolute top-full left-0 right-0 bg-white shadow-xl border-b border-zinc-200 max-h-[80vh] overflow-y-auto">
           <div className="px-6 py-6 space-y-4">
             <Link href="/" data-testid="link-mobile-home" onClick={() => setShowMobileMenu(false)}>
               <div className="text-base font-semibold text-zinc-900 py-2">
