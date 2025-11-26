@@ -144,8 +144,8 @@ function ConcaveCarousel() {
   const lerpFactor = 0.08;
   // Spring dampening for organic feel
   const springDamping = 0.92;
-  // Speed of auto-scroll
-  const autoScrollSpeed = 0.008;
+  // Speed of auto-scroll - increased for more visible floating motion
+  const autoScrollSpeed = 0.018;
   
   const getCardTransform = (visualIndex: number) => {
     const distanceFromCenter = visualIndex - centerIndex;
