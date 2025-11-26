@@ -76,12 +76,12 @@ export default function BrandShowcaseSection() {
           </Link>
         </div>
 
-        {/* Two Medium Cards Side by Side */}
+        {/* Two Medium Cards Side by Side - Reduced Size */}
         <div className="grid grid-cols-2 gap-3 md:gap-5 mb-4 md:mb-5">
           {smallStudies.map((study, index) => (
             <Link key={index} href={`/case-studies/${study.slug}`} asChild>
               <div
-                className="group relative overflow-hidden rounded-xl md:rounded-2xl bg-zinc-900 hover-elevate hover:-translate-y-1 transition-all duration-500 cursor-pointer aspect-[3/4] md:aspect-[4/5]"
+                className="group relative overflow-hidden rounded-xl md:rounded-2xl bg-zinc-900 hover-elevate hover:-translate-y-1 transition-all duration-500 cursor-pointer aspect-[4/5] md:aspect-square"
                 data-testid={`card-case-study-${index + 1}`}
               >
                 {/* Image */}

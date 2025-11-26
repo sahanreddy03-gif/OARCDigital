@@ -1,79 +1,81 @@
 import { 
-  SiTiktok, 
-  SiPinterest, 
-  SiDiscord, 
-  SiTwitch, 
-  SiLinkedin, 
-  SiReddit, 
-  SiSnapchat, 
-  SiYoutube, 
+  SiSpotify,
   SiSlack, 
-  SiFigma, 
-  SiCanva, 
-  SiSquarespace,
-  SiAdobe,
   SiNotion,
-  SiBehance,
-  SiDribbble
+  SiZoom,
+  SiDropbox,
+  SiStripe,
+  SiShopify,
+  SiHubspot,
+  SiAsana,
+  SiAirtable,
+  SiLinear,
+  SiIntercom,
+  SiMongodb,
+  SiVercel,
+  SiGithub,
+  SiFigma
 } from "react-icons/si";
 
-const socialCreativeBrands = [
-  { name: "TikTok", icon: SiTiktok },
-  { name: "YouTube", icon: SiYoutube },
-  { name: "Pinterest", icon: SiPinterest },
-  { name: "LinkedIn", icon: SiLinkedin },
-  { name: "Discord", icon: SiDiscord },
-  { name: "Twitch", icon: SiTwitch },
-  { name: "Reddit", icon: SiReddit },
-  { name: "Snapchat", icon: SiSnapchat },
+const techBrands = [
+  { name: "Spotify", icon: SiSpotify },
   { name: "Slack", icon: SiSlack },
-  { name: "Figma", icon: SiFigma },
-  { name: "Canva", icon: SiCanva },
-  { name: "Squarespace", icon: SiSquarespace },
-  { name: "Adobe", icon: SiAdobe },
   { name: "Notion", icon: SiNotion },
-  { name: "Behance", icon: SiBehance },
-  { name: "Dribbble", icon: SiDribbble },
+  { name: "Zoom", icon: SiZoom },
+  { name: "Dropbox", icon: SiDropbox },
+  { name: "Stripe", icon: SiStripe },
+  { name: "Shopify", icon: SiShopify },
+  { name: "HubSpot", icon: SiHubspot },
+  { name: "Asana", icon: SiAsana },
+  { name: "Airtable", icon: SiAirtable },
+  { name: "Linear", icon: SiLinear },
+  { name: "Intercom", icon: SiIntercom },
+  { name: "MongoDB", icon: SiMongodb },
+  { name: "Vercel", icon: SiVercel },
+  { name: "GitHub", icon: SiGithub },
+  { name: "Figma", icon: SiFigma },
 ];
 
 export default function AmbitiousBrandsSection() {
-  const duplicatedBrands = [...socialCreativeBrands, ...socialCreativeBrands];
+  const duplicatedBrands = [...techBrands, ...techBrands];
 
   return (
     <section 
-      className="relative py-16 md:py-20 lg:py-24 overflow-hidden"
-      style={{ 
-        background: 'linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(249,250,251,1) 50%, rgba(255,255,255,1) 100%)' 
-      }}
+      className="relative py-14 md:py-16 lg:py-20 overflow-hidden bg-gradient-to-b from-zinc-50 via-white to-zinc-50"
       data-testid="ambitious-brands-section"
     >
-      <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-6xl">
-        <div className="text-center mb-10 md:mb-12 lg:mb-14">
+      {/* Subtle decorative elements */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#c4ff4d]/3 via-transparent to-transparent pointer-events-none" />
+      
+      <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-5xl">
+        <div className="text-center mb-8 md:mb-10">
           <h2 
-            className="text-3xl md:text-4xl lg:text-[2.75rem] xl:text-5xl font-bold text-zinc-900 leading-[1.15] tracking-tight mb-4 md:mb-5"
+            className="text-2xl md:text-3xl lg:text-4xl font-bold text-zinc-900 leading-tight tracking-tight mb-3"
             data-testid="ambitious-brands-heading"
           >
-            We grow ambitious brands with{" "}
+            We power ambitious tech brands with{" "}
             <br className="hidden sm:block" />
-            <span className="text-zinc-800">Social, Paid, Creative</span>{" "}
-            <span className="text-zinc-600">and</span>{" "}
-            <span className="text-zinc-800">Influencer</span>
+            <span className="text-zinc-700">AI, Automation</span>{" "}
+            <span className="text-zinc-500">and</span>{" "}
+            <span className="text-zinc-700">Creative</span>
           </h2>
           
           <p 
-            className="text-base md:text-lg text-zinc-500 font-medium tracking-wide uppercase"
+            className="text-sm md:text-base text-zinc-400 font-medium tracking-wide uppercase"
             data-testid="ambitious-brands-subheading"
           >
-            Brands that trust us
+            Trusted by industry leaders
           </p>
         </div>
 
-        <div className="relative overflow-hidden">
-          <div className="absolute left-0 top-0 bottom-0 w-20 md:w-32 bg-gradient-to-r from-white via-white/80 to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-20 md:w-32 bg-gradient-to-l from-white via-white/80 to-transparent z-10 pointer-events-none" />
+        {/* Brand Carousel */}
+        <div className="relative overflow-hidden rounded-2xl bg-white/50 backdrop-blur-sm py-6 md:py-8">
+          {/* Gradient Fades */}
+          <div className="absolute left-0 top-0 bottom-0 w-16 md:w-24 bg-gradient-to-r from-white via-white/90 to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-16 md:w-24 bg-gradient-to-l from-white via-white/90 to-transparent z-10 pointer-events-none" />
           
           <div 
-            className="flex animate-ambitious-scroll gap-10 md:gap-14 lg:gap-16 whitespace-nowrap py-4"
+            className="flex animate-tech-scroll gap-10 md:gap-14 whitespace-nowrap"
             data-testid="ambitious-brands-carousel"
           >
             {duplicatedBrands.map((brand, index) => (
@@ -83,7 +85,7 @@ export default function AmbitiousBrandsSection() {
                 data-testid={`ambitious-brand-${index}`}
               >
                 <brand.icon
-                  className="w-9 h-9 md:w-11 md:h-11 lg:w-12 lg:h-12 text-zinc-400 grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 group-hover:text-zinc-700 transition-all duration-300 group-hover:scale-110"
+                  className="w-8 h-8 md:w-10 md:h-10 text-zinc-300 grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 group-hover:text-zinc-600 transition-all duration-300 group-hover:scale-110"
                   aria-label={brand.name}
                 />
               </div>
@@ -93,7 +95,7 @@ export default function AmbitiousBrandsSection() {
       </div>
 
       <style>{`
-        @keyframes ambitious-scroll {
+        @keyframes tech-scroll {
           0% {
             transform: translateX(0);
           }
@@ -102,11 +104,11 @@ export default function AmbitiousBrandsSection() {
           }
         }
         
-        .animate-ambitious-scroll {
-          animation: ambitious-scroll 18s linear infinite;
+        .animate-tech-scroll {
+          animation: tech-scroll 25s linear infinite;
         }
         
-        .animate-ambitious-scroll:hover {
+        .animate-tech-scroll:hover {
           animation-play-state: paused;
         }
       `}</style>

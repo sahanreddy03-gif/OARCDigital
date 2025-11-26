@@ -1,6 +1,5 @@
 import { useSmoothCarouselDrag } from '@/hooks/useSmoothCarouselDrag';
 
-// Import stock images from available assets
 import revenueRecognition from '@assets/Revenue_1763330734340.jpg';
 import subscriptionBilling from '@assets/stock_images/subscription_billing_17adc906.jpg';
 import paymentCollection from '@assets/stock_images/payment_processing_t_e00fc3c3.jpg';
@@ -132,39 +131,49 @@ const services = [
 ];
 
 export default function LetsTalkRevenueSection() {
-  // Use the new smooth drag hook with enhanced responsiveness
   const trackRef = useSmoothCarouselDrag({
     enableAutoScroll: true,
-    dragMultiplier: 1.6, // Increased from 1.2 for more responsive manual control
-    momentumDamping: 0.92 // Slightly lower for smoother momentum decay
+    dragMultiplier: 1.6,
+    momentumDamping: 0.92
   });
   
-  // Always triple services for seamless looping
   const duplicatedServices = [...services, ...services, ...services];
 
   return (
     <section className="relative py-12 md:py-16 lg:py-20 overflow-hidden" data-testid="section-lets-talk-revenue">
-      {/* Elite Off-Black/Charcoal Background with Glassmorphism */}
-      <div className="absolute inset-0 bg-gradient-to-br from-zinc-900 via-zinc-800 to-neutral-900"></div>
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_-20%,rgba(96,165,250,0.12),transparent_50%)]"></div>
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_80%_80%,rgba(59,130,246,0.08),transparent_60%)]"></div>
-      <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
-      {/* Glassmorphism overlay */}
-      <div className="absolute inset-0 backdrop-blur-[1px] bg-gradient-to-br from-white/[0.03] to-transparent"></div>
+      {/* Premium Dark Background with Workflow Pattern */}
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-zinc-900"></div>
+      
+      {/* Subtle circuit/workflow pattern overlay */}
+      <div 
+        className="absolute inset-0 opacity-[0.03]"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c4ff4d' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+        }}
+      />
+      
+      {/* Gradient orbs */}
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#c4ff4d]/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-blue-500/5 rounded-full blur-[100px] pointer-events-none" />
+      
+      {/* Top accent line */}
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#c4ff4d]/30 to-transparent" />
 
-      <div className="relative container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl mb-12 md:mb-16">
-        {/* Section Header - Elite Typography */}
+      <div className="relative container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl mb-10 md:mb-14">
         <div className="text-center">
-          <h2 className="font-heading font-bold text-white mb-4" data-testid="text-lets-talk-revenue-heading" style={{ fontSize: 'clamp(1.75rem, 5vw, 3.25rem)', letterSpacing: '-0.04em', lineHeight: '1.2' }}>
+          <p className="text-xs uppercase tracking-[0.2em] text-[#c4ff4d]/70 font-medium mb-3">
+            Workflow Automation
+          </p>
+          <h2 className="font-heading font-bold text-white mb-4" data-testid="text-lets-talk-revenue-heading" style={{ fontSize: 'clamp(1.75rem, 5vw, 3rem)', letterSpacing: '-0.03em', lineHeight: '1.2' }}>
             Revenue and Workflow Automations
           </h2>
-          <p className="text-base md:text-lg lg:text-xl font-medium text-white/90 tracking-tight max-w-4xl mx-auto leading-relaxed">
+          <p className="text-sm md:text-base lg:text-lg font-medium text-white/60 tracking-tight max-w-3xl mx-auto leading-relaxed">
             Automate your revenue operations and scale with AI-powered workflows
           </p>
         </div>
       </div>
 
-      {/* Auto-scrolling Draggable Carousel - CSS animation on desktop with smooth drag on all devices */}
+      {/* Auto-scrolling Draggable Carousel */}
       <div className="relative w-full">
         <div className="carousel-track" data-testid="revenue-carousel-track" ref={trackRef}>
           {duplicatedServices.map((service, index) => (
@@ -173,7 +182,7 @@ export default function LetsTalkRevenueSection() {
               className="carousel-card group"
               data-testid={`revenue-card-${index}`}
             >
-              <div className="relative w-full aspect-[3/4] overflow-hidden rounded-xl bg-zinc-100 shadow-lg">
+              <div className="relative w-full aspect-[3/4] overflow-hidden rounded-xl bg-slate-800 shadow-lg shadow-black/20">
                 <img
                   src={service.image}
                   alt={`${service.title} - Revenue automation service`}
@@ -183,7 +192,7 @@ export default function LetsTalkRevenueSection() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
                 
                 <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6">
-                  <p className="text-xs md:text-sm font-medium text-teal-300 mb-1.5 md:mb-2 uppercase tracking-wider">
+                  <p className="text-xs md:text-sm font-medium text-[#c4ff4d] mb-1.5 md:mb-2 uppercase tracking-wider">
                     {service.subtitle}
                   </p>
                   <h3 className="font-heading text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold text-white leading-tight" style={{ letterSpacing: '-0.02em' }}>
