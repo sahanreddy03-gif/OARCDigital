@@ -48,7 +48,7 @@ function FlatCarousel() {
     const track = trackRef.current;
     if (!track) return;
 
-    const speed = 0.5;
+    const speed = 0.7; // Slightly faster for mobile
     let currentTranslate = 0;
     let contentWidth = 0;
 
@@ -125,78 +125,25 @@ function FlatCarousel() {
 // Center cards sink INTO the screen (smaller), edge cards come FORWARD (larger)
 function ConcaveCarousel() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
   const animationRef = useRef<number>();
-  const offsetRef = useRef(0);
+  const [offset, setOffset] = useState(0);
   
   const visibleCount = 9;
   const centerIndex = Math.floor(visibleCount / 2);
   
-  // Use refs for smooth animation without React state updates
   useEffect(() => {
-    const speed = 0.012; // Smooth rotation speed
-    
-    const getCardTransform = (visualIndex: number) => {
-      const distanceFromCenter = visualIndex - centerIndex;
-      const normalizedDistance = distanceFromCenter / centerIndex;
-      
-      // CONCAVE EFFECT: Center cards go INWARD (negative Z, smaller scale)
-      // Edge cards come FORWARD (positive Z, larger scale)
-      const translateZ = -150 + Math.abs(normalizedDistance) * 180; // Center: -150, Edges: +30
-      const scale = 0.7 + Math.abs(normalizedDistance) * 0.35; // Center: 0.7, Edges: 1.05
-      
-      // Cards angle inward toward the center (like sides of a bowl curving away)
-      const rotateY = normalizedDistance * 45; // Positive = right side rotates right, left side rotates left
-      
-      // Horizontal spacing
-      const translateX = distanceFromCenter * 180;
-      
-      // Opacity: edges slightly faded
-      const opacity = 1 - Math.abs(normalizedDistance) * 0.25;
-      
-      // Z-index: edges on top since they're closer
-      const zIndex = Math.round(Math.abs(normalizedDistance) * 10);
-      
-      return { translateX, translateZ, rotateY, scale, opacity, zIndex };
-    };
+    let currentOffset = 0;
+    const speed = 0.008; // Slightly slower for desktop
     
     const animate = () => {
-      offsetRef.current += speed;
-      if (offsetRef.current >= services.length) {
-        offsetRef.current = 0;
+      currentOffset += speed;
+      if (currentOffset >= services.length) {
+        currentOffset = 0;
       }
-      
-      const baseIndex = Math.floor(offsetRef.current);
-      const fraction = offsetRef.current - baseIndex;
-      
-      // Update each card directly via refs (no React state = smoother)
-      cardsRef.current.forEach((card, i) => {
-        if (!card) return;
-        
-        const serviceIndex = (baseIndex + i) % services.length;
-        const visualIndex = i - fraction;
-        const { translateX, translateZ, rotateY, scale, opacity, zIndex } = getCardTransform(visualIndex);
-        
-        card.style.transform = `translateX(${translateX}px) translateZ(${translateZ}px) rotateY(${rotateY}deg) scale(${scale})`;
-        card.style.opacity = String(Math.max(0.3, opacity));
-        card.style.zIndex = String(zIndex);
-        
-        // Update image src for infinite loop
-        const img = card.querySelector('img') as HTMLImageElement;
-        const span = card.querySelector('span');
-        if (img && services[serviceIndex]) {
-          img.src = services[serviceIndex].image;
-          img.alt = services[serviceIndex].text;
-        }
-        if (span && services[serviceIndex]) {
-          span.textContent = services[serviceIndex].text;
-        }
-      });
-      
+      setOffset(currentOffset);
       animationRef.current = requestAnimationFrame(animate);
     };
     
-    // Start animation
     animationRef.current = requestAnimationFrame(animate);
     
     return () => {
@@ -205,6 +152,52 @@ function ConcaveCarousel() {
       }
     };
   }, []);
+
+  const getCardTransform = (visualIndex: number) => {
+    const distanceFromCenter = visualIndex - centerIndex;
+    const normalizedDistance = distanceFromCenter / centerIndex;
+    
+    // CONCAVE EFFECT: Center cards go INWARD (negative Z, smaller scale)
+    // Edge cards come FORWARD (positive Z, larger scale)
+    const translateZ = -150 + Math.abs(normalizedDistance) * 180;
+    const scale = 0.7 + Math.abs(normalizedDistance) * 0.35;
+    
+    // Cards angle inward toward the center
+    const rotateY = normalizedDistance * 45;
+    
+    // Horizontal spacing
+    const translateX = distanceFromCenter * 180;
+    
+    // Opacity: edges slightly faded
+    const opacity = 1 - Math.abs(normalizedDistance) * 0.25;
+    
+    // Z-index: edges on top since they're closer
+    const zIndex = Math.round(Math.abs(normalizedDistance) * 10);
+    
+    return { translateX, translateZ, rotateY, scale, opacity, zIndex };
+  };
+
+  // Get visible services with correct indices - each card shows different service
+  const getVisibleServices = () => {
+    const items = [];
+    const baseIndex = Math.floor(offset);
+    const fraction = offset - baseIndex;
+    
+    for (let i = 0; i < visibleCount; i++) {
+      // Calculate which service this slot should show
+      const serviceIndex = (baseIndex + i) % services.length;
+      const visualIndex = i - fraction;
+      
+      items.push({
+        service: services[serviceIndex],
+        visualIndex,
+        uniqueKey: `${i}-${baseIndex}`,
+      });
+    }
+    return items;
+  };
+
+  const visibleServices = getVisibleServices();
 
   return (
     <div 
@@ -220,29 +213,32 @@ function ConcaveCarousel() {
         className="absolute inset-0 flex items-center justify-center"
         style={{ transformStyle: 'preserve-3d' }}
       >
-        {Array.from({ length: visibleCount }).map((_, i) => {
-          const serviceIndex = i % services.length;
+        {visibleServices.map(({ service, visualIndex, uniqueKey }) => {
+          const { translateX, translateZ, rotateY, scale, opacity, zIndex } = getCardTransform(visualIndex);
+          
           return (
             <div
-              key={i}
-              ref={el => cardsRef.current[i] = el}
+              key={uniqueKey}
               className="absolute"
               style={{
+                transform: `translateX(${translateX}px) translateZ(${translateZ}px) rotateY(${rotateY}deg) scale(${scale})`,
+                opacity: Math.max(0.3, opacity),
+                zIndex,
                 willChange: 'transform, opacity',
                 backfaceVisibility: 'hidden',
               }}
-              data-testid={`carousel-3d-chip-${i}`}
+              data-testid={`carousel-3d-chip-${service.text.toLowerCase().replace(/\s+/g, '-')}`}
             >
               <div className="group flex items-center gap-3 px-4 py-3 bg-white/95 backdrop-blur-sm rounded-xl shadow-xl hover:shadow-2xl hover:bg-white transition-all duration-300 cursor-pointer border border-white/20 hover:border-[#c4ff4d]/30">
                 <div className="w-[70px] h-[70px] rounded-xl overflow-hidden flex-shrink-0 bg-zinc-100 ring-2 ring-white/50 group-hover:ring-[#c4ff4d]/40 transition-all duration-300">
                   <img 
-                    src={services[serviceIndex].image} 
-                    alt={services[serviceIndex].text}
+                    src={service.image} 
+                    alt={service.text}
                     className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
                   />
                 </div>
                 <span className="text-base font-bold text-gray-900 group-hover:text-zinc-950 pr-2.5 whitespace-nowrap transition-colors duration-300">
-                  {services[serviceIndex].text}
+                  {service.text}
                 </span>
               </div>
             </div>
