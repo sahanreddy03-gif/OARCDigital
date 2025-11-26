@@ -133,7 +133,7 @@ function ConcaveCarousel() {
   
   useEffect(() => {
     let currentOffset = 0;
-    const speed = 0.008; // Slightly slower for desktop
+    const speed = 0.005; // Slower for desktop/laptop/iPad
     
     const animate = () => {
       currentOffset += speed;
