@@ -123,36 +123,29 @@ function FlatCarousel() {
 
 // 3D Concave Curved Carousel for landscape/desktop
 // Center cards sink INTO the screen (smaller), edge cards come FORWARD (larger)
+// Optimized: Uses refs instead of state to avoid React re-renders, lerp interpolation for smooth motion
 function ConcaveCarousel() {
   const containerRef = useRef<HTMLDivElement>(null);
   const animationRef = useRef<number>();
-  const [offset, setOffset] = useState(0);
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const imageRefs = useRef<(HTMLImageElement | null)[]>([]);
+  
+  // Animation state stored in refs to avoid React re-renders
+  const targetOffsetRef = useRef(0);
+  const currentOffsetRef = useRef(0);
+  const velocityRef = useRef(0);
+  const lastTimeRef = useRef(0);
   
   const visibleCount = 9;
   const centerIndex = Math.floor(visibleCount / 2);
   
-  useEffect(() => {
-    let currentOffset = 0;
-    const speed = 0.005; // Slower for desktop/laptop/iPad
-    
-    const animate = () => {
-      currentOffset += speed;
-      if (currentOffset >= services.length) {
-        currentOffset = 0;
-      }
-      setOffset(currentOffset);
-      animationRef.current = requestAnimationFrame(animate);
-    };
-    
-    animationRef.current = requestAnimationFrame(animate);
-    
-    return () => {
-      if (animationRef.current) {
-        cancelAnimationFrame(animationRef.current);
-      }
-    };
-  }, []);
-
+  // Lerp factor for smooth interpolation (lower = smoother but slower response)
+  const lerpFactor = 0.08;
+  // Spring dampening for organic feel
+  const springDamping = 0.92;
+  // Speed of auto-scroll
+  const autoScrollSpeed = 0.008;
+  
   const getCardTransform = (visualIndex: number) => {
     const distanceFromCenter = visualIndex - centerIndex;
     const normalizedDistance = distanceFromCenter / centerIndex;
@@ -177,27 +170,126 @@ function ConcaveCarousel() {
     return { translateX, translateZ, rotateY, scale, opacity, zIndex };
   };
 
-  // Get visible services with correct indices - each card shows different service
-  const getVisibleServices = () => {
-    const items = [];
-    const baseIndex = Math.floor(offset);
-    const fraction = offset - baseIndex;
-    
-    for (let i = 0; i < visibleCount; i++) {
-      // Calculate which service this slot should show
-      const serviceIndex = (baseIndex + i) % services.length;
-      const visualIndex = i - fraction;
+  useEffect(() => {
+    const animate = (timestamp: number) => {
+      // Calculate delta time for consistent animation speed
+      if (lastTimeRef.current === 0) {
+        lastTimeRef.current = timestamp;
+      }
+      const deltaTime = Math.min((timestamp - lastTimeRef.current) / 16.67, 2); // Normalize to ~60fps, cap at 2x
+      lastTimeRef.current = timestamp;
       
-      items.push({
-        service: services[serviceIndex],
-        visualIndex,
-        uniqueKey: `${i}-${baseIndex}`,
-      });
-    }
-    return items;
-  };
+      // Update target offset (continuous auto-scroll)
+      targetOffsetRef.current += autoScrollSpeed * deltaTime;
+      if (targetOffsetRef.current >= services.length) {
+        targetOffsetRef.current -= services.length;
+        currentOffsetRef.current -= services.length;
+      }
+      
+      // Calculate velocity for motion blur effect
+      const previousOffset = currentOffsetRef.current;
+      
+      // Lerp interpolation with spring physics for buttery-smooth motion
+      const diff = targetOffsetRef.current - currentOffsetRef.current;
+      velocityRef.current = velocityRef.current * springDamping + diff * lerpFactor;
+      currentOffsetRef.current += velocityRef.current;
+      
+      // Calculate actual velocity for motion blur
+      const actualVelocity = Math.abs(currentOffsetRef.current - previousOffset);
+      const blurAmount = Math.min(actualVelocity * 15, 2); // Max 2px blur
+      
+      // Update each card's transform directly via refs (no React re-render)
+      const baseIndex = Math.floor(currentOffsetRef.current);
+      const fraction = currentOffsetRef.current - baseIndex;
+      
+      for (let i = 0; i < visibleCount; i++) {
+        const card = cardRefs.current[i];
+        const img = imageRefs.current[i];
+        if (!card) continue;
+        
+        const serviceIndex = ((baseIndex + i) % services.length + services.length) % services.length;
+        const visualIndex = i - fraction;
+        
+        const { translateX, translateZ, rotateY, scale, opacity, zIndex } = getCardTransform(visualIndex);
+        
+        // Apply transform directly to DOM element
+        card.style.transform = `translateX(${translateX}px) translateZ(${translateZ}px) rotateY(${rotateY}deg) scale(${scale})`;
+        card.style.opacity = String(Math.max(0.3, opacity));
+        card.style.zIndex = String(zIndex);
+        
+        // Motion blur effect when moving fast
+        if (blurAmount > 0.1) {
+          card.style.filter = `blur(${blurAmount}px)`;
+        } else {
+          card.style.filter = 'none';
+        }
+        
+        // Update the image source if service changed
+        const service = services[serviceIndex];
+        if (img && img.src !== service.image) {
+          img.src = service.image;
+          img.alt = service.text;
+        }
+        
+        // Update text content
+        const textSpan = card.querySelector('[data-text]') as HTMLSpanElement;
+        if (textSpan && textSpan.textContent !== service.text) {
+          textSpan.textContent = service.text;
+        }
+      }
+      
+      animationRef.current = requestAnimationFrame(animate);
+    };
+    
+    animationRef.current = requestAnimationFrame(animate);
+    
+    return () => {
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
+      }
+    };
+  }, []);
 
-  const visibleServices = getVisibleServices();
+  // Pre-render cards once, then update via refs
+  const initialCards = Array.from({ length: visibleCount }, (_, i) => {
+    const serviceIndex = i % services.length;
+    const service = services[serviceIndex];
+    const { translateX, translateZ, rotateY, scale, opacity, zIndex } = getCardTransform(i);
+    
+    return (
+      <div
+        key={i}
+        ref={(el) => { cardRefs.current[i] = el; }}
+        className="absolute"
+        style={{
+          transform: `translateX(${translateX}px) translateZ(${translateZ}px) rotateY(${rotateY}deg) scale(${scale})`,
+          opacity: Math.max(0.3, opacity),
+          zIndex,
+          willChange: 'transform, opacity, filter',
+          backfaceVisibility: 'hidden',
+          transition: 'transform 0.1s ease-out, opacity 0.1s ease-out',
+        }}
+        data-testid={`carousel-3d-chip-${i}`}
+      >
+        <div className="group flex items-center gap-3 px-4 py-3 bg-white/95 backdrop-blur-sm rounded-xl shadow-xl hover:shadow-2xl hover:bg-white transition-all duration-300 cursor-pointer border border-white/20 hover:border-[#c4ff4d]/30">
+          <div className="w-[70px] h-[70px] rounded-xl overflow-hidden flex-shrink-0 bg-zinc-100 ring-2 ring-white/50 group-hover:ring-[#c4ff4d]/40 transition-all duration-300">
+            <img 
+              ref={(el) => { imageRefs.current[i] = el; }}
+              src={service.image} 
+              alt={service.text}
+              className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+            />
+          </div>
+          <span 
+            data-text="true"
+            className="text-base font-bold text-gray-900 group-hover:text-zinc-950 pr-2.5 whitespace-nowrap transition-colors duration-300"
+          >
+            {service.text}
+          </span>
+        </div>
+      </div>
+    );
+  });
 
   return (
     <div 
@@ -213,37 +305,7 @@ function ConcaveCarousel() {
         className="absolute inset-0 flex items-center justify-center"
         style={{ transformStyle: 'preserve-3d' }}
       >
-        {visibleServices.map(({ service, visualIndex, uniqueKey }) => {
-          const { translateX, translateZ, rotateY, scale, opacity, zIndex } = getCardTransform(visualIndex);
-          
-          return (
-            <div
-              key={uniqueKey}
-              className="absolute"
-              style={{
-                transform: `translateX(${translateX}px) translateZ(${translateZ}px) rotateY(${rotateY}deg) scale(${scale})`,
-                opacity: Math.max(0.3, opacity),
-                zIndex,
-                willChange: 'transform, opacity',
-                backfaceVisibility: 'hidden',
-              }}
-              data-testid={`carousel-3d-chip-${service.text.toLowerCase().replace(/\s+/g, '-')}`}
-            >
-              <div className="group flex items-center gap-3 px-4 py-3 bg-white/95 backdrop-blur-sm rounded-xl shadow-xl hover:shadow-2xl hover:bg-white transition-all duration-300 cursor-pointer border border-white/20 hover:border-[#c4ff4d]/30">
-                <div className="w-[70px] h-[70px] rounded-xl overflow-hidden flex-shrink-0 bg-zinc-100 ring-2 ring-white/50 group-hover:ring-[#c4ff4d]/40 transition-all duration-300">
-                  <img 
-                    src={service.image} 
-                    alt={service.text}
-                    className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
-                  />
-                </div>
-                <span className="text-base font-bold text-gray-900 group-hover:text-zinc-950 pr-2.5 whitespace-nowrap transition-colors duration-300">
-                  {service.text}
-                </span>
-              </div>
-            </div>
-          );
-        })}
+        {initialCards}
       </div>
     </div>
   );

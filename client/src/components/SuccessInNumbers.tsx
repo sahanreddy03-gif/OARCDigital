@@ -21,25 +21,45 @@ export function SuccessInNumbers() {
             </p>
           </div>
 
-          {/* Right Column - Focused Stats (Reduced & Refined) */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-10 md:gap-x-12 md:gap-y-12">
-            {/* Stat 1: Client Satisfaction - More Authentic */}
-            <div data-testid="stat-satisfaction">
+          {/* Right Column - Four Key Stats with Real Numbers */}
+          <div className="grid grid-cols-2 gap-x-8 gap-y-8 md:gap-x-10 md:gap-y-10">
+            {/* Stat 1: Projects Delivered */}
+            <div data-testid="stat-projects">
               <div className="text-4xl md:text-5xl lg:text-6xl font-light text-white mb-3" style={{ letterSpacing: '-0.02em' }}>
-                Elite
+                127+
               </div>
               <p className="text-xs md:text-sm text-white/60 font-light leading-snug">
-                Tier-1 brands trust OARC Digital for premium creative at scale.
+                Projects delivered successfully across industries.
               </p>
             </div>
 
-            {/* Stat 2: Global Reach - Subtle */}
-            <div data-testid="stat-global">
+            {/* Stat 2: Client Satisfaction */}
+            <div data-testid="stat-satisfaction">
               <div className="text-4xl md:text-5xl lg:text-6xl font-light text-white mb-3" style={{ letterSpacing: '-0.02em' }}>
-                3 Continents
+                4.9/5
               </div>
               <p className="text-xs md:text-sm text-white/60 font-light leading-snug">
-                Serving clients across Malta, Europe, Middle East, and Asia with local expertise.
+                Average client satisfaction rating.
+              </p>
+            </div>
+
+            {/* Stat 3: Turnaround Time */}
+            <div data-testid="stat-turnaround">
+              <div className="text-4xl md:text-5xl lg:text-6xl font-light text-white mb-3" style={{ letterSpacing: '-0.02em' }}>
+                48h
+              </div>
+              <p className="text-xs md:text-sm text-white/60 font-light leading-snug">
+                Average turnaround time for deliverables.
+              </p>
+            </div>
+
+            {/* Stat 4: Client Retention */}
+            <div data-testid="stat-retention">
+              <div className="text-4xl md:text-5xl lg:text-6xl font-light text-white mb-3" style={{ letterSpacing: '-0.02em' }}>
+                92%
+              </div>
+              <p className="text-xs md:text-sm text-white/60 font-light leading-snug">
+                Client retention rate year over year.
               </p>
             </div>
           </div>
