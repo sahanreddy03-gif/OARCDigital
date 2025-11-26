@@ -2,6 +2,7 @@ import Navigation from "@/components/Navigation";
 import HeroSection from "@/components/HeroSection";
 import TrustedBrandsSection from "@/components/TrustedBrandsSection";
 import AICreativeSection from "@/components/AICreativeSection";
+import AmbitiousBrandsSection from "@/components/AmbitiousBrandsSection";
 import Section2 from "@/components/Section2";
 import Section5 from "@/components/Section5";
 import HireAIEmployeesSection from "@/components/HireAIEmployeesSection";
@@ -83,6 +84,7 @@ export default function Home() {
       {/* Sections render directly - no scroll wrappers for smooth page scroll */}
       <TrustedBrandsSection />
       <AICreativeSection />
+      <AmbitiousBrandsSection />
       <Section2 />
       <Section5 />
       <HireAIEmployeesSection />
