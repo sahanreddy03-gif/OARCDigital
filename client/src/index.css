@@ -84,6 +84,36 @@
   --h1-tablet: 52px;
   --h1-desktop: 64px;
 
+  /* ========================================
+     TYPOGRAPHY SCALE - Fluid clamp() values
+     ======================================== */
+  --font-size-display: clamp(3.5rem, 6vw, 6.5rem);
+  --font-size-heading-xl: clamp(2.5rem, 5vw, 4.5rem);
+  --font-size-heading-lg: clamp(2rem, 4vw, 3.5rem);
+  --font-size-heading-md: clamp(1.5rem, 3vw, 2.5rem);
+  --font-size-heading-sm: clamp(1.25rem, 2vw, 1.75rem);
+  --font-size-body-lg: clamp(1.125rem, 1.5vw, 1.375rem);
+  --font-size-body: clamp(1rem, 1.25vw, 1.125rem);
+  --font-size-body-sm: clamp(0.875rem, 1vw, 1rem);
+  --font-size-caption: clamp(0.75rem, 0.9vw, 0.875rem);
+
+  /* Line heights */
+  --line-height-display: 1.1;
+  --line-height-heading-xl: 1.1;
+  --line-height-heading-lg: 1.15;
+  --line-height-heading-md: 1.2;
+  --line-height-heading-sm: 1.2;
+  --line-height-body-lg: 1.6;
+  --line-height-body: 1.7;
+  --line-height-body-sm: 1.6;
+  --line-height-caption: 1.5;
+
+  /* Letter spacing */
+  --letter-spacing-display: -0.03em;
+  --letter-spacing-heading: -0.02em;
+  --letter-spacing-body: 0em;
+  --letter-spacing-caption: 0.01em;
+
   --font-sans: 'Nunito Sans', 'Inter', system-ui, -apple-system, sans-serif;
   --font-heading: 'Montserrat', 'Inter', system-ui, -apple-system, sans-serif;
   --font-serif: Georgia, serif;
@@ -220,12 +250,102 @@
     @apply border-border;
   }
 
+  /* ========================================
+     ENHANCED SMOOTH SCROLL - Lenis-style
+     ======================================== */
   html {
     scroll-behavior: smooth;
   }
 
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+
+  .lenis.lenis-smooth iframe {
+    pointer-events: none;
+  }
+
   body {
     @apply font-sans antialiased bg-background text-foreground;
+  }
+
+  /* ========================================
+     TYPOGRAPHY UTILITY CLASSES
+     ======================================== */
+  .text-display {
+    font-size: var(--font-size-display);
+    line-height: var(--line-height-display);
+    letter-spacing: var(--letter-spacing-display);
+    font-weight: 700;
+  }
+
+  .text-heading-xl {
+    font-size: var(--font-size-heading-xl);
+    line-height: var(--line-height-heading-xl);
+    letter-spacing: var(--letter-spacing-heading);
+    font-weight: 700;
+  }
+
+  .text-heading-lg {
+    font-size: var(--font-size-heading-lg);
+    line-height: var(--line-height-heading-lg);
+    letter-spacing: var(--letter-spacing-heading);
+    font-weight: 600;
+  }
+
+  .text-heading-md {
+    font-size: var(--font-size-heading-md);
+    line-height: var(--line-height-heading-md);
+    letter-spacing: var(--letter-spacing-heading);
+    font-weight: 600;
+  }
+
+  .text-heading-sm {
+    font-size: var(--font-size-heading-sm);
+    line-height: var(--line-height-heading-sm);
+    letter-spacing: var(--letter-spacing-heading);
+    font-weight: 600;
+  }
+
+  .text-body-lg {
+    font-size: var(--font-size-body-lg);
+    line-height: var(--line-height-body-lg);
+    letter-spacing: var(--letter-spacing-body);
+    font-weight: 400;
+  }
+
+  .text-body {
+    font-size: var(--font-size-body);
+    line-height: var(--line-height-body);
+    letter-spacing: var(--letter-spacing-body);
+    font-weight: 400;
+  }
+
+  .text-body-sm {
+    font-size: var(--font-size-body-sm);
+    line-height: var(--line-height-body-sm);
+    letter-spacing: var(--letter-spacing-body);
+    font-weight: 400;
+  }
+
+  .text-caption {
+    font-size: var(--font-size-caption);
+    line-height: var(--line-height-caption);
+    letter-spacing: var(--letter-spacing-caption);
+    font-weight: 400;
   }
 }
 
@@ -643,6 +763,122 @@
     scroll-behavior: smooth;
   }
 
+  /* ========================================
+     SMOOTH SCROLL UTILITIES
+     ======================================== */
+
+  /* Smooth scroll container with momentum scrolling */
+  .smooth-scroll {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+  }
+
+  /* Scroll snap containers */
+  .scroll-snap-x {
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .scroll-snap-x-proximity {
+    scroll-snap-type: x proximity;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .scroll-snap-y {
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .scroll-snap-y-proximity {
+    scroll-snap-type: y proximity;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Scroll snap children */
+  .scroll-snap-start {
+    scroll-snap-align: start;
+  }
+
+  .scroll-snap-center {
+    scroll-snap-align: center;
+  }
+
+  .scroll-snap-end {
+    scroll-snap-align: end;
+  }
+
+  /* Scroll margin for anchor links (accounts for fixed headers) */
+  [id] {
+    scroll-margin-top: 5rem;
+  }
+
+  /* Smooth anchor link scroll behavior */
+  .smooth-anchor {
+    scroll-margin-top: 6rem;
+    scroll-behavior: smooth;
+  }
+
+  /* Scroll-linked reveal animations */
+  .scroll-reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), 
+                transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .scroll-reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .scroll-reveal-left {
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), 
+                transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .scroll-reveal-left.revealed {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .scroll-reveal-right {
+    opacity: 0;
+    transform: translateX(30px);
+    transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), 
+                transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .scroll-reveal-right.revealed {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .scroll-reveal-scale {
+    opacity: 0;
+    transform: scale(0.95);
+    transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), 
+                transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .scroll-reveal-scale.revealed {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  /* Staggered reveal animation delays */
+  .scroll-reveal-delay-100 { transition-delay: 100ms; }
+  .scroll-reveal-delay-200 { transition-delay: 200ms; }
+  .scroll-reveal-delay-300 { transition-delay: 300ms; }
+  .scroll-reveal-delay-400 { transition-delay: 400ms; }
+  .scroll-reveal-delay-500 { transition-delay: 500ms; }
+
   /* Accessibility: Respect reduced motion preferences */
   @media (prefers-reduced-motion: reduce) {
     .mobile-carousel-column-left,
@@ -652,6 +888,26 @@
     .mobile-cascade-grid > * {
       animation: none !important;
       will-change: auto !important;
+    }
+
+    /* Disable smooth scroll for users who prefer reduced motion */
+    html,
+    .smooth-scroll,
+    .scroll-snap-x,
+    .scroll-snap-x-proximity,
+    .scroll-snap-y,
+    .scroll-snap-y-proximity {
+      scroll-behavior: auto !important;
+    }
+
+    /* Disable scroll reveal animations */
+    .scroll-reveal,
+    .scroll-reveal-left,
+    .scroll-reveal-right,
+    .scroll-reveal-scale {
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
     }
   }
 }

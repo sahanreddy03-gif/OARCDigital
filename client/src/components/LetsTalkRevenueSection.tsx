@@ -156,10 +156,10 @@ export default function LetsTalkRevenueSection() {
         {/* Section Header - Elite Typography */}
         <div className="text-center">
           <h2 className="font-heading font-bold text-white mb-4" data-testid="text-lets-talk-revenue-heading" style={{ fontSize: 'clamp(1.75rem, 5vw, 3.25rem)', letterSpacing: '-0.04em', lineHeight: '1.2' }}>
-            Let's Talk Revenue
+            Revenue and Workflow Automations
           </h2>
           <p className="text-base md:text-lg lg:text-xl font-medium text-white/90 tracking-tight max-w-4xl mx-auto leading-relaxed">
-            End-to-end revenue automation to scale predictably
+            Automate your revenue operations and scale with AI-powered workflows
           </p>
         </div>
       </div>
