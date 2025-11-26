@@ -100,7 +100,7 @@ export default function TrustedBrandsSection() {
         }
         
         .animate-trusted-scroll {
-          animation: trusted-scroll 25s linear infinite;
+          animation: trusted-scroll 12s linear infinite;
         }
         
         .animate-trusted-scroll:hover {

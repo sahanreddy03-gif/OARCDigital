@@ -332,7 +332,7 @@ export default function AICreativeSection() {
   return (
     <section className="relative py-16 md:py-20 lg:py-24 overflow-hidden bg-white" data-testid="section-ai-creative">
 
-      <div className="relative container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl mb-12 md:mb-16">
+      <div className="relative container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl mb-8">
         {/* Section Header - Elite Typography */}
         <div className="text-center">
           <h2 className="font-heading font-bold text-zinc-900 mb-3" data-testid="text-ai-creative-heading" style={{ fontSize: 'clamp(1.75rem, 5vw, 3.25rem)', letterSpacing: '-0.03em', lineHeight: '1.2' }}>
