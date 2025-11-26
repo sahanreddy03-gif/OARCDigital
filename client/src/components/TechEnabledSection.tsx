@@ -1,12 +1,10 @@
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { 
-  BarChart3, 
-  Workflow, 
-  Sparkles, 
-  TrendingUp, 
-  Headphones, 
-  Server,
+  PenLine,
+  MessageSquare,
+  FolderOpen,
+  Star,
   ArrowRight 
 } from "lucide-react";
 
@@ -14,161 +12,205 @@ interface TechCard {
   title: string;
   description: string;
   icon: React.ElementType;
-  gridClass: string;
-  accent: string;
+  variant: 'lime' | 'cream' | 'sage' | 'teal' | 'image';
+  size: 'standard' | 'tall';
+  imageUrl?: string;
 }
 
 const TechEnabledSection = () => {
   const techCards: TechCard[] = [
     {
-      title: "AI-Powered Analytics",
-      description: "Real-time insights and intelligent reporting that drive informed decisions. Track performance metrics and uncover hidden opportunities.",
-      icon: BarChart3,
-      gridClass: "md:col-span-2 md:row-span-1",
-      accent: "from-emerald-500/20 to-teal-500/20"
+      title: "From brief to review and sign off.",
+      description: "Welcome to our platform. Quickly submit a brief, review in platform, keep track of usage and more in one easy place.",
+      icon: PenLine,
+      variant: 'lime',
+      size: 'standard',
     },
     {
-      title: "Automation Workflows",
-      description: "Seamless integrations with Make.com, Zapier, and 200+ platforms. Automate repetitive tasks and scale operations effortlessly.",
-      icon: Workflow,
-      gridClass: "md:col-span-1 md:row-span-2",
-      accent: "from-cyan-500/20 to-blue-500/20"
+      title: "Integrate with your favorite platforms.",
+      description: "Already using platforms like Asana/Jira/Slack? They integrate too.",
+      icon: MessageSquare,
+      variant: 'cream',
+      size: 'standard',
     },
     {
-      title: "Creative AI Tools",
-      description: "Midjourney, DALL-E, Runway, and cutting-edge generative AI at your fingertips.",
-      icon: Sparkles,
-      gridClass: "md:col-span-1 md:row-span-1",
-      accent: "from-violet-500/20 to-purple-500/20"
+      title: "Organize and share all your brand assets",
+      description: "Stop searching—store and organize everything on our platform.",
+      icon: FolderOpen,
+      variant: 'teal',
+      size: 'tall',
     },
     {
-      title: "Data-Driven Strategy",
-      description: "Performance optimization powered by machine learning algorithms.",
-      icon: TrendingUp,
-      gridClass: "md:col-span-1 md:row-span-1",
-      accent: "from-amber-500/20 to-orange-500/20"
+      title: "Learn from our customers' successful projects",
+      description: "Reference work from the world's best brands on our platform.",
+      icon: Star,
+      variant: 'sage',
+      size: 'tall',
     },
-    {
-      title: "24/7 AI Support",
-      description: "Always-on customer assistance that never sleeps. Instant responses, intelligent routing, and seamless handoffs to human agents.",
-      icon: Headphones,
-      gridClass: "md:col-span-1 md:row-span-1",
-      accent: "from-rose-500/20 to-pink-500/20"
-    },
-    {
-      title: "Scalable Infrastructure",
-      description: "Enterprise-grade reliability built for growth. Handle millions of requests with 99.99% uptime guarantee.",
-      icon: Server,
-      gridClass: "md:col-span-2 md:row-span-1",
-      accent: "from-teal-500/20 to-emerald-500/20"
-    }
   ];
 
-  return (
-    <section className="relative py-16 md:py-24 overflow-hidden bg-[hsl(240,10%,8%)]">
-      {/* Background gradient effects */}
-      <div className="absolute inset-0">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-teal-500/10 rounded-full blur-3xl" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-cyan-500/5 rounded-full blur-3xl" />
-      </div>
+  const getCardStyles = (variant: TechCard['variant']) => {
+    switch (variant) {
+      case 'lime':
+        return {
+          bg: 'bg-[#d4ff47]',
+          text: 'text-[#1a2e29]',
+          descText: 'text-[#1a2e29]/70',
+          iconBg: 'bg-[#1a2e29]/10',
+          iconColor: 'text-[#1a2e29]'
+        };
+      case 'cream':
+        return {
+          bg: 'bg-[#f5f0e6]',
+          text: 'text-[#1a2e29]',
+          descText: 'text-[#1a2e29]/60',
+          iconBg: 'bg-[#1a2e29]/10',
+          iconColor: 'text-[#1a2e29]'
+        };
+      case 'sage':
+        return {
+          bg: 'bg-[#a8b892]',
+          text: 'text-[#1a2e29]',
+          descText: 'text-[#1a2e29]/70',
+          iconBg: 'bg-[#1a2e29]/10',
+          iconColor: 'text-[#1a2e29]'
+        };
+      case 'teal':
+        return {
+          bg: 'bg-[#3d5a54]',
+          text: 'text-white',
+          descText: 'text-white/80',
+          iconBg: 'bg-white/15',
+          iconColor: 'text-white'
+        };
+      default:
+        return {
+          bg: 'bg-[#f5f0e6]',
+          text: 'text-[#1a2e29]',
+          descText: 'text-[#1a2e29]/60',
+          iconBg: 'bg-[#1a2e29]/10',
+          iconColor: 'text-[#1a2e29]'
+        };
+    }
+  };
 
-      <div className="container mx-auto px-4 relative z-10">
-        {/* Section Header */}
-        <div className="text-center max-w-4xl mx-auto mb-12 md:mb-16">
-          <p className="text-sm md:text-base text-emerald-400 mb-4 tracking-wide uppercase font-medium">
-            Advanced Technology Stack
-          </p>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-heading mb-6 leading-tight text-white">
+  return (
+    <section className="relative py-16 md:py-24 lg:py-32 overflow-hidden bg-[#f7f4ed]">
+      <div className="container mx-auto px-4 md:px-6 lg:px-12">
+        {/* Section Header - Superside Style */}
+        <div className="max-w-3xl mb-10 md:mb-14">
+          <h2 
+            className="text-[#1a2e29] font-bold mb-5"
+            style={{ 
+              fontSize: 'clamp(2rem, 5vw, 3.5rem)', 
+              letterSpacing: '-0.03em', 
+              lineHeight: '1.1' 
+            }}
+          >
             Tech enabled and made to{" "}
-            <span className="italic bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400 bg-clip-text text-transparent">
+            <span className="italic" style={{ color: '#c4ff4d' }}>
               work for you
-            </span>
+            </span>.
           </h2>
-          <p className="text-base md:text-lg text-gray-400 mb-8 max-w-2xl mx-auto">
-            Cutting-edge AI and automation infrastructure that powers your growth. 
-            Every tool, integration, and system designed for maximum impact.
+          <p className="text-base md:text-lg text-[#1a2e29]/60 mb-8 max-w-xl leading-relaxed">
+            No matter your creative need, submitting and managing a project is effortless.
           </p>
           <Link href="/contact">
             <Button 
               size="default"
-              className="bg-emerald-500 hover:bg-emerald-600 text-white font-medium border-emerald-400/50"
+              className="bg-[#1a2e29] hover:bg-[#0f1c18] text-white font-medium rounded-full px-6"
               data-testid="button-tech-learn-more"
             >
-              Explore Our Tech
-              <ArrowRight className="w-4 h-4 ml-2" />
+              Learn more
             </Button>
           </Link>
         </div>
 
-        {/* Masonry Bento Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 auto-rows-[minmax(180px,auto)]">
-          {techCards.map((card, index) => (
-            <div 
-              key={index}
-              className={`group relative h-full rounded-2xl overflow-hidden transition-all duration-500 hover:scale-[1.02] hover:-translate-y-1 ${card.gridClass}`}
-              data-testid={`card-tech-feature-${index}`}
-            >
-              {/* Glassmorphism background */}
-              <div className="absolute inset-0 bg-white/[0.03] backdrop-blur-xl border border-white/[0.08] rounded-2xl" />
-              
-              {/* Gradient accent overlay */}
-              <div className={`absolute inset-0 bg-gradient-to-br ${card.accent} opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl`} />
-              
-              {/* Glow effect on hover */}
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                <div className="absolute -inset-1 bg-gradient-to-r from-emerald-500/20 via-teal-500/20 to-cyan-500/20 blur-xl rounded-2xl" />
-              </div>
-              
-              {/* Content */}
-              <div className="relative z-10 h-full p-6 md:p-8 flex flex-col">
-                {/* Icon */}
-                <div className="mb-4 md:mb-6">
-                  <div className="inline-flex items-center justify-center w-12 h-12 md:w-14 md:h-14 rounded-xl bg-gradient-to-br from-emerald-500/20 to-teal-500/20 border border-emerald-500/30 group-hover:border-emerald-400/50 transition-colors duration-300">
-                    <card.icon className="w-6 h-6 md:w-7 md:h-7 text-emerald-400 group-hover:text-emerald-300 transition-colors duration-300" />
+        {/* Card Grid - Superside Style */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
+          {techCards.map((card, index) => {
+            const styles = getCardStyles(card.variant);
+            return (
+              <div 
+                key={index}
+                className={`
+                  group relative rounded-2xl overflow-hidden transition-all duration-300 hover:scale-[1.01]
+                  ${styles.bg}
+                  ${card.size === 'tall' ? 'min-h-[320px] md:min-h-[380px]' : 'min-h-[200px] md:min-h-[220px]'}
+                `}
+                data-testid={`card-tech-feature-${index}`}
+              >
+                <div className="p-6 md:p-8 h-full flex flex-col">
+                  {/* Icon */}
+                  <div className={`w-10 h-10 md:w-12 md:h-12 rounded-lg ${styles.iconBg} flex items-center justify-center mb-5 md:mb-6`}>
+                    <card.icon className={`w-5 h-5 md:w-6 md:h-6 ${styles.iconColor}`} strokeWidth={1.5} />
                   </div>
-                </div>
-                
-                {/* Text content */}
-                <div className="flex-1 flex flex-col">
-                  <h3 className="text-lg md:text-xl lg:text-2xl font-bold font-heading mb-3 text-white group-hover:text-emerald-50 transition-colors duration-300">
+                  
+                  {/* Title */}
+                  <h3 
+                    className={`font-semibold mb-3 ${styles.text}`}
+                    style={{ 
+                      fontSize: 'clamp(1.25rem, 2.5vw, 1.75rem)',
+                      lineHeight: '1.2',
+                      letterSpacing: '-0.02em'
+                    }}
+                  >
                     {card.title}
                   </h3>
-                  <p className="text-sm md:text-base text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors duration-300">
+                  
+                  {/* Description */}
+                  <p className={`text-sm md:text-base leading-relaxed ${styles.descText}`}>
                     {card.description}
                   </p>
                 </div>
-                
-                {/* Decorative corner accent */}
-                <div className="absolute bottom-0 right-0 w-24 h-24 opacity-20 group-hover:opacity-40 transition-opacity duration-500">
-                  <div className="absolute bottom-4 right-4 w-16 h-16 border-r-2 border-b-2 border-emerald-500/50 rounded-br-2xl" />
-                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
-        {/* Bottom stats row */}
-        <div className="mt-12 md:mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-          {[
-            { value: "200+", label: "Integrations" },
-            { value: "99.99%", label: "Uptime" },
-            { value: "50ms", label: "Response Time" },
-            { value: "24/7", label: "AI Support" }
-          ].map((stat, index) => (
-            <div 
-              key={index}
-              className="text-center p-4 md:p-6 rounded-xl bg-white/[0.02] backdrop-blur-sm border border-white/[0.05]"
-              data-testid={`stat-tech-${index}`}
-            >
-              <div className="text-2xl md:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent mb-1">
-                {stat.value}
+        {/* Image Cards Row - with phone mockups */}
+        <div className="mt-4 md:mt-5 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
+          {/* Brand Assets Card with Image */}
+          <div 
+            className="relative rounded-2xl overflow-hidden bg-[#3d5a54] min-h-[300px] md:min-h-[400px]"
+            data-testid="card-tech-image-1"
+          >
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#3d5a54]/90" />
+            <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
+              <div className="w-10 h-10 rounded-lg bg-white/15 flex items-center justify-center mb-4">
+                <FolderOpen className="w-5 h-5 text-white" strokeWidth={1.5} />
               </div>
-              <div className="text-xs md:text-sm text-gray-500 uppercase tracking-wider">
-                {stat.label}
-              </div>
+              <h3 className="text-white font-semibold text-xl md:text-2xl mb-2" style={{ lineHeight: '1.2' }}>
+                Organize and share all your brand assets
+              </h3>
+              <p className="text-white/70 text-sm md:text-base">
+                Stop searching—store and organize everything on our platform.
+              </p>
             </div>
-          ))}
+            {/* Decorative gradient overlay */}
+            <div className="absolute top-0 right-0 w-full h-2/3 bg-gradient-to-br from-[#4a6b64] to-[#3d5a54]" />
+          </div>
+
+          {/* Customer Projects Card with Image */}
+          <div 
+            className="relative rounded-2xl overflow-hidden bg-[#a8b892] min-h-[300px] md:min-h-[400px]"
+            data-testid="card-tech-image-2"
+          >
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#a8b892]/95" />
+            <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
+              <div className="w-10 h-10 rounded-lg bg-[#1a2e29]/10 flex items-center justify-center mb-4">
+                <Star className="w-5 h-5 text-[#1a2e29]" strokeWidth={1.5} />
+              </div>
+              <h3 className="text-[#1a2e29] font-semibold text-xl md:text-2xl mb-2" style={{ lineHeight: '1.2' }}>
+                Learn from our customers' successful projects
+              </h3>
+              <p className="text-[#1a2e29]/70 text-sm md:text-base">
+                Reference work from the world's best brands on our platform.
+              </p>
+            </div>
+            {/* Decorative gradient overlay */}
+            <div className="absolute top-0 right-0 w-full h-2/3 bg-gradient-to-br from-[#bcc9a8] to-[#a8b892]" />
+          </div>
         </div>
       </div>
     </section>
