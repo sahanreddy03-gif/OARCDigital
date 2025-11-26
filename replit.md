@@ -1,7 +1,7 @@
 # OARC Digital - Marketing Agency Platform
 
 ### Overview
-OARC Digital (Optimised AI Revenue Creativity) is a marketing agency platform designed to deliver AI-powered creative services, AI employees, and revenue automation solutions to a premium market. The platform emphasizes a high-end aesthetic, sophisticated animations, and a multi-page architecture supporting 25 distinct service offerings and 6 supporting pages, aiming to provide AI-driven marketing solutions with AI-driven marketing solutions.
+OARC Digital (Optimised AI Revenue Creativity) is a marketing agency platform delivering AI-powered creative services, AI employees, and revenue automation solutions to a premium market. The platform emphasizes a high-end aesthetic, sophisticated animations, and a multi-page architecture supporting 25 distinct service offerings and 6 supporting pages, aiming to provide AI-driven marketing solutions with AI-driven marketing solutions.
 
 ### User Preferences
 Preferred communication style: Simple, everyday language.
@@ -11,60 +11,44 @@ The platform features a React frontend and an Express.js backend, leveraging a m
 
 **Frontend:**
 -   **Framework & Language:** React 18+ with TypeScript, using Vite.
--   **UI/Styling:** Shadcn/ui (New York style) based on Radix UI, Tailwind CSS with a custom HSL-based color palette, Montserrat (headings) and Nunito Sans (body) typography, and extensive CSS animations, including Framer Motion for scroll effects.
+-   **UI/Styling:** Shadcn/ui (New York style) based on Radix UI, Tailwind CSS with a custom HSL-based color palette. Montserrat (headings) and Nunito Sans (body) typography. Extensive CSS animations, including Framer Motion for scroll effects.
 -   **State Management & Routing:** Wouter for client-side routing, TanStack Query for server state management, and React Hook Form with Zod for form validation.
 -   **Design System:** Two-palette color system (primary green, orange-600 accents, with teal/turquoise and blue/purple brand colors), responsive typography, and performance-optimized CSS animations.
--   **Key Features:** Comprehensive homepage, 25 specialized service pages (creative, growth, AI services), consistent component standards, SPA-safe Open Graph tags, and mobile-first responsive design. Service pages include dynamically loaded content and SEO meta tags.
+-   **Key Features:** Comprehensive homepage, 25 specialized service pages (creative, growth, AI services), consistent component standards, SPA-safe Open Graph tags, and mobile-first responsive design.
 -   **Navigation:** Master services page (`/services`) with an accordion layout, a desktop hover mega menu, and footer service categories.
--   **Page Design Philosophy:** Inspired by leading agencies, featuring parallax scroll effects, horizontal scrolling carousels, interactive 3-category service tabs, AI-enhanced sections, stats grids, and case studies with stagger animations. `ScrollReveal` components for fade-in and slide-up animations.
--   **UI/UX Decisions:** Emphasis on a Superside-grade aesthetic with fluid typography, large icons with scale hover animations, redesigned carousels with dark backgrounds and hover-elevate interactions, infinite logo marquees, and campaign galleries. Typography uses fluid `clamp()` values, generous section padding, consistent letter-spacing, and `leading-loose/relaxed` for body copy. All sections are wrapped in `ScrollReveal` with Intersection Observer fade-in animations and full `prefers-reduced-motion` accessibility support.
--   **Homepage Polish:** Global-tier agency polish including AI data-particle overlays, enhanced hero typography, hover animations on service cards, real OARC case studies with KPI glow + tilt hover effects, grayscale testimonial images, FAQ green gradient hover borders, and a footer with bold category titles. Features parallax scrolling on hero background, light sweep animation, and `ScrollReveal` components for scroll-triggered fade-in animations with staggered delays, and accessibility support for `prefers-reduced-motion`.
--   **Hero Section Refinement:** Elite refinement of homepage landing section with ultra-light preheading typography, responsive headline sizing with bold/extralight italic contrast, and fadeSlideUp animation. Spatial design includes expanded desktop padding, enhanced horizontal gutters, and larger content max-width. Content wrapped in a glassmorphism panel.
--   **Carousel Enhancements:** FloatingChipCarousel features clean transparent background with rounded-lg square edges (replacing rounded-full pill shape), maintaining standard hover animations and transitions. Carousels redesigned with Superside-style overlaid text including 3:4 portrait aspect ratio images, white titles overlaid directly on images with dark gradient backgrounds.
--   **Mobile Carousel Architecture:** Complete responsive redesign with three distinct ultra-premium mobile animations: dual-column opposite-direction infinite scroll for AI Creative, staggered cascade floating animation for Revenue, and multi-speed dual columns for AI Employees. All mobile animations use seamless modulo-based wrapping with RAF for 60fps GPU acceleration, and `prefers-reduced-motion` accessibility support.
--   **Desktop Carousel Performance:** Optimized with enhanced `useSmoothCarouselDrag` hook, increased auto-scroll speed, increased drag multiplier, and an enhanced momentum system that blends with auto-scroll.
--   **Testimonials Section:** Three-column Superside-inspired layout with client testimonials, vertical avatar stack, large quotes, highlighted "OARC" brand name, author attribution, and three stats with case study card. Includes 7s auto-rotation with pause-on-hover, smooth transitions, and typography refinements.
+-   **UI/UX Decisions:** Superside-grade aesthetic with fluid typography, large icons with scale hover animations, redesigned carousels, infinite logo marquees, and campaign galleries. All sections are wrapped in `ScrollReveal` with Intersection Observer fade-in animations and full `prefers-reduced-motion` accessibility support.
+-   **Homepage Polish:** AI data-particle overlays, enhanced hero typography, hover animations on service cards, real OARC case studies with KPI glow + tilt hover effects, grayscale testimonial images, FAQ green gradient hover borders, and a footer with bold category titles. Features parallax scrolling on hero background, light sweep animation, and `ScrollReveal` components for scroll-triggered fade-in animations with staggered delays.
+-   **Carousel Enhancements:** `FloatingChipCarousel` with clean transparent background and rounded-lg square edges. Carousels redesigned with Superside-style overlaid text including 3:4 portrait aspect ratio images.
+-   **Mobile Carousel Architecture:** Three distinct ultra-premium mobile animations: dual-column opposite-direction infinite scroll for AI Creative, staggered cascade floating animation for Revenue, and multi-speed dual columns for AI Employees. All mobile animations use seamless modulo-based wrapping with RAF for 60fps GPU acceleration, and `prefers-reduced-motion` accessibility support.
+-   **Testimonials Section:** Three-column Superside-inspired layout with client testimonials, vertical avatar stack, large quotes, highlighted "OARC" brand name, author attribution, and three stats with case study card. Includes 7s auto-rotation with pause-on-hover.
 -   **Case Studies:** Centralized metadata system with TypeScript types for brand, category, metrics, images, and routing. Six featured case studies with real OARC clients, accessible at `/our-work` with individual pages at `/case-studies/[slug]`.
 -   **PDF Marketing Collateral:** Professional print-ready PDF documents for client proposals (Company Profile, One-Pager Capability, AI & Creative Profile) modeled after GrowExx's premium design aesthetic. HTML-based with print-optimized CSS, A4 page size, black backgrounds with orange and green accents, page break controls, and print media queries.
 -   **AI Employee Service Pages:** Make.com-inspired design for 7 AI employee roles, each with unique JSON content. Features custom hero images, two-column hero layout, floating gradient orbs background with `will-change` optimization and `motion-reduce:hidden` for accessibility, scroll-triggered animations, enhanced hover effects on cards, and a purple gradient color scheme.
--   **Contact Information & Global Presence:** Premium implementation of global contact details across Footer and dedicated Contact page (`/contact`). Footer shows subtle phone numbers per office. Contact page features an Apple/Superside-inspired design with primary contact section and comprehensive global offices grid displaying department-specific phone numbers organized by location.
--   **Advanced SEO Infrastructure:** Cutting-edge SEO optimization system designed to fast-track Google rankings:
+-   **Contact Information & Global Presence:** Premium implementation of global contact details across Footer and dedicated Contact page (`/contact`). Contact page features an Apple/Superside-inspired design with primary contact section and comprehensive global offices grid displaying department-specific phone numbers organized by location.
+-   **Advanced SEO Infrastructure:**
     -   **Centralized SEO Config:** Single source of truth (`shared/seoConfig.ts`) for all slugs (locations, services, case studies) ensuring sitemap, routes, and components stay synchronized.
-    -   **Programmatic Location Pages:** 80+ auto-generated location-based service pages (`/malta/[location]/[service]`) targeting "AI marketing in Malta", "social media management Valletta", etc. Each page includes unique content, breadcrumb schema, service schema, and aggregate rating schema.
-    -   **Auto-Generated Sitemap:** Dynamic sitemap.xml served at `/sitemap.xml` including all core pages, 33 service pages, 80+ location pages, and 16 case studies (130+ total pages). Automatically updates with new content.
+    -   **Programmatic Location Pages:** 80+ auto-generated location-based service pages (`/malta/[location]/[service]`).
+    -   **Auto-Generated Sitemap:** Dynamic sitemap.xml served at `/sitemap.xml` including all core pages, 33 service pages, 80+ location pages, and 16 case studies (130+ total pages).
     -   **Optimized Robots.txt:** SEO-friendly robots.txt at `/robots.txt` with Google/Bing fast-crawling enabled and bad bot blocking.
-    -   **Advanced Schema Markup:** FAQ schema (position zero targeting), Review/Rating schema (⭐ stars in search results), BreadcrumbList schema, HowTo schema (voice search), VideoObject, Article, Product, Service, and Event schemas via `advancedSchema.ts` utility. All utilities accept itemName and schemaType parameters to prevent duplicate Organization nodes.
-    -   **Voice Search Optimization:** Conversational Q&A content format throughout location pages, FAQ sections, and comparison page targeting "Hey Google, find me..." searches.
-    -   **Internal Linking System:** Intelligent internal linking utility (`internalLinking.ts`) that automatically suggests related services, case studies, and location pages based on semantic relevance and SEO anchor text variations.
+    -   **Advanced Schema Markup:** FAQ schema, Review/Rating schema, BreadcrumbList schema, HowTo schema, VideoObject, Article, Product, Service, and Event schemas via `advancedSchema.ts` utility.
+    -   **Voice Search Optimization:** Conversational Q&A content format throughout location pages, FAQ sections, and comparison page.
+    -   **Internal Linking System:** Intelligent internal linking utility (`internalLinking.ts`) that automatically suggests related services, case studies, and location pages.
     -   **Comparison Page:** High-intent comparison page (`/comparison`) targeting "OARC vs traditional agencies", "AI employees vs hiring" searches with detailed feature tables, cost comparisons, and FAQ sections.
-    -   **Blog Infrastructure:** SEO-optimized blog system (`/blog`) with topic cluster architecture, breadcrumb schema, voice search optimization, and featured snippet formatting. Includes category navigation and newsletter signup.
-    -   **Enhanced Homepage Schema:** Homepage combines Organization, LocalBusiness, FAQ, AggregateRating (4.9/5 from 127 reviews), and Review schemas in @graph format for maximum search visibility.
--   **Service Page Visual Enhancement Pattern (November 2025):** Standardized visual treatment applied to service pages for homepage-style aesthetic consistency:
-    -   **ScrollReveal Animations:** Wrap content sections in `<ScrollReveal>` component with staggered delays (0ms, 200ms, 300ms) for progressive reveal on scroll
-    -   **Gradient Backgrounds:** Cream-to-warm gradient (`from-[#F5F3ED] via-white to-[#FFF9F0]`) with floating orbs for depth
-    -   **Floating Orbs:** Brand-colored orbs positioned absolutely - teal (`bg-[#5FD4C4]/10`), green (`bg-[#4a7000]/5`), orange (`bg-orange-600/5`) with blur-3xl
-    -   **Image Hover Effects:** All section images use `scale-110` baseline zoom with `hover:scale-115` and `duration-700` transition for smooth, premium feel
-    -   **Image Containers:** Wrap images in `overflow-hidden rounded-3xl` div to contain scale animations
-    -   **Implementation Status:** Applied to Social.tsx (3 sections), Paid.tsx (3 sections), and Influencer.tsx (2 images). Pattern documented for application to remaining 30 service pages.
-    -   **Example Code Pattern:**
-      ```tsx
-      <ScrollReveal delay={200}>
-        <section className="relative py-20 px-4 overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-[#F5F3ED] via-white to-[#FFF9F0]"></div>
-          <div className="absolute top-20 right-20 w-96 h-96 bg-[#5FD4C4]/10 rounded-full blur-3xl"></div>
-          <div className="relative max-w-6xl mx-auto grid lg:grid-cols-2 gap-12">
-            <div className="overflow-hidden rounded-3xl">
-              <img src={image} className="w-full h-[500px] object-cover scale-110 hover:scale-115 transition-transform duration-700" />
-            </div>
-          </div>
-        </section>
-      </ScrollReveal>
-      ```
+    -   **Blog Infrastructure:** SEO-optimized blog system (`/blog`) with topic cluster architecture, breadcrumb schema, voice search optimization, and featured snippet formatting.
+    -   **Enhanced Homepage Schema:** Homepage combines Organization, LocalBusiness, FAQ, AggregateRating, and Review schemas in @graph format.
+-   **Service Page Visual Enhancement Pattern:** Standardized visual treatment applied to service pages for homepage-style aesthetic consistency, including `ScrollReveal` animations with staggered delays, gradient backgrounds, floating orbs, and image hover effects (`scale-110` to `scale-115`).
+-   **Homepage Section Order (17 sections):** Hero Section (with 3D Concave Carousel), Trusted Brands (NEW - floating logo carousel), Creative Work (AI Creative showcase), Phone Section, Our Difference, Hire AI Employees, Tech Enabled (NEW - masonry grid), Revenue and Workflow Automations, Success in Numbers, Our Impact (case studies), Testimonials, ROI Calculator (NEW - interactive sliders), Money-Back Guarantee (NEW - 30% ROI in 90 days), Blog Preview (NEW - 3 featured articles), CTA Sections, Need Help? CTA (NEW - green bar), FAQ, Footer.
+-   **3D Carousel Polish:** Refs-based rendering, Lerp interpolation (factor 0.08), Spring physics (damping 0.92), motion blur, direct DOM manipulation for performance.
+-   **Typography System:** 9 semantic levels with fluid `clamp()` values (e.g., `.text-display`, `.text-heading-xl`, `.text-body`).
+-   **Smooth Scroll System:** `AdvancedScrollReveal` component wraps all homepage sections with animation variants (fade, slide-up, slide-left, slide-right, scale), staggered delays, custom cubic-bezier easing, and accessibility support.
+-   **Mobile Landscape Mode:** CSS media queries and utility classes (`.landscape-show`, `.landscape-hidden`, `.landscape-flex`) for adapting layout when device is tilted.
+-   **Icon Standardization:** Lucide React for generic icons, `react-icons/si` ONLY for brand logos.
+-   **Why Us Page Enhancement:** OARC origin story timeline, OARC meaning breakdown, mission statement section.
 
 **Backend:**
 -   **Framework & Language:** Express.js with TypeScript.
 -   **API:** RESTful API with shared TypeScript schemas and Zod validation.
--   **SEO Routes:** Server routes for sitemap.xml and robots.txt with programmatic generation of all pages including services, locations, and case studies.
+-   **SEO Routes:** Server routes for sitemap.xml and robots.txt with programmatic generation of all pages.
 
 **Data Storage:**
 -   **Database:** PostgreSQL (Neon serverless) managed with Drizzle ORM.
