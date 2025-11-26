@@ -1,10 +1,10 @@
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { 
-  PenLine,
-  MessageSquare,
-  FolderOpen,
-  Star,
+  Sparkles,
+  Zap,
+  Layers,
+  TrendingUp,
   ArrowRight 
 } from "lucide-react";
 
@@ -12,40 +12,34 @@ interface TechCard {
   title: string;
   description: string;
   icon: React.ElementType;
-  variant: 'lime' | 'cream' | 'sage' | 'teal' | 'image';
-  size: 'standard' | 'tall';
-  imageUrl?: string;
+  variant: 'lime' | 'cream' | 'sage' | 'teal';
 }
 
 const TechEnabledSection = () => {
   const techCards: TechCard[] = [
     {
-      title: "From brief to review and sign off.",
-      description: "Welcome to our platform. Quickly submit a brief, review in platform, keep track of usage and more in one easy place.",
-      icon: PenLine,
+      title: "Streamlined from concept to completion.",
+      description: "Submit your brief, track progress in real-time, review deliverables, and approve—all from one intuitive dashboard.",
+      icon: Sparkles,
       variant: 'lime',
-      size: 'standard',
     },
     {
-      title: "Integrate with your favorite platforms.",
-      description: "Already using platforms like Asana/Jira/Slack? They integrate too.",
-      icon: MessageSquare,
+      title: "Connects with the tools you already use.",
+      description: "Seamlessly sync with Slack, Asana, Jira, and your favorite project management platforms.",
+      icon: Zap,
       variant: 'cream',
-      size: 'standard',
     },
     {
-      title: "Organize and share all your brand assets",
-      description: "Stop searching—store and organize everything on our platform.",
-      icon: FolderOpen,
+      title: "Your brand assets, always at your fingertips.",
+      description: "Centralize logos, guidelines, templates, and creative files in one organized space.",
+      icon: Layers,
       variant: 'teal',
-      size: 'tall',
     },
     {
-      title: "Learn from our customers' successful projects",
-      description: "Reference work from the world's best brands on our platform.",
-      icon: Star,
+      title: "Inspired by proven success stories.",
+      description: "Explore case studies and creative work from leading brands to spark your next campaign.",
+      icon: TrendingUp,
       variant: 'sage',
-      size: 'tall',
     },
   ];
 
@@ -53,7 +47,7 @@ const TechEnabledSection = () => {
     switch (variant) {
       case 'lime':
         return {
-          bg: 'bg-[#d4ff47]',
+          bg: 'bg-[#c4ff4d]',
           text: 'text-[#1a2e29]',
           descText: 'text-[#1a2e29]/70',
           iconBg: 'bg-[#1a2e29]/10',
@@ -95,121 +89,142 @@ const TechEnabledSection = () => {
   };
 
   return (
-    <section className="relative py-16 md:py-24 lg:py-32 overflow-hidden bg-[#f7f4ed]">
+    <section className="relative py-16 md:py-24 lg:py-32 overflow-hidden bg-white">
       <div className="container mx-auto px-4 md:px-6 lg:px-12">
-        {/* Section Header - Superside Style */}
-        <div className="max-w-3xl mb-10 md:mb-14">
-          <h2 
-            className="text-[#1a2e29] font-bold mb-5"
-            style={{ 
-              fontSize: 'clamp(2rem, 5vw, 3.5rem)', 
-              letterSpacing: '-0.03em', 
-              lineHeight: '1.1' 
-            }}
-          >
-            Tech enabled and made to{" "}
-            <span className="italic" style={{ color: '#c4ff4d' }}>
-              work for you
-            </span>.
-          </h2>
-          <p className="text-base md:text-lg text-[#1a2e29]/60 mb-8 max-w-xl leading-relaxed">
-            No matter your creative need, submitting and managing a project is effortless.
-          </p>
-          <Link href="/contact">
-            <Button 
-              size="default"
-              className="bg-[#1a2e29] hover:bg-[#0f1c18] text-white font-medium rounded-full px-6"
-              data-testid="button-tech-learn-more"
+        {/* Section Header */}
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10 md:mb-14">
+          <div className="max-w-2xl">
+            <h2 
+              className="text-[#1a2e29] font-bold mb-4"
+              style={{ 
+                fontSize: 'clamp(2rem, 5vw, 3.25rem)', 
+                letterSpacing: '-0.03em', 
+                lineHeight: '1.1' 
+              }}
             >
-              Learn more
-            </Button>
-          </Link>
-        </div>
-
-        {/* Card Grid - Superside Style */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
-          {techCards.map((card, index) => {
-            const styles = getCardStyles(card.variant);
-            return (
-              <div 
-                key={index}
-                className={`
-                  group relative rounded-2xl overflow-hidden transition-all duration-300 hover:scale-[1.01]
-                  ${styles.bg}
-                  ${card.size === 'tall' ? 'min-h-[320px] md:min-h-[380px]' : 'min-h-[200px] md:min-h-[220px]'}
-                `}
-                data-testid={`card-tech-feature-${index}`}
+              Technology-powered, designed to{" "}
+              <span className="italic font-medium" style={{ color: '#c4ff4d' }}>
+                elevate your brand
+              </span>.
+            </h2>
+            <p className="text-base md:text-lg text-[#1a2e29]/60 leading-relaxed max-w-lg">
+              Managing creative projects has never been simpler—submit, collaborate, and deliver with ease.
+            </p>
+          </div>
+          <div className="flex-shrink-0">
+            <Link href="/contact">
+              <Button 
+                size="default"
+                className="bg-[#1a2e29] hover:bg-[#0f1c18] text-white font-medium rounded-full px-6 group"
+                data-testid="button-tech-learn-more"
               >
-                <div className="p-6 md:p-8 h-full flex flex-col">
-                  {/* Icon */}
-                  <div className={`w-10 h-10 md:w-12 md:h-12 rounded-lg ${styles.iconBg} flex items-center justify-center mb-5 md:mb-6`}>
-                    <card.icon className={`w-5 h-5 md:w-6 md:h-6 ${styles.iconColor}`} strokeWidth={1.5} />
-                  </div>
-                  
-                  {/* Title */}
-                  <h3 
-                    className={`font-semibold mb-3 ${styles.text}`}
-                    style={{ 
-                      fontSize: 'clamp(1.25rem, 2.5vw, 1.75rem)',
-                      lineHeight: '1.2',
-                      letterSpacing: '-0.02em'
-                    }}
-                  >
-                    {card.title}
-                  </h3>
-                  
-                  {/* Description */}
-                  <p className={`text-sm md:text-base leading-relaxed ${styles.descText}`}>
-                    {card.description}
-                  </p>
-                </div>
-              </div>
-            );
-          })}
+                Explore platform
+                <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </Link>
+          </div>
         </div>
 
-        {/* Image Cards Row - with phone mockups */}
-        <div className="mt-4 md:mt-5 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
-          {/* Brand Assets Card with Image */}
+        {/* Desktop: Bento Grid Layout | Mobile: Stack */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-5">
+          {/* Card 1 - Lime - Large Left */}
           <div 
-            className="relative rounded-2xl overflow-hidden bg-[#3d5a54] min-h-[300px] md:min-h-[400px]"
-            data-testid="card-tech-image-1"
+            className={`
+              group relative rounded-2xl overflow-hidden transition-all duration-300 hover:scale-[1.02]
+              ${getCardStyles('lime').bg}
+              md:col-span-7 min-h-[220px] md:min-h-[280px]
+            `}
+            data-testid="card-tech-feature-0"
           >
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#3d5a54]/90" />
-            <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
-              <div className="w-10 h-10 rounded-lg bg-white/15 flex items-center justify-center mb-4">
-                <FolderOpen className="w-5 h-5 text-white" strokeWidth={1.5} />
+            <div className="p-6 md:p-8 h-full flex flex-col">
+              <div className={`w-11 h-11 md:w-12 md:h-12 rounded-xl ${getCardStyles('lime').iconBg} flex items-center justify-center mb-5`}>
+                <Sparkles className={`w-5 h-5 md:w-6 md:h-6 ${getCardStyles('lime').iconColor}`} strokeWidth={1.5} />
               </div>
-              <h3 className="text-white font-semibold text-xl md:text-2xl mb-2" style={{ lineHeight: '1.2' }}>
-                Organize and share all your brand assets
+              <h3 
+                className={`font-semibold mb-3 ${getCardStyles('lime').text}`}
+                style={{ fontSize: 'clamp(1.25rem, 2.5vw, 1.625rem)', lineHeight: '1.2', letterSpacing: '-0.02em' }}
+              >
+                {techCards[0].title}
               </h3>
-              <p className="text-white/70 text-sm md:text-base">
-                Stop searching—store and organize everything on our platform.
+              <p className={`text-sm md:text-base leading-relaxed ${getCardStyles('lime').descText} max-w-md`}>
+                {techCards[0].description}
               </p>
             </div>
-            {/* Decorative gradient overlay */}
-            <div className="absolute top-0 right-0 w-full h-2/3 bg-gradient-to-br from-[#4a6b64] to-[#3d5a54]" />
           </div>
 
-          {/* Customer Projects Card with Image */}
+          {/* Card 2 - Cream - Small Right */}
           <div 
-            className="relative rounded-2xl overflow-hidden bg-[#a8b892] min-h-[300px] md:min-h-[400px]"
-            data-testid="card-tech-image-2"
+            className={`
+              group relative rounded-2xl overflow-hidden transition-all duration-300 hover:scale-[1.02]
+              ${getCardStyles('cream').bg}
+              md:col-span-5 min-h-[200px] md:min-h-[280px]
+            `}
+            data-testid="card-tech-feature-1"
           >
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#a8b892]/95" />
-            <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
-              <div className="w-10 h-10 rounded-lg bg-[#1a2e29]/10 flex items-center justify-center mb-4">
-                <Star className="w-5 h-5 text-[#1a2e29]" strokeWidth={1.5} />
+            <div className="p-6 md:p-8 h-full flex flex-col">
+              <div className={`w-11 h-11 md:w-12 md:h-12 rounded-xl ${getCardStyles('cream').iconBg} flex items-center justify-center mb-5`}>
+                <Zap className={`w-5 h-5 md:w-6 md:h-6 ${getCardStyles('cream').iconColor}`} strokeWidth={1.5} />
               </div>
-              <h3 className="text-[#1a2e29] font-semibold text-xl md:text-2xl mb-2" style={{ lineHeight: '1.2' }}>
-                Learn from our customers' successful projects
+              <h3 
+                className={`font-semibold mb-3 ${getCardStyles('cream').text}`}
+                style={{ fontSize: 'clamp(1.25rem, 2.5vw, 1.625rem)', lineHeight: '1.2', letterSpacing: '-0.02em' }}
+              >
+                {techCards[1].title}
               </h3>
-              <p className="text-[#1a2e29]/70 text-sm md:text-base">
-                Reference work from the world's best brands on our platform.
+              <p className={`text-sm md:text-base leading-relaxed ${getCardStyles('cream').descText}`}>
+                {techCards[1].description}
               </p>
             </div>
-            {/* Decorative gradient overlay */}
-            <div className="absolute top-0 right-0 w-full h-2/3 bg-gradient-to-br from-[#bcc9a8] to-[#a8b892]" />
+          </div>
+
+          {/* Card 3 - Teal - Small Left */}
+          <div 
+            className={`
+              group relative rounded-2xl overflow-hidden transition-all duration-300 hover:scale-[1.02]
+              ${getCardStyles('teal').bg}
+              md:col-span-5 min-h-[200px] md:min-h-[280px]
+            `}
+            data-testid="card-tech-feature-2"
+          >
+            <div className="p-6 md:p-8 h-full flex flex-col">
+              <div className={`w-11 h-11 md:w-12 md:h-12 rounded-xl ${getCardStyles('teal').iconBg} flex items-center justify-center mb-5`}>
+                <Layers className={`w-5 h-5 md:w-6 md:h-6 ${getCardStyles('teal').iconColor}`} strokeWidth={1.5} />
+              </div>
+              <h3 
+                className={`font-semibold mb-3 ${getCardStyles('teal').text}`}
+                style={{ fontSize: 'clamp(1.25rem, 2.5vw, 1.625rem)', lineHeight: '1.2', letterSpacing: '-0.02em' }}
+              >
+                {techCards[2].title}
+              </h3>
+              <p className={`text-sm md:text-base leading-relaxed ${getCardStyles('teal').descText}`}>
+                {techCards[2].description}
+              </p>
+            </div>
+          </div>
+
+          {/* Card 4 - Sage - Large Right */}
+          <div 
+            className={`
+              group relative rounded-2xl overflow-hidden transition-all duration-300 hover:scale-[1.02]
+              ${getCardStyles('sage').bg}
+              md:col-span-7 min-h-[220px] md:min-h-[280px]
+            `}
+            data-testid="card-tech-feature-3"
+          >
+            <div className="p-6 md:p-8 h-full flex flex-col">
+              <div className={`w-11 h-11 md:w-12 md:h-12 rounded-xl ${getCardStyles('sage').iconBg} flex items-center justify-center mb-5`}>
+                <TrendingUp className={`w-5 h-5 md:w-6 md:h-6 ${getCardStyles('sage').iconColor}`} strokeWidth={1.5} />
+              </div>
+              <h3 
+                className={`font-semibold mb-3 ${getCardStyles('sage').text}`}
+                style={{ fontSize: 'clamp(1.25rem, 2.5vw, 1.625rem)', lineHeight: '1.2', letterSpacing: '-0.02em' }}
+              >
+                {techCards[3].title}
+              </h3>
+              <p className={`text-sm md:text-base leading-relaxed ${getCardStyles('sage').descText} max-w-md`}>
+                {techCards[3].description}
+              </p>
+            </div>
           </div>
         </div>
       </div>
