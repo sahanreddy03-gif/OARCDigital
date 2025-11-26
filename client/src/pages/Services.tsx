@@ -186,7 +186,7 @@ export default function Services() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-3xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight"
+            className="text-display font-black mb-6"
           >
             <span className="bg-gradient-to-r from-white via-zinc-100 to-zinc-300 bg-clip-text text-transparent">
               Elevate Your
@@ -201,7 +201,7 @@ export default function Services() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-base md:text-lg text-zinc-300 max-w-2xl mx-auto mb-10 leading-relaxed"
+            className="text-body-lg text-zinc-300 max-w-2xl mx-auto mb-10"
           >
             From AI-powered automation to creative excellence—transform your business with cutting-edge services designed for the future.
           </motion.p>
@@ -285,10 +285,10 @@ export default function Services() {
                   className="text-center p-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:border-purple-400/40 transition-all"
                   data-testid={`stat-${index}`}
                 >
-                  <div className={`text-3xl md:text-4xl font-black bg-gradient-to-r ${stat.color} bg-clip-text text-transparent mb-3`}>
+                  <div className={`text-heading-lg font-black bg-gradient-to-r ${stat.color} bg-clip-text text-transparent mb-3`}>
                     <AnimatedCounterInline value={stat.value} suffix={stat.suffix} isInView={isInView} />
                   </div>
-                  <div className="text-sm text-zinc-400 font-medium">{stat.label}</div>
+                  <div className="text-caption text-zinc-400 font-medium">{stat.label}</div>
                 </motion.div>
               );
             })}
@@ -305,12 +305,12 @@ export default function Services() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-2xl md:text-4xl font-black mb-5">
+            <h2 className="text-heading-lg font-black mb-5">
               <span className="bg-gradient-to-r from-white via-purple-300 to-white bg-clip-text text-transparent">
                 Choose Your Path
               </span>
             </h2>
-            <p className="text-base text-zinc-400 max-w-2xl mx-auto">
+            <p className="text-body text-zinc-400 max-w-2xl mx-auto">
               Explore our three pillars of innovation
             </p>
           </motion.div>
@@ -367,10 +367,10 @@ export default function Services() {
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.2 }}
                     >
-                      <p className="text-sm text-fuchsia-300 font-bold mb-3 uppercase tracking-wider">
+                      <p className="text-caption text-fuchsia-300 font-bold mb-3 uppercase tracking-wider">
                         {categoryTaglines[activeCategory]}
                       </p>
-                      <h3 className="text-3xl md:text-4xl font-black mb-6 text-white">
+                      <h3 className="text-heading-lg font-black mb-6 text-white">
                         {activeCategoryData.featured.title}
                       </h3>
                       <Link href={`/services/${activeCategoryData.featured.route || activeCategoryData.featured.slug}`}>
@@ -440,12 +440,12 @@ export default function Services() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-black mb-6">
+            <h2 className="text-heading-xl font-black mb-6">
               <span className="bg-gradient-to-r from-white via-purple-300 to-white bg-clip-text text-transparent">
                 Ready to Transform Your Business?
               </span>
             </h2>
-            <p className="text-lg text-zinc-400 mb-10 max-w-2xl mx-auto">
+            <p className="text-body-lg text-zinc-400 mb-10 max-w-2xl mx-auto">
               Let's discuss how our premium services can help you achieve your goals.
             </p>
             <Link href="/contact">

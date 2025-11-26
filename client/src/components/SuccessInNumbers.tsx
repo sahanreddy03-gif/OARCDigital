@@ -1,3 +1,5 @@
+import { Briefcase, Star, Clock, Users } from "lucide-react";
+
 export function SuccessInNumbers() {
   return (
     <section className="bg-[#0A2818] py-20 md:py-28 lg:py-32" data-testid="section-success-numbers">
@@ -25,6 +27,10 @@ export function SuccessInNumbers() {
           <div className="grid grid-cols-2 gap-x-8 gap-y-8 md:gap-x-10 md:gap-y-10">
             {/* Stat 1: Projects Delivered */}
             <div data-testid="stat-projects">
+              <div className="flex items-center gap-2 mb-2">
+                <Briefcase className="w-4 h-4 md:w-5 md:h-5 text-emerald-400" />
+                <span className="text-xs uppercase tracking-wider text-emerald-400/80 font-medium">Projects</span>
+              </div>
               <div className="text-4xl md:text-5xl lg:text-6xl font-light text-white mb-3" style={{ letterSpacing: '-0.02em' }}>
                 127+
               </div>
@@ -35,6 +41,10 @@ export function SuccessInNumbers() {
 
             {/* Stat 2: Client Satisfaction */}
             <div data-testid="stat-satisfaction">
+              <div className="flex items-center gap-2 mb-2">
+                <Star className="w-4 h-4 md:w-5 md:h-5 text-emerald-400" />
+                <span className="text-xs uppercase tracking-wider text-emerald-400/80 font-medium">Satisfaction</span>
+              </div>
               <div className="text-4xl md:text-5xl lg:text-6xl font-light text-white mb-3" style={{ letterSpacing: '-0.02em' }}>
                 4.9/5
               </div>
@@ -45,6 +55,10 @@ export function SuccessInNumbers() {
 
             {/* Stat 3: Turnaround Time */}
             <div data-testid="stat-turnaround">
+              <div className="flex items-center gap-2 mb-2">
+                <Clock className="w-4 h-4 md:w-5 md:h-5 text-emerald-400" />
+                <span className="text-xs uppercase tracking-wider text-emerald-400/80 font-medium">Speed</span>
+              </div>
               <div className="text-4xl md:text-5xl lg:text-6xl font-light text-white mb-3" style={{ letterSpacing: '-0.02em' }}>
                 48h
               </div>
@@ -55,6 +69,10 @@ export function SuccessInNumbers() {
 
             {/* Stat 4: Client Retention */}
             <div data-testid="stat-retention">
+              <div className="flex items-center gap-2 mb-2">
+                <Users className="w-4 h-4 md:w-5 md:h-5 text-emerald-400" />
+                <span className="text-xs uppercase tracking-wider text-emerald-400/80 font-medium">Retention</span>
+              </div>
               <div className="text-4xl md:text-5xl lg:text-6xl font-light text-white mb-3" style={{ letterSpacing: '-0.02em' }}>
                 92%
               </div>

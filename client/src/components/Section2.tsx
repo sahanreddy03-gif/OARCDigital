@@ -48,7 +48,7 @@ export default function Section2() {
           {/* Left Content */}
           <div className="col-span-1">
             <AdvancedScrollReveal variant="slide-up" delay={200}>
-              <h2 className="text-base sm:text-xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-zinc-900 leading-[1.15] tracking-tight mb-3 sm:mb-5 md:mb-7" data-testid="text-section2-heading">
+              <h2 className="text-heading-lg font-bold text-zinc-900 mb-3 sm:mb-5 md:mb-7" data-testid="text-section2-heading">
                 <span className="block">The results-driven</span>
                 <span className="text-primary block italic">Social First Agency</span>
                 <span className="block">you've been looking for</span>

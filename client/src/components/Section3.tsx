@@ -68,7 +68,7 @@ export default function Section3() {
         {/* Heading - animates from center when scrolling */}
         <h2
           ref={headingRef}
-          className={`text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-4 md:mb-5 lg:mb-6 transition-all duration-1000 ${
+          className={`text-heading-lg font-bold text-center mb-4 md:mb-5 lg:mb-6 transition-all duration-1000 ${
             isVisible
               ? "opacity-100 translate-x-0"
               : "opacity-0 translate-x-[-50%]"
@@ -80,7 +80,7 @@ export default function Section3() {
 
         {/* Brands that trust us subheading */}
         <p
-          className="text-center text-sm md:text-base font-semibold text-gray-500 mb-6 md:mb-7 lg:mb-8"
+          className="text-center text-body font-semibold text-gray-500 mb-6 md:mb-7 lg:mb-8"
           data-testid="brands-subheading"
         >
           Brands that trust us

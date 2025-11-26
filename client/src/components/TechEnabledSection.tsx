@@ -7,7 +7,8 @@ import {
   Sparkles, 
   TrendingUp, 
   Headphones, 
-  Server 
+  Server,
+  ArrowRight 
 } from "lucide-react";
 
 interface TechCard {
@@ -97,6 +98,7 @@ const TechEnabledSection = () => {
                 data-testid="button-tech-learn-more"
               >
                 Explore Our Tech
+                <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
             </Link>
           </div>
