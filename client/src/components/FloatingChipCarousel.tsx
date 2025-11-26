@@ -60,8 +60,9 @@ function FlatCarousel() {
 
     const animate = () => {
       currentTranslate -= speed;
+      // Seamlessly loop: add contentWidth when we've scrolled past one full set
       if (Math.abs(currentTranslate) >= contentWidth) {
-        currentTranslate = 0;
+        currentTranslate += contentWidth;
       }
       if (track) {
         track.style.transform = `translateX(${currentTranslate}px)`;

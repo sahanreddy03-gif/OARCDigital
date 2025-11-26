@@ -61,7 +61,7 @@ export default function HeroSection() {
   return (
     <>
       <style>{styles}</style>
-      <section className="relative min-h-screen flex flex-col overflow-x-hidden bg-black">
+      <section className="relative min-h-screen flex flex-col overflow-hidden bg-black">
       {/* Mobile Layout - Clean bottom-aligned layout (hidden in landscape) */}
       <div className="md:hidden landscape-hero-mobile-hidden absolute inset-0">
         <div 
