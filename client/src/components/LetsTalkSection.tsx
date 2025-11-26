@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { Settings, Bot, TrendingUp, Sparkles, Award, Zap, MessageCircle } from 'lucide-react';
 
 export default function LetsTalkSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -31,25 +32,29 @@ export default function LetsTalkSection() {
       letter: "O",
       title: "Optimised",
       subtitle: "Nothing wasted. Everything aligned.",
-      delay: 0
+      delay: 0,
+      icon: Settings
     },
     {
       letter: "A",
       title: "AI-Driven",
       subtitle: "Systems that learn and multiply your output.",
-      delay: 0.15
+      delay: 0.15,
+      icon: Bot
     },
     {
       letter: "R",
       title: "Revenue",
       subtitle: "We focus on what matters.",
-      delay: 0.3
+      delay: 0.3,
+      icon: TrendingUp
     },
     {
       letter: "C",
       title: "Creative",
       subtitle: "We win attention that converts.",
-      delay: 0.45
+      delay: 0.45,
+      icon: Sparkles
     }
   ];
 
@@ -115,9 +120,14 @@ export default function LetsTalkSection() {
               
               {/* Content */}
               <div className="relative z-10">
-                <h3 className="text-3xl md:text-4xl lg:text-5xl font-black text-orange-600 mb-4">
-                  {pillar.title}
-                </h3>
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-orange-600/10 flex items-center justify-center">
+                    <pillar.icon className="w-5 h-5 md:w-6 md:h-6 text-orange-600" />
+                  </div>
+                  <h3 className="text-3xl md:text-4xl lg:text-5xl font-black text-orange-600">
+                    {pillar.title}
+                  </h3>
+                </div>
                 <p className="text-lg md:text-xl text-zinc-600 leading-relaxed">
                   {pillar.subtitle}
                 </p>
@@ -137,11 +147,20 @@ export default function LetsTalkSection() {
           }}
         >
           <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6 text-2xl md:text-3xl lg:text-4xl font-bold text-zinc-900">
-            <span data-testid="text-super-talented">Super Talented</span>
+            <span className="flex items-center gap-2" data-testid="text-super-talented">
+              <Award className="w-6 h-6 md:w-8 md:h-8 text-orange-500" />
+              Super Talented
+            </span>
             <span className="hidden md:inline text-zinc-400">·</span>
-            <span data-testid="text-super-fast">Super Fast</span>
+            <span className="flex items-center gap-2" data-testid="text-super-fast">
+              <Zap className="w-6 h-6 md:w-8 md:h-8 text-orange-500" />
+              Super Fast
+            </span>
             <span className="hidden md:inline text-zinc-400">·</span>
-            <span data-testid="text-super-responsive">Super Responsive</span>
+            <span className="flex items-center gap-2" data-testid="text-super-responsive">
+              <MessageCircle className="w-6 h-6 md:w-8 md:h-8 text-orange-500" />
+              Super Responsive
+            </span>
           </div>
         </div>
       </div>

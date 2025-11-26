@@ -450,10 +450,10 @@ export default function WhyUs() {
       <section className="bg-zinc-900 py-20 md:py-28 overflow-hidden" data-testid="section-carousel">
         <div className="mb-12 md:mb-16 px-6">
           <ScrollReveal>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-white text-center mb-4" style={{ letterSpacing: '-0.03em' }}>
+            <h2 className="text-heading-xl font-black text-white text-center mb-4">
               Campaign Excellence
             </h2>
-            <p className="text-base md:text-lg text-white/70 text-center max-w-2xl mx-auto">
+            <p className="text-body-lg text-white/70 text-center max-w-2xl mx-auto">
               Award-winning creative that drives results across industries
             </p>
           </ScrollReveal>
@@ -505,13 +505,13 @@ export default function WhyUs() {
               >
                 THE HISTORY...SO FAR
               </h3>
-              <p className="text-lg md:text-xl text-zinc-600 max-w-3xl mx-auto leading-loose mb-4" data-testid="text-story-intro">
+              <p className="text-body-lg text-zinc-600 max-w-3xl mx-auto mb-4" data-testid="text-story-intro">
                 People often ask us, what's your story? How did OARC Digital become a thing? What were you doing before OARC Digital?
               </p>
-              <p className="text-lg md:text-xl text-zinc-600 max-w-3xl mx-auto leading-loose mb-8">
+              <p className="text-body-lg text-zinc-600 max-w-3xl mx-auto mb-8">
                 You can find out our history with the timeline below, where you can discover who we are and why we exist.
               </p>
-              <p className="text-2xl md:text-3xl lg:text-4xl font-black text-zinc-900 mt-10" style={{ letterSpacing: '-0.02em' }}>
+              <p className="text-heading-lg font-black text-zinc-900 mt-10">
                 So, hello, we're <span className="text-[#FF5A00]">OARC Digital</span>.
               </p>
             </div>
@@ -550,19 +550,19 @@ export default function WhyUs() {
                 />
               </div>
               <div>
-                <h4 className="text-3xl md:text-4xl font-bold text-zinc-900 mb-6" data-testid="heading-vision">
+                <h4 className="text-heading-lg font-bold text-zinc-900 mb-6" data-testid="heading-vision">
                   The Vision
                 </h4>
-                <p className="text-lg text-zinc-700 leading-relaxed mb-4">
+                <p className="text-body-lg text-zinc-700 mb-4">
                   Remember the times before AI transformed marketing?
                 </p>
-                <p className="text-lg text-zinc-700 leading-relaxed mb-4">
+                <p className="text-body-lg text-zinc-700 mb-4">
                   Well, we saw it coming.
                 </p>
-                <p className="text-lg text-zinc-700 leading-relaxed mb-4">
+                <p className="text-body-lg text-zinc-700 mb-4">
                   Our founders began exploring how artificial intelligence could revolutionize creative work and revenue generation. Starting with simple automation experiments, they discovered that the future of marketing wasn't about replacing humans—it was about augmenting human creativity with intelligent systems.
                 </p>
-                <p className="text-lg text-zinc-700 leading-relaxed">
+                <p className="text-body-lg text-zinc-700">
                   This vision became the foundation of everything OARC Digital would become: an agency where AI and human creativity work in perfect harmony.
                 </p>
               </div>
@@ -581,16 +581,16 @@ export default function WhyUs() {
                 />
               </div>
               <div className="md:order-1">
-                <h4 className="text-3xl md:text-4xl font-bold text-zinc-900 mb-6" data-testid="heading-experiments">
+                <h4 className="text-heading-lg font-bold text-zinc-900 mb-6" data-testid="heading-experiments">
                   The First AI Experiments
                 </h4>
-                <p className="text-lg text-zinc-700 leading-relaxed mb-4">
+                <p className="text-body-lg text-zinc-700 mb-4">
                   In 2018, we started testing AI-powered creative tools and automation systems. What began as experimental projects quickly proved their worth.
                 </p>
-                <p className="text-lg text-zinc-700 leading-relaxed mb-4">
+                <p className="text-body-lg text-zinc-700 mb-4">
                   Early successes included AI-generated copy that outperformed human-written variants, automated design systems that produced hundreds of variations in minutes, and predictive analytics that forecast campaign performance with uncanny accuracy.
                 </p>
-                <p className="text-lg text-zinc-700 leading-relaxed">
+                <p className="text-body-lg text-zinc-700">
                   These experiments confirmed what we suspected: AI wasn't the future—it was the present. We just had to build it.
                 </p>
               </div>
@@ -609,16 +609,16 @@ export default function WhyUs() {
                 />
               </div>
               <div>
-                <h4 className="text-3xl md:text-4xl font-bold text-zinc-900 mb-6" data-testid="heading-founded">
+                <h4 className="text-heading-lg font-bold text-zinc-900 mb-6" data-testid="heading-founded">
                   The Birth of OARC Digital
                 </h4>
-                <p className="text-lg text-zinc-700 leading-relaxed mb-4">
+                <p className="text-body-lg text-zinc-700 mb-4">
                   In 2020, OARC Digital was officially born—an agency built from day one around AI, automation, and revenue optimization.
                 </p>
-                <p className="text-lg text-zinc-700 leading-relaxed mb-4">
+                <p className="text-body-lg text-zinc-700 mb-4">
                   It was the right product at the right time. Brands were hungry for agencies that understood both creative excellence and technical automation. We won incredible clients in our infancy by delivering results that traditional agencies couldn't match.
                 </p>
-                <p className="text-lg text-zinc-700 leading-relaxed">
+                <p className="text-body-lg text-zinc-700">
                   Our first AI-powered campaigns generated 3x ROI improvements, proving that our model worked. The future was here.
                 </p>
               </div>
@@ -637,16 +637,16 @@ export default function WhyUs() {
                 />
               </div>
               <div className="md:order-1">
-                <h4 className="text-3xl md:text-4xl font-bold text-zinc-900 mb-6" data-testid="heading-revenue">
+                <h4 className="text-heading-lg font-bold text-zinc-900 mb-6" data-testid="heading-revenue">
                   Revenue Automation Takes Off
                 </h4>
-                <p className="text-lg text-zinc-700 leading-relaxed mb-4">
+                <p className="text-body-lg text-zinc-700 mb-4">
                   In 2021, we launched our Revenue Automation suite—intelligent systems that identify opportunities, nurture leads, and close deals autonomously.
                 </p>
-                <p className="text-lg text-zinc-700 leading-relaxed mb-4">
+                <p className="text-body-lg text-zinc-700 mb-4">
                   Our clients saw immediate results: sales pipelines that never slept, conversion rates that climbed month after month, and customer acquisition costs that plummeted.
                 </p>
-                <p className="text-lg text-zinc-700 leading-relaxed">
+                <p className="text-body-lg text-zinc-700">
                   This wasn't just marketing automation. This was revenue engineering powered by AI.
                 </p>
               </div>
@@ -665,16 +665,16 @@ export default function WhyUs() {
                 />
               </div>
               <div>
-                <h4 className="text-3xl md:text-4xl font-bold text-zinc-900 mb-6" data-testid="heading-global">
+                <h4 className="text-heading-lg font-bold text-zinc-900 mb-6" data-testid="heading-global">
                   Going Global
                 </h4>
-                <p className="text-lg text-zinc-700 leading-relaxed mb-4">
+                <p className="text-body-lg text-zinc-700 mb-4">
                   By 2022, OARC Digital expanded beyond borders. Our AI-first model meant we could serve clients anywhere, anytime, with the same level of excellence.
                 </p>
-                <p className="text-lg text-zinc-700 leading-relaxed mb-4">
+                <p className="text-body-lg text-zinc-700 mb-4">
                   We partnered with brands across Europe, North America, and Asia—delivering AI-powered creative and automation that transcended geography.
                 </p>
-                <p className="text-lg text-zinc-700 leading-relaxed">
+                <p className="text-body-lg text-zinc-700">
                   Our remote-first, AI-augmented team proved that the future of work wasn't about office locations—it was about intelligent systems and global talent.
                 </p>
               </div>
@@ -693,16 +693,16 @@ export default function WhyUs() {
                 />
               </div>
               <div className="md:order-1">
-                <h4 className="text-3xl md:text-4xl font-bold text-zinc-900 mb-6" data-testid="heading-employees">
+                <h4 className="text-heading-lg font-bold text-zinc-900 mb-6" data-testid="heading-employees">
                   AI Employees Revolution
                 </h4>
-                <p className="text-lg text-zinc-700 leading-relaxed mb-4">
+                <p className="text-body-lg text-zinc-700 mb-4">
                   In 2023, we launched our AI Employees platform—autonomous agents that handle customer service, content generation, data analysis, and more.
                 </p>
-                <p className="text-lg text-zinc-700 leading-relaxed mb-4">
+                <p className="text-body-lg text-zinc-700 mb-4">
                   Brands could now scale infinitely without hiring limitations. Our AI workforce never sleeps, never tires, and constantly improves through machine learning.
                 </p>
-                <p className="text-lg text-zinc-700 leading-relaxed">
+                <p className="text-body-lg text-zinc-700">
                   This was the breakthrough moment: intelligent agents working 24/7 to drive growth while human teams focused on strategy and innovation.
                 </p>
               </div>
@@ -721,16 +721,16 @@ export default function WhyUs() {
                 />
               </div>
               <div>
-                <h4 className="text-3xl md:text-4xl font-bold text-zinc-900 mb-6" data-testid="heading-malta">
+                <h4 className="text-heading-lg font-bold text-zinc-900 mb-6" data-testid="heading-malta">
                   Malta: Our European Hub
                 </h4>
-                <p className="text-lg text-zinc-700 leading-relaxed mb-4">
+                <p className="text-body-lg text-zinc-700 mb-4">
                   In 2024, we established our European headquarters in Malta—a strategic location at the crossroads of Europe, Africa, and the Middle East.
                 </p>
-                <p className="text-lg text-zinc-700 leading-relaxed mb-4">
+                <p className="text-body-lg text-zinc-700 mb-4">
                   Malta's thriving tech ecosystem, favorable business environment, and multilingual talent pool made it the perfect base for our global operations.
                 </p>
-                <p className="text-lg text-zinc-700 leading-relaxed">
+                <p className="text-body-lg text-zinc-700">
                   From Malta, we serve clients worldwide with AI-powered creativity and automation that drives real business results.
                 </p>
               </div>
@@ -749,16 +749,16 @@ export default function WhyUs() {
                 />
               </div>
               <div className="md:order-1">
-                <h4 className="text-3xl md:text-4xl font-bold text-zinc-900 mb-6" data-testid="heading-future">
+                <h4 className="text-heading-lg font-bold text-zinc-900 mb-6" data-testid="heading-future">
                   The Future?
                 </h4>
-                <p className="text-lg text-zinc-700 leading-relaxed mb-4">
+                <p className="text-body-lg text-zinc-700 mb-4">
                   Our focus is on pushing AI boundaries—building solutions that give our agency and our clients an unstoppable edge over the competition.
                 </p>
-                <p className="text-lg text-zinc-700 leading-relaxed mb-4">
+                <p className="text-body-lg text-zinc-700 mb-4">
                   We're excited to evolve OARC Digital over the coming years. We have a clear vision for where the agency will be: the world's most advanced AI-powered marketing force.
                 </p>
-                <p className="text-lg text-zinc-700 leading-relaxed">
+                <p className="text-body-lg text-zinc-700">
                   If you want to join us on this journey—whether you're a brand ready to transform or a talented individual who wants to shape the future—you know what to do. Let's talk.
                 </p>
               </div>
@@ -776,10 +776,10 @@ export default function WhyUs() {
               <p className="text-xs md:text-sm uppercase tracking-[0.3em] text-zinc-500 mb-6 font-semibold" data-testid="text-brands-eyebrow">
                 TRUSTED BY GLOBAL BRANDS
               </p>
-              <h2 className="text-4xl md:text-5xl lg:text-7xl font-black text-zinc-900 leading-tight mb-6" style={{ letterSpacing: '-0.03em' }} data-testid="heading-brands">
+              <h2 className="text-display font-black text-zinc-900 mb-6" data-testid="heading-brands">
                 We Work With The Best
               </h2>
-              <p className="text-lg md:text-xl text-zinc-600 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-body-lg text-zinc-600 max-w-3xl mx-auto">
                 From fast-growing startups to global enterprises, we partner with brands that demand excellence in AI-powered marketing.
               </p>
             </div>

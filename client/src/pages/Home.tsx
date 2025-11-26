@@ -19,11 +19,11 @@ import NeedHelpCTA from "@/components/NeedHelpCTA";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
+import AdvancedScrollReveal from "@/components/AdvancedScrollReveal";
 import { localBusinessSchema, organizationSchema, createFAQSchema } from "@/utils/structuredData";
 import { createAggregateRatingSchema, createReviewSchema } from "@/utils/advancedSchema";
 
 export default function Home() {
-  // FAQ Schema for voice search & position zero
   const faqSchema = createFAQSchema([
     {
       question: "What services does OARC Digital offer?",
@@ -43,10 +43,8 @@ export default function Home() {
     }
   ]);
   
-  // Aggregate Rating Schema - Shows stars in Google search!
   const ratingSchema = createAggregateRatingSchema("OARC Digital", 4.9, 127);
   
-  // Review Schema from real testimonials
   const reviewSchema = createReviewSchema([
     {
       author: "Sarah Chen",
@@ -68,7 +66,6 @@ export default function Home() {
     }
   ]);
   
-  // Combine schemas for homepage
   const homepageSchema = {
     "@context": "https://schema.org",
     "@graph": [localBusinessSchema, organizationSchema, faqSchema, ratingSchema, reviewSchema]
@@ -84,24 +81,78 @@ export default function Home() {
       />
       <Navigation />
       <HeroSection />
-      <TrustedBrandsSection />
-      <AICreativeSection />
-      <Section2 />
-      <Section3 />
-      <Section5 />
-      <HireAIEmployeesSection />
-      <TechEnabledSection />
-      <LetsTalkRevenueSection />
-      <SuccessInNumbers />
-      <BrandShowcaseSection />
-      <Testimonials />
-      <ROICalculatorSection />
-      <MoneyBackGuaranteeSection />
-      <BlogPreviewSection />
-      <CTASections />
-      <NeedHelpCTA />
-      <FAQ />
-      <Footer />
+      
+      <AdvancedScrollReveal variant="fade" delay={0} duration={0.7}>
+        <TrustedBrandsSection />
+      </AdvancedScrollReveal>
+      
+      <AdvancedScrollReveal variant="slide-up" delay={50} duration={0.8}>
+        <AICreativeSection />
+      </AdvancedScrollReveal>
+      
+      <AdvancedScrollReveal variant="slide-right" delay={0} duration={0.9}>
+        <Section2 />
+      </AdvancedScrollReveal>
+      
+      <AdvancedScrollReveal variant="slide-left" delay={0} duration={0.9}>
+        <Section3 />
+      </AdvancedScrollReveal>
+      
+      <AdvancedScrollReveal variant="slide-up" delay={50} duration={0.8}>
+        <Section5 />
+      </AdvancedScrollReveal>
+      
+      <AdvancedScrollReveal variant="slide-up" delay={100} duration={0.8}>
+        <HireAIEmployeesSection />
+      </AdvancedScrollReveal>
+      
+      <AdvancedScrollReveal variant="slide-right" delay={0} duration={0.9}>
+        <TechEnabledSection />
+      </AdvancedScrollReveal>
+      
+      <AdvancedScrollReveal variant="slide-up" delay={50} duration={0.8}>
+        <LetsTalkRevenueSection />
+      </AdvancedScrollReveal>
+      
+      <AdvancedScrollReveal variant="scale" delay={0} duration={0.9}>
+        <SuccessInNumbers />
+      </AdvancedScrollReveal>
+      
+      <AdvancedScrollReveal variant="fade" delay={50} duration={0.8}>
+        <BrandShowcaseSection />
+      </AdvancedScrollReveal>
+      
+      <AdvancedScrollReveal variant="slide-up" delay={0} duration={0.8}>
+        <Testimonials />
+      </AdvancedScrollReveal>
+      
+      <AdvancedScrollReveal variant="slide-left" delay={50} duration={0.9}>
+        <ROICalculatorSection />
+      </AdvancedScrollReveal>
+      
+      <AdvancedScrollReveal variant="scale" delay={0} duration={0.8}>
+        <MoneyBackGuaranteeSection />
+      </AdvancedScrollReveal>
+      
+      <AdvancedScrollReveal variant="slide-up" delay={50} duration={0.8}>
+        <BlogPreviewSection />
+      </AdvancedScrollReveal>
+      
+      <AdvancedScrollReveal variant="fade" delay={0} duration={0.7}>
+        <CTASections />
+      </AdvancedScrollReveal>
+      
+      <AdvancedScrollReveal variant="slide-up" delay={50} duration={0.8}>
+        <NeedHelpCTA />
+      </AdvancedScrollReveal>
+      
+      <AdvancedScrollReveal variant="slide-up" delay={0} duration={0.8}>
+        <FAQ />
+      </AdvancedScrollReveal>
+      
+      <AdvancedScrollReveal variant="fade" delay={0} duration={0.6}>
+        <Footer />
+      </AdvancedScrollReveal>
     </div>
   );
 }
