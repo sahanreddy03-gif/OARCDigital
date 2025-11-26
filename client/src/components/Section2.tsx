@@ -75,9 +75,9 @@ export default function Section2() {
             </div>
           </div>
 
-          {/* Right Visual - Phone Mockup - Smaller with Animated Background */}
+          {/* Right Visual - Phone Mockup - Larger with Animated Background */}
           <div className="col-span-1 flex justify-center lg:justify-end items-center">
-            <div className="relative w-full max-w-[140px] sm:max-w-[180px] md:max-w-[220px] lg:max-w-[260px]" style={{ aspectRatio: '9/16' }}>
+            <div className="relative w-full max-w-[180px] sm:max-w-[240px] md:max-w-[300px] lg:max-w-[340px]" style={{ aspectRatio: '9/16' }}>
               {/* Phone interior with animated Instagram/Reels-style backgrounds */}
               <div className="absolute inset-4 md:inset-5 rounded-[1.5rem] overflow-hidden">
                 {backgrounds.map((bg, index) => (
