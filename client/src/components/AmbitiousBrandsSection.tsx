@@ -41,7 +41,10 @@ export default function AmbitiousBrandsSection() {
 
   return (
     <section 
-      className="relative bg-white py-16 md:py-20 lg:py-24 overflow-hidden"
+      className="relative py-16 md:py-20 lg:py-24 overflow-hidden"
+      style={{ 
+        background: 'linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(249,250,251,1) 50%, rgba(255,255,255,1) 100%)' 
+      }}
       data-testid="ambitious-brands-section"
     >
       <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-6xl">
