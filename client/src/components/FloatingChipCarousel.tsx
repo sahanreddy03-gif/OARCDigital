@@ -1,5 +1,5 @@
-// 3D Curved Coverflow Carousel for homepage hero section
-import { useEffect, useRef, useState, useCallback } from "react";
+// 3D Concave Curved Carousel for homepage hero section
+import { useEffect, useRef, useState } from "react";
 import digitalMarketing from '@assets/1_1763067301763.avif';
 import socialMedia from '@assets/stock_images/social_media_managem_8e61c86d.jpg';
 import aiVideo from '@assets/3_1763067301764.avif';
@@ -38,7 +38,7 @@ const services = [
   { text: "Support AI Employees", image: supportAI },
 ];
 
-// Flat carousel for portrait mobile
+// Flat carousel for portrait mobile - original simple scroll
 function FlatCarousel() {
   const trackRef = useRef<HTMLDivElement>(null);
   const animationRef = useRef<number>();
@@ -90,7 +90,7 @@ function FlatCarousel() {
   }, []);
 
   return (
-    <div className="w-full overflow-hidden">
+    <div className="w-full overflow-hidden" style={{ maxWidth: '100vw' }}>
       <div 
         ref={trackRef}
         className="flex whitespace-nowrap gap-3"
@@ -121,28 +121,82 @@ function FlatCarousel() {
   );
 }
 
-// 3D Curved Coverflow for landscape/desktop
-function CurvedCarousel() {
+// 3D Concave Curved Carousel for landscape/desktop
+// Center cards sink INTO the screen (smaller), edge cards come FORWARD (larger)
+function ConcaveCarousel() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
   const animationRef = useRef<number>();
-  const [offset, setOffset] = useState(0);
+  const offsetRef = useRef(0);
   
-  const visibleCount = 7;
+  const visibleCount = 9;
   const centerIndex = Math.floor(visibleCount / 2);
   
+  // Use refs for smooth animation without React state updates
   useEffect(() => {
-    let currentOffset = 0;
-    const speed = 0.008;
+    const speed = 0.012; // Smooth rotation speed
+    
+    const getCardTransform = (visualIndex: number) => {
+      const distanceFromCenter = visualIndex - centerIndex;
+      const normalizedDistance = distanceFromCenter / centerIndex;
+      
+      // CONCAVE EFFECT: Center cards go INWARD (negative Z, smaller scale)
+      // Edge cards come FORWARD (positive Z, larger scale)
+      const translateZ = -150 + Math.abs(normalizedDistance) * 180; // Center: -150, Edges: +30
+      const scale = 0.7 + Math.abs(normalizedDistance) * 0.35; // Center: 0.7, Edges: 1.05
+      
+      // Cards angle inward toward the center (like sides of a bowl curving away)
+      const rotateY = normalizedDistance * 45; // Positive = right side rotates right, left side rotates left
+      
+      // Horizontal spacing
+      const translateX = distanceFromCenter * 180;
+      
+      // Opacity: edges slightly faded
+      const opacity = 1 - Math.abs(normalizedDistance) * 0.25;
+      
+      // Z-index: edges on top since they're closer
+      const zIndex = Math.round(Math.abs(normalizedDistance) * 10);
+      
+      return { translateX, translateZ, rotateY, scale, opacity, zIndex };
+    };
     
     const animate = () => {
-      currentOffset += speed;
-      if (currentOffset >= services.length) {
-        currentOffset = 0;
+      offsetRef.current += speed;
+      if (offsetRef.current >= services.length) {
+        offsetRef.current = 0;
       }
-      setOffset(currentOffset);
+      
+      const baseIndex = Math.floor(offsetRef.current);
+      const fraction = offsetRef.current - baseIndex;
+      
+      // Update each card directly via refs (no React state = smoother)
+      cardsRef.current.forEach((card, i) => {
+        if (!card) return;
+        
+        const serviceIndex = (baseIndex + i) % services.length;
+        const visualIndex = i - fraction;
+        const { translateX, translateZ, rotateY, scale, opacity, zIndex } = getCardTransform(visualIndex);
+        
+        card.style.transform = `translateX(${translateX}px) translateZ(${translateZ}px) rotateY(${rotateY}deg) scale(${scale})`;
+        card.style.opacity = String(Math.max(0.3, opacity));
+        card.style.zIndex = String(zIndex);
+        
+        // Update image src for infinite loop
+        const img = card.querySelector('img') as HTMLImageElement;
+        const span = card.querySelector('span');
+        if (img && services[serviceIndex]) {
+          img.src = services[serviceIndex].image;
+          img.alt = services[serviceIndex].text;
+        }
+        if (span && services[serviceIndex]) {
+          span.textContent = services[serviceIndex].text;
+        }
+      });
+      
       animationRef.current = requestAnimationFrame(animate);
     };
     
+    // Start animation
     animationRef.current = requestAnimationFrame(animate);
     
     return () => {
@@ -152,79 +206,43 @@ function CurvedCarousel() {
     };
   }, []);
 
-  const getCardStyle = useCallback((visualIndex: number) => {
-    const distanceFromCenter = visualIndex - centerIndex;
-    const normalizedDistance = distanceFromCenter / centerIndex;
-    
-    const scale = 1 + Math.abs(normalizedDistance) * 0.15;
-    const rotateY = -normalizedDistance * 35;
-    const translateZ = -Math.abs(normalizedDistance) * 60;
-    const translateX = distanceFromCenter * 220;
-    const opacity = 1 - Math.abs(normalizedDistance) * 0.2;
-    const blur = Math.abs(normalizedDistance) > 2 ? Math.abs(normalizedDistance) - 2 : 0;
-    
-    return {
-      transform: `translateX(${translateX}px) translateZ(${translateZ}px) rotateY(${rotateY}deg) scale(${scale})`,
-      opacity: Math.max(0.4, opacity),
-      filter: blur > 0 ? `blur(${blur}px)` : 'none',
-      zIndex: 10 - Math.abs(Math.round(distanceFromCenter)),
-    };
-  }, [centerIndex]);
-
-  const getVisibleServices = () => {
-    const items = [];
-    const baseIndex = Math.floor(offset);
-    const fraction = offset - baseIndex;
-    
-    for (let i = 0; i < visibleCount; i++) {
-      const serviceIndex = (baseIndex + i) % services.length;
-      const adjustedVisualIndex = i - fraction;
-      items.push({
-        service: services[serviceIndex],
-        visualIndex: adjustedVisualIndex,
-        key: `${serviceIndex}-${Math.floor(offset / services.length)}`,
-      });
-    }
-    return items;
-  };
-
   return (
     <div 
       ref={containerRef}
       className="w-full overflow-hidden relative"
       style={{ 
-        perspective: '1200px',
+        perspective: '1000px',
         perspectiveOrigin: 'center center',
-        height: '140px',
+        height: '160px',
       }}
     >
       <div 
         className="absolute inset-0 flex items-center justify-center"
         style={{ transformStyle: 'preserve-3d' }}
       >
-        {getVisibleServices().map(({ service, visualIndex, key }) => {
-          const style = getCardStyle(visualIndex);
+        {Array.from({ length: visibleCount }).map((_, i) => {
+          const serviceIndex = i % services.length;
           return (
             <div
-              key={key}
+              key={i}
+              ref={el => cardsRef.current[i] = el}
               className="absolute"
               style={{
-                ...style,
-                transition: 'none',
                 willChange: 'transform, opacity',
+                backfaceVisibility: 'hidden',
               }}
-              data-testid={`carousel-3d-chip-${service.text.toLowerCase().replace(/\s+/g, '-')}`}
+              data-testid={`carousel-3d-chip-${i}`}
             >
-              <div className="group flex items-center gap-3 px-4 py-3 bg-white/95 backdrop-blur-sm rounded-xl shadow-lg hover:shadow-2xl hover:bg-white transition-all duration-300 cursor-pointer border border-white/20 hover:border-[#c4ff4d]/30">
+              <div className="group flex items-center gap-3 px-4 py-3 bg-white/95 backdrop-blur-sm rounded-xl shadow-xl hover:shadow-2xl hover:bg-white transition-all duration-300 cursor-pointer border border-white/20 hover:border-[#c4ff4d]/30">
                 <div className="w-[70px] h-[70px] rounded-xl overflow-hidden flex-shrink-0 bg-zinc-100 ring-2 ring-white/50 group-hover:ring-[#c4ff4d]/40 transition-all duration-300">
                   <img 
-                    src={service.image} 
-                    alt={service.text}
+                    src={services[serviceIndex].image} 
+                    alt={services[serviceIndex].text}
                     className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
                   />
                 </div>
                 <span className="text-base font-bold text-gray-900 group-hover:text-zinc-950 pr-2.5 whitespace-nowrap transition-colors duration-300">
-                  {service.text}
+                  {services[serviceIndex].text}
                 </span>
               </div>
             </div>
@@ -260,5 +278,5 @@ export default function FloatingChipCarousel() {
     };
   }, []);
 
-  return isLandscapeOrDesktop ? <CurvedCarousel /> : <FlatCarousel />;
+  return isLandscapeOrDesktop ? <ConcaveCarousel /> : <FlatCarousel />;
 }
