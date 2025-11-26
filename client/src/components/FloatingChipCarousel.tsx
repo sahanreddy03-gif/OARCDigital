@@ -224,17 +224,20 @@ function ConcaveCarousel() {
           card.style.filter = 'none';
         }
         
-        // Update the image source if service changed
+        // Update the image source if service changed - use data attribute to track current index
         const service = services[serviceIndex];
-        if (img && img.src !== service.image) {
-          img.src = service.image;
-          img.alt = service.text;
-        }
-        
-        // Update text content
-        const textSpan = card.querySelector('[data-text]') as HTMLSpanElement;
-        if (textSpan && textSpan.textContent !== service.text) {
-          textSpan.textContent = service.text;
+        const currentServiceIndex = card.dataset.serviceIndex;
+        if (currentServiceIndex !== String(serviceIndex)) {
+          card.dataset.serviceIndex = String(serviceIndex);
+          if (img) {
+            img.src = service.image;
+            img.alt = service.text;
+          }
+          // Update text content
+          const textSpan = card.querySelector('[data-text]') as HTMLSpanElement;
+          if (textSpan) {
+            textSpan.textContent = service.text;
+          }
         }
       }
       
