@@ -12,7 +12,11 @@ import {
   Cog, 
   TrendingUp, 
   Lightbulb, 
-  Sparkles 
+  Sparkles,
+  Rocket,
+  Users,
+  Award,
+  Heart
 } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -250,6 +254,173 @@ export default function WhyUs() {
               We are positioned as a full-service, AI-first agency that brings together strategy, automation, tech, and creativity to shape brand narratives that matter across all digital platforms, worldwide.
             </p>
           </div>
+        </div>
+      </section>
+
+      {/* OARC Origin Story Section */}
+      <section className="bg-gradient-to-b from-zinc-50 to-white py-24 md:py-36" data-testid="section-origin-story">
+        <div className="max-w-7xl mx-auto px-6">
+          <ScrollReveal>
+            <div className="text-center mb-16 md:mb-24">
+              <p className="text-xs md:text-sm uppercase tracking-[0.4em] text-zinc-500 mb-6 font-bold">
+                OUR ORIGIN
+              </p>
+              <h2 
+                className="font-black text-zinc-900 mb-8 leading-tight" 
+                style={{ 
+                  fontSize: 'clamp(2rem, 6vw, 4rem)',
+                  letterSpacing: '-0.03em'
+                }}
+                data-testid="heading-origin"
+              >
+                What Does <span className="text-[#FF5A00]">OARC</span> Mean?
+              </h2>
+              <div className="flex flex-wrap justify-center items-center gap-3 md:gap-6 mb-8">
+                <span className="text-xl md:text-2xl lg:text-3xl font-black text-[#FF5A00]" style={{ letterSpacing: '-0.02em' }}>O</span>
+                <span className="text-lg md:text-xl lg:text-2xl font-bold text-zinc-700">ptimised</span>
+                <span className="text-xl md:text-2xl lg:text-3xl font-black text-[#00FF9C]" style={{ letterSpacing: '-0.02em' }}>A</span>
+                <span className="text-lg md:text-xl lg:text-2xl font-bold text-zinc-700">I</span>
+                <span className="text-xl md:text-2xl lg:text-3xl font-black text-[#FF5A00]" style={{ letterSpacing: '-0.02em' }}>R</span>
+                <span className="text-lg md:text-xl lg:text-2xl font-bold text-zinc-700">evenue</span>
+                <span className="text-xl md:text-2xl lg:text-3xl font-black text-[#00FF9C]" style={{ letterSpacing: '-0.02em' }}>C</span>
+                <span className="text-lg md:text-xl lg:text-2xl font-bold text-zinc-700">reativity</span>
+              </div>
+              <p className="text-lg md:text-xl text-zinc-600 max-w-3xl mx-auto leading-relaxed" data-testid="text-origin-intro">
+                Our name embodies our philosophy: leveraging <strong className="text-zinc-900">Optimised AI</strong> to drive <strong className="text-zinc-900">Revenue</strong> through exceptional <strong className="text-zinc-900">Creativity</strong>.
+              </p>
+            </div>
+          </ScrollReveal>
+
+          {/* Timeline: 2020-2022 Journey */}
+          <ScrollReveal delay={100}>
+            <div className="relative">
+              {/* Timeline Line - Desktop */}
+              <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#FF5A00] via-[#00FF9C] to-[#FF5A00]"></div>
+
+              <div className="space-y-12 md:space-y-0">
+                {/* 2020 Milestone */}
+                <div className="relative md:flex md:items-center md:justify-between md:mb-20" data-testid="milestone-2020">
+                  {/* Year Marker - Mobile */}
+                  <div className="md:hidden flex items-center gap-4 mb-6">
+                    <div className="w-16 h-16 rounded-full bg-[#FF5A00] flex items-center justify-center shadow-lg shadow-orange-500/30">
+                      <Rocket className="w-8 h-8 text-white" />
+                    </div>
+                    <span className="text-3xl font-black text-zinc-900">2020</span>
+                  </div>
+                  
+                  {/* Left Content */}
+                  <div className="md:w-5/12 md:pr-12 md:text-right">
+                    <div className="bg-white rounded-xl p-8 shadow-lg border border-zinc-100 hover-elevate">
+                      <h3 className="text-2xl md:text-3xl font-black text-zinc-900 mb-4" style={{ letterSpacing: '-0.02em' }}>
+                        Founded in Malta
+                      </h3>
+                      <p className="text-base md:text-lg text-zinc-600 leading-relaxed">
+                        OARC Digital was born with a bold vision: to revolutionize digital marketing through the power of AI. From our Mediterranean hub, we set out to redefine what's possible in marketing.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Center Icon - Desktop */}
+                  <div className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 w-20 h-20 rounded-full bg-[#FF5A00] items-center justify-center shadow-lg shadow-orange-500/30 z-10">
+                    <Rocket className="w-10 h-10 text-white" />
+                  </div>
+
+                  {/* Right Year Label - Desktop */}
+                  <div className="hidden md:block md:w-5/12 md:pl-12">
+                    <span className="text-5xl lg:text-6xl font-black text-zinc-200" style={{ letterSpacing: '-0.04em' }}>2020</span>
+                  </div>
+                </div>
+
+                {/* 2021 Milestone */}
+                <div className="relative md:flex md:items-center md:justify-between md:mb-20" data-testid="milestone-2021">
+                  {/* Year Marker - Mobile */}
+                  <div className="md:hidden flex items-center gap-4 mb-6">
+                    <div className="w-16 h-16 rounded-full bg-[#00FF9C] flex items-center justify-center shadow-lg shadow-green-500/30">
+                      <Palette className="w-8 h-8 text-zinc-900" />
+                    </div>
+                    <span className="text-3xl font-black text-zinc-900">2021</span>
+                  </div>
+
+                  {/* Left Year Label - Desktop */}
+                  <div className="hidden md:block md:w-5/12 md:pr-12 md:text-right">
+                    <span className="text-5xl lg:text-6xl font-black text-zinc-200" style={{ letterSpacing: '-0.04em' }}>2021</span>
+                  </div>
+
+                  {/* Center Icon - Desktop */}
+                  <div className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 w-20 h-20 rounded-full bg-[#00FF9C] items-center justify-center shadow-lg shadow-green-500/30 z-10">
+                    <Palette className="w-10 h-10 text-zinc-900" />
+                  </div>
+
+                  {/* Right Content */}
+                  <div className="md:w-5/12 md:pl-12">
+                    <div className="bg-white rounded-xl p-8 shadow-lg border border-zinc-100 hover-elevate">
+                      <h3 className="text-2xl md:text-3xl font-black text-zinc-900 mb-4" style={{ letterSpacing: '-0.02em' }}>
+                        AI-Powered Creative Launch
+                      </h3>
+                      <p className="text-base md:text-lg text-zinc-600 leading-relaxed">
+                        Launched our revolutionary AI-powered creative services, rapidly expanding to serve European clients with cutting-edge campaigns that outperformed traditional approaches.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 2022 Milestone */}
+                <div className="relative md:flex md:items-center md:justify-between" data-testid="milestone-2022">
+                  {/* Year Marker - Mobile */}
+                  <div className="md:hidden flex items-center gap-4 mb-6">
+                    <div className="w-16 h-16 rounded-full bg-[#FF5A00] flex items-center justify-center shadow-lg shadow-orange-500/30">
+                      <Users className="w-8 h-8 text-white" />
+                    </div>
+                    <span className="text-3xl font-black text-zinc-900">2022</span>
+                  </div>
+
+                  {/* Left Content */}
+                  <div className="md:w-5/12 md:pr-12 md:text-right">
+                    <div className="bg-white rounded-xl p-8 shadow-lg border border-zinc-100 hover-elevate">
+                      <h3 className="text-2xl md:text-3xl font-black text-zinc-900 mb-4" style={{ letterSpacing: '-0.02em' }}>
+                        AI Employees Platform
+                      </h3>
+                      <p className="text-base md:text-lg text-zinc-600 leading-relaxed">
+                        Introduced our groundbreaking AI Employees platform, empowering businesses with autonomous digital workers. Grew to serve 50+ enterprise clients across multiple industries.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Center Icon - Desktop */}
+                  <div className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 w-20 h-20 rounded-full bg-[#FF5A00] items-center justify-center shadow-lg shadow-orange-500/30 z-10">
+                    <Users className="w-10 h-10 text-white" />
+                  </div>
+
+                  {/* Right Year Label - Desktop */}
+                  <div className="hidden md:block md:w-5/12 md:pl-12">
+                    <span className="text-5xl lg:text-6xl font-black text-zinc-200" style={{ letterSpacing: '-0.04em' }}>2022</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ScrollReveal>
+
+          {/* Mission Statement */}
+          <ScrollReveal delay={200}>
+            <div className="mt-20 md:mt-28 text-center">
+              <div className="inline-flex items-center justify-center w-16 h-16 md:w-20 md:h-20 rounded-full bg-[#FF5A00]/10 mb-8">
+                <Heart className="w-8 h-8 md:w-10 md:h-10 text-[#FF5A00]" />
+              </div>
+              <h3 className="text-xl md:text-2xl font-bold text-zinc-500 uppercase tracking-[0.2em] mb-6">
+                Our Mission
+              </h3>
+              <blockquote 
+                className="font-black text-zinc-900 leading-tight max-w-4xl mx-auto"
+                style={{ 
+                  fontSize: 'clamp(1.5rem, 4vw, 2.5rem)',
+                  letterSpacing: '-0.02em'
+                }}
+                data-testid="text-mission-statement"
+              >
+                "We believe every business deserves access to <span className="text-[#FF5A00]">world-class AI-powered marketing</span>."
+              </blockquote>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 

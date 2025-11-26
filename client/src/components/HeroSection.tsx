@@ -62,8 +62,8 @@ export default function HeroSection() {
     <>
       <style>{styles}</style>
       <section className="relative min-h-screen flex flex-col overflow-x-hidden bg-black">
-      {/* Mobile Layout - Clean bottom-aligned layout */}
-      <div className="md:hidden absolute inset-0">
+      {/* Mobile Layout - Clean bottom-aligned layout (hidden in landscape) */}
+      <div className="md:hidden landscape-hero-mobile-hidden absolute inset-0">
         <div 
           className="absolute inset-0 bg-cover bg-no-repeat"
           style={{ 
@@ -92,9 +92,9 @@ export default function HeroSection() {
         <div className="absolute inset-0 bg-gradient-to-b from-transparent from-0% via-zinc-950/60 via-50% to-zinc-950/85 to-95%"></div>
       </div>
 
-      {/* Desktop Layout - Horizontal with side fade - Shifted right to show more color */}
+      {/* Desktop Layout - Horizontal with side fade - Shifted right to show more color (also shown in landscape) */}
       <div 
-        className="hidden md:block absolute inset-0 bg-cover bg-no-repeat"
+        className="hidden md:block landscape-hero-desktop absolute inset-0 bg-cover bg-no-repeat"
         style={{ 
           backgroundImage: `url(${heroBackground})`,
           backgroundPosition: '35% center',
@@ -102,48 +102,48 @@ export default function HeroSection() {
           transition: 'transform 0.1s ease-out'
         }}
       />
-      {/* AI Grid Overlay - Desktop with pulse */}
-      <div className="hidden md:block absolute inset-0 animate-[gridPulse_10s_ease-in-out_infinite]" 
+      {/* AI Grid Overlay - Desktop with pulse (also shown in landscape) */}
+      <div className="hidden md:block landscape-hero-desktop absolute inset-0 animate-[gridPulse_10s_ease-in-out_infinite]" 
            style={{
              backgroundImage: 'linear-gradient(rgba(196, 255, 77, 0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(196, 255, 77, 0.3) 1px, transparent 1px)',
              backgroundSize: '50px 50px'
            }} 
       />
-      {/* Floating light particles - Desktop with varied animation */}
-      <div className="hidden md:block absolute w-1.5 h-1.5 rounded-full bg-[#c4ff4d] animate-[particleFloat_8s_ease-in-out_infinite]" 
+      {/* Floating light particles - Desktop with varied animation (also shown in landscape) */}
+      <div className="hidden md:block landscape-hero-desktop absolute w-1.5 h-1.5 rounded-full bg-[#c4ff4d] animate-[particleFloat_8s_ease-in-out_infinite]" 
            style={{ top: '20%', left: '15%', boxShadow: '0 0 20px #c4ff4d' }} 
       />
-      <div className="hidden md:block absolute w-1 h-1 rounded-full bg-[#c4ff4d] animate-[particleFloat_10s_ease-in-out_infinite]" 
+      <div className="hidden md:block landscape-hero-desktop absolute w-1 h-1 rounded-full bg-[#c4ff4d] animate-[particleFloat_10s_ease-in-out_infinite]" 
            style={{ top: '60%', left: '25%', boxShadow: '0 0 15px #c4ff4d', animationDelay: '2s' }} 
       />
-      <div className="hidden md:block absolute w-1.5 h-1.5 rounded-full bg-[#c4ff4d] animate-[particleFloat_9s_ease-in-out_infinite]" 
+      <div className="hidden md:block landscape-hero-desktop absolute w-1.5 h-1.5 rounded-full bg-[#c4ff4d] animate-[particleFloat_9s_ease-in-out_infinite]" 
            style={{ top: '40%', left: '35%', boxShadow: '0 0 18px #c4ff4d', animationDelay: '4s' }} 
       />
-      <div className="hidden md:block absolute w-1 h-1 rounded-full bg-[#c4ff4d] animate-[particleFloat_11s_ease-in-out_infinite]" 
+      <div className="hidden md:block landscape-hero-desktop absolute w-1 h-1 rounded-full bg-[#c4ff4d] animate-[particleFloat_11s_ease-in-out_infinite]" 
            style={{ top: '30%', left: '45%', boxShadow: '0 0 16px #c4ff4d', animationDelay: '6s' }} 
       />
-      {/* Horizontal data streams - Desktop */}
-      <div className="hidden md:block absolute w-[300px] h-[1px] bg-gradient-to-r from-transparent via-[#c4ff4d]/40 to-transparent animate-[scanHorizontal1_10s_linear_infinite]" 
+      {/* Horizontal data streams - Desktop (also shown in landscape) */}
+      <div className="hidden md:block landscape-hero-desktop absolute w-[300px] h-[1px] bg-gradient-to-r from-transparent via-[#c4ff4d]/40 to-transparent animate-[scanHorizontal1_10s_linear_infinite]" 
            style={{ top: '28%', left: 0, boxShadow: '0 0 10px rgba(196, 255, 77, 0.4)' }} 
       />
-      <div className="hidden md:block absolute w-[250px] h-[1px] bg-gradient-to-r from-transparent via-[#c4ff4d]/35 to-transparent animate-[scanHorizontal2_12s_linear_infinite]" 
+      <div className="hidden md:block landscape-hero-desktop absolute w-[250px] h-[1px] bg-gradient-to-r from-transparent via-[#c4ff4d]/35 to-transparent animate-[scanHorizontal2_12s_linear_infinite]" 
            style={{ top: '48%', left: 0, boxShadow: '0 0 8px rgba(196, 255, 77, 0.3)', animationDelay: '4s' }} 
       />
-      <div className="hidden md:block absolute w-[280px] h-[1px] bg-gradient-to-r from-transparent via-[#c4ff4d]/30 to-transparent animate-[scanHorizontal1_14s_linear_infinite]" 
+      <div className="hidden md:block landscape-hero-desktop absolute w-[280px] h-[1px] bg-gradient-to-r from-transparent via-[#c4ff4d]/30 to-transparent animate-[scanHorizontal1_14s_linear_infinite]" 
            style={{ top: '68%', left: 0, boxShadow: '0 0 9px rgba(196, 255, 77, 0.3)', animationDelay: '7s' }} 
       />
-      <div className="hidden md:block absolute w-[200px] h-[1px] bg-gradient-to-r from-transparent via-[#c4ff4d]/25 to-transparent animate-[scanHorizontal2_16s_linear_infinite]" 
+      <div className="hidden md:block landscape-hero-desktop absolute w-[200px] h-[1px] bg-gradient-to-r from-transparent via-[#c4ff4d]/25 to-transparent animate-[scanHorizontal2_16s_linear_infinite]" 
            style={{ top: '82%', left: 0, boxShadow: '0 0 7px rgba(196, 255, 77, 0.2)', animationDelay: '10s' }} 
       />
-      {/* Light Sweep Effect */}
-      <div className="hidden md:block absolute inset-0 overflow-hidden pointer-events-none">
+      {/* Light Sweep Effect (also shown in landscape) */}
+      <div className="hidden md:block landscape-hero-desktop absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute w-1/3 h-[200%] -top-1/2 bg-gradient-to-r from-transparent via-white/5 to-transparent animate-[lightSweep_15s_ease-in-out_infinite]" 
              style={{ animationDelay: '2s' }} 
         />
       </div>
-      <div className="hidden md:block absolute inset-0 bg-gradient-to-r from-black/80 via-black/30 to-transparent"></div>
-      <div className="hidden md:block absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/50"></div>
-      <div className="hidden md:block absolute inset-0 bg-gradient-to-l from-transparent via-black/10 to-black/60"></div>
+      <div className="hidden md:block landscape-hero-desktop absolute inset-0 bg-gradient-to-r from-black/80 via-black/30 to-transparent"></div>
+      <div className="hidden md:block landscape-hero-desktop absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/50"></div>
+      <div className="hidden md:block landscape-hero-desktop absolute inset-0 bg-gradient-to-l from-transparent via-black/10 to-black/60"></div>
       
       {/* Mobile: Bottom-aligned flex column | Desktop: Same compact layout */}
       <div className="relative flex-1 flex flex-col justify-end pt-14 md:pt-20 pb-6 md:pb-6">
