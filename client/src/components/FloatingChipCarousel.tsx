@@ -1,5 +1,5 @@
 // 3D Concave Curved Carousel for homepage hero section
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import digitalMarketing from '@assets/1_1763067301763.avif';
 import socialMedia from '@assets/stock_images/social_media_managem_8e61c86d.jpg';
 import aiVideo from '@assets/3_1763067301764.avif';
@@ -38,66 +38,18 @@ const services = [
   { text: "Support AI Employees", image: supportAI },
 ];
 
-// Flat carousel for portrait mobile - original simple scroll
+// Flat carousel for portrait mobile - CSS animation based infinite scroll
 function FlatCarousel() {
-  const trackRef = useRef<HTMLDivElement>(null);
-  const animationRef = useRef<number>();
-  const duplicatedServices = [...services, ...services];
-
-  useEffect(() => {
-    const track = trackRef.current;
-    if (!track) return;
-
-    const speed = 0.7; // Slightly faster for mobile
-    let currentTranslate = 0;
-    let contentWidth = 0;
-
-    const measureWidth = () => {
-      if (track.scrollWidth > 0) {
-        contentWidth = track.scrollWidth / 2;
-      }
-    };
-
-    const animate = () => {
-      currentTranslate -= speed;
-      // Seamlessly loop: add contentWidth when we've scrolled past one full set
-      if (Math.abs(currentTranslate) >= contentWidth) {
-        currentTranslate += contentWidth;
-      }
-      if (track) {
-        track.style.transform = `translateX(${currentTranslate}px)`;
-      }
-      animationRef.current = requestAnimationFrame(animate);
-    };
-
-    if (track) {
-      track.style.transform = 'translateX(0px)';
-    }
-
-    const startTimer = setTimeout(() => {
-      measureWidth();
-      if (contentWidth > 0) {
-        currentTranslate = 0;
-        animate();
-      }
-    }, 200);
-
-    return () => {
-      clearTimeout(startTimer);
-      if (animationRef.current) {
-        cancelAnimationFrame(animationRef.current);
-      }
-    };
-  }, []);
-
   return (
     <div className="w-full overflow-hidden" style={{ maxWidth: '100vw' }}>
       <div 
-        ref={trackRef}
-        className="flex whitespace-nowrap gap-3"
-        style={{ willChange: 'transform' }}
+        className="flex whitespace-nowrap gap-3 animate-scroll-flat"
+        style={{ 
+          willChange: 'transform',
+        }}
       >
-        {duplicatedServices.map((service, index) => (
+        {/* Triple the items for seamless infinite loop */}
+        {[...services, ...services, ...services].map((service, index) => (
           <div 
             key={index} 
             className="inline-flex flex-shrink-0"
@@ -109,6 +61,7 @@ function FlatCarousel() {
                   src={service.image} 
                   alt={service.text}
                   className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                  loading="lazy"
                 />
               </div>
               <span className="text-xs font-bold text-gray-900 group-hover:text-zinc-950 pr-1 whitespace-nowrap transition-colors duration-300">
@@ -118,34 +71,40 @@ function FlatCarousel() {
           </div>
         ))}
       </div>
+      <style>{`
+        @keyframes scroll-flat {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-33.333%); }
+        }
+        .animate-scroll-flat {
+          animation: scroll-flat 40s linear infinite;
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .animate-scroll-flat {
+            animation: none;
+          }
+        }
+      `}</style>
     </div>
   );
 }
 
 // 3D Concave Curved Carousel for landscape/desktop
-// Center cards sink INTO the screen (smaller), edge cards come FORWARD (larger)
-// Optimized: Uses refs instead of state to avoid React re-renders, lerp interpolation for smooth motion
+// Uses pure requestAnimationFrame with modulo wrapping - no state changes, no resets
 function ConcaveCarousel() {
   const containerRef = useRef<HTMLDivElement>(null);
   const animationRef = useRef<number>();
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
   const imageRefs = useRef<(HTMLImageElement | null)[]>([]);
   
-  // Animation state stored in refs to avoid React re-renders
-  const targetOffsetRef = useRef(0);
-  const currentOffsetRef = useRef(0);
-  const velocityRef = useRef(0);
+  // Animation state stored in refs - persists across renders
+  const offsetRef = useRef(0);
   const lastTimeRef = useRef(0);
+  const isRunningRef = useRef(false);
   
   const visibleCount = 9;
   const centerIndex = Math.floor(visibleCount / 2);
-  
-  // Lerp factor for smooth interpolation (lower = smoother but slower response)
-  const lerpFactor = 0.08;
-  // Spring dampening for organic feel
-  const springDamping = 0.92;
-  // Speed of auto-scroll - increased for more visible floating motion
-  const autoScrollSpeed = 0.018;
+  const autoScrollSpeed = 0.02; // Continuous floating speed
   
   const getCardTransform = (visualIndex: number) => {
     const distanceFromCenter = visualIndex - centerIndex;
@@ -171,44 +130,35 @@ function ConcaveCarousel() {
     return { translateX, translateZ, rotateY, scale, opacity, zIndex };
   };
 
+  // Proper modulo that handles negative numbers
+  const mod = (n: number, m: number) => ((n % m) + m) % m;
+
   useEffect(() => {
+    if (isRunningRef.current) return; // Prevent double-starting
+    isRunningRef.current = true;
+    
     const animate = (timestamp: number) => {
-      // Calculate delta time for consistent animation speed
+      // Calculate delta time for frame-rate independent animation
       if (lastTimeRef.current === 0) {
         lastTimeRef.current = timestamp;
       }
-      const deltaTime = Math.min((timestamp - lastTimeRef.current) / 16.67, 2); // Normalize to ~60fps, cap at 2x
+      const deltaTime = Math.min((timestamp - lastTimeRef.current) / 16.67, 3);
       lastTimeRef.current = timestamp;
       
-      // Update target offset (continuous auto-scroll)
-      targetOffsetRef.current += autoScrollSpeed * deltaTime;
-      if (targetOffsetRef.current >= services.length) {
-        targetOffsetRef.current -= services.length;
-        currentOffsetRef.current -= services.length;
-      }
+      // Continuously increment offset - using modulo for seamless wrap
+      offsetRef.current = mod(offsetRef.current + autoScrollSpeed * deltaTime, services.length);
       
-      // Calculate velocity for motion blur effect
-      const previousOffset = currentOffsetRef.current;
-      
-      // Lerp interpolation with spring physics for buttery-smooth motion
-      const diff = targetOffsetRef.current - currentOffsetRef.current;
-      velocityRef.current = velocityRef.current * springDamping + diff * lerpFactor;
-      currentOffsetRef.current += velocityRef.current;
-      
-      // Calculate actual velocity for motion blur
-      const actualVelocity = Math.abs(currentOffsetRef.current - previousOffset);
-      const blurAmount = Math.min(actualVelocity * 15, 2); // Max 2px blur
+      const baseIndex = Math.floor(offsetRef.current);
+      const fraction = offsetRef.current - baseIndex;
       
       // Update each card's transform directly via refs (no React re-render)
-      const baseIndex = Math.floor(currentOffsetRef.current);
-      const fraction = currentOffsetRef.current - baseIndex;
-      
       for (let i = 0; i < visibleCount; i++) {
         const card = cardRefs.current[i];
         const img = imageRefs.current[i];
         if (!card) continue;
         
-        const serviceIndex = ((baseIndex + i) % services.length + services.length) % services.length;
+        // Calculate which service this card should show
+        const serviceIndex = mod(baseIndex + i, services.length);
         const visualIndex = i - fraction;
         
         const { translateX, translateZ, rotateY, scale, opacity, zIndex } = getCardTransform(visualIndex);
@@ -218,14 +168,7 @@ function ConcaveCarousel() {
         card.style.opacity = String(Math.max(0.3, opacity));
         card.style.zIndex = String(zIndex);
         
-        // Motion blur effect when moving fast
-        if (blurAmount > 0.1) {
-          card.style.filter = `blur(${blurAmount}px)`;
-        } else {
-          card.style.filter = 'none';
-        }
-        
-        // Update the image source if service changed - use data attribute to track current index
+        // Update the image source if service changed
         const service = services[serviceIndex];
         const currentServiceIndex = card.dataset.serviceIndex;
         if (currentServiceIndex !== String(serviceIndex)) {
@@ -234,7 +177,6 @@ function ConcaveCarousel() {
             img.src = service.image;
             img.alt = service.text;
           }
-          // Update text content
           const textSpan = card.querySelector('[data-text]') as HTMLSpanElement;
           if (textSpan) {
             textSpan.textContent = service.text;
@@ -248,6 +190,7 @@ function ConcaveCarousel() {
     animationRef.current = requestAnimationFrame(animate);
     
     return () => {
+      isRunningRef.current = false;
       if (animationRef.current) {
         cancelAnimationFrame(animationRef.current);
       }
@@ -265,13 +208,13 @@ function ConcaveCarousel() {
         key={i}
         ref={(el) => { cardRefs.current[i] = el; }}
         className="absolute"
+        data-service-index={serviceIndex}
         style={{
           transform: `translateX(${translateX}px) translateZ(${translateZ}px) rotateY(${rotateY}deg) scale(${scale})`,
           opacity: Math.max(0.3, opacity),
           zIndex,
-          willChange: 'transform, opacity, filter',
+          willChange: 'transform, opacity',
           backfaceVisibility: 'hidden',
-          transition: 'transform 0.1s ease-out, opacity 0.1s ease-out',
         }}
         data-testid={`carousel-3d-chip-${i}`}
       >
@@ -282,6 +225,7 @@ function ConcaveCarousel() {
               src={service.image} 
               alt={service.text}
               className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+              loading="lazy"
             />
           </div>
           <span 
@@ -316,29 +260,17 @@ function ConcaveCarousel() {
 }
 
 export default function FloatingChipCarousel() {
-  const [isLandscapeOrDesktop, setIsLandscapeOrDesktop] = useState(false);
-
-  useEffect(() => {
-    const checkOrientation = () => {
-      const isLandscape = window.matchMedia('(orientation: landscape)').matches;
-      const isWideScreen = window.innerWidth >= 768;
-      setIsLandscapeOrDesktop(isLandscape || isWideScreen);
-    };
-
-    checkOrientation();
-
-    window.addEventListener('resize', checkOrientation);
-    window.addEventListener('orientationchange', checkOrientation);
-
-    const mediaQuery = window.matchMedia('(orientation: landscape)');
-    mediaQuery.addEventListener('change', checkOrientation);
-
-    return () => {
-      window.removeEventListener('resize', checkOrientation);
-      window.removeEventListener('orientationchange', checkOrientation);
-      mediaQuery.removeEventListener('change', checkOrientation);
-    };
-  }, []);
-
-  return isLandscapeOrDesktop ? <ConcaveCarousel /> : <FlatCarousel />;
+  return (
+    <>
+      {/* Mobile Portrait: Flat infinite scroll carousel */}
+      <div className="md:hidden landscape:hidden">
+        <FlatCarousel />
+      </div>
+      
+      {/* Desktop & Landscape: 3D Concave carousel */}
+      <div className="hidden md:block landscape:block">
+        <ConcaveCarousel />
+      </div>
+    </>
+  );
 }
