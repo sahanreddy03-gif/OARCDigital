@@ -6,7 +6,7 @@ export const companyInfo = {
   website: "www.oarcdigital.com",
   founded: "2024",
   email: "hello@oarcdigital.com",
-  phone: "+356 2701 1234"
+  phone: "+356 79711799"
 };
 
 export const aboutText = {
