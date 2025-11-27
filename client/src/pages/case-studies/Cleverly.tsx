@@ -23,10 +23,10 @@ export default function LeadGenSolutions() {
   return (
     <Layout>
       <SEOHead
-        title={caseStudiesSEO.cleverly.title}
-        description={caseStudiesSEO.cleverly.description}
-        canonicalUrl={`https://oarcdigital.com${caseStudiesSEO.cleverly.path}`}
-        ogType={caseStudiesSEO.cleverly.ogType}
+        title={caseStudiesSEO.streamFlowAutomation.title}
+        description={caseStudiesSEO.streamFlowAutomation.description}
+        canonicalUrl={`https://oarcdigital.com${caseStudiesSEO.streamFlowAutomation.path}`}
+        ogType={caseStudiesSEO.streamFlowAutomation.ogType}
       />
       {/* Hero Section */}
       <section className="relative h-[70vh] min-h-[500px] flex items-end">

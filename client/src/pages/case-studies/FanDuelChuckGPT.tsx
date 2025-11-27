@@ -23,10 +23,10 @@ export default function BetSmartSportsBuddyAI() {
   return (
     <Layout>
       <SEOHead
-        title={caseStudiesSEO.fanDuelSportsBuddyAI.title}
-        description={caseStudiesSEO.fanDuelSportsBuddyAI.description}
-        canonicalUrl={`https://oarcdigital.com${caseStudiesSEO.fanDuelSportsBuddyAI.path}`}
-        ogType={caseStudiesSEO.fanDuelSportsBuddyAI.ogType}
+        title={caseStudiesSEO.sportsAIInteractive.title}
+        description={caseStudiesSEO.sportsAIInteractive.description}
+        canonicalUrl={`https://oarcdigital.com${caseStudiesSEO.sportsAIInteractive.path}`}
+        ogType={caseStudiesSEO.sportsAIInteractive.ogType}
       />
       {/* Hero Section */}
       <section className="relative h-[70vh] min-h-[500px] flex items-end">

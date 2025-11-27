@@ -22,10 +22,10 @@ export default function FreshFarmFoodsAutomation() {
   return (
     <Layout>
       <SEOHead
-        title={caseStudiesSEO.jbsAutomation.title}
-        description={caseStudiesSEO.jbsAutomation.description}
-        canonicalUrl={`https://oarcdigital.com${caseStudiesSEO.jbsAutomation.path}`}
-        ogType={caseStudiesSEO.jbsAutomation.ogType}
+        title={caseStudiesSEO.globalSupplySystems.title}
+        description={caseStudiesSEO.globalSupplySystems.description}
+        canonicalUrl={`https://oarcdigital.com${caseStudiesSEO.globalSupplySystems.path}`}
+        ogType={caseStudiesSEO.globalSupplySystems.ogType}
       />
       {/* Hero Section */}
       <section className="relative h-[70vh] min-h-[500px] flex items-end">

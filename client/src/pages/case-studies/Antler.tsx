@@ -15,10 +15,10 @@ export default function StartUpVenturesCaseStudy() {
   return (
     <Layout>
       <SEOHead
-        title={caseStudiesSEO.antler.title}
-        description={caseStudiesSEO.antler.description}
-        canonicalUrl={`https://oarcdigital.com${caseStudiesSEO.antler.path}`}
-        ogType={caseStudiesSEO.antler.ogType}
+        title={caseStudiesSEO.ventureHubCo.title}
+        description={caseStudiesSEO.ventureHubCo.description}
+        canonicalUrl={`https://oarcdigital.com${caseStudiesSEO.ventureHubCo.path}`}
+        ogType={caseStudiesSEO.ventureHubCo.ogType}
       />
       {/* Hero Section */}
       <section className="relative min-h-[70vh] flex items-center justify-center bg-gradient-to-br from-purple-900 via-indigo-900 to-black text-white overflow-hidden">

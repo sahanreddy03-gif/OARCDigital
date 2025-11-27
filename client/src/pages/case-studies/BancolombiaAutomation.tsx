@@ -22,10 +22,10 @@ export default function FinFlowBankAutomation() {
   return (
     <Layout>
       <SEOHead
-        title={caseStudiesSEO.bancolombiaAutomation.title}
-        description={caseStudiesSEO.bancolombiaAutomation.description}
-        canonicalUrl={`https://oarcdigital.com${caseStudiesSEO.bancolombiaAutomation.path}`}
-        ogType={caseStudiesSEO.bancolombiaAutomation.ogType}
+        title={caseStudiesSEO.digitalFinanceSolutions.title}
+        description={caseStudiesSEO.digitalFinanceSolutions.description}
+        canonicalUrl={`https://oarcdigital.com${caseStudiesSEO.digitalFinanceSolutions.path}`}
+        ogType={caseStudiesSEO.digitalFinanceSolutions.ogType}
       />
       {/* Hero Section */}
       <section className="relative h-[70vh] min-h-[500px] flex items-end">
