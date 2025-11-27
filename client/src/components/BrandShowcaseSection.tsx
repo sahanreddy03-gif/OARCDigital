@@ -3,74 +3,137 @@ import { Link } from "wouter";
 import { caseStudiesArray } from "@/data/caseStudies";
 
 export default function BrandShowcaseSection() {
-  const studies = caseStudiesArray.slice(0, 6);
+  const heroStudy = caseStudiesArray[0]; // FitnessPro Network - Hero
+  const mediumStudies = caseStudiesArray.slice(1, 3); // Luxe Essence, NaturalCare Beauty
+  const smallStudies = caseStudiesArray.slice(3, 6); // HomeCraft, GamingTech, ProGamer
   
   return (
     <section className="py-12 md:py-16 lg:py-20 bg-white relative overflow-hidden">
-      <div className="container mx-auto px-4 md:px-8 lg:px-12 max-w-7xl">
+      <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-6xl">
         {/* Section Header */}
-        <div className="mb-8 md:mb-10">
+        <div className="mb-6 md:mb-10">
           <p className="text-sm uppercase tracking-wider font-bold text-orange-600 mb-2" data-testid="text-showcase-eyebrow">
             Our Impact
           </p>
-          <h2 className="font-bold text-zinc-900 mb-3" style={{ fontSize: 'clamp(1.5rem, 4vw, 2.75rem)', letterSpacing: '-0.03em', lineHeight: '1.15' }}>
+          <h2 className="font-bold text-zinc-900 mb-2" style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', letterSpacing: '-0.03em', lineHeight: '1.15' }}>
             See how Top Brands use OARC Digital
           </h2>
-          <p className="text-sm md:text-base text-zinc-600 max-w-2xl leading-relaxed">
+          <p className="text-sm md:text-base text-zinc-600 max-w-xl">
             From global giants to innovative startups, we deliver measurable results
           </p>
         </div>
 
-        {/* Compact 3x2 Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 mb-8">
-          {studies.map((study, index) => (
-            <Link key={index} href={`/case-studies/${study.slug}`} asChild>
+        {/* Asymmetric Mosaic Grid */}
+        <div className="grid grid-cols-12 gap-3 md:gap-4 mb-6 md:mb-8">
+          
+          {/* HERO - Large Left Card (spans 7 cols, 2 rows) */}
+          <div className="col-span-12 md:col-span-7 md:row-span-2">
+            <Link href={`/case-studies/${heroStudy.slug}`} asChild>
               <div
-                className="group relative overflow-hidden rounded-lg md:rounded-xl bg-zinc-900 hover-elevate hover:-translate-y-0.5 transition-all duration-400 cursor-pointer aspect-[3/4]"
-                data-testid={`card-case-study-${index}`}
+                className="group relative overflow-hidden rounded-xl bg-zinc-900 hover-elevate hover:-translate-y-1 transition-all duration-500 cursor-pointer h-[280px] md:h-full"
+                data-testid="card-case-study-hero"
               >
-                {/* Image */}
                 <div className="absolute inset-0">
                   <img
-                    src={study.thumbnailImage}
-                    alt={study.brand}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                    src={heroStudy.thumbnailImage}
+                    alt={heroStudy.brand}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"></div>
                 </div>
-
-                {/* Content */}
-                <div className="relative h-full p-3 md:p-4 flex flex-col justify-between">
-                  {/* Top - Category & Arrow */}
+                <div className="relative h-full p-5 md:p-6 flex flex-col justify-between">
                   <div className="flex justify-between items-start">
-                    <div className="px-2 py-0.5 md:px-2.5 md:py-1 bg-white/15 backdrop-blur-sm rounded-full text-white text-[10px] md:text-xs font-semibold border border-white/10 truncate max-w-[70%]">
-                      {study.category}
+                    <div className="px-3 py-1 bg-white/15 backdrop-blur-sm rounded-full text-white text-xs font-semibold border border-white/10">
+                      {heroStudy.category}
                     </div>
-                    <div className="w-6 h-6 md:w-7 md:h-7 rounded-full bg-white/15 backdrop-blur-sm border border-white/10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                      <ArrowUpRight className="w-3 h-3 md:w-3.5 md:h-3.5 text-white" />
+                    <div className="w-9 h-9 rounded-full bg-white/15 backdrop-blur-sm border border-white/10 flex items-center justify-center group-hover:bg-white/25 transition-colors">
+                      <ArrowUpRight className="w-4 h-4 text-white" />
                     </div>
                   </div>
-
-                  {/* Bottom - Brand & Metric */}
                   <div>
-                    <div className="mb-2">
-                      <h3 className="text-sm md:text-lg lg:text-xl font-bold text-white leading-tight line-clamp-2" style={{ letterSpacing: '-0.01em' }}>
-                        {study.brand}
-                      </h3>
-                      <p className="text-[10px] md:text-xs text-white/70 font-medium leading-snug mt-0.5 line-clamp-2 hidden md:block">
-                        {study.description}
-                      </p>
-                    </div>
-                    
-                    {/* Metric Badge - Compact */}
-                    <div className="inline-block bg-[#c4ff4d] text-zinc-900 px-2 py-1 md:px-3 md:py-1.5 rounded-md group-hover:shadow-[0_0_15px_rgba(196,255,77,0.5)] transition-shadow duration-400">
-                      <div className="text-sm md:text-base font-bold leading-none">{study.metrics.value}</div>
-                      <div className="text-[8px] md:text-[10px] font-semibold mt-0.5 uppercase tracking-wide">{study.metrics.label}</div>
+                    <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white leading-tight mb-1" style={{ letterSpacing: '-0.02em' }}>
+                      {heroStudy.brand}
+                    </h3>
+                    <p className="text-sm md:text-base text-white/80 font-medium leading-snug mb-3 max-w-md">
+                      {heroStudy.description}
+                    </p>
+                    <div className="inline-block bg-[#c4ff4d] text-zinc-900 px-4 py-2 rounded-lg group-hover:shadow-[0_0_25px_rgba(196,255,77,0.6)] transition-shadow duration-500">
+                      <div className="text-xl md:text-2xl font-bold leading-none">{heroStudy.metrics.value}</div>
+                      <div className="text-[10px] md:text-xs font-semibold mt-0.5 uppercase">{heroStudy.metrics.label}</div>
                     </div>
                   </div>
                 </div>
               </div>
             </Link>
+          </div>
+
+          {/* MEDIUM Cards - Right Column (stacked) */}
+          {mediumStudies.map((study, index) => (
+            <div key={index} className="col-span-6 md:col-span-5">
+              <Link href={`/case-studies/${study.slug}`} asChild>
+                <div
+                  className="group relative overflow-hidden rounded-xl bg-zinc-900 hover-elevate hover:-translate-y-0.5 transition-all duration-400 cursor-pointer h-[180px] md:h-[160px]"
+                  data-testid={`card-case-study-medium-${index}`}
+                >
+                  <div className="absolute inset-0">
+                    <img
+                      src={study.thumbnailImage}
+                      alt={study.brand}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent"></div>
+                  </div>
+                  <div className="relative h-full p-3 md:p-4 flex flex-col justify-between">
+                    <div className="flex justify-between items-start">
+                      <div className="px-2 py-0.5 bg-white/15 backdrop-blur-sm rounded-full text-white text-[10px] font-semibold border border-white/10">
+                        {study.category}
+                      </div>
+                      <div className="w-6 h-6 rounded-full bg-white/15 backdrop-blur-sm border border-white/10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                        <ArrowUpRight className="w-3 h-3 text-white" />
+                      </div>
+                    </div>
+                    <div>
+                      <h3 className="text-base md:text-lg font-bold text-white leading-tight mb-1.5" style={{ letterSpacing: '-0.01em' }}>
+                        {study.brand}
+                      </h3>
+                      <div className="inline-block bg-[#c4ff4d] text-zinc-900 px-2.5 py-1 rounded-md group-hover:shadow-[0_0_15px_rgba(196,255,77,0.5)] transition-shadow">
+                        <div className="text-sm font-bold leading-none">{study.metrics.value}</div>
+                        <div className="text-[8px] font-semibold mt-0.5 uppercase">{study.metrics.label}</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            </div>
+          ))}
+
+          {/* SMALL Cards - Bottom Row (3 compact cards) */}
+          {smallStudies.map((study, index) => (
+            <div key={index} className="col-span-4">
+              <Link href={`/case-studies/${study.slug}`} asChild>
+                <div
+                  className="group relative overflow-hidden rounded-lg bg-zinc-900 hover-elevate hover:-translate-y-0.5 transition-all duration-400 cursor-pointer h-[140px] md:h-[130px]"
+                  data-testid={`card-case-study-small-${index}`}
+                >
+                  <div className="absolute inset-0">
+                    <img
+                      src={study.thumbnailImage}
+                      alt={study.brand}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.05]"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+                  </div>
+                  <div className="relative h-full p-2.5 md:p-3 flex flex-col justify-end">
+                    <h3 className="text-xs md:text-sm font-bold text-white leading-tight mb-1" style={{ letterSpacing: '-0.01em' }}>
+                      {study.brand}
+                    </h3>
+                    <div className="inline-block bg-[#c4ff4d] text-zinc-900 px-2 py-0.5 rounded self-start group-hover:shadow-[0_0_12px_rgba(196,255,77,0.5)] transition-shadow">
+                      <div className="text-xs font-bold leading-none">{study.metrics.value}</div>
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            </div>
           ))}
         </div>
 
@@ -78,7 +141,7 @@ export default function BrandShowcaseSection() {
         <div className="text-center">
           <Link href="/our-work">
             <button
-              className="inline-flex items-center gap-2 px-5 py-2.5 md:px-6 md:py-3 bg-zinc-900 text-white rounded-full font-bold text-sm hover-elevate active-elevate-2 transition-all duration-300"
+              className="inline-flex items-center gap-2 px-5 py-2.5 bg-zinc-900 text-white rounded-full font-bold text-sm hover-elevate active-elevate-2 transition-all duration-300"
               data-testid="button-view-all-case-studies"
             >
               View All Case Studies
