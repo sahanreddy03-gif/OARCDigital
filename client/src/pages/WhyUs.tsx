@@ -211,7 +211,7 @@ export default function WhyUs() {
         canonicalUrl={`https://oarcdigital.com${supportingPagesSEO.whyUs.path}`}
         ogType={supportingPagesSEO.whyUs.ogType}
       />
-      {/* Hero Section - Premium Superside Style */}
+      {/* Hero Section */}
       <section className="hero-section-why-us relative min-h-[75vh] md:min-h-[90vh] flex items-center justify-center overflow-hidden bg-black -mt-20" data-testid="section-hero">
         <img
           ref={heroImgRef}
@@ -952,7 +952,7 @@ export default function WhyUs() {
         </div>
       </section>
 
-      {/* Success in Numbers - Exact Superside Clone */}
+      {/* Success in Numbers */}
       <SuccessInNumbers />
 
       {/* Core Values Section */}
