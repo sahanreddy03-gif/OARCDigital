@@ -77,7 +77,7 @@ function FlatCarousel() {
           100% { transform: translateX(-33.333%); }
         }
         .animate-scroll-flat {
-          animation: scroll-flat 6s linear infinite;
+          animation: scroll-flat 4s linear infinite;
         }
         @media (prefers-reduced-motion: reduce) {
           .animate-scroll-flat {
