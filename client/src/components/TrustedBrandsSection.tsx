@@ -88,7 +88,7 @@ export default function TrustedBrandsSection() {
       let singleSetWidth = 0;
       for (let i = 0; i < brands.length; i++) {
         const child = children[i] as HTMLElement;
-        singleSetWidth += child.offsetWidth + 40; // 40px gap (gap-10)
+        singleSetWidth += child.offsetWidth + 48; // 48px gap (gap-12)
       }
       contentWidthRef.current = singleSetWidth;
     }
@@ -119,15 +119,15 @@ export default function TrustedBrandsSection() {
 
   return (
     <section 
-      className="relative bg-white py-5 md:py-6 overflow-hidden" 
+      className="relative bg-white py-8 md:py-10 overflow-hidden" 
       data-testid="trusted-brands-section"
     >
       <div className="container mx-auto px-4 md:px-6 max-w-7xl">
-        <div className="flex flex-col lg:flex-row lg:items-center lg:gap-6">
+        <div className="flex flex-col lg:flex-row lg:items-center lg:gap-8">
           {/* Left: Heading - Improved Typography */}
-          <div className="flex-shrink-0 mb-3 lg:mb-0 lg:w-[200px]">
+          <div className="flex-shrink-0 mb-4 lg:mb-0 lg:w-[220px]">
             <p 
-              className="text-base md:text-lg font-medium text-zinc-500 leading-snug tracking-tight"
+              className="text-lg md:text-xl font-medium text-zinc-500 leading-snug tracking-tight"
               data-testid="trusted-brands-heading"
             >
               Trusted by the world's top brands
@@ -137,13 +137,13 @@ export default function TrustedBrandsSection() {
           {/* Right: Logo Marquee - JS Animation */}
           <div className="flex-1 overflow-hidden relative">
             {/* Gradient fade edges */}
-            <div className="absolute left-0 top-0 bottom-0 w-10 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
-            <div className="absolute right-0 top-0 bottom-0 w-10 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
+            <div className="absolute left-0 top-0 bottom-0 w-12 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
+            <div className="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
             
-            {/* Scrolling logos - JS powered */}
+            {/* Scrolling logos - JS powered, scrolling LEFT */}
             <div 
               ref={scrollRef}
-              className="flex gap-10 whitespace-nowrap py-1"
+              className="flex gap-12 whitespace-nowrap py-2"
               style={{ willChange: 'transform' }}
               data-testid="trusted-brands-carousel"
             >
@@ -154,7 +154,7 @@ export default function TrustedBrandsSection() {
                   data-testid={`trusted-brand-${index}`}
                 >
                   <brand.icon
-                    className="w-5 h-5 md:w-6 md:h-6 text-zinc-300 group-hover:text-zinc-500 transition-colors duration-300"
+                    className="w-6 h-6 md:w-7 md:h-7 text-zinc-300 group-hover:text-zinc-500 transition-colors duration-300"
                     aria-label={brand.name}
                   />
                 </div>
