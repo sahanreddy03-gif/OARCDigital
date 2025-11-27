@@ -6,7 +6,7 @@ export const localBusinessSchema = {
   "name": "OARC Digital",
   "description": "AI-powered creative services, AI employees, and revenue automation solutions. Elite marketing agency delivering premium digital experiences.",
   "url": "https://oarcdigital.com",
-  "telephone": "+356-XXXX-XXXX",
+  "telephone": "+356 79711799",
   "email": "hello@oarcdigital.com",
   "address": [
     {
@@ -101,7 +101,7 @@ export const organizationSchema = {
   },
   "contactPoint": {
     "@type": "ContactPoint",
-    "telephone": "+356-XXXX-XXXX",
+    "telephone": "+356 79711799",
     "contactType": "Customer Service",
     "email": "hello@oarcdigital.com",
     "areaServed": "Worldwide",

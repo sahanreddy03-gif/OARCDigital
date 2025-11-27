@@ -1,7 +1,7 @@
 # OARC Digital - Design Guidelines
 
 ## Design Approach
-**Reference-Based Approach**: Drawing inspiration from Superside.com and The Social Shepherd - two industry-leading creative agencies known for sophisticated visual design, smooth animations, and conversion-focused layouts.
+**Reference-Based Approach**: Drawing inspiration from industry-leading creative agencies known for sophisticated visual design, smooth animations, and conversion-focused layouts.
 
 **Core Principles**:
 - Premium, high-end aesthetic that reflects creative excellence
