@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import { 
   SiFigma,
   SiNotion,
@@ -29,75 +30,99 @@ const brands = [
 ];
 
 export default function TrustedBrandsSection() {
-  const duplicatedBrands = [...brands, ...brands];
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const animationRef = useRef<number>();
+  const positionRef = useRef(0);
+  const contentWidthRef = useRef(0);
+  
+  // Triple brands for seamless looping
+  const tripleBrands = [...brands, ...brands, ...brands];
+  
+  useEffect(() => {
+    const scrollContainer = scrollRef.current;
+    if (!scrollContainer) return;
+    
+    // Calculate width of one set of brands
+    const children = scrollContainer.children;
+    if (children.length > 0) {
+      let singleSetWidth = 0;
+      for (let i = 0; i < brands.length; i++) {
+        const child = children[i] as HTMLElement;
+        singleSetWidth += child.offsetWidth + 32; // 32px gap (gap-8)
+      }
+      contentWidthRef.current = singleSetWidth;
+    }
+    
+    // Speed: pixels per frame (faster animation)
+    const speed = 1.2;
+    
+    const animate = () => {
+      positionRef.current += speed;
+      
+      // When we've scrolled past one full set, reset seamlessly
+      if (positionRef.current >= contentWidthRef.current) {
+        positionRef.current = 0;
+      }
+      
+      scrollContainer.style.transform = `translateX(-${positionRef.current}px)`;
+      animationRef.current = requestAnimationFrame(animate);
+    };
+    
+    animationRef.current = requestAnimationFrame(animate);
+    
+    return () => {
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
+      }
+    };
+  }, []);
 
   return (
     <section 
-      className="relative bg-white py-6 md:py-8 overflow-hidden" 
+      className="relative bg-white py-5 md:py-6 overflow-hidden" 
       data-testid="trusted-brands-section"
     >
       <div className="container mx-auto px-4 md:px-6 max-w-7xl">
-        <div className="flex flex-col lg:flex-row lg:items-center lg:gap-8">
-          {/* Left: Heading - Compact */}
-          <div className="flex-shrink-0 mb-4 lg:mb-0 lg:w-[240px]">
-            <h2 
-              className="text-xl md:text-2xl font-semibold text-zinc-800 leading-tight tracking-tight"
+        <div className="flex flex-col lg:flex-row lg:items-center lg:gap-6">
+          {/* Left: Heading - Improved Typography */}
+          <div className="flex-shrink-0 mb-3 lg:mb-0 lg:w-[200px]">
+            <p 
+              className="text-base md:text-lg font-medium text-zinc-500 leading-snug tracking-tight"
               data-testid="trusted-brands-heading"
             >
               Trusted by the world's top brands
-            </h2>
+            </p>
           </div>
 
-          {/* Right: Logo Marquee */}
+          {/* Right: Logo Marquee - JS Animation */}
           <div className="flex-1 overflow-hidden relative">
             {/* Gradient fade edges */}
-            <div className="absolute left-0 top-0 bottom-0 w-12 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
-            <div className="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
+            <div className="absolute left-0 top-0 bottom-0 w-10 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
+            <div className="absolute right-0 top-0 bottom-0 w-10 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
             
-            {/* Scrolling logos */}
+            {/* Scrolling logos - JS powered */}
             <div 
-              className="flex animate-trusted-scroll gap-6 md:gap-8 whitespace-nowrap py-2"
+              ref={scrollRef}
+              className="flex gap-8 whitespace-nowrap py-1"
+              style={{ willChange: 'transform' }}
               data-testid="trusted-brands-carousel"
             >
-              {duplicatedBrands.map((brand, index) => (
+              {tripleBrands.map((brand, index) => (
                 <div
                   key={`${brand.name}-${index}`}
                   className="inline-flex items-center justify-center flex-shrink-0 group cursor-pointer"
                   data-testid={`trusted-brand-${index}`}
                 >
-                  {brand.icon ? (
-                    <brand.icon
-                      className="w-6 h-6 md:w-7 md:h-7 text-zinc-400 grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 group-hover:text-zinc-600 transition-all duration-300"
-                      aria-label={brand.name}
-                    />
-                  ) : (
-                    <span 
-                      className="text-sm md:text-base font-medium text-zinc-400 opacity-70 group-hover:opacity-100 group-hover:text-zinc-600 transition-all duration-300 whitespace-nowrap"
-                    >
-                      {brand.name}
-                    </span>
-                  )}
+                  <brand.icon
+                    className="w-5 h-5 md:w-6 md:h-6 text-zinc-300 group-hover:text-zinc-500 transition-colors duration-300"
+                    aria-label={brand.name}
+                  />
                 </div>
               ))}
             </div>
           </div>
         </div>
       </div>
-
-      <style>{`
-        @keyframes trusted-scroll {
-          from { transform: translateX(0); }
-          to { transform: translateX(-50%); }
-        }
-        
-        .animate-trusted-scroll {
-          animation: trusted-scroll 8s linear infinite;
-        }
-        
-        .animate-trusted-scroll:hover {
-          animation-play-state: paused;
-        }
-      `}</style>
     </section>
   );
 }

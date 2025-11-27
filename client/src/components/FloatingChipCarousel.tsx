@@ -38,20 +38,66 @@ const services = [
   { text: "Support AI Employees", image: supportAI },
 ];
 
-// Flat carousel for portrait mobile - CSS animation based infinite scroll
+// JavaScript-based infinite scroll - truly seamless, no CSS animation issues
 function FlatCarousel() {
-  // Double the services for seamless loop
-  const doubledServices = [...services, ...services];
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const animationRef = useRef<number>();
+  const positionRef = useRef(0);
+  const contentWidthRef = useRef(0);
+  
+  // Triple the services for seamless wrap-around
+  const tripleServices = [...services, ...services, ...services];
+  
+  useEffect(() => {
+    const scrollContainer = scrollRef.current;
+    if (!scrollContainer) return;
+    
+    // Calculate width of one set of services
+    const children = scrollContainer.children;
+    if (children.length > 0) {
+      let singleSetWidth = 0;
+      for (let i = 0; i < services.length; i++) {
+        const child = children[i] as HTMLElement;
+        singleSetWidth += child.offsetWidth + 12; // 12px gap
+      }
+      contentWidthRef.current = singleSetWidth;
+    }
+    
+    // Speed: pixels per frame (higher = faster)
+    const speed = 1.5;
+    
+    const animate = () => {
+      positionRef.current += speed;
+      
+      // When we've scrolled past one full set, reset to beginning
+      if (positionRef.current >= contentWidthRef.current) {
+        positionRef.current = 0;
+      }
+      
+      scrollContainer.style.transform = `translateX(-${positionRef.current}px)`;
+      animationRef.current = requestAnimationFrame(animate);
+    };
+    
+    // Start animation
+    animationRef.current = requestAnimationFrame(animate);
+    
+    return () => {
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
+      }
+    };
+  }, []);
   
   return (
     <div className="w-full overflow-hidden" style={{ maxWidth: '100vw' }}>
       <div 
-        className="flex whitespace-nowrap gap-3 animate-scroll-flat-seamless"
+        ref={scrollRef}
+        className="flex whitespace-nowrap gap-3"
         style={{ 
           willChange: 'transform',
         }}
       >
-        {doubledServices.map((service, index) => (
+        {tripleServices.map((service, index) => (
           <div 
             key={index} 
             className="inline-flex flex-shrink-0"
@@ -73,20 +119,6 @@ function FlatCarousel() {
           </div>
         ))}
       </div>
-      <style>{`
-        @keyframes scroll-flat-seamless {
-          from { transform: translateX(0); }
-          to { transform: translateX(-50%); }
-        }
-        .animate-scroll-flat-seamless {
-          animation: scroll-flat-seamless 8s linear infinite;
-        }
-        @media (prefers-reduced-motion: reduce) {
-          .animate-scroll-flat-seamless {
-            animation: none;
-          }
-        }
-      `}</style>
     </div>
   );
 }
