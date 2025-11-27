@@ -61,18 +61,13 @@ export default function AIEmployeeService() {
   useEffect(() => {
     const loadContent = async () => {
       try {
-        console.log('[AIEmployeeService] Loading content for slug:', slug);
         const response = await fetch(`/content/services/${slug}.json`);
-        console.log('[AIEmployeeService] Fetch response:', response.status, response.ok);
         if (response.ok) {
           const data = await response.json();
-          console.log('[AIEmployeeService] Content loaded successfully:', data.title);
           setContent(data);
-        } else {
-          console.error('[AIEmployeeService] Failed to load content:', response.status, response.statusText);
         }
       } catch (error) {
-        console.error('[AIEmployeeService] Error loading service content:', error);
+        // Silent fail - content not found
       } finally {
         setLoading(false);
       }
@@ -81,7 +76,6 @@ export default function AIEmployeeService() {
     if (slug) {
       loadContent();
     } else {
-      console.error('[AIEmployeeService] No slug extracted from location:', location);
       setLoading(false);
     }
   }, [slug, location]);

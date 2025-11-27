@@ -16,7 +16,6 @@ export default function CTASections() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Early access form submitted:", formData);
   };
 
   return (

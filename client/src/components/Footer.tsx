@@ -11,7 +11,7 @@ export default function Footer() {
 
   return (
     <footer className="relative bg-[#0A0A0A] text-white overflow-hidden">
-      {/* Superside-inspired CTA Section */}
+      {/* CTA Section */}
       <div className="relative border-b border-white/5">
         <div className="max-w-7xl mx-auto px-6 md:px-12 py-20 md:py-28 text-center">
           {/* Massive Bold Heading - Elite Typography */}
@@ -44,7 +44,7 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Services Grid - Superside Inspired */}
+      {/* Services Grid */}
       <div className="relative max-w-7xl mx-auto px-6 md:px-12 py-16 border-b border-white/5">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12" data-testid="footer-services">
           {/* AI Creative Services */}
