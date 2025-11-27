@@ -146,22 +146,22 @@ function ConcaveCarousel() {
     const absNormalized = Math.abs(normalizedDistance);
     
     // DEEP CONCAVE: Center goes far back, edges come forward cleanly
-    // Center: -280px (deep), Edges: +100px (forward but controlled)
-    const translateZ = -280 + absNormalized * 380;
+    // Center: -300px (deeper), Edges: +80px (forward but controlled)
+    const translateZ = -300 + absNormalized * 380;
     
-    // Scale: Center slightly smaller, edges slightly larger but capped
-    // Range: 0.85 (center) to 1.1 (edges) - prevents overlap
-    const scale = 0.85 + absNormalized * 0.25;
+    // Scale: Tighter range to prevent overlap with long text cards
+    // Range: 0.82 (center) to 1.0 (edges) - no scaling up beyond 1
+    const scale = 0.82 + absNormalized * 0.18;
     
-    // Rotation: Gentler angle to reduce projection overlap
-    // Range: 0° (center) to ±28° (edges)
-    const rotateY = normalizedDistance * 28;
+    // Rotation: Even gentler angle for cleaner look
+    // Range: 0° (center) to ±22° (edges)
+    const rotateY = normalizedDistance * 22;
     
-    // Wider horizontal spacing to prevent card collision
-    const translateX = distanceFromCenter * 240;
+    // Much wider horizontal spacing for long text cards
+    const translateX = distanceFromCenter * 280;
     
-    // Opacity: Center bright, edges fade more gradually
-    const opacity = 1 - absNormalized * 0.2;
+    // Opacity: Center bright, edges fade smoothly
+    const opacity = 1 - absNormalized * 0.18;
     
     // Z-index: Edges on top since they're closer to viewer
     const zIndex = Math.round(absNormalized * 10);
