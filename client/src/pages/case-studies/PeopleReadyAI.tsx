@@ -24,10 +24,10 @@ export default function WorkForceConnectAI() {
   return (
     <Layout>
       <SEOHead
-        title={caseStudiesSEO.peopleReadyAI.title}
-        description={caseStudiesSEO.peopleReadyAI.description}
-        canonicalUrl={`https://oarcdigital.com${caseStudiesSEO.peopleReadyAI.path}`}
-        ogType={caseStudiesSEO.peopleReadyAI.ogType}
+        title={caseStudiesSEO.talentScaleSolutions.title}
+        description={caseStudiesSEO.talentScaleSolutions.description}
+        canonicalUrl={`https://oarcdigital.com${caseStudiesSEO.talentScaleSolutions.path}`}
+        ogType={caseStudiesSEO.talentScaleSolutions.ogType}
       />
       {/* Hero Section */}
       <section className="relative h-[70vh] min-h-[500px] flex items-end">

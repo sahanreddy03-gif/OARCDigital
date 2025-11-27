@@ -24,10 +24,10 @@ export default function CloudPartnerSolutionsAI() {
   return (
     <Layout>
       <SEOHead
-        title={caseStudiesSEO.sherwebAI.title}
-        description={caseStudiesSEO.sherwebAI.description}
-        canonicalUrl={`https://oarcdigital.com${caseStudiesSEO.sherwebAI.path}`}
-        ogType={caseStudiesSEO.sherwebAI.ogType}
+        title={caseStudiesSEO.cloudBaseTechnologies.title}
+        description={caseStudiesSEO.cloudBaseTechnologies.description}
+        canonicalUrl={`https://oarcdigital.com${caseStudiesSEO.cloudBaseTechnologies.path}`}
+        ogType={caseStudiesSEO.cloudBaseTechnologies.ogType}
       />
       {/* Hero Section */}
       <section className="relative h-[70vh] min-h-[500px] flex items-end">

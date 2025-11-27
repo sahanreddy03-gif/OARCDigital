@@ -22,10 +22,10 @@ export default function AcclaimAutism() {
   return (
     <Layout>
       <SEOHead
-        title={caseStudiesSEO.acclaimAutism.title}
-        description={caseStudiesSEO.acclaimAutism.description}
-        canonicalUrl={`https://oarcdigital.com${caseStudiesSEO.acclaimAutism.path}`}
-        ogType={caseStudiesSEO.acclaimAutism.ogType}
+        title={caseStudiesSEO.healthpathAI.title}
+        description={caseStudiesSEO.healthpathAI.description}
+        canonicalUrl={`https://oarcdigital.com${caseStudiesSEO.healthpathAI.path}`}
+        ogType={caseStudiesSEO.healthpathAI.ogType}
       />
       {/* Hero Section */}
       <section className="relative h-[70vh] min-h-[500px] flex items-end">

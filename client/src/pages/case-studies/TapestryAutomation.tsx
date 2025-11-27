@@ -22,10 +22,10 @@ export default function LuxuryRetailGroupAutomation() {
   return (
     <Layout>
       <SEOHead
-        title={caseStudiesSEO.tapestryAutomation.title}
-        description={caseStudiesSEO.tapestryAutomation.description}
-        canonicalUrl={`https://oarcdigital.com${caseStudiesSEO.tapestryAutomation.path}`}
-        ogType={caseStudiesSEO.tapestryAutomation.ogType}
+        title={caseStudiesSEO.heritageLuxuryGroup.title}
+        description={caseStudiesSEO.heritageLuxuryGroup.description}
+        canonicalUrl={`https://oarcdigital.com${caseStudiesSEO.heritageLuxuryGroup.path}`}
+        ogType={caseStudiesSEO.heritageLuxuryGroup.ogType}
       />
       {/* Hero Section */}
       <section className="relative h-[70vh] min-h-[500px] flex items-end">
