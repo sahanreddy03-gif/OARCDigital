@@ -11,17 +11,57 @@ import {
   SiAsana,
   SiMiro,
   SiCalendly,
-  SiLoom
+  SiLoom,
+  SiClickup,
+  SiBuffer,
+  SiCanva,
+  SiCloudflare,
+  SiContentful,
+  SiDatadog,
+  SiHotjar,
+  SiLinear,
+  SiAtlassian,
+  SiCoda,
+  SiDropbox,
+  SiFramer,
+  SiMixpanel,
+  SiMural,
+  SiSentry,
+  SiVercel,
+  SiSupabase,
+  SiStripe,
+  SiTwilio,
+  SiPostman,
 } from "react-icons/si";
 
 const brands = [
+  { name: "Linear", icon: SiLinear },
+  { name: "Vercel", icon: SiVercel },
+  { name: "Supabase", icon: SiSupabase },
+  { name: "Framer", icon: SiFramer },
+  { name: "ClickUp", icon: SiClickup },
+  { name: "Mixpanel", icon: SiMixpanel },
   { name: "Figma", icon: SiFigma },
+  { name: "Contentful", icon: SiContentful },
+  { name: "Sentry", icon: SiSentry },
+  { name: "Buffer", icon: SiBuffer },
   { name: "Notion", icon: SiNotion },
+  { name: "Datadog", icon: SiDatadog },
+  { name: "Coda", icon: SiCoda },
   { name: "Webflow", icon: SiWebflow },
+  { name: "Hotjar", icon: SiHotjar },
+  { name: "Stripe", icon: SiStripe },
+  { name: "Mural", icon: SiMural },
   { name: "Mailchimp", icon: SiMailchimp },
+  { name: "Cloudflare", icon: SiCloudflare },
+  { name: "Canva", icon: SiCanva },
   { name: "HubSpot", icon: SiHubspot },
+  { name: "Postman", icon: SiPostman },
+  { name: "Twilio", icon: SiTwilio },
   { name: "Zapier", icon: SiZapier },
+  { name: "Dropbox", icon: SiDropbox },
   { name: "Airtable", icon: SiAirtable },
+  { name: "Atlassian", icon: SiAtlassian },
   { name: "Intercom", icon: SiIntercom },
   { name: "Asana", icon: SiAsana },
   { name: "Miro", icon: SiMiro },
@@ -48,13 +88,13 @@ export default function TrustedBrandsSection() {
       let singleSetWidth = 0;
       for (let i = 0; i < brands.length; i++) {
         const child = children[i] as HTMLElement;
-        singleSetWidth += child.offsetWidth + 32; // 32px gap (gap-8)
+        singleSetWidth += child.offsetWidth + 40; // 40px gap (gap-10)
       }
       contentWidthRef.current = singleSetWidth;
     }
     
-    // Speed: pixels per frame (faster animation)
-    const speed = 1.2;
+    // Speed: pixels per frame (slower animation)
+    const speed = 0.6;
     
     const animate = () => {
       positionRef.current += speed;
@@ -103,7 +143,7 @@ export default function TrustedBrandsSection() {
             {/* Scrolling logos - JS powered */}
             <div 
               ref={scrollRef}
-              className="flex gap-8 whitespace-nowrap py-1"
+              className="flex gap-10 whitespace-nowrap py-1"
               style={{ willChange: 'transform' }}
               data-testid="trusted-brands-carousel"
             >
