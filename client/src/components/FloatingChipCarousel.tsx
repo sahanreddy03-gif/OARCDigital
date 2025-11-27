@@ -1,22 +1,22 @@
 // 3D Concave Curved Carousel for homepage hero section
 import { useEffect, useRef } from "react";
-import digitalMarketing from '@assets/1_1763067301763.avif';
+import digitalMarketing from '@assets/stock_images/digital_marketing_st_6ec22162.jpg';
 import socialMedia from '@assets/stock_images/social_media_managem_8e61c86d.jpg';
-import aiVideo from '@assets/3_1763067301764.avif';
-import branding from '@assets/4_1763067301765.avif';
-import paidAdvertising from '@assets/5_1763067301765.avif';
-import mediaBuying from '@assets/6_1763067301766.avif';
-import websiteDesign from '@assets/7_1763067301766.avif';
-import influencerMarketing from '@assets/8_1763067301767.avif';
-import rapidTesting from '@assets/9_1763067301767.avif';
-import leadGen from '@assets/10_1763070990278.avif';
-import creativeAds from '@assets/11_1763067301767.avif';
-import customerAcquisition from '@assets/12_1763067301768.avif';
-import funnelAutomation from '@assets/13_1763067301768.avif';
-import aiCopywriting from '@assets/14_1763067301769.avif';
-import adminAI from '@assets/15_1763067301769.avif';
-import salesAI from '@assets/16_1763067301769.avif';
-import supportAI from '@assets/17_1763067301770.avif';
+import aiVideo from '@assets/stock_images/professional_video_p_08fa5257.jpg';
+import branding from '@assets/stock_images/brand_identity_desig_a250cc24.jpg';
+import paidAdvertising from '@assets/stock_images/paid_advertising_goo_40276a3c.jpg';
+import mediaBuying from '@assets/stock_images/media_buying_adverti_f124ffbd.jpg';
+import websiteDesign from '@assets/stock_images/modern_website_desig_4ba94acf.jpg';
+import influencerMarketing from '@assets/stock_images/influencer_content_c_71663437.jpg';
+import rapidTesting from '@assets/stock_images/rapid_prototyping_te_b34ce5db.jpg';
+import leadGen from '@assets/stock_images/lead_generation_sale_7da29fb3.jpg';
+import creativeAds from '@assets/stock_images/creative_advertising_904dac86.jpg';
+import customerAcquisition from '@assets/stock_images/customer_acquisition_fa077f6d.jpg';
+import funnelAutomation from '@assets/stock_images/marketing_funnel_aut_5c1f1337.jpg';
+import aiCopywriting from '@assets/stock_images/ai_copywriting_conte_b77b0a21.jpg';
+import adminAI from '@assets/stock_images/ai_assistant_virtual_e8654e3e.jpg';
+import salesAI from '@assets/stock_images/sales_team_crm_dashb_673770ab.jpg';
+import supportAI from '@assets/stock_images/customer_support_hel_87c00846.jpg';
 
 const services = [
   { text: "Digital Marketing", image: digitalMarketing },
