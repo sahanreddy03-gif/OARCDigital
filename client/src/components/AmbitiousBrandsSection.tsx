@@ -55,9 +55,9 @@ export default function AmbitiousBrandsSection() {
           >
             We power ambitious tech brands with{" "}
             <br className="hidden sm:block" />
-            <span className="text-zinc-700">AI, Automation</span>{" "}
-            <span className="text-zinc-500">and</span>{" "}
-            <span className="text-zinc-700">Creative</span>
+            <span className="bg-gradient-to-r from-[#c4ff4d] to-emerald-400 bg-clip-text text-transparent font-extrabold">AI, Automation</span>{" "}
+            <span className="text-zinc-600">and</span>{" "}
+            <span className="bg-gradient-to-r from-emerald-400 to-[#c4ff4d] bg-clip-text text-transparent font-extrabold">Creative</span>
           </h2>
           
           <p 
