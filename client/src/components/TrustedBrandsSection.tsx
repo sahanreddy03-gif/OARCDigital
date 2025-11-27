@@ -33,7 +33,7 @@ export default function TrustedBrandsSection() {
 
   return (
     <section 
-      className="relative bg-zinc-50 py-6 md:py-8 overflow-hidden" 
+      className="relative bg-white py-6 md:py-8 overflow-hidden" 
       data-testid="trusted-brands-section"
     >
       <div className="container mx-auto px-4 md:px-6 max-w-7xl">
@@ -51,8 +51,8 @@ export default function TrustedBrandsSection() {
           {/* Right: Logo Marquee */}
           <div className="flex-1 overflow-hidden relative">
             {/* Gradient fade edges */}
-            <div className="absolute left-0 top-0 bottom-0 w-12 bg-gradient-to-r from-zinc-50 to-transparent z-10 pointer-events-none" />
-            <div className="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-zinc-50 to-transparent z-10 pointer-events-none" />
+            <div className="absolute left-0 top-0 bottom-0 w-12 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
+            <div className="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
             
             {/* Scrolling logos */}
             <div 
@@ -91,7 +91,7 @@ export default function TrustedBrandsSection() {
         }
         
         .animate-trusted-scroll {
-          animation: trusted-scroll 15s linear infinite;
+          animation: trusted-scroll 8s linear infinite;
         }
         
         .animate-trusted-scroll:hover {
