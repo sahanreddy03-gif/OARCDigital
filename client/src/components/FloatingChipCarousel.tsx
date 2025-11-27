@@ -40,16 +40,18 @@ const services = [
 
 // Flat carousel for portrait mobile - CSS animation based infinite scroll
 function FlatCarousel() {
+  // Double the services for seamless loop
+  const doubledServices = [...services, ...services];
+  
   return (
     <div className="w-full overflow-hidden" style={{ maxWidth: '100vw' }}>
       <div 
-        className="flex whitespace-nowrap gap-3 animate-scroll-flat"
+        className="flex whitespace-nowrap gap-3 animate-scroll-flat-seamless"
         style={{ 
           willChange: 'transform',
         }}
       >
-        {/* Triple the items for seamless infinite loop */}
-        {[...services, ...services, ...services].map((service, index) => (
+        {doubledServices.map((service, index) => (
           <div 
             key={index} 
             className="inline-flex flex-shrink-0"
@@ -72,15 +74,15 @@ function FlatCarousel() {
         ))}
       </div>
       <style>{`
-        @keyframes scroll-flat {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-33.333%); }
+        @keyframes scroll-flat-seamless {
+          from { transform: translateX(0); }
+          to { transform: translateX(-50%); }
         }
-        .animate-scroll-flat {
-          animation: scroll-flat 4s linear infinite;
+        .animate-scroll-flat-seamless {
+          animation: scroll-flat-seamless 8s linear infinite;
         }
         @media (prefers-reduced-motion: reduce) {
-          .animate-scroll-flat {
+          .animate-scroll-flat-seamless {
             animation: none;
           }
         }
