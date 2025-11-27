@@ -1,5 +1,7 @@
 import Navigation from "@/components/Navigation";
 import HeroSection from "@/components/HeroSection";
+import OARCStripSection from "@/components/OARCStripSection";
+import ServicePillarsSection from "@/components/ServicePillarsSection";
 import TrustedBrandsSection from "@/components/TrustedBrandsSection";
 import AICreativeSection from "@/components/AICreativeSection";
 import AmbitiousBrandsSection from "@/components/AmbitiousBrandsSection";
@@ -81,7 +83,13 @@ export default function Home() {
       <Navigation />
       <HeroSection />
       
-      {/* Sections render directly - no scroll wrappers for smooth page scroll */}
+      {/* OARC DNA Strip - explains what OARC stands for */}
+      <OARCStripSection />
+      
+      {/* Service Pillars - the three ways we help */}
+      <ServicePillarsSection />
+      
+      {/* Social proof */}
       <TrustedBrandsSection />
       <AICreativeSection />
       <AmbitiousBrandsSection />
