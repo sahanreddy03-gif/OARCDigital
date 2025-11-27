@@ -138,28 +138,33 @@ function ConcaveCarousel() {
   
   const visibleCount = 9;
   const centerIndex = Math.floor(visibleCount / 2);
-  const autoScrollSpeed = 0.02; // Continuous floating speed
+  const autoScrollSpeed = 0.012; // Slightly slower for premium feel
   
   const getCardTransform = (visualIndex: number) => {
     const distanceFromCenter = visualIndex - centerIndex;
     const normalizedDistance = distanceFromCenter / centerIndex;
+    const absNormalized = Math.abs(normalizedDistance);
     
-    // CONCAVE EFFECT: Center cards go INWARD (negative Z, smaller scale)
-    // Edge cards come FORWARD (positive Z, larger scale)
-    const translateZ = -150 + Math.abs(normalizedDistance) * 180;
-    const scale = 0.7 + Math.abs(normalizedDistance) * 0.35;
+    // DEEP CONCAVE: Center goes far back, edges come forward cleanly
+    // Center: -280px (deep), Edges: +100px (forward but controlled)
+    const translateZ = -280 + absNormalized * 380;
     
-    // Cards angle inward toward the center
-    const rotateY = normalizedDistance * 45;
+    // Scale: Center slightly smaller, edges slightly larger but capped
+    // Range: 0.85 (center) to 1.1 (edges) - prevents overlap
+    const scale = 0.85 + absNormalized * 0.25;
     
-    // Horizontal spacing
-    const translateX = distanceFromCenter * 180;
+    // Rotation: Gentler angle to reduce projection overlap
+    // Range: 0° (center) to ±28° (edges)
+    const rotateY = normalizedDistance * 28;
     
-    // Opacity: edges slightly faded
-    const opacity = 1 - Math.abs(normalizedDistance) * 0.25;
+    // Wider horizontal spacing to prevent card collision
+    const translateX = distanceFromCenter * 240;
     
-    // Z-index: edges on top since they're closer
-    const zIndex = Math.round(Math.abs(normalizedDistance) * 10);
+    // Opacity: Center bright, edges fade more gradually
+    const opacity = 1 - absNormalized * 0.2;
+    
+    // Z-index: Edges on top since they're closer to viewer
+    const zIndex = Math.round(absNormalized * 10);
     
     return { translateX, translateZ, rotateY, scale, opacity, zIndex };
   };
@@ -278,9 +283,9 @@ function ConcaveCarousel() {
       ref={containerRef}
       className="w-full overflow-hidden relative"
       style={{ 
-        perspective: '1000px',
+        perspective: '1200px',
         perspectiveOrigin: 'center center',
-        height: '160px',
+        height: '180px',
       }}
     >
       <div 
