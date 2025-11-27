@@ -13,6 +13,7 @@ const pillars = [
     subtitle: "Brand, social and ad campaigns.",
     image: creativeStudioImg,
     imagePosition: "center center",
+    bgColor: "#9ca3af", // Gray fallback
   },
   {
     id: "ai",
@@ -21,6 +22,7 @@ const pillars = [
     subtitle: "Custom AI assistants, tools and systems.",
     image: aiProductImg,
     imagePosition: "right center", // Focus on the colorful right side
+    bgColor: "#e5e7eb", // Light gray fallback
   },
   {
     id: "automation",
@@ -29,6 +31,7 @@ const pillars = [
     subtitle: "Funnels and journeys that turn attention into revenue.",
     image: workflowImg,
     imagePosition: "center center",
+    bgColor: "#fcd5ce", // Pink to match the image and hide black borders
   },
 ];
 
@@ -154,7 +157,8 @@ function PillarCard({ pillar, index, isVisible }: PillarCardProps) {
       }`}
       style={{ 
         transitionDelay: `${200 + index * 150}ms`,
-        minHeight: "280px"
+        minHeight: "280px",
+        backgroundColor: pillar.bgColor
       }}
       data-testid={`pillar-card-${pillar.id}`}
     >
@@ -163,12 +167,13 @@ function PillarCard({ pillar, index, isVisible }: PillarCardProps) {
         className="absolute inset-0 bg-cover bg-no-repeat transition-transform duration-700 group-hover:scale-110"
         style={{ 
           backgroundImage: `url(${pillar.image})`,
-          backgroundPosition: pillar.imagePosition
+          backgroundPosition: pillar.imagePosition,
+          backgroundSize: pillar.id === "automation" ? "contain" : "cover"
         }}
       />
       
-      {/* Dark overlay for text readability */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20" />
+      {/* Darker overlay for better text readability */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-black/40" />
 
       {/* Content */}
       <div className="relative z-10 h-full flex flex-col justify-end p-6 md:p-8">
