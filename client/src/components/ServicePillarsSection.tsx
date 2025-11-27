@@ -1,27 +1,34 @@
 import { useEffect, useRef, useState } from "react";
 import { Palette, Bot, Zap } from "lucide-react";
 
+import creativeStudioImg from "@assets/creative media studio_1764278639970.jpg";
+import aiProductImg from "@assets/AI product solutionssss_1764278639969.webp";
+import workflowImg from "@assets/workflow automations_1764278639971.png";
+
 const pillars = [
   {
     id: "creative",
     icon: Palette,
     title: "Creative Media Studio",
     subtitle: "Brand, social and ad campaigns.",
-    accentColor: "#f97316",
+    image: creativeStudioImg,
+    imagePosition: "center center",
   },
   {
     id: "ai",
     icon: Bot,
     title: "AI Product Solutions",
     subtitle: "Custom AI assistants, tools and systems.",
-    accentColor: "#3d5a3d",
+    image: aiProductImg,
+    imagePosition: "right center", // Focus on the colorful right side
   },
   {
     id: "automation",
     icon: Zap,
     title: "Workflow Automation",
     subtitle: "Funnels and journeys that turn attention into revenue.",
-    accentColor: "#f97316",
+    image: workflowImg,
+    imagePosition: "center center",
   },
 ];
 
@@ -142,44 +149,47 @@ function PillarCard({ pillar, index, isVisible }: PillarCardProps) {
 
   return (
     <div
-      className={`group relative rounded-2xl p-6 md:p-8 transition-all duration-500 cursor-pointer hover:-translate-y-1 ${
+      className={`group relative rounded-2xl overflow-hidden transition-all duration-500 cursor-pointer hover:-translate-y-1 hover:shadow-xl ${
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
       }`}
       style={{ 
         transitionDelay: `${200 + index * 150}ms`,
-        backgroundColor: "rgba(255, 255, 255, 0.25)",
-        backdropFilter: "blur(12px)",
-        border: "1px solid rgba(255, 255, 255, 0.3)"
+        minHeight: "280px"
       }}
       data-testid={`pillar-card-${pillar.id}`}
     >
+      {/* Background Image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-no-repeat transition-transform duration-700 group-hover:scale-110"
+        style={{ 
+          backgroundImage: `url(${pillar.image})`,
+          backgroundPosition: pillar.imagePosition
+        }}
+      />
+      
+      {/* Dark overlay for text readability */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20" />
+
       {/* Content */}
-      <div className="relative z-10">
+      <div className="relative z-10 h-full flex flex-col justify-end p-6 md:p-8">
         {/* Icon */}
         <div
-          className="w-12 h-12 md:w-14 md:h-14 rounded-xl flex items-center justify-center mb-5 md:mb-6 group-hover:scale-110 transition-transform duration-500"
-          style={{ backgroundColor: "rgba(255, 255, 255, 0.4)" }}
+          className="w-12 h-12 md:w-14 md:h-14 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-500"
+          style={{ backgroundColor: "rgba(255, 255, 255, 0.2)", backdropFilter: "blur(8px)" }}
         >
           <Icon
-            className="w-6 h-6 md:w-7 md:h-7"
-            style={{ color: "#2d4a2d" }}
+            className="w-6 h-6 md:w-7 md:h-7 text-white"
             strokeWidth={1.5}
           />
         </div>
 
         {/* Title */}
-        <h3 
-          className="text-lg md:text-xl font-semibold mb-2 md:mb-3 transition-colors duration-300"
-          style={{ color: "#1a2e1a" }}
-        >
+        <h3 className="text-xl md:text-2xl font-bold text-white mb-2 transition-colors duration-300">
           {pillar.title}
         </h3>
 
         {/* Subtitle */}
-        <p 
-          className="text-sm md:text-base leading-relaxed transition-colors duration-300"
-          style={{ color: "#3d5a3d" }}
-        >
+        <p className="text-sm md:text-base text-white/80 leading-relaxed transition-colors duration-300">
           {pillar.subtitle}
         </p>
       </div>
