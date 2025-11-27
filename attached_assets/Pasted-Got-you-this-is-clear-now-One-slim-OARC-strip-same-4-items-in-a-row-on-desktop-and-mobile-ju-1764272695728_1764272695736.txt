@@ -1,0 +1,87 @@
+Got you, this is clear now:
+👉 One slim OARC strip, same 4 items in a row on desktop and mobile – just smaller on mobile.
+
+Quick ritual:
+	•	Crypto: I can’t reliably fetch live prices in this chat right now, so I won’t fake numbers. Assume “normal crypto volatility mode” unless you’re checking an app.
+	•	Reminder: you’re doing proper founder-level brand work here. This is not overthinking, it’s craftsmanship.
+	•	Tongue twister: “Optimised OARC outputs outstanding outcomes.”
+
+⸻
+
+1️⃣ Final OARC words (short + clean)
+
+We lock this as the only text in the strip:
+	•	O – Optimised
+	•	A – AI-powered
+	•	R – Revenue-first
+	•	C – Creative-led
+
+No descriptions under each. Just letter + word.
+The “meaning feeling” comes from the four words together, not extra sentences.
+
+⸻
+
+2️⃣ Layout behaviour (desktop + mobile)
+
+Desktop:
+	•	One thin horizontal strip right under the hero (or at the top of the next section).
+	•	4 items in one row:
+	•	each item is a small “pill” / mini-card with:
+	•	a slightly larger letter (O / A / R / C)
+	•	the word next to it on the same line (“Optimised”, “AI-powered”…)
+	•	Spacing: enough breathing room, but the strip should still be low height.
+
+Mobile:
+	•	Keep all four in a single row as well (no stacking into 2x2).
+	•	Make the strip:
+	•	slightly smaller font-size
+	•	narrower padding inside each pill
+	•	If it gets a bit tight, it’s okay – you can also allow horizontal scrolling as a fallback (like a swipeable chip row), but try first to fit them all in one line.
+
+So visually:
+
+[ O  Optimised ]  [ A  AI-powered ]  [ R  Revenue-first ]  [ C  Creative-led ]
+
+Same row on both desktop and mobile – just smaller and tighter on mobile.
+
+⸻
+
+3️⃣ Exact prompt for Replit (only this OARC strip)
+
+Copy–paste this:
+
+I want to add a very compact OARC strip directly under the hero. It should be a single thin row that works both on desktop and mobile, without taking much vertical space.
+
+Content
+
+The strip should contain exactly four items, in this order:
+	•	“O – Optimised”
+	•	“A – AI-powered”
+	•	“R – Revenue-first”
+	•	“C – Creative-led”
+
+There should be no subtitles or extra description lines. Just the big letter and the word on the same line in each item.
+
+Layout
+	•	Desktop:
+	•	Show all four items in one horizontal row.
+	•	Each item can be styled as a subtle pill or mini-card with:
+	•	the letter (O/A/R/C) slightly larger or bold
+	•	the word next to it (“Optimised”, “AI-powered”, etc.)
+	•	Keep the overall strip low height so it feels like a “DNA strip” between the hero and the next content.
+	•	Mobile:
+	•	Keep all four items in a single row as well (do not stack them vertically), just reduce their visual size:
+	•	smaller font size
+	•	tighter horizontal padding for each pill
+	•	If needed, you can allow this row to be horizontally scrollable on very small screens so the items don’t wrap awkwardly, but first try to fit them on one line.
+
+Animation
+	•	As the user scrolls from the hero into this strip, the four items should fade in and slide up very slightly, with a small stagger between O → A → R → C.
+	•	Keep the animation subtle and premium (no bounce effects).
+
+The key requirements are:
+	•	the strip is visually minimal and doesn’t take much vertical space
+	•	all four items are in one row on both desktop and mobile (just smaller on mobile)
+	•	the four labels appear exactly as: “O – Optimised”, “A – AI-powered”, “R – Revenue-first”, “C – Creative-led”.
+
+If you send me a screenshot of how this strip looks on desktop + mobile, I can tweak just the words (e.g., “Revenue-first” → “Revenue-led”) depending on how it feels visually.
