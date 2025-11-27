@@ -32,53 +32,39 @@ export default function OARCStripSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative py-10 md:py-14 overflow-hidden"
-      style={{ backgroundColor: "#A3B896" }}
+      className="relative bg-white py-6 md:py-8 overflow-hidden"
       data-testid="oarc-strip-section"
     >
-      <div className="container mx-auto px-3 md:px-6 max-w-5xl">
+      <div className="container mx-auto px-2 md:px-6 max-w-5xl">
         {/* Tagline */}
         <p
-          className={`text-center text-xs md:text-sm font-medium tracking-[0.2em] uppercase mb-5 md:mb-6 transition-all duration-700 ${
+          className={`text-center text-xs md:text-sm font-medium tracking-[0.2em] uppercase text-zinc-400 mb-4 md:mb-5 transition-all duration-700 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           }`}
-          style={{ 
-            transitionDelay: "0ms",
-            color: "#3d5a3d" 
-          }}
+          style={{ transitionDelay: "0ms" }}
         >
           The OARC way
         </p>
 
-        {/* OARC Pills Row - adjusted for mobile */}
-        <div className="flex justify-center items-center gap-2 md:gap-6 lg:gap-8 flex-wrap md:flex-nowrap">
+        {/* OARC Pills Row - fits all 4 in one row on mobile */}
+        <div className="flex justify-center items-center gap-1.5 md:gap-6 lg:gap-8">
           {oarcItems.map((item, index) => (
             <div
               key={item.letter}
-              className={`flex items-center gap-1 md:gap-2 px-2.5 md:px-5 py-1.5 md:py-2.5 rounded-full transition-all duration-700 ${
+              className={`flex items-center gap-0.5 md:gap-2 px-2 md:px-5 py-1.5 md:py-2.5 rounded-full bg-zinc-50 border border-zinc-100 transition-all duration-700 ${
                 isVisible
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-6"
               }`}
-              style={{ 
-                transitionDelay: `${150 + index * 100}ms`,
-                backgroundColor: "rgba(255, 255, 255, 0.25)",
-                backdropFilter: "blur(8px)"
-              }}
+              style={{ transitionDelay: `${150 + index * 100}ms` }}
               data-testid={`oarc-pill-${item.letter}`}
             >
-              {/* Letter - Dark green for contrast on sage */}
-              <span 
-                className="text-base md:text-xl lg:text-2xl font-bold"
-                style={{ color: "#2d4a2d" }}
-              >
+              {/* Letter - Orange accent */}
+              <span className="text-sm md:text-xl lg:text-2xl font-bold text-orange-500">
                 {item.letter}
               </span>
               {/* Word */}
-              <span 
-                className="text-[11px] md:text-sm lg:text-base font-medium whitespace-nowrap"
-                style={{ color: "#3d5a3d" }}
-              >
+              <span className="text-[10px] md:text-sm lg:text-base font-medium text-zinc-700 whitespace-nowrap">
                 {item.word}
               </span>
             </div>
