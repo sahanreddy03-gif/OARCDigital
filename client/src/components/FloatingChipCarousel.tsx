@@ -11,7 +11,7 @@ import influencerMarketing from '@assets/influencer-marketing-optimized.jpg';
 import rapidTesting from '@assets/stock_images/rapid_prototyping_te_b34ce5db.jpg';
 import leadGen from '@assets/lead-generation-optimized.jpg';
 import creativeAds from '@assets/stock_images/creative_advertising_904dac86.jpg';
-import customerAcquisition from '@assets/stock_images/customer_acquisition_fa077f6d.jpg';
+import customerAcquisition from '@assets/customer-acquisition-optimized.jpg';
 import funnelAutomation from '@assets/stock_images/marketing_funnel_aut_5c1f1337.jpg';
 import aiCopywriting from '@assets/stock_images/ai_copywriting_conte_b77b0a21.jpg';
 import adminAI from '@assets/stock_images/ai_assistant_virtual_e8654e3e.jpg';

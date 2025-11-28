@@ -7,7 +7,7 @@ import Layout from "@/components/layout/Layout";
 import SEOHead from "@/components/SEOHead";
 import { revenueServicesSEO } from "@/data/seoMetadata";
 import { createServiceSchema } from "@/utils/structuredData";
-import heroImage from "@assets/stock_images/business_growth_char_93cbee9e.jpg";
+import heroImage from "@assets/customer-acquisition-optimized.jpg";
 
 export default function CustomerAcquisition() {
   useEffect(() => {
