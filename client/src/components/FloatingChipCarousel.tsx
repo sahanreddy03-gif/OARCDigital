@@ -16,7 +16,7 @@ import funnelAutomation from '@assets/funnel-automation-optimized.jpg';
 import aiCopywriting from '@assets/ai-copywriting-optimized.jpg';
 import adminAI from '@assets/admin-ai-employee-optimized.jpg';
 import salesAI from '@assets/sales-ai-employee-optimized.jpg';
-import supportAI from '@assets/stock_images/customer_support_hel_87c00846.jpg';
+import supportAI from '@assets/support-ai-employee-optimized.jpg';
 
 const services = [
   { text: "Digital Marketing", image: digitalMarketing },
