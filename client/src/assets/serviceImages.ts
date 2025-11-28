@@ -13,6 +13,7 @@ import mediaBuyingBanner from '@assets/media buying_1763086700057.jpg';
 import influencerMarketingBanner from '@assets/influencer_1763087034115.jpg';
 import aiConsultingBanner from '@assets/ai consulting_1763087215182.avif';
 import videoProductionBanner from '@assets/ai-video-production-optimized.jpg';
+import presentationOptimized from '@assets/presentation-design-optimized.jpg';
 
 import img1 from '@assets/1_1763083221531.avif';
 import img2 from '@assets/2_1763083221532.avif';
@@ -36,7 +37,7 @@ import img18 from '@assets/18_1763083221537.avif';
 export const serviceImages = {
   adCreative: img1,
   socialMedia: img2,
-  presentation: img3,
+  presentation: presentationOptimized,
   illustration: img4,
   branding: img5,
   ebook: img6,
@@ -59,8 +60,8 @@ export const serviceImagesBySlug: Record<string, string> = {
   'ad-creative': adCreativeBanner,
   'social-media-creative': img2,
   'social-media-creative-management': img2,
-  'presentation-design': presentationDesignBanner,
-  'presentation-pitch': presentationDesignBanner,
+  'presentation-design': presentationOptimized,
+  'presentation-pitch': presentationOptimized,
   'illustration': illustrationBanner,
   'branding-services': img5,
   'ebook-design': img6,
