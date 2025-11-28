@@ -143,6 +143,7 @@ export default function Paid() {
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/70 to-black/50"></div>
         </div>
+        <div className="absolute top-20 right-20 w-96 h-96 bg-[#c4ff4d]/10 rounded-full blur-3xl animate-float"></div>
         <div className="relative z-10 text-center px-4 max-w-6xl mx-auto">
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 animate-in fade-in slide-in-from-bottom-4 duration-700" data-testid="heading-paid">
             Data-Driven <span className="italic" style={{ color: '#c4ff4d' }}>Paid Media</span>
@@ -153,7 +154,7 @@ export default function Paid() {
           <div className="flex flex-wrap gap-4 justify-center animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300">
             <Link href="/contact">
               <button
-                className="inline-flex items-center gap-3 bg-[#c4ff4d] text-black rounded-full pl-10 pr-4 py-4 text-base font-bold hover:bg-[#d4ff6d] transition-colors"
+                className="btn-shimmer inline-flex items-center gap-3 bg-[#c4ff4d] text-black rounded-full pl-10 pr-4 py-4 text-base font-bold hover:bg-[#d4ff6d] transition-colors glow-lime"
                 data-testid="button-lets-chat-hero"
               >
                 Scale Your Ads
@@ -220,11 +221,11 @@ export default function Paid() {
                 </Link>
               </div>
 
-              <div className="overflow-hidden rounded-3xl">
+              <div className="image-reveal rounded-3xl glow-lime-subtle">
                 <img 
                   src={formalTeamImg}
                   alt="Performance marketing team"
-                  className="w-full h-[500px] object-cover scale-110 hover:scale-115 transition-transform duration-700"
+                  className="w-full h-[500px] object-cover"
                   data-testid="img-award-team"
                 />
               </div>
@@ -235,14 +236,15 @@ export default function Paid() {
 
       {/* Image Left + Text Right Section */}
       <ScrollReveal delay={200}>
-        <section className="py-14 px-4 bg-white">
-          <div className="max-w-6xl mx-auto">
+        <section className="relative py-14 px-4 overflow-hidden">
+          <div className="absolute inset-0 bg-surface-lime"></div>
+          <div className="max-w-6xl mx-auto relative">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div className="overflow-hidden rounded-3xl">
+              <div className="image-reveal rounded-3xl">
                 <img 
                   src={conferenceTeamImg}
                   alt="Strategic campaign planning"
-                  className="w-full h-[500px] object-cover scale-110 hover:scale-115 transition-transform duration-700"
+                  className="w-full h-[500px] object-cover"
                   data-testid="img-conference-team"
                 />
               </div>
@@ -266,7 +268,7 @@ export default function Paid() {
 
                 <Link href="/contact">
                   <button
-                    className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2"
+                    className="btn-shimmer inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2"
                     data-testid="button-get-in-touch-2"
                   >
                     Explore Our Approach
@@ -283,9 +285,9 @@ export default function Paid() {
 
       {/* Text Left + Image Right Section */}
       <ScrollReveal delay={300}>
-        <section className="relative py-14 px-4 overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-zinc-50 via-white to-[#FFF9F0]"></div>
-          <div className="absolute top-20 left-20 w-96 h-96 bg-[#c4ff4d]/8 rounded-full blur-3xl"></div>
+        <section className="relative py-14 px-4 bg-white overflow-hidden">
+          <div className="absolute top-20 left-20 w-96 h-96 bg-[#c4ff4d]/10 rounded-full blur-3xl animate-float"></div>
+          <div className="absolute bottom-10 right-10 w-64 h-64 bg-[#c4ff4d]/5 rounded-full blur-2xl animate-float-delayed"></div>
           
           <div className="max-w-6xl mx-auto relative">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -308,7 +310,7 @@ export default function Paid() {
 
                 <Link href="/contact">
                   <button
-                    className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2"
+                    className="btn-shimmer inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2"
                     data-testid="button-contact"
                   >
                     See Sample Reports
@@ -319,11 +321,11 @@ export default function Paid() {
                 </Link>
               </div>
 
-              <div className="overflow-hidden rounded-3xl">
+              <div className="image-reveal rounded-3xl">
                 <img 
                   src={studioImg}
                   alt="Analytics and reporting dashboard"
-                  className="w-full h-[500px] object-cover scale-110 hover:scale-115 transition-transform duration-700"
+                  className="w-full h-[500px] object-cover"
                   data-testid="img-studio"
                 />
               </div>
@@ -333,8 +335,9 @@ export default function Paid() {
       </ScrollReveal>
 
       {/* Services Carousel */}
-      <section className="py-14 px-4 bg-gray-50">
-        <div className="max-w-6xl mx-auto">
+      <section className="relative py-14 px-4 overflow-hidden">
+        <div className="absolute inset-0 bg-surface-lime-soft"></div>
+        <div className="max-w-6xl mx-auto relative">
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-black mb-8">
             Complete paid media solutions...
           </h2>
@@ -344,22 +347,22 @@ export default function Paid() {
               <button
                 key={idx}
                 onClick={() => setCurrentService(idx)}
-                className={`h-2 rounded-full transition-all ${
-                  idx === currentService ? 'w-8 bg-[#c4ff4d]' : 'w-2 bg-gray-300'
+                className={`h-2 rounded-full transition-all duration-300 ${
+                  idx === currentService ? 'w-8 bg-[#c4ff4d] glow-lime' : 'w-2 bg-gray-300'
                 }`}
                 data-testid={`dot-service-${idx}`}
               />
             ))}
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 stagger-fade-in">
             {[0, 1, 2].map((offset) => {
               const actualIdx = (currentService + offset) % services.length;
               const service = services[actualIdx];
               const Icon = service.icon;
               
               return (
-                <div key={actualIdx} className="bg-white border-2 border-gray-100 rounded-3xl p-8" data-testid={`card-service-${actualIdx}`}>
+                <div key={actualIdx} className="glass-lime-strong rounded-3xl p-8 hover-lift" data-testid={`card-service-${actualIdx}`}>
                   <div className="flex items-start justify-between mb-6">
                     <div className="w-14 h-14 bg-[#0a0a0a] rounded-xl flex items-center justify-center">
                       <Icon className="h-7 w-7 text-[#c4ff4d]" />
@@ -399,14 +402,14 @@ export default function Paid() {
       </section>
 
       {/* Case Studies Section */}
-      <section className="py-14 px-4 bg-gray-50">
+      <section className="py-14 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-black text-black mb-8">
             Paid media success stories
           </h2>
 
           <Link href="/our-work">
-            <button className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-lg font-semibold hover-elevate active-elevate-2 mb-8" data-testid="button-view-all-case-studies">
+            <button className="btn-shimmer inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-lg font-semibold hover-elevate active-elevate-2 mb-8" data-testid="button-view-all-case-studies">
               View All Results
               <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center border-2 border-white">
                 <ArrowRight className="h-5 w-5 text-white" />
@@ -497,8 +500,10 @@ export default function Paid() {
       </section>
 
       {/* Why OARC Digital Carousel */}
-      <section className="py-14 px-4 bg-white">
-        <div className="max-w-4xl mx-auto">
+      <section className="relative py-14 px-4 overflow-hidden">
+        <div className="absolute inset-0 bg-surface-lime"></div>
+        <div className="absolute top-0 right-0 w-80 h-80 bg-[#c4ff4d]/15 rounded-full blur-3xl animate-float"></div>
+        <div className="max-w-4xl mx-auto relative">
           <div className="flex items-center justify-between mb-8">
             <h2 className="text-3xl md:text-4xl font-black text-black">
               The OARC Advantage
@@ -526,16 +531,16 @@ export default function Paid() {
               <button
                 key={idx}
                 onClick={() => setCurrentBenefit(idx)}
-                className={`h-2 rounded-full transition-all ${
-                  idx === currentBenefit ? 'w-8 bg-[#c4ff4d]' : 'w-2 bg-gray-300'
+                className={`h-2 rounded-full transition-all duration-300 ${
+                  idx === currentBenefit ? 'w-8 bg-[#c4ff4d] glow-lime' : 'w-2 bg-gray-300'
                 }`}
                 data-testid={`dot-benefit-${idx}`}
               />
             ))}
           </div>
 
-          <div className="bg-black text-white rounded-3xl p-10" data-testid="card-benefit-current">
-            <div className="w-16 h-16 bg-[#c4ff4d] rounded-full flex items-center justify-center mb-6">
+          <div className="bg-black text-white rounded-3xl p-10 glow-lime-subtle" data-testid="card-benefit-current">
+            <div className="w-16 h-16 bg-[#c4ff4d] rounded-full flex items-center justify-center mb-6 stat-glow">
               <LineChart className="h-8 w-8 text-black" />
             </div>
 
@@ -550,7 +555,7 @@ export default function Paid() {
 
           <Link href="/contact">
             <button
-              className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-lg font-semibold hover-elevate active-elevate-2 mt-8"
+              className="btn-shimmer inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-lg font-semibold hover-elevate active-elevate-2 mt-8"
               data-testid="button-get-in-touch-final"
             >
               Start Scaling Your Ads
@@ -563,7 +568,7 @@ export default function Paid() {
       </section>
 
       {/* Who This Service Is For */}
-      <section className="py-20 px-4 bg-gray-50">
+      <section className="py-20 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <div className="text-sm uppercase tracking-wider mb-4" style={{ color: '#6b9b12' }}>IDEAL FOR</div>
@@ -602,7 +607,7 @@ export default function Paid() {
                 ]
               }
             ].map((category, idx) => (
-              <div key={idx} className="bg-white rounded-3xl p-8 shadow-sm" data-testid={`card-audience-${idx}`}>
+              <div key={idx} className="glass-lime rounded-3xl p-8 hover-lift" data-testid={`card-audience-${idx}`}>
                 <div className="w-14 h-14 bg-[#c4ff4d] rounded-xl flex items-center justify-center mb-6">
                   <category.icon className="h-7 w-7 text-black" />
                 </div>
@@ -622,8 +627,10 @@ export default function Paid() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-20 px-4 bg-black">
-        <div className="max-w-4xl mx-auto text-center">
+      <section className="relative py-20 px-4 bg-black overflow-hidden">
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#c4ff4d]/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-[#c4ff4d]/5 rounded-full blur-3xl"></div>
+        <div className="max-w-4xl mx-auto text-center relative">
           <h2 className="text-3xl md:text-4xl font-black text-white mb-6">
             Ready to turn ad spend into revenue?
           </h2>
@@ -632,7 +639,7 @@ export default function Paid() {
           </p>
           <Link href="/contact">
             <button
-              className="inline-flex items-center gap-3 bg-[#c4ff4d] text-black rounded-full pl-10 pr-4 py-4 text-lg font-bold hover:bg-[#d4ff6d] transition-colors"
+              className="btn-shimmer inline-flex items-center gap-3 bg-[#c4ff4d] text-black rounded-full pl-10 pr-4 py-4 text-lg font-bold hover:bg-[#d4ff6d] transition-colors glow-lime"
               data-testid="button-final-cta"
             >
               Get Your Free Audit
