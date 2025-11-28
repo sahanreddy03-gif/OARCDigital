@@ -7,7 +7,7 @@ import Layout from "@/components/layout/Layout";
 import SEOHead from "@/components/SEOHead";
 import { revenueServicesSEO } from "@/data/seoMetadata";
 import { createServiceSchema } from "@/utils/structuredData";
-import heroImage from "@assets/stock_images/automation_workflow__5f7d705f.jpg";
+import heroImage from "@assets/funnel-automation-optimized.jpg";
 
 export default function FunnelAutomation() {
   useEffect(() => {
