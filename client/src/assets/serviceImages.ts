@@ -17,6 +17,7 @@ import presentationOptimized from '@assets/presentation-design-optimized.jpg';
 import adCreativeOptimized from '@assets/paid-advertising-creative-optimized.jpg';
 import websiteDesignOptimized from '@assets/website-design-optimized.jpg';
 import emailCreationOptimized from '@assets/email-creation-optimized.jpg';
+import illustrationOptimized from '@assets/illustration-design-optimized.jpg';
 
 import img1 from '@assets/1_1763083221531.avif';
 import img2 from '@assets/2_1763083221532.avif';
@@ -41,7 +42,7 @@ export const serviceImages = {
   adCreative: adCreativeOptimized,
   socialMedia: img2,
   presentation: presentationOptimized,
-  illustration: img4,
+  illustration: illustrationOptimized,
   branding: img5,
   ebook: img6,
   concept: img7,
