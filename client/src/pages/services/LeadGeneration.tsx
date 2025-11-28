@@ -1,13 +1,13 @@
 import { useEffect } from "react";
 import { Link } from "wouter";
-import { Mail, Search, UserPlus, Megaphone, Calendar, Users, CheckCircle2, Target } from "lucide-react";
+import { Mail, Search, UserPlus, Megaphone, Calendar, Users, CheckCircle2, Target, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ScrollableCards } from "@/components/ui/scrollable-cards";
 import Layout from "@/components/layout/Layout";
 import SEOHead from "@/components/SEOHead";
 import { revenueServicesSEO } from "@/data/seoMetadata";
 import { createServiceSchema } from "@/utils/structuredData";
-import heroImage from "@assets/AdobeStock_436772802_1764288793587.jpeg";
+import heroImage from "@assets/lead-generation-optimized.jpg";
 
 export default function LeadGeneration() {
   useEffect(() => {
