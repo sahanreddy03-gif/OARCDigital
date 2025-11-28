@@ -263,13 +263,17 @@ export default function Services() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 px-6 bg-gradient-to-b from-black via-zinc-950 to-zinc-900">
-        <div className="max-w-7xl mx-auto">
+      <section className="py-16 px-6 bg-gradient-to-b from-black via-zinc-950 to-zinc-900 relative overflow-hidden">
+        {/* Floating Orbs */}
+        <div className="absolute top-0 left-1/4 w-80 h-80 bg-[#c4ff4d]/10 rounded-full blur-3xl motion-reduce:hidden"></div>
+        <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-orange-500/10 rounded-full blur-3xl motion-reduce:hidden"></div>
+        
+        <div className="max-w-7xl mx-auto relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {[
-              { value: 25, suffix: '+', label: 'Premium Services', color: 'from-[#c4ff4d] to-lime-400' },
-              { value: 500, suffix: '+', label: 'Projects Delivered', color: 'from-orange-400 to-amber-400' },
-              { value: 98, suffix: '%', label: 'Client Satisfaction', color: 'from-[#c4ff4d] to-green-400' }
+              { value: 25, suffix: '+', label: 'Specialized Solutions', color: 'from-[#c4ff4d] to-lime-400' },
+              { value: 500, suffix: '+', label: 'Successful Campaigns', color: 'from-orange-400 to-amber-400' },
+              { value: 98, suffix: '%', label: 'Client Retention', color: 'from-[#c4ff4d] to-green-400' }
             ].map((stat, index) => {
               const ref = useRef<HTMLDivElement>(null);
               const isInView = useInView(ref, { once: true });
@@ -282,7 +286,7 @@ export default function Services() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="text-center p-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:border-[#c4ff4d]/40 transition-all"
+                  className="text-center p-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:border-[#c4ff4d]/40 transition-all hover-lift stat-glow"
                   data-testid={`stat-${index}`}
                 >
                   <div className={`text-heading-lg font-black bg-gradient-to-r ${stat.color} bg-clip-text text-transparent mb-3`}>
@@ -297,8 +301,12 @@ export default function Services() {
       </section>
 
       {/* Interactive Category Tabs */}
-      <section id="services-section" className="py-24 px-6 bg-zinc-900">
-        <div className="max-w-7xl mx-auto">
+      <section id="services-section" className="py-24 px-6 bg-zinc-900 relative overflow-hidden">
+        {/* Premium Background Effects */}
+        <div className="absolute top-20 right-10 w-96 h-96 bg-[#c4ff4d]/8 rounded-full blur-3xl motion-reduce:hidden"></div>
+        <div className="absolute bottom-20 left-10 w-80 h-80 bg-orange-500/8 rounded-full blur-3xl motion-reduce:hidden"></div>
+        
+        <div className="max-w-7xl mx-auto relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -307,11 +315,11 @@ export default function Services() {
           >
             <h2 className="text-heading-lg font-black mb-5">
               <span className="bg-gradient-to-r from-white via-[#c4ff4d]/80 to-white bg-clip-text text-transparent">
-                Choose Your Path
+                Select Your Strategy
               </span>
             </h2>
             <p className="text-body text-zinc-400 max-w-2xl mx-auto">
-              Explore our three pillars of innovation
+              Discover our three core competencies designed to accelerate your growth
             </p>
           </motion.div>
 
@@ -375,10 +383,10 @@ export default function Services() {
                       </h3>
                       <Link href={`/services/${activeCategoryData.featured.route || activeCategoryData.featured.slug}`}>
                         <button
-                          className={`px-6 py-3 bg-gradient-to-r ${activeColor.gradient} rounded-full font-bold text-sm text-black hover:scale-105 transition-transform inline-flex items-center gap-2`}
+                          className={`px-6 py-3 bg-gradient-to-r ${activeColor.gradient} rounded-full font-bold text-sm text-black hover:scale-105 transition-transform inline-flex items-center gap-2 btn-shimmer`}
                           data-testid={`button-featured-${activeCategoryData.featured.slug}`}
                         >
-                          Learn More
+                          Discover More
                           <ArrowRight className="w-4 h-4" />
                         </button>
                       </Link>
@@ -398,11 +406,11 @@ export default function Services() {
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: index * 0.05 }}
-                        className="group relative h-full p-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:border-[#c4ff4d]/50 transition-all cursor-pointer"
+                        className="group relative h-full p-6 rounded-2xl hover:border-[#c4ff4d]/50 transition-all cursor-pointer hover-lift glass-dark"
                         data-testid={`card-service-${service.slug}`}
                       >
                         {ServiceIcon && (
-                          <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${activeColor.gradient} flex items-center justify-center mb-4`}>
+                          <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${activeColor.gradient} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
                             <ServiceIcon className="w-6 h-6 text-black" />
                           </div>
                         )}
@@ -412,14 +420,14 @@ export default function Services() {
                             {service.title}
                           </h4>
                           {service.badge && (
-                            <span className="px-2 py-0.5 rounded-full text-xs font-medium bg-[#c4ff4d]/10 text-[#c4ff4d] border border-[#c4ff4d]/20">
+                            <span className="px-2 py-0.5 rounded-full text-xs font-medium bg-[#c4ff4d]/10 text-[#c4ff4d] border border-[#c4ff4d]/20 btn-shimmer">
                               {service.badge}
                             </span>
                           )}
                         </div>
                         
                         <div className="flex items-center gap-2 text-[#c4ff4d] text-xs font-semibold">
-                          Explore
+                          Discover More
                           <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
                         </div>
                       </motion.div>
@@ -433,8 +441,12 @@ export default function Services() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-24 px-6 bg-gradient-to-b from-zinc-900 to-black">
-        <div className="max-w-4xl mx-auto text-center">
+      <section className="py-24 px-6 bg-gradient-to-b from-zinc-900 to-black relative overflow-hidden">
+        {/* Premium Background Orbs */}
+        <div className="absolute top-10 left-1/3 w-72 h-72 bg-[#c4ff4d]/10 rounded-full blur-3xl motion-reduce:hidden"></div>
+        <div className="absolute bottom-10 right-1/3 w-64 h-64 bg-orange-500/10 rounded-full blur-3xl motion-reduce:hidden"></div>
+        
+        <div className="max-w-4xl mx-auto text-center relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -442,20 +454,20 @@ export default function Services() {
           >
             <h2 className="text-heading-xl font-black mb-6">
               <span className="bg-gradient-to-r from-white via-[#c4ff4d]/80 to-white bg-clip-text text-transparent">
-                Ready to Transform Your Business?
+                Ready to Accelerate Your Growth?
               </span>
             </h2>
             <p className="text-body-lg text-zinc-400 mb-10 max-w-2xl mx-auto">
-              Let's discuss how our premium services can help you achieve your goals.
+              Connect with our specialists to explore tailored strategies that drive measurable results.
             </p>
             <Link href="/contact">
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 bg-gradient-to-r from-[#c4ff4d] to-lime-400 rounded-full font-bold text-base text-black inline-flex items-center gap-2"
+                className="px-8 py-4 bg-gradient-to-r from-[#c4ff4d] to-lime-400 rounded-full font-bold text-base text-black inline-flex items-center gap-2 btn-shimmer glow-lime"
                 data-testid="button-get-started-footer"
               >
-                Get Started Today
+                Begin Your Journey
                 <ArrowRight className="w-5 h-5" />
               </motion.button>
             </Link>
