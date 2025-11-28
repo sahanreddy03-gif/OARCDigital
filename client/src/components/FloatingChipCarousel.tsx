@@ -10,7 +10,7 @@ import websiteDesign from '@assets/website-design-optimized.jpg';
 import influencerMarketing from '@assets/influencer-marketing-optimized.jpg';
 import rapidTesting from '@assets/stock_images/rapid_prototyping_te_b34ce5db.jpg';
 import leadGen from '@assets/lead-generation-optimized.jpg';
-import creativeAds from '@assets/stock_images/creative_advertising_904dac86.jpg';
+import creativeAds from '@assets/creative-ad-campaigns-optimized.jpg';
 import customerAcquisition from '@assets/customer-acquisition-optimized.jpg';
 import funnelAutomation from '@assets/funnel-automation-optimized.jpg';
 import aiCopywriting from '@assets/ai-copywriting-optimized.jpg';

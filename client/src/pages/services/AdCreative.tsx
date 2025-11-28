@@ -7,7 +7,7 @@ import Layout from "@/components/layout/Layout";
 import SEOHead from "@/components/SEOHead";
 import { creativeServicesSEO } from "@/data/seoMetadata";
 import { createServiceSchema } from "@/utils/structuredData";
-import heroImage from '@assets/ad creative_1763084489954.avif';
+import heroImage from '@assets/creative-ad-campaigns-optimized.jpg';
 import adImg1 from "@assets/stock_images/creative_advertising_b13aabf8.jpg";
 import adImg2 from "@assets/stock_images/creative_advertising_0f7921d3.jpg";
 import adImg3 from "@assets/stock_images/creative_advertising_3d5c5ae1.jpg";
