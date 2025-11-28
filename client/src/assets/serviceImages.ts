@@ -15,6 +15,7 @@ import aiConsultingBanner from '@assets/ai consulting_1763087215182.avif';
 import videoProductionBanner from '@assets/ai-video-production-optimized.jpg';
 import presentationOptimized from '@assets/presentation-design-optimized.jpg';
 import adCreativeOptimized from '@assets/paid-advertising-creative-optimized.jpg';
+import websiteDesignOptimized from '@assets/website-design-optimized.jpg';
 
 import img1 from '@assets/1_1763083221531.avif';
 import img2 from '@assets/2_1763083221532.avif';
@@ -49,7 +50,7 @@ export const serviceImages = {
   motion: img11,
   immersive: img12,
   email: img13,
-  webDesign: img14,
+  webDesign: websiteDesignOptimized,
   designSystems: img15,
   productDesign: img16,
   aiEnhanced: img17,
