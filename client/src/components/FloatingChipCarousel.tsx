@@ -5,7 +5,7 @@ import socialMedia from '@assets/social-media-management-optimized.jpg';
 import aiVideo from '@assets/stock_images/professional_video_p_08fa5257.jpg';
 import branding from '@assets/branding-services-optimized.jpg';
 import paidAdvertising from '@assets/paid-advertising-optimized.jpg';
-import mediaBuying from '@assets/stock_images/media_buying_adverti_f124ffbd.jpg';
+import mediaBuying from '@assets/media-buying-optimized.jpg';
 import websiteDesign from '@assets/website-design-optimized.jpg';
 import influencerMarketing from '@assets/influencer-marketing-optimized.jpg';
 import rapidTesting from '@assets/rapid-idea-testing-optimized.jpg';
