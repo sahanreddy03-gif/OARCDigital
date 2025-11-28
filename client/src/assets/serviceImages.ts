@@ -22,6 +22,7 @@ import aiConsultingOptimized from '@assets/ai-consulting-optimized.jpg';
 import printDesignOptimized from '@assets/print-design-optimized.jpg';
 import conceptCreationOptimized from '@assets/concept-creation-optimized.jpg';
 import designSystemsOptimized from '@assets/design-systems-optimized.jpg';
+import aiEnhancedOptimized from '@assets/ai-enhanced-creative-optimized.jpg';
 
 import img1 from '@assets/1_1763083221531.avif';
 import img2 from '@assets/2_1763083221532.avif';
@@ -59,7 +60,7 @@ export const serviceImages = {
   webDesign: websiteDesignOptimized,
   designSystems: designSystemsOptimized,
   productDesign: img16,
-  aiEnhanced: img17,
+  aiEnhanced: aiEnhancedOptimized,
   aiConsulting: aiConsultingOptimized,
 };
 
