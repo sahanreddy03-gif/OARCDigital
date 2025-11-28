@@ -9,7 +9,7 @@ import mediaBuying from '@assets/stock_images/media_buying_adverti_f124ffbd.jpg'
 import websiteDesign from '@assets/stock_images/modern_website_desig_4ba94acf.jpg';
 import influencerMarketing from '@assets/stock_images/influencer_content_c_71663437.jpg';
 import rapidTesting from '@assets/stock_images/rapid_prototyping_te_b34ce5db.jpg';
-import leadGen from '@assets/stock_images/lead_generation_sale_7da29fb3.jpg';
+import leadGen from '@assets/AdobeStock_436772802_1764288793587.jpeg';
 import creativeAds from '@assets/stock_images/creative_advertising_904dac86.jpg';
 import customerAcquisition from '@assets/stock_images/customer_acquisition_fa077f6d.jpg';
 import funnelAutomation from '@assets/stock_images/marketing_funnel_aut_5c1f1337.jpg';
