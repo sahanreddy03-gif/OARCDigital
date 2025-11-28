@@ -7,7 +7,7 @@ import Layout from "@/components/layout/Layout";
 import SEOHead from "@/components/SEOHead";
 import { revenueServicesSEO } from "@/data/seoMetadata";
 import { createServiceSchema } from "@/utils/structuredData";
-import heroImage from "@assets/stock_images/sales_team_handshake_272ba86a.jpg";
+import heroImage from "@assets/AdobeStock_436772802_1764288793587.jpeg";
 
 export default function LeadGeneration() {
   useEffect(() => {
