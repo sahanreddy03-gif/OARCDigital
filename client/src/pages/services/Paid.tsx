@@ -7,7 +7,7 @@ import SEOHead from "@/components/SEOHead";
 import { revenueServicesSEO } from "@/data/seoMetadata";
 import { createServiceSchema } from "@/utils/structuredData";
 import ScrollReveal from "@/components/ScrollReveal";
-import heroImage from '@assets/paid advertising_1763088406833.avif';
+import heroImage from '@assets/paid-advertising-optimized.jpg';
 import formalTeamImg from '@assets/stock_images/digital_advertising__84eb3355.jpg';
 import conferenceTeamImg from '@assets/stock_images/digital_advertising__e3a5e56c.jpg';
 import studioImg from '@assets/stock_images/graphic_design_creat_e05eb8ba.jpg';
