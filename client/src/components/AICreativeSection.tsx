@@ -83,7 +83,7 @@ const services = [
     category: "Digital & Web"
   },
   {
-    title: "Web design",
+    title: "Website design",
     subtitle: "Stunning websites and landing pages built to engage",
     image: serviceImages.webDesign,
     category: "Digital & Web"
