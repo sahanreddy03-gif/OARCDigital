@@ -17,7 +17,7 @@ import {
 } from "lucide-react";
 import { Link } from "wouter";
 
-function AnimatedNumber({ value, prefix = "", suffix = "", duration = 600 }: { value: number; prefix?: string; suffix?: string; duration?: number }) {
+function AnimatedNumber({ value, prefix = "", suffix = "", duration = 800 }: { value: number; prefix?: string; suffix?: string; duration?: number }) {
   const [displayValue, setDisplayValue] = useState(0);
   const previousValue = useRef(0);
 
@@ -29,7 +29,7 @@ function AnimatedNumber({ value, prefix = "", suffix = "", duration = 600 }: { v
     const animate = () => {
       const elapsed = Date.now() - startTime;
       const progress = Math.min(elapsed / duration, 1);
-      const easeProgress = 1 - Math.pow(1 - progress, 3);
+      const easeProgress = 1 - Math.pow(1 - progress, 4);
       const currentValue = startValue + (endValue - startValue) * easeProgress;
       
       setDisplayValue(Math.round(currentValue));
@@ -55,7 +55,7 @@ function AnimatedNumber({ value, prefix = "", suffix = "", duration = 600 }: { v
   };
 
   return (
-    <span className="tabular-nums">
+    <span className="tabular-nums font-mono">
       {prefix}{formatNumber(displayValue)}{suffix}
     </span>
   );
@@ -124,6 +124,7 @@ const columns = [
 export default function ROICalculatorSection() {
   const [monthlyBudget, setMonthlyBudget] = useState(15000);
   const [isVisible, setIsVisible] = useState(false);
+  const [hoveredRow, setHoveredRow] = useState<number | null>(null);
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -150,93 +151,128 @@ export default function ROICalculatorSection() {
   return (
     <section 
       ref={sectionRef}
-      className="relative py-14 md:py-20 lg:py-24 overflow-hidden"
-      style={{ backgroundColor: "#0a0a0a" }}
+      className="relative py-20 md:py-28 lg:py-32 overflow-hidden"
+      style={{ backgroundColor: "#fafafa" }}
       data-testid="section-roi-calculator"
     >
-      {/* Subtle background */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-[#c4ff4d]/5 via-transparent to-transparent pointer-events-none" />
+      {/* Subtle gradient accents */}
+      <div 
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background: `
+            radial-gradient(ellipse at 20% 0%, rgba(196, 255, 77, 0.08) 0%, transparent 50%),
+            radial-gradient(ellipse at 80% 100%, rgba(249, 115, 22, 0.05) 0%, transparent 50%)
+          `
+        }}
+      />
       
-      <div className={`container mx-auto px-4 md:px-6 lg:px-8 max-w-6xl transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
+      <div className={`container mx-auto px-4 md:px-6 lg:px-8 max-w-6xl transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
         
-        {/* Section Header - Compact */}
-        <div className="text-center mb-8 md:mb-12">
-          <p className="text-xs uppercase tracking-[0.2em] text-[#c4ff4d]/70 font-medium mb-3">
+        {/* Section Header */}
+        <div className="mb-12 md:mb-16">
+          <p
+            className="text-xs md:text-sm font-bold tracking-[0.3em] uppercase mb-4"
+            style={{ color: "rgba(0, 0, 0, 0.35)" }}
+          >
             Why OARC Digital
           </p>
           <h2 
-            className="text-white font-bold mb-3"
-            style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', letterSpacing: '-0.02em', lineHeight: '1.15' }}
+            className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4"
+            style={{ 
+              color: "#0a0a0a",
+              letterSpacing: "-0.03em",
+              lineHeight: 1.15
+            }}
           >
             AI solutions or traditional outsourcing?{" "}
-            <span className="italic font-medium text-[#c4ff4d]">Neither.</span>
+            <span className="italic font-medium" style={{ color: "#c4ff4d", textShadow: "0 0 40px rgba(196, 255, 77, 0.3)" }}>Neither.</span>
           </h2>
-          <p className="text-white/50 text-sm md:text-base max-w-xl mx-auto">
+          <p className="text-base md:text-lg max-w-2xl" style={{ color: "rgba(0, 0, 0, 0.5)" }}>
             See why innovative brands choose OARC for AI software, solutions & workflow automation.
           </p>
         </div>
 
-        {/* Comparison Table - Compact */}
-        <div className="mb-10 md:mb-14">
+        {/* Comparison Table */}
+        <div className="mb-16 md:mb-20">
           {/* Desktop Table Header */}
-          <div className="hidden md:grid grid-cols-12 gap-3 mb-3 px-4">
+          <div className="hidden md:grid grid-cols-12 gap-4 mb-4 px-6">
             <div className="col-span-6"></div>
             {columns.map((col) => (
               <div key={col.key} className="col-span-2 text-center">
-                <span className="text-xs font-medium text-white/50 uppercase tracking-wider">
+                <span className="text-xs font-bold uppercase tracking-wider" style={{ color: "rgba(0, 0, 0, 0.35)" }}>
                   {col.label}
                 </span>
               </div>
             ))}
           </div>
 
-          {/* Table Rows - Compact */}
-          <div className="space-y-2">
+          {/* Table Rows */}
+          <div className="space-y-3">
             {comparisonData.map((row, index) => (
               <div 
                 key={row.name}
-                className={`
-                  relative rounded-xl transition-all duration-300
-                  ${row.isHighlighted 
-                    ? 'bg-[#c4ff4d]' 
-                    : 'bg-white/[0.03] border border-white/[0.08]'
-                  }
-                `}
-                data-testid={`comparison-row-${index}`}
+                onMouseEnter={() => setHoveredRow(index)}
+                onMouseLeave={() => setHoveredRow(null)}
+                className="relative rounded-2xl transition-all duration-500"
                 style={{
-                  transitionDelay: `${index * 50}ms`,
+                  backgroundColor: row.isHighlighted ? "#c4ff4d" : hoveredRow === index ? "#ffffff" : "#ffffff",
+                  border: row.isHighlighted ? "2px solid #c4ff4d" : "1px solid rgba(0, 0, 0, 0.06)",
+                  boxShadow: row.isHighlighted 
+                    ? "0 20px 40px -15px rgba(196, 255, 77, 0.3)" 
+                    : hoveredRow === index 
+                      ? "0 10px 30px -10px rgba(0, 0, 0, 0.1)" 
+                      : "0 2px 10px -5px rgba(0, 0, 0, 0.05)",
+                  transform: hoveredRow === index && !row.isHighlighted ? "translateY(-2px)" : "translateY(0)",
+                  transitionDelay: `${index * 80}ms`,
                   opacity: isVisible ? 1 : 0,
-                  transform: isVisible ? 'translateY(0)' : 'translateY(10px)',
                 }}
+                data-testid={`comparison-row-${index}`}
               >
                 {/* Mobile Layout */}
-                <div className="md:hidden p-4">
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className={`w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 ${
-                      row.isHighlighted ? 'bg-black/10' : 'bg-white/10'
-                    }`}>
-                      <row.icon className={`w-4 h-4 ${row.isHighlighted ? 'text-black' : 'text-white'}`} strokeWidth={1.5} />
+                <div className="md:hidden p-5">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div 
+                      className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
+                      style={{ 
+                        backgroundColor: row.isHighlighted ? "rgba(0, 0, 0, 0.1)" : "rgba(0, 0, 0, 0.04)"
+                      }}
+                    >
+                      <row.icon 
+                        className="w-5 h-5" 
+                        style={{ color: row.isHighlighted ? "#0a0a0a" : "rgba(0, 0, 0, 0.6)" }}
+                        strokeWidth={1.5} 
+                      />
                     </div>
-                    <div className="flex-1 min-w-0">
-                      <h4 className={`font-semibold text-sm ${row.isHighlighted ? 'text-black' : 'text-white'}`}>
-                        {row.name}
-                      </h4>
-                    </div>
+                    <h4 
+                      className="font-bold text-base"
+                      style={{ color: row.isHighlighted ? "#0a0a0a" : "#0a0a0a" }}
+                    >
+                      {row.name}
+                    </h4>
                   </div>
-                  <div className="grid grid-cols-3 gap-2">
+                  <div className="grid grid-cols-3 gap-3">
                     {columns.map((col) => {
                       const value = row[col.key as keyof ComparisonRow] as boolean;
                       return (
                         <div key={col.key} className="text-center">
-                          <span className={`text-[9px] font-medium uppercase tracking-wider block mb-0.5 ${
-                            row.isHighlighted ? 'text-black/50' : 'text-white/40'
-                          }`}>
+                          <span 
+                            className="text-[10px] font-bold uppercase tracking-wider block mb-1"
+                            style={{ color: row.isHighlighted ? "rgba(0, 0, 0, 0.5)" : "rgba(0, 0, 0, 0.35)" }}
+                          >
                             {col.label}
                           </span>
                           {value ? (
-                            <Check className={`w-4 h-4 mx-auto ${row.isHighlighted ? 'text-black' : 'text-[#c4ff4d]'}`} strokeWidth={2.5} />
+                            <Check 
+                              className="w-5 h-5 mx-auto" 
+                              style={{ color: row.isHighlighted ? "#0a0a0a" : "#c4ff4d" }}
+                              strokeWidth={3} 
+                            />
                           ) : (
-                            <X className={`w-4 h-4 mx-auto ${row.isHighlighted ? 'text-black/40' : 'text-white/30'}`} strokeWidth={2} />
+                            <X 
+                              className="w-5 h-5 mx-auto" 
+                              style={{ color: row.isHighlighted ? "rgba(0, 0, 0, 0.3)" : "rgba(0, 0, 0, 0.2)" }}
+                              strokeWidth={2} 
+                            />
                           )}
                         </div>
                       );
@@ -244,19 +280,33 @@ export default function ROICalculatorSection() {
                   </div>
                 </div>
 
-                {/* Desktop Layout - Compact */}
-                <div className="hidden md:grid grid-cols-12 gap-3 items-center p-4">
-                  <div className="col-span-6 flex items-center gap-3">
-                    <div className={`w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0 ${
-                      row.isHighlighted ? 'bg-black/10' : 'bg-white/10'
-                    }`}>
-                      <row.icon className={`w-5 h-5 ${row.isHighlighted ? 'text-black' : 'text-white'}`} strokeWidth={1.5} />
+                {/* Desktop Layout */}
+                <div className="hidden md:grid grid-cols-12 gap-4 items-center p-5 md:p-6">
+                  <div className="col-span-6 flex items-center gap-4">
+                    <div 
+                      className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 transition-transform duration-300"
+                      style={{ 
+                        backgroundColor: row.isHighlighted ? "rgba(0, 0, 0, 0.1)" : "rgba(0, 0, 0, 0.04)",
+                        transform: hoveredRow === index ? "scale(1.1) rotate(-6deg)" : "scale(1) rotate(0)"
+                      }}
+                    >
+                      <row.icon 
+                        className="w-6 h-6" 
+                        style={{ color: row.isHighlighted ? "#0a0a0a" : "rgba(0, 0, 0, 0.6)" }}
+                        strokeWidth={1.5} 
+                      />
                     </div>
                     <div>
-                      <h4 className={`font-semibold text-sm ${row.isHighlighted ? 'text-black' : 'text-white'}`}>
+                      <h4 
+                        className="font-bold text-base mb-0.5"
+                        style={{ color: row.isHighlighted ? "#0a0a0a" : "#0a0a0a" }}
+                      >
                         {row.name}
                       </h4>
-                      <p className={`text-xs ${row.isHighlighted ? 'text-black/70' : 'text-white/50'}`}>
+                      <p 
+                        className="text-sm"
+                        style={{ color: row.isHighlighted ? "rgba(0, 0, 0, 0.7)" : "rgba(0, 0, 0, 0.45)" }}
+                      >
                         {row.description}
                       </p>
                     </div>
@@ -266,9 +316,25 @@ export default function ROICalculatorSection() {
                     return (
                       <div key={col.key} className="col-span-2 flex justify-center">
                         {value ? (
-                          <Check className={`w-5 h-5 ${row.isHighlighted ? 'text-black' : 'text-[#c4ff4d]'}`} strokeWidth={2.5} />
+                          <div 
+                            className="w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300"
+                            style={{
+                              backgroundColor: row.isHighlighted ? "rgba(0, 0, 0, 0.15)" : "rgba(196, 255, 77, 0.15)",
+                              transform: hoveredRow === index ? "scale(1.2)" : "scale(1)"
+                            }}
+                          >
+                            <Check 
+                              className="w-4 h-4" 
+                              style={{ color: row.isHighlighted ? "#0a0a0a" : "#7cb518" }}
+                              strokeWidth={3} 
+                            />
+                          </div>
                         ) : (
-                          <X className={`w-5 h-5 ${row.isHighlighted ? 'text-black/40' : 'text-white/30'}`} strokeWidth={2} />
+                          <X 
+                            className="w-5 h-5" 
+                            style={{ color: row.isHighlighted ? "rgba(0, 0, 0, 0.25)" : "rgba(0, 0, 0, 0.15)" }}
+                            strokeWidth={2} 
+                          />
                         )}
                       </div>
                     );
@@ -280,25 +346,39 @@ export default function ROICalculatorSection() {
         </div>
 
         {/* Divider */}
-        <div className="flex items-center gap-4 mb-8 md:mb-10">
-          <div className="flex-1 h-px bg-gradient-to-r from-transparent via-white/15 to-transparent" />
-          <span className="text-[10px] uppercase tracking-[0.15em] text-white/30 font-medium">
-            Calculate Savings
+        <div className="flex items-center gap-6 mb-12 md:mb-16">
+          <div className="flex-1 h-px" style={{ background: "linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.08), transparent)" }} />
+          <span className="text-xs font-bold uppercase tracking-[0.2em]" style={{ color: "rgba(0, 0, 0, 0.3)" }}>
+            Calculate Your Savings
           </span>
-          <div className="flex-1 h-px bg-gradient-to-r from-transparent via-white/15 to-transparent" />
+          <div className="flex-1 h-px" style={{ background: "linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.08), transparent)" }} />
         </div>
 
-        {/* ROI Calculator - Compact Single Row */}
-        <div className="grid md:grid-cols-2 gap-6 md:gap-8 items-center">
+        {/* ROI Calculator */}
+        <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
           
           {/* Left: Slider */}
-          <div className="space-y-4 p-5 rounded-xl bg-white/5 border border-white/10">
-            <div className="flex justify-between items-center">
-              <label className="text-sm font-medium text-white flex items-center gap-2">
-                <DollarSign className="w-4 h-4 text-[#c4ff4d]" />
+          <div 
+            className="p-8 rounded-3xl transition-all duration-500"
+            style={{ 
+              backgroundColor: "#ffffff",
+              border: "1px solid rgba(0, 0, 0, 0.06)",
+              boxShadow: "0 4px 20px -5px rgba(0, 0, 0, 0.05)"
+            }}
+          >
+            <div className="flex justify-between items-center mb-6">
+              <label className="text-sm font-bold flex items-center gap-2" style={{ color: "#0a0a0a" }}>
+                <DollarSign className="w-4 h-4" style={{ color: "#c4ff4d" }} />
                 Monthly Operations Budget
               </label>
-              <span className="text-sm font-bold text-[#c4ff4d] bg-[#c4ff4d]/10 px-3 py-1 rounded-full" data-testid="value-budget">
+              <span 
+                className="text-sm font-bold px-4 py-2 rounded-full"
+                style={{ 
+                  backgroundColor: "rgba(196, 255, 77, 0.15)",
+                  color: "#6b9b12"
+                }}
+                data-testid="value-budget"
+              >
                 ${monthlyBudget.toLocaleString()}
               </span>
             </div>
@@ -308,10 +388,10 @@ export default function ROICalculatorSection() {
               min={5000}
               max={100000}
               step={5000}
-              className="[&_[role=slider]]:bg-[#c4ff4d] [&_[role=slider]]:border-[#c4ff4d] [&_[role=slider]]:shadow-lg [&_[role=slider]]:shadow-[#c4ff4d]/30 [&_.bg-primary]:bg-[#c4ff4d]"
+              className="[&_[role=slider]]:bg-[#c4ff4d] [&_[role=slider]]:border-[#c4ff4d] [&_[role=slider]]:shadow-lg [&_[role=slider]]:shadow-[#c4ff4d]/30 [&_[role=slider]]:w-6 [&_[role=slider]]:h-6 [&_.bg-primary]:bg-[#c4ff4d]"
               data-testid="slider-budget"
             />
-            <div className="flex justify-between text-xs text-white/40">
+            <div className="flex justify-between text-xs font-medium mt-3" style={{ color: "rgba(0, 0, 0, 0.35)" }}>
               <span>$5K</span>
               <span>$100K</span>
             </div>
@@ -319,35 +399,50 @@ export default function ROICalculatorSection() {
 
           {/* Right: Results */}
           <div className="grid grid-cols-2 gap-4">
-            <div className="p-4 rounded-xl bg-gradient-to-br from-[#c4ff4d]/15 to-[#c4ff4d]/5 border border-[#c4ff4d]/20">
-              <p className="text-xs text-white/50 mb-1">Monthly Savings</p>
-              <p className="text-2xl md:text-3xl font-bold text-[#c4ff4d]" data-testid="monthly-savings">
+            <div 
+              className="p-6 md:p-8 rounded-3xl transition-all duration-500"
+              style={{ 
+                background: "linear-gradient(135deg, #c4ff4d 0%, #a8e834 100%)",
+                boxShadow: "0 20px 40px -15px rgba(196, 255, 77, 0.4)"
+              }}
+            >
+              <p className="text-xs font-bold uppercase tracking-wider mb-2" style={{ color: "rgba(0, 0, 0, 0.5)" }}>Monthly Savings</p>
+              <p className="text-3xl md:text-4xl font-black" style={{ color: "#0a0a0a" }} data-testid="monthly-savings">
                 <AnimatedNumber value={monthlySavings} prefix="$" />
               </p>
             </div>
-            <div className="p-4 rounded-xl bg-white/5 border border-white/10">
-              <p className="text-xs text-white/50 mb-1">Annual Savings</p>
-              <p className="text-2xl md:text-3xl font-bold text-white" data-testid="annual-savings">
+            <div 
+              className="p-6 md:p-8 rounded-3xl"
+              style={{ 
+                backgroundColor: "#0a0a0a",
+                boxShadow: "0 20px 40px -15px rgba(0, 0, 0, 0.3)"
+              }}
+            >
+              <p className="text-xs font-bold uppercase tracking-wider mb-2" style={{ color: "rgba(255, 255, 255, 0.5)" }}>Annual Savings</p>
+              <p className="text-3xl md:text-4xl font-black text-white" data-testid="annual-savings">
                 <AnimatedNumber value={annualSavings} prefix="$" />
               </p>
             </div>
           </div>
         </div>
 
-        {/* CTA + Differentiators - Compact */}
-        <div className="mt-8 md:mt-10 pt-6 border-t border-white/10">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <div className="flex items-center gap-6 md:gap-8 text-center md:text-left">
+        {/* CTA + Differentiators */}
+        <div className="mt-12 md:mt-16 pt-8 border-t" style={{ borderColor: "rgba(0, 0, 0, 0.06)" }}>
+          <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+            <div className="flex items-center gap-8 md:gap-10">
               {[
-                { icon: Zap, label: "48h Turnaround" },
-                { icon: Sparkles, label: "AI + Human Expert" },
-                { icon: TrendingUp, label: "30% ROI Guarantee" },
+                { icon: Zap, label: "48h Turnaround", color: "#f97316" },
+                { icon: Sparkles, label: "AI + Human Expert", color: "#c4ff4d" },
+                { icon: TrendingUp, label: "30% ROI Guarantee", color: "#f97316" },
               ].map((item, i) => (
-                <div key={i} className="flex items-center gap-2">
-                  <div className="w-8 h-8 rounded-lg bg-[#c4ff4d]/10 flex items-center justify-center">
-                    <item.icon className="w-4 h-4 text-[#c4ff4d]" />
+                <div key={i} className="flex items-center gap-3 group cursor-default">
+                  <div 
+                    className="w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:rotate-[-6deg]"
+                    style={{ backgroundColor: `${item.color}15` }}
+                  >
+                    <item.icon className="w-5 h-5" style={{ color: item.color }} />
                   </div>
-                  <span className="text-xs font-medium text-white/70">{item.label}</span>
+                  <span className="text-sm font-semibold" style={{ color: "rgba(0, 0, 0, 0.7)" }}>{item.label}</span>
                 </div>
               ))}
             </div>
@@ -355,7 +450,7 @@ export default function ROICalculatorSection() {
             <Link href="/contact">
               <Button 
                 size="lg" 
-                className="bg-[#c4ff4d] hover:bg-[#b5ef3d] text-[#0a0a0a] font-bold rounded-full px-6 py-5 text-sm shadow-lg shadow-[#c4ff4d]/20"
+                className="bg-[#0a0a0a] hover:bg-[#1a1a1a] text-white font-bold rounded-full px-8 py-6 text-sm shadow-xl shadow-black/20 transition-all duration-300 hover:scale-105 hover:shadow-2xl"
                 data-testid="button-get-analysis"
               >
                 Get Free Growth Analysis
@@ -365,6 +460,15 @@ export default function ROICalculatorSection() {
           </div>
         </div>
       </div>
+
+      <style>{`
+        @media (prefers-reduced-motion: reduce) {
+          [data-testid="section-roi-calculator"] * {
+            transition-duration: 0.01ms !important;
+            animation-duration: 0.01ms !important;
+          }
+        }
+      `}</style>
     </section>
   );
 }
