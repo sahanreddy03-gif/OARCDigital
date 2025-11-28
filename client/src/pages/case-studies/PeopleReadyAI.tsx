@@ -30,7 +30,8 @@ export default function WorkForceConnectAI() {
         ogType={caseStudiesSEO.talentScaleSolutions.ogType}
       />
       {/* Hero Section */}
-      <section className="relative h-[70vh] min-h-[500px] flex items-end">
+      <section className="relative h-[70vh] min-h-[500px] flex items-end overflow-hidden">
+        <div className="absolute top-0 right-0 w-80 h-80 bg-[#c4ff4d]/15 rounded-full blur-3xl"></div>
         <div className="absolute inset-0">
           <img 
             src={heroImg} 
@@ -53,7 +54,7 @@ export default function WorkForceConnectAI() {
       </section>
 
       {/* Project Info */}
-      <section className="py-12 px-6 bg-white border-b border-gray-200">
+      <section className="relative py-12 px-6 bg-white border-b border-gray-200">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
@@ -82,7 +83,7 @@ export default function WorkForceConnectAI() {
       </section>
 
       {/* Challenge */}
-      <section className="py-16 px-6 bg-white">
+      <section className="relative py-16 px-6 bg-white">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-black text-black mb-6">
             The Challenge
@@ -97,25 +98,29 @@ export default function WorkForceConnectAI() {
       </section>
 
       {/* Image Grid */}
-      <section className="py-8 px-6 bg-zinc-50">
+      <section className="relative py-8 px-6 bg-surface-lime">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-2 gap-4">
-            <img 
-              src={img1} 
-              alt="Engineering team collaboration"
-              className="w-full h-64 object-cover rounded-2xl"
-            />
-            <img 
-              src={img2} 
-              alt="AI development"
-              className="w-full h-64 object-cover rounded-2xl"
-            />
+            <div className="image-reveal">
+              <img 
+                src={img1} 
+                alt="Engineering team collaboration"
+                className="w-full h-64 object-cover rounded-2xl"
+              />
+            </div>
+            <div className="image-reveal">
+              <img 
+                src={img2} 
+                alt="AI development"
+                className="w-full h-64 object-cover rounded-2xl"
+              />
+            </div>
           </div>
         </div>
       </section>
 
       {/* Approach */}
-      <section className="py-16 px-6 bg-white">
+      <section className="relative py-16 px-6 bg-white">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-black text-black mb-6">
             Our Approach
@@ -150,42 +155,45 @@ export default function WorkForceConnectAI() {
       </section>
 
       {/* Large Image */}
-      <section className="py-8 px-6 bg-zinc-50">
+      <section className="relative py-8 px-6 bg-surface-lime">
         <div className="max-w-6xl mx-auto">
-          <img 
-            src={img3} 
-            alt="Digital transformation"
-            className="w-full h-[500px] object-cover rounded-2xl"
-          />
+          <div className="image-reveal">
+            <img 
+              src={img3} 
+              alt="Digital transformation"
+              className="w-full h-[500px] object-cover rounded-2xl"
+            />
+          </div>
         </div>
       </section>
 
       {/* Results */}
-      <section className="py-16 px-6 bg-white">
+      <section className="relative py-16 px-6 bg-white">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-black text-black mb-8">
             The Results
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-            <div className="text-center p-8 bg-black rounded-2xl">
-              <div className="text-4xl md:text-5xl font-black text-[#4a7000] mb-3">
+          <div className="relative overflow-hidden grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-[#c4ff4d]/10 rounded-full blur-3xl"></div>
+            <div className="text-center p-8 bg-black rounded-2xl stat-glow">
+              <div className="text-4xl md:text-5xl font-black text-[#c4ff4d] mb-3">
                 30+
               </div>
               <p className="text-sm text-white">
                 AI Engineers Integrated
               </p>
             </div>
-            <div className="text-center p-8 bg-black rounded-2xl">
-              <div className="text-4xl md:text-5xl font-black text-[#4a7000] mb-3">
+            <div className="text-center p-8 bg-black rounded-2xl stat-glow">
+              <div className="text-4xl md:text-5xl font-black text-[#c4ff4d] mb-3">
                 4+
               </div>
               <p className="text-sm text-white">
                 Years Partnership
               </p>
             </div>
-            <div className="text-center p-8 bg-black rounded-2xl">
-              <div className="text-4xl md:text-5xl font-black text-[#4a7000] mb-3">
+            <div className="text-center p-8 bg-black rounded-2xl stat-glow">
+              <div className="text-4xl md:text-5xl font-black text-[#c4ff4d] mb-3">
                 100%
               </div>
               <p className="text-sm text-white">
@@ -194,7 +202,7 @@ export default function WorkForceConnectAI() {
             </div>
           </div>
 
-          <div className="bg-zinc-50 border-l-4 border-[#5FD4C4] p-8 rounded-r-2xl">
+          <div className="bg-surface-lime border-l-4 border-[#5FD4C4] p-8 rounded-r-2xl">
             <p className="text-lg text-gray-700 italic mb-4 leading-relaxed">
               "OARC Digital's nearshore delivery model has transformed the way we work. Their engineering teams seamlessly integrated with ours. We've trusted them for over 4 years with 30+ nearshore engineers."
             </p>
@@ -206,30 +214,36 @@ export default function WorkForceConnectAI() {
       </section>
 
       {/* Image Grid 2 */}
-      <section className="py-8 px-6 bg-zinc-50">
+      <section className="relative py-8 px-6 bg-surface-lime">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-3 gap-4">
-            <img 
-              src={img4} 
-              alt="Team collaboration"
-              className="w-full h-56 object-cover rounded-2xl"
-            />
-            <img 
-              src={img5} 
-              alt="Engineering workflow"
-              className="w-full h-56 object-cover rounded-2xl"
-            />
-            <img 
-              src={img6} 
-              alt="AI development"
-              className="w-full h-56 object-cover rounded-2xl"
-            />
+            <div className="image-reveal">
+              <img 
+                src={img4} 
+                alt="Team collaboration"
+                className="w-full h-56 object-cover rounded-2xl"
+              />
+            </div>
+            <div className="image-reveal">
+              <img 
+                src={img5} 
+                alt="Engineering workflow"
+                className="w-full h-56 object-cover rounded-2xl"
+              />
+            </div>
+            <div className="image-reveal">
+              <img 
+                src={img6} 
+                alt="AI development"
+                className="w-full h-56 object-cover rounded-2xl"
+              />
+            </div>
           </div>
         </div>
       </section>
 
       {/* Impact */}
-      <section className="py-16 px-6 bg-white">
+      <section className="relative py-16 px-6 bg-white">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-black text-black mb-6">
             Long-Term Partnership Impact
@@ -268,38 +282,47 @@ export default function WorkForceConnectAI() {
       </section>
 
       {/* Final Images */}
-      <section className="py-8 px-6 bg-zinc-50">
+      <section className="relative py-8 px-6 bg-surface-lime">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-2 gap-4 mb-4">
-            <img 
-              src={img7} 
-              alt="Digital transformation success"
-              className="w-full h-72 object-cover rounded-2xl"
-            />
-            <img 
-              src={img8} 
-              alt="Team integration"
-              className="w-full h-72 object-cover rounded-2xl"
-            />
+            <div className="image-reveal">
+              <img 
+                src={img7} 
+                alt="Digital transformation success"
+                className="w-full h-72 object-cover rounded-2xl"
+              />
+            </div>
+            <div className="image-reveal">
+              <img 
+                src={img8} 
+                alt="Team integration"
+                className="w-full h-72 object-cover rounded-2xl"
+              />
+            </div>
           </div>
           <div className="grid grid-cols-2 gap-4">
-            <img 
-              src={img9} 
-              alt="Engineering excellence"
-              className="w-full h-64 object-cover rounded-2xl"
-            />
-            <img 
-              src={img10} 
-              alt="Partnership success"
-              className="w-full h-64 object-cover rounded-2xl"
-            />
+            <div className="image-reveal">
+              <img 
+                src={img9} 
+                alt="Engineering excellence"
+                className="w-full h-64 object-cover rounded-2xl"
+              />
+            </div>
+            <div className="image-reveal">
+              <img 
+                src={img10} 
+                alt="Partnership success"
+                className="w-full h-64 object-cover rounded-2xl"
+              />
+            </div>
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-6 bg-gradient-to-br from-zinc-900 via-zinc-800 to-black text-white">
-        <div className="max-w-4xl mx-auto text-center">
+      <section className="relative py-20 px-6 bg-gradient-to-br from-zinc-900 via-zinc-800 to-black text-white overflow-hidden">
+        <div className="absolute top-0 right-0 w-80 h-80 bg-[#c4ff4d]/10 rounded-full blur-3xl"></div>
+        <div className="max-w-4xl mx-auto text-center relative z-10">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-black mb-6">
             Scale Your AI Capabilities
           </h2>
@@ -308,7 +331,7 @@ export default function WorkForceConnectAI() {
           </p>
           <Link href="/contact">
             <button
-              className="inline-flex items-center gap-3 bg-[#5FD4C4] text-black rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2"
+              className="btn-shimmer glow-lime inline-flex items-center gap-3 bg-[#c4ff4d] text-black rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2"
               data-testid="button-build-team"
             >
               Build Your Team
@@ -321,7 +344,7 @@ export default function WorkForceConnectAI() {
       </section>
 
       {/* Get In Touch */}
-      <section className="py-14 px-6 bg-white">
+      <section className="relative py-14 px-6 bg-white">
         <div className="max-w-6xl mx-auto text-center">
           <h2 className="text-2xl md:text-3xl font-black text-black mb-4">
             Get In Touch
@@ -331,7 +354,7 @@ export default function WorkForceConnectAI() {
           </p>
           <Link href="/contact">
             <button
-              className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2"
+              className="btn-shimmer inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2"
               data-testid="button-contact-us"
             >
               Contact Us

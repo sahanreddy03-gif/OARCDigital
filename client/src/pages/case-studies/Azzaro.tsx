@@ -48,6 +48,7 @@ export default function AzzaroCaseStudy() {
       />
       {/* Hero Section */}
       <section className="relative min-h-[60vh] flex items-center justify-center bg-black text-white overflow-hidden">
+        <div className="absolute top-0 right-0 w-80 h-80 bg-[#c4ff4d]/15 rounded-full blur-3xl"></div>
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-40"
           style={{
@@ -62,7 +63,7 @@ export default function AzzaroCaseStudy() {
       </section>
 
       {/* About Section */}
-      <section className="py-16 px-4 bg-white">
+      <section className="relative py-16 px-4 bg-white">
         <div className="max-w-4xl mx-auto">
           <p className="text-sm font-bold text-gray-500 uppercase mb-4 tracking-wider">ABOUT</p>
           
@@ -106,17 +107,18 @@ export default function AzzaroCaseStudy() {
             </div>
           </div>
 
-          {/* Stats - Pink Boxes */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-[#c4ff4d] rounded-2xl p-8 text-center text-black">
+          {/* Stats - Green Boxes */}
+          <div className="relative grid grid-cols-1 md:grid-cols-3 gap-6 overflow-hidden">
+            <div className="absolute top-0 right-0 w-80 h-80 bg-[#c4ff4d]/15 rounded-full blur-3xl"></div>
+            <div className="bg-[#c4ff4d] rounded-2xl p-8 text-center text-black stat-glow">
               <div className="text-5xl md:text-6xl font-black mb-2">59M</div>
               <div className="text-sm font-semibold uppercase">REACH</div>
             </div>
-            <div className="bg-[#c4ff4d] rounded-2xl p-8 text-center text-black">
+            <div className="bg-[#c4ff4d] rounded-2xl p-8 text-center text-black stat-glow">
               <div className="text-5xl md:text-6xl font-black mb-2">1.5M</div>
               <div className="text-sm font-semibold uppercase">ENGAGEMENTS</div>
             </div>
-            <div className="bg-[#c4ff4d] rounded-2xl p-8 text-center text-black">
+            <div className="bg-[#c4ff4d] rounded-2xl p-8 text-center text-black stat-glow">
               <div className="text-5xl md:text-6xl font-black mb-2">20+</div>
               <div className="text-sm font-semibold uppercase">CREATORS</div>
             </div>
@@ -125,7 +127,8 @@ export default function AzzaroCaseStudy() {
       </section>
 
       {/* Challenge Section */}
-      <section className="py-16 px-4 bg-black text-white">
+      <section className="relative py-16 px-4 bg-black text-white overflow-hidden">
+        <div className="absolute top-0 right-0 w-80 h-80 bg-[#c4ff4d]/15 rounded-full blur-3xl"></div>
         <div className="max-w-4xl mx-auto">
           <h2 className="text-5xl md:text-6xl font-black text-[#4a7000] mb-8 uppercase">
             Challenge
@@ -147,21 +150,21 @@ export default function AzzaroCaseStudy() {
 
           {/* Challenge Images */}
           <div className="grid grid-cols-3 gap-4">
-            <div className="rounded-lg overflow-hidden">
+            <div className="rounded-lg overflow-hidden image-reveal">
               <img 
                 src={challengeImg1}
                 alt="Luxe Essence fragrance TikTok content - luxury transformation"
                 className="w-full h-full object-cover"
               />
             </div>
-            <div className="rounded-lg overflow-hidden">
+            <div className="rounded-lg overflow-hidden image-reveal">
               <img 
                 src={challengeImg2}
                 alt="Luxe Essence Partner TikTok campaign"
                 className="w-full h-full object-cover"
               />
             </div>
-            <div className="rounded-lg overflow-hidden">
+            <div className="rounded-lg overflow-hidden image-reveal">
               <img 
                 src={challengeImg3}
                 alt="Luxe Essence TikTok influencer content"
@@ -173,7 +176,7 @@ export default function AzzaroCaseStudy() {
       </section>
 
       {/* Strategy Section */}
-      <section className="py-16 px-4 bg-white">
+      <section className="relative py-16 px-4 bg-surface-lime">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-5xl md:text-6xl font-black text-[#4a7000] mb-8 uppercase">
             Strategy
@@ -199,14 +202,14 @@ export default function AzzaroCaseStudy() {
 
           {/* Strategy Images */}
           <div className="grid grid-cols-2 gap-4 mt-8">
-            <div className="rounded-lg overflow-hidden">
+            <div className="rounded-lg overflow-hidden image-reveal">
               <img 
                 src={strategyImg1}
                 alt="Luxe Essence influencer content - transformation aesthetic"
                 className="w-full h-full object-cover"
               />
             </div>
-            <div className="rounded-lg overflow-hidden">
+            <div className="rounded-lg overflow-hidden image-reveal">
               <img 
                 src={strategyImg2}
                 alt="Luxe Essence TikTok creator content - men's grooming"
@@ -218,7 +221,8 @@ export default function AzzaroCaseStudy() {
       </section>
 
       {/* Results Section */}
-      <section className="py-16 px-4 bg-black text-white">
+      <section className="relative py-16 px-4 bg-black text-white overflow-hidden">
+        <div className="absolute top-0 right-0 w-80 h-80 bg-[#c4ff4d]/15 rounded-full blur-3xl"></div>
         <div className="max-w-4xl mx-auto">
           <h2 className="text-5xl md:text-6xl font-black text-[#4a7000] mb-8 uppercase">
             Results
@@ -238,17 +242,17 @@ export default function AzzaroCaseStudy() {
             </p>
           </div>
 
-          {/* Results Stats - Pink Boxes */}
+          {/* Results Stats - Green Boxes */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-[#c4ff4d] rounded-2xl p-8 text-center text-black">
+            <div className="bg-[#c4ff4d] rounded-2xl p-8 text-center text-black stat-glow">
               <div className="text-5xl md:text-6xl font-black mb-2">59M</div>
               <div className="text-sm font-semibold uppercase">TOTAL REACH</div>
             </div>
-            <div className="bg-[#c4ff4d] rounded-2xl p-8 text-center text-black">
+            <div className="bg-[#c4ff4d] rounded-2xl p-8 text-center text-black stat-glow">
               <div className="text-5xl md:text-6xl font-black mb-2">1.5M</div>
               <div className="text-sm font-semibold uppercase">ENGAGEMENTS</div>
             </div>
-            <div className="bg-[#c4ff4d] rounded-2xl p-8 text-center text-black">
+            <div className="bg-[#c4ff4d] rounded-2xl p-8 text-center text-black stat-glow">
               <div className="text-5xl md:text-6xl font-black mb-2">20+</div>
               <div className="text-sm font-semibold uppercase">CREATORS</div>
             </div>
@@ -257,7 +261,8 @@ export default function AzzaroCaseStudy() {
       </section>
 
       {/* Start Project Section */}
-      <section className="py-20 px-4 bg-black">
+      <section className="relative py-20 px-4 bg-black overflow-hidden">
+        <div className="absolute top-0 right-0 w-80 h-80 bg-[#c4ff4d]/15 rounded-full blur-3xl"></div>
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-8 uppercase" data-testid="heading-start-project">
             START PROJECT
@@ -272,7 +277,7 @@ export default function AzzaroCaseStudy() {
           </p>
 
           <Link href="/contact">
-            <button className="inline-flex items-center gap-3 bg-[#c4ff4d] text-black rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2" data-testid="button-lets-talk">
+            <button className="inline-flex items-center gap-3 bg-[#c4ff4d] text-black rounded-full pl-10 pr-4 py-4 text-base font-semibold btn-shimmer glow-lime" data-testid="button-lets-talk">
               LET'S TALK.
               <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
                 <ArrowRight className="h-5 w-5 text-[#4a7000]" />
@@ -283,7 +288,7 @@ export default function AzzaroCaseStudy() {
       </section>
 
       {/* Related Case Studies */}
-      <section className="py-16 px-4 bg-white">
+      <section className="relative py-16 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-black text-black mb-12 uppercase text-center">
             Related Case Studies
@@ -292,8 +297,8 @@ export default function AzzaroCaseStudy() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {relatedCases.map((caseStudy) => (
               <Link key={caseStudy.id} href={caseStudy.link}>
-                <Card className="overflow-hidden hover-elevate cursor-pointer" data-testid={`card-case-study-${caseStudy.id}`}>
-                  <div className="aspect-video bg-gray-200 relative overflow-hidden">
+                <Card className="overflow-hidden hover-lift glass-lime cursor-pointer" data-testid={`card-case-study-${caseStudy.id}`}>
+                  <div className="aspect-video bg-gray-200 relative overflow-hidden image-reveal">
                     <img 
                       src={caseStudy.image}
                       alt={`${caseStudy.title} case study`}
@@ -312,7 +317,8 @@ export default function AzzaroCaseStudy() {
       </section>
 
       {/* Get In Touch Section */}
-      <section className="py-20 px-4 bg-black">
+      <section className="relative py-20 px-4 bg-black overflow-hidden">
+        <div className="absolute top-0 right-0 w-80 h-80 bg-[#c4ff4d]/15 rounded-full blur-3xl"></div>
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-8 uppercase" data-testid="heading-get-in-touch">
             GET IN TOUCH
@@ -328,7 +334,7 @@ export default function AzzaroCaseStudy() {
 
           <Link href="/contact">
             <Button 
-              className="bg-[#c4ff4d] text-black hover:bg-[#c4ff4d]/90 rounded-full px-8 py-6 text-base font-semibold hover-elevate active-elevate-2"
+              className="bg-[#c4ff4d] text-black hover:bg-[#c4ff4d]/90 rounded-full px-8 py-6 text-base font-semibold btn-shimmer glow-lime"
               data-testid="button-contact"
             >
               CONTACT US

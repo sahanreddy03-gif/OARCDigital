@@ -68,6 +68,7 @@ export default function TefalCaseStudy() {
       />
       {/* Hero Section with Background Image */}
       <section className="relative h-[60vh] min-h-[500px] bg-black overflow-hidden">
+        <div className="absolute top-0 right-0 w-80 h-80 bg-[#c4ff4d]/15 rounded-full blur-3xl"></div>
         <img 
           src={tefalHeroImg}
           alt="HomeCraft Innovations Kitchen Products"
@@ -172,18 +173,19 @@ export default function TefalCaseStudy() {
       </section>
 
       {/* Stats Section - Pink Cards */}
-      <section className="py-16 px-4 bg-white">
-        <div className="max-w-6xl mx-auto">
+      <section className="py-16 px-4 bg-surface-lime relative">
+        <div className="max-w-6xl mx-auto relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-80 h-80 bg-[#c4ff4d]/15 rounded-full blur-3xl"></div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-[#c4ff4d] text-black rounded-2xl p-10 text-center" data-testid="stat-impressions">
+            <div className="bg-[#c4ff4d] text-black rounded-2xl p-10 text-center stat-glow" data-testid="stat-impressions">
               <div className="text-5xl md:text-6xl font-black text-white mb-2">70M+</div>
               <div className="text-lg font-semibold text-white uppercase tracking-wide">Impressions</div>
             </div>
-            <div className="bg-[#c4ff4d] text-black rounded-2xl p-10 text-center" data-testid="stat-collaborations">
+            <div className="bg-[#c4ff4d] text-black rounded-2xl p-10 text-center stat-glow" data-testid="stat-collaborations">
               <div className="text-5xl md:text-6xl font-black text-white mb-2">500+</div>
               <div className="text-lg font-semibold text-white uppercase tracking-wide">Collaborations</div>
             </div>
-            <div className="bg-[#c4ff4d] text-black rounded-2xl p-10 text-center" data-testid="stat-sold-out">
+            <div className="bg-[#c4ff4d] text-black rounded-2xl p-10 text-center stat-glow" data-testid="stat-sold-out">
               <div className="text-4xl md:text-5xl font-black text-white mb-2">SOLD OUT</div>
               <div className="text-lg font-semibold text-white uppercase tracking-wide">Product Lines</div>
             </div>
@@ -192,9 +194,9 @@ export default function TefalCaseStudy() {
       </section>
 
       {/* Video Section */}
-      <section className="py-16 px-4 bg-white">
+      <section className="py-16 px-4 bg-white relative">
         <div className="max-w-5xl mx-auto">
-          <div className="relative bg-gray-900 rounded-2xl overflow-hidden">
+          <div className="relative bg-gray-900 rounded-2xl overflow-hidden image-reveal">
             <img 
               src={tefalAboutImg}
               alt="Case Study Video - How OARC Digital Sold-Out Small Appliances for HomeCraft Innovations Using Influencers"
@@ -206,7 +208,7 @@ export default function TefalCaseStudy() {
       </section>
 
       {/* Challenge Section - White Background */}
-      <section className="py-20 px-4 bg-white">
+      <section className="py-20 px-4 bg-surface-lime relative">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-6xl md:text-7xl lg:text-8xl font-black text-[#4a7000] mb-12 uppercase" data-testid="heading-challenge">
             Challenge
@@ -230,7 +232,7 @@ export default function TefalCaseStudy() {
 
           {/* Social Media Content Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
-            <div className="bg-gray-100 rounded-2xl h-[400px] overflow-hidden">
+            <div className="bg-gray-100 rounded-2xl h-[400px] overflow-hidden image-reveal">
               <img 
                 src={socialContent1}
                 alt="Instagram Social Media Content Creation"
@@ -238,7 +240,7 @@ export default function TefalCaseStudy() {
                 data-testid="img-social-content-1"
               />
             </div>
-            <div className="bg-gray-100 rounded-2xl h-[400px] overflow-hidden">
+            <div className="bg-gray-100 rounded-2xl h-[400px] overflow-hidden image-reveal">
               <img 
                 src={socialContent2}
                 alt="TikTok Social Media Content Creation"
@@ -251,7 +253,7 @@ export default function TefalCaseStudy() {
       </section>
 
       {/* Strategy Section - Black Background */}
-      <section className="py-20 px-4 bg-black">
+      <section className="py-20 px-4 bg-black relative">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-6xl md:text-7xl lg:text-8xl font-black text-white mb-12 uppercase text-center" data-testid="heading-strategy">
             Strategy
@@ -267,7 +269,7 @@ export default function TefalCaseStudy() {
 
           {/* Influencer Images Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
-            <div className="bg-gray-800 rounded-2xl overflow-hidden h-[350px]">
+            <div className="bg-gray-800 rounded-2xl overflow-hidden h-[350px] image-reveal">
               <img 
                 src={strategyImg1}
                 alt="Creators for User-generated Content"
@@ -275,7 +277,7 @@ export default function TefalCaseStudy() {
                 data-testid="img-strategy-1"
               />
             </div>
-            <div className="bg-gray-800 rounded-2xl overflow-hidden h-[350px]">
+            <div className="bg-gray-800 rounded-2xl overflow-hidden h-[350px] image-reveal">
               <img 
                 src={strategyImg2}
                 alt="HomeCraft Innovations Influencer Marketing Campaign"
@@ -288,7 +290,7 @@ export default function TefalCaseStudy() {
       </section>
 
       {/* Results Section - White Background */}
-      <section className="py-20 px-4 bg-white">
+      <section className="py-20 px-4 bg-white relative">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-6xl md:text-7xl lg:text-8xl font-black text-[#4a7000] mb-12 uppercase" data-testid="heading-results">
             Results
@@ -321,10 +323,10 @@ export default function TefalCaseStudy() {
       </section>
 
       {/* Product Images Grid */}
-      <section className="py-16 px-4 bg-white">
+      <section className="py-16 px-4 bg-surface-lime relative">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-gray-200 rounded-2xl h-[350px] overflow-hidden">
+            <div className="bg-gray-200 rounded-2xl h-[350px] overflow-hidden image-reveal">
               <img 
                 src={productImg1}
                 alt="HomeCraft Innovations Kitchen Product 1"
@@ -332,7 +334,7 @@ export default function TefalCaseStudy() {
                 data-testid="img-product-1"
               />
             </div>
-            <div className="bg-gray-200 rounded-2xl h-[350px] overflow-hidden">
+            <div className="bg-gray-200 rounded-2xl h-[350px] overflow-hidden image-reveal">
               <img 
                 src={productImg2}
                 alt="HomeCraft Innovations Kitchen Product 2"
@@ -340,7 +342,7 @@ export default function TefalCaseStudy() {
                 data-testid="img-product-2"
               />
             </div>
-            <div className="bg-gray-200 rounded-2xl h-[350px] overflow-hidden">
+            <div className="bg-gray-200 rounded-2xl h-[350px] overflow-hidden image-reveal">
               <img 
                 src={productImg3}
                 alt="HomeCraft Innovations Kitchen Product 3"
@@ -353,7 +355,7 @@ export default function TefalCaseStudy() {
       </section>
 
       {/* Start a Project Section - Black Background */}
-      <section className="py-20 px-4 bg-black">
+      <section className="py-20 px-4 bg-black relative">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-8 uppercase" data-testid="heading-start-project">
             Start A Project
@@ -368,7 +370,7 @@ export default function TefalCaseStudy() {
           </p>
 
           <Link href="/contact">
-            <button className="inline-flex items-center gap-3 bg-[#c4ff4d] text-black rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2" data-testid="button-get-started">
+            <button className="inline-flex items-center gap-3 bg-[#c4ff4d] text-black rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2 btn-shimmer glow-lime" data-testid="button-get-started">
               get started
               <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
                 <ArrowRight className="h-5 w-5 text-[#4a7000]" />
@@ -408,7 +410,7 @@ export default function TefalCaseStudy() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {relatedCases.map((caseStudy, idx) => (
               <Link key={idx} href={caseStudy.link}>
-                <div className="rounded-2xl overflow-hidden h-[400px] relative group cursor-pointer hover-elevate">
+                <div className="rounded-2xl overflow-hidden h-[400px] relative group cursor-pointer hover-lift glass-lime">
                   <img 
                     src={caseStudy.image}
                     alt={caseStudy.title}
@@ -438,7 +440,7 @@ export default function TefalCaseStudy() {
 
           <div className="text-center mt-8">
             <Link href="/our-work">
-              <button className="inline-flex items-center gap-2 bg-[#c4ff4d] text-black rounded-full px-8 py-3 text-sm font-semibold hover-elevate active-elevate-2">
+              <button className="inline-flex items-center gap-2 bg-[#c4ff4d] text-black rounded-full px-8 py-3 text-sm font-semibold hover-elevate active-elevate-2 btn-shimmer glow-lime">
                 VIEW ALL CASE STUDIES
                 <ArrowRight className="h-4 w-4" />
               </button>
@@ -448,7 +450,7 @@ export default function TefalCaseStudy() {
       </section>
 
       {/* Get In Touch Section - Black Background */}
-      <section className="py-20 px-4 bg-black">
+      <section className="py-20 px-4 bg-black relative">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-8 uppercase" data-testid="heading-get-in-touch">
             Get In Touch
@@ -459,7 +461,7 @@ export default function TefalCaseStudy() {
           </p>
 
           <Link href="/contact">
-            <button className="inline-flex items-center gap-3 bg-[#c4ff4d] text-black rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2 mb-12" data-testid="button-work-with-us">
+            <button className="inline-flex items-center gap-3 bg-[#c4ff4d] text-black rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2 btn-shimmer glow-lime mb-12" data-testid="button-work-with-us">
               WORK WITH US
               <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
                 <ArrowRight className="h-5 w-5 text-[#4a7000]" />

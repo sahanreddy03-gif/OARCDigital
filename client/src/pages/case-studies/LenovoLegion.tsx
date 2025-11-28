@@ -54,6 +54,7 @@ export default function LenovoLegionCaseStudy() {
       />
       {/* Hero Section */}
       <section className="relative min-h-[60vh] flex items-center justify-center bg-black text-white overflow-hidden">
+        <div className="absolute top-0 right-0 w-80 h-80 bg-[#c4ff4d]/15 rounded-full blur-3xl"></div>
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-40"
           style={{
@@ -68,7 +69,7 @@ export default function LenovoLegionCaseStudy() {
       </section>
 
       {/* About Section */}
-      <section className="py-16 px-4 bg-white">
+      <section className="relative py-16 px-4 bg-white">
         <div className="max-w-4xl mx-auto">
           <p className="text-sm font-bold text-gray-500 uppercase mb-4 tracking-wider">About</p>
           
@@ -128,17 +129,18 @@ export default function LenovoLegionCaseStudy() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 px-4 bg-black text-white">
+      <section className="relative py-16 px-4 bg-black text-white overflow-hidden">
+        <div className="absolute top-0 right-0 w-80 h-80 bg-[#c4ff4d]/15 rounded-full blur-3xl"></div>
         <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
-          <div className="bg-[#c4ff4d] text-black p-8 text-center">
+          <div className="bg-[#c4ff4d] text-black p-8 text-center stat-glow">
             <div className="text-5xl font-black mb-2">13M</div>
             <div className="text-sm uppercase tracking-wider font-bold">Impressions</div>
           </div>
-          <div className="bg-[#c4ff4d] text-black p-8 text-center">
+          <div className="bg-[#c4ff4d] text-black p-8 text-center stat-glow">
             <div className="text-5xl font-black mb-2">26M</div>
             <div className="text-sm uppercase tracking-wider font-bold">Ad Placement Views</div>
           </div>
-          <div className="bg-[#c4ff4d] text-black p-8 text-center">
+          <div className="bg-[#c4ff4d] text-black p-8 text-center stat-glow">
             <div className="text-5xl font-black mb-2">1.1M</div>
             <div className="text-sm uppercase tracking-wider font-bold">Stream Followers</div>
           </div>
@@ -146,7 +148,7 @@ export default function LenovoLegionCaseStudy() {
       </section>
 
       {/* Challenge Section */}
-      <section className="py-16 px-4 bg-white">
+      <section className="relative py-16 px-4 bg-surface-lime">
         <div className="max-w-4xl mx-auto">
           <p className="text-sm font-bold text-gray-500 uppercase mb-4 tracking-wider">Challenge</p>
           
@@ -165,7 +167,7 @@ export default function LenovoLegionCaseStudy() {
       </section>
 
       {/* Strategy Section */}
-      <section className="py-16 px-4 bg-gray-50">
+      <section className="relative py-16 px-4 bg-white">
         <div className="max-w-4xl mx-auto">
           <p className="text-sm font-bold text-gray-500 uppercase mb-4 tracking-wider">Strategy</p>
           
@@ -191,24 +193,28 @@ export default function LenovoLegionCaseStudy() {
 
           {/* Strategy Images */}
           <div className="grid md:grid-cols-2 gap-6 mb-8">
-            <img
-              src={gamingImg2}
-              alt="GamingTech Elite Strategy Image 1"
-              className="w-full h-auto rounded-lg"
-              data-testid="img-strategy-1"
-            />
-            <img
-              src={gamingImg3}
-              alt="GamingTech Elite Strategy Image 2"
-              className="w-full h-auto rounded-lg"
-              data-testid="img-strategy-2"
-            />
+            <div className="image-reveal">
+              <img
+                src={gamingImg2}
+                alt="GamingTech Elite Strategy Image 1"
+                className="w-full h-auto rounded-lg"
+                data-testid="img-strategy-1"
+              />
+            </div>
+            <div className="image-reveal">
+              <img
+                src={gamingImg3}
+                alt="GamingTech Elite Strategy Image 2"
+                className="w-full h-auto rounded-lg"
+                data-testid="img-strategy-2"
+              />
+            </div>
           </div>
         </div>
       </section>
 
       {/* Results Section */}
-      <section className="py-16 px-4 bg-white">
+      <section className="relative py-16 px-4 bg-surface-lime">
         <div className="max-w-4xl mx-auto">
           <p className="text-sm font-bold text-gray-500 uppercase mb-4 tracking-wider">Results</p>
           
@@ -242,60 +248,77 @@ export default function LenovoLegionCaseStudy() {
 
           {/* Memes Grid */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <img
-              src={gamingImg1}
-              alt="Gaming Content"
-              className="w-full h-auto rounded-lg"
-              data-testid="img-meme-1"
-            />
-            <img
-              src={gamingImg2}
-              alt="Gaming Content"
-              className="w-full h-auto rounded-lg"
-              data-testid="img-meme-2"
-            />
-            <img
-              src={gamingImg3}
-              alt="Gaming Content"
-              className="w-full h-auto rounded-lg"
-              data-testid="img-meme-3"
-            />
-            <img
-              src={gamingImg4}
-              alt="Gaming Content"
-              className="w-full h-auto rounded-lg"
-              data-testid="img-meme-4"
-            />
-            <img
-              src={gamingImg1}
-              alt="Gaming Content"
-              className="w-full h-auto rounded-lg"
-              data-testid="img-meme-5"
-            />
-            <img
-              src={gamingImg2}
-              alt="Gaming Content"
-              className="w-full h-auto rounded-lg"
-              data-testid="img-meme-6"
-            />
-            <img
-              src={gamingImg3}
-              alt="Gaming Content"
-              className="w-full h-auto rounded-lg"
-              data-testid="img-meme-7"
-            />
-            <img
-              src={gamingImg4}
-              alt="Gaming Content"
-              className="w-full h-auto rounded-lg"
-              data-testid="img-meme-8"
-            />
+            <div className="image-reveal">
+              <img
+                src={gamingImg1}
+                alt="Gaming Content"
+                className="w-full h-auto rounded-lg"
+                data-testid="img-meme-1"
+              />
+            </div>
+            <div className="image-reveal">
+              <img
+                src={gamingImg2}
+                alt="Gaming Content"
+                className="w-full h-auto rounded-lg"
+                data-testid="img-meme-2"
+              />
+            </div>
+            <div className="image-reveal">
+              <img
+                src={gamingImg3}
+                alt="Gaming Content"
+                className="w-full h-auto rounded-lg"
+                data-testid="img-meme-3"
+              />
+            </div>
+            <div className="image-reveal">
+              <img
+                src={gamingImg4}
+                alt="Gaming Content"
+                className="w-full h-auto rounded-lg"
+                data-testid="img-meme-4"
+              />
+            </div>
+            <div className="image-reveal">
+              <img
+                src={gamingImg1}
+                alt="Gaming Content"
+                className="w-full h-auto rounded-lg"
+                data-testid="img-meme-5"
+              />
+            </div>
+            <div className="image-reveal">
+              <img
+                src={gamingImg2}
+                alt="Gaming Content"
+                className="w-full h-auto rounded-lg"
+                data-testid="img-meme-6"
+              />
+            </div>
+            <div className="image-reveal">
+              <img
+                src={gamingImg3}
+                alt="Gaming Content"
+                className="w-full h-auto rounded-lg"
+                data-testid="img-meme-7"
+              />
+            </div>
+            <div className="image-reveal">
+              <img
+                src={gamingImg4}
+                alt="Gaming Content"
+                className="w-full h-auto rounded-lg"
+                data-testid="img-meme-8"
+              />
+            </div>
           </div>
         </div>
       </section>
 
       {/* Start Project Section */}
-      <section className="py-20 px-4 bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white">
+      <section className="relative py-20 px-4 bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white overflow-hidden">
+        <div className="absolute top-0 right-0 w-80 h-80 bg-[#c4ff4d]/15 rounded-full blur-3xl"></div>
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl md:text-5xl font-black mb-6 uppercase">Start Project</h2>
           <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
@@ -305,7 +328,7 @@ export default function LenovoLegionCaseStudy() {
             If you'd like to speak to our team about how we can help you take your brand to another level and engage audiences globally, please complete our contact form.
           </p>
           <Link href="/contact">
-            <Button size="lg" variant="default" className="group" data-testid="button-contact">
+            <Button size="lg" variant="default" className="group btn-shimmer" data-testid="button-contact">
               Let's talk
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </Button>
@@ -314,7 +337,7 @@ export default function LenovoLegionCaseStudy() {
       </section>
 
       {/* Related Case Studies */}
-      <section className="py-16 px-4 bg-white">
+      <section className="relative py-16 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
           <p className="text-sm font-bold text-gray-500 uppercase mb-2 tracking-wider text-center">Projects</p>
           <h2 className="text-3xl md:text-4xl font-black text-center mb-12 text-black">
@@ -324,8 +347,8 @@ export default function LenovoLegionCaseStudy() {
           <div className="grid md:grid-cols-3 gap-8">
             {relatedCases.map((caseStudy) => (
               <Link key={caseStudy.id} href={caseStudy.link}>
-                <Card className="overflow-hidden hover-elevate active-elevate-2 cursor-pointer h-full" data-testid={`card-case-study-${caseStudy.id}`}>
-                  <div className="relative h-64 overflow-hidden">
+                <Card className="overflow-hidden hover-lift glass-lime cursor-pointer h-full" data-testid={`card-case-study-${caseStudy.id}`}>
+                  <div className="relative h-64 overflow-hidden image-reveal">
                     <img
                       src={caseStudy.image}
                       alt={caseStudy.title}
@@ -350,14 +373,15 @@ export default function LenovoLegionCaseStudy() {
       </section>
 
       {/* Get In Touch Section */}
-      <section className="py-20 px-4 bg-black text-white">
+      <section className="relative py-20 px-4 bg-black text-white overflow-hidden">
+        <div className="absolute top-0 right-0 w-80 h-80 bg-[#c4ff4d]/15 rounded-full blur-3xl"></div>
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl md:text-5xl font-black mb-6 uppercase">Get In Touch</h2>
           <p className="text-lg text-gray-300 mb-10 max-w-2xl mx-auto">
             Ready to elevate your brand with gaming and paid media excellence? Let's create something extraordinary together.
           </p>
           <Link href="/contact">
-            <Button size="lg" variant="outline" className="group" data-testid="button-get-in-touch">
+            <Button size="lg" variant="outline" className="group btn-shimmer glow-lime" data-testid="button-get-in-touch">
               Contact Us
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </Button>

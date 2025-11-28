@@ -408,25 +408,28 @@ export default function SocialMediaCreativeManagement() {
             </div>
           </div>
 
-          {/* Final CTA - Teal Card with Team Photo */}
-          <div className="bg-[#5FD4C4] rounded-3xl overflow-hidden" data-testid="card-final-cta">
-            <div className="p-10 md:p-16">
+          {/* Final CTA - Premium Card with Team Photo */}
+          <div className="relative bg-[#5FD4C4] rounded-3xl overflow-hidden glow-lime-subtle" data-testid="card-final-cta">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
+            <div className="p-10 md:p-16 relative">
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-black mb-8">
-                Don't be <span className="text-white">sheepish</span> let's talk
+                Ready to <span className="text-white">transform</span> your brand?
               </h2>
-              <button
-                className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-lg font-semibold hover-elevate active-elevate-2"
-                data-testid="button-lets-chat"
-              >
-                Let's Chat
-                <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
-                  <ArrowRight className="h-5 w-5 text-black" />
-                </div>
-              </button>
+              <Link href="/contact">
+                <button
+                  className="btn-shimmer inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-lg font-semibold hover-elevate active-elevate-2"
+                  data-testid="button-lets-chat"
+                >
+                  Let's Chat
+                  <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+                    <ArrowRight className="h-5 w-5 text-black" />
+                  </div>
+                </button>
+              </Link>
             </div>
             
             {/* Team Photo at bottom of card */}
-            <div className="w-full">
+            <div className="w-full image-reveal">
               <img 
                 src={largeTeamImg}
                 alt="OARC Digital Team"
@@ -437,9 +440,10 @@ export default function SocialMediaCreativeManagement() {
           </div>
 
           {/* Newsletter Section */}
-          <div className="mt-16 bg-black text-white rounded-3xl p-10 md:p-16 text-center">
-            <p className="text-lg mb-6">
-              Stay in touch with the herd and receive up to date insights, strategies and news.
+          <div className="mt-16 bg-black text-white rounded-3xl p-10 md:p-16 text-center relative overflow-hidden">
+            <div className="absolute top-0 left-1/4 w-48 h-48 bg-[#c4ff4d]/10 rounded-full blur-3xl"></div>
+            <p className="text-lg mb-6 relative">
+              Join forward-thinking brands and receive exclusive insights, strategies and industry news.
             </p>
             <div className="flex gap-3 max-w-md mx-auto">
               <input 
