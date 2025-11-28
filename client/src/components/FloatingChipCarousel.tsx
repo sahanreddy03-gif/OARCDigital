@@ -1,7 +1,7 @@
 // 3D Concave Curved Carousel for homepage hero section
 import { useEffect, useRef } from "react";
 import digitalMarketing from '@assets/digital-marketing-optimized.jpg';
-import socialMedia from '@assets/stock_images/social_media_managem_8e61c86d.jpg';
+import socialMedia from '@assets/social-media-management-optimized.jpg';
 import aiVideo from '@assets/stock_images/professional_video_p_08fa5257.jpg';
 import branding from '@assets/stock_images/brand_identity_desig_a250cc24.jpg';
 import paidAdvertising from '@assets/paid-advertising-optimized.jpg';
