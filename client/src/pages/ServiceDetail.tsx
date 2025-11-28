@@ -137,16 +137,19 @@ export default function ServiceDetail() {
       />
 
       {/* Benefits Section */}
-      <section className="py-16 px-4 bg-white text-gray-900">
-        <div className="max-w-6xl mx-auto">
+      <section className="py-16 px-4 bg-white text-gray-900 relative overflow-hidden">
+        {/* Floating Orb */}
+        <div className="absolute top-10 right-10 w-64 h-64 bg-[#c4ff4d]/10 rounded-full blur-3xl motion-reduce:hidden"></div>
+        
+        <div className="max-w-6xl mx-auto relative z-10">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12" data-testid="text-benefits-title">
-            Key Benefits
+            Core Advantages
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {content.benefits.map((benefit, index) => (
               <div
                 key={index}
-                className="p-6 rounded-xl bg-gray-50 border border-gray-200"
+                className="p-6 rounded-xl bg-gray-50 border border-gray-200 hover-lift glass-lime"
                 data-testid={`benefit-${index}`}
               >
                 <p className="font-medium text-gray-900">{benefit.text}</p>
@@ -157,13 +160,24 @@ export default function ServiceDetail() {
       </section>
 
       {/* Metrics Section */}
-      <section className="bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white py-16">
-        <MetricCounters metrics={content.metrics} />
+      <section className="bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white py-16 relative overflow-hidden">
+        {/* Premium Floating Orbs */}
+        <div className="absolute top-0 left-1/4 w-80 h-80 bg-[#c4ff4d]/10 rounded-full blur-3xl motion-reduce:hidden"></div>
+        <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-orange-500/10 rounded-full blur-3xl motion-reduce:hidden"></div>
+        
+        <div className="relative z-10">
+          <MetricCounters metrics={content.metrics} />
+        </div>
       </section>
 
       {/* What's Included */}
-      <section className="bg-white text-gray-900">
-        <ServiceGrid items={content.included} title="What's Included" />
+      <section className="bg-surface-lime text-gray-900 relative overflow-hidden">
+        {/* Subtle Orb */}
+        <div className="absolute bottom-10 left-10 w-72 h-72 bg-[#c4ff4d]/15 rounded-full blur-3xl motion-reduce:hidden"></div>
+        
+        <div className="relative z-10">
+          <ServiceGrid items={content.included} title="Comprehensive Deliverables" />
+        </div>
       </section>
 
       {/* How It Works */}
@@ -180,18 +194,22 @@ export default function ServiceDetail() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-20 px-4 bg-[#c4ff4d] text-gray-900">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">Ready to get started?</h2>
+      <section className="py-20 px-4 bg-[#c4ff4d] text-gray-900 relative overflow-hidden">
+        {/* Decorative Elements */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-white/20 rounded-full blur-3xl motion-reduce:hidden"></div>
+        <div className="absolute bottom-0 left-0 w-80 h-80 bg-lime-400/30 rounded-full blur-3xl motion-reduce:hidden"></div>
+        
+        <div className="max-w-4xl mx-auto text-center relative z-10">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">Ready to elevate your results?</h2>
           <p className="text-xl mb-8 text-gray-800">
-            Let's discuss how {content.title.toLowerCase()} can transform your business.
+            Connect with our specialists to explore how {content.title.toLowerCase()} drives measurable growth.
           </p>
           <a
             href="/contact"
-            className="inline-block bg-gray-900 text-white px-10 py-4 rounded-full font-semibold text-lg hover:bg-gray-800 transition-colors"
+            className="inline-block bg-gray-900 text-white px-10 py-4 rounded-full font-semibold text-lg hover:bg-gray-800 transition-colors btn-shimmer"
             data-testid="button-final-cta"
           >
-            Book a Consultation
+            Schedule Your Strategy Session
           </a>
         </div>
       </section>
