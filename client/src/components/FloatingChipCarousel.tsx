@@ -3,7 +3,7 @@ import { useEffect, useRef } from "react";
 import digitalMarketing from '@assets/digital-marketing-optimized.jpg';
 import socialMedia from '@assets/social-media-management-optimized.jpg';
 import aiVideo from '@assets/stock_images/professional_video_p_08fa5257.jpg';
-import branding from '@assets/stock_images/brand_identity_desig_a250cc24.jpg';
+import branding from '@assets/branding-services-optimized.jpg';
 import paidAdvertising from '@assets/paid-advertising-optimized.jpg';
 import mediaBuying from '@assets/stock_images/media_buying_adverti_f124ffbd.jpg';
 import websiteDesign from '@assets/website-design-optimized.jpg';

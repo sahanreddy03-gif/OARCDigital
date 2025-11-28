@@ -7,7 +7,7 @@ import SEOHead from "@/components/SEOHead";
 import { creativeServicesSEO } from "@/data/seoMetadata";
 import { createServiceSchema } from "@/utils/structuredData";
 import { Palette, Sparkles, BookOpen, Target, Box, FileText, ArrowRight, CheckCircle2 } from "lucide-react";
-import heroImage from "@assets/stock_images/branding_design_logo_562a38a3.jpg";
+import heroImage from "@assets/branding-services-optimized.jpg";
 
 export default function BrandingServices() {
   useEffect(() => {
