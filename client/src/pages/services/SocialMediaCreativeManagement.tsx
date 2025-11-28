@@ -267,8 +267,8 @@ export default function SocialMediaCreativeManagement() {
       {/* How we help - Premium Hero Section */}
       <section className="py-12 px-4 bg-white relative overflow-hidden">
         {/* Premium Floating Orbs */}
-        <div className="absolute top-20 right-10 w-80 h-80 bg-[#c4ff4d]/10 rounded-full blur-3xl motion-reduce:hidden"></div>
-        <div className="absolute bottom-40 left-10 w-64 h-64 bg-[#5FD4C4]/10 rounded-full blur-3xl motion-reduce:hidden"></div>
+        <div className="absolute top-20 right-10 w-80 h-80 bg-[#c4ff4d]/15 rounded-full blur-3xl motion-reduce:hidden"></div>
+        <div className="absolute bottom-40 left-10 w-64 h-64 bg-[#c4ff4d]/10 rounded-full blur-3xl motion-reduce:hidden"></div>
         
         <div className="max-w-6xl mx-auto relative z-10">
           {/* Hero Card with Glassmorphism */}
@@ -276,12 +276,12 @@ export default function SocialMediaCreativeManagement() {
             initial={fadeIn}
             animate={fadeInVisible}
             transition={prefersReducedMotion ? {} : { duration: 0.6 }}
-            className="relative bg-gradient-to-br from-[#5FD4C4] to-[#4BC4B4] rounded-3xl p-10 md:p-16 mb-8 overflow-hidden" 
+            className="relative bg-gradient-to-br from-[#c4ff4d] to-[#a8e636] rounded-3xl p-10 md:p-16 mb-8 overflow-hidden" 
             data-testid="card-how-we-help"
           >
             {/* Decorative Elements */}
-            <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl motion-reduce:hidden"></div>
-            <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#c4ff4d]/20 rounded-full blur-3xl motion-reduce:hidden"></div>
+            <div className="absolute top-0 right-0 w-96 h-96 bg-white/15 rounded-full blur-3xl motion-reduce:hidden"></div>
+            <div className="absolute bottom-0 left-0 w-64 h-64 bg-black/5 rounded-full blur-3xl motion-reduce:hidden"></div>
             
             <div className="relative z-10">
               <motion.div
@@ -313,39 +313,6 @@ export default function SocialMediaCreativeManagement() {
                 We don't run campaigns—we build revenue machines. OARC Digital combines proprietary AI systems with human creative excellence to deliver measurable growth for ambitious brands worldwide.
               </motion.p>
             </div>
-            
-            {/* Animated Stats Row */}
-            <motion.div
-              initial={fadeIn}
-              animate={fadeInVisible}
-              transition={prefersReducedMotion ? {} : { delay: 0.6, duration: 0.5 }}
-              className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-10 pt-8 border-t border-black/10 relative z-10"
-            >
-              <div className="text-center" data-testid="stat-ad-spend">
-                <div className="text-3xl md:text-4xl font-black text-black mb-1">
-                  <AnimatedCounter prefix="€" value={2} suffix="M+" />
-                </div>
-                <p className="text-sm text-black/70 font-medium">Monthly Ad Spend</p>
-              </div>
-              <div className="text-center" data-testid="stat-roas-lift">
-                <div className="text-3xl md:text-4xl font-black text-black mb-1">
-                  <AnimatedCounter value={340} suffix="%" />
-                </div>
-                <p className="text-sm text-black/70 font-medium">Avg. ROAS Lift</p>
-              </div>
-              <div className="text-center" data-testid="stat-brands-scaled">
-                <div className="text-3xl md:text-4xl font-black text-black mb-1">
-                  <AnimatedCounter value={47} suffix="+" />
-                </div>
-                <p className="text-sm text-black/70 font-medium">Brands Scaled</p>
-              </div>
-              <div className="text-center" data-testid="stat-creators">
-                <div className="text-3xl md:text-4xl font-black text-black mb-1">
-                  <AnimatedCounter value={2000} suffix="+" />
-                </div>
-                <p className="text-sm text-black/70 font-medium">EMEA Creators</p>
-              </div>
-            </motion.div>
           </motion.div>
 
           {/* Award Image with Premium Effect */}
