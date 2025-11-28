@@ -13,7 +13,7 @@ import leadGen from '@assets/lead-generation-optimized.jpg';
 import creativeAds from '@assets/stock_images/creative_advertising_904dac86.jpg';
 import customerAcquisition from '@assets/customer-acquisition-optimized.jpg';
 import funnelAutomation from '@assets/funnel-automation-optimized.jpg';
-import aiCopywriting from '@assets/stock_images/ai_copywriting_conte_b77b0a21.jpg';
+import aiCopywriting from '@assets/ai-copywriting-optimized.jpg';
 import adminAI from '@assets/stock_images/ai_assistant_virtual_e8654e3e.jpg';
 import salesAI from '@assets/sales-ai-employee-optimized.jpg';
 import supportAI from '@assets/stock_images/customer_support_hel_87c00846.jpg';
