@@ -7,7 +7,7 @@ import SEOHead from "@/components/SEOHead";
 import { revenueServicesSEO } from "@/data/seoMetadata";
 import { createServiceSchema } from "@/utils/structuredData";
 import { Users, TrendingUp, Heart, Zap, Target, BarChart3, ArrowRight, CheckCircle2 } from "lucide-react";
-import heroImage from '@assets/influencer_1763087034115.jpg';
+import heroImage from '@assets/influencer-marketing-optimized.jpg';
 import influencerImg1 from "@assets/stock_images/influencer_marketing_e096cc44.jpg";
 import influencerImg2 from "@assets/stock_images/influencer_marketing_47b0ede7.jpg";
 import influencerImg3 from "@assets/stock_images/influencer_marketing_3b6f7762.jpg";
