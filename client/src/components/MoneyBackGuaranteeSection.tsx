@@ -34,7 +34,8 @@ export default function MoneyBackGuaranteeSection() {
   return (
     <section 
       ref={sectionRef}
-      className="relative py-12 md:py-16 lg:py-20 bg-gradient-to-b from-[#0f1f1a] via-[#0a1614] to-[#0f1f1a] overflow-hidden"
+      className="relative py-12 md:py-16 lg:py-20 overflow-hidden"
+      style={{ backgroundColor: "#0a0a0a" }}
       data-testid="section-money-back-guarantee"
     >
       {/* Subtle lime glow */}
@@ -92,7 +93,7 @@ export default function MoneyBackGuaranteeSection() {
           <Link href="/contact">
             <Button 
               size="lg" 
-              className="bg-[#c4ff4d] hover:bg-[#b5ef3d] text-[#1a2e29] font-bold rounded-full px-6 py-5 text-sm shadow-lg shadow-[#c4ff4d]/20"
+              className="bg-[#c4ff4d] hover:bg-[#b5ef3d] text-[#0a0a0a] font-bold rounded-full px-6 py-5 text-sm shadow-lg shadow-[#c4ff4d]/20"
               data-testid="button-schedule-guarantee"
             >
               Schedule a Call

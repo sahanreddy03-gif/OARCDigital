@@ -150,7 +150,8 @@ export default function ROICalculatorSection() {
   return (
     <section 
       ref={sectionRef}
-      className="relative py-14 md:py-20 lg:py-24 bg-[#1a2e29] overflow-hidden"
+      className="relative py-14 md:py-20 lg:py-24 overflow-hidden"
+      style={{ backgroundColor: "#0a0a0a" }}
       data-testid="section-roi-calculator"
     >
       {/* Subtle background */}
@@ -198,7 +199,7 @@ export default function ROICalculatorSection() {
                   relative rounded-xl transition-all duration-300
                   ${row.isHighlighted 
                     ? 'bg-[#c4ff4d]' 
-                    : 'bg-white/5 border border-white/10'
+                    : 'bg-white/[0.03] border border-white/[0.08]'
                   }
                 `}
                 data-testid={`comparison-row-${index}`}
@@ -212,12 +213,12 @@ export default function ROICalculatorSection() {
                 <div className="md:hidden p-4">
                   <div className="flex items-center gap-3 mb-3">
                     <div className={`w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 ${
-                      row.isHighlighted ? 'bg-[#1a2e29]/10' : 'bg-white/10'
+                      row.isHighlighted ? 'bg-black/10' : 'bg-white/10'
                     }`}>
-                      <row.icon className={`w-4 h-4 ${row.isHighlighted ? 'text-[#1a2e29]' : 'text-white'}`} strokeWidth={1.5} />
+                      <row.icon className={`w-4 h-4 ${row.isHighlighted ? 'text-black' : 'text-white'}`} strokeWidth={1.5} />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <h4 className={`font-semibold text-sm ${row.isHighlighted ? 'text-[#1a2e29]' : 'text-white'}`}>
+                      <h4 className={`font-semibold text-sm ${row.isHighlighted ? 'text-black' : 'text-white'}`}>
                         {row.name}
                       </h4>
                     </div>
@@ -228,14 +229,14 @@ export default function ROICalculatorSection() {
                       return (
                         <div key={col.key} className="text-center">
                           <span className={`text-[9px] font-medium uppercase tracking-wider block mb-0.5 ${
-                            row.isHighlighted ? 'text-[#1a2e29]/50' : 'text-white/40'
+                            row.isHighlighted ? 'text-black/50' : 'text-white/40'
                           }`}>
                             {col.label}
                           </span>
                           {value ? (
-                            <Check className={`w-4 h-4 mx-auto ${row.isHighlighted ? 'text-[#1a2e29]' : 'text-[#c4ff4d]'}`} strokeWidth={2.5} />
+                            <Check className={`w-4 h-4 mx-auto ${row.isHighlighted ? 'text-black' : 'text-[#c4ff4d]'}`} strokeWidth={2.5} />
                           ) : (
-                            <X className={`w-4 h-4 mx-auto ${row.isHighlighted ? 'text-[#1a2e29]/40' : 'text-white/30'}`} strokeWidth={2} />
+                            <X className={`w-4 h-4 mx-auto ${row.isHighlighted ? 'text-black/40' : 'text-white/30'}`} strokeWidth={2} />
                           )}
                         </div>
                       );
@@ -247,15 +248,15 @@ export default function ROICalculatorSection() {
                 <div className="hidden md:grid grid-cols-12 gap-3 items-center p-4">
                   <div className="col-span-6 flex items-center gap-3">
                     <div className={`w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0 ${
-                      row.isHighlighted ? 'bg-[#1a2e29]/10' : 'bg-white/10'
+                      row.isHighlighted ? 'bg-black/10' : 'bg-white/10'
                     }`}>
-                      <row.icon className={`w-5 h-5 ${row.isHighlighted ? 'text-[#1a2e29]' : 'text-white'}`} strokeWidth={1.5} />
+                      <row.icon className={`w-5 h-5 ${row.isHighlighted ? 'text-black' : 'text-white'}`} strokeWidth={1.5} />
                     </div>
                     <div>
-                      <h4 className={`font-semibold text-sm ${row.isHighlighted ? 'text-[#1a2e29]' : 'text-white'}`}>
+                      <h4 className={`font-semibold text-sm ${row.isHighlighted ? 'text-black' : 'text-white'}`}>
                         {row.name}
                       </h4>
-                      <p className={`text-xs ${row.isHighlighted ? 'text-[#1a2e29]/70' : 'text-white/50'}`}>
+                      <p className={`text-xs ${row.isHighlighted ? 'text-black/70' : 'text-white/50'}`}>
                         {row.description}
                       </p>
                     </div>
@@ -265,9 +266,9 @@ export default function ROICalculatorSection() {
                     return (
                       <div key={col.key} className="col-span-2 flex justify-center">
                         {value ? (
-                          <Check className={`w-5 h-5 ${row.isHighlighted ? 'text-[#1a2e29]' : 'text-[#c4ff4d]'}`} strokeWidth={2.5} />
+                          <Check className={`w-5 h-5 ${row.isHighlighted ? 'text-black' : 'text-[#c4ff4d]'}`} strokeWidth={2.5} />
                         ) : (
-                          <X className={`w-5 h-5 ${row.isHighlighted ? 'text-[#1a2e29]/40' : 'text-white/30'}`} strokeWidth={2} />
+                          <X className={`w-5 h-5 ${row.isHighlighted ? 'text-black/40' : 'text-white/30'}`} strokeWidth={2} />
                         )}
                       </div>
                     );
@@ -354,7 +355,7 @@ export default function ROICalculatorSection() {
             <Link href="/contact">
               <Button 
                 size="lg" 
-                className="bg-[#c4ff4d] hover:bg-[#b5ef3d] text-[#1a2e29] font-bold rounded-full px-6 py-5 text-sm shadow-lg shadow-[#c4ff4d]/20"
+                className="bg-[#c4ff4d] hover:bg-[#b5ef3d] text-[#0a0a0a] font-bold rounded-full px-6 py-5 text-sm shadow-lg shadow-[#c4ff4d]/20"
                 data-testid="button-get-analysis"
               >
                 Get Free Growth Analysis
