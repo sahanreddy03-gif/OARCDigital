@@ -12,6 +12,7 @@ import paidAdvertisingBanner from '@assets/paid advertising_1763088406833.avif';
 import mediaBuyingBanner from '@assets/media buying_1763086700057.jpg';
 import influencerMarketingBanner from '@assets/influencer_1763087034115.jpg';
 import aiConsultingBanner from '@assets/ai consulting_1763087215182.avif';
+import videoProductionBanner from '@assets/ai-video-production-optimized.jpg';
 
 import img1 from '@assets/1_1763083221531.avif';
 import img2 from '@assets/2_1763083221532.avif';
@@ -67,7 +68,7 @@ export const serviceImagesBySlug: Record<string, string> = {
   'print-design': printPackagingBanner,
   'print-packaging': printPackagingBanner,
   'packaging-design': printPackagingBanner,
-  'video-production': img10,
+  'video-production': videoProductionBanner,
   'motion-design': motionDesignBanner,
   'immersive-design': img12,
   'immersive-3d-ar': img12,

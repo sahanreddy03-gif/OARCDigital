@@ -2,7 +2,7 @@
 import { useEffect, useRef } from "react";
 import digitalMarketing from '@assets/digital-marketing-optimized.jpg';
 import socialMedia from '@assets/social-media-management-optimized.jpg';
-import aiVideo from '@assets/stock_images/professional_video_p_08fa5257.jpg';
+import aiVideo from '@assets/ai-video-production-optimized.jpg';
 import branding from '@assets/branding-services-optimized.jpg';
 import paidAdvertising from '@assets/paid-advertising-optimized.jpg';
 import mediaBuying from '@assets/media-buying-optimized.jpg';
