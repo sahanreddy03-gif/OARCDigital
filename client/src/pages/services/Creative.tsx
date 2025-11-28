@@ -5,6 +5,7 @@ import Layout from '@/components/layout/Layout';
 import SEOHead from "@/components/SEOHead";
 import { creativeServicesSEO } from "@/data/seoMetadata";
 import { createServiceSchema } from "@/utils/structuredData";
+import ScrollReveal from "@/components/ScrollReveal";
 import videoProductionImg from '@assets/stock_images/video_production_stu_19004f37.jpg';
 import cameraMonitorImg from '@assets/stock_images/video_production_stu_5144a38f.jpg';
 import designWorkspaceImg from '@assets/stock_images/creative_team_workin_79883382.jpg';
@@ -134,8 +135,11 @@ export default function Creative() {
       />
       
       {/* Hero Section */}
-      <section className="py-14 px-4 bg-white">
-        <div className="max-w-6xl mx-auto">
+      <section className="relative py-14 px-4 bg-white overflow-hidden">
+        <div className="absolute inset-0 bg-surface-lime-radial"></div>
+        <div className="absolute top-20 right-20 w-96 h-96 bg-[#c4ff4d]/10 rounded-full blur-3xl animate-float"></div>
+        <div className="absolute bottom-10 left-10 w-64 h-64 bg-[#c4ff4d]/5 rounded-full blur-2xl animate-float-delayed"></div>
+        <div className="max-w-6xl mx-auto relative">
           <div className="mb-4"></div>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-black mb-8" data-testid="heading-creative">
             Creative
@@ -145,22 +149,22 @@ export default function Creative() {
             Scroll-stopping content built for the platforms that matter
           </h2>
 
-          <p className="text-base text-gray-700 mb-4">
+          <p className="text-base text-black mb-4">
             Generic creative gets ignored. Platform-native content gets results.
           </p>
 
-          <p className="text-base text-gray-700 mb-8">
+          <p className="text-base text-black mb-8">
             Our in-house creative team produces video, design, and motion content specifically engineered for how each platform works—not repurposed afterthoughts.
           </p>
 
           <Link href="/contact">
             <button
-              className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2"
+              className="btn-shimmer inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2"
               data-testid="button-lets-chat-hero"
             >
               Start Creating
-              <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
-                <ArrowRight className="h-5 w-5 text-black" />
+              <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center border-2 border-white">
+                <ArrowRight className="h-5 w-5 text-white" />
               </div>
             </button>
           </Link>
@@ -168,147 +172,162 @@ export default function Creative() {
       </section>
 
       {/* Section 1: Text Left + Image Right */}
-      <section className="py-14 px-4 bg-white">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-black mb-6">
-                Built for algorithms, designed for humans
-              </h2>
+      <ScrollReveal>
+        <section className="relative py-14 px-4 overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-[#F5F3ED] via-white to-[#FFF9F0]"></div>
+          <div className="absolute top-20 right-20 w-96 h-96 bg-[#c4ff4d]/10 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 left-20 w-80 h-80 bg-[#4a7000]/5 rounded-full blur-3xl"></div>
+          
+          <div className="max-w-6xl mx-auto relative">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div>
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-black mb-6">
+                  Built for algorithms, designed for humans
+                </h2>
 
-              <p className="text-base text-gray-700 mb-4">
-                The days of cutting a TVC into social formats are over. Each platform rewards specific content behaviors—and we know exactly what they are.
-              </p>
+                <p className="text-base text-black mb-4">
+                  The days of cutting a TVC into social formats are over. Each platform rewards specific content behaviors—and we know exactly what they are.
+                </p>
 
-              <p className="text-base text-gray-700 mb-4">
-                Our creators specialize in social and digital platforms. That's all they do. It's why brands choose us over traditional production houses that treat social as an afterthought.
-              </p>
+                <p className="text-base text-black mb-4">
+                  Our creators specialize in social and digital platforms. That's all they do. It's why brands choose us over traditional production houses that treat social as an afterthought.
+                </p>
 
-              <p className="text-base text-gray-700 mb-6">
-                From TikTok trends to Instagram Reels to LinkedIn thought leadership—we produce content native to where it will live.
-              </p>
+                <p className="text-base text-black mb-6">
+                  From TikTok trends to Instagram Reels to LinkedIn thought leadership—we produce content native to where it will live.
+                </p>
 
-              <Link href="/contact">
-                <button
-                  className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2"
-                  data-testid="button-get-in-touch-1"
-                >
-                  Discuss Your Project
-                  <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
-                    <ArrowRight className="h-5 w-5 text-black" />
-                  </div>
-                </button>
-              </Link>
-            </div>
-
-            <div>
-              <img 
-                src={videoProductionImg}
-                alt="Video production in action"
-                className="w-full rounded-3xl h-[500px] object-cover"
-                data-testid="img-video-production"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Section 2: Image Left + Text Right */}
-      <section className="py-14 px-4 bg-white">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <img 
-                src={cameraMonitorImg}
-                alt="Professional production setup"
-                className="w-full rounded-3xl h-[500px] object-cover"
-                data-testid="img-camera-monitor"
-              />
-            </div>
-
-            <div>
-              <div className="flex items-center gap-2 mb-4">
-                <div className="w-6 h-0.5 bg-[#c4ff4d]"></div>
-                <div className="w-6 h-0.5 bg-[#c4ff4d]"></div>
+                <Link href="/contact">
+                  <button
+                    className="btn-shimmer inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2"
+                    data-testid="button-get-in-touch-1"
+                  >
+                    Discuss Your Project
+                    <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center border-2 border-white">
+                      <ArrowRight className="h-5 w-5 text-white" />
+                    </div>
+                  </button>
+                </Link>
               </div>
 
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-black mb-6">
-                From concept to conversion
-              </h2>
-
-              <p className="text-base text-gray-700 mb-4">
-                Our studio brings together strategists, art directors, copywriters, creators, videographers, designers, and motion artists under one roof.
-              </p>
-
-              <p className="text-base text-gray-700 mb-4">
-                This integrated approach means your creative is strategically aligned from the first concept to final delivery—no handoff gaps or miscommunication.
-              </p>
-
-              <p className="text-base text-gray-700 mb-6">
-                Browse our work below to see what platform-native creative looks like.
-              </p>
-
-              <Link href="/contact">
-                <button
-                  className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2"
-                  data-testid="button-get-in-touch-2"
-                >
-                  See Our Process
-                  <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
-                    <ArrowRight className="h-5 w-5 text-black" />
-                  </div>
-                </button>
-              </Link>
+              <div className="image-reveal rounded-3xl">
+                <img 
+                  src={videoProductionImg}
+                  alt="Video production in action"
+                  className="w-full h-[500px] object-cover"
+                  data-testid="img-video-production"
+                />
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </ScrollReveal>
+
+      {/* Section 2: Image Left + Text Right */}
+      <ScrollReveal delay={200}>
+        <section className="relative py-14 px-4 overflow-hidden">
+          <div className="absolute inset-0 bg-surface-lime"></div>
+          <div className="max-w-6xl mx-auto relative">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div className="image-reveal rounded-3xl glow-lime-subtle">
+                <img 
+                  src={cameraMonitorImg}
+                  alt="Professional production setup"
+                  className="w-full h-[500px] object-cover"
+                  data-testid="img-camera-monitor"
+                />
+              </div>
+
+              <div>
+                <div className="flex items-center gap-2 mb-4">
+                  <div className="w-6 h-0.5 bg-[#c4ff4d]"></div>
+                  <div className="w-6 h-0.5 bg-[#c4ff4d]"></div>
+                </div>
+
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-black mb-6">
+                  From concept to conversion
+                </h2>
+
+                <p className="text-base text-black mb-4">
+                  Our studio brings together strategists, art directors, copywriters, creators, videographers, designers, and motion artists under one roof.
+                </p>
+
+                <p className="text-base text-black mb-4">
+                  This integrated approach means your creative is strategically aligned from the first concept to final delivery—no handoff gaps or miscommunication.
+                </p>
+
+                <p className="text-base text-black mb-6">
+                  Browse our work below to see what platform-native creative looks like.
+                </p>
+
+                <Link href="/contact">
+                  <button
+                    className="btn-shimmer inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2"
+                    data-testid="button-get-in-touch-2"
+                  >
+                    See Our Process
+                    <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center border-2 border-white">
+                      <ArrowRight className="h-5 w-5 text-white" />
+                    </div>
+                  </button>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+      </ScrollReveal>
 
       {/* Section 3: Text Left + Image Right */}
-      <section className="py-14 px-4 bg-white">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-black mb-6">
-                Retained production or campaign sprints
-              </h2>
+      <ScrollReveal delay={300}>
+        <section className="relative py-14 px-4 bg-white overflow-hidden">
+          <div className="absolute top-20 left-20 w-96 h-96 bg-[#c4ff4d]/10 rounded-full blur-3xl animate-float"></div>
+          <div className="absolute bottom-10 right-10 w-64 h-64 bg-[#c4ff4d]/5 rounded-full blur-2xl animate-float-delayed"></div>
+          
+          <div className="max-w-6xl mx-auto relative">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div>
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-black mb-6">
+                  Retained production or campaign sprints
+                </h2>
 
-              <p className="text-base text-gray-700 mb-4">
-                Need ongoing content production for always-on channels? We've got you. Planning a major campaign launch? We scale to match.
-              </p>
+                <p className="text-base text-black mb-4">
+                  Need ongoing content production for always-on channels? We've got you. Planning a major campaign launch? We scale to match.
+                </p>
 
-              <p className="text-base text-gray-700 mb-6">
-                Our flexible structure means you get exactly the creative firepower you need—no more paying for overhead you don't use.
-              </p>
+                <p className="text-base text-black mb-6">
+                  Our flexible structure means you get exactly the creative firepower you need—no more paying for overhead you don't use.
+                </p>
 
-              <Link href="/contact">
-                <button
-                  className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2"
-                  data-testid="button-get-in-touch-3"
-                >
-                  Explore Engagement Models
-                  <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
-                    <ArrowRight className="h-5 w-5 text-black" />
-                  </div>
-                </button>
-              </Link>
-            </div>
+                <Link href="/contact">
+                  <button
+                    className="btn-shimmer inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2"
+                    data-testid="button-get-in-touch-3"
+                  >
+                    Explore Engagement Models
+                    <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center border-2 border-white">
+                      <ArrowRight className="h-5 w-5 text-white" />
+                    </div>
+                  </button>
+                </Link>
+              </div>
 
-            <div>
-              <img 
-                src={designWorkspaceImg}
-                alt="Creative workspace"
-                className="w-full rounded-3xl h-[500px] object-cover"
-                data-testid="img-design-workspace"
-              />
+              <div className="image-reveal rounded-3xl">
+                <img 
+                  src={designWorkspaceImg}
+                  alt="Creative workspace"
+                  className="w-full h-[500px] object-cover"
+                  data-testid="img-design-workspace"
+                />
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </ScrollReveal>
 
       {/* Services Carousel */}
-      <section className="py-14 px-4 bg-gray-50">
-        <div className="max-w-6xl mx-auto">
+      <section className="relative py-14 px-4 overflow-hidden">
+        <div className="absolute inset-0 bg-surface-lime-soft"></div>
+        <div className="max-w-6xl mx-auto relative">
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-black mb-8">
             Complete creative solutions...
           </h2>
@@ -318,8 +337,8 @@ export default function Creative() {
               <button
                 key={idx}
                 onClick={() => setCurrentService(idx)}
-                className={`h-2 rounded-full transition-all ${
-                  idx === currentService ? 'w-8 bg-[#c4ff4d]' : 'w-2 bg-gray-300'
+                className={`h-2 rounded-full transition-all duration-300 ${
+                  idx === currentService ? 'w-8 bg-[#c4ff4d] glow-lime' : 'w-2 bg-gray-300'
                 }`}
                 data-testid={`dot-service-${idx}`}
               />
@@ -333,7 +352,7 @@ export default function Creative() {
               const Icon = service.icon;
               
               return (
-                <div key={actualIdx} className="bg-white border-2 border-gray-100 rounded-3xl p-8" data-testid={`card-service-${actualIdx}`}>
+                <div key={actualIdx} className="glass-lime-strong rounded-3xl p-8 hover-lift" data-testid={`card-service-${actualIdx}`}>
                   <div className="flex items-start justify-between mb-6">
                     <div className="w-14 h-14 bg-[#0a0a0a] rounded-xl flex items-center justify-center">
                       <Icon className="h-7 w-7 text-[#c4ff4d]" />
@@ -373,14 +392,14 @@ export default function Creative() {
       </section>
 
       {/* Case Studies Section */}
-      <section className="py-14 px-4 bg-gray-50">
+      <section className="py-14 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-black text-black mb-8">
             Creative success stories
           </h2>
 
           <Link href="/our-work">
-            <button className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-lg font-semibold hover-elevate active-elevate-2 mb-8" data-testid="button-view-all-case-studies">
+            <button className="btn-shimmer inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-lg font-semibold hover-elevate active-elevate-2 mb-8" data-testid="button-view-all-case-studies">
               View All Work
               <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center border-2 border-white">
                 <ArrowRight className="h-5 w-5 text-white" />
@@ -433,33 +452,38 @@ export default function Creative() {
       </section>
 
       {/* Creative Showcase Section */}
-      <section className="py-14 px-4 bg-white">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-black text-black mb-2">
-            Recent <span style={{ color: '#6b9b12' }}>Campaign Work</span>
-          </h2>
+      <ScrollReveal delay={200}>
+        <section className="relative py-14 px-4 overflow-hidden">
+          <div className="absolute inset-0 bg-surface-lime"></div>
+          <div className="max-w-4xl mx-auto relative">
+            <h2 className="text-3xl md:text-4xl font-black text-black mb-2">
+              Recent <span style={{ color: '#6b9b12' }}>Campaign Work</span>
+            </h2>
 
-          <div className="grid grid-cols-2 gap-6 mt-8">
-            <div className="relative bg-gray-200 rounded-3xl overflow-hidden h-[400px] group" data-testid="card-content-campaign-1">
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-              <div className="absolute bottom-0 left-0 right-0 p-6">
-                <h3 className="text-xl font-black text-white">Seasonal Launch Campaign</h3>
+            <div className="grid grid-cols-2 gap-6 mt-8">
+              <div className="relative bg-gray-200 rounded-3xl overflow-hidden h-[400px] group hover-lift" data-testid="card-content-campaign-1">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                <div className="absolute bottom-0 left-0 right-0 p-6">
+                  <h3 className="text-xl font-black text-white">Seasonal Launch Campaign</h3>
+                </div>
               </div>
-            </div>
 
-            <div className="relative bg-gray-200 rounded-3xl overflow-hidden h-[400px] group" data-testid="card-content-campaign-2">
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-              <div className="absolute bottom-0 left-0 right-0 p-6">
-                <h3 className="text-xl font-black text-white">Brand Awareness Series</h3>
+              <div className="relative bg-gray-200 rounded-3xl overflow-hidden h-[400px] group hover-lift" data-testid="card-content-campaign-2">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                <div className="absolute bottom-0 left-0 right-0 p-6">
+                  <h3 className="text-xl font-black text-white">Brand Awareness Series</h3>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </ScrollReveal>
 
       {/* Why OARC Digital Carousel */}
-      <section className="py-14 px-4 bg-gray-50">
-        <div className="max-w-4xl mx-auto">
+      <section className="relative py-14 px-4 overflow-hidden">
+        <div className="absolute inset-0 bg-surface-lime-soft"></div>
+        <div className="absolute top-0 right-0 w-80 h-80 bg-[#c4ff4d]/15 rounded-full blur-3xl animate-float"></div>
+        <div className="max-w-4xl mx-auto relative">
           <div className="flex items-center justify-between mb-8">
             <h2 className="text-3xl md:text-4xl font-black text-black">
               The OARC Advantage
@@ -487,16 +511,16 @@ export default function Creative() {
               <button
                 key={idx}
                 onClick={() => setCurrentBenefit(idx)}
-                className={`h-2 rounded-full transition-all ${
-                  idx === currentBenefit ? 'w-8 bg-[#c4ff4d]' : 'w-2 bg-gray-300'
+                className={`h-2 rounded-full transition-all duration-300 ${
+                  idx === currentBenefit ? 'w-8 bg-[#c4ff4d] glow-lime' : 'w-2 bg-gray-300'
                 }`}
                 data-testid={`dot-benefit-${idx}`}
               />
             ))}
           </div>
 
-          <div className="bg-black text-white rounded-3xl p-10" data-testid="card-benefit-current">
-            <div className="w-16 h-16 bg-[#c4ff4d] rounded-full flex items-center justify-center mb-6">
+          <div className="bg-black text-white rounded-3xl p-10 glow-lime-subtle" data-testid="card-benefit-current">
+            <div className="w-16 h-16 bg-[#c4ff4d] rounded-full flex items-center justify-center mb-6 stat-glow">
               <Wand2 className="h-8 w-8 text-black" />
             </div>
 
@@ -511,7 +535,7 @@ export default function Creative() {
 
           <Link href="/contact">
             <button
-              className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-lg font-semibold hover-elevate active-elevate-2 mt-8"
+              className="btn-shimmer inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-lg font-semibold hover-elevate active-elevate-2 mt-8"
               data-testid="button-get-in-touch-final"
             >
               Start Your Creative Project
@@ -524,8 +548,12 @@ export default function Creative() {
       </section>
 
       {/* Who This Service Is For */}
-      <section className="py-20 px-4 bg-white">
-        <div className="max-w-6xl mx-auto">
+      <section className="relative py-20 px-4 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-[#F5F3ED] via-white to-[#FFF9F0]"></div>
+        <div className="absolute top-20 right-20 w-96 h-96 bg-[#c4ff4d]/10 rounded-full blur-3xl animate-float"></div>
+        <div className="absolute bottom-20 left-20 w-80 h-80 bg-[#4a7000]/5 rounded-full blur-3xl animate-float-delayed"></div>
+        
+        <div className="max-w-6xl mx-auto relative">
           <div className="text-center mb-12">
             <div className="text-sm uppercase tracking-wider mb-4" style={{ color: '#6b9b12' }}>IDEAL FOR</div>
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
@@ -563,8 +591,8 @@ export default function Creative() {
                 ]
               }
             ].map((category, idx) => (
-              <div key={idx} className="bg-gray-50 rounded-3xl p-8" data-testid={`card-audience-${idx}`}>
-                <div className="w-14 h-14 bg-[#c4ff4d] rounded-xl flex items-center justify-center mb-6">
+              <div key={idx} className="glass-lime rounded-3xl p-8 hover-lift" data-testid={`card-audience-${idx}`}>
+                <div className="w-14 h-14 bg-[#c4ff4d] rounded-xl flex items-center justify-center mb-6 stat-glow">
                   <category.icon className="h-7 w-7 text-black" />
                 </div>
                 <h3 className="text-xl font-black text-black mb-4">{category.title}</h3>
@@ -583,8 +611,10 @@ export default function Creative() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-20 px-4 bg-black">
-        <div className="max-w-4xl mx-auto text-center">
+      <section className="relative py-20 px-4 bg-black overflow-hidden">
+        <div className="absolute top-0 left-0 w-80 h-80 bg-[#c4ff4d]/10 rounded-full blur-3xl animate-float"></div>
+        <div className="absolute bottom-0 right-0 w-64 h-64 bg-[#c4ff4d]/5 rounded-full blur-2xl animate-float-delayed"></div>
+        <div className="max-w-4xl mx-auto text-center relative">
           <h2 className="text-3xl md:text-4xl font-black text-white mb-6">
             Ready to create content that converts?
           </h2>
@@ -593,7 +623,7 @@ export default function Creative() {
           </p>
           <Link href="/contact">
             <button
-              className="inline-flex items-center gap-3 bg-[#c4ff4d] text-black rounded-full pl-10 pr-4 py-4 text-lg font-bold hover:bg-[#d4ff6d] transition-colors"
+              className="btn-shimmer inline-flex items-center gap-3 bg-[#c4ff4d] text-black rounded-full pl-10 pr-4 py-4 text-lg font-bold hover:bg-[#d4ff6d] transition-colors glow-lime"
               data-testid="button-final-cta"
             >
               Start Your Project
