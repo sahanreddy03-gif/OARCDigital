@@ -1,16 +1,9 @@
 import { useEffect, useRef, useState } from "react";
-
-const oarcItems = [
-  { letter: "O", word: "Optimised" },
-  { letter: "A", word: "AI-powered" },
-  { letter: "R", word: "Revenue-focused" },
-  { letter: "C", word: "Creative-led" },
-];
+import { ChevronDown } from "lucide-react";
 
 export default function OARCStripSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const [isVisible, setIsVisible] = useState(false);
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -20,7 +13,7 @@ export default function OARCStripSection() {
           observer.disconnect();
         }
       },
-      { threshold: 0.3 }
+      { threshold: 0.5 }
     );
 
     if (sectionRef.current) {
@@ -30,78 +23,92 @@ export default function OARCStripSection() {
     return () => observer.disconnect();
   }, []);
 
+  const services = [
+    { name: "Creative Media", delay: 0 },
+    { name: "AI Solutions", delay: 150 },
+    { name: "Workflow Automation", delay: 300 },
+  ];
+
   return (
     <section
       ref={sectionRef}
-      className="relative py-10 md:py-14 overflow-hidden"
+      className="relative py-8 md:py-10 overflow-hidden"
       style={{ backgroundColor: "#ffffff" }}
       data-testid="oarc-strip-section"
     >
-      <div className="container mx-auto px-4 md:px-6 max-w-5xl relative z-10">
-        {/* Single row - OARC stays horizontal on all screens */}
+      <div className="container mx-auto px-4 md:px-6 max-w-4xl relative z-10">
+        {/* Single elegant line */}
         <div 
-          className={`flex items-center justify-center gap-1 sm:gap-2 md:gap-3 transition-all duration-1000 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+          className={`flex flex-col items-center gap-4 transition-all duration-1000 ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           }`}
         >
-          {oarcItems.map((item, index) => (
-            <div
-              key={item.letter}
-              className="group relative cursor-pointer"
-              onMouseEnter={() => setHoveredIndex(index)}
-              onMouseLeave={() => setHoveredIndex(null)}
-              style={{ 
-                transitionDelay: `${index * 80}ms`,
-              }}
-              data-testid={`oarc-pill-${item.letter}`}
-            >
-              <div 
-                className="relative flex items-center gap-1 sm:gap-1.5 md:gap-2 px-2 sm:px-3 md:px-5 py-2 sm:py-2.5 md:py-3 rounded-full transition-all duration-500"
-                style={{ 
-                  backgroundColor: hoveredIndex === index ? "#0a0a0a" : "#fafafa",
-                  border: `1px solid ${hoveredIndex === index ? "#c4ff4d" : "rgba(0, 0, 0, 0.06)"}`,
-                  boxShadow: hoveredIndex === index 
-                    ? "0 8px 30px -10px rgba(196, 255, 77, 0.4)" 
-                    : "0 2px 8px -4px rgba(0, 0, 0, 0.06)",
-                  transform: hoveredIndex === index ? "translateY(-2px) scale(1.02)" : "translateY(0) scale(1)"
-                }}
-              >
-                {/* Letter */}
-                <span 
-                  className="text-lg sm:text-xl md:text-2xl font-black transition-all duration-500"
-                  style={{ 
-                    color: "#c4ff4d",
-                    textShadow: hoveredIndex === index ? "0 0 20px rgba(196, 255, 77, 0.6)" : "none"
-                  }}
-                >
-                  {item.letter}
-                </span>
-                
-                {/* Word - visible on sm+ */}
-                <span 
-                  className="hidden sm:inline text-[10px] sm:text-xs md:text-sm font-semibold uppercase tracking-wider transition-all duration-500"
-                  style={{ 
-                    color: hoveredIndex === index ? "rgba(255, 255, 255, 0.9)" : "rgba(0, 0, 0, 0.5)"
-                  }}
-                >
-                  {item.word}
-                </span>
-              </div>
+          {/* OARC tagline */}
+          <p 
+            className="text-[10px] sm:text-xs font-semibold tracking-[0.25em] uppercase text-center"
+            style={{ color: "rgba(0, 0, 0, 0.35)" }}
+          >
+            <span style={{ color: "#c4ff4d" }}>O</span>ptimised · 
+            <span style={{ color: "#c4ff4d" }}> A</span>I-powered · 
+            <span style={{ color: "#c4ff4d" }}> R</span>evenue-focused · 
+            <span style={{ color: "#c4ff4d" }}> C</span>reative-led
+          </p>
 
-              {/* Tooltip for mobile */}
+          {/* Three services - single line */}
+          <div className="flex items-center justify-center flex-wrap gap-x-2 gap-y-1">
+            {services.map((service, index) => (
               <div 
-                className="sm:hidden absolute left-1/2 -translate-x-1/2 top-full mt-2 px-2 py-1 rounded text-[9px] font-semibold uppercase tracking-wide whitespace-nowrap transition-all duration-300 pointer-events-none"
-                style={{ 
-                  backgroundColor: "#0a0a0a",
-                  color: "#c4ff4d",
-                  opacity: hoveredIndex === index ? 1 : 0,
-                  transform: `translateX(-50%) ${hoveredIndex === index ? "translateY(0)" : "translateY(-4px)"}`
-                }}
+                key={service.name}
+                className={`flex items-center transition-all duration-700 ${
+                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"
+                }`}
+                style={{ transitionDelay: `${200 + service.delay}ms` }}
               >
-                {item.word}
+                <span 
+                  className="text-sm sm:text-base md:text-lg font-semibold px-3 py-1.5 rounded-full transition-all duration-300 hover:scale-105 cursor-default"
+                  style={{ 
+                    color: "#0a0a0a",
+                    backgroundColor: "transparent"
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.backgroundColor = index === 1 ? "rgba(196, 255, 77, 0.15)" : "rgba(249, 115, 22, 0.1)";
+                    e.currentTarget.style.color = index === 1 ? "#5a8a00" : "#ea580c";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.backgroundColor = "transparent";
+                    e.currentTarget.style.color = "#0a0a0a";
+                  }}
+                  data-testid={`service-tag-${index}`}
+                >
+                  {service.name}
+                </span>
+                {index < services.length - 1 && (
+                  <span 
+                    className="text-lg mx-1"
+                    style={{ color: "rgba(0, 0, 0, 0.15)" }}
+                  >
+                    ·
+                  </span>
+                )}
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
+
+          {/* Subtle scroll indicator */}
+          <div 
+            className={`mt-2 transition-all duration-1000 ${
+              isVisible ? "opacity-100" : "opacity-0"
+            }`}
+            style={{ transitionDelay: "600ms" }}
+          >
+            <ChevronDown 
+              className="w-5 h-5 animate-bounce"
+              style={{ 
+                color: "rgba(0, 0, 0, 0.2)",
+                animationDuration: "2s"
+              }}
+            />
+          </div>
         </div>
       </div>
 
@@ -109,6 +116,7 @@ export default function OARCStripSection() {
         @media (prefers-reduced-motion: reduce) {
           [data-testid="oarc-strip-section"] * {
             transition-duration: 0.01ms !important;
+            animation: none !important;
           }
         }
       `}</style>
