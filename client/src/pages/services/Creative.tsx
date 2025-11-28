@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'wouter';
-import { ArrowRight, CheckCircle2, ChevronLeft, ChevronRight, Camera, Palette, Briefcase, Video, FileText } from 'lucide-react';
+import { ArrowRight, CheckCircle2, ChevronLeft, ChevronRight, Camera, Palette, Clapperboard, Film, Layers, Sparkles, Wand2 } from 'lucide-react';
 import Layout from '@/components/layout/Layout';
 import SEOHead from "@/components/SEOHead";
 import { creativeServicesSEO } from "@/data/seoMetadata";
@@ -21,88 +21,88 @@ export default function Creative() {
 
   const services = [
     {
-      icon: Camera,
-      title: 'Capabilities',
-      description: 'We deliver creative for social in a variety of ways',
+      icon: Clapperboard,
+      title: 'Production Capabilities',
+      description: 'End-to-end creative production for digital platforms',
       items: [
-        'Strategy',
-        'Videography',
-        'Photography',
+        'Concept Development',
+        'Video & Photography',
         'Art Direction',
-        'Graphic & Motion Design, AR and Animation'
+        'Motion Graphics & Animation',
+        'Post-Production'
       ]
     },
     {
-      icon: Video,
-      title: 'Paid Social Creative',
-      description: 'We produce Paid Social creative',
+      icon: Film,
+      title: 'Performance Ads',
+      description: 'Conversion-focused creative for paid campaigns',
       items: [
-        'Full-funnel Paid Social creative',
-        'High-production Video',
-        'UGC',
-        'Design'
+        'Full-Funnel Ad Creative',
+        'High-Impact Video Production',
+        'UGC-Style Content',
+        'Static & Motion Design'
       ]
     },
     {
       icon: Palette,
-      title: 'Campaigns',
-      description: 'We deliver social-first Creative campaigns',
+      title: 'Campaign Creative',
+      description: 'Integrated campaigns designed for platform virality',
       items: [
-        'Strategy',
+        'Creative Strategy',
         'Campaign Ideation',
-        'Planning, Scriptwriting, Briefing',
-        'Production and Post-Production',
-        'Insights & Analysis'
+        'Scripting & Storyboarding',
+        'Production & Post',
+        'Performance Analysis'
       ]
     },
     {
-      icon: Briefcase,
-      title: 'Creative Services',
-      description: 'We handle the logistics side of production',
+      icon: Camera,
+      title: 'Production Services',
+      description: 'Full-service production management and logistics',
       items: [
-        'Talent & Location Sourcing',
-        'International Shoots',
-        'Logistic Management',
-        'Props Sourcing'
+        'Talent & Location Scouting',
+        'Multi-Location Shoots',
+        'Production Coordination',
+        'Equipment & Prop Management'
       ]
     },
     {
-      icon: FileText,
-      title: 'Organic Social Creative',
-      description: 'We produce social-first creative for organic social',
+      icon: Layers,
+      title: 'Organic Content',
+      description: 'Platform-native content for organic channels',
       items: [
-        'Reels',
-        'TikTok',
-        'UGC',
-        'Design'
+        'Short-Form Video (Reels, TikTok)',
+        'User-Generated Content',
+        'Brand Design Assets',
+        'Story & Feed Content'
       ]
     }
   ];
 
   const benefits = [
     {
-      title: 'Social Creative specialists',
-      description: 'We\'re not just creatives, but social creatives. Our team understands the algorithms and what makes them tick.'
+      title: 'Platform-Native Creators',
+      description: 'Our team lives on social—they understand what performs because they create for these platforms daily. No traditional agency disconnect here.'
     },
     {
-      title: 'Dedicated studio space',
-      description: 'We\'ve built a custom studio within our HQ, which means we can turn around content without always needing to hire out expensive locations.'
+      title: 'In-House Production Studio',
+      description: 'Our dedicated studio space means faster turnarounds, lower costs, and the flexibility to iterate quickly without external production delays.'
     },
     {
-      title: 'Partnerships at the major social platforms',
-      description: 'We have partnerships at the major social platforms, which gives us insight into what\'s working today and in the future.'
+      title: 'Direct Platform Relationships',
+      description: 'Early access to new features and format best practices from our partnerships with major platforms keeps your creative ahead of trends.'
     },
     {
-      title: 'Organic & Paid Social Creative',
-      description: 'We also produce Paid Social creative that increases your ROAS and lowers customer acquisition costs.'
+      title: 'Performance-Tested Creative',
+      description: 'Every asset we produce is designed with conversion in mind. We track what performs and continuously optimize our creative approach.'
     },
     {
-      title: 'Our creative gets results',
-      description: 'From producing videos that receive millions of views to building long-term creative strategies that shift brand perception, our creative gets results.'
+      title: 'Proven Results',
+      description: 'From viral organic content to high-converting ad campaigns, our creative consistently outperforms benchmarks and drives measurable business impact.'
     },
     {
-      title: 'Flexible and transparent team',
-      description: 'We built custom solutions based on your challenges and needs. Get in touch to see how we can help.'
+      title: 'Flexible Engagement Models',
+      description: 'Whether you need ongoing content production or a single campaign, we adapt our team structure to match your needs and budget.'
     }
   ];
 
@@ -122,7 +122,7 @@ export default function Creative() {
     <Layout>
       <SEOHead
         title="Creative Services | Video, Design & Motion | OARC Digital"
-        description="Delivering outstanding Creative across Video, Design and Motion. Social-first creative specialists producing content that gets results."
+        description="Platform-native creative production spanning video, design, and motion graphics. We build content engineered to convert."
         canonicalUrl="https://oarcdigital.com/services/creative"
         ogType="article"
         structuredData={createServiceSchema(
@@ -132,6 +132,7 @@ export default function Creative() {
         )}
         schemaId="service-creative"
       />
+      
       {/* Hero Section */}
       <section className="py-14 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
@@ -141,15 +142,15 @@ export default function Creative() {
           </h1>
 
           <h2 className="text-2xl md:text-3xl font-black text-black mb-6">
-            Delivering outstanding Creative across Video, Design and Motion
+            Scroll-stopping content built for the platforms that matter
           </h2>
 
           <p className="text-base text-gray-700 mb-4">
-            Is your creative uninspiring, not getting the results you're looking for and not platform-specific?
+            Generic creative gets ignored. Platform-native content gets results.
           </p>
 
           <p className="text-base text-gray-700 mb-8">
-            Whether you're in need of always-on content or campaign creative, we have the full capabilities across our Creative Strategy and Studios to bring your project to life.
+            Our in-house creative team produces video, design, and motion content specifically engineered for how each platform works—not repurposed afterthoughts.
           </p>
 
           <Link href="/contact">
@@ -157,7 +158,7 @@ export default function Creative() {
               className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2"
               data-testid="button-lets-chat-hero"
             >
-              Let's Chat
+              Start Creating
               <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
                 <ArrowRight className="h-5 w-5 text-black" />
               </div>
@@ -170,22 +171,21 @@ export default function Creative() {
       <section className="py-14 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Text - Left */}
             <div>
               <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-black mb-6">
-                We're social creative specialists
+                Built for algorithms, designed for humans
               </h2>
 
               <p className="text-base text-gray-700 mb-4">
-                Gone are the days when you can use cutdowns of campaigns and chuck them on social. Creative needs to be produced by specialists that understand the algorithms of where it's being distributed and the purpose of each piece of content.
+                The days of cutting a TVC into social formats are over. Each platform rewards specific content behaviors—and we know exactly what they are.
               </p>
 
               <p className="text-base text-gray-700 mb-4">
-                Our team solely work on social and digital creatives... that's all they do. That's why brands work with us instead of your traditional creative or production agencies.
+                Our creators specialize in social and digital platforms. That's all they do. It's why brands choose us over traditional production houses that treat social as an afterthought.
               </p>
 
               <p className="text-base text-gray-700 mb-6">
-                Whether it's Creative for Campaigns, Always-On or TikTok, Reels, Feed, Stories or Paid Social - we've got you covered.
+                From TikTok trends to Instagram Reels to LinkedIn thought leadership—we produce content native to where it will live.
               </p>
 
               <Link href="/contact">
@@ -193,7 +193,7 @@ export default function Creative() {
                   className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2"
                   data-testid="button-get-in-touch-1"
                 >
-                  Get In Touch To See How We Can Help You
+                  Discuss Your Project
                   <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
                     <ArrowRight className="h-5 w-5 text-black" />
                   </div>
@@ -201,11 +201,10 @@ export default function Creative() {
               </Link>
             </div>
 
-            {/* Image - Right */}
             <div>
               <img 
                 src={videoProductionImg}
-                alt="Video Production Behind the Scenes"
+                alt="Video production in action"
                 className="w-full rounded-3xl h-[500px] object-cover"
                 data-testid="img-video-production"
               />
@@ -218,37 +217,35 @@ export default function Creative() {
       <section className="py-14 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Image - Left */}
             <div>
               <img 
                 src={cameraMonitorImg}
-                alt="Camera Monitor Display"
+                alt="Professional production setup"
                 className="w-full rounded-3xl h-[500px] object-cover"
                 data-testid="img-camera-monitor"
               />
             </div>
 
-            {/* Text - Right */}
             <div>
               <div className="flex items-center gap-2 mb-4">
-                <div className="w-6 h-0.5 bg-black"></div>
-                <div className="w-6 h-0.5 bg-black"></div>
+                <div className="w-6 h-0.5 bg-[#c4ff4d]"></div>
+                <div className="w-6 h-0.5 bg-[#c4ff4d]"></div>
               </div>
 
               <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-black mb-6">
-                Our creatives spans from strategy to delivery
+                From concept to conversion
               </h2>
 
               <p className="text-base text-gray-700 mb-4">
-                Our Studio includes a range of talented strategists, art directors, copywriters, creators, videographers, designers, and animators.
+                Our studio brings together strategists, art directors, copywriters, creators, videographers, designers, and motion artists under one roof.
               </p>
 
               <p className="text-base text-gray-700 mb-4">
-                We truly understand what works on Social and Digital channels which allows us to deliver industry-leading creative for our clients.
+                This integrated approach means your creative is strategically aligned from the first concept to final delivery—no handoff gaps or miscommunication.
               </p>
 
               <p className="text-base text-gray-700 mb-6">
-                See some of our teams' work further below.
+                Browse our work below to see what platform-native creative looks like.
               </p>
 
               <Link href="/contact">
@@ -256,7 +253,7 @@ export default function Creative() {
                   className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2"
                   data-testid="button-get-in-touch-2"
                 >
-                  Get In Touch To See How We Can Help You
+                  See Our Process
                   <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
                     <ArrowRight className="h-5 w-5 text-black" />
                   </div>
@@ -271,18 +268,17 @@ export default function Creative() {
       <section className="py-14 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Text - Left */}
             <div>
               <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-black mb-6">
-                Always-on content and creative campaigns
+                Retained production or campaign sprints
               </h2>
 
               <p className="text-base text-gray-700 mb-4">
-                Whether you're looking for a retained creative agency that can produce social-first content or someone to deliver a large-scale creative project, we are set up to deliver.
+                Need ongoing content production for always-on channels? We've got you. Planning a major campaign launch? We scale to match.
               </p>
 
               <p className="text-base text-gray-700 mb-6">
-                We're flexible and agile to your individual needs and know how to deliver creative that will excite you and your audience.
+                Our flexible structure means you get exactly the creative firepower you need—no more paying for overhead you don't use.
               </p>
 
               <Link href="/contact">
@@ -290,7 +286,7 @@ export default function Creative() {
                   className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2"
                   data-testid="button-get-in-touch-3"
                 >
-                  Get In Touch To See How We Can Help You
+                  Explore Engagement Models
                   <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
                     <ArrowRight className="h-5 w-5 text-black" />
                   </div>
@@ -298,11 +294,10 @@ export default function Creative() {
               </Link>
             </div>
 
-            {/* Image - Right */}
             <div>
               <img 
                 src={designWorkspaceImg}
-                alt="Design Workspace"
+                alt="Creative workspace"
                 className="w-full rounded-3xl h-[500px] object-cover"
                 data-testid="img-design-workspace"
               />
@@ -315,10 +310,9 @@ export default function Creative() {
       <section className="py-14 px-4 bg-gray-50">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-black mb-8">
-            Our full-service Creative offering...
+            Complete creative solutions...
           </h2>
 
-          {/* Carousel Dots */}
           <div className="flex items-center justify-start gap-2 mb-8">
             {services.map((_, idx) => (
               <button
@@ -332,7 +326,6 @@ export default function Creative() {
             ))}
           </div>
 
-          {/* Grid of 3 Service Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
             {[0, 1, 2].map((offset) => {
               const actualIdx = (currentService + offset) % services.length;
@@ -342,8 +335,8 @@ export default function Creative() {
               return (
                 <div key={actualIdx} className="bg-white border-2 border-gray-100 rounded-3xl p-8" data-testid={`card-service-${actualIdx}`}>
                   <div className="flex items-start justify-between mb-6">
-                    <div className="w-14 h-14 bg-black rounded-xl flex items-center justify-center">
-                      <Icon className="h-7 w-7 text-white" />
+                    <div className="w-14 h-14 bg-[#0a0a0a] rounded-xl flex items-center justify-center">
+                      <Icon className="h-7 w-7 text-[#c4ff4d]" />
                     </div>
                     {offset === 2 && (
                       <button
@@ -383,54 +376,53 @@ export default function Creative() {
       <section className="py-14 px-4 bg-gray-50">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-black text-black mb-8">
-            How we've used Creative to grow our clients
+            Creative success stories
           </h2>
 
           <Link href="/our-work">
             <button className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-lg font-semibold hover-elevate active-elevate-2 mb-8" data-testid="button-view-all-case-studies">
-              View All Case Studies
+              View All Work
               <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center border-2 border-white">
                 <ArrowRight className="h-5 w-5 text-white" />
               </div>
             </button>
           </Link>
 
-          {/* FitnessPro Network Case Study */}
-          <Link href="/case-studies/fitnesspro-network">
-            <div className="relative bg-gradient-to-br from-gray-800 to-gray-900 rounded-3xl overflow-hidden h-[500px] hover-elevate active-elevate-2 cursor-pointer" data-testid="card-case-study-fitnesspro">
+          <Link href="/case-studies/gym-group">
+            <div className="relative bg-gradient-to-br from-gray-800 to-gray-900 rounded-3xl overflow-hidden h-[500px] hover-elevate active-elevate-2 cursor-pointer" data-testid="card-case-study">
               <img
                 src={fitnessImg1}
-                alt="FitnessPro Network TikTok Campaign"
+                alt="Fitness brand creative campaign"
                 className="absolute inset-0 w-full h-full object-cover opacity-50"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent"></div>
               <div className="absolute bottom-0 left-0 right-0 p-10 text-white">
                 <div className="flex gap-3 mb-4 flex-wrap">
-                  <span className="px-4 py-2 bg-[#FF0080] backdrop-blur-sm rounded-full text-sm font-semibold">
+                  <span className="px-4 py-2 bg-[#c4ff4d] text-black backdrop-blur-sm rounded-full text-sm font-semibold">
                     Creative
                   </span>
                   <span className="px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-semibold">
-                    TikTok
+                    Video Production
                   </span>
                   <span className="px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-semibold">
-                    Influencer Marketing
+                    Campaign
                   </span>
                 </div>
-                <h3 className="text-3xl font-black mb-2">FitnessPro Network</h3>
+                <h3 className="text-3xl font-black mb-2">The Gym Group</h3>
                 <p className="text-lg text-gray-200 mb-4">
-                  Inspiring a new wave of fitness enthusiasts.
+                  Multi-platform content driving membership growth.
                 </p>
                 <div className="grid grid-cols-3 gap-6 mt-6">
                   <div>
-                    <div className="text-3xl font-black text-[#FF0080]">1M</div>
-                    <div className="text-sm text-gray-300">Clicks</div>
+                    <div className="text-3xl font-black text-[#c4ff4d]">1M</div>
+                    <div className="text-sm text-gray-300">Video Views</div>
                   </div>
                   <div>
-                    <div className="text-3xl font-black text-[#FF0080]">15M</div>
-                    <div className="text-sm text-gray-300">Views</div>
+                    <div className="text-3xl font-black text-[#c4ff4d]">15M</div>
+                    <div className="text-sm text-gray-300">Impressions</div>
                   </div>
                   <div>
-                    <div className="text-3xl font-black text-[#FF0080]">500K</div>
+                    <div className="text-3xl font-black text-[#c4ff4d]">500K</div>
                     <div className="text-sm text-gray-300">Engagements</div>
                   </div>
                 </div>
@@ -440,69 +432,25 @@ export default function Creative() {
         </div>
       </section>
 
-      {/* Campaign Creatives Section */}
+      {/* Creative Showcase Section */}
       <section className="py-14 px-4 bg-white">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-black text-black mb-2">
-            Checkout our latest <span className="text-[#c4ff4d]">Campaign Creatives</span>
+            Recent <span style={{ color: '#6b9b12' }}>Campaign Work</span>
           </h2>
 
           <div className="grid grid-cols-2 gap-6 mt-8">
-            <div className="relative bg-gray-300 rounded-3xl overflow-hidden h-[400px] group" data-testid="card-content-campaign-1">
+            <div className="relative bg-gray-200 rounded-3xl overflow-hidden h-[400px] group" data-testid="card-content-campaign-1">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
               <div className="absolute bottom-0 left-0 right-0 p-6">
-                <h3 className="text-xl font-black text-white">19 Crimes x Halloween</h3>
+                <h3 className="text-xl font-black text-white">Seasonal Launch Campaign</h3>
               </div>
             </div>
 
-            <div className="relative bg-gray-300 rounded-3xl overflow-hidden h-[400px] group" data-testid="card-content-campaign-2">
+            <div className="relative bg-gray-200 rounded-3xl overflow-hidden h-[400px] group" data-testid="card-content-campaign-2">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
               <div className="absolute bottom-0 left-0 right-0 p-6">
-                <h3 className="text-xl font-black text-white">Very Lazy x Beneath the Cloves</h3>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Organic Social Creatives Section */}
-      <section className="py-14 px-4 bg-white">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-black text-black mb-2">
-            Checkout our latest <span className="text-[#c4ff4d]">Organic Social Creatives</span>
-          </h2>
-
-          <div className="grid grid-cols-2 gap-6 mt-8">
-            <div className="relative bg-gray-300 rounded-3xl overflow-hidden h-[400px] group" data-testid="card-content-organic-1">
-              <div className="absolute bottom-0 left-0 right-0 p-6">
-                <h3 className="text-xl font-black text-white">easyJet Holidays</h3>
-              </div>
-            </div>
-
-            <div className="relative bg-gray-300 rounded-3xl overflow-hidden h-[400px] group" data-testid="card-content-organic-2">
-              <div className="absolute bottom-0 left-0 right-0 p-6">
-                <h3 className="text-xl font-black text-white">VeryLazy</h3>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Paid Social Creatives Section */}
-      <section className="py-14 px-4 bg-white">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-black text-black mb-2">
-            Checkout our latest <span className="text-[#c4ff4d]">Paid Social Creatives</span>
-          </h2>
-
-          <div className="grid grid-cols-2 gap-6 mt-8">
-            <div className="relative bg-gray-300 rounded-3xl overflow-hidden h-[400px] group" data-testid="card-content-paid-1">
-              <div className="absolute bottom-0 left-0 right-0 p-6">
-                <h3 className="text-xl font-black text-white">Glasses Direct</h3>
-              </div>
-            </div>
-
-            <div className="relative bg-gray-300 rounded-3xl overflow-hidden h-[400px] group" data-testid="card-content-paid-2">
-              <div className="absolute bottom-0 left-0 right-0 p-6">
-                <h3 className="text-xl font-black text-white">Adapted Assets for Passenger</h3>
+                <h3 className="text-xl font-black text-white">Brand Awareness Series</h3>
               </div>
             </div>
           </div>
@@ -514,7 +462,7 @@ export default function Creative() {
         <div className="max-w-4xl mx-auto">
           <div className="flex items-center justify-between mb-8">
             <h2 className="text-3xl md:text-4xl font-black text-black">
-              Why OARC Digital?
+              The OARC Advantage
             </h2>
             <div className="flex gap-3">
               <button
@@ -534,7 +482,6 @@ export default function Creative() {
             </div>
           </div>
 
-          {/* Carousel Dots */}
           <div className="flex items-center justify-start gap-2 mb-8">
             {benefits.map((_, idx) => (
               <button
@@ -548,10 +495,9 @@ export default function Creative() {
             ))}
           </div>
 
-          {/* Benefit Card */}
           <div className="bg-black text-white rounded-3xl p-10" data-testid="card-benefit-current">
-            <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mb-6">
-              <CheckCircle2 className="h-8 w-8 text-[#c4ff4d]" />
+            <div className="w-16 h-16 bg-[#c4ff4d] rounded-full flex items-center justify-center mb-6">
+              <Wand2 className="h-8 w-8 text-black" />
             </div>
 
             <h3 className="text-2xl md:text-3xl font-black text-white mb-4">
@@ -565,10 +511,10 @@ export default function Creative() {
 
           <Link href="/contact">
             <button
-              className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2 mt-8"
+              className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-lg font-semibold hover-elevate active-elevate-2 mt-8"
               data-testid="button-get-in-touch-final"
             >
-              Get In Touch To See How We Can Help You
+              Start Your Creative Project
               <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center border-2 border-white">
                 <ArrowRight className="h-5 w-5 text-white" />
               </div>
@@ -578,222 +524,84 @@ export default function Creative() {
       </section>
 
       {/* Who This Service Is For */}
-      <section className="py-16 px-4 bg-white">
-        <div className="max-w-7xl mx-auto">
+      <section className="py-20 px-4 bg-white">
+        <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <div className="text-sm uppercase tracking-wider text-black mb-3">WHO THIS IS FOR</div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              For brands that need <span className="italic text-[#c4ff4d]">scroll-stopping creative</span>
+            <div className="text-sm uppercase tracking-wider mb-4" style={{ color: '#6b9b12' }}>IDEAL FOR</div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              Brands ready to <span className="italic" style={{ color: '#6b9b12' }}>stand out</span>
             </h2>
-            <p className="text-lg text-gray-700 max-w-2xl mx-auto">
-              High-volume creative production for performance marketers
-            </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div className="p-6 rounded-xl bg-gray-50 border border-gray-200 hover-elevate" data-testid="use-case-performance-marketers">
-              <h3 className="text-xl font-bold mb-3">Performance Marketers</h3>
-              <p className="text-sm text-gray-700 mb-4">
-                Test more creative faster. Feed your paid campaigns with high-volume, platform-optimized creative that drives lower CPAs and higher ROAS.
-              </p>
-              <ul className="space-y-2">
-                <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle2 className="h-4 w-4 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
-                  <span>High-volume ad creative</span>
-                </li>
-                <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle2 className="h-4 w-4 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
-                  <span>Rapid iteration testing</span>
-                </li>
-                <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle2 className="h-4 w-4 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
-                  <span>Platform-specific formats</span>
-                </li>
-              </ul>
-            </div>
-
-            <div className="p-6 rounded-xl bg-gray-50 border border-gray-200 hover-elevate" data-testid="use-case-ecommerce">
-              <h3 className="text-xl font-bold mb-3">E-commerce Brands</h3>
-              <p className="text-sm text-gray-700 mb-4">
-                Scale product creative across catalogs. Create UGC-style content, product videos, and lifestyle imagery that converts browsers into buyers.
-              </p>
-              <ul className="space-y-2">
-                <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle2 className="h-4 w-4 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
-                  <span>Product photography</span>
-                </li>
-                <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle2 className="h-4 w-4 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
-                  <span>UGC-style content</span>
-                </li>
-                <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle2 className="h-4 w-4 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
-                  <span>Lifestyle imagery</span>
-                </li>
-              </ul>
-            </div>
-
-            <div className="p-6 rounded-xl bg-gray-50 border border-gray-200 hover-elevate" data-testid="use-case-social-first">
-              <h3 className="text-xl font-bold mb-3">Social-First Brands</h3>
-              <p className="text-sm text-gray-700 mb-4">
-                Fill your content calendar with platform-native creative. Short-form video, Reels, TikToks, Stories—all optimized for each algorithm.
-              </p>
-              <ul className="space-y-2">
-                <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle2 className="h-4 w-4 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
-                  <span>Short-form video</span>
-                </li>
-                <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle2 className="h-4 w-4 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
-                  <span>Platform-native content</span>
-                </li>
-                <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle2 className="h-4 w-4 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
-                  <span>Content calendar production</span>
-                </li>
-              </ul>
-            </div>
-
-            <div className="p-6 rounded-xl bg-gray-50 border border-gray-200 hover-elevate" data-testid="use-case-dtc-startups">
-              <h3 className="text-xl font-bold mb-3">DTC Startups</h3>
-              <p className="text-sm text-gray-700 mb-4">
-                Build your brand identity with professional creative on a startup budget. Get brand-quality assets without the agency markup.
-              </p>
-              <ul className="space-y-2">
-                <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle2 className="h-4 w-4 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
-                  <span>Brand identity creative</span>
-                </li>
-                <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle2 className="h-4 w-4 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
-                  <span>Startup-friendly pricing</span>
-                </li>
-                <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle2 className="h-4 w-4 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
-                  <span>Fast turnaround times</span>
-                </li>
-              </ul>
-            </div>
-
-            <div className="p-6 rounded-xl bg-gray-50 border border-gray-200 hover-elevate" data-testid="use-case-growth-teams">
-              <h3 className="text-xl font-bold mb-3">Growth Teams</h3>
-              <p className="text-sm text-gray-700 mb-4">
-                Support continuous testing with endless creative variations. Never run out of new angles, hooks, or concepts to test in your campaigns.
-              </p>
-              <ul className="space-y-2">
-                <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle2 className="h-4 w-4 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
-                  <span>Continuous creative testing</span>
-                </li>
-                <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle2 className="h-4 w-4 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
-                  <span>Endless variations</span>
-                </li>
-                <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle2 className="h-4 w-4 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
-                  <span>Rapid experimentation support</span>
-                </li>
-              </ul>
-            </div>
-
-            <div className="p-6 rounded-xl bg-gray-50 border border-gray-200 hover-elevate" data-testid="use-case-agencies">
-              <h3 className="text-xl font-bold mb-3">Agencies & Partners</h3>
-              <p className="text-sm text-gray-700 mb-4">
-                White-label creative production for your clients. Scale your agency without hiring in-house designers and video editors.
-              </p>
-              <ul className="space-y-2">
-                <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle2 className="h-4 w-4 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
-                  <span>White-label production</span>
-                </li>
-                <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle2 className="h-4 w-4 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
-                  <span>Agency partnership pricing</span>
-                </li>
-                <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle2 className="h-4 w-4 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
-                  <span>Scalable creative capacity</span>
-                </li>
-              </ul>
-            </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                icon: Sparkles,
+                title: "Content-Hungry Brands",
+                items: [
+                  "Need ongoing platform content",
+                  "Want consistent quality at scale",
+                  "Looking for creative partnership"
+                ]
+              },
+              {
+                icon: Film,
+                title: "Campaign Launchers",
+                items: [
+                  "Planning major campaign moments",
+                  "Need integrated creative teams",
+                  "Want measurable impact"
+                ]
+              },
+              {
+                icon: Palette,
+                title: "Brand Builders",
+                items: [
+                  "Developing visual identity",
+                  "Establishing platform presence",
+                  "Building content libraries"
+                ]
+              }
+            ].map((category, idx) => (
+              <div key={idx} className="bg-gray-50 rounded-3xl p-8" data-testid={`card-audience-${idx}`}>
+                <div className="w-14 h-14 bg-[#c4ff4d] rounded-xl flex items-center justify-center mb-6">
+                  <category.icon className="h-7 w-7 text-black" />
+                </div>
+                <h3 className="text-xl font-black text-black mb-4">{category.title}</h3>
+                <ul className="space-y-2">
+                  {category.items.map((item, i) => (
+                    <li key={i} className="flex items-start gap-2">
+                      <CheckCircle2 className="w-4 h-4 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
+                      <span className="text-sm text-gray-700">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Related Services */}
-      <section className="py-16 px-4 bg-gray-50">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <div className="text-sm uppercase tracking-wider text-black mb-3">AMPLIFY YOUR CREATIVE</div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              Pair with these <span className="italic text-[#c4ff4d]">performance services</span>
-            </h2>
-            <p className="text-lg text-gray-700 max-w-2xl mx-auto">
-              Turn creative into conversions with our integrated services
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-6">
-            <Link href="/services/paid-advertising">
-              <div className="group p-8 bg-white rounded-xl border border-gray-200 hover:border-[#c4ff4d] hover:shadow-lg transition-all duration-300 cursor-pointer hover-elevate" data-testid="related-service-paid-ads">
-                <div className="flex items-start justify-between mb-4">
-                  <h3 className="text-xl font-bold group-hover:text-[#c4ff4d] transition-colors">Paid Advertising</h3>
-                  <ArrowRight className="h-5 w-5 text-[#c4ff4d] group-hover:translate-x-1 transition-transform" />
-                </div>
-                <p className="text-sm text-gray-700 mb-4">
-                  Scale winning creative with paid campaigns. Put your best-performing assets to work across all paid channels.
-                </p>
+      {/* Final CTA */}
+      <section className="py-20 px-4 bg-black">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-black text-white mb-6">
+            Ready to create content that converts?
+          </h2>
+          <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
+            Let's discuss how our platform-native creative approach can drive results for your brand.
+          </p>
+          <Link href="/contact">
+            <button
+              className="inline-flex items-center gap-3 bg-[#c4ff4d] text-black rounded-full pl-10 pr-4 py-4 text-lg font-bold hover:bg-[#d4ff6d] transition-colors"
+              data-testid="button-final-cta"
+            >
+              Start Your Project
+              <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center">
+                <ArrowRight className="h-5 w-5 text-[#c4ff4d]" />
               </div>
-            </Link>
-
-            <Link href="/services/rapid-idea-testing">
-              <div className="group p-8 bg-white rounded-xl border border-gray-200 hover:border-[#c4ff4d] hover:shadow-lg transition-all duration-300 cursor-pointer hover-elevate" data-testid="related-service-rapid-testing">
-                <div className="flex items-start justify-between mb-4">
-                  <h3 className="text-xl font-bold group-hover:text-[#c4ff4d] transition-colors">Rapid Idea Testing</h3>
-                  <ArrowRight className="h-5 w-5 text-[#c4ff4d] group-hover:translate-x-1 transition-transform" />
-                </div>
-                <p className="text-sm text-gray-700 mb-4">
-                  Test creative concepts before full production. Validate winning angles and save budget on losers.
-                </p>
-              </div>
-            </Link>
-
-            <Link href="/services/social-media-management">
-              <div className="group p-8 bg-white rounded-xl border border-gray-200 hover:border-[#c4ff4d] hover:shadow-lg transition-all duration-300 cursor-pointer hover-elevate" data-testid="related-service-social-management">
-                <div className="flex items-start justify-between mb-4">
-                  <h3 className="text-xl font-bold group-hover:text-[#c4ff4d] transition-colors">Social Media Management</h3>
-                  <ArrowRight className="h-5 w-5 text-[#c4ff4d] group-hover:translate-x-1 transition-transform" />
-                </div>
-                <p className="text-sm text-gray-700 mb-4">
-                  Fill your social content calendar with platform-optimized creative that drives engagement and growth.
-                </p>
-              </div>
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Final CTA Section */}
-      <section className="py-14 px-4 bg-white">
-        <div className="max-w-4xl mx-auto">
-          <div className="bg-[#c4ff4d] rounded-3xl overflow-hidden" data-testid="card-final-cta">
-            <div className="p-10 md:p-16">
-              <h2 className="text-3xl md:text-4xl lg:text-6xl font-black text-black mb-8">
-                Don't be <span className="text-white">sheepish</span><br />let's talk
-              </h2>
-              <Link href="/contact">
-                <button
-                  className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2"
-                  data-testid="button-final-cta"
-                >
-                  Get In Touch
-                  <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
-                    <ArrowRight className="h-5 w-5 text-black" />
-                  </div>
-                </button>
-              </Link>
-            </div>
-          </div>
+            </button>
+          </Link>
         </div>
       </section>
     </Layout>

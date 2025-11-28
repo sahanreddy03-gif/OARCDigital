@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'wouter';
-import { ArrowRight, CheckCircle2, ChevronLeft, ChevronRight, Megaphone, Users, FileText } from 'lucide-react';
+import { ArrowRight, CheckCircle2, ChevronLeft, ChevronRight, Users, FileBarChart2, Megaphone, TrendingUp, Sparkles, Target } from 'lucide-react';
 import Layout from '@/components/layout/Layout';
 import SEOHead from "@/components/SEOHead";
 import { revenueServicesSEO } from "@/data/seoMetadata";
@@ -8,13 +8,11 @@ import { createServiceSchema } from "@/utils/structuredData";
 import picnicImg from '@assets/stock_images/social_media_influen_3c07c2fc.jpg';
 import skincareImg from '@assets/stock_images/social_media_influen_496eb368.jpg';
 import packageImg from '@assets/stock_images/social_media_influen_0dbb3056.jpg';
-import largeTeamImg from '@assets/stock_images/digital_marketing_st_5a50cd8e.jpg';
 import tefalHeroImg from '@assets/TefalPictures-32-scaled_1761760754960.jpg';
 import bodyShopHeroImg from '@assets/The-Body-Shop-Social-Marketing-Agency_1761842288034.jpg';
 
 export default function Influencer() {
   const [currentService, setCurrentService] = useState(0);
-  const [currentCaseStudy, setCurrentCaseStudy] = useState(0);
   const [currentBenefit, setCurrentBenefit] = useState(0);
 
   useEffect(() => {
@@ -24,35 +22,36 @@ export default function Influencer() {
   const services = [
     {
       icon: Megaphone,
-      title: 'Influencer',
-      description: 'We handle everything from start to end',
+      title: 'Campaign Management',
+      description: 'Full-service influencer campaign execution from brief to wrap',
       items: [
-        'End-to-End Campaign Management',
-        'Strategy',
-        'Sourcing, negotiations',
-        'Briefing, approvals',
-        'Contracts, payments'
+        'End-to-End Campaign Delivery',
+        'Strategic Planning',
+        'Influencer Sourcing & Vetting',
+        'Brief Development & Approvals',
+        'Contracts & Payments'
       ]
     },
     {
       icon: Users,
-      title: 'UGC Creators',
-      description: 'We work with content UGC creators to produce content for your channels',
+      title: 'Creator Partnerships',
+      description: 'Building your content library with authentic creator voices',
       items: [
-        'Creator Pools',
-        'UGC content for Organic',
-        'UGC content for Paid'
+        'Vetted Creator Pools',
+        'UGC for Organic Channels',
+        'UGC for Paid Amplification',
+        'Content Rights Management'
       ]
     },
     {
-      icon: FileText,
-      title: 'Reporting',
-      description: 'We create bespoke reports for influencer activity',
+      icon: FileBarChart2,
+      title: 'Measurement & Insights',
+      description: 'Comprehensive tracking and reporting on campaign impact',
       items: [
-        'Campaign Wrap and Monthly reports',
-        'UTM, Discount Code, Social & GA tracking',
-        'Social Listening',
-        'Brand Uplift'
+        'Campaign Performance Reports',
+        'UTM & Discount Code Tracking',
+        'Social Listening Integration',
+        'Brand Lift Analysis'
       ]
     }
   ];
@@ -60,9 +59,9 @@ export default function Influencer() {
   const caseStudies = [
     {
       id: 'homecraft-innovations',
-      category: 'Influencer Marketing',
+      category: 'Influencer Campaign',
       brand: 'HomeCraft Innovations',
-      description: 'Selling out product lines of household products for HomeCraft Innovations.',
+      description: 'Product launch campaign driving record sell-through rates.',
       image: tefalHeroImg,
       link: '/case-studies/homecraft-innovations',
       stats: [
@@ -73,9 +72,9 @@ export default function Influencer() {
     },
     {
       id: 'naturalcare-beauty',
-      category: 'Influencer Marketing',
+      category: 'Creator Campaign',
       brand: 'NaturalCare Beauty',
-      description: 'Celebrating authenticity and natural beauty with TikTok.',
+      description: 'Authentic beauty content driving brand consideration.',
       image: bodyShopHeroImg,
       link: '/case-studies/naturalcare-beauty',
       stats: [
@@ -88,37 +87,29 @@ export default function Influencer() {
 
   const benefits = [
     {
-      title: 'Bespoke Influencer Marketing plans',
-      description: 'We create bespoke Influencer Marketing plans with every brand we work with, using content creators and macro-influencers to amplify your brand.'
+      title: 'Strategic Influencer Selection',
+      description: 'We build custom influencer strategies for each brand, using data-driven vetting to ensure authentic partnerships that resonate with your audience.'
     },
     {
-      title: 'Agile and flexible',
-      description: 'Whether you\'re in need of an always-on approach, one-off campaign, or campaigns sprinkled throughout the year - we can flex to your needs.'
+      title: 'Flexible Campaign Models',
+      description: 'Whether you need always-on creator partnerships, seasonal campaigns, or one-off activations, we structure engagements to match your goals and budget.'
     },
     {
-      title: 'We handle it all',
-      description: 'We do end-to-end campaign management from sourcing, negotiations, contracts, briefing, reporting, approvals, payment & packaging.'
+      title: 'Complete Campaign Execution',
+      description: 'From initial strategy through to payment and performance analysis, we handle every detail so you can focus on your business.'
     },
     {
-      title: 'Content Creators for your social channels',
-      description: 'We\'re incredibly data-driven and focused on increasing your return on ad spend with Influencer Marketing.'
+      title: 'Performance-Focused Approach',
+      description: 'We obsess over ROI. Our campaigns are designed to drive measurable outcomes, not just vanity metrics and likes.'
     },
     {
-      title: 'Holistic reports and campaign tracking',
-      description: 'We ensure everything is properly tracked using discount code tracking & UTM parameters where relevant, and build holistic reports that help you understand the results we\'ve driven.'
+      title: 'Transparent Reporting',
+      description: 'Custom tracking setups with discount codes, UTM parameters, and attribution modeling ensure you always know exactly what your investment is delivering.'
     }
   ];
 
   const nextService = () => {
     setCurrentService((prev) => (prev + 1) % services.length);
-  };
-
-  const prevCaseStudy = () => {
-    setCurrentCaseStudy((prev) => (prev - 1 + caseStudies.length) % caseStudies.length);
-  };
-
-  const nextCaseStudy = () => {
-    setCurrentCaseStudy((prev) => (prev + 1) % caseStudies.length);
   };
 
   const prevBenefit = () => {
@@ -143,6 +134,7 @@ export default function Influencer() {
         )}
         schemaId="service-influencer"
       />
+      
       {/* Hero Section */}
       <section className="py-14 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
@@ -152,15 +144,15 @@ export default function Influencer() {
           </h1>
 
           <h2 className="text-2xl md:text-3xl font-black text-black mb-6">
-            We deliver brand awareness and direct-response Influencer & Creator campaigns
+            Authentic creator partnerships that drive measurable business results
           </h2>
 
           <p className="text-base text-gray-700 mb-4">
-            We help brands drive growth, change brand perception and produce creative influencer campaigns.
+            Build brand awareness, shift perception, and drive conversions with strategically selected creator partnerships.
           </p>
 
           <p className="text-base text-gray-700 mb-6">
-            Whether you're looking for a one-off campaign or a long-term retained influencer partner - we could be the agency for you.
+            Whether you need a single campaign or ongoing influencer partnerships, we manage every detail from sourcing to measurement.
           </p>
 
           <Link href="/contact">
@@ -168,7 +160,7 @@ export default function Influencer() {
               className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2"
               data-testid="button-lets-chat-hero"
             >
-              Let's Chat
+              Start Your Campaign
               <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
                 <ArrowRight className="h-5 w-5 text-black" />
               </div>
@@ -181,26 +173,25 @@ export default function Influencer() {
       <section className="py-14 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Text - Left */}
             <div>
               <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-black mb-6">
-                Human-led influencer approach
+                Data-informed, human-led selection
               </h2>
 
               <p className="text-base text-gray-700 mb-4">
-                Too many influencer agencies rely solely on tech and influencer search platforms to guide their entire campaign, but we knew there was a better way.
+                Too many agencies rely solely on influencer databases and surface-level metrics. We take a more considered approach.
               </p>
 
               <p className="text-base text-gray-700 mb-4">
-                We take a more human-led approach and then use tech to confirm our research and campaign development.
+                Our team combines data analysis with human judgment—understanding not just follower counts, but audience quality, engagement authenticity, and brand alignment.
               </p>
 
               <p className="text-base text-gray-700 mb-4">
-                This looks at how we research potential influencers, how we analyse their metrics, and how they have performed on previous campaigns.
+                We analyze content performance, audience demographics, and past partnership results to identify creators who will genuinely move the needle for your brand.
               </p>
 
               <p className="text-base text-gray-700 mb-6">
-                Our team is extremely thorough when it comes to the planning phase, so we can truly get the best influencers for your brand, while delivering efficiency of your budget.
+                This rigorous vetting process means every influencer partnership is strategically selected for maximum impact and efficiency.
               </p>
 
               <Link href="/contact">
@@ -208,7 +199,7 @@ export default function Influencer() {
                   className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2"
                   data-testid="button-get-in-touch-1"
                 >
-                  Get In Touch To See How We Can Help You
+                  Discuss Your Goals
                   <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
                     <ArrowRight className="h-5 w-5 text-black" />
                   </div>
@@ -216,11 +207,10 @@ export default function Influencer() {
               </Link>
             </div>
 
-            {/* Image - Right */}
             <div className="overflow-hidden rounded-3xl">
               <img 
                 src={picnicImg}
-                alt="Influencer Marketing Flat Lay"
+                alt="Influencer content creation"
                 className="w-full h-[500px] object-cover scale-110 hover:scale-115 transition-transform duration-700"
                 data-testid="img-picnic-scene"
               />
@@ -233,28 +223,26 @@ export default function Influencer() {
       <section className="py-14 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Image - Left */}
             <div className="overflow-hidden rounded-3xl">
               <img 
                 src={skincareImg}
-                alt="Skincare Products"
+                alt="Product-focused creator content"
                 className="w-full h-[500px] object-cover scale-110 hover:scale-115 transition-transform duration-700"
                 data-testid="img-skincare-products"
               />
             </div>
 
-            {/* Text - Right */}
             <div>
               <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-black mb-6">
-                End-to-end Campaign Management
+                Complete campaign management
               </h2>
 
               <p className="text-base text-gray-700 mb-4">
-                We can handle it all, from campaign strategy, research, insights, outreach, briefing, approvals, payment, analysis, and delivery.
+                Influencer campaigns have a lot of moving parts. We manage every detail so you don't have to.
               </p>
 
               <p className="text-base text-gray-700 mb-6">
-                Some brands want to be heavily involved, while others prefer a hands-off approach. So our ways of working allow us to mould to your exact needs.
+                From strategy development and influencer outreach to briefing, approvals, content review, payment processing, and performance reporting—we handle it all. Some clients want hands-on involvement, others prefer to see results. We adapt to your preferred working style.
               </p>
 
               <Link href="/contact">
@@ -262,7 +250,7 @@ export default function Influencer() {
                   className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2"
                   data-testid="button-get-in-touch-2"
                 >
-                  Get In Touch To See How We Can Help You
+                  Learn Our Process
                   <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
                     <ArrowRight className="h-5 w-5 text-black" />
                   </div>
@@ -277,26 +265,25 @@ export default function Influencer() {
       <section className="py-14 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Text - Left */}
             <div>
               <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-black mb-6">
-                Creators for User-generated Content
+                Content creators for your channels
               </h2>
 
               <p className="text-base text-gray-700 mb-4">
-                Not only do we deliver Influencer campaigns, but we've built our creator pools, who can produce social-first content for your social channels.
+                Beyond traditional influencer campaigns, we've built creator networks specifically for content production.
               </p>
 
               <p className="text-base text-gray-700 mb-4">
-                Creators have a unique ability to create content that's socially native, produced specifically for each individual platform, so we decided to harness it!
+                These creators produce authentic, platform-native content for your owned channels—not for posting on their profiles, but for elevating your brand's content quality.
               </p>
 
               <p className="text-base text-gray-700 mb-4">
-                Not used for their 'influence', but as another means of production. We then use that content on your owned brand channels, not their own channels.
+                It's user-generated content that feels genuine because it is—created by real people who understand social platforms, not just your marketing team.
               </p>
 
               <p className="text-base text-gray-700 mb-6">
-                So if you're a brand looking for UGC content for Organic or Paid channels or a creator yourself, get in touch.
+                Whether you need UGC for organic posting or high-performing ad creative, our creator network delivers.
               </p>
 
               <Link href="/contact">
@@ -304,7 +291,7 @@ export default function Influencer() {
                   className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2"
                   data-testid="button-get-in-touch-3"
                 >
-                  Get In Touch To See How We Can Help You
+                  Explore Creator Partnerships
                   <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
                     <ArrowRight className="h-5 w-5 text-black" />
                   </div>
@@ -312,11 +299,10 @@ export default function Influencer() {
               </Link>
             </div>
 
-            {/* Image - Right */}
             <div>
               <img 
                 src={packageImg}
-                alt="Package Delivery"
+                alt="Creator unboxing content"
                 className="w-full rounded-3xl h-[500px] object-cover"
                 data-testid="img-package-delivery"
               />
@@ -329,10 +315,9 @@ export default function Influencer() {
       <section className="py-14 px-4 bg-gray-50">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-black mb-8">
-            Our full-service Influencer and Creator offering...
+            Complete influencer & creator solutions...
           </h2>
 
-          {/* Carousel Dots */}
           <div className="flex items-center justify-start gap-2 mb-8">
             {services.map((_, idx) => (
               <button
@@ -346,7 +331,6 @@ export default function Influencer() {
             ))}
           </div>
 
-          {/* Grid of 3 Service Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
             {[0, 1, 2].map((offset) => {
               const actualIdx = (currentService + offset) % services.length;
@@ -356,8 +340,8 @@ export default function Influencer() {
               return (
                 <div key={actualIdx} className="bg-white border-2 border-gray-100 rounded-3xl p-8" data-testid={`card-service-${actualIdx}`}>
                   <div className="flex items-start justify-between mb-6">
-                    <div className="w-14 h-14 bg-black rounded-xl flex items-center justify-center">
-                      <Icon className="h-7 w-7 text-white" />
+                    <div className="w-14 h-14 bg-[#0a0a0a] rounded-xl flex items-center justify-center">
+                      <Icon className="h-7 w-7 text-[#c4ff4d]" />
                     </div>
                     {offset === 2 && (
                       <button
@@ -397,19 +381,18 @@ export default function Influencer() {
       <section className="py-14 px-4 bg-gray-50">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-black text-black mb-8">
-            How we've used Influencers to grow our clients
+            Influencer success stories
           </h2>
 
           <Link href="/our-work">
             <button className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-lg font-semibold hover-elevate active-elevate-2 mb-8" data-testid="button-view-all-case-studies">
-              View All Case Studies
+              View All Results
               <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center border-2 border-white">
                 <ArrowRight className="h-5 w-5 text-white" />
               </div>
             </button>
           </Link>
 
-          {/* Case Studies Grid */}
           <div className="grid md:grid-cols-2 gap-8">
             {caseStudies.map((caseStudy) => (
               <Link key={caseStudy.id} href={caseStudy.link}>
@@ -422,7 +405,7 @@ export default function Influencer() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent"></div>
                   <div className="absolute bottom-0 left-0 right-0 p-10 text-white">
                     <div className="flex gap-3 mb-4 flex-wrap">
-                      <span className="px-4 py-2 bg-[#FF0080] backdrop-blur-sm rounded-full text-sm font-semibold">
+                      <span className="px-4 py-2 bg-[#c4ff4d] text-black backdrop-blur-sm rounded-full text-sm font-semibold">
                         {caseStudy.category}
                       </span>
                     </div>
@@ -433,7 +416,7 @@ export default function Influencer() {
                     <div className="grid grid-cols-3 gap-6 mt-6">
                       {caseStudy.stats.map((stat, idx) => (
                         <div key={idx}>
-                          <div className="text-3xl font-black text-[#FF0080]">{stat.value}</div>
+                          <div className="text-3xl font-black text-[#c4ff4d]">{stat.value}</div>
                           <div className="text-sm text-gray-300">{stat.label}</div>
                         </div>
                       ))}
@@ -450,16 +433,17 @@ export default function Influencer() {
       <section className="py-14 px-4 bg-white">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-black text-black mb-2">
-            Checkout our latest <span className="text-[#c4ff4d]">Influencer content</span>
+            Recent <span style={{ color: '#6b9b12' }}>Creator Content</span>
           </h2>
 
           <div className="grid grid-cols-2 md:grid-cols-3 gap-6 mt-8">
             {[
-              'Uniqlo Influencer x Fall/Winter',
-              'Jungle Formula x Poppy Hollins',
-              'Carpetright Influencer'
+              'Fashion Brand x Fall Collection',
+              'Wellness Brand x Lifestyle',
+              'Tech Product Launch'
             ].map((title, idx) => (
-              <div key={idx} className="relative bg-gray-300 rounded-3xl overflow-hidden h-[350px] group" data-testid={`card-content-influencer-${idx + 1}`}>
+              <div key={idx} className="relative bg-gray-200 rounded-3xl overflow-hidden h-[350px] group" data-testid={`card-content-influencer-${idx + 1}`}>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                 <div className="absolute bottom-0 left-0 right-0 p-6">
                   <h3 className="text-lg font-black text-white">{title}</h3>
                 </div>
@@ -474,7 +458,7 @@ export default function Influencer() {
         <div className="max-w-4xl mx-auto">
           <div className="flex items-center justify-between mb-8">
             <h2 className="text-3xl md:text-4xl font-black text-black">
-              Why OARC Digital?
+              The OARC Advantage
             </h2>
             <div className="flex gap-3">
               <button
@@ -494,7 +478,6 @@ export default function Influencer() {
             </div>
           </div>
 
-          {/* Carousel Dots */}
           <div className="flex items-center justify-start gap-2 mb-8">
             {benefits.map((_, idx) => (
               <button
@@ -508,10 +491,9 @@ export default function Influencer() {
             ))}
           </div>
 
-          {/* Benefit Card */}
           <div className="bg-black text-white rounded-3xl p-10" data-testid="card-benefit-current">
-            <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mb-6">
-              <CheckCircle2 className="h-8 w-8 text-[#c4ff4d]" />
+            <div className="w-16 h-16 bg-[#c4ff4d] rounded-full flex items-center justify-center mb-6">
+              <TrendingUp className="h-8 w-8 text-black" />
             </div>
 
             <h3 className="text-2xl md:text-3xl font-black text-white mb-4">
@@ -528,7 +510,7 @@ export default function Influencer() {
               className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-lg font-semibold hover-elevate active-elevate-2 mt-8"
               data-testid="button-get-in-touch-final"
             >
-              Get In Touch To See How We Can Help You
+              Start Your Influencer Strategy
               <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center border-2 border-white">
                 <ArrowRight className="h-5 w-5 text-white" />
               </div>
@@ -541,246 +523,81 @@ export default function Influencer() {
       <section className="py-20 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <div className="text-sm uppercase tracking-wider text-[#c4ff4d] mb-4">WHO THIS IS FOR</div>
+            <div className="text-sm uppercase tracking-wider mb-4" style={{ color: '#6b9b12' }}>IDEAL FOR</div>
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Built for ambitious <span className="italic text-[#c4ff4d]">growth-focused</span> brands
+              Brands ready to <span className="italic" style={{ color: '#6b9b12' }}>amplify</span> their message
             </h2>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-[hsl(210,20%,98%)] rounded-xl p-8 border border-gray-100" data-testid="use-case-beauty">
-              <h3 className="text-xl font-bold mb-4">Beauty & Skincare Brands</h3>
-              <p className="text-gray-700 mb-4">
-                Authentic product endorsements from trusted beauty creators. Drive awareness and sales through influencer tutorials, unboxings, and reviews.
-              </p>
-              <ul className="space-y-2 text-sm text-gray-700">
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
-                  <span>Micro-influencer campaigns for authentic reviews</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
-                  <span>Tutorial & how-to content creation</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
-                  <span>Product launch campaigns</span>
-                </li>
-              </ul>
-            </div>
-
-            <div className="bg-[hsl(210,20%,98%)] rounded-xl p-8 border border-gray-100" data-testid="use-case-fashion">
-              <h3 className="text-xl font-bold mb-4">Fashion & E-commerce</h3>
-              <p className="text-gray-700 mb-4">
-                Break into competitive fashion markets with creator partnerships. Style content, haul videos, and brand ambassadorships that drive sales.
-              </p>
-              <ul className="space-y-2 text-sm text-gray-700">
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
-                  <span>Fashion influencer partnerships</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
-                  <span>Seasonal campaign management</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
-                  <span>Brand ambassador programs</span>
-                </li>
-              </ul>
-            </div>
-
-            <div className="bg-[hsl(210,20%,98%)] rounded-xl p-8 border border-gray-100" data-testid="use-case-food">
-              <h3 className="text-xl font-bold mb-4">Food & Beverage Brands</h3>
-              <p className="text-gray-700 mb-4">
-                Create mouth-watering content with food bloggers and lifestyle creators. Recipe features, taste tests, and restaurant partnerships.
-              </p>
-              <ul className="space-y-2 text-sm text-gray-700">
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
-                  <span>Food blogger collaborations</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
-                  <span>Recipe content & taste tests</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
-                  <span>Restaurant & venue partnerships</span>
-                </li>
-              </ul>
-            </div>
-
-            <div className="bg-[hsl(210,20%,98%)] rounded-xl p-8 border border-gray-100" data-testid="use-case-tech">
-              <h3 className="text-xl font-bold mb-4">Tech & SaaS Companies</h3>
-              <p className="text-gray-700 mb-4">
-                Build awareness with tech reviewers and industry experts. Product demos, feature highlights, and thought leadership content.
-              </p>
-              <ul className="space-y-2 text-sm text-gray-700">
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
-                  <span>Tech reviewer partnerships</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
-                  <span>Product demo content</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
-                  <span>B2B thought leadership campaigns</span>
-                </li>
-              </ul>
-            </div>
-
-            <div className="bg-[hsl(210,20%,98%)] rounded-xl p-8 border border-gray-100" data-testid="use-case-lifestyle">
-              <h3 className="text-xl font-bold mb-4">Lifestyle & Wellness</h3>
-              <p className="text-gray-700 mb-4">
-                Partner with wellness advocates and lifestyle creators. Authentic storytelling that builds trust and drives health-conscious purchases.
-              </p>
-              <ul className="space-y-2 text-sm text-gray-700">
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
-                  <span>Wellness influencer campaigns</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
-                  <span>Lifestyle content partnerships</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
-                  <span>Health & fitness collaborations</span>
-                </li>
-              </ul>
-            </div>
-
-            <div className="bg-[hsl(210,20%,98%)] rounded-xl p-8 border border-gray-100" data-testid="use-case-travel">
-              <h3 className="text-xl font-bold mb-4">Travel & Hospitality</h3>
-              <p className="text-gray-700 mb-4">
-                Showcase destinations and experiences through travel creators. Drive bookings with aspirational content and authentic travel stories.
-              </p>
-              <ul className="space-y-2 text-sm text-gray-700">
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
-                  <span>Travel blogger partnerships</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
-                  <span>Destination showcases</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
-                  <span>Hotel & venue collaborations</span>
-                </li>
-              </ul>
-            </div>
+            {[
+              {
+                icon: Sparkles,
+                title: "Brand Launchers",
+                items: [
+                  "Need rapid awareness building",
+                  "Want authentic social proof",
+                  "Looking to reach new audiences"
+                ]
+              },
+              {
+                icon: Target,
+                title: "E-Commerce Brands",
+                items: [
+                  "Seeking conversion-focused partnerships",
+                  "Want trackable influencer ROI",
+                  "Need ongoing content production"
+                ]
+              },
+              {
+                icon: TrendingUp,
+                title: "Established Brands",
+                items: [
+                  "Looking to shift perception",
+                  "Want to reach younger demographics",
+                  "Need authentic brand storytelling"
+                ]
+              }
+            ].map((category, idx) => (
+              <div key={idx} className="bg-gray-50 rounded-3xl p-8" data-testid={`card-audience-${idx}`}>
+                <div className="w-14 h-14 bg-[#c4ff4d] rounded-xl flex items-center justify-center mb-6">
+                  <category.icon className="h-7 w-7 text-black" />
+                </div>
+                <h3 className="text-xl font-black text-black mb-4">{category.title}</h3>
+                <ul className="space-y-2">
+                  {category.items.map((item, i) => (
+                    <li key={i} className="flex items-start gap-2">
+                      <CheckCircle2 className="w-4 h-4 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
+                      <span className="text-sm text-gray-700">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Related Services */}
-      <section className="py-20 px-4 bg-white">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
-            <div className="text-sm uppercase tracking-wider text-[#c4ff4d] mb-4">MAXIMIZE YOUR IMPACT</div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Combine with these <span className="italic text-[#c4ff4d]">complementary services</span>
-            </h2>
-            <p className="text-lg text-gray-700 max-w-3xl mx-auto">
-              Influencer campaigns work best as part of a complete marketing strategy. Amplify your results with these services.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            <Link href="/services/social-media-creative">
-              <div className="group p-8 bg-[hsl(210,20%,98%)] rounded-xl border border-gray-100 hover:border-[#c4ff4d] hover:shadow-xl transition-all duration-300 cursor-pointer" data-testid="related-service-social">
-                <div className="flex items-start justify-between mb-4">
-                  <h3 className="text-xl font-bold group-hover:text-[#c4ff4d] transition-colors">Social Media Creative</h3>
-                  <ArrowRight className="h-5 w-5 text-[#c4ff4d] group-hover:translate-x-1 transition-transform" />
-                </div>
-                <p className="text-gray-700 mb-4">
-                  Amplify your influencer content with professional social creative. Repurpose UGC into scroll-stopping ads.
-                </p>
+      {/* Final CTA */}
+      <section className="py-20 px-4 bg-black">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-black text-white mb-6">
+            Ready to partner with the right creators?
+          </h2>
+          <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
+            Let's discuss how strategic influencer partnerships can drive measurable results for your brand.
+          </p>
+          <Link href="/contact">
+            <button
+              className="inline-flex items-center gap-3 bg-[#c4ff4d] text-black rounded-full pl-10 pr-4 py-4 text-lg font-bold hover:bg-[#d4ff6d] transition-colors"
+              data-testid="button-final-cta"
+            >
+              Plan Your Campaign
+              <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center">
+                <ArrowRight className="h-5 w-5 text-[#c4ff4d]" />
               </div>
-            </Link>
-
-            <Link href="/services/paid-advertising">
-              <div className="group p-8 bg-[hsl(210,20%,98%)] rounded-xl border border-gray-100 hover:border-[#c4ff4d] hover:shadow-xl transition-all duration-300 cursor-pointer" data-testid="related-service-paid">
-                <div className="flex items-start justify-between mb-4">
-                  <h3 className="text-xl font-bold group-hover:text-[#c4ff4d] transition-colors">Paid Advertising</h3>
-                  <ArrowRight className="h-5 w-5 text-[#c4ff4d] group-hover:translate-x-1 transition-transform" />
-                </div>
-                <p className="text-gray-700 mb-4">
-                  Boost influencer content reach with paid social campaigns. Maximize ROI by combining organic and paid.
-                </p>
-              </div>
-            </Link>
-
-            <Link href="/services/social-media-management">
-              <div className="group p-8 bg-[hsl(210,20%,98%)] rounded-xl border border-gray-100 hover:border-[#c4ff4d] hover:shadow-xl transition-all duration-300 cursor-pointer" data-testid="related-service-management">
-                <div className="flex items-start justify-between mb-4">
-                  <h3 className="text-xl font-bold group-hover:text-[#c4ff4d] transition-colors">Social Media Management</h3>
-                  <ArrowRight className="h-5 w-5 text-[#c4ff4d] group-hover:translate-x-1 transition-transform" />
-                </div>
-                <p className="text-gray-700 mb-4">
-                  Maintain momentum with daily social management. Keep your community engaged between campaigns.
-                </p>
-              </div>
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Final CTA Section */}
-      <section className="py-14 px-4 bg-white">
-        <div className="max-w-4xl mx-auto">
-          <div className="bg-[#c4ff4d] rounded-3xl overflow-hidden" data-testid="card-final-cta">
-            <div className="p-10 md:p-16">
-              <h2 className="text-3xl md:text-4xl lg:text-6xl font-black text-black mb-8">
-                Don't be <span className="text-white">sheepish</span><br />let's talk
-              </h2>
-              <Link href="/contact">
-                <button
-                  className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-lg font-semibold hover-elevate active-elevate-2"
-                  data-testid="button-lets-chat-final"
-                >
-                  Let's Chat
-                  <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
-                    <ArrowRight className="h-5 w-5 text-black" />
-                  </div>
-                </button>
-              </Link>
-            </div>
-            
-            <div className="w-full">
-              <img 
-                src={largeTeamImg}
-                alt="OARC Digital Team"
-                className="w-full h-[400px] object-cover"
-                data-testid="img-team-final"
-              />
-            </div>
-          </div>
-
-          {/* Newsletter Section */}
-          <div className="mt-8 bg-black text-white rounded-3xl p-10 text-center">
-            <p className="text-lg mb-6">
-              Stay in touch with the herd and receive up to date insights, strategies and news.
-            </p>
-            <div className="flex gap-3 max-w-md mx-auto">
-              <input 
-                type="email"
-                placeholder="Email"
-                className="flex-1 px-6 py-4 rounded-full bg-gray-800 border-none text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#c4ff4d]"
-                data-testid="input-email-newsletter"
-              />
-              <button
-                className="bg-white text-black rounded-full px-8 py-4 hover-elevate active-elevate-2"
-                data-testid="button-submit-newsletter"
-              >
-                <ArrowRight className="h-5 w-5" />
-              </button>
-            </div>
-          </div>
+            </button>
+          </Link>
         </div>
       </section>
     </Layout>
