@@ -26,6 +26,7 @@ import aiEnhancedOptimized from '@assets/ai-enhanced-creative-optimized.jpg';
 import immersiveDesignOptimized from '@assets/immersive-design-optimized.jpg';
 import socialMediaOptimized from '@assets/social-media-creative-optimized.jpg';
 import packagingMerchOptimized from '@assets/packaging-merch-optimized.jpg';
+import videoProductionOptimized from '@assets/video-production-optimized.jpg';
 
 import img1 from '@assets/1_1763083221531.avif';
 import img2 from '@assets/2_1763083221532.avif';
@@ -56,7 +57,7 @@ export const serviceImages = {
   concept: conceptCreationOptimized,
   printDesign: printDesignOptimized,
   packaging: packagingMerchOptimized,
-  video: img10,
+  video: videoProductionOptimized,
   motion: img11,
   immersive: immersiveDesignOptimized,
   email: emailCreationOptimized,
