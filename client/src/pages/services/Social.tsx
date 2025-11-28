@@ -138,8 +138,9 @@ export default function Social() {
       />
       
       {/* Hero Section */}
-      <section className="py-14 px-4 bg-white">
-        <div className="max-w-6xl mx-auto">
+      <section className="relative py-14 px-4 bg-white overflow-hidden">
+        <div className="absolute inset-0 bg-surface-lime-radial"></div>
+        <div className="max-w-6xl mx-auto relative">
           <div className="mb-4"></div>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-black mb-6" data-testid="heading-social">
             Social Media
@@ -159,7 +160,7 @@ export default function Social() {
 
           <Link href="/contact">
             <button
-              className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2"
+              className="btn-shimmer inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2"
               data-testid="button-lets-chat-hero"
             >
               Start Growing
@@ -210,11 +211,11 @@ export default function Social() {
                 </Link>
               </div>
 
-              <div className="overflow-hidden rounded-3xl">
+              <div className="image-reveal rounded-3xl">
                 <img 
                   src={conferenceImg}
                   alt="Strategic planning session"
-                  className="w-full h-[500px] object-cover scale-110 hover:scale-115 transition-transform duration-700"
+                  className="w-full h-[500px] object-cover"
                   data-testid="img-conference"
                 />
               </div>
@@ -225,14 +226,15 @@ export default function Social() {
 
       {/* Image Left + Text Right Section */}
       <ScrollReveal delay={200}>
-        <section className="py-14 px-4 bg-white">
-          <div className="max-w-6xl mx-auto">
+        <section className="relative py-14 px-4 overflow-hidden">
+          <div className="absolute inset-0 bg-surface-lime"></div>
+          <div className="max-w-6xl mx-auto relative">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div className="overflow-hidden rounded-3xl">
+              <div className="image-reveal rounded-3xl glow-lime-subtle">
                 <img 
                   src={arcadeImg}
                   alt="Creative content production"
-                  className="w-full h-[500px] object-cover scale-110 hover:scale-115 transition-transform duration-700"
+                  className="w-full h-[500px] object-cover"
                   data-testid="img-arcade"
                 />
               </div>
@@ -256,7 +258,7 @@ export default function Social() {
 
                 <Link href="/contact">
                   <button
-                    className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2"
+                    className="btn-shimmer inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2"
                     data-testid="button-get-in-touch-2"
                   >
                     See Our Approach
@@ -273,9 +275,9 @@ export default function Social() {
 
       {/* Text Left + Image Right Section */}
       <ScrollReveal delay={300}>
-        <section className="relative py-14 px-4 overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-zinc-50 via-white to-[#FFF9F0]"></div>
-          <div className="absolute top-20 left-20 w-96 h-96 bg-[#c4ff4d]/8 rounded-full blur-3xl"></div>
+        <section className="relative py-14 px-4 bg-white overflow-hidden">
+          <div className="absolute top-20 left-20 w-96 h-96 bg-[#c4ff4d]/10 rounded-full blur-3xl animate-float"></div>
+          <div className="absolute bottom-10 right-10 w-64 h-64 bg-[#c4ff4d]/5 rounded-full blur-2xl animate-float-delayed"></div>
           
           <div className="max-w-6xl mx-auto relative">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -298,7 +300,7 @@ export default function Social() {
 
                 <Link href="/contact">
                   <button
-                    className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2"
+                    className="btn-shimmer inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2"
                     data-testid="button-get-in-touch-3"
                   >
                     Explore Results
@@ -309,11 +311,11 @@ export default function Social() {
                 </Link>
               </div>
 
-              <div className="overflow-hidden rounded-3xl">
+              <div className="image-reveal rounded-3xl">
                 <img 
                   src={awardTeamImg}
                   alt="Award-winning campaign results"
-                  className="w-full h-[500px] object-cover scale-110 hover:scale-115 transition-transform duration-700"
+                  className="w-full h-[500px] object-cover"
                   data-testid="img-award"
                 />
               </div>
@@ -323,8 +325,9 @@ export default function Social() {
       </ScrollReveal>
 
       {/* Full-Service Social Offering Section */}
-      <section className="py-14 px-4 bg-white">
-        <div className="max-w-6xl mx-auto">
+      <section className="relative py-14 px-4 overflow-hidden">
+        <div className="absolute inset-0 bg-surface-lime-soft"></div>
+        <div className="max-w-6xl mx-auto relative">
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-black mb-2">
             Complete social
           </h2>
@@ -337,22 +340,22 @@ export default function Social() {
               <button
                 key={idx}
                 onClick={() => setCurrentService(idx)}
-                className={`h-2 rounded-full transition-all ${
-                  idx === currentService ? 'w-8 bg-[#c4ff4d]' : 'w-2 bg-gray-300'
+                className={`h-2 rounded-full transition-all duration-300 ${
+                  idx === currentService ? 'w-8 bg-[#c4ff4d] glow-lime' : 'w-2 bg-gray-300'
                 }`}
                 data-testid={`dot-service-${idx}`}
               />
             ))}
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 stagger-fade-in">
             {[0, 1, 2].map((offset) => {
               const actualIdx = (currentService + offset) % services.length;
               const service = services[actualIdx];
               const Icon = service.icon;
               
               return (
-                <div key={actualIdx} className="bg-white border-2 border-gray-100 rounded-3xl p-8" data-testid={`card-service-${actualIdx}`}>
+                <div key={actualIdx} className="glass-lime-strong rounded-3xl p-8 hover-lift" data-testid={`card-service-${actualIdx}`}>
                   <div className="flex items-start justify-between mb-6">
                     <div className="w-14 h-14 bg-[#0a0a0a] rounded-xl flex items-center justify-center">
                       <Icon className="h-7 w-7 text-[#c4ff4d]" />
@@ -391,7 +394,7 @@ export default function Social() {
 
           <Link href="/services">
             <button
-              className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-lg font-semibold hover-elevate active-elevate-2"
+              className="btn-shimmer inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-lg font-semibold hover-elevate active-elevate-2"
               data-testid="button-view-all-services"
             >
               Explore All Services
@@ -404,7 +407,7 @@ export default function Social() {
       </section>
 
       {/* Case Studies Section */}
-      <section className="py-14 px-4 bg-gray-50">
+      <section className="py-14 px-4 bg-white">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-black text-black mb-6">
             Social Success Stories
@@ -489,8 +492,10 @@ export default function Social() {
       </section>
 
       {/* Why OARC Digital Section */}
-      <section className="py-14 px-4 bg-gray-50">
-        <div className="max-w-4xl mx-auto">
+      <section className="relative py-14 px-4 overflow-hidden">
+        <div className="absolute inset-0 bg-surface-lime"></div>
+        <div className="absolute top-0 right-0 w-80 h-80 bg-[#c4ff4d]/15 rounded-full blur-3xl animate-float"></div>
+        <div className="max-w-4xl mx-auto relative">
           <div className="flex items-center justify-between mb-8">
             <h2 className="text-3xl md:text-4xl font-black text-black">
               The OARC Advantage
@@ -518,16 +523,16 @@ export default function Social() {
               <button
                 key={idx}
                 onClick={() => setCurrentBenefit(idx)}
-                className={`h-2 rounded-full transition-all ${
-                  idx === currentBenefit ? 'w-8 bg-[#c4ff4d]' : 'w-2 bg-gray-300'
+                className={`h-2 rounded-full transition-all duration-300 ${
+                  idx === currentBenefit ? 'w-8 bg-[#c4ff4d] glow-lime' : 'w-2 bg-gray-300'
                 }`}
                 data-testid={`dot-benefit-${idx}`}
               />
             ))}
           </div>
 
-          <div className="bg-black text-white rounded-3xl p-10" data-testid="card-benefit-current">
-            <div className="w-16 h-16 bg-[#c4ff4d] rounded-full flex items-center justify-center mb-6">
+          <div className="bg-black text-white rounded-3xl p-10 glow-lime-subtle" data-testid="card-benefit-current">
+            <div className="w-16 h-16 bg-[#c4ff4d] rounded-full flex items-center justify-center mb-6 stat-glow">
               <TrendingUp className="h-8 w-8 text-black" />
             </div>
 
@@ -542,7 +547,7 @@ export default function Social() {
 
           <Link href="/contact">
             <button
-              className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-lg font-semibold hover-elevate active-elevate-2 mt-8"
+              className="btn-shimmer inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-lg font-semibold hover-elevate active-elevate-2 mt-8"
               data-testid="button-get-in-touch-final"
             >
               Start Your Growth Journey
@@ -594,7 +599,7 @@ export default function Social() {
                 ]
               }
             ].map((category, idx) => (
-              <div key={idx} className="bg-gray-50 rounded-3xl p-8" data-testid={`card-audience-${idx}`}>
+              <div key={idx} className="glass-lime rounded-3xl p-8 hover-lift" data-testid={`card-audience-${idx}`}>
                 <div className="w-14 h-14 bg-[#c4ff4d] rounded-xl flex items-center justify-center mb-6">
                   <category.icon className="h-7 w-7 text-black" />
                 </div>
@@ -614,8 +619,10 @@ export default function Social() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-20 px-4 bg-black">
-        <div className="max-w-4xl mx-auto text-center">
+      <section className="relative py-20 px-4 bg-black overflow-hidden">
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#c4ff4d]/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-[#c4ff4d]/5 rounded-full blur-3xl"></div>
+        <div className="max-w-4xl mx-auto text-center relative">
           <h2 className="text-3xl md:text-4xl font-black text-white mb-6">
             Ready to transform your social presence?
           </h2>
@@ -624,7 +631,7 @@ export default function Social() {
           </p>
           <Link href="/contact">
             <button
-              className="inline-flex items-center gap-3 bg-[#c4ff4d] text-black rounded-full pl-10 pr-4 py-4 text-lg font-bold hover:bg-[#d4ff6d] transition-colors"
+              className="btn-shimmer inline-flex items-center gap-3 bg-[#c4ff4d] text-black rounded-full pl-10 pr-4 py-4 text-lg font-bold hover:bg-[#d4ff6d] transition-colors glow-lime"
               data-testid="button-final-cta"
             >
               Schedule Your Strategy Call
