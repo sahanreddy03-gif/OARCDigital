@@ -21,6 +21,7 @@ import illustrationOptimized from '@assets/illustration-design-optimized.jpg';
 import aiConsultingOptimized from '@assets/ai-consulting-optimized.jpg';
 import printDesignOptimized from '@assets/print-design-optimized.jpg';
 import conceptCreationOptimized from '@assets/concept-creation-optimized.jpg';
+import designSystemsOptimized from '@assets/design-systems-optimized.jpg';
 
 import img1 from '@assets/1_1763083221531.avif';
 import img2 from '@assets/2_1763083221532.avif';
@@ -56,7 +57,7 @@ export const serviceImages = {
   immersive: img12,
   email: emailCreationOptimized,
   webDesign: websiteDesignOptimized,
-  designSystems: img15,
+  designSystems: designSystemsOptimized,
   productDesign: img16,
   aiEnhanced: img17,
   aiConsulting: aiConsultingOptimized,
