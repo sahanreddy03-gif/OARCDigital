@@ -24,6 +24,7 @@ import conceptCreationOptimized from '@assets/concept-creation-optimized.jpg';
 import designSystemsOptimized from '@assets/design-systems-optimized.jpg';
 import aiEnhancedOptimized from '@assets/ai-enhanced-creative-optimized.jpg';
 import immersiveDesignOptimized from '@assets/immersive-design-optimized.jpg';
+import socialMediaOptimized from '@assets/social-media-creative-optimized.jpg';
 
 import img1 from '@assets/1_1763083221531.avif';
 import img2 from '@assets/2_1763083221532.avif';
@@ -46,7 +47,7 @@ import img18 from '@assets/18_1763083221537.avif';
 
 export const serviceImages = {
   adCreative: adCreativeOptimized,
-  socialMedia: img2,
+  socialMedia: socialMediaOptimized,
   presentation: presentationOptimized,
   illustration: illustrationOptimized,
   branding: img5,
