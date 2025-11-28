@@ -19,6 +19,7 @@ import websiteDesignOptimized from '@assets/website-design-optimized.jpg';
 import emailCreationOptimized from '@assets/email-creation-optimized.jpg';
 import illustrationOptimized from '@assets/illustration-design-optimized.jpg';
 import aiConsultingOptimized from '@assets/ai-consulting-optimized.jpg';
+import printDesignOptimized from '@assets/print-design-optimized.jpg';
 
 import img1 from '@assets/1_1763083221531.avif';
 import img2 from '@assets/2_1763083221532.avif';
@@ -47,7 +48,7 @@ export const serviceImages = {
   branding: img5,
   ebook: img6,
   concept: img7,
-  printDesign: img8,
+  printDesign: printDesignOptimized,
   packaging: img9,
   video: img10,
   motion: img11,
