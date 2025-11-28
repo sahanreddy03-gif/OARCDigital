@@ -32,39 +32,59 @@ export default function OARCStripSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative bg-white py-6 md:py-10 overflow-hidden"
+      className="relative py-12 md:py-16 overflow-hidden"
+      style={{ backgroundColor: "#0a0a0a" }}
       data-testid="oarc-strip-section"
     >
-      <div className="container mx-auto px-1.5 md:px-6 max-w-5xl">
+      {/* Subtle gradient overlay */}
+      <div 
+        className="absolute inset-0 opacity-40"
+        style={{
+          background: "radial-gradient(ellipse at 50% 0%, rgba(196, 255, 77, 0.08) 0%, transparent 60%)"
+        }}
+      />
+
+      <div className="container mx-auto px-4 md:px-6 max-w-5xl relative z-10">
         {/* Tagline */}
         <p
-          className={`text-center text-xs md:text-sm font-semibold tracking-[0.2em] uppercase text-zinc-400 mb-4 md:mb-6 transition-all duration-700 ${
+          className={`text-center text-xs md:text-sm font-semibold tracking-[0.25em] uppercase mb-6 md:mb-8 transition-all duration-700 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           }`}
-          style={{ transitionDelay: "0ms" }}
+          style={{ 
+            transitionDelay: "0ms",
+            color: "rgba(255, 255, 255, 0.5)"
+          }}
         >
           The OARC way
         </p>
 
-        {/* OARC Pills Row - fits all 4 in one row on mobile */}
-        <div className="flex justify-center items-center gap-1 md:gap-8 lg:gap-10">
+        {/* OARC Pills Row */}
+        <div className="flex justify-center items-center gap-2 md:gap-6 lg:gap-8">
           {oarcItems.map((item, index) => (
             <div
               key={item.letter}
-              className={`flex items-center gap-0.5 md:gap-2.5 px-2 md:px-6 py-2 md:py-3 rounded-full bg-zinc-50 border border-zinc-100 transition-all duration-700 ${
+              className={`group flex items-center gap-1.5 md:gap-3 px-3 md:px-6 py-2.5 md:py-3.5 rounded-full border transition-all duration-700 hover:scale-105 ${
                 isVisible
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-6"
               }`}
-              style={{ transitionDelay: `${150 + index * 100}ms` }}
+              style={{ 
+                transitionDelay: `${150 + index * 100}ms`,
+                backgroundColor: "rgba(255, 255, 255, 0.03)",
+                borderColor: "rgba(196, 255, 77, 0.2)",
+                backdropFilter: "blur(8px)"
+              }}
               data-testid={`oarc-pill-${item.letter}`}
             >
-              {/* Letter - Orange accent, thicker font */}
-              <span className="text-base md:text-2xl lg:text-3xl font-extrabold text-orange-500">
+              {/* Letter - Lime accent */}
+              <span 
+                className="text-lg md:text-2xl lg:text-3xl font-black transition-all duration-300 group-hover:scale-110"
+                style={{ color: "#c4ff4d" }}
+              >
                 {item.letter}
               </span>
-              {/* Word - slightly bolder */}
-              <span className="text-[11px] md:text-base lg:text-lg font-semibold text-zinc-700 whitespace-nowrap">
+              {/* Word */}
+              <span className="text-[11px] md:text-base lg:text-lg font-medium text-white/80 whitespace-nowrap group-hover:text-white transition-colors duration-300">
                 {item.word}
               </span>
             </div>

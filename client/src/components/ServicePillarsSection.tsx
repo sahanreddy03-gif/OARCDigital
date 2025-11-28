@@ -6,31 +6,22 @@ const pillars = [
     id: "creative",
     icon: Palette,
     title: "Creative Media Studio",
-    subtitle: "Brand, social and ad campaigns.",
-    gradientFrom: "#fef3e2",
-    gradientTo: "#fde8d0",
+    subtitle: "Brand, social and ad campaigns that captivate and convert.",
     accentColor: "#f97316",
-    iconBg: "rgba(249, 115, 22, 0.12)",
   },
   {
     id: "ai",
     icon: Bot,
     title: "AI Product Solutions",
-    subtitle: "Custom AI assistants, tools and systems.",
-    gradientFrom: "#f0fdf4",
-    gradientTo: "#dcfce7",
-    accentColor: "#22c55e",
-    iconBg: "rgba(34, 197, 94, 0.12)",
+    subtitle: "Custom AI assistants, tools and intelligent systems.",
+    accentColor: "#c4ff4d",
   },
   {
     id: "automation",
     icon: Zap,
     title: "Workflow Automation",
     subtitle: "Funnels and journeys that turn attention into revenue.",
-    gradientFrom: "#fef2f2",
-    gradientTo: "#fce7f3",
-    accentColor: "#ec4899",
-    iconBg: "rgba(236, 72, 153, 0.12)",
+    accentColor: "#f97316",
   },
 ];
 
@@ -59,17 +50,31 @@ export default function ServicePillarsSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative py-10 md:py-14 overflow-hidden"
-      style={{ backgroundColor: "#A3B896" }}
+      className="relative py-16 md:py-20 overflow-hidden"
+      style={{ backgroundColor: "#0f0f0f" }}
       data-testid="service-pillars-section"
     >
-      <div className="container mx-auto px-4 md:px-6 max-w-6xl">
+      {/* Subtle animated gradient beams */}
+      <div 
+        className="absolute top-0 left-1/4 w-px h-full opacity-20"
+        style={{ 
+          background: "linear-gradient(180deg, transparent 0%, #c4ff4d 50%, transparent 100%)"
+        }}
+      />
+      <div 
+        className="absolute top-0 right-1/4 w-px h-full opacity-10"
+        style={{ 
+          background: "linear-gradient(180deg, transparent 20%, #f97316 60%, transparent 100%)"
+        }}
+      />
+
+      <div className="container mx-auto px-4 md:px-6 max-w-6xl relative z-10">
         {/* Heading */}
         <h2
-          className={`text-center text-lg md:text-xl lg:text-2xl font-medium mb-8 md:mb-10 transition-all duration-700 ${
+          className={`text-center text-xl md:text-2xl lg:text-3xl font-semibold mb-10 md:mb-14 transition-all duration-700 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           }`}
-          style={{ transitionDelay: "100ms", color: "#2d4a2d" }}
+          style={{ transitionDelay: "100ms", color: "rgba(255, 255, 255, 0.9)" }}
           data-testid="pillars-heading"
         >
           Here's how we help you grow.
@@ -113,9 +118,9 @@ export default function ServicePillarsSection() {
               {pillars.map((pillar, index) => (
                 <div
                   key={`dot-${pillar.id}`}
-                  className={`w-1.5 h-1.5 rounded-full transition-all duration-500`}
+                  className="w-1.5 h-1.5 rounded-full transition-all duration-500"
                   style={{ 
-                    backgroundColor: index === 0 ? "#3d5a3d" : "rgba(255,255,255,0.5)" 
+                    backgroundColor: index === 0 ? "#c4ff4d" : "rgba(255,255,255,0.3)" 
                   }}
                 />
               ))}
@@ -151,28 +156,30 @@ function PillarCard({ pillar, index, isVisible }: PillarCardProps) {
 
   return (
     <div
-      className={`group relative rounded-2xl overflow-hidden transition-all duration-500 cursor-pointer hover:-translate-y-1 hover:shadow-xl ${
+      className={`group relative rounded-2xl overflow-hidden transition-all duration-500 cursor-pointer hover:-translate-y-1 ${
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
       }`}
       style={{ 
         transitionDelay: `${200 + index * 150}ms`,
-        minHeight: "220px",
-        background: `linear-gradient(135deg, ${pillar.gradientFrom} 0%, ${pillar.gradientTo} 100%)`,
+        minHeight: "240px",
+        backgroundColor: "rgba(255, 255, 255, 0.02)",
+        border: "1px solid rgba(255, 255, 255, 0.06)",
+        backdropFilter: "blur(8px)"
       }}
       data-testid={`pillar-card-${pillar.id}`}
     >
-      {/* Subtle pattern overlay */}
+      {/* Top accent line */}
       <div 
-        className="absolute inset-0 opacity-[0.03]"
-        style={{
-          backgroundImage: `radial-gradient(circle at 2px 2px, ${pillar.accentColor} 1px, transparent 0)`,
-          backgroundSize: '24px 24px'
+        className="absolute top-0 left-0 right-0 h-[2px] transition-all duration-500 group-hover:h-[3px]"
+        style={{ 
+          background: `linear-gradient(90deg, transparent 0%, ${pillar.accentColor} 50%, transparent 100%)`,
+          opacity: 0.8
         }}
       />
       
-      {/* Subtle accent glow in corner */}
+      {/* Subtle corner glow on hover */}
       <div 
-        className="absolute -top-20 -right-20 w-40 h-40 rounded-full opacity-20 blur-3xl transition-opacity duration-500 group-hover:opacity-30"
+        className="absolute -top-24 -right-24 w-48 h-48 rounded-full opacity-0 group-hover:opacity-20 blur-3xl transition-opacity duration-700"
         style={{ backgroundColor: pillar.accentColor }}
       />
 
@@ -180,8 +187,11 @@ function PillarCard({ pillar, index, isVisible }: PillarCardProps) {
       <div className="relative z-10 h-full flex flex-col justify-end p-6 md:p-8">
         {/* Icon */}
         <div
-          className="w-12 h-12 md:w-14 md:h-14 rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-500"
-          style={{ backgroundColor: pillar.iconBg }}
+          className="w-12 h-12 md:w-14 md:h-14 rounded-xl flex items-center justify-center mb-5 transition-all duration-500 group-hover:scale-110"
+          style={{ 
+            backgroundColor: `${pillar.accentColor}15`,
+            border: `1px solid ${pillar.accentColor}30`
+          }}
         >
           <Icon
             className="w-6 h-6 md:w-7 md:h-7"
@@ -191,12 +201,18 @@ function PillarCard({ pillar, index, isVisible }: PillarCardProps) {
         </div>
 
         {/* Title */}
-        <h3 className="text-xl md:text-2xl font-bold text-zinc-800 mb-2 transition-colors duration-300">
+        <h3 
+          className="text-xl md:text-2xl font-bold mb-3 transition-colors duration-300"
+          style={{ color: "rgba(255, 255, 255, 0.95)" }}
+        >
           {pillar.title}
         </h3>
 
         {/* Subtitle */}
-        <p className="text-sm md:text-base text-zinc-600 leading-relaxed transition-colors duration-300">
+        <p 
+          className="text-sm md:text-base leading-relaxed transition-colors duration-300"
+          style={{ color: "rgba(255, 255, 255, 0.6)" }}
+        >
           {pillar.subtitle}
         </p>
       </div>
