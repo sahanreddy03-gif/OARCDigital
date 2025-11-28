@@ -3,14 +3,93 @@ import Layout from "@/components/layout/Layout";
 import SEOHead from "@/components/SEOHead";
 import { creativeServicesSEO } from "@/data/seoMetadata";
 import { createServiceSchema } from "@/utils/structuredData";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef, useCallback } from "react";
 import { Link } from "wouter";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion, useReducedMotion, useInView, useSpring, useMotionValue } from "framer-motion";
 import { 
   ArrowRight, CheckCircle2, Zap, BarChart3, Wand2, Network,
   Instagram, Facebook, Sparkles, Brain, Rocket, TrendingUp
 } from "lucide-react";
 import { SiTiktok, SiYoutube, SiX, SiThreads, SiLinkedin, SiMeta } from "react-icons/si";
+
+// Animated counter component for impressive number reveals
+function AnimatedCounter({ value, suffix = "", prefix = "", duration = 2 }: { 
+  value: number; 
+  suffix?: string; 
+  prefix?: string;
+  duration?: number;
+}) {
+  const ref = useRef<HTMLSpanElement>(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const prefersReducedMotion = useReducedMotion();
+  
+  const motionValue = useMotionValue(0);
+  const springValue = useSpring(motionValue, {
+    damping: 50,
+    stiffness: 100
+  });
+  
+  const [displayValue, setDisplayValue] = useState(0);
+  
+  useEffect(() => {
+    if (isInView && !prefersReducedMotion) {
+      motionValue.set(value);
+    } else if (prefersReducedMotion || isInView) {
+      setDisplayValue(value);
+    }
+  }, [isInView, value, motionValue, prefersReducedMotion]);
+  
+  useEffect(() => {
+    const unsubscribe = springValue.on("change", (latest) => {
+      setDisplayValue(Math.round(latest));
+    });
+    return unsubscribe;
+  }, [springValue]);
+  
+  return (
+    <span ref={ref}>
+      {prefix}{displayValue.toLocaleString()}{suffix}
+    </span>
+  );
+}
+
+// Magnetic button effect for premium CTAs
+function MagneticButton({ children, className, ...props }: React.ComponentProps<typeof motion.button>) {
+  const ref = useRef<HTMLButtonElement>(null);
+  const prefersReducedMotion = useReducedMotion();
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+  
+  const handleMouseMove = useCallback((e: React.MouseEvent<HTMLButtonElement>) => {
+    if (prefersReducedMotion || !ref.current) return;
+    const rect = ref.current.getBoundingClientRect();
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
+    const deltaX = (e.clientX - centerX) * 0.15;
+    const deltaY = (e.clientY - centerY) * 0.15;
+    x.set(deltaX);
+    y.set(deltaY);
+  }, [prefersReducedMotion, x, y]);
+  
+  const handleMouseLeave = useCallback(() => {
+    x.set(0);
+    y.set(0);
+  }, [x, y]);
+  
+  return (
+    <motion.button
+      ref={ref}
+      style={{ x, y }}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      className={className}
+      transition={{ type: "spring", stiffness: 150, damping: 15 }}
+      {...props}
+    >
+      {children}
+    </motion.button>
+  );
+}
 
 // Import award and team photos
 import awardTeamImg from "@assets/stock_images/award_ceremony_busin_81e5ff09.jpg";
@@ -234,6 +313,39 @@ export default function SocialMediaCreativeManagement() {
                 We don't run campaigns—we build revenue machines. OARC Digital combines proprietary AI systems with human creative excellence to deliver measurable growth for ambitious brands worldwide.
               </motion.p>
             </div>
+            
+            {/* Animated Stats Row */}
+            <motion.div
+              initial={fadeIn}
+              animate={fadeInVisible}
+              transition={prefersReducedMotion ? {} : { delay: 0.6, duration: 0.5 }}
+              className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-10 pt-8 border-t border-black/10 relative z-10"
+            >
+              <div className="text-center" data-testid="stat-ad-spend">
+                <div className="text-3xl md:text-4xl font-black text-black mb-1">
+                  <AnimatedCounter prefix="€" value={2} suffix="M+" />
+                </div>
+                <p className="text-sm text-black/70 font-medium">Monthly Ad Spend</p>
+              </div>
+              <div className="text-center" data-testid="stat-roas-lift">
+                <div className="text-3xl md:text-4xl font-black text-black mb-1">
+                  <AnimatedCounter value={340} suffix="%" />
+                </div>
+                <p className="text-sm text-black/70 font-medium">Avg. ROAS Lift</p>
+              </div>
+              <div className="text-center" data-testid="stat-brands-scaled">
+                <div className="text-3xl md:text-4xl font-black text-black mb-1">
+                  <AnimatedCounter value={47} suffix="+" />
+                </div>
+                <p className="text-sm text-black/70 font-medium">Brands Scaled</p>
+              </div>
+              <div className="text-center" data-testid="stat-creators">
+                <div className="text-3xl md:text-4xl font-black text-black mb-1">
+                  <AnimatedCounter value={2000} suffix="+" />
+                </div>
+                <p className="text-sm text-black/70 font-medium">EMEA Creators</p>
+              </div>
+            </motion.div>
           </motion.div>
 
           {/* Award Image with Premium Effect */}
@@ -327,13 +439,14 @@ export default function SocialMediaCreativeManagement() {
                   whileInView={prefersReducedMotion ? {} : { opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={prefersReducedMotion ? {} : { delay: idx * 0.05 }}
-                  whileHover={prefersReducedMotion ? {} : { scale: 1.15, y: -5 }}
-                  className="group relative w-16 h-16 flex flex-col items-center justify-center rounded-xl hover:bg-gray-50 transition-all duration-300 cursor-pointer"
+                  whileHover={prefersReducedMotion ? {} : { scale: 1.2, y: -8 }}
+                  className="group relative w-16 h-16 flex flex-col items-center justify-center rounded-xl hover:bg-[#5FD4C4]/10 transition-all duration-300 cursor-pointer"
                   data-testid={`icon-platform-${idx}`}
                   title={platform.label}
                 >
-                  <platform.Icon className="h-10 w-10 text-black group-hover:text-[#5FD4C4] transition-colors" />
-                  <span className="text-xs text-gray-500 mt-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <div className="absolute inset-0 rounded-xl bg-[#5FD4C4]/0 group-hover:bg-[#5FD4C4]/5 group-hover:shadow-[0_0_20px_rgba(95,212,196,0.3)] transition-all duration-300 motion-reduce:hidden" />
+                  <platform.Icon className="h-10 w-10 text-black group-hover:text-[#5FD4C4] transition-colors relative z-10" />
+                  <span className="text-xs text-gray-500 mt-1 opacity-0 group-hover:opacity-100 transition-opacity absolute -bottom-5 whitespace-nowrap font-medium">
                     {platform.label}
                   </span>
                 </motion.div>
@@ -512,21 +625,20 @@ export default function SocialMediaCreativeManagement() {
               </motion.p>
               
               <Link href="/contact">
-                <motion.button
+                <MagneticButton
                   initial={fadeIn}
                   whileInView={fadeInVisible}
                   viewport={{ once: true }}
-                  transition={prefersReducedMotion ? {} : { delay: 0.2 }}
                   whileHover={prefersReducedMotion ? {} : { scale: 1.05 }}
                   whileTap={prefersReducedMotion ? {} : { scale: 0.98 }}
-                  className="btn-shimmer inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-lg font-semibold shadow-2xl hover:shadow-3xl transition-all duration-300"
+                  className="group btn-shimmer inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-lg font-semibold shadow-2xl hover:shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)] transition-all duration-300"
                   data-testid="button-lets-chat"
                 >
                   Book Strategy Call
-                  <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+                  <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center group-hover:rotate-12 transition-transform duration-300">
                     <ArrowRight className="h-5 w-5 text-black" />
                   </div>
-                </motion.button>
+                </MagneticButton>
               </Link>
             </div>
             
