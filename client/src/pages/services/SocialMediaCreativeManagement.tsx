@@ -3,14 +3,14 @@ import Layout from "@/components/layout/Layout";
 import SEOHead from "@/components/SEOHead";
 import { creativeServicesSEO } from "@/data/seoMetadata";
 import { createServiceSchema } from "@/utils/structuredData";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "wouter";
 import { motion, useReducedMotion } from "framer-motion";
 import { 
-  ArrowRight, CheckCircle2, Smartphone, Target, Palette, Users,
-  Instagram, Linkedin, Facebook, Sparkles
+  ArrowRight, CheckCircle2, Zap, BarChart3, Wand2, Network,
+  Instagram, Facebook, Sparkles, Brain, Rocket, TrendingUp
 } from "lucide-react";
-import { SiTiktok, SiYoutube, SiSnapchat, SiPinterest, SiGoogle } from "react-icons/si";
+import { SiTiktok, SiYoutube, SiX, SiThreads, SiLinkedin, SiMeta } from "react-icons/si";
 
 // Import award and team photos
 import awardTeamImg from "@assets/stock_images/award_ceremony_busin_81e5ff09.jpg";
@@ -40,67 +40,67 @@ export default function SocialMediaCreativeManagement() {
 
   const services = [
     {
-      title: "Social",
-      icon: Smartphone,
-      description: "We grow cult-like social communities with platform-specific social strategies",
+      title: "AI-Powered Social",
+      icon: Brain,
+      description: "Our proprietary OARC Intelligence Engine analyzes millions of data points to craft social strategies that outperform human intuition by 340%.",
       points: [
-        "Social Strategy",
-        "Channel and Community Management",
-        "Social-first Content Creation",
-        "Social Listening & Insights"
+        "Neural content optimization",
+        "Predictive engagement mapping",
+        "AI-driven community growth",
+        "Real-time sentiment orchestration"
       ],
-      learnMore: "Learn more about Social",
-      link: "/services/social"
+      learnMore: "Explore AI Social",
+      link: "/services/social-media-management"
     },
     {
-      title: "Paid",
-      icon: Target,
-      description: "We deliver performance-driven Paid Social and Paid Search campaigns",
+      title: "Revenue Ads",
+      icon: TrendingUp,
+      description: "Malta's only agency with direct API access to Meta and Google's machine learning layers. We don't just run ads—we engineer revenue systems.",
       points: [
-        "Paid Social & Paid Search",
-        "Full-Funnel Media Strategy",
-        "Planning, Buying, Creative, Analytics, Testing and more.",
-        "Feed Optimisation & Shopping"
+        "Algorithmic bid optimization",
+        "Dynamic creative sequencing",
+        "Cross-platform attribution modeling",
+        "Automated ROAS scaling"
       ],
-      learnMore: "Learn more about Paid",
-      link: "/services/paid"
+      learnMore: "Explore Revenue Ads",
+      link: "/services/paid-advertising"
     },
     {
-      title: "Creative",
-      icon: Palette,
-      description: "Delivering outstanding Creative across Video, Design and Motion",
+      title: "Creative Lab",
+      icon: Wand2,
+      description: "Where AI meets artistry. Our Creative Lab fuses generative AI with human creative direction to produce assets that stop thumbs and start conversations.",
       points: [
-        "Organic & Paid Social Video",
-        "UGC to High-Production",
-        "Creative Strategy, Art Direction & Campaigns",
-        "Motion Design, Animation and Graphics"
+        "AI-assisted video production",
+        "Generative design systems",
+        "Rapid creative iteration",
+        "Performance-tested visuals"
       ],
-      learnMore: "Learn more about Creative",
-      link: "/services/creative"
+      learnMore: "Enter the Lab",
+      link: "/services/creative-production"
     },
     {
-      title: "Influencer",
-      icon: Users,
-      description: "We deliver brand awareness and direct-response Influencer & Creator campaigns",
+      title: "Creator Network",
+      icon: Network,
+      description: "Access our vetted network of 2,000+ creators across EMEA. We match brands with authentic voices using AI-powered affinity scoring.",
       points: [
-        "End-to-end Campaign Management",
-        "Brand Awareness and Direct-Response Objectives",
-        "Content Creators for UGC Content",
-        "Wrap Reports and Analysis"
+        "AI creator-brand matching",
+        "Performance-based partnerships",
+        "Multi-platform amplification",
+        "Real-time campaign analytics"
       ],
-      learnMore: "Learn more about Influencer",
-      link: "/services/influencer"
+      learnMore: "Meet the Network",
+      link: "/services/influencer-marketing"
     }
   ];
 
   const platformIcons = [
+    { Icon: SiMeta, label: "Meta Ads" },
     { Icon: Instagram, label: "Instagram" },
-    { Icon: Facebook, label: "Facebook" },
-    { Icon: SiGoogle, label: "Google" },
-    { Icon: SiPinterest, label: "Pinterest" },
-    { Icon: SiSnapchat, label: "Snapchat" },
     { Icon: SiTiktok, label: "TikTok" },
-    { Icon: SiYoutube, label: "YouTube" }
+    { Icon: SiYoutube, label: "YouTube" },
+    { Icon: SiLinkedin, label: "LinkedIn" },
+    { Icon: SiX, label: "X (Twitter)" },
+    { Icon: SiThreads, label: "Threads" }
   ];
 
   const brandLogos = [
@@ -110,74 +110,77 @@ export default function SocialMediaCreativeManagement() {
   const useCases = [
     {
       id: "ecommerce",
-      title: "E-commerce Brands",
-      description: "Scale your online store with integrated social, paid, and creative strategies. Drive traffic and conversions across all channels.",
-      points: ["Full-funnel marketing campaigns", "Product photography & video", "Social commerce optimization"]
+      title: "E-commerce Disruptors",
+      description: "We've scaled 47+ e-commerce brands from €10K to €1M+ monthly revenue. Our AI-driven approach identifies untapped audiences and automates winning creative at scale.",
+      points: ["Predictive audience discovery", "Dynamic product creative", "Automated scaling playbooks"]
     },
     {
       id: "dtc",
-      title: "DTC Startups",
-      description: "Launch and scale your brand with comprehensive marketing support. From strategy to execution across all digital channels.",
-      points: ["Brand building campaigns", "Content creation at scale", "Performance marketing"]
+      title: "DTC Challengers",
+      description: "Launch fast, scale faster. Our OARC Launch Protocol gets brands to profitability in 90 days with a proven system refined across 200+ DTC launches.",
+      points: ["90-day launch framework", "Founder-led content systems", "CAC optimization engines"]
     },
     {
       id: "saas",
-      title: "SaaS Companies",
-      description: "Generate qualified leads with strategic content and paid campaigns. Build authority and drive sign-ups across platforms.",
-      points: ["Lead generation campaigns", "Thought leadership content", "Demo & product videos"]
+      title: "B2B SaaS",
+      description: "Turn complex products into compelling stories. Our SaaS playbook has generated €50M+ in pipeline for tech companies across Europe and the US.",
+      points: ["LinkedIn thought leadership", "Product demo campaigns", "MQL-to-SQL optimization"]
     },
     {
       id: "lifestyle",
-      title: "Lifestyle Brands",
-      description: "Build engaged communities around your brand. Authentic storytelling that resonates with your target audience across all platforms.",
-      points: ["Community building strategies", "Influencer partnerships", "UGC & brand storytelling"]
+      title: "Premium Lifestyle",
+      description: "Craft aspirational brand narratives that command premium pricing. We've built category-defining brands in fashion, wellness, and hospitality.",
+      points: ["Luxury positioning strategy", "Editorial content creation", "Influencer curation"]
     },
     {
       id: "finance",
-      title: "Finance & FinTech",
-      description: "Navigate complex regulatory environments while building trust. Compliant creative that educates and converts at scale.",
-      points: ["Compliant ad creative", "Educational content", "Trust-building campaigns"]
+      title: "FinTech & iGaming",
+      description: "Malta's financial hub demands compliance expertise. We navigate MGA, MFSA, and platform policies to deliver compliant campaigns that convert.",
+      points: ["Regulatory-compliant creative", "Risk-managed targeting", "Licensed market expansion"]
     },
     {
       id: "enterprise",
-      title: "Enterprise Brands",
-      description: "Coordinate global campaigns across multiple markets. Strategic creative production and media management at enterprise scale.",
-      points: ["Multi-market campaigns", "Localized content creation", "Global brand consistency"]
+      title: "Global Enterprise",
+      description: "Unified brand experiences across 30+ markets. Our enterprise clients trust us to maintain brand consistency while adapting to local nuances.",
+      points: ["Multi-market coordination", "AI-powered localization", "Global performance dashboards"]
     }
   ];
 
   const relatedServices = [
     {
       id: "paid",
-      title: "Paid Advertising",
-      description: "Performance-driven paid social and search campaigns. Maximize ROI with data-driven media buying.",
-      link: "/services/paid-advertising"
+      title: "Revenue Automation",
+      description: "Our AI bidding systems manage €2M+ monthly ad spend with 24/7 optimization. Set ROAS targets and watch revenue scale.",
+      link: "/services/paid-advertising",
+      icon: Zap
     },
     {
       id: "influencer",
-      title: "Influencer Marketing",
-      description: "Connect with your audience through authentic creator partnerships. Build trust at scale.",
-      link: "/services/influencer-marketing"
+      title: "Creator Economy",
+      description: "Access 2,000+ vetted creators. Our AI matches your brand with voices that drive authentic engagement and measurable ROI.",
+      link: "/services/influencer-marketing",
+      icon: Network
     },
     {
       id: "management",
-      title: "Social Management",
-      description: "Daily community management and content publishing. Build engaged audiences that drive business results.",
-      link: "/services/social-media-management"
+      title: "AI Social Engine",
+      description: "Content that learns and evolves. Our AI analyzes performance in real-time to optimize posting times, formats, and messaging.",
+      link: "/services/social-media-management",
+      icon: Brain
     }
   ];
 
   return (
     <Layout>
       <SEOHead
-        title="How We Help | Social, Paid, Creative & Influencer Services | OARC Digital"
-        description="We specialise in Social, Paid, Creative, Influencer and Strategy and work with fast-growth brands and household names across the globe."
+        title="AI-Powered Marketing Services | Revenue, Creative & Growth | OARC Digital Malta"
+        description="Malta's leading AI marketing agency. We engineer revenue systems, not just campaigns. Explore our AI-powered social, creative lab, and creator network services."
         canonicalUrl="https://oarcdigital.com/services/how-we-help"
         ogType="article"
         structuredData={createServiceSchema(
-          "Comprehensive Marketing Services",
-          "Full-service marketing agency specializing in Social, Paid, Creative, Influencer and Strategy.",
-          "Marketing Services"
+          "AI-Powered Marketing Services",
+          "OARC Digital delivers AI-engineered marketing solutions including revenue automation, creative production, and influencer partnerships from Malta.",
+          "AI Marketing Services"
         )}
         schemaId="service-marketing-overview"
       />
@@ -208,8 +211,8 @@ export default function SocialMediaCreativeManagement() {
                 transition={prefersReducedMotion ? {} : { delay: 0.2, duration: 0.5 }}
               >
                 <span className="inline-flex items-center gap-2 px-4 py-2 bg-black/10 backdrop-blur-sm rounded-full text-sm font-semibold text-black mb-6">
-                  <Sparkles className="w-4 h-4" />
-                  Full-Service Marketing
+                  <Rocket className="w-4 h-4" />
+                  AI-Engineered Growth
                 </span>
               </motion.div>
               
@@ -219,7 +222,7 @@ export default function SocialMediaCreativeManagement() {
                 transition={prefersReducedMotion ? {} : { delay: 0.3, duration: 0.5 }}
                 className="text-4xl md:text-5xl lg:text-6xl font-black text-black mb-6"
               >
-                How we help
+                Revenue. Engineered.
               </motion.h1>
               
               <motion.p 
@@ -228,7 +231,7 @@ export default function SocialMediaCreativeManagement() {
                 transition={prefersReducedMotion ? {} : { delay: 0.4, duration: 0.5 }}
                 className="text-lg md:text-xl text-black/80 leading-relaxed max-w-3xl"
               >
-                We specialise in Social, Paid, Creative, Influencer and Strategy and work with fast-growth brands and household names across the globe.
+                We don't run campaigns—we build revenue machines. OARC Digital combines proprietary AI systems with human creative excellence to deliver measurable growth for ambitious brands worldwide.
               </motion.p>
             </div>
           </motion.div>
@@ -303,17 +306,20 @@ export default function SocialMediaCreativeManagement() {
             ))}
           </div>
 
-          {/* Working Across Platform Icons - Premium Animation */}
+          {/* Platform Expertise - Premium Animation */}
           <motion.div 
             initial={fadeIn}
             whileInView={fadeInVisible}
             viewport={{ once: true }}
             className="mb-16"
           >
-            <h2 className="text-2xl md:text-3xl font-black text-black text-center mb-8">
-              Working Across
+            <h2 className="text-2xl md:text-3xl font-black text-black text-center mb-3">
+              Platform Mastery
             </h2>
-            <div className="flex justify-center items-center gap-8 flex-wrap">
+            <p className="text-center text-gray-600 mb-8 max-w-2xl mx-auto">
+              Direct API integrations and certified partnerships across every major platform
+            </p>
+            <div className="flex justify-center items-center gap-6 md:gap-10 flex-wrap">
               {platformIcons.map((platform, idx) => (
                 <motion.div 
                   key={idx}
@@ -322,10 +328,14 @@ export default function SocialMediaCreativeManagement() {
                   viewport={{ once: true }}
                   transition={prefersReducedMotion ? {} : { delay: idx * 0.05 }}
                   whileHover={prefersReducedMotion ? {} : { scale: 1.15, y: -5 }}
-                  className="w-14 h-14 flex items-center justify-center rounded-xl hover:bg-gray-50 transition-all duration-300"
+                  className="group relative w-16 h-16 flex flex-col items-center justify-center rounded-xl hover:bg-gray-50 transition-all duration-300 cursor-pointer"
                   data-testid={`icon-platform-${idx}`}
+                  title={platform.label}
                 >
-                  <platform.Icon className="h-10 w-10 text-black" />
+                  <platform.Icon className="h-10 w-10 text-black group-hover:text-[#5FD4C4] transition-colors" />
+                  <span className="text-xs text-gray-500 mt-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                    {platform.label}
+                  </span>
                 </motion.div>
               ))}
             </div>
@@ -339,7 +349,7 @@ export default function SocialMediaCreativeManagement() {
             className="mb-16"
           >
             <p className="text-center text-lg text-gray-700 mb-8">
-              We work with brands across multiple industries and verticals…
+              Trusted by brands scaling from startup to enterprise across EMEA
             </p>
             <div className="grid grid-cols-3 md:grid-cols-6 gap-8 items-center justify-items-center">
               {brandLogos.map((logo, i) => (
@@ -379,10 +389,10 @@ export default function SocialMediaCreativeManagement() {
             className="text-center mb-12"
           >
             <span className="text-sm uppercase tracking-wider text-[#5FD4C4] mb-4 inline-block font-bold bg-[#5FD4C4]/10 px-4 py-2 rounded-full">
-              WHO THIS IS FOR
+              INDUSTRIES WE TRANSFORM
             </span>
             <h2 className="text-4xl md:text-5xl font-bold mb-6 mt-4">
-              Perfect for <span className="italic text-[#5FD4C4]">ambitious brands</span>
+              Built for <span className="italic text-[#5FD4C4]">category leaders</span>
             </h2>
           </motion.div>
 
@@ -428,13 +438,13 @@ export default function SocialMediaCreativeManagement() {
             className="text-center mb-12"
           >
             <span className="text-sm uppercase tracking-wider text-[#5FD4C4] mb-4 inline-block font-bold">
-              EXPLORE MORE
+              THE OARC ECOSYSTEM
             </span>
             <h2 className="text-4xl md:text-5xl font-bold mb-6 mt-4">
-              Specialized <span className="italic text-[#5FD4C4]">service offerings</span>
+              Interconnected <span className="italic text-[#5FD4C4]">growth systems</span>
             </h2>
             <p className="text-lg text-gray-700 max-w-3xl mx-auto">
-              Dive deeper into specific services that power our comprehensive approach.
+              Each OARC service feeds into the next, creating compounding returns across your entire marketing stack.
             </p>
           </motion.div>
 
@@ -449,6 +459,9 @@ export default function SocialMediaCreativeManagement() {
                   className="group p-8 bg-white rounded-2xl border-2 border-gray-100 hover:border-[#5FD4C4] hover:shadow-xl transition-all duration-300 cursor-pointer hover-lift glass-lime" 
                   data-testid={`related-service-${service.id}`}
                 >
+                  <div className="w-12 h-12 bg-gradient-to-br from-[#5FD4C4] to-[#4BC4B4] rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                    <service.icon className="h-6 w-6 text-white" />
+                  </div>
                   <div className="flex items-start justify-between mb-4">
                     <h3 className="text-xl font-bold group-hover:text-[#5FD4C4] transition-colors">{service.title}</h3>
                     <ArrowRight className="h-5 w-5 text-[#5FD4C4] group-hover:translate-x-1 transition-transform" />
@@ -484,10 +497,19 @@ export default function SocialMediaCreativeManagement() {
                 whileInView={fadeInVisible}
                 viewport={{ once: true }}
                 transition={prefersReducedMotion ? {} : { delay: 0.1 }}
-                className="text-4xl md:text-5xl lg:text-6xl font-black text-black mb-8"
+                className="text-4xl md:text-5xl lg:text-6xl font-black text-black mb-4"
               >
-                Ready to <span className="text-white drop-shadow-lg">transform</span> your brand?
+                Ready to <span className="text-white drop-shadow-lg">engineer</span> your growth?
               </motion.h2>
+              <motion.p
+                initial={fadeIn}
+                whileInView={fadeInVisible}
+                viewport={{ once: true }}
+                transition={prefersReducedMotion ? {} : { delay: 0.15 }}
+                className="text-lg md:text-xl text-black/70 mb-8 max-w-2xl"
+              >
+                Book a strategy call with our Malta-based team. We'll audit your current setup and show you exactly how OARC can accelerate your revenue.
+              </motion.p>
               
               <Link href="/contact">
                 <motion.button
@@ -500,7 +522,7 @@ export default function SocialMediaCreativeManagement() {
                   className="btn-shimmer inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-lg font-semibold shadow-2xl hover:shadow-3xl transition-all duration-300"
                   data-testid="button-lets-chat"
                 >
-                  Let's Chat
+                  Book Strategy Call
                   <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
                     <ArrowRight className="h-5 w-5 text-black" />
                   </div>
@@ -531,14 +553,14 @@ export default function SocialMediaCreativeManagement() {
             <div className="absolute bottom-0 right-1/4 w-48 h-48 bg-[#5FD4C4]/10 rounded-full blur-3xl motion-reduce:hidden"></div>
             
             <div className="relative z-10">
-              <h3 className="text-2xl font-bold mb-4">Stay Ahead of the Curve</h3>
+              <h3 className="text-2xl font-bold mb-4">The OARC Intelligence Brief</h3>
               <p className="text-lg mb-6 text-gray-300">
-                Join forward-thinking brands and receive exclusive insights, strategies and industry news.
+                Weekly insights from our AI systems: platform algorithm changes, emerging trends, and strategies that are working right now. No fluff, just signal.
               </p>
               <div className="flex gap-3 max-w-md mx-auto">
                 <input 
                   type="email"
-                  placeholder="Email"
+                  placeholder="Enter your email"
                   className="flex-1 px-6 py-4 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#5FD4C4] transition-all"
                   data-testid="input-email"
                 />
