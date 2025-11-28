@@ -7,7 +7,7 @@ import Layout from "@/components/layout/Layout";
 import SEOHead from "@/components/SEOHead";
 import { revenueServicesSEO } from "@/data/seoMetadata";
 import { createServiceSchema } from "@/utils/structuredData";
-import heroImage from "@assets/stock_images/innovation_startup_t_6fe40477.jpg";
+import heroImage from "@assets/rapid-idea-testing-optimized.jpg";
 
 export default function RapidIdeaTesting() {
   useEffect(() => {

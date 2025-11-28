@@ -8,7 +8,7 @@ import paidAdvertising from '@assets/paid-advertising-optimized.jpg';
 import mediaBuying from '@assets/stock_images/media_buying_adverti_f124ffbd.jpg';
 import websiteDesign from '@assets/website-design-optimized.jpg';
 import influencerMarketing from '@assets/influencer-marketing-optimized.jpg';
-import rapidTesting from '@assets/stock_images/rapid_prototyping_te_b34ce5db.jpg';
+import rapidTesting from '@assets/rapid-idea-testing-optimized.jpg';
 import leadGen from '@assets/lead-generation-optimized.jpg';
 import creativeAds from '@assets/creative-ad-campaigns-optimized.jpg';
 import customerAcquisition from '@assets/customer-acquisition-optimized.jpg';
