@@ -7,7 +7,7 @@ import { revenueServicesSEO } from "@/data/seoMetadata";
 import { createServiceSchema } from "@/utils/structuredData";
 import { ScrollableCards } from "@/components/ui/scrollable-cards";
 import { Calendar, TrendingUp, Heart, MessageCircle, BarChart, Users, ArrowRight, CheckCircle2 } from "lucide-react";
-import heroImage from "@assets/stock_images/social_media_manager_11df5838.jpg";
+import heroImage from "@assets/social-media-management-optimized.jpg";
 
 export default function SocialMediaManagement() {
   useEffect(() => {
