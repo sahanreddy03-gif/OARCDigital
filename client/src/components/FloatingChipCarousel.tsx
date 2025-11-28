@@ -9,13 +9,13 @@ import mediaBuying from '@assets/stock_images/media_buying_adverti_f124ffbd.jpg'
 import websiteDesign from '@assets/stock_images/modern_website_desig_4ba94acf.jpg';
 import influencerMarketing from '@assets/stock_images/influencer_content_c_71663437.jpg';
 import rapidTesting from '@assets/stock_images/rapid_prototyping_te_b34ce5db.jpg';
-import leadGen from '@assets/AdobeStock_436772802_1764288793587.jpeg';
+import leadGen from '@assets/lead-generation-optimized.jpg';
 import creativeAds from '@assets/stock_images/creative_advertising_904dac86.jpg';
 import customerAcquisition from '@assets/stock_images/customer_acquisition_fa077f6d.jpg';
 import funnelAutomation from '@assets/stock_images/marketing_funnel_aut_5c1f1337.jpg';
 import aiCopywriting from '@assets/stock_images/ai_copywriting_conte_b77b0a21.jpg';
 import adminAI from '@assets/stock_images/ai_assistant_virtual_e8654e3e.jpg';
-import salesAI from '@assets/stock_images/sales_team_crm_dashb_673770ab.jpg';
+import salesAI from '@assets/sales-ai-employee-optimized.jpg';
 import supportAI from '@assets/stock_images/customer_support_hel_87c00846.jpg';
 
 const services = [
