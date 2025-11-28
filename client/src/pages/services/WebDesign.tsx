@@ -6,7 +6,7 @@ import { ScrollableCards } from "@/components/ui/scrollable-cards";
 import Layout from "@/components/layout/Layout";
 import SEOHead from "@/components/SEOHead";
 import { creativeServicesSEO } from "@/data/seoMetadata";
-import heroImage from '@assets/web design_1763084519615.avif';
+import heroImage from '@assets/website-design-optimized.jpg';
 import webImg1 from "@assets/stock_images/modern_web_design_ux_d23df466.jpg";
 import webImg2 from "@assets/stock_images/modern_web_design_ux_62274473.jpg";
 import webImg3 from "@assets/stock_images/modern_web_design_ux_699e8c91.jpg";

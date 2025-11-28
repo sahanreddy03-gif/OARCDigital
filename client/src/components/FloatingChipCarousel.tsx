@@ -6,7 +6,7 @@ import aiVideo from '@assets/stock_images/professional_video_p_08fa5257.jpg';
 import branding from '@assets/stock_images/brand_identity_desig_a250cc24.jpg';
 import paidAdvertising from '@assets/stock_images/paid_advertising_goo_40276a3c.jpg';
 import mediaBuying from '@assets/stock_images/media_buying_adverti_f124ffbd.jpg';
-import websiteDesign from '@assets/stock_images/modern_website_desig_4ba94acf.jpg';
+import websiteDesign from '@assets/website-design-optimized.jpg';
 import influencerMarketing from '@assets/influencer-marketing-optimized.jpg';
 import rapidTesting from '@assets/stock_images/rapid_prototyping_te_b34ce5db.jpg';
 import leadGen from '@assets/lead-generation-optimized.jpg';
