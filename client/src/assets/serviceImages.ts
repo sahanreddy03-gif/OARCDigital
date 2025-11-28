@@ -14,6 +14,7 @@ import influencerMarketingBanner from '@assets/influencer_1763087034115.jpg';
 import aiConsultingBanner from '@assets/ai consulting_1763087215182.avif';
 import videoProductionBanner from '@assets/ai-video-production-optimized.jpg';
 import presentationOptimized from '@assets/presentation-design-optimized.jpg';
+import adCreativeOptimized from '@assets/paid-advertising-creative-optimized.jpg';
 
 import img1 from '@assets/1_1763083221531.avif';
 import img2 from '@assets/2_1763083221532.avif';
@@ -35,7 +36,7 @@ import img17 from '@assets/17_1763083221537.avif';
 import img18 from '@assets/18_1763083221537.avif';
 
 export const serviceImages = {
-  adCreative: img1,
+  adCreative: adCreativeOptimized,
   socialMedia: img2,
   presentation: presentationOptimized,
   illustration: img4,
