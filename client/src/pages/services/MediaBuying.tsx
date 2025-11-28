@@ -7,7 +7,7 @@ import Layout from "@/components/layout/Layout";
 import SEOHead from "@/components/SEOHead";
 import { revenueServicesSEO } from "@/data/seoMetadata";
 import { createServiceSchema } from "@/utils/structuredData";
-import heroImage from '@assets/media buying_1763086700057.jpg';
+import heroImage from '@assets/media-buying-optimized.jpg';
 
 export default function MediaBuying() {
   useEffect(() => {
