@@ -7,7 +7,7 @@ import Layout from "@/components/layout/Layout";
 import SEOHead from "@/components/SEOHead";
 import { revenueServicesSEO } from "@/data/seoMetadata";
 import { createServiceSchema } from "@/utils/structuredData";
-import heroImage from "@assets/stock_images/media_strategy_plann_9ca291d2.jpg";
+import heroImage from "@assets/digital-marketing-optimized.jpg";
 
 export default function DigitalMarketing() {
   useEffect(() => {
