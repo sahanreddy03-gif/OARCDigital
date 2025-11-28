@@ -54,6 +54,7 @@ export default function DontMakeAdsCaseStudy() {
       />
       {/* Hero Section with Background Image */}
       <section className="relative h-[60vh] min-h-[500px] bg-black overflow-hidden">
+        <div className="absolute top-0 right-0 w-80 h-80 bg-[#c4ff4d]/15 rounded-full blur-3xl"></div>
         <img 
           src={relatedCase1}
           alt="Authentic Stories TikTok Campaign"
@@ -82,7 +83,7 @@ export default function DontMakeAdsCaseStudy() {
       </section>
 
       {/* About Section */}
-      <section className="py-16 px-4 bg-black">
+      <section className="py-16 px-4 bg-black relative">
         <div className="max-w-4xl mx-auto">
           <div className="mb-8">
             <span className="bg-[#c4ff4d] text-black px-6 py-2 text-xs font-bold uppercase">
@@ -136,16 +137,17 @@ export default function DontMakeAdsCaseStudy() {
           </div>
 
           {/* Key Stats - Pink Boxes */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
-            <div className="bg-[#c4ff4d] text-black rounded-2xl p-8 text-center">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12 relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-80 h-80 bg-[#c4ff4d]/15 rounded-full blur-3xl"></div>
+            <div className="bg-[#c4ff4d] text-black rounded-2xl p-8 text-center stat-glow">
               <div className="text-5xl font-black text-white mb-2">32M</div>
               <div className="text-white text-sm font-semibold uppercase">VIEWS</div>
             </div>
-            <div className="bg-[#c4ff4d] text-black rounded-2xl p-8 text-center">
+            <div className="bg-[#c4ff4d] text-black rounded-2xl p-8 text-center stat-glow">
               <div className="text-5xl font-black text-white mb-2">+400K</div>
               <div className="text-white text-sm font-semibold uppercase">NEW FOLLOWERS</div>
             </div>
-            <div className="bg-[#c4ff4d] text-black rounded-2xl p-8 text-center">
+            <div className="bg-[#c4ff4d] text-black rounded-2xl p-8 text-center stat-glow">
               <div className="text-5xl font-black text-white mb-2">2M</div>
               <div className="text-white text-sm font-semibold uppercase">LIKES</div>
             </div>
@@ -154,7 +156,7 @@ export default function DontMakeAdsCaseStudy() {
       </section>
 
       {/* Challenge Section */}
-      <section className="py-16 px-4 bg-white">
+      <section className="py-16 px-4 bg-surface-lime relative">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-5xl md:text-6xl font-black text-[#4a7000] mb-8 uppercase">
             CHALLENGE
@@ -176,14 +178,14 @@ export default function DontMakeAdsCaseStudy() {
 
           {/* Challenge Images */}
           <div className="grid grid-cols-2 gap-4">
-            <div className="rounded-lg overflow-hidden">
+            <div className="rounded-lg overflow-hidden image-reveal">
               <img 
                 src={challengeImg1}
                 alt="How to get started with TikTok Shopping"
                 className="w-full h-full object-cover"
               />
             </div>
-            <div className="rounded-lg overflow-hidden">
+            <div className="rounded-lg overflow-hidden image-reveal">
               <img 
                 src={challengeImg2}
                 alt="How to get your Ads approved"
@@ -195,7 +197,7 @@ export default function DontMakeAdsCaseStudy() {
       </section>
 
       {/* Strategy Section */}
-      <section className="py-16 px-4 bg-black">
+      <section className="py-16 px-4 bg-black relative">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-5xl md:text-6xl font-black text-white mb-8 uppercase">
             STRATEGY
@@ -212,7 +214,7 @@ export default function DontMakeAdsCaseStudy() {
           </div>
 
           {/* Strategy Image */}
-          <div className="mt-8 rounded-lg overflow-hidden">
+          <div className="mt-8 rounded-lg overflow-hidden image-reveal">
             <img 
               src={strategyImg}
               alt="TikTok Promote Strategy Content"
@@ -223,7 +225,7 @@ export default function DontMakeAdsCaseStudy() {
       </section>
 
       {/* Results Section */}
-      <section className="py-16 px-4 bg-white">
+      <section className="py-16 px-4 bg-white relative">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-5xl md:text-6xl font-black text-[#4a7000] mb-8 uppercase">
             RESULTS
@@ -257,21 +259,21 @@ export default function DontMakeAdsCaseStudy() {
 
           {/* Results Images */}
           <div className="grid grid-cols-3 gap-4 mt-12">
-            <div className="rounded-lg overflow-hidden">
+            <div className="rounded-lg overflow-hidden image-reveal">
               <img 
                 src={resultsImg1}
                 alt="How to get started with TikTok Shopping"
                 className="w-full h-full object-cover"
               />
             </div>
-            <div className="rounded-lg overflow-hidden">
+            <div className="rounded-lg overflow-hidden image-reveal">
               <img 
                 src={resultsImg2}
                 alt="Try running your promotions for a longer duration"
                 className="w-full h-full object-cover"
               />
             </div>
-            <div className="rounded-lg overflow-hidden">
+            <div className="rounded-lg overflow-hidden image-reveal">
               <img 
                 src={resultsImg3}
                 alt="Happy Small Business Saturday"
@@ -283,7 +285,7 @@ export default function DontMakeAdsCaseStudy() {
       </section>
 
       {/* Start Project Section */}
-      <section className="py-20 px-4 bg-black">
+      <section className="py-20 px-4 bg-black relative">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-8 uppercase" data-testid="heading-start-project">
             START PROJECT
@@ -298,7 +300,7 @@ export default function DontMakeAdsCaseStudy() {
           </p>
 
           <Link href="/contact">
-            <button className="inline-flex items-center gap-3 bg-[#c4ff4d] text-black rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2" data-testid="button-lets-talk">
+            <button className="inline-flex items-center gap-3 bg-[#c4ff4d] text-black rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2 btn-shimmer glow-lime" data-testid="button-lets-talk">
               LET'S TALK.
               <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
                 <ArrowRight className="h-5 w-5 text-[#4a7000]" />
@@ -309,7 +311,7 @@ export default function DontMakeAdsCaseStudy() {
       </section>
 
       {/* Related Case Studies */}
-      <section className="py-16 px-4 bg-white">
+      <section className="py-16 px-4 bg-surface-lime relative">
         <div className="max-w-6xl mx-auto">
           <div className="mb-8">
             <span className="bg-[#c4ff4d] text-black px-6 py-2 text-xs font-bold uppercase">
@@ -323,7 +325,7 @@ export default function DontMakeAdsCaseStudy() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {relatedCases.map((caseStudy, idx) => (
               <Link key={idx} href={caseStudy.link}>
-                <div className="rounded-2xl overflow-hidden h-[400px] relative group cursor-pointer hover-elevate">
+                <div className="rounded-2xl overflow-hidden h-[400px] relative group cursor-pointer hover-lift glass-lime">
                   <img 
                     src={caseStudy.image}
                     alt={caseStudy.title}
@@ -354,7 +356,7 @@ export default function DontMakeAdsCaseStudy() {
       </section>
 
       {/* Get In Touch Section */}
-      <section className="py-20 px-4 bg-black">
+      <section className="py-20 px-4 bg-black relative">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-8 uppercase" data-testid="heading-get-in-touch">
             GET IN TOUCH
@@ -365,7 +367,7 @@ export default function DontMakeAdsCaseStudy() {
           </p>
 
           <Link href="/contact">
-            <button className="inline-flex items-center gap-3 bg-[#c4ff4d] text-black rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2 mb-12" data-testid="button-work-with-us">
+            <button className="inline-flex items-center gap-3 bg-[#c4ff4d] text-black rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2 btn-shimmer glow-lime mb-12" data-testid="button-work-with-us">
               WORK WITH US
               <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
                 <ArrowRight className="h-5 w-5 text-[#4a7000]" />

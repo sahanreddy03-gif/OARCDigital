@@ -28,7 +28,8 @@ export default function FreshFarmFoodsAutomation() {
         ogType={caseStudiesSEO.globalSupplySystems.ogType}
       />
       {/* Hero Section */}
-      <section className="relative h-[70vh] min-h-[500px] flex items-end">
+      <section className="relative h-[70vh] min-h-[500px] flex items-end overflow-hidden">
+        <div className="absolute top-0 right-0 w-80 h-80 bg-[#c4ff4d]/15 rounded-full blur-3xl"></div>
         <div className="absolute inset-0">
           <img 
             src={heroImg} 
@@ -51,7 +52,7 @@ export default function FreshFarmFoodsAutomation() {
       </section>
 
       {/* Project Info */}
-      <section className="py-12 px-6 bg-white border-b border-gray-200">
+      <section className="relative py-12 px-6 bg-white border-b border-gray-200">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
@@ -80,7 +81,7 @@ export default function FreshFarmFoodsAutomation() {
       </section>
 
       {/* Challenge */}
-      <section className="py-16 px-6 bg-white">
+      <section className="relative py-16 px-6 bg-white">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-black text-black mb-6">
             The Challenge
@@ -98,25 +99,29 @@ export default function FreshFarmFoodsAutomation() {
       </section>
 
       {/* Image Grid */}
-      <section className="py-8 px-6 bg-zinc-50">
+      <section className="relative py-8 px-6 bg-surface-lime">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-2 gap-4">
-            <img 
-              src={img1} 
-              alt="Food supply chain logistics"
-              className="w-full h-64 object-cover rounded-2xl"
-            />
-            <img 
-              src={img2} 
-              alt="Supply chain automation"
-              className="w-full h-64 object-cover rounded-2xl"
-            />
+            <div className="image-reveal">
+              <img 
+                src={img1} 
+                alt="Food supply chain logistics"
+                className="w-full h-64 object-cover rounded-2xl"
+              />
+            </div>
+            <div className="image-reveal">
+              <img 
+                src={img2} 
+                alt="Supply chain automation"
+                className="w-full h-64 object-cover rounded-2xl"
+              />
+            </div>
           </div>
         </div>
       </section>
 
       {/* Approach */}
-      <section className="py-16 px-6 bg-white">
+      <section className="relative py-16 px-6 bg-white">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-black text-black mb-6">
             Our Approach
@@ -165,42 +170,45 @@ export default function FreshFarmFoodsAutomation() {
       </section>
 
       {/* Large Image */}
-      <section className="py-8 px-6 bg-zinc-50">
+      <section className="relative py-8 px-6 bg-surface-lime">
         <div className="max-w-6xl mx-auto">
-          <img 
-            src={img3} 
-            alt="Supply chain operations"
-            className="w-full h-[500px] object-cover rounded-2xl"
-          />
+          <div className="image-reveal">
+            <img 
+              src={img3} 
+              alt="Supply chain operations"
+              className="w-full h-[500px] object-cover rounded-2xl"
+            />
+          </div>
         </div>
       </section>
 
       {/* Results */}
-      <section className="py-16 px-6 bg-white">
+      <section className="relative py-16 px-6 bg-white">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-black text-black mb-8">
             The Results
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-            <div className="text-center p-8 bg-black rounded-2xl">
-              <div className="text-4xl md:text-5xl font-black text-[#4a7000] mb-3">
+          <div className="relative overflow-hidden grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-[#c4ff4d]/10 rounded-full blur-3xl"></div>
+            <div className="text-center p-8 bg-black rounded-2xl stat-glow">
+              <div className="text-4xl md:text-5xl font-black text-[#c4ff4d] mb-3">
                 $1M+
               </div>
               <p className="text-sm text-white">
                 Annual Savings (3 Years Running)
               </p>
             </div>
-            <div className="text-center p-8 bg-black rounded-2xl">
-              <div className="text-4xl md:text-5xl font-black text-[#4a7000] mb-3">
+            <div className="text-center p-8 bg-black rounded-2xl stat-glow">
+              <div className="text-4xl md:text-5xl font-black text-[#c4ff4d] mb-3">
                 125K
               </div>
               <p className="text-sm text-white">
                 Hours Saved to Date
               </p>
             </div>
-            <div className="text-center p-8 bg-black rounded-2xl">
-              <div className="text-4xl md:text-5xl font-black text-[#4a7000] mb-3">
+            <div className="text-center p-8 bg-black rounded-2xl stat-glow">
+              <div className="text-4xl md:text-5xl font-black text-[#c4ff4d] mb-3">
                 210
               </div>
               <p className="text-sm text-white">
@@ -209,7 +217,7 @@ export default function FreshFarmFoodsAutomation() {
             </div>
           </div>
 
-          <div className="bg-zinc-50 border-l-4 border-[#5FD4C4] p-8 rounded-r-2xl mb-8">
+          <div className="bg-surface-lime border-l-4 border-[#5FD4C4] p-8 rounded-r-2xl mb-8">
             <p className="text-lg text-gray-700 italic mb-4 leading-relaxed">
               "OARC Digital didn't just automate our processes—they transformed how we operate. We've hit our $1M annual savings target three years in a row, and our citizen developer program means we can keep building on this success. Our teams now focus on strategic work instead of repetitive tasks."
             </p>
@@ -219,19 +227,19 @@ export default function FreshFarmFoodsAutomation() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="bg-zinc-50 p-6 rounded-2xl">
+            <div className="bg-surface-lime p-6 rounded-2xl">
               <div className="text-2xl font-black text-black mb-2">220 hrs/week</div>
               <p className="text-sm text-gray-700">Saved Weekly ($250K CAD Annually)</p>
             </div>
-            <div className="bg-zinc-50 p-6 rounded-2xl">
+            <div className="bg-surface-lime p-6 rounded-2xl">
               <div className="text-2xl font-black text-black mb-2">390 hrs</div>
               <p className="text-sm text-gray-700">Saved from Pricing Updates Alone</p>
             </div>
-            <div className="bg-zinc-50 p-6 rounded-2xl">
+            <div className="bg-surface-lime p-6 rounded-2xl">
               <div className="text-2xl font-black text-black mb-2">30-Member</div>
               <p className="text-sm text-gray-700">Citizen Developer Program</p>
             </div>
-            <div className="bg-zinc-50 p-6 rounded-2xl">
+            <div className="bg-surface-lime p-6 rounded-2xl">
               <div className="text-2xl font-black text-black mb-2">Zero-Touch</div>
               <p className="text-sm text-gray-700">Fully Automated Processes</p>
             </div>
@@ -240,30 +248,36 @@ export default function FreshFarmFoodsAutomation() {
       </section>
 
       {/* Image Grid 2 */}
-      <section className="py-8 px-6 bg-zinc-50">
+      <section className="relative py-8 px-6 bg-surface-lime">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-3 gap-4">
-            <img 
-              src={img4} 
-              alt="Food industry operations"
-              className="w-full h-56 object-cover rounded-2xl"
-            />
-            <img 
-              src={img5} 
-              alt="Supply chain technology"
-              className="w-full h-56 object-cover rounded-2xl"
-            />
-            <img 
-              src={img6} 
-              alt="Business automation"
-              className="w-full h-56 object-cover rounded-2xl"
-            />
+            <div className="image-reveal">
+              <img 
+                src={img4} 
+                alt="Food industry operations"
+                className="w-full h-56 object-cover rounded-2xl"
+              />
+            </div>
+            <div className="image-reveal">
+              <img 
+                src={img5} 
+                alt="Supply chain technology"
+                className="w-full h-56 object-cover rounded-2xl"
+              />
+            </div>
+            <div className="image-reveal">
+              <img 
+                src={img6} 
+                alt="Business automation"
+                className="w-full h-56 object-cover rounded-2xl"
+              />
+            </div>
           </div>
         </div>
       </section>
 
       {/* Impact */}
-      <section className="py-16 px-6 bg-white">
+      <section className="relative py-16 px-6 bg-white">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-black text-black mb-6">
             Business Impact
@@ -308,26 +322,31 @@ export default function FreshFarmFoodsAutomation() {
       </section>
 
       {/* Final Images */}
-      <section className="py-8 px-6 bg-zinc-50">
+      <section className="relative py-8 px-6 bg-surface-lime">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-2 gap-4">
-            <img 
-              src={img7} 
-              alt="Revenue growth"
-              className="w-full h-72 object-cover rounded-2xl"
-            />
-            <img 
-              src={img8} 
-              alt="Team collaboration"
-              className="w-full h-72 object-cover rounded-2xl"
-            />
+            <div className="image-reveal">
+              <img 
+                src={img7} 
+                alt="Revenue growth"
+                className="w-full h-72 object-cover rounded-2xl"
+              />
+            </div>
+            <div className="image-reveal">
+              <img 
+                src={img8} 
+                alt="Team collaboration"
+                className="w-full h-72 object-cover rounded-2xl"
+              />
+            </div>
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-6 bg-gradient-to-br from-zinc-900 via-zinc-800 to-black text-white">
-        <div className="max-w-4xl mx-auto text-center">
+      <section className="relative py-20 px-6 bg-gradient-to-br from-zinc-900 via-zinc-800 to-black text-white overflow-hidden">
+        <div className="absolute top-0 right-0 w-80 h-80 bg-[#c4ff4d]/10 rounded-full blur-3xl"></div>
+        <div className="max-w-4xl mx-auto text-center relative z-10">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-black mb-6">
             Automate Your Supply Chain Operations
           </h2>
@@ -336,7 +355,7 @@ export default function FreshFarmFoodsAutomation() {
           </p>
           <Link href="/contact">
             <button
-              className="inline-flex items-center gap-3 bg-[#5FD4C4] text-black rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2"
+              className="btn-shimmer glow-lime inline-flex items-center gap-3 bg-[#c4ff4d] text-black rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2"
               data-testid="button-automate-supply-chain"
             >
               Automate Your Supply Chain
@@ -349,7 +368,7 @@ export default function FreshFarmFoodsAutomation() {
       </section>
 
       {/* Get In Touch */}
-      <section className="py-14 px-6 bg-white">
+      <section className="relative py-14 px-6 bg-white">
         <div className="max-w-6xl mx-auto text-center">
           <h2 className="text-2xl md:text-3xl font-black text-black mb-4">
             Get In Touch
@@ -359,7 +378,7 @@ export default function FreshFarmFoodsAutomation() {
           </p>
           <Link href="/contact">
             <button
-              className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2"
+              className="btn-shimmer inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2"
               data-testid="button-contact-us"
             >
               Contact Us

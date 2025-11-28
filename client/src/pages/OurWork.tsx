@@ -22,8 +22,10 @@ export default function OurWork() {
         ogType={supportingPagesSEO.ourWork.ogType}
       />
       {/* Hero Section */}
-      <section className="py-20 md:py-32 bg-gradient-to-br from-zinc-900 to-black text-white">
-        <div className="max-w-7xl mx-auto px-6 md:px-12">
+      <section className="relative py-20 md:py-32 bg-gradient-to-br from-zinc-900 to-black text-white overflow-hidden">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-[#c4ff4d]/10 rounded-full blur-3xl animate-float"></div>
+        <div className="absolute bottom-0 left-1/4 w-80 h-80 bg-[#c4ff4d]/5 rounded-full blur-3xl animate-float-delayed"></div>
+        <div className="max-w-7xl mx-auto px-6 md:px-12 relative">
           <div className="max-w-4xl">
             <p className="text-sm uppercase tracking-wider font-bold text-[#c4ff4d] mb-4" data-testid="text-eyebrow">
               Our Work
@@ -39,13 +41,15 @@ export default function OurWork() {
       </section>
 
       {/* Case Studies Grid */}
-      <section className="py-16 md:py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-6 md:px-12">
+      <section className="relative py-16 md:py-24 bg-white overflow-hidden">
+        <div className="absolute top-20 left-0 w-72 h-72 bg-[#c4ff4d]/8 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-0 w-64 h-64 bg-[#c4ff4d]/6 rounded-full blur-3xl"></div>
+        <div className="max-w-7xl mx-auto px-6 md:px-12 relative">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {allCaseStudies.map((study, index) => (
               <Link key={study.slug} href={`/case-studies/${study.slug}`}>
                 <div
-                  className="group relative overflow-hidden rounded-xl bg-zinc-900 hover-elevate hover:-translate-y-2 hover:shadow-2xl transition-all duration-500 cursor-pointer h-[400px]"
+                  className="group relative overflow-hidden rounded-xl bg-zinc-900 hover-lift hover:shadow-2xl transition-all duration-500 cursor-pointer h-[400px]"
                   data-testid={`card-case-study-${index}`}
                 >
                   {/* Image */}

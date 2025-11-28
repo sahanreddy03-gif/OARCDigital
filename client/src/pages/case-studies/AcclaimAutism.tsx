@@ -28,7 +28,7 @@ export default function AcclaimAutism() {
         ogType={caseStudiesSEO.healthpathAI.ogType}
       />
       {/* Hero Section */}
-      <section className="relative h-[70vh] min-h-[500px] flex items-end">
+      <section className="relative h-[70vh] min-h-[500px] flex items-end overflow-hidden">
         <div className="absolute inset-0">
           <img 
             src={heroImg} 
@@ -37,6 +37,7 @@ export default function AcclaimAutism() {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
         </div>
+        <div className="absolute top-0 right-0 w-80 h-80 bg-[#c4ff4d]/15 rounded-full blur-3xl"></div>
         
         <div className="relative z-10 w-full px-6 pb-16">
           <div className="max-w-6xl mx-auto">
@@ -51,7 +52,7 @@ export default function AcclaimAutism() {
       </section>
 
       {/* Project Info */}
-      <section className="py-12 px-6 bg-white border-b border-gray-200">
+      <section className="relative py-12 px-6 bg-white border-b border-gray-200">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
@@ -80,7 +81,7 @@ export default function AcclaimAutism() {
       </section>
 
       {/* Challenge */}
-      <section className="py-16 px-6 bg-white">
+      <section className="relative py-16 px-6 bg-white">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-black text-black mb-6">
             The Challenge
@@ -98,25 +99,29 @@ export default function AcclaimAutism() {
       </section>
 
       {/* Image Grid */}
-      <section className="py-8 px-6 bg-zinc-50">
+      <section className="relative py-8 px-6 bg-surface-lime">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-2 gap-4">
-            <img 
-              src={img1} 
-              alt="Healthcare patient services"
-              className="w-full h-64 object-cover rounded-2xl"
-            />
-            <img 
-              src={img2} 
-              alt="Medical care technology"
-              className="w-full h-64 object-cover rounded-2xl"
-            />
+            <div className="image-reveal">
+              <img 
+                src={img1} 
+                alt="Healthcare patient services"
+                className="w-full h-64 object-cover rounded-2xl"
+              />
+            </div>
+            <div className="image-reveal">
+              <img 
+                src={img2} 
+                alt="Medical care technology"
+                className="w-full h-64 object-cover rounded-2xl"
+              />
+            </div>
           </div>
         </div>
       </section>
 
       {/* Approach */}
-      <section className="py-16 px-6 bg-white">
+      <section className="relative py-16 px-6 bg-white">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-black text-black mb-6">
             Our Approach
@@ -165,25 +170,28 @@ export default function AcclaimAutism() {
       </section>
 
       {/* Large Image */}
-      <section className="py-8 px-6 bg-zinc-50">
+      <section className="relative py-8 px-6 bg-surface-lime">
         <div className="max-w-6xl mx-auto">
-          <img 
-            src={img3} 
-            alt="Healthcare technology innovation"
-            className="w-full h-[500px] object-cover rounded-2xl"
-          />
+          <div className="image-reveal">
+            <img 
+              src={img3} 
+              alt="Healthcare technology innovation"
+              className="w-full h-[500px] object-cover rounded-2xl"
+            />
+          </div>
         </div>
       </section>
 
       {/* Results */}
-      <section className="py-16 px-6 bg-white">
+      <section className="relative py-16 px-6 bg-white">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-black text-black mb-8">
             The Results
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-            <div className="text-center p-8 bg-black rounded-2xl">
+          <div className="relative overflow-hidden grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-[#c4ff4d]/10 rounded-full blur-3xl"></div>
+            <div className="text-center p-8 bg-black rounded-2xl stat-glow relative z-10">
               <div className="text-4xl md:text-5xl font-black text-[#4a7000] mb-3">
                 83%
               </div>
@@ -191,7 +199,7 @@ export default function AcclaimAutism() {
                 Reduction in Patient Intake Time
               </p>
             </div>
-            <div className="text-center p-8 bg-black rounded-2xl">
+            <div className="text-center p-8 bg-black rounded-2xl stat-glow relative z-10">
               <div className="text-4xl md:text-5xl font-black text-[#4a7000] mb-3">
                 Minutes
               </div>
@@ -199,7 +207,7 @@ export default function AcclaimAutism() {
                 vs. Days for Document Processing
               </p>
             </div>
-            <div className="text-center p-8 bg-black rounded-2xl">
+            <div className="text-center p-8 bg-black rounded-2xl stat-glow relative z-10">
               <div className="text-4xl md:text-5xl font-black text-[#4a7000] mb-3">
                 80%+
               </div>
@@ -221,30 +229,36 @@ export default function AcclaimAutism() {
       </section>
 
       {/* Image Grid 2 */}
-      <section className="py-8 px-6 bg-zinc-50">
+      <section className="relative py-8 px-6 bg-surface-lime">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-3 gap-4">
-            <img 
-              src={img4} 
-              alt="Patient care excellence"
-              className="w-full h-56 object-cover rounded-2xl"
-            />
-            <img 
-              src={img5} 
-              alt="Healthcare services"
-              className="w-full h-56 object-cover rounded-2xl"
-            />
-            <img 
-              src={img6} 
-              alt="Medical automation"
-              className="w-full h-56 object-cover rounded-2xl"
-            />
+            <div className="image-reveal">
+              <img 
+                src={img4} 
+                alt="Patient care excellence"
+                className="w-full h-56 object-cover rounded-2xl"
+              />
+            </div>
+            <div className="image-reveal">
+              <img 
+                src={img5} 
+                alt="Healthcare services"
+                className="w-full h-56 object-cover rounded-2xl"
+              />
+            </div>
+            <div className="image-reveal">
+              <img 
+                src={img6} 
+                alt="Medical automation"
+                className="w-full h-56 object-cover rounded-2xl"
+              />
+            </div>
           </div>
         </div>
       </section>
 
       {/* Impact */}
-      <section className="py-16 px-6 bg-white">
+      <section className="relative py-16 px-6 bg-white">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-black text-black mb-6">
             Patient Impact
@@ -289,26 +303,31 @@ export default function AcclaimAutism() {
       </section>
 
       {/* Final Images */}
-      <section className="py-8 px-6 bg-zinc-50">
+      <section className="relative py-8 px-6 bg-surface-lime">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-2 gap-4">
-            <img 
-              src={img7} 
-              alt="AI technology"
-              className="w-full h-72 object-cover rounded-2xl"
-            />
-            <img 
-              src={img8} 
-              alt="Team collaboration"
-              className="w-full h-72 object-cover rounded-2xl"
-            />
+            <div className="image-reveal">
+              <img 
+                src={img7} 
+                alt="AI technology"
+                className="w-full h-72 object-cover rounded-2xl"
+              />
+            </div>
+            <div className="image-reveal">
+              <img 
+                src={img8} 
+                alt="Team collaboration"
+                className="w-full h-72 object-cover rounded-2xl"
+              />
+            </div>
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-6 bg-gradient-to-br from-zinc-900 via-zinc-800 to-black text-white">
-        <div className="max-w-4xl mx-auto text-center">
+      <section className="relative py-20 px-6 bg-gradient-to-br from-zinc-900 via-zinc-800 to-black text-white overflow-hidden">
+        <div className="absolute top-0 right-0 w-80 h-80 bg-[#c4ff4d]/10 rounded-full blur-3xl"></div>
+        <div className="max-w-4xl mx-auto text-center relative z-10">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-black mb-6">
             Transform Healthcare Operations with AI
           </h2>
@@ -317,7 +336,7 @@ export default function AcclaimAutism() {
           </p>
           <Link href="/contact">
             <button
-              className="inline-flex items-center gap-3 bg-[#5FD4C4] text-black rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2"
+              className="inline-flex items-center gap-3 bg-[#5FD4C4] text-black rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2 btn-shimmer glow-lime"
               data-testid="button-transform-healthcare"
             >
               Transform Your Operations
@@ -330,7 +349,7 @@ export default function AcclaimAutism() {
       </section>
 
       {/* Get In Touch */}
-      <section className="py-14 px-6 bg-white">
+      <section className="relative py-14 px-6 bg-white">
         <div className="max-w-6xl mx-auto text-center">
           <h2 className="text-2xl md:text-3xl font-black text-black mb-4">
             Get In Touch
@@ -340,7 +359,7 @@ export default function AcclaimAutism() {
           </p>
           <Link href="/contact">
             <button
-              className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2"
+              className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2 btn-shimmer"
               data-testid="button-contact-us"
             >
               Contact Us

@@ -61,6 +61,7 @@ export default function GymGroupCaseStudy() {
       />
       {/* Hero Section */}
       <section className="relative min-h-[60vh] flex items-center justify-center bg-black text-white overflow-hidden">
+        <div className="absolute top-0 right-0 w-80 h-80 bg-[#c4ff4d]/15 rounded-full blur-3xl"></div>
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-40"
           style={{
@@ -118,25 +119,26 @@ export default function GymGroupCaseStudy() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 px-4 bg-black text-white">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
-          <div className="bg-[#c4ff4d] p-8 text-center text-black">
-            <div className="text-5xl font-black mb-2">1M</div>
-            <div className="text-sm uppercase tracking-wider font-bold">Clicks</div>
+      <section className="py-16 px-4 bg-surface-lime relative">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8 relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-80 h-80 bg-[#c4ff4d]/15 rounded-full blur-3xl"></div>
+          <div className="bg-[#c4ff4d] p-8 text-center text-black stat-glow rounded-2xl">
+            <div className="text-5xl font-black mb-2 text-white">1M</div>
+            <div className="text-sm uppercase tracking-wider font-bold text-white">Clicks</div>
           </div>
-          <div className="bg-[#c4ff4d] p-8 text-center text-black">
-            <div className="text-5xl font-black mb-2">15M</div>
-            <div className="text-sm uppercase tracking-wider font-bold">Views</div>
+          <div className="bg-[#c4ff4d] p-8 text-center text-black stat-glow rounded-2xl">
+            <div className="text-5xl font-black mb-2 text-white">15M</div>
+            <div className="text-sm uppercase tracking-wider font-bold text-white">Views</div>
           </div>
-          <div className="bg-[#c4ff4d] p-8 text-center text-black">
-            <div className="text-5xl font-black mb-2">500K</div>
-            <div className="text-sm uppercase tracking-wider font-bold">Engagements</div>
+          <div className="bg-[#c4ff4d] p-8 text-center text-black stat-glow rounded-2xl">
+            <div className="text-5xl font-black mb-2 text-white">500K</div>
+            <div className="text-sm uppercase tracking-wider font-bold text-white">Engagements</div>
           </div>
         </div>
       </section>
 
       {/* Challenge Section */}
-      <section className="py-16 px-4 bg-white">
+      <section className="py-16 px-4 bg-white relative">
         <div className="max-w-4xl mx-auto">
           <p className="text-sm font-bold text-gray-500 uppercase mb-4 tracking-wider">Challenge</p>
           
@@ -155,7 +157,7 @@ export default function GymGroupCaseStudy() {
       </section>
 
       {/* Strategy Section */}
-      <section className="py-16 px-4 bg-gray-50">
+      <section className="py-16 px-4 bg-surface-lime relative">
         <div className="max-w-4xl mx-auto">
           <p className="text-sm font-bold text-gray-500 uppercase mb-4 tracking-wider">Strategy</p>
           
@@ -181,24 +183,28 @@ export default function GymGroupCaseStudy() {
 
           {/* Strategy Images */}
           <div className="grid md:grid-cols-2 gap-6 mb-8">
-            <img
-              src={fitnessImg2}
-              alt="FitnessPro Network Strategy Image 1"
-              className="w-full h-auto rounded-lg"
-              data-testid="img-strategy-1"
-            />
-            <img
-              src={fitnessImg3}
-              alt="FitnessPro Network Strategy Image 2"
-              className="w-full h-auto rounded-lg"
-              data-testid="img-strategy-2"
-            />
+            <div className="image-reveal rounded-lg overflow-hidden">
+              <img
+                src={fitnessImg2}
+                alt="FitnessPro Network Strategy Image 1"
+                className="w-full h-auto"
+                data-testid="img-strategy-1"
+              />
+            </div>
+            <div className="image-reveal rounded-lg overflow-hidden">
+              <img
+                src={fitnessImg3}
+                alt="FitnessPro Network Strategy Image 2"
+                className="w-full h-auto"
+                data-testid="img-strategy-2"
+              />
+            </div>
           </div>
         </div>
       </section>
 
       {/* Results Section */}
-      <section className="py-16 px-4 bg-white">
+      <section className="py-16 px-4 bg-white relative">
         <div className="max-w-4xl mx-auto">
           <p className="text-sm font-bold text-gray-500 uppercase mb-4 tracking-wider">Results</p>
           
@@ -232,60 +238,76 @@ export default function GymGroupCaseStudy() {
 
           {/* Results Screenshots Grid */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <img
-              src={contentImg1}
-              alt="FitnessPro Network Campaign Content"
-              className="w-full h-48 object-cover rounded-lg"
-              data-testid="img-result-1"
-            />
-            <img
-              src={contentImg2}
-              alt="FitnessPro Network Campaign Content"
-              className="w-full h-48 object-cover rounded-lg"
-              data-testid="img-result-2"
-            />
-            <img
-              src={contentImg3}
-              alt="FitnessPro Network Campaign Content"
-              className="w-full h-48 object-cover rounded-lg"
-              data-testid="img-result-3"
-            />
-            <img
-              src={contentImg4}
-              alt="FitnessPro Network Campaign Content"
-              className="w-full h-48 object-cover rounded-lg"
-              data-testid="img-result-4"
-            />
-            <img
-              src={contentImg5}
-              alt="FitnessPro Network Campaign Content"
-              className="w-full h-48 object-cover rounded-lg"
-              data-testid="img-result-5"
-            />
-            <img
-              src={contentImg6}
-              alt="FitnessPro Network Campaign Content"
-              className="w-full h-48 object-cover rounded-lg"
-              data-testid="img-result-6"
-            />
-            <img
-              src={contentImg7}
-              alt="FitnessPro Network Campaign Content"
-              className="w-full h-48 object-cover rounded-lg"
-              data-testid="img-result-7"
-            />
-            <img
-              src={contentImg8}
-              alt="FitnessPro Network Campaign Content"
-              className="w-full h-48 object-cover rounded-lg"
-              data-testid="img-result-8"
-            />
+            <div className="image-reveal rounded-lg overflow-hidden">
+              <img
+                src={contentImg1}
+                alt="FitnessPro Network Campaign Content"
+                className="w-full h-48 object-cover"
+                data-testid="img-result-1"
+              />
+            </div>
+            <div className="image-reveal rounded-lg overflow-hidden">
+              <img
+                src={contentImg2}
+                alt="FitnessPro Network Campaign Content"
+                className="w-full h-48 object-cover"
+                data-testid="img-result-2"
+              />
+            </div>
+            <div className="image-reveal rounded-lg overflow-hidden">
+              <img
+                src={contentImg3}
+                alt="FitnessPro Network Campaign Content"
+                className="w-full h-48 object-cover"
+                data-testid="img-result-3"
+              />
+            </div>
+            <div className="image-reveal rounded-lg overflow-hidden">
+              <img
+                src={contentImg4}
+                alt="FitnessPro Network Campaign Content"
+                className="w-full h-48 object-cover"
+                data-testid="img-result-4"
+              />
+            </div>
+            <div className="image-reveal rounded-lg overflow-hidden">
+              <img
+                src={contentImg5}
+                alt="FitnessPro Network Campaign Content"
+                className="w-full h-48 object-cover"
+                data-testid="img-result-5"
+              />
+            </div>
+            <div className="image-reveal rounded-lg overflow-hidden">
+              <img
+                src={contentImg6}
+                alt="FitnessPro Network Campaign Content"
+                className="w-full h-48 object-cover"
+                data-testid="img-result-6"
+              />
+            </div>
+            <div className="image-reveal rounded-lg overflow-hidden">
+              <img
+                src={contentImg7}
+                alt="FitnessPro Network Campaign Content"
+                className="w-full h-48 object-cover"
+                data-testid="img-result-7"
+              />
+            </div>
+            <div className="image-reveal rounded-lg overflow-hidden">
+              <img
+                src={contentImg8}
+                alt="FitnessPro Network Campaign Content"
+                className="w-full h-48 object-cover"
+                data-testid="img-result-8"
+              />
+            </div>
           </div>
         </div>
       </section>
 
       {/* Start Project Section */}
-      <section className="py-20 px-4 bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white">
+      <section className="py-20 px-4 bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white relative">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl md:text-5xl font-black mb-6 uppercase">Start Project</h2>
           <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
@@ -295,7 +317,7 @@ export default function GymGroupCaseStudy() {
             If you'd like to speak to our team about how we can help you take your brand to another level and engage audiences globally, please complete our contact form.
           </p>
           <Link href="/contact">
-            <Button size="lg" variant="default" className="group" data-testid="button-contact">
+            <Button size="lg" variant="default" className="group btn-shimmer glow-lime" data-testid="button-contact">
               Let's talk
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </Button>
@@ -304,7 +326,7 @@ export default function GymGroupCaseStudy() {
       </section>
 
       {/* Related Case Studies */}
-      <section className="py-16 px-4 bg-white">
+      <section className="py-16 px-4 bg-surface-lime relative">
         <div className="max-w-6xl mx-auto">
           <p className="text-sm font-bold text-gray-500 uppercase mb-2 tracking-wider text-center">Projects</p>
           <h2 className="text-3xl md:text-4xl font-black text-center mb-12 text-black">
@@ -314,8 +336,8 @@ export default function GymGroupCaseStudy() {
           <div className="grid md:grid-cols-3 gap-8">
             {relatedCases.map((caseStudy) => (
               <Link key={caseStudy.id} href={caseStudy.link}>
-                <Card className="overflow-hidden hover-elevate active-elevate-2 cursor-pointer h-full" data-testid={`card-case-study-${caseStudy.id}`}>
-                  <div className="relative h-64 overflow-hidden">
+                <Card className="overflow-hidden hover-lift glass-lime cursor-pointer h-full" data-testid={`card-case-study-${caseStudy.id}`}>
+                  <div className="relative h-64 overflow-hidden image-reveal">
                     <img
                       src={caseStudy.image}
                       alt={caseStudy.title}
@@ -340,14 +362,14 @@ export default function GymGroupCaseStudy() {
       </section>
 
       {/* Get In Touch Section */}
-      <section className="py-20 px-4 bg-black text-white">
+      <section className="py-20 px-4 bg-black text-white relative">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl md:text-5xl font-black mb-6 uppercase">Get In Touch</h2>
           <p className="text-lg text-gray-300 mb-10 max-w-2xl mx-auto">
             Ready to revolutionize your fitness brand with creative TikTok campaigns? Let's create something extraordinary together.
           </p>
           <Link href="/contact">
-            <Button size="lg" variant="outline" className="group" data-testid="button-get-in-touch">
+            <Button size="lg" variant="outline" className="group btn-shimmer" data-testid="button-get-in-touch">
               Contact Us
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </Button>
