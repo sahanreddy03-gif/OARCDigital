@@ -1,4 +1,4 @@
-import { Palette, Video, Sparkles, Users, TrendingUp, Megaphone, Globe, Presentation, Image, Package, Film, Layers, Mail, Layout, Cpu, DollarSign, Target, Zap, Lightbulb, BarChart3, Smartphone } from 'lucide-react';
+import { Palette, Video, Sparkles, Users, TrendingUp, Megaphone, Globe, Presentation, Image, Package, Film, Layers, Mail, Layout, Cpu, DollarSign, Target, Zap, Lightbulb, BarChart3, Smartphone, HeadphonesIcon, Brain, Calendar, FileCheck, Building2, Rocket, Filter, ShoppingCart } from 'lucide-react';
 
 export interface ServiceItem {
   title: string;
@@ -19,8 +19,8 @@ export interface ServiceCategory {
 export const servicesConfig = {
   previewLimits: {
     aiCreative: 9,
-    aiEmployees: 7,
-    revenue: 7
+    aiEmployees: 9,
+    revenue: 6
   }
 };
 
@@ -59,44 +59,44 @@ export const servicesCatalog: Record<string, ServiceCategory> = {
   
   aiEmployees: {
     id: 'aiEmployees',
-    title: 'Hire AI Employees',
-    description: 'Scale your team instantly with AI-powered employees for every role',
+    title: 'AI Virtual Talent Hub',
+    description: 'Hire autonomous AI agents as on-demand team members—thinking, adapting, and executing 24/7 while slashing your hiring costs',
     featured: {
-      title: 'Hire AI Employees',
-      slug: 'hire-ai-employees',
+      title: 'AI Virtual Talent Hub',
+      slug: 'ai-virtual-talent-hub',
       badge: 'Popular',
       icon: Users
     },
     items: [
-      { title: 'Hire AI Employees', slug: 'hire-ai-employees', badge: 'Popular', icon: Users },
-      { title: 'Sales Development Rep (SDR)', slug: 'ai-sdr', icon: Target },
-      { title: 'Customer Support Agent', slug: 'ai-support', icon: Users },
-      { title: 'Marketing Coordinator', slug: 'ai-marketing', icon: Megaphone },
-      { title: 'Content Writer', slug: 'ai-writer', icon: Palette },
-      { title: 'Data Analyst', slug: 'ai-analyst', icon: BarChart3 },
-      { title: 'Financial Analyst', slug: 'ai-financial-analyst', badge: 'New', icon: DollarSign },
-      { title: 'Administrative Assistant', slug: 'ai-admin', icon: Layout },
+      { title: 'AI Virtual Talent Hub', slug: 'ai-virtual-talent-hub', badge: 'Popular', icon: Users },
+      { title: 'Sales Development Rep Agent', slug: 'ai-sdr-agent', icon: Target },
+      { title: 'Customer Support Specialist', slug: 'ai-support-specialist', icon: HeadphonesIcon },
+      { title: 'Data Insights Analyst', slug: 'ai-data-analyst', icon: Brain },
+      { title: 'Administrative Workflow Agent', slug: 'ai-admin-agent', icon: Layout },
+      { title: 'Content Strategy Coordinator', slug: 'ai-content-strategist', icon: Megaphone },
+      { title: 'Compliance & Legal Auditor', slug: 'ai-compliance-auditor', badge: 'New', icon: FileCheck },
+      { title: 'Appointment Booker Agent', slug: 'ai-appointment-booker', icon: Calendar },
+      { title: 'Real Estate Sales Specialist', slug: 'ai-real-estate-agent', icon: Building2 },
     ]
   },
   
   revenue: {
     id: 'revenue',
-    title: 'Revenue Automation',
-    description: 'Automate your entire revenue stack from lead to cash',
+    title: 'AI Revenue Ignition Engine',
+    description: 'Fuel your growth with automated systems—end-to-end engines that optimize pipelines, acquire customers, and validate ideas on autopilot',
     featured: {
-      title: 'Revenue Automation & Growth',
-      slug: 'revenue-automation',
+      title: 'AI Revenue Ignition Engine',
+      slug: 'ai-revenue-engine',
       badge: 'Popular',
-      icon: TrendingUp
+      icon: Rocket
     },
     items: [
-      { title: 'Revenue Automation & Growth', slug: 'revenue-automation', badge: 'Popular', icon: TrendingUp },
-      { title: 'Funnel Automation', slug: 'funnel-automation', icon: Zap },
-      { title: 'Lead Generation', slug: 'lead-generation', icon: Target },
-      { title: 'Customer Acquisition', slug: 'customer-acquisition', icon: Users },
-      { title: 'Digital Marketing', slug: 'digital-marketing', icon: BarChart3 },
-      { title: 'Rapid Idea Testing', slug: 'rapid-idea-testing', icon: Lightbulb },
-      { title: 'Marketing Automation', slug: 'marketing-automation', route: 'revenue-automation', icon: Zap },
+      { title: 'AI Revenue Ignition Engine', slug: 'ai-revenue-engine', badge: 'Popular', icon: Rocket },
+      { title: 'Lead Generation & Qualification Engine', slug: 'lead-generation-engine', icon: Target },
+      { title: 'Customer Acquisition Accelerator', slug: 'customer-acquisition-accelerator', icon: ShoppingCart },
+      { title: 'Funnel Optimization Agent', slug: 'funnel-optimization-agent', badge: 'New', icon: Filter },
+      { title: 'Marketing Automation Suite', slug: 'marketing-automation-suite', icon: Zap },
+      { title: 'Idea Validation & Growth Hacker', slug: 'idea-validation-engine', icon: Lightbulb },
     ]
   }
 };

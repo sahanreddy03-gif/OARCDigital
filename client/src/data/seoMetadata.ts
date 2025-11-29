@@ -57,46 +57,58 @@ export const supportingPagesSEO: Record<string, PageSEO> = {
 };
 
 export const aiEmployeeServicesSEO: Record<string, PageSEO> = {
-  aiSdr: {
-    title: 'AI SDR | Sales Development Representative | OARC Digital Malta',
-    description: 'Hire an AI-powered Sales Development Representative (SDR) from OARC Digital. Automate lead qualification, outreach, and pipeline management with elite AI employee solutions based in Malta.',
-    path: '/services/ai-sdr',
+  aiVirtualTalentHub: {
+    title: 'AI Virtual Talent Hub | Autonomous AI Agents On-Demand | OARC Digital Malta',
+    description: 'Hire autonomous AI agents as on-demand team members. Production-tested agents for sales, support, compliance, real estate, and more—thinking, adapting, and executing 24/7.',
+    path: '/services/ai-virtual-talent-hub',
     ogType: 'article'
   },
-  aiCustomerSupport: {
-    title: 'AI Customer Support | 24/7 Support Agent | OARC Digital',
-    description: 'Deploy AI-powered customer support agents that deliver premium service around the clock. OARC Digital\'s AI employees provide instant, accurate responses to customer inquiries at scale.',
-    path: '/services/ai-customer-support',
+  aiSdrAgent: {
+    title: 'Sales Development Rep Agent | AI-Powered Lead Qualification | OARC Digital',
+    description: 'Precision lead qualification with 3x conversion lift. Our AI SDR Agent qualifies prospects, books meetings, and nurtures leads—so your sales team only talks to buyers ready to convert.',
+    path: '/services/ai-sdr-agent',
     ogType: 'article'
   },
-  aiMarketingCoordinator: {
-    title: 'AI Marketing Coordinator | Campaign Management | OARC Digital',
-    description: 'Hire an AI Marketing Coordinator from OARC Digital to streamline campaign planning, execution, and reporting. Elite AI employee solutions for ambitious marketing teams.',
-    path: '/services/ai-marketing-coordinator',
-    ogType: 'article'
-  },
-  aiContentWriter: {
-    title: 'AI Content Writer | SEO & Creative Writing | OARC Digital Malta',
-    description: 'Get an AI-powered content writer that produces SEO-optimized articles, blog posts, and creative copy. OARC Digital\'s AI employees deliver premium content at scale.',
-    path: '/services/ai-content-writer',
+  aiSupportSpecialist: {
+    title: 'Customer Support Specialist | 24/7 AI Support Agent | OARC Digital',
+    description: '24/7 empathetic responses with 90% query resolution. Deploy AI-powered customer support that delivers premium service around the clock without burning out your team.',
+    path: '/services/ai-support-specialist',
     ogType: 'article'
   },
   aiDataAnalyst: {
-    title: 'AI Data Analyst | Business Intelligence | OARC Digital',
-    description: 'Leverage AI-powered data analysis with OARC Digital\'s AI Data Analyst. Transform raw data into actionable insights with elite machine learning and analytics capabilities.',
+    title: 'Data Insights Analyst | AI-Powered Business Intelligence | OARC Digital',
+    description: 'Turn data chaos into strategic dashboards. Our AI Data Analyst transforms raw data into actionable insights with machine learning and real-time analytics.',
     path: '/services/ai-data-analyst',
     ogType: 'article'
   },
-  aiFinancialAnalyst: {
-    title: 'AI Financial Analyst | Financial Modeling | OARC Digital',
-    description: 'Hire an AI Financial Analyst from OARC Digital for advanced financial modeling, forecasting, and reporting. Premium AI employee solutions for finance teams.',
-    path: '/services/ai-financial-analyst',
+  aiAdminAgent: {
+    title: 'Administrative Workflow Agent | AI Virtual Assistant | OARC Digital',
+    description: 'Reclaim 50% of your day from routine tasks. Deploy an AI administrative agent that handles scheduling, email management, and workflows automatically.',
+    path: '/services/ai-admin-agent',
     ogType: 'article'
   },
-  aiAdmin: {
-    title: 'AI Administrative Assistant | Virtual Assistant | OARC Digital',
-    description: 'Deploy an AI-powered administrative assistant that handles scheduling, email management, and routine tasks. OARC Digital\'s AI employees deliver elite productivity solutions.',
-    path: '/services/ai-administrative-assistant',
+  aiContentStrategist: {
+    title: 'Content Strategy Coordinator | AI Content Management | OARC Digital Malta',
+    description: 'Transform scattered ideas into engagement engines. Our AI Content Strategist plans, coordinates, and optimizes your content pipeline for maximum impact.',
+    path: '/services/ai-content-strategist',
+    ogType: 'article'
+  },
+  aiComplianceAuditor: {
+    title: 'Compliance & Legal Auditor | GDPR & Risk Scanning | OARC Digital',
+    description: 'GDPR bulletproof with real-time risk scanning. Our AI Compliance Auditor monitors regulations, flags violations, and keeps your business protected 24/7.',
+    path: '/services/ai-compliance-auditor',
+    ogType: 'article'
+  },
+  aiAppointmentBooker: {
+    title: 'Appointment Booker Agent | AI Scheduling Assistant | OARC Digital',
+    description: 'Reduce no-shows by 20% with intelligent scheduling. Our AI Appointment Booker handles availability, reminders, and rescheduling automatically.',
+    path: '/services/ai-appointment-booker',
+    ogType: 'article'
+  },
+  aiRealEstateAgent: {
+    title: 'Real Estate Sales Specialist | Malta Property AI | OARC Digital Malta',
+    description: 'Malta-focused, bilingual deal acceleration for real estate. Our AI Real Estate Specialist qualifies buyers, schedules viewings, and accelerates property sales.',
+    path: '/services/ai-real-estate-agent',
     ogType: 'article'
   }
 };
@@ -183,6 +195,42 @@ export const creativeServicesSEO: Record<string, PageSEO> = {
 };
 
 export const revenueServicesSEO: Record<string, PageSEO> = {
+  aiRevenueEngine: {
+    title: 'AI Revenue Ignition Engine | Automated Growth Systems | OARC Digital',
+    description: 'Fuel your growth with OARC\'s AI Revenue Ignition Engine. End-to-end automation systems that optimize pipelines, acquire customers, and validate ideas on autopilot.',
+    path: '/services/ai-revenue-engine',
+    ogType: 'article'
+  },
+  leadGenerationEngine: {
+    title: 'Lead Generation & Qualification Engine | AI-Powered Pipeline | OARC Digital',
+    description: 'Stop chasing cold leads. OARC\'s Lead Generation Engine identifies, scores, and nurtures high-intent prospects automatically—3x qualified leads guaranteed.',
+    path: '/services/lead-generation-engine',
+    ogType: 'article'
+  },
+  customerAcquisitionAccelerator: {
+    title: 'Customer Acquisition Accelerator | Multi-Channel Growth | OARC Digital',
+    description: 'Turn ad spend into predictable revenue. AI optimizes your campaigns across every channel in real-time, cutting acquisition costs by 40% while scaling what works.',
+    path: '/services/customer-acquisition-accelerator',
+    ogType: 'article'
+  },
+  funnelOptimizationAgent: {
+    title: 'Funnel Optimization Agent | Conversion Intelligence | OARC Digital Malta',
+    description: 'Every visitor is a revenue opportunity. Our AI continuously tests, learns, and optimizes your entire funnel—from first click to closed deal. 2.5x conversion rate.',
+    path: '/services/funnel-optimization-agent',
+    ogType: 'article'
+  },
+  marketingAutomationSuite: {
+    title: 'Marketing Automation Suite | Campaign Orchestration | OARC Digital',
+    description: 'Kill manual marketing tasks forever. Automate email sequences, social campaigns, and customer journeys with workflows that scale without extra headcount.',
+    path: '/services/marketing-automation-suite',
+    ogType: 'article'
+  },
+  ideaValidationEngine: {
+    title: 'Idea Validation & Growth Hacker | Rapid Market Testing | OARC Digital',
+    description: 'Launch with confidence, not guesswork. Validate product-market fit in weeks with AI-driven testing frameworks used by top startups. 10x faster validation.',
+    path: '/services/idea-validation-engine',
+    ogType: 'article'
+  },
   revenueAutomation: {
     title: 'Revenue Automation | Sales & Marketing Automation | OARC Digital',
     description: 'End-to-end revenue automation solutions from OARC Digital. Streamline your sales and marketing operations with AI-powered automation systems designed for growth.',
@@ -256,9 +304,9 @@ export const revenueServicesSEO: Record<string, PageSEO> = {
     ogType: 'article'
   },
   hireAIEmployees: {
-    title: 'Hire AI Employees | AI Workforce Solutions | OARC Digital Malta',
-    description: 'Scale your team with AI employees from OARC Digital. Deploy specialized AI workers for sales, support, marketing, content, and administrative tasks.',
-    path: '/services/hire-ai-employees',
+    title: 'AI Virtual Talent Hub | Autonomous AI Agents On-Demand | OARC Digital Malta',
+    description: 'Hire autonomous AI agents as on-demand team members. Production-tested agents for sales, support, compliance, real estate, and more—thinking, adapting, and executing 24/7.',
+    path: '/services/ai-virtual-talent-hub',
     ogType: 'article'
   }
 };

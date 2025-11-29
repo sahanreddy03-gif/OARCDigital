@@ -1,132 +1,51 @@
 import { useSmoothCarouselDrag } from '@/hooks/useSmoothCarouselDrag';
 
-import revenueRecognition from '@assets/Revenue_1763330734340.jpg';
-import subscriptionBilling from '@assets/stock_images/subscription_billing_17adc906.jpg';
-import paymentCollection from '@assets/stock_images/payment_processing_t_e00fc3c3.jpg';
-import leadGeneration from '@assets/stock_images/lead_generation_sale_55511085.jpg';
-import pipelineManagement from '@assets/stock_images/sales_pipeline_crm_m_8d6a8f45.jpg';
-import salesForecasting from '@assets/stock_images/sales_forecasting_pr_70ce9011.jpg';
-import marketingAutomation from '@assets/stock_images/marketing_automation_b58519c5.jpg';
-import campaignOrchestration from '@assets/stock_images/campaign_management__00b31ed0.jpg';
-import customerLifecycle from '@assets/stock_images/customer_journey_lif_fde015a8.jpg';
-import contractManagement from '@assets/stock_images/contract_management__58a29851.jpg';
-import revenueAnalytics from '@assets/stock_images/revenue_analytics_bu_e60e556f.jpg';
-import growthAnalytics from '@assets/stock_images/growth_analytics_dat_e9148f21.jpg';
-import workflowAutomation from '@assets/stock_images/workflow_automation__c66dc346.jpg';
-import dataIntegration from '@assets/stock_images/data_integration_api_6b76bada.jpg';
-import performanceTracking from '@assets/stock_images/performance_tracking_566b96fc.jpg';
-import complianceManagement from '@assets/stock_images/compliance_managemen_af0e3f1a.jpg';
-import revenueIntelligence from '@assets/stock_images/business_intelligenc_ceaf6c99.jpg';
-import funnelOptimization from '@assets/stock_images/funnel_optimization__3bced87c.jpg';
+import leadGenImage from '@assets/stock_images/lead_generation_qual_b9d50c93.jpg';
+import customerAcquisitionImage from '@assets/stock_images/customer_acquisition_38bd9c1d.jpg';
+import funnelOptimizationImage from '@assets/stock_images/sales_funnel_optimiz_42aebf8c.jpg';
+import marketingAutomationImage from '@assets/stock_images/marketing_automation_630ae165.jpg';
+import ideaValidationImage from '@assets/stock_images/startup_idea_validat_9b100223.jpg';
 
 const services = [
   {
-    title: "Revenue Recognition",
-    subtitle: "Automated ASC 606 compliance",
-    image: revenueRecognition,
-    category: "Financial Automation"
+    title: "Lead Generation & Qualification Engine",
+    subtitle: "AI-Powered Pipeline Builder",
+    description: "Stop chasing cold leads. Our engine identifies, scores, and nurtures high-intent prospects automatically—so your sales team only talks to buyers ready to convert.",
+    image: leadGenImage,
+    slug: "lead-generation-engine",
+    metrics: "3x qualified leads"
   },
   {
-    title: "Subscription Billing",
-    subtitle: "Recurring revenue management",
-    image: subscriptionBilling,
-    category: "Billing & Payments"
+    title: "Customer Acquisition Accelerator",
+    subtitle: "Multi-Channel Growth System",
+    description: "Turn ad spend into predictable revenue. AI optimizes your campaigns across every channel in real-time, cutting acquisition costs while scaling what works.",
+    image: customerAcquisitionImage,
+    slug: "customer-acquisition-accelerator",
+    metrics: "40% lower CAC"
   },
   {
-    title: "Payment Collection",
-    subtitle: "Multi-channel payment processing",
-    image: paymentCollection,
-    category: "Billing & Payments"
+    title: "Funnel Optimization Agent",
+    subtitle: "Conversion Intelligence",
+    description: "Every visitor is a revenue opportunity. Our AI continuously tests, learns, and optimizes your entire funnel—from first click to closed deal.",
+    image: funnelOptimizationImage,
+    slug: "funnel-optimization-agent",
+    metrics: "2.5x conversion rate"
   },
   {
-    title: "Lead Generation",
-    subtitle: "AI-powered prospect identification",
-    image: leadGeneration,
-    category: "Growth Engine"
+    title: "Marketing Automation Suite",
+    subtitle: "End-to-End Campaign Orchestration",
+    description: "Kill manual marketing tasks forever. Automate email sequences, social campaigns, and customer journeys with workflows that scale without extra headcount.",
+    image: marketingAutomationImage,
+    slug: "marketing-automation-suite",
+    metrics: "85% time saved"
   },
   {
-    title: "Pipeline Management",
-    subtitle: "Deal tracking & forecasting",
-    image: pipelineManagement,
-    category: "Sales Ops"
-  },
-  {
-    title: "Sales Forecasting",
-    subtitle: "Predictive revenue modeling",
-    image: salesForecasting,
-    category: "Revenue Intelligence"
-  },
-  {
-    title: "Marketing Automation",
-    subtitle: "Campaign workflow orchestration",
-    image: marketingAutomation,
-    category: "Marketing Ops"
-  },
-  {
-    title: "Campaign Orchestration",
-    subtitle: "Multi-touch attribution tracking",
-    image: campaignOrchestration,
-    category: "Marketing Ops"
-  },
-  {
-    title: "Customer Lifecycle",
-    subtitle: "Journey mapping & optimization",
-    image: customerLifecycle,
-    category: "Customer Success"
-  },
-  {
-    title: "Contract Management",
-    subtitle: "CLM & renewal automation",
-    image: contractManagement,
-    category: "Sales Ops"
-  },
-  {
-    title: "Revenue Analytics",
-    subtitle: "Real-time performance dashboards",
-    image: revenueAnalytics,
-    category: "Revenue Intelligence"
-  },
-  {
-    title: "Growth Analytics",
-    subtitle: "Cohort & retention analysis",
-    image: growthAnalytics,
-    category: "Revenue Intelligence"
-  },
-  {
-    title: "Workflow Automation",
-    subtitle: "Process optimization & triggers",
-    image: workflowAutomation,
-    category: "Operations"
-  },
-  {
-    title: "Data Integration",
-    subtitle: "CRM & ERP synchronization",
-    image: dataIntegration,
-    category: "Operations"
-  },
-  {
-    title: "Performance Tracking",
-    subtitle: "KPI monitoring & alerting",
-    image: performanceTracking,
-    category: "Revenue Intelligence"
-  },
-  {
-    title: "Compliance Management",
-    subtitle: "Regulatory audit & reporting",
-    image: complianceManagement,
-    category: "Financial Automation"
-  },
-  {
-    title: "Revenue Intelligence",
-    subtitle: "AI-driven insights & predictions",
-    image: revenueIntelligence,
-    category: "Revenue Intelligence"
-  },
-  {
-    title: "Funnel Optimization",
-    subtitle: "Conversion rate & growth tracking",
-    image: funnelOptimization,
-    category: "Growth Engine"
+    title: "Idea Validation & Growth Hacker",
+    subtitle: "Rapid Market Testing",
+    description: "Launch with confidence, not guesswork. Validate product-market fit in weeks, not months—with AI-driven testing frameworks used by top startups.",
+    image: ideaValidationImage,
+    slug: "idea-validation-engine",
+    metrics: "10x faster validation"
   },
 ];
 
@@ -140,11 +59,9 @@ export default function LetsTalkRevenueSection() {
   const duplicatedServices = [...services, ...services, ...services];
 
   return (
-    <section className="relative py-12 md:py-16 lg:py-20 overflow-hidden" data-testid="section-lets-talk-revenue">
-      {/* Premium Dark Background with Workflow Pattern */}
+    <section className="relative py-12 md:py-16 lg:py-20 overflow-hidden" data-testid="section-ai-revenue-engine">
       <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-zinc-900"></div>
       
-      {/* Subtle circuit/workflow pattern overlay */}
       <div 
         className="absolute inset-0 opacity-[0.03]"
         style={{
@@ -152,56 +69,78 @@ export default function LetsTalkRevenueSection() {
         }}
       />
       
-      {/* Gradient orbs */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#c4ff4d]/5 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-blue-500/5 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-orange-500/5 rounded-full blur-[100px] pointer-events-none" />
       
-      {/* Top accent line */}
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#c4ff4d]/30 to-transparent" />
 
       <div className="relative container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl mb-10 md:mb-14">
         <div className="text-center">
           <p className="text-xs uppercase tracking-[0.2em] text-[#c4ff4d]/70 font-medium mb-3">
-            Workflow Automation
+            Fuel Your Growth
           </p>
-          <h2 className="font-heading font-bold text-white mb-4" data-testid="text-lets-talk-revenue-heading" style={{ fontSize: 'clamp(1.75rem, 5vw, 3rem)', letterSpacing: '-0.03em', lineHeight: '1.2' }}>
-            Revenue and Workflow Automations
+          <h2 className="font-heading font-bold text-white mb-4" data-testid="text-revenue-engine-heading" style={{ fontSize: 'clamp(1.75rem, 5vw, 3rem)', letterSpacing: '-0.03em', lineHeight: '1.2' }}>
+            AI Revenue Ignition Engine
           </h2>
           <p className="text-sm md:text-base lg:text-lg font-medium text-white/60 tracking-tight max-w-3xl mx-auto leading-relaxed">
-            Automate your revenue operations and scale with AI-powered workflows
+            End-to-end automation systems that optimize pipelines, acquire customers, and validate ideas on autopilot
           </p>
         </div>
       </div>
 
-      {/* Auto-scrolling Draggable Carousel */}
       <div className="relative w-full">
         <div className="carousel-track" data-testid="revenue-carousel-track" ref={trackRef}>
           {duplicatedServices.map((service, index) => (
-            <div
+            <a
               key={index}
-              className="carousel-card group"
+              href={`/services/${service.slug}`}
+              className="carousel-card group cursor-pointer"
               data-testid={`revenue-card-${index}`}
             >
               <div className="relative w-full aspect-[3/4] overflow-hidden rounded-xl bg-slate-800 shadow-lg shadow-black/20">
                 <img
                   src={service.image}
-                  alt={`${service.title} - Revenue automation service`}
+                  alt={`${service.title} - AI Revenue Ignition Engine service`}
                   className="w-full h-full object-cover scale-110 transition-transform duration-700 group-hover:scale-115"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent"></div>
+                
+                <div className="absolute top-4 right-4">
+                  <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-[#c4ff4d]/20 text-[#c4ff4d] backdrop-blur-sm border border-[#c4ff4d]/30">
+                    {service.metrics}
+                  </span>
+                </div>
                 
                 <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6">
                   <p className="text-xs md:text-sm font-medium text-[#c4ff4d] mb-1.5 md:mb-2 uppercase tracking-wider">
                     {service.subtitle}
                   </p>
-                  <h3 className="font-heading text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold text-white leading-tight" style={{ letterSpacing: '-0.02em' }}>
+                  <h3 className="font-heading text-lg md:text-xl lg:text-2xl font-bold text-white leading-tight mb-2" style={{ letterSpacing: '-0.02em' }}>
                     {service.title}
                   </h3>
+                  <p className="text-xs md:text-sm text-white/70 line-clamp-2 leading-relaxed">
+                    {service.description}
+                  </p>
                 </div>
               </div>
-            </div>
+            </a>
           ))}
+        </div>
+      </div>
+      
+      <div className="relative container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl mt-10 md:mt-14">
+        <div className="flex justify-center">
+          <a
+            href="/services/ai-revenue-engine"
+            className="group inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-semibold rounded-full transition-all duration-300 shadow-lg shadow-orange-500/25 hover:shadow-orange-500/40"
+            data-testid="button-explore-revenue-engine"
+          >
+            <span>Explore AI Revenue Engine</span>
+            <svg className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
         </div>
       </div>
     </section>

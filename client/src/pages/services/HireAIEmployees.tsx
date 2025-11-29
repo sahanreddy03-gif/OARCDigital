@@ -1,269 +1,276 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { Link } from 'wouter';
-import { ArrowRight, CheckCircle2, Users, Code, Zap, Target } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Target, HeadphonesIcon, Brain, LayoutGrid, Megaphone, FileCheck, Calendar, Building2 } from 'lucide-react';
 import Layout from '@/components/layout/Layout';
 import SEOHead from "@/components/SEOHead";
-import { aiEmployeeServicesSEO } from "@/data/seoMetadata";
 import { createServiceSchema } from "@/utils/structuredData";
-import heroImg from '@assets/stock_images/software_development_e22831c9.jpg';
-import teamImg1 from '@assets/stock_images/artificial_intellige_ec409837.jpg';
-import teamImg2 from '@assets/stock_images/artificial_intellige_12bf09cb.jpg';
-import codingTeamImg from '@assets/stock_images/software_development_bf22fbae.jpg';
-import dataScientistsImg from '@assets/stock_images/digital_marketing_st_e4117c4b.jpg';
-import remoteTeamImg from '@assets/stock_images/software_development_5606ca42.jpg';
+
+import sdrAgent from '@assets/stock_images/elite_sales_professi_1c84b4b4.jpg';
+import supportSpecialist from '@assets/stock_images/customer_support_spe_789ecb6b.jpg';
+import dataAnalyst from '@assets/stock_images/data_analyst_profess_4f5ff172.jpg';
+import adminAgent from '@assets/stock_images/administrative_assis_da9e94eb.jpg';
+import contentStrategist from '@assets/stock_images/content_strategist_c_61044a33.jpg';
+import complianceAuditor from '@assets/stock_images/legal_compliance_off_78808712.jpg';
+import appointmentBooker from '@assets/stock_images/appointment_schedule_97373ecb.jpg';
+import realEstateAgent from '@assets/stock_images/real_estate_agent_pr_d5449235.jpg';
+
+const agents = [
+  {
+    id: 'sdr-agent',
+    slug: 'ai-sdr-agent',
+    icon: Target,
+    title: 'Sales Development Rep Agent',
+    tagline: 'Precision lead qualification with 3x conversion lift',
+    image: sdrAgent,
+    pain: 'Manual prospecting drains resources on low-quality leads, missing revenue opportunities in competitive markets. Your sales team wastes hours chasing prospects who were never going to convert.',
+    solution: 'Our production-tested SDR agent qualifies leads with precision scoring algorithms, integrating seamlessly with your CRM. Built to adapt like a seasoned rep—it learns your ideal customer profile and ruthlessly filters out time-wasters.',
+    features: ['Objection handling & crushing', 'Bilingual outreach (EN/MT)', 'Predictive lead analytics', 'CRM auto-sync'],
+    outcome: 'Achieve 3x conversions while freeing your human team to focus exclusively on high-value closes. No more wasted calls.'
+  },
+  {
+    id: 'support-specialist',
+    slug: 'ai-support-specialist',
+    icon: HeadphonesIcon,
+    title: 'Customer Support Specialist',
+    tagline: '24/7 empathetic responses, 90% query resolution',
+    image: supportSpecialist,
+    pain: 'Overloaded support queues lead to delays, frustrated customers, and eroding trust. Every minute of wait time chips away at your retention rates.',
+    solution: 'This production-tested agent delivers instant, tone-aware responses around the clock. It escalates only when genuinely needed—handling the repetitive queries that burn out your human team.',
+    features: ['Empathy detection AI', 'Knowledge base integration', 'Resolution tracking', 'Smart escalation routing'],
+    outcome: 'Boost retention by autonomously handling 90% of incoming queries. Your support team focuses on complex issues that actually need human judgment.'
+  },
+  {
+    id: 'data-analyst',
+    slug: 'ai-data-analyst',
+    icon: Brain,
+    title: 'Data Insights Analyst',
+    tagline: 'Turn data chaos into strategic dashboards',
+    image: dataAnalyst,
+    pain: 'Data overload hides critical trends, leading to flawed decisions. Your team drowns in spreadsheets while actionable insights slip through the cracks.',
+    solution: 'Our production-tested analyst crunches datasets into clear dashboards, spotting inefficiencies and opportunities with AI-powered foresight. No more guesswork—just data-driven decisions.',
+    features: ['Trend forecasting', 'Custom visualizations', 'API data pulls', 'Anomaly detection'],
+    outcome: 'Save thousands by turning raw data into strategic advantages. Make decisions in minutes that used to take weeks of analysis.'
+  },
+  {
+    id: 'admin-agent',
+    slug: 'ai-admin-agent',
+    icon: LayoutGrid,
+    title: 'Administrative Workflow Agent',
+    tagline: 'Reclaim 50% of your day from routine tasks',
+    image: adminAgent,
+    pain: 'Routine administrative tasks fragment your focus, stalling productivity. Scheduling, emails, and follow-ups consume hours that should go toward innovation.',
+    solution: 'Precision-built to automate with error-free execution, syncing seamlessly across your existing tools. From calendar management to document organization—handled without human intervention.',
+    features: ['Smart scheduling', 'Automated email responses', 'Reminder chains', 'Cross-platform sync'],
+    outcome: 'Reclaim 50% of your workday for high-value activities. Let the agent handle the administrative burden that was holding you back.'
+  },
+  {
+    id: 'content-strategist',
+    slug: 'ai-content-strategist',
+    icon: Megaphone,
+    title: 'Content Strategy Coordinator',
+    tagline: 'Transform scattered ideas into engagement engines',
+    image: contentStrategist,
+    pain: 'Ad-hoc content planning scatters your efforts and dilutes impact. Without a coherent strategy, your marketing becomes noise instead of signal.',
+    solution: 'This production-tested coordinator aligns trending topics with content calendars for cohesive, high-impact strategies. It spots what will resonate before you publish.',
+    features: ['Idea generation AI', 'Performance optimization', 'Multi-channel planning', 'Trend analysis'],
+    outcome: 'Transform scattered content ideas into consistent engagement engines. Every piece of content works harder because it is part of a strategy.'
+  },
+  {
+    id: 'compliance-auditor',
+    slug: 'ai-compliance-auditor',
+    icon: FileCheck,
+    title: 'Compliance & Legal Auditor',
+    tagline: 'GDPR bulletproof, real-time risk scanning',
+    image: complianceAuditor,
+    pain: 'EU regulations like GDPR expose serious risks, inviting fines without vigilant oversight. Manual compliance checks miss gaps that could cost you millions.',
+    solution: 'Our production-tested auditor scans operations and contracts in real-time, flagging issues with complete audit-ready documentation trails. Built for Malta and EU regulatory frameworks.',
+    features: ['Regulation update tracking', 'Risk scoring', 'Compliance automation', 'Audit trail generation'],
+    outcome: 'Operate bulletproof against regulatory risk, avoiding costly pitfalls before they become headlines. Peace of mind, automated.'
+  },
+  {
+    id: 'appointment-booker',
+    slug: 'ai-appointment-booker',
+    icon: Calendar,
+    title: 'Appointment Booker Agent',
+    tagline: 'Reduce no-shows 20%, intelligent scheduling',
+    image: appointmentBooker,
+    pain: 'Scheduling mishaps cause no-shows, lost opportunities, and frustrated clients. Double-bookings and timezone confusion destroy your professional image.',
+    solution: 'This production-tested agent predicts and manages bookings intelligently, learning patterns to optimize availability and reduce friction for both sides.',
+    features: ['Calendar sync across platforms', 'Automated reminders', 'Availability optimization', 'Timezone handling'],
+    outcome: 'Reduce no-shows by 20% while streamlining operations. Never lose another deal because someone forgot to confirm.'
+  },
+  {
+    id: 'real-estate-agent',
+    slug: 'ai-real-estate-agent',
+    icon: Building2,
+    title: 'Real Estate Sales Specialist',
+    tagline: 'Malta-focused, bilingual deal acceleration',
+    image: realEstateAgent,
+    pain: 'Market volatility and expat hurdles prolong deals in specialized niches like Malta. Language barriers and permit complexities kill promising transactions.',
+    solution: 'Bilingual agent that qualifies leads, simulates negotiations, and predicts permit timelines. Built specifically for Mediterranean real estate dynamics and Malta unique market.',
+    features: ['Data-driven market insights', 'Deal tracking', 'Psych-adapted closing', 'Permit timeline prediction'],
+    outcome: 'Accelerate closures 100x with tailored efficiency. Close deals that competitors cannot even navigate.'
+  }
+];
 
 export default function HireAIEmployees() {
-  const [currentService, setCurrentService] = useState(0);
-
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const services = [
-    {
-      icon: Code,
-      title: 'AI Engineering Teams',
-      description: 'Expert AI engineers and data scientists',
-      items: [
-        'Machine Learning Engineers',
-        'Data Scientists',
-        'AI Solution Architects',
-        'MLOps Specialists',
-        'Full-Stack AI Developers'
-      ]
-    },
-    {
-      icon: Zap,
-      title: 'Rapid Scale & Deploy',
-      description: 'Add specialized talent in days, not months',
-      items: [
-        'Seamless Integration',
-        'Your Timezone',
-        'Agile Methodology',
-        'Proven Track Record',
-        'Cultural Alignment'
-      ]
-    },
-    {
-      icon: Target,
-      title: 'Specialized Expertise',
-      description: 'Deep AI domain knowledge',
-      items: [
-        'Generative AI Development',
-        'Computer Vision',
-        'Natural Language Processing',
-        'Predictive Analytics',
-        'Custom ML Models'
-      ]
-    },
-    {
-      icon: Users,
-      title: 'Flexible Engagement',
-      description: 'Scale teams up or down as needed',
-      items: [
-        'Dedicated Teams',
-        'Staff Augmentation',
-        'Project-Based Work',
-        'Long-Term Partnerships',
-        'Flexible Contracts'
-      ]
-    }
-  ];
-
-  const benefits = [
-    {
-      title: 'Top 1% AI Talent',
-      description: 'Access rigorously vetted AI engineers and data scientists who have proven expertise in building production AI systems.'
-    },
-    {
-      title: 'Cost-Effective Scaling',
-      description: 'Get senior-level AI talent at a fraction of traditional hiring costs while maintaining quality and productivity.'
-    },
-    {
-      title: 'Faster Time to Market',
-      description: 'Accelerate your AI roadmap with experienced teams who can hit the ground running on day one.'
-    },
-    {
-      title: 'Seamless Integration',
-      description: 'Our teams work in your timezone, use your tools, and integrate with your existing workflows from day one.'
-    },
-    {
-      title: 'Proven Delivery Model',
-      description: 'Benefit from our battle-tested nearshore delivery model trusted by Fortune 500 companies for 4+ years.'
-    }
-  ];
-
-  const caseStudies = [
-    {
-      title: 'Heritage Luxury Group: Real-Time Fashion Operations with AI',
-      industry: 'Luxury Retail',
-      description: 'SAP automation across multiple premium fashion brands delivering real-time data validations.',
-      image: teamImg1,
-      slug: 'heritage-luxury-group'
-    },
-    {
-      title: 'HealthPath AI: 83% Faster Patient Intake',
-      industry: 'Healthcare',
-      description: 'AI-powered document processing enabling families to access healthcare services faster.',
-      image: teamImg2,
-      slug: 'healthpath-ai'
-    }
-  ];
-
-  const nextService = () => {
-    setCurrentService((prev) => (prev + 1) % services.length);
-  };
-
   return (
     <Layout>
       <SEOHead
-        title={aiEmployeeServicesSEO.hireAIEmployees.title}
-        description={aiEmployeeServicesSEO.hireAIEmployees.description}
-        canonicalUrl={`https://oarcdigital.com${aiEmployeeServicesSEO.hireAIEmployees.path}`}
+        title="AI Virtual Talent Hub | Autonomous AI Agents On-Demand | OARC Digital Malta"
+        description="Hire autonomous AI agents as on-demand team members. Our production-tested agents think, adapt, and execute 24/7 while slashing your hiring costs. Malta-based support."
+        canonicalUrl="https://oarcdigital.com/services/ai-virtual-talent-hub"
         ogType="article"
         structuredData={createServiceSchema(
-          "AI Engineering Team Services",
-          aiEmployeeServicesSEO.hireAIEmployees.description,
-          "AI Talent Recruitment"
+          "AI Virtual Talent Hub",
+          "Hire autonomous AI agents as on-demand team members—thinking, adapting, and executing 24/7 while slashing your hiring costs.",
+          "AI Talent Solutions"
         )}
-        schemaId="service-hire-ai-employees"
+        schemaId="service-ai-virtual-talent-hub"
       />
+      
       {/* Hero Section */}
-      <section className="relative h-[70vh] min-h-[500px] flex items-center">
-        <div className="absolute inset-0">
-          <img 
-            src={heroImg} 
-            alt="AI engineering team collaboration"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-transparent"></div>
-        </div>
+      <section className="relative py-20 md:py-28 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-zinc-900 via-zinc-800 to-black"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_20%,rgba(196,255,77,0.15),transparent_50%)]"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_70%_80%,rgba(196,255,77,0.08),transparent_50%)]"></div>
         
-        <div className="relative z-10 w-full px-6">
-          <div className="max-w-6xl mx-auto">
-            <div className="mb-6"></div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6" data-testid="heading-hire-ai">
-              Hire AI Engineering Teams
-            </h1>
-
-            <h2 className="text-2xl md:text-3xl font-black text-white mb-6">
-              Access top AI talent across the Americas—all in your timezone
-            </h2>
-
-            <p className="text-lg text-white/90 mb-8 max-w-3xl">
-              Accelerate your AI roadmap with dedicated engineering teams that integrate seamlessly with your operations. From machine learning to generative AI, we provide the talent you need to succeed.
-            </p>
-
-            <Link href="/contact">
-              <button
-                className="inline-flex items-center gap-3 bg-[#5FD4C4] text-black rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2"
-                data-testid="button-build-team"
-              >
-                Build Your Team
-                <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center">
-                  <ArrowRight className="h-5 w-5 text-white" />
-                </div>
-              </button>
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Section 1: Image Left + Text Right */}
-      <section className="py-14 px-4 bg-white">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <img 
-                src={codingTeamImg} 
-                alt="AI engineering team working together"
-                className="w-full rounded-3xl h-[500px] object-cover"
-              />
-            </div>
-            <div>
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-black mb-6">
-                Elite AI engineers ready to join your team
-              </h2>
-              <p className="text-base text-gray-700 mb-6">
-                Access a curated network of top-tier AI engineering talent across the Americas. Our teams bring deep expertise in machine learning, generative AI, computer vision, and natural language processing—all working in your timezone.
-              </p>
-              <p className="text-base text-gray-700 mb-8">
-                Every engineer is rigorously vetted for technical excellence, communication skills, and cultural fit. From day one, they integrate seamlessly into your workflows, using your tools and following your processes.
-              </p>
-              <Link href="/contact">
-                <button
-                  className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2"
-                  data-testid="button-explore-talent"
-                >
-                  Explore Our Talent
-                  <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
-                    <ArrowRight className="h-5 w-5 text-black" />
-                  </div>
-                </button>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Services Carousel Section */}
-      <section className="py-14 px-4 bg-white">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-black text-black mb-2">
-            AI Engineering <span className="text-[#5FD4C4]">Expertise</span>
-          </h2>
-
-          <p className="text-base text-gray-700 mb-8">
-            Comprehensive AI talent for every stage of your journey
+        <div className="relative z-10 max-w-6xl mx-auto px-6">
+          <span className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#c4ff4d]/10 border border-[#c4ff4d]/20 rounded-full text-sm font-medium text-[#c4ff4d] mb-6">
+            <span className="w-1.5 h-1.5 bg-[#c4ff4d] rounded-full animate-pulse"></span>
+            Production-Tested AI Workforce
+          </span>
+          
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6" data-testid="heading-talent-hub" style={{ letterSpacing: '-0.04em' }}>
+            AI Virtual Talent Hub
+          </h1>
+          
+          <p className="text-xl md:text-2xl text-zinc-300 mb-8 max-w-3xl leading-relaxed">
+            Hire autonomous AI agents as on-demand team members—thinking, adapting, and executing 24/7 while slashing your hiring costs.
           </p>
+          
+          <p className="text-base text-zinc-400 mb-10 max-w-2xl">
+            Every agent is production-tested, not a prototype. Built from real-world MVPs that have already transformed how businesses operate. Malta-based support included.
+          </p>
+          
+          <Link href="/contact">
+            <button className="group inline-flex items-center gap-3 bg-[#c4ff4d] hover:bg-[#d4ff6d] text-black rounded-full pl-8 pr-4 py-4 text-base font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-[#c4ff4d]/20" data-testid="button-get-started">
+              Get Started
+              <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center group-hover:translate-x-1 transition-transform">
+                <ArrowRight className="h-5 w-5 text-[#c4ff4d]" />
+              </div>
+            </button>
+          </Link>
+        </div>
+      </section>
 
-          {/* Carousel Dots */}
-          <div className="flex items-center justify-start gap-2 mb-8">
-            {services.map((_, idx) => (
-              <button
-                key={idx}
-                onClick={() => setCurrentService(idx)}
-                className={`h-2 rounded-full transition-all ${
-                  idx === currentService ? 'w-8 bg-[#5FD4C4]' : 'w-2 bg-gray-300'
-                }`}
-                data-testid={`dot-service-${idx}`}
-              />
-            ))}
+      {/* Agents Grid */}
+      <section className="py-16 md:py-24 bg-white">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="text-center mb-14">
+            <h2 className="text-3xl md:text-4xl font-black text-black mb-4" style={{ letterSpacing: '-0.03em' }}>
+              8 Specialized Agents. <span className="text-[#c4ff4d]">Zero Guesswork.</span>
+            </h2>
+            <p className="text-lg text-zinc-600 max-w-2xl mx-auto">
+              Each agent solves a specific pain point with a production-tested solution. Click to explore the full capabilities.
+            </p>
           </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {agents.map((agent) => {
+              const Icon = agent.icon;
+              return (
+                <Link 
+                  key={agent.id} 
+                  href={`/services/${agent.slug}`}
+                  className="group"
+                >
+                  <div className="relative h-full bg-zinc-50 hover:bg-zinc-100 border border-zinc-200 hover:border-[#c4ff4d]/50 rounded-2xl p-6 transition-all duration-300 hover:shadow-lg" data-testid={`card-agent-${agent.id}`}>
+                    <div className="w-12 h-12 bg-zinc-900 rounded-xl flex items-center justify-center mb-4 group-hover:bg-[#c4ff4d] transition-colors">
+                      <Icon className="w-6 h-6 text-white group-hover:text-black transition-colors" />
+                    </div>
+                    <h3 className="text-lg font-bold text-black mb-2 group-hover:text-[#1a2e29] transition-colors">
+                      {agent.title}
+                    </h3>
+                    <p className="text-sm text-zinc-600 mb-4 line-clamp-2">
+                      {agent.tagline}
+                    </p>
+                    <div className="flex items-center gap-2 text-sm font-medium text-zinc-500 group-hover:text-[#c4ff4d] transition-colors">
+                      <span>Learn more</span>
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </div>
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+      </section>
 
-          {/* Grid of 3 Service Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-            {[0, 1, 2].map((offset) => {
-              const actualIdx = (currentService + offset) % services.length;
-              const service = services[actualIdx];
-              const Icon = service.icon;
+      {/* Featured Agents Deep Dive */}
+      <section className="py-16 md:py-24 bg-zinc-50">
+        <div className="max-w-6xl mx-auto px-6">
+          <h2 className="text-3xl md:text-4xl font-black text-black mb-12 text-center" style={{ letterSpacing: '-0.03em' }}>
+            Deep Dive: <span className="text-[#c4ff4d]">Pain → Solution → Outcome</span>
+          </h2>
+          
+          <div className="space-y-16">
+            {agents.slice(0, 4).map((agent, idx) => {
+              const Icon = agent.icon;
+              const isEven = idx % 2 === 0;
               
               return (
-                <div key={actualIdx} className="bg-white border-2 border-gray-100 rounded-3xl p-8" data-testid={`card-service-${actualIdx}`}>
-                  <div className="flex items-start justify-between mb-6">
-                    <div className="w-14 h-14 bg-black rounded-xl flex items-center justify-center">
-                      <Icon className="h-7 w-7 text-white" />
-                    </div>
-                    {offset === 2 && (
-                      <button
-                        onClick={nextService}
-                        className="text-gray-400 hover:text-black transition-colors"
-                        data-testid="button-next-service"
-                      >
-                        <ArrowRight className="h-5 w-5" />
-                      </button>
-                    )}
+                <div key={agent.id} className={`grid grid-cols-1 lg:grid-cols-2 gap-10 items-center ${!isEven ? 'lg:flex-row-reverse' : ''}`}>
+                  <div className={isEven ? 'lg:order-1' : 'lg:order-2'}>
+                    <img 
+                      src={agent.image} 
+                      alt={agent.title}
+                      className="w-full h-[400px] object-cover rounded-2xl shadow-lg"
+                    />
                   </div>
-                  <h3 className="text-xl font-bold text-black mb-3">{service.title}</h3>
-                  <p className="text-sm text-gray-600 mb-6">{service.description}</p>
-                  <ul className="space-y-3">
-                    {service.items.map((item, itemIdx) => (
-                      <li key={itemIdx} className="flex items-start gap-2">
-                        <CheckCircle2 className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
-                        <span className="text-sm text-gray-700">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  <div className={isEven ? 'lg:order-2' : 'lg:order-1'}>
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-10 h-10 bg-zinc-900 rounded-lg flex items-center justify-center">
+                        <Icon className="w-5 h-5 text-[#c4ff4d]" />
+                      </div>
+                      <h3 className="text-2xl font-bold text-black">{agent.title}</h3>
+                    </div>
+                    
+                    <div className="space-y-4 mb-6">
+                      <div>
+                        <span className="text-xs font-semibold text-red-500 uppercase tracking-wider">The Pain</span>
+                        <p className="text-sm text-zinc-700 mt-1">{agent.pain}</p>
+                      </div>
+                      <div>
+                        <span className="text-xs font-semibold text-[#c4ff4d] uppercase tracking-wider">Our Solution</span>
+                        <p className="text-sm text-zinc-700 mt-1">{agent.solution}</p>
+                      </div>
+                      <div>
+                        <span className="text-xs font-semibold text-green-600 uppercase tracking-wider">The Outcome</span>
+                        <p className="text-sm text-zinc-700 mt-1">{agent.outcome}</p>
+                      </div>
+                    </div>
+                    
+                    <div className="flex flex-wrap gap-2 mb-6">
+                      {agent.features.map((feature, fIdx) => (
+                        <span key={fIdx} className="inline-flex items-center gap-1 px-3 py-1 bg-white border border-zinc-200 rounded-full text-xs font-medium text-zinc-700">
+                          <CheckCircle2 className="w-3 h-3 text-[#c4ff4d]" />
+                          {feature}
+                        </span>
+                      ))}
+                    </div>
+                    
+                    <Link href={`/services/${agent.slug}`}>
+                      <button className="inline-flex items-center gap-2 text-sm font-semibold text-black hover:text-[#c4ff4d] transition-colors">
+                        Explore {agent.title}
+                        <ArrowRight className="w-4 h-4" />
+                      </button>
+                    </Link>
+                  </div>
                 </div>
               );
             })}
@@ -271,379 +278,51 @@ export default function HireAIEmployees() {
         </div>
       </section>
 
-      {/* Section 2: Text Left + Image Right */}
-      <section className="py-14 px-4 bg-zinc-50">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-black mb-6">
-                Seamless collaboration in your timezone
-              </h2>
-              <p className="text-base text-gray-700 mb-6">
-                Say goodbye to offshore communication barriers. Our AI engineering teams work during your business hours across North and South America, ensuring real-time collaboration when you need it most.
-              </p>
-              <p className="text-base text-gray-700 mb-8">
-                With cultural alignment and fluent English communication, our teams don't just deliver code—they become true partners in your AI journey, participating in standups, sprint planning, and strategy sessions just like in-house team members.
-              </p>
-              <Link href="/contact">
-                <button
-                  className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2"
-                  data-testid="button-meet-teams"
-                >
-                  Meet Our Teams
-                  <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
-                    <ArrowRight className="h-5 w-5 text-black" />
-                  </div>
-                </button>
-              </Link>
-            </div>
-            <div>
-              <img 
-                src={remoteTeamImg} 
-                alt="Remote AI team video conference"
-                className="w-full rounded-3xl h-[500px] object-cover"
-              />
-            </div>
+      {/* Why OARC Agents */}
+      <section className="py-16 md:py-24 bg-zinc-900">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-black text-white mb-4" style={{ letterSpacing: '-0.03em' }}>
+              Why OARC <span className="text-[#c4ff4d]">Agents?</span>
+            </h2>
+            <p className="text-lg text-zinc-400 max-w-2xl mx-auto">
+              Not prototypes. Production-tested AI built from real MVPs that have already delivered results.
+            </p>
           </div>
-        </div>
-      </section>
-
-      {/* Who This Service Is For */}
-      <section className="py-14 px-4 bg-zinc-50">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-black text-black mb-2">
-            Who <span className="text-[#5FD4C4]">We Serve</span>
-          </h2>
-          <p className="text-base text-gray-700 mb-8">
-            AI engineering teams that seamlessly integrate with your organization
-          </p>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div className="bg-white rounded-2xl p-8 border-2 border-gray-100" data-testid="use-case-startups">
-              <h3 className="text-xl font-bold text-black mb-4">Tech Startups & Scale-ups</h3>
-              <p className="text-sm text-gray-600 mb-4">
-                Move faster without the overhead of traditional hiring. Build AI features and products with experienced teams ready to ship on day one.
-              </p>
-              <ul className="space-y-2 text-sm text-gray-700">
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
-                  <span>Rapid MVP development</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
-                  <span>Cost-effective scaling</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
-                  <span>Flexible team size</span>
-                </li>
-              </ul>
-            </div>
-
-            <div className="bg-white rounded-2xl p-8 border-2 border-gray-100" data-testid="use-case-enterprise">
-              <h3 className="text-xl font-bold text-black mb-4">Enterprise Companies</h3>
-              <p className="text-sm text-gray-600 mb-4">
-                Augment existing teams with specialized AI talent for major initiatives without long-term hiring commitments.
-              </p>
-              <ul className="space-y-2 text-sm text-gray-700">
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
-                  <span>Fill critical skill gaps</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
-                  <span>Project-based augmentation</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
-                  <span>Enterprise-grade security</span>
-                </li>
-              </ul>
-            </div>
-
-            <div className="bg-white rounded-2xl p-8 border-2 border-gray-100" data-testid="use-case-saas">
-              <h3 className="text-xl font-bold text-black mb-4">SaaS & Software Companies</h3>
-              <p className="text-sm text-gray-600 mb-4">
-                Accelerate product development with ML engineers who understand SaaS metrics, user experience, and scalability challenges.
-              </p>
-              <ul className="space-y-2 text-sm text-gray-700">
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
-                  <span>AI feature development</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
-                  <span>Model optimization</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
-                  <span>Production deployment</span>
-                </li>
-              </ul>
-            </div>
-
-            <div className="bg-white rounded-2xl p-8 border-2 border-gray-100" data-testid="use-case-agencies">
-              <h3 className="text-xl font-bold text-black mb-4">Agencies & Consultancies</h3>
-              <p className="text-sm text-gray-600 mb-4">
-                Deliver AI solutions to clients without maintaining a full-time AI engineering team. Scale capacity up or down with demand.
-              </p>
-              <ul className="space-y-2 text-sm text-gray-700">
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
-                  <span>White-label AI services</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
-                  <span>Client project support</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
-                  <span>Flexible engagement</span>
-                </li>
-              </ul>
-            </div>
-
-            <div className="bg-white rounded-2xl p-8 border-2 border-gray-100" data-testid="use-case-ecommerce">
-              <h3 className="text-xl font-bold text-black mb-4">E-commerce & Retail</h3>
-              <p className="text-sm text-gray-600 mb-4">
-                Build recommendation engines, personalization systems, and inventory optimization with engineers experienced in retail AI.
-              </p>
-              <ul className="space-y-2 text-sm text-gray-700">
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
-                  <span>Recommendation systems</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
-                  <span>Demand forecasting</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
-                  <span>Visual search</span>
-                </li>
-              </ul>
-            </div>
-
-            <div className="bg-white rounded-2xl p-8 border-2 border-gray-100" data-testid="use-case-healthcare">
-              <h3 className="text-xl font-bold text-black mb-4">Healthcare & Life Sciences</h3>
-              <p className="text-sm text-gray-600 mb-4">
-                Deploy HIPAA-compliant AI solutions with engineers experienced in healthcare data, medical imaging, and clinical workflows.
-              </p>
-              <ul className="space-y-2 text-sm text-gray-700">
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
-                  <span>Clinical data analysis</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
-                  <span>Medical imaging AI</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
-                  <span>HIPAA compliance</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Featured Case Studies Section */}
-      <section className="py-14 px-4 bg-white">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-black text-black mb-2">
-            Client <span className="text-[#5FD4C4]">Success Stories</span>
-          </h2>
-
-          <p className="text-base text-gray-700 mb-8">
-            Real results from companies that scaled with OARC Digital AI teams
-          </p>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {caseStudies.map((study, idx) => (
-              <Link key={idx} href={`/case-studies/${study.slug}`}>
-                <div className="group bg-white border-2 border-gray-100 rounded-3xl overflow-hidden hover:border-[#5FD4C4] transition-all hover-elevate cursor-pointer" data-testid={`card-case-study-${study.slug}`}>
-                  <div className="relative h-64 overflow-hidden">
-                    <img 
-                      src={study.image} 
-                      alt={study.title}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                    <div className="absolute top-4 left-4 bg-[#5FD4C4] text-black text-xs font-bold px-3 py-1.5 rounded-full">
-                      {study.industry}
-                    </div>
-                  </div>
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold text-black mb-2 group-hover:text-[#ea580c] transition-colors">
-                      {study.title}
-                    </h3>
-                    <p className="text-sm text-gray-600 mb-4">
-                      {study.description}
-                    </p>
-                    <div className="flex items-center gap-2 text-[#ea580c] font-semibold text-sm">
-                      Read Case Study
-                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                    </div>
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Section 3: Image Left + Text Right */}
-      <section className="py-14 px-4 bg-zinc-50">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <img 
-                src={dataScientistsImg} 
-                alt="Data scientists analyzing ML models"
-                className="w-full rounded-3xl h-[500px] object-cover"
-              />
-            </div>
-            <div>
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-black mb-6">
-                Proven track record with Fortune 500 companies
-              </h2>
-              <p className="text-base text-gray-700 mb-6">
-                For over 4 years, we've helped industry leaders scale their AI capabilities through our nearshore delivery model. From startups to Fortune 500 enterprises, our teams have delivered production-grade AI systems that drive real business value.
-              </p>
-              <p className="text-base text-gray-700 mb-8">
-                Whether you need to accelerate time-to-market, fill critical skill gaps, or scale capacity for a major initiative, our flexible engagement models adapt to your needs—from dedicated teams to project-based augmentation.
-              </p>
-              <Link href="/contact">
-                <button
-                  className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2"
-                  data-testid="button-view-case-studies"
-                >
-                  View Case Studies
-                  <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
-                    <ArrowRight className="h-5 w-5 text-black" />
-                  </div>
-                </button>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Related Services / Internal CTAs */}
-      <section className="py-14 px-4 bg-white">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-black text-black mb-2">
-            Amplify Your <span className="text-[#5FD4C4]">AI Impact</span>
-          </h2>
-          <p className="text-base text-gray-700 mb-8">
-            Pair AI engineering teams with these strategic services for comprehensive business transformation
-          </p>
-
+          
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <Link href="/services/ai-consulting">
-              <div className="group bg-zinc-50 rounded-2xl p-8 border-2 border-gray-100 hover:border-[#5FD4C4] transition-all hover-elevate cursor-pointer" data-testid="related-service-consulting">
-                <div className="flex items-start justify-between mb-4">
-                  <h3 className="text-xl font-bold text-black group-hover:text-[#ea580c] transition-colors">AI Consulting</h3>
-                  <ArrowRight className="h-5 w-5 text-[#5FD4C4] group-hover:translate-x-1 transition-transform" />
-                </div>
-                <p className="text-sm text-gray-600 mb-4">
-                  Start with strategic AI consulting to develop your roadmap before building your AI engineering team.
-                </p>
-                <div className="text-sm text-[#ea580c] font-semibold">Explore AI Strategy →</div>
-              </div>
-            </Link>
-
-            <Link href="/services/revenue-automation">
-              <div className="group bg-zinc-50 rounded-2xl p-8 border-2 border-gray-100 hover:border-[#5FD4C4] transition-all hover-elevate cursor-pointer" data-testid="related-service-automation">
-                <div className="flex items-start justify-between mb-4">
-                  <h3 className="text-xl font-bold text-black group-hover:text-[#ea580c] transition-colors">Revenue Automation</h3>
-                  <ArrowRight className="h-5 w-5 text-[#5FD4C4] group-hover:translate-x-1 transition-transform" />
-                </div>
-                <p className="text-sm text-gray-600 mb-4">
-                  Let our AI teams build automated revenue workflows that transform your operations from lead to cash.
-                </p>
-                <div className="text-sm text-[#ea580c] font-semibold">View Automation →</div>
-              </div>
-            </Link>
-
-            <Link href="/services/web-design">
-              <div className="group bg-zinc-50 rounded-2xl p-8 border-2 border-gray-100 hover:border-[#5FD4C4] transition-all hover-elevate cursor-pointer" data-testid="related-service-web">
-                <div className="flex items-start justify-between mb-4">
-                  <h3 className="text-xl font-bold text-black group-hover:text-[#ea580c] transition-colors">Web Design</h3>
-                  <ArrowRight className="h-5 w-5 text-[#5FD4C4] group-hover:translate-x-1 transition-transform" />
-                </div>
-                <p className="text-sm text-gray-600 mb-4">
-                  Combine AI-powered development with high-converting web design for complete digital experiences.
-                </p>
-                <div className="text-sm text-[#ea580c] font-semibold">Explore Web Design →</div>
-              </div>
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Benefits Section */}
-      <section className="py-14 px-4 bg-zinc-50">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-black text-black mb-2">
-            Why <span className="text-[#5FD4C4]">OARC Digital</span>
-          </h2>
-
-          <p className="text-base text-gray-700 mb-8">
-            The smarter way to build AI capabilities
-          </p>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {benefits.map((benefit, idx) => (
-              <div key={idx} className="bg-zinc-50 rounded-2xl p-6" data-testid={`benefit-${idx}`}>
-                <h3 className="text-lg font-bold text-black mb-3">{benefit.title}</h3>
-                <p className="text-sm text-gray-600">{benefit.description}</p>
-              </div>
-            ))}
+            <div className="bg-zinc-800/50 border border-zinc-700 rounded-2xl p-8">
+              <div className="text-4xl font-black text-[#c4ff4d] mb-3">24/7</div>
+              <h3 className="text-lg font-bold text-white mb-2">Always On</h3>
+              <p className="text-sm text-zinc-400">Your AI workforce never sleeps, never takes holidays, never calls in sick. Consistent output around the clock.</p>
+            </div>
+            <div className="bg-zinc-800/50 border border-zinc-700 rounded-2xl p-8">
+              <div className="text-4xl font-black text-[#c4ff4d] mb-3">90%</div>
+              <h3 className="text-lg font-bold text-white mb-2">Cost Reduction</h3>
+              <p className="text-sm text-zinc-400">Slash hiring costs dramatically. No benefits, no training costs, no turnover. Just consistent execution.</p>
+            </div>
+            <div className="bg-zinc-800/50 border border-zinc-700 rounded-2xl p-8">
+              <div className="text-4xl font-black text-[#c4ff4d] mb-3">Malta</div>
+              <h3 className="text-lg font-bold text-white mb-2">Local Support</h3>
+              <p className="text-sm text-zinc-400">Based in Malta with EU compliance built-in. Human support when you need it, in your timezone.</p>
+            </div>
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-4 bg-gradient-to-br from-zinc-900 via-zinc-800 to-black text-white">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black mb-6">
-            Ready to Build Your AI Dream Team?
+      <section className="py-16 md:py-24 bg-[#c4ff4d]">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <h2 className="text-3xl md:text-4xl font-black text-black mb-6" style={{ letterSpacing: '-0.03em' }}>
+            Ready to Build Your AI Workforce?
           </h2>
-          <p className="text-lg text-zinc-300 mb-8 max-w-2xl mx-auto">
-            Get access to top AI engineering talent and accelerate your roadmap.
+          <p className="text-lg text-black/70 mb-8 max-w-2xl mx-auto">
+            Book a strategy call with our Malta team. We will analyze your operations and recommend which agents will deliver the highest ROI for your specific situation.
           </p>
           <Link href="/contact">
-            <button
-              className="inline-flex items-center gap-3 bg-[#5FD4C4] text-black rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2"
-              data-testid="button-start-hiring"
-            >
-              Start Hiring
-              <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center">
-                <ArrowRight className="h-5 w-5 text-white" />
-              </div>
-            </button>
-          </Link>
-        </div>
-      </section>
-
-      {/* Get In Touch Section */}
-      <section className="py-14 px-4 bg-white">
-        <div className="max-w-6xl mx-auto text-center">
-          <h2 className="text-2xl md:text-3xl font-black text-black mb-4">
-            Get In Touch
-          </h2>
-          <p className="text-base text-gray-700 mb-6 max-w-2xl mx-auto">
-            Let's discuss how our AI engineering teams can help you achieve your goals faster.
-          </p>
-          <Link href="/contact">
-            <button
-              className="inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2"
-              data-testid="button-contact-us"
-            >
-              Contact Us
-              <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+            <button className="group inline-flex items-center gap-3 bg-black hover:bg-zinc-800 text-white rounded-full pl-8 pr-4 py-4 text-base font-semibold transition-all duration-300" data-testid="button-book-strategy-call">
+              Book Strategy Call
+              <div className="w-10 h-10 bg-[#c4ff4d] rounded-full flex items-center justify-center group-hover:translate-x-1 transition-transform">
                 <ArrowRight className="h-5 w-5 text-black" />
               </div>
             </button>
