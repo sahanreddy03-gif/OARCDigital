@@ -7,13 +7,14 @@ import ScrollReveal from '@/components/ScrollReveal';
 import { motion } from 'framer-motion';
 import * as Icons from 'lucide-react';
 
-import aiSDRImage from '@assets/1_1763228440276.avif';
-import aiSupportImage from '@assets/2_1763228440277.jpg';
-import aiMarketingImage from '@assets/4_1763228440279.avif';
-import aiWriterImage from '@assets/7_1763228440280.avif';
-import aiAnalystImage from '@assets/8_1763228440280.avif';
-import aiFinancialImage from '@assets/12_1763228440282.jpg';
-import aiAdminImage from '@assets/3_1763228440278.jpg';
+import sdrAgentImage from '@assets/stock_images/elite_sales_professi_1c84b4b4.jpg';
+import supportSpecialistImage from '@assets/stock_images/customer_support_spe_789ecb6b.jpg';
+import dataAnalystImage from '@assets/stock_images/data_analyst_profess_4f5ff172.jpg';
+import adminAgentImage from '@assets/stock_images/administrative_assis_da9e94eb.jpg';
+import contentStrategistImage from '@assets/stock_images/content_strategist_c_61044a33.jpg';
+import complianceAuditorImage from '@assets/stock_images/legal_compliance_off_78808712.jpg';
+import appointmentBookerImage from '@assets/stock_images/appointment_schedule_97373ecb.jpg';
+import realEstateAgentImage from '@assets/stock_images/real_estate_agent_pr_d5449235.jpg';
 
 interface ServiceContent {
   title: string;
@@ -42,13 +43,14 @@ interface ServiceContent {
 }
 
 const HERO_IMAGES: Record<string, string> = {
-  'ai-sdr': aiSDRImage,
-  'ai-support': aiSupportImage,
-  'ai-marketing': aiMarketingImage,
-  'ai-writer': aiWriterImage,
-  'ai-analyst': aiAnalystImage,
-  'ai-financial-analyst': aiFinancialImage,
-  'ai-admin': aiAdminImage,
+  'ai-sdr-agent': sdrAgentImage,
+  'ai-support-specialist': supportSpecialistImage,
+  'ai-data-analyst': dataAnalystImage,
+  'ai-admin-agent': adminAgentImage,
+  'ai-content-strategist': contentStrategistImage,
+  'ai-compliance-auditor': complianceAuditorImage,
+  'ai-appointment-booker': appointmentBookerImage,
+  'ai-real-estate-agent': realEstateAgentImage,
 };
 
 export default function AIEmployeeService() {
