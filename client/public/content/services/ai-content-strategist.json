@@ -1,0 +1,89 @@
+{
+  "title": "AI Content Strategist",
+  "subtitle": "Create high-performing content at 10x the velocity",
+  "description": "Never stare at a blank page again. Our AI content strategist researches, outlines, writes, and optimizes content that ranks—all aligned with your brand voice and SEO goals.",
+  "heroImage": "ai-content-strategist",
+  "benefits": [
+    {
+      "title": "10x Content Output",
+      "description": "Produce blogs, social posts, and marketing copy in minutes instead of hours without sacrificing quality."
+    },
+    {
+      "title": "SEO-First Approach",
+      "description": "Every piece is optimized for search with keyword research, meta tags, and internal linking built in."
+    },
+    {
+      "title": "Brand Voice Consistency",
+      "description": "Learns your tone, style, and messaging to produce content that sounds authentically you."
+    },
+    {
+      "title": "Data-Driven Topics",
+      "description": "Identifies trending topics and content gaps using competitor analysis and search data."
+    }
+  ],
+  "features": [
+    {
+      "icon": "Search",
+      "title": "Topic Research",
+      "description": "Analyzes search trends and competitors to identify high-opportunity topics."
+    },
+    {
+      "icon": "FileText",
+      "title": "Long-Form Writing",
+      "description": "Produces comprehensive articles, guides, and white papers."
+    },
+    {
+      "icon": "Share2",
+      "title": "Social Content",
+      "description": "Creates platform-optimized posts for LinkedIn, Twitter, and Instagram."
+    },
+    {
+      "icon": "Mail",
+      "title": "Email Sequences",
+      "description": "Writes nurture campaigns, newsletters, and promotional emails."
+    },
+    {
+      "icon": "TrendingUp",
+      "title": "SEO Optimization",
+      "description": "Handles keyword placement, meta descriptions, and schema markup."
+    },
+    {
+      "icon": "Repeat",
+      "title": "Content Repurposing",
+      "description": "Transforms blogs into social posts, videos scripts, and more."
+    }
+  ],
+  "useCases": [
+    {
+      "title": "Blog Program",
+      "description": "Maintain a consistent publishing cadence with SEO-optimized articles that drive organic traffic."
+    },
+    {
+      "title": "Social Media",
+      "description": "Keep feeds active with engaging posts that build audience and drive engagement."
+    },
+    {
+      "title": "Sales Enablement",
+      "description": "Create case studies, one-pagers, and battle cards that help close deals faster."
+    }
+  ],
+  "integrations": [
+    "WordPress",
+    "Webflow",
+    "Ghost",
+    "Buffer",
+    "Hootsuite",
+    "Sprout Social",
+    "Mailchimp",
+    "HubSpot",
+    "Semrush",
+    "Ahrefs",
+    "Surfer SEO",
+    "Grammarly"
+  ],
+  "metrics": {
+    "efficiency": "10x content velocity",
+    "speed": "30 min per article",
+    "cost": "90% cost reduction"
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "title": "AI Data Insights Analyst",
+  "subtitle": "Turn raw data into actionable intelligence in seconds",
+  "description": "Stop waiting days for reports. Our AI analyst connects to your data sources, identifies patterns humans miss, and delivers insights in plain English—empowering faster, smarter decisions.",
+  "heroImage": "ai-data-analyst",
+  "benefits": [
+    {
+      "title": "Real-Time Dashboards",
+      "description": "Auto-generated visualizations that update live, showing the metrics that matter most to your business."
+    },
+    {
+      "title": "Natural Language Queries",
+      "description": "Ask questions in plain English like 'What drove last month's revenue spike?' and get instant answers."
+    },
+    {
+      "title": "Anomaly Detection",
+      "description": "Proactively alerts you to unusual patterns, opportunities, and potential issues before they become problems."
+    },
+    {
+      "title": "Predictive Analytics",
+      "description": "Forecast trends, churn risk, and revenue projections using machine learning models trained on your data."
+    }
+  ],
+  "features": [
+    {
+      "icon": "Database",
+      "title": "Universal Connectors",
+      "description": "Connects to any data source—databases, spreadsheets, APIs, and SaaS tools."
+    },
+    {
+      "icon": "BarChart2",
+      "title": "Auto-Visualization",
+      "description": "Automatically selects the best chart types and layouts for your data."
+    },
+    {
+      "icon": "Brain",
+      "title": "Pattern Recognition",
+      "description": "ML algorithms that surface correlations and trends humans might miss."
+    },
+    {
+      "icon": "Bell",
+      "title": "Smart Alerts",
+      "description": "Get notified when KPIs hit thresholds or anomalies are detected."
+    },
+    {
+      "icon": "FileText",
+      "title": "Automated Reports",
+      "description": "Schedule and distribute reports to stakeholders automatically."
+    },
+    {
+      "icon": "Lock",
+      "title": "Data Security",
+      "description": "Enterprise-grade encryption and role-based access controls."
+    }
+  ],
+  "useCases": [
+    {
+      "title": "Executive Reporting",
+      "description": "Auto-generate board-ready reports with key metrics, trends, and recommendations."
+    },
+    {
+      "title": "Marketing Attribution",
+      "description": "Understand which channels and campaigns drive real revenue, not just clicks."
+    },
+    {
+      "title": "Operations Optimization",
+      "description": "Identify bottlenecks, inefficiencies, and opportunities to reduce costs."
+    }
+  ],
+  "integrations": [
+    "Google Analytics",
+    "Mixpanel",
+    "Amplitude",
+    "Stripe",
+    "PostgreSQL",
+    "MySQL",
+    "BigQuery",
+    "Snowflake",
+    "Salesforce",
+    "HubSpot",
+    "Shopify",
+    "Google Sheets",
+    "Excel"
+  ],
+  "metrics": {
+    "efficiency": "10x faster insights",
+    "speed": "Real-time updates",
+    "cost": "No BI team needed"
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "title": "AI Real Estate Specialist",
+  "subtitle": "Your 24/7 property expert for the Malta market",
+  "description": "Capture every lead, answer every inquiry, and nurture every prospect around the clock. Our AI real estate specialist is trained on Malta's property market to qualify buyers and book viewings automatically.",
+  "heroImage": "ai-real-estate-agent",
+  "benefits": [
+    {
+      "title": "Malta Market Expertise",
+      "description": "Trained on local regulations, neighborhoods, and property trends to answer Malta-specific questions accurately."
+    },
+    {
+      "title": "24/7 Lead Capture",
+      "description": "Never miss an inquiry—responds to portal leads, website visitors, and social media messages instantly."
+    },
+    {
+      "title": "Intelligent Matching",
+      "description": "Matches buyers to properties based on budget, location, and lifestyle preferences with high accuracy."
+    },
+    {
+      "title": "Automated Viewings",
+      "description": "Qualifies leads and books property viewings directly into your calendar without manual intervention."
+    }
+  ],
+  "features": [
+    {
+      "icon": "Home",
+      "title": "Property Matching",
+      "description": "Smart algorithms that match buyers to ideal properties from your listings."
+    },
+    {
+      "icon": "MessageSquare",
+      "title": "Multilingual Support",
+      "description": "Communicates in English, Maltese, Italian, and other languages common in Malta."
+    },
+    {
+      "icon": "MapPin",
+      "title": "Area Knowledge",
+      "description": "Deep knowledge of Sliema, St. Julian's, Valletta, and all Malta regions."
+    },
+    {
+      "icon": "Calculator",
+      "title": "Price Intelligence",
+      "description": "Provides accurate market valuations and rental yield estimates."
+    },
+    {
+      "icon": "FileText",
+      "title": "Document Prep",
+      "description": "Generates property briefs, comparison sheets, and viewing schedules."
+    },
+    {
+      "icon": "TrendingUp",
+      "title": "Market Updates",
+      "description": "Keeps prospects informed about new listings and price changes."
+    }
+  ],
+  "useCases": [
+    {
+      "title": "Portal Lead Response",
+      "description": "Instantly engage leads from property portals with personalized property recommendations."
+    },
+    {
+      "title": "Buyer Qualification",
+      "description": "Screen and qualify buyers before viewings to maximize agent productivity."
+    },
+    {
+      "title": "Investment Advisory",
+      "description": "Provide rental yield calculations and investment insights to foreign buyers."
+    }
+  ],
+  "integrations": [
+    "Malta Property Portals",
+    "Facebook Marketplace",
+    "WhatsApp",
+    "Google Calendar",
+    "Outlook",
+    "Mailchimp",
+    "HubSpot",
+    "Salesforce",
+    "DocuSign",
+    "Google Maps",
+    "Zapier",
+    "Custom CRM"
+  ],
+  "metrics": {
+    "efficiency": "Malta-focused",
+    "speed": "< 1 min response",
+    "cost": "3x more viewings"
+  }
+}

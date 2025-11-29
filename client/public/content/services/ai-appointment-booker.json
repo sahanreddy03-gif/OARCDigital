@@ -1,0 +1,89 @@
+{
+  "title": "AI Appointment Booker",
+  "subtitle": "Fill your calendar with qualified meetings on autopilot",
+  "description": "Stop playing calendar ping-pong. Our AI appointment booker handles the entire scheduling process—from initial outreach to confirmation and reminders—reducing no-shows by 20%.",
+  "heroImage": "ai-appointment-booker",
+  "benefits": [
+    {
+      "title": "20% Fewer No-Shows",
+      "description": "Smart reminders, easy rescheduling, and pre-meeting prep reduce missed appointments dramatically."
+    },
+    {
+      "title": "Zero Scheduling Friction",
+      "description": "Finds optimal times, handles timezone conversions, and books instantly—no back-and-forth."
+    },
+    {
+      "title": "Intelligent Prioritization",
+      "description": "Schedules high-value prospects first and protects your focus time from low-priority meetings."
+    },
+    {
+      "title": "Automated Follow-Up",
+      "description": "Sends confirmations, reminders, and post-meeting follow-ups without manual intervention."
+    }
+  ],
+  "features": [
+    {
+      "icon": "Calendar",
+      "title": "Smart Scheduling",
+      "description": "Learns your preferences and finds optimal meeting times automatically."
+    },
+    {
+      "icon": "Clock",
+      "title": "Timezone Intelligence",
+      "description": "Handles global scheduling with automatic timezone detection and conversion."
+    },
+    {
+      "icon": "Bell",
+      "title": "Multi-Touch Reminders",
+      "description": "Sends email, SMS, and calendar reminders to reduce no-shows."
+    },
+    {
+      "icon": "RefreshCw",
+      "title": "Easy Rescheduling",
+      "description": "One-click rescheduling that finds new times instantly."
+    },
+    {
+      "icon": "FileText",
+      "title": "Pre-Meeting Briefs",
+      "description": "Compiles attendee info and context before each meeting."
+    },
+    {
+      "icon": "BarChart",
+      "title": "Meeting Analytics",
+      "description": "Track booking rates, no-shows, and time-to-meeting metrics."
+    }
+  ],
+  "useCases": [
+    {
+      "title": "Sales Demos",
+      "description": "Let prospects self-book demos while AI qualifies and prepares briefings."
+    },
+    {
+      "title": "Client Consultations",
+      "description": "Streamline client booking with intake forms and automatic prep documents."
+    },
+    {
+      "title": "Internal Meetings",
+      "description": "Find time across busy calendars without the scheduling tennis."
+    }
+  ],
+  "integrations": [
+    "Google Calendar",
+    "Outlook",
+    "Calendly",
+    "Cal.com",
+    "Zoom",
+    "Google Meet",
+    "Microsoft Teams",
+    "Salesforce",
+    "HubSpot",
+    "Slack",
+    "Twilio",
+    "SendGrid"
+  ],
+  "metrics": {
+    "efficiency": "20% fewer no-shows",
+    "speed": "Instant booking",
+    "cost": "5 hrs/week saved"
+  }
+}

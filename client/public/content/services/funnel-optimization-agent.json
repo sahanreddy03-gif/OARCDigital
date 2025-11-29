@@ -1,0 +1,89 @@
+{
+  "title": "Funnel Optimization Agent",
+  "subtitle": "Double your conversion rate with AI-powered optimization",
+  "description": "Stop losing leads at every stage. Our AI continuously analyzes your funnel, identifies bottlenecks, and implements fixes—turning more visitors into customers.",
+  "heroImage": "funnel-optimization-agent",
+  "benefits": [
+    {
+      "title": "2.5x Conversion Rate",
+      "description": "AI identifies and fixes conversion killers across your entire funnel automatically."
+    },
+    {
+      "title": "Real-Time Optimization",
+      "description": "Continuous testing and improvement, not quarterly audits."
+    },
+    {
+      "title": "Personalized Experiences",
+      "description": "Dynamic content and offers tailored to each visitor's behavior and intent."
+    },
+    {
+      "title": "Reduced Drop-Off",
+      "description": "AI intervention at critical moments to recover abandoning visitors."
+    }
+  ],
+  "features": [
+    {
+      "icon": "GitBranch",
+      "title": "Funnel Analytics",
+      "description": "Visual mapping of every conversion path and drop-off point."
+    },
+    {
+      "icon": "MousePointer",
+      "title": "Behavior Tracking",
+      "description": "Heatmaps, session recordings, and click tracking for insights."
+    },
+    {
+      "icon": "Layers",
+      "title": "Dynamic Content",
+      "description": "Personalize pages based on visitor source, behavior, and stage."
+    },
+    {
+      "icon": "AlertCircle",
+      "title": "Exit Intent",
+      "description": "Smart interventions that recover abandoning visitors."
+    },
+    {
+      "icon": "Repeat",
+      "title": "Retargeting",
+      "description": "Automated campaigns that bring back unconverted visitors."
+    },
+    {
+      "icon": "Gauge",
+      "title": "Speed Optimization",
+      "description": "Page load improvements that boost conversion rates."
+    }
+  ],
+  "useCases": [
+    {
+      "title": "E-Commerce Checkout",
+      "description": "Reduce cart abandonment and increase order completion rates."
+    },
+    {
+      "title": "SaaS Onboarding",
+      "description": "Improve free trial to paid conversion with optimized flows."
+    },
+    {
+      "title": "Lead Generation",
+      "description": "Increase form completion rates and lead quality."
+    }
+  ],
+  "integrations": [
+    "Google Analytics",
+    "Hotjar",
+    "Mixpanel",
+    "Optimizely",
+    "VWO",
+    "Unbounce",
+    "Instapage",
+    "Shopify",
+    "WooCommerce",
+    "Stripe",
+    "Segment",
+    "Intercom"
+  ],
+  "metrics": {
+    "efficiency": "2.5x conversion",
+    "speed": "Real-time fixes",
+    "cost": "50% more revenue"
+  }
+}
