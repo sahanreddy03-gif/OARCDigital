@@ -1,10 +1,12 @@
 import { useEffect } from 'react';
 import { Link } from 'wouter';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, TrendingUp, Target, Filter, Zap, Lightbulb, Clock, Globe } from 'lucide-react';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import ScrollReveal from '@/components/ScrollReveal';
 import { motion } from 'framer-motion';
+import { AnimatedGridBackground } from '@/components/ui/animated-grid-background';
+import { GlassCard } from '@/components/ui/glass-card';
 
 import leadGenImage from '@assets/stock_images/lead_generation_qual_b9d50c93.jpg';
 import customerAcquisitionImage from '@assets/stock_images/customer_acquisition_38bd9c1d.jpg';
@@ -18,35 +20,40 @@ const services = [
     metric: "3x qualified leads",
     description: "AI-powered lead identification, qualification, and nurturing at scale.",
     image: leadGenImage,
-    slug: "lead-generation-engine"
+    slug: "lead-generation-engine",
+    icon: Target
   },
   {
     title: "Customer Acquisition Accelerator",
     metric: "40% lower CAC",
     description: "Optimize every stage of acquisition from ad creative to conversion.",
     image: customerAcquisitionImage,
-    slug: "customer-acquisition-accelerator"
+    slug: "customer-acquisition-accelerator",
+    icon: TrendingUp
   },
   {
     title: "Funnel Optimization Agent",
     metric: "2.5x conversion rate",
     description: "Continuous AI analysis and optimization of your entire funnel.",
     image: funnelOptimizationImage,
-    slug: "funnel-optimization-agent"
+    slug: "funnel-optimization-agent",
+    icon: Filter
   },
   {
     title: "Marketing Automation Suite",
     metric: "85% time saved",
     description: "Unified platform for email, social, ads, and analytics automation.",
     image: marketingAutomationImage,
-    slug: "marketing-automation-suite"
+    slug: "marketing-automation-suite",
+    icon: Zap
   },
   {
     title: "Idea Validation Engine",
     metric: "10x faster testing",
     description: "Test market demand before building with AI-powered research.",
     image: ideaValidationImage,
-    slug: "idea-validation-engine"
+    slug: "idea-validation-engine",
+    icon: Lightbulb
   },
 ];
 
@@ -59,9 +66,10 @@ export default function RevenueHub() {
     <div className="min-h-screen bg-black text-white">
       <Navigation />
 
-      {/* Hero Section */}
-      <section className="relative pt-32 pb-20 px-6">
-        <div className="absolute inset-0 bg-gradient-to-b from-zinc-900/30 via-black to-black" />
+      {/* Hero Section with Animated Background */}
+      <section className="relative pt-32 pb-24 px-6 overflow-hidden">
+        <AnimatedGridBackground gridOpacity={0.02} showScanLine={true} showParticles={true} />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/50 to-black pointer-events-none" />
         
         <div className="relative max-w-7xl mx-auto z-10">
           <ScrollReveal className="text-center max-w-4xl mx-auto">
@@ -69,10 +77,10 @@ export default function RevenueHub() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="inline-block mb-6"
+              className="inline-block mb-8"
             >
-              <span className="px-4 py-2 bg-white/5 border border-white/10 text-[10px] font-medium text-white/60 uppercase tracking-[0.2em]">
-                Revenue Engine
+              <span className="px-4 py-2 bg-white/[0.03] backdrop-blur-sm border border-white/10 text-[10px] font-medium text-white/60 uppercase tracking-[0.2em]">
+                Revenue Ignition Engine
               </span>
             </motion.div>
             
@@ -80,7 +88,7 @@ export default function RevenueHub() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.1] tracking-tight mb-6"
+              className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.05] tracking-tight mb-8"
             >
               Growth systems that run while you sleep
             </motion.h1>
@@ -89,45 +97,77 @@ export default function RevenueHub() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-lg md:text-xl text-zinc-400 leading-relaxed max-w-2xl mx-auto"
+              className="text-xl md:text-2xl text-white/60 leading-relaxed max-w-2xl mx-auto mb-10"
             >
               End-to-end automation engines that optimize pipelines, acquire customers, and validate ideas on autopilot.
             </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+            >
+              <Link href="/contact">
+                <button className="group px-10 py-5 bg-white text-black font-semibold inline-flex items-center gap-3 hover:bg-white/90 transition-all duration-300" data-testid="button-get-started">
+                  Get Started
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </button>
+              </Link>
+            </motion.div>
           </ScrollReveal>
         </div>
       </section>
 
       {/* Services Grid */}
-      <section className="py-20 px-6 border-t border-white/5">
+      <section className="py-24 px-6 bg-zinc-950 border-t border-white/5">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <ScrollReveal>
+            <div className="text-center mb-16">
+              <p className="text-[10px] uppercase tracking-[0.3em] text-zinc-500 mb-4">Solutions</p>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+                5 Revenue Engines
+              </h2>
+              <p className="text-lg text-zinc-500 max-w-2xl mx-auto">
+                Each engine solves a specific growth challenge with AI-powered precision
+              </p>
+            </div>
+          </ScrollReveal>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => (
               <ScrollReveal key={index} delay={index * 0.1}>
                 <Link href={`/services/${service.slug}`}>
-                  <motion.div
-                    whileHover={{ y: -8 }}
-                    transition={{ duration: 0.3 }}
-                    className="group cursor-pointer"
-                    data-testid={`service-card-${service.slug}`}
-                  >
-                    <div className="relative aspect-[4/3] overflow-hidden mb-4">
+                  <GlassCard className="cursor-pointer h-full" glowOnHover={true}>
+                    <div className="relative aspect-[4/3] overflow-hidden">
                       <img
                         src={service.image}
                         alt={service.title}
                         className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
+                      
+                      {/* Icon Badge */}
+                      <div className="absolute top-4 left-4">
+                        <div className="w-10 h-10 bg-white/[0.1] backdrop-blur-sm border border-white/10 flex items-center justify-center">
+                          <service.icon className="w-5 h-5 text-white/70" />
+                        </div>
+                      </div>
+                      
+                      {/* Metric Badge */}
                       <div className="absolute bottom-4 left-4 right-4">
                         <p className="text-[10px] uppercase tracking-[0.2em] text-white/50 mb-1">{service.metric}</p>
                       </div>
                     </div>
-                    <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-white/80 transition-colors">{service.title}</h3>
-                    <p className="text-sm text-zinc-500 leading-relaxed mb-4">{service.description}</p>
-                    <div className="flex items-center gap-2 text-sm text-white/60 group-hover:text-white transition-colors">
-                      <span>Learn more</span>
-                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    
+                    <div className="p-6">
+                      <h3 className="text-lg font-semibold text-white mb-2">{service.title}</h3>
+                      <p className="text-sm text-zinc-500 leading-relaxed mb-4">{service.description}</p>
+                      <div className="flex items-center gap-2 text-sm text-white/60 group-hover:text-white transition-colors">
+                        <span>Learn more</span>
+                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                      </div>
                     </div>
-                  </motion.div>
+                  </GlassCard>
                 </Link>
               </ScrollReveal>
             ))}
@@ -136,10 +176,12 @@ export default function RevenueHub() {
       </section>
 
       {/* Key Metrics */}
-      <section className="py-20 px-6 bg-zinc-950 border-t border-white/5">
+      <section className="py-24 px-6 bg-black border-t border-white/5 relative">
+        <div className="absolute inset-0 bg-gradient-to-b from-zinc-950/30 via-black to-black pointer-events-none" />
         <ScrollReveal>
-          <div className="max-w-7xl mx-auto">
+          <div className="relative max-w-7xl mx-auto">
             <div className="text-center mb-16">
+              <p className="text-[10px] uppercase tracking-[0.3em] text-zinc-500 mb-4">Results</p>
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
                 Results That Speak
               </h2>
@@ -148,12 +190,12 @@ export default function RevenueHub() {
               </p>
             </div>
             
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-white/5">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {[
-                { value: '3x', label: 'Lead Volume' },
-                { value: '40%', label: 'Lower CAC' },
-                { value: '2.5x', label: 'Conversion' },
-                { value: '85%', label: 'Time Saved' },
+                { value: '3x', label: 'Lead Volume', icon: Target },
+                { value: '40%', label: 'Lower CAC', icon: TrendingUp },
+                { value: '2.5x', label: 'Conversion', icon: Filter },
+                { value: '85%', label: 'Time Saved', icon: Clock },
               ].map((metric, index) => (
                 <motion.div
                   key={index}
@@ -161,10 +203,16 @@ export default function RevenueHub() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="bg-zinc-950 p-8 text-center"
                 >
-                  <div className="text-3xl md:text-4xl font-bold text-white mb-2">{metric.value}</div>
-                  <div className="text-xs text-zinc-500 uppercase tracking-[0.2em]">{metric.label}</div>
+                  <GlassCard className="p-8 text-center" glowOnHover={true} borderPulse={index === 0}>
+                    <div className="flex justify-center mb-3">
+                      <div className="w-10 h-10 bg-white/[0.05] border border-white/10 flex items-center justify-center">
+                        <metric.icon className="w-4 h-4 text-white/60" />
+                      </div>
+                    </div>
+                    <div className="text-3xl md:text-4xl font-bold text-white mb-2">{metric.value}</div>
+                    <div className="text-xs text-zinc-500 uppercase tracking-[0.2em]">{metric.label}</div>
+                  </GlassCard>
                 </motion.div>
               ))}
             </div>
@@ -172,29 +220,79 @@ export default function RevenueHub() {
         </ScrollReveal>
       </section>
 
-      {/* CTA */}
-      <section className="py-24 px-6 border-t border-white/5">
-        <ScrollReveal>
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              Ready to accelerate growth?
-            </h2>
-            <p className="text-zinc-500 mb-10 max-w-xl mx-auto">
-              Deploy your revenue engine in days, not months.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/contact">
-                <button className="group px-10 py-4 bg-white text-black font-medium inline-flex items-center justify-center gap-2 hover:bg-white/90 transition-all duration-300" data-testid="button-get-started">
-                  Get Started
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </button>
-              </Link>
-              <Link href="/services">
-                <button className="px-10 py-4 bg-transparent border border-white/20 text-white font-medium hover:bg-white/5 transition-all duration-300" data-testid="button-all-services">
-                  All Services
-                </button>
-              </Link>
+      {/* Why Revenue Automation */}
+      <section className="py-24 px-6 bg-zinc-950 border-t border-white/5">
+        <div className="max-w-6xl mx-auto">
+          <ScrollReveal>
+            <div className="text-center mb-16">
+              <p className="text-[10px] uppercase tracking-[0.3em] text-zinc-500 mb-4">The Advantage</p>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+                Why Automate Revenue
+              </h2>
+              <p className="text-lg text-zinc-500 max-w-2xl mx-auto">
+                Manual growth is slow and expensive. AI-powered automation scales without limits.
+              </p>
             </div>
+          </ScrollReveal>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              { value: '24/7', label: 'Always Running', icon: Clock, description: 'Your growth engine never stops. Campaigns run, leads nurture, and funnels optimize around the clock.' },
+              { value: 'AI', label: 'Self-Optimizing', icon: Zap, description: 'Machine learning continuously improves performance. Every interaction makes the system smarter.' },
+              { value: 'EU', label: 'Malta Based', icon: Globe, description: 'Based in Malta with EU compliance. Real humans available when you need strategic guidance.' },
+            ].map((stat, index) => (
+              <ScrollReveal key={index} delay={index * 0.1}>
+                <GlassCard className="p-10 text-center" glowOnHover={true}>
+                  <div className="flex justify-center mb-4">
+                    <div className="w-12 h-12 bg-white/[0.05] border border-white/10 flex items-center justify-center">
+                      <stat.icon className="w-5 h-5 text-white/60" />
+                    </div>
+                  </div>
+                  <div className="text-4xl md:text-5xl font-bold text-white mb-2">{stat.value}</div>
+                  <h3 className="text-sm font-medium text-white/80 mb-3">{stat.label}</h3>
+                  <p className="text-xs text-zinc-500">{stat.description}</p>
+                </GlassCard>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-32 px-6 bg-black border-t border-white/5 relative overflow-hidden">
+        <AnimatedGridBackground gridOpacity={0.02} showScanLine={true} showParticles={true} />
+        <div className="absolute inset-0 bg-gradient-radial from-white/[0.02] via-transparent to-transparent pointer-events-none" />
+        
+        <ScrollReveal>
+          <div className="relative max-w-4xl mx-auto text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <p className="text-[10px] uppercase tracking-[0.3em] text-zinc-500 mb-6">Get Started</p>
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8 leading-[1.1]">
+                Ready to accelerate growth?
+              </h2>
+              <p className="text-xl text-zinc-400 mb-12 max-w-2xl mx-auto leading-relaxed">
+                Deploy your revenue engine in days, not months.
+              </p>
+              
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link href="/contact">
+                  <button className="group px-12 py-5 bg-white text-black font-semibold inline-flex items-center justify-center gap-3 hover:bg-white/90 transition-all duration-300" data-testid="button-get-started-footer">
+                    Get Started
+                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  </button>
+                </Link>
+                <Link href="/services">
+                  <button className="px-12 py-5 bg-white/[0.03] backdrop-blur-sm border border-white/10 text-white font-medium hover:bg-white/[0.06] hover:border-white/20 transition-all duration-300" data-testid="button-all-services">
+                    All Services
+                  </button>
+                </Link>
+              </div>
+            </motion.div>
           </div>
         </ScrollReveal>
       </section>

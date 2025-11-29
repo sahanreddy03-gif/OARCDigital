@@ -1,9 +1,13 @@
 import { useEffect } from 'react';
 import { Link } from 'wouter';
-import { ArrowRight, CheckCircle2, Target, HeadphonesIcon, Brain, LayoutGrid, Megaphone, FileCheck, Calendar, Building2 } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Target, HeadphonesIcon, Brain, LayoutGrid, Megaphone, FileCheck, Calendar, Building2, Zap, Clock, Globe } from 'lucide-react';
 import Layout from '@/components/layout/Layout';
 import SEOHead from "@/components/SEOHead";
 import { createServiceSchema } from "@/utils/structuredData";
+import { motion } from 'framer-motion';
+import ScrollReveal from '@/components/ScrollReveal';
+import { AnimatedGridBackground } from '@/components/ui/animated-grid-background';
+import { GlassCard } from '@/components/ui/glass-card';
 
 import sdrAgent from '@assets/stock_images/elite_sales_professi_1c84b4b4.jpg';
 import supportSpecialist from '@assets/stock_images/customer_support_spe_789ecb6b.jpg';
@@ -19,97 +23,89 @@ const agents = [
     id: 'sdr-agent',
     slug: 'ai-sdr-agent',
     icon: Target,
-    title: 'Sales Development Rep Agent',
-    tagline: 'Precision lead qualification with 3x conversion lift',
+    title: 'Sales Development Rep',
+    tagline: '3x conversion lift',
     image: sdrAgent,
-    pain: 'Manual prospecting drains resources on low-quality leads, missing revenue opportunities in competitive markets. Your sales team wastes hours chasing prospects who were never going to convert.',
-    solution: 'Our production-tested SDR agent qualifies leads with precision scoring algorithms, integrating seamlessly with your CRM. Built to adapt like a seasoned rep—it learns your ideal customer profile and ruthlessly filters out time-wasters.',
-    features: ['Objection handling & crushing', 'Bilingual outreach (EN/MT)', 'Predictive lead analytics', 'CRM auto-sync'],
-    outcome: 'Achieve 3x conversions while freeing your human team to focus exclusively on high-value closes. No more wasted calls.'
+    pain: 'Manual prospecting drains resources on low-quality leads.',
+    solution: 'Precision scoring algorithms qualify leads with CRM integration.',
+    outcome: '3x conversions, zero wasted calls.'
   },
   {
     id: 'support-specialist',
     slug: 'ai-support-specialist',
     icon: HeadphonesIcon,
-    title: 'Customer Support Specialist',
-    tagline: '24/7 empathetic responses, 90% query resolution',
+    title: 'Support Specialist',
+    tagline: '90% query resolution',
     image: supportSpecialist,
-    pain: 'Overloaded support queues lead to delays, frustrated customers, and eroding trust. Every minute of wait time chips away at your retention rates.',
-    solution: 'This production-tested agent delivers instant, tone-aware responses around the clock. It escalates only when genuinely needed—handling the repetitive queries that burn out your human team.',
-    features: ['Empathy detection AI', 'Knowledge base integration', 'Resolution tracking', 'Smart escalation routing'],
-    outcome: 'Boost retention by autonomously handling 90% of incoming queries. Your support team focuses on complex issues that actually need human judgment.'
+    pain: 'Overloaded queues erode customer trust.',
+    solution: 'Instant, tone-aware responses around the clock.',
+    outcome: '90% queries resolved autonomously.'
   },
   {
     id: 'data-analyst',
     slug: 'ai-data-analyst',
     icon: Brain,
     title: 'Data Insights Analyst',
-    tagline: 'Turn data chaos into strategic dashboards',
+    tagline: 'Chaos to clarity',
     image: dataAnalyst,
-    pain: 'Data overload hides critical trends, leading to flawed decisions. Your team drowns in spreadsheets while actionable insights slip through the cracks.',
-    solution: 'Our production-tested analyst crunches datasets into clear dashboards, spotting inefficiencies and opportunities with AI-powered foresight. No more guesswork—just data-driven decisions.',
-    features: ['Trend forecasting', 'Custom visualizations', 'API data pulls', 'Anomaly detection'],
-    outcome: 'Save thousands by turning raw data into strategic advantages. Make decisions in minutes that used to take weeks of analysis.'
+    pain: 'Data overload hides critical trends.',
+    solution: 'AI-powered dashboards spot inefficiencies.',
+    outcome: 'Decisions in minutes, not weeks.'
   },
   {
     id: 'admin-agent',
     slug: 'ai-admin-agent',
     icon: LayoutGrid,
-    title: 'Administrative Workflow Agent',
-    tagline: 'Reclaim 50% of your day from routine tasks',
+    title: 'Administrative Agent',
+    tagline: '50% time reclaimed',
     image: adminAgent,
-    pain: 'Routine administrative tasks fragment your focus, stalling productivity. Scheduling, emails, and follow-ups consume hours that should go toward innovation.',
-    solution: 'Precision-built to automate with error-free execution, syncing seamlessly across your existing tools. From calendar management to document organization—handled without human intervention.',
-    features: ['Smart scheduling', 'Automated email responses', 'Reminder chains', 'Cross-platform sync'],
-    outcome: 'Reclaim 50% of your workday for high-value activities. Let the agent handle the administrative burden that was holding you back.'
+    pain: 'Routine tasks fragment your focus.',
+    solution: 'Error-free automation across tools.',
+    outcome: '50% of workday reclaimed.'
   },
   {
     id: 'content-strategist',
     slug: 'ai-content-strategist',
     icon: Megaphone,
-    title: 'Content Strategy Coordinator',
-    tagline: 'Transform scattered ideas into engagement engines',
+    title: 'Content Strategist',
+    tagline: 'Ideas to impact',
     image: contentStrategist,
-    pain: 'Ad-hoc content planning scatters your efforts and dilutes impact. Without a coherent strategy, your marketing becomes noise instead of signal.',
-    solution: 'This production-tested coordinator aligns trending topics with content calendars for cohesive, high-impact strategies. It spots what will resonate before you publish.',
-    features: ['Idea generation AI', 'Performance optimization', 'Multi-channel planning', 'Trend analysis'],
-    outcome: 'Transform scattered content ideas into consistent engagement engines. Every piece of content works harder because it is part of a strategy.'
+    pain: 'Ad-hoc planning scatters efforts.',
+    solution: 'Align trends with content calendars.',
+    outcome: 'Consistent engagement engines.'
   },
   {
     id: 'compliance-auditor',
     slug: 'ai-compliance-auditor',
     icon: FileCheck,
-    title: 'Compliance & Legal Auditor',
-    tagline: 'GDPR bulletproof, real-time risk scanning',
+    title: 'Compliance Auditor',
+    tagline: 'GDPR bulletproof',
     image: complianceAuditor,
-    pain: 'EU regulations like GDPR expose serious risks, inviting fines without vigilant oversight. Manual compliance checks miss gaps that could cost you millions.',
-    solution: 'Our production-tested auditor scans operations and contracts in real-time, flagging issues with complete audit-ready documentation trails. Built for Malta and EU regulatory frameworks.',
-    features: ['Regulation update tracking', 'Risk scoring', 'Compliance automation', 'Audit trail generation'],
-    outcome: 'Operate bulletproof against regulatory risk, avoiding costly pitfalls before they become headlines. Peace of mind, automated.'
+    pain: 'EU regulations expose serious risks.',
+    solution: 'Real-time scanning with audit trails.',
+    outcome: 'Bulletproof regulatory compliance.'
   },
   {
     id: 'appointment-booker',
     slug: 'ai-appointment-booker',
     icon: Calendar,
-    title: 'Appointment Booker Agent',
-    tagline: 'Reduce no-shows 20%, intelligent scheduling',
+    title: 'Appointment Booker',
+    tagline: '20% fewer no-shows',
     image: appointmentBooker,
-    pain: 'Scheduling mishaps cause no-shows, lost opportunities, and frustrated clients. Double-bookings and timezone confusion destroy your professional image.',
-    solution: 'This production-tested agent predicts and manages bookings intelligently, learning patterns to optimize availability and reduce friction for both sides.',
-    features: ['Calendar sync across platforms', 'Automated reminders', 'Availability optimization', 'Timezone handling'],
-    outcome: 'Reduce no-shows by 20% while streamlining operations. Never lose another deal because someone forgot to confirm.'
+    pain: 'Scheduling mishaps cause no-shows.',
+    solution: 'Intelligent booking with pattern learning.',
+    outcome: '20% reduction in no-shows.'
   },
   {
     id: 'real-estate-agent',
     slug: 'ai-real-estate-agent',
     icon: Building2,
-    title: 'Real Estate Sales Specialist',
-    tagline: 'Malta-focused, bilingual deal acceleration',
+    title: 'Real Estate Specialist',
+    tagline: 'Malta-focused',
     image: realEstateAgent,
-    pain: 'Market volatility and expat hurdles prolong deals in specialized niches like Malta. Language barriers and permit complexities kill promising transactions.',
-    solution: 'Bilingual agent that qualifies leads, simulates negotiations, and predicts permit timelines. Built specifically for Mediterranean real estate dynamics and Malta unique market.',
-    features: ['Data-driven market insights', 'Deal tracking', 'Psych-adapted closing', 'Permit timeline prediction'],
-    outcome: 'Accelerate closures 100x with tailored efficiency. Close deals that competitors cannot even navigate.'
+    pain: 'Market volatility prolongs deals.',
+    solution: 'Bilingual agent with permit prediction.',
+    outcome: '100x faster closures.'
   }
 ];
 
@@ -133,78 +129,116 @@ export default function HireAIEmployees() {
         schemaId="service-ai-virtual-talent-hub"
       />
       
-      {/* Hero Section */}
-      <section className="relative py-20 md:py-28 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-zinc-900 via-zinc-800 to-black"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_20%,rgba(196,255,77,0.15),transparent_50%)]"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_70%_80%,rgba(196,255,77,0.08),transparent_50%)]"></div>
+      {/* Hero Section - Elevated Monochrome */}
+      <section className="relative py-24 md:py-32 overflow-hidden bg-black">
+        <AnimatedGridBackground gridOpacity={0.02} showScanLine={true} showParticles={true} />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/50 to-black pointer-events-none" />
         
         <div className="relative z-10 max-w-6xl mx-auto px-6">
-          <span className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#c4ff4d]/10 border border-[#c4ff4d]/20 rounded-full text-sm font-medium text-[#c4ff4d] mb-6">
-            <span className="w-1.5 h-1.5 bg-[#c4ff4d] rounded-full animate-pulse"></span>
-            Production-Tested AI Workforce
-          </span>
-          
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6" data-testid="heading-talent-hub" style={{ letterSpacing: '-0.04em' }}>
-            AI Virtual Talent Hub
-          </h1>
-          
-          <p className="text-xl md:text-2xl text-zinc-300 mb-8 max-w-3xl leading-relaxed">
-            Hire autonomous AI agents as on-demand team members—thinking, adapting, and executing 24/7 while slashing your hiring costs.
-          </p>
-          
-          <p className="text-base text-zinc-400 mb-10 max-w-2xl">
-            Every agent is production-tested, not a prototype. Built from real-world MVPs that have already transformed how businesses operate. Malta-based support included.
-          </p>
-          
-          <Link href="/contact">
-            <button className="group inline-flex items-center gap-3 bg-[#c4ff4d] hover:bg-[#d4ff6d] text-black rounded-full pl-8 pr-4 py-4 text-base font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-[#c4ff4d]/20" data-testid="button-get-started">
-              Get Started
-              <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center group-hover:translate-x-1 transition-transform">
-                <ArrowRight className="h-5 w-5 text-[#c4ff4d]" />
-              </div>
-            </button>
-          </Link>
+          <ScrollReveal>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="inline-block mb-8"
+            >
+              <span className="px-4 py-2 bg-white/[0.03] backdrop-blur-sm border border-white/10 text-[10px] font-medium text-white/60 uppercase tracking-[0.2em]">
+                Production-Tested AI Workforce
+              </span>
+            </motion.div>
+            
+            <motion.h1 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-[1.05] tracking-tight" 
+              data-testid="heading-talent-hub"
+            >
+              AI Virtual Talent Hub
+            </motion.h1>
+            
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="text-xl md:text-2xl text-white/60 mb-6 max-w-3xl leading-relaxed"
+            >
+              Hire autonomous AI agents as on-demand team members—thinking, adapting, and executing 24/7 while slashing your hiring costs.
+            </motion.p>
+            
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="text-base text-zinc-500 mb-10 max-w-2xl"
+            >
+              Every agent is production-tested, not a prototype. Built from real-world MVPs that have already transformed how businesses operate.
+            </motion.p>
+            
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+            >
+              <Link href="/contact">
+                <button className="group px-10 py-5 bg-white text-black font-semibold inline-flex items-center gap-3 hover:bg-white/90 transition-all duration-300" data-testid="button-get-started">
+                  Get Started
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </button>
+              </Link>
+            </motion.div>
+          </ScrollReveal>
         </div>
       </section>
 
-      {/* Agents Grid */}
-      <section className="py-16 md:py-24 bg-white">
+      {/* Agents Grid - Enhanced Cards */}
+      <section className="py-20 md:py-28 bg-zinc-950 border-t border-white/5">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="text-center mb-14">
-            <h2 className="text-3xl md:text-4xl font-black text-black mb-4" style={{ letterSpacing: '-0.03em' }}>
-              8 Specialized Agents. <span className="text-[#c4ff4d]">Zero Guesswork.</span>
-            </h2>
-            <p className="text-lg text-zinc-600 max-w-2xl mx-auto">
-              Each agent solves a specific pain point with a production-tested solution. Click to explore the full capabilities.
-            </p>
-          </div>
+          <ScrollReveal>
+            <div className="text-center mb-16">
+              <p className="text-[10px] uppercase tracking-[0.3em] text-zinc-500 mb-4">Select Your Agent</p>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+                8 Specialized Agents
+              </h2>
+              <p className="text-lg text-zinc-500 max-w-2xl mx-auto">
+                Each agent solves a specific pain point with production-tested precision
+              </p>
+            </div>
+          </ScrollReveal>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {agents.map((agent) => {
+            {agents.map((agent, index) => {
               const Icon = agent.icon;
               return (
-                <Link 
-                  key={agent.id} 
-                  href={`/services/${agent.slug}`}
-                  className="group"
-                >
-                  <div className="relative h-full bg-zinc-50 hover:bg-zinc-100 border border-zinc-200 hover:border-[#c4ff4d]/50 rounded-2xl p-6 transition-all duration-300 hover:shadow-lg" data-testid={`card-agent-${agent.id}`}>
-                    <div className="w-12 h-12 bg-zinc-900 rounded-xl flex items-center justify-center mb-4 group-hover:bg-[#c4ff4d] transition-colors">
-                      <Icon className="w-6 h-6 text-white group-hover:text-black transition-colors" />
-                    </div>
-                    <h3 className="text-lg font-bold text-black mb-2 group-hover:text-[#1a2e29] transition-colors">
-                      {agent.title}
-                    </h3>
-                    <p className="text-sm text-zinc-600 mb-4 line-clamp-2">
-                      {agent.tagline}
-                    </p>
-                    <div className="flex items-center gap-2 text-sm font-medium text-zinc-500 group-hover:text-[#c4ff4d] transition-colors">
-                      <span>Learn more</span>
-                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                    </div>
-                  </div>
-                </Link>
+                <ScrollReveal key={agent.id} delay={index * 0.05}>
+                  <Link href={`/services/${agent.slug}`} className="block h-full">
+                    <GlassCard className="p-6 h-full cursor-pointer" glowOnHover={true}>
+                      <div className="relative aspect-[4/3] mb-5 overflow-hidden">
+                        <img 
+                          src={agent.image} 
+                          alt={agent.title}
+                          className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+                        <div className="absolute bottom-3 left-3">
+                          <div className="w-10 h-10 bg-white flex items-center justify-center">
+                            <Icon className="w-5 h-5 text-black" />
+                          </div>
+                        </div>
+                      </div>
+                      <h3 className="text-lg font-semibold text-white mb-1">
+                        {agent.title}
+                      </h3>
+                      <p className="text-sm text-zinc-500 mb-4">
+                        {agent.tagline}
+                      </p>
+                      <div className="flex items-center gap-2 text-sm text-white/60 group-hover:text-white transition-colors">
+                        <span>Explore</span>
+                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                      </div>
+                    </GlassCard>
+                  </Link>
+                </ScrollReveal>
               );
             })}
           </div>
@@ -212,122 +246,157 @@ export default function HireAIEmployees() {
       </section>
 
       {/* Featured Agents Deep Dive */}
-      <section className="py-16 md:py-24 bg-zinc-50">
-        <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl font-black text-black mb-12 text-center" style={{ letterSpacing: '-0.03em' }}>
-            Deep Dive: <span className="text-[#c4ff4d]">Pain → Solution → Outcome</span>
-          </h2>
+      <section className="py-20 md:py-28 bg-black border-t border-white/5 relative overflow-hidden">
+        <AnimatedGridBackground gridOpacity={0.01} showScanLine={false} showParticles={false} />
+        <div className="relative max-w-6xl mx-auto px-6">
+          <ScrollReveal>
+            <div className="text-center mb-16">
+              <p className="text-[10px] uppercase tracking-[0.3em] text-zinc-500 mb-4">How It Works</p>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+                Pain → Solution → Outcome
+              </h2>
+            </div>
+          </ScrollReveal>
           
-          <div className="space-y-16">
+          <div className="space-y-20">
             {agents.slice(0, 4).map((agent, idx) => {
               const Icon = agent.icon;
               const isEven = idx % 2 === 0;
               
               return (
-                <div key={agent.id} className={`grid grid-cols-1 lg:grid-cols-2 gap-10 items-center ${!isEven ? 'lg:flex-row-reverse' : ''}`}>
-                  <div className={isEven ? 'lg:order-1' : 'lg:order-2'}>
-                    <img 
-                      src={agent.image} 
-                      alt={agent.title}
-                      className="w-full h-[400px] object-cover rounded-2xl shadow-lg"
-                    />
+                <ScrollReveal key={agent.id} delay={idx * 0.1}>
+                  <div className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center`}>
+                    <div className={isEven ? 'lg:order-1' : 'lg:order-2'}>
+                      <motion.div
+                        whileHover={{ scale: 1.02 }}
+                        transition={{ duration: 0.5 }}
+                        className="relative group"
+                      >
+                        <div className="absolute -inset-4 bg-white/[0.02] blur-2xl group-hover:bg-white/[0.04] transition-all duration-700" />
+                        <div className="relative overflow-hidden aspect-[4/3]">
+                          <img 
+                            src={agent.image} 
+                            alt={agent.title}
+                            className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                          <div className="absolute inset-0 border border-white/10 group-hover:border-white/20 transition-colors" />
+                        </div>
+                      </motion.div>
+                    </div>
+                    <div className={isEven ? 'lg:order-2' : 'lg:order-1'}>
+                      <div className="flex items-center gap-4 mb-6">
+                        <div className="w-12 h-12 bg-white flex items-center justify-center">
+                          <Icon className="w-6 h-6 text-black" />
+                        </div>
+                        <h3 className="text-2xl md:text-3xl font-bold text-white">{agent.title}</h3>
+                      </div>
+                      
+                      <div className="space-y-6 mb-8">
+                        <GlassCard className="p-5" glowOnHover={false} liftOnHover={false}>
+                          <span className="text-[10px] font-semibold text-white/40 uppercase tracking-wider">The Pain</span>
+                          <p className="text-white/80 mt-1">{agent.pain}</p>
+                        </GlassCard>
+                        <GlassCard className="p-5" glowOnHover={false} liftOnHover={false}>
+                          <span className="text-[10px] font-semibold text-white/40 uppercase tracking-wider">Our Solution</span>
+                          <p className="text-white/80 mt-1">{agent.solution}</p>
+                        </GlassCard>
+                        <GlassCard className="p-5 border-white/10" glowOnHover={false} liftOnHover={false}>
+                          <span className="text-[10px] font-semibold text-white/40 uppercase tracking-wider">The Outcome</span>
+                          <p className="text-white mt-1 font-medium">{agent.outcome}</p>
+                        </GlassCard>
+                      </div>
+                      
+                      <Link href={`/services/${agent.slug}`}>
+                        <button className="group inline-flex items-center gap-2 text-sm font-medium text-white/60 hover:text-white transition-colors">
+                          Explore {agent.title}
+                          <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                        </button>
+                      </Link>
+                    </div>
                   </div>
-                  <div className={isEven ? 'lg:order-2' : 'lg:order-1'}>
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className="w-10 h-10 bg-zinc-900 rounded-lg flex items-center justify-center">
-                        <Icon className="w-5 h-5 text-[#c4ff4d]" />
-                      </div>
-                      <h3 className="text-2xl font-bold text-black">{agent.title}</h3>
-                    </div>
-                    
-                    <div className="space-y-4 mb-6">
-                      <div>
-                        <span className="text-xs font-semibold text-red-500 uppercase tracking-wider">The Pain</span>
-                        <p className="text-sm text-zinc-700 mt-1">{agent.pain}</p>
-                      </div>
-                      <div>
-                        <span className="text-xs font-semibold text-[#c4ff4d] uppercase tracking-wider">Our Solution</span>
-                        <p className="text-sm text-zinc-700 mt-1">{agent.solution}</p>
-                      </div>
-                      <div>
-                        <span className="text-xs font-semibold text-green-600 uppercase tracking-wider">The Outcome</span>
-                        <p className="text-sm text-zinc-700 mt-1">{agent.outcome}</p>
-                      </div>
-                    </div>
-                    
-                    <div className="flex flex-wrap gap-2 mb-6">
-                      {agent.features.map((feature, fIdx) => (
-                        <span key={fIdx} className="inline-flex items-center gap-1 px-3 py-1 bg-white border border-zinc-200 rounded-full text-xs font-medium text-zinc-700">
-                          <CheckCircle2 className="w-3 h-3 text-[#c4ff4d]" />
-                          {feature}
-                        </span>
-                      ))}
-                    </div>
-                    
-                    <Link href={`/services/${agent.slug}`}>
-                      <button className="inline-flex items-center gap-2 text-sm font-semibold text-black hover:text-[#c4ff4d] transition-colors">
-                        Explore {agent.title}
-                        <ArrowRight className="w-4 h-4" />
-                      </button>
-                    </Link>
-                  </div>
-                </div>
+                </ScrollReveal>
               );
             })}
           </div>
         </div>
       </section>
 
-      {/* Why OARC Agents */}
-      <section className="py-16 md:py-24 bg-zinc-900">
+      {/* Why OARC Agents - Monochrome Stats */}
+      <section className="py-20 md:py-28 bg-zinc-950 border-t border-white/5">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-black text-white mb-4" style={{ letterSpacing: '-0.03em' }}>
-              Why OARC <span className="text-[#c4ff4d]">Agents?</span>
-            </h2>
-            <p className="text-lg text-zinc-400 max-w-2xl mx-auto">
-              Not prototypes. Production-tested AI built from real MVPs that have already delivered results.
-            </p>
-          </div>
+          <ScrollReveal>
+            <div className="text-center mb-16">
+              <p className="text-[10px] uppercase tracking-[0.3em] text-zinc-500 mb-4">The Advantage</p>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+                Why OARC Agents
+              </h2>
+              <p className="text-lg text-zinc-500 max-w-2xl mx-auto">
+                Not prototypes. Production-tested AI built from real MVPs that have already delivered results.
+              </p>
+            </div>
+          </ScrollReveal>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-zinc-800/50 border border-zinc-700 rounded-2xl p-8">
-              <div className="text-4xl font-black text-[#c4ff4d] mb-3">24/7</div>
-              <h3 className="text-lg font-bold text-white mb-2">Always On</h3>
-              <p className="text-sm text-zinc-400">Your AI workforce never sleeps, never takes holidays, never calls in sick. Consistent output around the clock.</p>
-            </div>
-            <div className="bg-zinc-800/50 border border-zinc-700 rounded-2xl p-8">
-              <div className="text-4xl font-black text-[#c4ff4d] mb-3">90%</div>
-              <h3 className="text-lg font-bold text-white mb-2">Cost Reduction</h3>
-              <p className="text-sm text-zinc-400">Slash hiring costs dramatically. No benefits, no training costs, no turnover. Just consistent execution.</p>
-            </div>
-            <div className="bg-zinc-800/50 border border-zinc-700 rounded-2xl p-8">
-              <div className="text-4xl font-black text-[#c4ff4d] mb-3">Malta</div>
-              <h3 className="text-lg font-bold text-white mb-2">Local Support</h3>
-              <p className="text-sm text-zinc-400">Based in Malta with EU compliance built-in. Human support when you need it, in your timezone.</p>
-            </div>
+            {[
+              { value: '24/7', label: 'Always On', icon: Clock, description: 'Your AI workforce never sleeps, never takes holidays, never calls in sick.' },
+              { value: '90%', label: 'Cost Reduction', icon: Zap, description: 'Slash hiring costs dramatically. No benefits, no training, no turnover.' },
+              { value: 'Malta', label: 'Local Support', icon: Globe, description: 'Based in Malta with EU compliance built-in. Human support in your timezone.' },
+            ].map((stat, index) => (
+              <ScrollReveal key={index} delay={index * 0.1}>
+                <GlassCard className="p-10 text-center" glowOnHover={true} borderPulse={index === 0}>
+                  <div className="flex justify-center mb-4">
+                    <div className="w-12 h-12 bg-white/[0.05] border border-white/10 flex items-center justify-center">
+                      <stat.icon className="w-5 h-5 text-white/60" />
+                    </div>
+                  </div>
+                  <div className="text-4xl md:text-5xl font-bold text-white mb-2">{stat.value}</div>
+                  <h3 className="text-sm font-medium text-white/80 mb-3">{stat.label}</h3>
+                  <p className="text-xs text-zinc-500">{stat.description}</p>
+                </GlassCard>
+              </ScrollReveal>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-16 md:py-24 bg-[#c4ff4d]">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-3xl md:text-4xl font-black text-black mb-6" style={{ letterSpacing: '-0.03em' }}>
-            Ready to Build Your AI Workforce?
-          </h2>
-          <p className="text-lg text-black/70 mb-8 max-w-2xl mx-auto">
-            Book a strategy call with our Malta team. We will analyze your operations and recommend which agents will deliver the highest ROI for your specific situation.
-          </p>
-          <Link href="/contact">
-            <button className="group inline-flex items-center gap-3 bg-black hover:bg-zinc-800 text-white rounded-full pl-8 pr-4 py-4 text-base font-semibold transition-all duration-300" data-testid="button-book-strategy-call">
-              Book Strategy Call
-              <div className="w-10 h-10 bg-[#c4ff4d] rounded-full flex items-center justify-center group-hover:translate-x-1 transition-transform">
-                <ArrowRight className="h-5 w-5 text-black" />
+      {/* CTA Section - Clean Monochrome */}
+      <section className="py-24 md:py-32 bg-black border-t border-white/5 relative overflow-hidden">
+        <AnimatedGridBackground gridOpacity={0.02} showScanLine={true} showParticles={true} />
+        <div className="absolute inset-0 bg-gradient-radial from-white/[0.02] via-transparent to-transparent pointer-events-none" />
+        
+        <ScrollReveal>
+          <div className="relative max-w-4xl mx-auto px-6 text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <p className="text-[10px] uppercase tracking-[0.3em] text-zinc-500 mb-6">Get Started</p>
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8 leading-[1.1]">
+                Ready to Build Your AI Workforce?
+              </h2>
+              <p className="text-xl text-zinc-400 mb-12 max-w-2xl mx-auto leading-relaxed">
+                Book a strategy call with our Malta team. We'll analyze your operations and recommend which agents will deliver the highest ROI.
+              </p>
+              
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link href="/contact">
+                  <button className="group px-12 py-5 bg-white text-black font-semibold inline-flex items-center justify-center gap-3 hover:bg-white/90 transition-all duration-300" data-testid="button-book-strategy-call">
+                    Book Strategy Call
+                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  </button>
+                </Link>
+                <Link href="/services">
+                  <button className="px-12 py-5 bg-white/[0.03] backdrop-blur-sm border border-white/10 text-white font-medium hover:bg-white/[0.06] hover:border-white/20 transition-all duration-300">
+                    Explore All Services
+                  </button>
+                </Link>
               </div>
-            </button>
-          </Link>
-        </div>
+            </motion.div>
+          </div>
+        </ScrollReveal>
       </section>
     </Layout>
   );
