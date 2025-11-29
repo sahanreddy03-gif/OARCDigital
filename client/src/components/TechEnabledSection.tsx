@@ -1,10 +1,10 @@
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { 
-  Sparkles,
-  Zap,
-  Layers,
-  TrendingUp,
+  Smartphone,
+  Cog,
+  Workflow,
+  Rocket,
   ArrowRight 
 } from "lucide-react";
 
@@ -18,27 +18,27 @@ interface TechCard {
 const TechEnabledSection = () => {
   const techCards: TechCard[] = [
     {
-      title: "Streamlined from concept to completion.",
-      description: "Submit your brief, track progress in real-time, review deliverables, and approve—all from one intuitive dashboard.",
-      icon: Sparkles,
+      title: "Custom mobile apps built for your workflow.",
+      description: "From iOS to Android, we develop native and cross-platform apps that put your business in your customers' pockets—24/7 accessibility, zero friction.",
+      icon: Smartphone,
       variant: 'lime',
     },
     {
-      title: "Connects with the tools you already use.",
-      description: "Seamlessly sync with Slack, Asana, Jira, and your favorite project management platforms.",
-      icon: Zap,
+      title: "Software that removes bottlenecks.",
+      description: "We identify what slows you down and build tailored solutions—whether it's inventory tracking, client portals, or internal dashboards.",
+      icon: Cog,
       variant: 'cream',
     },
     {
-      title: "Your brand assets, always at your fingertips.",
-      description: "Centralize logos, guidelines, templates, and creative files in one organized space.",
-      icon: Layers,
+      title: "Automation that runs while you sleep.",
+      description: "Repetitive tasks drain your team. Our AI-powered workflows handle invoicing, follow-ups, and data sync so you focus on growth.",
+      icon: Workflow,
       variant: 'teal',
     },
     {
-      title: "Inspired by proven success stories.",
-      description: "Explore case studies and creative work from leading brands to spark your next campaign.",
-      icon: TrendingUp,
+      title: "Launch faster. Scale smarter.",
+      description: "OARC builds MVPs in weeks, not months. We move at startup speed with enterprise-grade reliability—Malta-based support included.",
+      icon: Rocket,
       variant: 'sage',
     },
   ];
@@ -102,13 +102,13 @@ const TechEnabledSection = () => {
                 lineHeight: '1.1' 
               }}
             >
-              Technology-powered, designed to{" "}
+              Custom solutions that{" "}
               <span className="italic font-medium" style={{ color: '#c4ff4d' }}>
-                elevate your brand
+                simplify your business
               </span>.
             </h2>
             <p className="text-base md:text-lg text-[#1a2e29]/60 leading-relaxed max-w-lg">
-              Managing creative projects has never been simpler—submit, collaborate, and deliver with ease.
+              We build mobile apps, software platforms, and AI automations tailored to how you actually work—making business easier, faster, and more profitable.
             </p>
           </div>
           <div className="flex-shrink-0">
@@ -118,7 +118,7 @@ const TechEnabledSection = () => {
                 className="bg-[#1a2e29] hover:bg-[#0f1c18] text-white font-medium rounded-full px-6 group"
                 data-testid="button-tech-learn-more"
               >
-                Explore platform
+                Start a project
                 <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
@@ -138,7 +138,7 @@ const TechEnabledSection = () => {
           >
             <div className="p-6 md:p-8 h-full flex flex-col">
               <div className={`w-11 h-11 md:w-12 md:h-12 rounded-xl ${getCardStyles('lime').iconBg} flex items-center justify-center mb-5`}>
-                <Sparkles className={`w-5 h-5 md:w-6 md:h-6 ${getCardStyles('lime').iconColor}`} strokeWidth={1.5} />
+                <Smartphone className={`w-5 h-5 md:w-6 md:h-6 ${getCardStyles('lime').iconColor}`} strokeWidth={1.5} />
               </div>
               <h3 
                 className={`font-semibold mb-3 ${getCardStyles('lime').text}`}
@@ -163,7 +163,7 @@ const TechEnabledSection = () => {
           >
             <div className="p-6 md:p-8 h-full flex flex-col">
               <div className={`w-11 h-11 md:w-12 md:h-12 rounded-xl ${getCardStyles('cream').iconBg} flex items-center justify-center mb-5`}>
-                <Zap className={`w-5 h-5 md:w-6 md:h-6 ${getCardStyles('cream').iconColor}`} strokeWidth={1.5} />
+                <Cog className={`w-5 h-5 md:w-6 md:h-6 ${getCardStyles('cream').iconColor}`} strokeWidth={1.5} />
               </div>
               <h3 
                 className={`font-semibold mb-3 ${getCardStyles('cream').text}`}
@@ -188,7 +188,7 @@ const TechEnabledSection = () => {
           >
             <div className="p-6 md:p-8 h-full flex flex-col">
               <div className={`w-11 h-11 md:w-12 md:h-12 rounded-xl ${getCardStyles('teal').iconBg} flex items-center justify-center mb-5`}>
-                <Layers className={`w-5 h-5 md:w-6 md:h-6 ${getCardStyles('teal').iconColor}`} strokeWidth={1.5} />
+                <Workflow className={`w-5 h-5 md:w-6 md:h-6 ${getCardStyles('teal').iconColor}`} strokeWidth={1.5} />
               </div>
               <h3 
                 className={`font-semibold mb-3 ${getCardStyles('teal').text}`}
@@ -213,7 +213,7 @@ const TechEnabledSection = () => {
           >
             <div className="p-6 md:p-8 h-full flex flex-col">
               <div className={`w-11 h-11 md:w-12 md:h-12 rounded-xl ${getCardStyles('sage').iconBg} flex items-center justify-center mb-5`}>
-                <TrendingUp className={`w-5 h-5 md:w-6 md:h-6 ${getCardStyles('sage').iconColor}`} strokeWidth={1.5} />
+                <Rocket className={`w-5 h-5 md:w-6 md:h-6 ${getCardStyles('sage').iconColor}`} strokeWidth={1.5} />
               </div>
               <h3 
                 className={`font-semibold mb-3 ${getCardStyles('sage').text}`}
