@@ -65,7 +65,7 @@ export default function Navigation() {
                             <div className="text-sm text-zinc-600 hover:text-[#ea580c] transition-colors py-1 cursor-pointer flex items-center justify-between group">
                               <span>{service.title}</span>
                               {service.badge && (
-                                <span className="text-xs bg-[#c4ff4d] text-zinc-900 px-2 py-0.5 rounded-full font-semibold">
+                                <span className="text-xs bg-zinc-100 text-zinc-600 px-2 py-0.5 rounded-full font-medium">
                                   {service.badge}
                                 </span>
                               )}
@@ -86,7 +86,7 @@ export default function Navigation() {
                             <div className="text-sm text-zinc-600 hover:text-[#ea580c] transition-colors py-1 cursor-pointer flex items-center justify-between group">
                               <span>{service.title}</span>
                               {service.badge && (
-                                <span className="text-xs bg-[#c4ff4d] text-zinc-900 px-2 py-0.5 rounded-full font-semibold">
+                                <span className="text-xs bg-zinc-100 text-zinc-600 px-2 py-0.5 rounded-full font-medium">
                                   {service.badge}
                                 </span>
                               )}
@@ -107,7 +107,7 @@ export default function Navigation() {
                             <div className="text-sm text-zinc-600 hover:text-[#ea580c] transition-colors py-1 cursor-pointer flex items-center justify-between group">
                               <span>{service.title}</span>
                               {service.badge && (
-                                <span className="text-xs bg-[#c4ff4d] text-zinc-900 px-2 py-0.5 rounded-full font-semibold">
+                                <span className="text-xs bg-zinc-100 text-zinc-600 px-2 py-0.5 rounded-full font-medium">
                                   {service.badge}
                                 </span>
                               )}
@@ -142,7 +142,7 @@ export default function Navigation() {
           <div className="flex items-center space-x-2 md:space-x-3">
             <Button 
               size="sm" 
-              className="rounded-full text-[10px] md:text-xs px-3 md:px-5 font-bold bg-[#c4ff4d] text-black hover:bg-[#b5ef3d] border-0" 
+              className="rounded-full text-[10px] md:text-xs px-3 md:px-5 font-bold bg-white text-black hover:bg-white/90 border-0" 
               data-testid="button-contact"
             >
               Contact Us
