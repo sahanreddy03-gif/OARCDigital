@@ -1,7 +1,7 @@
 import { useSmoothCarouselDrag } from '@/hooks/useSmoothCarouselDrag';
 
 // Import new AI employee images
-import salesDevRep from '@assets/1_1763228440276.avif';
+import salesDevRep from '@assets/stock_images/professional_sales_r_4eaf0ab8.jpg';
 import customerSupport from '@assets/2_1763228440277.jpg';
 import adminAssistant from '@assets/3_1763228440278.jpg';
 import marketingCoord from '@assets/4_1763228440279.avif';
