@@ -1,0 +1,89 @@
+{
+  "title": "Marketing Automation Suite",
+  "subtitle": "Run sophisticated campaigns that work while you sleep",
+  "description": "Eliminate manual marketing work. Our AI-powered suite handles email sequences, social posting, ad management, and reporting—giving your team back 85% of their time.",
+  "heroImage": "marketing-automation-suite",
+  "benefits": [
+    {
+      "title": "85% Time Savings",
+      "description": "Automate repetitive marketing tasks so your team can focus on strategy and creativity."
+    },
+    {
+      "title": "Always-On Campaigns",
+      "description": "24/7 marketing execution across all channels without human intervention."
+    },
+    {
+      "title": "Unified Platform",
+      "description": "One system for email, social, ads, and analytics—no more tool sprawl."
+    },
+    {
+      "title": "AI-Powered Personalization",
+      "description": "Dynamic content that adapts to each prospect's behavior and preferences."
+    }
+  ],
+  "features": [
+    {
+      "icon": "Mail",
+      "title": "Email Automation",
+      "description": "Triggered campaigns, drip sequences, and behavioral emails."
+    },
+    {
+      "icon": "Share2",
+      "title": "Social Scheduling",
+      "description": "Automated posting with AI-optimized timing and content."
+    },
+    {
+      "icon": "Megaphone",
+      "title": "Ad Management",
+      "description": "Cross-platform ad creation, optimization, and reporting."
+    },
+    {
+      "icon": "Users",
+      "title": "Lead Nurturing",
+      "description": "Intelligent sequences that move leads through your funnel."
+    },
+    {
+      "icon": "BarChart2",
+      "title": "Unified Analytics",
+      "description": "Cross-channel reporting with attribution and ROI tracking."
+    },
+    {
+      "icon": "Workflow",
+      "title": "Visual Workflows",
+      "description": "Drag-and-drop automation builder for complex campaigns."
+    }
+  ],
+  "useCases": [
+    {
+      "title": "Lead Nurturing",
+      "description": "Automated email sequences that educate and qualify leads over time."
+    },
+    {
+      "title": "Customer Onboarding",
+      "description": "Welcome sequences that drive activation and reduce churn."
+    },
+    {
+      "title": "Promotional Campaigns",
+      "description": "Coordinated multi-channel campaigns for launches and offers."
+    }
+  ],
+  "integrations": [
+    "Mailchimp",
+    "ActiveCampaign",
+    "Klaviyo",
+    "HubSpot",
+    "Salesforce Marketing Cloud",
+    "Buffer",
+    "Hootsuite",
+    "Sprout Social",
+    "Google Ads",
+    "Meta Ads",
+    "Zapier",
+    "Segment"
+  ],
+  "metrics": {
+    "efficiency": "85% time saved",
+    "speed": "24/7 execution",
+    "cost": "4x team output"
+  }
+}

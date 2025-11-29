@@ -1,0 +1,89 @@
+{
+  "title": "AI Administrative Agent",
+  "subtitle": "Automate the busywork so your team can focus on what matters",
+  "description": "Free your team from repetitive admin tasks. Our AI admin handles scheduling, document processing, data entry, and coordination—giving everyone back hours every week.",
+  "heroImage": "ai-admin-agent",
+  "benefits": [
+    {
+      "title": "50% Time Savings",
+      "description": "Automate scheduling, document processing, and data entry tasks that eat up your team's productive hours."
+    },
+    {
+      "title": "Zero Human Error",
+      "description": "Eliminate typos, missed appointments, and data entry mistakes with AI-powered accuracy."
+    },
+    {
+      "title": "Smart Prioritization",
+      "description": "Automatically organizes tasks, flags urgent items, and ensures nothing falls through the cracks."
+    },
+    {
+      "title": "Seamless Coordination",
+      "description": "Manages calendars across teams, sends reminders, and keeps everyone aligned without constant back-and-forth."
+    }
+  ],
+  "features": [
+    {
+      "icon": "Calendar",
+      "title": "Meeting Management",
+      "description": "Schedules meetings, sends invites, and handles rescheduling automatically."
+    },
+    {
+      "icon": "FileEdit",
+      "title": "Document Processing",
+      "description": "Extracts data from invoices, contracts, and forms with high accuracy."
+    },
+    {
+      "icon": "Mail",
+      "title": "Email Triage",
+      "description": "Sorts, prioritizes, and drafts responses to routine emails."
+    },
+    {
+      "icon": "ClipboardList",
+      "title": "Task Tracking",
+      "description": "Monitors deadlines, sends reminders, and updates project status."
+    },
+    {
+      "icon": "Users",
+      "title": "Team Coordination",
+      "description": "Manages shared calendars and facilitates cross-team scheduling."
+    },
+    {
+      "icon": "FolderOpen",
+      "title": "File Organization",
+      "description": "Auto-categorizes and maintains organized file structures."
+    }
+  ],
+  "useCases": [
+    {
+      "title": "Executive Support",
+      "description": "Manage complex schedules, prepare meeting briefs, and handle travel arrangements."
+    },
+    {
+      "title": "HR Operations",
+      "description": "Process applications, schedule interviews, and onboard new hires efficiently."
+    },
+    {
+      "title": "Finance Admin",
+      "description": "Process invoices, track expenses, and prepare financial reports."
+    }
+  ],
+  "integrations": [
+    "Google Workspace",
+    "Microsoft 365",
+    "Slack",
+    "Notion",
+    "Asana",
+    "Monday.com",
+    "Trello",
+    "Dropbox",
+    "DocuSign",
+    "Calendly",
+    "Zoom",
+    "QuickBooks"
+  ],
+  "metrics": {
+    "efficiency": "50% time saved",
+    "speed": "Instant processing",
+    "cost": "75% cost reduction"
+  }
+}

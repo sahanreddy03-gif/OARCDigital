@@ -1,0 +1,89 @@
+{
+  "title": "Idea Validation Engine",
+  "subtitle": "Test ideas 10x faster before building the wrong thing",
+  "description": "Stop building products nobody wants. Our AI validation engine tests market demand, runs experiments, and delivers insights—helping you validate or kill ideas in days, not months.",
+  "heroImage": "idea-validation-engine",
+  "benefits": [
+    {
+      "title": "10x Faster Validation",
+      "description": "Get market feedback in days instead of months with AI-powered research and testing."
+    },
+    {
+      "title": "Reduced Build Risk",
+      "description": "Know which ideas have legs before investing significant time and money."
+    },
+    {
+      "title": "Data-Driven Decisions",
+      "description": "Replace gut feelings with quantitative market signals and customer insights."
+    },
+    {
+      "title": "Competitive Intelligence",
+      "description": "Understand the landscape before entering with AI-powered competitor analysis."
+    }
+  ],
+  "features": [
+    {
+      "icon": "Search",
+      "title": "Market Research",
+      "description": "AI-powered analysis of market size, trends, and opportunities."
+    },
+    {
+      "icon": "Users",
+      "title": "Customer Discovery",
+      "description": "Automated surveys and interviews to understand pain points."
+    },
+    {
+      "icon": "TestTube",
+      "title": "Landing Page Tests",
+      "description": "Quick validation pages with sign-up tracking."
+    },
+    {
+      "icon": "Megaphone",
+      "title": "Ad Experiments",
+      "description": "Paid tests to measure real demand before building."
+    },
+    {
+      "icon": "Eye",
+      "title": "Competitor Analysis",
+      "description": "Deep dive into existing solutions and market gaps."
+    },
+    {
+      "icon": "FileText",
+      "title": "Validation Reports",
+      "description": "Comprehensive analysis with go/no-go recommendations."
+    }
+  ],
+  "useCases": [
+    {
+      "title": "New Product Ideas",
+      "description": "Validate market demand before committing engineering resources."
+    },
+    {
+      "title": "Feature Prioritization",
+      "description": "Test which features customers actually want and will pay for."
+    },
+    {
+      "title": "Market Entry",
+      "description": "Assess new market opportunities before expansion."
+    }
+  ],
+  "integrations": [
+    "Google Trends",
+    "SEMrush",
+    "Ahrefs",
+    "SimilarWeb",
+    "Google Ads",
+    "Meta Ads",
+    "Typeform",
+    "SurveyMonkey",
+    "Webflow",
+    "Carrd",
+    "Stripe",
+    "Gumroad"
+  ],
+  "metrics": {
+    "efficiency": "10x faster testing",
+    "speed": "7-day validation",
+    "cost": "90% less risk"
+  }
+}

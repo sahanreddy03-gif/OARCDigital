@@ -1,0 +1,89 @@
+{
+  "title": "Lead Generation Engine",
+  "subtitle": "Fill your pipeline with qualified leads on autopilot",
+  "description": "Stop chasing cold leads. Our AI-powered lead generation engine identifies, qualifies, and nurtures high-intent prospects—delivering 3x more qualified leads to your sales team.",
+  "heroImage": "lead-generation-engine",
+  "benefits": [
+    {
+      "title": "3x Qualified Lead Volume",
+      "description": "AI identifies and attracts prospects who match your ideal customer profile, not just anyone who clicks."
+    },
+    {
+      "title": "Multi-Channel Capture",
+      "description": "Generates leads from search, social, content, and outbound channels in a unified system."
+    },
+    {
+      "title": "Intelligent Scoring",
+      "description": "Machine learning models that predict which leads will convert based on behavioral signals."
+    },
+    {
+      "title": "Automated Nurturing",
+      "description": "Keeps leads warm with personalized content until they're ready to buy."
+    }
+  ],
+  "features": [
+    {
+      "icon": "Target",
+      "title": "ICP Targeting",
+      "description": "AI-defined audience segments based on your best customers."
+    },
+    {
+      "icon": "Search",
+      "title": "Intent Detection",
+      "description": "Identifies companies actively researching solutions like yours."
+    },
+    {
+      "icon": "Magnet",
+      "title": "Lead Magnets",
+      "description": "AI-generated content offers that convert visitors into leads."
+    },
+    {
+      "icon": "BarChart3",
+      "title": "Lead Scoring",
+      "description": "Predictive models that rank leads by conversion likelihood."
+    },
+    {
+      "icon": "Mail",
+      "title": "Nurture Sequences",
+      "description": "Automated email campaigns that educate and qualify leads."
+    },
+    {
+      "icon": "Zap",
+      "title": "Sales Handoff",
+      "description": "Seamless transfer to sales with full context and history."
+    }
+  ],
+  "useCases": [
+    {
+      "title": "Inbound Lead Gen",
+      "description": "Attract and capture high-intent visitors with AI-optimized landing pages and content."
+    },
+    {
+      "title": "ABM Campaigns",
+      "description": "Target specific accounts with personalized outreach at scale."
+    },
+    {
+      "title": "Event Marketing",
+      "description": "Capture and nurture leads from webinars, trade shows, and virtual events."
+    }
+  ],
+  "integrations": [
+    "HubSpot",
+    "Salesforce",
+    "Marketo",
+    "Pardot",
+    "LinkedIn Ads",
+    "Google Ads",
+    "Facebook Ads",
+    "Clearbit",
+    "ZoomInfo",
+    "Apollo",
+    "Outreach",
+    "Mailchimp"
+  ],
+  "metrics": {
+    "efficiency": "3x qualified leads",
+    "speed": "24hr pipeline",
+    "cost": "60% lower CPL"
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "title": "AI Customer Support",
+  "subtitle": "Deliver instant, accurate support that customers actually love",
+  "description": "Transform your support experience with AI that resolves 90% of tickets instantly. No more frustrated customers waiting in queues—just fast, accurate answers that scale with your growth.",
+  "heroImage": "ai-support-specialist",
+  "benefits": [
+    {
+      "title": "90% First-Contact Resolution",
+      "description": "Trained on your knowledge base, products, and past tickets to resolve issues without human intervention."
+    },
+    {
+      "title": "Zero Wait Times",
+      "description": "Instant responses 24/7 across chat, email, and social channels. No more support queues or hold music."
+    },
+    {
+      "title": "Intelligent Escalation",
+      "description": "Knows when to hand off to humans, providing full context so agents can pick up seamlessly."
+    },
+    {
+      "title": "Continuous Learning",
+      "description": "Gets smarter with every interaction, constantly improving accuracy and expanding coverage."
+    }
+  ],
+  "features": [
+    {
+      "icon": "MessageCircle",
+      "title": "Omnichannel Support",
+      "description": "Unified experience across chat, email, SMS, and social media platforms."
+    },
+    {
+      "icon": "BookOpen",
+      "title": "Knowledge Integration",
+      "description": "Learns from your docs, FAQs, and past tickets to provide accurate answers."
+    },
+    {
+      "icon": "Languages",
+      "title": "Multilingual",
+      "description": "Native support for 50+ languages without additional training."
+    },
+    {
+      "icon": "ShieldCheck",
+      "title": "Sentiment Analysis",
+      "description": "Detects frustration early and escalates to humans when needed."
+    },
+    {
+      "icon": "BarChart3",
+      "title": "Analytics Dashboard",
+      "description": "Track resolution rates, CSAT scores, and identify knowledge gaps."
+    },
+    {
+      "icon": "Workflow",
+      "title": "Ticket Automation",
+      "description": "Auto-categorize, route, and prioritize tickets based on urgency."
+    }
+  ],
+  "useCases": [
+    {
+      "title": "Tier 1 Support",
+      "description": "Handle password resets, order status, billing questions, and common troubleshooting automatically."
+    },
+    {
+      "title": "Product Onboarding",
+      "description": "Guide new users through setup, answer questions, and drive feature adoption."
+    },
+    {
+      "title": "After-Hours Coverage",
+      "description": "Maintain 24/7 support presence without overnight staffing costs."
+    }
+  ],
+  "integrations": [
+    "Zendesk",
+    "Intercom",
+    "Freshdesk",
+    "HubSpot Service Hub",
+    "Salesforce Service Cloud",
+    "Help Scout",
+    "Crisp",
+    "Slack",
+    "Microsoft Teams",
+    "Shopify",
+    "WooCommerce",
+    "Stripe"
+  ],
+  "metrics": {
+    "efficiency": "90% resolution",
+    "speed": "< 10 sec response",
+    "cost": "65% cost reduction"
+  }
+}

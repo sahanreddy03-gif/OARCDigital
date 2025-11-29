@@ -1,0 +1,89 @@
+{
+  "title": "Customer Acquisition Accelerator",
+  "subtitle": "Acquire customers faster at 40% lower cost",
+  "description": "Optimize every stage of your acquisition funnel with AI. From ad creative to landing pages to conversion optimization—reduce CAC while scaling volume.",
+  "heroImage": "customer-acquisition-accelerator",
+  "benefits": [
+    {
+      "title": "40% Lower CAC",
+      "description": "AI optimizes spend across channels, creative, and targeting to get more customers for less."
+    },
+    {
+      "title": "Faster Time to Value",
+      "description": "Accelerate the journey from first touch to paying customer with intelligent automation."
+    },
+    {
+      "title": "Predictable Growth",
+      "description": "Data-driven models that forecast acquisition costs and revenue with high accuracy."
+    },
+    {
+      "title": "Channel Optimization",
+      "description": "AI allocates budget dynamically across channels based on real-time performance."
+    }
+  ],
+  "features": [
+    {
+      "icon": "Megaphone",
+      "title": "AI Ad Creative",
+      "description": "Generate and test ad variations that resonate with your audience."
+    },
+    {
+      "icon": "Layout",
+      "title": "Landing Page AI",
+      "description": "Automatically optimize headlines, copy, and CTAs for conversion."
+    },
+    {
+      "icon": "PieChart",
+      "title": "Budget Optimization",
+      "description": "Dynamic budget allocation based on channel performance."
+    },
+    {
+      "icon": "Users",
+      "title": "Audience Intelligence",
+      "description": "Discover new high-converting audience segments automatically."
+    },
+    {
+      "icon": "TestTube",
+      "title": "Continuous Testing",
+      "description": "Always-on A/B testing with statistical significance built in."
+    },
+    {
+      "icon": "TrendingUp",
+      "title": "Attribution Modeling",
+      "description": "Understand true channel contribution with multi-touch attribution."
+    }
+  ],
+  "useCases": [
+    {
+      "title": "Paid Acquisition",
+      "description": "Scale Google, Meta, and LinkedIn ads profitably with AI optimization."
+    },
+    {
+      "title": "Organic Growth",
+      "description": "Drive SEO traffic and social engagement with AI content strategy."
+    },
+    {
+      "title": "Product-Led Growth",
+      "description": "Optimize free trial to paid conversion with behavioral triggers."
+    }
+  ],
+  "integrations": [
+    "Google Ads",
+    "Meta Ads",
+    "LinkedIn Ads",
+    "TikTok Ads",
+    "Google Analytics",
+    "Mixpanel",
+    "Amplitude",
+    "Stripe",
+    "Chargebee",
+    "Segment",
+    "Heap",
+    "Unbounce"
+  ],
+  "metrics": {
+    "efficiency": "40% lower CAC",
+    "speed": "2x faster conversion",
+    "cost": "3x ROAS improvement"
+  }
+}

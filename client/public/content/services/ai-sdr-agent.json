@@ -1,0 +1,89 @@
+{
+  "title": "AI Sales Development Rep",
+  "subtitle": "Your tireless SDR that qualifies leads and books meetings 24/7",
+  "description": "Stop losing leads to slow response times. Our AI SDR engages prospects instantly, qualifies them against your ICP, and books meetings directly into your calendar—while your human reps focus on closing deals.",
+  "heroImage": "ai-sdr-agent",
+  "benefits": [
+    {
+      "title": "Instant Lead Response",
+      "description": "Engage every inbound lead within seconds, not hours. Studies show responding in under 5 minutes increases conversion by 21x."
+    },
+    {
+      "title": "Intelligent Qualification",
+      "description": "AI-powered BANT qualification that scores leads based on your exact ICP criteria, ensuring your sales team only speaks with high-intent prospects."
+    },
+    {
+      "title": "Automated Meeting Booking",
+      "description": "Seamlessly checks calendar availability, handles timezone conversions, and books meetings directly—no back-and-forth email chains."
+    },
+    {
+      "title": "Multi-Channel Outreach",
+      "description": "Engages prospects across email, LinkedIn, and chat with personalized messaging that adapts based on engagement signals."
+    }
+  ],
+  "features": [
+    {
+      "icon": "MessageSquare",
+      "title": "Natural Conversations",
+      "description": "Human-like dialogue that builds rapport and handles objections intelligently."
+    },
+    {
+      "icon": "Target",
+      "title": "ICP Matching",
+      "description": "Custom scoring models trained on your best customers to identify high-value prospects."
+    },
+    {
+      "icon": "Calendar",
+      "title": "Smart Scheduling",
+      "description": "Integrates with your calendar to book meetings at optimal times for your team."
+    },
+    {
+      "icon": "TrendingUp",
+      "title": "Performance Analytics",
+      "description": "Track conversion rates, response times, and pipeline contribution in real-time."
+    },
+    {
+      "icon": "Zap",
+      "title": "CRM Sync",
+      "description": "Automatically logs all activities and updates lead records in your CRM."
+    },
+    {
+      "icon": "Globe",
+      "title": "24/7 Coverage",
+      "description": "Never miss a lead regardless of timezone or time of day."
+    }
+  ],
+  "useCases": [
+    {
+      "title": "Inbound Lead Response",
+      "description": "Instantly engage website visitors and form submissions with personalized qualification conversations."
+    },
+    {
+      "title": "Outbound Prospecting",
+      "description": "Execute multi-touch sequences across channels with AI-personalized messaging at scale."
+    },
+    {
+      "title": "Event Follow-Up",
+      "description": "Automatically follow up with trade show and webinar attendees to maximize event ROI."
+    }
+  ],
+  "integrations": [
+    "Salesforce",
+    "HubSpot",
+    "Pipedrive",
+    "Calendly",
+    "LinkedIn Sales Navigator",
+    "Outreach",
+    "Salesloft",
+    "Gmail",
+    "Outlook",
+    "Slack",
+    "Zoom",
+    "Google Meet"
+  ],
+  "metrics": {
+    "efficiency": "3x more meetings",
+    "speed": "< 30 sec response",
+    "cost": "80% lower CPL"
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "title": "AI Compliance Auditor",
+  "subtitle": "Stay compliant without the compliance headache",
+  "description": "Navigate GDPR, SOC 2, and industry regulations with confidence. Our AI auditor continuously monitors your systems, identifies gaps, and generates documentation—keeping you audit-ready 24/7.",
+  "heroImage": "ai-compliance-auditor",
+  "benefits": [
+    {
+      "title": "Continuous Monitoring",
+      "description": "Real-time scanning of your systems, processes, and data handling to catch issues before auditors do."
+    },
+    {
+      "title": "Automated Documentation",
+      "description": "Generates policies, procedures, and audit trails automatically—no more scrambling before audits."
+    },
+    {
+      "title": "Risk Identification",
+      "description": "Proactively flags potential compliance violations and security vulnerabilities."
+    },
+    {
+      "title": "Multi-Framework Support",
+      "description": "Covers GDPR, CCPA, SOC 2, HIPAA, PCI-DSS, and ISO 27001 in a unified platform."
+    }
+  ],
+  "features": [
+    {
+      "icon": "Shield",
+      "title": "Data Mapping",
+      "description": "Automatically discovers and maps personal data across all systems."
+    },
+    {
+      "icon": "FileCheck",
+      "title": "Policy Generator",
+      "description": "Creates compliant privacy policies, consent forms, and DPAs."
+    },
+    {
+      "icon": "AlertTriangle",
+      "title": "Breach Detection",
+      "description": "Monitors for data breaches and triggers incident response workflows."
+    },
+    {
+      "icon": "ClipboardCheck",
+      "title": "Audit Preparation",
+      "description": "Compiles evidence and documentation for auditor requests."
+    },
+    {
+      "icon": "Users",
+      "title": "Vendor Assessment",
+      "description": "Evaluates third-party vendors for compliance risks."
+    },
+    {
+      "icon": "History",
+      "title": "Audit Trails",
+      "description": "Maintains immutable logs of all data access and processing."
+    }
+  ],
+  "useCases": [
+    {
+      "title": "GDPR Compliance",
+      "description": "Manage consent, data subject requests, and cross-border transfers compliantly."
+    },
+    {
+      "title": "SOC 2 Readiness",
+      "description": "Implement controls and generate evidence for Type I and Type II audits."
+    },
+    {
+      "title": "Vendor Due Diligence",
+      "description": "Assess and monitor third-party vendors for security and compliance risks."
+    }
+  ],
+  "integrations": [
+    "AWS",
+    "Google Cloud",
+    "Azure",
+    "Salesforce",
+    "HubSpot",
+    "Slack",
+    "Jira",
+    "GitHub",
+    "Okta",
+    "OneLogin",
+    "Drata",
+    "Vanta"
+  ],
+  "metrics": {
+    "efficiency": "GDPR bulletproof",
+    "speed": "Real-time alerts",
+    "cost": "70% audit cost savings"
+  }
+}
