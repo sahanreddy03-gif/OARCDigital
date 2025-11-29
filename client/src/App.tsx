@@ -89,15 +89,26 @@ function Router() {
       <Route path="/services/ad-creative" component={AdCreative} />
       <Route path="/services/web-design" component={WebDesign} />
       <Route path="/services/video-production" component={VideoProduction} />
+      {/* AI Virtual Talent Hub Routes */}
+      <Route path="/services/ai-virtual-talent-hub" component={HireAIEmployees} />
       <Route path="/services/hire-ai-employees" component={HireAIEmployees} />
-      <Route path="/services/ai-sdr" component={AIEmployeeService} />
-      <Route path="/services/ai-support" component={AIEmployeeService} />
-      <Route path="/services/ai-marketing" component={AIEmployeeService} />
-      <Route path="/services/ai-writer" component={AIEmployeeService} />
-      <Route path="/services/ai-analyst" component={AIEmployeeService} />
-      <Route path="/services/ai-financial-analyst" component={AIEmployeeService} />
-      <Route path="/services/ai-admin" component={AIEmployeeService} />
+      <Route path="/services/ai-sdr-agent" component={AIEmployeeService} />
+      <Route path="/services/ai-support-specialist" component={AIEmployeeService} />
+      <Route path="/services/ai-data-analyst" component={AIEmployeeService} />
+      <Route path="/services/ai-admin-agent" component={AIEmployeeService} />
+      <Route path="/services/ai-content-strategist" component={AIEmployeeService} />
+      <Route path="/services/ai-compliance-auditor" component={AIEmployeeService} />
+      <Route path="/services/ai-appointment-booker" component={AIEmployeeService} />
+      <Route path="/services/ai-real-estate-agent" component={AIEmployeeService} />
+      {/* AI Revenue Ignition Engine Routes */}
+      <Route path="/services/ai-revenue-engine" component={RevenueAutomation} />
       <Route path="/services/revenue-automation" component={RevenueAutomation} />
+      <Route path="/services/lead-generation-engine" component={LeadGeneration} />
+      <Route path="/services/customer-acquisition-accelerator" component={CustomerAcquisition} />
+      <Route path="/services/funnel-optimization-agent" component={FunnelAutomation} />
+      <Route path="/services/marketing-automation-suite" component={RevenueAutomation} />
+      <Route path="/services/idea-validation-engine" component={RapidIdeaTesting} />
+      {/* Legacy routes for backward compatibility */}
       <Route path="/services/paid-advertising" component={PaidAdvertising} />
       <Route path="/services/media-buying" component={MediaBuying} />
       <Route path="/services/influencer-marketing" component={InfluencerMarketing} />
