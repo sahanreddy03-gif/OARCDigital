@@ -17,15 +17,13 @@ import WebDesign from "@/pages/services/WebDesign";
 import VideoProduction from "@/pages/services/VideoProduction";
 import HireAIEmployees from "@/pages/services/HireAIEmployees";
 import AIEmployeeService from "@/pages/services/AIEmployeeService";
-import RevenueAutomation from "@/pages/services/RevenueAutomation";
+import RevenueHub from "@/pages/services/RevenueHub";
 import PaidAdvertising from "@/pages/services/PaidAdvertising";
 import MediaBuying from "@/pages/services/MediaBuying";
 import InfluencerMarketing from "@/pages/services/InfluencerMarketing";
 import BrandingServices from "@/pages/services/BrandingServices";
 import AICopywriting from "@/pages/services/AICopywriting";
-import LeadGeneration from "@/pages/services/LeadGeneration";
-import CustomerAcquisition from "@/pages/services/CustomerAcquisition";
-import FunnelAutomation from "@/pages/services/FunnelAutomation";
+import RevenueService from "@/pages/services/RevenueService";
 import DigitalMarketing from "@/pages/services/DigitalMarketing";
 import RapidIdeaTesting from "@/pages/services/RapidIdeaTesting";
 import PresentationPitch from "@/pages/services/PresentationPitch";
@@ -101,22 +99,22 @@ function Router() {
       <Route path="/services/ai-appointment-booker" component={AIEmployeeService} />
       <Route path="/services/ai-real-estate-agent" component={AIEmployeeService} />
       {/* AI Revenue Ignition Engine Routes */}
-      <Route path="/services/ai-revenue-engine" component={RevenueAutomation} />
-      <Route path="/services/revenue-automation" component={RevenueAutomation} />
-      <Route path="/services/lead-generation-engine" component={LeadGeneration} />
-      <Route path="/services/customer-acquisition-accelerator" component={CustomerAcquisition} />
-      <Route path="/services/funnel-optimization-agent" component={FunnelAutomation} />
-      <Route path="/services/marketing-automation-suite" component={RevenueAutomation} />
-      <Route path="/services/idea-validation-engine" component={RapidIdeaTesting} />
+      <Route path="/services/ai-revenue-engine" component={RevenueHub} />
+      <Route path="/services/revenue-automation" component={RevenueHub} />
+      <Route path="/services/lead-generation-engine" component={RevenueService} />
+      <Route path="/services/customer-acquisition-accelerator" component={RevenueService} />
+      <Route path="/services/funnel-optimization-agent" component={RevenueService} />
+      <Route path="/services/marketing-automation-suite" component={RevenueService} />
+      <Route path="/services/idea-validation-engine" component={RevenueService} />
       {/* Legacy routes for backward compatibility */}
       <Route path="/services/paid-advertising" component={PaidAdvertising} />
       <Route path="/services/media-buying" component={MediaBuying} />
       <Route path="/services/influencer-marketing" component={InfluencerMarketing} />
       <Route path="/services/branding-services" component={BrandingServices} />
       <Route path="/services/ai-copywriting" component={AICopywriting} />
-      <Route path="/services/lead-generation" component={LeadGeneration} />
-      <Route path="/services/customer-acquisition" component={CustomerAcquisition} />
-      <Route path="/services/funnel-automation" component={FunnelAutomation} />
+      <Route path="/services/lead-generation" component={RevenueService} />
+      <Route path="/services/customer-acquisition" component={RevenueService} />
+      <Route path="/services/funnel-automation" component={RevenueService} />
       <Route path="/services/digital-marketing" component={DigitalMarketing} />
       <Route path="/services/rapid-idea-testing" component={RapidIdeaTesting} />
       <Route path="/services/presentation-pitch" component={PresentationPitch} />

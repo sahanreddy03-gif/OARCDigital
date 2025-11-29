@@ -7,14 +7,11 @@ import ScrollReveal from '@/components/ScrollReveal';
 import { motion } from 'framer-motion';
 import * as Icons from 'lucide-react';
 
-import sdrAgentImage from '@assets/stock_images/elite_sales_professi_1c84b4b4.jpg';
-import supportSpecialistImage from '@assets/stock_images/customer_support_spe_789ecb6b.jpg';
-import dataAnalystImage from '@assets/stock_images/data_analyst_profess_4f5ff172.jpg';
-import adminAgentImage from '@assets/stock_images/administrative_assis_da9e94eb.jpg';
-import contentStrategistImage from '@assets/stock_images/content_strategist_c_61044a33.jpg';
-import complianceAuditorImage from '@assets/stock_images/legal_compliance_off_78808712.jpg';
-import appointmentBookerImage from '@assets/stock_images/appointment_schedule_97373ecb.jpg';
-import realEstateAgentImage from '@assets/stock_images/real_estate_agent_pr_d5449235.jpg';
+import leadGenImage from '@assets/stock_images/lead_generation_qual_b9d50c93.jpg';
+import customerAcquisitionImage from '@assets/stock_images/customer_acquisition_38bd9c1d.jpg';
+import funnelOptimizationImage from '@assets/stock_images/sales_funnel_optimiz_42aebf8c.jpg';
+import marketingAutomationImage from '@assets/stock_images/marketing_automation_630ae165.jpg';
+import ideaValidationImage from '@assets/stock_images/startup_idea_validat_9b100223.jpg';
 
 interface ServiceContent {
   title: string;
@@ -43,17 +40,14 @@ interface ServiceContent {
 }
 
 const HERO_IMAGES: Record<string, string> = {
-  'ai-sdr-agent': sdrAgentImage,
-  'ai-support-specialist': supportSpecialistImage,
-  'ai-data-analyst': dataAnalystImage,
-  'ai-admin-agent': adminAgentImage,
-  'ai-content-strategist': contentStrategistImage,
-  'ai-compliance-auditor': complianceAuditorImage,
-  'ai-appointment-booker': appointmentBookerImage,
-  'ai-real-estate-agent': realEstateAgentImage,
+  'lead-generation-engine': leadGenImage,
+  'customer-acquisition-accelerator': customerAcquisitionImage,
+  'funnel-optimization-agent': funnelOptimizationImage,
+  'marketing-automation-suite': marketingAutomationImage,
+  'idea-validation-engine': ideaValidationImage,
 };
 
-export default function AIEmployeeService() {
+export default function RevenueService() {
   const [location] = useLocation();
   const slug = location.split('/').filter(Boolean).pop() || '';
   const [content, setContent] = useState<ServiceContent | null>(null);
@@ -134,7 +128,7 @@ export default function AIEmployeeService() {
                 className="inline-block"
               >
                 <span className="px-4 py-2 bg-white/5 border border-white/10 text-[10px] font-medium text-white/60 uppercase tracking-[0.2em]">
-                  AI Employee
+                  Revenue Engine
                 </span>
               </motion.div>
               
@@ -249,7 +243,7 @@ export default function AIEmployeeService() {
                 Key Benefits
               </h2>
               <p className="text-zinc-500 max-w-xl mx-auto">
-                Transform your workflow with intelligent automation
+                Accelerate growth with intelligent automation
               </p>
             </div>
           </ScrollReveal>
@@ -288,7 +282,7 @@ export default function AIEmployeeService() {
                 Core Features
               </h2>
               <p className="text-zinc-500 max-w-xl mx-auto">
-                Everything you need to automate and scale
+                Everything you need to drive growth
               </p>
             </div>
           </ScrollReveal>
@@ -327,7 +321,7 @@ export default function AIEmployeeService() {
                 Real-World Applications
               </h2>
               <p className="text-zinc-500 max-w-xl mx-auto">
-                How leading companies deploy AI employees
+                Proven strategies that drive results
               </p>
             </div>
           </ScrollReveal>
@@ -390,7 +384,7 @@ export default function AIEmployeeService() {
             <div className="text-center mb-16">
               <p className="text-[10px] uppercase tracking-[0.3em] text-zinc-500 mb-4">Who This Is For</p>
               <h2 className="text-3xl md:text-4xl font-bold text-white">
-                Built for forward-thinking teams
+                Built for growth-focused teams
               </h2>
             </div>
           </ScrollReveal>
@@ -398,34 +392,34 @@ export default function AIEmployeeService() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               {
-                title: "Growing Startups",
-                description: "Scale faster without scaling headcount. AI employees help you punch above your weight class.",
-                items: ["Rapid scaling", "Cost-effective", "24/7 operations"]
+                title: "Startups",
+                description: "Validate faster and acquire customers without burning through runway.",
+                items: ["Fast validation", "Lean operations", "Scalable systems"]
               },
               {
-                title: "Enterprise Teams",
-                description: "Boost productivity across departments. Deploy AI that integrates with existing workflows.",
-                items: ["Enterprise security", "Custom integrations", "Dedicated support"]
+                title: "Growth Teams",
+                description: "Optimize every channel and funnel stage with data-driven automation.",
+                items: ["Multi-channel", "A/B testing", "Attribution"]
+              },
+              {
+                title: "Marketing Leaders",
+                description: "Build predictable pipelines and prove ROI with clear metrics.",
+                items: ["Pipeline visibility", "ROI tracking", "Forecasting"]
               },
               {
                 title: "Sales Organizations",
-                description: "Never miss a lead. AI SDRs qualify, nurture, and book meetings while your team closes.",
-                items: ["Lead qualification", "Automated outreach", "Meeting scheduling"]
+                description: "Fill your pipeline with qualified leads that are ready to buy.",
+                items: ["Lead scoring", "Intent data", "Automated nurturing"]
               },
               {
-                title: "Support Teams",
-                description: "Deliver instant, accurate support 24/7. Handle common queries while escalating complex issues.",
-                items: ["Instant response", "Multilingual", "Smart escalation"]
+                title: "E-Commerce",
+                description: "Acquire customers profitably and increase lifetime value.",
+                items: ["CAC optimization", "LTV growth", "Retention"]
               },
               {
-                title: "Marketing",
-                description: "Create content at scale. AI writers and analysts help execute campaigns faster.",
-                items: ["Content generation", "Performance analysis", "Campaign optimization"]
-              },
-              {
-                title: "Operations",
-                description: "Automate data entry, reporting, and analysis. Focus on strategy instead of spreadsheets.",
-                items: ["Automated reporting", "Data analysis", "Process optimization"]
+                title: "SaaS Companies",
+                description: "Drive trial signups and convert free users to paid.",
+                items: ["Product-led growth", "Activation", "Expansion revenue"]
               }
             ].map((useCase, index) => (
               <ScrollReveal key={index} delay={index * 0.1}>
@@ -457,10 +451,10 @@ export default function AIEmployeeService() {
         <ScrollReveal>
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              Ready to get started?
+              Ready to accelerate growth?
             </h2>
             <p className="text-zinc-500 mb-10 max-w-xl mx-auto">
-              Deploy your AI employee in days, not months. Start automating today.
+              Deploy your revenue engine in days, not months. Start growing today.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/contact">
