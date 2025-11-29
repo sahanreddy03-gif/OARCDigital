@@ -4,9 +4,9 @@ import { useSmoothCarouselDrag } from '@/hooks/useSmoothCarouselDrag';
 import salesDevRep from '@assets/stock_images/professional_sales_r_4eaf0ab8.jpg';
 import customerSupport from '@assets/2_1763228440277.jpg';
 import adminAssistant from '@assets/3_1763228440278.jpg';
-import marketingCoord from '@assets/4_1763228440279.avif';
-import hrRecruiter from '@assets/5_1763228440279.avif';
-import socialMedia from '@assets/6_1763228440279.avif';
+import marketingCoord from '@assets/stock_images/marketing_coordinato_d2d3a322.jpg';
+import hrRecruiter from '@assets/stock_images/hr_recruiter_intervi_1e5d5f18.jpg';
+import socialMedia from '@assets/stock_images/creative_social_medi_65d931cc.jpg';
 import contentWriter from '@assets/7_1763228440280.avif';
 import dataAnalyst from '@assets/8_1763228440280.avif';
 import leadQualifier from '@assets/9_1763228440281.jpg';
@@ -14,10 +14,10 @@ import emailManager from '@assets/10_1763228440281.avif';
 import meetingCoord from '@assets/11_1763228440281.jpg';
 import financialAnalyst from '@assets/12_1763228440282.jpg';
 import qualityAssurance from '@assets/13_1763228440282.avif';
-import projectManager from '@assets/14_1763228440283.avif';
+import projectManager from '@assets/stock_images/project_manager_lead_a6aa0e3a.jpg';
 import researchAnalyst from '@assets/15_1763085718435.avif';
 import travelCoordinator from '@assets/16_1763228440283.jpg';
-import accountManager from '@assets/17_1763228440284.avif';
+import accountManager from '@assets/stock_images/stunning_professiona_8a08b827.jpg';
 import technicalSupport from '@assets/18_1763228440284.jpg';
 
 const employees = [
