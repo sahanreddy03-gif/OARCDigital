@@ -3,6 +3,32 @@
   "subtitle": "Turn raw data into actionable intelligence in seconds",
   "description": "Stop waiting days for reports. Our AI analyst connects to your data sources, identifies patterns humans miss, and delivers insights in plain English—empowering faster, smarter decisions.",
   "heroImage": "ai-data-analyst",
+  "targetAudience": [
+    {
+      "title": "Companies Without BI Teams",
+      "description": "Get enterprise-grade analytics without hiring expensive data analysts. Ask questions in plain English, get instant answers.",
+      "items": ["No SQL required", "Self-service insights", "Fast time-to-value"],
+      "icon": "Database"
+    },
+    {
+      "title": "Executives & Founders",
+      "description": "Real-time dashboards that tell you what matters. Make data-driven decisions without waiting for analyst bottlenecks.",
+      "items": ["Executive dashboards", "KPI tracking", "Board-ready reports"],
+      "icon": "Crown"
+    },
+    {
+      "title": "Marketing Teams",
+      "description": "Finally understand what's driving revenue. See true attribution across channels and optimize spend in real-time.",
+      "items": ["Multi-touch attribution", "Campaign ROI", "Channel optimization"],
+      "icon": "Megaphone"
+    },
+    {
+      "title": "Operations Leaders",
+      "description": "Identify bottlenecks before they become problems. Optimize processes with data, not guesswork.",
+      "items": ["Process optimization", "Cost analysis", "Efficiency tracking"],
+      "icon": "Settings"
+    }
+  ],
   "benefits": [
     {
       "title": "Real-Time Dashboards",

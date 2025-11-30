@@ -3,6 +3,32 @@
   "subtitle": "Create high-performing content at 10x the velocity",
   "description": "Never stare at a blank page again. Our AI content strategist researches, outlines, writes, and optimizes content that ranks—all aligned with your brand voice and SEO goals.",
   "heroImage": "ai-content-strategist",
+  "targetAudience": [
+    {
+      "title": "Marketing Teams",
+      "description": "10x your content output without 10x your headcount. Produce SEO-optimized blogs, social posts, and campaigns at scale.",
+      "items": ["Content velocity", "SEO optimization", "Multi-channel content"],
+      "icon": "Megaphone"
+    },
+    {
+      "title": "Content Agencies",
+      "description": "Serve more clients without burning out your writers. AI handles the heavy lifting while your team adds strategic polish.",
+      "items": ["Client scalability", "Faster turnaround", "Consistent quality"],
+      "icon": "Briefcase"
+    },
+    {
+      "title": "Startups Building Thought Leadership",
+      "description": "Establish authority in your space without a full content team. Publish consistently and build organic traffic from day one.",
+      "items": ["Thought leadership", "Organic growth", "Brand building"],
+      "icon": "Lightbulb"
+    },
+    {
+      "title": "SEO-Focused Businesses",
+      "description": "Content that's built to rank. Every piece is optimized for keywords, structure, and search intent from the start.",
+      "items": ["Keyword targeting", "Search rankings", "Traffic growth"],
+      "icon": "Search"
+    }
+  ],
   "benefits": [
     {
       "title": "10x Content Output",

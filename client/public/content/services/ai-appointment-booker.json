@@ -3,6 +3,32 @@
   "subtitle": "Fill your calendar with qualified meetings on autopilot",
   "description": "Stop playing calendar ping-pong. Our AI appointment booker handles the entire scheduling process—from initial outreach to confirmation and reminders—reducing no-shows by 20%.",
   "heroImage": "ai-appointment-booker",
+  "targetAudience": [
+    {
+      "title": "Professional Services",
+      "description": "Consultants, lawyers, accountants—let clients self-book while AI handles intake, prep, and reminders automatically.",
+      "items": ["Client intake forms", "Automated prep docs", "Smart reminders"],
+      "icon": "Briefcase"
+    },
+    {
+      "title": "Healthcare Providers",
+      "description": "Reduce no-shows by 20% with intelligent reminders. Clinics, therapists, and practitioners book more, waste less.",
+      "items": ["Patient scheduling", "No-show reduction", "HIPAA compliant"],
+      "icon": "Heart"
+    },
+    {
+      "title": "Sales Teams Booking Demos",
+      "description": "Convert more leads with instant booking. Prospects self-schedule demos while AI qualifies and briefs your reps.",
+      "items": ["Demo scheduling", "Lead qualification", "Rep briefings"],
+      "icon": "Target"
+    },
+    {
+      "title": "Service-Based Businesses",
+      "description": "Salons, fitness studios, home services—automate bookings across multiple staff calendars effortlessly.",
+      "items": ["Multi-staff scheduling", "Service booking", "Capacity management"],
+      "icon": "Calendar"
+    }
+  ],
   "benefits": [
     {
       "title": "20% Fewer No-Shows",

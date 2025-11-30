@@ -3,6 +3,32 @@
   "subtitle": "Stay compliant without the compliance headache",
   "description": "Navigate GDPR, SOC 2, and industry regulations with confidence. Our AI auditor continuously monitors your systems, identifies gaps, and generates documentation—keeping you audit-ready 24/7.",
   "heroImage": "ai-compliance-auditor",
+  "targetAudience": [
+    {
+      "title": "Financial Services & Fintech",
+      "description": "Stay ahead of regulators with continuous monitoring. Meet PCI-DSS, SOX, and financial compliance requirements automatically.",
+      "items": ["PCI-DSS compliance", "SOX requirements", "Audit readiness"],
+      "icon": "Landmark"
+    },
+    {
+      "title": "Healthcare & Medtech",
+      "description": "Protect patient data and maintain HIPAA compliance. Automated documentation and breach detection for regulated healthcare environments.",
+      "items": ["HIPAA compliance", "PHI protection", "Audit trails"],
+      "icon": "Heart"
+    },
+    {
+      "title": "SaaS Companies Pursuing SOC 2",
+      "description": "Get SOC 2 certified faster with automated evidence collection, policy generation, and continuous monitoring of controls.",
+      "items": ["SOC 2 Type I & II", "Control monitoring", "Evidence collection"],
+      "icon": "Shield"
+    },
+    {
+      "title": "EU-Based Businesses",
+      "description": "Navigate GDPR complexity with confidence. Automated data mapping, consent management, and DSAR processing for EU compliance.",
+      "items": ["GDPR compliance", "Data mapping", "DSAR processing"],
+      "icon": "Globe"
+    }
+  ],
   "benefits": [
     {
       "title": "Continuous Monitoring",

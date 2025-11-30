@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useLocation, Link } from 'wouter';
-import { ArrowRight, Sparkles, MessageSquare, Brain, Zap, Shield, Users, TrendingUp, Clock, BarChart3, Mail, Calendar, Headphones, Bot, Database, Globe, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, Sparkles, MessageSquare, Brain, Zap, Shield, Users, TrendingUp, Clock, BarChart3, Mail, Calendar, Headphones, Bot, Database, Globe, CheckCircle2, Rocket, Crown, Building2, Briefcase, Lightbulb, Search, Heart, Landmark, Settings, Megaphone, ShoppingCart, Code, Calculator, Target, UserCheck, Construction } from 'lucide-react';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import ScrollReveal from '@/components/ScrollReveal';
@@ -35,11 +35,19 @@ import complianceAuditorImage from '@assets/stock_images/legal_compliance_off_78
 import appointmentBookerImage from '@assets/stock_images/appointment_schedule_97373ecb.jpg';
 import realEstateAgentImage from '@assets/stock_images/real_estate_agent_pr_d5449235.jpg';
 
+interface TargetAudienceItem {
+  title: string;
+  description: string;
+  items: string[];
+  icon: string;
+}
+
 interface ServiceContent {
   title: string;
   subtitle: string;
   description: string;
   heroImage: string;
+  targetAudience?: TargetAudienceItem[];
   benefits: Array<{
     title: string;
     description: string;
@@ -99,6 +107,33 @@ const FEATURE_ICON_MAP: Record<string, React.FC<{ size?: number }>> = {
   'Headphones': ChatBubbles,
   'Bot': BrainCircuit,
   'Target': TargetLock,
+};
+
+const TARGET_AUDIENCE_ICON_MAP: Record<string, React.ComponentType<{ className?: string }>> = {
+  'Rocket': Rocket,
+  'TrendingUp': TrendingUp,
+  'Users': Users,
+  'Clock': Clock,
+  'ShoppingCart': ShoppingCart,
+  'Code': Code,
+  'Headphones': Headphones,
+  'Database': Database,
+  'Crown': Crown,
+  'Megaphone': Megaphone,
+  'Settings': Settings,
+  'Building2': Building2,
+  'Calculator': Calculator,
+  'Briefcase': Briefcase,
+  'Lightbulb': Lightbulb,
+  'Search': Search,
+  'Landmark': Landmark,
+  'Heart': Heart,
+  'Shield': Shield,
+  'Globe': Globe,
+  'Target': Target,
+  'Calendar': Calendar,
+  'UserCheck': UserCheck,
+  'Construction': Construction,
 };
 
 const WHO_THIS_IS_FOR = [
@@ -660,64 +695,64 @@ export default function AIEmployeeService() {
         </div>
       </section>
 
-      {/* Who This Is For - Enhanced Cards */}
-      <section className="py-32 px-6 bg-black border-t border-white/10 relative overflow-hidden">
-        <AnimatedGridBackground intensity="medium" showScanLine={false} showParticles={true} showConcentricRings={true} />
-        <div className="relative max-w-7xl mx-auto">
-          <ScrollReveal>
-            <div className="text-center mb-20">
-              <p className="text-xs uppercase tracking-[0.3em] text-zinc-500 mb-4">Target Audience</p>
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-                Built for forward-thinking teams
-              </h2>
-              <p className="text-xl text-zinc-400 max-w-xl mx-auto">
-                Scale your team without the overhead
-              </p>
-            </div>
-          </ScrollReveal>
+      {/* Who This Is For - Service-Specific Target Audiences */}
+      {content.targetAudience && content.targetAudience.length > 0 && (
+        <section className="py-32 px-6 bg-black border-t border-white/10 relative overflow-hidden">
+          <AnimatedGridBackground intensity="medium" showScanLine={false} showParticles={true} showConcentricRings={true} />
+          <div className="relative max-w-7xl mx-auto">
+            <ScrollReveal>
+              <div className="text-center mb-20">
+                <p className="text-xs uppercase tracking-[0.3em] text-zinc-500 mb-4">Who This Is For</p>
+                <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+                  Built for your industry
+                </h2>
+                <p className="text-xl text-zinc-400 max-w-xl mx-auto">
+                  Tailored solutions for teams like yours
+                </p>
+              </div>
+            </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-            {WHO_THIS_IS_FOR.map((useCase, index) => (
-              <ScrollReveal key={index} delay={index * 0.1}>
-                <GlassCard 
-                  className="p-8 h-full" 
-                  variant="strong"
-                  glowOnHover={true}
-                  showCornerAccents={true}
-                >
-                  {/* Header with Icon */}
-                  <div className="flex items-center gap-4 mb-6">
-                    <motion.div 
-                      className="w-14 h-14 bg-white/[0.08] border border-white/20 flex items-center justify-center rounded-lg"
-                      whileHover={{ scale: 1.1, borderColor: 'rgba(255,255,255,0.4)' }}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+              {content.targetAudience.map((audience, index) => {
+                const IconComponent = TARGET_AUDIENCE_ICON_MAP[audience.icon] || Users;
+                return (
+                  <ScrollReveal key={index} delay={index * 0.1}>
+                    <GlassCard 
+                      className="p-8 h-full" 
+                      variant="strong"
+                      glowOnHover={true}
+                      showCornerAccents={true}
                     >
-                      <useCase.icon className="w-6 h-6 text-white/80" />
-                    </motion.div>
-                    <h3 className="text-xl font-bold text-white">{useCase.title}</h3>
-                  </div>
-                  
-                  <p className="text-zinc-400 mb-6 leading-relaxed">{useCase.description}</p>
-                  
-                  {/* Feature List */}
-                  <ul className="space-y-3 mb-8">
-                    {useCase.items.map((item, i) => (
-                      <li key={i} className="flex items-center gap-3 text-sm text-zinc-400">
-                        <div className="w-2 h-2 bg-white/50 rounded-full" />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  
-                  {/* Mini Flow Diagram */}
-                  <div className="pt-6 border-t border-white/10">
-                    <FlowDiagram steps={useCase.diagram} compact={true} />
-                  </div>
-                </GlassCard>
-              </ScrollReveal>
-            ))}
+                      {/* Header with Icon */}
+                      <div className="flex items-center gap-4 mb-6">
+                        <motion.div 
+                          className="w-14 h-14 bg-white/[0.08] border border-white/20 flex items-center justify-center rounded-lg"
+                          whileHover={{ scale: 1.1, borderColor: 'rgba(255,255,255,0.4)' }}
+                        >
+                          <IconComponent className="w-6 h-6 text-white/80" />
+                        </motion.div>
+                        <h3 className="text-xl font-bold text-white">{audience.title}</h3>
+                      </div>
+                      
+                      <p className="text-zinc-400 mb-6 leading-relaxed">{audience.description}</p>
+                      
+                      {/* Feature List */}
+                      <ul className="space-y-3">
+                        {audience.items.map((item, i) => (
+                          <li key={i} className="flex items-center gap-3 text-sm text-zinc-400">
+                            <div className="w-2 h-2 bg-white/50 rounded-full" />
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </GlassCard>
+                  </ScrollReveal>
+                );
+              })}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* CTA with Premium Treatment */}
       <section className="py-40 px-6 bg-zinc-950 border-t border-white/10 relative overflow-hidden">
