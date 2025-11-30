@@ -30,6 +30,18 @@ The platform features a React frontend and an Express.js backend, leveraging a m
     -   `FlowDiagram`: Visual workflow steps with arrow connections, compact mode for cards.
     -   `IntegrationHub`: Radial visualization of integrations around a central hub with animated connection lines.
 -   **Revenue Service Pages:** Same elevated monochrome treatment for 5 revenue automation services with visual process diagrams, integration hub visualizations, and premium card layouts.
+-   **Creative Services Pages - Vibrant Design System:** Social Media Creative Management page (`/services/social-media-creative-management`) features the opposite design philosophy to AI/Revenue monochrome - using vibrant, colorful gradients to showcase creative capability:
+    -   **Vibrant Hero**: Full-screen gradient background (purple #7B2FF7 → pink #FF6B9D → coral #FF6B53) with floating animated particles, grid mesh overlay, and gradient text effects.
+    -   **Colorful Service Cards**: Four gradient cards with unique palettes per service:
+        - AI-Powered Social: Purple gradient with Analyze→Create→Grow flow diagram
+        - Revenue Ads: Coral/orange gradient with Target→Optimize→Scale flow diagram  
+        - Creative Lab: Pink gradient with Design→AI Magic→Produce flow diagram
+        - Creator Network: Blue/indigo gradient with Match→Create→Amplify flow diagram
+    -   **Portfolio Showcase**: Masonry grid with creative work examples, hover effects revealing metrics (views, engagement), and platform badges.
+    -   **CreativeFlowDiagram Component**: Visual 3-step workflow diagrams showing AI process flow with animated steps.
+    -   **Stats Bar**: Black bar with animated counters showing 340% engagement, 5x ROAS, 200+ brands, €50M+ revenue.
+    -   **Dynamic Typography**: Gradient text fills, bold headlines (up to 8xl), varied sizes for visual hierarchy.
+    -   **Accessibility**: All animations respect `prefers-reduced-motion`, particles and floating elements disabled when preference set.
 -   **Contact Information & Global Presence:** Premium implementation of global contact details across Footer and dedicated Contact page (`/contact`). Contact page features a clean enterprise design with primary contact section and comprehensive global offices grid displaying department-specific phone numbers organized by location.
 -   **Advanced SEO Infrastructure:**
     -   **Centralized SEO Config:** Single source of truth (`shared/seoConfig.ts`) for all slugs (locations, services, case studies) ensuring sitemap, routes, and components stay synchronized.
