@@ -252,7 +252,7 @@ export default function SocialMediaCreativeManagement() {
     {
       title: "Revenue Ads",
       icon: TrendingUp,
-      description: "In a saturated ad landscape, scaling ROAS is tough. Malta's only agency with direct API access to Meta and Google's ML layers changes that.",
+      description: "In a saturated ad landscape, scaling ROAS is tough. Malta's only agency with direct API access to Meta and Google's ML layers—powered by our proven MVPs.",
       points: [
         "Algorithmic bid optimization",
         "Dynamic creative sequencing",
@@ -292,7 +292,7 @@ export default function SocialMediaCreativeManagement() {
     {
       title: "Creator Network",
       icon: Network,
-      description: "Access 2,000+ vetted creators across EMEA. AI-powered affinity scoring matches your brand with authentic voices that resonate.",
+      description: "Access 2,000+ vetted creators across EMEA. AI-powered affinity scoring—built on our tested MVPs—matches your brand with authentic voices.",
       points: [
         "AI creator-brand matching",
         "Performance-based partnerships",
@@ -327,9 +327,9 @@ export default function SocialMediaCreativeManagement() {
 
   const portfolioItems = [
     { image: awardTeamImg, title: "MVP-Driven E-commerce Campaign", platform: "Instagram", metrics: { views: "2.4M", engagement: "12.3%" }, color: "bg-gradient-to-br from-[#E4405F] to-[#833AB4]" },
-    { image: largeTeamImg, title: "AI-Powered Brand Launch", platform: "TikTok", metrics: { views: "5.1M", engagement: "18.7%" }, color: "bg-gradient-to-br from-[#000000] to-[#25F4EE]" },
-    { image: awardTeamImg, title: "DTC Product Showcase", platform: "YouTube", metrics: { views: "890K", engagement: "8.4%" }, color: "bg-gradient-to-br from-[#FF0000] to-[#FF4444]" },
-    { image: largeTeamImg, title: "B2B Thought Leadership Series", platform: "LinkedIn", metrics: { views: "340K", engagement: "15.2%" }, color: "bg-gradient-to-br from-[#0A66C2] to-[#0077B5]" },
+    { image: largeTeamImg, title: "MVP-Powered Brand Launch", platform: "TikTok", metrics: { views: "5.1M", engagement: "18.7%" }, color: "bg-gradient-to-br from-[#000000] to-[#25F4EE]" },
+    { image: awardTeamImg, title: "AI-MVP Product Showcase", platform: "YouTube", metrics: { views: "890K", engagement: "8.4%" }, color: "bg-gradient-to-br from-[#FF0000] to-[#FF4444]" },
+    { image: largeTeamImg, title: "MVP-Tested Thought Leadership", platform: "LinkedIn", metrics: { views: "340K", engagement: "15.2%" }, color: "bg-gradient-to-br from-[#0A66C2] to-[#0077B5]" },
   ];
 
   const useCases = [
