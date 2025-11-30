@@ -407,7 +407,7 @@ export default function SocialMediaCreativeManagement() {
             playsInline
             className="absolute inset-0 w-full h-full object-cover opacity-50"
             style={{ 
-              filter: 'hue-rotate(30deg) saturate(1.3) brightness(0.9)',
+              filter: 'hue-rotate(30deg) saturate(1.1) brightness(0.9)',
               mixBlendMode: 'screen'
             }}
           >
@@ -416,6 +416,82 @@ export default function SocialMediaCreativeManagement() {
           {/* Premium Gradient Overlay for Depth */}
           <div className="absolute inset-0 bg-gradient-to-br from-[#7B2FF7]/60 via-[#FF6B9D]/40 to-[#FF6B53]/50" style={{ mixBlendMode: 'overlay' }} />
           <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a1a]/90 via-transparent to-[#0a0a1a]/40" />
+        </div>
+
+        {/* Enhanced Colorful Social Network SVG - Bottom Right */}
+        <div className="absolute bottom-10 right-10 w-48 h-48 md:w-80 md:h-80 opacity-60 motion-reduce:hidden pointer-events-none">
+          <svg width="100%" height="100%" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="socialGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style={{ stopColor: '#7B2FF7', stopOpacity: 1 }} />
+                <stop offset="50%" style={{ stopColor: '#FF6B9D', stopOpacity: 1 }} />
+                <stop offset="100%" style={{ stopColor: '#FF6B53', stopOpacity: 1 }} />
+              </linearGradient>
+              <filter id="socialGlow">
+                <feGaussianBlur stdDeviation="4" result="blur"/>
+                <feMerge>
+                  <feMergeNode in="blur"/>
+                  <feMergeNode in="SourceGraphic"/>
+                </feMerge>
+              </filter>
+            </defs>
+            {/* Central node (user hub) with pulse */}
+            <circle cx="200" cy="200" r="30" fill="url(#socialGrad)" stroke="rgba(255,255,255,0.8)" strokeWidth="2" filter="url(#socialGlow)">
+              <animate attributeName="r" values="30;35;30" dur="2s" repeatCount="indefinite" />
+              <animate attributeName="opacity" values="1;0.7;1" dur="2s" repeatCount="indefinite" />
+            </circle>
+            {/* Connected nodes (social users) with rotation */}
+            <g>
+              <circle cx="300" cy="200" r="15" fill="#FF6B53">
+                <animateTransform attributeName="transform" type="rotate" from="0 200 200" to="360 200 200" dur="10s" repeatCount="indefinite" />
+              </circle>
+              <circle cx="100" cy="200" r="15" fill="#7B2FF7">
+                <animateTransform attributeName="transform" type="rotate" from="0 200 200" to="360 200 200" dur="10s" repeatCount="indefinite" />
+              </circle>
+              <circle cx="200" cy="100" r="15" fill="#FF6B9D">
+                <animateTransform attributeName="transform" type="rotate" from="0 200 200" to="360 200 200" dur="10s" repeatCount="indefinite" />
+              </circle>
+              <circle cx="200" cy="300" r="15" fill="#00D4FF">
+                <animateTransform attributeName="transform" type="rotate" from="0 200 200" to="360 200 200" dur="10s" repeatCount="indefinite" />
+              </circle>
+            </g>
+            {/* Lines connecting nodes (social links) with dash animation */}
+            <line x1="200" y1="200" x2="300" y2="200" stroke="rgba(255,255,255,0.6)" strokeWidth="2" strokeDasharray="10 5">
+              <animate attributeName="stroke-dashoffset" from="0" to="15" dur="1s" repeatCount="indefinite" />
+            </line>
+            <line x1="200" y1="200" x2="100" y2="200" stroke="rgba(255,255,255,0.6)" strokeWidth="2" strokeDasharray="10 5">
+              <animate attributeName="stroke-dashoffset" from="0" to="15" dur="1s" repeatCount="indefinite" />
+            </line>
+            <line x1="200" y1="200" x2="200" y2="100" stroke="rgba(255,255,255,0.6)" strokeWidth="2" strokeDasharray="10 5">
+              <animate attributeName="stroke-dashoffset" from="0" to="15" dur="1s" repeatCount="indefinite" />
+            </line>
+            <line x1="200" y1="200" x2="200" y2="300" stroke="rgba(255,255,255,0.6)" strokeWidth="2" strokeDasharray="10 5">
+              <animate attributeName="stroke-dashoffset" from="0" to="15" dur="1s" repeatCount="indefinite" />
+            </line>
+            {/* Speech bubble (comments) with scale animation */}
+            <g transform="translate(260, 140)">
+              <path d="M20 0 Q 0 0 0 20 Q 0 40 20 40 Q 40 40 40 20 Q 40 0 20 0 M20 40 L10 55 L30 40" fill="#7B2FF7" stroke="rgba(255,255,255,0.8)" strokeWidth="2">
+                <animateTransform attributeName="transform" type="scale" values="1;1.15;1" dur="1.5s" repeatCount="indefinite" />
+              </path>
+              <circle cx="12" cy="20" r="4" fill="white" opacity="0.9"/>
+              <circle cx="24" cy="20" r="4" fill="white" opacity="0.9"/>
+              <circle cx="36" cy="20" r="4" fill="white" opacity="0.9"/>
+            </g>
+            {/* Heart icon (likes) with color animation */}
+            <g transform="translate(80, 120)">
+              <path d="M25 45 Q 10 35 5 25 Q 0 15 10 10 Q 20 5 25 15 Q 30 5 40 10 Q 50 15 45 25 Q 40 35 25 45" fill="#FF6B9D" stroke="rgba(255,255,255,0.8)" strokeWidth="2">
+                <animate attributeName="fill" values="#FF6B9D;#FF6B53;#FF6B9D" dur="2s" repeatCount="indefinite" />
+                <animateTransform attributeName="transform" type="scale" values="1;1.1;1" dur="1.5s" repeatCount="indefinite" />
+              </path>
+            </g>
+            {/* Additional engagement node */}
+            <g transform="translate(280, 280)">
+              <circle cx="25" cy="25" r="20" fill="#FFD700" opacity="0.8">
+                <animate attributeName="opacity" values="0.8;1;0.8" dur="2s" repeatCount="indefinite" />
+              </circle>
+              <text x="25" y="30" textAnchor="middle" fill="white" fontSize="16" fontWeight="bold">+1</text>
+            </g>
+          </svg>
         </div>
 
         {/* Animated Social Nodes SVG Overlay */}
@@ -673,7 +749,7 @@ export default function SocialMediaCreativeManagement() {
       </section>
 
       {/* Stats Bar - Reduced metrics for credibility */}
-      <section className="py-8 bg-gradient-to-r from-[#0f0f23] via-[#1a1a2e] to-[#0f0f23] relative overflow-hidden">
+      <section className="py-8 pb-12 bg-gradient-to-r from-[#0f0f23] via-[#1a1a2e] to-[#0f0f23] relative overflow-hidden">
         {/* AI Neural Pattern Overlay */}
         <div className="absolute inset-0 opacity-20 motion-reduce:hidden">
           <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cGF0dGVybiBpZD0ibmV1cmFsIiB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGNpcmNsZSBjeD0iNTAiIGN5PSI1MCIgcj0iMiIgZmlsbD0icmdiYSgxMjMsNDcsMjQ3LDAuNSkiLz48Y2lyY2xlIGN4PSIyMCIgY3k9IjIwIiByPSIxLjUiIGZpbGw9InJnYmEoMjU1LDEwNywxNTcsMC40KSIvPjxjaXJjbGUgY3g9IjgwIiBjeT0iMzAiIHI9IjEiIGZpbGw9InJnYmEoMjU1LDEwNyw4MywwLjQpIi8+PGxpbmUgeDE9IjUwIiB5MT0iNTAiIHgyPSIyMCIgeTI9IjIwIiBzdHJva2U9InJnYmEoMTIzLDQ3LDI0NywwLjIpIiBzdHJva2Utd2lkdGg9IjAuNSIvPjxsaW5lIHgxPSI1MCIgeTE9IjUwIiB4Mj0iODAiIHkyPSIzMCIgc3Ryb2tlPSJyZ2JhKDI1NSwxMDcsMTU3LDAuMikiIHN0cm9rZS13aWR0aD0iMC41Ii8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI25ldXJhbCkiLz48L3N2Zz4=')]" />
@@ -700,6 +776,28 @@ export default function SocialMediaCreativeManagement() {
               </motion.div>
             ))}
           </div>
+          
+          {/* View Case Studies Button */}
+          <motion.div 
+            className="flex justify-center mt-8"
+            initial={prefersReducedMotion ? {} : { opacity: 0, y: 20 }}
+            whileInView={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={prefersReducedMotion ? {} : { delay: 0.5 }}
+          >
+            <Link href="/our-work">
+              <motion.button
+                whileHover={prefersReducedMotion ? {} : { scale: 1.05 }}
+                whileTap={prefersReducedMotion ? {} : { scale: 0.98 }}
+                className="group inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#7B2FF7] to-[#FF6B9D] rounded-full text-white font-bold shadow-lg hover:shadow-[0_15px_40px_rgba(123,47,247,0.3)] transition-all"
+                data-testid="button-view-case-studies"
+              >
+                <Eye className="w-5 h-5" />
+                View Case Studies
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </motion.button>
+            </Link>
+          </motion.div>
         </div>
       </section>
 

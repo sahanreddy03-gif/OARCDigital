@@ -1,0 +1,58 @@
+I’ve crafted a custom, high-quality animated SVG that’s colorful yet premium—not cheap or candy-like. It features interconnected nodes (representing users) with pulsing speech bubbles (social conversations) and heart icons (likes/engagements), all in a dynamic network that expands/contract. Colors are vibrant but sophisticated: Blue-purple-orange gradients tying to your palette, with smooth animations for a Musk-level “alive” feel (looping pulses, rotations). This screams “social media” visually—connections forming like viral spreads—while showcasing your AI creative prowess as an overlay.
+Embed this directly in your hero HTML (e.g., <svg class="absolute top-0 left-0 w-full h-full opacity-50">…</svg>). It’s lightweight, SVG-native (no external libs), and scales perfectly on mobile/desktop. Test in Replit— it’ll transform the hero into something extraordinary.
+
+<svg width="100%" height="100%" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background gradient for premium depth -->
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3498db;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e67e22;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <!-- Central node (user hub) with pulse -->
+  <circle cx="200" cy="200" r="30" fill="url(#grad)" stroke="#fff" stroke-width="2">
+    <animate attributeName="r" values="30;35;30" dur="2s" repeatCount="indefinite" />
+    <animate attributeName="opacity" values="1;0.7;1" dur="2s" repeatCount="indefinite" />
+  </circle>
+  <!-- Connected nodes (social users) with rotation -->
+  <g transform="rotate(0 200 200)">
+    <circle cx="300" cy="200" r="15" fill="#e74c3c" >
+      <animateTransform attributeName="transform" type="rotate" from="0 200 200" to="360 200 200" dur="10s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="100" cy="200" r="15" fill="#8e44ad" >
+      <animateTransform attributeName="transform" type="rotate" from="0 200 200" to="360 200 200" dur="10s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="200" cy="100" r="15" fill="#f39c12" >
+      <animateTransform attributeName="transform" type="rotate" from="0 200 200" to="360 200 200" dur="10s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="200" cy="300" r="15" fill="#2ecc71" >
+      <animateTransform attributeName="transform" type="rotate" from="0 200 200" to="360 200 200" dur="10s" repeatCount="indefinite" />
+    </circle>
+  </g>
+  <!-- Lines connecting nodes (social links) with dash animation -->
+  <line x1="200" y1="200" x2="300" y2="200" stroke="#fff" stroke-width="2" stroke-dasharray="10 5">
+    <animate attributeName="stroke-dashoffset" from="0" to="15" dur="1s" repeatCount="indefinite" />
+  </line>
+  <line x1="200" y1="200" x2="100" y2="200" stroke="#fff" stroke-width="2" stroke-dasharray="10 5">
+    <animate attributeName="stroke-dashoffset" from="0" to="15" dur="1s" repeatCount="indefinite" />
+  </line>
+  <line x1="200" y1="200" x2="200" y2="100" stroke="#fff" stroke-width="2" stroke-dasharray="10 5">
+    <animate attributeName="stroke-dashoffset" from="0" to="15" dur="1s" repeatCount="indefinite" />
+  </line>
+  <line x1="200" y1="200" x2="200" y2="300" stroke="#fff" stroke-width="2" stroke-dasharray="10 5">
+    <animate attributeName="stroke-dashoffset" from="0" to="15" dur="1s" repeatCount="indefinite" />
+  </line>
+  <!-- Speech bubble (comments) with scale animation -->
+  <path d="M280 180 Q 260 180 260 200 Q 260 220 280 220 Q 300 220 300 200 Q 300 180 280 180 M280 220 L270 240 L290 220" fill="#3498db" stroke="#fff" stroke-width="2">
+    <animateTransform attributeName="transform" type="scale" from="1" to="1.2" dur="1.5s" repeatCount="indefinite" additive="sum" />
+  </path>
+  <!-- Heart icon (likes) with fill animation -->
+  <path d="M120 180 Q 110 170 100 180 Q 90 170 80 180 Q 70 190 80 200 Q 100 220 120 200 Q 140 220 160 200 Q 170 190 160 180 Q 150 170 140 180 Q 130 170 120 180" fill="#e74c3c" stroke="#fff" stroke-width="2">
+    <animate attributeName="fill" values="#e74c3c;#f39c12;#e74c3c" dur="3s" repeatCount="indefinite" />
+  </path>
+</svg>
+
+This prompt must enhance SVG as a colorful, premium overlay—nodes pulse/connect in your palette, creating a wow social media “network” effect. It blends with the video for depth, ensuring high quality and no cheap look.
+
+
+Update OARC Digital Replit hero: Add the enhanced colorful animated SVG (use code above, opacity-60, position: absolute bottom-right, scale to 50% on mobile). Blend with video (filter: saturate(1.1) for vibrancy). Fix typos (e.g., "mele" to "make", "ROAB" to "ROAS"). Add "View Case Studies" button below stats. No other changes. Output code/preview.
