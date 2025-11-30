@@ -230,14 +230,13 @@ export default function SocialMediaCreativeManagement() {
 
   const services = [
     {
-      title: "AI-Powered Social",
+      title: "AI-Amplified Social",
       icon: Brain,
-      description: "Our OARC Intelligence Engine analyzes millions of data points to craft strategies that outperform human intuition by 340%.",
+      description: "Fusing AI with human dynamics. Our OARC Intelligence Engine crafts strategies that outperform traditional approaches—powered by our tested MVPs.",
       points: [
         "Neural content optimization",
         "Predictive engagement mapping",
-        "AI-driven community growth",
-        "Real-time sentiment orchestration"
+        "AI-driven community growth"
       ],
       learnMore: "Explore AI Social",
       link: "/services/social",
@@ -253,11 +252,10 @@ export default function SocialMediaCreativeManagement() {
     {
       title: "Revenue Ads",
       icon: TrendingUp,
-      description: "Malta's only agency with direct API access to Meta and Google's ML layers. We engineer revenue systems, not just ads.",
+      description: "In a saturated ad landscape, scaling ROAS is tough. Malta's only agency with direct API access to Meta and Google's ML layers changes that.",
       points: [
         "Algorithmic bid optimization",
         "Dynamic creative sequencing",
-        "Cross-platform attribution",
         "Automated ROAS scaling"
       ],
       learnMore: "Explore Revenue Ads",
@@ -274,11 +272,10 @@ export default function SocialMediaCreativeManagement() {
     {
       title: "Creative Lab",
       icon: Wand2,
-      description: "Where AI meets artistry. Our Creative Lab fuses generative AI with human direction to produce thumb-stopping content.",
+      description: "Where AI meets artistry. Our Creative Lab fuses generative AI with human direction to produce thumb-stopping content—powered by tested MVPs.",
       points: [
         "AI-assisted video production",
         "Generative design systems",
-        "Rapid creative iteration",
         "Performance-tested visuals"
       ],
       learnMore: "Enter the Lab",
@@ -295,12 +292,11 @@ export default function SocialMediaCreativeManagement() {
     {
       title: "Creator Network",
       icon: Network,
-      description: "Access 2,000+ vetted creators across EMEA. AI-powered affinity scoring matches your brand with authentic voices.",
+      description: "Access 2,000+ vetted creators across EMEA. AI-powered affinity scoring matches your brand with authentic voices that resonate.",
       points: [
         "AI creator-brand matching",
         "Performance-based partnerships",
-        "Multi-platform amplification",
-        "Real-time campaign analytics"
+        "Multi-platform amplification"
       ],
       learnMore: "Meet the Network",
       link: "/services/influencer-marketing",
@@ -330,10 +326,10 @@ export default function SocialMediaCreativeManagement() {
   ];
 
   const portfolioItems = [
-    { image: awardTeamImg, title: "Award-Winning Campaign", platform: "Instagram", metrics: { views: "2.4M", engagement: "12.3%" }, color: "bg-gradient-to-br from-[#E4405F] to-[#833AB4]" },
-    { image: largeTeamImg, title: "Brand Launch Video", platform: "TikTok", metrics: { views: "5.1M", engagement: "18.7%" }, color: "bg-gradient-to-br from-[#000000] to-[#25F4EE]" },
-    { image: awardTeamImg, title: "Product Showcase", platform: "YouTube", metrics: { views: "890K", engagement: "8.4%" }, color: "bg-gradient-to-br from-[#FF0000] to-[#FF4444]" },
-    { image: largeTeamImg, title: "Social Series", platform: "LinkedIn", metrics: { views: "340K", engagement: "15.2%" }, color: "bg-gradient-to-br from-[#0A66C2] to-[#0077B5]" },
+    { image: awardTeamImg, title: "MVP-Driven E-commerce Campaign", platform: "Instagram", metrics: { views: "2.4M", engagement: "12.3%" }, color: "bg-gradient-to-br from-[#E4405F] to-[#833AB4]" },
+    { image: largeTeamImg, title: "AI-Powered Brand Launch", platform: "TikTok", metrics: { views: "5.1M", engagement: "18.7%" }, color: "bg-gradient-to-br from-[#000000] to-[#25F4EE]" },
+    { image: awardTeamImg, title: "DTC Product Showcase", platform: "YouTube", metrics: { views: "890K", engagement: "8.4%" }, color: "bg-gradient-to-br from-[#FF0000] to-[#FF4444]" },
+    { image: largeTeamImg, title: "B2B Thought Leadership Series", platform: "LinkedIn", metrics: { views: "340K", engagement: "15.2%" }, color: "bg-gradient-to-br from-[#0A66C2] to-[#0077B5]" },
   ];
 
   const useCases = [
@@ -341,42 +337,42 @@ export default function SocialMediaCreativeManagement() {
       id: "ecommerce",
       title: "E-commerce Disruptors",
       description: "We've scaled 47+ e-commerce brands from €10K to €1M+ monthly revenue.",
-      points: ["Predictive audience discovery", "Dynamic product creative", "Automated scaling"],
+      points: ["Predictive audience discovery", "Dynamic product creative", "Malta Edge: EU-compliant scaling"],
       color: "from-[#FF6B9D] to-[#C77DFF]"
     },
     {
       id: "dtc",
       title: "DTC Challengers",
       description: "Our OARC Launch Protocol gets brands to profitability in 90 days.",
-      points: ["90-day launch framework", "Founder-led content", "CAC optimization"],
+      points: ["90-day launch framework", "Founder-led content", "Malta Edge: Access to EU markets"],
       color: "from-[#FF6B53] to-[#FF9F7F]"
     },
     {
       id: "saas",
       title: "B2B SaaS",
-      description: "Turn complex products into compelling stories. €50M+ pipeline generated.",
-      points: ["LinkedIn thought leadership", "Product demos", "MQL optimization"],
+      description: "Turn complex products into compelling stories. Based on client averages.",
+      points: ["LinkedIn thought leadership", "Product demos", "Malta Edge: Multilingual campaigns"],
       color: "from-[#4F46E5] to-[#818CF8]"
     },
     {
       id: "lifestyle",
       title: "Premium Lifestyle",
       description: "Aspirational brand narratives that command premium pricing.",
-      points: ["Luxury positioning", "Editorial content", "Influencer curation"],
+      points: ["Luxury positioning", "Editorial content", "Malta Edge: Mediterranean aesthetics"],
       color: "from-[#7B2FF7] to-[#C77DFF]"
     },
     {
       id: "finance",
       title: "FinTech & iGaming",
       description: "Malta's financial hub demands compliance expertise. We deliver.",
-      points: ["Regulatory-compliant creative", "Risk-managed targeting", "Licensed expansion"],
+      points: ["Regulatory-compliant creative", "Risk-managed targeting", "Malta Edge: MGA/MFSA expertise"],
       color: "from-[#10B981] to-[#34D399]"
     },
     {
       id: "enterprise",
       title: "Global Enterprise",
       description: "Unified brand experiences across 30+ markets worldwide.",
-      points: ["Multi-market coordination", "AI localization", "Global dashboards"],
+      points: ["Multi-market coordination", "AI localization", "Malta Edge: EU HQ advantage"],
       color: "from-[#F59E0B] to-[#FBBF24]"
     }
   ];
@@ -463,8 +459,8 @@ export default function SocialMediaCreativeManagement() {
             className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto mb-12 leading-relaxed"
           >
             We don't just make things look pretty. We engineer content that drives 
-            <span className="font-bold text-yellow-300"> 340% more engagement</span> and 
-            <span className="font-bold text-cyan-300"> 5x ROAS</span>.
+            <span className="font-bold text-yellow-300"> up to 340% more engagement</span> and 
+            <span className="font-bold text-cyan-300"> 5x ROAS</span>—based on client averages.
           </motion.p>
           
           <motion.div 
@@ -540,12 +536,13 @@ export default function SocialMediaCreativeManagement() {
       {/* Stats Bar */}
       <section className="py-8 bg-black">
         <div className="max-w-6xl mx-auto px-6">
+          <p className="text-center text-xs text-gray-500 mb-4">From our client projects</p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
-              { value: 340, suffix: "%", label: "More Engagement" },
-              { value: 5, suffix: "x", label: "Average ROAS" },
+              { value: 340, suffix: "%", label: "Avg. Engagement Lift" },
+              { value: 5, suffix: "x", label: "Avg. ROAS" },
               { value: 200, suffix: "+", label: "Brands Scaled" },
-              { prefix: "€", value: 50, suffix: "M+", label: "Revenue Generated" },
+              { prefix: "€", value: 50, suffix: "M+", label: "Client Revenue" },
             ].map((stat, idx) => (
               <motion.div 
                 key={idx}
