@@ -3,6 +3,32 @@
   "subtitle": "Your 24/7 property expert for the Malta market",
   "description": "Capture every lead, answer every inquiry, and nurture every prospect around the clock. Our AI real estate specialist is trained on Malta's property market to qualify buyers and book viewings automatically.",
   "heroImage": "ai-real-estate-agent",
+  "targetAudience": [
+    {
+      "title": "Malta Real Estate Agencies",
+      "description": "Handle 10x more inquiries without 10x more agents. AI qualifies leads, answers market questions, and books viewings 24/7.",
+      "items": ["Lead qualification", "Viewing bookings", "24/7 availability"],
+      "icon": "Building2"
+    },
+    {
+      "title": "Property Developers",
+      "description": "Sell units faster with instant response to buyer inquiries. AI handles volume while your sales team closes deals.",
+      "items": ["Project marketing", "Bulk lead handling", "Investor relations"],
+      "icon": "Construction"
+    },
+    {
+      "title": "International Investors",
+      "description": "Navigate Malta's property market with confidence. AI provides market insights, yield calculations, and regulatory guidance.",
+      "items": ["Investment analysis", "Rental yields", "Residency programs"],
+      "icon": "Globe"
+    },
+    {
+      "title": "High-Volume Agents",
+      "description": "Never miss a lead again. AI handles the initial qualification so you only meet with serious, qualified buyers.",
+      "items": ["Lead prioritization", "Time savings", "Quality conversations"],
+      "icon": "UserCheck"
+    }
+  ],
   "benefits": [
     {
       "title": "Malta Market Expertise",

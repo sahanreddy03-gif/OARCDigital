@@ -3,6 +3,32 @@
   "subtitle": "Your tireless SDR that qualifies leads and books meetings 24/7",
   "description": "Stop losing leads to slow response times. Our AI SDR engages prospects instantly, qualifies them against your ICP, and books meetings directly into your calendar—while your human reps focus on closing deals.",
   "heroImage": "ai-sdr-agent",
+  "targetAudience": [
+    {
+      "title": "B2B SaaS Companies",
+      "description": "Scale your sales pipeline without scaling headcount. Qualify inbound leads instantly and keep your AEs focused on closing, not prospecting.",
+      "items": ["High-volume lead flow", "Product-led growth", "Inside sales teams"],
+      "icon": "Rocket"
+    },
+    {
+      "title": "Growth-Stage Startups",
+      "description": "Punch above your weight class. An AI SDR gives you enterprise-level lead response without enterprise-level budgets.",
+      "items": ["Limited sales budget", "Founder-led sales", "Scaling outbound"],
+      "icon": "TrendingUp"
+    },
+    {
+      "title": "Sales Leaders & VPs",
+      "description": "Boost your team's productivity by 3x. Let AI handle qualification while your reps focus on high-value conversations.",
+      "items": ["Pipeline optimization", "Rep productivity", "Faster ramp time"],
+      "icon": "Users"
+    },
+    {
+      "title": "Companies with Slow Lead Response",
+      "description": "Responding to leads within 5 minutes increases conversions by 21x. Our AI responds in under 30 seconds.",
+      "items": ["High lead volume", "Global time zones", "After-hours inquiries"],
+      "icon": "Clock"
+    }
+  ],
   "benefits": [
     {
       "title": "Instant Lead Response",

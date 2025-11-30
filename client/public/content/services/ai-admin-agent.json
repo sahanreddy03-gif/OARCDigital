@@ -3,6 +3,32 @@
   "subtitle": "Automate the busywork so your team can focus on what matters",
   "description": "Free your team from repetitive admin tasks. Our AI admin handles scheduling, document processing, data entry, and coordination—giving everyone back hours every week.",
   "heroImage": "ai-admin-agent",
+  "targetAudience": [
+    {
+      "title": "Busy Executives & Founders",
+      "description": "Reclaim your calendar from admin chaos. Let AI handle scheduling, email triage, and document prep while you focus on strategy.",
+      "items": ["Calendar management", "Email prioritization", "Meeting prep"],
+      "icon": "Crown"
+    },
+    {
+      "title": "Small Businesses",
+      "description": "Get executive assistant capabilities without the executive assistant salary. Professional admin support at a fraction of the cost.",
+      "items": ["No overhead costs", "Instant availability", "Scales with you"],
+      "icon": "Building2"
+    },
+    {
+      "title": "HR & People Teams",
+      "description": "Automate interview scheduling, onboarding paperwork, and employee requests. Focus on culture, not coordination.",
+      "items": ["Interview scheduling", "Document processing", "Employee requests"],
+      "icon": "Users"
+    },
+    {
+      "title": "Finance & Operations",
+      "description": "Eliminate manual data entry errors. Process invoices, track expenses, and maintain organized records automatically.",
+      "items": ["Invoice processing", "Expense tracking", "Report generation"],
+      "icon": "Calculator"
+    }
+  ],
   "benefits": [
     {
       "title": "50% Time Savings",

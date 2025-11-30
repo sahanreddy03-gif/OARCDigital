@@ -3,6 +3,32 @@
   "subtitle": "Deliver instant, accurate support that customers actually love",
   "description": "Transform your support experience with AI that resolves 90% of tickets instantly. No more frustrated customers waiting in queues—just fast, accurate answers that scale with your growth.",
   "heroImage": "ai-support-specialist",
+  "targetAudience": [
+    {
+      "title": "E-Commerce Businesses",
+      "description": "Handle order inquiries, returns, and shipping questions 24/7 without staffing overnight shifts or holiday coverage.",
+      "items": ["Order status tracking", "Returns processing", "Peak season scaling"],
+      "icon": "ShoppingCart"
+    },
+    {
+      "title": "SaaS & Tech Companies",
+      "description": "Scale customer success without scaling costs. Onboard users, answer product questions, and reduce churn automatically.",
+      "items": ["User onboarding", "Feature education", "Tier 1 support"],
+      "icon": "Code"
+    },
+    {
+      "title": "Customer Support Leaders",
+      "description": "Reduce ticket volume by 90% while improving CSAT scores. Free your agents for complex, high-value interactions.",
+      "items": ["Ticket deflection", "Agent productivity", "CSAT improvement"],
+      "icon": "Headphones"
+    },
+    {
+      "title": "Growing Businesses",
+      "description": "Deliver premium support without the premium price tag. Scale your support capacity instantly as you grow.",
+      "items": ["Cost control", "Rapid scaling", "Consistent quality"],
+      "icon": "TrendingUp"
+    }
+  ],
   "benefits": [
     {
       "title": "90% First-Contact Resolution",
