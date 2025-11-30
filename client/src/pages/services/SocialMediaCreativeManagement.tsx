@@ -129,7 +129,7 @@ export default function SocialMediaCreativeManagement() {
         "Real-time sentiment orchestration"
       ],
       learnMore: "Explore AI Social",
-      link: "/services/social-media-management"
+      link: "/services/social"
     },
     {
       title: "Revenue Ads",
