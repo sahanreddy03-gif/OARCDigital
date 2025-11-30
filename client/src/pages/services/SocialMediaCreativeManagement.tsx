@@ -155,7 +155,7 @@ export default function SocialMediaCreativeManagement() {
         "Performance-tested visuals"
       ],
       learnMore: "Enter the Lab",
-      link: "/services/creative-production"
+      link: "/services/creative"
     },
     {
       title: "Creator Network",
