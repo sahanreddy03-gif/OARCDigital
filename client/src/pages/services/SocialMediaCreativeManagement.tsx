@@ -396,35 +396,170 @@ export default function SocialMediaCreativeManagement() {
         schemaId="service-marketing-overview"
       />
 
-      {/* HERO - Vibrant Gradient with Creative Elements */}
-      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#7B2FF7] via-[#FF6B9D] to-[#FF6B53]">
-        {/* Animated Background Mesh */}
+      {/* HERO - Premium Neural Network Video Background */}
+      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-[#0a0a1a]">
+        {/* Neural Network Video Background with Premium Filters */}
         <div className="absolute inset-0 motion-reduce:hidden">
-          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSA2MCAwIEwgMCAwIDAgNjAiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjEpIiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-30" />
-          {[...Array(20)].map((_, i) => (
+          <video 
+            autoPlay 
+            loop 
+            muted 
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover opacity-50"
+            style={{ 
+              filter: 'hue-rotate(30deg) saturate(1.3) brightness(0.9)',
+              mixBlendMode: 'screen'
+            }}
+          >
+            <source src="https://videos.pexels.com/video-files/856106/856106-hd_1920_1080_30fps.mp4" type="video/mp4" />
+          </video>
+          {/* Premium Gradient Overlay for Depth */}
+          <div className="absolute inset-0 bg-gradient-to-br from-[#7B2FF7]/60 via-[#FF6B9D]/40 to-[#FF6B53]/50" style={{ mixBlendMode: 'overlay' }} />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a1a]/90 via-transparent to-[#0a0a1a]/40" />
+        </div>
+
+        {/* Animated Social Nodes SVG Overlay */}
+        <div className="absolute inset-0 motion-reduce:hidden pointer-events-none">
+          <svg className="w-full h-full" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
+            <defs>
+              <filter id="glow">
+                <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                <feMerge>
+                  <feMergeNode in="coloredBlur"/>
+                  <feMergeNode in="SourceGraphic"/>
+                </feMerge>
+              </filter>
+              <linearGradient id="nodeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#FF6B53"/>
+                <stop offset="50%" stopColor="#FF6B9D"/>
+                <stop offset="100%" stopColor="#7B2FF7"/>
+              </linearGradient>
+            </defs>
+            
+            {/* Animated Connection Lines */}
+            <motion.path 
+              d="M200,300 Q400,200 600,350 T1000,300" 
+              stroke="url(#nodeGradient)" 
+              strokeWidth="1" 
+              fill="none" 
+              opacity="0.3"
+              initial={{ pathLength: 0 }}
+              animate={{ pathLength: 1 }}
+              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+            />
+            <motion.path 
+              d="M1400,200 Q1600,400 1700,300 T1900,400" 
+              stroke="url(#nodeGradient)" 
+              strokeWidth="1" 
+              fill="none" 
+              opacity="0.3"
+              initial={{ pathLength: 0 }}
+              animate={{ pathLength: 1 }}
+              transition={{ duration: 4, delay: 1, repeat: Infinity, ease: "easeInOut" }}
+            />
+            
+            {/* Pulsing Social Nodes */}
+            <motion.circle 
+              cx="300" cy="250" r="8" 
+              fill="#FF6B53" 
+              filter="url(#glow)"
+              animate={{ scale: [1, 1.5, 1], opacity: [0.6, 1, 0.6] }}
+              transition={{ duration: 2, repeat: Infinity }}
+            />
+            <motion.circle 
+              cx="700" cy="400" r="6" 
+              fill="#7B2FF7" 
+              filter="url(#glow)"
+              animate={{ scale: [1, 1.4, 1], opacity: [0.5, 1, 0.5] }}
+              transition={{ duration: 2.5, delay: 0.5, repeat: Infinity }}
+            />
+            <motion.circle 
+              cx="1500" cy="300" r="10" 
+              fill="#FF6B9D" 
+              filter="url(#glow)"
+              animate={{ scale: [1, 1.3, 1], opacity: [0.7, 1, 0.7] }}
+              transition={{ duration: 3, delay: 1, repeat: Infinity }}
+            />
+            <motion.circle 
+              cx="1100" cy="600" r="5" 
+              fill="#00D4FF" 
+              filter="url(#glow)"
+              animate={{ scale: [1, 1.6, 1], opacity: [0.4, 1, 0.4] }}
+              transition={{ duration: 2, delay: 0.3, repeat: Infinity }}
+            />
+            <motion.circle 
+              cx="400" cy="700" r="7" 
+              fill="#FFD700" 
+              filter="url(#glow)"
+              animate={{ scale: [1, 1.4, 1], opacity: [0.5, 0.9, 0.5] }}
+              transition={{ duration: 2.8, delay: 0.8, repeat: Infinity }}
+            />
+            
+            {/* Speech Bubble / Message Icons (Social Theme) */}
+            <motion.g 
+              transform="translate(1650, 500)"
+              animate={{ y: [-5, 5, -5], opacity: [0.6, 1, 0.6] }}
+              transition={{ duration: 3, repeat: Infinity }}
+            >
+              <rect x="0" y="0" width="40" height="30" rx="6" fill="#FF6B53" opacity="0.8"/>
+              <polygon points="10,30 15,40 20,30" fill="#FF6B53" opacity="0.8"/>
+              <circle cx="10" cy="15" r="3" fill="white" opacity="0.9"/>
+              <circle cx="20" cy="15" r="3" fill="white" opacity="0.9"/>
+              <circle cx="30" cy="15" r="3" fill="white" opacity="0.9"/>
+            </motion.g>
+            
+            <motion.g 
+              transform="translate(150, 600)"
+              animate={{ y: [5, -5, 5], opacity: [0.5, 0.9, 0.5] }}
+              transition={{ duration: 4, delay: 1, repeat: Infinity }}
+            >
+              <rect x="0" y="0" width="35" height="25" rx="5" fill="#7B2FF7" opacity="0.7"/>
+              <polygon points="25,25 30,33 35,25" fill="#7B2FF7" opacity="0.7"/>
+              <rect x="8" y="8" width="12" height="2" rx="1" fill="white" opacity="0.8"/>
+              <rect x="8" y="13" width="18" height="2" rx="1" fill="white" opacity="0.8"/>
+            </motion.g>
+            
+            {/* Heart / Like Icons */}
+            <motion.g 
+              transform="translate(1200, 200)"
+              animate={{ scale: [1, 1.2, 1], opacity: [0.5, 1, 0.5] }}
+              transition={{ duration: 1.5, repeat: Infinity }}
+            >
+              <path d="M12,21.35l-1.45-1.32C5.4,15.36,2,12.28,2,8.5C2,5.42,4.42,3,7.5,3c1.74,0,3.41,0.81,4.5,2.09C13.09,3.81,14.76,3,16.5,3C19.58,3,22,5.42,22,8.5c0,3.78-3.4,6.86-8.55,11.54L12,21.35z" 
+                    fill="#FF6B9D" 
+                    opacity="0.8"
+                    transform="scale(1.5)"
+              />
+            </motion.g>
+          </svg>
+        </div>
+        
+        {/* Floating Particles */}
+        <div className="absolute inset-0 motion-reduce:hidden">
+          {[...Array(15)].map((_, i) => (
             <FloatingParticle 
               key={i} 
-              delay={i * 0.2} 
-              duration={3 + Math.random() * 2}
+              delay={i * 0.3} 
+              duration={4 + Math.random() * 3}
               color={['#FFD700', '#00FF88', '#00D4FF', '#FF6B9D', '#FFFFFF'][Math.floor(Math.random() * 5)]}
             />
           ))}
         </div>
         
-        {/* Decorative Shapes */}
+        {/* Premium Decorative Glows */}
         <motion.div 
-          className="absolute top-20 left-10 w-32 h-32 rounded-full bg-gradient-to-r from-yellow-300 to-orange-400 blur-3xl opacity-60 motion-reduce:hidden"
-          animate={{ scale: [1, 1.2, 1], rotate: [0, 90, 0] }}
+          className="absolute top-20 left-10 w-40 h-40 rounded-full bg-gradient-to-r from-[#7B2FF7] to-[#FF6B9D] blur-3xl opacity-40 motion-reduce:hidden"
+          animate={{ scale: [1, 1.3, 1], opacity: [0.3, 0.5, 0.3] }}
+          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div 
+          className="absolute bottom-20 right-20 w-56 h-56 rounded-full bg-gradient-to-r from-[#FF6B53] to-[#FF6B9D] blur-3xl opacity-35 motion-reduce:hidden"
+          animate={{ scale: [1.2, 1, 1.2], opacity: [0.25, 0.45, 0.25] }}
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
         />
         <motion.div 
-          className="absolute bottom-20 right-20 w-48 h-48 rounded-full bg-gradient-to-r from-cyan-300 to-blue-400 blur-3xl opacity-50 motion-reduce:hidden"
-          animate={{ scale: [1.2, 1, 1.2], rotate: [0, -90, 0] }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <motion.div 
-          className="absolute top-1/3 right-1/4 w-24 h-24 rounded-full bg-white/30 blur-2xl motion-reduce:hidden"
-          animate={{ y: [-20, 20, -20] }}
+          className="absolute top-1/3 right-1/4 w-32 h-32 rounded-full bg-[#00D4FF]/30 blur-2xl motion-reduce:hidden"
+          animate={{ y: [-20, 20, -20], opacity: [0.2, 0.4, 0.2] }}
           transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
         />
         
