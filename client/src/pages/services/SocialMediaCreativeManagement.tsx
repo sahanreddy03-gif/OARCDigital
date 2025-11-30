@@ -238,6 +238,7 @@ export default function SocialMediaCreativeManagement() {
         "Predictive engagement mapping",
         "AI-driven community growth"
       ],
+      caseStudy: "See how we grew an e-commerce brand 2.4x →",
       learnMore: "Explore AI Social",
       link: "/services/social",
       gradient: "bg-gradient-to-br from-[#7B2FF7] via-[#9D4EDD] to-[#C77DFF]",
@@ -258,6 +259,7 @@ export default function SocialMediaCreativeManagement() {
         "Dynamic creative sequencing",
         "Automated ROAS scaling"
       ],
+      caseStudy: "See how our MVP boosted ROAS for FinTech →",
       learnMore: "Explore Revenue Ads",
       link: "/services/paid-advertising",
       gradient: "bg-gradient-to-br from-[#FF6B53] via-[#FF7A5C] to-[#FF9F7F]",
@@ -278,6 +280,7 @@ export default function SocialMediaCreativeManagement() {
         "Generative design systems",
         "Performance-tested visuals"
       ],
+      caseStudy: "View our award-winning DTC campaign →",
       learnMore: "Enter the Lab",
       link: "/services/creative",
       gradient: "bg-gradient-to-br from-[#FF6B9D] via-[#FF8FAB] to-[#FFB3C1]",
@@ -298,6 +301,7 @@ export default function SocialMediaCreativeManagement() {
         "Performance-based partnerships",
         "Multi-platform amplification"
       ],
+      caseStudy: "How we scaled lifestyle brand reach 5x →",
       learnMore: "Meet the Network",
       link: "/services/influencer-marketing",
       gradient: "bg-gradient-to-br from-[#4F46E5] via-[#6366F1] to-[#818CF8]",
@@ -458,9 +462,9 @@ export default function SocialMediaCreativeManagement() {
             transition={prefersReducedMotion ? {} : { delay: 0.3, duration: 0.6 }}
             className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto mb-12 leading-relaxed"
           >
-            We don't just make things look pretty. We engineer content that drives 
-            <span className="font-bold text-yellow-300"> up to 340% more engagement</span> and 
-            <span className="font-bold text-cyan-300"> 5x ROAS</span>—based on client averages.
+            We don't just make things look pretty. We engineer content that 
+            <span className="font-bold text-yellow-300"> consistently outperforms</span>—with 
+            <span className="font-bold text-cyan-300"> 3x average ROAS</span> across 47+ active clients.
           </motion.p>
           
           <motion.div 
@@ -533,16 +537,19 @@ export default function SocialMediaCreativeManagement() {
         </motion.div>
       </section>
 
-      {/* Stats Bar */}
-      <section className="py-8 bg-black">
-        <div className="max-w-6xl mx-auto px-6">
-          <p className="text-center text-xs text-gray-500 mb-4">From our client projects</p>
+      {/* Stats Bar - Reduced metrics for credibility */}
+      <section className="py-8 bg-gradient-to-r from-[#0f0f23] via-[#1a1a2e] to-[#0f0f23] relative overflow-hidden">
+        {/* AI Neural Pattern Overlay */}
+        <div className="absolute inset-0 opacity-20 motion-reduce:hidden">
+          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cGF0dGVybiBpZD0ibmV1cmFsIiB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGNpcmNsZSBjeD0iNTAiIGN5PSI1MCIgcj0iMiIgZmlsbD0icmdiYSgxMjMsNDcsMjQ3LDAuNSkiLz48Y2lyY2xlIGN4PSIyMCIgY3k9IjIwIiByPSIxLjUiIGZpbGw9InJnYmEoMjU1LDEwNywxNTcsMC40KSIvPjxjaXJjbGUgY3g9IjgwIiBjeT0iMzAiIHI9IjEiIGZpbGw9InJnYmEoMjU1LDEwNyw4MywwLjQpIi8+PGxpbmUgeDE9IjUwIiB5MT0iNTAiIHgyPSIyMCIgeTI9IjIwIiBzdHJva2U9InJnYmEoMTIzLDQ3LDI0NywwLjIpIiBzdHJva2Utd2lkdGg9IjAuNSIvPjxsaW5lIHgxPSI1MCIgeTE9IjUwIiB4Mj0iODAiIHkyPSIzMCIgc3Ryb2tlPSJyZ2JhKDI1NSwxMDcsMTU3LDAuMikiIHN0cm9rZS13aWR0aD0iMC41Ii8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI25ldXJhbCkiLz48L3N2Zz4=')]" />
+        </div>
+        <div className="max-w-6xl mx-auto px-6 relative z-10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
-              { value: 340, suffix: "%", label: "Avg. Engagement Lift" },
-              { value: 5, suffix: "x", label: "Avg. ROAS" },
-              { value: 200, suffix: "+", label: "Brands Scaled" },
-              { prefix: "€", value: 50, suffix: "M+", label: "Client Revenue" },
+              { value: 47, suffix: "+", label: "Active Clients" },
+              { value: 3, suffix: "x", label: "Avg. ROAS" },
+              { value: 89, suffix: "%", label: "Client Retention" },
+              { value: 12, suffix: "+", label: "AI MVPs Built" },
             ].map((stat, idx) => (
               <motion.div 
                 key={idx}
@@ -552,7 +559,7 @@ export default function SocialMediaCreativeManagement() {
                 transition={prefersReducedMotion ? {} : { delay: idx * 0.1 }}
               >
                 <div className="text-3xl md:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#7B2FF7] via-[#FF6B9D] to-[#FF6B53]">
-                  <AnimatedCounter value={stat.value} prefix={stat.prefix} suffix={stat.suffix} />
+                  <AnimatedCounter value={stat.value} suffix={stat.suffix} />
                 </div>
                 <div className="text-sm text-gray-400 mt-1">{stat.label}</div>
               </motion.div>
@@ -561,12 +568,16 @@ export default function SocialMediaCreativeManagement() {
         </div>
       </section>
 
-      {/* SERVICE CARDS - Colorful Gradient Cards with Diagrams */}
-      <section className="py-24 px-6 bg-gradient-to-b from-black via-gray-900 to-black relative overflow-hidden">
-        {/* Background Elements */}
+      {/* SERVICE CARDS - Colorful Gradient Cards with AI Elements */}
+      <section className="py-24 px-6 bg-gradient-to-b from-[#0f0f23] via-[#1a1a2e] to-[#0f0f23] relative overflow-hidden">
+        {/* AI Circuit Background Pattern */}
+        <div className="absolute inset-0 opacity-10 motion-reduce:hidden">
+          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cGF0dGVybiBpZD0iY2lyY3VpdCIgd2lkdGg9IjIwMCIgaGVpZ2h0PSIyMDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiPjxwYXRoIGQ9Ik0wIDUwIEg4MCBWMTBIMTI1IFY1MCBIMjAwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMTIzLDQ3LDI0NywwLjMpIiBzdHJva2Utd2lkdGg9IjEiLz48cGF0aCBkPSJNMCAxNTAgSDUwIFYxMDAgSDEwMCBWMTUwIEgyMDAiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyNTUsMTA3LDE1NywwLjMpIiBzdHJva2Utd2lkdGg9IjEiLz48Y2lyY2xlIGN4PSI4MCIgY3k9IjUwIiByPSI0IiBmaWxsPSJyZ2JhKDEyMyw0NywyNDcsMC41KSIvPjxjaXJjbGUgY3g9IjEyNSIgY3k9IjEwIiByPSIzIiBmaWxsPSJyZ2JhKDI1NSwxMDcsMTU3LDAuNSkiLz48Y2lyY2xlIGN4PSI1MCIgY3k9IjE1MCIgcj0iNCIgZmlsbD0icmdiYSgyNTUsMTA3LDgzLDAuNSkiLz48Y2lyY2xlIGN4PSIxMDAiIGN5PSIxMDAiIHI9IjMiIGZpbGw9InJnYmEoMTIzLDQ3LDI0NywwLjUpIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2NpcmN1aXQpIi8+PC9zdmc+')]" />
+        </div>
+        {/* Background Glows with Navy Undertones */}
         <div className="absolute inset-0 motion-reduce:hidden">
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#7B2FF7]/20 rounded-full blur-3xl" />
-          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#FF6B9D]/20 rounded-full blur-3xl" />
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#4F46E5]/15 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#7B2FF7]/15 rounded-full blur-3xl" />
         </div>
         
         <div className="max-w-6xl mx-auto relative z-10">
@@ -645,12 +656,22 @@ export default function SocialMediaCreativeManagement() {
                   {/* AI Flow Diagram */}
                   <CreativeFlowDiagram steps={service.flowSteps} gradient="bg-white/20" />
 
+                  {/* Case Study Tease */}
+                  <Link href="/our-work">
+                    <motion.p 
+                      className="mt-6 text-sm text-white/60 hover:text-white/90 transition-colors cursor-pointer underline decoration-white/30 hover:decoration-white/60"
+                      whileHover={prefersReducedMotion ? {} : { x: 5 }}
+                    >
+                      {service.caseStudy}
+                    </motion.p>
+                  </Link>
+
                   {/* CTA Button */}
                   <Link href={service.link}>
                     <motion.a
                       whileHover={prefersReducedMotion ? {} : { scale: 1.02 }}
                       whileTap={prefersReducedMotion ? {} : { scale: 0.98 }}
-                      className="mt-8 w-full inline-flex items-center justify-center gap-2 bg-white text-gray-900 rounded-full py-4 font-bold hover:shadow-xl transition-all"
+                      className="mt-6 w-full inline-flex items-center justify-center gap-2 bg-white text-gray-900 rounded-full py-4 font-bold hover:shadow-xl transition-all"
                       data-testid={`button-learn-${service.title.toLowerCase().replace(/\s+/g, '-')}`}
                     >
                       {service.learnMore}
@@ -664,11 +685,15 @@ export default function SocialMediaCreativeManagement() {
         </div>
       </section>
 
-      {/* PORTFOLIO SHOWCASE */}
-      <section id="portfolio" className="py-24 px-6 bg-white relative overflow-hidden">
+      {/* PORTFOLIO SHOWCASE - with navy undertones */}
+      <section id="portfolio" className="py-24 px-6 bg-gradient-to-b from-[#0f0f23] via-[#151528] to-[#1a1a2e] relative overflow-hidden">
+        {/* AI Neural Pattern Overlay for consistency */}
+        <div className="absolute inset-0 opacity-10 motion-reduce:hidden">
+          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cGF0dGVybiBpZD0ibmV1cmFsIiB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGNpcmNsZSBjeD0iNTAiIGN5PSI1MCIgcj0iMiIgZmlsbD0icmdiYSgxMjMsNDcsMjQ3LDAuNSkiLz48Y2lyY2xlIGN4PSIyMCIgY3k9IjIwIiByPSIxLjUiIGZpbGw9InJnYmEoMjU1LDEwNywxNTcsMC40KSIvPjxjaXJjbGUgY3g9IjgwIiBjeT0iMzAiIHI9IjEiIGZpbGw9InJnYmEoMjU1LDEwNyw4MywwLjQpIi8+PGxpbmUgeDE9IjUwIiB5MT0iNTAiIHgyPSIyMCIgeTI9IjIwIiBzdHJva2U9InJnYmEoMTIzLDQ3LDI0NywwLjIpIiBzdHJva2Utd2lkdGg9IjAuNSIvPjxsaW5lIHgxPSI1MCIgeTE9IjUwIiB4Mj0iODAiIHkyPSIzMCIgc3Ryb2tlPSJyZ2JhKDI1NSwxMDcsMTU3LDAuMikiIHN0cm9rZS13aWR0aD0iMC41Ii8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI25ldXJhbCkiLz48L3N2Zz4=')]" />
+        </div>
         <div className="absolute inset-0 motion-reduce:hidden">
-          <div className="absolute top-20 left-10 w-64 h-64 bg-[#7B2FF7]/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-20 right-10 w-80 h-80 bg-[#FF6B9D]/10 rounded-full blur-3xl" />
+          <div className="absolute top-20 left-10 w-64 h-64 bg-[#7B2FF7]/15 rounded-full blur-3xl" />
+          <div className="absolute bottom-20 right-10 w-80 h-80 bg-[#FF6B9D]/15 rounded-full blur-3xl" />
         </div>
         
         <div className="max-w-6xl mx-auto relative z-10">
@@ -678,18 +703,18 @@ export default function SocialMediaCreativeManagement() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <span className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#7B2FF7]/10 to-[#FF6B9D]/10 rounded-full text-sm font-bold text-gray-900 mb-6 border border-gray-200">
+            <span className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#7B2FF7]/20 to-[#FF6B9D]/20 rounded-full text-sm font-bold text-white/80 mb-6 border border-white/10">
               <Camera className="w-4 h-4" />
               Our Work
             </span>
-            <h2 className="text-4xl md:text-6xl font-black text-gray-900 mb-6">
+            <h2 className="text-4xl md:text-6xl font-black text-white mb-6">
               See What We <br/>
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7B2FF7] via-[#FF6B9D] to-[#FF6B53]">
                 Create
               </span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Real campaigns. Real results. Content that stops thumbs and starts conversations.
+            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+              Real campaigns. Real results. Content engineered to outperform.
             </p>
           </motion.div>
 
@@ -759,8 +784,12 @@ export default function SocialMediaCreativeManagement() {
         </div>
       </section>
 
-      {/* Industries Section - Colorful Cards */}
-      <section className="py-24 px-6 bg-gray-50 relative overflow-hidden">
+      {/* Industries Section - Navy undertones for consistency */}
+      <section className="py-24 px-6 bg-gradient-to-b from-[#1a1a2e] via-[#0f0f23] to-[#151528] relative overflow-hidden">
+        {/* AI Circuit Pattern */}
+        <div className="absolute inset-0 opacity-5 motion-reduce:hidden">
+          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cGF0dGVybiBpZD0iY2lyY3VpdCIgd2lkdGg9IjIwMCIgaGVpZ2h0PSIyMDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiPjxwYXRoIGQ9Ik0wIDUwIEg4MCBWMTBIMTI1IFY1MCBIMjAwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMTIzLDQ3LDI0NywwLjMpIiBzdHJva2Utd2lkdGg9IjEiLz48cGF0aCBkPSJNMCAxNTAgSDUwIFYxMDAgSDEwMCBWMTUwIEgyMDAiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyNTUsMTA3LDE1NywwLjMpIiBzdHJva2Utd2lkdGg9IjEiLz48Y2lyY2xlIGN4PSI4MCIgY3k9IjUwIiByPSI0IiBmaWxsPSJyZ2JhKDEyMyw0NywyNDcsMC41KSIvPjxjaXJjbGUgY3g9IjEyNSIgY3k9IjEwIiByPSIzIiBmaWxsPSJyZ2JhKDI1NSwxMDcsMTU3LDAuNSkiLz48Y2lyY2xlIGN4PSI1MCIgY3k9IjE1MCIgcj0iNCIgZmlsbD0icmdiYSgyNTUsMTA3LDgzLDAuNSkiLz48Y2lyY2xlIGN4PSIxMDAiIGN5PSIxMDAiIHI9IjMiIGZpbGw9InJnYmEoMTIzLDQ3LDI0NywwLjUpIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2NpcmN1aXQpIi8+PC9zdmc+')]" />
+        </div>
         <div className="max-w-6xl mx-auto relative z-10">
           <motion.div 
             initial={fadeIn}
@@ -768,11 +797,11 @@ export default function SocialMediaCreativeManagement() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <span className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#7B2FF7]/10 to-[#FF6B9D]/10 rounded-full text-sm font-bold text-gray-900 mb-6 border border-gray-200">
+            <span className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#7B2FF7]/20 to-[#FF6B9D]/20 rounded-full text-sm font-bold text-white/80 mb-6 border border-white/10">
               <Target className="w-4 h-4" />
               Industries We Transform
             </span>
-            <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-6">
+            <h2 className="text-4xl md:text-5xl font-black text-white mb-6">
               Built for <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7B2FF7] to-[#FF6B53]">Category Leaders</span>
             </h2>
           </motion.div>
@@ -785,18 +814,18 @@ export default function SocialMediaCreativeManagement() {
                 whileInView={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={prefersReducedMotion ? {} : { delay: idx * 0.08 }}
-                whileHover={prefersReducedMotion ? {} : { y: -5 }}
-                className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 group" 
+                whileHover={prefersReducedMotion ? {} : { y: -5, scale: 1.02 }}
+                className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-white/20 transition-all duration-300 group" 
                 data-testid={`use-case-${useCase.id}`}
               >
                 <div className={`h-2 w-20 bg-gradient-to-r ${useCase.color} rounded-full mb-6 group-hover:w-full transition-all duration-500`} />
-                <h3 className="text-xl font-bold mb-3 text-gray-900">{useCase.title}</h3>
-                <p className="text-gray-600 mb-4">
+                <h3 className="text-xl font-bold mb-3 text-white">{useCase.title}</h3>
+                <p className="text-gray-400 mb-4">
                   {useCase.description}
                 </p>
                 <ul className="space-y-2 text-sm">
                   {useCase.points.map((point, i) => (
-                    <li key={i} className="flex items-center gap-2 text-gray-700">
+                    <li key={i} className="flex items-center gap-2 text-gray-300">
                       <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${useCase.color}`} />
                       <span>{point}</span>
                     </li>
@@ -808,14 +837,14 @@ export default function SocialMediaCreativeManagement() {
         </div>
       </section>
 
-      {/* Trusted Brands */}
-      <section className="py-16 px-6 bg-white">
+      {/* Trusted Brands - Dark theme */}
+      <section className="py-16 px-6 bg-[#0f0f23]">
         <div className="max-w-6xl mx-auto">
           <motion.p 
             initial={fadeIn}
             whileInView={fadeInVisible}
             viewport={{ once: true }}
-            className="text-center text-lg text-gray-600 mb-8"
+            className="text-center text-lg text-gray-400 mb-8"
           >
             Trusted by brands scaling from startup to enterprise
           </motion.p>
