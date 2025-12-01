@@ -727,37 +727,37 @@ export default function SocialMediaCreativeManagement() {
                 initial={fadeIn}
                 animate={fadeInVisible}
                 transition={prefersReducedMotion ? {} : { delay: 0.1, duration: 0.5 }}
-                className="mb-3 md:mb-4 leading-[0.85]"
+                className="mb-2 md:mb-3 leading-[0.85]"
                 style={{ fontFamily: 'var(--font-display)' }}
               >
-                {/* CREATIVE - Noticeably larger, tight letter-spacing */}
+                {/* CREATIVE - Larger, premium deep violet gradient */}
                 <span 
                   className="block font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#1A1A1A] via-[#2D1B4E] to-[#1A1A1A]"
                   style={{ 
-                    fontSize: 'clamp(3.75rem, 16vw, 5.5rem)',
-                    letterSpacing: '-0.04em'
+                    fontSize: 'clamp(3.25rem, 14vw, 4.5rem)',
+                    letterSpacing: '-0.03em'
                   }}
                 >
-                  Make Creative
+                  Creative
                 </span>
-                {/* That Converts - Slightly smaller, tight kerning */}
+                {/* That Converts - Slightly smaller, sophisticated gradient */}
                 <span 
                   className="block font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#6B21A8] via-[#DB2777] to-[#C2410C]"
                   style={{ 
-                    fontSize: 'clamp(2.75rem, 12vw, 4rem)',
-                    letterSpacing: '-0.03em'
+                    fontSize: 'clamp(2.5rem, 11vw, 3.5rem)',
+                    letterSpacing: '-0.02em'
                   }}
                 >
                   That Converts
                 </span>
               </motion.div>
               
-              {/* Pain Hook - Compelling statement */}
+              {/* Pain Hook - Compelling tagline */}
               <motion.p 
                 initial={fadeIn}
                 animate={fadeInVisible}
                 transition={prefersReducedMotion ? {} : { delay: 0.15, duration: 0.5 }}
-                className="text-sm sm:text-base md:text-lg text-[#6B6B6B] max-w-xs sm:max-w-md mb-4 md:mb-5 leading-relaxed italic"
+                className="text-xs sm:text-sm md:text-base text-[#6B6B6B] max-w-xs sm:max-w-md mb-3 md:mb-4 leading-relaxed"
                 style={{ fontFamily: 'var(--font-display)' }}
               >
                 From overlooked posts to viral dominance—our AI precision unlocks it all.
