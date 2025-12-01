@@ -548,7 +548,7 @@ export default function SocialMediaCreativeManagement() {
           <svg className="w-full h-full" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
             <defs>
               <filter id="softGlow">
-                <feGaussianBlur stdDeviation="2" result="blur"/>
+                <feGaussianBlur stdDeviation="3" result="blur"/>
                 <feMerge>
                   <feMergeNode in="blur"/>
                   <feMergeNode in="SourceGraphic"/>
@@ -556,152 +556,151 @@ export default function SocialMediaCreativeManagement() {
               </filter>
             </defs>
             
-            {/* AI Neural Network - Single muted blue-gray color */}
+            {/* AI Neural Network - Light icy white */}
             {/* Connection Lines */}
             <motion.line 
               x1="200" y1="300" x2="500" y2="200" 
-              stroke="#B8C5E8" 
+              stroke="#FFFFFF" 
               strokeWidth="2" 
               filter="url(#softGlow)"
-              animate={{ opacity: [0.5, 0.7, 0.5] }}
+              animate={{ opacity: [0.25, 0.6, 0.25] }}
               transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
             />
             <motion.line 
               x1="500" y1="200" x2="800" y2="150" 
-              stroke="#B8C5E8" 
+              stroke="#FFFFFF" 
               strokeWidth="2" 
               filter="url(#softGlow)"
-              animate={{ opacity: [0.45, 0.65, 0.45] }}
+              animate={{ opacity: [0.2, 0.55, 0.2] }}
               transition={{ duration: 3.5, delay: 0.3, repeat: Infinity, ease: "easeInOut" }}
             />
             <motion.line 
               x1="200" y1="300" x2="150" y2="500" 
-              stroke="#B8C5E8" 
+              stroke="#FFFFFF" 
               strokeWidth="2" 
               filter="url(#softGlow)"
-              animate={{ opacity: [0.4, 0.6, 0.4] }}
+              animate={{ opacity: [0.2, 0.5, 0.2] }}
               transition={{ duration: 4, delay: 0.5, repeat: Infinity, ease: "easeInOut" }}
             />
             <motion.line 
               x1="1600" y1="400" x2="1300" y2="600" 
-              stroke="#B8C5E8" 
+              stroke="#FFFFFF" 
               strokeWidth="2" 
               filter="url(#softGlow)"
-              animate={{ opacity: [0.5, 0.7, 0.5] }}
+              animate={{ opacity: [0.25, 0.6, 0.25] }}
               transition={{ duration: 3.2, delay: 0.2, repeat: Infinity, ease: "easeInOut" }}
             />
             <motion.line 
               x1="1300" y1="600" x2="1100" y2="450" 
-              stroke="#B8C5E8" 
+              stroke="#FFFFFF" 
               strokeWidth="2" 
               filter="url(#softGlow)"
-              animate={{ opacity: [0.4, 0.6, 0.4] }}
+              animate={{ opacity: [0.2, 0.5, 0.2] }}
               transition={{ duration: 4, delay: 0.8, repeat: Infinity, ease: "easeInOut" }}
             />
             <motion.line 
               x1="500" y1="200" x2="1100" y2="450" 
-              stroke="#B8C5E8" 
+              stroke="#FFFFFF" 
               strokeWidth="1.5" 
               filter="url(#softGlow)"
-              strokeDasharray="8 8"
-              animate={{ opacity: [0.35, 0.55, 0.35] }}
+              animate={{ opacity: [0.15, 0.45, 0.15] }}
               transition={{ duration: 5, delay: 1, repeat: Infinity, ease: "easeInOut" }}
             />
             <motion.line 
               x1="150" y1="500" x2="400" y2="650" 
-              stroke="#B8C5E8" 
+              stroke="#FFFFFF" 
               strokeWidth="2" 
               filter="url(#softGlow)"
-              animate={{ opacity: [0.4, 0.6, 0.4] }}
+              animate={{ opacity: [0.2, 0.5, 0.2] }}
               transition={{ duration: 3.8, delay: 0.6, repeat: Infinity, ease: "easeInOut" }}
             />
             <motion.line 
               x1="400" y1="650" x2="700" y2="550" 
-              stroke="#B8C5E8" 
+              stroke="#FFFFFF" 
               strokeWidth="1.5" 
               filter="url(#softGlow)"
-              animate={{ opacity: [0.35, 0.55, 0.35] }}
+              animate={{ opacity: [0.15, 0.45, 0.15] }}
               transition={{ duration: 4.2, delay: 0.9, repeat: Infinity, ease: "easeInOut" }}
             />
             <motion.line 
               x1="800" y1="150" x2="1100" y2="450" 
-              stroke="#B8C5E8" 
+              stroke="#FFFFFF" 
               strokeWidth="1.5" 
               filter="url(#softGlow)"
-              animate={{ opacity: [0.3, 0.5, 0.3] }}
+              animate={{ opacity: [0.15, 0.4, 0.15] }}
               transition={{ duration: 4.5, delay: 0.4, repeat: Infinity, ease: "easeInOut" }}
             />
             <motion.line 
               x1="700" y1="550" x2="1100" y2="450" 
-              stroke="#B8C5E8" 
+              stroke="#FFFFFF" 
               strokeWidth="1.5" 
               filter="url(#softGlow)"
-              animate={{ opacity: [0.3, 0.5, 0.3] }}
+              animate={{ opacity: [0.15, 0.4, 0.15] }}
               transition={{ duration: 3.5, delay: 1.2, repeat: Infinity, ease: "easeInOut" }}
             />
             
-            {/* Neural Network Nodes - Same muted blue-gray */}
+            {/* Neural Network Nodes - Light white */}
             <motion.circle 
-              cx="200" cy="300" r="7" 
-              fill="#B8C5E8" 
+              cx="200" cy="300" r="8" 
+              fill="#FFFFFF" 
               filter="url(#softGlow)"
-              animate={{ opacity: [0.6, 0.85, 0.6] }}
+              animate={{ opacity: [0.4, 0.8, 0.4] }}
               transition={{ duration: 2, repeat: Infinity }}
             />
             <motion.circle 
-              cx="500" cy="200" r="6" 
-              fill="#B8C5E8" 
+              cx="500" cy="200" r="7" 
+              fill="#FFFFFF" 
               filter="url(#softGlow)"
-              animate={{ opacity: [0.55, 0.8, 0.55] }}
+              animate={{ opacity: [0.35, 0.75, 0.35] }}
               transition={{ duration: 2.5, delay: 0.5, repeat: Infinity }}
             />
             <motion.circle 
-              cx="150" cy="500" r="5" 
-              fill="#B8C5E8" 
+              cx="150" cy="500" r="6" 
+              fill="#FFFFFF" 
               filter="url(#softGlow)"
-              animate={{ opacity: [0.55, 0.8, 0.55] }}
+              animate={{ opacity: [0.35, 0.7, 0.35] }}
               transition={{ duration: 3, delay: 1, repeat: Infinity }}
             />
             <motion.circle 
-              cx="800" cy="150" r="6" 
-              fill="#B8C5E8" 
+              cx="800" cy="150" r="7" 
+              fill="#FFFFFF" 
               filter="url(#softGlow)"
-              animate={{ opacity: [0.5, 0.75, 0.5] }}
+              animate={{ opacity: [0.3, 0.7, 0.3] }}
               transition={{ duration: 2, delay: 0.3, repeat: Infinity }}
             />
             <motion.circle 
-              cx="1600" cy="400" r="7" 
-              fill="#B8C5E8" 
+              cx="1600" cy="400" r="8" 
+              fill="#FFFFFF" 
               filter="url(#softGlow)"
-              animate={{ opacity: [0.55, 0.8, 0.55] }}
+              animate={{ opacity: [0.4, 0.8, 0.4] }}
               transition={{ duration: 2.8, delay: 0.8, repeat: Infinity }}
             />
             <motion.circle 
-              cx="1300" cy="600" r="6" 
-              fill="#B8C5E8" 
+              cx="1300" cy="600" r="7" 
+              fill="#FFFFFF" 
               filter="url(#softGlow)"
-              animate={{ opacity: [0.55, 0.8, 0.55] }}
+              animate={{ opacity: [0.35, 0.75, 0.35] }}
               transition={{ duration: 2.2, delay: 0.4, repeat: Infinity }}
             />
             <motion.circle 
-              cx="1100" cy="450" r="6" 
-              fill="#B8C5E8" 
+              cx="1100" cy="450" r="7" 
+              fill="#FFFFFF" 
               filter="url(#softGlow)"
-              animate={{ opacity: [0.5, 0.75, 0.5] }}
+              animate={{ opacity: [0.3, 0.7, 0.3] }}
               transition={{ duration: 2.6, delay: 0.6, repeat: Infinity }}
             />
             <motion.circle 
-              cx="400" cy="650" r="5" 
-              fill="#B8C5E8" 
+              cx="400" cy="650" r="6" 
+              fill="#FFFFFF" 
               filter="url(#softGlow)"
-              animate={{ opacity: [0.55, 0.8, 0.55] }}
+              animate={{ opacity: [0.35, 0.7, 0.35] }}
               transition={{ duration: 3.2, delay: 0.7, repeat: Infinity }}
             />
             <motion.circle 
-              cx="700" cy="550" r="5" 
-              fill="#B8C5E8" 
+              cx="700" cy="550" r="6" 
+              fill="#FFFFFF" 
               filter="url(#softGlow)"
-              animate={{ opacity: [0.5, 0.75, 0.5] }}
+              animate={{ opacity: [0.3, 0.65, 0.3] }}
               transition={{ duration: 2.4, delay: 1.1, repeat: Infinity }}
             />
             
