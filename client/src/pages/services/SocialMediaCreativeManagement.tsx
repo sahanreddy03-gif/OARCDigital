@@ -407,19 +407,20 @@ export default function SocialMediaCreativeManagement() {
           }}
         />
 
-        {/* Hero Video Background - Optimized for fast autoplay */}
-        <div className="absolute inset-0">
+        {/* Subtle Video Background with light overlay */}
+        <div className="absolute inset-0 motion-reduce:hidden">
           <video 
             autoPlay 
             loop 
             muted 
             playsInline
-            preload="auto"
-            className="absolute inset-0 w-full h-full object-cover opacity-25"
-            style={{ filter: 'brightness(1.05)' }}
-            src={heroVideo}
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#FDFCFA]/65 via-[#FDFCFA]/45 to-[#FDFCFA]/85" />
+            preload="metadata"
+            className="absolute inset-0 w-full h-full object-cover opacity-15"
+            style={{ filter: 'grayscale(30%) brightness(1.2)' }}
+          >
+            <source src="https://videos.pexels.com/video-files/856106/856106-hd_1920_1080_30fps.mp4" type="video/mp4" />
+          </video>
+          <div className="absolute inset-0 bg-gradient-to-b from-[#FDFCFA]/80 via-[#FDFCFA]/60 to-[#FDFCFA]/95" />
         </div>
 
         {/* TARGET CIRCLE with SVG ICONS - Positioned for new layout */}
@@ -893,20 +894,26 @@ export default function SocialMediaCreativeManagement() {
                 </div>
               </motion.div>
               
-              {/* Card 2 - Video Campaign */}
+              {/* Card 2 - Video Campaign with Autoplay */}
               <motion.div 
-                className="relative h-24 sm:h-28 md:h-32 bg-white rounded-xl overflow-hidden group cursor-pointer"
+                className="relative h-24 sm:h-28 md:h-32 bg-black rounded-xl overflow-hidden group cursor-pointer"
                 style={{ boxShadow: '0 4px 16px rgba(0,0,0,0.06)' }}
                 whileHover={prefersReducedMotion ? {} : { y: -4, boxShadow: '0 12px 30px rgba(139,92,246,0.15)' }}
                 transition={{ duration: 0.3 }}
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-[#8B5CF6] to-[#7C3AED]" />
-                <div className="absolute inset-0 flex flex-col items-center justify-center p-2 text-white">
-                  <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white/20 flex items-center justify-center mb-1 group-hover:scale-110 transition-transform">
-                    <Play className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white fill-white ml-0.5" />
-                  </div>
-                  <span className="text-[9px] sm:text-[10px] font-bold opacity-80">VIDEO</span>
-                  <span className="text-sm sm:text-base font-black">8.7M+</span>
+                <video 
+                  autoPlay 
+                  loop 
+                  muted 
+                  playsInline
+                  preload="auto"
+                  className="absolute inset-0 w-full h-full object-cover"
+                  src={heroVideo}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                <div className="absolute bottom-1 left-1.5 right-1.5 flex items-center justify-between text-white">
+                  <span className="text-[8px] sm:text-[9px] font-bold opacity-90">VIDEO</span>
+                  <span className="text-[10px] sm:text-xs font-black">8.7M+</span>
                 </div>
               </motion.div>
               
