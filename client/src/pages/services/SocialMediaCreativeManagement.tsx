@@ -421,121 +421,145 @@ export default function SocialMediaCreativeManagement() {
           <div className="absolute inset-0 bg-gradient-to-b from-[#FDFCFA]/80 via-[#FDFCFA]/60 to-[#FDFCFA]/95" />
         </div>
 
-        {/* TARGET CIRCLE with SVG ICONS - Positioned for new layout */}
-        {/* Mobile: Top-right beside title | Desktop: Right side, lifted higher to avoid text overlap */}
-        <div className="absolute top-1 right-1 sm:top-3 sm:right-3 md:top-[30%] md:right-12 lg:right-20 md:-translate-y-1/2 w-[136px] h-[136px] sm:w-40 sm:h-40 md:w-56 md:h-56 lg:w-72 lg:h-72 motion-reduce:hidden pointer-events-none z-10">
-          <svg width="100%" height="100%" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+        {/* SOCIAL GRAPH - Interactive clustered nodes with tooltips */}
+        {/* Mobile: Top-right beside title | Desktop: Right side, lifted higher */}
+        <div className="absolute top-1 right-1 sm:top-3 sm:right-3 md:top-[30%] md:right-12 lg:right-20 md:-translate-y-1/2 w-[136px] h-[136px] sm:w-40 sm:h-40 md:w-56 md:h-56 lg:w-72 lg:h-72 motion-reduce:hidden md:pointer-events-auto pointer-events-none z-10 group">
+          <svg width="100%" height="100%" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" className="overflow-visible">
             <defs>
+              {/* Desaturated gradients for elite premium look */}
               <linearGradient id="centerGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#FF6B9D"/>
-                <stop offset="100%" stopColor="#FF8FAB"/>
+                <stop offset="0%" stopColor="#D85A80"/>
+                <stop offset="100%" stopColor="#E07898"/>
               </linearGradient>
               <filter id="glow1" x="-50%" y="-50%" width="200%" height="200%">
-                <feGaussianBlur stdDeviation="3" result="blur"/>
+                <feGaussianBlur stdDeviation="4" result="blur"/>
                 <feMerge>
                   <feMergeNode in="blur"/>
                   <feMergeNode in="SourceGraphic"/>
                 </feMerge>
               </filter>
               <filter id="shadowFilter">
-                <feDropShadow dx="0" dy="2" stdDeviation="3" floodOpacity="0.2"/>
+                <feDropShadow dx="0" dy="3" stdDeviation="4" floodOpacity="0.15"/>
               </filter>
+              {/* Connection line gradient */}
+              <linearGradient id="connectionGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#6D2AE0" stopOpacity="0.4"/>
+                <stop offset="50%" stopColor="#D85A80" stopOpacity="0.6"/>
+                <stop offset="100%" stopColor="#6D2AE0" stopOpacity="0.4"/>
+              </linearGradient>
             </defs>
             
-            {/* Pink Target Center with Crosshair */}
-            <circle cx="150" cy="150" r="28" fill="url(#centerGrad)" filter="url(#glow1)">
-              <animate attributeName="r" values="26;30;26" dur="2s" repeatCount="indefinite"/>
-            </circle>
-            <circle cx="150" cy="150" r="22" fill="none" stroke="rgba(255,255,255,0.5)" strokeWidth="2"/>
+            {/* Connection lines from center to nodes - grows on load */}
+            <g className="opacity-60">
+              <line x1="150" y1="150" x2="150" y2="60" stroke="url(#connectionGrad)" strokeWidth="1.5" strokeDasharray="4 2">
+                <animate attributeName="stroke-dashoffset" from="24" to="0" dur="1.5s" fill="freeze"/>
+              </line>
+              <line x1="150" y1="150" x2="72" y2="211" stroke="url(#connectionGrad)" strokeWidth="1.5" strokeDasharray="4 2">
+                <animate attributeName="stroke-dashoffset" from="24" to="0" dur="1.5s" begin="0.2s" fill="freeze"/>
+              </line>
+              <line x1="150" y1="150" x2="242" y2="137" stroke="url(#connectionGrad)" strokeWidth="1.5" strokeDasharray="4 2">
+                <animate attributeName="stroke-dashoffset" from="24" to="0" dur="1.5s" begin="0.4s" fill="freeze"/>
+              </line>
+              <line x1="150" y1="150" x2="202" y2="237" stroke="url(#connectionGrad)" strokeWidth="1.5" strokeDasharray="4 2">
+                <animate attributeName="stroke-dashoffset" from="24" to="0" dur="1.5s" begin="0.6s" fill="freeze"/>
+              </line>
+              <line x1="150" y1="150" x2="54" y2="133" stroke="url(#connectionGrad)" strokeWidth="1.5" strokeDasharray="4 2">
+                <animate attributeName="stroke-dashoffset" from="24" to="0" dur="1.5s" begin="0.8s" fill="freeze"/>
+              </line>
+            </g>
             
-            {/* Crosshair Lines - Dashed, extending outward */}
-            <line x1="150" y1="100" x2="150" y2="125" stroke="rgba(255,143,171,0.7)" strokeWidth="2" strokeDasharray="4 3">
-              <animate attributeName="stroke-dashoffset" from="0" to="7" dur="0.8s" repeatCount="indefinite"/>
-            </line>
-            <line x1="150" y1="175" x2="150" y2="200" stroke="rgba(255,143,171,0.7)" strokeWidth="2" strokeDasharray="4 3">
-              <animate attributeName="stroke-dashoffset" from="0" to="7" dur="0.8s" repeatCount="indefinite"/>
-            </line>
-            <line x1="100" y1="150" x2="125" y2="150" stroke="rgba(255,143,171,0.7)" strokeWidth="2" strokeDasharray="4 3">
-              <animate attributeName="stroke-dashoffset" from="0" to="7" dur="0.8s" repeatCount="indefinite"/>
-            </line>
-            <line x1="175" y1="150" x2="200" y2="150" stroke="rgba(255,143,171,0.7)" strokeWidth="2" strokeDasharray="4 3">
-              <animate attributeName="stroke-dashoffset" from="0" to="7" dur="0.8s" repeatCount="indefinite"/>
-            </line>
+            {/* Central Hub - Ripple effect on load */}
+            <g className="origin-center">
+              <circle cx="150" cy="150" r="40" fill="none" stroke="#D85A80" strokeWidth="1" opacity="0.3">
+                <animate attributeName="r" values="28;50;28" dur="3s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values="0.4;0;0.4" dur="3s" repeatCount="indefinite"/>
+              </circle>
+              <circle cx="150" cy="150" r="28" fill="url(#centerGrad)" filter="url(#glow1)" className="transition-transform duration-300 group-hover:scale-110">
+                <animate attributeName="r" values="26;30;26" dur="2s" repeatCount="indefinite"/>
+              </circle>
+              <circle cx="150" cy="150" r="22" fill="none" stroke="rgba(255,255,255,0.5)" strokeWidth="2"/>
+              {/* Central icon */}
+              <text x="150" y="156" textAnchor="middle" fill="white" fontSize="18" fontWeight="bold">V</text>
+            </g>
             
-            {/* ROTATING ICONS GROUP */}
-            <g>
+            {/* ROTATING ICONS GROUP - Desaturated elite colors */}
+            <g className="transition-transform duration-500 group-hover:scale-105 origin-center">
               <animateTransform attributeName="transform" type="rotate" from="0 150 150" to="360 150 150" dur="12s" repeatCount="indefinite"/>
               
-              {/* Pink Speech Bubble with Heart - Top */}
-              <g transform="translate(125, 35)" filter="url(#shadowFilter)">
-                <rect x="0" y="5" width="50" height="38" rx="12" fill="#FF6B9D"/>
-                <polygon points="18,43 25,52 32,43" fill="#FF6B9D"/>
+              {/* Pink Speech Bubble with Heart - Top (Desaturated) */}
+              <g transform="translate(125, 35)" filter="url(#shadowFilter)" className="cursor-pointer transition-transform hover:scale-125">
+                <title>Viral Connections</title>
+                <rect x="0" y="5" width="50" height="38" rx="12" fill="#D85A80"/>
+                <polygon points="18,43 25,52 32,43" fill="#D85A80"/>
                 <path d="M25 32 Q 17 26 14 20 Q 11 14 17 10 Q 23 6 25 14 Q 27 6 33 10 Q 39 14 36 20 Q 33 26 25 32" fill="white"/>
                 <animateTransform attributeName="transform" type="rotate" from="0 25 25" to="-360 25 25" dur="12s" repeatCount="indefinite" additive="sum"/>
               </g>
               
-              {/* Purple Speech Bubble with Dots - KEEP THIS ONE - Bottom Left */}
-              <g transform="translate(50, 195)" filter="url(#shadowFilter)">
-                <rect x="0" y="0" width="44" height="32" rx="9" fill="#A855F7"/>
-                <polygon points="30,32 35,42 40,32" fill="#A855F7"/>
+              {/* Purple Speech Bubble with Dots - Bottom Left (Desaturated) */}
+              <g transform="translate(50, 195)" filter="url(#shadowFilter)" className="cursor-pointer transition-transform hover:scale-125">
+                <title>Engagement Hub</title>
+                <rect x="0" y="0" width="44" height="32" rx="9" fill="#9245E0"/>
+                <polygon points="30,32 35,42 40,32" fill="#9245E0"/>
                 <circle cx="12" cy="16" r="4" fill="white"/>
                 <circle cx="22" cy="16" r="4" fill="white"/>
                 <circle cx="32" cy="16" r="4" fill="white"/>
                 <animateTransform attributeName="transform" type="rotate" from="0 22 18" to="-360 22 18" dur="12s" repeatCount="indefinite" additive="sum"/>
               </g>
               
-              {/* Blue Share Arrow Speech Bubble - Right */}
-              <g transform="translate(220, 120)" filter="url(#shadowFilter)">
-                <rect x="0" y="5" width="44" height="34" rx="10" fill="#3B82F6"/>
-                <polygon points="15,39 20,48 25,39" fill="#3B82F6"/>
+              {/* Blue Share Arrow - Right (Desaturated) */}
+              <g transform="translate(220, 120)" filter="url(#shadowFilter)" className="cursor-pointer transition-transform hover:scale-125">
+                <title>Share Network</title>
+                <rect x="0" y="5" width="44" height="34" rx="10" fill="#3570D8"/>
+                <polygon points="15,39 20,48 25,39" fill="#3570D8"/>
                 <path d="M30 15 L20 22 L20 18 L12 18 L12 28 L20 28 L20 24 L30 31 L30 15" fill="white" stroke="white" strokeWidth="1" strokeLinejoin="round"/>
                 <animateTransform attributeName="transform" type="rotate" from="0 22 22" to="-360 22 22" dur="12s" repeatCount="indefinite" additive="sum"/>
               </g>
               
-              {/* Yellow Winking Smiley - Bottom Right */}
-              <g transform="translate(180, 215)" filter="url(#shadowFilter)">
-                <circle cx="22" cy="22" r="22" fill="#FBBF24"/>
+              {/* Yellow Winking Smiley - Bottom Right (Desaturated) */}
+              <g transform="translate(180, 215)" filter="url(#shadowFilter)" className="cursor-pointer transition-transform hover:scale-125">
+                <title>Brand Personality</title>
+                <circle cx="22" cy="22" r="22" fill="#E5AD20"/>
                 <circle cx="14" cy="18" r="3" fill="#1F2937"/>
                 <line x1="26" y1="16" x2="32" y2="20" stroke="#1F2937" strokeWidth="3" strokeLinecap="round"/>
                 <path d="M12 28 Q 22 36 32 28" fill="none" stroke="#1F2937" strokeWidth="3" strokeLinecap="round"/>
                 <animateTransform attributeName="transform" type="rotate" from="0 22 22" to="-360 22 22" dur="12s" repeatCount="indefinite" additive="sum"/>
               </g>
               
-              {/* Yellow Hashtag Speech Bubble - Left */}
-              <g transform="translate(30, 115)" filter="url(#shadowFilter)">
-                <rect x="0" y="5" width="48" height="36" rx="10" fill="#FBBF24"/>
-                <polygon points="32,41 36,50 40,41" fill="#FBBF24"/>
+              {/* Yellow Hashtag Speech Bubble - Left (Desaturated) */}
+              <g transform="translate(30, 115)" filter="url(#shadowFilter)" className="cursor-pointer transition-transform hover:scale-125">
+                <title>Trending Topics</title>
+                <rect x="0" y="5" width="48" height="36" rx="10" fill="#E5AD20"/>
+                <polygon points="32,41 36,50 40,41" fill="#E5AD20"/>
                 <text x="24" y="30" textAnchor="middle" fill="white" fontSize="22" fontWeight="bold">#</text>
                 <animateTransform attributeName="transform" type="rotate" from="0 24 23" to="-360 24 23" dur="12s" repeatCount="indefinite" additive="sum"/>
               </g>
               
-              {/* Decorative Orange Circle - Top Right */}
-              <g transform="translate(200, 60)">
-                <circle cx="15" cy="15" r="15" fill="#FB923C">
+              {/* Decorative Orange Circle - Top Right (Desaturated) */}
+              <g transform="translate(200, 60)" className="cursor-pointer transition-transform hover:scale-125">
+                <title>Growth Metrics</title>
+                <circle cx="15" cy="15" r="15" fill="#E07830">
                   <animate attributeName="r" values="14;17;14" dur="2.5s" repeatCount="indefinite"/>
                 </circle>
                 <animateTransform attributeName="transform" type="rotate" from="0 15 15" to="-360 15 15" dur="12s" repeatCount="indefinite" additive="sum"/>
               </g>
               
-              {/* Small Yellow Circle - Top */}
+              {/* Small Accent Circles (Desaturated) */}
               <g transform="translate(85, 50)">
-                <circle cx="10" cy="10" r="10" fill="#FDE047">
+                <circle cx="10" cy="10" r="10" fill="#E5D040">
                   <animate attributeName="opacity" values="0.8;1;0.8" dur="2s" repeatCount="indefinite"/>
                 </circle>
                 <animateTransform attributeName="transform" type="rotate" from="0 10 10" to="-360 10 10" dur="12s" repeatCount="indefinite" additive="sum"/>
               </g>
               
-              {/* Small Pink Circle - Bottom Center */}
               <g transform="translate(130, 240)">
-                <circle cx="10" cy="10" r="10" fill="#FF6B9D">
+                <circle cx="10" cy="10" r="10" fill="#D85A80">
                   <animate attributeName="opacity" values="0.7;1;0.7" dur="2s" repeatCount="indefinite"/>
                 </circle>
                 <animateTransform attributeName="transform" type="rotate" from="0 10 10" to="-360 10 10" dur="12s" repeatCount="indefinite" additive="sum"/>
               </g>
               
-              {/* Small Pink Dot - Far Right */}
               <g transform="translate(265, 165)">
-                <circle cx="6" cy="6" r="6" fill="#F472B6">
+                <circle cx="6" cy="6" r="6" fill="#D068A0">
                   <animate attributeName="opacity" values="0.5;1;0.5" dur="1.5s" repeatCount="indefinite"/>
                 </circle>
               </g>
@@ -554,15 +578,16 @@ export default function SocialMediaCreativeManagement() {
                   <feMergeNode in="SourceGraphic"/>
                 </feMerge>
               </filter>
+              {/* Desaturated gradients for elite premium look */}
               <linearGradient id="nodeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#FF6B53"/>
-                <stop offset="50%" stopColor="#FF6B9D"/>
-                <stop offset="100%" stopColor="#7B2FF7"/>
+                <stop offset="0%" stopColor="#E06048"/>
+                <stop offset="50%" stopColor="#D85A80"/>
+                <stop offset="100%" stopColor="#6D2AE0"/>
               </linearGradient>
               <linearGradient id="nodeGradient2" x1="100%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stopColor="#00D4FF"/>
-                <stop offset="50%" stopColor="#7B2FF7"/>
-                <stop offset="100%" stopColor="#FF6B9D"/>
+                <stop offset="0%" stopColor="#00BFE5"/>
+                <stop offset="50%" stopColor="#6D2AE0"/>
+                <stop offset="100%" stopColor="#D85A80"/>
               </linearGradient>
             </defs>
             
@@ -602,113 +627,113 @@ export default function SocialMediaCreativeManagement() {
               transition={{ duration: 5, delay: 1, repeat: Infinity, ease: "easeInOut" }}
             />
             
-            {/* Pulsing Social Nodes */}
+            {/* Pulsing Social Nodes - Desaturated Elite Colors */}
             <motion.circle 
               cx="200" cy="300" r="10" 
-              fill="#FF6B53" 
+              fill="#E06048" 
               filter="url(#glow)"
               animate={{ scale: [1, 1.5, 1], opacity: [0.6, 1, 0.6] }}
               transition={{ duration: 2, repeat: Infinity }}
             />
             <motion.circle 
               cx="500" cy="200" r="8" 
-              fill="#7B2FF7" 
+              fill="#6D2AE0" 
               filter="url(#glow)"
               animate={{ scale: [1, 1.4, 1], opacity: [0.5, 1, 0.5] }}
               transition={{ duration: 2.5, delay: 0.5, repeat: Infinity }}
             />
             <motion.circle 
               cx="150" cy="500" r="6" 
-              fill="#FF6B9D" 
+              fill="#D85A80" 
               filter="url(#glow)"
               animate={{ scale: [1, 1.3, 1], opacity: [0.7, 1, 0.7] }}
               transition={{ duration: 3, delay: 1, repeat: Infinity }}
             />
             <motion.circle 
               cx="800" cy="150" r="7" 
-              fill="#00D4FF" 
+              fill="#00BFE5" 
               filter="url(#glow)"
               animate={{ scale: [1, 1.6, 1], opacity: [0.4, 1, 0.4] }}
               transition={{ duration: 2, delay: 0.3, repeat: Infinity }}
             />
             <motion.circle 
               cx="1600" cy="400" r="9" 
-              fill="#FFD700" 
+              fill="#E5C000" 
               filter="url(#glow)"
               animate={{ scale: [1, 1.4, 1], opacity: [0.5, 0.9, 0.5] }}
               transition={{ duration: 2.8, delay: 0.8, repeat: Infinity }}
             />
             <motion.circle 
               cx="1300" cy="600" r="7" 
-              fill="#7B2FF7" 
+              fill="#6D2AE0" 
               filter="url(#glow)"
               animate={{ scale: [1, 1.5, 1], opacity: [0.5, 1, 0.5] }}
               transition={{ duration: 2.2, delay: 0.4, repeat: Infinity }}
             />
             
-            {/* Floating Speech Bubble - Top Left */}
+            {/* Floating Speech Bubble - Top Left (Desaturated) */}
             <motion.g 
               transform="translate(80, 150)"
               animate={{ y: [-8, 8, -8], opacity: [0.6, 1, 0.6] }}
               transition={{ duration: 3, repeat: Infinity }}
             >
-              <rect x="0" y="0" width="50" height="35" rx="8" fill="#7B2FF7" opacity="0.85"/>
-              <polygon points="15,35 20,48 28,35" fill="#7B2FF7" opacity="0.85"/>
+              <rect x="0" y="0" width="50" height="35" rx="8" fill="#6D2AE0" opacity="0.85"/>
+              <polygon points="15,35 20,48 28,35" fill="#6D2AE0" opacity="0.85"/>
               <circle cx="14" cy="17" r="4" fill="white" opacity="0.9"/>
               <circle cx="26" cy="17" r="4" fill="white" opacity="0.9"/>
               <circle cx="38" cy="17" r="4" fill="white" opacity="0.9"/>
             </motion.g>
             
-            {/* Floating Heart - Top Right */}
+            {/* Floating Heart - Top Right (Desaturated) */}
             <motion.g 
               transform="translate(1700, 180)"
               animate={{ scale: [1, 1.15, 1], opacity: [0.5, 1, 0.5] }}
               transition={{ duration: 1.5, repeat: Infinity }}
             >
               <path d="M20,35 Q 10 28 6 20 Q 2 12 10 7 Q 18 2 20 12 Q 22 2 30 7 Q 38 12 34 20 Q 30 28 20 35" 
-                    fill="#FF6B9D" 
+                    fill="#D85A80" 
                     opacity="0.85"
                     transform="scale(1.3)"
               />
             </motion.g>
             
-            {/* +1 Engagement Bubble - Left */}
+            {/* +1 Engagement Bubble - Left (Desaturated) */}
             <motion.g 
               transform="translate(300, 450)"
               animate={{ y: [5, -5, 5], scale: [1, 1.1, 1] }}
               transition={{ duration: 2, repeat: Infinity }}
             >
-              <circle cx="20" cy="20" r="18" fill="#FFD700" opacity="0.85"/>
+              <circle cx="20" cy="20" r="18" fill="#E5C000" opacity="0.85"/>
               <text x="20" y="26" textAnchor="middle" fill="white" fontSize="16" fontWeight="bold">+1</text>
             </motion.g>
           </svg>
         </div>
         
-        {/* Floating Particles */}
+        {/* Floating Particles - Desaturated Elite Colors */}
         <div className="absolute inset-0 motion-reduce:hidden">
           {[...Array(20)].map((_, i) => (
             <FloatingParticle 
               key={i} 
               delay={i * 0.2} 
               duration={4 + Math.random() * 3}
-              color={['#7B2FF7', '#FF6B9D', '#FF6B53', '#00D4FF', '#FFD700'][Math.floor(Math.random() * 5)]}
+              color={['#6D2AE0', '#D85A80', '#E06048', '#00BFE5', '#E5C000'][Math.floor(Math.random() * 5)]}
             />
           ))}
         </div>
         
-        {/* Premium Decorative Glows - Softer for light background */}
+        {/* Premium Decorative Glows - Desaturated for elite look */}
         <motion.div 
-          className="absolute top-10 left-5 w-48 h-48 rounded-full bg-gradient-to-r from-[#7B2FF7]/20 to-[#FF6B9D]/20 blur-3xl motion-reduce:hidden"
+          className="absolute top-10 left-5 w-48 h-48 rounded-full bg-gradient-to-r from-[#6D2AE0]/20 to-[#D85A80]/20 blur-3xl motion-reduce:hidden"
           animate={{ scale: [1, 1.3, 1], opacity: [0.3, 0.5, 0.3] }}
           transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
         />
         <motion.div 
-          className="absolute bottom-20 left-1/4 w-64 h-64 rounded-full bg-gradient-to-r from-[#FF6B53]/15 to-[#FF6B9D]/15 blur-3xl motion-reduce:hidden"
+          className="absolute bottom-20 left-1/4 w-64 h-64 rounded-full bg-gradient-to-r from-[#E06048]/15 to-[#D85A80]/15 blur-3xl motion-reduce:hidden"
           animate={{ scale: [1.2, 1, 1.2], opacity: [0.2, 0.4, 0.2] }}
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
         />
         <motion.div 
-          className="absolute top-1/3 left-1/3 w-40 h-40 rounded-full bg-[#00D4FF]/10 blur-2xl motion-reduce:hidden"
+          className="absolute top-1/3 left-1/3 w-40 h-40 rounded-full bg-[#00BFE5]/10 blur-2xl motion-reduce:hidden"
           animate={{ y: [-20, 20, -20], opacity: [0.15, 0.3, 0.15] }}
           transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
         />
@@ -722,28 +747,40 @@ export default function SocialMediaCreativeManagement() {
             
             {/* Text Content - Full width on mobile, with room for target animation */}
             <div className="w-full text-left pr-[140px] sm:pr-40 md:pr-0">
-              {/* Main Headline - CREATIVE larger, premium elite colors */}
+              {/* Main Headline - Space Grotesk, premium elite colors, tight kerning */}
               <motion.div 
                 initial={fadeIn}
                 animate={fadeInVisible}
                 transition={prefersReducedMotion ? {} : { delay: 0.1, duration: 0.5 }}
                 className="mb-4 md:mb-4 leading-[0.85]"
+                style={{ fontFamily: "'Space Grotesk', sans-serif" }}
               >
-                {/* CREATIVE - Larger, premium deep violet gradient */}
+                {/* CREATIVE - Larger, premium deep gradient, tight tracking */}
                 <span 
-                  className="block font-black text-transparent bg-clip-text bg-gradient-to-r from-[#1A1A1A] via-[#2D1B4E] to-[#1A1A1A]"
-                  style={{ fontSize: 'clamp(3.25rem, 14vw, 4.5rem)' }}
+                  className="block font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#1A1A1A] via-[#3D2B5E] to-[#1A1A1A]"
+                  style={{ fontSize: 'clamp(3.5rem, 15vw, 5rem)', letterSpacing: '-0.03em' }}
                 >
                   Creative
                 </span>
-                {/* That Converts - Slightly smaller, sophisticated gradient */}
+                {/* That Converts - Slightly smaller, sophisticated desaturated gradient */}
                 <span 
-                  className="block font-black text-transparent bg-clip-text bg-gradient-to-r from-[#6B21A8] via-[#DB2777] to-[#C2410C]"
-                  style={{ fontSize: 'clamp(2.5rem, 11vw, 3.5rem)' }}
+                  className="block font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#6024A0] via-[#C92570] to-[#D45A10]"
+                  style={{ fontSize: 'clamp(2.5rem, 11vw, 3.5rem)', letterSpacing: '-0.02em' }}
                 >
                   That Converts
                 </span>
               </motion.div>
+              
+              {/* Pain Hook - Elite premium tagline */}
+              <motion.p 
+                initial={fadeIn}
+                animate={fadeInVisible}
+                transition={prefersReducedMotion ? {} : { delay: 0.15, duration: 0.5 }}
+                className="text-sm sm:text-base md:text-base text-[#6B6B6B] italic mb-3 md:mb-3"
+                style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+              >
+                From overlooked posts to viral dominance—our MVP edge.
+              </motion.p>
               
               {/* Subheadline - LARGER text on mobile */}
               <motion.p 
@@ -754,10 +791,10 @@ export default function SocialMediaCreativeManagement() {
               >
                 We engineer content that{' '}
                 <span className="font-semibold text-[#1A1A1A]">consistently outperforms</span>—with{' '}
-                <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#7B2FF7] to-[#FF6B9D]">3x average ROAS</span>.
+                <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#6D2AE0] to-[#E0608A]">3x average ROAS</span>.
               </motion.p>
               
-              {/* CTA Buttons - Larger on mobile, row on desktop */}
+              {/* CTA Buttons - Desaturated elite colors */}
               <motion.div 
                 initial={fadeIn}
                 animate={fadeInVisible}
@@ -768,8 +805,9 @@ export default function SocialMediaCreativeManagement() {
                   <MagneticButton
                     whileHover={prefersReducedMotion ? {} : { scale: 1.05, y: -2 }}
                     whileTap={prefersReducedMotion ? {} : { scale: 0.98 }}
-                    className="group inline-flex items-center gap-2 bg-gradient-to-r from-[#7B2FF7] to-[#FF6B9D] text-white rounded-full px-5 py-3 sm:px-6 sm:py-3.5 text-sm sm:text-base font-bold shadow-lg shadow-purple-500/25 hover:shadow-xl hover:shadow-purple-500/35 transition-all"
+                    className="group inline-flex items-center gap-2 bg-gradient-to-r from-[#6D2AE0] to-[#E0608A] text-white rounded-full px-5 py-3 sm:px-6 sm:py-3.5 text-sm sm:text-base font-bold shadow-lg shadow-purple-500/20 hover:shadow-xl hover:shadow-purple-500/30 transition-all"
                     data-testid="button-hero-cta"
+                    style={{ fontFamily: "'Space Grotesk', sans-serif" }}
                   >
                     Start Creating
                     <div className="w-7 h-7 sm:w-8 sm:h-8 bg-white/20 rounded-full flex items-center justify-center group-hover:rotate-12 transition-transform">
@@ -780,10 +818,11 @@ export default function SocialMediaCreativeManagement() {
                 <Link href="#portfolio">
                   <motion.button
                     whileHover={prefersReducedMotion ? {} : { scale: 1.05 }}
-                    className="inline-flex items-center gap-2 bg-white border-2 border-[#E5E4E0] text-[#1A1A1A] rounded-full px-5 py-3 sm:px-6 sm:py-3.5 text-sm sm:text-base font-bold hover:border-[#7B2FF7]/30 hover:shadow-lg transition-all"
+                    className="inline-flex items-center gap-2 bg-white border-2 border-[#E0DDD8] text-[#1A1A1A] rounded-full px-5 py-3 sm:px-6 sm:py-3.5 text-sm sm:text-base font-bold hover:border-[#6D2AE0]/30 hover:shadow-lg transition-all"
                     data-testid="button-view-work"
+                    style={{ fontFamily: "'Space Grotesk', sans-serif" }}
                   >
-                    <Play className="w-4 h-4 sm:w-4 sm:h-4 fill-[#7B2FF7] text-[#7B2FF7]" />
+                    <Play className="w-4 h-4 sm:w-4 sm:h-4 fill-[#6D2AE0] text-[#6D2AE0]" />
                     View Work
                   </motion.button>
                 </Link>
