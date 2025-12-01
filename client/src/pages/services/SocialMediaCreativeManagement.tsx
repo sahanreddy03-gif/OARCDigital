@@ -566,40 +566,86 @@ export default function SocialMediaCreativeManagement() {
               </linearGradient>
             </defs>
             
-            {/* Snake Line Animation 1 - Left Side */}
-            <motion.path 
-              d="M100,200 Q250,100 400,250 T700,180 T950,350" 
+            {/* AI Neural Network - Subtle Connection Lines */}
+            {/* Connection 1: Top-left cluster */}
+            <motion.line 
+              x1="200" y1="300" x2="500" y2="200" 
               stroke="url(#nodeGradient)" 
-              strokeWidth="2" 
-              fill="none" 
-              opacity="0.5"
-              initial={{ pathLength: 0 }}
-              animate={{ pathLength: 1 }}
+              strokeWidth="1" 
+              opacity="0.25"
+              initial={{ pathLength: 0, opacity: 0 }}
+              animate={{ pathLength: 1, opacity: [0.15, 0.35, 0.15] }}
               transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
             />
-            
-            {/* Snake Line Animation 2 - Right Side (RESTORED) */}
-            <motion.path 
-              d="M1000,600 Q1150,450 1300,550 T1550,400 T1800,500" 
+            <motion.line 
+              x1="500" y1="200" x2="800" y2="150" 
               stroke="url(#nodeGradient2)" 
-              strokeWidth="2" 
-              fill="none" 
-              opacity="0.5"
-              initial={{ pathLength: 0 }}
-              animate={{ pathLength: 1 }}
+              strokeWidth="1" 
+              opacity="0.2"
+              initial={{ pathLength: 0, opacity: 0 }}
+              animate={{ pathLength: 1, opacity: [0.1, 0.3, 0.1] }}
+              transition={{ duration: 3.5, delay: 0.3, repeat: Infinity, ease: "easeInOut" }}
+            />
+            <motion.line 
+              x1="200" y1="300" x2="150" y2="500" 
+              stroke="url(#nodeGradient)" 
+              strokeWidth="1" 
+              opacity="0.2"
+              initial={{ pathLength: 0, opacity: 0 }}
+              animate={{ pathLength: 1, opacity: [0.1, 0.25, 0.1] }}
               transition={{ duration: 4, delay: 0.5, repeat: Infinity, ease: "easeInOut" }}
             />
             
-            {/* Snake Line Animation 3 - Bottom */}
-            <motion.path 
-              d="M200,800 Q400,700 600,850 T1000,750 T1400,850" 
+            {/* Connection 2: Right cluster */}
+            <motion.line 
+              x1="1600" y1="400" x2="1300" y2="600" 
+              stroke="url(#nodeGradient2)" 
+              strokeWidth="1" 
+              opacity="0.2"
+              initial={{ pathLength: 0, opacity: 0 }}
+              animate={{ pathLength: 1, opacity: [0.1, 0.3, 0.1] }}
+              transition={{ duration: 3.2, delay: 0.2, repeat: Infinity, ease: "easeInOut" }}
+            />
+            <motion.line 
+              x1="1300" y1="600" x2="1100" y2="450" 
               stroke="url(#nodeGradient)" 
-              strokeWidth="1.5" 
-              fill="none" 
-              opacity="0.35"
-              initial={{ pathLength: 0 }}
-              animate={{ pathLength: 1 }}
+              strokeWidth="1" 
+              opacity="0.15"
+              initial={{ pathLength: 0, opacity: 0 }}
+              animate={{ pathLength: 1, opacity: [0.08, 0.2, 0.08] }}
+              transition={{ duration: 4, delay: 0.8, repeat: Infinity, ease: "easeInOut" }}
+            />
+            
+            {/* Connection 3: Cross-screen subtle link */}
+            <motion.line 
+              x1="500" y1="200" x2="1100" y2="450" 
+              stroke="url(#nodeGradient2)" 
+              strokeWidth="0.5" 
+              opacity="0.1"
+              strokeDasharray="8 8"
+              initial={{ pathLength: 0, opacity: 0 }}
+              animate={{ pathLength: 1, opacity: [0.05, 0.15, 0.05] }}
               transition={{ duration: 5, delay: 1, repeat: Infinity, ease: "easeInOut" }}
+            />
+            
+            {/* Connection 4: Bottom network */}
+            <motion.line 
+              x1="150" y1="500" x2="400" y2="650" 
+              stroke="url(#nodeGradient)" 
+              strokeWidth="0.8" 
+              opacity="0.15"
+              initial={{ pathLength: 0, opacity: 0 }}
+              animate={{ pathLength: 1, opacity: [0.08, 0.2, 0.08] }}
+              transition={{ duration: 3.8, delay: 0.6, repeat: Infinity, ease: "easeInOut" }}
+            />
+            <motion.line 
+              x1="400" y1="650" x2="700" y2="550" 
+              stroke="url(#nodeGradient2)" 
+              strokeWidth="0.8" 
+              opacity="0.12"
+              initial={{ pathLength: 0, opacity: 0 }}
+              animate={{ pathLength: 1, opacity: [0.06, 0.18, 0.06] }}
+              transition={{ duration: 4.2, delay: 0.9, repeat: Infinity, ease: "easeInOut" }}
             />
             
             {/* Pulsing Social Nodes */}
@@ -722,7 +768,7 @@ export default function SocialMediaCreativeManagement() {
             
             {/* Text Content - Full width on mobile, with room for target animation */}
             <div className="w-full text-left pr-[140px] sm:pr-40 md:pr-0">
-              {/* Main Headline - Space Grotesk, premium elite styling */}
+              {/* Main Headline - Space Grotesk, clean and elegant */}
               <motion.div 
                 initial={fadeIn}
                 animate={fadeInVisible}
@@ -730,9 +776,9 @@ export default function SocialMediaCreativeManagement() {
                 className="mb-2 md:mb-3 leading-[0.85]"
                 style={{ fontFamily: 'var(--font-display)' }}
               >
-                {/* CREATIVE - Larger, premium deep violet gradient */}
+                {/* CREATIVE - Clean solid dark */}
                 <span 
-                  className="block font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#1A1A1A] via-[#2D1B4E] to-[#1A1A1A]"
+                  className="block font-bold text-[#1A1A1A]"
                   style={{ 
                     fontSize: 'clamp(3.25rem, 14vw, 4.5rem)',
                     letterSpacing: '-0.03em'
@@ -740,9 +786,9 @@ export default function SocialMediaCreativeManagement() {
                 >
                   Creative
                 </span>
-                {/* That Converts - Slightly smaller, sophisticated gradient */}
+                {/* That Converts - Clean accent color */}
                 <span 
-                  className="block font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#6B21A8] via-[#DB2777] to-[#C2410C]"
+                  className="block font-bold text-[#7B2FF7]"
                   style={{ 
                     fontSize: 'clamp(2.5rem, 11vw, 3.5rem)',
                     letterSpacing: '-0.02em'
@@ -752,18 +798,18 @@ export default function SocialMediaCreativeManagement() {
                 </span>
               </motion.div>
               
-              {/* Pain Hook - Compelling tagline */}
+              {/* Pain Hook - Subtle tagline */}
               <motion.p 
                 initial={fadeIn}
                 animate={fadeInVisible}
                 transition={prefersReducedMotion ? {} : { delay: 0.15, duration: 0.5 }}
-                className="text-xs sm:text-sm md:text-base text-[#6B6B6B] max-w-xs sm:max-w-md mb-3 md:mb-4 leading-relaxed"
+                className="text-xs sm:text-sm md:text-base text-[#525252] max-w-xs sm:max-w-md mb-3 md:mb-4 leading-relaxed"
                 style={{ fontFamily: 'var(--font-display)' }}
               >
                 From overlooked posts to viral dominance—our AI precision unlocks it all.
               </motion.p>
               
-              {/* Subheadline - LARGER text on mobile */}
+              {/* Subheadline - Clean and readable */}
               <motion.p 
                 initial={fadeIn}
                 animate={fadeInVisible}
@@ -772,7 +818,7 @@ export default function SocialMediaCreativeManagement() {
               >
                 We engineer content that{' '}
                 <span className="font-semibold text-[#1A1A1A]">consistently outperforms</span>—with{' '}
-                <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#7B2FF7] to-[#FF6B9D]">3x average ROAS</span>.
+                <span className="font-bold text-[#7B2FF7]">3x average ROAS</span>.
               </motion.p>
               
               {/* CTA Buttons - Larger on mobile, row on desktop */}
