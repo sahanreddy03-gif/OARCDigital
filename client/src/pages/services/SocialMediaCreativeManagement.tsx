@@ -668,48 +668,70 @@ export default function SocialMediaCreativeManagement() {
               transition={{ duration: 3.5, delay: 1.2, repeat: Infinity, ease: "easeInOut" }}
             />
             
-            {/* Pulsing Social Nodes */}
+            {/* Neural Network Nodes - Clean Purple & Pink palette */}
             <motion.circle 
               cx="200" cy="300" r="10" 
-              fill="#FF6B53" 
+              fill="#7B2FF7" 
               filter="url(#glow)"
-              animate={{ scale: [1, 1.5, 1], opacity: [0.6, 1, 0.6] }}
+              animate={{ scale: [1, 1.4, 1], opacity: [0.7, 1, 0.7] }}
               transition={{ duration: 2, repeat: Infinity }}
             />
             <motion.circle 
               cx="500" cy="200" r="8" 
-              fill="#7B2FF7" 
+              fill="#FF6B9D" 
               filter="url(#glow)"
-              animate={{ scale: [1, 1.4, 1], opacity: [0.5, 1, 0.5] }}
+              animate={{ scale: [1, 1.3, 1], opacity: [0.6, 1, 0.6] }}
               transition={{ duration: 2.5, delay: 0.5, repeat: Infinity }}
             />
             <motion.circle 
               cx="150" cy="500" r="6" 
-              fill="#FF6B9D" 
+              fill="#7B2FF7" 
               filter="url(#glow)"
               animate={{ scale: [1, 1.3, 1], opacity: [0.7, 1, 0.7] }}
               transition={{ duration: 3, delay: 1, repeat: Infinity }}
             />
             <motion.circle 
               cx="800" cy="150" r="7" 
-              fill="#00D4FF" 
+              fill="#9333EA" 
               filter="url(#glow)"
-              animate={{ scale: [1, 1.6, 1], opacity: [0.4, 1, 0.4] }}
+              animate={{ scale: [1, 1.5, 1], opacity: [0.5, 1, 0.5] }}
               transition={{ duration: 2, delay: 0.3, repeat: Infinity }}
             />
             <motion.circle 
               cx="1600" cy="400" r="9" 
-              fill="#FFD700" 
+              fill="#FF6B9D" 
               filter="url(#glow)"
-              animate={{ scale: [1, 1.4, 1], opacity: [0.5, 0.9, 0.5] }}
+              animate={{ scale: [1, 1.4, 1], opacity: [0.6, 0.95, 0.6] }}
               transition={{ duration: 2.8, delay: 0.8, repeat: Infinity }}
             />
             <motion.circle 
               cx="1300" cy="600" r="7" 
               fill="#7B2FF7" 
               filter="url(#glow)"
-              animate={{ scale: [1, 1.5, 1], opacity: [0.5, 1, 0.5] }}
+              animate={{ scale: [1, 1.4, 1], opacity: [0.6, 1, 0.6] }}
               transition={{ duration: 2.2, delay: 0.4, repeat: Infinity }}
+            />
+            {/* Additional network nodes at connection points */}
+            <motion.circle 
+              cx="1100" cy="450" r="8" 
+              fill="#9333EA" 
+              filter="url(#glow)"
+              animate={{ scale: [1, 1.35, 1], opacity: [0.55, 1, 0.55] }}
+              transition={{ duration: 2.6, delay: 0.6, repeat: Infinity }}
+            />
+            <motion.circle 
+              cx="400" cy="650" r="6" 
+              fill="#FF6B9D" 
+              filter="url(#glow)"
+              animate={{ scale: [1, 1.3, 1], opacity: [0.6, 0.95, 0.6] }}
+              transition={{ duration: 3.2, delay: 0.7, repeat: Infinity }}
+            />
+            <motion.circle 
+              cx="700" cy="550" r="5" 
+              fill="#7B2FF7" 
+              filter="url(#glow)"
+              animate={{ scale: [1, 1.4, 1], opacity: [0.5, 0.9, 0.5] }}
+              transition={{ duration: 2.4, delay: 1.1, repeat: Infinity }}
             />
             
             {/* Floating Speech Bubble - Top Left */}
