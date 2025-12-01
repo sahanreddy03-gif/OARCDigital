@@ -16,6 +16,7 @@ import { SiTiktok, SiYoutube, SiX, SiThreads, SiLinkedin, SiMeta } from "react-i
 
 import awardTeamImg from "@assets/stock_images/award_ceremony_busin_81e5ff09.jpg";
 import largeTeamImg from "@assets/stock_images/large_company_team_p_32054de0.jpg";
+import heroVideo from "@assets/SnapInsta.to_AQMfI7sCSVLU8tLxyZLjxlyaGvnAjtYAkNpyBEIAox0m6TApwOZNnf5Y2rfuYUhoqYXMDubqUVXcJjUk8q57WHMBNJrUR_W4lUx94QM_1764630517873.mp4";
 
 import brandLogo1 from "@assets/stock_images/corporate_brand_logo_7fa71d75.jpg";
 import brandLogo2 from "@assets/stock_images/corporate_brand_logo_3ecd3c3a.jpg";
@@ -406,19 +407,19 @@ export default function SocialMediaCreativeManagement() {
           }}
         />
 
-        {/* Subtle Video Background with light overlay */}
-        <div className="absolute inset-0 motion-reduce:hidden">
+        {/* Hero Video Background - Optimized for fast autoplay */}
+        <div className="absolute inset-0">
           <video 
             autoPlay 
             loop 
             muted 
             playsInline
-            className="absolute inset-0 w-full h-full object-cover opacity-15"
-            style={{ filter: 'grayscale(30%) brightness(1.2)' }}
-          >
-            <source src="https://videos.pexels.com/video-files/856106/856106-hd_1920_1080_30fps.mp4" type="video/mp4" />
-          </video>
-          <div className="absolute inset-0 bg-gradient-to-b from-[#FDFCFA]/80 via-[#FDFCFA]/60 to-[#FDFCFA]/95" />
+            preload="auto"
+            className="absolute inset-0 w-full h-full object-cover opacity-25"
+            style={{ filter: 'brightness(1.05)' }}
+            src={heroVideo}
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#FDFCFA]/65 via-[#FDFCFA]/45 to-[#FDFCFA]/85" />
         </div>
 
         {/* TARGET CIRCLE with SVG ICONS - Positioned for new layout */}
