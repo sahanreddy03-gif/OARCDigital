@@ -566,33 +566,33 @@ export default function SocialMediaCreativeManagement() {
               </linearGradient>
             </defs>
             
-            {/* AI Neural Network - Subtle Connection Lines */}
+            {/* AI Neural Network - Visible Connection Lines with Glow */}
             {/* Connection 1: Top-left cluster */}
             <motion.line 
               x1="200" y1="300" x2="500" y2="200" 
               stroke="url(#nodeGradient)" 
-              strokeWidth="1" 
-              opacity="0.25"
+              strokeWidth="2.5" 
+              filter="url(#glow)"
               initial={{ pathLength: 0, opacity: 0 }}
-              animate={{ pathLength: 1, opacity: [0.15, 0.35, 0.15] }}
+              animate={{ pathLength: 1, opacity: [0.4, 0.7, 0.4] }}
               transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
             />
             <motion.line 
               x1="500" y1="200" x2="800" y2="150" 
               stroke="url(#nodeGradient2)" 
-              strokeWidth="1" 
-              opacity="0.2"
+              strokeWidth="2" 
+              filter="url(#glow)"
               initial={{ pathLength: 0, opacity: 0 }}
-              animate={{ pathLength: 1, opacity: [0.1, 0.3, 0.1] }}
+              animate={{ pathLength: 1, opacity: [0.35, 0.65, 0.35] }}
               transition={{ duration: 3.5, delay: 0.3, repeat: Infinity, ease: "easeInOut" }}
             />
             <motion.line 
               x1="200" y1="300" x2="150" y2="500" 
               stroke="url(#nodeGradient)" 
-              strokeWidth="1" 
-              opacity="0.2"
+              strokeWidth="2" 
+              filter="url(#glow)"
               initial={{ pathLength: 0, opacity: 0 }}
-              animate={{ pathLength: 1, opacity: [0.1, 0.25, 0.1] }}
+              animate={{ pathLength: 1, opacity: [0.3, 0.6, 0.3] }}
               transition={{ duration: 4, delay: 0.5, repeat: Infinity, ease: "easeInOut" }}
             />
             
@@ -600,31 +600,31 @@ export default function SocialMediaCreativeManagement() {
             <motion.line 
               x1="1600" y1="400" x2="1300" y2="600" 
               stroke="url(#nodeGradient2)" 
-              strokeWidth="1" 
-              opacity="0.2"
+              strokeWidth="2.5" 
+              filter="url(#glow)"
               initial={{ pathLength: 0, opacity: 0 }}
-              animate={{ pathLength: 1, opacity: [0.1, 0.3, 0.1] }}
+              animate={{ pathLength: 1, opacity: [0.35, 0.65, 0.35] }}
               transition={{ duration: 3.2, delay: 0.2, repeat: Infinity, ease: "easeInOut" }}
             />
             <motion.line 
               x1="1300" y1="600" x2="1100" y2="450" 
               stroke="url(#nodeGradient)" 
-              strokeWidth="1" 
-              opacity="0.15"
+              strokeWidth="2" 
+              filter="url(#glow)"
               initial={{ pathLength: 0, opacity: 0 }}
-              animate={{ pathLength: 1, opacity: [0.08, 0.2, 0.08] }}
+              animate={{ pathLength: 1, opacity: [0.3, 0.55, 0.3] }}
               transition={{ duration: 4, delay: 0.8, repeat: Infinity, ease: "easeInOut" }}
             />
             
-            {/* Connection 3: Cross-screen subtle link */}
+            {/* Connection 3: Cross-screen link */}
             <motion.line 
               x1="500" y1="200" x2="1100" y2="450" 
               stroke="url(#nodeGradient2)" 
-              strokeWidth="0.5" 
-              opacity="0.1"
-              strokeDasharray="8 8"
+              strokeWidth="1.5" 
+              filter="url(#glow)"
+              strokeDasharray="12 6"
               initial={{ pathLength: 0, opacity: 0 }}
-              animate={{ pathLength: 1, opacity: [0.05, 0.15, 0.05] }}
+              animate={{ pathLength: 1, opacity: [0.25, 0.5, 0.25] }}
               transition={{ duration: 5, delay: 1, repeat: Infinity, ease: "easeInOut" }}
             />
             
@@ -632,20 +632,40 @@ export default function SocialMediaCreativeManagement() {
             <motion.line 
               x1="150" y1="500" x2="400" y2="650" 
               stroke="url(#nodeGradient)" 
-              strokeWidth="0.8" 
-              opacity="0.15"
+              strokeWidth="2" 
+              filter="url(#glow)"
               initial={{ pathLength: 0, opacity: 0 }}
-              animate={{ pathLength: 1, opacity: [0.08, 0.2, 0.08] }}
+              animate={{ pathLength: 1, opacity: [0.3, 0.55, 0.3] }}
               transition={{ duration: 3.8, delay: 0.6, repeat: Infinity, ease: "easeInOut" }}
             />
             <motion.line 
               x1="400" y1="650" x2="700" y2="550" 
               stroke="url(#nodeGradient2)" 
-              strokeWidth="0.8" 
-              opacity="0.12"
+              strokeWidth="1.8" 
+              filter="url(#glow)"
               initial={{ pathLength: 0, opacity: 0 }}
-              animate={{ pathLength: 1, opacity: [0.06, 0.18, 0.06] }}
+              animate={{ pathLength: 1, opacity: [0.25, 0.5, 0.25] }}
               transition={{ duration: 4.2, delay: 0.9, repeat: Infinity, ease: "easeInOut" }}
+            />
+            
+            {/* Additional connections for more network density */}
+            <motion.line 
+              x1="800" y1="150" x2="1100" y2="450" 
+              stroke="url(#nodeGradient)" 
+              strokeWidth="1.5" 
+              filter="url(#glow)"
+              initial={{ pathLength: 0, opacity: 0 }}
+              animate={{ pathLength: 1, opacity: [0.2, 0.45, 0.2] }}
+              transition={{ duration: 4.5, delay: 0.4, repeat: Infinity, ease: "easeInOut" }}
+            />
+            <motion.line 
+              x1="700" y1="550" x2="1100" y2="450" 
+              stroke="url(#nodeGradient2)" 
+              strokeWidth="1.5" 
+              filter="url(#glow)"
+              initial={{ pathLength: 0, opacity: 0 }}
+              animate={{ pathLength: 1, opacity: [0.2, 0.4, 0.2] }}
+              transition={{ duration: 3.5, delay: 1.2, repeat: Infinity, ease: "easeInOut" }}
             />
             
             {/* Pulsing Social Nodes */}
