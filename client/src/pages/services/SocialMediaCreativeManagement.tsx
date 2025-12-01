@@ -396,105 +396,120 @@ export default function SocialMediaCreativeManagement() {
         schemaId="service-marketing-overview"
       />
 
-      {/* HERO - LUMINOUS CANVAS + DARK ANIMATIONS HYBRID */}
-      <section className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-[#0a0a1a]">
-        {/* Neural Network Video Background */}
+      {/* HERO SECTION 1: ANIMATIONS ABOVE THE FOLD */}
+      <section className="relative h-screen flex flex-col justify-center overflow-hidden bg-[#FDFCFA]">
+        {/* Premium Light Background with Subtle Texture */}
+        <div className="absolute inset-0 opacity-[0.02] pointer-events-none"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+          }}
+        />
+
+        {/* Subtle Video Background with light overlay */}
         <div className="absolute inset-0 motion-reduce:hidden">
           <video 
             autoPlay 
             loop 
             muted 
             playsInline
-            className="absolute inset-0 w-full h-full object-cover opacity-50"
-            style={{ 
-              filter: 'hue-rotate(30deg) saturate(1.2) brightness(0.85)',
-              mixBlendMode: 'screen'
-            }}
+            className="absolute inset-0 w-full h-full object-cover opacity-15"
+            style={{ filter: 'grayscale(30%) brightness(1.2)' }}
           >
             <source src="https://videos.pexels.com/video-files/856106/856106-hd_1920_1080_30fps.mp4" type="video/mp4" />
           </video>
-          {/* Premium Gradient Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-br from-[#7B2FF7]/60 via-[#FF6B9D]/40 to-[#FF6B53]/50" style={{ mixBlendMode: 'overlay' }} />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a1a]/90 via-transparent to-[#0a0a1a]/40" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#FDFCFA]/80 via-[#FDFCFA]/60 to-[#FDFCFA]/95" />
         </div>
 
-        {/* Enhanced Social Network SVG - Bottom Right */}
-        <div className="absolute bottom-10 right-10 w-48 h-48 md:w-80 md:h-80 opacity-70 motion-reduce:hidden pointer-events-none">
+        {/* Enhanced Social Network SVG with ICONS instead of colors - Right Side */}
+        <div className="absolute top-1/2 right-4 md:right-16 -translate-y-1/2 w-40 h-40 md:w-72 md:h-72 opacity-90 motion-reduce:hidden pointer-events-none">
           <svg width="100%" height="100%" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
             <defs>
-              <linearGradient id="socialGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <linearGradient id="targetGrad" x1="0%" y1="0%" x2="100%" y2="100%">
                 <stop offset="0%" style={{ stopColor: '#7B2FF7', stopOpacity: 1 }} />
                 <stop offset="50%" style={{ stopColor: '#FF6B9D', stopOpacity: 1 }} />
                 <stop offset="100%" style={{ stopColor: '#FF6B53', stopOpacity: 1 }} />
               </linearGradient>
-              <filter id="socialGlow">
-                <feGaussianBlur stdDeviation="4" result="blur"/>
+              <filter id="targetGlow">
+                <feGaussianBlur stdDeviation="6" result="blur"/>
                 <feMerge>
                   <feMergeNode in="blur"/>
                   <feMergeNode in="SourceGraphic"/>
                 </feMerge>
               </filter>
             </defs>
-            {/* Central node (user hub) with pulse */}
-            <circle cx="200" cy="200" r="30" fill="url(#socialGrad)" stroke="rgba(255,255,255,0.8)" strokeWidth="2" filter="url(#socialGlow)">
-              <animate attributeName="r" values="30;35;30" dur="2s" repeatCount="indefinite" />
-              <animate attributeName="opacity" values="1;0.7;1" dur="2s" repeatCount="indefinite" />
+            {/* Target/Aim Circle - Central Hub with crosshairs */}
+            <circle cx="200" cy="200" r="45" fill="none" stroke="url(#targetGrad)" strokeWidth="3" filter="url(#targetGlow)">
+              <animate attributeName="r" values="45;50;45" dur="2s" repeatCount="indefinite" />
             </circle>
-            {/* Connected nodes with rotation */}
+            <circle cx="200" cy="200" r="30" fill="none" stroke="url(#targetGrad)" strokeWidth="2" opacity="0.7">
+              <animate attributeName="r" values="30;35;30" dur="2s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="200" cy="200" r="15" fill="url(#targetGrad)" filter="url(#targetGlow)">
+              <animate attributeName="opacity" values="1;0.7;1" dur="1.5s" repeatCount="indefinite" />
+            </circle>
+            {/* Crosshairs */}
+            <line x1="200" y1="140" x2="200" y2="170" stroke="url(#targetGrad)" strokeWidth="2" opacity="0.8"/>
+            <line x1="200" y1="230" x2="200" y2="260" stroke="url(#targetGrad)" strokeWidth="2" opacity="0.8"/>
+            <line x1="140" y1="200" x2="170" y2="200" stroke="url(#targetGrad)" strokeWidth="2" opacity="0.8"/>
+            <line x1="230" y1="200" x2="260" y2="200" stroke="url(#targetGrad)" strokeWidth="2" opacity="0.8"/>
+            
+            {/* ROTATING SOCIAL ICONS instead of colors */}
             <g>
-              <circle cx="300" cy="200" r="15" fill="#FF6B53">
-                <animateTransform attributeName="transform" type="rotate" from="0 200 200" to="360 200 200" dur="10s" repeatCount="indefinite" />
-              </circle>
-              <circle cx="100" cy="200" r="15" fill="#7B2FF7">
-                <animateTransform attributeName="transform" type="rotate" from="0 200 200" to="360 200 200" dur="10s" repeatCount="indefinite" />
-              </circle>
-              <circle cx="200" cy="100" r="15" fill="#FF6B9D">
-                <animateTransform attributeName="transform" type="rotate" from="0 200 200" to="360 200 200" dur="10s" repeatCount="indefinite" />
-              </circle>
-              <circle cx="200" cy="300" r="15" fill="#00D4FF">
-                <animateTransform attributeName="transform" type="rotate" from="0 200 200" to="360 200 200" dur="10s" repeatCount="indefinite" />
-              </circle>
+              <animateTransform attributeName="transform" type="rotate" from="0 200 200" to="360 200 200" dur="12s" repeatCount="indefinite" />
+              
+              {/* Heart/Like Icon - Top */}
+              <g transform="translate(175, 85)">
+                <circle cx="25" cy="25" r="22" fill="#FF6B9D" opacity="0.9">
+                  <animate attributeName="r" values="22;25;22" dur="1.5s" repeatCount="indefinite" />
+                </circle>
+                <path d="M25 35 Q 17 30 14 24 Q 11 18 16 14 Q 21 10 25 16 Q 29 10 34 14 Q 39 18 36 24 Q 33 30 25 35" fill="white" transform="translate(0, 2)"/>
+              </g>
+              
+              {/* Bell/Subscribe Icon - Right */}
+              <g transform="translate(265, 175)">
+                <circle cx="25" cy="25" r="22" fill="#FFD700" opacity="0.9">
+                  <animate attributeName="r" values="22;25;22" dur="1.8s" repeatCount="indefinite" />
+                </circle>
+                <path d="M25 12 L25 14 M18 22 L18 28 Q18 32 25 32 Q32 32 32 28 L32 22 Q32 16 25 14 Q18 16 18 22 M22 32 Q22 36 25 36 Q28 36 28 32" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round"/>
+              </g>
+              
+              {/* Comment/Speech Icon - Bottom */}
+              <g transform="translate(175, 265)">
+                <circle cx="25" cy="25" r="22" fill="#7B2FF7" opacity="0.9">
+                  <animate attributeName="r" values="22;25;22" dur="2s" repeatCount="indefinite" />
+                </circle>
+                <path d="M14 18 Q14 12 25 12 Q36 12 36 18 L36 26 Q36 32 25 32 L20 32 L14 38 L14 32 Q14 32 14 26 Z" fill="white" transform="translate(0, -2)"/>
+              </g>
+              
+              {/* Eye/View Icon - Left */}
+              <g transform="translate(85, 175)">
+                <circle cx="25" cy="25" r="22" fill="#00D4FF" opacity="0.9">
+                  <animate attributeName="r" values="22;25;22" dur="1.6s" repeatCount="indefinite" />
+                </circle>
+                <ellipse cx="25" cy="25" rx="12" ry="7" fill="none" stroke="white" strokeWidth="2.5"/>
+                <circle cx="25" cy="25" r="4" fill="white"/>
+              </g>
             </g>
-            {/* Connection lines with dash animation */}
-            <line x1="200" y1="200" x2="300" y2="200" stroke="rgba(255,255,255,0.6)" strokeWidth="2" strokeDasharray="10 5">
-              <animate attributeName="stroke-dashoffset" from="0" to="15" dur="1s" repeatCount="indefinite" />
-            </line>
-            <line x1="200" y1="200" x2="100" y2="200" stroke="rgba(255,255,255,0.6)" strokeWidth="2" strokeDasharray="10 5">
-              <animate attributeName="stroke-dashoffset" from="0" to="15" dur="1s" repeatCount="indefinite" />
-            </line>
-            <line x1="200" y1="200" x2="200" y2="100" stroke="rgba(255,255,255,0.6)" strokeWidth="2" strokeDasharray="10 5">
-              <animate attributeName="stroke-dashoffset" from="0" to="15" dur="1s" repeatCount="indefinite" />
-            </line>
-            <line x1="200" y1="200" x2="200" y2="300" stroke="rgba(255,255,255,0.6)" strokeWidth="2" strokeDasharray="10 5">
-              <animate attributeName="stroke-dashoffset" from="0" to="15" dur="1s" repeatCount="indefinite" />
-            </line>
-            {/* Speech bubble with scale animation */}
-            <g transform="translate(260, 140)">
-              <path d="M20 0 Q 0 0 0 20 Q 0 40 20 40 Q 40 40 40 20 Q 40 0 20 0 M20 40 L10 55 L30 40" fill="#7B2FF7" stroke="rgba(255,255,255,0.8)" strokeWidth="2">
-                <animateTransform attributeName="transform" type="scale" values="1;1.15;1" dur="1.5s" repeatCount="indefinite" />
-              </path>
-              <circle cx="12" cy="20" r="4" fill="white" opacity="0.9"/>
-              <circle cx="24" cy="20" r="4" fill="white" opacity="0.9"/>
-              <circle cx="36" cy="20" r="4" fill="white" opacity="0.9"/>
-            </g>
-            {/* Heart icon with color animation */}
-            <g transform="translate(80, 120)">
-              <path d="M25 45 Q 10 35 5 25 Q 0 15 10 10 Q 20 5 25 15 Q 30 5 40 10 Q 50 15 45 25 Q 40 35 25 45" fill="#FF6B9D" stroke="rgba(255,255,255,0.8)" strokeWidth="2">
-                <animate attributeName="fill" values="#FF6B9D;#FF6B53;#FF6B9D" dur="2s" repeatCount="indefinite" />
-                <animateTransform attributeName="transform" type="scale" values="1;1.1;1" dur="1.5s" repeatCount="indefinite" />
-              </path>
-            </g>
-            {/* Engagement +1 node */}
-            <g transform="translate(280, 280)">
-              <circle cx="25" cy="25" r="20" fill="#FFD700" opacity="0.8">
-                <animate attributeName="opacity" values="0.8;1;0.8" dur="2s" repeatCount="indefinite" />
-              </circle>
-              <text x="25" y="30" textAnchor="middle" fill="white" fontSize="16" fontWeight="bold">+1</text>
+            
+            {/* Connection lines to icons */}
+            <g opacity="0.4">
+              <line x1="200" y1="155" x2="200" y2="125" stroke="url(#targetGrad)" strokeWidth="1.5" strokeDasharray="4 3">
+                <animate attributeName="stroke-dashoffset" from="0" to="7" dur="0.8s" repeatCount="indefinite" />
+              </line>
+              <line x1="245" y1="200" x2="275" y2="200" stroke="url(#targetGrad)" strokeWidth="1.5" strokeDasharray="4 3">
+                <animate attributeName="stroke-dashoffset" from="0" to="7" dur="0.8s" repeatCount="indefinite" />
+              </line>
+              <line x1="200" y1="245" x2="200" y2="275" stroke="url(#targetGrad)" strokeWidth="1.5" strokeDasharray="4 3">
+                <animate attributeName="stroke-dashoffset" from="0" to="7" dur="0.8s" repeatCount="indefinite" />
+              </line>
+              <line x1="155" y1="200" x2="125" y2="200" stroke="url(#targetGrad)" strokeWidth="1.5" strokeDasharray="4 3">
+                <animate attributeName="stroke-dashoffset" from="0" to="7" dur="0.8s" repeatCount="indefinite" />
+              </line>
             </g>
           </svg>
         </div>
 
-        {/* Animated Social Nodes SVG Overlay */}
+        {/* Animated Social Nodes SVG Overlay - Full Screen */}
         <div className="absolute inset-0 motion-reduce:hidden pointer-events-none">
           <svg className="w-full h-full" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
             <defs>
@@ -510,138 +525,163 @@ export default function SocialMediaCreativeManagement() {
                 <stop offset="50%" stopColor="#FF6B9D"/>
                 <stop offset="100%" stopColor="#7B2FF7"/>
               </linearGradient>
+              <linearGradient id="nodeGradient2" x1="100%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stopColor="#00D4FF"/>
+                <stop offset="50%" stopColor="#7B2FF7"/>
+                <stop offset="100%" stopColor="#FF6B9D"/>
+              </linearGradient>
             </defs>
             
-            {/* Animated Connection Lines */}
+            {/* Snake Line Animation 1 - Left Side */}
             <motion.path 
-              d="M200,300 Q400,200 600,350 T1000,300" 
+              d="M100,200 Q250,100 400,250 T700,180 T950,350" 
               stroke="url(#nodeGradient)" 
-              strokeWidth="1" 
+              strokeWidth="2" 
               fill="none" 
-              opacity="0.3"
+              opacity="0.5"
               initial={{ pathLength: 0 }}
               animate={{ pathLength: 1 }}
               transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
             />
+            
+            {/* Snake Line Animation 2 - Right Side (RESTORED) */}
             <motion.path 
-              d="M1400,200 Q1600,400 1700,300 T1900,400" 
-              stroke="url(#nodeGradient)" 
-              strokeWidth="1" 
+              d="M1000,600 Q1150,450 1300,550 T1550,400 T1800,500" 
+              stroke="url(#nodeGradient2)" 
+              strokeWidth="2" 
               fill="none" 
-              opacity="0.3"
+              opacity="0.5"
               initial={{ pathLength: 0 }}
               animate={{ pathLength: 1 }}
-              transition={{ duration: 4, delay: 1, repeat: Infinity, ease: "easeInOut" }}
+              transition={{ duration: 4, delay: 0.5, repeat: Infinity, ease: "easeInOut" }}
+            />
+            
+            {/* Snake Line Animation 3 - Bottom */}
+            <motion.path 
+              d="M200,800 Q400,700 600,850 T1000,750 T1400,850" 
+              stroke="url(#nodeGradient)" 
+              strokeWidth="1.5" 
+              fill="none" 
+              opacity="0.35"
+              initial={{ pathLength: 0 }}
+              animate={{ pathLength: 1 }}
+              transition={{ duration: 5, delay: 1, repeat: Infinity, ease: "easeInOut" }}
             />
             
             {/* Pulsing Social Nodes */}
             <motion.circle 
-              cx="300" cy="250" r="8" 
+              cx="200" cy="300" r="10" 
               fill="#FF6B53" 
               filter="url(#glow)"
               animate={{ scale: [1, 1.5, 1], opacity: [0.6, 1, 0.6] }}
               transition={{ duration: 2, repeat: Infinity }}
             />
             <motion.circle 
-              cx="700" cy="400" r="6" 
+              cx="500" cy="200" r="8" 
               fill="#7B2FF7" 
               filter="url(#glow)"
               animate={{ scale: [1, 1.4, 1], opacity: [0.5, 1, 0.5] }}
               transition={{ duration: 2.5, delay: 0.5, repeat: Infinity }}
             />
             <motion.circle 
-              cx="1500" cy="300" r="10" 
+              cx="150" cy="500" r="6" 
               fill="#FF6B9D" 
               filter="url(#glow)"
               animate={{ scale: [1, 1.3, 1], opacity: [0.7, 1, 0.7] }}
               transition={{ duration: 3, delay: 1, repeat: Infinity }}
             />
             <motion.circle 
-              cx="1100" cy="600" r="5" 
+              cx="800" cy="150" r="7" 
               fill="#00D4FF" 
               filter="url(#glow)"
               animate={{ scale: [1, 1.6, 1], opacity: [0.4, 1, 0.4] }}
               transition={{ duration: 2, delay: 0.3, repeat: Infinity }}
             />
             <motion.circle 
-              cx="400" cy="700" r="7" 
+              cx="1600" cy="400" r="9" 
               fill="#FFD700" 
               filter="url(#glow)"
               animate={{ scale: [1, 1.4, 1], opacity: [0.5, 0.9, 0.5] }}
               transition={{ duration: 2.8, delay: 0.8, repeat: Infinity }}
             />
+            <motion.circle 
+              cx="1300" cy="600" r="7" 
+              fill="#7B2FF7" 
+              filter="url(#glow)"
+              animate={{ scale: [1, 1.5, 1], opacity: [0.5, 1, 0.5] }}
+              transition={{ duration: 2.2, delay: 0.4, repeat: Infinity }}
+            />
             
-            {/* Speech Bubble Icons */}
+            {/* Floating Speech Bubble - Top Left */}
             <motion.g 
-              transform="translate(1650, 500)"
-              animate={{ y: [-5, 5, -5], opacity: [0.6, 1, 0.6] }}
+              transform="translate(80, 150)"
+              animate={{ y: [-8, 8, -8], opacity: [0.6, 1, 0.6] }}
               transition={{ duration: 3, repeat: Infinity }}
             >
-              <rect x="0" y="0" width="40" height="30" rx="6" fill="#FF6B53" opacity="0.8"/>
-              <polygon points="10,30 15,40 20,30" fill="#FF6B53" opacity="0.8"/>
-              <circle cx="10" cy="15" r="3" fill="white" opacity="0.9"/>
-              <circle cx="20" cy="15" r="3" fill="white" opacity="0.9"/>
-              <circle cx="30" cy="15" r="3" fill="white" opacity="0.9"/>
+              <rect x="0" y="0" width="50" height="35" rx="8" fill="#7B2FF7" opacity="0.85"/>
+              <polygon points="15,35 20,48 28,35" fill="#7B2FF7" opacity="0.85"/>
+              <circle cx="14" cy="17" r="4" fill="white" opacity="0.9"/>
+              <circle cx="26" cy="17" r="4" fill="white" opacity="0.9"/>
+              <circle cx="38" cy="17" r="4" fill="white" opacity="0.9"/>
             </motion.g>
             
+            {/* Floating Heart - Top Right */}
             <motion.g 
-              transform="translate(150, 600)"
-              animate={{ y: [5, -5, 5], opacity: [0.5, 0.9, 0.5] }}
-              transition={{ duration: 4, delay: 1, repeat: Infinity }}
-            >
-              <rect x="0" y="0" width="35" height="25" rx="5" fill="#7B2FF7" opacity="0.7"/>
-              <polygon points="25,25 30,33 35,25" fill="#7B2FF7" opacity="0.7"/>
-              <rect x="8" y="8" width="12" height="2" rx="1" fill="white" opacity="0.8"/>
-              <rect x="8" y="13" width="18" height="2" rx="1" fill="white" opacity="0.8"/>
-            </motion.g>
-            
-            {/* Heart / Like Icons */}
-            <motion.g 
-              transform="translate(1200, 200)"
-              animate={{ scale: [1, 1.2, 1], opacity: [0.5, 1, 0.5] }}
+              transform="translate(1700, 180)"
+              animate={{ scale: [1, 1.15, 1], opacity: [0.5, 1, 0.5] }}
               transition={{ duration: 1.5, repeat: Infinity }}
             >
-              <path d="M12,21.35l-1.45-1.32C5.4,15.36,2,12.28,2,8.5C2,5.42,4.42,3,7.5,3c1.74,0,3.41,0.81,4.5,2.09C13.09,3.81,14.76,3,16.5,3C19.58,3,22,5.42,22,8.5c0,3.78-3.4,6.86-8.55,11.54L12,21.35z" 
+              <path d="M20,35 Q 10 28 6 20 Q 2 12 10 7 Q 18 2 20 12 Q 22 2 30 7 Q 38 12 34 20 Q 30 28 20 35" 
                     fill="#FF6B9D" 
-                    opacity="0.8"
-                    transform="scale(1.5)"
+                    opacity="0.85"
+                    transform="scale(1.3)"
               />
+            </motion.g>
+            
+            {/* +1 Engagement Bubble - Left */}
+            <motion.g 
+              transform="translate(300, 450)"
+              animate={{ y: [5, -5, 5], scale: [1, 1.1, 1] }}
+              transition={{ duration: 2, repeat: Infinity }}
+            >
+              <circle cx="20" cy="20" r="18" fill="#FFD700" opacity="0.85"/>
+              <text x="20" y="26" textAnchor="middle" fill="white" fontSize="16" fontWeight="bold">+1</text>
             </motion.g>
           </svg>
         </div>
         
         {/* Floating Particles */}
         <div className="absolute inset-0 motion-reduce:hidden">
-          {[...Array(15)].map((_, i) => (
+          {[...Array(20)].map((_, i) => (
             <FloatingParticle 
               key={i} 
-              delay={i * 0.3} 
+              delay={i * 0.2} 
               duration={4 + Math.random() * 3}
-              color={['#FFD700', '#00FF88', '#00D4FF', '#FF6B9D', '#FFFFFF'][Math.floor(Math.random() * 5)]}
+              color={['#7B2FF7', '#FF6B9D', '#FF6B53', '#00D4FF', '#FFD700'][Math.floor(Math.random() * 5)]}
             />
           ))}
         </div>
         
-        {/* Premium Decorative Glows */}
+        {/* Premium Decorative Glows - Softer for light background */}
         <motion.div 
-          className="absolute top-20 left-10 w-40 h-40 rounded-full bg-gradient-to-r from-[#7B2FF7] to-[#FF6B9D] blur-3xl opacity-40 motion-reduce:hidden"
+          className="absolute top-10 left-5 w-48 h-48 rounded-full bg-gradient-to-r from-[#7B2FF7]/20 to-[#FF6B9D]/20 blur-3xl motion-reduce:hidden"
           animate={{ scale: [1, 1.3, 1], opacity: [0.3, 0.5, 0.3] }}
           transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
         />
         <motion.div 
-          className="absolute bottom-20 right-20 w-56 h-56 rounded-full bg-gradient-to-r from-[#FF6B53] to-[#FF6B9D] blur-3xl opacity-35 motion-reduce:hidden"
-          animate={{ scale: [1.2, 1, 1.2], opacity: [0.25, 0.45, 0.25] }}
+          className="absolute bottom-20 left-1/4 w-64 h-64 rounded-full bg-gradient-to-r from-[#FF6B53]/15 to-[#FF6B9D]/15 blur-3xl motion-reduce:hidden"
+          animate={{ scale: [1.2, 1, 1.2], opacity: [0.2, 0.4, 0.2] }}
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
         />
         <motion.div 
-          className="absolute top-1/3 right-1/4 w-32 h-32 rounded-full bg-[#00D4FF]/30 blur-2xl motion-reduce:hidden"
-          animate={{ y: [-20, 20, -20], opacity: [0.2, 0.4, 0.2] }}
+          className="absolute top-1/3 left-1/3 w-40 h-40 rounded-full bg-[#00D4FF]/10 blur-2xl motion-reduce:hidden"
+          animate={{ y: [-20, 20, -20], opacity: [0.15, 0.3, 0.15] }}
           transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
         />
         
-        {/* Hero Content Area */}
-        <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 py-20 md:py-28">
-          <div className="text-center mb-16">
+        {/* Hero Content Area - Centered, Above Fold */}
+        <div className="relative z-10 max-w-4xl mx-auto px-6 md:px-12 py-12 md:py-16">
+          <div className="text-center">
             {/* Badge */}
             <motion.div
               initial={fadeIn}
@@ -649,7 +689,7 @@ export default function SocialMediaCreativeManagement() {
               transition={prefersReducedMotion ? {} : { duration: 0.6 }}
             >
               <motion.span 
-                className="inline-flex items-center gap-2 px-5 py-2 bg-gradient-to-r from-[#7B2FF7]/80 to-[#FF6B9D]/80 backdrop-blur-md rounded-full text-sm font-bold text-white mb-8 border border-white/20"
+                className="inline-flex items-center gap-2 px-5 py-2 bg-gradient-to-r from-[#7B2FF7] to-[#FF6B9D] rounded-full text-sm font-bold text-white mb-6 shadow-lg shadow-purple-500/25"
                 whileHover={prefersReducedMotion ? {} : { scale: 1.05 }}
               >
                 <Sparkles className="w-4 h-4 text-yellow-300" />
@@ -657,32 +697,32 @@ export default function SocialMediaCreativeManagement() {
               </motion.span>
             </motion.div>
             
-            {/* Main Headline - Matching the original design */}
+            {/* Main Headline - "That Converts" */}
             <motion.h1 
               initial={fadeIn}
               animate={fadeInVisible}
               transition={prefersReducedMotion ? {} : { delay: 0.15, duration: 0.6 }}
-              className="text-5xl md:text-7xl lg:text-8xl font-black text-white mb-6 leading-[0.95]"
+              className="text-5xl md:text-7xl lg:text-8xl font-black text-[#1A1A1A] mb-6 leading-[0.95]"
             >
               <span className="block">Creative</span>
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 via-white to-cyan-300">
-                That Sells
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#7B2FF7] via-[#FF6B9D] to-[#FF6B53]">
+                That Converts
               </span>
             </motion.h1>
             
-            {/* Subheadline - Matching original design */}
+            {/* Subheadline - Light background styling */}
             <motion.p 
               initial={fadeIn}
               animate={fadeInVisible}
               transition={prefersReducedMotion ? {} : { delay: 0.3, duration: 0.6 }}
-              className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto mb-10 leading-relaxed"
+              className="text-lg md:text-xl text-[#525252] max-w-2xl mx-auto mb-8 leading-relaxed"
             >
               We don't just make things look pretty. We engineer content that{' '}
-              <span className="font-bold underline decoration-yellow-300">consistently outperforms</span>—with{' '}
-              <span className="font-bold text-cyan-300">3x average ROAS</span> across 47+ active clients.
+              <span className="font-bold text-[#1A1A1A] underline decoration-[#FF6B53]/50">consistently outperforms</span>—with{' '}
+              <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#7B2FF7] to-[#FF6B9D]">3x average ROAS</span> across 47+ active clients.
             </motion.p>
             
-            {/* CTA Buttons - Matching original design */}
+            {/* CTA Buttons - Light background styling */}
             <motion.div 
               initial={fadeIn}
               animate={fadeInVisible}
@@ -691,13 +731,13 @@ export default function SocialMediaCreativeManagement() {
             >
               <Link href="/contact">
                 <MagneticButton
-                  whileHover={prefersReducedMotion ? {} : { scale: 1.05 }}
+                  whileHover={prefersReducedMotion ? {} : { scale: 1.05, y: -2 }}
                   whileTap={prefersReducedMotion ? {} : { scale: 0.98 }}
-                  className="group inline-flex items-center gap-3 bg-white text-gray-900 rounded-full px-8 py-4 text-lg font-bold shadow-2xl hover:shadow-[0_25px_50px_rgba(255,255,255,0.3)] transition-all"
+                  className="group inline-flex items-center gap-3 bg-gradient-to-r from-[#7B2FF7] to-[#FF6B9D] text-white rounded-full px-8 py-4 text-lg font-bold shadow-lg shadow-purple-500/25 hover:shadow-xl hover:shadow-purple-500/35 transition-all"
                   data-testid="button-hero-cta"
                 >
                   Start Creating
-                  <div className="w-10 h-10 bg-gradient-to-br from-[#7B2FF7] to-[#FF6B9D] rounded-full flex items-center justify-center group-hover:rotate-12 transition-transform">
+                  <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center group-hover:rotate-12 transition-transform">
                     <ArrowRight className="h-5 w-5 text-white" />
                   </div>
                 </MagneticButton>
@@ -705,23 +745,64 @@ export default function SocialMediaCreativeManagement() {
               <Link href="#portfolio">
                 <motion.button
                   whileHover={prefersReducedMotion ? {} : { scale: 1.05 }}
-                  className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border-2 border-white/40 text-white rounded-full px-8 py-4 text-lg font-bold hover:bg-white/20 transition-all"
+                  className="inline-flex items-center gap-2 bg-white border-2 border-[#E5E4E0] text-[#1A1A1A] rounded-full px-8 py-4 text-lg font-bold hover:border-[#7B2FF7]/30 hover:shadow-lg transition-all"
                   data-testid="button-view-work"
                 >
-                  <Play className="w-5 h-5 fill-white" />
+                  <Play className="w-5 h-5 fill-[#7B2FF7] text-[#7B2FF7]" />
                   View Our Work
                 </motion.button>
               </Link>
             </motion.div>
           </div>
-          
-          {/* Floating Work Gallery */}
-          <motion.div 
-            initial={fadeIn}
-            animate={fadeInVisible}
-            transition={prefersReducedMotion ? {} : { delay: 0.6, duration: 0.8 }}
-            className="relative"
+        </div>
+        
+        {/* Scroll Indicator */}
+        <motion.div 
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 motion-reduce:hidden"
+          animate={{ y: [0, 10, 0] }}
+          transition={{ duration: 2, repeat: Infinity }}
+        >
+          <div className="w-8 h-12 rounded-full border-2 border-[#7B2FF7]/40 flex items-start justify-center p-2">
+            <motion.div 
+              className="w-2 h-2 bg-gradient-to-b from-[#7B2FF7] to-[#FF6B9D] rounded-full"
+              animate={{ y: [0, 16, 0] }}
+              transition={{ duration: 1.5, repeat: Infinity }}
+            />
+          </div>
+        </motion.div>
+      </section>
+
+      {/* SECTION 2: FLOATING WORK GALLERY - Below the fold */}
+      <section id="portfolio" className="py-20 px-6 bg-gradient-to-b from-[#FDFCFA] to-white relative overflow-hidden">
+        {/* Section Header */}
+        <div className="max-w-5xl mx-auto text-center mb-12">
+          <motion.h2
+            initial={prefersReducedMotion ? {} : { opacity: 0, y: 20 }}
+            whileInView={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-3xl md:text-4xl font-black text-[#1A1A1A] mb-4"
           >
+            Our Creative Work
+          </motion.h2>
+          <motion.p
+            initial={prefersReducedMotion ? {} : { opacity: 0, y: 20 }}
+            whileInView={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-[#525252] text-lg"
+          >
+            Content that drives real results across every platform
+          </motion.p>
+        </div>
+        
+        {/* Floating Work Gallery */}
+        <motion.div 
+          initial={prefersReducedMotion ? {} : { opacity: 0, y: 30 }}
+          whileInView={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="relative"
+        >
             {/* Gallery Grid with Floating Cards */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-5xl mx-auto">
               {/* Card 1 - Instagram Post */}
@@ -876,43 +957,25 @@ export default function SocialMediaCreativeManagement() {
             </div>
           </motion.div>
           
-          {/* Platform Icons Row - Dark themed */}
+          {/* Platform Icons Row */}
           <motion.div 
-            initial={fadeIn}
-            animate={fadeInVisible}
-            transition={prefersReducedMotion ? {} : { delay: 0.8 }}
+            initial={prefersReducedMotion ? {} : { opacity: 0, y: 20 }}
+            whileInView={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3 }}
             className="mt-12 flex justify-center items-center gap-4 md:gap-6"
           >
             {platformIcons.map((platform, idx) => (
               <motion.div 
                 key={idx}
-                className="w-10 h-10 md:w-12 md:h-12 bg-white/20 backdrop-blur-md rounded-xl flex items-center justify-center border border-white/20 hover:bg-white/30 transition-all cursor-pointer"
-                whileHover={prefersReducedMotion ? {} : { scale: 1.2, y: -5 }}
-                initial={prefersReducedMotion ? {} : { opacity: 0, y: 20 }}
-                animate={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
-                transition={prefersReducedMotion ? {} : { delay: 0.85 + idx * 0.05 }}
+                className="w-10 h-10 md:w-12 md:h-12 bg-white rounded-xl flex items-center justify-center border border-[#E5E4E0] hover:border-[#7B2FF7]/30 hover:shadow-lg transition-all cursor-pointer"
+                whileHover={prefersReducedMotion ? {} : { scale: 1.15, y: -3 }}
                 title={platform.label}
               >
-                <platform.Icon className="w-5 h-5 md:w-6 md:h-6 text-white" />
+                <platform.Icon className="w-5 h-5 md:w-6 md:h-6 text-[#525252]" />
               </motion.div>
             ))}
           </motion.div>
-        </div>
-        
-        {/* Scroll Indicator - Dark themed */}
-        <motion.div 
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 motion-reduce:hidden"
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-        >
-          <div className="w-8 h-12 rounded-full border-2 border-white/40 flex items-start justify-center p-2">
-            <motion.div 
-              className="w-2 h-2 bg-white rounded-full"
-              animate={{ y: [0, 16, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity }}
-            />
-          </div>
-        </motion.div>
       </section>
 
       {/* Stats Bar - Reduced metrics for credibility */}
@@ -1276,14 +1339,14 @@ export default function SocialMediaCreativeManagement() {
         {/* Decorative Elements */}
         <motion.div 
           className="absolute top-10 left-10 w-40 h-40 bg-yellow-300/30 rounded-full blur-3xl motion-reduce:hidden"
-          animate={{ scale: [1, 1.3, 1] }}
-          transition={{ duration: 5, repeat: Infinity }}
-        />
+          animate={prefersReducedMotion ? {} : { scale: [1, 1.3, 1] }}
+          transition={prefersReducedMotion ? {} : { duration: 5, repeat: Infinity }}
+        ></motion.div>
         <motion.div 
           className="absolute bottom-10 right-10 w-60 h-60 bg-cyan-300/30 rounded-full blur-3xl motion-reduce:hidden"
-          animate={{ scale: [1.3, 1, 1.3] }}
-          transition={{ duration: 7, repeat: Infinity }}
-        />
+          animate={prefersReducedMotion ? {} : { scale: [1.3, 1, 1.3] }}
+          transition={prefersReducedMotion ? {} : { duration: 7, repeat: Infinity }}
+        ></motion.div>
         
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <motion.div
