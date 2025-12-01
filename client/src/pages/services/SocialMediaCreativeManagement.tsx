@@ -422,8 +422,8 @@ export default function SocialMediaCreativeManagement() {
         </div>
 
         {/* TARGET CIRCLE with SVG ICONS - Positioned for new layout */}
-        {/* Mobile: Top-right beside title (BIGGER) | Desktop: Right side, vertically centered */}
-        <div className="absolute top-1 right-1 sm:top-3 sm:right-3 md:top-1/2 md:right-12 lg:right-20 md:-translate-y-1/2 w-32 h-32 sm:w-36 sm:h-36 md:w-56 md:h-56 lg:w-72 lg:h-72 motion-reduce:hidden pointer-events-none z-10">
+        {/* Mobile: Top-right beside title (slightly enlarged) | Desktop: Right side, vertically centered */}
+        <div className="absolute top-1 right-1 sm:top-3 sm:right-3 md:top-1/2 md:right-12 lg:right-20 md:-translate-y-1/2 w-[136px] h-[136px] sm:w-40 sm:h-40 md:w-56 md:h-56 lg:w-72 lg:h-72 motion-reduce:hidden pointer-events-none z-10">
           <svg width="100%" height="100%" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <linearGradient id="centerGrad" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -717,16 +717,17 @@ export default function SocialMediaCreativeManagement() {
         <div className="relative z-10 max-w-6xl mx-auto px-4 md:px-8 pt-1 pb-3 md:pt-6 md:pb-8">
           
           {/* MOBILE: Full-width stacked layout | DESKTOP: Two-column grid */}
-          <div className="flex flex-col md:grid md:grid-cols-2 gap-3 md:gap-8 items-start md:items-center mb-3 md:mb-6">
+          {/* Increased bottom margin for more text breathing room */}
+          <div className="flex flex-col md:grid md:grid-cols-2 gap-3 md:gap-8 items-start md:items-center mb-5 md:mb-6">
             
-            {/* Text Content - Full width on mobile, with room for bigger target animation */}
-            <div className="w-full text-left pr-32 sm:pr-36 md:pr-0">
-              {/* Main Headline - BIGGER on mobile */}
+            {/* Text Content - Full width on mobile, with room for target animation */}
+            <div className="w-full text-left pr-[140px] sm:pr-40 md:pr-0">
+              {/* Main Headline - BIGGER on mobile with more bottom margin */}
               <motion.h1 
                 initial={fadeIn}
                 animate={fadeInVisible}
                 transition={prefersReducedMotion ? {} : { delay: 0.1, duration: 0.5 }}
-                className="font-black text-[#1A1A1A] mb-2 md:mb-3 leading-[0.9]"
+                className="font-black text-[#1A1A1A] mb-3 md:mb-4 leading-[0.9]"
                 style={{ fontSize: 'clamp(2.75rem, 12vw, 3.75rem)' }}
               >
                 <span className="block">Creative</span>
@@ -735,12 +736,12 @@ export default function SocialMediaCreativeManagement() {
                 </span>
               </motion.h1>
               
-              {/* Subheadline - Now visible on ALL mobile sizes */}
+              {/* Subheadline - Visible on ALL mobile sizes with more spacing */}
               <motion.p 
                 initial={fadeIn}
                 animate={fadeInVisible}
                 transition={prefersReducedMotion ? {} : { delay: 0.2, duration: 0.5 }}
-                className="text-xs sm:text-sm md:text-base text-[#525252] max-w-xs sm:max-w-md mb-3 md:mb-4 leading-relaxed"
+                className="text-xs sm:text-sm md:text-base text-[#525252] max-w-xs sm:max-w-md mb-4 md:mb-5 leading-relaxed"
               >
                 We engineer content that{' '}
                 <span className="font-semibold text-[#1A1A1A]">consistently outperforms</span>—with{' '}
