@@ -422,8 +422,8 @@ export default function SocialMediaCreativeManagement() {
         </div>
 
         {/* TARGET CIRCLE with SVG ICONS - Positioned for new layout */}
-        {/* Mobile: Top-right beside title (slightly enlarged) | Desktop: Right side, vertically centered */}
-        <div className="absolute top-1 right-1 sm:top-3 sm:right-3 md:top-1/2 md:right-12 lg:right-20 md:-translate-y-1/2 w-[136px] h-[136px] sm:w-40 sm:h-40 md:w-56 md:h-56 lg:w-72 lg:h-72 motion-reduce:hidden pointer-events-none z-10">
+        {/* Mobile: Top-right beside title | Desktop: Right side, lifted higher to avoid text overlap */}
+        <div className="absolute top-1 right-1 sm:top-3 sm:right-3 md:top-[30%] md:right-12 lg:right-20 md:-translate-y-1/2 w-[136px] h-[136px] sm:w-40 sm:h-40 md:w-56 md:h-56 lg:w-72 lg:h-72 motion-reduce:hidden pointer-events-none z-10">
           <svg width="100%" height="100%" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <linearGradient id="centerGrad" x1="0%" y1="0%" x2="100%" y2="100%">
