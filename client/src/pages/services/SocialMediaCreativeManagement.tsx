@@ -420,89 +420,107 @@ export default function SocialMediaCreativeManagement() {
           <div className="absolute inset-0 bg-gradient-to-b from-[#FDFCFA]/80 via-[#FDFCFA]/60 to-[#FDFCFA]/95" />
         </div>
 
-        {/* TARGET CIRCLE with CUSTOM IMAGE ICONS - Right Side - LARGER SIZE */}
-        <div className="absolute top-20 right-2 md:top-1/2 md:right-12 lg:right-20 md:-translate-y-1/2 w-44 h-44 sm:w-52 sm:h-52 md:w-80 md:h-80 lg:w-96 lg:h-96 motion-reduce:hidden pointer-events-none z-10">
-          {/* Target Center - Concentric Rings */}
-          <div className="absolute inset-0 flex items-center justify-center">
-            {/* Outer Ring - Pulsing */}
-            <div className="absolute w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 rounded-full border-2 border-orange-400/25 animate-pulse" />
-            {/* Middle Ring */}
-            <div className="absolute w-14 h-14 sm:w-16 sm:h-16 md:w-24 md:h-24 lg:w-28 lg:h-28 rounded-full border-2 border-orange-400/40" />
-            {/* Inner Ring */}
-            <div className="absolute w-8 h-8 sm:w-10 sm:h-10 md:w-14 md:h-14 lg:w-16 lg:h-16 rounded-full border-2 border-orange-400/60" />
-            {/* Crosshair Lines */}
-            <div className="absolute w-0.5 h-12 sm:h-14 md:h-20 lg:h-24 bg-gradient-to-b from-transparent via-orange-400/40 to-transparent" />
-            <div className="absolute w-12 sm:w-14 md:w-20 lg:w-24 h-0.5 bg-gradient-to-r from-transparent via-orange-400/40 to-transparent" />
-            {/* Center Pulsing Dot */}
-            <div className="absolute w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 lg:w-6 lg:h-6 rounded-full bg-gradient-to-br from-purple-500 to-orange-500 animate-pulse shadow-lg shadow-orange-500/50" />
-          </div>
-          
-          {/* ROTATING ORBIT with 4 Custom Image Icons */}
-          <div 
-            className="absolute inset-0 animate-spin"
-            style={{ animationDuration: '12s', animationTimingFunction: 'linear' }}
-          >
-            {/* Icon 1: Pink Heart Speech Bubble - Top Position */}
-            <div 
-              className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 sm:w-14 sm:h-14 md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-full bg-white shadow-xl flex items-center justify-center overflow-hidden animate-spin"
-              style={{ animationDuration: '12s', animationTimingFunction: 'linear', animationDirection: 'reverse' }}
-            >
-              <img 
-                src="/attached_assets/AdobeStock_1528715526_1764597178109.png" 
-                alt="Comment Love" 
-                className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain"
-              />
-            </div>
-            
-            {/* Icon 2: Blue Share Arrow - Right Position */}
-            <div 
-              className="absolute top-1/2 right-0 translate-x-1/2 -translate-y-1/2 w-12 h-12 sm:w-14 sm:h-14 md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-full bg-white shadow-xl flex items-center justify-center overflow-hidden animate-spin"
-              style={{ animationDuration: '12s', animationTimingFunction: 'linear', animationDirection: 'reverse' }}
-            >
-              <img 
-                src="/attached_assets/image_1764597181062.png" 
-                alt="Share" 
-                className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain"
-              />
-            </div>
-            
-            {/* Icon 3: Yellow Winking Smiley - Bottom Position */}
-            <div 
-              className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-12 h-12 sm:w-14 sm:h-14 md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-full bg-white shadow-xl flex items-center justify-center overflow-hidden animate-spin"
-              style={{ animationDuration: '12s', animationTimingFunction: 'linear', animationDirection: 'reverse' }}
-            >
-              <img 
-                src="/attached_assets/image_1764597781004.png" 
-                alt="Engagement" 
-                className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain"
-              />
-            </div>
-            
-            {/* Icon 4: Yellow Hashtag - Left Position */}
-            <div 
-              className="absolute top-1/2 left-0 -translate-x-1/2 -translate-y-1/2 w-12 h-12 sm:w-14 sm:h-14 md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-full bg-white shadow-xl flex items-center justify-center overflow-hidden animate-spin"
-              style={{ animationDuration: '12s', animationTimingFunction: 'linear', animationDirection: 'reverse' }}
-            >
-              <img 
-                src="/attached_assets/image_1764597610551.png" 
-                alt="Hashtag" 
-                className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain"
-              />
-            </div>
-          </div>
-          
-          {/* Connection Lines (static, decorative) */}
-          <svg className="absolute inset-0 w-full h-full opacity-20" viewBox="0 0 100 100">
-            <line x1="50" y1="15" x2="50" y2="35" stroke="url(#lineGrad)" strokeWidth="0.5" strokeDasharray="2 2"/>
-            <line x1="85" y1="50" x2="65" y2="50" stroke="url(#lineGrad)" strokeWidth="0.5" strokeDasharray="2 2"/>
-            <line x1="50" y1="85" x2="50" y2="65" stroke="url(#lineGrad)" strokeWidth="0.5" strokeDasharray="2 2"/>
-            <line x1="15" y1="50" x2="35" y2="50" stroke="url(#lineGrad)" strokeWidth="0.5" strokeDasharray="2 2"/>
+        {/* TARGET CIRCLE with SVG ICONS - Matching Original Design */}
+        <div className="absolute top-8 right-1 md:top-1/2 md:right-8 lg:right-16 md:-translate-y-1/2 w-32 h-32 sm:w-36 sm:h-36 md:w-64 md:h-64 lg:w-72 lg:h-72 motion-reduce:hidden pointer-events-none z-10">
+          <svg width="100%" height="100%" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
             <defs>
-              <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#8B5CF6"/>
-                <stop offset="100%" stopColor="#FF6B35"/>
+              <linearGradient id="centerGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#FF6B9D"/>
+                <stop offset="100%" stopColor="#FF8FAB"/>
               </linearGradient>
+              <filter id="glow1" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur stdDeviation="3" result="blur"/>
+                <feMerge>
+                  <feMergeNode in="blur"/>
+                  <feMergeNode in="SourceGraphic"/>
+                </feMerge>
+              </filter>
+              <filter id="shadowFilter">
+                <feDropShadow dx="0" dy="2" stdDeviation="3" floodOpacity="0.2"/>
+              </filter>
             </defs>
+            
+            {/* Pink Target Center with Crosshair */}
+            <circle cx="150" cy="150" r="28" fill="url(#centerGrad)" filter="url(#glow1)">
+              <animate attributeName="r" values="26;30;26" dur="2s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="150" cy="150" r="22" fill="none" stroke="rgba(255,255,255,0.5)" strokeWidth="2"/>
+            
+            {/* Crosshair Lines - Dashed, extending outward */}
+            <line x1="150" y1="100" x2="150" y2="125" stroke="rgba(255,143,171,0.7)" strokeWidth="2" strokeDasharray="4 3">
+              <animate attributeName="stroke-dashoffset" from="0" to="7" dur="0.8s" repeatCount="indefinite"/>
+            </line>
+            <line x1="150" y1="175" x2="150" y2="200" stroke="rgba(255,143,171,0.7)" strokeWidth="2" strokeDasharray="4 3">
+              <animate attributeName="stroke-dashoffset" from="0" to="7" dur="0.8s" repeatCount="indefinite"/>
+            </line>
+            <line x1="100" y1="150" x2="125" y2="150" stroke="rgba(255,143,171,0.7)" strokeWidth="2" strokeDasharray="4 3">
+              <animate attributeName="stroke-dashoffset" from="0" to="7" dur="0.8s" repeatCount="indefinite"/>
+            </line>
+            <line x1="175" y1="150" x2="200" y2="150" stroke="rgba(255,143,171,0.7)" strokeWidth="2" strokeDasharray="4 3">
+              <animate attributeName="stroke-dashoffset" from="0" to="7" dur="0.8s" repeatCount="indefinite"/>
+            </line>
+            
+            {/* ROTATING ICONS GROUP */}
+            <g>
+              <animateTransform attributeName="transform" type="rotate" from="0 150 150" to="360 150 150" dur="12s" repeatCount="indefinite"/>
+              
+              {/* Orange Speech Bubble with Dots - Top */}
+              <g transform="translate(130, 45)" filter="url(#shadowFilter)">
+                <rect x="0" y="8" width="40" height="28" rx="8" fill="#FF7A45"/>
+                <polygon points="15,36 20,42 25,36" fill="#FF7A45"/>
+                <circle cx="12" cy="22" r="3" fill="white"/>
+                <circle cx="20" cy="22" r="3" fill="white"/>
+                <circle cx="28" cy="22" r="3" fill="white"/>
+                <animateTransform attributeName="transform" type="rotate" from="0 20 25" to="-360 20 25" dur="12s" repeatCount="indefinite" additive="sum"/>
+              </g>
+              
+              {/* Purple Speech Bubble with Dots - Right */}
+              <g transform="translate(215, 130)" filter="url(#shadowFilter)">
+                <rect x="0" y="8" width="36" height="26" rx="7" fill="#A855F7"/>
+                <polygon points="12,34 16,40 20,34" fill="#A855F7"/>
+                <circle cx="10" cy="21" r="2.5" fill="white"/>
+                <circle cx="18" cy="21" r="2.5" fill="white"/>
+                <circle cx="26" cy="21" r="2.5" fill="white"/>
+                <animateTransform attributeName="transform" type="rotate" from="0 18 22" to="-360 18 22" dur="12s" repeatCount="indefinite" additive="sum"/>
+              </g>
+              
+              {/* Heart Icon - Left (Gradient Pink/Cyan) */}
+              <g transform="translate(40, 115)" filter="url(#shadowFilter)">
+                <path d="M22 42 Q 8 32 3 22 Q -2 12 8 6 Q 18 0 22 12 Q 26 0 36 6 Q 46 12 41 22 Q 36 32 22 42" fill="#EC4899"/>
+                <circle cx="8" cy="28" r="8" fill="#22D3EE"/>
+                <animateTransform attributeName="transform" type="rotate" from="0 22 24" to="-360 22 24" dur="12s" repeatCount="indefinite" additive="sum"/>
+              </g>
+              
+              {/* Yellow +1 Badge - Bottom Right */}
+              <g transform="translate(195, 205)" filter="url(#shadowFilter)">
+                <circle cx="20" cy="20" r="18" fill="#FBBF24"/>
+                <text x="20" y="26" textAnchor="middle" fill="white" fontSize="16" fontWeight="bold">+1</text>
+                <animateTransform attributeName="transform" type="rotate" from="0 20 20" to="-360 20 20" dur="12s" repeatCount="indefinite" additive="sum"/>
+              </g>
+              
+              {/* Small Pink Circle - Bottom */}
+              <g transform="translate(140, 230)">
+                <circle cx="10" cy="10" r="10" fill="#FF6B9D">
+                  <animate attributeName="opacity" values="0.7;1;0.7" dur="2s" repeatCount="indefinite"/>
+                </circle>
+                <animateTransform attributeName="transform" type="rotate" from="0 10 10" to="-360 10 10" dur="12s" repeatCount="indefinite" additive="sum"/>
+              </g>
+              
+              {/* Orange/Coral Circle - Bottom Left */}
+              <g transform="translate(70, 195)">
+                <circle cx="12" cy="12" r="12" fill="#FB923C">
+                  <animate attributeName="r" values="11;14;11" dur="2.5s" repeatCount="indefinite"/>
+                </circle>
+                <animateTransform attributeName="transform" type="rotate" from="0 12 12" to="-360 12 12" dur="12s" repeatCount="indefinite" additive="sum"/>
+              </g>
+              
+              {/* Small Pink Dot - Far Left */}
+              <g transform="translate(25, 160)">
+                <circle cx="6" cy="6" r="6" fill="#F472B6">
+                  <animate attributeName="opacity" values="0.5;1;0.5" dur="1.5s" repeatCount="indefinite"/>
+                </circle>
+              </g>
+            </g>
           </svg>
         </div>
 
