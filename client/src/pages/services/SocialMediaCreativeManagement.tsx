@@ -722,19 +722,28 @@ export default function SocialMediaCreativeManagement() {
             
             {/* Text Content - Full width on mobile, with room for target animation */}
             <div className="w-full text-left pr-[140px] sm:pr-40 md:pr-0">
-              {/* Main Headline - with more top spacing */}
-              <motion.h1 
+              {/* Main Headline - CREATIVE larger, premium elite colors */}
+              <motion.div 
                 initial={fadeIn}
                 animate={fadeInVisible}
                 transition={prefersReducedMotion ? {} : { delay: 0.1, duration: 0.5 }}
-                className="font-black text-[#1A1A1A] mb-4 md:mb-4 leading-[0.9]"
-                style={{ fontSize: 'clamp(2.75rem, 12vw, 3.75rem)' }}
+                className="mb-4 md:mb-4 leading-[0.85]"
               >
-                <span className="block">Creative</span>
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#7B2FF7] via-[#FF6B9D] to-[#FF6B53]">
+                {/* CREATIVE - Larger, premium deep violet gradient */}
+                <span 
+                  className="block font-black text-transparent bg-clip-text bg-gradient-to-r from-[#1A1A1A] via-[#2D1B4E] to-[#1A1A1A]"
+                  style={{ fontSize: 'clamp(3.25rem, 14vw, 4.5rem)' }}
+                >
+                  Creative
+                </span>
+                {/* That Converts - Slightly smaller, sophisticated gradient */}
+                <span 
+                  className="block font-black text-transparent bg-clip-text bg-gradient-to-r from-[#6B21A8] via-[#DB2777] to-[#C2410C]"
+                  style={{ fontSize: 'clamp(2.5rem, 11vw, 3.5rem)' }}
+                >
                   That Converts
                 </span>
-              </motion.h1>
+              </motion.div>
               
               {/* Subheadline - LARGER text on mobile */}
               <motion.p 
