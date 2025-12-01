@@ -397,7 +397,8 @@ export default function SocialMediaCreativeManagement() {
       />
 
       {/* HERO SECTION 1: ANIMATIONS ABOVE THE FOLD */}
-      <section className="relative h-screen flex flex-col justify-center overflow-hidden bg-[#FDFCFA]">
+      {/* Mobile: Content aligned to TOP | Desktop: Vertically centered */}
+      <section className="relative min-h-screen flex flex-col justify-start md:justify-center overflow-hidden bg-[#FDFCFA]">
         {/* Premium Light Background with Subtle Texture */}
         <div className="absolute inset-0 opacity-[0.02] pointer-events-none"
           style={{
@@ -421,8 +422,8 @@ export default function SocialMediaCreativeManagement() {
         </div>
 
         {/* TARGET CIRCLE with SVG ICONS - Positioned for new layout */}
-        {/* Mobile: Top-right corner | Desktop: Right side, vertically centered */}
-        <div className="absolute top-4 right-2 sm:top-6 sm:right-4 md:top-1/2 md:right-12 lg:right-20 md:-translate-y-1/2 w-28 h-28 sm:w-32 sm:h-32 md:w-56 md:h-56 lg:w-72 lg:h-72 motion-reduce:hidden pointer-events-none z-10">
+        {/* Mobile: Top-right beside title | Desktop: Right side, vertically centered */}
+        <div className="absolute top-2 right-2 sm:top-4 sm:right-4 md:top-1/2 md:right-12 lg:right-20 md:-translate-y-1/2 w-24 h-24 sm:w-28 sm:h-28 md:w-56 md:h-56 lg:w-72 lg:h-72 motion-reduce:hidden pointer-events-none z-10">
           <svg width="100%" height="100%" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <linearGradient id="centerGrad" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -712,21 +713,21 @@ export default function SocialMediaCreativeManagement() {
           transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
         />
         
-        {/* Hero Content Area - MOBILE: Left-aligned with animation right | DESKTOP: Two-column */}
-        <div className="relative z-10 max-w-6xl mx-auto px-4 md:px-8 pt-2 pb-4 md:pt-6 md:pb-8">
+        {/* Hero Content Area - MOBILE: Full-width stacked | DESKTOP: Two-column */}
+        <div className="relative z-10 max-w-6xl mx-auto px-4 md:px-8 pt-1 pb-3 md:pt-6 md:pb-8">
           
-          {/* MOBILE: Side-by-side layout (heading left, animation right) */}
-          {/* DESKTOP: Two-column layout */}
-          <div className="flex flex-row md:grid md:grid-cols-2 gap-4 md:gap-8 items-start md:items-center mb-4 md:mb-6">
+          {/* MOBILE: Full-width stacked layout | DESKTOP: Two-column grid */}
+          <div className="flex flex-col md:grid md:grid-cols-2 gap-3 md:gap-8 items-start md:items-center mb-3 md:mb-6">
             
-            {/* Left Column: Text Content */}
-            <div className="flex-1 text-left md:text-left">
-              {/* Main Headline */}
+            {/* Text Content - Full width on mobile */}
+            <div className="w-full text-left pr-28 sm:pr-32 md:pr-0">
+              {/* Main Headline - BIGGER on mobile */}
               <motion.h1 
                 initial={fadeIn}
                 animate={fadeInVisible}
                 transition={prefersReducedMotion ? {} : { delay: 0.1, duration: 0.5 }}
-                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-[#1A1A1A] mb-2 md:mb-3 leading-[0.95]"
+                className="font-black text-[#1A1A1A] mb-2 md:mb-3 leading-[0.9]"
+                style={{ fontSize: 'clamp(2.75rem, 12vw, 3.75rem)' }}
               >
                 <span className="block">Creative</span>
                 <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#7B2FF7] via-[#FF6B9D] to-[#FF6B53]">
@@ -777,11 +778,6 @@ export default function SocialMediaCreativeManagement() {
                   </motion.button>
                 </Link>
               </motion.div>
-            </div>
-            
-            {/* Right Column: Spacer for Target Animation (which is absolutely positioned) */}
-            <div className="flex-shrink-0 w-24 h-24 sm:w-28 sm:h-28 md:hidden">
-              {/* Spacer to prevent text overlap with target animation on mobile */}
             </div>
           </div>
           
