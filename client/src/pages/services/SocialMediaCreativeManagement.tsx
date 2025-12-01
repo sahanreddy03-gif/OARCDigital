@@ -396,337 +396,308 @@ export default function SocialMediaCreativeManagement() {
         schemaId="service-marketing-overview"
       />
 
-      {/* HERO - Premium Neural Network Video Background */}
-      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-[#0a0a1a]">
-        {/* Neural Network Video Background with Premium Filters */}
-        <div className="absolute inset-0 motion-reduce:hidden">
-          <video 
-            autoPlay 
-            loop 
-            muted 
-            playsInline
-            className="absolute inset-0 w-full h-full object-cover opacity-50"
-            style={{ 
-              filter: 'hue-rotate(30deg) saturate(1.1) brightness(0.9)',
-              mixBlendMode: 'screen'
-            }}
-          >
-            <source src="https://videos.pexels.com/video-files/856106/856106-hd_1920_1080_30fps.mp4" type="video/mp4" />
-          </video>
-          {/* Premium Gradient Overlay for Depth */}
-          <div className="absolute inset-0 bg-gradient-to-br from-[#7B2FF7]/60 via-[#FF6B9D]/40 to-[#FF6B53]/50" style={{ mixBlendMode: 'overlay' }} />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a1a]/90 via-transparent to-[#0a0a1a]/40" />
-        </div>
-
-        {/* Enhanced Colorful Social Network SVG - Bottom Right */}
-        <div className="absolute bottom-10 right-10 w-48 h-48 md:w-80 md:h-80 opacity-60 motion-reduce:hidden pointer-events-none">
-          <svg width="100%" height="100%" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <linearGradient id="socialGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" style={{ stopColor: '#7B2FF7', stopOpacity: 1 }} />
-                <stop offset="50%" style={{ stopColor: '#FF6B9D', stopOpacity: 1 }} />
-                <stop offset="100%" style={{ stopColor: '#FF6B53', stopOpacity: 1 }} />
-              </linearGradient>
-              <filter id="socialGlow">
-                <feGaussianBlur stdDeviation="4" result="blur"/>
-                <feMerge>
-                  <feMergeNode in="blur"/>
-                  <feMergeNode in="SourceGraphic"/>
-                </feMerge>
-              </filter>
-            </defs>
-            {/* Central node (user hub) with pulse */}
-            <circle cx="200" cy="200" r="30" fill="url(#socialGrad)" stroke="rgba(255,255,255,0.8)" strokeWidth="2" filter="url(#socialGlow)">
-              <animate attributeName="r" values="30;35;30" dur="2s" repeatCount="indefinite" />
-              <animate attributeName="opacity" values="1;0.7;1" dur="2s" repeatCount="indefinite" />
-            </circle>
-            {/* Connected nodes (social users) with rotation */}
-            <g>
-              <circle cx="300" cy="200" r="15" fill="#FF6B53">
-                <animateTransform attributeName="transform" type="rotate" from="0 200 200" to="360 200 200" dur="10s" repeatCount="indefinite" />
-              </circle>
-              <circle cx="100" cy="200" r="15" fill="#7B2FF7">
-                <animateTransform attributeName="transform" type="rotate" from="0 200 200" to="360 200 200" dur="10s" repeatCount="indefinite" />
-              </circle>
-              <circle cx="200" cy="100" r="15" fill="#FF6B9D">
-                <animateTransform attributeName="transform" type="rotate" from="0 200 200" to="360 200 200" dur="10s" repeatCount="indefinite" />
-              </circle>
-              <circle cx="200" cy="300" r="15" fill="#00D4FF">
-                <animateTransform attributeName="transform" type="rotate" from="0 200 200" to="360 200 200" dur="10s" repeatCount="indefinite" />
-              </circle>
-            </g>
-            {/* Lines connecting nodes (social links) with dash animation */}
-            <line x1="200" y1="200" x2="300" y2="200" stroke="rgba(255,255,255,0.6)" strokeWidth="2" strokeDasharray="10 5">
-              <animate attributeName="stroke-dashoffset" from="0" to="15" dur="1s" repeatCount="indefinite" />
-            </line>
-            <line x1="200" y1="200" x2="100" y2="200" stroke="rgba(255,255,255,0.6)" strokeWidth="2" strokeDasharray="10 5">
-              <animate attributeName="stroke-dashoffset" from="0" to="15" dur="1s" repeatCount="indefinite" />
-            </line>
-            <line x1="200" y1="200" x2="200" y2="100" stroke="rgba(255,255,255,0.6)" strokeWidth="2" strokeDasharray="10 5">
-              <animate attributeName="stroke-dashoffset" from="0" to="15" dur="1s" repeatCount="indefinite" />
-            </line>
-            <line x1="200" y1="200" x2="200" y2="300" stroke="rgba(255,255,255,0.6)" strokeWidth="2" strokeDasharray="10 5">
-              <animate attributeName="stroke-dashoffset" from="0" to="15" dur="1s" repeatCount="indefinite" />
-            </line>
-            {/* Speech bubble (comments) with scale animation */}
-            <g transform="translate(260, 140)">
-              <path d="M20 0 Q 0 0 0 20 Q 0 40 20 40 Q 40 40 40 20 Q 40 0 20 0 M20 40 L10 55 L30 40" fill="#7B2FF7" stroke="rgba(255,255,255,0.8)" strokeWidth="2">
-                <animateTransform attributeName="transform" type="scale" values="1;1.15;1" dur="1.5s" repeatCount="indefinite" />
-              </path>
-              <circle cx="12" cy="20" r="4" fill="white" opacity="0.9"/>
-              <circle cx="24" cy="20" r="4" fill="white" opacity="0.9"/>
-              <circle cx="36" cy="20" r="4" fill="white" opacity="0.9"/>
-            </g>
-            {/* Heart icon (likes) with color animation */}
-            <g transform="translate(80, 120)">
-              <path d="M25 45 Q 10 35 5 25 Q 0 15 10 10 Q 20 5 25 15 Q 30 5 40 10 Q 50 15 45 25 Q 40 35 25 45" fill="#FF6B9D" stroke="rgba(255,255,255,0.8)" strokeWidth="2">
-                <animate attributeName="fill" values="#FF6B9D;#FF6B53;#FF6B9D" dur="2s" repeatCount="indefinite" />
-                <animateTransform attributeName="transform" type="scale" values="1;1.1;1" dur="1.5s" repeatCount="indefinite" />
-              </path>
-            </g>
-            {/* Additional engagement node */}
-            <g transform="translate(280, 280)">
-              <circle cx="25" cy="25" r="20" fill="#FFD700" opacity="0.8">
-                <animate attributeName="opacity" values="0.8;1;0.8" dur="2s" repeatCount="indefinite" />
-              </circle>
-              <text x="25" y="30" textAnchor="middle" fill="white" fontSize="16" fontWeight="bold">+1</text>
-            </g>
-          </svg>
-        </div>
-
-        {/* Animated Social Nodes SVG Overlay */}
-        <div className="absolute inset-0 motion-reduce:hidden pointer-events-none">
-          <svg className="w-full h-full" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
-            <defs>
-              <filter id="glow">
-                <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-                <feMerge>
-                  <feMergeNode in="coloredBlur"/>
-                  <feMergeNode in="SourceGraphic"/>
-                </feMerge>
-              </filter>
-              <linearGradient id="nodeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#FF6B53"/>
-                <stop offset="50%" stopColor="#FF6B9D"/>
-                <stop offset="100%" stopColor="#7B2FF7"/>
-              </linearGradient>
-            </defs>
-            
-            {/* Animated Connection Lines */}
-            <motion.path 
-              d="M200,300 Q400,200 600,350 T1000,300" 
-              stroke="url(#nodeGradient)" 
-              strokeWidth="1" 
-              fill="none" 
-              opacity="0.3"
-              initial={{ pathLength: 0 }}
-              animate={{ pathLength: 1 }}
-              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-            />
-            <motion.path 
-              d="M1400,200 Q1600,400 1700,300 T1900,400" 
-              stroke="url(#nodeGradient)" 
-              strokeWidth="1" 
-              fill="none" 
-              opacity="0.3"
-              initial={{ pathLength: 0 }}
-              animate={{ pathLength: 1 }}
-              transition={{ duration: 4, delay: 1, repeat: Infinity, ease: "easeInOut" }}
-            />
-            
-            {/* Pulsing Social Nodes */}
-            <motion.circle 
-              cx="300" cy="250" r="8" 
-              fill="#FF6B53" 
-              filter="url(#glow)"
-              animate={{ scale: [1, 1.5, 1], opacity: [0.6, 1, 0.6] }}
-              transition={{ duration: 2, repeat: Infinity }}
-            />
-            <motion.circle 
-              cx="700" cy="400" r="6" 
-              fill="#7B2FF7" 
-              filter="url(#glow)"
-              animate={{ scale: [1, 1.4, 1], opacity: [0.5, 1, 0.5] }}
-              transition={{ duration: 2.5, delay: 0.5, repeat: Infinity }}
-            />
-            <motion.circle 
-              cx="1500" cy="300" r="10" 
-              fill="#FF6B9D" 
-              filter="url(#glow)"
-              animate={{ scale: [1, 1.3, 1], opacity: [0.7, 1, 0.7] }}
-              transition={{ duration: 3, delay: 1, repeat: Infinity }}
-            />
-            <motion.circle 
-              cx="1100" cy="600" r="5" 
-              fill="#00D4FF" 
-              filter="url(#glow)"
-              animate={{ scale: [1, 1.6, 1], opacity: [0.4, 1, 0.4] }}
-              transition={{ duration: 2, delay: 0.3, repeat: Infinity }}
-            />
-            <motion.circle 
-              cx="400" cy="700" r="7" 
-              fill="#FFD700" 
-              filter="url(#glow)"
-              animate={{ scale: [1, 1.4, 1], opacity: [0.5, 0.9, 0.5] }}
-              transition={{ duration: 2.8, delay: 0.8, repeat: Infinity }}
-            />
-            
-            {/* Speech Bubble / Message Icons (Social Theme) */}
-            <motion.g 
-              transform="translate(1650, 500)"
-              animate={{ y: [-5, 5, -5], opacity: [0.6, 1, 0.6] }}
-              transition={{ duration: 3, repeat: Infinity }}
-            >
-              <rect x="0" y="0" width="40" height="30" rx="6" fill="#FF6B53" opacity="0.8"/>
-              <polygon points="10,30 15,40 20,30" fill="#FF6B53" opacity="0.8"/>
-              <circle cx="10" cy="15" r="3" fill="white" opacity="0.9"/>
-              <circle cx="20" cy="15" r="3" fill="white" opacity="0.9"/>
-              <circle cx="30" cy="15" r="3" fill="white" opacity="0.9"/>
-            </motion.g>
-            
-            <motion.g 
-              transform="translate(150, 600)"
-              animate={{ y: [5, -5, 5], opacity: [0.5, 0.9, 0.5] }}
-              transition={{ duration: 4, delay: 1, repeat: Infinity }}
-            >
-              <rect x="0" y="0" width="35" height="25" rx="5" fill="#7B2FF7" opacity="0.7"/>
-              <polygon points="25,25 30,33 35,25" fill="#7B2FF7" opacity="0.7"/>
-              <rect x="8" y="8" width="12" height="2" rx="1" fill="white" opacity="0.8"/>
-              <rect x="8" y="13" width="18" height="2" rx="1" fill="white" opacity="0.8"/>
-            </motion.g>
-            
-            {/* Heart / Like Icons */}
-            <motion.g 
-              transform="translate(1200, 200)"
-              animate={{ scale: [1, 1.2, 1], opacity: [0.5, 1, 0.5] }}
-              transition={{ duration: 1.5, repeat: Infinity }}
-            >
-              <path d="M12,21.35l-1.45-1.32C5.4,15.36,2,12.28,2,8.5C2,5.42,4.42,3,7.5,3c1.74,0,3.41,0.81,4.5,2.09C13.09,3.81,14.76,3,16.5,3C19.58,3,22,5.42,22,8.5c0,3.78-3.4,6.86-8.55,11.54L12,21.35z" 
-                    fill="#FF6B9D" 
-                    opacity="0.8"
-                    transform="scale(1.5)"
-              />
-            </motion.g>
-          </svg>
-        </div>
-        
-        {/* Floating Particles */}
-        <div className="absolute inset-0 motion-reduce:hidden">
-          {[...Array(15)].map((_, i) => (
-            <FloatingParticle 
-              key={i} 
-              delay={i * 0.3} 
-              duration={4 + Math.random() * 3}
-              color={['#FFD700', '#00FF88', '#00D4FF', '#FF6B9D', '#FFFFFF'][Math.floor(Math.random() * 5)]}
-            />
-          ))}
-        </div>
-        
-        {/* Premium Decorative Glows */}
-        <motion.div 
-          className="absolute top-20 left-10 w-40 h-40 rounded-full bg-gradient-to-r from-[#7B2FF7] to-[#FF6B9D] blur-3xl opacity-40 motion-reduce:hidden"
-          animate={{ scale: [1, 1.3, 1], opacity: [0.3, 0.5, 0.3] }}
-          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <motion.div 
-          className="absolute bottom-20 right-20 w-56 h-56 rounded-full bg-gradient-to-r from-[#FF6B53] to-[#FF6B9D] blur-3xl opacity-35 motion-reduce:hidden"
-          animate={{ scale: [1.2, 1, 1.2], opacity: [0.25, 0.45, 0.25] }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <motion.div 
-          className="absolute top-1/3 right-1/4 w-32 h-32 rounded-full bg-[#00D4FF]/30 blur-2xl motion-reduce:hidden"
-          animate={{ y: [-20, 20, -20], opacity: [0.2, 0.4, 0.2] }}
-          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+      {/* HERO - LUMINOUS CANVAS: Premium Light + WOW */}
+      <section className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-[#FDFCFA]">
+        {/* Subtle Paper Texture Overlay */}
+        <div className="absolute inset-0 opacity-[0.025] pointer-events-none"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+          }}
         />
         
-        {/* Hero Content */}
-        <div className="relative z-10 max-w-6xl mx-auto px-6 text-center">
-          <motion.div
-            initial={fadeIn}
-            animate={fadeInVisible}
-            transition={prefersReducedMotion ? {} : { duration: 0.6 }}
-          >
-            <motion.span 
-              className="inline-flex items-center gap-2 px-5 py-2 bg-white/20 backdrop-blur-md rounded-full text-sm font-bold text-white mb-8 border border-white/30"
-              whileHover={prefersReducedMotion ? {} : { scale: 1.05 }}
+        {/* Animated Liquid Color Blobs */}
+        <motion.div 
+          className="absolute w-[600px] h-[600px] rounded-full blur-[80px] motion-reduce:hidden pointer-events-none"
+          style={{ 
+            background: 'radial-gradient(circle, rgba(255,107,53,0.10), transparent 70%)',
+            top: '-200px',
+            left: '10%'
+          }}
+          animate={{ x: [0, 100, 0], y: [0, 50, 0] }}
+          transition={{ duration: 40, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div 
+          className="absolute w-[500px] h-[500px] rounded-full blur-[80px] motion-reduce:hidden pointer-events-none"
+          style={{ 
+            background: 'radial-gradient(circle, rgba(139,92,246,0.08), transparent 70%)',
+            top: '30%',
+            right: '5%'
+          }}
+          animate={{ x: [0, -80, 0], y: [0, 60, 0] }}
+          transition={{ duration: 50, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div 
+          className="absolute w-[550px] h-[550px] rounded-full blur-[80px] motion-reduce:hidden pointer-events-none"
+          style={{ 
+            background: 'radial-gradient(circle, rgba(236,72,153,0.08), transparent 70%)',
+            bottom: '-100px',
+            left: '40%'
+          }}
+          animate={{ x: [0, 60, 0], y: [0, -40, 0] }}
+          transition={{ duration: 45, repeat: Infinity, ease: "easeInOut" }}
+        />
+        
+        {/* Hero Content Area */}
+        <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 py-20 md:py-28">
+          <div className="text-center mb-16">
+            {/* Badge */}
+            <motion.div
+              initial={fadeIn}
+              animate={fadeInVisible}
+              transition={prefersReducedMotion ? {} : { duration: 0.6 }}
             >
-              <Sparkles className="w-4 h-4" />
-              Malta's #1 AI Creative Agency
-            </motion.span>
-          </motion.div>
+              <motion.span 
+                className="inline-flex items-center gap-2 px-5 py-2 bg-[#F2F1ED] rounded-full text-sm font-bold text-[#525252] mb-8 border border-[#E5E4E0]"
+                whileHover={prefersReducedMotion ? {} : { scale: 1.05 }}
+              >
+                <Sparkles className="w-4 h-4 text-[#FF6B35]" />
+                Malta's #1 AI Creative Agency
+              </motion.span>
+            </motion.div>
+            
+            {/* Main Headline with Highlighter Effect */}
+            <motion.h1 
+              initial={fadeIn}
+              animate={fadeInVisible}
+              transition={prefersReducedMotion ? {} : { delay: 0.15, duration: 0.6 }}
+              className="text-5xl md:text-7xl lg:text-[96px] font-black text-[#1A1A1A] mb-6 leading-[0.95] tracking-[-0.025em]"
+            >
+              <span className="block">Creative</span>
+              <span className="block relative inline-block">
+                That{' '}
+                <span className="relative">
+                  <span className="relative z-10">Converts</span>
+                  <span 
+                    className="absolute left-0 right-0 bottom-[0.1em] h-[0.35em] bg-gradient-to-r from-[#FF6B35]/30 via-[#FF6B35]/25 to-transparent -z-0"
+                    style={{ transform: 'skewX(-2deg)' }}
+                  />
+                </span>
+              </span>
+            </motion.h1>
+            
+            {/* Subheadline */}
+            <motion.p 
+              initial={fadeIn}
+              animate={fadeInVisible}
+              transition={prefersReducedMotion ? {} : { delay: 0.3, duration: 0.6 }}
+              className="text-lg md:text-xl text-[#525252] max-w-2xl mx-auto mb-10 leading-relaxed"
+            >
+              Content engineered to outperform—with{' '}
+              <span className="font-bold text-[#1A1A1A]">3x average ROAS</span> across 47+ active clients.
+            </motion.p>
+            
+            {/* CTA Buttons */}
+            <motion.div 
+              initial={fadeIn}
+              animate={fadeInVisible}
+              transition={prefersReducedMotion ? {} : { delay: 0.45, duration: 0.6 }}
+              className="flex flex-col sm:flex-row gap-4 justify-center"
+            >
+              <Link href="/contact">
+                <MagneticButton
+                  whileHover={prefersReducedMotion ? {} : { scale: 1.05, y: -2 }}
+                  whileTap={prefersReducedMotion ? {} : { scale: 0.98 }}
+                  className="group inline-flex items-center gap-3 bg-[#FF6B35] text-white rounded-full px-8 py-4 text-lg font-bold shadow-[0_8px_32px_rgba(255,107,53,0.25)] hover:shadow-[0_16px_48px_rgba(255,107,53,0.35)] transition-all"
+                  data-testid="button-hero-cta"
+                >
+                  Start Creating
+                  <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center group-hover:rotate-12 transition-transform">
+                    <ArrowRight className="h-5 w-5 text-white" />
+                  </div>
+                </MagneticButton>
+              </Link>
+              <Link href="#portfolio">
+                <motion.button
+                  whileHover={prefersReducedMotion ? {} : { scale: 1.05 }}
+                  className="inline-flex items-center gap-2 bg-white border-2 border-[#E5E4E0] text-[#1A1A1A] rounded-full px-8 py-4 text-lg font-bold hover:border-[#FF6B35]/30 hover:shadow-[0_8px_32px_rgba(0,0,0,0.06)] transition-all"
+                  data-testid="button-view-work"
+                >
+                  <Play className="w-5 h-5 fill-[#FF6B35] text-[#FF6B35]" />
+                  Our Work
+                </motion.button>
+              </Link>
+            </motion.div>
+          </div>
           
-          <motion.h1 
-            initial={fadeIn}
-            animate={fadeInVisible}
-            transition={prefersReducedMotion ? {} : { delay: 0.15, duration: 0.6 }}
-            className="text-5xl md:text-7xl lg:text-8xl font-black text-white mb-6 leading-[0.95]"
-          >
-            <span className="block">Creative</span>
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 via-white to-cyan-300">
-              That Sells
-            </span>
-          </motion.h1>
-          
-          <motion.p 
-            initial={fadeIn}
-            animate={fadeInVisible}
-            transition={prefersReducedMotion ? {} : { delay: 0.3, duration: 0.6 }}
-            className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto mb-12 leading-relaxed"
-          >
-            We don't just make things look pretty. We engineer content that 
-            <span className="font-bold text-yellow-300"> consistently outperforms</span>—with 
-            <span className="font-bold text-cyan-300"> 3x average ROAS</span> across 47+ active clients.
-          </motion.p>
-          
+          {/* Floating Work Gallery */}
           <motion.div 
             initial={fadeIn}
             animate={fadeInVisible}
-            transition={prefersReducedMotion ? {} : { delay: 0.45, duration: 0.6 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center"
+            transition={prefersReducedMotion ? {} : { delay: 0.6, duration: 0.8 }}
+            className="relative"
           >
-            <Link href="/contact">
-              <MagneticButton
-                whileHover={prefersReducedMotion ? {} : { scale: 1.05 }}
-                whileTap={prefersReducedMotion ? {} : { scale: 0.98 }}
-                className="group inline-flex items-center gap-3 bg-white text-gray-900 rounded-full px-8 py-4 text-lg font-bold shadow-2xl hover:shadow-[0_25px_50px_rgba(255,255,255,0.3)] transition-all"
-                data-testid="button-hero-cta"
+            {/* Gallery Grid with Floating Cards */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-5xl mx-auto">
+              {/* Card 1 - Instagram Post */}
+              <motion.div 
+                className="relative bg-white rounded-2xl overflow-hidden aspect-[4/5] group cursor-pointer"
+                style={{ 
+                  boxShadow: '0 8px 32px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.04)'
+                }}
+                whileHover={prefersReducedMotion ? {} : { 
+                  y: -12, 
+                  rotateX: 2, 
+                  rotateY: -2,
+                  boxShadow: '0 24px 60px rgba(236,72,153,0.15), 0 8px 20px rgba(0,0,0,0.06)'
+                }}
+                transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
               >
-                Start Creating
-                <div className="w-10 h-10 bg-gradient-to-br from-[#7B2FF7] to-[#FF6B9D] rounded-full flex items-center justify-center group-hover:rotate-12 transition-transform">
-                  <ArrowRight className="h-5 w-5 text-white" />
+                <div className="absolute inset-0 bg-gradient-to-br from-[#FF6B9D] to-[#EC4899] opacity-90" />
+                <div className="absolute inset-0 flex flex-col items-center justify-center p-4 text-white">
+                  <Instagram className="w-10 h-10 mb-2" />
+                  <span className="text-xs font-bold opacity-80">IG POST</span>
+                  <span className="text-lg font-black mt-1">2.4M Views</span>
                 </div>
-              </MagneticButton>
-            </Link>
-            <Link href="#portfolio">
-              <motion.button
-                whileHover={prefersReducedMotion ? {} : { scale: 1.05 }}
-                className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border-2 border-white/40 text-white rounded-full px-8 py-4 text-lg font-bold hover:bg-white/20 transition-all"
-                data-testid="button-view-work"
+                <div className="absolute bottom-3 left-3 right-3 flex justify-between items-center">
+                  <div className="flex gap-2">
+                    <Heart className="w-4 h-4 text-white/80" />
+                    <MessageCircle className="w-4 h-4 text-white/80" />
+                  </div>
+                  <span className="text-xs text-white/70">12.3% eng</span>
+                </div>
+              </motion.div>
+              
+              {/* Card 2 - Video Content (Large) */}
+              <motion.div 
+                className="relative bg-white rounded-2xl overflow-hidden md:col-span-2 md:row-span-2 aspect-video md:aspect-auto group cursor-pointer"
+                style={{ 
+                  boxShadow: '0 8px 32px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.04)'
+                }}
+                whileHover={prefersReducedMotion ? {} : { 
+                  y: -12, 
+                  rotateX: 2, 
+                  rotateY: -2,
+                  boxShadow: '0 24px 60px rgba(139,92,246,0.15), 0 8px 20px rgba(0,0,0,0.06)'
+                }}
+                transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
               >
-                <Play className="w-5 h-5 fill-white" />
-                View Our Work
-              </motion.button>
-            </Link>
+                <div className="absolute inset-0 bg-gradient-to-br from-[#8B5CF6] to-[#7C3AED]" />
+                <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-white">
+                  <div className="w-20 h-20 rounded-full bg-white/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                    <Play className="w-10 h-10 text-white fill-white ml-1" />
+                  </div>
+                  <Video className="w-8 h-8 mb-2" />
+                  <span className="text-sm font-bold opacity-80">VIDEO CAMPAIGN</span>
+                  <span className="text-2xl font-black mt-2">8.7M+ Reach</span>
+                  <span className="text-sm opacity-70 mt-1">E-commerce Launch</span>
+                </div>
+              </motion.div>
+              
+              {/* Card 3 - TikTok */}
+              <motion.div 
+                className="relative bg-white rounded-2xl overflow-hidden aspect-[4/5] group cursor-pointer"
+                style={{ 
+                  boxShadow: '0 8px 32px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.04)'
+                }}
+                whileHover={prefersReducedMotion ? {} : { 
+                  y: -12, 
+                  rotateX: 2, 
+                  rotateY: -2,
+                  boxShadow: '0 24px 60px rgba(0,0,0,0.12), 0 8px 20px rgba(0,0,0,0.06)'
+                }}
+                transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-[#1A1A1A] to-[#333]" />
+                <div className="absolute inset-0 flex flex-col items-center justify-center p-4 text-white">
+                  <SiTiktok className="w-10 h-10 mb-2" />
+                  <span className="text-xs font-bold opacity-80">TIKTOK</span>
+                  <span className="text-lg font-black mt-1">5.2M Plays</span>
+                </div>
+                <div className="absolute bottom-3 left-3 right-3 flex justify-between items-center">
+                  <div className="flex gap-2">
+                    <Heart className="w-4 h-4 text-white/80" />
+                    <Share2 className="w-4 h-4 text-white/80" />
+                  </div>
+                  <span className="text-xs text-white/70">Viral</span>
+                </div>
+              </motion.div>
+              
+              {/* Card 4 - Ad Performance */}
+              <motion.div 
+                className="relative bg-white rounded-2xl overflow-hidden aspect-[4/3] group cursor-pointer"
+                style={{ 
+                  boxShadow: '0 8px 32px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.04)'
+                }}
+                whileHover={prefersReducedMotion ? {} : { 
+                  y: -12, 
+                  rotateX: 2, 
+                  rotateY: -2,
+                  boxShadow: '0 24px 60px rgba(255,107,53,0.15), 0 8px 20px rgba(0,0,0,0.06)'
+                }}
+                transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-[#FF6B35] to-[#F97316]" />
+                <div className="absolute inset-0 flex flex-col items-center justify-center p-4 text-white">
+                  <TrendingUp className="w-8 h-8 mb-2" />
+                  <span className="text-xs font-bold opacity-80">AD ROAS</span>
+                  <span className="text-3xl font-black">4.7x</span>
+                </div>
+              </motion.div>
+              
+              {/* Card 5 - Reel */}
+              <motion.div 
+                className="relative bg-white rounded-2xl overflow-hidden aspect-[4/5] group cursor-pointer hidden md:block"
+                style={{ 
+                  boxShadow: '0 8px 32px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.04)'
+                }}
+                whileHover={prefersReducedMotion ? {} : { 
+                  y: -12, 
+                  rotateX: 2, 
+                  rotateY: -2,
+                  boxShadow: '0 24px 60px rgba(16,185,129,0.15), 0 8px 20px rgba(0,0,0,0.06)'
+                }}
+                transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-[#10B981] to-[#059669]" />
+                <div className="absolute inset-0 flex flex-col items-center justify-center p-4 text-white">
+                  <Camera className="w-10 h-10 mb-2" />
+                  <span className="text-xs font-bold opacity-80">REELS</span>
+                  <span className="text-lg font-black mt-1">890K Views</span>
+                </div>
+              </motion.div>
+              
+              {/* Card 6 - LinkedIn */}
+              <motion.div 
+                className="relative bg-white rounded-2xl overflow-hidden aspect-[4/5] group cursor-pointer hidden md:block"
+                style={{ 
+                  boxShadow: '0 8px 32px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.04)'
+                }}
+                whileHover={prefersReducedMotion ? {} : { 
+                  y: -12, 
+                  rotateX: 2, 
+                  rotateY: -2,
+                  boxShadow: '0 24px 60px rgba(59,130,246,0.15), 0 8px 20px rgba(0,0,0,0.06)'
+                }}
+                transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-[#0077B5] to-[#0369A1]" />
+                <div className="absolute inset-0 flex flex-col items-center justify-center p-4 text-white">
+                  <SiLinkedin className="w-10 h-10 mb-2" />
+                  <span className="text-xs font-bold opacity-80">LINKEDIN</span>
+                  <span className="text-lg font-black mt-1">B2B Lead Gen</span>
+                </div>
+              </motion.div>
+            </div>
           </motion.div>
           
           {/* Platform Icons Row */}
           <motion.div 
             initial={fadeIn}
             animate={fadeInVisible}
-            transition={prefersReducedMotion ? {} : { delay: 0.6 }}
-            className="mt-16 flex justify-center items-center gap-4 md:gap-8"
+            transition={prefersReducedMotion ? {} : { delay: 0.8 }}
+            className="mt-12 flex justify-center items-center gap-4 md:gap-6"
           >
             {platformIcons.map((platform, idx) => (
               <motion.div 
                 key={idx}
-                className="w-12 h-12 md:w-14 md:h-14 bg-white/20 backdrop-blur-md rounded-xl flex items-center justify-center border border-white/20 hover:bg-white/30 transition-all cursor-pointer"
-                whileHover={prefersReducedMotion ? {} : { scale: 1.2, y: -5 }}
+                className="w-10 h-10 md:w-12 md:h-12 bg-[#F2F1ED] rounded-xl flex items-center justify-center border border-[#E5E4E0] hover:border-[#FF6B35]/30 hover:bg-white transition-all cursor-pointer"
+                whileHover={prefersReducedMotion ? {} : { scale: 1.15, y: -3 }}
                 initial={prefersReducedMotion ? {} : { opacity: 0, y: 20 }}
                 animate={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
-                transition={prefersReducedMotion ? {} : { delay: 0.7 + idx * 0.05 }}
+                transition={prefersReducedMotion ? {} : { delay: 0.85 + idx * 0.05 }}
                 title={platform.label}
               >
-                <platform.Icon className="w-6 h-6 md:w-7 md:h-7 text-white" />
+                <platform.Icon className="w-5 h-5 md:w-6 md:h-6 text-[#525252]" />
               </motion.div>
             ))}
           </motion.div>
@@ -738,9 +709,9 @@ export default function SocialMediaCreativeManagement() {
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
         >
-          <div className="w-8 h-12 rounded-full border-2 border-white/40 flex items-start justify-center p-2">
+          <div className="w-8 h-12 rounded-full border-2 border-[#E5E4E0] flex items-start justify-center p-2">
             <motion.div 
-              className="w-2 h-2 bg-white rounded-full"
+              className="w-2 h-2 bg-[#FF6B35] rounded-full"
               animate={{ y: [0, 16, 0] }}
               transition={{ duration: 1.5, repeat: Infinity }}
             />
