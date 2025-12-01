@@ -464,58 +464,75 @@ export default function SocialMediaCreativeManagement() {
             <g>
               <animateTransform attributeName="transform" type="rotate" from="0 150 150" to="360 150 150" dur="12s" repeatCount="indefinite"/>
               
-              {/* Orange Speech Bubble with Dots - Top */}
-              <g transform="translate(130, 45)" filter="url(#shadowFilter)">
-                <rect x="0" y="8" width="40" height="28" rx="8" fill="#FF7A45"/>
-                <polygon points="15,36 20,42 25,36" fill="#FF7A45"/>
-                <circle cx="12" cy="22" r="3" fill="white"/>
-                <circle cx="20" cy="22" r="3" fill="white"/>
-                <circle cx="28" cy="22" r="3" fill="white"/>
-                <animateTransform attributeName="transform" type="rotate" from="0 20 25" to="-360 20 25" dur="12s" repeatCount="indefinite" additive="sum"/>
+              {/* Pink Speech Bubble with Heart - Top */}
+              <g transform="translate(125, 35)" filter="url(#shadowFilter)">
+                <rect x="0" y="5" width="50" height="38" rx="12" fill="#FF6B9D"/>
+                <polygon points="18,43 25,52 32,43" fill="#FF6B9D"/>
+                <path d="M25 32 Q 17 26 14 20 Q 11 14 17 10 Q 23 6 25 14 Q 27 6 33 10 Q 39 14 36 20 Q 33 26 25 32" fill="white"/>
+                <animateTransform attributeName="transform" type="rotate" from="0 25 25" to="-360 25 25" dur="12s" repeatCount="indefinite" additive="sum"/>
               </g>
               
-              {/* Purple Speech Bubble with Dots - Right */}
-              <g transform="translate(215, 130)" filter="url(#shadowFilter)">
-                <rect x="0" y="8" width="36" height="26" rx="7" fill="#A855F7"/>
-                <polygon points="12,34 16,40 20,34" fill="#A855F7"/>
-                <circle cx="10" cy="21" r="2.5" fill="white"/>
-                <circle cx="18" cy="21" r="2.5" fill="white"/>
-                <circle cx="26" cy="21" r="2.5" fill="white"/>
-                <animateTransform attributeName="transform" type="rotate" from="0 18 22" to="-360 18 22" dur="12s" repeatCount="indefinite" additive="sum"/>
+              {/* Purple Speech Bubble with Dots - KEEP THIS ONE - Bottom Left */}
+              <g transform="translate(50, 195)" filter="url(#shadowFilter)">
+                <rect x="0" y="0" width="44" height="32" rx="9" fill="#A855F7"/>
+                <polygon points="30,32 35,42 40,32" fill="#A855F7"/>
+                <circle cx="12" cy="16" r="4" fill="white"/>
+                <circle cx="22" cy="16" r="4" fill="white"/>
+                <circle cx="32" cy="16" r="4" fill="white"/>
+                <animateTransform attributeName="transform" type="rotate" from="0 22 18" to="-360 22 18" dur="12s" repeatCount="indefinite" additive="sum"/>
               </g>
               
-              {/* Heart Icon - Left (Gradient Pink/Cyan) */}
-              <g transform="translate(40, 115)" filter="url(#shadowFilter)">
-                <path d="M22 42 Q 8 32 3 22 Q -2 12 8 6 Q 18 0 22 12 Q 26 0 36 6 Q 46 12 41 22 Q 36 32 22 42" fill="#EC4899"/>
-                <circle cx="8" cy="28" r="8" fill="#22D3EE"/>
-                <animateTransform attributeName="transform" type="rotate" from="0 22 24" to="-360 22 24" dur="12s" repeatCount="indefinite" additive="sum"/>
+              {/* Blue Share Arrow Speech Bubble - Right */}
+              <g transform="translate(220, 120)" filter="url(#shadowFilter)">
+                <rect x="0" y="5" width="44" height="34" rx="10" fill="#3B82F6"/>
+                <polygon points="15,39 20,48 25,39" fill="#3B82F6"/>
+                <path d="M30 15 L20 22 L20 18 L12 18 L12 28 L20 28 L20 24 L30 31 L30 15" fill="white" stroke="white" strokeWidth="1" strokeLinejoin="round"/>
+                <animateTransform attributeName="transform" type="rotate" from="0 22 22" to="-360 22 22" dur="12s" repeatCount="indefinite" additive="sum"/>
               </g>
               
-              {/* Yellow +1 Badge - Bottom Right */}
-              <g transform="translate(195, 205)" filter="url(#shadowFilter)">
-                <circle cx="20" cy="20" r="18" fill="#FBBF24"/>
-                <text x="20" y="26" textAnchor="middle" fill="white" fontSize="16" fontWeight="bold">+1</text>
-                <animateTransform attributeName="transform" type="rotate" from="0 20 20" to="-360 20 20" dur="12s" repeatCount="indefinite" additive="sum"/>
+              {/* Yellow Winking Smiley - Bottom Right */}
+              <g transform="translate(180, 215)" filter="url(#shadowFilter)">
+                <circle cx="22" cy="22" r="22" fill="#FBBF24"/>
+                <circle cx="14" cy="18" r="3" fill="#1F2937"/>
+                <line x1="26" y1="16" x2="32" y2="20" stroke="#1F2937" strokeWidth="3" strokeLinecap="round"/>
+                <path d="M12 28 Q 22 36 32 28" fill="none" stroke="#1F2937" strokeWidth="3" strokeLinecap="round"/>
+                <animateTransform attributeName="transform" type="rotate" from="0 22 22" to="-360 22 22" dur="12s" repeatCount="indefinite" additive="sum"/>
               </g>
               
-              {/* Small Pink Circle - Bottom */}
-              <g transform="translate(140, 230)">
+              {/* Yellow Hashtag Speech Bubble - Left */}
+              <g transform="translate(30, 115)" filter="url(#shadowFilter)">
+                <rect x="0" y="5" width="48" height="36" rx="10" fill="#FBBF24"/>
+                <polygon points="32,41 36,50 40,41" fill="#FBBF24"/>
+                <text x="24" y="30" textAnchor="middle" fill="white" fontSize="22" fontWeight="bold">#</text>
+                <animateTransform attributeName="transform" type="rotate" from="0 24 23" to="-360 24 23" dur="12s" repeatCount="indefinite" additive="sum"/>
+              </g>
+              
+              {/* Decorative Orange Circle - Top Right */}
+              <g transform="translate(200, 60)">
+                <circle cx="15" cy="15" r="15" fill="#FB923C">
+                  <animate attributeName="r" values="14;17;14" dur="2.5s" repeatCount="indefinite"/>
+                </circle>
+                <animateTransform attributeName="transform" type="rotate" from="0 15 15" to="-360 15 15" dur="12s" repeatCount="indefinite" additive="sum"/>
+              </g>
+              
+              {/* Small Yellow Circle - Top */}
+              <g transform="translate(85, 50)">
+                <circle cx="10" cy="10" r="10" fill="#FDE047">
+                  <animate attributeName="opacity" values="0.8;1;0.8" dur="2s" repeatCount="indefinite"/>
+                </circle>
+                <animateTransform attributeName="transform" type="rotate" from="0 10 10" to="-360 10 10" dur="12s" repeatCount="indefinite" additive="sum"/>
+              </g>
+              
+              {/* Small Pink Circle - Bottom Center */}
+              <g transform="translate(130, 240)">
                 <circle cx="10" cy="10" r="10" fill="#FF6B9D">
                   <animate attributeName="opacity" values="0.7;1;0.7" dur="2s" repeatCount="indefinite"/>
                 </circle>
                 <animateTransform attributeName="transform" type="rotate" from="0 10 10" to="-360 10 10" dur="12s" repeatCount="indefinite" additive="sum"/>
               </g>
               
-              {/* Orange/Coral Circle - Bottom Left */}
-              <g transform="translate(70, 195)">
-                <circle cx="12" cy="12" r="12" fill="#FB923C">
-                  <animate attributeName="r" values="11;14;11" dur="2.5s" repeatCount="indefinite"/>
-                </circle>
-                <animateTransform attributeName="transform" type="rotate" from="0 12 12" to="-360 12 12" dur="12s" repeatCount="indefinite" additive="sum"/>
-              </g>
-              
-              {/* Small Pink Dot - Far Left */}
-              <g transform="translate(25, 160)">
+              {/* Small Pink Dot - Far Right */}
+              <g transform="translate(265, 165)">
                 <circle cx="6" cy="6" r="6" fill="#F472B6">
                   <animate attributeName="opacity" values="0.5;1;0.5" dur="1.5s" repeatCount="indefinite"/>
                 </circle>
