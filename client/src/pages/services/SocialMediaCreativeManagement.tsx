@@ -888,38 +888,54 @@ export default function SocialMediaCreativeManagement() {
         </div>
       </section>
 
-      {/* Stats Bar - Reduced metrics for credibility */}
-      <section className="py-8 pb-12 bg-gradient-to-r from-[#0f0f23] via-[#1a1a2e] to-[#0f0f23] relative overflow-hidden">
-        {/* AI Neural Pattern Overlay */}
-        <div className="absolute inset-0 opacity-20 motion-reduce:hidden">
-          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cGF0dGVybiBpZD0ibmV1cmFsIiB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGNpcmNsZSBjeD0iNTAiIGN5PSI1MCIgcj0iMiIgZmlsbD0icmdiYSgxMjMsNDcsMjQ3LDAuNSkiLz48Y2lyY2xlIGN4PSIyMCIgY3k9IjIwIiByPSIxLjUiIGZpbGw9InJnYmEoMjU1LDEwNywxNTcsMC40KSIvPjxjaXJjbGUgY3g9IjgwIiBjeT0iMzAiIHI9IjEiIGZpbGw9InJnYmEoMjU1LDEwNyw4MywwLjQpIi8+PGxpbmUgeDE9IjUwIiB5MT0iNTAiIHgyPSIyMCIgeTI9IjIwIiBzdHJva2U9InJnYmEoMTIzLDQ3LDI0NywwLjIpIiBzdHJva2Utd2lkdGg9IjAuNSIvPjxsaW5lIHgxPSI1MCIgeTE9IjUwIiB4Mj0iODAiIHkyPSIzMCIgc3Ryb2tlPSJyZ2JhKDI1NSwxMDcsMTU3LDAuMikiIHN0cm9rZS13aWR0aD0iMC41Ii8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI25ldXJhbCkiLz48L3N2Zz4=')]" />
+      {/* Stats Bar - ELITE Premium Indicators */}
+      <section className="py-14 md:py-16 bg-gradient-to-b from-[#0a0a16] via-[#0f0f1a] to-[#0a0a16] relative overflow-hidden">
+        {/* Premium Top Line */}
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#7B2FF7]/40 to-transparent" />
+        
+        {/* Subtle Background Pattern */}
+        <div className="absolute inset-0 opacity-5 motion-reduce:hidden">
+          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSA2MCAwIEwgMCAwIDAgNjAiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjEpIiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')]" />
         </div>
-        <div className="max-w-6xl mx-auto px-6 relative z-10">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            {[
-              { value: 47, suffix: "+", label: "Active Clients" },
-              { value: 3, suffix: "x", label: "Avg. ROAS" },
-              { value: 89, suffix: "%", label: "Client Retention" },
-              { value: 12, suffix: "+", label: "AI MVPs Built" },
-            ].map((stat, idx) => (
-              <motion.div 
-                key={idx}
-                initial={prefersReducedMotion ? {} : { opacity: 0, y: 20 }}
-                whileInView={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={prefersReducedMotion ? {} : { delay: idx * 0.1 }}
-              >
-                <div className="text-3xl md:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#7B2FF7] via-[#FF6B9D] to-[#FF6B53]">
-                  <AnimatedCounter value={stat.value} suffix={stat.suffix} />
-                </div>
-                <div className="text-sm text-gray-400 mt-1">{stat.label}</div>
-              </motion.div>
-            ))}
+        
+        <div className="max-w-5xl mx-auto px-6 relative z-10">
+          {/* Premium Glass Container */}
+          <div className="bg-white/[0.02] backdrop-blur-xl rounded-2xl border border-white/[0.06] p-8 md:p-12 shadow-2xl">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+              {[
+                { value: 47, suffix: "+", label: "Active Clients" },
+                { value: 3, suffix: "x", label: "Avg. ROAS" },
+                { value: 89, suffix: "%", label: "Client Retention" },
+                { value: 12, suffix: "+", label: "AI MVPs Built" },
+              ].map((stat, idx) => (
+                <motion.div 
+                  key={idx}
+                  initial={prefersReducedMotion ? {} : { opacity: 0, y: 20 }}
+                  whileInView={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={prefersReducedMotion ? {} : { delay: idx * 0.1 }}
+                  className="text-center relative"
+                >
+                  {/* Vertical Divider */}
+                  {idx > 0 && (
+                    <div className="absolute left-0 top-1/2 -translate-y-1/2 w-px h-16 bg-gradient-to-b from-transparent via-white/10 to-transparent hidden md:block" />
+                  )}
+                  
+                  {/* Main Number - Clean White */}
+                  <div className="text-4xl md:text-5xl font-black text-white mb-2 tracking-tight">
+                    <AnimatedCounter value={stat.value} suffix={stat.suffix} />
+                  </div>
+                  
+                  {/* Label - Premium Typography */}
+                  <div className="text-[11px] md:text-xs text-white/40 font-medium tracking-[0.2em] uppercase">{stat.label}</div>
+                </motion.div>
+              ))}
+            </div>
           </div>
           
-          {/* View Case Studies Button */}
+          {/* View Case Studies Button - More Refined */}
           <motion.div 
-            className="flex justify-center mt-8"
+            className="flex justify-center mt-10"
             initial={prefersReducedMotion ? {} : { opacity: 0, y: 20 }}
             whileInView={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -927,9 +943,9 @@ export default function SocialMediaCreativeManagement() {
           >
             <Link href="/our-work">
               <motion.button
-                whileHover={prefersReducedMotion ? {} : { scale: 1.05 }}
+                whileHover={prefersReducedMotion ? {} : { scale: 1.02, y: -2 }}
                 whileTap={prefersReducedMotion ? {} : { scale: 0.98 }}
-                className="group inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#7B2FF7] to-[#FF6B9D] rounded-full text-white font-bold shadow-lg hover:shadow-[0_15px_40px_rgba(123,47,247,0.3)] transition-all"
+                className="group inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-[#7B2FF7] to-[#FF6B9D] rounded-full text-white font-bold shadow-xl shadow-purple-500/20 hover:shadow-2xl hover:shadow-purple-500/30 transition-all"
                 data-testid="button-view-case-studies"
               >
                 <Eye className="w-5 h-5" />
@@ -939,116 +955,130 @@ export default function SocialMediaCreativeManagement() {
             </Link>
           </motion.div>
         </div>
+        
+        {/* Premium Bottom Line */}
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#FF6B9D]/30 to-transparent" />
       </section>
 
-      {/* SERVICE CARDS - Colorful Gradient Cards with AI Elements */}
-      <section className="py-24 px-6 bg-gradient-to-b from-[#0f0f23] via-[#1a1a2e] to-[#0f0f23] relative overflow-hidden">
-        {/* AI Circuit Background Pattern */}
-        <div className="absolute inset-0 opacity-10 motion-reduce:hidden">
-          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cGF0dGVybiBpZD0iY2lyY3VpdCIgd2lkdGg9IjIwMCIgaGVpZ2h0PSIyMDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiPjxwYXRoIGQ9Ik0wIDUwIEg4MCBWMTBIMTI1IFY1MCBIMjAwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMTIzLDQ3LDI0NywwLjMpIiBzdHJva2Utd2lkdGg9IjEiLz48cGF0aCBkPSJNMCAxNTAgSDUwIFYxMDAgSDEwMCBWMTUwIEgyMDAiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyNTUsMTA3LDE1NywwLjMpIiBzdHJva2Utd2lkdGg9IjEiLz48Y2lyY2xlIGN4PSI4MCIgY3k9IjUwIiByPSI0IiBmaWxsPSJyZ2JhKDEyMyw0NywyNDcsMC41KSIvPjxjaXJjbGUgY3g9IjEyNSIgY3k9IjEwIiByPSIzIiBmaWxsPSJyZ2JhKDI1NSwxMDcsMTU3LDAuNSkiLz48Y2lyY2xlIGN4PSI1MCIgY3k9IjE1MCIgcj0iNCIgZmlsbD0icmdiYSgyNTUsMTA3LDgzLDAuNSkiLz48Y2lyY2xlIGN4PSIxMDAiIGN5PSIxMDAiIHI9IjMiIGZpbGw9InJnYmEoMTIzLDQ3LDI0NywwLjUpIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2NpcmN1aXQpIi8+PC9zdmc+')]" />
+      {/* SERVICE CARDS - ELITE Four Pillars Section */}
+      <section className="py-20 md:py-28 px-6 bg-gradient-to-b from-[#0a0a16] via-[#0d0d1a] to-[#0a0a16] relative overflow-hidden">
+        {/* Subtle Grid Background */}
+        <div className="absolute inset-0 opacity-[0.03] motion-reduce:hidden">
+          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSA2MCAwIEwgMCAwIDAgNjAiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjMpIiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')]" />
         </div>
-        {/* Background Glows with Navy Undertones */}
+        
+        {/* Subtle Background Glows */}
         <div className="absolute inset-0 motion-reduce:hidden">
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#4F46E5]/15 rounded-full blur-3xl" />
-          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#7B2FF7]/15 rounded-full blur-3xl" />
+          <div className="absolute top-20 left-1/4 w-80 h-80 bg-[#7B2FF7]/8 rounded-full blur-[100px]" />
+          <div className="absolute bottom-20 right-1/4 w-80 h-80 bg-[#FF6B9D]/8 rounded-full blur-[100px]" />
         </div>
         
         <div className="max-w-6xl mx-auto relative z-10">
+          {/* Premium Header */}
           <motion.div 
             initial={fadeIn}
             whileInView={fadeInVisible}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-center mb-16 md:mb-20"
           >
-            <span className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#7B2FF7]/20 to-[#FF6B9D]/20 rounded-full text-sm font-bold text-white/80 mb-6 border border-white/10">
-              <Layers className="w-4 h-4" />
+            {/* Elegant Badge */}
+            <span className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/[0.03] backdrop-blur-sm rounded-full text-xs font-semibold text-white/60 mb-8 border border-white/[0.08] tracking-[0.15em] uppercase">
+              <Layers className="w-3.5 h-3.5" />
               Our Services
             </span>
-            <h2 className="text-4xl md:text-6xl font-black text-white mb-6">
-              Four Pillars of <br/>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7B2FF7] via-[#FF6B9D] to-[#FF6B53]">
-                Creative Growth
-              </span>
+            
+            {/* Premium Headline */}
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-black text-white mb-4 tracking-tight">
+              Four Pillars of
             </h2>
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#7B2FF7] via-[#FF6B9D] to-[#FF6B53]">
+              Creative Growth
+            </h2>
+            
+            {/* Subtle Subtitle */}
+            <p className="mt-6 text-white/40 text-sm md:text-base max-w-xl mx-auto">
+              Strategic services designed to elevate your brand and drive measurable results
+            </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          {/* Premium Card Grid */}
+          <div className="grid md:grid-cols-2 gap-6 md:gap-8">
             {services.map((service, idx) => (
               <motion.div 
                 key={idx}
-                initial={prefersReducedMotion ? {} : { opacity: 0, y: 40 }}
+                initial={prefersReducedMotion ? {} : { opacity: 0, y: 30 }}
                 whileInView={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={prefersReducedMotion ? {} : { delay: idx * 0.15, duration: 0.5 }}
-                whileHover={prefersReducedMotion ? {} : { y: -8 }}
-                className={`relative rounded-3xl p-8 md:p-10 overflow-hidden ${service.gradient} ${service.glowColor} transition-all duration-300`}
+                transition={prefersReducedMotion ? {} : { delay: idx * 0.12, duration: 0.6 }}
+                whileHover={prefersReducedMotion ? {} : { y: -6, scale: 1.01 }}
+                className={`relative rounded-2xl md:rounded-3xl p-7 md:p-10 overflow-hidden ${service.gradient} border border-white/10 shadow-2xl transition-all duration-400`}
                 data-testid={`card-service-${service.title.toLowerCase().replace(/\s+/g, '-')}`}
               >
-                {/* Card Glow Effect */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
-                <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl motion-reduce:hidden" />
+                {/* Subtle Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+                <div className="absolute top-0 right-0 w-48 h-48 bg-white/5 rounded-full blur-3xl motion-reduce:hidden" />
                 
                 <div className="relative z-10">
-                  {/* Icon */}
+                  {/* Premium Icon Container */}
                   <motion.div 
-                    className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mb-6 border border-white/20"
-                    whileHover={prefersReducedMotion ? {} : { rotate: 10, scale: 1.1 }}
+                    className="w-14 h-14 md:w-16 md:h-16 bg-white/10 backdrop-blur-md rounded-xl md:rounded-2xl flex items-center justify-center mb-5 md:mb-6 border border-white/20 shadow-lg"
+                    whileHover={prefersReducedMotion ? {} : { rotate: 5, scale: 1.05 }}
                   >
-                    <service.icon className="h-8 w-8 text-white" />
+                    <service.icon className="h-7 w-7 md:h-8 md:w-8 text-white" />
                   </motion.div>
 
-                  {/* Title */}
-                  <h3 className="text-3xl md:text-4xl font-black text-white mb-4">
+                  {/* Title - Refined */}
+                  <h3 className="text-2xl md:text-3xl lg:text-4xl font-black text-white mb-3 md:mb-4 tracking-tight">
                     {service.title}
                   </h3>
 
-                  {/* Description */}
-                  <p className="text-lg text-white/80 mb-6 leading-relaxed">
+                  {/* Description - Better Typography */}
+                  <p className="text-base md:text-lg text-white/70 mb-5 md:mb-6 leading-relaxed">
                     {service.description}
                   </p>
 
-                  {/* Bullet Points */}
-                  <ul className="space-y-3 mb-8">
+                  {/* Bullet Points - More Refined */}
+                  <ul className="space-y-2.5 md:space-y-3 mb-6 md:mb-8">
                     {service.points.map((point, i) => (
                       <motion.li 
                         key={i} 
-                        className="flex items-center gap-3"
+                        className="flex items-start gap-3"
                         initial={prefersReducedMotion ? {} : { opacity: 0, x: -10 }}
                         whileInView={prefersReducedMotion ? {} : { opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={prefersReducedMotion ? {} : { delay: idx * 0.1 + i * 0.05 }}
                       >
-                        <div className="w-5 h-5 bg-white/20 rounded-full flex items-center justify-center">
+                        <div className="w-5 h-5 bg-white/15 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                           <CheckCircle2 className="h-3 w-3 text-white" />
                         </div>
-                        <span className="text-white/90">{point}</span>
+                        <span className="text-sm md:text-base text-white/80">{point}</span>
                       </motion.li>
                     ))}
                   </ul>
                   
                   {/* AI Flow Diagram */}
-                  <CreativeFlowDiagram steps={service.flowSteps} gradient="bg-white/20" />
+                  <CreativeFlowDiagram steps={service.flowSteps} gradient="bg-white/15" />
 
-                  {/* Case Study Tease */}
+                  {/* Case Study Tease - More Subtle */}
                   <Link href="/our-work">
                     <motion.p 
-                      className="mt-6 text-sm text-white/60 hover:text-white/90 transition-colors cursor-pointer underline decoration-white/30 hover:decoration-white/60"
-                      whileHover={prefersReducedMotion ? {} : { x: 5 }}
+                      className="mt-5 md:mt-6 text-xs md:text-sm text-white/50 hover:text-white/80 transition-colors cursor-pointer"
+                      whileHover={prefersReducedMotion ? {} : { x: 3 }}
                     >
-                      {service.caseStudy}
+                      {service.caseStudy} →
                     </motion.p>
                   </Link>
 
-                  {/* CTA Button */}
+                  {/* CTA Button - Premium */}
                   <Link href={service.link}>
                     <motion.a
-                      whileHover={prefersReducedMotion ? {} : { scale: 1.02 }}
+                      whileHover={prefersReducedMotion ? {} : { scale: 1.02, y: -2 }}
                       whileTap={prefersReducedMotion ? {} : { scale: 0.98 }}
-                      className="mt-6 w-full inline-flex items-center justify-center gap-2 bg-white text-gray-900 rounded-full py-4 font-bold hover:shadow-xl transition-all"
+                      className="mt-5 md:mt-6 w-full inline-flex items-center justify-center gap-2 bg-white text-gray-900 rounded-full py-3.5 md:py-4 font-bold text-sm md:text-base shadow-lg hover:shadow-2xl transition-all"
                       data-testid={`button-learn-${service.title.toLowerCase().replace(/\s+/g, '-')}`}
                     >
                       {service.learnMore}
-                      <ArrowRight className="h-5 w-5" />
+                      <ArrowRight className="h-4 w-4 md:h-5 md:w-5" />
                     </motion.a>
                   </Link>
                 </div>
