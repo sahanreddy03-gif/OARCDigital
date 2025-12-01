@@ -717,8 +717,8 @@ export default function SocialMediaCreativeManagement() {
         <div className="relative z-10 max-w-6xl mx-auto px-4 md:px-8 pt-3 pb-3 md:pt-6 md:pb-8">
           
           {/* MOBILE: Full-width stacked layout | DESKTOP: Two-column grid */}
-          {/* More bottom margin to push portfolio cards down - mb-12 on mobile */}
-          <div className="flex flex-col md:grid md:grid-cols-2 gap-3 md:gap-8 items-start md:items-center mb-12 md:mb-6">
+          {/* More bottom margin to push portfolio cards down - mb-16 on mobile */}
+          <div className="flex flex-col md:grid md:grid-cols-2 gap-3 md:gap-8 items-start md:items-center mb-16 md:mb-6">
             
             {/* Text Content - Full width on mobile, with room for target animation */}
             <div className="w-full text-left pr-[140px] sm:pr-40 md:pr-0">
@@ -741,7 +741,7 @@ export default function SocialMediaCreativeManagement() {
                 initial={fadeIn}
                 animate={fadeInVisible}
                 transition={prefersReducedMotion ? {} : { delay: 0.2, duration: 0.5 }}
-                className="text-sm sm:text-base md:text-lg text-[#525252] max-w-xs sm:max-w-md mb-5 md:mb-5 leading-relaxed"
+                className="text-base sm:text-lg md:text-lg text-[#525252] max-w-xs sm:max-w-md mb-5 md:mb-5 leading-relaxed"
               >
                 We engineer content that{' '}
                 <span className="font-semibold text-[#1A1A1A]">consistently outperforms</span>—with{' '}
