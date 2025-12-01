@@ -547,190 +547,299 @@ export default function SocialMediaCreativeManagement() {
         <div className="absolute inset-0 motion-reduce:hidden pointer-events-none">
           <svg className="w-full h-full" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
             <defs>
+              {/* Soft AI glow filter */}
               <filter id="glow">
-                <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
                 <feMerge>
                   <feMergeNode in="coloredBlur"/>
                   <feMergeNode in="SourceGraphic"/>
                 </feMerge>
               </filter>
-              <linearGradient id="nodeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#FF6B53"/>
-                <stop offset="50%" stopColor="#FF6B9D"/>
-                <stop offset="100%" stopColor="#7B2FF7"/>
-              </linearGradient>
-              <linearGradient id="nodeGradient2" x1="100%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stopColor="#00D4FF"/>
-                <stop offset="50%" stopColor="#7B2FF7"/>
-                <stop offset="100%" stopColor="#FF6B9D"/>
+              {/* Subtle node glow */}
+              <filter id="nodeGlow">
+                <feGaussianBlur stdDeviation="6" result="blur"/>
+                <feMerge>
+                  <feMergeNode in="blur"/>
+                  <feMergeNode in="SourceGraphic"/>
+                </feMerge>
+              </filter>
+              {/* Subtle muted gradient for AI lines */}
+              <linearGradient id="aiLineGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="rgba(255,255,255,0.6)"/>
+                <stop offset="50%" stopColor="rgba(200,200,220,0.5)"/>
+                <stop offset="100%" stopColor="rgba(255,255,255,0.4)"/>
               </linearGradient>
             </defs>
             
-            {/* AI Neural Network - Visible Connection Lines with Glow */}
-            {/* Connection 1: Top-left cluster */}
+            {/* AI Neural Network - Sophisticated data flow lines */}
+            {/* Base connection lines - subtle white/gray */}
             <motion.line 
               x1="200" y1="300" x2="500" y2="200" 
-              stroke="url(#nodeGradient)" 
-              strokeWidth="2.5" 
+              stroke="rgba(255,255,255,0.35)" 
+              strokeWidth="1.5" 
               filter="url(#glow)"
-              initial={{ pathLength: 0, opacity: 0 }}
-              animate={{ pathLength: 1, opacity: [0.4, 0.7, 0.4] }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: [0.2, 0.4, 0.2] }}
               transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
             />
+            {/* Data pulse overlay */}
+            <motion.line 
+              x1="200" y1="300" x2="500" y2="200" 
+              stroke="rgba(255,255,255,0.8)" 
+              strokeWidth="2" 
+              strokeDasharray="4 20"
+              filter="url(#glow)"
+              initial={{ strokeDashoffset: 0 }}
+              animate={{ strokeDashoffset: -100 }}
+              transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+            />
+            
             <motion.line 
               x1="500" y1="200" x2="800" y2="150" 
-              stroke="url(#nodeGradient2)" 
-              strokeWidth="2" 
+              stroke="rgba(255,255,255,0.3)" 
+              strokeWidth="1.5" 
               filter="url(#glow)"
-              initial={{ pathLength: 0, opacity: 0 }}
-              animate={{ pathLength: 1, opacity: [0.35, 0.65, 0.35] }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: [0.15, 0.35, 0.15] }}
               transition={{ duration: 3.5, delay: 0.3, repeat: Infinity, ease: "easeInOut" }}
             />
             <motion.line 
-              x1="200" y1="300" x2="150" y2="500" 
-              stroke="url(#nodeGradient)" 
+              x1="500" y1="200" x2="800" y2="150" 
+              stroke="rgba(255,255,255,0.75)" 
               strokeWidth="2" 
+              strokeDasharray="3 18"
               filter="url(#glow)"
-              initial={{ pathLength: 0, opacity: 0 }}
-              animate={{ pathLength: 1, opacity: [0.3, 0.6, 0.3] }}
-              transition={{ duration: 4, delay: 0.5, repeat: Infinity, ease: "easeInOut" }}
+              initial={{ strokeDashoffset: 0 }}
+              animate={{ strokeDashoffset: -80 }}
+              transition={{ duration: 1.8, delay: 0.5, repeat: Infinity, ease: "linear" }}
             />
             
-            {/* Connection 2: Right cluster */}
+            <motion.line 
+              x1="200" y1="300" x2="150" y2="500" 
+              stroke="rgba(255,255,255,0.25)" 
+              strokeWidth="1.5" 
+              filter="url(#glow)"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: [0.15, 0.3, 0.15] }}
+              transition={{ duration: 4, delay: 0.5, repeat: Infinity, ease: "easeInOut" }}
+            />
+            <motion.line 
+              x1="200" y1="300" x2="150" y2="500" 
+              stroke="rgba(255,255,255,0.7)" 
+              strokeWidth="1.5" 
+              strokeDasharray="3 22"
+              filter="url(#glow)"
+              initial={{ strokeDashoffset: 0 }}
+              animate={{ strokeDashoffset: -90 }}
+              transition={{ duration: 2.2, delay: 0.3, repeat: Infinity, ease: "linear" }}
+            />
+            
+            {/* Right cluster connections */}
             <motion.line 
               x1="1600" y1="400" x2="1300" y2="600" 
-              stroke="url(#nodeGradient2)" 
-              strokeWidth="2.5" 
+              stroke="rgba(255,255,255,0.3)" 
+              strokeWidth="1.5" 
               filter="url(#glow)"
-              initial={{ pathLength: 0, opacity: 0 }}
-              animate={{ pathLength: 1, opacity: [0.35, 0.65, 0.35] }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: [0.2, 0.35, 0.2] }}
               transition={{ duration: 3.2, delay: 0.2, repeat: Infinity, ease: "easeInOut" }}
             />
             <motion.line 
-              x1="1300" y1="600" x2="1100" y2="450" 
-              stroke="url(#nodeGradient)" 
+              x1="1600" y1="400" x2="1300" y2="600" 
+              stroke="rgba(255,255,255,0.8)" 
               strokeWidth="2" 
+              strokeDasharray="4 20"
               filter="url(#glow)"
-              initial={{ pathLength: 0, opacity: 0 }}
-              animate={{ pathLength: 1, opacity: [0.3, 0.55, 0.3] }}
-              transition={{ duration: 4, delay: 0.8, repeat: Infinity, ease: "easeInOut" }}
+              initial={{ strokeDashoffset: 0 }}
+              animate={{ strokeDashoffset: -100 }}
+              transition={{ duration: 2.5, repeat: Infinity, ease: "linear" }}
             />
             
-            {/* Connection 3: Cross-screen link */}
             <motion.line 
-              x1="500" y1="200" x2="1100" y2="450" 
-              stroke="url(#nodeGradient2)" 
+              x1="1300" y1="600" x2="1100" y2="450" 
+              stroke="rgba(255,255,255,0.25)" 
               strokeWidth="1.5" 
               filter="url(#glow)"
-              strokeDasharray="12 6"
-              initial={{ pathLength: 0, opacity: 0 }}
-              animate={{ pathLength: 1, opacity: [0.25, 0.5, 0.25] }}
-              transition={{ duration: 5, delay: 1, repeat: Infinity, ease: "easeInOut" }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: [0.15, 0.3, 0.15] }}
+              transition={{ duration: 4, delay: 0.8, repeat: Infinity, ease: "easeInOut" }}
+            />
+            <motion.line 
+              x1="1300" y1="600" x2="1100" y2="450" 
+              stroke="rgba(255,255,255,0.7)" 
+              strokeWidth="1.5" 
+              strokeDasharray="3 18"
+              filter="url(#glow)"
+              initial={{ strokeDashoffset: 0 }}
+              animate={{ strokeDashoffset: -70 }}
+              transition={{ duration: 1.6, delay: 0.4, repeat: Infinity, ease: "linear" }}
             />
             
-            {/* Connection 4: Bottom network */}
+            {/* Cross-screen neural link */}
+            <motion.line 
+              x1="500" y1="200" x2="1100" y2="450" 
+              stroke="rgba(255,255,255,0.2)" 
+              strokeWidth="1" 
+              filter="url(#glow)"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: [0.1, 0.25, 0.1] }}
+              transition={{ duration: 5, delay: 1, repeat: Infinity, ease: "easeInOut" }}
+            />
+            <motion.line 
+              x1="500" y1="200" x2="1100" y2="450" 
+              stroke="rgba(255,255,255,0.6)" 
+              strokeWidth="1.5" 
+              strokeDasharray="2 25"
+              filter="url(#glow)"
+              initial={{ strokeDashoffset: 0 }}
+              animate={{ strokeDashoffset: -150 }}
+              transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+            />
+            
+            {/* Bottom network */}
             <motion.line 
               x1="150" y1="500" x2="400" y2="650" 
-              stroke="url(#nodeGradient)" 
-              strokeWidth="2" 
+              stroke="rgba(255,255,255,0.25)" 
+              strokeWidth="1.5" 
               filter="url(#glow)"
-              initial={{ pathLength: 0, opacity: 0 }}
-              animate={{ pathLength: 1, opacity: [0.3, 0.55, 0.3] }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: [0.15, 0.3, 0.15] }}
               transition={{ duration: 3.8, delay: 0.6, repeat: Infinity, ease: "easeInOut" }}
             />
             <motion.line 
-              x1="400" y1="650" x2="700" y2="550" 
-              stroke="url(#nodeGradient2)" 
-              strokeWidth="1.8" 
+              x1="150" y1="500" x2="400" y2="650" 
+              stroke="rgba(255,255,255,0.7)" 
+              strokeWidth="1.5" 
+              strokeDasharray="3 20"
               filter="url(#glow)"
-              initial={{ pathLength: 0, opacity: 0 }}
-              animate={{ pathLength: 1, opacity: [0.25, 0.5, 0.25] }}
-              transition={{ duration: 4.2, delay: 0.9, repeat: Infinity, ease: "easeInOut" }}
+              initial={{ strokeDashoffset: 0 }}
+              animate={{ strokeDashoffset: -80 }}
+              transition={{ duration: 2, delay: 0.2, repeat: Infinity, ease: "linear" }}
             />
             
-            {/* Additional connections for more network density */}
             <motion.line 
-              x1="800" y1="150" x2="1100" y2="450" 
-              stroke="url(#nodeGradient)" 
+              x1="400" y1="650" x2="700" y2="550" 
+              stroke="rgba(255,255,255,0.2)" 
               strokeWidth="1.5" 
               filter="url(#glow)"
-              initial={{ pathLength: 0, opacity: 0 }}
-              animate={{ pathLength: 1, opacity: [0.2, 0.45, 0.2] }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: [0.12, 0.28, 0.12] }}
+              transition={{ duration: 4.2, delay: 0.9, repeat: Infinity, ease: "easeInOut" }}
+            />
+            <motion.line 
+              x1="400" y1="650" x2="700" y2="550" 
+              stroke="rgba(255,255,255,0.65)" 
+              strokeWidth="1.5" 
+              strokeDasharray="3 18"
+              filter="url(#glow)"
+              initial={{ strokeDashoffset: 0 }}
+              animate={{ strokeDashoffset: -70 }}
+              transition={{ duration: 1.8, delay: 0.5, repeat: Infinity, ease: "linear" }}
+            />
+            
+            {/* Additional cross connections */}
+            <motion.line 
+              x1="800" y1="150" x2="1100" y2="450" 
+              stroke="rgba(255,255,255,0.2)" 
+              strokeWidth="1" 
+              filter="url(#glow)"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: [0.1, 0.25, 0.1] }}
               transition={{ duration: 4.5, delay: 0.4, repeat: Infinity, ease: "easeInOut" }}
             />
             <motion.line 
-              x1="700" y1="550" x2="1100" y2="450" 
-              stroke="url(#nodeGradient2)" 
+              x1="800" y1="150" x2="1100" y2="450" 
+              stroke="rgba(255,255,255,0.6)" 
               strokeWidth="1.5" 
+              strokeDasharray="2 22"
               filter="url(#glow)"
-              initial={{ pathLength: 0, opacity: 0 }}
-              animate={{ pathLength: 1, opacity: [0.2, 0.4, 0.2] }}
-              transition={{ duration: 3.5, delay: 1.2, repeat: Infinity, ease: "easeInOut" }}
+              initial={{ strokeDashoffset: 0 }}
+              animate={{ strokeDashoffset: -120 }}
+              transition={{ duration: 2.8, repeat: Infinity, ease: "linear" }}
             />
             
-            {/* Neural Network Nodes - Clean Purple & Pink palette */}
-            <motion.circle 
-              cx="200" cy="300" r="10" 
-              fill="#7B2FF7" 
+            <motion.line 
+              x1="700" y1="550" x2="1100" y2="450" 
+              stroke="rgba(255,255,255,0.18)" 
+              strokeWidth="1" 
               filter="url(#glow)"
-              animate={{ scale: [1, 1.4, 1], opacity: [0.7, 1, 0.7] }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: [0.1, 0.22, 0.1] }}
+              transition={{ duration: 3.5, delay: 1.2, repeat: Infinity, ease: "easeInOut" }}
+            />
+            <motion.line 
+              x1="700" y1="550" x2="1100" y2="450" 
+              stroke="rgba(255,255,255,0.55)" 
+              strokeWidth="1.5" 
+              strokeDasharray="2 20"
+              filter="url(#glow)"
+              initial={{ strokeDashoffset: 0 }}
+              animate={{ strokeDashoffset: -90 }}
+              transition={{ duration: 2.2, delay: 0.6, repeat: Infinity, ease: "linear" }}
+            />
+            
+            {/* Neural Network Nodes - Clean white with soft glow */}
+            <motion.circle 
+              cx="200" cy="300" r="6" 
+              fill="rgba(255,255,255,0.9)" 
+              filter="url(#nodeGlow)"
+              animate={{ scale: [1, 1.3, 1], opacity: [0.7, 1, 0.7] }}
               transition={{ duration: 2, repeat: Infinity }}
             />
             <motion.circle 
-              cx="500" cy="200" r="8" 
-              fill="#FF6B9D" 
-              filter="url(#glow)"
-              animate={{ scale: [1, 1.3, 1], opacity: [0.6, 1, 0.6] }}
+              cx="500" cy="200" r="5" 
+              fill="rgba(255,255,255,0.85)" 
+              filter="url(#nodeGlow)"
+              animate={{ scale: [1, 1.25, 1], opacity: [0.6, 1, 0.6] }}
               transition={{ duration: 2.5, delay: 0.5, repeat: Infinity }}
             />
             <motion.circle 
-              cx="150" cy="500" r="6" 
-              fill="#7B2FF7" 
-              filter="url(#glow)"
-              animate={{ scale: [1, 1.3, 1], opacity: [0.7, 1, 0.7] }}
+              cx="150" cy="500" r="4" 
+              fill="rgba(255,255,255,0.85)" 
+              filter="url(#nodeGlow)"
+              animate={{ scale: [1, 1.3, 1], opacity: [0.65, 1, 0.65] }}
               transition={{ duration: 3, delay: 1, repeat: Infinity }}
             />
             <motion.circle 
-              cx="800" cy="150" r="7" 
-              fill="#9333EA" 
-              filter="url(#glow)"
-              animate={{ scale: [1, 1.5, 1], opacity: [0.5, 1, 0.5] }}
+              cx="800" cy="150" r="5" 
+              fill="rgba(255,255,255,0.9)" 
+              filter="url(#nodeGlow)"
+              animate={{ scale: [1, 1.35, 1], opacity: [0.55, 1, 0.55] }}
               transition={{ duration: 2, delay: 0.3, repeat: Infinity }}
             />
             <motion.circle 
-              cx="1600" cy="400" r="9" 
-              fill="#FF6B9D" 
-              filter="url(#glow)"
-              animate={{ scale: [1, 1.4, 1], opacity: [0.6, 0.95, 0.6] }}
+              cx="1600" cy="400" r="6" 
+              fill="rgba(255,255,255,0.9)" 
+              filter="url(#nodeGlow)"
+              animate={{ scale: [1, 1.3, 1], opacity: [0.6, 0.95, 0.6] }}
               transition={{ duration: 2.8, delay: 0.8, repeat: Infinity }}
             />
             <motion.circle 
-              cx="1300" cy="600" r="7" 
-              fill="#7B2FF7" 
-              filter="url(#glow)"
-              animate={{ scale: [1, 1.4, 1], opacity: [0.6, 1, 0.6] }}
+              cx="1300" cy="600" r="5" 
+              fill="rgba(255,255,255,0.85)" 
+              filter="url(#nodeGlow)"
+              animate={{ scale: [1, 1.3, 1], opacity: [0.6, 1, 0.6] }}
               transition={{ duration: 2.2, delay: 0.4, repeat: Infinity }}
             />
-            {/* Additional network nodes at connection points */}
             <motion.circle 
-              cx="1100" cy="450" r="8" 
-              fill="#9333EA" 
-              filter="url(#glow)"
-              animate={{ scale: [1, 1.35, 1], opacity: [0.55, 1, 0.55] }}
+              cx="1100" cy="450" r="5" 
+              fill="rgba(255,255,255,0.9)" 
+              filter="url(#nodeGlow)"
+              animate={{ scale: [1, 1.25, 1], opacity: [0.55, 1, 0.55] }}
               transition={{ duration: 2.6, delay: 0.6, repeat: Infinity }}
             />
             <motion.circle 
-              cx="400" cy="650" r="6" 
-              fill="#FF6B9D" 
-              filter="url(#glow)"
+              cx="400" cy="650" r="4" 
+              fill="rgba(255,255,255,0.85)" 
+              filter="url(#nodeGlow)"
               animate={{ scale: [1, 1.3, 1], opacity: [0.6, 0.95, 0.6] }}
               transition={{ duration: 3.2, delay: 0.7, repeat: Infinity }}
             />
             <motion.circle 
-              cx="700" cy="550" r="5" 
-              fill="#7B2FF7" 
-              filter="url(#glow)"
-              animate={{ scale: [1, 1.4, 1], opacity: [0.5, 0.9, 0.5] }}
+              cx="700" cy="550" r="4" 
+              fill="rgba(255,255,255,0.85)" 
+              filter="url(#nodeGlow)"
+              animate={{ scale: [1, 1.3, 1], opacity: [0.5, 0.9, 0.5] }}
               transition={{ duration: 2.4, delay: 1.1, repeat: Infinity }}
             />
             
