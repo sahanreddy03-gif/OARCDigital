@@ -17,6 +17,7 @@ import { SiTiktok, SiYoutube, SiX, SiThreads, SiLinkedin, SiMeta } from "react-i
 import awardTeamImg from "@assets/stock_images/award_ceremony_busin_81e5ff09.jpg";
 import largeTeamImg from "@assets/stock_images/large_company_team_p_32054de0.jpg";
 import heroVideo from "@assets/SnapInsta.to_AQMfI7sCSVLU8tLxyZLjxlyaGvnAjtYAkNpyBEIAox0m6TApwOZNnf5Y2rfuYUhoqYXMDubqUVXcJjUk8q57WHMBNJrUR_W4lUx94QM_1764630517873.mp4";
+import aiFingerImg from "@assets/680fadb5aa40ab58ab98c0e5_AI-Experiencie-Agent-1_1764633229625.webp";
 
 import brandLogo1 from "@assets/stock_images/corporate_brand_logo_7fa71d75.jpg";
 import brandLogo2 from "@assets/stock_images/corporate_brand_logo_3ecd3c3a.jpg";
@@ -879,18 +880,24 @@ export default function SocialMediaCreativeManagement() {
           >
             {/* Mobile: 3×2 Grid (TALLER cards) | Desktop: 6-column Grid */}
             <div className="grid grid-cols-3 md:grid-cols-6 gap-2.5 md:gap-3">
-              {/* Card 1 - Instagram Post */}
+              {/* Card 1 - Instagram Post with AI Finger Image */}
               <motion.div 
-                className="relative h-24 sm:h-28 md:h-32 bg-white rounded-xl overflow-hidden group cursor-pointer"
+                className="relative h-24 sm:h-28 md:h-32 bg-black rounded-xl overflow-hidden group cursor-pointer"
                 style={{ boxShadow: '0 4px 16px rgba(0,0,0,0.06)' }}
                 whileHover={prefersReducedMotion ? {} : { y: -4, boxShadow: '0 12px 30px rgba(236,72,153,0.15)' }}
                 transition={{ duration: 0.3 }}
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-[#FF6B9D] to-[#EC4899]" />
-                <div className="absolute inset-0 flex flex-col items-center justify-center p-2 text-white">
-                  <Instagram className="w-6 h-6 sm:w-7 sm:h-7 mb-1" />
-                  <span className="text-[9px] sm:text-[10px] font-bold opacity-80">IG POST</span>
-                  <span className="text-sm sm:text-base font-black">2.4M</span>
+                <img 
+                  src={aiFingerImg} 
+                  alt="AI touching screen"
+                  className="absolute inset-0 w-full h-full object-cover"
+                  style={{ objectPosition: '75% 50%' }}
+                  loading="eager"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+                <div className="absolute bottom-1 left-1.5 right-1.5 flex items-center justify-between text-white">
+                  <span className="text-[8px] sm:text-[9px] font-bold opacity-90">IG POST</span>
+                  <span className="text-[10px] sm:text-xs font-black">2.4M</span>
                 </div>
               </motion.div>
               
