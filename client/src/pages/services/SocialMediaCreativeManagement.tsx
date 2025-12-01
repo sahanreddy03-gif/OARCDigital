@@ -711,30 +711,15 @@ export default function SocialMediaCreativeManagement() {
           transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
         />
         
-        {/* Hero Content Area - Centered, Above Fold - MOVED UP */}
-        <div className="relative z-10 max-w-4xl mx-auto px-6 md:px-12 pt-4 pb-12 md:pt-8 md:pb-16">
+        {/* Hero Content Area - COMPACT, Above Fold with Gallery */}
+        <div className="relative z-10 max-w-6xl mx-auto px-4 md:px-8 pt-2 pb-4 md:pt-4 md:pb-8">
           <div className="text-center">
-            {/* Badge */}
-            <motion.div
-              initial={fadeIn}
-              animate={fadeInVisible}
-              transition={prefersReducedMotion ? {} : { duration: 0.6 }}
-            >
-              <motion.span 
-                className="inline-flex items-center gap-2 px-5 py-2 bg-gradient-to-r from-[#7B2FF7] to-[#FF6B9D] rounded-full text-sm font-bold text-white mb-6 shadow-lg shadow-purple-500/25"
-                whileHover={prefersReducedMotion ? {} : { scale: 1.05 }}
-              >
-                <Sparkles className="w-4 h-4 text-yellow-300" />
-                Malta's #1 AI Creative Agency
-              </motion.span>
-            </motion.div>
-            
-            {/* Main Headline - "That Converts" */}
+            {/* Main Headline - "That Converts" - MOVED UP */}
             <motion.h1 
               initial={fadeIn}
               animate={fadeInVisible}
-              transition={prefersReducedMotion ? {} : { delay: 0.15, duration: 0.6 }}
-              className="text-5xl md:text-7xl lg:text-8xl font-black text-[#1A1A1A] mb-6 leading-[0.95]"
+              transition={prefersReducedMotion ? {} : { delay: 0.1, duration: 0.5 }}
+              className="text-4xl md:text-6xl lg:text-7xl font-black text-[#1A1A1A] mb-3 md:mb-4 leading-[0.95]"
             >
               <span className="block">Creative</span>
               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#7B2FF7] via-[#FF6B9D] to-[#FF6B53]">
@@ -742,272 +727,155 @@ export default function SocialMediaCreativeManagement() {
               </span>
             </motion.h1>
             
-            {/* Subheadline - Light background styling */}
+            {/* Subheadline - Compact */}
             <motion.p 
               initial={fadeIn}
               animate={fadeInVisible}
-              transition={prefersReducedMotion ? {} : { delay: 0.3, duration: 0.6 }}
-              className="text-lg md:text-xl text-[#525252] max-w-2xl mx-auto mb-8 leading-relaxed"
+              transition={prefersReducedMotion ? {} : { delay: 0.2, duration: 0.5 }}
+              className="text-base md:text-lg text-[#525252] max-w-xl mx-auto mb-4 md:mb-6 leading-relaxed"
             >
-              We don't just make things look pretty. We engineer content that{' '}
-              <span className="font-bold text-[#1A1A1A] underline decoration-[#FF6B53]/50">consistently outperforms</span>—with{' '}
+              We engineer content that{' '}
+              <span className="font-bold text-[#1A1A1A]">consistently outperforms</span>—with{' '}
               <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#7B2FF7] to-[#FF6B9D]">3x average ROAS</span> across 47+ active clients.
             </motion.p>
             
-            {/* CTA Buttons - Light background styling */}
+            {/* CTA Buttons - Compact */}
             <motion.div 
               initial={fadeIn}
               animate={fadeInVisible}
-              transition={prefersReducedMotion ? {} : { delay: 0.45, duration: 0.6 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center"
+              transition={prefersReducedMotion ? {} : { delay: 0.3, duration: 0.5 }}
+              className="flex flex-col sm:flex-row gap-3 justify-center mb-6 md:mb-8"
             >
               <Link href="/contact">
                 <MagneticButton
                   whileHover={prefersReducedMotion ? {} : { scale: 1.05, y: -2 }}
                   whileTap={prefersReducedMotion ? {} : { scale: 0.98 }}
-                  className="group inline-flex items-center gap-3 bg-gradient-to-r from-[#7B2FF7] to-[#FF6B9D] text-white rounded-full px-8 py-4 text-lg font-bold shadow-lg shadow-purple-500/25 hover:shadow-xl hover:shadow-purple-500/35 transition-all"
+                  className="group inline-flex items-center gap-2 bg-gradient-to-r from-[#7B2FF7] to-[#FF6B9D] text-white rounded-full px-6 py-3 text-base font-bold shadow-lg shadow-purple-500/25 hover:shadow-xl hover:shadow-purple-500/35 transition-all"
                   data-testid="button-hero-cta"
                 >
                   Start Creating
-                  <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center group-hover:rotate-12 transition-transform">
-                    <ArrowRight className="h-5 w-5 text-white" />
+                  <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center group-hover:rotate-12 transition-transform">
+                    <ArrowRight className="h-4 w-4 text-white" />
                   </div>
                 </MagneticButton>
               </Link>
               <Link href="#portfolio">
                 <motion.button
                   whileHover={prefersReducedMotion ? {} : { scale: 1.05 }}
-                  className="inline-flex items-center gap-2 bg-white border-2 border-[#E5E4E0] text-[#1A1A1A] rounded-full px-8 py-4 text-lg font-bold hover:border-[#7B2FF7]/30 hover:shadow-lg transition-all"
+                  className="inline-flex items-center gap-2 bg-white border-2 border-[#E5E4E0] text-[#1A1A1A] rounded-full px-6 py-3 text-base font-bold hover:border-[#7B2FF7]/30 hover:shadow-lg transition-all"
                   data-testid="button-view-work"
                 >
-                  <Play className="w-5 h-5 fill-[#7B2FF7] text-[#7B2FF7]" />
+                  <Play className="w-4 h-4 fill-[#7B2FF7] text-[#7B2FF7]" />
                   View Our Work
                 </motion.button>
               </Link>
             </motion.div>
           </div>
-        </div>
-        
-        {/* Scroll Indicator */}
-        <motion.div 
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 motion-reduce:hidden"
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-        >
-          <div className="w-8 h-12 rounded-full border-2 border-[#7B2FF7]/40 flex items-start justify-center p-2">
-            <motion.div 
-              className="w-2 h-2 bg-gradient-to-b from-[#7B2FF7] to-[#FF6B9D] rounded-full"
-              animate={{ y: [0, 16, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity }}
-            />
-          </div>
-        </motion.div>
-      </section>
-
-      {/* SECTION 2: FLOATING WORK GALLERY - Below the fold */}
-      <section id="portfolio" className="py-20 px-6 bg-gradient-to-b from-[#FDFCFA] to-white relative overflow-hidden">
-        {/* Section Header */}
-        <div className="max-w-5xl mx-auto text-center mb-12">
-          <motion.h2
-            initial={prefersReducedMotion ? {} : { opacity: 0, y: 20 }}
-            whileInView={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-3xl md:text-4xl font-black text-[#1A1A1A] mb-4"
+          
+          {/* INLINE PORTFOLIO GALLERY - Compact Horizontal Strip */}
+          <motion.div 
+            id="portfolio"
+            initial={fadeIn}
+            animate={fadeInVisible}
+            transition={prefersReducedMotion ? {} : { delay: 0.4, duration: 0.6 }}
+            className="relative"
           >
-            Our Creative Work
-          </motion.h2>
-          <motion.p
-            initial={prefersReducedMotion ? {} : { opacity: 0, y: 20 }}
-            whileInView={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="text-[#525252] text-lg"
-          >
-            Content that drives real results across every platform
-          </motion.p>
-        </div>
-        
-        {/* Floating Work Gallery */}
-        <motion.div 
-          initial={prefersReducedMotion ? {} : { opacity: 0, y: 30 }}
-          whileInView={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="relative"
-        >
-            {/* Gallery Grid with Floating Cards */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-5xl mx-auto">
+            {/* Mobile: Horizontal Scroll | Desktop: Grid - COMPACT CARDS */}
+            <div className="flex md:grid md:grid-cols-6 gap-2 md:gap-3 overflow-x-auto md:overflow-visible pb-2 md:pb-0 snap-x snap-mandatory scrollbar-hide -mx-4 px-4 md:mx-0 md:px-0">
               {/* Card 1 - Instagram Post */}
               <motion.div 
-                className="relative bg-white rounded-2xl overflow-hidden aspect-[4/5] group cursor-pointer"
-                style={{ 
-                  boxShadow: '0 8px 32px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.04)'
-                }}
-                whileHover={prefersReducedMotion ? {} : { 
-                  y: -12, 
-                  rotateX: 2, 
-                  rotateY: -2,
-                  boxShadow: '0 24px 60px rgba(236,72,153,0.15), 0 8px 20px rgba(0,0,0,0.06)'
-                }}
-                transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
+                className="relative flex-shrink-0 w-24 h-28 md:w-auto md:h-32 bg-white rounded-xl overflow-hidden group cursor-pointer snap-start"
+                style={{ boxShadow: '0 4px 16px rgba(0,0,0,0.06)' }}
+                whileHover={prefersReducedMotion ? {} : { y: -6, boxShadow: '0 12px 30px rgba(236,72,153,0.15)' }}
+                transition={{ duration: 0.3 }}
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-[#FF6B9D] to-[#EC4899] opacity-90" />
-                <div className="absolute inset-0 flex flex-col items-center justify-center p-4 text-white">
-                  <Instagram className="w-10 h-10 mb-2" />
-                  <span className="text-xs font-bold opacity-80">IG POST</span>
-                  <span className="text-lg font-black mt-1">2.4M Views</span>
-                </div>
-                <div className="absolute bottom-3 left-3 right-3 flex justify-between items-center">
-                  <div className="flex gap-2">
-                    <Heart className="w-4 h-4 text-white/80" />
-                    <MessageCircle className="w-4 h-4 text-white/80" />
-                  </div>
-                  <span className="text-xs text-white/70">12.3% eng</span>
+                <div className="absolute inset-0 bg-gradient-to-br from-[#FF6B9D] to-[#EC4899]" />
+                <div className="absolute inset-0 flex flex-col items-center justify-center p-2 text-white">
+                  <Instagram className="w-6 h-6 mb-1" />
+                  <span className="text-[10px] font-bold opacity-80">IG POST</span>
+                  <span className="text-sm font-black">2.4M</span>
                 </div>
               </motion.div>
               
-              {/* Card 2 - Video Content (Large) */}
+              {/* Card 2 - Video Campaign */}
               <motion.div 
-                className="relative bg-white rounded-2xl overflow-hidden md:col-span-2 md:row-span-2 aspect-video md:aspect-auto group cursor-pointer"
-                style={{ 
-                  boxShadow: '0 8px 32px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.04)'
-                }}
-                whileHover={prefersReducedMotion ? {} : { 
-                  y: -12, 
-                  rotateX: 2, 
-                  rotateY: -2,
-                  boxShadow: '0 24px 60px rgba(139,92,246,0.15), 0 8px 20px rgba(0,0,0,0.06)'
-                }}
-                transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
+                className="relative flex-shrink-0 w-24 h-28 md:w-auto md:h-32 bg-white rounded-xl overflow-hidden group cursor-pointer snap-start"
+                style={{ boxShadow: '0 4px 16px rgba(0,0,0,0.06)' }}
+                whileHover={prefersReducedMotion ? {} : { y: -6, boxShadow: '0 12px 30px rgba(139,92,246,0.15)' }}
+                transition={{ duration: 0.3 }}
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-[#8B5CF6] to-[#7C3AED]" />
-                <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-white">
-                  <div className="w-20 h-20 rounded-full bg-white/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                    <Play className="w-10 h-10 text-white fill-white ml-1" />
+                <div className="absolute inset-0 flex flex-col items-center justify-center p-2 text-white">
+                  <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center mb-1 group-hover:scale-110 transition-transform">
+                    <Play className="w-4 h-4 text-white fill-white ml-0.5" />
                   </div>
-                  <Video className="w-8 h-8 mb-2" />
-                  <span className="text-sm font-bold opacity-80">VIDEO CAMPAIGN</span>
-                  <span className="text-2xl font-black mt-2">8.7M+ Reach</span>
-                  <span className="text-sm opacity-70 mt-1">E-commerce Launch</span>
+                  <span className="text-[10px] font-bold opacity-80">VIDEO</span>
+                  <span className="text-sm font-black">8.7M+</span>
                 </div>
               </motion.div>
               
               {/* Card 3 - TikTok */}
               <motion.div 
-                className="relative bg-white rounded-2xl overflow-hidden aspect-[4/5] group cursor-pointer"
-                style={{ 
-                  boxShadow: '0 8px 32px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.04)'
-                }}
-                whileHover={prefersReducedMotion ? {} : { 
-                  y: -12, 
-                  rotateX: 2, 
-                  rotateY: -2,
-                  boxShadow: '0 24px 60px rgba(0,0,0,0.12), 0 8px 20px rgba(0,0,0,0.06)'
-                }}
-                transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
+                className="relative flex-shrink-0 w-24 h-28 md:w-auto md:h-32 bg-white rounded-xl overflow-hidden group cursor-pointer snap-start"
+                style={{ boxShadow: '0 4px 16px rgba(0,0,0,0.06)' }}
+                whileHover={prefersReducedMotion ? {} : { y: -6, boxShadow: '0 12px 30px rgba(0,0,0,0.12)' }}
+                transition={{ duration: 0.3 }}
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-[#1A1A1A] to-[#333]" />
-                <div className="absolute inset-0 flex flex-col items-center justify-center p-4 text-white">
-                  <SiTiktok className="w-10 h-10 mb-2" />
-                  <span className="text-xs font-bold opacity-80">TIKTOK</span>
-                  <span className="text-lg font-black mt-1">5.2M Plays</span>
-                </div>
-                <div className="absolute bottom-3 left-3 right-3 flex justify-between items-center">
-                  <div className="flex gap-2">
-                    <Heart className="w-4 h-4 text-white/80" />
-                    <Share2 className="w-4 h-4 text-white/80" />
-                  </div>
-                  <span className="text-xs text-white/70">Viral</span>
+                <div className="absolute inset-0 flex flex-col items-center justify-center p-2 text-white">
+                  <SiTiktok className="w-6 h-6 mb-1" />
+                  <span className="text-[10px] font-bold opacity-80">TIKTOK</span>
+                  <span className="text-sm font-black">5.2M</span>
                 </div>
               </motion.div>
               
-              {/* Card 4 - Ad Performance */}
+              {/* Card 4 - Ad ROAS */}
               <motion.div 
-                className="relative bg-white rounded-2xl overflow-hidden aspect-[4/3] group cursor-pointer"
-                style={{ 
-                  boxShadow: '0 8px 32px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.04)'
-                }}
-                whileHover={prefersReducedMotion ? {} : { 
-                  y: -12, 
-                  rotateX: 2, 
-                  rotateY: -2,
-                  boxShadow: '0 24px 60px rgba(255,107,53,0.15), 0 8px 20px rgba(0,0,0,0.06)'
-                }}
-                transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
+                className="relative flex-shrink-0 w-24 h-28 md:w-auto md:h-32 bg-white rounded-xl overflow-hidden group cursor-pointer snap-start"
+                style={{ boxShadow: '0 4px 16px rgba(0,0,0,0.06)' }}
+                whileHover={prefersReducedMotion ? {} : { y: -6, boxShadow: '0 12px 30px rgba(255,107,53,0.15)' }}
+                transition={{ duration: 0.3 }}
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-[#FF6B35] to-[#F97316]" />
-                <div className="absolute inset-0 flex flex-col items-center justify-center p-4 text-white">
-                  <TrendingUp className="w-8 h-8 mb-2" />
-                  <span className="text-xs font-bold opacity-80">AD ROAS</span>
-                  <span className="text-3xl font-black">4.7x</span>
+                <div className="absolute inset-0 flex flex-col items-center justify-center p-2 text-white">
+                  <TrendingUp className="w-6 h-6 mb-1" />
+                  <span className="text-[10px] font-bold opacity-80">AD ROAS</span>
+                  <span className="text-lg font-black">4.7x</span>
                 </div>
               </motion.div>
               
-              {/* Card 5 - Reel */}
+              {/* Card 5 - Reels */}
               <motion.div 
-                className="relative bg-white rounded-2xl overflow-hidden aspect-[4/5] group cursor-pointer hidden md:block"
-                style={{ 
-                  boxShadow: '0 8px 32px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.04)'
-                }}
-                whileHover={prefersReducedMotion ? {} : { 
-                  y: -12, 
-                  rotateX: 2, 
-                  rotateY: -2,
-                  boxShadow: '0 24px 60px rgba(16,185,129,0.15), 0 8px 20px rgba(0,0,0,0.06)'
-                }}
-                transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
+                className="relative flex-shrink-0 w-24 h-28 md:w-auto md:h-32 bg-white rounded-xl overflow-hidden group cursor-pointer snap-start"
+                style={{ boxShadow: '0 4px 16px rgba(0,0,0,0.06)' }}
+                whileHover={prefersReducedMotion ? {} : { y: -6, boxShadow: '0 12px 30px rgba(16,185,129,0.15)' }}
+                transition={{ duration: 0.3 }}
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-[#10B981] to-[#059669]" />
-                <div className="absolute inset-0 flex flex-col items-center justify-center p-4 text-white">
-                  <Camera className="w-10 h-10 mb-2" />
-                  <span className="text-xs font-bold opacity-80">REELS</span>
-                  <span className="text-lg font-black mt-1">890K Views</span>
+                <div className="absolute inset-0 flex flex-col items-center justify-center p-2 text-white">
+                  <Camera className="w-6 h-6 mb-1" />
+                  <span className="text-[10px] font-bold opacity-80">REELS</span>
+                  <span className="text-sm font-black">890K</span>
                 </div>
               </motion.div>
               
               {/* Card 6 - LinkedIn */}
               <motion.div 
-                className="relative bg-white rounded-2xl overflow-hidden aspect-[4/5] group cursor-pointer hidden md:block"
-                style={{ 
-                  boxShadow: '0 8px 32px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.04)'
-                }}
-                whileHover={prefersReducedMotion ? {} : { 
-                  y: -12, 
-                  rotateX: 2, 
-                  rotateY: -2,
-                  boxShadow: '0 24px 60px rgba(59,130,246,0.15), 0 8px 20px rgba(0,0,0,0.06)'
-                }}
-                transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
+                className="relative flex-shrink-0 w-24 h-28 md:w-auto md:h-32 bg-white rounded-xl overflow-hidden group cursor-pointer snap-start"
+                style={{ boxShadow: '0 4px 16px rgba(0,0,0,0.06)' }}
+                whileHover={prefersReducedMotion ? {} : { y: -6, boxShadow: '0 12px 30px rgba(59,130,246,0.15)' }}
+                transition={{ duration: 0.3 }}
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-[#0077B5] to-[#0369A1]" />
-                <div className="absolute inset-0 flex flex-col items-center justify-center p-4 text-white">
-                  <SiLinkedin className="w-10 h-10 mb-2" />
-                  <span className="text-xs font-bold opacity-80">LINKEDIN</span>
-                  <span className="text-lg font-black mt-1">B2B Lead Gen</span>
+                <div className="absolute inset-0 flex flex-col items-center justify-center p-2 text-white">
+                  <SiLinkedin className="w-6 h-6 mb-1" />
+                  <span className="text-[10px] font-bold opacity-80">LINKEDIN</span>
+                  <span className="text-sm font-black">B2B</span>
                 </div>
               </motion.div>
             </div>
           </motion.div>
-          
-          {/* Platform Icons Row */}
-          <motion.div 
-            initial={prefersReducedMotion ? {} : { opacity: 0, y: 20 }}
-            whileInView={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3 }}
-            className="mt-12 flex justify-center items-center gap-4 md:gap-6"
-          >
-            {platformIcons.map((platform, idx) => (
-              <motion.div 
-                key={idx}
-                className="w-10 h-10 md:w-12 md:h-12 bg-white rounded-xl flex items-center justify-center border border-[#E5E4E0] hover:border-[#7B2FF7]/30 hover:shadow-lg transition-all cursor-pointer"
-                whileHover={prefersReducedMotion ? {} : { scale: 1.15, y: -3 }}
-                title={platform.label}
-              >
-                <platform.Icon className="w-5 h-5 md:w-6 md:h-6 text-[#525252]" />
-              </motion.div>
-            ))}
-          </motion.div>
+        </div>
       </section>
 
       {/* Stats Bar - Reduced metrics for credibility */}
