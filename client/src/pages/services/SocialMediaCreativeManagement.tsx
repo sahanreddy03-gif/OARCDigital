@@ -420,110 +420,89 @@ export default function SocialMediaCreativeManagement() {
           <div className="absolute inset-0 bg-gradient-to-b from-[#FDFCFA]/80 via-[#FDFCFA]/60 to-[#FDFCFA]/95" />
         </div>
 
-        {/* TARGET CIRCLE with WHITE CONTAINER ICONS - Right Side */}
-        <div className="absolute top-10 right-5 md:top-1/2 md:right-16 md:-translate-y-1/2 w-32 h-32 md:w-72 md:h-72 opacity-95 motion-reduce:hidden pointer-events-none z-10">
-          <svg width="100%" height="100%" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <linearGradient id="targetGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" style={{ stopColor: '#8B5CF6', stopOpacity: 1 }} />
-                <stop offset="50%" style={{ stopColor: '#FF6B35', stopOpacity: 1 }} />
-                <stop offset="100%" style={{ stopColor: '#FF6B35', stopOpacity: 1 }} />
-              </linearGradient>
-              <filter id="targetGlow">
-                <feGaussianBlur stdDeviation="4" result="blur"/>
-                <feMerge>
-                  <feMergeNode in="blur"/>
-                  <feMergeNode in="SourceGraphic"/>
-                </feMerge>
-              </filter>
-              <filter id="iconShadow">
-                <feDropShadow dx="0" dy="4" stdDeviation="6" floodOpacity="0.15"/>
-              </filter>
-            </defs>
-            
-            {/* Target/Crosshair Center - 3 Concentric Rings */}
-            <circle cx="200" cy="200" r="50" fill="none" stroke="rgba(255,107,53,0.2)" strokeWidth="2">
-              <animate attributeName="r" values="50;55;50" dur="3s" repeatCount="indefinite" />
-            </circle>
-            <circle cx="200" cy="200" r="35" fill="none" stroke="rgba(255,107,53,0.35)" strokeWidth="2">
-              <animate attributeName="r" values="35;38;35" dur="2.5s" repeatCount="indefinite" />
-            </circle>
-            <circle cx="200" cy="200" r="20" fill="none" stroke="rgba(255,107,53,0.5)" strokeWidth="2"/>
-            
+        {/* TARGET CIRCLE with CUSTOM IMAGE ICONS - Right Side - LARGER SIZE */}
+        <div className="absolute top-20 right-2 md:top-1/2 md:right-12 lg:right-20 md:-translate-y-1/2 w-44 h-44 sm:w-52 sm:h-52 md:w-80 md:h-80 lg:w-96 lg:h-96 motion-reduce:hidden pointer-events-none z-10">
+          {/* Target Center - Concentric Rings */}
+          <div className="absolute inset-0 flex items-center justify-center">
+            {/* Outer Ring - Pulsing */}
+            <div className="absolute w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 rounded-full border-2 border-orange-400/25 animate-pulse" />
+            {/* Middle Ring */}
+            <div className="absolute w-14 h-14 sm:w-16 sm:h-16 md:w-24 md:h-24 lg:w-28 lg:h-28 rounded-full border-2 border-orange-400/40" />
+            {/* Inner Ring */}
+            <div className="absolute w-8 h-8 sm:w-10 sm:h-10 md:w-14 md:h-14 lg:w-16 lg:h-16 rounded-full border-2 border-orange-400/60" />
             {/* Crosshair Lines */}
-            <line x1="200" y1="140" x2="200" y2="175" stroke="rgba(255,107,53,0.4)" strokeWidth="2"/>
-            <line x1="200" y1="225" x2="200" y2="260" stroke="rgba(255,107,53,0.4)" strokeWidth="2"/>
-            <line x1="140" y1="200" x2="175" y2="200" stroke="rgba(255,107,53,0.4)" strokeWidth="2"/>
-            <line x1="225" y1="200" x2="260" y2="200" stroke="rgba(255,107,53,0.4)" strokeWidth="2"/>
-            
+            <div className="absolute w-0.5 h-12 sm:h-14 md:h-20 lg:h-24 bg-gradient-to-b from-transparent via-orange-400/40 to-transparent" />
+            <div className="absolute w-12 sm:w-14 md:w-20 lg:w-24 h-0.5 bg-gradient-to-r from-transparent via-orange-400/40 to-transparent" />
             {/* Center Pulsing Dot */}
-            <circle cx="200" cy="200" r="10" fill="url(#targetGrad)" filter="url(#targetGlow)">
-              <animate attributeName="r" values="8;12;8" dur="2s" repeatCount="indefinite" />
-              <animate attributeName="opacity" values="1;0.7;1" dur="2s" repeatCount="indefinite" />
-            </circle>
+            <div className="absolute w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 lg:w-6 lg:h-6 rounded-full bg-gradient-to-br from-purple-500 to-orange-500 animate-pulse shadow-lg shadow-orange-500/50" />
+          </div>
+          
+          {/* ROTATING ORBIT with 4 Custom Image Icons */}
+          <div 
+            className="absolute inset-0 animate-spin"
+            style={{ animationDuration: '12s', animationTimingFunction: 'linear' }}
+          >
+            {/* Icon 1: Pink Heart Speech Bubble - Top Position */}
+            <div 
+              className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 sm:w-14 sm:h-14 md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-full bg-white shadow-xl flex items-center justify-center overflow-hidden animate-spin"
+              style={{ animationDuration: '12s', animationTimingFunction: 'linear', animationDirection: 'reverse' }}
+            >
+              <img 
+                src="/attached_assets/AdobeStock_1528715526_1764597178109.png" 
+                alt="Comment Love" 
+                className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain"
+              />
+            </div>
             
-            {/* ROTATING SOCIAL ICONS - White containers with colored icons */}
-            <g>
-              <animateTransform attributeName="transform" type="rotate" from="0 200 200" to="360 200 200" dur="12s" repeatCount="indefinite" />
-              
-              {/* LIKE (Thumbs Up) - Top - Orange */}
-              <g transform="translate(175, 75)">
-                <circle cx="25" cy="25" r="24" fill="white" filter="url(#iconShadow)"/>
-                <circle cx="25" cy="25" r="22" fill="white" stroke="#f0f0f0" strokeWidth="1"/>
-                <path d="M25 15 L25 22 L19 22 L19 35 L31 35 L31 22 L25 22 M19 22 L16 22 L16 35 L19 35" 
-                      fill="#FF6B35" transform="translate(0, -2) scale(0.9)" 
-                      style={{ transformOrigin: '25px 25px' }}/>
-                <animateTransform attributeName="transform" type="rotate" from="0 25 25" to="-360 25 25" dur="12s" repeatCount="indefinite" additive="sum"/>
-              </g>
-              
-              {/* COMMENT (Speech Bubble) - Right - Purple */}
-              <g transform="translate(265, 175)">
-                <circle cx="25" cy="25" r="24" fill="white" filter="url(#iconShadow)"/>
-                <circle cx="25" cy="25" r="22" fill="white" stroke="#f0f0f0" strokeWidth="1"/>
-                <path d="M12 18 Q12 10 25 10 Q38 10 38 18 L38 26 Q38 34 25 34 L18 34 L12 40 L12 34 Q12 34 12 26 Z" 
-                      fill="#8B5CF6" transform="translate(0, -3) scale(0.85)" 
-                      style={{ transformOrigin: '25px 25px' }}/>
-                <animateTransform attributeName="transform" type="rotate" from="0 25 25" to="-360 25 25" dur="12s" repeatCount="indefinite" additive="sum"/>
-              </g>
-              
-              {/* HEART - Bottom - Pink */}
-              <g transform="translate(175, 275)">
-                <circle cx="25" cy="25" r="24" fill="white" filter="url(#iconShadow)"/>
-                <circle cx="25" cy="25" r="22" fill="white" stroke="#f0f0f0" strokeWidth="1"/>
-                <path d="M25 38 Q 15 32 10 25 Q 5 17 12 12 Q 19 7 25 15 Q 31 7 38 12 Q 45 17 40 25 Q 35 32 25 38" 
-                      fill="#EC4899" transform="translate(0, -4) scale(0.75)" 
-                      style={{ transformOrigin: '25px 25px' }}/>
-                <animateTransform attributeName="transform" type="rotate" from="0 25 25" to="-360 25 25" dur="12s" repeatCount="indefinite" additive="sum"/>
-              </g>
-              
-              {/* SHARE - Left - Blue */}
-              <g transform="translate(85, 175)">
-                <circle cx="25" cy="25" r="24" fill="white" filter="url(#iconShadow)"/>
-                <circle cx="25" cy="25" r="22" fill="white" stroke="#f0f0f0" strokeWidth="1"/>
-                <circle cx="32" cy="15" r="5" fill="#3B82F6"/>
-                <circle cx="32" cy="35" r="5" fill="#3B82F6"/>
-                <circle cx="18" cy="25" r="5" fill="#3B82F6"/>
-                <line x1="22" y1="23" x2="28" y2="18" stroke="#3B82F6" strokeWidth="2"/>
-                <line x1="22" y1="27" x2="28" y2="32" stroke="#3B82F6" strokeWidth="2"/>
-                <animateTransform attributeName="transform" type="rotate" from="0 25 25" to="-360 25 25" dur="12s" repeatCount="indefinite" additive="sum"/>
-              </g>
-            </g>
+            {/* Icon 2: Blue Share Arrow - Right Position */}
+            <div 
+              className="absolute top-1/2 right-0 translate-x-1/2 -translate-y-1/2 w-12 h-12 sm:w-14 sm:h-14 md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-full bg-white shadow-xl flex items-center justify-center overflow-hidden animate-spin"
+              style={{ animationDuration: '12s', animationTimingFunction: 'linear', animationDirection: 'reverse' }}
+            >
+              <img 
+                src="/attached_assets/image_1764597181062.png" 
+                alt="Share" 
+                className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain"
+              />
+            </div>
             
-            {/* Subtle connection lines */}
-            <g opacity="0.25">
-              <line x1="200" y1="150" x2="200" y2="115" stroke="url(#targetGrad)" strokeWidth="1" strokeDasharray="3 4">
-                <animate attributeName="stroke-dashoffset" from="0" to="7" dur="1s" repeatCount="indefinite" />
-              </line>
-              <line x1="250" y1="200" x2="285" y2="200" stroke="url(#targetGrad)" strokeWidth="1" strokeDasharray="3 4">
-                <animate attributeName="stroke-dashoffset" from="0" to="7" dur="1s" repeatCount="indefinite" />
-              </line>
-              <line x1="200" y1="250" x2="200" y2="285" stroke="url(#targetGrad)" strokeWidth="1" strokeDasharray="3 4">
-                <animate attributeName="stroke-dashoffset" from="0" to="7" dur="1s" repeatCount="indefinite" />
-              </line>
-              <line x1="150" y1="200" x2="115" y2="200" stroke="url(#targetGrad)" strokeWidth="1" strokeDasharray="3 4">
-                <animate attributeName="stroke-dashoffset" from="0" to="7" dur="1s" repeatCount="indefinite" />
-              </line>
-            </g>
+            {/* Icon 3: Yellow Winking Smiley - Bottom Position */}
+            <div 
+              className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-12 h-12 sm:w-14 sm:h-14 md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-full bg-white shadow-xl flex items-center justify-center overflow-hidden animate-spin"
+              style={{ animationDuration: '12s', animationTimingFunction: 'linear', animationDirection: 'reverse' }}
+            >
+              <img 
+                src="/attached_assets/image_1764597781004.png" 
+                alt="Engagement" 
+                className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain"
+              />
+            </div>
+            
+            {/* Icon 4: Yellow Hashtag - Left Position */}
+            <div 
+              className="absolute top-1/2 left-0 -translate-x-1/2 -translate-y-1/2 w-12 h-12 sm:w-14 sm:h-14 md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-full bg-white shadow-xl flex items-center justify-center overflow-hidden animate-spin"
+              style={{ animationDuration: '12s', animationTimingFunction: 'linear', animationDirection: 'reverse' }}
+            >
+              <img 
+                src="/attached_assets/image_1764597610551.png" 
+                alt="Hashtag" 
+                className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain"
+              />
+            </div>
+          </div>
+          
+          {/* Connection Lines (static, decorative) */}
+          <svg className="absolute inset-0 w-full h-full opacity-20" viewBox="0 0 100 100">
+            <line x1="50" y1="15" x2="50" y2="35" stroke="url(#lineGrad)" strokeWidth="0.5" strokeDasharray="2 2"/>
+            <line x1="85" y1="50" x2="65" y2="50" stroke="url(#lineGrad)" strokeWidth="0.5" strokeDasharray="2 2"/>
+            <line x1="50" y1="85" x2="50" y2="65" stroke="url(#lineGrad)" strokeWidth="0.5" strokeDasharray="2 2"/>
+            <line x1="15" y1="50" x2="35" y2="50" stroke="url(#lineGrad)" strokeWidth="0.5" strokeDasharray="2 2"/>
+            <defs>
+              <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#8B5CF6"/>
+                <stop offset="100%" stopColor="#FF6B35"/>
+              </linearGradient>
+            </defs>
           </svg>
         </div>
 
@@ -697,8 +676,8 @@ export default function SocialMediaCreativeManagement() {
           transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
         />
         
-        {/* Hero Content Area - Centered, Above Fold */}
-        <div className="relative z-10 max-w-4xl mx-auto px-6 md:px-12 py-12 md:py-16">
+        {/* Hero Content Area - Centered, Above Fold - MOVED UP */}
+        <div className="relative z-10 max-w-4xl mx-auto px-6 md:px-12 pt-4 pb-12 md:pt-8 md:pb-16">
           <div className="text-center">
             {/* Badge */}
             <motion.div
