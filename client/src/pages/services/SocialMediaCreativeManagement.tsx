@@ -722,28 +722,46 @@ export default function SocialMediaCreativeManagement() {
             
             {/* Text Content - Full width on mobile, with room for target animation */}
             <div className="w-full text-left pr-[140px] sm:pr-40 md:pr-0">
-              {/* Main Headline - CREATIVE larger, premium elite colors */}
+              {/* Main Headline - Space Grotesk, premium elite styling */}
               <motion.div 
                 initial={fadeIn}
                 animate={fadeInVisible}
                 transition={prefersReducedMotion ? {} : { delay: 0.1, duration: 0.5 }}
-                className="mb-4 md:mb-4 leading-[0.85]"
+                className="mb-3 md:mb-4 leading-[0.85]"
+                style={{ fontFamily: 'var(--font-display)' }}
               >
-                {/* CREATIVE - Larger, premium deep violet gradient */}
+                {/* CREATIVE - Noticeably larger, tight letter-spacing */}
                 <span 
-                  className="block font-black text-transparent bg-clip-text bg-gradient-to-r from-[#1A1A1A] via-[#2D1B4E] to-[#1A1A1A]"
-                  style={{ fontSize: 'clamp(3.25rem, 14vw, 4.5rem)' }}
+                  className="block font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#1A1A1A] via-[#2D1B4E] to-[#1A1A1A]"
+                  style={{ 
+                    fontSize: 'clamp(3.75rem, 16vw, 5.5rem)',
+                    letterSpacing: '-0.04em'
+                  }}
                 >
-                  Creative
+                  Make Creative
                 </span>
-                {/* That Converts - Slightly smaller, sophisticated gradient */}
+                {/* That Converts - Slightly smaller, tight kerning */}
                 <span 
-                  className="block font-black text-transparent bg-clip-text bg-gradient-to-r from-[#6B21A8] via-[#DB2777] to-[#C2410C]"
-                  style={{ fontSize: 'clamp(2.5rem, 11vw, 3.5rem)' }}
+                  className="block font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#6B21A8] via-[#DB2777] to-[#C2410C]"
+                  style={{ 
+                    fontSize: 'clamp(2.75rem, 12vw, 4rem)',
+                    letterSpacing: '-0.03em'
+                  }}
                 >
                   That Converts
                 </span>
               </motion.div>
+              
+              {/* Pain Hook - Compelling statement */}
+              <motion.p 
+                initial={fadeIn}
+                animate={fadeInVisible}
+                transition={prefersReducedMotion ? {} : { delay: 0.15, duration: 0.5 }}
+                className="text-sm sm:text-base md:text-lg text-[#6B6B6B] max-w-xs sm:max-w-md mb-4 md:mb-5 leading-relaxed italic"
+                style={{ fontFamily: 'var(--font-display)' }}
+              >
+                From overlooked posts to viral dominance—our AI precision unlocks it all.
+              </motion.p>
               
               {/* Subheadline - LARGER text on mobile */}
               <motion.p 
