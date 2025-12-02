@@ -65,6 +65,7 @@ import PropFlowCaseStudy from "@/pages/case-studies/PropFlow";
 import FanStakeCaseStudy from "@/pages/case-studies/FanStake";
 import StrategyPulseCaseStudy from "@/pages/case-studies/StrategyPulse";
 import NationalDistributorNLPCaseStudy from "@/pages/case-studies/NationalDistributorNLP";
+import CricketPulseIndiaCaseStudy from "@/pages/case-studies/CricketPulseIndia";
 import PDFHub from "@/pages/PDFHub";
 import PDFCompanyProfile from "@/pages/PDFCompanyProfile";
 import PDFOnePager from "@/pages/PDFOnePager";
@@ -162,6 +163,7 @@ function Router() {
       <Route path="/case-studies/fanstake-sports-platform" component={FanStakeCaseStudy} />
       <Route path="/case-studies/strategypulse-enterprise" component={StrategyPulseCaseStudy} />
       <Route path="/case-studies/national-distributor-nlp" component={NationalDistributorNLPCaseStudy} />
+      <Route path="/case-studies/cricketpulse-india" component={CricketPulseIndiaCaseStudy} />
       <Route path="/our-work/:slug" component={() => <div>Case Study Detail (Phase 3)</div>} />
       <Route path="/why-us" component={WhyUs} />
       <Route path="/roadmap" component={Roadmap2026} />

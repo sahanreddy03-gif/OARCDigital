@@ -45,6 +45,8 @@ import aiLeadEngineDashboard from '@assets/generated_images/ai_lead_engine_dashb
 import strategicPlanningDashboard from '@assets/generated_images/strategic_planning_dashboard_ui.png';
 import aiDataCleansingDashboard from '@assets/generated_images/ai_data_cleansing_dashboard.png';
 import colorfulDataAnalyticsImg from '@assets/generated_images/colorful_data_analytics_dashboard.png';
+import cricketBettingAppImg from '@assets/generated_images/cricket_betting_mobile_app_mockup.png';
+import cricketStadiumImg from '@assets/generated_images/vibrant_ipl_cricket_stadium.png';
 
 // Colorful homepage case study thumbnails
 import colorfulDashboardImg from '@assets/generated_images/colorful_analytics_dashboard_laptop.png';
@@ -492,6 +494,30 @@ export const caseStudies: Record<string, CaseStudy> = {
     thumbnailImage: colorfulDataAnalyticsImg,
     heroImage: aiDataCleansingDashboard,
     gridClass: 'col-span-2 row-span-1'
+  },
+  'cricketpulse-india': {
+    slug: 'cricketpulse-india',
+    brand: 'CricketPulse India',
+    category: 'iGaming & Sports Tech',
+    description: 'Mobile-First Platform Redesign',
+    fullDescription: 'Transformed a leading Indian cricket predictions platform with a mobile-first UX overhaul that boosted conversions by 340% and expanded reach across India, Bangladesh, UK, and Australia.',
+    challenge: 'CricketPulse India faced declining engagement with an outdated website that failed mobile users—the primary audience. Cluttered affiliate placements hurt the core value proposition of expert cricket predictions, while poor information hierarchy made it difficult for users to find live IPL odds and match insights.',
+    strategy: 'We designed a mobile-first web application with strategic conversion elements: redesigned match pods with optimal information hierarchy, strategically relocated affiliate links, filterable multi-regional predictions for IPL, PSL, and international matches, and integrated cricket experts into all predictions for credibility.',
+    results: 'The redesign transformed CricketPulse into the go-to platform for cricket enthusiasts across South Asia. Conversion rates tripled, mobile engagement increased 280%, and the platform now serves millions of cricket fans during IPL season.',
+    metrics: {
+      value: '340%',
+      label: 'conversion increase'
+    },
+    secondaryMetrics: [
+      { value: '280%', label: 'mobile engagement' },
+      { value: '4.2M', label: 'monthly users' },
+      { value: '12 weeks', label: 'to launch' }
+    ],
+    services: ['UX/UI Design', 'Mobile Development', 'Conversion Optimization', 'iGaming Compliance'],
+    platforms: ['React Native', 'Node.js', 'AWS'],
+    thumbnailImage: cricketStadiumImg,
+    heroImage: cricketBettingAppImg,
+    gridClass: 'col-span-2 row-span-1'
   }
 };
 
@@ -516,5 +542,6 @@ export const caseStudiesByCategory = {
   dataEngineering: ['national-distributor-nlp'],
   ecommerce: ['homecraft-innovations'],
   gaming: ['gamingtech-elite', 'progamer-network'],
+  iGaming: ['cricketpulse-india'],
   transformation: ['cloudbase-technologies']
 };
