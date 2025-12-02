@@ -1,8 +1,7 @@
 import { Link } from "wouter";
 import { FileText, File, Brain } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import Navigation from "@/components/Navigation";
-import Footer from "@/components/Footer";
+import Layout from "@/components/layout/Layout";
 import logoImage from "@assets/fdfdfd_1762818183304.png";
 import SEOHead from "@/components/SEOHead";
 import { pdfPagesSEO } from "@/data/seoMetadata";
@@ -21,7 +20,7 @@ export default function PDFHub() {
   ];
 
   return (
-    <>
+    <Layout>
       <SEOHead
         title={pdfPagesSEO.pdfHub.title}
         description={pdfPagesSEO.pdfHub.description}
@@ -29,7 +28,6 @@ export default function PDFHub() {
         ogType={pdfPagesSEO.pdfHub.ogType}
       />
       <div className="min-h-screen bg-black">
-        <Navigation />
       
       <div className="pt-32 pb-20 px-6">
         <div className="max-w-6xl mx-auto">
@@ -172,8 +170,7 @@ export default function PDFHub() {
         </div>
       </div>
       
-      <Footer />
       </div>
-    </>
+    </Layout>
   );
 }

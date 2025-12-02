@@ -1,8 +1,7 @@
 // Comparison Page - High-Intent SEO for "OARC vs" searches
 // Targets: "AI marketing agency vs traditional", "AI employees vs hiring", etc.
 
-import Navigation from '@/components/Navigation';
-import Footer from '@/components/Footer';
+import Layout from '@/components/layout/Layout';
 import SEOHead from '@/components/SEOHead';
 import { Button } from '@/components/ui/button';
 import { Check, X, ArrowRight } from 'lucide-react';
@@ -35,7 +34,7 @@ export default function Comparison() {
   const combinedSchema = [breadcrumbSchema, serviceSchema, ratingSchema];
   
   return (
-    <>
+    <Layout>
       <SEOHead
         title="OARC Digital vs Traditional Agencies | Why Choose AI-Powered Marketing"
         description="Compare OARC Digital's AI-powered approach vs traditional marketing agencies. See why businesses choose our AI employees, faster delivery, and better results at lower costs."
@@ -43,8 +42,6 @@ export default function Comparison() {
         structuredData={combinedSchema}
         schemaId="comparison"
       />
-      
-      <Navigation />
       
       <main className="min-h-screen">
         {/* Hero Section */}
@@ -284,8 +281,6 @@ export default function Comparison() {
           </div>
         </section>
       </main>
-      
-      <Footer />
-    </>
+    </Layout>
   );
 }

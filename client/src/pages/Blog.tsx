@@ -1,8 +1,7 @@
 // Blog Infrastructure for SEO Topic Clusters
 // Voice search optimized, featured snippet ready
 
-import Navigation from '@/components/Navigation';
-import Footer from '@/components/Footer';
+import Layout from '@/components/layout/Layout';
 import SEOHead from '@/components/SEOHead';
 import { createBreadcrumbSchema, createArticleSchema } from '@/utils/advancedSchema';
 import { Button } from '@/components/ui/button';
@@ -96,7 +95,7 @@ export default function Blog() {
   const combinedSchema = [breadcrumbSchema, articleSchema];
   
   return (
-    <>
+    <Layout>
       <SEOHead
         title="OARC Digital Blog | AI Marketing, Creative Services & Growth Strategies"
         description="Expert insights on AI marketing, creative services, and revenue growth. Learn from real case studies, how-to guides, and industry best practices."
@@ -104,8 +103,6 @@ export default function Blog() {
         structuredData={combinedSchema}
         schemaId="blog"
       />
-      
-      <Navigation />
       
       <main className="min-h-screen">
         {/* Hero Section */}
@@ -231,8 +228,6 @@ export default function Blog() {
           </div>
         </section>
       </main>
-      
-      <Footer />
-    </>
+    </Layout>
   );
 }

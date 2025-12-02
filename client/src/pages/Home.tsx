@@ -1,4 +1,4 @@
-import Navigation from "@/components/Navigation";
+import Layout from "@/components/layout/Layout";
 import HeroSection from "@/components/HeroSection";
 import OARCStripSection from "@/components/OARCStripSection";
 import ServicePillarsSection from "@/components/ServicePillarsSection";
@@ -19,7 +19,6 @@ import BlogPreviewSection from "@/components/BlogPreviewSection";
 import CTASections from "@/components/CTASections";
 import NeedHelpCTA from "@/components/NeedHelpCTA";
 import FAQ from "@/components/FAQ";
-import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
 import { localBusinessSchema, organizationSchema, createFAQSchema } from "@/utils/structuredData";
 import { createAggregateRatingSchema, createReviewSchema } from "@/utils/advancedSchema";
@@ -73,14 +72,14 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen overflow-x-hidden">
+    <Layout>
       <SEOHead
         title="OARC Digital | AI-Powered Creative & Marketing Agency in Malta"
         description="Premium AI-powered creative services, AI employees, and revenue automation solutions. Elite marketing agency in Malta delivering world-class digital experiences across Europe, Middle East, and Asia."
         canonicalUrl="https://oarcdigital.com"
         structuredData={homepageSchema}
       />
-      <Navigation />
+      <div className="overflow-x-hidden">
       <HeroSection />
       
       {/* OARC DNA Strip - explains what OARC stands for */}
@@ -107,7 +106,7 @@ export default function Home() {
       <CTASections />
       <NeedHelpCTA />
       <FAQ />
-      <Footer />
-    </div>
+      </div>
+    </Layout>
   );
 }

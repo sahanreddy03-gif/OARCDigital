@@ -1,8 +1,7 @@
 import { useEffect } from 'react';
 import { Link } from 'wouter';
 import { ArrowRight, TrendingUp, Target, Filter, Zap, Lightbulb, Clock, Globe } from 'lucide-react';
-import Navigation from '@/components/Navigation';
-import Footer from '@/components/Footer';
+import Layout from '@/components/layout/Layout';
 import ScrollReveal from '@/components/ScrollReveal';
 import { motion } from 'framer-motion';
 import { AnimatedGridBackground } from '@/components/ui/animated-grid-background';
@@ -63,8 +62,8 @@ export default function RevenueHub() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-black text-white">
-      <Navigation />
+    <Layout>
+      <div className="min-h-screen bg-black text-white">
 
       {/* Hero Section with Animated Background */}
       <section className="relative pt-32 pb-24 px-6 overflow-hidden">
@@ -297,7 +296,7 @@ export default function RevenueHub() {
         </ScrollReveal>
       </section>
 
-      <Footer />
-    </div>
+      </div>
+    </Layout>
   );
 }
