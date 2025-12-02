@@ -47,6 +47,8 @@ import aiDataCleansingDashboard from '@assets/generated_images/ai_data_cleansing
 import colorfulDataAnalyticsImg from '@assets/generated_images/colorful_data_analytics_dashboard.png';
 import cricketBettingAppImg from '@assets/generated_images/cricket_betting_mobile_app_mockup.png';
 import cricketStadiumImg from '@assets/generated_images/vibrant_ipl_cricket_stadium.png';
+import aiAutomationDashboard from '@assets/generated_images/ai_automation_enterprise_dashboard.png';
+import aiCallCenterImg from '@assets/generated_images/colorful_ai-powered_call_center.png';
 
 // Colorful homepage case study thumbnails
 import colorfulDashboardImg from '@assets/generated_images/colorful_analytics_dashboard_laptop.png';
@@ -518,6 +520,30 @@ export const caseStudies: Record<string, CaseStudy> = {
     thumbnailImage: cricketStadiumImg,
     heroImage: cricketBettingAppImg,
     gridClass: 'col-span-2 row-span-1'
+  },
+  'nexgen-retail-ai-transformation': {
+    slug: 'nexgen-retail-ai-transformation',
+    brand: 'NexGen Retail Group',
+    category: 'Full AI Transformation',
+    description: 'AI Employees + Revenue Automation',
+    fullDescription: 'Deployed a complete AI workforce solution for a mid-market retail group—AI customer support agents, AI sales representatives, and end-to-end workflow automation that reduced operational costs by 65% while increasing customer satisfaction.',
+    challenge: 'NexGen Retail Group was struggling with scaling their customer operations. Support tickets were backlogged, sales reps were overwhelmed with lead qualification, and manual processes across order fulfillment, inventory management, and customer communications were consuming 70% of staff time.',
+    strategy: 'We deployed a comprehensive AI transformation: AI Support Specialists handling Tier 1-2 customer inquiries 24/7, AI SDR Agents qualifying and nurturing leads, AI Admin Agents automating document processing, and workflow automation connecting their CRM, ERP, and support systems into a unified intelligent operation.',
+    results: 'Within 90 days, NexGen achieved 65% cost reduction in customer operations, 4.8/5 customer satisfaction (up from 3.2), 3x sales pipeline velocity, and freed their human team to focus on high-value relationship building and complex problem solving.',
+    metrics: {
+      value: '65%',
+      label: 'cost reduction'
+    },
+    secondaryMetrics: [
+      { value: '4.8/5', label: 'CSAT score' },
+      { value: '3x', label: 'pipeline velocity' },
+      { value: '90 days', label: 'to full deployment' }
+    ],
+    services: ['AI Support Specialist', 'AI SDR Agent', 'AI Admin Agent', 'Workflow Automation', 'CRM Integration', 'Process Optimization'],
+    platforms: ['Custom AI Platform', 'Salesforce', 'Zendesk', 'Zapier'],
+    thumbnailImage: aiCallCenterImg,
+    heroImage: aiAutomationDashboard,
+    gridClass: 'col-span-2 row-span-2'
   }
 };
 
@@ -537,11 +563,11 @@ export const featuredCaseStudies = [
 // Case studies by category for filtering
 export const caseStudiesByCategory = {
   creative: ['fitnesspro-network', 'luxe-essence', 'naturalcare-beauty', 'authentic-stories'],
-  aiEmployees: ['healthpath-ai', 'sportsai-interactive', 'talentscale-solutions', 'propflow-property-platform'],
-  automation: ['digital-finance-solutions', 'streamflow-automation', 'global-supply-systems', 'heritage-luxury-group', 'fanstake-sports-platform'],
+  aiEmployees: ['healthpath-ai', 'sportsai-interactive', 'talentscale-solutions', 'propflow-property-platform', 'nexgen-retail-ai-transformation'],
+  automation: ['digital-finance-solutions', 'streamflow-automation', 'global-supply-systems', 'heritage-luxury-group', 'fanstake-sports-platform', 'nexgen-retail-ai-transformation'],
   dataEngineering: ['national-distributor-nlp'],
   ecommerce: ['homecraft-innovations'],
   gaming: ['gamingtech-elite', 'progamer-network'],
   iGaming: ['cricketpulse-india'],
-  transformation: ['cloudbase-technologies']
+  transformation: ['cloudbase-technologies', 'nexgen-retail-ai-transformation']
 };
