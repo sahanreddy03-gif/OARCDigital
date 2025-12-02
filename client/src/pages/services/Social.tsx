@@ -10,7 +10,7 @@ import {
   ChevronLeft, ChevronRight, TrendingUp, MessageCircle, Zap
 } from "lucide-react";
 
-import conferenceImg from "@assets/pexels-kabaa10-4931332_1761760043394.jpg";
+import conferenceImg from "@assets/pexels-sasi-tha-13049577_1764633603081.jpg";
 import arcadeImg from "@assets/WhatsApp Image 2025-10-29 at 17.09.19_b134f824_1761760222324.jpg";
 import awardTeamImg from "@assets/Best-Large-Social-Agency_1761760464709.webp";
 import largeTeamImg from "@assets/pexels-bertellifotografia-2467506_1761761073217.jpg";
