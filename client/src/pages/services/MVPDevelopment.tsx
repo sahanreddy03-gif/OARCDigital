@@ -724,6 +724,7 @@ export default function MVPDevelopment() {
                   className="overflow-hidden cursor-pointer" 
                   glowOnHover={false}
                   onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
+                  data-testid={`faq-toggle-${idx}`}
                 >
                   <div className="p-6">
                     <div className="flex items-center justify-between gap-4">
