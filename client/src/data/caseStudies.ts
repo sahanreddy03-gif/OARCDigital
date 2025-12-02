@@ -42,8 +42,32 @@ import luxuryFashionImg from '@assets/stock_images/luxury_fashion_retai_32a7703b
 import designWorkspaceImg from '@assets/stock_images/creative_team_workin_79883382.jpg';
 import aiRealEstateDashboard from '@assets/generated_images/ai_real_estate_lead_dashboard.png';
 import aiLeadEngineDashboard from '@assets/generated_images/ai_lead_engine_dashboard.png';
+import strategicPlanningDashboard from '@assets/generated_images/strategic_planning_dashboard_ui.png';
 
 export const caseStudies: Record<string, CaseStudy> = {
+  'strategypulse-enterprise': {
+    slug: 'strategypulse-enterprise',
+    brand: 'StrategyPulse',
+    category: 'AI Solutions',
+    description: 'Enterprise Strategic Planning Platform',
+    fullDescription: 'Built an AI-powered strategic planning platform that helps mid-market companies align their entire organization around strategic objectives.',
+    challenge: 'Most business planning tools don\'t allow employees to see how their work contributes to company goals, leading to siloed planning and disconnected execution.',
+    strategy: 'We developed StrategyPulse to make strategic planning collaborative, transparent, and adaptive—with AI surfacing insights and keeping everyone focused.',
+    results: 'Goal achievement rates increased by 340%, planning cycles became 67% faster, and team alignment scores reached 92%.',
+    metrics: {
+      value: '340%',
+      label: 'goal achievement'
+    },
+    secondaryMetrics: [
+      { value: '67%', label: 'faster planning' },
+      { value: '92%', label: 'team alignment' }
+    ],
+    services: ['Custom Software Development', 'AI Analytics', 'Enterprise Deployment'],
+    platforms: ['React', 'Node.js', 'AWS'],
+    thumbnailImage: strategicPlanningDashboard,
+    heroImage: strategicPlanningDashboard,
+    gridClass: 'col-span-1 row-span-1'
+  },
   'propflow-property-platform': {
     slug: 'propflow-property-platform',
     brand: 'AI Real Estate Agent',
