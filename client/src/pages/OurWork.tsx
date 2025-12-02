@@ -1,7 +1,7 @@
 import { useEffect, useState, useMemo, useRef } from 'react';
 import Layout from "@/components/layout/Layout";
 import { Link } from "wouter";
-import { ArrowUpRight, Sparkles, Bot, Palette, Zap, Grid3X3, Play, Star, Award, TrendingUp, Heart } from "lucide-react";
+import { ArrowUpRight, Sparkles, Bot, Palette, Grid3X3, Star, Award, TrendingUp, Gem, Crown } from "lucide-react";
 import { caseStudies, CaseStudy } from "@/data/caseStudies";
 import SEOHead from "@/components/SEOHead";
 import { supportingPagesSEO } from "@/data/seoMetadata";
@@ -35,10 +35,10 @@ const isAICategory = (category: string) => {
 };
 
 const filterCategories = [
-  { id: 'all', label: 'All Work', icon: Grid3X3, gradient: 'from-purple-500 to-pink-500' },
-  { id: 'creative', label: 'Creative & Marketing', icon: Palette, gradient: 'from-pink-500 to-orange-500' },
-  { id: 'ai', label: 'AI & Automation', icon: Bot, gradient: 'from-cyan-500 to-emerald-500' },
-  { id: 'featured', label: 'Featured', icon: Sparkles, gradient: 'from-amber-500 to-rose-500' }
+  { id: 'all', label: 'All Work', icon: Grid3X3 },
+  { id: 'creative', label: 'Creative & Marketing', icon: Palette },
+  { id: 'ai', label: 'AI & Automation', icon: Bot },
+  { id: 'featured', label: 'Featured', icon: Sparkles }
 ];
 
 const featuredSlugs = [
@@ -67,13 +67,13 @@ function FloatingParticle({ delay, duration, size, left, top, color }: {
         left,
         top,
         background: color,
-        filter: 'blur(1px)',
+        boxShadow: `0 0 ${size * 2}px ${color}`,
       }}
       animate={{
         y: [-15, 15, -15],
         x: [-8, 8, -8],
-        opacity: [0.4, 0.8, 0.4],
-        scale: [1, 1.2, 1],
+        opacity: [0.3, 0.7, 0.3],
+        scale: [1, 1.3, 1],
       }}
       transition={{
         duration,
@@ -150,32 +150,34 @@ export default function OurWork() {
   const getCategoryStyle = (category: string) => {
     if (isAICategory(category)) {
       return {
-        badge: 'bg-cyan-500/20 text-cyan-300 border-cyan-500/30',
-        metric: 'bg-gradient-to-r from-cyan-500 to-emerald-400 text-white',
-        cardBg: 'bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900',
-        glow: 'group-hover:shadow-[0_0_40px_rgba(6,182,212,0.4)]',
-        overlay: 'from-slate-900/95 via-slate-900/70 to-transparent'
+        badge: 'bg-[#23AACA]/20 text-[#23AACA] border-[#23AACA]/40',
+        metric: 'bg-gradient-to-r from-[#23AACA] to-[#4ade80] text-zinc-900',
+        cardBg: 'bg-zinc-900',
+        glow: 'group-hover:shadow-[0_0_50px_rgba(35,170,202,0.35)]',
+        overlay: 'from-zinc-900/95 via-zinc-900/80 to-transparent',
+        accentLine: 'from-[#23AACA] to-[#4ade80]'
       };
     }
     return {
-      badge: 'bg-pink-500/20 text-pink-300 border-pink-500/30',
-      metric: 'bg-gradient-to-r from-pink-500 to-orange-400 text-white',
-      cardBg: 'bg-gradient-to-br from-purple-900/50 via-pink-900/30 to-orange-900/30',
-      glow: 'group-hover:shadow-[0_0_40px_rgba(236,72,153,0.4)]',
-      overlay: 'from-purple-900/90 via-pink-900/60 to-transparent'
+      badge: 'bg-[#c4ff4d]/15 text-[#c4ff4d] border-[#c4ff4d]/40',
+      metric: 'bg-[#c4ff4d] text-zinc-900',
+      cardBg: 'bg-zinc-900',
+      glow: 'group-hover:shadow-[0_0_50px_rgba(196,255,77,0.35)]',
+      overlay: 'from-zinc-900/95 via-zinc-900/80 to-transparent',
+      accentLine: 'from-[#c4ff4d] to-[#4ade80]'
     };
   };
 
   const particles = useMemo(() => {
     if (prefersReducedMotion) return [];
-    return Array.from({ length: 25 }, (_, i) => ({
+    return Array.from({ length: 20 }, (_, i) => ({
       id: i,
-      delay: Math.random() * 3,
-      duration: 4 + Math.random() * 3,
-      size: 4 + Math.random() * 8,
+      delay: Math.random() * 4,
+      duration: 5 + Math.random() * 4,
+      size: 3 + Math.random() * 5,
       left: `${Math.random() * 100}%`,
       top: `${Math.random() * 100}%`,
-      color: ['#ec4899', '#f97316', '#a855f7', '#06b6d4', '#22c55e'][Math.floor(Math.random() * 5)]
+      color: i % 3 === 0 ? '#c4ff4d' : i % 3 === 1 ? '#23AACA' : '#4ade80'
     }));
   }, [prefersReducedMotion]);
 
@@ -188,24 +190,24 @@ export default function OurWork() {
         ogType={supportingPagesSEO.ourWork.ogType}
       />
       
-      {/* Vibrant Creative Hero Section */}
-      <section className="relative py-24 md:py-36 overflow-hidden">
-        {/* Vibrant Gradient Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-purple-600 via-pink-500 to-orange-400" />
+      {/* Elite Hero Section - Premium Dark with Brand Accents */}
+      <section className="relative py-28 md:py-40 overflow-hidden bg-zinc-950">
+        {/* Sophisticated Grid Background */}
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(196,255,77,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(196,255,77,0.03)_1px,transparent_1px)] bg-[size:60px_60px]" />
         
-        {/* Mesh Grid Overlay */}
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.08)_1px,transparent_1px)] bg-[size:60px_60px]" />
+        {/* Premium Gradient Orbs */}
+        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-gradient-to-bl from-[#c4ff4d]/10 via-[#23AACA]/5 to-transparent rounded-full blur-[150px] motion-reduce:animate-none animate-pulse" />
+        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-gradient-to-tr from-[#23AACA]/8 via-[#4ade80]/5 to-transparent rounded-full blur-[120px] motion-reduce:animate-none animate-pulse" style={{ animationDelay: '2s' }} />
         
-        {/* Floating Particles */}
+        {/* Floating Brand Particles */}
         <div className="absolute inset-0 overflow-hidden">
           {particles.map(p => (
             <FloatingParticle key={p.id} {...p} />
           ))}
         </div>
         
-        {/* Radial Light Effects */}
-        <div className="absolute top-0 right-1/4 w-[600px] h-[600px] bg-white/20 rounded-full blur-[120px] motion-reduce:animate-none animate-pulse" />
-        <div className="absolute bottom-0 left-1/4 w-[500px] h-[500px] bg-yellow-300/20 rounded-full blur-[100px] motion-reduce:animate-none animate-pulse" style={{ animationDelay: '1.5s' }} />
+        {/* Diagonal Accent Line */}
+        <div className="absolute top-0 right-0 w-[2px] h-[400px] bg-gradient-to-b from-[#c4ff4d]/60 via-[#23AACA]/40 to-transparent transform rotate-[30deg] origin-top-right" />
         
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
           <motion.div 
@@ -214,75 +216,81 @@ export default function OurWork() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            {/* Creative Badge */}
+            {/* Elite Badge */}
             <motion.div 
-              className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/20 backdrop-blur-md rounded-full border border-white/30 mb-8"
+              className="inline-flex items-center gap-3 px-5 py-2.5 bg-white/[0.03] backdrop-blur-md rounded-full border border-white/10 mb-8"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              <Sparkles className="w-4 h-4 text-yellow-300" />
-              <span className="text-sm font-bold text-white tracking-wide">Creative Excellence</span>
-              <Play className="w-3 h-3 text-white/80" />
+              <Crown className="w-4 h-4 text-[#c4ff4d]" />
+              <span className="text-sm font-bold text-white/80 tracking-wide uppercase">Elite Creative Portfolio</span>
+              <div className="w-1.5 h-1.5 rounded-full bg-[#c4ff4d] animate-pulse" />
             </motion.div>
             
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-black mb-8 leading-[1.05]">
-              <span className="text-white drop-shadow-lg">Creative Work That</span>
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-black mb-8 leading-[1.05] tracking-tight">
+              <span className="text-white">Work That</span>
               <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-200 via-white to-pink-200 drop-shadow-lg">
-                Inspires & Converts
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#c4ff4d] via-[#4ade80] to-[#23AACA]">
+                Defines Excellence
               </span>
             </h1>
-            <p className="text-xl md:text-2xl text-white/90 leading-relaxed max-w-2xl font-medium">
-              Award-winning campaigns, AI transformations, and creative strategies that drive extraordinary results for brands worldwide.
+            <p className="text-xl md:text-2xl text-white/60 leading-relaxed max-w-2xl">
+              Award-winning campaigns, AI transformations, and creative strategies that set the standard for premium brands worldwide.
             </p>
             
-            {/* Stats Row with Vibrant Design */}
-            <div className="flex flex-wrap items-center gap-6 md:gap-10 mt-12">
+            {/* Premium Stats Row */}
+            <div className="flex flex-wrap items-center gap-6 md:gap-8 mt-14">
               <motion.div 
-                className="bg-white/20 backdrop-blur-md rounded-2xl px-6 py-4 border border-white/30"
-                whileHover={{ scale: 1.05 }}
+                className="relative group"
+                whileHover={{ scale: 1.03 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
-                <div className="text-3xl md:text-4xl font-black text-white">
-                  <AnimatedCounter value={allCaseStudies.length} suffix="+" />
+                <div className="absolute inset-0 bg-gradient-to-r from-[#c4ff4d]/20 to-transparent rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="relative bg-white/[0.03] backdrop-blur-md rounded-2xl px-7 py-5 border border-white/10">
+                  <div className="text-3xl md:text-4xl font-black text-[#c4ff4d]">
+                    <AnimatedCounter value={allCaseStudies.length} suffix="+" />
+                  </div>
+                  <div className="text-sm text-white/50 font-medium mt-1">Success Stories</div>
                 </div>
-                <div className="text-sm text-white/80 font-medium mt-1">Success Stories</div>
               </motion.div>
               
               <motion.div 
-                className="bg-white/20 backdrop-blur-md rounded-2xl px-6 py-4 border border-white/30"
-                whileHover={{ scale: 1.05 }}
+                className="relative group"
+                whileHover={{ scale: 1.03 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
-                <div className="text-3xl md:text-4xl font-black text-yellow-200">
-                  <AnimatedCounter value={340} suffix="%" />
+                <div className="absolute inset-0 bg-gradient-to-r from-[#23AACA]/20 to-transparent rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="relative bg-white/[0.03] backdrop-blur-md rounded-2xl px-7 py-5 border border-white/10">
+                  <div className="text-3xl md:text-4xl font-black text-[#23AACA]">
+                    <AnimatedCounter value={340} suffix="%" />
+                  </div>
+                  <div className="text-sm text-white/50 font-medium mt-1">Average ROI</div>
                 </div>
-                <div className="text-sm text-white/80 font-medium mt-1">Average ROI</div>
               </motion.div>
               
               <motion.div 
-                className="bg-white/20 backdrop-blur-md rounded-2xl px-6 py-4 border border-white/30"
-                whileHover={{ scale: 1.05 }}
+                className="relative group"
+                whileHover={{ scale: 1.03 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
-                <div className="text-3xl md:text-4xl font-black text-pink-200">
-                  <AnimatedCounter value={200} suffix="+" />
+                <div className="absolute inset-0 bg-gradient-to-r from-[#4ade80]/20 to-transparent rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="relative bg-white/[0.03] backdrop-blur-md rounded-2xl px-7 py-5 border border-white/10">
+                  <div className="text-3xl md:text-4xl font-black text-[#4ade80]">
+                    <AnimatedCounter value={200} suffix="+" />
+                  </div>
+                  <div className="text-sm text-white/50 font-medium mt-1">Premium Brands</div>
                 </div>
-                <div className="text-sm text-white/80 font-medium mt-1">Brands Served</div>
               </motion.div>
             </div>
           </motion.div>
         </div>
-        
-        {/* Bottom Wave Transition */}
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent" />
       </section>
 
-      {/* Filter Tabs - Colorful Pastel Pills */}
-      <section className="sticky top-0 z-40 bg-white/95 backdrop-blur-xl border-b border-gray-200 shadow-sm">
+      {/* Filter Tabs - Elite Minimal Design */}
+      <section className="sticky top-0 z-40 bg-zinc-950/95 backdrop-blur-xl border-b border-white/5">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <div className="flex items-center gap-3 py-4 overflow-x-auto no-scrollbar">
+          <div className="flex items-center gap-2 py-4 overflow-x-auto no-scrollbar">
             {filterCategories.map((filter) => {
               const Icon = filter.icon;
               const isActive = activeFilter === filter.id;
@@ -290,17 +298,17 @@ export default function OurWork() {
                 <button
                   key={filter.id}
                   onClick={() => setActiveFilter(filter.id)}
-                  className={`flex items-center gap-2 px-6 py-3 rounded-full text-sm font-bold whitespace-nowrap transition-all duration-300 ${
+                  className={`flex items-center gap-2.5 px-6 py-3 rounded-full text-sm font-bold whitespace-nowrap transition-all duration-300 ${
                     isActive 
-                      ? `bg-gradient-to-r ${filter.gradient} text-white shadow-lg shadow-pink-500/25` 
-                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200 hover:text-gray-900'
+                      ? 'bg-[#c4ff4d] text-zinc-900 shadow-lg shadow-[#c4ff4d]/25' 
+                      : 'bg-white/[0.03] text-white/60 hover:bg-white/[0.06] hover:text-white/90 border border-white/5'
                   }`}
                   data-testid={`filter-${filter.id}`}
                 >
-                  <Icon className="w-4 h-4" />
+                  <Icon className={`w-4 h-4 ${isActive ? 'text-zinc-900' : ''}`} />
                   {filter.label}
                   {filter.id !== 'all' && (
-                    <span className={`text-xs px-2 py-0.5 rounded-full ${isActive ? 'bg-white/20' : 'bg-gray-200'}`}>
+                    <span className={`text-xs px-2.5 py-1 rounded-full ${isActive ? 'bg-zinc-900/20' : 'bg-white/10'}`}>
                       {filter.id === 'ai' && allCaseStudies.filter(s => isAICategory(s.category)).length}
                       {filter.id === 'creative' && allCaseStudies.filter(s => !isAICategory(s.category)).length}
                       {filter.id === 'featured' && featuredSlugs.length}
@@ -313,14 +321,14 @@ export default function OurWork() {
         </div>
       </section>
 
-      {/* Case Studies Grid - Light & Vibrant */}
-      <section className="relative py-16 md:py-24 bg-gradient-to-b from-white via-gray-50 to-white overflow-hidden min-h-screen">
-        {/* Subtle Background Pattern */}
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(236,72,153,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(168,85,247,0.03)_1px,transparent_1px)] bg-[size:50px_50px]" />
+      {/* Case Studies Grid - Premium Dark Aesthetic */}
+      <section className="relative py-16 md:py-24 bg-zinc-950 overflow-hidden min-h-screen">
+        {/* Subtle Grid Pattern */}
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:50px_50px]" />
         
-        {/* Decorative Blobs */}
-        <div className="absolute top-40 right-0 w-[400px] h-[400px] bg-gradient-to-br from-pink-200/40 to-purple-200/40 rounded-full blur-[80px] pointer-events-none" />
-        <div className="absolute bottom-40 left-0 w-[350px] h-[350px] bg-gradient-to-br from-orange-200/40 to-yellow-200/40 rounded-full blur-[80px] pointer-events-none" />
+        {/* Ambient Glow */}
+        <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-[#c4ff4d]/5 rounded-full blur-[150px] pointer-events-none" />
+        <div className="absolute bottom-1/4 left-0 w-[400px] h-[400px] bg-[#23AACA]/5 rounded-full blur-[120px] pointer-events-none" />
         
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative">
           <motion.div 
@@ -347,7 +355,7 @@ export default function OurWork() {
                   ? 'col-span-12 md:col-span-6' 
                   : 'col-span-12 md:col-span-4';
               
-              const height = isLarge ? 'h-[480px] md:h-[520px]' : isMedium ? 'h-[400px] md:h-[440px]' : 'h-[360px] md:h-[400px]';
+              const height = isLarge ? 'h-[480px] md:h-[540px]' : isMedium ? 'h-[400px] md:h-[460px]' : 'h-[360px] md:h-[420px]';
 
               return (
                 <motion.div
@@ -360,9 +368,7 @@ export default function OurWork() {
                 >
                   <Link href={`/case-studies/${study.slug}`}>
                     <div
-                      className={`group relative overflow-hidden rounded-3xl cursor-pointer ${height} transition-all duration-500 ${styles.glow} ${
-                        isAI ? 'bg-slate-900' : 'bg-white border border-gray-100 shadow-xl shadow-pink-500/5'
-                      }`}
+                      className={`group relative overflow-hidden rounded-2xl cursor-pointer ${height} ${styles.cardBg} transition-all duration-700 ${styles.glow} border border-white/5`}
                       data-testid={`card-case-study-${study.slug}`}
                     >
                       {/* Image */}
@@ -370,20 +376,16 @@ export default function OurWork() {
                         <img
                           src={study.thumbnailImage}
                           alt={study.brand}
-                          className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                          className="w-full h-full object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-110"
                           loading="lazy"
                         />
-                        {/* Gradient Overlay - Different for AI vs Creative */}
-                        <div className={`absolute inset-0 bg-gradient-to-t ${styles.overlay} opacity-90 group-hover:opacity-95 transition-opacity duration-500`} />
-                        {!isAI && (
-                          <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-transparent to-orange-900/30 mix-blend-overlay" />
-                        )}
+                        {/* Premium Gradient Overlay */}
+                        <div className={`absolute inset-0 bg-gradient-to-t ${styles.overlay} transition-opacity duration-500`} />
+                        <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-zinc-950/60" />
                       </div>
 
-                      {/* Creative Accent Line */}
-                      {!isAI && (
-                        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-pink-500 via-purple-500 to-orange-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                      )}
+                      {/* Top Accent Line on Hover */}
+                      <div className={`absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r ${styles.accentLine} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
                       
                       {/* Content */}
                       <div className="relative h-full p-6 md:p-8 flex flex-col justify-between">
@@ -398,11 +400,7 @@ export default function OurWork() {
                             {study.category}
                           </div>
                           <motion.div 
-                            className={`w-11 h-11 rounded-full backdrop-blur-md border flex items-center justify-center transition-all duration-500 ${
-                              isAI 
-                                ? 'bg-white/10 border-white/20 group-hover:bg-cyan-500/30' 
-                                : 'bg-white/20 border-white/30 group-hover:bg-pink-500/30'
-                            }`}
+                            className="w-11 h-11 rounded-full bg-white/5 backdrop-blur-md border border-white/10 flex items-center justify-center group-hover:bg-white/10 transition-all duration-500"
                             whileHover={{ rotate: 45 }}
                           >
                             <ArrowUpRight className="w-5 h-5 text-white" />
@@ -415,7 +413,7 @@ export default function OurWork() {
                             <h3 className={`font-black text-white mb-3 leading-tight ${isLarge ? 'text-3xl md:text-4xl' : isMedium ? 'text-2xl md:text-3xl' : 'text-xl md:text-2xl'}`}>
                               {study.brand}
                             </h3>
-                            <p className="text-base text-white/80 font-medium line-clamp-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-75">
+                            <p className="text-base text-white/60 font-medium line-clamp-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-75">
                               {study.description}
                             </p>
                           </div>
@@ -423,14 +421,14 @@ export default function OurWork() {
                           {/* Metric Badge */}
                           <div className="flex items-end justify-between">
                             <motion.div 
-                              className={`inline-flex flex-col px-5 py-3 rounded-2xl ${styles.metric} shadow-lg`}
+                              className={`inline-flex flex-col px-5 py-3 rounded-xl ${styles.metric} shadow-lg`}
                               whileHover={{ scale: 1.05 }}
                               transition={{ type: "spring", stiffness: 300 }}
                             >
                               <div className={`font-black leading-none ${isLarge ? 'text-2xl md:text-3xl' : 'text-xl md:text-2xl'}`}>
                                 {study.metrics.value}
                               </div>
-                              <div className="text-xs font-bold mt-1 opacity-90">
+                              <div className="text-xs font-bold mt-1 opacity-80">
                                 {study.metrics.label}
                               </div>
                             </motion.div>
@@ -439,9 +437,9 @@ export default function OurWork() {
                             {isLarge && study.secondaryMetrics && (
                               <div className="hidden md:flex items-center gap-4">
                                 {study.secondaryMetrics.slice(0, 2).map((metric, idx) => (
-                                  <div key={idx} className="text-right bg-white/10 backdrop-blur-sm rounded-xl px-4 py-2">
+                                  <div key={idx} className="text-right bg-white/5 backdrop-blur-sm rounded-xl px-4 py-2 border border-white/5">
                                     <div className="text-lg font-bold text-white">{metric.value}</div>
-                                    <div className="text-xs text-white/60">{metric.label}</div>
+                                    <div className="text-xs text-white/40">{metric.label}</div>
                                   </div>
                                 ))}
                               </div>
@@ -451,8 +449,8 @@ export default function OurWork() {
                       </div>
 
                       {/* Hover Border Effect */}
-                      <div className={`absolute inset-0 rounded-3xl border-2 border-transparent transition-colors duration-500 pointer-events-none ${
-                        isAI ? 'group-hover:border-cyan-500/40' : 'group-hover:border-pink-500/40'
+                      <div className={`absolute inset-0 rounded-2xl border-2 border-transparent transition-colors duration-500 pointer-events-none ${
+                        isAI ? 'group-hover:border-[#23AACA]/30' : 'group-hover:border-[#c4ff4d]/30'
                       }`} />
                     </div>
                   </Link>
@@ -464,24 +462,28 @@ export default function OurWork() {
           {/* Empty State */}
           {filteredStudies.length === 0 && (
             <div className="text-center py-20">
-              <p className="text-gray-500 text-lg">No case studies found for this filter.</p>
+              <p className="text-white/40 text-lg">No case studies found for this filter.</p>
             </div>
           )}
         </div>
       </section>
 
-      {/* Stats Bar - Vibrant Gradient */}
-      <section className="relative py-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-purple-600 via-pink-500 to-orange-500" />
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:40px_40px]" />
+      {/* Stats Bar - Premium Gradient */}
+      <section className="relative py-20 overflow-hidden bg-zinc-900">
+        <div className="absolute inset-0 bg-gradient-to-r from-zinc-900 via-zinc-800 to-zinc-900" />
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(196,255,77,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(196,255,77,0.02)_1px,transparent_1px)] bg-[size:40px_40px]" />
+        
+        {/* Accent Glows */}
+        <div className="absolute top-0 left-1/4 w-[300px] h-[300px] bg-[#c4ff4d]/8 rounded-full blur-[100px]" />
+        <div className="absolute bottom-0 right-1/4 w-[250px] h-[250px] bg-[#23AACA]/8 rounded-full blur-[80px]" />
         
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
             {[
-              { value: 50, suffix: 'M+', prefix: '€', label: 'Revenue Generated', icon: TrendingUp },
-              { value: 200, suffix: '+', prefix: '', label: 'Brands Transformed', icon: Heart },
-              { value: 340, suffix: '%', prefix: '', label: 'Average ROI', icon: Star },
-              { value: 6, suffix: '', prefix: '', label: 'Industries Served', icon: Award }
+              { value: 50, suffix: 'M+', prefix: '€', label: 'Revenue Generated', icon: TrendingUp, color: '#c4ff4d' },
+              { value: 200, suffix: '+', prefix: '', label: 'Brands Transformed', icon: Gem, color: '#23AACA' },
+              { value: 340, suffix: '%', prefix: '', label: 'Average ROI', icon: Star, color: '#4ade80' },
+              { value: 6, suffix: '', prefix: '', label: 'Industries Served', icon: Award, color: '#c4ff4d' }
             ].map((stat, idx) => (
               <motion.div 
                 key={idx} 
@@ -491,24 +493,27 @@ export default function OurWork() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
               >
-                <div className="inline-flex items-center justify-center w-14 h-14 bg-white/20 backdrop-blur-md rounded-2xl mb-4">
-                  <stat.icon className="w-7 h-7 text-white" />
+                <div 
+                  className="inline-flex items-center justify-center w-14 h-14 rounded-xl mb-4 border border-white/10"
+                  style={{ backgroundColor: `${stat.color}15` }}
+                >
+                  <stat.icon className="w-7 h-7" style={{ color: stat.color }} />
                 </div>
                 <div className="text-4xl md:text-5xl font-black text-white">
                   <AnimatedCounter value={stat.value} suffix={stat.suffix} prefix={stat.prefix} />
                 </div>
-                <div className="text-sm text-white/80 mt-2 font-medium">{stat.label}</div>
+                <div className="text-sm text-white/40 mt-2 font-medium">{stat.label}</div>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA Section - Creative & Vibrant */}
-      <section className="relative py-24 md:py-32 bg-white overflow-hidden">
+      {/* CTA Section - Elite Minimal */}
+      <section className="relative py-24 md:py-32 bg-zinc-950 overflow-hidden">
         {/* Decorative Elements */}
-        <div className="absolute top-0 left-1/4 w-[300px] h-[300px] bg-gradient-to-br from-pink-200/60 to-purple-200/60 rounded-full blur-[80px] pointer-events-none" />
-        <div className="absolute bottom-0 right-1/4 w-[250px] h-[250px] bg-gradient-to-br from-orange-200/60 to-yellow-200/60 rounded-full blur-[80px] pointer-events-none" />
+        <div className="absolute top-1/2 left-0 w-[400px] h-[400px] bg-gradient-to-r from-[#c4ff4d]/8 to-transparent rounded-full blur-[120px] -translate-y-1/2" />
+        <div className="absolute top-1/2 right-0 w-[300px] h-[300px] bg-gradient-to-l from-[#23AACA]/8 to-transparent rounded-full blur-[100px] -translate-y-1/2" />
         
         <div className="max-w-4xl mx-auto px-6 md:px-12 text-center relative z-10">
           <motion.div
@@ -517,34 +522,37 @@ export default function OurWork() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <div className="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-pink-100 to-purple-100 rounded-full border border-pink-200 mb-8">
-              <Sparkles className="w-4 h-4 text-pink-500" />
-              <span className="text-sm font-bold text-purple-700">Ready to Create Something Amazing?</span>
+            <div className="inline-flex items-center gap-2.5 px-5 py-2.5 bg-white/[0.03] backdrop-blur-md rounded-full border border-white/10 mb-8">
+              <Sparkles className="w-4 h-4 text-[#c4ff4d]" />
+              <span className="text-sm font-bold text-white/70 uppercase tracking-wide">Join Elite Brands</span>
             </div>
             
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6 leading-tight">
-              Become Our Next
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-purple-500 to-orange-500"> Success Story</span>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 leading-tight">
+              Ready to Become Our Next
+              <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#c4ff4d] via-[#4ade80] to-[#23AACA]">
+                Success Story?
+              </span>
             </h2>
-            <p className="text-lg md:text-xl text-gray-600 mb-10 max-w-2xl mx-auto">
-              Whether you need breakthrough creative campaigns or AI-powered transformation—let's discuss how we can drive exceptional results for your brand.
+            <p className="text-lg md:text-xl text-white/50 mb-12 max-w-2xl mx-auto">
+              Whether you need breakthrough creative campaigns or AI-powered transformation—let's discuss how we can elevate your brand to new heights.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/contact">
                 <motion.button 
-                  className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-pink-500 via-purple-500 to-orange-500 text-white font-bold px-8 py-4 rounded-full shadow-xl shadow-pink-500/30 hover:shadow-pink-500/50 transition-shadow"
-                  whileHover={{ scale: 1.03 }}
+                  className="group inline-flex items-center justify-center gap-3 bg-[#c4ff4d] hover:bg-[#d4ff6d] text-zinc-900 font-bold px-10 py-5 rounded-xl shadow-xl shadow-[#c4ff4d]/20 transition-all duration-300"
+                  whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   data-testid="button-cta-contact"
                 >
                   Start Your Project
-                  <ArrowUpRight className="w-5 h-5" />
+                  <ArrowUpRight className="w-5 h-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                 </motion.button>
               </Link>
               <Link href="/services">
                 <motion.button 
-                  className="inline-flex items-center justify-center gap-2 border-2 border-gray-300 text-gray-700 font-bold px-8 py-4 rounded-full hover:border-purple-300 hover:text-purple-700 transition-colors"
-                  whileHover={{ scale: 1.03 }}
+                  className="inline-flex items-center justify-center gap-3 border border-white/20 text-white font-bold px-10 py-5 rounded-xl hover:bg-white/5 hover:border-white/30 transition-all duration-300"
+                  whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   data-testid="button-view-services"
                 >
