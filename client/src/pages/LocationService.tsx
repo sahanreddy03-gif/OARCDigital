@@ -4,8 +4,7 @@
 import { useRoute } from 'wouter';
 import { ArrowRight, MapPin, Phone, Mail } from 'lucide-react';
 import { Link } from 'wouter';
-import Navigation from '@/components/Navigation';
-import Footer from '@/components/Footer';
+import Layout from '@/components/layout/Layout';
 import SEOHead from '@/components/SEOHead';
 import { Button } from '@/components/ui/button';
 import { createBreadcrumbSchema, createAggregateRatingSchema } from '@/utils/advancedSchema';
@@ -233,7 +232,7 @@ export default function LocationService() {
   const combinedSchema = [localBusinessSchema, breadcrumbSchema, serviceSchema, ratingSchema];
   
   return (
-    <>
+    <Layout>
       <SEOHead
         title={seoTitle}
         description={seoDescription}
@@ -241,8 +240,6 @@ export default function LocationService() {
         structuredData={combinedSchema}
         schemaId={`location-${location}-${serviceSlug}`}
       />
-      
-      <Navigation />
       
       <main className="min-h-screen">
         {/* Hero Section */}
@@ -398,8 +395,6 @@ export default function LocationService() {
           </div>
         </section>
       </main>
-      
-      <Footer />
-    </>
+    </Layout>
   );
 }

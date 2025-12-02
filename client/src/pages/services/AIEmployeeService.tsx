@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useLocation, Link } from 'wouter';
 import { ArrowRight, Sparkles, MessageSquare, Brain, Zap, Shield, Users, TrendingUp, Clock, BarChart3, Mail, Calendar, Headphones, Bot, Database, Globe, CheckCircle2, Rocket, Crown, Building2, Briefcase, Lightbulb, Search, Heart, Landmark, Settings, Megaphone, ShoppingCart, Code, Calculator, Target, UserCheck, Construction } from 'lucide-react';
-import Navigation from '@/components/Navigation';
-import Footer from '@/components/Footer';
+import Layout from '@/components/layout/Layout';
 import ScrollReveal from '@/components/ScrollReveal';
 import { motion } from 'framer-motion';
 import * as Icons from 'lucide-react';
@@ -259,9 +258,8 @@ export default function AIEmployeeService() {
 
   if (!content) {
     return (
-      <div className="min-h-screen bg-black">
-        <Navigation />
-        <div className="pt-32 px-6 text-center">
+      <Layout>
+        <div className="min-h-screen bg-black pt-32 px-6 text-center">
           <h1 className="text-4xl font-bold text-white mb-6">Service Not Found</h1>
           <Link href="/services">
             <button className="px-8 py-3 bg-white text-black font-medium hover:bg-white/90 transition-colors" data-testid="button-view-all-services-notfound">
@@ -269,16 +267,15 @@ export default function AIEmployeeService() {
             </button>
           </Link>
         </div>
-        <Footer />
-      </div>
+      </Layout>
     );
   }
 
   const heroImage = HERO_IMAGES[slug];
 
   return (
-    <div className="min-h-screen bg-black text-white">
-      <Navigation />
+    <Layout>
+      <div className="min-h-screen bg-black text-white">
 
       {/* Hero Section with Dramatic Animated Background */}
       <section className="relative pt-24 pb-20 px-6 overflow-hidden min-h-[85vh] flex items-center">
@@ -816,7 +813,7 @@ export default function AIEmployeeService() {
         </ScrollReveal>
       </section>
 
-      <Footer />
-    </div>
+      </div>
+    </Layout>
   );
 }

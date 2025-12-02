@@ -3,8 +3,7 @@ import { ArrowRight, Sparkles, Users, TrendingUp, ChevronDown } from 'lucide-rea
 import { Link } from 'wouter';
 import { motion, useScroll, useTransform, useInView } from 'framer-motion';
 import { getAllCategories } from '@/config/servicesConfig';
-import Navigation from '@/components/Navigation';
-import Footer from '@/components/Footer';
+import Layout from '@/components/layout/Layout';
 import SEOHead from '@/components/SEOHead';
 import { supportingPagesSEO } from '@/data/seoMetadata';
 import heroImg from '@assets/global-influencer-marketing-agency-socially-powerful_1763048685978.jpg';
@@ -98,14 +97,14 @@ export default function Services() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-black text-white overflow-x-hidden">
+    <Layout>
       <SEOHead
         title={supportingPagesSEO.services.title}
         description={supportingPagesSEO.services.description}
         canonicalUrl={`https://oarcdigital.com${supportingPagesSEO.services.path}`}
         ogType={supportingPagesSEO.services.ogType}
       />
-      <Navigation />
+      <div className="min-h-screen bg-black text-white overflow-x-hidden">
 
       {/* Cinematic Hero with Parallax */}
       <section ref={heroRef} className="relative h-screen flex items-center justify-center overflow-hidden mt-14 md:mt-16 lg:mt-20">
@@ -475,7 +474,7 @@ export default function Services() {
         </div>
       </section>
 
-      <Footer />
-    </div>
+      </div>
+    </Layout>
   );
 }
