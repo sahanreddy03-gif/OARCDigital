@@ -22,6 +22,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
   <url><loc>https://oarcdigital.com/why-us</loc><lastmod>${new Date().toISOString().split('T')[0]}</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://oarcdigital.com/our-work</loc><lastmod>${new Date().toISOString().split('T')[0]}</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://oarcdigital.com/contact</loc><lastmod>${new Date().toISOString().split('T')[0]}</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://oarcdigital.com/privacy-policy</loc><lastmod>${new Date().toISOString().split('T')[0]}</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://oarcdigital.com/cookie-policy</loc><lastmod>${new Date().toISOString().split('T')[0]}</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://oarcdigital.com/terms-conditions</loc><lastmod>${new Date().toISOString().split('T')[0]}</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
   ${generateServicePages()}
   ${generateLocationPages()}
   ${generateCaseStudyPages()}

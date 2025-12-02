@@ -169,6 +169,18 @@ export default function Contact() {
           </Link>
         </div>
       </section>
+
+      {/* Data Protection Notice */}
+      <section className="bg-white border-t border-border">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 py-8">
+          <p className="text-xs text-muted-foreground text-center max-w-3xl mx-auto" data-testid="text-gdpr-notice">
+            When you contact us, we process your information in accordance with our{' '}
+            <Link href="/privacy-policy" className="underline hover:text-foreground transition-colors">Privacy Policy</Link>. 
+            We use your data only to respond to your inquiry and provide our services. 
+            OARC Digital is registered in Malta and complies with GDPR and Malta's Data Protection Act (Cap. 586).
+          </p>
+        </div>
+      </section>
     </Layout>
   );
 }
