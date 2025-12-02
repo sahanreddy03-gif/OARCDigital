@@ -1,0 +1,104 @@
+{
+  "colorScheme": "light",
+  "fonts": [
+    {
+      "family": "Switzer",
+      "role": "body"
+    },
+    {
+      "family": "Clash Display",
+      "role": "heading"
+    }
+  ],
+  "colors": {
+    "primary": "#072231",
+    "accent": "#23AACA",
+    "background": "#FFFFFF",
+    "textPrimary": "#000022",
+    "link": "#000022"
+  },
+  "typography": {
+    "fontFamilies": {
+      "primary": "Switzer",
+      "heading": "Clash Display"
+    },
+    "fontStacks": {
+      "heading": [
+        "ClashDisplay-Variable"
+      ],
+      "body": [
+        "Switzer"
+      ],
+      "paragraph": [
+        "Switzer"
+      ]
+    },
+    "fontSizes": {
+      "h1": "32px",
+      "h2": "32px",
+      "body": "20px"
+    }
+  },
+  "spacing": {
+    "baseUnit": 4,
+    "borderRadius": "12px"
+  },
+  "components": {
+    "input": {
+      "borderColor": "#CCCCCC",
+      "borderRadius": "12px"
+    },
+    "buttonPrimary": {
+      "background": "#23AACA",
+      "textColor": "#FFFFFF",
+      "borderRadius": "0px",
+      "shadow": "none"
+    },
+    "buttonSecondary": {
+      "background": "#F8F8FF",
+      "textColor": "#000022",
+      "borderRadius": "0px",
+      "shadow": "none"
+    }
+  },
+  "images": {
+    "logo": "https://gojilabs.com/wp-content/uploads/2021/11/Logo-1.png",
+    "favicon": "https://gojilabs.com/wp-content/uploads/2022/01/Frame-3.png",
+    "ogImage": "https://gojilabs.com/wp-content/uploads/2024/12/mvp-software-dev.webp"
+  },
+  "__framework_hints": [
+    "WP Rocket 3.19.0.1"
+  ],
+  "__llm_logo_reasoning": {
+    "selectedIndex": 0,
+    "reasoning": "Logo #0 visually represents the brand name 'Goji Labs | App & Software Development, UI/UX Design' and is located in the header, linking to the homepage, making it the most suitable choice for the brand logo.",
+    "confidence": 0.95
+  },
+  "__llm_button_reasoning": {
+    "primary": {
+      "index": 10,
+      "text": "Read Case Study",
+      "reasoning": "Button #10 has a vibrant blue background (#23AACA) which is a strong indicator for a primary CTA. It also has action-oriented text 'Read Case Study', making it the most prominent call-to-action on the page."
+    },
+    "secondary": {
+      "index": 0,
+      "text": "Free Consultation",
+      "reasoning": "Button #0 has a blue background (#F8F8FF) but is less vibrant than the primary button. It also has the text 'Free Consultation', which is action-oriented but not as strong as the primary button's text. It is a different color group than the primary button, making it a suitable secondary option."
+    },
+    "confidence": 0.95
+  },
+  "personality": {
+    "tone": "professional",
+    "energy": "medium",
+    "targetAudience": "businesses and startups looking for software development and design services."
+  },
+  "designSystem": {
+    "framework": "unknown",
+    "componentLibrary": null
+  },
+  "confidence": {
+    "buttons": 0.95,
+    "colors": 0.9,
+    "overall": 0.925
+  }
+}

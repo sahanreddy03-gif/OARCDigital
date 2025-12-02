@@ -40,52 +40,54 @@ import aiEngineeringImg from '@assets/stock_images/ai_software_developm_725be51d
 import teamCollabImg from '@assets/stock_images/team_collaboration_b_c8b7e41b.jpg';
 import luxuryFashionImg from '@assets/stock_images/luxury_fashion_retai_32a7703b.jpg';
 import designWorkspaceImg from '@assets/stock_images/creative_team_workin_79883382.jpg';
+import aiRealEstateDashboard from '@assets/generated_images/ai_real_estate_lead_dashboard.png';
+import aiLeadEngineDashboard from '@assets/generated_images/ai_lead_engine_dashboard.png';
 
 export const caseStudies: Record<string, CaseStudy> = {
   'propflow-property-platform': {
     slug: 'propflow-property-platform',
-    brand: 'PropFlow',
-    category: 'Property Technology',
-    description: 'Property Marketplace Platform',
-    fullDescription: 'Designed and developed a streamlined property marketplace platform that simplified real estate transactions for buyers and sellers.',
-    challenge: 'Property transactions involve complex documentation, fragmented communication, and significant information asymmetry between buyers and sellers.',
-    strategy: 'We built a comprehensive platform with automated property data collection, neighborhood insights, and transparent marketplace features. Research-driven design ensured intuitive user flows.',
-    results: 'The platform achieved strong adoption and was subsequently acquired by a larger property technology group.',
+    brand: 'AI Real Estate Agent',
+    category: 'AI Employees',
+    description: '24/7 Lead Qualification System',
+    fullDescription: 'Deployed an AI real estate specialist that handled initial inquiries, qualified prospects, and scheduled viewings—reducing human workload by 70%.',
+    challenge: 'A mid-sized brokerage was losing leads due to slow response times. Agents spent 60% of their day on initial inquiries that never converted.',
+    strategy: 'We deployed an AI Real Estate Specialist that engaged leads via phone, SMS, and email within seconds. The AI qualified prospects based on budget, timeline, and preferences, then seamlessly handed off warm leads.',
+    results: 'Lead response time dropped from 4 hours to under 30 seconds. The technology was acquired by a proptech company in 2023.',
     metrics: {
-      value: '68%',
-      label: 'faster listings'
+      value: '94%',
+      label: 'faster response'
     },
     secondaryMetrics: [
-      { value: '3.2x', label: 'user engagement' },
-      { value: '47%', label: 'conversion lift' }
+      { value: '3.2x', label: 'conversion rate' },
+      { value: '70%', label: 'workload reduction' }
     ],
-    services: ['Product Strategy', 'UX/UI Design', 'Full-Stack Development'],
-    platforms: ['Responsive Web'],
-    thumbnailImage: designWorkspaceImg,
-    heroImage: designWorkspaceImg,
+    services: ['AI Employee Development', 'Process Automation', 'CRM Integration'],
+    platforms: ['Custom AI Platform'],
+    thumbnailImage: aiRealEstateDashboard,
+    heroImage: aiRealEstateDashboard,
     gridClass: 'col-span-1 row-span-1'
   },
   'fanstake-sports-platform': {
     slug: 'fanstake-sports-platform',
-    brand: 'FanStake',
-    category: 'Sports Technology',
-    description: 'Sports Engagement Platform',
-    fullDescription: 'Built a mobile-first sports engagement platform connecting fans with athlete performance analytics and community features.',
-    challenge: 'Existing sports apps focused only on scores and news, missing deeper fan engagement opportunities around athlete performance tracking.',
-    strategy: 'We conducted user research, redesigned the mobile experience, and built native iOS/Android apps with real-time data feeds and community features.',
-    results: 'Strong adoption metrics led to successful acquisition by a sports media company.',
+    brand: 'AI Lead Engine',
+    category: 'AI Revenue Automation',
+    description: '10x Pipeline Velocity System',
+    fullDescription: 'Built an AI-powered lead generation engine that qualified prospects automatically, increasing pipeline velocity by 10x and reducing cost per acquisition.',
+    challenge: 'A B2B SaaS company was struggling with lead quality. Their SDR team was burning through hundreds of leads monthly with no clear way to prioritize high-intent prospects.',
+    strategy: 'We built an AI revenue engine that captured leads from multiple channels, scored them using behavioral and firmographic data, and automatically nurtured them through personalized sequences.',
+    results: 'Pipeline velocity increased 10x while cost per acquisition dropped 67%. The system was acquired as part of a martech consolidation in 2023.',
     metrics: {
-      value: '340%',
-      label: 'session growth'
+      value: '10x',
+      label: 'pipeline velocity'
     },
     secondaryMetrics: [
-      { value: '52%', label: 'conversion rate' },
-      { value: '4.6', label: 'app rating' }
+      { value: '67%', label: 'lower CPA' },
+      { value: '85%', label: 'qualification accuracy' }
     ],
-    services: ['Product Strategy', 'UX/UI Design', 'Mobile Development'],
-    platforms: ['iOS', 'Android'],
-    thumbnailImage: teamCollabImg,
-    heroImage: teamCollabImg,
+    services: ['AI Automation', 'Lead Generation', 'Revenue Optimization'],
+    platforms: ['HubSpot', 'Salesforce'],
+    thumbnailImage: aiLeadEngineDashboard,
+    heroImage: aiLeadEngineDashboard,
     gridClass: 'col-span-1 row-span-1'
   },
   'fitnesspro-network': {
@@ -451,8 +453,8 @@ export const featuredCaseStudies = [
 // Case studies by category for filtering
 export const caseStudiesByCategory = {
   creative: ['fitnesspro-network', 'luxe-essence', 'naturalcare-beauty', 'authentic-stories'],
-  aiEmployees: ['healthpath-ai', 'sportsai-interactive', 'talentscale-solutions'],
-  automation: ['digital-finance-solutions', 'streamflow-automation', 'global-supply-systems', 'heritage-luxury-group'],
+  aiEmployees: ['healthpath-ai', 'sportsai-interactive', 'talentscale-solutions', 'propflow-property-platform'],
+  automation: ['digital-finance-solutions', 'streamflow-automation', 'global-supply-systems', 'heritage-luxury-group', 'fanstake-sports-platform'],
   ecommerce: ['homecraft-innovations'],
   gaming: ['gamingtech-elite', 'progamer-network'],
   transformation: ['cloudbase-technologies']
