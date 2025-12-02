@@ -44,6 +44,14 @@ import aiRealEstateDashboard from '@assets/generated_images/ai_real_estate_lead_
 import aiLeadEngineDashboard from '@assets/generated_images/ai_lead_engine_dashboard.png';
 import strategicPlanningDashboard from '@assets/generated_images/strategic_planning_dashboard_ui.png';
 
+// Colorful homepage case study thumbnails
+import colorfulDashboardImg from '@assets/generated_images/colorful_analytics_dashboard_laptop.png';
+import colorfulRealEstateImg from '@assets/generated_images/colorful_real_estate_property_showcase.png';
+import colorfulSalesTeamImg from '@assets/generated_images/vibrant_sales_team_celebrating.png';
+import colorfulGymImg from '@assets/generated_images/colorful_modern_gym_interior.png';
+import colorfulPerfumeImg from '@assets/generated_images/colorful_luxury_perfume_product.png';
+import colorfulBeautyImg from '@assets/generated_images/colorful_natural_beauty_products.png';
+
 export const caseStudies: Record<string, CaseStudy> = {
   'strategypulse-enterprise': {
     slug: 'strategypulse-enterprise',
@@ -64,7 +72,7 @@ export const caseStudies: Record<string, CaseStudy> = {
     ],
     services: ['Custom Software Development', 'AI Analytics', 'Enterprise Deployment'],
     platforms: ['React', 'Node.js', 'AWS'],
-    thumbnailImage: strategicPlanningDashboard,
+    thumbnailImage: colorfulDashboardImg,
     heroImage: strategicPlanningDashboard,
     gridClass: 'col-span-1 row-span-1'
   },
@@ -87,7 +95,7 @@ export const caseStudies: Record<string, CaseStudy> = {
     ],
     services: ['AI Employee Development', 'Process Automation', 'CRM Integration'],
     platforms: ['Custom AI Platform'],
-    thumbnailImage: aiRealEstateDashboard,
+    thumbnailImage: colorfulRealEstateImg,
     heroImage: aiRealEstateDashboard,
     gridClass: 'col-span-1 row-span-1'
   },
@@ -110,7 +118,7 @@ export const caseStudies: Record<string, CaseStudy> = {
     ],
     services: ['AI Automation', 'Lead Generation', 'Revenue Optimization'],
     platforms: ['HubSpot', 'Salesforce'],
-    thumbnailImage: aiLeadEngineDashboard,
+    thumbnailImage: colorfulSalesTeamImg,
     heroImage: aiLeadEngineDashboard,
     gridClass: 'col-span-1 row-span-1'
   },
@@ -133,7 +141,7 @@ export const caseStudies: Record<string, CaseStudy> = {
     ],
     services: ['Influencer Marketing', 'Content Strategy', 'Paid Social'],
     platforms: ['TikTok', 'Instagram'],
-    thumbnailImage: gymGroupImg,
+    thumbnailImage: colorfulGymImg,
     heroImage: gymGroupImg,
     gridClass: 'col-span-2 row-span-2'
   },
@@ -156,7 +164,7 @@ export const caseStudies: Record<string, CaseStudy> = {
     ],
     services: ['Brand Strategy', 'Influencer Marketing', 'Creative Production'],
     platforms: ['Instagram', 'YouTube'],
-    thumbnailImage: azzaroImg,
+    thumbnailImage: colorfulPerfumeImg,
     heroImage: azzaroImg,
     gridClass: 'col-span-1 row-span-1'
   },
@@ -179,7 +187,7 @@ export const caseStudies: Record<string, CaseStudy> = {
     ],
     services: ['Community Management', 'UGC Strategy', 'Social Listening'],
     platforms: ['TikTok', 'Instagram'],
-    thumbnailImage: bodyShopImg,
+    thumbnailImage: colorfulBeautyImg,
     heroImage: bodyShopImg,
     gridClass: 'col-span-1 row-span-1'
   },
