@@ -1,11 +1,11 @@
 import { ArrowUpRight } from "lucide-react";
 import { Link } from "wouter";
-import { caseStudiesArray } from "@/data/caseStudies";
+import { featuredCaseStudies } from "@/data/caseStudies";
 
 export default function BrandShowcaseSection() {
-  const heroStudy = caseStudiesArray[0]; // FitnessPro Network - Hero
-  const mediumStudies = caseStudiesArray.slice(1, 3); // Luxe Essence, NaturalCare Beauty
-  const smallStudies = caseStudiesArray.slice(3, 6); // HomeCraft, GamingTech, ProGamer
+  const heroStudy = featuredCaseStudies[0]; // AI Data Engine NLP - Hero
+  const mediumStudies = featuredCaseStudies.slice(1, 3); // FitnessPro, Digital Finance
+  const smallStudies = featuredCaseStudies.slice(3, 6); // HealthPath, GamingTech, Luxe Essence
   
   return (
     <section className="py-12 md:py-16 lg:py-20 bg-white relative overflow-hidden">

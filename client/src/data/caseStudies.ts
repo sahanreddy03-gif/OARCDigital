@@ -43,6 +43,8 @@ import designWorkspaceImg from '@assets/stock_images/creative_team_workin_798833
 import aiRealEstateDashboard from '@assets/generated_images/ai_real_estate_lead_dashboard.png';
 import aiLeadEngineDashboard from '@assets/generated_images/ai_lead_engine_dashboard.png';
 import strategicPlanningDashboard from '@assets/generated_images/strategic_planning_dashboard_ui.png';
+import aiDataCleansingDashboard from '@assets/generated_images/ai_data_cleansing_dashboard.png';
+import colorfulDataAnalyticsImg from '@assets/generated_images/colorful_data_analytics_dashboard.png';
 
 // Colorful homepage case study thumbnails
 import colorfulDashboardImg from '@assets/generated_images/colorful_analytics_dashboard_laptop.png';
@@ -466,6 +468,30 @@ export const caseStudies: Record<string, CaseStudy> = {
     thumbnailImage: luxuryFashionImg,
     heroImage: luxuryFashionImg,
     gridClass: 'col-span-1 row-span-1'
+  },
+  'national-distributor-nlp': {
+    slug: 'national-distributor-nlp',
+    brand: 'AI Data Engine',
+    category: 'AI Data Engineering',
+    description: 'NLP-Powered Data Transformation',
+    fullDescription: 'Deployed custom AI-powered data cleansing framework that transformed 10,000+ chaotic stock cards into a clean, intelligent data foundation for a major UK food & beverage distributor.',
+    challenge: 'A major F&B distributor operating across B2B and B2C channels was drowning in data chaos. With 10,000+ SKUs, their ERP, CRM, and legacy spreadsheets were riddled with inconsistencies—misaligned product IDs, duplicate records, non-standard formats across dates, addresses, and SKUs. This caused frequent order errors, delayed fulfillment, inaccurate inventory forecasting, and poor reporting visibility.',
+    strategy: 'We deployed a custom AI-powered data cleansing framework combining NLP models for product name normalization, fuzzy matching algorithms for de-duplication, rule-based validation engines for anomaly detection, and real-time data quality dashboards. The system enriched records using external data sources while establishing ongoing governance protocols—all without interrupting daily operations.',
+    results: 'In just weeks, we transformed a fractured data ecosystem into a structured, intelligent foundation. Order errors dropped dramatically, forecasting became precise, team velocity increased, and the clean dataset now enables scalable AI automation across supply chain, pricing, and customer experience.',
+    metrics: {
+      value: '10,000+',
+      label: 'SKUs cleaned'
+    },
+    secondaryMetrics: [
+      { value: '99.2%', label: 'data accuracy' },
+      { value: '73%', label: 'error reduction' },
+      { value: '4 weeks', label: 'to completion' }
+    ],
+    services: ['AI Data Engineering', 'NLP Processing', 'Data Quality Automation', 'Dashboard Development'],
+    platforms: ['Custom AI Platform', 'ERP Integration', 'CRM Integration'],
+    thumbnailImage: colorfulDataAnalyticsImg,
+    heroImage: aiDataCleansingDashboard,
+    gridClass: 'col-span-2 row-span-1'
   }
 };
 
@@ -474,11 +500,11 @@ export const caseStudiesArray = Object.values(caseStudies);
 
 // Featured case studies for homepage (6 most impressive)
 export const featuredCaseStudies = [
+  caseStudies['national-distributor-nlp'],
   caseStudies['fitnesspro-network'],
   caseStudies['digital-finance-solutions'],
   caseStudies['healthpath-ai'],
   caseStudies['gamingtech-elite'],
-  caseStudies['authentic-stories'],
   caseStudies['luxe-essence']
 ];
 
@@ -487,6 +513,7 @@ export const caseStudiesByCategory = {
   creative: ['fitnesspro-network', 'luxe-essence', 'naturalcare-beauty', 'authentic-stories'],
   aiEmployees: ['healthpath-ai', 'sportsai-interactive', 'talentscale-solutions', 'propflow-property-platform'],
   automation: ['digital-finance-solutions', 'streamflow-automation', 'global-supply-systems', 'heritage-luxury-group', 'fanstake-sports-platform'],
+  dataEngineering: ['national-distributor-nlp'],
   ecommerce: ['homecraft-innovations'],
   gaming: ['gamingtech-elite', 'progamer-network'],
   transformation: ['cloudbase-technologies']
