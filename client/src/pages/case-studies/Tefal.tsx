@@ -5,7 +5,7 @@ import { SiSnapchat, SiTiktok } from 'react-icons/si';
 import Layout from '@/components/layout/Layout';
 import SEOHead from '@/components/SEOHead';
 import { caseStudiesSEO } from '@/data/seoMetadata';
-import tefalHeroImg from '@assets/TefalPictures-32-scaled_1761760754960.jpg';
+import tefalHeroImg from '@assets/pexels-shvetsa-12673974_1764638693005.jpg';
 import tefalAboutImg from '@assets/HOME-LAME-3-About-Tefal_1761847874021.jpg';
 import tefalVideoImg from '@assets/image_1761847809835.png';
 import strategyImg1 from '@assets/IMG_7948_1761931325601.jpeg';
@@ -71,7 +71,7 @@ export default function TefalCaseStudy() {
         <div className="absolute top-0 right-0 w-80 h-80 bg-[#c4ff4d]/15 rounded-full blur-3xl"></div>
         <img 
           src={tefalHeroImg}
-          alt="HomeCraft Innovations Kitchen Products"
+          alt="Content creator filming kitchen product review with ring light for HomeCraft Innovations influencer campaign"
           className="absolute inset-0 w-full h-full object-cover opacity-80"
           data-testid="img-hero-background"
         />
