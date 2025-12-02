@@ -321,7 +321,7 @@ export default function MVPSoftwareDevelopment() {
                   </span>
                 </h1>
 
-                <p className="text-lg md:text-xl text-white/70 mb-8 max-w-xl leading-relaxed">
+                <p className="text-lg md:text-xl text-white/90 mb-8 max-w-xl leading-relaxed">
                   Whether you're launching a new SaaS product or building enterprise software, OARC's MVP development services will help:
                 </p>
 
@@ -433,7 +433,7 @@ export default function MVPSoftwareDevelopment() {
                   className="flex flex-col items-center gap-2 p-4 bg-white/[0.02] rounded-xl border border-white/5 hover:border-white/10 transition-colors"
                   data-testid={`tech-${idx}`}
                 >
-                  <TechIcon className="w-8 h-8 text-white/60" />
+                  <TechIcon className="w-8 h-8 text-white/80" />
                   <span className="text-xs text-white/40">{tech.name}</span>
                 </motion.div>
               );
@@ -459,7 +459,7 @@ export default function MVPSoftwareDevelopment() {
             <h2 className="text-3xl md:text-5xl font-black text-white mb-4">
               OARC's MVP Software Development Services
             </h2>
-            <p className="text-lg text-white/60 max-w-3xl mx-auto">
+            <p className="text-lg text-white/80 max-w-3xl mx-auto">
               Our MVP software development services help you create functional, market-ready software with minimal resources to validate your value prop.
             </p>
           </motion.div>
@@ -481,12 +481,12 @@ export default function MVPSoftwareDevelopment() {
                       <ItemIcon className="w-7 h-7 text-[#23AACA]" />
                     </div>
                     <h3 className="text-xl font-bold text-white mb-3">{item.title}</h3>
-                    <p className="text-white/60 mb-4 text-sm leading-relaxed">{item.description}</p>
+                    <p className="text-white/80 mb-4 text-sm leading-relaxed">{item.description}</p>
                     <div className="pt-4 border-t border-white/10">
                       <p className="text-xs text-white/40 uppercase tracking-wider mb-2">Deliverables</p>
                       <div className="flex flex-wrap gap-2">
                         {item.deliverables.map((del, dIdx) => (
-                          <span key={dIdx} className="text-xs px-2 py-1 bg-white/5 text-white/70 rounded">
+                          <span key={dIdx} className="text-xs px-2 py-1 bg-white/5 text-white/90 rounded">
                             {del}
                           </span>
                         ))}
@@ -523,7 +523,7 @@ export default function MVPSoftwareDevelopment() {
                       </div>
                       <div>
                         <h3 className="text-lg font-bold text-white mb-2">{item.title}</h3>
-                        <p className="text-white/60 text-sm leading-relaxed">{item.description}</p>
+                        <p className="text-white/80 text-sm leading-relaxed">{item.description}</p>
                       </div>
                     </div>
                   );
@@ -627,7 +627,7 @@ export default function MVPSoftwareDevelopment() {
             <h2 className="text-3xl md:text-4xl font-black text-white mb-4">
               OARC vs. Hiring In-House
             </h2>
-            <p className="text-lg text-white/60">
+            <p className="text-lg text-white/80">
               Why outsourcing your MVP makes financial sense
             </p>
           </motion.div>
@@ -640,9 +640,9 @@ export default function MVPSoftwareDevelopment() {
           >
             <GlassCard className="overflow-hidden" glowOnHover={false}>
               <div className="grid grid-cols-3 bg-white/5 p-4 border-b border-white/10">
-                <div className="font-bold text-white/60 text-sm"></div>
+                <div className="font-bold text-white/80 text-sm"></div>
                 <div className="font-bold text-[#4ade80] text-center">OARC Digital</div>
-                <div className="font-bold text-white/60 text-center">In-House Team</div>
+                <div className="font-bold text-white/80 text-center">In-House Team</div>
               </div>
               {vsInHouse.map((row, idx) => (
                 <div 
@@ -673,7 +673,7 @@ export default function MVPSoftwareDevelopment() {
             <h2 className="text-3xl md:text-4xl font-black text-white mb-4">
               Types of Software We Build
             </h2>
-            <p className="text-lg text-white/60 max-w-2xl mx-auto">
+            <p className="text-lg text-white/80 max-w-2xl mx-auto">
               From SaaS platforms to enterprise tools—we've built them all
             </p>
           </motion.div>
@@ -695,7 +695,7 @@ export default function MVPSoftwareDevelopment() {
                       <TypeIcon className="w-6 h-6 text-[#23AACA]" />
                     </div>
                     <h3 className="text-lg font-bold text-white mb-2">{type.name}</h3>
-                    <p className="text-sm text-white/60">{type.description}</p>
+                    <p className="text-sm text-white/80">{type.description}</p>
                   </GlassCard>
                 </motion.div>
               );
@@ -743,7 +743,7 @@ export default function MVPSoftwareDevelopment() {
                       {phase.duration}
                     </div>
                     <h3 className="text-xl font-bold text-white mb-3">{phase.title}</h3>
-                    <p className="text-white/60 text-sm mb-4 leading-relaxed">{phase.description}</p>
+                    <p className="text-white/80 text-sm mb-4 leading-relaxed">{phase.description}</p>
                     <div className="space-y-2">
                       {phase.deliverables.map((del, dIdx) => (
                         <div key={dIdx} className="flex items-center gap-2 text-xs text-white/50">
@@ -774,7 +774,7 @@ export default function MVPSoftwareDevelopment() {
               <h2 className="text-3xl md:text-4xl font-black text-white mb-2">
                 What We've Built
               </h2>
-              <p className="text-white/60">Real software MVPs. Real results.</p>
+              <p className="text-white/80">Real software MVPs. Real results.</p>
             </div>
             <Link href="/our-work">
               <Button variant="outline" className="border-white/20 text-white hover:bg-white/10" data-testid="button-all-case-studies">
@@ -810,7 +810,7 @@ export default function MVPSoftwareDevelopment() {
                   </div>
                   <div className="p-6">
                     <h3 className="text-lg font-bold text-white mb-2">{study.title}</h3>
-                    <p className="text-white/60 text-sm mb-4">{study.description}</p>
+                    <p className="text-white/80 text-sm mb-4">{study.description}</p>
                     <div className="flex items-center justify-between pt-4 border-t border-white/10">
                       <div>
                         <div className="text-2xl font-black text-[#4ade80]">{study.metric}</div>
@@ -839,7 +839,7 @@ export default function MVPSoftwareDevelopment() {
             <h2 className="text-3xl md:text-4xl font-black text-white mb-4">
               What's Included
             </h2>
-            <p className="text-lg text-white/60">
+            <p className="text-lg text-white/80">
               Every software MVP project includes these deliverables—no hidden costs.
             </p>
           </motion.div>
@@ -973,7 +973,7 @@ export default function MVPSoftwareDevelopment() {
                         transition={{ duration: 0.3 }}
                         className="mt-4 pt-4 border-t border-white/10"
                       >
-                        <p className="text-white/70 leading-relaxed" data-testid={`faq-answer-${idx}`}>
+                        <p className="text-white/90 leading-relaxed" data-testid={`faq-answer-${idx}`}>
                           {faq.answer}
                         </p>
                       </motion.div>
@@ -1007,7 +1007,7 @@ export default function MVPSoftwareDevelopment() {
               </span>
             </h2>
             
-            <p className="text-lg text-white/60 mb-8 max-w-2xl mx-auto">
+            <p className="text-lg text-white/80 mb-8 max-w-2xl mx-auto">
               Book a free 30-minute consultation with our software development team. We'll discuss your idea, tech requirements, and how we can help you launch fast.
             </p>
 
@@ -1061,7 +1061,7 @@ export default function MVPSoftwareDevelopment() {
       <section className="bg-zinc-950 py-8 px-6 border-t border-white/5">
         <div className="max-w-7xl mx-auto text-center">
           <Link href="/services/mvp-development">
-            <Button variant="ghost" className="text-white/60 hover:text-white" data-testid="button-back-to-mvp">
+            <Button variant="ghost" className="text-white/80 hover:text-white" data-testid="button-back-to-mvp">
               <ArrowRight className="w-4 h-4 mr-2 rotate-180" />
               Back to MVP Development Services
             </Button>

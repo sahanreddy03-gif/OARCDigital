@@ -336,7 +336,7 @@ export default function MVPDevelopment() {
                   </span>
                 </h1>
 
-                <p className="text-lg md:text-xl text-white/70 mb-8 max-w-xl leading-relaxed">
+                <p className="text-lg md:text-xl text-white/90 mb-8 max-w-xl leading-relaxed">
                   Whether you're launching a new company or scaling horizontally, OARC's MVP development services will help you build, test, and iterate—fast.
                 </p>
 
@@ -347,7 +347,7 @@ export default function MVPDevelopment() {
                     'Test and iterate based on real user feedback',
                     'Check assumptions and invest resources wisely—early'
                   ].map((item, idx) => (
-                    <li key={idx} className="flex items-start gap-3 text-white/80">
+                    <li key={idx} className="flex items-start gap-3 text-white">
                       <CheckCircle2 className="w-5 h-5 text-[#4ade80] flex-shrink-0 mt-0.5" />
                       <span>{item}</span>
                     </li>
@@ -467,7 +467,7 @@ export default function MVPDevelopment() {
             <h2 className="text-3xl md:text-5xl font-black text-white mb-4">
               OARC's MVP Development Services
             </h2>
-            <p className="text-lg text-white/60 max-w-3xl mx-auto">
+            <p className="text-lg text-white/80 max-w-3xl mx-auto">
               Our MVP software development services help you create functional, market-ready software with minimal resources to validate your value prop.
             </p>
           </motion.div>
@@ -489,7 +489,7 @@ export default function MVPDevelopment() {
                       <ItemIcon className="w-7 h-7 text-[#23AACA]" />
                     </div>
                     <h3 className="text-xl font-bold text-white mb-3">{item.title}</h3>
-                    <p className="text-white/60 mb-4 text-sm leading-relaxed">{item.description}</p>
+                    <p className="text-white/80 mb-4 text-sm leading-relaxed">{item.description}</p>
                     <div className="pt-4 border-t border-white/10">
                       <p className="text-xs text-white/40 uppercase tracking-wider mb-2">Deliverables</p>
                       <div className="flex flex-wrap gap-2">
@@ -531,7 +531,7 @@ export default function MVPDevelopment() {
                       </div>
                       <div>
                         <h3 className="text-lg font-bold text-white mb-2">{item.title}</h3>
-                        <p className="text-white/60 text-sm leading-relaxed">{item.description}</p>
+                        <p className="text-white/90 text-sm leading-relaxed">{item.description}</p>
                       </div>
                     </div>
                   );
@@ -641,7 +641,7 @@ export default function MVPDevelopment() {
             <h2 className="text-3xl md:text-4xl font-black text-white mb-4">
               From Idea to Launch in 8-12 Weeks
             </h2>
-            <p className="text-lg text-white/60 max-w-2xl mx-auto">
+            <p className="text-lg text-white/80 max-w-2xl mx-auto">
               Our battle-tested methodology has shipped 40+ MVPs. Here's how we do it.
             </p>
           </motion.div>
@@ -666,7 +666,7 @@ export default function MVPDevelopment() {
                       {phase.duration}
                     </div>
                     <h3 className="text-xl font-bold text-white mb-3">{phase.title}</h3>
-                    <p className="text-white/60 text-sm mb-4 leading-relaxed">{phase.description}</p>
+                    <p className="text-white/90 text-sm mb-4 leading-relaxed">{phase.description}</p>
                     <div className="space-y-2">
                       {phase.deliverables.map((del, dIdx) => (
                         <div key={dIdx} className="flex items-center gap-2 text-xs text-white/50">
@@ -715,7 +715,7 @@ export default function MVPDevelopment() {
               <h2 className="text-3xl md:text-4xl font-black text-white mb-2">
                 What We've Built
               </h2>
-              <p className="text-white/60">Real MVPs. Real results.</p>
+              <p className="text-white/80">Real MVPs. Real results.</p>
             </div>
             <Link href="/our-work">
               <Button variant="outline" className="border-white/20 text-white hover:bg-white/10" data-testid="button-all-case-studies">
@@ -751,7 +751,7 @@ export default function MVPDevelopment() {
                   </div>
                   <div className="p-6">
                     <h3 className="text-lg font-bold text-white mb-2">{study.title}</h3>
-                    <p className="text-white/60 text-sm mb-4">{study.description}</p>
+                    <p className="text-white/90 text-sm mb-4">{study.description}</p>
                     <div className="flex items-center justify-between pt-4 border-t border-white/10">
                       <div>
                         <div className="text-2xl font-black text-[#4ade80]">{study.metric}</div>
@@ -784,7 +784,7 @@ export default function MVPDevelopment() {
             <h2 className="text-3xl md:text-4xl font-black text-white mb-4">
               Why Malta. Why OARC.
             </h2>
-            <p className="text-lg text-white/60 max-w-2xl mx-auto">
+            <p className="text-lg text-white/80 max-w-2xl mx-auto">
               Your gateway to the EU market, with deep expertise in regulated industries.
             </p>
           </motion.div>
@@ -806,7 +806,7 @@ export default function MVPDevelopment() {
                       <AdvIcon className="w-6 h-6 text-[#23AACA]" />
                     </div>
                     <h3 className="text-lg font-bold text-white mb-2">{advantage.title}</h3>
-                    <p className="text-white/60 text-sm leading-relaxed">{advantage.description}</p>
+                    <p className="text-white/90 text-sm leading-relaxed">{advantage.description}</p>
                   </GlassCard>
                 </motion.div>
               );
@@ -828,7 +828,7 @@ export default function MVPDevelopment() {
             <h2 className="text-3xl md:text-4xl font-black text-white mb-4">
               Industries We Serve
             </h2>
-            <p className="text-lg text-white/60 max-w-2xl mx-auto">
+            <p className="text-lg text-white/80 max-w-2xl mx-auto">
               Deep expertise in Malta's key sectors and beyond
             </p>
           </motion.div>
@@ -879,7 +879,7 @@ export default function MVPDevelopment() {
             <h2 className="text-3xl md:text-4xl font-black text-white mb-4">
               What's Included
             </h2>
-            <p className="text-lg text-white/60">
+            <p className="text-lg text-white/80">
               Every MVP project includes these deliverables—no hidden costs.
             </p>
           </motion.div>
@@ -1013,7 +1013,7 @@ export default function MVPDevelopment() {
                         transition={{ duration: 0.3 }}
                         className="mt-4 pt-4 border-t border-white/10"
                       >
-                        <p className="text-white/70 leading-relaxed" data-testid={`faq-answer-${idx}`}>
+                        <p className="text-white/90 leading-relaxed" data-testid={`faq-answer-${idx}`}>
                           {faq.answer}
                         </p>
                       </motion.div>
@@ -1047,7 +1047,7 @@ export default function MVPDevelopment() {
               </span>
             </h2>
             
-            <p className="text-lg text-white/60 mb-8 max-w-2xl mx-auto">
+            <p className="text-lg text-white/80 mb-8 max-w-2xl mx-auto">
               Book a free 30-minute consultation with our team. We'll discuss your idea, timeline, and how we can help you launch fast.
             </p>
 
