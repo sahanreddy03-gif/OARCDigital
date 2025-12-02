@@ -37,6 +37,7 @@ import AIConsulting from "@/pages/services/AIConsulting";
 import MobileAppsDevelopment from "@/pages/services/MobileAppsDevelopment";
 import CustomSoftwareDevelopment from "@/pages/services/CustomSoftwareDevelopment";
 import MVPDevelopment from "@/pages/services/MVPDevelopment";
+import MVPSoftwareDevelopment from "@/pages/services/MVPSoftwareDevelopment";
 import OurWork from "@/pages/OurWork";
 import WhyUs from "@/pages/WhyUs";
 import Roadmap2026 from "@/pages/Roadmap2026";
@@ -134,6 +135,7 @@ function Router() {
       <Route path="/services/mobile-applications-development" component={MobileAppsDevelopment} />
       <Route path="/services/custom-software-development" component={CustomSoftwareDevelopment} />
       <Route path="/services/mvp-development" component={MVPDevelopment} />
+      <Route path="/services/mvp-development/for-software" component={MVPSoftwareDevelopment} />
       
       {/* Fallback for other services */}
       <Route path="/services/:service" component={ServiceDetail} />
