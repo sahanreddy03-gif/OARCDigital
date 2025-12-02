@@ -1,8 +1,8 @@
 import { useEffect, useState, useMemo, useRef } from 'react';
 import Layout from "@/components/layout/Layout";
 import { Link } from "wouter";
-import { ArrowUpRight, Sparkles, Bot, Palette, Grid3X3, Star, Award, TrendingUp, Gem, Crown } from "lucide-react";
-import { caseStudies, CaseStudy } from "@/data/caseStudies";
+import { ArrowUpRight, Bot, Palette, Grid3X3, Star, Award, TrendingUp, Sparkles } from "lucide-react";
+import { caseStudies } from "@/data/caseStudies";
 import SEOHead from "@/components/SEOHead";
 import { supportingPagesSEO } from "@/data/seoMetadata";
 import { motion, useReducedMotion, useInView, useSpring, useMotionValue } from "framer-motion";
@@ -50,40 +50,6 @@ const featuredSlugs = [
   'luxe-essence'
 ];
 
-function FloatingParticle({ delay, duration, size, left, top, color }: { 
-  delay: number; 
-  duration: number; 
-  size: number;
-  left: string;
-  top: string;
-  color: string;
-}) {
-  return (
-    <motion.div
-      className="absolute rounded-full motion-reduce:hidden pointer-events-none"
-      style={{
-        width: size,
-        height: size,
-        left,
-        top,
-        background: color,
-        boxShadow: `0 0 ${size * 2}px ${color}`,
-      }}
-      animate={{
-        y: [-15, 15, -15],
-        x: [-8, 8, -8],
-        opacity: [0.3, 0.7, 0.3],
-        scale: [1, 1.3, 1],
-      }}
-      transition={{
-        duration,
-        delay,
-        repeat: Infinity,
-        ease: "easeInOut",
-      }}
-    />
-  );
-}
 
 function AnimatedCounter({ value, suffix = "", prefix = "" }: { 
   value: number; 
@@ -150,36 +116,24 @@ export default function OurWork() {
   const getCategoryStyle = (category: string) => {
     if (isAICategory(category)) {
       return {
-        badge: 'bg-[#23AACA]/20 text-[#23AACA] border-[#23AACA]/40',
-        metric: 'bg-gradient-to-r from-[#23AACA] to-[#4ade80] text-zinc-900',
+        badge: 'bg-zinc-800/80 text-zinc-300 border-zinc-700',
+        metric: 'bg-zinc-100 text-zinc-900',
         cardBg: 'bg-zinc-900',
-        glow: 'group-hover:shadow-[0_0_50px_rgba(35,170,202,0.35)]',
+        glow: 'group-hover:shadow-[0_0_40px_rgba(255,255,255,0.08)]',
         overlay: 'from-zinc-900/95 via-zinc-900/80 to-transparent',
-        accentLine: 'from-[#23AACA] to-[#4ade80]'
+        accentLine: 'from-zinc-400 to-zinc-600'
       };
     }
     return {
-      badge: 'bg-[#c4ff4d]/15 text-[#c4ff4d] border-[#c4ff4d]/40',
-      metric: 'bg-[#c4ff4d] text-zinc-900',
+      badge: 'bg-zinc-800/80 text-zinc-300 border-zinc-700',
+      metric: 'bg-zinc-100 text-zinc-900',
       cardBg: 'bg-zinc-900',
-      glow: 'group-hover:shadow-[0_0_50px_rgba(196,255,77,0.35)]',
+      glow: 'group-hover:shadow-[0_0_40px_rgba(255,255,255,0.08)]',
       overlay: 'from-zinc-900/95 via-zinc-900/80 to-transparent',
-      accentLine: 'from-[#c4ff4d] to-[#4ade80]'
+      accentLine: 'from-zinc-400 to-zinc-600'
     };
   };
 
-  const particles = useMemo(() => {
-    if (prefersReducedMotion) return [];
-    return Array.from({ length: 20 }, (_, i) => ({
-      id: i,
-      delay: Math.random() * 4,
-      duration: 5 + Math.random() * 4,
-      size: 3 + Math.random() * 5,
-      left: `${Math.random() * 100}%`,
-      top: `${Math.random() * 100}%`,
-      color: i % 3 === 0 ? '#c4ff4d' : i % 3 === 1 ? '#23AACA' : '#4ade80'
-    }));
-  }, [prefersReducedMotion]);
 
   return (
     <Layout>
@@ -190,24 +144,10 @@ export default function OurWork() {
         ogType={supportingPagesSEO.ourWork.ogType}
       />
       
-      {/* Elite Hero Section - Premium Dark with Brand Accents */}
-      <section className="relative py-28 md:py-40 overflow-hidden bg-zinc-950">
-        {/* Sophisticated Grid Background */}
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(196,255,77,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(196,255,77,0.03)_1px,transparent_1px)] bg-[size:60px_60px]" />
-        
-        {/* Premium Gradient Orbs */}
-        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-gradient-to-bl from-[#c4ff4d]/10 via-[#23AACA]/5 to-transparent rounded-full blur-[150px] motion-reduce:animate-none animate-pulse" />
-        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-gradient-to-tr from-[#23AACA]/8 via-[#4ade80]/5 to-transparent rounded-full blur-[120px] motion-reduce:animate-none animate-pulse" style={{ animationDelay: '2s' }} />
-        
-        {/* Floating Brand Particles */}
-        <div className="absolute inset-0 overflow-hidden">
-          {particles.map(p => (
-            <FloatingParticle key={p.id} {...p} />
-          ))}
-        </div>
-        
-        {/* Diagonal Accent Line */}
-        <div className="absolute top-0 right-0 w-[2px] h-[400px] bg-gradient-to-b from-[#c4ff4d]/60 via-[#23AACA]/40 to-transparent transform rotate-[30deg] origin-top-right" />
+      {/* Hero Section - Clean Professional */}
+      <section className="relative py-24 md:py-32 overflow-hidden bg-zinc-950">
+        {/* Subtle Grid Background */}
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:60px_60px]" />
         
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
           <motion.div 
@@ -216,79 +156,18 @@ export default function OurWork() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            {/* Elite Badge */}
-            <motion.div 
-              className="inline-flex items-center gap-3 px-5 py-2.5 bg-white/[0.03] backdrop-blur-md rounded-full border border-white/10 mb-8"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-            >
-              <Crown className="w-4 h-4 text-[#c4ff4d]" />
-              <span className="text-sm font-bold text-white/80 tracking-wide uppercase">Elite Creative Portfolio</span>
-              <div className="w-1.5 h-1.5 rounded-full bg-[#c4ff4d] animate-pulse" />
-            </motion.div>
-            
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-black mb-8 leading-[1.05] tracking-tight">
-              <span className="text-white">Work That</span>
-              <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#c4ff4d] via-[#4ade80] to-[#23AACA]">
-                Defines Excellence
-              </span>
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-semibold mb-8 leading-[1.1] tracking-tight">
+              <span className="text-zinc-100">Our Work</span>
             </h1>
-            <p className="text-xl md:text-2xl text-white/60 leading-relaxed max-w-2xl">
-              Award-winning campaigns, AI transformations, and creative strategies that set the standard for premium brands worldwide.
+            <p className="text-lg md:text-xl text-zinc-400 leading-relaxed max-w-2xl font-normal">
+              Award-winning campaigns, AI transformations, and creative strategies that deliver measurable results for brands worldwide.
             </p>
-            
-            {/* Premium Stats Row */}
-            <div className="flex flex-wrap items-center gap-6 md:gap-8 mt-14">
-              <motion.div 
-                className="relative group"
-                whileHover={{ scale: 1.03 }}
-                transition={{ type: "spring", stiffness: 300 }}
-              >
-                <div className="absolute inset-0 bg-gradient-to-r from-[#c4ff4d]/20 to-transparent rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
-                <div className="relative bg-white/[0.03] backdrop-blur-md rounded-2xl px-7 py-5 border border-white/10">
-                  <div className="text-3xl md:text-4xl font-black text-[#c4ff4d]">
-                    <AnimatedCounter value={allCaseStudies.length} suffix="+" />
-                  </div>
-                  <div className="text-sm text-white/50 font-medium mt-1">Success Stories</div>
-                </div>
-              </motion.div>
-              
-              <motion.div 
-                className="relative group"
-                whileHover={{ scale: 1.03 }}
-                transition={{ type: "spring", stiffness: 300 }}
-              >
-                <div className="absolute inset-0 bg-gradient-to-r from-[#23AACA]/20 to-transparent rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
-                <div className="relative bg-white/[0.03] backdrop-blur-md rounded-2xl px-7 py-5 border border-white/10">
-                  <div className="text-3xl md:text-4xl font-black text-[#23AACA]">
-                    <AnimatedCounter value={340} suffix="%" />
-                  </div>
-                  <div className="text-sm text-white/50 font-medium mt-1">Average ROI</div>
-                </div>
-              </motion.div>
-              
-              <motion.div 
-                className="relative group"
-                whileHover={{ scale: 1.03 }}
-                transition={{ type: "spring", stiffness: 300 }}
-              >
-                <div className="absolute inset-0 bg-gradient-to-r from-[#4ade80]/20 to-transparent rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
-                <div className="relative bg-white/[0.03] backdrop-blur-md rounded-2xl px-7 py-5 border border-white/10">
-                  <div className="text-3xl md:text-4xl font-black text-[#4ade80]">
-                    <AnimatedCounter value={200} suffix="+" />
-                  </div>
-                  <div className="text-sm text-white/50 font-medium mt-1">Premium Brands</div>
-                </div>
-              </motion.div>
-            </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Filter Tabs - Elite Minimal Design */}
-      <section className="sticky top-0 z-40 bg-zinc-950/95 backdrop-blur-xl border-b border-white/5">
+      {/* Filter Tabs - Clean Professional Design */}
+      <section className="sticky top-0 z-40 bg-zinc-950/95 backdrop-blur-xl border-b border-zinc-800/50">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="flex items-center gap-2 py-4 overflow-x-auto no-scrollbar">
             {filterCategories.map((filter) => {
@@ -298,17 +177,17 @@ export default function OurWork() {
                 <button
                   key={filter.id}
                   onClick={() => setActiveFilter(filter.id)}
-                  className={`flex items-center gap-2.5 px-6 py-3 rounded-full text-sm font-bold whitespace-nowrap transition-all duration-300 ${
+                  className={`flex items-center gap-2.5 px-5 py-2.5 rounded-lg text-sm font-medium whitespace-nowrap transition-all duration-200 ${
                     isActive 
-                      ? 'bg-[#c4ff4d] text-zinc-900 shadow-lg shadow-[#c4ff4d]/25' 
-                      : 'bg-white/[0.03] text-white/60 hover:bg-white/[0.06] hover:text-white/90 border border-white/5'
+                      ? 'bg-zinc-100 text-zinc-900' 
+                      : 'bg-zinc-800/50 text-zinc-400 hover:bg-zinc-800 hover:text-zinc-200 border border-zinc-700/50'
                   }`}
                   data-testid={`filter-${filter.id}`}
                 >
-                  <Icon className={`w-4 h-4 ${isActive ? 'text-zinc-900' : ''}`} />
+                  <Icon className={`w-4 h-4 ${isActive ? 'text-zinc-700' : 'text-zinc-500'}`} />
                   {filter.label}
                   {filter.id !== 'all' && (
-                    <span className={`text-xs px-2.5 py-1 rounded-full ${isActive ? 'bg-zinc-900/20' : 'bg-white/10'}`}>
+                    <span className={`text-xs px-2 py-0.5 rounded ${isActive ? 'bg-zinc-900/10 text-zinc-600' : 'bg-zinc-700/50 text-zinc-400'}`}>
                       {filter.id === 'ai' && allCaseStudies.filter(s => isAICategory(s.category)).length}
                       {filter.id === 'creative' && allCaseStudies.filter(s => !isAICategory(s.category)).length}
                       {filter.id === 'featured' && featuredSlugs.length}
@@ -410,36 +289,32 @@ export default function OurWork() {
                         {/* Bottom - Brand & Metric */}
                         <div className="space-y-5">
                           <div className="transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
-                            <h3 className={`font-black text-white mb-3 leading-tight ${isLarge ? 'text-3xl md:text-4xl' : isMedium ? 'text-2xl md:text-3xl' : 'text-xl md:text-2xl'}`}>
+                            <h3 className={`font-semibold text-zinc-100 mb-3 leading-tight ${isLarge ? 'text-2xl md:text-3xl' : isMedium ? 'text-xl md:text-2xl' : 'text-lg md:text-xl'}`}>
                               {study.brand}
                             </h3>
-                            <p className="text-base text-white/60 font-medium line-clamp-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-75">
+                            <p className="text-sm text-zinc-400 font-normal line-clamp-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-75">
                               {study.description}
                             </p>
                           </div>
                           
                           {/* Metric Badge */}
                           <div className="flex items-end justify-between">
-                            <motion.div 
-                              className={`inline-flex flex-col px-5 py-3 rounded-xl ${styles.metric} shadow-lg`}
-                              whileHover={{ scale: 1.05 }}
-                              transition={{ type: "spring", stiffness: 300 }}
-                            >
-                              <div className={`font-black leading-none ${isLarge ? 'text-2xl md:text-3xl' : 'text-xl md:text-2xl'}`}>
+                            <div className={`inline-flex flex-col px-4 py-2.5 rounded-lg ${styles.metric}`}>
+                              <div className={`font-semibold leading-none ${isLarge ? 'text-xl md:text-2xl' : 'text-lg md:text-xl'}`}>
                                 {study.metrics.value}
                               </div>
-                              <div className="text-xs font-bold mt-1 opacity-80">
+                              <div className="text-xs font-medium mt-1 text-zinc-600">
                                 {study.metrics.label}
                               </div>
-                            </motion.div>
+                            </div>
                             
                             {/* Secondary Metrics - Only on large cards */}
                             {isLarge && study.secondaryMetrics && (
-                              <div className="hidden md:flex items-center gap-4">
+                              <div className="hidden md:flex items-center gap-3">
                                 {study.secondaryMetrics.slice(0, 2).map((metric, idx) => (
-                                  <div key={idx} className="text-right bg-white/5 backdrop-blur-sm rounded-xl px-4 py-2 border border-white/5">
-                                    <div className="text-lg font-bold text-white">{metric.value}</div>
-                                    <div className="text-xs text-white/40">{metric.label}</div>
+                                  <div key={idx} className="text-right bg-zinc-800/60 backdrop-blur-sm rounded-lg px-3 py-2 border border-zinc-700/50">
+                                    <div className="text-base font-semibold text-zinc-200">{metric.value}</div>
+                                    <div className="text-xs text-zinc-500">{metric.label}</div>
                                   </div>
                                 ))}
                               </div>
@@ -449,9 +324,7 @@ export default function OurWork() {
                       </div>
 
                       {/* Hover Border Effect */}
-                      <div className={`absolute inset-0 rounded-2xl border-2 border-transparent transition-colors duration-500 pointer-events-none ${
-                        isAI ? 'group-hover:border-[#23AACA]/30' : 'group-hover:border-[#c4ff4d]/30'
-                      }`} />
+                      <div className="absolute inset-0 rounded-2xl border border-transparent group-hover:border-zinc-600/40 transition-colors duration-500 pointer-events-none" />
                     </div>
                   </Link>
                 </motion.div>
@@ -468,22 +341,15 @@ export default function OurWork() {
         </div>
       </section>
 
-      {/* Stats Bar - Premium Gradient */}
-      <section className="relative py-20 overflow-hidden bg-zinc-900">
-        <div className="absolute inset-0 bg-gradient-to-r from-zinc-900 via-zinc-800 to-zinc-900" />
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(196,255,77,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(196,255,77,0.02)_1px,transparent_1px)] bg-[size:40px_40px]" />
-        
-        {/* Accent Glows */}
-        <div className="absolute top-0 left-1/4 w-[300px] h-[300px] bg-[#c4ff4d]/8 rounded-full blur-[100px]" />
-        <div className="absolute bottom-0 right-1/4 w-[250px] h-[250px] bg-[#23AACA]/8 rounded-full blur-[80px]" />
-        
-        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+      {/* Stats Bar - Clean Professional */}
+      <section className="relative py-16 md:py-20 bg-zinc-900 border-t border-zinc-800">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
             {[
-              { value: 50, suffix: 'M+', prefix: '€', label: 'Revenue Generated', icon: TrendingUp, color: '#c4ff4d' },
-              { value: 200, suffix: '+', prefix: '', label: 'Brands Transformed', icon: Gem, color: '#23AACA' },
-              { value: 340, suffix: '%', prefix: '', label: 'Average ROI', icon: Star, color: '#4ade80' },
-              { value: 6, suffix: '', prefix: '', label: 'Industries Served', icon: Award, color: '#c4ff4d' }
+              { value: 50, suffix: 'M+', prefix: '€', label: 'Revenue Generated', icon: TrendingUp },
+              { value: 200, suffix: '+', prefix: '', label: 'Brands Transformed', icon: Award },
+              { value: 340, suffix: '%', prefix: '', label: 'Average ROI', icon: Star },
+              { value: 6, suffix: '', prefix: '', label: 'Industries Served', icon: Award }
             ].map((stat, idx) => (
               <motion.div 
                 key={idx} 
@@ -493,71 +359,51 @@ export default function OurWork() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
               >
-                <div 
-                  className="inline-flex items-center justify-center w-14 h-14 rounded-xl mb-4 border border-white/10"
-                  style={{ backgroundColor: `${stat.color}15` }}
-                >
-                  <stat.icon className="w-7 h-7" style={{ color: stat.color }} />
+                <div className="inline-flex items-center justify-center w-12 h-12 rounded-lg mb-4 bg-zinc-800 border border-zinc-700">
+                  <stat.icon className="w-6 h-6 text-zinc-400" />
                 </div>
-                <div className="text-4xl md:text-5xl font-black text-white">
+                <div className="text-3xl md:text-4xl font-semibold text-zinc-100">
                   <AnimatedCounter value={stat.value} suffix={stat.suffix} prefix={stat.prefix} />
                 </div>
-                <div className="text-sm text-white/40 mt-2 font-medium">{stat.label}</div>
+                <div className="text-sm text-zinc-500 mt-2 font-normal">{stat.label}</div>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA Section - Elite Minimal */}
-      <section className="relative py-24 md:py-32 bg-zinc-950 overflow-hidden">
-        {/* Decorative Elements */}
-        <div className="absolute top-1/2 left-0 w-[400px] h-[400px] bg-gradient-to-r from-[#c4ff4d]/8 to-transparent rounded-full blur-[120px] -translate-y-1/2" />
-        <div className="absolute top-1/2 right-0 w-[300px] h-[300px] bg-gradient-to-l from-[#23AACA]/8 to-transparent rounded-full blur-[100px] -translate-y-1/2" />
-        
-        <div className="max-w-4xl mx-auto px-6 md:px-12 text-center relative z-10">
+      {/* CTA Section - Clean Professional */}
+      <section className="relative py-20 md:py-28 bg-zinc-950 border-t border-zinc-800">
+        <div className="max-w-4xl mx-auto px-6 md:px-12 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <div className="inline-flex items-center gap-2.5 px-5 py-2.5 bg-white/[0.03] backdrop-blur-md rounded-full border border-white/10 mb-8">
-              <Sparkles className="w-4 h-4 text-[#c4ff4d]" />
-              <span className="text-sm font-bold text-white/70 uppercase tracking-wide">Join Elite Brands</span>
-            </div>
-            
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 leading-tight">
-              Ready to Become Our Next
-              <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#c4ff4d] via-[#4ade80] to-[#23AACA]">
-                Success Story?
-              </span>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-zinc-100 mb-6 leading-tight">
+              Ready to start your next project?
             </h2>
-            <p className="text-lg md:text-xl text-white/50 mb-12 max-w-2xl mx-auto">
-              Whether you need breakthrough creative campaigns or AI-powered transformation—let's discuss how we can elevate your brand to new heights.
+            <p className="text-lg text-zinc-400 mb-10 max-w-2xl mx-auto font-normal">
+              Whether you need creative campaigns or AI-powered solutions, let's discuss how we can help grow your brand.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/contact">
-                <motion.button 
-                  className="group inline-flex items-center justify-center gap-3 bg-[#c4ff4d] hover:bg-[#d4ff6d] text-zinc-900 font-bold px-10 py-5 rounded-xl shadow-xl shadow-[#c4ff4d]/20 transition-all duration-300"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
+                <button 
+                  className="group inline-flex items-center justify-center gap-2.5 bg-zinc-100 hover:bg-white text-zinc-900 font-medium px-8 py-4 rounded-lg transition-all duration-200"
                   data-testid="button-cta-contact"
                 >
                   Start Your Project
-                  <ArrowUpRight className="w-5 h-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                </motion.button>
+                  <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                </button>
               </Link>
               <Link href="/services">
-                <motion.button 
-                  className="inline-flex items-center justify-center gap-3 border border-white/20 text-white font-bold px-10 py-5 rounded-xl hover:bg-white/5 hover:border-white/30 transition-all duration-300"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
+                <button 
+                  className="inline-flex items-center justify-center gap-2.5 border border-zinc-700 text-zinc-300 font-medium px-8 py-4 rounded-lg hover:bg-zinc-800 hover:border-zinc-600 transition-all duration-200"
                   data-testid="button-view-services"
                 >
                   Explore Services
-                </motion.button>
+                </button>
               </Link>
             </div>
           </motion.div>
