@@ -1,9 +1,12 @@
 import { Link } from "wouter";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Cookie } from "lucide-react";
 import { getPreviewServices, servicesCatalog } from '@/config/servicesConfig';
+import { useCookieConsent } from '@/contexts/CookieConsentContext';
 import companyLogo from "@assets/final 2_1762907995368.png";
 
 export default function Footer() {
+  const { openPreferences } = useCookieConsent();
+  
   // Show first 8 items from each category for footer
   const aiCreativePreview = getPreviewServices('aiCreative').slice(0, 8);
   const aiEmployeesPreview = getPreviewServices('aiEmployees').slice(0, 8);
@@ -193,6 +196,39 @@ export default function Footer() {
         </div>
       </div>
 
+      {/* Legal Links Section */}
+      <div className="relative max-w-7xl mx-auto px-6 md:px-12 py-8 border-b border-white/5">
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+          {/* Legal Navigation */}
+          <div className="flex flex-wrap items-center gap-4 md:gap-6">
+            <Link href="/privacy-policy" className="text-zinc-400 hover:text-white transition-colors text-sm" data-testid="link-footer-privacy">
+              Privacy Policy
+            </Link>
+            <Link href="/cookie-policy" className="text-zinc-400 hover:text-white transition-colors text-sm" data-testid="link-footer-cookies">
+              Cookie Policy
+            </Link>
+            <Link href="/terms-conditions" className="text-zinc-400 hover:text-white transition-colors text-sm" data-testid="link-footer-terms">
+              Terms & Conditions
+            </Link>
+            <button
+              onClick={openPreferences}
+              className="inline-flex items-center gap-1.5 text-zinc-400 hover:text-white transition-colors text-sm"
+              data-testid="button-cookie-settings"
+            >
+              <Cookie className="w-3.5 h-3.5" />
+              Cookie Settings
+            </button>
+          </div>
+
+          {/* Compliance Badges */}
+          <div className="flex items-center gap-4">
+            <span className="text-zinc-500 text-xs">GDPR Compliant</span>
+            <span className="w-1 h-1 bg-zinc-600 rounded-full"></span>
+            <span className="text-zinc-500 text-xs">Malta IDPC Registered</span>
+          </div>
+        </div>
+      </div>
+
       {/* Brand & Bottom Section */}
       <div className="relative max-w-7xl mx-auto px-6 md:px-12 py-12">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8">
@@ -210,10 +246,13 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Copyright & Email */}
+          {/* Copyright & Legal Entity Info */}
           <div className="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-8">
             <div className="text-zinc-500 text-sm">
               © 2025 OARC Digital. All rights reserved.
+            </div>
+            <div className="text-zinc-600 text-xs">
+              Registered in Malta, EU
             </div>
             <Link href="mailto:hello@oarcdigital.com" className="text-zinc-400 hover:text-white transition-colors text-sm font-normal" data-testid="link-footer-email">
               hello@oarcdigital.com

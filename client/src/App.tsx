@@ -3,6 +3,9 @@ import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { CookieConsentProvider } from "@/contexts/CookieConsentContext";
+import { CookieConsentBanner } from "@/components/CookieConsentBanner";
+import { CookiePreferencesModal } from "@/components/CookiePreferencesModal";
 import Home from "@/pages/Home";
 import Services from "@/pages/Services";
 import ServiceDetail from "@/pages/ServiceDetail";
@@ -75,6 +78,9 @@ import PDFCapabilitiesDeck from "@/pages/PDFCapabilitiesDeck";
 import LocationService from "@/pages/LocationService";
 import Comparison from "@/pages/Comparison";
 import Blog from "@/pages/Blog";
+import PrivacyPolicy from "@/pages/legal/PrivacyPolicy";
+import CookiePolicy from "@/pages/legal/CookiePolicy";
+import TermsConditions from "@/pages/legal/TermsConditions";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -179,6 +185,12 @@ function Router() {
       <Route path="/why-oarc" component={Comparison} />
       <Route path="/blog" component={Blog} />
       
+      {/* Legal Pages - GDPR Compliance */}
+      <Route path="/privacy-policy" component={PrivacyPolicy} />
+      <Route path="/cookie-policy" component={CookiePolicy} />
+      <Route path="/terms-conditions" component={TermsConditions} />
+      <Route path="/terms" component={TermsConditions} />
+      
       {/* PDF Documents for Client Proposals */}
       <Route path="/pdf" component={PDFHub} />
       <Route path="/pdf/capabilities-deck" component={PDFCapabilitiesDeck} />
@@ -198,8 +210,12 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-        <Toaster />
-        <Router />
+        <CookieConsentProvider>
+          <Toaster />
+          <Router />
+          <CookieConsentBanner />
+          <CookiePreferencesModal />
+        </CookieConsentProvider>
       </TooltipProvider>
     </QueryClientProvider>
   );
