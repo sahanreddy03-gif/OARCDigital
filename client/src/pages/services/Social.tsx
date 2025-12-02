@@ -12,7 +12,7 @@ import {
 
 import conferenceImg from "@assets/pexels-sasi-tha-13049577_1764633603081.jpg";
 import arcadeImg from "@assets/pexels-pho-tomass-883344227-31612601_1764634936625.jpg";
-import awardTeamImg from "@assets/Best-Large-Social-Agency_1761760464709.webp";
+import awardTeamImg from "@assets/pexels-mikael-blomkvist-6476256_1764635228817.jpg";
 import largeTeamImg from "@assets/pexels-bertellifotografia-2467506_1761761073217.jpg";
 import beybladeImg from "@assets/TefalPictures-32-scaled_1761760754960.jpg";
 import videoImg1 from "@assets/stock_images/social_media_content_75f5c57d.jpg";
