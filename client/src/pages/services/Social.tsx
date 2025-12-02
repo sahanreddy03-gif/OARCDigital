@@ -11,7 +11,7 @@ import {
 } from "lucide-react";
 
 import conferenceImg from "@assets/pexels-sasi-tha-13049577_1764633603081.jpg";
-import arcadeImg from "@assets/WhatsApp Image 2025-10-29 at 17.09.19_b134f824_1761760222324.jpg";
+import arcadeImg from "@assets/pexels-pho-tomass-883344227-31612601_1764634936625.jpg";
 import awardTeamImg from "@assets/Best-Large-Social-Agency_1761760464709.webp";
 import largeTeamImg from "@assets/pexels-bertellifotografia-2467506_1761761073217.jpg";
 import beybladeImg from "@assets/TefalPictures-32-scaled_1761760754960.jpg";
