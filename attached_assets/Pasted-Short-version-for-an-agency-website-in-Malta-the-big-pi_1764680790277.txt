@@ -1,0 +1,171 @@
+Short version: for an agency website in Malta, the big pillars are GDPR + Maltese data protection law, cookies, consumer law, advertising rules, and proper company info on the site. I’ll walk you through them in simple, practical terms.
+
+Not legal advice, just a structured checklist so you don’t accidentally break anything. For anything serious, a Maltese lawyer/consultant is still worth it.
+
+⸻
+
+1. Data protection (GDPR + Malta Data Protection Act)
+
+In Malta you must follow EU GDPR and the Malta Data Protection Act (Cap. 586). ￼
+
+For your agency website this means:
+
+a) Privacy Policy (non-negotiable)
+
+You need a clear privacy policy that explains:
+	•	Who you are (trading name + legal entity + address + contact email).
+	•	What data you collect via:
+	•	Contact forms (name, email, phone, company, etc.)
+	•	Newsletter sign-ups
+	•	Analytics tools (Google Analytics, Meta Pixel, etc.)
+	•	Why you collect it (legal basis: e.g. “performance of a contract”, “legitimate interest”, or “consent”).
+	•	How long you keep it and who you share it with (hosting, email provider, CRM, analytics tools, etc.).
+	•	User rights under GDPR (access, rectification, erasure, restriction, objection, data portability, complaint to IDPC). ￼
+
+The Information and Data Protection Commissioner (IDPC) website has guidance and even self-assessment tools to help check compliance. ￼
+
+b) Data handling basics
+	•	Only ask for data you need (data minimisation).
+	•	Store it securely (HTTPS, strong passwords, 2FA on email/CRMs, limited access).
+	•	If you use tools outside the EU (e.g. some US SaaS), you may need appropriate data transfer safeguards (Standard Contractual Clauses, etc.). ￼
+
+⸻
+
+2. Cookies & tracking (very important for a marketing/AI agency)
+
+Malta follows the EU rules on cookies & ePrivacy. The IDPC issued a Guidance Note on Cookie Consent Requirements with clear examples of acceptable vs unacceptable methods. ￼
+
+What you must do
+	1.	Cookie banner when someone first visits:
+	•	Explain you use cookies.
+	•	Let them accept / reject / manage non-essential cookies (analytics, marketing).
+	•	No pre-ticked boxes, no “accept only” dark pattern.
+	2.	Cookie policy page:
+	•	List cookie types (necessary, analytics, marketing).
+	•	Who sets them (first-party vs third-party).
+	•	How long they last and how users can change their settings.
+	3.	Only essential cookies can load automatically.
+	•	Analytics, remarketing pixels, and tracking scripts should load only after consent.
+
+⸻
+
+3. Consumer & e-commerce rules (even if you’re mainly B2B)
+
+Even as a B2B agency, your website falls under EU/Malta consumer & e-commerce rules if any private individual can buy or order services online.
+
+Key laws are the Consumer Affairs Act (Cap. 378) and Consumer Rights / Distance Selling regulations. ￼
+
+a) Information you must show on the site
+
+Before a client is bound by a contract or pays, you must clearly show: ￼
+	•	Your business name and legal entity.
+	•	Geographical address (not just a PO box).
+	•	Email + phone for contact.
+	•	VAT number and registration details, if applicable.
+	•	Main characteristics of services (what exactly they’re getting).
+	•	Price and how it’s calculated, including any taxes/fees.
+	•	How the contract is formed (e.g. “By clicking ‘Confirm’, you agree to our Terms”).
+	•	If you sell to consumers online: info about cooling-off / cancellation rights.
+
+Under EU/MT distance-selling rules, consumers normally have 14 days to cancel many online service contracts (with specifics and exceptions) and get a refund. ￼
+
+b) Terms & Conditions (T&Cs)
+
+Have a T&Cs page that covers:
+	•	Scope of your services.
+	•	Payment terms (upfront, milestones, late-payment consequences).
+	•	Refund/cancellation rules.
+	•	Intellectual property (who owns creatives, code, AI outputs).
+	•	Liability limitations (within what’s allowed by law).
+	•	Governing law & jurisdiction (usually “Laws of Malta, courts of Malta”).
+
+⸻
+
+4. Advertising, marketing and “no scammy stuff”
+
+As a marketing / AI agency, this is critical: Malta has strong rules on misleading and unfair commercial practices, aligned with the EU Unfair Commercial Practices Directive.
+	•	Consumer Affairs Act, Commercial Code, and related rules ban misleading advertising and unfair design tricks (“dark patterns”). ￼
+	•	Deceptive advertising is also regulated via the Broadcasting Act and other laws. ￼
+
+For your site:
+	•	Don’t claim things you can’t prove (e.g. “We guarantee 10x revenue”).
+	•	Don’t fake testimonials, case studies, or logos of clients you never worked with.
+	•	If you use before/after examples, they must be honest and non-manipulated.
+	•	Don’t hide important information in tiny grey text or behind confusing flows (dark patterns).
+
+If you ever do influencer marketing or pay creators to promote you, posts need to be clearly labelled as ads (#ad, “Sponsored”, etc.), or it can be considered misleading. ￼
+
+⸻
+
+5. Email, SMS & outbound marketing rules
+
+Under electronic communications rules and EU privacy law, you must: ￼
+	•	Get opt-in consent before sending marketing emails/SMS to individuals (newsletter forms, free lead magnets, etc.).
+	•	Always include a clear unsubscribe option that actually works.
+	•	For pure B2B cold outreach, rules are a bit more flexible, but you must still:
+	•	Contact only relevant businesses,
+	•	Provide an easy opt-out,
+	•	Respect GDPR if you’re using their personal work email (it’s still personal data).
+
+⸻
+
+6. Intellectual property & content use
+
+Smart things to do so you don’t get into trouble later:
+	•	Use proper licenses for:
+	•	Stock photos/videos,
+	•	Fonts,
+	•	Icons,
+	•	Music in reels/ads.
+	•	If you show client logos or work, either:
+	•	Get written permission,
+	•	Or clearly state it as “mockup” / “concept work” and don’t misrepresent.
+	•	Put a copyright notice in the footer:
+	•	© 2025 OARC Digital (or your brand). All rights reserved.
+	•	Specify in your T&Cs who owns:
+	•	Raw files (editable PSD/AI/Figma),
+	•	AI prompts & workflows,
+	•	Final creatives and ad copies.
+
+⸻
+
+7. Security & “good citizen” practices
+
+They’re not just “nice to have”—they support your GDPR compliance and reputation:
+	•	HTTPS mandatory (SSL certificate).
+	•	Regular backups of site + CRM.
+	•	Minimal access for team/freelancers (principle of least privilege).
+	•	Clear process if there’s a data breach (GDPR requires reporting serious ones to IDPC within 72 hours). ￼
+
+⸻
+
+8. Simple checklist for your Malta agency website
+
+When you launch OARC/your agency site, aim to have all of this:
+	1.	Legal/identity
+	•	✅ Legal entity name, address (Malta + others if you show them), contact email+phone.
+	•	✅ VAT number (if registered) visible in footer or contact/about section.
+	2.	Policies
+	•	✅ Privacy Policy (GDPR-compliant, easy to read).
+	•	✅ Cookie Policy + functional cookie banner with consent.
+	•	✅ Terms & Conditions (services, payments, IP, liability, law/jurisdiction).
+	3.	Website UX & content
+	•	✅ No fake guarantees, no “too good to be true” metrics that you can’t justify.
+	•	✅ Honest case studies and testimonials.
+	•	✅ No dark patterns (e.g. tricky opt-outs, sneaky extra fees at checkout).
+	4.	Forms & marketing
+	•	✅ Explicit consent boxes for newsletter/marketing (not pre-ticked).
+	•	✅ Unsubscribe link in all marketing emails.
+	•	✅ Secure handling of contact form submissions (not sending them to random shared inboxes without control).
+	5.	Tech & security
+	•	✅ HTTPS, strong passwords, 2FA on email/hosting/CRMs.
+	•	✅ Logically documented list of tools where you store client data (for your own GDPR sanity).
+
+⸻
+
+If you want, next step I can:
+	•	Draft ready-to-use outlines for:
+	•	Privacy Policy,
+	•	Cookie Policy,
+	•	Short T&Cs specifically for a Malta-based AI/creative agency,
+so you can give them to a Maltese lawyer for quick review instead of starting from zero.
