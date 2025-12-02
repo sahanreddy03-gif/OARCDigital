@@ -6,7 +6,7 @@ import SEOHead from "@/components/SEOHead";
 import { creativeServicesSEO } from "@/data/seoMetadata";
 import { createServiceSchema } from "@/utils/structuredData";
 import ScrollReveal from "@/components/ScrollReveal";
-import videoProductionImg from '@assets/stock_images/video_production_stu_19004f37.jpg';
+import videoProductionImg from '@assets/pexels-lewis-r-241208113-12341819_1764635856482.jpg';
 import cameraMonitorImg from '@assets/stock_images/video_production_stu_5144a38f.jpg';
 import designWorkspaceImg from '@assets/stock_images/creative_team_workin_79883382.jpg';
 import largeTeamImg from '@assets/stock_images/creative_team_workin_4b023730.jpg';
@@ -213,8 +213,9 @@ export default function Creative() {
               <div className="image-reveal rounded-3xl">
                 <img 
                   src={videoProductionImg}
-                  alt="Video production in action"
+                  alt="Vibrant Miami street art mural - colorful creative design inspiration for social media content and brand campaigns"
                   className="w-full h-[500px] object-cover"
+                  loading="eager"
                   data-testid="img-video-production"
                 />
               </div>
