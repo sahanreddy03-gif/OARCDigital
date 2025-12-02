@@ -303,6 +303,12 @@ export const revenueServicesSEO: Record<string, PageSEO> = {
     path: '/services/mobile-apps-development',
     ogType: 'article'
   },
+  customSoftwareDevelopment: {
+    title: 'Custom Software Development | Enterprise Solutions | OARC Digital',
+    description: 'Build powerful custom software solutions tailored to your business. From web applications to enterprise platforms, OARC Digital delivers scalable, secure software that drives results.',
+    path: '/services/custom-software-development',
+    ogType: 'article'
+  },
   hireAIEmployees: {
     title: 'AI Virtual Talent Hub | Autonomous AI Agents On-Demand | OARC Digital Malta',
     description: 'Hire autonomous AI agents as on-demand team members. Production-tested agents for sales, support, compliance, real estate, and more—thinking, adapting, and executing 24/7.',
