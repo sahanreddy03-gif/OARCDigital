@@ -27,6 +27,7 @@ import gymGroupImg from '@assets/IMG_8206_1763165592775.jpeg';
 import azzaroImg from '@assets/stock_images/luxury_fashion_retai_a6eca040.jpg';
 import bodyShopImg from '@assets/IMG_8208_1763165901315.jpeg';
 import tefalImg from '@assets/TefalPictures-32-scaled_1761760754960.jpg';
+import homecraftHeroImg from '@assets/pexels-shvetsa-12673974_1764638693005.jpg';
 import lenovoImg from '@assets/stock_images/modern_digital_techn_529f85c8.jpg';
 import eslImg from '@assets/stock_images/ai_artificial_intell_5f3c3d5c.jpg';
 import healthcareImg from '@assets/stock_images/healthcare_patient_c_b0453f09.jpg';
@@ -175,8 +176,8 @@ export const caseStudies: Record<string, CaseStudy> = {
     ],
     services: ['Social Commerce', 'Influencer Marketing', 'Performance Media'],
     platforms: ['Facebook', 'Instagram', 'TikTok'],
-    thumbnailImage: tefalImg,
-    heroImage: tefalImg,
+    thumbnailImage: homecraftHeroImg,
+    heroImage: homecraftHeroImg,
     gridClass: 'col-span-1 row-span-1'
   },
   'gamingtech-elite': {
