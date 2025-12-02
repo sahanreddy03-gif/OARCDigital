@@ -1,0 +1,103 @@
+{
+  "colorScheme": "light",
+  "fonts": [
+    {
+      "family": "Poppins",
+      "role": "body"
+    }
+  ],
+  "colors": {
+    "primary": "#476DC0",
+    "accent": "#E7ECF9",
+    "background": "#FFFFFF",
+    "textPrimary": "#476DC0",
+    "link": "#476DC0"
+  },
+  "typography": {
+    "fontFamilies": {
+      "primary": "Poppins",
+      "heading": "Poppins"
+    },
+    "fontStacks": {
+      "heading": [
+        "Poppins",
+        "sans-serif"
+      ],
+      "body": [
+        "Poppins",
+        "sans-serif"
+      ],
+      "paragraph": [
+        "Poppins",
+        "sans-serif"
+      ]
+    },
+    "fontSizes": {
+      "h1": "38px",
+      "h2": "38px",
+      "body": "18px"
+    }
+  },
+  "spacing": {
+    "baseUnit": 4,
+    "borderRadius": "0px"
+  },
+  "components": {
+    "input": {
+      "borderColor": "#CCCCCC",
+      "borderRadius": "0px"
+    },
+    "buttonPrimary": {
+      "background": "#E7ECF9",
+      "textColor": "#476DC0",
+      "borderRadius": "0px",
+      "shadow": "none"
+    },
+    "buttonSecondary": {
+      "background": "#FFFFFF",
+      "textColor": "#476DC0",
+      "borderRadius": "0px",
+      "shadow": "none"
+    }
+  },
+  "images": {
+    "logo": "https://api.profil-software.com/media/images/ProfilSoftware_logo_95mFvjv_ADwKPgF.svg",
+    "favicon": "https://profil-software.com/static/apple-touch-icon-fff202a40e95f97fe29d64ffe462c71c.png",
+    "ogImage": null
+  },
+  "__framework_hints": [
+    "Gatsby 5.12.9"
+  ],
+  "__llm_logo_reasoning": {
+    "selectedIndex": 0,
+    "reasoning": "Logo #0 matches the brand name 'Profil Software' and is located in the header, indicating it is the main brand logo.",
+    "confidence": 0.9
+  },
+  "__llm_button_reasoning": {
+    "primary": {
+      "index": 1,
+      "text": "case study →",
+      "reasoning": "Button #1 has a vibrant blue background (#E7ECF9) and action-oriented text ('case study →'), making it the primary call-to-action."
+    },
+    "secondary": {
+      "index": 3,
+      "text": "Customize",
+      "reasoning": "Button #3 has a white background (#FFFFFF), which is distinctly different from the primary button's blue background, making it the secondary action."
+    },
+    "confidence": 0.95
+  },
+  "personality": {
+    "tone": "professional",
+    "energy": "medium",
+    "targetAudience": "business professionals and project managers"
+  },
+  "designSystem": {
+    "framework": "unknown",
+    "componentLibrary": null
+  },
+  "confidence": {
+    "buttons": 0.95,
+    "colors": 0.9,
+    "overall": 0.925
+  }
+}

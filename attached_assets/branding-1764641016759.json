@@ -1,0 +1,101 @@
+{
+  "colorScheme": "light",
+  "fonts": [
+    {
+      "family": "Rubik",
+      "role": "body"
+    },
+    {
+      "family": "Satoshi-Black",
+      "role": "heading"
+    }
+  ],
+  "colors": {
+    "primary": "#0E1034",
+    "accent": "#F87565",
+    "background": "#FFFFFF",
+    "textPrimary": "#0E1034",
+    "link": "#0E1034"
+  },
+  "typography": {
+    "fontFamilies": {
+      "primary": "Rubik",
+      "heading": "Satoshi-Black"
+    },
+    "fontStacks": {
+      "heading": [
+        "Satoshi-Black",
+        "sans-serif"
+      ],
+      "body": [
+        "Rubik"
+      ],
+      "paragraph": [
+        "Rubik"
+      ]
+    },
+    "fontSizes": {
+      "h1": "75px",
+      "h2": "48px",
+      "body": "26px"
+    }
+  },
+  "spacing": {
+    "baseUnit": 4,
+    "borderRadius": "16px"
+  },
+  "components": {
+    "input": {
+      "borderColor": "#CCCCCC",
+      "borderRadius": "16px"
+    },
+    "buttonPrimary": {
+      "background": "#F87565",
+      "textColor": "#FFFFFF",
+      "borderRadius": "12px",
+      "shadow": "none"
+    },
+    "buttonSecondary": {
+      "background": "#FFFFFF",
+      "textColor": "#F87565",
+      "borderColor": "#FFFFFF",
+      "borderRadius": "20px",
+      "shadow": "none"
+    }
+  },
+  "images": {
+    "logo": "File saved at: attached_assets/logo.png",
+    "favicon": "File saved at: attached_assets/favicon.ico",
+    "ogImage": null
+  },
+  "__framework_hints": [
+    "HubSpot"
+  ],
+  "__llm_button_reasoning": {
+    "primary": {
+      "index": 0,
+      "text": "Schedule a Consultation",
+      "reasoning": "Button #0 has vibrant red/orange background color (#F87565) and action-oriented text 'Schedule a Consultation', making it the primary CTA."
+    },
+    "secondary": {
+      "index": 3,
+      "text": "6 min read\n          \n        \n        2 Behavioral Patterns That Will Drive App Engagement\n        ",
+      "reasoning": "Button #3 has a different background color (#FFFFFF) and is less prominent, making it suitable as the secondary button."
+    },
+    "confidence": 0.95
+  },
+  "personality": {
+    "tone": "modern",
+    "energy": "medium",
+    "targetAudience": "young professionals and creatives interested in design and innovation."
+  },
+  "designSystem": {
+    "framework": "unknown",
+    "componentLibrary": null
+  },
+  "confidence": {
+    "buttons": 0.95,
+    "colors": 0.9,
+    "overall": 0.925
+  }
+}
