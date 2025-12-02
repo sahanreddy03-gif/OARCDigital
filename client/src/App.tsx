@@ -58,6 +58,8 @@ import TapestryAutomation from "@/pages/case-studies/TapestryAutomation";
 import BancolombiaAutomation from "@/pages/case-studies/BancolombiaAutomation";
 import JBSAutomation from "@/pages/case-studies/JBSAutomation";
 import AcclaimAutism from "@/pages/case-studies/AcclaimAutism";
+import PropFlowCaseStudy from "@/pages/case-studies/PropFlow";
+import FanStakeCaseStudy from "@/pages/case-studies/FanStake";
 import PDFHub from "@/pages/PDFHub";
 import PDFCompanyProfile from "@/pages/PDFCompanyProfile";
 import PDFOnePager from "@/pages/PDFOnePager";
@@ -148,6 +150,8 @@ function Router() {
       <Route path="/case-studies/digital-finance-solutions" component={BancolombiaAutomation} />
       <Route path="/case-studies/global-supply-systems" component={JBSAutomation} />
       <Route path="/case-studies/healthpath-ai" component={AcclaimAutism} />
+      <Route path="/case-studies/propflow-property-platform" component={PropFlowCaseStudy} />
+      <Route path="/case-studies/fanstake-sports-platform" component={FanStakeCaseStudy} />
       <Route path="/our-work/:slug" component={() => <div>Case Study Detail (Phase 3)</div>} />
       <Route path="/why-us" component={WhyUs} />
       <Route path="/roadmap" component={Roadmap2026} />

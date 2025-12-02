@@ -38,8 +38,55 @@ import foodSupplyImg from '@assets/stock_images/food_supply_chain_au_9bb3c110.jp
 import aiEngineeringImg from '@assets/stock_images/ai_software_developm_725be51d.jpg';
 import teamCollabImg from '@assets/stock_images/team_collaboration_b_c8b7e41b.jpg';
 import luxuryFashionImg from '@assets/stock_images/luxury_fashion_retai_32a7703b.jpg';
+import designWorkspaceImg from '@assets/stock_images/creative_team_workin_79883382.jpg';
 
 export const caseStudies: Record<string, CaseStudy> = {
+  'propflow-property-platform': {
+    slug: 'propflow-property-platform',
+    brand: 'PropFlow',
+    category: 'Property Technology',
+    description: 'Property Marketplace Platform',
+    fullDescription: 'Designed and developed a streamlined property marketplace platform that simplified real estate transactions for buyers and sellers.',
+    challenge: 'Property transactions involve complex documentation, fragmented communication, and significant information asymmetry between buyers and sellers.',
+    strategy: 'We built a comprehensive platform with automated property data collection, neighborhood insights, and transparent marketplace features. Research-driven design ensured intuitive user flows.',
+    results: 'The platform achieved strong adoption and was subsequently acquired by a larger property technology group.',
+    metrics: {
+      value: '68%',
+      label: 'faster listings'
+    },
+    secondaryMetrics: [
+      { value: '3.2x', label: 'user engagement' },
+      { value: '47%', label: 'conversion lift' }
+    ],
+    services: ['Product Strategy', 'UX/UI Design', 'Full-Stack Development'],
+    platforms: ['Responsive Web'],
+    thumbnailImage: designWorkspaceImg,
+    heroImage: designWorkspaceImg,
+    gridClass: 'col-span-1 row-span-1'
+  },
+  'fanstake-sports-platform': {
+    slug: 'fanstake-sports-platform',
+    brand: 'FanStake',
+    category: 'Sports Technology',
+    description: 'Sports Engagement Platform',
+    fullDescription: 'Built a mobile-first sports engagement platform connecting fans with athlete performance analytics and community features.',
+    challenge: 'Existing sports apps focused only on scores and news, missing deeper fan engagement opportunities around athlete performance tracking.',
+    strategy: 'We conducted user research, redesigned the mobile experience, and built native iOS/Android apps with real-time data feeds and community features.',
+    results: 'Strong adoption metrics led to successful acquisition by a sports media company.',
+    metrics: {
+      value: '340%',
+      label: 'session growth'
+    },
+    secondaryMetrics: [
+      { value: '52%', label: 'conversion rate' },
+      { value: '4.6', label: 'app rating' }
+    ],
+    services: ['Product Strategy', 'UX/UI Design', 'Mobile Development'],
+    platforms: ['iOS', 'Android'],
+    thumbnailImage: teamCollabImg,
+    heroImage: teamCollabImg,
+    gridClass: 'col-span-1 row-span-1'
+  },
   'fitnesspro-network': {
     slug: 'fitnesspro-network',
     brand: 'FitnessPro Network',
