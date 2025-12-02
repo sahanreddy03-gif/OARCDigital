@@ -7,7 +7,7 @@ import { creativeServicesSEO } from "@/data/seoMetadata";
 import { createServiceSchema } from "@/utils/structuredData";
 import ScrollReveal from "@/components/ScrollReveal";
 import videoProductionImg from '@assets/pexels-lewis-r-241208113-12341819_1764635856482.jpg';
-import cameraMonitorImg from '@assets/stock_images/video_production_stu_5144a38f.jpg';
+import cameraMonitorImg from '@assets/pexels-emmali-5400806_1764636075578.jpg';
 import designWorkspaceImg from '@assets/stock_images/creative_team_workin_79883382.jpg';
 import largeTeamImg from '@assets/stock_images/creative_team_workin_4b023730.jpg';
 import fitnessImg1 from '@assets/stock_images/fitness_gym_workout__500a23f2.jpg';
@@ -233,8 +233,9 @@ export default function Creative() {
               <div className="image-reveal rounded-3xl glow-lime-subtle">
                 <img 
                   src={cameraMonitorImg}
-                  alt="Professional production setup"
+                  alt="Artistic underwater photography - dramatic creative visual production showcasing cinematic lighting and professional content creation"
                   className="w-full h-[500px] object-cover"
+                  loading="eager"
                   data-testid="img-camera-monitor"
                 />
               </div>
