@@ -330,7 +330,7 @@ export default function AICreativeSection() {
   }, [isDesktop]);
 
   return (
-    <section className="relative py-16 md:py-20 lg:py-24 overflow-hidden bg-white" data-testid="section-ai-creative">
+    <section className="relative py-16 md:py-20 lg:py-24 overflow-hidden" style={{ backgroundColor: '#f0fff4' }} data-testid="section-ai-creative">
 
       <div className="relative container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl mb-8">
         {/* Section Header - Elite Typography */}
