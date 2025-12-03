@@ -1,7 +1,7 @@
 import { Link, useLocation } from "wouter";
 import { Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
-import oarcLogoOnly from "@assets/IMG_8795_1764789151366.png";
+import oarcLogoOnly from "@assets/IMG_8813_(1)_1764796694787.png";
 
 export default function Navigation() {
   const [location] = useLocation();
