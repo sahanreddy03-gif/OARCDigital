@@ -8,7 +8,7 @@ export default function BrandShowcaseSection() {
   const smallStudies = featuredCaseStudies.slice(3, 6); // HealthPath, GamingTech, Luxe Essence
   
   return (
-    <section className="py-12 md:py-16 lg:py-20 relative overflow-hidden" style={{ backgroundColor: '#f0fff4' }}>
+    <section className="py-12 md:py-16 lg:py-20 relative overflow-hidden" style={{ backgroundColor: '#f0fff4' }} data-testid="section-brand-showcase">
       <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-6xl">
         {/* Section Header */}
         <div className="mb-6 md:mb-10">
