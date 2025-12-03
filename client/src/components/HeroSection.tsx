@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import FloatingChipCarousel from "./FloatingChipCarousel";
 import heroBackground from '@assets/d375f1d50d97b0de7953ca2cecd2b8aea2cd96b2-3524x1181_1761251957292.avif';
-import companyLogo from "@assets/final 2_1762907995368.png";
+import companyLogo from "@assets/IMG_8557_1764721897328.png";
 
 export default function HeroSection() {
   const [scrollY, setScrollY] = useState(0);
@@ -153,12 +153,12 @@ export default function HeroSection() {
             <div className="w-full md:max-w-xl text-center md:text-left">
               {/* Mobile only: glassmorphism panel */}
               <div className="relative md:before:content-none before:absolute before:inset-0 before:-z-10 before:bg-black/50 before:blur-xl before:rounded-[32px] before:-m-4">
-                {/* OARC Digital Logo Symbol Only */}
+                {/* Oarc Digital Logo Symbol */}
                 <div className="flex justify-center md:justify-start mb-4 md:mb-3">
                   <img 
                     src={companyLogo} 
-                    alt="OARC Digital" 
-                    className="h-16 w-16 sm:h-20 sm:w-20 md:h-24 md:w-24 object-contain"
+                    alt="Oarc Digital" 
+                    className="h-16 w-16 sm:h-20 sm:w-20 md:h-24 md:w-24 object-contain drop-shadow-xl"
                     data-testid="img-hero-logo"
                   />
                 </div>

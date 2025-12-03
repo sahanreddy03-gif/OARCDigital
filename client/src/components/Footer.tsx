@@ -2,7 +2,7 @@ import { Link } from "wouter";
 import { ArrowRight, ArrowUpRight, Cookie } from "lucide-react";
 import { getPreviewServices, servicesCatalog } from '@/config/servicesConfig';
 import { useCookieConsent } from '@/contexts/CookieConsentContext';
-import companyLogo from "@assets/final 2_1762907995368.png";
+import companyLogo from "@assets/IMG_8557_1764721897328.png";
 
 export default function Footer() {
   const { openPreferences } = useCookieConsent();
@@ -233,23 +233,23 @@ export default function Footer() {
       <div className="relative max-w-7xl mx-auto px-6 md:px-12 py-12">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8">
           {/* Brand */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-4">
             <img 
               src={companyLogo} 
-              alt="OARC Digital logo" 
-              className="h-10 w-10 object-contain"
+              alt="Oarc Digital logo" 
+              className="h-12 w-12 object-contain drop-shadow-xl"
               data-testid="img-footer-logo"
             />
-            <div className="font-display font-bold text-3xl" style={{ letterSpacing: '-0.02em' }}>
-              <span className="text-white">OARC </span>
-              <span className="text-[#FF5A00]">Digital</span>
+            <div className="font-display text-3xl" style={{ letterSpacing: '-0.01em' }}>
+              <span className="text-white font-semibold">Oarc</span>
+              <span className="font-light text-white/70"> Digital</span>
             </div>
           </div>
 
           {/* Copyright & Legal Entity Info */}
           <div className="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-8">
             <div className="text-zinc-500 text-sm">
-              © 2025 OARC Digital. All rights reserved.
+              © 2025 Oarc Digital. All rights reserved.
             </div>
             <div className="text-zinc-600 text-xs">
               Registered in Malta, EU
