@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { Menu, ChevronDown, ArrowRight, X } from "lucide-react";
 import { getPreviewServices, servicesCatalog } from '@/config/servicesConfig';
-import companyLogo from "@assets/IMG_8557_1764721897328.png";
+import companyLogo from "@assets/IMG_8775_1764722473830.png";
 
 export default function Navigation() {
   const [showServicesMenu, setShowServicesMenu] = useState(false);
@@ -17,17 +17,20 @@ export default function Navigation() {
     <nav className="absolute top-0 left-0 right-0 z-50">
       <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-12">
         <div className="flex items-center justify-between h-14 md:h-16 lg:h-20">
-          <Link href="/" className="flex items-center gap-2.5" data-testid="link-logo-home">
+          <Link href="/" className="flex items-center gap-3" data-testid="link-logo-home">
             <img 
               src={companyLogo} 
               alt="Oarc Digital logo" 
-              className="h-8 w-8 md:h-9 md:w-9 object-contain drop-shadow-lg"
+              className="h-9 w-9 md:h-10 md:w-10 object-contain"
+              style={{ mixBlendMode: 'normal' }}
               data-testid="img-logo"
             />
-            <div className="font-display text-lg md:text-xl lg:text-2xl tracking-tight">
-              <span className="text-white font-semibold">Oarc</span>
-              <span className="font-light text-white/80"> Digital</span>
-            </div>
+            <span 
+              className="text-white text-lg md:text-xl lg:text-2xl font-medium uppercase"
+              style={{ letterSpacing: '0.15em', fontFamily: 'system-ui, -apple-system, sans-serif' }}
+            >
+              Oarc Digital
+            </span>
           </Link>
 
           {/* Desktop Menu (also shown in landscape) */}

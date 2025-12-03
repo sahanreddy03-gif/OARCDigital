@@ -20,7 +20,7 @@ import {
 } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import companyLogo from "@assets/IMG_8557_1764721897328.png";
+import companyLogo from "@assets/IMG_8775_1764722473830.png";
 import heroImg from "@assets/nnnnnnnnnn_1763249120461.avif";
 import visionEye from "@assets/pexels-burakkostak-18809_1763243435924.jpg";
 import experimentsWorkspace from "@assets/campaign-img1_1763245285586.png";
