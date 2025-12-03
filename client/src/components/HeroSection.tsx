@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import FloatingChipCarousel from "./FloatingChipCarousel";
 import heroBackground from '@assets/d375f1d50d97b0de7953ca2cecd2b8aea2cd96b2-3524x1181_1761251957292.avif';
-import oarcLogoOnly from "@assets/IMG_8795_1764789151366.png";
+import oarcLogoOnly from "@assets/IMG_8813_(1)_1764796694787.png";
 
 export default function HeroSection() {
   const [scrollY, setScrollY] = useState(0);
@@ -153,19 +153,6 @@ export default function HeroSection() {
             <div className="w-full md:max-w-xl text-center md:text-left">
               {/* Mobile only: glassmorphism panel */}
               <div className="relative md:before:content-none before:absolute before:inset-0 before:-z-10 before:bg-black/50 before:blur-xl before:rounded-[32px] before:-m-4">
-                {/* Oarc Digital Logo - Trademark Symbol */}
-                <div className="flex justify-center md:justify-start mb-6 md:mb-5">
-                  <img 
-                    src={oarcLogoOnly} 
-                    alt="Oarc Digital" 
-                    className="h-24 w-24 sm:h-28 sm:w-28 md:h-32 md:w-32 lg:h-36 lg:w-36 xl:h-40 xl:w-40 object-contain"
-                    style={{ 
-                      filter: 'drop-shadow(0 4px 25px rgba(0, 0, 0, 0.6)) drop-shadow(0 0 40px rgba(196, 255, 77, 0.3))',
-                    }}
-                    data-testid="img-hero-logo"
-                  />
-                </div>
-                
                 <div className="mb-4 md:mb-5">
                   <span className="text-[10px] md:text-[9px] lg:text-[10px] uppercase tracking-[0.25em] font-light text-white/90 leading-none" style={{ textShadow: '0 0 20px rgba(255, 255, 255, 0.3)' }}>
                     WHERE CREATIVITY MEETS REVENUE
