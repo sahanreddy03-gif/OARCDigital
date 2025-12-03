@@ -119,7 +119,8 @@ export default function TrustedBrandsSection() {
 
   return (
     <section 
-      className="relative bg-white py-8 md:py-10 overflow-hidden" 
+      className="relative py-8 md:py-10 overflow-hidden" 
+      style={{ backgroundColor: '#f0fff4' }}
       data-testid="trusted-brands-section"
     >
       <div className="container mx-auto px-4 md:px-6 max-w-7xl">
@@ -136,9 +137,9 @@ export default function TrustedBrandsSection() {
 
           {/* Right: Logo Marquee - JS Animation */}
           <div className="flex-1 overflow-hidden relative">
-            {/* Gradient fade edges */}
-            <div className="absolute left-0 top-0 bottom-0 w-12 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
-            <div className="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
+            {/* Gradient fade edges - matching soft mint */}
+            <div className="absolute left-0 top-0 bottom-0 w-12 z-10 pointer-events-none" style={{ background: 'linear-gradient(to right, #f0fff4, transparent)' }} />
+            <div className="absolute right-0 top-0 bottom-0 w-12 z-10 pointer-events-none" style={{ background: 'linear-gradient(to left, #f0fff4, transparent)' }} />
             
             {/* Scrolling logos - JS powered, scrolling LEFT */}
             <div 

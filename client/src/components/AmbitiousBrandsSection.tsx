@@ -43,7 +43,7 @@ export default function AmbitiousBrandsSection() {
     <section 
       className="relative py-16 md:py-20 lg:py-24 overflow-hidden"
       style={{ 
-        background: 'linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(249,250,251,1) 50%, rgba(255,255,255,1) 100%)' 
+        background: 'linear-gradient(180deg, #f0fff4 0%, #e8f5e9 50%, #f0fff4 100%)' 
       }}
       data-testid="ambitious-brands-section"
     >
@@ -69,8 +69,8 @@ export default function AmbitiousBrandsSection() {
         </div>
 
         <div className="relative overflow-hidden">
-          <div className="absolute left-0 top-0 bottom-0 w-20 md:w-32 bg-gradient-to-r from-white via-white/80 to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-20 md:w-32 bg-gradient-to-l from-white via-white/80 to-transparent z-10 pointer-events-none" />
+          <div className="absolute left-0 top-0 bottom-0 w-20 md:w-32 z-10 pointer-events-none" style={{ background: 'linear-gradient(to right, #f0fff4, rgba(240,255,244,0.8), transparent)' }} />
+          <div className="absolute right-0 top-0 bottom-0 w-20 md:w-32 z-10 pointer-events-none" style={{ background: 'linear-gradient(to left, #f0fff4, rgba(240,255,244,0.8), transparent)' }} />
           
           <div 
             className="flex animate-ambitious-scroll gap-10 md:gap-14 lg:gap-16 whitespace-nowrap py-4"
