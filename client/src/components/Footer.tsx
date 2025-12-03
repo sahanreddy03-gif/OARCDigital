@@ -233,17 +233,16 @@ export default function Footer() {
       <div className="relative max-w-7xl mx-auto px-6 md:px-12 py-12">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8">
           {/* Brand */}
-          <div className="flex items-center gap-4">
-            <img 
-              src={companyLogo} 
-              alt="Oarc Digital logo" 
-              className="h-12 w-12 object-contain"
-              data-testid="img-footer-logo"
-            />
-            <span 
-              className="text-white text-2xl md:text-3xl font-medium uppercase"
-              style={{ letterSpacing: '0.15em', fontFamily: 'system-ui, -apple-system, sans-serif' }}
-            >
+          <div className="flex items-center gap-3">
+            <div className="relative h-10 w-10 md:h-12 md:w-12 rounded-full overflow-hidden">
+              <img 
+                src={companyLogo} 
+                alt="Oarc Digital logo" 
+                className="h-full w-full object-cover scale-[1.15]"
+                data-testid="img-footer-logo"
+              />
+            </div>
+            <span className="text-white text-xl md:text-2xl tracking-[0.25em] font-normal" style={{ fontVariant: 'small-caps' }}>
               Oarc Digital
             </span>
           </div>
