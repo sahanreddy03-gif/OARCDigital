@@ -18,12 +18,15 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-12">
         <div className="flex items-center justify-between h-14 md:h-16 lg:h-20">
           <Link href="/" className="flex items-center gap-2" data-testid="link-logo-home">
-            <img 
-              src={transparentLogo} 
-              alt="Oarc Digital logo" 
-              className="h-8 w-8 md:h-9 md:w-9 object-contain drop-shadow-lg"
-              data-testid="img-logo"
-            />
+            <div className="relative h-7 w-7 md:h-8 md:w-8 rounded-full overflow-hidden">
+              <img 
+                src={transparentLogo} 
+                alt="Oarc Digital logo" 
+                className="absolute w-[200%] h-[200%] object-contain"
+                style={{ top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}
+                data-testid="img-logo"
+              />
+            </div>
             <span className="text-white text-sm md:text-base tracking-[0.08em] font-light" style={{ fontFamily: "'Montserrat', system-ui, sans-serif" }}>
               <span className="font-semibold">O</span>
               <span className="text-[0.85em]">arc</span>
