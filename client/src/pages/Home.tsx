@@ -1,7 +1,6 @@
 import Layout from "@/components/layout/Layout";
 import HeroSection from "@/components/HeroSection";
-import OARCStripSection from "@/components/OARCStripSection";
-import ServicePillarsSection from "@/components/ServicePillarsSection";
+import OARCBrandSection from "@/components/OARCBrandSection";
 import TrustedBrandsSection from "@/components/TrustedBrandsSection";
 import AICreativeSection from "@/components/AICreativeSection";
 import AmbitiousBrandsSection from "@/components/AmbitiousBrandsSection";
@@ -82,11 +81,8 @@ export default function Home() {
       <div className="overflow-x-hidden">
       <HeroSection />
       
-      {/* OARC DNA Strip - explains what OARC stands for */}
-      <OARCStripSection />
-      
-      {/* Service Pillars - the three ways we help */}
-      <ServicePillarsSection />
+      {/* OARC Brand Section - premium display of OARC acronym and pillars */}
+      <OARCBrandSection />
       
       {/* Social proof */}
       <TrustedBrandsSection />
