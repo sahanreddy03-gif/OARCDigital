@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { Menu, ChevronDown, ArrowRight, X } from "lucide-react";
 import { getPreviewServices, servicesCatalog } from '@/config/servicesConfig';
-import transparentLogo from "@assets/IMG_8795_1764781810988.png";
+import oarcLogoOnly from "@assets/IMG_8795_1764789151366.png";
 
 export default function Navigation() {
   const [showServicesMenu, setShowServicesMenu] = useState(false);
@@ -17,16 +17,14 @@ export default function Navigation() {
     <nav className="absolute top-0 left-0 right-0 z-50">
       <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-12">
         <div className="flex items-center justify-between h-14 md:h-16 lg:h-20">
-          <Link href="/" className="flex items-center gap-2" data-testid="link-logo-home">
-            <div className="relative h-7 w-7 md:h-8 md:w-8 rounded-full overflow-hidden">
-              <img 
-                src={transparentLogo} 
-                alt="Oarc Digital logo" 
-                className="absolute w-[200%] h-[200%] object-contain"
-                style={{ top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}
-                data-testid="img-logo"
-              />
-            </div>
+          <Link href="/" className="flex items-center gap-2.5" data-testid="link-logo-home">
+            <img 
+              src={oarcLogoOnly} 
+              alt="Oarc Digital logo" 
+              className="h-8 w-8 md:h-9 md:w-9 lg:h-10 lg:w-10 object-contain"
+              style={{ filter: 'drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3))' }}
+              data-testid="img-logo"
+            />
             <span className="text-white text-sm md:text-base tracking-[0.08em] font-light" style={{ fontFamily: "'Montserrat', system-ui, sans-serif" }}>
               <span className="font-semibold">O</span>
               <span className="text-[0.85em]">arc</span>
