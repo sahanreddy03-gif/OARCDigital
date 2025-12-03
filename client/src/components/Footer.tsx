@@ -2,7 +2,7 @@ import { Link } from "wouter";
 import { ArrowRight, ArrowUpRight, Cookie } from "lucide-react";
 import { getPreviewServices, servicesCatalog } from '@/config/servicesConfig';
 import { useCookieConsent } from '@/contexts/CookieConsentContext';
-import companyLogo from "@assets/IMG_8557_1764721897328.png";
+import companyLogo from "@assets/IMG_8775_1764722473830.png";
 
 export default function Footer() {
   const { openPreferences } = useCookieConsent();
@@ -237,13 +237,15 @@ export default function Footer() {
             <img 
               src={companyLogo} 
               alt="Oarc Digital logo" 
-              className="h-12 w-12 object-contain drop-shadow-xl"
+              className="h-12 w-12 object-contain"
               data-testid="img-footer-logo"
             />
-            <div className="font-display text-3xl" style={{ letterSpacing: '-0.01em' }}>
-              <span className="text-white font-semibold">Oarc</span>
-              <span className="font-light text-white/70"> Digital</span>
-            </div>
+            <span 
+              className="text-white text-2xl md:text-3xl font-medium uppercase"
+              style={{ letterSpacing: '0.15em', fontFamily: 'system-ui, -apple-system, sans-serif' }}
+            >
+              Oarc Digital
+            </span>
           </div>
 
           {/* Copyright & Legal Entity Info */}

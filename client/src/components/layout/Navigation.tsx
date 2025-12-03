@@ -1,7 +1,7 @@
 import { Link, useLocation } from "wouter";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
-import companyLogo from "@assets/IMG_8557_1764721897328.png";
+import companyLogo from "@assets/IMG_8775_1764722473830.png";
 
 export default function Navigation() {
   const [location] = useLocation();
@@ -21,16 +21,18 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2.5" data-testid="link-logo-home">
+          <Link href="/" className="flex items-center gap-3" data-testid="link-logo-home">
             <img 
               src={companyLogo} 
               alt="Oarc Digital logo" 
-              className="h-8 w-8 sm:h-9 sm:w-9 object-contain drop-shadow-lg"
+              className="h-9 w-9 sm:h-10 sm:w-10 object-contain"
               data-testid="img-logo"
             />
-            <span className="text-2xl tracking-tight">
-              <span className="text-foreground font-semibold">Oarc</span>
-              <span className="font-light text-foreground/70"> Digital</span>
+            <span 
+              className="text-foreground text-xl sm:text-2xl font-medium uppercase"
+              style={{ letterSpacing: '0.15em', fontFamily: 'system-ui, -apple-system, sans-serif' }}
+            >
+              Oarc Digital
             </span>
           </Link>
 

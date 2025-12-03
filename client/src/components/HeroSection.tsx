@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import FloatingChipCarousel from "./FloatingChipCarousel";
 import heroBackground from '@assets/d375f1d50d97b0de7953ca2cecd2b8aea2cd96b2-3524x1181_1761251957292.avif';
-import companyLogo from "@assets/IMG_8557_1764721897328.png";
+import companyLogo from "@assets/IMG_8775_1764722473830.png";
 
 export default function HeroSection() {
   const [scrollY, setScrollY] = useState(0);
