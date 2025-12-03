@@ -89,7 +89,7 @@ const TechEnabledSection = () => {
   };
 
   return (
-    <section className="relative py-16 md:py-24 lg:py-32 overflow-hidden bg-white">
+    <section className="relative py-16 md:py-24 lg:py-32 overflow-hidden" style={{ backgroundColor: '#f0fff4' }}>
       <div className="container mx-auto px-4 md:px-6 lg:px-12">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10 md:mb-14">

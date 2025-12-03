@@ -152,7 +152,7 @@ export default function ROICalculatorSection() {
     <section 
       ref={sectionRef}
       className="relative py-20 md:py-28 lg:py-32 overflow-hidden"
-      style={{ backgroundColor: "#fafafa" }}
+      style={{ backgroundColor: "#f0fff4" }}
       data-testid="section-roi-calculator"
     >
       {/* Subtle gradient accents */}
