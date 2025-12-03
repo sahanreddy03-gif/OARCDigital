@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { Menu, ChevronDown, ArrowRight, X } from "lucide-react";
 import { getPreviewServices, servicesCatalog } from '@/config/servicesConfig';
-import companyLogo from "@assets/IMG_8775_1764722473830.png";
+import transparentLogo from "@assets/IMG_8795_1764781810988.png";
 
 export default function Navigation() {
   const [showServicesMenu, setShowServicesMenu] = useState(false);
@@ -17,17 +17,18 @@ export default function Navigation() {
     <nav className="absolute top-0 left-0 right-0 z-50">
       <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-12">
         <div className="flex items-center justify-between h-14 md:h-16 lg:h-20">
-          <Link href="/" className="flex items-center gap-2.5" data-testid="link-logo-home">
-            <div className="relative h-8 w-8 md:h-9 md:w-9 rounded-full overflow-hidden">
-              <img 
-                src={companyLogo} 
-                alt="Oarc Digital logo" 
-                className="h-full w-full object-cover scale-[1.15]"
-                data-testid="img-logo"
-              />
-            </div>
-            <span className="text-white text-base md:text-lg tracking-[0.25em] font-normal" style={{ fontVariant: 'small-caps' }}>
-              Oarc Digital
+          <Link href="/" className="flex items-center gap-2" data-testid="link-logo-home">
+            <img 
+              src={transparentLogo} 
+              alt="Oarc Digital logo" 
+              className="h-8 w-8 md:h-9 md:w-9 object-contain drop-shadow-lg"
+              data-testid="img-logo"
+            />
+            <span className="text-white text-sm md:text-base tracking-[0.08em] font-light" style={{ fontFamily: "'Montserrat', system-ui, sans-serif" }}>
+              <span className="font-semibold">O</span>
+              <span className="text-[0.85em]">arc</span>
+              <span className="ml-1 font-semibold">D</span>
+              <span className="text-[0.85em]">igital</span>
             </span>
           </Link>
 
