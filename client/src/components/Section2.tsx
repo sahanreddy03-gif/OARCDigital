@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { useState, useEffect } from "react";
 import { Link } from "wouter";
 import { SiFacebook, SiInstagram, SiLinkedin, SiX, SiYoutube, SiSpotify } from "react-icons/si";
-import companyLogo from "@assets/final 2_1762907995368.png";
+import companyLogo from "@assets/IMG_8557_1764721897328.png";
 
 export default function Section2() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -109,8 +109,8 @@ export default function Section2() {
                     ) : (
                       <img 
                         src={companyLogo} 
-                        alt="OARC logo" 
-                        className="w-20 h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 object-contain transition-opacity duration-500"
+                        alt="Oarc Digital logo" 
+                        className="w-20 h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 object-contain transition-opacity duration-500 drop-shadow-lg"
                         data-testid="phone-logo-content"
                       />
                     )}

@@ -20,7 +20,7 @@ import {
 } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import companyLogo from "@assets/final 2_1762907995368.png";
+import companyLogo from "@assets/IMG_8557_1764721897328.png";
 import heroImg from "@assets/nnnnnnnnnn_1763249120461.avif";
 import visionEye from "@assets/pexels-burakkostak-18809_1763243435924.jpg";
 import experimentsWorkspace from "@assets/campaign-img1_1763245285586.png";
@@ -512,7 +512,7 @@ export default function WhyUs() {
                 You can find out our history with the timeline below, where you can discover who we are and why we exist.
               </p>
               <p className="text-heading-lg font-black text-zinc-900 mt-10">
-                So, hello, we're <span className="text-[#FF5A00]">OARC Digital</span>.
+                So, hello, we're <span className="font-semibold">Oarc</span><span className="font-light text-zinc-600"> Digital</span>.
               </p>
             </div>
           </ScrollReveal>
