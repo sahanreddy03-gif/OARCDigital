@@ -1,6 +1,7 @@
 import Layout from "@/components/layout/Layout";
 import HeroSection from "@/components/HeroSection";
 import OARCBrandSection from "@/components/OARCBrandSection";
+import { GradientTransition } from "@/components/GradientTransition";
 import TrustedBrandsSection from "@/components/TrustedBrandsSection";
 import AICreativeSection from "@/components/AICreativeSection";
 import AmbitiousBrandsSection from "@/components/AmbitiousBrandsSection";
@@ -84,10 +85,18 @@ export default function Home() {
       {/* OARC Brand Section - premium display of OARC acronym and pillars */}
       <OARCBrandSection />
       
-      {/* Social proof */}
+      {/* Smooth transition: Dark to Light */}
+      <GradientTransition from="dark" to="light" height="80px" />
+      
+      {/* BAND 2: What We Do - Soft Mint Theme */}
       <TrustedBrandsSection />
       <AICreativeSection />
       <AmbitiousBrandsSection />
+      
+      {/* Smooth transition: Light to Dark */}
+      <GradientTransition from="light" to="dark" height="80px" />
+      
+      {/* BAND 3: Experience & Proof - Dark Premium Theme */}
       <Section2 />
       <Section5 />
       <HireAIEmployeesSection />
