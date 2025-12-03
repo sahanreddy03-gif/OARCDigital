@@ -1,11 +1,20 @@
 import { Link, useLocation } from "wouter";
 import { Menu, X } from "lucide-react";
-import { useState } from "react";
-import companyLogo from "@assets/IMG_8775_1764722473830.png";
+import { useState, useEffect } from "react";
+import oarcLogoOnly from "@assets/IMG_8795_1764789151366.png";
 
 export default function Navigation() {
   const [location] = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const navLinks = [
     { href: "/services", label: "Services" },
@@ -13,39 +22,48 @@ export default function Navigation() {
     { href: "/why-us", label: "Why Us" },
     { href: "/resources", label: "Resources" },
     { href: "/pricing", label: "Pricing" },
-    { href: "/enterprise", label: "Enterprise" },
   ];
 
+  const textShadow = '0 1px 3px rgba(0,0,0,0.5), 0 0 15px rgba(0,0,0,0.25)';
+
   return (
-    <nav className="bg-background/95 backdrop-blur-md border-b border-border sticky top-0 z-50">
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      scrolled ? 'bg-black/70 backdrop-blur-lg' : 'bg-transparent'
+    }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-16 md:h-18 lg:h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2.5" data-testid="link-logo-home">
-            <div className="relative h-8 w-8 sm:h-9 sm:w-9 rounded-full overflow-hidden">
-              <img 
-                src={companyLogo} 
-                alt="Oarc Digital logo" 
-                className="h-full w-full object-cover scale-[1.15]"
-                data-testid="img-logo"
-              />
-            </div>
-            <span className="text-foreground text-base sm:text-lg tracking-[0.25em] font-normal" style={{ fontVariant: 'small-caps' }}>
-              Oarc Digital
+            <img 
+              src={oarcLogoOnly} 
+              alt="Oarc Digital logo" 
+              className="h-9 w-9 md:h-10 md:w-10 lg:h-11 lg:w-11 object-contain"
+              style={{ filter: 'drop-shadow(0 2px 10px rgba(0, 0, 0, 0.4))' }}
+              data-testid="img-logo"
+            />
+            <span 
+              className="text-white text-sm md:text-base tracking-[0.08em] font-light" 
+              style={{ fontFamily: "'Montserrat', system-ui, sans-serif", textShadow }}
+            >
+              <span className="font-semibold">O</span>
+              <span className="text-[0.85em]">arc</span>
+              <span className="ml-1 font-semibold">D</span>
+              <span className="text-[0.85em]">igital</span>
             </span>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-sm font-medium transition-colors ${
+                className={`text-xs lg:text-sm font-medium transition-colors ${
                   location === link.href
-                    ? "text-primary"
-                    : "text-muted-foreground hover:text-foreground"
+                    ? "text-[#c4ff4d]"
+                    : "text-white/90 hover:text-white"
                 }`}
+                style={{ textShadow }}
                 data-testid={`link-${link.label.toLowerCase().replace(/\s+/g, '-')}`}
               >
                 {link.label}
@@ -53,7 +71,7 @@ export default function Navigation() {
             ))}
             <Link
               href="/contact"
-              className="bg-primary text-primary-foreground px-6 py-2 rounded-full font-semibold hover-elevate transition-all"
+              className="bg-white text-black px-5 py-2 rounded-full text-xs lg:text-sm font-semibold hover:bg-white/90 transition-all shadow-lg"
               data-testid="button-contact"
             >
               Contact Us
@@ -63,39 +81,41 @@ export default function Navigation() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 text-foreground"
+            className="md:hidden p-2 rounded-full text-white bg-white/10 backdrop-blur-sm hover:bg-white/20 transition-colors"
             data-testid="button-mobile-menu"
           >
-            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile Menu - Dark Glassmorphic */}
         {mobileMenuOpen && (
-          <div className="md:hidden py-4 border-t border-border backdrop-blur-md bg-background/95">
-            {navLinks.map((link) => (
+          <div className="md:hidden absolute top-full left-0 right-0 bg-black/90 backdrop-blur-xl border-b border-white/10">
+            <div className="px-6 py-4 space-y-1">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`block py-3 text-base font-medium border-b border-white/5 ${
+                    location === link.href
+                      ? "text-[#c4ff4d]"
+                      : "text-white"
+                  }`}
+                  onClick={() => setMobileMenuOpen(false)}
+                  data-testid={`link-mobile-${link.label.toLowerCase().replace(/\s+/g, '-')}`}
+                >
+                  {link.label}
+                </Link>
+              ))}
               <Link
-                key={link.href}
-                href={link.href}
-                className={`block px-4 py-3 text-sm font-medium ${
-                  location === link.href
-                    ? "text-primary bg-muted"
-                    : "text-muted-foreground hover:bg-muted"
-                }`}
+                href="/contact"
+                className="block mt-4 bg-white text-black px-6 py-3 rounded-full font-semibold text-center shadow-lg"
                 onClick={() => setMobileMenuOpen(false)}
-                data-testid={`link-mobile-${link.label.toLowerCase().replace(/\s+/g, '-')}`}
+                data-testid="button-mobile-contact"
               >
-                {link.label}
+                Contact Us
               </Link>
-            ))}
-            <Link
-              href="/contact"
-              className="block mx-4 mt-4 bg-primary text-primary-foreground px-6 py-3 rounded-full font-semibold text-center hover-elevate transition-all"
-              onClick={() => setMobileMenuOpen(false)}
-              data-testid="button-mobile-contact"
-            >
-              Contact Us
-            </Link>
+            </div>
           </div>
         )}
       </div>
