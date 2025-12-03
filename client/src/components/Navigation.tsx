@@ -17,18 +17,16 @@ export default function Navigation() {
     <nav className="absolute top-0 left-0 right-0 z-50">
       <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-12">
         <div className="flex items-center justify-between h-14 md:h-16 lg:h-20">
-          <Link href="/" className="flex items-center gap-3" data-testid="link-logo-home">
-            <img 
-              src={companyLogo} 
-              alt="Oarc Digital logo" 
-              className="h-9 w-9 md:h-10 md:w-10 object-contain"
-              style={{ mixBlendMode: 'normal' }}
-              data-testid="img-logo"
-            />
-            <span 
-              className="text-white text-lg md:text-xl lg:text-2xl font-medium uppercase"
-              style={{ letterSpacing: '0.15em', fontFamily: 'system-ui, -apple-system, sans-serif' }}
-            >
+          <Link href="/" className="flex items-center gap-2.5" data-testid="link-logo-home">
+            <div className="relative h-8 w-8 md:h-9 md:w-9 rounded-full overflow-hidden">
+              <img 
+                src={companyLogo} 
+                alt="Oarc Digital logo" 
+                className="h-full w-full object-cover scale-[1.15]"
+                data-testid="img-logo"
+              />
+            </div>
+            <span className="text-white text-base md:text-lg tracking-[0.25em] font-normal" style={{ fontVariant: 'small-caps' }}>
               Oarc Digital
             </span>
           </Link>

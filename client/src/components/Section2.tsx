@@ -107,12 +107,14 @@ export default function Section2() {
                         {textContent[currentTextIndex]?.content || ''}
                       </p>
                     ) : (
-                      <img 
-                        src={companyLogo} 
-                        alt="Oarc Digital logo" 
-                        className="w-20 h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 object-contain transition-opacity duration-500 drop-shadow-lg"
-                        data-testid="phone-logo-content"
-                      />
+                      <div className="w-20 h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 rounded-full overflow-hidden transition-opacity duration-500">
+                        <img 
+                          src={companyLogo} 
+                          alt="Oarc Digital logo" 
+                          className="w-full h-full object-cover scale-[1.15]"
+                          data-testid="phone-logo-content"
+                        />
+                      </div>
                     )}
                   </div>
                   

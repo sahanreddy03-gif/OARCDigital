@@ -155,12 +155,14 @@ export default function HeroSection() {
               <div className="relative md:before:content-none before:absolute before:inset-0 before:-z-10 before:bg-black/50 before:blur-xl before:rounded-[32px] before:-m-4">
                 {/* Oarc Digital Logo Symbol */}
                 <div className="flex justify-center md:justify-start mb-4 md:mb-3">
-                  <img 
-                    src={companyLogo} 
-                    alt="Oarc Digital" 
-                    className="h-16 w-16 sm:h-20 sm:w-20 md:h-24 md:w-24 object-contain drop-shadow-xl"
-                    data-testid="img-hero-logo"
-                  />
+                  <div className="relative h-16 w-16 sm:h-20 sm:w-20 md:h-24 md:w-24 rounded-full overflow-hidden">
+                    <img 
+                      src={companyLogo} 
+                      alt="Oarc Digital" 
+                      className="h-full w-full object-cover scale-[1.15]"
+                      data-testid="img-hero-logo"
+                    />
+                  </div>
                 </div>
                 
                 <div className="mb-4 md:mb-5">
