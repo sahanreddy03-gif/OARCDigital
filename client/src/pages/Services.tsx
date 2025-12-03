@@ -106,8 +106,8 @@ export default function Services() {
       />
       <div className="min-h-screen bg-black text-white overflow-x-hidden">
 
-      {/* Cinematic Hero with Parallax */}
-      <section ref={heroRef} className="relative h-screen flex items-center justify-center overflow-hidden mt-14 md:mt-16 lg:mt-20">
+      {/* Cinematic Hero with Parallax - extends behind transparent nav */}
+      <section ref={heroRef} className="relative h-screen flex items-center justify-center overflow-hidden">
         {/* Layered Background with Image */}
         <motion.div 
           style={{ y: heroY }}
