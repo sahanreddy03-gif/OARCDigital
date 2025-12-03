@@ -100,11 +100,36 @@ export default function Home() {
       <Section2 />
       <Section5 />
       <HireAIEmployeesSection />
+      
+      {/* Transition: Dark to Light */}
+      <GradientTransition from="dark" to="light" height="60px" />
+      
+      {/* Tech & Services - Soft Mint Theme */}
       <TechEnabledSection />
+      
+      {/* Transition: Light to Dark */}
+      <GradientTransition from="light" to="dark" height="60px" />
+      
+      {/* Revenue & Results - Dark Theme */}
       <LetsTalkRevenueSection />
       <SuccessInNumbers />
+      
+      {/* Transition: Dark Green to Light */}
+      <GradientTransition from="darkGreen" to="light" height="60px" />
+      
+      {/* Case Studies & Social Proof - Soft Mint Theme */}
       <BrandShowcaseSection />
+      
+      {/* Transition: Light to Dark Green */}
+      <GradientTransition from="light" to="darkGreen" height="60px" />
+      
+      {/* Testimonials - Dark Green */}
       <Testimonials />
+      
+      {/* Transition: Dark Green to Light */}
+      <GradientTransition from="darkGreen" to="light" height="60px" />
+      
+      {/* Final CTAs - Soft Mint Theme */}
       <ROICalculatorSection />
       <MoneyBackGuaranteeSection />
       <BlogPreviewSection />

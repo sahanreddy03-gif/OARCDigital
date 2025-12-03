@@ -36,7 +36,7 @@ export default function MoneyBackGuaranteeSection() {
     <section 
       ref={sectionRef}
       className="relative py-20 md:py-28 lg:py-32 overflow-hidden"
-      style={{ backgroundColor: "#ffffff" }}
+      style={{ backgroundColor: "#f0fff4" }}
       data-testid="section-money-back-guarantee"
     >
       {/* Subtle gradient accents */}
