@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { SiFacebook, SiInstagram, SiLinkedin, SiX, SiYoutube, SiSpotify } from "react-icons/si";
-import companyLogo from "@assets/IMG_8775_1764722473830.png";
+import companyLogo from "@assets/IMG_8813_(1)_1764796694787.png";
 
 function FloatingParticle({ delay, duration, size, left, top, color }: { 
   delay: number; 
@@ -300,14 +300,13 @@ export default function Section2() {
                         {textContent[currentTextIndex]?.content || ''}
                       </p>
                     ) : (
-                      <div className="w-20 h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 rounded-full overflow-hidden transition-opacity duration-500">
-                        <img 
-                          src={companyLogo} 
-                          alt="Oarc Digital logo" 
-                          className="w-full h-full object-cover scale-[1.15]"
-                          data-testid="phone-logo-content"
-                        />
-                      </div>
+                      <img 
+                        src={companyLogo} 
+                        alt="Oarc Digital logo" 
+                        className="w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 object-contain transition-opacity duration-500"
+                        style={{ filter: 'drop-shadow(0 4px 20px rgba(0, 0, 0, 0.4))' }}
+                        data-testid="phone-logo-content"
+                      />
                     )}
                   </div>
                   

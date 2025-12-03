@@ -2,7 +2,7 @@ import { Link } from "wouter";
 import { ArrowRight, ArrowUpRight, Cookie } from "lucide-react";
 import { getPreviewServices, servicesCatalog } from '@/config/servicesConfig';
 import { useCookieConsent } from '@/contexts/CookieConsentContext';
-import companyLogo from "@assets/IMG_8775_1764722473830.png";
+import companyLogo from "@assets/IMG_8813_(1)_1764796694787.png";
 
 export default function Footer() {
   const { openPreferences } = useCookieConsent();
@@ -233,15 +233,14 @@ export default function Footer() {
       <div className="relative max-w-7xl mx-auto px-6 md:px-12 py-12">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8">
           {/* Brand */}
-          <div className="flex items-center gap-3">
-            <div className="relative h-10 w-10 md:h-12 md:w-12 rounded-full overflow-hidden">
-              <img 
-                src={companyLogo} 
-                alt="Oarc Digital logo" 
-                className="h-full w-full object-cover scale-[1.15]"
-                data-testid="img-footer-logo"
-              />
-            </div>
+          <div className="flex items-center gap-4">
+            <img 
+              src={companyLogo} 
+              alt="Oarc Digital logo" 
+              className="h-14 w-14 md:h-16 md:w-16 object-contain"
+              style={{ filter: 'drop-shadow(0 2px 8px rgba(0, 0, 0, 0.5))' }}
+              data-testid="img-footer-logo"
+            />
             <span className="text-white text-xl md:text-2xl tracking-[0.25em] font-normal" style={{ fontVariant: 'small-caps' }}>
               Oarc Digital
             </span>
