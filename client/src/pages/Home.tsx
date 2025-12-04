@@ -1,5 +1,5 @@
 import Layout from "@/components/layout/Layout";
-import HeroSection from "@/components/HeroSection";
+import EnhancedHeroSection from "@/components/EnhancedHeroSection";
 import OARCBrandSection from "@/components/OARCBrandSection";
 import { GradientTransition } from "@/components/GradientTransition";
 import TrustedBrandsSection from "@/components/TrustedBrandsSection";
@@ -80,7 +80,10 @@ export default function Home() {
         structuredData={homepageSchema}
       />
       <div className="overflow-x-hidden">
-      <HeroSection />
+      <EnhancedHeroSection />
+      
+      {/* Transition: Cream Hero to Dark OARC Brand */}
+      <GradientTransition from="cream" to="dark" height="80px" />
       
       {/* OARC Brand Section - premium display of OARC acronym and pillars */}
       <OARCBrandSection />

@@ -1,0 +1,1026 @@
+=> {
+startParticleSystem();
+}, 1500);
+}
+
+// Trigger on page load
+window.addEventListener(‘load’, () => {
+playEntranceAnimation();
+});
+
+If not using GSAP, use CSS animations:
+
+@keyframes slideInLeft {
+from {
+opacity: 0;
+transform: translateX(-100px) scale(0.9);
+}
+to {
+opacity: 1;
+transform: translateX(0) scale(1);
+}
+}
+
+@keyframes slideInRight {
+from {
+opacity: 0;
+transform: translateX(100px) scale(0.9);
+}
+to {
+opacity: 1;
+transform: translateX(0) scale(1);
+}
+}
+
+@keyframes fadeInUp {
+from {
+opacity: 0;
+transform: translateY(30px);
+}
+to {
+opacity: 1;
+transform: translateY(0);
+}
+}
+
+@keyframes growVertical {
+from {
+opacity: 0;
+transform: translateX(-50%) scaleY(0);
+}
+to {
+opacity: 1;
+transform: translateX(-50%) scaleY(1);
+}
+}
+
+Apply animations:
+.hero-split-screen.animate {
+animation: fadeIn 0.8s ease-out forwards;
+}
+
+.hero-split-screen.animate .work-card {
+animation: slideInLeft 1s ease-out forwards;
+}
+
+.hero-split-screen.animate .work-card:nth-child(1) {
+animation-delay: 0.3s;
+}
+.hero-split-screen.animate .work-card:nth-child(2) {
+animation-delay: 0.4s;
+}
+.hero-split-screen.animate .work-card:nth-child(3) {
+animation-delay: 0.5s;
+}
+/* … etc for each card */
+
+.hero-split-screen.animate .ai-visuals > * {
+animation: slideInRight 1s ease-out forwards;
+}
+
+.hero-split-screen.animate .code-terminal {
+animation-delay: 0.3s;
+}
+
+.hero-split-screen.animate .data-viz {
+animation-delay: 0.45s;
+}
+
+.hero-split-screen.animate .energy-line {
+animation: growVertical 1.2s ease-in-out 0.8s forwards;
+}
+
+.hero-split-screen.animate .fusion-logo {
+animation: fadeInUp 0.8s ease-out 1.2s forwards;
+}
+
+.hero-split-screen.animate .creative-text {
+animation: fadeInUp 0.6s ease-out 1.6s forwards;
+}
+
+.hero-split-screen.animate .fusion-symbol {
+animation: fadeInUp 0.5s ease-out 1.8s forwards;
+}
+
+.hero-split-screen.animate .ai-text {
+animation: fadeInUp 0.6s ease-out 2.0s forwards;
+}
+
+.hero-split-screen.animate .subheadline {
+animation: fadeInUp 0.6s ease-out 2.3s forwards;
+}
+
+.hero-split-screen.animate .proof-metric {
+animation: fadeInUp 0.6s ease-out 2.5s forwards;
+}
+
+.hero-split-screen.animate .fusion-cta {
+animation: fadeInUp 0.6s ease-out 2.7s forwards;
+}
+
+Trigger:
+window.addEventListener(‘load’, () => {
+document.querySelector(’.hero-split-screen’).classList.add(‘animate’);
+});
+
+```
+---
+
+### 🎯 **PROMPT 4: COMPLETE HTML STRUCTURE**
+```
+
+BUILD COMPLETE HTML STRUCTURE:
+
+═══════════════════════════════════════════════════════════
+FULL HTML MARKUP
+═══════════════════════════════════════════════════════════
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OARC Digital - Creative × AI Agency</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Navigation (existing) -->
+
+<nav class="navbar">
+  <div class="logo">
+    <img src="oarc-logo.svg" alt="OARC Digital">
+  </div>
+  <div class="nav-links">
+    <a href="#services">Services</a>
+    <a href="#work">Our Work</a>
+    <a href="#why-us">Why Us</a>
+    <a href="#resources">Resources</a>
+    <a href="#pricing">Pricing</a>
+  </div>
+  <button class="nav-cta">Contact Us</button>
+</nav>
+
+<!-- Hero Split Screen -->
+
+<section class="hero-split-screen">
+
+  <!-- Parallax Background Layers -->
+
+  <div class="bg-layer-1"></div>
+  <div class="bg-layer-2"></div>
+  <div class="bg-layer-3"></div>
+
+  <!-- Particle Canvas -->
+
+<canvas id="particle-canvas"></canvas>
+
+  <!-- LEFT: Creative Side -->
+
+  <div class="creative-side">
+    <div class="work-grid">
+
+```
+  <div class="work-card">
+    <img src="work-1.jpg" alt="Instagram Campaign">
+    <div class="work-info">
+      <div class="platform">Instagram</div>
+      <div class="metric">+420% Engagement</div>
+    </div>
+  </div>
+  
+  <div class="work-card">
+    <video autoplay loop muted playsinline>
+      <source src="work-2.mp4" type="video/mp4">
+    </video>
+    <div class="work-info">
+      <div class="platform">TikTok</div>
+      <div class="metric">2.3M Views</div>
+    </div>
+  </div>
+  
+  <div class="work-card">
+    <img src="work-3.jpg" alt="Ad Campaign">
+    <div class="work-info">
+      <div class="platform">Meta Ads</div>
+      <div class="metric">5.2x ROAS</div>
+    </div>
+  </div>
+  
+  <div class="work-card">
+    <img src="work-4.jpg" alt="Brand Design">
+    <div class="work-info">
+      <div class="platform">Branding</div>
+      <div class="metric">+85% Recognition</div>
+    </div>
+  </div>
+  
+  <div class="work-card">
+    <video autoplay loop muted playsinline>
+      <source src="work-5.mp4" type="video/mp4">
+    </video>
+    <div class="work-info">
+      <div class="platform">Video Campaign</div>
+      <div class="metric">1.8M Impressions</div>
+    </div>
+  </div>
+  
+  <div class="work-card">
+    <img src="work-6.jpg" alt="Email Campaign">
+    <div class="work-info">
+      <div class="platform">Email</div>
+      <div class="metric">32% Open Rate</div>
+    </div>
+  </div>
+  
+</div>
+```
+
+  </div>
+
+  <!-- CENTER: Fusion Zone -->
+
+  <div class="fusion-center">
+
+```
+<!-- Energy Line -->
+<div class="energy-line"></div>
+
+<!-- Logo -->
+<img src="oarc-logo.svg" alt="OARC Digital" class="fusion-logo">
+
+<!-- Headline -->
+<div class="split-headline">
+  <span class="headline-part creative-text">Creative</span>
+  <span class="fusion-symbol">×</span>
+  <span class="headline-part ai-text">AI</span>
+</div>
+
+<!-- Subheadline -->
+<p class="subheadline">
+  Where Creativity Meets Revenue
+</p>
+
+<!-- Proof Metric -->
+<p class="proof-metric">
+  We don't just make things look pretty. We engineer content that 
+  <strong>consistently outperforms</strong>—with <strong>3x average ROAS</strong> 
+  across 47+ active clients.
+</p>
+
+<!-- CTA -->
+<button class="fusion-cta">
+  <span>Start Creating →</span>
+</button>
+```
+
+  </div>
+
+  <!-- RIGHT: AI Side -->
+
+  <div class="ai-side">
+    <div class="ai-visuals">
+
+```
+  <!-- Code Terminal -->
+  <div class="code-terminal">
+    <div class="code-line"><span class="code-comment">// AI Optimization Engine</span></div>
+    <!-- Lines will be typed by JavaScript -->
+  </div>
+  
+  <!-- Data Visualization -->
+  <div class="data-viz">
+    
+    <div class="metric-row">
+      <div class="metric-info">
+        <div class="metric-label">Engagement Rate</div>
+        <div class="metric-bar">
+          <div class="metric-fill"></div>
+        </div>
+      </div>
+      <div class="metric-value" data-target="340">0%</div>
+    </div>
+    
+    <div class="metric-row">
+      <div class="metric-info">
+        <div class="metric-label">Conversion Optimization</div>
+        <div class="metric-bar">
+          <div class="metric-fill"></div>
+        </div>
+      </div>
+      <div class="metric-value" data-target="275">0%</div>
+    </div>
+    
+    <div class="metric-row">
+      <div class="metric-info">
+        <div class="metric-label">ROAS Improvement</div>
+        <div class="metric-bar">
+          <div class="metric-fill"></div>
+        </div>
+      </div>
+      <div class="metric-value" data-target="310">0%</div>
+    </div>
+    
+  </div>
+  
+</div>
+```
+
+  </div>
+
+</section>
+
+<script src="script.js"></script>
+
+</body>
+</html>
+```
+
+-----
+
+### 🎯 **PROMPT 5: ADDITIONAL POLISH & INTERACTIONS**
+
+```
+ADD FINAL POLISH AND INTERACTIONS:
+
+═══════════════════════════════════════════════════════════
+SCROLL REVEAL FOR CONTENT BELOW HERO
+═══════════════════════════════════════════════════════════
+
+IntersectionObserver for sections below:
+
+const observerOptions = {
+  threshold: 0.2,
+  rootMargin: '0px 0px -100px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, observerOptions);
+
+// Observe all sections
+document.querySelectorAll('section:not(.hero-split-screen)').forEach(section => {
+  observer.observe(section);
+});
+
+CSS for scroll reveal:
+section {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+═══════════════════════════════════════════════════════════
+SMOOTH SCROLL
+═══════════════════════════════════════════════════════════
+
+html {
+  scroll-behavior: smooth;
+}
+
+Or with JS for more control:
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    
+    window.scrollTo({
+      top: target.offsetTop - 80,
+      behavior: 'smooth'
+    });
+  });
+});
+
+═══════════════════════════════════════════════════════════
+LOADING STATE
+═══════════════════════════════════════════════════════════
+
+Add loading screen while assets load:
+
+HTML:
+<div class="loader">
+  <div class="loader-logo">
+    <img src="oarc-logo.svg" alt="OARC">
+  </div>
+  <div class="loader-bar">
+    <div class="loader-progress"></div>
+  </div>
+</div>
+
+CSS:
+.loader {
+  position: fixed;
+  inset: 0;
+  background: #FDFCFA;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  transition: opacity 0.5s, visibility 0.5s;
+}
+
+.loader.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.loader-logo {
+  width: 120px;
+  margin-bottom: 32px;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(0.95); }
+}
+
+.loader-bar {
+  width: 200px;
+  height: 4px;
+  background: #F2F1ED;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.loader-progress {
+  height: 100%;
+  background: linear-gradient(90deg, #FF6B35, #C77DFF);
+  width: 0%;
+  animation: load 2s ease-out forwards;
+}
+
+@keyframes load {
+  to { width: 100%; }
+}
+
+JS:
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    document.querySelector('.loader').classList.add('hidden');
+    playEntranceAnimation();
+  }, 2200);
+});
+
+═══════════════════════════════════════════════════════════
+PERFORMANCE MONITORING
+═══════════════════════════════════════════════════════════
+
+Track FPS and reduce particles if needed:
+
+let lastTime = performance.now();
+let fps = 60;
+
+function measureFPS() {
+  const now = performance.now();
+  const delta = now - lastTime;
+  fps = Math.round(1000 / delta);
+  lastTime = now;
+  
+  // If FPS drops below 40, reduce particles
+  if (fps < 40 && MAX_PARTICLES > 200) {
+    MAX_PARTICLES = Math.max(200, MAX_PARTICLES - 50);
+    console.log('Reduced particles to maintain performance:', MAX_PARTICLES);
+  }
+}
+
+// Check FPS every second
+setInterval(measureFPS, 1000);
+
+═══════════════════════════════════════════════════════════
+ACCESSIBILITY ENHANCEMENTS
+═══════════════════════════════════════════════════════════
+
+Respect prefers-reduced-motion:
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .work-card {
+    animation: none !important;
+  }
+  
+  #particle-canvas {
+    display: none;
+  }
+}
+
+JS:
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+if (prefersReducedMotion) {
+  // Don't start particle system
+  MAX_PARTICLES = 0;
+  
+  // Skip entrance animations
+  document.querySelector('.hero-split-screen').classList.remove('animate');
+}
+
+Keyboard Navigation:
+.fusion-cta:focus-visible {
+  outline: 3px solid #8B5CF6;
+  outline-offset: 4px;
+}
+
+.work-card:focus-visible {
+  outline: 3px solid #FF6B9D;
+  outline-offset: 4px;
+  transform: translateY(-16px) scale(1.05);
+}
+
+// Make work cards focusable
+document.querySelectorAll('.work-card').forEach(card => {
+  card.setAttribute('tabindex', '0');
+  card.setAttribute('role', 'button');
+  card.setAttribute('aria-label', 'View project details');
+});
+
+Screen Reader Support:
+<div class="sr-only">
+  OARC Digital combines creative excellence with AI automation to deliver 
+  marketing campaigns that consistently achieve 3x average return on ad spend.
+</div>
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+═══════════════════════════════════════════════════════════
+ANALYTICS TRACKING
+═══════════════════════════════════════════════════════════
+
+Track key interactions:
+
+// CTA clicks
+document.querySelector('.fusion-cta').addEventListener('click', () => {
+  // Google Analytics
+  gtag('event', 'click', {
+    'event_category': 'CTA',
+    'event_label': 'Hero Start Creating'
+  });
+  
+  // Or custom tracking
+  trackEvent('hero_cta_click');
+});
+
+// Work card interactions
+document.querySelectorAll('.work-card').forEach((card, index) => {
+  card.addEventListener('click', () => {
+    gtag('event', 'click', {
+      'event_category': 'Work',
+      'event_label': `Work Card ${index + 1}`
+    });
+  });
+});
+
+// Time on hero
+let heroEntryTime = Date.now();
+
+window.addEventListener('scroll', () => {
+  if (window.scrollY > window.innerHeight * 0.8) {
+    const timeSpent = Math.round((Date.now() - heroEntryTime) / 1000);
+    gtag('event', 'engagement', {
+      'event_category': 'Hero',
+      'event_label': 'Time Spent',
+      'value': timeSpent
+    });
+    // Remove listener after first trigger
+    window.removeEventListener('scroll', arguments.callee);
+  }
+});
+
+═══════════════════════════════════════════════════════════
+ERROR HANDLING
+═══════════════════════════════════════════════════════════
+
+Handle missing resources gracefully:
+
+// Video fallback
+document.querySelectorAll('video').forEach(video => {
+  video.addEventListener('error', (e) => {
+    console.error('Video failed to load:', e);
+    // Replace with static image
+    const img = document.createElement('img');
+    img.src = video.poster || 'fallback-image.jpg';
+    img.alt = 'Project preview';
+    video.parentNode.replaceChild(img, video);
+  });
+});
+
+// Canvas fallback
+if (!canvas.getContext) {
+  console.warn('Canvas not supported, hiding particle system');
+  canvas.style.display = 'none';
+}
+
+// GSAP fallback
+if (typeof gsap === 'undefined') {
+  console.warn('GSAP not loaded, using CSS animations');
+  document.querySelector('.hero-split-screen').classList.add('animate');
+}
+
+═══════════════════════════════════════════════════════════
+CLEANUP ON PAGE EXIT
+═══════════════════════════════════════════════════════════
+
+window.addEventListener('beforeunload', () => {
+  // Stop particle animation
+  cancelAnimationFrame(animationId);
+  
+  // Clear intervals
+  clearInterval(spawnInterval);
+  clearInterval(typeInterval);
+  
+  // Remove event listeners
+  window.removeEventListener('mousemove', parallaxHandler);
+  window.removeEventListener('resize', resizeHandler);
+  
+  // Clear particles array
+  particles.length = 0;
+});
+```
+
+-----
+
+### 🎯 **PROMPT 6: FINAL TOUCHES & OPTIMIZATION**
+
+```
+FINAL OPTIMIZATION AND POLISH:
+
+═══════════════════════════════════════════════════════════
+IMAGE OPTIMIZATION
+═══════════════════════════════════════════════════════════
+
+Lazy load images:
+<img 
+  src="placeholder.jpg" 
+  data-src="work-1.jpg" 
+  alt="Campaign"
+  loading="lazy"
+  class="lazy-image"
+>
+
+JS:
+const lazyImages = document.querySelectorAll('.lazy-image');
+
+const imageObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const img = entry.target;
+      img.src = img.dataset.src;
+      img.classList.add('loaded');
+      imageObserver.unobserve(img);
+    }
+  });
+});
+
+lazyImages.forEach(img => imageObserver.observe(img));
+
+Use WebP with fallback:
+<picture>
+  <source srcset="work-1.webp" type="image/webp">
+  <source srcset="work-1.jpg" type="image/jpeg">
+  <img src="work-1.jpg" alt="Campaign">
+</picture>
+
+═══════════════════════════════════════════════════════════
+CSS OPTIMIZATION
+═══════════════════════════════════════════════════════════
+
+Critical CSS (inline in <head>):
+<style>
+  /* Only essential above-the-fold styles */
+  body { margin: 0; font-family: system-ui, -apple-system, sans-serif; }
+  .hero-split-screen { min-height: 100vh; display: flex; }
+  .loader { position: fixed; inset: 0; background: #FDFCFA; z-index: 9999; }
+</style>
+
+Load full CSS asynchronously:
+<link rel="preload" href="styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="styles.css"></noscript>
+
+Minify CSS:
+- Remove comments
+- Remove whitespace
+- Combine similar rules
+- Use shorthand properties
+
+═══════════════════════════════════════════════════════════
+JAVASCRIPT OPTIMIZATION
+═══════════════════════════════════════════════════════════
+
+Defer non-critical scripts:
+<script src="script.js" defer></script>
+
+Minimize reflows/repaints:
+// Bad: Multiple style changes
+element.style.width = '100px';
+element.style.height = '100px';
+element.style.background = 'red';
+
+// Good: Batch style changes
+element.style.cssText = 'width: 100px; height: 100px; background: red;';
+
+// Or use classes
+element.classList.add('styled');
+
+Use requestAnimationFrame:
+function updateAnimation() {
+  // Batch all DOM reads
+  const scrollY = window.scrollY;
+  const mouseX = cursor.x;
+  
+  // Then batch all DOM writes
+  elements.forEach(el => {
+    el.style.transform = `translateY(${scrollY * 0.5}px)`;
+  });
+  
+  requestAnimationFrame(updateAnimation);
+}
+
+Debounce expensive operations:
+function debounce(func, wait) {
+  let timeout;
+  return function executedFunction(...args) {
+    const later = () => {
+      clearTimeout(timeout);
+      func(...args);
+    };
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+  };
+}
+
+const handleResize = debounce(() => {
+  resizeCanvas();
+  recalculatePositions();
+}, 250);
+
+window.addEventListener('resize', handleResize);
+
+═══════════════════════════════════════════════════════════
+SEO OPTIMIZATION
+═══════════════════════════════════════════════════════════
+
+Meta tags:
+<meta name="description" content="OARC Digital bridges creative excellence and AI automation to deliver marketing campaigns with 3x average ROAS. Malta's #1 AI-powered creative agency.">
+<meta name="keywords" content="AI creative agency, Malta marketing, automation, content optimization, ROAS">
+
+Open Graph:
+<meta property="og:title" content="OARC Digital - Creative × AI Agency">
+<meta property="og:description" content="Where Creativity Meets Revenue. 3x average ROAS across 47+ clients.">
+<meta property="og:image" content="https://oarcdigital.com/og-image.jpg">
+<meta property="og:url" content="https://oarcdigital.com">
+<meta property="og:type" content="website">
+
+Twitter Card:
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="OARC Digital - Creative × AI Agency">
+<meta name="twitter:description" content="Where Creativity Meets Revenue">
+<meta name="twitter:image" content="https://oarcdigital.com/twitter-image.jpg">
+
+Structured Data:
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "OARC Digital",
+  "url": "https://oarcdigital.com",
+  "logo": "https://oarcdigital.com/logo.png",
+  "description": "AI-powered creative agency delivering 3x average ROAS",
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "MT"
+  },
+  "sameAs": [
+    "https://linkedin.com/company/oarc-digital",
+    "https://instagram.com/oarcdigital"
+  ]
+}
+</script>
+
+═══════════════════════════════════════════════════════════
+PERFORMANCE BUDGET
+═══════════════════════════════════════════════════════════
+
+Target Metrics:
+- First Contentful Paint: < 1.5s
+- Largest Contentful Paint: < 2.5s
+- Time to Interactive: < 3.5s
+- Cumulative Layout Shift: < 0.1
+- First Input Delay: < 100ms
+
+Lighthouse Score Target:
+- Performance: 90+
+- Accessibility: 95+
+- Best Practices: 95+
+- SEO: 95+
+
+Asset Size Limits:
+- HTML: < 50KB
+- CSS: < 100KB
+- JS: < 200KB
+- Images: < 500KB each
+- Videos: < 5MB each
+- Total page weight: < 2MB
+
+═══════════════════════════════════════════════════════════
+BROWSER COMPATIBILITY
+═══════════════════════════════════════════════════════════
+
+Support:
+✓ Chrome 90+
+✓ Firefox 88+
+✓ Safari 14+
+✓ Edge 90+
+✓ Mobile browsers
+
+Fallbacks for older browsers:
+// Check for CSS Grid support
+if (!CSS.supports('display', 'grid')) {
+  document.querySelector('.work-grid').classList.add('fallback-flex');
+}
+
+// Check for IntersectionObserver
+if (!('IntersectionObserver' in window)) {
+  // Load polyfill or show all content immediately
+  document.querySelectorAll('section').forEach(s => s.classList.add('visible'));
+}
+
+// Check for canvas
+if (!document.createElement('canvas').getContext) {
+  document.getElementById('particle-canvas').style.display = 'none';
+}
+
+═══════════════════════════════════════════════════════════
+FINAL CHECKLIST
+═══════════════════════════════════════════════════════════
+
+VISUAL:
+□ All animations smooth (60fps)
+□ No layout shifts
+□ Proper spacing/alignment
+□ Colors consistent with brand
+□ Typography clear and readable
+□ Work cards display properly
+□ Videos autoplay correctly
+
+FUNCTIONALITY:
+□ CTA button clickable and tracked
+□ Work cards interactive
+□ Particles rendering correctly
+□ Code typing animation works
+□ Metrics counting up
+□ Parallax responding to mouse
+□ Mobile touch gestures work
+
+PERFORMANCE:
+□ Page loads < 3 seconds
+□ Lighthouse score > 90
+□ No console errors
+□ Assets optimized
+□ Lazy loading working
+□ Smooth on mobile
+
+ACCESSIBILITY:
+□ Keyboard navigation works
+□ Screen reader compatible
+□ Reduced motion respected
+□ Sufficient color contrast
+□ Focus states visible
+□ ARIA labels present
+
+SEO:
+□ Meta tags complete
+□ Open Graph implemented
+□ Structured data added
+□ Alt text on images
+□ Semantic HTML used
+□ Sitemap generated
+
+CROSS-BROWSER:
+□ Tested on Chrome
+□ Tested on Firefox
+□ Tested on Safari
+□ Tested on Edge
+□ Tested on mobile
+□ Fallbacks working
+
+═══════════════════════════════════════════════════════════
+DEPLOYMENT
+═══════════════════════════════════════════════════════════
+
+Pre-deployment:
+1. Run Lighthouse audit
+2. Test on real devices
+3. Verify all links work
+4. Check console for errors
+5. Test form submissions
+6. Verify analytics tracking
+7. Check mobile responsiveness
+8. Validate HTML/CSS
+9. Run accessibility audit
+10. Test loading states
+
+Post-deployment:
+1. Monitor Core Web Vitals
+2. Check analytics data
+3. Test from different locations
+4. Monitor error logs
+5. Track conversion rates
+6. Gather user feedback
+7. A/B test variations
+8. Optimize based on data
+```
+
+-----
+
+## ✅ IMPLEMENTATION SUMMARY
+
+### **What You’re Getting:**
+
+1. **Clean Split Screen Layout**
+
+- 40% Creative | 20% Center | 40% AI
+- Elegant, balanced, clear
+
+1. **Subtle Depth**
+
+- 3-layer parallax background
+- Gentle floating animations
+- Smooth transitions
+
+1. **500 Particle System**
+
+- Crosses between creative/AI sides
+- Converges at center
+- Performance optimized
+
+1. **Interactive Elements**
+
+- Hover effects on work cards
+- Animated metrics
+- Typing code terminal
+- Smooth entrance sequence
+
+1. **Premium Polish**
+
+- Loading screen
+- Scroll reveals
+- Accessibility features
+- SEO optimization
+- Analytics tracking
+
+-----
+
+## 📊 **EXPECTED RESULTS:**
+
+**Build Time:** 5-7 days
+**Performance:** 90+ Lighthouse score
+**Conversion Rate:** High (clear CTA, strong message)
+**Wow Factor:** 8.5/10 (impressive but not overwhelming)
+**Maintenance:** Easy
+**Mobile:** Fully responsive
+
+-----
+
+## 🚀 **READY TO BUILD!**
+
+Copy these 6 prompts into Replit sequentially, and you’ll have a world-class hero section that:
+
+✅ Looks premium
+✅ Converts visitors
+✅ Shows your unique positioning
+✅ Performs flawlessly
+✅ Works everywhere
+✅ Is maintainable
+
+**This is the one.** 🎯
+
+Ship it! 🚀​​​​​​​​​​​​​​​​
