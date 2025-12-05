@@ -34,10 +34,10 @@ export interface ServiceCategory {
 
 export const servicesConfig = {
   previewLimits: {
-    creativeDesign: 8,
+    creativeDesign: 10,
     aiAgents: 6,
-    growthAutomation: 7,
-    development: 5
+    growthAutomation: 6,
+    development: 4
   }
 };
 
@@ -96,6 +96,18 @@ export const servicesCatalog: Record<string, ServiceCategory> = {
         slug: 'ad-creative', 
         icon: Palette,
         description: 'Static ads, video ads, carousel ads, ad copy'
+      },
+      { 
+        title: 'Paid Advertising Management', 
+        slug: 'paid-advertising', 
+        icon: Target,
+        description: 'Meta Ads, Google Ads, TikTok Ads, LinkedIn Ads - strategy, targeting, optimization'
+      },
+      { 
+        title: 'AR/VR Experiences', 
+        slug: 'immersive-3d-ar', 
+        icon: Glasses,
+        description: 'Augmented reality apps, virtual reality experiences, 3D product visualization'
       },
       { 
         title: 'Influencer Marketing', 
@@ -178,12 +190,6 @@ export const servicesCatalog: Record<string, ServiceCategory> = {
         description: 'Email sequences, workflow automation, lead nurturing, drip campaigns'
       },
       { 
-        title: 'Paid Advertising Management', 
-        slug: 'paid-advertising', 
-        icon: Target,
-        description: 'Meta Ads, Google Ads, TikTok Ads, LinkedIn Ads - strategy, targeting, optimization'
-      },
-      { 
         title: 'Customer Acquisition System', 
         slug: 'customer-acquisition-accelerator', 
         icon: ShoppingCart,
@@ -248,12 +254,6 @@ export const servicesCatalog: Record<string, ServiceCategory> = {
         slug: 'mvp-software-development', 
         icon: Code2,
         description: 'SaaS platforms, customer portals, internal tools, progressive web apps'
-      },
-      { 
-        title: 'AR/VR Experiences', 
-        slug: 'immersive-3d-ar', 
-        icon: Glasses,
-        description: 'Augmented reality apps, virtual reality experiences, 3D product visualization'
       },
       { 
         title: 'API & Integration Services', 
