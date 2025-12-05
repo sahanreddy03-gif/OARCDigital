@@ -1190,15 +1190,15 @@ export default function SocialMediaCreativeManagement() {
 
                   {/* CTA Button - Premium */}
                   <Link href={service.link}>
-                    <motion.a
+                    <motion.span
                       whileHover={prefersReducedMotion ? {} : { scale: 1.02, y: -2 }}
                       whileTap={prefersReducedMotion ? {} : { scale: 0.98 }}
-                      className="mt-5 md:mt-6 w-full inline-flex items-center justify-center gap-2 bg-white text-gray-900 rounded-full py-3.5 md:py-4 font-bold text-sm md:text-base shadow-lg hover:shadow-2xl transition-all"
+                      className="mt-5 md:mt-6 w-full inline-flex items-center justify-center gap-2 bg-white text-gray-900 rounded-full py-3.5 md:py-4 font-bold text-sm md:text-base shadow-lg hover:shadow-2xl transition-all cursor-pointer"
                       data-testid={`button-learn-${service.title.toLowerCase().replace(/\s+/g, '-')}`}
                     >
                       {service.learnMore}
                       <ArrowRight className="h-4 w-4 md:h-5 md:w-5" />
-                    </motion.a>
+                    </motion.span>
                   </Link>
                 </div>
               </motion.div>
