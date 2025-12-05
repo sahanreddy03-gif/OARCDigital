@@ -261,7 +261,7 @@ export default function WebDesign() {
 
       {/* SECTION 4: What We Build */}
       <ScrollReveal>
-        <section className="py-20 px-4 bg-white">
+        <section className="py-20 px-4 bg-gradient-to-b from-[#f5fcfc] to-white">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-black text-center mb-12">
               Sites built for specific goals

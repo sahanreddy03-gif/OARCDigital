@@ -193,7 +193,7 @@ export default function MobileAppsDevelopment() {
                       
                       <ul className="space-y-2">
                         {phase.milestones.map((milestone, i) => (
-                          <li key={i} className="flex items-center gap-2 text-white/60 text-sm">
+                          <li key={i} className="flex items-center gap-2 text-white/80 text-sm">
                             <CheckCircle2 className={`w-4 h-4 ${activePhase >= phase.id ? 'text-[#23AACA]' : 'text-zinc-600'}`} />
                             {milestone}
                           </li>
@@ -260,7 +260,7 @@ export default function MobileAppsDevelopment() {
                     
                     <div className="space-y-2 mb-4">
                       {app.metrics.map((metric, j) => (
-                        <div key={j} className="flex items-center gap-2 text-white/60 text-sm">
+                        <div key={j} className="flex items-center gap-2 text-white/80 text-sm">
                           <CheckCircle2 className="w-4 h-4 text-[#23AACA]" />
                           {metric}
                         </div>
@@ -269,7 +269,7 @@ export default function MobileAppsDevelopment() {
 
                     <div className="flex flex-wrap gap-2">
                       {app.tech.map((t, j) => (
-                        <span key={j} className="px-3 py-1 bg-zinc-800 text-white/60 text-xs rounded-full">
+                        <span key={j} className="px-3 py-1 bg-zinc-800 text-white/70 text-xs rounded-full">
                           {t}
                         </span>
                       ))}
@@ -310,7 +310,7 @@ export default function MobileAppsDevelopment() {
                   </div>
                 </div>
 
-                <div className="text-white/60 text-sm">
+                <div className="text-white/70 text-sm">
                   Best for: Games, AR/VR, hardware integration, maximum performance
                 </div>
               </div>
@@ -331,7 +331,7 @@ export default function MobileAppsDevelopment() {
                   </div>
                 </div>
 
-                <div className="text-white/60 text-sm">
+                <div className="text-white/70 text-sm">
                   Best for: MVPs, startups, content apps, faster time-to-market
                 </div>
               </div>
@@ -342,7 +342,7 @@ export default function MobileAppsDevelopment() {
 
       {/* SECTION 5: What We Handle */}
       <ScrollReveal>
-        <section className="py-20 px-4 bg-white">
+        <section className="py-20 px-4 bg-gradient-to-b from-[#fff9f5] to-white">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-black text-center mb-12">
               Everything your app needs
@@ -397,7 +397,7 @@ export default function MobileAppsDevelopment() {
           <h2 className="text-4xl md:text-5xl font-black mb-6">
             Got an app idea?
           </h2>
-          <p className="text-white/60 text-lg mb-10">
+          <p className="text-white/80 text-lg mb-10">
             Let's talk about bringing it to life. Free consultation and project scoping.
           </p>
           <Link href="/contact">

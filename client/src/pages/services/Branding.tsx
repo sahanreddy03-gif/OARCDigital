@@ -271,7 +271,7 @@ export default function Branding() {
 
       {/* SECTION 5: Typography Exploration */}
       <ScrollReveal>
-        <section className="py-20 px-4 bg-white">
+        <section className="py-20 px-4 bg-gradient-to-b from-[#fafff5] to-white">
           <div className="max-w-6xl mx-auto">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
