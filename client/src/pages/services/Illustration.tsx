@@ -40,13 +40,13 @@ export default function Illustration() {
         </div>
         <div className="relative z-10 text-center px-4 max-w-6xl mx-auto">
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 animate-in fade-in slide-in-from-bottom-4 duration-700">
-            Illustrations that <span className="italic bg-gradient-to-r from-[hsl(340,75%,55%)] via-[hsl(350,70%,60%)] to-[hsl(10,80%,65%)] text-transparent bg-clip-text">stop the scroll</span>
+            Illustrations that <span className="italic bg-gradient-to-r from-[#23AACA] via-[#23AACA] to-orange-500 text-transparent bg-clip-text">stop the scroll</span>
           </h1>
           <p className="text-lg md:text-xl text-white/90 mb-8 max-w-3xl mx-auto animate-in fade-in slide-in-from-bottom-4 duration-700 delay-150">
             Custom digital illustration for brands who refuse to blend in. We craft unique visual stories that cut through the noise of stock imagery and make your brand unforgettable.
           </p>
           <div className="flex flex-wrap gap-4 justify-center animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300">
-            <Button size="lg" className="bg-white text-[hsl(340,75%,55%)] hover:bg-white/90" data-testid="button-get-started">
+            <Button size="lg" className="bg-white text-[#23AACA] hover:bg-white/90" data-testid="button-get-started">
               Commission Art
             </Button>
             <Button size="lg" variant="outline" className="border-white text-white bg-white/10 backdrop-blur-sm hover:bg-white/20" data-testid="button-view-portfolio">
@@ -57,7 +57,7 @@ export default function Illustration() {
       </section>
 
       {/* Trusted By */}
-      <section className="py-12 px-4 bg-white border-b border-border">
+      <section className="py-12 px-4 bg-[#f5f0e6] border-b border-[#1a2e29]/10">
         <div className="max-w-7xl mx-auto">
           <div className="text-center text-sm uppercase tracking-wider text-muted-foreground mb-8">
             Crafting visuals for forward-thinking brands
@@ -71,14 +71,14 @@ export default function Illustration() {
       </section>
 
       {/* Performance Metrics - REDUCED SIZE */}
-      <section className="py-16 px-4 bg-white">
+      <section className="py-16 px-4 bg-[#f5f0e6]">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <div className="text-sm uppercase tracking-wider text-[hsl(340,75%,55%)] mb-3">PROVEN IMPACT</div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              Unique visuals. <span className="italic text-[hsl(10,80%,65%)]">Unforgettable brands.</span>
+            <div className="text-sm uppercase tracking-wider text-[#23AACA] mb-3">PROVEN IMPACT</div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-[#1a2e29]">
+              Unique visuals. <span className="italic text-orange-500">Unforgettable brands.</span>
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-lg text-[#1a2e29]/70 max-w-2xl mx-auto">
               Custom illustration elevates your brand above generic stock photos. Every piece is tailored to your message, audience, and style guidelines.
             </p>
           </div>
@@ -90,8 +90,8 @@ export default function Illustration() {
               { value: "5 days", label: "Avg. turnaround time" },
               { value: "100%", label: "Original artwork guarantee" },
             ].map((stat, i) => (
-              <div key={i} className="text-center p-8 bg-gradient-to-br from-[hsl(340,10%,98%)] to-white rounded-xl border border-border hover:shadow-lg transition-all duration-300 hover:-translate-y-1" data-testid={`metric-${i}`}>
-                <div className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-[hsl(340,75%,55%)] to-[hsl(10,80%,65%)] text-transparent bg-clip-text mb-3">{stat.value}</div>
+              <div key={i} className="text-center p-8 bg-gradient-to-br from-[#23AACA]/10 to-white rounded-xl border border-border hover:shadow-lg transition-all duration-300 hover:-translate-y-1" data-testid={`metric-${i}`}>
+                <div className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-[#23AACA] to-orange-500 text-transparent bg-clip-text mb-3">{stat.value}</div>
                 <div className="text-base text-muted-foreground font-semibold">{stat.label}</div>
               </div>
             ))}
@@ -100,21 +100,21 @@ export default function Illustration() {
       </section>
 
       {/* Case Study Section */}
-      <section className="py-20 px-4 bg-[hsl(340,10%,98%)]">
+      <section className="py-20 px-4 bg-zinc-950">
         <div className="max-w-7xl mx-auto">
-          <div className="text-sm uppercase tracking-wider text-[hsl(340,75%,55%)] mb-4">CLIENT SPOTLIGHT</div>
-          <h2 className="text-4xl md:text-5xl font-bold mb-12">
-            How custom illustrations transformed <span className="italic text-[hsl(10,80%,65%)]">a DTC wellness brand</span>
+          <div className="text-sm uppercase tracking-wider text-[#23AACA] mb-4">CLIENT SPOTLIGHT</div>
+          <h2 className="text-4xl md:text-5xl font-bold mb-12 text-white">
+            How custom illustrations transformed <span className="italic text-[#c4ff4d]">a DTC wellness brand</span>
           </h2>
           
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <h3 className="text-2xl font-bold mb-4">The Challenge</h3>
-              <p className="text-lg text-muted-foreground mb-6">
+              <h3 className="text-2xl font-bold mb-4 text-white">The Challenge</h3>
+              <p className="text-lg text-white/70 mb-6">
                 A fast-growing wellness supplement brand was drowning in a sea of competitors using the same stock photos. They needed a distinctive visual identity that would make their Instagram feed instantly recognizable and elevate their brand from "startup" to "premium."
               </p>
               
-              <h3 className="text-2xl font-bold mb-4">Our Approach</h3>
+              <h3 className="text-2xl font-bold mb-4 text-white">Our Approach</h3>
               <ul className="space-y-3 mb-6">
                 {[
                   'Developed custom botanical illustration style guide',
@@ -123,15 +123,15 @@ export default function Illustration() {
                   'Built reusable template library for ongoing campaigns'
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
-                    <CheckCircle2 className="h-5 w-5 text-[hsl(340,75%,55%)] flex-shrink-0 mt-0.5" />
-                    <span className="text-muted-foreground">{item}</span>
+                    <CheckCircle2 className="h-5 w-5 text-[#23AACA] flex-shrink-0 mt-0.5" />
+                    <span className="text-white/70">{item}</span>
                   </li>
                 ))}
               </ul>
             </div>
 
-            <div className="bg-white rounded-xl p-8 border border-border">
-              <h3 className="text-xl font-bold mb-6">Results After 3 Months</h3>
+            <div className="bg-zinc-900 rounded-xl p-8 border border-zinc-800">
+              <h3 className="text-xl font-bold mb-6 text-white">Results After 3 Months</h3>
               <div className="space-y-6">
                 {[
                   { metric: '+243%', label: 'Instagram engagement rate' },
@@ -139,9 +139,9 @@ export default function Illustration() {
                   { metric: '+89%', label: 'Time on product pages' },
                   { metric: '4.2x', label: 'ROI on illustration investment' }
                 ].map((result, i) => (
-                  <div key={i} className="flex justify-between items-center pb-4 border-b border-border last:border-0">
-                    <span className="text-muted-foreground">{result.label}</span>
-                    <span className="text-2xl font-bold text-[hsl(340,75%,55%)]">{result.metric}</span>
+                  <div key={i} className="flex justify-between items-center pb-4 border-b border-zinc-800 last:border-0">
+                    <span className="text-white/70">{result.label}</span>
+                    <span className="text-2xl font-bold text-[#c4ff4d]">{result.metric}</span>
                   </div>
                 ))}
               </div>
@@ -151,11 +151,11 @@ export default function Illustration() {
       </section>
 
       {/* Illustration Styles */}
-      <section className="py-20 bg-white overflow-hidden">
+      <section className="py-20 bg-[#f5f0e6] overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 mb-12">
-          <div className="text-sm uppercase tracking-wider text-[hsl(340,75%,55%)] mb-4">ILLUSTRATION STYLES</div>
+          <div className="text-sm uppercase tracking-wider text-[#23AACA] mb-4">ILLUSTRATION STYLES</div>
           <h2 className="text-4xl md:text-5xl font-bold">
-            Every style. <span className="italic text-[hsl(10,80%,65%)]">Every medium.</span>
+            Every style. <span className="italic text-orange-500">Every medium.</span>
           </h2>
         </div>
 
@@ -201,8 +201,8 @@ export default function Illustration() {
             ].map((style, i) => (
               <div key={i} className="flex-none w-[360px] md:w-[420px] group" data-testid={`card-style-${i}`}>
                 <div className="bg-white rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-border h-full">
-                  <div className="relative h-[280px] bg-gradient-to-br from-rose-50 via-pink-50 to-orange-100 overflow-hidden flex items-center justify-center">
-                    <style.icon className="h-20 w-20 text-[hsl(340,75%,55%)]/20" />
+                  <div className="relative h-[280px] bg-gradient-to-br from-[#23AACA]/10 to-[#23AACA]/5 overflow-hidden flex items-center justify-center">
+                    <style.icon className="h-20 w-20 text-[#23AACA]/20" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   </div>
                   <div className="p-6">
@@ -211,7 +211,7 @@ export default function Illustration() {
                     <div className="space-y-2">
                       {style.features.map((feature, idx) => (
                         <div key={idx} className="flex items-center gap-2 text-sm text-muted-foreground">
-                          <CheckCircle2 className="h-4 w-4 text-[hsl(340,75%,55%)]" />
+                          <CheckCircle2 className="h-4 w-4 text-[#23AACA]" />
                           <span>{feature}</span>
                         </div>
                       ))}
@@ -225,7 +225,7 @@ export default function Illustration() {
       </section>
 
       {/* Who This Service Is For */}
-      <section className="py-20 px-4 bg-white">
+      <section className="py-20 px-4 bg-[#a8b892]">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center">
             Who This Service Is For
@@ -361,43 +361,43 @@ export default function Illustration() {
       </section>
 
       {/* Related Services */}
-      <section className="py-16 px-4 bg-[hsl(340,10%,98%)]">
+      <section className="py-16 px-4 bg-zinc-950">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center text-white">
             Services That Work Great Together
           </h2>
           <div className="grid md:grid-cols-3 gap-6">
             <Link href="/services/branding">
-              <div className="p-6 bg-white border border-border rounded-xl hover-elevate cursor-pointer transition-all" data-testid="related-service-branding">
-                <h3 className="text-xl font-bold mb-3">Branding Services</h3>
-                <p className="text-muted-foreground mb-4">
+              <div className="p-6 bg-zinc-900 border border-zinc-800 rounded-xl hover-elevate cursor-pointer transition-all" data-testid="related-service-branding">
+                <h3 className="text-xl font-bold mb-3 text-white">Branding Services</h3>
+                <p className="text-white/70 mb-4">
                   Build a complete visual identity with custom illustrations integrated into your brand system.
                 </p>
-                <div className="flex items-center text-[hsl(340,75%,55%)] font-semibold">
+                <div className="flex items-center text-[#c4ff4d] font-semibold">
                   Learn More <ArrowRight className="w-4 h-4 ml-2" />
                 </div>
               </div>
             </Link>
 
             <Link href="/services/motion-design">
-              <div className="p-6 bg-white border border-border rounded-xl hover-elevate cursor-pointer transition-all" data-testid="related-service-motion-design">
-                <h3 className="text-xl font-bold mb-3">Motion Design</h3>
-                <p className="text-muted-foreground mb-4">
+              <div className="p-6 bg-zinc-900 border border-zinc-800 rounded-xl hover-elevate cursor-pointer transition-all" data-testid="related-service-motion-design">
+                <h3 className="text-xl font-bold mb-3 text-white">Motion Design</h3>
+                <p className="text-white/70 mb-4">
                   Bring your custom illustrations to life with professional animation and motion graphics.
                 </p>
-                <div className="flex items-center text-[hsl(340,75%,55%)] font-semibold">
+                <div className="flex items-center text-[#c4ff4d] font-semibold">
                   Learn More <ArrowRight className="w-4 h-4 ml-2" />
                 </div>
               </div>
             </Link>
 
             <Link href="/services/print-packaging">
-              <div className="p-6 bg-white border border-border rounded-xl hover-elevate cursor-pointer transition-all" data-testid="related-service-print-packaging">
-                <h3 className="text-xl font-bold mb-3">Print & Packaging Design</h3>
-                <p className="text-muted-foreground mb-4">
+              <div className="p-6 bg-zinc-900 border border-zinc-800 rounded-xl hover-elevate cursor-pointer transition-all" data-testid="related-service-print-packaging">
+                <h3 className="text-xl font-bold mb-3 text-white">Print & Packaging Design</h3>
+                <p className="text-white/70 mb-4">
                   Apply your custom illustrations to physical packaging and print materials for a cohesive brand experience.
                 </p>
-                <div className="flex items-center text-[hsl(340,75%,55%)] font-semibold">
+                <div className="flex items-center text-[#c4ff4d] font-semibold">
                   Learn More <ArrowRight className="w-4 h-4 ml-2" />
                 </div>
               </div>
@@ -407,7 +407,7 @@ export default function Illustration() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-20 px-4 bg-gradient-to-br from-[hsl(340,75%,55%)] to-[hsl(10,80%,65%)] text-white">
+      <section className="py-20 px-4 bg-gradient-to-br from-[#23AACA] to-orange-500 text-white">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Ready for original artwork?
@@ -416,7 +416,7 @@ export default function Illustration() {
             Let's create custom illustrations that elevate your brand and captivate your audience.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <Button size="lg" className="bg-white text-[hsl(340,75%,55%)] hover:bg-white/90" data-testid="button-cta-primary">
+            <Button size="lg" className="bg-white text-[#23AACA] hover:bg-white/90" data-testid="button-cta-primary">
               Get Started
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>

@@ -40,13 +40,13 @@ export default function Immersive3DAR() {
         </div>
         <div className="relative z-10 text-center px-4 max-w-6xl mx-auto">
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 animate-in fade-in slide-in-from-bottom-4 duration-700">
-            Step into the <span className="italic bg-gradient-to-r from-[hsl(200,75%,45%)] via-[hsl(210,70%,50%)] to-[hsl(220,75%,55%)] text-transparent bg-clip-text">next dimension</span>
+            Step into the <span className="italic text-[#c4ff4d]">next dimension</span>
           </h1>
           <p className="text-lg md:text-xl text-white/90 mb-8 max-w-3xl mx-auto animate-in fade-in slide-in-from-bottom-4 duration-700 delay-150">
             3D product modeling, AR try-on experiences, virtual showrooms, and immersive web design. We build interactive experiences that engage customers, reduce returns, and drive conversions—bringing your products to life before they buy.
           </p>
           <div className="flex flex-wrap gap-4 justify-center animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300">
-            <Button size="lg" className="bg-white text-[hsl(200,75%,45%)] hover:bg-white/90" data-testid="button-get-started">
+            <Button size="lg" className="bg-[#c4ff4d] text-[#1a2e29] hover:bg-[#c4ff4d]/90" data-testid="button-get-started">
               Explore 3D & AR
             </Button>
             <Button size="lg" variant="outline" className="border-white text-white bg-white/10 backdrop-blur-sm hover:bg-white/20" data-testid="button-view-demos">
@@ -57,47 +57,47 @@ export default function Immersive3DAR() {
       </section>
 
       {/* Trusted By */}
-      <section className="py-12 px-4 bg-white border-b border-border">
+      <section className="py-12 px-4 bg-[#f5f0e6] border-b border-[#1a2e29]/10">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center text-sm uppercase tracking-wider text-muted-foreground mb-8">
+          <div className="text-center text-sm uppercase tracking-wider text-[#1a2e29]/60 mb-8">
             Building immersive experiences for leading brands
           </div>
           <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12 opacity-60">
             {['E-commerce Brands', 'Real Estate Firms', 'Furniture Retailers', 'Automotive', 'Museums & Galleries', 'Architecture Firms'].map((type, i) => (
-              <div key={i} className="text-lg md:text-xl font-bold text-foreground">{type}</div>
+              <div key={i} className="text-lg md:text-xl font-bold text-[#1a2e29]">{type}</div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="py-16 px-4 bg-[hsl(200,10%,98%)]">
+      <section className="py-16 px-4 bg-[#a8b892]">
         <div className="max-w-6xl mx-auto">
-          <div className="bg-white rounded-2xl overflow-hidden border border-border shadow-lg">
+          <div className="bg-white rounded-2xl overflow-hidden border border-[#1a2e29]/10 shadow-lg">
             <div className="p-8 md:p-12">
-              <div className="text-sm uppercase tracking-wider text-[hsl(200,75%,45%)] mb-4">CASE STUDY</div>
-              <h3 className="text-3xl md:text-4xl font-bold mb-6">
+              <div className="text-sm uppercase tracking-wider text-[#23AACA] mb-4">CASE STUDY</div>
+              <h3 className="text-3xl md:text-4xl font-bold mb-6 text-[#1a2e29]">
                 How AR try-on reduced returns by 38% for a furniture retailer
               </h3>
               <div className="grid md:grid-cols-3 gap-8 mb-8">
                 <div>
-                  <div className="text-2xl font-bold text-[hsl(200,75%,45%)] mb-2">38% reduction</div>
-                  <div className="text-sm text-muted-foreground">In product returns and exchanges</div>
+                  <div className="text-2xl font-bold text-[#23AACA] mb-2">38% reduction</div>
+                  <div className="text-sm text-[#1a2e29]/60">In product returns and exchanges</div>
                 </div>
                 <div>
-                  <div className="text-2xl font-bold text-[hsl(200,75%,45%)] mb-2">3.2x increase</div>
-                  <div className="text-sm text-muted-foreground">In average time spent on product pages</div>
+                  <div className="text-2xl font-bold text-[#23AACA] mb-2">3.2x increase</div>
+                  <div className="text-sm text-[#1a2e29]/60">In average time spent on product pages</div>
                 </div>
                 <div>
-                  <div className="text-2xl font-bold text-[hsl(200,75%,45%)] mb-2">156% ROI</div>
-                  <div className="text-sm text-muted-foreground">Within 6 months of launch</div>
+                  <div className="text-2xl font-bold text-[#23AACA] mb-2">156% ROI</div>
+                  <div className="text-sm text-[#1a2e29]/60">Within 6 months of launch</div>
                 </div>
               </div>
-              <p className="text-muted-foreground mb-6">
+              <p className="text-[#1a2e29]/70 mb-6">
                 A high-end furniture retailer was struggling with a 22% return rate due to size and style mismatches. We developed WebAR "see it in your space" experiences for their top 200 SKUs, allowing customers to visualize furniture in their actual rooms before purchasing. The results were immediate: returns dropped 38%, conversion rates increased 27%, and average order value grew 15%. Customers who used AR were 2.7x more likely to complete a purchase.
               </p>
               <div className="flex flex-wrap gap-3">
                 {['WebAR Development', '3D Modeling', 'Product Visualization', 'iOS/Android Compatible', 'Real-time Rendering'].map((tag, i) => (
-                  <span key={i} className="px-3 py-1 bg-[hsl(200,10%,95%)] text-[hsl(200,75%,45%)] rounded-full text-sm font-medium">
+                  <span key={i} className="px-3 py-1 bg-[#23AACA]/10 text-[#23AACA] rounded-full text-sm font-medium">
                     {tag}
                   </span>
                 ))}
@@ -108,13 +108,13 @@ export default function Immersive3DAR() {
       </section>
 
       {/* 3D & AR Services */}
-      <section className="py-16 bg-white overflow-hidden">
+      <section className="py-16 bg-[#f5f0e6] overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 mb-10">
-          <div className="text-sm uppercase tracking-wider text-[hsl(200,75%,45%)] mb-3">3D & AR SERVICES</div>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            From concept. <span className="italic text-[hsl(220,75%,55%)]">To reality.</span>
+          <div className="text-sm uppercase tracking-wider text-[#23AACA] mb-3">3D & AR SERVICES</div>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-[#1a2e29]">
+            From concept. <span className="italic text-orange-500">To reality.</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl">
+          <p className="text-lg text-[#1a2e29]/60 max-w-2xl">
             Photorealistic 3D models, interactive AR experiences, and immersive web applications
           </p>
         </div>
@@ -160,17 +160,17 @@ export default function Immersive3DAR() {
               },
             ].map((service, i) => (
               <div key={i} className="flex-none w-[340px] md:w-[420px] group" data-testid={`card-service-${i}`}>
-                <div className="bg-white rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-500 border border-border h-full hover:-translate-y-2">
-                  <div className="relative h-48 bg-gradient-to-br from-[hsl(200,75%,45%)]/10 via-[hsl(210,70%,50%)]/10 to-[hsl(220,75%,55%)]/10 overflow-hidden flex items-center justify-center">
-                    <service.icon className="h-16 w-16 text-[hsl(200,75%,45%)]/30 group-hover:scale-110 transition-transform duration-500" />
+                <div className="bg-white rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-500 border border-[#1a2e29]/10 h-full hover:-translate-y-2">
+                  <div className="relative h-48 bg-gradient-to-br from-[#23AACA]/10 via-[#c4ff4d]/10 to-orange-500/10 overflow-hidden flex items-center justify-center">
+                    <service.icon className="h-16 w-16 text-[#23AACA]/40 group-hover:scale-110 transition-transform duration-500" />
                   </div>
                   <div className="p-6">
-                    <h3 className="text-xl font-bold mb-3 group-hover:text-[hsl(200,75%,45%)] transition-colors">{service.name}</h3>
-                    <p className="text-sm text-muted-foreground mb-4">{service.desc}</p>
+                    <h3 className="text-xl font-bold mb-3 text-[#1a2e29] group-hover:text-[#23AACA] transition-colors">{service.name}</h3>
+                    <p className="text-sm text-[#1a2e29]/60 mb-4">{service.desc}</p>
                     <div className="space-y-2">
                       {service.features.map((feature, j) => (
-                        <div key={j} className="flex items-center gap-2 text-sm">
-                          <CheckCircle2 className="h-4 w-4 text-[hsl(200,75%,45%)]" />
+                        <div key={j} className="flex items-center gap-2 text-sm text-[#1a2e29]">
+                          <CheckCircle2 className="h-4 w-4 text-[#23AACA]" />
                           <span>{feature}</span>
                         </div>
                       ))}
@@ -184,13 +184,13 @@ export default function Immersive3DAR() {
       </section>
 
       {/* Our Process */}
-      <section className="py-16 px-4 bg-[hsl(200,10%,98%)]">
+      <section className="py-16 px-4 bg-zinc-950">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              How we work: <span className="italic text-[hsl(220,75%,55%)]">Concept to immersive reality</span>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">
+              How we work: <span className="italic text-[#c4ff4d]">Concept to immersive reality</span>
             </h2>
-            <p className="text-lg text-muted-foreground">
+            <p className="text-lg text-white/70">
               From initial 3D models to fully interactive AR experiences
             </p>
           </div>
@@ -201,11 +201,11 @@ export default function Immersive3DAR() {
               { step: "02", title: "Interactive Development", desc: "Transform static 3D models into interactive experiences. 360° rotation, color variants, zoom capabilities, AR placement. Optimize for fast loading and smooth interactions across all devices and browsers." },
               { step: "03", title: "Testing & Deployment", desc: "Rigorous testing on iOS, Android, desktop browsers, VR headsets. Performance optimization, cross-device compatibility, analytics integration. We don't launch until it's flawless across every platform." },
             ].map((item, i) => (
-              <div key={i} className="flex gap-6 items-start p-6 md:p-8 bg-white rounded-xl border border-border hover:shadow-lg transition-all duration-300 hover:-translate-x-2" data-testid={`step-${i}`}>
-                <div className="text-5xl font-bold text-[hsl(200,75%,45%)]/20 flex-shrink-0">{item.step}</div>
+              <div key={i} className="flex gap-6 items-start p-6 md:p-8 bg-zinc-900 rounded-xl border border-zinc-800 hover:shadow-lg transition-all duration-300 hover:-translate-x-2" data-testid={`step-${i}`}>
+                <div className="text-5xl font-bold text-[#23AACA]/30 flex-shrink-0">{item.step}</div>
                 <div className="flex-1">
-                  <h3 className="text-xl font-bold mb-2">{item.title}</h3>
-                  <p className="text-sm text-muted-foreground">{item.desc}</p>
+                  <h3 className="text-xl font-bold mb-2 text-white">{item.title}</h3>
+                  <p className="text-sm text-white/70">{item.desc}</p>
                 </div>
               </div>
             ))}
@@ -214,137 +214,137 @@ export default function Immersive3DAR() {
       </section>
 
       {/* Who This Service Is For */}
-      <section className="py-20 px-4 bg-white">
+      <section className="py-20 px-4 bg-[#f5f0e6]">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <div className="text-sm uppercase tracking-wider text-[hsl(200,75%,45%)] mb-4">WHO THIS IS FOR</div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Perfect for <span className="italic bg-gradient-to-r from-[hsl(200,75%,45%)] to-[hsl(220,75%,55%)] text-transparent bg-clip-text">innovative brands</span>
+            <div className="text-sm uppercase tracking-wider text-[#23AACA] mb-4">WHO THIS IS FOR</div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-[#1a2e29]">
+              Perfect for <span className="italic text-orange-500">innovative brands</span>
             </h2>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-[hsl(200,10%,98%)] rounded-xl p-8 border border-gray-100" data-testid="use-case-ecommerce">
-              <h3 className="text-xl font-bold mb-4">E-commerce & Retail</h3>
-              <p className="text-gray-700 mb-4">
+            <div className="bg-white rounded-xl p-8 border border-[#1a2e29]/10" data-testid="use-case-ecommerce">
+              <h3 className="text-xl font-bold mb-4 text-[#1a2e29]">E-commerce & Retail</h3>
+              <p className="text-[#1a2e29]/70 mb-4">
                 Reduce returns and increase conversions with AR try-on. Let customers visualize products in their space before buying.
               </p>
-              <ul className="space-y-2 text-sm text-gray-700">
+              <ul className="space-y-2 text-sm text-[#1a2e29]/70">
                 <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[hsl(200,75%,45%)] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-4 h-4 text-[#23AACA] flex-shrink-0 mt-0.5" />
                   <span>AR product visualization</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[hsl(200,75%,45%)] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-4 h-4 text-[#23AACA] flex-shrink-0 mt-0.5" />
                   <span>Virtual try-on experiences</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[hsl(200,75%,45%)] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-4 h-4 text-[#23AACA] flex-shrink-0 mt-0.5" />
                   <span>360° product views</span>
                 </li>
               </ul>
             </div>
 
-            <div className="bg-[hsl(200,10%,98%)] rounded-xl p-8 border border-gray-100" data-testid="use-case-furniture">
-              <h3 className="text-xl font-bold mb-4">Furniture & Home Decor</h3>
-              <p className="text-gray-700 mb-4">
+            <div className="bg-white rounded-xl p-8 border border-[#1a2e29]/10" data-testid="use-case-furniture">
+              <h3 className="text-xl font-bold mb-4 text-[#1a2e29]">Furniture & Home Decor</h3>
+              <p className="text-[#1a2e29]/70 mb-4">
                 Help customers visualize furniture in their homes. AR placement experiences that reduce returns and boost confidence.
               </p>
-              <ul className="space-y-2 text-sm text-gray-700">
+              <ul className="space-y-2 text-sm text-[#1a2e29]/70">
                 <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[hsl(200,75%,45%)] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-4 h-4 text-[#23AACA] flex-shrink-0 mt-0.5" />
                   <span>"See it in your space" AR</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[hsl(200,75%,45%)] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-4 h-4 text-[#23AACA] flex-shrink-0 mt-0.5" />
                   <span>Room planning tools</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[hsl(200,75%,45%)] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-4 h-4 text-[#23AACA] flex-shrink-0 mt-0.5" />
                   <span>3D product configurators</span>
                 </li>
               </ul>
             </div>
 
-            <div className="bg-[hsl(200,10%,98%)] rounded-xl p-8 border border-gray-100" data-testid="use-case-realestate">
-              <h3 className="text-xl font-bold mb-4">Real Estate & Architecture</h3>
-              <p className="text-gray-700 mb-4">
+            <div className="bg-white rounded-xl p-8 border border-[#1a2e29]/10" data-testid="use-case-realestate">
+              <h3 className="text-xl font-bold mb-4 text-[#1a2e29]">Real Estate & Architecture</h3>
+              <p className="text-[#1a2e29]/70 mb-4">
                 Showcase properties with immersive virtual tours. 3D walkthroughs that engage buyers and drive qualified leads.
               </p>
-              <ul className="space-y-2 text-sm text-gray-700">
+              <ul className="space-y-2 text-sm text-[#1a2e29]/70">
                 <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[hsl(200,75%,45%)] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-4 h-4 text-[#23AACA] flex-shrink-0 mt-0.5" />
                   <span>Virtual property tours</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[hsl(200,75%,45%)] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-4 h-4 text-[#23AACA] flex-shrink-0 mt-0.5" />
                   <span>Architectural visualizations</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[hsl(200,75%,45%)] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-4 h-4 text-[#23AACA] flex-shrink-0 mt-0.5" />
                   <span>Interactive floor plans</span>
                 </li>
               </ul>
             </div>
 
-            <div className="bg-[hsl(200,10%,98%)] rounded-xl p-8 border border-gray-100" data-testid="use-case-automotive">
-              <h3 className="text-xl font-bold mb-4">Automotive</h3>
-              <p className="text-gray-700 mb-4">
+            <div className="bg-white rounded-xl p-8 border border-[#1a2e29]/10" data-testid="use-case-automotive">
+              <h3 className="text-xl font-bold mb-4 text-[#1a2e29]">Automotive</h3>
+              <p className="text-[#1a2e29]/70 mb-4">
                 Let customers explore and configure vehicles in 3D. Interactive car configurators and virtual showrooms.
               </p>
-              <ul className="space-y-2 text-sm text-gray-700">
+              <ul className="space-y-2 text-sm text-[#1a2e29]/70">
                 <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[hsl(200,75%,45%)] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-4 h-4 text-[#23AACA] flex-shrink-0 mt-0.5" />
                   <span>3D vehicle configurators</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[hsl(200,75%,45%)] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-4 h-4 text-[#23AACA] flex-shrink-0 mt-0.5" />
                   <span>Virtual test drives</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[hsl(200,75%,45%)] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-4 h-4 text-[#23AACA] flex-shrink-0 mt-0.5" />
                   <span>Feature exploration tools</span>
                 </li>
               </ul>
             </div>
 
-            <div className="bg-[hsl(200,10%,98%)] rounded-xl p-8 border border-gray-100" data-testid="use-case-fashion">
-              <h3 className="text-xl font-bold mb-4">Fashion & Accessories</h3>
-              <p className="text-gray-700 mb-4">
+            <div className="bg-white rounded-xl p-8 border border-[#1a2e29]/10" data-testid="use-case-fashion">
+              <h3 className="text-xl font-bold mb-4 text-[#1a2e29]">Fashion & Accessories</h3>
+              <p className="text-[#1a2e29]/70 mb-4">
                 Virtual try-on for glasses, jewelry, clothing. AR experiences that increase engagement and reduce returns.
               </p>
-              <ul className="space-y-2 text-sm text-gray-700">
+              <ul className="space-y-2 text-sm text-[#1a2e29]/70">
                 <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[hsl(200,75%,45%)] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-4 h-4 text-[#23AACA] flex-shrink-0 mt-0.5" />
                   <span>Virtual try-on (glasses, jewelry)</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[hsl(200,75%,45%)] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-4 h-4 text-[#23AACA] flex-shrink-0 mt-0.5" />
                   <span>Fit & sizing visualization</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[hsl(200,75%,45%)] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-4 h-4 text-[#23AACA] flex-shrink-0 mt-0.5" />
                   <span>Style recommendations</span>
                 </li>
               </ul>
             </div>
 
-            <div className="bg-[hsl(200,10%,98%)] rounded-xl p-8 border border-gray-100" data-testid="use-case-education">
-              <h3 className="text-xl font-bold mb-4">Education & Museums</h3>
-              <p className="text-gray-700 mb-4">
+            <div className="bg-white rounded-xl p-8 border border-[#1a2e29]/10" data-testid="use-case-education">
+              <h3 className="text-xl font-bold mb-4 text-[#1a2e29]">Education & Museums</h3>
+              <p className="text-[#1a2e29]/70 mb-4">
                 Create immersive learning experiences. Virtual exhibits, interactive 3D models, and educational VR content.
               </p>
-              <ul className="space-y-2 text-sm text-gray-700">
+              <ul className="space-y-2 text-sm text-[#1a2e29]/70">
                 <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[hsl(200,75%,45%)] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-4 h-4 text-[#23AACA] flex-shrink-0 mt-0.5" />
                   <span>Virtual museum tours</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[hsl(200,75%,45%)] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-4 h-4 text-[#23AACA] flex-shrink-0 mt-0.5" />
                   <span>Interactive 3D models</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[hsl(200,75%,45%)] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-4 h-4 text-[#23AACA] flex-shrink-0 mt-0.5" />
                   <span>Educational VR experiences</span>
                 </li>
               </ul>
@@ -354,50 +354,50 @@ export default function Immersive3DAR() {
       </section>
 
       {/* Related Services */}
-      <section className="py-20 px-4 bg-white">
+      <section className="py-20 px-4 bg-zinc-950">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <div className="text-sm uppercase tracking-wider text-[hsl(200,75%,45%)] mb-4">ENHANCE YOUR EXPERIENCE</div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Combine with <span className="italic bg-gradient-to-r from-[hsl(200,75%,45%)] to-[hsl(220,75%,55%)] text-transparent bg-clip-text">complementary services</span>
+            <div className="text-sm uppercase tracking-wider text-[#23AACA] mb-4">ENHANCE YOUR EXPERIENCE</div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
+              Combine with <span className="italic text-[#c4ff4d]">complementary services</span>
             </h2>
-            <p className="text-lg text-gray-700 max-w-3xl mx-auto">
+            <p className="text-lg text-white/70 max-w-3xl mx-auto">
               3D and AR work best as part of a complete digital experience strategy.
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
             <Link href="/services/web-design">
-              <div className="group p-8 bg-[hsl(200,10%,98%)] rounded-xl border border-gray-100 hover:border-[hsl(200,75%,45%)] hover:shadow-xl transition-all duration-300 cursor-pointer" data-testid="related-service-web">
+              <div className="group p-8 bg-zinc-900 rounded-xl border border-zinc-800 hover:border-[#23AACA] hover:shadow-xl transition-all duration-300 cursor-pointer" data-testid="related-service-web">
                 <div className="flex items-start justify-between mb-4">
-                  <h3 className="text-xl font-bold group-hover:text-[hsl(200,75%,45%)] transition-colors">Web Design & Development</h3>
-                  <ArrowRight className="h-5 w-5 text-[hsl(200,75%,45%)] group-hover:translate-x-1 transition-transform" />
+                  <h3 className="text-xl font-bold text-white group-hover:text-[#23AACA] transition-colors">Web Design & Development</h3>
+                  <ArrowRight className="h-5 w-5 text-[#23AACA] group-hover:translate-x-1 transition-transform" />
                 </div>
-                <p className="text-gray-700 mb-4">
+                <p className="text-white/70 mb-4">
                   Integrate 3D and AR experiences into beautiful, high-performing websites. Seamless user experiences.
                 </p>
               </div>
             </Link>
 
             <Link href="/services/paid-advertising">
-              <div className="group p-8 bg-[hsl(200,10%,98%)] rounded-xl border border-gray-100 hover:border-[hsl(200,75%,45%)] hover:shadow-xl transition-all duration-300 cursor-pointer" data-testid="related-service-paid">
+              <div className="group p-8 bg-zinc-900 rounded-xl border border-zinc-800 hover:border-[#23AACA] hover:shadow-xl transition-all duration-300 cursor-pointer" data-testid="related-service-paid">
                 <div className="flex items-start justify-between mb-4">
-                  <h3 className="text-xl font-bold group-hover:text-[hsl(200,75%,45%)] transition-colors">Paid Advertising</h3>
-                  <ArrowRight className="h-5 w-5 text-[hsl(200,75%,45%)] group-hover:translate-x-1 transition-transform" />
+                  <h3 className="text-xl font-bold text-white group-hover:text-[#23AACA] transition-colors">Paid Advertising</h3>
+                  <ArrowRight className="h-5 w-5 text-[#23AACA] group-hover:translate-x-1 transition-transform" />
                 </div>
-                <p className="text-gray-700 mb-4">
+                <p className="text-white/70 mb-4">
                   Drive traffic to your 3D and AR experiences. Showcase immersive content in high-impact ad campaigns.
                 </p>
               </div>
             </Link>
 
             <Link href="/services/social-media-creative">
-              <div className="group p-8 bg-[hsl(200,10%,98%)] rounded-xl border border-gray-100 hover:border-[hsl(200,75%,45%)] hover:shadow-xl transition-all duration-300 cursor-pointer" data-testid="related-service-creative">
+              <div className="group p-8 bg-zinc-900 rounded-xl border border-zinc-800 hover:border-[#23AACA] hover:shadow-xl transition-all duration-300 cursor-pointer" data-testid="related-service-creative">
                 <div className="flex items-start justify-between mb-4">
-                  <h3 className="text-xl font-bold group-hover:text-[hsl(200,75%,45%)] transition-colors">Creative Production</h3>
-                  <ArrowRight className="h-5 w-5 text-[hsl(200,75%,45%)] group-hover:translate-x-1 transition-transform" />
+                  <h3 className="text-xl font-bold text-white group-hover:text-[#23AACA] transition-colors">Creative Production</h3>
+                  <ArrowRight className="h-5 w-5 text-[#23AACA] group-hover:translate-x-1 transition-transform" />
                 </div>
-                <p className="text-gray-700 mb-4">
+                <p className="text-white/70 mb-4">
                   Create marketing assets that showcase your 3D and AR experiences. Video demos and social content.
                 </p>
               </div>
@@ -407,8 +407,7 @@ export default function Immersive3DAR() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 px-4 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[hsl(200,75%,45%)] via-[hsl(210,70%,50%)] to-[hsl(220,75%,55%)]"></div>
+      <section className="py-20 px-4 relative overflow-hidden bg-[#23AACA]">
         <div className="relative z-10 max-w-4xl mx-auto text-center text-white">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Ready to build immersive experiences?
@@ -417,7 +416,7 @@ export default function Immersive3DAR() {
             Let's create 3D and AR experiences that captivate customers, reduce returns, and drive conversions. Interactive product visualization that sells.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <Button size="lg" className="bg-white text-[hsl(200,75%,45%)] hover:bg-white/90" data-testid="button-cta-primary">
+            <Button size="lg" className="bg-[#c4ff4d] text-[#1a2e29] hover:bg-[#c4ff4d]/90" data-testid="button-cta-primary">
               Start Your Project
             </Button>
             <Button size="lg" variant="outline" className="border-white text-white bg-white/10 backdrop-blur-sm hover:bg-white/20" data-testid="button-cta-secondary">
