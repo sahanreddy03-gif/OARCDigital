@@ -1,443 +1,408 @@
-import { useEffect } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Link } from "wouter";
-import { Video, Film, Sparkles, ArrowRight, Play, CheckCircle2, Camera } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { ScrollableCards } from "@/components/ui/scrollable-cards";
+import { Play, Pause, ArrowRight, CheckCircle2, Clock, Users, Sparkles, Film, Camera, Clapperboard } from "lucide-react";
 import Layout from "@/components/layout/Layout";
 import SEOHead from "@/components/SEOHead";
-import { creativeServicesSEO } from "@/data/seoMetadata";
-import { serviceImagesBySlug } from "@/assets/serviceImages";
+import { createServiceSchema } from "@/utils/structuredData";
+import ScrollReveal from "@/components/ScrollReveal";
+
+import showreelVideo from "@assets/55555_1764634237326.mp4";
 import videoImg1 from "@assets/stock_images/professional_video_p_57625a3b.jpg";
 import videoImg2 from "@assets/stock_images/professional_video_p_4775d034.jpg";
 import videoImg3 from "@assets/stock_images/professional_video_p_5547a3ec.jpg";
-
-const heroImage = serviceImagesBySlug['video-production'];
+import behindScenesImg1 from "@assets/stock_images/behind_the_scenes_vi_512df08f.jpg";
+import behindScenesImg2 from "@assets/stock_images/behind_the_scenes_vi_80403517.jpg";
+import creativeTeamImg from "@assets/stock_images/creative_team_workin_79883382.jpg";
 
 export default function VideoProduction() {
+  const [isPlaying, setIsPlaying] = useState(true);
+  const [activeProcess, setActiveProcess] = useState(0);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveProcess((prev) => (prev + 1) % 4);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const toggleVideo = () => {
+    if (videoRef.current) {
+      if (isPlaying) {
+        videoRef.current.pause();
+      } else {
+        videoRef.current.play();
+      }
+      setIsPlaying(!isPlaying);
+    }
+  };
+
+  const videoTypes = [
+    { 
+      title: "Explainer Videos", 
+      desc: "60-90s product explainers that convert",
+      img: videoImg1,
+      tag: "Most Popular"
+    },
+    { 
+      title: "Social Ads", 
+      desc: "Hook-first content for Meta, TikTok, YouTube",
+      img: videoImg2,
+      tag: "Fast Turnaround"
+    },
+    { 
+      title: "Testimonials", 
+      desc: "Authentic customer stories that build trust",
+      img: videoImg3,
+      tag: "High ROI"
+    },
+    { 
+      title: "Brand Stories", 
+      desc: "Cinematic narratives that connect",
+      img: behindScenesImg1,
+      tag: "Premium"
+    },
+    { 
+      title: "Product Demos", 
+      desc: "Show your product in action",
+      img: behindScenesImg2,
+      tag: "SaaS Favorite"
+    },
+    { 
+      title: "Motion Graphics", 
+      desc: "2D/3D animation and kinetic typography",
+      img: creativeTeamImg,
+      tag: "Versatile"
+    },
+  ];
+
+  const processSteps = [
+    { 
+      icon: Sparkles, 
+      title: "Discovery", 
+      desc: "We learn your goals, audience, and brand voice",
+      days: "Day 1-2"
+    },
+    { 
+      icon: Film, 
+      title: "Script & Storyboard", 
+      desc: "Creative direction, scripting, and visual planning",
+      days: "Day 3-5"
+    },
+    { 
+      icon: Camera, 
+      title: "Production", 
+      desc: "Professional shoot with our in-house crew",
+      days: "Day 6-10"
+    },
+    { 
+      icon: Clapperboard, 
+      title: "Post & Delivery", 
+      desc: "Editing, color, sound design, and final delivery",
+      days: "Day 11-14"
+    },
+  ];
+
   return (
     <Layout>
       <SEOHead
-        title={creativeServicesSEO.videoProduction.title}
-        description={creativeServicesSEO.videoProduction.description}
-        canonicalUrl={`https://oarcdigital.com${creativeServicesSEO.videoProduction.path}`}
-        ogType={creativeServicesSEO.videoProduction.ogType}
+        title="Video Production | Explainers, Ads & Brand Stories | OARC Digital"
+        description="Full-service video production from concept to delivery. Explainer videos, testimonials, social ads, and brand stories. Cinematic quality, 14-day turnaround."
+        canonicalUrl="https://oarcdigital.com/services/video-production"
+        ogType="article"
+        structuredData={createServiceSchema(
+          "Video Production Services",
+          "Full-service video production including explainer videos, testimonials, social ads, and brand stories.",
+          "Video Production"
+        )}
+        schemaId="service-video-production"
       />
-    <div className="video-production">
-      {/* Hero Section with Real Image */}
-      <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0">
-          <img 
-            src={heroImage}
-            alt="Video production"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/70 to-black/50"></div>
-        </div>
-        <div className="relative z-10 text-center px-4 max-w-6xl mx-auto">
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 animate-in fade-in slide-in-from-bottom-4 duration-700">
-            Video storytelling that <span className="italic bg-gradient-to-r from-purple-400 via-pink-400 to-red-400 text-transparent bg-clip-text">captivates and converts</span>
+
+      {/* HERO: Auto-playing Showreel */}
+      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-black">
+        <video
+          ref={videoRef}
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+          data-testid="video-showreel"
+        >
+          <source src={showreelVideo} type="video/mp4" />
+        </video>
+        
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+        
+        <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-white mb-6" data-testid="heading-video-production">
+            Video That Converts
           </h1>
-          <p className="text-lg md:text-xl text-white/90 mb-8 max-w-3xl mx-auto animate-in fade-in slide-in-from-bottom-4 duration-700 delay-150">
-            Full-service video production from concept to delivery. Explainer videos, testimonials, ads, and social content. Cinematic quality, 14-day turnaround, built to drive results.
+          <p className="text-xl md:text-2xl text-white/90 mb-10 max-w-3xl mx-auto font-light">
+            Explainers. Ads. Brand stories. From concept to delivery in 14 days.
           </p>
-          <div className="flex flex-wrap gap-4 justify-center animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300">
+          
+          <div className="flex flex-wrap gap-4 justify-center">
             <Link href="/contact">
-              <Button size="lg" className="bg-white text-purple-600 hover:bg-white/90" data-testid="button-get-started">
+              <button
+                className="btn-shimmer inline-flex items-center gap-3 bg-[#c4ff4d] text-black rounded-full pl-10 pr-4 py-4 text-lg font-bold hover:bg-[#d4ff6d] transition-colors"
+                data-testid="button-start-project"
+              >
                 Start Your Project
-              </Button>
+                <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center">
+                  <ArrowRight className="h-5 w-5 text-[#c4ff4d]" />
+                </div>
+              </button>
             </Link>
+            
+            <button
+              onClick={toggleVideo}
+              className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-sm text-white rounded-full px-8 py-4 text-lg font-medium border border-white/20 hover:bg-white/20 transition-colors"
+              data-testid="button-toggle-video"
+            >
+              {isPlaying ? <Pause className="w-5 h-5" /> : <Play className="w-5 h-5" />}
+              {isPlaying ? "Pause" : "Play"} Reel
+            </button>
+          </div>
+        </div>
+
+        {/* Scroll indicator */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+          <div className="w-6 h-10 rounded-full border-2 border-white/50 flex items-start justify-center p-2">
+            <div className="w-1 h-2 bg-white/80 rounded-full animate-pulse"></div>
           </div>
         </div>
       </section>
 
-      {/* Trusted By */}
-      <section className="py-12 px-4 bg-white border-b border-border">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center text-sm uppercase tracking-wider text-muted-foreground mb-8">
-            Creating video content for
-          </div>
-          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12 opacity-60">
-            {['SaaS Companies', 'E-learning Platforms', 'Real Estate', 'Hospitality', 'Health Tech', 'DTC Brands'].map((type, i) => (
-              <div key={i} className="text-lg md:text-xl font-bold text-foreground">{type}</div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* SECTION 2: Work Grid - Bento Style */}
+      <ScrollReveal>
+        <section className="py-20 px-4 bg-zinc-950">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
+                Every Format. Every Platform.
+              </h2>
+              <p className="text-lg text-white/60 max-w-2xl mx-auto">
+                From 15-second TikToks to 5-minute brand documentaries
+              </p>
+            </div>
 
-      <section className="py-20 px-4 bg-[hsl(270,100%,98%)]">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <div className="text-sm uppercase tracking-wider text-purple-600 mb-4">STORYTELLING</div>
-            <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6">
-              Every frame tells <span className="italic bg-gradient-to-r from-purple-600 to-pink-600 text-transparent bg-clip-text">your story</span>
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              From concept to final delivery, we create videos that capture attention, build trust, and drive action—whether it's explainers, testimonials, or ads.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Production Options - Large Cards */}
-      <section className="py-20 bg-white overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 mb-12">
-          <div className="text-sm uppercase tracking-wider text-purple-600 mb-4">VIDEO TYPES</div>
-          <h2 className="text-5xl md:text-6xl font-bold">
-            Every video format. <span className="italic bg-gradient-to-r from-purple-600 to-pink-600 text-transparent bg-clip-text">Every use case.</span>
-          </h2>
-        </div>
-
-        <div className="relative">
-          <ScrollableCards>
-            {[
-              { name: "Explainer Videos", desc: "Clear, engaging videos that simplify complex products. Perfect for SaaS, fintech, and tech companies. 60-90s optimized for conversion.", img: videoImg1 },
-              { name: "Customer Testimonials", desc: "Authentic testimonial videos that build trust and social proof. Real customers, real results, powerful storytelling.", img: videoImg2 },
-              { name: "Product Demo Videos", desc: "Show your product in action. Highlight features, benefits, and use cases. Perfect for e-commerce and SaaS.", img: videoImg3 },
-              { name: "Social Media Ads", desc: "15s-60s video ads for Facebook, Instagram, TikTok, YouTube. Hook-first, platform-optimized, built to convert.", img: videoImg1 },
-              { name: "Brand Storytelling", desc: "Cinematic brand videos that communicate your mission, values, and vision. Build emotional connection with your audience.", img: videoImg2 },
-              { name: "Animated Videos", desc: "2D/3D animation, motion graphics, and kinetic typography. Perfect when live-action isn't the right fit.", img: videoImg3 },
-            ].map((item, i) => (
-              <div key={i} className="flex-none w-[360px] md:w-[480px] group" data-testid={`card-video-type-${i}`}>
-                <div className="bg-white rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300 border border-border">
-                  <div className="relative h-[400px] md:h-[500px] overflow-hidden">
+            {/* Bento Grid */}
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
+              {videoTypes.map((item, i) => (
+                <div 
+                  key={i}
+                  className={`group relative overflow-hidden rounded-2xl cursor-pointer ${
+                    i === 0 ? 'col-span-2 md:col-span-2 row-span-2' : ''
+                  }`}
+                  data-testid={`video-type-${i}`}
+                >
+                  <div className={`relative ${i === 0 ? 'h-[400px] md:h-[500px]' : 'h-[200px] md:h-[240px]'}`}>
                     <img 
-                      src={item.img} 
-                      alt={item.name}
+                      src={item.img}
+                      alt={item.title}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                    
+                    {/* Play button overlay */}
+                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                      <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/30">
+                        <Play className="w-8 h-8 text-white fill-white" />
+                      </div>
+                    </div>
+                    
+                    {/* Content */}
+                    <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6">
+                      <span className="inline-block px-3 py-1 bg-[#c4ff4d] text-black text-xs font-bold rounded-full mb-2">
+                        {item.tag}
+                      </span>
+                      <h3 className={`font-bold text-white mb-1 ${i === 0 ? 'text-2xl md:text-3xl' : 'text-lg'}`}>
+                        {item.title}
+                      </h3>
+                      <p className={`text-white/70 ${i === 0 ? 'text-base' : 'text-sm hidden md:block'}`}>
+                        {item.desc}
+                      </p>
+                    </div>
                   </div>
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold mb-3">{item.name}</h3>
-                    <p className="text-muted-foreground text-sm leading-relaxed">{item.desc}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </ScrollableCards>
-        </div>
-      </section>
-
-      {/* Who This Service Is For */}
-      <section className="py-20 px-4 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <div className="text-sm uppercase tracking-wider text-purple-600 mb-4">WHO THIS IS FOR</div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Video content for <span className="italic bg-gradient-to-r from-purple-600 to-pink-600 text-transparent bg-clip-text">every industry</span> and use case
-            </h2>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-purple-50 rounded-xl p-8 border border-border" data-testid="use-case-saas">
-              <h3 className="text-xl font-bold mb-4">SaaS & Tech Companies</h3>
-              <p className="text-muted-foreground mb-4">
-                Explainer videos that simplify complex products and drive trial signups. Perfect for companies needing to educate prospects quickly.
-              </p>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-purple-600 flex-shrink-0 mt-0.5" />
-                  <span>Product explainer videos</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-purple-600 flex-shrink-0 mt-0.5" />
-                  <span>Demo & tutorial videos</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-purple-600 flex-shrink-0 mt-0.5" />
-                  <span>Customer testimonials</span>
-                </li>
-              </ul>
-            </div>
-
-            <div className="bg-purple-50 rounded-xl p-8 border border-border" data-testid="use-case-ecommerce">
-              <h3 className="text-xl font-bold mb-4">E-commerce & DTC Brands</h3>
-              <p className="text-muted-foreground mb-4">
-                Product videos and social ads that stop scrollers and drive sales. Built for brands needing content that converts.
-              </p>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-purple-600 flex-shrink-0 mt-0.5" />
-                  <span>Product showcase videos</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-purple-600 flex-shrink-0 mt-0.5" />
-                  <span>Lifestyle & brand storytelling</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-purple-600 flex-shrink-0 mt-0.5" />
-                  <span>UGC-style social ads</span>
-                </li>
-              </ul>
-            </div>
-
-            <div className="bg-purple-50 rounded-xl p-8 border border-border" data-testid="use-case-realestate">
-              <h3 className="text-xl font-bold mb-4">Real Estate & Hospitality</h3>
-              <p className="text-muted-foreground mb-4">
-                Cinematic property tours and venue showcases that sell premium experiences and accelerate decision-making.
-              </p>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-purple-600 flex-shrink-0 mt-0.5" />
-                  <span>Property tour videos</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-purple-600 flex-shrink-0 mt-0.5" />
-                  <span>Aerial drone footage</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-purple-600 flex-shrink-0 mt-0.5" />
-                  <span>Virtual walkthroughs</span>
-                </li>
-              </ul>
-            </div>
-
-            <div className="bg-purple-50 rounded-xl p-8 border border-border" data-testid="use-case-healthcare">
-              <h3 className="text-xl font-bold mb-4">Healthcare & Medical</h3>
-              <p className="text-muted-foreground mb-4">
-                Patient education and testimonial videos that build trust and communicate complex medical information clearly.
-              </p>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-purple-600 flex-shrink-0 mt-0.5" />
-                  <span>Patient testimonials</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-purple-600 flex-shrink-0 mt-0.5" />
-                  <span>Procedure explainers</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-purple-600 flex-shrink-0 mt-0.5" />
-                  <span>Medical device demos</span>
-                </li>
-              </ul>
-            </div>
-
-            <div className="bg-purple-50 rounded-xl p-8 border border-border" data-testid="use-case-education">
-              <h3 className="text-xl font-bold mb-4">Education & E-learning</h3>
-              <p className="text-muted-foreground mb-4">
-                Engaging educational content and course marketing videos that drive enrollments and improve learning outcomes.
-              </p>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-purple-600 flex-shrink-0 mt-0.5" />
-                  <span>Course promo videos</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-purple-600 flex-shrink-0 mt-0.5" />
-                  <span>Animated lesson content</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-purple-600 flex-shrink-0 mt-0.5" />
-                  <span>Student success stories</span>
-                </li>
-              </ul>
-            </div>
-
-            <div className="bg-purple-50 rounded-xl p-8 border border-border" data-testid="use-case-corporate">
-              <h3 className="text-xl font-bold mb-4">Corporate & Enterprise</h3>
-              <p className="text-muted-foreground mb-4">
-                Internal communications, recruitment videos, and brand documentaries for large organizations.
-              </p>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-purple-600 flex-shrink-0 mt-0.5" />
-                  <span>Company culture videos</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-purple-600 flex-shrink-0 mt-0.5" />
-                  <span>Executive messaging</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-purple-600 flex-shrink-0 mt-0.5" />
-                  <span>Training & onboarding</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Case Studies */}
-      <section className="py-20 px-4 bg-[hsl(270,100%,98%)]">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <div className="text-sm uppercase tracking-wider text-purple-600 mb-4">CASE STUDIES</div>
-            <h2 className="text-5xl md:text-6xl font-bold mb-6">
-              Videos that <span className="italic bg-gradient-to-r from-purple-600 to-pink-600 text-transparent bg-clip-text">drive measurable ROI</span>
-            </h2>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              { 
-                industry: "SaaS Platform", 
-                challenge: "Creating explainer video to improve trial conversions",
-                result: "4.8x signups",
-                metric1: "73% increase in trial conversion",
-                metric2: "$2.1M ARR from video traffic",
-                icon: Video
-              },
-              { 
-                industry: "Real Estate", 
-                challenge: "Producing property tour videos for luxury listings",
-                result: "12M views",
-                metric1: "58% faster sale cycles",
-                metric2: "$47M in property sales",
-                icon: Camera
-              },
-              { 
-                industry: "Health Tech", 
-                challenge: "Building trust with patient testimonial videos",
-                result: "5.2x leads",
-                metric1: "64% increase in consultations",
-                metric2: "$1.3M in new patient revenue",
-                icon: Film
-              },
-            ].map((study, i) => (
-              <div key={i} className="group p-8 bg-white rounded-xl border border-border hover:border-purple-600 hover:shadow-xl transition-all duration-300" data-testid={`case-study-${i}`}>
-                <study.icon className="h-12 w-12 text-purple-600 mb-4 group-hover:scale-110 transition-transform" />
-                <div className="text-sm uppercase tracking-wider text-purple-600 mb-2">{study.industry}</div>
-                <p className="text-sm text-muted-foreground mb-4">{study.challenge}</p>
-                <div className="text-4xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 text-transparent bg-clip-text mb-4">{study.result}</div>
-                <div className="space-y-2">
-                  <div className="flex items-start gap-2">
-                    <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-sm">{study.metric1}</span>
-                  </div>
-                  <div className="flex items-start gap-2">
-                    <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-sm">{study.metric2}</span>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Production Quality */}
-      <section className="py-20 px-4 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <div className="text-sm uppercase tracking-wider text-purple-600 mb-4">PRODUCTION QUALITY</div>
-              <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                Cinematic quality. <span className="italic bg-gradient-to-r from-purple-600 to-pink-600 text-transparent bg-clip-text">Commercial-grade production.</span>
-              </h2>
-              <p className="text-lg text-muted-foreground mb-6">
-                We bring full production capabilities: professional crew, cinema cameras, lighting, sound design, color grading, and motion graphics. Every frame is intentional.
-              </p>
-              <div className="space-y-4">
-                {[
-                  "Full-service production from concept to delivery",
-                  "Professional scriptwriting and storyboarding",
-                  "Cinema-grade cameras and lighting",
-                  "Sound design, color grading, and VFX",
-                ].map((item, i) => (
-                  <div key={i} className="flex items-start gap-3">
-                    <CheckCircle2 className="h-6 w-6 text-green-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-lg">{item}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className="grid grid-cols-2 gap-6">
-              {[
-                { label: "Videos Produced", value: "1,000+" },
-                { label: "Production Time", value: "14d" },
-                { label: "Client Satisfaction", value: "98%" },
-                { label: "Revisions Included", value: "3" },
-              ].map((stat, i) => (
-                <div key={i} className="p-6 bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl text-center">
-                  <div className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 text-transparent bg-clip-text mb-3">{stat.value}</div>
-                  <div className="text-base text-muted-foreground font-semibold">{stat.label}</div>
                 </div>
               ))}
             </div>
           </div>
+        </section>
+      </ScrollReveal>
+
+      {/* SECTION 3: Process Timeline - Visual */}
+      <ScrollReveal>
+        <section className="py-20 px-4 bg-white">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-black text-black mb-4">
+                Concept to Delivery in 14 Days
+              </h2>
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                Our streamlined process delivers professional results without the typical agency timeline
+              </p>
+            </div>
+
+            {/* Visual Timeline */}
+            <div className="grid md:grid-cols-4 gap-6">
+              {processSteps.map((step, i) => (
+                <div 
+                  key={i}
+                  className={`relative p-6 rounded-2xl transition-all duration-500 cursor-pointer ${
+                    activeProcess === i 
+                      ? 'bg-black text-white scale-105 shadow-2xl' 
+                      : 'bg-zinc-100 text-black hover:bg-zinc-200'
+                  }`}
+                  onClick={() => setActiveProcess(i)}
+                  data-testid={`process-step-${i}`}
+                >
+                  {/* Step number */}
+                  <div className={`absolute -top-3 -left-3 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold ${
+                    activeProcess === i ? 'bg-[#c4ff4d] text-black' : 'bg-black text-white'
+                  }`}>
+                    {i + 1}
+                  </div>
+                  
+                  <step.icon className={`w-10 h-10 mb-4 ${activeProcess === i ? 'text-[#c4ff4d]' : 'text-black'}`} />
+                  
+                  <div className={`text-xs font-bold mb-2 ${activeProcess === i ? 'text-[#c4ff4d]' : 'text-muted-foreground'}`}>
+                    {step.days}
+                  </div>
+                  
+                  <h3 className="text-xl font-bold mb-2">{step.title}</h3>
+                  <p className={`text-sm ${activeProcess === i ? 'text-white/80' : 'text-muted-foreground'}`}>
+                    {step.desc}
+                  </p>
+                  
+                  {/* Progress indicator for active */}
+                  {activeProcess === i && (
+                    <div className="absolute bottom-0 left-0 right-0 h-1 bg-[#c4ff4d] rounded-b-2xl animate-pulse"></div>
+                  )}
+                </div>
+              ))}
+            </div>
+
+            {/* Progress bar */}
+            <div className="mt-8 h-2 bg-zinc-200 rounded-full overflow-hidden">
+              <div 
+                className="h-full bg-[#c4ff4d] transition-all duration-500 rounded-full"
+                style={{ width: `${((activeProcess + 1) / 4) * 100}%` }}
+              ></div>
+            </div>
+          </div>
+        </section>
+      </ScrollReveal>
+
+      {/* SECTION 4: Stats Bar */}
+      <section className="py-12 px-4 bg-black">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {[
+              { value: "1,000+", label: "Videos Produced" },
+              { value: "14 Days", label: "Avg. Turnaround" },
+              { value: "98%", label: "Client Satisfaction" },
+              { value: "4.8x", label: "Avg. ROI Increase" },
+            ].map((stat, i) => (
+              <div key={i} className="text-center" data-testid={`stat-${i}`}>
+                <div className="text-3xl md:text-4xl font-black text-[#c4ff4d] mb-2">{stat.value}</div>
+                <div className="text-sm text-white/60">{stat.label}</div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* Related Services / Internal CTAs */}
-      <section className="py-20 px-4 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <div className="text-sm uppercase tracking-wider text-purple-600 mb-4">AMPLIFY YOUR IMPACT</div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Pair video with these <span className="italic bg-gradient-to-r from-purple-600 to-pink-600 text-transparent bg-clip-text">powerful services</span>
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              Great video content deserves great distribution. Maximize ROI by combining video production with our complementary services.
-            </p>
+      {/* SECTION 5: Why OARC */}
+      <ScrollReveal>
+        <section className="py-20 px-4 bg-zinc-50">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div>
+                <h2 className="text-4xl md:text-5xl font-black text-black mb-6">
+                  Not Just Videos.<br />Revenue Engines.
+                </h2>
+                <p className="text-lg text-muted-foreground mb-8">
+                  We don't just make pretty content. Every frame is engineered to drive specific business outcomes.
+                </p>
+                
+                <div className="space-y-4">
+                  {[
+                    "Hook-first editing that stops the scroll",
+                    "Platform-optimized formats for every channel",
+                    "Performance tracking and iteration",
+                    "Full rights and raw files included",
+                  ].map((item, i) => (
+                    <div key={i} className="flex items-start gap-3">
+                      <CheckCircle2 className="w-6 h-6 text-[#4a7000] flex-shrink-0 mt-0.5" />
+                      <span className="text-lg">{item}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <Link href="/contact">
+                  <button
+                    className="mt-8 inline-flex items-center gap-3 bg-black text-white rounded-full pl-8 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2"
+                    data-testid="button-discuss-project"
+                  >
+                    Discuss Your Project
+                    <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+                      <ArrowRight className="h-5 w-5 text-black" />
+                    </div>
+                  </button>
+                </Link>
+              </div>
+
+              {/* Image grid */}
+              <div className="grid grid-cols-2 gap-4">
+                <img 
+                  src={behindScenesImg1}
+                  alt="Behind the scenes"
+                  className="w-full h-48 object-cover rounded-2xl"
+                />
+                <img 
+                  src={behindScenesImg2}
+                  alt="Production setup"
+                  className="w-full h-48 object-cover rounded-2xl mt-8"
+                />
+                <img 
+                  src={creativeTeamImg}
+                  alt="Creative team"
+                  className="w-full h-48 object-cover rounded-2xl col-span-2"
+                />
+              </div>
+            </div>
           </div>
+        </section>
+      </ScrollReveal>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            <Link href="/services/web-design">
-              <div className="group p-8 bg-purple-50 rounded-xl border border-border hover:border-purple-600 hover:shadow-xl transition-all duration-300 cursor-pointer" data-testid="related-service-web">
-                <div className="flex items-start justify-between mb-4">
-                  <h3 className="text-xl font-bold group-hover:text-purple-600 transition-colors">Web Design</h3>
-                  <ArrowRight className="h-5 w-5 text-purple-600 group-hover:translate-x-1 transition-transform" />
-                </div>
-                <p className="text-muted-foreground mb-4">
-                  Embed your video content in high-converting landing pages and product showcases that turn viewers into customers.
-                </p>
-              </div>
-            </Link>
-
-            <Link href="/services/social-media-creative">
-              <div className="group p-8 bg-purple-50 rounded-xl border border-border hover:border-purple-600 hover:shadow-xl transition-all duration-300 cursor-pointer" data-testid="related-service-social">
-                <div className="flex items-start justify-between mb-4">
-                  <h3 className="text-xl font-bold group-hover:text-purple-600 transition-colors">Social Media Creative</h3>
-                  <ArrowRight className="h-5 w-5 text-purple-600 group-hover:translate-x-1 transition-transform" />
-                </div>
-                <p className="text-muted-foreground mb-4">
-                  Repurpose your video content into scroll-stopping social assets optimized for Instagram, TikTok, LinkedIn, and Facebook.
-                </p>
-              </div>
-            </Link>
-
-            <Link href="/services/paid-advertising">
-              <div className="group p-8 bg-purple-50 rounded-xl border border-border hover:border-purple-600 hover:shadow-xl transition-all duration-300 cursor-pointer" data-testid="related-service-paid">
-                <div className="flex items-start justify-between mb-4">
-                  <h3 className="text-xl font-bold group-hover:text-purple-600 transition-colors">Paid Advertising</h3>
-                  <ArrowRight className="h-5 w-5 text-purple-600 group-hover:translate-x-1 transition-transform" />
-                </div>
-                <p className="text-muted-foreground mb-4">
-                  Drive targeted traffic to your video content with YouTube ads, Facebook video campaigns, and LinkedIn sponsored content.
-                </p>
-              </div>
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Final CTA */}
-      <section className="py-20 px-4 bg-gradient-to-br from-purple-600 via-pink-600 to-red-600 text-white">
+      {/* FINAL CTA */}
+      <section className="py-20 px-4 bg-black text-white">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-5xl md:text-6xl font-bold mb-6">
-            Ready to tell your <span className="italic">story on video?</span>
+          <h2 className="text-4xl md:text-6xl font-black mb-6">
+            Ready to Create Something <span className="text-[#c4ff4d]">Amazing?</span>
           </h2>
-          <p className="text-xl text-white/90 mb-8">
-            Get professional video production that captures attention and drives results
+          <p className="text-xl text-white/70 mb-10">
+            Let's discuss your project and create video content that drives results
           </p>
-          <div className="flex gap-4 justify-center flex-wrap">
-            <Button size="lg" className="bg-white text-purple-600 hover:bg-white/90 h-12 px-8" data-testid="button-cta-demo">
+          <Link href="/contact">
+            <button
+              className="btn-shimmer inline-flex items-center gap-3 bg-[#c4ff4d] text-black rounded-full pl-10 pr-4 py-5 text-lg font-bold hover:bg-[#d4ff6d] transition-colors"
+              data-testid="button-start-project-cta"
+            >
               Start Your Project
-            </Button>
-            <Link href="/contact">
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10 h-12 px-8" data-testid="button-cta-contact">
-                Contact Us
-              </Button>
-            </Link>
-          </div>
+              <div className="w-12 h-12 bg-black rounded-full flex items-center justify-center">
+                <ArrowRight className="h-6 w-6 text-[#c4ff4d]" />
+              </div>
+            </button>
+          </Link>
         </div>
       </section>
-    </div>
     </Layout>
   );
 }
