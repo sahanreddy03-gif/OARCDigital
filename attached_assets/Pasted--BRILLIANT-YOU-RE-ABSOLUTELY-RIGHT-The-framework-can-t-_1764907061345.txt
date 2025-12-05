@@ -1,0 +1,839 @@
+# 🎯 BRILLIANT! YOU'RE ABSOLUTELY RIGHT.
+
+**The framework can't be copy-paste. Each service needs its OWN visual language and structure based on what that service actually IS.**
+
+Let me break this down properly.
+
+---
+
+## 💡 THE CORE INSIGHT:
+
+```
+❌ WRONG: Same 5-section template for every service
+✅ RIGHT: Visual + structural adaptation per service type
+
+Why?
+- Social Media = VISUAL medium → Show, don't tell
+- AI Consulting = ABSTRACT concept → Visualize the process
+- Video Production = MOTION medium → Demonstrate through video
+- Brand Identity = DESIGN showcase → Portfolio-first
+
+The structure should MATCH the nature of the service.
+```
+
+---
+
+## 🎨 SERVICE CATEGORIZATION BY VISUAL NEEDS
+
+Let me group your services by how they should be PRESENTED:
+
+---
+
+### **CATEGORY 1: VISUAL/CREATIVE SERVICES**
+**Show the work first, explain second**
+
+```
+Services:
+- Social Media Management
+- Video Production
+- Motion Graphics
+- Brand Identity
+- Website Design
+- Email Marketing Design
+- Paid Ad Creative
+
+Visual Approach:
+┌─────────────────────────────────────┐
+│  HERO: Full-screen portfolio piece  │
+│  (Video autoplay, carousel, etc.)   │
+├─────────────────────────────────────┤
+│  "This is what we create"           │
+│  Brief headline + 1 sentence        │
+├─────────────────────────────────────┤
+│  MORE EXAMPLES (Grid/Bento)         │
+│  6-9 pieces showing range           │
+├─────────────────────────────────────┤
+│  HOW WE DO IT (Process visual)      │
+│  Infographic/animated timeline      │
+├─────────────────────────────────────┤
+│  WHY IT WORKS (Brief text)          │
+│  Insight in 2-3 paragraphs          │
+└─────────────────────────────────────┘
+
+Ratio: 70% Visual / 30% Text
+```
+
+---
+
+### **CATEGORY 2: PROCESS/SYSTEM SERVICES**
+**Visualize the invisible system**
+
+```
+Services:
+- Marketing Automation
+- Customer Acquisition System
+- Conversion Rate Optimization
+- Performance Analytics & Reporting
+- API & Integration Services
+
+Visual Approach:
+┌─────────────────────────────────────┐
+│  HERO: Animated system diagram      │
+│  (Flow chart, data visualization)   │
+├─────────────────────────────────────┤
+│  THE PROBLEM (Pain visualization)   │
+│  Before/After comparison graphic    │
+├─────────────────────────────────────┤
+│  THE SYSTEM (Interactive diagram)   │
+│  Click through each component       │
+├─────────────────────────────────────┤
+│  REAL EXAMPLE (Dashboard mockup)    │
+│  Show actual interface/output       │
+├─────────────────────────────────────┤
+│  HOW IT WORKS (Step-by-step)        │
+│  Visual timeline with icons         │
+└─────────────────────────────────────┘
+
+Ratio: 60% Visual / 40% Text
+```
+
+---
+
+### **CATEGORY 3: AI AGENT SERVICES**
+**Personify the AI, show it working**
+
+```
+Services:
+- AI Sales Agent
+- AI Customer Support
+- AI Marketing Assistant
+- AI Data Analyst
+- AI Admin Assistant
+- AI Real Estate Assistant
+
+Visual Approach:
+┌─────────────────────────────────────┐
+│  HERO: AI agent "avatar" + demo     │
+│  (Character + chat interface)       │
+├─────────────────────────────────────┤
+│  WATCH IT WORK (Live demo/video)    │
+│  Actual conversation examples       │
+├─────────────────────────────────────┤
+│  CAPABILITIES (Icon grid)           │
+│  Visual matrix of what it does      │
+├─────────────────────────────────────┤
+│  INTEGRATION (System diagram)       │
+│  Show how it fits your stack        │
+├─────────────────────────────────────┤
+│  SETUP PROCESS (Visual timeline)    │
+│  Days 1-7-30 progression            │
+└─────────────────────────────────────┘
+
+Ratio: 65% Visual / 35% Text
+```
+
+---
+
+### **CATEGORY 4: CONSULTING/STRATEGY SERVICES**
+**Make abstract tangible through frameworks**
+
+```
+Services:
+- Growth Strategy & Consulting
+- AI Consulting
+- Influencer Marketing
+
+Visual Approach:
+┌─────────────────────────────────────┐
+│  HERO: Framework visualization      │
+│  (Circular diagram, matrix, etc.)   │
+├─────────────────────────────────────┤
+│  THE GAP (Problem illustration)     │
+│  Visual showing current vs desired  │
+├─────────────────────────────────────┤
+│  OUR APPROACH (Proprietary model)   │
+│  Interactive framework diagram      │
+├─────────────────────────────────────┤
+│  CASE SNAPSHOT (Journey map)        │
+│  Visual story of transformation     │
+├─────────────────────────────────────┤
+│  DELIVERABLES (Document mockups)    │
+│  Show actual outputs you provide    │
+└─────────────────────────────────────┘
+
+Ratio: 50% Visual / 50% Text
+```
+
+---
+
+### **CATEGORY 5: DEVELOPMENT SERVICES**
+**Show the interface, not just describe it**
+
+```
+Services:
+- Custom AI Solutions
+- Mobile App Development
+- Web Application Development
+- AR/VR Experiences
+
+Visual Approach:
+┌─────────────────────────────────────┐
+│  HERO: Actual interface demo        │
+│  (Prototype, video, interactive)    │
+├─────────────────────────────────────┤
+│  TECH STACK (Visual diagram)        │
+│  Architecture/technology visual     │
+├─────────────────────────────────────┤
+│  BUILD PROCESS (Kanban/Roadmap)     │
+│  Show actual development flow       │
+├─────────────────────────────────────┤
+│  FEATURES (UI screenshots)          │
+│  Annotated interface walkthroughs   │
+├─────────────────────────────────────┤
+│  DEPLOYMENT (Timeline graphic)      │
+│  Sprint-by-sprint visual            │
+└─────────────────────────────────────┘
+
+Ratio: 75% Visual / 25% Text
+```
+
+---
+
+---
+
+# 🎯 SPECIFIC EXAMPLES: HOW EACH SERVICE SHOULD LOOK
+
+---
+
+## 1️⃣ **SOCIAL MEDIA MANAGEMENT** (Visual-First)
+
+### **Page Structure:**
+
+```
+┌─────────────────────────────────────────────┐
+│  HERO: Full-screen carousel                 │
+│  ─────────────────────────                  │
+│  Auto-rotating examples of actual posts     │
+│  Instagram → TikTok → LinkedIn → Facebook   │
+│                                             │
+│  Overlay text (minimal):                    │
+│  "Content That Converts"                    │
+│  "Not just posts. Revenue engines."         │
+└─────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────┐
+│  SECTION 1: The Problem (Visual)            │
+│  ─────────────────────────────              │
+│  Side-by-side comparison:                   │
+│                                             │
+│  LEFT: Typical post (low engagement)        │
+│  "Announcing our new product! 🎉"           │
+│  [3 likes, 0 comments]                      │
+│                                             │
+│  RIGHT: OARC post (high engagement)         │
+│  "Here's why 83% of [pain point]..."        │
+│  [420 likes, 47 comments, shares]           │
+│                                             │
+│  Text (2 sentences):                        │
+│  "Most brands post consistently. We post    │
+│  strategically. Here's the difference."     │
+└─────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────┐
+│  SECTION 2: Our Work (Bento Grid)           │
+│  ─────────────────────────────              │
+│  Interactive grid of 9 campaign examples    │
+│  Each card shows:                           │
+│  - The creative                             │
+│  - Platform                                 │
+│  - Result (not fake - real engagement)      │
+│                                             │
+│  Hover = Expands, shows strategy behind it  │
+│  Click = Opens case study                   │
+└─────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────┐
+│  SECTION 3: The Process (Animated)          │
+│  ─────────────────────────────              │
+│  Visual timeline with icons:                │
+│                                             │
+│  Week 1: 🔍 Signal Mining                   │
+│  [Icon animation] → Brief explanation       │
+│                                             │
+│  Week 2-4: 🤖 AI + Human Creation           │
+│  [Animation showing AI → Human flow]        │
+│                                             │
+│  Ongoing: 📊 Performance Loop               │
+│  [Circular diagram showing iteration]       │
+│                                             │
+│  12-20 pieces per week                      │
+│  Continuous optimization                    │
+└─────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────┐
+│  SECTION 4: Platform Coverage (Icon Grid)   │
+│  ─────────────────────────────              │
+│  Visual grid showing:                       │
+│  [Instagram icon] Reels, Posts, Stories     │
+│  [TikTok icon] Short-form, viral hooks     │
+│  [LinkedIn icon] Thought leadership         │
+│  [Facebook icon] Community, ads             │
+│                                             │
+│  Each with example thumbnail                │
+└─────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────┐
+│  SECTION 5: Why OARC (Visual Proof)         │
+│  ─────────────────────────────              │
+│  Split screen:                              │
+│                                             │
+│  LEFT: "Typical Agency"                     │
+│  - Stock photos                             │
+│  - Generic captions                         │
+│  - Manual posting                           │
+│                                             │
+│  RIGHT: "OARC Approach"                     │
+│  - Custom creative                          │
+│  - Data-driven copy                         │
+│  - AI-assisted production                   │
+│                                             │
+│  Brief text (3 sentences):                  │
+│  "We're not a typical agency. We build      │
+│  the AI tools that scale production without │
+│  sacrificing quality. That's the difference."│
+└─────────────────────────────────────────────┘
+
+CTA: "See Our Portfolio" (not "Get Started")
+```
+
+**Text: ~300 words total**
+**Visuals: 15+ examples, animations, comparisons**
+
+---
+
+## 2️⃣ **AI SALES AGENT** (Demo-First)
+
+### **Page Structure:**
+
+```
+┌─────────────────────────────────────────────┐
+│  HERO: Live Chat Demo                       │
+│  ─────────────────────────────              │
+│  Actual chat interface (animated):          │
+│                                             │
+│  Prospect: "Tell me about your pricing"     │
+│  AI Agent: "Happy to help! Based on your    │
+│             website, I see you're in..."    │
+│                                             │
+│  [Typing indicator...]                      │
+│  [Response appears naturally]               │
+│                                             │
+│  Text overlay:                              │
+│  "Your AI Sales Rep That Never Sleeps"      │
+└─────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────┐
+│  SECTION 1: The Problem (Comparison)        │
+│  ─────────────────────────────              │
+│  Visual comparison table:                   │
+│                                             │
+│  HUMAN SDR vs AI AGENT                      │
+│  ├─ Works: 9-5 | Works: 24/7               │
+│  ├─ Leads/day: 20 | Leads/day: 200+        │
+│  ├─ Response: 2 hrs | Response: Instant     │
+│  ├─ Cost: $5K/mo | Cost: $500/mo           │
+│                                             │
+│  Text (1 sentence):                         │
+│  "Not a replacement. An amplifier."         │
+└─────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────┐
+│  SECTION 2: What It Does (Icon Matrix)      │
+│  ─────────────────────────────              │
+│  Interactive capability grid:               │
+│                                             │
+│  [Icon] Lead Qualification                  │
+│  Click → Shows example conversation         │
+│                                             │
+│  [Icon] Meeting Booking                     │
+│  Click → Shows calendar integration         │
+│                                             │
+│  [Icon] Follow-up Automation                │
+│  Click → Shows email sequence               │
+│                                             │
+│  [Icon] CRM Integration                     │
+│  Click → Shows data sync                    │
+│                                             │
+│  6-8 capabilities total with demos          │
+└─────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────┐
+│  SECTION 3: Integration (System Diagram)    │
+│  ─────────────────────────────              │
+│  Visual showing:                            │
+│                                             │
+│     [Your Website]                          │
+│          ↓                                  │
+│     [AI Agent]                              │
+│     ↙    ↓    ↘                            │
+│  [Email][CRM][Calendar]                     │
+│                                             │
+│  Animated data flow                         │
+│  Show how it connects to existing tools     │
+└─────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────┐
+│  SECTION 4: Setup Timeline (Visual)         │
+│  ─────────────────────────────              │
+│  Horizontal timeline graphic:               │
+│                                             │
+│  Day 1-3: Train on your data                │
+│  [Progress bar animation]                   │
+│                                             │
+│  Day 4-7: Test conversations                │
+│  [Chat bubble examples]                     │
+│                                             │
+│  Day 8+: Live deployment                    │
+│  [Graph showing lead volume]                │
+│                                             │
+│  Text: "Live in 8 days, not 8 weeks."      │
+└─────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────┐
+│  SECTION 5: Why Trust OARC (Tech Stack)    │
+│  ─────────────────────────────              │
+│  Show the technology:                       │
+│                                             │
+│  Built on: [OpenAI logo] [Custom LLM]      │
+│  Integrated with: [HubSpot][Salesforce]    │
+│  Hosted on: [AWS] [Secure encryption]      │
+│                                             │
+│  Text (2 sentences):                        │
+│  "We don't resell off-the-shelf chatbots.  │
+│  We build custom AI trained on your data."  │
+└─────────────────────────────────────────────┘
+
+CTA: "Watch Demo" or "Try Simulation"
+```
+
+**Text: ~200 words total**
+**Visuals: Live demo, comparison tables, system diagrams**
+
+---
+
+## 3️⃣ **VIDEO PRODUCTION** (Motion-First)
+
+### **Page Structure:**
+
+```
+┌─────────────────────────────────────────────┐
+│  HERO: Auto-playing showreel                │
+│  ─────────────────────────────              │
+│  Full-screen video (60 seconds)             │
+│  Fast cuts of best work                     │
+│  No text overlay needed                     │
+│  Volume on, immersive                       │
+└─────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────┐
+│  SECTION 1: The Problem (Video Example)     │
+│  ─────────────────────────────              │
+│  Split screen video:                        │
+│                                             │
+│  LEFT: "Typical Brand Video"                │
+│  [Boring corporate video plays]             │
+│  "Welcome to our company..."                │
+│  User scrolls past in 2 seconds             │
+│                                             │
+│  RIGHT: "OARC Video"                        │
+│  [Hook within 1 second]                     │
+│  "Here's why 83% of founders..."            │
+│  User watches full 60 seconds               │
+│                                             │
+│  Text: "The first 3 seconds decide         │
+│  everything. We engineer them."             │
+└─────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────┐
+│  SECTION 2: Our Work (Video Grid)           │
+│  ─────────────────────────────              │
+│  9 video thumbnails in grid                 │
+│  Hover = Auto-play preview                  │
+│  Click = Full video + context               │
+│                                             │
+│  Categories:                                │
+│  - Product Explainers                       │
+│  - Social Ads                               │
+│  - Brand Stories                            │
+│  - Testimonials                             │
+│                                             │
+│  Each shows: Platform, length, purpose      │
+└─────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────┐
+│  SECTION 3: The Process (Behind-Scenes)     │
+│  ─────────────────────────────              │
+│  Video walkthrough:                         │
+│                                             │
+│  Week 1: Script + Storyboard                │
+│  [Show actual storyboard pages]             │
+│                                             │
+│  Week 2: Production Day                     │
+│  [BTS footage of shoot]                     │
+│                                             │
+│  Week 3: Edit + Revisions                   │
+│  [Screen recording of editing]              │
+│                                             │
+│  Week 4: Delivery + Formats                 │
+│  [Show multiple export versions]            │
+└─────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────┐
+│  SECTION 4: Formats (Visual Grid)           │
+│  ─────────────────────────────              │
+│  Show same video in different formats:      │
+│                                             │
+│  [16:9 Landscape] YouTube, Website          │
+│  [9:16 Vertical] TikTok, Reels, Stories    │
+│  [1:1 Square] Instagram Feed, LinkedIn      │
+│  [4:5 Portrait] Facebook, Pinterest         │
+│                                             │
+│  Text: "One shoot, every platform."         │
+└─────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────┐
+│  SECTION 5: Why OARC (Equipment Showcase)   │
+│  ─────────────────────────────              │
+│  Visual grid of gear:                       │
+│  - Camera setup                             │
+│  - Lighting rig                             │
+│  - Audio equipment                          │
+│  - Editing suite                            │
+│                                             │
+│  Text (1 sentence):                         │
+│  "Broadcast-quality production. Agency      │
+│  pricing. Malta-based team."                │
+└─────────────────────────────────────────────┘
+
+CTA: "Watch More Work" or "Book Discovery Call"
+```
+
+**Text: ~150 words total**
+**Visuals: 10+ videos, BTS footage, format examples**
+
+---
+
+## 4️⃣ **AI CONSULTING** (Framework-First)
+
+### **Page Structure:**
+
+```
+┌─────────────────────────────────────────────┐
+│  HERO: Interactive Framework               │
+│  ─────────────────────────────              │
+│  Circular diagram (animated):               │
+│                                             │
+│        [Assess]                             │
+│       ↗        ↖                           │
+│  [Deploy] ← [Design]                        │
+│       ↖        ↗                           │
+│        [Build]                              │
+│                                             │
+│  Click each phase → Expands with details    │
+│                                             │
+│  Text: "AI Consulting Without the Hype"     │
+└─────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────┐
+│  SECTION 1: The Confusion (Visual Problem)  │
+│  ─────────────────────────────              │
+│  Illustration showing:                      │
+│                                             │
+│  CEO surrounded by:                         │
+│  - "Use ChatGPT!"                          │
+│  - "Build custom AI!"                       │
+│  - "Wait for AGI!"                          │
+│  - "Hire AI team!"                          │
+│  - "Do nothing!"                            │
+│                                             │
+│  Text: "Everyone has opinions. Few have     │
+│  actually built production AI systems."     │
+└─────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────┐
+│  SECTION 2: Our Approach (Maturity Model)   │
+│  ─────────────────────────────              │
+│  Visual ladder/staircase:                   │
+│                                             │
+│  Level 4: Custom AI Systems                 │
+│  Level 3: AI Workflow Integration           │
+│  Level 2: Tool Deployment                   │
+│  Level 1: AI Readiness                      │
+│  Level 0: Manual Processes ← You are here   │
+│                                             │
+│  Interactive: Click level → See what's      │
+│  involved, timeline, investment             │
+│                                             │
+│  Text: "We meet you where you are."         │
+└─────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────┐
+│  SECTION 3: What You Get (Document Mockups) │
+│  ─────────────────────────────              │
+│  Visual showing actual deliverables:        │
+│                                             │
+│  [PDF mockup] AI Readiness Assessment       │
+│  [Spreadsheet] Tool Evaluation Matrix       │
+│  [Diagram] Implementation Roadmap           │
+│  [Document] ROI Projections                 │
+│  [Presentation] Board Deck                  │
+│                                             │
+│  Text: "Consulting means deliverables,      │
+│  not just conversations."                   │
+└─────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────┐
+│  SECTION 4: Timeline (Gantt-style Visual)   │
+│  ─────────────────────────────              │
+│  Visual project timeline:                   │
+│                                             │
+│  Week 1-2: Discovery & Assessment           │
+│  [Progress bar with milestones]             │
+│                                             │
+│  Week 3-4: Strategy & Roadmap               │
+│  [Progress bar with milestones]             │
+│                                             │
+│  Week 5-6: Implementation Plan              │
+│  [Progress bar with milestones]             │
+│                                             │
+│  Week 7+: Ongoing Support (optional)        │
+└─────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────┐
+│  SECTION 5: Why Trust Us (Credentials)      │
+│  ─────────────────────────────              │
+│  Visual credential grid:                    │
+│                                             │
+│  "We don't just consult on AI.              │
+│  We build it."                              │
+│                                             │
+│  [Screenshot] Our custom AI agents          │
+│  [Screenshot] Our automation systems        │
+│  [Screenshot] Our development work          │
+│                                             │
+│  Text: "Consulting from practitioners,      │
+│  not theorists."                            │
+└─────────────────────────────────────────────┘
+
+CTA: "Book AI Assessment" (specific, not generic)
+```
+
+**Text: ~250 words total**
+**Visuals: Frameworks, deliverable mockups, credentials**
+
+---
+
+---
+
+# 🎯 THE MASTER INSTRUCTION FOR REPLIT
+
+```
+CRITICAL: VISUAL-FIRST SERVICE PAGES
+
+Each service page must be designed based on the NATURE of that service:
+
+═══════════════════════════════════════════════════════════
+RULE 1: MATCH STRUCTURE TO SERVICE TYPE
+═══════════════════════════════════════════════════════════
+
+CREATIVE SERVICES (Social, Video, Design, etc.):
+✓ Hero = Portfolio piece (auto-play video, carousel)
+✓ 70% visual / 30% text
+✓ Show actual work prominently
+✓ Before/after comparisons
+✓ Bento grid of examples
+✓ Minimal text, maximum visual proof
+
+AI AGENT SERVICES:
+✓ Hero = Live demo or chat interface
+✓ 65% visual / 35% text
+✓ Show the agent working
+✓ Capability matrix with examples
+✓ System integration diagrams
+✓ Timeline visualization
+
+SYSTEM/AUTOMATION SERVICES:
+✓ Hero = Animated process diagram
+✓ 60% visual / 40% text
+✓ Flow charts and data viz
+✓ Dashboard/interface mockups
+✓ Before/after system comparisons
+✓ Interactive explainers
+
+CONSULTING SERVICES:
+✓ Hero = Framework visualization
+✓ 50% visual / 50% text
+✓ Proprietary models/diagrams
+✓ Deliverable mockups
+✓ Maturity models/roadmaps
+✓ Credential visuals
+
+DEVELOPMENT SERVICES:
+✓ Hero = Interface demo/prototype
+✓ 75% visual / 25% text
+✓ Actual UI screenshots
+✓ Tech stack diagrams
+✓ Build process visualization
+✓ Feature walkthroughs
+
+═══════════════════════════════════════════════════════════
+RULE 2: VISUAL HIERARCHY
+═══════════════════════════════════════════════════════════
+
+Every service page should follow:
+
+1. SHOW (Visual proof)
+   ↓
+2. EXPLAIN (Brief context)
+   ↓
+3. DEMONSTRATE (How it works)
+   ↓
+4. PROVE (Why us)
+
+NOT the reverse. Visuals first, always.
+
+═══════════════════════════════════════════════════════════
+RULE 3: INTERACTIVE ELEMENTS
+═══════════════════════════════════════════════════════════
+
+Where possible, make visuals interactive:
+
+✓ Hover states that reveal more info
+✓ Click to expand examples
+✓ Auto-play videos on scroll
+✓ Animated diagrams
+✓ Interactive capability matrices
+✓ Comparison sliders
+✓ Live demos or simulations
+
+Static images are last resort.
+
+═══════════════════════════════════════════════════════════
+RULE 4: TEXT GUIDELINES
+═══════════════════════════════════════════════════════════
+
+Text should:
+✓ Be secondary to visuals
+✓ Provide context, not detailed explanation
+✓ Use short paragraphs (2-3 sentences max)
+✓ Break up visual sections
+✓ Never compete with visuals for attention
+
+Total word count per service page: 200-400 words
+(except consulting services: 400-600 words)
+
+═══════════════════════════════════════════════════════════
+RULE 5: UNIQUE STRUCTURE PER SERVICE
+═══════════════════════════════════════════════════════════
+
+DO NOT use same template for all services.
+
+Each service should have structure that makes sense 
+for THAT specific service.
+
+Examples:
+
+Video Production:
+- Full-screen showreel hero
+- Video grid portfolio
+- BTS footage section
+- Format showcase
+- Minimal text
+
+AI Sales Agent:
+- Live chat demo hero
+- Capability matrix
+- Integration diagram
+- Setup timeline
+- Trust indicators
+
+Brand Identity:
+- Portfolio carousel hero
+- Case study deep-dives
+- Process visualization
+- Brand guidelines preview
+- Client logo wall
+
+═══════════════════════════════════════════════════════════
+RULE 6: MOBILE ADAPTATION
+═══════════════════════════════════════════════════════════
+
+On mobile:
+✓ Visuals remain prominent
+✓ Videos auto-play on scroll (muted)
+✓ Galleries become swipeable
+✓ Text even more minimal
+✓ CTAs more prominent
+
+Mobile should be even MORE visual than desktop.
+
+═══════════════════════════════════════════════════════════
+RULE 7: PERFORMANCE
+═══════════════════════════════════════════════════════════
+
+Heavy visuals require optimization:
+✓ Lazy load images/videos
+✓ Use WebP format
+✓ Compress without quality loss
+✓ Implement skeleton loaders
+✓ Progressive enhancement
+
+Page should load < 3 seconds on 4G.
+
+═══════════════════════════════════════════════════════════
+IMPLEMENTATION CHECKLIST
+═══════════════════════════════════════════════════════════
+
+For each service page:
+
+□ Hero section is visual (not text)
+□ Structure matches service type
+□ 60-75% visual content
+□ Interactive elements where possible
+□ Text is minimal and contextual
+□ Examples/demos are prominent
+□ Mobile-optimized visuals
+□ Performance-optimized assets
+□ Unique layout (not template)
+□ CTA relevant to service
+
+═══════════════════════════════════════════════════════════
+REMEMBER
+═══════════════════════════════════════════════════════════
+
+People don't read. They scan.
+They don't trust claims. They trust proof.
+Show, don't tell.
+Demonstrate, don't promise.
+Visualize, don't describe.
+
+Every service page should make someone think:
+"I can SEE what they do and how they do it."
+
+Not: "They wrote a lot about what they claim to do."
+```
+
+---
+
+## ✅ DOES THIS CAPTURE YOUR VISION?
+
+**Your insight:**
+- ✅ Visual > Text
+- ✅ Show execution style visually
+- ✅ Don't copy-paste same structure
+- ✅ Adapt to service nature
+- ✅ Make it SEEABLE, not just readable
+
+**This framework does exactly that.**
+
+Should I now create the complete homepage design with this visual-first approach? 🚀
