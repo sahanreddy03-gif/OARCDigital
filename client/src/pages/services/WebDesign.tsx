@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "wouter";
-import { Code, Smartphone, Zap, Layers, ArrowRight, TrendingUp, CheckCircle2, Gauge, Monitor, MousePointer2, Palette, Globe } from "lucide-react";
+import { ArrowRight, Gauge, MousePointer2, TrendingUp, Timer, Users, Zap, ArrowUpRight, BarChart3, Target, Eye, ShoppingCart } from "lucide-react";
 import Layout from "@/components/layout/Layout";
 import SEOHead from "@/components/SEOHead";
 import { createServiceSchema } from "@/utils/structuredData";
@@ -12,11 +12,9 @@ import webImg2 from "@assets/stock_images/modern_web_design_ux_62274473.jpg";
 import webImg3 from "@assets/stock_images/modern_web_design_ux_699e8c91.jpg";
 import webImg4 from "@assets/stock_images/modern_website_desig_4ba94acf.jpg";
 import webAppImg from "@assets/stock_images/modern_web_design_we_927d8700.jpg";
-import creativeImg from "@assets/stock_images/creative_designer_di_bb911588.jpg";
 
 export default function WebDesign() {
-  const [activeProject, setActiveProject] = useState(0);
-  const [activeStep, setActiveStep] = useState(0);
+  const [activeMetric, setActiveMetric] = useState(0);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -24,77 +22,23 @@ export default function WebDesign() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setActiveStep((prev) => (prev + 1) % 4);
-    }, 3000);
+      setActiveMetric((prev) => (prev + 1) % 4);
+    }, 2500);
     return () => clearInterval(interval);
   }, []);
 
-  const portfolio = [
-    {
-      title: "SaaS Platform Redesign",
-      category: "SaaS",
-      img: webImg1,
-      metrics: "+142% conversions",
-      size: "large"
-    },
-    {
-      title: "E-commerce Store",
-      category: "Retail",
-      img: webImg2,
-      metrics: "+68% revenue",
-      size: "medium"
-    },
-    {
-      title: "Landing Page System",
-      category: "Lead Gen",
-      img: webImg3,
-      metrics: "+89% leads",
-      size: "medium"
-    },
-    {
-      title: "Corporate Rebrand",
-      category: "B2B",
-      img: webImg4,
-      metrics: "+45% engagement",
-      size: "small"
-    },
-    {
-      title: "Product Launch Site",
-      category: "Startup",
-      img: webAppImg,
-      metrics: "2M visits",
-      size: "small"
-    },
-    {
-      title: "Design System",
-      category: "Enterprise",
-      img: creativeImg,
-      metrics: "3x faster dev",
-      size: "small"
-    },
-  ];
-
-  const services = [
-    { icon: Globe, title: "Full Website Design", desc: "Complete sites from strategy to launch" },
-    { icon: Zap, title: "Landing Pages", desc: "High-converting single-page experiences" },
-    { icon: Code, title: "E-commerce", desc: "Shops that sell 24/7" },
-    { icon: Layers, title: "Design Systems", desc: "Scalable component libraries" },
-    { icon: TrendingUp, title: "CRO Optimization", desc: "Data-driven improvements" },
-    { icon: Gauge, title: "Webflow Development", desc: "No-code, full control" },
-  ];
-
-  const process = [
-    { icon: MousePointer2, title: "Discovery", desc: "Research & strategy", days: "Week 1" },
-    { icon: Palette, title: "Design", desc: "UI/UX & prototypes", days: "Week 2-3" },
-    { icon: Code, title: "Build", desc: "Development & testing", days: "Week 4-5" },
-    { icon: Zap, title: "Launch", desc: "Deploy & optimize", days: "Week 6" },
+  const liveMetrics = [
+    { label: "Page Speed", value: "0.8s", target: "<1.5s", status: "good" },
+    { label: "Bounce Rate", value: "28%", target: "<35%", status: "good" },
+    { label: "Conversion", value: "4.2%", target: ">3%", status: "good" },
+    { label: "Mobile Score", value: "98", target: ">90", status: "good" },
   ];
 
   return (
     <Layout>
       <SEOHead
-        title="Web Design | High-Converting Websites | OARC Digital"
-        description="Conversion-optimized web design with lightning-fast load times, mobile-first UX, and A/B testing. Launch in 6 weeks. Get a free UX audit."
+        title="Web Design | Conversion-Focused Sites | OARC Digital"
+        description="Websites engineered for conversion. Performance-optimized, mobile-first, A/B tested. See real metrics from sites we've built."
         canonicalUrl="https://oarcdigital.com/services/web-design"
         ogType="article"
         structuredData={createServiceSchema(
@@ -105,137 +49,208 @@ export default function WebDesign() {
         schemaId="service-web-design"
       />
 
-      {/* HERO: Full-screen portfolio showcase */}
-      <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-zinc-950">
-        {/* Background image */}
+      {/* HERO: Performance Dashboard Style */}
+      <section className="relative min-h-[90vh] flex items-center bg-zinc-950 overflow-hidden">
         <div className="absolute inset-0">
           <img 
             src={heroImage}
-            alt="Web design showcase"
-            className="w-full h-full object-cover opacity-40"
+            alt="Web design"
+            className="w-full h-full object-cover opacity-20"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-zinc-950 via-zinc-950/90 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-zinc-950 via-zinc-950/95 to-zinc-950/80"></div>
         </div>
         
         <div className="relative z-10 w-full max-w-7xl mx-auto px-4 py-20">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/20 border border-blue-500/40 text-blue-400 text-sm font-medium mb-6">
-                <Monitor className="w-4 h-4" />
-                Web Design
-              </div>
-              
+              <p className="text-emerald-400 text-sm uppercase tracking-widest mb-4">Web Design & Development</p>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6" data-testid="heading-web-design">
-                Websites That <span className="text-blue-400">Convert</span>
+                Websites that actually convert.
               </h1>
-              
-              <p className="text-xl text-white/70 mb-8 leading-relaxed">
-                Every pixel optimized for performance. Every interaction designed to convert. Launch in 6 weeks.
+              <p className="text-xl text-white/60 mb-8">
+                Not just pretty. Profitable. Every pixel optimized for performance, every interaction designed to convert.
               </p>
+              
+              <Link href="/contact">
+                <button
+                  className="inline-flex items-center gap-3 bg-emerald-500 text-black rounded-full pl-8 pr-4 py-4 text-lg font-bold hover:bg-emerald-400 transition-colors"
+                  data-testid="button-get-audit"
+                >
+                  Get a Free UX Audit
+                  <div className="w-10 h-10 bg-black/20 rounded-full flex items-center justify-center">
+                    <ArrowRight className="h-5 w-5" />
+                  </div>
+                </button>
+              </Link>
+            </div>
 
-              <div className="flex flex-wrap gap-4 mb-10">
-                <Link href="/contact">
-                  <button
-                    className="btn-shimmer inline-flex items-center gap-3 bg-blue-500 text-white rounded-full pl-8 pr-4 py-4 text-lg font-bold hover:bg-blue-600 transition-colors"
-                    data-testid="button-get-audit"
-                  >
-                    Get Free UX Audit
-                    <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
-                      <ArrowRight className="h-5 w-5" />
-                    </div>
-                  </button>
-                </Link>
+            {/* Live metrics dashboard */}
+            <div className="bg-zinc-900/80 backdrop-blur-xl rounded-2xl border border-zinc-800 p-6">
+              <div className="flex items-center justify-between mb-6">
+                <span className="text-white/40 text-sm">Live site performance</span>
+                <span className="flex items-center gap-2 text-emerald-400 text-sm">
+                  <span className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></span>
+                  All systems healthy
+                </span>
               </div>
 
-              {/* Quick stats */}
-              <div className="grid grid-cols-3 gap-6">
-                {[
-                  { value: "+142%", label: "Avg. Conversion Lift" },
-                  { value: "6 Weeks", label: "Avg. Launch Time" },
-                  { value: "99/100", label: "Lighthouse Score" },
-                ].map((stat, i) => (
-                  <div key={i} className="text-center">
-                    <div className="text-2xl font-black text-blue-400">{stat.value}</div>
-                    <div className="text-sm text-white/50">{stat.label}</div>
+              <div className="grid grid-cols-2 gap-4">
+                {liveMetrics.map((metric, i) => (
+                  <div 
+                    key={i}
+                    className={`p-4 rounded-xl transition-all ${
+                      activeMetric === i ? 'bg-emerald-500/20 border border-emerald-500/50' : 'bg-zinc-800/50'
+                    }`}
+                    data-testid={`metric-${i}`}
+                  >
+                    <div className="text-white/40 text-xs mb-1">{metric.label}</div>
+                    <div className="text-2xl font-black text-white">{metric.value}</div>
+                    <div className="text-emerald-400 text-xs">Target: {metric.target}</div>
                   </div>
                 ))}
               </div>
-            </div>
 
-            {/* Browser mockup */}
-            <div className="relative hidden lg:block">
-              <div className="absolute -inset-4 bg-blue-500/20 rounded-3xl blur-2xl"></div>
-              <div className="relative bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-800 shadow-2xl">
-                {/* Browser chrome */}
-                <div className="bg-zinc-800 px-4 py-3 flex items-center gap-2">
-                  <div className="flex gap-2">
-                    <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-                    <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-                    <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                  </div>
-                  <div className="flex-1 mx-4">
-                    <div className="bg-zinc-700 rounded-md px-3 py-1 text-xs text-zinc-400 font-mono">
-                      https://your-website.com
-                    </div>
-                  </div>
+              <div className="mt-6 pt-6 border-t border-zinc-800">
+                <div className="flex items-center justify-between text-sm">
+                  <span className="text-white/40">Lighthouse Score</span>
+                  <span className="text-emerald-400 font-bold">99/100</span>
                 </div>
-                <img 
-                  src={webImg1}
-                  alt="Website design preview"
-                  className="w-full h-[350px] object-cover"
-                />
+                <div className="mt-2 h-2 bg-zinc-800 rounded-full overflow-hidden">
+                  <div className="h-full w-[99%] bg-gradient-to-r from-emerald-500 to-emerald-400 rounded-full"></div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* SECTION 2: Portfolio Bento Grid */}
+      {/* SECTION 2: Case Study Spotlight with Before/After */}
       <ScrollReveal>
         <section className="py-20 px-4 bg-zinc-950">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
-                Work That Converts
+              <h2 className="text-3xl md:text-4xl font-black text-white mb-4">Real results, not mockups</h2>
+              <p className="text-white/50">Actual performance improvements from recent projects</p>
+            </div>
+
+            {/* Featured case study */}
+            <div className="grid lg:grid-cols-2 gap-8 items-center mb-12">
+              <div className="relative rounded-2xl overflow-hidden">
+                <img src={webImg1} alt="SaaS website redesign" className="w-full h-[400px] object-cover" />
+                <div className="absolute top-4 left-4 px-3 py-1 bg-emerald-500 text-black text-sm font-bold rounded-full">
+                  SaaS Redesign
+                </div>
+              </div>
+              
+              <div>
+                <h3 className="text-2xl font-black text-white mb-4">Fintech SaaS Platform</h3>
+                <p className="text-white/60 mb-8">
+                  Complete redesign of signup flow and pricing page. The old site had a 1.2% conversion rate with slow load times. We rebuilt it from scratch with conversion in mind.
+                </p>
+                
+                <div className="grid grid-cols-3 gap-6">
+                  {[
+                    { before: "1.2%", after: "4.8%", label: "Conversion Rate", change: "+300%" },
+                    { before: "4.2s", after: "0.9s", label: "Load Time", change: "-78%" },
+                    { before: "68%", after: "32%", label: "Bounce Rate", change: "-53%" },
+                  ].map((stat, i) => (
+                    <div key={i} className="text-center" data-testid={`case-stat-${i}`}>
+                      <div className="text-emerald-400 text-xs font-bold mb-1">{stat.change}</div>
+                      <div className="text-white/30 text-xs line-through">{stat.before}</div>
+                      <div className="text-2xl font-black text-white">{stat.after}</div>
+                      <div className="text-white/40 text-xs">{stat.label}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* More case thumbnails */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              {[
+                { img: webImg2, title: "E-commerce", metric: "+127% revenue" },
+                { img: webImg3, title: "Lead Gen Site", metric: "+89% leads" },
+                { img: webImg4, title: "SaaS Landing", metric: "+156% signups" },
+                { img: webAppImg, title: "B2B Platform", metric: "+67% demos" },
+              ].map((project, i) => (
+                <div 
+                  key={i}
+                  className="group relative rounded-xl overflow-hidden cursor-pointer"
+                  data-testid={`project-${i}`}
+                >
+                  <img 
+                    src={project.img}
+                    alt={project.title}
+                    className="w-full h-40 object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                  <div className="absolute bottom-3 left-3 right-3">
+                    <span className="text-emerald-400 text-xs font-bold">{project.metric}</span>
+                    <h4 className="text-white font-bold text-sm">{project.title}</h4>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      </ScrollReveal>
+
+      {/* SECTION 3: Conversion Framework */}
+      <ScrollReveal>
+        <section className="py-20 px-4 bg-black">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-black text-white mb-4">
+                Our conversion framework
               </h2>
-              <p className="text-lg text-white/60 max-w-2xl mx-auto">
-                Sites designed for results, not just looks
+              <p className="text-white/50 max-w-xl mx-auto">
+                Every website we build follows a proven methodology for turning visitors into customers.
               </p>
             </div>
 
-            {/* Bento Grid */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              {portfolio.map((project, i) => (
+            <div className="grid md:grid-cols-3 gap-6">
+              {[
+                { 
+                  icon: Eye, 
+                  step: "Capture", 
+                  title: "Above-the-fold impact",
+                  desc: "Hook visitors in 3 seconds with clear value props, strong visuals, and obvious next steps.",
+                  tactics: ["Hero messaging", "Social proof", "Clear CTA"]
+                },
+                { 
+                  icon: MousePointer2, 
+                  step: "Guide", 
+                  title: "Intuitive user journeys",
+                  desc: "Remove friction and lead visitors toward conversion with smart UX patterns.",
+                  tactics: ["Progressive disclosure", "Sticky nav", "F-pattern layout"]
+                },
+                { 
+                  icon: Target, 
+                  step: "Convert", 
+                  title: "Optimized conversion points",
+                  desc: "Forms, CTAs, and checkout flows designed to maximize completion rates.",
+                  tactics: ["Multi-step forms", "Urgency triggers", "Trust signals"]
+                },
+              ].map((phase, i) => (
                 <div 
                   key={i}
-                  className={`group relative overflow-hidden rounded-2xl cursor-pointer ${
-                    project.size === 'large' ? 'col-span-2 row-span-2' : 
-                    project.size === 'medium' ? 'col-span-2' : ''
-                  }`}
-                  data-testid={`portfolio-${i}`}
-                  onMouseEnter={() => setActiveProject(i)}
+                  className="p-8 rounded-2xl bg-zinc-900 border border-zinc-800 group hover:border-emerald-500/50 transition-colors"
+                  data-testid={`framework-${i}`}
                 >
-                  <div className={`relative ${
-                    project.size === 'large' ? 'h-[400px]' : 
-                    project.size === 'medium' ? 'h-[200px]' : 'h-[200px]'
-                  }`}>
-                    <img 
-                      src={project.img}
-                      alt={project.title}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
-                    
-                    {/* Content */}
-                    <div className="absolute bottom-0 left-0 right-0 p-4">
-                      <span className="inline-block px-3 py-1 bg-blue-500 text-white text-xs font-bold rounded-full mb-2">
-                        {project.metrics}
-                      </span>
-                      <h3 className={`font-bold text-white mb-1 ${project.size === 'large' ? 'text-2xl' : 'text-lg'}`}>
-                        {project.title}
-                      </h3>
-                      <div className="text-sm text-white/60">{project.category}</div>
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="w-10 h-10 rounded-full bg-emerald-500/20 flex items-center justify-center">
+                      <phase.icon className="w-5 h-5 text-emerald-400" />
                     </div>
+                    <span className="text-emerald-400 text-sm font-bold uppercase">{phase.step}</span>
+                  </div>
+                  <h3 className="text-xl font-bold text-white mb-3">{phase.title}</h3>
+                  <p className="text-white/50 text-sm mb-6">{phase.desc}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {phase.tactics.map((tactic, j) => (
+                      <span key={j} className="px-3 py-1 bg-zinc-800 text-white/60 text-xs rounded-full">
+                        {tactic}
+                      </span>
+                    ))}
                   </div>
                 </div>
               ))}
@@ -244,28 +259,31 @@ export default function WebDesign() {
         </section>
       </ScrollReveal>
 
-      {/* SECTION 3: Services Grid */}
+      {/* SECTION 4: What We Build */}
       <ScrollReveal>
         <section className="py-20 px-4 bg-white">
           <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-black text-black mb-4">
-                Web Solutions That Scale
-              </h2>
-            </div>
+            <h2 className="text-3xl md:text-4xl font-black text-center mb-12">
+              Sites built for specific goals
+            </h2>
 
-            <div className="grid md:grid-cols-3 lg:grid-cols-6 gap-4">
-              {services.map((service, i) => (
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[
+                { icon: TrendingUp, title: "SaaS Websites", desc: "Product pages, pricing, demo flows optimized for trial signups." },
+                { icon: ShoppingCart, title: "E-commerce", desc: "Product pages, cart, checkout flows that reduce abandonment." },
+                { icon: Target, title: "Lead Generation", desc: "Landing pages and forms designed for maximum lead capture." },
+                { icon: BarChart3, title: "B2B Platforms", desc: "Professional sites that establish credibility and generate demos." },
+                { icon: Zap, title: "Landing Pages", desc: "Single-purpose pages for campaigns, launches, and promotions." },
+                { icon: Users, title: "Corporate Sites", desc: "Brand-forward sites that communicate company values and attract talent." },
+              ].map((type, i) => (
                 <div 
                   key={i}
-                  className="group p-6 rounded-2xl bg-zinc-50 hover:bg-blue-500 hover:text-white transition-all duration-300 border border-zinc-200 hover:border-blue-500 text-center"
-                  data-testid={`service-${i}`}
+                  className="p-6 rounded-2xl border border-zinc-200 hover:border-emerald-500 hover:shadow-lg transition-all group"
+                  data-testid={`site-type-${i}`}
                 >
-                  <div className="w-14 h-14 mx-auto rounded-xl bg-blue-500/10 group-hover:bg-white/20 flex items-center justify-center mb-4 transition-colors">
-                    <service.icon className="w-7 h-7 text-blue-500 group-hover:text-white transition-colors" />
-                  </div>
-                  <h3 className="font-bold mb-1 text-sm">{service.title}</h3>
-                  <p className="text-xs text-muted-foreground group-hover:text-white/80">{service.desc}</p>
+                  <type.icon className="w-8 h-8 text-emerald-500 mb-4" />
+                  <h3 className="font-bold text-lg mb-2">{type.title}</h3>
+                  <p className="text-muted-foreground text-sm">{type.desc}</p>
                 </div>
               ))}
             </div>
@@ -273,159 +291,41 @@ export default function WebDesign() {
         </section>
       </ScrollReveal>
 
-      {/* SECTION 4: Process Timeline */}
-      <ScrollReveal>
-        <section className="py-20 px-4 bg-zinc-50">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-black text-black mb-4">
-                From Brief to Launch in 6 Weeks
-              </h2>
-            </div>
-
-            {/* Visual timeline */}
-            <div className="grid md:grid-cols-4 gap-6">
-              {process.map((step, i) => (
-                <div 
-                  key={i}
-                  className={`relative p-6 rounded-2xl transition-all duration-500 cursor-pointer ${
-                    activeStep === i 
-                      ? 'bg-blue-500 text-white scale-105 shadow-2xl shadow-blue-500/30' 
-                      : 'bg-white text-black hover:bg-zinc-100 border border-zinc-200'
-                  }`}
-                  onClick={() => setActiveStep(i)}
-                  data-testid={`process-step-${i}`}
-                >
-                  <div className={`absolute -top-3 -left-3 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold ${
-                    activeStep === i ? 'bg-white text-blue-500' : 'bg-blue-500 text-white'
-                  }`}>
-                    {i + 1}
-                  </div>
-                  
-                  <step.icon className={`w-10 h-10 mb-4 ${activeStep === i ? 'text-white' : 'text-blue-500'}`} />
-                  
-                  <div className={`text-xs font-bold mb-2 ${activeStep === i ? 'text-white/80' : 'text-blue-500'}`}>
-                    {step.days}
-                  </div>
-                  
-                  <h3 className="text-xl font-bold mb-2">{step.title}</h3>
-                  <p className={`text-sm ${activeStep === i ? 'text-white/80' : 'text-muted-foreground'}`}>
-                    {step.desc}
-                  </p>
-                </div>
-              ))}
-            </div>
-
-            {/* Progress bar */}
-            <div className="mt-8 h-2 bg-zinc-200 rounded-full overflow-hidden">
-              <div 
-                className="h-full bg-blue-500 transition-all duration-500 rounded-full"
-                style={{ width: `${((activeStep + 1) / 4) * 100}%` }}
-              ></div>
-            </div>
-          </div>
-        </section>
-      </ScrollReveal>
-
-      {/* SECTION 5: Stats Bar */}
-      <section className="py-12 px-4 bg-blue-500">
+      {/* SECTION 5: Tech & Performance */}
+      <section className="py-16 px-4 bg-emerald-500">
         <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
-              { value: "300+", label: "Sites Launched" },
-              { value: "+142%", label: "Avg. Conversion Lift" },
-              { value: "6 Weeks", label: "Avg. Timeline" },
               { value: "99/100", label: "Lighthouse Score" },
+              { value: "<1s", label: "First Paint" },
+              { value: "Mobile-First", label: "All Responsive" },
+              { value: "A/B Ready", label: "Built for Testing" },
             ].map((stat, i) => (
-              <div key={i} className="text-center" data-testid={`stat-${i}`}>
-                <div className="text-3xl md:text-4xl font-black text-white mb-2">{stat.value}</div>
-                <div className="text-sm text-white/80">{stat.label}</div>
+              <div key={i} data-testid={`perf-stat-${i}`}>
+                <div className="text-3xl md:text-4xl font-black text-black">{stat.value}</div>
+                <div className="text-sm text-black/70">{stat.label}</div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* SECTION 6: Why OARC */}
-      <ScrollReveal>
-        <section className="py-20 px-4 bg-white">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div>
-                <h2 className="text-4xl md:text-5xl font-black text-black mb-6">
-                  Not Just Pretty.<br />Profitable.
-                </h2>
-                <p className="text-lg text-muted-foreground mb-8">
-                  Every design decision backed by data. Every pixel optimized for conversion.
-                </p>
-                
-                <div className="space-y-4">
-                  {[
-                    "Conversion-optimized from day one",
-                    "99/100 Lighthouse performance scores",
-                    "Mobile-first responsive design",
-                    "A/B testing and CRO included",
-                    "Full ownership of all assets",
-                  ].map((item, i) => (
-                    <div key={i} className="flex items-start gap-3">
-                      <CheckCircle2 className="w-6 h-6 text-blue-500 flex-shrink-0 mt-0.5" />
-                      <span className="text-lg">{item}</span>
-                    </div>
-                  ))}
-                </div>
-
-                <Link href="/contact">
-                  <button
-                    className="mt-8 inline-flex items-center gap-3 bg-blue-500 text-white rounded-full pl-8 pr-4 py-4 text-base font-semibold hover:bg-blue-600 transition-colors"
-                    data-testid="button-discuss-project"
-                  >
-                    Discuss Your Project
-                    <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
-                      <ArrowRight className="h-5 w-5" />
-                    </div>
-                  </button>
-                </Link>
-              </div>
-
-              {/* Image grid */}
-              <div className="grid grid-cols-2 gap-4">
-                <img 
-                  src={webImg2}
-                  alt="Website design"
-                  className="w-full h-48 object-cover rounded-2xl"
-                />
-                <img 
-                  src={webImg3}
-                  alt="UI design"
-                  className="w-full h-48 object-cover rounded-2xl mt-8"
-                />
-                <img 
-                  src={creativeImg}
-                  alt="Design team"
-                  className="w-full h-48 object-cover rounded-2xl col-span-2"
-                />
-              </div>
-            </div>
-          </div>
-        </section>
-      </ScrollReveal>
-
       {/* FINAL CTA */}
       <section className="py-20 px-4 bg-zinc-950 text-white">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-6xl font-black mb-6">
-            Ready for a Website That <span className="text-blue-400">Works?</span>
+          <h2 className="text-4xl md:text-5xl font-black mb-6">
+            Want a site that works harder?
           </h2>
-          <p className="text-xl text-white/70 mb-10">
-            Get a free UX audit and conversion strategy call
+          <p className="text-white/60 text-lg mb-10">
+            Get a free UX audit and see where your current site is losing conversions.
           </p>
           <Link href="/contact">
             <button
-              className="btn-shimmer inline-flex items-center gap-3 bg-blue-500 text-white rounded-full pl-10 pr-4 py-5 text-lg font-bold hover:bg-blue-600 transition-colors"
+              className="inline-flex items-center gap-3 bg-emerald-500 text-black rounded-full pl-10 pr-4 py-5 text-lg font-bold hover:bg-emerald-400 transition-colors"
               data-testid="button-cta-audit"
             >
               Get Free UX Audit
-              <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
+              <div className="w-12 h-12 bg-black/20 rounded-full flex items-center justify-center">
                 <ArrowRight className="h-6 w-6" />
               </div>
             </button>
