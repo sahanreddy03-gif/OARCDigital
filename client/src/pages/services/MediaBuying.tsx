@@ -375,50 +375,50 @@ export default function MediaBuying() {
       </section>
 
       {/* Related Services */}
-      <section className="py-20 px-4 bg-[#f5f0e6]">
+      <section className="py-20 px-4 bg-zinc-950">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <div className="text-sm uppercase tracking-wider text-[#23AACA] mb-4">COMPLETE YOUR STRATEGY</div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-[#1a2e29]">
-              Maximize media <span className="italic text-orange-500">with these services</span>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
+              Maximize media <span className="italic text-[#c4ff4d]">with these services</span>
             </h2>
-            <p className="text-lg text-[#1a2e29]/70 max-w-3xl mx-auto">
+            <p className="text-lg text-white/70 max-w-3xl mx-auto">
               Media buying is most effective when combined with creative production and strategic planning.
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
             <Link href="/services/paid-advertising">
-              <div className="group p-8 bg-white rounded-xl border border-[#1a2e29]/10 hover:border-[#23AACA] hover:shadow-xl transition-all duration-300 cursor-pointer" data-testid="related-service-paid">
+              <div className="group p-8 bg-zinc-900 rounded-xl border border-zinc-800 hover:border-[#23AACA] transition-all duration-300 cursor-pointer" data-testid="related-service-paid">
                 <div className="flex items-start justify-between mb-4">
-                  <h3 className="text-xl font-bold text-[#1a2e29] group-hover:text-[#23AACA] transition-colors">Paid Advertising</h3>
-                  <ArrowRight className="h-5 w-5 text-[#23AACA] group-hover:translate-x-1 transition-transform" />
+                  <h3 className="text-xl font-bold text-white group-hover:text-[#c4ff4d] transition-colors">Paid Advertising</h3>
+                  <ArrowRight className="h-5 w-5 text-[#c4ff4d] group-hover:translate-x-1 transition-transform" />
                 </div>
-                <p className="text-[#1a2e29]/70 mb-4">
+                <p className="text-white/70 mb-4">
                   Full-funnel paid media strategy and execution. Turn your media buys into high-performance campaigns.
                 </p>
               </div>
             </Link>
 
             <Link href="/services/social-media-creative">
-              <div className="group p-8 bg-white rounded-xl border border-[#1a2e29]/10 hover:border-[#23AACA] hover:shadow-xl transition-all duration-300 cursor-pointer" data-testid="related-service-creative">
+              <div className="group p-8 bg-zinc-900 rounded-xl border border-zinc-800 hover:border-[#23AACA] transition-all duration-300 cursor-pointer" data-testid="related-service-creative">
                 <div className="flex items-start justify-between mb-4">
-                  <h3 className="text-xl font-bold text-[#1a2e29] group-hover:text-[#23AACA] transition-colors">Creative Production</h3>
-                  <ArrowRight className="h-5 w-5 text-[#23AACA] group-hover:translate-x-1 transition-transform" />
+                  <h3 className="text-xl font-bold text-white group-hover:text-[#c4ff4d] transition-colors">Creative Production</h3>
+                  <ArrowRight className="h-5 w-5 text-[#c4ff4d] group-hover:translate-x-1 transition-transform" />
                 </div>
-                <p className="text-[#1a2e29]/70 mb-4">
+                <p className="text-white/70 mb-4">
                   High-performing ad creative across all formats. Maximize your media investment with compelling creatives.
                 </p>
               </div>
             </Link>
 
             <Link href="/services/marketing-strategy">
-              <div className="group p-8 bg-white rounded-xl border border-[#1a2e29]/10 hover:border-[#23AACA] hover:shadow-xl transition-all duration-300 cursor-pointer" data-testid="related-service-strategy">
+              <div className="group p-8 bg-zinc-900 rounded-xl border border-zinc-800 hover:border-[#23AACA] transition-all duration-300 cursor-pointer" data-testid="related-service-strategy">
                 <div className="flex items-start justify-between mb-4">
-                  <h3 className="text-xl font-bold text-[#1a2e29] group-hover:text-[#23AACA] transition-colors">Marketing Strategy</h3>
-                  <ArrowRight className="h-5 w-5 text-[#23AACA] group-hover:translate-x-1 transition-transform" />
+                  <h3 className="text-xl font-bold text-white group-hover:text-[#c4ff4d] transition-colors">Marketing Strategy</h3>
+                  <ArrowRight className="h-5 w-5 text-[#c4ff4d] group-hover:translate-x-1 transition-transform" />
                 </div>
-                <p className="text-[#1a2e29]/70 mb-4">
+                <p className="text-white/70 mb-4">
                   Strategic planning that aligns media buying with business goals. Optimize channel mix and budget allocation.
                 </p>
               </div>

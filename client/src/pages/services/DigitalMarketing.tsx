@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Link } from "wouter";
-import { Target, TrendingUp, Users, Zap, BarChart, Globe, CheckCircle2, Megaphone } from "lucide-react";
+import { Target, TrendingUp, Users, Zap, BarChart, Globe, CheckCircle2, Megaphone, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ScrollableCards } from "@/components/ui/scrollable-cards";
 import Layout from "@/components/layout/Layout";
@@ -40,13 +40,13 @@ export default function DigitalMarketing() {
         </div>
         <div className="relative z-10 text-center px-4 max-w-6xl mx-auto">
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 animate-in fade-in slide-in-from-bottom-4 duration-700">
-            Your complete <span className="italic bg-gradient-to-r from-slate-300 via-gray-200 to-zinc-100 text-transparent bg-clip-text">digital growth</span> partner
+            Your complete <span className="italic text-[#c4ff4d]">digital growth</span> partner
           </h1>
           <p className="text-lg md:text-xl text-white/90 mb-8 max-w-3xl mx-auto animate-in fade-in slide-in-from-bottom-4 duration-700 delay-150">
             Full-service digital marketing. Strategy, creative, paid media, SEO, social, content, analytics. Everything you need to grow online, all under one roof.
           </p>
           <div className="flex flex-wrap gap-4 justify-center animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300">
-            <Button size="lg" className="bg-white text-slate-900 hover:bg-white/90" data-testid="button-get-started">
+            <Button size="lg" className="bg-white text-[#1a2e29] hover:bg-white/90" data-testid="button-get-started">
               Build Your Growth Plan
             </Button>
             <Button size="lg" variant="outline" className="border-white text-white bg-white/10 backdrop-blur-sm hover:bg-white/20" data-testid="button-view-case-studies">
@@ -57,7 +57,7 @@ export default function DigitalMarketing() {
       </section>
 
       {/* Trusted By */}
-      <section className="py-12 px-4 bg-white border-b border-border">
+      <section className="py-12 px-4 bg-[#f5f0e6] border-b border-[#1a2e29]/10">
         <div className="max-w-7xl mx-auto">
           <div className="text-center text-sm uppercase tracking-wider text-muted-foreground mb-8">
             Powering growth for businesses across industries
@@ -70,25 +70,25 @@ export default function DigitalMarketing() {
         </div>
       </section>
 
-      <section className="py-16 px-4 bg-slate-50">
+      <section className="py-16 px-4 bg-[#f5f0e6]">
         <div className="max-w-6xl mx-auto">
           <div className="bg-white rounded-2xl overflow-hidden border border-border shadow-lg">
             <div className="p-8 md:p-12">
-              <div className="text-sm uppercase tracking-wider text-slate-700 mb-4">CASE STUDY</div>
+              <div className="text-sm uppercase tracking-wider text-[#1a2e29]/70 mb-4">CASE STUDY</div>
               <h3 className="text-3xl md:text-4xl font-bold mb-6">
                 How we grew a multi-location service business from $2M to $8.5M in 18 months
               </h3>
               <div className="grid md:grid-cols-3 gap-8 mb-8">
                 <div>
-                  <div className="text-2xl font-bold text-slate-900 mb-2">$6.5M growth</div>
+                  <div className="text-2xl font-bold text-[#1a2e29] mb-2">$6.5M growth</div>
                   <div className="text-sm text-muted-foreground">Revenue increase in 18 months</div>
                 </div>
                 <div>
-                  <div className="text-2xl font-bold text-slate-900 mb-2">425% ROAS</div>
+                  <div className="text-2xl font-bold text-[#1a2e29] mb-2">425% ROAS</div>
                   <div className="text-sm text-muted-foreground">Return on ad spend</div>
                 </div>
                 <div>
-                  <div className="text-2xl font-bold text-slate-900 mb-2">23 locations</div>
+                  <div className="text-2xl font-bold text-[#1a2e29] mb-2">23 locations</div>
                   <div className="text-sm text-muted-foreground">Expanded from 8 locations</div>
                 </div>
               </div>
@@ -97,7 +97,7 @@ export default function DigitalMarketing() {
               </p>
               <div className="flex flex-wrap gap-3">
                 {['Multi-Location SEO', 'Geo-Targeted Ads', 'Content Marketing', 'Email Automation', 'Local Optimization'].map((tag, i) => (
-                  <span key={i} className="px-3 py-1 bg-slate-100 text-slate-700 rounded-full text-sm font-medium">
+                  <span key={i} className="px-3 py-1 bg-[#f5f0e6] text-[#1a2e29]/70 rounded-full text-sm font-medium">
                     {tag}
                   </span>
                 ))}
@@ -108,11 +108,11 @@ export default function DigitalMarketing() {
       </section>
 
       {/* Services */}
-      <section className="py-16 bg-white overflow-hidden">
+      <section className="py-16 bg-[#f5f0e6] overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 mb-10">
-          <div className="text-sm uppercase tracking-wider text-slate-700 mb-3">COMPREHENSIVE SERVICES</div>
+          <div className="text-sm uppercase tracking-wider text-[#1a2e29]/70 mb-3">COMPREHENSIVE SERVICES</div>
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Everything you need. <span className="italic text-slate-600">Under one roof.</span>
+            Everything you need. <span className="italic text-orange-500">Under one roof.</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl">
             Full-stack digital marketing that works together as one integrated system
@@ -161,16 +161,16 @@ export default function DigitalMarketing() {
             ].map((service, i) => (
               <div key={i} className="flex-none w-[340px] md:w-[420px] group" data-testid={`card-service-${i}`}>
                 <div className="bg-white rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-500 border border-border h-full hover:-translate-y-2">
-                  <div className="relative h-48 bg-gradient-to-br from-slate-50 via-gray-50 to-zinc-50 overflow-hidden flex items-center justify-center">
-                    <service.icon className="h-16 w-16 text-slate-900/30 group-hover:scale-110 transition-transform duration-500" />
+                  <div className="relative h-48 bg-gradient-to-br from-[#f5f0e6] via-white to-[#f5f0e6] overflow-hidden flex items-center justify-center">
+                    <service.icon className="h-16 w-16 text-[#1a2e29]/30 group-hover:scale-110 transition-transform duration-500" />
                   </div>
                   <div className="p-6">
-                    <h3 className="text-xl font-bold mb-3 group-hover:text-slate-900 transition-colors">{service.name}</h3>
+                    <h3 className="text-xl font-bold mb-3 group-hover:text-[#1a2e29] transition-colors">{service.name}</h3>
                     <p className="text-sm text-muted-foreground mb-4">{service.desc}</p>
                     <div className="space-y-2">
                       {service.features.map((feature, j) => (
                         <div key={j} className="flex items-center gap-2 text-sm">
-                          <CheckCircle2 className="h-4 w-4 text-slate-700" />
+                          <CheckCircle2 className="h-4 w-4 text-[#1a2e29]/70" />
                           <span>{feature}</span>
                         </div>
                       ))}
@@ -184,7 +184,7 @@ export default function DigitalMarketing() {
       </section>
 
       {/* What's Included */}
-      <section className="py-16 px-4 bg-slate-50">
+      <section className="py-16 px-4 bg-[#f5f0e6]">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
@@ -204,7 +204,7 @@ export default function DigitalMarketing() {
               { name: "Performance Tracking & Attribution", desc: "Multi-touch attribution modeling, conversion tracking, and custom dashboards. Understand what's driving revenue and ROI across all channels." },
               { name: "Monthly Reporting & Optimization", desc: "Detailed monthly reports with actionable insights. Regular strategy calls to review performance and optimize campaigns for better results." },
             ].map((item, i) => (
-              <div key={i} className="p-6 rounded-xl bg-white border border-border hover:border-slate-700 hover:shadow-lg transition-all duration-300 hover:-translate-y-1" data-testid={`card-deliverable-${i}`}>
+              <div key={i} className="p-6 rounded-xl bg-white border border-border hover:border-[#23AACA] hover:shadow-lg transition-all duration-300 hover:-translate-y-1" data-testid={`card-deliverable-${i}`}>
                 <h3 className="text-lg font-bold mb-2">{item.name}</h3>
                 <p className="text-sm text-muted-foreground">{item.desc}</p>
               </div>
@@ -214,11 +214,11 @@ export default function DigitalMarketing() {
       </section>
 
       {/* Our Process */}
-      <section className="py-16 px-4 bg-white">
+      <section className="py-20 px-4 bg-[#f5f0e6]">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              How we work: <span className="italic text-slate-600">Strategy, execute, optimize</span>
+              How we work: <span className="italic text-orange-500">Strategy, execute, optimize</span>
             </h2>
             <p className="text-lg text-muted-foreground">
               A proven 4-phase approach to integrated marketing
@@ -232,8 +232,8 @@ export default function DigitalMarketing() {
               { step: "03", title: "Multi-Channel Launch", desc: "Launch integrated campaigns across paid, organic, and owned channels. Coordinate messaging and timing for maximum impact and efficiency." },
               { step: "04", title: "Test, Learn, Scale", desc: "Weekly optimization across all channels. A/B test creative, messaging, audiences, and budgets. Scale what works, kill what doesn't." },
             ].map((item, i) => (
-              <div key={i} className="flex gap-6 items-start p-6 md:p-8 bg-gradient-to-br from-slate-50 to-white rounded-xl border border-border hover:shadow-lg transition-all duration-300 hover:-translate-x-2" data-testid={`step-${i}`}>
-                <div className="text-5xl font-bold text-slate-900/20 flex-shrink-0">{item.step}</div>
+              <div key={i} className="flex gap-6 items-start p-6 md:p-8 bg-gradient-to-br from-[#f5f0e6] to-white rounded-xl border border-border hover:shadow-lg transition-all duration-300 hover:-translate-x-2" data-testid={`step-${i}`}>
+                <div className="text-5xl font-bold text-[#1a2e29]/20 flex-shrink-0">{item.step}</div>
                 <div className="flex-1">
                   <h3 className="text-xl font-bold mb-2">{item.title}</h3>
                   <p className="text-sm text-muted-foreground">{item.desc}</p>
@@ -245,7 +245,7 @@ export default function DigitalMarketing() {
       </section>
 
       {/* Who This Service Is For */}
-      <section className="py-20 px-4 bg-white">
+      <section className="py-20 px-4 bg-[#f5f0e6]">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center">
             Who This Service Is For
@@ -381,43 +381,43 @@ export default function DigitalMarketing() {
       </section>
 
       {/* Related Services */}
-      <section className="py-16 px-4 bg-slate-50">
+      <section className="py-16 px-4 bg-zinc-950">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">
-            Services That Work Great Together
+          <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center text-white">
+            Services That Work <span className="italic text-[#c4ff4d]">Great Together</span>
           </h2>
           <div className="grid md:grid-cols-3 gap-6">
             <Link href="/services/lead-generation">
-              <div className="p-6 bg-white border border-border rounded-xl hover-elevate cursor-pointer transition-all" data-testid="related-service-lead-generation">
-                <h3 className="text-xl font-bold mb-3">Lead Generation</h3>
-                <p className="text-muted-foreground mb-4">
+              <div className="p-6 bg-zinc-900 border border-zinc-800 rounded-xl hover:border-[#23AACA] cursor-pointer transition-all" data-testid="related-service-lead-generation">
+                <h3 className="text-xl font-bold mb-3 text-white">Lead Generation</h3>
+                <p className="text-white/70 mb-4">
                   Complement your full-service marketing with specialized lead gen systems that fill your pipeline consistently.
                 </p>
-                <div className="flex items-center text-slate-900 font-semibold">
+                <div className="flex items-center text-[#c4ff4d] font-semibold">
                   Learn More <ArrowRight className="w-4 h-4 ml-2" />
                 </div>
               </div>
             </Link>
 
             <Link href="/services/funnel-automation">
-              <div className="p-6 bg-white border border-border rounded-xl hover-elevate cursor-pointer transition-all" data-testid="related-service-funnel-automation">
-                <h3 className="text-xl font-bold mb-3">Funnel Automation</h3>
-                <p className="text-muted-foreground mb-4">
+              <div className="p-6 bg-zinc-900 border border-zinc-800 rounded-xl hover:border-[#23AACA] cursor-pointer transition-all" data-testid="related-service-funnel-automation">
+                <h3 className="text-xl font-bold mb-3 text-white">Funnel Automation</h3>
+                <p className="text-white/70 mb-4">
                   Add intelligent automation to your marketing stack and scale lead nurturing without scaling headcount.
                 </p>
-                <div className="flex items-center text-slate-900 font-semibold">
+                <div className="flex items-center text-[#c4ff4d] font-semibold">
                   Learn More <ArrowRight className="w-4 h-4 ml-2" />
                 </div>
               </div>
             </Link>
 
             <Link href="/services/ai-copywriting">
-              <div className="p-6 bg-white border border-border rounded-xl hover-elevate cursor-pointer transition-all" data-testid="related-service-ai-copywriting">
-                <h3 className="text-xl font-bold mb-3">AI Copywriting</h3>
-                <p className="text-muted-foreground mb-4">
+              <div className="p-6 bg-zinc-900 border border-zinc-800 rounded-xl hover:border-[#23AACA] cursor-pointer transition-all" data-testid="related-service-ai-copywriting">
+                <h3 className="text-xl font-bold mb-3 text-white">AI Copywriting</h3>
+                <p className="text-white/70 mb-4">
                   Scale your content production 10x with AI-powered copywriting that maintains brand voice and quality.
                 </p>
-                <div className="flex items-center text-slate-900 font-semibold">
+                <div className="flex items-center text-[#c4ff4d] font-semibold">
                   Learn More <ArrowRight className="w-4 h-4 ml-2" />
                 </div>
               </div>
@@ -427,9 +427,8 @@ export default function DigitalMarketing() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 px-4 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-gray-800 to-zinc-900"></div>
-        <div className="relative z-10 max-w-4xl mx-auto text-center text-white">
+      <section className="py-20 px-4 bg-[#23AACA]">
+        <div className="max-w-4xl mx-auto text-center text-white">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Ready to grow with a full-service partner?
           </h2>
@@ -437,7 +436,7 @@ export default function DigitalMarketing() {
             One team. One strategy. Measurable results. Let's build your integrated digital marketing engine.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <Button size="lg" className="bg-white text-slate-900 hover:bg-white/90" data-testid="button-cta-primary">
+            <Button size="lg" className="bg-[#c4ff4d] text-[#1a2e29] hover:bg-[#c4ff4d]/90" data-testid="button-cta-primary">
               Get Your Custom Plan
             </Button>
             <Button size="lg" variant="outline" className="border-white text-white bg-white/10 backdrop-blur-sm hover:bg-white/20" data-testid="button-cta-secondary">

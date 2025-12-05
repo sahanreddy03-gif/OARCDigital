@@ -1193,7 +1193,7 @@ export default function SocialMediaCreativeManagement() {
                     <motion.span
                       whileHover={prefersReducedMotion ? {} : { scale: 1.02, y: -2 }}
                       whileTap={prefersReducedMotion ? {} : { scale: 0.98 }}
-                      className="mt-5 md:mt-6 w-full inline-flex items-center justify-center gap-2 bg-white text-gray-900 rounded-full py-3.5 md:py-4 font-bold text-sm md:text-base shadow-lg hover:shadow-2xl transition-all cursor-pointer"
+                      className="mt-5 md:mt-6 w-full inline-flex items-center justify-center gap-2 bg-white text-[#1a2e29] rounded-full py-3.5 md:py-4 font-bold text-sm md:text-base shadow-lg hover:shadow-2xl transition-all cursor-pointer"
                       data-testid={`button-learn-${service.title.toLowerCase().replace(/\s+/g, '-')}`}
                     >
                       {service.learnMore}
@@ -1235,7 +1235,7 @@ export default function SocialMediaCreativeManagement() {
                 Create
               </span>
             </h2>
-            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+            <p className="text-xl text-zinc-400 max-w-2xl mx-auto">
               Real campaigns. Real results. Content engineered to outperform.
             </p>
           </motion.div>
@@ -1342,12 +1342,12 @@ export default function SocialMediaCreativeManagement() {
               >
                 <div className={`h-2 w-20 bg-gradient-to-r ${useCase.color} rounded-full mb-6 group-hover:w-full transition-all duration-500`} />
                 <h3 className="text-xl font-bold mb-3 text-white">{useCase.title}</h3>
-                <p className="text-gray-400 mb-4">
+                <p className="text-zinc-400 mb-4">
                   {useCase.description}
                 </p>
                 <ul className="space-y-2 text-sm">
                   {useCase.points.map((point, i) => (
-                    <li key={i} className="flex items-center gap-2 text-gray-300">
+                    <li key={i} className="flex items-center gap-2 text-white/70">
                       <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${useCase.color}`} />
                       <span>{point}</span>
                     </li>
@@ -1366,7 +1366,7 @@ export default function SocialMediaCreativeManagement() {
             initial={fadeIn}
             whileInView={fadeInVisible}
             viewport={{ once: true }}
-            className="text-center text-lg text-gray-400 mb-8"
+            className="text-center text-lg text-zinc-400 mb-8"
           >
             Trusted by brands scaling from startup to enterprise
           </motion.p>
@@ -1402,7 +1402,7 @@ export default function SocialMediaCreativeManagement() {
           transition={prefersReducedMotion ? {} : { duration: 5, repeat: Infinity }}
         ></motion.div>
         <motion.div 
-          className="absolute bottom-10 right-10 w-60 h-60 bg-cyan-300/30 rounded-full blur-3xl motion-reduce:hidden"
+          className="absolute bottom-10 right-10 w-60 h-60 bg-[#23AACA]/30 rounded-full blur-3xl motion-reduce:hidden"
           animate={prefersReducedMotion ? {} : { scale: [1.3, 1, 1.3] }}
           transition={prefersReducedMotion ? {} : { duration: 7, repeat: Infinity }}
         ></motion.div>
@@ -1420,7 +1420,7 @@ export default function SocialMediaCreativeManagement() {
             
             <h2 className="text-4xl md:text-6xl lg:text-7xl font-black text-white mb-6 leading-[1.1]">
               Let's Create
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-cyan-300">
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#c4ff4d] to-[#23AACA]">
                 Something Amazing
               </span>
             </h2>
@@ -1433,7 +1433,7 @@ export default function SocialMediaCreativeManagement() {
               <MagneticButton
                 whileHover={prefersReducedMotion ? {} : { scale: 1.05 }}
                 whileTap={prefersReducedMotion ? {} : { scale: 0.98 }}
-                className="group inline-flex items-center gap-3 bg-white text-gray-900 rounded-full px-10 py-5 text-xl font-bold shadow-2xl hover:shadow-[0_25px_50px_rgba(255,255,255,0.3)] transition-all"
+                className="group inline-flex items-center gap-3 bg-white text-[#1a2e29] rounded-full px-10 py-5 text-xl font-bold shadow-2xl hover:shadow-[0_25px_50px_rgba(255,255,255,0.3)] transition-all"
                 data-testid="button-final-cta"
               >
                 Book Strategy Call

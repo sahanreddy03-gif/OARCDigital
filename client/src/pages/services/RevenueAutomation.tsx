@@ -170,7 +170,7 @@ export default function RevenueAutomation() {
       </section>
 
       {/* Section 1: Image Left + Text Right */}
-      <section className="py-14 px-4 bg-white">
+      <section className="py-14 px-4 bg-[#f5f0e6]">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -184,10 +184,10 @@ export default function RevenueAutomation() {
               <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-black mb-6">
                 Automate everything from lead to cash
               </h2>
-              <p className="text-base text-gray-700 mb-6">
+              <p className="text-base text-[#1a2e29]/70 mb-6">
                 Stop losing time and money to manual processes. We build intelligent automation systems that handle everything—from first contact to final payment. Imagine your CRM updating itself, proposals generating automatically, and invoices sending on schedule without human intervention.
               </p>
-              <p className="text-base text-gray-700 mb-8">
+              <p className="text-base text-[#1a2e29]/70 mb-8">
                 Our clients save tens of thousands annually while delivering work 10x faster. One accounting firm doubled their client load without hiring a single new accountant. That's the power of end-to-end revenue automation.
               </p>
               <Link href="/contact">
@@ -207,13 +207,13 @@ export default function RevenueAutomation() {
       </section>
 
       {/* Services Carousel Section */}
-      <section className="py-14 px-4 bg-white">
+      <section className="py-14 px-4 bg-[#f5f0e6]">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-black text-black mb-2">
             Revenue Automation <span className="text-[#5FD4C4]">Services</span>
           </h2>
 
-          <p className="text-base text-gray-700 mb-8">
+          <p className="text-base text-[#1a2e29]/70 mb-8">
             Comprehensive automation for every revenue-generating function
           </p>
 
@@ -224,7 +224,7 @@ export default function RevenueAutomation() {
                 key={idx}
                 onClick={() => setCurrentService(idx)}
                 className={`h-2 rounded-full transition-all ${
-                  idx === currentService ? 'w-8 bg-[#5FD4C4]' : 'w-2 bg-gray-300'
+                  idx === currentService ? 'w-8 bg-[#5FD4C4]' : 'w-2 bg-zinc-300'
                 }`}
                 data-testid={`dot-service-${idx}`}
               />
@@ -239,7 +239,7 @@ export default function RevenueAutomation() {
               const Icon = service.icon;
               
               return (
-                <div key={actualIdx} className="bg-white border-2 border-gray-100 rounded-3xl p-8" data-testid={`card-service-${actualIdx}`}>
+                <div key={actualIdx} className="bg-white border-2 border-[#1a2e29]/10 rounded-3xl p-8" data-testid={`card-service-${actualIdx}`}>
                   <div className="flex items-start justify-between mb-6">
                     <div className="w-14 h-14 bg-black rounded-xl flex items-center justify-center">
                       <Icon className="h-7 w-7 text-white" />
@@ -247,7 +247,7 @@ export default function RevenueAutomation() {
                     {offset === 2 && (
                       <button
                         onClick={nextService}
-                        className="text-gray-400 hover:text-black transition-colors"
+                        className="text-zinc-400 hover:text-black transition-colors"
                         data-testid="button-next-service"
                       >
                         <ArrowRight className="h-5 w-5" />
@@ -255,12 +255,12 @@ export default function RevenueAutomation() {
                     )}
                   </div>
                   <h3 className="text-xl font-bold text-black mb-3">{service.title}</h3>
-                  <p className="text-sm text-gray-600 mb-6">{service.description}</p>
+                  <p className="text-sm text-[#1a2e29]/60 mb-6">{service.description}</p>
                   <ul className="space-y-3">
                     {service.items.map((item, itemIdx) => (
                       <li key={itemIdx} className="flex items-start gap-2">
                         <CheckCircle2 className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
-                        <span className="text-sm text-gray-700">{item}</span>
+                        <span className="text-sm text-[#1a2e29]/70">{item}</span>
                       </li>
                     ))}
                   </ul>
@@ -272,17 +272,17 @@ export default function RevenueAutomation() {
       </section>
 
       {/* Section 2: Text Left + Image Right */}
-      <section className="py-14 px-4 bg-zinc-50">
+      <section className="py-14 px-4 bg-[#f5f0e6]">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-black mb-6">
                 Scale revenue without scaling headcount
               </h2>
-              <p className="text-base text-gray-700 mb-6">
+              <p className="text-base text-[#1a2e29]/70 mb-6">
                 Every business hits a ceiling where more clients means more people. Not anymore. Our automation systems handle the repetitive work—data entry, follow-ups, document generation, invoicing—freeing your team to focus on strategic, revenue-generating activities.
               </p>
-              <p className="text-base text-gray-700 mb-8">
+              <p className="text-base text-[#1a2e29]/70 mb-8">
                 The result? Clients close faster, onboarding happens in seconds instead of hours, and your team celebrates wins instead of drowning in admin work. Scale your revenue 2x, 3x, even 5x without the overhead.
               </p>
               <Link href="/contact">
@@ -309,22 +309,22 @@ export default function RevenueAutomation() {
       </section>
 
       {/* Who This Service Is For */}
-      <section className="py-14 px-4 bg-zinc-50">
+      <section className="py-14 px-4 bg-[#f5f0e6]">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-black text-black mb-2">
             Who <span className="text-[#5FD4C4]">Benefits Most</span>
           </h2>
-          <p className="text-base text-gray-700 mb-8">
+          <p className="text-base text-[#1a2e29]/70 mb-8">
             Revenue automation transforms operations across industries
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div className="bg-white rounded-2xl p-8 border-2 border-gray-100" data-testid="use-case-accounting">
+            <div className="bg-white rounded-2xl p-8 border-2 border-[#1a2e29]/10" data-testid="use-case-accounting">
               <h3 className="text-xl font-bold text-black mb-4">Accounting & Bookkeeping Firms</h3>
-              <p className="text-sm text-gray-600 mb-4">
+              <p className="text-sm text-[#1a2e29]/60 mb-4">
                 Handle more clients without hiring. Automate client onboarding, data collection, and reporting workflows.
               </p>
-              <ul className="space-y-2 text-sm text-gray-700">
+              <ul className="space-y-2 text-sm text-[#1a2e29]/70">
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
                   <span>Automated client onboarding</span>
@@ -340,12 +340,12 @@ export default function RevenueAutomation() {
               </ul>
             </div>
 
-            <div className="bg-white rounded-2xl p-8 border-2 border-gray-100" data-testid="use-case-saas">
+            <div className="bg-white rounded-2xl p-8 border-2 border-[#1a2e29]/10" data-testid="use-case-saas">
               <h3 className="text-xl font-bold text-black mb-4">SaaS & Software Companies</h3>
-              <p className="text-sm text-gray-600 mb-4">
+              <p className="text-sm text-[#1a2e29]/60 mb-4">
                 Accelerate sales cycles with automated proposal generation, CRM updates, and customer onboarding.
               </p>
-              <ul className="space-y-2 text-sm text-gray-700">
+              <ul className="space-y-2 text-sm text-[#1a2e29]/70">
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
                   <span>Lead scoring & qualification</span>
@@ -361,12 +361,12 @@ export default function RevenueAutomation() {
               </ul>
             </div>
 
-            <div className="bg-white rounded-2xl p-8 border-2 border-gray-100" data-testid="use-case-professional">
+            <div className="bg-white rounded-2xl p-8 border-2 border-[#1a2e29]/10" data-testid="use-case-professional">
               <h3 className="text-xl font-bold text-black mb-4">Professional Services</h3>
-              <p className="text-sm text-gray-600 mb-4">
+              <p className="text-sm text-[#1a2e29]/60 mb-4">
                 Legal, consulting, and advisory firms using automation to streamline billing, document generation, and client management.
               </p>
-              <ul className="space-y-2 text-sm text-gray-700">
+              <ul className="space-y-2 text-sm text-[#1a2e29]/70">
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
                   <span>Time tracking & invoicing</span>
@@ -382,12 +382,12 @@ export default function RevenueAutomation() {
               </ul>
             </div>
 
-            <div className="bg-white rounded-2xl p-8 border-2 border-gray-100" data-testid="use-case-agencies">
+            <div className="bg-white rounded-2xl p-8 border-2 border-[#1a2e29]/10" data-testid="use-case-agencies">
               <h3 className="text-xl font-bold text-black mb-4">Marketing & Creative Agencies</h3>
-              <p className="text-sm text-gray-600 mb-4">
+              <p className="text-sm text-[#1a2e29]/60 mb-4">
                 Manage multiple clients efficiently with automated reporting, billing, and project workflows.
               </p>
-              <ul className="space-y-2 text-sm text-gray-700">
+              <ul className="space-y-2 text-sm text-[#1a2e29]/70">
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
                   <span>Client reporting automation</span>
@@ -403,12 +403,12 @@ export default function RevenueAutomation() {
               </ul>
             </div>
 
-            <div className="bg-white rounded-2xl p-8 border-2 border-gray-100" data-testid="use-case-ecommerce">
+            <div className="bg-white rounded-2xl p-8 border-2 border-[#1a2e29]/10" data-testid="use-case-ecommerce">
               <h3 className="text-xl font-bold text-black mb-4">E-commerce & Retail</h3>
-              <p className="text-sm text-gray-600 mb-4">
+              <p className="text-sm text-[#1a2e29]/60 mb-4">
                 Scale order processing, inventory management, and customer communications without adding staff.
               </p>
-              <ul className="space-y-2 text-sm text-gray-700">
+              <ul className="space-y-2 text-sm text-[#1a2e29]/70">
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
                   <span>Order processing automation</span>
@@ -424,12 +424,12 @@ export default function RevenueAutomation() {
               </ul>
             </div>
 
-            <div className="bg-white rounded-2xl p-8 border-2 border-gray-100" data-testid="use-case-realestate">
+            <div className="bg-white rounded-2xl p-8 border-2 border-[#1a2e29]/10" data-testid="use-case-realestate">
               <h3 className="text-xl font-bold text-black mb-4">Real Estate & Property Management</h3>
-              <p className="text-sm text-gray-600 mb-4">
+              <p className="text-sm text-[#1a2e29]/60 mb-4">
                 Automate lead follow-up, tenant communications, and property management workflows.
               </p>
-              <ul className="space-y-2 text-sm text-gray-700">
+              <ul className="space-y-2 text-sm text-[#1a2e29]/70">
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
                   <span>Lead nurturing sequences</span>
@@ -449,20 +449,20 @@ export default function RevenueAutomation() {
       </section>
 
       {/* Featured Case Studies Section */}
-      <section className="py-14 px-4 bg-white">
+      <section className="py-14 px-4 bg-[#f5f0e6]">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-black text-black mb-2">
             Client <span className="text-[#5FD4C4]">Success Stories</span>
           </h2>
 
-          <p className="text-base text-gray-700 mb-8">
+          <p className="text-base text-[#1a2e29]/70 mb-8">
             Real businesses saving tens of thousands with automation
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {caseStudies.map((study, idx) => (
               <Link key={idx} href={`/case-studies/${study.slug}`}>
-                <div className="group bg-white border-2 border-gray-100 rounded-3xl overflow-hidden hover:border-[#5FD4C4] transition-all hover-elevate cursor-pointer" data-testid={`card-case-study-${study.slug}`}>
+                <div className="group bg-white border-2 border-[#1a2e29]/10 rounded-3xl overflow-hidden hover:border-[#5FD4C4] transition-all hover-elevate cursor-pointer" data-testid={`card-case-study-${study.slug}`}>
                   <div className="relative h-64 overflow-hidden">
                     <img 
                       src={study.image} 
@@ -478,7 +478,7 @@ export default function RevenueAutomation() {
                     <h3 className="text-xl font-bold text-black mb-2 group-hover:text-[#ea580c] transition-colors">
                       {study.title}
                     </h3>
-                    <p className="text-sm text-gray-600 mb-4">
+                    <p className="text-sm text-[#1a2e29]/60 mb-4">
                       {study.description}
                     </p>
                     <div className="flex items-center gap-2 text-[#ea580c] font-semibold text-sm">
@@ -494,7 +494,7 @@ export default function RevenueAutomation() {
       </section>
 
       {/* Section 3: Image Left + Text Right */}
-      <section className="py-14 px-4 bg-zinc-50">
+      <section className="py-14 px-4 bg-[#f5f0e6]">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -508,10 +508,10 @@ export default function RevenueAutomation() {
               <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-black mb-6">
                 Eliminate costly errors and delays
               </h2>
-              <p className="text-base text-gray-700 mb-6">
+              <p className="text-base text-[#1a2e29]/70 mb-6">
                 Manual processes create mistakes. Invoicing errors, missed follow-ups, data entry typos, delayed proposals—each one costs you money and credibility. Our automation systems remove human error from the equation with built-in validation and checks.
               </p>
-              <p className="text-base text-gray-700 mb-8">
+              <p className="text-base text-[#1a2e29]/70 mb-8">
                 From QuickBooks integration to CRM synchronization, we connect all your business systems so data flows perfectly. No more double-entry. No more version conflicts. Just clean, accurate data driving your revenue operations forward.
               </p>
               <Link href="/contact">
@@ -531,52 +531,52 @@ export default function RevenueAutomation() {
       </section>
 
       {/* Related Services / Internal CTAs */}
-      <section className="py-14 px-4 bg-white">
+      <section className="py-14 px-4 bg-zinc-950">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-black text-black mb-2">
-            Maximize Your <span className="text-[#5FD4C4]">Automation Impact</span>
+          <h2 className="text-3xl md:text-4xl font-black text-white mb-2">
+            Maximize Your <span className="text-[#c4ff4d]">Automation Impact</span>
           </h2>
-          <p className="text-base text-gray-700 mb-8">
+          <p className="text-base text-white/70 mb-8">
             Combine revenue automation with these complementary services for end-to-end business transformation
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <Link href="/services/ai-consulting">
-              <div className="group bg-zinc-50 rounded-2xl p-8 border-2 border-gray-100 hover:border-[#5FD4C4] transition-all hover-elevate cursor-pointer" data-testid="related-service-ai">
+              <div className="group bg-zinc-900 rounded-2xl p-8 border-2 border-zinc-800 hover:border-[#23AACA] transition-all cursor-pointer" data-testid="related-service-ai">
                 <div className="flex items-start justify-between mb-4">
-                  <h3 className="text-xl font-bold text-black group-hover:text-[#ea580c] transition-colors">AI Consulting</h3>
-                  <ArrowRight className="h-5 w-5 text-[#5FD4C4] group-hover:translate-x-1 transition-transform" />
+                  <h3 className="text-xl font-bold text-white group-hover:text-[#c4ff4d] transition-colors">AI Consulting</h3>
+                  <ArrowRight className="h-5 w-5 text-[#c4ff4d] group-hover:translate-x-1 transition-transform" />
                 </div>
-                <p className="text-sm text-gray-600 mb-4">
+                <p className="text-sm text-white/70 mb-4">
                   Layer AI capabilities on top of your automated workflows to make smarter decisions and predict customer needs.
                 </p>
-                <div className="text-sm text-[#ea580c] font-semibold">Explore AI Solutions →</div>
+                <div className="text-sm text-[#c4ff4d] font-semibold">Explore AI Solutions →</div>
               </div>
             </Link>
 
             <Link href="/services/hire-ai-employees">
-              <div className="group bg-zinc-50 rounded-2xl p-8 border-2 border-gray-100 hover:border-[#5FD4C4] transition-all hover-elevate cursor-pointer" data-testid="related-service-hire">
+              <div className="group bg-zinc-900 rounded-2xl p-8 border-2 border-zinc-800 hover:border-[#23AACA] transition-all cursor-pointer" data-testid="related-service-hire">
                 <div className="flex items-start justify-between mb-4">
-                  <h3 className="text-xl font-bold text-black group-hover:text-[#ea580c] transition-colors">Hire AI Employees</h3>
-                  <ArrowRight className="h-5 w-5 text-[#5FD4C4] group-hover:translate-x-1 transition-transform" />
+                  <h3 className="text-xl font-bold text-white group-hover:text-[#c4ff4d] transition-colors">Hire AI Employees</h3>
+                  <ArrowRight className="h-5 w-5 text-[#c4ff4d] group-hover:translate-x-1 transition-transform" />
                 </div>
-                <p className="text-sm text-gray-600 mb-4">
+                <p className="text-sm text-white/70 mb-4">
                   Scale beyond automation with AI employees that handle customer service, data analysis, and complex workflows.
                 </p>
-                <div className="text-sm text-[#ea580c] font-semibold">Meet AI Employees →</div>
+                <div className="text-sm text-[#c4ff4d] font-semibold">Meet AI Employees →</div>
               </div>
             </Link>
 
             <Link href="/services/web-design">
-              <div className="group bg-zinc-50 rounded-2xl p-8 border-2 border-gray-100 hover:border-[#5FD4C4] transition-all hover-elevate cursor-pointer" data-testid="related-service-web">
+              <div className="group bg-zinc-900 rounded-2xl p-8 border-2 border-zinc-800 hover:border-[#23AACA] transition-all cursor-pointer" data-testid="related-service-web">
                 <div className="flex items-start justify-between mb-4">
-                  <h3 className="text-xl font-bold text-black group-hover:text-[#ea580c] transition-colors">Web Design</h3>
-                  <ArrowRight className="h-5 w-5 text-[#5FD4C4] group-hover:translate-x-1 transition-transform" />
+                  <h3 className="text-xl font-bold text-white group-hover:text-[#c4ff4d] transition-colors">Web Design</h3>
+                  <ArrowRight className="h-5 w-5 text-[#c4ff4d] group-hover:translate-x-1 transition-transform" />
                 </div>
-                <p className="text-sm text-gray-600 mb-4">
+                <p className="text-sm text-white/70 mb-4">
                   Build automated workflows into high-converting websites that turn visitors into qualified leads automatically.
                 </p>
-                <div className="text-sm text-[#ea580c] font-semibold">View Web Design →</div>
+                <div className="text-sm text-[#c4ff4d] font-semibold">View Web Design →</div>
               </div>
             </Link>
           </div>
@@ -584,21 +584,21 @@ export default function RevenueAutomation() {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-14 px-4 bg-zinc-50">
+      <section className="py-14 px-4 bg-[#f5f0e6]">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-black text-black mb-2">
             Why Choose <span className="text-[#5FD4C4]">OARC Digital</span>
           </h2>
 
-          <p className="text-base text-gray-700 mb-8">
+          <p className="text-base text-[#1a2e29]/70 mb-8">
             Proven results that transform business operations
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {benefits.map((benefit, idx) => (
-              <div key={idx} className="bg-zinc-50 rounded-2xl p-6" data-testid={`benefit-${idx}`}>
+              <div key={idx} className="bg-[#f5f0e6] rounded-2xl p-6" data-testid={`benefit-${idx}`}>
                 <h3 className="text-lg font-bold text-black mb-3">{benefit.title}</h3>
-                <p className="text-sm text-gray-600">{benefit.description}</p>
+                <p className="text-sm text-[#1a2e29]/60">{benefit.description}</p>
               </div>
             ))}
           </div>
@@ -629,12 +629,12 @@ export default function RevenueAutomation() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-4 bg-white">
+      <section className="py-20 px-4 bg-[#f5f0e6]">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-black mb-6">
             Ready to Automate Your Revenue?
           </h2>
-          <p className="text-lg text-gray-700 mb-8 max-w-2xl mx-auto">
+          <p className="text-lg text-[#1a2e29]/70 mb-8 max-w-2xl mx-auto">
             Save tens of thousands while increasing your operational efficiency 10x.
           </p>
           <Link href="/contact">
@@ -652,12 +652,12 @@ export default function RevenueAutomation() {
       </section>
 
       {/* Get In Touch Section */}
-      <section className="py-14 px-4 bg-zinc-50">
+      <section className="py-14 px-4 bg-[#f5f0e6]">
         <div className="max-w-6xl mx-auto text-center">
           <h2 className="text-2xl md:text-3xl font-black text-black mb-4">
             Get In Touch
           </h2>
-          <p className="text-base text-gray-700 mb-6 max-w-2xl mx-auto">
+          <p className="text-base text-[#1a2e29]/70 mb-6 max-w-2xl mx-auto">
             Let's discuss how revenue automation can transform your business operations.
           </p>
           <Link href="/contact">

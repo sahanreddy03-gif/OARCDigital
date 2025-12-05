@@ -137,7 +137,7 @@ export default function Social() {
       />
       
       {/* Hero Section */}
-      <section className="relative py-14 px-4 bg-white overflow-hidden">
+      <section className="relative py-14 px-4 bg-[#f5f0e6] overflow-hidden">
         <div className="absolute inset-0 bg-surface-lime-radial"></div>
         <div className="max-w-6xl mx-auto relative">
           <div className="mb-4"></div>
@@ -274,7 +274,7 @@ export default function Social() {
 
       {/* Text Left + Image Right Section */}
       <ScrollReveal delay={300}>
-        <section className="relative py-14 px-4 bg-white overflow-hidden">
+        <section className="relative py-14 px-4 bg-[#f5f0e6] overflow-hidden">
           <div className="absolute top-20 left-20 w-96 h-96 bg-[#c4ff4d]/10 rounded-full blur-3xl animate-float"></div>
           <div className="absolute bottom-10 right-10 w-64 h-64 bg-[#c4ff4d]/5 rounded-full blur-2xl animate-float-delayed"></div>
           
@@ -340,7 +340,7 @@ export default function Social() {
                 key={idx}
                 onClick={() => setCurrentService(idx)}
                 className={`h-2 rounded-full transition-all duration-300 ${
-                  idx === currentService ? 'w-8 bg-[#c4ff4d] glow-lime' : 'w-2 bg-gray-300'
+                  idx === currentService ? 'w-8 bg-[#c4ff4d] glow-lime' : 'w-2 bg-zinc-300'
                 }`}
                 data-testid={`dot-service-${idx}`}
               />
@@ -374,7 +374,7 @@ export default function Social() {
                     {service.title}
                   </h3>
 
-                  <p className="text-sm text-gray-700 mb-5">
+                  <p className="text-sm text-[#1a2e29]/70 mb-5">
                     {service.description}
                   </p>
 
@@ -382,7 +382,7 @@ export default function Social() {
                     {service.points.map((point, i) => (
                       <li key={i} className="flex items-start gap-2">
                         <CheckCircle2 className="h-4 w-4 text-[#c4ff4d] flex-shrink-0 mt-1" />
-                        <span className="text-sm text-gray-800">{point}</span>
+                        <span className="text-sm text-[#1a2e29]">{point}</span>
                       </li>
                     ))}
                   </ul>
@@ -406,7 +406,7 @@ export default function Social() {
       </section>
 
       {/* Case Studies Section */}
-      <section className="py-14 px-4 bg-white">
+      <section className="py-14 px-4 bg-[#f5f0e6]">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-black text-black mb-6">
             Social Success Stories
@@ -455,7 +455,7 @@ export default function Social() {
       </section>
 
       {/* Latest Social Content Section */}
-      <section className="py-14 px-4 bg-white">
+      <section className="py-14 px-4 bg-[#f5f0e6]">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-black text-black mb-2">
             Recent
@@ -523,7 +523,7 @@ export default function Social() {
                 key={idx}
                 onClick={() => setCurrentBenefit(idx)}
                 className={`h-2 rounded-full transition-all duration-300 ${
-                  idx === currentBenefit ? 'w-8 bg-[#c4ff4d] glow-lime' : 'w-2 bg-gray-300'
+                  idx === currentBenefit ? 'w-8 bg-[#c4ff4d] glow-lime' : 'w-2 bg-zinc-300'
                 }`}
                 data-testid={`dot-benefit-${idx}`}
               />
@@ -539,7 +539,7 @@ export default function Social() {
               {benefits[currentBenefit].title}
             </h3>
 
-            <p className="text-lg text-gray-200">
+            <p className="text-lg text-white/80">
               {benefits[currentBenefit].description}
             </p>
           </div>
@@ -559,7 +559,7 @@ export default function Social() {
       </section>
 
       {/* Who This Service Is For */}
-      <section className="py-20 px-4 bg-white">
+      <section className="py-20 px-4 bg-[#f5f0e6]">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <div className="text-sm uppercase tracking-wider mb-3" style={{ color: '#6b9b12' }}>IDEAL FOR</div>
@@ -607,7 +607,7 @@ export default function Social() {
                   {category.items.map((item, i) => (
                     <li key={i} className="flex items-start gap-2">
                       <CheckCircle2 className="w-4 h-4 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
-                      <span className="text-sm text-gray-700">{item}</span>
+                      <span className="text-sm text-[#1a2e29]/70">{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -625,7 +625,7 @@ export default function Social() {
           <h2 className="text-3xl md:text-4xl font-black text-white mb-6">
             Ready to transform your social presence?
           </h2>
-          <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
+          <p className="text-lg text-white/70 mb-8 max-w-2xl mx-auto">
             Let's discuss how our AI-enhanced social strategies can drive measurable growth for your brand.
           </p>
           <Link href="/contact">

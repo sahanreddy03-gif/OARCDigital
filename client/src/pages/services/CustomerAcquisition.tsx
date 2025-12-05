@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Link } from "wouter";
-import { TrendingUp, Target, Users, Zap, BarChart, DollarSign, CheckCircle2, Repeat } from "lucide-react";
+import { TrendingUp, Target, Users, Zap, BarChart, DollarSign, CheckCircle2, Repeat, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ScrollableCards } from "@/components/ui/scrollable-cards";
 import Layout from "@/components/layout/Layout";
@@ -40,13 +40,13 @@ export default function CustomerAcquisition() {
         </div>
         <div className="relative z-10 text-center px-4 max-w-6xl mx-auto">
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 animate-in fade-in slide-in-from-bottom-4 duration-700">
-            Acquire customers <span className="italic bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 text-transparent bg-clip-text">profitably at scale</span>
+            Acquire customers <span className="italic bg-gradient-to-r from-[#c4ff4d] to-[#23AACA] text-transparent bg-clip-text">profitably at scale</span>
           </h1>
           <p className="text-lg md:text-xl text-white/90 mb-8 max-w-3xl mx-auto animate-in fade-in slide-in-from-bottom-4 duration-700 delay-150">
             Growth frameworks that work. Build repeatable, data-driven customer acquisition systems across paid, organic, and partner channels.
           </p>
           <div className="flex flex-wrap gap-4 justify-center animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300">
-            <Button size="lg" className="bg-white text-indigo-600 hover:bg-white/90" data-testid="button-get-started">
+            <Button size="lg" className="bg-white text-[#23AACA] hover:bg-white/90" data-testid="button-get-started">
               Build Your Growth Engine
             </Button>
             <Button size="lg" variant="outline" className="border-white text-white bg-white/10 backdrop-blur-sm hover:bg-white/20" data-testid="button-view-case-studies">
@@ -57,7 +57,7 @@ export default function CustomerAcquisition() {
       </section>
 
       {/* Trusted By */}
-      <section className="py-12 px-4 bg-white border-b border-border">
+      <section className="py-12 px-4 bg-[#f5f0e6] border-b border-[#1a2e29]/10">
         <div className="max-w-7xl mx-auto">
           <div className="text-center text-sm uppercase tracking-wider text-muted-foreground mb-8">
             Powering acquisition for high-growth companies
@@ -70,25 +70,25 @@ export default function CustomerAcquisition() {
         </div>
       </section>
 
-      <section className="py-16 px-4 bg-indigo-50">
+      <section className="py-16 px-4 bg-[#f5f0e6]">
         <div className="max-w-6xl mx-auto">
           <div className="bg-white rounded-2xl overflow-hidden border border-border shadow-lg">
             <div className="p-8 md:p-12">
-              <div className="text-sm uppercase tracking-wider text-indigo-600 mb-4">CASE STUDY</div>
+              <div className="text-sm uppercase tracking-wider text-[#23AACA] mb-4">CASE STUDY</div>
               <h3 className="text-3xl md:text-4xl font-bold mb-6">
                 How we reduced CAC by 58% and scaled a subscription app to 50K users
               </h3>
               <div className="grid md:grid-cols-3 gap-8 mb-8">
                 <div>
-                  <div className="text-2xl font-bold text-indigo-600 mb-2">58% lower CAC</div>
+                  <div className="text-2xl font-bold text-[#23AACA] mb-2">58% lower CAC</div>
                   <div className="text-sm text-muted-foreground">From $42 to $18 per customer</div>
                 </div>
                 <div>
-                  <div className="text-2xl font-bold text-indigo-600 mb-2">4.2x LTV:CAC</div>
+                  <div className="text-2xl font-bold text-[#23AACA] mb-2">4.2x LTV:CAC</div>
                   <div className="text-sm text-muted-foreground">Up from 1.8x at baseline</div>
                 </div>
                 <div>
-                  <div className="text-2xl font-bold text-indigo-600 mb-2">50K users</div>
+                  <div className="text-2xl font-bold text-[#23AACA] mb-2">50K users</div>
                   <div className="text-sm text-muted-foreground">Scaled from 8K in 12 months</div>
                 </div>
               </div>
@@ -97,7 +97,7 @@ export default function CustomerAcquisition() {
               </p>
               <div className="flex flex-wrap gap-3">
                 {['Channel Mix Optimization', 'Referral Program', 'Onboarding CRO', 'Retention Mechanics', 'Attribution Modeling'].map((tag, i) => (
-                  <span key={i} className="px-3 py-1 bg-indigo-100 text-indigo-700 rounded-full text-sm font-medium">
+                  <span key={i} className="px-3 py-1 bg-[#23AACA]/10 text-[#23AACA] rounded-full text-sm font-medium">
                     {tag}
                   </span>
                 ))}
@@ -108,11 +108,11 @@ export default function CustomerAcquisition() {
       </section>
 
       {/* Growth Frameworks */}
-      <section className="py-16 bg-white overflow-hidden">
+      <section className="py-16 bg-[#f5f0e6] overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 mb-10">
-          <div className="text-sm uppercase tracking-wider text-indigo-600 mb-3">GROWTH FRAMEWORKS</div>
+          <div className="text-sm uppercase tracking-wider text-[#23AACA] mb-3">GROWTH FRAMEWORKS</div>
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Every channel. <span className="italic text-purple-600">Every lever.</span>
+            Every channel. <span className="italic text-orange-500">Every lever.</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl">
             Comprehensive acquisition strategies that optimize your entire growth engine
@@ -161,16 +161,16 @@ export default function CustomerAcquisition() {
             ].map((framework, i) => (
               <div key={i} className="flex-none w-[340px] md:w-[420px] group" data-testid={`card-framework-${i}`}>
                 <div className="bg-white rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-500 border border-border h-full hover:-translate-y-2">
-                  <div className="relative h-48 bg-gradient-to-br from-indigo-100/50 via-purple-100/50 to-pink-100/50 overflow-hidden flex items-center justify-center">
-                    <framework.icon className="h-16 w-16 text-indigo-600/30 group-hover:scale-110 transition-transform duration-500" />
+                  <div className="relative h-48 bg-[#f5f0e6] overflow-hidden flex items-center justify-center">
+                    <framework.icon className="h-16 w-16 text-[#23AACA]/30 group-hover:scale-110 transition-transform duration-500" />
                   </div>
                   <div className="p-6">
-                    <h3 className="text-xl font-bold mb-3 group-hover:text-indigo-600 transition-colors">{framework.name}</h3>
+                    <h3 className="text-xl font-bold mb-3 group-hover:text-[#23AACA] transition-colors">{framework.name}</h3>
                     <p className="text-sm text-muted-foreground mb-4">{framework.desc}</p>
                     <div className="space-y-2">
                       {framework.features.map((feature, j) => (
                         <div key={j} className="flex items-center gap-2 text-sm">
-                          <CheckCircle2 className="h-4 w-4 text-indigo-600" />
+                          <CheckCircle2 className="h-4 w-4 text-[#23AACA]" />
                           <span>{feature}</span>
                         </div>
                       ))}
@@ -184,7 +184,7 @@ export default function CustomerAcquisition() {
       </section>
 
       {/* What's Included */}
-      <section className="py-16 px-4 bg-indigo-50">
+      <section className="py-16 px-4 bg-[#f5f0e6]">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
@@ -204,7 +204,7 @@ export default function CustomerAcquisition() {
               { name: "Analytics & Attribution", desc: "Multi-touch attribution setup, cohort dashboards, and performance tracking. Know exactly what's driving growth and ROI." },
               { name: "Growth Team Enablement", desc: "Train your team on growth frameworks, experimentation processes, and data-driven decision making. Build internal growth capabilities." },
             ].map((item, i) => (
-              <div key={i} className="p-6 rounded-xl bg-white border border-border hover:border-indigo-600 hover:shadow-lg transition-all duration-300 hover:-translate-y-1" data-testid={`card-service-${i}`}>
+              <div key={i} className="p-6 rounded-xl bg-white border border-border hover:border-[#23AACA] hover:shadow-lg transition-all duration-300 hover:-translate-y-1" data-testid={`card-service-${i}`}>
                 <h3 className="text-lg font-bold mb-2">{item.name}</h3>
                 <p className="text-sm text-muted-foreground">{item.desc}</p>
               </div>
@@ -214,11 +214,11 @@ export default function CustomerAcquisition() {
       </section>
 
       {/* Our Process */}
-      <section className="py-16 px-4 bg-white">
+      <section className="py-20 px-4 bg-[#f5f0e6]">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              How we work: <span className="italic text-purple-600">Audit, test, scale</span>
+              How we work: <span className="italic text-orange-500">Audit, test, scale</span>
             </h2>
             <p className="text-lg text-muted-foreground">
               A proven 4-phase approach to sustainable growth
@@ -232,8 +232,8 @@ export default function CustomerAcquisition() {
               { step: "03", title: "Execute & Learn", desc: "Run rapid experiments, measure results, kill losers fast, and double down on winners. Systematic learning that compounds week over week." },
               { step: "04", title: "Scale What Works", desc: "As channels prove out, we increase budgets strategically, expand to new segments, and optimize for efficiency. Sustainable growth that compounds." },
             ].map((item, i) => (
-              <div key={i} className="flex gap-6 items-start p-6 md:p-8 bg-gradient-to-br from-indigo-50 to-white rounded-xl border border-border hover:shadow-lg transition-all duration-300 hover:-translate-x-2" data-testid={`step-${i}`}>
-                <div className="text-5xl font-bold text-indigo-600/20 flex-shrink-0">{item.step}</div>
+              <div key={i} className="flex gap-6 items-start p-6 md:p-8 bg-white rounded-xl border border-border hover:shadow-lg transition-all duration-300 hover:-translate-x-2" data-testid={`step-${i}`}>
+                <div className="text-5xl font-bold text-[#23AACA]/20 flex-shrink-0">{item.step}</div>
                 <div className="flex-1">
                   <h3 className="text-xl font-bold mb-2">{item.title}</h3>
                   <p className="text-sm text-muted-foreground">{item.desc}</p>
@@ -245,12 +245,12 @@ export default function CustomerAcquisition() {
       </section>
 
       {/* Who This Service Is For */}
-      <section className="py-16 px-4 bg-white">
+      <section className="py-20 px-4 bg-[#f5f0e6]">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <div className="text-sm uppercase tracking-wider text-indigo-600 mb-3">WHO THIS IS FOR</div>
+            <div className="text-sm uppercase tracking-wider text-[#23AACA] mb-3">WHO THIS IS FOR</div>
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              Built for growth-minded <span className="italic text-purple-600">businesses</span>
+              Built for growth-minded <span className="italic text-orange-500">businesses</span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Customer acquisition strategies that work across industries and business models
@@ -258,127 +258,127 @@ export default function CustomerAcquisition() {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div className="p-6 rounded-xl bg-indigo-50 border border-border hover-elevate" data-testid="use-case-b2b-saas">
+            <div className="p-6 rounded-xl bg-[#f5f0e6] border border-border hover-elevate" data-testid="use-case-b2b-saas">
               <h3 className="text-xl font-bold mb-3">B2B SaaS Companies</h3>
               <p className="text-sm text-muted-foreground mb-4">
                 Scale from $1M to $10M ARR with predictable, repeatable customer acquisition systems across paid, organic, and partnership channels.
               </p>
               <ul className="space-y-2">
                 <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle2 className="h-4 w-4 text-indigo-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-[#23AACA] flex-shrink-0 mt-0.5" />
                   <span>Multi-channel acquisition testing</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle2 className="h-4 w-4 text-indigo-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-[#23AACA] flex-shrink-0 mt-0.5" />
                   <span>Product-led growth strategies</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle2 className="h-4 w-4 text-indigo-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-[#23AACA] flex-shrink-0 mt-0.5" />
                   <span>Trial-to-paid optimization</span>
                 </li>
               </ul>
             </div>
 
-            <div className="p-6 rounded-xl bg-indigo-50 border border-border hover-elevate" data-testid="use-case-consumer-apps">
+            <div className="p-6 rounded-xl bg-[#f5f0e6] border border-border hover-elevate" data-testid="use-case-consumer-apps">
               <h3 className="text-xl font-bold mb-3">Consumer Apps & Mobile</h3>
               <p className="text-sm text-muted-foreground mb-4">
                 Acquire users profitably across app stores, paid social, and organic channels. Optimize onboarding and activation for maximum retention.
               </p>
               <ul className="space-y-2">
                 <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle2 className="h-4 w-4 text-indigo-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-[#23AACA] flex-shrink-0 mt-0.5" />
                   <span>App store optimization (ASO)</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle2 className="h-4 w-4 text-indigo-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-[#23AACA] flex-shrink-0 mt-0.5" />
                   <span>Mobile attribution & analytics</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle2 className="h-4 w-4 text-indigo-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-[#23AACA] flex-shrink-0 mt-0.5" />
                   <span>Viral loop engineering</span>
                 </li>
               </ul>
             </div>
 
-            <div className="p-6 rounded-xl bg-indigo-50 border border-border hover-elevate" data-testid="use-case-ecommerce-dtc">
+            <div className="p-6 rounded-xl bg-[#f5f0e6] border border-border hover-elevate" data-testid="use-case-ecommerce-dtc">
               <h3 className="text-xl font-bold mb-3">E-commerce & DTC Brands</h3>
               <p className="text-sm text-muted-foreground mb-4">
                 Build profitable customer acquisition engines for online stores. Lower CAC, increase LTV, and scale revenue through strategic channel optimization.
               </p>
               <ul className="space-y-2">
                 <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle2 className="h-4 w-4 text-indigo-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-[#23AACA] flex-shrink-0 mt-0.5" />
                   <span>Paid social & search optimization</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle2 className="h-4 w-4 text-indigo-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-[#23AACA] flex-shrink-0 mt-0.5" />
                   <span>Conversion rate optimization</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle2 className="h-4 w-4 text-indigo-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-[#23AACA] flex-shrink-0 mt-0.5" />
                   <span>Customer retention programs</span>
                 </li>
               </ul>
             </div>
 
-            <div className="p-6 rounded-xl bg-indigo-50 border border-border hover-elevate" data-testid="use-case-subscriptions">
+            <div className="p-6 rounded-xl bg-[#f5f0e6] border border-border hover-elevate" data-testid="use-case-subscriptions">
               <h3 className="text-xl font-bold mb-3">Subscription Services</h3>
               <p className="text-sm text-muted-foreground mb-4">
                 Acquire subscribers profitably with strategies that maximize lifetime value. Reduce churn, increase retention, and build predictable MRR growth.
               </p>
               <ul className="space-y-2">
                 <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle2 className="h-4 w-4 text-indigo-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-[#23AACA] flex-shrink-0 mt-0.5" />
                   <span>Free trial optimization</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle2 className="h-4 w-4 text-indigo-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-[#23AACA] flex-shrink-0 mt-0.5" />
                   <span>Churn reduction strategies</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle2 className="h-4 w-4 text-indigo-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-[#23AACA] flex-shrink-0 mt-0.5" />
                   <span>Win-back campaigns</span>
                 </li>
               </ul>
             </div>
 
-            <div className="p-6 rounded-xl bg-indigo-50 border border-border hover-elevate" data-testid="use-case-marketplaces">
+            <div className="p-6 rounded-xl bg-[#f5f0e6] border border-border hover-elevate" data-testid="use-case-marketplaces">
               <h3 className="text-xl font-bold mb-3">Marketplace Platforms</h3>
               <p className="text-sm text-muted-foreground mb-4">
                 Solve the chicken-and-egg problem with dual-sided acquisition strategies. Build network effects and scale supply and demand simultaneously.
               </p>
               <ul className="space-y-2">
                 <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle2 className="h-4 w-4 text-indigo-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-[#23AACA] flex-shrink-0 mt-0.5" />
                   <span>Two-sided marketplace growth</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle2 className="h-4 w-4 text-indigo-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-[#23AACA] flex-shrink-0 mt-0.5" />
                   <span>Network effects engineering</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle2 className="h-4 w-4 text-indigo-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-[#23AACA] flex-shrink-0 mt-0.5" />
                   <span>Supply-demand balancing</span>
                 </li>
               </ul>
             </div>
 
-            <div className="p-6 rounded-xl bg-indigo-50 border border-border hover-elevate" data-testid="use-case-funded-startups">
+            <div className="p-6 rounded-xl bg-[#f5f0e6] border border-border hover-elevate" data-testid="use-case-funded-startups">
               <h3 className="text-xl font-bold mb-3">Funded Startups</h3>
               <p className="text-sm text-muted-foreground mb-4">
                 Deploy venture-backed capital efficiently with rapid experimentation frameworks. Find product-market fit faster and scale winners aggressively.
               </p>
               <ul className="space-y-2">
                 <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle2 className="h-4 w-4 text-indigo-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-[#23AACA] flex-shrink-0 mt-0.5" />
                   <span>Rapid channel testing</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle2 className="h-4 w-4 text-indigo-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-[#23AACA] flex-shrink-0 mt-0.5" />
                   <span>Capital-efficient scaling</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle2 className="h-4 w-4 text-indigo-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-[#23AACA] flex-shrink-0 mt-0.5" />
                   <span>Growth metrics dashboards</span>
                 </li>
               </ul>
@@ -388,12 +388,12 @@ export default function CustomerAcquisition() {
       </section>
 
       {/* Related Services */}
-      <section className="py-16 px-4 bg-indigo-50">
+      <section className="py-16 px-4 bg-[#f5f0e6]">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <div className="text-sm uppercase tracking-wider text-indigo-600 mb-3">COMPLETE YOUR GROWTH STACK</div>
+            <div className="text-sm uppercase tracking-wider text-[#23AACA] mb-3">COMPLETE YOUR GROWTH STACK</div>
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              Combine with these <span className="italic text-purple-600">complementary services</span>
+              Combine with these <span className="italic text-orange-500">complementary services</span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Build a complete growth engine with our integrated marketing services
@@ -402,10 +402,10 @@ export default function CustomerAcquisition() {
 
           <div className="grid md:grid-cols-3 gap-6">
             <Link href="/services/funnel-automation">
-              <div className="group p-8 bg-white rounded-xl border border-border hover:border-indigo-600 hover:shadow-lg transition-all duration-300 cursor-pointer hover-elevate" data-testid="related-service-funnel-automation">
+              <div className="group p-8 bg-white rounded-xl border border-border hover:border-[#23AACA] hover:shadow-lg transition-all duration-300 cursor-pointer hover-elevate" data-testid="related-service-funnel-automation">
                 <div className="flex items-start justify-between mb-4">
-                  <h3 className="text-xl font-bold group-hover:text-indigo-600 transition-colors">Funnel Automation</h3>
-                  <ArrowRight className="h-5 w-5 text-indigo-600 group-hover:translate-x-1 transition-transform" />
+                  <h3 className="text-xl font-bold group-hover:text-[#23AACA] transition-colors">Funnel Automation</h3>
+                  <ArrowRight className="h-5 w-5 text-[#23AACA] group-hover:translate-x-1 transition-transform" />
                 </div>
                 <p className="text-sm text-muted-foreground mb-4">
                   Automate your acquisition funnel with behavioral triggers, lead scoring, and nurture campaigns that convert while you sleep.
@@ -414,10 +414,10 @@ export default function CustomerAcquisition() {
             </Link>
 
             <Link href="/services/paid-advertising">
-              <div className="group p-8 bg-white rounded-xl border border-border hover:border-indigo-600 hover:shadow-lg transition-all duration-300 cursor-pointer hover-elevate" data-testid="related-service-paid-ads">
+              <div className="group p-8 bg-white rounded-xl border border-border hover:border-[#23AACA] hover:shadow-lg transition-all duration-300 cursor-pointer hover-elevate" data-testid="related-service-paid-ads">
                 <div className="flex items-start justify-between mb-4">
-                  <h3 className="text-xl font-bold group-hover:text-indigo-600 transition-colors">Paid Advertising</h3>
-                  <ArrowRight className="h-5 w-5 text-indigo-600 group-hover:translate-x-1 transition-transform" />
+                  <h3 className="text-xl font-bold group-hover:text-[#23AACA] transition-colors">Paid Advertising</h3>
+                  <ArrowRight className="h-5 w-5 text-[#23AACA] group-hover:translate-x-1 transition-transform" />
                 </div>
                 <p className="text-sm text-muted-foreground mb-4">
                   Scale acquisition with data-driven paid campaigns across Google, Facebook, LinkedIn, and more. Lower CAC, maximize ROAS.
@@ -426,10 +426,10 @@ export default function CustomerAcquisition() {
             </Link>
 
             <Link href="/services/analytics-tracking">
-              <div className="group p-8 bg-white rounded-xl border border-border hover:border-indigo-600 hover:shadow-lg transition-all duration-300 cursor-pointer hover-elevate" data-testid="related-service-analytics">
+              <div className="group p-8 bg-white rounded-xl border border-border hover:border-[#23AACA] hover:shadow-lg transition-all duration-300 cursor-pointer hover-elevate" data-testid="related-service-analytics">
                 <div className="flex items-start justify-between mb-4">
-                  <h3 className="text-xl font-bold group-hover:text-indigo-600 transition-colors">Analytics & Tracking</h3>
-                  <ArrowRight className="h-5 w-5 text-indigo-600 group-hover:translate-x-1 transition-transform" />
+                  <h3 className="text-xl font-bold group-hover:text-[#23AACA] transition-colors">Analytics & Tracking</h3>
+                  <ArrowRight className="h-5 w-5 text-[#23AACA] group-hover:translate-x-1 transition-transform" />
                 </div>
                 <p className="text-sm text-muted-foreground mb-4">
                   Measure what matters with proper attribution, cohort analysis, and growth dashboards. Know exactly what's driving acquisition.
@@ -442,7 +442,7 @@ export default function CustomerAcquisition() {
 
       {/* CTA */}
       <section className="py-20 px-4 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600"></div>
+        <div className="absolute inset-0 bg-[#23AACA]"></div>
         <div className="relative z-10 max-w-4xl mx-auto text-center text-white">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Ready to build a growth engine?
@@ -451,7 +451,7 @@ export default function CustomerAcquisition() {
             Get a free growth audit. We'll identify your highest-impact growth opportunities and show you exactly how to scale profitably.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <Button size="lg" className="bg-white text-indigo-600 hover:bg-white/90" data-testid="button-cta-primary">
+            <Button size="lg" className="bg-white text-[#23AACA] hover:bg-white/90" data-testid="button-cta-primary">
               Get Your Growth Plan
             </Button>
             <Button size="lg" variant="outline" className="border-white text-white bg-white/10 backdrop-blur-sm hover:bg-white/20" data-testid="button-cta-secondary">

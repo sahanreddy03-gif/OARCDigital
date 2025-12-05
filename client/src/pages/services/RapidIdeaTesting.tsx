@@ -57,7 +57,7 @@ export default function RapidIdeaTesting() {
       </section>
 
       {/* Trusted By */}
-      <section className="py-12 px-4 bg-white border-b border-border">
+      <section className="py-12 px-4 bg-[#f5f0e6] border-b border-[#1a2e29]/10">
         <div className="max-w-7xl mx-auto">
           <div className="text-center text-sm uppercase tracking-wider text-muted-foreground mb-8">
             Powering rapid experimentation for innovators
@@ -70,7 +70,7 @@ export default function RapidIdeaTesting() {
         </div>
       </section>
 
-      <section className="py-16 px-4 bg-orange-50">
+      <section className="py-16 px-4 bg-[#f5f0e6]">
         <div className="max-w-6xl mx-auto">
           <div className="bg-white rounded-2xl overflow-hidden border border-border shadow-lg">
             <div className="p-8 md:p-12">
@@ -108,7 +108,7 @@ export default function RapidIdeaTesting() {
       </section>
 
       {/* What We Test */}
-      <section className="py-16 bg-white overflow-hidden">
+      <section className="py-16 bg-[#f5f0e6] overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 mb-10">
           <div className="text-sm uppercase tracking-wider text-orange-600 mb-3">WHAT WE TEST</div>
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
@@ -184,7 +184,7 @@ export default function RapidIdeaTesting() {
       </section>
 
       {/* What's Included */}
-      <section className="py-16 px-4 bg-orange-50">
+      <section className="py-16 px-4 bg-[#f5f0e6]">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
@@ -214,7 +214,7 @@ export default function RapidIdeaTesting() {
       </section>
 
       {/* Our Process */}
-      <section className="py-16 px-4 bg-white">
+      <section className="py-20 px-4 bg-[#f5f0e6]">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
@@ -245,7 +245,7 @@ export default function RapidIdeaTesting() {
       </section>
 
       {/* Who This Service Is For */}
-      <section className="py-16 px-4 bg-white">
+      <section className="py-20 px-4 bg-[#f5f0e6]">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <div className="text-sm uppercase tracking-wider text-orange-600 mb-3">WHO THIS IS FOR</div>
@@ -258,7 +258,7 @@ export default function RapidIdeaTesting() {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div className="p-6 rounded-xl bg-orange-50 border border-border hover-elevate" data-testid="use-case-startups">
+            <div className="p-6 rounded-xl bg-[#f5f0e6] border border-border hover-elevate" data-testid="use-case-startups">
               <h3 className="text-xl font-bold mb-3">Early-Stage Startups</h3>
               <p className="text-sm text-muted-foreground mb-4">
                 Test product-market fit with real market feedback. Validate messaging, positioning, and channel viability before burning through runway.
@@ -279,7 +279,7 @@ export default function RapidIdeaTesting() {
               </ul>
             </div>
 
-            <div className="p-6 rounded-xl bg-orange-50 border border-border hover-elevate" data-testid="use-case-growth-stage">
+            <div className="p-6 rounded-xl bg-[#f5f0e6] border border-border hover-elevate" data-testid="use-case-growth-stage">
               <h3 className="text-xl font-bold mb-3">Growth-Stage Companies</h3>
               <p className="text-sm text-muted-foreground mb-4">
                 Scale what works, kill what doesn't. Test new channels, messaging angles, and creative concepts before committing big budgets.
@@ -300,7 +300,7 @@ export default function RapidIdeaTesting() {
               </ul>
             </div>
 
-            <div className="p-6 rounded-xl bg-orange-50 border border-border hover-elevate" data-testid="use-case-product-teams">
+            <div className="p-6 rounded-xl bg-[#f5f0e6] border border-border hover-elevate" data-testid="use-case-product-teams">
               <h3 className="text-xl font-bold mb-3">Product Teams</h3>
               <p className="text-sm text-muted-foreground mb-4">
                 Validate feature launches, pricing changes, and go-to-market strategies with real user feedback before full rollout.
@@ -321,7 +321,7 @@ export default function RapidIdeaTesting() {
               </ul>
             </div>
 
-            <div className="p-6 rounded-xl bg-orange-50 border border-border hover-elevate" data-testid="use-case-marketing-teams">
+            <div className="p-6 rounded-xl bg-[#f5f0e6] border border-border hover-elevate" data-testid="use-case-marketing-teams">
               <h3 className="text-xl font-bold mb-3">Marketing Teams</h3>
               <p className="text-sm text-muted-foreground mb-4">
                 Test campaign ideas, creative concepts, and messaging angles fast. Find winning campaigns through rapid experimentation.
@@ -342,7 +342,7 @@ export default function RapidIdeaTesting() {
               </ul>
             </div>
 
-            <div className="p-6 rounded-xl bg-orange-50 border border-border hover-elevate" data-testid="use-case-ecommerce">
+            <div className="p-6 rounded-xl bg-[#f5f0e6] border border-border hover-elevate" data-testid="use-case-ecommerce">
               <h3 className="text-xl font-bold mb-3">E-commerce Brands</h3>
               <p className="text-sm text-muted-foreground mb-4">
                 Test product launches, pricing strategies, and promotional campaigns before scaling. Optimize for maximum ROI with data-driven decisions.
@@ -363,7 +363,7 @@ export default function RapidIdeaTesting() {
               </ul>
             </div>
 
-            <div className="p-6 rounded-xl bg-orange-50 border border-border hover-elevate" data-testid="use-case-innovation-labs">
+            <div className="p-6 rounded-xl bg-[#f5f0e6] border border-border hover-elevate" data-testid="use-case-innovation-labs">
               <h3 className="text-xl font-bold mb-3">Innovation Labs</h3>
               <p className="text-sm text-muted-foreground mb-4">
                 Validate new business models, products, and services with lean experiments. De-risk innovation through systematic testing.
@@ -388,7 +388,7 @@ export default function RapidIdeaTesting() {
       </section>
 
       {/* Related Services */}
-      <section className="py-16 px-4 bg-orange-50">
+      <section className="py-16 px-4 bg-[#f5f0e6]">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <div className="text-sm uppercase tracking-wider text-orange-600 mb-3">ACCELERATE YOUR GROWTH</div>

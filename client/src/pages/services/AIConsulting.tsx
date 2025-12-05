@@ -147,11 +147,11 @@ export default function AIConsulting() {
             Bring your marketing creative operations into the age of <span className="text-[#5FD4C4]">AI</span>
           </h2>
 
-          <p className="text-base text-gray-800 mb-4">
+          <p className="text-base text-[#1a2e29] mb-4">
             Global brands trust OARC Digital as the hands-on expert to help scale and succeed with generative AI.
           </p>
 
-          <p className="text-base text-gray-800 mb-6">
+          <p className="text-base text-[#1a2e29] mb-6">
             Many experiment with AI, few capture real value. Our consultants deliver measurable business impact and enable organizational readiness for the future.
           </p>
 
@@ -170,13 +170,13 @@ export default function AIConsulting() {
       </section>
 
       {/* Services Carousel Section */}
-      <section className="py-14 px-4 bg-white">
+      <section className="py-20 px-4 bg-[#f5f0e6]">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-black text-black mb-2">
             Our <span className="text-[#5FD4C4]">AI Consulting</span> Services
           </h2>
 
-          <p className="text-base text-gray-700 mb-8">
+          <p className="text-base text-[#1a2e29]/70 mb-8">
             End-to-end AI transformation for marketing and creative teams
           </p>
 
@@ -187,7 +187,7 @@ export default function AIConsulting() {
                 key={idx}
                 onClick={() => setCurrentService(idx)}
                 className={`h-2 rounded-full transition-all ${
-                  idx === currentService ? 'w-8 bg-[#5FD4C4]' : 'w-2 bg-gray-300'
+                  idx === currentService ? 'w-8 bg-[#5FD4C4]' : 'w-2 bg-zinc-300'
                 }`}
                 data-testid={`dot-service-${idx}`}
               />
@@ -202,7 +202,7 @@ export default function AIConsulting() {
               const Icon = service.icon;
               
               return (
-                <div key={actualIdx} className="bg-white border-2 border-gray-100 rounded-3xl p-8" data-testid={`card-service-${actualIdx}`}>
+                <div key={actualIdx} className="bg-white border-2 border-[#1a2e29]/10 rounded-3xl p-8" data-testid={`card-service-${actualIdx}`}>
                   <div className="flex items-start justify-between mb-6">
                     <div className="w-14 h-14 bg-black rounded-xl flex items-center justify-center">
                       <Icon className="h-7 w-7 text-white" />
@@ -210,7 +210,7 @@ export default function AIConsulting() {
                     {offset === 2 && (
                       <button
                         onClick={nextService}
-                        className="text-gray-400 hover:text-black transition-colors"
+                        className="text-zinc-400 hover:text-black transition-colors"
                         data-testid="button-next-service"
                       >
                         <ArrowRight className="h-5 w-5" />
@@ -218,12 +218,12 @@ export default function AIConsulting() {
                     )}
                   </div>
                   <h3 className="text-xl font-bold text-black mb-3">{service.title}</h3>
-                  <p className="text-sm text-gray-600 mb-6">{service.description}</p>
+                  <p className="text-sm text-[#1a2e29]/60 mb-6">{service.description}</p>
                   <ul className="space-y-3">
                     {service.items.map((item, itemIdx) => (
                       <li key={itemIdx} className="flex items-start gap-2">
                         <CheckCircle2 className="h-4 w-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
-                        <span className="text-sm text-gray-700">{item}</span>
+                        <span className="text-sm text-[#1a2e29]/70">{item}</span>
                       </li>
                     ))}
                   </ul>
@@ -235,22 +235,22 @@ export default function AIConsulting() {
       </section>
 
       {/* Who This Service Is For */}
-      <section className="py-14 px-4 bg-white">
+      <section className="py-20 px-4 bg-[#f5f0e6]">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-black text-black mb-2">
             Who <span className="text-[#5FD4C4]">We Serve</span>
           </h2>
-          <p className="text-base text-gray-700 mb-8">
+          <p className="text-base text-[#1a2e29]/70 mb-8">
             AI consulting designed for forward-thinking organizations ready to lead with AI
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div className="bg-zinc-50 rounded-2xl p-8 border-2 border-gray-100" data-testid="use-case-marketing">
+            <div className="bg-[#f5f0e6] rounded-2xl p-8 border-2 border-[#1a2e29]/10" data-testid="use-case-marketing">
               <h3 className="text-xl font-bold text-black mb-4">Marketing & Creative Teams</h3>
-              <p className="text-sm text-gray-600 mb-4">
+              <p className="text-sm text-[#1a2e29]/60 mb-4">
                 Transform content production, campaign management, and creative workflows with AI-powered tools and processes.
               </p>
-              <ul className="space-y-2 text-sm text-gray-700">
+              <ul className="space-y-2 text-sm text-[#1a2e29]/70">
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
                   <span>AI-powered content generation</span>
@@ -266,12 +266,12 @@ export default function AIConsulting() {
               </ul>
             </div>
 
-            <div className="bg-zinc-50 rounded-2xl p-8 border-2 border-gray-100" data-testid="use-case-saas">
+            <div className="bg-[#f5f0e6] rounded-2xl p-8 border-2 border-[#1a2e29]/10" data-testid="use-case-saas">
               <h3 className="text-xl font-bold text-black mb-4">SaaS & Technology Companies</h3>
-              <p className="text-sm text-gray-600 mb-4">
+              <p className="text-sm text-[#1a2e29]/60 mb-4">
                 Integrate AI into product development, customer success, and go-to-market operations for competitive advantage.
               </p>
-              <ul className="space-y-2 text-sm text-gray-700">
+              <ul className="space-y-2 text-sm text-[#1a2e29]/70">
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
                   <span>Product AI integration strategy</span>
@@ -287,12 +287,12 @@ export default function AIConsulting() {
               </ul>
             </div>
 
-            <div className="bg-zinc-50 rounded-2xl p-8 border-2 border-gray-100" data-testid="use-case-enterprise">
+            <div className="bg-[#f5f0e6] rounded-2xl p-8 border-2 border-[#1a2e29]/10" data-testid="use-case-enterprise">
               <h3 className="text-xl font-bold text-black mb-4">Enterprise Organizations</h3>
-              <p className="text-sm text-gray-600 mb-4">
+              <p className="text-sm text-[#1a2e29]/60 mb-4">
                 Scale AI adoption across departments with enterprise-ready strategies, governance, and change management.
               </p>
-              <ul className="space-y-2 text-sm text-gray-700">
+              <ul className="space-y-2 text-sm text-[#1a2e29]/70">
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
                   <span>Enterprise AI roadmaps</span>
@@ -308,12 +308,12 @@ export default function AIConsulting() {
               </ul>
             </div>
 
-            <div className="bg-zinc-50 rounded-2xl p-8 border-2 border-gray-100" data-testid="use-case-agencies">
+            <div className="bg-[#f5f0e6] rounded-2xl p-8 border-2 border-[#1a2e29]/10" data-testid="use-case-agencies">
               <h3 className="text-xl font-bold text-black mb-4">Agencies & Consultancies</h3>
-              <p className="text-sm text-gray-600 mb-4">
+              <p className="text-sm text-[#1a2e29]/60 mb-4">
                 Deliver more value to clients with AI-enhanced services while improving internal efficiency and margins.
               </p>
-              <ul className="space-y-2 text-sm text-gray-700">
+              <ul className="space-y-2 text-sm text-[#1a2e29]/70">
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
                   <span>AI-powered client deliverables</span>
@@ -329,12 +329,12 @@ export default function AIConsulting() {
               </ul>
             </div>
 
-            <div className="bg-zinc-50 rounded-2xl p-8 border-2 border-gray-100" data-testid="use-case-ecommerce">
+            <div className="bg-[#f5f0e6] rounded-2xl p-8 border-2 border-[#1a2e29]/10" data-testid="use-case-ecommerce">
               <h3 className="text-xl font-bold text-black mb-4">E-commerce & Retail</h3>
-              <p className="text-sm text-gray-600 mb-4">
+              <p className="text-sm text-[#1a2e29]/60 mb-4">
                 Personalize customer experiences, optimize inventory, and automate merchandising with AI.
               </p>
-              <ul className="space-y-2 text-sm text-gray-700">
+              <ul className="space-y-2 text-sm text-[#1a2e29]/70">
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
                   <span>Personalization engines</span>
@@ -350,12 +350,12 @@ export default function AIConsulting() {
               </ul>
             </div>
 
-            <div className="bg-zinc-50 rounded-2xl p-8 border-2 border-gray-100" data-testid="use-case-professional">
+            <div className="bg-[#f5f0e6] rounded-2xl p-8 border-2 border-[#1a2e29]/10" data-testid="use-case-professional">
               <h3 className="text-xl font-bold text-black mb-4">Professional Services</h3>
-              <p className="text-sm text-gray-600 mb-4">
+              <p className="text-sm text-[#1a2e29]/60 mb-4">
                 Enhance client work quality, accelerate research, and improve knowledge management with AI tools.
               </p>
-              <ul className="space-y-2 text-sm text-gray-700">
+              <ul className="space-y-2 text-sm text-[#1a2e29]/70">
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="w-4 h-4 text-[#5FD4C4] flex-shrink-0 mt-0.5" />
                   <span>Research & analysis automation</span>
@@ -375,20 +375,20 @@ export default function AIConsulting() {
       </section>
 
       {/* Featured Case Studies Section */}
-      <section className="py-14 px-4 bg-zinc-50">
+      <section className="py-14 px-4 bg-[#f5f0e6]">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-black text-black mb-2">
             Making AI <span className="text-[#5FD4C4]">Work For You</span>
           </h2>
 
-          <p className="text-base text-gray-700 mb-8">
+          <p className="text-base text-[#1a2e29]/70 mb-8">
             Real results from companies that partnered with OARC Digital
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {caseStudies.map((study, idx) => (
               <Link key={idx} href={`/case-studies/${study.slug}`}>
-                <div className="group bg-white border-2 border-gray-100 rounded-3xl overflow-hidden hover:border-[#5FD4C4] transition-all hover-elevate cursor-pointer" data-testid={`card-case-study-${study.slug}`}>
+                <div className="group bg-white border-2 border-[#1a2e29]/10 rounded-3xl overflow-hidden hover:border-[#5FD4C4] transition-all hover-elevate cursor-pointer" data-testid={`card-case-study-${study.slug}`}>
                   <div className="relative h-64 overflow-hidden">
                     <img 
                       src={study.image} 
@@ -404,7 +404,7 @@ export default function AIConsulting() {
                     <h3 className="text-xl font-bold text-black mb-2 group-hover:text-[#ea580c] transition-colors">
                       {study.title}
                     </h3>
-                    <p className="text-sm text-gray-600 mb-4">
+                    <p className="text-sm text-[#1a2e29]/60 mb-4">
                       {study.description}
                     </p>
                     <div className="flex items-center gap-2 text-[#ea580c] font-semibold text-sm">
@@ -420,52 +420,52 @@ export default function AIConsulting() {
       </section>
 
       {/* Related Services / Internal CTAs */}
-      <section className="py-14 px-4 bg-white">
+      <section className="py-20 px-4 bg-zinc-950">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-black text-black mb-2">
-            Complete Your <span className="text-[#5FD4C4]">AI Transformation</span>
+          <h2 className="text-3xl md:text-4xl font-black text-white mb-2">
+            Complete Your <span className="text-[#c4ff4d]">AI Transformation</span>
           </h2>
-          <p className="text-base text-gray-700 mb-8">
+          <p className="text-base text-white/70 mb-8">
             Combine AI consulting with these services for end-to-end business transformation
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <Link href="/services/hire-ai-employees">
-              <div className="group bg-zinc-50 rounded-2xl p-8 border-2 border-gray-100 hover:border-[#5FD4C4] transition-all hover-elevate cursor-pointer" data-testid="related-service-hire">
+              <div className="group bg-zinc-900 rounded-2xl p-8 border-2 border-zinc-800 hover:border-[#23AACA] transition-all cursor-pointer" data-testid="related-service-hire">
                 <div className="flex items-start justify-between mb-4">
-                  <h3 className="text-xl font-bold text-black group-hover:text-[#ea580c] transition-colors">Hire AI Employees</h3>
-                  <ArrowRight className="h-5 w-5 text-[#5FD4C4] group-hover:translate-x-1 transition-transform" />
+                  <h3 className="text-xl font-bold text-white group-hover:text-[#c4ff4d] transition-colors">Hire AI Employees</h3>
+                  <ArrowRight className="h-5 w-5 text-[#c4ff4d] group-hover:translate-x-1 transition-transform" />
                 </div>
-                <p className="text-sm text-gray-600 mb-4">
+                <p className="text-sm text-white/70 mb-4">
                   After establishing your AI strategy, deploy AI employees to handle customer service, sales, and operations at scale.
                 </p>
-                <div className="text-sm text-[#ea580c] font-semibold">Explore AI Employees →</div>
+                <div className="text-sm text-[#c4ff4d] font-semibold">Explore AI Employees →</div>
               </div>
             </Link>
 
             <Link href="/services/revenue-automation">
-              <div className="group bg-zinc-50 rounded-2xl p-8 border-2 border-gray-100 hover:border-[#5FD4C4] transition-all hover-elevate cursor-pointer" data-testid="related-service-automation">
+              <div className="group bg-zinc-900 rounded-2xl p-8 border-2 border-zinc-800 hover:border-[#23AACA] transition-all cursor-pointer" data-testid="related-service-automation">
                 <div className="flex items-start justify-between mb-4">
-                  <h3 className="text-xl font-bold text-black group-hover:text-[#ea580c] transition-colors">Revenue Automation</h3>
-                  <ArrowRight className="h-5 w-5 text-[#5FD4C4] group-hover:translate-x-1 transition-transform" />
+                  <h3 className="text-xl font-bold text-white group-hover:text-[#c4ff4d] transition-colors">Revenue Automation</h3>
+                  <ArrowRight className="h-5 w-5 text-[#c4ff4d] group-hover:translate-x-1 transition-transform" />
                 </div>
-                <p className="text-sm text-gray-600 mb-4">
+                <p className="text-sm text-white/70 mb-4">
                   Implement AI-powered automation across your revenue operations from lead generation to invoicing.
                 </p>
-                <div className="text-sm text-[#ea580c] font-semibold">View Automation Services →</div>
+                <div className="text-sm text-[#c4ff4d] font-semibold">View Automation Services →</div>
               </div>
             </Link>
 
             <Link href="/services/paid-advertising">
-              <div className="group bg-zinc-50 rounded-2xl p-8 border-2 border-gray-100 hover:border-[#5FD4C4] transition-all hover-elevate cursor-pointer" data-testid="related-service-paid">
+              <div className="group bg-zinc-900 rounded-2xl p-8 border-2 border-zinc-800 hover:border-[#23AACA] transition-all cursor-pointer" data-testid="related-service-paid">
                 <div className="flex items-start justify-between mb-4">
-                  <h3 className="text-xl font-bold text-black group-hover:text-[#ea580c] transition-colors">Paid Advertising</h3>
-                  <ArrowRight className="h-5 w-5 text-[#5FD4C4] group-hover:translate-x-1 transition-transform" />
+                  <h3 className="text-xl font-bold text-white group-hover:text-[#c4ff4d] transition-colors">Paid Advertising</h3>
+                  <ArrowRight className="h-5 w-5 text-[#c4ff4d] group-hover:translate-x-1 transition-transform" />
                 </div>
-                <p className="text-sm text-gray-600 mb-4">
+                <p className="text-sm text-white/70 mb-4">
                   Use AI insights to optimize ad campaigns and drive targeted traffic with data-driven creative strategies.
                 </p>
-                <div className="text-sm text-[#ea580c] font-semibold">Explore Advertising →</div>
+                <div className="text-sm text-[#c4ff4d] font-semibold">Explore Advertising →</div>
               </div>
             </Link>
           </div>
@@ -473,21 +473,21 @@ export default function AIConsulting() {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-14 px-4 bg-zinc-50">
+      <section className="py-14 px-4 bg-[#f5f0e6]">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-black text-black mb-2">
             Why <span className="text-[#5FD4C4]">OARC Digital</span>
           </h2>
 
-          <p className="text-base text-gray-700 mb-8">
+          <p className="text-base text-[#1a2e29]/70 mb-8">
             Expertise that drives real business transformation
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {benefits.map((benefit, idx) => (
-              <div key={idx} className="bg-zinc-50 rounded-2xl p-6" data-testid={`benefit-${idx}`}>
+              <div key={idx} className="bg-[#f5f0e6] rounded-2xl p-6" data-testid={`benefit-${idx}`}>
                 <h3 className="text-lg font-bold text-black mb-3">{benefit.title}</h3>
-                <p className="text-sm text-gray-600">{benefit.description}</p>
+                <p className="text-sm text-[#1a2e29]/60">{benefit.description}</p>
               </div>
             ))}
           </div>
@@ -518,12 +518,12 @@ export default function AIConsulting() {
       </section>
 
       {/* Get In Touch Section */}
-      <section className="py-14 px-4 bg-white">
+      <section className="py-20 px-4 bg-[#f5f0e6]">
         <div className="max-w-6xl mx-auto text-center">
           <h2 className="text-2xl md:text-3xl font-black text-black mb-4">
             Get In Touch
           </h2>
-          <p className="text-base text-gray-700 mb-6 max-w-2xl mx-auto">
+          <p className="text-base text-[#1a2e29]/70 mb-6 max-w-2xl mx-auto">
             Ready to accelerate your AI journey? Our team is here to help you unlock the full potential of AI in your creative operations.
           </p>
           <Link href="/contact">

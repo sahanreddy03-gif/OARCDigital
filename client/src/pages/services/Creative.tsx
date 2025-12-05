@@ -134,7 +134,7 @@ export default function Creative() {
       />
       
       {/* Hero Section */}
-      <section className="relative py-14 px-4 bg-white overflow-hidden">
+      <section className="relative py-14 px-4 bg-[#f5f0e6] overflow-hidden">
         <div className="absolute inset-0 bg-surface-lime-radial"></div>
         <div className="absolute top-20 right-20 w-96 h-96 bg-[#c4ff4d]/10 rounded-full blur-3xl animate-float"></div>
         <div className="absolute bottom-10 left-10 w-64 h-64 bg-[#c4ff4d]/5 rounded-full blur-2xl animate-float-delayed"></div>
@@ -280,7 +280,7 @@ export default function Creative() {
 
       {/* Section 3: Text Left + Image Right */}
       <ScrollReveal delay={300}>
-        <section className="relative py-14 px-4 bg-white overflow-hidden">
+        <section className="relative py-14 px-4 bg-[#f5f0e6] overflow-hidden">
           <div className="absolute top-20 left-20 w-96 h-96 bg-[#c4ff4d]/10 rounded-full blur-3xl animate-float"></div>
           <div className="absolute bottom-10 right-10 w-64 h-64 bg-[#c4ff4d]/5 rounded-full blur-2xl animate-float-delayed"></div>
           
@@ -339,7 +339,7 @@ export default function Creative() {
                 key={idx}
                 onClick={() => setCurrentService(idx)}
                 className={`h-2 rounded-full transition-all duration-300 ${
-                  idx === currentService ? 'w-8 bg-[#c4ff4d] glow-lime' : 'w-2 bg-gray-300'
+                  idx === currentService ? 'w-8 bg-[#c4ff4d] glow-lime' : 'w-2 bg-zinc-300'
                 }`}
                 data-testid={`dot-service-${idx}`}
               />
@@ -373,7 +373,7 @@ export default function Creative() {
                     {service.title}
                   </h3>
 
-                  <p className="text-sm text-gray-700 mb-5">
+                  <p className="text-sm text-[#1a2e29]/70 mb-5">
                     {service.description}
                   </p>
 
@@ -381,7 +381,7 @@ export default function Creative() {
                     {service.items.map((item, i) => (
                       <li key={i} className="flex items-start gap-2">
                         <CheckCircle2 className="h-4 w-4 text-[#c4ff4d] flex-shrink-0 mt-1" />
-                        <span className="text-sm text-gray-800">{item}</span>
+                        <span className="text-sm text-[#1a2e29]">{item}</span>
                       </li>
                     ))}
                   </ul>
@@ -393,7 +393,7 @@ export default function Creative() {
       </section>
 
       {/* Case Studies Section */}
-      <section className="py-14 px-4 bg-white">
+      <section className="py-20 px-4 bg-[#f5f0e6]">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-black text-black mb-8">
             Creative success stories
@@ -409,7 +409,7 @@ export default function Creative() {
           </Link>
 
           <Link href="/case-studies/gym-group">
-            <div className="relative bg-gradient-to-br from-gray-800 to-gray-900 rounded-3xl overflow-hidden h-[500px] hover-elevate active-elevate-2 cursor-pointer" data-testid="card-case-study">
+            <div className="relative bg-gradient-to-br from-zinc-800 to-zinc-900 rounded-3xl overflow-hidden h-[500px] hover-elevate active-elevate-2 cursor-pointer" data-testid="card-case-study">
               <img
                 src={fitnessImg1}
                 alt="Fitness brand creative campaign"
@@ -429,21 +429,21 @@ export default function Creative() {
                   </span>
                 </div>
                 <h3 className="text-3xl font-black mb-2">The Gym Group</h3>
-                <p className="text-lg text-gray-200 mb-4">
+                <p className="text-lg text-white/80 mb-4">
                   Multi-platform content driving membership growth.
                 </p>
                 <div className="grid grid-cols-3 gap-6 mt-6">
                   <div>
                     <div className="text-3xl font-black text-[#c4ff4d]">1M</div>
-                    <div className="text-sm text-gray-300">Video Views</div>
+                    <div className="text-sm text-white/70">Video Views</div>
                   </div>
                   <div>
                     <div className="text-3xl font-black text-[#c4ff4d]">15M</div>
-                    <div className="text-sm text-gray-300">Impressions</div>
+                    <div className="text-sm text-white/70">Impressions</div>
                   </div>
                   <div>
                     <div className="text-3xl font-black text-[#c4ff4d]">500K</div>
-                    <div className="text-sm text-gray-300">Engagements</div>
+                    <div className="text-sm text-white/70">Engagements</div>
                   </div>
                 </div>
               </div>
@@ -462,14 +462,14 @@ export default function Creative() {
             </h2>
 
             <div className="grid grid-cols-2 gap-6 mt-8">
-              <div className="relative bg-gray-200 rounded-3xl overflow-hidden h-[400px] group hover-lift" data-testid="card-content-campaign-1">
+              <div className="relative bg-zinc-200 rounded-3xl overflow-hidden h-[400px] group hover-lift" data-testid="card-content-campaign-1">
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                 <div className="absolute bottom-0 left-0 right-0 p-6">
                   <h3 className="text-xl font-black text-white">Seasonal Launch Campaign</h3>
                 </div>
               </div>
 
-              <div className="relative bg-gray-200 rounded-3xl overflow-hidden h-[400px] group hover-lift" data-testid="card-content-campaign-2">
+              <div className="relative bg-zinc-200 rounded-3xl overflow-hidden h-[400px] group hover-lift" data-testid="card-content-campaign-2">
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                 <div className="absolute bottom-0 left-0 right-0 p-6">
                   <h3 className="text-xl font-black text-white">Brand Awareness Series</h3>
@@ -513,7 +513,7 @@ export default function Creative() {
                 key={idx}
                 onClick={() => setCurrentBenefit(idx)}
                 className={`h-2 rounded-full transition-all duration-300 ${
-                  idx === currentBenefit ? 'w-8 bg-[#c4ff4d] glow-lime' : 'w-2 bg-gray-300'
+                  idx === currentBenefit ? 'w-8 bg-[#c4ff4d] glow-lime' : 'w-2 bg-zinc-300'
                 }`}
                 data-testid={`dot-benefit-${idx}`}
               />
@@ -529,7 +529,7 @@ export default function Creative() {
               {benefits[currentBenefit].title}
             </h3>
 
-            <p className="text-lg text-gray-200">
+            <p className="text-lg text-white/80">
               {benefits[currentBenefit].description}
             </p>
           </div>
@@ -601,7 +601,7 @@ export default function Creative() {
                   {category.items.map((item, i) => (
                     <li key={i} className="flex items-start gap-2">
                       <CheckCircle2 className="w-4 h-4 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
-                      <span className="text-sm text-gray-700">{item}</span>
+                      <span className="text-sm text-[#1a2e29]/70">{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -619,7 +619,7 @@ export default function Creative() {
           <h2 className="text-3xl md:text-4xl font-black text-white mb-6">
             Ready to create content that converts?
           </h2>
-          <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
+          <p className="text-lg text-white/70 mb-8 max-w-2xl mx-auto">
             Let's discuss how our platform-native creative approach can drive results for your brand.
           </p>
           <Link href="/contact">
