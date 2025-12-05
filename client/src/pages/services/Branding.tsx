@@ -271,14 +271,14 @@ export default function Branding() {
 
       {/* SECTION 5: Typography Exploration */}
       <ScrollReveal>
-        <section className="py-20 px-4 bg-gradient-to-b from-[#fafff5] to-white">
+        <section className="py-20 px-4 bg-[#f5f0e6]">
           <div className="max-w-6xl mx-auto">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
-                <h2 className="text-3xl md:text-4xl font-black mb-6">
+                <h2 className="text-3xl md:text-4xl font-black mb-6 text-[#1a2e29]">
                   Typography tells a story
                 </h2>
-                <p className="text-muted-foreground mb-8">
+                <p className="text-[#1a2e29]/60 mb-8">
                   We explore dozens of type combinations before landing on the perfect pairing for your brand. Every font choice communicates something about who you are.
                 </p>
 
@@ -291,12 +291,12 @@ export default function Branding() {
                       className={`w-full text-left p-4 rounded-xl transition-colors ${
                         activeExploration === i 
                           ? 'bg-orange-500 text-white' 
-                          : 'bg-zinc-100 hover:bg-zinc-200'
+                          : 'bg-white hover:bg-white/80 border border-[#1a2e29]/10'
                       }`}
                     >
                       <div className="flex justify-between items-center">
                         <span className="font-bold">{type.family}</span>
-                        <span className={`text-sm ${activeExploration === i ? 'text-white/70' : 'text-muted-foreground'}`}>
+                        <span className={`text-sm ${activeExploration === i ? 'text-white/70' : 'text-[#1a2e29]/60'}`}>
                           {type.style}
                         </span>
                       </div>
@@ -305,17 +305,17 @@ export default function Branding() {
                 </div>
               </div>
 
-              <div className="bg-zinc-100 rounded-2xl p-10 text-center">
+              <div className="bg-white rounded-2xl p-10 text-center border border-[#1a2e29]/10">
                 <div 
-                  className="text-6xl md:text-8xl font-black mb-4"
+                  className="text-6xl md:text-8xl font-black mb-4 text-[#1a2e29]"
                   style={{ fontFamily: typeExplorations[activeExploration].family }}
                 >
                   Aa
                 </div>
-                <div className="text-2xl font-bold mb-2">
+                <div className="text-2xl font-bold mb-2 text-[#1a2e29]">
                   {typeExplorations[activeExploration].family}
                 </div>
-                <div className="text-muted-foreground">
+                <div className="text-[#1a2e29]/60">
                   {typeExplorations[activeExploration].weight} · {typeExplorations[activeExploration].style}
                 </div>
               </div>
