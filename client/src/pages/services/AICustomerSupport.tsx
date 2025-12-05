@@ -279,7 +279,7 @@ export default function AICustomerSupport() {
 
       {/* SECTION 2: Capabilities Grid */}
       <ScrollReveal>
-        <section className="py-20 px-4 bg-white">
+        <section className="py-20 px-4 bg-[#f5f0e6]">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-black text-black mb-4">
@@ -377,7 +377,7 @@ export default function AICustomerSupport() {
 
       {/* SECTION 4: Before/After Comparison */}
       <ScrollReveal>
-        <section className="py-20 px-4 bg-white">
+        <section className="py-20 px-4 bg-[#f5f0e6]">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-black text-black mb-4">

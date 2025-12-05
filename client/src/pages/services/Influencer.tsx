@@ -136,7 +136,7 @@ export default function Influencer() {
       />
       
       {/* Hero Section */}
-      <section className="relative py-14 px-4 bg-white overflow-hidden">
+      <section className="relative py-14 px-4 bg-[#f5f0e6] overflow-hidden">
         <div className="absolute inset-0 bg-surface-lime-radial"></div>
         <div className="max-w-6xl mx-auto relative">
           <div className="mb-4"></div>
@@ -273,7 +273,7 @@ export default function Influencer() {
 
       {/* Section 3: Text Left + Image Right */}
       <ScrollReveal delay={300}>
-        <section className="relative py-14 px-4 bg-white overflow-hidden">
+        <section className="relative py-14 px-4 bg-[#f5f0e6] overflow-hidden">
           <div className="absolute top-20 left-20 w-96 h-96 bg-[#c4ff4d]/10 rounded-full blur-3xl animate-float"></div>
           <div className="absolute bottom-10 right-10 w-64 h-64 bg-[#c4ff4d]/5 rounded-full blur-2xl animate-float-delayed"></div>
           
@@ -340,7 +340,7 @@ export default function Influencer() {
                 key={idx}
                 onClick={() => setCurrentService(idx)}
                 className={`h-2 rounded-full transition-all duration-300 ${
-                  idx === currentService ? 'w-8 bg-[#c4ff4d] glow-lime' : 'w-2 bg-gray-300'
+                  idx === currentService ? 'w-8 bg-[#c4ff4d] glow-lime' : 'w-2 bg-zinc-300'
                 }`}
                 data-testid={`dot-service-${idx}`}
               />
@@ -374,7 +374,7 @@ export default function Influencer() {
                     {service.title}
                   </h3>
 
-                  <p className="text-sm text-gray-700 mb-5">
+                  <p className="text-sm text-[#1a2e29]/70 mb-5">
                     {service.description}
                   </p>
 
@@ -382,7 +382,7 @@ export default function Influencer() {
                     {service.items.map((item, i) => (
                       <li key={i} className="flex items-start gap-2">
                         <CheckCircle2 className="h-4 w-4 text-[#c4ff4d] flex-shrink-0 mt-1" />
-                        <span className="text-sm text-gray-800">{item}</span>
+                        <span className="text-sm text-[#1a2e29]">{item}</span>
                       </li>
                     ))}
                   </ul>
@@ -394,7 +394,7 @@ export default function Influencer() {
       </section>
 
       {/* Case Studies Section */}
-      <section className="py-14 px-4 bg-white">
+      <section className="py-20 px-4 bg-[#f5f0e6]">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-black text-black mb-8">
             Influencer success stories
@@ -412,7 +412,7 @@ export default function Influencer() {
           <div className="grid md:grid-cols-2 gap-8">
             {caseStudies.map((caseStudy) => (
               <Link key={caseStudy.id} href={caseStudy.link}>
-                <div className="relative bg-gradient-to-br from-gray-800 to-gray-900 rounded-3xl overflow-hidden h-[500px] hover-elevate active-elevate-2 cursor-pointer" data-testid={`card-case-study-${caseStudy.id}`}>
+                <div className="relative bg-gradient-to-br from-zinc-800 to-zinc-900 rounded-3xl overflow-hidden h-[500px] hover-elevate active-elevate-2 cursor-pointer" data-testid={`card-case-study-${caseStudy.id}`}>
                   <img
                     src={caseStudy.image}
                     alt={caseStudy.brand}
@@ -426,14 +426,14 @@ export default function Influencer() {
                       </span>
                     </div>
                     <h3 className="text-3xl font-black mb-2">{caseStudy.brand}</h3>
-                    <p className="text-lg text-gray-200 mb-4">
+                    <p className="text-lg text-white/80 mb-4">
                       {caseStudy.description}
                     </p>
                     <div className="grid grid-cols-3 gap-6 mt-6">
                       {caseStudy.stats.map((stat, idx) => (
                         <div key={idx}>
                           <div className="text-3xl font-black text-[#c4ff4d]">{stat.value}</div>
-                          <div className="text-sm text-gray-300">{stat.label}</div>
+                          <div className="text-sm text-white/70">{stat.label}</div>
                         </div>
                       ))}
                     </div>
@@ -459,7 +459,7 @@ export default function Influencer() {
               'Wellness Brand x Lifestyle',
               'Tech Product Launch'
             ].map((title, idx) => (
-              <div key={idx} className="relative bg-gray-200 rounded-3xl overflow-hidden h-[350px] group glass-lime hover-lift" data-testid={`card-content-influencer-${idx + 1}`}>
+              <div key={idx} className="relative bg-zinc-200 rounded-3xl overflow-hidden h-[350px] group glass-lime hover-lift" data-testid={`card-content-influencer-${idx + 1}`}>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                 <div className="absolute bottom-0 left-0 right-0 p-6">
                   <h3 className="text-lg font-black text-white">{title}</h3>
@@ -503,7 +503,7 @@ export default function Influencer() {
                 key={idx}
                 onClick={() => setCurrentBenefit(idx)}
                 className={`h-2 rounded-full transition-all duration-300 ${
-                  idx === currentBenefit ? 'w-8 bg-[#c4ff4d] glow-lime' : 'w-2 bg-gray-300'
+                  idx === currentBenefit ? 'w-8 bg-[#c4ff4d] glow-lime' : 'w-2 bg-zinc-300'
                 }`}
                 data-testid={`dot-benefit-${idx}`}
               />
@@ -519,7 +519,7 @@ export default function Influencer() {
               {benefits[currentBenefit].title}
             </h3>
 
-            <p className="text-lg text-gray-200">
+            <p className="text-lg text-white/80">
               {benefits[currentBenefit].description}
             </p>
           </div>
@@ -591,7 +591,7 @@ export default function Influencer() {
                   {category.items.map((item, i) => (
                     <li key={i} className="flex items-start gap-2">
                       <CheckCircle2 className="w-4 h-4 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
-                      <span className="text-sm text-gray-700">{item}</span>
+                      <span className="text-sm text-[#1a2e29]/70">{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -607,7 +607,7 @@ export default function Influencer() {
           <h2 className="text-3xl md:text-4xl font-black text-white mb-6">
             Ready to partner with the right creators?
           </h2>
-          <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
+          <p className="text-lg text-white/70 mb-8 max-w-2xl mx-auto">
             Let's discuss how strategic influencer partnerships can drive measurable results for your brand.
           </p>
           <Link href="/contact">

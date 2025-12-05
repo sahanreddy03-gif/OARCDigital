@@ -148,13 +148,13 @@ export default function CustomSoftwareDevelopment() {
         <div className="relative z-10 w-full max-w-7xl mx-auto px-4 py-20">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-500/20 border border-indigo-500/40 text-indigo-400 text-sm font-medium mb-6">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#23AACA]/20 border border-[#23AACA]/40 text-[#23AACA] text-sm font-medium mb-6">
                 <Boxes className="w-4 h-4" />
                 Development Services
               </div>
               
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6" data-testid="heading-custom-software">
-                Build Software That <span className="text-indigo-400">Just Works</span>
+                Build Software That <span className="text-[#23AACA]">Just Works</span>
               </h1>
               
               <p className="text-xl text-white/70 mb-8 leading-relaxed">
@@ -164,7 +164,7 @@ export default function CustomSoftwareDevelopment() {
               <div className="flex flex-wrap gap-4 mb-10">
                 <Link href="/contact">
                   <button
-                    className="btn-shimmer inline-flex items-center gap-3 bg-indigo-500 text-white rounded-full pl-8 pr-4 py-4 text-lg font-bold hover:bg-indigo-600 transition-colors"
+                    className="btn-shimmer inline-flex items-center gap-3 bg-[#23AACA] text-white rounded-full pl-8 pr-4 py-4 text-lg font-bold hover:bg-[#23AACA]/90 transition-colors"
                     data-testid="button-start-project"
                   >
                     Start Building
@@ -179,7 +179,7 @@ export default function CustomSoftwareDevelopment() {
               <div className="grid grid-cols-3 gap-4">
                 {capabilities.slice(0, 3).map((cap, i) => (
                   <div key={i} className="text-center p-3 bg-zinc-900/50 rounded-xl border border-zinc-800">
-                    <cap.icon className="w-6 h-6 text-indigo-400 mx-auto mb-2" />
+                    <cap.icon className="w-6 h-6 text-[#23AACA] mx-auto mb-2" />
                     <div className="text-white font-semibold text-sm">{cap.title}</div>
                     <div className="text-white/50 text-xs">{cap.desc}</div>
                   </div>
@@ -189,7 +189,7 @@ export default function CustomSoftwareDevelopment() {
 
             {/* Hero interface preview */}
             <div className="relative">
-              <div className="absolute -inset-4 bg-indigo-500/20 rounded-3xl blur-2xl"></div>
+              <div className="absolute -inset-4 bg-[#23AACA]/20 rounded-3xl blur-2xl"></div>
               <div className="relative bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-800 shadow-2xl">
                 {/* Browser chrome */}
                 <div className="bg-zinc-800 px-4 py-3 flex items-center gap-2">
@@ -252,7 +252,7 @@ export default function CustomSoftwareDevelopment() {
                     
                     {/* Content */}
                     <div className="absolute bottom-0 left-0 right-0 p-4">
-                      <div className="text-xs text-indigo-400 font-medium mb-1">{project.category}</div>
+                      <div className="text-xs text-[#23AACA] font-medium mb-1">{project.category}</div>
                       <h3 className={`font-bold text-white mb-2 ${project.size === 'large' ? 'text-2xl' : 'text-lg'}`}>
                         {project.title}
                       </h3>
@@ -287,7 +287,7 @@ export default function CustomSoftwareDevelopment() {
               {[...techStack, ...techStack].map((tech, i) => (
                 <div 
                   key={i}
-                  className="flex items-center gap-3 px-6 py-4 bg-zinc-900 rounded-xl border border-zinc-800 whitespace-nowrap group hover:border-indigo-500/50 transition-colors"
+                  className="flex items-center gap-3 px-6 py-4 bg-zinc-900 rounded-xl border border-zinc-800 whitespace-nowrap group hover:border-[#23AACA]/50 transition-colors"
                 >
                   <tech.Icon className="w-8 h-8" style={{ color: tech.color }} />
                   <span className="text-white font-semibold">{tech.name}</span>
@@ -310,7 +310,7 @@ export default function CustomSoftwareDevelopment() {
 
       {/* SECTION 4: Build Process - Visual Timeline */}
       <ScrollReveal>
-        <section className="py-20 px-4 bg-white">
+        <section className="py-20 px-4 bg-[#f5f0e6]">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-black text-black mb-4">
@@ -328,7 +328,7 @@ export default function CustomSoftwareDevelopment() {
                   key={i}
                   className={`relative p-6 rounded-2xl transition-all duration-500 cursor-pointer ${
                     activeStep === i 
-                      ? 'bg-indigo-500 text-white scale-105 shadow-2xl shadow-indigo-500/30' 
+                      ? 'bg-[#23AACA] text-white scale-105 shadow-2xl shadow-[#23AACA]/30' 
                       : 'bg-zinc-100 text-black hover:bg-zinc-200'
                   }`}
                   onClick={() => setActiveStep(i)}
@@ -336,14 +336,14 @@ export default function CustomSoftwareDevelopment() {
                 >
                   {/* Step number */}
                   <div className={`absolute -top-3 -left-3 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold ${
-                    activeStep === i ? 'bg-white text-indigo-500' : 'bg-indigo-500 text-white'
+                    activeStep === i ? 'bg-white text-[#23AACA]' : 'bg-[#23AACA] text-white'
                   }`}>
                     {i + 1}
                   </div>
                   
-                  <step.icon className={`w-10 h-10 mb-4 ${activeStep === i ? 'text-white' : 'text-indigo-500'}`} />
+                  <step.icon className={`w-10 h-10 mb-4 ${activeStep === i ? 'text-white' : 'text-[#23AACA]'}`} />
                   
-                  <div className={`text-xs font-bold mb-2 ${activeStep === i ? 'text-white/80' : 'text-indigo-500'}`}>
+                  <div className={`text-xs font-bold mb-2 ${activeStep === i ? 'text-white/80' : 'text-[#23AACA]'}`}>
                     {step.days}
                   </div>
                   
@@ -358,7 +358,7 @@ export default function CustomSoftwareDevelopment() {
             {/* Progress bar */}
             <div className="mt-8 h-2 bg-zinc-200 rounded-full overflow-hidden">
               <div 
-                className="h-full bg-indigo-500 transition-all duration-500 rounded-full"
+                className="h-full bg-[#23AACA] transition-all duration-500 rounded-full"
                 style={{ width: `${((activeStep + 1) / 5) * 100}%` }}
               ></div>
             </div>
@@ -367,7 +367,7 @@ export default function CustomSoftwareDevelopment() {
       </ScrollReveal>
 
       {/* SECTION 5: Stats Bar */}
-      <section className="py-12 px-4 bg-indigo-500">
+      <section className="py-12 px-4 bg-[#23AACA]">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
@@ -399,11 +399,11 @@ export default function CustomSoftwareDevelopment() {
               {capabilities.map((cap, i) => (
                 <div 
                   key={i}
-                  className="group p-6 rounded-2xl bg-white hover:bg-indigo-500 hover:text-white transition-all duration-300 border border-zinc-200 hover:border-indigo-500 text-center"
+                  className="group p-6 rounded-2xl bg-white hover:bg-[#23AACA] hover:text-white transition-all duration-300 border border-zinc-200 hover:border-[#23AACA] text-center"
                   data-testid={`capability-${i}`}
                 >
-                  <div className="w-14 h-14 mx-auto rounded-xl bg-indigo-500/10 group-hover:bg-white/20 flex items-center justify-center mb-4 transition-colors">
-                    <cap.icon className="w-7 h-7 text-indigo-500 group-hover:text-white transition-colors" />
+                  <div className="w-14 h-14 mx-auto rounded-xl bg-[#23AACA]/10 group-hover:bg-white/20 flex items-center justify-center mb-4 transition-colors">
+                    <cap.icon className="w-7 h-7 text-[#23AACA] group-hover:text-white transition-colors" />
                   </div>
                   <h3 className="font-bold mb-1">{cap.title}</h3>
                   <p className="text-sm text-muted-foreground group-hover:text-white/80">{cap.desc}</p>
@@ -418,14 +418,14 @@ export default function CustomSoftwareDevelopment() {
       <section className="py-20 px-4 bg-zinc-950 text-white">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl md:text-6xl font-black mb-6">
-            Ready to Build <span className="text-indigo-400">Something Great?</span>
+            Ready to Build <span className="text-[#23AACA]">Something Great?</span>
           </h2>
           <p className="text-xl text-white/70 mb-10">
             Free consultation with our technical team. No obligations.
           </p>
           <Link href="/contact">
             <button
-              className="btn-shimmer inline-flex items-center gap-3 bg-indigo-500 text-white rounded-full pl-10 pr-4 py-5 text-lg font-bold hover:bg-indigo-600 transition-colors"
+              className="btn-shimmer inline-flex items-center gap-3 bg-[#23AACA] text-white rounded-full pl-10 pr-4 py-5 text-lg font-bold hover:bg-[#23AACA]/90 transition-colors"
               data-testid="button-cta-contact"
             >
               Schedule Free Consultation

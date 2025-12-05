@@ -338,55 +338,55 @@ export default function PaidAdvertising() {
       </section>
 
       {/* Related Services */}
-      <section className="py-16 px-4 bg-[#f5f0e6]">
+      <section className="py-16 px-4 bg-zinc-950">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <div className="text-sm uppercase tracking-wider text-[#23AACA] mb-3">COMPLETE SOLUTION</div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-[#1a2e29]">
-              Maximize <span className="italic text-orange-500">campaign performance</span>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">
+              Maximize <span className="italic text-[#c4ff4d]">campaign performance</span>
             </h2>
-            <p className="text-lg text-[#1a2e29]/60 max-w-2xl mx-auto">
+            <p className="text-lg text-white/70 max-w-2xl mx-auto">
               Combine paid advertising with these services for end-to-end growth
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
             <Link href="/services/social-media-creative">
-              <div className="group p-6 rounded-xl bg-white border border-[#1a2e29]/10 hover:border-[#23AACA] hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer" data-testid="related-service-creative">
+              <div className="group p-6 rounded-xl bg-zinc-900 border border-zinc-800 hover:border-[#23AACA] transition-all duration-300 hover:-translate-y-1 cursor-pointer" data-testid="related-service-creative">
                 <div className="flex items-start justify-between mb-4">
-                  <h3 className="text-lg font-bold text-[#1a2e29] group-hover:text-[#23AACA] transition-colors">Social Media Creative</h3>
-                  <ArrowRight className="h-5 w-5 text-[#23AACA] group-hover:translate-x-1 transition-transform" />
+                  <h3 className="text-lg font-bold text-white group-hover:text-[#c4ff4d] transition-colors">Social Media Creative</h3>
+                  <ArrowRight className="h-5 w-5 text-[#c4ff4d] group-hover:translate-x-1 transition-transform" />
                 </div>
-                <p className="text-sm text-[#1a2e29]/60 mb-4">
+                <p className="text-sm text-white/70 mb-4">
                   Thumb-stopping creative that converts. We'll design and test ad variations that drive your ROAS higher.
                 </p>
-                <div className="text-sm text-[#23AACA] font-semibold">Explore Creative Services →</div>
+                <div className="text-sm text-[#c4ff4d] font-semibold">Explore Creative Services →</div>
               </div>
             </Link>
 
             <Link href="/services/web-design">
-              <div className="group p-6 rounded-xl bg-white border border-[#1a2e29]/10 hover:border-[#23AACA] hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer" data-testid="related-service-web">
+              <div className="group p-6 rounded-xl bg-zinc-900 border border-zinc-800 hover:border-[#23AACA] transition-all duration-300 hover:-translate-y-1 cursor-pointer" data-testid="related-service-web">
                 <div className="flex items-start justify-between mb-4">
-                  <h3 className="text-lg font-bold text-[#1a2e29] group-hover:text-[#23AACA] transition-colors">Web Design & CRO</h3>
-                  <ArrowRight className="h-5 w-5 text-[#23AACA] group-hover:translate-x-1 transition-transform" />
+                  <h3 className="text-lg font-bold text-white group-hover:text-[#c4ff4d] transition-colors">Web Design & CRO</h3>
+                  <ArrowRight className="h-5 w-5 text-[#c4ff4d] group-hover:translate-x-1 transition-transform" />
                 </div>
-                <p className="text-sm text-[#1a2e29]/60 mb-4">
+                <p className="text-sm text-white/70 mb-4">
                   High-converting landing pages optimized for paid traffic. Turn clicks into customers with strategic design.
                 </p>
-                <div className="text-sm text-[#23AACA] font-semibold">View Web Design →</div>
+                <div className="text-sm text-[#c4ff4d] font-semibold">View Web Design →</div>
               </div>
             </Link>
 
             <Link href="/services/revenue-automation">
-              <div className="group p-6 rounded-xl bg-white border border-[#1a2e29]/10 hover:border-[#23AACA] hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer" data-testid="related-service-automation">
+              <div className="group p-6 rounded-xl bg-zinc-900 border border-zinc-800 hover:border-[#23AACA] transition-all duration-300 hover:-translate-y-1 cursor-pointer" data-testid="related-service-automation">
                 <div className="flex items-start justify-between mb-4">
-                  <h3 className="text-lg font-bold text-[#1a2e29] group-hover:text-[#23AACA] transition-colors">Revenue Automation</h3>
-                  <ArrowRight className="h-5 w-5 text-[#23AACA] group-hover:translate-x-1 transition-transform" />
+                  <h3 className="text-lg font-bold text-white group-hover:text-[#c4ff4d] transition-colors">Revenue Automation</h3>
+                  <ArrowRight className="h-5 w-5 text-[#c4ff4d] group-hover:translate-x-1 transition-transform" />
                 </div>
-                <p className="text-sm text-[#1a2e29]/60 mb-4">
+                <p className="text-sm text-white/70 mb-4">
                   Automate lead nurturing and follow-up to maximize the value of every click from your paid campaigns.
                 </p>
-                <div className="text-sm text-[#23AACA] font-semibold">Explore Automation →</div>
+                <div className="text-sm text-[#c4ff4d] font-semibold">Explore Automation →</div>
               </div>
             </Link>
           </div>

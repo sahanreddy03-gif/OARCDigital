@@ -180,15 +180,15 @@ export default function Paid() {
                   Campaigns engineered for profitable growth
                 </h2>
 
-                <p className="text-base text-gray-700 mb-4">
+                <p className="text-base text-[#1a2e29]/70 mb-4">
                   Most paid media fails because it focuses on vanity metrics instead of business outcomes. We take a different approach.
                 </p>
 
-                <p className="text-base text-gray-700 mb-4">
+                <p className="text-base text-[#1a2e29]/70 mb-4">
                   Every campaign we build starts with your unit economics and works backward to create sustainable acquisition funnels. We obsess over customer lifetime value, not just click costs.
                 </p>
 
-                <p className="text-base text-gray-700 mb-6">
+                <p className="text-base text-[#1a2e29]/70 mb-6">
                   Our team combines platform expertise with AI-powered optimization to find and convert your ideal customers at scale.
                 </p>
 
@@ -253,15 +253,15 @@ export default function Paid() {
                   Staying ahead of platform evolution
                 </h2>
 
-                <p className="text-base text-gray-700 mb-4">
+                <p className="text-base text-[#1a2e29]/70 mb-4">
                   The paid media landscape shifts constantly. Privacy changes, new ad formats, algorithm updates—what worked last quarter might underperform today.
                 </p>
 
-                <p className="text-base text-gray-700 mb-4">
+                <p className="text-base text-[#1a2e29]/70 mb-4">
                   We invest heavily in staying current. Our team tests new features before they're widely available, adapts strategies proactively, and ensures your campaigns never fall behind.
                 </p>
 
-                <p className="text-base text-gray-700 mb-6">
+                <p className="text-base text-[#1a2e29]/70 mb-6">
                   From creative strategy to technical implementation, we handle the complexity so you can focus on growing your business.
                 </p>
 
@@ -284,7 +284,7 @@ export default function Paid() {
 
       {/* Text Left + Image Right Section */}
       <ScrollReveal delay={300}>
-        <section className="relative py-14 px-4 bg-white overflow-hidden">
+        <section className="relative py-14 px-4 bg-[#f5f0e6] overflow-hidden">
           <div className="absolute top-20 left-20 w-96 h-96 bg-[#c4ff4d]/10 rounded-full blur-3xl animate-float"></div>
           <div className="absolute bottom-10 right-10 w-64 h-64 bg-[#c4ff4d]/5 rounded-full blur-2xl animate-float-delayed"></div>
           
@@ -295,15 +295,15 @@ export default function Paid() {
                   Measurement that drives decisions
                 </h2>
 
-                <p className="text-base text-gray-700 mb-4">
+                <p className="text-base text-[#1a2e29]/70 mb-4">
                   Good data is the foundation of great campaigns. We build custom reporting that connects your ad spend to actual business outcomes.
                 </p>
 
-                <p className="text-base text-gray-700 mb-4">
+                <p className="text-base text-[#1a2e29]/70 mb-4">
                   Our dashboards show you exactly which campaigns, audiences, and creatives are driving revenue—not just clicks and impressions.
                 </p>
 
-                <p className="text-base text-gray-700 mb-6">
+                <p className="text-base text-[#1a2e29]/70 mb-6">
                   With clear attribution and transparent metrics, you'll always know exactly where your investment is going and what it's delivering.
                 </p>
 
@@ -347,7 +347,7 @@ export default function Paid() {
                 key={idx}
                 onClick={() => setCurrentService(idx)}
                 className={`h-2 rounded-full transition-all duration-300 ${
-                  idx === currentService ? 'w-8 bg-[#c4ff4d] glow-lime' : 'w-2 bg-gray-300'
+                  idx === currentService ? 'w-8 bg-[#c4ff4d] glow-lime' : 'w-2 bg-zinc-300'
                 }`}
                 data-testid={`dot-service-${idx}`}
               />
@@ -381,7 +381,7 @@ export default function Paid() {
                     {service.title}
                   </h3>
 
-                  <p className="text-sm text-gray-700 mb-5">
+                  <p className="text-sm text-[#1a2e29]/70 mb-5">
                     {service.description}
                   </p>
 
@@ -389,7 +389,7 @@ export default function Paid() {
                     {service.items.map((item, i) => (
                       <li key={i} className="flex items-start gap-2">
                         <CheckCircle2 className="h-4 w-4 text-[#c4ff4d] flex-shrink-0 mt-1" />
-                        <span className="text-sm text-gray-800">{item}</span>
+                        <span className="text-sm text-[#1a2e29]">{item}</span>
                       </li>
                     ))}
                   </ul>
@@ -401,7 +401,7 @@ export default function Paid() {
       </section>
 
       {/* Case Studies Section */}
-      <section className="py-14 px-4 bg-white">
+      <section className="py-20 px-4 bg-[#f5f0e6]">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-black text-black mb-8">
             Paid media success stories
@@ -418,7 +418,7 @@ export default function Paid() {
 
           <div className="grid md:grid-cols-2 gap-8">
             <Link href="/case-studies/esl-gaming">
-              <div className="relative bg-gradient-to-br from-gray-800 to-gray-900 rounded-3xl overflow-hidden h-[500px] hover-elevate active-elevate-2 cursor-pointer" data-testid="card-case-study-gaming">
+              <div className="relative bg-gradient-to-br from-zinc-800 to-zinc-900 rounded-3xl overflow-hidden h-[500px] hover-elevate active-elevate-2 cursor-pointer" data-testid="card-case-study-gaming">
                 <img
                   src={gamingImg1}
                   alt="Gaming brand paid campaign"
@@ -435,21 +435,21 @@ export default function Paid() {
                     </span>
                   </div>
                   <h3 className="text-2xl font-black mb-2">ESL Gaming</h3>
-                  <p className="text-sm text-gray-200 mb-3">
+                  <p className="text-sm text-white/80 mb-3">
                     Scaling esports brand awareness through precision-targeted campaigns.
                   </p>
                   <div className="grid grid-cols-3 gap-3 mt-4">
                     <div>
                       <div className="text-2xl font-black text-[#c4ff4d]">13M</div>
-                      <div className="text-xs text-gray-300">Impressions</div>
+                      <div className="text-xs text-white/70">Impressions</div>
                     </div>
                     <div>
                       <div className="text-2xl font-black text-[#c4ff4d]">26M</div>
-                      <div className="text-xs text-gray-300">Video Views</div>
+                      <div className="text-xs text-white/70">Video Views</div>
                     </div>
                     <div>
                       <div className="text-2xl font-black text-[#c4ff4d]">1.1M</div>
-                      <div className="text-xs text-gray-300">Engagements</div>
+                      <div className="text-xs text-white/70">Engagements</div>
                     </div>
                   </div>
                 </div>
@@ -457,7 +457,7 @@ export default function Paid() {
             </Link>
 
             <Link href="/case-studies/lenovo-legion">
-              <div className="relative bg-gradient-to-br from-gray-800 to-gray-900 rounded-3xl overflow-hidden h-[500px] hover-elevate active-elevate-2 cursor-pointer" data-testid="card-case-study-tech">
+              <div className="relative bg-gradient-to-br from-zinc-800 to-zinc-900 rounded-3xl overflow-hidden h-[500px] hover-elevate active-elevate-2 cursor-pointer" data-testid="card-case-study-tech">
                 <img
                   src={gamingImg2}
                   alt="Tech brand performance campaign"
@@ -474,21 +474,21 @@ export default function Paid() {
                     </span>
                   </div>
                   <h3 className="text-2xl font-black mb-2">Lenovo Legion</h3>
-                  <p className="text-sm text-gray-200 mb-3">
+                  <p className="text-sm text-white/80 mb-3">
                     Driving product consideration through multi-platform campaigns.
                   </p>
                   <div className="grid grid-cols-3 gap-3 mt-4">
                     <div>
                       <div className="text-2xl font-black text-[#c4ff4d]">113%</div>
-                      <div className="text-xs text-gray-300">Traffic Increase</div>
+                      <div className="text-xs text-white/70">Traffic Increase</div>
                     </div>
                     <div>
                       <div className="text-2xl font-black text-[#c4ff4d]">8.5%</div>
-                      <div className="text-xs text-gray-300">CTR</div>
+                      <div className="text-xs text-white/70">CTR</div>
                     </div>
                     <div>
                       <div className="text-2xl font-black text-[#c4ff4d]">4.2x</div>
-                      <div className="text-xs text-gray-300">ROAS</div>
+                      <div className="text-xs text-white/70">ROAS</div>
                     </div>
                   </div>
                 </div>
@@ -531,7 +531,7 @@ export default function Paid() {
                 key={idx}
                 onClick={() => setCurrentBenefit(idx)}
                 className={`h-2 rounded-full transition-all duration-300 ${
-                  idx === currentBenefit ? 'w-8 bg-[#c4ff4d] glow-lime' : 'w-2 bg-gray-300'
+                  idx === currentBenefit ? 'w-8 bg-[#c4ff4d] glow-lime' : 'w-2 bg-zinc-300'
                 }`}
                 data-testid={`dot-benefit-${idx}`}
               />
@@ -547,7 +547,7 @@ export default function Paid() {
               {benefits[currentBenefit].title}
             </h3>
 
-            <p className="text-lg text-gray-200">
+            <p className="text-lg text-white/80">
               {benefits[currentBenefit].description}
             </p>
           </div>
@@ -567,7 +567,7 @@ export default function Paid() {
       </section>
 
       {/* Who This Service Is For */}
-      <section className="py-20 px-4 bg-white">
+      <section className="py-20 px-4 bg-[#f5f0e6]">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <div className="text-sm uppercase tracking-wider mb-4" style={{ color: '#6b9b12' }}>IDEAL FOR</div>
@@ -615,7 +615,7 @@ export default function Paid() {
                   {category.items.map((item, i) => (
                     <li key={i} className="flex items-start gap-2">
                       <CheckCircle2 className="w-4 h-4 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
-                      <span className="text-sm text-gray-700">{item}</span>
+                      <span className="text-sm text-[#1a2e29]/70">{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -633,7 +633,7 @@ export default function Paid() {
           <h2 className="text-3xl md:text-4xl font-black text-white mb-6">
             Ready to turn ad spend into revenue?
           </h2>
-          <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
+          <p className="text-lg text-white/70 mb-8 max-w-2xl mx-auto">
             Let's discuss how our AI-enhanced paid media strategies can drive measurable growth for your brand.
           </p>
           <Link href="/contact">
