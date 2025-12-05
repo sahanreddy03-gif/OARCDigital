@@ -1,6 +1,5 @@
 import Layout from "@/components/layout/Layout";
 import SEOHead from "@/components/SEOHead";
-import { revenueServicesSEO } from "@/data/seoMetadata";
 import { createServiceSchema } from "@/utils/structuredData";
 import { useEffect, useState } from "react";
 import { Link } from "wouter";
@@ -125,14 +124,14 @@ export default function Social() {
   return (
     <Layout>
       <SEOHead
-        title={revenueServicesSEO.socialMediaManagement.title}
-        description={revenueServicesSEO.socialMediaManagement.description}
-        canonicalUrl={`https://oarcdigital.com${revenueServicesSEO.socialMediaManagement.path}`}
+        title="Organic Social Media Management | Strategy & Community | OARC Digital"
+        description="Build engaged communities that drive real business results. Daily content, community management, and data-driven strategy to grow your organic presence."
+        canonicalUrl="https://oarcdigital.com/services/social"
         ogType="article"
         structuredData={createServiceSchema(
-          "Social Media Services",
-          revenueServicesSEO.socialMediaManagement.description,
-          "Social Media Management"
+          "Organic Social Media Services",
+          "Build engaged communities that drive real business results. Daily content, community management, and data-driven strategy.",
+          "Organic Social"
         )}
         schemaId="service-social"
       />
@@ -143,19 +142,19 @@ export default function Social() {
         <div className="max-w-6xl mx-auto relative">
           <div className="mb-4"></div>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-black mb-6" data-testid="heading-social">
-            Social Media
+            Organic Social
           </h1>
           
           <h2 className="text-xl md:text-2xl lg:text-3xl font-black text-black mb-5">
-            Transform followers into a loyal community that drives real business growth
+            Build communities that drive real business growth
           </h2>
 
           <p className="text-base text-black mb-5">
-            Struggling to cut through the noise and build meaningful connections with your audience?
+            Growing an organic following takes more than posting consistently. It takes strategy.
           </p>
 
           <p className="text-base text-black mb-6">
-            Our AI-enhanced approach combines platform expertise with data-driven creativity to build communities that don't just engage—they convert.
+            We handle everything from content planning to community engagement, turning your social presence into a growth engine.
           </p>
 
           <Link href="/contact">

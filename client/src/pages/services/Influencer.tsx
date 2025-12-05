@@ -3,7 +3,6 @@ import { Link } from 'wouter';
 import { ArrowRight, CheckCircle2, ChevronLeft, ChevronRight, Users, FileBarChart2, Megaphone, TrendingUp, Sparkles, Target } from 'lucide-react';
 import Layout from '@/components/layout/Layout';
 import SEOHead from "@/components/SEOHead";
-import { revenueServicesSEO } from "@/data/seoMetadata";
 import { createServiceSchema } from "@/utils/structuredData";
 import ScrollReveal from "@/components/ScrollReveal";
 import picnicImg from '@assets/stock_images/social_media_influen_3c07c2fc.jpg';
@@ -124,14 +123,14 @@ export default function Influencer() {
   return (
     <Layout>
       <SEOHead
-        title={revenueServicesSEO.influencerMarketing.title}
-        description={revenueServicesSEO.influencerMarketing.description}
-        canonicalUrl={`https://oarcdigital.com${revenueServicesSEO.influencerMarketing.path}`}
+        title="Influencer Partners | Creator Campaigns | OARC Digital"
+        description="Connect with vetted creators who align with your brand. We handle sourcing, outreach, contracts, and campaign management from start to finish."
+        canonicalUrl="https://oarcdigital.com/services/influencer-marketing"
         ogType="article"
         structuredData={createServiceSchema(
-          "Influencer Marketing Services",
-          revenueServicesSEO.influencerMarketing.description,
-          "Influencer Campaigns"
+          "Influencer Partnership Services",
+          "Connect with vetted creators who align with your brand. Full campaign management from sourcing to measurement.",
+          "Influencer Partners"
         )}
         schemaId="service-influencer"
       />
@@ -142,19 +141,19 @@ export default function Influencer() {
         <div className="max-w-6xl mx-auto relative">
           <div className="mb-4"></div>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-black mb-8" data-testid="heading-influencer">
-            Influencer
+            Influencer Partners
           </h1>
 
           <h2 className="text-2xl md:text-3xl font-black text-black mb-6">
-            Authentic creator partnerships that drive measurable business results
+            Creator partnerships that deliver real results
           </h2>
 
           <p className="text-base text-black mb-4">
-            Build brand awareness, shift perception, and drive conversions with strategically selected creator partnerships.
+            Connect with vetted creators who genuinely align with your brand and audience.
           </p>
 
           <p className="text-base text-black mb-6">
-            Whether you need a single campaign or ongoing influencer partnerships, we manage every detail from sourcing to measurement.
+            We handle everything—sourcing, outreach, contracts, and campaign management—so you can focus on your business.
           </p>
 
           <Link href="/contact">

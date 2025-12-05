@@ -4,7 +4,6 @@ import { ArrowRight, CheckCircle2, ChevronLeft, ChevronRight, Target, TrendingUp
 import { SiMeta, SiGoogle, SiTiktok, SiPinterest } from 'react-icons/si';
 import Layout from '@/components/layout/Layout';
 import SEOHead from "@/components/SEOHead";
-import { revenueServicesSEO } from "@/data/seoMetadata";
 import { createServiceSchema } from "@/utils/structuredData";
 import ScrollReveal from "@/components/ScrollReveal";
 import heroImage from '@assets/paid-advertising-optimized.jpg';
@@ -121,14 +120,14 @@ export default function Paid() {
   return (
     <Layout>
       <SEOHead
-        title={revenueServicesSEO.paidAdvertising.title}
-        description={revenueServicesSEO.paidAdvertising.description}
-        canonicalUrl={`https://oarcdigital.com${revenueServicesSEO.paidAdvertising.path}`}
+        title="Paid Ads Management | Meta, Google, TikTok, LinkedIn | OARC Digital"
+        description="Strategic paid campaigns across Meta, Google, TikTok, and LinkedIn. We optimize targeting, creative, and bidding to maximize your return on ad spend."
+        canonicalUrl="https://oarcdigital.com/services/paid-advertising"
         ogType="article"
         structuredData={createServiceSchema(
-          "Paid Media Services",
-          revenueServicesSEO.paidAdvertising.description,
-          "Paid Advertising"
+          "Paid Advertising Services",
+          "Strategic paid campaigns across Meta, Google, TikTok, and LinkedIn. Optimize targeting and creative for maximum ROAS.",
+          "Paid Ads"
         )}
         schemaId="service-paid"
       />
@@ -138,7 +137,7 @@ export default function Paid() {
         <div className="absolute inset-0">
           <img 
             src={heroImage}
-            alt="Performance marketing campaigns"
+            alt="Paid advertising campaigns"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/70 to-black/50"></div>
@@ -146,10 +145,10 @@ export default function Paid() {
         <div className="absolute top-20 right-20 w-96 h-96 bg-[#c4ff4d]/10 rounded-full blur-3xl animate-float"></div>
         <div className="relative z-10 text-center px-4 max-w-6xl mx-auto">
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 animate-in fade-in slide-in-from-bottom-4 duration-700" data-testid="heading-paid">
-            Data-Driven <span className="italic" style={{ color: '#c4ff4d' }}>Paid Media</span>
+            Paid <span className="italic" style={{ color: '#c4ff4d' }}>Ads</span>
           </h1>
           <p className="text-lg md:text-xl text-white/90 mb-8 max-w-3xl mx-auto animate-in fade-in slide-in-from-bottom-4 duration-700 delay-150">
-            Transform ad spend into predictable revenue with AI-optimized campaigns across social and search. We engineer full-funnel strategies that acquire customers profitably and scale sustainably.
+            Strategic campaigns across Meta, Google, TikTok, and LinkedIn. We optimize targeting, creative, and bidding to maximize your return on ad spend.
           </p>
           <div className="flex flex-wrap gap-4 justify-center animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300">
             <Link href="/contact">
