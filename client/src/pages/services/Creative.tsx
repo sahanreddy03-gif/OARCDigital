@@ -3,7 +3,6 @@ import { Link } from 'wouter';
 import { ArrowRight, CheckCircle2, ChevronLeft, ChevronRight, Camera, Palette, Clapperboard, Film, Layers, Sparkles, Wand2 } from 'lucide-react';
 import Layout from '@/components/layout/Layout';
 import SEOHead from "@/components/SEOHead";
-import { creativeServicesSEO } from "@/data/seoMetadata";
 import { createServiceSchema } from "@/utils/structuredData";
 import ScrollReveal from "@/components/ScrollReveal";
 import videoProductionImg from '@assets/pexels-lewis-r-241208113-12341819_1764635856482.jpg';
@@ -122,14 +121,14 @@ export default function Creative() {
   return (
     <Layout>
       <SEOHead
-        title="Creative Services | Video, Design & Motion | OARC Digital"
-        description="Platform-native creative production spanning video, design, and motion graphics. We build content engineered to convert."
+        title="Content Creation | Video, Photo & Graphics | OARC Digital"
+        description="Professional content production for social media. From video reels and photography to graphics and animations—scroll-stopping content that converts."
         canonicalUrl="https://oarcdigital.com/services/creative"
         ogType="article"
         structuredData={createServiceSchema(
-          "Creative Services",
-          "Full-service creative production including video, design, and motion graphics for social media and digital platforms.",
-          "Creative Production"
+          "Content Creation Services",
+          "Professional content production for social media. Video reels, photography, graphics, and animations.",
+          "Content Creation"
         )}
         schemaId="service-creative"
       />
@@ -142,19 +141,19 @@ export default function Creative() {
         <div className="max-w-6xl mx-auto relative">
           <div className="mb-4"></div>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-black mb-8" data-testid="heading-creative">
-            Creative
+            Content Creation
           </h1>
 
           <h2 className="text-2xl md:text-3xl font-black text-black mb-6">
-            Scroll-stopping content built for the platforms that matter
+            Scroll-stopping content that converts
           </h2>
 
           <p className="text-base text-black mb-4">
-            Generic creative gets ignored. Platform-native content gets results.
+            From video reels to photography to motion graphics—we produce content built for your platforms.
           </p>
 
           <p className="text-base text-black mb-8">
-            Our in-house creative team produces video, design, and motion content specifically engineered for how each platform works—not repurposed afterthoughts.
+            Our in-house team creates everything from quick social clips to full production shoots, all optimized for where your audience actually is.
           </p>
 
           <Link href="/contact">
