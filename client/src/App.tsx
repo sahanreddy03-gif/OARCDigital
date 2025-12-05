@@ -25,7 +25,6 @@ import RevenueHub from "@/pages/services/RevenueHub";
 import PaidAdvertising from "@/pages/services/PaidAdvertising";
 import MediaBuying from "@/pages/services/MediaBuying";
 import InfluencerMarketing from "@/pages/services/InfluencerMarketing";
-import BrandingServices from "@/pages/services/BrandingServices";
 import AICopywriting from "@/pages/services/AICopywriting";
 import RevenueService from "@/pages/services/RevenueService";
 import DigitalMarketing from "@/pages/services/DigitalMarketing";
@@ -126,7 +125,6 @@ function Router() {
       <Route path="/services/paid-advertising" component={PaidAdvertising} />
       <Route path="/services/media-buying" component={MediaBuying} />
       <Route path="/services/influencer-marketing" component={InfluencerMarketing} />
-      <Route path="/services/branding-services" component={BrandingServices} />
       <Route path="/services/ai-copywriting" component={AICopywriting} />
       <Route path="/services/lead-generation" component={RevenueService} />
       <Route path="/services/customer-acquisition" component={RevenueService} />
