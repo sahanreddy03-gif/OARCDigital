@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Link } from "wouter";
-import { Box as BoxIcon, Smartphone, Glasses, Package, Layers, Sparkles, CheckCircle2, Eye, Zap } from "lucide-react";
+import { Box as BoxIcon, Smartphone, Glasses, Package, Layers, Sparkles, CheckCircle2, Eye, Zap, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ScrollableCards } from "@/components/ui/scrollable-cards";
 import Layout from "@/components/layout/Layout";
