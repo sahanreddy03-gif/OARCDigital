@@ -342,9 +342,9 @@ export default function MobileAppsDevelopment() {
 
       {/* SECTION 5: What We Handle */}
       <ScrollReveal>
-        <section className="py-20 px-4 bg-gradient-to-b from-[#fff9f5] to-white">
+        <section className="py-20 px-4 bg-[#f5f0e6]">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-black text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-black text-center mb-12 text-[#1a2e29]">
               Everything your app needs
             </h2>
 
@@ -359,12 +359,12 @@ export default function MobileAppsDevelopment() {
               ].map((item, i) => (
                 <div 
                   key={i}
-                  className="p-5 rounded-2xl border border-zinc-200 hover:border-[#23AACA] hover:shadow-lg transition-all text-center group"
+                  className="p-5 rounded-2xl bg-white border border-[#1a2e29]/10 hover:border-[#23AACA] hover:shadow-lg transition-all text-center group"
                   data-testid={`capability-${i}`}
                 >
                   <item.icon className="w-8 h-8 text-[#23AACA] mx-auto mb-3" />
-                  <h3 className="font-bold text-sm mb-1">{item.title}</h3>
-                  <p className="text-muted-foreground text-xs">{item.desc}</p>
+                  <h3 className="font-bold text-sm mb-1 text-[#1a2e29]">{item.title}</h3>
+                  <p className="text-[#1a2e29]/60 text-xs">{item.desc}</p>
                 </div>
               ))}
             </div>

@@ -427,8 +427,8 @@ export default function SocialMediaCreativeManagement() {
         </div>
 
         {/* TARGET CIRCLE with SVG ICONS - Positioned for new layout */}
-        {/* Mobile: Top-right beside title | Desktop: Right side, lifted higher to avoid text overlap */}
-        <div className="absolute top-1 right-1 sm:top-3 sm:right-3 md:top-[30%] md:right-12 lg:right-20 md:-translate-y-1/2 w-[136px] h-[136px] sm:w-40 sm:h-40 md:w-56 md:h-56 lg:w-72 lg:h-72 motion-reduce:hidden pointer-events-none z-10">
+        {/* Mobile: Top-right beside title (below header) | Desktop: Right side, lifted higher to avoid text overlap */}
+        <div className="absolute top-20 right-1 sm:top-20 sm:right-3 md:top-[30%] md:right-12 lg:right-20 md:-translate-y-1/2 w-[136px] h-[136px] sm:w-40 sm:h-40 md:w-56 md:h-56 lg:w-72 lg:h-72 motion-reduce:hidden pointer-events-none z-10">
           <svg width="100%" height="100%" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <linearGradient id="centerGrad" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -777,7 +777,7 @@ export default function SocialMediaCreativeManagement() {
         />
         
         {/* Hero Content Area - MOBILE: Full-width stacked | DESKTOP: Two-column */}
-        <div className="relative z-10 max-w-6xl mx-auto px-4 md:px-8 pt-3 pb-3 md:pt-6 md:pb-8">
+        <div className="relative z-10 max-w-6xl mx-auto px-4 md:px-8 pt-20 pb-3 md:pt-6 md:pb-8">
           
           {/* MOBILE: Full-width stacked layout | DESKTOP: Two-column grid */}
           {/* More bottom margin to push portfolio cards down - mb-16 on mobile */}
