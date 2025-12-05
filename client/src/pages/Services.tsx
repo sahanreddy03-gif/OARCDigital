@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { ArrowRight, Sparkles, Users, TrendingUp, ChevronDown } from 'lucide-react';
+import { ArrowRight, Sparkles, Users, TrendingUp, ChevronDown, Bot, Code2, Palette } from 'lucide-react';
 import { Link } from 'wouter';
 import { motion, useScroll, useTransform, useInView } from 'framer-motion';
 import { getAllCategories } from '@/config/servicesConfig';
@@ -12,39 +12,47 @@ import growthImg from '@assets/stock_images/business_revenue_gro_c01f15ff.jpg';
 import aiImg from '@assets/stock_images/artificial_intellige_3ed7faa2.jpg';
 
 const categoryImages: Record<string, string> = {
-  'aiCreative': creativeImg,
-  'revenue': growthImg,
-  'aiEmployees': aiImg,
+  'creativeDesign': creativeImg,
+  'aiAgents': aiImg,
+  'growthAutomation': growthImg,
+  'development': creativeImg,
 };
 
 const categoryIcons: Record<string, any> = {
-  'aiCreative': Sparkles,
-  'revenue': TrendingUp,
-  'aiEmployees': Users,
+  'creativeDesign': Palette,
+  'aiAgents': Bot,
+  'growthAutomation': TrendingUp,
+  'development': Code2,
 };
 
 const categoryColors: Record<string, { gradient: string; accent: string; glow: string }> = {
-  'aiCreative': {
+  'creativeDesign': {
     gradient: 'from-[#c4ff4d] via-lime-400 to-green-400',
     accent: '#c4ff4d',
     glow: 'shadow-[0_0_60px_rgba(196,255,77,0.4)]'
   },
-  'revenue': {
+  'aiAgents': {
+    gradient: 'from-purple-400 via-violet-500 to-indigo-500',
+    accent: '#8b5cf6',
+    glow: 'shadow-[0_0_60px_rgba(139,92,246,0.4)]'
+  },
+  'growthAutomation': {
     gradient: 'from-orange-400 via-orange-500 to-amber-500',
     accent: '#f97316',
     glow: 'shadow-[0_0_60px_rgba(249,115,22,0.4)]'
   },
-  'aiEmployees': {
-    gradient: 'from-[#c4ff4d] via-green-400 to-emerald-400',
-    accent: '#c4ff4d',
-    glow: 'shadow-[0_0_60px_rgba(196,255,77,0.3)]'
+  'development': {
+    gradient: 'from-cyan-400 via-blue-500 to-indigo-500',
+    accent: '#06b6d4',
+    glow: 'shadow-[0_0_60px_rgba(6,182,212,0.4)]'
   },
 };
 
 const categoryTaglines: Record<string, string> = {
-  'aiCreative': 'Content, media, and branding that captivate.',
-  'revenue': 'Automate growth. Amplify profit. Accelerate success.',
-  'aiEmployees': 'Your 24/7 digital workforce — smarter, faster, scalable.',
+  'creativeDesign': 'Content, media, and branding that captivate.',
+  'aiAgents': 'Your 24/7 digital workforce — smarter, faster, scalable.',
+  'growthAutomation': 'Automate growth. Amplify profit. Accelerate success.',
+  'development': 'Build custom AI solutions and software that scales.',
 };
 
 function AnimatedCounterInline({ value, suffix = '', isInView }: { value: number; suffix?: string; isInView: boolean }) {
@@ -75,7 +83,7 @@ function AnimatedCounterInline({ value, suffix = '', isInView }: { value: number
 
 export default function Services() {
   const categories = getAllCategories();
-  const [activeCategory, setActiveCategory] = useState('aiCreative');
+  const [activeCategory, setActiveCategory] = useState('creativeDesign');
   const heroRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: heroRef,
@@ -85,7 +93,7 @@ export default function Services() {
   const heroY = useTransform(scrollYProgress, [0, 1], ['0%', '50%']);
   const heroOpacity = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0.5, 0]);
 
-  const activeColor = categoryColors[activeCategory];
+  const activeColor = categoryColors[activeCategory] || categoryColors.creativeDesign;
   const activeCategoryData = categories.find(c => c.id === activeCategory);
 
   const getUniqueServices = (category: typeof categories[0]) => {
@@ -106,24 +114,18 @@ export default function Services() {
       />
       <div className="min-h-screen bg-black text-white overflow-x-hidden">
 
-      {/* Cinematic Hero with Parallax - extends behind transparent nav */}
       <section ref={heroRef} className="relative h-screen flex items-center justify-center overflow-hidden">
-        {/* Layered Background with Image */}
         <motion.div 
           style={{ y: heroY }}
           className="absolute inset-0"
         >
-          {/* Background Image Layer */}
           <img 
             src={heroImg}
             alt="Digital Technology Background"
             className="w-full h-full object-cover"
           />
-          {/* Dark Gradient Wash with Green Accent */}
           <div className="absolute inset-0 bg-gradient-to-br from-black/90 via-zinc-900/70 to-black/95 z-10"></div>
-          {/* Additional Depth Layer */}
           <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent z-10"></div>
-          {/* Animated Green Glow Orbs */}
           <motion.div
             animate={{
               scale: [1, 1.3, 1],
@@ -164,7 +166,6 @@ export default function Services() {
           ></motion.div>
         </motion.div>
 
-        {/* Hero Content */}
         <motion.div 
           style={{ opacity: heroOpacity }}
           className="relative z-20 text-center px-6 max-w-6xl mx-auto"
@@ -176,7 +177,7 @@ export default function Services() {
           >
             <div className="inline-block mb-6">
               <span className="px-5 py-2.5 bg-gradient-to-r from-[#c4ff4d]/10 to-lime-500/10 border border-[#c4ff4d]/40 rounded-full text-xs font-bold text-[#c4ff4d] backdrop-blur-sm uppercase tracking-wider">
-                25+ Premium Services
+                26+ Premium Services
               </span>
             </div>
           </motion.div>
@@ -245,7 +246,6 @@ export default function Services() {
           </motion.div>
         </motion.div>
 
-        {/* Scroll Indicator */}
         <motion.div
           animate={{
             y: [0, 10, 0],
@@ -261,16 +261,14 @@ export default function Services() {
         </motion.div>
       </section>
 
-      {/* Stats Section */}
       <section className="py-16 px-6 bg-gradient-to-b from-black via-zinc-950 to-zinc-900 relative overflow-hidden">
-        {/* Floating Orbs */}
         <div className="absolute top-0 left-1/4 w-80 h-80 bg-[#c4ff4d]/10 rounded-full blur-3xl motion-reduce:hidden"></div>
         <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-orange-500/10 rounded-full blur-3xl motion-reduce:hidden"></div>
         
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {[
-              { value: 25, suffix: '+', label: 'Specialized Solutions', color: 'from-[#c4ff4d] to-lime-400' },
+              { value: 26, suffix: '+', label: 'Specialized Solutions', color: 'from-[#c4ff4d] to-lime-400' },
               { value: 500, suffix: '+', label: 'Successful Campaigns', color: 'from-orange-400 to-amber-400' },
               { value: 98, suffix: '%', label: 'Client Retention', color: 'from-[#c4ff4d] to-green-400' }
             ].map((stat, index) => {
@@ -299,9 +297,7 @@ export default function Services() {
         </div>
       </section>
 
-      {/* Interactive Category Tabs */}
       <section id="services-section" className="py-24 px-6 bg-zinc-900 relative overflow-hidden">
-        {/* Premium Background Effects */}
         <div className="absolute top-20 right-10 w-96 h-96 bg-[#c4ff4d]/8 rounded-full blur-3xl motion-reduce:hidden"></div>
         <div className="absolute bottom-20 left-10 w-80 h-80 bg-orange-500/8 rounded-full blur-3xl motion-reduce:hidden"></div>
         
@@ -318,15 +314,14 @@ export default function Services() {
               </span>
             </h2>
             <p className="text-body text-zinc-400 max-w-2xl mx-auto">
-              Discover our three core competencies designed to accelerate your growth
+              Discover our four core competencies designed to accelerate your growth
             </p>
           </motion.div>
 
-          {/* Category Pills */}
-          <div className="flex flex-wrap justify-center gap-8 mb-16">
+          <div className="flex flex-wrap justify-center gap-4 mb-16">
             {categories.map((category) => {
-              const Icon = categoryIcons[category.id];
-              const colors = categoryColors[category.id];
+              const Icon = categoryIcons[category.id] || Sparkles;
+              const colors = categoryColors[category.id] || categoryColors.creativeDesign;
               const isActive = activeCategory === category.id;
 
               return (
@@ -335,7 +330,7 @@ export default function Services() {
                   onClick={() => setActiveCategory(category.id)}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className={`relative group px-8 py-4 rounded-full font-bold text-base transition-all overflow-hidden ${
+                  className={`relative group px-6 py-3 rounded-full font-bold text-sm transition-all overflow-hidden ${
                     isActive 
                       ? `bg-gradient-to-r ${colors.gradient} text-black ${colors.glow}` 
                       : 'bg-white/5 backdrop-blur-sm border border-white/10 text-white hover:border-white/30'
@@ -343,7 +338,7 @@ export default function Services() {
                   data-testid={`tab-${category.id}`}
                 >
                   <span className="relative z-10 flex items-center gap-2">
-                    <Icon className="w-5 h-5" />
+                    <Icon className="w-4 h-4" />
                     {category.title}
                   </span>
                 </motion.button>
@@ -351,7 +346,6 @@ export default function Services() {
             })}
           </div>
 
-          {/* Active Category Content */}
           {activeCategoryData && (
             <motion.div
               key={activeCategory}
@@ -360,10 +354,9 @@ export default function Services() {
               transition={{ duration: 0.5 }}
               className="space-y-16"
             >
-              {/* Category Hero Image with Featured Service */}
               <div className="relative h-[400px] md:h-[500px] rounded-3xl overflow-hidden">
                 <img 
-                  src={categoryImages[activeCategory]}
+                  src={categoryImages[activeCategory] || creativeImg}
                   alt={activeCategoryData.title}
                   className="w-full h-full object-cover"
                 />
@@ -375,7 +368,7 @@ export default function Services() {
                       transition={{ delay: 0.2 }}
                     >
                       <p className="text-caption text-[#c4ff4d] font-bold mb-3 uppercase tracking-wider">
-                        {categoryTaglines[activeCategory]}
+                        {categoryTaglines[activeCategory] || 'Transform your business'}
                       </p>
                       <h3 className="text-heading-lg font-black mb-6 text-white">
                         {activeCategoryData.featured.title}
@@ -394,7 +387,6 @@ export default function Services() {
                 </div>
               </div>
 
-              {/* All Services Grid */}
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {getUniqueServices(activeCategoryData).map((service, index) => {
                   const ServiceIcon = service.icon;
@@ -414,7 +406,7 @@ export default function Services() {
                           </div>
                         )}
                         
-                        <div className="flex items-start justify-between gap-3 mb-4">
+                        <div className="flex items-start justify-between gap-3 mb-2">
                           <h4 className="text-base font-semibold text-white group-hover:text-[#c4ff4d] transition-colors">
                             {service.title}
                           </h4>
@@ -424,6 +416,12 @@ export default function Services() {
                             </span>
                           )}
                         </div>
+
+                        {service.description && (
+                          <p className="text-sm text-zinc-400 mb-4 line-clamp-2">
+                            {service.description}
+                          </p>
+                        )}
                         
                         <div className="flex items-center gap-2 text-[#c4ff4d] text-xs font-semibold">
                           Discover More
@@ -439,9 +437,7 @@ export default function Services() {
         </div>
       </section>
 
-      {/* Final CTA */}
       <section className="py-24 px-6 bg-gradient-to-b from-zinc-900 to-black relative overflow-hidden">
-        {/* Premium Background Orbs */}
         <div className="absolute top-10 left-1/3 w-72 h-72 bg-[#c4ff4d]/10 rounded-full blur-3xl motion-reduce:hidden"></div>
         <div className="absolute bottom-10 right-1/3 w-64 h-64 bg-orange-500/10 rounded-full blur-3xl motion-reduce:hidden"></div>
         

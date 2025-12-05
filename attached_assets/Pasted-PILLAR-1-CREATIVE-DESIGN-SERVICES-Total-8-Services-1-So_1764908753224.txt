@@ -1,0 +1,87 @@
+PILLAR 1: CREATIVE & DESIGN SERVICES
+Total: 8 Services
+1. Social Media Management
+   (Organic content + paid social + community management)
+
+2. Video Production
+   (Ads, reels, explainers, testimonials, product demos)
+
+3. Motion Graphics
+   (Animated logos, kinetic typography, explainer animations)
+
+4. Brand Identity
+   (Logos, brand guidelines, design systems, presentations)
+
+5. Website Design
+   (Landing pages, full websites, UX/UI, conversion-focused)
+
+6. Email Marketing Design
+   (Email templates, campaign design, newsletter layouts)
+
+7. Paid Ad Creative
+   (Static ads, video ads, carousel ads, ad copy)
+
+8. Influencer Marketing
+   (Influencer sourcing, campaign coordination, content oversight, ROI tracking)
+
+🤖 PILLAR 2: AI-POWERED BUSINESS SOLUTIONS
+
+TIER 1: AI WORKFORCE AGENTS
+Total: 6 Services
+1. AI Sales Agent
+   (Lead outreach, qualification, follow-up, meeting booking)
+
+2. AI Customer Support
+   (24/7 chat support, ticket resolution, FAQs, escalation handling)
+
+3. AI Marketing Assistant
+   (Content scheduling, social posting, campaign tracking, reporting)
+
+4. AI Data Analyst
+   (Report generation, dashboard creation, trend analysis, insights)
+
+5. AI Admin Assistant
+   (Scheduling, data entry, document processing, workflow automation, appointment booking)
+
+6. AI Real Estate Assistant
+   (Property matching, lead qualification, tour booking, client communication)
+
+TIER 2: GROWTH AUTOMATION SYSTEMS
+Total: 7 Services
+1. Marketing Automation
+   (Email sequences, workflow automation, lead nurturing, drip campaigns)
+
+2. Paid Advertising Management
+   (Meta Ads, Google Ads, TikTok Ads, LinkedIn Ads - strategy, targeting, optimization)
+
+3. Customer Acquisition System
+   (Multi-channel campaigns, paid + organic integration, funnel building)
+
+4. Conversion Rate Optimization
+   (A/B testing, funnel analysis, landing page optimization, UX improvements)
+
+5. Growth Strategy & Consulting
+   (Market validation, growth experiments, strategic planning, scaling roadmaps)
+
+6. AI Consulting
+   (AI readiness assessment, tool recommendations, implementation roadmap, training)
+
+7. Performance Analytics & Reporting
+   (Custom dashboards, ROI tracking, attribution modeling, performance insights)
+
+TIER 3: CUSTOM AI & SOFTWARE DEVELOPMENT
+Total: 5 Services
+1. Custom AI Solutions ⭐
+   (Proprietary AI agents, custom chatbots, predictive models, AI integrations)
+
+2. Mobile App Development
+   (iOS, Android, cross-platform apps, native development)
+
+3. Web Application Development
+   (SaaS platforms, customer portals, internal tools, progressive web apps)
+
+4. AR/VR Experiences
+   (Augmented reality apps, virtual reality experiences, 3D product visualization)
+
+5. API & Integration Services
+   (System connections, custom API development, third-party integrations, workflow automation)

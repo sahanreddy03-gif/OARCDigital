@@ -1,11 +1,26 @@
-import { Palette, Video, Sparkles, Users, TrendingUp, Megaphone, Globe, Presentation, Image, Package, Film, Layers, Mail, Layout, Cpu, DollarSign, Target, Zap, Lightbulb, BarChart3, Smartphone, HeadphonesIcon, Brain, Calendar, FileCheck, Building2, Rocket, Filter, ShoppingCart } from 'lucide-react';
+import { 
+  Palette, Video, Sparkles, Users, TrendingUp, Megaphone, Globe, 
+  Presentation, Package, Film, Layers, Mail, Layout, Cpu, DollarSign, 
+  Target, Zap, Lightbulb, BarChart3, Smartphone, HeadphonesIcon, Brain, 
+  Calendar, FileCheck, Building2, Rocket, Filter, ShoppingCart, 
+  PenTool, Code2, Server, Glasses, Link2, Bot, UserCheck, ClipboardList,
+  LineChart, Settings, Workflow
+} from 'lucide-react';
 
 export interface ServiceItem {
   title: string;
-  slug: string; // Unique identifier for keys
-  route?: string; // Actual navigation route (defaults to /services/{slug} if not provided)
+  slug: string;
+  route?: string;
   badge?: 'Popular' | 'New';
   icon?: any;
+  description?: string;
+}
+
+export interface ServiceTier {
+  id: string;
+  title: string;
+  description: string;
+  items: ServiceItem[];
 }
 
 export interface ServiceCategory {
@@ -14,101 +29,269 @@ export interface ServiceCategory {
   description: string;
   featured: ServiceItem;
   items: ServiceItem[];
+  tiers?: ServiceTier[];
 }
 
 export const servicesConfig = {
   previewLimits: {
-    aiCreative: 9,
-    aiEmployees: 9,
-    revenue: 6
+    creativeDesign: 8,
+    aiAgents: 6,
+    growthAutomation: 7,
+    development: 5
   }
 };
 
 export const servicesCatalog: Record<string, ServiceCategory> = {
-  aiCreative: {
-    id: 'aiCreative',
-    title: 'AI Creative Services',
-    description: 'Every type of creative work you\'ll ever need—powered by AI and human expertise',
+  creativeDesign: {
+    id: 'creativeDesign',
+    title: 'Creative & Design Services',
+    description: 'Full-service creative production—from social content to brand identity',
     featured: {
-      title: 'Social Media Creative & Management',
+      title: 'Social Media Management',
       slug: 'social-media-creative-management',
       badge: 'Popular',
-      icon: Megaphone
+      icon: Megaphone,
+      description: 'Organic content + paid social + community management'
     },
     items: [
-      { title: 'Social Media Creative & Management', slug: 'social-media-creative-management', badge: 'Popular', icon: Megaphone },
-      { title: 'Ad Creative', slug: 'ad-creative', icon: Palette },
-      { title: 'Web Design & Landing Pages', slug: 'web-design', icon: Globe },
-      { title: 'Mobile Applications Development', slug: 'mobile-apps-development', badge: 'New', icon: Smartphone },
-      { title: 'Video Production', slug: 'video-production', icon: Video },
-      { title: 'Motion Design', slug: 'motion-design', icon: Film },
-      { title: 'Branding & Identity', slug: 'branding-services', icon: Sparkles },
-      { title: 'Design Systems', slug: 'design-systems', icon: Layout },
-      { title: 'Email Creative', slug: 'email-creative', icon: Mail },
-      { title: 'Presentation & Pitch', slug: 'presentation-pitch', icon: Presentation },
-      { title: 'Illustration', slug: 'illustration', icon: Palette },
-      { title: 'Print & Packaging', slug: 'print-packaging', icon: Package },
-      { title: 'Immersive 3D / AR', slug: 'immersive-3d-ar', icon: Layers },
-      { title: 'AI Copywriting', slug: 'ai-copywriting', icon: Sparkles },
-      { title: 'Paid Advertising', slug: 'paid-advertising', icon: Target },
-      { title: 'Media Buying', slug: 'media-buying', icon: DollarSign },
-      { title: 'Influencer Marketing', slug: 'influencer-marketing', icon: Users },
-      { title: 'AI Consulting', slug: 'ai-consulting', icon: Cpu },
+      { 
+        title: 'Social Media Management', 
+        slug: 'social-media-creative-management', 
+        badge: 'Popular', 
+        icon: Megaphone,
+        description: 'Organic content + paid social + community management'
+      },
+      { 
+        title: 'Video Production', 
+        slug: 'video-production', 
+        icon: Video,
+        description: 'Ads, reels, explainers, testimonials, product demos'
+      },
+      { 
+        title: 'Motion Graphics', 
+        slug: 'motion-design', 
+        icon: Film,
+        description: 'Animated logos, kinetic typography, explainer animations'
+      },
+      { 
+        title: 'Brand Identity', 
+        slug: 'branding-services', 
+        icon: Sparkles,
+        description: 'Logos, brand guidelines, design systems, presentations'
+      },
+      { 
+        title: 'Website Design', 
+        slug: 'web-design', 
+        icon: Globe,
+        description: 'Landing pages, full websites, UX/UI, conversion-focused'
+      },
+      { 
+        title: 'Email Marketing Design', 
+        slug: 'email-creative', 
+        icon: Mail,
+        description: 'Email templates, campaign design, newsletter layouts'
+      },
+      { 
+        title: 'Paid Ad Creative', 
+        slug: 'ad-creative', 
+        icon: Palette,
+        description: 'Static ads, video ads, carousel ads, ad copy'
+      },
+      { 
+        title: 'Influencer Marketing', 
+        slug: 'influencer-marketing', 
+        icon: Users,
+        description: 'Influencer sourcing, campaign coordination, content oversight, ROI tracking'
+      },
     ]
   },
   
-  aiEmployees: {
-    id: 'aiEmployees',
-    title: 'AI Virtual Talent Hub',
-    description: 'Hire autonomous AI agents as on-demand team members—thinking, adapting, and executing 24/7 while slashing your hiring costs',
+  aiAgents: {
+    id: 'aiAgents',
+    title: 'AI Workforce Agents',
+    description: 'Autonomous AI agents that work 24/7—thinking, adapting, and executing while slashing costs',
     featured: {
-      title: 'AI Virtual Talent Hub',
-      slug: 'ai-virtual-talent-hub',
+      title: 'AI Sales Agent',
+      slug: 'ai-sdr-agent',
       badge: 'Popular',
-      icon: Users
+      icon: Target,
+      description: 'Lead outreach, qualification, follow-up, meeting booking'
     },
     items: [
-      { title: 'AI Virtual Talent Hub', slug: 'ai-virtual-talent-hub', badge: 'Popular', icon: Users },
-      { title: 'Sales Development Rep Agent', slug: 'ai-sdr-agent', icon: Target },
-      { title: 'Customer Support Specialist', slug: 'ai-support-specialist', icon: HeadphonesIcon },
-      { title: 'Data Insights Analyst', slug: 'ai-data-analyst', icon: Brain },
-      { title: 'Administrative Workflow Agent', slug: 'ai-admin-agent', icon: Layout },
-      { title: 'Content Strategy Coordinator', slug: 'ai-content-strategist', icon: Megaphone },
-      { title: 'Compliance & Legal Auditor', slug: 'ai-compliance-auditor', badge: 'New', icon: FileCheck },
-      { title: 'Appointment Booker Agent', slug: 'ai-appointment-booker', icon: Calendar },
-      { title: 'Real Estate Sales Specialist', slug: 'ai-real-estate-agent', icon: Building2 },
+      { 
+        title: 'AI Sales Agent', 
+        slug: 'ai-sdr-agent', 
+        badge: 'Popular',
+        icon: Target,
+        description: 'Lead outreach, qualification, follow-up, meeting booking'
+      },
+      { 
+        title: 'AI Customer Support', 
+        slug: 'ai-support-specialist', 
+        icon: HeadphonesIcon,
+        description: '24/7 chat support, ticket resolution, FAQs, escalation handling'
+      },
+      { 
+        title: 'AI Marketing Assistant', 
+        slug: 'ai-content-strategist', 
+        icon: Megaphone,
+        description: 'Content scheduling, social posting, campaign tracking, reporting'
+      },
+      { 
+        title: 'AI Data Analyst', 
+        slug: 'ai-data-analyst', 
+        icon: Brain,
+        description: 'Report generation, dashboard creation, trend analysis, insights'
+      },
+      { 
+        title: 'AI Admin Assistant', 
+        slug: 'ai-admin-agent', 
+        icon: ClipboardList,
+        description: 'Scheduling, data entry, document processing, workflow automation, appointment booking'
+      },
+      { 
+        title: 'AI Real Estate Assistant', 
+        slug: 'ai-real-estate-agent', 
+        icon: Building2,
+        description: 'Property matching, lead qualification, tour booking, client communication'
+      },
     ]
   },
   
-  revenue: {
-    id: 'revenue',
-    title: 'AI Revenue Ignition Engine',
-    description: 'Fuel your growth with automated systems—end-to-end engines that optimize pipelines, acquire customers, and validate ideas on autopilot',
+  growthAutomation: {
+    id: 'growthAutomation',
+    title: 'Growth Automation Systems',
+    description: 'End-to-end automation engines that optimize pipelines, acquire customers, and scale growth',
     featured: {
-      title: 'AI Revenue Ignition Engine',
-      slug: 'ai-revenue-engine',
+      title: 'Marketing Automation',
+      slug: 'marketing-automation-suite',
       badge: 'Popular',
-      icon: Rocket
+      icon: Workflow,
+      description: 'Email sequences, workflow automation, lead nurturing, drip campaigns'
     },
     items: [
-      { title: 'AI Revenue Ignition Engine', slug: 'ai-revenue-engine', badge: 'Popular', icon: Rocket },
-      { title: 'Lead Generation & Qualification Engine', slug: 'lead-generation-engine', icon: Target },
-      { title: 'Customer Acquisition Accelerator', slug: 'customer-acquisition-accelerator', icon: ShoppingCart },
-      { title: 'Funnel Optimization Agent', slug: 'funnel-optimization-agent', badge: 'New', icon: Filter },
-      { title: 'Marketing Automation Suite', slug: 'marketing-automation-suite', icon: Zap },
-      { title: 'Idea Validation & Growth Hacker', slug: 'idea-validation-engine', icon: Lightbulb },
+      { 
+        title: 'Marketing Automation', 
+        slug: 'marketing-automation-suite', 
+        badge: 'Popular',
+        icon: Workflow,
+        description: 'Email sequences, workflow automation, lead nurturing, drip campaigns'
+      },
+      { 
+        title: 'Paid Advertising Management', 
+        slug: 'paid-advertising', 
+        icon: Target,
+        description: 'Meta Ads, Google Ads, TikTok Ads, LinkedIn Ads - strategy, targeting, optimization'
+      },
+      { 
+        title: 'Customer Acquisition System', 
+        slug: 'customer-acquisition-accelerator', 
+        icon: ShoppingCart,
+        description: 'Multi-channel campaigns, paid + organic integration, funnel building'
+      },
+      { 
+        title: 'Conversion Rate Optimization', 
+        slug: 'funnel-optimization-agent', 
+        badge: 'New',
+        icon: Filter,
+        description: 'A/B testing, funnel analysis, landing page optimization, UX improvements'
+      },
+      { 
+        title: 'Growth Strategy & Consulting', 
+        slug: 'growth-strategy', 
+        icon: Lightbulb,
+        description: 'Market validation, growth experiments, strategic planning, scaling roadmaps'
+      },
+      { 
+        title: 'AI Consulting', 
+        slug: 'ai-consulting', 
+        icon: Cpu,
+        description: 'AI readiness assessment, tool recommendations, implementation roadmap, training'
+      },
+      { 
+        title: 'Performance Analytics & Reporting', 
+        slug: 'performance-analytics', 
+        icon: LineChart,
+        description: 'Custom dashboards, ROI tracking, attribution modeling, performance insights'
+      },
+    ]
+  },
+  
+  development: {
+    id: 'development',
+    title: 'Custom AI & Software Development',
+    description: 'Build proprietary AI solutions and custom software that gives you a competitive edge',
+    featured: {
+      title: 'Custom AI Solutions',
+      slug: 'custom-software-development',
+      badge: 'Popular',
+      icon: Bot,
+      description: 'Proprietary AI agents, custom chatbots, predictive models, AI integrations'
+    },
+    items: [
+      { 
+        title: 'Custom AI Solutions', 
+        slug: 'custom-software-development', 
+        badge: 'Popular',
+        icon: Bot,
+        description: 'Proprietary AI agents, custom chatbots, predictive models, AI integrations'
+      },
+      { 
+        title: 'Mobile App Development', 
+        slug: 'mobile-apps-development', 
+        badge: 'New',
+        icon: Smartphone,
+        description: 'iOS, Android, cross-platform apps, native development'
+      },
+      { 
+        title: 'Web Application Development', 
+        slug: 'mvp-software-development', 
+        icon: Code2,
+        description: 'SaaS platforms, customer portals, internal tools, progressive web apps'
+      },
+      { 
+        title: 'AR/VR Experiences', 
+        slug: 'immersive-3d-ar', 
+        icon: Glasses,
+        description: 'Augmented reality apps, virtual reality experiences, 3D product visualization'
+      },
+      { 
+        title: 'API & Integration Services', 
+        slug: 'api-integration', 
+        icon: Link2,
+        description: 'System connections, custom API development, third-party integrations, workflow automation'
+      },
     ]
   }
 };
 
-// Helper to get preview items for header/footer
-export const getPreviewServices = (categoryId: 'aiCreative' | 'aiEmployees' | 'revenue') => {
+export const getPreviewServices = (categoryId: 'creativeDesign' | 'aiAgents' | 'growthAutomation' | 'development') => {
   const category = servicesCatalog[categoryId];
   const limit = servicesConfig.previewLimits[categoryId];
   return category.items.slice(0, limit);
 };
 
-// Get all categories as array
 export const getAllCategories = () => {
   return Object.values(servicesCatalog);
+};
+
+export const getPillar1Services = () => servicesCatalog.creativeDesign;
+export const getPillar2Tier1Services = () => servicesCatalog.aiAgents;
+export const getPillar2Tier2Services = () => servicesCatalog.growthAutomation;
+export const getPillar2Tier3Services = () => servicesCatalog.development;
+
+export const getServiceBySlug = (slug: string): ServiceItem | undefined => {
+  for (const category of Object.values(servicesCatalog)) {
+    const service = category.items.find(item => item.slug === slug);
+    if (service) return service;
+  }
+  return undefined;
+};
+
+export const getCategoryByServiceSlug = (slug: string): ServiceCategory | undefined => {
+  for (const category of Object.values(servicesCatalog)) {
+    const service = category.items.find(item => item.slug === slug);
+    if (service) return category;
+  }
+  return undefined;
 };
