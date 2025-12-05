@@ -63,21 +63,21 @@ export default function WebDesign() {
         <div className="relative z-10 w-full max-w-7xl mx-auto px-4 py-20">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <p className="text-emerald-400 text-sm uppercase tracking-widest mb-4">Web Design & Development</p>
+              <p className="text-[#23AACA] text-sm uppercase tracking-widest mb-4">Web Design & Development</p>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6" data-testid="heading-web-design">
                 Websites that actually convert.
               </h1>
-              <p className="text-xl text-white/60 mb-8">
+              <p className="text-xl text-white/80 mb-8">
                 Not just pretty. Profitable. Every pixel optimized for performance, every interaction designed to convert.
               </p>
               
               <Link href="/contact">
                 <button
-                  className="inline-flex items-center gap-3 bg-emerald-500 text-black rounded-full pl-8 pr-4 py-4 text-lg font-bold hover:bg-emerald-400 transition-colors"
+                  className="inline-flex items-center gap-3 bg-[#23AACA] text-white rounded-full pl-8 pr-4 py-4 text-lg font-bold hover:bg-[#1a8fa8] transition-colors"
                   data-testid="button-get-audit"
                 >
                   Get a Free UX Audit
-                  <div className="w-10 h-10 bg-black/20 rounded-full flex items-center justify-center">
+                  <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
                     <ArrowRight className="h-5 w-5" />
                   </div>
                 </button>
@@ -87,9 +87,9 @@ export default function WebDesign() {
             {/* Live metrics dashboard */}
             <div className="bg-zinc-900/80 backdrop-blur-xl rounded-2xl border border-zinc-800 p-6">
               <div className="flex items-center justify-between mb-6">
-                <span className="text-white/40 text-sm">Live site performance</span>
-                <span className="flex items-center gap-2 text-emerald-400 text-sm">
-                  <span className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></span>
+                <span className="text-white/70 text-sm">Live site performance</span>
+                <span className="flex items-center gap-2 text-[#23AACA] text-sm">
+                  <span className="w-2 h-2 bg-[#23AACA] rounded-full animate-pulse"></span>
                   All systems healthy
                 </span>
               </div>
@@ -99,24 +99,24 @@ export default function WebDesign() {
                   <div 
                     key={i}
                     className={`p-4 rounded-xl transition-all ${
-                      activeMetric === i ? 'bg-emerald-500/20 border border-emerald-500/50' : 'bg-zinc-800/50'
+                      activeMetric === i ? 'bg-[#23AACA]/20 border border-[#23AACA]/50' : 'bg-zinc-800/50'
                     }`}
                     data-testid={`metric-${i}`}
                   >
-                    <div className="text-white/40 text-xs mb-1">{metric.label}</div>
+                    <div className="text-white/70 text-xs mb-1">{metric.label}</div>
                     <div className="text-2xl font-black text-white">{metric.value}</div>
-                    <div className="text-emerald-400 text-xs">Target: {metric.target}</div>
+                    <div className="text-[#23AACA] text-xs">Target: {metric.target}</div>
                   </div>
                 ))}
               </div>
 
               <div className="mt-6 pt-6 border-t border-zinc-800">
                 <div className="flex items-center justify-between text-sm">
-                  <span className="text-white/40">Lighthouse Score</span>
-                  <span className="text-emerald-400 font-bold">99/100</span>
+                  <span className="text-white/70">Lighthouse Score</span>
+                  <span className="text-[#23AACA] font-bold">99/100</span>
                 </div>
                 <div className="mt-2 h-2 bg-zinc-800 rounded-full overflow-hidden">
-                  <div className="h-full w-[99%] bg-gradient-to-r from-emerald-500 to-emerald-400 rounded-full"></div>
+                  <div className="h-full w-[99%] bg-gradient-to-r from-[#23AACA] to-[#c4ff4d] rounded-full"></div>
                 </div>
               </div>
             </div>
@@ -130,21 +130,21 @@ export default function WebDesign() {
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-black text-white mb-4">Real results, not mockups</h2>
-              <p className="text-white/50">Actual performance improvements from recent projects</p>
+              <p className="text-white/70">Actual performance improvements from recent projects</p>
             </div>
 
             {/* Featured case study */}
             <div className="grid lg:grid-cols-2 gap-8 items-center mb-12">
               <div className="relative rounded-2xl overflow-hidden">
                 <img src={webImg1} alt="SaaS website redesign" className="w-full h-[400px] object-cover" />
-                <div className="absolute top-4 left-4 px-3 py-1 bg-emerald-500 text-black text-sm font-bold rounded-full">
+                <div className="absolute top-4 left-4 px-3 py-1 bg-[#23AACA] text-white text-sm font-bold rounded-full">
                   SaaS Redesign
                 </div>
               </div>
               
               <div>
                 <h3 className="text-2xl font-black text-white mb-4">Fintech SaaS Platform</h3>
-                <p className="text-white/60 mb-8">
+                <p className="text-white/80 mb-8">
                   Complete redesign of signup flow and pricing page. The old site had a 1.2% conversion rate with slow load times. We rebuilt it from scratch with conversion in mind.
                 </p>
                 
@@ -155,10 +155,10 @@ export default function WebDesign() {
                     { before: "68%", after: "32%", label: "Bounce Rate", change: "-53%" },
                   ].map((stat, i) => (
                     <div key={i} className="text-center" data-testid={`case-stat-${i}`}>
-                      <div className="text-emerald-400 text-xs font-bold mb-1">{stat.change}</div>
-                      <div className="text-white/30 text-xs line-through">{stat.before}</div>
+                      <div className="text-[#23AACA] text-xs font-bold mb-1">{stat.change}</div>
+                      <div className="text-white/70 text-xs line-through">{stat.before}</div>
                       <div className="text-2xl font-black text-white">{stat.after}</div>
-                      <div className="text-white/40 text-xs">{stat.label}</div>
+                      <div className="text-white/70 text-xs">{stat.label}</div>
                     </div>
                   ))}
                 </div>
@@ -185,7 +185,7 @@ export default function WebDesign() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
                   <div className="absolute bottom-3 left-3 right-3">
-                    <span className="text-emerald-400 text-xs font-bold">{project.metric}</span>
+                    <span className="text-[#23AACA] text-xs font-bold">{project.metric}</span>
                     <h4 className="text-white font-bold text-sm">{project.title}</h4>
                   </div>
                 </div>
@@ -203,7 +203,7 @@ export default function WebDesign() {
               <h2 className="text-3xl md:text-4xl font-black text-white mb-4">
                 Our conversion framework
               </h2>
-              <p className="text-white/50 max-w-xl mx-auto">
+              <p className="text-white/70 max-w-xl mx-auto">
                 Every website we build follows a proven methodology for turning visitors into customers.
               </p>
             </div>
@@ -234,20 +234,20 @@ export default function WebDesign() {
               ].map((phase, i) => (
                 <div 
                   key={i}
-                  className="p-8 rounded-2xl bg-zinc-900 border border-zinc-800 group hover:border-emerald-500/50 transition-colors"
+                  className="p-8 rounded-2xl bg-zinc-900 border border-zinc-800 group hover:border-[#23AACA]/50 transition-colors"
                   data-testid={`framework-${i}`}
                 >
                   <div className="flex items-center gap-3 mb-6">
-                    <div className="w-10 h-10 rounded-full bg-emerald-500/20 flex items-center justify-center">
-                      <phase.icon className="w-5 h-5 text-emerald-400" />
+                    <div className="w-10 h-10 rounded-full bg-[#23AACA]/20 flex items-center justify-center">
+                      <phase.icon className="w-5 h-5 text-[#23AACA]" />
                     </div>
-                    <span className="text-emerald-400 text-sm font-bold uppercase">{phase.step}</span>
+                    <span className="text-[#23AACA] text-sm font-bold uppercase">{phase.step}</span>
                   </div>
                   <h3 className="text-xl font-bold text-white mb-3">{phase.title}</h3>
-                  <p className="text-white/50 text-sm mb-6">{phase.desc}</p>
+                  <p className="text-white/70 text-sm mb-6">{phase.desc}</p>
                   <div className="flex flex-wrap gap-2">
                     {phase.tactics.map((tactic, j) => (
-                      <span key={j} className="px-3 py-1 bg-zinc-800 text-white/60 text-xs rounded-full">
+                      <span key={j} className="px-3 py-1 bg-zinc-800 text-white/70 text-xs rounded-full">
                         {tactic}
                       </span>
                     ))}
@@ -278,10 +278,10 @@ export default function WebDesign() {
               ].map((type, i) => (
                 <div 
                   key={i}
-                  className="p-6 rounded-2xl border border-zinc-200 hover:border-emerald-500 hover:shadow-lg transition-all group"
+                  className="p-6 rounded-2xl border border-zinc-200 hover:border-[#23AACA] hover:shadow-lg transition-all group"
                   data-testid={`site-type-${i}`}
                 >
-                  <type.icon className="w-8 h-8 text-emerald-500 mb-4" />
+                  <type.icon className="w-8 h-8 text-[#23AACA] mb-4" />
                   <h3 className="font-bold text-lg mb-2">{type.title}</h3>
                   <p className="text-muted-foreground text-sm">{type.desc}</p>
                 </div>
@@ -292,7 +292,7 @@ export default function WebDesign() {
       </ScrollReveal>
 
       {/* SECTION 5: Tech & Performance */}
-      <section className="py-16 px-4 bg-emerald-500">
+      <section className="py-16 px-4 bg-[#23AACA]">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
@@ -316,12 +316,12 @@ export default function WebDesign() {
           <h2 className="text-4xl md:text-5xl font-black mb-6">
             Want a site that works harder?
           </h2>
-          <p className="text-white/60 text-lg mb-10">
+          <p className="text-white/80 text-lg mb-10">
             Get a free UX audit and see where your current site is losing conversions.
           </p>
           <Link href="/contact">
             <button
-              className="inline-flex items-center gap-3 bg-emerald-500 text-black rounded-full pl-10 pr-4 py-5 text-lg font-bold hover:bg-emerald-400 transition-colors"
+              className="inline-flex items-center gap-3 bg-[#23AACA] text-white rounded-full pl-10 pr-4 py-5 text-lg font-bold hover:bg-[#1a8fa8] transition-colors"
               data-testid="button-cta-audit"
             >
               Get Free UX Audit

@@ -84,7 +84,7 @@ export default function VideoProduction() {
         {/* Content */}
         <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-12">
           <div className="max-w-7xl mx-auto w-full">
-            <p className="text-white/60 text-sm uppercase tracking-widest mb-2">Our Showreel</p>
+            <p className="text-white/80 text-sm uppercase tracking-widest mb-2">Our Showreel</p>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-white mb-4" data-testid="heading-video">
               See what we make.
             </h1>
@@ -94,18 +94,18 @@ export default function VideoProduction() {
               <button 
                 onClick={togglePlay}
                 data-testid="button-play-toggle"
-                className="w-14 h-14 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center hover:bg-white/30 transition-colors"
+                className="w-14 h-14 rounded-full bg-orange-500 flex items-center justify-center hover:bg-orange-600 transition-colors"
               >
                 {isPlaying ? <Pause className="w-6 h-6 text-white" /> : <Play className="w-6 h-6 text-white ml-1" />}
               </button>
               <button 
                 onClick={toggleMute}
                 data-testid="button-mute-toggle"
-                className="w-14 h-14 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center hover:bg-white/30 transition-colors"
+                className="w-14 h-14 rounded-full bg-zinc-800 flex items-center justify-center hover:bg-zinc-700 transition-colors"
               >
                 {isMuted ? <VolumeX className="w-6 h-6 text-white" /> : <Volume2 className="w-6 h-6 text-white" />}
               </button>
-              <span className="text-white/60 text-sm">Sound {isMuted ? 'off' : 'on'}</span>
+              <span className="text-white/80 text-sm">Sound {isMuted ? 'off' : 'on'}</span>
             </div>
 
             {/* Reel categories */}
@@ -118,7 +118,7 @@ export default function VideoProduction() {
                   className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
                     activeReel === i 
                       ? 'bg-white text-black' 
-                      : 'bg-white/10 text-white hover:bg-white/20'
+                      : 'bg-zinc-800 text-white/90 hover:bg-zinc-700'
                   }`}
                 >
                   {cat.name} <span className="opacity-60 ml-1">{cat.count}</span>
@@ -136,10 +136,10 @@ export default function VideoProduction() {
             <div className="flex items-end justify-between mb-10">
               <div>
                 <h2 className="text-3xl md:text-4xl font-black text-white">Recent Work</h2>
-                <p className="text-white/50 mt-2">Hover to preview</p>
+                <p className="text-white/70 mt-2">Hover to preview</p>
               </div>
               <Link href="/our-work">
-                <span className="text-white/60 hover:text-white flex items-center gap-2 text-sm" data-testid="link-view-all-work">
+                <span className="text-white/70 hover:text-white flex items-center gap-2 text-sm" data-testid="link-view-all-work">
                   View all work <ArrowRight className="w-4 h-4" />
                 </span>
               </Link>
@@ -169,7 +169,7 @@ export default function VideoProduction() {
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                     <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                      <div className="w-16 h-16 rounded-full bg-white/30 backdrop-blur-sm flex items-center justify-center">
+                      <div className="w-16 h-16 rounded-full bg-orange-500 flex items-center justify-center">
                         <Play className="w-8 h-8 text-white ml-1" />
                       </div>
                     </div>
@@ -198,7 +198,7 @@ export default function VideoProduction() {
                 <h2 className="text-4xl md:text-5xl font-black text-white mb-6">
                   How we make it happen
                 </h2>
-                <p className="text-white/70 text-lg mb-8">
+                <p className="text-white/80 text-lg mb-8">
                   We're a small team that moves fast. No bloated agency overhead. Just talented people who love making great video.
                 </p>
                 
@@ -214,7 +214,7 @@ export default function VideoProduction() {
                       </div>
                       <div>
                         <h3 className="text-white font-bold">{phase.label}</h3>
-                        <p className="text-white/50 text-sm">{phase.detail}</p>
+                        <p className="text-white/70 text-sm">{phase.detail}</p>
                       </div>
                     </div>
                   ))}
@@ -239,7 +239,7 @@ export default function VideoProduction() {
             <h2 className="text-3xl md:text-4xl font-black text-white mb-4">
               Made for distribution
             </h2>
-            <p className="text-white/50 max-w-2xl mx-auto mb-12">
+            <p className="text-white/70 max-w-2xl mx-auto mb-12">
               Every video is optimized and formatted for the platforms where your audience actually watches.
             </p>
 
@@ -255,9 +255,9 @@ export default function VideoProduction() {
                   className="p-6 rounded-2xl bg-zinc-900 border border-zinc-800 group hover:border-orange-500/50 transition-colors"
                   data-testid={`platform-${i}`}
                 >
-                  <item.icon className="w-10 h-10 text-white/60 group-hover:text-orange-400 transition-colors mx-auto mb-4" />
+                  <item.icon className="w-10 h-10 text-white/70 group-hover:text-orange-400 transition-colors mx-auto mb-4" />
                   <h3 className="text-white font-bold mb-1">{item.platform}</h3>
-                  <p className="text-white/40 text-sm">{item.formats}</p>
+                  <p className="text-white/80 text-sm">{item.formats}</p>
                 </div>
               ))}
             </div>
@@ -265,23 +265,25 @@ export default function VideoProduction() {
         </section>
       </ScrollReveal>
 
-      {/* SECTION 5: Results - Not a timeline, actual outcomes */}
-      <section className="py-16 px-4 bg-orange-500">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            {[
-              { icon: Eye, value: "50M+", label: "Total views across client videos" },
-              { icon: TrendingUp, value: "3.2x", label: "Avg. increase in engagement" },
-              { icon: Share2, value: "200+", label: "Videos delivered this year" },
-              { icon: Play, value: "92%", label: "Client satisfaction rate" },
-            ].map((stat, i) => (
-              <div key={i} data-testid={`stat-${i}`}>
-                <stat.icon className="w-6 h-6 text-black/70 mx-auto mb-2" />
-                <div className="text-3xl md:text-4xl font-black text-black">{stat.value}</div>
-                <div className="text-sm text-black/70">{stat.label}</div>
-              </div>
-            ))}
+      {/* SECTION 5: Client Success Story */}
+      <section className="py-16 px-4 bg-zinc-900">
+        <div className="max-w-4xl mx-auto text-center">
+          <p className="text-orange-400 text-sm uppercase tracking-widest mb-6">Featured Project</p>
+          <blockquote className="text-2xl md:text-3xl font-bold text-white mb-6 leading-relaxed">
+            "OARC delivered our product launch video in 3 weeks. It became our highest-performing ad ever."
+          </blockquote>
+          <div className="flex items-center justify-center gap-4">
+            <div className="w-12 h-12 rounded-full bg-zinc-800"></div>
+            <div className="text-left">
+              <p className="text-white font-medium">Marketing Director</p>
+              <p className="text-white/80 text-sm">Series A Fintech Startup</p>
+            </div>
           </div>
+          <Link href="/our-work">
+            <span className="inline-block mt-8 text-orange-400 hover:text-orange-300 font-medium" data-testid="link-see-case-study">
+              See the full case study →
+            </span>
+          </Link>
         </div>
       </section>
 
@@ -326,7 +328,7 @@ export default function VideoProduction() {
           <h2 className="text-4xl md:text-5xl font-black mb-6">
             Let's make something great.
           </h2>
-          <p className="text-white/60 text-lg mb-10">
+          <p className="text-white/80 text-lg mb-10">
             Tell us about your project and we'll share ideas over a quick call.
           </p>
           <Link href="/contact">
@@ -335,7 +337,7 @@ export default function VideoProduction() {
               data-testid="button-cta-contact"
             >
               Start a Project
-              <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
+              <div className="w-12 h-12 bg-black/20 rounded-full flex items-center justify-center">
                 <ArrowRight className="h-6 w-6" />
               </div>
             </button>
