@@ -1,6 +1,6 @@
 interface GradientTransitionProps {
-  from: 'dark' | 'light' | 'darkGreen' | 'cream';
-  to: 'dark' | 'light' | 'darkGreen' | 'cream';
+  from: 'dark' | 'light' | 'darkGreen';
+  to: 'dark' | 'light' | 'darkGreen';
   height?: string;
 }
 
@@ -8,8 +8,7 @@ export function GradientTransition({ from, to, height = '60px' }: GradientTransi
   const colors = {
     dark: '#0a0a0a',
     light: '#f0fff4',
-    darkGreen: '#0A2818',
-    cream: '#FDFCFA'
+    darkGreen: '#0A2818'
   };
   
   const fromColor = colors[from];
