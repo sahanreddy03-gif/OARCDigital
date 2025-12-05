@@ -23,8 +23,8 @@ export default function Branding() {
   }, []);
 
   const brandColors = [
-    { name: "Primary", colors: ["#FF6B35", "#1A1A2E", "#FFFFFF"] },
-    { name: "Secondary", colors: ["#4ECDC4", "#FFE66D", "#2D3436"] },
+    { name: "Primary", colors: ["#c4ff4d", "#23AACA", "#F97316"] },
+    { name: "Secondary", colors: ["#1A1A2E", "#FFFFFF", "#18181B"] },
     { name: "Neutral", colors: ["#F5F5F5", "#E0E0E0", "#333333"] },
   ];
 
@@ -52,23 +52,23 @@ export default function Branding() {
       {/* HERO: Brand Lab Introduction */}
       <section className="relative min-h-[90vh] flex items-center bg-zinc-950 overflow-hidden">
         {/* Floating brand elements */}
-        <div className="absolute top-20 right-20 w-40 h-40 bg-gradient-to-br from-orange-500/30 to-rose-500/20 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-40 left-20 w-32 h-32 bg-gradient-to-br from-violet-500/20 to-blue-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute top-20 right-20 w-40 h-40 bg-gradient-to-br from-orange-500/20 to-orange-600/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-40 left-20 w-32 h-32 bg-gradient-to-br from-[#23AACA]/15 to-[#c4ff4d]/10 rounded-full blur-3xl"></div>
         
         <div className="relative z-10 w-full max-w-7xl mx-auto px-4 py-20">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <p className="text-rose-400 text-sm uppercase tracking-widest mb-4">Brand Design Studio</p>
+              <p className="text-orange-400 text-sm uppercase tracking-widest mb-4">Brand Design Studio</p>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6" data-testid="heading-branding">
                 Brands people remember.
               </h1>
-              <p className="text-xl text-white/60 mb-8">
+              <p className="text-xl text-white/80 mb-8">
                 More than a logo. We build complete brand systems—strategy, identity, voice, and everything in between.
               </p>
               
               <Link href="/contact">
                 <button
-                  className="inline-flex items-center gap-3 bg-rose-500 text-white rounded-full pl-8 pr-4 py-4 text-lg font-bold hover:bg-rose-600 transition-colors"
+                  className="inline-flex items-center gap-3 bg-orange-500 text-white rounded-full pl-8 pr-4 py-4 text-lg font-bold hover:bg-orange-600 transition-colors"
                   data-testid="button-start-brand"
                 >
                   Start a Brand Project
@@ -83,11 +83,11 @@ export default function Branding() {
             <div className="grid grid-cols-2 gap-4">
               {/* Color palette card */}
               <div className="bg-zinc-900 rounded-2xl p-5 border border-zinc-800">
-                <span className="text-white/40 text-xs uppercase tracking-wider">Color Palette</span>
+                <span className="text-white/70 text-xs uppercase tracking-wider">Color Palette</span>
                 <div className="mt-4 space-y-3">
                   {brandColors.map((set, i) => (
                     <div key={i} className="flex items-center gap-2">
-                      <span className="text-white/50 text-xs w-16">{set.name}</span>
+                      <span className="text-white/70 text-xs w-16">{set.name}</span>
                       <div className="flex gap-1">
                         {set.colors.map((color, j) => (
                           <div 
@@ -104,16 +104,16 @@ export default function Branding() {
 
               {/* Typography card */}
               <div className="bg-zinc-900 rounded-2xl p-5 border border-zinc-800">
-                <span className="text-white/40 text-xs uppercase tracking-wider">Typography</span>
+                <span className="text-white/70 text-xs uppercase tracking-wider">Typography</span>
                 <div className="mt-4">
                   <div className="text-4xl font-black text-white mb-2">Aa</div>
                   <div className="text-sm font-bold text-white">Montserrat Bold</div>
-                  <div className="text-sm text-white/50">Headings & Display</div>
+                  <div className="text-sm text-white/70">Headings & Display</div>
                 </div>
               </div>
 
               {/* Logo mark preview */}
-              <div className="col-span-2 bg-gradient-to-r from-rose-500/20 to-orange-500/20 rounded-2xl p-5 border border-rose-500/30">
+              <div className="col-span-2 bg-gradient-to-r from-orange-500/15 to-[#23AACA]/15 rounded-2xl p-5 border border-orange-500/30">
                 <img src={corporateLogoImg2} alt="Brand logo" className="w-full h-32 object-cover rounded-xl" />
               </div>
             </div>
@@ -128,7 +128,7 @@ export default function Branding() {
             <div className="flex items-end justify-between mb-12">
               <div>
                 <h2 className="text-3xl md:text-4xl font-black text-white">Recent brand work</h2>
-                <p className="text-white/50 mt-2">From strategy to rollout</p>
+                <p className="text-white/80 mt-2">From strategy to rollout</p>
               </div>
             </div>
 
@@ -138,9 +138,9 @@ export default function Branding() {
                 <img src={brandImg1} alt="Fintech rebrand" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
                 <div className="absolute bottom-6 left-6 right-6">
-                  <span className="px-3 py-1 bg-rose-500 text-white text-xs font-bold rounded-full">Complete Rebrand</span>
+                  <span className="px-3 py-1 bg-orange-500 text-white text-xs font-bold rounded-full">Complete Rebrand</span>
                   <h3 className="text-2xl font-black text-white mt-3">Fintech Startup</h3>
-                  <p className="text-white/70 mt-2">Brand strategy, visual identity, guidelines, and rollout across 12 touchpoints.</p>
+                  <p className="text-white/80 mt-2">Brand strategy, visual identity, guidelines, and rollout across 12 touchpoints.</p>
                 </div>
               </div>
               <div className="lg:col-span-2 grid grid-rows-2 gap-6">
@@ -148,7 +148,7 @@ export default function Branding() {
                   <img src={brandImg2} alt="E-commerce brand" className="w-full h-full object-cover" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
                   <div className="absolute bottom-4 left-4">
-                    <span className="text-rose-400 text-xs font-bold">DTC Brand</span>
+                    <span className="text-orange-400 text-xs font-bold">DTC Brand</span>
                     <h4 className="text-white font-bold">Lifestyle E-commerce</h4>
                   </div>
                 </div>
@@ -156,7 +156,7 @@ export default function Branding() {
                   <img src={brandImg3} alt="Tech startup" className="w-full h-full object-cover" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
                   <div className="absolute bottom-4 left-4">
-                    <span className="text-rose-400 text-xs font-bold">B2B SaaS</span>
+                    <span className="text-orange-400 text-xs font-bold">B2B SaaS</span>
                     <h4 className="text-white font-bold">Enterprise Platform</h4>
                   </div>
                 </div>
@@ -200,7 +200,7 @@ export default function Branding() {
               <h2 className="text-3xl md:text-4xl font-black text-white mb-4">
                 What goes into a brand
               </h2>
-              <p className="text-white/50 max-w-xl mx-auto">
+              <p className="text-white/80 max-w-xl mx-auto">
                 Every brand we build includes these essential elements, tailored to your business and audience.
               </p>
             </div>
@@ -214,15 +214,15 @@ export default function Branding() {
               ].map((pillar, i) => (
                 <div 
                   key={i}
-                  className="p-6 rounded-2xl bg-zinc-900 border border-zinc-800 hover:border-rose-500/50 transition-colors"
+                  className="p-6 rounded-2xl bg-zinc-900 border border-zinc-800 hover:border-orange-500/50 transition-colors"
                   data-testid={`pillar-${i}`}
                 >
-                  <pillar.icon className="w-8 h-8 text-rose-400 mb-4" />
+                  <pillar.icon className="w-8 h-8 text-orange-400 mb-4" />
                   <h3 className="text-white font-bold text-lg mb-4">{pillar.title}</h3>
                   <ul className="space-y-2">
                     {pillar.items.map((item, j) => (
-                      <li key={j} className="text-white/50 text-sm flex items-center gap-2">
-                        <span className="w-1 h-1 bg-rose-400 rounded-full"></span>
+                      <li key={j} className="text-white/80 text-sm flex items-center gap-2">
+                        <span className="w-1 h-1 bg-orange-400 rounded-full"></span>
                         {item}
                       </li>
                     ))}
@@ -242,7 +242,7 @@ export default function Branding() {
               <h2 className="text-3xl md:text-4xl font-black text-white mb-4">
                 Where your brand lives
               </h2>
-              <p className="text-white/50">
+              <p className="text-white/80">
                 We design for every touchpoint your customers encounter.
               </p>
             </div>
@@ -256,12 +256,12 @@ export default function Branding() {
               ].map((touchpoint, i) => (
                 <div 
                   key={i}
-                  className="p-6 rounded-2xl bg-zinc-900 border border-zinc-800 text-center group hover:border-rose-500/50 transition-colors"
+                  className="p-6 rounded-2xl bg-zinc-900 border border-zinc-800 text-center group hover:border-orange-500/50 transition-colors"
                   data-testid={`touchpoint-${i}`}
                 >
-                  <touchpoint.icon className="w-10 h-10 text-white/60 group-hover:text-rose-400 transition-colors mx-auto mb-4" />
+                  <touchpoint.icon className="w-10 h-10 text-white/70 group-hover:text-orange-400 transition-colors mx-auto mb-4" />
                   <h3 className="text-white font-bold mb-1">{touchpoint.title}</h3>
-                  <p className="text-white/40 text-sm">{touchpoint.desc}</p>
+                  <p className="text-white/80 text-sm">{touchpoint.desc}</p>
                 </div>
               ))}
             </div>
@@ -290,7 +290,7 @@ export default function Branding() {
                       data-testid={`type-exploration-${i}`}
                       className={`w-full text-left p-4 rounded-xl transition-colors ${
                         activeExploration === i 
-                          ? 'bg-rose-500 text-white' 
+                          ? 'bg-orange-500 text-white' 
                           : 'bg-zinc-100 hover:bg-zinc-200'
                       }`}
                     >
@@ -325,7 +325,7 @@ export default function Branding() {
       </ScrollReveal>
 
       {/* Stats */}
-      <section className="py-16 px-4 bg-rose-500">
+      <section className="py-16 px-4 bg-orange-500">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
@@ -349,12 +349,12 @@ export default function Branding() {
           <h2 className="text-4xl md:text-5xl font-black mb-6">
             Ready to build your brand?
           </h2>
-          <p className="text-white/60 text-lg mb-10">
+          <p className="text-white/80 text-lg mb-10">
             Let's talk about your vision and how we can bring it to life.
           </p>
           <Link href="/contact">
             <button
-              className="inline-flex items-center gap-3 bg-rose-500 text-white rounded-full pl-10 pr-4 py-5 text-lg font-bold hover:bg-rose-600 transition-colors"
+              className="inline-flex items-center gap-3 bg-orange-500 text-white rounded-full pl-10 pr-4 py-5 text-lg font-bold hover:bg-orange-600 transition-colors"
               data-testid="button-cta-brand"
             >
               Start a Brand Project
