@@ -261,9 +261,9 @@ export default function WebDesign() {
 
       {/* SECTION 4: What We Build */}
       <ScrollReveal>
-        <section className="py-20 px-4 bg-gradient-to-b from-[#f5fcfc] to-white">
+        <section className="py-20 px-4 bg-[#f5f0e6]">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-black text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-black text-center mb-12 text-[#1a2e29]">
               Sites built for specific goals
             </h2>
 
@@ -278,12 +278,12 @@ export default function WebDesign() {
               ].map((type, i) => (
                 <div 
                   key={i}
-                  className="p-6 rounded-2xl border border-zinc-200 hover:border-[#23AACA] hover:shadow-lg transition-all group"
+                  className="p-6 rounded-2xl bg-white border border-[#1a2e29]/10 hover:border-[#23AACA] hover:shadow-lg transition-all group"
                   data-testid={`site-type-${i}`}
                 >
                   <type.icon className="w-8 h-8 text-[#23AACA] mb-4" />
-                  <h3 className="font-bold text-lg mb-2">{type.title}</h3>
-                  <p className="text-muted-foreground text-sm">{type.desc}</p>
+                  <h3 className="font-bold text-lg mb-2 text-[#1a2e29]">{type.title}</h3>
+                  <p className="text-[#1a2e29]/60 text-sm">{type.desc}</p>
                 </div>
               ))}
             </div>

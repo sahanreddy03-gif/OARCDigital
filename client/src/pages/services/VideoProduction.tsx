@@ -266,21 +266,21 @@ export default function VideoProduction() {
       </ScrollReveal>
 
       {/* SECTION 5: Client Success Story */}
-      <section className="py-16 px-4 bg-zinc-900">
+      <section className="py-16 px-4 bg-[#a8b892]">
         <div className="max-w-4xl mx-auto text-center">
-          <p className="text-orange-400 text-sm uppercase tracking-widest mb-6">Featured Project</p>
-          <blockquote className="text-2xl md:text-3xl font-bold text-white mb-6 leading-relaxed">
+          <p className="text-[#1a2e29] text-sm uppercase tracking-widest mb-6 font-medium">Featured Project</p>
+          <blockquote className="text-2xl md:text-3xl font-bold text-[#1a2e29] mb-6 leading-relaxed">
             "OARC delivered our product launch video in 3 weeks. It became our highest-performing ad ever."
           </blockquote>
           <div className="flex items-center justify-center gap-4">
-            <div className="w-12 h-12 rounded-full bg-zinc-800"></div>
+            <div className="w-12 h-12 rounded-full bg-[#1a2e29]/10"></div>
             <div className="text-left">
-              <p className="text-white font-medium">Marketing Director</p>
-              <p className="text-white/80 text-sm">Series A Fintech Startup</p>
+              <p className="text-[#1a2e29] font-medium">Marketing Director</p>
+              <p className="text-[#1a2e29]/70 text-sm">Series A Fintech Startup</p>
             </div>
           </div>
           <Link href="/our-work">
-            <span className="inline-block mt-8 text-orange-400 hover:text-orange-300 font-medium" data-testid="link-see-case-study">
+            <span className="inline-block mt-8 text-[#1a2e29] hover:text-[#1a2e29]/80 font-medium underline underline-offset-4" data-testid="link-see-case-study">
               See the full case study →
             </span>
           </Link>
@@ -289,12 +289,12 @@ export default function VideoProduction() {
 
       {/* SECTION 6: Paired Services */}
       <ScrollReveal>
-        <section className="py-20 px-4 bg-white">
+        <section className="py-20 px-4 bg-[#f5f0e6]">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-black text-center mb-4">
+            <h2 className="text-3xl md:text-4xl font-black text-center mb-4 text-[#1a2e29]">
               Pair video with these powerful services
             </h2>
-            <p className="text-muted-foreground text-center mb-12 max-w-xl mx-auto">
+            <p className="text-[#1a2e29]/60 text-center mb-12 max-w-xl mx-auto">
               Great video content deserves great distribution. Maximize ROI by combining video production with our complementary services.
             </p>
 
@@ -306,14 +306,14 @@ export default function VideoProduction() {
               ].map((service, i) => (
                 <Link key={i} href={service.link}>
                   <div 
-                    className="group p-6 rounded-2xl bg-zinc-50 hover:bg-zinc-100 transition-colors flex items-center justify-between cursor-pointer"
+                    className="group p-6 rounded-2xl bg-white hover:bg-white/80 transition-colors flex items-center justify-between cursor-pointer border border-[#1a2e29]/10"
                     data-testid={`paired-service-${i}`}
                   >
                     <div>
-                      <h3 className="font-bold text-lg mb-1">{service.title}</h3>
-                      <p className="text-muted-foreground text-sm">{service.desc}</p>
+                      <h3 className="font-bold text-lg mb-1 text-[#1a2e29]">{service.title}</h3>
+                      <p className="text-[#1a2e29]/60 text-sm">{service.desc}</p>
                     </div>
-                    <ArrowRight className="w-5 h-5 text-muted-foreground group-hover:text-black transition-colors flex-shrink-0 ml-4" />
+                    <ArrowRight className="w-5 h-5 text-[#1a2e29]/40 group-hover:text-[#1a2e29] transition-colors flex-shrink-0 ml-4" />
                   </div>
                 </Link>
               ))}
