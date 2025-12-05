@@ -20,6 +20,7 @@ import WebDesign from "@/pages/services/WebDesign";
 import VideoProduction from "@/pages/services/VideoProduction";
 import HireAIEmployees from "@/pages/services/HireAIEmployees";
 import AIEmployeeService from "@/pages/services/AIEmployeeService";
+import AICustomerSupport from "@/pages/services/AICustomerSupport";
 import RevenueHub from "@/pages/services/RevenueHub";
 import PaidAdvertising from "@/pages/services/PaidAdvertising";
 import MediaBuying from "@/pages/services/MediaBuying";
@@ -106,7 +107,7 @@ function Router() {
       <Route path="/services/ai-virtual-talent-hub" component={HireAIEmployees} />
       <Route path="/services/hire-ai-employees" component={HireAIEmployees} />
       <Route path="/services/ai-sdr-agent" component={AIEmployeeService} />
-      <Route path="/services/ai-support-specialist" component={AIEmployeeService} />
+      <Route path="/services/ai-support-specialist" component={AICustomerSupport} />
       <Route path="/services/ai-data-analyst" component={AIEmployeeService} />
       <Route path="/services/ai-admin-agent" component={AIEmployeeService} />
       <Route path="/services/ai-content-strategist" component={AIEmployeeService} />

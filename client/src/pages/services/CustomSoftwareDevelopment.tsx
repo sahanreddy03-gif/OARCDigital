@@ -1,168 +1,115 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'wouter';
-import { ArrowRight, CheckCircle2, Code2, Database, Cloud, Server, Cpu, Zap, Users, Building2 } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Code2, Database, Cloud, Server, Cpu, Zap, Monitor, Smartphone, Globe, Lock, Layers, Boxes, Terminal, GitBranch } from 'lucide-react';
+import { SiReact, SiTypescript, SiNodedotjs, SiPostgresql, SiDocker, SiAmazon, SiPython, SiMongodb, SiKubernetes, SiGraphql } from 'react-icons/si';
 import Layout from '@/components/layout/Layout';
 import SEOHead from "@/components/SEOHead";
-import { revenueServicesSEO } from "@/data/seoMetadata";
 import { createServiceSchema } from "@/utils/structuredData";
+import ScrollReveal from "@/components/ScrollReveal";
+
 import heroImg from '@assets/stock_images/custom_software_deve_6f9a0242.jpg';
-import teamImg from '@assets/stock_images/custom_software_deve_d139944c.jpg';
+import softwareDevImg1 from '@assets/stock_images/software_development_5606ca42.jpg';
+import softwareDevImg2 from '@assets/stock_images/software_development_bf22fbae.jpg';
+import softwareDevImg3 from '@assets/stock_images/software_development_e22831c9.jpg';
+import aiSoftwareImg from '@assets/stock_images/ai_software_developm_171781f0.jpg';
+import dashboardImg from '@assets/stock_images/financial_dashboard__226af471.jpg';
+import mobileAppImg from '@assets/stock_images/mobile_app_developme_12e99cc2.jpg';
 
 export default function CustomSoftwareDevelopment() {
+  const [activeStep, setActiveStep] = useState(0);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const services = [
-    {
-      icon: Code2,
-      title: 'Custom Web Applications',
-      description: 'Tailored solutions for your business',
-      items: [
-        'React & TypeScript Development',
-        'Progressive Web Apps (PWA)',
-        'SaaS Platform Development',
-        'E-commerce Solutions',
-        'Admin Dashboards & Portals'
-      ]
-    },
-    {
-      icon: Server,
-      title: 'Backend & API Development',
-      description: 'Scalable server infrastructure',
-      items: [
-        'RESTful API Design',
-        'GraphQL Implementations',
-        'Microservices Architecture',
-        'Real-Time Systems',
-        'Serverless Functions'
-      ]
-    },
-    {
-      icon: Database,
-      title: 'Database Solutions',
-      description: 'Robust data architecture',
-      items: [
-        'PostgreSQL & MySQL',
-        'MongoDB & NoSQL',
-        'Data Migration',
-        'Performance Optimization',
-        'Backup & Recovery'
-      ]
-    },
-    {
-      icon: Cloud,
-      title: 'Cloud Infrastructure',
-      description: 'Modern cloud-native solutions',
-      items: [
-        'AWS & GCP Deployment',
-        'Docker & Kubernetes',
-        'CI/CD Pipelines',
-        'Auto-Scaling Systems',
-        'Infrastructure as Code'
-      ]
-    }
-  ];
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveStep((prev) => (prev + 1) % 5);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
 
-  const benefits = [
+  const projectShowcase = [
     {
-      title: 'Purpose-Built Solutions',
-      description: 'Every line of code is written specifically for your business requirements. No bloated templates or unnecessary features—just exactly what you need.'
+      title: "SaaS Dashboard",
+      category: "Enterprise",
+      img: dashboardImg,
+      tech: ["React", "Node.js", "PostgreSQL"],
+      size: "large"
     },
     {
-      title: 'Scalable Architecture',
-      description: 'Built to grow with your business from day one. Our systems handle 10x traffic spikes without breaking a sweat or requiring expensive rewrites.'
+      title: "Mobile Commerce",
+      category: "E-commerce",
+      img: mobileAppImg,
+      tech: ["React Native", "AWS"],
+      size: "medium"
     },
     {
-      title: 'Security-First Design',
-      description: 'Enterprise-grade security practices including encryption, authentication, and regular penetration testing to protect your data and users.'
+      title: "AI Platform",
+      category: "AI/ML",
+      img: aiSoftwareImg,
+      tech: ["Python", "TensorFlow"],
+      size: "medium"
     },
     {
-      title: 'Rapid Development',
-      description: 'Agile methodology with 2-week sprints and continuous delivery. See progress fast and iterate quickly based on real user feedback.'
+      title: "Dev Tools",
+      category: "Developer",
+      img: softwareDevImg1,
+      tech: ["TypeScript", "Docker"],
+      size: "small"
     },
     {
-      title: 'Full Ownership',
-      description: 'You own 100% of the code. Full documentation, clean architecture, and no vendor lock-in. Your software is your asset, forever.'
-    }
+      title: "API Gateway",
+      category: "Infrastructure",
+      img: softwareDevImg2,
+      tech: ["Go", "Kubernetes"],
+      size: "small"
+    },
+    {
+      title: "Data Pipeline",
+      category: "Analytics",
+      img: softwareDevImg3,
+      tech: ["Python", "Spark"],
+      size: "small"
+    },
   ];
 
   const techStack = [
-    { name: 'React', category: 'Frontend' },
-    { name: 'TypeScript', category: 'Frontend' },
-    { name: 'Next.js', category: 'Frontend' },
-    { name: 'Node.js', category: 'Backend' },
-    { name: 'Python', category: 'Backend' },
-    { name: 'PostgreSQL', category: 'Database' },
-    { name: 'MongoDB', category: 'Database' },
-    { name: 'Redis', category: 'Database' },
-    { name: 'AWS', category: 'Cloud' },
-    { name: 'Docker', category: 'DevOps' },
-    { name: 'Kubernetes', category: 'DevOps' },
-    { name: 'GraphQL', category: 'API' }
+    { name: 'React', Icon: SiReact, color: '#61DAFB' },
+    { name: 'TypeScript', Icon: SiTypescript, color: '#3178C6' },
+    { name: 'Node.js', Icon: SiNodedotjs, color: '#339933' },
+    { name: 'Python', Icon: SiPython, color: '#3776AB' },
+    { name: 'PostgreSQL', Icon: SiPostgresql, color: '#4169E1' },
+    { name: 'MongoDB', Icon: SiMongodb, color: '#47A248' },
+    { name: 'AWS', Icon: SiAmazon, color: '#FF9900' },
+    { name: 'Docker', Icon: SiDocker, color: '#2496ED' },
+    { name: 'Kubernetes', Icon: SiKubernetes, color: '#326CE5' },
+    { name: 'GraphQL', Icon: SiGraphql, color: '#E10098' },
   ];
 
-  const useCases = [
-    {
-      icon: Building2,
-      title: 'Enterprise Platforms',
-      description: 'Mission-critical systems for large organizations. ERP integrations, workflow automation, and internal tools that streamline operations across departments.',
-      items: ['Custom CRM systems', 'Inventory management', 'HR & payroll platforms', 'Reporting dashboards']
-    },
-    {
-      icon: Zap,
-      title: 'SaaS Products',
-      description: 'Launch your software-as-a-service product with multi-tenancy, subscription billing, and scalable infrastructure built for growth.',
-      items: ['Multi-tenant architecture', 'Stripe/billing integration', 'User management', 'Analytics & reporting']
-    },
-    {
-      icon: Users,
-      title: 'Customer Portals',
-      description: 'Self-service platforms that reduce support costs and improve customer satisfaction. Secure access, real-time updates, and intuitive interfaces.',
-      items: ['Secure authentication', 'Document management', 'Support ticketing', 'Account management']
-    },
-    {
-      icon: Cpu,
-      title: 'AI-Powered Applications',
-      description: 'Integrate machine learning and AI capabilities into your software. From chatbots to predictive analytics, we build intelligent systems.',
-      items: ['OpenAI/LLM integration', 'Predictive analytics', 'Natural language processing', 'Computer vision']
-    }
+  const buildProcess = [
+    { icon: Terminal, title: "Discovery", desc: "Requirements & architecture", days: "Week 1-2" },
+    { icon: Layers, title: "Design", desc: "UI/UX & system design", days: "Week 2-3" },
+    { icon: Code2, title: "Build", desc: "Agile development sprints", days: "Week 3-10" },
+    { icon: GitBranch, title: "Test", desc: "QA & security audits", days: "Week 10-11" },
+    { icon: Cloud, title: "Deploy", desc: "Launch & monitoring", days: "Week 12" },
   ];
 
-  const process = [
-    {
-      step: '01',
-      title: 'Discovery & Planning',
-      description: 'We dive deep into your business requirements, technical constraints, and growth objectives to create a comprehensive project roadmap.'
-    },
-    {
-      step: '02',
-      title: 'Architecture & Design',
-      description: 'Our architects design scalable, secure systems with detailed technical specifications and interactive prototypes for validation.'
-    },
-    {
-      step: '03',
-      title: 'Agile Development',
-      description: 'Two-week sprints with continuous delivery. You see working software from week one, with regular demos and feedback loops.'
-    },
-    {
-      step: '04',
-      title: 'Testing & QA',
-      description: 'Automated testing, security audits, and performance optimization ensure your software is rock-solid before launch.'
-    },
-    {
-      step: '05',
-      title: 'Deployment & Support',
-      description: 'Zero-downtime deployment with comprehensive documentation. Ongoing support, monitoring, and enhancement packages available.'
-    }
+  const capabilities = [
+    { icon: Monitor, title: "Web Apps", desc: "React, Next.js, Vue" },
+    { icon: Smartphone, title: "Mobile", desc: "React Native, Flutter" },
+    { icon: Server, title: "Backend", desc: "Node, Python, Go" },
+    { icon: Database, title: "Databases", desc: "SQL, NoSQL, Graph" },
+    { icon: Cloud, title: "Cloud", desc: "AWS, GCP, Azure" },
+    { icon: Lock, title: "Security", desc: "SOC2, HIPAA, GDPR" },
   ];
 
   return (
     <Layout>
       <SEOHead
-        title={revenueServicesSEO.customSoftwareDevelopment?.title || "Custom Software Development | Enterprise Solutions | OARC Digital"}
-        description={revenueServicesSEO.customSoftwareDevelopment?.description || "Build powerful custom software solutions tailored to your business. From web applications to enterprise platforms, OARC Digital delivers scalable, secure software that drives results."}
-        canonicalUrl={`https://oarcdigital.com${revenueServicesSEO.customSoftwareDevelopment?.path || '/services/custom-software-development'}`}
+        title="Custom Software Development | Web Apps & Enterprise Solutions | OARC Digital"
+        description="Build powerful custom software solutions tailored to your business. Full-stack development with React, Node.js, Python. From MVPs to enterprise platforms."
+        canonicalUrl="https://oarcdigital.com/services/custom-software-development"
         ogType="article"
         structuredData={createServiceSchema(
           "Custom Software Development Services",
@@ -172,244 +119,318 @@ export default function CustomSoftwareDevelopment() {
         schemaId="service-custom-software-development"
       />
 
-      {/* Hero Section */}
-      <section className="relative h-[70vh] min-h-[500px] flex items-center">
-        <div className="absolute inset-0">
-          <img 
-            src={heroImg} 
-            alt="Custom software development team"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent"></div>
+      {/* HERO: Full-screen interface showcase */}
+      <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-zinc-950">
+        {/* Background grid pattern */}
+        <div className="absolute inset-0 opacity-30">
+          <div 
+            className="absolute inset-0"
+            style={{
+              backgroundImage: `
+                linear-gradient(rgba(99, 102, 241, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(99, 102, 241, 0.1) 1px, transparent 1px)
+              `,
+              backgroundSize: '50px 50px'
+            }}
+          ></div>
         </div>
-        
-        <div className="relative z-10 w-full px-6">
-          <div className="max-w-6xl mx-auto">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-[hsl(220,65%,33%)]/20 border border-[hsl(220,65%,33%)]/40 rounded-full mb-6">
-              <Code2 className="w-4 h-4 text-[hsl(220,65%,50%)]" />
-              <span className="text-sm font-medium text-white">Custom Development</span>
-            </div>
-            
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6" data-testid="heading-custom-software">
-              Custom Software Development
-            </h1>
 
-            <h2 className="text-2xl md:text-3xl font-bold text-white/90 mb-6">
-              Build software that fits your business—not the other way around
-            </h2>
-
-            <p className="text-lg text-white/80 mb-8 max-w-3xl">
-              From custom web applications to enterprise platforms, we build scalable, secure software solutions that solve real business problems. No templates. No compromises. Just code that works.
-            </p>
-
-            <Link href="/contact">
-              <button
-                className="inline-flex items-center gap-3 bg-[hsl(220,65%,50%)] text-white rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2"
-                data-testid="button-start-project"
-              >
-                Start Your Project
-                <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
-                  <ArrowRight className="h-5 w-5 text-white" />
-                </div>
-              </button>
-            </Link>
-          </div>
+        {/* Floating code snippets */}
+        <div className="absolute top-20 right-10 bg-zinc-900/80 backdrop-blur-sm rounded-xl p-4 font-mono text-xs text-green-400 border border-zinc-800 hidden lg:block">
+          <div className="text-zinc-500 mb-1">// Your business logic</div>
+          <div><span className="text-purple-400">const</span> solution = <span className="text-yellow-400">await</span></div>
+          <div className="pl-4">buildCustomSoftware(&#123;</div>
+          <div className="pl-8">stack: <span className="text-green-400">'modern'</span>,</div>
+          <div className="pl-8">scale: <span className="text-green-400">'enterprise'</span></div>
+          <div className="pl-4">&#125;);</div>
         </div>
-      </section>
 
-      {/* Services Grid Section */}
-      <section className="py-20 px-4 bg-white">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-black text-black mb-2">
-            Development <span className="text-[hsl(220,65%,50%)]">Services</span>
-          </h2>
-          <p className="text-lg text-gray-600 mb-12 max-w-2xl">
-            Full-stack development capabilities to build any software solution your business needs
-          </p>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {services.map((service, idx) => {
-              const Icon = service.icon;
-              return (
-                <div 
-                  key={idx} 
-                  className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 border border-gray-100 hover:border-[hsl(220,65%,50%)]/30 hover:shadow-xl transition-all duration-300"
-                  data-testid={`service-card-${idx}`}
-                >
-                  <div className="w-14 h-14 bg-[hsl(220,65%,50%)]/10 rounded-xl flex items-center justify-center mb-6">
-                    <Icon className="h-7 w-7 text-[hsl(220,65%,50%)]" />
-                  </div>
-                  <h3 className="text-xl font-bold text-black mb-2">{service.title}</h3>
-                  <p className="text-gray-600 mb-6">{service.description}</p>
-                  <ul className="space-y-3">
-                    {service.items.map((item, itemIdx) => (
-                      <li key={itemIdx} className="flex items-start gap-2">
-                        <CheckCircle2 className="h-4 w-4 text-[hsl(220,65%,50%)] flex-shrink-0 mt-0.5" />
-                        <span className="text-sm text-gray-700">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* Tech Stack Section */}
-      <section className="py-16 px-4 bg-gradient-to-br from-[hsl(220,30%,10%)] to-[hsl(220,40%,15%)]">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-black text-white mb-2 text-center">
-            Our <span className="text-[hsl(220,65%,60%)]">Tech Stack</span>
-          </h2>
-          <p className="text-lg text-white/70 mb-12 max-w-2xl mx-auto text-center">
-            Modern technologies chosen for performance, scalability, and maintainability
-          </p>
-
-          <div className="flex flex-wrap justify-center gap-4">
-            {techStack.map((tech, idx) => (
-              <div 
-                key={idx}
-                className="px-6 py-3 bg-white/5 border border-white/10 rounded-full text-white font-medium hover:bg-white/10 hover:border-[hsl(220,65%,60%)]/50 transition-all"
-                data-testid={`tech-${tech.name.toLowerCase()}`}
-              >
-                {tech.name}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Use Cases Section */}
-      <section className="py-20 px-4 bg-gray-50">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-black text-black mb-2">
-            What We <span className="text-[hsl(220,65%,50%)]">Build</span>
-          </h2>
-          <p className="text-lg text-gray-600 mb-12 max-w-2xl">
-            From startups to enterprises, we build software solutions across industries
-          </p>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {useCases.map((useCase, idx) => {
-              const Icon = useCase.icon;
-              return (
-                <div 
-                  key={idx}
-                  className="bg-white rounded-2xl p-8 border border-gray-100 hover:shadow-lg transition-all"
-                  data-testid={`use-case-${idx}`}
-                >
-                  <div className="w-12 h-12 bg-[hsl(220,65%,95%)] rounded-xl flex items-center justify-center mb-5">
-                    <Icon className="h-6 w-6 text-[hsl(220,65%,50%)]" />
-                  </div>
-                  <h3 className="text-xl font-bold text-black mb-3">{useCase.title}</h3>
-                  <p className="text-gray-600 mb-5">{useCase.description}</p>
-                  <div className="flex flex-wrap gap-2">
-                    {useCase.items.map((item, itemIdx) => (
-                      <span 
-                        key={itemIdx}
-                        className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm"
-                      >
-                        {item}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* Benefits Section */}
-      <section className="py-20 px-4 bg-white">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 py-20">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl md:text-4xl font-black text-black mb-6">
-                Why Custom <span className="text-[hsl(220,65%,50%)]">Development?</span>
-              </h2>
-              <p className="text-lg text-gray-600 mb-8">
-                Off-the-shelf solutions force you to adapt your business to software limitations. Custom development does the opposite—we build exactly what you need.
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-500/20 border border-indigo-500/40 text-indigo-400 text-sm font-medium mb-6">
+                <Boxes className="w-4 h-4" />
+                Development Services
+              </div>
+              
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6" data-testid="heading-custom-software">
+                Build Software That <span className="text-indigo-400">Just Works</span>
+              </h1>
+              
+              <p className="text-xl text-white/70 mb-8 leading-relaxed">
+                From web apps to enterprise platforms. No templates, no compromises—just code that solves real problems.
               </p>
 
-              <div className="space-y-6">
-                {benefits.map((benefit, idx) => (
-                  <div key={idx} className="flex gap-4" data-testid={`benefit-${idx}`}>
-                    <div className="w-8 h-8 bg-[hsl(220,65%,50%)]/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <CheckCircle2 className="w-5 h-5 text-[hsl(220,65%,50%)]" />
+              <div className="flex flex-wrap gap-4 mb-10">
+                <Link href="/contact">
+                  <button
+                    className="btn-shimmer inline-flex items-center gap-3 bg-indigo-500 text-white rounded-full pl-8 pr-4 py-4 text-lg font-bold hover:bg-indigo-600 transition-colors"
+                    data-testid="button-start-project"
+                  >
+                    Start Building
+                    <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
+                      <ArrowRight className="h-5 w-5" />
                     </div>
-                    <div>
-                      <h3 className="font-bold text-black mb-1">{benefit.title}</h3>
-                      <p className="text-gray-600 text-sm">{benefit.description}</p>
-                    </div>
+                  </button>
+                </Link>
+              </div>
+
+              {/* Quick capabilities */}
+              <div className="grid grid-cols-3 gap-4">
+                {capabilities.slice(0, 3).map((cap, i) => (
+                  <div key={i} className="text-center p-3 bg-zinc-900/50 rounded-xl border border-zinc-800">
+                    <cap.icon className="w-6 h-6 text-indigo-400 mx-auto mb-2" />
+                    <div className="text-white font-semibold text-sm">{cap.title}</div>
+                    <div className="text-white/50 text-xs">{cap.desc}</div>
                   </div>
                 ))}
               </div>
             </div>
 
+            {/* Hero interface preview */}
             <div className="relative">
-              <img 
-                src={teamImg}
-                alt="Custom software development team collaborating"
-                className="rounded-2xl shadow-2xl"
-              />
-              <div className="absolute -bottom-6 -left-6 bg-[hsl(220,65%,50%)] text-white p-6 rounded-xl shadow-xl">
-                <div className="text-3xl font-black mb-1">500+</div>
-                <div className="text-sm text-white/80">Projects Delivered</div>
+              <div className="absolute -inset-4 bg-indigo-500/20 rounded-3xl blur-2xl"></div>
+              <div className="relative bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-800 shadow-2xl">
+                {/* Browser chrome */}
+                <div className="bg-zinc-800 px-4 py-3 flex items-center gap-2">
+                  <div className="flex gap-2">
+                    <div className="w-3 h-3 bg-red-500 rounded-full"></div>
+                    <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                    <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                  </div>
+                  <div className="flex-1 mx-4">
+                    <div className="bg-zinc-700 rounded-md px-3 py-1 text-xs text-zinc-400 font-mono">
+                      https://your-app.com
+                    </div>
+                  </div>
+                </div>
+                <img 
+                  src={dashboardImg}
+                  alt="Custom software dashboard"
+                  className="w-full h-[350px] object-cover"
+                />
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Process Section */}
-      <section className="py-20 px-4 bg-gradient-to-br from-gray-900 to-gray-800">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-black text-white mb-2 text-center">
-            Our <span className="text-[hsl(220,65%,60%)]">Process</span>
-          </h2>
-          <p className="text-lg text-white/70 mb-16 max-w-2xl mx-auto text-center">
-            A proven methodology that delivers results on time and on budget
-          </p>
+      {/* SECTION 2: Project Showcase - Bento Grid */}
+      <ScrollReveal>
+        <section className="py-20 px-4 bg-zinc-900">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
+                What We Build
+              </h2>
+              <p className="text-lg text-white/60 max-w-2xl mx-auto">
+                From startups to Fortune 500s—software that scales
+              </p>
+            </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
-            {process.map((step, idx) => (
+            {/* Bento Grid */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              {projectShowcase.map((project, i) => (
+                <div 
+                  key={i}
+                  className={`group relative overflow-hidden rounded-2xl cursor-pointer ${
+                    project.size === 'large' ? 'col-span-2 row-span-2' : 
+                    project.size === 'medium' ? 'col-span-2' : ''
+                  }`}
+                  data-testid={`project-${i}`}
+                >
+                  <div className={`relative ${
+                    project.size === 'large' ? 'h-[400px]' : 
+                    project.size === 'medium' ? 'h-[200px]' : 'h-[200px]'
+                  }`}>
+                    <img 
+                      src={project.img}
+                      alt={project.title}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+                    
+                    {/* Content */}
+                    <div className="absolute bottom-0 left-0 right-0 p-4">
+                      <div className="text-xs text-indigo-400 font-medium mb-1">{project.category}</div>
+                      <h3 className={`font-bold text-white mb-2 ${project.size === 'large' ? 'text-2xl' : 'text-lg'}`}>
+                        {project.title}
+                      </h3>
+                      <div className="flex flex-wrap gap-2">
+                        {project.tech.map((tech, j) => (
+                          <span key={j} className="px-2 py-1 bg-white/10 backdrop-blur-sm text-white text-xs rounded-full">
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      </ScrollReveal>
+
+      {/* SECTION 3: Tech Stack - Animated */}
+      <section className="py-16 px-4 bg-black overflow-hidden">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-black text-white mb-4">
+              Our Tech Stack
+            </h2>
+          </div>
+
+          {/* Animated tech strip */}
+          <div className="relative">
+            <div className="flex gap-8 animate-marquee">
+              {[...techStack, ...techStack].map((tech, i) => (
+                <div 
+                  key={i}
+                  className="flex items-center gap-3 px-6 py-4 bg-zinc-900 rounded-xl border border-zinc-800 whitespace-nowrap group hover:border-indigo-500/50 transition-colors"
+                >
+                  <tech.Icon className="w-8 h-8" style={{ color: tech.color }} />
+                  <span className="text-white font-semibold">{tech.name}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <style>{`
+          @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+          }
+          .animate-marquee {
+            animation: marquee 30s linear infinite;
+          }
+        `}</style>
+      </section>
+
+      {/* SECTION 4: Build Process - Visual Timeline */}
+      <ScrollReveal>
+        <section className="py-20 px-4 bg-white">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-black text-black mb-4">
+                From Idea to Launch in 12 Weeks
+              </h2>
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                Our proven process delivers working software fast
+              </p>
+            </div>
+
+            {/* Visual timeline */}
+            <div className="grid md:grid-cols-5 gap-4">
+              {buildProcess.map((step, i) => (
+                <div 
+                  key={i}
+                  className={`relative p-6 rounded-2xl transition-all duration-500 cursor-pointer ${
+                    activeStep === i 
+                      ? 'bg-indigo-500 text-white scale-105 shadow-2xl shadow-indigo-500/30' 
+                      : 'bg-zinc-100 text-black hover:bg-zinc-200'
+                  }`}
+                  onClick={() => setActiveStep(i)}
+                  data-testid={`process-step-${i}`}
+                >
+                  {/* Step number */}
+                  <div className={`absolute -top-3 -left-3 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold ${
+                    activeStep === i ? 'bg-white text-indigo-500' : 'bg-indigo-500 text-white'
+                  }`}>
+                    {i + 1}
+                  </div>
+                  
+                  <step.icon className={`w-10 h-10 mb-4 ${activeStep === i ? 'text-white' : 'text-indigo-500'}`} />
+                  
+                  <div className={`text-xs font-bold mb-2 ${activeStep === i ? 'text-white/80' : 'text-indigo-500'}`}>
+                    {step.days}
+                  </div>
+                  
+                  <h3 className="text-xl font-bold mb-2">{step.title}</h3>
+                  <p className={`text-sm ${activeStep === i ? 'text-white/80' : 'text-muted-foreground'}`}>
+                    {step.desc}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            {/* Progress bar */}
+            <div className="mt-8 h-2 bg-zinc-200 rounded-full overflow-hidden">
               <div 
-                key={idx}
-                className="relative bg-white/5 border border-white/10 rounded-xl p-6 hover:bg-white/10 transition-all"
-                data-testid={`process-step-${idx}`}
-              >
-                <div className="text-5xl font-black text-[hsl(220,65%,60%)]/30 mb-4">{step.step}</div>
-                <h3 className="text-lg font-bold text-white mb-2">{step.title}</h3>
-                <p className="text-sm text-white/60">{step.description}</p>
-                {idx < process.length - 1 && (
-                  <div className="hidden md:block absolute top-1/2 -right-2 w-4 h-4 border-t-2 border-r-2 border-white/20 transform rotate-45 -translate-y-1/2" />
-                )}
+                className="h-full bg-indigo-500 transition-all duration-500 rounded-full"
+                style={{ width: `${((activeStep + 1) / 5) * 100}%` }}
+              ></div>
+            </div>
+          </div>
+        </section>
+      </ScrollReveal>
+
+      {/* SECTION 5: Stats Bar */}
+      <section className="py-12 px-4 bg-indigo-500">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {[
+              { value: "500+", label: "Projects Delivered" },
+              { value: "12 Weeks", label: "Avg. Timeline" },
+              { value: "99.9%", label: "Uptime Guarantee" },
+              { value: "Full", label: "Code Ownership" },
+            ].map((stat, i) => (
+              <div key={i} className="text-center" data-testid={`stat-${i}`}>
+                <div className="text-3xl md:text-4xl font-black text-white mb-2">{stat.value}</div>
+                <div className="text-sm text-white/80">{stat.label}</div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 px-4 bg-[hsl(220,65%,50%)]">
+      {/* SECTION 6: Capabilities Grid */}
+      <ScrollReveal>
+        <section className="py-20 px-4 bg-zinc-50">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-black text-black mb-4">
+                Full-Stack Capabilities
+              </h2>
+            </div>
+
+            <div className="grid md:grid-cols-3 lg:grid-cols-6 gap-4">
+              {capabilities.map((cap, i) => (
+                <div 
+                  key={i}
+                  className="group p-6 rounded-2xl bg-white hover:bg-indigo-500 hover:text-white transition-all duration-300 border border-zinc-200 hover:border-indigo-500 text-center"
+                  data-testid={`capability-${i}`}
+                >
+                  <div className="w-14 h-14 mx-auto rounded-xl bg-indigo-500/10 group-hover:bg-white/20 flex items-center justify-center mb-4 transition-colors">
+                    <cap.icon className="w-7 h-7 text-indigo-500 group-hover:text-white transition-colors" />
+                  </div>
+                  <h3 className="font-bold mb-1">{cap.title}</h3>
+                  <p className="text-sm text-muted-foreground group-hover:text-white/80">{cap.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      </ScrollReveal>
+
+      {/* FINAL CTA */}
+      <section className="py-20 px-4 bg-zinc-950 text-white">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-black text-white mb-6">
-            Ready to Build Something Great?
+          <h2 className="text-4xl md:text-6xl font-black mb-6">
+            Ready to Build <span className="text-indigo-400">Something Great?</span>
           </h2>
-          <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-            Tell us about your project and get a free consultation with our technical team. No obligations, just honest advice.
+          <p className="text-xl text-white/70 mb-10">
+            Free consultation with our technical team. No obligations.
           </p>
-          
           <Link href="/contact">
             <button
-              className="inline-flex items-center gap-3 bg-white text-[hsl(220,65%,40%)] rounded-full pl-10 pr-4 py-4 text-base font-bold hover-elevate active-elevate-2"
+              className="btn-shimmer inline-flex items-center gap-3 bg-indigo-500 text-white rounded-full pl-10 pr-4 py-5 text-lg font-bold hover:bg-indigo-600 transition-colors"
               data-testid="button-cta-contact"
             >
               Schedule Free Consultation
-              <div className="w-10 h-10 bg-[hsl(220,65%,50%)] rounded-full flex items-center justify-center">
-                <ArrowRight className="h-5 w-5 text-white" />
+              <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
+                <ArrowRight className="h-6 w-6" />
               </div>
             </button>
           </Link>
