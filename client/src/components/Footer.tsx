@@ -1,28 +1,25 @@
 import { Link } from "wouter";
 import { ArrowRight, ArrowUpRight, Cookie } from "lucide-react";
-import { getPreviewServices, servicesCatalog } from '@/config/servicesConfig';
+import { servicesCatalog } from '@/config/servicesConfig';
 import { useCookieConsent } from '@/contexts/CookieConsentContext';
 import companyLogo from "@assets/IMG_8813_(1)_1764796694787.png";
 
 export default function Footer() {
   const { openPreferences } = useCookieConsent();
   
-  // Show first 8 items from each category for footer
-  const aiCreativePreview = getPreviewServices('aiCreative').slice(0, 8);
-  const aiEmployeesPreview = getPreviewServices('aiEmployees').slice(0, 8);
-  const revenuePreview = getPreviewServices('revenue').slice(0, 8);
+  const creativeDesignPreview = servicesCatalog.creativeDesign.items.slice(0, 8);
+  const aiAgentsPreview = servicesCatalog.aiAgents.items.slice(0, 6);
+  const growthAutomationPreview = servicesCatalog.growthAutomation.items.slice(0, 7);
+  const developmentPreview = servicesCatalog.development.items.slice(0, 5);
 
   return (
     <footer className="relative bg-[#0A0A0A] text-white overflow-hidden">
-      {/* CTA Section */}
       <div className="relative border-b border-white/5">
         <div className="max-w-7xl mx-auto px-6 md:px-12 py-20 md:py-28 text-center">
-          {/* Massive Bold Heading - Elite Typography */}
           <h2 className="font-bold text-white mb-8 leading-none" style={{ fontSize: 'clamp(3rem, 12vw, 8rem)', letterSpacing: '-0.04em' }}>
             GET IN<br />TOUCH
           </h2>
           
-          {/* Taglines */}
           <div className="flex flex-col gap-3 max-w-3xl mx-auto mb-12">
             <p className="text-lg md:text-xl text-zinc-400 leading-relaxed font-normal">
               Ready to 10x your revenue? Let's make it happen.
@@ -35,7 +32,6 @@ export default function Footer() {
             </p>
           </div>
           
-          {/* Green CTA Button - OARC Style */}
           <Link href="#contact">
             <button className="group relative px-10 py-5 bg-[#c4ff4d] hover:bg-[#b0e845] rounded-xl font-bold text-black text-lg shadow-2xl transition-all duration-300 hover:scale-105" data-testid="button-footer-cta">
               <div className="relative flex items-center gap-3">
@@ -47,14 +43,12 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Services Grid */}
       <div className="relative max-w-7xl mx-auto px-6 md:px-12 py-16 border-b border-white/5">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12" data-testid="footer-services">
-          {/* AI Creative Services */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12" data-testid="footer-services">
           <div>
-            <h4 className="text-white text-base font-bold mb-6 tracking-tight">{servicesCatalog.aiCreative.title} ↗</h4>
+            <h4 className="text-white text-base font-bold mb-6 tracking-tight">{servicesCatalog.creativeDesign.title}</h4>
             <ul className="space-y-3.5">
-              {aiCreativePreview.map((service) => (
+              {creativeDesignPreview.map((service) => (
                 <li key={service.slug}>
                   <Link 
                     href={`/services/${service.route || service.slug}`} 
@@ -69,11 +63,10 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* AI Employees */}
           <div>
-            <h4 className="text-white text-base font-bold mb-6 tracking-tight">{servicesCatalog.aiEmployees.title} ↗</h4>
+            <h4 className="text-white text-base font-bold mb-6 tracking-tight">{servicesCatalog.aiAgents.title}</h4>
             <ul className="space-y-3.5">
-              {aiEmployeesPreview.map((service) => (
+              {aiAgentsPreview.map((service) => (
                 <li key={service.slug}>
                   <Link 
                     href={`/services/${service.route || service.slug}`} 
@@ -88,11 +81,10 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Revenue Automation */}
           <div>
-            <h4 className="text-white text-base font-bold mb-6 tracking-tight">{servicesCatalog.revenue.title} ↗</h4>
+            <h4 className="text-white text-base font-bold mb-6 tracking-tight">{servicesCatalog.growthAutomation.title}</h4>
             <ul className="space-y-3.5">
-              {revenuePreview.map((service) => (
+              {growthAutomationPreview.map((service) => (
                 <li key={service.slug}>
                   <Link 
                     href={`/services/${service.route || service.slug}`} 
@@ -107,7 +99,24 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Navigation */}
+          <div>
+            <h4 className="text-white text-base font-bold mb-6 tracking-tight">{servicesCatalog.development.title}</h4>
+            <ul className="space-y-3.5">
+              {developmentPreview.map((service) => (
+                <li key={service.slug}>
+                  <Link 
+                    href={`/services/${service.route || service.slug}`} 
+                    className="group inline-flex items-center gap-1 text-zinc-400 hover:text-white transition-colors text-sm font-normal" 
+                    data-testid={`link-footer-${service.slug}`}
+                  >
+                    <span>{service.title}</span>
+                    <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
           <div>
             <h4 className="text-white text-base font-bold mb-6 tracking-tight">Main</h4>
             <ul className="space-y-3.5">
@@ -152,10 +161,8 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Global Offices - Subtle */}
       <div className="relative max-w-7xl mx-auto px-6 md:px-12 py-10 border-b border-white/5">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Malta */}
           <div>
             <h5 className="text-zinc-500 text-xs uppercase tracking-wider mb-2 font-medium">Malta</h5>
             <address className="text-zinc-400 text-sm not-italic leading-relaxed">
@@ -168,7 +175,6 @@ export default function Footer() {
             </a>
           </div>
 
-          {/* India - Chennai */}
           <div>
             <h5 className="text-zinc-500 text-xs uppercase tracking-wider mb-2 font-medium">India — Chennai</h5>
             <address className="text-zinc-400 text-sm not-italic leading-relaxed">
@@ -181,7 +187,6 @@ export default function Footer() {
             </a>
           </div>
 
-          {/* Dubai - JLT */}
           <div>
             <h5 className="text-zinc-500 text-xs uppercase tracking-wider mb-2 font-medium">Dubai — JLT</h5>
             <address className="text-zinc-400 text-sm not-italic leading-relaxed">
@@ -196,10 +201,8 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Legal Links Section */}
       <div className="relative max-w-7xl mx-auto px-6 md:px-12 py-8 border-b border-white/5">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-          {/* Legal Navigation */}
           <div className="flex flex-wrap items-center gap-4 md:gap-6">
             <Link href="/privacy-policy" className="text-zinc-400 hover:text-white transition-colors text-sm" data-testid="link-footer-privacy">
               Privacy Policy
@@ -220,7 +223,6 @@ export default function Footer() {
             </button>
           </div>
 
-          {/* Compliance Badges */}
           <div className="flex items-center gap-4">
             <span className="text-zinc-500 text-xs">GDPR Compliant</span>
             <span className="w-1 h-1 bg-zinc-600 rounded-full"></span>
@@ -229,10 +231,8 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Brand & Bottom Section */}
       <div className="relative max-w-7xl mx-auto px-6 md:px-12 py-12">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8">
-          {/* Brand */}
           <div className="flex items-center gap-4">
             <img 
               src={companyLogo} 
@@ -246,7 +246,6 @@ export default function Footer() {
             </span>
           </div>
 
-          {/* Copyright & Legal Entity Info */}
           <div className="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-8">
             <div className="text-zinc-500 text-sm">
               © 2025 Oarc Digital. All rights reserved.

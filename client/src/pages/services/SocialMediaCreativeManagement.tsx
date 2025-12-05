@@ -234,37 +234,37 @@ export default function SocialMediaCreativeManagement() {
 
   const services = [
     {
-      title: "AI-Amplified Social",
+      title: "Organic Social",
       icon: Brain,
-      description: "Fusing AI with human dynamics. Our OARC Intelligence Engine crafts strategies that outperform traditional approaches—powered by our tested MVPs.",
+      description: "Build engaged communities that drive real business results. Daily content, community management, and data-driven strategy to grow your organic presence.",
       points: [
-        "Neural content optimization",
-        "Predictive engagement mapping",
-        "AI-driven community growth"
+        "Content strategy & planning",
+        "Community management",
+        "Engagement optimization"
       ],
       caseStudy: "See how we grew an e-commerce brand 2.4x →",
-      learnMore: "Explore AI Social",
+      learnMore: "Learn More",
       link: "/services/social",
       gradient: "bg-gradient-to-br from-[#7B2FF7] via-[#9D4EDD] to-[#C77DFF]",
       glowColor: "shadow-[0_20px_50px_rgba(123,47,247,0.4)]",
       accentColor: "#7B2FF7",
       flowSteps: [
-        { icon: <Brain className="w-5 h-5 text-white" />, label: "Analyze" },
+        { icon: <Brain className="w-5 h-5 text-white" />, label: "Strategy" },
         { icon: <Sparkles className="w-5 h-5 text-white" />, label: "Create" },
         { icon: <TrendingUp className="w-5 h-5 text-white" />, label: "Grow" },
       ]
     },
     {
-      title: "Revenue Ads",
+      title: "Paid Ads",
       icon: TrendingUp,
-      description: "In a saturated ad landscape, scaling ROAS is tough. Malta's only agency with direct API access to Meta and Google's ML layers—powered by our proven MVPs.",
+      description: "Strategic paid campaigns across Meta, Google, TikTok, and LinkedIn. We optimize targeting, creative, and bidding to maximize your return on ad spend.",
       points: [
-        "Algorithmic bid optimization",
-        "Dynamic creative sequencing",
-        "Automated ROAS scaling"
+        "Campaign strategy & setup",
+        "Creative testing & optimization",
+        "Performance tracking & reporting"
       ],
-      caseStudy: "See how our MVP boosted ROAS for FinTech →",
-      learnMore: "Explore Revenue Ads",
+      caseStudy: "See how we boosted ROAS 3x for FinTech →",
+      learnMore: "Learn More",
       link: "/services/paid-advertising",
       gradient: "bg-gradient-to-br from-[#FF6B53] via-[#FF7A5C] to-[#FF9F7F]",
       glowColor: "shadow-[0_20px_50px_rgba(255,107,83,0.4)]",
@@ -276,37 +276,37 @@ export default function SocialMediaCreativeManagement() {
       ]
     },
     {
-      title: "Creative Lab",
+      title: "Content Creation",
       icon: Wand2,
-      description: "Where AI meets artistry. Our Creative Lab fuses generative AI with human direction to produce thumb-stopping content—powered by tested MVPs.",
+      description: "Professional content production for social media. From video reels and photography to graphics and animations—scroll-stopping content that converts.",
       points: [
-        "AI-assisted video production",
-        "Generative design systems",
-        "Performance-tested visuals"
+        "Video & photo production",
+        "Motion graphics & animation",
+        "Platform-optimized formats"
       ],
       caseStudy: "View our award-winning DTC campaign →",
-      learnMore: "Enter the Lab",
+      learnMore: "Learn More",
       link: "/services/creative",
       gradient: "bg-gradient-to-br from-[#FF6B9D] via-[#FF8FAB] to-[#FFB3C1]",
       glowColor: "shadow-[0_20px_50px_rgba(255,107,157,0.4)]",
       accentColor: "#FF6B9D",
       flowSteps: [
         { icon: <Palette className="w-5 h-5 text-white" />, label: "Design" },
-        { icon: <Wand2 className="w-5 h-5 text-white" />, label: "AI Magic" },
+        { icon: <Wand2 className="w-5 h-5 text-white" />, label: "Create" },
         { icon: <Video className="w-5 h-5 text-white" />, label: "Produce" },
       ]
     },
     {
-      title: "Creator Network",
+      title: "Influencer Partners",
       icon: Network,
-      description: "Access 2,000+ vetted creators across EMEA. AI-powered affinity scoring—built on our tested MVPs—matches your brand with authentic voices.",
+      description: "Connect with vetted creators who align with your brand. We handle sourcing, outreach, contracts, and campaign management from start to finish.",
       points: [
-        "AI creator-brand matching",
-        "Performance-based partnerships",
-        "Multi-platform amplification"
+        "Creator sourcing & vetting",
+        "Campaign coordination",
+        "Performance tracking"
       ],
       caseStudy: "How we scaled lifestyle brand reach 5x →",
-      learnMore: "Meet the Network",
+      learnMore: "Learn More",
       link: "/services/influencer-marketing",
       gradient: "bg-gradient-to-br from-[#4F46E5] via-[#6366F1] to-[#818CF8]",
       glowColor: "shadow-[0_20px_50px_rgba(79,70,229,0.4)]",
