@@ -42,13 +42,13 @@ export default function AICopywriting() {
         </div>
         <div className="relative z-10 text-center px-4 max-w-6xl mx-auto">
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 animate-in fade-in slide-in-from-bottom-4 duration-700">
-            Content that <span className="italic bg-gradient-to-r from-[hsl(280,70%,55%)] via-[hsl(300,81%,60%)] to-[hsl(320,81%,60%)] text-transparent bg-clip-text">scales with AI</span>
+            Content that <span className="italic text-[#c4ff4d]">scales with AI</span>
           </h1>
           <p className="text-lg md:text-xl text-white/90 mb-8 max-w-3xl mx-auto animate-in fade-in slide-in-from-bottom-4 duration-700 delay-150">
             10x faster content production without sacrificing quality. AI-powered drafts, human-edited perfection, brand voice training. From blog posts to ad copy—we deliver at machine speed with human excellence.
           </p>
           <div className="flex flex-wrap gap-4 justify-center animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300">
-            <Button size="lg" className="bg-white text-[hsl(280,70%,55%)] hover:bg-white/90" data-testid="button-get-started">
+            <Button size="lg" className="bg-[#c4ff4d] text-[#1a2e29] hover:bg-[#c4ff4d]/90" data-testid="button-get-started">
               Start Creating Content
             </Button>
             <Button size="lg" variant="outline" className="border-white text-white bg-white/10 backdrop-blur-sm hover:bg-white/20" data-testid="button-view-samples">
@@ -72,34 +72,34 @@ export default function AICopywriting() {
         </div>
       </section>
 
-      <section className="py-16 px-4 bg-[hsl(280,10%,98%)]">
+      <section className="py-16 px-4 bg-zinc-950">
         <div className="max-w-6xl mx-auto">
-          <div className="bg-white rounded-2xl overflow-hidden border border-border shadow-lg">
+          <div className="bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-800 shadow-lg">
             <div className="p-8 md:p-12">
-              <div className="text-sm uppercase tracking-wider text-[hsl(280,70%,55%)] mb-4">CASE STUDY</div>
-              <h3 className="text-3xl md:text-4xl font-bold mb-6">
+              <div className="text-sm uppercase tracking-wider text-[#23AACA] mb-4">CASE STUDY</div>
+              <h3 className="text-3xl md:text-4xl font-bold mb-6 text-white">
                 How we helped a SaaS platform produce 500+ SEO articles in 90 days
               </h3>
               <div className="grid md:grid-cols-3 gap-8 mb-8">
                 <div>
-                  <div className="text-2xl font-bold text-[hsl(280,70%,55%)] mb-2">287% increase</div>
-                  <div className="text-sm text-muted-foreground">Organic search traffic growth</div>
+                  <div className="text-2xl font-bold text-[#c4ff4d] mb-2">287% increase</div>
+                  <div className="text-sm text-white/60">Organic search traffic growth</div>
                 </div>
                 <div>
-                  <div className="text-2xl font-bold text-[hsl(280,70%,55%)] mb-2">12x faster</div>
-                  <div className="text-sm text-muted-foreground">Than their previous content velocity</div>
+                  <div className="text-2xl font-bold text-[#c4ff4d] mb-2">12x faster</div>
+                  <div className="text-sm text-white/60">Than their previous content velocity</div>
                 </div>
                 <div>
-                  <div className="text-2xl font-bold text-[hsl(280,70%,55%)] mb-2">$180k saved</div>
-                  <div className="text-sm text-muted-foreground">In content production costs</div>
+                  <div className="text-2xl font-bold text-[#c4ff4d] mb-2">$180k saved</div>
+                  <div className="text-sm text-white/60">In content production costs</div>
                 </div>
               </div>
-              <p className="text-muted-foreground mb-6">
+              <p className="text-white/70 mb-6">
                 A fast-growing SaaS platform needed to dominate long-tail keywords but couldn't afford traditional content agencies. We deployed our AI-human hybrid system to produce 500+ high-quality, SEO-optimized articles in just 90 days. Every piece was brand-aligned, factually accurate, and optimized for featured snippets. The result: massive organic traffic growth and industry-leading content velocity.
               </p>
               <div className="flex flex-wrap gap-3">
                 {['SEO Blog Posts', 'Brand Voice Training', 'Human Editing', 'Keyword Research', 'Content Calendar'].map((tag, i) => (
-                  <span key={i} className="px-3 py-1 bg-[hsl(280,10%,95%)] text-[hsl(280,70%,55%)] rounded-full text-sm font-medium">
+                  <span key={i} className="px-3 py-1 bg-zinc-800 text-[#23AACA] rounded-full text-sm font-medium">
                     {tag}
                   </span>
                 ))}
@@ -110,13 +110,13 @@ export default function AICopywriting() {
       </section>
 
       {/* Content Types */}
-      <section className="py-16 bg-white overflow-hidden">
+      <section className="py-16 bg-[#f5f0e6] overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 mb-10">
-          <div className="text-sm uppercase tracking-wider text-[hsl(280,70%,55%)] mb-3">CONTENT FORMATS</div>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Every format. <span className="italic text-[hsl(320,81%,60%)]">Every channel.</span>
+          <div className="text-sm uppercase tracking-wider text-[#23AACA] mb-3">CONTENT FORMATS</div>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-[#1a2e29]">
+            Every format. <span className="italic text-orange-500">Every channel.</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl">
+          <p className="text-lg text-[#1a2e29]/70 max-w-2xl">
             AI-powered first drafts, human editing, brand-perfect final deliverables
           </p>
         </div>
@@ -162,17 +162,17 @@ export default function AICopywriting() {
               },
             ].map((type, i) => (
               <div key={i} className="flex-none w-[340px] md:w-[420px] group" data-testid={`card-type-${i}`}>
-                <div className="bg-white rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-500 border border-border h-full hover:-translate-y-2">
-                  <div className="relative h-48 bg-gradient-to-br from-[hsl(280,70%,55%)]/10 via-[hsl(300,81%,60%)]/10 to-[hsl(320,81%,60%)]/10 overflow-hidden flex items-center justify-center">
-                    <type.icon className="h-16 w-16 text-[hsl(280,70%,55%)]/30 group-hover:scale-110 transition-transform duration-500" />
+                <div className="bg-white rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-500 border border-[#1a2e29]/10 h-full hover:-translate-y-2">
+                  <div className="relative h-48 bg-[#23AACA]/10 overflow-hidden flex items-center justify-center">
+                    <type.icon className="h-16 w-16 text-[#23AACA]/30 group-hover:scale-110 transition-transform duration-500" />
                   </div>
                   <div className="p-6">
-                    <h3 className="text-xl font-bold mb-3 group-hover:text-[hsl(280,70%,55%)] transition-colors">{type.name}</h3>
-                    <p className="text-sm text-muted-foreground mb-4">{type.desc}</p>
+                    <h3 className="text-xl font-bold mb-3 text-[#1a2e29] group-hover:text-[#23AACA] transition-colors">{type.name}</h3>
+                    <p className="text-sm text-[#1a2e29]/60 mb-4">{type.desc}</p>
                     <div className="space-y-2">
                       {type.features.map((feature, j) => (
-                        <div key={j} className="flex items-center gap-2 text-sm">
-                          <CheckCircle2 className="h-4 w-4 text-[hsl(280,70%,55%)]" />
+                        <div key={j} className="flex items-center gap-2 text-sm text-[#1a2e29]">
+                          <CheckCircle2 className="h-4 w-4 text-[#23AACA]" />
                           <span>{feature}</span>
                         </div>
                       ))}
@@ -186,13 +186,13 @@ export default function AICopywriting() {
       </section>
 
       {/* Our Process */}
-      <section className="py-16 px-4 bg-[hsl(280,10%,98%)]">
+      <section className="py-16 px-4 bg-[#a8b892]">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              How it works: <span className="italic text-[hsl(320,81%,60%)]">AI speed, human quality</span>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-[#1a2e29]">
+              How it works: <span className="italic text-white">AI speed, human quality</span>
             </h2>
-            <p className="text-lg text-muted-foreground">
+            <p className="text-lg text-[#1a2e29]/80">
               Our hybrid AI-human workflow delivers 10x faster without sacrificing brand voice
             </p>
           </div>
@@ -204,11 +204,11 @@ export default function AICopywriting() {
               { step: "03", title: "Human Editing & Optimization", desc: "Expert editors refine every piece for accuracy, brand alignment, SEO optimization, and persuasive impact. We add nuance, verify facts, optimize for featured snippets, and ensure publication-ready quality." },
               { step: "04", title: "Review & Iteration", desc: "You review, we iterate. Fast turnaround on revisions. Once approved, content is delivered in your preferred format with metadata, images, and internal linking recommendations." },
             ].map((item, i) => (
-              <div key={i} className="flex gap-6 items-start p-6 md:p-8 bg-white rounded-xl border border-border hover:shadow-lg transition-all duration-300 hover:-translate-x-2" data-testid={`step-${i}`}>
-                <div className="text-5xl font-bold text-[hsl(280,70%,55%)]/20 flex-shrink-0">{item.step}</div>
+              <div key={i} className="flex gap-6 items-start p-6 md:p-8 bg-white rounded-xl border border-[#1a2e29]/10 hover:shadow-lg transition-all duration-300 hover:-translate-x-2" data-testid={`step-${i}`}>
+                <div className="text-5xl font-bold text-[#23AACA]/30 flex-shrink-0">{item.step}</div>
                 <div className="flex-1">
-                  <h3 className="text-xl font-bold mb-2">{item.title}</h3>
-                  <p className="text-sm text-muted-foreground">{item.desc}</p>
+                  <h3 className="text-xl font-bold mb-2 text-[#1a2e29]">{item.title}</h3>
+                  <p className="text-sm text-[#1a2e29]/70">{item.desc}</p>
                 </div>
               </div>
             ))}
@@ -353,43 +353,43 @@ export default function AICopywriting() {
       </section>
 
       {/* Related Services */}
-      <section className="py-16 px-4 bg-[hsl(280,10%,98%)]">
+      <section className="py-16 px-4 bg-zinc-950">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center text-white">
             Services That Work Great Together
           </h2>
           <div className="grid md:grid-cols-3 gap-6">
             <Link href="/services/digital-marketing">
-              <div className="p-6 bg-white border border-border rounded-xl hover-elevate cursor-pointer transition-all" data-testid="related-service-digital-marketing">
-                <h3 className="text-xl font-bold mb-3">Digital Marketing Services</h3>
-                <p className="text-muted-foreground mb-4">
+              <div className="p-6 bg-zinc-900 border border-zinc-800 rounded-xl hover:border-[#23AACA] cursor-pointer transition-all" data-testid="related-service-digital-marketing">
+                <h3 className="text-xl font-bold mb-3 text-white">Digital Marketing Services</h3>
+                <p className="text-white/70 mb-4">
                   Combine AI-powered content with full-funnel marketing strategy for comprehensive growth.
                 </p>
-                <div className="flex items-center text-[hsl(280,70%,55%)] font-semibold">
+                <div className="flex items-center text-[#23AACA] font-semibold">
                   Learn More <ArrowRight className="w-4 h-4 ml-2" />
                 </div>
               </div>
             </Link>
 
             <Link href="/services/email-creative">
-              <div className="p-6 bg-white border border-border rounded-xl hover-elevate cursor-pointer transition-all" data-testid="related-service-email-creative">
-                <h3 className="text-xl font-bold mb-3">Email Creative</h3>
-                <p className="text-muted-foreground mb-4">
+              <div className="p-6 bg-zinc-900 border border-zinc-800 rounded-xl hover:border-[#23AACA] cursor-pointer transition-all" data-testid="related-service-email-creative">
+                <h3 className="text-xl font-bold mb-3 text-white">Email Creative</h3>
+                <p className="text-white/70 mb-4">
                   Beautiful email templates paired with AI-generated copy for high-converting campaigns.
                 </p>
-                <div className="flex items-center text-[hsl(280,70%,55%)] font-semibold">
+                <div className="flex items-center text-[#23AACA] font-semibold">
                   Learn More <ArrowRight className="w-4 h-4 ml-2" />
                 </div>
               </div>
             </Link>
 
             <Link href="/services/social-media-creative">
-              <div className="p-6 bg-white border border-border rounded-xl hover-elevate cursor-pointer transition-all" data-testid="related-service-social-creative">
-                <h3 className="text-xl font-bold mb-3">Social Media Creative</h3>
-                <p className="text-muted-foreground mb-4">
+              <div className="p-6 bg-zinc-900 border border-zinc-800 rounded-xl hover:border-[#23AACA] cursor-pointer transition-all" data-testid="related-service-social-creative">
+                <h3 className="text-xl font-bold mb-3 text-white">Social Media Creative</h3>
+                <p className="text-white/70 mb-4">
                   Scale social content creation with AI copywriting and professional creative design.
                 </p>
-                <div className="flex items-center text-[hsl(280,70%,55%)] font-semibold">
+                <div className="flex items-center text-[#23AACA] font-semibold">
                   Learn More <ArrowRight className="w-4 h-4 ml-2" />
                 </div>
               </div>
@@ -399,9 +399,8 @@ export default function AICopywriting() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 px-4 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[hsl(280,70%,55%)] via-[hsl(300,81%,60%)] to-[hsl(320,81%,60%)]"></div>
-        <div className="relative z-10 max-w-4xl mx-auto text-center text-white">
+      <section className="py-20 px-4 bg-[#23AACA]">
+        <div className="max-w-4xl mx-auto text-center text-white">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Ready to 10x your content production?
           </h2>
@@ -409,7 +408,7 @@ export default function AICopywriting() {
             Get human-quality content at AI speed. Let's build your content engine with brand voice training and expert human editing.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <Button size="lg" className="bg-white text-[hsl(280,70%,55%)] hover:bg-white/90" data-testid="button-cta-primary">
+            <Button size="lg" className="bg-[#c4ff4d] text-[#1a2e29] hover:bg-[#c4ff4d]/90" data-testid="button-cta-primary">
               Start Creating Content
             </Button>
             <Button size="lg" variant="outline" className="border-white text-white bg-white/10 backdrop-blur-sm hover:bg-white/20" data-testid="button-cta-secondary">

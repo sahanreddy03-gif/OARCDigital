@@ -185,7 +185,7 @@ export default function InfluencerMarketing() {
                   <ul className="space-y-2">
                     {study.results.map((result, j) => (
                       <li key={j} className="flex items-start gap-2">
-                        <CheckCircle2 className="w-4 h-4 text-[hsl(142,76%,36%)] mt-0.5 flex-shrink-0" />
+                        <CheckCircle2 className="w-4 h-4 text-[#23AACA] mt-0.5 flex-shrink-0" />
                         <span className="text-sm text-muted-foreground">{result}</span>
                       </li>
                     ))}

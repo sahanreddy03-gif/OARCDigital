@@ -44,13 +44,13 @@ export default function SocialMediaCreative() {
         </div>
         <div className="relative z-10 text-center px-4 max-w-6xl mx-auto">
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 animate-in fade-in slide-in-from-bottom-4 duration-700">
-            Social content that <span className="italic bg-gradient-to-r from-[hsl(262,83%,58%)] via-[hsl(300,81%,60%)] to-[hsl(330,81%,60%)] text-transparent bg-clip-text">stops the scroll</span>
+            Social content that <span className="italic text-[#c4ff4d]">stops the scroll</span>
           </h1>
           <p className="text-lg md:text-xl text-white/90 mb-8 max-w-3xl mx-auto animate-in fade-in slide-in-from-bottom-4 duration-700 delay-150">
             Platform-optimized content for Instagram, TikTok, LinkedIn, and beyond. Unlimited creation at a fixed monthly rate. Trend-aware, on-brand, and built for engagement.
           </p>
           <div className="flex flex-wrap gap-4 justify-center animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300">
-            <Button size="lg" className="bg-white text-[hsl(262,83%,58%)] hover:bg-white/90" data-testid="button-get-started">
+            <Button size="lg" className="bg-[#c4ff4d] text-[#1a2e29] hover:bg-[#c4ff4d]/90" data-testid="button-get-started">
               Start Creating
             </Button>
             <Button size="lg" variant="outline" className="border-white text-white bg-white/10 backdrop-blur-sm hover:bg-white/20" data-testid="button-view-work">
@@ -74,14 +74,14 @@ export default function SocialMediaCreative() {
         </div>
       </section>
 
-      <section className="py-20 px-4 bg-[hsl(210,20%,98%)]">
+      <section className="py-20 px-4 bg-[#a8b892]">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <div className="text-sm uppercase tracking-wider text-[hsl(262,83%,58%)] mb-4">UNLIMITED CONTENT</div>
-            <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6">
-              Feed the algorithm. <span className="italic bg-gradient-to-r from-[hsl(262,83%,58%)] to-[hsl(330,81%,60%)] text-transparent bg-clip-text">Feed your growth.</span>
+            <div className="text-sm uppercase tracking-wider text-[#1a2e29] mb-4">UNLIMITED CONTENT</div>
+            <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-[#1a2e29]">
+              Feed the algorithm. <span className="italic text-white">Feed your growth.</span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-xl text-[#1a2e29]/80 max-w-3xl mx-auto">
               Social algorithms reward volume and consistency. We produce 20-50+ pieces of content per week—all platform-optimized, on-brand, and designed to engage.
             </p>
           </div>
@@ -89,11 +89,11 @@ export default function SocialMediaCreative() {
       </section>
 
       {/* Platform-Specific Content - Large Cards */}
-      <section className="py-20 bg-white overflow-hidden">
+      <section className="py-20 bg-[#f5f0e6] overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 mb-12">
-          <div className="text-sm uppercase tracking-wider text-[hsl(262,83%,58%)] mb-4">PLATFORM EXPERTISE</div>
-          <h2 className="text-5xl md:text-6xl font-bold">
-            Native content for <span className="italic bg-gradient-to-r from-[hsl(262,83%,58%)] to-[hsl(330,81%,60%)] text-transparent bg-clip-text">every platform</span>
+          <div className="text-sm uppercase tracking-wider text-[#23AACA] mb-4">PLATFORM EXPERTISE</div>
+          <h2 className="text-5xl md:text-6xl font-bold text-[#1a2e29]">
+            Native content for <span className="italic text-orange-500">every platform</span>
           </h2>
         </div>
 
@@ -124,12 +124,12 @@ export default function SocialMediaCreative() {
       </section>
 
       {/* Case Studies */}
-      <section className="py-20 px-4 bg-[hsl(210,20%,98%)]">
+      <section className="py-20 px-4 bg-zinc-950">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <div className="text-sm uppercase tracking-wider text-[hsl(262,83%,58%)] mb-4">CASE STUDIES</div>
-            <h2 className="text-5xl md:text-6xl font-bold mb-6">
-              Viral moments that <span className="italic bg-gradient-to-r from-[hsl(262,83%,58%)] to-[hsl(330,81%,60%)] text-transparent bg-clip-text">move business metrics</span>
+            <div className="text-sm uppercase tracking-wider text-[#23AACA] mb-4">CASE STUDIES</div>
+            <h2 className="text-5xl md:text-6xl font-bold mb-6 text-white">
+              Viral moments that <span className="italic text-[#c4ff4d]">move business metrics</span>
             </h2>
           </div>
 
@@ -160,19 +160,19 @@ export default function SocialMediaCreative() {
                 icon: Sparkles
               },
             ].map((study, i) => (
-              <div key={i} className="group p-8 bg-white rounded-xl border border-border hover:border-[hsl(262,83%,58%)] hover:shadow-xl transition-all duration-300" data-testid={`case-study-${i}`}>
-                <study.icon className="h-12 w-12 text-[hsl(262,83%,58%)] mb-4 group-hover:scale-110 transition-transform" />
-                <div className="text-sm uppercase tracking-wider text-[hsl(262,83%,58%)] mb-2">{study.industry}</div>
-                <p className="text-sm text-muted-foreground mb-4">{study.challenge}</p>
-                <div className="text-4xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 text-transparent bg-clip-text mb-4">{study.result}</div>
+              <div key={i} className="group p-8 bg-zinc-900 rounded-xl border border-zinc-800 hover:border-[#23AACA] hover:shadow-xl transition-all duration-300" data-testid={`case-study-${i}`}>
+                <study.icon className="h-12 w-12 text-[#23AACA] mb-4 group-hover:scale-110 transition-transform" />
+                <div className="text-sm uppercase tracking-wider text-[#23AACA] mb-2">{study.industry}</div>
+                <p className="text-sm text-white/60 mb-4">{study.challenge}</p>
+                <div className="text-4xl font-bold text-[#c4ff4d] mb-4">{study.result}</div>
                 <div className="space-y-2">
                   <div className="flex items-start gap-2">
-                    <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-sm">{study.metric1}</span>
+                    <CheckCircle2 className="h-5 w-5 text-[#23AACA] flex-shrink-0 mt-0.5" />
+                    <span className="text-sm text-white/80">{study.metric1}</span>
                   </div>
                   <div className="flex items-start gap-2">
-                    <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-sm">{study.metric2}</span>
+                    <CheckCircle2 className="h-5 w-5 text-[#23AACA] flex-shrink-0 mt-0.5" />
+                    <span className="text-sm text-white/80">{study.metric2}</span>
                   </div>
                 </div>
               </div>
@@ -182,15 +182,15 @@ export default function SocialMediaCreative() {
       </section>
 
       {/* Brand Voice & Trends */}
-      <section className="py-20 px-4 bg-white">
+      <section className="py-20 px-4 bg-[#f5f0e6]">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <div className="text-sm uppercase tracking-wider text-[hsl(262,83%,58%)] mb-4">BRAND VOICE</div>
-              <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                On-brand. <span className="italic bg-gradient-to-r from-[hsl(262,83%,58%)] to-[hsl(330,81%,60%)] text-transparent bg-clip-text">On-trend.</span> Always.
+              <div className="text-sm uppercase tracking-wider text-[#23AACA] mb-4">BRAND VOICE</div>
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-[#1a2e29]">
+                On-brand. <span className="italic text-orange-500">On-trend.</span> Always.
               </h2>
-              <p className="text-lg text-muted-foreground mb-6">
+              <p className="text-lg text-[#1a2e29]/70 mb-6">
                 We capture your unique brand voice and adapt it for each platform—while staying ahead of trends to keep your content fresh and relevant.
               </p>
               <div className="space-y-4">
@@ -201,8 +201,8 @@ export default function SocialMediaCreative() {
                   "Community management and engagement support",
                 ].map((item, i) => (
                   <div key={i} className="flex items-start gap-3">
-                    <CheckCircle2 className="h-6 w-6 text-green-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-lg">{item}</span>
+                    <CheckCircle2 className="h-6 w-6 text-[#23AACA] flex-shrink-0 mt-0.5" />
+                    <span className="text-lg text-[#1a2e29]">{item}</span>
                   </div>
                 ))}
               </div>
@@ -214,9 +214,9 @@ export default function SocialMediaCreative() {
                 { label: "Engagement Rate", value: "4.2%" },
                 { label: "Response Time", value: "2hrs" },
               ].map((stat, i) => (
-                <div key={i} className="p-6 bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl text-center">
-                  <div className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 text-transparent bg-clip-text mb-3">{stat.value}</div>
-                  <div className="text-base text-muted-foreground font-semibold">{stat.label}</div>
+                <div key={i} className="p-6 bg-white rounded-xl text-center border border-[#1a2e29]/10">
+                  <div className="text-3xl font-bold text-[#23AACA] mb-3">{stat.value}</div>
+                  <div className="text-base text-[#1a2e29]/60 font-semibold">{stat.label}</div>
                 </div>
               ))}
             </div>
@@ -361,43 +361,43 @@ export default function SocialMediaCreative() {
       </section>
 
       {/* Related Services */}
-      <section className="py-16 px-4 bg-zinc-50">
+      <section className="py-16 px-4 bg-zinc-950">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center text-white">
             Services That Work Great Together
           </h2>
           <div className="grid md:grid-cols-3 gap-6">
             <Link href="/services/social-media-management">
-              <div className="p-6 bg-white border border-border rounded-xl hover-elevate cursor-pointer transition-all" data-testid="related-service-social-management">
-                <h3 className="text-xl font-bold mb-3">Social Media Management</h3>
-                <p className="text-muted-foreground mb-4">
+              <div className="p-6 bg-zinc-900 border border-zinc-800 rounded-xl hover:border-[#23AACA] cursor-pointer transition-all" data-testid="related-service-social-management">
+                <h3 className="text-xl font-bold mb-3 text-white">Social Media Management</h3>
+                <p className="text-white/70 mb-4">
                   We create the content—add full community management, scheduling, and strategy to maximize ROI.
                 </p>
-                <div className="flex items-center text-[hsl(262,83%,58%)] font-semibold">
+                <div className="flex items-center text-[#23AACA] font-semibold">
                   Learn More <ArrowRight className="w-4 h-4 ml-2" />
                 </div>
               </div>
             </Link>
 
             <Link href="/services/paid-advertising">
-              <div className="p-6 bg-white border border-border rounded-xl hover-elevate cursor-pointer transition-all" data-testid="related-service-paid-ads">
-                <h3 className="text-xl font-bold mb-3">Paid Advertising</h3>
-                <p className="text-muted-foreground mb-4">
+              <div className="p-6 bg-zinc-900 border border-zinc-800 rounded-xl hover:border-[#23AACA] cursor-pointer transition-all" data-testid="related-service-paid-ads">
+                <h3 className="text-xl font-bold mb-3 text-white">Paid Advertising</h3>
+                <p className="text-white/70 mb-4">
                   Amplify your best-performing social content with targeted paid campaigns that drive measurable results.
                 </p>
-                <div className="flex items-center text-[hsl(262,83%,58%)] font-semibold">
+                <div className="flex items-center text-[#23AACA] font-semibold">
                   Learn More <ArrowRight className="w-4 h-4 ml-2" />
                 </div>
               </div>
             </Link>
 
             <Link href="/services/influencer-marketing">
-              <div className="p-6 bg-white border border-border rounded-xl hover-elevate cursor-pointer transition-all" data-testid="related-service-influencer">
-                <h3 className="text-xl font-bold mb-3">Influencer Marketing</h3>
-                <p className="text-muted-foreground mb-4">
+              <div className="p-6 bg-zinc-900 border border-zinc-800 rounded-xl hover:border-[#23AACA] cursor-pointer transition-all" data-testid="related-service-influencer">
+                <h3 className="text-xl font-bold mb-3 text-white">Influencer Marketing</h3>
+                <p className="text-white/70 mb-4">
                   Scale your social presence with influencer partnerships and authentic creator collaborations.
                 </p>
-                <div className="flex items-center text-[hsl(262,83%,58%)] font-semibold">
+                <div className="flex items-center text-[#23AACA] font-semibold">
                   Learn More <ArrowRight className="w-4 h-4 ml-2" />
                 </div>
               </div>
@@ -407,7 +407,7 @@ export default function SocialMediaCreative() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-20 px-4 bg-gradient-to-br from-[hsl(262,83%,58%)] to-[hsl(330,81%,60%)] text-white">
+      <section className="py-20 px-4 bg-[#23AACA] text-white">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-5xl md:text-6xl font-bold mb-6">
             Ready to dominate the <span className="italic">social feed?</span>
@@ -416,7 +416,7 @@ export default function SocialMediaCreative() {
             Get unlimited social content that stops the scroll and drives engagement
           </p>
           <div className="flex gap-4 justify-center flex-wrap">
-            <Button size="lg" className="bg-white text-[hsl(262,83%,58%)] hover:bg-white/90 h-12 px-8" data-testid="button-cta-demo">
+            <Button size="lg" className="bg-[#c4ff4d] text-[#1a2e29] hover:bg-[#c4ff4d]/90 h-12 px-8" data-testid="button-cta-demo">
               Start Creating
             </Button>
             <Link href="/contact">

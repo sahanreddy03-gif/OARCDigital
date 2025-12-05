@@ -40,13 +40,13 @@ export default function PaidAdvertising() {
         </div>
         <div className="relative z-10 text-center px-4 max-w-6xl mx-auto">
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 animate-in fade-in slide-in-from-bottom-4 duration-700">
-            Paid advertising that <span className="italic bg-gradient-to-r from-[hsl(262,83%,58%)] via-[hsl(300,81%,60%)] to-[hsl(330,81%,60%)] text-transparent bg-clip-text">actually scales</span>
+            Paid advertising that <span className="italic text-[#c4ff4d]">actually scales</span>
           </h1>
           <p className="text-lg md:text-xl text-white/90 mb-8 max-w-3xl mx-auto animate-in fade-in slide-in-from-bottom-4 duration-700 delay-150">
             We manage over $50M in annual ad spend across Google, Meta, LinkedIn, and TikTok. Our campaigns don't just drive clicks—they drive profitable growth at scale.
           </p>
           <div className="flex flex-wrap gap-4 justify-center animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300">
-            <Button size="lg" className="bg-white text-[hsl(262,83%,58%)] hover:bg-white/90" data-testid="button-get-started">
+            <Button size="lg" className="bg-[#c4ff4d] text-[#1a2e29] hover:bg-[#c4ff4d]/90" data-testid="button-get-started">
               Get Free Ad Audit
             </Button>
             <Button size="lg" variant="outline" className="border-white text-white bg-white/10 backdrop-blur-sm hover:bg-white/20" data-testid="button-view-case-studies">
@@ -57,7 +57,7 @@ export default function PaidAdvertising() {
       </section>
 
       {/* Trusted By */}
-      <section className="py-12 px-4 bg-white border-b border-border">
+      <section className="py-12 px-4 bg-[#f5f0e6] border-b border-[#1a2e29]/10">
         <div className="max-w-7xl mx-auto">
           <div className="text-center text-sm uppercase tracking-wider text-muted-foreground mb-8">
             Powering growth for ambitious brands
@@ -71,11 +71,11 @@ export default function PaidAdvertising() {
       </section>
 
       {/* Performance Metrics - REDUCED SIZE */}
-      <section className="py-16 px-4 bg-white">
+      <section className="py-16 px-4 bg-[#f5f0e6]">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <div className="text-sm uppercase tracking-wider text-[hsl(262,83%,58%)] mb-3">PROVEN RESULTS</div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            <div className="text-sm uppercase tracking-wider text-[#23AACA] mb-3">PROVEN RESULTS</div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-[#1a2e29]">
               Performance that speaks for itself
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -90,9 +90,9 @@ export default function PaidAdvertising() {
               { value: "$50M+", label: "Ad spend managed" },
               { value: "89%", label: "Client retention" },
             ].map((stat, i) => (
-              <div key={i} className="text-center p-8 bg-gradient-to-br from-[hsl(262,10%,98%)] to-white rounded-xl border border-border hover:shadow-lg transition-all duration-300 hover:-translate-y-1" data-testid={`metric-${i}`}>
-                <div className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-[hsl(262,83%,58%)] to-[hsl(330,81%,60%)] text-transparent bg-clip-text mb-3">{stat.value}</div>
-                <div className="text-base text-muted-foreground font-semibold">{stat.label}</div>
+              <div key={i} className="text-center p-8 bg-white rounded-xl border border-[#1a2e29]/10 hover:shadow-lg transition-all duration-300 hover:-translate-y-1" data-testid={`metric-${i}`}>
+                <div className="text-5xl md:text-6xl font-bold text-[#23AACA] mb-3">{stat.value}</div>
+                <div className="text-base text-[#1a2e29]/60 font-semibold">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -100,34 +100,34 @@ export default function PaidAdvertising() {
       </section>
 
       {/* Case Study Spotlight */}
-      <section className="py-16 px-4 bg-[hsl(262,10%,98%)]">
+      <section className="py-16 px-4 bg-[#a8b892]">
         <div className="max-w-6xl mx-auto">
-          <div className="bg-white rounded-2xl overflow-hidden border border-border shadow-lg">
+          <div className="bg-white rounded-2xl overflow-hidden border border-[#1a2e29]/10 shadow-lg">
             <div className="p-8 md:p-12">
-              <div className="text-sm uppercase tracking-wider text-[hsl(262,83%,58%)] mb-4">CASE STUDY</div>
-              <h3 className="text-3xl md:text-4xl font-bold mb-6">
+              <div className="text-sm uppercase tracking-wider text-[#23AACA] mb-4">CASE STUDY</div>
+              <h3 className="text-3xl md:text-4xl font-bold mb-6 text-[#1a2e29]">
                 How we scaled a DTC beauty brand from $20k to $200k monthly revenue
               </h3>
               <div className="grid md:grid-cols-3 gap-8 mb-8">
                 <div>
-                  <div className="text-2xl font-bold text-[hsl(262,83%,58%)] mb-2">4.8x ROAS</div>
-                  <div className="text-sm text-muted-foreground">Up from 1.9x baseline</div>
+                  <div className="text-2xl font-bold text-[#23AACA] mb-2">4.8x ROAS</div>
+                  <div className="text-sm text-[#1a2e29]/60">Up from 1.9x baseline</div>
                 </div>
                 <div>
-                  <div className="text-2xl font-bold text-[hsl(262,83%,58%)] mb-2">-52% CPA</div>
-                  <div className="text-sm text-muted-foreground">From $48 to $23 per acquisition</div>
+                  <div className="text-2xl font-bold text-[#23AACA] mb-2">-52% CPA</div>
+                  <div className="text-sm text-[#1a2e29]/60">From $48 to $23 per acquisition</div>
                 </div>
                 <div>
-                  <div className="text-2xl font-bold text-[hsl(262,83%,58%)] mb-2">10x Scale</div>
-                  <div className="text-sm text-muted-foreground">In 6 months</div>
+                  <div className="text-2xl font-bold text-[#23AACA] mb-2">10x Scale</div>
+                  <div className="text-sm text-[#1a2e29]/60">In 6 months</div>
                 </div>
               </div>
-              <p className="text-muted-foreground mb-6">
+              <p className="text-[#1a2e29]/70 mb-6">
                 Through strategic audience segmentation, creative refresh cycles, and conversion rate optimization, we transformed their Meta and Google campaigns into a predictable growth engine. The brand went from struggling with profitability to becoming a category leader in their niche.
               </p>
               <div className="flex flex-wrap gap-3">
                 {['Meta Ads', 'Google Shopping', 'Dynamic Retargeting', 'UGC Creative', 'Landing Page CRO'].map((tag, i) => (
-                  <span key={i} className="px-3 py-1 bg-[hsl(262,10%,95%)] text-[hsl(262,83%,58%)] rounded-full text-sm font-medium">
+                  <span key={i} className="px-3 py-1 bg-[#23AACA]/10 text-[#23AACA] rounded-full text-sm font-medium">
                     {tag}
                   </span>
                 ))}
@@ -138,13 +138,13 @@ export default function PaidAdvertising() {
       </section>
 
       {/* Platforms We Master */}
-      <section className="py-16 bg-white overflow-hidden">
+      <section className="py-16 bg-[#f5f0e6] overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 mb-10">
-          <div className="text-sm uppercase tracking-wider text-[hsl(262,83%,58%)] mb-3">MULTI-PLATFORM EXPERTISE</div>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Every platform. <span className="italic text-[hsl(330,81%,60%)]">Every audience.</span>
+          <div className="text-sm uppercase tracking-wider text-[#23AACA] mb-3">MULTI-PLATFORM EXPERTISE</div>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-[#1a2e29]">
+            Every platform. <span className="italic text-orange-500">Every audience.</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl">
+          <p className="text-lg text-[#1a2e29]/60 max-w-2xl">
             Platform-specific strategies that leverage each channel's unique strengths
           </p>
         </div>
@@ -190,17 +190,17 @@ export default function PaidAdvertising() {
               },
             ].map((platform, i) => (
               <div key={i} className="flex-none w-[340px] md:w-[420px] group" data-testid={`card-platform-${i}`}>
-                <div className="bg-white rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-500 border border-border h-full hover:-translate-y-2">
-                  <div className="relative h-48 bg-gradient-to-br from-[hsl(262,83%,58%)]/10 via-[hsl(300,81%,60%)]/10 to-[hsl(330,81%,60%)]/10 overflow-hidden flex items-center justify-center">
-                    <platform.icon className="h-16 w-16 text-[hsl(262,83%,58%)]/30 group-hover:scale-110 transition-transform duration-500" />
+                <div className="bg-white rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-500 border border-[#1a2e29]/10 h-full hover:-translate-y-2">
+                  <div className="relative h-48 bg-gradient-to-br from-[#23AACA]/10 via-[#c4ff4d]/10 to-orange-500/10 overflow-hidden flex items-center justify-center">
+                    <platform.icon className="h-16 w-16 text-[#23AACA]/40 group-hover:scale-110 transition-transform duration-500" />
                   </div>
                   <div className="p-6">
-                    <h3 className="text-xl font-bold mb-3 group-hover:text-[hsl(262,83%,58%)] transition-colors">{platform.name}</h3>
-                    <p className="text-sm text-muted-foreground mb-4">{platform.desc}</p>
+                    <h3 className="text-xl font-bold mb-3 text-[#1a2e29] group-hover:text-[#23AACA] transition-colors">{platform.name}</h3>
+                    <p className="text-sm text-[#1a2e29]/60 mb-4">{platform.desc}</p>
                     <div className="space-y-2">
                       {platform.features.map((feature, j) => (
-                        <div key={j} className="flex items-center gap-2 text-sm">
-                          <CheckCircle2 className="h-4 w-4 text-[hsl(262,83%,58%)]" />
+                        <div key={j} className="flex items-center gap-2 text-sm text-[#1a2e29]">
+                          <CheckCircle2 className="h-4 w-4 text-[#23AACA]" />
                           <span>{feature}</span>
                         </div>
                       ))}
@@ -214,13 +214,13 @@ export default function PaidAdvertising() {
       </section>
 
       {/* What's Included */}
-      <section className="py-16 px-4 bg-[hsl(262,10%,98%)]">
+      <section className="py-16 px-4 bg-zinc-950">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">
               Full-service management
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-lg text-white/70 max-w-2xl mx-auto">
               Everything you need to scale profitably—no hidden costs, no surprises
             </p>
           </div>
@@ -234,9 +234,9 @@ export default function PaidAdvertising() {
               { name: "Audience Engineering", desc: "Custom audiences, lookalikes, retargeting sequences, and exclusions. Precision targeting that reaches the right people at the right time." },
               { name: "Performance Reporting", desc: "Weekly dashboards and monthly strategy calls. Full transparency into spend, conversions, attribution, and recommendations." },
             ].map((item, i) => (
-              <div key={i} className="p-6 rounded-xl bg-white border border-border hover:border-[hsl(262,83%,58%)] hover:shadow-lg transition-all duration-300 hover:-translate-y-1" data-testid={`card-service-${i}`}>
-                <h3 className="text-lg font-bold mb-2">{item.name}</h3>
-                <p className="text-sm text-muted-foreground">{item.desc}</p>
+              <div key={i} className="p-6 rounded-xl bg-zinc-900 border border-zinc-800 hover:border-[#23AACA] hover:shadow-lg transition-all duration-300 hover:-translate-y-1" data-testid={`card-service-${i}`}>
+                <h3 className="text-lg font-bold mb-2 text-white">{item.name}</h3>
+                <p className="text-sm text-white/70">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -244,14 +244,14 @@ export default function PaidAdvertising() {
       </section>
 
       {/* Who This Service Is For */}
-      <section className="py-16 px-4 bg-white">
+      <section className="py-16 px-4 bg-[#f5f0e6]">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <div className="text-sm uppercase tracking-wider text-[hsl(262,83%,58%)] mb-3">WHO WE SERVE</div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              Built for <span className="italic text-[hsl(330,81%,60%)]">ambitious brands</span>
+            <div className="text-sm uppercase tracking-wider text-[#23AACA] mb-3">WHO WE SERVE</div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-[#1a2e29]">
+              Built for <span className="italic text-orange-500">ambitious brands</span>
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-lg text-[#1a2e29]/60 max-w-2xl mx-auto">
               From startups to Fortune 500, we scale paid advertising for companies ready to grow profitably
             </p>
           </div>
@@ -289,14 +289,14 @@ export default function PaidAdvertising() {
                 points: ["Local service ads", "Retargeting sequences", "Case study promotion", "Professional targeting"]
               }
             ].map((useCase, i) => (
-              <div key={i} className="p-6 rounded-xl bg-gradient-to-br from-[hsl(262,10%,98%)] to-white border border-border hover:border-[hsl(262,83%,58%)] hover:shadow-lg transition-all duration-300 hover:-translate-y-1" data-testid={`use-case-${i}`}>
-                <h3 className="text-lg font-bold mb-3">{useCase.title}</h3>
-                <p className="text-sm text-muted-foreground mb-4">{useCase.desc}</p>
+              <div key={i} className="p-6 rounded-xl bg-white border border-[#1a2e29]/10 hover:border-[#23AACA] hover:shadow-lg transition-all duration-300 hover:-translate-y-1" data-testid={`use-case-${i}`}>
+                <h3 className="text-lg font-bold mb-3 text-[#1a2e29]">{useCase.title}</h3>
+                <p className="text-sm text-[#1a2e29]/60 mb-4">{useCase.desc}</p>
                 <div className="space-y-2">
                   {useCase.points.map((point, j) => (
                     <div key={j} className="flex items-center gap-2 text-sm">
-                      <CheckCircle2 className="h-3.5 w-3.5 text-[hsl(262,83%,58%)]" />
-                      <span className="text-muted-foreground">{point}</span>
+                      <CheckCircle2 className="h-3.5 w-3.5 text-[#23AACA]" />
+                      <span className="text-[#1a2e29]/60">{point}</span>
                     </div>
                   ))}
                 </div>
@@ -307,13 +307,13 @@ export default function PaidAdvertising() {
       </section>
 
       {/* Our Process */}
-      <section className="py-16 px-4 bg-[hsl(262,10%,98%)]">
+      <section className="py-16 px-4 bg-zinc-950">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              How we work: <span className="italic text-[hsl(330,81%,60%)]">Launch, test, scale</span>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">
+              How we work: <span className="italic text-[#c4ff4d]">Launch, test, scale</span>
             </h2>
-            <p className="text-lg text-muted-foreground">
+            <p className="text-lg text-white/70">
               A proven 4-step framework for profitable growth
             </p>
           </div>
@@ -325,11 +325,11 @@ export default function PaidAdvertising() {
               { step: "03", title: "Test & Iterate", desc: "Weekly A/B tests on ad creative, audiences, bidding strategies, and landing pages. We kill losers fast and double down on winners. This is where the magic happens—performance compounds through iteration." },
               { step: "04", title: "Scale & Optimize", desc: "As campaigns prove profitable, we increase budgets strategically. We expand to new platforms, test new audience segments, and refine targeting. Continuous optimization maintains efficiency as you scale." },
             ].map((item, i) => (
-              <div key={i} className="flex gap-6 items-start p-6 md:p-8 bg-gradient-to-br from-[hsl(262,10%,98%)] to-white rounded-xl border border-border hover:shadow-lg transition-all duration-300 hover:-translate-x-2" data-testid={`step-${i}`}>
-                <div className="text-5xl font-bold text-[hsl(262,83%,58%)]/20 flex-shrink-0">{item.step}</div>
+              <div key={i} className="flex gap-6 items-start p-6 md:p-8 bg-zinc-900 rounded-xl border border-zinc-800 hover:shadow-lg transition-all duration-300 hover:-translate-x-2" data-testid={`step-${i}`}>
+                <div className="text-5xl font-bold text-[#23AACA]/30 flex-shrink-0">{item.step}</div>
                 <div className="flex-1">
-                  <h3 className="text-xl font-bold mb-2">{item.title}</h3>
-                  <p className="text-sm text-muted-foreground">{item.desc}</p>
+                  <h3 className="text-xl font-bold mb-2 text-white">{item.title}</h3>
+                  <p className="text-sm text-white/70">{item.desc}</p>
                 </div>
               </div>
             ))}
@@ -338,55 +338,55 @@ export default function PaidAdvertising() {
       </section>
 
       {/* Related Services */}
-      <section className="py-16 px-4 bg-white">
+      <section className="py-16 px-4 bg-[#f5f0e6]">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <div className="text-sm uppercase tracking-wider text-[hsl(262,83%,58%)] mb-3">COMPLETE SOLUTION</div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              Maximize <span className="italic text-[hsl(330,81%,60%)]">campaign performance</span>
+            <div className="text-sm uppercase tracking-wider text-[#23AACA] mb-3">COMPLETE SOLUTION</div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-[#1a2e29]">
+              Maximize <span className="italic text-orange-500">campaign performance</span>
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-lg text-[#1a2e29]/60 max-w-2xl mx-auto">
               Combine paid advertising with these services for end-to-end growth
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
             <Link href="/services/social-media-creative">
-              <div className="group p-6 rounded-xl bg-gradient-to-br from-[hsl(262,10%,98%)] to-white border border-border hover:border-[hsl(262,83%,58%)] hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer" data-testid="related-service-creative">
+              <div className="group p-6 rounded-xl bg-white border border-[#1a2e29]/10 hover:border-[#23AACA] hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer" data-testid="related-service-creative">
                 <div className="flex items-start justify-between mb-4">
-                  <h3 className="text-lg font-bold group-hover:text-[hsl(262,83%,58%)] transition-colors">Social Media Creative</h3>
-                  <ArrowRight className="h-5 w-5 text-[hsl(262,83%,58%)] group-hover:translate-x-1 transition-transform" />
+                  <h3 className="text-lg font-bold text-[#1a2e29] group-hover:text-[#23AACA] transition-colors">Social Media Creative</h3>
+                  <ArrowRight className="h-5 w-5 text-[#23AACA] group-hover:translate-x-1 transition-transform" />
                 </div>
-                <p className="text-sm text-muted-foreground mb-4">
+                <p className="text-sm text-[#1a2e29]/60 mb-4">
                   Thumb-stopping creative that converts. We'll design and test ad variations that drive your ROAS higher.
                 </p>
-                <div className="text-sm text-[hsl(262,83%,58%)] font-semibold">Explore Creative Services →</div>
+                <div className="text-sm text-[#23AACA] font-semibold">Explore Creative Services →</div>
               </div>
             </Link>
 
             <Link href="/services/web-design">
-              <div className="group p-6 rounded-xl bg-gradient-to-br from-[hsl(262,10%,98%)] to-white border border-border hover:border-[hsl(262,83%,58%)] hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer" data-testid="related-service-web">
+              <div className="group p-6 rounded-xl bg-white border border-[#1a2e29]/10 hover:border-[#23AACA] hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer" data-testid="related-service-web">
                 <div className="flex items-start justify-between mb-4">
-                  <h3 className="text-lg font-bold group-hover:text-[hsl(262,83%,58%)] transition-colors">Web Design & CRO</h3>
-                  <ArrowRight className="h-5 w-5 text-[hsl(262,83%,58%)] group-hover:translate-x-1 transition-transform" />
+                  <h3 className="text-lg font-bold text-[#1a2e29] group-hover:text-[#23AACA] transition-colors">Web Design & CRO</h3>
+                  <ArrowRight className="h-5 w-5 text-[#23AACA] group-hover:translate-x-1 transition-transform" />
                 </div>
-                <p className="text-sm text-muted-foreground mb-4">
+                <p className="text-sm text-[#1a2e29]/60 mb-4">
                   High-converting landing pages optimized for paid traffic. Turn clicks into customers with strategic design.
                 </p>
-                <div className="text-sm text-[hsl(262,83%,58%)] font-semibold">View Web Design →</div>
+                <div className="text-sm text-[#23AACA] font-semibold">View Web Design →</div>
               </div>
             </Link>
 
             <Link href="/services/revenue-automation">
-              <div className="group p-6 rounded-xl bg-gradient-to-br from-[hsl(262,10%,98%)] to-white border border-border hover:border-[hsl(262,83%,58%)] hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer" data-testid="related-service-automation">
+              <div className="group p-6 rounded-xl bg-white border border-[#1a2e29]/10 hover:border-[#23AACA] hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer" data-testid="related-service-automation">
                 <div className="flex items-start justify-between mb-4">
-                  <h3 className="text-lg font-bold group-hover:text-[hsl(262,83%,58%)] transition-colors">Revenue Automation</h3>
-                  <ArrowRight className="h-5 w-5 text-[hsl(262,83%,58%)] group-hover:translate-x-1 transition-transform" />
+                  <h3 className="text-lg font-bold text-[#1a2e29] group-hover:text-[#23AACA] transition-colors">Revenue Automation</h3>
+                  <ArrowRight className="h-5 w-5 text-[#23AACA] group-hover:translate-x-1 transition-transform" />
                 </div>
-                <p className="text-sm text-muted-foreground mb-4">
+                <p className="text-sm text-[#1a2e29]/60 mb-4">
                   Automate lead nurturing and follow-up to maximize the value of every click from your paid campaigns.
                 </p>
-                <div className="text-sm text-[hsl(262,83%,58%)] font-semibold">Explore Automation →</div>
+                <div className="text-sm text-[#23AACA] font-semibold">Explore Automation →</div>
               </div>
             </Link>
           </div>
@@ -394,8 +394,7 @@ export default function PaidAdvertising() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 px-4 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[hsl(262,83%,58%)] via-[hsl(300,81%,60%)] to-[hsl(330,81%,60%)]"></div>
+      <section className="py-20 px-4 relative overflow-hidden bg-[#23AACA]">
         <div className="relative z-10 max-w-4xl mx-auto text-center text-white">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Ready to scale profitably?
@@ -404,7 +403,7 @@ export default function PaidAdvertising() {
             Get a free ad account audit. We'll identify quick wins and show you exactly how we'd improve your campaigns.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <Button size="lg" className="bg-white text-[hsl(262,83%,58%)] hover:bg-white/90" data-testid="button-cta-primary">
+            <Button size="lg" className="bg-[#c4ff4d] text-[#1a2e29] hover:bg-[#c4ff4d]/90" data-testid="button-cta-primary">
               Get Free Ad Audit
             </Button>
             <Button size="lg" variant="outline" className="border-white text-white bg-white/10 backdrop-blur-sm hover:bg-white/20" data-testid="button-cta-secondary">
