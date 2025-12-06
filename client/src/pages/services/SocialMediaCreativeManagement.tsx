@@ -28,6 +28,11 @@ import brandLogo4 from "@assets/stock_images/corporate_brand_logo_36956200.jpg";
 import brandLogo5 from "@assets/stock_images/corporate_brand_logo_fa7a9043.jpg";
 import brandLogo6 from "@assets/stock_images/corporate_brand_logo_45511c03.jpg";
 
+import organicSocialImg from "@assets/generated_images/social_media_creators_marketing_image.png";
+import paidAdsImg from "@assets/stock_images/professional_ad_crea_01a208c3.jpg";
+import contentCreationImg from "@assets/generated_images/Video_Production_Service_f2c7300b.png";
+import influencerImg from "@assets/stock_images/social_media_creativ_8b2d8cae.jpg";
+
 function AnimatedCounter({ value, suffix = "", prefix = "", duration = 2 }: { 
   value: number; 
   suffix?: string; 
@@ -213,6 +218,122 @@ function CreativePortfolioCard({ image, title, platform, metrics, color, delay }
   );
 }
 
+interface PillarCardData {
+  id: string;
+  title: string;
+  icon: React.ComponentType<{ className?: string }>;
+  description: string;
+  cta: string;
+  link: string;
+  image: string;
+  overlayGradient: string;
+  ctaStyle: {
+    background: string;
+    border: string;
+    boxShadow: string;
+    hoverBackground: string;
+    hoverBorder: string;
+    hoverShadow: string;
+  };
+}
+
+function PillarCard({ card, idx }: { card: PillarCardData; idx: number }) {
+  const prefersReducedMotion = useReducedMotion();
+  const [isHovered, setIsHovered] = useState(false);
+  
+  return (
+    <motion.div 
+      key={card.id}
+      initial={prefersReducedMotion ? {} : { opacity: 0, y: 30 }}
+      whileInView={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={prefersReducedMotion ? {} : { delay: idx * 0.15, duration: 0.6 }}
+      whileHover={prefersReducedMotion ? {} : { y: -12 }}
+      onHoverStart={() => setIsHovered(true)}
+      onHoverEnd={() => setIsHovered(false)}
+      className="relative h-[480px] md:h-[520px] rounded-3xl overflow-hidden cursor-pointer shadow-[0_4px_24px_rgba(0,0,0,0.3)] hover:shadow-[0_32px_64px_rgba(0,0,0,0.5)] transition-shadow duration-500"
+      data-testid={`card-pillar-${card.id}`}
+    >
+      {/* Background Image */}
+      <div className="absolute inset-0 z-[1]">
+        <motion.img 
+          src={card.image}
+          alt={`${card.title} - premium marketing service`}
+          className="w-full h-full object-cover object-center"
+          animate={prefersReducedMotion ? {} : { scale: isHovered ? 1.05 : 1 }}
+          transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
+          loading="eager"
+        />
+      </div>
+      
+      {/* Elite Gradient Overlay */}
+      <div 
+        className="absolute inset-0 z-[2]"
+        style={{ background: card.overlayGradient }}
+      />
+      
+      {/* Card Content - Positioned at Bottom */}
+      <div className="relative z-[3] h-full p-8 md:p-10 flex flex-col justify-end">
+        {/* Icon */}
+        <motion.div 
+          className="text-[40px] mb-5 drop-shadow-[0_4px_12px_rgba(0,0,0,0.5)]"
+          animate={prefersReducedMotion ? {} : { scale: isHovered ? 1.1 : 1 }}
+          transition={{ duration: 0.3 }}
+        >
+          <card.icon className="w-10 h-10 md:w-12 md:h-12 text-white" />
+        </motion.div>
+        
+        {/* Title */}
+        <h3 
+          className="text-3xl md:text-4xl font-extrabold text-white mb-4 tracking-tight"
+          style={{ 
+            fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
+            textShadow: '0 4px 16px rgba(0, 0, 0, 0.6)',
+            letterSpacing: '-0.5px'
+          }}
+        >
+          {card.title}
+        </h3>
+        
+        {/* Description */}
+        <p 
+          className="text-base md:text-[17px] text-white/95 mb-7 leading-relaxed max-w-[90%]"
+          style={{ 
+            fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
+            textShadow: '0 2px 12px rgba(0, 0, 0, 0.5)'
+          }}
+        >
+          {card.description}
+        </p>
+        
+        {/* CTA Button - Elite Styling */}
+        <Link href={card.link}>
+          <motion.span
+            className="inline-flex items-center gap-2.5 px-7 py-4 rounded-xl text-white font-semibold text-[15px] w-fit cursor-pointer transition-all duration-300"
+            style={{ 
+              fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
+              background: isHovered ? card.ctaStyle.hoverBackground : card.ctaStyle.background,
+              border: isHovered ? `1.5px solid ${card.ctaStyle.hoverBorder}` : card.ctaStyle.border,
+              boxShadow: isHovered ? card.ctaStyle.hoverShadow : card.ctaStyle.boxShadow,
+              letterSpacing: '0.3px',
+              transform: isHovered ? 'translateX(6px)' : 'translateX(0)'
+            }}
+            data-testid={`button-cta-${card.id}`}
+          >
+            {card.cta}
+            <motion.span
+              animate={{ x: isHovered ? 4 : 0 }}
+              transition={{ duration: 0.35, ease: [0.4, 0, 0.2, 1] }}
+            >
+              <ArrowRight className="w-4 h-4" />
+            </motion.span>
+          </motion.span>
+        </Link>
+      </div>
+    </motion.div>
+  );
+}
+
 export default function SocialMediaCreativeManagement() {
   const prefersReducedMotion = useReducedMotion();
   const [activeCard, setActiveCard] = useState(0);
@@ -232,90 +353,78 @@ export default function SocialMediaCreativeManagement() {
   const fadeIn = prefersReducedMotion ? {} : { opacity: 0, y: 20 };
   const fadeInVisible = prefersReducedMotion ? {} : { opacity: 1, y: 0 };
 
-  const services = [
+  const pillarCards = [
     {
+      id: "organic",
       title: "Organic Social",
       icon: Brain,
-      description: "Content engineered for algorithms & audiences. Daily content, community management, and data-driven strategy to grow your organic presence.",
-      points: [
-        "Content strategy & planning",
-        "Community management",
-        "Engagement optimization"
-      ],
-      caseStudy: "See how we grew an e-commerce brand 2.4x →",
-      learnMore: "Explore Organic",
+      description: "Content engineered for algorithms & audiences",
+      cta: "Explore Organic",
       link: "/services/social",
-      gradient: "bg-gradient-to-br from-[#6b21a8] via-[#7c3aed] to-[#581c87]",
-      glowColor: "shadow-[0_20px_50px_rgba(107,33,168,0.4)]",
-      accentColor: "#6b21a8",
-      flowSteps: [
-        { icon: <Brain className="w-5 h-5 text-white" />, label: "Strategy" },
-        { icon: <Sparkles className="w-5 h-5 text-white" />, label: "Create" },
-        { icon: <TrendingUp className="w-5 h-5 text-white" />, label: "Grow" },
-      ]
+      image: organicSocialImg,
+      overlayGradient: "linear-gradient(to top, rgba(107, 33, 168, 0.92) 0%, rgba(88, 28, 135, 0.75) 50%, rgba(88, 28, 135, 0.4) 75%, transparent 100%)",
+      ctaStyle: {
+        background: "rgba(168, 85, 247, 0.25)",
+        border: "1.5px solid rgba(168, 85, 247, 0.5)",
+        boxShadow: "0 8px 24px rgba(168, 85, 247, 0.2)",
+        hoverBackground: "rgba(168, 85, 247, 0.4)",
+        hoverBorder: "rgba(168, 85, 247, 0.8)",
+        hoverShadow: "0 12px 32px rgba(168, 85, 247, 0.35)"
+      }
     },
     {
+      id: "paid",
       title: "Paid Advertising",
       icon: TrendingUp,
-      description: "Campaigns built to scale, not just spend. We optimize targeting, creative, and bidding to maximize your return on ad spend.",
-      points: [
-        "Campaign strategy & setup",
-        "Creative testing & optimization",
-        "Performance tracking & reporting"
-      ],
-      caseStudy: "See how we boosted ROAS 3x for FinTech →",
-      learnMore: "Explore Paid Ads",
+      description: "Campaigns built to scale, not just spend",
+      cta: "Explore Paid Ads",
       link: "/services/paid-advertising",
-      gradient: "bg-gradient-to-br from-[#831843] via-[#9d174d] to-[#701a3b]",
-      glowColor: "shadow-[0_20px_50px_rgba(131,24,67,0.4)]",
-      accentColor: "#831843",
-      flowSteps: [
-        { icon: <Target className="w-5 h-5 text-white" />, label: "Target" },
-        { icon: <Zap className="w-5 h-5 text-white" />, label: "Optimize" },
-        { icon: <LineChart className="w-5 h-5 text-white" />, label: "Scale" },
-      ]
+      image: paidAdsImg,
+      overlayGradient: "linear-gradient(to top, rgba(131, 24, 67, 0.92) 0%, rgba(157, 23, 77, 0.75) 50%, rgba(157, 23, 77, 0.4) 75%, transparent 100%)",
+      ctaStyle: {
+        background: "rgba(219, 39, 119, 0.25)",
+        border: "1.5px solid rgba(219, 39, 119, 0.5)",
+        boxShadow: "0 8px 24px rgba(219, 39, 119, 0.2)",
+        hoverBackground: "rgba(219, 39, 119, 0.4)",
+        hoverBorder: "rgba(219, 39, 119, 0.8)",
+        hoverShadow: "0 12px 32px rgba(219, 39, 119, 0.35)"
+      }
     },
     {
+      id: "content",
       title: "Content Creation",
-      icon: Wand2,
-      description: "Production-quality content at social-speed delivery. From video reels and photography to graphics and animations—scroll-stopping content that converts.",
-      points: [
-        "Video & photo production",
-        "Motion graphics & animation",
-        "Platform-optimized formats"
-      ],
-      caseStudy: "View our award-winning DTC campaign →",
-      learnMore: "Explore Content",
+      icon: Video,
+      description: "Production-quality content at social-speed delivery",
+      cta: "Explore Content",
       link: "/services/creative",
-      gradient: "bg-gradient-to-br from-[#c2410c] via-[#ea580c] to-[#9a3412]",
-      glowColor: "shadow-[0_20px_50px_rgba(194,65,12,0.4)]",
-      accentColor: "#c2410c",
-      flowSteps: [
-        { icon: <Palette className="w-5 h-5 text-white" />, label: "Design" },
-        { icon: <Wand2 className="w-5 h-5 text-white" />, label: "Create" },
-        { icon: <Video className="w-5 h-5 text-white" />, label: "Produce" },
-      ]
+      image: contentCreationImg,
+      overlayGradient: "linear-gradient(to top, rgba(194, 65, 12, 0.92) 0%, rgba(154, 52, 18, 0.75) 50%, rgba(154, 52, 18, 0.4) 75%, transparent 100%)",
+      ctaStyle: {
+        background: "rgba(234, 88, 12, 0.25)",
+        border: "1.5px solid rgba(234, 88, 12, 0.5)",
+        boxShadow: "0 8px 24px rgba(234, 88, 12, 0.2)",
+        hoverBackground: "rgba(234, 88, 12, 0.4)",
+        hoverBorder: "rgba(234, 88, 12, 0.8)",
+        hoverShadow: "0 12px 32px rgba(234, 88, 12, 0.35)"
+      }
     },
     {
+      id: "influencer",
       title: "Influencer Marketing",
-      icon: Network,
-      description: "Vetted creators who amplify your message authentically. We handle sourcing, outreach, contracts, and campaign management from start to finish.",
-      points: [
-        "Creator sourcing & vetting",
-        "Campaign coordination",
-        "Performance tracking"
-      ],
-      caseStudy: "How we scaled lifestyle brand reach 5x →",
-      learnMore: "Explore Influencer",
+      icon: Users,
+      description: "Vetted creators who amplify your message authentically",
+      cta: "Explore Influencer",
       link: "/services/influencer-marketing",
-      gradient: "bg-gradient-to-br from-[#047857] via-[#059669] to-[#065f46]",
-      glowColor: "shadow-[0_20px_50px_rgba(4,120,87,0.4)]",
-      accentColor: "#047857",
-      flowSteps: [
-        { icon: <Users className="w-5 h-5 text-white" />, label: "Match" },
-        { icon: <MessageCircle className="w-5 h-5 text-white" />, label: "Create" },
-        { icon: <Share2 className="w-5 h-5 text-white" />, label: "Amplify" },
-      ]
+      image: influencerImg,
+      overlayGradient: "linear-gradient(to top, rgba(4, 120, 87, 0.92) 0%, rgba(6, 95, 70, 0.75) 50%, rgba(6, 95, 70, 0.4) 75%, transparent 100%)",
+      ctaStyle: {
+        background: "rgba(16, 185, 129, 0.25)",
+        border: "1.5px solid rgba(16, 185, 129, 0.5)",
+        boxShadow: "0 8px 24px rgba(16, 185, 129, 0.2)",
+        hoverBackground: "rgba(16, 185, 129, 0.4)",
+        hoverBorder: "rgba(16, 185, 129, 0.8)",
+        hoverShadow: "0 12px 32px rgba(16, 185, 129, 0.35)"
+      }
     }
   ];
 
@@ -1051,88 +1160,10 @@ export default function SocialMediaCreativeManagement() {
             </p>
           </motion.div>
 
-          {/* Premium Card Grid */}
-          <div className="grid md:grid-cols-2 gap-6 md:gap-8">
-            {services.map((service, idx) => (
-              <motion.div 
-                key={idx}
-                initial={prefersReducedMotion ? {} : { opacity: 0, y: 30 }}
-                whileInView={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={prefersReducedMotion ? {} : { delay: idx * 0.12, duration: 0.6 }}
-                whileHover={prefersReducedMotion ? {} : { y: -6, scale: 1.01 }}
-                className={`relative rounded-2xl md:rounded-3xl p-7 md:p-10 overflow-hidden ${service.gradient} border border-white/10 shadow-2xl transition-all duration-400`}
-                data-testid={`card-service-${service.title.toLowerCase().replace(/\s+/g, '-')}`}
-              >
-                {/* Subtle Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-                <div className="absolute top-0 right-0 w-48 h-48 bg-white/5 rounded-full blur-3xl motion-reduce:hidden" />
-                
-                <div className="relative z-10">
-                  {/* Premium Icon Container */}
-                  <motion.div 
-                    className="w-14 h-14 md:w-16 md:h-16 bg-white/10 backdrop-blur-md rounded-xl md:rounded-2xl flex items-center justify-center mb-5 md:mb-6 border border-white/20 shadow-lg"
-                    whileHover={prefersReducedMotion ? {} : { rotate: 5, scale: 1.05 }}
-                  >
-                    <service.icon className="h-7 w-7 md:h-8 md:w-8 text-white" />
-                  </motion.div>
-
-                  {/* Title - Refined */}
-                  <h3 className="text-2xl md:text-3xl lg:text-4xl font-black text-white mb-3 md:mb-4 tracking-tight">
-                    {service.title}
-                  </h3>
-
-                  {/* Description - Better Typography */}
-                  <p className="text-base md:text-lg text-white/70 mb-5 md:mb-6 leading-relaxed">
-                    {service.description}
-                  </p>
-
-                  {/* Bullet Points - More Refined */}
-                  <ul className="space-y-2.5 md:space-y-3 mb-6 md:mb-8">
-                    {service.points.map((point, i) => (
-                      <motion.li 
-                        key={i} 
-                        className="flex items-start gap-3"
-                        initial={prefersReducedMotion ? {} : { opacity: 0, x: -10 }}
-                        whileInView={prefersReducedMotion ? {} : { opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={prefersReducedMotion ? {} : { delay: idx * 0.1 + i * 0.05 }}
-                      >
-                        <div className="w-5 h-5 bg-white/15 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                          <CheckCircle2 className="h-3 w-3 text-white" />
-                        </div>
-                        <span className="text-sm md:text-base text-white/80">{point}</span>
-                      </motion.li>
-                    ))}
-                  </ul>
-                  
-                  {/* AI Flow Diagram */}
-                  <CreativeFlowDiagram steps={service.flowSteps} gradient="bg-white/15" />
-
-                  {/* Case Study Tease - More Subtle */}
-                  <Link href="/our-work">
-                    <motion.p 
-                      className="mt-5 md:mt-6 text-xs md:text-sm text-white/50 hover:text-white/80 transition-colors cursor-pointer"
-                      whileHover={prefersReducedMotion ? {} : { x: 3 }}
-                    >
-                      {service.caseStudy} →
-                    </motion.p>
-                  </Link>
-
-                  {/* CTA Button - Premium */}
-                  <Link href={service.link}>
-                    <motion.span
-                      whileHover={prefersReducedMotion ? {} : { scale: 1.02, y: -2 }}
-                      whileTap={prefersReducedMotion ? {} : { scale: 0.98 }}
-                      className="mt-5 md:mt-6 w-full inline-flex items-center justify-center gap-2 bg-white text-[#1a2e29] rounded-full py-3.5 md:py-4 font-bold text-sm md:text-base shadow-lg hover:shadow-2xl transition-all cursor-pointer"
-                      data-testid={`button-learn-${service.title.toLowerCase().replace(/\s+/g, '-')}`}
-                    >
-                      {service.learnMore}
-                      <ArrowRight className="h-4 w-4 md:h-5 md:w-5" />
-                    </motion.span>
-                  </Link>
-                </div>
-              </motion.div>
+          {/* ELITE Premium Card Grid - Image-Based */}
+          <div className="grid md:grid-cols-2 gap-8 md:gap-10 max-w-[1200px] mx-auto">
+            {pillarCards.map((card, idx) => (
+              <PillarCard key={card.id} card={card} idx={idx} />
             ))}
           </div>
         </div>
