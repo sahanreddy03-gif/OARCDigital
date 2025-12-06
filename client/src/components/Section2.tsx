@@ -128,7 +128,7 @@ export default function Section2() {
   return (
     <section 
       className="relative overflow-hidden py-16 md:py-20 lg:py-24"
-      style={{ backgroundColor: '#8FBC8F' }}
+      style={{ backgroundColor: '#C5D5A3' }}
       data-testid="section-phone-brands"
     >
       {/* Premium Sage Green Background Elements */}
