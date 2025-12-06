@@ -41,6 +41,8 @@ import MobileAppsDevelopment from "@/pages/services/MobileAppsDevelopment";
 import CustomSoftwareDevelopment from "@/pages/services/CustomSoftwareDevelopment";
 import MVPDevelopment from "@/pages/services/MVPDevelopment";
 import MVPSoftwareDevelopment from "@/pages/services/MVPSoftwareDevelopment";
+import WebApplicationDevelopment from "@/pages/services/WebApplicationDevelopment";
+import APIIntegrationServices from "@/pages/services/APIIntegrationServices";
 import OurWork from "@/pages/OurWork";
 import WhyUs from "@/pages/WhyUs";
 import Roadmap2026 from "@/pages/Roadmap2026";
@@ -142,6 +144,10 @@ function Router() {
       <Route path="/services/mobile-apps-development" component={MobileAppsDevelopment} />
       <Route path="/services/mobile-applications-development" component={MobileAppsDevelopment} />
       <Route path="/services/custom-software-development" component={CustomSoftwareDevelopment} />
+      <Route path="/services/web-application-development" component={WebApplicationDevelopment} />
+      <Route path="/services/web-apps-development" component={WebApplicationDevelopment} />
+      <Route path="/services/api-integration-services" component={APIIntegrationServices} />
+      <Route path="/services/api-integration" component={APIIntegrationServices} />
       <Route path="/services/mvp-development" component={MVPDevelopment} />
       <Route path="/services/mvp-development/for-software" component={MVPSoftwareDevelopment} />
       

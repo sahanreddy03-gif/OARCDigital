@@ -1,11 +1,15 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'wouter';
-import { ArrowRight, Smartphone, Download, Star, Users, TrendingUp, Code, Layers, Zap, Rocket, Bug, BarChart3, Shield, Bell, CheckCircle2 } from 'lucide-react';
-import { SiApple, SiGoogleplay, SiReact, SiFlutter, SiSwift, SiKotlin, SiFirebase } from 'react-icons/si';
+import { motion, useReducedMotion } from 'framer-motion';
+import { ArrowRight, Smartphone, Download, Star, Users, TrendingUp, Code, Layers, Zap, Rocket, Bug, BarChart3, Shield, Bell, CheckCircle2, ChevronRight, Cpu, Globe, Target, Clock } from 'lucide-react';
+import { SiApple, SiGoogleplay, SiReact, SiFlutter, SiSwift, SiKotlin, SiFirebase, SiExpo } from 'react-icons/si';
 import Layout from '@/components/layout/Layout';
 import SEOHead from "@/components/SEOHead";
 import { createServiceSchema } from "@/utils/structuredData";
 import ScrollReveal from "@/components/ScrollReveal";
+import { Button } from '@/components/ui/button';
+import { AnimatedGridBackground } from '@/components/ui/animated-grid-background';
+import { GlassCard } from '@/components/ui/glass-card';
 
 import heroImg from '@assets/stock_images/mobile_app_design_us_2b0d5cbd.jpg';
 import appImg1 from '@assets/stock_images/mobile_app_design_us_5eb8ced7.jpg';
@@ -15,8 +19,17 @@ import mobileDevImg2 from '@assets/stock_images/mobile_app_developme_41ccf1c2.jp
 import mobileDevImg3 from '@assets/stock_images/mobile_app_developme_51e6a80f.jpg';
 import mobileDevImg4 from '@assets/stock_images/mobile_app_developme_8bd59a4e.jpg';
 
+const ELITE_COLORS = {
+  primary: '#6366f1',
+  secondary: '#8b5cf6',
+  accent: '#22d3ee',
+  success: '#22c55e',
+};
+
 export default function MobileAppsDevelopment() {
   const [activePhase, setActivePhase] = useState(1);
+  const [hoveredFeature, setHoveredFeature] = useState<number | null>(null);
+  const prefersReducedMotion = useReducedMotion();
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -29,7 +42,8 @@ export default function MobileAppsDevelopment() {
       title: "Validate your idea",
       desc: "Core features only. Get to market fast, learn from real users.",
       milestones: ["Core user flow", "Essential features", "Basic analytics"],
-      timeline: "8-10 weeks"
+      timeline: "8-10 weeks",
+      icon: Rocket
     },
     { 
       id: 2,
@@ -37,7 +51,8 @@ export default function MobileAppsDevelopment() {
       title: "Polish for launch",
       desc: "App Store ready. Optimized UX, performance tuning, marketing prep.",
       milestones: ["Full feature set", "ASO optimization", "Crash-free launch"],
-      timeline: "+4-6 weeks"
+      timeline: "+4-6 weeks",
+      icon: Star
     },
     { 
       id: 3,
@@ -45,7 +60,38 @@ export default function MobileAppsDevelopment() {
       title: "Scale & optimize",
       desc: "User feedback loop. A/B testing, retention features, analytics deep-dive.",
       milestones: ["Push notifications", "Referral system", "In-app purchases"],
-      timeline: "Ongoing"
+      timeline: "Ongoing",
+      icon: TrendingUp
+    },
+  ];
+
+  const appFeatures = [
+    { icon: Bell, title: "Push Notifications", desc: "Keep users engaged with smart, personalized alerts" },
+    { icon: Shield, title: "Secure Auth", desc: "Biometrics, OAuth, secure session management" },
+    { icon: BarChart3, title: "Analytics", desc: "Track user behavior, retention, and conversions" },
+    { icon: Globe, title: "Offline Mode", desc: "Works without internet, syncs when connected" },
+    { icon: Cpu, title: "Native Performance", desc: "60fps animations, instant load times" },
+    { icon: Users, title: "Social Features", desc: "Chat, profiles, sharing, activity feeds" },
+  ];
+
+  const caseStudies = [
+    { 
+      img: appImg1,
+      title: "SportsAI Interactive",
+      type: "Consumer App",
+      platform: "iOS & Android",
+      metrics: ["50K+ users first week", "4.8 App Store rating", "Featured by Apple"],
+      tech: ["React Native", "Firebase", "OpenAI"],
+      color: ELITE_COLORS.primary
+    },
+    { 
+      img: appImg2,
+      title: "Enterprise Field Ops",
+      type: "Enterprise",
+      platform: "iOS & Android",
+      metrics: ["10K+ daily active", "50+ countries", "99.9% uptime"],
+      tech: ["Flutter", "AWS", "GraphQL"],
+      color: ELITE_COLORS.secondary
     },
   ];
 
@@ -64,46 +110,101 @@ export default function MobileAppsDevelopment() {
         schemaId="service-mobile-apps-development"
       />
 
-      {/* HERO: App Store Style Showcase */}
-      <section className="relative min-h-[90vh] flex items-center bg-gradient-to-br from-zinc-950 via-zinc-900 to-black overflow-hidden">
-        {/* Gradient orbs */}
-        <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-[#23AACA]/15 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/4 left-1/4 w-64 h-64 bg-[#c4ff4d]/10 rounded-full blur-3xl"></div>
+      {/* HERO: Elite Dark Theme */}
+      <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-black">
+        <AnimatedGridBackground 
+          intensity="high" 
+          showScanLine={true} 
+          showParticles={true}
+          showConcentricRings={true}
+          showDiagonalGrid={true}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/50 to-black pointer-events-none" />
         
         <div className="relative z-10 w-full max-w-7xl mx-auto px-4 py-20">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <div className="flex items-center gap-3 mb-6">
-                <SiApple className="w-6 h-6 text-white/70" />
-                <SiGoogleplay className="w-5 h-5 text-white/70" />
-              </div>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="flex items-center gap-4 mb-8"
+              >
+                <div className="px-5 py-2.5 bg-white/[0.05] backdrop-blur-md border border-white/15 rounded-full flex items-center gap-3">
+                  <SiApple className="w-4 h-4 text-white/70" />
+                  <SiGoogleplay className="w-4 h-4 text-white/70" />
+                  <span className="text-xs font-medium text-white/70 uppercase tracking-[0.2em]">
+                    iOS & Android
+                  </span>
+                </div>
+              </motion.div>
               
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6" data-testid="heading-mobile-apps">
-                Apps people love to use.
-              </h1>
+              <motion.h1
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 leading-[1.05]"
+                data-testid="heading-mobile-apps"
+              >
+                Apps people{' '}
+                <span className="bg-gradient-to-r from-indigo-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
+                  love to use
+                </span>
+              </motion.h1>
               
-              <p className="text-xl text-white/80 mb-8">
-                Native. Cross-platform. From first prototype to first million users. We build apps that grow.
-              </p>
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="text-xl text-white/60 mb-8 leading-relaxed max-w-xl"
+              >
+                Native. Cross-platform. From first prototype to first million users. We build apps that grow with your business.
+              </motion.p>
 
-              <Link href="/contact">
-                <button
-                  className="inline-flex items-center gap-3 bg-[#23AACA] text-white rounded-full pl-8 pr-4 py-4 text-lg font-bold hover:bg-[#1a8fa8] transition-colors"
-                  data-testid="button-build-app"
-                >
-                  Build Your App
-                  <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
-                    <ArrowRight className="h-5 w-5" />
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+              >
+                <Link href="/contact">
+                  <Button size="lg" className="bg-indigo-500 hover:bg-indigo-600 text-white font-bold text-lg px-8" data-testid="button-build-app">
+                    Build Your App
+                    <ArrowRight className="w-5 h-5 ml-2" />
+                  </Button>
+                </Link>
+              </motion.div>
+
+              {/* Quick stats */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+                className="grid grid-cols-3 gap-4 mt-12"
+              >
+                {[
+                  { value: "75+", label: "Apps Shipped" },
+                  { value: "4.7", label: "Avg Rating" },
+                  { value: "5M+", label: "Downloads" },
+                ].map((stat, i) => (
+                  <div key={i} className="text-center p-4 bg-white/[0.03] backdrop-blur-sm rounded-xl border border-white/10">
+                    <div className="text-2xl font-black text-indigo-400">{stat.value}</div>
+                    <div className="text-xs text-white/50">{stat.label}</div>
                   </div>
-                </button>
-              </Link>
+                ))}
+              </motion.div>
             </div>
 
             {/* App store card preview */}
-            <div className="relative">
-              <div className="bg-zinc-900 rounded-3xl p-6 border border-zinc-800 shadow-2xl">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="relative hidden lg:block"
+            >
+              <div className="absolute -inset-4 bg-gradient-to-r from-indigo-500/20 via-purple-500/20 to-cyan-500/20 rounded-3xl blur-2xl" />
+              <GlassCard className="p-6" variant="strong" showCornerAccents={true}>
                 <div className="flex items-start gap-4 mb-6">
-                  <div className="w-20 h-20 bg-gradient-to-br from-[#23AACA] to-[#c4ff4d] rounded-2xl flex items-center justify-center">
+                  <div className="w-20 h-20 bg-gradient-to-br from-indigo-500 to-purple-500 rounded-2xl flex items-center justify-center">
                     <Smartphone className="w-10 h-10 text-white" />
                   </div>
                   <div className="flex-1">
@@ -126,32 +227,39 @@ export default function MobileAppsDevelopment() {
                       key={i}
                       src={img}
                       alt="App screenshot"
-                      className="w-28 h-56 object-cover rounded-xl flex-shrink-0"
+                      className="w-28 h-56 object-cover rounded-xl flex-shrink-0 border border-white/10"
                     />
                   ))}
                 </div>
 
-                <button 
-                  className="w-full py-3 bg-[#23AACA] text-white font-bold rounded-xl hover:bg-[#1a8fa8] transition-colors"
-                  data-testid="button-app-store-get"
-                >
+                <Button className="w-full bg-indigo-500 hover:bg-indigo-600 text-white font-bold" data-testid="button-app-store-get">
                   GET
-                </button>
-              </div>
-            </div>
+                </Button>
+              </GlassCard>
+            </motion.div>
           </div>
         </div>
       </section>
 
-      {/* SECTION 2: Product Roadmap */}
+      {/* PRODUCT ROADMAP SECTION */}
       <ScrollReveal>
-        <section className="py-20 px-4 bg-zinc-950">
-          <div className="max-w-6xl mx-auto">
+        <section className="py-24 px-4 bg-zinc-950 border-t border-white/10 relative overflow-hidden">
+          <AnimatedGridBackground intensity="subtle" showScanLine={false} showParticles={true} showConcentricRings={false} />
+          <div className="relative max-w-6xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-black text-white mb-4">
-                From idea to App Store
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="inline-flex items-center gap-3 px-5 py-2.5 bg-white/[0.05] border border-white/15 rounded-full mb-6"
+              >
+                <Rocket className="w-4 h-4 text-indigo-400" />
+                <span className="text-xs text-white/70 uppercase tracking-[0.2em]">Product Lifecycle</span>
+              </motion.div>
+              <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
+                From Idea to <span className="text-indigo-400">App Store</span>
               </h2>
-              <p className="text-white/70 max-w-xl mx-auto">
+              <p className="text-lg text-white/60 max-w-2xl mx-auto">
                 Every successful app follows a journey. Here's how we take you from concept to scale.
               </p>
             </div>
@@ -159,230 +267,276 @@ export default function MobileAppsDevelopment() {
             {/* Roadmap timeline */}
             <div className="relative">
               {/* Progress line */}
-              <div className="absolute top-8 left-0 right-0 h-1 bg-zinc-800 rounded-full">
-                <div 
-                  className="h-full bg-[#23AACA] rounded-full transition-all duration-500"
-                  style={{ width: `${(activePhase / 3) * 100}%` }}
-                ></div>
+              <div className="absolute top-8 left-0 right-0 h-1 bg-white/10 rounded-full hidden md:block">
+                <motion.div 
+                  className="h-full bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full"
+                  initial={{ width: 0 }}
+                  animate={{ width: `${(activePhase / 3) * 100}%` }}
+                  transition={{ duration: 0.5 }}
+                />
               </div>
 
               <div className="grid md:grid-cols-3 gap-8 relative">
-                {roadmapPhases.map((phase) => (
-                  <button
-                    key={phase.id}
-                    onClick={() => setActivePhase(phase.id)}
-                    data-testid={`phase-${phase.id}`}
-                    className="text-left"
-                  >
-                    <div className={`w-16 h-16 rounded-full flex items-center justify-center mb-6 mx-auto transition-all ${
-                      activePhase >= phase.id 
-                        ? 'bg-[#23AACA] text-white' 
-                        : 'bg-zinc-800 text-white/70'
-                    }`}>
-                      <span className="font-bold text-lg">{phase.name}</span>
-                    </div>
+                {roadmapPhases.map((phase) => {
+                  const PhaseIcon = phase.icon;
+                  return (
+                    <motion.button
+                      key={phase.id}
+                      onClick={() => setActivePhase(phase.id)}
+                      data-testid={`phase-${phase.id}`}
+                      className="text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 rounded-xl"
+                      whileHover={{ scale: 1.02 }}
+                    >
+                      <div className={`w-16 h-16 rounded-full flex items-center justify-center mb-6 mx-auto transition-all ${
+                        activePhase >= phase.id 
+                          ? 'bg-indigo-500 text-white' 
+                          : 'bg-white/10 text-white/50'
+                      }`}>
+                        <PhaseIcon className="w-7 h-7" />
+                      </div>
 
-                    <div className={`p-6 rounded-2xl transition-all ${
-                      activePhase === phase.id 
-                        ? 'bg-[#23AACA]/20 border border-[#23AACA]/50' 
-                        : 'bg-zinc-900 border border-zinc-800'
-                    }`}>
-                      <div className="text-[#23AACA] text-xs font-bold mb-2">{phase.timeline}</div>
-                      <h3 className="text-white font-bold text-lg mb-2">{phase.title}</h3>
-                      <p className="text-white/70 text-sm mb-4">{phase.desc}</p>
-                      
-                      <ul className="space-y-2">
-                        {phase.milestones.map((milestone, i) => (
-                          <li key={i} className="flex items-center gap-2 text-white/80 text-sm">
-                            <CheckCircle2 className={`w-4 h-4 ${activePhase >= phase.id ? 'text-[#23AACA]' : 'text-zinc-600'}`} />
-                            {milestone}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </button>
-                ))}
+                      <GlassCard 
+                        className={`p-6 transition-all ${
+                          activePhase === phase.id 
+                            ? 'border-indigo-500/50' 
+                            : ''
+                        }`}
+                        variant="strong"
+                        liftOnHover={false}
+                      >
+                        <div className="text-indigo-400 text-xs font-bold mb-2">{phase.timeline}</div>
+                        <div className="flex items-center gap-2 mb-2">
+                          <span className="text-lg font-black text-white">{phase.name}</span>
+                          <ChevronRight className={`w-4 h-4 text-white/40 transition-transform ${activePhase === phase.id ? 'rotate-90' : ''}`} />
+                        </div>
+                        <h3 className="text-white font-bold text-lg mb-2">{phase.title}</h3>
+                        <p className="text-white/60 text-sm mb-4">{phase.desc}</p>
+                        
+                        <ul className="space-y-2">
+                          {phase.milestones.map((milestone, i) => (
+                            <li key={i} className="flex items-center gap-2 text-white/70 text-sm">
+                              <CheckCircle2 className={`w-4 h-4 ${activePhase >= phase.id ? 'text-indigo-400' : 'text-white/30'}`} />
+                              {milestone}
+                            </li>
+                          ))}
+                        </ul>
+                      </GlassCard>
+                    </motion.button>
+                  );
+                })}
               </div>
             </div>
           </div>
         </section>
       </ScrollReveal>
 
-      {/* SECTION 3: Apps We've Shipped */}
+      {/* APP FEATURES GRID */}
       <ScrollReveal>
-        <section className="py-20 px-4 bg-black">
-          <div className="max-w-7xl mx-auto">
-            <div className="flex items-end justify-between mb-12">
-              <div>
-                <h2 className="text-3xl md:text-4xl font-black text-white">Apps we've shipped</h2>
-                <p className="text-white/70 mt-2">Real products, real users</p>
-              </div>
+        <section className="py-24 px-4 bg-black border-t border-white/10">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
+                Everything Your App <span className="text-indigo-400">Needs</span>
+              </h2>
+              <p className="text-lg text-white/60 max-w-2xl mx-auto">
+                From core features to polish—we build complete mobile experiences
+              </p>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-6">
-              {[
-                { 
-                  img: appImg1,
-                  title: "SportsAI Interactive",
-                  type: "Consumer App",
-                  platform: "iOS & Android",
-                  metrics: ["50K+ users first week", "4.8 App Store rating", "Featured by Apple"],
-                  tech: ["React Native", "Firebase", "OpenAI"]
-                },
-                { 
-                  img: appImg2,
-                  title: "Enterprise Field Ops",
-                  type: "Enterprise",
-                  platform: "iOS & Android",
-                  metrics: ["10K+ daily active", "50+ countries", "99.9% uptime"],
-                  tech: ["Flutter", "AWS", "GraphQL"]
-                },
-              ].map((app, i) => (
-                <div 
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {appFeatures.map((feature, i) => (
+                <motion.div
                   key={i}
-                  className="bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-800 group"
-                  data-testid={`app-case-${i}`}
+                  onHoverStart={() => setHoveredFeature(i)}
+                  onHoverEnd={() => setHoveredFeature(null)}
+                  data-testid={`feature-${i}`}
                 >
-                  <div className="relative h-48 overflow-hidden">
-                    <img 
-                      src={app.img}
-                      alt={app.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                    <div className="absolute top-4 right-4 px-3 py-1 bg-black/60 backdrop-blur-sm rounded-full text-white text-xs font-medium">
-                      {app.platform}
+                  <GlassCard 
+                    className={`p-6 h-full transition-all ${hoveredFeature === i ? 'border-indigo-500/50' : ''}`}
+                    variant="strong"
+                    glowOnHover={true}
+                  >
+                    <div className="flex items-start gap-4">
+                      <div className="w-12 h-12 rounded-xl bg-indigo-500/20 flex items-center justify-center flex-shrink-0">
+                        <feature.icon className="w-6 h-6 text-indigo-400" />
+                      </div>
+                      <div>
+                        <h3 className="text-white font-bold text-lg mb-2">{feature.title}</h3>
+                        <p className="text-white/60 text-sm">{feature.desc}</p>
+                      </div>
                     </div>
-                  </div>
-                  
-                  <div className="p-6">
-                    <span className="text-[#23AACA] text-xs font-bold">{app.type}</span>
-                    <h3 className="text-white font-bold text-xl mt-1 mb-4">{app.title}</h3>
-                    
-                    <div className="space-y-2 mb-4">
-                      {app.metrics.map((metric, j) => (
-                        <div key={j} className="flex items-center gap-2 text-white/80 text-sm">
-                          <CheckCircle2 className="w-4 h-4 text-[#23AACA]" />
-                          {metric}
-                        </div>
-                      ))}
-                    </div>
-
-                    <div className="flex flex-wrap gap-2">
-                      {app.tech.map((t, j) => (
-                        <span key={j} className="px-3 py-1 bg-zinc-800 text-white/70 text-xs rounded-full">
-                          {t}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
+                  </GlassCard>
+                </motion.div>
               ))}
             </div>
           </div>
         </section>
       </ScrollReveal>
 
-      {/* SECTION 4: Tech Stack */}
+      {/* CASE STUDIES */}
       <ScrollReveal>
-        <section className="py-20 px-4 bg-zinc-950">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-black text-white mb-4">
-                Right tech for your goals
-              </h2>
-              <p className="text-white/70">Native when you need performance. Cross-platform when you need speed.</p>
+        <section className="py-24 px-4 bg-zinc-950 border-t border-white/10">
+          <div className="max-w-7xl mx-auto">
+            <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+              <div>
+                <h2 className="text-4xl md:text-5xl font-black text-white">Apps We've <span className="text-indigo-400">Shipped</span></h2>
+                <p className="text-white/60 mt-2">Real products, real users</p>
+              </div>
+              <Link href="/our-work">
+                <Button variant="outline" className="border-white/20 text-white hover:bg-white/10">
+                  View All Work
+                  <ArrowRight className="w-4 h-4 ml-2" />
+                </Button>
+              </Link>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-6">
+            <div className="grid md:grid-cols-2 gap-8">
+              {caseStudies.map((app, i) => (
+                <motion.div 
+                  key={i}
+                  whileHover={{ y: -8 }}
+                  transition={{ duration: 0.3 }}
+                  data-testid={`app-case-${i}`}
+                >
+                  <GlassCard className="overflow-hidden" variant="strong" showCornerAccents={true}>
+                    <div className="relative h-56 overflow-hidden">
+                      <img 
+                        src={app.img}
+                        alt={app.title}
+                        className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
+                      <div className="absolute top-4 right-4 px-3 py-1 bg-black/60 backdrop-blur-sm rounded-full text-white text-xs font-medium border border-white/20">
+                        {app.platform}
+                      </div>
+                    </div>
+                    
+                    <div className="p-6">
+                      <span className="text-indigo-400 text-xs font-bold uppercase tracking-wider">{app.type}</span>
+                      <h3 className="text-white font-bold text-xl mt-1 mb-4">{app.title}</h3>
+                      
+                      <div className="space-y-2 mb-6">
+                        {app.metrics.map((metric, j) => (
+                          <div key={j} className="flex items-center gap-2 text-white/70 text-sm">
+                            <CheckCircle2 className="w-4 h-4 text-indigo-400" />
+                            {metric}
+                          </div>
+                        ))}
+                      </div>
+
+                      <div className="flex flex-wrap gap-2">
+                        {app.tech.map((t, j) => (
+                          <span key={j} className="px-3 py-1 bg-white/5 border border-white/10 text-white/70 text-xs rounded-full">
+                            {t}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </GlassCard>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+      </ScrollReveal>
+
+      {/* TECH COMPARISON */}
+      <ScrollReveal>
+        <section className="py-24 px-4 bg-black border-t border-white/10 relative overflow-hidden">
+          <AnimatedGridBackground intensity="subtle" showScanLine={false} showParticles={true} showConcentricRings={true} />
+          <div className="relative max-w-6xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
+                Right Tech for Your <span className="text-indigo-400">Goals</span>
+              </h2>
+              <p className="text-lg text-white/60">Native when you need performance. Cross-platform when you need speed.</p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8">
               {/* Native */}
-              <div className="p-8 rounded-2xl bg-zinc-900 border border-zinc-800">
-                <h3 className="text-white font-bold text-xl mb-2">Native Development</h3>
-                <p className="text-white/70 text-sm mb-6">Maximum performance, full platform access</p>
+              <GlassCard className="p-8" variant="strong" showCornerAccents={true}>
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-14 h-14 rounded-xl bg-orange-500/20 flex items-center justify-center">
+                    <Target className="w-7 h-7 text-orange-400" />
+                  </div>
+                  <div>
+                    <h3 className="text-white font-bold text-xl">Native Development</h3>
+                    <p className="text-white/60 text-sm">Maximum performance, full platform access</p>
+                  </div>
+                </div>
                 
-                <div className="flex items-center gap-6 mb-6">
-                  <div className="flex items-center gap-2">
+                <div className="flex items-center gap-6 mb-6 p-4 bg-white/[0.03] rounded-xl border border-white/10">
+                  <div className="flex items-center gap-3">
                     <SiSwift className="w-8 h-8 text-orange-500" />
                     <span className="text-white/70 text-sm">Swift</span>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <SiKotlin className="w-8 h-8 text-[#23AACA]" />
+                  <div className="flex items-center gap-3">
+                    <SiKotlin className="w-8 h-8 text-purple-400" />
                     <span className="text-white/70 text-sm">Kotlin</span>
                   </div>
                 </div>
 
-                <div className="text-white/70 text-sm">
-                  Best for: Games, AR/VR, hardware integration, maximum performance
+                <div className="space-y-3">
+                  <div className="text-white/50 text-xs uppercase tracking-wider mb-2">Best for:</div>
+                  {["Games & AR/VR experiences", "Hardware integration", "Maximum performance apps"].map((item, i) => (
+                    <div key={i} className="flex items-center gap-2 text-white/70 text-sm">
+                      <CheckCircle2 className="w-4 h-4 text-orange-400" />
+                      {item}
+                    </div>
+                  ))}
                 </div>
-              </div>
+              </GlassCard>
 
               {/* Cross-platform */}
-              <div className="p-8 rounded-2xl bg-zinc-900 border border-zinc-800">
-                <h3 className="text-white font-bold text-xl mb-2">Cross-Platform</h3>
-                <p className="text-white/70 text-sm mb-6">One codebase, both platforms</p>
+              <GlassCard className="p-8" variant="strong" showCornerAccents={true}>
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-14 h-14 rounded-xl bg-cyan-500/20 flex items-center justify-center">
+                    <Clock className="w-7 h-7 text-cyan-400" />
+                  </div>
+                  <div>
+                    <h3 className="text-white font-bold text-xl">Cross-Platform</h3>
+                    <p className="text-white/60 text-sm">One codebase, both platforms</p>
+                  </div>
+                </div>
                 
-                <div className="flex items-center gap-6 mb-6">
-                  <div className="flex items-center gap-2">
+                <div className="flex items-center gap-6 mb-6 p-4 bg-white/[0.03] rounded-xl border border-white/10">
+                  <div className="flex items-center gap-3">
                     <SiReact className="w-8 h-8 text-cyan-400" />
                     <span className="text-white/70 text-sm">React Native</span>
                   </div>
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-3">
                     <SiFlutter className="w-8 h-8 text-blue-400" />
                     <span className="text-white/70 text-sm">Flutter</span>
                   </div>
                 </div>
 
-                <div className="text-white/70 text-sm">
-                  Best for: MVPs, startups, content apps, faster time-to-market
+                <div className="space-y-3">
+                  <div className="text-white/50 text-xs uppercase tracking-wider mb-2">Best for:</div>
+                  {["MVPs & startups", "Faster time-to-market", "Content & e-commerce apps"].map((item, i) => (
+                    <div key={i} className="flex items-center gap-2 text-white/70 text-sm">
+                      <CheckCircle2 className="w-4 h-4 text-cyan-400" />
+                      {item}
+                    </div>
+                  ))}
                 </div>
-              </div>
+              </GlassCard>
             </div>
           </div>
         </section>
       </ScrollReveal>
 
-      {/* SECTION 5: What We Handle */}
-      <ScrollReveal>
-        <section className="py-20 px-4 bg-[#f5f0e6]">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-black text-center mb-12 text-[#1a2e29]">
-              Everything your app needs
-            </h2>
-
-            <div className="grid md:grid-cols-3 lg:grid-cols-6 gap-4">
-              {[
-                { icon: Code, title: "Development", desc: "iOS & Android" },
-                { icon: Layers, title: "UI/UX Design", desc: "App interfaces" },
-                { icon: Shield, title: "Security", desc: "Auth & encryption" },
-                { icon: Bell, title: "Push Notifications", desc: "User engagement" },
-                { icon: BarChart3, title: "Analytics", desc: "User insights" },
-                { icon: Bug, title: "QA & Testing", desc: "Bug-free launch" },
-              ].map((item, i) => (
-                <div 
-                  key={i}
-                  className="p-5 rounded-2xl bg-white border border-[#1a2e29]/10 hover:border-[#23AACA] hover:shadow-lg transition-all text-center group"
-                  data-testid={`capability-${i}`}
-                >
-                  <item.icon className="w-8 h-8 text-[#23AACA] mx-auto mb-3" />
-                  <h3 className="font-bold text-sm mb-1 text-[#1a2e29]">{item.title}</h3>
-                  <p className="text-[#1a2e29]/60 text-xs">{item.desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      </ScrollReveal>
-
-      {/* Stats */}
-      <section className="py-16 px-4 bg-[#23AACA]">
+      {/* STATS BAR */}
+      <section className="py-16 px-4 bg-gradient-to-r from-indigo-600 via-purple-600 to-indigo-600">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
-              { value: "75+", label: "Apps shipped" },
-              { value: "4.7", label: "Avg. store rating" },
-              { value: "5M+", label: "Total downloads" },
-              { value: "99.5%", label: "Crash-free rate" },
+              { value: "75+", label: "Apps shipped", icon: Smartphone },
+              { value: "4.7", label: "Avg. store rating", icon: Star },
+              { value: "5M+", label: "Total downloads", icon: Download },
+              { value: "99.5%", label: "Crash-free rate", icon: Shield },
             ].map((stat, i) => (
               <div key={i} data-testid={`stat-${i}`}>
+                <stat.icon className="w-8 h-8 text-white/80 mx-auto mb-3" />
                 <div className="text-3xl md:text-4xl font-black text-white">{stat.value}</div>
                 <div className="text-sm text-white/80">{stat.label}</div>
               </div>
@@ -392,25 +546,61 @@ export default function MobileAppsDevelopment() {
       </section>
 
       {/* FINAL CTA */}
-      <section className="py-20 px-4 bg-zinc-950 text-white">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-black mb-6">
-            Got an app idea?
-          </h2>
-          <p className="text-white/80 text-lg mb-10">
+      <section className="py-24 px-4 bg-black text-white relative overflow-hidden border-t border-white/10">
+        <AnimatedGridBackground intensity="subtle" showScanLine={false} showParticles={true} showConcentricRings={true} />
+        <div className="relative max-w-4xl mx-auto text-center">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-4xl md:text-5xl font-black mb-6"
+          >
+            Got an <span className="bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">app idea</span>?
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-white/60 text-lg mb-10 max-w-2xl mx-auto"
+          >
             Let's talk about bringing it to life. Free consultation and project scoping.
-          </p>
-          <Link href="/contact">
-            <button
-              className="inline-flex items-center gap-3 bg-[#23AACA] text-white rounded-full pl-10 pr-4 py-5 text-lg font-bold hover:bg-[#1a8fa8] transition-colors"
-              data-testid="button-cta-contact"
-            >
-              Start Your App Project
-              <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
-                <ArrowRight className="h-6 w-6" />
-              </div>
-            </button>
-          </Link>
+          </motion.p>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+          >
+            <Link href="/contact">
+              <Button size="lg" className="bg-indigo-500 hover:bg-indigo-600 text-white font-bold text-lg px-10" data-testid="button-cta-contact">
+                Start Your App Project
+                <ArrowRight className="w-5 h-5 ml-2" />
+              </Button>
+            </Link>
+          </motion.div>
+
+          {/* Trust badges */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3 }}
+            className="flex flex-wrap gap-6 justify-center items-center mt-12"
+          >
+            <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
+              <CheckCircle2 className="w-5 h-5 text-white" />
+              <span className="text-white text-sm font-medium">Free consultation</span>
+            </div>
+            <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
+              <Zap className="w-5 h-5 text-white" />
+              <span className="text-white text-sm font-medium">MVP in 8-10 weeks</span>
+            </div>
+            <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
+              <Star className="w-5 h-5 text-white" />
+              <span className="text-white text-sm font-medium">App Store ready</span>
+            </div>
+          </motion.div>
         </div>
       </section>
     </Layout>
