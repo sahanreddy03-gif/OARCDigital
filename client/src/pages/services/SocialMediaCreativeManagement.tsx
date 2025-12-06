@@ -236,18 +236,18 @@ export default function SocialMediaCreativeManagement() {
     {
       title: "Organic Social",
       icon: Brain,
-      description: "Build engaged communities that drive real business results. Daily content, community management, and data-driven strategy to grow your organic presence.",
+      description: "Content engineered for algorithms & audiences. Daily content, community management, and data-driven strategy to grow your organic presence.",
       points: [
         "Content strategy & planning",
         "Community management",
         "Engagement optimization"
       ],
       caseStudy: "See how we grew an e-commerce brand 2.4x →",
-      learnMore: "Learn More",
+      learnMore: "Explore Organic",
       link: "/services/social",
-      gradient: "bg-gradient-to-br from-[#7B2FF7] via-[#9D4EDD] to-[#C77DFF]",
-      glowColor: "shadow-[0_20px_50px_rgba(123,47,247,0.4)]",
-      accentColor: "#7B2FF7",
+      gradient: "bg-gradient-to-br from-[#6b21a8] via-[#7c3aed] to-[#581c87]",
+      glowColor: "shadow-[0_20px_50px_rgba(107,33,168,0.4)]",
+      accentColor: "#6b21a8",
       flowSteps: [
         { icon: <Brain className="w-5 h-5 text-white" />, label: "Strategy" },
         { icon: <Sparkles className="w-5 h-5 text-white" />, label: "Create" },
@@ -255,20 +255,20 @@ export default function SocialMediaCreativeManagement() {
       ]
     },
     {
-      title: "Paid Ads",
+      title: "Paid Advertising",
       icon: TrendingUp,
-      description: "Strategic paid campaigns across Meta, Google, TikTok, and LinkedIn. We optimize targeting, creative, and bidding to maximize your return on ad spend.",
+      description: "Campaigns built to scale, not just spend. We optimize targeting, creative, and bidding to maximize your return on ad spend.",
       points: [
         "Campaign strategy & setup",
         "Creative testing & optimization",
         "Performance tracking & reporting"
       ],
       caseStudy: "See how we boosted ROAS 3x for FinTech →",
-      learnMore: "Learn More",
+      learnMore: "Explore Paid Ads",
       link: "/services/paid-advertising",
-      gradient: "bg-gradient-to-br from-[#FF6B53] via-[#FF7A5C] to-[#FF9F7F]",
-      glowColor: "shadow-[0_20px_50px_rgba(255,107,83,0.4)]",
-      accentColor: "#FF6B53",
+      gradient: "bg-gradient-to-br from-[#831843] via-[#9d174d] to-[#701a3b]",
+      glowColor: "shadow-[0_20px_50px_rgba(131,24,67,0.4)]",
+      accentColor: "#831843",
       flowSteps: [
         { icon: <Target className="w-5 h-5 text-white" />, label: "Target" },
         { icon: <Zap className="w-5 h-5 text-white" />, label: "Optimize" },
@@ -278,18 +278,18 @@ export default function SocialMediaCreativeManagement() {
     {
       title: "Content Creation",
       icon: Wand2,
-      description: "Professional content production for social media. From video reels and photography to graphics and animations—scroll-stopping content that converts.",
+      description: "Production-quality content at social-speed delivery. From video reels and photography to graphics and animations—scroll-stopping content that converts.",
       points: [
         "Video & photo production",
         "Motion graphics & animation",
         "Platform-optimized formats"
       ],
       caseStudy: "View our award-winning DTC campaign →",
-      learnMore: "Learn More",
+      learnMore: "Explore Content",
       link: "/services/creative",
-      gradient: "bg-gradient-to-br from-[#FF6B9D] via-[#FF8FAB] to-[#FFB3C1]",
-      glowColor: "shadow-[0_20px_50px_rgba(255,107,157,0.4)]",
-      accentColor: "#FF6B9D",
+      gradient: "bg-gradient-to-br from-[#c2410c] via-[#ea580c] to-[#9a3412]",
+      glowColor: "shadow-[0_20px_50px_rgba(194,65,12,0.4)]",
+      accentColor: "#c2410c",
       flowSteps: [
         { icon: <Palette className="w-5 h-5 text-white" />, label: "Design" },
         { icon: <Wand2 className="w-5 h-5 text-white" />, label: "Create" },
@@ -297,20 +297,20 @@ export default function SocialMediaCreativeManagement() {
       ]
     },
     {
-      title: "Influencer Partners",
+      title: "Influencer Marketing",
       icon: Network,
-      description: "Connect with vetted creators who align with your brand. We handle sourcing, outreach, contracts, and campaign management from start to finish.",
+      description: "Vetted creators who amplify your message authentically. We handle sourcing, outreach, contracts, and campaign management from start to finish.",
       points: [
         "Creator sourcing & vetting",
         "Campaign coordination",
         "Performance tracking"
       ],
       caseStudy: "How we scaled lifestyle brand reach 5x →",
-      learnMore: "Learn More",
+      learnMore: "Explore Influencer",
       link: "/services/influencer-marketing",
-      gradient: "bg-gradient-to-br from-[#4F46E5] via-[#6366F1] to-[#818CF8]",
-      glowColor: "shadow-[0_20px_50px_rgba(79,70,229,0.4)]",
-      accentColor: "#4F46E5",
+      gradient: "bg-gradient-to-br from-[#047857] via-[#059669] to-[#065f46]",
+      glowColor: "shadow-[0_20px_50px_rgba(4,120,87,0.4)]",
+      accentColor: "#047857",
       flowSteps: [
         { icon: <Users className="w-5 h-5 text-white" />, label: "Match" },
         { icon: <MessageCircle className="w-5 h-5 text-white" />, label: "Create" },
@@ -1006,89 +1006,21 @@ export default function SocialMediaCreativeManagement() {
         </div>
       </section>
 
-      {/* Stats Bar - ELITE Premium Indicators */}
-      <section className="py-14 md:py-16 bg-gradient-to-b from-[#0a0a16] via-[#0f0f1a] to-[#0a0a16] relative overflow-hidden">
-        {/* Premium Top Line */}
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#7B2FF7]/40 to-transparent" />
-        
-        {/* Subtle Background Pattern */}
-        <div className="absolute inset-0 opacity-5 motion-reduce:hidden">
-          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSA2MCAwIEwgMCAwIDAgNjAiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjEpIiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')]" />
-        </div>
-        
-        <div className="max-w-5xl mx-auto px-6 relative z-10">
-          {/* Premium Glass Container */}
-          <div className="bg-white/[0.02] backdrop-blur-xl rounded-2xl border border-white/[0.06] p-8 md:p-12 shadow-2xl">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
-              {[
-                { value: 47, suffix: "+", label: "Active Clients" },
-                { value: 3, suffix: "x", label: "Avg. ROAS" },
-                { value: 89, suffix: "%", label: "Client Retention" },
-                { value: 12, suffix: "+", label: "AI MVPs Built" },
-              ].map((stat, idx) => (
-                <motion.div 
-                  key={idx}
-                  initial={prefersReducedMotion ? {} : { opacity: 0, y: 20 }}
-                  whileInView={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={prefersReducedMotion ? {} : { delay: idx * 0.1 }}
-                  className="text-center relative"
-                >
-                  {/* Vertical Divider */}
-                  {idx > 0 && (
-                    <div className="absolute left-0 top-1/2 -translate-y-1/2 w-px h-16 bg-gradient-to-b from-transparent via-white/10 to-transparent hidden md:block" />
-                  )}
-                  
-                  {/* Main Number - Clean White */}
-                  <div className="text-4xl md:text-5xl font-black text-white mb-2 tracking-tight">
-                    <AnimatedCounter value={stat.value} suffix={stat.suffix} />
-                  </div>
-                  
-                  {/* Label - Premium Typography */}
-                  <div className="text-[11px] md:text-xs text-white/40 font-medium tracking-[0.2em] uppercase">{stat.label}</div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-          
-          {/* View Case Studies Button - More Refined */}
-          <motion.div 
-            className="flex justify-center mt-10"
-            initial={prefersReducedMotion ? {} : { opacity: 0, y: 20 }}
-            whileInView={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={prefersReducedMotion ? {} : { delay: 0.5 }}
-          >
-            <Link href="/our-work">
-              <motion.button
-                whileHover={prefersReducedMotion ? {} : { scale: 1.02, y: -2 }}
-                whileTap={prefersReducedMotion ? {} : { scale: 0.98 }}
-                className="group inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-[#7B2FF7] to-[#FF6B9D] rounded-full text-white font-bold shadow-xl shadow-purple-500/20 hover:shadow-2xl hover:shadow-purple-500/30 transition-all"
-                data-testid="button-view-case-studies"
-              >
-                <Eye className="w-5 h-5" />
-                View Case Studies
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </motion.button>
-            </Link>
-          </motion.div>
-        </div>
-        
-        {/* Premium Bottom Line */}
-        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#FF6B9D]/30 to-transparent" />
-      </section>
-
       {/* SERVICE CARDS - ELITE Four Pillars Section */}
-      <section className="py-20 md:py-28 px-6 bg-gradient-to-b from-[#0a0a16] via-[#0d0d1a] to-[#0a0a16] relative overflow-hidden">
+      <section className="py-20 md:py-28 px-6 bg-[#0a0a14] relative overflow-hidden">
+        {/* Premium Top Line for flow from hero */}
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+        
         {/* Subtle Grid Background */}
-        <div className="absolute inset-0 opacity-[0.03] motion-reduce:hidden">
-          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSA2MCAwIEwgMCAwIDAgNjAiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjMpIiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')]" />
+        <div className="absolute inset-0 opacity-[0.02] motion-reduce:hidden">
+          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSA2MCAwIEwgMCAwIDAgNjAiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjIpIiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')]" />
         </div>
         
-        {/* Subtle Background Glows */}
+        {/* Subtle Background Glows - Matching card colors */}
         <div className="absolute inset-0 motion-reduce:hidden">
-          <div className="absolute top-20 left-1/4 w-80 h-80 bg-[#7B2FF7]/8 rounded-full blur-[100px]" />
-          <div className="absolute bottom-20 right-1/4 w-80 h-80 bg-[#FF6B9D]/8 rounded-full blur-[100px]" />
+          <div className="absolute top-20 left-1/4 w-80 h-80 bg-[#6b21a8]/6 rounded-full blur-[120px]" />
+          <div className="absolute bottom-20 right-1/4 w-80 h-80 bg-[#047857]/6 rounded-full blur-[120px]" />
+          <div className="absolute top-1/2 right-1/3 w-64 h-64 bg-[#831843]/5 rounded-full blur-[100px]" />
         </div>
         
         <div className="max-w-6xl mx-auto relative z-10">
@@ -1100,21 +1032,21 @@ export default function SocialMediaCreativeManagement() {
             className="text-center mb-16 md:mb-20"
           >
             {/* Elegant Badge */}
-            <span className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/[0.03] backdrop-blur-sm rounded-full text-xs font-semibold text-white/60 mb-8 border border-white/[0.08] tracking-[0.15em] uppercase">
+            <span className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/[0.03] backdrop-blur-sm rounded-full text-xs font-semibold text-white/50 mb-8 border border-white/[0.06] tracking-[0.2em] uppercase" style={{ fontFamily: 'Inter, system-ui, -apple-system, sans-serif' }}>
               <Layers className="w-3.5 h-3.5" />
               Our Services
             </span>
             
             {/* Premium Headline */}
-            <h2 className="text-3xl md:text-5xl lg:text-6xl font-black text-white mb-4 tracking-tight">
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-black text-white mb-4 tracking-tight" style={{ fontFamily: 'Inter, system-ui, -apple-system, sans-serif' }}>
               Four Pillars of
             </h2>
-            <h2 className="text-3xl md:text-5xl lg:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#7B2FF7] via-[#FF6B9D] to-[#FF6B53]">
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#6b21a8] via-[#831843] to-[#c2410c]" style={{ fontFamily: 'Inter, system-ui, -apple-system, sans-serif' }}>
               Creative Growth
             </h2>
             
             {/* Subtle Subtitle */}
-            <p className="mt-6 text-white/40 text-sm md:text-base max-w-xl mx-auto">
+            <p className="mt-6 text-white/50 text-base md:text-lg max-w-xl mx-auto leading-relaxed" style={{ fontFamily: 'Inter, system-ui, -apple-system, sans-serif' }}>
               Strategic services designed to elevate your brand and drive measurable results
             </p>
           </motion.div>
