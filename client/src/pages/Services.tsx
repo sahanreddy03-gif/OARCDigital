@@ -313,7 +313,7 @@ export default function Services() {
             </p>
           </motion.div>
 
-          <div className="flex flex-wrap justify-center gap-3 mb-16">
+          <div className="flex flex-wrap justify-center gap-4 mb-16">
             {categories.map((category) => {
               const Icon = categoryIcons[category.id] || Sparkles;
               const isActive = activeCategory === category.id;
@@ -324,15 +324,15 @@ export default function Services() {
                   onClick={() => setActiveCategory(category.id)}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className={`relative group px-6 py-3 rounded-full font-semibold text-sm transition-all ${
+                  className={`relative group px-8 py-4 rounded-full font-bold text-base md:text-lg transition-all ${
                     isActive 
                       ? 'bg-white text-zinc-900' 
                       : 'bg-white/5 border border-white/10 text-white/70 hover:bg-white/10 hover:text-white'
                   }`}
                   data-testid={`tab-${category.id}`}
                 >
-                  <span className="relative z-10 flex items-center gap-2">
-                    <Icon className="w-4 h-4" />
+                  <span className="relative z-10 flex items-center gap-3">
+                    <Icon className="w-5 h-5" />
                     {category.title}
                   </span>
                 </motion.button>
@@ -384,6 +384,7 @@ export default function Services() {
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {getUniqueServices(activeCategoryData).map((service, index) => {
                   const ServiceIcon = service.icon;
+                  const bgImage = categoryImages[activeCategory] || creativeImg;
                   
                   return (
                     <Link key={service.slug} href={`/services/${service.route || service.slug}`}>
@@ -391,35 +392,47 @@ export default function Services() {
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: index * 0.05 }}
-                        className="group relative h-full p-6 rounded-2xl bg-zinc-900 border border-zinc-800 hover:border-zinc-700 transition-all cursor-pointer"
+                        className="group relative h-full p-6 rounded-2xl bg-zinc-900 border border-zinc-800 hover:border-zinc-600 transition-all cursor-pointer overflow-hidden"
                         data-testid={`card-service-${service.slug}`}
                       >
-                        {ServiceIcon && (
-                          <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center mb-4 group-hover:bg-white/15 transition-colors">
-                            <ServiceIcon className="w-6 h-6 text-white" />
-                          </div>
-                        )}
+                        <div 
+                          className="absolute inset-0 opacity-[0.04] group-hover:opacity-[0.08] transition-opacity duration-500"
+                          style={{
+                            backgroundImage: `url(${bgImage})`,
+                            backgroundSize: 'cover',
+                            backgroundPosition: 'center',
+                          }}
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-br from-zinc-900/80 to-zinc-900/95" />
                         
-                        <div className="flex items-start justify-between gap-3 mb-2">
-                          <h4 className="text-base font-semibold text-white group-hover:text-white transition-colors">
-                            {service.title}
-                          </h4>
-                          {service.badge && (
-                            <span className="px-2 py-0.5 rounded-full text-xs font-medium bg-white/10 text-white/70 border border-white/10">
-                              {service.badge}
-                            </span>
+                        <div className="relative z-10">
+                          {ServiceIcon && (
+                            <div className="w-14 h-14 rounded-xl bg-white/10 flex items-center justify-center mb-5 group-hover:bg-white/15 transition-colors">
+                              <ServiceIcon className="w-7 h-7 text-white" />
+                            </div>
                           )}
-                        </div>
+                          
+                          <div className="flex items-start justify-between gap-3 mb-3">
+                            <h4 className="text-xl font-bold text-white group-hover:text-white transition-colors">
+                              {service.title}
+                            </h4>
+                            {service.badge && (
+                              <span className="px-2 py-0.5 rounded-full text-xs font-medium bg-white/10 text-white/70 border border-white/10 flex-shrink-0">
+                                {service.badge}
+                              </span>
+                            )}
+                          </div>
 
-                        {service.description && (
-                          <p className="text-sm text-zinc-400 mb-4 line-clamp-2">
-                            {service.description}
-                          </p>
-                        )}
-                        
-                        <div className="flex items-center gap-2 text-white/60 group-hover:text-white text-xs font-semibold transition-colors">
-                          Discover More
-                          <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+                          {service.description && (
+                            <p className="text-sm text-zinc-400 mb-5 line-clamp-2">
+                              {service.description}
+                            </p>
+                          )}
+                          
+                          <div className="flex items-center gap-2 text-white/60 group-hover:text-white text-sm font-semibold transition-colors">
+                            Discover More
+                            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                          </div>
                         </div>
                       </motion.div>
                     </Link>
