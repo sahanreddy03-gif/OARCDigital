@@ -251,13 +251,13 @@ export const servicesCatalog: Record<string, ServiceCategory> = {
       },
       { 
         title: 'Web Application Development', 
-        slug: 'mvp-software-development', 
+        slug: 'web-application-development', 
         icon: Code2,
         description: 'SaaS platforms, customer portals, internal tools, progressive web apps'
       },
       { 
         title: 'API & Integration Services', 
-        slug: 'api-integration', 
+        slug: 'api-integration-services', 
         icon: Link2,
         description: 'System connections, custom API development, third-party integrations, workflow automation'
       },
