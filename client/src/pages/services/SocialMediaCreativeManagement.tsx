@@ -815,27 +815,26 @@ export default function SocialMediaCreativeManagement() {
                 </span>
               </motion.div>
               
-              {/* Pain Hook - Subtle tagline */}
+              {/* Small Tagline - Social Media Management */}
               <motion.p 
                 initial={fadeIn}
                 animate={fadeInVisible}
                 transition={prefersReducedMotion ? {} : { delay: 0.15, duration: 0.5 }}
-                className="text-xs sm:text-sm md:text-base text-[#525252] max-w-xs sm:max-w-md mb-3 md:mb-4 leading-relaxed"
-                style={{ fontFamily: 'var(--font-display)' }}
+                className="text-xs sm:text-sm md:text-base uppercase tracking-widest font-medium text-[#525252] max-w-xs sm:max-w-md mb-3 md:mb-4"
+                style={{ fontFamily: 'Inter, system-ui, -apple-system, sans-serif' }}
               >
-                From overlooked posts to viral dominance—our AI precision unlocks it all.
+                Social Media Management
               </motion.p>
               
-              {/* Subheadline - Clean and readable */}
+              {/* Main Body Text - Readable modern sans-serif */}
               <motion.p 
                 initial={fadeIn}
                 animate={fadeInVisible}
                 transition={prefersReducedMotion ? {} : { delay: 0.2, duration: 0.5 }}
-                className="text-base sm:text-lg md:text-lg text-[#525252] max-w-xs sm:max-w-md mb-5 md:mb-5 leading-relaxed"
+                className="text-base sm:text-lg md:text-xl text-[#525252] max-w-xs sm:max-w-md mb-5 md:mb-6 leading-relaxed"
+                style={{ fontFamily: 'Inter, system-ui, -apple-system, sans-serif' }}
               >
-                We engineer content that{' '}
-                <span className="font-semibold text-[#1A1A1A]">consistently outperforms</span>—with{' '}
-                <span className="font-bold text-[#7B2FF7]">3x average ROAS</span>.
+                We combine organic content, paid campaigns, production, and influencer partnerships into one integrated system that drives revenue—not just reach.
               </motion.p>
               
               {/* CTA Buttons - Larger on mobile, row on desktop */}
