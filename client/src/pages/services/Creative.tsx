@@ -139,26 +139,23 @@ export default function Creative() {
         <div className="absolute top-20 right-20 w-96 h-96 bg-[#c4ff4d]/10 rounded-full blur-3xl animate-float"></div>
         <div className="absolute bottom-10 left-10 w-64 h-64 bg-[#c4ff4d]/5 rounded-full blur-2xl animate-float-delayed"></div>
         <div className="max-w-6xl mx-auto relative">
-          <div className="mb-4"></div>
-          <h1 className="text-4xl md:text-6xl lg:text-7xl xl:text-[88px] font-black text-black mb-8 md:mb-10" data-testid="heading-creative">
-            Content Creation
+          <div className="mb-4 md:mb-6">
+            <span className="text-sm md:text-base lg:text-lg uppercase tracking-widest font-medium text-black/70" style={{ fontFamily: 'Inter, system-ui, -apple-system, sans-serif' }}>
+              Social Media Management
+            </span>
+          </div>
+          <h1 className="text-4xl md:text-6xl lg:text-7xl xl:text-[88px] font-black text-black mb-8 md:mb-10" style={{ fontFamily: 'Inter, system-ui, -apple-system, sans-serif' }} data-testid="heading-creative">
+            Creative That Converts
           </h1>
 
-          <h2 className="text-2xl md:text-4xl lg:text-5xl font-black text-black mb-6 md:mb-8">
-            Scroll-stopping content that converts
-          </h2>
-
-          <p className="text-base md:text-lg lg:text-xl text-black mb-4 md:mb-6 max-w-3xl">
-            From video reels to photography to motion graphics—we produce content built for your platforms.
-          </p>
-
-          <p className="text-base md:text-lg lg:text-xl text-black mb-8 md:mb-10 max-w-3xl">
-            Our in-house team creates everything from quick social clips to full production shoots, all optimized for where your audience actually is.
+          <p className="text-lg md:text-xl lg:text-2xl text-black/80 mb-8 md:mb-10 max-w-3xl leading-relaxed" style={{ fontFamily: 'Inter, system-ui, -apple-system, sans-serif' }}>
+            We combine organic content, paid campaigns, production, and influencer partnerships into one integrated system that drives revenue—not just reach.
           </p>
 
           <Link href="/contact">
             <button
               className="btn-shimmer inline-flex items-center gap-3 bg-black text-white rounded-full pl-10 md:pl-14 pr-4 md:pr-6 py-4 md:py-5 text-base md:text-lg font-semibold hover-elevate active-elevate-2"
+              style={{ fontFamily: 'Inter, system-ui, -apple-system, sans-serif' }}
               data-testid="button-lets-chat-hero"
             >
               Start Creating
