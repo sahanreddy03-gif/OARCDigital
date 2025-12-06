@@ -23,6 +23,14 @@ The platform utilizes a modern web stack with a React frontend and an Express.js
 -   **PDF Marketing Collateral:** Professional, print-ready HTML-based PDF documents for client proposals with a premium design aesthetic.
 -   **AI Employee & Revenue Service Pages:** Feature an "Elevated Monochrome Futurism" design with custom grayscale hero images, animated grid backgrounds, glassmorphism effects, integration hub visualizations, and workflow diagrams.
 -   **Creative Services Pages:** Utilize a vibrant design philosophy with colorful gradients, animated particles, and dynamic typography to showcase creative capabilities.
+-   **Social Media Creative Management Page (Dec 2025):** Flagship service page featuring:
+    - Hero with "Creative That Converts" headline and modern Inter typography
+    - **Four Pillars of Creative Growth** - Elite premium image-based cards (520px height) with:
+      - Background images with gradient overlays (Deep Purple, Rich Burgundy, Burnt Orange, Deep Emerald)
+      - Minimal content: icon, title, one-line description, CTA button
+      - Premium hover effects: -12px lift, image scale 1.05, CTA shift with glow
+      - Editorial magazine aesthetic matching Vogue-level premium agency positioning
+    - Portfolio gallery showcasing platform-specific content
 -   **Bespoke Service Page Framework (Dec 2025):** Priority service pages redesigned with unique, narrative-driven structures that match each service's delivery model:
     - **Video Production:** Studio reel approach with showreel hero, masonry work gallery, behind-the-scenes production story, distribution platforms grid, and paired services recommendations.
     - **Web Design:** Conversion lab approach with performance dashboard hero, before/after case study metrics, conversion framework (Capture → Guide → Convert), and site types for specific goals.
