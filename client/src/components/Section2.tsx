@@ -47,11 +47,11 @@ function AnimatedGrid() {
   
   return (
     <div 
-      className="absolute inset-0 opacity-[0.03]"
+      className="absolute inset-0 opacity-[0.06]"
       style={{
         backgroundImage: `
-          linear-gradient(rgba(196,255,77,0.6) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(196,255,77,0.6) 1px, transparent 1px)
+          linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)
         `,
         backgroundSize: '50px 50px'
       }}
@@ -66,13 +66,13 @@ function GlowOrbs() {
     <>
       <motion.div 
         className="absolute -top-32 -right-32 w-[500px] h-[500px] rounded-full blur-[150px] pointer-events-none"
-        style={{ background: 'radial-gradient(circle, rgba(196,255,77,0.12) 0%, transparent 70%)' }}
+        style={{ background: 'radial-gradient(circle, rgba(255,255,255,0.25) 0%, transparent 70%)' }}
         animate={prefersReducedMotion ? {} : { scale: [1, 1.2, 1], opacity: [0.4, 0.6, 0.4] }}
         transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
       />
       <motion.div 
         className="absolute -bottom-32 -left-32 w-[400px] h-[400px] rounded-full blur-[120px] pointer-events-none"
-        style={{ background: 'radial-gradient(circle, rgba(35,170,202,0.1) 0%, transparent 70%)' }}
+        style={{ background: 'radial-gradient(circle, rgba(46,125,50,0.2) 0%, transparent 70%)' }}
         animate={prefersReducedMotion ? {} : { scale: [1, 1.15, 1], opacity: [0.3, 0.5, 0.3] }}
         transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
       />
@@ -101,13 +101,13 @@ export default function Section2() {
   ];
 
   const particles = [
-    { delay: 0, duration: 8, size: 4, left: '10%', top: '20%', color: 'rgba(196,255,77,0.5)' },
-    { delay: 1, duration: 10, size: 3, left: '85%', top: '30%', color: 'rgba(35,170,202,0.4)' },
-    { delay: 2, duration: 7, size: 5, left: '70%', top: '70%', color: 'rgba(196,255,77,0.4)' },
-    { delay: 0.5, duration: 9, size: 3, left: '20%', top: '80%', color: 'rgba(35,170,202,0.5)' },
-    { delay: 3, duration: 8, size: 4, left: '50%', top: '15%', color: 'rgba(196,255,77,0.3)' },
-    { delay: 1.5, duration: 11, size: 3, left: '5%', top: '50%', color: 'rgba(196,255,77,0.4)' },
-    { delay: 2.5, duration: 9, size: 4, left: '95%', top: '60%', color: 'rgba(35,170,202,0.3)' },
+    { delay: 0, duration: 8, size: 4, left: '10%', top: '20%', color: 'rgba(255,255,255,0.6)' },
+    { delay: 1, duration: 10, size: 3, left: '85%', top: '30%', color: 'rgba(46,125,50,0.5)' },
+    { delay: 2, duration: 7, size: 5, left: '70%', top: '70%', color: 'rgba(255,255,255,0.5)' },
+    { delay: 0.5, duration: 9, size: 3, left: '20%', top: '80%', color: 'rgba(46,125,50,0.6)' },
+    { delay: 3, duration: 8, size: 4, left: '50%', top: '15%', color: 'rgba(255,255,255,0.4)' },
+    { delay: 1.5, duration: 11, size: 3, left: '5%', top: '50%', color: 'rgba(255,255,255,0.5)' },
+    { delay: 2.5, duration: 9, size: 4, left: '95%', top: '60%', color: 'rgba(46,125,50,0.4)' },
   ];
   
   useEffect(() => {
@@ -128,16 +128,16 @@ export default function Section2() {
   return (
     <section 
       className="relative overflow-hidden py-16 md:py-20 lg:py-24"
-      style={{ backgroundColor: '#0a0a0a' }}
+      style={{ backgroundColor: '#8FBC8F' }}
       data-testid="section-phone-brands"
     >
-      {/* Premium Dark Background Elements */}
+      {/* Premium Sage Green Background Elements */}
       <div className="absolute inset-0">
         {/* Subtle gradient overlay */}
         <div 
           className="absolute inset-0"
           style={{
-            background: 'radial-gradient(ellipse 80% 60% at 50% 40%, rgba(196,255,77,0.04) 0%, transparent 60%)'
+            background: 'radial-gradient(ellipse 80% 60% at 50% 40%, rgba(255,255,255,0.15) 0%, transparent 60%)'
           }}
         />
         
@@ -155,20 +155,20 @@ export default function Section2() {
 
       {/* Corner Accents */}
       <div className="absolute top-0 left-0 w-24 h-24">
-        <div className="absolute top-6 left-6 w-12 h-[1px] bg-gradient-to-r from-[#c4ff4d]/40 to-transparent" />
-        <div className="absolute top-6 left-6 w-[1px] h-12 bg-gradient-to-b from-[#c4ff4d]/40 to-transparent" />
+        <div className="absolute top-6 left-6 w-12 h-[1px] bg-gradient-to-r from-white/50 to-transparent" />
+        <div className="absolute top-6 left-6 w-[1px] h-12 bg-gradient-to-b from-white/50 to-transparent" />
       </div>
       <div className="absolute top-0 right-0 w-24 h-24">
-        <div className="absolute top-6 right-6 w-12 h-[1px] bg-gradient-to-l from-[#23AACA]/30 to-transparent" />
-        <div className="absolute top-6 right-6 w-[1px] h-12 bg-gradient-to-b from-[#23AACA]/30 to-transparent" />
+        <div className="absolute top-6 right-6 w-12 h-[1px] bg-gradient-to-l from-[#2E7D32]/40 to-transparent" />
+        <div className="absolute top-6 right-6 w-[1px] h-12 bg-gradient-to-b from-[#2E7D32]/40 to-transparent" />
       </div>
       <div className="absolute bottom-0 left-0 w-24 h-24">
-        <div className="absolute bottom-6 left-6 w-12 h-[1px] bg-gradient-to-r from-[#23AACA]/30 to-transparent" />
-        <div className="absolute bottom-6 left-6 w-[1px] h-12 bg-gradient-to-t from-[#23AACA]/30 to-transparent" />
+        <div className="absolute bottom-6 left-6 w-12 h-[1px] bg-gradient-to-r from-[#2E7D32]/40 to-transparent" />
+        <div className="absolute bottom-6 left-6 w-[1px] h-12 bg-gradient-to-t from-[#2E7D32]/40 to-transparent" />
       </div>
       <div className="absolute bottom-0 right-0 w-24 h-24">
-        <div className="absolute bottom-6 right-6 w-12 h-[1px] bg-gradient-to-l from-[#c4ff4d]/40 to-transparent" />
-        <div className="absolute bottom-6 right-6 w-[1px] h-12 bg-gradient-to-t from-[#c4ff4d]/40 to-transparent" />
+        <div className="absolute bottom-6 right-6 w-12 h-[1px] bg-gradient-to-l from-white/50 to-transparent" />
+        <div className="absolute bottom-6 right-6 w-[1px] h-12 bg-gradient-to-t from-white/50 to-transparent" />
       </div>
 
       <div className="container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl relative z-10">
@@ -187,22 +187,22 @@ export default function Section2() {
               style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', letterSpacing: '-0.02em', lineHeight: 1.15 }}
               data-testid="text-grow-brands"
             >
-              <span className="text-white block">We grow</span>
-              <span className="block" style={{ color: '#c4ff4d' }}>ambitious brands</span>
+              <span className="block" style={{ color: '#1a1a1a' }}>We grow</span>
+              <span className="block" style={{ color: '#2E7D32' }}>ambitious brands</span>
             </h2>
-            <p className="text-zinc-400 text-base md:text-lg leading-relaxed max-w-xl mx-auto lg:mx-0 mb-8">
+            <p className="text-base md:text-lg leading-relaxed max-w-xl mx-auto lg:mx-0 mb-8" style={{ color: '#2D3E2D' }}>
               The results-driven, social-first agency you've been looking for. We blend creative excellence with AI-powered performance to deliver exceptional results.
             </p>
             
             {/* Feature pills */}
             <div className="flex flex-wrap justify-center lg:justify-start gap-3">
-              <span className="px-4 py-2 bg-white/[0.05] backdrop-blur-sm border border-[#c4ff4d]/20 rounded-full text-sm text-white/80 font-medium">
+              <span className="px-4 py-2 bg-white/30 backdrop-blur-sm border border-white/40 rounded-full text-sm font-medium" style={{ color: '#1a1a1a' }}>
                 Social-First
               </span>
-              <span className="px-4 py-2 bg-white/[0.05] backdrop-blur-sm border border-[#23AACA]/20 rounded-full text-sm text-white/80 font-medium">
+              <span className="px-4 py-2 bg-white/30 backdrop-blur-sm border border-white/40 rounded-full text-sm font-medium" style={{ color: '#1a1a1a' }}>
                 AI-Powered
               </span>
-              <span className="px-4 py-2 bg-white/[0.05] backdrop-blur-sm border border-[#4ade80]/20 rounded-full text-sm text-white/80 font-medium">
+              <span className="px-4 py-2 bg-white/30 backdrop-blur-sm border border-white/40 rounded-full text-sm font-medium" style={{ color: '#1a1a1a' }}>
                 Results-Driven
               </span>
             </div>
@@ -219,8 +219,8 @@ export default function Section2() {
           >
             {/* Phone glow effect */}
             <div 
-              className="absolute -inset-8 rounded-[3rem] blur-[60px] opacity-30"
-              style={{ background: 'linear-gradient(135deg, rgba(196,255,77,0.3) 0%, rgba(35,170,202,0.2) 100%)' }}
+              className="absolute -inset-8 rounded-[3rem] blur-[60px] opacity-40"
+              style={{ background: 'linear-gradient(135deg, rgba(255,255,255,0.5) 0%, rgba(46,125,50,0.3) 100%)' }}
             />
             
             {/* Phone interior with animated backgrounds */}
@@ -287,17 +287,17 @@ export default function Section2() {
               />
             </svg>
             
-            {/* Turquoise accent swooshes */}
+            {/* Deep green accent swooshes */}
             <div className="absolute -top-3 -left-1 md:-top-4 md:-left-2">
               <svg width="40" height="40" viewBox="0 0 50 50" fill="none">
-                <path d="M 5 25 Q 15 20 25 25" stroke="#5ce1e6" strokeWidth="2.5" strokeLinecap="round" fill="none"/>
-                <path d="M 25 5 Q 20 15 25 25" stroke="#5ce1e6" strokeWidth="2.5" strokeLinecap="round" fill="none"/>
+                <path d="M 5 25 Q 15 20 25 25" stroke="#2E7D32" strokeWidth="2.5" strokeLinecap="round" fill="none"/>
+                <path d="M 25 5 Q 20 15 25 25" stroke="#2E7D32" strokeWidth="2.5" strokeLinecap="round" fill="none"/>
               </svg>
             </div>
             <div className="absolute -bottom-3 -right-1 md:-bottom-4 md:-right-2">
               <svg width="40" height="40" viewBox="0 0 50 50" fill="none">
-                <path d="M 25 25 Q 35 30 45 25" stroke="#5ce1e6" strokeWidth="2.5" strokeLinecap="round" fill="none"/>
-                <path d="M 25 25 Q 30 35 25 45" stroke="#5ce1e6" strokeWidth="2.5" strokeLinecap="round" fill="none"/>
+                <path d="M 25 25 Q 35 30 45 25" stroke="#2E7D32" strokeWidth="2.5" strokeLinecap="round" fill="none"/>
+                <path d="M 25 25 Q 30 35 25 45" stroke="#2E7D32" strokeWidth="2.5" strokeLinecap="round" fill="none"/>
               </svg>
             </div>
           </motion.div>
