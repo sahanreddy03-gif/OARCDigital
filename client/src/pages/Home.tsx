@@ -85,24 +85,29 @@ export default function Home() {
       {/* OARC Brand Section - premium display of OARC acronym and pillars */}
       <OARCBrandSection />
       
-      {/* Smooth transition: Dark to Light */}
-      <GradientTransition from="dark" to="light" height="80px" />
+      {/* Seamless transition: Dark to Light */}
+      <GradientTransition from="dark" to="light" height="100px" />
       
       {/* BAND 2: What We Do - Soft Mint Theme */}
       <TrustedBrandsSection />
       <AICreativeSection />
       <AmbitiousBrandsSection />
       
-      {/* Smooth transition: Light to Dark */}
-      <GradientTransition from="light" to="dark" height="80px" />
+      {/* Seamless transition: Light to Sage Green */}
+      <GradientTransition from="light" to="sage" height="100px" />
       
-      {/* BAND 3: Experience & Proof - Dark Premium Theme */}
+      {/* Sage Green Section */}
       <Section2 />
+      
+      {/* Seamless transition: Sage to Dark */}
+      <GradientTransition from="sage" to="dark" height="100px" />
+      
+      {/* Dark Premium Sections */}
       <Section5 />
       <HireAIEmployeesSection />
       
-      {/* Transition: Dark to Light */}
-      <GradientTransition from="dark" to="light" height="60px" />
+      {/* Seamless transition: Dark to Light */}
+      <GradientTransition from="dark" to="light" height="100px" />
       
       {/* Tech & Services - Soft Mint Theme */}
       <TechEnabledSection />

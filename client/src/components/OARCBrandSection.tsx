@@ -1,9 +1,10 @@
 import { useEffect, useRef, useState } from "react";
-import { Link } from "wouter";
+import { motion, useReducedMotion } from "framer-motion";
 
 export default function OARCBrandSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const [isVisible, setIsVisible] = useState(false);
+  const prefersReducedMotion = useReducedMotion();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -13,7 +14,7 @@ export default function OARCBrandSection() {
           observer.disconnect();
         }
       },
-      { threshold: 0.3 }
+      { threshold: 0.2 }
     );
 
     if (sectionRef.current) {
@@ -23,150 +24,143 @@ export default function OARCBrandSection() {
     return () => observer.disconnect();
   }, []);
 
-  const pillars = [
-    { 
-      id: "creative", 
-      name: "CREATIVE", 
-      link: "/services/creative",
-      delay: 0 
-    },
-    { 
-      id: "ai", 
-      name: "AI SOLUTIONS", 
-      link: "/services/ai-solutions",
-      delay: 150 
-    },
-    { 
-      id: "revenue", 
-      name: "REVENUE", 
-      link: "/services/automation",
-      delay: 300 
-    },
+  const oarcWords = [
+    { letter: "O", word: "ptimised", color: "#ffffff" },
+    { letter: "A", word: "I", color: "#23AACA" },
+    { letter: "R", word: "evenue", color: "#ffffff" },
+    { letter: "C", word: "reativity", color: "#c4ff4d" },
   ];
 
   return (
     <section
       ref={sectionRef}
-      className="relative py-16 md:py-20 lg:py-24 overflow-hidden"
-      style={{ backgroundColor: "#0a0a0a" }}
+      className="relative py-20 md:py-28 lg:py-32 overflow-hidden"
+      style={{ 
+        background: 'linear-gradient(180deg, #0a0a0a 0%, #0f0f0f 100%)'
+      }}
       data-testid="oarc-brand-section"
     >
-      {/* Subtle grid background */}
+      {/* Subtle animated grid background */}
       <div 
-        className="absolute inset-0 opacity-[0.03]"
+        className="absolute inset-0 opacity-[0.02]"
         style={{
           backgroundImage: `
-            linear-gradient(rgba(196, 255, 77, 0.8) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(196, 255, 77, 0.8) 1px, transparent 1px)
+            linear-gradient(rgba(255, 255, 255, 0.5) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255, 255, 255, 0.5) 1px, transparent 1px)
           `,
-          backgroundSize: '60px 60px'
+          backgroundSize: '80px 80px'
         }}
       />
 
-      {/* Corner accents - top left */}
-      <div className="absolute top-8 left-8 hidden md:block">
-        <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
-          <path d="M0 0 L0 40 M0 0 L40 0" stroke="#c4ff4d" strokeWidth="1" opacity="0.3" />
-        </svg>
-      </div>
+      {/* Ambient glow effects */}
+      <motion.div 
+        className="absolute top-0 left-1/4 w-[600px] h-[400px] rounded-full blur-[150px] pointer-events-none"
+        style={{ background: 'radial-gradient(circle, rgba(35,170,202,0.08) 0%, transparent 70%)' }}
+        animate={prefersReducedMotion ? {} : { opacity: [0.5, 0.8, 0.5] }}
+        transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
+      />
+      <motion.div 
+        className="absolute bottom-0 right-1/4 w-[500px] h-[350px] rounded-full blur-[120px] pointer-events-none"
+        style={{ background: 'radial-gradient(circle, rgba(196,255,77,0.06) 0%, transparent 70%)' }}
+        animate={prefersReducedMotion ? {} : { opacity: [0.4, 0.7, 0.4] }}
+        transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
+      />
 
-      {/* Corner accents - top right */}
-      <div className="absolute top-8 right-8 hidden md:block">
-        <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
-          <path d="M60 0 L60 40 M60 0 L20 0" stroke="#23AACA" strokeWidth="1" opacity="0.3" />
-        </svg>
-      </div>
-
-      {/* Corner accents - bottom left */}
-      <div className="absolute bottom-8 left-8 hidden md:block">
-        <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
-          <path d="M0 60 L0 20 M0 60 L40 60" stroke="#23AACA" strokeWidth="1" opacity="0.3" />
-        </svg>
-      </div>
-
-      {/* Corner accents - bottom right */}
-      <div className="absolute bottom-8 right-8 hidden md:block">
-        <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
-          <path d="M60 60 L60 20 M60 60 L20 60" stroke="#c4ff4d" strokeWidth="1" opacity="0.3" />
-        </svg>
-      </div>
-
-      <div className="container mx-auto px-6 md:px-8 lg:px-12 max-w-6xl relative z-10">
-        {/* Main OARC headline */}
-        <div 
-          className={`text-center mb-12 md:mb-16 transition-all duration-1000 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
-        >
-          <h2 
-            className="font-black tracking-tight leading-none"
-            style={{ 
-              fontSize: 'clamp(2.5rem, 8vw, 5.5rem)',
-              letterSpacing: '-0.02em'
-            }}
+      <div className="container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl relative z-10">
+        
+        {/* Main OARC Acronym Display */}
+        <div className="text-center mb-10 md:mb-14">
+          {/* The OARC letters with full words */}
+          <div 
+            className={`flex flex-col md:flex-row items-center justify-center gap-2 md:gap-4 lg:gap-6 transition-all duration-1000 ${
+              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+            }`}
           >
-            <span className="text-white">OPTIMISED </span>
-            <span style={{ color: '#23AACA' }}>AI </span>
-            <span className="text-white">REVENUE </span>
-            <span style={{ color: '#c4ff4d' }}>CREATIVE</span>
-          </h2>
-        </div>
-
-        {/* Three pillars */}
-        <div 
-          className={`flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6 transition-all duration-1000 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-          }`}
-          style={{ transitionDelay: '200ms' }}
-        >
-          {/* Connecting line - left */}
-          <div className="hidden md:block w-12 lg:w-20 h-px bg-gradient-to-r from-transparent to-[#c4ff4d]/40" />
-          
-          {pillars.map((pillar, index) => (
-            <div key={pillar.id} className="flex items-center gap-4 md:gap-6">
-              <Link href={pillar.link}>
-                <button
-                  className={`group relative px-8 md:px-10 lg:px-12 py-3.5 md:py-4 rounded-full border-2 transition-all duration-500 ${
-                    isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-                  }`}
+            {oarcWords.map((item, index) => (
+              <motion.div
+                key={index}
+                className="flex items-baseline"
+                initial={prefersReducedMotion ? {} : { opacity: 0, y: 20 }}
+                animate={isVisible && !prefersReducedMotion ? { opacity: 1, y: 0 } : {}}
+                transition={{ delay: index * 0.15, duration: 0.6 }}
+              >
+                {/* Large initial letter */}
+                <span 
+                  className="font-black"
                   style={{ 
-                    borderColor: '#c4ff4d',
-                    backgroundColor: 'transparent',
-                    transitionDelay: `${300 + pillar.delay}ms`
+                    fontSize: 'clamp(4rem, 12vw, 8rem)',
+                    color: item.color,
+                    lineHeight: 1,
+                    textShadow: item.color === '#c4ff4d' 
+                      ? '0 0 40px rgba(196,255,77,0.3)' 
+                      : item.color === '#23AACA'
+                        ? '0 0 40px rgba(35,170,202,0.3)'
+                        : 'none'
                   }}
-                  data-testid={`pillar-btn-${pillar.id}`}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.backgroundColor = '#c4ff4d';
-                    e.currentTarget.style.transform = 'scale(1.02)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.backgroundColor = 'transparent';
-                    e.currentTarget.style.transform = 'scale(1)';
+                  data-testid={`oarc-letter-${item.letter}`}
+                >
+                  {item.letter}
+                </span>
+                {/* Rest of the word - smaller */}
+                <span 
+                  className="font-bold tracking-wide"
+                  style={{ 
+                    fontSize: 'clamp(1.2rem, 3vw, 2.2rem)',
+                    color: item.color,
+                    opacity: 0.9,
+                    letterSpacing: '0.02em'
                   }}
                 >
+                  {item.word}
+                </span>
+                
+                {/* Separator dot between words (not after last) */}
+                {index < oarcWords.length - 1 && (
                   <span 
-                    className="text-sm md:text-base lg:text-lg font-bold tracking-[0.15em] transition-colors duration-300 group-hover:text-black"
-                    style={{ color: '#c4ff4d' }}
-                  >
-                    {pillar.name}
-                  </span>
-                </button>
-              </Link>
-              
-              {/* Connecting line between pills */}
-              {index < pillars.length - 1 && (
-                <div className="hidden md:flex items-center">
-                  <div className="w-4 lg:w-6 h-px" style={{ backgroundColor: 'rgba(196, 255, 77, 0.4)' }} />
-                  <div className="w-2 h-2 rounded-full" style={{ backgroundColor: '#c4ff4d', opacity: 0.6 }} />
-                  <div className="w-4 lg:w-6 h-px" style={{ backgroundColor: 'rgba(196, 255, 77, 0.4)' }} />
-                </div>
-              )}
-            </div>
-          ))}
-
-          {/* Connecting line - right */}
-          <div className="hidden md:block w-12 lg:w-20 h-px bg-gradient-to-l from-transparent to-[#c4ff4d]/40" />
+                    className="hidden md:inline-block mx-3 lg:mx-4"
+                    style={{ 
+                      width: '6px', 
+                      height: '6px', 
+                      borderRadius: '50%',
+                      backgroundColor: 'rgba(255,255,255,0.2)',
+                      marginBottom: '0.5rem'
+                    }}
+                  />
+                )}
+              </motion.div>
+            ))}
+          </div>
         </div>
+
+        {/* Tagline */}
+        <motion.div
+          className={`text-center transition-all duration-1000 ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+          }`}
+          style={{ transitionDelay: '400ms' }}
+        >
+          <p 
+            className="text-zinc-400 text-base md:text-lg lg:text-xl max-w-2xl mx-auto leading-relaxed"
+            data-testid="oarc-tagline"
+          >
+            Where cutting-edge AI meets creative excellence to drive measurable revenue growth.
+          </p>
+        </motion.div>
+
+        {/* Subtle horizontal line accent */}
+        <motion.div
+          className={`flex items-center justify-center mt-10 md:mt-14 gap-4 transition-all duration-1000 ${
+            isVisible ? "opacity-100" : "opacity-0"
+          }`}
+          style={{ transitionDelay: '600ms' }}
+        >
+          <div className="h-px w-16 md:w-24 bg-gradient-to-r from-transparent to-[#23AACA]/40" />
+          <div 
+            className="w-2 h-2 rounded-full"
+            style={{ backgroundColor: '#c4ff4d', boxShadow: '0 0 10px rgba(196,255,77,0.5)' }}
+          />
+          <div className="h-px w-16 md:w-24 bg-gradient-to-l from-transparent to-[#c4ff4d]/40" />
+        </motion.div>
       </div>
 
       <style>{`
