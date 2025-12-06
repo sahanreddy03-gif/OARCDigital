@@ -1,197 +1,309 @@
-import { useEffect, useRef, useState } from "react";
-import { motion, useScroll, useTransform, useReducedMotion, useInView } from "framer-motion";
+import { useState, useEffect } from "react";
+import { motion, useReducedMotion } from "framer-motion";
+import { SiFacebook, SiInstagram, SiLinkedin, SiX, SiYoutube, SiSpotify } from "react-icons/si";
+import companyLogo from "@assets/IMG_8813_(1)_1764796694787.png";
 
-function AnimatedGrid() {
+function FloatingParticle({ delay, duration, size, left, top, color }: { 
+  delay: number; 
+  duration: number; 
+  size: number;
+  left: string;
+  top: string;
+  color: string;
+}) {
   const prefersReducedMotion = useReducedMotion();
+  if (prefersReducedMotion) return null;
   
   return (
-    <div 
-      className="absolute inset-0"
+    <motion.div
+      className="absolute rounded-full pointer-events-none"
       style={{
-        backgroundImage: `
-          linear-gradient(rgba(196,255,77,0.15) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(196,255,77,0.15) 1px, transparent 1px)
-        `,
-        backgroundSize: '60px 60px',
-        animation: prefersReducedMotion ? 'none' : 'gridPulse 8s ease-in-out infinite'
+        width: size,
+        height: size,
+        left,
+        top,
+        background: color,
+        boxShadow: `0 0 ${size * 4}px ${color}`,
+      }}
+      animate={{
+        y: [-20, 20, -20],
+        x: [-10, 10, -10],
+        opacity: [0.3, 0.7, 0.3],
+        scale: [1, 1.4, 1],
+      }}
+      transition={{
+        duration,
+        delay,
+        repeat: Infinity,
+        ease: "easeInOut",
       }}
     />
   );
 }
 
-function ServicePill({ label, delay }: { label: string; delay: number }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-50px" });
+function AnimatedGrid() {
   const prefersReducedMotion = useReducedMotion();
+  if (prefersReducedMotion) return null;
   
   return (
-    <motion.div
-      ref={ref}
-      initial={prefersReducedMotion ? {} : { opacity: 0, y: 30, scale: 0.9 }}
-      animate={isInView && !prefersReducedMotion ? { opacity: 1, y: 0, scale: 1 } : {}}
-      transition={{ duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] }}
-      whileHover={prefersReducedMotion ? {} : { scale: 1.02, y: -2 }}
-      className="px-10 py-5 md:px-14 md:py-6 rounded-full border-2 border-[#c4ff4d]/60 bg-transparent backdrop-blur-sm cursor-pointer transition-all duration-300 hover:border-[#c4ff4d] hover:bg-[#c4ff4d]/5"
-      data-testid={`pill-${label.toLowerCase().replace(' ', '-')}`}
-    >
-      <span className="text-base md:text-lg font-semibold tracking-widest text-white/90 uppercase">
-        {label}
-      </span>
-    </motion.div>
+    <div 
+      className="absolute inset-0 opacity-[0.06]"
+      style={{
+        backgroundImage: `
+          linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)
+        `,
+        backgroundSize: '50px 50px'
+      }}
+    />
   );
 }
 
-function HighlightedLetter({ letter, color }: { letter: string; color: string }) {
+function GlowOrbs() {
+  const prefersReducedMotion = useReducedMotion();
+  
   return (
-    <span 
-      className="inline-block font-black"
-      style={{ 
-        color,
-        fontSize: '1.15em',
-        textShadow: `0 0 30px ${color}40, 0 0 60px ${color}20`
-      }}
-    >
-      {letter}
-    </span>
+    <>
+      <motion.div 
+        className="absolute -top-32 -right-32 w-[500px] h-[500px] rounded-full blur-[150px] pointer-events-none"
+        style={{ background: 'radial-gradient(circle, rgba(255,255,255,0.25) 0%, transparent 70%)' }}
+        animate={prefersReducedMotion ? {} : { scale: [1, 1.2, 1], opacity: [0.4, 0.6, 0.4] }}
+        transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
+      />
+      <motion.div 
+        className="absolute -bottom-32 -left-32 w-[400px] h-[400px] rounded-full blur-[120px] pointer-events-none"
+        style={{ background: 'radial-gradient(circle, rgba(46,125,50,0.2) 0%, transparent 70%)' }}
+        animate={prefersReducedMotion ? {} : { scale: [1, 1.15, 1], opacity: [0.3, 0.5, 0.3] }}
+        transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
+      />
+    </>
   );
 }
 
 export default function Section2() {
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const headingRef = useRef<HTMLDivElement>(null);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [currentTextIndex, setCurrentTextIndex] = useState(0);
   const prefersReducedMotion = useReducedMotion();
-  const isInView = useInView(headingRef, { once: true, margin: "-100px" });
   
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start end", "end start"]
-  });
+  const backgrounds = [
+    'linear-gradient(135deg, #00FF9C 0%, #00D17D 100%)',
+    'linear-gradient(135deg, #FF5A00 0%, #FF7A2E 100%)',
+    'linear-gradient(135deg, #00FF9C 0%, #FF5A00 100%)',
+    'linear-gradient(135deg, #0A2818 0%, #00FF9C 100%)',
+    'linear-gradient(135deg, #FF5A00 0%, #1A1A1A 100%)',
+    'linear-gradient(135deg, #00D17D 0%, #FF7A2E 100%)',
+  ];
   
-  const y1 = useTransform(scrollYProgress, [0, 1], [50, -50]);
-  const y2 = useTransform(scrollYProgress, [0, 1], [30, -30]);
-  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0.5, 1, 1, 0.5]);
+  const textContent = [
+    { type: 'text', content: "We blend creative and performance" },
+    { type: 'text', content: "Mastering the New Rules of Branding" },
+    { type: 'logo', content: null }
+  ];
 
-  const styles = `
-    @keyframes gridPulse {
-      0%, 100% { opacity: 0.4; }
-      50% { opacity: 0.7; }
-    }
-    @keyframes floatSlow {
-      0%, 100% { transform: translateY(0) translateX(0); }
-      50% { transform: translateY(-20px) translateX(10px); }
-    }
-  `;
-
+  const particles = [
+    { delay: 0, duration: 8, size: 4, left: '10%', top: '20%', color: 'rgba(255,255,255,0.6)' },
+    { delay: 1, duration: 10, size: 3, left: '85%', top: '30%', color: 'rgba(46,125,50,0.5)' },
+    { delay: 2, duration: 7, size: 5, left: '70%', top: '70%', color: 'rgba(255,255,255,0.5)' },
+    { delay: 0.5, duration: 9, size: 3, left: '20%', top: '80%', color: 'rgba(46,125,50,0.6)' },
+    { delay: 3, duration: 8, size: 4, left: '50%', top: '15%', color: 'rgba(255,255,255,0.4)' },
+    { delay: 1.5, duration: 11, size: 3, left: '5%', top: '50%', color: 'rgba(255,255,255,0.5)' },
+    { delay: 2.5, duration: 9, size: 4, left: '95%', top: '60%', color: 'rgba(46,125,50,0.4)' },
+  ];
+  
+  useEffect(() => {
+    const bgInterval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % backgrounds.length);
+    }, 2000);
+    
+    const textInterval = setInterval(() => {
+      setCurrentTextIndex((prev) => (prev + 1) % textContent.length);
+    }, 3000);
+    
+    return () => {
+      clearInterval(bgInterval);
+      clearInterval(textInterval);
+    };
+  }, []);
+  
   return (
-    <>
-      <style>{styles}</style>
-      <section 
-        ref={sectionRef}
-        className="relative overflow-hidden py-20 md:py-28 lg:py-36"
-        style={{ backgroundColor: '#0a0a0a' }}
-        data-testid="section-oarc-brand"
-      >
-        {/* Animated Grid Background */}
-        <AnimatedGrid />
-        
-        {/* Gradient overlays for depth */}
+    <section 
+      className="relative overflow-hidden py-16 md:py-20 lg:py-24"
+      style={{ backgroundColor: '#C5D5A3' }}
+      data-testid="section-phone-brands"
+    >
+      {/* Premium Sage Green Background Elements */}
+      <div className="absolute inset-0">
+        {/* Subtle gradient overlay */}
         <div 
-          className="absolute inset-0 pointer-events-none"
+          className="absolute inset-0"
           style={{
-            background: 'radial-gradient(ellipse 60% 50% at 50% 30%, rgba(196,255,77,0.06) 0%, transparent 60%)'
+            background: 'radial-gradient(ellipse 80% 60% at 50% 40%, rgba(255,255,255,0.15) 0%, transparent 60%)'
           }}
         />
         
-        {/* Floating accent orbs */}
-        <motion.div 
-          className="absolute top-20 left-[10%] w-3 h-3 rounded-full bg-[#c4ff4d]/40 blur-sm"
-          style={{ y: prefersReducedMotion ? 0 : y1 }}
-          animate={prefersReducedMotion ? {} : { scale: [1, 1.5, 1], opacity: [0.4, 0.8, 0.4] }}
-          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <motion.div 
-          className="absolute top-40 right-[15%] w-2 h-2 rounded-full bg-[#23AACA]/50 blur-sm"
-          style={{ y: prefersReducedMotion ? 0 : y2 }}
-          animate={prefersReducedMotion ? {} : { scale: [1, 1.3, 1], opacity: [0.5, 0.9, 0.5] }}
-          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-        />
-        <motion.div 
-          className="absolute bottom-32 left-[20%] w-2 h-2 rounded-full bg-[#c4ff4d]/30 blur-sm"
-          style={{ y: prefersReducedMotion ? 0 : y1 }}
-          animate={prefersReducedMotion ? {} : { scale: [1, 1.4, 1], opacity: [0.3, 0.7, 0.3] }}
-          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-        />
+        {/* Animated Grid */}
+        <AnimatedGrid />
+        
+        {/* Glow Orbs */}
+        <GlowOrbs />
+        
+        {/* Floating Particles */}
+        {particles.map((p, i) => (
+          <FloatingParticle key={i} {...p} />
+        ))}
+      </div>
 
-        <div className="container mx-auto px-6 md:px-8 lg:px-12 max-w-6xl relative z-10">
+      {/* Corner Accents */}
+      <div className="absolute top-0 left-0 w-24 h-24">
+        <div className="absolute top-6 left-6 w-12 h-[1px] bg-gradient-to-r from-white/50 to-transparent" />
+        <div className="absolute top-6 left-6 w-[1px] h-12 bg-gradient-to-b from-white/50 to-transparent" />
+      </div>
+      <div className="absolute top-0 right-0 w-24 h-24">
+        <div className="absolute top-6 right-6 w-12 h-[1px] bg-gradient-to-l from-[#2E7D32]/40 to-transparent" />
+        <div className="absolute top-6 right-6 w-[1px] h-12 bg-gradient-to-b from-[#2E7D32]/40 to-transparent" />
+      </div>
+      <div className="absolute bottom-0 left-0 w-24 h-24">
+        <div className="absolute bottom-6 left-6 w-12 h-[1px] bg-gradient-to-r from-[#2E7D32]/40 to-transparent" />
+        <div className="absolute bottom-6 left-6 w-[1px] h-12 bg-gradient-to-t from-[#2E7D32]/40 to-transparent" />
+      </div>
+      <div className="absolute bottom-0 right-0 w-24 h-24">
+        <div className="absolute bottom-6 right-6 w-12 h-[1px] bg-gradient-to-l from-white/50 to-transparent" />
+        <div className="absolute bottom-6 right-6 w-[1px] h-12 bg-gradient-to-t from-white/50 to-transparent" />
+      </div>
+
+      <div className="container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl relative z-10">
+        <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
           
-          {/* Main Heading with OARC Highlighted */}
+          {/* Left: Text Content */}
           <motion.div 
-            ref={headingRef}
-            className="text-center mb-16 md:mb-20"
-            style={{ opacity: prefersReducedMotion ? 1 : opacity }}
+            className="flex-1 text-center lg:text-left"
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
           >
-            {/* Line 1: OPTIMISED AI */}
-            <motion.div
-              initial={prefersReducedMotion ? {} : { opacity: 0, y: 40 }}
-              animate={isInView && !prefersReducedMotion ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-              className="mb-2 md:mb-3"
+            <h2 
+              className="font-bold mb-5"
+              style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', letterSpacing: '-0.02em', lineHeight: 1.15 }}
+              data-testid="text-grow-brands"
             >
-              <h2 
-                className="font-black uppercase tracking-tight"
-                style={{ fontSize: 'clamp(2.5rem, 8vw, 5.5rem)', lineHeight: 1.05 }}
-                data-testid="heading-optimised-ai"
-              >
-                <HighlightedLetter letter="O" color="#c4ff4d" />
-                <span className="text-white">PTIMISED</span>
-                <span className="ml-4 md:ml-6">
-                  <HighlightedLetter letter="A" color="#23AACA" />
-                  <span className="text-[#23AACA]">I</span>
-                </span>
-              </h2>
-            </motion.div>
+              <span className="block" style={{ color: '#1a1a1a' }}>We grow</span>
+              <span className="block" style={{ color: '#2E7D32' }}>ambitious brands</span>
+            </h2>
+            <p className="text-base md:text-lg leading-relaxed max-w-xl mx-auto lg:mx-0 mb-8" style={{ color: '#2D3E2D' }}>
+              The results-driven, social-first agency you've been looking for. We blend creative excellence with AI-powered performance to deliver exceptional results.
+            </p>
             
-            {/* Line 2: REVENUE CREATIVE */}
-            <motion.div
-              initial={prefersReducedMotion ? {} : { opacity: 0, y: 40 }}
-              animate={isInView && !prefersReducedMotion ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            >
-              <h2 
-                className="font-black uppercase tracking-tight"
-                style={{ fontSize: 'clamp(2.5rem, 8vw, 5.5rem)', lineHeight: 1.05 }}
-                data-testid="heading-revenue-creative"
-              >
-                <HighlightedLetter letter="R" color="#c4ff4d" />
-                <span className="text-white">EVENUE</span>
-                <span className="ml-4 md:ml-6">
-                  <HighlightedLetter letter="C" color="#c4ff4d" />
-                  <span className="text-[#c4ff4d]">REATIVE</span>
-                </span>
-              </h2>
-            </motion.div>
+            {/* Feature pills */}
+            <div className="flex flex-wrap justify-center lg:justify-start gap-3">
+              <span className="px-4 py-2 bg-white/30 backdrop-blur-sm border border-white/40 rounded-full text-sm font-medium" style={{ color: '#1a1a1a' }}>
+                Social-First
+              </span>
+              <span className="px-4 py-2 bg-white/30 backdrop-blur-sm border border-white/40 rounded-full text-sm font-medium" style={{ color: '#1a1a1a' }}>
+                AI-Powered
+              </span>
+              <span className="px-4 py-2 bg-white/30 backdrop-blur-sm border border-white/40 rounded-full text-sm font-medium" style={{ color: '#1a1a1a' }}>
+                Results-Driven
+              </span>
+            </div>
           </motion.div>
 
-          {/* Service Pills */}
-          <div className="flex flex-col items-center gap-4 md:gap-5">
-            <ServicePill label="Creative" delay={0.5} />
-            <ServicePill label="AI Solutions" delay={0.65} />
-            <ServicePill label="Revenue" delay={0.8} />
-          </div>
-          
-          {/* Subtle bottom tagline */}
-          <motion.p
-            initial={prefersReducedMotion ? {} : { opacity: 0, y: 20 }}
-            animate={isInView && !prefersReducedMotion ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 1.1 }}
-            className="text-center text-zinc-500 text-sm md:text-base mt-12 md:mt-16 tracking-wide"
-            data-testid="text-tagline"
+          {/* Right: Phone Mockup */}
+          <motion.div 
+            className="relative w-full max-w-[220px] sm:max-w-[280px] md:max-w-[320px] lg:max-w-[340px]" 
+            style={{ aspectRatio: '9/16' }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
           >
-            The social-first, AI-powered agency delivering exceptional results
-          </motion.p>
+            {/* Phone glow effect */}
+            <div 
+              className="absolute -inset-8 rounded-[3rem] blur-[60px] opacity-40"
+              style={{ background: 'linear-gradient(135deg, rgba(255,255,255,0.5) 0%, rgba(46,125,50,0.3) 100%)' }}
+            />
+            
+            {/* Phone interior with animated backgrounds */}
+            <div className="absolute inset-4 md:inset-5 rounded-[1.5rem] overflow-hidden">
+              {backgrounds.map((bg, index) => (
+                <div
+                  key={index}
+                  className="absolute inset-0 transition-opacity duration-700"
+                  style={{
+                    background: bg,
+                    opacity: currentImageIndex === index ? 1 : 0,
+                  }}
+                  data-testid={`phone-background-${index}`}
+                />
+              ))}
+              {/* Overlay content */}
+              <div className="absolute inset-0 flex flex-col items-center justify-between bg-black/30 p-4 md:p-6">
+                <div className="flex gap-3 md:gap-4 items-center animate-[fadeInUp_0.8s_ease-out]" data-testid="social-icons-top">
+                  <SiFacebook className="w-6 h-6 md:w-7 md:h-7 text-white/80 hover:text-white transition-colors" />
+                  <SiInstagram className="w-6 h-6 md:w-7 md:h-7 text-white/80 hover:text-white transition-colors" />
+                  <SiLinkedin className="w-6 h-6 md:w-7 md:h-7 text-white/80 hover:text-white transition-colors" />
+                </div>
+                
+                <div className="text-center flex-1 flex items-center justify-center px-3">
+                  {textContent[currentTextIndex]?.type === 'text' ? (
+                    <p className="text-xl md:text-2xl lg:text-3xl font-bold text-white leading-tight transition-opacity duration-500" data-testid="phone-text-content" style={{ letterSpacing: '-0.02em' }}>
+                      {textContent[currentTextIndex]?.content || ''}
+                    </p>
+                  ) : (
+                    <img 
+                      src={companyLogo} 
+                      alt="Oarc Digital logo" 
+                      className="w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 object-contain transition-opacity duration-500"
+                      style={{ filter: 'drop-shadow(0 4px 20px rgba(0, 0, 0, 0.4))' }}
+                      data-testid="phone-logo-content"
+                    />
+                  )}
+                </div>
+                
+                <div className="flex gap-3 md:gap-4 items-center animate-[fadeInUp_0.8s_ease-out_0.5s]" data-testid="social-icons-bottom">
+                  <SiX className="w-6 h-6 md:w-7 md:h-7 text-white/80 hover:text-white transition-colors" />
+                  <SiYoutube className="w-6 h-6 md:w-7 md:h-7 text-white/80 hover:text-white transition-colors" />
+                  <SiSpotify className="w-6 h-6 md:w-7 md:h-7 text-white/80 hover:text-white transition-colors" />
+                </div>
+              </div>
+            </div>
+            
+            {/* Phone outline */}
+            <svg className="absolute inset-0 w-full h-full pointer-events-none" preserveAspectRatio="none" viewBox="0 0 200 355" fill="none">
+              <path 
+                d="M 65 2 L 65 6 Q 68 9 72 9 L 128 9 Q 132 9 135 6 L 135 2" 
+                stroke="#333" 
+                strokeWidth="3"
+                fill="none"
+                strokeLinecap="round"
+              />
+              <path 
+                d="M 13 32 Q 11 28 13 25 L 14 18 Q 16 13 20 10 L 29 6 Q 36 3 47 2 L 153 2 Q 164 3 171 6 L 180 10 Q 184 13 186 18 L 187 25 Q 189 28 187 32 L 187 323 Q 189 327 187 331 L 186 338 Q 184 343 180 346 L 171 350 Q 164 353 153 354 L 47 354 Q 36 353 29 350 L 20 346 Q 16 343 14 338 L 13 331 Q 11 327 13 323 Z" 
+                stroke="#333" 
+                strokeWidth="3"
+                fill="none"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+            
+            {/* Deep green accent swooshes */}
+            <div className="absolute -top-3 -left-1 md:-top-4 md:-left-2">
+              <svg width="40" height="40" viewBox="0 0 50 50" fill="none">
+                <path d="M 5 25 Q 15 20 25 25" stroke="#2E7D32" strokeWidth="2.5" strokeLinecap="round" fill="none"/>
+                <path d="M 25 5 Q 20 15 25 25" stroke="#2E7D32" strokeWidth="2.5" strokeLinecap="round" fill="none"/>
+              </svg>
+            </div>
+            <div className="absolute -bottom-3 -right-1 md:-bottom-4 md:-right-2">
+              <svg width="40" height="40" viewBox="0 0 50 50" fill="none">
+                <path d="M 25 25 Q 35 30 45 25" stroke="#2E7D32" strokeWidth="2.5" strokeLinecap="round" fill="none"/>
+                <path d="M 25 25 Q 30 35 25 45" stroke="#2E7D32" strokeWidth="2.5" strokeLinecap="round" fill="none"/>
+              </svg>
+            </div>
+          </motion.div>
           
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 }

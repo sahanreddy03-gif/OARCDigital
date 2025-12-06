@@ -1,5 +1,6 @@
 import Layout from "@/components/layout/Layout";
 import HeroSection from "@/components/HeroSection";
+import OARCBrandSection from "@/components/OARCBrandSection";
 import { GradientTransition } from "@/components/GradientTransition";
 import TrustedBrandsSection from "@/components/TrustedBrandsSection";
 import AICreativeSection from "@/components/AICreativeSection";
@@ -80,6 +81,9 @@ export default function Home() {
       />
       <div className="overflow-x-hidden">
       <HeroSection />
+      
+      {/* OARC Brand Section - premium display of OARC acronym and pillars */}
+      <OARCBrandSection />
       
       {/* Smooth transition: Dark to Light */}
       <GradientTransition from="dark" to="light" height="80px" />
