@@ -35,13 +35,22 @@ import SEOHead from "@/components/SEOHead";
 import { revenueServicesSEO } from "@/data/seoMetadata";
 import { createServiceSchema } from "@/utils/structuredData";
 import { Button } from '@/components/ui/button';
+import { AnimatedGridBackground } from '@/components/ui/animated-grid-background';
+
+const ELITE_COLORS = {
+  primary: '#a855f7',
+  secondary: '#6366f1',
+  accent: '#f5e6c8',
+  plum: '#5b21b6',
+  indigo: '#312e81'
+};
 
 const frameworkPhases = [
   {
     id: 'assess',
     title: 'Assess',
     icon: Search,
-    color: '#c4ff4d',
+    color: ELITE_COLORS.primary,
     description: 'Deep-dive analysis of your current operations, tech stack, and AI readiness',
     details: [
       'Business process mapping',
@@ -55,7 +64,7 @@ const frameworkPhases = [
     id: 'design',
     title: 'Design',
     icon: Compass,
-    color: '#23AACA',
+    color: ELITE_COLORS.secondary,
     description: 'Custom AI strategy and roadmap tailored to your specific business goals',
     details: [
       'AI use case prioritization',
@@ -69,7 +78,7 @@ const frameworkPhases = [
     id: 'build',
     title: 'Build',
     icon: Hammer,
-    color: '#ea580c',
+    color: ELITE_COLORS.accent,
     description: 'Implementation of AI solutions with hands-on development and integration',
     details: [
       'Tool selection & setup',
@@ -83,7 +92,7 @@ const frameworkPhases = [
     id: 'deploy',
     title: 'Deploy',
     icon: Rocket,
-    color: '#c4ff4d',
+    color: ELITE_COLORS.primary,
     description: 'Launch, training, and ongoing optimization for sustainable AI success',
     details: [
       'Rollout & training',
@@ -149,35 +158,35 @@ const deliverables = [
     title: 'AI Readiness Assessment',
     type: 'PDF Report',
     description: 'Comprehensive analysis of your current state, gaps, and opportunities',
-    color: '#c4ff4d'
+    color: ELITE_COLORS.primary
   },
   {
     icon: Table2,
     title: 'Tool Evaluation Matrix',
     type: 'Spreadsheet',
     description: 'Side-by-side comparison of AI tools rated against your requirements',
-    color: '#23AACA'
+    color: ELITE_COLORS.secondary
   },
   {
     icon: GitBranch,
     title: 'Implementation Roadmap',
     type: 'Visual Diagram',
     description: 'Phased plan with milestones, dependencies, and success metrics',
-    color: '#ea580c'
+    color: ELITE_COLORS.accent
   },
   {
     icon: Calculator,
     title: 'ROI Projections',
     type: 'Financial Model',
     description: 'Investment analysis with projected returns and payback timeline',
-    color: '#c4ff4d'
+    color: ELITE_COLORS.primary
   },
   {
     icon: Presentation,
     title: 'Executive Board Deck',
     type: 'Presentation',
     description: 'Stakeholder-ready presentation for leadership buy-in',
-    color: '#23AACA'
+    color: ELITE_COLORS.secondary
   }
 ];
 
@@ -284,20 +293,19 @@ export default function AIConsulting() {
       />
 
       {/* HERO: Interactive Framework Diagram */}
-      <section ref={heroRef} className="relative min-h-screen flex items-center justify-center py-20 px-4 overflow-hidden bg-zinc-950">
-        {/* Animated Grid Background */}
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute inset-0" style={{
-            backgroundImage: `
-              linear-gradient(rgba(196, 255, 77, 0.1) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(196, 255, 77, 0.1) 1px, transparent 1px)
-            `,
-            backgroundSize: '50px 50px'
-          }} />
-        </div>
+      <section ref={heroRef} className="relative min-h-screen flex items-center justify-center py-20 px-4 overflow-hidden bg-black">
+        {/* Animated Grid Background with elite purple/indigo */}
+        <AnimatedGridBackground 
+          intensity="high" 
+          showScanLine={true} 
+          showParticles={true}
+          showConcentricRings={true}
+          showDiagonalGrid={true}
+        />
 
-        {/* Radial Glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#23AACA]/10 rounded-full blur-3xl" />
+        {/* Multiple radial glows with plum/indigo */}
+        <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-purple-600/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-indigo-600/10 rounded-full blur-3xl" />
 
         <div className="relative z-10 max-w-7xl mx-auto w-full">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -307,30 +315,30 @@ export default function AIConsulting() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <div className="inline-flex items-center gap-2 bg-zinc-900 border border-zinc-800 rounded-full px-4 py-2 mb-6">
-                <Brain className="w-4 h-4 text-[#c4ff4d]" />
+              <div className="inline-flex items-center gap-2 bg-zinc-900/80 backdrop-blur-sm border border-purple-500/30 rounded-full px-4 py-2 mb-6">
+                <Brain className="w-4 h-4 text-purple-400" />
                 <span className="text-sm text-white/80">Your AI Transformation Partner</span>
               </div>
 
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-6 leading-tight" data-testid="heading-ai-consulting">
                 AI Consulting
                 <br />
-                <span className="text-[#c4ff4d]">Without the Hype</span>
+                <span className="bg-gradient-to-r from-purple-400 via-violet-400 to-indigo-400 bg-clip-text text-transparent">Without the Hype</span>
               </h1>
 
               <p className="text-xl text-white/80 mb-8 max-w-xl">
                 We analyze your business, identify high-impact AI opportunities, and execute the entire transformation. 
-                <span className="text-[#c4ff4d] font-semibold"> You don't need to figure out which services you need—we handle everything.</span>
+                <span className="text-purple-400 font-semibold"> You don't need to figure out which services you need—we handle everything.</span>
               </p>
 
               <div className="flex flex-wrap gap-4">
                 <Link href="/contact">
-                  <Button size="lg" className="bg-[#c4ff4d] text-black hover:bg-[#c4ff4d]/90 font-bold" data-testid="button-hero-cta">
+                  <Button size="lg" className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white hover:from-purple-500 hover:to-indigo-500 font-bold border-0" data-testid="button-hero-cta">
                     Start Your AI Transformation
                     <ArrowRight className="w-5 h-5 ml-2" />
                   </Button>
                 </Link>
-                <Button size="lg" variant="outline" className="border-white/30 text-white bg-white/5 hover:bg-white/10" data-testid="button-hero-secondary">
+                <Button size="lg" variant="outline" className="border-purple-500/40 text-white bg-purple-500/10 hover:bg-purple-500/20" data-testid="button-hero-secondary">
                   See Our Framework
                 </Button>
               </div>
@@ -345,9 +353,9 @@ export default function AIConsulting() {
             >
               <div className="relative w-full max-w-[500px] mx-auto aspect-square">
                 {/* Center Hub */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 rounded-full bg-zinc-900 border-2 border-[#c4ff4d] flex items-center justify-center z-20">
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 rounded-full bg-zinc-900/90 backdrop-blur-sm border-2 border-purple-500 flex items-center justify-center z-20 shadow-lg shadow-purple-500/20">
                   <div className="text-center">
-                    <Sparkles className="w-8 h-8 text-[#c4ff4d] mx-auto mb-1" />
+                    <Sparkles className="w-8 h-8 text-purple-400 mx-auto mb-1" />
                     <span className="text-white font-bold text-sm">OARC</span>
                   </div>
                 </div>
@@ -359,7 +367,7 @@ export default function AIConsulting() {
                     cy="250"
                     r="180"
                     fill="none"
-                    stroke="rgba(255,255,255,0.1)"
+                    stroke="rgba(168, 85, 247, 0.2)"
                     strokeWidth="2"
                   />
                   {/* Animated Arc */}
@@ -368,13 +376,20 @@ export default function AIConsulting() {
                     cy="250"
                     r="180"
                     fill="none"
-                    stroke="#c4ff4d"
+                    stroke="url(#eliteGradient)"
                     strokeWidth="3"
                     strokeDasharray="1130"
                     strokeDashoffset={prefersReducedMotion ? 0 : 1130}
                     animate={{ strokeDashoffset: 0 }}
                     transition={prefersReducedMotion ? { duration: 0 } : { duration: 2, ease: "easeOut" }}
                   />
+                  <defs>
+                    <linearGradient id="eliteGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#a855f7" />
+                      <stop offset="50%" stopColor="#6366f1" />
+                      <stop offset="100%" stopColor="#a855f7" />
+                    </linearGradient>
+                  </defs>
                 </svg>
 
                 {/* Phase Nodes */}
@@ -409,10 +424,10 @@ export default function AIConsulting() {
                           aria-expanded={isExpanded}
                           aria-controls={`phase-panel-${phase.id}`}
                           aria-label={`${phase.title} phase: ${phase.description}`}
-                          className={`w-20 h-20 rounded-full flex flex-col items-center justify-center transition-all duration-300 cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#c4ff4d] focus:ring-offset-2 focus:ring-offset-zinc-950 ${
+                          className={`w-20 h-20 rounded-full flex flex-col items-center justify-center transition-all duration-300 cursor-pointer focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-zinc-950 ${
                             isExpanded 
-                              ? 'bg-zinc-800 border-2 shadow-lg shadow-[#c4ff4d]/20' 
-                              : 'bg-zinc-900 border border-zinc-700 hover:border-zinc-500'
+                              ? 'bg-zinc-800/90 backdrop-blur-sm border-2 shadow-lg shadow-purple-500/20' 
+                              : 'bg-zinc-900/90 backdrop-blur-sm border border-zinc-700 hover:border-zinc-500'
                           }`}
                           style={{ borderColor: isExpanded ? phase.color : undefined }}
                           data-testid={`phase-${phase.id}`}
@@ -441,7 +456,7 @@ export default function AIConsulting() {
                         key={i}
                         d={`M ${startX} ${startY} A ${radius} ${radius} 0 0 1 ${endX} ${endY}`}
                         fill="none"
-                        stroke="rgba(196, 255, 77, 0.3)"
+                        stroke="rgba(168, 85, 247, 0.3)"
                         strokeWidth="2"
                         strokeDasharray="5,5"
                         initial={prefersReducedMotion ? { pathLength: 1 } : { pathLength: 0 }}
@@ -499,54 +514,96 @@ export default function AIConsulting() {
       </section>
 
       {/* SECTION 1: The Confusion (Problem Visualization) */}
-      <section className="py-24 px-4 bg-zinc-950 overflow-hidden">
-        <div className="max-w-7xl mx-auto">
+      <section className="py-24 px-4 bg-zinc-950 overflow-hidden relative">
+        {/* Subtle background glow */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-purple-600/5 rounded-full blur-3xl" />
+        </div>
+        
+        <div className="max-w-7xl mx-auto relative z-10">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
-            {/* Left: Visual Problem Illustration */}
-            <div className="relative">
-              <div className="relative w-full max-w-md mx-auto">
-                {/* CEO Figure */}
+            {/* Left: Clean Orbit Animation */}
+            <div className="relative flex items-center justify-center min-h-[400px]">
+              <div className="relative w-80 h-80">
+                {/* Orbit Track */}
+                <svg className="absolute inset-0 w-full h-full" viewBox="0 0 320 320">
+                  <circle
+                    cx="160"
+                    cy="160"
+                    r="140"
+                    fill="none"
+                    stroke="rgba(168, 85, 247, 0.15)"
+                    strokeWidth="1"
+                    strokeDasharray="8 4"
+                  />
+                </svg>
+
+                {/* Center - CEO/Decision Maker */}
                 <motion.div
                   initial={{ opacity: 0, scale: 0.8 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
-                  className="relative z-10 w-32 h-32 mx-auto bg-zinc-800 rounded-full flex items-center justify-center border-4 border-zinc-700"
+                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20"
                 >
-                  <Users className="w-16 h-16 text-zinc-500" />
+                  <div className="w-24 h-24 rounded-full bg-zinc-900 border-2 border-zinc-700 flex items-center justify-center shadow-xl">
+                    <Users className="w-10 h-10 text-zinc-400" />
+                  </div>
                 </motion.div>
 
-                {/* Confusion Speech Bubbles */}
-                {confusionMessages.map((msg, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, scale: 0, y: 20 }}
-                    whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: msg.delay, duration: 0.5 }}
-                    className="absolute"
-                    style={{
-                      top: `${50 + Math.sin(msg.angle * Math.PI / 180) * 120}%`,
-                      left: `${50 + Math.cos(msg.angle * Math.PI / 180) * 150}%`,
-                      transform: 'translate(-50%, -50%)'
-                    }}
-                  >
-                    <div className="bg-zinc-800 border border-zinc-700 rounded-lg px-4 py-2 whitespace-nowrap">
-                      <span className="text-sm font-medium text-white/80">{msg.text}</span>
-                    </div>
-                  </motion.div>
-                ))}
+                {/* Orbiting Keywords - Clean single-color styling */}
+                {confusionMessages.map((msg, index) => {
+                  const baseAngle = (index * 72) - 90;
+                  return (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1 }}
+                      viewport={{ once: true }}
+                      animate={prefersReducedMotion ? {} : {
+                        rotate: [baseAngle, baseAngle + 360]
+                      }}
+                      transition={prefersReducedMotion ? { delay: msg.delay } : {
+                        rotate: {
+                          duration: 60 + index * 5,
+                          repeat: Infinity,
+                          ease: "linear"
+                        },
+                        opacity: { duration: 0.5, delay: msg.delay }
+                      }}
+                      className="absolute inset-0"
+                      style={{ transformOrigin: 'center' }}
+                    >
+                      <div 
+                        className="absolute"
+                        style={{
+                          top: '50%',
+                          left: '50%',
+                          transform: `translate(-50%, -50%) translateY(-140px) rotate(${-baseAngle}deg)`
+                        }}
+                      >
+                        <motion.div
+                          animate={prefersReducedMotion ? {} : {
+                            rotate: [-baseAngle, -baseAngle - 360]
+                          }}
+                          transition={prefersReducedMotion ? {} : {
+                            rotate: {
+                              duration: 60 + index * 5,
+                              repeat: Infinity,
+                              ease: "linear"
+                            }
+                          }}
+                        >
+                          <div className="bg-zinc-900/90 backdrop-blur-sm border border-zinc-700/50 rounded-lg px-3 py-1.5 whitespace-nowrap shadow-lg">
+                            <span className="text-xs font-medium text-zinc-400">{msg.text}</span>
+                          </div>
+                        </motion.div>
+                      </div>
+                    </motion.div>
+                  );
+                })}
 
-                {/* Overwhelm Effect */}
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 0.5 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 1 }}
-                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 rounded-full"
-                  style={{
-                    background: 'radial-gradient(circle, rgba(234,88,12,0.3) 0%, transparent 70%)'
-                  }}
-                />
+                {/* Subtle confusion glow */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-40 h-40 bg-purple-500/10 rounded-full blur-2xl" />
               </div>
             </div>
 
@@ -565,7 +622,7 @@ export default function AIConsulting() {
               <h2 className="text-4xl md:text-5xl font-black text-white mb-6">
                 Everyone has <span className="text-orange-500">opinions</span>.
                 <br />
-                Few have <span className="text-[#c4ff4d]">results</span>.
+                Few have <span className="text-purple-400">results</span>.
               </h2>
 
               <p className="text-lg text-white/70 mb-6">
@@ -608,8 +665,164 @@ export default function AIConsulting() {
         </div>
       </section>
 
+      {/* NEW: How AI Consulting Works - Demo Visualization */}
+      <section className="py-24 px-4 bg-zinc-900 relative overflow-hidden">
+        {/* Background elements */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-1/4 right-1/4 w-80 h-80 bg-purple-600/5 rounded-full blur-3xl" />
+          <div className="absolute bottom-1/4 left-1/4 w-64 h-64 bg-indigo-600/5 rounded-full blur-3xl" />
+        </div>
+        
+        <div className="max-w-7xl mx-auto relative z-10">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            {/* Left: Demo Visualization */}
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="relative"
+            >
+              {/* Floating Demo Dashboard */}
+              <div className="relative">
+                <div className="absolute -inset-4 bg-gradient-to-br from-purple-500/20 via-indigo-500/10 to-transparent rounded-3xl blur-xl" />
+                <div className="relative bg-zinc-900/90 backdrop-blur-xl border border-zinc-700/50 rounded-2xl p-6 shadow-2xl">
+                  {/* Demo Header */}
+                  <div className="flex items-center justify-between mb-6">
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center">
+                        <Brain className="w-5 h-5 text-white" />
+                      </div>
+                      <div>
+                        <h4 className="text-white font-semibold text-sm">AI Consulting Dashboard</h4>
+                        <p className="text-white/50 text-xs">Live progress tracking</p>
+                      </div>
+                    </div>
+                    <div className="flex gap-1.5">
+                      <div className="w-3 h-3 rounded-full bg-red-500/60" />
+                      <div className="w-3 h-3 rounded-full bg-yellow-500/60" />
+                      <div className="w-3 h-3 rounded-full bg-green-500/60" />
+                    </div>
+                  </div>
+
+                  {/* Process Steps Demo */}
+                  <div className="space-y-4">
+                    {[
+                      { step: 1, title: 'Discovery Call', status: 'complete', time: '30 min' },
+                      { step: 2, title: 'Process Audit', status: 'complete', time: '1 week' },
+                      { step: 3, title: 'AI Strategy Design', status: 'active', time: '2 weeks' },
+                      { step: 4, title: 'Implementation', status: 'pending', time: '4-6 weeks' },
+                    ].map((item, idx) => (
+                      <motion.div
+                        key={idx}
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.3 + idx * 0.15 }}
+                        className={`flex items-center gap-4 p-3 rounded-xl transition-all ${
+                          item.status === 'active' 
+                            ? 'bg-purple-500/10 border border-purple-500/30' 
+                            : 'bg-zinc-800/50 border border-transparent'
+                        }`}
+                      >
+                        <div className={`w-8 h-8 rounded-lg flex items-center justify-center text-sm font-bold ${
+                          item.status === 'complete' 
+                            ? 'bg-green-500/20 text-green-400'
+                            : item.status === 'active'
+                            ? 'bg-purple-500 text-white'
+                            : 'bg-zinc-700 text-zinc-400'
+                        }`}>
+                          {item.status === 'complete' ? <CheckCircle2 className="w-4 h-4" /> : item.step}
+                        </div>
+                        <div className="flex-1">
+                          <p className={`text-sm font-medium ${
+                            item.status === 'pending' ? 'text-zinc-500' : 'text-white'
+                          }`}>{item.title}</p>
+                        </div>
+                        <div className={`text-xs ${
+                          item.status === 'active' ? 'text-purple-400' : 'text-zinc-500'
+                        }`}>
+                          {item.time}
+                        </div>
+                      </motion.div>
+                    ))}
+                  </div>
+
+                  {/* Progress Indicator */}
+                  <div className="mt-6 pt-4 border-t border-zinc-700/50">
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="text-xs text-white/60">Overall Progress</span>
+                      <span className="text-xs text-purple-400 font-semibold">55%</span>
+                    </div>
+                    <div className="h-2 bg-zinc-800 rounded-full overflow-hidden">
+                      <motion.div
+                        initial={{ width: 0 }}
+                        whileInView={{ width: '55%' }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 1.5, delay: 0.5, ease: "easeOut" }}
+                        className="h-full bg-gradient-to-r from-purple-500 to-indigo-500 rounded-full"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Right: How It Works Text */}
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+            >
+              <div className="inline-flex items-center gap-2 bg-zinc-800 border border-zinc-700 rounded-full px-4 py-2 mb-6">
+                <Rocket className="w-4 h-4 text-purple-400" />
+                <span className="text-sm text-white/80">How It Works</span>
+              </div>
+
+              <h2 className="text-4xl md:text-5xl font-black text-white mb-6">
+                From <span className="text-purple-400">discovery</span> to
+                <br />
+                <span className="text-indigo-400">deployment</span> in weeks
+              </h2>
+
+              <p className="text-lg text-white/70 mb-8">
+                Our proven 4-phase process ensures clear communication, predictable timelines, 
+                and measurable results at every stage.
+              </p>
+
+              <div className="space-y-6">
+                {[
+                  { icon: Search, title: 'Discovery', desc: 'We audit your current processes and identify AI opportunities' },
+                  { icon: Compass, title: 'Design', desc: 'Custom strategy and roadmap tailored to your business' },
+                  { icon: Hammer, title: 'Build', desc: 'Hands-on implementation of AI solutions' },
+                  { icon: Rocket, title: 'Deploy', desc: 'Launch, training, and ongoing optimization' }
+                ].map((item, idx) => (
+                  <motion.div
+                    key={idx}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.2 + idx * 0.1 }}
+                    className="flex items-start gap-4"
+                  >
+                    <div className="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center flex-shrink-0">
+                      <item.icon className="w-5 h-5 text-purple-400" />
+                    </div>
+                    <div>
+                      <h4 className="text-white font-semibold mb-1">{item.title}</h4>
+                      <p className="text-white/60 text-sm">{item.desc}</p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
       {/* SECTION 2: AI Maturity Model (Interactive Staircase) */}
-      <section className="py-24 px-4 bg-zinc-900">
+      <section className="py-24 px-4 bg-zinc-950">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <motion.div
@@ -618,7 +831,7 @@ export default function AIConsulting() {
               viewport={{ once: true }}
               className="inline-flex items-center gap-2 bg-zinc-800 border border-zinc-700 rounded-full px-4 py-2 mb-6"
             >
-              <Target className="w-4 h-4 text-[#23AACA]" />
+              <Target className="w-4 h-4 text-indigo-400" />
               <span className="text-sm text-white/80">AI Maturity Model</span>
             </motion.div>
 
@@ -629,7 +842,7 @@ export default function AIConsulting() {
               transition={{ delay: 0.1 }}
               className="text-4xl md:text-5xl font-black text-white mb-4"
             >
-              We meet you <span className="text-[#23AACA]">where you are</span>
+              We meet you <span className="text-indigo-400">where you are</span>
             </motion.h2>
 
             <motion.p
@@ -661,7 +874,7 @@ export default function AIConsulting() {
                       onKeyDown={(e) => handleLevelKeyDown(e, level.level)}
                       aria-pressed={isSelected}
                       aria-label={`Level ${level.level}: ${level.title} - ${level.description}`}
-                      className={`w-full text-left transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#c4ff4d] focus:ring-offset-2 focus:ring-offset-zinc-900 rounded-xl ${
+                      className={`w-full text-left transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-zinc-900 rounded-xl ${
                         isSelected ? 'transform translate-x-4' : ''
                       }`}
                       data-testid={`level-${level.level}`}
@@ -669,7 +882,7 @@ export default function AIConsulting() {
                       <div
                         className={`p-5 rounded-xl border-2 transition-all duration-300 ${
                           isSelected
-                            ? 'bg-zinc-800 border-[#c4ff4d] shadow-lg shadow-[#c4ff4d]/10'
+                            ? 'bg-zinc-800 border-purple-500 shadow-lg shadow-purple-500/10'
                             : 'bg-zinc-950 border-zinc-800 hover:border-zinc-700'
                         }`}
                         style={{ marginLeft: `${index * 20}px` }}
@@ -678,7 +891,7 @@ export default function AIConsulting() {
                           <div className="flex items-center gap-4">
                             <div className={`w-12 h-12 rounded-lg flex items-center justify-center font-black text-xl ${
                               isSelected
-                                ? 'bg-[#c4ff4d] text-black'
+                                ? 'bg-purple-500 text-black'
                                 : 'bg-zinc-800 text-white/60'
                             }`}>
                               {level.level}
@@ -693,7 +906,7 @@ export default function AIConsulting() {
                             </div>
                           </div>
                           <ChevronRight className={`w-5 h-5 transition-transform ${
-                            isSelected ? 'text-[#c4ff4d] rotate-90' : 'text-white/30'
+                            isSelected ? 'text-purple-400 rotate-90' : 'text-white/30'
                           }`} />
                         </div>
 
@@ -726,7 +939,7 @@ export default function AIConsulting() {
                     return (
                       <>
                         <div className="flex items-center gap-4 mb-6">
-                          <div className="w-16 h-16 rounded-xl bg-[#c4ff4d] flex items-center justify-center">
+                          <div className="w-16 h-16 rounded-xl bg-purple-500 flex items-center justify-center">
                             <span className="text-3xl font-black text-black">{level.level}</span>
                           </div>
                           <div>
@@ -746,16 +959,16 @@ export default function AIConsulting() {
 
                           <div className="p-4 bg-zinc-900 rounded-xl">
                             <div className="flex items-center gap-2 mb-2">
-                              <TrendingUp className="w-4 h-4 text-[#c4ff4d]" />
-                              <span className="text-sm font-semibold text-[#c4ff4d]">Opportunity</span>
+                              <TrendingUp className="w-4 h-4 text-purple-400" />
+                              <span className="text-sm font-semibold text-purple-400">Opportunity</span>
                             </div>
                             <p className="text-white/70">{level.opportunity}</p>
                           </div>
 
                           <div className="p-4 bg-zinc-900 rounded-xl">
                             <div className="flex items-center gap-2 mb-2">
-                              <Clock className="w-4 h-4 text-[#23AACA]" />
-                              <span className="text-sm font-semibold text-[#23AACA]">Timeline</span>
+                              <Clock className="w-4 h-4 text-indigo-400" />
+                              <span className="text-sm font-semibold text-indigo-400">Timeline</span>
                             </div>
                             <p className="text-white/70">{level.timeline}</p>
                           </div>
@@ -767,7 +980,7 @@ export default function AIConsulting() {
                           </h4>
                           <div className="flex flex-wrap gap-2">
                             {level.services.map((service, idx) => (
-                              <span key={idx} className="bg-[#c4ff4d]/10 text-[#c4ff4d] text-sm font-medium px-4 py-2 rounded-full">
+                              <span key={idx} className="bg-purple-500/10 text-purple-400 text-sm font-medium px-4 py-2 rounded-full">
                                 {service}
                               </span>
                             ))}
@@ -793,7 +1006,7 @@ export default function AIConsulting() {
               viewport={{ once: true }}
               className="inline-flex items-center gap-2 bg-zinc-900 border border-zinc-800 rounded-full px-4 py-2 mb-6"
             >
-              <FileText className="w-4 h-4 text-[#c4ff4d]" />
+              <FileText className="w-4 h-4 text-purple-400" />
               <span className="text-sm text-white/80">Tangible Outcomes</span>
             </motion.div>
 
@@ -804,7 +1017,7 @@ export default function AIConsulting() {
               transition={{ delay: 0.1 }}
               className="text-4xl md:text-5xl font-black text-white mb-4"
             >
-              Consulting means <span className="text-[#c4ff4d]">deliverables</span>,
+              Consulting means <span className="text-purple-400">deliverables</span>,
               <br />
               not just conversations
             </motion.h2>
@@ -920,7 +1133,7 @@ export default function AIConsulting() {
                 {/* Week Header */}
                 <div className="flex items-center gap-3 mb-4">
                   <div className={`w-12 h-12 rounded-xl flex items-center justify-center font-bold ${
-                    index === 3 ? 'bg-[#23AACA]/20 text-[#23AACA]' : 'bg-zinc-800 text-white'
+                    index === 3 ? 'bg-indigo-500/20 text-indigo-400' : 'bg-zinc-800 text-white'
                   }`}>
                     {week.week}
                   </div>
@@ -937,7 +1150,7 @@ export default function AIConsulting() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.8, delay: 0.3 + index * 0.2 }}
                     className={`h-full rounded-full ${
-                      index === 3 ? 'bg-[#23AACA]' : 'bg-[#c4ff4d]'
+                      index === 3 ? 'bg-indigo-500' : 'bg-purple-500'
                     }`}
                   />
                 </div>
@@ -945,7 +1158,7 @@ export default function AIConsulting() {
                 {/* Content Card */}
                 <div className={`p-6 rounded-2xl border ${
                   index === 3 
-                    ? 'bg-zinc-950 border-[#23AACA]/30' 
+                    ? 'bg-zinc-950 border-indigo-500/30' 
                     : 'bg-zinc-950 border-zinc-800'
                 }`}>
                   <h3 className="text-lg font-bold text-white mb-4">{week.title}</h3>
@@ -953,7 +1166,7 @@ export default function AIConsulting() {
                   <ul className="space-y-2 mb-6">
                     {week.activities.map((activity, idx) => (
                       <li key={idx} className="flex items-center gap-2 text-sm text-white/60">
-                        <div className="w-1.5 h-1.5 rounded-full bg-[#c4ff4d]" />
+                        <div className="w-1.5 h-1.5 rounded-full bg-purple-500" />
                         {activity}
                       </li>
                     ))}
@@ -961,7 +1174,7 @@ export default function AIConsulting() {
 
                   <div className="pt-4 border-t border-zinc-800">
                     <span className="text-xs text-white/40 uppercase tracking-wider">Output</span>
-                    <p className="text-sm font-semibold text-[#c4ff4d] mt-1">{week.output}</p>
+                    <p className="text-sm font-semibold text-purple-400 mt-1">{week.output}</p>
                   </div>
                 </div>
 
@@ -988,14 +1201,14 @@ export default function AIConsulting() {
               viewport={{ once: true }}
             >
               <div className="inline-flex items-center gap-2 bg-zinc-900 border border-zinc-800 rounded-full px-4 py-2 mb-6">
-                <Shield className="w-4 h-4 text-[#c4ff4d]" />
+                <Shield className="w-4 h-4 text-purple-400" />
                 <span className="text-sm text-white/80">Why Trust OARC</span>
               </div>
 
               <h2 className="text-4xl md:text-5xl font-black text-white mb-6">
-                We don't just <span className="text-[#c4ff4d]">consult</span> on AI.
+                We don't just <span className="text-purple-400">consult</span> on AI.
                 <br />
-                We <span className="text-[#23AACA]">build</span> it.
+                We <span className="text-indigo-400">build</span> it.
               </h2>
 
               <p className="text-lg text-white/70 mb-8">
@@ -1017,7 +1230,7 @@ export default function AIConsulting() {
                       className="p-4 bg-zinc-900 border border-zinc-800 rounded-xl"
                       data-testid={`proof-point-${index}`}
                     >
-                      <Icon className="w-6 h-6 text-[#c4ff4d] mb-2" />
+                      <Icon className="w-6 h-6 text-purple-400 mb-2" />
                       <div className="text-2xl font-black text-white">{point.metric}</div>
                       <div className="text-sm text-white/60">{point.label}</div>
                     </motion.div>
@@ -1044,8 +1257,8 @@ export default function AIConsulting() {
                 {/* AI Agents Card */}
                 <div className="col-span-2 p-6 bg-zinc-900 border border-zinc-800 rounded-2xl">
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-10 h-10 rounded-lg bg-[#c4ff4d]/20 flex items-center justify-center">
-                      <Bot className="w-5 h-5 text-[#c4ff4d]" />
+                    <div className="w-10 h-10 rounded-lg bg-purple-500/20 flex items-center justify-center">
+                      <Bot className="w-5 h-5 text-purple-400" />
                     </div>
                     <div>
                       <h4 className="font-bold text-white">AI Agents</h4>
@@ -1063,8 +1276,8 @@ export default function AIConsulting() {
 
                 {/* Automation Card */}
                 <div className="p-6 bg-zinc-900 border border-zinc-800 rounded-2xl">
-                  <div className="w-10 h-10 rounded-lg bg-[#23AACA]/20 flex items-center justify-center mb-4">
-                    <Workflow className="w-5 h-5 text-[#23AACA]" />
+                  <div className="w-10 h-10 rounded-lg bg-indigo-500/20 flex items-center justify-center mb-4">
+                    <Workflow className="w-5 h-5 text-indigo-400" />
                   </div>
                   <h4 className="font-bold text-white mb-1">Automation</h4>
                   <p className="text-xs text-white/50">Revenue workflows that run themselves</p>
@@ -1081,7 +1294,7 @@ export default function AIConsulting() {
               </div>
 
               {/* Floating Badge */}
-              <div className="absolute -top-4 -right-4 bg-[#c4ff4d] text-black text-xs font-bold px-4 py-2 rounded-full shadow-lg">
+              <div className="absolute -top-4 -right-4 bg-purple-500 text-black text-xs font-bold px-4 py-2 rounded-full shadow-lg">
                 Consulting from Practitioners
               </div>
             </motion.div>
@@ -1090,7 +1303,7 @@ export default function AIConsulting() {
       </section>
 
       {/* SECTION 6: Final CTA */}
-      <section className="py-24 px-4 bg-[#23AACA]">
+      <section className="py-24 px-4 bg-indigo-500">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -1110,7 +1323,7 @@ export default function AIConsulting() {
 
             <div className="flex flex-wrap gap-4 justify-center mb-12">
               <Link href="/contact">
-                <Button size="lg" className="bg-[#c4ff4d] text-black hover:bg-[#c4ff4d]/90 font-bold text-lg px-8" data-testid="button-final-cta">
+                <Button size="lg" className="bg-white text-indigo-600 hover:bg-white/90 font-bold text-lg px-8" data-testid="button-final-cta">
                   Start Your AI Transformation
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </Button>
@@ -1125,15 +1338,15 @@ export default function AIConsulting() {
             {/* Trust Badges */}
             <div className="flex flex-wrap gap-6 justify-center items-center">
               <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
-                <CheckCircle2 className="w-5 h-5 text-[#c4ff4d]" />
+                <CheckCircle2 className="w-5 h-5 text-white" />
                 <span className="text-white text-sm font-medium">No-risk discovery call</span>
               </div>
               <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
-                <Zap className="w-5 h-5 text-[#c4ff4d]" />
+                <Zap className="w-5 h-5 text-white" />
                 <span className="text-white text-sm font-medium">Results in 6 weeks</span>
               </div>
               <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
-                <Shield className="w-5 h-5 text-[#c4ff4d]" />
+                <Shield className="w-5 h-5 text-white" />
                 <span className="text-white text-sm font-medium">100% money-back guarantee</span>
               </div>
             </div>
@@ -1145,7 +1358,7 @@ export default function AIConsulting() {
       <section className="py-20 px-4 bg-zinc-950">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-black text-white mb-2">
-            Complete Your <span className="text-[#c4ff4d]">AI Transformation</span>
+            Complete Your <span className="text-purple-400">AI Transformation</span>
           </h2>
           <p className="text-base text-white/70 mb-8">
             After your AI strategy is defined, we can handle the implementation too
@@ -1153,12 +1366,12 @@ export default function AIConsulting() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <Link href="/services/hire-ai-employees">
-              <div className="group bg-zinc-900 rounded-2xl p-8 border-2 border-zinc-800 hover:border-[#23AACA] transition-all cursor-pointer" data-testid="related-service-hire">
+              <div className="group bg-zinc-900 rounded-2xl p-8 border-2 border-zinc-800 hover:border-indigo-500 transition-all cursor-pointer" data-testid="related-service-hire">
                 <div className="flex items-start justify-between mb-4">
-                  <Bot className="w-8 h-8 text-[#c4ff4d]" />
-                  <ArrowRight className="h-5 w-5 text-[#c4ff4d] group-hover:translate-x-1 transition-transform" />
+                  <Bot className="w-8 h-8 text-purple-400" />
+                  <ArrowRight className="h-5 w-5 text-purple-400 group-hover:translate-x-1 transition-transform" />
                 </div>
-                <h3 className="text-xl font-bold text-white group-hover:text-[#c4ff4d] transition-colors mb-2">Hire AI Employees</h3>
+                <h3 className="text-xl font-bold text-white group-hover:text-purple-400 transition-colors mb-2">Hire AI Employees</h3>
                 <p className="text-sm text-white/70">
                   Deploy AI employees to handle customer service, sales, and operations at scale.
                 </p>
@@ -1166,12 +1379,12 @@ export default function AIConsulting() {
             </Link>
 
             <Link href="/services/revenue-automation">
-              <div className="group bg-zinc-900 rounded-2xl p-8 border-2 border-zinc-800 hover:border-[#23AACA] transition-all cursor-pointer" data-testid="related-service-automation">
+              <div className="group bg-zinc-900 rounded-2xl p-8 border-2 border-zinc-800 hover:border-indigo-500 transition-all cursor-pointer" data-testid="related-service-automation">
                 <div className="flex items-start justify-between mb-4">
-                  <Workflow className="w-8 h-8 text-[#23AACA]" />
-                  <ArrowRight className="h-5 w-5 text-[#c4ff4d] group-hover:translate-x-1 transition-transform" />
+                  <Workflow className="w-8 h-8 text-indigo-400" />
+                  <ArrowRight className="h-5 w-5 text-purple-400 group-hover:translate-x-1 transition-transform" />
                 </div>
-                <h3 className="text-xl font-bold text-white group-hover:text-[#c4ff4d] transition-colors mb-2">Revenue Automation</h3>
+                <h3 className="text-xl font-bold text-white group-hover:text-purple-400 transition-colors mb-2">Revenue Automation</h3>
                 <p className="text-sm text-white/70">
                   Automate your entire revenue operations from lead generation to invoicing.
                 </p>
@@ -1179,12 +1392,12 @@ export default function AIConsulting() {
             </Link>
 
             <Link href="/services/mvp-development">
-              <div className="group bg-zinc-900 rounded-2xl p-8 border-2 border-zinc-800 hover:border-[#23AACA] transition-all cursor-pointer" data-testid="related-service-mvp">
+              <div className="group bg-zinc-900 rounded-2xl p-8 border-2 border-zinc-800 hover:border-indigo-500 transition-all cursor-pointer" data-testid="related-service-mvp">
                 <div className="flex items-start justify-between mb-4">
                   <Code className="w-8 h-8 text-orange-500" />
-                  <ArrowRight className="h-5 w-5 text-[#c4ff4d] group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="h-5 w-5 text-purple-400 group-hover:translate-x-1 transition-transform" />
                 </div>
-                <h3 className="text-xl font-bold text-white group-hover:text-[#c4ff4d] transition-colors mb-2">MVP Development</h3>
+                <h3 className="text-xl font-bold text-white group-hover:text-purple-400 transition-colors mb-2">MVP Development</h3>
                 <p className="text-sm text-white/70">
                   Turn your AI product ideas into working software with rapid development.
                 </p>
