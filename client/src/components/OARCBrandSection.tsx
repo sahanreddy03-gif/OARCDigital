@@ -1,9 +1,81 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "wouter";
+import { motion, useScroll, useTransform, useReducedMotion, useInView } from "framer-motion";
+
+function HighlightedLetter({ letter, color }: { letter: string; color: string }) {
+  return (
+    <span 
+      className="inline-block font-black relative"
+      style={{ 
+        color,
+        fontSize: '1.2em',
+        textShadow: `0 0 40px ${color}50, 0 0 80px ${color}30`,
+        lineHeight: 0.9
+      }}
+    >
+      {letter}
+    </span>
+  );
+}
+
+function ServicePill({ label, link, delay, isVisible }: { 
+  label: string; 
+  link: string; 
+  delay: number; 
+  isVisible: boolean;
+}) {
+  const prefersReducedMotion = useReducedMotion();
+  
+  return (
+    <motion.div
+      initial={prefersReducedMotion ? {} : { opacity: 0, y: 30, scale: 0.95 }}
+      animate={isVisible && !prefersReducedMotion ? { opacity: 1, y: 0, scale: 1 } : { opacity: 1, y: 0, scale: 1 }}
+      transition={{ duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] }}
+    >
+      <Link href={link}>
+        <button
+          className="group relative w-full min-w-[280px] md:min-w-[320px] px-12 md:px-16 py-5 md:py-6 rounded-full border-2 transition-all duration-400 hover:scale-[1.02] hover:-translate-y-1"
+          style={{ 
+            borderColor: '#c4ff4d',
+            backgroundColor: 'transparent',
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.backgroundColor = 'rgba(196, 255, 77, 0.08)';
+            e.currentTarget.style.boxShadow = '0 0 30px rgba(196, 255, 77, 0.15), inset 0 0 20px rgba(196, 255, 77, 0.05)';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.backgroundColor = 'transparent';
+            e.currentTarget.style.boxShadow = 'none';
+          }}
+          data-testid={`pillar-btn-${label.toLowerCase().replace(' ', '-')}`}
+        >
+          <span 
+            className="text-base md:text-lg font-bold tracking-[0.2em] uppercase"
+            style={{ color: '#c4ff4d' }}
+          >
+            {label}
+          </span>
+        </button>
+      </Link>
+    </motion.div>
+  );
+}
 
 export default function OARCBrandSection() {
   const sectionRef = useRef<HTMLElement>(null);
+  const headingRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
+  const prefersReducedMotion = useReducedMotion();
+  const isInView = useInView(headingRef, { once: true, margin: "-80px" });
+
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"]
+  });
+
+  const gridOpacity = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0.02, 0.06, 0.06, 0.02]);
+  const y1 = useTransform(scrollYProgress, [0, 1], [40, -40]);
+  const y2 = useTransform(scrollYProgress, [0, 1], [20, -20]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -13,7 +85,7 @@ export default function OARCBrandSection() {
           observer.disconnect();
         }
       },
-      { threshold: 0.3 }
+      { threshold: 0.2 }
     );
 
     if (sectionRef.current) {
@@ -24,158 +96,185 @@ export default function OARCBrandSection() {
   }, []);
 
   const pillars = [
-    { 
-      id: "creative", 
-      name: "CREATIVE", 
-      link: "/services/creative",
-      delay: 0 
-    },
-    { 
-      id: "ai", 
-      name: "AI SOLUTIONS", 
-      link: "/services/ai-solutions",
-      delay: 150 
-    },
-    { 
-      id: "revenue", 
-      name: "REVENUE", 
-      link: "/services/automation",
-      delay: 300 
-    },
+    { id: "creative", name: "CREATIVE", link: "/services/creative", delay: 0.5 },
+    { id: "ai", name: "AI SOLUTIONS", link: "/services/ai-solutions", delay: 0.65 },
+    { id: "revenue", name: "REVENUE", link: "/services/automation", delay: 0.8 },
   ];
 
+  const styles = `
+    @keyframes gridPulse {
+      0%, 100% { opacity: 0.03; }
+      50% { opacity: 0.08; }
+    }
+    @keyframes subtleFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+  `;
+
   return (
-    <section
-      ref={sectionRef}
-      className="relative py-16 md:py-20 lg:py-24 overflow-hidden"
-      style={{ backgroundColor: "#0a0a0a" }}
-      data-testid="oarc-brand-section"
-    >
-      {/* Subtle grid background */}
-      <div 
-        className="absolute inset-0 opacity-[0.03]"
-        style={{
-          backgroundImage: `
-            linear-gradient(rgba(196, 255, 77, 0.8) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(196, 255, 77, 0.8) 1px, transparent 1px)
-          `,
-          backgroundSize: '60px 60px'
-        }}
-      />
+    <>
+      <style>{styles}</style>
+      <section
+        ref={sectionRef}
+        className="relative py-20 md:py-28 lg:py-36 overflow-hidden"
+        style={{ backgroundColor: "#0a0a0a" }}
+        data-testid="oarc-brand-section"
+      >
+        {/* Animated grid background */}
+        <motion.div 
+          className="absolute inset-0"
+          style={{
+            opacity: prefersReducedMotion ? 0.05 : gridOpacity,
+            backgroundImage: `
+              linear-gradient(rgba(196, 255, 77, 0.6) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(196, 255, 77, 0.6) 1px, transparent 1px)
+            `,
+            backgroundSize: '60px 60px'
+          }}
+        />
 
-      {/* Corner accents - top left */}
-      <div className="absolute top-8 left-8 hidden md:block">
-        <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
-          <path d="M0 0 L0 40 M0 0 L40 0" stroke="#c4ff4d" strokeWidth="1" opacity="0.3" />
-        </svg>
-      </div>
-
-      {/* Corner accents - top right */}
-      <div className="absolute top-8 right-8 hidden md:block">
-        <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
-          <path d="M60 0 L60 40 M60 0 L20 0" stroke="#23AACA" strokeWidth="1" opacity="0.3" />
-        </svg>
-      </div>
-
-      {/* Corner accents - bottom left */}
-      <div className="absolute bottom-8 left-8 hidden md:block">
-        <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
-          <path d="M0 60 L0 20 M0 60 L40 60" stroke="#23AACA" strokeWidth="1" opacity="0.3" />
-        </svg>
-      </div>
-
-      {/* Corner accents - bottom right */}
-      <div className="absolute bottom-8 right-8 hidden md:block">
-        <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
-          <path d="M60 60 L60 20 M60 60 L20 60" stroke="#c4ff4d" strokeWidth="1" opacity="0.3" />
-        </svg>
-      </div>
-
-      <div className="container mx-auto px-6 md:px-8 lg:px-12 max-w-6xl relative z-10">
-        {/* Main OARC headline */}
+        {/* Gradient glow - top */}
         <div 
-          className={`text-center mb-12 md:mb-16 transition-all duration-1000 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
-        >
-          <h2 
-            className="font-black tracking-tight leading-none"
-            style={{ 
-              fontSize: 'clamp(2.5rem, 8vw, 5.5rem)',
-              letterSpacing: '-0.02em'
-            }}
-          >
-            <span className="text-white">OPTIMISED </span>
-            <span style={{ color: '#23AACA' }}>AI </span>
-            <span className="text-white">REVENUE </span>
-            <span style={{ color: '#c4ff4d' }}>CREATIVE</span>
-          </h2>
+          className="absolute top-0 left-0 right-0 h-40 pointer-events-none"
+          style={{
+            background: 'linear-gradient(to bottom, rgba(196, 255, 77, 0.03) 0%, transparent 100%)'
+          }}
+        />
+
+        {/* Radial glow center */}
+        <div 
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background: 'radial-gradient(ellipse 70% 40% at 50% 35%, rgba(196, 255, 77, 0.04) 0%, transparent 70%)'
+          }}
+        />
+
+        {/* Floating accent particles */}
+        <motion.div 
+          className="absolute top-24 left-[12%] w-2 h-2 rounded-full bg-[#c4ff4d]/50 blur-[2px]"
+          style={{ y: prefersReducedMotion ? 0 : y1 }}
+          animate={prefersReducedMotion ? {} : { opacity: [0.3, 0.7, 0.3], scale: [1, 1.3, 1] }}
+          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div 
+          className="absolute top-32 right-[15%] w-1.5 h-1.5 rounded-full bg-[#23AACA]/60 blur-[1px]"
+          style={{ y: prefersReducedMotion ? 0 : y2 }}
+          animate={prefersReducedMotion ? {} : { opacity: [0.4, 0.8, 0.4], scale: [1, 1.2, 1] }}
+          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
+        />
+        <motion.div 
+          className="absolute bottom-28 left-[18%] w-1.5 h-1.5 rounded-full bg-[#c4ff4d]/40 blur-[1px]"
+          style={{ y: prefersReducedMotion ? 0 : y1 }}
+          animate={prefersReducedMotion ? {} : { opacity: [0.2, 0.6, 0.2], scale: [1, 1.4, 1] }}
+          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 2.5 }}
+        />
+        <motion.div 
+          className="absolute bottom-36 right-[20%] w-2 h-2 rounded-full bg-[#23AACA]/40 blur-[2px]"
+          style={{ y: prefersReducedMotion ? 0 : y2 }}
+          animate={prefersReducedMotion ? {} : { opacity: [0.3, 0.5, 0.3], scale: [1, 1.2, 1] }}
+          transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+        />
+
+        {/* Corner accents */}
+        <div className="absolute top-8 left-8 hidden md:block opacity-30">
+          <svg width="50" height="50" viewBox="0 0 50 50" fill="none">
+            <path d="M0 0 L0 30" stroke="#c4ff4d" strokeWidth="1" />
+            <path d="M0 0 L30 0" stroke="#c4ff4d" strokeWidth="1" />
+          </svg>
+        </div>
+        <div className="absolute top-8 right-8 hidden md:block opacity-30">
+          <svg width="50" height="50" viewBox="0 0 50 50" fill="none">
+            <path d="M50 0 L50 30" stroke="#23AACA" strokeWidth="1" />
+            <path d="M50 0 L20 0" stroke="#23AACA" strokeWidth="1" />
+          </svg>
+        </div>
+        <div className="absolute bottom-8 left-8 hidden md:block opacity-30">
+          <svg width="50" height="50" viewBox="0 0 50 50" fill="none">
+            <path d="M0 50 L0 20" stroke="#23AACA" strokeWidth="1" />
+            <path d="M0 50 L30 50" stroke="#23AACA" strokeWidth="1" />
+          </svg>
+        </div>
+        <div className="absolute bottom-8 right-8 hidden md:block opacity-30">
+          <svg width="50" height="50" viewBox="0 0 50 50" fill="none">
+            <path d="M50 50 L50 20" stroke="#c4ff4d" strokeWidth="1" />
+            <path d="M50 50 L20 50" stroke="#c4ff4d" strokeWidth="1" />
+          </svg>
         </div>
 
-        {/* Three pillars */}
-        <div 
-          className={`flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6 transition-all duration-1000 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-          }`}
-          style={{ transitionDelay: '200ms' }}
-        >
-          {/* Connecting line - left */}
-          <div className="hidden md:block w-12 lg:w-20 h-px bg-gradient-to-r from-transparent to-[#c4ff4d]/40" />
-          
-          {pillars.map((pillar, index) => (
-            <div key={pillar.id} className="flex items-center gap-4 md:gap-6">
-              <Link href={pillar.link}>
-                <button
-                  className={`group relative px-8 md:px-10 lg:px-12 py-3.5 md:py-4 rounded-full border-2 transition-all duration-500 ${
-                    isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-                  }`}
-                  style={{ 
-                    borderColor: '#c4ff4d',
-                    backgroundColor: 'transparent',
-                    transitionDelay: `${300 + pillar.delay}ms`
-                  }}
-                  data-testid={`pillar-btn-${pillar.id}`}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.backgroundColor = '#c4ff4d';
-                    e.currentTarget.style.transform = 'scale(1.02)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.backgroundColor = 'transparent';
-                    e.currentTarget.style.transform = 'scale(1)';
-                  }}
-                >
-                  <span 
-                    className="text-sm md:text-base lg:text-lg font-bold tracking-[0.15em] transition-colors duration-300 group-hover:text-black"
-                    style={{ color: '#c4ff4d' }}
-                  >
-                    {pillar.name}
-                  </span>
-                </button>
-              </Link>
-              
-              {/* Connecting line between pills */}
-              {index < pillars.length - 1 && (
-                <div className="hidden md:flex items-center">
-                  <div className="w-4 lg:w-6 h-px" style={{ backgroundColor: 'rgba(196, 255, 77, 0.4)' }} />
-                  <div className="w-2 h-2 rounded-full" style={{ backgroundColor: '#c4ff4d', opacity: 0.6 }} />
-                  <div className="w-4 lg:w-6 h-px" style={{ backgroundColor: 'rgba(196, 255, 77, 0.4)' }} />
-                </div>
-              )}
-            </div>
-          ))}
+        <div className="container mx-auto px-6 md:px-8 lg:px-12 max-w-5xl relative z-10">
+          {/* Main OARC headline with highlighted letters */}
+          <div ref={headingRef} className="text-center mb-14 md:mb-20">
+            {/* Line 1: OPTIMISED AI */}
+            <motion.div
+              initial={prefersReducedMotion ? {} : { opacity: 0, y: 50 }}
+              animate={isInView && !prefersReducedMotion ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
+              transition={{ duration: 0.9, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+              className="mb-1 md:mb-2"
+            >
+              <h2 
+                className="font-black tracking-tight leading-[0.95]"
+                style={{ 
+                  fontSize: 'clamp(2.8rem, 10vw, 6.5rem)',
+                  letterSpacing: '-0.03em'
+                }}
+                data-testid="heading-optimised-ai"
+              >
+                <HighlightedLetter letter="O" color="#c4ff4d" />
+                <span className="text-white">PTIMISED</span>
+                <span className="ml-3 md:ml-5">
+                  <HighlightedLetter letter="A" color="#23AACA" />
+                  <span className="text-[#23AACA]">I</span>
+                </span>
+              </h2>
+            </motion.div>
+            
+            {/* Line 2: REVENUE CREATIVE */}
+            <motion.div
+              initial={prefersReducedMotion ? {} : { opacity: 0, y: 50 }}
+              animate={isInView && !prefersReducedMotion ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
+              transition={{ duration: 0.9, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <h2 
+                className="font-black tracking-tight leading-[0.95]"
+                style={{ 
+                  fontSize: 'clamp(2.8rem, 10vw, 6.5rem)',
+                  letterSpacing: '-0.03em'
+                }}
+                data-testid="heading-revenue-creative"
+              >
+                <HighlightedLetter letter="R" color="#c4ff4d" />
+                <span className="text-white">EVENUE</span>
+                <span className="ml-3 md:ml-5">
+                  <HighlightedLetter letter="C" color="#c4ff4d" />
+                  <span className="text-[#c4ff4d]">REATIVE</span>
+                </span>
+              </h2>
+            </motion.div>
+          </div>
 
-          {/* Connecting line - right */}
-          <div className="hidden md:block w-12 lg:w-20 h-px bg-gradient-to-l from-transparent to-[#c4ff4d]/40" />
+          {/* Service Pills - Stacked vertically */}
+          <div className="flex flex-col items-center gap-4 md:gap-5">
+            {pillars.map((pillar) => (
+              <ServicePill 
+                key={pillar.id}
+                label={pillar.name}
+                link={pillar.link}
+                delay={pillar.delay}
+                isVisible={isVisible}
+              />
+            ))}
+          </div>
         </div>
-      </div>
 
-      <style>{`
-        @media (prefers-reduced-motion: reduce) {
-          [data-testid="oarc-brand-section"] * {
-            transition-duration: 0.01ms !important;
-          }
-        }
-      `}</style>
-    </section>
+        {/* Bottom gradient fade for smooth transition to next section */}
+        <div 
+          className="absolute bottom-0 left-0 right-0 h-24 pointer-events-none"
+          style={{
+            background: 'linear-gradient(to top, rgba(10, 10, 10, 1) 0%, transparent 100%)'
+          }}
+        />
+      </section>
+    </>
   );
 }
