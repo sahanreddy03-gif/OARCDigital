@@ -14,8 +14,10 @@ import {
 } from "lucide-react";
 import { SiTiktok, SiYoutube, SiX, SiThreads, SiLinkedin, SiMeta } from "react-icons/si";
 
-import awardTeamImg from "@assets/stock_images/award_ceremony_busin_81e5ff09.jpg";
-import largeTeamImg from "@assets/stock_images/large_company_team_p_32054de0.jpg";
+import colorfulGymImg from "@assets/generated_images/colorful_modern_gym_interior.png";
+import colorfulPerfumeImg from "@assets/generated_images/colorful_luxury_perfume_product.png";
+import colorfulBeautyImg from "@assets/generated_images/colorful_natural_beauty_products.png";
+import homecraftHeroImg from "@assets/pexels-shvetsa-12673974_1764638693005.jpg";
 import heroVideo from "@assets/SnapInsta.to_AQMfI7sCSVLU8tLxyZLjxlyaGvnAjtYAkNpyBEIAox0m6TApwOZNnf5Y2rfuYUhoqYXMDubqUVXcJjUk8q57WHMBNJrUR_W4lUx94QM_1764630517873.mp4";
 import tiktokVideo from "@assets/55555_1764634237326.mp4";
 import aiFingerImg from "@assets/680fadb5aa40ab58ab98c0e5_AI-Experiencie-Agent-1_1764633229625.webp";
@@ -443,10 +445,10 @@ export default function SocialMediaCreativeManagement() {
   ];
 
   const portfolioItems = [
-    { image: awardTeamImg, title: "MVP-Driven E-commerce Campaign", platform: "Instagram", metrics: { views: "2.4M", engagement: "12.3%" }, color: "bg-gradient-to-br from-[#E4405F] to-[#833AB4]" },
-    { image: largeTeamImg, title: "MVP-Powered Brand Launch", platform: "TikTok", metrics: { views: "5.1M", engagement: "18.7%" }, color: "bg-gradient-to-br from-[#000000] to-[#25F4EE]" },
-    { image: awardTeamImg, title: "AI-MVP Product Showcase", platform: "YouTube", metrics: { views: "890K", engagement: "8.4%" }, color: "bg-gradient-to-br from-[#FF0000] to-[#FF4444]" },
-    { image: largeTeamImg, title: "MVP-Tested Thought Leadership", platform: "LinkedIn", metrics: { views: "340K", engagement: "15.2%" }, color: "bg-gradient-to-br from-[#0A66C2] to-[#0077B5]" },
+    { image: colorfulGymImg, title: "FitnessPro Social Growth", platform: "Instagram", metrics: { views: "15M", engagement: "18.7%" }, color: "bg-zinc-800" },
+    { image: colorfulPerfumeImg, title: "Luxe Essence Launch", platform: "TikTok", metrics: { views: "59M", engagement: "12.3%" }, color: "bg-zinc-800" },
+    { image: colorfulBeautyImg, title: "NaturalCare Community", platform: "YouTube", metrics: { views: "420K", engagement: "24.5%" }, color: "bg-zinc-800" },
+    { image: homecraftHeroImg, title: "HomeCraft E-commerce", platform: "LinkedIn", metrics: { views: "280%", engagement: "ROI" }, color: "bg-zinc-800" },
   ];
 
   const useCases = [
@@ -1187,17 +1189,17 @@ export default function SocialMediaCreativeManagement() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <span className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#7B2FF7]/20 to-[#FF6B9D]/20 rounded-full text-sm font-bold text-white/80 mb-6 border border-white/10">
+            <span className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 rounded-full text-sm font-semibold text-white/60 mb-6 border border-white/10">
               <Camera className="w-4 h-4" />
               Our Work
             </span>
             <h2 className="text-4xl md:text-6xl font-black text-white mb-6">
               See What We <br/>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7B2FF7] via-[#FF6B9D] to-[#FF6B53]">
+              <span className="text-white">
                 Create
               </span>
             </h2>
-            <p className="text-xl text-zinc-400 max-w-2xl mx-auto">
+            <p className="text-lg text-zinc-400 max-w-2xl mx-auto">
               Real campaigns. Real results. Content engineered to outperform.
             </p>
           </motion.div>
@@ -1217,7 +1219,7 @@ export default function SocialMediaCreativeManagement() {
             <Link href="/our-work">
               <motion.button
                 whileHover={prefersReducedMotion ? {} : { scale: 1.05 }}
-                className="inline-flex items-center gap-2 bg-gradient-to-r from-[#7B2FF7] to-[#FF6B9D] text-white rounded-full px-8 py-4 font-bold shadow-xl hover:shadow-2xl transition-all"
+                className="inline-flex items-center gap-2 bg-white text-zinc-900 rounded-full px-8 py-4 font-bold shadow-xl hover:shadow-2xl transition-all"
                 data-testid="button-view-all-work"
               >
                 View All Projects
@@ -1229,7 +1231,7 @@ export default function SocialMediaCreativeManagement() {
       </section>
 
       {/* Platform Mastery */}
-      <section className="py-20 px-6 bg-gradient-to-r from-[#7B2FF7] via-[#FF6B9D] to-[#FF6B53]">
+      <section className="py-20 px-6 bg-zinc-900">
         <div className="max-w-6xl mx-auto">
           <motion.div 
             initial={fadeIn}
@@ -1240,7 +1242,7 @@ export default function SocialMediaCreativeManagement() {
             <h2 className="text-3xl md:text-4xl font-black text-white mb-4">
               Platform Mastery
             </h2>
-            <p className="text-white/80 text-lg">
+            <p className="text-zinc-400 text-lg">
               Direct API integrations and certified partnerships
             </p>
           </motion.div>
@@ -1281,12 +1283,12 @@ export default function SocialMediaCreativeManagement() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <span className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#7B2FF7]/20 to-[#FF6B9D]/20 rounded-full text-sm font-bold text-white/80 mb-6 border border-white/10">
+            <span className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 rounded-full text-sm font-semibold text-white/60 mb-6 border border-white/10">
               <Target className="w-4 h-4" />
               Industries We Transform
             </span>
             <h2 className="text-4xl md:text-5xl font-black text-white mb-6">
-              Built for <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7B2FF7] to-[#FF6B53]">Category Leaders</span>
+              Built for <span className="text-white">Category Leaders</span>
             </h2>
           </motion.div>
 

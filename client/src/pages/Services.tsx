@@ -175,9 +175,9 @@ export default function Services() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <div className="inline-block mb-6">
-              <span className="px-5 py-2.5 bg-gradient-to-r from-[#c4ff4d]/10 to-lime-500/10 border border-[#c4ff4d]/40 rounded-full text-xs font-bold text-[#c4ff4d] backdrop-blur-sm uppercase tracking-wider">
-                26+ Premium Services
+            <div className="inline-block mb-8">
+              <span className="px-5 py-2.5 bg-white/5 border border-white/20 rounded-full text-xs font-semibold text-white/70 backdrop-blur-sm uppercase tracking-[0.2em]">
+                Full-Service Creative Agency
               </span>
             </div>
           </motion.div>
@@ -186,14 +186,14 @@ export default function Services() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-display font-black mb-6"
+            className="text-display font-black mb-8 tracking-tight"
           >
-            <span className="bg-gradient-to-r from-white via-zinc-100 to-zinc-300 bg-clip-text text-transparent">
-              Elevate Your
+            <span className="text-white">
+              Where Strategy Meets
             </span>
             <br />
-            <span className="bg-gradient-to-r from-[#c4ff4d] via-lime-400 to-green-400 bg-clip-text text-transparent">
-              Digital Presence
+            <span className="text-white">
+              Creative Excellence
             </span>
           </motion.h1>
 
@@ -201,9 +201,9 @@ export default function Services() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-body-lg text-zinc-300 max-w-2xl mx-auto mb-10"
+            className="text-lg md:text-xl text-zinc-400 max-w-2xl mx-auto mb-12 leading-relaxed"
           >
-            From AI-powered automation to creative excellence—transform your business with cutting-edge services designed for the future.
+            We blend AI-powered innovation with world-class creative to deliver measurable results for ambitious brands.
           </motion.p>
 
           <motion.div
@@ -214,31 +214,25 @@ export default function Services() {
           >
             <Link href="/contact">
               <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="group relative px-7 py-3.5 bg-gradient-to-r from-[#c4ff4d] to-lime-400 rounded-full font-bold text-sm overflow-hidden text-black"
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.98 }}
+                className="group relative px-8 py-4 bg-white rounded-full font-semibold text-sm overflow-hidden text-zinc-900"
                 data-testid="button-start-project"
               >
                 <span className="relative z-10 flex items-center gap-2">
                   Start Your Project
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </span>
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-lime-400 to-green-400"
-                  initial={{ x: "-100%" }}
-                  whileHover={{ x: 0 }}
-                  transition={{ duration: 0.3 }}
-                ></motion.div>
               </motion.button>
             </Link>
             <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.98 }}
               onClick={() => {
                 const element = document.getElementById('services-section');
                 element?.scrollIntoView({ behavior: 'smooth' });
               }}
-              className="px-8 py-4 bg-[#c4ff4d]/10 hover:bg-[#c4ff4d]/20 backdrop-blur-sm border border-[#c4ff4d]/30 rounded-full font-bold text-base transition-all text-[#c4ff4d]"
+              className="px-8 py-4 bg-white/10 hover:bg-white/15 backdrop-blur-sm border border-white/20 rounded-full font-semibold text-sm transition-all text-white"
               data-testid="button-explore-services"
             >
               Explore Services
@@ -261,16 +255,16 @@ export default function Services() {
         </motion.div>
       </section>
 
-      <section className="py-16 px-6 bg-gradient-to-b from-black via-zinc-950 to-zinc-900 relative overflow-hidden">
-        <div className="absolute top-0 left-1/4 w-80 h-80 bg-[#c4ff4d]/10 rounded-full blur-3xl motion-reduce:hidden"></div>
-        <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-orange-500/10 rounded-full blur-3xl motion-reduce:hidden"></div>
+      <section className="py-20 px-6 bg-zinc-950 relative overflow-hidden">
+        <div className="absolute top-0 left-1/4 w-80 h-80 bg-white/5 rounded-full blur-3xl motion-reduce:hidden"></div>
+        <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-white/5 rounded-full blur-3xl motion-reduce:hidden"></div>
         
-        <div className="max-w-7xl mx-auto relative z-10">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+        <div className="max-w-5xl mx-auto relative z-10">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             {[
-              { value: 26, suffix: '+', label: 'Specialized Solutions', color: 'from-[#c4ff4d] to-lime-400' },
-              { value: 500, suffix: '+', label: 'Successful Campaigns', color: 'from-orange-400 to-amber-400' },
-              { value: 98, suffix: '%', label: 'Client Retention', color: 'from-[#c4ff4d] to-green-400' }
+              { value: 26, suffix: '+', label: 'Specialized Solutions' },
+              { value: 500, suffix: '+', label: 'Successful Campaigns' },
+              { value: 98, suffix: '%', label: 'Client Retention' }
             ].map((stat, index) => {
               const ref = useRef<HTMLDivElement>(null);
               const isInView = useInView(ref, { once: true });
@@ -283,13 +277,13 @@ export default function Services() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="text-center p-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:border-[#c4ff4d]/40 transition-all hover-lift stat-glow"
+                  className="text-center"
                   data-testid={`stat-${index}`}
                 >
-                  <div className={`text-heading-lg font-black bg-gradient-to-r ${stat.color} bg-clip-text text-transparent mb-3`}>
+                  <div className="text-5xl md:text-6xl font-black text-white mb-3">
                     <AnimatedCounterInline value={stat.value} suffix={stat.suffix} isInView={isInView} />
                   </div>
-                  <div className="text-caption text-zinc-400 font-medium">{stat.label}</div>
+                  <div className="text-sm text-zinc-500 font-medium uppercase tracking-wider">{stat.label}</div>
                 </motion.div>
               );
             })}
@@ -297,9 +291,9 @@ export default function Services() {
         </div>
       </section>
 
-      <section id="services-section" className="py-24 px-6 bg-zinc-900 relative overflow-hidden">
-        <div className="absolute top-20 right-10 w-96 h-96 bg-[#c4ff4d]/8 rounded-full blur-3xl motion-reduce:hidden"></div>
-        <div className="absolute bottom-20 left-10 w-80 h-80 bg-orange-500/8 rounded-full blur-3xl motion-reduce:hidden"></div>
+      <section id="services-section" className="py-24 px-6 bg-zinc-950 relative overflow-hidden">
+        <div className="absolute top-20 right-10 w-96 h-96 bg-white/5 rounded-full blur-3xl motion-reduce:hidden"></div>
+        <div className="absolute bottom-20 left-10 w-80 h-80 bg-white/5 rounded-full blur-3xl motion-reduce:hidden"></div>
         
         <div className="max-w-7xl mx-auto relative z-10">
           <motion.div
@@ -308,32 +302,32 @@ export default function Services() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-heading-lg font-black mb-5">
-              <span className="bg-gradient-to-r from-white via-[#c4ff4d]/80 to-white bg-clip-text text-transparent">
-                Select Your Strategy
-              </span>
+            <span className="inline-block px-4 py-2 bg-white/5 border border-white/10 rounded-full text-xs font-semibold text-white/60 uppercase tracking-[0.2em] mb-6">
+              Our Capabilities
+            </span>
+            <h2 className="text-4xl md:text-5xl font-black text-white mb-5">
+              Services Designed for Growth
             </h2>
-            <p className="text-body text-zinc-400 max-w-2xl mx-auto">
-              Discover our four core competencies designed to accelerate your growth
+            <p className="text-lg text-zinc-400 max-w-2xl mx-auto">
+              Four core competencies that drive measurable business results
             </p>
           </motion.div>
 
-          <div className="flex flex-wrap justify-center gap-4 mb-16">
+          <div className="flex flex-wrap justify-center gap-3 mb-16">
             {categories.map((category) => {
               const Icon = categoryIcons[category.id] || Sparkles;
-              const colors = categoryColors[category.id] || categoryColors.creativeDesign;
               const isActive = activeCategory === category.id;
 
               return (
                 <motion.button
                   key={category.id}
                   onClick={() => setActiveCategory(category.id)}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className={`relative group px-6 py-3 rounded-full font-bold text-sm transition-all overflow-hidden ${
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className={`relative group px-6 py-3 rounded-full font-semibold text-sm transition-all ${
                     isActive 
-                      ? `bg-gradient-to-r ${colors.gradient} text-black ${colors.glow}` 
-                      : 'bg-white/5 backdrop-blur-sm border border-white/10 text-white hover:border-white/30'
+                      ? 'bg-white text-zinc-900' 
+                      : 'bg-white/5 border border-white/10 text-white/70 hover:bg-white/10 hover:text-white'
                   }`}
                   data-testid={`tab-${category.id}`}
                 >
@@ -367,15 +361,15 @@ export default function Services() {
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.2 }}
                     >
-                      <p className="text-caption text-[#c4ff4d] font-bold mb-3 uppercase tracking-wider">
+                      <p className="text-xs text-white/60 font-semibold mb-3 uppercase tracking-[0.2em]">
                         {categoryTaglines[activeCategory] || 'Transform your business'}
                       </p>
-                      <h3 className="text-heading-lg font-black mb-6 text-white">
+                      <h3 className="text-3xl md:text-4xl font-black mb-6 text-white">
                         {activeCategoryData.featured.title}
                       </h3>
                       <Link href={`/services/${activeCategoryData.featured.route || activeCategoryData.featured.slug}`}>
                         <button
-                          className={`px-6 py-3 bg-gradient-to-r ${activeColor.gradient} rounded-full font-bold text-sm text-black hover:scale-105 transition-transform inline-flex items-center gap-2 btn-shimmer`}
+                          className="px-6 py-3 bg-white rounded-full font-semibold text-sm text-zinc-900 hover:scale-105 transition-transform inline-flex items-center gap-2"
                           data-testid={`button-featured-${activeCategoryData.featured.slug}`}
                         >
                           Discover More
@@ -397,21 +391,21 @@ export default function Services() {
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: index * 0.05 }}
-                        className="group relative h-full p-6 rounded-2xl hover:border-[#c4ff4d]/50 transition-all cursor-pointer hover-lift glass-dark"
+                        className="group relative h-full p-6 rounded-2xl bg-zinc-900 border border-zinc-800 hover:border-zinc-700 transition-all cursor-pointer"
                         data-testid={`card-service-${service.slug}`}
                       >
                         {ServiceIcon && (
-                          <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${activeColor.gradient} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
-                            <ServiceIcon className="w-6 h-6 text-black" />
+                          <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center mb-4 group-hover:bg-white/15 transition-colors">
+                            <ServiceIcon className="w-6 h-6 text-white" />
                           </div>
                         )}
                         
                         <div className="flex items-start justify-between gap-3 mb-2">
-                          <h4 className="text-base font-semibold text-white group-hover:text-[#c4ff4d] transition-colors">
+                          <h4 className="text-base font-semibold text-white group-hover:text-white transition-colors">
                             {service.title}
                           </h4>
                           {service.badge && (
-                            <span className="px-2 py-0.5 rounded-full text-xs font-medium bg-[#c4ff4d]/10 text-[#c4ff4d] border border-[#c4ff4d]/20 btn-shimmer">
+                            <span className="px-2 py-0.5 rounded-full text-xs font-medium bg-white/10 text-white/70 border border-white/10">
                               {service.badge}
                             </span>
                           )}
@@ -423,7 +417,7 @@ export default function Services() {
                           </p>
                         )}
                         
-                        <div className="flex items-center gap-2 text-[#c4ff4d] text-xs font-semibold">
+                        <div className="flex items-center gap-2 text-white/60 group-hover:text-white text-xs font-semibold transition-colors">
                           Discover More
                           <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
                         </div>
@@ -437,9 +431,9 @@ export default function Services() {
         </div>
       </section>
 
-      <section className="py-24 px-6 bg-gradient-to-b from-zinc-900 to-black relative overflow-hidden">
-        <div className="absolute top-10 left-1/3 w-72 h-72 bg-[#c4ff4d]/10 rounded-full blur-3xl motion-reduce:hidden"></div>
-        <div className="absolute bottom-10 right-1/3 w-64 h-64 bg-orange-500/10 rounded-full blur-3xl motion-reduce:hidden"></div>
+      <section className="py-24 px-6 bg-zinc-950 relative overflow-hidden">
+        <div className="absolute top-10 left-1/3 w-72 h-72 bg-white/5 rounded-full blur-3xl motion-reduce:hidden"></div>
+        <div className="absolute bottom-10 right-1/3 w-64 h-64 bg-white/5 rounded-full blur-3xl motion-reduce:hidden"></div>
         
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <motion.div
@@ -447,19 +441,17 @@ export default function Services() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-heading-xl font-black mb-6">
-              <span className="bg-gradient-to-r from-white via-[#c4ff4d]/80 to-white bg-clip-text text-transparent">
-                Ready to Accelerate Your Growth?
-              </span>
+            <h2 className="text-4xl md:text-5xl font-black text-white mb-6">
+              Ready to Transform Your Business?
             </h2>
-            <p className="text-body-lg text-zinc-400 mb-10 max-w-2xl mx-auto">
-              Connect with our specialists to explore tailored strategies that drive measurable results.
+            <p className="text-lg text-zinc-400 mb-10 max-w-2xl mx-auto">
+              Connect with our team to explore tailored strategies that drive measurable results.
             </p>
             <Link href="/contact">
               <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 bg-gradient-to-r from-[#c4ff4d] to-lime-400 rounded-full font-bold text-base text-black inline-flex items-center gap-2 btn-shimmer glow-lime"
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.98 }}
+                className="px-8 py-4 bg-white rounded-full font-semibold text-sm text-zinc-900 inline-flex items-center gap-2"
                 data-testid="button-get-started-footer"
               >
                 Begin Your Journey
