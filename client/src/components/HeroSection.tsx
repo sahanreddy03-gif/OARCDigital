@@ -1,170 +1,300 @@
-import { useEffect, useRef, useState } from "react";
-import { Link } from "wouter";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { motion, useScroll, useTransform, useMotionValue, useSpring, useMotionTemplate, AnimatePresence } from "framer-motion";
-import { Instagram, Bot, Code2, Video } from 'lucide-react';
 import FloatingChipCarousel from "./FloatingChipCarousel";
-import liquidBg from '@assets/generated_images/liquid_iridescent_hero_background.png'; 
-
-const holoCards = [
-  { id: "social", title: "Social Media", subtitle: "Viral Growth", icon: Instagram, color: "#E1306C", route: "/services/social-media-management" },
-  { id: "software", title: "Custom AI", subtitle: "Neural Systems", icon: Code2, color: "#3B82F6", route: "/services/custom-ai-software" },
-  { id: "consulting", title: "AI Consulting", subtitle: "Strategy", icon: Bot, color: "#c4ff4d", route: "/services/ai-consulting" },
-  { id: "video", title: "Video Prod", subtitle: "Cinematic", icon: Video, color: "#F59E0B", route: "/services/video-production" }
-];
-
-function useMousePosition() {
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      const normalizedX = (e.clientX / window.innerWidth) * 2 - 1;
-      const normalizedY = (e.clientY / window.innerHeight) * 2 - 1;
-      x.set(normalizedX);
-      y.set(normalizedY);
-    };
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, [x, y]);
-  return { x, y };
-}
-
-const HolographicStack = () => {
-  return (
-    <div className="relative w-[320px] h-[450px] group" style={{ perspective: '1200px' }}>
-      {holoCards.map((card, index) => {
-        return (
-          <motion.div
-            key={card.id}
-            className="absolute inset-0 border border-white/40 rounded-2xl shadow-2xl cursor-pointer overflow-hidden origin-bottom-left backdrop-blur-md bg-white/10"
-            style={{ top: index * 40, left: index * 20, zIndex: 10 - index }}
-            whileHover={{ y: -120, x: index * 10, rotateZ: (index - 1.5) * 8, zIndex: 20, scale: 1.1, backgroundColor: "rgba(255,255,255,0.2)" }}
-            transition={{ type: "spring", stiffness: 200, damping: 20 }}
-          >
-            <div className="absolute inset-0 opacity-0 group-hover:opacity-40 transition-opacity duration-300" style={{ background: `linear-gradient(to top, ${card.color}, transparent)` }} />
-            <Link href={card.route}>
-              <div className="absolute inset-0 p-6 flex flex-col justify-end">
-                  <div className="w-12 h-12 rounded-full flex items-center justify-center bg-black/20 backdrop-blur-sm mb-4">
-                     <card.icon className="w-6 h-6 text-white" />
-                  </div>
-                  <h3 className="text-3xl font-black text-white leading-none drop-shadow-md">{card.title}</h3>
-                  <p className="text-sm text-white/90 font-mono tracking-widest mt-2 uppercase">{card.subtitle}</p>
-              </div>
-            </Link>
-          </motion.div>
-        );
-      })}
-    </div>
-  );
-};
-
-const ServiceCycler = () => {
-  const [index, setIndex] = useState(0);
-  useEffect(() => {
-    const timer = setInterval(() => { setIndex((prev) => (prev + 1) % holoCards.length); }, 3000);
-    return () => clearInterval(timer);
-  }, []);
-  const card = holoCards[index];
-
-  return (
-    <div className="relative w-full h-[180px] flex items-center justify-center" style={{ perspective: '1000px' }}>
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={card.id}
-          initial={{ opacity: 0, y: 30, scale: 0.9 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          exit={{ opacity: 0, y: -30, scale: 0.9 }}
-          transition={{ duration: 0.6, ease: "backOut" }}
-          className="absolute w-[260px] h-[160px] border border-white/30 rounded-3xl flex flex-col items-center justify-center text-center shadow-2xl backdrop-blur-xl bg-white/10"
-        >
-           <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-white to-transparent opacity-50" />
-           <card.icon className="w-10 h-10 mb-2 text-white drop-shadow-lg" />
-           <h3 className="text-xl font-black text-white drop-shadow-md">{card.title}</h3>
-           <p className="text-[10px] text-white/80 uppercase tracking-[0.2em] mt-1 font-bold">{card.subtitle}</p>
-        </motion.div>
-      </AnimatePresence>
-    </div>
-  );
-};
+import heroBackground from '@assets/d375f1d50d97b0de7953ca2cecd2b8aea2cd96b2-3524x1181_1761251957292.avif';
 
 export default function HeroSection() {
-  const { x, y } = useMousePosition();
-  const moveBackground = useTransform(x, [-1, 1], [-30, 30]); 
-  const moveContent = useTransform(x, [-1, 1], [15, -15]);
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
-    <section className="relative h-[100dvh] bg-gray-900 overflow-hidden flex flex-col justify-between selection:bg-pink-500 selection:text-white">
+    <>
+      <style>{`
+        @keyframes float {
+          0%, 100% { transform: translateY(0) translateX(0); opacity: 0.3; }
+          50% { transform: translateY(-60px) translateX(30px); opacity: 0.8; }
+        }
+        @keyframes lightSweep {
+          0% { transform: translateX(-100%) rotate(-15deg); }
+          100% { transform: translateX(200%) rotate(-15deg); }
+        }
+        @keyframes scanHorizontal1 {
+          0% { transform: translateX(-100%); opacity: 0; }
+          10% { opacity: 0.4; }
+          90% { opacity: 0.4; }
+          100% { transform: translateX(100vw); opacity: 0; }
+        }
+        @keyframes scanHorizontal2 {
+          0% { transform: translateX(-100%); opacity: 0; }
+          10% { opacity: 0.3; }
+          90% { opacity: 0.3; }
+          100% { transform: translateX(100vw); opacity: 0; }
+        }
+        @keyframes gridPulse {
+          0%, 100% { opacity: 0.06; }
+          50% { opacity: 0.12; }
+        }
+        @keyframes particleFloat {
+          0%, 100% { transform: translate(0, 0); opacity: 0.4; }
+          33% { transform: translate(20px, -30px); opacity: 0.8; }
+          66% { transform: translate(-15px, -50px); opacity: 0.6; }
+        }
+        @keyframes fadeSlideUp {
+          from { opacity: 0; transform: translateY(20px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes snowfall {
+          0% { transform: translateY(-10px) translateX(0); opacity: 0; }
+          10% { opacity: 0.8; }
+          90% { opacity: 0.6; }
+          100% { transform: translateY(100vh) translateX(20px); opacity: 0; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+          @keyframes fadeSlideUp {
+            from { opacity: 0; }
+            to { opacity: 1; }
+          }
+        }
+        @media (orientation: landscape) and (max-height: 500px) {
+          .landscape-hero-mobile-hidden { display: none !important; }
+          .landscape-hero-desktop { display: block !important; }
+        }
+      `}</style>
       
-      <motion.div 
-        className="absolute inset-[-5%] w-[110%] h-[110%] bg-cover bg-center"
-        style={{ 
-            backgroundImage: `url(${liquidBg})`, 
-            x: moveBackground,
-            y: useTransform(y, [-1, 1], [-30, 30]),
-            filter: "brightness(0.9) contrast(1.1)"
-        }}
-      />
-      
-      <div className="absolute inset-0 bg-black/20 pointer-events-none" />
-
-      <div className="relative z-10 container mx-auto px-6 flex-grow flex flex-col justify-center min-h-0 pt-20 lg:pt-0 pb-2">
+      <section className="relative min-h-screen flex flex-col overflow-hidden bg-black">
         
-        <div className="flex flex-col lg:flex-row items-center gap-4 lg:gap-16 w-full h-full justify-center">
-          
-          <motion.div 
-            style={{ x: moveContent, y: useTransform(y, [-1, 1], [15, -15]) }}
-            className="lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left z-20"
-          >
-             <div className="p-5 md:p-10 rounded-[2rem] md:rounded-[3rem] bg-white/5 border border-white/10 backdrop-blur-md shadow-2xl w-full max-w-lg lg:max-w-xl">
-                 
-                 <h1 className="text-4xl md:text-7xl lg:text-8xl font-black text-white tracking-tighter leading-[0.85] mb-4 drop-shadow-lg">
-                   <span className="block text-white">CREATIVE</span>
-                   <span className="block text-transparent bg-clip-text bg-gradient-to-r from-white to-white/50 font-serif italic font-light">&times; INTELLIGENCE</span>
-                 </h1>
-
-                 <h2 className="text-sm md:text-2xl font-bold tracking-wide text-white mb-4 uppercase drop-shadow-md">
-                   AI-Powered Mktg <span className="hidden md:inline">Agency That Drives Revenue</span>
-                 </h2>
-
-                 <p className="hidden md:block text-base md:text-lg text-white/80 font-medium leading-relaxed max-w-md mb-6">
-                   We create <span className="text-white font-bold decoration-pink-500 underline decoration-2 underline-offset-4">world-class brand experiences</span> for the ambitious.
-                 </p>
-
-                 <div className="flex flex-wrap gap-3 justify-center lg:justify-start">
-                     <Button 
-                       className="h-12 md:h-14 px-8 md:px-10 rounded-full bg-white text-black font-black text-sm md:text-lg hover:scale-105 transition-transform shadow-[0_0_40px_-10px_rgba(255,255,255,0.6)]"
-                       data-testid="button-start-growing"
-                     >
-                       Start Growing
-                     </Button>
-                   <Link href="/services">
-                     <Button 
-                       variant="ghost" 
-                       className="h-12 md:h-14 px-6 md:px-8 rounded-full text-white border border-white/30 hover:bg-white/20 font-bold text-sm md:text-base backdrop-blur-sm"
-                       data-testid="button-view-services"
-                     >
-                       View Services
-                     </Button>
-                   </Link>
-                 </div>
-             </div>
-          </motion.div>
-
-          <div className="lg:w-1/2 w-full justify-center lg:justify-end hidden lg:flex">
-             <HolographicStack />
-          </div>
-
-          <div className="w-full flex justify-center lg:hidden mt-2">
-             <ServiceCycler />
-          </div>
-
+        {/* Snowfall Effect - Continuous falling white dots */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none z-[5]">
+          {Array.from({ length: 60 }).map((_, i) => (
+            <div
+              key={i}
+              className="absolute rounded-full bg-white"
+              style={{
+                left: `${Math.random() * 100}%`,
+                width: `${1 + Math.random() * 2}px`,
+                height: `${1 + Math.random() * 2}px`,
+                opacity: 0.3 + Math.random() * 0.5,
+                animation: `snowfall ${8 + Math.random() * 10}s linear ${Math.random() * 10}s infinite`,
+              }}
+            />
+          ))}
         </div>
-      </div>
 
-      <div className="relative z-20 w-full flex-none bg-gradient-to-t from-black/80 to-transparent pb-6 pt-4">
-          <FloatingChipCarousel />
-      </div>
+        {/* Mobile Layout - Clean bottom-aligned layout (hidden in landscape) */}
+        <div className="md:hidden landscape-hero-mobile-hidden absolute inset-0">
+          <div 
+            className="absolute inset-0 bg-cover bg-no-repeat"
+            style={{ 
+              backgroundImage: `url(${heroBackground})`,
+              backgroundPosition: '60% center'
+            }}
+          />
+          {/* AI Grid Overlay - Mobile with pulse */}
+          <div className="absolute inset-0" 
+               style={{
+                 backgroundImage: 'linear-gradient(rgba(196, 255, 77, 0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(196, 255, 77, 0.3) 1px, transparent 1px)',
+                 backgroundSize: '40px 40px',
+                 animation: 'gridPulse 8s ease-in-out infinite'
+               }} 
+          />
+          {/* Horizontal data streams - Mobile */}
+          <div className="absolute w-[200px] h-[1px] bg-gradient-to-r from-transparent via-[#c4ff4d]/50 to-transparent" 
+               style={{ 
+                 top: '25%', 
+                 boxShadow: '0 0 8px rgba(196, 255, 77, 0.4)',
+                 animation: 'scanHorizontal1 8s linear infinite'
+               }} 
+          />
+          <div className="absolute w-[150px] h-[1px] bg-gradient-to-r from-transparent via-[#c4ff4d]/40 to-transparent" 
+               style={{ 
+                 top: '45%', 
+                 boxShadow: '0 0 6px rgba(196, 255, 77, 0.3)', 
+                 animation: 'scanHorizontal2 10s linear 3s infinite'
+               }} 
+          />
+          <div className="absolute w-[180px] h-[1px] bg-gradient-to-r from-transparent via-[#c4ff4d]/35 to-transparent" 
+               style={{ 
+                 top: '65%', 
+                 boxShadow: '0 0 7px rgba(196, 255, 77, 0.3)', 
+                 animation: 'scanHorizontal1 12s linear 5s infinite'
+               }} 
+          />
+          {/* Lighter gradient to show more color */}
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent from-0% via-zinc-950/60 via-50% to-zinc-950/85 to-95%"></div>
+        </div>
 
-    </section>
+        {/* Desktop Layout - Horizontal with side fade - Shifted right to show more color (also shown in landscape) */}
+        <div 
+          className="hidden md:block landscape-hero-desktop absolute inset-0 bg-cover bg-no-repeat transition-transform duration-100 ease-out"
+          style={{ 
+            backgroundImage: `url(${heroBackground})`,
+            backgroundPosition: '35% center',
+            transform: `translateY(${scrollY * 0.3}px)`
+          }}
+        />
+        
+        {/* AI Grid Overlay - Desktop with pulse (also shown in landscape) */}
+        <div className="hidden md:block landscape-hero-desktop absolute inset-0" 
+             style={{
+               backgroundImage: 'linear-gradient(rgba(196, 255, 77, 0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(196, 255, 77, 0.3) 1px, transparent 1px)',
+               backgroundSize: '50px 50px',
+               animation: 'gridPulse 10s ease-in-out infinite'
+             }} 
+        />
+        
+        {/* Floating light particles - Desktop with varied animation (also shown in landscape) */}
+        <div className="hidden md:block landscape-hero-desktop absolute w-1.5 h-1.5 rounded-full bg-[#c4ff4d]" 
+             style={{ 
+               top: '20%', 
+               left: '15%', 
+               boxShadow: '0 0 20px #c4ff4d',
+               animation: 'particleFloat 8s ease-in-out infinite'
+             }} 
+        />
+        <div className="hidden md:block landscape-hero-desktop absolute w-1 h-1 rounded-full bg-[#c4ff4d]" 
+             style={{ 
+               top: '60%', 
+               left: '25%', 
+               boxShadow: '0 0 15px #c4ff4d', 
+               animation: 'particleFloat 10s ease-in-out 2s infinite'
+             }} 
+        />
+        <div className="hidden md:block landscape-hero-desktop absolute w-1.5 h-1.5 rounded-full bg-[#c4ff4d]" 
+             style={{ 
+               top: '40%', 
+               left: '35%', 
+               boxShadow: '0 0 18px #c4ff4d', 
+               animation: 'particleFloat 9s ease-in-out 4s infinite'
+             }} 
+        />
+        <div className="hidden md:block landscape-hero-desktop absolute w-1 h-1 rounded-full bg-[#c4ff4d]" 
+             style={{ 
+               top: '30%', 
+               left: '45%', 
+               boxShadow: '0 0 16px #c4ff4d', 
+               animation: 'particleFloat 11s ease-in-out 6s infinite'
+             }} 
+        />
+        
+        {/* Horizontal data streams - Desktop (also shown in landscape) */}
+        <div className="hidden md:block landscape-hero-desktop absolute w-[300px] h-[1px] bg-gradient-to-r from-transparent via-[#c4ff4d]/40 to-transparent" 
+             style={{ 
+               top: '28%', 
+               left: 0, 
+               boxShadow: '0 0 10px rgba(196, 255, 77, 0.4)',
+               animation: 'scanHorizontal1 10s linear infinite'
+             }} 
+        />
+        <div className="hidden md:block landscape-hero-desktop absolute w-[250px] h-[1px] bg-gradient-to-r from-transparent via-[#c4ff4d]/35 to-transparent" 
+             style={{ 
+               top: '48%', 
+               left: 0, 
+               boxShadow: '0 0 8px rgba(196, 255, 77, 0.3)', 
+               animation: 'scanHorizontal2 12s linear 4s infinite'
+             }} 
+        />
+        <div className="hidden md:block landscape-hero-desktop absolute w-[280px] h-[1px] bg-gradient-to-r from-transparent via-[#c4ff4d]/30 to-transparent" 
+             style={{ 
+               top: '68%', 
+               left: 0, 
+               boxShadow: '0 0 9px rgba(196, 255, 77, 0.3)', 
+               animation: 'scanHorizontal1 14s linear 7s infinite'
+             }} 
+        />
+        <div className="hidden md:block landscape-hero-desktop absolute w-[200px] h-[1px] bg-gradient-to-r from-transparent via-[#c4ff4d]/25 to-transparent" 
+             style={{ 
+               top: '82%', 
+               left: 0, 
+               boxShadow: '0 0 7px rgba(196, 255, 77, 0.2)', 
+               animation: 'scanHorizontal2 16s linear 10s infinite'
+             }} 
+        />
+        
+        {/* Light Sweep Effect (also shown in landscape) */}
+        <div className="hidden md:block landscape-hero-desktop absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute w-1/3 h-[200%] -top-1/2 bg-gradient-to-r from-transparent via-white/5 to-transparent" 
+               style={{ animation: 'lightSweep 15s ease-in-out 2s infinite' }} 
+          />
+        </div>
+        
+        {/* Desktop Gradients */}
+        <div className="hidden md:block landscape-hero-desktop absolute inset-0 bg-gradient-to-r from-black/80 via-black/30 to-transparent"></div>
+        <div className="hidden md:block landscape-hero-desktop absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/50"></div>
+        <div className="hidden md:block landscape-hero-desktop absolute inset-0 bg-gradient-to-l from-transparent via-black/10 to-black/60"></div>
+        
+        {/* Mobile: Bottom-aligned flex column | Desktop: Same compact layout */}
+        <div className="relative z-10 flex-1 flex flex-col justify-end pt-14 md:pt-20 pb-6 md:pb-6">
+          {/* Content wrapper */}
+          <div className="w-full">
+            <div className="max-w-7xl w-full mx-auto px-5 md:px-8">
+              <div className="w-full md:max-w-xl text-center md:text-left">
+                {/* Mobile only: glassmorphism panel */}
+                <div className="relative md:before:content-none before:absolute before:inset-0 before:-z-10 before:bg-black/50 before:blur-xl before:rounded-[32px] before:-m-4">
+                  <div className="mb-4 md:mb-5">
+                    <span className="text-[10px] md:text-[9px] lg:text-[10px] uppercase tracking-[0.25em] font-light text-white/90 leading-none" style={{ textShadow: '0 0 20px rgba(255, 255, 255, 0.3)' }}>
+                      WHERE CREATIVITY MEETS REVENUE
+                    </span>
+                  </div>
+
+                  <h1 className="mb-4 md:mb-4 text-white" style={{ fontSize: 'clamp(2rem, 5vw, 2.5rem)', animation: 'fadeSlideUp 0.8s ease-out' }}>
+                    <span className="block font-bold tracking-tight leading-[1.1]">
+                      AI-Powered Marketing,
+                    </span>
+                    <span className="block font-extralight italic font-serif tracking-tight leading-[1.1] mt-1">
+                      Agency That Drives Revenue
+                    </span>
+                  </h1>
+
+                  <p className="text-[15px] md:text-sm text-white/95 max-w-xl mx-auto md:mx-0 leading-relaxed mb-5 md:mb-4 font-light tracking-wide">
+                    Certified AI talent + Tailored Workflows + Measurable Growth = Less Cost. More Reach. More Sales
+                  </p>
+
+                  <div className="flex flex-col items-center md:items-start gap-3">
+                    <Button 
+                      size="lg" 
+                      className="rounded-full text-[15px] md:text-sm px-10 md:px-7 py-6 md:py-4 h-auto font-bold bg-[#c4ff4d] text-black hover:bg-[#b5ef3d] shadow-2xl hover:shadow-[0_0_40px_rgba(196,255,77,0.4)] transition-all border-0 hover:scale-105"
+                      data-testid="button-start-talking"
+                    >
+                      Start Talking
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Carousel - compact size on desktop */}
+          <div className="w-full mt-8 md:mt-5 relative">
+            <FloatingChipCarousel />
+            {/* Curved green wave below carousel */}
+            <div className="absolute -bottom-8 md:-bottom-12 left-0 right-0 pointer-events-none">
+              <svg 
+                viewBox="0 0 1440 120" 
+                className="w-full h-auto"
+                preserveAspectRatio="none"
+              >
+                <path 
+                  d="M0,60 C360,120 720,0 1080,60 C1260,90 1380,80 1440,60 L1440,120 L0,120 Z" 
+                  fill="#c4ff4d"
+                  opacity="0.4"
+                />
+                <path 
+                  d="M0,80 C320,40 640,100 960,60 C1200,30 1360,70 1440,50 L1440,120 L0,120 Z" 
+                  fill="#c4ff4d"
+                  opacity="0.25"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
   );
 }
