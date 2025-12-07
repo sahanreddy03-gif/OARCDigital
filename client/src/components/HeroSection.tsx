@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { motion, useTransform, useMotionValue } from "framer-motion";
 import FloatingChipCarousel from "./FloatingChipCarousel";
 import heroBackground from '@assets/d375f1d50d97b0de7953ca2cecd2b8aea2cd96b2-3524x1181_1761251957292.avif';
+import { Palette, Bot, Code } from 'lucide-react';
 
 function useMousePosition() {
   const x = useMotionValue(0);
@@ -23,7 +24,6 @@ function useMousePosition() {
   return { x, y };
 }
 
-// Snow particles canvas
 const SnowCanvas = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
@@ -77,6 +77,36 @@ const SnowCanvas = () => {
   return <canvas ref={canvasRef} className="absolute inset-0 z-[1] pointer-events-none" />;
 };
 
+const GlassServiceButton = ({ 
+  icon: Icon, 
+  label, 
+  href,
+  testId
+}: { 
+  icon: typeof Palette; 
+  label: string; 
+  href: string;
+  testId: string;
+}) => (
+  <Link href={href}>
+    <motion.div
+      whileHover={{ scale: 1.05, y: -2 }}
+      whileTap={{ scale: 0.98 }}
+      className="group cursor-pointer"
+      data-testid={testId}
+    >
+      <div className="relative flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 hover:border-white/40 transition-all duration-300 shadow-lg hover:shadow-xl">
+        <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-white/20 to-white/5 flex items-center justify-center border border-white/10">
+          <Icon className="w-4 h-4 text-white" />
+        </div>
+        <span className="text-white/90 text-sm font-semibold group-hover:text-white transition-colors">
+          {label}
+        </span>
+        <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-[#c4ff4d]/0 via-[#c4ff4d]/5 to-[#c4ff4d]/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+      </div>
+    </motion.div>
+  </Link>
+);
 
 export default function HeroSection() {
   const { x, y } = useMousePosition();
@@ -104,57 +134,73 @@ export default function HeroSection() {
 
       {/* Main content */}
       <div className="relative z-10 flex-grow flex items-center">
-        <div className="container mx-auto px-6 pt-32 pb-12">
+        <div className="container mx-auto px-6 pt-32 md:pt-40 lg:pt-44 pb-12">
           
           {/* Left aligned content */}
-          <div className="max-w-2xl">
+          <div className="max-w-3xl">
             
             {/* WHERE CREATIVITY MEETS REVENUE */}
             <motion.p
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 }}
+              transition={{ delay: 0.05 }}
               className="text-white/90 text-sm sm:text-base tracking-[0.2em] uppercase mb-4 sm:mb-6 font-medium drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]"
             >
-              Where Creativity Meets Revenue
+              Where <span className="text-[#c4ff4d]">Creativity</span> Meets Revenue
             </motion.p>
 
-            {/* AI-Powered Marketing, */}
+            {/* Main Headline - Two Lines */}
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="text-4xl sm:text-5xl md:text-6xl font-bold text-white leading-tight mb-1 sm:mb-2"
+              transition={{ delay: 0.1 }}
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-2"
             >
-              AI-Powered Marketing,
+              AI-Native Marketing Agency
             </motion.h1>
-
-            {/* Agency That Drives Revenue - Italic */}
+            
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-              className="text-4xl sm:text-5xl md:text-6xl font-serif italic text-white leading-tight mb-6 sm:mb-8"
+              transition={{ delay: 0.2 }}
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif italic text-white leading-tight mb-6 sm:mb-8"
             >
-              Agency That Drives Revenue
+              that drives <span className="text-orange-500">Revenue</span>
             </motion.h2>
 
-            {/* Description */}
+            {/* New Prominent Tagline */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+              className="mb-6 sm:mb-8"
+            >
+              <p className="text-xl sm:text-2xl md:text-3xl font-bold text-white leading-snug drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
+                Build the Brand You've Always Imagined.
+              </p>
+              <p className="text-xl sm:text-2xl md:text-3xl font-bold text-white leading-snug drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
+                With the Growth You Actually Need.
+              </p>
+            </motion.div>
+
+            {/* Subtitle - Smaller than tagline */}
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
-              className="text-white/95 text-base sm:text-lg md:text-xl leading-relaxed mb-8 sm:mb-10 max-w-xl font-medium drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]"
+              className="text-white/90 text-sm sm:text-base md:text-lg leading-relaxed mb-10 sm:mb-12 max-w-xl font-medium drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]"
             >
               Certified AI talent + Tailored Workflows + Measurable Growth = Less Cost. More Reach. More Sales.
             </motion.p>
 
-            {/* Start Talking Button */}
+            {/* CTA Section with Glass Service Buttons */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
+              className="flex flex-col gap-6"
             >
+              {/* Start Talking Button */}
               <Link href="/contact">
                 <Button 
                   className="h-12 sm:h-14 px-8 sm:px-10 rounded-full bg-[#c4ff4d] text-black font-bold text-sm sm:text-base hover:bg-[#d4ff6d] hover:scale-105 transition-all shadow-lg"
@@ -163,6 +209,28 @@ export default function HeroSection() {
                   Start Talking
                 </Button>
               </Link>
+
+              {/* Glass 3D Service Buttons */}
+              <div className="flex flex-wrap gap-3">
+                <GlassServiceButton 
+                  icon={Palette} 
+                  label="Creative Services" 
+                  href="/services/social-media-creative-management"
+                  testId="button-creative-services"
+                />
+                <GlassServiceButton 
+                  icon={Bot} 
+                  label="AI Consulting" 
+                  href="/services/ai-consulting"
+                  testId="button-ai-consulting"
+                />
+                <GlassServiceButton 
+                  icon={Code} 
+                  label="Custom AI Softwares" 
+                  href="/services/custom-software-development"
+                  testId="button-custom-ai-softwares"
+                />
+              </div>
             </motion.div>
 
           </div>
@@ -174,7 +242,7 @@ export default function HeroSection() {
         <FloatingChipCarousel />
       </div>
 
-      {/* Curved green wave */}
+      {/* Curved green wave - dimmed brightness */}
       <div className="relative z-10 w-full">
         <svg 
           viewBox="0 0 1440 80" 
@@ -183,7 +251,7 @@ export default function HeroSection() {
         >
           <path 
             d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" 
-            fill="#c4ff4d"
+            fill="#9acc3d"
           />
         </svg>
       </div>
