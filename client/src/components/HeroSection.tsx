@@ -207,14 +207,14 @@ export default function HeroSection() {
       {/* --- FOOTER SECTION: Green Wave + Carousel --- */}
       <div className="relative z-10 w-full">
         {/* Green Wave */}
-        <div className="absolute bottom-0 left-0 right-0 h-[120px] pointer-events-none">
-          <svg viewBox="0 0 1440 120" className="w-full h-full" preserveAspectRatio="none">
+        <div className="absolute bottom-0 left-0 right-0 h-[80px] pointer-events-none">
+          <svg viewBox="0 0 1440 80" className="w-full h-full" preserveAspectRatio="none">
             <path
-              d="M0,40 C320,80 1120,0 1440,40 L1440,120 L0,120 Z"
+              d="M0,30 C320,55 1120,5 1440,30 L1440,80 L0,80 Z"
               fill="#c4ff4d"
             />
             <path
-              d="M0,45 C320,85 1120,5 1440,45 L1440,120 L0,120 Z"
+              d="M0,34 C320,59 1120,9 1440,34 L1440,80 L0,80 Z"
               fill="#000"
               opacity="0.1"
             />
