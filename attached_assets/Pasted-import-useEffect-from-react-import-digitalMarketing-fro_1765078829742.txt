@@ -1,0 +1,73 @@
+import { useEffect } from "react";
+import digitalMarketing from '@assets/digital-marketing-optimized.jpg';
+// ... (Your imports remain the same) ...
+import supportAI from '@assets/support-ai-employee-optimized.jpg';
+import { motion } from "framer-motion";
+
+const services = [
+  // ... (Your Service List) ...
+  { text: "Digital Marketing", image: digitalMarketing }, // Example
+  // Copy all your services here
+];
+import { useEffect } from "react";
+import digitalMarketing from '@assets/digital-marketing-optimized.jpg';
+// ... (Your imports remain the same) ...
+import supportAI from '@assets/support-ai-employee-optimized.jpg';
+import { motion } from "framer-motion";
+
+const services = [
+  // ... (Your Service List) ...
+  { text: "Digital Marketing", image: digitalMarketing }, // Example
+  // Copy all your services here
+];
+
+const TripleServices = [...services, ...services, ...services];
+
+function CarouselCard({ service }: { service: any }) {
+    return (
+        <div className="group relative flex items-center gap-4 px-5 py-3 rounded-2xl bg-white/[0.03] backdrop-blur-md border border-white/10 hover:border-[#c4ff4d]/50 hover:bg-white/[0.08] transition-all duration-300 w-[280px] cursor-pointer hover:scale-105 hover:skew-x-[-2deg]">
+             {/* Simple Glass Card Logic */}
+             <span className="text-white font-bold">{service.text}</span>
+        </div>
+    )
+}
+
+// Simple Infinite Marquee
+export default function FloatingChipCarousel() {
+  return (
+    <div className="w-full overflow-hidden flex">
+      <motion.div 
+        className="flex gap-6 whitespace-nowrap"
+        animate={{ x: "-50%" }}
+        transition={{ duration: 30, ease: "linear", repeat: Infinity }}
+      >
+        {TripleServices.map((s, i) => <CarouselCard key={i} service={s} />)}
+      </motion.div>
+    </div>
+  );
+}
+const TripleServices = [...services, ...services, ...services];
+
+function CarouselCard({ service }: { service: any }) {
+    return (
+        <div className="group relative flex items-center gap-4 px-5 py-3 rounded-2xl bg-white/[0.03] backdrop-blur-md border border-white/10 hover:border-[#c4ff4d]/50 hover:bg-white/[0.08] transition-all duration-300 w-[280px] cursor-pointer hover:scale-105 hover:skew-x-[-2deg]">
+             {/* Simple Glass Card Logic */}
+             <span className="text-white font-bold">{service.text}</span>
+        </div>
+    )
+}
+
+// Simple Infinite Marquee
+export default function FloatingChipCarousel() {
+  return (
+    <div className="w-full overflow-hidden flex">
+      <motion.div 
+        className="flex gap-6 whitespace-nowrap"
+        animate={{ x: "-50%" }}
+        transition={{ duration: 30, ease: "linear", repeat: Infinity }}
+      >
+        {TripleServices.map((s, i) => <CarouselCard key={i} service={s} />)}
+      </motion.div>
+    </div>
+  );
+}
