@@ -3,7 +3,7 @@ import Layout from "@/components/layout/Layout";
 import SEOHead from "@/components/SEOHead";
 import { supportingPagesSEO } from "@/data/seoMetadata";
 import { Button } from "@/components/ui/button";
-import { Check, ArrowRight, Sparkles, TrendingUp, Users, Star } from 'lucide-react';
+import { Check, Star, Building2, Zap, Sparkles, Crown } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'wouter';
 
@@ -11,337 +11,337 @@ const pricingCategories = [
   {
     id: 'social',
     label: 'Social Creative',
-    icon: Sparkles,
-    color: 'bg-lime-400',
-    text: 'text-lime-900',
-    gradient: 'from-lime-400 to-green-400'
+    accent: 'text-lime-600',
+    bg: 'bg-lime-500',
+    gradient: 'from-lime-400 to-green-500',
+    lightBg: 'bg-lime-50'
   },
   {
     id: 'web',
     label: 'Web Experience',
-    icon: TrendingUp,
-    color: 'bg-orange-500',
-    text: 'text-orange-900',
-    gradient: 'from-orange-400 to-amber-500'
+    accent: 'text-orange-600',
+    bg: 'bg-orange-500',
+    gradient: 'from-orange-400 to-amber-500',
+    lightBg: 'bg-orange-50'
   },
   {
     id: 'ai',
     label: 'AI Employees',
-    icon: Users,
-    color: 'bg-blue-600',
-    text: 'text-blue-900',
-    gradient: 'from-blue-500 to-indigo-600'
+    accent: 'text-blue-600',
+    bg: 'bg-blue-600',
+    gradient: 'from-blue-500 to-indigo-600',
+    lightBg: 'bg-blue-50'
   }
 ];
 
-const pricingData: Record<string, Array<{
-  name: string;
-  price: string;
-  period: string;
-  desc: string;
-  daily?: string;
-  sub?: string;
-  features: string[];
-  extras: string[];
-  cta: string;
-  popular: boolean;
-}>> = {
+const sharedFeatures = [
+  "Dedicated creative project manager",
+  "Turnaround times starting at 48 hours",
+  "Global timezone coverage",
+  "AI-enhanced workflows",
+  "Unlimited revisions on all drafts",
+  "Support for multiple brands",
+  "Real-time revenue dashboard"
+];
+
+const pricingData = {
   social: [
     {
       name: "STARTER",
       price: "299",
       period: "/month",
-      desc: "Essential brand presence for startups.",
-      daily: "€10/day",
-      features: ["16 High-Fidelity Posts", "1 Primary Platform", "Custom Design System", "Monthly Impact Report"],
-      extras: ["Revenue Dashboard", "Rate Lock Guarantee"],
-      cta: "Start Basic",
-      popular: false
+      desc: "Essentials for early-stage branding.",
+      sub: "€10/day equivalent",
+      features: ["16 High-Fidelity Posts", "1 Platform", "Custom Design System", "Monthly Analytics"],
+      icon: Sparkles,
+      style: "basic",
+      cta: "Start Basic"
     },
     {
       name: "GROWTH",
       price: "549",
       period: "/month",
-      desc: "Rapid scaling for ambitious brands.",
-      daily: "€18/day",
-      features: ["24 High-Fidelity Posts", "2 Platforms (FB/IG/LI)", "4 Short-Form Videos", "Community Management"],
-      extras: ["Content Repurposing AI", "Priority Support (15m)", "Brand Voice Model"],
-      cta: "Accelerate Growth",
-      popular: true
+      desc: "Accelerated output for scaling teams.",
+      sub: "Best Value",
+      features: ["24 High-Fidelity Posts", "2 Platforms", "4 Short-Form Videos", "Community Management"],
+      icon: Zap,
+      style: "popular",
+      cta: "Accelerate Growth"
     },
     {
       name: "SCALE",
       price: "895",
       period: "/month",
-      desc: "Market dominance and daily output.",
-      daily: "€30/day",
-      features: ["Daily Posting (32/mo)", "Multi-Channel (3+)", "2 Cinematic Videos", "Influencer Outreach"],
-      extras: ["Revenue Guarantee", "Dedicated Manager", "White-Glove Onboarding"],
-      cta: "Dominate Market",
-      popular: false
+      desc: "Maximum dominance & daily volume.",
+      sub: "Enterprise Grade",
+      features: ["Daily Posting (32/mo)", "All Platforms", "2 Cinematic Videos", "Influencer Outreach"],
+      icon: Crown,
+      style: "premium",
+      cta: "Dominate Market"
     }
   ],
   web: [
-    {
-      name: "ESSENTIALS",
-      price: "995",
-      period: " one-time",
-      desc: "Professional landing page system.",
-      sub: "+ €49/mo hosting",
-      features: ["5-Page Brand Site", "Mobile-First Design", "SEO Foundation", "Contact Automation"],
-      extras: ["AI Chatbot Lite", "3 Months Free Hosting"],
-      cta: "Build Foundation",
-      popular: false
-    },
-    {
-      name: "GROWTH PLATFORM",
-      price: "1,995",
-      period: " one-time",
-      desc: "Conversion-focused growth engine.",
-      sub: "+ €99/mo hosting",
-      features: ["10-Page Custom Build", "Booking Engine", "CMS / Blog System", "Lead Magnets"],
-      extras: ["Performance Reporting", "Edit-Yourself Training"],
-      cta: "Build Growth",
-      popular: true
-    },
-    {
-      name: "E-COMMERCE",
-      price: "3,995",
-      period: " one-time",
-      desc: "Full-scale digital storefront.",
-      sub: "+ €199/mo hosting",
-      features: ["50-Product Catalog", "Global Payment Gateways", "Inventory Sync", "Shipping Logic"],
-      extras: ["Abandoned Cart AI", "Revenue Dashboard"],
-      cta: "Launch Store",
-      popular: false
-    }
+    { name: "ESSENTIALS", price: "995", period: "one-time", desc: "Professional landing page system.", sub: "+€49/mo hosting", features: ["5 Pages", "Contact Form", "Basic SEO"], icon: Sparkles, style: "basic", cta: "Build Site" },
+    { name: "GROWTH", price: "1,995", period: "one-time", desc: "Conversion-focused growth engine.", sub: "Best Value", features: ["10 Pages", "CMS Setup", "Booking System"], icon: Zap, style: "popular", cta: "Build Platform" },
+    { name: "E-COMMERCE", price: "3,995", period: "one-time", desc: "Full-scale digital retail storefront.", sub: "Enterprise Grade", features: ["50 Products", "Payments", "Inventory Logic"], icon: Crown, style: "premium", cta: "Launch Store" }
   ],
   ai: [
-    {
-      name: "AI ASSISTANT",
-      price: "1,495",
-      period: " one-time",
-      desc: "24/7 Intelligent Customer Support.",
-      sub: "+ €149/mo maintain",
-      features: ["Custom NLP Chatbot", "100+ FAQ Capacity", "Lead Qualification", "CRM Injection"],
-      extras: ["Lead Reports", "Priority Support"],
-      cta: "Deploy Assistant",
-      popular: false
-    },
-    {
-      name: "WORKFLOW AUTO",
-      price: "2,995",
-      period: " one-time",
-      desc: "End-to-end operational automation.",
-      sub: "+ €295/mo maintain",
-      features: ["3 Custom Workflows", "Email Automation", "Appointment Setting", "Data Entry Bots"],
-      extras: ["Time-Saved Guarantee", "ROI Tracking"],
-      cta: "Automate Ops",
-      popular: true
-    },
-    {
-      name: "CUSTOM TEAM",
-      price: "Custom",
-      period: "",
-      desc: "Enterprise-grade AI workforce.",
-      sub: "Scope dependent",
-      features: ["Full AI Department", "Sales/Ops/Marketing", "LLM Fine-Tuning", "Deep API Integration"],
-      extras: ["Performance Guarantee", "Founding Partner Status"],
-      cta: "Book Consult",
-      popular: false
-    }
+    { name: "ASSISTANT", price: "1,495", period: "setup", desc: "24/7 Customer support agent.", sub: "+€149/mo maintain", features: ["Chatbot", "Lead Capture", "100 FAQs"], icon: Sparkles, style: "basic", cta: "Deploy AI" },
+    { name: "WORKFLOW", price: "2,995", period: "setup", desc: "Automate core business ops.", sub: "Best Value", features: ["3 Workflows", "CRM Sync", "Email Bots"], icon: Zap, style: "popular", cta: "Automate" },
+    { name: "CUSTOM", price: "Custom", period: "", desc: "Tailored enterprise solutions.", sub: "Scope Dependent", features: ["Full Department", "Custom LLMs", "API Dev"], icon: Crown, style: "premium", cta: "Book Call" }
   ]
 };
 
+const AnimatedBackground = () => (
+  <div className="absolute inset-0 overflow-hidden pointer-events-none">
+    <motion.div
+      animate={{
+        scale: [1, 1.2, 1],
+        opacity: [0.3, 0.5, 0.3],
+        x: [0, 50, 0],
+        y: [0, -50, 0]
+      }}
+      transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+      className="absolute top-[-10%] left-[-10%] w-[800px] h-[800px] bg-lime-200/40 rounded-full blur-[120px]"
+    />
+    <motion.div
+      animate={{
+        scale: [1, 1.3, 1],
+        opacity: [0.2, 0.4, 0.2],
+        x: [0, -30, 0]
+      }}
+      transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+      className="absolute top-[20%] right-[-10%] w-[600px] h-[600px] bg-blue-200/40 rounded-full blur-[100px]"
+    />
+    <motion.div
+      animate={{
+        scale: [1, 1.1, 1],
+        opacity: [0.2, 0.4, 0.2],
+        y: [0, 40, 0]
+      }}
+      transition={{ duration: 18, repeat: Infinity, ease: "easeInOut", delay: 5 }}
+      className="absolute bottom-[-10%] left-[20%] w-[700px] h-[700px] bg-orange-200/40 rounded-full blur-[120px]"
+    />
+  </div>
+);
+
 export default function Pricing() {
-  const [activeTab, setActiveTab] = useState('social');
-  const activeCategory = pricingCategories.find(c => c.id === activeTab) || pricingCategories[0];
+  const [activeTab, setActiveTab] = useState<'social' | 'web' | 'ai'>('social');
+  const activeTheme = pricingCategories.find(c => c.id === activeTab) || pricingCategories[0];
 
   return (
     <Layout>
       <SEOHead
-        title="Pricing | OARC Digital"
-        description="Transparent pricing for AI marketing. Founding rates locked in."
+        title="Pricing Plans | OARC Digital"
+        description="Flexible plans built for growth. Choose your subscription."
         canonicalUrl={`https://oarcdigital.com${supportingPagesSEO.pricing.path}`}
         ogType={supportingPagesSEO.pricing.ogType}
       />
 
-      <div className="min-h-screen bg-slate-50 font-sans pt-28 pb-24">
+      <div className="min-h-screen bg-slate-50/50 font-sans text-slate-900 pt-32 pb-24 relative">
+        <AnimatedBackground />
 
-        <div className="container mx-auto px-6">
+        {/* --- HERO HEADER --- */}
+        <div className="container mx-auto px-6 max-w-7xl mb-16 text-center relative z-10">
+          <h1 className="text-5xl md:text-7xl font-serif font-medium tracking-tight mb-4 text-slate-900">
+            A subscription built to <br />
+            <span className={`italic text-transparent bg-clip-text bg-gradient-to-r ${activeTheme.gradient}`}>
+              fuel your growth
+            </span>
+          </h1>
+        </div>
 
-          <div className="text-center max-w-4xl mx-auto mb-16">
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-slate-200 shadow-sm text-slate-900 text-xs font-bold tracking-widest uppercase mb-6"
-              data-testid="badge-founding-program"
-            >
-              <span className="relative flex h-2.5 w-2.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-red-500"></span>
-              </span>
-              Founding Client Program: 14/20 Spots Taken
-            </motion.div>
+        {/* --- SUPERSIDE SPLIT LAYOUT --- */}
+        <div className="container mx-auto px-6 max-w-7xl mb-24 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 min-h-[500px]">
 
-            <motion.h1
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 }}
-              className="text-5xl md:text-7xl font-black text-slate-900 tracking-tight mb-6"
-              data-testid="heading-pricing-title"
-            >
-              Agencies Charge Fortunes.<br />
-              <span className={`text-transparent bg-clip-text bg-gradient-to-r ${activeCategory.gradient}`}>
-                We Change Parameters.
-              </span>
-            </motion.h1>
+            {/* LEFT: Visually Rich Card */}
+            <div className="relative rounded-[2.5rem] overflow-hidden p-10 md:p-16 flex flex-col justify-center bg-white shadow-2xl shadow-slate-200/50">
+              <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop')] bg-cover bg-center opacity-30 mix-blend-overlay" />
+              {/* Animated Gradient Overlay */}
+              <div className={`absolute inset-0 opacity-10 bg-gradient-to-br ${activeTheme.gradient}`} />
 
-            <motion.p
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="text-xl text-slate-600 font-medium max-w-2xl mx-auto"
-            >
-              Lock in "Startup Rates" for agency-grade work.
-              <span className="text-slate-900 font-bold"> 100% Satisfaction or Refund Guaranteed.</span>
-            </motion.p>
+              <div className="relative z-10 max-w-lg">
+                <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-slate-900 text-white rounded-full text-xs font-bold uppercase tracking-widest">
+                  <Star className="w-3 h-3 text-yellow-400 fill-current" /> Founding Client Special
+                </div>
+                <h2 className="text-4xl md:text-5xl font-serif font-medium mb-6 leading-tight text-slate-900">
+                  Flexible plans <br />
+                  <span className="italic text-slate-500">for every stage.</span>
+                </h2>
+                <p className="text-lg text-slate-600 mb-10 leading-relaxed font-medium">
+                  Lock in your founding rate instantly.
+                  From asset production to full-scale AI automation, we move
+                  <span className="text-slate-900 font-bold"> 10x faster</span> than traditional agencies.
+                </p>
+                <Link href="/contact">
+                  <Button className="h-14 px-10 rounded-full bg-slate-900 text-white font-bold text-base hover:bg-black transition-all hover:scale-105 shadow-xl hover:shadow-2xl">
+                    Book Strategy Call
+                  </Button>
+                </Link>
+              </div>
+            </div>
+
+            {/* RIGHT: Feature Checklist (Dynamic Color) */}
+            <div className={`relative rounded-[2.5rem] overflow-hidden p-10 md:p-16 flex flex-col justify-center transition-colors duration-500 ${activeTheme.bg}`}>
+              {/* Interior Glow */}
+              <div className="absolute inset-0 bg-white/10 mix-blend-overlay" />
+              <div className="absolute -bottom-24 -right-24 w-64 h-64 bg-white/20 blur-[80px] rounded-full" />
+
+              <h3 className="relative z-10 text-3xl font-serif font-medium mb-10 text-slate-900 mix-blend-color-burn">
+                Included in <span className="italic">all plans:</span>
+              </h3>
+              <div className="relative z-10 space-y-5">
+                {sharedFeatures.map((item, i) => (
+                  <div key={i} className="flex items-start gap-4 group">
+                    <div className="p-1 rounded-full bg-black/5 group-hover:bg-black/10 transition-colors">
+                      <Check className="w-4 h-4 text-slate-900 stroke-[3]" />
+                    </div>
+                    <span className="text-base font-bold text-slate-900/90 leading-snug">
+                      {item}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
           </div>
+        </div>
+
+        {/* --- TIER SELECTION --- */}
+        <div className="container mx-auto px-6 max-w-7xl relative z-10">
 
           <div className="flex justify-center mb-16">
-            <div className="bg-white p-2 rounded-full shadow-lg border border-slate-100 inline-flex gap-1 flex-wrap justify-center">
-              {pricingCategories.map((cat) => {
-                const isActive = activeTab === cat.id;
-                const Icon = cat.icon;
-                return (
-                  <button
-                    key={cat.id}
-                    onClick={() => setActiveTab(cat.id)}
-                    className={`relative px-4 sm:px-6 py-3 rounded-full flex items-center gap-2 text-sm font-bold transition-all duration-300 ${isActive
-                        ? 'bg-slate-900 text-white shadow-md'
-                        : 'text-slate-500 hover:text-slate-900 hover:bg-slate-50'
-                      }`}
-                    data-testid={`tab-${cat.id}`}
-                  >
-                    <Icon className={`w-4 h-4 ${isActive ? 'text-white' : 'text-slate-400'}`} />
-                    <span className="hidden sm:inline">{cat.label}</span>
-                    <span className="sm:hidden">{cat.label.split(' ')[0]}</span>
-                  </button>
-                )
-              })}
+            <div className="inline-flex bg-white/80 backdrop-blur-md p-2 rounded-full border border-slate-200 shadow-lg">
+              {pricingCategories.map(cat => (
+                <button
+                  key={cat.id}
+                  onClick={() => setActiveTab(cat.id as 'social' | 'web' | 'ai')}
+                  className={`px-8 py-3 rounded-full text-sm font-bold transition-all ${activeTab === cat.id
+                      ? `bg-slate-900 text-white shadow-md`
+                      : 'text-slate-500 hover:text-slate-900 hover:bg-slate-100'
+                    }`}
+                  data-testid={`tab-${cat.id}`}
+                >
+                  {cat.label}
+                </button>
+              ))}
             </div>
           </div>
 
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activeTab}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95 }}
-              transition={{ duration: 0.4, ease: "backOut" }}
-              className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-7xl mx-auto"
-            >
+          {/* --- PRICING CARDS --- */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-32 items-start">
+            <AnimatePresence mode="wait">
               {pricingData[activeTab].map((plan, i) => {
-                const isPop = plan.popular;
+                const Icon = plan.icon;
+
+                const isBasic = plan.style === 'basic';
+                const isPopular = plan.style === 'popular';
+                const isPremium = plan.style === 'premium';
+
                 return (
                   <motion.div
-                    key={i}
-                    whileHover={{ y: -12 }}
-                    className={`relative p-6 lg:p-8 rounded-3xl border flex flex-col transition-all duration-300 bg-white
-                          ${isPop
-                        ? 'border-slate-300 shadow-2xl md:scale-105 z-10 ring-4 ring-slate-50'
-                        : 'border-slate-100 shadow-lg hover:shadow-xl'
-                      }
-                       `}
-                    data-testid={`card-pricing-${plan.name.toLowerCase().replace(/\s+/g, '-')}`}
+                    key={plan.name}
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: i * 0.1, type: "spring", stiffness: 100 }}
+                    className={`group relative p-8 rounded-[2rem] flex flex-col transition-all duration-300
+                                    ${isBasic ? 'bg-white border border-slate-200 shadow-lg hover:shadow-xl' : ''}
+                                    ${isPopular ? 'bg-white border-2 border-slate-900 shadow-2xl scale-[1.05] z-10' : ''}
+                                    ${isPremium ? 'bg-slate-900 text-white shadow-2xl hover:translate-y-[-8px]' : ''}
+                                `}
+                    data-testid={`card-${plan.name.toLowerCase()}`}
                   >
-                    {isPop && (
-                      <div className={`absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1.5 ${activeCategory.color} ${activeCategory.text} text-xs font-black uppercase tracking-widest rounded-full shadow-lg`}>
+                    {isPopular && (
+                      <div className={`absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest shadow-lg ${activeTheme.bg} text-slate-900`}>
                         Most Popular
                       </div>
                     )}
 
-                    <div className="mb-6">
-                      <h3 className="text-lg font-bold text-slate-900 mb-2">{plan.name}</h3>
-                      <p className="text-sm text-slate-500 font-medium leading-relaxed">{plan.desc}</p>
-                    </div>
-
-                    <div className="mb-8 p-4 bg-slate-50 rounded-2xl border border-slate-100 text-center">
-                      <div className="flex items-baseline justify-center gap-1 text-slate-900">
-                        {plan.price !== "Custom" && <span className="text-sm font-bold">€</span>}
-                        <span className="text-4xl lg:text-5xl font-black tracking-tighter">{plan.price}</span>
+                    {/* Card Header */}
+                    <div className="mb-8 flex items-start justify-between gap-2">
+                      <div className={`p-3 rounded-2xl ${isPremium ? 'bg-white/10' : activeTheme.lightBg}`}>
+                        <Icon className={`w-6 h-6 ${isPremium ? 'text-white' : activeTheme.accent}`} />
                       </div>
-                      <div className="text-xs text-slate-400 font-bold uppercase tracking-wider mt-1">{plan.period}</div>
-                      {plan.sub && (
-                        <div className="text-xs text-slate-500 mt-2">{plan.sub}</div>
-                      )}
+                      {isPremium && <Crown className="w-5 h-5 text-yellow-400 fill-current" />}
                     </div>
 
-                    <div className="flex-grow space-y-4 mb-8">
-                      <div className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">What's Included</div>
-                      {plan.features.map((feat) => (
-                        <div key={feat} className="flex items-start gap-3 text-sm font-medium text-slate-700">
-                          <div className={`mt-0.5 w-5 h-5 rounded-full flex items-center justify-center shrink-0 ${isPop ? 'bg-slate-900 text-white' : 'bg-slate-200 text-slate-600'}`}>
-                            <Check className="w-3 h-3" />
-                          </div>
-                          {feat}
+                    <div className="mb-6">
+                      <h3 className={`text-2xl font-black mb-2 ${isPremium ? 'text-white' : 'text-slate-900'}`}>{plan.name}</h3>
+                      <p className={`text-sm leading-relaxed min-h-[40px] ${isPremium ? 'text-slate-400' : 'text-slate-500'}`}>{plan.desc}</p>
+                    </div>
+
+                    {/* Price Block */}
+                    <div className={`mb-8 p-6 rounded-2xl text-center ${isPremium ? 'bg-white/5 border border-white/10' : 'bg-slate-50 border border-slate-100'}`}>
+                      <div className={`flex items-center justify-center gap-1 ${isPremium ? 'text-white' : 'text-slate-900'}`}>
+                        <span className="text-sm font-bold">€</span>
+                        <span className="text-5xl font-black tracking-tighter">{plan.price}</span>
+                      </div>
+                      <div className={`text-[10px] font-bold uppercase tracking-wider mt-2 ${isPremium ? 'text-slate-500' : 'text-slate-400'}`}>{plan.period}</div>
+                      {plan.sub && <div className={`text-xs mt-2 font-bold ${isPremium ? 'text-lime-400' : activeTheme.accent}`}>{plan.sub}</div>}
+                    </div>
+
+                    {/* Features */}
+                    <div className="flex-grow space-y-4 mb-10">
+                      {plan.features.map((feat: string) => (
+                        <div key={feat} className="flex items-center gap-3 text-sm font-medium">
+                          <div className={`w-1.5 h-1.5 rounded-full ${isPremium ? 'bg-lime-400' : 'bg-slate-300 group-hover:bg-slate-900'}`} />
+                          <span className={isPremium ? 'text-slate-200' : 'text-slate-700'}>{feat}</span>
                         </div>
                       ))}
-
-                      <div className={`mt-6 p-4 rounded-xl border ${isPop ? 'bg-slate-900 text-white border-slate-900' : 'bg-white border-dashed border-slate-300'}`}>
-                        <div className="flex items-center gap-2 mb-3">
-                          <Star className={`w-4 h-4 ${isPop ? 'text-yellow-400 fill-yellow-400' : 'text-slate-400'}`} />
-                          <span className={`text-xs font-bold uppercase tracking-wider ${isPop ? 'text-white' : 'text-slate-500'}`}>Founding Extras (Free)</span>
-                        </div>
-                        <div className="space-y-2">
-                          {plan.extras.map((extra) => (
-                            <div key={extra} className={`text-xs flex items-center gap-2 ${isPop ? 'text-slate-300' : 'text-slate-500'}`}>
-                              <div className={`w-1 h-1 rounded-full ${isPop ? 'bg-yellow-400' : 'bg-slate-400'}`} />
-                              {extra}
-                            </div>
-                          ))}
-                        </div>
-                      </div>
                     </div>
 
-                    <Link href="/contact">
-                      <Button
-                        className={`w-full h-14 rounded-full font-bold text-base transition-all shadow-lg hover:shadow-xl ${isPop
-                            ? `bg-gradient-to-r ${activeCategory.gradient} text-white border-none hover:scale-[1.02]`
-                            : 'bg-white border-2 border-slate-200 text-slate-900 hover:border-slate-900 hover:bg-slate-50'
-                          }`}
-                        data-testid={`button-${plan.cta.toLowerCase().replace(/\s+/g, '-')}`}
-                      >
-                        {plan.cta}
-                      </Button>
-                    </Link>
-
+                    <Button className={`w-full h-14 rounded-full font-bold text-base transition-all ${isPopular
+                        ? `bg-slate-900 text-white hover:bg-black shadow-lg`
+                        : isPremium
+                          ? 'bg-white text-black hover:bg-slate-100'
+                          : 'bg-white border-2 border-slate-200 text-slate-900 hover:border-slate-900'
+                      }`}
+                      data-testid={`button-${plan.name.toLowerCase()}`}
+                    >
+                      {plan.cta}
+                    </Button>
                   </motion.div>
-                )
+                );
               })}
-            </motion.div>
-          </AnimatePresence>
+            </AnimatePresence>
+          </div>
 
-          <div className="mt-24 pt-16 border-t border-slate-200">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center md:text-left">
+          {/* --- ENTERPRISE SECTION --- */}
+          <div className="rounded-[2.5rem] bg-slate-900 text-white p-10 md:p-20 relative overflow-hidden shadow-2xl">
+            {/* Abstract Pattern */}
+            <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10" />
+            <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-br from-blue-600 to-lime-500 opacity-20 blur-[120px] rounded-full translate-x-1/3 -translate-y-1/3" />
+
+            <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
-                <h4 className="font-black text-3xl text-slate-900 mb-1" data-testid="stat-refund">100%</h4>
-                <p className="text-xs text-slate-500 font-bold uppercase tracking-wider">Refund Guarantee</p>
-              </div>
-              <div>
-                <h4 className="font-black text-3xl text-slate-900 mb-1" data-testid="stat-vision">20/20</h4>
-                <p className="text-xs text-slate-500 font-bold uppercase tracking-wider">Vision Clarity</p>
-              </div>
-              <div>
-                <h4 className="font-black text-3xl text-slate-900 mb-1" data-testid="stat-roi">ROI+</h4>
-                <p className="text-xs text-slate-500 font-bold uppercase tracking-wider">Metrics Focused</p>
-              </div>
-              <div>
+                <div className="flex items-center gap-2 mb-6 text-lime-400 text-xs font-bold uppercase tracking-widest">
+                  <Building2 className="w-4 h-4" /> Enterprise
+                </div>
+                <h2 className="text-4xl md:text-5xl font-serif font-medium mb-6 leading-tight">
+                  Need a custom <br />
+                  <span className="italic text-slate-400">enterprise solution?</span>
+                </h2>
+                <ul className="space-y-4 mb-10">
+                  {[
+                    "Dedicated creative teams (no shared resources)",
+                    "Custom AI model training on your brand data",
+                    "SLA-backed delivery guarantees",
+                    "Single Sign-On (SSO) & Advanced Security"
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-center gap-3 text-slate-300 font-medium">
+                      <Check className="w-5 h-5 text-lime-400" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
                 <Link href="/contact">
-                  <div className="cursor-pointer group flex items-center justify-center md:justify-start gap-2 text-slate-900 font-bold" data-testid="link-book-call">
-                    Book Strategy Call
-                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                  </div>
+                  <Button 
+                    className="h-14 px-8 rounded-full bg-white text-black font-bold hover:bg-slate-200 transition-colors shadow-lg"
+                    data-testid="button-enterprise"
+                  >
+                    Talk to Sales
+                  </Button>
                 </Link>
               </div>
             </div>
