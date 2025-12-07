@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
-import { motion, useScroll, useTransform, useMotionValue, useSpring, useMotionTemplate, AnimatePresence } from "framer-motion";
-import { Instagram, Bot, Code2, Video, Globe, ArrowRight } from 'lucide-react';
+import { motion, useTransform, useMotionValue, AnimatePresence } from "framer-motion";
+import { ArrowRight } from 'lucide-react';
 import FloatingChipCarousel from "./FloatingChipCarousel";
 import heroBackground from '@assets/d375f1d50d97b0de7953ca2cecd2b8aea2cd96b2-3524x1181_1761251957292.avif';
 
@@ -218,32 +218,61 @@ export default function HeroSection() {
             style={{ x: moveContent, y: useTransform(y, [-1, 1], [15, -15]) }}
             className="lg:w-1/2 w-full text-center lg:text-left pt-4 sm:pt-8 lg:pt-0"
           >
+            {/* Small tagline */}
             <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.2 }}
-              className="inline-flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6 border border-white/20 bg-black/40 backdrop-blur-md px-3 sm:px-4 py-1.5 sm:py-2 rounded-full"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+              className="mb-3 sm:mb-4"
             >
-              <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-[#c4ff4d] animate-pulse" />
-              <span className="text-[#c4ff4d] font-mono text-[10px] sm:text-xs tracking-widest uppercase">
-                Where Creativity Meets Revenue
+              <span className="text-white/50 font-light tracking-[0.2em] uppercase text-[10px] sm:text-xs">
+                Creative <span className="text-[#c4ff4d]">&times;</span> Intelligence
               </span>
             </motion.div>
 
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[7rem] 2xl:text-[8rem] font-black text-white tracking-tighter leading-[0.85] mb-4 sm:mb-6 lg:mb-8 drop-shadow-2xl">
-              <span className="block">CREATIVE</span>
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-white/50 font-serif italic font-light">
-                &times; INTELLIGENCE
-              </span>
-            </h1>
+            {/* Main Headline - AI-Powered Marketing */}
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white tracking-tight leading-[1.1] mb-2 sm:mb-3"
+            >
+              AI-Powered Marketing,
+            </motion.h1>
 
-            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/80 font-medium max-w-xl mx-auto lg:mx-0 mb-6 sm:mb-8 leading-relaxed px-2 sm:px-0">
-              AI-Powered Marketing Agency That Drives <span className="text-[#c4ff4d] underline decoration-2 underline-offset-4">Revenue</span>.
-            </p>
+            {/* Highlighted Line - Agency That Drives Revenue */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+              className="mb-6 sm:mb-8"
+            >
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black tracking-tight leading-[1.1]">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#c4ff4d] via-[#a8e063] to-[#56ab2f] drop-shadow-[0_0_30px_rgba(196,255,77,0.4)]">
+                  Agency That Drives Revenue
+                </span>
+              </h2>
+            </motion.div>
 
-            <div className="flex flex-wrap gap-3 sm:gap-4 justify-center lg:justify-start">
+            {/* Description Line */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 }}
+              className="text-base sm:text-lg md:text-xl text-white/70 font-light max-w-xl mx-auto lg:mx-0 mb-8 sm:mb-10 leading-relaxed px-2 sm:px-0"
+            >
+              We create <span className="text-white font-medium">world-class experiences</span> for ambitious brands and build <span className="text-white font-medium">AI solutions</span> for your growth.
+            </motion.p>
+
+            {/* CTA Buttons */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5 }}
+              className="flex flex-wrap gap-3 sm:gap-4 justify-center lg:justify-start"
+            >
               <Button 
-                className="h-12 sm:h-14 px-6 sm:px-10 rounded-full bg-[#c4ff4d] text-black font-black text-sm sm:text-lg hover:bg-[#b5f03a] hover:scale-105 transition-transform shadow-[0_0_40px_-10px_rgba(196,255,77,0.6)]"
+                className="h-12 sm:h-14 px-8 sm:px-10 rounded-full bg-[#c4ff4d] text-black font-bold text-sm sm:text-base hover:bg-[#b5f03a] hover:scale-105 transition-all shadow-[0_0_40px_-10px_rgba(196,255,77,0.6)]"
                 data-testid="button-start-talking"
               >
                 Start Talking
@@ -258,7 +287,7 @@ export default function HeroSection() {
                   View Services
                 </Button>
               </Link>
-            </div>
+            </motion.div>
 
           </motion.div>
 
