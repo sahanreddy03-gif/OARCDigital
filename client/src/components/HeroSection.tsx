@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { motion, useTransform, useMotionValue } from "framer-motion";
 import FloatingChipCarousel from "./FloatingChipCarousel";
 import heroBackground from '@assets/d375f1d50d97b0de7953ca2cecd2b8aea2cd96b2-3524x1181_1761251957292.avif';
+import { Sparkles, Bot, TrendingUp } from 'lucide-react';
 
 function useMousePosition() {
   const x = useMotionValue(0);
@@ -23,8 +24,8 @@ function useMousePosition() {
   return { x, y };
 }
 
-// AI Grid and flowing lines canvas
-const AIGridCanvas = () => {
+// Snow + Tech Lines Canvas
+const AtmosphereCanvas = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -37,65 +38,18 @@ const AIGridCanvas = () => {
     let h = canvas.height = window.innerHeight;
     let animationId: number;
 
-    const gridSize = 60;
-
-    // Snow/Particles
-    const particles = Array.from({ length: 60 }, () => ({
+    const particles = Array.from({ length: 80 }, () => ({
       x: Math.random() * w,
       y: Math.random() * h,
-      vx: (Math.random() - 0.5) * 0.8,
-      vy: Math.random() * 0.5 + 0.5,
-      size: Math.random() * 2 + 0.5,
-      opacity: Math.random() * 0.5 + 0.2,
-      trail: [] as { x: number, y: number }[]
-    }));
-
-    // Horizontal Data Lines
-    const flowLines = Array.from({ length: 6 }, (_, i) => ({
-      y: (h / 6) * i + 100,
-      offset: Math.random() * 100,
-      speed: 0.5 + Math.random() * 1,
-      opacity: 0.1 + Math.random() * 0.2
+      vx: (Math.random() - 0.5) * 0.5,
+      vy: Math.random() * 1 + 0.5,
+      size: Math.random() * 2,
+      opacity: Math.random() * 0.5 + 0.1
     }));
 
     const animate = () => {
       ctx.clearRect(0, 0, w, h);
 
-      // 1. Subtle Grid
-      ctx.strokeStyle = 'rgba(196, 255, 77, 0.04)';
-      ctx.lineWidth = 1;
-      for (let x = 0; x < w; x += gridSize) {
-        ctx.beginPath();
-        ctx.moveTo(x, 0);
-        ctx.lineTo(x, h);
-        ctx.stroke();
-      }
-      for (let y = 0; y < h; y += gridSize) {
-        ctx.beginPath();
-        ctx.moveTo(0, y);
-        ctx.lineTo(w, y);
-        ctx.stroke();
-      }
-
-      // 2. Flowing Data Lines
-      flowLines.forEach(line => {
-        line.offset += line.speed;
-        if (line.offset > w + 200) line.offset = -200;
-
-        const gradient = ctx.createLinearGradient(line.offset - 100, 0, line.offset + 200, 0);
-        gradient.addColorStop(0, 'rgba(0, 217, 255, 0)');
-        gradient.addColorStop(0.5, `rgba(0, 217, 255, ${line.opacity})`);
-        gradient.addColorStop(1, 'rgba(0, 217, 255, 0)');
-
-        ctx.strokeStyle = gradient;
-        ctx.lineWidth = 2;
-        ctx.beginPath();
-        ctx.moveTo(line.offset - 100, line.y);
-        ctx.lineTo(line.offset + 200, line.y);
-        ctx.stroke();
-      });
-
-      // 3. Snow Particles
       particles.forEach(p => {
         p.y += p.vy;
         p.x += p.vx;
@@ -128,131 +82,149 @@ const AIGridCanvas = () => {
   return <canvas ref={canvasRef} className="absolute inset-0 z-[1] pointer-events-none" />;
 };
 
+
 export default function HeroSection() {
   const { x, y } = useMousePosition();
-  const moveBackground = useTransform(x, [-1, 1], [-20, 20]);
-  const moveContent = useTransform(x, [-1, 1], [10, -10]);
+  const moveBackground = useTransform(x, [-1, 1], [-15, 15]);
+  const moveContent = useTransform(x, [-1, 1], [5, -5]);
 
   return (
-    <section className="relative min-h-[100dvh] bg-[#0A0E27] overflow-hidden flex flex-col justify-between selection:bg-[#00D9FF] selection:text-[#0A0E27]">
+    <section className="relative h-[100dvh] bg-black overflow-hidden flex flex-col justify-between selection:bg-[#c4ff4d] selection:text-black">
 
-      {/* BACKGROUND + EFFECTS */}
+      {/* --- BACKGROUND LAYER --- */}
       <motion.div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0 scale-105 opacity-50 contrast-125"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0 scale-110"
         style={{
           backgroundImage: `url(${heroBackground})`,
           x: moveBackground,
-          y: useTransform(y, [-1, 1], [-20, 20]),
+          y: useTransform(y, [-1, 1], [-15, 15]),
         }}
       />
-      <AIGridCanvas />
 
-      {/* VIGNETTE GRADIENTS */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[#0A0E27] via-[#0A0E27]/80 to-[#0A0E27]/60 pointer-events-none z-[2]" />
-      <div className="absolute inset-0 bg-gradient-to-t from-[#0A0E27] via-transparent to-[#0A0E27]/50 pointer-events-none z-[2]" />
+      {/* --- ATMOSPHERE LAYERS --- */}
+      <AtmosphereCanvas />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent z-[2]" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30 z-[2]" />
 
-      {/* --- CENTERED CONTENT --- */}
-      <div className="relative z-10 container mx-auto px-6 md:px-12 flex-grow flex flex-col justify-center items-center text-center pt-32 pb-10">
-        <motion.div style={{ x: moveContent }} className="max-w-[1200px]">
-
-          {/* 1. TAGLINE */}
+      {/* --- MAIN CONTENT (Centered Vertical) --- */}
+      <div className="relative z-10 flex-grow flex flex-col justify-center px-6 sm:px-12 md:px-20 lg:px-32">
+        <motion.div
+          style={{ x: moveContent }}
+          className="max-w-4xl"
+        >
+          {/* Tagline */}
           <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-xs md:text-sm font-medium tracking-[0.2em] text-slate-400 uppercase mb-6"
+            className="flex items-center gap-3 mb-6"
           >
-            Where Creativity Meets Revenue
+            <div className="h-[1px] w-12 bg-[#c4ff4d]" />
+            <span className="text-[#c4ff4d] text-xs sm:text-sm font-bold tracking-[0.3em] uppercase">
+              Where Creativity Meets Revenue
+            </span>
           </motion.div>
 
-          {/* 2. HEADLINE */}
-          <motion.h1
+          {/* Headline Block (Tight Spacing) */}
+          <div className="mb-8">
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className="text-5xl sm:text-6xl md:text-8xl font-bold text-white leading-[0.9] tracking-tight drop-shadow-2xl"
+            >
+              AI-Powered <br /> Marketing.
+            </motion.h1>
+          </div>
+
+          {/* The Math Equation */}
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="text-3xl sm:text-4xl md:text-6xl lg:text-[4rem] font-bold text-white leading-[1.2] mb-8 max-w-[900px] mx-auto drop-shadow-2xl"
-          >
-            Build the Brand You've Always Imagined. <br className="hidden md:block" />
-            With the Growth You Actually Need.
-          </motion.h1>
-
-          {/* 3. OARC PILLARS */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.3 }}
-            className="mb-8"
+            className="mb-10 pl-1 border-l-2 border-[#c4ff4d]/30"
           >
-            {/* Desktop Version */}
-            <div className="hidden md:block text-base font-medium text-slate-400 tracking-wide">
-              <span className="text-xl font-bold text-[#00D9FF]">O</span>utcomes-Driven •&nbsp;
-              <span className="text-xl font-bold text-[#00D9FF]">A</span>I-Powered •&nbsp;
-              <span className="text-xl font-bold text-[#00D9FF]">R</span>evenue-Focused •&nbsp;
-              <span className="text-xl font-bold text-[#00D9FF]">C</span>reative-First
-            </div>
-
-            {/* Mobile Version */}
-            <div className="block md:hidden text-sm font-medium text-slate-400 whitespace-nowrap">
-              <span className="text-lg font-bold text-[#00D9FF]">O</span>utcomes •&nbsp;
-              <span className="text-lg font-bold text-[#00D9FF]">A</span>I •&nbsp;
-              <span className="text-lg font-bold text-[#00D9FF]">R</span>evenue •&nbsp;
-              <span className="text-lg font-bold text-[#00D9FF]">C</span>reative
-            </div>
+            <p className="text-white/80 text-lg sm:text-xl md:text-2xl font-light italic leading-relaxed pl-6">
+              Certified AI Talent + Tailored Workflows + Measurable Growth = <br />
+              <span className="text-white font-bold not-italic">Less Cost. More Reach. More Sales.</span>
+            </p>
           </motion.div>
 
-          {/* 4. DESCRIPTOR */}
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.4 }}
-            className="text-base md:text-xl text-slate-300 font-normal mb-10 max-w-[600px] mx-auto"
-          >
-            AI-native Marketing agency that drives revenue
-          </motion.p>
-
-          {/* 5. CTAs */}
+          {/* CTA + Service Graphics */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5 }}
-            className="flex flex-col items-center gap-6"
+            transition={{ delay: 0.4 }}
+            className="flex flex-col sm:flex-row items-start sm:items-center gap-8"
           >
-            {/* Primary */}
+            {/* Main Button */}
             <Link href="/contact">
               <Button
-                className="h-14 px-12 rounded-lg bg-[#00D9FF] text-[#0A0E27] font-semibold text-lg shadow-[0_4px_12px_rgba(0,217,255,0.3)] hover:brightness-110 hover:-translate-y-0.5 transition-all w-full sm:w-auto"
-                data-testid="button-start-growing"
+                className="h-14 px-10 rounded-full bg-[#c4ff4d] text-black font-bold text-lg hover:bg-[#b5f03a] hover:scale-105 transition-all shadow-[0_0_20px_rgba(196,255,77,0.3)]"
+                data-testid="button-start-talking"
               >
-                Start Growing
+                Start Talking
               </Button>
             </Link>
 
-            {/* Secondary Group */}
-            <div className="flex flex-wrap justify-center gap-4 w-full overflow-x-auto pb-2 sm:pb-0 px-4 scrollbar-hide">
-              {[
-                { label: "Creative", link: "/services/social-media-creative-management" },
-                { label: "AI Ops", link: "/services/ai-consulting" },
-                { label: "Growth", link: "/services/lead-generation" }
-              ].map((btn) => (
-                <Link key={btn.label} href={btn.link}>
-                  <button 
-                    className="flex-shrink-0 px-6 py-3 rounded-md bg-transparent border border-[#00D9FF]/50 text-white font-medium text-sm hover:bg-[#00D9FF] hover:text-[#0A0E27] transition-all whitespace-nowrap"
-                    data-testid={`button-service-${btn.label.toLowerCase().replace(' ', '-')}`}
-                  >
-                    {btn.label}
-                  </button>
-                </Link>
-              ))}
+            {/* Graphics Leading to Services */}
+            <div className="flex items-center gap-6">
+              <Link href="/services/social-media-creative-management">
+                <div className="group flex flex-col items-center gap-1 cursor-pointer">
+                  <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center border border-white/20 group-hover:border-[#c4ff4d] group-hover:bg-[#c4ff4d]/10 transition-all">
+                    <Sparkles className="w-5 h-5 text-white group-hover:text-[#c4ff4d]" />
+                  </div>
+                  <span className="text-[10px] uppercase font-bold text-white/60 group-hover:text-white">Creative</span>
+                </div>
+              </Link>
+
+              <div className="w-[1px] h-8 bg-white/10" />
+
+              <Link href="/services/ai-consulting">
+                <div className="group flex flex-col items-center gap-1 cursor-pointer">
+                  <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center border border-white/20 group-hover:border-[#c4ff4d] group-hover:bg-[#c4ff4d]/10 transition-all">
+                    <Bot className="w-5 h-5 text-white group-hover:text-[#c4ff4d]" />
+                  </div>
+                  <span className="text-[10px] uppercase font-bold text-white/60 group-hover:text-white">AI Ops</span>
+                </div>
+              </Link>
+
+              <div className="w-[1px] h-8 bg-white/10" />
+
+              <Link href="/services/lead-generation">
+                <div className="group flex flex-col items-center gap-1 cursor-pointer">
+                  <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center border border-white/20 group-hover:border-[#c4ff4d] group-hover:bg-[#c4ff4d]/10 transition-all">
+                    <TrendingUp className="w-5 h-5 text-white group-hover:text-[#c4ff4d]" />
+                  </div>
+                  <span className="text-[10px] uppercase font-bold text-white/60 group-hover:text-white">Growth</span>
+                </div>
+              </Link>
             </div>
           </motion.div>
-
         </motion.div>
       </div>
 
-      {/* --- FOOTER: CAROUSEL --- */}
-      <div className="relative z-20 w-full mb-0 md:mb-4">
-        <div className="w-full h-12 bg-gradient-to-b from-transparent to-[#0A0E27] absolute -top-12 pointer-events-none" />
-        <FloatingChipCarousel />
+      {/* --- FOOTER SECTION: Green Wave + Carousel --- */}
+      <div className="relative z-10 w-full">
+        {/* Green Wave */}
+        <div className="absolute bottom-0 left-0 right-0 h-[80px] pointer-events-none">
+          <svg viewBox="0 0 1440 80" className="w-full h-full" preserveAspectRatio="none">
+            <path
+              d="M0,30 C320,55 1120,5 1440,30 L1440,80 L0,80 Z"
+              fill="#c4ff4d"
+            />
+            <path
+              d="M0,34 C320,59 1120,9 1440,34 L1440,80 L0,80 Z"
+              fill="#000"
+              opacity="0.1"
+            />
+          </svg>
+        </div>
+
+        {/* Carousel Overlaying the Green Block */}
+        <div className="relative z-20 pb-4 pt-10">
+          <FloatingChipCarousel />
+        </div>
       </div>
 
     </section>
