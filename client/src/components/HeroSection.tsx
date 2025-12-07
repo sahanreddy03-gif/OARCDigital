@@ -1,361 +1,300 @@
-import { useEffect, useRef, useState } from "react";
-import { Link } from "wouter";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { motion, useTransform, useMotionValue } from "framer-motion";
-import { Instagram, Bot, Code2, Video } from 'lucide-react';
 import FloatingChipCarousel from "./FloatingChipCarousel";
-
-const cubeServices = [
-  { id: "social", title: "Social Media", subtitle: "Viral Growth Engine", icon: Instagram, color: "#E1306C", route: "/services/social-media-management" },
-  { id: "software", title: "Custom AI", subtitle: "Neural Systems", icon: Code2, color: "#3B82F6", route: "/services/custom-ai-software" },
-  { id: "consulting", title: "AI Consulting", subtitle: "Strategic Intelligence", icon: Bot, color: "#c4ff4d", route: "/services/ai-consulting" },
-  { id: "video", title: "Video Production", subtitle: "Cinematic Excellence", icon: Video, color: "#F59E0B", route: "/services/video-production" }
-];
-
-function useMousePosition() {
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      const normalizedX = (e.clientX / window.innerWidth) * 2 - 1;
-      const normalizedY = (e.clientY / window.innerHeight) * 2 - 1;
-      x.set(normalizedX);
-      y.set(normalizedY);
-    };
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, [x, y]);
-  return { x, y };
-}
-
-function SnowfallBackground() {
-  const particles = Array.from({ length: 80 }, (_, i) => ({
-    id: i,
-    left: Math.random() * 100,
-    delay: Math.random() * 8,
-    duration: 6 + Math.random() * 8,
-    size: 1 + Math.random() * 2,
-    opacity: 0.3 + Math.random() * 0.5,
-    drift: -20 + Math.random() * 40,
-  }));
-
-  return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      {particles.map((p) => (
-        <div
-          key={p.id}
-          className="absolute rounded-full bg-white"
-          style={{
-            left: `${p.left}%`,
-            width: `${p.size}px`,
-            height: `${p.size}px`,
-            opacity: p.opacity,
-            animation: `snowfall ${p.duration}s linear ${p.delay}s infinite`,
-            filter: p.size > 2 ? 'blur(0.5px)' : 'none',
-          }}
-        />
-      ))}
-      <style>{`
-        @keyframes snowfall {
-          0% {
-            transform: translateY(-20px) translateX(0px);
-            opacity: 0;
-          }
-          10% {
-            opacity: var(--particle-opacity, 0.5);
-          }
-          90% {
-            opacity: var(--particle-opacity, 0.5);
-          }
-          100% {
-            transform: translateY(100vh) translateX(var(--drift, 20px));
-            opacity: 0;
-          }
-        }
-      `}</style>
-    </div>
-  );
-}
-
-function RotatingCube() {
-  const [currentFace, setCurrentFace] = useState(0);
-  const [isHovered, setIsHovered] = useState(false);
-
-  useEffect(() => {
-    if (isHovered) return;
-    const interval = setInterval(() => {
-      setCurrentFace((prev) => (prev + 1) % 4);
-    }, 3500);
-    return () => clearInterval(interval);
-  }, [isHovered]);
-
-  const rotationY = currentFace * -90;
-
-  return (
-    <div 
-      className="relative w-[320px] h-[400px] md:w-[380px] md:h-[480px]"
-      style={{ perspective: '1200px' }}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      <div 
-        className="absolute inset-0 w-full h-full transition-transform duration-1000 ease-[cubic-bezier(0.4,0,0.2,1)]"
-        style={{ 
-          transformStyle: 'preserve-3d',
-          transform: `rotateY(${rotationY}deg)`,
-        }}
-      >
-        {cubeServices.map((service, index) => {
-          const faceRotation = index * 90;
-          const translateZ = 190;
-
-          return (
-            <Link key={service.id} href={service.route}>
-              <div
-                className="absolute inset-0 w-full h-full rounded-3xl overflow-hidden cursor-pointer group"
-                style={{
-                  transform: `rotateY(${faceRotation}deg) translateZ(${translateZ}px)`,
-                  backfaceVisibility: 'hidden',
-                }}
-              >
-                <div 
-                  className="absolute inset-0 bg-gradient-to-br from-zinc-900/95 via-zinc-900/90 to-black/95 backdrop-blur-xl"
-                />
-                
-                <div 
-                  className="absolute inset-0 opacity-30 group-hover:opacity-50 transition-opacity duration-500"
-                  style={{
-                    background: `radial-gradient(circle at 30% 20%, ${service.color}40 0%, transparent 50%),
-                                 radial-gradient(circle at 70% 80%, ${service.color}20 0%, transparent 40%)`
-                  }}
-                />
-
-                <div 
-                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700"
-                  style={{
-                    background: `conic-gradient(from 180deg at 50% 50%, transparent 0deg, ${service.color}15 90deg, transparent 180deg, ${service.color}10 270deg, transparent 360deg)`
-                  }}
-                />
-
-                <div className="absolute inset-[1px] rounded-3xl border border-white/10 group-hover:border-white/20 transition-colors duration-300" />
-                
-                <div 
-                  className="absolute top-0 left-0 right-0 h-[1px] opacity-60 group-hover:opacity-100 transition-opacity"
-                  style={{ background: `linear-gradient(90deg, transparent, ${service.color}, transparent)` }}
-                />
-
-                <div className="relative h-full flex flex-col justify-between p-8">
-                  <div className="flex items-start justify-between">
-                    <div 
-                      className="w-16 h-16 rounded-2xl flex items-center justify-center backdrop-blur-md transition-all duration-500 group-hover:scale-110"
-                      style={{ 
-                        background: `linear-gradient(135deg, ${service.color}30, ${service.color}10)`,
-                        boxShadow: `0 0 30px ${service.color}20`
-                      }}
-                    >
-                      <service.icon className="w-8 h-8 text-white" />
-                    </div>
-                    <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10">
-                      <div 
-                        className="w-2 h-2 rounded-full animate-pulse"
-                        style={{ backgroundColor: service.color }}
-                      />
-                      <span className="text-[10px] font-mono uppercase tracking-wider text-white/60">Active</span>
-                    </div>
-                  </div>
-
-                  <div className="space-y-4">
-                    <div>
-                      <h3 className="text-3xl md:text-4xl font-black text-white tracking-tight leading-none mb-2">
-                        {service.title}
-                      </h3>
-                      <p className="text-lg text-white/50 font-light">{service.subtitle}</p>
-                    </div>
-
-                    <div className="flex items-center gap-3 pt-4 border-t border-white/10">
-                      <div 
-                        className="flex-1 h-12 rounded-xl flex items-center justify-center font-semibold text-sm tracking-wide transition-all duration-300 group-hover:scale-[1.02]"
-                        style={{ 
-                          background: `linear-gradient(135deg, ${service.color}, ${service.color}cc)`,
-                          color: service.color === '#c4ff4d' ? '#000' : '#fff',
-                          boxShadow: `0 10px 40px ${service.color}40`
-                        }}
-                      >
-                        Explore Service
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div 
-                  className="absolute inset-0 opacity-0 group-hover:opacity-30 transition-opacity duration-500 pointer-events-none"
-                  style={{
-                    background: 'linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 50%, rgba(255,255,255,0.05) 100%)'
-                  }}
-                />
-              </div>
-            </Link>
-          );
-        })}
-      </div>
-
-      <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 flex gap-2">
-        {cubeServices.map((service, index) => (
-          <button
-            key={service.id}
-            onClick={() => setCurrentFace(index)}
-            className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-              currentFace === index 
-                ? 'scale-125' 
-                : 'bg-white/20 hover:bg-white/40'
-            }`}
-            style={{
-              backgroundColor: currentFace === index ? service.color : undefined,
-              boxShadow: currentFace === index ? `0 0 15px ${service.color}` : undefined
-            }}
-          />
-        ))}
-      </div>
-
-      <div 
-        className="absolute -bottom-20 left-1/2 -translate-x-1/2 w-[400px] h-[200px] rounded-full blur-[80px] opacity-20 pointer-events-none"
-        style={{ backgroundColor: cubeServices[currentFace].color }}
-      />
-    </div>
-  );
-}
+import heroBackground from '@assets/d375f1d50d97b0de7953ca2cecd2b8aea2cd96b2-3524x1181_1761251957292.avif';
 
 export default function HeroSection() {
-  const { x, y } = useMousePosition();
-  
-  const moveBackground = useTransform(x, [-1, 1], [-20, 20]);
-  const moveText = useTransform(x, [-1, 1], [10, -10]);
-  const moveCube = useTransform(x, [-1, 1], [25, -25]);
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
-    <section className="relative h-[100dvh] bg-[#030308] overflow-hidden flex flex-col justify-between selection:bg-[#c4ff4d] selection:text-black">
+    <>
+      <style>{`
+        @keyframes float {
+          0%, 100% { transform: translateY(0) translateX(0); opacity: 0.3; }
+          50% { transform: translateY(-60px) translateX(30px); opacity: 0.8; }
+        }
+        @keyframes lightSweep {
+          0% { transform: translateX(-100%) rotate(-15deg); }
+          100% { transform: translateX(200%) rotate(-15deg); }
+        }
+        @keyframes scanHorizontal1 {
+          0% { transform: translateX(-100%); opacity: 0; }
+          10% { opacity: 0.4; }
+          90% { opacity: 0.4; }
+          100% { transform: translateX(100vw); opacity: 0; }
+        }
+        @keyframes scanHorizontal2 {
+          0% { transform: translateX(-100%); opacity: 0; }
+          10% { opacity: 0.3; }
+          90% { opacity: 0.3; }
+          100% { transform: translateX(100vw); opacity: 0; }
+        }
+        @keyframes gridPulse {
+          0%, 100% { opacity: 0.06; }
+          50% { opacity: 0.12; }
+        }
+        @keyframes particleFloat {
+          0%, 100% { transform: translate(0, 0); opacity: 0.4; }
+          33% { transform: translate(20px, -30px); opacity: 0.8; }
+          66% { transform: translate(-15px, -50px); opacity: 0.6; }
+        }
+        @keyframes fadeSlideUp {
+          from { opacity: 0; transform: translateY(20px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes snowfall {
+          0% { transform: translateY(-10px) translateX(0); opacity: 0; }
+          10% { opacity: 0.8; }
+          90% { opacity: 0.6; }
+          100% { transform: translateY(100vh) translateX(20px); opacity: 0; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+          @keyframes fadeSlideUp {
+            from { opacity: 0; }
+            to { opacity: 1; }
+          }
+        }
+        @media (orientation: landscape) and (max-height: 500px) {
+          .landscape-hero-mobile-hidden { display: none !important; }
+          .landscape-hero-desktop { display: block !important; }
+        }
+      `}</style>
       
-      <motion.div 
-        className="absolute inset-[-10%] w-[120%] h-[120%]"
-        style={{ x: moveBackground, y: useTransform(y, [-1, 1], [-20, 20]) }}
-      >
-        <div className="absolute top-[10%] left-[10%] w-[500px] h-[500px] bg-purple-600/15 rounded-full blur-[150px] animate-pulse" />
-        <div className="absolute bottom-[10%] right-[10%] w-[600px] h-[600px] bg-cyan-500/10 rounded-full blur-[150px]" />
-        <div className="absolute top-[40%] right-[30%] w-[400px] h-[400px] bg-[#c4ff4d]/8 rounded-full blur-[120px]" />
-        <div className="absolute bottom-[30%] left-[20%] w-[300px] h-[300px] bg-pink-500/10 rounded-full blur-[100px]" />
-      </motion.div>
-
-      <SnowfallBackground />
-
-      <div className="absolute inset-0 opacity-[0.03]" 
-           style={{ 
-             backgroundImage: 'linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)', 
-             backgroundSize: '80px 80px' 
-           }} 
-      />
-
-      <div className="relative z-10 container mx-auto px-6 h-full flex flex-col pt-20 md:pt-0 justify-center">
+      <section className="relative min-h-screen flex flex-col overflow-hidden bg-black">
         
-        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16 h-full justify-center">
-          
-          <motion.div 
-            style={{ x: moveText, y: useTransform(y, [-1, 1], [10, -10]) }}
-            className="lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left z-20"
-          >
-             <div className="flex items-center gap-3 mb-6">
-                <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md">
-                  <div className="w-2 h-2 rounded-full bg-[#c4ff4d] animate-pulse" />
-                  <span className="text-xs font-mono text-white/60 tracking-[0.15em] uppercase">
-                    AI-Powered Agency
-                  </span>
-                </div>
-             </div>
-
-             <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-white tracking-tighter leading-[0.9] mb-3">
-               <span className="block">REVENUE</span>
-               <span className="block bg-gradient-to-r from-[#c4ff4d] via-[#a8e063] to-[#56ab2f] bg-clip-text text-transparent">
-                 ENGINE
-               </span>
-             </h1>
-
-             <h2 className="text-xl md:text-3xl lg:text-4xl font-medium text-white/40 mb-6 tracking-tight">
-               The Agency That <span className="text-white font-bold">Scales</span>
-             </h2>
-
-             <div className="flex items-center justify-center lg:justify-start gap-4 mb-8 w-full">
-                <div className="h-px w-16 bg-gradient-to-r from-transparent via-white/30 to-transparent hidden lg:block" />
-                <span className="text-lg md:text-xl font-serif italic text-white/80">
-                    Creative <span className="text-[#c4ff4d] font-normal not-italic">&times;</span> Intelligence
-                </span>
-                <div className="h-px w-16 bg-gradient-to-r from-transparent via-white/30 to-transparent hidden lg:block" />
-             </div>
-
-             <p className="text-base md:text-lg text-white/50 font-light leading-relaxed max-w-lg mb-10">
-               We build <span className="text-white font-medium">autonomous systems</span> and <span className="text-white font-medium">world-class creative</span> for ambitious brands ready to dominate.
-             </p>
-
-             <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
-                 <Button 
-                   className="h-14 px-10 rounded-full bg-[#c4ff4d] hover:bg-[#d4ff6d] text-black font-bold text-base tracking-wide transition-all duration-300 hover:scale-105 hover:shadow-[0_0_50px_rgba(196,255,77,0.4)]"
-                   data-testid="button-start-growing"
-                 >
-                   Start Growing
-                 </Button>
-               <Link href="/services">
-                 <Button 
-                   variant="outline" 
-                   className="h-14 px-8 rounded-full text-white border-white/20 hover:border-white/40 hover:bg-white/5 font-medium text-base backdrop-blur-sm"
-                   data-testid="button-view-services"
-                 >
-                   View Services
-                 </Button>
-               </Link>
-             </div>
-
-             <div className="flex items-center gap-8 mt-10 pt-8 border-t border-white/10 w-full max-w-md">
-               <div className="text-center lg:text-left">
-                 <div className="text-2xl font-bold text-white">150+</div>
-                 <div className="text-xs text-white/40 uppercase tracking-wider">Brands Scaled</div>
-               </div>
-               <div className="w-px h-10 bg-white/10" />
-               <div className="text-center lg:text-left">
-                 <div className="text-2xl font-bold text-white">$12M+</div>
-                 <div className="text-xs text-white/40 uppercase tracking-wider">Revenue Generated</div>
-               </div>
-               <div className="w-px h-10 bg-white/10" />
-               <div className="text-center lg:text-left">
-                 <div className="text-2xl font-bold text-[#c4ff4d]">24/7</div>
-                 <div className="text-xs text-white/40 uppercase tracking-wider">AI Systems</div>
-               </div>
-             </div>
-          </motion.div>
-
-          <motion.div 
-             style={{ x: moveCube, y: useTransform(y, [-1, 1], [20, -20]) }}
-             className="lg:w-1/2 w-full flex justify-center lg:justify-center hidden lg:flex"
-          >
-             <RotatingCube />
-          </motion.div>
-
+        {/* Snowfall Effect - Continuous falling white dots */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none z-[5]">
+          {Array.from({ length: 60 }).map((_, i) => (
+            <div
+              key={i}
+              className="absolute rounded-full bg-white"
+              style={{
+                left: `${Math.random() * 100}%`,
+                width: `${1 + Math.random() * 2}px`,
+                height: `${1 + Math.random() * 2}px`,
+                opacity: 0.3 + Math.random() * 0.5,
+                animation: `snowfall ${8 + Math.random() * 10}s linear ${Math.random() * 10}s infinite`,
+              }}
+            />
+          ))}
         </div>
-      </div>
 
-      <motion.div 
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.5, duration: 0.8 }}
-        className="relative z-20 w-full bg-gradient-to-t from-[#030308] via-[#030308]/95 to-transparent pb-6 pt-8"
-      >
-          <div className="container mx-auto px-6 flex items-center justify-between mb-4 border-b border-white/5 pb-3">
-            <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-white/30">Capability Stream</span>
-            <div className="flex items-center gap-2">
-              <div className="w-1.5 h-1.5 rounded-full bg-[#c4ff4d] animate-pulse" />
-              <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-[#c4ff4d]/80">Live</span>
+        {/* Mobile Layout - Clean bottom-aligned layout (hidden in landscape) */}
+        <div className="md:hidden landscape-hero-mobile-hidden absolute inset-0">
+          <div 
+            className="absolute inset-0 bg-cover bg-no-repeat"
+            style={{ 
+              backgroundImage: `url(${heroBackground})`,
+              backgroundPosition: '60% center'
+            }}
+          />
+          {/* AI Grid Overlay - Mobile with pulse */}
+          <div className="absolute inset-0" 
+               style={{
+                 backgroundImage: 'linear-gradient(rgba(196, 255, 77, 0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(196, 255, 77, 0.3) 1px, transparent 1px)',
+                 backgroundSize: '40px 40px',
+                 animation: 'gridPulse 8s ease-in-out infinite'
+               }} 
+          />
+          {/* Horizontal data streams - Mobile */}
+          <div className="absolute w-[200px] h-[1px] bg-gradient-to-r from-transparent via-[#c4ff4d]/50 to-transparent" 
+               style={{ 
+                 top: '25%', 
+                 boxShadow: '0 0 8px rgba(196, 255, 77, 0.4)',
+                 animation: 'scanHorizontal1 8s linear infinite'
+               }} 
+          />
+          <div className="absolute w-[150px] h-[1px] bg-gradient-to-r from-transparent via-[#c4ff4d]/40 to-transparent" 
+               style={{ 
+                 top: '45%', 
+                 boxShadow: '0 0 6px rgba(196, 255, 77, 0.3)', 
+                 animation: 'scanHorizontal2 10s linear 3s infinite'
+               }} 
+          />
+          <div className="absolute w-[180px] h-[1px] bg-gradient-to-r from-transparent via-[#c4ff4d]/35 to-transparent" 
+               style={{ 
+                 top: '65%', 
+                 boxShadow: '0 0 7px rgba(196, 255, 77, 0.3)', 
+                 animation: 'scanHorizontal1 12s linear 5s infinite'
+               }} 
+          />
+          {/* Lighter gradient to show more color */}
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent from-0% via-zinc-950/60 via-50% to-zinc-950/85 to-95%"></div>
+        </div>
+
+        {/* Desktop Layout - Horizontal with side fade - Shifted right to show more color (also shown in landscape) */}
+        <div 
+          className="hidden md:block landscape-hero-desktop absolute inset-0 bg-cover bg-no-repeat transition-transform duration-100 ease-out"
+          style={{ 
+            backgroundImage: `url(${heroBackground})`,
+            backgroundPosition: '35% center',
+            transform: `translateY(${scrollY * 0.3}px)`
+          }}
+        />
+        
+        {/* AI Grid Overlay - Desktop with pulse (also shown in landscape) */}
+        <div className="hidden md:block landscape-hero-desktop absolute inset-0" 
+             style={{
+               backgroundImage: 'linear-gradient(rgba(196, 255, 77, 0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(196, 255, 77, 0.3) 1px, transparent 1px)',
+               backgroundSize: '50px 50px',
+               animation: 'gridPulse 10s ease-in-out infinite'
+             }} 
+        />
+        
+        {/* Floating light particles - Desktop with varied animation (also shown in landscape) */}
+        <div className="hidden md:block landscape-hero-desktop absolute w-1.5 h-1.5 rounded-full bg-[#c4ff4d]" 
+             style={{ 
+               top: '20%', 
+               left: '15%', 
+               boxShadow: '0 0 20px #c4ff4d',
+               animation: 'particleFloat 8s ease-in-out infinite'
+             }} 
+        />
+        <div className="hidden md:block landscape-hero-desktop absolute w-1 h-1 rounded-full bg-[#c4ff4d]" 
+             style={{ 
+               top: '60%', 
+               left: '25%', 
+               boxShadow: '0 0 15px #c4ff4d', 
+               animation: 'particleFloat 10s ease-in-out 2s infinite'
+             }} 
+        />
+        <div className="hidden md:block landscape-hero-desktop absolute w-1.5 h-1.5 rounded-full bg-[#c4ff4d]" 
+             style={{ 
+               top: '40%', 
+               left: '35%', 
+               boxShadow: '0 0 18px #c4ff4d', 
+               animation: 'particleFloat 9s ease-in-out 4s infinite'
+             }} 
+        />
+        <div className="hidden md:block landscape-hero-desktop absolute w-1 h-1 rounded-full bg-[#c4ff4d]" 
+             style={{ 
+               top: '30%', 
+               left: '45%', 
+               boxShadow: '0 0 16px #c4ff4d', 
+               animation: 'particleFloat 11s ease-in-out 6s infinite'
+             }} 
+        />
+        
+        {/* Horizontal data streams - Desktop (also shown in landscape) */}
+        <div className="hidden md:block landscape-hero-desktop absolute w-[300px] h-[1px] bg-gradient-to-r from-transparent via-[#c4ff4d]/40 to-transparent" 
+             style={{ 
+               top: '28%', 
+               left: 0, 
+               boxShadow: '0 0 10px rgba(196, 255, 77, 0.4)',
+               animation: 'scanHorizontal1 10s linear infinite'
+             }} 
+        />
+        <div className="hidden md:block landscape-hero-desktop absolute w-[250px] h-[1px] bg-gradient-to-r from-transparent via-[#c4ff4d]/35 to-transparent" 
+             style={{ 
+               top: '48%', 
+               left: 0, 
+               boxShadow: '0 0 8px rgba(196, 255, 77, 0.3)', 
+               animation: 'scanHorizontal2 12s linear 4s infinite'
+             }} 
+        />
+        <div className="hidden md:block landscape-hero-desktop absolute w-[280px] h-[1px] bg-gradient-to-r from-transparent via-[#c4ff4d]/30 to-transparent" 
+             style={{ 
+               top: '68%', 
+               left: 0, 
+               boxShadow: '0 0 9px rgba(196, 255, 77, 0.3)', 
+               animation: 'scanHorizontal1 14s linear 7s infinite'
+             }} 
+        />
+        <div className="hidden md:block landscape-hero-desktop absolute w-[200px] h-[1px] bg-gradient-to-r from-transparent via-[#c4ff4d]/25 to-transparent" 
+             style={{ 
+               top: '82%', 
+               left: 0, 
+               boxShadow: '0 0 7px rgba(196, 255, 77, 0.2)', 
+               animation: 'scanHorizontal2 16s linear 10s infinite'
+             }} 
+        />
+        
+        {/* Light Sweep Effect (also shown in landscape) */}
+        <div className="hidden md:block landscape-hero-desktop absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute w-1/3 h-[200%] -top-1/2 bg-gradient-to-r from-transparent via-white/5 to-transparent" 
+               style={{ animation: 'lightSweep 15s ease-in-out 2s infinite' }} 
+          />
+        </div>
+        
+        {/* Desktop Gradients */}
+        <div className="hidden md:block landscape-hero-desktop absolute inset-0 bg-gradient-to-r from-black/80 via-black/30 to-transparent"></div>
+        <div className="hidden md:block landscape-hero-desktop absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/50"></div>
+        <div className="hidden md:block landscape-hero-desktop absolute inset-0 bg-gradient-to-l from-transparent via-black/10 to-black/60"></div>
+        
+        {/* Mobile: Bottom-aligned flex column | Desktop: Same compact layout */}
+        <div className="relative z-10 flex-1 flex flex-col justify-end pt-14 md:pt-20 pb-6 md:pb-6">
+          {/* Content wrapper */}
+          <div className="w-full">
+            <div className="max-w-7xl w-full mx-auto px-5 md:px-8">
+              <div className="w-full md:max-w-xl text-center md:text-left">
+                {/* Mobile only: glassmorphism panel */}
+                <div className="relative md:before:content-none before:absolute before:inset-0 before:-z-10 before:bg-black/50 before:blur-xl before:rounded-[32px] before:-m-4">
+                  <div className="mb-4 md:mb-5">
+                    <span className="text-[10px] md:text-[9px] lg:text-[10px] uppercase tracking-[0.25em] font-light text-white/90 leading-none" style={{ textShadow: '0 0 20px rgba(255, 255, 255, 0.3)' }}>
+                      WHERE CREATIVITY MEETS REVENUE
+                    </span>
+                  </div>
+
+                  <h1 className="mb-4 md:mb-4 text-white" style={{ fontSize: 'clamp(2rem, 5vw, 2.5rem)', animation: 'fadeSlideUp 0.8s ease-out' }}>
+                    <span className="block font-bold tracking-tight leading-[1.1]">
+                      AI-Powered Marketing,
+                    </span>
+                    <span className="block font-extralight italic font-serif tracking-tight leading-[1.1] mt-1">
+                      Agency That Drives Revenue
+                    </span>
+                  </h1>
+
+                  <p className="text-[15px] md:text-sm text-white/95 max-w-xl mx-auto md:mx-0 leading-relaxed mb-5 md:mb-4 font-light tracking-wide">
+                    Certified AI talent + Tailored Workflows + Measurable Growth = Less Cost. More Reach. More Sales
+                  </p>
+
+                  <div className="flex flex-col items-center md:items-start gap-3">
+                    <Button 
+                      size="lg" 
+                      className="rounded-full text-[15px] md:text-sm px-10 md:px-7 py-6 md:py-4 h-auto font-bold bg-[#c4ff4d] text-black hover:bg-[#b5ef3d] shadow-2xl hover:shadow-[0_0_40px_rgba(196,255,77,0.4)] transition-all border-0 hover:scale-105"
+                      data-testid="button-start-talking"
+                    >
+                      Start Talking
+                    </Button>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          <FloatingChipCarousel />
-      </motion.div>
 
-    </section>
+          {/* Carousel - compact size on desktop */}
+          <div className="w-full mt-8 md:mt-5 relative">
+            <FloatingChipCarousel />
+            {/* Curved green wave below carousel */}
+            <div className="absolute -bottom-8 md:-bottom-12 left-0 right-0 pointer-events-none">
+              <svg 
+                viewBox="0 0 1440 120" 
+                className="w-full h-auto"
+                preserveAspectRatio="none"
+              >
+                <path 
+                  d="M0,60 C360,120 720,0 1080,60 C1260,90 1380,80 1440,60 L1440,120 L0,120 Z" 
+                  fill="#c4ff4d"
+                  opacity="0.4"
+                />
+                <path 
+                  d="M0,80 C320,40 640,100 960,60 C1200,30 1360,70 1440,50 L1440,120 L0,120 Z" 
+                  fill="#c4ff4d"
+                  opacity="0.25"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
   );
 }
