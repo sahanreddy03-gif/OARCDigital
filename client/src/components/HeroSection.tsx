@@ -2,15 +2,15 @@ import { useEffect, useRef, useState } from "react";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { motion, useTransform, useMotionValue, AnimatePresence } from "framer-motion";
-import { ArrowRight, Sparkles, Zap, TrendingUp, Globe } from 'lucide-react';
+import { ArrowRight, Instagram, Bot, Video, Code2 } from 'lucide-react';
 import FloatingChipCarousel from "./FloatingChipCarousel";
 import heroBackground from '@assets/d375f1d50d97b0de7953ca2cecd2b8aea2cd96b2-3524x1181_1761251957292.avif';
 
-const landingPages = [
-  { id: 1, title: "E-Commerce", subtitle: "Automated Sales", icon: TrendingUp },
-  { id: 2, title: "SaaS Platform", subtitle: "User Dashboard", icon: Globe },
-  { id: 3, title: "AI Solutions", subtitle: "24/7 Support", icon: Sparkles },
-  { id: 4, title: "Growth Engine", subtitle: "High Engagement", icon: Zap },
+const services = [
+  { id: 1, label: "Social Media", icon: Instagram, delay: 0 },
+  { id: 2, label: "AI Consulting", icon: Bot, delay: 0.1 },
+  { id: 3, label: "Video Production", icon: Video, delay: 0.2 },
+  { id: 4, label: "AI Software", icon: Code2, delay: 0.3 },
 ];
 
 function useMousePosition() {
@@ -35,7 +35,7 @@ function useMousePosition() {
   return { x, y, clientX, clientY };
 }
 
-// Green Grid + Snow + Cursor Glow Canvas
+// Green Grid + Snow + Cursor Canvas
 const AtmosphereCanvas = ({ mouseX, mouseY }: { mouseX: React.MutableRefObject<number>, mouseY: React.MutableRefObject<number> }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
@@ -49,37 +49,25 @@ const AtmosphereCanvas = ({ mouseX, mouseY }: { mouseX: React.MutableRefObject<n
     let h = canvas.height = window.innerHeight;
     let time = 0;
 
-    // Snow flakes
-    const flakes = Array.from({ length: 100 }, () => ({
+    // More snow flakes
+    const flakes = Array.from({ length: 180 }, () => ({
       x: Math.random() * w,
       y: Math.random() * h,
-      vy: 0.3 + Math.random() * 0.8,
-      vx: (Math.random() - 0.5) * 0.2,
-      size: Math.random() * 2 + 0.5,
-      opacity: Math.random() * 0.4 + 0.2
+      vy: 0.4 + Math.random() * 1.2,
+      vx: (Math.random() - 0.5) * 0.4,
+      size: Math.random() * 2.5 + 0.5,
+      opacity: Math.random() * 0.5 + 0.3
     }));
 
-    // Glowing grid lines (horizontal and vertical)
-    const gridLines: { x1: number; y1: number; x2: number; y2: number; speed: number; offset: number; vertical: boolean }[] = [];
+    // Grid lines
+    const hLines: { offset: number; speed: number }[] = [];
+    const vLines: { offset: number; speed: number }[] = [];
     
-    // Horizontal moving lines
-    for (let i = 0; i < 8; i++) {
-      gridLines.push({
-        x1: 0, y1: 0, x2: w, y2: 0,
-        speed: 0.3 + Math.random() * 0.5,
-        offset: Math.random() * h,
-        vertical: false
-      });
+    for (let i = 0; i < 10; i++) {
+      hLines.push({ offset: Math.random() * h, speed: 0.2 + Math.random() * 0.4 });
     }
-    
-    // Vertical moving lines  
-    for (let i = 0; i < 6; i++) {
-      gridLines.push({
-        x1: 0, y1: 0, x2: 0, y2: h,
-        speed: 0.2 + Math.random() * 0.4,
-        offset: Math.random() * w,
-        vertical: true
-      });
+    for (let i = 0; i < 8; i++) {
+      vLines.push({ offset: Math.random() * w, speed: 0.15 + Math.random() * 0.3 });
     }
 
     // Cursor particles
@@ -87,70 +75,69 @@ const AtmosphereCanvas = ({ mouseX, mouseY }: { mouseX: React.MutableRefObject<n
 
     const animate = () => {
       ctx.clearRect(0, 0, w, h);
-      time += 0.01;
+      time += 0.008;
 
-      // Draw animated grid lines (LIME GREEN)
+      // Static grid pattern
+      ctx.strokeStyle = 'rgba(196, 255, 77, 0.03)';
+      ctx.lineWidth = 1;
+      const gridSize = 60;
+      for (let x = 0; x < w; x += gridSize) {
+        ctx.beginPath();
+        ctx.moveTo(x, 0);
+        ctx.lineTo(x, h);
+        ctx.stroke();
+      }
+      for (let y = 0; y < h; y += gridSize) {
+        ctx.beginPath();
+        ctx.moveTo(0, y);
+        ctx.lineTo(w, y);
+        ctx.stroke();
+      }
+
+      // Animated glowing lines
       ctx.globalCompositeOperation = 'lighter';
-      gridLines.forEach(line => {
-        if (line.vertical) {
-          // Vertical line moving horizontally
-          const x = (line.offset + time * line.speed * 100) % (w + 200) - 100;
-          const gradient = ctx.createLinearGradient(x, 0, x, h);
-          gradient.addColorStop(0, 'rgba(196, 255, 77, 0)');
-          gradient.addColorStop(0.3, 'rgba(196, 255, 77, 0.15)');
-          gradient.addColorStop(0.5, 'rgba(196, 255, 77, 0.25)');
-          gradient.addColorStop(0.7, 'rgba(196, 255, 77, 0.15)');
-          gradient.addColorStop(1, 'rgba(196, 255, 77, 0)');
-          
-          ctx.strokeStyle = gradient;
-          ctx.lineWidth = 1;
-          ctx.beginPath();
-          ctx.moveTo(x, 0);
-          ctx.lineTo(x, h);
-          ctx.stroke();
-        } else {
-          // Horizontal line moving vertically
-          const y = (line.offset + time * line.speed * 80) % (h + 200) - 100;
-          const gradient = ctx.createLinearGradient(0, y, w, y);
-          gradient.addColorStop(0, 'rgba(196, 255, 77, 0)');
-          gradient.addColorStop(0.2, 'rgba(196, 255, 77, 0.12)');
-          gradient.addColorStop(0.5, 'rgba(196, 255, 77, 0.2)');
-          gradient.addColorStop(0.8, 'rgba(196, 255, 77, 0.12)');
-          gradient.addColorStop(1, 'rgba(196, 255, 77, 0)');
-          
-          ctx.strokeStyle = gradient;
-          ctx.lineWidth = 1;
-          ctx.beginPath();
-          ctx.moveTo(0, y);
-          ctx.lineTo(w, y);
-          ctx.stroke();
-        }
+      
+      // Horizontal
+      hLines.forEach(line => {
+        const y = (line.offset + time * line.speed * 60) % (h + 100) - 50;
+        const gradient = ctx.createLinearGradient(0, y, w, y);
+        gradient.addColorStop(0, 'rgba(196, 255, 77, 0)');
+        gradient.addColorStop(0.3, 'rgba(196, 255, 77, 0.2)');
+        gradient.addColorStop(0.5, 'rgba(196, 255, 77, 0.35)');
+        gradient.addColorStop(0.7, 'rgba(196, 255, 77, 0.2)');
+        gradient.addColorStop(1, 'rgba(196, 255, 77, 0)');
+        ctx.strokeStyle = gradient;
+        ctx.lineWidth = 1.5;
+        ctx.beginPath();
+        ctx.moveTo(0, y);
+        ctx.lineTo(w, y);
+        ctx.stroke();
       });
 
-      // Draw diagonal grid pattern
-      ctx.strokeStyle = 'rgba(196, 255, 77, 0.04)';
-      ctx.lineWidth = 1;
-      const gridSize = 80;
-      for (let x = -h; x < w + h; x += gridSize) {
+      // Vertical
+      vLines.forEach(line => {
+        const x = (line.offset + time * line.speed * 50) % (w + 100) - 50;
+        const gradient = ctx.createLinearGradient(x, 0, x, h);
+        gradient.addColorStop(0, 'rgba(196, 255, 77, 0)');
+        gradient.addColorStop(0.3, 'rgba(196, 255, 77, 0.15)');
+        gradient.addColorStop(0.5, 'rgba(196, 255, 77, 0.25)');
+        gradient.addColorStop(0.7, 'rgba(196, 255, 77, 0.15)');
+        gradient.addColorStop(1, 'rgba(196, 255, 77, 0)');
+        ctx.strokeStyle = gradient;
+        ctx.lineWidth = 1.5;
         ctx.beginPath();
         ctx.moveTo(x, 0);
-        ctx.lineTo(x + h, h);
+        ctx.lineTo(x, h);
         ctx.stroke();
-      }
-      for (let x = w + h; x > -h; x -= gridSize) {
-        ctx.beginPath();
-        ctx.moveTo(x, 0);
-        ctx.lineTo(x - h, h);
-        ctx.stroke();
-      }
+      });
 
       ctx.globalCompositeOperation = 'source-over';
 
-      // Draw snow
+      // Snow
       ctx.fillStyle = "white";
       flakes.forEach(f => {
         f.y += f.vy;
-        f.x += f.vx;
+        f.x += f.vx + Math.sin(time * 2 + f.x * 0.01) * 0.3;
         if (f.y > h) { f.y = -10; f.x = Math.random() * w; }
         if (f.x < 0) f.x = w;
         if (f.x > w) f.x = 0;
@@ -161,49 +148,46 @@ const AtmosphereCanvas = ({ mouseX, mouseY }: { mouseX: React.MutableRefObject<n
         ctx.fill();
       });
 
-      // Cursor glow effect (LIME GREEN)
+      // Cursor glow
       const mx = mouseX.current;
       const my = mouseY.current;
       
       if (mx > 0 && my > 0) {
-        // Spawn particles
-        if (Math.random() > 0.7) {
+        if (Math.random() > 0.65) {
           cursorParticles.push({
-            x: mx + (Math.random() - 0.5) * 30,
-            y: my + (Math.random() - 0.5) * 30,
-            vx: (Math.random() - 0.5) * 1.5,
-            vy: (Math.random() - 0.5) * 1.5 - 0.5,
+            x: mx + (Math.random() - 0.5) * 25,
+            y: my + (Math.random() - 0.5) * 25,
+            vx: (Math.random() - 0.5) * 1.2,
+            vy: (Math.random() - 0.5) * 1.2 - 0.3,
             life: 1,
-            size: Math.random() * 3 + 1
+            size: Math.random() * 3 + 1.5
           });
         }
 
-        // Draw cursor glow
         ctx.globalAlpha = 1;
-        const gradient = ctx.createRadialGradient(mx, my, 0, mx, my, 120);
-        gradient.addColorStop(0, 'rgba(196, 255, 77, 0.12)');
-        gradient.addColorStop(0.5, 'rgba(196, 255, 77, 0.04)');
+        const gradient = ctx.createRadialGradient(mx, my, 0, mx, my, 100);
+        gradient.addColorStop(0, 'rgba(196, 255, 77, 0.15)');
+        gradient.addColorStop(0.5, 'rgba(196, 255, 77, 0.05)');
         gradient.addColorStop(1, 'rgba(196, 255, 77, 0)');
         ctx.fillStyle = gradient;
         ctx.beginPath();
-        ctx.arc(mx, my, 120, 0, Math.PI * 2);
+        ctx.arc(mx, my, 100, 0, Math.PI * 2);
         ctx.fill();
       }
 
-      // Update and draw cursor particles
       ctx.globalCompositeOperation = 'lighter';
       for (let i = cursorParticles.length - 1; i >= 0; i--) {
         const p = cursorParticles[i];
         p.x += p.vx;
         p.y += p.vy;
-        p.life -= 0.025;
+        p.life -= 0.02;
 
         if (p.life <= 0) {
           cursorParticles.splice(i, 1);
           continue;
         }
 
-        ctx.globalAlpha = p.life * 0.5;
+        ctx.globalAlpha = p.life * 0.6;
         const particleGrad = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.size);
         particleGrad.addColorStop(0, 'rgba(196, 255, 77, 0.9)');
         particleGrad.addColorStop(1, 'rgba(196, 255, 77, 0)');
@@ -214,7 +198,7 @@ const AtmosphereCanvas = ({ mouseX, mouseY }: { mouseX: React.MutableRefObject<n
       }
       ctx.globalCompositeOperation = 'source-over';
 
-      while (cursorParticles.length > 25) cursorParticles.shift();
+      while (cursorParticles.length > 20) cursorParticles.shift();
 
       requestAnimationFrame(animate);
     };
@@ -232,168 +216,154 @@ const AtmosphereCanvas = ({ mouseX, mouseY }: { mouseX: React.MutableRefObject<n
 };
 
 
-// Glass showcase with lime accents
-const GlassShowcase = () => {
-  const [index, setIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setIndex(prev => (prev + 1) % landingPages.length);
-    }, 4000);
-    return () => clearInterval(interval);
-  }, []);
+// Minimal orbiting service icons
+const ServiceOrbit = () => {
+  const [hoveredId, setHoveredId] = useState<number | null>(null);
 
   return (
-    <div className="relative w-[280px] sm:w-[320px] md:w-[380px] lg:w-[420px] aspect-[4/3]">
-      {/* Outer glow - LIME */}
-      <div className="absolute -inset-8 bg-[#c4ff4d]/15 blur-3xl rounded-full opacity-50" />
-      
-      <AnimatePresence mode="popLayout">
-        {landingPages.map((page, i) => {
-          if (i !== index) return null;
-          const IconComponent = page.icon;
+    <div className="relative w-[280px] h-[280px] sm:w-[320px] sm:h-[320px] md:w-[360px] md:h-[360px]">
+      {/* Center glow */}
+      <div className="absolute inset-0 flex items-center justify-center">
+        <div className="w-24 h-24 rounded-full bg-[#c4ff4d]/10 blur-2xl" />
+        <div className="absolute w-16 h-16 rounded-full border border-[#c4ff4d]/20" />
+      </div>
 
-          return (
-            <motion.div
-              key={page.id}
-              initial={{ opacity: 0, scale: 0.9, y: 40 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: -30 }}
-              transition={{ type: "spring", stiffness: 120, damping: 20 }}
-              className="absolute inset-0 rounded-[24px] overflow-hidden"
-            >
-              {/* Glass container */}
-              <div className="absolute inset-0 bg-black/40 backdrop-blur-xl border border-white/10 rounded-[24px] shadow-[0_20px_60px_rgba(0,0,0,0.5),0_0_30px_rgba(196,255,77,0.08)]">
-                {/* Subtle lime gradient */}
-                <div className="absolute inset-0 bg-gradient-to-br from-[#c4ff4d]/5 via-transparent to-[#c4ff4d]/3 rounded-[24px]" />
-                
-                {/* Light sweep */}
-                <div className="absolute inset-0 overflow-hidden rounded-[24px]">
-                  <div className="absolute -top-1/2 -left-1/2 w-[200%] h-[200%] bg-gradient-to-br from-white/[0.05] via-transparent to-transparent rotate-12 animate-[lightSweep_10s_ease-in-out_infinite]" />
-                </div>
+      {/* Orbit ring */}
+      <div className="absolute inset-4 rounded-full border border-white/10" />
+      <div className="absolute inset-12 rounded-full border border-[#c4ff4d]/10" />
 
-                {/* Content */}
-                <div className="relative h-full p-6 sm:p-8 flex flex-col justify-between">
-                  {/* Top */}
-                  <div className="flex items-start justify-between">
-                    <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-[#c4ff4d]/10 backdrop-blur-sm border border-[#c4ff4d]/20 flex items-center justify-center">
-                      <IconComponent className="w-6 h-6 sm:w-7 sm:h-7 text-[#c4ff4d]" />
-                    </div>
-                    <div className="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-white/50 text-xs">
-                      Live
-                    </div>
-                  </div>
+      {/* Orbiting service pills */}
+      {services.map((service, i) => {
+        const angle = (i * 90 - 45) * (Math.PI / 180);
+        const radius = 42;
+        const x = 50 + radius * Math.cos(angle);
+        const y = 50 + radius * Math.sin(angle);
+        const Icon = service.icon;
+        const isHovered = hoveredId === service.id;
 
-                  {/* Bottom */}
-                  <div>
-                    <h3 className="text-2xl sm:text-3xl font-bold text-white mb-1">{page.title}</h3>
-                    <p className="text-white/50 text-sm sm:text-base mb-4">{page.subtitle}</p>
-                    
-                    {/* Progress dots */}
-                    <div className="flex gap-2">
-                      {landingPages.map((_, idx) => (
-                        <div 
-                          key={idx} 
-                          className={`h-1.5 rounded-full transition-all duration-500 ${
-                            idx === index 
-                              ? 'w-8 bg-[#c4ff4d]' 
-                              : 'w-1.5 bg-white/20'
-                          }`}
-                        />
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          )
-        })}
-      </AnimatePresence>
+        return (
+          <motion.div
+            key={service.id}
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: service.delay + 0.3, type: "spring" }}
+            className="absolute"
+            style={{ left: `${x}%`, top: `${y}%`, transform: 'translate(-50%, -50%)' }}
+            onMouseEnter={() => setHoveredId(service.id)}
+            onMouseLeave={() => setHoveredId(null)}
+          >
+            <Link href={
+              service.id === 1 ? "/services/social-media-creative-management" :
+              service.id === 2 ? "/services/ai-consulting" :
+              service.id === 3 ? "/services/video-production" :
+              "/services/custom-software-development"
+            }>
+              <motion.div
+                animate={{ 
+                  scale: isHovered ? 1.1 : 1,
+                  boxShadow: isHovered ? '0 0 30px rgba(196, 255, 77, 0.4)' : '0 0 20px rgba(0,0,0,0.3)'
+                }}
+                className="flex items-center gap-2 px-4 py-2.5 rounded-full bg-black/60 backdrop-blur-md border border-white/20 cursor-pointer transition-colors hover:border-[#c4ff4d]/50"
+              >
+                <Icon className="w-4 h-4 text-[#c4ff4d]" />
+                <span className="text-white text-xs sm:text-sm font-medium whitespace-nowrap">{service.label}</span>
+              </motion.div>
+            </Link>
+          </motion.div>
+        );
+      })}
+
+      {/* Center text */}
+      <div className="absolute inset-0 flex items-center justify-center">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.8 }}
+          className="text-center"
+        >
+          <div className="text-[#c4ff4d] text-2xl sm:text-3xl font-black">4</div>
+          <div className="text-white/60 text-xs uppercase tracking-wider">Core Services</div>
+        </motion.div>
+      </div>
     </div>
-  )
-}
+  );
+};
 
 
 export default function HeroSection() {
   const { x, y, clientX, clientY } = useMousePosition();
-  const moveBackground = useTransform(x, [-1, 1], [-20, 20]);
-  const moveContent = useTransform(x, [-1, 1], [12, -12]);
+  const moveBackground = useTransform(x, [-1, 1], [-15, 15]);
+  const moveContent = useTransform(x, [-1, 1], [10, -10]);
 
   return (
     <section className="relative h-[100dvh] bg-black overflow-hidden flex flex-col justify-between selection:bg-[#c4ff4d] selection:text-black">
 
-      {/* Background image */}
+      {/* Background image - BRIGHTER */}
       <motion.div
         className="absolute inset-[-5%] w-[110%] h-[110%] bg-cover bg-center z-0"
         style={{
           backgroundImage: `url(${heroBackground})`,
           x: moveBackground,
-          y: useTransform(y, [-1, 1], [-20, 20]),
-          filter: "brightness(0.5) saturate(1.2)"
+          y: useTransform(y, [-1, 1], [-15, 15]),
+          filter: "brightness(0.75) saturate(1.15) contrast(1.05)"
         }}
       />
 
-      {/* Grid + Snow + Cursor effects */}
+      {/* Grid + Snow + Cursor */}
       <AtmosphereCanvas mouseX={clientX} mouseY={clientY} />
 
-      {/* Gradient overlays */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-black/60 pointer-events-none z-[2]" />
-      <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-transparent to-transparent pointer-events-none z-[2]" />
+      {/* Dark overlay for text - LEFT SIDE */}
+      <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent pointer-events-none z-[2]" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/40 pointer-events-none z-[2]" />
 
       <div className="relative z-10 container mx-auto px-4 sm:px-6 h-full flex flex-col pt-20 sm:pt-24 lg:pt-0">
 
-        <div className="flex-grow flex flex-col lg:flex-row items-center gap-8 sm:gap-10 lg:gap-16 justify-center">
+        <div className="flex-grow flex flex-col lg:flex-row items-center gap-8 lg:gap-12 justify-center">
 
+          {/* LEFT: Text Content */}
           <motion.div
-            style={{ x: moveContent, y: useTransform(y, [-1, 1], [12, -12]) }}
-            className="lg:w-1/2 w-full text-center lg:text-left pt-4 sm:pt-8 lg:pt-0"
+            style={{ x: moveContent, y: useTransform(y, [-1, 1], [10, -10]) }}
+            className="lg:w-[55%] w-full text-center lg:text-left pt-4 sm:pt-6 lg:pt-0"
           >
-            {/* Creative × Intelligence - White serif italic, smaller */}
+            {/* Where Creativity Meets Revenue */}
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="mb-4 sm:mb-5"
+              className="inline-flex items-center gap-2 mb-5 sm:mb-6 border border-white/20 bg-black/40 backdrop-blur-sm px-4 py-2 rounded-full"
             >
-              <span className="font-serif italic text-white/70 text-sm sm:text-base tracking-wider">
-                Creative <span className="text-[#c4ff4d] not-italic font-sans font-light">&times;</span> Intelligence
+              <span className="w-2 h-2 rounded-full bg-[#c4ff4d] animate-pulse" />
+              <span className="text-[#c4ff4d] font-mono text-xs tracking-widest uppercase">
+                Where Creativity Meets Revenue
               </span>
             </motion.div>
 
-            {/* Main Headline */}
+            {/* Main Headline - Pure white, elite */}
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white tracking-tight leading-[1.1] mb-2 sm:mb-3"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight leading-[1.05] mb-3 sm:mb-4"
             >
               AI-Powered Marketing,
             </motion.h1>
 
-            {/* Agency That Drives Revenue - Premium outlined style */}
-            <motion.div
+            <motion.h2
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="mb-6 sm:mb-8 relative"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white tracking-tight leading-[1.05] mb-6 sm:mb-8"
             >
-              <h2 
-                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black tracking-tight leading-[1.1] text-white relative"
-                style={{
-                  textShadow: '0 0 40px rgba(196, 255, 77, 0.3), 0 0 80px rgba(196, 255, 77, 0.15)',
-                  WebkitTextStroke: '1px rgba(196, 255, 77, 0.4)'
-                }}
-              >
-                Agency That Drives Revenue
-              </h2>
-            </motion.div>
+              Agency That Drives{" "}
+              <span className="text-[#c4ff4d]">Revenue</span>
+            </motion.h2>
 
             {/* Description - Larger */}
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
-              className="text-lg sm:text-xl md:text-2xl text-white/70 max-w-xl mx-auto lg:mx-0 mb-8 sm:mb-10 leading-relaxed px-2 sm:px-0"
+              className="text-lg sm:text-xl md:text-2xl text-white/80 max-w-2xl mx-auto lg:mx-0 mb-8 sm:mb-10 leading-relaxed"
             >
               We create world-class experiences for ambitious brands and build AI solutions for your growth.
             </motion.p>
@@ -403,19 +373,21 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
-              className="flex flex-wrap gap-3 sm:gap-4 justify-center lg:justify-start"
+              className="flex flex-wrap gap-4 justify-center lg:justify-start"
             >
-              <Button 
-                className="h-12 sm:h-14 px-8 sm:px-10 rounded-full bg-[#c4ff4d] text-black font-bold text-sm sm:text-base hover:bg-[#d4ff6d] hover:scale-105 transition-all shadow-[0_0_30px_-5px_rgba(196,255,77,0.5)]"
-                data-testid="button-start-talking"
-              >
-                Start Talking
-                <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
-              </Button>
+              <Link href="/contact">
+                <Button 
+                  className="h-13 sm:h-14 px-8 sm:px-10 rounded-full bg-[#c4ff4d] text-black font-bold text-sm sm:text-base hover:bg-[#d4ff6d] hover:scale-105 transition-all shadow-[0_0_30px_-5px_rgba(196,255,77,0.5)]"
+                  data-testid="button-start-talking"
+                >
+                  Start Talking
+                  <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
+                </Button>
+              </Link>
               <Link href="/services">
                 <Button 
                   variant="outline" 
-                  className="h-12 sm:h-14 px-6 sm:px-8 rounded-full text-[#c4ff4d] border-[#c4ff4d]/40 hover:border-[#c4ff4d] hover:bg-[#c4ff4d]/10 font-medium text-sm sm:text-base backdrop-blur-sm"
+                  className="h-13 sm:h-14 px-6 sm:px-8 rounded-full text-[#c4ff4d] border-[#c4ff4d]/40 hover:border-[#c4ff4d] hover:bg-[#c4ff4d]/10 font-medium text-sm sm:text-base backdrop-blur-sm"
                   data-testid="button-view-services"
                 >
                   View Services
@@ -425,12 +397,15 @@ export default function HeroSection() {
 
           </motion.div>
 
-          {/* Glass showcase */}
-          <div className="lg:w-1/2 w-full flex justify-center items-center py-4 sm:py-6 lg:py-0">
+          {/* RIGHT: Minimal Service Orbit */}
+          <div className="lg:w-[45%] w-full flex justify-center items-center py-2 lg:py-0">
             <motion.div
-              style={{ x: useTransform(x, [-1, 1], [-12, 12]) }}
+              style={{ x: useTransform(x, [-1, 1], [-10, 10]) }}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.4, duration: 0.6 }}
             >
-              <GlassShowcase />
+              <ServiceOrbit />
             </motion.div>
           </div>
 
@@ -438,16 +413,10 @@ export default function HeroSection() {
 
       </div>
 
+      {/* Floating Chip Carousel */}
       <div className="relative z-20 w-full flex-none pb-6 sm:pb-8">
         <FloatingChipCarousel />
       </div>
-
-      <style>{`
-        @keyframes lightSweep {
-          0%, 100% { transform: translateX(-100%) rotate(12deg); }
-          50% { transform: translateX(100%) rotate(12deg); }
-        }
-      `}</style>
 
     </section>
   );
