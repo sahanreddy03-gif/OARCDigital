@@ -117,7 +117,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.1 }}
-            className="flex items-center gap-3 mb-6"
+            className="flex items-center gap-3 mb-5"
           >
             <div className="h-[1px] w-12 bg-[#c4ff4d]" />
             <span className="text-[#c4ff4d] text-xs sm:text-sm font-bold tracking-[0.3em] uppercase">
@@ -125,30 +125,59 @@ export default function HeroSection() {
             </span>
           </motion.div>
 
-          {/* Headline Block (Tight Spacing) */}
-          <div className="mb-8">
+          {/* Headline Block - Two Lines */}
+          <div className="mb-5">
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="text-5xl sm:text-6xl md:text-8xl font-bold text-white leading-[0.9] tracking-tight drop-shadow-2xl"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.1] tracking-tight drop-shadow-2xl"
             >
-              AI-Powered <br /> Marketing.
+              Build the Brand You've Always Imagined.
             </motion.h1>
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.25 }}
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.1] tracking-tight drop-shadow-2xl mt-1"
+            >
+              With the Growth You Actually Need.
+            </motion.h2>
           </div>
 
-          {/* The Math Equation */}
+          {/* OARC Acronym - Compact Single Row */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="mb-10 pl-1 border-l-2 border-[#c4ff4d]/30"
+            className="flex flex-wrap items-center gap-x-3 gap-y-1 sm:gap-x-4 mb-5"
           >
-            <p className="text-white/80 text-lg sm:text-xl md:text-2xl font-light italic leading-relaxed pl-6">
-              Certified AI Talent + Tailored Workflows + Measurable Growth = <br />
-              <span className="text-white font-bold not-italic">Less Cost. More Reach. More Sales.</span>
-            </p>
+            <span className="text-white/80 text-xs sm:text-sm font-medium">
+              <span className="text-orange-500 font-bold text-sm sm:text-base md:text-lg">O</span>utcomes driven
+            </span>
+            <span className="text-white/40 hidden sm:inline">•</span>
+            <span className="text-white/80 text-xs sm:text-sm font-medium">
+              <span className="text-orange-500 font-bold text-sm sm:text-base md:text-lg">A</span>I powered
+            </span>
+            <span className="text-white/40 hidden sm:inline">•</span>
+            <span className="text-white/80 text-xs sm:text-sm font-medium">
+              <span className="text-orange-500 font-bold text-sm sm:text-base md:text-lg">R</span>evenue focused
+            </span>
+            <span className="text-white/40 hidden sm:inline">•</span>
+            <span className="text-white/80 text-xs sm:text-sm font-medium">
+              <span className="text-orange-500 font-bold text-sm sm:text-base md:text-lg">C</span>reative first
+            </span>
           </motion.div>
+
+          {/* Agency Tagline - Equal Weight to Headline */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.35 }}
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.1] tracking-tight drop-shadow-2xl mb-8"
+          >
+            AI-native Marketing agency that drives revenue.
+          </motion.p>
 
           {/* CTA + Service Graphics */}
           <motion.div
