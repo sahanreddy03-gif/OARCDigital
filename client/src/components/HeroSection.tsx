@@ -7,10 +7,10 @@ import FloatingChipCarousel from "./FloatingChipCarousel";
 import heroBackground from '@assets/d375f1d50d97b0de7953ca2cecd2b8aea2cd96b2-3524x1181_1761251957292.avif';
 
 const landingPages = [
-  { id: 1, title: "E-Commerce", subtitle: "Automated Sales", icon: TrendingUp, accent: "from-emerald-400/20 to-teal-500/10" },
-  { id: 2, title: "SaaS Platform", subtitle: "User Dashboard", icon: Globe, accent: "from-blue-400/20 to-cyan-500/10" },
-  { id: 3, title: "AI Solutions", subtitle: "24/7 Support", icon: Sparkles, accent: "from-purple-400/20 to-violet-500/10" },
-  { id: 4, title: "Growth Engine", subtitle: "High Engagement", icon: Zap, accent: "from-pink-400/20 to-rose-500/10" },
+  { id: 1, title: "E-Commerce", subtitle: "Automated Sales", icon: TrendingUp },
+  { id: 2, title: "SaaS Platform", subtitle: "User Dashboard", icon: Globe },
+  { id: 3, title: "AI Solutions", subtitle: "24/7 Support", icon: Sparkles },
+  { id: 4, title: "Growth Engine", subtitle: "High Engagement", icon: Zap },
 ];
 
 function useMousePosition() {
@@ -35,7 +35,7 @@ function useMousePosition() {
   return { x, y, clientX, clientY };
 }
 
-// Combined atmosphere + cursor glow canvas
+// Green Grid + Snow + Cursor Glow Canvas
 const AtmosphereCanvas = ({ mouseX, mouseY }: { mouseX: React.MutableRefObject<number>, mouseY: React.MutableRefObject<number> }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
@@ -47,30 +47,104 @@ const AtmosphereCanvas = ({ mouseX, mouseY }: { mouseX: React.MutableRefObject<n
 
     let w = canvas.width = window.innerWidth;
     let h = canvas.height = window.innerHeight;
+    let time = 0;
 
     // Snow flakes
-    const flakes = Array.from({ length: 120 }, () => ({
+    const flakes = Array.from({ length: 100 }, () => ({
       x: Math.random() * w,
       y: Math.random() * h,
-      vy: 0.3 + Math.random() * 1,
-      vx: (Math.random() - 0.5) * 0.3,
+      vy: 0.3 + Math.random() * 0.8,
+      vx: (Math.random() - 0.5) * 0.2,
       size: Math.random() * 2 + 0.5,
       opacity: Math.random() * 0.4 + 0.2
     }));
 
-    // Tech nodes
-    const nodes = Array.from({ length: 40 }, () => ({
-      x: Math.random() * w,
-      y: Math.random() * h,
-      vx: (Math.random() - 0.5) * 0.15,
-      vy: (Math.random() - 0.5) * 0.15,
-    }));
+    // Glowing grid lines (horizontal and vertical)
+    const gridLines: { x1: number; y1: number; x2: number; y2: number; speed: number; offset: number; vertical: boolean }[] = [];
+    
+    // Horizontal moving lines
+    for (let i = 0; i < 8; i++) {
+      gridLines.push({
+        x1: 0, y1: 0, x2: w, y2: 0,
+        speed: 0.3 + Math.random() * 0.5,
+        offset: Math.random() * h,
+        vertical: false
+      });
+    }
+    
+    // Vertical moving lines  
+    for (let i = 0; i < 6; i++) {
+      gridLines.push({
+        x1: 0, y1: 0, x2: 0, y2: h,
+        speed: 0.2 + Math.random() * 0.4,
+        offset: Math.random() * w,
+        vertical: true
+      });
+    }
 
-    // Cursor glow particles
+    // Cursor particles
     const cursorParticles: { x: number; y: number; vx: number; vy: number; life: number; size: number }[] = [];
 
     const animate = () => {
       ctx.clearRect(0, 0, w, h);
+      time += 0.01;
+
+      // Draw animated grid lines (LIME GREEN)
+      ctx.globalCompositeOperation = 'lighter';
+      gridLines.forEach(line => {
+        if (line.vertical) {
+          // Vertical line moving horizontally
+          const x = (line.offset + time * line.speed * 100) % (w + 200) - 100;
+          const gradient = ctx.createLinearGradient(x, 0, x, h);
+          gradient.addColorStop(0, 'rgba(196, 255, 77, 0)');
+          gradient.addColorStop(0.3, 'rgba(196, 255, 77, 0.15)');
+          gradient.addColorStop(0.5, 'rgba(196, 255, 77, 0.25)');
+          gradient.addColorStop(0.7, 'rgba(196, 255, 77, 0.15)');
+          gradient.addColorStop(1, 'rgba(196, 255, 77, 0)');
+          
+          ctx.strokeStyle = gradient;
+          ctx.lineWidth = 1;
+          ctx.beginPath();
+          ctx.moveTo(x, 0);
+          ctx.lineTo(x, h);
+          ctx.stroke();
+        } else {
+          // Horizontal line moving vertically
+          const y = (line.offset + time * line.speed * 80) % (h + 200) - 100;
+          const gradient = ctx.createLinearGradient(0, y, w, y);
+          gradient.addColorStop(0, 'rgba(196, 255, 77, 0)');
+          gradient.addColorStop(0.2, 'rgba(196, 255, 77, 0.12)');
+          gradient.addColorStop(0.5, 'rgba(196, 255, 77, 0.2)');
+          gradient.addColorStop(0.8, 'rgba(196, 255, 77, 0.12)');
+          gradient.addColorStop(1, 'rgba(196, 255, 77, 0)');
+          
+          ctx.strokeStyle = gradient;
+          ctx.lineWidth = 1;
+          ctx.beginPath();
+          ctx.moveTo(0, y);
+          ctx.lineTo(w, y);
+          ctx.stroke();
+        }
+      });
+
+      // Draw diagonal grid pattern
+      ctx.strokeStyle = 'rgba(196, 255, 77, 0.04)';
+      ctx.lineWidth = 1;
+      const gridSize = 80;
+      for (let x = -h; x < w + h; x += gridSize) {
+        ctx.beginPath();
+        ctx.moveTo(x, 0);
+        ctx.lineTo(x + h, h);
+        ctx.stroke();
+      }
+      for (let x = w + h; x > -h; x -= gridSize) {
+        ctx.beginPath();
+        ctx.moveTo(x, 0);
+        ctx.lineTo(x - h, h);
+        ctx.stroke();
+      }
+
+      ctx.globalCompositeOperation = 'source-over';
 
       // Draw snow
       ctx.fillStyle = "white";
@@ -87,62 +161,32 @@ const AtmosphereCanvas = ({ mouseX, mouseY }: { mouseX: React.MutableRefObject<n
         ctx.fill();
       });
 
-      // Draw tech lines with teal color
-      ctx.globalAlpha = 1;
-      ctx.strokeStyle = "rgba(88, 244, 212, 0.12)";
-      ctx.fillStyle = "rgba(88, 244, 212, 0.35)";
-
-      nodes.forEach((p, i) => {
-        p.x += p.vx;
-        p.y += p.vy;
-        if (p.x < 0 || p.x > w) p.vx *= -1;
-        if (p.y < 0 || p.y > h) p.vy *= -1;
-
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, 1.5, 0, Math.PI * 2);
-        ctx.fill();
-
-        for (let j = i + 1; j < nodes.length; j++) {
-          const p2 = nodes[j];
-          const dx = p.x - p2.x;
-          const dy = p.y - p2.y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < 100) {
-            ctx.globalAlpha = (1 - dist / 100) * 0.15;
-            ctx.beginPath();
-            ctx.moveTo(p.x, p.y);
-            ctx.lineTo(p2.x, p2.y);
-            ctx.stroke();
-          }
-        }
-      });
-
-      // Cursor glow effect
+      // Cursor glow effect (LIME GREEN)
       const mx = mouseX.current;
       const my = mouseY.current;
       
       if (mx > 0 && my > 0) {
-        // Spawn new particles
-        if (Math.random() > 0.6) {
+        // Spawn particles
+        if (Math.random() > 0.7) {
           cursorParticles.push({
-            x: mx + (Math.random() - 0.5) * 40,
-            y: my + (Math.random() - 0.5) * 40,
-            vx: (Math.random() - 0.5) * 2,
-            vy: (Math.random() - 0.5) * 2 - 1,
+            x: mx + (Math.random() - 0.5) * 30,
+            y: my + (Math.random() - 0.5) * 30,
+            vx: (Math.random() - 0.5) * 1.5,
+            vy: (Math.random() - 0.5) * 1.5 - 0.5,
             life: 1,
-            size: Math.random() * 4 + 2
+            size: Math.random() * 3 + 1
           });
         }
 
         // Draw cursor glow
-        const gradient = ctx.createRadialGradient(mx, my, 0, mx, my, 150);
-        gradient.addColorStop(0, 'rgba(88, 244, 212, 0.15)');
-        gradient.addColorStop(0.5, 'rgba(88, 244, 212, 0.05)');
-        gradient.addColorStop(1, 'rgba(88, 244, 212, 0)');
         ctx.globalAlpha = 1;
+        const gradient = ctx.createRadialGradient(mx, my, 0, mx, my, 120);
+        gradient.addColorStop(0, 'rgba(196, 255, 77, 0.12)');
+        gradient.addColorStop(0.5, 'rgba(196, 255, 77, 0.04)');
+        gradient.addColorStop(1, 'rgba(196, 255, 77, 0)');
         ctx.fillStyle = gradient;
         ctx.beginPath();
-        ctx.arc(mx, my, 150, 0, Math.PI * 2);
+        ctx.arc(mx, my, 120, 0, Math.PI * 2);
         ctx.fill();
       }
 
@@ -152,17 +196,17 @@ const AtmosphereCanvas = ({ mouseX, mouseY }: { mouseX: React.MutableRefObject<n
         const p = cursorParticles[i];
         p.x += p.vx;
         p.y += p.vy;
-        p.life -= 0.02;
+        p.life -= 0.025;
 
         if (p.life <= 0) {
           cursorParticles.splice(i, 1);
           continue;
         }
 
-        ctx.globalAlpha = p.life * 0.6;
+        ctx.globalAlpha = p.life * 0.5;
         const particleGrad = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.size);
-        particleGrad.addColorStop(0, 'rgba(88, 244, 212, 0.8)');
-        particleGrad.addColorStop(1, 'rgba(88, 244, 212, 0)');
+        particleGrad.addColorStop(0, 'rgba(196, 255, 77, 0.9)');
+        particleGrad.addColorStop(1, 'rgba(196, 255, 77, 0)');
         ctx.fillStyle = particleGrad;
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
@@ -170,8 +214,7 @@ const AtmosphereCanvas = ({ mouseX, mouseY }: { mouseX: React.MutableRefObject<n
       }
       ctx.globalCompositeOperation = 'source-over';
 
-      // Limit particles
-      while (cursorParticles.length > 30) cursorParticles.shift();
+      while (cursorParticles.length > 25) cursorParticles.shift();
 
       requestAnimationFrame(animate);
     };
@@ -185,11 +228,11 @@ const AtmosphereCanvas = ({ mouseX, mouseY }: { mouseX: React.MutableRefObject<n
     return () => window.removeEventListener('resize', handleResize);
   }, [mouseX, mouseY]);
 
-  return <canvas ref={canvasRef} className="absolute inset-0 z-0 pointer-events-none" />;
+  return <canvas ref={canvasRef} className="absolute inset-0 z-[1] pointer-events-none" />;
 };
 
 
-// Premium glassmorphism showcase
+// Glass showcase with lime accents
 const GlassShowcase = () => {
   const [index, setIndex] = useState(0);
 
@@ -201,9 +244,9 @@ const GlassShowcase = () => {
   }, []);
 
   return (
-    <div className="relative w-[280px] sm:w-[320px] md:w-[380px] lg:w-[440px] aspect-[3/2]">
-      {/* Outer glow */}
-      <div className="absolute -inset-8 bg-gradient-to-br from-[#58f4d4]/20 via-transparent to-[#7cf0ff]/10 blur-3xl rounded-full opacity-60" />
+    <div className="relative w-[280px] sm:w-[320px] md:w-[380px] lg:w-[420px] aspect-[4/3]">
+      {/* Outer glow - LIME */}
+      <div className="absolute -inset-8 bg-[#c4ff4d]/15 blur-3xl rounded-full opacity-50" />
       
       <AnimatePresence mode="popLayout">
         {landingPages.map((page, i) => {
@@ -213,51 +256,48 @@ const GlassShowcase = () => {
           return (
             <motion.div
               key={page.id}
-              initial={{ opacity: 0, scale: 0.9, y: 40, rotateY: -10 }}
-              animate={{ opacity: 1, scale: 1, y: 0, rotateY: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: -30, rotateY: 10 }}
+              initial={{ opacity: 0, scale: 0.9, y: 40 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: -30 }}
               transition={{ type: "spring", stiffness: 120, damping: 20 }}
-              className="absolute inset-0 rounded-[28px] overflow-hidden"
-              style={{ transformStyle: 'preserve-3d' }}
+              className="absolute inset-0 rounded-[24px] overflow-hidden"
             >
               {/* Glass container */}
-              <div className="absolute inset-0 bg-white/[0.06] backdrop-blur-xl border border-white/[0.12] rounded-[28px] shadow-[0_20px_60px_rgba(0,0,0,0.4),0_0_40px_rgba(88,244,212,0.1)]">
-                {/* Inner gradient accent */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${page.accent} rounded-[28px]`} />
+              <div className="absolute inset-0 bg-black/40 backdrop-blur-xl border border-white/10 rounded-[24px] shadow-[0_20px_60px_rgba(0,0,0,0.5),0_0_30px_rgba(196,255,77,0.08)]">
+                {/* Subtle lime gradient */}
+                <div className="absolute inset-0 bg-gradient-to-br from-[#c4ff4d]/5 via-transparent to-[#c4ff4d]/3 rounded-[24px]" />
                 
-                {/* Light sweep animation */}
-                <div className="absolute inset-0 overflow-hidden rounded-[28px]">
-                  <div className="absolute -top-1/2 -left-1/2 w-[200%] h-[200%] bg-gradient-to-br from-white/[0.08] via-transparent to-transparent rotate-12 animate-[lightSweep_8s_ease-in-out_infinite]" />
+                {/* Light sweep */}
+                <div className="absolute inset-0 overflow-hidden rounded-[24px]">
+                  <div className="absolute -top-1/2 -left-1/2 w-[200%] h-[200%] bg-gradient-to-br from-white/[0.05] via-transparent to-transparent rotate-12 animate-[lightSweep_10s_ease-in-out_infinite]" />
                 </div>
 
                 {/* Content */}
                 <div className="relative h-full p-6 sm:p-8 flex flex-col justify-between">
-                  {/* Top row */}
+                  {/* Top */}
                   <div className="flex items-start justify-between">
-                    <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-white/[0.08] backdrop-blur-sm border border-white/[0.1] flex items-center justify-center">
-                      <IconComponent className="w-6 h-6 sm:w-7 sm:h-7 text-[#58f4d4]" />
+                    <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-[#c4ff4d]/10 backdrop-blur-sm border border-[#c4ff4d]/20 flex items-center justify-center">
+                      <IconComponent className="w-6 h-6 sm:w-7 sm:h-7 text-[#c4ff4d]" />
                     </div>
-                    <div className="flex gap-1.5">
-                      <div className="w-2 h-2 rounded-full bg-white/20" />
-                      <div className="w-2 h-2 rounded-full bg-white/20" />
-                      <div className="w-2 h-2 rounded-full bg-[#58f4d4]/60" />
+                    <div className="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-white/50 text-xs">
+                      Live
                     </div>
                   </div>
 
-                  {/* Bottom content */}
+                  {/* Bottom */}
                   <div>
                     <h3 className="text-2xl sm:text-3xl font-bold text-white mb-1">{page.title}</h3>
-                    <p className="text-white/60 text-sm sm:text-base">{page.subtitle}</p>
+                    <p className="text-white/50 text-sm sm:text-base mb-4">{page.subtitle}</p>
                     
-                    {/* Progress indicator */}
-                    <div className="mt-4 flex gap-2">
+                    {/* Progress dots */}
+                    <div className="flex gap-2">
                       {landingPages.map((_, idx) => (
                         <div 
                           key={idx} 
-                          className={`h-1 rounded-full transition-all duration-500 ${
+                          className={`h-1.5 rounded-full transition-all duration-500 ${
                             idx === index 
-                              ? 'w-8 bg-[#58f4d4]' 
-                              : 'w-2 bg-white/20'
+                              ? 'w-8 bg-[#c4ff4d]' 
+                              : 'w-1.5 bg-white/20'
                           }`}
                         />
                       ))}
@@ -276,45 +316,47 @@ const GlassShowcase = () => {
 
 export default function HeroSection() {
   const { x, y, clientX, clientY } = useMousePosition();
-  const moveBackground = useTransform(x, [-1, 1], [-25, 25]);
-  const moveContent = useTransform(x, [-1, 1], [15, -15]);
+  const moveBackground = useTransform(x, [-1, 1], [-20, 20]);
+  const moveContent = useTransform(x, [-1, 1], [12, -12]);
 
   return (
-    <section className="relative h-[100dvh] bg-black overflow-hidden flex flex-col justify-between selection:bg-[#58f4d4] selection:text-black">
+    <section className="relative h-[100dvh] bg-black overflow-hidden flex flex-col justify-between selection:bg-[#c4ff4d] selection:text-black">
 
+      {/* Background image */}
       <motion.div
-        className="absolute inset-[-5%] w-[110%] h-[110%] bg-cover bg-center"
+        className="absolute inset-[-5%] w-[110%] h-[110%] bg-cover bg-center z-0"
         style={{
           backgroundImage: `url(${heroBackground})`,
           x: moveBackground,
-          y: useTransform(y, [-1, 1], [-25, 25]),
-          filter: "brightness(0.6) saturate(1.1)"
+          y: useTransform(y, [-1, 1], [-20, 20]),
+          filter: "brightness(0.5) saturate(1.2)"
         }}
       />
 
+      {/* Grid + Snow + Cursor effects */}
       <AtmosphereCanvas mouseX={clientX} mouseY={clientY} />
 
       {/* Gradient overlays */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-black/50 pointer-events-none" />
-      <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-transparent pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-black/60 pointer-events-none z-[2]" />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-transparent to-transparent pointer-events-none z-[2]" />
 
       <div className="relative z-10 container mx-auto px-4 sm:px-6 h-full flex flex-col pt-20 sm:pt-24 lg:pt-0">
 
         <div className="flex-grow flex flex-col lg:flex-row items-center gap-8 sm:gap-10 lg:gap-16 justify-center">
 
           <motion.div
-            style={{ x: moveContent, y: useTransform(y, [-1, 1], [15, -15]) }}
+            style={{ x: moveContent, y: useTransform(y, [-1, 1], [12, -12]) }}
             className="lg:w-1/2 w-full text-center lg:text-left pt-4 sm:pt-8 lg:pt-0"
           >
-            {/* Creative × Intelligence - Elegant serif */}
+            {/* Creative × Intelligence - White serif italic, smaller */}
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="mb-5 sm:mb-6"
+              className="mb-4 sm:mb-5"
             >
-              <span className="font-serif italic text-white/50 text-base sm:text-lg md:text-xl tracking-wide">
-                Creative <span className="text-[#58f4d4] not-italic font-sans">&times;</span> Intelligence
+              <span className="font-serif italic text-white/70 text-sm sm:text-base tracking-wider">
+                Creative <span className="text-[#c4ff4d] not-italic font-sans font-light">&times;</span> Intelligence
               </span>
             </motion.div>
 
@@ -328,29 +370,35 @@ export default function HeroSection() {
               AI-Powered Marketing,
             </motion.h1>
 
-            {/* Highlighted Line - Premium teal */}
+            {/* Agency That Drives Revenue - Premium outlined style */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="mb-6 sm:mb-8"
+              className="mb-6 sm:mb-8 relative"
             >
-              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black tracking-tight leading-[1.1] text-[#58f4d4] drop-shadow-[0_0_20px_rgba(88,244,212,0.25)]">
+              <h2 
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black tracking-tight leading-[1.1] text-white relative"
+                style={{
+                  textShadow: '0 0 40px rgba(196, 255, 77, 0.3), 0 0 80px rgba(196, 255, 77, 0.15)',
+                  WebkitTextStroke: '1px rgba(196, 255, 77, 0.4)'
+                }}
+              >
                 Agency That Drives Revenue
               </h2>
             </motion.div>
 
-            {/* Description - Larger size */}
+            {/* Description - Larger */}
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
-              className="text-lg sm:text-xl md:text-2xl text-white/80 font-light max-w-xl mx-auto lg:mx-0 mb-8 sm:mb-10 leading-relaxed px-2 sm:px-0"
+              className="text-lg sm:text-xl md:text-2xl text-white/70 max-w-xl mx-auto lg:mx-0 mb-8 sm:mb-10 leading-relaxed px-2 sm:px-0"
             >
               We create world-class experiences for ambitious brands and build AI solutions for your growth.
             </motion.p>
 
-            {/* CTA Buttons */}
+            {/* CTA Buttons - LIME GREEN */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -358,7 +406,7 @@ export default function HeroSection() {
               className="flex flex-wrap gap-3 sm:gap-4 justify-center lg:justify-start"
             >
               <Button 
-                className="h-12 sm:h-14 px-8 sm:px-10 rounded-full bg-[#58f4d4] text-black font-bold text-sm sm:text-base hover:bg-[#7cf0ff] hover:scale-105 transition-all shadow-[0_0_30px_-5px_rgba(88,244,212,0.5)]"
+                className="h-12 sm:h-14 px-8 sm:px-10 rounded-full bg-[#c4ff4d] text-black font-bold text-sm sm:text-base hover:bg-[#d4ff6d] hover:scale-105 transition-all shadow-[0_0_30px_-5px_rgba(196,255,77,0.5)]"
                 data-testid="button-start-talking"
               >
                 Start Talking
@@ -367,7 +415,7 @@ export default function HeroSection() {
               <Link href="/services">
                 <Button 
                   variant="outline" 
-                  className="h-12 sm:h-14 px-6 sm:px-8 rounded-full text-white border-white/30 hover:border-[#58f4d4]/50 hover:bg-[#58f4d4]/10 font-medium text-sm sm:text-base backdrop-blur-sm"
+                  className="h-12 sm:h-14 px-6 sm:px-8 rounded-full text-[#c4ff4d] border-[#c4ff4d]/40 hover:border-[#c4ff4d] hover:bg-[#c4ff4d]/10 font-medium text-sm sm:text-base backdrop-blur-sm"
                   data-testid="button-view-services"
                 >
                   View Services
@@ -380,7 +428,7 @@ export default function HeroSection() {
           {/* Glass showcase */}
           <div className="lg:w-1/2 w-full flex justify-center items-center py-4 sm:py-6 lg:py-0">
             <motion.div
-              style={{ x: useTransform(x, [-1, 1], [-15, 15]) }}
+              style={{ x: useTransform(x, [-1, 1], [-12, 12]) }}
             >
               <GlassShowcase />
             </motion.div>
@@ -394,7 +442,6 @@ export default function HeroSection() {
         <FloatingChipCarousel />
       </div>
 
-      {/* Light sweep keyframes */}
       <style>{`
         @keyframes lightSweep {
           0%, 100% { transform: translateX(-100%) rotate(12deg); }
