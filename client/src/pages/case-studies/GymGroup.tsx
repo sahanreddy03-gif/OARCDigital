@@ -10,7 +10,7 @@ import { caseStudiesSEO } from '@/data/seoMetadata';
 import tefalHeroImg from '@assets/TefalPictures-32-scaled_1761760754960.jpg';
 import dontMakeAdsHeroImg from '@assets/generated_images/social_media_creators_marketing_image.png';
 import bodyShopHeroImg from '@assets/The-Body-Shop-Social-Marketing-Agency_1761842288034.jpg';
-import fitnessImg1 from '@assets/stock_images/fitness_gym_workout__500a23f2.jpg';
+import fitnessImg1 from '@assets/IMG_8206_1763165592775_1765127367343.jpeg';
 import fitnessImg2 from '@assets/stock_images/fitness_gym_workout__6cda6782.jpg';
 import fitnessImg3 from '@assets/stock_images/fitness_gym_workout__509badd9.jpg';
 import contentImg1 from '@assets/stock_images/fitness_gym_workout__43cec023.jpg';
