@@ -218,19 +218,19 @@ export default function HeroSection() {
             style={{ x: moveContent, y: useTransform(y, [-1, 1], [15, -15]) }}
             className="lg:w-1/2 w-full text-center lg:text-left pt-4 sm:pt-8 lg:pt-0"
           >
-            {/* Small tagline */}
+            {/* Creative × Intelligence - Serif italic, smaller */}
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="mb-3 sm:mb-4"
+              className="mb-4 sm:mb-6"
             >
-              <span className="text-white/50 font-light tracking-[0.2em] uppercase text-[10px] sm:text-xs">
-                Creative <span className="text-[#c4ff4d]">&times;</span> Intelligence
+              <span className="font-serif italic text-white/60 text-sm sm:text-base md:text-lg tracking-wide">
+                Creative <span className="text-[#c4ff4d] not-italic">&times;</span> Intelligence
               </span>
             </motion.div>
 
-            {/* Main Headline - AI-Powered Marketing */}
+            {/* Main Headline */}
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -240,28 +240,26 @@ export default function HeroSection() {
               AI-Powered Marketing,
             </motion.h1>
 
-            {/* Highlighted Line - Agency That Drives Revenue */}
+            {/* Highlighted Line - Clean lime color */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
               className="mb-6 sm:mb-8"
             >
-              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black tracking-tight leading-[1.1]">
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#c4ff4d] via-[#a8e063] to-[#56ab2f] drop-shadow-[0_0_30px_rgba(196,255,77,0.4)]">
-                  Agency That Drives Revenue
-                </span>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black tracking-tight leading-[1.1] text-[#c4ff4d]">
+                Agency That Drives Revenue
               </h2>
             </motion.div>
 
-            {/* Description Line */}
+            {/* Description - Clean, no inline highlights */}
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
-              className="text-base sm:text-lg md:text-xl text-white/70 font-light max-w-xl mx-auto lg:mx-0 mb-8 sm:mb-10 leading-relaxed px-2 sm:px-0"
+              className="text-base sm:text-lg md:text-xl text-white/80 max-w-xl mx-auto lg:mx-0 mb-8 sm:mb-10 leading-relaxed px-2 sm:px-0"
             >
-              We create <span className="text-white font-medium">world-class experiences</span> for ambitious brands and build <span className="text-white font-medium">AI solutions</span> for your growth.
+              We create world-class experiences for ambitious brands and build AI solutions for your growth.
             </motion.p>
 
             {/* CTA Buttons */}
@@ -272,7 +270,7 @@ export default function HeroSection() {
               className="flex flex-wrap gap-3 sm:gap-4 justify-center lg:justify-start"
             >
               <Button 
-                className="h-12 sm:h-14 px-8 sm:px-10 rounded-full bg-[#c4ff4d] text-black font-bold text-sm sm:text-base hover:bg-[#b5f03a] hover:scale-105 transition-all shadow-[0_0_40px_-10px_rgba(196,255,77,0.6)]"
+                className="h-12 sm:h-14 px-8 sm:px-10 rounded-full bg-[#c4ff4d] text-black font-bold text-sm sm:text-base hover:bg-[#d4ff6d] hover:scale-105 transition-all shadow-[0_0_30px_-5px_rgba(196,255,77,0.5)]"
                 data-testid="button-start-talking"
               >
                 Start Talking
