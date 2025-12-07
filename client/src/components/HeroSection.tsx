@@ -1,216 +1,216 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { Link } from "wouter"; 
 import { Button } from "@/components/ui/button";
+import { motion, useScroll, useTransform, useMotionValue, useSpring, useMotionTemplate } from "framer-motion";
+import { ArrowRight, Play, Instagram, Bot, Code2, Video, Globe } from 'lucide-react';
 import FloatingChipCarousel from "./FloatingChipCarousel";
-import heroBackground from '@assets/d375f1d50d97b0de7953ca2cecd2b8aea2cd96b2-3524x1181_1761251957292.avif';
-import oarcLogoOnly from "@assets/IMG_8813_(1)_1764796694787.png";
 
-export default function HeroSection() {
-  const [scrollY, setScrollY] = useState(0);
+// --- ASSETS ---
+import socialImg from '@assets/social-media-management-optimized.jpg';
+import aiImg from '@assets/stock_images/artificial_intellige_3ed7faa2.jpg';
+import videoImg from '@assets/ai-video-production-optimized.jpg';
+import softwareImg from '@assets/stock_images/data_analyst_profess_4f5ff172.jpg'; 
+
+const cubeFaces = [
+  {
+    id: "social",
+    title: "Social Media",
+    subtitle: "Management",
+    icon: Instagram,
+    image: socialImg,
+    route: "/services/social-media-management",
+    color: "#E1306C"
+  },
+  {
+    id: "software",
+    title: "Custom AI",
+    subtitle: "Software Solutions",
+    icon: Code2,
+    image: softwareImg,
+    route: "/services/custom-ai-software",
+    color: "#3B82F6"
+  },
+  {
+    id: "consulting",
+    title: "AI Consulting",
+    subtitle: "& Strategy",
+    icon: Bot,
+    image: aiImg,
+    route: "/services/ai-consulting",
+    color: "#c4ff4d"
+  },
+  {
+    id: "video",
+    title: "Video",
+    subtitle: "Production",
+    icon: Video,
+    image: videoImg,
+    route: "/services/video-production",
+    color: "#F59E0B"
+  }
+];
+
+function useMousePosition() {
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
+    const handleMouseMove = (e: MouseEvent) => {
+      x.set(e.clientX);
+      y.set(e.clientY);
     };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, [x, y]);
+
+  return { x, y };
+}
+
+const HyperCube = () => {
+  const [rotation, setRotation] = useState(0);
+  const [activeFace, setActiveFace] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setRotation(prev => prev - 90);
+      setActiveFace(prev => (prev + 1) % 4);
+    }, 4000);
+    return () => clearInterval(interval);
   }, []);
 
-  // Add CSS animations
-  const styles = `
-    @keyframes float {
-      0%, 100% { transform: translateY(0) translateX(0); opacity: 0.3; }
-      50% { transform: translateY(-60px) translateX(30px); opacity: 0.8; }
-    }
-    @keyframes lightSweep {
-      0% { transform: translateX(-100%) rotate(-15deg); }
-      100% { transform: translateX(200%) rotate(-15deg); }
-    }
-    @keyframes scanHorizontal1 {
-      0% { transform: translateX(-100%); opacity: 0; }
-      10% { opacity: 0.4; }
-      90% { opacity: 0.4; }
-      100% { transform: translateX(100vw); opacity: 0; }
-    }
-    @keyframes scanHorizontal2 {
-      0% { transform: translateX(-100%); opacity: 0; }
-      10% { opacity: 0.3; }
-      90% { opacity: 0.3; }
-      100% { transform: translateX(100vw); opacity: 0; }
-    }
-    @keyframes gridPulse {
-      0%, 100% { opacity: 0.06; }
-      50% { opacity: 0.12; }
-    }
-    @keyframes particleFloat {
-      0%, 100% { transform: translate(0, 0); opacity: 0.4; }
-      33% { transform: translate(20px, -30px); opacity: 0.8; }
-      66% { transform: translate(-15px, -50px); opacity: 0.6; }
-    }
-    @keyframes fadeSlideUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      @keyframes fadeSlideUp {
-        from { opacity: 0; }
-        to { opacity: 1; }
-      }
-    }
-  `;
-  
   return (
-    <>
-      <style>{styles}</style>
-      <section className="relative min-h-screen flex flex-col overflow-hidden bg-black">
-      {/* Mobile Layout - Clean bottom-aligned layout (hidden in landscape) */}
-      <div className="md:hidden landscape-hero-mobile-hidden absolute inset-0">
-        <div 
-          className="absolute inset-0 bg-cover bg-no-repeat"
-          style={{ 
-            backgroundImage: `url(${heroBackground})`,
-            backgroundPosition: '60% center'
-          }}
-        />
-        {/* AI Grid Overlay - Mobile with pulse */}
-        <div className="absolute inset-0 animate-[gridPulse_8s_ease-in-out_infinite]" 
-             style={{
-               backgroundImage: 'linear-gradient(rgba(196, 255, 77, 0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(196, 255, 77, 0.3) 1px, transparent 1px)',
-               backgroundSize: '40px 40px'
-             }} 
-        />
-        {/* Horizontal data streams - Mobile */}
-        <div className="absolute w-[200px] h-[1px] bg-gradient-to-r from-transparent via-[#c4ff4d]/50 to-transparent animate-[scanHorizontal1_8s_linear_infinite]" 
-             style={{ top: '25%', boxShadow: '0 0 8px rgba(196, 255, 77, 0.4)' }} 
-        />
-        <div className="absolute w-[150px] h-[1px] bg-gradient-to-r from-transparent via-[#c4ff4d]/40 to-transparent animate-[scanHorizontal2_10s_linear_infinite]" 
-             style={{ top: '45%', boxShadow: '0 0 6px rgba(196, 255, 77, 0.3)', animationDelay: '3s' }} 
-        />
-        <div className="absolute w-[180px] h-[1px] bg-gradient-to-r from-transparent via-[#c4ff4d]/35 to-transparent animate-[scanHorizontal1_12s_linear_infinite]" 
-             style={{ top: '65%', boxShadow: '0 0 7px rgba(196, 255, 77, 0.3)', animationDelay: '5s' }} 
-        />
-        {/* Lighter gradient to show more color */}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent from-0% via-zinc-950/60 via-50% to-zinc-950/85 to-95%"></div>
-      </div>
-
-      {/* Desktop Layout - Horizontal with side fade - Shifted right to show more color (also shown in landscape) */}
-      <div 
-        className="hidden md:block landscape-hero-desktop absolute inset-0 bg-cover bg-no-repeat"
+    <div className="relative w-full h-[400px] md:h-[500px] flex items-center justify-center perspective-[1200px] group">
+      <motion.div
+        className="relative w-[280px] h-[360px] md:w-[320px] md:h-[420px] preserve-3d transition-transform duration-1000 ease-[cubic-bezier(0.23,1,0.32,1)]"
         style={{ 
-          backgroundImage: `url(${heroBackground})`,
-          backgroundPosition: '35% center',
-          transform: `translateY(${scrollY * 0.3}px)`,
-          transition: 'transform 0.1s ease-out'
+          transform: `rotateY(${rotation}deg)`,
+          transformStyle: "preserve-3d" 
         }}
-      />
-      {/* AI Grid Overlay - Desktop with pulse (also shown in landscape) */}
-      <div className="hidden md:block landscape-hero-desktop absolute inset-0 animate-[gridPulse_10s_ease-in-out_infinite]" 
-           style={{
-             backgroundImage: 'linear-gradient(rgba(196, 255, 77, 0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(196, 255, 77, 0.3) 1px, transparent 1px)',
-             backgroundSize: '50px 50px'
-           }} 
-      />
-      {/* Floating light particles - Desktop with varied animation (also shown in landscape) */}
-      <div className="hidden md:block landscape-hero-desktop absolute w-1.5 h-1.5 rounded-full bg-[#c4ff4d] animate-[particleFloat_8s_ease-in-out_infinite]" 
-           style={{ top: '20%', left: '15%', boxShadow: '0 0 20px #c4ff4d' }} 
-      />
-      <div className="hidden md:block landscape-hero-desktop absolute w-1 h-1 rounded-full bg-[#c4ff4d] animate-[particleFloat_10s_ease-in-out_infinite]" 
-           style={{ top: '60%', left: '25%', boxShadow: '0 0 15px #c4ff4d', animationDelay: '2s' }} 
-      />
-      <div className="hidden md:block landscape-hero-desktop absolute w-1.5 h-1.5 rounded-full bg-[#c4ff4d] animate-[particleFloat_9s_ease-in-out_infinite]" 
-           style={{ top: '40%', left: '35%', boxShadow: '0 0 18px #c4ff4d', animationDelay: '4s' }} 
-      />
-      <div className="hidden md:block landscape-hero-desktop absolute w-1 h-1 rounded-full bg-[#c4ff4d] animate-[particleFloat_11s_ease-in-out_infinite]" 
-           style={{ top: '30%', left: '45%', boxShadow: '0 0 16px #c4ff4d', animationDelay: '6s' }} 
-      />
-      {/* Horizontal data streams - Desktop (also shown in landscape) */}
-      <div className="hidden md:block landscape-hero-desktop absolute w-[300px] h-[1px] bg-gradient-to-r from-transparent via-[#c4ff4d]/40 to-transparent animate-[scanHorizontal1_10s_linear_infinite]" 
-           style={{ top: '28%', left: 0, boxShadow: '0 0 10px rgba(196, 255, 77, 0.4)' }} 
-      />
-      <div className="hidden md:block landscape-hero-desktop absolute w-[250px] h-[1px] bg-gradient-to-r from-transparent via-[#c4ff4d]/35 to-transparent animate-[scanHorizontal2_12s_linear_infinite]" 
-           style={{ top: '48%', left: 0, boxShadow: '0 0 8px rgba(196, 255, 77, 0.3)', animationDelay: '4s' }} 
-      />
-      <div className="hidden md:block landscape-hero-desktop absolute w-[280px] h-[1px] bg-gradient-to-r from-transparent via-[#c4ff4d]/30 to-transparent animate-[scanHorizontal1_14s_linear_infinite]" 
-           style={{ top: '68%', left: 0, boxShadow: '0 0 9px rgba(196, 255, 77, 0.3)', animationDelay: '7s' }} 
-      />
-      <div className="hidden md:block landscape-hero-desktop absolute w-[200px] h-[1px] bg-gradient-to-r from-transparent via-[#c4ff4d]/25 to-transparent animate-[scanHorizontal2_16s_linear_infinite]" 
-           style={{ top: '82%', left: 0, boxShadow: '0 0 7px rgba(196, 255, 77, 0.2)', animationDelay: '10s' }} 
-      />
-      {/* Light Sweep Effect (also shown in landscape) */}
-      <div className="hidden md:block landscape-hero-desktop absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute w-1/3 h-[200%] -top-1/2 bg-gradient-to-r from-transparent via-white/5 to-transparent animate-[lightSweep_15s_ease-in-out_infinite]" 
-             style={{ animationDelay: '2s' }} 
-        />
-      </div>
-      <div className="hidden md:block landscape-hero-desktop absolute inset-0 bg-gradient-to-r from-black/80 via-black/30 to-transparent"></div>
-      <div className="hidden md:block landscape-hero-desktop absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/50"></div>
-      <div className="hidden md:block landscape-hero-desktop absolute inset-0 bg-gradient-to-l from-transparent via-black/10 to-black/60"></div>
-      
-      {/* Mobile: Bottom-aligned flex column | Desktop: Same compact layout */}
-      <div className="relative flex-1 flex flex-col justify-end pt-14 md:pt-20 pb-6 md:pb-6">
-        {/* Content wrapper */}
-        <div className="w-full">
-          <div className="max-w-7xl w-full mx-auto px-5 md:px-8">
-            <div className="w-full md:max-w-xl text-center md:text-left">
-              {/* Mobile only: glassmorphism panel */}
-              <div className="relative md:before:content-none before:absolute before:inset-0 before:-z-10 before:bg-black/50 before:blur-xl before:rounded-[32px] before:-m-4">
-                <div className="mb-4 md:mb-5">
-                  <span className="text-[10px] md:text-[9px] lg:text-[10px] uppercase tracking-[0.25em] font-light text-white/90 leading-none" style={{ textShadow: '0 0 20px rgba(255, 255, 255, 0.3)' }}>
-                    WHERE CREATIVITY MEETS REVENUE
-                  </span>
+      >
+        {cubeFaces.map((face, index) => {
+          const faceRotation = index * 90;
+          const translateZ = 160; 
+
+          return (
+            <Link key={face.id} href={face.route}>
+              <div 
+                className="absolute inset-0 bg-black/80 border border-white/10 rounded-2xl overflow-hidden cursor-pointer hover:border-[#c4ff4d]/50 transition-colors shadow-2xl backface-hidden"
+                style={{
+                  transform: `rotateY(${faceRotation}deg) translateZ(${translateZ + 40}px)`, 
+                }}
+              >
+                <img src={face.image} alt={face.title} className="w-full h-full object-cover opacity-50 group-hover/card:opacity-70 transition-opacity" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-6">
+                  <div className="flex items-center gap-3 mb-2">
+                    <div className="p-2 rounded-full bg-white/10 backdrop-blur-md">
+                      <face.icon className="w-4 h-4 text-white" />
+                    </div>
+                    <span className="text-[10px] uppercase font-mono tracking-widest text-[#c4ff4d]">Click Review</span>
+                  </div>
+                  <h3 className="text-2xl font-bold text-white leading-none">{face.title}</h3>
+                  <p className="text-lg text-white/60 font-light">{face.subtitle}</p>
                 </div>
-
-                <h1 className="mb-4 md:mb-4 text-white animate-[fadeSlideUp_0.8s_ease-out]" style={{ fontSize: 'clamp(2rem, 5vw, 2.5rem)' }}>
-                  <span className="block font-bold tracking-tight leading-[1.1]">
-                    AI-Powered Marketing,
-                  </span>
-                  <span className="block font-extralight italic font-serif tracking-tight leading-[1.1] mt-1">
-                    Agency That Drives Revenue
-                  </span>
-                </h1>
-
-                <p className="text-[15px] md:text-sm text-white/95 max-w-xl mx-auto md:mx-0 leading-relaxed mb-5 md:mb-4 font-light tracking-wide">
-                  Certified AI talent + Tailored Workflows + Measurable Growth = Less Cost. More Reach. More Sales
-                </p>
-
-                <div className="flex flex-col items-center md:items-start gap-3">
-                  <Button 
-                    size="lg" 
-                    className="rounded-full text-[15px] md:text-sm px-10 md:px-7 py-6 md:py-4 h-auto font-bold bg-[#c4ff4d] text-black hover:bg-[#b5ef3d] shadow-2xl hover:shadow-2xl transition-all border-0 hover-elevate"
-                    data-testid="button-start-talking"
-                  >
-                    Start Talking
-                  </Button>
-                </div>
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-20 bg-gradient-to-tr from-transparent via-white to-transparent transition-opacity duration-500 pointer-events-none" />
               </div>
-            </div>
-          </div>
-        </div>
+            </Link>
+          );
+        })}
+      </motion.div>
+      <div className="absolute bottom-10 w-[300px] h-[300px] bg-[#c4ff4d]/10 rounded-full blur-[100px] transform rotateX(90deg) pointer-events-none" />
+    </div>
+  );
+};
 
-        {/* Carousel - compact size on desktop */}
-        <div className="w-full mt-8 md:mt-5 relative">
-          <FloatingChipCarousel />
-          {/* Curved green wave below carousel */}
-          <div className="absolute -bottom-8 md:-bottom-12 left-0 right-0 pointer-events-none">
-            <svg 
-              viewBox="0 0 1440 120" 
-              className="w-full h-auto"
-              preserveAspectRatio="none"
-            >
-              <path 
-                d="M0,60 C360,120 720,0 1080,60 C1260,90 1380,80 1440,60 L1440,120 L0,120 Z" 
-                fill="#c4ff4d"
-                opacity="0.4"
-              />
-              <path 
-                d="M0,80 C320,40 640,100 960,60 C1200,30 1360,70 1440,50 L1440,120 L0,120 Z" 
-                fill="#c4ff4d"
-                opacity="0.25"
-              />
-            </svg>
+
+export default function HeroSection() {
+  const { scrollY } = useScroll();
+  const { x, y } = useMousePosition();
+  const mouseMask = useMotionTemplate`radial-gradient(600px circle at ${x}px ${y}px, rgba(196, 255, 77, 0.10), transparent 80%)`;
+
+  return (
+    <section className="relative h-[100dvh] bg-[#050505] overflow-hidden flex flex-col justify-between selection:bg-[#c4ff4d] selection:text-black">
+      
+      {/* 1. Base Grid */}
+      <div className="absolute inset-0 opacity-[0.05]" 
+           style={{ backgroundImage: 'linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)', backgroundSize: '60px 60px' }}>
+      </div>
+
+      {/* 2. Glow Effects */}
+      <motion.div 
+        className="absolute inset-0 opacity-100 pointer-events-none"
+        style={{ background: mouseMask }}
+      />
+      <div className="absolute top-[-20%] right-[-10%] w-[800px] h-[800px] bg-indigo-900/20 rounded-full blur-[150px] pointer-events-none" />
+      <div className="absolute bottom-[-10%] left-[-10%] w-[600px] h-[600px] bg-[#c4ff4d]/5 rounded-full blur-[150px] pointer-events-none" />
+
+      {/* --- CONTENT AREA (Takes up remaining space) --- */}
+      <div className="relative z-10 container mx-auto px-6 flex-grow flex flex-col justify-center">
+        
+        <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-20 h-full justify-center lg:pt-0 pt-10">
+          
+          {/* LEFT: TEXT */}
+          <div className="lg:w-1/2 flex flex-col items-start z-20 justify-center">
+             
+             {/* Status Badge */}
+             <div className="hidden md:flex items-center gap-3 mb-6 px-4 py-2 bg-white/5 border border-white/10 rounded-full backdrop-blur-md">
+               <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#c4ff4d] opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[#c4ff4d]"></span>
+               </span>
+               <span className="text-xs font-mono tracking-widest text-white/50 uppercase">Operational Status: Online 24/7</span>
+             </div>
+
+             {/* Headline */}
+             <h1 className="text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white tracking-tighter leading-[0.9] mb-4 md:mb-6">
+               <span className="block">CREATIVE</span>
+               <span className="block text-[#c4ff4d] font-serif italic font-light">&times; INTELLIGENCE</span>
+             </h1>
+
+             {/* Subheads */}
+             <div className="space-y-1 mb-6 hidden md:block">
+                <h2 className="text-sm md:text-lg font-bold tracking-[0.1em] text-white uppercase">
+                  WHERE CREATIVITY MEETS REVENUE
+                </h2>
+                <h3 className="text-xs md:text-base text-white/80 font-mono">
+                  AI-Powered Marketing Agency That Drives Revenue
+                </h3>
+             </div>
+
+             {/* Mission */}
+             <p className="text-sm md:text-lg text-white/60 font-light leading-relaxed max-w-xl mb-6 md:mb-8">
+               We create <span className="text-white font-medium">world-class brand experiences</span> for the ambitious and build <span className="text-white font-medium">AI systems</span> for your growth.
+             </p>
+
+             {/* Buttons */}
+             <div className="flex flex-wrap gap-3 md:gap-4 mb-4">
+                 <Button className="h-12 md:h-14 px-8 md:px-10 rounded-full bg-[#c4ff4d] hover:bg-[#b5f03a] text-black font-bold text-sm md:text-lg tracking-wide shadow-[0_0_30px_-10px_rgba(196,255,77,0.4)] transition-all hover:scale-105">
+                   Start Talking
+                 </Button>
+               <Link href="/services">
+                 <Button variant="ghost" className="h-12 md:h-14 px-6 md:px-8 rounded-full text-white border border-white/20 hover:bg-white/10 font-medium text-sm md:text-base">
+                   View Capabilities
+                 </Button>
+               </Link>
+             </div>
+          </div>
+
+          {/* RIGHT: CUBE (Desktop Only to save space) */}
+          <div className="lg:w-1/2 w-full flex justify-center lg:justify-end hidden lg:flex scale-75 xl:scale-100">
+             <HyperCube />
           </div>
         </div>
       </div>
+
+      {/* --- BOTTOM: CAROUSEL (Always visible) --- */}
+      <div className="relative z-20 w-full bg-gradient-to-t from-[#050505] via-[#050505] to-transparent pb-6 pt-2 select-none">
+          <div className="container mx-auto px-6 flex items-center justify-between mb-2">
+            <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-white/40">Active Deployments</span>
+            <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-[#c4ff4d] animate-pulse">Live</span>
+          </div>
+          <FloatingChipCarousel />
+      </div>
+
     </section>
-    </>
   );
 }
