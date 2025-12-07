@@ -4,11 +4,12 @@ import { Button } from "@/components/ui/button";
 import { motion, useTransform, useMotionValue } from "framer-motion";
 import FloatingChipCarousel from "./FloatingChipCarousel";
 import heroBackground from '@assets/d375f1d50d97b0de7953ca2cecd2b8aea2cd96b2-3524x1181_1761251957292.avif';
+import { Sparkles, Bot, TrendingUp } from 'lucide-react';
 
 function useMousePosition() {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
-  
+
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       const normalizedX = (e.clientX / window.innerWidth) * 2 - 1;
@@ -19,12 +20,12 @@ function useMousePosition() {
     window.addEventListener("mousemove", handleMouseMove);
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, [x, y]);
-  
+
   return { x, y };
 }
 
-// AI Grid and flowing lines canvas
-const AIGridCanvas = () => {
+// Snow + Tech Lines Canvas
+const AtmosphereCanvas = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -37,99 +38,26 @@ const AIGridCanvas = () => {
     let h = canvas.height = window.innerHeight;
     let animationId: number;
 
-    // Grid settings
-    const gridSize = 60;
-    
-    // Flowing particles (AI data flow effect)
-    const particles = Array.from({ length: 40 }, () => ({
+    const particles = Array.from({ length: 80 }, () => ({
       x: Math.random() * w,
       y: Math.random() * h,
-      vx: (Math.random() - 0.5) * 0.8,
-      vy: Math.random() * 0.5 + 0.2,
-      size: Math.random() * 2 + 1,
-      opacity: Math.random() * 0.5 + 0.2,
-      trail: [] as {x: number, y: number}[]
-    }));
-
-    // Horizontal flowing lines
-    const flowLines = Array.from({ length: 8 }, (_, i) => ({
-      y: (h / 8) * i + 50,
-      offset: Math.random() * 100,
-      speed: 0.3 + Math.random() * 0.5,
-      opacity: 0.1 + Math.random() * 0.15
+      vx: (Math.random() - 0.5) * 0.5,
+      vy: Math.random() * 1 + 0.5,
+      size: Math.random() * 2,
+      opacity: Math.random() * 0.5 + 0.1
     }));
 
     const animate = () => {
       ctx.clearRect(0, 0, w, h);
 
-      // Draw subtle grid
-      ctx.strokeStyle = 'rgba(196, 255, 77, 0.06)';
-      ctx.lineWidth = 1;
-      
-      // Vertical lines
-      for (let x = 0; x < w; x += gridSize) {
-        ctx.beginPath();
-        ctx.moveTo(x, 0);
-        ctx.lineTo(x, h);
-        ctx.stroke();
-      }
-      
-      // Horizontal lines
-      for (let y = 0; y < h; y += gridSize) {
-        ctx.beginPath();
-        ctx.moveTo(0, y);
-        ctx.lineTo(w, y);
-        ctx.stroke();
-      }
-
-      // Draw flowing horizontal lines (AI data streams)
-      flowLines.forEach(line => {
-        line.offset += line.speed;
-        if (line.offset > w) line.offset = -200;
-        
-        const gradient = ctx.createLinearGradient(line.offset - 100, 0, line.offset + 200, 0);
-        gradient.addColorStop(0, 'rgba(196, 255, 77, 0)');
-        gradient.addColorStop(0.5, `rgba(196, 255, 77, ${line.opacity})`);
-        gradient.addColorStop(1, 'rgba(196, 255, 77, 0)');
-        
-        ctx.strokeStyle = gradient;
-        ctx.lineWidth = 1;
-        ctx.beginPath();
-        ctx.moveTo(line.offset - 100, line.y);
-        ctx.lineTo(line.offset + 200, line.y);
-        ctx.stroke();
-      });
-
-      // Draw flowing particles (snow + data dots)
       particles.forEach(p => {
         p.y += p.vy;
         p.x += p.vx;
-        
-        // Store trail
-        p.trail.push({x: p.x, y: p.y});
-        if (p.trail.length > 5) p.trail.shift();
-        
-        if (p.y > h) { 
-          p.y = -10; 
-          p.x = Math.random() * w;
-          p.trail = [];
-        }
+
+        if (p.y > h) { p.y = -10; p.x = Math.random() * w; }
         if (p.x < 0) p.x = w;
         if (p.x > w) p.x = 0;
 
-        // Draw trail
-        if (p.trail.length > 1) {
-          ctx.strokeStyle = `rgba(255, 255, 255, ${p.opacity * 0.3})`;
-          ctx.lineWidth = p.size * 0.5;
-          ctx.beginPath();
-          ctx.moveTo(p.trail[0].x, p.trail[0].y);
-          for (let i = 1; i < p.trail.length; i++) {
-            ctx.lineTo(p.trail[i].x, p.trail[i].y);
-          }
-          ctx.stroke();
-        }
-
-        // Draw particle
         ctx.fillStyle = `rgba(255, 255, 255, ${p.opacity})`;
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
@@ -157,134 +85,146 @@ const AIGridCanvas = () => {
 
 export default function HeroSection() {
   const { x, y } = useMousePosition();
-  const moveBackground = useTransform(x, [-1, 1], [-10, 10]);
+  const moveBackground = useTransform(x, [-1, 1], [-15, 15]);
+  const moveContent = useTransform(x, [-1, 1], [5, -5]);
 
   return (
-    <section className="relative min-h-screen bg-black overflow-hidden flex flex-col selection:bg-[#c4ff4d] selection:text-black">
+    <section className="relative h-[100dvh] bg-black overflow-hidden flex flex-col justify-between selection:bg-[#c4ff4d] selection:text-black">
 
-      {/* Background image - Bright and visible */}
+      {/* --- BACKGROUND LAYER --- */}
       <motion.div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0 scale-110"
         style={{
           backgroundImage: `url(${heroBackground})`,
           x: moveBackground,
-          y: useTransform(y, [-1, 1], [-10, 10]),
+          y: useTransform(y, [-1, 1], [-15, 15]),
         }}
       />
 
-      {/* AI Grid and flowing lines */}
-      <AIGridCanvas />
+      {/* --- ATMOSPHERE LAYERS --- */}
+      <AtmosphereCanvas />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent z-[2]" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30 z-[2]" />
 
-      {/* Strong left gradient for text readability - darker near text */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent pointer-events-none z-[2]" />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20 pointer-events-none z-[2]" />
-
-      {/* Main content - positioned lower */}
-      <div className="relative z-10 flex-grow flex items-center">
-        <div className="container mx-auto px-6 pt-40 sm:pt-44 pb-8">
-          
-          {/* Left aligned content */}
-          <div className="max-w-2xl">
-            
-            {/* WHERE CREATIVITY MEETS REVENUE */}
-            <motion.p
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 }}
-              className="text-[#c4ff4d] text-xs sm:text-sm tracking-[0.25em] uppercase mb-4 sm:mb-6 font-semibold"
-            >
+      {/* --- MAIN CONTENT (Centered Vertical) --- */}
+      <div className="relative z-10 flex-grow flex flex-col justify-center px-6 sm:px-12 md:px-20 lg:px-32">
+        <motion.div
+          style={{ x: moveContent }}
+          className="max-w-4xl"
+        >
+          {/* Tagline */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.1 }}
+            className="flex items-center gap-3 mb-6"
+          >
+            <div className="h-[1px] w-12 bg-[#c4ff4d]" />
+            <span className="text-[#c4ff4d] text-xs sm:text-sm font-bold tracking-[0.3em] uppercase">
               Where Creativity Meets Revenue
-            </motion.p>
+            </span>
+          </motion.div>
 
-            {/* AI-Powered Marketing, */}
+          {/* Headline Block (Tight Spacing) */}
+          <div className="mb-8">
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="text-4xl sm:text-5xl md:text-6xl font-bold text-white leading-tight mb-1 sm:mb-2 drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]"
+              className="text-5xl sm:text-6xl md:text-8xl font-bold text-white leading-[0.9] tracking-tight drop-shadow-2xl"
             >
-              AI-Powered Marketing,
+              AI-Powered <br /> Marketing.
             </motion.h1>
-
-            {/* Agency That Drives Revenue - Italic */}
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-              className="text-4xl sm:text-5xl md:text-6xl font-serif italic text-white leading-tight mb-6 sm:mb-8 drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]"
-            >
-              Agency That Drives Revenue
-            </motion.h2>
-
-            {/* Description - Updated text */}
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
-              className="text-white/90 text-base sm:text-lg md:text-xl leading-relaxed mb-8 max-w-xl font-medium italic"
-            >
-              AI-Certified Talent + Custom AI Workflows + Ruthless Automation + Guaranteed Results = More Effective. Lower Cost. More Sales.
-            </motion.p>
-
-            {/* Start Talking Button */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
-              className="mb-6"
-            >
-              <Link href="/contact">
-                <Button 
-                  className="h-12 sm:h-14 px-8 sm:px-10 rounded-full bg-[#c4ff4d] text-black font-bold text-sm sm:text-base hover:bg-[#d4ff6d] hover:scale-105 transition-all shadow-lg"
-                  data-testid="button-start-talking"
-                >
-                  Start Talking
-                </Button>
-              </Link>
-            </motion.div>
-
-            {/* Trust badges */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6 }}
-              className="inline-flex items-center gap-2 px-4 py-2 bg-black/60 backdrop-blur-sm rounded-full border border-white/10"
-            >
-              <span className="text-white/80 text-xs sm:text-sm font-medium">Malta's #1</span>
-              <span className="text-white/40">•</span>
-              <span className="text-white/80 text-xs sm:text-sm font-medium">AI Employees Available</span>
-              <span className="text-white/40">•</span>
-              <span className="text-white/80 text-xs sm:text-sm font-medium">Intelligence-Powered Social Media</span>
-            </motion.div>
-
           </div>
+
+          {/* The Math Equation */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+            className="mb-10 pl-1 border-l-2 border-[#c4ff4d]/30"
+          >
+            <p className="text-white/80 text-lg sm:text-xl md:text-2xl font-light italic leading-relaxed pl-6">
+              Certified AI Talent + Tailored Workflows + Measurable Growth = <br />
+              <span className="text-white font-bold not-italic">Less Cost. More Reach. More Sales.</span>
+            </p>
+          </motion.div>
+
+          {/* CTA + Service Graphics */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+            className="flex flex-col sm:flex-row items-start sm:items-center gap-8"
+          >
+            {/* Main Button */}
+            <Link href="/contact">
+              <Button
+                className="h-14 px-10 rounded-full bg-[#c4ff4d] text-black font-bold text-lg hover:bg-[#b5f03a] hover:scale-105 transition-all shadow-[0_0_20px_rgba(196,255,77,0.3)]"
+                data-testid="button-start-talking"
+              >
+                Start Talking
+              </Button>
+            </Link>
+
+            {/* Graphics Leading to Services */}
+            <div className="flex items-center gap-6">
+              <Link href="/services/social-media-creative-management">
+                <div className="group flex flex-col items-center gap-1 cursor-pointer">
+                  <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center border border-white/20 group-hover:border-[#c4ff4d] group-hover:bg-[#c4ff4d]/10 transition-all">
+                    <Sparkles className="w-5 h-5 text-white group-hover:text-[#c4ff4d]" />
+                  </div>
+                  <span className="text-[10px] uppercase font-bold text-white/60 group-hover:text-white">Creative</span>
+                </div>
+              </Link>
+
+              <div className="w-[1px] h-8 bg-white/10" />
+
+              <Link href="/services/ai-consulting">
+                <div className="group flex flex-col items-center gap-1 cursor-pointer">
+                  <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center border border-white/20 group-hover:border-[#c4ff4d] group-hover:bg-[#c4ff4d]/10 transition-all">
+                    <Bot className="w-5 h-5 text-white group-hover:text-[#c4ff4d]" />
+                  </div>
+                  <span className="text-[10px] uppercase font-bold text-white/60 group-hover:text-white">AI Ops</span>
+                </div>
+              </Link>
+
+              <div className="w-[1px] h-8 bg-white/10" />
+
+              <Link href="/services/lead-generation">
+                <div className="group flex flex-col items-center gap-1 cursor-pointer">
+                  <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center border border-white/20 group-hover:border-[#c4ff4d] group-hover:bg-[#c4ff4d]/10 transition-all">
+                    <TrendingUp className="w-5 h-5 text-white group-hover:text-[#c4ff4d]" />
+                  </div>
+                  <span className="text-[10px] uppercase font-bold text-white/60 group-hover:text-white">Growth</span>
+                </div>
+              </Link>
+            </div>
+          </motion.div>
+        </motion.div>
+      </div>
+
+      {/* --- FOOTER SECTION: Green Wave + Carousel --- */}
+      <div className="relative z-10 w-full">
+        {/* Green Wave */}
+        <div className="absolute bottom-0 left-0 right-0 h-[120px] pointer-events-none">
+          <svg viewBox="0 0 1440 120" className="w-full h-full" preserveAspectRatio="none">
+            <path
+              d="M0,40 C320,80 1120,0 1440,40 L1440,120 L0,120 Z"
+              fill="#c4ff4d"
+            />
+            <path
+              d="M0,45 C320,85 1120,5 1440,45 L1440,120 L0,120 Z"
+              fill="#000"
+              opacity="0.1"
+            />
+          </svg>
         </div>
-      </div>
 
-      {/* Floating Chip Carousel - brought up */}
-      <div className="relative z-20 w-full pb-2">
-        <FloatingChipCarousel />
-      </div>
-
-      {/* Curved green wave with black border on top - brought up */}
-      <div className="relative z-10 w-full -mt-2">
-        <svg 
-          viewBox="0 0 1440 100" 
-          className="w-full h-auto"
-          preserveAspectRatio="none"
-        >
-          {/* Black border/shadow on top of wave */}
-          <path 
-            d="M0,50 C360,90 1080,10 1440,50 L1440,100 L0,100 Z" 
-            fill="rgba(0,0,0,0.3)"
-            transform="translate(0, -4)"
-          />
-          {/* Main green wave */}
-          <path 
-            d="M0,50 C360,90 1080,10 1440,50 L1440,100 L0,100 Z" 
-            fill="#c4ff4d"
-          />
-        </svg>
+        {/* Carousel Overlaying the Green Block */}
+        <div className="relative z-20 pb-4 pt-10">
+          <FloatingChipCarousel />
+        </div>
       </div>
 
     </section>
