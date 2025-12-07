@@ -114,7 +114,7 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="text-white/60 text-xs sm:text-sm tracking-[0.25em] uppercase mb-4 sm:mb-6"
+              className="text-white/90 text-sm sm:text-base tracking-[0.2em] uppercase mb-4 sm:mb-6 font-medium drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]"
             >
               Where Creativity Meets Revenue
             </motion.p>
@@ -144,7 +144,7 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
-              className="text-white/70 text-sm sm:text-base md:text-lg leading-relaxed mb-8 sm:mb-10 max-w-xl"
+              className="text-white/95 text-base sm:text-lg md:text-xl leading-relaxed mb-8 sm:mb-10 max-w-xl font-medium drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]"
             >
               Certified AI talent + Tailored Workflows + Measurable Growth = Less Cost. More Reach. More Sales.
             </motion.p>
