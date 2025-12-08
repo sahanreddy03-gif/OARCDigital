@@ -54,18 +54,19 @@ function StraightCarousel() {
       let singleSetWidth = 0;
       for (let i = 0; i < services.length; i++) {
         const child = children[i] as HTMLElement;
-        singleSetWidth += child.offsetWidth + 16;
+        singleSetWidth += child.offsetWidth + 12;
       }
       contentWidthRef.current = singleSetWidth;
+      positionRef.current = singleSetWidth;
     }
     
     const speed = 1.2;
     
     const animate = () => {
-      positionRef.current += speed;
+      positionRef.current -= speed;
       
-      if (positionRef.current >= contentWidthRef.current) {
-        positionRef.current = 0;
+      if (positionRef.current <= 0) {
+        positionRef.current = contentWidthRef.current;
       }
       
       scrollContainer.style.transform = `translateX(-${positionRef.current}px)`;
@@ -85,7 +86,7 @@ function StraightCarousel() {
     <div className="w-full overflow-hidden" style={{ maxWidth: '100vw' }}>
       <div 
         ref={scrollRef}
-        className="flex whitespace-nowrap gap-4"
+        className="flex whitespace-nowrap gap-3"
         style={{ 
           willChange: 'transform',
         }}
@@ -96,8 +97,8 @@ function StraightCarousel() {
             className="inline-flex flex-shrink-0"
             data-testid={`carousel-chip-${index}`}
           >
-            <div className="group flex items-center gap-3 px-4 py-3 bg-white/95 backdrop-blur-sm rounded-xl shadow-lg hover:shadow-2xl hover:scale-105 hover:bg-white transition-all duration-300 cursor-pointer border border-white/20 hover:border-[#c4ff4d]/30">
-              <div className="w-[70px] h-[70px] rounded-xl overflow-hidden flex-shrink-0 bg-zinc-100 ring-2 ring-white/50 group-hover:ring-[#c4ff4d]/40 transition-all duration-300">
+            <div className="group flex items-center gap-2 sm:gap-3 px-2.5 sm:px-3 py-2 sm:py-2.5 bg-white/95 backdrop-blur-sm rounded-lg sm:rounded-xl shadow-lg hover:shadow-2xl hover:scale-105 hover:bg-white transition-all duration-300 cursor-pointer border border-white/20 hover:border-[#c4ff4d]/30">
+              <div className="w-[56px] h-[56px] sm:w-[72px] sm:h-[72px] rounded-lg sm:rounded-xl overflow-hidden flex-shrink-0 bg-zinc-100 ring-1 ring-white/30 group-hover:ring-[#c4ff4d]/40 transition-all duration-300">
                 <img 
                   src={service.image} 
                   alt={service.text}
@@ -105,7 +106,7 @@ function StraightCarousel() {
                   loading="lazy"
                 />
               </div>
-              <span className="text-sm font-bold text-gray-900 group-hover:text-zinc-950 pr-2 whitespace-nowrap transition-colors duration-300">
+              <span className="text-xs sm:text-sm font-bold text-gray-900 group-hover:text-zinc-950 pr-1 sm:pr-2 whitespace-nowrap transition-colors duration-300">
                 {service.text}
               </span>
             </div>
