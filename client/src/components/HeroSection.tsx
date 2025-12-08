@@ -128,7 +128,7 @@ export default function HeroSection() {
       {/* Snow particles */}
       <SnowCanvas />
 
-      {/* Strong dark gradient overlay on left for text readability - Desktop */}
+      {/* Strong dark gradient overlay on left for text readability */}
       <div 
         className="absolute inset-0 pointer-events-none z-[2]"
         style={{
@@ -143,32 +143,35 @@ export default function HeroSection() {
         }}
       />
 
-      {/* Main content - Full width on mobile for maximum readability */}
+      {/* Main content - Tighter left padding, better vertical distribution */}
       <div className="relative z-10 flex-grow flex items-center">
-        <div className="w-full px-3 sm:px-8 lg:px-12 xl:px-20 sm:container sm:mx-auto pt-14 sm:pt-24 md:pt-28 lg:pt-32 pb-4 sm:pb-6">
+        <div className="w-full pl-2 pr-3 sm:pl-4 sm:pr-6 lg:pl-8 xl:pl-12 sm:container sm:mx-auto pt-12 sm:pt-24 md:pt-28 lg:pt-32 pb-2 sm:pb-6">
           
-          {/* Left aligned content - Full width mobile, expanded desktop */}
+          {/* Left aligned content - Closer to edge */}
           <div className="w-full sm:max-w-4xl lg:max-w-5xl">
             
-            {/* WHERE CREATIVITY MEETS REVENUE - Premium tracking */}
+            {/* WHERE CREATIVITY MEETS REVENUE */}
             <motion.p
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.05 }}
-              className="text-white/90 text-sm sm:text-base tracking-[0.2em] sm:tracking-[0.25em] uppercase mb-3 sm:mb-5 font-medium"
-              style={{ textShadow: '0 2px 10px rgba(0,0,0,0.9)' }}
+              className="text-white/90 tracking-[0.15em] sm:tracking-[0.25em] uppercase mb-2 sm:mb-4 font-medium"
+              style={{ 
+                fontSize: 'clamp(0.8rem, 2.5vw, 1rem)',
+                textShadow: '0 2px 10px rgba(0,0,0,0.9)' 
+              }}
             >
               Where <span className="text-[#c4ff4d]">Creativity</span> Meets Revenue
             </motion.p>
 
-            {/* Main Headline - Premium Typography - Bigger on mobile */}
+            {/* Main Headline - Slightly smaller on desktop, bigger on mobile */}
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="font-bold text-white mb-4 sm:mb-6"
+              className="font-bold text-white mb-3 sm:mb-5"
               style={{ 
-                fontSize: 'clamp(1.55rem, 6.5vw, 5rem)',
+                fontSize: 'clamp(1.75rem, 6vw, 4.25rem)',
                 lineHeight: '1.1',
                 letterSpacing: '-0.02em',
                 textShadow: '0 4px 20px rgba(0,0,0,0.8)'
@@ -180,17 +183,17 @@ export default function HeroSection() {
               </span>
             </motion.h1>
 
-            {/* Taglines with Color Accents - Visual Hierarchy */}
+            {/* Taglines with Color Accents - Bigger on mobile */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="mb-4 sm:mb-6 space-y-1"
+              className="mb-3 sm:mb-5 space-y-0.5"
             >
               <p 
                 className="font-semibold text-white/90"
                 style={{ 
-                  fontSize: 'clamp(1.15rem, 3.5vw, 1.75rem)',
+                  fontSize: 'clamp(1.1rem, 3.2vw, 1.65rem)',
                   lineHeight: '1.35',
                   textShadow: '0 2px 12px rgba(0,0,0,0.9)'
                 }}
@@ -200,7 +203,7 @@ export default function HeroSection() {
               <p 
                 className="font-medium text-white/70 italic"
                 style={{ 
-                  fontSize: 'clamp(1.15rem, 3.5vw, 1.75rem)',
+                  fontSize: 'clamp(1.1rem, 3.2vw, 1.65rem)',
                   lineHeight: '1.35',
                   textShadow: '0 2px 12px rgba(0,0,0,0.9)'
                 }}
@@ -209,14 +212,14 @@ export default function HeroSection() {
               </p>
             </motion.div>
 
-            {/* Subtitle - Premium styling */}
+            {/* Subtitle - Bigger on both mobile and desktop */}
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="text-white/70 max-w-2xl font-medium mb-5 sm:mb-8"
+              className="text-white/75 max-w-2xl font-medium mb-4 sm:mb-6"
               style={{ 
-                fontSize: 'clamp(1rem, 2.5vw, 1.15rem)',
+                fontSize: 'clamp(1.05rem, 2.5vw, 1.25rem)',
                 lineHeight: '1.45',
                 textShadow: '0 2px 8px rgba(0,0,0,0.9)'
               }}
@@ -229,9 +232,9 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
-              className="flex flex-col gap-4 sm:gap-5"
+              className="flex flex-col gap-3 sm:gap-4"
             >
-              {/* Start Talking Button - Premium size */}
+              {/* Start Talking Button */}
               <Link href="/contact">
                 <Button 
                   className="h-12 sm:h-14 px-8 sm:px-10 rounded-full bg-[#c4ff4d] text-black font-bold text-base sm:text-lg hover:bg-[#d4ff6d] hover:scale-105 transition-all shadow-xl"
@@ -241,7 +244,7 @@ export default function HeroSection() {
                 </Button>
               </Link>
 
-              {/* Glass 3D Service Buttons - Hidden on mobile for breathing space */}
+              {/* Glass 3D Service Buttons - Hidden on mobile */}
               <div className="hidden sm:flex flex-wrap gap-3">
                 <GlassServiceButton 
                   icon={Palette} 
@@ -268,13 +271,13 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* Floating Chip Carousel - Positioned higher */}
-      <div className="relative z-20 w-full -mt-4 sm:-mt-6 pb-2 sm:pb-3">
+      {/* Floating Chip Carousel - Much higher on mobile */}
+      <div className="relative z-20 w-full -mt-16 sm:-mt-6 pb-1 sm:pb-3">
         <FloatingChipCarousel />
       </div>
 
-      {/* Curved green wave - moved up */}
-      <div className="relative z-10 w-full -mt-8 sm:-mt-10 md:-mt-12">
+      {/* Curved green wave */}
+      <div className="relative z-10 w-full -mt-10 sm:-mt-10 md:-mt-12">
         <svg 
           viewBox="0 0 1440 80" 
           className="w-full h-auto"
