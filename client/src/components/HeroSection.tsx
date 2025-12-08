@@ -1,8 +1,18 @@
 import { useEffect, useState } from "react";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
+import { Palette, Bot, Rocket } from "lucide-react";
 import FloatingChipCarousel from "./FloatingChipCarousel";
 import heroBackground from '@assets/d375f1d50d97b0de7953ca2cecd2b8aea2cd96b2-3524x1181_1761251957292.avif';
+
+const MobileGlassCard = ({ icon: Icon, label, href }: { icon: typeof Palette; label: string; href: string }) => (
+  <Link href={href}>
+    <div className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 transition-all">
+      <Icon className="w-3.5 h-3.5 text-white" />
+      <span className="text-[11px] font-semibold text-white/90">{label}</span>
+    </div>
+  </Link>
+);
 
 export default function HeroSection() {
   const [scrollY, setScrollY] = useState(0);
@@ -183,20 +193,18 @@ export default function HeroSection() {
                     </span>
                   </div>
 
-                  {/* Headline - Much bigger on desktop */}
+                  {/* Headline - Fixed size on mobile, bigger on desktop */}
                   <h1 
                     className="mb-4 md:mb-6 lg:mb-8 text-white animate-[fadeSlideUp_0.8s_ease-out]" 
                     data-testid="text-hero-headline"
                   >
                     <span 
-                      className="block font-bold tracking-tight leading-[1.1]"
-                      style={{ fontSize: 'clamp(2rem, 5.5vw, 4.5rem)' }}
+                      className="block font-bold tracking-tight leading-[1.1] text-[2rem] md:text-[clamp(2.5rem,5.5vw,4.5rem)]"
                     >
                       AI-Native Marketing,
                     </span>
                     <span 
-                      className="block font-extralight italic font-serif tracking-tight leading-[1.1] mt-1 md:mt-2"
-                      style={{ fontSize: 'clamp(2rem, 5.5vw, 4.5rem)' }}
+                      className="block font-extralight italic font-serif tracking-tight leading-[1.1] mt-1 md:mt-2 text-[2rem] md:text-[clamp(2.5rem,5.5vw,4.5rem)]"
                     >
                       Agency That Drives <span className="text-[#ff914d] font-semibold not-italic">Revenue</span>
                     </span>
@@ -204,30 +212,42 @@ export default function HeroSection() {
 
                   {/* Subtitle - Bigger on desktop */}
                   <p 
-                    className="text-white/95 max-w-xl md:max-w-2xl mx-auto md:mx-0 leading-relaxed mb-2 md:mb-3 font-light tracking-wide"
-                    style={{ fontSize: 'clamp(0.95rem, 1.8vw, 1.5rem)' }}
+                    className="text-white/95 max-w-xl md:max-w-2xl mx-auto md:mx-0 leading-relaxed mb-2 md:mb-3 font-light tracking-wide text-[15px] md:text-[clamp(1rem,1.8vw,1.5rem)]"
                   >
                     Certified AI talent + Tailored Workflows + Measurable Growth =
                   </p>
                   <p 
-                    className="text-white max-w-xl md:max-w-2xl mx-auto md:mx-0 leading-relaxed mb-5 md:mb-6 lg:mb-8 font-black tracking-wide"
-                    style={{ fontSize: 'clamp(1.1rem, 2.2vw, 1.75rem)' }}
+                    className="text-white max-w-xl md:max-w-2xl mx-auto md:mx-0 leading-tight mb-1 md:mb-2 font-black tracking-wide text-[1.1rem] md:text-[clamp(1.25rem,2.2vw,1.75rem)]"
                   >
-                    Less Cost. More Reach. More Sales. <span className="text-[#c4ff4d]">That's The OARC Advantage.</span>
+                    Less Cost. More Reach. More Sales.
+                  </p>
+                  <p 
+                    className="text-[#c4ff4d] max-w-xl md:max-w-2xl mx-auto md:mx-0 leading-tight mb-5 md:mb-6 lg:mb-8 font-bold tracking-wide text-[1rem] md:text-[clamp(1.1rem,1.8vw,1.5rem)]"
+                  >
+                    That's The OARC Advantage.
                   </p>
 
-                  {/* CTA Button - Bigger on desktop */}
-                  <div className="flex flex-col items-center md:items-start gap-3">
-                    <Link href="/contact">
-                      <Button 
-                        size="lg" 
-                        className="rounded-full px-10 md:px-12 lg:px-14 py-6 md:py-5 lg:py-6 h-auto font-bold bg-[#c4ff4d] text-black hover:bg-[#b5ef3d] shadow-2xl hover:shadow-2xl transition-all border-0 hover:scale-105"
-                        style={{ fontSize: 'clamp(0.95rem, 1.4vw, 1.35rem)' }}
-                        data-testid="button-start-talking"
-                      >
-                        Start Talking
-                      </Button>
-                    </Link>
+                  {/* CTA Section - Button + Glass Cards on Mobile */}
+                  <div className="flex flex-col items-center md:items-start gap-4">
+                    {/* Mobile: Button + Glass Cards in row */}
+                    <div className="flex flex-wrap items-center justify-center md:justify-start gap-3">
+                      <Link href="/contact">
+                        <Button 
+                          size="lg" 
+                          className="rounded-full px-8 md:px-12 lg:px-14 py-5 md:py-5 lg:py-6 h-auto font-bold bg-[#c4ff4d] text-black hover:bg-[#b5ef3d] shadow-2xl hover:shadow-2xl transition-all border-0 hover:scale-105 text-[15px] md:text-[clamp(0.95rem,1.4vw,1.35rem)]"
+                          data-testid="button-start-talking"
+                        >
+                          Start Talking
+                        </Button>
+                      </Link>
+                      
+                      {/* Glass Cards - Mobile only */}
+                      <div className="flex gap-2 md:hidden">
+                        <MobileGlassCard icon={Palette} label="Creative" href="/services" />
+                        <MobileGlassCard icon={Bot} label="AI" href="/services" />
+                        <MobileGlassCard icon={Rocket} label="Growth" href="/services" />
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
