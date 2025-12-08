@@ -155,7 +155,7 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.05 }}
-              className="text-white/90 tracking-[0.15em] sm:tracking-[0.25em] uppercase mb-2 sm:mb-5 font-medium"
+              className="text-white/90 tracking-[0.15em] sm:tracking-[0.25em] uppercase mb-4 sm:mb-6 font-medium"
               style={{ 
                 fontSize: 'clamp(0.75rem, 2.5vw, 1rem)',
                 textShadow: '0 2px 10px rgba(0,0,0,0.9)' 
@@ -169,32 +169,32 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="font-bold text-white mb-3 sm:mb-6"
+              className="font-bold text-white mb-6 sm:mb-8"
               style={{ 
                 fontSize: 'clamp(1.8rem, 6vw, 4.25rem)',
-                lineHeight: '1.08',
+                lineHeight: '1.15',
                 letterSpacing: '-0.02em',
                 textShadow: '0 4px 20px rgba(0,0,0,0.8)'
               }}
             >
               <span className="block whitespace-nowrap">AI-Native Marketing</span>
-              <span className="block font-serif italic font-semibold whitespace-nowrap">
+              <span className="block font-serif italic font-semibold whitespace-nowrap mt-1">
                 Agency that drives <span className="text-[#ff914d]">Revenue</span>
               </span>
             </motion.h1>
 
-            {/* Taglines with Color Accents */}
+            {/* Taglines with Color Accents - Good spacing */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="mb-3 sm:mb-6 space-y-1"
+              className="mb-6 sm:mb-8 space-y-3 sm:space-y-4"
             >
               <p 
                 className="font-semibold text-white/90"
                 style={{ 
                   fontSize: 'clamp(1.05rem, 3.2vw, 1.65rem)',
-                  lineHeight: '1.35',
+                  lineHeight: '1.4',
                   textShadow: '0 2px 12px rgba(0,0,0,0.9)'
                 }}
               >
@@ -204,7 +204,7 @@ export default function HeroSection() {
                 className="font-medium text-white/70 italic"
                 style={{ 
                   fontSize: 'clamp(1.05rem, 3.2vw, 1.65rem)',
-                  lineHeight: '1.35',
+                  lineHeight: '1.4',
                   textShadow: '0 2px 12px rgba(0,0,0,0.9)'
                 }}
               >
@@ -217,10 +217,10 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="text-white/75 max-w-2xl font-medium mb-4 sm:mb-8"
+              className="text-white/75 max-w-2xl font-medium mb-6 sm:mb-10"
               style={{ 
                 fontSize: 'clamp(0.95rem, 2.5vw, 1.25rem)',
-                lineHeight: '1.45',
+                lineHeight: '1.5',
                 textShadow: '0 2px 8px rgba(0,0,0,0.9)'
               }}
             >
