@@ -24,142 +24,119 @@ export default function OARCBrandSection() {
     return () => observer.disconnect();
   }, []);
 
-  const oarcWords = [
-    { letter: "O", word: "ptimised", color: "#ffffff" },
-    { letter: "A", word: "I", color: "#23AACA" },
-    { letter: "R", word: "evenue", color: "#ffffff" },
-    { letter: "C", word: "reativity", color: "#c4ff4d" },
+  // Letter glow colors - subtle and premium
+  const letters = [
+    { letter: "O", glowColor: "rgba(255,179,102,0.25)", textGlow: "rgba(255,179,102,0.4)" },  // warm orange
+    { letter: "A", glowColor: "rgba(0,209,193,0.25)", textGlow: "rgba(0,209,193,0.4)" },      // teal
+    { letter: "R", glowColor: "rgba(245,225,164,0.25)", textGlow: "rgba(245,225,164,0.4)" }, // champagne/gold
+    { letter: "C", glowColor: "rgba(207,255,102,0.25)", textGlow: "rgba(207,255,102,0.4)" }, // lime
   ];
 
   return (
     <section
       ref={sectionRef}
-      className="relative py-20 md:py-28 lg:py-32 overflow-hidden"
+      className="relative pt-16 md:pt-20 pb-12 md:pb-16 overflow-hidden"
       style={{ 
-        background: 'linear-gradient(180deg, #0a0a0a 0%, #0f0f0f 100%)'
+        background: 'linear-gradient(180deg, #050505 0%, #0a0a0a 20%, #111111 50%, #1a1a1a 80%, #f5f5f5 100%)'
       }}
       data-testid="oarc-brand-section"
     >
-      {/* Subtle animated grid background */}
-      <div 
-        className="absolute inset-0 opacity-[0.02]"
-        style={{
-          backgroundImage: `
-            linear-gradient(rgba(255, 255, 255, 0.5) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255, 255, 255, 0.5) 1px, transparent 1px)
-          `,
-          backgroundSize: '80px 80px'
-        }}
-      />
-
-      {/* Ambient glow effects */}
-      <motion.div 
-        className="absolute top-0 left-1/4 w-[600px] h-[400px] rounded-full blur-[150px] pointer-events-none"
-        style={{ background: 'radial-gradient(circle, rgba(35,170,202,0.08) 0%, transparent 70%)' }}
-        animate={prefersReducedMotion ? {} : { opacity: [0.5, 0.8, 0.5] }}
-        transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
-      />
-      <motion.div 
-        className="absolute bottom-0 right-1/4 w-[500px] h-[350px] rounded-full blur-[120px] pointer-events-none"
-        style={{ background: 'radial-gradient(circle, rgba(196,255,77,0.06) 0%, transparent 70%)' }}
-        animate={prefersReducedMotion ? {} : { opacity: [0.4, 0.7, 0.4] }}
-        transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
-      />
-
-      <div className="container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl relative z-10">
+      <div className="container mx-auto px-6 md:px-8 lg:px-12 max-w-5xl relative z-10">
         
-        {/* Main OARC Acronym Display */}
-        <div className="text-center mb-10 md:mb-14">
-          {/* The OARC letters with full words */}
-          <div 
-            className={`flex flex-col md:flex-row items-center justify-center gap-2 md:gap-4 lg:gap-6 transition-all duration-1000 ${
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-            }`}
-          >
-            {oarcWords.map((item, index) => (
+        {/* OARC Letters - Always on one line */}
+        <div className="text-center mb-6 md:mb-8">
+          <div className="flex items-center justify-center gap-3 sm:gap-4 md:gap-8 lg:gap-12">
+            {letters.map((item, index) => (
               <motion.div
                 key={index}
-                className="flex items-baseline"
-                initial={prefersReducedMotion ? {} : { opacity: 0, y: 20 }}
-                animate={isVisible && !prefersReducedMotion ? { opacity: 1, y: 0 } : {}}
-                transition={{ delay: index * 0.15, duration: 0.6 }}
+                className="relative"
+                initial={prefersReducedMotion ? { opacity: 1 } : { opacity: 0, scale: 0.9 }}
+                animate={isVisible ? { opacity: 1, scale: 1 } : {}}
+                transition={{ 
+                  delay: index * 0.12, 
+                  duration: 0.5,
+                  ease: [0.25, 0.46, 0.45, 0.94]
+                }}
               >
-                {/* Large initial letter */}
-                <span 
-                  className="font-black"
+                {/* Subtle glow behind letter */}
+                <motion.div 
+                  className="absolute inset-0 rounded-full blur-[40px] md:blur-[60px] -z-10"
                   style={{ 
-                    fontSize: 'clamp(4rem, 12vw, 8rem)',
-                    color: item.color,
+                    background: `radial-gradient(circle, ${item.glowColor} 0%, transparent 70%)`,
+                    transform: 'scale(2.5)'
+                  }}
+                  animate={isVisible && !prefersReducedMotion ? { 
+                    opacity: [0.6, 1, 0.6],
+                    scale: [2.3, 2.6, 2.3]
+                  } : {}}
+                  transition={{ 
+                    duration: 3, 
+                    repeat: Infinity, 
+                    ease: 'easeInOut',
+                    delay: index * 0.3
+                  }}
+                />
+                
+                {/* The letter */}
+                <span 
+                  className="font-bold text-white/95 relative z-10"
+                  style={{ 
+                    fontSize: 'clamp(2.8rem, 10vw, 6rem)',
                     lineHeight: 1,
-                    textShadow: item.color === '#c4ff4d' 
-                      ? '0 0 40px rgba(196,255,77,0.3)' 
-                      : item.color === '#23AACA'
-                        ? '0 0 40px rgba(35,170,202,0.3)'
-                        : 'none'
+                    textShadow: `0 0 30px ${item.textGlow}`,
+                    letterSpacing: '-0.02em'
                   }}
                   data-testid={`oarc-letter-${item.letter}`}
                 >
                   {item.letter}
                 </span>
-                {/* Rest of the word - smaller */}
-                <span 
-                  className="font-bold tracking-wide"
-                  style={{ 
-                    fontSize: 'clamp(1.2rem, 3vw, 2.2rem)',
-                    color: item.color,
-                    opacity: 0.9,
-                    letterSpacing: '0.02em'
-                  }}
-                >
-                  {item.word}
-                </span>
-                
-                {/* Separator dot between words (not after last) */}
-                {index < oarcWords.length - 1 && (
-                  <span 
-                    className="hidden md:inline-block mx-3 lg:mx-4"
-                    style={{ 
-                      width: '6px', 
-                      height: '6px', 
-                      borderRadius: '50%',
-                      backgroundColor: 'rgba(255,255,255,0.2)',
-                      marginBottom: '0.5rem'
-                    }}
-                  />
-                )}
               </motion.div>
             ))}
           </div>
         </div>
 
-        {/* Tagline */}
+        {/* Subheading - Optimised · AI · Revenue Intelligence · Creativity */}
         <motion.div
-          className={`text-center transition-all duration-1000 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-          }`}
-          style={{ transitionDelay: '400ms' }}
+          className="text-center mb-5 md:mb-6"
+          initial={prefersReducedMotion ? { opacity: 1 } : { opacity: 0, y: 6 }}
+          animate={isVisible ? { opacity: 1, y: 0 } : {}}
+          transition={{ delay: 0.5, duration: 0.5, ease: 'easeOut' }}
         >
           <p 
-            className="text-zinc-400 text-base md:text-lg lg:text-xl max-w-2xl mx-auto leading-relaxed"
-            data-testid="oarc-tagline"
+            className="text-[#CCCCCC] tracking-[0.15em] md:tracking-[0.2em] uppercase"
+            style={{ fontSize: 'clamp(0.7rem, 1.5vw, 0.9rem)' }}
           >
-            Where cutting-edge AI meets creative excellence to drive measurable revenue growth.
+            Optimised · AI · Revenue Intelligence · Creativity
           </p>
         </motion.div>
 
-        {/* Subtle horizontal line accent */}
+        {/* Main Tagline */}
         <motion.div
-          className={`flex items-center justify-center mt-10 md:mt-14 gap-4 transition-all duration-1000 ${
-            isVisible ? "opacity-100" : "opacity-0"
-          }`}
-          style={{ transitionDelay: '600ms' }}
+          className="text-center mb-6 md:mb-8"
+          initial={prefersReducedMotion ? { opacity: 1 } : { opacity: 0, y: 8 }}
+          animate={isVisible ? { opacity: 1, y: 0 } : {}}
+          transition={{ delay: 0.65, duration: 0.5, ease: 'easeOut' }}
         >
-          <div className="h-px w-16 md:w-24 bg-gradient-to-r from-transparent to-[#23AACA]/40" />
+          <p 
+            className="text-[#DDDDDD] max-w-2xl mx-auto leading-relaxed"
+            style={{ fontSize: 'clamp(0.95rem, 2vw, 1.1rem)' }}
+            data-testid="oarc-tagline"
+          >
+            OARC represents our core belief: Optimised AI + Revenue Intelligence + Creativity — engineered together for growth.
+          </p>
+        </motion.div>
+
+        {/* Thin gold accent line */}
+        <motion.div
+          className="flex justify-center"
+          initial={prefersReducedMotion ? { opacity: 1 } : { opacity: 0, scaleX: 0 }}
+          animate={isVisible ? { opacity: 1, scaleX: 1 } : {}}
+          transition={{ delay: 0.8, duration: 0.4, ease: 'easeOut' }}
+        >
           <div 
-            className="w-2 h-2 rounded-full"
-            style={{ backgroundColor: '#c4ff4d', boxShadow: '0 0 10px rgba(196,255,77,0.5)' }}
+            className="w-10 h-[2px] rounded-full"
+            style={{ backgroundColor: '#F5E1A4' }}
           />
-          <div className="h-px w-16 md:w-24 bg-gradient-to-l from-transparent to-[#c4ff4d]/40" />
         </motion.div>
       </div>
 
@@ -167,6 +144,7 @@ export default function OARCBrandSection() {
         @media (prefers-reduced-motion: reduce) {
           [data-testid="oarc-brand-section"] * {
             transition-duration: 0.01ms !important;
+            animation-duration: 0.01ms !important;
           }
         }
       `}</style>
