@@ -168,14 +168,14 @@ export default function HeroSection() {
               transition={{ delay: 0.1 }}
               className="font-bold text-white mb-5 sm:mb-6"
               style={{ 
-                fontSize: 'clamp(1.65rem, 6.5vw, 5rem)',
-                lineHeight: '1.05',
+                fontSize: 'clamp(1.4rem, 6vw, 5rem)',
+                lineHeight: '1.08',
                 letterSpacing: '-0.02em',
                 textShadow: '0 4px 20px rgba(0,0,0,0.8)'
               }}
             >
-              <span className="block">AI-Native Marketing</span>
-              <span className="block font-serif italic font-semibold">
+              <span className="block whitespace-nowrap">AI-Native Marketing</span>
+              <span className="block font-serif italic font-semibold whitespace-nowrap">
                 Agency that drives <span className="text-[#ff914d]">Revenue</span>
               </span>
             </motion.h1>
