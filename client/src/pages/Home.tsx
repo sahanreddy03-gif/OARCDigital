@@ -1,7 +1,6 @@
 import Layout from "@/components/layout/Layout";
 import HeroSection from "@/components/HeroSection";
 import OARCBrandSection from "@/components/OARCBrandSection";
-import { GradientTransition } from "@/components/GradientTransition";
 import TrustedBrandsSection from "@/components/TrustedBrandsSection";
 import AICreativeSection from "@/components/AICreativeSection";
 import Section2 from "@/components/Section2";
@@ -84,55 +83,33 @@ export default function Home() {
       {/* OARC Brand Section - premium display of OARC acronym and pillars */}
       <OARCBrandSection />
       
-      {/* Seamless transition: Dark to Light */}
-      <GradientTransition from="dark" to="light" height="100px" />
-      
-      {/* BAND 2: What We Do - Soft Mint Theme */}
+      {/* What We Do - Creative Services */}
       <TrustedBrandsSection />
       <AICreativeSection />
       
-      {/* Seamless transition: Light to Sage Green */}
-      <GradientTransition from="light" to="sage" height="100px" />
-      
-      {/* Sage Green Section */}
+      {/* Services Showcase */}
       <Section2 />
       
-      {/* Seamless transition: Sage to Dark */}
-      <GradientTransition from="sage" to="dark" height="100px" />
-      
-      {/* Dark Premium Sections */}
+      {/* Our Difference */}
       <Section5 />
+      
+      {/* AI Services Pillars - Dark Premium Zone */}
       <HireAIEmployeesSection />
+      <LetsTalkRevenueSection />
       
-      {/* Seamless transition: Dark to Light */}
-      <GradientTransition from="dark" to="light" height="100px" />
-      
-      {/* Tech & Services - Soft Mint Theme */}
+      {/* Tech & Services */}
       <TechEnabledSection />
       
-      {/* Transition: Light to Dark */}
-      <GradientTransition from="light" to="dark" height="60px" />
-      
-      {/* Revenue & Results - Dark Theme */}
-      <LetsTalkRevenueSection />
+      {/* Success Metrics */}
       <SuccessInNumbers />
       
-      {/* Transition: Dark Green to Light */}
-      <GradientTransition from="darkGreen" to="light" height="60px" />
-      
-      {/* Case Studies & Social Proof - Soft Mint Theme */}
+      {/* Case Studies & Social Proof */}
       <BrandShowcaseSection />
       
-      {/* Transition: Light to Dark Green */}
-      <GradientTransition from="light" to="darkGreen" height="60px" />
-      
-      {/* Testimonials - Dark Green */}
+      {/* Testimonials */}
       <Testimonials />
       
-      {/* Transition: Dark Green to Light */}
-      <GradientTransition from="darkGreen" to="light" height="60px" />
-      
-      {/* Final CTAs - Soft Mint Theme */}
+      {/* Final CTAs */}
       <ROICalculatorSection />
       <MoneyBackGuaranteeSection />
       <BlogPreviewSection />
