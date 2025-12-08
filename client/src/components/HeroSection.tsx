@@ -150,51 +150,51 @@ export default function HeroSection() {
           {/* Left aligned content - Flush to edge on desktop */}
           <div className="w-full sm:max-w-4xl lg:max-w-5xl">
             
-            {/* WHERE CREATIVITY MEETS REVENUE */}
+            {/* WHERE CREATIVITY MEETS REVENUE - Desktop only */}
             <motion.p
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.05 }}
-              className="text-white/90 tracking-[0.15em] sm:tracking-[0.25em] uppercase mb-4 sm:mb-6 font-medium"
+              className="hidden sm:block text-white/90 tracking-[0.25em] uppercase mb-6 font-medium"
               style={{ 
-                fontSize: 'clamp(0.75rem, 2.5vw, 1rem)',
+                fontSize: 'clamp(0.85rem, 2.5vw, 1rem)',
                 textShadow: '0 2px 10px rgba(0,0,0,0.9)' 
               }}
             >
               Where <span className="text-[#c4ff4d]">Creativity</span> Meets Revenue
             </motion.p>
 
-            {/* Main Headline */}
+            {/* Main Headline - Optimized for mobile */}
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="font-bold text-white mb-6 sm:mb-8"
+              className="font-bold text-white mb-5 sm:mb-8"
               style={{ 
-                fontSize: 'clamp(1.8rem, 6vw, 4.25rem)',
-                lineHeight: '1.15',
+                fontSize: 'clamp(2rem, 7vw, 4.25rem)',
+                lineHeight: '1.1',
                 letterSpacing: '-0.02em',
                 textShadow: '0 4px 20px rgba(0,0,0,0.8)'
               }}
             >
               <span className="block whitespace-nowrap">AI-Native Marketing</span>
-              <span className="block font-serif italic font-semibold whitespace-nowrap mt-1">
+              <span className="block font-serif italic font-semibold whitespace-nowrap mt-1 sm:mt-2">
                 Agency that drives <span className="text-[#ff914d]">Revenue</span>
               </span>
             </motion.h1>
 
-            {/* Taglines with Color Accents - Good spacing */}
+            {/* Taglines - Stacked nicely on mobile */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="mb-6 sm:mb-8 space-y-3 sm:space-y-4"
+              className="mb-5 sm:mb-8 space-y-2 sm:space-y-4"
             >
               <p 
                 className="font-semibold text-white/90"
                 style={{ 
-                  fontSize: 'clamp(1.05rem, 3.2vw, 1.65rem)',
-                  lineHeight: '1.4',
+                  fontSize: 'clamp(1.1rem, 3.5vw, 1.65rem)',
+                  lineHeight: '1.3',
                   textShadow: '0 2px 12px rgba(0,0,0,0.9)'
                 }}
               >
@@ -203,8 +203,8 @@ export default function HeroSection() {
               <p 
                 className="font-medium text-white/70 italic"
                 style={{ 
-                  fontSize: 'clamp(1.05rem, 3.2vw, 1.65rem)',
-                  lineHeight: '1.4',
+                  fontSize: 'clamp(1.1rem, 3.5vw, 1.65rem)',
+                  lineHeight: '1.3',
                   textShadow: '0 2px 12px rgba(0,0,0,0.9)'
                 }}
               >
@@ -212,19 +212,20 @@ export default function HeroSection() {
               </p>
             </motion.div>
 
-            {/* Subtitle */}
+            {/* Subtitle - Shorter on mobile */}
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="text-white/75 max-w-2xl font-medium mb-6 sm:mb-10"
+              className="text-white/75 max-w-2xl font-medium mb-5 sm:mb-10"
               style={{ 
-                fontSize: 'clamp(0.95rem, 2.5vw, 1.25rem)',
-                lineHeight: '1.5',
+                fontSize: 'clamp(0.9rem, 2.8vw, 1.25rem)',
+                lineHeight: '1.45',
                 textShadow: '0 2px 8px rgba(0,0,0,0.9)'
               }}
             >
-              Certified AI talent + Tailored Workflows + Measurable Growth = <span className="text-white font-bold">Less Cost. More Reach. More Sales.</span>
+              <span className="hidden sm:inline">Certified AI talent + Tailored Workflows + Measurable Growth = </span>
+              <span className="text-white font-bold">Less Cost. More Reach. More Sales.</span>
             </motion.p>
 
             {/* CTA Section with Glass Service Buttons */}
@@ -271,13 +272,13 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* Floating Chip Carousel - Positioned at bottom */}
-      <div className="relative z-20 w-full -mt-8 sm:-mt-8 pb-1 sm:pb-3">
+      {/* Floating Chip Carousel - Positioned higher on mobile */}
+      <div className="relative z-20 w-full -mt-2 sm:-mt-8 pb-2 sm:pb-3">
         <FloatingChipCarousel />
       </div>
 
       {/* Curved green wave */}
-      <div className="relative z-10 w-full -mt-10 sm:-mt-10 md:-mt-12">
+      <div className="relative z-10 w-full -mt-8 sm:-mt-10 md:-mt-12">
         <svg 
           viewBox="0 0 1440 80" 
           className="w-full h-auto"
