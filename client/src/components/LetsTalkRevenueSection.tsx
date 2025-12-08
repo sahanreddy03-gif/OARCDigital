@@ -237,22 +237,14 @@ export default function LetsTalkRevenueSection() {
       className="relative py-12 lg:py-16 overflow-hidden" 
       data-testid="section-custom-ai-products"
     >
-      {/* Premium Dark Base with Blue Tint */}
-      <div className="absolute inset-0 bg-[#020308]" />
+      {/* Unified Dark Base - matches AI Workforce section above for seamless flow */}
+      <div className="absolute inset-0 bg-[#030305]" />
       
-      {/* Sophisticated Radial Gradient - Bottom Focus */}
+      {/* Subtle radial gradient - teal accent, blends with section above */}
       <div 
         className="absolute inset-0"
         style={{
-          background: 'radial-gradient(ellipse 120% 70% at 50% 100%, rgba(35,170,202,0.1) 0%, rgba(196,255,77,0.03) 35%, transparent 65%)'
-        }}
-      />
-      
-      {/* Top Accent Gradient */}
-      <div 
-        className="absolute inset-0"
-        style={{
-          background: 'radial-gradient(ellipse 80% 40% at 50% 0%, rgba(35,170,202,0.05) 0%, transparent 45%)'
+          background: 'radial-gradient(ellipse 100% 60% at 50% 50%, rgba(35,170,202,0.06) 0%, transparent 60%)'
         }}
       />
       
@@ -316,45 +308,15 @@ export default function LetsTalkRevenueSection() {
         transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut', delay: 3 }}
       />
       
-      {/* Diagonal Accent Lines */}
-      <div className="absolute top-0 left-[25%] w-[2px] h-[350px] bg-gradient-to-b from-[#23AACA]/40 via-[#c4ff4d]/20 to-transparent transform -rotate-[15deg] origin-top" />
-      <div className="absolute bottom-0 right-[20%] w-[2px] h-[250px] bg-gradient-to-t from-[#23AACA]/50 via-[#23AACA]/20 to-transparent transform rotate-[20deg] origin-bottom" />
-      
-      {/* Corner Accents */}
-      <div className="absolute bottom-0 left-0 w-32 h-32">
-        <div className="absolute bottom-4 left-4 w-16 h-[1px] bg-gradient-to-r from-[#23AACA]/60 to-transparent" />
-        <div className="absolute bottom-4 left-4 w-[1px] h-16 bg-gradient-to-t from-[#23AACA]/60 to-transparent" />
-      </div>
-      <div className="absolute bottom-0 right-0 w-32 h-32">
-        <div className="absolute bottom-4 right-4 w-16 h-[1px] bg-gradient-to-l from-[#c4ff4d]/40 to-transparent" />
-        <div className="absolute bottom-4 right-4 w-[1px] h-16 bg-gradient-to-t from-[#c4ff4d]/40 to-transparent" />
-      </div>
-      
-      {/* Tech Icons Floating */}
+      {/* Subtle floating tech icon - only visible on desktop */}
       {!prefersReducedMotion && (
-        <>
-          <motion.div 
-            className="absolute top-[25%] right-[8%] text-[#23AACA]/15"
-            animate={{ y: [-5, 5, -5], rotate: [0, -10, 0] }}
-            transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
-          >
-            <TrendingUp className="w-10 h-10" />
-          </motion.div>
-          <motion.div 
-            className="absolute bottom-[30%] left-[6%] text-[#23AACA]/20"
-            animate={{ y: [5, -5, 5], rotate: [0, 10, 0] }}
-            transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
-          >
-            <BarChart3 className="w-8 h-8" />
-          </motion.div>
-          <motion.div 
-            className="absolute top-[15%] left-[12%] text-[#c4ff4d]/10"
-            animate={{ y: [-8, 8, -8], scale: [1, 1.1, 1] }}
-            transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
-          >
-            <DollarSign className="w-12 h-12" />
-          </motion.div>
-        </>
+        <motion.div 
+          className="absolute top-[30%] right-[8%] text-[#23AACA]/10 hidden lg:block"
+          animate={{ y: [-5, 5, -5] }}
+          transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
+        >
+          <TrendingUp className="w-6 h-6" />
+        </motion.div>
       )}
       
       {/* Content */}
