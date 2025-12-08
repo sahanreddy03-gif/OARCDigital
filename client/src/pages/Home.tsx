@@ -4,7 +4,6 @@ import OARCBrandSection from "@/components/OARCBrandSection";
 import { GradientTransition } from "@/components/GradientTransition";
 import TrustedBrandsSection from "@/components/TrustedBrandsSection";
 import AICreativeSection from "@/components/AICreativeSection";
-import AmbitiousBrandsSection from "@/components/AmbitiousBrandsSection";
 import Section2 from "@/components/Section2";
 import Section5 from "@/components/Section5";
 import HireAIEmployeesSection from "@/components/HireAIEmployeesSection";
@@ -91,7 +90,6 @@ export default function Home() {
       {/* BAND 2: What We Do - Soft Mint Theme */}
       <TrustedBrandsSection />
       <AICreativeSection />
-      <AmbitiousBrandsSection />
       
       {/* Seamless transition: Light to Sage Green */}
       <GradientTransition from="light" to="sage" height="100px" />
