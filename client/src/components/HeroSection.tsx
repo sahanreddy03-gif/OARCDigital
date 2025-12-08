@@ -143,9 +143,9 @@ export default function HeroSection() {
         }}
       />
 
-      {/* Main content - Centered vertically, flush left on desktop */}
-      <div className="relative z-10 flex-grow flex items-center justify-center">
-        <div className="w-full pl-3 pr-4 sm:pl-6 sm:pr-8 lg:pl-6 xl:pl-8 pt-4 sm:pt-16 md:pt-20 lg:pt-24 pb-0 sm:pb-6">
+      {/* Main content - Top aligned on mobile, centered on desktop */}
+      <div className="relative z-10 flex-grow flex items-start sm:items-center">
+        <div className="w-full pl-3 pr-4 sm:pl-6 sm:pr-8 lg:pl-6 xl:pl-8 pt-2 sm:pt-16 md:pt-20 lg:pt-24 pb-0 sm:pb-6">
           
           {/* Left aligned content - Flush to edge on desktop */}
           <div className="w-full sm:max-w-4xl lg:max-w-5xl">
