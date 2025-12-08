@@ -95,11 +95,11 @@ const GlassServiceButton = ({
       className="group cursor-pointer"
       data-testid={testId}
     >
-      <div className="relative flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 hover:border-white/40 transition-all duration-300 shadow-lg hover:shadow-xl">
-        <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-white/20 to-white/5 flex items-center justify-center border border-white/10">
-          <Icon className="w-4 h-4 text-white" />
+      <div className="relative flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2.5 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 hover:border-white/40 transition-all duration-300 shadow-lg hover:shadow-xl">
+        <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-lg bg-gradient-to-br from-white/20 to-white/5 flex items-center justify-center border border-white/10">
+          <Icon className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
         </div>
-        <span className="text-white/90 text-sm font-semibold group-hover:text-white transition-colors">
+        <span className="text-white/90 text-xs sm:text-sm font-semibold group-hover:text-white transition-colors">
           {label}
         </span>
         <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-[#c4ff4d]/0 via-[#c4ff4d]/5 to-[#c4ff4d]/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -113,7 +113,7 @@ export default function HeroSection() {
   const moveBackground = useTransform(x, [-1, 1], [-10, 10]);
 
   return (
-    <section className="relative min-h-screen bg-black overflow-hidden flex flex-col selection:bg-[#c4ff4d] selection:text-black">
+    <section className="relative min-h-[100svh] bg-black overflow-hidden flex flex-col selection:bg-[#c4ff4d] selection:text-black">
 
       {/* Background image - Bright and visible */}
       <motion.div
@@ -132,9 +132,9 @@ export default function HeroSection() {
       <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-transparent pointer-events-none z-[2]" />
       <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none z-[2]" />
 
-      {/* Main content */}
+      {/* Main content - compressed spacing for mobile */}
       <div className="relative z-10 flex-grow flex items-center">
-        <div className="container mx-auto px-6 pt-32 md:pt-40 lg:pt-44 pb-12">
+        <div className="container mx-auto px-4 sm:px-6 pt-20 sm:pt-28 md:pt-32 lg:pt-36 pb-4 sm:pb-8">
           
           {/* Left aligned content */}
           <div className="max-w-3xl">
@@ -144,66 +144,66 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.05 }}
-              className="text-white/90 text-sm sm:text-base tracking-[0.2em] uppercase mb-4 sm:mb-6 font-medium drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]"
+              className="text-white/90 text-xs sm:text-sm tracking-[0.15em] sm:tracking-[0.2em] uppercase mb-2 sm:mb-4 font-medium drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]"
             >
               Where <span className="text-[#c4ff4d]">Creativity</span> Meets Revenue
             </motion.p>
 
-            {/* Main Headline - Two Lines */}
+            {/* Main Headline - Responsive with key phrase on same line */}
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-2"
+              className="font-bold text-white leading-[1.15] mb-3 sm:mb-4"
+              style={{ 
+                fontSize: 'clamp(1.15rem, 4.5vw, 3.75rem)',
+              }}
             >
-              AI-Native Marketing Agency
+              <span className="block sm:inline">AI-Native</span>{' '}
+              <span className="whitespace-nowrap">
+                Marketing Agency{' '}
+                <span className="font-serif italic">
+                  that drives <span className="text-orange-500">Revenue</span>
+                </span>
+              </span>
             </motion.h1>
-            
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif italic text-white leading-tight mb-6 sm:mb-8"
-            >
-              that drives <span className="text-orange-500">Revenue</span>
-            </motion.h2>
 
-            {/* New Prominent Tagline */}
+            {/* Tagline - Subdued grey color */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-              className="mb-6 sm:mb-8"
+              transition={{ delay: 0.2 }}
+              className="mb-3 sm:mb-5"
             >
-              <p className="text-xl sm:text-2xl md:text-3xl font-bold text-white leading-snug drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
+              <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-semibold text-zinc-300 leading-snug drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
                 Build the Brand You've Always Imagined.
               </p>
-              <p className="text-xl sm:text-2xl md:text-3xl font-bold text-white leading-snug drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
+              <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-semibold text-zinc-300 leading-snug drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
                 With the Growth You Actually Need.
               </p>
             </motion.div>
 
-            {/* Subtitle - Smaller than tagline */}
+            {/* Subtitle - with bold white for key phrase */}
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
-              className="text-white/90 text-sm sm:text-base md:text-lg leading-relaxed mb-10 sm:mb-12 max-w-xl font-medium drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]"
+              transition={{ delay: 0.3 }}
+              className="text-white/80 text-xs sm:text-sm md:text-base leading-relaxed mb-4 sm:mb-6 max-w-xl font-medium drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]"
             >
-              Certified AI talent + Tailored Workflows + Measurable Growth = Less Cost. More Reach. More Sales.
+              Certified AI talent + Tailored Workflows + Measurable Growth = <span className="text-white font-bold">Less Cost. More Reach. More Sales.</span>
             </motion.p>
 
-            {/* CTA Section with Glass Service Buttons */}
+            {/* CTA Section with Glass Service Buttons - reduced gaps */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
-              className="flex flex-col gap-6"
+              transition={{ delay: 0.4 }}
+              className="flex flex-col gap-3 sm:gap-4"
             >
               {/* Start Talking Button */}
               <Link href="/contact">
                 <Button 
-                  className="h-12 sm:h-14 px-8 sm:px-10 rounded-full bg-[#c4ff4d] text-black font-bold text-sm sm:text-base hover:bg-[#d4ff6d] hover:scale-105 transition-all shadow-lg"
+                  className="h-10 sm:h-12 px-6 sm:px-8 rounded-full bg-[#c4ff4d] text-black font-bold text-sm hover:bg-[#d4ff6d] hover:scale-105 transition-all shadow-lg"
                   data-testid="button-start-talking"
                 >
                   Start Talking
@@ -211,7 +211,7 @@ export default function HeroSection() {
               </Link>
 
               {/* Glass 3D Service Buttons */}
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-wrap gap-2 sm:gap-3">
                 <GlassServiceButton 
                   icon={Palette} 
                   label="Creative Services" 
@@ -237,13 +237,13 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* Floating Chip Carousel */}
-      <div className="relative z-20 w-full pb-4">
+      {/* Floating Chip Carousel - moved up with negative margin */}
+      <div className="relative z-20 w-full -mt-2 sm:-mt-4 pb-2 sm:pb-3">
         <FloatingChipCarousel />
       </div>
 
-      {/* Curved green wave - dimmed brightness */}
-      <div className="relative z-10 w-full">
+      {/* Curved green wave - moved up with negative margin */}
+      <div className="relative z-10 w-full -mt-6 sm:-mt-8 md:-mt-10">
         <svg 
           viewBox="0 0 1440 80" 
           className="w-full h-auto"
