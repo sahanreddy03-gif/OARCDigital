@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { motion, useTransform, useMotionValue } from "framer-motion";
 import FloatingChipCarousel from "./FloatingChipCarousel";
 import heroBackground from '@assets/d375f1d50d97b0de7953ca2cecd2b8aea2cd96b2-3524x1181_1761251957292.avif';
+import oarcLogo from "@assets/IMG_8813_(1)_1764796694787.png";
 import { Palette, Bot, Code } from 'lucide-react';
 
 function useMousePosition() {
@@ -128,9 +129,15 @@ export default function HeroSection() {
       {/* Snow particles */}
       <SnowCanvas />
 
-      {/* Strong dark gradient overlay on left for text readability */}
+      {/* Dark gradient overlay - Center fade for mobile, left fade for desktop */}
       <div 
-        className="absolute inset-0 pointer-events-none z-[2]"
+        className="absolute inset-0 pointer-events-none z-[2] sm:hidden"
+        style={{
+          background: 'linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.7) 100%)'
+        }}
+      />
+      <div 
+        className="absolute inset-0 pointer-events-none z-[2] hidden sm:block"
         style={{
           background: 'linear-gradient(90deg, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.45) 35%, rgba(0,0,0,0.15) 60%, transparent 80%)'
         }}
@@ -143,19 +150,144 @@ export default function HeroSection() {
         }}
       />
 
-      {/* Main content - Vertically centered, using full space */}
-      <div className="relative z-10 flex-grow flex items-center">
-        <div className="w-full pl-3 pr-4 sm:pl-6 sm:pr-8 lg:pl-6 xl:pl-8 pt-0 sm:pt-8 md:pt-12 lg:pt-16 pb-0 sm:pb-6">
+      {/* ========== MOBILE LAYOUT (Center Aligned) ========== */}
+      <div className="relative z-10 flex-grow flex flex-col items-center justify-center px-5 pt-16 pb-4 sm:hidden">
+        
+        {/* OARC Logo Icon - 60x60px */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.05 }}
+          className="mb-5"
+        >
+          <img 
+            src={oarcLogo} 
+            alt="OARC Digital" 
+            className="w-[60px] h-[60px] object-contain"
+            style={{ filter: 'drop-shadow(0 4px 12px rgba(0,0,0,0.6))' }}
+            data-testid="img-hero-logo-mobile"
+          />
+        </motion.div>
+
+        {/* Kicker - 12px */}
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1 }}
+          className="text-white/80 tracking-[0.25em] uppercase text-center mb-5 font-medium"
+          style={{ 
+            fontSize: '12px',
+            textShadow: '0 2px 10px rgba(0,0,0,0.9)' 
+          }}
+        >
+          Where <span className="text-[#c4ff4d]">Creativity</span> Meets Revenue
+        </motion.p>
+
+        {/* Tagline 1 - 26px */}
+        <motion.p
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.15 }}
+          className="font-semibold text-white/90 text-center mb-3"
+          style={{ 
+            fontSize: '26px',
+            lineHeight: '1.2',
+            textShadow: '0 2px 12px rgba(0,0,0,0.9)'
+          }}
+        >
+          Build the <span className="text-[#c4ff4d]">Brand</span> You've Always Imagined.
+        </motion.p>
+
+        {/* Tagline 2 - 26px */}
+        <motion.p
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+          className="font-medium text-white/70 italic text-center mb-6"
+          style={{ 
+            fontSize: '26px',
+            lineHeight: '1.2',
+            textShadow: '0 2px 12px rgba(0,0,0,0.9)'
+          }}
+        >
+          With the <span className="text-[#ff914d] not-italic font-semibold">Growth</span> You Actually Need.
+        </motion.p>
+
+        {/* Headline - 22px */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.25 }}
+          className="text-center mb-5"
+        >
+          <h1 
+            className="font-bold text-white"
+            style={{ 
+              fontSize: '22px',
+              lineHeight: '1.15',
+              letterSpacing: '-0.01em',
+              textShadow: '0 4px 20px rgba(0,0,0,0.8)'
+            }}
+          >
+            AI-Native Marketing
+          </h1>
+          <p 
+            className="font-serif italic font-semibold text-white mt-1"
+            style={{ 
+              fontSize: '22px',
+              lineHeight: '1.15',
+              textShadow: '0 4px 20px rgba(0,0,0,0.8)'
+            }}
+          >
+            Agency that drives <span className="text-[#ff914d]">Revenue</span>
+          </p>
+        </motion.div>
+
+        {/* Subtitle - 20px */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3 }}
+          className="text-white/75 text-center font-medium mb-6"
+          style={{ 
+            fontSize: '20px',
+            lineHeight: '1.4',
+            textShadow: '0 2px 8px rgba(0,0,0,0.9)'
+          }}
+        >
+          Less Cost. More Reach. More Sales.
+        </motion.p>
+
+        {/* CTA Button - 16px */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.35 }}
+        >
+          <Link href="/contact">
+            <Button 
+              className="h-12 px-10 rounded-full bg-[#c4ff4d] text-black font-bold text-base hover:bg-[#d4ff6d] hover:scale-105 transition-all shadow-xl"
+              data-testid="button-start-talking"
+            >
+              Start Talking
+            </Button>
+          </Link>
+        </motion.div>
+      </div>
+
+      {/* ========== DESKTOP LAYOUT (Left Aligned) ========== */}
+      <div className="relative z-10 flex-grow hidden sm:flex items-center">
+        <div className="w-full pl-6 pr-8 lg:pl-6 xl:pl-8 pt-8 md:pt-12 lg:pt-16 pb-6">
           
-          {/* Left aligned content - Flush to edge on desktop */}
-          <div className="w-full sm:max-w-4xl lg:max-w-5xl">
+          {/* Left aligned content */}
+          <div className="max-w-4xl lg:max-w-5xl">
             
-            {/* WHERE CREATIVITY MEETS REVENUE - Desktop only */}
+            {/* Kicker */}
             <motion.p
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.05 }}
-              className="hidden sm:block text-white/90 tracking-[0.25em] uppercase mb-6 font-medium"
+              className="text-white/90 tracking-[0.25em] uppercase mb-6 font-medium"
               style={{ 
                 fontSize: 'clamp(0.85rem, 2.5vw, 1rem)',
                 textShadow: '0 2px 10px rgba(0,0,0,0.9)' 
@@ -164,12 +296,12 @@ export default function HeroSection() {
               Where <span className="text-[#c4ff4d]">Creativity</span> Meets Revenue
             </motion.p>
 
-            {/* Main Headline - Optimized for mobile */}
+            {/* Main Headline */}
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="font-bold text-white mb-5 sm:mb-8"
+              className="font-bold text-white mb-8"
               style={{ 
                 fontSize: 'clamp(2rem, 7vw, 4.25rem)',
                 lineHeight: '1.1',
@@ -178,17 +310,17 @@ export default function HeroSection() {
               }}
             >
               <span className="block whitespace-nowrap">AI-Native Marketing</span>
-              <span className="block font-serif italic font-semibold whitespace-nowrap mt-1 sm:mt-2">
+              <span className="block font-serif italic font-semibold whitespace-nowrap mt-2">
                 Agency that drives <span className="text-[#ff914d]">Revenue</span>
               </span>
             </motion.h1>
 
-            {/* Taglines - Stacked nicely on mobile */}
+            {/* Taglines */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="mb-5 sm:mb-8 space-y-2 sm:space-y-4"
+              className="mb-8 space-y-4"
             >
               <p 
                 className="font-semibold text-white/90"
@@ -212,20 +344,19 @@ export default function HeroSection() {
               </p>
             </motion.div>
 
-            {/* Subtitle - Shorter on mobile */}
+            {/* Subtitle */}
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="text-white/75 max-w-2xl font-medium mb-5 sm:mb-10"
+              className="text-white/75 max-w-2xl font-medium mb-10"
               style={{ 
-                fontSize: 'clamp(0.9rem, 2.8vw, 1.25rem)',
+                fontSize: 'clamp(0.95rem, 2.8vw, 1.25rem)',
                 lineHeight: '1.45',
                 textShadow: '0 2px 8px rgba(0,0,0,0.9)'
               }}
             >
-              <span className="hidden sm:inline">Certified AI talent + Tailored Workflows + Measurable Growth = </span>
-              <span className="text-white font-bold">Less Cost. More Reach. More Sales.</span>
+              Certified AI talent + Tailored Workflows + Measurable Growth = <span className="text-white font-bold">Less Cost. More Reach. More Sales.</span>
             </motion.p>
 
             {/* CTA Section with Glass Service Buttons */}
@@ -233,20 +364,20 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
-              className="flex flex-col gap-3 sm:gap-4"
+              className="flex flex-col gap-4"
             >
               {/* Start Talking Button */}
               <Link href="/contact">
                 <Button 
-                  className="h-12 sm:h-14 px-8 sm:px-10 rounded-full bg-[#c4ff4d] text-black font-bold text-base sm:text-lg hover:bg-[#d4ff6d] hover:scale-105 transition-all shadow-xl"
-                  data-testid="button-start-talking"
+                  className="h-14 px-10 rounded-full bg-[#c4ff4d] text-black font-bold text-lg hover:bg-[#d4ff6d] hover:scale-105 transition-all shadow-xl"
+                  data-testid="button-start-talking-desktop"
                 >
                   Start Talking
                 </Button>
               </Link>
 
-              {/* Glass 3D Service Buttons - Hidden on mobile */}
-              <div className="hidden sm:flex flex-wrap gap-3">
+              {/* Glass 3D Service Buttons */}
+              <div className="flex flex-wrap gap-3">
                 <GlassServiceButton 
                   icon={Palette} 
                   label="Creative Services" 
@@ -272,21 +403,22 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* Floating Chip Carousel - Positioned higher on mobile */}
-      <div className="relative z-20 w-full -mt-2 sm:-mt-8 pb-2 sm:pb-3">
+      {/* Floating Chip Carousel */}
+      <div className="relative z-20 w-full -mt-4 sm:-mt-8 pb-2 sm:pb-3">
         <FloatingChipCarousel />
       </div>
 
-      {/* Curved green wave */}
-      <div className="relative z-10 w-full -mt-8 sm:-mt-10 md:-mt-12">
+      {/* Subtle curved green wave - lighter and smaller */}
+      <div className="relative z-10 w-full -mt-6 sm:-mt-8 md:-mt-10">
         <svg 
-          viewBox="0 0 1440 80" 
+          viewBox="0 0 1440 50" 
           className="w-full h-auto"
           preserveAspectRatio="none"
         >
           <path 
-            d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" 
-            fill="#9acc3d"
+            d="M0,25 C360,45 1080,5 1440,25 L1440,50 L0,50 Z" 
+            fill="#b8e550"
+            fillOpacity="0.85"
           />
         </svg>
       </div>
