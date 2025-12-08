@@ -242,8 +242,8 @@ export default function HeroSection() {
                         </Button>
                       </Link>
                       
-                      {/* Glass Cards - Mobile only */}
-                      <div className="flex gap-2 md:hidden">
+                      {/* Glass Cards - All screen sizes */}
+                      <div className="flex gap-2">
                         <MobileGlassCard icon={Palette} label="Creative" href="/services" />
                         <MobileGlassCard icon={Bot} label="AI" href="/services" />
                         <MobileGlassCard icon={Rocket} label="Growth" href="/services" />
