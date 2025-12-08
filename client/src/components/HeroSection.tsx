@@ -143,9 +143,9 @@ export default function HeroSection() {
         }}
       />
 
-      {/* Main content - Top aligned on mobile, centered on desktop */}
-      <div className="relative z-10 flex-grow flex items-start sm:items-center">
-        <div className="w-full pl-3 pr-4 sm:pl-6 sm:pr-8 lg:pl-6 xl:pl-8 pt-2 sm:pt-16 md:pt-20 lg:pt-24 pb-0 sm:pb-6">
+      {/* Main content - Vertically centered, using full space */}
+      <div className="relative z-10 flex-grow flex items-center">
+        <div className="w-full pl-3 pr-4 sm:pl-6 sm:pr-8 lg:pl-6 xl:pl-8 pt-0 sm:pt-8 md:pt-12 lg:pt-16 pb-0 sm:pb-6">
           
           {/* Left aligned content - Flush to edge on desktop */}
           <div className="w-full sm:max-w-4xl lg:max-w-5xl">
@@ -271,8 +271,8 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* Floating Chip Carousel - Tight to content on mobile */}
-      <div className="relative z-20 w-full -mt-32 sm:-mt-8 pb-1 sm:pb-3">
+      {/* Floating Chip Carousel - Positioned at bottom */}
+      <div className="relative z-20 w-full -mt-8 sm:-mt-8 pb-1 sm:pb-3">
         <FloatingChipCarousel />
       </div>
 
