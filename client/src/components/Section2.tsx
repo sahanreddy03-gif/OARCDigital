@@ -182,16 +182,12 @@ export default function Section2() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 
-              className="font-bold mb-5"
-              style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', letterSpacing: '-0.02em', lineHeight: 1.15 }}
-              data-testid="text-grow-brands"
+            <p 
+              className="leading-relaxed max-w-xl mx-auto lg:mx-0 mb-8" 
+              style={{ color: '#2D3E2D', fontSize: 'clamp(1.25rem, 3vw, 1.75rem)', lineHeight: 1.5 }}
+              data-testid="text-social-first"
             >
-              <span className="block" style={{ color: '#1a1a1a' }}>We grow</span>
-              <span className="block" style={{ color: '#2E7D32' }}>ambitious brands</span>
-            </h2>
-            <p className="text-base md:text-lg leading-relaxed max-w-xl mx-auto lg:mx-0 mb-8" style={{ color: '#2D3E2D' }}>
-              The results-driven, social-first agency you've been looking for. We blend creative excellence with AI-powered performance to deliver exceptional results.
+              The results-driven, <span className="font-bold text-[#2E7D32]">social-first</span> agency you've been looking for. We blend creative excellence with AI-powered performance to deliver exceptional results.
             </p>
             
             {/* Feature pills */}
