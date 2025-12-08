@@ -149,46 +149,43 @@ export default function HeroSection() {
               Where <span className="text-[#c4ff4d]">Creativity</span> Meets Revenue
             </motion.p>
 
-            {/* Main Headline - Responsive with key phrase on same line */}
+            {/* Main Headline - Two deliberate lines */}
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="font-bold text-white leading-[1.15] mb-3 sm:mb-4"
+              className="font-bold text-white leading-[1.1] mb-4 sm:mb-5"
               style={{ 
-                fontSize: 'clamp(1.15rem, 4.5vw, 3.75rem)',
+                fontSize: 'clamp(1.5rem, 5vw, 3.75rem)',
               }}
             >
-              <span className="block sm:inline">AI-Native</span>{' '}
-              <span className="whitespace-nowrap">
-                Marketing Agency{' '}
-                <span className="font-serif italic">
-                  that drives <span className="text-orange-500">Revenue</span>
-                </span>
+              <span className="block">AI-Native Marketing</span>
+              <span className="block font-serif italic">
+                Agency that drives <span className="text-[#ff914d]">Revenue</span>
               </span>
             </motion.h1>
 
-            {/* Tagline - Subdued grey color */}
+            {/* Tagline - Visual differentiation between lines */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="mb-3 sm:mb-5"
+              className="mb-4 sm:mb-5 space-y-1"
             >
-              <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-semibold text-zinc-300 leading-snug drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
+              <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold text-zinc-200 leading-snug drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
                 Build the Brand You've Always Imagined.
               </p>
-              <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-semibold text-zinc-300 leading-snug drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
+              <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-medium text-zinc-400 italic leading-snug drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
                 With the Growth You Actually Need.
               </p>
             </motion.div>
 
-            {/* Subtitle - with bold white for key phrase */}
+            {/* Subtitle - with bold white for key phrase - larger on mobile */}
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="text-white/80 text-xs sm:text-sm md:text-base leading-relaxed mb-4 sm:mb-6 max-w-xl font-medium drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]"
+              className="text-white/80 text-sm sm:text-base md:text-lg leading-relaxed mb-5 sm:mb-6 max-w-xl font-medium drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]"
             >
               Certified AI talent + Tailored Workflows + Measurable Growth = <span className="text-white font-bold">Less Cost. More Reach. More Sales.</span>
             </motion.p>
@@ -210,8 +207,8 @@ export default function HeroSection() {
                 </Button>
               </Link>
 
-              {/* Glass 3D Service Buttons */}
-              <div className="flex flex-wrap gap-2 sm:gap-3">
+              {/* Glass 3D Service Buttons - Hidden on mobile for breathing space */}
+              <div className="hidden sm:flex flex-wrap gap-3">
                 <GlassServiceButton 
                   icon={Palette} 
                   label="Creative Services" 
