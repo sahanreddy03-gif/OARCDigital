@@ -263,19 +263,11 @@ export default function HireAIEmployeesSection() {
       {/* Premium Dark Base */}
       <div className="absolute inset-0 bg-[#030305]" />
       
-      {/* Sophisticated Radial Gradient */}
+      {/* Subtle radial gradient - lime accent */}
       <div 
         className="absolute inset-0"
         style={{
-          background: 'radial-gradient(ellipse 120% 70% at 50% 0%, rgba(196,255,77,0.08) 0%, rgba(35,170,202,0.04) 30%, transparent 60%)'
-        }}
-      />
-      
-      {/* Secondary Gradient from Bottom */}
-      <div 
-        className="absolute inset-0"
-        style={{
-          background: 'radial-gradient(ellipse 100% 50% at 50% 100%, rgba(35,170,202,0.06) 0%, transparent 50%)'
+          background: 'radial-gradient(ellipse 100% 60% at 50% 30%, rgba(196,255,77,0.05) 0%, transparent 60%)'
         }}
       />
       
@@ -324,45 +316,15 @@ export default function HireAIEmployeesSection() {
         transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
       />
       
-      {/* Diagonal Accent Lines */}
-      <div className="absolute top-0 right-[20%] w-[2px] h-[300px] bg-gradient-to-b from-[#c4ff4d]/50 via-[#23AACA]/30 to-transparent transform rotate-[25deg] origin-top" />
-      <div className="absolute bottom-0 left-[15%] w-[2px] h-[200px] bg-gradient-to-t from-[#23AACA]/40 via-[#c4ff4d]/20 to-transparent transform -rotate-[20deg] origin-bottom" />
-      
-      {/* Corner Accents */}
-      <div className="absolute top-0 left-0 w-32 h-32">
-        <div className="absolute top-4 left-4 w-12 h-[1px] bg-gradient-to-r from-[#c4ff4d]/60 to-transparent" />
-        <div className="absolute top-4 left-4 w-[1px] h-12 bg-gradient-to-b from-[#c4ff4d]/60 to-transparent" />
-      </div>
-      <div className="absolute top-0 right-0 w-32 h-32">
-        <div className="absolute top-4 right-4 w-12 h-[1px] bg-gradient-to-l from-[#23AACA]/60 to-transparent" />
-        <div className="absolute top-4 right-4 w-[1px] h-12 bg-gradient-to-b from-[#23AACA]/60 to-transparent" />
-      </div>
-      
-      {/* Tech Icons Floating */}
+      {/* Subtle floating tech icons - only visible on desktop */}
       {!prefersReducedMotion && (
-        <>
-          <motion.div 
-            className="absolute top-[20%] left-[8%] text-[#c4ff4d]/20"
-            animate={{ y: [-5, 5, -5], rotate: [0, 10, 0] }}
-            transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
-          >
-            <Cpu className="w-8 h-8" />
-          </motion.div>
-          <motion.div 
-            className="absolute top-[60%] right-[10%] text-[#23AACA]/20"
-            animate={{ y: [5, -5, 5], rotate: [0, -10, 0] }}
-            transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
-          >
-            <Network className="w-10 h-10" />
-          </motion.div>
-          <motion.div 
-            className="absolute bottom-[25%] left-[5%] text-[#4ade80]/15"
-            animate={{ y: [-8, 8, -8], rotate: [0, 15, 0] }}
-            transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
-          >
-            <CircuitBoard className="w-12 h-12" />
-          </motion.div>
-        </>
+        <motion.div 
+          className="absolute top-[30%] left-[8%] text-[#c4ff4d]/10 hidden lg:block"
+          animate={{ y: [-5, 5, -5] }}
+          transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
+        >
+          <Cpu className="w-6 h-6" />
+        </motion.div>
       )}
       
       {/* Content */}
@@ -392,7 +354,7 @@ export default function HireAIEmployeesSection() {
           
           <h2 
             className="font-bold text-white mb-4 uppercase tracking-[0.08em]" 
-            data-testid="text-talent-hub-heading" 
+            data-testid="text-workforce-agents-heading" 
             style={{ fontSize: 'clamp(1.75rem, 4.5vw, 3rem)' }}
           >
             <span className="bg-gradient-to-r from-white via-white to-white/80 bg-clip-text text-transparent">AI Workforce</span>
