@@ -1,0 +1,152 @@
+{
+  "colorScheme": "light",
+  "fonts": [
+    {
+      "family": "Gilmer",
+      "role": "body"
+    },
+    {
+      "family": "Arial",
+      "role": "body"
+    },
+    {
+      "family": "Roboto",
+      "role": "body"
+    },
+    {
+      "family": "Segoe UI",
+      "role": "body"
+    },
+    {
+      "family": "Helvetica Neue",
+      "role": "body"
+    }
+  ],
+  "colors": {
+    "primary": "#84E8D5",
+    "accent": "#5BCBB6",
+    "background": "#FFFFFF",
+    "textPrimary": "#000000",
+    "link": "#5BCBB6"
+  },
+  "typography": {
+    "fontFamilies": {
+      "primary": "Gilmer",
+      "heading": "Gilmer"
+    },
+    "fontStacks": {
+      "heading": [
+        "Gilmer",
+        "ui-sans-serif",
+        "system-ui",
+        "-apple-system",
+        "BlinkMacSystemFont",
+        "Segoe UI",
+        "Roboto",
+        "Helvetica Neue",
+        "Arial",
+        "Noto Sans",
+        "sans-serif",
+        "Apple Color Emoji",
+        "Noto Color Emoji"
+      ],
+      "body": [
+        "Gilmer",
+        "ui-sans-serif",
+        "system-ui",
+        "-apple-system",
+        "BlinkMacSystemFont",
+        "Segoe UI",
+        "Roboto",
+        "Helvetica Neue",
+        "Arial",
+        "Noto Sans",
+        "sans-serif",
+        "Apple Color Emoji",
+        "Noto Color Emoji"
+      ],
+      "paragraph": [
+        "Gilmer",
+        "ui-sans-serif",
+        "system-ui",
+        "-apple-system",
+        "BlinkMacSystemFont",
+        "Segoe UI",
+        "Roboto",
+        "Helvetica Neue",
+        "Arial",
+        "Noto Sans",
+        "sans-serif",
+        "Apple Color Emoji",
+        "Noto Color Emoji"
+      ]
+    },
+    "fontSizes": {
+      "h1": "75.008px",
+      "h2": "30px",
+      "body": "16px"
+    }
+  },
+  "spacing": {
+    "baseUnit": 4,
+    "borderRadius": "4px"
+  },
+  "components": {
+    "input": {
+      "borderColor": "#CCCCCC",
+      "borderRadius": "4px"
+    },
+    "buttonPrimary": {
+      "background": "#333333",
+      "textColor": "#FFFFFF",
+      "borderRadius": "9999px",
+      "shadow": "none"
+    },
+    "buttonSecondary": {
+      "background": "#F4F4F4",
+      "textColor": "#000000",
+      "borderRadius": "24px",
+      "shadow": "none"
+    }
+  },
+  "images": {
+    "logo": "File saved at: attached_assets/logo.svg",
+    "favicon": "https://thesocialshepherd.com/dist/images/favicon/favicon.ico",
+    "ogImage": "File saved at: attached_assets/ogImage.png"
+  },
+  "__framework_hints": [
+    "SEOmatic"
+  ],
+  "__llm_logo_reasoning": {
+    "selectedIndex": 0,
+    "reasoning": "Logo #0 is the only one that visually represents 'The Social Shepherd' and is located in the header, linking to the homepage, making it the main brand logo.",
+    "confidence": 0.9
+  },
+  "__llm_button_reasoning": {
+    "primary": {
+      "index": 0,
+      "text": "We’re Hiring",
+      "reasoning": "Button #0 has a vibrant background color (#333333) that stands out against the lighter colors of the other buttons. It also has action-oriented text ('We’re Hiring'), making it the primary call-to-action."
+    },
+    "secondary": {
+      "index": 1,
+      "text": "Organic Social\nCreativeBEYBLADEGrew +30k followers on TikTok, +393k organic video views, and an 8.21",
+      "reasoning": "Button #1 has a light background color (#F4F4F4) which is distinctly different from the primary button's color. It serves as a secondary action, providing information rather than a direct call-to-action."
+    },
+    "confidence": 0.95
+  },
+  "personality": {
+    "tone": "professional",
+    "energy": "medium",
+    "targetAudience": "businesses and individuals seeking social media marketing services"
+  },
+  "designSystem": {
+    "framework": "tailwind",
+    "componentLibrary": null
+  },
+  "confidence": {
+    "buttons": 0.95,
+    "colors": 0.9,
+    "overall": 0.925
+  }
+}
