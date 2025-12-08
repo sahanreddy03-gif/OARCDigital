@@ -286,15 +286,15 @@ export default function HeroSection() {
         </motion.div>
       </div>
 
-      {/* ========== DESKTOP LAYOUT (Left Aligned) ========== */}
-      <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 sm:px-12 md:px-16 hidden lg:flex flex-row items-center h-full pt-20 pb-8">
+      {/* ========== DESKTOP/TABLET LAYOUT (Left Aligned, Responsive) ========== */}
+      <div className="relative z-10 w-full max-w-[1600px] mx-auto px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 hidden lg:flex flex-col xl:flex-row items-center justify-center min-h-[100dvh] py-16 lg:py-20">
 
         {/* LEFT COLUMN: Text Content */}
-        <div className="flex-1 w-full flex flex-col items-start text-left">
+        <div className="w-full xl:flex-1 flex flex-col items-start text-left xl:pr-8 2xl:pr-16">
 
           <motion.div
             style={{ x: moveContent }}
-            className="w-full max-w-5xl flex flex-col items-start text-left"
+            className="w-full max-w-4xl flex flex-col items-start text-left"
           >
 
             {/* KICKER */}
@@ -302,12 +302,12 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="mb-8 flex items-center gap-3"
+              className="mb-4 lg:mb-6 xl:mb-8 flex items-center gap-3"
             >
-              <div className="h-[2px] w-16 bg-cyan-400" />
+              <div className="h-[2px] w-8 lg:w-12 xl:w-16 bg-cyan-400" />
               <p 
-                className="text-cyan-400 font-bold tracking-[0.2em] uppercase"
-                style={{ fontSize: 'clamp(0.75rem, 2vw, 0.9rem)' }}
+                className="text-cyan-400 font-bold tracking-[0.15em] lg:tracking-[0.2em] uppercase"
+                style={{ fontSize: 'clamp(0.7rem, 1.5vw, 0.95rem)' }}
               >
                 Where Creativity Meets Revenue
               </p>
@@ -318,20 +318,20 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="mb-8"
+              className="mb-4 lg:mb-6 xl:mb-8"
             >
               {/* Line 1: Build the Brand */}
               <h2 
-                className="font-bold text-white mb-2 leading-[1.1] drop-shadow-xl"
-                style={{ fontSize: 'clamp(1.5rem, 5vw, 3rem)' }}
+                className="font-bold text-white mb-2 leading-[1.15] drop-shadow-xl"
+                style={{ fontSize: 'clamp(1.25rem, 3.5vw, 2.75rem)' }}
               >
                 Build the <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400 inline-block">Brand</span> You've Always Imagined.
               </h2>
 
               {/* MAIN HERO TITLE */}
               <h1 
-                className="font-black text-white leading-[1] mb-6 drop-shadow-2xl"
-                style={{ fontSize: 'clamp(2rem, 6vw, 4.5rem)' }}
+                className="font-black text-white leading-[1.05] mb-4 lg:mb-6 drop-shadow-2xl"
+                style={{ fontSize: 'clamp(1.75rem, 5vw, 4rem)' }}
               >
                 AI-Native Marketing <br />
                 <span className="font-serif italic font-medium text-white/90">
@@ -345,10 +345,10 @@ export default function HeroSection() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4 }}
-              className="text-white/70 font-medium mb-10 max-w-3xl leading-relaxed"
-              style={{ fontSize: 'clamp(1.1rem, 2.5vw, 1.5rem)' }}
+              className="text-white/70 font-medium mb-6 lg:mb-8 xl:mb-10 max-w-2xl xl:max-w-3xl leading-relaxed"
+              style={{ fontSize: 'clamp(0.95rem, 2vw, 1.35rem)' }}
             >
-              Certified AI Talent + Tailored Workflows + Measurable Growth = <br className="hidden" />
+              Certified AI Talent + Tailored Workflows + Measurable Growth = {" "}
               <span className="text-white font-bold inline-block border-b-2 border-cyan-400">Less Cost. More Reach. More Sales.</span>
             </motion.p>
 
@@ -357,11 +357,11 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
-              className="flex flex-row items-center gap-6"
+              className="flex flex-col lg:flex-row items-start lg:items-center gap-4 lg:gap-6"
             >
               <Link href="/contact">
                 <Button 
-                  className="h-14 px-10 rounded-full bg-white text-[#0A0E27] font-bold text-lg hover:bg-cyan-50 hover:scale-105 transition-all shadow-[0_0_30px_rgba(255,255,255,0.4)]"
+                  className="h-12 lg:h-14 px-8 lg:px-10 rounded-full bg-white text-[#0A0E27] font-bold text-base lg:text-lg hover:bg-cyan-50 hover:scale-105 transition-all shadow-[0_0_30px_rgba(255,255,255,0.4)]"
                   data-testid="button-start-talking-desktop"
                 >
                   Start Talking
@@ -369,7 +369,7 @@ export default function HeroSection() {
               </Link>
 
               {/* Glass Service Buttons */}
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-wrap gap-2 lg:gap-3">
                 <GlassServiceButton icon={Palette} label="Creative" href="/services" testId="button-creative-desktop" />
                 <GlassServiceButton icon={Bot} label="AI Ops" href="/services" testId="button-ai-ops-desktop" />
                 <GlassServiceButton icon={Rocket} label="Solutions" href="/services" testId="button-solutions-desktop" />
@@ -378,12 +378,17 @@ export default function HeroSection() {
           </motion.div>
         </div>
 
-        {/* RIGHT COLUMN: Floating Chip Carousel (Desktop Only) */}
-        <div className="flex-1 h-full flex items-center justify-center relative z-10 pointer-events-none">
-          <div className="w-[120%] h-full absolute right-[-10%] top-0 flex items-center justify-center opacity-80">
+        {/* RIGHT COLUMN: Floating Chip Carousel (XL screens only) */}
+        <div className="hidden xl:flex xl:flex-1 h-full items-center justify-center relative z-10 pointer-events-none">
+          <div className="w-full h-full flex items-center justify-center opacity-80">
             <FloatingChipCarousel />
           </div>
         </div>
+      </div>
+
+      {/* Desktop Carousel (Below content for lg screens, hidden on xl) */}
+      <div className="relative z-20 w-full pb-6 hidden lg:block xl:hidden">
+        <FloatingChipCarousel />
       </div>
 
       {/* Mobile Floating Chip Carousel */}
