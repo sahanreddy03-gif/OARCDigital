@@ -143,9 +143,9 @@ export default function HeroSection() {
         }}
       />
 
-      {/* Main content - Flush left on desktop, proper spacing on mobile */}
-      <div className="relative z-10 flex-grow flex items-center">
-        <div className="w-full pl-3 pr-4 sm:pl-6 sm:pr-8 lg:pl-6 xl:pl-8 pt-16 sm:pt-20 md:pt-24 lg:pt-28 pb-2 sm:pb-6">
+      {/* Main content - Centered vertically, flush left on desktop */}
+      <div className="relative z-10 flex-grow flex items-center justify-center">
+        <div className="w-full pl-3 pr-4 sm:pl-6 sm:pr-8 lg:pl-6 xl:pl-8 pt-4 sm:pt-16 md:pt-20 lg:pt-24 pb-0 sm:pb-6">
           
           {/* Left aligned content - Flush to edge on desktop */}
           <div className="w-full sm:max-w-4xl lg:max-w-5xl">
@@ -155,9 +155,9 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.05 }}
-              className="text-white/90 tracking-[0.15em] sm:tracking-[0.25em] uppercase mb-4 sm:mb-5 font-medium"
+              className="text-white/90 tracking-[0.15em] sm:tracking-[0.25em] uppercase mb-2 sm:mb-5 font-medium"
               style={{ 
-                fontSize: 'clamp(0.85rem, 2.5vw, 1rem)',
+                fontSize: 'clamp(0.75rem, 2.5vw, 1rem)',
                 textShadow: '0 2px 10px rgba(0,0,0,0.9)' 
               }}
             >
@@ -169,10 +169,10 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="font-bold text-white mb-5 sm:mb-6"
+              className="font-bold text-white mb-3 sm:mb-6"
               style={{ 
-                fontSize: 'clamp(1.75rem, 6vw, 4.25rem)',
-                lineHeight: '1.1',
+                fontSize: 'clamp(1.8rem, 6vw, 4.25rem)',
+                lineHeight: '1.08',
                 letterSpacing: '-0.02em',
                 textShadow: '0 4px 20px rgba(0,0,0,0.8)'
               }}
@@ -183,18 +183,18 @@ export default function HeroSection() {
               </span>
             </motion.h1>
 
-            {/* Taglines with Color Accents - More breathing room */}
+            {/* Taglines with Color Accents */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="mb-5 sm:mb-6 space-y-2"
+              className="mb-3 sm:mb-6 space-y-1"
             >
               <p 
                 className="font-semibold text-white/90"
                 style={{ 
-                  fontSize: 'clamp(1.1rem, 3.2vw, 1.65rem)',
-                  lineHeight: '1.4',
+                  fontSize: 'clamp(1.05rem, 3.2vw, 1.65rem)',
+                  lineHeight: '1.35',
                   textShadow: '0 2px 12px rgba(0,0,0,0.9)'
                 }}
               >
@@ -203,8 +203,8 @@ export default function HeroSection() {
               <p 
                 className="font-medium text-white/70 italic"
                 style={{ 
-                  fontSize: 'clamp(1.1rem, 3.2vw, 1.65rem)',
-                  lineHeight: '1.4',
+                  fontSize: 'clamp(1.05rem, 3.2vw, 1.65rem)',
+                  lineHeight: '1.35',
                   textShadow: '0 2px 12px rgba(0,0,0,0.9)'
                 }}
               >
@@ -212,15 +212,15 @@ export default function HeroSection() {
               </p>
             </motion.div>
 
-            {/* Subtitle - More breathing room */}
+            {/* Subtitle */}
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="text-white/75 max-w-2xl font-medium mb-6 sm:mb-8"
+              className="text-white/75 max-w-2xl font-medium mb-4 sm:mb-8"
               style={{ 
-                fontSize: 'clamp(1.05rem, 2.5vw, 1.25rem)',
-                lineHeight: '1.5',
+                fontSize: 'clamp(0.95rem, 2.5vw, 1.25rem)',
+                lineHeight: '1.45',
                 textShadow: '0 2px 8px rgba(0,0,0,0.9)'
               }}
             >
@@ -271,8 +271,8 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* Floating Chip Carousel - Pulled up to fill space on mobile */}
-      <div className="relative z-20 w-full -mt-24 sm:-mt-8 pb-1 sm:pb-3">
+      {/* Floating Chip Carousel - Tight to content on mobile */}
+      <div className="relative z-20 w-full -mt-32 sm:-mt-8 pb-1 sm:pb-3">
         <FloatingChipCarousel />
       </div>
 
