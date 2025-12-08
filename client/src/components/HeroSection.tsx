@@ -163,48 +163,60 @@ export default function HeroSection() {
         <div className="hidden md:block absolute inset-0 bg-gradient-to-l from-transparent via-black/10 to-black/60" />
         
         {/* ========== CONTENT ========== */}
-        <div className="relative flex-1 flex flex-col justify-end pt-14 md:pt-20 pb-6 md:pb-6">
+        <div className="relative flex-1 flex flex-col justify-end pt-14 md:pt-16 lg:pt-20 pb-6">
           <div className="w-full">
-            <div className="max-w-7xl w-full mx-auto px-5 md:px-8">
-              <div className="w-full md:max-w-xl text-center md:text-left">
+            <div className="max-w-7xl w-full mx-auto px-5 md:px-8 lg:px-12">
+              <div className="w-full md:max-w-2xl lg:max-w-3xl xl:max-w-4xl text-center md:text-left">
                 {/* Mobile glassmorphism panel */}
                 <div className="relative md:before:content-none before:absolute before:inset-0 before:-z-10 before:bg-black/50 before:blur-xl before:rounded-[32px] before:-m-4">
                   
-                  {/* Kicker */}
-                  <div className="mb-4 md:mb-5">
+                  {/* Kicker - Bigger on desktop */}
+                  <div className="mb-4 md:mb-6 lg:mb-8">
                     <span 
-                      className="text-[10px] md:text-[9px] lg:text-[10px] uppercase tracking-[0.25em] font-light text-white/90 leading-none" 
-                      style={{ textShadow: '0 0 20px rgba(255, 255, 255, 0.3)' }}
+                      className="uppercase tracking-[0.25em] md:tracking-[0.3em] font-medium text-white/90 leading-none" 
+                      style={{ 
+                        fontSize: 'clamp(0.625rem, 1.2vw, 1.1rem)',
+                        textShadow: '0 0 20px rgba(255, 255, 255, 0.3)' 
+                      }}
                     >
                       WHERE CREATIVITY MEETS REVENUE
                     </span>
                   </div>
 
-                  {/* Headline */}
+                  {/* Headline - Much bigger on desktop */}
                   <h1 
-                    className="mb-4 md:mb-4 text-white animate-[fadeSlideUp_0.8s_ease-out]" 
-                    style={{ fontSize: 'clamp(2rem, 5vw, 2.5rem)' }}
+                    className="mb-4 md:mb-6 lg:mb-8 text-white animate-[fadeSlideUp_0.8s_ease-out]" 
                     data-testid="text-hero-headline"
                   >
-                    <span className="block font-bold tracking-tight leading-[1.1]">
+                    <span 
+                      className="block font-bold tracking-tight leading-[1.1]"
+                      style={{ fontSize: 'clamp(2rem, 5.5vw, 4.5rem)' }}
+                    >
                       AI-Powered Marketing,
                     </span>
-                    <span className="block font-extralight italic font-serif tracking-tight leading-[1.1] mt-1">
+                    <span 
+                      className="block font-extralight italic font-serif tracking-tight leading-[1.1] mt-1 md:mt-2"
+                      style={{ fontSize: 'clamp(2rem, 5.5vw, 4.5rem)' }}
+                    >
                       Agency That Drives <span className="text-[#ff914d] font-semibold not-italic">Revenue</span>
                     </span>
                   </h1>
 
-                  {/* Subtitle */}
-                  <p className="text-[15px] md:text-sm text-white/95 max-w-xl mx-auto md:mx-0 leading-relaxed mb-5 md:mb-4 font-light tracking-wide">
-                    Certified AI talent + Tailored Workflows + Measurable Growth = Less Cost. More Reach. More Sales
+                  {/* Subtitle - Bigger on desktop */}
+                  <p 
+                    className="text-white/95 max-w-xl md:max-w-2xl mx-auto md:mx-0 leading-relaxed mb-5 md:mb-6 lg:mb-8 font-light tracking-wide"
+                    style={{ fontSize: 'clamp(0.95rem, 1.8vw, 1.5rem)' }}
+                  >
+                    Certified AI talent + Tailored Workflows + Measurable Growth = <span className="text-white font-semibold">Less Cost. More Reach. More Sales.</span>
                   </p>
 
-                  {/* CTA Button */}
+                  {/* CTA Button - Bigger on desktop */}
                   <div className="flex flex-col items-center md:items-start gap-3">
                     <Link href="/contact">
                       <Button 
                         size="lg" 
-                        className="rounded-full text-[15px] md:text-sm px-10 md:px-7 py-6 md:py-4 h-auto font-bold bg-[#c4ff4d] text-black hover:bg-[#b5ef3d] shadow-2xl hover:shadow-2xl transition-all border-0 hover:scale-105"
+                        className="rounded-full px-10 md:px-12 lg:px-14 py-6 md:py-5 lg:py-6 h-auto font-bold bg-[#c4ff4d] text-black hover:bg-[#b5ef3d] shadow-2xl hover:shadow-2xl transition-all border-0 hover:scale-105"
+                        style={{ fontSize: 'clamp(0.95rem, 1.4vw, 1.35rem)' }}
                         data-testid="button-start-talking"
                       >
                         Start Talking
