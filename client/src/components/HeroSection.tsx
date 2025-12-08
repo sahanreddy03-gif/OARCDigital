@@ -175,17 +175,17 @@ export default function HeroSection() {
         {/* ========== CONTENT ========== */}
         <div className="relative flex-1 flex flex-col justify-end pt-14 md:pt-16 lg:pt-20 pb-6">
           <div className="w-full">
-            <div className="max-w-7xl w-full mx-auto px-5 md:px-8 lg:px-12">
+            {/* Reduced mobile padding (px-3) to use full width, normal desktop padding */}
+            <div className="max-w-7xl w-full mx-auto px-3 md:px-8 lg:px-12">
               <div className="w-full md:max-w-2xl lg:max-w-3xl xl:max-w-4xl text-center md:text-left">
                 {/* Mobile glassmorphism panel */}
                 <div className="relative md:before:content-none before:absolute before:inset-0 before:-z-10 before:bg-black/50 before:blur-xl before:rounded-[32px] before:-m-4">
                   
                   {/* Kicker - Bigger on desktop */}
-                  <div className="mb-4 md:mb-6 lg:mb-8">
+                  <div className="mb-3 md:mb-6 lg:mb-8">
                     <span 
-                      className="uppercase tracking-[0.25em] md:tracking-[0.3em] font-medium text-white/90 leading-none" 
+                      className="uppercase tracking-[0.2em] md:tracking-[0.3em] font-medium text-white/90 leading-none text-[10px] md:text-[clamp(0.7rem,1.2vw,1.1rem)]" 
                       style={{ 
-                        fontSize: 'clamp(0.625rem, 1.2vw, 1.1rem)',
                         textShadow: '0 0 20px rgba(255, 255, 255, 0.3)' 
                       }}
                     >
@@ -193,36 +193,37 @@ export default function HeroSection() {
                     </span>
                   </div>
 
-                  {/* Headline - Fixed size on mobile, bigger on desktop */}
+                  {/* Headline - Viewport-based on mobile for all screen sizes, bigger on desktop */}
                   <h1 
-                    className="mb-4 md:mb-6 lg:mb-8 text-white animate-[fadeSlideUp_0.8s_ease-out]" 
+                    className="mb-3 md:mb-6 lg:mb-8 text-white animate-[fadeSlideUp_0.8s_ease-out]" 
                     data-testid="text-hero-headline"
                   >
+                    {/* Mobile: 8.5vw scales from ~27px on iPhone SE to ~36px on iPhone 16 Pro Max */}
                     <span 
-                      className="block font-bold tracking-tight leading-[1.1] text-[2rem] md:text-[clamp(2.5rem,5.5vw,4.5rem)]"
+                      className="block font-bold tracking-tight leading-[1.05] text-[8.5vw] md:text-[clamp(2.5rem,5.5vw,4.5rem)]"
                     >
                       AI-Native Marketing,
                     </span>
                     <span 
-                      className="block font-extralight italic font-serif tracking-tight leading-[1.1] mt-1 md:mt-2 text-[2rem] md:text-[clamp(2.5rem,5.5vw,4.5rem)]"
+                      className="block font-extralight italic font-serif tracking-tight leading-[1.05] mt-0.5 md:mt-2 text-[8.5vw] md:text-[clamp(2.5rem,5.5vw,4.5rem)]"
                     >
                       Agency That Drives <span className="text-[#ff914d] font-semibold not-italic">Revenue</span>
                     </span>
                   </h1>
 
-                  {/* Subtitle - Bigger on desktop */}
+                  {/* Subtitle - Smaller on mobile to fit one line */}
                   <p 
-                    className="text-white/95 max-w-xl md:max-w-2xl mx-auto md:mx-0 leading-relaxed mb-2 md:mb-3 font-light tracking-wide text-[15px] md:text-[clamp(1rem,1.8vw,1.5rem)]"
+                    className="text-white/95 max-w-none md:max-w-2xl mx-auto md:mx-0 leading-snug mb-1.5 md:mb-3 font-light tracking-normal text-[3.2vw] md:text-[clamp(1rem,1.8vw,1.5rem)]"
                   >
                     Certified AI talent + Tailored Workflows + Measurable Growth =
                   </p>
                   <p 
-                    className="text-white max-w-xl md:max-w-2xl mx-auto md:mx-0 leading-tight mb-1 md:mb-2 font-black tracking-wide text-[1.1rem] md:text-[clamp(1.25rem,2.2vw,1.75rem)]"
+                    className="text-white max-w-none md:max-w-2xl mx-auto md:mx-0 leading-tight mb-1 md:mb-2 font-black tracking-wide text-[4.8vw] md:text-[clamp(1.25rem,2.2vw,1.75rem)]"
                   >
                     Less Cost. More Reach. More Sales.
                   </p>
                   <p 
-                    className="text-[#c4ff4d] max-w-xl md:max-w-2xl mx-auto md:mx-0 leading-tight mb-5 md:mb-6 lg:mb-8 font-bold tracking-wide text-[1rem] md:text-[clamp(1.1rem,1.8vw,1.5rem)]"
+                    className="text-[#c4ff4d] max-w-none md:max-w-2xl mx-auto md:mx-0 leading-tight mb-4 md:mb-6 lg:mb-8 font-bold tracking-wide text-[4.2vw] md:text-[clamp(1.1rem,1.8vw,1.5rem)]"
                   >
                     That's The OARC Advantage.
                   </p>
