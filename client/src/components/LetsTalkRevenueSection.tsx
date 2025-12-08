@@ -11,34 +11,34 @@ import ideaValidationImage from '@assets/stock_images/startup_idea_validat_9b100
 
 const services = [
   {
-    title: "Lead Generation Engine",
-    metric: "3x qualified leads",
+    title: "AI Consulting",
+    metric: "Strategic guidance",
+    image: ideaValidationImage,
+    slug: "ai-consulting"
+  },
+  {
+    title: "Custom AI Solutions",
+    metric: "Tailored to you",
     image: leadGenImage,
-    slug: "lead-generation-engine"
+    slug: "custom-ai-solutions"
   },
   {
-    title: "Customer Acquisition",
-    metric: "40% lower CAC",
+    title: "Mobile Applications",
+    metric: "iOS & Android",
     image: customerAcquisitionImage,
-    slug: "customer-acquisition-accelerator"
+    slug: "mobile-app-development"
   },
   {
-    title: "Funnel Optimization",
-    metric: "2.5x conversion",
+    title: "Web Applications",
+    metric: "Enterprise-grade",
     image: funnelOptimizationImage,
-    slug: "funnel-optimization-agent"
+    slug: "web-app-development"
   },
   {
     title: "Marketing Automation",
     metric: "85% time saved",
     image: marketingAutomationImage,
     slug: "marketing-automation-suite"
-  },
-  {
-    title: "Idea Validation",
-    metric: "10x faster testing",
-    image: ideaValidationImage,
-    slug: "idea-validation-engine"
   },
 ];
 
@@ -234,8 +234,8 @@ export default function LetsTalkRevenueSection() {
 
   return (
     <section 
-      className="relative py-16 lg:py-24 overflow-hidden" 
-      data-testid="section-ai-revenue-engine"
+      className="relative py-12 lg:py-16 overflow-hidden" 
+      data-testid="section-custom-ai-products"
     >
       {/* Premium Dark Base with Blue Tint */}
       <div className="absolute inset-0 bg-[#020308]" />
@@ -360,7 +360,7 @@ export default function LetsTalkRevenueSection() {
       {/* Content */}
       <div className="container mx-auto px-6 lg:px-12 max-w-7xl relative z-10">
         <motion.div 
-          className="text-center mb-12 lg:mb-16"
+          className="text-center mb-8 lg:mb-12"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -368,36 +368,37 @@ export default function LetsTalkRevenueSection() {
         >
           {/* Premium Badge */}
           <motion.div 
-            className="inline-flex items-center gap-2 px-4 py-2 bg-white/[0.03] backdrop-blur-md rounded-full border border-[#23AACA]/20 mb-6"
+            className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/[0.03] backdrop-blur-md rounded-full border border-[#23AACA]/20 mb-4"
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
           >
             <motion.div 
-              className="w-2 h-2 rounded-full bg-[#23AACA]"
+              className="w-1.5 h-1.5 rounded-full bg-[#23AACA]"
               animate={prefersReducedMotion ? {} : { scale: [1, 1.3, 1], opacity: [1, 0.5, 1] }}
               transition={{ duration: 2, repeat: Infinity }}
             />
-            <span className="text-[10px] uppercase tracking-[0.2em] text-white/60 font-medium">Automated Growth Systems</span>
+            <span className="text-[9px] uppercase tracking-[0.2em] text-white/60 font-medium">We Build It For You</span>
           </motion.div>
           
           <h2 
-            className="font-bold text-white mb-4 uppercase tracking-[0.12em]" 
-            data-testid="text-revenue-engine-heading" 
-            style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)' }}
+            className="font-bold text-white mb-4 uppercase tracking-[0.08em]" 
+            data-testid="text-custom-ai-heading" 
+            style={{ fontSize: 'clamp(1.75rem, 4.5vw, 3rem)' }}
           >
-            <span className="bg-gradient-to-r from-white via-white to-white/80 bg-clip-text text-transparent">Revenue</span>
-            <span className="bg-gradient-to-r from-[#23AACA] to-[#4ade80] bg-clip-text text-transparent ml-3">Automation</span>
+            <span className="bg-gradient-to-r from-white via-white to-white/80 bg-clip-text text-transparent">Custom AI Products</span>
+            <span className="bg-gradient-to-r from-[#23AACA] to-[#4ade80] bg-clip-text text-transparent ml-2">&</span>
+            <span className="bg-gradient-to-r from-[#23AACA] to-[#4ade80] bg-clip-text text-transparent ml-2">Development</span>
           </h2>
           <p 
-            className="font-medium text-white/80 mb-4" 
-            style={{ fontSize: 'clamp(1rem, 2.5vw, 1.5rem)', letterSpacing: '-0.01em', lineHeight: '1.3' }}
+            className="font-medium text-white/80 mb-3" 
+            style={{ fontSize: 'clamp(0.95rem, 2vw, 1.25rem)', letterSpacing: '-0.01em', lineHeight: '1.3' }}
           >
-            Growth systems that run while you sleep.
+            Bespoke AI solutions built for your business.
           </p>
-          <p className="text-sm text-white/40 max-w-xl mx-auto leading-relaxed">
-            End-to-end automation engines that optimize pipelines, acquire customers, and validate ideas on autopilot.
+          <p className="text-xs text-white/40 max-w-lg mx-auto leading-relaxed">
+            Custom apps, automation systems, and AI consulting—tailored to your exact requirements.
           </p>
         </motion.div>
 
@@ -450,18 +451,18 @@ export default function LetsTalkRevenueSection() {
         </motion.div>
 
         <motion.div 
-          className="text-center mt-12"
+          className="text-center mt-10"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.6 }}
         >
-          <Link href="/services/ai-revenue-engine">
+          <Link href="/services/custom-ai-development">
             <button 
-              className="group inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-[#23AACA] to-[#1a8fa8] text-white text-sm font-bold uppercase tracking-[0.1em] transition-all duration-300 hover:shadow-lg hover:shadow-[#23AACA]/25 rounded-sm"
-              data-testid="button-explore-revenue-engine"
+              className="group inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-[#23AACA] to-[#1a8fa8] text-white text-xs font-bold uppercase tracking-[0.1em] transition-all duration-300 hover:shadow-lg hover:shadow-[#23AACA]/25 rounded-sm"
+              data-testid="button-explore-custom-ai"
             >
-              <span>Explore Revenue Engine</span>
+              <span>Explore Custom Solutions</span>
               <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
             </button>
           </Link>
