@@ -5,12 +5,12 @@ import { motion, useTransform, useMotionValue } from "framer-motion";
 import FloatingChipCarousel from "./FloatingChipCarousel";
 import heroBackground from '@assets/d375f1d50d97b0de7953ca2cecd2b8aea2cd96b2-3524x1181_1761251957292.avif';
 import oarcLogo from "@assets/IMG_8813_(1)_1764796694787.png";
-import { Palette, Bot, Code } from 'lucide-react';
+import { Palette, Bot, Rocket } from 'lucide-react';
 
 function useMousePosition() {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
-  
+
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       const normalizedX = (e.clientX / window.innerWidth) * 2 - 1;
@@ -21,13 +21,13 @@ function useMousePosition() {
     window.addEventListener("mousemove", handleMouseMove);
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, [x, y]);
-  
+
   return { x, y };
 }
 
-const SnowCanvas = () => {
+const AIGridCanvas = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-
+  
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -36,34 +36,74 @@ const SnowCanvas = () => {
 
     let w = canvas.width = window.innerWidth;
     let h = canvas.height = window.innerHeight;
+    let animationId: number;
 
-    const flakes = Array.from({ length: 80 }, () => ({
+    const particles = Array.from({ length: 60 }, () => ({
       x: Math.random() * w,
       y: Math.random() * h,
-      vy: 0.3 + Math.random() * 0.8,
-      vx: (Math.random() - 0.5) * 0.3,
+      vx: (Math.random() - 0.5) * 0.5,
+      vy: Math.random() * 0.5 + 0.5,
       size: Math.random() * 2 + 0.5,
-      opacity: Math.random() * 0.4 + 0.2
+      opacity: Math.random() * 0.5 + 0.2
+    }));
+
+    const flowLines = Array.from({ length: 5 }, (_, i) => ({
+      y: (h / 5) * i + 100,
+      offset: Math.random() * 100,
+      speed: 0.5 + Math.random() * 1,
+      opacity: 0.1
     }));
 
     const animate = () => {
       ctx.clearRect(0, 0, w, h);
 
-      ctx.fillStyle = "white";
-      flakes.forEach(f => {
-        f.y += f.vy;
-        f.x += f.vx;
-        if (f.y > h) { f.y = -10; f.x = Math.random() * w; }
-        if (f.x < 0) f.x = w;
-        if (f.x > w) f.x = 0;
-
-        ctx.globalAlpha = f.opacity;
+      // Grid
+      ctx.strokeStyle = 'rgba(0, 217, 255, 0.03)';
+      ctx.lineWidth = 1;
+      for (let x = 0; x < w; x += 60) {
         ctx.beginPath();
-        ctx.arc(f.x, f.y, f.size, 0, Math.PI * 2);
+        ctx.moveTo(x, 0);
+        ctx.lineTo(x, h);
+        ctx.stroke();
+      }
+      for (let y = 0; y < h; y += 60) {
+        ctx.beginPath();
+        ctx.moveTo(0, y);
+        ctx.lineTo(w, y);
+        ctx.stroke();
+      }
+
+      // Flow Lines
+      flowLines.forEach(line => {
+        line.offset += line.speed;
+        if (line.offset > w + 200) line.offset = -200;
+        const g = ctx.createLinearGradient(line.offset - 100, 0, line.offset + 200, 0);
+        g.addColorStop(0, 'rgba(0, 217, 255, 0)');
+        g.addColorStop(0.5, `rgba(0, 217, 255, ${line.opacity})`);
+        g.addColorStop(1, 'rgba(0, 217, 255, 0)');
+        ctx.strokeStyle = g;
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(line.offset - 100, line.y);
+        ctx.lineTo(line.offset + 200, line.y);
+        ctx.stroke();
+      });
+
+      // Particles
+      particles.forEach(p => {
+        p.y += p.vy;
+        p.x += p.vx;
+        if (p.y > h) {
+          p.y = -10;
+          p.x = Math.random() * w;
+        }
+        ctx.fillStyle = `rgba(255, 255, 255, ${p.opacity})`;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
         ctx.fill();
       });
 
-      requestAnimationFrame(animate);
+      animationId = requestAnimationFrame(animate);
     };
     animate();
 
@@ -72,10 +112,13 @@ const SnowCanvas = () => {
       h = canvas.height = window.innerHeight;
     };
     window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      cancelAnimationFrame(animationId);
+    };
   }, []);
 
-  return <canvas ref={canvasRef} className="absolute inset-0 z-[1] pointer-events-none" />;
+  return <canvas ref={canvasRef} className="absolute inset-0 z-[1] pointer-events-none opacity-40 mix-blend-screen" />;
 };
 
 const GlassServiceButton = ({ 
@@ -87,73 +130,59 @@ const GlassServiceButton = ({
   icon: typeof Palette; 
   label: string; 
   href: string;
-  testId: string;
+  testId?: string;
 }) => (
   <Link href={href}>
-    <motion.div
-      whileHover={{ scale: 1.05, y: -2 }}
-      whileTap={{ scale: 0.98 }}
-      className="group cursor-pointer"
+    <motion.button
+      whileHover={{ scale: 1.05, backgroundColor: "rgba(255,255,255,0.1)" }}
+      whileTap={{ scale: 0.95 }}
+      className="flex items-center gap-3 px-5 py-3 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 hover:border-cyan-400/50 transition-all group"
       data-testid={testId}
     >
-      <div className="relative flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 hover:border-white/40 transition-all duration-300 shadow-lg hover:shadow-xl">
-        <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-white/20 to-white/5 flex items-center justify-center border border-white/10">
-          <Icon className="w-4 h-4 text-white" />
-        </div>
-        <span className="text-white/90 text-sm font-semibold group-hover:text-white transition-colors">
-          {label}
-        </span>
-        <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-[#c4ff4d]/0 via-[#c4ff4d]/5 to-[#c4ff4d]/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+      <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-cyan-400 transition-colors">
+        <Icon className="w-4 h-4 text-white group-hover:text-[#0A0E27] transition-colors" />
       </div>
-    </motion.div>
+      <span className="text-sm font-bold text-white/80 group-hover:text-white">{label}</span>
+    </motion.button>
   </Link>
 );
 
 export default function HeroSection() {
+  const containerRef = useRef<HTMLDivElement>(null);
   const { x, y } = useMousePosition();
   const moveBackground = useTransform(x, [-1, 1], [-10, 10]);
+  const moveContent = useTransform(x, [-1, 1], [-5, 5]);
 
   return (
-    <section className="relative min-h-[100svh] bg-black overflow-hidden flex flex-col selection:bg-[#c4ff4d] selection:text-black">
+    <section
+      ref={containerRef}
+      className="relative min-h-[100dvh] flex flex-col justify-center overflow-hidden bg-[#0A0E27] selection:bg-cyan-400 selection:text-[#0A0E27]"
+    >
+      {/* 1. BACKGROUND LAYERS */}
+      <div className="absolute inset-0 z-0">
+        {/* Base Image */}
+        <motion.img
+          src={heroBackground}
+          alt="Hero Background"
+          className="w-full h-full object-cover opacity-60 grayscale-[20%] contrast-125 transition-transform duration-700 ease-out"
+          style={{
+            x: moveBackground,
+            y: useTransform(y, [-1, 1], [-20, 20]),
+            scale: 1.05
+          }}
+        />
+        {/* Overlay Gradients */}
+        <div className="absolute inset-0 bg-[#0A0E27] opacity-60 mix-blend-multiply pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0A0E27]/40 to-[#0A0E27] pointer-events-none" />
+      </div>
 
-      {/* Background image - Bright and visible */}
-      <motion.div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0"
-        style={{
-          backgroundImage: `url(${heroBackground})`,
-          x: moveBackground,
-          y: useTransform(y, [-1, 1], [-10, 10]),
-        }}
-      />
-
-      {/* Snow particles */}
-      <SnowCanvas />
-
-      {/* Dark gradient overlay - Center fade for mobile, left fade for desktop */}
-      <div 
-        className="absolute inset-0 pointer-events-none z-[2] sm:hidden"
-        style={{
-          background: 'linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.7) 100%)'
-        }}
-      />
-      <div 
-        className="absolute inset-0 pointer-events-none z-[2] hidden sm:block"
-        style={{
-          background: 'linear-gradient(90deg, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.45) 35%, rgba(0,0,0,0.15) 60%, transparent 80%)'
-        }}
-      />
-      {/* Bottom vignette for depth */}
-      <div 
-        className="absolute inset-0 pointer-events-none z-[2]"
-        style={{
-          background: 'linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 40%)'
-        }}
-      />
+      {/* 2. CANVAS EFFECTS (AI Grid + Particles) */}
+      <AIGridCanvas />
 
       {/* ========== MOBILE LAYOUT (Center Aligned) ========== */}
-      <div className="relative z-10 flex-grow flex flex-col items-center justify-center px-5 pt-16 pb-4 sm:hidden">
+      <div className="relative z-10 flex-grow flex flex-col items-center justify-center px-5 pt-20 pb-6 lg:hidden">
         
-        {/* OARC Logo Icon - 60x60px */}
+        {/* OARC Logo Icon */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -169,247 +198,201 @@ export default function HeroSection() {
           />
         </motion.div>
 
-        {/* Kicker - 12px */}
-        <motion.p
+        {/* Kicker */}
+        <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
-          className="text-white/80 tracking-[0.25em] uppercase text-center mb-5 font-medium"
-          style={{ 
-            fontSize: '12px',
-            textShadow: '0 2px 10px rgba(0,0,0,0.9)' 
-          }}
+          className="mb-5 flex items-center gap-3"
         >
-          Where <span className="text-[#c4ff4d]">Creativity</span> Meets Revenue
-        </motion.p>
+          <p 
+            className="text-cyan-400 font-bold tracking-[0.2em] uppercase text-center"
+            style={{ fontSize: '12px', textShadow: '0 2px 10px rgba(0,0,0,0.9)' }}
+          >
+            Where Creativity Meets Revenue
+          </p>
+        </motion.div>
 
-        {/* Tagline 1 - 26px */}
-        <motion.p
+        {/* Tagline 1 */}
+        <motion.h2
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.15 }}
-          className="font-semibold text-white/90 text-center mb-3"
-          style={{ 
-            fontSize: '26px',
-            lineHeight: '1.2',
-            textShadow: '0 2px 12px rgba(0,0,0,0.9)'
-          }}
+          className="font-bold text-white text-center mb-3 drop-shadow-xl"
+          style={{ fontSize: '24px', lineHeight: '1.2' }}
         >
-          Build the <span className="text-[#c4ff4d]">Brand</span> You've Always Imagined.
-        </motion.p>
+          Build the <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400">Brand</span> You've Always Imagined.
+        </motion.h2>
 
-        {/* Tagline 2 - 26px */}
-        <motion.p
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-          className="font-medium text-white/70 italic text-center mb-6"
-          style={{ 
-            fontSize: '26px',
-            lineHeight: '1.2',
-            textShadow: '0 2px 12px rgba(0,0,0,0.9)'
-          }}
-        >
-          With the <span className="text-[#ff914d] not-italic font-semibold">Growth</span> You Actually Need.
-        </motion.p>
-
-        {/* Headline - 22px */}
+        {/* Main Headline */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.25 }}
+          transition={{ delay: 0.2 }}
           className="text-center mb-5"
         >
           <h1 
-            className="font-bold text-white"
-            style={{ 
-              fontSize: '22px',
-              lineHeight: '1.15',
-              letterSpacing: '-0.01em',
-              textShadow: '0 4px 20px rgba(0,0,0,0.8)'
-            }}
+            className="font-black text-white leading-[1.05] drop-shadow-2xl"
+            style={{ fontSize: '28px', letterSpacing: '-0.01em' }}
           >
             AI-Native Marketing
           </h1>
           <p 
-            className="font-serif italic font-semibold text-white mt-1"
-            style={{ 
-              fontSize: '22px',
-              lineHeight: '1.15',
-              textShadow: '0 4px 20px rgba(0,0,0,0.8)'
-            }}
+            className="font-serif italic font-medium text-white/90 mt-1"
+            style={{ fontSize: '24px', lineHeight: '1.15' }}
           >
-            Agency that drives <span className="text-[#ff914d]">Revenue</span>
+            Agency that drives <span className="text-[#ff914d] not-italic font-bold">Revenue</span>
           </p>
         </motion.div>
 
-        {/* Subtitle - 20px */}
+        {/* Subtitle */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
-          className="text-white/75 text-center font-medium mb-6"
-          style={{ 
-            fontSize: '20px',
-            lineHeight: '1.4',
-            textShadow: '0 2px 8px rgba(0,0,0,0.9)'
-          }}
+          className="text-white/70 text-center font-medium mb-6"
+          style={{ fontSize: '16px', lineHeight: '1.5' }}
         >
           Less Cost. More Reach. More Sales.
         </motion.p>
 
-        {/* CTA Button - 16px */}
+        {/* CTA Button */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.35 }}
+          className="mb-6"
         >
           <Link href="/contact">
             <Button 
-              className="h-12 px-10 rounded-full bg-[#c4ff4d] text-black font-bold text-base hover:bg-[#d4ff6d] hover:scale-105 transition-all shadow-xl"
+              className="h-12 px-10 rounded-full bg-white text-[#0A0E27] font-bold text-base hover:bg-cyan-50 hover:scale-105 transition-all shadow-[0_0_30px_rgba(255,255,255,0.4)]"
               data-testid="button-start-talking"
             >
               Start Talking
             </Button>
           </Link>
         </motion.div>
+
+        {/* Glass Service Buttons - Mobile */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4 }}
+          className="flex flex-wrap justify-center gap-2"
+        >
+          <GlassServiceButton icon={Palette} label="Creative" href="/services" testId="button-creative-mobile" />
+          <GlassServiceButton icon={Bot} label="AI Ops" href="/services" testId="button-ai-ops-mobile" />
+          <GlassServiceButton icon={Rocket} label="Solutions" href="/services" testId="button-solutions-mobile" />
+        </motion.div>
       </div>
 
       {/* ========== DESKTOP LAYOUT (Left Aligned) ========== */}
-      <div className="relative z-10 flex-grow hidden sm:flex items-center">
-        <div className="w-full pl-6 pr-8 lg:pl-6 xl:pl-8 pt-8 md:pt-12 lg:pt-16 pb-6">
-          
-          {/* Left aligned content */}
-          <div className="max-w-4xl lg:max-w-5xl">
-            
-            {/* Kicker */}
-            <motion.p
+      <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 sm:px-12 md:px-16 hidden lg:flex flex-row items-center h-full pt-20 pb-8">
+
+        {/* LEFT COLUMN: Text Content */}
+        <div className="flex-1 w-full flex flex-col items-start text-left">
+
+          <motion.div
+            style={{ x: moveContent }}
+            className="w-full max-w-5xl flex flex-col items-start text-left"
+          >
+
+            {/* KICKER */}
+            <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.05 }}
-              className="text-white/90 tracking-[0.25em] uppercase mb-6 font-medium"
-              style={{ 
-                fontSize: 'clamp(0.85rem, 2.5vw, 1rem)',
-                textShadow: '0 2px 10px rgba(0,0,0,0.9)' 
-              }}
-            >
-              Where <span className="text-[#c4ff4d]">Creativity</span> Meets Revenue
-            </motion.p>
-
-            {/* Main Headline */}
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="font-bold text-white mb-8"
-              style={{ 
-                fontSize: 'clamp(2rem, 7vw, 4.25rem)',
-                lineHeight: '1.1',
-                letterSpacing: '-0.02em',
-                textShadow: '0 4px 20px rgba(0,0,0,0.8)'
-              }}
+              className="mb-8 flex items-center gap-3"
             >
-              <span className="block whitespace-nowrap">AI-Native Marketing</span>
-              <span className="block font-serif italic font-semibold whitespace-nowrap mt-2">
-                Agency that drives <span className="text-[#ff914d]">Revenue</span>
-              </span>
-            </motion.h1>
+              <div className="h-[2px] w-16 bg-cyan-400" />
+              <p 
+                className="text-cyan-400 font-bold tracking-[0.2em] uppercase"
+                style={{ fontSize: 'clamp(0.75rem, 2vw, 0.9rem)' }}
+              >
+                Where Creativity Meets Revenue
+              </p>
+            </motion.div>
 
-            {/* Taglines */}
+            {/* HEADLINE BLOCK */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="mb-8 space-y-4"
+              className="mb-8"
             >
-              <p 
-                className="font-semibold text-white/90"
-                style={{ 
-                  fontSize: 'clamp(1.1rem, 3.5vw, 1.65rem)',
-                  lineHeight: '1.3',
-                  textShadow: '0 2px 12px rgba(0,0,0,0.9)'
-                }}
+              {/* Line 1: Build the Brand */}
+              <h2 
+                className="font-bold text-white mb-2 leading-[1.1] drop-shadow-xl"
+                style={{ fontSize: 'clamp(1.5rem, 5vw, 3rem)' }}
               >
-                Build the <span className="text-[#c4ff4d]">Brand</span> You've Always Imagined.
-              </p>
-              <p 
-                className="font-medium text-white/70 italic"
-                style={{ 
-                  fontSize: 'clamp(1.1rem, 3.5vw, 1.65rem)',
-                  lineHeight: '1.3',
-                  textShadow: '0 2px 12px rgba(0,0,0,0.9)'
-                }}
+                Build the <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400 inline-block">Brand</span> You've Always Imagined.
+              </h2>
+
+              {/* MAIN HERO TITLE */}
+              <h1 
+                className="font-black text-white leading-[1] mb-6 drop-shadow-2xl"
+                style={{ fontSize: 'clamp(2rem, 6vw, 4.5rem)' }}
               >
-                With the <span className="text-[#ff914d] not-italic font-semibold">Growth</span> You Actually Need.
-              </p>
+                AI-Native Marketing <br />
+                <span className="font-serif italic font-medium text-white/90">
+                  Agency that drives <span className="text-[#ff914d] not-italic font-bold">Revenue</span>
+                </span>
+              </h1>
             </motion.div>
 
-            {/* Subtitle */}
+            {/* FORMULA / SUBTITLE */}
             <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-              className="text-white/75 max-w-2xl font-medium mb-10"
-              style={{ 
-                fontSize: 'clamp(0.95rem, 2.8vw, 1.25rem)',
-                lineHeight: '1.45',
-                textShadow: '0 2px 8px rgba(0,0,0,0.9)'
-              }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.4 }}
+              className="text-white/70 font-medium mb-10 max-w-3xl leading-relaxed"
+              style={{ fontSize: 'clamp(1.1rem, 2.5vw, 1.5rem)' }}
             >
-              Certified AI talent + Tailored Workflows + Measurable Growth = <span className="text-white font-bold">Less Cost. More Reach. More Sales.</span>
+              Certified AI Talent + Tailored Workflows + Measurable Growth = <br className="hidden" />
+              <span className="text-white font-bold inline-block border-b-2 border-cyan-400">Less Cost. More Reach. More Sales.</span>
             </motion.p>
 
-            {/* CTA Section with Glass Service Buttons */}
+            {/* CTA SECTION */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
-              className="flex flex-col gap-4"
+              className="flex flex-row items-center gap-6"
             >
-              {/* Start Talking Button */}
               <Link href="/contact">
                 <Button 
-                  className="h-14 px-10 rounded-full bg-[#c4ff4d] text-black font-bold text-lg hover:bg-[#d4ff6d] hover:scale-105 transition-all shadow-xl"
+                  className="h-14 px-10 rounded-full bg-white text-[#0A0E27] font-bold text-lg hover:bg-cyan-50 hover:scale-105 transition-all shadow-[0_0_30px_rgba(255,255,255,0.4)]"
                   data-testid="button-start-talking-desktop"
                 >
                   Start Talking
                 </Button>
               </Link>
 
-              {/* Glass 3D Service Buttons */}
+              {/* Glass Service Buttons */}
               <div className="flex flex-wrap gap-3">
-                <GlassServiceButton 
-                  icon={Palette} 
-                  label="Creative Services" 
-                  href="/services/social-media-creative-management"
-                  testId="button-creative-services"
-                />
-                <GlassServiceButton 
-                  icon={Bot} 
-                  label="AI Consulting" 
-                  href="/services/ai-consulting"
-                  testId="button-ai-consulting"
-                />
-                <GlassServiceButton 
-                  icon={Code} 
-                  label="Custom AI Softwares" 
-                  href="/services/custom-software-development"
-                  testId="button-custom-ai-softwares"
-                />
+                <GlassServiceButton icon={Palette} label="Creative" href="/services" testId="button-creative-desktop" />
+                <GlassServiceButton icon={Bot} label="AI Ops" href="/services" testId="button-ai-ops-desktop" />
+                <GlassServiceButton icon={Rocket} label="Solutions" href="/services" testId="button-solutions-desktop" />
               </div>
             </motion.div>
+          </motion.div>
+        </div>
 
+        {/* RIGHT COLUMN: Floating Chip Carousel (Desktop Only) */}
+        <div className="flex-1 h-full flex items-center justify-center relative z-10 pointer-events-none">
+          <div className="w-[120%] h-full absolute right-[-10%] top-0 flex items-center justify-center opacity-80">
+            <FloatingChipCarousel />
           </div>
         </div>
       </div>
 
-      {/* Floating Chip Carousel */}
-      <div className="relative z-20 w-full -mt-4 sm:-mt-8 pb-2 sm:pb-3">
+      {/* Mobile Floating Chip Carousel */}
+      <div className="relative z-20 w-full pb-4 lg:hidden">
         <FloatingChipCarousel />
       </div>
 
-      {/* Subtle curved green wave - lighter and smaller */}
-      <div className="relative z-10 w-full -mt-6 sm:-mt-8 md:-mt-10">
+      {/* Subtle curved wave transition */}
+      <div className="relative z-10 w-full -mt-2">
         <svg 
           viewBox="0 0 1440 50" 
           className="w-full h-auto"
@@ -417,8 +400,8 @@ export default function HeroSection() {
         >
           <path 
             d="M0,25 C360,45 1080,5 1440,25 L1440,50 L0,50 Z" 
-            fill="#b8e550"
-            fillOpacity="0.85"
+            fill="#0A0E27"
+            fillOpacity="0.3"
           />
         </svg>
       </div>
