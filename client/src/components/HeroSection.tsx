@@ -223,7 +223,7 @@ export default function HeroSection() {
                     Less Cost. More Reach. More Sales.
                   </p>
                   <p 
-                    className="text-[#c4ff4d] max-w-none md:max-w-2xl mx-auto md:mx-0 leading-tight mb-4 md:mb-6 lg:mb-8 font-bold tracking-wide text-[4.2vw] md:text-[clamp(1.1rem,1.8vw,1.5rem)]"
+                    className="text-white max-w-none md:max-w-2xl mx-auto md:mx-0 leading-tight mb-4 md:mb-6 lg:mb-8 font-bold tracking-wide text-[4.2vw] md:text-[clamp(1.1rem,1.8vw,1.5rem)]"
                   >
                     That's The OARC Advantage.
                   </p>
