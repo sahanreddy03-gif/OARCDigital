@@ -95,11 +95,11 @@ const GlassServiceButton = ({
       className="group cursor-pointer"
       data-testid={testId}
     >
-      <div className="relative flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2.5 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 hover:border-white/40 transition-all duration-300 shadow-lg hover:shadow-xl">
-        <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-lg bg-gradient-to-br from-white/20 to-white/5 flex items-center justify-center border border-white/10">
-          <Icon className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
+      <div className="relative flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 hover:border-white/40 transition-all duration-300 shadow-lg hover:shadow-xl">
+        <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-white/20 to-white/5 flex items-center justify-center border border-white/10">
+          <Icon className="w-4 h-4 text-white" />
         </div>
-        <span className="text-white/90 text-xs sm:text-sm font-semibold group-hover:text-white transition-colors">
+        <span className="text-white/90 text-sm font-semibold group-hover:text-white transition-colors">
           {label}
         </span>
         <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-[#c4ff4d]/0 via-[#c4ff4d]/5 to-[#c4ff4d]/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -128,79 +128,113 @@ export default function HeroSection() {
       {/* Snow particles */}
       <SnowCanvas />
 
-      {/* Subtle left gradient for text readability */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-transparent pointer-events-none z-[2]" />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none z-[2]" />
+      {/* Strong dark gradient overlay on left for text readability - Desktop */}
+      <div 
+        className="absolute inset-0 pointer-events-none z-[2]"
+        style={{
+          background: 'linear-gradient(90deg, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.45) 35%, rgba(0,0,0,0.15) 60%, transparent 80%)'
+        }}
+      />
+      {/* Bottom vignette for depth */}
+      <div 
+        className="absolute inset-0 pointer-events-none z-[2]"
+        style={{
+          background: 'linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 40%)'
+        }}
+      />
 
-      {/* Main content - compressed spacing for mobile */}
+      {/* Main content - Premium spacing */}
       <div className="relative z-10 flex-grow flex items-center">
-        <div className="container mx-auto px-4 sm:px-6 pt-20 sm:pt-28 md:pt-32 lg:pt-36 pb-4 sm:pb-8">
+        <div className="w-full max-w-[90vw] sm:max-w-none sm:container mx-auto pl-4 sm:pl-8 lg:pl-12 xl:pl-20 pr-4 sm:pr-6 pt-16 sm:pt-24 md:pt-28 lg:pt-32 pb-4 sm:pb-6">
           
-          {/* Left aligned content */}
-          <div className="max-w-3xl">
+          {/* Left aligned content - Expanded width */}
+          <div className="max-w-4xl lg:max-w-5xl">
             
-            {/* WHERE CREATIVITY MEETS REVENUE */}
+            {/* WHERE CREATIVITY MEETS REVENUE - Premium tracking */}
             <motion.p
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.05 }}
-              className="text-white/90 text-xs sm:text-sm tracking-[0.15em] sm:tracking-[0.2em] uppercase mb-2 sm:mb-4 font-medium drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]"
+              className="text-white/90 text-sm sm:text-base tracking-[0.2em] sm:tracking-[0.25em] uppercase mb-3 sm:mb-5 font-medium"
+              style={{ textShadow: '0 2px 10px rgba(0,0,0,0.9)' }}
             >
               Where <span className="text-[#c4ff4d]">Creativity</span> Meets Revenue
             </motion.p>
 
-            {/* Main Headline - Two deliberate lines */}
+            {/* Main Headline - Premium Typography */}
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="font-bold text-white leading-[1.1] mb-4 sm:mb-5"
+              className="font-bold text-white mb-5 sm:mb-6"
               style={{ 
-                fontSize: 'clamp(1.5rem, 5vw, 3.75rem)',
+                fontSize: 'clamp(1.65rem, 6.5vw, 5rem)',
+                lineHeight: '1.05',
+                letterSpacing: '-0.02em',
+                textShadow: '0 4px 20px rgba(0,0,0,0.8)'
               }}
             >
               <span className="block">AI-Native Marketing</span>
-              <span className="block font-serif italic">
+              <span className="block font-serif italic font-semibold">
                 Agency that drives <span className="text-[#ff914d]">Revenue</span>
               </span>
             </motion.h1>
 
-            {/* Tagline - Visual differentiation between lines */}
+            {/* Taglines with Color Accents - Visual Hierarchy */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="mb-4 sm:mb-5 space-y-1"
+              className="mb-5 sm:mb-6 space-y-2"
             >
-              <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold text-zinc-200 leading-snug drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
-                Build the Brand You've Always Imagined.
+              <p 
+                className="font-semibold text-white/90"
+                style={{ 
+                  fontSize: 'clamp(1.1rem, 3vw, 1.75rem)',
+                  lineHeight: '1.3',
+                  textShadow: '0 2px 12px rgba(0,0,0,0.9)'
+                }}
+              >
+                Build the <span className="text-[#c4ff4d]">Brand</span> You've Always Imagined.
               </p>
-              <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-medium text-zinc-400 italic leading-snug drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
-                With the Growth You Actually Need.
+              <p 
+                className="font-medium text-white/70 italic"
+                style={{ 
+                  fontSize: 'clamp(1.1rem, 3vw, 1.75rem)',
+                  lineHeight: '1.3',
+                  textShadow: '0 2px 12px rgba(0,0,0,0.9)'
+                }}
+              >
+                With the <span className="text-[#ff914d] not-italic font-semibold">Growth</span> You Actually Need.
               </p>
             </motion.div>
 
-            {/* Subtitle - with bold white for key phrase - larger on mobile */}
+            {/* Subtitle - Premium styling */}
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="text-white/80 text-sm sm:text-base md:text-lg leading-relaxed mb-5 sm:mb-6 max-w-xl font-medium drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]"
+              className="text-white/70 max-w-2xl font-medium mb-6 sm:mb-8"
+              style={{ 
+                fontSize: 'clamp(0.95rem, 2vw, 1.15rem)',
+                lineHeight: '1.5',
+                textShadow: '0 2px 8px rgba(0,0,0,0.9)'
+              }}
             >
               Certified AI talent + Tailored Workflows + Measurable Growth = <span className="text-white font-bold">Less Cost. More Reach. More Sales.</span>
             </motion.p>
 
-            {/* CTA Section with Glass Service Buttons - reduced gaps */}
+            {/* CTA Section with Glass Service Buttons */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
-              className="flex flex-col gap-3 sm:gap-4"
+              className="flex flex-col gap-4 sm:gap-5"
             >
-              {/* Start Talking Button */}
+              {/* Start Talking Button - Premium size */}
               <Link href="/contact">
                 <Button 
-                  className="h-10 sm:h-12 px-6 sm:px-8 rounded-full bg-[#c4ff4d] text-black font-bold text-sm hover:bg-[#d4ff6d] hover:scale-105 transition-all shadow-lg"
+                  className="h-12 sm:h-14 px-8 sm:px-10 rounded-full bg-[#c4ff4d] text-black font-bold text-base sm:text-lg hover:bg-[#d4ff6d] hover:scale-105 transition-all shadow-xl"
                   data-testid="button-start-talking"
                 >
                   Start Talking
@@ -234,13 +268,13 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* Floating Chip Carousel - moved up with negative margin */}
-      <div className="relative z-20 w-full -mt-2 sm:-mt-4 pb-2 sm:pb-3">
+      {/* Floating Chip Carousel - Positioned higher */}
+      <div className="relative z-20 w-full -mt-4 sm:-mt-6 pb-2 sm:pb-3">
         <FloatingChipCarousel />
       </div>
 
-      {/* Curved green wave - moved up with negative margin */}
-      <div className="relative z-10 w-full -mt-6 sm:-mt-8 md:-mt-10">
+      {/* Curved green wave - moved up */}
+      <div className="relative z-10 w-full -mt-8 sm:-mt-10 md:-mt-12">
         <svg 
           viewBox="0 0 1440 80" 
           className="w-full h-auto"
