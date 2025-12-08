@@ -143,12 +143,12 @@ export default function HeroSection() {
         }}
       />
 
-      {/* Main content - Premium spacing */}
+      {/* Main content - Full width on mobile for maximum readability */}
       <div className="relative z-10 flex-grow flex items-center">
-        <div className="w-full max-w-[90vw] sm:max-w-none sm:container mx-auto pl-4 sm:pl-8 lg:pl-12 xl:pl-20 pr-4 sm:pr-6 pt-16 sm:pt-24 md:pt-28 lg:pt-32 pb-4 sm:pb-6">
+        <div className="w-full px-3 sm:px-8 lg:px-12 xl:px-20 sm:container sm:mx-auto pt-14 sm:pt-24 md:pt-28 lg:pt-32 pb-4 sm:pb-6">
           
-          {/* Left aligned content - Expanded width */}
-          <div className="max-w-4xl lg:max-w-5xl">
+          {/* Left aligned content - Full width mobile, expanded desktop */}
+          <div className="w-full sm:max-w-4xl lg:max-w-5xl">
             
             {/* WHERE CREATIVITY MEETS REVENUE - Premium tracking */}
             <motion.p
@@ -161,15 +161,15 @@ export default function HeroSection() {
               Where <span className="text-[#c4ff4d]">Creativity</span> Meets Revenue
             </motion.p>
 
-            {/* Main Headline - Premium Typography */}
+            {/* Main Headline - Premium Typography - Bigger on mobile */}
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="font-bold text-white mb-5 sm:mb-6"
+              className="font-bold text-white mb-4 sm:mb-6"
               style={{ 
-                fontSize: 'clamp(1.4rem, 6vw, 5rem)',
-                lineHeight: '1.08',
+                fontSize: 'clamp(1.55rem, 6.5vw, 5rem)',
+                lineHeight: '1.1',
                 letterSpacing: '-0.02em',
                 textShadow: '0 4px 20px rgba(0,0,0,0.8)'
               }}
@@ -185,13 +185,13 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="mb-5 sm:mb-6 space-y-2"
+              className="mb-4 sm:mb-6 space-y-1"
             >
               <p 
                 className="font-semibold text-white/90"
                 style={{ 
-                  fontSize: 'clamp(1.1rem, 3vw, 1.75rem)',
-                  lineHeight: '1.3',
+                  fontSize: 'clamp(1.15rem, 3.5vw, 1.75rem)',
+                  lineHeight: '1.35',
                   textShadow: '0 2px 12px rgba(0,0,0,0.9)'
                 }}
               >
@@ -200,8 +200,8 @@ export default function HeroSection() {
               <p 
                 className="font-medium text-white/70 italic"
                 style={{ 
-                  fontSize: 'clamp(1.1rem, 3vw, 1.75rem)',
-                  lineHeight: '1.3',
+                  fontSize: 'clamp(1.15rem, 3.5vw, 1.75rem)',
+                  lineHeight: '1.35',
                   textShadow: '0 2px 12px rgba(0,0,0,0.9)'
                 }}
               >
@@ -214,10 +214,10 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="text-white/70 max-w-2xl font-medium mb-6 sm:mb-8"
+              className="text-white/70 max-w-2xl font-medium mb-5 sm:mb-8"
               style={{ 
-                fontSize: 'clamp(0.95rem, 2vw, 1.15rem)',
-                lineHeight: '1.5',
+                fontSize: 'clamp(1rem, 2.5vw, 1.15rem)',
+                lineHeight: '1.45',
                 textShadow: '0 2px 8px rgba(0,0,0,0.9)'
               }}
             >
