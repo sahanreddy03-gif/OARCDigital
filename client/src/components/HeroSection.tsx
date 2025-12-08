@@ -192,7 +192,7 @@ export default function HeroSection() {
                       className="block font-bold tracking-tight leading-[1.1]"
                       style={{ fontSize: 'clamp(2rem, 5.5vw, 4.5rem)' }}
                     >
-                      AI-Powered Marketing,
+                      AI-Native Marketing,
                     </span>
                     <span 
                       className="block font-extralight italic font-serif tracking-tight leading-[1.1] mt-1 md:mt-2"
@@ -204,10 +204,16 @@ export default function HeroSection() {
 
                   {/* Subtitle - Bigger on desktop */}
                   <p 
-                    className="text-white/95 max-w-xl md:max-w-2xl mx-auto md:mx-0 leading-relaxed mb-5 md:mb-6 lg:mb-8 font-light tracking-wide"
+                    className="text-white/95 max-w-xl md:max-w-2xl mx-auto md:mx-0 leading-relaxed mb-2 md:mb-3 font-light tracking-wide"
                     style={{ fontSize: 'clamp(0.95rem, 1.8vw, 1.5rem)' }}
                   >
-                    Certified AI talent + Tailored Workflows + Measurable Growth = <span className="text-white font-semibold">Less Cost. More Reach. More Sales.</span>
+                    Certified AI talent + Tailored Workflows + Measurable Growth =
+                  </p>
+                  <p 
+                    className="text-white max-w-xl md:max-w-2xl mx-auto md:mx-0 leading-relaxed mb-5 md:mb-6 lg:mb-8 font-black tracking-wide"
+                    style={{ fontSize: 'clamp(1.1rem, 2.2vw, 1.75rem)' }}
+                  >
+                    Less Cost. More Reach. More Sales. <span className="text-[#c4ff4d]">That's The OARC Advantage.</span>
                   </p>
 
                   {/* CTA Button - Bigger on desktop */}
