@@ -257,8 +257,8 @@ export default function HireAIEmployeesSection() {
 
   return (
     <section 
-      className="relative py-16 lg:py-24 overflow-hidden" 
-      data-testid="section-ai-virtual-talent-hub"
+      className="relative py-12 lg:py-16 overflow-hidden" 
+      data-testid="section-ai-workforce-agents"
     >
       {/* Premium Dark Base */}
       <div className="absolute inset-0 bg-[#030305]" />
@@ -368,7 +368,7 @@ export default function HireAIEmployeesSection() {
       {/* Content */}
       <div className="container mx-auto px-6 lg:px-12 max-w-7xl relative z-10">
         <motion.div 
-          className="text-center mb-12 lg:mb-16"
+          className="text-center mb-8 lg:mb-12"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -376,36 +376,36 @@ export default function HireAIEmployeesSection() {
         >
           {/* Premium Badge */}
           <motion.div 
-            className="inline-flex items-center gap-2 px-4 py-2 bg-white/[0.03] backdrop-blur-md rounded-full border border-[#c4ff4d]/20 mb-6"
+            className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/[0.03] backdrop-blur-md rounded-full border border-[#c4ff4d]/20 mb-4"
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
           >
             <motion.div 
-              className="w-2 h-2 rounded-full bg-[#c4ff4d]"
+              className="w-1.5 h-1.5 rounded-full bg-[#c4ff4d]"
               animate={prefersReducedMotion ? {} : { scale: [1, 1.3, 1], opacity: [1, 0.5, 1] }}
               transition={{ duration: 2, repeat: Infinity }}
             />
-            <span className="text-[10px] uppercase tracking-[0.2em] text-white/60 font-medium">Production-Ready AI Workforce</span>
+            <span className="text-[9px] uppercase tracking-[0.2em] text-white/60 font-medium">Hire Our AI</span>
           </motion.div>
           
           <h2 
-            className="font-bold text-white mb-4 uppercase tracking-[0.12em]" 
+            className="font-bold text-white mb-4 uppercase tracking-[0.08em]" 
             data-testid="text-talent-hub-heading" 
-            style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)' }}
+            style={{ fontSize: 'clamp(1.75rem, 4.5vw, 3rem)' }}
           >
-            <span className="bg-gradient-to-r from-white via-white to-white/80 bg-clip-text text-transparent">AI Virtual</span>
-            <span className="bg-gradient-to-r from-[#c4ff4d] to-[#4ade80] bg-clip-text text-transparent ml-3">Talent</span>
+            <span className="bg-gradient-to-r from-white via-white to-white/80 bg-clip-text text-transparent">AI Workforce</span>
+            <span className="bg-gradient-to-r from-[#c4ff4d] to-[#4ade80] bg-clip-text text-transparent ml-3">Agents</span>
           </h2>
           <p 
-            className="font-medium text-white/80 mb-4" 
-            style={{ fontSize: 'clamp(1rem, 2.5vw, 1.5rem)', letterSpacing: '-0.01em', lineHeight: '1.3' }}
+            className="font-medium text-white/80 mb-3" 
+            style={{ fontSize: 'clamp(0.95rem, 2vw, 1.25rem)', letterSpacing: '-0.01em', lineHeight: '1.3' }}
           >
-            Autonomous agents that think, adapt, and execute.
+            Ready-made AI employees that work 24/7.
           </p>
-          <p className="text-sm text-white/40 max-w-xl mx-auto leading-relaxed">
-            Deploy production-tested AI employees that work 24/7—no training, no overhead, no limits.
+          <p className="text-xs text-white/40 max-w-lg mx-auto leading-relaxed">
+            Hire production-tested agents to handle sales, support, operations—no training required.
           </p>
         </motion.div>
 
@@ -458,18 +458,18 @@ export default function HireAIEmployeesSection() {
         </motion.div>
 
         <motion.div 
-          className="text-center mt-12"
+          className="text-center mt-10"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.6 }}
         >
-          <Link href="/services/ai-virtual-talent-hub">
+          <Link href="/services/ai-workforce-agents">
             <button 
-              className="group inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-[#c4ff4d] to-[#a8e636] text-black text-sm font-bold uppercase tracking-[0.1em] transition-all duration-300 hover:shadow-lg hover:shadow-[#c4ff4d]/25 rounded-sm"
-              data-testid="button-explore-talent-hub"
+              className="group inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-[#c4ff4d] to-[#a8e636] text-black text-xs font-bold uppercase tracking-[0.1em] transition-all duration-300 hover:shadow-lg hover:shadow-[#c4ff4d]/25 rounded-sm"
+              data-testid="button-explore-workforce"
             >
-              <span>Explore All Agents</span>
+              <span>Meet All Agents</span>
               <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
             </button>
           </Link>
