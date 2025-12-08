@@ -194,18 +194,19 @@ export default function HeroSection() {
                   </div>
 
                   {/* Headline - Viewport-based on mobile for all screen sizes, bigger on desktop */}
+                  {/* lg: breakpoint uses slightly smaller max to keep "Revenue" on same line as "Drives" */}
                   <h1 
                     className="mb-3 md:mb-6 lg:mb-8 text-white animate-[fadeSlideUp_0.8s_ease-out]" 
                     data-testid="text-hero-headline"
                   >
                     {/* Mobile: 8.5vw scales from ~27px on iPhone SE to ~36px on iPhone 16 Pro Max */}
                     <span 
-                      className="block font-bold tracking-tight leading-[1.05] text-[8.5vw] md:text-[clamp(2.5rem,5.5vw,4.5rem)]"
+                      className="block font-bold tracking-tight leading-[1.05] text-[8.5vw] md:text-[clamp(2.5rem,5.5vw,4.5rem)] lg:text-[clamp(2.5rem,4.8vw,4rem)]"
                     >
                       AI-Native Marketing,
                     </span>
                     <span 
-                      className="block font-extralight italic font-serif tracking-tight leading-[1.05] mt-0.5 md:mt-2 text-[8.5vw] md:text-[clamp(2.5rem,5.5vw,4.5rem)]"
+                      className="block font-extralight italic font-serif tracking-tight leading-[1.05] mt-0.5 md:mt-2 text-[8.5vw] md:text-[clamp(2.5rem,5.5vw,4.5rem)] lg:text-[clamp(2.5rem,4.8vw,4rem)]"
                     >
                       Agency That Drives <span className="text-[#ff914d] font-semibold not-italic">Revenue</span>
                     </span>
