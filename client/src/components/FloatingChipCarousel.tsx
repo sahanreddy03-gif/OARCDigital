@@ -69,7 +69,7 @@ function StraightCarousel() {
         positionRef.current = contentWidthRef.current;
       }
       
-      scrollContainer.style.transform = `translateX(-${positionRef.current}px)`;
+      scrollContainer.style.transform = `translate3d(-${positionRef.current}px, 0, 0)`;
       animationRef.current = requestAnimationFrame(animate);
     };
     

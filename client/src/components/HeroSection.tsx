@@ -181,12 +181,13 @@ export default function HeroSection() {
                 {/* Mobile glassmorphism panel */}
                 <div className="relative md:before:content-none before:absolute before:inset-0 before:-z-10 before:bg-black/50 before:blur-xl before:rounded-[32px] before:-m-4">
                   
-                  {/* Kicker - Bigger on desktop */}
+                  {/* Kicker - Very light green, bigger on desktop */}
                   <div className="mb-3 md:mb-6 lg:mb-8">
                     <span 
-                      className="uppercase tracking-[0.2em] md:tracking-[0.3em] font-medium text-white/90 leading-none text-[10px] md:text-[clamp(0.7rem,1.2vw,1.1rem)]" 
+                      className="uppercase tracking-[0.2em] md:tracking-[0.3em] font-medium leading-none text-[10px] md:text-[clamp(0.7rem,1.2vw,1.1rem)]" 
                       style={{ 
-                        textShadow: '0 0 20px rgba(255, 255, 255, 0.3)' 
+                        color: 'rgba(196, 255, 77, 0.7)',
+                        textShadow: '0 0 20px rgba(196, 255, 77, 0.25)' 
                       }}
                     >
                       WHERE CREATIVITY MEETS REVENUE
@@ -224,7 +225,11 @@ export default function HeroSection() {
                     Less Cost. More Reach. More Sales.
                   </p>
                   <p 
-                    className="text-white max-w-none md:max-w-2xl mx-auto md:mx-0 leading-tight mb-4 md:mb-6 lg:mb-8 font-bold tracking-wide text-[4.2vw] md:text-[clamp(1.1rem,1.8vw,1.5rem)]"
+                    className="max-w-none md:max-w-2xl mx-auto md:mx-0 leading-tight mb-4 md:mb-6 lg:mb-8 font-semibold tracking-[0.08em] uppercase text-[3.8vw] md:text-[clamp(0.95rem,1.6vw,1.3rem)]"
+                    style={{ 
+                      color: 'rgba(255, 255, 255, 0.95)',
+                      textShadow: '0 2px 10px rgba(0, 0, 0, 0.3)'
+                    }}
                   >
                     That's The OARC Advantage.
                   </p>
