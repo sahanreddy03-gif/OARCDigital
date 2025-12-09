@@ -1,9 +1,103 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Palette, Bot, Rocket } from "lucide-react";
 import FloatingChipCarousel from "./FloatingChipCarousel";
 import heroBackground from '@assets/d375f1d50d97b0de7953ca2cecd2b8aea2cd96b2-3524x1181_1761251957292.avif';
+
+function SnowfallEffect() {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    const resize = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    };
+    resize();
+    window.addEventListener('resize', resize);
+
+    interface Snowflake {
+      x: number;
+      y: number;
+      radius: number;
+      speed: number;
+      wind: number;
+      opacity: number;
+    }
+
+    const snowflakes: Snowflake[] = [];
+    const snowflakeCount = 120;
+
+    for (let i = 0; i < snowflakeCount; i++) {
+      snowflakes.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        radius: Math.random() * 3 + 1,
+        speed: Math.random() * 1.5 + 0.5,
+        wind: Math.random() * 0.5 - 0.25,
+        opacity: Math.random() * 0.6 + 0.4,
+      });
+    }
+
+    let animationId: number;
+
+    const animate = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      snowflakes.forEach((flake) => {
+        flake.y += flake.speed;
+        flake.x += flake.wind + Math.sin(flake.y * 0.01) * 0.3;
+
+        if (flake.y > canvas.height) {
+          flake.y = -10;
+          flake.x = Math.random() * canvas.width;
+        }
+        if (flake.x > canvas.width) flake.x = 0;
+        if (flake.x < 0) flake.x = canvas.width;
+
+        ctx.beginPath();
+        ctx.arc(flake.x, flake.y, flake.radius, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255, 255, 255, ${flake.opacity})`;
+        ctx.fill();
+
+        const glowSize = flake.radius * 2;
+        const gradient = ctx.createRadialGradient(flake.x, flake.y, 0, flake.x, flake.y, glowSize);
+        gradient.addColorStop(0, `rgba(255, 255, 255, ${flake.opacity * 0.3})`);
+        gradient.addColorStop(1, 'rgba(255, 255, 255, 0)');
+        ctx.beginPath();
+        ctx.arc(flake.x, flake.y, glowSize, 0, Math.PI * 2);
+        ctx.fillStyle = gradient;
+        ctx.fill();
+      });
+
+      animationId = requestAnimationFrame(animate);
+    };
+
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!prefersReducedMotion) {
+      animate();
+    }
+
+    return () => {
+      window.removeEventListener('resize', resize);
+      cancelAnimationFrame(animationId);
+    };
+  }, []);
+
+  return (
+    <canvas
+      ref={canvasRef}
+      className="absolute inset-0 pointer-events-none z-20 motion-reduce:hidden"
+      style={{ opacity: 0.9 }}
+    />
+  );
+}
 
 const MobileGlassCard = ({ icon: Icon, label, href }: { icon: typeof Palette; label: string; href: string }) => (
   <Link href={href}>
@@ -71,6 +165,9 @@ export default function HeroSection() {
     <>
       <style>{styles}</style>
       <section className="relative min-h-screen flex flex-col overflow-hidden bg-black">
+        
+        {/* Christmas Snowfall Effect */}
+        <SnowfallEffect />
         
         {/* ========== MOBILE LAYOUT ========== */}
         <div className="md:hidden absolute inset-0">
