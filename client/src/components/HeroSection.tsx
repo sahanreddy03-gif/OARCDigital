@@ -326,34 +326,32 @@ export default function HeroSection() {
                     <span 
                       className="block font-bold tracking-tight leading-[1.05] text-[8.5vw] md:text-[clamp(2.5rem,5.5vw,4.5rem)] lg:text-[clamp(2.5rem,4.8vw,4rem)]"
                     >
-                      AI-Native Marketing,
+                      AI-Native Marketing Agency
                     </span>
                     <span 
                       className="block font-extralight italic font-serif tracking-tight leading-[1.05] mt-0.5 md:mt-2 text-[8.5vw] md:text-[clamp(2.5rem,5.5vw,4.5rem)] lg:text-[clamp(2.5rem,4.8vw,4rem)]"
                     >
-                      Agency That Drives <span className="text-[#ff914d] font-semibold not-italic">Revenue</span>
+                      That Drives <span className="text-[#ff914d] font-semibold not-italic">Revenue</span>
                     </span>
                   </h1>
 
-                  {/* Subtitle - Smaller on mobile to fit one line */}
+                  {/* Subheading */}
                   <p 
-                    className="text-white/95 max-w-none md:max-w-2xl mx-auto md:mx-0 leading-snug mb-1.5 md:mb-3 font-light tracking-normal text-[3.2vw] md:text-[clamp(1rem,1.8vw,1.5rem)]"
+                    className="text-white/90 max-w-none md:max-w-2xl mx-auto md:mx-0 leading-snug mb-3 md:mb-5 font-medium tracking-wide text-[4vw] md:text-[clamp(1.1rem,1.9vw,1.6rem)]"
                   >
-                    Certified AI talent + Tailored Workflows + Measurable Growth =
+                    Marketing Revolutionised by AI
+                  </p>
+
+                  {/* Value proposition equation */}
+                  <p 
+                    className="text-white/85 max-w-none md:max-w-2xl mx-auto md:mx-0 leading-snug mb-1.5 md:mb-3 font-light tracking-normal text-[3.2vw] md:text-[clamp(1rem,1.8vw,1.5rem)]"
+                  >
+                    Creative AI Talent + Custom Workflows + Growth Automation
                   </p>
                   <p 
-                    className="text-white max-w-none md:max-w-2xl mx-auto md:mx-0 leading-tight mb-1 md:mb-2 font-black tracking-wide text-[4.8vw] md:text-[clamp(1.25rem,2.2vw,1.75rem)]"
+                    className="text-white max-w-none md:max-w-2xl mx-auto md:mx-0 leading-tight mb-4 md:mb-6 lg:mb-8 font-black tracking-wide text-[4.8vw] md:text-[clamp(1.25rem,2.2vw,1.75rem)]"
                   >
-                    Less Cost. More Reach. More Sales.
-                  </p>
-                  <p 
-                    className="max-w-none md:max-w-2xl mx-auto md:mx-0 leading-tight mb-4 md:mb-6 lg:mb-8 font-semibold tracking-[0.08em] uppercase text-[3.8vw] md:text-[clamp(0.95rem,1.6vw,1.3rem)]"
-                    style={{ 
-                      color: 'rgba(255, 255, 255, 0.95)',
-                      textShadow: '0 2px 10px rgba(0, 0, 0, 0.3)'
-                    }}
-                  >
-                    That's The OARC Advantage.
+                    = Less Cost + More Reach + More Sales
                   </p>
 
                   {/* CTA Section - Button + Glass Cards on Mobile */}
