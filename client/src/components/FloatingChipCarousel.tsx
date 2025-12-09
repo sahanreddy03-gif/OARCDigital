@@ -8,8 +8,6 @@ import websiteDesign from '@assets/website-design-optimized.jpg';
 import leadGen from '@assets/lead-generation-optimized.jpg';
 import creativeAds from '@assets/creative-ad-campaigns-optimized.jpg';
 import funnelAutomation from '@assets/funnel-automation-optimized.jpg';
-import aiCopywriting from '@assets/ai-copywriting-optimized.jpg';
-import adminAI from '@assets/admin-ai-employee-optimized.jpg';
 import salesAI from '@assets/sales-ai-employee-optimized.jpg';
 import supportAI from '@assets/support-ai-employee-optimized.jpg';
 // New AI & Development Services
@@ -28,8 +26,6 @@ const services = [
   { text: "Lead Generation", image: leadGen },
   { text: "Creative Ad Campaigns", image: creativeAds },
   { text: "Funnel Automation", image: funnelAutomation },
-  { text: "AI Copywriting", image: aiCopywriting },
-  { text: "Admin AI Employees", image: adminAI },
   { text: "Sales AI Employees", image: salesAI },
   { text: "Support AI Employees", image: supportAI },
   // New AI & Development Services
