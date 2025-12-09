@@ -25,11 +25,11 @@ import {
   AIIconWithGlow
 } from '@/components/ui/ai-icons';
 
-import sdrAgentImage from '@assets/stock_images/elite_sales_professi_1c84b4b4.jpg';
+import sdrAgentImage from '@assets/ai-sdr-agent-optimized.webp';
 import supportSpecialistImage from '@assets/stock_images/customer_support_spe_789ecb6b.jpg';
 import dataInsightsNeuralImage from '@assets/data-insights-neural-optimized.webp';
 import adminAgentImage from '@assets/stock_images/administrative_assis_da9e94eb.jpg';
-import contentStrategistImage from '@assets/stock_images/content_strategist_c_61044a33.jpg';
+import contentStrategistImage from '@assets/ai-content-strategist-optimized.webp';
 import complianceAuditorImage from '@assets/stock_images/legal_compliance_off_78808712.jpg';
 import appointmentBookerImage from '@assets/stock_images/appointment_schedule_97373ecb.jpg';
 import realEstateAgentImage from '@assets/stock_images/real_estate_agent_pr_d5449235.jpg';

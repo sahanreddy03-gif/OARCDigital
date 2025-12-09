@@ -3,11 +3,11 @@ import { Link } from 'wouter';
 import { ArrowRight, Cpu, Zap, Network, CircuitBoard } from 'lucide-react';
 import { motion, useReducedMotion } from 'framer-motion';
 
-import sdrAgent from '@assets/stock_images/elite_sales_professi_1c84b4b4.jpg';
+import sdrAgentImage from '@assets/ai-sdr-agent-optimized.webp';
 import supportSpecialist from '@assets/stock_images/customer_support_spe_789ecb6b.jpg';
 import dataInsightsImage from '@assets/data-insights-neural-optimized.webp';
 import adminAgent from '@assets/stock_images/administrative_assis_da9e94eb.jpg';
-import contentStrategist from '@assets/stock_images/content_strategist_c_61044a33.jpg';
+import contentStrategistImage from '@assets/ai-content-strategist-optimized.webp';
 import complianceAuditor from '@assets/stock_images/legal_compliance_off_78808712.jpg';
 import appointmentBooker from '@assets/stock_images/appointment_schedule_97373ecb.jpg';
 import realEstateAgent from '@assets/stock_images/real_estate_agent_pr_d5449235.jpg';
@@ -16,7 +16,7 @@ const agents = [
   {
     title: "Sales Development Rep",
     metric: "3x conversion lift",
-    image: sdrAgent,
+    image: sdrAgentImage,
     slug: "ai-sdr-agent",
     objectPosition: "center"
   },
@@ -44,7 +44,7 @@ const agents = [
   {
     title: "Content Strategist",
     metric: "10x content velocity",
-    image: contentStrategist,
+    image: contentStrategistImage,
     slug: "ai-content-strategist",
     objectPosition: "center"
   },
