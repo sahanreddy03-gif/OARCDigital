@@ -5,23 +5,22 @@ import { Link } from "wouter";
 export default function NeedHelpCTA() {
   return (
     <section 
-      className="py-8 md:py-10 bg-gradient-to-r from-emerald-600 via-emerald-500 to-teal-500 relative overflow-hidden"
+      className="py-8 md:py-10 relative overflow-hidden"
+      style={{ backgroundColor: "#e8f5e9" }}
       data-testid="section-need-help-cta"
     >
-      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PGNpcmNsZSBjeD0iMzAiIGN5PSIzMCIgcj0iMiIvPjwvZz48L2c+PC9zdmc+')] opacity-30" />
-      
       <div className="container mx-auto px-6 md:px-8 lg:px-10 max-w-6xl relative">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 md:gap-6">
           
           <div className="flex items-center gap-4">
-            <div className="hidden sm:flex w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm items-center justify-center flex-shrink-0">
-              <MessageCircle className="w-6 h-6 text-white" />
+            <div className="hidden sm:flex w-12 h-12 rounded-full items-center justify-center flex-shrink-0" style={{ backgroundColor: "rgba(34, 197, 94, 0.15)" }}>
+              <MessageCircle className="w-6 h-6" style={{ color: "#16a34a" }} />
             </div>
             <div className="text-center md:text-left">
-              <h3 className="text-xl md:text-2xl font-semibold text-white" data-testid="heading-need-help">
+              <h3 className="text-xl md:text-2xl font-semibold" style={{ color: "#0a0a0a" }} data-testid="heading-need-help">
                 Need help deciding? Let's chat.
               </h3>
-              <p className="text-sm text-white/80 mt-1 hidden sm:block">
+              <p className="text-sm mt-1 hidden sm:block" style={{ color: "rgba(0, 0, 0, 0.6)" }}>
                 Get personalized recommendations for your business
               </p>
             </div>
@@ -30,7 +29,8 @@ export default function NeedHelpCTA() {
           <Link href="/contact">
             <Button 
               size="lg"
-              className="bg-white text-emerald-600 hover:bg-white/90 border-white/30 rounded-full font-semibold shadow-lg shadow-emerald-700/20 whitespace-nowrap"
+              className="rounded-full font-semibold shadow-lg whitespace-nowrap"
+              style={{ backgroundColor: "#0a0a0a", color: "#ffffff" }}
               data-testid="button-schedule-consultation"
             >
               Schedule a Free Consultation

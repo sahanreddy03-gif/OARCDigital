@@ -2,59 +2,85 @@ export default function PhoneMockup() {
   return (
     <div className="relative w-full max-w-md mx-auto">
       <div className="relative transform rotate-3 transition-transform hover:rotate-0 duration-500">
-        {/* Phone frame - matching Social Shepherd illustrated style */}
-        {/* Outer white border with black stroke */}
+        {/* Phone frame - Social Shepherd illustrated style with TWO white borders */}
+        {/* Outer black outline */}
         <div 
-          className="relative rounded-[2.5rem] bg-white shadow-2xl"
+          className="relative rounded-[3rem] shadow-2xl"
           style={{ 
-            padding: '8px',
-            boxShadow: '0 25px 60px -15px rgba(0, 0, 0, 0.4)',
-            border: '3px solid #1a1a1a'
+            padding: '3px',
+            backgroundColor: '#0a0a0a',
+            boxShadow: '0 25px 60px -15px rgba(0, 0, 0, 0.5)',
           }}
         >
-          {/* Inner white border with black stroke */}
+          {/* First white border */}
           <div 
-            className="relative rounded-[2rem] bg-white"
-            style={{ 
-              padding: '6px',
-              border: '2.5px solid #1a1a1a'
-            }}
+            className="relative rounded-[2.7rem] bg-white"
+            style={{ padding: '10px' }}
           >
-            {/* Black screen area - wider aspect ratio */}
+            {/* Inner black outline */}
             <div 
-              className="relative bg-black rounded-[1.5rem] overflow-hidden"
-              style={{ aspectRatio: '10/16' }}
+              className="relative rounded-[2.2rem]"
+              style={{ padding: '3px', backgroundColor: '#0a0a0a' }}
             >
-              {/* Notch */}
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-6 bg-white rounded-b-xl z-10" style={{ border: '2px solid #1a1a1a', borderTop: 'none' }}>
-                {/* Speaker/earpiece */}
-                <div className="absolute top-1.5 left-1/2 -translate-x-1/2 w-8 h-1 bg-zinc-600 rounded-full"></div>
-                {/* Camera dot */}
-                <div className="absolute top-1.5 right-4 w-2 h-2 bg-zinc-700 rounded-full"></div>
-              </div>
-              
-              {/* Side buttons - left side */}
-              <div className="absolute top-16 -left-[14px] w-[6px] h-5 bg-white rounded-l-sm" style={{ border: '2px solid #1a1a1a', borderRight: 'none' }}></div>
-              <div className="absolute top-24 -left-[14px] w-[6px] h-8 bg-white rounded-l-sm" style={{ border: '2px solid #1a1a1a', borderRight: 'none' }}></div>
-              <div className="absolute top-36 -left-[14px] w-[6px] h-8 bg-white rounded-l-sm" style={{ border: '2px solid #1a1a1a', borderRight: 'none' }}></div>
-              
-              {/* Side button - right side (power) */}
-              <div className="absolute top-28 -right-[14px] w-[6px] h-12 bg-white rounded-r-sm" style={{ border: '2px solid #1a1a1a', borderLeft: 'none' }}></div>
-              
-              {/* Video content */}
-              <div className="relative w-full h-full">
-                <video
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  className="w-full h-full object-cover"
+              {/* Second white border */}
+              <div 
+                className="relative rounded-[2rem] bg-white"
+                style={{ padding: '8px' }}
+              >
+                {/* Screen area */}
+                <div 
+                  className="relative bg-black rounded-[1.5rem] overflow-hidden"
+                  style={{ aspectRatio: '10/16' }}
                 >
-                  <source src="https://assets.mixkit.co/videos/preview/mixkit-people-in-a-meeting-room-4101-large.mp4" type="video/mp4" />
-                </video>
-                
-                {/* Subtle gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
+                  {/* Notch with matching style */}
+                  <div 
+                    className="absolute top-0 left-1/2 -translate-x-1/2 w-28 h-7 bg-white rounded-b-2xl z-10"
+                    style={{ 
+                      boxShadow: 'inset 0 -2px 0 #0a0a0a, 2px 0 0 #0a0a0a, -2px 0 0 #0a0a0a'
+                    }}
+                  >
+                    {/* Speaker/earpiece */}
+                    <div className="absolute top-2 left-1/2 -translate-x-1/2 w-10 h-1 bg-zinc-400 rounded-full"></div>
+                    {/* Camera dot */}
+                    <div className="absolute top-2 right-5 w-2.5 h-2.5 bg-zinc-600 rounded-full"></div>
+                  </div>
+                  
+                  {/* Side buttons - left side */}
+                  <div 
+                    className="absolute top-20 -left-[20px] w-[8px] h-6 bg-white rounded-l-md"
+                    style={{ boxShadow: '-2px 0 0 #0a0a0a, 0 -2px 0 #0a0a0a, 0 2px 0 #0a0a0a' }}
+                  />
+                  <div 
+                    className="absolute top-32 -left-[20px] w-[8px] h-10 bg-white rounded-l-md"
+                    style={{ boxShadow: '-2px 0 0 #0a0a0a, 0 -2px 0 #0a0a0a, 0 2px 0 #0a0a0a' }}
+                  />
+                  <div 
+                    className="absolute top-48 -left-[20px] w-[8px] h-10 bg-white rounded-l-md"
+                    style={{ boxShadow: '-2px 0 0 #0a0a0a, 0 -2px 0 #0a0a0a, 0 2px 0 #0a0a0a' }}
+                  />
+                  
+                  {/* Side button - right side (power) */}
+                  <div 
+                    className="absolute top-36 -right-[20px] w-[8px] h-14 bg-white rounded-r-md"
+                    style={{ boxShadow: '2px 0 0 #0a0a0a, 0 -2px 0 #0a0a0a, 0 2px 0 #0a0a0a' }}
+                  />
+                  
+                  {/* Video content */}
+                  <div className="relative w-full h-full">
+                    <video
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      className="w-full h-full object-cover"
+                    >
+                      <source src="https://assets.mixkit.co/videos/preview/mixkit-people-in-a-meeting-room-4101-large.mp4" type="video/mp4" />
+                    </video>
+                    
+                    {/* Subtle gradient overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
