@@ -4,7 +4,7 @@ import { ArrowRight, Cpu, Zap, Network, CircuitBoard } from 'lucide-react';
 import { motion, useReducedMotion } from 'framer-motion';
 
 import sdrAgentImage from '@assets/ai-sdr-agent-optimized.webp';
-import supportSpecialist from '@assets/stock_images/customer_support_spe_789ecb6b.jpg';
+import customerSupportImage from '@assets/ai-customer-support-optimized.webp';
 import dataInsightsImage from '@assets/data-insights-neural-optimized.webp';
 import adminAgent from '@assets/stock_images/administrative_assis_da9e94eb.jpg';
 import contentStrategistImage from '@assets/ai-content-strategist-optimized.webp';
@@ -23,7 +23,7 @@ const agents = [
   {
     title: "Customer Support",
     metric: "90% resolution rate",
-    image: supportSpecialist,
+    image: customerSupportImage,
     slug: "ai-support-specialist",
     objectPosition: "center"
   },

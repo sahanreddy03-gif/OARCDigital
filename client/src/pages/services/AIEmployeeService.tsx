@@ -26,7 +26,7 @@ import {
 } from '@/components/ui/ai-icons';
 
 import sdrAgentImage from '@assets/ai-sdr-agent-optimized.webp';
-import supportSpecialistImage from '@assets/stock_images/customer_support_spe_789ecb6b.jpg';
+import customerSupportImage from '@assets/ai-customer-support-optimized.webp';
 import dataInsightsNeuralImage from '@assets/data-insights-neural-optimized.webp';
 import adminAgentImage from '@assets/stock_images/administrative_assis_da9e94eb.jpg';
 import contentStrategistImage from '@assets/ai-content-strategist-optimized.webp';
@@ -70,7 +70,7 @@ interface ServiceContent {
 
 const HERO_IMAGES: Record<string, string> = {
   'ai-sdr-agent': sdrAgentImage,
-  'ai-support-specialist': supportSpecialistImage,
+  'ai-support-specialist': customerSupportImage,
   'ai-data-analyst': dataInsightsNeuralImage,
   'ai-admin-agent': adminAgentImage,
   'ai-content-strategist': contentStrategistImage,
