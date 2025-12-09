@@ -4,18 +4,19 @@ import socialMedia from '@assets/social-media-management-optimized.jpg';
 import aiVideo from '@assets/ai-video-production-optimized.jpg';
 import branding from '@assets/branding-services-optimized.jpg';
 import paidAdvertising from '@assets/paid-advertising-optimized.jpg';
-import mediaBuying from '@assets/media-buying-optimized.jpg';
 import websiteDesign from '@assets/website-design-optimized.jpg';
-import influencerMarketing from '@assets/influencer-marketing-optimized.jpg';
-import rapidTesting from '@assets/rapid-idea-testing-optimized.jpg';
 import leadGen from '@assets/lead-generation-optimized.jpg';
 import creativeAds from '@assets/creative-ad-campaigns-optimized.jpg';
-import customerAcquisition from '@assets/customer-acquisition-optimized.jpg';
 import funnelAutomation from '@assets/funnel-automation-optimized.jpg';
 import aiCopywriting from '@assets/ai-copywriting-optimized.jpg';
 import adminAI from '@assets/admin-ai-employee-optimized.jpg';
 import salesAI from '@assets/sales-ai-employee-optimized.jpg';
 import supportAI from '@assets/support-ai-employee-optimized.jpg';
+// New AI & Development Services
+import mobileApps from '@assets/mobile-apps-robot-optimized.webp';
+import webApps from '@assets/web-applications-optimized.webp';
+import customAI from '@assets/custom-ai-solutions-robots-optimized.webp';
+import aiConsulting from '@assets/ai-consulting-presentation-optimized.webp';
 
 const services = [
   { text: "Digital Marketing", image: digitalMarketing },
@@ -23,18 +24,20 @@ const services = [
   { text: "AI Video Production", image: aiVideo },
   { text: "Branding Services", image: branding },
   { text: "Paid Advertising", image: paidAdvertising },
-  { text: "Media Buying", image: mediaBuying },
   { text: "Website Design", image: websiteDesign },
-  { text: "Influencer Marketing", image: influencerMarketing },
-  { text: "Rapid Idea Testing", image: rapidTesting },
   { text: "Lead Generation", image: leadGen },
   { text: "Creative Ad Campaigns", image: creativeAds },
-  { text: "Customer Acquisition Strategy", image: customerAcquisition },
   { text: "Funnel Automation", image: funnelAutomation },
   { text: "AI Copywriting", image: aiCopywriting },
   { text: "Admin AI Employees", image: adminAI },
   { text: "Sales AI Employees", image: salesAI },
   { text: "Support AI Employees", image: supportAI },
+  // New AI & Development Services
+  { text: "Mobile Applications", image: mobileApps },
+  { text: "Web Applications", image: webApps },
+  { text: "Custom AI Solutions", image: customAI },
+  { text: "AI Consulting", image: aiConsulting },
+  { text: "MVP Development", image: customAI },
 ];
 
 function StraightCarousel() {
