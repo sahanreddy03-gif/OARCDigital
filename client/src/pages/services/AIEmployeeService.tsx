@@ -79,6 +79,17 @@ const HERO_IMAGES: Record<string, string> = {
   'ai-real-estate-agent': realEstateAgentImage,
 };
 
+const HERO_IMAGE_POSITIONS: Record<string, string> = {
+  'ai-sdr-agent': 'center',
+  'ai-support-specialist': 'center',
+  'ai-data-analyst': 'left center',
+  'ai-admin-agent': 'center',
+  'ai-content-strategist': 'center',
+  'ai-compliance-auditor': 'center',
+  'ai-appointment-booker': 'center',
+  'ai-real-estate-agent': 'center',
+};
+
 const BENEFIT_ICONS = [
   NeuralBrain,
   DataFlow,
@@ -367,7 +378,8 @@ export default function AIEmployeeService() {
                     <img
                       src={heroImage}
                       alt={content.title}
-                      className="w-full h-full object-cover object-center grayscale group-hover:grayscale-[0.5] transition-all duration-700 scale-105 group-hover:scale-100"
+                      className="w-full h-full object-cover grayscale group-hover:grayscale-[0.5] transition-all duration-700 scale-105 group-hover:scale-100"
+                      style={{ objectPosition: HERO_IMAGE_POSITIONS[slug] || 'center' }}
                       data-testid="hero-image"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />

@@ -17,49 +17,57 @@ const agents = [
     title: "Sales Development Rep",
     metric: "3x conversion lift",
     image: sdrAgent,
-    slug: "ai-sdr-agent"
+    slug: "ai-sdr-agent",
+    objectPosition: "center"
   },
   {
     title: "Customer Support",
     metric: "90% resolution rate",
     image: supportSpecialist,
-    slug: "ai-support-specialist"
+    slug: "ai-support-specialist",
+    objectPosition: "center"
   },
   {
     title: "Data Insights Analyst",
     metric: "Real-time dashboards",
     image: dataInsightsImage,
-    slug: "ai-data-analyst"
+    slug: "ai-data-analyst",
+    objectPosition: "left center"
   },
   {
     title: "Administrative Agent",
     metric: "50% time reclaimed",
     image: adminAgent,
-    slug: "ai-admin-agent"
+    slug: "ai-admin-agent",
+    objectPosition: "center"
   },
   {
     title: "Content Strategist",
     metric: "10x content velocity",
     image: contentStrategist,
-    slug: "ai-content-strategist"
+    slug: "ai-content-strategist",
+    objectPosition: "center"
   },
   {
     title: "Compliance Auditor",
     metric: "GDPR bulletproof",
     image: complianceAuditor,
-    slug: "ai-compliance-auditor"
+    slug: "ai-compliance-auditor",
+    objectPosition: "center"
   },
   {
     title: "Appointment Booker",
     metric: "20% fewer no-shows",
     image: appointmentBooker,
-    slug: "ai-appointment-booker"
+    slug: "ai-appointment-booker",
+    objectPosition: "center"
   },
   {
     title: "Real Estate Specialist",
     metric: "Malta-focused",
     image: realEstateAgent,
-    slug: "ai-real-estate-agent"
+    slug: "ai-real-estate-agent",
+    objectPosition: "center"
   },
 ];
 
@@ -396,6 +404,7 @@ export default function HireAIEmployeesSection() {
                   src={agent.image}
                   alt={agent.title}
                   className="w-full h-full object-cover opacity-80 transition-all duration-500 ease-out group-hover:opacity-100 group-hover:scale-105"
+                  style={{ objectPosition: agent.objectPosition }}
                   loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
