@@ -4,7 +4,7 @@ import { ArrowRight, TrendingUp, BarChart3, Rocket, DollarSign } from 'lucide-re
 import { motion, useReducedMotion } from 'framer-motion';
 
 import customerAcquisitionImage from '@assets/stock_images/customer_acquisition_38bd9c1d.jpg';
-import funnelOptimizationImage from '@assets/stock_images/sales_funnel_optimiz_42aebf8c.jpg';
+import webApplicationsImage from '@assets/web-applications-optimized.webp';
 import marketingAutomationImage from '@assets/marketing-automation-optimized.webp';
 import mobileAppsRobotImage from '@assets/mobile-apps-robot-optimized.webp';
 import customAISolutionsRobotsImage from '@assets/custom-ai-solutions-robots-optimized.webp';
@@ -35,7 +35,7 @@ const services = [
   {
     title: "Web Applications",
     metric: "Enterprise-grade",
-    image: funnelOptimizationImage,
+    image: webApplicationsImage,
     slug: "web-app-development",
     objectPosition: "center"
   },
