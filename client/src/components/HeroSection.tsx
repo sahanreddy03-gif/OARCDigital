@@ -41,7 +41,7 @@ function SnowfallEffect() {
         radius: Math.random() * 2 + 0.8,
         speed: Math.random() * 1 + 0.3,
         wind: Math.random() * 0.3 - 0.15,
-        opacity: Math.random() * 0.4 + 0.25,
+        opacity: Math.random() * 0.35 + 0.5,
       });
     }
 
@@ -94,7 +94,7 @@ function SnowfallEffect() {
     <canvas
       ref={canvasRef}
       className="absolute inset-0 pointer-events-none z-20 motion-reduce:hidden"
-      style={{ opacity: 0.7 }}
+      style={{ opacity: 0.85 }}
     />
   );
 }
