@@ -144,7 +144,7 @@ export default function ROICalculatorSection() {
     return () => observer.disconnect();
   }, []);
 
-  const efficiencyGain = 45;
+  const efficiencyGain = 28;
   const monthlySavings = Math.round(monthlyBudget * (efficiencyGain / 100));
   const annualSavings = monthlySavings * 12;
 

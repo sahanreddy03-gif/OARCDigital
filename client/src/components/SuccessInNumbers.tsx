@@ -32,7 +32,7 @@ export function SuccessInNumbers() {
                 <span className="text-xs uppercase tracking-wider text-emerald-400/80 font-medium">Projects</span>
               </div>
               <div className="text-4xl md:text-5xl lg:text-6xl font-light text-white mb-3" style={{ letterSpacing: '-0.02em' }}>
-                127+
+                47+
               </div>
               <p className="text-xs md:text-sm text-white/60 font-light leading-snug">
                 Projects delivered successfully across industries.
@@ -60,7 +60,7 @@ export function SuccessInNumbers() {
                 <span className="text-xs uppercase tracking-wider text-emerald-400/80 font-medium">Speed</span>
               </div>
               <div className="text-4xl md:text-5xl lg:text-6xl font-light text-white mb-3" style={{ letterSpacing: '-0.02em' }}>
-                48h
+                72h
               </div>
               <p className="text-xs md:text-sm text-white/60 font-light leading-snug">
                 Average turnaround time for deliverables.
@@ -74,7 +74,7 @@ export function SuccessInNumbers() {
                 <span className="text-xs uppercase tracking-wider text-emerald-400/80 font-medium">Retention</span>
               </div>
               <div className="text-4xl md:text-5xl lg:text-6xl font-light text-white mb-3" style={{ letterSpacing: '-0.02em' }}>
-                92%
+                85%
               </div>
               <p className="text-xs md:text-sm text-white/60 font-light leading-snug">
                 Client retention rate year over year.
