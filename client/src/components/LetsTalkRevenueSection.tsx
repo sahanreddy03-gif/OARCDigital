@@ -8,6 +8,7 @@ import customerAcquisitionImage from '@assets/stock_images/customer_acquisition_
 import funnelOptimizationImage from '@assets/stock_images/sales_funnel_optimiz_42aebf8c.jpg';
 import marketingAutomationImage from '@assets/stock_images/marketing_automation_630ae165.jpg';
 import ideaValidationImage from '@assets/stock_images/startup_idea_validat_9b100223.jpg';
+import mobileAppsRobotImage from '@assets/mobile-apps-robot-optimized.webp';
 
 const services = [
   {
@@ -25,7 +26,7 @@ const services = [
   {
     title: "Mobile Applications",
     metric: "iOS & Android",
-    image: customerAcquisitionImage,
+    image: mobileAppsRobotImage,
     slug: "mobile-app-development"
   },
   {

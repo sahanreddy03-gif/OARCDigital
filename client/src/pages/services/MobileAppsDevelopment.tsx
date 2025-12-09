@@ -18,6 +18,7 @@ import mobileDevImg1 from '@assets/stock_images/mobile_app_developme_12e99cc2.jp
 import mobileDevImg2 from '@assets/stock_images/mobile_app_developme_41ccf1c2.jpg';
 import mobileDevImg3 from '@assets/stock_images/mobile_app_developme_51e6a80f.jpg';
 import mobileDevImg4 from '@assets/stock_images/mobile_app_developme_8bd59a4e.jpg';
+import mobileAppsRobotImg from '@assets/mobile-apps-robot-optimized.webp';
 
 const ELITE_COLORS = {
   primary: '#6366f1',
@@ -222,7 +223,7 @@ export default function MobileAppsDevelopment() {
                 </div>
                 
                 <div className="flex gap-3 overflow-x-auto pb-4">
-                  {[mobileDevImg1, mobileDevImg2, mobileDevImg3].map((img, i) => (
+                  {[mobileAppsRobotImg, mobileDevImg2, mobileDevImg3].map((img, i) => (
                     <img 
                       key={i}
                       src={img}
