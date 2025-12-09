@@ -3,43 +3,48 @@ import { Link } from 'wouter';
 import { ArrowRight, TrendingUp, BarChart3, Rocket, DollarSign } from 'lucide-react';
 import { motion, useReducedMotion } from 'framer-motion';
 
-import leadGenImage from '@assets/stock_images/lead_generation_qual_b9d50c93.jpg';
 import customerAcquisitionImage from '@assets/stock_images/customer_acquisition_38bd9c1d.jpg';
 import funnelOptimizationImage from '@assets/stock_images/sales_funnel_optimiz_42aebf8c.jpg';
 import marketingAutomationImage from '@assets/stock_images/marketing_automation_630ae165.jpg';
 import ideaValidationImage from '@assets/stock_images/startup_idea_validat_9b100223.jpg';
 import mobileAppsRobotImage from '@assets/mobile-apps-robot-optimized.webp';
+import customAISolutionsRobotsImage from '@assets/custom-ai-solutions-robots-optimized.webp';
 
 const services = [
   {
     title: "AI Consulting",
     metric: "Strategic guidance",
     image: ideaValidationImage,
-    slug: "ai-consulting"
+    slug: "ai-consulting",
+    objectPosition: "center"
   },
   {
     title: "Custom AI Solutions",
     metric: "Tailored to you",
-    image: leadGenImage,
-    slug: "custom-ai-solutions"
+    image: customAISolutionsRobotsImage,
+    slug: "custom-ai-solutions",
+    objectPosition: "center top"
   },
   {
     title: "Mobile Applications",
     metric: "iOS & Android",
     image: mobileAppsRobotImage,
-    slug: "mobile-app-development"
+    slug: "mobile-app-development",
+    objectPosition: "center"
   },
   {
     title: "Web Applications",
     metric: "Enterprise-grade",
     image: funnelOptimizationImage,
-    slug: "web-app-development"
+    slug: "web-app-development",
+    objectPosition: "center"
   },
   {
     title: "Marketing Automation",
     metric: "85% time saved",
     image: marketingAutomationImage,
-    slug: "marketing-automation-suite"
+    slug: "marketing-automation-suite",
+    objectPosition: "center"
   },
 ];
 
@@ -390,6 +395,7 @@ export default function LetsTalkRevenueSection() {
                   src={service.image}
                   alt={service.title}
                   className="w-full h-full object-cover opacity-80 transition-all duration-500 ease-out group-hover:opacity-100 group-hover:scale-105"
+                  style={{ objectPosition: service.objectPosition }}
                   loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
