@@ -6,7 +6,7 @@ import { motion, useReducedMotion } from 'framer-motion';
 import sdrAgentImage from '@assets/ai-sdr-agent-optimized.webp';
 import customerSupportImage from '@assets/ai-customer-support-optimized.webp';
 import dataInsightsImage from '@assets/data-insights-neural-optimized.webp';
-import adminAgent from '@assets/stock_images/administrative_assis_da9e94eb.jpg';
+import adminAgentImage from '@assets/ai-admin-agent-optimized.webp';
 import contentStrategistImage from '@assets/ai-content-strategist-optimized.webp';
 import complianceAuditor from '@assets/stock_images/legal_compliance_off_78808712.jpg';
 import appointmentBooker from '@assets/stock_images/appointment_schedule_97373ecb.jpg';
@@ -37,7 +37,7 @@ const agents = [
   {
     title: "Administrative Agent",
     metric: "50% time reclaimed",
-    image: adminAgent,
+    image: adminAgentImage,
     slug: "ai-admin-agent",
     objectPosition: "center"
   },
