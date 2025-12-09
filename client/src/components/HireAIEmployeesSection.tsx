@@ -5,7 +5,7 @@ import { motion, useReducedMotion } from 'framer-motion';
 
 import sdrAgent from '@assets/stock_images/elite_sales_professi_1c84b4b4.jpg';
 import supportSpecialist from '@assets/stock_images/customer_support_spe_789ecb6b.jpg';
-import dataAnalyst from '@assets/stock_images/data_analyst_profess_4f5ff172.jpg';
+import dataInsightsImage from '@assets/data-insights-neural-optimized.webp';
 import adminAgent from '@assets/stock_images/administrative_assis_da9e94eb.jpg';
 import contentStrategist from '@assets/stock_images/content_strategist_c_61044a33.jpg';
 import complianceAuditor from '@assets/stock_images/legal_compliance_off_78808712.jpg';
@@ -28,7 +28,7 @@ const agents = [
   {
     title: "Data Insights Analyst",
     metric: "Real-time dashboards",
-    image: dataAnalyst,
+    image: dataInsightsImage,
     slug: "ai-data-analyst"
   },
   {
