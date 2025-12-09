@@ -27,7 +27,7 @@ import {
 
 import sdrAgentImage from '@assets/stock_images/elite_sales_professi_1c84b4b4.jpg';
 import supportSpecialistImage from '@assets/stock_images/customer_support_spe_789ecb6b.jpg';
-import dataAnalystImage from '@assets/stock_images/data_analyst_profess_4f5ff172.jpg';
+import dataInsightsNeuralImage from '@assets/data-insights-neural-optimized.webp';
 import adminAgentImage from '@assets/stock_images/administrative_assis_da9e94eb.jpg';
 import contentStrategistImage from '@assets/stock_images/content_strategist_c_61044a33.jpg';
 import complianceAuditorImage from '@assets/stock_images/legal_compliance_off_78808712.jpg';
@@ -71,7 +71,7 @@ interface ServiceContent {
 const HERO_IMAGES: Record<string, string> = {
   'ai-sdr-agent': sdrAgentImage,
   'ai-support-specialist': supportSpecialistImage,
-  'ai-data-analyst': dataAnalystImage,
+  'ai-data-analyst': dataInsightsNeuralImage,
   'ai-admin-agent': adminAgentImage,
   'ai-content-strategist': contentStrategistImage,
   'ai-compliance-auditor': complianceAuditorImage,
