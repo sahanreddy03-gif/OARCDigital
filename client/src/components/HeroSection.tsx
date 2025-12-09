@@ -47,8 +47,8 @@ export default function HeroSection() {
       100% { transform: translateX(100vw); opacity: 0; }
     }
     @keyframes gridPulse {
-      0%, 100% { opacity: 0.06; }
-      50% { opacity: 0.12; }
+      0%, 100% { opacity: 0.25; }
+      50% { opacity: 0.45; }
     }
     @keyframes particleFloat {
       0%, 100% { transform: translate(0, 0); opacity: 0.4; }
@@ -82,26 +82,43 @@ export default function HeroSection() {
               backgroundPosition: '60% center'
             }}
           />
-          {/* AI Grid Overlay with pulse */}
+          {/* AI Grid Overlay with pulse - NEON GREEN */}
           <div 
-            className="absolute inset-0 animate-[gridPulse_8s_ease-in-out_infinite]" 
+            className="absolute inset-0 animate-[gridPulse_6s_ease-in-out_infinite]" 
             style={{
-              backgroundImage: 'linear-gradient(rgba(196, 255, 77, 0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(196, 255, 77, 0.3) 1px, transparent 1px)',
-              backgroundSize: '40px 40px'
+              backgroundImage: 'linear-gradient(rgba(196, 255, 77, 0.6) 1px, transparent 1px), linear-gradient(90deg, rgba(196, 255, 77, 0.6) 1px, transparent 1px)',
+              backgroundSize: '35px 35px'
             }} 
           />
-          {/* Horizontal data streams */}
+          {/* Horizontal data streams - BRIGHT NEON */}
           <div 
-            className="absolute w-[200px] h-[1px] bg-gradient-to-r from-transparent via-[#c4ff4d]/50 to-transparent animate-[scanHorizontal1_8s_linear_infinite]" 
-            style={{ top: '25%', boxShadow: '0 0 8px rgba(196, 255, 77, 0.4)' }} 
+            className="absolute w-[250px] h-[2px] bg-gradient-to-r from-transparent via-[#c4ff4d] to-transparent animate-[scanHorizontal1_6s_linear_infinite]" 
+            style={{ top: '25%', boxShadow: '0 0 20px rgba(196, 255, 77, 0.8), 0 0 40px rgba(196, 255, 77, 0.4)' }} 
           />
           <div 
-            className="absolute w-[150px] h-[1px] bg-gradient-to-r from-transparent via-[#c4ff4d]/40 to-transparent animate-[scanHorizontal2_10s_linear_infinite]" 
-            style={{ top: '45%', boxShadow: '0 0 6px rgba(196, 255, 77, 0.3)', animationDelay: '3s' }} 
+            className="absolute w-[200px] h-[2px] bg-gradient-to-r from-transparent via-[#c4ff4d]/90 to-transparent animate-[scanHorizontal2_8s_linear_infinite]" 
+            style={{ top: '45%', boxShadow: '0 0 18px rgba(196, 255, 77, 0.7), 0 0 35px rgba(196, 255, 77, 0.3)', animationDelay: '2s' }} 
           />
           <div 
-            className="absolute w-[180px] h-[1px] bg-gradient-to-r from-transparent via-[#c4ff4d]/35 to-transparent animate-[scanHorizontal1_12s_linear_infinite]" 
-            style={{ top: '65%', boxShadow: '0 0 7px rgba(196, 255, 77, 0.3)', animationDelay: '5s' }} 
+            className="absolute w-[220px] h-[2px] bg-gradient-to-r from-transparent via-[#c4ff4d]/80 to-transparent animate-[scanHorizontal1_10s_linear_infinite]" 
+            style={{ top: '65%', boxShadow: '0 0 16px rgba(196, 255, 77, 0.6), 0 0 30px rgba(196, 255, 77, 0.3)', animationDelay: '4s' }} 
+          />
+          {/* Floating particles - Mobile */}
+          <div 
+            className="absolute w-2 h-2 rounded-full bg-[#c4ff4d] animate-[particleFloat_8s_ease-in-out_infinite]" 
+            style={{ top: '15%', left: '10%', boxShadow: '0 0 20px #c4ff4d, 0 0 40px rgba(196, 255, 77, 0.5)' }} 
+          />
+          <div 
+            className="absolute w-1.5 h-1.5 rounded-full bg-[#c4ff4d] animate-[particleFloat_10s_ease-in-out_infinite]" 
+            style={{ top: '35%', right: '15%', boxShadow: '0 0 18px #c4ff4d, 0 0 36px rgba(196, 255, 77, 0.4)', animationDelay: '2s' }} 
+          />
+          <div 
+            className="absolute w-2 h-2 rounded-full bg-[#c4ff4d] animate-[particleFloat_9s_ease-in-out_infinite]" 
+            style={{ top: '55%', left: '20%', boxShadow: '0 0 22px #c4ff4d, 0 0 44px rgba(196, 255, 77, 0.45)', animationDelay: '4s' }} 
+          />
+          <div 
+            className="absolute w-1.5 h-1.5 rounded-full bg-[#c4ff4d] animate-[particleFloat_11s_ease-in-out_infinite]" 
+            style={{ top: '75%', right: '25%', boxShadow: '0 0 16px #c4ff4d, 0 0 32px rgba(196, 255, 77, 0.35)', animationDelay: '6s' }} 
           />
           {/* Gradient overlay */}
           <div className="absolute inset-0 bg-gradient-to-b from-transparent from-0% via-zinc-950/60 via-50% to-zinc-950/85 to-95%" />
@@ -118,47 +135,55 @@ export default function HeroSection() {
             transition: 'transform 0.1s ease-out'
           }}
         />
-        {/* AI Grid Overlay with pulse */}
+        {/* AI Grid Overlay with pulse - NEON GREEN DESKTOP */}
         <div 
-          className="hidden md:block absolute inset-0 animate-[gridPulse_10s_ease-in-out_infinite]" 
+          className="hidden md:block absolute inset-0 animate-[gridPulse_6s_ease-in-out_infinite]" 
           style={{
-            backgroundImage: 'linear-gradient(rgba(196, 255, 77, 0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(196, 255, 77, 0.3) 1px, transparent 1px)',
-            backgroundSize: '50px 50px'
+            backgroundImage: 'linear-gradient(rgba(196, 255, 77, 0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(196, 255, 77, 0.5) 1px, transparent 1px)',
+            backgroundSize: '45px 45px'
           }} 
         />
-        {/* Floating green particles */}
+        {/* Floating green particles - BIGGER + BRIGHTER */}
         <div 
-          className="hidden md:block absolute w-1.5 h-1.5 rounded-full bg-[#c4ff4d] animate-[particleFloat_8s_ease-in-out_infinite]" 
-          style={{ top: '20%', left: '15%', boxShadow: '0 0 20px #c4ff4d' }} 
+          className="hidden md:block absolute w-3 h-3 rounded-full bg-[#c4ff4d] animate-[particleFloat_8s_ease-in-out_infinite]" 
+          style={{ top: '20%', left: '15%', boxShadow: '0 0 30px #c4ff4d, 0 0 60px rgba(196, 255, 77, 0.5)' }} 
         />
         <div 
-          className="hidden md:block absolute w-1 h-1 rounded-full bg-[#c4ff4d] animate-[particleFloat_10s_ease-in-out_infinite]" 
-          style={{ top: '60%', left: '25%', boxShadow: '0 0 15px #c4ff4d', animationDelay: '2s' }} 
+          className="hidden md:block absolute w-2 h-2 rounded-full bg-[#c4ff4d] animate-[particleFloat_10s_ease-in-out_infinite]" 
+          style={{ top: '60%', left: '25%', boxShadow: '0 0 25px #c4ff4d, 0 0 50px rgba(196, 255, 77, 0.4)', animationDelay: '2s' }} 
         />
         <div 
-          className="hidden md:block absolute w-1.5 h-1.5 rounded-full bg-[#c4ff4d] animate-[particleFloat_9s_ease-in-out_infinite]" 
-          style={{ top: '40%', left: '35%', boxShadow: '0 0 18px #c4ff4d', animationDelay: '4s' }} 
+          className="hidden md:block absolute w-3 h-3 rounded-full bg-[#c4ff4d] animate-[particleFloat_9s_ease-in-out_infinite]" 
+          style={{ top: '40%', left: '35%', boxShadow: '0 0 28px #c4ff4d, 0 0 55px rgba(196, 255, 77, 0.45)', animationDelay: '4s' }} 
         />
         <div 
-          className="hidden md:block absolute w-1 h-1 rounded-full bg-[#c4ff4d] animate-[particleFloat_11s_ease-in-out_infinite]" 
-          style={{ top: '30%', left: '45%', boxShadow: '0 0 16px #c4ff4d', animationDelay: '6s' }} 
-        />
-        {/* Horizontal data streams - Desktop */}
-        <div 
-          className="hidden md:block absolute w-[300px] h-[1px] bg-gradient-to-r from-transparent via-[#c4ff4d]/40 to-transparent animate-[scanHorizontal1_10s_linear_infinite]" 
-          style={{ top: '28%', left: 0, boxShadow: '0 0 10px rgba(196, 255, 77, 0.4)' }} 
+          className="hidden md:block absolute w-2 h-2 rounded-full bg-[#c4ff4d] animate-[particleFloat_11s_ease-in-out_infinite]" 
+          style={{ top: '30%', left: '45%', boxShadow: '0 0 26px #c4ff4d, 0 0 52px rgba(196, 255, 77, 0.4)', animationDelay: '6s' }} 
         />
         <div 
-          className="hidden md:block absolute w-[250px] h-[1px] bg-gradient-to-r from-transparent via-[#c4ff4d]/35 to-transparent animate-[scanHorizontal2_12s_linear_infinite]" 
-          style={{ top: '48%', left: 0, boxShadow: '0 0 8px rgba(196, 255, 77, 0.3)', animationDelay: '4s' }} 
+          className="hidden md:block absolute w-2.5 h-2.5 rounded-full bg-[#c4ff4d] animate-[particleFloat_7s_ease-in-out_infinite]" 
+          style={{ top: '50%', left: '55%', boxShadow: '0 0 24px #c4ff4d, 0 0 48px rgba(196, 255, 77, 0.35)', animationDelay: '1s' }} 
         />
         <div 
-          className="hidden md:block absolute w-[280px] h-[1px] bg-gradient-to-r from-transparent via-[#c4ff4d]/30 to-transparent animate-[scanHorizontal1_14s_linear_infinite]" 
-          style={{ top: '68%', left: 0, boxShadow: '0 0 9px rgba(196, 255, 77, 0.3)', animationDelay: '7s' }} 
+          className="hidden md:block absolute w-2 h-2 rounded-full bg-[#c4ff4d] animate-[particleFloat_12s_ease-in-out_infinite]" 
+          style={{ top: '70%', left: '65%', boxShadow: '0 0 22px #c4ff4d, 0 0 45px rgba(196, 255, 77, 0.3)', animationDelay: '3s' }} 
+        />
+        {/* Horizontal data streams - Desktop - BRIGHT NEON */}
+        <div 
+          className="hidden md:block absolute w-[350px] h-[2px] bg-gradient-to-r from-transparent via-[#c4ff4d] to-transparent animate-[scanHorizontal1_7s_linear_infinite]" 
+          style={{ top: '28%', left: 0, boxShadow: '0 0 20px rgba(196, 255, 77, 0.8), 0 0 40px rgba(196, 255, 77, 0.4)' }} 
         />
         <div 
-          className="hidden md:block absolute w-[200px] h-[1px] bg-gradient-to-r from-transparent via-[#c4ff4d]/25 to-transparent animate-[scanHorizontal2_16s_linear_infinite]" 
-          style={{ top: '82%', left: 0, boxShadow: '0 0 7px rgba(196, 255, 77, 0.2)', animationDelay: '10s' }} 
+          className="hidden md:block absolute w-[300px] h-[2px] bg-gradient-to-r from-transparent via-[#c4ff4d]/90 to-transparent animate-[scanHorizontal2_9s_linear_infinite]" 
+          style={{ top: '48%', left: 0, boxShadow: '0 0 18px rgba(196, 255, 77, 0.7), 0 0 35px rgba(196, 255, 77, 0.35)', animationDelay: '3s' }} 
+        />
+        <div 
+          className="hidden md:block absolute w-[330px] h-[2px] bg-gradient-to-r from-transparent via-[#c4ff4d]/85 to-transparent animate-[scanHorizontal1_11s_linear_infinite]" 
+          style={{ top: '68%', left: 0, boxShadow: '0 0 16px rgba(196, 255, 77, 0.65), 0 0 32px rgba(196, 255, 77, 0.3)', animationDelay: '5s' }} 
+        />
+        <div 
+          className="hidden md:block absolute w-[280px] h-[2px] bg-gradient-to-r from-transparent via-[#c4ff4d]/75 to-transparent animate-[scanHorizontal2_13s_linear_infinite]" 
+          style={{ top: '82%', left: 0, boxShadow: '0 0 14px rgba(196, 255, 77, 0.55), 0 0 28px rgba(196, 255, 77, 0.25)', animationDelay: '7s' }} 
         />
         {/* Light Sweep Effect */}
         <div className="hidden md:block absolute inset-0 overflow-hidden pointer-events-none">
