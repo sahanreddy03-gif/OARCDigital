@@ -32,16 +32,16 @@ function SnowfallEffect() {
     }
 
     const snowflakes: Snowflake[] = [];
-    const snowflakeCount = 120;
+    const snowflakeCount = 60;
 
     for (let i = 0; i < snowflakeCount; i++) {
       snowflakes.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
-        radius: Math.random() * 3 + 1,
-        speed: Math.random() * 1.5 + 0.5,
-        wind: Math.random() * 0.5 - 0.25,
-        opacity: Math.random() * 0.6 + 0.4,
+        radius: Math.random() * 2 + 0.8,
+        speed: Math.random() * 1 + 0.3,
+        wind: Math.random() * 0.3 - 0.15,
+        opacity: Math.random() * 0.4 + 0.25,
       });
     }
 
@@ -94,7 +94,7 @@ function SnowfallEffect() {
     <canvas
       ref={canvasRef}
       className="absolute inset-0 pointer-events-none z-20 motion-reduce:hidden"
-      style={{ opacity: 0.9 }}
+      style={{ opacity: 0.7 }}
     />
   );
 }
