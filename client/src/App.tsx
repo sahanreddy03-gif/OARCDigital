@@ -1,6 +1,8 @@
 import { Switch, Route } from "wouter";
+import ScrollToTop from "@/components/layout/ScrollToTop";
 import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
+import { HelmetProvider } from "react-helmet-async";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { CookieConsentProvider } from "@/contexts/CookieConsentContext";
@@ -88,9 +90,10 @@ import NotFound from "@/pages/not-found";
 function Router() {
   return (
     <Switch>
+      <ScrollToTop />
       <Route path="/" component={Home} />
       <Route path="/services" component={Services} />
-      
+
       {/* Priority Service Pages - Unique Designs */}
       <Route path="/services/social-media-creative-management" component={SocialMediaCreativeManagement} />
       <Route path="/services/social-media-creative" component={SocialMediaCreativeManagement} />
@@ -150,10 +153,10 @@ function Router() {
       <Route path="/services/api-integration" component={APIIntegrationServices} />
       <Route path="/services/mvp-development" component={MVPDevelopment} />
       <Route path="/services/mvp-development/for-software" component={MVPSoftwareDevelopment} />
-      
+
       {/* Fallback for other services */}
       <Route path="/services/:service" component={ServiceDetail} />
-      
+
       <Route path="/our-work" component={OurWork} />
       <Route path="/case-studies/homecraft-innovations" component={TefalCaseStudy} />
       <Route path="/case-studies/authentic-stories" component={DontMakeAdsCaseStudy} />
@@ -189,23 +192,23 @@ function Router() {
       <Route path="/comparison" component={Comparison} />
       <Route path="/why-oarc" component={Comparison} />
       <Route path="/blog" component={Blog} />
-      
+
       {/* Legal Pages - GDPR Compliance */}
       <Route path="/privacy-policy" component={PrivacyPolicy} />
       <Route path="/cookie-policy" component={CookiePolicy} />
       <Route path="/terms-conditions" component={TermsConditions} />
       <Route path="/terms" component={TermsConditions} />
-      
+
       {/* PDF Documents for Client Proposals */}
       <Route path="/pdf" component={PDFHub} />
       <Route path="/pdf/capabilities-deck" component={PDFCapabilitiesDeck} />
       <Route path="/pdf/company-profile" component={PDFCompanyProfile} />
       <Route path="/pdf/one-pager" component={PDFOnePager} />
       <Route path="/pdf/ai-creative-profile" component={PDFAICreativeProfile} />
-      
+
       {/* Programmatic SEO - Location Pages */}
       <Route path="/malta/:location/:service" component={LocationService} />
-      
+
       <Route component={NotFound} />
     </Switch>
   );
@@ -214,14 +217,16 @@ function Router() {
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <CookieConsentProvider>
-          <Toaster />
-          <Router />
-          <CookieConsentBanner />
-          <CookiePreferencesModal />
-        </CookieConsentProvider>
-      </TooltipProvider>
+      <HelmetProvider>
+        <TooltipProvider>
+          <CookieConsentProvider>
+            <Toaster />
+            <Router />
+            <CookieConsentBanner />
+            <CookiePreferencesModal />
+          </CookieConsentProvider>
+        </TooltipProvider>
+      </HelmetProvider>
     </QueryClientProvider>
   );
 }
