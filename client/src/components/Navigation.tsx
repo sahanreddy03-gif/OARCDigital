@@ -173,12 +173,12 @@ export default function Navigation() {
               Our Work
             </Link>
             <Link 
-              href="/resources" 
+              href="/contact" 
               className="text-xs xl:text-sm font-medium text-white/90 hover:text-white transition-colors" 
               style={{ textShadow }}
-              data-testid="link-resources"
+              data-testid="link-contact"
             >
-              Resources
+              Contact
             </Link>
           </div>
 
@@ -226,9 +226,9 @@ export default function Navigation() {
                 Our Work
               </div>
             </Link>
-            <Link href="/resources" data-testid="link-mobile-resources" onClick={() => setShowMobileMenu(false)}>
+            <Link href="/contact" data-testid="link-mobile-contact" onClick={() => setShowMobileMenu(false)}>
               <div className="text-base font-medium text-white py-3">
-                Resources
+                Contact
               </div>
             </Link>
           </div>

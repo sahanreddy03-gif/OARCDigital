@@ -1,10 +1,15 @@
 import Layout from "@/components/layout/Layout";
 import SEOHead from "@/components/SEOHead";
 import { supportingPagesSEO } from "@/data/seoMetadata";
-import { Mail, Phone, ArrowRight } from "lucide-react";
+import ContactForm from "@/components/contact/ContactForm";
+import { Mail, Phone, MessageCircle, MapPin, Clock, ArrowDown } from "lucide-react";
 import { Link } from "wouter";
 
 export default function Contact() {
+  const scrollToSection = (id: string) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <Layout>
       <SEOHead
@@ -14,170 +19,227 @@ export default function Contact() {
         ogType={supportingPagesSEO.contact.ogType}
       />
       
-      {/* Hero Section */}
-      <section className="relative bg-white border-b border-border">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 py-20 md:py-32">
-          <div className="max-w-3xl">
-            <p className="text-caption uppercase tracking-wider text-muted-foreground mb-4">Get in Touch</p>
-            <h1 className="text-heading-xl font-bold mb-6">
-              Let's build something <span className="italic text-[#16a34a]">remarkable</span>
+      {/* Hero Section with Two Options */}
+      <section className="relative bg-gradient-to-br from-zinc-950 via-zinc-900 to-black pt-32 pb-20 overflow-hidden">
+        {/* Subtle grid background */}
+        <div className="absolute inset-0 opacity-20" 
+          style={{ 
+            backgroundImage: 'radial-gradient(circle at center, rgba(255,255,255,0.1) 1px, transparent 1px)', 
+            backgroundSize: '32px 32px' 
+          }} 
+        />
+        
+        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <p className="text-[#c4ff4d] uppercase tracking-[0.2em] text-xs font-medium mb-4">Get in Touch</p>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+              Let's build something <span className="italic text-[#c4ff4d]">remarkable</span>
             </h1>
-            <p className="text-body-lg text-muted-foreground">
-              We're here to help bring your vision to life. Reach out to our team across three continents.
+            <p className="text-lg text-zinc-400">
+              We're here to help bring your vision to life. Choose how you'd like to connect with us.
             </p>
           </div>
+
+          {/* Two Options */}
+          <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+            <button 
+              onClick={() => scrollToSection('message-form')}
+              className="group relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 text-left hover:bg-white/10 hover:border-[#c4ff4d]/30 transition-all duration-300"
+              data-testid="button-send-message"
+            >
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 rounded-xl bg-[#c4ff4d]/10 flex items-center justify-center flex-shrink-0">
+                  <MessageCircle className="w-6 h-6 text-[#c4ff4d]" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold text-white mb-2">Send us a Message</h3>
+                  <p className="text-zinc-400 text-sm">Fill out our quick form and we'll get back to you within 24 hours</p>
+                </div>
+              </div>
+              <ArrowDown className="absolute bottom-4 right-4 w-5 h-5 text-zinc-600 group-hover:text-[#c4ff4d] transition-colors" />
+            </button>
+
+            <button 
+              onClick={() => scrollToSection('call-section')}
+              className="group relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 text-left hover:bg-white/10 hover:border-[#23AACA]/30 transition-all duration-300"
+              data-testid="button-call-us"
+            >
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 rounded-xl bg-[#23AACA]/10 flex items-center justify-center flex-shrink-0">
+                  <Phone className="w-6 h-6 text-[#23AACA]" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold text-white mb-2">Call Us Directly</h3>
+                  <p className="text-zinc-400 text-sm">Speak with our team right away - offices in Malta, India & Dubai</p>
+                </div>
+              </div>
+              <ArrowDown className="absolute bottom-4 right-4 w-5 h-5 text-zinc-600 group-hover:text-[#23AACA] transition-colors" />
+            </button>
+          </div>
+
+          {/* Trust Badge */}
+          <div className="flex items-center justify-center gap-2 mt-10 text-zinc-500 text-sm">
+            <Clock className="w-4 h-4" />
+            <span>Average response time: 4 hours</span>
+          </div>
         </div>
       </section>
 
-      {/* Primary Contact */}
-      <section className="bg-[#FAF9F6] border-b border-border">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 py-16">
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl">
-            <div className="group" data-testid="contact-email">
-              <div className="flex items-center gap-3 mb-3">
-                <Mail className="w-5 h-5 text-muted-foreground" />
-                <p className="text-caption uppercase tracking-wider text-muted-foreground font-medium">Email</p>
-              </div>
-              <a 
-                href="mailto:hello@oarcdigital.com" 
-                className="text-heading-sm font-semibold text-foreground hover:text-[#16a34a] transition-colors"
-                data-testid="link-email-primary"
-              >
-                hello@oarcdigital.com
-              </a>
-            </div>
+      {/* Main Content: Form + Call Options */}
+      <section className="bg-zinc-950 py-20">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
             
-            <div className="group" data-testid="contact-phone-primary">
-              <div className="flex items-center gap-3 mb-3">
-                <Phone className="w-5 h-5 text-muted-foreground" />
-                <p className="text-caption uppercase tracking-wider text-muted-foreground font-medium">Malta HQ</p>
+            {/* Contact Form */}
+            <div id="message-form">
+              <h2 className="text-2xl font-bold text-white mb-2">Send us a Message</h2>
+              <p className="text-zinc-400 mb-8">Tell us about your project and we'll be in touch soon.</p>
+              <ContactForm />
+            </div>
+
+            {/* Call Us Section */}
+            <div id="call-section" className="lg:pt-12">
+              <h2 className="text-2xl font-bold text-white mb-2">Call Us Directly</h2>
+              <p className="text-zinc-400 mb-8">Prefer to talk? Reach our team across three continents.</p>
+
+              <div className="space-y-6">
+                {/* Phone - Malta */}
+                <a 
+                  href="tel:+35679711799" 
+                  className="flex items-center gap-4 p-5 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 hover:border-[#c4ff4d]/30 transition-all group"
+                  data-testid="link-call-malta"
+                >
+                  <div className="w-12 h-12 rounded-full bg-[#c4ff4d]/10 flex items-center justify-center flex-shrink-0">
+                    <Phone className="w-5 h-5 text-[#c4ff4d]" />
+                  </div>
+                  <div>
+                    <p className="text-xs uppercase tracking-wider text-zinc-500 mb-1">Malta HQ</p>
+                    <p className="text-lg font-semibold text-white group-hover:text-[#c4ff4d] transition-colors">+356 7971 1799</p>
+                  </div>
+                </a>
+
+                {/* Phone - India */}
+                <a 
+                  href="tel:+919900555588" 
+                  className="flex items-center gap-4 p-5 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 hover:border-[#23AACA]/30 transition-all group"
+                  data-testid="link-call-india"
+                >
+                  <div className="w-12 h-12 rounded-full bg-[#23AACA]/10 flex items-center justify-center flex-shrink-0">
+                    <Phone className="w-5 h-5 text-[#23AACA]" />
+                  </div>
+                  <div>
+                    <p className="text-xs uppercase tracking-wider text-zinc-500 mb-1">India Office</p>
+                    <p className="text-lg font-semibold text-white group-hover:text-[#23AACA] transition-colors">+91 99005 55588</p>
+                  </div>
+                </a>
+
+                {/* Phone - Dubai */}
+                <a 
+                  href="tel:+971526472981" 
+                  className="flex items-center gap-4 p-5 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 hover:border-[#ff914d]/30 transition-all group"
+                  data-testid="link-call-dubai"
+                >
+                  <div className="w-12 h-12 rounded-full bg-[#ff914d]/10 flex items-center justify-center flex-shrink-0">
+                    <Phone className="w-5 h-5 text-[#ff914d]" />
+                  </div>
+                  <div>
+                    <p className="text-xs uppercase tracking-wider text-zinc-500 mb-1">Dubai Office</p>
+                    <p className="text-lg font-semibold text-white group-hover:text-[#ff914d] transition-colors">+971 52 647 2981</p>
+                  </div>
+                </a>
+
+                {/* Email */}
+                <a 
+                  href="mailto:hello@oarcdigital.com" 
+                  className="flex items-center gap-4 p-5 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 hover:border-white/30 transition-all group"
+                  data-testid="link-email"
+                >
+                  <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0">
+                    <Mail className="w-5 h-5 text-white" />
+                  </div>
+                  <div>
+                    <p className="text-xs uppercase tracking-wider text-zinc-500 mb-1">Email Us</p>
+                    <p className="text-lg font-semibold text-white group-hover:text-zinc-300 transition-colors">hello@oarcdigital.com</p>
+                  </div>
+                </a>
+
+                {/* WhatsApp */}
+                <a 
+                  href="https://wa.me/35679711799" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-4 p-5 bg-[#25D366]/10 border border-[#25D366]/20 rounded-xl hover:bg-[#25D366]/20 transition-all group"
+                  data-testid="link-whatsapp"
+                >
+                  <div className="w-12 h-12 rounded-full bg-[#25D366]/20 flex items-center justify-center flex-shrink-0">
+                    <MessageCircle className="w-5 h-5 text-[#25D366]" />
+                  </div>
+                  <div>
+                    <p className="text-xs uppercase tracking-wider text-[#25D366]/70 mb-1">WhatsApp</p>
+                    <p className="text-lg font-semibold text-[#25D366]">Chat with us</p>
+                  </div>
+                </a>
               </div>
-              <a 
-                href="tel:+35679711799" 
-                className="text-heading-sm font-semibold text-foreground hover:text-[#16a34a] transition-colors"
-                data-testid="link-phone-primary"
-              >
-                +356 7971 1799
-              </a>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Global Offices */}
-      <section className="bg-white py-20">
+      {/* Global Offices - Subtle Section */}
+      <section className="bg-zinc-900 border-t border-white/5 py-16">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <h2 className="text-caption uppercase tracking-wider text-muted-foreground mb-12 font-medium">Our Offices</h2>
+          <h2 className="text-xs uppercase tracking-[0.2em] text-zinc-500 mb-10 text-center">Our Offices</h2>
           
-          <div className="grid md:grid-cols-3 gap-12 lg:gap-16">
+          <div className="grid md:grid-cols-3 gap-8">
             {/* Malta */}
-            <div data-testid="office-malta">
-              <div className="mb-6">
-                <h3 className="text-heading-sm font-bold mb-4">Malta</h3>
-                <address className="text-muted-foreground text-sm not-italic leading-relaxed">
-                  Seaside Spirit<br />
-                  Triq ix-Xatt, Ta' Xbiex<br />
-                  XBX 1020, Malta
-                </address>
+            <div className="text-center" data-testid="office-malta">
+              <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center mx-auto mb-4">
+                <MapPin className="w-4 h-4 text-zinc-400" />
               </div>
-              
-              <div className="space-y-4">
-                <div>
-                  <p className="text-xs uppercase tracking-wider text-muted-foreground mb-1.5">General Enquiries</p>
-                  <a href="tel:+35679711799" className="text-sm text-foreground hover:text-[#16a34a] transition-colors" data-testid="link-malta-general">
-                    +356 7971 1799
-                  </a>
-                </div>
-                <div>
-                  <p className="text-xs uppercase tracking-wider text-muted-foreground mb-1.5">Sales</p>
-                  <a href="tel:+35699312258" className="text-sm text-foreground hover:text-[#16a34a] transition-colors" data-testid="link-malta-sales">
-                    +356 9931 2258
-                  </a>
-                </div>
-                <div>
-                  <p className="text-xs uppercase tracking-wider text-muted-foreground mb-1.5">EU Business Line</p>
-                  <a href="tel:+31631160151" className="text-sm text-muted-foreground hover:text-foreground transition-colors" data-testid="link-malta-eu">
-                    +31 6311 60151
-                  </a>
-                </div>
-              </div>
+              <h3 className="text-white font-semibold mb-2">Malta</h3>
+              <address className="text-zinc-500 text-sm not-italic leading-relaxed">
+                Seaside Spirit<br />
+                Triq ix-Xatt, Ta' Xbiex<br />
+                XBX 1020
+              </address>
             </div>
 
-            {/* Chennai */}
-            <div data-testid="office-chennai">
-              <div className="mb-6">
-                <h3 className="text-heading-sm font-bold mb-4">Chennai</h3>
-                <address className="text-muted-foreground text-sm not-italic leading-relaxed">
-                  OARC Digital<br />
-                  Olympia Tech Park, SIDCO Industrial Estate<br />
-                  Guindy, Chennai 600032, India
-                </address>
+            {/* India */}
+            <div className="text-center" data-testid="office-india">
+              <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center mx-auto mb-4">
+                <MapPin className="w-4 h-4 text-zinc-400" />
               </div>
-              
-              <div className="space-y-4">
-                <div>
-                  <p className="text-xs uppercase tracking-wider text-muted-foreground mb-1.5">General Enquiries</p>
-                  <a href="tel:+919900555588" className="text-sm text-foreground hover:text-[#16a34a] transition-colors" data-testid="link-chennai-general">
-                    +91 99005 55588
-                  </a>
-                </div>
-                <div>
-                  <p className="text-xs uppercase tracking-wider text-muted-foreground mb-1.5">Operations Desk</p>
-                  <a href="tel:+918056158924" className="text-sm text-foreground hover:text-[#16a34a] transition-colors" data-testid="link-chennai-operations">
-                    +91 80561 58924
-                  </a>
-                </div>
-              </div>
+              <h3 className="text-white font-semibold mb-2">India</h3>
+              <address className="text-zinc-500 text-sm not-italic leading-relaxed">
+                Olympia Tech Park<br />
+                Guindy, Chennai<br />
+                600032
+              </address>
             </div>
 
             {/* Dubai */}
-            <div data-testid="office-dubai">
-              <div className="mb-6">
-                <h3 className="text-heading-sm font-bold mb-4">Dubai</h3>
-                <address className="text-muted-foreground text-sm not-italic leading-relaxed">
-                  OARC Digital<br />
-                  Cluster F, Jumeirah Lake Towers<br />
-                  Dubai, United Arab Emirates
-                </address>
+            <div className="text-center" data-testid="office-dubai">
+              <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center mx-auto mb-4">
+                <MapPin className="w-4 h-4 text-zinc-400" />
               </div>
-              
-              <div className="space-y-4">
-                <div>
-                  <p className="text-xs uppercase tracking-wider text-muted-foreground mb-1.5">Business Enquiries</p>
-                  <a href="tel:+971526472981" className="text-sm text-foreground hover:text-[#16a34a] transition-colors" data-testid="link-dubai-business">
-                    +971 52 647 2981
-                  </a>
-                </div>
-              </div>
+              <h3 className="text-white font-semibold mb-2">Dubai</h3>
+              <address className="text-zinc-500 text-sm not-italic leading-relaxed">
+                Cluster F<br />
+                Jumeirah Lake Towers<br />
+                UAE
+              </address>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="bg-[#FAF9F6] border-t border-border">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 py-16 text-center">
-          <h3 className="text-heading-lg font-bold mb-4">Ready to get started?</h3>
-          <p className="text-body-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Book a call with our team to discuss your project and discover how we can help you achieve your goals.
-          </p>
-          <Link href="/">
-            <button className="px-8 py-4 bg-[#16a34a] hover:bg-[#15803d] text-white font-semibold rounded-lg transition-colors inline-flex items-center gap-2" data-testid="button-book-call">
-              Book a Call
-              <ArrowRight className="w-5 h-5" />
-            </button>
-          </Link>
         </div>
       </section>
 
       {/* Data Protection Notice */}
-      <section className="bg-white border-t border-border">
+      <section className="bg-zinc-950 border-t border-white/5">
         <div className="max-w-7xl mx-auto px-6 md:px-12 py-8">
-          <p className="text-xs text-muted-foreground text-center max-w-3xl mx-auto" data-testid="text-gdpr-notice">
+          <p className="text-xs text-zinc-600 text-center max-w-3xl mx-auto" data-testid="text-gdpr-notice">
             When you contact us, we process your information in accordance with our{' '}
-            <Link href="/privacy-policy" className="underline hover:text-foreground transition-colors">Privacy Policy</Link>. 
-            We use your data only to respond to your inquiry and provide our services. 
-            OARC Digital is registered in Malta and complies with GDPR and Malta's Data Protection Act (Cap. 586).
+            <Link href="/privacy-policy" className="underline hover:text-zinc-400 transition-colors">Privacy Policy</Link>. 
+            OARC Digital is registered in Malta and complies with GDPR.
           </p>
         </div>
       </section>
