@@ -43,6 +43,13 @@ The platform utilizes a modern web stack with a React frontend and an Express.js
 -   **Mobile Landscape Mode:** CSS media queries for adapting layout in landscape orientation.
 -   **Icon Standardization:** Lucide React for generic icons, `react-icons/si` for brand logos.
 -   **MVP Development Service Pages:** Two interconnected pages with "Elevated Monochrome Futurism" design, detailing MVP services with process timelines, tech stack marquees, case study carousels, and specific sections targeting software founders. These pages include AI-generated product mockups.
+-   **Contact Page (Dec 2025):** Redesigned with premium dark aesthetic featuring:
+    - Hero with dual CTA buttons (Send us a Message / Call Us Directly) with smooth scroll
+    - Two-column layout: Contact form on left, click-to-call phone numbers on right
+    - Direct contact options for Malta, India, Dubai offices plus email and WhatsApp
+    - Subtle three-office grid at bottom with location pins
+    - Trust badge showing average response time
+    - Navigation updated: Resources renamed to Contact
 
 **Backend:**
 -   **Framework & Language:** Express.js with TypeScript.
