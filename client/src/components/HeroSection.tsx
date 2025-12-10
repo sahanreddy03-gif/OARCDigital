@@ -141,11 +141,6 @@ export default function HeroSection() {
       0%, 100% { opacity: 0.25; }
       50% { opacity: 0.45; }
     }
-    @keyframes particleFloat {
-      0%, 100% { transform: translate(0, 0); opacity: 0.4; }
-      33% { transform: translate(20px, -30px); opacity: 0.8; }
-      66% { transform: translate(-15px, -50px); opacity: 0.6; }
-    }
     @keyframes fadeSlideUp {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
@@ -197,23 +192,6 @@ export default function HeroSection() {
             className="absolute w-[220px] h-[2px] bg-gradient-to-r from-transparent via-[#c4ff4d]/80 to-transparent animate-[scanHorizontal1_10s_linear_infinite]" 
             style={{ top: '65%', boxShadow: '0 0 16px rgba(196, 255, 77, 0.6), 0 0 30px rgba(196, 255, 77, 0.3)', animationDelay: '4s' }} 
           />
-          {/* Floating particles - Mobile */}
-          <div 
-            className="absolute w-2 h-2 rounded-full bg-[#c4ff4d] animate-[particleFloat_8s_ease-in-out_infinite]" 
-            style={{ top: '15%', left: '10%', boxShadow: '0 0 20px #c4ff4d, 0 0 40px rgba(196, 255, 77, 0.5)' }} 
-          />
-          <div 
-            className="absolute w-1.5 h-1.5 rounded-full bg-[#c4ff4d] animate-[particleFloat_10s_ease-in-out_infinite]" 
-            style={{ top: '35%', right: '15%', boxShadow: '0 0 18px #c4ff4d, 0 0 36px rgba(196, 255, 77, 0.4)', animationDelay: '2s' }} 
-          />
-          <div 
-            className="absolute w-2 h-2 rounded-full bg-[#c4ff4d] animate-[particleFloat_9s_ease-in-out_infinite]" 
-            style={{ top: '55%', left: '20%', boxShadow: '0 0 22px #c4ff4d, 0 0 44px rgba(196, 255, 77, 0.45)', animationDelay: '4s' }} 
-          />
-          <div 
-            className="absolute w-1.5 h-1.5 rounded-full bg-[#c4ff4d] animate-[particleFloat_11s_ease-in-out_infinite]" 
-            style={{ top: '75%', right: '25%', boxShadow: '0 0 16px #c4ff4d, 0 0 32px rgba(196, 255, 77, 0.35)', animationDelay: '6s' }} 
-          />
           {/* Gradient overlay */}
           <div className="absolute inset-0 bg-gradient-to-b from-transparent from-0% via-zinc-950/60 via-50% to-zinc-950/85 to-95%" />
         </div>
@@ -236,31 +214,6 @@ export default function HeroSection() {
             backgroundImage: 'linear-gradient(rgba(196, 255, 77, 0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(196, 255, 77, 0.5) 1px, transparent 1px)',
             backgroundSize: '45px 45px'
           }} 
-        />
-        {/* Floating green particles - BIGGER + BRIGHTER */}
-        <div 
-          className="hidden md:block absolute w-3 h-3 rounded-full bg-[#c4ff4d] animate-[particleFloat_8s_ease-in-out_infinite]" 
-          style={{ top: '20%', left: '15%', boxShadow: '0 0 30px #c4ff4d, 0 0 60px rgba(196, 255, 77, 0.5)' }} 
-        />
-        <div 
-          className="hidden md:block absolute w-2 h-2 rounded-full bg-[#c4ff4d] animate-[particleFloat_10s_ease-in-out_infinite]" 
-          style={{ top: '60%', left: '25%', boxShadow: '0 0 25px #c4ff4d, 0 0 50px rgba(196, 255, 77, 0.4)', animationDelay: '2s' }} 
-        />
-        <div 
-          className="hidden md:block absolute w-3 h-3 rounded-full bg-[#c4ff4d] animate-[particleFloat_9s_ease-in-out_infinite]" 
-          style={{ top: '40%', left: '35%', boxShadow: '0 0 28px #c4ff4d, 0 0 55px rgba(196, 255, 77, 0.45)', animationDelay: '4s' }} 
-        />
-        <div 
-          className="hidden md:block absolute w-2 h-2 rounded-full bg-[#c4ff4d] animate-[particleFloat_11s_ease-in-out_infinite]" 
-          style={{ top: '30%', left: '45%', boxShadow: '0 0 26px #c4ff4d, 0 0 52px rgba(196, 255, 77, 0.4)', animationDelay: '6s' }} 
-        />
-        <div 
-          className="hidden md:block absolute w-2.5 h-2.5 rounded-full bg-[#c4ff4d] animate-[particleFloat_7s_ease-in-out_infinite]" 
-          style={{ top: '50%', left: '55%', boxShadow: '0 0 24px #c4ff4d, 0 0 48px rgba(196, 255, 77, 0.35)', animationDelay: '1s' }} 
-        />
-        <div 
-          className="hidden md:block absolute w-2 h-2 rounded-full bg-[#c4ff4d] animate-[particleFloat_12s_ease-in-out_infinite]" 
-          style={{ top: '70%', left: '65%', boxShadow: '0 0 22px #c4ff4d, 0 0 45px rgba(196, 255, 77, 0.3)', animationDelay: '3s' }} 
         />
         {/* Horizontal data streams - Desktop - BRIGHT NEON */}
         <div 
