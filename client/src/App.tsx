@@ -89,9 +89,10 @@ import NotFound from "@/pages/not-found";
 
 function Router() {
   return (
-    <Switch>
+    <>
       <ScrollToTop />
-      <Route path="/" component={Home} />
+      <Switch>
+        <Route path="/" component={Home} />
       <Route path="/services" component={Services} />
 
       {/* Priority Service Pages - Unique Designs */}
@@ -209,8 +210,9 @@ function Router() {
       {/* Programmatic SEO - Location Pages */}
       <Route path="/malta/:location/:service" component={LocationService} />
 
-      <Route component={NotFound} />
-    </Switch>
+        <Route component={NotFound} />
+      </Switch>
+    </>
   );
 }
 
