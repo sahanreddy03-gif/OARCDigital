@@ -335,9 +335,12 @@ export default function HeroSection() {
                     </span>
                   </h1>
 
-                  {/* Subheading */}
+                  {/* Subheading - emphasized */}
                   <p 
-                    className="text-white/90 max-w-none md:max-w-2xl mx-auto md:mx-0 leading-snug mb-3 md:mb-5 font-medium tracking-wide text-[4vw] md:text-[clamp(1.1rem,1.9vw,1.6rem)]"
+                    className="text-white max-w-none md:max-w-2xl mx-auto md:mx-0 leading-snug mb-3 md:mb-5 font-semibold tracking-wide text-[4.5vw] md:text-[clamp(1.2rem,2.1vw,1.75rem)]"
+                    style={{
+                      textShadow: '0 0 25px rgba(255, 255, 255, 0.25), 0 0 50px rgba(255, 255, 255, 0.1)'
+                    }}
                   >
                     Marketing Revolutionised by AI
                   </p>
@@ -349,7 +352,7 @@ export default function HeroSection() {
                     Creative AI Talent + Custom Workflows + Growth Automation
                   </p>
                   <p 
-                    className="text-white max-w-none md:max-w-2xl mx-auto md:mx-0 leading-tight mb-4 md:mb-6 lg:mb-8 font-black tracking-wide text-[4.8vw] md:text-[clamp(1.25rem,2.2vw,1.75rem)]"
+                    className="text-white max-w-none md:max-w-2xl mx-auto md:mx-0 leading-tight mb-4 md:mb-6 lg:mb-8 font-bold tracking-wide text-[4.8vw] md:text-[clamp(1.25rem,2.2vw,1.75rem)]"
                   >
                     = Less Cost + More Reach + More Sales
                   </p>
