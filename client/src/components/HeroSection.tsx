@@ -52,14 +52,11 @@ function SnowfallEffect() {
 
       snowflakes.forEach((flake) => {
         flake.y += flake.speed;
-        flake.x += flake.wind + Math.sin(flake.y * 0.01) * 0.3;
 
         if (flake.y > canvas.height) {
           flake.y = -10;
           flake.x = Math.random() * canvas.width;
         }
-        if (flake.x > canvas.width) flake.x = 0;
-        if (flake.x < 0) flake.x = canvas.width;
 
         ctx.beginPath();
         ctx.arc(flake.x, flake.y, flake.radius, 0, Math.PI * 2);
