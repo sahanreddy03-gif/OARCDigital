@@ -20,6 +20,7 @@ import FAQ from "@/components/FAQ";
 import SEOHead from "@/components/SEOHead";
 import { localBusinessSchema, organizationSchema, createFAQSchema } from "@/utils/structuredData";
 import { createAggregateRatingSchema, createReviewSchema } from "@/utils/advancedSchema";
+import LivingAIInterface from "@/components/ai/LivingAIInterface";
 
 export default function Home() {
   const faqSchema = createFAQSchema([
@@ -40,9 +41,9 @@ export default function Home() {
       answer: "OARC Digital is the only agency that combines AI-powered automation, world-class creative services, and dedicated AI employees. We deliver enterprise-grade results at unprecedented speed and scale."
     }
   ]);
-  
+
   const ratingSchema = createAggregateRatingSchema("OARC Digital", 4.9, 127);
-  
+
   const reviewSchema = createReviewSchema([
     {
       author: "Sarah Chen",
@@ -63,7 +64,7 @@ export default function Home() {
       datePublished: "2024-11-18"
     }
   ]);
-  
+
   const homepageSchema = {
     "@context": "https://schema.org",
     "@graph": [localBusinessSchema, organizationSchema, faqSchema, ratingSchema, reviewSchema]
@@ -78,44 +79,45 @@ export default function Home() {
         structuredData={homepageSchema}
       />
       <div className="overflow-x-hidden">
-      <HeroSection />
-      
-      {/* OARC Brand Section - premium display of OARC acronym and pillars */}
-      <OARCBrandSection />
-      
-      {/* What We Do - Creative Services */}
-      <TrustedBrandsSection />
-      <AICreativeSection />
-      
-      {/* Services Showcase */}
-      <Section2 />
-      
-      {/* Our Difference */}
-      <Section5 />
-      
-      {/* AI Services Pillars - Dark Premium Zone */}
-      <HireAIEmployeesSection />
-      <LetsTalkRevenueSection />
-      
-      {/* Tech & Services */}
-      <TechEnabledSection />
-      
-      {/* Success Metrics */}
-      <SuccessInNumbers />
-      
-      {/* Case Studies & Social Proof */}
-      <BrandShowcaseSection />
-      
-      {/* Testimonials */}
-      <Testimonials />
-      
-      {/* Final CTAs */}
-      <ROICalculatorSection />
-      <MoneyBackGuaranteeSection />
-      <BlogPreviewSection />
-      <CTASections />
-      <NeedHelpCTA />
-      <FAQ />
+        <HeroSection />
+
+        {/* OARC Brand Section - premium display of OARC acronym and pillars */}
+        <OARCBrandSection />
+
+        {/* What We Do - Creative Services */}
+        <TrustedBrandsSection />
+        <AICreativeSection />
+
+        {/* Services Showcase */}
+        <Section2 />
+
+        {/* Our Difference */}
+        <Section5 />
+
+        {/* AI Services Pillars - Dark Premium Zone */}
+        <HireAIEmployeesSection />
+        <LetsTalkRevenueSection />
+
+        {/* Tech & Services */}
+        <TechEnabledSection />
+
+        {/* Success Metrics */}
+        <SuccessInNumbers />
+
+        {/* Case Studies & Social Proof */}
+        <BrandShowcaseSection />
+
+        {/* Testimonials */}
+        <Testimonials />
+
+        {/* Final CTAs */}
+        <ROICalculatorSection />
+        <MoneyBackGuaranteeSection />
+        <BlogPreviewSection />
+        <CTASections />
+        <NeedHelpCTA />
+        <FAQ />
+        <LivingAIInterface />
       </div>
     </Layout>
   );
