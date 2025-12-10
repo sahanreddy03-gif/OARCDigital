@@ -20,7 +20,7 @@ export default function Navigation() {
     { href: "/services", label: "Services" },
     { href: "/our-work", label: "Our Work" },
     { href: "/why-us", label: "Why Us" },
-    { href: "/resources", label: "Resources" },
+    { href: "/contact", label: "Contact" },
     { href: "/pricing", label: "Pricing" },
   ];
 
