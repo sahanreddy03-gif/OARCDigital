@@ -379,27 +379,28 @@ export default function HireAIEmployeesSection() {
           </p>
         </motion.div>
 
-        <motion.div 
+        <div 
           ref={scrollRef}
           className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 -mx-6 px-6 scrollbar-hide"
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.4 }}
         >
           {agents.map((agent, index) => (
-            <Link 
-              key={index} 
-              href={`/services/${agent.slug}`}
-              className="flex-shrink-0 w-[220px] md:w-[260px] snap-start group"
-              data-testid={`agent-card-${agent.slug}`}
+            <motion.div
+              key={index}
+              className="flex-shrink-0 w-[220px] md:w-[260px] snap-start"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ delay: index * 0.08, duration: 0.4, ease: "easeOut" }}
             >
-              <motion.div 
-                className="relative aspect-[3/4] overflow-hidden bg-[#0a0a0a] rounded-lg border border-white/5 hover:border-[#c4ff4d]/30 transition-all duration-500"
-                whileHover={{ y: -5, scale: 1.02 }}
-                transition={{ duration: 0.3 }}
+              <Link 
+                href={`/services/${agent.slug}`}
+                className="block group"
+                data-testid={`agent-card-${agent.slug}`}
               >
+                <div 
+                  className="relative aspect-[3/4] overflow-hidden bg-[#0a0a0a] rounded-lg border border-white/5 hover:border-[#c4ff4d]/30 transition-all duration-300 hover:-translate-y-1 hover:scale-[1.01]"
+                >
                 <img
                   src={agent.image}
                   alt={agent.title}
@@ -423,10 +424,11 @@ export default function HireAIEmployeesSection() {
                 
                 {/* Corner Accent */}
                 <div className="absolute top-3 right-3 w-6 h-6 border-t border-r border-[#c4ff4d]/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              </motion.div>
-            </Link>
+                </div>
+              </Link>
+            </motion.div>
           ))}
-        </motion.div>
+        </div>
 
         <motion.div 
           className="text-center mt-10"
