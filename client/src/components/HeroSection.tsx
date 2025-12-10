@@ -335,24 +335,42 @@ export default function HeroSection() {
                     </span>
                   </h1>
 
-                  {/* Subheading - emphasized */}
-                  <p 
-                    className="text-white max-w-none md:max-w-2xl mx-auto md:mx-0 leading-snug mb-3 md:mb-5 font-semibold tracking-wide text-[4.5vw] md:text-[clamp(1.2rem,2.1vw,1.75rem)]"
-                    style={{
-                      textShadow: '0 0 25px rgba(255, 255, 255, 0.25), 0 0 50px rgba(255, 255, 255, 0.1)'
-                    }}
-                  >
-                    Marketing Revolutionised by AI
-                  </p>
+                  {/* Subheading - emphasized with glass strip and underline */}
+                  <div className="flex justify-center md:justify-start mb-4 md:mb-6">
+                    <div 
+                      className="relative inline-block px-4 py-2 md:px-5 md:py-2.5 rounded-lg"
+                      style={{
+                        background: 'rgba(255, 255, 255, 0.08)',
+                        backdropFilter: 'blur(8px)',
+                        border: '1px solid rgba(255, 255, 255, 0.1)'
+                      }}
+                    >
+                      <p 
+                        className="text-white font-semibold tracking-wide text-[4.5vw] md:text-[clamp(1.2rem,2.1vw,1.75rem)]"
+                        style={{
+                          textShadow: '0 0 25px rgba(255, 255, 255, 0.3), 0 0 50px rgba(255, 255, 255, 0.15)'
+                        }}
+                      >
+                        Marketing Revolutionised by AI
+                      </p>
+                      {/* Subtle white underline */}
+                      <div 
+                        className="absolute bottom-1.5 left-4 right-4 h-[1px]"
+                        style={{
+                          background: 'linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent)'
+                        }}
+                      />
+                    </div>
+                  </div>
 
-                  {/* Value proposition equation */}
+                  {/* Value proposition equation - softened */}
                   <p 
-                    className="text-white/85 max-w-none md:max-w-2xl mx-auto md:mx-0 leading-snug mb-1.5 md:mb-3 font-light tracking-normal text-[3.2vw] md:text-[clamp(1rem,1.8vw,1.5rem)]"
+                    className="text-white/70 max-w-none md:max-w-2xl mx-auto md:mx-0 leading-snug mb-1.5 md:mb-3 font-light tracking-normal text-[3vw] md:text-[clamp(0.95rem,1.6vw,1.35rem)]"
                   >
                     Creative AI Talent + Custom Workflows + Growth Automation
                   </p>
                   <p 
-                    className="text-white max-w-none md:max-w-2xl mx-auto md:mx-0 leading-tight mb-4 md:mb-6 lg:mb-8 font-bold tracking-wide text-[4.8vw] md:text-[clamp(1.25rem,2.2vw,1.75rem)]"
+                    className="text-white/90 max-w-none md:max-w-2xl mx-auto md:mx-0 leading-tight mb-4 md:mb-6 lg:mb-8 font-semibold tracking-wide text-[4.5vw] md:text-[clamp(1.15rem,2vw,1.6rem)]"
                   >
                     = Less Cost + More Reach + More Sales
                   </p>
