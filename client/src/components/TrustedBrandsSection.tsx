@@ -1,72 +1,68 @@
 import { useEffect, useRef } from "react";
 import { 
+  SiInstagram,
+  SiFacebook,
+  SiYoutube,
+  SiLinkedin,
+  SiTiktok,
+  SiSnapchat,
+  SiReddit,
+  SiX,
+  SiDiscord,
+  SiTwitch,
+  SiPinterest,
+  SiThreads,
+  SiWhatsapp,
+  SiTelegram,
+  SiSpotify,
+  SiOpenai,
+  SiAnthropic,
+  SiMeta,
+  SiGoogle,
   SiFigma,
   SiNotion,
-  SiWebflow,
-  SiMailchimp,
+  SiSlack,
+  SiZoom,
+  SiCanva,
+  SiAdobe,
+  SiShopify,
   SiHubspot,
+  SiMailchimp,
   SiZapier,
   SiAirtable,
-  SiIntercom,
-  SiAsana,
-  SiMiro,
-  SiCalendly,
-  SiLoom,
-  SiClickup,
-  SiBuffer,
-  SiCanva,
-  SiCloudflare,
-  SiContentful,
-  SiDatadog,
-  SiHotjar,
-  SiLinear,
-  SiAtlassian,
-  SiCoda,
-  SiDropbox,
-  SiFramer,
-  SiMixpanel,
-  SiMural,
-  SiSentry,
-  SiVercel,
-  SiSupabase,
-  SiStripe,
-  SiTwilio,
-  SiPostman,
 } from "react-icons/si";
 
-const brands = [
-  { name: "Linear", icon: SiLinear },
-  { name: "Vercel", icon: SiVercel },
-  { name: "Supabase", icon: SiSupabase },
-  { name: "Framer", icon: SiFramer },
-  { name: "ClickUp", icon: SiClickup },
-  { name: "Mixpanel", icon: SiMixpanel },
+const platforms = [
+  { name: "Instagram", icon: SiInstagram },
+  { name: "Facebook", icon: SiFacebook },
+  { name: "YouTube", icon: SiYoutube },
+  { name: "TikTok", icon: SiTiktok },
+  { name: "X", icon: SiX },
+  { name: "LinkedIn", icon: SiLinkedin },
+  { name: "Snapchat", icon: SiSnapchat },
+  { name: "Reddit", icon: SiReddit },
+  { name: "Discord", icon: SiDiscord },
+  { name: "Twitch", icon: SiTwitch },
+  { name: "Pinterest", icon: SiPinterest },
+  { name: "Threads", icon: SiThreads },
+  { name: "WhatsApp", icon: SiWhatsapp },
+  { name: "Telegram", icon: SiTelegram },
+  { name: "Spotify", icon: SiSpotify },
+  { name: "OpenAI", icon: SiOpenai },
+  { name: "Anthropic", icon: SiAnthropic },
+  { name: "Meta", icon: SiMeta },
+  { name: "Google", icon: SiGoogle },
   { name: "Figma", icon: SiFigma },
-  { name: "Contentful", icon: SiContentful },
-  { name: "Sentry", icon: SiSentry },
-  { name: "Buffer", icon: SiBuffer },
   { name: "Notion", icon: SiNotion },
-  { name: "Datadog", icon: SiDatadog },
-  { name: "Coda", icon: SiCoda },
-  { name: "Webflow", icon: SiWebflow },
-  { name: "Hotjar", icon: SiHotjar },
-  { name: "Stripe", icon: SiStripe },
-  { name: "Mural", icon: SiMural },
-  { name: "Mailchimp", icon: SiMailchimp },
-  { name: "Cloudflare", icon: SiCloudflare },
+  { name: "Slack", icon: SiSlack },
+  { name: "Zoom", icon: SiZoom },
   { name: "Canva", icon: SiCanva },
+  { name: "Adobe", icon: SiAdobe },
+  { name: "Shopify", icon: SiShopify },
   { name: "HubSpot", icon: SiHubspot },
-  { name: "Postman", icon: SiPostman },
-  { name: "Twilio", icon: SiTwilio },
+  { name: "Mailchimp", icon: SiMailchimp },
   { name: "Zapier", icon: SiZapier },
-  { name: "Dropbox", icon: SiDropbox },
   { name: "Airtable", icon: SiAirtable },
-  { name: "Atlassian", icon: SiAtlassian },
-  { name: "Intercom", icon: SiIntercom },
-  { name: "Asana", icon: SiAsana },
-  { name: "Miro", icon: SiMiro },
-  { name: "Calendly", icon: SiCalendly },
-  { name: "Loom", icon: SiLoom },
 ];
 
 export default function TrustedBrandsSection() {
@@ -75,31 +71,27 @@ export default function TrustedBrandsSection() {
   const positionRef = useRef(0);
   const contentWidthRef = useRef(0);
   
-  // Triple brands for seamless looping
-  const tripleBrands = [...brands, ...brands, ...brands];
+  const triplePlatforms = [...platforms, ...platforms, ...platforms];
   
   useEffect(() => {
     const scrollContainer = scrollRef.current;
     if (!scrollContainer) return;
     
-    // Calculate width of one set of brands
     const children = scrollContainer.children;
     if (children.length > 0) {
       let singleSetWidth = 0;
-      for (let i = 0; i < brands.length; i++) {
+      for (let i = 0; i < platforms.length; i++) {
         const child = children[i] as HTMLElement;
-        singleSetWidth += child.offsetWidth + 48; // 48px gap (gap-12)
+        singleSetWidth += child.offsetWidth + 40;
       }
       contentWidthRef.current = singleSetWidth;
     }
     
-    // Speed: pixels per frame (slower animation)
-    const speed = 0.6;
+    const speed = 0.5;
     
     const animate = () => {
       positionRef.current += speed;
       
-      // When we've scrolled past one full set, reset seamlessly
       if (positionRef.current >= contentWidthRef.current) {
         positionRef.current = 0;
       }
@@ -119,49 +111,32 @@ export default function TrustedBrandsSection() {
 
   return (
     <section 
-      className="relative py-8 md:py-10 overflow-hidden" 
+      className="relative py-6 md:py-8 overflow-hidden" 
       style={{ backgroundColor: '#f0fff4' }}
-      data-testid="trusted-brands-section"
+      data-testid="platforms-section"
     >
-      <div className="container mx-auto px-4 md:px-6 max-w-7xl">
-        <div className="flex flex-col lg:flex-row lg:items-center lg:gap-8">
-          {/* Left: Heading - Improved Typography */}
-          <div className="flex-shrink-0 mb-4 lg:mb-0 lg:w-[220px]">
-            <p 
-              className="text-lg md:text-xl font-medium text-zinc-500 leading-snug tracking-tight"
-              data-testid="trusted-brands-heading"
+      <div className="w-full overflow-hidden relative">
+        <div className="absolute left-0 top-0 bottom-0 w-16 z-10 pointer-events-none" style={{ background: 'linear-gradient(to right, #f0fff4, transparent)' }} />
+        <div className="absolute right-0 top-0 bottom-0 w-16 z-10 pointer-events-none" style={{ background: 'linear-gradient(to left, #f0fff4, transparent)' }} />
+        
+        <div 
+          ref={scrollRef}
+          className="flex gap-10 whitespace-nowrap py-2"
+          style={{ willChange: 'transform' }}
+          data-testid="platforms-carousel"
+        >
+          {triplePlatforms.map((platform, index) => (
+            <div
+              key={`${platform.name}-${index}`}
+              className="inline-flex items-center justify-center flex-shrink-0 group"
+              data-testid={`platform-${index}`}
             >
-              Trusted by the world's top brands
-            </p>
-          </div>
-
-          {/* Right: Logo Marquee - JS Animation */}
-          <div className="flex-1 overflow-hidden relative">
-            {/* Gradient fade edges - matching soft mint */}
-            <div className="absolute left-0 top-0 bottom-0 w-12 z-10 pointer-events-none" style={{ background: 'linear-gradient(to right, #f0fff4, transparent)' }} />
-            <div className="absolute right-0 top-0 bottom-0 w-12 z-10 pointer-events-none" style={{ background: 'linear-gradient(to left, #f0fff4, transparent)' }} />
-            
-            {/* Scrolling logos - JS powered, scrolling LEFT */}
-            <div 
-              ref={scrollRef}
-              className="flex gap-12 whitespace-nowrap py-2"
-              style={{ willChange: 'transform' }}
-              data-testid="trusted-brands-carousel"
-            >
-              {tripleBrands.map((brand, index) => (
-                <div
-                  key={`${brand.name}-${index}`}
-                  className="inline-flex items-center justify-center flex-shrink-0 group cursor-pointer"
-                  data-testid={`trusted-brand-${index}`}
-                >
-                  <brand.icon
-                    className="w-6 h-6 md:w-7 md:h-7 text-zinc-300 group-hover:text-zinc-500 transition-colors duration-300"
-                    aria-label={brand.name}
-                  />
-                </div>
-              ))}
+              <platform.icon
+                className="w-5 h-5 md:w-6 md:h-6 text-zinc-300 group-hover:text-zinc-500 transition-colors duration-300"
+                aria-label={platform.name}
+              />
             </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>

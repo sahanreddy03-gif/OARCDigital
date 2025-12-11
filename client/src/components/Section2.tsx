@@ -200,13 +200,6 @@ export default function Section2() {
             <span className="text-zinc-500">and</span>{" "}
             <span className="text-zinc-800">Influencer</span>
           </h3>
-          
-          <p 
-            className="text-sm md:text-base text-zinc-500 font-medium tracking-wide uppercase mb-8"
-            data-testid="ambitious-brands-subheading"
-          >
-            Brands that trust us
-          </p>
         </div>
 
         {/* Brand logos carousel - faster animation */}
