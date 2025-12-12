@@ -113,7 +113,7 @@ export default function Contact() {
                     <Phone className="w-5 h-5 text-[#c4ff4d]" />
                   </div>
                   <div>
-                    <p className="text-xs uppercase tracking-wider text-zinc-500 mb-1">Malta HQ</p>
+                    <p className="text-xs uppercase tracking-wider text-zinc-500 mb-1">Malta</p>
                     <p className="text-lg font-semibold text-white group-hover:text-[#c4ff4d] transition-colors">+356 7971 1799</p>
                   </div>
                 </a>
