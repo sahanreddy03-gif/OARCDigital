@@ -70,7 +70,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold text-white mb-2">Call Us Directly</h3>
-                  <p className="text-zinc-400 text-sm">Speak with our team right away - offices in Malta, India & Dubai</p>
+                  <p className="text-zinc-400 text-sm">Speak with our team right away</p>
                 </div>
               </div>
               <ArrowDown className="absolute bottom-4 right-4 w-5 h-5 text-zinc-600 group-hover:text-[#23AACA] transition-colors" />
