@@ -84,6 +84,10 @@ import PDFCapabilitiesDeck from "@/pages/PDFCapabilitiesDeck";
 import LocationService from "@/pages/LocationService";
 import Comparison from "@/pages/Comparison";
 import Blog from "@/pages/Blog";
+import SeoMalta from "@/pages/blog/SeoMalta";
+import MarketingTrendsMalta from "@/pages/blog/MarketingTrendsMalta";
+import DigitalMarketingMalta from "@/pages/blog/DigitalMarketingMalta";
+import AiSolutionsMalta from "@/pages/blog/AiSolutionsMalta";
 import PrivacyPolicy from "@/pages/legal/PrivacyPolicy";
 import CookiePolicy from "@/pages/legal/CookiePolicy";
 import TermsConditions from "@/pages/legal/TermsConditions";
@@ -197,6 +201,10 @@ function Router() {
       <Route path="/comparison" component={Comparison} />
       <Route path="/why-oarc" component={Comparison} />
       <Route path="/blog" component={Blog} />
+      <Route path="/blog/seo-malta-complete-guide" component={SeoMalta} />
+      <Route path="/blog/marketing-trends-malta-2025" component={MarketingTrendsMalta} />
+      <Route path="/blog/digital-marketing-malta" component={DigitalMarketingMalta} />
+      <Route path="/blog/ai-solutions-malta" component={AiSolutionsMalta} />
 
       {/* Legal Pages - GDPR Compliance */}
       <Route path="/privacy-policy" component={PrivacyPolicy} />

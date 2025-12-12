@@ -37,6 +37,12 @@ The platform utilizes a modern web stack with a React frontend and an Express.js
     - **Branding:** Brand lab approach with color palette/typography preview hero, storytelling portfolio format, brand pillars section, touchpoint rollout display, and interactive typography exploration.
     - **Mobile Apps:** Product lifecycle approach with App Store-style hero card, product roadmap phases (MVP → v1.0 → Growth), real case studies with metrics, and native vs cross-platform tech comparison.
 -   **Advanced SEO Infrastructure:** Centralized SEO configuration, programmatic location pages (80+), auto-generated dynamic sitemap.xml, optimized robots.txt, advanced schema markup (FAQ, Review, BreadcrumbList, HowTo, VideoObject, Article, Product, Service, Event, Organization, LocalBusiness, AggregateRating), voice search optimization, intelligent internal linking, and an SEO-optimized blog system.
+-   **Malta-Focused Blog Articles (Dec 2025):** Four comprehensive SEO articles targeting Malta market:
+    - `/blog/seo-malta-complete-guide` - Complete SEO guide for Malta businesses (18 min read)
+    - `/blog/marketing-trends-malta-2025` - Marketing trends for Malta 2025 (15 min read)
+    - `/blog/digital-marketing-malta` - Digital marketing strategy guide (20 min read)
+    - `/blog/ai-solutions-malta` - AI solutions for Malta businesses (16 min read)
+    - Features: Recharts data visualizations, tables, internal linking, breadcrumb schemas
 -   **Homepage Structure:** Comprises 19 sections including a 3D Concave Carousel, brand DNA strip, service pillars, trusted brands, creative work showcase, AI employee sections, revenue automation, success metrics, case studies, testimonials, an ROI calculator, and a money-back guarantee section.
 -   **Typography System:** 9 semantic levels with fluid `clamp()` values.
 -   **Smooth Scroll System:** `AdvancedScrollReveal` component for scroll-triggered animations with variants, staggered delays, and custom easing.

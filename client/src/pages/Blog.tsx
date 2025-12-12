@@ -68,6 +68,42 @@ const blogPosts: BlogPost[] = [
     category: 'Creative Services',
     readTime: '9 min',
     publishDate: '2024-11-01'
+  },
+  {
+    slug: 'seo-malta-complete-guide',
+    title: 'SEO Malta: Complete Guide to Ranking Your Business in 2025',
+    excerpt: 'Expert guide to SEO in Malta covering local search, Google Business Profile optimization, and strategies for Maltese businesses to dominate search results.',
+    category: 'Revenue Growth',
+    readTime: '18 min',
+    publishDate: '2024-12-10',
+    featured: false
+  },
+  {
+    slug: 'marketing-trends-malta-2025',
+    title: 'Marketing Trends Malta 2025: What Every Business Needs to Know',
+    excerpt: 'Discover the top marketing trends shaping Malta\'s business landscape in 2025, from AI adoption to voice search and sustainability marketing.',
+    category: 'AI Marketing',
+    readTime: '15 min',
+    publishDate: '2024-12-08',
+    featured: false
+  },
+  {
+    slug: 'digital-marketing-malta',
+    title: 'Digital Marketing Malta: Complete Strategy Guide for 2025',
+    excerpt: 'Comprehensive digital marketing guide for Malta businesses covering SEO, social media, paid ads, and AI-powered strategies that drive real results.',
+    category: 'Revenue Growth',
+    readTime: '20 min',
+    publishDate: '2024-12-05',
+    featured: false
+  },
+  {
+    slug: 'ai-solutions-malta',
+    title: 'AI Solutions Malta: Transform Your Business with Artificial Intelligence',
+    excerpt: 'Complete guide to AI solutions for Malta businesses covering chatbots, automation, analytics, and implementation strategies with ROI projections.',
+    category: 'AI Marketing',
+    readTime: '16 min',
+    publishDate: '2024-12-01',
+    featured: false
   }
 ];
 
