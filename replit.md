@@ -21,12 +21,12 @@ The platform utilizes a modern web stack with a React frontend and an Express.js
 -   **Mobile Animations:** Three distinct ultra-premium mobile animations for different service categories, using modulo-based wrapping with RAF for 60fps GPU acceleration.
 -   **Case Studies:** Centralized metadata system for brand, category, metrics, and routing, with six featured case studies and individual pages.
 -   **Our Work Page - Premium Portfolio (Dec 2025):** Redesigned with professional yet creative aesthetic featuring:
-    - Two-column hero with high-quality featured image and refined dot-matrix pattern background
-    - Orange (#ff914d) brand accents throughout: "Excellence" headline accent, filter tabs, stats icons, CTA buttons
+    - Full-width bokeh background hero with dark overlays for text readability
+    - Orange (#ff914d) brand accents throughout: "Excellence" headline accent, filter tabs, CTA buttons
     - Clean filter tabs with orange active states (All Work, Creative & Marketing, AI & Automation, Featured)
     - Premium case study cards with subtle hover effects (scale, shadow) - no glow effects
     - AI category badges with orange tint, creative with neutral styling
-    - Stats section with orange icon accents
+    - Streamlined design: removed stats sections for cleaner visual flow
     - Professional CTA with orange "Extraordinary" accent text
 -   **PDF Marketing Collateral:** Professional, print-ready HTML-based PDF documents for client proposals with a premium design aesthetic.
 -   **AI Employee & Revenue Service Pages:** Feature an "Elevated Monochrome Futurism" design with custom grayscale hero images, animated grid backgrounds, glassmorphism effects, integration hub visualizations, and workflow diagrams.
