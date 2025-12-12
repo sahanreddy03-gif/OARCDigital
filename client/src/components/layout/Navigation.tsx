@@ -42,13 +42,13 @@ export default function Navigation() {
               data-testid="img-logo"
             />
             <span 
-              className="text-white text-base md:text-lg tracking-[0.08em] font-light" 
-              style={{ fontFamily: "'Montserrat', system-ui, sans-serif", textShadow }}
+              className="font-logo text-zinc-400 text-lg md:text-xl lg:text-2xl tracking-[0.02em]" 
+              style={{ textShadow }}
             >
-              <span className="font-semibold">O</span>
-              <span className="text-[0.85em]">arc</span>
-              <span className="ml-1 font-semibold">D</span>
-              <span className="text-[0.85em]">igital</span>
+              <span className="text-white font-medium">O</span>
+              <span className="font-normal">arc</span>
+              <span className="ml-1.5 text-white font-medium">D</span>
+              <span className="font-normal">igital</span>
             </span>
           </Link>
 

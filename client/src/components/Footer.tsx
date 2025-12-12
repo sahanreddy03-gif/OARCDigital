@@ -241,8 +241,14 @@ export default function Footer() {
               style={{ filter: 'drop-shadow(0 2px 8px rgba(0, 0, 0, 0.5))' }}
               data-testid="img-footer-logo"
             />
-            <span className="text-white text-xl md:text-2xl tracking-[0.25em] font-normal" style={{ fontVariant: 'small-caps' }}>
-              Oarc Digital
+            <span 
+              className="font-logo text-zinc-400 text-xl md:text-2xl tracking-[0.02em]"
+              data-testid="text-footer-logo-name"
+            >
+              <span className="text-white font-medium">O</span>
+              <span className="font-normal">arc</span>
+              <span className="ml-1.5 text-white font-medium">D</span>
+              <span className="font-normal">igital</span>
             </span>
           </div>
 
