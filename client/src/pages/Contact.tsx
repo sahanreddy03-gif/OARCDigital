@@ -4,6 +4,7 @@ import { supportingPagesSEO } from "@/data/seoMetadata";
 import ContactForm from "@/components/contact/ContactForm";
 import { Mail, Phone, MessageCircle, MapPin, Clock, ArrowDown } from "lucide-react";
 import { Link } from "wouter";
+import contactBokehBg from "@assets/contact-bokeh-bg.jpg";
 
 export default function Contact() {
   const scrollToSection = (id: string) => {
@@ -20,22 +21,24 @@ export default function Contact() {
       />
       
       {/* Hero Section with Two Options */}
-      <section className="relative bg-gradient-to-br from-zinc-950 via-zinc-900 to-black pt-32 pb-20 overflow-hidden">
-        {/* Subtle grid background */}
-        <div className="absolute inset-0 opacity-20" 
-          style={{ 
-            backgroundImage: 'radial-gradient(circle at center, rgba(255,255,255,0.1) 1px, transparent 1px)', 
-            backgroundSize: '32px 32px' 
-          }} 
+      <section className="relative bg-zinc-950 pt-32 pb-20 overflow-hidden">
+        {/* Bokeh background image */}
+        <img 
+          src={contactBokehBg} 
+          alt="" 
+          className="absolute inset-0 w-full h-full object-cover opacity-30"
+          loading="eager"
         />
+        {/* Dark overlay for text readability */}
+        <div className="absolute inset-0 bg-gradient-to-b from-zinc-950/80 via-zinc-950/70 to-zinc-950" />
         
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-12">
-            <p className="text-[#c4ff4d] uppercase tracking-[0.2em] text-xs font-medium mb-4">Get in Touch</p>
+            <p className="text-[#ff914d] uppercase tracking-[0.2em] text-xs font-medium mb-4">Get in Touch</p>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-              Let's build something <span className="italic text-[#c4ff4d]">remarkable</span>
+              Let's build something <span className="italic text-[#ff914d]">remarkable</span>
             </h1>
-            <p className="text-lg text-zinc-400">
+            <p className="text-lg text-white/70">
               We're here to help bring your vision to life. Choose how you'd like to connect with us.
             </p>
           </div>
@@ -44,41 +47,41 @@ export default function Contact() {
           <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
             <button 
               onClick={() => scrollToSection('message-form')}
-              className="group relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 text-left hover:bg-white/10 hover:border-[#c4ff4d]/30 transition-all duration-300"
+              className="group relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 text-left hover:bg-white/10 hover:border-[#ff914d]/30 transition-all duration-300"
               data-testid="button-send-message"
             >
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-xl bg-[#c4ff4d]/10 flex items-center justify-center flex-shrink-0">
-                  <MessageCircle className="w-6 h-6 text-[#c4ff4d]" />
+                <div className="w-12 h-12 rounded-xl bg-[#ff914d]/10 flex items-center justify-center flex-shrink-0">
+                  <MessageCircle className="w-6 h-6 text-[#ff914d]" />
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold text-white mb-2">Send us a Message</h3>
-                  <p className="text-zinc-400 text-sm">Fill out our quick form and we'll get back to you within 24 hours</p>
+                  <p className="text-white/60 text-sm">Fill out our quick form and we'll get back to you within 24 hours</p>
                 </div>
               </div>
-              <ArrowDown className="absolute bottom-4 right-4 w-5 h-5 text-zinc-600 group-hover:text-[#c4ff4d] transition-colors" />
+              <ArrowDown className="absolute bottom-4 right-4 w-5 h-5 text-white/40 group-hover:text-[#ff914d] transition-colors" />
             </button>
 
             <button 
               onClick={() => scrollToSection('call-section')}
-              className="group relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 text-left hover:bg-white/10 hover:border-[#23AACA]/30 transition-all duration-300"
+              className="group relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 text-left hover:bg-white/10 hover:border-white/30 transition-all duration-300"
               data-testid="button-call-us"
             >
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-xl bg-[#23AACA]/10 flex items-center justify-center flex-shrink-0">
-                  <Phone className="w-6 h-6 text-[#23AACA]" />
+                <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center flex-shrink-0">
+                  <Phone className="w-6 h-6 text-white" />
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold text-white mb-2">Call Us Directly</h3>
-                  <p className="text-zinc-400 text-sm">Speak with our team right away</p>
+                  <p className="text-white/60 text-sm">Speak with our team right away</p>
                 </div>
               </div>
-              <ArrowDown className="absolute bottom-4 right-4 w-5 h-5 text-zinc-600 group-hover:text-[#23AACA] transition-colors" />
+              <ArrowDown className="absolute bottom-4 right-4 w-5 h-5 text-white/40 group-hover:text-white transition-colors" />
             </button>
           </div>
 
           {/* Trust Badge */}
-          <div className="flex items-center justify-center gap-2 mt-10 text-zinc-500 text-sm">
+          <div className="flex items-center justify-center gap-2 mt-10 text-white/50 text-sm">
             <Clock className="w-4 h-4" />
             <span>Average response time: 4 hours</span>
           </div>
@@ -93,43 +96,43 @@ export default function Contact() {
             {/* Contact Form */}
             <div id="message-form">
               <h2 className="text-2xl font-bold text-white mb-2">Send us a Message</h2>
-              <p className="text-zinc-400 mb-8">Tell us about your project and we'll be in touch soon.</p>
+              <p className="text-white/60 mb-8">Tell us about your project and we'll be in touch soon.</p>
               <ContactForm />
             </div>
 
             {/* Call Us Section */}
             <div id="call-section" className="lg:pt-12">
               <h2 className="text-2xl font-bold text-white mb-2">Call Us Directly</h2>
-              <p className="text-zinc-400 mb-8">Prefer to talk? Reach our team across three continents.</p>
+              <p className="text-white/60 mb-8">Prefer to talk? Reach our team directly.</p>
 
               <div className="space-y-6">
                 {/* Phone - Malta */}
                 <a 
                   href="tel:+35679711799" 
-                  className="flex items-center gap-4 p-5 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 hover:border-[#c4ff4d]/30 transition-all group"
+                  className="flex items-center gap-4 p-5 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 hover:border-[#ff914d]/30 transition-all group"
                   data-testid="link-call-malta"
                 >
-                  <div className="w-12 h-12 rounded-full bg-[#c4ff4d]/10 flex items-center justify-center flex-shrink-0">
-                    <Phone className="w-5 h-5 text-[#c4ff4d]" />
+                  <div className="w-12 h-12 rounded-full bg-[#ff914d]/10 flex items-center justify-center flex-shrink-0">
+                    <Phone className="w-5 h-5 text-[#ff914d]" />
                   </div>
                   <div>
-                    <p className="text-xs uppercase tracking-wider text-zinc-500 mb-1">Malta</p>
-                    <p className="text-lg font-semibold text-white group-hover:text-[#c4ff4d] transition-colors">+356 7971 1799</p>
+                    <p className="text-xs uppercase tracking-wider text-white/50 mb-1">Malta</p>
+                    <p className="text-lg font-semibold text-white group-hover:text-[#ff914d] transition-colors">+356 7971 1799</p>
                   </div>
                 </a>
 
                 {/* Phone - India */}
                 <a 
                   href="tel:+919900555588" 
-                  className="flex items-center gap-4 p-5 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 hover:border-[#23AACA]/30 transition-all group"
+                  className="flex items-center gap-4 p-5 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 hover:border-[#ff914d]/30 transition-all group"
                   data-testid="link-call-india"
                 >
-                  <div className="w-12 h-12 rounded-full bg-[#23AACA]/10 flex items-center justify-center flex-shrink-0">
-                    <Phone className="w-5 h-5 text-[#23AACA]" />
+                  <div className="w-12 h-12 rounded-full bg-[#ff914d]/10 flex items-center justify-center flex-shrink-0">
+                    <Phone className="w-5 h-5 text-[#ff914d]" />
                   </div>
                   <div>
-                    <p className="text-xs uppercase tracking-wider text-zinc-500 mb-1">India Office</p>
-                    <p className="text-lg font-semibold text-white group-hover:text-[#23AACA] transition-colors">+91 99005 55588</p>
+                    <p className="text-xs uppercase tracking-wider text-white/50 mb-1">India</p>
+                    <p className="text-lg font-semibold text-white group-hover:text-[#ff914d] transition-colors">+91 99005 55588</p>
                   </div>
                 </a>
 
@@ -143,7 +146,7 @@ export default function Contact() {
                     <Phone className="w-5 h-5 text-[#ff914d]" />
                   </div>
                   <div>
-                    <p className="text-xs uppercase tracking-wider text-zinc-500 mb-1">Dubai Office</p>
+                    <p className="text-xs uppercase tracking-wider text-white/50 mb-1">Dubai</p>
                     <p className="text-lg font-semibold text-white group-hover:text-[#ff914d] transition-colors">+971 52 647 2981</p>
                   </div>
                 </a>
