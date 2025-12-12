@@ -12,7 +12,7 @@ The platform utilizes a modern web stack with a React frontend and an Express.js
 **Frontend:**
 -   **Framework & Language:** React 18+ with TypeScript, powered by Vite.
 -   **UI/Styling:** Shadcn/ui (New York style) based on Radix UI, Tailwind CSS with a custom HSL-based color palette. Typography uses Montserrat (headings), Nunito Sans (body), and EB Garamond (logo). Extensive CSS animations, including Framer Motion for scroll effects, and `ScrollReveal` with Intersection Observer for fade-in animations.
--   **Logo Typography:** "OARC Digital" uses EB Garamond serif font with "O" in orange (#ff914d), "D" in white, and "arc"/"igital" in muted zinc-400 gray. Consistent styling across navigation and footer via `.font-logo` CSS utility class.
+-   **Logo Typography:** "OARC Digital" uses EB Garamond serif font with "O" in orange (#ff914d) and slightly larger than other letters, "arc", "D", and "igital" all bold white. Consistent styling across navigation and footer via `.font-logo` CSS utility class.
 -   **State Management & Routing:** Wouter for client-side routing, TanStack Query for server state management, and React Hook Form with Zod for form validation.
 -   **Design System:** Features a two-palette color system (primary green, orange-600 accents, with teal/turquoise and blue/purple brand colors), responsive typography, and performance-optimized CSS animations.
 -   **Key Features:** Comprehensive homepage, 25 specialized service pages (creative, growth, AI services), consistent component standards, SPA-safe Open Graph tags, and mobile-first responsive design.
