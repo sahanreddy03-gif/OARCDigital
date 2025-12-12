@@ -46,7 +46,7 @@ const RankingProgress = [
 ];
 
 export default function SeoMalta() {
-    const publishDate = '2024-12-15';
+    const publishDate = '2025-12-11';
 
     return (
         <Layout>

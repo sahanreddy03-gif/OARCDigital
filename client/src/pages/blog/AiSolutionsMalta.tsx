@@ -51,7 +51,7 @@ const ImplementationTimeline = [
 ];
 
 export default function AiSolutionsMalta() {
-    const publishDate = '2024-12-20';
+    const publishDate = '2025-12-11';
 
     return (
         <Layout>
