@@ -6,7 +6,7 @@ import { caseStudies, CaseStudy } from "@/data/caseStudies";
 import SEOHead from "@/components/SEOHead";
 import { supportingPagesSEO } from "@/data/seoMetadata";
 import { motion } from "framer-motion";
-import heroImage from "@assets/stock_images/creative_agency_port_948bfb7d.jpg";
+import heroBgImage from "@assets/IMG_8144_1765567236984.jpeg";
 
 const AI_CATEGORIES = [
   'AI Solutions',
@@ -82,77 +82,44 @@ export default function OurWork() {
         ogType={supportingPagesSEO.ourWork.ogType}
       />
       
-      {/* Premium Hero Section with Featured Image */}
-      <section className="relative min-h-[auto] pt-24 pb-12 md:min-h-[85vh] md:pt-0 md:pb-0 flex items-center overflow-hidden bg-zinc-950">
-        {/* Refined Dot Matrix Pattern */}
-        <div className="absolute inset-0 opacity-[0.03]" style={{
-          backgroundImage: `radial-gradient(circle at 1px 1px, white 1px, transparent 1px)`,
-          backgroundSize: '32px 32px'
-        }} />
-        
-        {/* Subtle Orange Accent Gradient */}
-        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-gradient-to-bl from-[#ff914d]/5 via-transparent to-transparent rounded-full blur-[200px]" />
+      {/* Premium Hero Section with Full Background */}
+      <section className="relative min-h-[60vh] pt-24 pb-16 md:min-h-[70vh] md:pt-32 md:pb-20 flex items-center overflow-hidden">
+        {/* Full Background Image */}
+        <div className="absolute inset-0">
+          <img 
+            src={heroBgImage} 
+            alt="Creative bokeh background" 
+            className="w-full h-full object-cover"
+          />
+          {/* Dark overlay for text readability */}
+          <div className="absolute inset-0 bg-gradient-to-r from-zinc-950/90 via-zinc-950/70 to-zinc-950/50" />
+          <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/80 via-transparent to-zinc-950/40" />
+        </div>
         
         <div className="max-w-7xl mx-auto px-6 md:px-12 w-full relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            {/* Left Content */}
-            <motion.div 
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.7 }}
-            >
-              {/* Elegant Label */}
-              <div className="inline-flex items-center gap-2 mb-8">
-                <div className="w-8 h-[2px] bg-[#ff914d]" />
-                <span className="text-sm font-medium text-white/60 tracking-widest uppercase">Portfolio</span>
-              </div>
-              
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-[1.05] tracking-tight">
-                <span className="text-white">Work That</span>
-                <br />
-                <span className="text-white">Defines </span>
-                <span className="text-[#ff914d]">Excellence</span>
-              </h1>
-              
-              <p className="text-lg md:text-xl text-white/50 leading-relaxed max-w-lg">
-                Award-winning campaigns, AI transformations, and creative strategies that set the standard for premium brands worldwide.
-              </p>
-            </motion.div>
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            className="max-w-2xl"
+          >
+            {/* Elegant Label */}
+            <div className="inline-flex items-center gap-2 mb-8">
+              <div className="w-8 h-[2px] bg-[#ff914d]" />
+              <span className="text-sm font-medium text-white/80 tracking-widest uppercase">Portfolio</span>
+            </div>
             
-            {/* Right - Featured Image */}
-            <motion.div 
-              className="relative"
-              initial={{ opacity: 0, x: 30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.7, delay: 0.2 }}
-            >
-              <div className="relative rounded-2xl overflow-hidden aspect-[4/3] lg:aspect-square">
-                <img 
-                  src={heroImage} 
-                  alt="Creative portfolio showcase" 
-                  className="w-full h-full object-cover"
-                />
-                {/* Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/60 via-transparent to-transparent" />
-                <div className="absolute inset-0 bg-gradient-to-r from-zinc-950/40 via-transparent to-transparent" />
-                
-                {/* Accent Border */}
-                <div className="absolute inset-0 rounded-2xl border border-white/10" />
-                
-                {/* Small Floating Badge */}
-                <div className="absolute bottom-6 left-6 bg-zinc-900/90 backdrop-blur-md px-4 py-3 rounded-xl border border-white/10">
-                  <div className="flex items-center gap-3">
-                    <div className="w-2 h-2 rounded-full bg-[#ff914d] animate-pulse" />
-                    <span className="text-sm font-medium text-white/80">Award-Winning Creative</span>
-                  </div>
-                </div>
-              </div>
-              
-              {/* Decorative Elements */}
-              <div className="absolute -bottom-4 -right-4 w-24 h-24 border border-[#ff914d]/20 rounded-2xl -z-10" />
-              <div className="absolute -top-4 -left-4 w-16 h-16 border border-white/5 rounded-xl -z-10" />
-            </motion.div>
-          </div>
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-[1.05] tracking-tight">
+              <span className="text-white">Work That</span>
+              <br />
+              <span className="text-white">Defines </span>
+              <span className="text-[#ff914d]">Excellence</span>
+            </h1>
+            
+            <p className="text-lg md:text-xl text-white/70 leading-relaxed max-w-lg">
+              Award-winning campaigns, AI transformations, and creative strategies that set the standard for premium brands worldwide.
+            </p>
+          </motion.div>
         </div>
       </section>
 
