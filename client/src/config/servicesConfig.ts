@@ -167,6 +167,12 @@ export const servicesCatalog: Record<string, ServiceCategory> = {
         icon: Building2,
         description: 'Property matching, lead qualification, tour booking, client communication'
       },
+      { 
+        title: 'AI Consulting', 
+        slug: 'ai-consulting', 
+        icon: Cpu,
+        description: 'AI readiness assessment, tool recommendations, implementation roadmap, training'
+      },
     ]
   },
   
@@ -260,6 +266,12 @@ export const servicesCatalog: Record<string, ServiceCategory> = {
         slug: 'api-integration-services', 
         icon: Link2,
         description: 'System connections, custom API development, third-party integrations, workflow automation'
+      },
+      { 
+        title: 'AI Consulting', 
+        slug: 'ai-consulting', 
+        icon: Cpu,
+        description: 'AI readiness assessment, tool recommendations, implementation roadmap, training'
       },
     ]
   }

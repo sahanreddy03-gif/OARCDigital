@@ -22,21 +22,21 @@ const services = [
     title: "Custom AI Solutions",
     metric: "Tailored to you",
     image: customAISolutionsRobotsImage,
-    slug: "custom-ai-solutions",
+    slug: "custom-software-development",
     objectPosition: "center top"
   },
   {
     title: "Mobile Applications",
     metric: "iOS & Android",
     image: mobileAppsRobotImage,
-    slug: "mobile-app-development",
+    slug: "mobile-apps-development",
     objectPosition: "center"
   },
   {
     title: "Web Applications",
     metric: "Enterprise-grade",
     image: webApplicationsImage,
-    slug: "web-app-development",
+    slug: "web-application-development",
     objectPosition: "center"
   },
   {
