@@ -83,7 +83,17 @@ function AnimatedCounterInline({ value, suffix = '', isInView }: { value: number
 
 export default function Services() {
   const categories = getAllCategories();
-  const [activeCategory, setActiveCategory] = useState('creativeDesign');
+  const validCategoryIds = categories.map(c => c.id);
+  
+  const getInitialCategory = () => {
+    const hash = window.location.hash.slice(1);
+    if (hash && validCategoryIds.includes(hash)) {
+      return hash;
+    }
+    return 'creativeDesign';
+  };
+  
+  const [activeCategory, setActiveCategory] = useState(getInitialCategory);
   const heroRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: heroRef,
@@ -99,10 +109,27 @@ export default function Services() {
   const getUniqueServices = (category: typeof categories[0]) => {
     return category.items.filter(item => item.slug !== category.featured.slug);
   };
+  
+  const handleCategoryChange = (categoryId: string) => {
+    setActiveCategory(categoryId);
+    window.history.replaceState(null, '', `#${categoryId}`);
+  };
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+  
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash.slice(1);
+      if (hash && validCategoryIds.includes(hash)) {
+        setActiveCategory(hash);
+      }
+    };
+    
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, [validCategoryIds]);
 
   return (
     <Layout>
@@ -321,7 +348,7 @@ export default function Services() {
               return (
                 <motion.button
                   key={category.id}
-                  onClick={() => setActiveCategory(category.id)}
+                  onClick={() => handleCategoryChange(category.id)}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   className={`relative group px-8 py-4 rounded-full font-bold text-base md:text-lg transition-all ${

@@ -175,17 +175,23 @@ export const servicesCatalog: Record<string, ServiceCategory> = {
     title: 'Growth Automation Systems',
     description: 'End-to-end automation engines that optimize pipelines, acquire customers, and scale growth',
     featured: {
-      title: 'Marketing Automation',
-      slug: 'marketing-automation-suite',
+      title: 'AI Consulting',
+      slug: 'ai-consulting',
       badge: 'Popular',
-      icon: Workflow,
-      description: 'Email sequences, workflow automation, lead nurturing, drip campaigns'
+      icon: Cpu,
+      description: 'AI readiness assessment, tool recommendations, implementation roadmap, training'
     },
     items: [
       { 
+        title: 'AI Consulting', 
+        slug: 'ai-consulting', 
+        badge: 'Popular',
+        icon: Cpu,
+        description: 'AI readiness assessment, tool recommendations, implementation roadmap, training'
+      },
+      { 
         title: 'Marketing Automation', 
         slug: 'marketing-automation-suite', 
-        badge: 'Popular',
         icon: Workflow,
         description: 'Email sequences, workflow automation, lead nurturing, drip campaigns'
       },
@@ -207,12 +213,6 @@ export const servicesCatalog: Record<string, ServiceCategory> = {
         slug: 'growth-strategy', 
         icon: Lightbulb,
         description: 'Market validation, growth experiments, strategic planning, scaling roadmaps'
-      },
-      { 
-        title: 'AI Consulting', 
-        slug: 'ai-consulting', 
-        icon: Cpu,
-        description: 'AI readiness assessment, tool recommendations, implementation roadmap, training'
       },
       { 
         title: 'Performance Analytics & Reporting', 
