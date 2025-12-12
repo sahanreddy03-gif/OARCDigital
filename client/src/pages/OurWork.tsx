@@ -1,11 +1,11 @@
-import { useEffect, useState, useMemo, useRef } from 'react';
+import { useEffect, useState, useMemo } from 'react';
 import Layout from "@/components/layout/Layout";
 import { Link } from "wouter";
-import { ArrowUpRight, Bot, Palette, Grid3X3, Sparkles, TrendingUp, Award, Users, Zap } from "lucide-react";
+import { ArrowUpRight, Bot, Palette, Grid3X3, Sparkles } from "lucide-react";
 import { caseStudies, CaseStudy } from "@/data/caseStudies";
 import SEOHead from "@/components/SEOHead";
 import { supportingPagesSEO } from "@/data/seoMetadata";
-import { motion, useReducedMotion, useInView, useSpring, useMotionValue } from "framer-motion";
+import { motion } from "framer-motion";
 import heroImage from "@assets/stock_images/creative_agency_port_948bfb7d.jpg";
 
 const AI_CATEGORIES = [
@@ -51,45 +51,6 @@ const featuredSlugs = [
   'luxe-essence'
 ];
 
-function AnimatedCounter({ value, suffix = "", prefix = "" }: { 
-  value: number; 
-  suffix?: string; 
-  prefix?: string;
-}) {
-  const ref = useRef<HTMLSpanElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-  const prefersReducedMotion = useReducedMotion();
-  
-  const motionValue = useMotionValue(0);
-  const springValue = useSpring(motionValue, {
-    damping: 50,
-    stiffness: 100
-  });
-  
-  const [displayValue, setDisplayValue] = useState(0);
-  
-  useEffect(() => {
-    if (isInView && !prefersReducedMotion) {
-      motionValue.set(value);
-    } else if (prefersReducedMotion || isInView) {
-      setDisplayValue(value);
-    }
-  }, [isInView, value, motionValue, prefersReducedMotion]);
-  
-  useEffect(() => {
-    const unsubscribe = springValue.on("change", (latest) => {
-      setDisplayValue(Math.round(latest));
-    });
-    return unsubscribe;
-  }, [springValue]);
-  
-  return (
-    <span ref={ref}>
-      {prefix}{displayValue.toLocaleString()}{suffix}
-    </span>
-  );
-}
-
 export default function OurWork() {
   const [activeFilter, setActiveFilter] = useState('all');
   
@@ -122,7 +83,7 @@ export default function OurWork() {
       />
       
       {/* Premium Hero Section with Featured Image */}
-      <section className="relative min-h-[85vh] flex items-center overflow-hidden bg-zinc-950">
+      <section className="relative min-h-[auto] pt-24 pb-12 md:min-h-[85vh] md:pt-0 md:pb-0 flex items-center overflow-hidden bg-zinc-950">
         {/* Refined Dot Matrix Pattern */}
         <div className="absolute inset-0 opacity-[0.03]" style={{
           backgroundImage: `radial-gradient(circle at 1px 1px, white 1px, transparent 1px)`,
@@ -153,33 +114,9 @@ export default function OurWork() {
                 <span className="text-[#ff914d]">Excellence</span>
               </h1>
               
-              <p className="text-lg md:text-xl text-white/50 leading-relaxed max-w-lg mb-10">
+              <p className="text-lg md:text-xl text-white/50 leading-relaxed max-w-lg">
                 Award-winning campaigns, AI transformations, and creative strategies that set the standard for premium brands worldwide.
               </p>
-              
-              {/* Compact Stats */}
-              <div className="flex items-center gap-8">
-                <div>
-                  <div className="text-3xl md:text-4xl font-bold text-white">
-                    <AnimatedCounter value={allCaseStudies.length} suffix="+" />
-                  </div>
-                  <div className="text-sm text-white/40 mt-1">Case Studies</div>
-                </div>
-                <div className="w-px h-12 bg-white/10" />
-                <div>
-                  <div className="text-3xl md:text-4xl font-bold text-white">
-                    <AnimatedCounter value={200} suffix="+" />
-                  </div>
-                  <div className="text-sm text-white/40 mt-1">Brands Served</div>
-                </div>
-                <div className="w-px h-12 bg-white/10 hidden md:block" />
-                <div className="hidden md:block">
-                  <div className="text-3xl md:text-4xl font-bold text-white">
-                    <AnimatedCounter value={340} suffix="%" />
-                  </div>
-                  <div className="text-sm text-white/40 mt-1">Avg. ROI</div>
-                </div>
-              </div>
             </motion.div>
             
             {/* Right - Featured Image */}
@@ -351,37 +288,6 @@ export default function OurWork() {
               <p className="text-white/40 text-lg">No case studies found for this filter.</p>
             </div>
           )}
-        </div>
-      </section>
-
-      {/* Stats Section - Clean & Professional */}
-      <section className="relative py-20 overflow-hidden bg-zinc-900 border-t border-white/5">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
-            {[
-              { value: 50, suffix: 'M+', prefix: '€', label: 'Revenue Generated', icon: TrendingUp },
-              { value: 200, suffix: '+', prefix: '', label: 'Brands Served', icon: Users },
-              { value: 340, suffix: '%', prefix: '', label: 'Average ROI', icon: Zap },
-              { value: 6, suffix: '', prefix: '', label: 'Industries', icon: Award }
-            ].map((stat, idx) => (
-              <motion.div 
-                key={idx} 
-                className="text-center"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: idx * 0.1 }}
-              >
-                <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl mb-4 bg-[#ff914d]/10 border border-[#ff914d]/20">
-                  <stat.icon className="w-5 h-5 text-[#ff914d]" />
-                </div>
-                <div className="text-3xl md:text-4xl font-bold text-white">
-                  <AnimatedCounter value={stat.value} suffix={stat.suffix} prefix={stat.prefix} />
-                </div>
-                <div className="text-sm text-white/40 mt-2 font-medium">{stat.label}</div>
-              </motion.div>
-            ))}
-          </div>
         </div>
       </section>
 
