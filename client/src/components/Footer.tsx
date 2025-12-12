@@ -242,13 +242,13 @@ export default function Footer() {
               data-testid="img-footer-logo"
             />
             <span 
-              className="font-logo text-zinc-400 text-xl md:text-2xl tracking-[0.02em]"
+              className="font-logo text-white text-xl md:text-2xl lg:text-3xl tracking-[0.02em] font-bold"
               data-testid="text-footer-logo-name"
             >
-              <span className="text-[#ff914d] font-medium">O</span>
-              <span className="font-normal">arc</span>
-              <span className="ml-1.5 text-white font-medium">D</span>
-              <span className="font-normal">igital</span>
+              <span className="text-[#ff914d] text-2xl md:text-3xl lg:text-4xl">O</span>
+              <span>arc</span>
+              <span className="ml-1.5">D</span>
+              <span>igital</span>
             </span>
           </div>
 
