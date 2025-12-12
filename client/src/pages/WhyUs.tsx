@@ -104,27 +104,27 @@ export default function WhyUs() {
       />
 
       {/* 1. HERO */}
-      <section className="hero-section-why-us relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-black -mt-20" data-testid="section-hero">
+      <section className="hero-section-why-us relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-zinc-950 -mt-20" data-testid="section-hero">
         <img
           ref={heroImgRef}
           src={heroImg}
           alt="OARC Digital Forest"
-          className="absolute inset-0 w-full h-full object-cover opacity-60 mix-blend-screen"
+          className="absolute inset-0 w-full h-full object-cover opacity-50"
           data-testid="img-hero"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-[#0A0E27]"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-zinc-950/90 via-zinc-950/60 to-zinc-950"></div>
 
         <div className="relative z-10 text-center px-6 max-w-6xl mx-auto pt-20">
-          <p className="text-sm font-bold tracking-[0.3em] uppercase text-[#00D9FF] mb-8" data-testid="text-hero-kicker">
+          <p className="text-sm font-bold tracking-[0.3em] uppercase text-[#ff914d] mb-8" data-testid="text-hero-kicker">
             Origin Story
           </p>
           <h1 className="text-5xl md:text-8xl font-black text-white mb-8 leading-[0.9]" data-testid="heading-hero">
             Born in <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00D9FF] to-lime-400">
+            <span className="text-[#ff914d]">
               The AI Era.
             </span>
           </h1>
-          <p className="text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto font-light leading-relaxed" data-testid="text-hero-description">
+          <p className="text-xl md:text-2xl text-white/70 max-w-3xl mx-auto font-light leading-relaxed" data-testid="text-hero-description">
             Founded in 2023 with a singular mission: <br />
             <strong className="text-white font-bold">Replace the broken agency model forever.</strong>
           </p>
@@ -132,22 +132,22 @@ export default function WhyUs() {
       </section>
 
       {/* 2. THE PROBLEM (Origin) */}
-      <section className="bg-[#0A0E27] py-24 relative overflow-hidden text-white border-b border-white/5" data-testid="section-origin">
+      <section className="bg-zinc-950 py-24 relative overflow-hidden text-white border-b border-white/5" data-testid="section-origin">
         <div className="max-w-7xl mx-auto px-6">
           <ScrollReveal>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center mb-20">
               <div>
-                <h2 className="text-4xl md:text-5xl font-bold mb-6" data-testid="heading-origin">Why start in <span className="text-[#00D9FF]">2023</span>?</h2>
-                <p className="text-lg text-slate-400 mb-6 leading-relaxed">
+                <h2 className="text-4xl md:text-5xl font-bold mb-6" data-testid="heading-origin">Why start in <span className="text-[#ff914d]">2023</span>?</h2>
+                <p className="text-lg text-white/60 mb-6 leading-relaxed">
                   Traditional agencies were charging fortunes for manual work. We saw a better way.
                 </p>
-                <p className="text-lg text-slate-400 mb-6 leading-relaxed">
-                  OARC Digital was built from day one as an "Operating System" for growth. No bloated teams. No slow approvals. Just elite creative direction amplified by infinite AI execution.
+                <p className="text-lg text-white/60 mb-6 leading-relaxed">
+                  OARC Digital was built from day one as an "Operating System" for growth. No bloated teams. No slow approvals. Just elite creative direction amplified by AI execution.
                 </p>
               </div>
               <div className="relative">
                 <img src={birthTeam} className="rounded-2xl shadow-2xl border border-white/10 opacity-90 hover:opacity-100 transition-opacity" alt="Founding Team" data-testid="img-team" />
-                <div className="absolute -bottom-6 -right-6 bg-white text-black p-6 rounded-xl shadow-xl max-w-xs hidden md:block">
+                <div className="absolute -bottom-6 -right-6 bg-[#ff914d] text-zinc-950 p-6 rounded-xl shadow-xl max-w-xs hidden md:block">
                   <p className="font-bold text-lg">"Outcomes over Hours."</p>
                 </div>
               </div>
@@ -157,11 +157,11 @@ export default function WhyUs() {
       </section>
 
       {/* 3. THE TIMELINE (2023, 2024, 2025) */}
-      <section className="bg-[#0A0E27] py-24 relative overflow-hidden" data-testid="section-timeline">
+      <section className="bg-zinc-950 py-24 relative overflow-hidden" data-testid="section-timeline">
         <div className="max-w-7xl mx-auto px-6">
           <div className="relative">
-            {/* Neon Spine */}
-            <div className="absolute left-[20px] md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#00D9FF] via-lime-400 to-[#00D9FF] opacity-30"></div>
+            {/* Timeline Spine */}
+            <div className="absolute left-[20px] md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#ff914d] via-white/20 to-[#ff914d] opacity-40"></div>
 
             {/* 2023: MALTA */}
             <ScrollReveal delay={100}>
@@ -169,17 +169,17 @@ export default function WhyUs() {
                 <div className="md:w-1/2 md:pr-16 md:text-right pl-12 md:pl-0">
                   <h3 className="text-6xl font-black text-white/10 absolute -top-10 left-0 md:left-auto md:right-0">2023</h3>
                   <h4 className="text-3xl font-bold text-white mb-4 relative z-10">Founding The Hub</h4>
-                  <p className="text-slate-400 text-lg">
+                  <p className="text-white/60 text-lg">
                     We established our HQ in Malta. A strategic European hub perfect for global reach.
                   </p>
                 </div>
 
-                <div className="absolute left-0 md:left-1/2 w-10 h-10 rounded-full bg-[#00D9FF] border-4 border-[#0A0E27] shadow-[0_0_20px_#00D9FF] z-20 transform -translate-x-[19px] md:-translate-x-1/2 flex items-center justify-center">
-                  <Rocket className="w-5 h-5 text-[#0A0E27]" />
+                <div className="absolute left-0 md:left-1/2 w-10 h-10 rounded-full bg-[#ff914d] border-4 border-zinc-950 z-20 transform -translate-x-[19px] md:-translate-x-1/2 flex items-center justify-center">
+                  <Rocket className="w-5 h-5 text-zinc-950" />
                 </div>
 
                 <div className="md:w-1/2 md:pl-16 pl-12 mt-6 md:mt-0">
-                  <img src={maltaHub} className="rounded-xl border border-white/10 w-full h-[300px] object-cover hover:scale-105 transition-transform duration-700 shadow-2xl" alt="Malta HQ" data-testid="img-malta" />
+                  <img src={maltaHub} className="rounded-xl border border-white/10 w-full h-[300px] object-cover hover:scale-[1.02] transition-transform duration-500 shadow-2xl" alt="Malta HQ" data-testid="img-malta" />
                 </div>
               </div>
             </ScrollReveal>
@@ -190,17 +190,17 @@ export default function WhyUs() {
                 <div className="md:w-1/2 md:pl-16 pl-12 md:pl-0">
                   <h3 className="text-6xl font-black text-white/10 absolute -top-10 left-0">2024</h3>
                   <h4 className="text-3xl font-bold text-white mb-4 relative z-10">AI Scale</h4>
-                  <p className="text-slate-400 text-lg">
+                  <p className="text-white/60 text-lg">
                     We launched the AI Employees platform. Clients began hiring autonomous agents for social, sales, and support.
                   </p>
                 </div>
 
-                <div className="absolute left-0 md:left-1/2 w-10 h-10 rounded-full bg-lime-400 border-4 border-[#0A0E27] shadow-[0_0_20px_#a3e635] z-20 transform -translate-x-[19px] md:-translate-x-1/2 flex items-center justify-center">
-                  <Zap className="w-5 h-5 text-[#0A0E27]" />
+                <div className="absolute left-0 md:left-1/2 w-10 h-10 rounded-full bg-white border-4 border-zinc-950 z-20 transform -translate-x-[19px] md:-translate-x-1/2 flex items-center justify-center">
+                  <Zap className="w-5 h-5 text-zinc-950" />
                 </div>
 
                 <div className="md:w-1/2 md:pr-16 text-right pl-12 mt-6 md:mt-0">
-                  <img src={experimentsWorkspace} className="rounded-xl border border-white/10 w-full h-[300px] object-cover hover:scale-105 transition-transform duration-700 shadow-2xl" alt="AI Workspace" data-testid="img-ai-workspace" />
+                  <img src={experimentsWorkspace} className="rounded-xl border border-white/10 w-full h-[300px] object-cover hover:scale-[1.02] transition-transform duration-500 shadow-2xl" alt="AI Workspace" data-testid="img-ai-workspace" />
                 </div>
               </div>
             </ScrollReveal>
@@ -210,18 +210,18 @@ export default function WhyUs() {
               <div className="relative flex flex-col md:flex-row items-center mb-12 group" data-testid="milestone-2025">
                 <div className="md:w-1/2 md:pr-16 md:text-right pl-12 md:pl-0">
                   <h3 className="text-6xl font-black text-white/10 absolute -top-10 left-0 md:left-auto md:right-0">2025</h3>
-                  <h4 className="text-3xl font-bold text-white mb-4 relative z-10">Global Dominance</h4>
-                  <p className="text-slate-400 text-lg">
-                    OARC Digital is now the default operating system for high-growth brands worldwide.
+                  <h4 className="text-3xl font-bold text-white mb-4 relative z-10">Global Expansion</h4>
+                  <p className="text-white/60 text-lg">
+                    OARC Digital now serves high-growth brands across Europe, the Middle East, and beyond.
                   </p>
                 </div>
 
-                <div className="absolute left-0 md:left-1/2 w-10 h-10 rounded-full bg-white border-4 border-[#0A0E27] shadow-[0_0_20px_white] z-20 transform -translate-x-[19px] md:-translate-x-1/2 flex items-center justify-center">
-                  <Globe className="w-5 h-5 text-[#0A0E27]" />
+                <div className="absolute left-0 md:left-1/2 w-10 h-10 rounded-full bg-[#ff914d] border-4 border-zinc-950 z-20 transform -translate-x-[19px] md:-translate-x-1/2 flex items-center justify-center">
+                  <Globe className="w-5 h-5 text-zinc-950" />
                 </div>
 
                 <div className="md:w-1/2 md:pl-16 pl-12 mt-6 md:mt-0">
-                  <img src={globalNetwork} className="rounded-xl border border-white/10 w-full h-[300px] object-cover hover:scale-105 transition-transform duration-700 shadow-2xl" alt="Global Network" data-testid="img-global" />
+                  <img src={globalNetwork} className="rounded-xl border border-white/10 w-full h-[300px] object-cover hover:scale-[1.02] transition-transform duration-500 shadow-2xl" alt="Global Network" data-testid="img-global" />
                 </div>
               </div>
             </ScrollReveal>
@@ -230,7 +230,7 @@ export default function WhyUs() {
       </section>
 
       {/* 4. BADGES - 4 Pillars */}
-      <section className="bg-[#0A0E27] py-24 border-t border-white/5" data-testid="section-badges">
+      <section className="bg-zinc-950 py-24 border-t border-white/5" data-testid="section-badges">
         <div className="max-w-7xl mx-auto px-6">
           <ScrollReveal>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-16">
@@ -239,10 +239,10 @@ export default function WhyUs() {
                 return (
                   <div key={index} className="text-center group" data-testid={`badge-${index}`}>
                     <div className="flex justify-center mb-6 transform transition-transform duration-500 group-hover:scale-110">
-                      <IconComponent className="w-16 h-16 md:w-20 md:h-20 text-[#00D9FF] opacity-90" strokeWidth={1.5} />
+                      <IconComponent className="w-16 h-16 md:w-20 md:h-20 text-[#ff914d] opacity-90" strokeWidth={1.5} />
                     </div>
                     <h3 className="text-xl md:text-2xl font-black text-white mb-2">{badge.title}</h3>
-                    <p className="text-sm md:text-base text-slate-400">{badge.subtitle}</p>
+                    <p className="text-sm md:text-base text-white/50">{badge.subtitle}</p>
                   </div>
                 );
               })}
@@ -252,10 +252,10 @@ export default function WhyUs() {
       </section>
 
       {/* 5. CAMPAIGN EXCELLENCE (Carousel) */}
-      <section className="bg-black py-24 relative border-t border-white/10 overflow-hidden" data-testid="section-campaigns">
+      <section className="bg-zinc-900 py-24 relative border-t border-white/5 overflow-hidden" data-testid="section-campaigns">
         <div className="text-center mb-16">
           <h2 className="text-3xl font-bold text-white mb-2" data-testid="heading-campaigns">Campaign Excellence</h2>
-          <p className="text-slate-500">The result of Human Strategy + AI Execution.</p>
+          <p className="text-white/50">The result of Human Strategy + AI Execution.</p>
         </div>
 
         <div
@@ -265,7 +265,7 @@ export default function WhyUs() {
         >
           {carouselImages.map((img, i) => (
             <div key={i} className="inline-block w-[300px] h-[400px] rounded-2xl overflow-hidden relative group flex-shrink-0 border border-white/10" data-testid={`carousel-item-${i}`}>
-              <img src={img} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Campaign" />
+              <img src={img} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Campaign" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
                 <p className="text-white font-semibold">View Campaign</p>
               </div>
@@ -275,18 +275,18 @@ export default function WhyUs() {
       </section>
 
       {/* 6. CTA Section */}
-      <section className="bg-gradient-to-b from-black to-[#0A0E27] py-24 text-center" data-testid="section-cta">
+      <section className="bg-gradient-to-b from-zinc-900 to-zinc-950 py-24 text-center" data-testid="section-cta">
         <ScrollReveal>
           <div className="max-w-4xl mx-auto px-6">
-            <Sparkles className="w-12 h-12 text-[#00D9FF] mx-auto mb-6" />
+            <Sparkles className="w-12 h-12 text-[#ff914d] mx-auto mb-6" />
             <h2 className="text-4xl md:text-5xl font-black text-white mb-6" data-testid="heading-cta">
-              Ready to Join the <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00D9FF] to-lime-400">AI Era</span>?
+              Ready to Join the <span className="text-[#ff914d]">AI Era</span>?
             </h2>
-            <p className="text-xl text-slate-400 mb-10">
+            <p className="text-xl text-white/60 mb-10">
               Partner with the agency built for the future.
             </p>
             <Link href="/contact">
-              <button className="bg-[#c4ff4d] hover:bg-[#b8f547] text-black font-bold px-10 py-4 rounded-full text-lg transition-all hover:scale-105" data-testid="button-cta">
+              <button className="bg-[#ff914d] hover:bg-[#ff8033] text-zinc-950 font-bold px-10 py-4 rounded-full text-lg transition-all hover:scale-105" data-testid="button-cta">
                 Start Your Journey
               </button>
             </Link>
