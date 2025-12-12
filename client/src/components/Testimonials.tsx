@@ -207,33 +207,14 @@ export default function Testimonials() {
             </div>
           </div>
 
-          {/* Right Column: Stats Only */}
-          <div className="lg:col-span-4">
-            {/* Stats Grid (3 metrics) */}
-            <div className="grid grid-cols-3 lg:grid-cols-1 gap-4 lg:gap-6" data-testid="testimonial-stats">
-              <div className="transition-all duration-700 delay-100">
-                <div className="text-3xl md:text-4xl lg:text-5xl font-light text-white mb-2" style={{ letterSpacing: '-0.02em' }}>
-                  {activeTestimonial.metric1}
-                </div>
-                <div className="text-[10px] md:text-xs text-white/60 leading-tight font-normal">
-                  {activeTestimonial.metric1Label}
-                </div>
+          {/* Right Column: Single Key Metric - Professional */}
+          <div className="lg:col-span-4 flex items-center justify-center lg:justify-start">
+            <div className="transition-all duration-700 delay-100 text-center lg:text-left" data-testid="testimonial-stats">
+              <div className="text-4xl md:text-5xl lg:text-6xl font-light text-white mb-2" style={{ letterSpacing: '-0.02em' }}>
+                {activeTestimonial.metric1}
               </div>
-              <div className="transition-all duration-700 delay-200">
-                <div className="text-3xl md:text-4xl lg:text-5xl font-light text-white mb-2" style={{ letterSpacing: '-0.02em' }}>
-                  {activeTestimonial.metric2}
-                </div>
-                <div className="text-[10px] md:text-xs text-white/60 leading-tight font-normal">
-                  {activeTestimonial.metric2Label}
-                </div>
-              </div>
-              <div className="transition-all duration-700 delay-300">
-                <div className="text-3xl md:text-4xl lg:text-5xl font-light text-white mb-2" style={{ letterSpacing: '-0.02em' }}>
-                  {activeTestimonial.metric3}
-                </div>
-                <div className="text-[10px] md:text-xs text-white/60 leading-tight font-normal">
-                  {activeTestimonial.metric3Label}
-                </div>
+              <div className="text-xs text-white/50 leading-tight font-normal uppercase tracking-wide">
+                {activeTestimonial.metric1Label}
               </div>
             </div>
           </div>

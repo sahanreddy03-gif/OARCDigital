@@ -51,16 +51,12 @@ export default function BrandShowcaseSection() {
                     </div>
                   </div>
                   <div>
-                    <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white leading-tight mb-1" style={{ letterSpacing: '-0.02em' }}>
+                    <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white leading-tight mb-2" style={{ letterSpacing: '-0.02em' }}>
                       {heroStudy.brand}
                     </h3>
-                    <p className="text-sm md:text-base text-white/80 font-medium leading-snug mb-3 max-w-md">
+                    <p className="text-sm md:text-base text-white/70 font-medium leading-snug max-w-md">
                       {heroStudy.description}
                     </p>
-                    <div className="inline-block bg-[#c4ff4d] text-zinc-900 px-4 py-2 rounded-lg group-hover:shadow-[0_0_25px_rgba(196,255,77,0.6)] transition-shadow duration-500">
-                      <div className="text-xl md:text-2xl font-bold leading-none">{heroStudy.metrics.value}</div>
-                      <div className="text-[10px] md:text-xs font-semibold mt-0.5 uppercase">{heroStudy.metrics.label}</div>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -93,13 +89,9 @@ export default function BrandShowcaseSection() {
                       </div>
                     </div>
                     <div>
-                      <h3 className="text-base md:text-lg font-bold text-white leading-tight mb-1.5" style={{ letterSpacing: '-0.01em' }}>
+                      <h3 className="text-base md:text-lg font-bold text-white leading-tight" style={{ letterSpacing: '-0.01em' }}>
                         {study.brand}
                       </h3>
-                      <div className="inline-block bg-[#c4ff4d] text-zinc-900 px-2.5 py-1 rounded-md group-hover:shadow-[0_0_15px_rgba(196,255,77,0.5)] transition-shadow">
-                        <div className="text-sm font-bold leading-none">{study.metrics.value}</div>
-                        <div className="text-[8px] font-semibold mt-0.5 uppercase">{study.metrics.label}</div>
-                      </div>
                     </div>
                   </div>
                 </div>
@@ -124,12 +116,9 @@ export default function BrandShowcaseSection() {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
                   </div>
                   <div className="relative h-full p-2.5 md:p-3 flex flex-col justify-end">
-                    <h3 className="text-xs md:text-sm font-bold text-white leading-tight mb-1" style={{ letterSpacing: '-0.01em' }}>
+                    <h3 className="text-xs md:text-sm font-bold text-white leading-tight" style={{ letterSpacing: '-0.01em' }}>
                       {study.brand}
                     </h3>
-                    <div className="inline-block bg-[#c4ff4d] text-zinc-900 px-2 py-0.5 rounded self-start group-hover:shadow-[0_0_12px_rgba(196,255,77,0.5)] transition-shadow">
-                      <div className="text-xs font-bold leading-none">{study.metrics.value}</div>
-                    </div>
                   </div>
                 </div>
               </Link>

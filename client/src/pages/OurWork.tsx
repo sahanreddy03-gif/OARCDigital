@@ -239,47 +239,31 @@ export default function OurWork() {
               Award-winning campaigns, AI transformations, and creative strategies that set the standard for premium brands worldwide.
             </p>
             
-            {/* Premium Stats Row */}
+            {/* Premium Stats Row - Professional Neutral */}
             <div className="flex flex-wrap items-center gap-6 md:gap-8 mt-14">
               <motion.div 
                 className="relative group"
-                whileHover={{ scale: 1.03 }}
+                whileHover={{ scale: 1.02 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-[#c4ff4d]/20 to-transparent rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
                 <div className="relative bg-white/[0.03] backdrop-blur-md rounded-2xl px-7 py-5 border border-white/10">
-                  <div className="text-3xl md:text-4xl font-black text-[#c4ff4d]">
+                  <div className="text-3xl md:text-4xl font-bold text-white">
                     <AnimatedCounter value={allCaseStudies.length} suffix="+" />
                   </div>
-                  <div className="text-sm text-white/50 font-medium mt-1">Success Stories</div>
+                  <div className="text-sm text-white/40 font-medium mt-1">Case Studies</div>
                 </div>
               </motion.div>
               
               <motion.div 
                 className="relative group"
-                whileHover={{ scale: 1.03 }}
+                whileHover={{ scale: 1.02 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-[#23AACA]/20 to-transparent rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
                 <div className="relative bg-white/[0.03] backdrop-blur-md rounded-2xl px-7 py-5 border border-white/10">
-                  <div className="text-3xl md:text-4xl font-black text-[#23AACA]">
-                    <AnimatedCounter value={340} suffix="%" />
-                  </div>
-                  <div className="text-sm text-white/50 font-medium mt-1">Average ROI</div>
-                </div>
-              </motion.div>
-              
-              <motion.div 
-                className="relative group"
-                whileHover={{ scale: 1.03 }}
-                transition={{ type: "spring", stiffness: 300 }}
-              >
-                <div className="absolute inset-0 bg-gradient-to-r from-[#4ade80]/20 to-transparent rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
-                <div className="relative bg-white/[0.03] backdrop-blur-md rounded-2xl px-7 py-5 border border-white/10">
-                  <div className="text-3xl md:text-4xl font-black text-[#4ade80]">
+                  <div className="text-3xl md:text-4xl font-bold text-white">
                     <AnimatedCounter value={200} suffix="+" />
                   </div>
-                  <div className="text-sm text-white/50 font-medium mt-1">Premium Brands</div>
+                  <div className="text-sm text-white/40 font-medium mt-1">Brands Served</div>
                 </div>
               </motion.div>
             </div>
@@ -407,43 +391,15 @@ export default function OurWork() {
                           </motion.div>
                         </div>
 
-                        {/* Bottom - Brand & Metric */}
-                        <div className="space-y-5">
+                        {/* Bottom - Brand & Description */}
+                        <div className="space-y-3">
                           <div className="transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
-                            <h3 className={`font-black text-white mb-3 leading-tight ${isLarge ? 'text-3xl md:text-4xl' : isMedium ? 'text-2xl md:text-3xl' : 'text-xl md:text-2xl'}`}>
+                            <h3 className={`font-bold text-white mb-2 leading-tight ${isLarge ? 'text-2xl md:text-3xl' : isMedium ? 'text-xl md:text-2xl' : 'text-lg md:text-xl'}`}>
                               {study.brand}
                             </h3>
-                            <p className="text-base text-white/60 font-medium line-clamp-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-75">
+                            <p className="text-sm text-white/50 font-medium line-clamp-2">
                               {study.description}
                             </p>
-                          </div>
-                          
-                          {/* Metric Badge */}
-                          <div className="flex items-end justify-between">
-                            <motion.div 
-                              className={`inline-flex flex-col px-5 py-3 rounded-xl ${styles.metric} shadow-lg`}
-                              whileHover={{ scale: 1.05 }}
-                              transition={{ type: "spring", stiffness: 300 }}
-                            >
-                              <div className={`font-black leading-none ${isLarge ? 'text-2xl md:text-3xl' : 'text-xl md:text-2xl'}`}>
-                                {study.metrics.value}
-                              </div>
-                              <div className="text-xs font-bold mt-1 opacity-80">
-                                {study.metrics.label}
-                              </div>
-                            </motion.div>
-                            
-                            {/* Secondary Metrics - Only on large cards */}
-                            {isLarge && study.secondaryMetrics && (
-                              <div className="hidden md:flex items-center gap-4">
-                                {study.secondaryMetrics.slice(0, 2).map((metric, idx) => (
-                                  <div key={idx} className="text-right bg-white/5 backdrop-blur-sm rounded-xl px-4 py-2 border border-white/5">
-                                    <div className="text-lg font-bold text-white">{metric.value}</div>
-                                    <div className="text-xs text-white/40">{metric.label}</div>
-                                  </div>
-                                ))}
-                              </div>
-                            )}
                           </div>
                         </div>
                       </div>
@@ -468,22 +424,15 @@ export default function OurWork() {
         </div>
       </section>
 
-      {/* Stats Bar - Premium Gradient */}
-      <section className="relative py-20 overflow-hidden bg-zinc-900">
-        <div className="absolute inset-0 bg-gradient-to-r from-zinc-900 via-zinc-800 to-zinc-900" />
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(196,255,77,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(196,255,77,0.02)_1px,transparent_1px)] bg-[size:40px_40px]" />
-        
-        {/* Accent Glows */}
-        <div className="absolute top-0 left-1/4 w-[300px] h-[300px] bg-[#c4ff4d]/8 rounded-full blur-[100px]" />
-        <div className="absolute bottom-0 right-1/4 w-[250px] h-[250px] bg-[#23AACA]/8 rounded-full blur-[80px]" />
-        
+      {/* Stats Bar - Professional Minimal */}
+      <section className="relative py-16 overflow-hidden bg-zinc-900 border-t border-white/5">
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
             {[
-              { value: 50, suffix: 'M+', prefix: '€', label: 'Revenue Generated', icon: TrendingUp, color: '#c4ff4d' },
-              { value: 200, suffix: '+', prefix: '', label: 'Brands Transformed', icon: Gem, color: '#23AACA' },
-              { value: 340, suffix: '%', prefix: '', label: 'Average ROI', icon: Star, color: '#4ade80' },
-              { value: 6, suffix: '', prefix: '', label: 'Industries Served', icon: Award, color: '#c4ff4d' }
+              { value: 50, suffix: 'M+', prefix: '€', label: 'Revenue Generated', icon: TrendingUp },
+              { value: 200, suffix: '+', prefix: '', label: 'Brands Served', icon: Gem },
+              { value: 340, suffix: '%', prefix: '', label: 'Average ROI', icon: Star },
+              { value: 6, suffix: '', prefix: '', label: 'Industries', icon: Award }
             ].map((stat, idx) => (
               <motion.div 
                 key={idx} 
@@ -493,16 +442,13 @@ export default function OurWork() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
               >
-                <div 
-                  className="inline-flex items-center justify-center w-14 h-14 rounded-xl mb-4 border border-white/10"
-                  style={{ backgroundColor: `${stat.color}15` }}
-                >
-                  <stat.icon className="w-7 h-7" style={{ color: stat.color }} />
+                <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl mb-4 bg-white/5 border border-white/5">
+                  <stat.icon className="w-5 h-5 text-white/60" />
                 </div>
-                <div className="text-4xl md:text-5xl font-black text-white">
+                <div className="text-3xl md:text-4xl font-bold text-white">
                   <AnimatedCounter value={stat.value} suffix={stat.suffix} prefix={stat.prefix} />
                 </div>
-                <div className="text-sm text-white/40 mt-2 font-medium">{stat.label}</div>
+                <div className="text-xs text-white/40 mt-2 font-medium uppercase tracking-wide">{stat.label}</div>
               </motion.div>
             ))}
           </div>
