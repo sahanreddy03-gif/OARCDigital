@@ -39,6 +39,8 @@ import Immersive3DAR from "@/pages/services/Immersive3DAR";
 import EmailCreative from "@/pages/services/EmailCreative";
 import DesignSystems from "@/pages/services/DesignSystems";
 import AIConsulting from "@/pages/services/AIConsulting";
+import GrowthStrategy from "@/pages/services/GrowthStrategy";
+import PerformanceAnalytics from "@/pages/services/PerformanceAnalytics";
 import MobileAppsDevelopment from "@/pages/services/MobileAppsDevelopment";
 import CustomSoftwareDevelopment from "@/pages/services/CustomSoftwareDevelopment";
 import MVPDevelopment from "@/pages/services/MVPDevelopment";
@@ -145,6 +147,8 @@ function Router() {
       <Route path="/services/email-creative" component={EmailCreative} />
       <Route path="/services/design-systems" component={DesignSystems} />
       <Route path="/services/ai-consulting" component={AIConsulting} />
+      <Route path="/services/growth-strategy" component={GrowthStrategy} />
+      <Route path="/services/performance-analytics" component={PerformanceAnalytics} />
       <Route path="/services/mobile-apps-development" component={MobileAppsDevelopment} />
       <Route path="/services/mobile-applications-development" component={MobileAppsDevelopment} />
       <Route path="/services/custom-software-development" component={CustomSoftwareDevelopment} />
