@@ -16,59 +16,11 @@ interface BlogPost {
   readTime: string;
   publishDate: string;
   featured?: boolean;
+  image: string;
 }
 
 // SEO-optimized blog posts targeting voice search
 const blogPosts: BlogPost[] = [
-  {
-    slug: 'how-ai-marketing-works-2025',
-    title: 'How Does AI Marketing Work in 2025? Complete Guide',
-    excerpt: 'Discover how AI-powered marketing delivers better results faster. Learn about AI employees, automation, and creative AI tools transforming the industry.',
-    category: 'AI Marketing',
-    readTime: '8 min',
-    publishDate: '2024-11-20',
-    featured: true
-  },
-  {
-    slug: 'ai-employees-vs-traditional-hiring',
-    title: 'AI Employees vs Traditional Hiring: Which is Better?',
-    excerpt: 'Compare costs, speed, and results of AI employees vs traditional recruitment. See real data from 100+ companies who made the switch.',
-    category: 'AI Marketing',
-    readTime: '6 min',
-    publishDate: '2024-11-18'
-  },
-  {
-    slug: 'social-media-marketing-malta-guide',
-    title: 'Social Media Marketing in Malta: 2025 Complete Guide',
-    excerpt: 'Everything Malta businesses need to know about social media marketing, from platform selection to AI-powered content creation.',
-    category: 'Creative Services',
-    readTime: '10 min',
-    publishDate: '2024-11-15'
-  },
-  {
-    slug: 'revenue-automation-beginners-guide',
-    title: 'Revenue Automation for Beginners: Step-by-Step Guide',
-    excerpt: 'Learn how to automate your revenue stack from lead generation to customer acquisition. Includes tools, strategies, and real examples.',
-    category: 'Revenue Growth',
-    readTime: '12 min',
-    publishDate: '2024-11-10'
-  },
-  {
-    slug: 'best-ai-copywriting-tools-2025',
-    title: 'Best AI Copywriting Tools in 2025: Expert Review',
-    excerpt: 'We tested 15+ AI copywriting tools. Here are the top 5 that actually deliver professional-quality content.',
-    category: 'AI Marketing',
-    readTime: '7 min',
-    publishDate: '2024-11-05'
-  },
-  {
-    slug: 'brand-identity-design-process',
-    title: 'How to Create a Brand Identity: Complete Process',
-    excerpt: 'Professional brand identity design process from research to final delivery. Includes templates, examples, and best practices.',
-    category: 'Creative Services',
-    readTime: '9 min',
-    publishDate: '2024-11-01'
-  },
   {
     slug: 'seo-malta-complete-guide',
     title: 'SEO Malta: Complete Guide to Ranking Your Business in 2025',
@@ -76,7 +28,8 @@ const blogPosts: BlogPost[] = [
     category: 'Revenue Growth',
     readTime: '18 min',
     publishDate: '2024-12-10',
-    featured: false
+    featured: true,
+    image: 'https://images.unsplash.com/photo-1432821596592-e2c18b78144f?w=800&h=500&fit=crop&q=80'
   },
   {
     slug: 'marketing-trends-malta-2025',
@@ -85,7 +38,7 @@ const blogPosts: BlogPost[] = [
     category: 'AI Marketing',
     readTime: '15 min',
     publishDate: '2024-12-08',
-    featured: false
+    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=500&fit=crop&q=80'
   },
   {
     slug: 'digital-marketing-malta',
@@ -94,7 +47,7 @@ const blogPosts: BlogPost[] = [
     category: 'Revenue Growth',
     readTime: '20 min',
     publishDate: '2024-12-05',
-    featured: false
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop&q=80'
   },
   {
     slug: 'ai-solutions-malta',
@@ -103,7 +56,7 @@ const blogPosts: BlogPost[] = [
     category: 'AI Marketing',
     readTime: '16 min',
     publishDate: '2024-12-01',
-    featured: false
+    image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=500&fit=crop&q=80'
   }
 ];
 
@@ -162,7 +115,14 @@ export default function Blog() {
               Featured Article
             </div>
             <div className="grid md:grid-cols-2 gap-8 items-center">
-              <div className="aspect-video bg-gradient-to-br from-green-500 to-green-600 rounded-lg"></div>
+              <div className="aspect-video rounded-lg overflow-hidden">
+                <img 
+                  src={featuredPost.image} 
+                  alt={featuredPost.title}
+                  className="w-full h-full object-cover"
+                  loading="eager"
+                />
+              </div>
               <div>
                 <div className="inline-block px-3 py-1 rounded-full bg-green-500/10 text-green-600 text-sm font-medium mb-4">
                   {featuredPost.category}
@@ -202,7 +162,14 @@ export default function Blog() {
               {otherPosts.map((post) => (
                 <Link key={post.slug} href={`/blog/${post.slug}`}>
                   <article className="bg-card rounded-lg border overflow-hidden hover-elevate transition-all group cursor-pointer h-full" data-testid={`article-card-${post.slug}`}>
-                    <div className="aspect-video bg-gradient-to-br from-zinc-200 to-zinc-300 dark:from-zinc-800 dark:to-zinc-900"></div>
+                    <div className="aspect-video overflow-hidden">
+                      <img 
+                        src={post.image} 
+                        alt={post.title}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        loading="lazy"
+                      />
+                    </div>
                     <div className="p-6">
                       <div className="inline-block px-3 py-1 rounded-full bg-muted text-xs font-medium mb-3">
                         {post.category}

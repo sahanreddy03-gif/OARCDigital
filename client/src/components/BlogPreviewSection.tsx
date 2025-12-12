@@ -7,31 +7,31 @@ import { Link } from "wouter";
 
 const blogPosts = [
   {
-    id: 1,
+    id: "seo-malta-complete-guide",
+    category: "Revenue Growth",
+    title: "SEO Malta: Complete Guide to Ranking Your Business in 2025",
+    excerpt: "Expert guide to SEO in Malta covering local search, Google Business Profile optimization, and strategies for Maltese businesses to dominate search results.",
+    image: "https://images.unsplash.com/photo-1432821596592-e2c18b78144f?w=600&h=400&fit=crop&q=80",
+    readTime: "18 min read",
+    date: "Dec 10, 2024"
+  },
+  {
+    id: "marketing-trends-malta-2025",
     category: "AI Marketing",
-    title: "How AI is Revolutionizing Digital Marketing in 2025",
-    excerpt: "Discover the cutting-edge AI technologies that are transforming how brands connect with their audiences and drive unprecedented growth.",
-    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop",
-    readTime: "6 min read",
-    date: "Nov 15, 2025"
+    title: "Marketing Trends Malta 2025: What Every Business Needs to Know",
+    excerpt: "Discover the top marketing trends shaping Malta's business landscape in 2025, from AI adoption to voice search and sustainability marketing.",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop&q=80",
+    readTime: "15 min read",
+    date: "Dec 8, 2024"
   },
   {
-    id: 2,
-    category: "Case Study",
-    title: "From 2% to 8%: A Conversion Rate Transformation Story",
-    excerpt: "Learn how we helped a mid-size e-commerce brand quadruple their conversion rates using AI-powered personalization and creative optimization.",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop",
-    readTime: "8 min read",
-    date: "Nov 8, 2025"
-  },
-  {
-    id: 3,
-    category: "Strategy",
-    title: "The Complete Guide to AI Employees for Growing Businesses",
-    excerpt: "Everything you need to know about hiring AI employees: costs, capabilities, integration strategies, and how to measure ROI effectively.",
-    image: "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600&h=400&fit=crop",
-    readTime: "10 min read",
-    date: "Oct 28, 2025"
+    id: "ai-solutions-malta",
+    category: "AI Marketing",
+    title: "AI Solutions Malta: Transform Your Business with Artificial Intelligence",
+    excerpt: "Complete guide to AI solutions for Malta businesses covering chatbots, automation, analytics, and implementation strategies with ROI projections.",
+    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop&q=80",
+    readTime: "16 min read",
+    date: "Dec 1, 2024"
   }
 ];
 
