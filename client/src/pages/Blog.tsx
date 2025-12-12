@@ -183,9 +183,11 @@ export default function Blog() {
                     {featuredPost.readTime} read
                   </div>
                 </div>
-                <Button>
-                  Read Article <ArrowRight className="ml-2 w-4 h-4" />
-                </Button>
+                <Link href={`/blog/${featuredPost.slug}`}>
+                  <Button data-testid="button-read-featured-article">
+                    Read Article <ArrowRight className="ml-2 w-4 h-4" />
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>
@@ -198,30 +200,32 @@ export default function Blog() {
             
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {otherPosts.map((post) => (
-                <article key={post.slug} className="bg-card rounded-lg border overflow-hidden hover-elevate transition-all group">
-                  <div className="aspect-video bg-gradient-to-br from-zinc-200 to-zinc-300 dark:from-zinc-800 dark:to-zinc-900"></div>
-                  <div className="p-6">
-                    <div className="inline-block px-3 py-1 rounded-full bg-muted text-xs font-medium mb-3">
-                      {post.category}
-                    </div>
-                    <h3 className="text-xl font-bold mb-2 group-hover:text-green-600 transition-colors">
-                      {post.title}
-                    </h3>
-                    <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
-                      {post.excerpt}
-                    </p>
-                    <div className="flex items-center gap-4 text-xs text-muted-foreground">
-                      <div className="flex items-center gap-1">
-                        <Calendar className="w-3 h-3" />
-                        {new Date(post.publishDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
+                <Link key={post.slug} href={`/blog/${post.slug}`}>
+                  <article className="bg-card rounded-lg border overflow-hidden hover-elevate transition-all group cursor-pointer h-full" data-testid={`article-card-${post.slug}`}>
+                    <div className="aspect-video bg-gradient-to-br from-zinc-200 to-zinc-300 dark:from-zinc-800 dark:to-zinc-900"></div>
+                    <div className="p-6">
+                      <div className="inline-block px-3 py-1 rounded-full bg-muted text-xs font-medium mb-3">
+                        {post.category}
                       </div>
-                      <div className="flex items-center gap-1">
-                        <Clock className="w-3 h-3" />
-                        {post.readTime}
+                      <h3 className="text-xl font-bold mb-2 group-hover:text-green-600 transition-colors">
+                        {post.title}
+                      </h3>
+                      <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
+                        {post.excerpt}
+                      </p>
+                      <div className="flex items-center gap-4 text-xs text-muted-foreground">
+                        <div className="flex items-center gap-1">
+                          <Calendar className="w-3 h-3" />
+                          {new Date(post.publishDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
+                        </div>
+                        <div className="flex items-center gap-1">
+                          <Clock className="w-3 h-3" />
+                          {post.readTime}
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </article>
+                  </article>
+                </Link>
               ))}
             </div>
           </div>
