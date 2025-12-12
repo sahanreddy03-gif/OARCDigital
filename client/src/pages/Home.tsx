@@ -11,6 +11,7 @@ import LetsTalkRevenueSection from "@/components/LetsTalkRevenueSection";
 import { SuccessInNumbers } from "@/components/SuccessInNumbers";
 import BrandShowcaseSection from "@/components/BrandShowcaseSection";
 import Testimonials from "@/components/Testimonials";
+import ComparisonSection from "@/components/ComparisonSection";
 import MoneyBackGuaranteeSection from "@/components/MoneyBackGuaranteeSection";
 import BlogPreviewSection from "@/components/BlogPreviewSection";
 import CTASections from "@/components/CTASections";
@@ -108,6 +109,9 @@ export default function Home() {
 
         {/* Testimonials */}
         <Testimonials />
+
+        {/* Why OARC - Comparison */}
+        <ComparisonSection />
 
         {/* Final CTAs */}
         <MoneyBackGuaranteeSection />
