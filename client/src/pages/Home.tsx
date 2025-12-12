@@ -11,7 +11,6 @@ import LetsTalkRevenueSection from "@/components/LetsTalkRevenueSection";
 import { SuccessInNumbers } from "@/components/SuccessInNumbers";
 import BrandShowcaseSection from "@/components/BrandShowcaseSection";
 import Testimonials from "@/components/Testimonials";
-import ROICalculatorSection from "@/components/ROICalculatorSection";
 import MoneyBackGuaranteeSection from "@/components/MoneyBackGuaranteeSection";
 import BlogPreviewSection from "@/components/BlogPreviewSection";
 import CTASections from "@/components/CTASections";
@@ -111,7 +110,6 @@ export default function Home() {
         <Testimonials />
 
         {/* Final CTAs */}
-        <ROICalculatorSection />
         <MoneyBackGuaranteeSection />
         <BlogPreviewSection />
         <CTASections />

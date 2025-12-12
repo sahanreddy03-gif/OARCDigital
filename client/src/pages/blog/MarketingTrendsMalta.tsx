@@ -48,7 +48,7 @@ const VideoStats = [
 ];
 
 export default function MarketingTrendsMalta() {
-    const publishDate = '2024-12-18';
+    const publishDate = '2025-12-11';
 
     return (
         <Layout>

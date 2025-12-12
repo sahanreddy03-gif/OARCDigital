@@ -23,39 +23,39 @@ interface BlogPost {
 const blogPosts: BlogPost[] = [
   {
     slug: 'seo-malta-complete-guide',
-    title: 'SEO Malta: Complete Guide to Ranking Your Business in 2025',
+    title: 'How to Get Your Malta Business on Page 1 of Google',
     excerpt: 'Expert guide to SEO in Malta covering local search, Google Business Profile optimization, and strategies for Maltese businesses to dominate search results.',
     category: 'Revenue Growth',
     readTime: '18 min',
-    publishDate: '2024-12-10',
+    publishDate: '2025-12-11',
     featured: true,
     image: 'https://images.unsplash.com/photo-1432821596592-e2c18b78144f?w=800&h=500&fit=crop&q=80'
   },
   {
     slug: 'marketing-trends-malta-2025',
-    title: 'Marketing Trends Malta 2025: What Every Business Needs to Know',
+    title: 'Malta Business Marketing in 2025: What\'s Working Now',
     excerpt: 'Discover the top marketing trends shaping Malta\'s business landscape in 2025, from AI adoption to voice search and sustainability marketing.',
     category: 'AI Marketing',
     readTime: '15 min',
-    publishDate: '2024-12-08',
+    publishDate: '2025-12-11',
     image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=500&fit=crop&q=80'
   },
   {
     slug: 'digital-marketing-malta',
-    title: 'Digital Marketing Malta: Complete Strategy Guide for 2025',
+    title: 'The Complete Guide to Digital Marketing in Malta 2025',
     excerpt: 'Comprehensive digital marketing guide for Malta businesses covering SEO, social media, paid ads, and AI-powered strategies that drive real results.',
     category: 'Revenue Growth',
     readTime: '20 min',
-    publishDate: '2024-12-05',
+    publishDate: '2025-12-11',
     image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop&q=80'
   },
   {
     slug: 'ai-solutions-malta',
-    title: 'AI Solutions Malta: Transform Your Business with Artificial Intelligence',
+    title: 'AI Solutions for Malta Businesses: Complete Guide 2025',
     excerpt: 'Complete guide to AI solutions for Malta businesses covering chatbots, automation, analytics, and implementation strategies with ROI projections.',
     category: 'AI Marketing',
     readTime: '16 min',
-    publishDate: '2024-12-01',
+    publishDate: '2025-12-11',
     image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=500&fit=crop&q=80'
   }
 ];
