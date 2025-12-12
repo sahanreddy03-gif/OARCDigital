@@ -54,7 +54,7 @@ export default function DontMakeAdsCaseStudy() {
       />
       {/* Hero Section with Background Image */}
       <section className="relative h-[60vh] min-h-[500px] bg-black overflow-hidden">
-        <div className="absolute top-0 right-0 w-80 h-80 bg-[#c4ff4d]/15 rounded-full blur-3xl"></div>
+        
         <img 
           src={relatedCase1}
           alt="Authentic Stories TikTok Campaign"
@@ -69,7 +69,7 @@ export default function DontMakeAdsCaseStudy() {
           <span>{'>'}</span>
           <Link href="/our-work" className="hover:text-gray-300">Our Work</Link>
           <span>{'>'}</span>
-          <span className="text-[#4a7000]">Showing Small Businesse...</span>
+          <span className="text-zinc-400">Showing Small Businesse...</span>
         </div>
 
         {/* Hero Content */}
@@ -104,7 +104,7 @@ export default function DontMakeAdsCaseStudy() {
               We built a comprehensive TikTok channel strategy for a TikTok Official Account and developed a full-fledged content engine that harnessed the creative power of TikToker entrepreneurs, ensuring a dynamic and engaging content funnel.
             </p>
             
-            <p className="text-[#4a7000] font-bold text-lg mt-8">
+            <p className="text-zinc-400 font-bold text-lg mt-8">
               Our impact on small businesses through authentic stories.
             </p>
           </div>
@@ -138,16 +138,16 @@ export default function DontMakeAdsCaseStudy() {
 
           {/* Key Stats - Pink Boxes */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12 relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-80 h-80 bg-[#c4ff4d]/15 rounded-full blur-3xl"></div>
-            <div className="bg-[#c4ff4d] text-black rounded-2xl p-8 text-center stat-glow">
+            
+            <div className="bg-zinc-800 text-white rounded-2xl p-8 text-center">
               <div className="text-5xl font-black text-white mb-2">32M</div>
               <div className="text-white text-sm font-semibold uppercase">VIEWS</div>
             </div>
-            <div className="bg-[#c4ff4d] text-black rounded-2xl p-8 text-center stat-glow">
+            <div className="bg-zinc-800 text-white rounded-2xl p-8 text-center">
               <div className="text-5xl font-black text-white mb-2">+400K</div>
               <div className="text-white text-sm font-semibold uppercase">NEW FOLLOWERS</div>
             </div>
-            <div className="bg-[#c4ff4d] text-black rounded-2xl p-8 text-center stat-glow">
+            <div className="bg-zinc-800 text-white rounded-2xl p-8 text-center">
               <div className="text-5xl font-black text-white mb-2">2M</div>
               <div className="text-white text-sm font-semibold uppercase">LIKES</div>
             </div>
@@ -158,7 +158,7 @@ export default function DontMakeAdsCaseStudy() {
       {/* Challenge Section */}
       <section className="py-16 px-4 bg-surface-lime relative">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-5xl md:text-6xl font-black text-[#4a7000] mb-8 uppercase">
+          <h2 className="text-5xl md:text-6xl font-black text-zinc-400 mb-8 uppercase">
             CHALLENGE
           </h2>
           
@@ -227,7 +227,7 @@ export default function DontMakeAdsCaseStudy() {
       {/* Results Section */}
       <section className="py-16 px-4 bg-white relative">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-5xl md:text-6xl font-black text-[#4a7000] mb-8 uppercase">
+          <h2 className="text-5xl md:text-6xl font-black text-zinc-400 mb-8 uppercase">
             RESULTS
           </h2>
           
@@ -303,7 +303,7 @@ export default function DontMakeAdsCaseStudy() {
             <button className="inline-flex items-center gap-3 bg-[#c4ff4d] text-black rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2 btn-shimmer glow-lime" data-testid="button-lets-talk">
               LET'S TALK.
               <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
-                <ArrowRight className="h-5 w-5 text-[#4a7000]" />
+                <ArrowRight className="h-5 w-5 text-zinc-400" />
               </div>
             </button>
           </Link>
@@ -319,7 +319,7 @@ export default function DontMakeAdsCaseStudy() {
             </span>
           </div>
           <h2 className="text-3xl md:text-4xl font-black text-black mb-8">
-            Check out some <span className="text-[#4a7000]">of our</span> related case studies
+            Check out some <span className="text-zinc-400">of our</span> related case studies
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -370,7 +370,7 @@ export default function DontMakeAdsCaseStudy() {
             <button className="inline-flex items-center gap-3 bg-[#c4ff4d] text-black rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2 btn-shimmer glow-lime mb-12" data-testid="button-work-with-us">
               WORK WITH US
               <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
-                <ArrowRight className="h-5 w-5 text-[#4a7000]" />
+                <ArrowRight className="h-5 w-5 text-zinc-400" />
               </div>
             </button>
           </Link>
