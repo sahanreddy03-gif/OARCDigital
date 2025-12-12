@@ -45,10 +45,10 @@ export default function Navigation() {
               className="font-logo text-zinc-400 text-lg md:text-xl lg:text-2xl tracking-[0.02em]" 
               style={{ textShadow }}
             >
-              <span className="text-[#ff914d] font-medium">O</span>
-              <span className="font-normal">arc</span>
-              <span className="ml-1.5 text-white font-medium">D</span>
-              <span className="font-normal">igital</span>
+              <span className="text-[#ff914d] font-semibold">O</span>
+              <span className="text-black font-semibold">arc</span>
+              <span className="ml-1.5 text-white font-semibold">D</span>
+              <span className="text-black font-semibold">igital</span>
             </span>
           </Link>
 
