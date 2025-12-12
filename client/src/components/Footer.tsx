@@ -245,7 +245,7 @@ export default function Footer() {
               className="font-logo text-zinc-400 text-xl md:text-2xl tracking-[0.02em]"
               data-testid="text-footer-logo-name"
             >
-              <span className="text-white font-medium">O</span>
+              <span className="text-[#ff914d] font-medium">O</span>
               <span className="font-normal">arc</span>
               <span className="ml-1.5 text-white font-medium">D</span>
               <span className="font-normal">igital</span>
