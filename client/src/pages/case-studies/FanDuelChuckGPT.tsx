@@ -38,7 +38,6 @@ export default function BetSmartSportsBuddyAI() {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
         </div>
-        <div className="absolute top-0 right-0 w-80 h-80 bg-[#c4ff4d]/15 rounded-full blur-3xl"></div>
         
         <div className="relative z-10 w-full px-6 pb-16">
           <div className="max-w-6xl mx-auto">
@@ -183,29 +182,28 @@ export default function BetSmartSportsBuddyAI() {
             The Results
           </h2>
 
-          <div className="relative overflow-hidden grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-[#c4ff4d]/10 rounded-full blur-3xl"></div>
-            <div className="text-center p-8 bg-black rounded-2xl stat-glow relative z-10">
-              <div className="text-4xl md:text-5xl font-black text-[#4a7000] mb-3">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+            <div className="text-center p-8 bg-zinc-800 rounded-2xl">
+              <div className="text-4xl md:text-5xl font-black text-white mb-3">
                 10,000+
               </div>
-              <p className="text-sm text-white">
+              <p className="text-sm text-zinc-400">
                 Users Within Hours of Launch
               </p>
             </div>
-            <div className="text-center p-8 bg-black rounded-2xl stat-glow relative z-10">
-              <div className="text-4xl md:text-5xl font-black text-[#4a7000] mb-3">
+            <div className="text-center p-8 bg-zinc-800 rounded-2xl">
+              <div className="text-4xl md:text-5xl font-black text-white mb-3">
                 Viral
               </div>
-              <p className="text-sm text-white">
+              <p className="text-sm text-zinc-400">
                 Social Media Sharing
               </p>
             </div>
-            <div className="text-center p-8 bg-black rounded-2xl stat-glow relative z-10">
-              <div className="text-4xl md:text-5xl font-black text-[#4a7000] mb-3">
+            <div className="text-center p-8 bg-zinc-800 rounded-2xl">
+              <div className="text-4xl md:text-5xl font-black text-white mb-3">
                 Zero
               </div>
-              <p className="text-sm text-white">
+              <p className="text-sm text-zinc-400">
                 Downtime During Viral Surge
               </p>
             </div>
@@ -329,7 +327,6 @@ export default function BetSmartSportsBuddyAI() {
 
       {/* CTA Section */}
       <section className="relative py-20 px-6 bg-gradient-to-br from-zinc-900 via-zinc-800 to-black text-white overflow-hidden">
-        <div className="absolute top-0 right-0 w-80 h-80 bg-[#c4ff4d]/10 rounded-full blur-3xl"></div>
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-black mb-6">
             Build Your AI-Powered Experience

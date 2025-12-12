@@ -54,7 +54,7 @@ export default function EslGamingCaseStudy() {
       />
       {/* Hero Section */}
       <section className="relative min-h-[60vh] flex items-center justify-center bg-black text-white overflow-hidden">
-        <div className="absolute top-0 right-0 w-80 h-80 bg-[#c4ff4d]/15 rounded-full blur-3xl"></div>
+        
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-40"
           style={{
@@ -113,17 +113,17 @@ export default function EslGamingCaseStudy() {
 
       {/* Stats Section */}
       <section className="relative py-16 px-4 bg-black text-white overflow-hidden">
-        <div className="absolute top-0 right-0 w-80 h-80 bg-[#c4ff4d]/15 rounded-full blur-3xl"></div>
+        
         <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
-          <div className="bg-[#c4ff4d] text-black p-8 text-center stat-glow">
+          <div className="bg-zinc-800 text-white p-8 text-center">
             <div className="text-5xl font-black mb-2">113%</div>
             <div className="text-sm uppercase tracking-wider font-bold">Follower Increase</div>
           </div>
-          <div className="bg-[#c4ff4d] text-black p-8 text-center stat-glow">
+          <div className="bg-zinc-800 text-white p-8 text-center">
             <div className="text-5xl font-black mb-2">13%</div>
             <div className="text-sm uppercase tracking-wider font-bold">Engagement Rate</div>
           </div>
-          <div className="bg-[#c4ff4d] text-black p-8 text-center stat-glow">
+          <div className="bg-zinc-800 text-white p-8 text-center">
             <div className="text-5xl font-black mb-2">30K</div>
             <div className="text-sm uppercase tracking-wider font-bold">AV Video Views</div>
           </div>
@@ -353,7 +353,7 @@ export default function EslGamingCaseStudy() {
 
       {/* Start Project Section */}
       <section className="relative py-20 px-4 bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white overflow-hidden">
-        <div className="absolute top-0 right-0 w-80 h-80 bg-[#c4ff4d]/15 rounded-full blur-3xl"></div>
+        
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl md:text-5xl font-black mb-6 uppercase">Start Project</h2>
           <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
@@ -395,7 +395,7 @@ export default function EslGamingCaseStudy() {
                     <p className="text-xs font-bold text-gray-500 uppercase mb-2 tracking-wider">Case Study</p>
                     <h3 className="text-xl font-black text-black mb-2">{caseStudy.title}</h3>
                     <p className="text-sm text-gray-600 mb-4">{caseStudy.subtitle}</p>
-                    <div className="flex items-center text-[#4a7000] font-bold text-sm">
+                    <div className="flex items-center text-zinc-400 font-bold text-sm">
                       <span>View Case Study</span>
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </div>
@@ -409,7 +409,7 @@ export default function EslGamingCaseStudy() {
 
       {/* Get In Touch Section */}
       <section className="relative py-20 px-4 bg-black text-white overflow-hidden">
-        <div className="absolute top-0 right-0 w-80 h-80 bg-[#c4ff4d]/15 rounded-full blur-3xl"></div>
+        
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl md:text-5xl font-black mb-6 uppercase">Get In Touch</h2>
           <p className="text-lg text-gray-300 mb-10 max-w-2xl mx-auto">

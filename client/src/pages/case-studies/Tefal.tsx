@@ -68,7 +68,7 @@ export default function TefalCaseStudy() {
       />
       {/* Hero Section with Background Image */}
       <section className="relative h-[60vh] min-h-[500px] bg-black overflow-hidden">
-        <div className="absolute top-0 right-0 w-80 h-80 bg-[#c4ff4d]/15 rounded-full blur-3xl"></div>
+        
         <img 
           src={tefalHeroImg}
           alt="Content creator filming kitchen product review with ring light for HomeCraft Innovations influencer campaign"
@@ -83,7 +83,7 @@ export default function TefalCaseStudy() {
           <span>{'>'}</span>
           <Link href="/our-work" className="hover:text-gray-300">Our Work</Link>
           <span>{'>'}</span>
-          <span className="text-[#4a7000]">Selling Out Product Lines...</span>
+          <span className="text-zinc-400">Selling Out Product Lines...</span>
         </div>
 
         {/* Hero Content */}
@@ -118,7 +118,7 @@ export default function TefalCaseStudy() {
                 The challenge: differentiate in a crowded appliance market saturated with competitors. We needed to create genuine consumer preference and drive conversion through social channels. Rather than traditional advertising, we pursued community-first storytelling and aspirational lifestyle positioning that would convert followers into customers.
               </p>
 
-              <h3 className="text-xl md:text-2xl font-black text-[#4a7000] mb-6">
+              <h3 className="text-xl md:text-2xl font-black text-zinc-400 mb-6">
                 Selling out product lines. Award-winning social campaigns. We did it all!
               </h3>
             </div>
@@ -175,17 +175,17 @@ export default function TefalCaseStudy() {
       {/* Stats Section - Pink Cards */}
       <section className="py-16 px-4 bg-surface-lime relative">
         <div className="max-w-6xl mx-auto relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-80 h-80 bg-[#c4ff4d]/15 rounded-full blur-3xl"></div>
+          
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-[#c4ff4d] text-black rounded-2xl p-10 text-center stat-glow" data-testid="stat-impressions">
+            <div className="bg-zinc-800 text-white rounded-2xl p-10 text-center" data-testid="stat-impressions">
               <div className="text-5xl md:text-6xl font-black text-white mb-2">70M+</div>
               <div className="text-lg font-semibold text-white uppercase tracking-wide">Impressions</div>
             </div>
-            <div className="bg-[#c4ff4d] text-black rounded-2xl p-10 text-center stat-glow" data-testid="stat-collaborations">
+            <div className="bg-zinc-800 text-white rounded-2xl p-10 text-center" data-testid="stat-collaborations">
               <div className="text-5xl md:text-6xl font-black text-white mb-2">500+</div>
               <div className="text-lg font-semibold text-white uppercase tracking-wide">Collaborations</div>
             </div>
-            <div className="bg-[#c4ff4d] text-black rounded-2xl p-10 text-center stat-glow" data-testid="stat-sold-out">
+            <div className="bg-zinc-800 text-white rounded-2xl p-10 text-center" data-testid="stat-sold-out">
               <div className="text-4xl md:text-5xl font-black text-white mb-2">SOLD OUT</div>
               <div className="text-lg font-semibold text-white uppercase tracking-wide">Product Lines</div>
             </div>
@@ -210,7 +210,7 @@ export default function TefalCaseStudy() {
       {/* Challenge Section - White Background */}
       <section className="py-20 px-4 bg-surface-lime relative">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-6xl md:text-7xl lg:text-8xl font-black text-[#4a7000] mb-12 uppercase" data-testid="heading-challenge">
+          <h2 className="text-6xl md:text-7xl lg:text-8xl font-black text-zinc-400 mb-12 uppercase" data-testid="heading-challenge">
             Challenge
           </h2>
 
@@ -292,7 +292,7 @@ export default function TefalCaseStudy() {
       {/* Results Section - White Background */}
       <section className="py-20 px-4 bg-white relative">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-6xl md:text-7xl lg:text-8xl font-black text-[#4a7000] mb-12 uppercase" data-testid="heading-results">
+          <h2 className="text-6xl md:text-7xl lg:text-8xl font-black text-zinc-400 mb-12 uppercase" data-testid="heading-results">
             Results
           </h2>
 
@@ -373,7 +373,7 @@ export default function TefalCaseStudy() {
             <button className="inline-flex items-center gap-3 bg-[#c4ff4d] text-black rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2 btn-shimmer glow-lime" data-testid="button-get-started">
               get started
               <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
-                <ArrowRight className="h-5 w-5 text-[#4a7000]" />
+                <ArrowRight className="h-5 w-5 text-zinc-400" />
               </div>
             </button>
           </Link>
@@ -386,7 +386,7 @@ export default function TefalCaseStudy() {
           <div className="flex items-center justify-between mb-8">
             <div>
               <h2 className="text-3xl md:text-4xl font-black text-black mb-2">
-                Check out some <span className="text-[#4a7000]">of our</span> related case studies
+                Check out some <span className="text-zinc-400">of our</span> related case studies
               </h2>
             </div>
             <div className="flex gap-3">
@@ -464,7 +464,7 @@ export default function TefalCaseStudy() {
             <button className="inline-flex items-center gap-3 bg-[#c4ff4d] text-black rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2 btn-shimmer glow-lime mb-12" data-testid="button-work-with-us">
               WORK WITH US
               <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
-                <ArrowRight className="h-5 w-5 text-[#4a7000]" />
+                <ArrowRight className="h-5 w-5 text-zinc-400" />
               </div>
             </button>
           </Link>

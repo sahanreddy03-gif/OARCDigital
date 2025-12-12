@@ -47,7 +47,7 @@ export default function BodyShopCaseStudy() {
       />
       {/* Hero Section */}
       <section className="relative min-h-[60vh] flex items-center justify-center bg-black text-white overflow-hidden">
-        <div className="absolute top-0 right-0 w-80 h-80 bg-[#c4ff4d]/15 rounded-full blur-3xl"></div>
+        
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-40"
           style={{
@@ -126,16 +126,16 @@ export default function BodyShopCaseStudy() {
 
           {/* Stats - Green Boxes */}
           <div className="relative grid grid-cols-1 md:grid-cols-3 gap-6 overflow-hidden">
-            <div className="absolute top-0 right-0 w-80 h-80 bg-[#c4ff4d]/15 rounded-full blur-3xl"></div>
-            <div className="bg-[#c4ff4d] rounded-2xl p-8 text-center text-black stat-glow">
+            
+            <div className="bg-zinc-800 rounded-2xl p-8 text-center text-white">
               <div className="text-5xl md:text-6xl font-black mb-2">30M</div>
               <div className="text-sm font-semibold uppercase">Impressions</div>
             </div>
-            <div className="bg-[#c4ff4d] rounded-2xl p-8 text-center text-black stat-glow">
+            <div className="bg-zinc-800 rounded-2xl p-8 text-center text-white">
               <div className="text-5xl md:text-6xl font-black mb-2">15%</div>
               <div className="text-sm font-semibold uppercase">Uplift in Sales</div>
             </div>
-            <div className="bg-[#c4ff4d] rounded-2xl p-8 text-center text-black stat-glow">
+            <div className="bg-zinc-800 rounded-2xl p-8 text-center text-white">
               <div className="text-5xl md:text-6xl font-black mb-2">17M</div>
               <div className="text-sm font-semibold uppercase">Reach</div>
             </div>
@@ -145,9 +145,9 @@ export default function BodyShopCaseStudy() {
 
       {/* Challenge Section */}
       <section className="relative py-16 px-4 bg-black text-white overflow-hidden">
-        <div className="absolute top-0 right-0 w-80 h-80 bg-[#c4ff4d]/15 rounded-full blur-3xl"></div>
+        
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-5xl md:text-6xl font-black text-[#4a7000] mb-8 uppercase">
+          <h2 className="text-5xl md:text-6xl font-black text-zinc-400 mb-8 uppercase">
             Challenge
           </h2>
           
@@ -188,7 +188,7 @@ export default function BodyShopCaseStudy() {
       {/* Strategy Section */}
       <section className="relative py-16 px-4 bg-surface-lime">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-5xl md:text-6xl font-black text-[#4a7000] mb-8 uppercase">
+          <h2 className="text-5xl md:text-6xl font-black text-zinc-400 mb-8 uppercase">
             Strategy
           </h2>
           
@@ -232,9 +232,9 @@ export default function BodyShopCaseStudy() {
 
       {/* Results Section */}
       <section className="relative py-16 px-4 bg-black text-white overflow-hidden">
-        <div className="absolute top-0 right-0 w-80 h-80 bg-[#c4ff4d]/15 rounded-full blur-3xl"></div>
+        
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-5xl md:text-6xl font-black text-[#4a7000] mb-8 uppercase">
+          <h2 className="text-5xl md:text-6xl font-black text-zinc-400 mb-8 uppercase">
             Results
           </h2>
           
@@ -254,15 +254,15 @@ export default function BodyShopCaseStudy() {
 
           {/* Results Stats - Green Boxes */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-[#c4ff4d] rounded-2xl p-8 text-center text-black stat-glow">
+            <div className="bg-zinc-800 rounded-2xl p-8 text-center text-white">
               <div className="text-5xl md:text-6xl font-black mb-2">30M</div>
               <div className="text-sm font-semibold uppercase">Total Impressions</div>
             </div>
-            <div className="bg-[#c4ff4d] rounded-2xl p-8 text-center text-black stat-glow">
+            <div className="bg-zinc-800 rounded-2xl p-8 text-center text-white">
               <div className="text-5xl md:text-6xl font-black mb-2">15%</div>
               <div className="text-sm font-semibold uppercase">Sales Uplift</div>
             </div>
-            <div className="bg-[#c4ff4d] rounded-2xl p-8 text-center text-black stat-glow">
+            <div className="bg-zinc-800 rounded-2xl p-8 text-center text-white">
               <div className="text-5xl md:text-6xl font-black mb-2">17M</div>
               <div className="text-sm font-semibold uppercase">Total Reach</div>
             </div>
@@ -272,7 +272,7 @@ export default function BodyShopCaseStudy() {
 
       {/* Start Project Section */}
       <section className="relative py-20 px-4 bg-black overflow-hidden">
-        <div className="absolute top-0 right-0 w-80 h-80 bg-[#c4ff4d]/15 rounded-full blur-3xl"></div>
+        
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-8 uppercase" data-testid="heading-start-project">
             START PROJECT
@@ -290,7 +290,7 @@ export default function BodyShopCaseStudy() {
             <button className="inline-flex items-center gap-3 bg-[#c4ff4d] text-black rounded-full pl-10 pr-4 py-4 text-base font-semibold btn-shimmer glow-lime" data-testid="button-lets-talk">
               LET'S TALK.
               <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
-                <ArrowRight className="h-5 w-5 text-[#4a7000]" />
+                <ArrowRight className="h-5 w-5 text-zinc-400" />
               </div>
             </button>
           </Link>
@@ -328,7 +328,7 @@ export default function BodyShopCaseStudy() {
 
       {/* Get In Touch Section */}
       <section className="relative py-20 px-4 bg-black overflow-hidden">
-        <div className="absolute top-0 right-0 w-80 h-80 bg-[#c4ff4d]/15 rounded-full blur-3xl"></div>
+        
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-8 uppercase" data-testid="heading-get-in-touch">
             GET IN TOUCH

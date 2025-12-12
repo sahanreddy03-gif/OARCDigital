@@ -150,34 +150,32 @@ export default function OurWork() {
   const getCategoryStyle = (category: string) => {
     if (isAICategory(category)) {
       return {
-        badge: 'bg-[#23AACA]/20 text-[#23AACA] border-[#23AACA]/40',
-        metric: 'bg-gradient-to-r from-[#23AACA] to-[#4ade80] text-zinc-900',
+        badge: 'bg-white/10 text-white/80 border-white/20',
         cardBg: 'bg-zinc-900',
-        glow: 'group-hover:shadow-[0_0_50px_rgba(35,170,202,0.35)]',
+        glow: 'group-hover:shadow-[0_0_40px_rgba(255,255,255,0.08)]',
         overlay: 'from-zinc-900/95 via-zinc-900/80 to-transparent',
-        accentLine: 'from-[#23AACA] to-[#4ade80]'
+        accentLine: 'from-white/30 to-white/10'
       };
     }
     return {
-      badge: 'bg-[#c4ff4d]/15 text-[#c4ff4d] border-[#c4ff4d]/40',
-      metric: 'bg-[#c4ff4d] text-zinc-900',
+      badge: 'bg-white/10 text-white/80 border-white/20',
       cardBg: 'bg-zinc-900',
-      glow: 'group-hover:shadow-[0_0_50px_rgba(196,255,77,0.35)]',
+      glow: 'group-hover:shadow-[0_0_40px_rgba(255,255,255,0.08)]',
       overlay: 'from-zinc-900/95 via-zinc-900/80 to-transparent',
-      accentLine: 'from-[#c4ff4d] to-[#4ade80]'
+      accentLine: 'from-white/30 to-white/10'
     };
   };
 
   const particles = useMemo(() => {
     if (prefersReducedMotion) return [];
-    return Array.from({ length: 20 }, (_, i) => ({
+    return Array.from({ length: 12 }, (_, i) => ({
       id: i,
       delay: Math.random() * 4,
-      duration: 5 + Math.random() * 4,
-      size: 3 + Math.random() * 5,
+      duration: 6 + Math.random() * 4,
+      size: 2 + Math.random() * 3,
       left: `${Math.random() * 100}%`,
       top: `${Math.random() * 100}%`,
-      color: i % 3 === 0 ? '#c4ff4d' : i % 3 === 1 ? '#23AACA' : '#4ade80'
+      color: 'rgba(255, 255, 255, 0.15)'
     }));
   }, [prefersReducedMotion]);
 
@@ -192,12 +190,12 @@ export default function OurWork() {
       
       {/* Elite Hero Section - Premium Dark with Brand Accents */}
       <section className="relative py-28 md:py-40 overflow-hidden bg-zinc-950">
-        {/* Sophisticated Grid Background */}
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(196,255,77,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(196,255,77,0.03)_1px,transparent_1px)] bg-[size:60px_60px]" />
+        {/* Subtle Grid Background */}
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:60px_60px]" />
         
-        {/* Premium Gradient Orbs */}
-        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-gradient-to-bl from-[#c4ff4d]/10 via-[#23AACA]/5 to-transparent rounded-full blur-[150px] motion-reduce:animate-none animate-pulse" />
-        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-gradient-to-tr from-[#23AACA]/8 via-[#4ade80]/5 to-transparent rounded-full blur-[120px] motion-reduce:animate-none animate-pulse" style={{ animationDelay: '2s' }} />
+        {/* Subtle Gradient Orbs */}
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-bl from-white/5 to-transparent rounded-full blur-[150px]" />
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-gradient-to-tr from-white/3 to-transparent rounded-full blur-[120px]" />
         
         {/* Floating Brand Particles */}
         <div className="absolute inset-0 overflow-hidden">
@@ -207,7 +205,7 @@ export default function OurWork() {
         </div>
         
         {/* Diagonal Accent Line */}
-        <div className="absolute top-0 right-0 w-[2px] h-[400px] bg-gradient-to-b from-[#c4ff4d]/60 via-[#23AACA]/40 to-transparent transform rotate-[30deg] origin-top-right" />
+        <div className="absolute top-0 right-0 w-[1px] h-[300px] bg-gradient-to-b from-white/20 to-transparent transform rotate-[30deg] origin-top-right" />
         
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
           <motion.div 
@@ -223,15 +221,14 @@ export default function OurWork() {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              <Crown className="w-4 h-4 text-[#c4ff4d]" />
-              <span className="text-sm font-bold text-white/80 tracking-wide uppercase">Elite Creative Portfolio</span>
-              <div className="w-1.5 h-1.5 rounded-full bg-[#c4ff4d] animate-pulse" />
+              <Crown className="w-4 h-4 text-white/60" />
+              <span className="text-sm font-medium text-white/70 tracking-wide uppercase">Creative Portfolio</span>
             </motion.div>
             
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-black mb-8 leading-[1.05] tracking-tight">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-[1.05] tracking-tight">
               <span className="text-white">Work That</span>
               <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#c4ff4d] via-[#4ade80] to-[#23AACA]">
+              <span className="text-white/90">
                 Defines Excellence
               </span>
             </h1>
@@ -282,9 +279,9 @@ export default function OurWork() {
                 <button
                   key={filter.id}
                   onClick={() => setActiveFilter(filter.id)}
-                  className={`flex items-center gap-2.5 px-6 py-3 rounded-full text-sm font-bold whitespace-nowrap transition-all duration-300 ${
+                  className={`flex items-center gap-2.5 px-6 py-3 rounded-full text-sm font-medium whitespace-nowrap transition-all duration-300 ${
                     isActive 
-                      ? 'bg-[#c4ff4d] text-zinc-900 shadow-lg shadow-[#c4ff4d]/25' 
+                      ? 'bg-white text-zinc-900' 
                       : 'bg-white/[0.03] text-white/60 hover:bg-white/[0.06] hover:text-white/90 border border-white/5'
                   }`}
                   data-testid={`filter-${filter.id}`}
@@ -309,10 +306,6 @@ export default function OurWork() {
       <section className="relative py-16 md:py-24 bg-zinc-950 overflow-hidden min-h-screen">
         {/* Subtle Grid Pattern */}
         <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:50px_50px]" />
-        
-        {/* Ambient Glow */}
-        <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-[#c4ff4d]/5 rounded-full blur-[150px] pointer-events-none" />
-        <div className="absolute bottom-1/4 left-0 w-[400px] h-[400px] bg-[#23AACA]/5 rounded-full blur-[120px] pointer-events-none" />
         
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative">
           <motion.div 
@@ -405,9 +398,7 @@ export default function OurWork() {
                       </div>
 
                       {/* Hover Border Effect */}
-                      <div className={`absolute inset-0 rounded-2xl border-2 border-transparent transition-colors duration-500 pointer-events-none ${
-                        isAI ? 'group-hover:border-[#23AACA]/30' : 'group-hover:border-[#c4ff4d]/30'
-                      }`} />
+                      <div className="absolute inset-0 rounded-2xl border border-transparent group-hover:border-white/10 transition-colors duration-500 pointer-events-none" />
                     </div>
                   </Link>
                 </motion.div>
@@ -455,11 +446,8 @@ export default function OurWork() {
         </div>
       </section>
 
-      {/* CTA Section - Elite Minimal */}
+      {/* CTA Section - Minimal */}
       <section className="relative py-24 md:py-32 bg-zinc-950 overflow-hidden">
-        {/* Decorative Elements */}
-        <div className="absolute top-1/2 left-0 w-[400px] h-[400px] bg-gradient-to-r from-[#c4ff4d]/8 to-transparent rounded-full blur-[120px] -translate-y-1/2" />
-        <div className="absolute top-1/2 right-0 w-[300px] h-[300px] bg-gradient-to-l from-[#23AACA]/8 to-transparent rounded-full blur-[100px] -translate-y-1/2" />
         
         <div className="max-w-4xl mx-auto px-6 md:px-12 text-center relative z-10">
           <motion.div
@@ -468,25 +456,16 @@ export default function OurWork() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <div className="inline-flex items-center gap-2.5 px-5 py-2.5 bg-white/[0.03] backdrop-blur-md rounded-full border border-white/10 mb-8">
-              <Sparkles className="w-4 h-4 text-[#c4ff4d]" />
-              <span className="text-sm font-bold text-white/70 uppercase tracking-wide">Join Elite Brands</span>
-            </div>
-            
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 leading-tight">
-              Ready to Become Our Next
-              <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#c4ff4d] via-[#4ade80] to-[#23AACA]">
-                Success Story?
-              </span>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+              Ready to Become Our Next Success Story?
             </h2>
             <p className="text-lg md:text-xl text-white/50 mb-12 max-w-2xl mx-auto">
-              Whether you need breakthrough creative campaigns or AI-powered transformation—let's discuss how we can elevate your brand to new heights.
+              Whether you need breakthrough creative campaigns or AI-powered transformation—let's discuss how we can elevate your brand.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/contact">
                 <motion.button 
-                  className="group inline-flex items-center justify-center gap-3 bg-[#c4ff4d] hover:bg-[#d4ff6d] text-zinc-900 font-bold px-10 py-5 rounded-xl shadow-xl shadow-[#c4ff4d]/20 transition-all duration-300"
+                  className="group inline-flex items-center justify-center gap-3 bg-white hover:bg-zinc-100 text-zinc-900 font-bold px-10 py-5 rounded-xl transition-all duration-300"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   data-testid="button-cta-contact"
@@ -497,7 +476,7 @@ export default function OurWork() {
               </Link>
               <Link href="/services">
                 <motion.button 
-                  className="inline-flex items-center justify-center gap-3 border border-white/20 text-white font-bold px-10 py-5 rounded-xl hover:bg-white/5 hover:border-white/30 transition-all duration-300"
+                  className="inline-flex items-center justify-center gap-3 border border-white/20 text-white font-medium px-10 py-5 rounded-xl hover:bg-white/5 hover:border-white/30 transition-all duration-300"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   data-testid="button-view-services"
