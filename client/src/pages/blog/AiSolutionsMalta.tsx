@@ -30,7 +30,9 @@ import {
     ArrowRight,
     CheckCircle,
     XCircle,
-    Clock
+    Clock,
+    Globe,
+    ShoppingBag
 } from 'lucide-react';
 import { Link } from 'wouter';
 
