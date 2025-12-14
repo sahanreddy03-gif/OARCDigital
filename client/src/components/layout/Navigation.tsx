@@ -47,8 +47,8 @@ export default function Navigation() {
             >
               <span className="text-white text-2xl md:text-3xl lg:text-4xl">O</span>
               <span>arc</span>
-              <span className="ml-1.5 text-[#c4ff4d]">D</span>
-              <span className="text-[#c4ff4d]">igital</span>
+              <span className="ml-1.5 text-[#ff914d]">D</span>
+              <span className="text-[#ff914d]">igital</span>
             </span>
           </Link>
 
