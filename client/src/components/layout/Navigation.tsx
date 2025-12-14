@@ -38,7 +38,7 @@ export default function Navigation() {
             <img 
               src={location === "/" ? oarcLogo3D : oarcLogoOnly} 
               alt="Oarc Digital logo" 
-              className="h-12 w-12 md:h-14 md:w-14 lg:h-16 lg:w-16 object-contain"
+              className="h-14 w-14 md:h-16 md:w-16 lg:h-20 lg:w-20 object-contain"
               style={{ filter: 'drop-shadow(0 2px 12px rgba(0, 0, 0, 0.5))' }}
               data-testid="img-logo"
             />
@@ -46,7 +46,7 @@ export default function Navigation() {
               className="font-logo text-white text-xl md:text-2xl lg:text-3xl tracking-[0.02em] font-bold" 
               style={{ textShadow }}
             >
-              <span className="text-[#ff914d] text-2xl md:text-3xl lg:text-4xl">O</span>
+              <span className="text-white text-2xl md:text-3xl lg:text-4xl">O</span>
               <span>arc</span>
               <span className="ml-1.5 text-[#c4ff4d]">D</span>
               <span className="text-[#c4ff4d]">igital</span>
