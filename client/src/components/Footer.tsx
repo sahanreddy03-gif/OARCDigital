@@ -3,7 +3,7 @@ import { ArrowRight, ArrowUpRight, Cookie } from "lucide-react";
 import { SiInstagram, SiFacebook, SiX, SiLinkedin } from "react-icons/si";
 import { servicesCatalog } from '@/config/servicesConfig';
 import { useCookieConsent } from '@/contexts/CookieConsentContext';
-import companyLogo from "@assets/IMG_8813_(1)_1764796694787.png";
+import companyLogo from "@assets/IMG_9004_1765747003784.png";
 
 const socialLinks = [
   { name: 'Instagram', icon: SiInstagram, href: 'https://instagram.com/oarcdigital' },

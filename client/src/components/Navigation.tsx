@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { Menu, ChevronDown, ArrowRight, X } from "lucide-react";
 import { getPreviewServices, servicesCatalog } from '@/config/servicesConfig';
-import oarcLogoOnly from "@assets/IMG_8813_(1)_1764796694787.png";
+import oarcLogo3D from "@assets/IMG_9004_1765747003784.png";
 
 export default function Navigation() {
   const [showServicesMenu, setShowServicesMenu] = useState(false);
@@ -32,7 +32,7 @@ export default function Navigation() {
         <div className="flex items-center justify-between h-16 md:h-18 lg:h-20">
           <Link href="/" className="flex items-center gap-2.5" data-testid="link-logo-home">
             <img 
-              src={oarcLogoOnly} 
+              src={oarcLogo3D} 
               alt="Oarc Digital logo" 
               className="h-9 w-9 md:h-10 md:w-10 lg:h-11 lg:w-11 object-contain"
               style={{ filter: 'drop-shadow(0 2px 10px rgba(0, 0, 0, 0.4))' }}
