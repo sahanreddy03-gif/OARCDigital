@@ -8,14 +8,15 @@ import SEOHead from '@/components/SEOHead';
 import { supportingPagesSEO } from '@/data/seoMetadata';
 import heroImg from '@assets/global-influencer-marketing-agency-socially-powerful_1763048685978.jpg';
 import creativeImg from '@assets/837b9d2d4233bb346c214826035215a37160c085-3840x1432_1763049729526.avif';
-import growthImg from '@assets/stock_images/business_revenue_gro_c01f15ff.jpg';
+import automationImg from '@assets/stock_images/digital_transformati_f294be91.jpg';
 import aiImg from '@assets/stock_images/artificial_intellige_3ed7faa2.jpg';
+import developmentImg from '@assets/stock_images/custom_software_deve_6f9a0242.jpg';
 
 const categoryImages: Record<string, string> = {
   'creativeDesign': creativeImg,
   'aiAgents': aiImg,
-  'growthAutomation': growthImg,
-  'development': creativeImg,
+  'growthAutomation': automationImg,
+  'development': developmentImg,
 };
 
 const categoryIcons: Record<string, any> = {
