@@ -4,7 +4,7 @@ import { Cookie, Settings, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export function CookieConsentBanner() {
-  const { showBanner, acceptAll, rejectAll, openPreferences } = useCookieConsent();
+  const { showBanner, acceptAll, rejectAll, openPreferences, closeBanner } = useCookieConsent();
 
   return (
     <AnimatePresence>
@@ -17,14 +17,22 @@ export function CookieConsentBanner() {
           className="fixed bottom-0 left-0 right-0 z-[9999] p-4 md:p-6"
           data-testid="cookie-banner"
         >
-          <div className="max-w-4xl mx-auto bg-zinc-900 border border-white/10 rounded-2xl shadow-2xl overflow-hidden">
+          <div className="max-w-4xl mx-auto bg-zinc-900 border border-white/10 rounded-2xl shadow-2xl overflow-hidden relative">
+            <button
+              onClick={closeBanner}
+              className="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors z-10"
+              aria-label="Close cookie banner"
+              data-testid="cookie-close"
+            >
+              <X className="w-4 h-4 text-white/70" />
+            </button>
             <div className="p-6 md:p-8">
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 bg-[#4ade80]/20 rounded-xl flex items-center justify-center flex-shrink-0">
                   <Cookie className="w-6 h-6 text-[#4ade80]" />
                 </div>
                 
-                <div className="flex-1">
+                <div className="flex-1 pr-8">
                   <h3 className="text-lg font-bold text-white mb-2">
                     We value your privacy
                   </h3>
