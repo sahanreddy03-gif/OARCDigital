@@ -281,11 +281,7 @@ export default function HeroSection() {
                   {/* Kicker - Very light green, bigger on desktop */}
                   <div className="mb-3 md:mb-6 lg:mb-8">
                     <span 
-                      className="uppercase tracking-[0.2em] md:tracking-[0.3em] font-medium leading-none text-[10px] md:text-[clamp(0.7rem,1.2vw,1.1rem)]" 
-                      style={{ 
-                        color: 'rgba(196, 255, 77, 0.7)',
-                        textShadow: '0 0 20px rgba(196, 255, 77, 0.25)' 
-                      }}
+                      className="uppercase tracking-[0.2em] md:tracking-[0.3em] font-medium leading-none text-[10px] md:text-[clamp(0.7rem,1.2vw,1.1rem)] text-white"
                     >
                       WHERE CREATIVITY MEETS REVENUE
                     </span>

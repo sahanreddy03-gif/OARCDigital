@@ -34,11 +34,11 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16 md:h-18 lg:h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3" data-testid="link-logo-home">
+          <Link href="/" className="flex items-center gap-2" data-testid="link-logo-home">
             <img 
               src={location === "/" ? oarcLogo3D : oarcLogoOnly} 
               alt="Oarc Digital logo" 
-              className="h-14 w-14 md:h-16 md:w-16 lg:h-20 lg:w-20 object-contain"
+              className="h-16 w-16 md:h-18 md:w-18 lg:h-22 lg:w-22 object-contain"
               style={{ filter: 'drop-shadow(0 2px 12px rgba(0, 0, 0, 0.5))' }}
               data-testid="img-logo"
             />
