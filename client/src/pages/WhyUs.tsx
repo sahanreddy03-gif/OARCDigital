@@ -264,11 +264,8 @@ export default function WhyUs() {
           data-testid="carousel-container"
         >
           {carouselImages.map((img, i) => (
-            <div key={i} className="inline-block w-[300px] h-[400px] rounded-2xl overflow-hidden relative group flex-shrink-0 border border-white/10" data-testid={`carousel-item-${i}`}>
-              <img src={img} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Campaign" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
-                <p className="text-white font-semibold">View Campaign</p>
-              </div>
+            <div key={i} className="inline-block w-[300px] h-[400px] rounded-2xl overflow-hidden relative flex-shrink-0 border border-white/10" data-testid={`carousel-item-${i}`}>
+              <img src={img} className="w-full h-full object-cover" alt="Creative work" />
             </div>
           ))}
         </div>
