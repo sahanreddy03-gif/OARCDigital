@@ -1,0 +1,275 @@
+# OARC Digital — "Why Us" Page Implementation Brief
+
+## Overview
+This document provides the exact content and structure for rebuilding the "Why Us" page. The visual layout remains largely the same (vertical line with alternating content blocks), but the content shifts from a chronological timeline to thematic story chapters.
+
+**Key Change:** Remove ALL year references (2023, 2024, 2025). This is no longer a timeline — it's a narrative flow.
+
+---
+
+## SECTION 1: Hero
+
+**Layout:** Full-width dark section, centered text
+
+**Label (small, orange, uppercase, tracking-wide):**
+```
+ORIGIN STORY
+```
+
+**Headline (large, bold, white + orange accent):**
+```
+Born in
+The AI Era.
+```
+
+**Subhead (gray, smaller):**
+```
+We didn't inherit the old agency playbook. We're writing a new one.
+```
+
+**Notes:** Keep existing styling. No changes needed to layout.
+
+---
+
+## SECTION 2: The Problem We Saw
+
+**Layout:** Text on left, image on right (use existing team collaboration image)
+
+**Headline (white, bold):**
+```
+We Saw a Broken System.
+```
+
+**Body (gray):**
+```
+Traditional agencies were built for a different time. Bloated teams. Slow approvals. Creative and technology working in silos.
+
+In today's world, that doesn't cut it. Competition is brutal. You need to be exceptional across every department — creative, tech, strategy, execution — or you fall behind.
+
+We saw this firsthand across Asia and Europe. And we knew there had to be a better way.
+```
+
+**Image:** Keep existing team/collaboration image (people looking at laptop)
+
+**Notes:** This replaces "Why start in 2023?" section. Remove the "2023" reference entirely.
+
+---
+
+## SECTION 3: Why Malta (First Story Block)
+
+**Layout:** Vertical line structure — text on LEFT, image on RIGHT
+
+**Remove:** The "2023" year label
+
+**Icon:** Keep the location/pin icon (orange)
+
+**Headline (white, bold):**
+```
+Why Malta. Why Now.
+```
+
+**Body (gray):**
+```
+Before we positioned ourselves in Malta, we did the work.
+
+We studied how businesses operate here — from iGaming and financial services to hospitality, real estate, and professional services. We analysed what local agencies offer, where they fall short, and what Maltese businesses actually need to compete today and beyond.
+
+That gap is exactly where we operate.
+```
+
+**Image:** Keep existing Malta harbor/Grand Harbour image
+
+---
+
+## SECTION 4: Who We Are (Second Story Block)
+
+**Layout:** Vertical line structure — image on LEFT, text on RIGHT
+
+**Remove:** The "2024" year label
+
+**Icon:** Keep the lightning bolt icon (orange)
+
+**Headline (white, bold):**
+```
+Young. Obsessed. Building Different.
+```
+
+**Body (gray):**
+```
+We're a team of young people from Asia and Europe who share one belief: creativity and technology must work together.
+
+AI isn't something to fear or avoid — it's something to use intelligently. Whether it's creative direction, front-end, back-end, AI solutions, or automation — we check every department.
+
+Because that's what it takes to actually deliver results.
+```
+
+**Image:** Keep existing videographer/creative professional image
+
+---
+
+## SECTION 5: Our Approach (Third Story Block)
+
+**Layout:** Vertical line structure — text on LEFT, image on RIGHT
+
+**Remove:** The "2025" year label
+
+**Icon:** Use globe icon (orange) — keep existing
+
+**Headline (white, bold):**
+```
+Built Different. On Purpose.
+```
+
+**Body (gray):**
+```
+We don't just "do creative" or "do tech." We think across the entire stack — strategy, design, code, automation, distribution.
+
+We keep our operation lean so you don't pay for agency overhead. Premium output. Startup efficiency.
+
+We're not adapting to AI and automation — we're native to it.
+```
+
+**Image:** Keep existing purple globe/network image OR replace with a more relevant image (optional)
+
+---
+
+## SECTION 6: The Four Pillars — O.A.R.C.
+
+**Layout:** Four columns/cards with icons
+
+**Section Headline (centered, above the four pillars):**
+```
+What O.A.R.C. Stands For
+```
+
+**Section Subhead (centered, gray):**
+```
+Every letter represents a principle we build everything around.
+```
+
+### Pillar 1: O — Optimised
+**Icon:** Efficiency/gauge icon (orange)
+**Title:**
+```
+Optimised
+```
+**Description:**
+```
+Zero bloat. Zero waste. We engineer every workflow and campaign for maximum output with minimum friction.
+```
+
+### Pillar 2: A — AI
+**Icon:** AI/brain icon (orange)
+**Title:**
+```
+AI
+```
+**Description:**
+```
+Not a gimmick. A genuine capability we're building — carefully, honestly, and with real application in mind.
+```
+
+### Pillar 3: R — Revenue
+**Icon:** Chart/growth icon (orange)
+**Title:**
+```
+Revenue
+```
+**Description:**
+```
+The metric that matters. Every strategy we create ties directly back to your bottom line.
+```
+
+### Pillar 4: C — Creative
+**Icon:** Globe or creative icon (orange)
+**Title:**
+```
+Creative
+```
+**Description:**
+```
+Organic-first. Paid to amplify. Creative that earns attention before you spend a cent boosting it.
+```
+
+**Notes:** Replace existing four pillars (AI-Native, Revenue-First, Malta HQ, Speed) with these new O.A.R.C. pillars.
+
+---
+
+## SECTION 7: Campaign Excellence
+
+**Layout:** Keep existing horizontal scrolling carousel
+
+**Headline (centered, white):**
+```
+Campaign Excellence
+```
+
+**Subhead (centered, gray):**
+```
+The result of Human Strategy + AI Execution.
+```
+
+**Notes:** No changes to this section. Keep existing portfolio carousel.
+
+---
+
+## SECTION 8: Final CTA
+
+**Layout:** Full-width dark section, centered text with button
+
+**Icon:** Sparkle/star icon (orange) — keep existing
+
+**Headline (white + orange accent):**
+```
+Ready to Work With a Team That Gets It?
+```
+
+**Subhead (gray):**
+```
+Partner with an agency that understands Malta, masters technology, and puts your revenue first.
+```
+
+**Button (orange background, dark text):**
+```
+Start Your Journey
+```
+
+---
+
+## Summary of Changes
+
+| Section | What to Change |
+|---------|----------------|
+| Hero | Update subhead only |
+| Section 2 | Replace "Why start in 2023?" with "We Saw a Broken System" — remove year |
+| Story Block 1 | Remove "2023" label, update headline to "Why Malta. Why Now." + new copy |
+| Story Block 2 | Remove "2024" label, update headline to "Young. Obsessed. Building Different." + new copy |
+| Story Block 3 | Remove "2025" label, update headline to "Built Different. On Purpose." + new copy |
+| Four Pillars | Replace all four with O.A.R.C. pillars (Optimised, AI, Revenue, Creative) |
+| Carousel | No changes |
+| CTA | Update headline and subhead |
+
+---
+
+## Important Notes
+
+1. **Remove ALL year references** — no 2023, 2024, 2025 anywhere on the page
+2. **Keep the vertical line visual structure** — just remove the year labels
+3. **Keep existing images** — they work well with the new content
+4. **Maintain orange accent color** for highlights and icons
+5. **Typography and spacing** should remain consistent with current design
+
+---
+
+## File Location Reference
+
+This brief is for the "Why Us" page located at:
+```
+/why-us
+```
+
+The page component is likely in:
+```
+src/pages/WhyUs.tsx
+```
+or similar path depending on project structure.
