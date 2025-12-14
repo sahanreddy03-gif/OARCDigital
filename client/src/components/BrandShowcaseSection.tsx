@@ -16,7 +16,7 @@ export default function BrandShowcaseSection() {
             Our Impact
           </p>
           <h2 className="font-bold text-zinc-900 mb-2" style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', letterSpacing: '-0.03em', lineHeight: '1.15' }}>
-            See how Top Brands use OARC Digital
+            Inspired by how top brands succeed
           </h2>
           <p className="text-sm md:text-base text-zinc-600 max-w-xl">
             From global giants to innovative startups, we deliver measurable results
