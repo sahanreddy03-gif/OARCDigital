@@ -8,7 +8,7 @@ import SEOHead from '@/components/SEOHead';
 import { supportingPagesSEO } from '@/data/seoMetadata';
 import heroImg from '@assets/global-influencer-marketing-agency-socially-powerful_1763048685978.jpg';
 import creativeImg from '@assets/837b9d2d4233bb346c214826035215a37160c085-3840x1432_1763049729526.avif';
-import automationImg from '@assets/stock_images/digital_transformati_f294be91.jpg';
+import automationImg from '@assets/pexels-mikael-blomkvist-6476783_(1)_1765732245944.jpg';
 import aiImg from '@assets/stock_images/artificial_intellige_3ed7faa2.jpg';
 import developmentImg from '@assets/stock_images/custom_software_deve_6f9a0242.jpg';
 
