@@ -118,57 +118,17 @@ export default function Section2() {
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-16 h-4 bg-zinc-900 rounded-b-xl z-20" />
                 
                 {/* Screen */}
-                <div className="relative bg-white rounded-[1.5rem] overflow-hidden" style={{ aspectRatio: '9/19' }}>
-                  {/* Screen content */}
-                  <div className="absolute inset-0 flex flex-col">
-                    {/* Status bar */}
-                    <div className="h-5 bg-zinc-100 flex items-center justify-center">
-                      <div className="w-8 h-0.5 bg-zinc-300 rounded-full" />
-                    </div>
-                    
-                    {/* Content area */}
-                    <div className="flex-1 p-2 flex flex-col items-center justify-center bg-gradient-to-b from-zinc-50 to-white">
-                      {/* Sample content card */}
-                      <div className="w-full bg-white rounded-lg shadow-md p-2 border border-zinc-100">
-                        {/* Header with logo */}
-                        <div className="flex items-center gap-1.5 mb-2">
-                          <img 
-                            src={companyLogo} 
-                            alt="OARC Digital" 
-                            className="w-5 h-5 object-contain"
-                          />
-                          <div>
-                            <p className="text-[7px] font-bold text-zinc-800">OARC Digital</p>
-                            <p className="text-[5px] text-zinc-400">Sponsored</p>
-                          </div>
-                        </div>
-                        
-                        {/* Sample image placeholder */}
-                        <div className="w-full aspect-square rounded-md bg-gradient-to-br from-[#23AACA] via-[#c4ff4d] to-[#ff914d] mb-2 flex items-center justify-center">
-                          <span className="text-white text-[6px] font-bold text-center px-1">
-                            Revenue Driven
-                          </span>
-                        </div>
-                        
-                        {/* Engagement row */}
-                        <div className="flex items-center gap-2 text-zinc-400">
-                          <div className="flex items-center gap-0.5">
-                            <div className="w-2 h-2 rounded-full bg-red-400" />
-                            <span className="text-[5px]">2.4k</span>
-                          </div>
-                          <span className="text-[5px]">128 comments</span>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    {/* Bottom navigation */}
-                    <div className="h-8 bg-white border-t border-zinc-100 flex items-center justify-around px-3">
-                      <div className="w-3 h-3 rounded-full bg-zinc-200" />
-                      <div className="w-3 h-3 rounded-full bg-zinc-200" />
-                      <div className="w-3 h-3 rounded-full bg-[#23AACA]" />
-                      <div className="w-3 h-3 rounded-full bg-zinc-200" />
-                    </div>
-                  </div>
+                <div className="relative bg-black rounded-[1.5rem] overflow-hidden" style={{ aspectRatio: '9/19' }}>
+                  {/* Video content */}
+                  <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="absolute inset-0 w-full h-full object-cover"
+                  >
+                    <source src="/phone-video.mp4" type="video/mp4" />
+                  </video>
                 </div>
               </div>
               
