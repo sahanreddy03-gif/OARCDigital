@@ -291,7 +291,7 @@ export default function Services() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             {[
               { value: 26, suffix: '+', label: 'Specialized Solutions' },
-              { value: 500, suffix: '+', label: 'Successful Campaigns' },
+              { value: null, suffix: '', label: 'Performance-Driven Insights', textOnly: true },
               { value: 98, suffix: '%', label: 'Client Retention' }
             ].map((stat, index) => {
               const ref = useRef<HTMLDivElement>(null);
@@ -309,9 +309,15 @@ export default function Services() {
                   data-testid={`stat-${index}`}
                 >
                   <div className="text-5xl md:text-6xl font-black text-white mb-3">
-                    <AnimatedCounterInline value={stat.value} suffix={stat.suffix} isInView={isInView} />
+                    {stat.textOnly ? (
+                      <span className="text-3xl md:text-4xl">{stat.label}</span>
+                    ) : (
+                      <AnimatedCounterInline value={stat.value!} suffix={stat.suffix} isInView={isInView} />
+                    )}
                   </div>
-                  <div className="text-sm text-zinc-500 font-medium uppercase tracking-wider">{stat.label}</div>
+                  {!stat.textOnly && (
+                    <div className="text-sm text-zinc-500 font-medium uppercase tracking-wider">{stat.label}</div>
+                  )}
                 </motion.div>
               );
             })}

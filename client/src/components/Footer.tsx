@@ -253,10 +253,10 @@ export default function Footer() {
               className="font-logo text-white text-xl md:text-2xl lg:text-3xl tracking-[0.02em] font-bold"
               data-testid="text-footer-logo-name"
             >
-              <span className="text-[#ff914d] text-2xl md:text-3xl lg:text-4xl">O</span>
+              <span className="text-white text-2xl md:text-3xl lg:text-4xl">O</span>
               <span>arc</span>
-              <span className="ml-1.5">D</span>
-              <span>igital</span>
+              <span className="ml-1.5 text-[#ff914d]">D</span>
+              <span className="text-[#ff914d]">igital</span>
             </span>
           </div>
 
