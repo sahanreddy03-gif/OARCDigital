@@ -103,7 +103,7 @@ const TechEnabledSection = () => {
               }}
             >
               Custom solutions that{" "}
-              <span className="italic font-medium" style={{ color: '#c4ff4d' }}>
+              <span className="italic font-medium text-[#1a2e29]">
                 simplify your business
               </span>.
             </h2>
