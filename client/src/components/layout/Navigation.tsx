@@ -47,8 +47,8 @@ export default function Navigation() {
             >
               <span className="text-[#ff914d] text-2xl md:text-3xl lg:text-4xl">O</span>
               <span>arc</span>
-              <span className="ml-1.5">D</span>
-              <span>igital</span>
+              <span className="ml-1.5 text-[#c4ff4d]">D</span>
+              <span className="text-[#c4ff4d]">igital</span>
             </span>
           </Link>
 
@@ -71,7 +71,7 @@ export default function Navigation() {
             ))}
             <Link
               href="/contact"
-              className="bg-white text-black px-5 py-2 rounded-full text-xs lg:text-sm font-semibold hover:bg-white/90 transition-all shadow-lg"
+              className="bg-[#c4ff4d] text-black px-5 py-2 rounded-full text-xs lg:text-sm font-semibold hover:bg-[#b5ef3d] transition-all shadow-lg"
               data-testid="button-contact"
             >
               Contact Us
@@ -109,7 +109,7 @@ export default function Navigation() {
               ))}
               <Link
                 href="/contact"
-                className="block mt-4 bg-white text-black px-6 py-3 rounded-full font-semibold text-center shadow-lg"
+                className="block mt-4 bg-[#c4ff4d] text-black px-6 py-3 rounded-full font-semibold text-center shadow-lg hover:bg-[#b5ef3d]"
                 onClick={() => setMobileMenuOpen(false)}
                 data-testid="button-mobile-contact"
               >
