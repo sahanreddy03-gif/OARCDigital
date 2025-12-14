@@ -44,8 +44,8 @@ export default function Navigation() {
             >
               <span className="font-semibold">O</span>
               <span className="text-[0.85em]">arc</span>
-              <span className="ml-1 font-semibold">D</span>
-              <span className="text-[0.85em]">igital</span>
+              <span className="ml-1 font-semibold text-[#c4ff4d]">D</span>
+              <span className="text-[0.85em] text-[#c4ff4d]">igital</span>
             </span>
           </Link>
 
@@ -183,13 +183,15 @@ export default function Navigation() {
           </div>
 
           <div className="flex items-center space-x-2 md:space-x-3">
-            <Button 
-              size="sm" 
-              className="rounded-full text-[10px] md:text-xs px-4 md:px-5 font-semibold bg-white text-black hover:bg-white/90 border-0 shadow-lg" 
-              data-testid="button-contact"
-            >
-              Contact Us
-            </Button>
+            <Link href="/contact">
+              <Button 
+                size="sm" 
+                className="rounded-full text-[10px] md:text-xs px-4 md:px-5 font-semibold bg-[#c4ff4d] text-black hover:bg-[#b5ef3d] border-0 shadow-lg" 
+                data-testid="button-contact"
+              >
+                Contact Us
+              </Button>
+            </Link>
             <button 
               className="lg:hidden landscape-nav-mobile-hidden p-2 rounded-full text-white bg-white/10 backdrop-blur-sm hover:bg-white/20 transition-colors" 
               data-testid="button-menu"
