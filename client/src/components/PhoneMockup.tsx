@@ -1,3 +1,5 @@
+import phoneVideo from '@assets/SnapInsta.to_AQNOoCpJKmhBzRH6UECpgq2yvIkpe62-YFDx5guG1ThlrG4Ct_1765728514992.mp4';
+
 export default function PhoneMockup() {
   return (
     <div className="relative w-full max-w-md mx-auto">
@@ -74,7 +76,7 @@ export default function PhoneMockup() {
                       playsInline
                       className="w-full h-full object-cover"
                     >
-                      <source src="https://assets.mixkit.co/videos/preview/mixkit-people-in-a-meeting-room-4101-large.mp4" type="video/mp4" />
+                      <source src={phoneVideo} type="video/mp4" />
                     </video>
                     
                     {/* Subtle gradient overlay */}
