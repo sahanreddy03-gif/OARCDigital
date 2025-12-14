@@ -1,8 +1,16 @@
 import { Link } from "wouter";
 import { ArrowRight, ArrowUpRight, Cookie } from "lucide-react";
+import { SiInstagram, SiFacebook, SiX, SiLinkedin } from "react-icons/si";
 import { servicesCatalog } from '@/config/servicesConfig';
 import { useCookieConsent } from '@/contexts/CookieConsentContext';
 import companyLogo from "@assets/IMG_8813_(1)_1764796694787.png";
+
+const socialLinks = [
+  { name: 'Instagram', icon: SiInstagram, href: 'https://instagram.com/oarcdigital' },
+  { name: 'Facebook', icon: SiFacebook, href: 'https://facebook.com/oarcdigital' },
+  { name: 'X', icon: SiX, href: 'https://x.com/oarcdigital' },
+  { name: 'LinkedIn', icon: SiLinkedin, href: 'https://linkedin.com/company/oarcdigital' },
+];
 
 export default function Footer() {
   const { openPreferences } = useCookieConsent();
@@ -252,7 +260,22 @@ export default function Footer() {
             </span>
           </div>
 
-          <div className="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-8">
+          <div className="flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-8">
+            <div className="flex items-center gap-4">
+              {socialLinks.map((social) => (
+                <a
+                  key={social.name}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 flex items-center justify-center transition-all duration-300 group"
+                  aria-label={social.name}
+                  data-testid={`link-social-${social.name.toLowerCase()}`}
+                >
+                  <social.icon className="w-4 h-4 text-zinc-400 group-hover:text-white transition-colors" />
+                </a>
+              ))}
+            </div>
             <div className="text-zinc-500 text-sm">
               © 2025 Oarc Digital. All rights reserved.
             </div>
