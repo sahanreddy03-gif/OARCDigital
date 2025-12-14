@@ -2,6 +2,7 @@ import { Link, useLocation } from "wouter";
 import { Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
 import oarcLogoOnly from "@assets/IMG_8813_(1)_1764796694787.png";
+import oarcLogo3D from "@assets/IMG_9004_1765747003784.png";
 
 export default function Navigation() {
   const [location] = useLocation();
@@ -35,7 +36,7 @@ export default function Navigation() {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3" data-testid="link-logo-home">
             <img 
-              src={oarcLogoOnly} 
+              src={location === "/" ? oarcLogo3D : oarcLogoOnly} 
               alt="Oarc Digital logo" 
               className="h-12 w-12 md:h-14 md:w-14 lg:h-16 lg:w-16 object-contain"
               style={{ filter: 'drop-shadow(0 2px 12px rgba(0, 0, 0, 0.5))' }}
