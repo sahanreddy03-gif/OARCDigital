@@ -1,8 +1,7 @@
 import { Link } from "wouter";
-import { ArrowRight, ArrowUpRight, Cookie } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { SiInstagram, SiFacebook, SiX, SiLinkedin } from "react-icons/si";
 import { servicesCatalog } from '@/config/servicesConfig';
-import { useCookieConsent } from '@/contexts/CookieConsentContext';
 import companyLogo from "@assets/IMG_9004_1765747003784.png";
 
 const socialLinks = [
@@ -13,8 +12,6 @@ const socialLinks = [
 ];
 
 export default function Footer() {
-  const { openPreferences } = useCookieConsent();
-  
   const creativeDesignPreview = servicesCatalog.creativeDesign.items.slice(0, 8);
   const aiAgentsPreview = servicesCatalog.aiAgents.items.slice(0, 6);
   const growthAutomationPreview = servicesCatalog.growthAutomation.items.slice(0, 7);
@@ -221,14 +218,6 @@ export default function Footer() {
             <Link href="/terms-conditions" className="text-zinc-400 hover:text-white transition-colors text-sm" data-testid="link-footer-terms">
               Terms & Conditions
             </Link>
-            <button
-              onClick={openPreferences}
-              className="inline-flex items-center gap-1.5 text-zinc-400 hover:text-white transition-colors text-sm"
-              data-testid="button-cookie-settings"
-            >
-              <Cookie className="w-3.5 h-3.5" />
-              Cookie Settings
-            </button>
           </div>
 
           <div className="flex items-center gap-4">
