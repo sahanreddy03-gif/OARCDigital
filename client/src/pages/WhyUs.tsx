@@ -143,7 +143,7 @@ export default function WhyUs() {
           </p>
           <h1 className="text-5xl md:text-8xl font-black text-white mb-8 leading-[0.9]" data-testid="heading-hero">
             Born in <br />
-            <span className="text-[#ff914d]">
+            <span className="text-white">
               The AI Era.
             </span>
           </h1>
