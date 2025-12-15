@@ -37,15 +37,33 @@ export default function ContactForm() {
         setIsSubmitting(true);
         setErrorDetails(null);
 
-        // Simulate API call
-        await new Promise((resolve) => setTimeout(resolve, 1500));
+        try {
+            const response = await fetch("https://formspree.io/f/xblnedyl", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "application/json",
+                },
+                body: JSON.stringify({
+                    name: data.fullName,
+                    email: data.workEmail,
+                    company: data.companyName,
+                    message: data.message,
+                }),
+            });
 
-        // For now, just log to console and show success
-        console.log("Form Submitted:", data);
+            if (!response.ok) {
+                const errorData = await response.json();
+                throw new Error(errorData.error || "Failed to submit form");
+            }
 
-        setIsSubmitting(false);
-        setIsSuccess(true);
-        reset();
+            setIsSuccess(true);
+            reset();
+        } catch (error) {
+            setErrorDetails(error instanceof Error ? error.message : "Something went wrong. Please try again.");
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     if (isSuccess) {
@@ -67,6 +85,7 @@ export default function ContactForm() {
                 <Button
                     variant="outline"
                     onClick={() => setIsSuccess(false)}
+                    data-testid="button-send-another"
                     className="border-white/20 text-white hover:bg-white/10"
                 >
                     Send Another Message
@@ -93,6 +112,7 @@ export default function ContactForm() {
                         <Input
                             id="fullName"
                             placeholder="John Doe"
+                            data-testid="input-fullname"
                             {...register("fullName")}
                             className={`bg-white/5 border-white/10 text-white placeholder:text-zinc-600 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-500 transition-all ${errors.fullName ? 'border-red-500/50' : ''}`}
                         />
@@ -106,6 +126,7 @@ export default function ContactForm() {
                             id="workEmail"
                             type="email"
                             placeholder="john@company.com"
+                            data-testid="input-email"
                             {...register("workEmail")}
                             className={`bg-white/5 border-white/10 text-white placeholder:text-zinc-600 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-500 transition-all ${errors.workEmail ? 'border-red-500/50' : ''}`}
                         />
@@ -118,6 +139,7 @@ export default function ContactForm() {
                         <Input
                             id="companyName"
                             placeholder="Acme Inc."
+                            data-testid="input-company"
                             {...register("companyName")}
                             className={`bg-white/5 border-white/10 text-white placeholder:text-zinc-600 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-500 transition-all ${errors.companyName ? 'border-red-500/50' : ''}`}
                         />
@@ -130,15 +152,24 @@ export default function ContactForm() {
                         <Textarea
                             id="message"
                             placeholder="Tell us about your project goals..."
+                            data-testid="input-message"
                             {...register("message")}
                             className={`min-h-[120px] bg-white/5 border-white/10 text-white placeholder:text-zinc-600 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-500 transition-all ${errors.message ? 'border-red-500/50' : ''}`}
                         />
                         {errors.message && <p className="text-red-400 text-xs flex items-center gap-1"><AlertCircle className="w-3 h-3" /> {errors.message.message}</p>}
                     </div>
 
+                    {errorDetails && (
+                        <div className="p-3 bg-red-500/10 border border-red-500/30 rounded-lg flex items-center gap-2" data-testid="text-form-error">
+                            <AlertCircle className="w-4 h-4 text-red-400 flex-shrink-0" />
+                            <p className="text-red-400 text-sm">{errorDetails}</p>
+                        </div>
+                    )}
+
                     <Button
                         type="submit"
                         disabled={isSubmitting}
+                        data-testid="button-submit-contact"
                         className="w-full bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-cyan-300 hover:to-blue-400 text-black font-bold py-6 rounded-xl relative overflow-hidden group"
                     >
                         <span className="relative z-10 flex items-center justify-center gap-2">
