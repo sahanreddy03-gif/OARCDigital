@@ -375,9 +375,11 @@ export default function HeroSection() {
 
           {/* Carousel with green wave */}
           <div className="w-full mt-8 md:mt-5 relative">
-            <FloatingChipCarousel />
+            <div className="md:relative md:z-10">
+              <FloatingChipCarousel />
+            </div>
             {/* Green curved wave below carousel */}
-            <div className="absolute -bottom-8 md:-bottom-16 left-0 right-0 pointer-events-none md:-z-10">
+            <div className="absolute -bottom-8 md:-bottom-16 left-0 right-0 pointer-events-none md:z-0">
               <svg 
                 viewBox="0 0 1440 120" 
                 className="w-full h-auto"
