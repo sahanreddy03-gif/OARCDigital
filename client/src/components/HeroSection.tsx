@@ -270,7 +270,7 @@ export default function HeroSection() {
         <div className="hidden md:block absolute inset-0 bg-gradient-to-l from-transparent via-black/10 to-black/60" />
         
         {/* ========== CONTENT ========== */}
-        <div className="relative flex-1 flex flex-col justify-end pt-10 md:pt-16 lg:pt-20 pb-6">
+        <div className="relative flex-1 flex flex-col justify-end pt-14 md:pt-16 lg:pt-20 pb-6">
           <div className="w-full">
             {/* Mobile: centered with px-3, Desktop: left-aligned with minimal left padding */}
             <div className="w-full px-3 md:pl-8 lg:pl-12 md:pr-0">
@@ -380,7 +380,7 @@ export default function HeroSection() {
             <div className="absolute -bottom-8 md:-bottom-16 left-0 right-0 pointer-events-none">
               <svg 
                 viewBox="0 0 1440 120" 
-                className="w-full h-auto md:h-16"
+                className="w-full h-auto"
                 preserveAspectRatio="none"
               >
                 <path 
