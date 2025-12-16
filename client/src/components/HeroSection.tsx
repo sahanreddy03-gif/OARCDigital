@@ -380,7 +380,7 @@ export default function HeroSection() {
             <div className="absolute -bottom-8 md:-bottom-16 left-0 right-0 pointer-events-none">
               <svg 
                 viewBox="0 0 1440 120" 
-                className="w-full h-auto"
+                className="w-full h-auto md:h-16 lg:h-14"
                 preserveAspectRatio="none"
               >
                 <path 
