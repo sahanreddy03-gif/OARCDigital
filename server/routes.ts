@@ -17,14 +17,14 @@ export async function registerRoutes(app: Express): Promise<Server> {
     res.header('Content-Type', 'application/xml');
     res.send(`<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://www.oarcdigital.com/</loc><lastmod>${new Date().toISOString().split('T')[0]}</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url>
-  <url><loc>https://www.oarcdigital.com/services</loc><lastmod>${new Date().toISOString().split('T')[0]}</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.oarcdigital.com/why-us</loc><lastmod>${new Date().toISOString().split('T')[0]}</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.oarcdigital.com/our-work</loc><lastmod>${new Date().toISOString().split('T')[0]}</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.oarcdigital.com/contact</loc><lastmod>${new Date().toISOString().split('T')[0]}</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.oarcdigital.com/privacy-policy</loc><lastmod>${new Date().toISOString().split('T')[0]}</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://www.oarcdigital.com/cookie-policy</loc><lastmod>${new Date().toISOString().split('T')[0]}</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://www.oarcdigital.com/terms-conditions</loc><lastmod>${new Date().toISOString().split('T')[0]}</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://oarcdigital.com/</loc><lastmod>${new Date().toISOString().split('T')[0]}</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url>
+  <url><loc>https://oarcdigital.com/services</loc><lastmod>${new Date().toISOString().split('T')[0]}</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://oarcdigital.com/why-us</loc><lastmod>${new Date().toISOString().split('T')[0]}</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://oarcdigital.com/our-work</loc><lastmod>${new Date().toISOString().split('T')[0]}</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://oarcdigital.com/contact</loc><lastmod>${new Date().toISOString().split('T')[0]}</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://oarcdigital.com/privacy-policy</loc><lastmod>${new Date().toISOString().split('T')[0]}</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://oarcdigital.com/cookie-policy</loc><lastmod>${new Date().toISOString().split('T')[0]}</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://oarcdigital.com/terms-conditions</loc><lastmod>${new Date().toISOString().split('T')[0]}</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
   ${generateServicePages()}
   ${generateLocationPages()}
   ${generateCaseStudyPages()}
@@ -38,7 +38,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
 Allow: /
 
 # Sitemap
-Sitemap: https://www.oarcdigital.com/sitemap.xml
+Sitemap: https://oarcdigital.com/sitemap.xml
 
 # Fast crawling for Google
 User-agent: Googlebot
@@ -70,7 +70,7 @@ Disallow: /
 function generateServicePages(): string {
   // Use centralized service slugs to ensure consistency
   return allServiceSlugs.map(service => 
-    `  <url><loc>https://www.oarcdigital.com/services/${service}</loc><lastmod>${new Date().toISOString().split('T')[0]}</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>`
+    `  <url><loc>https://oarcdigital.com/services/${service}</loc><lastmod>${new Date().toISOString().split('T')[0]}</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>`
   ).join('\n');
 }
 
@@ -79,7 +79,7 @@ function generateLocationPages(): string {
   const pages: string[] = [];
   maltaLocations.forEach(location => {
     locationServices.forEach(service => {
-      pages.push(`  <url><loc>https://www.oarcdigital.com/malta/${location}/${service}</loc><lastmod>${new Date().toISOString().split('T')[0]}</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>`);
+      pages.push(`  <url><loc>https://oarcdigital.com/malta/${location}/${service}</loc><lastmod>${new Date().toISOString().split('T')[0]}</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>`);
     });
   });
   
@@ -89,6 +89,6 @@ function generateLocationPages(): string {
 function generateCaseStudyPages(): string {
   // Use centralized case study slugs
   return allCaseStudySlugs.map(study => 
-    `  <url><loc>https://www.oarcdigital.com/case-studies/${study}</loc><lastmod>${new Date().toISOString().split('T')[0]}</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>`
+    `  <url><loc>https://oarcdigital.com/case-studies/${study}</loc><lastmod>${new Date().toISOString().split('T')[0]}</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>`
   ).join('\n');
 }
