@@ -1,0 +1,180 @@
+COMPREHENSIVE TECHNICAL REQUIREMENTS
+1. Schema Markup (ALL pages must have appropriate schema)
+Service Pages:
+json{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "[Service Name]",
+  "provider": {
+    "@type": "Organization",
+    "name": "OARC Digital"
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "Malta"
+  }
+}
+Organization Schema (Homepage):
+json{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "OARC Digital",
+  "url": "https://oarcdigital.com",
+  "logo": "[logo URL]",
+  "sameAs": [
+    "[LinkedIn URL]",
+    "[Instagram URL]",
+    "[Facebook URL]"
+  ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+356-XXX-XXXX",
+    "contactType": "Customer Service",
+    "areaServed": "MT",
+    "availableLanguage": "English"
+  }
+}
+2. Performance Optimization (Vercel-specific)
+typescript// Next.js/React optimizations for Vercel:
+
+// Image optimization
+import Image from 'next/image';
+// Use Next.js Image component for all images
+
+// Code splitting
+import dynamic from 'next/dynamic';
+const HeavyComponent = dynamic(() => import('./HeavyComponent'), {
+  loading: () => <p>Loading...</p>
+});
+
+// Font optimization
+import { Inter } from 'next/font/google';
+const inter = Inter({ subsets: ['latin'] });
+
+// Lazy loading for below-fold content
+import { lazy, Suspense } from 'react';
+Required Optimizations:
+
+Image lazy loading (below fold)
+Code splitting for heavy components
+Font preloading
+Minimize bundle size
+CSS optimization (remove unused)
+JavaScript tree-shaking
+
+3. SEO Technical Checklist
+Meta Tags (all pages):
+html<!-- Primary Meta Tags -->
+<title>[Page-specific title - max 60 characters]</title>
+<meta name="title" content="[Same as title]">
+<meta name="description" content="[Compelling description - 150-160 characters]">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="[Page URL]">
+<meta property="og:title" content="[Page title]">
+<meta property="og:description" content="[Description]">
+<meta property="og:image" content="[Social share image URL]">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="[Page URL]">
+<meta property="twitter:title" content="[Page title]">
+<meta property="twitter:description" content="[Description]">
+<meta property="twitter:image" content="[Social share image URL]">
+
+<!-- Canonical URLs -->
+<link rel="canonical" href="[Primary page URL]">
+```
+
+**Heading Hierarchy (all pages):**
+- ONE H1 per page (primary keyword)
+- H2 for major sections
+- H3 for subsections
+- Never skip levels (H1→H3)
+- Use keywords naturally in headings
+
+**URL Structure:**
+```
+✅ Good:
+/seo-services-malta/
+/ai-workforce-agents/
+/tools/
+
+❌ Avoid:
+/page?id=123
+/services/category/sub/page/
+4. Mobile Optimization
+Requirements:
+
+Responsive breakpoints: 320px, 768px, 1024px, 1440px
+Touch targets: minimum 44x44px
+Font sizes: minimum 16px body text (mobile)
+No horizontal scrolling
+Mobile menu: hamburger with smooth transitions
+Forms: large input fields, mobile-optimized
+
+Test on:
+
+iPhone SE (smallest)
+iPhone 14 Pro
+iPad
+Android phones
+
+5. Accessibility (WCAG 2.1 AA)
+typescript// Required attributes:
+<button aria-label="Open menu">
+<img alt="Descriptive alt text">
+<nav aria-label="Main navigation">
+
+// Color contrast: minimum 4.5:1
+// Focus indicators: visible on all interactive elements
+// Keyboard navigation: all functions accessible via keyboard
+6. Performance Metrics (Vercel Analytics)
+Target Scores:
+
+Lighthouse Performance: 90+
+First Contentful Paint: <1.8s
+Largest Contentful Paint: <2.5s
+Total Blocking Time: <200ms
+Cumulative Layout Shift: <0.1
+
+Vercel-Specific:
+json// vercel.json configuration
+{
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "X-XSS-Protection",
+          "value": "1; mode=block"
+        }
+      ]
+    }
+  ]
+}
+7. Analytics Integration
+Required Tracking:
+
+Google Analytics 4
+Form submissions
+CTA button clicks
+Video plays
+Scroll depth
+Time on page
+
+typescript// Example GA4 event tracking:
+gtag('event', 'cta_click', {
+  'event_category': 'engagement',
+  'event_label': 'Get Started Button',
+  'service_page': 'Social Media Management'
+});
