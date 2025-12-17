@@ -1,0 +1,49 @@
+=====================================
+OARC DIGITAL - GOOGLE ADS COPY
+=====================================
+
+HEADLINES (30 characters max each):
+-----------------------------------
+1. AI-Powered Marketing Agency
+2. Grow Revenue with AI Marketing
+3. Premium Creative Services
+4. Results-Driven Marketing
+5. AI Employees for Your Business
+6. Scale with AI Automation
+7. Malta's Top Marketing Agency
+8. Creative That Converts
+
+
+DESCRIPTIONS (90 characters max each):
+--------------------------------------
+1. Transform your marketing with AI-powered strategies. Get measurable ROI and real growth.
+
+2. Premium creative, automation & AI solutions. Let us handle marketing while you scale.
+
+3. Award-winning AI marketing agency. Creative services, automation & revenue growth experts.
+
+4. AI employees work 24/7 for your business. Automate marketing and boost revenue today.
+
+5. From social media to video production. Full-service creative agency with AI power.
+
+
+CONTACT PAGE URL:
+-----------------
+www.oarcdigital.com/contact
+
+
+IMAGES AVAILABLE:
+-----------------
+Location: attached_assets/generated_images/
+
+For Google Ads:
+- google_ads_square.png (Square format - 1:1)
+- google_ads_horizontal.png (Horizontal format - 16:9)
+
+For Google Business Profile:
+- premium_ai_marketing_workspace.png
+- ai_automation_network_visualization.png
+- premium_creative_studio_setup.png
+- premium_revenue_growth_visualization.png
+
+=====================================
