@@ -123,9 +123,9 @@ function SnowfallEffect() {
 
 const MobileGlassCard = ({ icon: Icon, label, href }: { icon: typeof Palette; label: string; href: string }) => (
   <Link href={href}>
-    <div className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 transition-all">
-      <Icon className="w-3.5 h-3.5 text-white" />
-      <span className="text-[11px] font-semibold text-white/90">{label}</span>
+    <div className="flex items-center gap-1.5 md:gap-2 px-3 md:px-4 py-2 md:py-2.5 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 transition-all">
+      <Icon className="w-3.5 h-3.5 md:w-4 md:h-4 text-white" />
+      <span className="text-[11px] md:text-sm font-semibold text-white/90">{label}</span>
     </div>
   </Link>
 );
@@ -222,14 +222,16 @@ export default function HeroSection() {
         </div>
 
         {/* ========== DESKTOP LAYOUT ========== */}
-        {/* Background with parallax */}
+        {/* Background with parallax - GPU accelerated for smooth flow */}
         <div 
           className="hidden md:block absolute inset-0 bg-cover bg-no-repeat"
           style={{ 
             backgroundImage: `url(${heroBackground})`,
             backgroundPosition: '35% center',
-            transform: `translateY(${scrollY * 0.3}px)`,
-            transition: 'transform 0.1s ease-out'
+            transform: `translate3d(0, ${scrollY * 0.3}px, 0)`,
+            willChange: 'transform',
+            backfaceVisibility: 'hidden',
+            perspective: 1000
           }}
         />
         {/* AI Grid Overlay with pulse - NEON GREEN DESKTOP */}
