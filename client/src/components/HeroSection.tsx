@@ -272,7 +272,7 @@ export default function HeroSection() {
         <div className="hidden md:block absolute inset-0 bg-gradient-to-l from-transparent via-black/10 to-black/60" />
         
         {/* ========== CONTENT ========== */}
-        <div className="relative flex-1 flex flex-col justify-end pt-14 md:pt-16 lg:pt-20 pb-6">
+        <div className="relative flex-1 flex flex-col justify-end pt-14 md:pt-16 lg:pt-20 pb-6 -mt-8 md:mt-0">
           <div className="w-full">
             {/* Mobile: centered with px-3, Desktop: left-aligned with minimal left padding */}
             <div className="w-full px-3 md:pl-8 lg:pl-12 md:pr-0">
