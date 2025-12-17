@@ -1,0 +1,286 @@
+SERVICE PAGES MODIFICATION (7 pages to modify + 1 to polish)
+Page 1: Social Media Management ✓
+Action: POLISH ONLY (already good)
+
+Review content flow
+Add FAQ section (see FAQ requirements below)
+Ensure all technical schema is implemented
+Verify mobile responsiveness
+
+Pages 2-8: MODIFY EXISTING PAGES (DO NOT rebuild from scratch)
+Pages to modify:
+
+Video Production & Motion Graphics
+Brand Identity & Design
+Graphic Design & Creative Assets
+AI Workforce Agents
+Growth Automation Systems
+Custom AI Development
+Strategic Consulting
+
+Modification Requirements for each:
+Content Structure (enhance existing, don't rewrite):
+
+Target: 1,500-2,500 words total
+Organize into 6-8 clear sections
+Add visual breaks every 200-300 words
+Implement numbered steps (01, 02, 03) for process sections
+Alternate light/dark backgrounds for section breaks
+
+What to ADD to each page:
+
+✅ FAQ Section (MANDATORY - details below)
+✅ Outcome-focused hero headline (tweak existing if needed)
+✅ Process/How It Works section with numbered steps
+✅ Social proof section (testimonials with full attribution)
+✅ CTAs every 2-3 sections (not just at bottom)
+✅ Client logos in grayscale (if not already)
+
+What to KEEP:
+
+Existing core content and messaging
+Current design aesthetic
+Established brand voice
+Any working CTAs and forms
+
+
+PHASE 2: FAQ IMPLEMENTATION (ALL SERVICE PAGES)
+Technical Requirements:
+1. Accordion Component:
+typescript// Required UX features:
+- Downward-facing caret icon (▼)
+- Entire header row clickable (not just icon)
+- Multiple accordions can be open simultaneously
+- First accordion open by default on page load
+- Optional: "Expand All / Collapse All" toggle
+2. JSON-LD FAQ Schema (add to <head> of EACH service page):
+json<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What makes OARC Digital's [service name] different?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "[29-word optimized answer for voice search]"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does it take to see results from [service]?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "[Specific, concise answer]"
+      }
+    }
+    // Add 5-8 questions per page
+  ]
+}
+</script>
+```
+
+**3. FAQ Content Guidelines:**
+- 5-8 questions per service page
+- Questions must be conversational (voice search optimized)
+- Start questions with: Who, What, When, Where, Why, How
+- Answers: 29 words average (featured snippet optimization)
+- 8th-grade reading level
+- Service-specific (not generic)
+
+**FAQ Section Placement:**
+- Position: After social proof section, before final CTA
+- Background: Light gray or white section
+- Typography: Clear hierarchy (Q bold, A regular)
+
+---
+
+## PHASE 3: TECH STACK / TOOLS IMPLEMENTATION
+
+### Strategy: HYBRID APPROACH (Homepage Section + Dedicated Page)
+
+**Option A: Modify Existing Homepage Section**
+
+**Current section:** "Tech Enabled and Made to Work for You"
+
+**Modifications:**
+1. Keep existing boxes/cards layout
+2. **Modify ONE box:**
+   - Title: "AI-Powered Tools & Platforms"
+   - Content: Brief overview of tech stack (2-3 sentences)
+   - **Add button:** "View All Tools" → links to new dedicated page
+3. Ensure visual consistency with existing design
+
+**Option B: Create New Dedicated Tools Page**
+
+**New page URL:** `/tools/` or `/technology/`
+
+**Page Structure (inspired by ColdIQ):**
+```
+Hero Section:
+- Headline: "The Technology Behind OARC Digital"
+- Subheading: "AI-powered tools and platforms that drive results"
+
+Tool Categories (left sidebar navigation):
+├── AI & Intelligence Tools
+├── Marketing Automation Platforms
+├── Analytics & Insights
+├── Creative & Design Tools
+├── SEO & Content Tools
+└── CRM & Sales Enablement
+
+Main Content Area:
+- Tool cards with:
+  • Logo (consistent sizing)
+  • "AI-powered" badge (where applicable)
+  • Tool name
+  • Brief capability description (1-2 sentences)
+  • "How we use it" explanation (unique to OARC)
+
+Display 8-15 primary tools prominently
+Visual hierarchy: Primary platforms larger, supporting tools smaller
+ColdIQ-Inspired Features:
+
+Clean categorization
+Filter/search functionality
+Hover effects on tool cards
+Consistent grid layout
+Mobile-responsive cards
+
+Technical Implementation:
+typescript// Tool card component structure
+interface Tool {
+  name: string;
+  logo: string;
+  category: string;
+  isAIPowered: boolean;
+  description: string;
+  howWeUseIt: string;
+}
+
+// Categories array
+const categories = [
+  "AI & Intelligence Tools",
+  "Marketing Automation",
+  "Analytics & Insights",
+  // etc.
+];
+
+PHASE 4: NAVIGATION UPDATE
+Add new navigation item:
+Current nav: Why Us | Our Work | Contact
+New nav: Why Us | Our Work | Tools | Contact
+Implementation:
+
+Add "Tools" button in main navigation
+Links to: /tools/
+Same styling as existing nav items
+Mobile menu: include in hamburger menu
+Ensure smooth transitions
+
+
+PHASE 5: MALTA-SPECIFIC LANDING PAGES
+Pages to Create (3 priority pages):
+1. /digital-marketing-malta/ (HIGHEST PRIORITY)
+2. /seo-services-malta/
+3. /web-design-malta/
+Required Elements for EACH Malta Page:
+SEO Structure:
+html<h1>Digital Marketing Services Malta</h1>
+<!-- or -->
+<h1>SEO Services in Malta</h1>
+<!-- or -->
+<h1>Web Design Malta</h1>
+Content Sections:
+
+Hero:
+
+Location-specific headline
+Malta-focused value proposition
+CTA button
+
+
+Malta Market Context (150-200 words):
+
+Reference: iGaming industry prominence
+Tourism sector opportunities
+SME landscape
+EU compliance/GDPR advantages
+Financial services sector
+
+
+Service Overview:
+
+Same service details as main page
+Malta-specific examples
+
+
+Local Social Proof:
+
+Malta client testimonials (anonymized if needed)
+Local case studies
+Malta business logos (grayscale)
+
+
+Malta-Specific FAQs (5-8 questions):
+
+"Why choose a Malta-based digital marketing agency?"
+"What industries in Malta benefit most from [service]?"
+"How does OARC Digital understand Malta's market?"
+"Do you work with Malta iGaming companies?"
+etc.
+
+
+Contact Section:
+
+Malta phone: +356-XXX-XXXX
+Malta address: Swieqi
+Embedded Google Map (if available)
+
+
+
+LocalBusiness JSON-LD Schema:
+json<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "OARC Digital",
+  "description": "AI-powered digital marketing agency in Malta",
+  "telephone": "+356-XXXXXXXX",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "[Your street address]",
+    "addressLocality": "Swieqi",
+    "addressRegion": "Malta",
+    "addressCountry": "MT"
+  },
+  "areaServed": [
+    {
+      "@type": "Country",
+      "name": "Malta"
+    },
+    {
+      "@type": "City",
+      "name": "Valletta"
+    },
+    {
+      "@type": "City",
+      "name": "Sliema"
+    },
+    {
+      "@type": "City",
+      "name": "St Julian's"
+    },
+    {
+      "@type": "City",
+      "name": "Swieqi"
+    }
+  ],
+  "priceRange": "$$",
+  "url": "https://oarcdigital.com"
+}
+</script>
+```
+
+---
