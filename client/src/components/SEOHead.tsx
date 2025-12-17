@@ -14,12 +14,12 @@ export default function SEOHead({
   title,
   description,
   canonicalUrl,
-  ogImage = 'https://oarcdigital.com/og-image.jpg',
+  ogImage = 'https://www.oarcdigital.com/og-image.png',
   ogType = 'website',
   structuredData,
   schemaId = 'primary'
 }: SEOHeadProps) {
-  const siteUrl = 'https://oarcdigital.com';
+  const siteUrl = 'https://www.oarcdigital.com';
   const fullCanonical = canonicalUrl
     ? (canonicalUrl.startsWith('http') ? canonicalUrl : `${siteUrl}${canonicalUrl}`)
     : window.location.href;
