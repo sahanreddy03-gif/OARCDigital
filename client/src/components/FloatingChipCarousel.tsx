@@ -88,6 +88,9 @@ function StraightCarousel() {
         className="flex whitespace-nowrap gap-3"
         style={{ 
           willChange: 'transform',
+          backfaceVisibility: 'hidden',
+          perspective: 1000,
+          transform: 'translate3d(0, 0, 0)',
         }}
       >
         {tripleServices.map((service, index) => (
