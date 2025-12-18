@@ -2,7 +2,7 @@ import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { 
   Smartphone,
-  Cog,
+  Wrench,
   Workflow,
   Rocket,
   ArrowRight 
@@ -13,6 +13,7 @@ interface TechCard {
   description: string;
   icon: React.ElementType;
   variant: 'lime' | 'cream' | 'sage' | 'teal';
+  hasToolsLink?: boolean;
 }
 
 const TechEnabledSection = () => {
@@ -24,10 +25,11 @@ const TechEnabledSection = () => {
       variant: 'lime',
     },
     {
-      title: "Software that removes bottlenecks.",
+      title: "AI tools that remove bottlenecks.",
       description: "We identify what slows you down and build tailored solutions—whether it's inventory tracking, client portals, or internal dashboards.",
-      icon: Cog,
+      icon: Wrench,
       variant: 'cream',
+      hasToolsLink: true,
     },
     {
       title: "Automation that runs while you sleep.",
@@ -152,7 +154,7 @@ const TechEnabledSection = () => {
             </div>
           </div>
 
-          {/* Card 2 - Cream - Small Right */}
+          {/* Card 2 - Cream - Small Right - AI Tools */}
           <div 
             className={`
               group relative rounded-2xl overflow-hidden transition-all duration-300 hover:scale-[1.02]
@@ -163,7 +165,7 @@ const TechEnabledSection = () => {
           >
             <div className="p-6 md:p-8 h-full flex flex-col">
               <div className={`w-11 h-11 md:w-12 md:h-12 rounded-xl ${getCardStyles('cream').iconBg} flex items-center justify-center mb-5`}>
-                <Cog className={`w-5 h-5 md:w-6 md:h-6 ${getCardStyles('cream').iconColor}`} strokeWidth={1.5} />
+                <Wrench className={`w-5 h-5 md:w-6 md:h-6 ${getCardStyles('cream').iconColor}`} strokeWidth={1.5} />
               </div>
               <h3 
                 className={`font-semibold mb-3 ${getCardStyles('cream').text}`}
@@ -174,6 +176,19 @@ const TechEnabledSection = () => {
               <p className={`text-sm md:text-base leading-relaxed ${getCardStyles('cream').descText}`}>
                 {techCards[1].description}
               </p>
+              <div className="mt-auto pt-4">
+                <Link href="/tools">
+                  <Button 
+                    variant="ghost" 
+                    size="sm"
+                    className="text-[#1a2e29] hover:bg-[#1a2e29]/10 px-0 font-medium group/btn"
+                    data-testid="button-try-tools"
+                  >
+                    Try These Tools
+                    <ArrowRight className="ml-2 w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+                  </Button>
+                </Link>
+              </div>
             </div>
           </div>
 
