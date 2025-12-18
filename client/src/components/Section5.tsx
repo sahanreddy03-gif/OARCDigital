@@ -168,7 +168,7 @@ export default function Section5() {
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ 
           backgroundImage: `url(${sectionBackground})`,
-          backgroundPosition: 'center 40%'
+          backgroundPosition: 'center 25%'
         }}
       />
       
