@@ -48,7 +48,7 @@ export default function Contact() {
       />
       
       {/* Cinematic Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-zinc-950">
+      <section className="relative overflow-hidden bg-zinc-950 pt-24 md:pt-28 pb-16">
         {/* Bokeh background */}
         <img 
           src={contactBokehBg} 
@@ -78,10 +78,10 @@ export default function Contact() {
         <FloatingParticle delay={0.8} duration={6} x="30%" y="85%" size={9} />
         <FloatingParticle delay={1.2} duration={4.2} x="90%" y="75%" size={6} />
         
-        <div className="relative z-10 container mx-auto px-6 py-20">
+        <div className="relative z-10 container mx-auto px-6 py-8 md:py-12">
           {/* Hero Content */}
           <motion.div 
-            className="text-center max-w-4xl mx-auto mb-16"
+            className="text-center max-w-4xl mx-auto mb-10 md:mb-12"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -108,64 +108,14 @@ export default function Contact() {
             </p>
           </motion.div>
 
-          {/* Two Premium Cards */}
+          {/* Two Premium Cards - Speak With Us first, AI Strategist second */}
           <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            {/* AI Strategist Card */}
+            {/* Speak With Us Card - First */}
             <motion.div 
-              className="group relative"
+              className="group relative order-1"
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.5, duration: 0.6 }}
-            >
-              {/* Glow effect */}
-              <div className="absolute -inset-1 bg-gradient-to-r from-[#ff914d]/20 to-purple-500/20 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              
-              <div className="relative bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-xl border border-white/10 rounded-2xl p-8 hover:border-[#ff914d]/30 transition-all duration-500 h-full">
-                {/* Animated border */}
-                <div className="absolute inset-0 rounded-2xl overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#ff914d]/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
-                </div>
-                
-                <div className="relative z-10">
-                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#ff914d]/20 to-[#ff914d]/5 border border-[#ff914d]/20 flex items-center justify-center mb-6">
-                    <Bot className="w-8 h-8 text-[#ff914d]" />
-                  </div>
-                  
-                  <h3 className="text-2xl font-bold text-white mb-3">Chat with AI Strategist</h3>
-                  <p className="text-white/50 mb-6 leading-relaxed">
-                    Get instant answers about our services, pricing, and how we can help your business grow.
-                  </p>
-
-                  {/* Sample prompts */}
-                  <div className="space-y-2 mb-6">
-                    {["Get a quote", "Explore AI services", "See case studies"].map((prompt, i) => (
-                      <div 
-                        key={i}
-                        className="inline-block mr-2 px-3 py-1.5 bg-white/5 border border-white/10 rounded-full text-xs text-white/60 hover:bg-white/10 hover:text-white/80 transition-colors cursor-pointer"
-                      >
-                        {prompt}
-                      </div>
-                    ))}
-                  </div>
-                  
-                  <button 
-                    className="w-full flex items-center justify-center gap-2 px-6 py-4 bg-gradient-to-r from-[#ff914d] to-orange-500 text-black font-semibold rounded-xl hover:shadow-lg hover:shadow-[#ff914d]/20 transition-all duration-300 group/btn"
-                    data-testid="button-ai-strategist"
-                  >
-                    <Bot className="w-5 h-5" />
-                    Launch AI Strategist
-                    <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-                  </button>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Direct Line Card */}
-            <motion.div 
-              className="group relative"
-              initial={{ opacity: 0, x: 30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.6, duration: 0.6 }}
             >
               <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               
@@ -210,23 +160,59 @@ export default function Contact() {
                 </div>
               </div>
             </motion.div>
+
+            {/* AI Strategist Card - Second */}
+            <motion.div 
+              className="group relative order-2"
+              initial={{ opacity: 0, x: 30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.6, duration: 0.6 }}
+            >
+              {/* Glow effect */}
+              <div className="absolute -inset-1 bg-gradient-to-r from-[#ff914d]/20 to-purple-500/20 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              
+              <div className="relative bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-xl border border-white/10 rounded-2xl p-8 hover:border-[#ff914d]/30 transition-all duration-500 h-full">
+                {/* Animated border */}
+                <div className="absolute inset-0 rounded-2xl overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#ff914d]/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+                </div>
+                
+                <div className="relative z-10">
+                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#ff914d]/20 to-[#ff914d]/5 border border-[#ff914d]/20 flex items-center justify-center mb-6">
+                    <Bot className="w-8 h-8 text-[#ff914d]" />
+                  </div>
+                  
+                  <h3 className="text-2xl font-bold text-white mb-3">Chat with AI Strategist</h3>
+                  <p className="text-white/50 mb-6 leading-relaxed">
+                    Get instant answers about our services, pricing, and how we can help your business grow.
+                  </p>
+
+                  {/* Sample prompts */}
+                  <div className="space-y-2 mb-6">
+                    {["Get a quote", "Explore AI services", "See case studies"].map((prompt, i) => (
+                      <div 
+                        key={i}
+                        className="inline-block mr-2 px-3 py-1.5 bg-white/5 border border-white/10 rounded-full text-xs text-white/60 hover:bg-white/10 hover:text-white/80 transition-colors cursor-pointer"
+                      >
+                        {prompt}
+                      </div>
+                    ))}
+                  </div>
+                  
+                  <button 
+                    className="w-full flex items-center justify-center gap-2 px-6 py-4 bg-gradient-to-r from-[#ff914d] to-orange-500 text-black font-semibold rounded-xl hover:shadow-lg hover:shadow-[#ff914d]/20 transition-all duration-300 group/btn"
+                    data-testid="button-ai-strategist"
+                  >
+                    <Bot className="w-5 h-5" />
+                    Launch AI Strategist
+                    <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+                  </button>
+                </div>
+              </div>
+            </motion.div>
           </div>
         </div>
 
-        {/* Scroll indicator */}
-        <motion.div 
-          className="absolute bottom-8 left-1/2 -translate-x-1/2"
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-        >
-          <div className="w-6 h-10 rounded-full border-2 border-white/20 flex items-start justify-center p-2">
-            <motion.div 
-              className="w-1.5 h-1.5 bg-white/50 rounded-full"
-              animate={{ y: [0, 12, 0] }}
-              transition={{ duration: 2, repeat: Infinity }}
-            />
-          </div>
-        </motion.div>
       </section>
 
       {/* Contact Form Section */}
