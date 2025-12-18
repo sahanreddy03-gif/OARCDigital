@@ -88,6 +88,7 @@ import AiSolutionsMalta from "@/pages/blog/AiSolutionsMalta";
 import PrivacyPolicy from "@/pages/legal/PrivacyPolicy";
 import CookiePolicy from "@/pages/legal/CookiePolicy";
 import TermsConditions from "@/pages/legal/TermsConditions";
+import Tools from "@/pages/Tools";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -202,6 +203,10 @@ function Router() {
       <Route path="/blog/marketing-trends-malta-2025" component={MarketingTrendsMalta} />
       <Route path="/blog/digital-marketing-malta" component={DigitalMarketingMalta} />
       <Route path="/blog/ai-solutions-malta" component={AiSolutionsMalta} />
+
+      {/* Tools Directory */}
+      <Route path="/tools" component={Tools} />
+      <Route path="/ai-sales-tools" component={Tools} />
 
       {/* Legal Pages - GDPR Compliance */}
       <Route path="/privacy-policy" component={PrivacyPolicy} />
