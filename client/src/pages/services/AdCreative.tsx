@@ -4,6 +4,7 @@ import { Sparkles, Target, Zap, BarChart, ArrowRight, TrendingUp, CheckCircle2 }
 import { Button } from "@/components/ui/button";
 import { ScrollableCards } from "@/components/ui/scrollable-cards";
 import Layout from "@/components/layout/Layout";
+import FAQSection, { FAQItem } from "@/components/FAQSection";
 import SEOHead from "@/components/SEOHead";
 import { creativeServicesSEO } from "@/data/seoMetadata";
 import { createServiceSchema } from "@/utils/structuredData";
@@ -11,6 +12,17 @@ import heroImage from '@assets/creative-ad-campaigns-optimized.jpg';
 import adImg1 from "@assets/stock_images/creative_advertising_b13aabf8.jpg";
 import adImg2 from "@assets/stock_images/creative_advertising_0f7921d3.jpg";
 import adImg3 from "@assets/stock_images/creative_advertising_3d5c5ae1.jpg";
+
+const adCreativeFAQs: FAQItem[] = [
+  { question: "What ad formats do you create?", answer: "Static images, carousels, videos, Stories, Reels, and animated ads. Optimized for Meta, Google, TikTok, LinkedIn, and programmatic platforms." },
+  { question: "How quickly can you deliver ad creatives?", answer: "Standard turnaround is 3-5 business days for a creative set. Rush delivery available within 24-48 hours for urgent campaigns." },
+  { question: "What makes OARC's ad creative different?", answer: "We design for performance, not awards. Every creative is built to convert based on platform best practices and testing data." },
+  { question: "Do you offer unlimited creative revisions?", answer: "Our packages include generous revision rounds. Unlimited revision options available in premium tiers for ongoing campaigns." },
+  { question: "Can you A/B test different creative versions?", answer: "Yes, we create multiple variants for testing. We analyze performance data and optimize creative based on what converts." },
+  { question: "Do you handle copy as well as design?", answer: "Yes, ad copywriting is included. Headlines, body copy, and calls-to-action crafted for each platform and audience." },
+  { question: "What is the investment for ad creative?", answer: "Creative packages start from €1,000/month for essential needs. Unlimited creative subscriptions range from €2,500-5,000/month." },
+  { question: "Can you match our brand guidelines?", answer: "Absolutely. We follow your brand guidelines precisely while optimizing for ad performance on each platform." }
+];
 
 export default function AdCreative() {
   useEffect(() => {
@@ -405,6 +417,14 @@ export default function AdCreative() {
           </div>
         </div>
       </section>
+
+      {/* FAQ Section */}
+      <FAQSection 
+        faqs={adCreativeFAQs} 
+        title="Frequently Asked Questions" 
+        subtitle="Everything you need to know about ad creative services" 
+        schemaId="faq-ad-creative" 
+      />
 
       {/* Final CTA */}
       <section className="py-20 px-4 bg-[#23AACA] text-white">

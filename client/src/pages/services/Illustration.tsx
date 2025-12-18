@@ -8,6 +8,18 @@ import SEOHead from "@/components/SEOHead";
 import { creativeServicesSEO } from "@/data/seoMetadata";
 import { createServiceSchema } from "@/utils/structuredData";
 import heroImage from '@assets/illustration desoigns_1763086173736.avif';
+import FAQSection, { FAQItem } from '@/components/FAQSection';
+
+const illustrationFAQs: FAQItem[] = [
+  { question: "What illustration styles do you offer?", answer: "Custom brand illustrations, icon sets, character design, infographics, editorial illustrations, and product illustrations. Any style you need." },
+  { question: "How long does illustration take?", answer: "Individual illustrations take 3-5 days. Comprehensive illustration sets typically require 2-4 weeks." },
+  { question: "What file formats do you provide?", answer: "SVG, PNG, JPG, and original editable files. All assets optimized for web, print, and various screen sizes." },
+  { question: "What makes OARC's illustration different?", answer: "Strategic design thinking behind every illustration. Visuals that communicate your message, not just decorate." },
+  { question: "Can you match our brand style?", answer: "Absolutely. We study your brand guidelines and create illustrations that feel authentically yours." },
+  { question: "Do you create animated illustrations?", answer: "Yes, we offer motion design for illustrations including Lottie animations and interactive SVGs." },
+  { question: "What is the investment for illustration?", answer: "Individual illustrations start from €300. Illustration packages and brand sets range from €2,000-10,000." },
+  { question: "Can we license illustrations exclusively?", answer: "Yes, all custom illustrations include full commercial rights and exclusive ownership for your brand." }
+];
 
 export default function Illustration() {
   useEffect(() => {
@@ -405,6 +417,8 @@ export default function Illustration() {
           </div>
         </div>
       </section>
+
+      <FAQSection faqs={illustrationFAQs} title="Frequently Asked Questions" subtitle="Everything you need to know about illustration services" schemaId="faq-illustration" />
 
       {/* Final CTA */}
       <section className="py-20 px-4 bg-gradient-to-br from-[#23AACA] to-orange-500 text-white">

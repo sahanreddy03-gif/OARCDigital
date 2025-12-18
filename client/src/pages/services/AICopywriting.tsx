@@ -1,15 +1,27 @@
 import { useEffect } from "react";
 import { Link } from "wouter";
-import { Sparkles, Zap, FileText, TrendingUp, Target, BarChart, CheckCircle2, PenTool, MessageSquare } from "lucide-react";
+import { Sparkles, Zap, FileText, TrendingUp, Target, BarChart, CheckCircle2, PenTool, MessageSquare, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ScrollableCards } from "@/components/ui/scrollable-cards";
 import Layout from "@/components/layout/Layout";
+import FAQSection, { FAQItem } from "@/components/FAQSection";
 import SEOHead from "@/components/SEOHead";
 import { creativeServicesSEO } from "@/data/seoMetadata";
 import { createServiceSchema } from "@/utils/structuredData";
 import { serviceImagesBySlug } from "@/assets/serviceImages";
 
 const heroImage = serviceImagesBySlug['ai-copywriting'] || serviceImagesBySlug['ai-enhanced-creative'];
+
+const aiCopywritingFAQs: FAQItem[] = [
+  { question: "What types of content do you create?", answer: "Blog posts, website copy, ad copy, email sequences, social media captions, whitepapers, and product descriptions. Full content spectrum covered." },
+  { question: "How does AI copywriting maintain quality?", answer: "AI creates first drafts, human editors refine. You get speed of AI with quality of professional copywriters. Best of both worlds." },
+  { question: "How do you capture our brand voice?", answer: "We train AI on your existing content and brand guidelines. Voice calibration ensures every piece sounds authentically you." },
+  { question: "How much content can you produce monthly?", answer: "AI-powered production scales infinitely. Standard packages include 10-50+ pieces monthly based on your content calendar needs." },
+  { question: "What makes OARC's AI copywriting different?", answer: "Human-led AI—not just automated content. Strategists guide direction while AI accelerates production 10x faster." },
+  { question: "Do you offer SEO-optimized content?", answer: "Yes, all content includes SEO optimization. Keyword research, meta descriptions, and search-friendly structure included." },
+  { question: "What is the investment for AI copywriting?", answer: "Content packages start from €1,500/month for essential needs. Enterprise content programs range from €3,000-8,000/month." },
+  { question: "Can you handle multilingual content?", answer: "Yes, we produce content in 20+ languages with native-level quality. Translation and localization services available." }
+];
 
 export default function AICopywriting() {
   useEffect(() => {
@@ -397,6 +409,14 @@ export default function AICopywriting() {
           </div>
         </div>
       </section>
+
+      {/* FAQ Section */}
+      <FAQSection 
+        faqs={aiCopywritingFAQs} 
+        title="Frequently Asked Questions" 
+        subtitle="Everything you need to know about AI copywriting" 
+        schemaId="faq-ai-copywriting" 
+      />
 
       {/* CTA */}
       <section className="py-20 px-4 bg-[#23AACA]">

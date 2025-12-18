@@ -3,6 +3,7 @@ import { useLocation, Link } from 'wouter';
 import { ArrowRight, CheckCircle2, Sparkles, TrendingUp, Zap, Clock, MessageSquare, Brain, Target, BarChart3, Users, Mail, Filter, Database, Globe } from 'lucide-react';
 import Layout from '@/components/layout/Layout';
 import ScrollReveal from '@/components/ScrollReveal';
+import FAQSection, { FAQItem } from '@/components/FAQSection';
 import { motion } from 'framer-motion';
 import * as Icons from 'lucide-react';
 import { AnimatedGridBackground } from '@/components/ui/animated-grid-background';
@@ -125,6 +126,17 @@ const INTEGRATION_ICONS = [
   { icon: <Database className="w-full h-full" />, name: "Data" },
   { icon: <Target className="w-full h-full" />, name: "Ads" },
   { icon: <Globe className="w-full h-full" />, name: "Web" },
+];
+
+const revenueServiceFAQs: FAQItem[] = [
+  { question: "What revenue services do you offer?", answer: "Sales automation, CRM optimization, funnel building, lead nurturing, and revenue operations. Complete revenue acceleration." },
+  { question: "How do you increase revenue?", answer: "Better lead capture, improved conversion rates, faster sales cycles, and reduced customer acquisition costs. Systematic improvements." },
+  { question: "What results can we expect?", answer: "Typical clients see 30-50% improvement in conversion rates and 2-3x increase in qualified leads within 6 months." },
+  { question: "What makes OARC's revenue services different?", answer: "We combine marketing expertise with sales operations knowledge. We optimize the entire revenue engine, not just parts." },
+  { question: "Do you integrate with existing tools?", answer: "Yes, we work with your current tech stack. We optimize what you have before recommending new tools." },
+  { question: "How quickly do we see results?", answer: "Quick wins within 30 days. Significant revenue impact typically visible within 3-6 months of systematic optimization." },
+  { question: "What is the investment for revenue services?", answer: "Consulting engagements start from €5,000. Ongoing revenue optimization retainers range from €4,000-10,000/month." },
+  { question: "Can you work with our sales team?", answer: "Absolutely. We collaborate closely with sales, providing tools and processes that help them close more deals." }
 ];
 
 export default function RevenueService() {
@@ -537,6 +549,14 @@ export default function RevenueService() {
           </div>
         </div>
       </section>
+
+      <FAQSection 
+        faqs={revenueServiceFAQs} 
+        title="Frequently Asked Questions" 
+        subtitle="Everything you need to know about revenue services" 
+        schemaId="faq-revenue-service" 
+        darkMode={true}
+      />
 
       {/* CTA with Premium Treatment */}
       <section className="py-32 px-6 bg-black border-t border-white/5 relative overflow-hidden">

@@ -5,12 +5,24 @@ import Layout from '@/components/layout/Layout';
 import SEOHead from "@/components/SEOHead";
 import { revenueServicesSEO } from "@/data/seoMetadata";
 import { createServiceSchema } from "@/utils/structuredData";
+import FAQSection, { FAQItem } from "@/components/FAQSection";
 import heroImg from '@assets/stock_images/automation_technolog_5cf55af1.jpg';
 import automationImg1 from '@assets/stock_images/business_revenue_gro_a5fe035c.jpg';
 import automationImg2 from '@assets/stock_images/automation_technolog_fc043d68.jpg';
 import dashboardImg from '@assets/stock_images/financial_dashboard__226af471.jpg';
 import salesTeamImg from '@assets/stock_images/business_meeting_pre_11a921f2.jpg';
 import financialOpsImg from '@assets/stock_images/financial_dashboard__7725b2d7.jpg';
+
+const revenueAutomationFAQs: FAQItem[] = [
+  { question: "What is revenue automation?", answer: "Revenue automation uses AI and software to automate sales, billing, invoicing, and business processes—eliminating manual tasks and accelerating cash flow." },
+  { question: "How quickly can we see ROI from automation?", answer: "Most clients see measurable time savings within 2-4 weeks. Full ROI with cost reduction typically materializes within 2-3 months of implementation." },
+  { question: "What processes can be automated?", answer: "Lead outreach, CRM updates, invoicing, contract generation, payment tracking, email sequences, data entry, and reporting. Most repetitive business processes." },
+  { question: "What makes OARC's automation different?", answer: "We combine AI intelligence with workflow automation. Our systems learn and adapt, not just follow static rules. Plus we build, not just configure." },
+  { question: "Will automation work with our existing systems?", answer: "Yes, we integrate with QuickBooks, HubSpot, Salesforce, Zapier, and hundreds of other tools. Custom API integrations available for proprietary systems." },
+  { question: "How much time can we save with automation?", answer: "Clients typically save 10-20 hours per week on manual tasks. Some have doubled their client capacity without hiring additional staff." },
+  { question: "What is the investment for revenue automation?", answer: "Automation projects start from €3,000 for single-process automation. Full revenue operations automation ranges from €10,000-25,000 based on complexity." },
+  { question: "Do you provide ongoing support after implementation?", answer: "Yes, we offer maintenance packages and optimization services. Our team monitors, updates, and improves your automations continuously." }
+];
 
 export default function RevenueAutomation() {
   const [currentService, setCurrentService] = useState(0);
@@ -627,6 +639,8 @@ export default function RevenueAutomation() {
           </div>
         </div>
       </section>
+
+      <FAQSection faqs={revenueAutomationFAQs} title="Frequently Asked Questions" subtitle="Everything you need to know about revenue automation" schemaId="faq-revenue-automation" />
 
       {/* CTA Section */}
       <section className="py-20 px-4 bg-[#f5f0e6]">

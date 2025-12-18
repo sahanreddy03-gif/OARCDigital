@@ -7,7 +7,19 @@ import Layout from "@/components/layout/Layout";
 import SEOHead from "@/components/SEOHead";
 import { revenueServicesSEO } from "@/data/seoMetadata";
 import { createServiceSchema } from "@/utils/structuredData";
+import FAQSection, { FAQItem } from "@/components/FAQSection";
 import heroImage from '@assets/media-buying-optimized.jpg';
+
+const mediaBuyingFAQs: FAQItem[] = [
+  { question: "What is media buying?", answer: "Strategic purchasing of advertising space across platforms. We negotiate rates, optimize placements, and maximize your ad spend ROI." },
+  { question: "What platforms do you buy media on?", answer: "Google, Meta, LinkedIn, TikTok, YouTube, programmatic networks, and traditional media. Full-spectrum media coverage." },
+  { question: "How do you reduce wasted ad spend?", answer: "AI-powered optimization, continuous testing, and audience refinement. We eliminate underperforming placements ruthlessly." },
+  { question: "What makes OARC's media buying different?", answer: "Transparent reporting with no hidden margins. You see exactly where every euro goes and what it generates." },
+  { question: "What's the minimum budget for media buying?", answer: "We recommend minimum €3,000/month ad spend for effective campaigns. Smaller budgets limit testing and optimization." },
+  { question: "Do you handle creative production?", answer: "Yes, ad creative production is included in our media buying packages. Seamless strategy-to-creative execution." },
+  { question: "What is your management fee structure?", answer: "Percentage of spend with caps. Typical fees range from 10-20% depending on budget size and complexity." },
+  { question: "How do you report on performance?", answer: "Weekly automated reports plus monthly strategy reviews. Custom dashboards with real-time performance data." }
+];
 
 export default function MediaBuying() {
   useEffect(() => {
@@ -426,6 +438,15 @@ export default function MediaBuying() {
           </div>
         </div>
       </section>
+
+      {/* FAQ Section */}
+      <FAQSection 
+        faqs={mediaBuyingFAQs} 
+        title="Frequently Asked Questions" 
+        subtitle="Everything you need to know about media buying" 
+        schemaId="faq-media-buying"
+        darkMode={true}
+      />
 
       {/* CTA Section */}
       <section className="py-20 px-4 bg-[#23AACA] text-white">

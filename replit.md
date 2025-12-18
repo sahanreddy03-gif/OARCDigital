@@ -45,6 +45,14 @@ The platform utilizes a modern web stack with a React frontend and an Express.js
     - **Branding:** Brand lab approach with color palette/typography preview hero, storytelling portfolio format, brand pillars section, touchpoint rollout display, and interactive typography exploration.
     - **Mobile Apps:** Product lifecycle approach with App Store-style hero card, product roadmap phases (MVP → v1.0 → Growth), real case studies with metrics, and native vs cross-platform tech comparison.
 -   **Advanced SEO Infrastructure:** Centralized SEO configuration, programmatic location pages (80+), auto-generated dynamic sitemap.xml, optimized robots.txt, advanced schema markup (FAQ, Review, BreadcrumbList, HowTo, VideoObject, Article, Product, Service, Event, Organization, LocalBusiness, AggregateRating), voice search optimization, intelligent internal linking, and an SEO-optimized blog system.
+-   **FAQ Sections on All Service Pages (Dec 2025):** Comprehensive FAQ implementation across 43 service pages featuring:
+    - Reusable FAQSection component (`client/src/components/FAQSection.tsx`) with accordion UI
+    - 8 voice-search optimized questions per service page
+    - Automatic JSON-LD FAQPage schema generation via `createFAQSchema` utility
+    - Unique schemaId for each page's structured data
+    - Expand/collapse all functionality with first-item-open default
+    - Dark mode support for pages with dark backgrounds
+    - SEO-optimized answers targeting featured snippets and voice search
 -   **Malta-Focused Blog Articles (Dec 2025):** Four comprehensive SEO articles targeting Malta market:
     - `/blog/seo-malta-complete-guide` - Complete SEO guide for Malta businesses (18 min read)
     - `/blog/marketing-trends-malta-2025` - Marketing trends for Malta 2025 (15 min read)

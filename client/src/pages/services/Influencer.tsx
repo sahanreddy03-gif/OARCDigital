@@ -3,8 +3,20 @@ import { Link } from 'wouter';
 import { ArrowRight, CheckCircle2, ChevronLeft, ChevronRight, Users, FileBarChart2, Megaphone, TrendingUp, Sparkles, Target } from 'lucide-react';
 import Layout from '@/components/layout/Layout';
 import SEOHead from "@/components/SEOHead";
+import FAQSection, { FAQItem } from "@/components/FAQSection";
 import { createServiceSchema } from "@/utils/structuredData";
 import ScrollReveal from "@/components/ScrollReveal";
+
+const influencerFAQs: FAQItem[] = [
+  { question: "What influencer marketing services do you offer?", answer: "Campaign management, creator sourcing, contract negotiation, content briefing, performance tracking, and UGC production. Full-service influencer partnerships." },
+  { question: "How do you select influencers?", answer: "Data-driven vetting combined with human judgment. We analyze audience quality, engagement authenticity, content fit, and past partnership performance." },
+  { question: "What makes OARC's influencer approach different?", answer: "Performance-focused partnerships. We optimize for ROI and business outcomes, not just reach and impressions." },
+  { question: "Do you handle contracts and payments?", answer: "Yes, we manage all legal agreements, usage rights, and creator payments. Complete end-to-end campaign execution." },
+  { question: "What platforms do you cover?", answer: "Instagram, TikTok, YouTube, LinkedIn, and emerging platforms. We match creators to where your audience engages most." },
+  { question: "Can you provide UGC without posting on creator channels?", answer: "Absolutely. Our creator network produces authentic content specifically for your owned channels and paid ads." },
+  { question: "What is the investment for influencer campaigns?", answer: "Campaigns start from €5,000. Monthly ongoing partnerships range from €3,000-20,000 depending on scale and objectives." },
+  { question: "How do you measure campaign success?", answer: "Custom tracking with discount codes, UTM parameters, and attribution modeling. Transparent reporting on every campaign metric." }
+];
 import picnicImg from '@assets/stock_images/social_media_influen_3c07c2fc.jpg';
 import skincareImg from '@assets/stock_images/social_media_influen_496eb368.jpg';
 import packageImg from '@assets/stock_images/social_media_influen_0dbb3056.jpg';
@@ -600,6 +612,14 @@ export default function Influencer() {
           </div>
         </div>
       </section>
+
+      {/* FAQ Section */}
+      <FAQSection
+        faqs={influencerFAQs}
+        title="Influencer Marketing FAQ"
+        subtitle="Common questions about our influencer and creator partnership services"
+        schemaId="faq-influencer-services"
+      />
 
       {/* Final CTA */}
       <section className="py-20 px-4 bg-black">

@@ -4,8 +4,20 @@ import { ArrowRight, CheckCircle2, ChevronLeft, ChevronRight, Target, TrendingUp
 import { SiMeta, SiGoogle, SiTiktok, SiPinterest } from 'react-icons/si';
 import Layout from '@/components/layout/Layout';
 import SEOHead from "@/components/SEOHead";
+import FAQSection, { FAQItem } from "@/components/FAQSection";
 import { createServiceSchema } from "@/utils/structuredData";
 import ScrollReveal from "@/components/ScrollReveal";
+
+const paidAdsFAQs: FAQItem[] = [
+  { question: "What paid advertising platforms do you manage?", answer: "Meta (Facebook/Instagram), Google Ads, TikTok, LinkedIn, Pinterest, and programmatic. Full-funnel campaigns across all major platforms." },
+  { question: "How do you optimize campaigns?", answer: "AI-enhanced optimization combined with human expertise. We continuously test creative, audiences, and bidding strategies to maximize ROAS." },
+  { question: "What makes OARC's paid media different?", answer: "Performance-first approach. We focus on revenue and profitability, not just clicks and impressions. Every campaign is tied to business outcomes." },
+  { question: "Do you create ad creative?", answer: "Yes, our in-house creative team produces performance ads specifically designed for each platform and funnel stage." },
+  { question: "What minimum budget do you recommend?", answer: "We typically work with clients spending €3,000+ monthly on ads. Smaller budgets can work for testing specific channels." },
+  { question: "How do you report on performance?", answer: "Custom dashboards with real-time data. Attribution modeling, conversion tracking, and transparent reporting on every metric that matters." },
+  { question: "What is the investment for paid media management?", answer: "Management fees start from €1,500/month or 15% of ad spend, whichever is greater. Includes strategy, optimization, and reporting." },
+  { question: "How quickly will I see results?", answer: "Initial optimization takes 2-4 weeks. Most clients see measurable improvements within the first 90 days of partnership." }
+];
 import heroImage from '@assets/paid-advertising-optimized.jpg';
 import formalTeamImg from '@assets/stock_images/digital_advertising__84eb3355.jpg';
 import conferenceTeamImg from '@assets/stock_images/digital_advertising__e3a5e56c.jpg';
@@ -624,6 +636,14 @@ export default function Paid() {
           </div>
         </div>
       </section>
+
+      {/* FAQ Section */}
+      <FAQSection
+        faqs={paidAdsFAQs}
+        title="Paid Advertising FAQ"
+        subtitle="Common questions about our paid media management services"
+        schemaId="faq-paid-ads-services"
+      />
 
       {/* Final CTA */}
       <section className="relative py-20 px-4 bg-black overflow-hidden">

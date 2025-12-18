@@ -6,6 +6,18 @@ import { ScrollableCards } from "@/components/ui/scrollable-cards";
 import Layout from "@/components/layout/Layout";
 import SEOHead from "@/components/SEOHead";
 import { createServiceSchema } from "@/utils/structuredData";
+import FAQSection, { FAQItem } from '@/components/FAQSection';
+
+const growthStrategyFAQs: FAQItem[] = [
+  { question: "What is growth strategy consulting?", answer: "We help businesses identify growth levers, develop go-to-market plans, and build scalable systems for sustainable revenue growth." },
+  { question: "How do you develop a growth strategy?", answer: "Research, analysis, opportunity mapping, and roadmap creation. We identify your highest-leverage growth opportunities and prioritize actions." },
+  { question: "What industries do you work with?", answer: "B2B, SaaS, e-commerce, professional services, and startups. Our Malta base gives us strong EU market expertise." },
+  { question: "How quickly can we see growth results?", answer: "Quick wins appear within 30-60 days. Sustainable growth systems typically show significant results within 3-6 months." },
+  { question: "What makes OARC's growth strategy different?", answer: "We combine strategic thinking with execution capability. We don't just plan—we help you implement and measure results." },
+  { question: "Do you offer fractional CMO services?", answer: "Yes, we provide fractional marketing leadership. Get senior strategy expertise without full-time executive costs." },
+  { question: "What is the investment for growth strategy?", answer: "Strategy engagements start from €5,000. Ongoing fractional CMO services range from €3,000-8,000/month." },
+  { question: "How do you measure growth success?", answer: "We track revenue growth, customer acquisition cost, lifetime value, and other key metrics aligned with your goals." }
+];
 
 export default function GrowthStrategy() {
   useEffect(() => {
@@ -249,6 +261,9 @@ export default function GrowthStrategy() {
           </div>
         </div>
       </section>
+
+      {/* FAQ Section */}
+      <FAQSection faqs={growthStrategyFAQs} title="Frequently Asked Questions" subtitle="Everything you need to know about growth strategy" schemaId="faq-growth-strategy" darkMode={true} />
 
       {/* CTA */}
       <section className="py-20 px-4 bg-gradient-to-br from-orange-600 via-orange-500 to-amber-500">

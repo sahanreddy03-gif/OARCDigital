@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Link } from "wouter";
-import { Zap, TrendingUp, Target, Users, BarChart, Sparkles, CheckCircle2, Mail } from "lucide-react";
+import { Zap, TrendingUp, Target, Users, BarChart, Sparkles, CheckCircle2, Mail, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ScrollableCards } from "@/components/ui/scrollable-cards";
 import Layout from "@/components/layout/Layout";
@@ -8,6 +8,18 @@ import SEOHead from "@/components/SEOHead";
 import { revenueServicesSEO } from "@/data/seoMetadata";
 import { createServiceSchema } from "@/utils/structuredData";
 import heroImage from "@assets/funnel-automation-optimized.jpg";
+import FAQSection, { FAQItem } from '@/components/FAQSection';
+
+const funnelAutomationFAQs: FAQItem[] = [
+  { question: "What is funnel automation?", answer: "Automated systems that nurture leads from first touch to sale. Email sequences, retargeting, lead scoring, and CRM automation working 24/7." },
+  { question: "What platforms do you automate?", answer: "HubSpot, ActiveCampaign, Mailchimp, Klaviyo, Salesforce, and custom solutions. We work with your existing tech stack." },
+  { question: "How quickly does funnel automation show results?", answer: "Immediate efficiency gains from day one. Revenue impact typically visible within 30-60 days as automated sequences convert leads." },
+  { question: "What makes OARC's funnel automation different?", answer: "AI-powered personalization combined with proven frameworks. Our funnels adapt to behavior, not just trigger on time delays." },
+  { question: "Do you write the email sequences?", answer: "Yes, copywriting is included. We create entire nurture sequences optimized for conversion at each funnel stage." },
+  { question: "Can you fix our existing broken funnels?", answer: "Absolutely. We audit existing automation, identify leaks, and optimize for better conversion rates and customer experience." },
+  { question: "What is the investment for funnel automation?", answer: "Funnel builds start from €3,500. Complete sales automation systems range from €7,500-20,000 based on complexity." },
+  { question: "Do you provide ongoing funnel management?", answer: "Yes, we offer optimization retainers. Continuous testing, refinement, and expansion of your automated systems." }
+];
 
 export default function FunnelAutomation() {
   useEffect(() => {
@@ -439,6 +451,9 @@ export default function FunnelAutomation() {
           </div>
         </div>
       </section>
+
+      {/* FAQ Section */}
+      <FAQSection faqs={funnelAutomationFAQs} title="Frequently Asked Questions" subtitle="Everything you need to know about funnel automation" schemaId="faq-funnel-automation" />
 
       {/* CTA */}
       <section className="py-20 px-4 relative overflow-hidden">

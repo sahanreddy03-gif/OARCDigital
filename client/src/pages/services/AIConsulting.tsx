@@ -36,6 +36,18 @@ import { revenueServicesSEO } from "@/data/seoMetadata";
 import { createServiceSchema } from "@/utils/structuredData";
 import { Button } from '@/components/ui/button';
 import { AnimatedGridBackground } from '@/components/ui/animated-grid-background';
+import FAQSection, { FAQItem } from '@/components/FAQSection';
+
+const aiConsultingFAQs: FAQItem[] = [
+  { question: "What is AI consulting?", answer: "AI consulting helps businesses identify, plan, and implement AI solutions. We assess opportunities, build strategies, and guide implementation for maximum impact." },
+  { question: "How do you assess our AI readiness?", answer: "We evaluate your data infrastructure, processes, and goals. Our audit identifies quick wins and long-term AI opportunities specific to your business." },
+  { question: "What AI use cases do you help implement?", answer: "Customer service automation, sales optimization, content generation, data analytics, process automation, and predictive modeling. Solutions tailored to your needs." },
+  { question: "How long does AI consulting engagement take?", answer: "Strategy assessments take 2-4 weeks. Full implementation roadmaps typically require 4-8 weeks depending on scope and complexity." },
+  { question: "Do you help with AI vendor selection?", answer: "Yes, we evaluate AI tools and platforms objectively. We recommend solutions based on your needs, not vendor relationships." },
+  { question: "What makes OARC's AI consulting different?", answer: "We're practitioners, not just advisors. Our team builds and deploys AI solutions daily—we recommend what actually works." },
+  { question: "What is the investment for AI consulting?", answer: "AI audits start from €3,000. Comprehensive consulting engagements with implementation support range from €10,000-30,000." },
+  { question: "Can you train our team on AI?", answer: "Yes, we offer AI training workshops. Upskill your team on AI tools, prompt engineering, and integration strategies." }
+];
 
 const ELITE_COLORS = {
   primary: '#a855f7',
@@ -1301,6 +1313,9 @@ export default function AIConsulting() {
           </div>
         </div>
       </section>
+
+      {/* FAQ Section */}
+      <FAQSection faqs={aiConsultingFAQs} title="Frequently Asked Questions" subtitle="Everything you need to know about AI consulting" schemaId="faq-ai-consulting" darkMode={true} />
 
       {/* SECTION 6: Final CTA */}
       <section className="py-24 px-4 bg-indigo-500">

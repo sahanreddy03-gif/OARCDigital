@@ -8,6 +8,18 @@ import SEOHead from "@/components/SEOHead";
 import { creativeServicesSEO } from "@/data/seoMetadata";
 import { createServiceSchema } from "@/utils/structuredData";
 import heroImage from "@assets/stock_images/virtual_reality_vr_h_6d01f361.jpg";
+import FAQSection, { FAQItem } from '@/components/FAQSection';
+
+const immersive3DFAQs: FAQItem[] = [
+  { question: "What 3D and AR services do you offer?", answer: "3D product visualization, AR experiences, virtual showrooms, interactive configurators, and immersive brand experiences." },
+  { question: "What industries benefit from 3D/AR?", answer: "E-commerce, real estate, manufacturing, retail, education, and events. Any industry where seeing is believing." },
+  { question: "How long does 3D development take?", answer: "Simple 3D models take 1-2 weeks. Complete AR experiences typically require 4-8 weeks." },
+  { question: "What makes OARC's 3D/AR different?", answer: "Marketing-focused immersive experiences. We create 3D that drives engagement and conversions, not just looks impressive." },
+  { question: "What platforms do AR experiences work on?", answer: "Web-based AR works on any smartphone browser. No app download required for your customers." },
+  { question: "Can we update 3D products ourselves?", answer: "Yes, we build systems where you can swap textures, colors, and configurations without technical skills." },
+  { question: "What is the investment for 3D/AR?", answer: "Product visualizations start from €2,000. Complete AR experiences range from €10,000-50,000 based on complexity." },
+  { question: "Do you provide hosting for 3D assets?", answer: "Yes, we offer optimized CDN hosting for 3D assets ensuring fast loading and smooth performance globally." }
+];
 
 export default function Immersive3DAR() {
   useEffect(() => {
@@ -405,6 +417,8 @@ export default function Immersive3DAR() {
           </div>
         </div>
       </section>
+
+      <FAQSection faqs={immersive3DFAQs} title="Frequently Asked Questions" subtitle="Everything you need to know about 3D and AR" schemaId="faq-3d-ar" />
 
       {/* CTA */}
       <section className="py-20 px-4 relative overflow-hidden bg-[#23AACA]">

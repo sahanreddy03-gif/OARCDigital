@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { ScrollableCards } from "@/components/ui/scrollable-cards";
 import Layout from "@/components/layout/Layout";
 import SEOHead from "@/components/SEOHead";
+import FAQSection, { FAQItem } from "@/components/FAQSection";
 import { creativeServicesSEO } from "@/data/seoMetadata";
 import { createServiceSchema } from "@/utils/structuredData";
 import heroImage from '@assets/printy design_1763086257815.avif';
@@ -416,6 +417,20 @@ export default function PrintPackaging() {
           </div>
         </div>
       </section>
+
+      {(() => {
+        const printPackagingFAQs: FAQItem[] = [
+          { question: "What print and packaging services do you offer?", answer: "Business cards, brochures, packaging design, labels, posters, annual reports, and branded merchandise. Complete print production." },
+          { question: "Do you handle printing or just design?", answer: "Both. We design and manage print production with trusted print partners ensuring quality control throughout." },
+          { question: "What file formats do you deliver?", answer: "Print-ready PDFs, original source files, and color-matched proofs. Everything your printer needs for perfect reproduction." },
+          { question: "What makes OARC's print design different?", answer: "Strategic design that extends your digital brand into physical touchpoints. Consistent brand experience everywhere." },
+          { question: "How long does print design take?", answer: "Simple items take 3-5 days. Complete print collateral packages typically require 2-4 weeks." },
+          { question: "Can you help with sustainable packaging?", answer: "Yes, we design eco-friendly packaging using recyclable and biodegradable materials. Sustainability without compromising aesthetics." },
+          { question: "What is the investment for print design?", answer: "Individual print items start from €500. Comprehensive print packages range from €3,000-15,000." },
+          { question: "Do you offer international print delivery?", answer: "Yes, we coordinate with print partners globally. Consistent quality whether printing in Malta, EU, or worldwide." }
+        ];
+        return <FAQSection faqs={printPackagingFAQs} title="Frequently Asked Questions" subtitle="Everything you need to know about print and packaging" schemaId="faq-print-packaging" />;
+      })()}
 
       {/* Final CTA */}
       <section className="py-20 px-4 bg-[#23AACA] text-white">

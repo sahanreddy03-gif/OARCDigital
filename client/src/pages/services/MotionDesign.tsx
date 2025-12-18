@@ -7,10 +7,22 @@ import Layout from "@/components/layout/Layout";
 import SEOHead from "@/components/SEOHead";
 import { creativeServicesSEO } from "@/data/seoMetadata";
 import { createServiceSchema } from "@/utils/structuredData";
+import FAQSection, { type FAQItem } from "@/components/FAQSection";
 import heroImage from '@assets/motion design_1763084597887.avif';
 import motionImg1 from "@assets/stock_images/motion_graphics_anim_30522a7b.jpg";
 import motionImg2 from "@assets/stock_images/motion_graphics_anim_efb22394.jpg";
 import motionImg3 from "@assets/stock_images/motion_graphics_anim_aae15d3e.jpg";
+
+const motionDesignFAQs: FAQItem[] = [
+  { question: "What types of motion design do you create?", answer: "Logo animations, explainer videos, social media motion graphics, UI animations, and full animated commercials. From subtle to spectacular." },
+  { question: "How long does motion design take?", answer: "Simple animations take 1-2 weeks. Complex explainer videos and commercials typically require 4-8 weeks from concept to delivery." },
+  { question: "What makes OARC's motion design different?", answer: "We design motion that tells stories, not just moves. Every animation serves a purpose—engagement, clarity, or emotional connection." },
+  { question: "What file formats do you deliver?", answer: "MP4, MOV, GIF, and Lottie files for web. Platform-specific exports optimized for Instagram, TikTok, YouTube, and LinkedIn." },
+  { question: "Do you handle audio and music?", answer: "Yes, we source licensed music and create sound design. Voiceover production and audio mixing included for video projects." },
+  { question: "Can you animate our existing brand assets?", answer: "Absolutely. We bring static logos, icons, and graphics to life while maintaining brand consistency and guidelines." },
+  { question: "What is the investment for motion design?", answer: "Logo animations start from €500. Explainer videos range from €3,000-10,000 depending on length and complexity." },
+  { question: "Do you offer motion design packages?", answer: "Yes, we offer monthly content packages for consistent social media animation needs. Retainer clients get priority and discounts." }
+];
 
 export default function MotionDesign() {
   useEffect(() => {
@@ -407,6 +419,13 @@ export default function MotionDesign() {
           </div>
         </div>
       </section>
+
+      <FAQSection 
+        faqs={motionDesignFAQs} 
+        title="Frequently Asked Questions" 
+        subtitle="Everything you need to know about motion design" 
+        schemaId="faq-motion-design" 
+      />
 
       {/* Final CTA */}
       <section className="py-20 px-4 bg-[#23AACA] text-white">

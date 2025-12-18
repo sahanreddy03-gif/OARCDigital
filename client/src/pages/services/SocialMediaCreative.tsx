@@ -7,10 +7,23 @@ import Layout from "@/components/layout/Layout";
 import SEOHead from "@/components/SEOHead";
 import { creativeServicesSEO } from "@/data/seoMetadata";
 import { createServiceSchema } from "@/utils/structuredData";
+import FAQSection, { FAQItem } from "@/components/FAQSection";
 import heroImage from "@assets/stock_images/social_media_content_74d332d2.jpg";
+
 import socialImg1 from "@assets/stock_images/social_media_content_1291e113.jpg";
 import socialImg2 from "@assets/stock_images/social_media_content_c1be1c46.jpg";
 import socialImg3 from "@assets/stock_images/social_media_content_e4f88d3a.jpg";
+
+const socialCreativeFAQs: FAQItem[] = [
+  { question: "What social platforms do you create content for?", answer: "Instagram, TikTok, LinkedIn, Facebook, YouTube, and X. We optimize content for each platform's unique format and audience behavior." },
+  { question: "How many posts do you deliver each month?", answer: "Standard packages include 20-30 posts monthly. We customize volume based on your goals, platforms, and content strategy needs." },
+  { question: "What makes OARC's social creative different?", answer: "We combine trend awareness with brand consistency. Our content stops the scroll while building recognizable brand presence." },
+  { question: "Do you handle video content for social?", answer: "Yes, we create Reels, TikToks, Stories, and short-form video. Motion graphics and simple animations included in most packages." },
+  { question: "Can you match our existing brand style?", answer: "Absolutely. We follow your brand guidelines precisely while adapting to each platform's best practices for maximum engagement." },
+  { question: "What's the turnaround time for content?", answer: "Standard turnaround is 3-5 business days per content batch. Rush delivery available for time-sensitive campaigns." },
+  { question: "What is the investment for social creative?", answer: "Social content packages start from €1,500/month. Full creative suites with video and animation range from €3,000-6,000/month." },
+  { question: "Do you offer content calendar planning?", answer: "Yes, we provide monthly content calendars aligned with your marketing goals, campaigns, and key dates." }
+];
 
 export default function SocialMediaCreative() {
   useEffect(() => {
@@ -405,6 +418,14 @@ export default function SocialMediaCreative() {
           </div>
         </div>
       </section>
+
+      {/* FAQ Section */}
+      <FAQSection 
+        faqs={socialCreativeFAQs} 
+        title="Frequently Asked Questions" 
+        subtitle="Everything you need to know about social media creative" 
+        schemaId="faq-social-creative" 
+      />
 
       {/* Final CTA */}
       <section className="py-20 px-4 bg-[#23AACA] text-white">

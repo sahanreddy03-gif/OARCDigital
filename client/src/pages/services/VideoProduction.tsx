@@ -5,6 +5,7 @@ import Layout from "@/components/layout/Layout";
 import SEOHead from "@/components/SEOHead";
 import { createServiceSchema } from "@/utils/structuredData";
 import ScrollReveal from "@/components/ScrollReveal";
+import FAQSection, { FAQItem } from "@/components/FAQSection";
 
 import showreelVideo from "@assets/55555_1764634237326.mp4";
 import videoImg1 from "@assets/stock_images/professional_video_p_57625a3b.jpg";
@@ -13,6 +14,17 @@ import videoImg3 from "@assets/stock_images/professional_video_p_5547a3ec.jpg";
 import behindScenesImg1 from "@assets/stock_images/behind_the_scenes_vi_512df08f.jpg";
 import behindScenesImg2 from "@assets/stock_images/behind_the_scenes_vi_80403517.jpg";
 import creativeTeamImg from "@assets/stock_images/creative_team_workin_79883382.jpg";
+
+const videoProductionFAQs: FAQItem[] = [
+  { question: "What types of videos does OARC Digital produce?", answer: "We produce explainer videos, brand films, social ads, testimonials, product demos, and corporate videos. From 15-second ads to full documentary-style brand films." },
+  { question: "How long does video production take from concept to delivery?", answer: "Typical projects take 3-6 weeks depending on complexity. Simple social ads can be delivered in 1-2 weeks. Large productions may take 8-12 weeks." },
+  { question: "What makes OARC's video production different from other agencies?", answer: "We handle everything in-house—concept, scripting, filming, editing, and distribution strategy. Plus our AI tools accelerate editing by 50%." },
+  { question: "Do you handle video distribution and advertising?", answer: "Yes, we offer full distribution services including YouTube optimization, social media posting, and paid video advertising on Meta and TikTok." },
+  { question: "What equipment and technology do you use?", answer: "We use cinema-grade cameras, professional lighting, and industry-standard editing software. Our AI-powered tools enhance efficiency without sacrificing quality." },
+  { question: "Can you work with existing brand guidelines?", answer: "Absolutely. We follow your brand guidelines precisely while bringing creative vision. We can also help develop video-specific brand standards." },
+  { question: "What is the typical investment for video production?", answer: "Projects start from €2,500 for simple social content. Brand films and explainer videos typically range from €5,000-15,000 depending on complexity." },
+  { question: "Do you offer video packages or retainer options?", answer: "Yes, we offer monthly video packages for consistent content needs. Retainer clients enjoy priority scheduling and discounted rates." }
+];
 
 export default function VideoProduction() {
   const [isPlaying, setIsPlaying] = useState(true);
@@ -321,6 +333,8 @@ export default function VideoProduction() {
           </div>
         </section>
       </ScrollReveal>
+
+      <FAQSection faqs={videoProductionFAQs} title="Frequently Asked Questions" subtitle="Everything you need to know about our video production services" schemaId="faq-video-production" />
 
       {/* FINAL CTA */}
       <section className="py-20 px-4 bg-black text-white">

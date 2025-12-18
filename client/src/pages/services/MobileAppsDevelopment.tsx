@@ -10,6 +10,7 @@ import ScrollReveal from "@/components/ScrollReveal";
 import { Button } from '@/components/ui/button';
 import { AnimatedGridBackground } from '@/components/ui/animated-grid-background';
 import { GlassCard } from '@/components/ui/glass-card';
+import FAQSection, { FAQItem } from '@/components/FAQSection';
 
 import heroImg from '@assets/stock_images/mobile_app_design_us_2b0d5cbd.jpg';
 import appImg1 from '@assets/stock_images/mobile_app_design_us_5eb8ced7.jpg';
@@ -94,6 +95,17 @@ export default function MobileAppsDevelopment() {
       tech: ["Flutter", "AWS", "GraphQL"],
       color: ELITE_COLORS.secondary
     },
+  ];
+
+  const mobileAppsFAQs: FAQItem[] = [
+    { question: "What mobile platforms do you develop for?", answer: "iOS, Android, and cross-platform using React Native and Flutter. Native and hybrid solutions based on your needs and budget." },
+    { question: "How long does mobile app development take?", answer: "MVPs take 8-12 weeks. Full-featured apps typically require 4-6 months. Timeline depends on complexity and features." },
+    { question: "What makes OARC's mobile development different?", answer: "We combine product thinking with technical excellence. Our apps are designed for user engagement, not just functionality." },
+    { question: "Do you handle App Store submission?", answer: "Yes, we manage complete App Store and Google Play submission including metadata, screenshots, and approval process." },
+    { question: "Can you integrate with existing systems?", answer: "Absolutely. API integration with your backend, CRM, payment systems, and third-party services is standard practice." },
+    { question: "Do you offer app maintenance and updates?", answer: "Yes, we provide ongoing maintenance packages including bug fixes, OS updates, and feature enhancements." },
+    { question: "What is the investment for mobile app development?", answer: "Simple apps start from €20,000. Feature-rich applications typically range from €40,000-100,000 based on complexity." },
+    { question: "Native or cross-platform—which should I choose?", answer: "We recommend based on your goals. Cross-platform offers cost efficiency; native provides better performance for complex apps." }
   ];
 
   return (
@@ -525,6 +537,15 @@ export default function MobileAppsDevelopment() {
           </div>
         </section>
       </ScrollReveal>
+
+      {/* FAQ Section */}
+      <FAQSection 
+        faqs={mobileAppsFAQs} 
+        title="Frequently Asked Questions" 
+        subtitle="Everything you need to know about mobile app development" 
+        schemaId="faq-mobile-apps"
+        darkMode={true}
+      />
 
       {/* STATS BAR */}
       <section className="py-16 px-4 bg-gradient-to-r from-indigo-600 via-purple-600 to-indigo-600">

@@ -8,6 +8,18 @@ import SEOHead from "@/components/SEOHead";
 import { creativeServicesSEO } from "@/data/seoMetadata";
 import { createServiceSchema } from "@/utils/structuredData";
 import heroImage from '@assets/15_1763085718435.avif';
+import FAQSection, { FAQItem } from '@/components/FAQSection';
+
+const designSystemsFAQs: FAQItem[] = [
+  { question: "What is a design system?", answer: "A comprehensive library of reusable components, guidelines, and standards that ensure visual consistency across all digital products." },
+  { question: "Why do we need a design system?", answer: "Faster development, consistent user experience, reduced design debt, and easier scaling. Your team builds faster with clear guidelines." },
+  { question: "What's included in a design system?", answer: "Component library, typography system, color palette, spacing rules, iconography, documentation, and implementation guidelines." },
+  { question: "How long does design system creation take?", answer: "Basic systems take 4-6 weeks. Comprehensive enterprise design systems typically require 8-12 weeks." },
+  { question: "What makes OARC's design systems different?", answer: "We build systems that developers actually use. Practical, documented, and integrated with your tech stack." },
+  { question: "Do you build in Figma or code?", answer: "Both. We create synchronized Figma libraries and coded component libraries that stay in sync." },
+  { question: "What is the investment for a design system?", answer: "Starter systems begin from €10,000. Enterprise-grade systems range from €25,000-75,000 based on complexity." },
+  { question: "Can you audit our existing design system?", answer: "Yes, we evaluate existing systems and provide optimization recommendations and implementation support." }
+];
 
 export default function DesignSystems() {
   useEffect(() => {
@@ -405,6 +417,8 @@ export default function DesignSystems() {
           </div>
         </div>
       </section>
+
+      <FAQSection faqs={designSystemsFAQs} title="Frequently Asked Questions" subtitle="Everything you need to know about design systems" schemaId="faq-design-systems" />
 
       {/* CTA */}
       <section className="py-20 px-4 relative overflow-hidden bg-[#23AACA]">
