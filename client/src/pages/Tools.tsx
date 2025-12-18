@@ -3,7 +3,7 @@ import { Link } from "wouter";
 import { 
   Sparkles, Search, ArrowRight, ExternalLink,
   Zap, Target, Database, Bot, Linkedin, TrendingUp, Palette, Video,
-  Code, Brain, Workflow
+  Code
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -31,6 +31,7 @@ interface Tool {
   category: ToolCategory[];
   color: string;
   url: string;
+  domain: string;
   oarcUse: string;
   featured?: boolean;
   ranking?: 1 | 2 | 3;
@@ -58,6 +59,7 @@ const tools: Tool[] = [
     category: ["ai-sales-tools", "data-sources"],
     color: "#6366f1",
     url: "https://clay.com",
+    domain: "clay.com",
     oarcUse: "Lead enrichment, custom prospecting workflows, and data collection automation for outbound campaigns.",
     featured: true,
     ranking: 1
@@ -69,6 +71,7 @@ const tools: Tool[] = [
     category: ["ai-sales-tools", "sales-tools"],
     color: "#3b82f6",
     url: "https://instantly.ai",
+    domain: "instantly.ai",
     oarcUse: "Primary cold email platform for client campaigns, email warmups, and deliverability management.",
     featured: true,
     ranking: 2
@@ -80,6 +83,7 @@ const tools: Tool[] = [
     category: ["ai-sales-tools", "linkedin-tools"],
     color: "#8b5cf6",
     url: "https://lemlist.com",
+    domain: "lemlist.com",
     oarcUse: "Multi-channel outreach combining email and LinkedIn touchpoints in coordinated sequences.",
     featured: true,
     ranking: 3
@@ -91,6 +95,7 @@ const tools: Tool[] = [
     category: ["ai-sales-tools", "data-sources", "sales-tools"],
     color: "#6366f1",
     url: "https://apollo.io",
+    domain: "apollo.io",
     oarcUse: "Primary prospecting database for building targeted lead lists based on firmographic and technographic data."
   },
   {
@@ -100,6 +105,7 @@ const tools: Tool[] = [
     category: ["ai-sales-tools", "sales-tools"],
     color: "#10b981",
     url: "https://smartlead.ai",
+    domain: "smartlead.ai",
     oarcUse: "Email infrastructure and deliverability management for high-volume outbound campaigns."
   },
   {
@@ -109,6 +115,7 @@ const tools: Tool[] = [
     category: ["ai-sales-tools", "sales-tools"],
     color: "#000000",
     url: "https://attio.com",
+    domain: "attio.com",
     oarcUse: "Modern CRM for startups and scale-ups needing flexible, AI-powered relationship management."
   },
   {
@@ -118,6 +125,7 @@ const tools: Tool[] = [
     category: ["ai-sales-tools", "sales-tools"],
     color: "#22c55e",
     url: "https://woodpecker.co",
+    domain: "woodpecker.co",
     oarcUse: "Personalized cold email campaigns with excellent deliverability features."
   },
   {
@@ -127,6 +135,7 @@ const tools: Tool[] = [
     category: ["ai-sales-tools", "data-sources"],
     color: "#f59e0b",
     url: "https://prospeo.io",
+    domain: "prospeo.io",
     oarcUse: "Email finder and verification for accurate contact data collection."
   },
   {
@@ -136,6 +145,7 @@ const tools: Tool[] = [
     category: ["ai-sales-tools"],
     color: "#8b5cf6",
     url: "https://unify.com",
+    domain: "unify.com",
     oarcUse: "Warm outbound workflows combining intent signals with personalized multi-touch sequences."
   },
   {
@@ -145,6 +155,7 @@ const tools: Tool[] = [
     category: ["ai-sales-tools", "data-sources"],
     color: "#6366f1",
     url: "https://commonroom.io",
+    domain: "commonroom.io",
     oarcUse: "Signal-based selling identifying ready-to-buy prospects across community and product signals."
   },
   {
@@ -154,6 +165,7 @@ const tools: Tool[] = [
     category: ["ai-sales-tools"],
     color: "#3b82f6",
     url: "https://momentum.io",
+    domain: "momentum.io",
     oarcUse: "Conversation intelligence for automating CRM updates and extracting deal insights."
   },
   {
@@ -163,6 +175,7 @@ const tools: Tool[] = [
     category: ["ai-sales-tools"],
     color: "#ec4899",
     url: "https://attention.com",
+    domain: "attention.com",
     oarcUse: "Call analytics and AI coaching for improving sales team performance."
   },
   {
@@ -171,7 +184,8 @@ const tools: Tool[] = [
     description: "Identifies website visitors, researches them, and creates personalized LinkedIn outreach to book sales calls.",
     category: ["ai-sales-tools", "linkedin-tools"],
     color: "#14b8a6",
-    url: "https://valley.com",
+    url: "https://valley.so",
+    domain: "valley.so",
     oarcUse: "Website visitor intelligence combined with automated LinkedIn outreach."
   },
   {
@@ -181,6 +195,7 @@ const tools: Tool[] = [
     category: ["ai-sales-tools"],
     color: "#a855f7",
     url: "https://lavender.ai",
+    domain: "lavender.ai",
     oarcUse: "Email coaching to optimize subject lines, copy, and timing for better response rates."
   },
   {
@@ -190,6 +205,7 @@ const tools: Tool[] = [
     category: ["ai-sales-tools"],
     color: "#ef4444",
     url: "https://rilla.com",
+    domain: "rilla.com",
     oarcUse: "Virtual ride-alongs for analyzing field sales conversations and objection handling."
   },
   {
@@ -199,6 +215,7 @@ const tools: Tool[] = [
     category: ["ai-sales-tools", "ai-agents"],
     color: "#0ea5e9",
     url: "https://coworker.ai",
+    domain: "coworker.ai",
     oarcUse: "AI-powered sales assistance with deep company data integration."
   },
   {
@@ -208,6 +225,7 @@ const tools: Tool[] = [
     category: ["ai-sales-tools", "sales-tools"],
     color: "#6366f1",
     url: "https://reply.io",
+    domain: "reply.io",
     oarcUse: "Automated multi-channel outreach sequences across email and LinkedIn."
   },
   {
@@ -217,6 +235,7 @@ const tools: Tool[] = [
     category: ["ai-sales-tools"],
     color: "#8b5cf6",
     url: "https://amplemarket.com",
+    domain: "amplemarket.com",
     oarcUse: "All-in-one prospecting with AI-driven personalization and deliverability."
   },
   // AI Agents
@@ -227,6 +246,7 @@ const tools: Tool[] = [
     category: ["ai-agents", "ai-sales-tools"],
     color: "#6366f1",
     url: "https://relevanceai.com",
+    domain: "relevanceai.com",
     oarcUse: "Building custom AI agents for research, automation, and workflow tasks.",
     featured: true
   },
@@ -237,6 +257,7 @@ const tools: Tool[] = [
     category: ["ai-agents", "ai-sales-tools"],
     color: "#000000",
     url: "https://artisan.co",
+    domain: "artisan.co",
     oarcUse: "Autonomous BDR workflows combining prospecting with personalized outreach."
   },
   {
@@ -246,6 +267,7 @@ const tools: Tool[] = [
     category: ["ai-agents", "ai-sales-tools"],
     color: "#1e293b",
     url: "https://11x.ai",
+    domain: "11x.ai",
     oarcUse: "Enterprise AI-powered SDR capabilities for autonomous prospecting."
   },
   {
@@ -255,6 +277,7 @@ const tools: Tool[] = [
     category: ["ai-agents", "development"],
     color: "#4285f4",
     url: "https://antigravity.google",
+    domain: "google.com",
     oarcUse: "Agent-first development with multi-agent orchestration for complex coding tasks.",
     featured: true
   },
@@ -265,6 +288,7 @@ const tools: Tool[] = [
     category: ["ai-agents", "ai-marketing-tools", "design-creative"],
     color: "#f472b6",
     url: "https://glif.app",
+    domain: "glif.app",
     oarcUse: "No-code AI workflow builder for creative automation and multi-modal content generation.",
     featured: true
   },
@@ -275,6 +299,7 @@ const tools: Tool[] = [
     category: ["ai-agents", "ai-sales-tools"],
     color: "#3b82f6",
     url: "https://reply.io/jason-ai",
+    domain: "reply.io",
     oarcUse: "Automated SDR assistant for prospecting and outreach automation."
   },
   {
@@ -284,6 +309,7 @@ const tools: Tool[] = [
     category: ["ai-agents", "ai-sales-tools"],
     color: "#10b981",
     url: "https://aisdr.com",
+    domain: "aisdr.com",
     oarcUse: "Autonomous AI SDR for pipeline generation at lower cost."
   },
   // LinkedIn Tools
@@ -294,6 +320,7 @@ const tools: Tool[] = [
     category: ["linkedin-tools", "ai-sales-tools"],
     color: "#0077b5",
     url: "https://expandi.io",
+    domain: "expandi.io",
     oarcUse: "LinkedIn outreach automation for connection requests and follow-up sequences.",
     ranking: 1
   },
@@ -304,6 +331,7 @@ const tools: Tool[] = [
     category: ["linkedin-tools", "sales-tools"],
     color: "#6366f1",
     url: "https://heyreach.io",
+    domain: "heyreach.io",
     oarcUse: "Multi-account LinkedIn campaigns for high-volume agency outreach."
   },
   {
@@ -313,6 +341,7 @@ const tools: Tool[] = [
     category: ["linkedin-tools", "data-sources"],
     color: "#8b5cf6",
     url: "https://phantombuster.com",
+    domain: "phantombuster.com",
     oarcUse: "Data extraction from LinkedIn and social platforms for lead research."
   },
   {
@@ -322,6 +351,7 @@ const tools: Tool[] = [
     category: ["linkedin-tools", "ai-marketing-tools"],
     color: "#3b82f6",
     url: "https://taplio.com",
+    domain: "taplio.com",
     oarcUse: "LinkedIn content strategy, scheduling, and audience growth automation."
   },
   {
@@ -331,6 +361,7 @@ const tools: Tool[] = [
     category: ["linkedin-tools", "ai-sales-tools"],
     color: "#0ea5e9",
     url: "https://dripify.io",
+    domain: "dripify.io",
     oarcUse: "LinkedIn drip campaigns with smart sequencing and analytics."
   },
   {
@@ -340,6 +371,7 @@ const tools: Tool[] = [
     category: ["linkedin-tools"],
     color: "#22c55e",
     url: "https://dux-soup.com",
+    domain: "dux-soup.com",
     oarcUse: "LinkedIn automation for systematic outreach and lead generation."
   },
   {
@@ -349,6 +381,7 @@ const tools: Tool[] = [
     category: ["linkedin-tools"],
     color: "#3b82f6",
     url: "https://linkedhelper.com",
+    domain: "linkedhelper.com",
     oarcUse: "Comprehensive LinkedIn automation with advanced targeting."
   },
   {
@@ -358,6 +391,7 @@ const tools: Tool[] = [
     category: ["linkedin-tools", "sales-tools"],
     color: "#8b5cf6",
     url: "https://meetalfred.com",
+    domain: "meetalfred.com",
     oarcUse: "Multi-channel LinkedIn campaigns with email integration."
   },
   {
@@ -367,6 +401,7 @@ const tools: Tool[] = [
     category: ["linkedin-tools", "ai-sales-tools"],
     color: "#f59e0b",
     url: "https://zopto.com",
+    domain: "zopto.com",
     oarcUse: "Cloud-based LinkedIn automation with advanced filtering."
   },
   {
@@ -376,6 +411,7 @@ const tools: Tool[] = [
     category: ["linkedin-tools", "ai-marketing-tools"],
     color: "#ec4899",
     url: "https://scripe.io",
+    domain: "scripe.io",
     oarcUse: "AI-powered LinkedIn content creation from voice notes."
   },
   {
@@ -385,6 +421,7 @@ const tools: Tool[] = [
     category: ["linkedin-tools", "sales-tools"],
     color: "#6366f1",
     url: "https://breakcold.com",
+    domain: "breakcold.com",
     oarcUse: "Social CRM combining LinkedIn and email outreach in one inbox."
   },
   // Data Sources
@@ -395,6 +432,7 @@ const tools: Tool[] = [
     category: ["data-sources", "sales-tools"],
     color: "#22c55e",
     url: "https://zoominfo.com",
+    domain: "zoominfo.com",
     oarcUse: "Enterprise-grade data enrichment for large-scale prospecting campaigns."
   },
   {
@@ -404,6 +442,7 @@ const tools: Tool[] = [
     category: ["data-sources", "ai-sales-tools"],
     color: "#6366f1",
     url: "https://fullenrich.com",
+    domain: "fullenrich.com",
     oarcUse: "Waterfall enrichment to maximize contact data coverage across multiple providers."
   },
   {
@@ -413,6 +452,7 @@ const tools: Tool[] = [
     category: ["data-sources", "ai-sales-tools"],
     color: "#0ea5e9",
     url: "https://ocean.io",
+    domain: "ocean.io",
     oarcUse: "Finding lookalike companies based on best customers for targeted prospecting."
   },
   {
@@ -422,6 +462,7 @@ const tools: Tool[] = [
     category: ["data-sources"],
     color: "#ef4444",
     url: "https://builtwith.com",
+    domain: "builtwith.com",
     oarcUse: "Technographic prospecting to find companies using specific technologies."
   },
   {
@@ -431,6 +472,7 @@ const tools: Tool[] = [
     category: ["data-sources", "linkedin-tools"],
     color: "#8b5cf6",
     url: "https://wiza.co",
+    domain: "wiza.co",
     oarcUse: "LinkedIn data extraction with verified email addresses."
   },
   {
@@ -440,6 +482,7 @@ const tools: Tool[] = [
     category: ["data-sources"],
     color: "#6366f1",
     url: "https://leadmagic.io",
+    domain: "leadmagic.io",
     oarcUse: "Cost-effective contact validation and enrichment."
   },
   {
@@ -449,6 +492,7 @@ const tools: Tool[] = [
     category: ["data-sources"],
     color: "#10b981",
     url: "https://bettercontact.rocks",
+    domain: "bettercontact.rocks",
     oarcUse: "Cascade enrichment across multiple vendors for better data quality."
   },
   {
@@ -458,6 +502,7 @@ const tools: Tool[] = [
     category: ["data-sources"],
     color: "#f59e0b",
     url: "https://findymail.com",
+    domain: "findymail.com",
     oarcUse: "Accurate email finding with LinkedIn integration."
   },
   {
@@ -467,6 +512,7 @@ const tools: Tool[] = [
     category: ["data-sources"],
     color: "#3b82f6",
     url: "https://enrow.io",
+    domain: "enrow.io",
     oarcUse: "Email discovery with built-in verification."
   },
   // AI Marketing Tools
@@ -477,6 +523,7 @@ const tools: Tool[] = [
     category: ["ai-marketing-tools", "ai-agents"],
     color: "#10b981",
     url: "https://chat.openai.com",
+    domain: "openai.com",
     oarcUse: "Core tool for content creation, email personalization, research, and AI-powered workflows.",
     featured: true,
     ranking: 1
@@ -488,6 +535,7 @@ const tools: Tool[] = [
     category: ["ai-marketing-tools", "ai-agents"],
     color: "#d97706",
     url: "https://claude.ai",
+    domain: "anthropic.com",
     oarcUse: "Long-form content creation, document analysis, and strategic planning assistance.",
     featured: true,
     ranking: 2
@@ -499,6 +547,7 @@ const tools: Tool[] = [
     category: ["ai-marketing-tools"],
     color: "#ef4444",
     url: "https://jasper.ai",
+    domain: "jasper.ai",
     oarcUse: "Brand voice training and scaled content production for marketing campaigns."
   },
   {
@@ -508,6 +557,7 @@ const tools: Tool[] = [
     category: ["ai-marketing-tools"],
     color: "#8b5cf6",
     url: "https://copy.ai",
+    domain: "copy.ai",
     oarcUse: "Quick copy generation for ads, emails, and social media content."
   },
   {
@@ -517,6 +567,7 @@ const tools: Tool[] = [
     category: ["ai-marketing-tools"],
     color: "#1e293b",
     url: "https://writer.com",
+    domain: "writer.com",
     oarcUse: "Enterprise content generation with brand voice and compliance."
   },
   {
@@ -526,6 +577,7 @@ const tools: Tool[] = [
     category: ["ai-marketing-tools", "ai-agents"],
     color: "#6366f1",
     url: "https://perplexity.ai",
+    domain: "perplexity.ai",
     oarcUse: "Research and fact-checking with cited sources for content creation."
   },
   {
@@ -535,6 +587,7 @@ const tools: Tool[] = [
     category: ["ai-marketing-tools", "sales-tools"],
     color: "#3b82f6",
     url: "https://crayon.co",
+    domain: "crayon.co",
     oarcUse: "Real-time competitive positioning and sales battlecard generation."
   },
   // Sales Tools & CRM
@@ -545,6 +598,7 @@ const tools: Tool[] = [
     category: ["sales-tools", "ai-marketing-tools"],
     color: "#ff7a59",
     url: "https://hubspot.com",
+    domain: "hubspot.com",
     oarcUse: "CRM setup, sales pipeline automation, and marketing automation for growth-stage clients.",
     featured: true
   },
@@ -555,6 +609,7 @@ const tools: Tool[] = [
     category: ["sales-tools"],
     color: "#00a1e0",
     url: "https://salesforce.com",
+    domain: "salesforce.com",
     oarcUse: "Enterprise CRM implementations and integrations for larger clients."
   },
   {
@@ -564,6 +619,7 @@ const tools: Tool[] = [
     category: ["sales-tools"],
     color: "#22c55e",
     url: "https://pipedrive.com",
+    domain: "pipedrive.com",
     oarcUse: "Lightweight CRM for startups and SMBs needing simple pipeline management."
   },
   {
@@ -573,6 +629,7 @@ const tools: Tool[] = [
     category: ["sales-tools"],
     color: "#006bff",
     url: "https://calendly.com",
+    domain: "calendly.com",
     oarcUse: "Meeting scheduling automation integrated with outbound campaigns."
   },
   {
@@ -582,6 +639,7 @@ const tools: Tool[] = [
     category: ["sales-tools", "ai-sales-tools"],
     color: "#8b5cf6",
     url: "https://gong.io",
+    domain: "gong.io",
     oarcUse: "Conversation analytics for understanding what happens in sales calls."
   },
   {
@@ -591,6 +649,7 @@ const tools: Tool[] = [
     category: ["sales-tools", "ai-marketing-tools"],
     color: "#00a4bd",
     url: "https://seismic.com",
+    domain: "seismic.com",
     oarcUse: "Sales content management and personalization at scale."
   },
   // Design & Creative
@@ -601,6 +660,7 @@ const tools: Tool[] = [
     category: ["design-creative", "ai-marketing-tools"],
     color: "#000000",
     url: "https://midjourney.com",
+    domain: "midjourney.com",
     oarcUse: "Creating unique visual assets for campaigns, social media, and marketing materials.",
     featured: true,
     ranking: 1
@@ -612,6 +672,7 @@ const tools: Tool[] = [
     category: ["design-creative", "development"],
     color: "#f24e1e",
     url: "https://figma.com",
+    domain: "figma.com",
     oarcUse: "All design work including web design, app design, and brand identity systems.",
     featured: true,
     ranking: 2
@@ -623,6 +684,7 @@ const tools: Tool[] = [
     category: ["design-creative"],
     color: "#00c4cc",
     url: "https://canva.com",
+    domain: "canva.com",
     oarcUse: "Quick social media graphics and marketing materials for rapid content needs."
   },
   {
@@ -632,6 +694,7 @@ const tools: Tool[] = [
     category: ["design-creative", "video-motion"],
     color: "#ff0000",
     url: "https://adobe.com/creativecloud",
+    domain: "adobe.com",
     oarcUse: "Professional design, video editing, and motion graphics production."
   },
   {
@@ -641,6 +704,7 @@ const tools: Tool[] = [
     category: ["design-creative", "ai-marketing-tools"],
     color: "#10b981",
     url: "https://openai.com/dall-e-3",
+    domain: "openai.com",
     oarcUse: "Quick concept visualization and social media image generation."
   },
   {
@@ -650,6 +714,7 @@ const tools: Tool[] = [
     category: ["design-creative", "ai-marketing-tools"],
     color: "#6366f1",
     url: "https://leonardo.ai",
+    domain: "leonardo.ai",
     oarcUse: "Consistent AI image generation with custom model training."
   },
   {
@@ -659,6 +724,7 @@ const tools: Tool[] = [
     category: ["design-creative", "ai-marketing-tools"],
     color: "#8b5cf6",
     url: "https://ideogram.ai",
+    domain: "ideogram.ai",
     oarcUse: "Marketing visuals with embedded text and logos."
   },
   // Video & Motion
@@ -669,6 +735,7 @@ const tools: Tool[] = [
     category: ["video-motion", "ai-marketing-tools"],
     color: "#6366f1",
     url: "https://runwayml.com",
+    domain: "runwayml.com",
     oarcUse: "AI video generation for social content and motion graphics elements.",
     featured: true,
     ranking: 1
@@ -680,6 +747,7 @@ const tools: Tool[] = [
     category: ["video-motion", "ai-marketing-tools"],
     color: "#ec4899",
     url: "https://pika.art",
+    domain: "pika.art",
     oarcUse: "Experimental video content and creative motion graphics."
   },
   {
@@ -689,6 +757,7 @@ const tools: Tool[] = [
     category: ["video-motion", "ai-marketing-tools"],
     color: "#3b82f6",
     url: "https://heygen.com",
+    domain: "heygen.com",
     oarcUse: "AI avatar videos for personalized outreach and explainer content."
   },
   {
@@ -698,6 +767,7 @@ const tools: Tool[] = [
     category: ["video-motion"],
     color: "#22c55e",
     url: "https://descript.com",
+    domain: "descript.com",
     oarcUse: "Podcast editing, video content repurposing, and quick turnaround edits."
   },
   {
@@ -707,6 +777,7 @@ const tools: Tool[] = [
     category: ["video-motion", "design-creative"],
     color: "#00ddb3",
     url: "https://lottiefiles.com",
+    domain: "lottiefiles.com",
     oarcUse: "Web animations and micro-interactions for premium user experiences."
   },
   {
@@ -716,6 +787,7 @@ const tools: Tool[] = [
     category: ["video-motion", "ai-marketing-tools"],
     color: "#5046e5",
     url: "https://synthesia.io",
+    domain: "synthesia.io",
     oarcUse: "Scalable video production for training, onboarding, and marketing."
   },
   {
@@ -724,7 +796,8 @@ const tools: Tool[] = [
     description: "AI video generation for sales prospecting. Personalized video outreach at scale.",
     category: ["video-motion", "ai-sales-tools"],
     color: "#8b5cf6",
-    url: "https://potion.com",
+    url: "https://sendpotion.com",
+    domain: "sendpotion.com",
     oarcUse: "Personalized video messages for high-touch sales outreach."
   },
   // Development
@@ -735,6 +808,7 @@ const tools: Tool[] = [
     category: ["development"],
     color: "#61dafb",
     url: "https://react.dev",
+    domain: "react.dev",
     oarcUse: "Primary frontend framework for all web application development.",
     featured: true,
     ranking: 1
@@ -746,6 +820,7 @@ const tools: Tool[] = [
     category: ["development"],
     color: "#3178c6",
     url: "https://typescriptlang.org",
+    domain: "typescriptlang.org",
     oarcUse: "Type-safe development across all our projects for better maintainability.",
     ranking: 2
   },
@@ -756,6 +831,7 @@ const tools: Tool[] = [
     category: ["development"],
     color: "#339933",
     url: "https://nodejs.org",
+    domain: "nodejs.org",
     oarcUse: "Backend API development and serverless function deployment."
   },
   {
@@ -765,6 +841,7 @@ const tools: Tool[] = [
     category: ["development"],
     color: "#336791",
     url: "https://postgresql.org",
+    domain: "postgresql.org",
     oarcUse: "Primary database for all applications requiring persistent data storage."
   },
   {
@@ -774,6 +851,7 @@ const tools: Tool[] = [
     category: ["development"],
     color: "#000000",
     url: "https://vercel.com",
+    domain: "vercel.com",
     oarcUse: "Deployment platform for web applications and serverless functions."
   },
   {
@@ -783,6 +861,7 @@ const tools: Tool[] = [
     category: ["development", "ai-agents"],
     color: "#000000",
     url: "https://cursor.com",
+    domain: "cursor.com",
     oarcUse: "AI-assisted development with intelligent code completion and refactoring."
   },
   {
@@ -792,6 +871,7 @@ const tools: Tool[] = [
     category: ["development", "ai-agents"],
     color: "#000000",
     url: "https://github.com/features/copilot",
+    domain: "github.com",
     oarcUse: "AI code suggestions and generation for faster development."
   },
   // Automation & Workflow
@@ -802,6 +882,7 @@ const tools: Tool[] = [
     category: ["sales-tools", "ai-marketing-tools"],
     color: "#ff4a00",
     url: "https://zapier.com",
+    domain: "zapier.com",
     oarcUse: "Connecting disparate tools and automating workflows between platforms.",
     featured: true
   },
@@ -812,6 +893,7 @@ const tools: Tool[] = [
     category: ["sales-tools", "ai-marketing-tools"],
     color: "#9146ff",
     url: "https://make.com",
+    domain: "make.com",
     oarcUse: "Complex multi-step automations requiring conditional logic and data transformation."
   },
   {
@@ -821,6 +903,7 @@ const tools: Tool[] = [
     category: ["sales-tools", "development"],
     color: "#ff6d5a",
     url: "https://n8n.io",
+    domain: "n8n.io",
     oarcUse: "Self-hosted automation for clients with data privacy requirements."
   },
   // Analytics
@@ -831,6 +914,7 @@ const tools: Tool[] = [
     category: ["ai-marketing-tools", "development"],
     color: "#7856ff",
     url: "https://mixpanel.com",
+    domain: "mixpanel.com",
     oarcUse: "Product analytics for MVPs and web applications we build."
   },
   {
@@ -840,6 +924,7 @@ const tools: Tool[] = [
     category: ["ai-marketing-tools"],
     color: "#ff3c00",
     url: "https://hotjar.com",
+    domain: "hotjar.com",
     oarcUse: "UX research and conversion optimization for client websites."
   },
   {
@@ -849,6 +934,7 @@ const tools: Tool[] = [
     category: ["ai-marketing-tools"],
     color: "#e37400",
     url: "https://analytics.google.com",
+    domain: "google.com",
     oarcUse: "Standard analytics setup for all websites we build or manage."
   },
   {
@@ -858,6 +944,7 @@ const tools: Tool[] = [
     category: ["ai-marketing-tools", "development"],
     color: "#0061f2",
     url: "https://amplitude.com",
+    domain: "amplitude.com",
     oarcUse: "Advanced product analytics for SaaS and app development."
   },
   // Communication
@@ -868,6 +955,7 @@ const tools: Tool[] = [
     category: ["sales-tools"],
     color: "#000000",
     url: "https://notion.so",
+    domain: "notion.so",
     oarcUse: "Project documentation, knowledge bases, and client collaboration."
   },
   {
@@ -877,6 +965,7 @@ const tools: Tool[] = [
     category: ["sales-tools"],
     color: "#4a154b",
     url: "https://slack.com",
+    domain: "slack.com",
     oarcUse: "Team communication and client collaboration channels."
   },
   {
@@ -886,6 +975,7 @@ const tools: Tool[] = [
     category: ["sales-tools", "video-motion"],
     color: "#625df5",
     url: "https://loom.com",
+    domain: "loom.com",
     oarcUse: "Quick video explainers for client updates and internal communication."
   },
 ];
@@ -901,15 +991,38 @@ const toolsFAQs: FAQItem[] = [
   { question: "Can you train our team on these tools?", answer: "Yes, we offer training and enablement. We can run workshops on any tool in our stack to help your team become proficient." }
 ];
 
-const ToolLogo = ({ name, color }: { name: string; color: string }) => {
+const ToolLogo = ({ name, color, domain }: { name: string; color: string; domain: string }) => {
+  const [imgError, setImgError] = useState(false);
+  const [useFallback, setUseFallback] = useState(false);
   const initial = name.charAt(0).toUpperCase();
+  
+  const logoUrl = `https://logo.clearbit.com/${domain}`;
+  const fallbackUrl = `https://www.google.com/s2/favicons?domain=${domain}&sz=128`;
+  
+  if (imgError) {
+    return (
+      <div 
+        className="w-full h-full rounded-lg flex items-center justify-center text-white font-bold text-lg"
+        style={{ backgroundColor: color }}
+      >
+        {initial}
+      </div>
+    );
+  }
+  
   return (
-    <div 
-      className="w-full h-full rounded-lg flex items-center justify-center text-white font-bold text-lg"
-      style={{ backgroundColor: color }}
-    >
-      {initial}
-    </div>
+    <img 
+      src={useFallback ? fallbackUrl : logoUrl}
+      alt={`${name} logo`}
+      className="w-full h-full rounded-lg object-contain bg-white p-1.5"
+      onError={() => {
+        if (!useFallback) {
+          setUseFallback(true);
+        } else {
+          setImgError(true);
+        }
+      }}
+    />
   );
 };
 
@@ -949,7 +1062,7 @@ export default function Tools() {
         ogType="website"
       />
 
-      {/* Hero Section - Refined Dark */}
+      {/* Hero Section */}
       <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden bg-[#0a0a0a]">
         <div className="absolute inset-0 bg-gradient-to-br from-[#0a0a0a] via-[#111111] to-[#0a0a0a]" />
         <div className="absolute inset-0 opacity-20">
@@ -988,7 +1101,7 @@ export default function Tools() {
         </div>
       </section>
 
-      {/* Category Filter - Refined */}
+      {/* Category Filter */}
       <section className="sticky top-0 z-40 bg-[#0a0a0a]/95 backdrop-blur-md border-b border-white/5">
         <div className="container mx-auto px-4">
           <div className="flex overflow-x-auto gap-2 py-4 scrollbar-hide">
@@ -998,9 +1111,9 @@ export default function Tools() {
                 <button
                   key={cat.id}
                   onClick={() => setActiveCategory(cat.id)}
-                  className={`flex items-center gap-2 px-4 py-2 rounded-full whitespace-nowrap transition-all text-sm ${
+                  className={`flex items-center gap-2 px-4 py-2.5 rounded-full whitespace-nowrap transition-all text-sm font-medium ${
                     activeCategory === cat.id
-                      ? "bg-white text-black font-medium"
+                      ? "bg-white text-black shadow-lg"
                       : "bg-white/5 text-gray-400 hover:bg-white/10 hover:text-gray-200"
                   }`}
                   data-testid={`button-category-${cat.id}`}
@@ -1014,7 +1127,7 @@ export default function Tools() {
         </div>
       </section>
 
-      {/* Featured Tools - Refined */}
+      {/* Featured Tools */}
       {activeCategory === "all" && !searchQuery && (
         <section className="py-16 bg-gradient-to-b from-[#0a0a0a] to-[#0f0f0f]">
           <div className="container mx-auto px-4">
@@ -1029,12 +1142,12 @@ export default function Tools() {
                   href={tool.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group relative bg-white/[0.02] rounded-2xl p-6 border border-white/5 hover:border-white/20 transition-all hover:-translate-y-1 hover:bg-white/[0.04]"
+                  className="group relative bg-white/[0.03] rounded-2xl p-6 border border-white/5 hover:border-white/20 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-indigo-500/5"
                   data-testid={`card-featured-tool-${tool.id}`}
                 >
                   <div className="flex items-start gap-4 mb-4">
-                    <div className="w-14 h-14 rounded-xl overflow-hidden flex-shrink-0">
-                      <ToolLogo name={tool.name} color={tool.color} />
+                    <div className="w-14 h-14 rounded-xl overflow-hidden flex-shrink-0 shadow-lg">
+                      <ToolLogo name={tool.name} color={tool.color} domain={tool.domain} />
                     </div>
                     <div className="flex-1">
                       <div className="flex items-center gap-2">
@@ -1053,7 +1166,7 @@ export default function Tools() {
                         ))}
                       </div>
                     </div>
-                    <ExternalLink className="w-4 h-4 text-gray-600 group-hover:text-gray-400 transition-colors" />
+                    <ExternalLink className="w-4 h-4 text-gray-600 group-hover:text-indigo-400 transition-colors" />
                   </div>
                   
                   <p className="text-gray-400 text-sm mb-4 line-clamp-2">
@@ -1072,7 +1185,7 @@ export default function Tools() {
         </section>
       )}
 
-      {/* All Tools Grid - Refined */}
+      {/* All Tools Grid */}
       <section className="py-16 bg-[#0f0f0f]">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between mb-8">
@@ -1096,11 +1209,11 @@ export default function Tools() {
                   href={tool.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex items-center gap-4 bg-white/[0.02] rounded-xl p-4 border border-white/5 hover:border-white/15 transition-all hover:bg-white/[0.04]"
+                  className="group flex items-center gap-4 bg-white/[0.02] rounded-xl p-4 border border-white/5 hover:border-white/20 transition-all duration-200 hover:bg-white/[0.05] hover:shadow-lg hover:shadow-black/20"
                   data-testid={`card-tool-${tool.id}`}
                 >
-                  <div className="w-12 h-12 rounded-lg overflow-hidden flex-shrink-0">
-                    <ToolLogo name={tool.name} color={tool.color} />
+                  <div className="w-12 h-12 rounded-lg overflow-hidden flex-shrink-0 shadow-md">
+                    <ToolLogo name={tool.name} color={tool.color} domain={tool.domain} />
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2">
@@ -1115,7 +1228,7 @@ export default function Tools() {
                       {tool.description}
                     </p>
                   </div>
-                  <ExternalLink className="w-4 h-4 text-gray-600 group-hover:text-gray-400 transition-colors flex-shrink-0" />
+                  <ExternalLink className="w-4 h-4 text-gray-600 group-hover:text-indigo-400 transition-colors flex-shrink-0" />
                 </a>
               ))}
             </div>
@@ -1132,7 +1245,7 @@ export default function Tools() {
         darkMode={true}
       />
 
-      {/* CTA Section - Refined */}
+      {/* CTA Section */}
       <section className="py-20 bg-[#0a0a0a]">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
