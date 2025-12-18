@@ -10,6 +10,7 @@ import {
 } from 'lucide-react';
 import Layout from '@/components/layout/Layout';
 import SEOHead from "@/components/SEOHead";
+import FAQSection, { FAQItem } from '@/components/FAQSection';
 import { motion } from 'framer-motion';
 import { AnimatedGridBackground } from '@/components/ui/animated-grid-background';
 import { GlassCard } from '@/components/ui/glass-card';
@@ -160,39 +161,15 @@ export default function MVPSoftwareDevelopment() {
     }
   ];
 
-  const faqs = [
-    {
-      question: 'What types of software can you build as an MVP?',
-      answer: 'We specialize in SaaS platforms, enterprise tools, API-first products, data platforms, developer tools, and admin panels. Our tech stack (React, Node.js, PostgreSQL, AWS) is optimized for web-based software that needs to scale. We\'ve built everything from simple CRUD apps to complex multi-tenant platforms with real-time features.'
-    },
-    {
-      question: 'How is software MVP development different from mobile app development?',
-      answer: 'Software MVPs typically involve more complex backend architecture, database design, and integration requirements. We focus on building robust APIs, scalable infrastructure, and maintainable codebases that can grow into enterprise products. The timeline is similar (8-12 weeks), but the technical decisions are more focused on long-term scalability.'
-    },
-    {
-      question: 'What technology stack do you use?',
-      answer: 'Our core stack is React/TypeScript for frontend, Node.js for backend, PostgreSQL for databases, and AWS for infrastructure. We also work with Next.js, GraphQL, Redis, Docker, and Kubernetes depending on requirements. This modern stack ensures your MVP is built on proven, maintainable technology that attracts quality developers.'
-    },
-    {
-      question: 'How do you ensure the software can scale?',
-      answer: 'We design for scale from day one: API-first architecture, database indexing strategies, caching layers, and cloud-native deployment. Our MVPs typically handle 10x-100x traffic increases without major rewrites. We document scaling paths so your team knows exactly what to optimize as you grow.'
-    },
-    {
-      question: 'Can you integrate with existing systems?',
-      answer: 'Yes, integration is often a core requirement. We\'ve integrated with Stripe, Twilio, HubSpot, Salesforce, and dozens of industry-specific APIs. We build clean API layers that make future integrations straightforward, and we document all integration points for your team.'
-    },
-    {
-      question: 'What about security and compliance?',
-      answer: 'Security is built-in, not bolted on. We implement authentication (OAuth2, SSO), authorization, encryption at rest and in transit, and audit logging. For regulated industries, we ensure GDPR compliance and can work toward SOC 2 readiness. Our Malta base gives us deep EU compliance expertise.'
-    },
-    {
-      question: 'How do you handle handover to our internal team?',
-      answer: 'We treat handover as a first-class deliverable. You get complete source code, comprehensive documentation, architecture decision records, and optional knowledge transfer sessions. Our code follows industry best practices, so any competent developer can maintain it. No vendor lock-in, ever.'
-    },
-    {
-      question: 'What happens after the MVP launches?',
-      answer: 'We include 30 days of post-launch support for bug fixes and optimization. Beyond that, we offer ongoing development retainers for continuous improvement, or full handover with training for your internal team. Many clients continue with us for v2, v3, and beyond.'
-    }
+  const mvpSoftwareFAQs: FAQItem[] = [
+    { question: "What is MVP software development?", answer: "Building the essential version of your product to test market fit. Minimum features, maximum learning before major investment." },
+    { question: "How is this different from regular development?", answer: "Speed and focus. We prioritize features that validate your hypothesis, not perfection. Launch fast, iterate based on feedback." },
+    { question: "How long does MVP development take?", answer: "6-12 weeks depending on complexity. We move fast while maintaining code quality for future scaling." },
+    { question: "What makes OARC's MVP development different?", answer: "Startup experience. We've built and scaled MVPs ourselves—we know what corners to cut and what to build properly." },
+    { question: "What technologies do you use for MVPs?", answer: "Modern stack: React, Node.js, TypeScript, PostgreSQL. Scalable foundations that won't need rewriting later." },
+    { question: "What happens after MVP launch?", answer: "We gather user feedback, analyze metrics, and iterate. Optional ongoing development to scale proven concepts." },
+    { question: "What is the investment for MVP development?", answer: "MVPs start from €15,000 for simpler concepts. Complex products range from €30,000-60,000 based on scope." },
+    { question: "Do you help with funding after MVP?", answer: "We can connect you with investors and help prepare pitch materials based on your validated MVP metrics." }
   ];
 
   const whyOarc = [
@@ -926,65 +903,13 @@ export default function MVPSoftwareDevelopment() {
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <section className="bg-zinc-950 py-24 px-6" data-testid="section-faq">
-        <div className="max-w-3xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-3xl md:text-4xl font-black text-white mb-4">
-              Frequently Asked Questions
-            </h2>
-          </motion.div>
-
-          <div className="space-y-4">
-            {faqs.map((faq, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: idx * 0.05 }}
-              >
-                <GlassCard 
-                  className="overflow-hidden cursor-pointer" 
-                  glowOnHover={false}
-                  onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
-                  data-testid={`faq-toggle-${idx}`}
-                >
-                  <div className="p-6">
-                    <div className="flex items-center justify-between gap-4">
-                      <h3 className="text-lg font-bold text-white" data-testid={`faq-question-${idx}`}>
-                        {faq.question}
-                      </h3>
-                      <ChevronDown 
-                        className={`w-5 h-5 text-white/40 transition-transform flex-shrink-0 ${openFaq === idx ? 'rotate-180' : ''}`}
-                      />
-                    </div>
-                    {openFaq === idx && (
-                      <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: 'auto' }}
-                        exit={{ opacity: 0, height: 0 }}
-                        transition={{ duration: 0.3 }}
-                        className="mt-4 pt-4 border-t border-white/10"
-                      >
-                        <p className="text-white/90 leading-relaxed" data-testid={`faq-answer-${idx}`}>
-                          {faq.answer}
-                        </p>
-                      </motion.div>
-                    )}
-                  </div>
-                </GlassCard>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <FAQSection 
+        faqs={mvpSoftwareFAQs} 
+        title="Frequently Asked Questions" 
+        subtitle="Everything you need to know about MVP software development" 
+        schemaId="faq-mvp-software" 
+        darkMode={true}
+      />
 
       {/* Final CTA Section */}
       <section className="bg-black py-24 px-6" data-testid="section-cta">

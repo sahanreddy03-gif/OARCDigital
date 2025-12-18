@@ -7,7 +7,19 @@ import Layout from "@/components/layout/Layout";
 import SEOHead from "@/components/SEOHead";
 import { creativeServicesSEO } from "@/data/seoMetadata";
 import { createServiceSchema } from "@/utils/structuredData";
+import FAQSection, { FAQItem } from "@/components/FAQSection";
 import heroImage from '@assets/email craetion_1763085804635.avif';
+
+const emailCreativeFAQs: FAQItem[] = [
+  { question: "What email design services do you offer?", answer: "Custom templates, campaign designs, automation sequences, newsletters, and transactional emails. Beautiful emails that convert." },
+  { question: "What email platforms do you work with?", answer: "Mailchimp, Klaviyo, HubSpot, ActiveCampaign, and custom HTML. We design for any major email platform." },
+  { question: "How long does email design take?", answer: "Individual emails take 2-3 days. Template systems and full sequences typically require 1-2 weeks." },
+  { question: "What makes OARC's email creative different?", answer: "Mobile-first design with conversion optimization. Every email is tested across devices and clients." },
+  { question: "Do you write email copy too?", answer: "Yes, copywriting is included. Subject lines, body copy, and CTAs crafted for maximum open and click rates." },
+  { question: "Can you handle our email automation?", answer: "Absolutely. We design complete automated sequences—welcome series, cart abandonment, re-engagement campaigns." },
+  { question: "What is the investment for email creative?", answer: "Single campaigns start from €500. Monthly email packages range from €1,500-4,000 based on volume." },
+  { question: "Do you provide A/B testing?", answer: "Yes, we design test variants and analyze results. Continuous optimization improves performance over time." }
+];
 
 export default function EmailCreative() {
   useEffect(() => {
@@ -405,6 +417,15 @@ export default function EmailCreative() {
           </div>
         </div>
       </section>
+
+      {/* FAQ Section */}
+      <FAQSection 
+        faqs={emailCreativeFAQs} 
+        title="Frequently Asked Questions" 
+        subtitle="Everything you need to know about email creative" 
+        schemaId="faq-email-creative"
+        darkMode={true}
+      />
 
       {/* Final CTA */}
       <section className="py-20 px-4 bg-gradient-to-br from-[#23AACA] to-orange-500 text-white">

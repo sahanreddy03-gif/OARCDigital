@@ -7,7 +7,19 @@ import Layout from "@/components/layout/Layout";
 import SEOHead from "@/components/SEOHead";
 import { revenueServicesSEO } from "@/data/seoMetadata";
 import { createServiceSchema } from "@/utils/structuredData";
+import FAQSection, { FAQItem } from "@/components/FAQSection";
 import heroImage from "@assets/digital-marketing-optimized.jpg";
+
+const digitalMarketingFAQs: FAQItem[] = [
+  { question: "What digital marketing services do you offer?", answer: "SEO, paid advertising, social media marketing, email marketing, content marketing, and conversion optimization. Full-funnel digital growth services." },
+  { question: "How do you measure marketing success?", answer: "We track leads, conversions, ROI, and revenue attribution. Monthly reports with transparent metrics show exactly how campaigns perform." },
+  { question: "What makes OARC's digital marketing different?", answer: "We combine AI-powered automation with human strategy. Our systems optimize campaigns 24/7 while experts guide overall direction." },
+  { question: "How quickly can we see marketing results?", answer: "Paid ads show results within days. SEO and content marketing typically take 3-6 months for significant organic traffic growth." },
+  { question: "Do you work with specific industries?", answer: "We specialize in B2B, SaaS, e-commerce, and professional services. Our Malta base gives us EU compliance expertise." },
+  { question: "What's your approach to marketing strategy?", answer: "Data-driven and audience-first. We start with research, define metrics, test rapidly, and scale what works best." },
+  { question: "What is the investment for digital marketing?", answer: "Marketing retainers start from €2,000/month for focused campaigns. Comprehensive programs range from €5,000-15,000/month." },
+  { question: "Do you offer marketing on a project basis?", answer: "Yes, we offer campaign-based projects for launches, promotions, and specific initiatives alongside ongoing retainer relationships." }
+];
 
 export default function DigitalMarketing() {
   useEffect(() => {
@@ -425,6 +437,14 @@ export default function DigitalMarketing() {
           </div>
         </div>
       </section>
+
+      {/* FAQ Section */}
+      <FAQSection 
+        faqs={digitalMarketingFAQs} 
+        title="Frequently Asked Questions" 
+        subtitle="Everything you need to know about digital marketing" 
+        schemaId="faq-digital-marketing" 
+      />
 
       {/* CTA */}
       <section className="py-20 px-4 bg-[#23AACA]">

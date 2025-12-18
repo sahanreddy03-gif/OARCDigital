@@ -10,6 +10,18 @@ import ScrollReveal from "@/components/ScrollReveal";
 import { Button } from '@/components/ui/button';
 import { AnimatedGridBackground } from '@/components/ui/animated-grid-background';
 import { GlassCard } from '@/components/ui/glass-card';
+import FAQSection, { FAQItem } from '@/components/FAQSection';
+
+const webAppFAQs: FAQItem[] = [
+  { question: "What web applications do you build?", answer: "SaaS platforms, dashboards, portals, booking systems, marketplaces, and custom business tools. Full-stack web development." },
+  { question: "What technologies do you use?", answer: "React, TypeScript, Node.js, PostgreSQL, and modern cloud infrastructure. Enterprise-grade tech stack." },
+  { question: "How long does web app development take?", answer: "MVPs take 8-12 weeks. Full-featured applications typically require 4-8 months depending on complexity." },
+  { question: "What makes OARC's web apps different?", answer: "Product-focused development. We build apps users love, not just features clients requested." },
+  { question: "Do you handle UX/UI design?", answer: "Yes, design is included. Research, wireframes, prototypes, and final UI design before development begins." },
+  { question: "Can you scale existing applications?", answer: "Absolutely. We audit, optimize, and scale existing apps. Performance tuning and architecture improvements." },
+  { question: "What is the investment for web app development?", answer: "MVPs start from €25,000. Full-featured applications range from €50,000-200,000 based on scope." },
+  { question: "Do you offer SLA-backed maintenance?", answer: "Yes, enterprise maintenance packages include uptime SLAs, security updates, and priority support." }
+];
 
 import dashboardImg from '@assets/stock_images/financial_dashboard__226af471.jpg';
 import softwareDevImg1 from '@assets/stock_images/software_development_5606ca42.jpg';
@@ -456,6 +468,8 @@ export default function WebApplicationDevelopment() {
           </div>
         </div>
       </section>
+
+      <FAQSection faqs={webAppFAQs} title="Frequently Asked Questions" subtitle="Everything you need to know about web application development" schemaId="faq-web-app" darkMode={true} />
 
       {/* FINAL CTA */}
       <section className="py-24 px-4 bg-black text-white relative overflow-hidden border-t border-white/10">

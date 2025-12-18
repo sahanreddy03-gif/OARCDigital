@@ -11,6 +11,7 @@ import {
 } from 'lucide-react';
 import Layout from '@/components/layout/Layout';
 import SEOHead from "@/components/SEOHead";
+import FAQSection, { type FAQItem } from "@/components/FAQSection";
 import { motion } from 'framer-motion';
 import { AnimatedGridBackground } from '@/components/ui/animated-grid-background';
 import { GlassCard } from '@/components/ui/glass-card';
@@ -24,6 +25,17 @@ import {
 import mvpMobileScreens from '@assets/generated_images/mvp_mobile_app_prototype_screens.png';
 import mvpDashboard from '@assets/generated_images/saas_mvp_dashboard_interface.png';
 import mvpProcess from '@assets/generated_images/mvp_development_process_diagram.png';
+
+const mvpFAQs: FAQItem[] = [
+  { question: "What is MVP development?", answer: "Minimum Viable Product development builds the essential version of your product to validate market fit quickly. Ship fast, learn faster, iterate smarter." },
+  { question: "How long does MVP development take?", answer: "Typical MVPs take 6-12 weeks from concept to launch. Simple products can ship in 4 weeks; complex platforms may need 16 weeks." },
+  { question: "What makes OARC's MVP development different?", answer: "We combine technical excellence with startup experience. Our founders have built and scaled products—we know what matters for launch." },
+  { question: "What technologies do you use for MVPs?", answer: "React, Node.js, Next.js, and modern cloud infrastructure. We choose tech that scales with your growth, not just for today." },
+  { question: "Do you help with product strategy?", answer: "Yes, MVP includes product strategy, user research, and feature prioritization. We help define what to build first for maximum impact." },
+  { question: "What happens after MVP launch?", answer: "We offer ongoing development partnerships. Scale features based on user feedback, or hand off to your internal team." },
+  { question: "What is the investment for MVP development?", answer: "MVPs start from €15,000 for simple applications. Full-featured products typically range from €30,000-75,000." },
+  { question: "Can you help raise funding with the MVP?", answer: "Yes, we prepare investor-ready demos and pitch materials. Our MVPs are built to impress investors and early customers." }
+];
 
 export default function MVPDevelopment() {
   useEffect(() => {
@@ -1025,6 +1037,14 @@ export default function MVPDevelopment() {
           </div>
         </div>
       </section>
+
+      <FAQSection 
+        faqs={mvpFAQs} 
+        title="Frequently Asked Questions" 
+        subtitle="Everything you need to know about MVP development" 
+        schemaId="faq-mvp-development"
+        darkMode={true}
+      />
 
       {/* Final CTA Section */}
       <section className="bg-black py-24 px-6" data-testid="section-cta">

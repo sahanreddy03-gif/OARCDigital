@@ -5,6 +5,7 @@ import Layout from '@/components/layout/Layout';
 import SEOHead from '@/components/SEOHead';
 import { createServiceSchema } from "@/utils/structuredData";
 import ScrollReveal from "@/components/ScrollReveal";
+import FAQSection, { FAQItem } from "@/components/FAQSection";
 
 import brandImg1 from "@assets/stock_images/branding_design_logo_562a38a3.jpg";
 import brandImg2 from "@assets/stock_images/branding_design_logo_ccf3aba4.jpg";
@@ -14,6 +15,17 @@ import corporateLogoImg1 from "@assets/stock_images/corporate_brand_logo_3695620
 import corporateLogoImg2 from "@assets/stock_images/corporate_brand_logo_3ecd3c3a.jpg";
 import designSystemImg from "@assets/stock_images/design_system_compon_362ff5cd.jpg";
 import graphicDesignImg from "@assets/stock_images/graphic_design_creat_297cb911.jpg";
+
+const brandingFAQs: FAQItem[] = [
+  { question: "What's included in a complete brand identity package?", answer: "Logo design, color palette, typography, brand guidelines, business cards, social templates, and brand voice guidelines. A complete system for consistent brand expression." },
+  { question: "How long does the branding process take?", answer: "Full brand identity projects take 6-8 weeks. This includes discovery, strategy, design exploration, refinement, and final delivery with comprehensive guidelines." },
+  { question: "What makes OARC Digital's branding approach different?", answer: "We build brands strategically—starting with market research and positioning before any design. Our brands are built to scale and adapt." },
+  { question: "Do you offer rebranding services for existing businesses?", answer: "Yes, we specialize in brand evolution. We can refresh your existing identity or create a complete rebrand while respecting your brand equity." },
+  { question: "Can you help with brand naming and taglines?", answer: "Absolutely. Our strategy phase includes naming exploration, tagline development, and brand messaging frameworks that resonate with your audience." },
+  { question: "What file formats do we receive?", answer: "You receive all source files (AI, PSD), web-ready formats (SVG, PNG, JPG), and print-ready files (PDF, EPS). Full ownership of all assets." },
+  { question: "What is the investment for brand identity design?", answer: "Brand identity packages start from €3,500 for essential branding. Comprehensive brand systems with strategy range from €7,500-15,000." },
+  { question: "Do you work with startups and small businesses?", answer: "Yes, we work with businesses at all stages. We have starter packages designed for early-stage companies with scaling needs." }
+];
 
 export default function Branding() {
   const [activeExploration, setActiveExploration] = useState(0);
@@ -342,6 +354,8 @@ export default function Branding() {
           </div>
         </div>
       </section>
+
+      <FAQSection faqs={brandingFAQs} title="Frequently Asked Questions" subtitle="Everything you need to know about our branding services" schemaId="faq-branding" />
 
       {/* FINAL CTA */}
       <section className="py-20 px-4 bg-zinc-950 text-white">

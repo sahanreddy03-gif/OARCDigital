@@ -1,10 +1,11 @@
 import { useEffect } from "react";
 import { Link } from "wouter";
-import { Zap, TrendingUp, Target, Users, BarChart, Sparkles, CheckCircle2, Lightbulb } from "lucide-react";
+import { Zap, TrendingUp, Target, Users, BarChart, Sparkles, CheckCircle2, Lightbulb, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ScrollableCards } from "@/components/ui/scrollable-cards";
 import Layout from "@/components/layout/Layout";
 import SEOHead from "@/components/SEOHead";
+import FAQSection, { FAQItem } from "@/components/FAQSection";
 import { revenueServicesSEO } from "@/data/seoMetadata";
 import { createServiceSchema } from "@/utils/structuredData";
 import heroImage from "@assets/rapid-idea-testing-optimized.jpg";
@@ -439,6 +440,20 @@ export default function RapidIdeaTesting() {
           </div>
         </div>
       </section>
+
+      {(() => {
+        const rapidTestingFAQs: FAQItem[] = [
+          { question: "What is rapid idea testing?", answer: "Quickly validating business ideas before major investment. We build prototypes, test with users, and measure demand efficiently." },
+          { question: "How quickly can we test an idea?", answer: "Most validation sprints take 2-4 weeks. You get market feedback before committing to full development." },
+          { question: "What testing methods do you use?", answer: "Landing page tests, prototype user testing, market surveys, and demand validation campaigns. Data-driven insights." },
+          { question: "What makes OARC's testing different?", answer: "We combine marketing expertise with product thinking. Test not just feasibility, but marketability from day one." },
+          { question: "What do we get at the end?", answer: "Validation report with user feedback, market data, and recommendations for next steps. Clear go/no-go decision support." },
+          { question: "Can testing kill a bad idea early?", answer: "Absolutely—and that's the point. Saving months of development on ideas that won't work is incredibly valuable." },
+          { question: "What is the investment for idea testing?", answer: "Validation sprints start from €5,000. Comprehensive market testing packages range from €10,000-25,000." },
+          { question: "Do you help with product roadmap after testing?", answer: "Yes, successful validations include development roadmap recommendations and next-phase planning support." }
+        ];
+        return <FAQSection faqs={rapidTestingFAQs} title="Frequently Asked Questions" subtitle="Everything you need to know about rapid idea testing" schemaId="faq-rapid-testing" />;
+      })()}
 
       {/* CTA */}
       <section className="py-20 px-4 relative overflow-hidden">

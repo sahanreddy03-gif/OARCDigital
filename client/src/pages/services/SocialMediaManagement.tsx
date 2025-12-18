@@ -8,6 +8,42 @@ import { createServiceSchema } from "@/utils/structuredData";
 import { ScrollableCards } from "@/components/ui/scrollable-cards";
 import { Calendar, TrendingUp, Heart, MessageCircle, BarChart, Users, ArrowRight, CheckCircle2 } from "lucide-react";
 import heroImage from "@assets/social-media-management-optimized.jpg";
+import FAQSection, { FAQItem } from "@/components/FAQSection";
+
+const socialMediaFAQs: FAQItem[] = [
+  {
+    question: "What platforms do you manage for social media?",
+    answer: "We manage all major platforms including Instagram, Facebook, LinkedIn, TikTok, X (Twitter), Pinterest, and YouTube. We tailor our strategy to the platforms where your audience is most active."
+  },
+  {
+    question: "How quickly can I expect to see results from social media management?",
+    answer: "You'll see increased consistency and engagement within the first month. Significant follower growth and business results typically develop over 3-6 months of consistent community building."
+  },
+  {
+    question: "What makes OARC Digital's social media management different?",
+    answer: "We focus on building real communities, not vanity metrics. Our approach combines AI-powered analytics with human creativity to drive actual business results like leads and sales."
+  },
+  {
+    question: "Do you create all the content or do we need to provide it?",
+    answer: "We handle full content creation including graphics, copy, and scheduling. We'll work with you initially to understand your brand voice, then manage everything independently."
+  },
+  {
+    question: "How do you measure success in social media management?",
+    answer: "We track engagement rates, follower growth, reach, and most importantly—business metrics like website traffic, leads, and conversions. Weekly reports keep you informed on progress."
+  },
+  {
+    question: "Can you handle crisis management and negative comments?",
+    answer: "Yes, our community management includes real-time monitoring, rapid response protocols, and crisis management. We protect your brand reputation 24/7 across all platforms."
+  },
+  {
+    question: "What is the typical investment for social media management?",
+    answer: "Our packages start from €1,500/month for essential management. Full-service packages with content creation and community management range from €2,500-5,000/month based on scope."
+  },
+  {
+    question: "Do you offer a trial period or guarantee?",
+    answer: "We offer a 30-day satisfaction guarantee. If you're not seeing value within the first month, we'll refund your investment or continue working until you're satisfied."
+  }
+];
 
 export default function SocialMediaManagement() {
   useEffect(() => {
@@ -426,6 +462,14 @@ export default function SocialMediaManagement() {
           </div>
         </div>
       </section>
+
+      {/* FAQ Section */}
+      <FAQSection
+        faqs={socialMediaFAQs}
+        title="Frequently Asked Questions"
+        subtitle="Everything you need to know about our social media management services"
+        schemaId="faq-social-media-management"
+      />
 
       {/* CTA Section */}
       <section className="py-20 px-4 bg-[#23AACA] text-white">

@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { ScrollableCards } from "@/components/ui/scrollable-cards";
 import Layout from "@/components/layout/Layout";
 import SEOHead from "@/components/SEOHead";
+import FAQSection, { FAQItem } from "@/components/FAQSection";
 import { creativeServicesSEO } from "@/data/seoMetadata";
 import { createServiceSchema } from "@/utils/structuredData";
 import heroImage from '@assets/presentation design_1763086077235.avif';
@@ -405,6 +406,20 @@ export default function PresentationPitch() {
           </div>
         </div>
       </section>
+
+      {(() => {
+        const presentationFAQs: FAQItem[] = [
+          { question: "What presentation services do you offer?", answer: "Investor pitch decks, sales presentations, keynote designs, corporate templates, and animated presentations. Professional storytelling." },
+          { question: "What platforms do you design for?", answer: "PowerPoint, Keynote, Google Slides, and Figma. We work with whatever platform your team prefers." },
+          { question: "How long does pitch deck design take?", answer: "Standard decks take 1-2 weeks. Complex investor presentations with custom illustrations require 3-4 weeks." },
+          { question: "What makes OARC's presentations different?", answer: "Strategic narrative design. We structure your story for maximum impact, not just make slides look pretty." },
+          { question: "Do you write presentation content?", answer: "Yes, copywriting and content strategy included. We craft compelling narratives that resonate with your audience." },
+          { question: "Can you create presentation templates?", answer: "Absolutely. Master templates empower your team to create on-brand presentations independently." },
+          { question: "What is the investment for presentation design?", answer: "Individual presentations start from €2,000. Pitch deck packages range from €5,000-15,000 based on scope." },
+          { question: "Do you offer presentation coaching?", answer: "Yes, we provide delivery coaching to help you present with confidence and maximum impact." }
+        ];
+        return <FAQSection faqs={presentationFAQs} title="Frequently Asked Questions" subtitle="Everything you need to know about presentation design" schemaId="faq-presentations" />;
+      })()}
 
       {/* CTA */}
       <section className="py-20 px-4 relative overflow-hidden">

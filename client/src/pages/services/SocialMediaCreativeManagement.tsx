@@ -1,11 +1,23 @@
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/layout/Layout";
 import SEOHead from "@/components/SEOHead";
+import FAQSection, { FAQItem } from "@/components/FAQSection";
 import { creativeServicesSEO } from "@/data/seoMetadata";
 import { createServiceSchema } from "@/utils/structuredData";
 import { useEffect, useState, useRef, useCallback } from "react";
 import { Link } from "wouter";
 import { motion, useReducedMotion, useInView, useSpring, useMotionValue, AnimatePresence } from "framer-motion";
+
+const socialCreativeManagementFAQs: FAQItem[] = [
+  { question: "What is social media creative management?", answer: "End-to-end management of your social content: strategy, creative production, scheduling, and performance optimization. Complete social presence." },
+  { question: "What platforms do you manage?", answer: "Instagram, LinkedIn, TikTok, Facebook, X/Twitter, and emerging platforms. Strategic presence where your audience lives." },
+  { question: "How much content do you create?", answer: "Monthly packages include 20-60+ pieces depending on platforms and posting frequency. Quality and consistency guaranteed." },
+  { question: "What makes OARC's social management different?", answer: "Performance-driven creative. Every piece is designed for engagement, not just aesthetics. We track what works." },
+  { question: "Do you handle community management?", answer: "Yes, engagement and response management available. We maintain your brand voice in every interaction." },
+  { question: "How do you measure success?", answer: "Engagement rates, reach growth, profile visits, and business conversions. Monthly reporting with actionable insights." },
+  { question: "What is the investment for social management?", answer: "Social management starts from €1,500/month. Premium packages range from €3,000-8,000/month based on scope." },
+  { question: "Can we approve content before posting?", answer: "Yes, full approval workflows available. Review and approve everything or trust our team—your choice." }
+];
 import { 
   ArrowRight, CheckCircle2, Zap, BarChart3, Wand2, Network,
   Instagram, Sparkles, Brain, Rocket, TrendingUp, Play, Eye,
@@ -1356,6 +1368,15 @@ export default function SocialMediaCreativeManagement() {
           </div>
         </div>
       </section>
+
+      {/* FAQ Section */}
+      <FAQSection
+        faqs={socialCreativeManagementFAQs}
+        title="Social Media Creative Management FAQ"
+        subtitle="Common questions about our comprehensive social media services"
+        schemaId="faq-social-creative-management"
+        darkMode={true}
+      />
 
       {/* Final CTA - Vibrant Gradient */}
       <section className="py-24 px-6 bg-gradient-to-br from-[#7B2FF7] via-[#FF6B9D] to-[#FF6B53] relative overflow-hidden">

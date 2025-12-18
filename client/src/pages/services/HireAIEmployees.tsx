@@ -18,6 +18,7 @@ import {
   NetworkHub,
   DataFlow
 } from '@/components/ui/ai-icons';
+import FAQSection, { FAQItem } from "@/components/FAQSection";
 
 import sdrAgent from '@assets/stock_images/elite_sales_professi_1c84b4b4.jpg';
 import supportSpecialist from '@assets/stock_images/customer_support_spe_789ecb6b.jpg';
@@ -117,6 +118,17 @@ const agents = [
     solution: 'Bilingual agent with permit prediction.',
     outcome: '100x faster closures.'
   }
+];
+
+const aiEmployeesFAQs: FAQItem[] = [
+  { question: "What exactly is an AI employee?", answer: "An AI employee is an autonomous agent that handles specific business tasks—like lead qualification, customer support, or data analysis—24/7 without human supervision." },
+  { question: "How quickly can AI employees be deployed?", answer: "Basic agents can be deployed within 2-3 weeks. Complex custom agents with integrations typically take 4-6 weeks for full implementation and training." },
+  { question: "What makes OARC's AI employees different from chatbots?", answer: "Our agents think and adapt—they learn from interactions, make decisions, and integrate with your systems. Far beyond scripted chatbot responses." },
+  { question: "Can AI employees integrate with our existing software?", answer: "Yes, our agents integrate with CRMs, helpdesks, databases, and most business software via APIs. We handle all technical integration." },
+  { question: "What tasks can AI employees handle?", answer: "Sales development, customer support, data analysis, appointment booking, content creation, document processing, and administrative tasks. Anything repetitive and rule-based." },
+  { question: "How do you ensure AI employee quality and accuracy?", answer: "We train agents on your data, monitor performance continuously, and refine responses. Human oversight ensures quality before full autonomy." },
+  { question: "What is the investment for AI employees?", answer: "AI agents start from €1,500/month per agent. Custom enterprise deployments with multiple agents are priced based on scope and integration needs." },
+  { question: "Can we try an AI employee before committing?", answer: "Yes, we offer pilot programs. Test an agent for 30 days with measurable KPIs before committing to a long-term engagement." }
 ];
 
 export default function HireAIEmployees() {
@@ -508,6 +520,8 @@ export default function HireAIEmployees() {
           </div>
         </div>
       </section>
+
+      <FAQSection faqs={aiEmployeesFAQs} title="Frequently Asked Questions" subtitle="Everything you need to know about AI employees" schemaId="faq-ai-employees" darkMode />
 
       {/* CTA Section - Premium Treatment */}
       <section className="py-40 bg-zinc-950 border-t border-white/10 relative overflow-hidden">

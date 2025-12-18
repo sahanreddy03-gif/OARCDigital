@@ -1,5 +1,6 @@
 import Layout from "@/components/layout/Layout";
 import SEOHead from "@/components/SEOHead";
+import FAQSection, { FAQItem } from "@/components/FAQSection";
 import { createServiceSchema } from "@/utils/structuredData";
 import { useEffect, useState } from "react";
 import { Link } from "wouter";
@@ -8,6 +9,17 @@ import {
   ArrowRight, CheckCircle2, Globe, Sparkles, BarChart3, Users2, Layers,
   ChevronLeft, ChevronRight, TrendingUp, MessageCircle, Zap
 } from "lucide-react";
+
+const socialMediaFAQs: FAQItem[] = [
+  { question: "What organic social media services do you offer?", answer: "Content strategy, content creation, community management, platform growth, and analytics. Complete organic social presence management." },
+  { question: "Which platforms do you manage?", answer: "Instagram, TikTok, LinkedIn, Facebook, X/Twitter, and emerging platforms. We focus on where your audience is most active." },
+  { question: "How much content do you create monthly?", answer: "Packages include 15-40+ posts per platform monthly, depending on your posting frequency and engagement goals." },
+  { question: "What makes OARC's social management different?", answer: "Algorithm-native content engineered for each platform. We combine creative excellence with data-driven optimization." },
+  { question: "Do you handle community management?", answer: "Yes, engagement, response management, and community building included. We maintain your brand voice in every interaction." },
+  { question: "How do you measure social success?", answer: "Engagement rates, follower growth, reach, website traffic, and business conversions. Monthly reporting with actionable insights." },
+  { question: "What is the investment for social management?", answer: "Organic social management starts from €1,500/month. Premium multi-platform packages range from €3,000-8,000/month." },
+  { question: "Can we review content before posting?", answer: "Yes, full content calendars and approval workflows available. You control what goes live while we handle the execution." }
+];
 
 import conferenceImg from "@assets/pexels-sasi-tha-13049577_1764633603081.jpg";
 import arcadeImg from "@assets/pexels-pho-tomass-883344227-31612601_1764634936625.jpg";
@@ -616,6 +628,14 @@ export default function Social() {
           </div>
         </div>
       </section>
+
+      {/* FAQ Section */}
+      <FAQSection
+        faqs={socialMediaFAQs}
+        title="Organic Social Media FAQ"
+        subtitle="Common questions about our organic social media management services"
+        schemaId="faq-social-media-services"
+      />
 
       {/* Final CTA */}
       <section className="relative py-20 px-4 bg-black overflow-hidden">

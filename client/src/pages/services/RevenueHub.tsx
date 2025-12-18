@@ -3,6 +3,7 @@ import { Link } from 'wouter';
 import { ArrowRight, TrendingUp, Target, Filter, Zap, Lightbulb, Clock, Globe } from 'lucide-react';
 import Layout from '@/components/layout/Layout';
 import ScrollReveal from '@/components/ScrollReveal';
+import FAQSection, { FAQItem } from '@/components/FAQSection';
 import { motion } from 'framer-motion';
 import { AnimatedGridBackground } from '@/components/ui/animated-grid-background';
 import { GlassCard } from '@/components/ui/glass-card';
@@ -54,6 +55,17 @@ const services = [
     slug: "idea-validation-engine",
     icon: Lightbulb
   },
+];
+
+const revenueHubFAQs: FAQItem[] = [
+  { question: "What is the Revenue Hub?", answer: "Your complete revenue engine: CRM optimization, sales automation, lead nurturing, and conversion optimization working together seamlessly." },
+  { question: "What's included in the Revenue Hub?", answer: "CRM setup, sales pipeline automation, email sequences, lead scoring, reporting dashboards, and ongoing optimization. Complete revenue infrastructure." },
+  { question: "How is this different from buying CRM software?", answer: "We build the strategy and systems around the tools. Any company can buy HubSpot—we make it actually work for your business." },
+  { question: "What CRM platforms do you work with?", answer: "HubSpot, Salesforce, Pipedrive, and others. We're platform-agnostic—we recommend what fits your needs." },
+  { question: "How long does Revenue Hub setup take?", answer: "Initial implementation takes 4-8 weeks. Optimization and refinement continue over the following months." },
+  { question: "What makes OARC's Revenue Hub different?", answer: "Marketing meets sales meets tech. We bridge the gap between lead generation and closed deals with integrated systems." },
+  { question: "What is the investment for Revenue Hub?", answer: "Implementation starts from €8,000. Ongoing optimization retainers range from €3,000-8,000/month." },
+  { question: "Do you train our sales team?", answer: "Yes, team training and enablement included. Your team learns to use the systems independently." }
 ];
 
 export default function RevenueHub() {
@@ -256,6 +268,14 @@ export default function RevenueHub() {
           </div>
         </div>
       </section>
+
+      <FAQSection 
+        faqs={revenueHubFAQs} 
+        title="Frequently Asked Questions" 
+        subtitle="Everything you need to know about the Revenue Hub" 
+        schemaId="faq-revenue-hub" 
+        darkMode={true}
+      />
 
       {/* CTA */}
       <section className="py-32 px-6 bg-black border-t border-white/5 relative overflow-hidden">

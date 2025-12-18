@@ -10,6 +10,18 @@ import ScrollReveal from "@/components/ScrollReveal";
 import { Button } from '@/components/ui/button';
 import { AnimatedGridBackground } from '@/components/ui/animated-grid-background';
 import { GlassCard } from '@/components/ui/glass-card';
+import FAQSection, { FAQItem } from '@/components/FAQSection';
+
+const customSoftwareFAQs: FAQItem[] = [
+  { question: "What custom software do you build?", answer: "Web applications, mobile apps, APIs, automation tools, dashboards, and enterprise systems. Custom solutions for unique business needs." },
+  { question: "What technologies do you use?", answer: "React, Node.js, Python, TypeScript, PostgreSQL, and cloud platforms. We choose the right stack for each project's needs." },
+  { question: "How long does custom development take?", answer: "Simple applications take 4-8 weeks. Complex enterprise systems typically require 3-6 months depending on scope." },
+  { question: "What makes OARC's development different?", answer: "We combine modern tech with AI acceleration. Our development process is 40% faster while maintaining enterprise-grade quality." },
+  { question: "Do you provide ongoing maintenance?", answer: "Yes, we offer maintenance packages including updates, security patches, performance monitoring, and feature additions." },
+  { question: "Can you integrate with existing systems?", answer: "Absolutely. API integration with CRMs, ERPs, payment systems, and legacy software is our specialty." },
+  { question: "What is the investment for custom software?", answer: "Projects start from €15,000 for simpler applications. Enterprise systems range from €50,000-150,000 based on complexity." },
+  { question: "Do you offer fixed-price or time-and-materials?", answer: "Both options available. Fixed-price for defined scopes, time-and-materials for flexible ongoing development." }
+];
 
 import heroImg from '@assets/stock_images/custom_software_deve_6f9a0242.jpg';
 import softwareDevImg1 from '@assets/stock_images/software_development_5606ca42.jpg';
@@ -697,6 +709,9 @@ export default function CustomSoftwareDevelopment() {
           </div>
         </section>
       </ScrollReveal>
+
+      {/* FAQ Section */}
+      <FAQSection faqs={customSoftwareFAQs} title="Frequently Asked Questions" subtitle="Everything you need to know about custom software development" schemaId="faq-custom-software" darkMode={true} />
 
       {/* FINAL CTA */}
       <section className="py-24 px-4 bg-gradient-to-br from-indigo-600 via-purple-600 to-indigo-700 text-white relative overflow-hidden">

@@ -10,6 +10,18 @@ import ScrollReveal from "@/components/ScrollReveal";
 import { Button } from '@/components/ui/button';
 import { AnimatedGridBackground } from '@/components/ui/animated-grid-background';
 import { GlassCard } from '@/components/ui/glass-card';
+import FAQSection, { FAQItem } from '@/components/FAQSection';
+
+const apiIntegrationFAQs: FAQItem[] = [
+  { question: "What is API integration?", answer: "Connecting different software systems to work together seamlessly. We build bridges between your tools so data flows automatically." },
+  { question: "What systems can you integrate?", answer: "CRMs, ERPs, payment systems, marketing tools, databases, and custom software. If it has an API, we can connect it." },
+  { question: "How long does integration take?", answer: "Simple integrations take 1-2 weeks. Complex multi-system projects typically require 4-8 weeks depending on scope." },
+  { question: "What makes OARC's integration different?", answer: "We build robust, maintainable connections. Our integrations include error handling, monitoring, and documentation." },
+  { question: "Can you integrate legacy systems?", answer: "Yes, we specialize in connecting modern tools with older systems. Custom middleware solutions bridge the gap." },
+  { question: "Do you provide ongoing support?", answer: "Absolutely. Maintenance packages include monitoring, updates, and troubleshooting to keep integrations running smoothly." },
+  { question: "What is the investment for API integration?", answer: "Simple integrations start from €3,000. Complex multi-system projects range from €10,000-40,000 based on requirements." },
+  { question: "How do you handle data security?", answer: "Encrypted connections, secure authentication, and access controls. Your data stays protected throughout the integration." }
+];
 
 const ELITE_COLORS = {
   primary: '#8b5cf6',
@@ -523,6 +535,8 @@ export default function APIIntegrationServices() {
           </div>
         </section>
       </ScrollReveal>
+
+      <FAQSection faqs={apiIntegrationFAQs} title="Frequently Asked Questions" subtitle="Everything you need to know about API integration" schemaId="faq-api-integration" darkMode={true} />
 
       {/* FINAL CTA */}
       <section className="py-24 px-4 bg-zinc-950 text-white relative overflow-hidden border-t border-white/10">

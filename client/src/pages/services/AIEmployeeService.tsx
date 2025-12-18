@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useLocation, Link } from 'wouter';
 import { ArrowRight, Sparkles, MessageSquare, Brain, Zap, Shield, Users, TrendingUp, Clock, BarChart3, Mail, Calendar, Headphones, Bot, Database, Globe, CheckCircle2, Rocket, Crown, Building2, Briefcase, Lightbulb, Search, Heart, Landmark, Settings, Megaphone, ShoppingCart, Code, Calculator, Target, UserCheck, Construction } from 'lucide-react';
 import Layout from '@/components/layout/Layout';
+import FAQSection, { FAQItem } from '@/components/FAQSection';
 import ScrollReveal from '@/components/ScrollReveal';
 import { motion } from 'framer-motion';
 import * as Icons from 'lucide-react';
@@ -213,6 +214,17 @@ const WHO_THIS_IS_FOR = [
       { icon: <BarChart3 className="w-full h-full" />, label: "Insights" },
     ]
   }
+];
+
+const aiServiceFAQs: FAQItem[] = [
+  { question: "What AI employee services does OARC offer?", answer: "Sales agents, customer support, data analysis, content creation, appointment booking, and administrative automation. Custom AI solutions for your specific needs." },
+  { question: "How do AI employees differ from traditional automation?", answer: "AI employees think and adapt—they understand context, make decisions, and improve over time. Far beyond simple rule-based automation." },
+  { question: "Can AI employees work alongside our human team?", answer: "Absolutely. AI handles repetitive tasks while humans focus on strategy and relationship building. Seamless collaboration with clear handoff protocols." },
+  { question: "What results can we expect from AI employees?", answer: "Clients typically see 50-90% reduction in manual task time, 24/7 availability, and significant cost savings compared to traditional staffing." },
+  { question: "How secure is the AI employee platform?", answer: "Enterprise-grade security with encryption, access controls, and GDPR compliance. Your data never leaves secure environments." },
+  { question: "Do AI employees require ongoing training?", answer: "We handle continuous improvement. AI learns from interactions and we refine responses based on performance data and feedback." },
+  { question: "What is the investment for AI employees?", answer: "AI employee services start from €1,500/month. Enterprise solutions with multiple agents and custom integrations are priced on scope." },
+  { question: "How quickly can we deploy AI employees?", answer: "Basic agents deploy in 2-3 weeks. Complex custom agents with deep integrations typically take 4-8 weeks." }
 ];
 
 const INTEGRATION_ICONS = [
@@ -762,6 +774,15 @@ export default function AIEmployeeService() {
           </div>
         </section>
       )}
+
+      {/* FAQ Section */}
+      <FAQSection 
+        faqs={aiServiceFAQs} 
+        title="Frequently Asked Questions" 
+        subtitle="Everything you need to know about AI employee services" 
+        schemaId="faq-ai-employee-service"
+        darkMode={true}
+      />
 
       {/* CTA with Premium Treatment */}
       <section className="py-40 px-6 bg-zinc-950 border-t border-white/10 relative overflow-hidden">

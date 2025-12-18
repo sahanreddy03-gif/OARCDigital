@@ -6,6 +6,18 @@ import { ScrollableCards } from "@/components/ui/scrollable-cards";
 import Layout from "@/components/layout/Layout";
 import SEOHead from "@/components/SEOHead";
 import { createServiceSchema } from "@/utils/structuredData";
+import FAQSection, { FAQItem } from "@/components/FAQSection";
+
+const analyticsFAQs: FAQItem[] = [
+  { question: "What is performance analytics?", answer: "Data-driven analysis of your marketing and business performance. We track, measure, and optimize every touchpoint for maximum ROI." },
+  { question: "What platforms do you track?", answer: "Google Analytics, Meta Ads, Google Ads, CRM data, and custom integrations. Unified dashboards showing your complete picture." },
+  { question: "How do you handle attribution?", answer: "Multi-touch attribution modeling shows true conversion paths. We track the full customer journey across all channels." },
+  { question: "What makes OARC's analytics different?", answer: "Actionable insights, not just data. We translate numbers into recommendations that directly improve your results." },
+  { question: "Do you provide real-time reporting?", answer: "Yes, live dashboards accessible 24/7. Automated alerts for significant changes and regular strategic reviews." },
+  { question: "Can you help with data privacy compliance?", answer: "Absolutely. GDPR-compliant tracking setup, cookie consent, and privacy-first analytics configurations." },
+  { question: "What is the investment for analytics services?", answer: "Analytics setup starts from €2,000. Ongoing reporting and optimization retainers range from €1,500-4,000/month." },
+  { question: "Do you help implement tracking?", answer: "Yes, complete implementation including pixel setup, event tracking, UTM strategies, and conversion tracking." }
+];
 
 export default function PerformanceAnalytics() {
   useEffect(() => {
@@ -276,6 +288,15 @@ export default function PerformanceAnalytics() {
           </div>
         </div>
       </section>
+
+      {/* FAQ Section */}
+      <FAQSection 
+        faqs={analyticsFAQs} 
+        title="Frequently Asked Questions" 
+        subtitle="Everything you need to know about performance analytics" 
+        schemaId="faq-analytics"
+        darkMode={true}
+      />
 
       {/* CTA */}
       <section className="py-20 px-4 bg-gradient-to-br from-cyan-600 via-cyan-500 to-blue-500">

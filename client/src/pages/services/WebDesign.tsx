@@ -5,6 +5,7 @@ import Layout from "@/components/layout/Layout";
 import SEOHead from "@/components/SEOHead";
 import { createServiceSchema } from "@/utils/structuredData";
 import ScrollReveal from "@/components/ScrollReveal";
+import FAQSection, { FAQItem } from "@/components/FAQSection";
 
 import heroImage from '@assets/website-design-optimized.jpg';
 import webImg1 from "@assets/stock_images/modern_web_design_ux_d23df466.jpg";
@@ -32,6 +33,17 @@ export default function WebDesign() {
     { label: "Bounce Rate", value: "28%", target: "<35%", status: "good" },
     { label: "Conversion", value: "4.2%", target: ">3%", status: "good" },
     { label: "Mobile Score", value: "98", target: ">90", status: "good" },
+  ];
+
+  const webDesignFAQs: FAQItem[] = [
+    { question: "What's included in web design services?", answer: "Strategy, wireframes, visual design, development, mobile optimization, and launch. Complete end-to-end website creation with ongoing support options." },
+    { question: "How long does it take to build a website?", answer: "Simple websites take 3-4 weeks. Complex sites with custom functionality typically require 6-10 weeks from concept to launch." },
+    { question: "What makes OARC's web design different?", answer: "We design for conversion, not just aesthetics. Every element is optimized to turn visitors into leads using data-driven design principles." },
+    { question: "Do you build websites on WordPress?", answer: "We build on WordPress, Webflow, Shopify, and custom React applications. We recommend the platform that best suits your needs and goals." },
+    { question: "Is the website mobile-friendly?", answer: "Absolutely. All our websites are fully responsive and optimized for mobile, tablet, and desktop. Mobile-first design is our standard approach." },
+    { question: "Do you handle website hosting and maintenance?", answer: "Yes, we offer managed hosting and maintenance packages. Security updates, backups, and performance monitoring are all included." },
+    { question: "What is the investment for web design?", answer: "Websites start from €3,500 for essential sites. E-commerce and custom web applications range from €7,500-25,000 based on complexity." },
+    { question: "Do you offer SEO with web design?", answer: "Yes, all websites include on-page SEO optimization. We also offer comprehensive SEO services as an add-on for ongoing visibility." }
   ];
 
   return (
@@ -309,6 +321,14 @@ export default function WebDesign() {
           </div>
         </div>
       </section>
+
+      {/* FAQ Section */}
+      <FAQSection 
+        faqs={webDesignFAQs} 
+        title="Frequently Asked Questions" 
+        subtitle="Everything you need to know about our web design services" 
+        schemaId="faq-web-design" 
+      />
 
       {/* FINAL CTA */}
       <section className="py-20 px-4 bg-zinc-950 text-white">

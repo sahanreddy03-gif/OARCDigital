@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { ScrollableCards } from "@/components/ui/scrollable-cards";
 import Layout from "@/components/layout/Layout";
 import SEOHead from "@/components/SEOHead";
+import FAQSection, { FAQItem } from "@/components/FAQSection";
 import { revenueServicesSEO } from "@/data/seoMetadata";
 import { createServiceSchema } from "@/utils/structuredData";
 import heroImage from "@assets/customer-acquisition-optimized.jpg";
@@ -439,6 +440,20 @@ export default function CustomerAcquisition() {
           </div>
         </div>
       </section>
+
+      {(() => {
+        const customerAcquisitionFAQs: FAQItem[] = [
+          { question: "What is customer acquisition?", answer: "Complete strategies to attract, convert, and retain customers profitably. We build systems that grow your customer base consistently." },
+          { question: "What channels do you use?", answer: "Paid ads, SEO, content marketing, email, social media, and partnerships. Multi-channel approach for sustainable growth." },
+          { question: "How do you reduce acquisition costs?", answer: "Continuous optimization, better targeting, improved conversion rates, and strategic channel mix. Lower CAC, higher LTV." },
+          { question: "What makes OARC's acquisition different?", answer: "Full-funnel thinking. We optimize the entire customer journey, not just top-of-funnel traffic generation." },
+          { question: "How quickly do acquisition campaigns work?", answer: "Initial results within 2-4 weeks. Optimized campaigns typically reach peak performance in 2-3 months." },
+          { question: "Do you handle creative and ads?", answer: "Yes, complete campaign production included. Strategy, creative, media buying, and optimization all integrated." },
+          { question: "What is the investment for acquisition services?", answer: "Acquisition programs start from €4,000/month plus ad spend. Enterprise programs range from €8,000-20,000/month." },
+          { question: "How do you report on performance?", answer: "Weekly reports, monthly strategy reviews, and real-time dashboards. Full visibility into CAC, LTV, and ROAS." }
+        ];
+        return <FAQSection faqs={customerAcquisitionFAQs} title="Frequently Asked Questions" subtitle="Everything you need to know about customer acquisition" schemaId="faq-customer-acquisition" />;
+      })()}
 
       {/* CTA */}
       <section className="py-20 px-4 relative overflow-hidden">

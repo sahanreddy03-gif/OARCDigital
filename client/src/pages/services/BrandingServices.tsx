@@ -4,10 +4,22 @@ import { Button } from "@/components/ui/button";
 import { ScrollableCards } from "@/components/ui/scrollable-cards";
 import Layout from "@/components/layout/Layout";
 import SEOHead from "@/components/SEOHead";
+import FAQSection, { FAQItem } from "@/components/FAQSection";
 import { creativeServicesSEO } from "@/data/seoMetadata";
 import { createServiceSchema } from "@/utils/structuredData";
 import { Palette, Sparkles, BookOpen, Target, Box, FileText, ArrowRight, CheckCircle2 } from "lucide-react";
 import heroImage from "@assets/branding-services-optimized.jpg";
+
+const brandingServicesFAQs: FAQItem[] = [
+  { question: "What branding services do you offer?", answer: "Logo design, brand identity systems, brand strategy, visual guidelines, brand messaging, and complete rebrands. Full brand development." },
+  { question: "How long does branding take?", answer: "Logo projects take 2-3 weeks. Complete brand identity systems typically require 6-10 weeks." },
+  { question: "What makes OARC's branding different?", answer: "Strategy-first approach. We understand your market and positioning before designing a single pixel." },
+  { question: "What deliverables do we receive?", answer: "Logo files, brand guidelines, color systems, typography, and templates. Everything needed to implement your brand consistently." },
+  { question: "Do you help with brand strategy?", answer: "Yes, positioning, messaging, and competitive analysis included. We define who you are before how you look." },
+  { question: "Can you update our existing brand?", answer: "Absolutely. Brand refreshes and evolution projects modernize your identity while preserving brand equity." },
+  { question: "What is the investment for branding?", answer: "Logo projects start from €2,500. Complete brand identity packages range from €8,000-25,000." },
+  { question: "Do you offer brand guidelines?", answer: "Yes, comprehensive guidelines ensure consistent brand application across all touchpoints." }
+];
 
 export default function BrandingServices() {
   useEffect(() => {
@@ -426,6 +438,14 @@ export default function BrandingServices() {
           </div>
         </div>
       </section>
+
+      {/* FAQ Section */}
+      <FAQSection
+        faqs={brandingServicesFAQs}
+        title="Branding Services FAQ"
+        subtitle="Common questions about our brand identity and design services"
+        schemaId="faq-branding-services"
+      />
 
       {/* CTA Section */}
       <section className="py-20 px-4 bg-gradient-to-r from-amber-500 to-red-500 text-white">

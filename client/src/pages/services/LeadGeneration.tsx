@@ -7,7 +7,19 @@ import Layout from "@/components/layout/Layout";
 import SEOHead from "@/components/SEOHead";
 import { revenueServicesSEO } from "@/data/seoMetadata";
 import { createServiceSchema } from "@/utils/structuredData";
+import FAQSection, { type FAQItem } from "@/components/FAQSection";
 import heroImage from "@assets/lead-generation-optimized.jpg";
+
+const leadGenFAQs: FAQItem[] = [
+  { question: "How does lead generation work?", answer: "We attract qualified prospects through paid ads, content marketing, SEO, and outreach. Leads are captured, qualified, and delivered to your sales team." },
+  { question: "What quality of leads can we expect?", answer: "We focus on qualified leads matching your ideal customer profile. Our targeting and qualification processes ensure sales-ready prospects." },
+  { question: "How many leads can you generate monthly?", answer: "Volume depends on budget and market. Typical campaigns generate 50-500+ qualified leads monthly. We set realistic expectations upfront." },
+  { question: "What makes OARC's lead generation different?", answer: "AI qualification combined with multi-channel outreach. We don't just generate volume—we deliver prospects ready to buy." },
+  { question: "Do you guarantee lead quality?", answer: "Yes, we guarantee lead quality standards. Leads not meeting agreed criteria are replaced at no additional cost." },
+  { question: "What information do you capture per lead?", answer: "Name, email, phone, company, role, and custom qualification data. CRM integration pushes leads directly to your sales pipeline." },
+  { question: "What is the cost per lead?", answer: "CPL varies by industry—typically €20-150 for B2B leads. We optimize campaigns continuously to reduce cost per acquisition." },
+  { question: "How quickly can lead generation start?", answer: "Campaign setup takes 1-2 weeks. First leads typically arrive within the first week of campaign launch." }
+];
 
 export default function LeadGeneration() {
   useEffect(() => {
@@ -439,6 +451,13 @@ export default function LeadGeneration() {
           </div>
         </div>
       </section>
+
+      <FAQSection 
+        faqs={leadGenFAQs} 
+        title="Frequently Asked Questions" 
+        subtitle="Everything you need to know about lead generation" 
+        schemaId="faq-lead-generation" 
+      />
 
       {/* CTA */}
       <section className="py-20 px-4 relative overflow-hidden">

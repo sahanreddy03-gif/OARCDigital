@@ -22,6 +22,7 @@ import Layout from "@/components/layout/Layout";
 import SEOHead from "@/components/SEOHead";
 import { createServiceSchema } from "@/utils/structuredData";
 import ScrollReveal from "@/components/ScrollReveal";
+import FAQSection, { FAQItem } from "@/components/FAQSection";
 
 import supportHeroImg from "@assets/stock_images/customer_support_spe_789ecb6b.jpg";
 import aiChatbotImg1 from "@assets/stock_images/ai_chatbot_customer__070fc7ce.jpg";
@@ -128,6 +129,17 @@ export default function AICustomerSupport() {
     { name: "Shopify", category: "E-commerce" },
     { name: "Slack", category: "Communication" },
     { name: "WhatsApp", category: "Messaging" },
+  ];
+
+  const aiSupportFAQs: FAQItem[] = [
+    { question: "How does AI customer support work?", answer: "Our AI agents understand customer queries, access relevant data, and provide accurate responses instantly. They handle routine inquiries while escalating complex issues to humans." },
+    { question: "Can AI support handle complex customer issues?", answer: "AI handles 90% of routine queries autonomously. Complex issues are intelligently escalated to human agents with full context, reducing resolution time." },
+    { question: "What channels can AI support operate on?", answer: "Email, live chat, social media, WhatsApp, and phone. Our AI works across all customer touchpoints for consistent omnichannel support." },
+    { question: "How do you train AI on our specific products?", answer: "We train agents on your knowledge base, FAQs, and past tickets. Continuous learning improves accuracy over time with your unique data." },
+    { question: "What languages does AI customer support handle?", answer: "Our AI supports 50+ languages with native fluency. Seamlessly switch languages mid-conversation based on customer preference." },
+    { question: "How quickly can AI support be implemented?", answer: "Basic implementation takes 2-3 weeks. Full integration with your helpdesk and knowledge base typically requires 4-6 weeks." },
+    { question: "What is the cost of AI customer support?", answer: "AI support starts from €1,500/month for basic deployment. Enterprise solutions with full integration range from €3,000-8,000/month." },
+    { question: "Can we measure AI support performance?", answer: "Yes, we provide detailed analytics on resolution rates, response times, customer satisfaction, and cost savings. Real-time dashboards included." }
   ];
 
   return (
@@ -494,6 +506,14 @@ export default function AICustomerSupport() {
           </div>
         </section>
       </ScrollReveal>
+
+      {/* FAQ Section */}
+      <FAQSection 
+        faqs={aiSupportFAQs} 
+        title="Frequently Asked Questions" 
+        subtitle="Everything you need to know about AI customer support" 
+        schemaId="faq-ai-support" 
+      />
 
       {/* FINAL CTA */}
       <section className="py-20 px-4 bg-gradient-to-br from-[#23AACA] to-[#1d8fa8] text-white">
