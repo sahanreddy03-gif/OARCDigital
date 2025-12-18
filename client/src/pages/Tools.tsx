@@ -11,6 +11,7 @@ import { Badge } from "@/components/ui/badge";
 import Layout from "@/components/layout/Layout";
 import SEOHead from "@/components/SEOHead";
 import FAQSection, { FAQItem } from "@/components/FAQSection";
+import toolsHeroBg from "@assets/pexels-ahmetyuksek-31444049_1766033593561.jpg";
 
 type ToolCategory = 
   | "all"
@@ -1064,8 +1065,17 @@ export default function Tools() {
 
       {/* Hero Section */}
       <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden bg-[#0a0a0a]">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0a0a0a] via-[#111111] to-[#0a0a0a]" />
-        <div className="absolute inset-0 opacity-20">
+        {/* Background Image */}
+        <img 
+          src={toolsHeroBg} 
+          alt="" 
+          className="absolute inset-0 w-full h-full object-cover opacity-60"
+          loading="eager"
+        />
+        {/* Dark overlay for text readability */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a]/70 via-[#0a0a0a]/50 to-[#0a0a0a]" />
+        {/* Subtle color accent overlay */}
+        <div className="absolute inset-0 opacity-30">
           <div className="absolute inset-0" style={{
             backgroundImage: 'radial-gradient(circle at 20% 50%, rgba(99,102,241,0.15) 0%, transparent 50%), radial-gradient(circle at 80% 50%, rgba(139,92,246,0.1) 0%, transparent 50%)'
           }} />
