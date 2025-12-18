@@ -3,7 +3,7 @@ import { useInView } from 'framer-motion';
 import aiExcellence from '@assets/739d30f2ecb844e9c1186e62ca63efbda518ff4a-1050x1200_1761257258076.avif';
 import creativeStrategy from '@assets/db64abcfab31dccdde04f1fb8be45337dfb692e9-1392x1392_1761257777037.avif';
 import revenueCentered from '@assets/07c35cf0cbddd33390e2f878e287f38703ae7b26-1040x904_1761258187346.avif';
-import sectionBackground from '@assets/This OARC_1763076281807.avif';
+import sectionBackground from '@assets/glif-chat-1765998295471_1766033824141.png';
 
 const differentiators = [
   {
@@ -163,18 +163,20 @@ export default function Section5() {
       className="relative py-16 md:py-24 lg:py-32 overflow-hidden" 
       data-testid="section-5"
     >
-      {/* Static background - no scroll-linked animation for smooth scrolling */}
+      {/* Spectacular OARC branded background */}
       <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat bg-fixed"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ 
           backgroundImage: `url(${sectionBackground})`,
-          transform: 'scale(1.05)'
+          backgroundPosition: 'center 40%'
         }}
       />
       
-      <div className="absolute inset-0 bg-black/70" />
+      {/* Dark overlay for text readability - lighter to show more of the image */}
+      <div className="absolute inset-0 bg-black/50" />
       
-      <div className="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-transparent to-orange-950/30" />
+      {/* Subtle gradient overlay for depth */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/40" />
       
       <div className="relative container mx-auto px-4 md:px-6 lg:px-12">
         <div 
