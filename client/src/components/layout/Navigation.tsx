@@ -21,7 +21,6 @@ export default function Navigation() {
     { href: "/tools", label: "Tools" },
     { href: "/our-work", label: "Our Approach" },
     { href: "/why-us", label: "Why Us" },
-    { href: "/contact", label: "Contact" },
   ];
 
   const textShadow = '0 1px 3px rgba(0,0,0,0.5), 0 0 15px rgba(0,0,0,0.25)';
