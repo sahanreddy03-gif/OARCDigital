@@ -97,9 +97,8 @@ export default function Contact() {
             </motion.div>
 
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-[1.1]">
-              <span className="text-white">Let's Build Something</span>
-              <br />
-              <span className="bg-gradient-to-r from-[#ff914d] via-orange-400 to-amber-300 bg-clip-text text-transparent">
+              <span className="block text-white">Let's Build Something</span>
+              <span className="block bg-gradient-to-r from-[#ff914d] via-orange-400 to-amber-300 bg-clip-text text-transparent">
                 Extraordinary
               </span>
             </h1>
