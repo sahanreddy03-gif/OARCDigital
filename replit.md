@@ -72,6 +72,14 @@ The platform utilizes a modern web stack with a React frontend and an Express.js
     - Subtle three-office grid at bottom with location pins
     - Trust badge showing average response time
     - Navigation updated: Resources renamed to Contact
+-   **Tools Directory Page (Dec 2025):** ColdIQ-inspired AI tools and tech stack directory featuring:
+    - Premium dark hero with search functionality
+    - Sticky category filter tabs (AI Sales, Sales, Data Sources, AI Agents, LinkedIn, AI Marketing, Design, Video, Development)
+    - 50+ curated tools with logos, descriptions, rankings, and OARC use cases
+    - Featured tools grid with large cards for top tools (Clay, Instantly, Midjourney, etc.)
+    - FAQ section with 8 voice-search optimized questions and JSON-LD schema
+    - CTA section driving to contact page
+    - Route: `/tools` with navigation link added to header
 
 **Backend:**
 -   **Framework & Language:** Express.js with TypeScript.
