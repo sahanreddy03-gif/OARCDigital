@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-// Contact page - OARC Digital
+// Contact page - OARC Digital - Updated Dec 2025
 import Layout from "@/components/layout/Layout";
 import SEOHead from "@/components/SEOHead";
 import { supportingPagesSEO } from "@/data/seoMetadata";
