@@ -46,9 +46,10 @@ export default function SEOHead({
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={fullOgImage} />
 
-      {/* Favicon - consistent across all pages for Google Search */}
-      <link rel="icon" type="image/png" sizes="48x48" href="https://www.oarcdigital.com/favicon.png" />
-      <link rel="icon" type="image/x-icon" href="https://www.oarcdigital.com/favicon.ico" />
+      {/* Favicon - OARC Logo (large sizes) */}
+      <link rel="icon" type="image/png" sizes="512x512" href="https://www.oarcdigital.com/favicon.png" />
+      <link rel="icon" type="image/png" sizes="192x192" href="https://www.oarcdigital.com/favicon.png" />
+      <link rel="apple-touch-icon" sizes="180x180" href="https://www.oarcdigital.com/favicon.png" />
 
       {/* Structured Data */}
       {structuredData && (
