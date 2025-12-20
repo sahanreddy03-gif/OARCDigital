@@ -118,19 +118,22 @@ export default function OurWork() {
         ogType={supportingPagesSEO.ourWork.ogType}
       />
       
-      {/* Premium Hero Section with Full Background */}
-      <section className="relative min-h-[60vh] pt-24 pb-16 md:min-h-[70vh] md:pt-32 md:pb-20 flex items-center overflow-hidden">
-        {/* Full Background Image */}
-        <div className="absolute inset-0">
+      {/* Full Page Background - Same as Hero */}
+      <div className="relative">
+        {/* Fixed Background Image for Entire Page */}
+        <div className="fixed inset-0 -z-10">
           <img 
             src={heroBgImage} 
             alt="Creative bokeh background" 
             className="w-full h-full object-cover"
           />
           {/* Dark overlay for text readability */}
-          <div className="absolute inset-0 bg-gradient-to-r from-zinc-950/90 via-zinc-950/70 to-zinc-950/50" />
-          <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/80 via-transparent to-zinc-950/40" />
+          <div className="absolute inset-0 bg-gradient-to-r from-zinc-950/90 via-zinc-950/75 to-zinc-950/60" />
+          <div className="absolute inset-0 bg-zinc-950/50" />
         </div>
+      
+      {/* Premium Hero Section */}
+      <section className="relative min-h-[60vh] pt-24 pb-16 md:min-h-[70vh] md:pt-32 md:pb-20 flex items-center overflow-hidden">
         
         <div className="max-w-7xl mx-auto px-6 md:px-12 w-full relative z-10">
           <motion.div 
@@ -160,7 +163,7 @@ export default function OurWork() {
       </section>
 
       {/* Filter Tabs - Clean Professional Design */}
-      <section className="sticky top-0 z-40 bg-zinc-950/95 backdrop-blur-xl border-b border-white/5">
+      <section className="sticky top-0 z-40 bg-zinc-950/80 backdrop-blur-xl border-b border-white/5">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="flex items-center gap-2 py-4 overflow-x-auto no-scrollbar">
             {filterCategories.map((filter) => {
@@ -194,12 +197,7 @@ export default function OurWork() {
       </section>
 
       {/* Case Studies Grid - Premium Clean Aesthetic */}
-      <section className="relative py-16 md:py-24 bg-zinc-950 overflow-hidden min-h-screen">
-        {/* Refined Dot Matrix Pattern */}
-        <div className="absolute inset-0 opacity-[0.02]" style={{
-          backgroundImage: `radial-gradient(circle at 1px 1px, white 1px, transparent 1px)`,
-          backgroundSize: '40px 40px'
-        }} />
+      <section className="relative py-16 md:py-24 overflow-hidden min-h-screen">
         
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative">
           <motion.div 
@@ -295,15 +293,9 @@ export default function OurWork() {
       </section>
 
       {/* CTA Section - Premium Design */}
-      <section className="relative py-24 md:py-32 bg-zinc-950 overflow-hidden">
-        {/* Subtle Background Pattern */}
-        <div className="absolute inset-0 opacity-[0.02]" style={{
-          backgroundImage: `radial-gradient(circle at 1px 1px, white 1px, transparent 1px)`,
-          backgroundSize: '48px 48px'
-        }} />
-        
+      <section className="relative py-24 md:py-32 overflow-hidden">
         {/* Accent Gradient */}
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-gradient-to-t from-[#ff914d]/5 to-transparent rounded-full blur-[120px]" />
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-gradient-to-t from-[#ff914d]/10 to-transparent rounded-full blur-[120px]" />
         
         <div className="max-w-4xl mx-auto px-6 md:px-12 text-center relative z-10">
           <motion.div
@@ -346,6 +338,7 @@ export default function OurWork() {
           </motion.div>
         </div>
       </section>
+      </div>
     </Layout>
   );
 }
