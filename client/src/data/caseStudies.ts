@@ -58,6 +58,10 @@ import colorfulGymImg from '@assets/generated_images/colorful_modern_gym_interio
 import colorfulPerfumeImg from '@assets/generated_images/colorful_luxury_perfume_product.png';
 import colorfulBeautyImg from '@assets/generated_images/colorful_natural_beauty_products.png';
 
+// User-provided case study thumbnails
+import naturalCareBeautyThumb from '@assets/natural_care_beauty_1766244402579.jpeg';
+import strategicPulseThumb from '@assets/strategic_pulse_1766244402580.png';
+
 export const caseStudies: Record<string, CaseStudy> = {
   'strategypulse-enterprise': {
     slug: 'strategypulse-enterprise',
@@ -193,7 +197,7 @@ export const caseStudies: Record<string, CaseStudy> = {
     ],
     services: ['Community Management', 'UGC Strategy', 'Social Listening'],
     platforms: ['TikTok', 'Instagram'],
-    thumbnailImage: colorfulBeautyImg,
+    thumbnailImage: naturalCareBeautyThumb,
     heroImage: bodyShopImg,
     gridClass: 'col-span-1 row-span-1'
   },
@@ -216,7 +220,7 @@ export const caseStudies: Record<string, CaseStudy> = {
     ],
     services: ['Social Commerce', 'Influencer Marketing', 'Performance Media'],
     platforms: ['Facebook', 'Instagram', 'TikTok'],
-    thumbnailImage: homecraftHeroImg,
+    thumbnailImage: strategicPulseThumb,
     heroImage: homecraftHeroImg,
     gridClass: 'col-span-1 row-span-1'
   },
@@ -554,8 +558,8 @@ export const caseStudiesArray = Object.values(caseStudies);
 export const featuredCaseStudies = [
   caseStudies['national-distributor-nlp'],
   caseStudies['fitnesspro-network'],
-  caseStudies['digital-finance-solutions'],
-  caseStudies['healthpath-ai'],
+  caseStudies['naturalcare-beauty'],
+  caseStudies['homecraft-innovations'],
   caseStudies['gamingtech-elite'],
   caseStudies['luxe-essence']
 ];
