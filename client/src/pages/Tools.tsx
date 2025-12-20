@@ -3,7 +3,7 @@ import { Link } from "wouter";
 import { 
   Sparkles, Search, ArrowRight, ExternalLink,
   Zap, Target, Database, Bot, Linkedin, TrendingUp, Palette, Video,
-  Code
+  Code, Layers, Shield, BarChart3, Cpu, Workflow, ChevronDown
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -981,6 +981,107 @@ const tools: Tool[] = [
   },
 ];
 
+interface EnterpriseWorkflow {
+  id: string;
+  title: string;
+  subtitle: string;
+  icon: typeof Layers;
+  iconColor: string;
+  complexityLevel: number;
+  toolsIntegrated: number;
+  proprietaryComponents: number;
+  setupTime: string;
+  monthlyInvestment: string;
+  tiers: {
+    name: string;
+    tools: string[];
+    description?: string;
+  }[];
+  results: { label: string; value: string }[];
+  barriers: string[];
+}
+
+const enterpriseWorkflows: EnterpriseWorkflow[] = [
+  {
+    id: "igaming-intelligence",
+    title: "iGaming Content Intelligence System",
+    subtitle: "MGA-Compliant AI Marketing Automation",
+    icon: Cpu,
+    iconColor: "#8b5cf6",
+    complexityLevel: 8,
+    toolsIntegrated: 23,
+    proprietaryComponents: 4,
+    setupTime: "6-8 weeks",
+    monthlyInvestment: "€8,500",
+    tiers: [
+      { name: "AI Intelligence", tools: ["Claude Opus API", "GPT-4 Turbo", "Custom ML Model"], description: "MGA Compliance Engine" },
+      { name: "Data Orchestration", tools: ["Segment CDP", "mParticle", "Snowflake"], description: "Real-time player behavior" },
+      { name: "Activation Layer", tools: ["HubSpot Enterprise", "Salesforce MC", "Braze"], description: "Multi-channel orchestration" },
+      { name: "Proprietary (OARC IP)", tools: ["Custom API", "ML Engine", "Compliance Check"], description: "Malta-specific automation" },
+      { name: "Analytics", tools: ["GA360", "Mixpanel", "Tableau", "Looker"], description: "Executive dashboards" },
+    ],
+    results: [
+      { label: "Qualified Signups", value: "+340%" },
+      { label: "FTDs (8 weeks)", value: "€487K" },
+      { label: "CAC Reduction", value: "67%" },
+      { label: "Response Time", value: "23 min" },
+    ],
+    barriers: ["12 months ML training", "Malta market data", "MGA compliance expertise", "€47K/month tool costs"],
+  },
+  {
+    id: "fintech-revenue",
+    title: "Fintech Revenue Intelligence Engine",
+    subtitle: "Predictive Lead Scoring & Attribution",
+    icon: BarChart3,
+    iconColor: "#3b82f6",
+    complexityLevel: 9,
+    toolsIntegrated: 27,
+    proprietaryComponents: 5,
+    setupTime: "8-10 weeks",
+    monthlyInvestment: "€12,500",
+    tiers: [
+      { name: "Intent Data", tools: ["6sense Revenue AI", "Bombora", "Clearbit Reveal"], description: "Predictive lead scoring" },
+      { name: "Outreach", tools: ["Salesloft", "Outreach.io", "Drift", "Gong.io"], description: "AI-powered engagement" },
+      { name: "Conversion", tools: ["Mutiny", "Unbounce Enterprise", "VWO", "FullStory"], description: "Dynamic personalization" },
+      { name: "Attribution", tools: ["Salesforce Revenue Cloud", "Bizible", "ChartMogul"], description: "Multi-touch tracking" },
+      { name: "Proprietary (OARC IP)", tools: ["TensorFlow Model", "Attribution AI", "ROI Engine"], description: "47-channel tracking" },
+    ],
+    results: [
+      { label: "Pipeline (6mo)", value: "€2.3M" },
+      { label: "Close Rate", value: "47%" },
+      { label: "CAC", value: "€187" },
+      { label: "Sales Cycle", value: "14 days" },
+    ],
+    barriers: ["Custom TensorFlow models", "Enterprise tool licenses", "3-person technical team", "€120K setup costs"],
+  },
+  {
+    id: "ecommerce-hypergrowth",
+    title: "E-commerce Hypergrowth Stack",
+    subtitle: "Omnichannel Revenue Optimization",
+    icon: TrendingUp,
+    iconColor: "#10b981",
+    complexityLevel: 8,
+    toolsIntegrated: 21,
+    proprietaryComponents: 4,
+    setupTime: "6-8 weeks",
+    monthlyInvestment: "€15,000",
+    tiers: [
+      { name: "Predictive Analytics", tools: ["Shopify Plus", "Recharge", "Yotpo", "Northbeam"], description: "LTV & churn prediction" },
+      { name: "Omnichannel Ads", tools: ["Meta Ads API", "Google 360", "TikTok", "Pinterest"], description: "5-network optimization" },
+      { name: "Retention", tools: ["Klaviyo Enterprise", "Attentive", "Postscript"], description: "243 automated journeys" },
+      { name: "CRO", tools: ["Optimizely", "Dynamic Yield", "Nosto"], description: "47 live A/B tests" },
+      { name: "BI & Attribution", tools: ["Triple Whale", "Tableau", "Snowflake"], description: "Real-time revenue" },
+    ],
+    results: [
+      { label: "MRR Growth", value: "€50K→€500K" },
+      { label: "Blended ROAS", value: "4.2x" },
+      { label: "Repeat Rate", value: "32%" },
+      { label: "LTV", value: "€187" },
+    ],
+    barriers: ["ML churn models", "5-network orchestration", "€120K+/mo ad spend management", "Data warehouse setup"],
+  },
+];
+
 const toolsFAQs: FAQItem[] = [
   { question: "What AI tools does OARC Digital use?", answer: "We use 80+ AI and marketing tools including Clay, Instantly, ChatGPT, Claude, Midjourney, Figma, HubSpot, and more. Our stack covers sales automation, content creation, design, video, and development." },
   { question: "How do you choose which tools to use?", answer: "We evaluate tools based on effectiveness, integration capabilities, cost-efficiency, and client needs. We continuously test new tools and replace underperformers." },
@@ -1107,6 +1208,222 @@ export default function Tools() {
               className="pl-12 h-14 bg-white/5 border-white/10 text-white placeholder:text-gray-500 text-lg rounded-full focus:border-indigo-500/50"
               data-testid="input-search-tools"
             />
+          </div>
+        </div>
+      </section>
+
+      {/* Enterprise Workflow Systems Section */}
+      <section className="py-20 bg-gradient-to-b from-[#0a0a0a] via-[#0c0c14] to-[#0a0a0a] relative overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-[0.03]" style={{
+          backgroundImage: `radial-gradient(circle at 1px 1px, white 1px, transparent 1px)`,
+          backgroundSize: '32px 32px'
+        }} />
+        
+        <div className="container mx-auto px-4 relative z-10">
+          {/* Section Header */}
+          <div className="text-center mb-16">
+            <Badge className="mb-4 bg-gradient-to-r from-indigo-500/20 to-purple-500/20 text-indigo-300 border-indigo-500/30">
+              <Workflow className="w-3 h-3 mr-1" />
+              Enterprise Systems
+            </Badge>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+              Premium <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">Workflow Systems</span>
+            </h2>
+            <p className="text-lg text-gray-400 max-w-3xl mx-auto">
+              Multi-tier enterprise automation that can't be replicated with basic tools. 
+              These systems combine 20+ tools with custom AI and proprietary integrations.
+            </p>
+          </div>
+
+          {/* Workflow Cards */}
+          <div className="grid lg:grid-cols-3 gap-8">
+            {enterpriseWorkflows.map((workflow) => {
+              const Icon = workflow.icon;
+              return (
+                <div 
+                  key={workflow.id}
+                  className="group relative bg-gradient-to-br from-white/[0.04] to-white/[0.01] rounded-2xl border border-white/10 overflow-hidden hover:border-white/20 transition-all duration-500"
+                  data-testid={`card-workflow-${workflow.id}`}
+                >
+                  {/* Glow Effect */}
+                  <div 
+                    className="absolute -top-20 -right-20 w-40 h-40 rounded-full blur-3xl opacity-20 group-hover:opacity-30 transition-opacity"
+                    style={{ backgroundColor: workflow.iconColor }}
+                  />
+                  
+                  {/* Header */}
+                  <div className="p-6 pb-4 border-b border-white/5">
+                    <div className="flex items-start gap-4 mb-4">
+                      <div 
+                        className="w-12 h-12 rounded-xl flex items-center justify-center"
+                        style={{ backgroundColor: `${workflow.iconColor}20` }}
+                      >
+                        <Icon className="w-6 h-6" style={{ color: workflow.iconColor }} />
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="text-lg font-bold text-white mb-1">{workflow.title}</h3>
+                        <p className="text-sm text-gray-500">{workflow.subtitle}</p>
+                      </div>
+                    </div>
+                    
+                    {/* Complexity Bar */}
+                    <div className="flex items-center gap-3 mb-3">
+                      <span className="text-xs text-gray-500 uppercase tracking-wider">Complexity</span>
+                      <div className="flex-1 h-2 bg-white/5 rounded-full overflow-hidden">
+                        <div 
+                          className="h-full rounded-full transition-all duration-500"
+                          style={{ 
+                            width: `${workflow.complexityLevel * 10}%`,
+                            background: `linear-gradient(90deg, ${workflow.iconColor}60, ${workflow.iconColor})`
+                          }}
+                        />
+                      </div>
+                      <span className="text-xs font-mono text-gray-400">{workflow.complexityLevel}/10</span>
+                    </div>
+                    
+                    {/* Stats Row */}
+                    <div className="grid grid-cols-3 gap-2">
+                      <div className="bg-white/[0.03] rounded-lg p-2 text-center">
+                        <div className="text-lg font-bold text-white">{workflow.toolsIntegrated}</div>
+                        <div className="text-[10px] text-gray-500 uppercase">Tools</div>
+                      </div>
+                      <div className="bg-white/[0.03] rounded-lg p-2 text-center">
+                        <div className="text-lg font-bold text-white">{workflow.proprietaryComponents}</div>
+                        <div className="text-[10px] text-gray-500 uppercase">Custom</div>
+                      </div>
+                      <div className="bg-white/[0.03] rounded-lg p-2 text-center">
+                        <div className="text-lg font-bold text-white">{workflow.setupTime.split('-')[0]}</div>
+                        <div className="text-[10px] text-gray-500 uppercase">Weeks</div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Tier Visualization */}
+                  <div className="p-4 space-y-2">
+                    {workflow.tiers.map((tier, tierIndex) => (
+                      <div key={tier.name} className="relative">
+                        {/* Connector Line */}
+                        {tierIndex < workflow.tiers.length - 1 && (
+                          <div className="absolute left-4 top-full w-[2px] h-2 bg-gradient-to-b from-white/20 to-transparent" />
+                        )}
+                        
+                        <div className="flex items-start gap-3">
+                          {/* Tier Number */}
+                          <div 
+                            className="w-8 h-8 rounded-lg flex items-center justify-center text-xs font-bold flex-shrink-0"
+                            style={{ 
+                              backgroundColor: tier.name.includes("Proprietary") ? `${workflow.iconColor}30` : 'rgba(255,255,255,0.05)',
+                              color: tier.name.includes("Proprietary") ? workflow.iconColor : 'rgba(255,255,255,0.5)'
+                            }}
+                          >
+                            {tierIndex + 1}
+                          </div>
+                          
+                          <div className="flex-1 min-w-0">
+                            <div className="flex items-center gap-2 mb-1">
+                              <span className="text-xs font-medium text-white">{tier.name}</span>
+                              {tier.name.includes("Proprietary") && (
+                                <Badge className="text-[9px] px-1.5 py-0 bg-gradient-to-r from-amber-500/20 to-orange-500/20 text-amber-400 border-amber-500/30">
+                                  OARC IP
+                                </Badge>
+                              )}
+                            </div>
+                            <div className="flex flex-wrap gap-1">
+                              {tier.tools.slice(0, 3).map((tool) => (
+                                <span 
+                                  key={tool} 
+                                  className="text-[10px] px-2 py-0.5 rounded-full bg-white/5 text-gray-400 border border-white/5"
+                                >
+                                  {tool}
+                                </span>
+                              ))}
+                              {tier.tools.length > 3 && (
+                                <span className="text-[10px] px-2 py-0.5 text-gray-500">
+                                  +{tier.tools.length - 3}
+                                </span>
+                              )}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                  
+                  {/* Results */}
+                  <div className="px-4 pb-4">
+                    <div className="bg-gradient-to-r from-emerald-500/10 to-teal-500/10 rounded-xl p-4 border border-emerald-500/20">
+                      <div className="flex items-center gap-2 mb-3">
+                        <BarChart3 className="w-4 h-4 text-emerald-400" />
+                        <span className="text-xs font-medium text-emerald-400 uppercase tracking-wider">Results</span>
+                      </div>
+                      <div className="grid grid-cols-2 gap-3">
+                        {workflow.results.map((result) => (
+                          <div key={result.label}>
+                            <div className="text-lg font-bold text-white">{result.value}</div>
+                            <div className="text-[10px] text-gray-500">{result.label}</div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Barriers */}
+                  <div className="px-4 pb-4">
+                    <div className="bg-white/[0.02] rounded-xl p-4 border border-white/5">
+                      <div className="flex items-center gap-2 mb-2">
+                        <Shield className="w-4 h-4 text-gray-500" />
+                        <span className="text-[10px] font-medium text-gray-500 uppercase tracking-wider">Why It Can't Be Replicated</span>
+                      </div>
+                      <div className="flex flex-wrap gap-1">
+                        {workflow.barriers.map((barrier) => (
+                          <span 
+                            key={barrier} 
+                            className="text-[10px] px-2 py-1 rounded-full bg-red-500/10 text-red-400/80 border border-red-500/20"
+                          >
+                            {barrier}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Footer */}
+                  <div className="p-4 pt-2 border-t border-white/5 flex items-center justify-between">
+                    <div>
+                      <div className="text-xs text-gray-500">Monthly Investment</div>
+                      <div className="text-xl font-bold text-white">{workflow.monthlyInvestment}</div>
+                    </div>
+                    <Link href="/contact">
+                      <Button 
+                        size="sm" 
+                        className="bg-white/10 hover:bg-white/20 text-white border border-white/10"
+                        data-testid={`button-request-${workflow.id}`}
+                      >
+                        Request Demo
+                        <ArrowRight className="ml-2 w-4 h-4" />
+                      </Button>
+                    </Link>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+          
+          {/* Bottom CTA */}
+          <div className="mt-12 text-center">
+            <p className="text-gray-500 mb-4">
+              These enterprise systems require specialized expertise. <span className="text-white">We build them, you benefit.</span>
+            </p>
+            <Link href="/contact">
+              <Button 
+                className="bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-indigo-600 hover:to-purple-600 text-white px-8"
+                data-testid="button-request-custom-workflow"
+              >
+                Request Custom Workflow
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
