@@ -51,6 +51,31 @@ const featuredSlugs = [
   'luxe-essence'
 ];
 
+// Custom order to mix creative and AI case studies - best images first
+const displayOrder = [
+  'naturalcare-beauty',      // Creative - great lifestyle image
+  'homecraft-innovations',   // Creative - Tefal influencer image
+  'national-distributor-nlp',// AI - data engineering visual
+  'fitnesspro-network',      // Creative - Barry's gym
+  'luxe-essence',            // Creative - perfume luxury
+  'propflow-property-platform',
+  'fanstake-sports-platform',
+  'strategypulse-enterprise',
+  'gamingtech-elite',
+  'progamer-network',
+  'healthpath-ai',
+  'digital-finance-solutions',
+  'streamflow-automation',
+  'authentic-stories',
+  'sportsai-interactive',
+  'global-supply-systems',
+  'talentscale-solutions',
+  'cloudbase-technologies',
+  'heritage-luxury-group',
+  'cricketpulse-india',
+  'nexgen-retail-ai-transformation'
+];
+
 export default function OurWork() {
   const [activeFilter, setActiveFilter] = useState('all');
   
@@ -58,7 +83,18 @@ export default function OurWork() {
     window.scrollTo(0, 0);
   }, []);
 
-  const allCaseStudies = useMemo(() => Object.values(caseStudies), []);
+  const allCaseStudies = useMemo(() => {
+    const studies = Object.values(caseStudies);
+    // Sort by display order, putting ordered ones first
+    return studies.sort((a, b) => {
+      const aIndex = displayOrder.indexOf(a.slug);
+      const bIndex = displayOrder.indexOf(b.slug);
+      if (aIndex === -1 && bIndex === -1) return 0;
+      if (aIndex === -1) return 1;
+      if (bIndex === -1) return -1;
+      return aIndex - bIndex;
+    });
+  }, []);
 
   const filteredStudies = useMemo(() => {
     switch (activeFilter) {

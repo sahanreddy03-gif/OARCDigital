@@ -62,6 +62,7 @@ import colorfulBeautyImg from '@assets/generated_images/colorful_natural_beauty_
 import naturalCareBeautyThumb from '@assets/natural_care_beauty_1766244402579.jpeg';
 import strategicPulseThumb from '@assets/strategic_pulse_1766244402580.png';
 import aiDataEngineThumb from '@assets/pexels-googledeepmind-17485707_1766245298201.jpg';
+import tefalInfluencerThumb from '@assets/TefalPictures-32-scaled_1761760754960-DVSuvcTH_1766245435310.jpg';
 
 export const caseStudies: Record<string, CaseStudy> = {
   'strategypulse-enterprise': {
@@ -83,7 +84,7 @@ export const caseStudies: Record<string, CaseStudy> = {
     ],
     services: ['Custom Software Development', 'AI Analytics', 'Enterprise Deployment'],
     platforms: ['React', 'Node.js', 'AWS'],
-    thumbnailImage: colorfulDashboardImg,
+    thumbnailImage: strategicPulseThumb,
     heroImage: strategicPlanningDashboard,
     gridClass: 'col-span-1 row-span-1'
   },
@@ -135,13 +136,13 @@ export const caseStudies: Record<string, CaseStudy> = {
   },
   'fitnesspro-network': {
     slug: 'fitnesspro-network',
-    brand: 'FitnessPro Network',
+    brand: 'Barry\'s Bootcamp',
     category: 'Fitness & Lifestyle',
     description: 'Social Media Growth Campaign',
-    fullDescription: 'Transformed a regional gym chain into a social media powerhouse through strategic TikTok content and micro-influencer partnerships.',
-    challenge: 'FitnessPro Network faced intense competition during peak fitness season. Traditional marketing was getting drowned out by larger chains with bigger budgets.',
+    fullDescription: 'Transformed a premium fitness brand into a social media powerhouse through strategic TikTok content and micro-influencer partnerships.',
+    challenge: 'Barry\'s Bootcamp faced intense competition during peak fitness season. Traditional marketing was getting drowned out by larger chains with bigger budgets.',
     strategy: 'We deployed 200+ micro-influencers creating authentic gym content, paired with AI-optimized posting schedules and trend-jacking strategies that positioned the brand at the center of fitness conversations.',
-    results: 'The campaign generated unprecedented engagement, establishing FitnessPro as the go-to fitness destination for Gen Z audiences.',
+    results: 'The campaign generated unprecedented engagement, establishing Barry\'s as the go-to fitness destination for Gen Z audiences.',
     metrics: {
       value: '15M',
       label: 'video views'
@@ -204,12 +205,12 @@ export const caseStudies: Record<string, CaseStudy> = {
   },
   'homecraft-innovations': {
     slug: 'homecraft-innovations',
-    brand: 'HomeCraft Innovations',
+    brand: 'Tefal Home',
     category: 'Home & Kitchen',
-    description: 'E-commerce Acceleration',
-    fullDescription: 'Turned slow-moving kitchen appliance inventory into sold-out success stories through strategic social commerce integration.',
-    challenge: 'HomeCraft had quality products gathering dust in warehouses. Traditional retail channels were declining, and the brand needed a direct-to-consumer breakthrough.',
-    strategy: 'We deployed shoppable content across social platforms, partnered with cooking influencers for live demonstrations, and built AI-powered retargeting funnels that converted browsers into buyers.',
+    description: 'Influencer Product Launch',
+    fullDescription: 'Launched Tefal\'s new product line through authentic influencer partnerships and social commerce integration, achieving complete inventory sellout.',
+    challenge: 'Tefal needed to generate buzz around their new product launch and drive direct-to-consumer sales in a crowded home appliance market.',
+    strategy: 'We deployed shoppable content across social platforms, partnered with lifestyle influencers for live demonstrations, and built AI-powered retargeting funnels that converted browsers into buyers.',
     results: 'Complete inventory sellout within 6 weeks, with waiting lists forming for restocked items.',
     metrics: {
       value: '100%',
@@ -221,17 +222,17 @@ export const caseStudies: Record<string, CaseStudy> = {
     ],
     services: ['Social Commerce', 'Influencer Marketing', 'Performance Media'],
     platforms: ['Facebook', 'Instagram', 'TikTok'],
-    thumbnailImage: strategicPulseThumb,
+    thumbnailImage: tefalInfluencerThumb,
     heroImage: homecraftHeroImg,
     gridClass: 'col-span-1 row-span-1'
   },
   'gamingtech-elite': {
     slug: 'gamingtech-elite',
-    brand: 'GamingTech Elite',
+    brand: 'Razer Gaming',
     category: 'Gaming Hardware',
     description: 'Community Growth Initiative',
     fullDescription: 'Built a thriving gaming community from scratch, turning hardware buyers into brand evangelists through strategic content and engagement.',
-    challenge: 'GamingTech Elite had great products but zero community presence. Competitors owned the conversation in gaming spaces.',
+    challenge: 'Razer needed to amplify their community presence and own the conversation in competitive gaming spaces.',
     strategy: 'We infiltrated gaming communities authentically, sponsoring streamers, creating shareable meme content, and launching Discord servers that became hubs for gaming enthusiasts.',
     results: 'The brand went from unknown to industry-recognized, with organic advocacy driving sustained growth.',
     metrics: {
@@ -250,11 +251,11 @@ export const caseStudies: Record<string, CaseStudy> = {
   },
   'progamer-network': {
     slug: 'progamer-network',
-    brand: 'ProGamer Network',
+    brand: 'ESL Gaming',
     category: 'Esports',
     description: 'Platform Expansion Strategy',
     fullDescription: 'Expanded an esports platform audience across new markets and demographics through strategic content localization.',
-    challenge: 'ProGamer Network was popular in core markets but struggled to break into emerging gaming regions.',
+    challenge: 'ESL Gaming was popular in core markets but struggled to break into emerging gaming regions.',
     strategy: 'We localized content for 12 new markets, partnered with regional gaming influencers, and created culturally-relevant campaigns that spoke to local gaming communities.',
     results: 'Massive expansion success with sustainable growth across all target markets.',
     metrics: {
