@@ -61,6 +61,7 @@ import colorfulBeautyImg from '@assets/generated_images/colorful_natural_beauty_
 // User-provided case study thumbnails
 import naturalCareBeautyThumb from '@assets/natural_care_beauty_1766244402579.jpeg';
 import strategicPulseThumb from '@assets/strategic_pulse_1766244402580.png';
+import aiDataEngineThumb from '@assets/pexels-googledeepmind-17485707_1766245298201.jpg';
 
 export const caseStudies: Record<string, CaseStudy> = {
   'strategypulse-enterprise': {
@@ -497,7 +498,7 @@ export const caseStudies: Record<string, CaseStudy> = {
     ],
     services: ['AI Data Engineering', 'NLP Processing', 'Data Quality Automation', 'Dashboard Development'],
     platforms: ['Custom AI Platform', 'ERP Integration', 'CRM Integration'],
-    thumbnailImage: colorfulDataAnalyticsImg,
+    thumbnailImage: aiDataEngineThumb,
     heroImage: aiDataCleansingDashboard,
     gridClass: 'col-span-2 row-span-1'
   },
