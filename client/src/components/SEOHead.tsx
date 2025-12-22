@@ -46,10 +46,18 @@ export default function SEOHead({
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={fullOgImage} />
 
-      {/* Favicon - OARC Logo (large sizes) */}
-      <link rel="icon" type="image/png" sizes="512x512" href="https://www.oarcdigital.com/favicon.png" />
-      <link rel="icon" type="image/png" sizes="192x192" href="https://www.oarcdigital.com/favicon.png" />
-      <link rel="apple-touch-icon" sizes="180x180" href="https://www.oarcdigital.com/favicon.png" />
+      {/* Favicon - OARC Logo (all sizes) */}
+      <link rel="icon" type="image/png" sizes="512x512" href="/favicon.png" />
+      <link rel="icon" type="image/png" sizes="256x256" href="/favicon.png" />
+      <link rel="icon" type="image/png" sizes="192x192" href="/favicon.png" />
+      <link rel="icon" type="image/png" sizes="128x128" href="/favicon.png" />
+      <link rel="icon" type="image/png" sizes="96x96" href="/favicon.png" />
+      <link rel="icon" type="image/png" sizes="48x48" href="/favicon.png" />
+      <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+      <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png" />
+      <link rel="apple-touch-icon" sizes="180x180" href="/favicon.png" />
+      <link rel="apple-touch-icon" sizes="152x152" href="/favicon.png" />
+      <link rel="shortcut icon" href="/favicon.png" />
 
       {/* Structured Data */}
       {structuredData && (
