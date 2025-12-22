@@ -1,4 +1,36 @@
 {
+  "redirects": [
+    {
+      "source": "/case-studies/fitnesspro-network",
+      "destination": "/case-studies/apex-fitness-collective",
+      "permanent": true
+    },
+    {
+      "source": "/case-studies/homecraft-innovations",
+      "destination": "/case-studies/volta-home",
+      "permanent": true
+    },
+    {
+      "source": "/case-studies/gamingtech-elite",
+      "destination": "/case-studies/phantom-peripherals",
+      "permanent": true
+    },
+    {
+      "source": "/case-studies/progamer-network",
+      "destination": "/case-studies/riftleague",
+      "permanent": true
+    },
+    {
+      "source": "/case-studies/luxe-essence",
+      "destination": "/case-studies/maison-lumiere",
+      "permanent": true
+    },
+    {
+      "source": "/case-studies/streamflow-automation",
+      "destination": "/case-studies",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/(.*)",
