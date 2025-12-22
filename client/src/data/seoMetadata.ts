@@ -330,10 +330,10 @@ export const caseStudiesSEO: Record<string, PageSEO> = {
     path: '/case-studies/venturehub-co',
     ogType: 'article'
   },
-  luxeEssence: {
-    title: 'Luxe Essence TikTok Luxury Fragrance Campaign | OARC Digital',
-    description: 'How OARC Digital successfully introduced luxury fragrance brand Luxe Essence to the TikTok community, reaching millions through authentic influencer partnerships.',
-    path: '/case-studies/luxe-essence',
+  maisonLumiere: {
+    title: 'Maison Lumière TikTok Luxury Fragrance Campaign | OARC Digital',
+    description: 'How OARC Digital successfully introduced luxury fragrance brand Maison Lumière to the TikTok community, reaching millions through authentic influencer partnerships.',
+    path: '/case-studies/maison-lumiere',
     ogType: 'article'
   },
   digitalFinanceSolutions: {
@@ -346,12 +346,6 @@ export const caseStudiesSEO: Record<string, PageSEO> = {
     title: 'NaturalCare Beauty Middle East Awareness Campaign | OARC Digital',
     description: 'How OARC Digital raised awareness of NaturalCare Beauty\'s brand activism across Middle Eastern markets through targeted social media campaigns.',
     path: '/case-studies/naturalcare-beauty',
-    ogType: 'article'
-  },
-  streamFlowAutomation: {
-    title: 'StreamFlow Automation Revenue Automation Case Study | OARC Digital',
-    description: 'How OARC Digital helped StreamFlow Automation achieve 10x delivery speed increase and tens of thousands in cost savings through automated workflows.',
-    path: '/case-studies/streamflow-automation',
     ogType: 'article'
   },
   authenticStories: {
@@ -408,10 +402,10 @@ export const caseStudiesSEO: Record<string, PageSEO> = {
     path: '/case-studies/heritage-luxury-group',
     ogType: 'article'
   },
-  homeCraftInnovations: {
-    title: 'HomeCraft Innovations Product Launch Campaign Case Study | OARC Digital',
-    description: 'How OARC Digital sold out product lines for HomeCraft Innovations through innovative social media campaigns and influencer partnerships across multiple platforms.',
-    path: '/case-studies/homecraft-innovations',
+  voltaHome: {
+    title: 'Volta Home Product Launch Campaign Case Study | OARC Digital',
+    description: 'How OARC Digital sold out product lines for Volta Home through innovative social media campaigns and influencer partnerships across multiple platforms.',
+    path: '/case-studies/volta-home',
     ogType: 'article'
   }
 };

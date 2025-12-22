@@ -46,26 +46,25 @@ const featuredSlugs = [
   'nexgen-retail-ai-transformation',
   'national-distributor-nlp',
   'cricketpulse-india',
-  'fitnesspro-network',
+  'apex-fitness-collective',
   'digital-finance-solutions',
-  'luxe-essence'
+  'maison-lumiere'
 ];
 
 // Custom order to mix creative and AI case studies - best images first
 const displayOrder = [
+  'volta-home',              // Creative - premium kitchen lifestyle
   'naturalcare-beauty',      // Creative - great lifestyle image
-  'homecraft-innovations',   // Creative - Tefal influencer image
   'national-distributor-nlp',// AI - data engineering visual
-  'fitnesspro-network',      // Creative - Barry's gym
-  'luxe-essence',            // Creative - perfume luxury
+  'apex-fitness-collective', // Creative - fitness/gym
+  'maison-lumiere',          // Creative - luxury fragrance
   'propflow-property-platform',
   'fanstake-sports-platform',
   'strategypulse-enterprise',
-  'gamingtech-elite',
-  'progamer-network',
+  'phantom-peripherals',     // Creative - gaming peripherals
+  'riftleague',              // Creative - esports league
   'healthpath-ai',
   'digital-finance-solutions',
-  'streamflow-automation',
   'authentic-stories',
   'sportsai-interactive',
   'global-supply-systems',

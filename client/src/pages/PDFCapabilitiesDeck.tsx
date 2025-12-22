@@ -269,7 +269,7 @@ export default function PDFCapabilitiesDeck() {
               </div>
             </div>
 
-            {/* Luxe Essence */}
+            {/* Maison Lumière */}
             <div className="pdf-card case-study-card">
               <div className="case-study-badge">{websiteCases[1].category}</div>
               <h3 className="text-2xl font-black mb-2">{websiteCases[1].brand}</h3>
@@ -291,7 +291,7 @@ export default function PDFCapabilitiesDeck() {
               </div>
             </div>
 
-            {/* HomeCraft Innovations */}
+            {/* Volta Home */}
             <div className="pdf-card case-study-card">
               <div className="case-study-badge">{websiteCases[3].category}</div>
               <h3 className="text-2xl font-black mb-2">{websiteCases[3].brand}</h3>
@@ -811,15 +811,15 @@ export default function PDFCapabilitiesDeck() {
             <div className="pt-12 border-t border-white/10">
               <p className="text-white/60 text-sm mb-4">Trusted by Global & Local Brands</p>
               <div className="flex justify-center gap-8 text-white/40 text-sm">
-                <span>FitnessPro</span>
+                <span>Apex Fitness</span>
                 <span>•</span>
-                <span>Luxe Essence</span>
+                <span>Maison Lumière</span>
                 <span>•</span>
                 <span>NaturalCare</span>
                 <span>•</span>
-                <span>HomeCraft</span>
+                <span>Volta Home</span>
                 <span>•</span>
-                <span>GamingTech</span>
+                <span>Phantom Peripherals</span>
               </div>
             </div>
 

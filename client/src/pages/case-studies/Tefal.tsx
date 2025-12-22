@@ -35,11 +35,11 @@ export default function TefalCaseStudy() {
       link: "/case-studies/authentic-stories"
     },
     {
-      title: "Luxe Essence Fragrance",
+      title: "Maison Lumière Fragrance",
       category: "Instagram",
       stats: { reach: "59M", engagement: "1.5M", conversions: "20+" },
       image: relatedCase2,
-      link: "/case-studies/luxe-essence"
+      link: "/case-studies/maison-lumiere"
     },
     {
       title: "NaturalCare Beauty",
@@ -61,17 +61,17 @@ export default function TefalCaseStudy() {
   return (
     <Layout>
       <SEOHead
-        title={caseStudiesSEO.homeCraftInnovations.title}
-        description={caseStudiesSEO.homeCraftInnovations.description}
-        canonicalUrl={`https://oarcdigital.com${caseStudiesSEO.homeCraftInnovations.path}`}
-        ogType={caseStudiesSEO.homeCraftInnovations.ogType}
+        title={caseStudiesSEO.voltaHome.title}
+        description={caseStudiesSEO.voltaHome.description}
+        canonicalUrl={`https://oarcdigital.com${caseStudiesSEO.voltaHome.path}`}
+        ogType={caseStudiesSEO.voltaHome.ogType}
       />
       {/* Hero Section with Background Image */}
       <section className="relative h-[60vh] min-h-[500px] bg-black overflow-hidden">
         
         <img 
           src={tefalHeroImg}
-          alt="Content creator filming kitchen product review with ring light for HomeCraft Innovations influencer campaign"
+          alt="Content creator filming kitchen product review with ring light for Volta Home influencer campaign"
           className="absolute inset-0 w-full h-full object-cover opacity-80"
           data-testid="img-hero-background"
         />
@@ -111,7 +111,7 @@ export default function TefalCaseStudy() {
               </h2>
 
               <p className="text-base text-gray-300 mb-6 leading-relaxed">
-                HomeCraft Innovations targeted European market dominance in kitchen appliances through aggressive brand positioning and sales acceleration. The mission: establish HomeCraft Innovations as the category leader through strategic presence amplification and consumer engagement.
+                Volta Home targeted European market dominance in kitchen appliances through aggressive brand positioning and sales acceleration. The mission: establish Volta Home as the category leader through strategic presence amplification and consumer engagement.
               </p>
 
               <p className="text-base text-gray-300 mb-8 leading-relaxed">
@@ -199,7 +199,7 @@ export default function TefalCaseStudy() {
           <div className="relative bg-gray-900 rounded-2xl overflow-hidden image-reveal">
             <img 
               src={tefalAboutImg}
-              alt="Case Study Video - How OARC Digital Sold-Out Small Appliances for HomeCraft Innovations Using Influencers"
+              alt="Case Study Video - How OARC Digital Sold-Out Small Appliances for Volta Home Using Influencers"
               className="w-full"
               data-testid="img-video-placeholder"
             />
@@ -215,15 +215,15 @@ export default function TefalCaseStudy() {
           </h2>
 
           <h3 className="text-2xl md:text-3xl font-bold text-black mb-8">
-            Harnessing the power of influencers to grow brand love and raise awareness for HomeCraft Innovations.
+            Harnessing the power of influencers to grow brand love and raise awareness for Volta Home.
           </h3>
 
           <p className="text-base text-gray-700 mb-6 leading-relaxed">
-            Since 2019, we've partnered with HomeCraft Innovations through transformative influencer-led campaigns. The mission extended beyond brand awareness—we sought to establish HomeCraft Innovations as the definitive authority in lifestyle convenience and kitchen innovation across social channels.
+            Since 2019, we've partnered with Volta Home through transformative influencer-led campaigns. The mission extended beyond brand awareness—we sought to establish Volta Home as the definitive authority in lifestyle convenience and kitchen innovation across social channels.
           </p>
 
           <p className="text-base text-gray-700 mb-6 leading-relaxed">
-            Consumer psychology remained constant: audiences seek products solving real problems and simplifying daily routines. HomeCraft Innovations' product advantage was clear. The channel opportunity was undeniable: Millennials and Gen-Z increasingly discover and evaluate kitchen products through TikTok, YouTube, and Instagram. Our challenge: translate product benefits into culturally resonant influencer narratives that drive both awareness and conversion.
+            Consumer psychology remained constant: audiences seek products solving real problems and simplifying daily routines. Volta Home' product advantage was clear. The channel opportunity was undeniable: Millennials and Gen-Z increasingly discover and evaluate kitchen products through TikTok, YouTube, and Instagram. Our challenge: translate product benefits into culturally resonant influencer narratives that drive both awareness and conversion.
           </p>
 
           <p className="text-base text-gray-700 mb-10 leading-relaxed">
@@ -260,11 +260,11 @@ export default function TefalCaseStudy() {
           </h2>
 
           <h3 className="text-2xl md:text-3xl font-bold text-white mb-8 text-center">
-            HomeCraft Innovations' Success Story through Adaptive Strategy and Performance-Based Influencer Marketing
+            Volta Home' Success Story through Adaptive Strategy and Performance-Based Influencer Marketing
           </h3>
 
           <p className="text-base text-gray-300 mb-10 leading-relaxed">
-            We positioned HomeCraft Innovations' value proposition—"making life easier"—as the psychological driver across all creator partnerships. Rather than generic product endorsements, we enabled influencers to share genuine daily-life integrations of HomeCraft Innovations products. This authenticity-first approach combined with our 500+ influencer network created compounding reach and credibility. Performance metrics guided constant optimization: engagement rates, conversion tracking, and audience demographic alignment informed real-time creator roster adjustments.
+            We positioned Volta Home' value proposition—"making life easier"—as the psychological driver across all creator partnerships. Rather than generic product endorsements, we enabled influencers to share genuine daily-life integrations of Volta Home products. This authenticity-first approach combined with our 500+ influencer network created compounding reach and credibility. Performance metrics guided constant optimization: engagement rates, conversion tracking, and audience demographic alignment informed real-time creator roster adjustments.
           </p>
 
           {/* Influencer Images Grid */}
@@ -280,7 +280,7 @@ export default function TefalCaseStudy() {
             <div className="bg-gray-800 rounded-2xl overflow-hidden h-[350px] image-reveal">
               <img 
                 src={strategyImg2}
-                alt="HomeCraft Innovations Influencer Marketing Campaign"
+                alt="Volta Home Influencer Marketing Campaign"
                 className="w-full h-full object-cover"
                 data-testid="img-strategy-2"
               />
@@ -297,11 +297,11 @@ export default function TefalCaseStudy() {
           </h2>
 
           <h3 className="text-2xl md:text-3xl font-bold text-black mb-8">
-            Selling out HomeCraft Innovations Product Lines through Strategic Paid Social Excellence and Lasting Influencer Partnerships.
+            Selling out Volta Home Product Lines through Strategic Paid Social Excellence and Lasting Influencer Partnerships.
           </h3>
 
           <p className="text-base text-gray-700 mb-10 leading-relaxed">
-            HomeCraft Innovations achieved unprecedented market penetration through our integrated influencer + paid social framework. The results demonstrated that authentic creator partnerships—when combined with data-driven media investment—generate exponential ROI. Across 70M+ impressions and 500+ strategic creator relationships, HomeCraft Innovations didn't just achieve awareness—they achieved product sell-through that depleted inventory across multiple product lines.
+            Volta Home achieved unprecedented market penetration through our integrated influencer + paid social framework. The results demonstrated that authentic creator partnerships—when combined with data-driven media investment—generate exponential ROI. Across 70M+ impressions and 500+ strategic creator relationships, Volta Home didn't just achieve awareness—they achieved product sell-through that depleted inventory across multiple product lines.
           </p>
 
           {/* Repeat Stats */}
@@ -316,7 +316,7 @@ export default function TefalCaseStudy() {
             </div>
             <div className="bg-white border-4 border-gray-200 rounded-2xl p-8 text-center">
               <div className="text-4xl md:text-5xl font-black text-black mb-2">SOLD OUT</div>
-              <div className="text-sm font-semibold text-gray-600 uppercase tracking-wide">For HomeCraft Innovations</div>
+              <div className="text-sm font-semibold text-gray-600 uppercase tracking-wide">For Volta Home</div>
             </div>
           </div>
         </div>
@@ -329,7 +329,7 @@ export default function TefalCaseStudy() {
             <div className="bg-gray-200 rounded-2xl h-[350px] overflow-hidden image-reveal">
               <img 
                 src={productImg1}
-                alt="HomeCraft Innovations Kitchen Product 1"
+                alt="Volta Home Kitchen Product 1"
                 className="w-full h-full object-cover"
                 data-testid="img-product-1"
               />
@@ -337,7 +337,7 @@ export default function TefalCaseStudy() {
             <div className="bg-gray-200 rounded-2xl h-[350px] overflow-hidden image-reveal">
               <img 
                 src={productImg2}
-                alt="HomeCraft Innovations Kitchen Product 2"
+                alt="Volta Home Kitchen Product 2"
                 className="w-full h-full object-cover"
                 data-testid="img-product-2"
               />
@@ -345,7 +345,7 @@ export default function TefalCaseStudy() {
             <div className="bg-gray-200 rounded-2xl h-[350px] overflow-hidden image-reveal">
               <img 
                 src={productImg3}
-                alt="HomeCraft Innovations Kitchen Product 3"
+                alt="Volta Home Kitchen Product 3"
                 className="w-full h-full object-cover"
                 data-testid="img-product-3"
               />

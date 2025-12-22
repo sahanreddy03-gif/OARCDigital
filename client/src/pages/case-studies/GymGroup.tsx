@@ -29,11 +29,11 @@ export default function GymGroupCaseStudy() {
 
   const relatedCases = [
     {
-      id: 'homecraft-innovations',
-      title: 'HomeCraft Innovations',
+      id: 'volta-home',
+      title: 'Volta Home',
       subtitle: 'Selling out product lines of household products through strategic campaigns.',
       image: tefalHeroImg,
-      link: '/case-studies/homecraft-innovations'
+      link: '/case-studies/volta-home'
     },
     {
       id: 'authentic-stories',
