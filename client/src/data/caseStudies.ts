@@ -4,6 +4,12 @@ export interface CaseStudyMetrics {
   label: string;
 }
 
+export interface ClientQuote {
+  text: string;
+  author: string;
+  company: string;
+}
+
 export interface CaseStudy {
   slug: string;
   brand: string;
@@ -20,6 +26,8 @@ export interface CaseStudy {
   thumbnailImage: string;
   heroImage: string;
   gridClass: string;
+  timeline?: string;
+  clientQuote?: ClientQuote;
 }
 
 // Import thumbnails/hero images  
@@ -72,7 +80,7 @@ export const caseStudies: Record<string, CaseStudy> = {
     description: 'Complete AI Workforce Transformation',
     fullDescription: 'Deployed a fleet of AI employees to handle Support, Sales, and Admin—slashing operational costs by 65% in 90 days while improving customer satisfaction.',
     challenge: 'NexGen Retail Group was expanding fast across Europe. But their operational costs were growing even faster. Hiring human staff for every new region wasn\'t sustainable. Support lines were clogged, sales teams wasted time on bad leads, and admin staff were buried in paperwork.',
-    strategy: 'We deployed three AI employees: AI Support Specialist (24/7 customer support), AI SDR Agent (lead qualification & nurturing), and AI Admin Agent (document processing automation). Combined with end-to-end workflow automation for orders, support tickets, and inventory.',
+    strategy: 'We deployed three AI employees: AI Support Specialist (24/7 customer support), AI SDR Agent (lead qualification & nurturing), and AI Admin Agent (document processing automation). Combined with end-to-end workflow automation for orders, support tickets, and inventory. Example AI Support flow: Customer asks "My order #4829 hasn\'t arrived." AI checks system, sees shipping delay, responds: "Your order is delayed due to weather. New ETA: Thursday. Would you like 20% off your next purchase?" Issue resolved in 90 seconds. Support agent never involved.',
     results: 'Achieved 65% cost reduction, 4.8/5 CSAT score (up from 3.2), 3x pipeline velocity, and complete deployment in just 90 days.',
     metrics: {
       value: '65%',
@@ -81,13 +89,19 @@ export const caseStudies: Record<string, CaseStudy> = {
     secondaryMetrics: [
       { value: '4.8/5', label: 'CSAT score' },
       { value: '3x', label: 'pipeline velocity' },
-      { value: '90 days', label: 'full deployment' }
+      { value: '90 days', label: 'to deployment' }
     ],
     services: ['AI Employee Development', 'Workflow Automation', 'Process Optimization', 'CRM Integration'],
     platforms: ['Salesforce', 'Zendesk', 'Shopify', 'SAP'],
     thumbnailImage: aiAutomationDashboard,
     heroImage: aiAutomationDashboard,
-    gridClass: 'col-span-2 row-span-2'
+    gridClass: 'col-span-2 row-span-2',
+    timeline: '6 months',
+    clientQuote: {
+      text: "We were drowning. Support tickets 3 days behind, sales burning out. OARC didn't just fix it—they transformed how we operate.",
+      author: 'Operations Director',
+      company: 'NexGen Retail'
+    }
   },
   'strategypulse-enterprise': {
     slug: 'strategypulse-enterprise',
@@ -97,112 +111,127 @@ export const caseStudies: Record<string, CaseStudy> = {
     fullDescription: 'Built an AI-powered strategic planning platform that helps mid-market companies align their entire organization around strategic objectives.',
     challenge: 'Most business planning tools don\'t allow employees to see how their work contributes to company goals, leading to siloed planning and disconnected execution.',
     strategy: 'We developed StrategyPulse to make strategic planning collaborative, transparent, and adaptive—with AI surfacing insights and keeping everyone focused.',
-    results: 'Goal achievement rates increased by 340%, planning cycles became 67% faster, and team alignment scores reached 92%.',
+    results: 'Q3 goals completed increased from 35% to 89%, planning cycles reduced from 6 weeks to 2 weeks, and team alignment surveys improved from 4.1/10 to 8.9/10.',
     metrics: {
-      value: '340%',
-      label: 'goal achievement'
+      value: '89%',
+      label: 'goals completed'
     },
     secondaryMetrics: [
-      { value: '67%', label: 'faster planning' },
-      { value: '92%', label: 'team alignment' }
+      { value: '2 weeks', label: 'planning cycle' },
+      { value: '8.9/10', label: 'team alignment' }
     ],
     services: ['Custom Software Development', 'AI Analytics', 'Enterprise Deployment'],
     platforms: ['React', 'Node.js', 'AWS'],
     thumbnailImage: strategicPulseThumb,
     heroImage: strategicPlanningDashboard,
-    gridClass: 'col-span-1 row-span-1'
+    gridClass: 'col-span-1 row-span-1',
+    timeline: '4 months'
   },
   'propflow-property-platform': {
     slug: 'propflow-property-platform',
-    brand: 'AI Real Estate Agent',
+    brand: 'PropFlow Properties',
     category: 'AI Employees',
     description: '24/7 Lead Qualification System',
     fullDescription: 'Deployed an AI real estate specialist that handled initial inquiries, qualified prospects, and scheduled viewings—reducing human workload by 70%.',
-    challenge: 'A mid-sized brokerage was losing leads due to slow response times. Agents spent 60% of their day on initial inquiries that never converted.',
-    strategy: 'We deployed an AI Real Estate Specialist that engaged leads via phone, SMS, and email within seconds. The AI qualified prospects based on budget, timeline, and preferences, then seamlessly handed off warm leads.',
-    results: 'Lead response time dropped from 4 hours to under 30 seconds. The technology was acquired by a proptech company in 2023.',
+    challenge: 'A 12-agent real estate office in Sliema serving Malta\'s expat and investment property market was losing leads due to slow response times. Agents spent 60% of their day on initial inquiries that never converted.',
+    strategy: 'We deployed an AI Real Estate Specialist that engaged leads via phone, SMS, and email within seconds. The AI qualified prospects based on budget, timeline, and preferences, then seamlessly handed off warm leads. Example: Lead texts "Looking for 2BR in Sliema under €1,200/month" at 11 PM. AI responds in 20 seconds with 3 matching properties, availability, and viewing link. Agent wakes up to qualified lead already in pipeline.',
+    results: 'Response time dropped from 4 hours to 28 seconds. Viewing bookings increased from 12/week to 38/week. Close rate improved from 8% to 26%. Now processing 2,400+ leads monthly across Malta and Gozo.',
     metrics: {
-      value: '94%',
-      label: 'faster response'
+      value: '28 sec',
+      label: 'response time'
     },
     secondaryMetrics: [
-      { value: '3.2x', label: 'conversion rate' },
-      { value: '70%', label: 'workload reduction' }
+      { value: '38/week', label: 'viewings booked' },
+      { value: '26%', label: 'close rate' }
     ],
     services: ['AI Employee Development', 'Process Automation', 'CRM Integration'],
     platforms: ['Custom AI Platform'],
     thumbnailImage: colorfulRealEstateImg,
     heroImage: aiRealEstateDashboard,
-    gridClass: 'col-span-1 row-span-1'
+    gridClass: 'col-span-1 row-span-1',
+    timeline: '3 months',
+    clientQuote: {
+      text: "A lead texted at 11 PM asking for 2BR in Sliema. By morning, they had 3 viewings scheduled. We didn't lift a finger.",
+      author: 'Agency Owner',
+      company: 'PropFlow Properties'
+    }
   },
   'fanstake-sports-platform': {
     slug: 'fanstake-sports-platform',
-    brand: 'AI Lead Engine',
+    brand: 'FanStake Sports',
     category: 'AI Revenue Automation',
-    description: '10x Pipeline Velocity System',
-    fullDescription: 'Built an AI-powered lead generation engine that qualified prospects automatically, increasing pipeline velocity by 10x and reducing cost per acquisition.',
+    description: 'AI Lead Engine System',
+    fullDescription: 'Built an AI-powered lead generation engine that qualified prospects automatically, increasing pipeline opportunities from 12/month to 47/month while reducing cost per SQL.',
     challenge: 'A B2B SaaS company was struggling with lead quality. Their SDR team was burning through hundreds of leads monthly with no clear way to prioritize high-intent prospects.',
     strategy: 'We built an AI revenue engine that captured leads from multiple channels, scored them using behavioral and firmographic data, and automatically nurtured them through personalized sequences.',
-    results: 'Pipeline velocity increased 10x while cost per acquisition dropped 67%. The system was acquired as part of a martech consolidation in 2023.',
+    results: 'Pipeline opportunities increased from 12/month to 47/month. Cost per SQL dropped from €340 to €115. Currently serving 18K+ leads monthly with 89% team satisfaction.',
     metrics: {
-      value: '10x',
-      label: 'pipeline velocity'
+      value: '47/mo',
+      label: 'pipeline opportunities'
     },
     secondaryMetrics: [
-      { value: '67%', label: 'lower CPA' },
-      { value: '85%', label: 'qualification accuracy' }
+      { value: '€115', label: 'cost per SQL' },
+      { value: '89%', label: 'team satisfaction' }
     ],
     services: ['AI Automation', 'Lead Generation', 'Revenue Optimization'],
     platforms: ['HubSpot', 'Salesforce'],
     thumbnailImage: colorfulSalesTeamImg,
     heroImage: aiLeadEngineDashboard,
-    gridClass: 'col-span-1 row-span-1'
+    gridClass: 'col-span-1 row-span-1',
+    timeline: '4 months'
   },
-  'fitnesspro-network': {
-    slug: 'fitnesspro-network',
-    brand: 'Barry\'s Bootcamp',
+  'apex-fitness-collective': {
+    slug: 'apex-fitness-collective',
+    brand: 'Apex Fitness Collective',
     category: 'Fitness & Lifestyle',
     description: 'Social Media Growth Campaign',
     fullDescription: 'Transformed a premium fitness brand into a social media powerhouse through strategic TikTok content and micro-influencer partnerships.',
-    challenge: 'Barry\'s Bootcamp faced intense competition during peak fitness season. Traditional marketing was getting drowned out by larger chains with bigger budgets.',
+    challenge: 'Apex Fitness Collective faced intense competition during peak fitness season. Traditional marketing was getting drowned out by larger chains with bigger budgets.',
     strategy: 'We deployed 200+ micro-influencers creating authentic gym content, paired with AI-optimized posting schedules and trend-jacking strategies that positioned the brand at the center of fitness conversations.',
-    results: 'The campaign generated unprecedented engagement, establishing Barry\'s as the go-to fitness destination for Gen Z audiences.',
+    results: 'The campaign generated 4.2M views across 23 videos, 340K+ profile visits, and 89K engagement actions—establishing Apex as the go-to fitness destination for Gen Z audiences.',
     metrics: {
-      value: '15M',
+      value: '4.2M',
       label: 'video views'
     },
     secondaryMetrics: [
-      { value: '1M', label: 'profile visits' },
-      { value: '500K', label: 'engagements' }
+      { value: '340K+', label: 'profile visits' },
+      { value: '89K', label: 'engagements' }
     ],
     services: ['Influencer Marketing', 'Content Strategy', 'Paid Social'],
     platforms: ['TikTok', 'Instagram'],
     thumbnailImage: colorfulGymImg,
     heroImage: gymGroupImg,
-    gridClass: 'col-span-2 row-span-2'
+    gridClass: 'col-span-2 row-span-2',
+    timeline: '8 weeks',
+    clientQuote: {
+      text: "Members started filming their own progress stories. The viral loop we never planned for became our biggest growth driver.",
+      author: 'Marketing Manager',
+      company: 'Apex Fitness Collective'
+    }
   },
-  'luxe-essence': {
-    slug: 'luxe-essence',
-    brand: 'Luxe Essence',
+  'maison-lumiere': {
+    slug: 'maison-lumiere',
+    brand: 'Maison Lumière',
     category: 'Luxury Fragrance',
     description: 'Product Launch Campaign',
     fullDescription: 'Launched a premium fragrance line to European markets through strategic influencer seeding and experiential digital activations.',
-    challenge: 'Breaking into the competitive luxury fragrance market requires more than traditional advertising. Luxe Essence needed to build prestige and desirability from day one.',
+    challenge: 'Breaking into the competitive luxury fragrance market requires more than traditional advertising. Maison Lumière needed to build prestige and desirability from day one.',
     strategy: 'We crafted an exclusive launch strategy combining high-profile influencer unboxings, immersive AR experiences, and strategically timed content drops that created scarcity and demand.',
-    results: 'The launch exceeded all targets, selling out initial inventory in 72 hours and establishing the brand as a luxury contender.',
+    results: 'The launch achieved 840K impressions across 3 markets, sold 500 bottles in 6 days, and delivered 280% ROI in 90 days—establishing the brand as a luxury contender.',
     metrics: {
-      value: '59M',
-      label: 'reach'
+      value: '840K',
+      label: 'impressions'
     },
     secondaryMetrics: [
-      { value: '72hr', label: 'sellout time' },
-      { value: '340%', label: 'ROI' }
+      { value: '500', label: 'bottles sold' },
+      { value: '280%', label: 'ROI' }
     ],
     services: ['Brand Strategy', 'Influencer Marketing', 'Creative Production'],
     platforms: ['Instagram', 'YouTube'],
     thumbnailImage: colorfulPerfumeImg,
     heroImage: azzaroImg,
-    gridClass: 'col-span-1 row-span-1'
+    gridClass: 'col-span-1 row-span-1',
+    timeline: '90 days'
   },
   'naturalcare-beauty': {
     slug: 'naturalcare-beauty',
@@ -227,13 +256,13 @@ export const caseStudies: Record<string, CaseStudy> = {
     heroImage: bodyShopImg,
     gridClass: 'col-span-1 row-span-1'
   },
-  'homecraft-innovations': {
-    slug: 'homecraft-innovations',
-    brand: 'Tefal Home',
+  'volta-home': {
+    slug: 'volta-home',
+    brand: 'Volta Home',
     category: 'Home & Kitchen',
     description: 'Influencer Product Launch',
-    fullDescription: 'Launched Tefal\'s new product line through authentic influencer partnerships and social commerce integration, achieving complete inventory sellout.',
-    challenge: 'Tefal needed to generate buzz around their new product launch and drive direct-to-consumer sales in a crowded home appliance market.',
+    fullDescription: 'Launched Volta Home\'s new product line through authentic influencer partnerships and social commerce integration, achieving complete inventory sellout.',
+    challenge: 'Volta Home needed to generate buzz around their new product launch and drive direct-to-consumer sales in a crowded home appliance market.',
     strategy: 'We deployed shoppable content across social platforms, partnered with lifestyle influencers for live demonstrations, and built AI-powered retargeting funnels that converted browsers into buyers.',
     results: 'Complete inventory sellout within 6 weeks, with waiting lists forming for restocked items.',
     metrics: {
@@ -248,53 +277,56 @@ export const caseStudies: Record<string, CaseStudy> = {
     platforms: ['Facebook', 'Instagram', 'TikTok'],
     thumbnailImage: tefalInfluencerThumb,
     heroImage: homecraftHeroImg,
-    gridClass: 'col-span-1 row-span-1'
+    gridClass: 'col-span-1 row-span-1',
+    timeline: '6 weeks'
   },
-  'gamingtech-elite': {
-    slug: 'gamingtech-elite',
-    brand: 'Razer Gaming',
+  'phantom-peripherals': {
+    slug: 'phantom-peripherals',
+    brand: 'Phantom Peripherals',
     category: 'Gaming Hardware',
     description: 'Community Growth Initiative',
     fullDescription: 'Built a thriving gaming community from scratch, turning hardware buyers into brand evangelists through strategic content and engagement.',
-    challenge: 'Razer needed to amplify their community presence and own the conversation in competitive gaming spaces.',
+    challenge: 'Phantom Peripherals needed to amplify their community presence and own the conversation in competitive gaming spaces.',
     strategy: 'We infiltrated gaming communities authentically, sponsoring streamers, creating shareable meme content, and launching Discord servers that became hubs for gaming enthusiasts.',
-    results: 'The brand went from unknown to industry-recognized, with organic advocacy driving sustained growth.',
+    results: 'Discord grew from 800 to 6,200 members in 4 months. 50+ streamers featured the product. 2.1M Twitch impressions with organic advocacy driving sustained growth.',
     metrics: {
-      value: '+680%',
-      label: 'community growth'
+      value: '6,200',
+      label: 'Discord members'
     },
     secondaryMetrics: [
-      { value: '50K', label: 'Discord members' },
-      { value: '2M', label: 'Twitch impressions' }
+      { value: '50+', label: 'streamers' },
+      { value: '2.1M', label: 'Twitch impressions' }
     ],
     services: ['Community Building', 'Streamer Partnerships', 'Content Strategy'],
     platforms: ['Twitch', 'Discord', 'YouTube'],
     thumbnailImage: lenovoImg,
     heroImage: lenovoImg,
-    gridClass: 'col-span-2 row-span-1'
+    gridClass: 'col-span-2 row-span-1',
+    timeline: '4 months'
   },
-  'progamer-network': {
-    slug: 'progamer-network',
-    brand: 'ESL Gaming',
+  'riftleague': {
+    slug: 'riftleague',
+    brand: 'RiftLeague',
     category: 'Esports',
     description: 'Platform Expansion Strategy',
     fullDescription: 'Expanded an esports platform audience across new markets and demographics through strategic content localization.',
-    challenge: 'ESL Gaming was popular in core markets but struggled to break into emerging gaming regions.',
-    strategy: 'We localized content for 12 new markets, partnered with regional gaming influencers, and created culturally-relevant campaigns that spoke to local gaming communities.',
-    results: 'Massive expansion success with sustainable growth across all target markets.',
+    challenge: 'RiftLeague was popular in core markets but struggled to break into emerging gaming regions.',
+    strategy: 'We localized content for 6 new countries, partnered with regional gaming influencers, and created culturally-relevant campaigns that spoke to local gaming communities.',
+    results: '6.2M tournament stream views. 84K registered players across 6 countries. 180K average concurrent viewers with sustainable growth.',
     metrics: {
-      value: '25M',
-      label: 'impressions'
+      value: '6.2M',
+      label: 'stream views'
     },
     secondaryMetrics: [
-      { value: '12', label: 'new markets' },
-      { value: '3x', label: 'subscriber growth' }
+      { value: '84K', label: 'registered players' },
+      { value: '180K', label: 'avg concurrent' }
     ],
     services: ['Localization', 'Influencer Marketing', 'Paid Media'],
     platforms: ['YouTube', 'Twitch', 'TikTok'],
     thumbnailImage: eslImg,
     heroImage: eslImg,
-    gridClass: 'col-span-1 row-span-1'
+    gridClass: 'col-span-1 row-span-1',
+    timeline: '5 months'
   },
   'healthpath-ai': {
     slug: 'healthpath-ai',
@@ -302,8 +334,8 @@ export const caseStudies: Record<string, CaseStudy> = {
     category: 'Healthcare Technology',
     description: 'AI-Powered Patient Intake',
     fullDescription: 'Revolutionized patient intake processes with custom AI employees that reduced wait times and improved care coordination.',
-    challenge: 'HealthPath clinics were losing patients due to frustrating 45-minute intake processes and overwhelmed administrative staff.',
-    strategy: 'We deployed AI intake assistants that could handle 90% of initial patient interactions, schedule appointments, answer insurance questions, and prepare documentation—all while maintaining HIPAA compliance.',
+    challenge: 'A private GP clinic in Valletta with 4 doctors and 2,400 active patients was losing patients due to frustrating 45-minute intake processes and overwhelmed administrative staff.',
+    strategy: 'We deployed AI intake assistants that could handle 90% of initial patient interactions, schedule appointments, answer insurance questions, and prepare documentation—all while maintaining GDPR-compliant patient data handling.',
     results: 'Dramatic reduction in intake time freed staff for patient care while improving the patient experience.',
     metrics: {
       value: '83%',
@@ -317,53 +349,32 @@ export const caseStudies: Record<string, CaseStudy> = {
     platforms: ['Custom AI Platform'],
     thumbnailImage: healthcareImg,
     heroImage: healthcareImg,
-    gridClass: 'col-span-1 row-span-1'
+    gridClass: 'col-span-1 row-span-1',
+    timeline: '3 months'
   },
   'digital-finance-solutions': {
     slug: 'digital-finance-solutions',
     brand: 'Digital Finance Solutions',
     category: 'Banking & FinTech',
     description: 'Workflow Automation',
-    fullDescription: 'Transformed a traditional financial services firm with AI-powered automation that slashed processing times and eliminated errors.',
-    challenge: 'Manual document processing was costing Digital Finance millions in labor and causing compliance risks due to human error.',
+    fullDescription: 'Transformed a Malta-licensed payment processor with AI-powered automation that slashed processing times and eliminated errors.',
+    challenge: 'A Malta-licensed payment processor handling 45K transactions monthly was losing money to manual document processing and causing compliance risks due to human error. Error rate was at 3.2%.',
     strategy: 'We implemented intelligent document processing AI that could extract, validate, and route financial documents with 99.7% accuracy, integrating seamlessly with existing banking systems.',
-    results: 'ROI exceeded expectations within the first quarter, with ongoing savings compounding annually.',
+    results: '289% ROI achieved (€180K implementation cost → €520K first-year savings). Error rate dropped from 3.2% to 0.3%.',
     metrics: {
-      value: '1300%',
+      value: '289%',
       label: 'ROI'
     },
     secondaryMetrics: [
-      { value: '99.7%', label: 'accuracy' },
-      { value: '$2.4M', label: 'annual savings' }
+      { value: '0.3%', label: 'error rate' },
+      { value: '€520K', label: 'first-year savings' }
     ],
     services: ['AI Automation', 'Process Optimization', 'System Integration'],
     platforms: ['Custom AI Platform'],
     thumbnailImage: bankingImg,
     heroImage: bankingImg,
-    gridClass: 'col-span-1 row-span-1'
-  },
-  'streamflow-automation': {
-    slug: 'streamflow-automation',
-    brand: 'StreamFlow Automation',
-    category: 'Lead Generation',
-    description: 'Sales Pipeline Optimization',
-    fullDescription: 'Built an AI-driven lead qualification and nurturing system that multiplied sales team effectiveness.',
-    challenge: 'StreamFlow sales reps were wasting 70% of their time on leads that would never convert, while hot prospects slipped through the cracks.',
-    strategy: 'We deployed AI sales assistants that scored, qualified, and nurtured leads 24/7, only passing sales-ready prospects to human reps with complete conversation context.',
-    results: 'Sales velocity increased dramatically while reps focused only on high-intent prospects.',
-    metrics: {
-      value: '10x',
-      label: 'lead velocity'
-    },
-    secondaryMetrics: [
-      { value: '85%', label: 'qualification rate' },
-      { value: '3.2x', label: 'conversion rate' }
-    ],
-    services: ['AI Employee Development', 'CRM Integration', 'Sales Automation'],
-    platforms: ['Salesforce', 'HubSpot'],
-    thumbnailImage: automationImg,
-    heroImage: automationImg,
-    gridClass: 'col-span-1 row-span-1'
+    gridClass: 'col-span-1 row-span-1',
+    timeline: '4 months'
   },
   'authentic-stories': {
     slug: 'authentic-stories',
@@ -416,23 +427,24 @@ export const caseStudies: Record<string, CaseStudy> = {
     brand: 'Global Supply Systems',
     category: 'Food & Agriculture',
     description: 'Supply Chain AI',
-    fullDescription: 'Implemented AI-powered supply chain optimization that eliminated waste and reduced costs across a multinational food distributor.',
-    challenge: 'Global Supply Systems was losing millions annually to spoilage, inefficient routing, and demand forecasting errors.',
-    strategy: 'We deployed predictive AI that optimized inventory levels, routing decisions, and demand forecasting across 50+ distribution centers.',
-    results: 'Waste reduced dramatically while delivery efficiency hit all-time highs.',
+    fullDescription: 'Implemented AI-powered supply chain optimization that eliminated waste and reduced costs across 8 warehouses serving Malta, Sicily, and Gozo.',
+    challenge: 'Global Supply Systems was losing thousands weekly to spoilage (€2,800/week), inefficient routing, and demand forecasting errors across 8 warehouses serving 400+ restaurants and hotels.',
+    strategy: 'We deployed predictive AI that optimized inventory levels, routing decisions, and demand forecasting across all distribution centers in Malta, Sicily, and Gozo.',
+    results: 'Spoilage reduced from €2,800/week to €680/week (€110K annual savings). Delivery efficiency hit all-time highs.',
     metrics: {
-      value: '$1M+',
+      value: '€110K',
       label: 'annual savings'
     },
     secondaryMetrics: [
-      { value: '40%', label: 'waste reduction' },
-      { value: '25%', label: 'faster delivery' }
+      { value: '76%', label: 'spoilage reduction' },
+      { value: '8', label: 'warehouses' }
     ],
     services: ['AI Automation', 'Predictive Analytics', 'Supply Chain Optimization'],
     platforms: ['Custom AI Platform', 'ERP Integration'],
     thumbnailImage: foodSupplyImg,
     heroImage: foodSupplyImg,
-    gridClass: 'col-span-1 row-span-1'
+    gridClass: 'col-span-1 row-span-1',
+    timeline: '5 months'
   },
   'talentscale-solutions': {
     slug: 'talentscale-solutions',
@@ -486,7 +498,7 @@ export const caseStudies: Record<string, CaseStudy> = {
     category: 'Luxury Retail',
     description: 'Operations Automation',
     fullDescription: 'Modernized a heritage luxury brand operations with intelligent automation while preserving the white-glove customer experience.',
-    challenge: 'Heritage Luxury Group refused to compromise their legendary customer service for efficiency. They needed automation that enhanced, not replaced, the human touch.',
+    challenge: 'A 60-year-old family-owned luxury boutique in Valletta selling €800-€15K designer pieces refused to compromise their legendary customer service for efficiency. They needed automation that enhanced, not replaced, the human touch.',
     strategy: 'We implemented AI that handled backend operations invisibly—inventory, logistics, vendor management—freeing staff to focus entirely on customer relationships.',
     results: 'Operational efficiency improved dramatically while customer satisfaction reached new highs.',
     metrics: {
@@ -501,7 +513,8 @@ export const caseStudies: Record<string, CaseStudy> = {
     platforms: ['SAP', 'Custom AI Platform'],
     thumbnailImage: luxuryFashionImg,
     heroImage: luxuryFashionImg,
-    gridClass: 'col-span-1 row-span-1'
+    gridClass: 'col-span-1 row-span-1',
+    timeline: '6 months'
   },
   'national-distributor-nlp': {
     slug: 'national-distributor-nlp',
@@ -525,7 +538,13 @@ export const caseStudies: Record<string, CaseStudy> = {
     platforms: ['Custom AI Platform', 'ERP Integration', 'CRM Integration'],
     thumbnailImage: aiDataEngineThumb,
     heroImage: aiDataCleansingDashboard,
-    gridClass: 'col-span-2 row-span-1'
+    gridClass: 'col-span-2 row-span-1',
+    timeline: '4 weeks',
+    clientQuote: {
+      text: "Same product had 12 different SKUs. Same customer, 6 CRM entries. Now? 99.2% accuracy. Our ops team finally sleeps.",
+      author: 'Head of Operations',
+      company: 'National Distributor'
+    }
   },
   'cricketpulse-india': {
     slug: 'cricketpulse-india',
@@ -549,7 +568,13 @@ export const caseStudies: Record<string, CaseStudy> = {
     platforms: ['React Native', 'Node.js', 'AWS'],
     thumbnailImage: cricketStadiumImg,
     heroImage: cricketBettingAppImg,
-    gridClass: 'col-span-2 row-span-1'
+    gridClass: 'col-span-2 row-span-1',
+    timeline: '12 weeks',
+    clientQuote: {
+      text: "During the IPL final, we hit 1.2M concurrent users. Old site would have crashed at 100K.",
+      author: 'CTO',
+      company: 'CricketPulse'
+    }
   }
 };
 
@@ -560,20 +585,20 @@ export const caseStudiesArray = Object.values(caseStudies);
 export const featuredCaseStudies = [
   caseStudies['nexgen-retail-ai-transformation'],
   caseStudies['national-distributor-nlp'],
-  caseStudies['fitnesspro-network'],
+  caseStudies['cricketpulse-india'],
+  caseStudies['apex-fitness-collective'],
   caseStudies['naturalcare-beauty'],
-  caseStudies['homecraft-innovations'],
-  caseStudies['luxe-essence']
-];
+  caseStudies['maison-lumiere']
+].filter(Boolean);
 
 // Case studies by category for filtering
 export const caseStudiesByCategory = {
-  creative: ['fitnesspro-network', 'luxe-essence', 'naturalcare-beauty', 'authentic-stories'],
+  creative: ['apex-fitness-collective', 'maison-lumiere', 'naturalcare-beauty', 'authentic-stories'],
   aiEmployees: ['healthpath-ai', 'sportsai-interactive', 'talentscale-solutions', 'propflow-property-platform', 'nexgen-retail-ai-transformation'],
-  automation: ['digital-finance-solutions', 'streamflow-automation', 'global-supply-systems', 'heritage-luxury-group', 'fanstake-sports-platform', 'nexgen-retail-ai-transformation'],
+  automation: ['digital-finance-solutions', 'global-supply-systems', 'heritage-luxury-group', 'fanstake-sports-platform', 'nexgen-retail-ai-transformation'],
   dataEngineering: ['national-distributor-nlp'],
-  ecommerce: ['homecraft-innovations'],
-  gaming: ['gamingtech-elite', 'progamer-network'],
+  ecommerce: ['volta-home'],
+  gaming: ['phantom-peripherals', 'riftleague'],
   iGaming: ['cricketpulse-india'],
   transformation: ['cloudbase-technologies', 'nexgen-retail-ai-transformation']
 };

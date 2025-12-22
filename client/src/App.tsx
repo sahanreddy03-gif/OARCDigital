@@ -165,6 +165,13 @@ function Router() {
       <Route path="/services/:service" component={ServiceDetail} />
 
       <Route path="/our-work" component={OurWork} />
+      {/* New branded case study routes */}
+      <Route path="/case-studies/apex-fitness-collective" component={GymGroupCaseStudy} />
+      <Route path="/case-studies/volta-home" component={TefalCaseStudy} />
+      <Route path="/case-studies/maison-lumiere" component={AzzaroCaseStudy} />
+      <Route path="/case-studies/phantom-peripherals" component={LenovoLegionCaseStudy} />
+      <Route path="/case-studies/riftleague" component={EslGamingCaseStudy} />
+      {/* Legacy routes for backward compatibility */}
       <Route path="/case-studies/homecraft-innovations" component={TefalCaseStudy} />
       <Route path="/case-studies/authentic-stories" component={DontMakeAdsCaseStudy} />
       <Route path="/case-studies/luxe-essence" component={AzzaroCaseStudy} />
@@ -175,7 +182,6 @@ function Router() {
       <Route path="/case-studies/venturehub-co" component={AntlerCaseStudy} />
       <Route path="/case-studies/cloudbase-technologies" component={SherwebAICaseStudy} />
       <Route path="/case-studies/talentscale-solutions" component={PeopleReadyAICaseStudy} />
-      <Route path="/case-studies/streamflow-automation" component={CleverlyCaseStudy} />
       <Route path="/case-studies/sportsai-interactive" component={FanDuelChuckGPTCaseStudy} />
       <Route path="/case-studies/heritage-luxury-group" component={TapestryAutomation} />
       <Route path="/case-studies/digital-finance-solutions" component={BancolombiaAutomation} />
