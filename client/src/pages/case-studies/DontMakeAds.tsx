@@ -23,17 +23,17 @@ export default function DontMakeAdsCaseStudy() {
   const relatedCases = [
     {
       title: "Selling Out Product Lines",
-      category: "HomeCraft Innovations",
+      category: "Volta Home",
       stats: { impressions: "70M+", collaborations: "500+", result: "SOLD OUT" },
       image: tefalHeroImg,
-      link: "/case-studies/homecraft-innovations"
+      link: "/case-studies/volta-home"
     },
     {
       title: "Introducing Luxury Fragrance",
-      category: "Luxe Essence",
+      category: "Maison Lumière",
       stats: { reach: "59M", engagement: "1.5M", conversions: "20+" },
       image: azzaroHeroImg,
-      link: "/case-studies/luxe-essence"
+      link: "/case-studies/maison-lumiere"
     },
     {
       title: "Raising Awareness",

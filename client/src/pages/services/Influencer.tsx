@@ -70,12 +70,12 @@ export default function Influencer() {
 
   const caseStudies = [
     {
-      id: 'homecraft-innovations',
+      id: 'volta-home',
       category: 'Influencer Campaign',
-      brand: 'HomeCraft Innovations',
+      brand: 'Volta Home',
       description: 'Product launch campaign driving record sell-through rates.',
       image: tefalHeroImg,
-      link: '/case-studies/homecraft-innovations',
+      link: '/case-studies/volta-home',
       stats: [
         { value: '500K', label: 'Engagements' },
         { value: '6.6M', label: 'Impressions' },

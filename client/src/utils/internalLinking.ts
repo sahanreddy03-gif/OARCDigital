@@ -100,8 +100,8 @@ export function getLocationServiceLinks(service: string, limit: number = 3): Int
 export function getCaseStudyLinks(category: 'creative' | 'ai' | 'revenue', limit: number = 2): InternalLink[] {
   const caseStudies = {
     creative: [
-      { slug: 'homecraft-innovations', title: 'HomeCraft Innovations Campaign' },
-      { slug: 'luxe-essence', title: 'Luxe Essence Brand Refresh' },
+      { slug: 'volta-home', title: 'Volta Home Campaign' },
+      { slug: 'maison-lumiere', title: 'Maison Lumière Brand Refresh' },
       { slug: 'naturalcare-beauty', title: 'NaturalCare Beauty Social Media' }
     ],
     ai: [
@@ -112,7 +112,7 @@ export function getCaseStudyLinks(category: 'creative' | 'ai' | 'revenue', limit
     revenue: [
       { slug: 'heritage-luxury-group', title: 'Heritage Luxury Group Automation' },
       { slug: 'digital-finance-solutions', title: 'Digital Finance Solutions Automation' },
-      { slug: 'streamflow-automation', title: 'StreamFlow Automation Growth Story' }
+      { slug: 'nexgen-retail-ai-transformation', title: 'NexGen Retail AI Transformation' }
     ]
   };
   

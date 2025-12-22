@@ -3,9 +3,9 @@ import { Link } from "wouter";
 import { featuredCaseStudies } from "@/data/caseStudies";
 
 export default function BrandShowcaseSection() {
-  const heroStudy = featuredCaseStudies[0]; // AI Data Engine NLP - Hero
-  const mediumStudies = featuredCaseStudies.slice(1, 3); // FitnessPro, Digital Finance
-  const smallStudies = featuredCaseStudies.slice(3, 6); // HealthPath, GamingTech, Luxe Essence
+  const heroStudy = featuredCaseStudies[0]; // NexGen Retail AI - Hero
+  const mediumStudies = featuredCaseStudies.slice(1, 3); // AI Data Engine, CricketPulse
+  const smallStudies = featuredCaseStudies.slice(3, 6); // Apex Fitness, NaturalCare, Maison Lumière
   
   return (
     <section className="py-12 md:py-16 lg:py-20 relative overflow-hidden" style={{ backgroundColor: '#f0fff4' }} data-testid="section-brand-showcase">

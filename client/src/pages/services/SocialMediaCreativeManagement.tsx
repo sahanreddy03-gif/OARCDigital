@@ -458,9 +458,9 @@ export default function SocialMediaCreativeManagement() {
 
   const portfolioItems = [
     { image: colorfulGymImg, title: "FitnessPro Social Growth", platform: "Instagram", metrics: { views: "15M", engagement: "18.7%" }, color: "bg-zinc-800" },
-    { image: colorfulPerfumeImg, title: "Luxe Essence Launch", platform: "TikTok", metrics: { views: "59M", engagement: "12.3%" }, color: "bg-zinc-800" },
+    { image: colorfulPerfumeImg, title: "Maison Lumière Launch", platform: "TikTok", metrics: { views: "59M", engagement: "12.3%" }, color: "bg-zinc-800" },
     { image: colorfulBeautyImg, title: "NaturalCare Community", platform: "YouTube", metrics: { views: "420K", engagement: "24.5%" }, color: "bg-zinc-800" },
-    { image: homecraftHeroImg, title: "HomeCraft E-commerce", platform: "LinkedIn", metrics: { views: "280%", engagement: "ROI" }, color: "bg-zinc-800" },
+    { image: homecraftHeroImg, title: "Volta Home E-commerce", platform: "LinkedIn", metrics: { views: "280%", engagement: "ROI" }, color: "bg-zinc-800" },
   ];
 
   const useCases = [
