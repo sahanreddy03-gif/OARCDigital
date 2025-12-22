@@ -65,6 +65,30 @@ import aiDataEngineThumb from '@assets/pexels-googledeepmind-17485707_1766245298
 import tefalInfluencerThumb from '@assets/TefalPictures-32-scaled_1761760754960-DVSuvcTH_1766245435310.jpg';
 
 export const caseStudies: Record<string, CaseStudy> = {
+  'nexgen-retail-ai-transformation': {
+    slug: 'nexgen-retail-ai-transformation',
+    brand: 'NexGen Retail Group',
+    category: 'AI Employees',
+    description: 'Complete AI Workforce Transformation',
+    fullDescription: 'Deployed a fleet of AI employees to handle Support, Sales, and Admin—slashing operational costs by 65% in 90 days while improving customer satisfaction.',
+    challenge: 'NexGen Retail Group was expanding fast across Europe. But their operational costs were growing even faster. Hiring human staff for every new region wasn\'t sustainable. Support lines were clogged, sales teams wasted time on bad leads, and admin staff were buried in paperwork.',
+    strategy: 'We deployed three AI employees: AI Support Specialist (24/7 customer support), AI SDR Agent (lead qualification & nurturing), and AI Admin Agent (document processing automation). Combined with end-to-end workflow automation for orders, support tickets, and inventory.',
+    results: 'Achieved 65% cost reduction, 4.8/5 CSAT score (up from 3.2), 3x pipeline velocity, and complete deployment in just 90 days.',
+    metrics: {
+      value: '65%',
+      label: 'cost reduction'
+    },
+    secondaryMetrics: [
+      { value: '4.8/5', label: 'CSAT score' },
+      { value: '3x', label: 'pipeline velocity' },
+      { value: '90 days', label: 'full deployment' }
+    ],
+    services: ['AI Employee Development', 'Workflow Automation', 'Process Optimization', 'CRM Integration'],
+    platforms: ['Salesforce', 'Zendesk', 'Shopify', 'SAP'],
+    thumbnailImage: aiAutomationDashboard,
+    heroImage: aiAutomationDashboard,
+    gridClass: 'col-span-2 row-span-2'
+  },
   'strategypulse-enterprise': {
     slug: 'strategypulse-enterprise',
     brand: 'StrategyPulse',
@@ -526,30 +550,6 @@ export const caseStudies: Record<string, CaseStudy> = {
     thumbnailImage: cricketStadiumImg,
     heroImage: cricketBettingAppImg,
     gridClass: 'col-span-2 row-span-1'
-  },
-  'nexgen-retail-ai-transformation': {
-    slug: 'nexgen-retail-ai-transformation',
-    brand: 'NexGen Retail Group',
-    category: 'Full AI Transformation',
-    description: 'AI Employees + Revenue Automation',
-    fullDescription: 'Deployed a complete AI workforce solution for a mid-market retail group—AI customer support agents, AI sales representatives, and end-to-end workflow automation that reduced operational costs by 65% while increasing customer satisfaction.',
-    challenge: 'NexGen Retail Group was struggling with scaling their customer operations. Support tickets were backlogged, sales reps were overwhelmed with lead qualification, and manual processes across order fulfillment, inventory management, and customer communications were consuming 70% of staff time.',
-    strategy: 'We deployed a comprehensive AI transformation: AI Support Specialists handling Tier 1-2 customer inquiries 24/7, AI SDR Agents qualifying and nurturing leads, AI Admin Agents automating document processing, and workflow automation connecting their CRM, ERP, and support systems into a unified intelligent operation.',
-    results: 'Within 90 days, NexGen achieved 65% cost reduction in customer operations, 4.8/5 customer satisfaction (up from 3.2), 3x sales pipeline velocity, and freed their human team to focus on high-value relationship building and complex problem solving.',
-    metrics: {
-      value: '65%',
-      label: 'cost reduction'
-    },
-    secondaryMetrics: [
-      { value: '4.8/5', label: 'CSAT score' },
-      { value: '3x', label: 'pipeline velocity' },
-      { value: '90 days', label: 'to full deployment' }
-    ],
-    services: ['AI Support Specialist', 'AI SDR Agent', 'AI Admin Agent', 'Workflow Automation', 'CRM Integration', 'Process Optimization'],
-    platforms: ['Custom AI Platform', 'Salesforce', 'Zendesk', 'Zapier'],
-    thumbnailImage: aiCallCenterImg,
-    heroImage: aiAutomationDashboard,
-    gridClass: 'col-span-2 row-span-2'
   }
 };
 
@@ -558,11 +558,11 @@ export const caseStudiesArray = Object.values(caseStudies);
 
 // Featured case studies for homepage (6 most impressive)
 export const featuredCaseStudies = [
+  caseStudies['nexgen-retail-ai-transformation'],
   caseStudies['national-distributor-nlp'],
   caseStudies['fitnesspro-network'],
   caseStudies['naturalcare-beauty'],
   caseStudies['homecraft-innovations'],
-  caseStudies['gamingtech-elite'],
   caseStudies['luxe-essence']
 ];
 

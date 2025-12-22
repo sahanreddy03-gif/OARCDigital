@@ -9,6 +9,8 @@ import { FlowDiagram } from '@/components/ui/flow-diagram';
 import { motion } from 'framer-motion';
 
 import aiAutomationDashboard from '@assets/generated_images/ai_automation_enterprise_dashboard.png';
+import aiLeadEngineDashboard from '@assets/generated_images/ai_lead_engine_dashboard.png';
+import foodSupplyImg from '@assets/stock_images/food_supply_chain_au_9bb3c110.jpg';
 
 export default function NexGenRetailAICaseStudy() {
   useEffect(() => {
@@ -108,6 +110,23 @@ export default function NexGenRetailAICaseStudy() {
     { week: 'Week 3-4', title: 'AI Employee Setup', description: 'Deployed AI Support Specialist and AI SDR Agent with initial training' },
     { week: 'Week 5-8', title: 'Workflow Automation', description: 'Connected systems, built automation flows, tested end-to-end processes' },
     { week: 'Week 9-12', title: 'Optimization & Scale', description: 'Fine-tuned AI responses, expanded capabilities, achieved full deployment' }
+  ];
+
+  const relatedCases = [
+    {
+      id: 'global-supply-systems',
+      title: 'Global Supply Systems',
+      subtitle: 'Saving $1M+ annually with intelligent automation.',
+      image: foodSupplyImg,
+      link: '/case-studies/global-supply-systems'
+    },
+    {
+      id: 'fanstake-sports',
+      title: 'FanStake Sports',
+      subtitle: '10x pipeline velocity with AI sales agents.',
+      image: aiLeadEngineDashboard,
+      link: '/case-studies/fanstake-sports-platform'
+    }
   ];
 
   return (
@@ -544,6 +563,60 @@ export default function NexGenRetailAICaseStudy() {
               <p className="text-white/60">CEO, NexGen Retail Group</p>
             </GlassCard>
           </motion.div>
+        </div>
+      </section>
+
+      {/* Related Case Studies */}
+      <section className="bg-black py-24 px-6" data-testid="section-related">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
+            <div className="text-sm font-bold text-white/40 tracking-widest uppercase mb-4">More Case Studies</div>
+            <h2 className="text-3xl md:text-4xl font-black text-white">
+              Similar AI Transformations
+            </h2>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {relatedCases.map((caseItem, idx) => (
+              <motion.div
+                key={caseItem.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+              >
+                <Link href={caseItem.link}>
+                  <GlassCard className="overflow-hidden group cursor-pointer h-full" glowOnHover={true}>
+                    <div className="relative h-48 overflow-hidden">
+                      <img 
+                        src={caseItem.image} 
+                        alt={caseItem.title}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        loading="lazy"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
+                    </div>
+                    <div className="p-6">
+                      <h3 className="text-xl font-bold text-white mb-2 group-hover:text-[#4ade80] transition-colors">
+                        {caseItem.title}
+                      </h3>
+                      <p className="text-white/60">{caseItem.subtitle}</p>
+                      <div className="flex items-center gap-2 mt-4 text-[#4ade80] font-medium text-sm">
+                        <span>View Case Study</span>
+                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                      </div>
+                    </div>
+                  </GlassCard>
+                </Link>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
