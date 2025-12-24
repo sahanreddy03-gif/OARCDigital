@@ -68,11 +68,11 @@ export default function StrategyTerminal({ analysisResult, onComplete }: Strateg
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               className={`${
-                log.includes("[ALERT]") 
+                log?.includes("[ALERT]") 
                   ? "text-red-400" 
-                  : log.includes("[TACTIC]") 
+                  : log?.includes("[TACTIC]") 
                   ? "text-green-400" 
-                  : log.includes("[CORTEX]")
+                  : log?.includes("[CORTEX]")
                   ? "text-cyan-400"
                   : "text-zinc-400"
               }`}
