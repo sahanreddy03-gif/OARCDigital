@@ -52,7 +52,7 @@ export default function Navigation() {
                 <span className="text-[#ff914d]">igital</span>
               </span>
               <span 
-                className="text-white text-[9px] md:text-[10px] lg:text-xs tracking-[0.08em] font-light opacity-80"
+                className="text-white text-[9px] md:text-[10px] lg:text-xs tracking-[0.08em] font-light italic"
                 style={{ textShadow }}
               >
                 Where Creativity Meets Revenue
