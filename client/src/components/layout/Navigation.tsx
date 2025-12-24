@@ -32,7 +32,7 @@ export default function Navigation() {
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16 md:h-18 lg:h-20">
-          {/* Logo */}
+          {/* Logo with Tagline */}
           <Link href="/" className="flex items-center gap-2" data-testid="link-logo-home">
             <img 
               src={oarcLogo3D} 
@@ -41,15 +41,23 @@ export default function Navigation() {
               style={{ filter: 'drop-shadow(0 2px 12px rgba(0, 0, 0, 0.5))' }}
               data-testid="img-logo"
             />
-            <span 
-              className="font-logo text-white text-xl md:text-2xl lg:text-3xl tracking-[0.02em] font-bold" 
-              style={{ textShadow }}
-            >
-              <span className="text-white text-2xl md:text-3xl lg:text-4xl">O</span>
-              <span>arc</span>
-              <span className="ml-1.5 text-[#ff914d]">D</span>
-              <span className="text-[#ff914d]">igital</span>
-            </span>
+            <div className="flex flex-col">
+              <span 
+                className="font-logo text-white text-xl md:text-2xl lg:text-3xl tracking-[0.02em] font-bold" 
+                style={{ textShadow }}
+              >
+                <span className="text-white text-2xl md:text-3xl lg:text-4xl">O</span>
+                <span>arc</span>
+                <span className="ml-1.5 text-[#ff914d]">D</span>
+                <span className="text-[#ff914d]">igital</span>
+              </span>
+              <span 
+                className="text-white text-[9px] md:text-[10px] lg:text-xs tracking-[0.08em] font-light opacity-80"
+                style={{ textShadow }}
+              >
+                Where Creativity Meets Revenue
+              </span>
+            </div>
           </Link>
 
           {/* Desktop Navigation */}
