@@ -89,6 +89,7 @@ import PrivacyPolicy from "@/pages/legal/PrivacyPolicy";
 import CookiePolicy from "@/pages/legal/CookiePolicy";
 import TermsConditions from "@/pages/legal/TermsConditions";
 import Tools from "@/pages/Tools";
+import DiagnosticPage from "@/pages/DiagnosticPage";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -213,6 +214,9 @@ function Router() {
       {/* Tools Directory */}
       <Route path="/tools" component={Tools} />
       <Route path="/ai-sales-tools" component={Tools} />
+
+      {/* Diagnostic Tool */}
+      <Route path="/diagnostic" component={DiagnosticPage} />
 
       {/* Legal Pages - GDPR Compliance */}
       <Route path="/privacy-policy" component={PrivacyPolicy} />
