@@ -1,5 +1,6 @@
 import Layout from "@/components/layout/Layout";
 import HeroSection from "@/components/HeroSection";
+import CortexSection from "@/components/Cortex/CortexSection";
 import OARCBrandSection from "@/components/OARCBrandSection";
 import TrustedBrandsSection from "@/components/TrustedBrandsSection";
 import AICreativeSection from "@/components/AICreativeSection";
@@ -12,6 +13,7 @@ import { SuccessInNumbers } from "@/components/SuccessInNumbers";
 import BrandShowcaseSection from "@/components/BrandShowcaseSection";
 import Testimonials from "@/components/Testimonials";
 import ComparisonSection from "@/components/ComparisonSection";
+import GrowthSimulator from "@/components/GrowthSimulator";
 import MoneyBackGuaranteeSection from "@/components/MoneyBackGuaranteeSection";
 import BlogPreviewSection from "@/components/BlogPreviewSection";
 import CTASections from "@/components/CTASections";
@@ -20,7 +22,6 @@ import FAQ from "@/components/FAQ";
 import SEOHead from "@/components/SEOHead";
 import { localBusinessSchema, organizationSchema, createFAQSchema } from "@/utils/structuredData";
 import { createAggregateRatingSchema, createReviewSchema } from "@/utils/advancedSchema";
-import LivingAIInterface from "@/components/ai/LivingAIInterface";
 
 export default function Home() {
   const faqSchema = createFAQSchema([
@@ -80,6 +81,7 @@ export default function Home() {
       />
       <div className="overflow-x-hidden">
         <HeroSection />
+        <CortexSection />
 
         {/* OARC Brand Section - premium display of OARC acronym and pillars */}
         <OARCBrandSection />
@@ -112,6 +114,7 @@ export default function Home() {
 
         {/* Why OARC - Comparison */}
         <ComparisonSection />
+        <GrowthSimulator />
 
         {/* Final CTAs */}
         <MoneyBackGuaranteeSection />
@@ -119,7 +122,6 @@ export default function Home() {
         <CTASections />
         <NeedHelpCTA />
         <FAQ />
-        <LivingAIInterface />
       </div>
     </Layout>
   );
