@@ -280,17 +280,13 @@ export default function HeroSection() {
                 {/* Mobile glassmorphism panel */}
                 <div className="relative md:before:content-none before:absolute before:inset-0 before:-z-10 before:bg-black/50 before:blur-xl before:rounded-[32px] before:-m-4">
                   
-                  {/* Brand Tagline - Premium styling */}
-                  <div className="mb-4 md:mb-6 lg:mb-8">
-                    <p 
-                      className="font-logo tracking-[0.08em] md:tracking-[0.1em] font-medium leading-none text-[12px] md:text-[clamp(0.85rem,1.4vw,1.25rem)]"
-                      style={{
-                        textShadow: '0 0 20px rgba(255, 145, 77, 0.4), 0 2px 8px rgba(0, 0, 0, 0.5)'
-                      }}
+                  {/* Kicker - Very light green, bigger on desktop */}
+                  <div className="mb-3 md:mb-6 lg:mb-8">
+                    <span 
+                      className="uppercase tracking-[0.2em] md:tracking-[0.3em] font-medium leading-none text-[10px] md:text-[clamp(0.7rem,1.2vw,1.1rem)] text-white"
                     >
-                      <span className="text-white">Where Creativity Meets </span>
-                      <span className="text-[#ff914d] font-semibold">Revenue</span>
-                    </p>
+                      WHERE CREATIVITY MEETS REVENUE
+                    </span>
                   </div>
 
                   {/* Headline - Viewport-based on mobile for all screen sizes, bigger on desktop */}
