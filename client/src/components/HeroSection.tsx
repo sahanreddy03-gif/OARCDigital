@@ -280,15 +280,6 @@ export default function HeroSection() {
                 {/* Mobile glassmorphism panel */}
                 <div className="relative md:before:content-none before:absolute before:inset-0 before:-z-10 before:bg-black/50 before:blur-xl before:rounded-[32px] before:-m-4">
                   
-                  {/* Kicker - Very light green, bigger on desktop */}
-                  <div className="mb-3 md:mb-6 lg:mb-8">
-                    <span 
-                      className="uppercase tracking-[0.2em] md:tracking-[0.3em] font-medium leading-none text-[10px] md:text-[clamp(0.7rem,1.2vw,1.1rem)] text-white"
-                    >
-                      WHERE CREATIVITY MEETS REVENUE
-                    </span>
-                  </div>
-
                   {/* Headline - Viewport-based on mobile for all screen sizes, bigger on desktop */}
                   {/* lg: breakpoint uses slightly smaller max to keep "Revenue" on same line as "Drives" */}
                   <h1 
