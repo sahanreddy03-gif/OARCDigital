@@ -41,7 +41,7 @@ export default function OARCBrandSection() {
       }}
       data-testid="oarc-brand-section"
     >
-      <div className="container mx-auto px-6 md:px-8 lg:px-12 max-w-5xl relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24 max-w-6xl lg:max-w-7xl relative z-10">
         
         {/* OARC Letters - Always on one line */}
         <div className="text-center mb-6 md:mb-8">
@@ -97,29 +97,32 @@ export default function OARCBrandSection() {
 
         {/* Subheading - Optimised · AI · Revenue Intelligence · Creativity */}
         <motion.div
-          className="text-center mb-5 md:mb-6"
+          className="text-center mb-5 md:mb-6 px-2 md:px-0"
           initial={prefersReducedMotion ? { opacity: 1 } : { opacity: 0, y: 6 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.5, duration: 0.5, ease: 'easeOut' }}
         >
           <p 
-            className="text-[#CCCCCC] tracking-[0.15em] md:tracking-[0.2em] uppercase"
-            style={{ fontSize: 'clamp(0.7rem, 1.5vw, 0.9rem)' }}
+            className="text-[#E0E0E0] tracking-[0.12em] sm:tracking-[0.15em] md:tracking-[0.2em] lg:tracking-[0.25em] uppercase"
+            style={{ fontSize: 'clamp(0.75rem, 2vw, 1.1rem)' }}
           >
-            Optimised · AI · Revenue Intelligence · Creativity
+            <span className="font-bold text-white">O</span>ptimised · 
+            <span className="font-bold text-white">A</span>I · 
+            <span className="font-bold text-white">R</span>evenue Intelligence · 
+            <span className="font-bold text-white">C</span>reativity
           </p>
         </motion.div>
 
         {/* Main Tagline */}
         <motion.div
-          className="text-center mb-6 md:mb-8"
+          className="text-center mb-6 md:mb-8 px-4 md:px-0"
           initial={prefersReducedMotion ? { opacity: 1 } : { opacity: 0, y: 8 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.65, duration: 0.5, ease: 'easeOut' }}
         >
           <p 
-            className="text-[#DDDDDD] max-w-2xl mx-auto leading-relaxed"
-            style={{ fontSize: 'clamp(0.95rem, 2vw, 1.1rem)' }}
+            className="text-[#EEEEEE] max-w-3xl lg:max-w-4xl mx-auto leading-relaxed"
+            style={{ fontSize: 'clamp(1rem, 2.5vw, 1.25rem)' }}
             data-testid="oarc-tagline"
           >
             OARC represents our core belief: Optimised AI + Revenue Intelligence + Creativity — engineered together for growth.
