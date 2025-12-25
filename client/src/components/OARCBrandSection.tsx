@@ -103,13 +103,13 @@ export default function OARCBrandSection() {
           transition={{ delay: 0.5, duration: 0.5, ease: 'easeOut' }}
         >
           <p 
-            className="text-[#E0E0E0] tracking-[0.12em] sm:tracking-[0.15em] md:tracking-[0.2em] lg:tracking-[0.25em] uppercase"
-            style={{ fontSize: 'clamp(0.75rem, 2vw, 1.1rem)' }}
+            className="text-[#E8E8E8] font-medium tracking-[0.1em] sm:tracking-[0.12em] md:tracking-[0.18em] lg:tracking-[0.22em] uppercase"
+            style={{ fontSize: 'clamp(0.85rem, 2.2vw, 1.3rem)' }}
           >
-            <span className="font-bold text-white">O</span>ptimised · 
-            <span className="font-bold text-white">A</span>I · 
-            <span className="font-bold text-white">R</span>evenue Intelligence · 
-            <span className="font-bold text-white">C</span>reativity
+            <span className="font-extrabold text-white" style={{ textShadow: '0 0 8px rgba(255,255,255,0.3)' }}>O</span>ptimised · 
+            <span className="font-extrabold text-white" style={{ textShadow: '0 0 8px rgba(255,255,255,0.3)' }}>A</span>I · 
+            <span className="font-extrabold text-white" style={{ textShadow: '0 0 8px rgba(255,255,255,0.3)' }}>R</span>evenue Intelligence · 
+            <span className="font-extrabold text-white" style={{ textShadow: '0 0 8px rgba(255,255,255,0.3)' }}>C</span>reativity
           </p>
         </motion.div>
 
@@ -121,11 +121,11 @@ export default function OARCBrandSection() {
           transition={{ delay: 0.65, duration: 0.5, ease: 'easeOut' }}
         >
           <p 
-            className="text-[#EEEEEE] max-w-3xl lg:max-w-4xl mx-auto leading-relaxed"
-            style={{ fontSize: 'clamp(1rem, 2.5vw, 1.25rem)' }}
+            className="text-[#F0F0F0] max-w-3xl lg:max-w-5xl mx-auto leading-relaxed font-light"
+            style={{ fontSize: 'clamp(1.05rem, 3vw, 1.5rem)' }}
             data-testid="oarc-tagline"
           >
-            OARC represents our core belief: Optimised AI + Revenue Intelligence + Creativity — engineered together for growth.
+            OARC represents our core belief: Progress comes from integration, not separation.
           </p>
         </motion.div>
 
