@@ -136,6 +136,41 @@ export const blindSpotDatabase: BlindSpotDefinition[] = [
     riskLevel: "MEDIUM",
     affectedSectors: ["retail", "hospitality", "healthcare", "real-estate"],
   },
+  {
+    id: "bs-posting-inconsistency",
+    title: "Content Posting Inconsistency",
+    description: "Posting 2-3x per week kills algorithm reach. Platforms reward daily consistency - your irregular schedule buries your content.",
+    riskLevel: "HIGH",
+    affectedSectors: ["e-commerce", "hospitality", "agency", "professional-services", "healthcare"],
+  },
+  {
+    id: "bs-engagement-ghost",
+    title: "Engagement Ghost Town",
+    description: "You post but don't engage. Comments go unanswered for days. The algorithm sees you as a broadcaster, not a community - and punishes reach.",
+    riskLevel: "MEDIUM",
+    affectedSectors: ["e-commerce", "hospitality", "agency", "professional-services"],
+  },
+  {
+    id: "bs-platform-scatter",
+    title: "Platform Scatter Strategy",
+    description: "You're on 5 platforms doing nothing well. Competitors dominate 1-2 platforms while you spread thin and fail everywhere.",
+    riskLevel: "HIGH",
+    affectedSectors: ["agency", "e-commerce", "professional-services", "saas"],
+  },
+  {
+    id: "bs-content-recycling",
+    title: "Zero Content Recycling",
+    description: "You create once and forget. Top brands repurpose 1 piece into 10 formats. You're working 10x harder for 10x less reach.",
+    riskLevel: "MEDIUM",
+    affectedSectors: ["agency", "e-commerce", "professional-services", "saas"],
+  },
+  {
+    id: "bs-hashtag-blindness",
+    title: "Hashtag & SEO Blindness",
+    description: "Your posts use random hashtags or none at all. Without strategic keyword targeting, you're invisible to new audiences.",
+    riskLevel: "MEDIUM",
+    affectedSectors: ["e-commerce", "hospitality", "agency", "healthcare"],
+  },
 ];
 
 // --- EXPANDED TACTICS DATABASE (15+ solutions) ---
