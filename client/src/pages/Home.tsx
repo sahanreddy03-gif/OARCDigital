@@ -85,8 +85,6 @@ export default function Home() {
 
         {/* OARC Brand Section - premium display of OARC acronym with video background */}
         <OARCBrandSection videoSrc={oarcBgVideo} />
-        
-        <CortexSection />
 
         {/* What We Do - Creative Services */}
         <TrustedBrandsSection />
@@ -117,6 +115,9 @@ export default function Home() {
         {/* Why OARC - Comparison */}
         <ComparisonSection />
         <GrowthSimulator />
+        
+        {/* Cortex Business Diagnostic Tool - Compact version */}
+        <CortexSection />
 
         {/* Final CTAs */}
         <MoneyBackGuaranteeSection />
