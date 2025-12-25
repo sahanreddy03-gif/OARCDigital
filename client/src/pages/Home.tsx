@@ -2,6 +2,7 @@ import Layout from "@/components/layout/Layout";
 import HeroSection from "@/components/HeroSection";
 import CortexSection from "@/components/Cortex/CortexSection";
 import OARCBrandSection from "@/components/OARCBrandSection";
+import oarcBgVideo from "@assets/glif-chat-1766630282078_1766685897761.mov";
 import TrustedBrandsSection from "@/components/TrustedBrandsSection";
 import AICreativeSection from "@/components/AICreativeSection";
 import Section2 from "@/components/Section2";
@@ -83,7 +84,7 @@ export default function Home() {
         <HeroSection />
 
         {/* OARC Brand Section - premium display of OARC acronym with video background */}
-        <OARCBrandSection />
+        <OARCBrandSection videoSrc={oarcBgVideo} />
         
         <CortexSection />
 
