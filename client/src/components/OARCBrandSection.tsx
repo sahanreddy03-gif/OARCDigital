@@ -103,13 +103,16 @@ export default function OARCBrandSection() {
           transition={{ delay: 0.5, duration: 0.5, ease: 'easeOut' }}
         >
           <p 
-            className="text-[#E8E8E8] font-semibold whitespace-nowrap tracking-[0.02em] sm:tracking-[0.08em] md:tracking-[0.18em] lg:tracking-[0.22em] uppercase"
-            style={{ fontSize: 'clamp(0.65rem, 2.5vw, 1.3rem)' }}
+            className="text-[#E8E8E8] font-semibold whitespace-nowrap tracking-[0.02em] sm:tracking-[0.06em] md:tracking-[0.12em] lg:tracking-[0.18em]"
+            style={{ fontSize: 'clamp(0.62rem, 2.5vw, 1.3rem)' }}
           >
-            <span className="font-extrabold text-white" style={{ textShadow: '0 0 10px rgba(255,255,255,0.4)' }}>O</span>ptimised · 
-            <span className="font-extrabold text-white" style={{ textShadow: '0 0 10px rgba(255,255,255,0.4)' }}>A</span>I · 
-            <span className="font-extrabold text-white" style={{ textShadow: '0 0 10px rgba(255,255,255,0.4)' }}>R</span>evenue Intelligence · 
-            <span className="font-extrabold text-white" style={{ textShadow: '0 0 10px rgba(255,255,255,0.4)' }}>C</span>reativity
+            <span className="font-extrabold text-white" style={{ textShadow: '0 0 10px rgba(255,255,255,0.4)' }}>O</span>ptimised 
+            <span className="mx-1 sm:mx-2 text-white/60">+</span> 
+            <span className="font-extrabold text-white" style={{ textShadow: '0 0 10px rgba(255,255,255,0.4)' }}>A</span>I 
+            <span className="mx-1 sm:mx-2 text-white/60">+</span> 
+            <span className="font-extrabold text-white" style={{ textShadow: '0 0 10px rgba(255,255,255,0.4)' }}>R</span>evenue intelligence 
+            <span className="mx-1 sm:mx-2 text-white/60">+</span> 
+            <span className="font-extrabold text-white" style={{ textShadow: '0 0 10px rgba(255,255,255,0.4)' }}>C</span>reative
           </p>
         </motion.div>
 
