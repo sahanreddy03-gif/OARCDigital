@@ -1,7 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 
-export default function OARCBrandSection() {
+interface OARCBrandSectionProps {
+  videoSrc?: string;
+}
+
+export default function OARCBrandSection({ videoSrc }: OARCBrandSectionProps) {
   const sectionRef = useRef<HTMLElement>(null);
   const [isVisible, setIsVisible] = useState(false);
   const prefersReducedMotion = useReducedMotion();
@@ -41,6 +45,29 @@ export default function OARCBrandSection() {
       }}
       data-testid="oarc-brand-section"
     >
+      {/* Video Background Layer */}
+      {videoSrc && (
+        <div className="absolute inset-0 z-0">
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="w-full h-full object-cover"
+            style={{ opacity: 0.15 }}
+          >
+            <source src={videoSrc} type="video/mp4" />
+          </video>
+          {/* Dark overlay for text readability */}
+          <div 
+            className="absolute inset-0" 
+            style={{ 
+              background: 'linear-gradient(180deg, rgba(5,5,5,0.7) 0%, rgba(10,10,10,0.6) 50%, rgba(26,26,26,0.5) 100%)' 
+            }} 
+          />
+        </div>
+      )}
+
       <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24 max-w-6xl lg:max-w-7xl relative z-10">
         
         {/* OARC Letters - Always on one line */}
