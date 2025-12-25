@@ -328,9 +328,10 @@ export default function HeroSection() {
                     </div>
                   </div>
 
-                  {/* Value proposition equation - softened */}
+                  {/* Value proposition equation - very subtle champagne tint */}
                   <p 
-                    className="text-white/70 max-w-none md:max-w-2xl mx-auto md:mx-0 leading-snug mb-1.5 md:mb-3 font-light tracking-normal text-[3vw] md:text-[clamp(0.95rem,1.6vw,1.35rem)]"
+                    className="max-w-none md:max-w-2xl mx-auto md:mx-0 leading-snug mb-1.5 md:mb-3 font-light tracking-normal text-[3vw] md:text-[clamp(0.95rem,1.6vw,1.35rem)]"
+                    style={{ color: 'rgba(245, 230, 200, 0.75)' }}
                   >
                     Creative AI Talent + Custom Workflows + Growth Automation
                   </p>
