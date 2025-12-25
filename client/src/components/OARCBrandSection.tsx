@@ -45,7 +45,7 @@ export default function OARCBrandSection({ videoSrc }: OARCBrandSectionProps) {
       }}
       data-testid="oarc-brand-section"
     >
-      {/* Video Background Layer */}
+      {/* Video Background Layer - Super Visible */}
       {videoSrc && (
         <div className="absolute inset-0 z-0">
           <video
@@ -54,15 +54,15 @@ export default function OARCBrandSection({ videoSrc }: OARCBrandSectionProps) {
             loop
             playsInline
             className="w-full h-full object-cover"
-            style={{ opacity: 0.15 }}
+            style={{ opacity: 0.85 }}
           >
             <source src={videoSrc} type="video/mp4" />
           </video>
-          {/* Dark overlay for text readability */}
+          {/* Very light overlay just for text contrast */}
           <div 
             className="absolute inset-0" 
             style={{ 
-              background: 'linear-gradient(180deg, rgba(5,5,5,0.7) 0%, rgba(10,10,10,0.6) 50%, rgba(26,26,26,0.5) 100%)' 
+              background: 'linear-gradient(180deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.15) 50%, rgba(0,0,0,0.2) 100%)' 
             }} 
           />
         </div>
