@@ -103,13 +103,13 @@ export default function OARCBrandSection() {
           transition={{ delay: 0.5, duration: 0.5, ease: 'easeOut' }}
         >
           <p 
-            className="text-[#E8E8E8] font-medium whitespace-nowrap tracking-[0.02em] sm:tracking-[0.08em] md:tracking-[0.18em] lg:tracking-[0.22em] uppercase"
-            style={{ fontSize: 'clamp(0.58rem, 2.5vw, 1.3rem)' }}
+            className="text-[#E8E8E8] font-semibold whitespace-nowrap tracking-[0.02em] sm:tracking-[0.08em] md:tracking-[0.18em] lg:tracking-[0.22em] uppercase"
+            style={{ fontSize: 'clamp(0.65rem, 2.5vw, 1.3rem)' }}
           >
-            <span className="font-extrabold text-white" style={{ textShadow: '0 0 8px rgba(255,255,255,0.3)' }}>O</span>ptimised · 
-            <span className="font-extrabold text-white" style={{ textShadow: '0 0 8px rgba(255,255,255,0.3)' }}>A</span>I · 
-            <span className="font-extrabold text-white" style={{ textShadow: '0 0 8px rgba(255,255,255,0.3)' }}>R</span>evenue Intelligence · 
-            <span className="font-extrabold text-white" style={{ textShadow: '0 0 8px rgba(255,255,255,0.3)' }}>C</span>reativity
+            <span className="font-extrabold text-white" style={{ textShadow: '0 0 10px rgba(255,255,255,0.4)' }}>O</span>ptimised · 
+            <span className="font-extrabold text-white" style={{ textShadow: '0 0 10px rgba(255,255,255,0.4)' }}>A</span>I · 
+            <span className="font-extrabold text-white" style={{ textShadow: '0 0 10px rgba(255,255,255,0.4)' }}>R</span>evenue Intelligence · 
+            <span className="font-extrabold text-white" style={{ textShadow: '0 0 10px rgba(255,255,255,0.4)' }}>C</span>reativity
           </p>
         </motion.div>
 
@@ -121,13 +121,12 @@ export default function OARCBrandSection() {
           transition={{ delay: 0.65, duration: 0.5, ease: 'easeOut' }}
         >
           <p 
-            className="text-white max-w-3xl lg:max-w-5xl mx-auto leading-relaxed font-light"
-            style={{ fontSize: 'clamp(1.05rem, 3vw, 1.5rem)' }}
+            className="text-white max-w-3xl lg:max-w-5xl mx-auto leading-relaxed font-light md:whitespace-nowrap"
+            style={{ fontSize: 'clamp(1rem, 3vw, 1.5rem)' }}
             data-testid="oarc-tagline"
           >
-            OARC represents our core belief: Progress comes from integration,
-            <br className="block" />
-            <span className="inline-block mt-1">not separation.</span>
+            OARC represents our core belief: Progress comes from integration,<br className="md:hidden" />
+            <span className="md:inline"> not separation.</span>
           </p>
         </motion.div>
 
