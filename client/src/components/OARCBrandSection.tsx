@@ -97,14 +97,14 @@ export default function OARCBrandSection() {
 
         {/* Subheading - Optimised · AI · Revenue Intelligence · Creativity */}
         <motion.div
-          className="text-center mb-5 md:mb-6 px-2 md:px-0"
+          className="text-center mb-5 md:mb-6 px-1 md:px-0"
           initial={prefersReducedMotion ? { opacity: 1 } : { opacity: 0, y: 6 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.5, duration: 0.5, ease: 'easeOut' }}
         >
           <p 
-            className="text-[#E8E8E8] font-medium tracking-[0.1em] sm:tracking-[0.12em] md:tracking-[0.18em] lg:tracking-[0.22em] uppercase"
-            style={{ fontSize: 'clamp(0.85rem, 2.2vw, 1.3rem)' }}
+            className="text-[#E8E8E8] font-medium whitespace-nowrap tracking-[0.02em] sm:tracking-[0.08em] md:tracking-[0.18em] lg:tracking-[0.22em] uppercase"
+            style={{ fontSize: 'clamp(0.58rem, 2.5vw, 1.3rem)' }}
           >
             <span className="font-extrabold text-white" style={{ textShadow: '0 0 8px rgba(255,255,255,0.3)' }}>O</span>ptimised · 
             <span className="font-extrabold text-white" style={{ textShadow: '0 0 8px rgba(255,255,255,0.3)' }}>A</span>I · 
@@ -121,11 +121,13 @@ export default function OARCBrandSection() {
           transition={{ delay: 0.65, duration: 0.5, ease: 'easeOut' }}
         >
           <p 
-            className="text-[#F0F0F0] max-w-3xl lg:max-w-5xl mx-auto leading-relaxed font-light"
+            className="text-white max-w-3xl lg:max-w-5xl mx-auto leading-relaxed font-light"
             style={{ fontSize: 'clamp(1.05rem, 3vw, 1.5rem)' }}
             data-testid="oarc-tagline"
           >
-            OARC represents our core belief: Progress comes from integration, not separation.
+            OARC represents our core belief: Progress comes from integration,
+            <br className="block" />
+            <span className="inline-block mt-1">not separation.</span>
           </p>
         </motion.div>
 
