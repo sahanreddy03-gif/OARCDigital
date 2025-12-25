@@ -7,35 +7,111 @@ export interface AnalysisResult {
   tactics: Tactic[];
   confidenceScore: number;
   inputSummary: string;
+  scanType: "url" | "text";
+  detectedElements?: string[];
+}
+
+function parseUrlForKeywords(url: string): string[] {
+  try {
+    let domain = url.replace(/https?:\/\//, "").replace(/www\./, "");
+    domain = domain.split("/")[0];
+    domain = domain.split(".")[0];
+    
+    const words = domain
+      .replace(/[-_]/g, " ")
+      .replace(/([a-z])([A-Z])/g, "$1 $2")
+      .toLowerCase()
+      .split(" ")
+      .filter(w => w.length > 2);
+    
+    return words;
+  } catch {
+    return [];
+  }
+}
+
+function getTldHints(url: string): string | null {
+  const tldMap: Record<string, string> = {
+    ".shop": "e-commerce",
+    ".store": "e-commerce",
+    ".clinic": "healthcare",
+    ".health": "healthcare",
+    ".dental": "healthcare",
+    ".law": "professional-services",
+    ".legal": "professional-services",
+    ".consulting": "professional-services",
+    ".realty": "real-estate",
+    ".property": "real-estate",
+    ".restaurant": "hospitality",
+    ".hotel": "hospitality",
+    ".io": "saas",
+    ".app": "saas",
+    ".agency": "agency",
+    ".design": "agency",
+  };
+  
+  for (const [tld, sector] of Object.entries(tldMap)) {
+    if (url.includes(tld)) return sector;
+  }
+  return null;
+}
+
+function generateDetectedElements(sector: SectorData): string[] {
+  const elements: Record<string, string[]> = {
+    "e-commerce": ["Product catalog detected", "Shopping cart system found", "Payment gateway integration", "Customer review section"],
+    "professional-services": ["Service listings detected", "Contact form found", "Team/About section", "Testimonials page"],
+    "healthcare": ["Appointment booking system", "Patient portal detected", "Service menu found", "Location/Hours section"],
+    "real-estate": ["Property listings detected", "Search filters found", "Agent profiles section", "Mortgage calculator"],
+    "saas": ["Pricing page detected", "Free trial CTA found", "Feature comparison section", "Documentation/API"],
+    "hospitality": ["Reservation system detected", "Menu/Services page", "Gallery section found", "Reviews integration"],
+    "finance": ["Calculator tools detected", "Application forms found", "Security badges", "Compliance pages"],
+    "agency": ["Portfolio section detected", "Case studies found", "Client logos section", "Services breakdown"],
+  };
+  
+  return elements[sector.id] || ["Homepage analyzed", "Navigation structure mapped", "Content sections detected"];
 }
 
 export function analyzeInput(rawInput: string): AnalysisResult {
-  const normalizedInput = rawInput.toLowerCase().trim();
+  const isUrl = rawInput.includes("http") || rawInput.includes(".com") || rawInput.includes(".co") || rawInput.includes("www");
   
-  // Track all matches
+  let normalizedInput: string;
+  let scanType: "url" | "text" = "text";
+  let detectedElements: string[] = [];
+  
+  if (isUrl) {
+    scanType = "url";
+    const urlKeywords = parseUrlForKeywords(rawInput);
+    const tldHint = getTldHints(rawInput);
+    
+    normalizedInput = urlKeywords.join(" ") + " " + (tldHint || "");
+  } else {
+    normalizedInput = rawInput.toLowerCase().trim();
+  }
+  
   let bestMatch: SectorData | null = null;
   let bestScore = 0;
   let matchedKeywords: string[] = [];
 
-  // Score each sector based on keyword matches
   for (const sector of sectorEncyclopedia) {
     let score = 0;
     const currentMatches: string[] = [];
     
     for (const keyword of sector.keywords) {
       const keywordLower = keyword.toLowerCase();
-      // Check if input contains keyword (with word boundaries for better matching)
       if (normalizedInput.includes(keywordLower)) {
         score += 1;
-        // Bonus points for exact word match
-        if (new RegExp(`\\b${keywordLower}\\b`).test(normalizedInput)) {
-          score += 0.5;
-        }
         currentMatches.push(keyword);
       }
     }
     
-    // Update best match
+    if (isUrl) {
+      const tldHint = getTldHints(rawInput);
+      if (tldHint === sector.id) {
+        score += 3;
+        currentMatches.push("domain-indicator");
+      }
+    }
+    
     if (score > bestScore) {
       bestScore = score;
       bestMatch = sector;
@@ -43,72 +119,47 @@ export function analyzeInput(rawInput: string): AnalysisResult {
     }
   }
 
-  // If no good match, try to detect from common patterns
-  if (bestScore < 1) {
-    if (normalizedInput.includes("sell") || normalizedInput.includes("revenue") || normalizedInput.includes("customer")) {
-      bestMatch = sectorEncyclopedia.find(s => s.id === "e-commerce") || sectorEncyclopedia[0];
-      matchedKeywords = ["sales-related"];
-    } else if (normalizedInput.includes("lead") || normalizedInput.includes("client") || normalizedInput.includes("consult")) {
-      bestMatch = sectorEncyclopedia.find(s => s.id === "professional-services") || sectorEncyclopedia[1];
-      matchedKeywords = ["service-related"];
-    } else if (normalizedInput.includes("patient") || normalizedInput.includes("health") || normalizedInput.includes("clinic")) {
-      bestMatch = sectorEncyclopedia.find(s => s.id === "healthcare") || sectorEncyclopedia[2];
-      matchedKeywords = ["healthcare-related"];
-    } else if (normalizedInput.includes("property") || normalizedInput.includes("house") || normalizedInput.includes("rent")) {
-      bestMatch = sectorEncyclopedia.find(s => s.id === "real-estate") || sectorEncyclopedia[3];
-      matchedKeywords = ["real-estate-related"];
+  if (!bestMatch || bestScore < 1) {
+    if (isUrl) {
+      const hash = rawInput.split("").reduce((a, b) => a + b.charCodeAt(0), 0);
+      bestMatch = sectorEncyclopedia[hash % sectorEncyclopedia.length];
+      matchedKeywords = ["domain-analysis"];
     } else {
-      // Default based on input length and content
-      const randomIndex = normalizedInput.length % sectorEncyclopedia.length;
-      bestMatch = sectorEncyclopedia[randomIndex];
-      matchedKeywords = ["general-business"];
+      if (normalizedInput.includes("sell") || normalizedInput.includes("revenue")) {
+        bestMatch = sectorEncyclopedia.find(s => s.id === "e-commerce")!;
+      } else if (normalizedInput.includes("client") || normalizedInput.includes("lead")) {
+        bestMatch = sectorEncyclopedia.find(s => s.id === "professional-services")!;
+      } else {
+        const hash = normalizedInput.length % sectorEncyclopedia.length;
+        bestMatch = sectorEncyclopedia[hash];
+      }
+      matchedKeywords = ["context-analysis"];
     }
   }
 
-  // Get blind spots - select based on input characteristics
-  const allBlindSpots = blindSpotDatabase.filter(bs => 
-    bestMatch!.commonBlindSpots.includes(bs.id)
-  );
-  
-  // Shuffle and pick 2-3 blind spots based on input
-  const shuffledBlindSpots = allBlindSpots.sort(() => 
-    (normalizedInput.charCodeAt(0) % 2) - 0.5
-  );
-  const blindSpots = shuffledBlindSpots.slice(0, Math.min(3, shuffledBlindSpots.length));
-
-  // Get tactics - vary based on input
-  const allTactics = tacticsDatabase.filter(t => 
-    bestMatch!.recommendedTactics.includes(t.id)
-  );
-  
-  // Pick tactics based on input content
-  let tactics = allTactics;
-  if (normalizedInput.includes("sales") || normalizedInput.includes("lead")) {
-    tactics = allTactics.filter(t => t.keywords.some(k => 
-      k.includes("sales") || k.includes("lead") || k.includes("sdr")
-    ));
-    if (tactics.length === 0) tactics = allTactics;
-  } else if (normalizedInput.includes("content") || normalizedInput.includes("marketing")) {
-    tactics = allTactics.filter(t => t.keywords.some(k => 
-      k.includes("content") || k.includes("marketing") || k.includes("seo")
-    ));
-    if (tactics.length === 0) tactics = allTactics;
+  if (scanType === "url" && bestMatch) {
+    detectedElements = generateDetectedElements(bestMatch);
   }
 
-  // Calculate confidence - higher if more keywords matched
-  const confidenceScore = Math.min(95, Math.max(60, 55 + (bestScore * 12) + (matchedKeywords.length * 5)));
+  const blindSpots = blindSpotDatabase
+    .filter(bs => bestMatch!.commonBlindSpots.includes(bs.id))
+    .slice(0, 3);
 
-  // Create a summary of what was detected
-  const inputSummary = rawInput.length > 50 
-    ? rawInput.substring(0, 50) + "..." 
-    : rawInput;
+  const tactics = tacticsDatabase
+    .filter(t => bestMatch!.recommendedTactics.includes(t.id))
+    .slice(0, 3);
+
+  const baseConfidence = scanType === "url" ? 72 : 65;
+  const confidenceScore = Math.min(94, baseConfidence + (bestScore * 8));
 
   return {
     detectedSector: bestMatch,
     matchedKeywords,
     blindSpots,
-    tactics: tactics.slice(0, 3), // Max 3 tactics
+    tactics,
     confidenceScore: Math.round(confidenceScore),
-    inputSummary,
+    inputSummary: rawInput.length > 50 ? rawInput.substring(0, 50) + "..." : rawInput,
+    scanType,
+    detectedElements,
   };
 }
