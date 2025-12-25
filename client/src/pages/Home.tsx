@@ -81,10 +81,11 @@ export default function Home() {
       />
       <div className="overflow-x-hidden">
         <HeroSection />
-        <CortexSection />
 
-        {/* OARC Brand Section - premium display of OARC acronym and pillars */}
+        {/* OARC Brand Section - premium display of OARC acronym with video background */}
         <OARCBrandSection />
+        
+        <CortexSection />
 
         {/* What We Do - Creative Services */}
         <TrustedBrandsSection />
