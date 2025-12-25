@@ -105,13 +105,13 @@ export default function OARCBrandSection({ videoSrc }: OARCBrandSectionProps) {
                   }}
                 />
                 
-                {/* The letter */}
+                {/* The letter - enhanced visibility */}
                 <span 
-                  className="font-bold text-white/95 relative z-10"
+                  className="font-bold text-white relative z-10"
                   style={{ 
                     fontSize: 'clamp(2.8rem, 10vw, 6rem)',
                     lineHeight: 1,
-                    textShadow: `0 0 30px ${item.textGlow}`,
+                    textShadow: `0 0 40px ${item.textGlow}, 0 0 80px ${item.textGlow}, 0 2px 4px rgba(0,0,0,0.8)`,
                     letterSpacing: '-0.02em'
                   }}
                   data-testid={`oarc-letter-${item.letter}`}
@@ -131,16 +131,16 @@ export default function OARCBrandSection({ videoSrc }: OARCBrandSectionProps) {
           transition={{ delay: 0.5, duration: 0.5, ease: 'easeOut' }}
         >
           <p 
-            className="text-[#E8E8E8] font-semibold whitespace-nowrap tracking-[0.04em] sm:tracking-[0.08em] md:tracking-[0.15em] lg:tracking-[0.22em]"
-            style={{ fontSize: 'clamp(0.72rem, 3vw, 1.5rem)' }}
+            className="text-white font-semibold whitespace-nowrap tracking-[0.04em] sm:tracking-[0.08em] md:tracking-[0.15em] lg:tracking-[0.22em]"
+            style={{ fontSize: 'clamp(0.72rem, 3vw, 1.5rem)', textShadow: '0 2px 4px rgba(0,0,0,0.8), 0 0 20px rgba(255,255,255,0.3)' }}
           >
-            <span className="font-extrabold text-white" style={{ textShadow: '0 0 10px rgba(255,255,255,0.4)' }}>O</span>ptimised 
-            <span className="mx-1.5 sm:mx-3 text-white/60">+</span> 
-            <span className="font-extrabold text-white" style={{ textShadow: '0 0 10px rgba(255,255,255,0.4)' }}>A</span>I 
-            <span className="mx-1.5 sm:mx-3 text-white/60">+</span> 
-            <span className="font-extrabold text-white" style={{ textShadow: '0 0 10px rgba(255,255,255,0.4)' }}>R</span>evenue intelligence 
-            <span className="mx-1.5 sm:mx-3 text-white/60">+</span> 
-            <span className="font-extrabold text-white" style={{ textShadow: '0 0 10px rgba(255,255,255,0.4)' }}>C</span>reative
+            <span className="font-extrabold text-white" style={{ textShadow: '0 0 15px rgba(255,255,255,0.6), 0 0 30px rgba(255,255,255,0.3)' }}>O</span>ptimised 
+            <span className="mx-1.5 sm:mx-3 text-white/70">+</span> 
+            <span className="font-extrabold text-white" style={{ textShadow: '0 0 15px rgba(255,255,255,0.6), 0 0 30px rgba(255,255,255,0.3)' }}>A</span>I 
+            <span className="mx-1.5 sm:mx-3 text-white/70">+</span> 
+            <span className="font-extrabold text-white" style={{ textShadow: '0 0 15px rgba(255,255,255,0.6), 0 0 30px rgba(255,255,255,0.3)' }}>R</span>evenue intelligence 
+            <span className="mx-1.5 sm:mx-3 text-white/70">+</span> 
+            <span className="font-extrabold text-white" style={{ textShadow: '0 0 15px rgba(255,255,255,0.6), 0 0 30px rgba(255,255,255,0.3)' }}>C</span>reative
           </p>
         </motion.div>
 
@@ -152,8 +152,8 @@ export default function OARCBrandSection({ videoSrc }: OARCBrandSectionProps) {
           transition={{ delay: 0.65, duration: 0.5, ease: 'easeOut' }}
         >
           <p 
-            className="max-w-3xl lg:max-w-5xl mx-auto leading-relaxed font-medium md:whitespace-nowrap"
-            style={{ fontSize: 'clamp(0.82rem, 3vw, 1.5rem)', color: '#FFFFFF', textShadow: '0 0 6px rgba(255,255,255,0.2)' }}
+            className="max-w-3xl lg:max-w-5xl mx-auto leading-relaxed font-semibold md:whitespace-nowrap"
+            style={{ fontSize: 'clamp(0.82rem, 3vw, 1.5rem)', color: '#FFFFFF', textShadow: '0 2px 4px rgba(0,0,0,0.8), 0 0 15px rgba(255,255,255,0.25)' }}
             data-testid="oarc-tagline"
           >
             <span className="whitespace-nowrap">OARC represents our core belief: Progress comes from integration,</span>
