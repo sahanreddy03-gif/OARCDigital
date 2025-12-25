@@ -123,7 +123,7 @@ export default function OARCBrandSection({ videoSrc }: OARCBrandSectionProps) {
           </div>
         </div>
 
-        {/* Bottom section - 2 lines with strong visibility */}
+        {/* Bottom section - 2 lines with bold text and subtle shadow */}
         <div className="mt-auto">
           {/* Line 2: Optimised + AI + Revenue intelligence + Creative - O/A/R/C bigger */}
           <motion.div
@@ -132,85 +132,67 @@ export default function OARCBrandSection({ videoSrc }: OARCBrandSectionProps) {
             animate={isVisible ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.5, duration: 0.5, ease: 'easeOut' }}
           >
-            {/* Highlight background for readability */}
-            <div 
-              className="inline-block px-4 py-2 rounded-lg"
+            <p 
+              className="text-white font-bold whitespace-nowrap tracking-[0.04em] sm:tracking-[0.08em] md:tracking-[0.12em] lg:tracking-[0.18em]"
               style={{ 
-                background: 'rgba(0,0,0,0.5)',
-                backdropFilter: 'blur(8px)'
+                fontSize: 'clamp(0.72rem, 3vw, 1.4rem)',
+                textShadow: '0 2px 8px rgba(0,0,0,0.9), 0 0 15px rgba(0,0,0,0.7)'
               }}
             >
-              <p 
-                className="text-white font-semibold whitespace-nowrap tracking-[0.04em] sm:tracking-[0.08em] md:tracking-[0.12em] lg:tracking-[0.18em]"
+              <span 
+                className="font-black text-white" 
                 style={{ 
-                  fontSize: 'clamp(0.72rem, 3vw, 1.4rem)',
-                  textShadow: '0 0 20px rgba(255,255,255,0.5), 0 2px 10px rgba(0,0,0,0.8)'
+                  fontSize: '1.5em',
+                  textShadow: '0 2px 10px rgba(0,0,0,0.9), 0 0 20px rgba(255,179,102,0.4)' 
                 }}
-              >
-                <span 
-                  className="font-black text-white" 
-                  style={{ 
-                    fontSize: '1.3em',
-                    textShadow: '0 0 15px rgba(255,179,102,0.6), 0 0 30px rgba(255,179,102,0.3)' 
-                  }}
-                >O</span>ptimised 
-                <span className="mx-1.5 sm:mx-2.5 text-white/70 font-bold">+</span> 
-                <span 
-                  className="font-black text-white" 
-                  style={{ 
-                    fontSize: '1.3em',
-                    textShadow: '0 0 15px rgba(0,209,193,0.6), 0 0 30px rgba(0,209,193,0.3)' 
-                  }}
-                >A</span>I 
-                <span className="mx-1.5 sm:mx-2.5 text-white/70 font-bold">+</span> 
-                <span 
-                  className="font-black text-white" 
-                  style={{ 
-                    fontSize: '1.3em',
-                    textShadow: '0 0 15px rgba(245,225,164,0.6), 0 0 30px rgba(245,225,164,0.3)' 
-                  }}
-                >R</span>evenue intelligence 
-                <span className="mx-1.5 sm:mx-2.5 text-white/70 font-bold">+</span> 
-                <span 
-                  className="font-black text-white" 
-                  style={{ 
-                    fontSize: '1.3em',
-                    textShadow: '0 0 15px rgba(207,255,102,0.6), 0 0 30px rgba(207,255,102,0.3)' 
-                  }}
-                >C</span>reative
-              </p>
-            </div>
+              >O</span>ptimised 
+              <span className="mx-1.5 sm:mx-2.5 text-white/80 font-bold">+</span> 
+              <span 
+                className="font-black text-white" 
+                style={{ 
+                  fontSize: '1.5em',
+                  textShadow: '0 2px 10px rgba(0,0,0,0.9), 0 0 20px rgba(0,209,193,0.4)' 
+                }}
+              >A</span>I 
+              <span className="mx-1.5 sm:mx-2.5 text-white/80 font-bold">+</span> 
+              <span 
+                className="font-black text-white" 
+                style={{ 
+                  fontSize: '1.5em',
+                  textShadow: '0 2px 10px rgba(0,0,0,0.9), 0 0 20px rgba(245,225,164,0.4)' 
+                }}
+              >R</span>evenue intelligence 
+              <span className="mx-1.5 sm:mx-2.5 text-white/80 font-bold">+</span> 
+              <span 
+                className="font-black text-white" 
+                style={{ 
+                  fontSize: '1.5em',
+                  textShadow: '0 2px 10px rgba(0,0,0,0.9), 0 0 20px rgba(207,255,102,0.4)' 
+                }}
+              >C</span>reative
+            </p>
           </motion.div>
 
-          {/* Line 3: Main Tagline - Bolder with stronger text shadow */}
+          {/* Line 3: Main Tagline - Bold with subtle shadow */}
           <motion.div
             className="text-center mb-4 md:mb-6 px-2 md:px-0"
             initial={prefersReducedMotion ? { opacity: 1 } : { opacity: 0, y: 8 }}
             animate={isVisible ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.65, duration: 0.5, ease: 'easeOut' }}
           >
-            {/* Highlight background for readability */}
-            <div 
-              className="inline-block px-4 py-2 rounded-lg"
+            <p 
+              className="max-w-3xl lg:max-w-5xl mx-auto leading-relaxed font-bold md:whitespace-nowrap"
               style={{ 
-                background: 'rgba(0,0,0,0.5)',
-                backdropFilter: 'blur(8px)'
+                fontSize: 'clamp(0.85rem, 3vw, 1.45rem)', 
+                color: '#FFFFFF', 
+                textShadow: '0 2px 10px rgba(0,0,0,0.9), 0 0 20px rgba(0,0,0,0.7)'
               }}
+              data-testid="oarc-tagline"
             >
-              <p 
-                className="max-w-3xl lg:max-w-5xl mx-auto leading-relaxed font-bold md:whitespace-nowrap"
-                style={{ 
-                  fontSize: 'clamp(0.85rem, 3vw, 1.45rem)', 
-                  color: '#FFFFFF', 
-                  textShadow: '0 0 25px rgba(255,255,255,0.6), 0 2px 15px rgba(0,0,0,0.9), 0 0 50px rgba(255,255,255,0.3)'
-                }}
-                data-testid="oarc-tagline"
-              >
-                <span className="whitespace-nowrap">OARC represents our core belief: Progress comes from integration,</span>
-                <br className="md:hidden" />
-                <span className="block md:inline mt-1 md:mt-0"> not separation.</span>
-              </p>
-            </div>
+              <span className="whitespace-nowrap">OARC represents our core belief: Progress comes from integration,</span>
+              <br className="md:hidden" />
+              <span className="block md:inline mt-1 md:mt-0"> not separation.</span>
+            </p>
           </motion.div>
 
           {/* Thin gold accent line */}
