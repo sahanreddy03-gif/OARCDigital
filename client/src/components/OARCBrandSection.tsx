@@ -115,18 +115,19 @@ export default function OARCBrandSection() {
 
         {/* Main Tagline */}
         <motion.div
-          className="text-center mb-6 md:mb-8 px-4 md:px-0"
+          className="text-center mb-6 md:mb-8 px-2 md:px-0"
           initial={prefersReducedMotion ? { opacity: 1 } : { opacity: 0, y: 8 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.65, duration: 0.5, ease: 'easeOut' }}
         >
           <p 
-            className="text-white max-w-3xl lg:max-w-5xl mx-auto leading-relaxed font-light md:whitespace-nowrap"
-            style={{ fontSize: 'clamp(1rem, 3vw, 1.5rem)' }}
+            className="max-w-3xl lg:max-w-5xl mx-auto leading-relaxed font-normal md:whitespace-nowrap"
+            style={{ fontSize: 'clamp(0.82rem, 3vw, 1.5rem)', color: '#FFFFFF' }}
             data-testid="oarc-tagline"
           >
-            OARC represents our core belief: Progress comes from integration,<br className="md:hidden" />
-            <span className="md:inline"> not separation.</span>
+            <span className="whitespace-nowrap">OARC represents our core belief: Progress comes from integration,</span>
+            <br className="md:hidden" />
+            <span className="block md:inline mt-1 md:mt-0"> not separation.</span>
           </p>
         </motion.div>
 
