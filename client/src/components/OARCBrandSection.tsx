@@ -39,13 +39,13 @@ export default function OARCBrandSection({ videoSrc }: OARCBrandSectionProps) {
   return (
     <section
       ref={sectionRef}
-      className="relative pt-16 md:pt-20 pb-12 md:pb-16 overflow-hidden"
+      className="relative py-10 md:py-14 overflow-hidden"
       style={{ 
         background: 'linear-gradient(180deg, #050505 0%, #0a0a0a 20%, #111111 50%, #1a1a1a 80%, #f5f5f5 100%)'
       }}
       data-testid="oarc-brand-section"
     >
-      {/* Video Background Layer - Super Visible */}
+      {/* Video Background Layer - Super Visible, Instant Playback */}
       {videoSrc && (
         <div className="absolute inset-0 z-0">
           <video
@@ -53,25 +53,26 @@ export default function OARCBrandSection({ videoSrc }: OARCBrandSectionProps) {
             muted
             loop
             playsInline
+            preload="auto"
             className="w-full h-full object-cover"
             style={{ opacity: 0.85 }}
           >
             <source src={videoSrc} type="video/mp4" />
           </video>
-          {/* Very light overlay just for text contrast */}
+          {/* Stronger overlay for better text readability */}
           <div 
             className="absolute inset-0" 
             style={{ 
-              background: 'linear-gradient(180deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.15) 50%, rgba(0,0,0,0.2) 100%)' 
+              background: 'linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.35) 100%)' 
             }} 
           />
         </div>
       )}
 
-      <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24 max-w-6xl lg:max-w-7xl relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24 max-w-6xl lg:max-w-7xl relative z-10 flex flex-col min-h-[280px] md:min-h-[340px]">
         
-        {/* OARC Letters - Always on one line */}
-        <div className="text-center mb-6 md:mb-8">
+        {/* OARC Letters - At very top */}
+        <div className="text-center mb-auto">
           <div className="flex items-center justify-center gap-3 sm:gap-4 md:gap-8 lg:gap-12">
             {letters.map((item, index) => (
               <motion.div
@@ -106,11 +107,11 @@ export default function OARCBrandSection({ videoSrc }: OARCBrandSectionProps) {
                 
                 {/* The letter */}
                 <span 
-                  className="font-bold text-white/95 relative z-10"
+                  className="font-bold text-white relative z-10"
                   style={{ 
                     fontSize: 'clamp(2.8rem, 10vw, 6rem)',
                     lineHeight: 1,
-                    textShadow: `0 0 30px ${item.textGlow}`,
+                    textShadow: `0 0 40px ${item.textGlow}, 0 0 20px rgba(255,255,255,0.3)`,
                     letterSpacing: '-0.02em'
                   }}
                   data-testid={`oarc-letter-${item.letter}`}
@@ -122,57 +123,109 @@ export default function OARCBrandSection({ videoSrc }: OARCBrandSectionProps) {
           </div>
         </div>
 
-        {/* Subheading - Optimised · AI · Revenue Intelligence · Creativity */}
-        <motion.div
-          className="text-center mb-5 md:mb-6 px-1 md:px-0"
-          initial={prefersReducedMotion ? { opacity: 1 } : { opacity: 0, y: 6 }}
-          animate={isVisible ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 0.5, duration: 0.5, ease: 'easeOut' }}
-        >
-          <p 
-            className="text-[#E8E8E8] font-semibold whitespace-nowrap tracking-[0.04em] sm:tracking-[0.08em] md:tracking-[0.15em] lg:tracking-[0.22em]"
-            style={{ fontSize: 'clamp(0.72rem, 3vw, 1.5rem)' }}
+        {/* Bottom section - 2 lines with strong visibility */}
+        <div className="mt-auto">
+          {/* Line 2: Optimised + AI + Revenue intelligence + Creative - O/A/R/C bigger */}
+          <motion.div
+            className="text-center mb-4 md:mb-5 px-1 md:px-0"
+            initial={prefersReducedMotion ? { opacity: 1 } : { opacity: 0, y: 6 }}
+            animate={isVisible ? { opacity: 1, y: 0 } : {}}
+            transition={{ delay: 0.5, duration: 0.5, ease: 'easeOut' }}
           >
-            <span className="font-extrabold text-white" style={{ textShadow: '0 0 10px rgba(255,255,255,0.4)' }}>O</span>ptimised 
-            <span className="mx-1.5 sm:mx-3 text-white/60">+</span> 
-            <span className="font-extrabold text-white" style={{ textShadow: '0 0 10px rgba(255,255,255,0.4)' }}>A</span>I 
-            <span className="mx-1.5 sm:mx-3 text-white/60">+</span> 
-            <span className="font-extrabold text-white" style={{ textShadow: '0 0 10px rgba(255,255,255,0.4)' }}>R</span>evenue intelligence 
-            <span className="mx-1.5 sm:mx-3 text-white/60">+</span> 
-            <span className="font-extrabold text-white" style={{ textShadow: '0 0 10px rgba(255,255,255,0.4)' }}>C</span>reative
-          </p>
-        </motion.div>
+            {/* Highlight background for readability */}
+            <div 
+              className="inline-block px-4 py-2 rounded-lg"
+              style={{ 
+                background: 'rgba(0,0,0,0.5)',
+                backdropFilter: 'blur(8px)'
+              }}
+            >
+              <p 
+                className="text-white font-semibold whitespace-nowrap tracking-[0.04em] sm:tracking-[0.08em] md:tracking-[0.12em] lg:tracking-[0.18em]"
+                style={{ 
+                  fontSize: 'clamp(0.72rem, 3vw, 1.4rem)',
+                  textShadow: '0 0 20px rgba(255,255,255,0.5), 0 2px 10px rgba(0,0,0,0.8)'
+                }}
+              >
+                <span 
+                  className="font-black text-white" 
+                  style={{ 
+                    fontSize: '1.3em',
+                    textShadow: '0 0 15px rgba(255,179,102,0.6), 0 0 30px rgba(255,179,102,0.3)' 
+                  }}
+                >O</span>ptimised 
+                <span className="mx-1.5 sm:mx-2.5 text-white/70 font-bold">+</span> 
+                <span 
+                  className="font-black text-white" 
+                  style={{ 
+                    fontSize: '1.3em',
+                    textShadow: '0 0 15px rgba(0,209,193,0.6), 0 0 30px rgba(0,209,193,0.3)' 
+                  }}
+                >A</span>I 
+                <span className="mx-1.5 sm:mx-2.5 text-white/70 font-bold">+</span> 
+                <span 
+                  className="font-black text-white" 
+                  style={{ 
+                    fontSize: '1.3em',
+                    textShadow: '0 0 15px rgba(245,225,164,0.6), 0 0 30px rgba(245,225,164,0.3)' 
+                  }}
+                >R</span>evenue intelligence 
+                <span className="mx-1.5 sm:mx-2.5 text-white/70 font-bold">+</span> 
+                <span 
+                  className="font-black text-white" 
+                  style={{ 
+                    fontSize: '1.3em',
+                    textShadow: '0 0 15px rgba(207,255,102,0.6), 0 0 30px rgba(207,255,102,0.3)' 
+                  }}
+                >C</span>reative
+              </p>
+            </div>
+          </motion.div>
 
-        {/* Main Tagline */}
-        <motion.div
-          className="text-center mb-6 md:mb-8 px-2 md:px-0"
-          initial={prefersReducedMotion ? { opacity: 1 } : { opacity: 0, y: 8 }}
-          animate={isVisible ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 0.65, duration: 0.5, ease: 'easeOut' }}
-        >
-          <p 
-            className="max-w-3xl lg:max-w-5xl mx-auto leading-relaxed font-medium md:whitespace-nowrap"
-            style={{ fontSize: 'clamp(0.82rem, 3vw, 1.5rem)', color: '#FFFFFF', textShadow: '0 0 6px rgba(255,255,255,0.2)' }}
-            data-testid="oarc-tagline"
+          {/* Line 3: Main Tagline - Bolder with stronger text shadow */}
+          <motion.div
+            className="text-center mb-4 md:mb-6 px-2 md:px-0"
+            initial={prefersReducedMotion ? { opacity: 1 } : { opacity: 0, y: 8 }}
+            animate={isVisible ? { opacity: 1, y: 0 } : {}}
+            transition={{ delay: 0.65, duration: 0.5, ease: 'easeOut' }}
           >
-            <span className="whitespace-nowrap">OARC represents our core belief: Progress comes from integration,</span>
-            <br className="md:hidden" />
-            <span className="block md:inline mt-1 md:mt-0"> not separation.</span>
-          </p>
-        </motion.div>
+            {/* Highlight background for readability */}
+            <div 
+              className="inline-block px-4 py-2 rounded-lg"
+              style={{ 
+                background: 'rgba(0,0,0,0.5)',
+                backdropFilter: 'blur(8px)'
+              }}
+            >
+              <p 
+                className="max-w-3xl lg:max-w-5xl mx-auto leading-relaxed font-bold md:whitespace-nowrap"
+                style={{ 
+                  fontSize: 'clamp(0.85rem, 3vw, 1.45rem)', 
+                  color: '#FFFFFF', 
+                  textShadow: '0 0 25px rgba(255,255,255,0.6), 0 2px 15px rgba(0,0,0,0.9), 0 0 50px rgba(255,255,255,0.3)'
+                }}
+                data-testid="oarc-tagline"
+              >
+                <span className="whitespace-nowrap">OARC represents our core belief: Progress comes from integration,</span>
+                <br className="md:hidden" />
+                <span className="block md:inline mt-1 md:mt-0"> not separation.</span>
+              </p>
+            </div>
+          </motion.div>
 
-        {/* Thin gold accent line */}
-        <motion.div
-          className="flex justify-center"
-          initial={prefersReducedMotion ? { opacity: 1 } : { opacity: 0, scaleX: 0 }}
-          animate={isVisible ? { opacity: 1, scaleX: 1 } : {}}
-          transition={{ delay: 0.8, duration: 0.4, ease: 'easeOut' }}
-        >
-          <div 
-            className="w-10 h-[2px] rounded-full"
-            style={{ backgroundColor: '#F5E1A4' }}
-          />
-        </motion.div>
+          {/* Thin gold accent line */}
+          <motion.div
+            className="flex justify-center"
+            initial={prefersReducedMotion ? { opacity: 1 } : { opacity: 0, scaleX: 0 }}
+            animate={isVisible ? { opacity: 1, scaleX: 1 } : {}}
+            transition={{ delay: 0.8, duration: 0.4, ease: 'easeOut' }}
+          >
+            <div 
+              className="w-10 h-[2px] rounded-full"
+              style={{ backgroundColor: '#F5E1A4' }}
+            />
+          </motion.div>
+        </div>
       </div>
 
       <style>{`
