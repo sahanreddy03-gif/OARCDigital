@@ -45,7 +45,7 @@ export default function OARCBrandSection({ videoSrc }: OARCBrandSectionProps) {
       }}
       data-testid="oarc-brand-section"
     >
-      {/* Video Background Layer - Super Visible */}
+      {/* Video Background Layer - Super Visible with Instant Playback */}
       {videoSrc && (
         <div className="absolute inset-0 z-0">
           <video
@@ -53,6 +53,7 @@ export default function OARCBrandSection({ videoSrc }: OARCBrandSectionProps) {
             muted
             loop
             playsInline
+            preload="auto"
             className="w-full h-full object-cover"
             style={{ opacity: 0.85 }}
           >
@@ -62,7 +63,7 @@ export default function OARCBrandSection({ videoSrc }: OARCBrandSectionProps) {
           <div 
             className="absolute inset-0" 
             style={{ 
-              background: 'linear-gradient(180deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.15) 50%, rgba(0,0,0,0.2) 100%)' 
+              background: 'linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.25) 100%)' 
             }} 
           />
         </div>
