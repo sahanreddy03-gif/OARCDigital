@@ -121,8 +121,8 @@ export default function OARCBrandSection() {
           transition={{ delay: 0.65, duration: 0.5, ease: 'easeOut' }}
         >
           <p 
-            className="max-w-3xl lg:max-w-5xl mx-auto leading-relaxed font-normal md:whitespace-nowrap"
-            style={{ fontSize: 'clamp(0.82rem, 3vw, 1.5rem)', color: '#FFFFFF' }}
+            className="max-w-3xl lg:max-w-5xl mx-auto leading-relaxed font-medium md:whitespace-nowrap"
+            style={{ fontSize: 'clamp(0.82rem, 3vw, 1.5rem)', color: '#FFFFFF', textShadow: '0 0 6px rgba(255,255,255,0.2)' }}
             data-testid="oarc-tagline"
           >
             <span className="whitespace-nowrap">OARC represents our core belief: Progress comes from integration,</span>
