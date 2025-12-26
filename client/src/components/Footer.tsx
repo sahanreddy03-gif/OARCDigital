@@ -6,7 +6,7 @@ import companyLogo from "@assets/IMG_9004_1765747003784.png";
 
 const socialLinks = [
   { name: 'Instagram', icon: SiInstagram, href: 'https://instagram.com/oarcdigital' },
-  { name: 'Facebook', icon: SiFacebook, href: 'https://facebook.com/oarcdigital' },
+  { name: 'Facebook', icon: SiFacebook, href: 'https://www.facebook.com/share/1DMdmhdsai/' },
   { name: 'X', icon: SiX, href: 'https://x.com/oarcdigital' },
   { name: 'LinkedIn', icon: SiLinkedin, href: 'https://linkedin.com/company/oarcdigital' },
 ];
