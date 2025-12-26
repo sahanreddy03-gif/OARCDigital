@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X } from 'lucide-react';
+import { X, Cpu } from 'lucide-react';
 import { ARCChat } from './ARCChat';
 
 export function ARCWidget() {
@@ -22,12 +22,24 @@ export function ARCWidget() {
     const hasSeenPopup = sessionStorage.getItem('arc-popup-seen');
     if (hasSeenPopup) return;
 
-    const timer = setTimeout(() => {
+    const showTimer = setTimeout(() => {
       setShowPopup(true);
-    }, 15000);
+    }, 20000);
 
-    return () => clearTimeout(timer);
+    return () => clearTimeout(showTimer);
   }, [isOpen, popupDismissed]);
+
+  useEffect(() => {
+    if (!showPopup) return;
+
+    const hideTimer = setTimeout(() => {
+      setShowPopup(false);
+      setPopupDismissed(true);
+      sessionStorage.setItem('arc-popup-seen', 'true');
+    }, 8000);
+
+    return () => clearTimeout(hideTimer);
+  }, [showPopup]);
 
   const handleOpenChat = () => {
     setIsOpen(true);
@@ -58,10 +70,12 @@ export function ARCWidget() {
       <AnimatePresence>
         {!isOpen && (
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 20 }}
-            className="fixed bottom-6 right-6 z-[9998]"
+            initial={{ scale: 0, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0, opacity: 0 }}
+            className="fixed bottom-6 right-6 z-[9998] cursor-pointer group"
+            onClick={handleOpenChat}
+            data-testid="button-open-chat"
           >
             {/* Proactive Popup */}
             <AnimatePresence>
@@ -71,9 +85,10 @@ export function ARCWidget() {
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: 10, scale: 0.95 }}
                   className="absolute bottom-full right-0 mb-3"
+                  onClick={(e) => e.stopPropagation()}
                 >
                   <div 
-                    className="relative px-4 py-3 text-[13px] text-white max-w-[200px]"
+                    className="relative px-4 py-3 text-[13px] text-white whitespace-nowrap"
                     style={{
                       backgroundColor: '#1a1a24',
                       border: '1px solid #2a2a34',
@@ -88,7 +103,7 @@ export function ARCWidget() {
                     >
                       <X size={14} />
                     </button>
-                    <span>I can roast your website for free 🔥</span>
+                    <span className="pr-4">Ask me anything about growth</span>
                     {/* Triangle pointer */}
                     <div 
                       className="absolute -bottom-2 right-6 w-0 h-0"
@@ -103,45 +118,26 @@ export function ARCWidget() {
               )}
             </AnimatePresence>
 
-            {/* Floating Button */}
-            <motion.button
-              onClick={handleOpenChat}
-              whileHover={{ y: -1 }}
-              className="flex items-center gap-2.5 h-[42px] px-4"
-              style={{
-                backgroundColor: 'rgba(18, 18, 26, 0.95)',
-                backdropFilter: 'blur(10px)',
-                border: '1px solid rgba(255, 255, 255, 0.08)',
-                borderRadius: '21px',
-                boxShadow: '0 8px 32px rgba(0, 0, 0, 0.4)',
-                transition: 'border-color 0.2s'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.15)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.08)';
-              }}
-              data-testid="button-open-chat"
+            {/* Pulsing Rings */}
+            <div className="absolute inset-0 bg-cyan-500 rounded-full animate-ping opacity-20" style={{ animationDuration: '2s' }} />
+            <div className="absolute inset-[-4px] bg-gradient-to-r from-cyan-400 to-purple-600 rounded-full opacity-75 blur-sm group-hover:opacity-100 transition-opacity" />
+
+            {/* Core Orb */}
+            <motion.div 
+              whileHover={{ scale: 1.1 }}
+              className="relative w-14 h-14 bg-black rounded-full flex items-center justify-center border border-white/20 shadow-2xl overflow-hidden"
             >
-              {/* Pulse dot */}
-              <div className="relative">
-                <div 
-                  className="w-1.5 h-1.5 rounded-full"
-                  style={{ backgroundColor: '#22c55e' }}
-                />
-                <div 
-                  className="absolute inset-0 w-1.5 h-1.5 rounded-full animate-ping"
-                  style={{ backgroundColor: '#22c55e', opacity: 0.75 }}
-                />
-              </div>
-              <span 
-                className="text-[13px] font-medium"
-                style={{ color: 'rgba(255, 255, 255, 0.9)' }}
-              >
-                Chat with ARC
-              </span>
-            </motion.button>
+              <div className="absolute inset-0 bg-gradient-to-tr from-cyan-900/40 to-purple-900/40" />
+              <Cpu className="w-6 h-6 text-cyan-400 animate-pulse relative z-10" />
+              
+              {/* Digital Noise Overlay */}
+              <div className="absolute inset-0 opacity-20 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] mix-blend-overlay" />
+            </motion.div>
+
+            {/* ARC Label */}
+            <div className="absolute right-full mr-3 top-1/2 -translate-y-1/2 px-3 py-1.5 bg-black/90 backdrop-blur border border-white/10 rounded-lg text-xs font-bold text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none tracking-wide">
+              ARC
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
