@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Cpu } from 'lucide-react';
+import { X } from 'lucide-react';
 import { ARCChat } from './ARCChat';
 
 export function ARCWidget() {
@@ -128,16 +128,11 @@ export function ARCWidget() {
               className="relative w-14 h-14 bg-black rounded-full flex items-center justify-center border border-white/20 shadow-2xl overflow-hidden"
             >
               <div className="absolute inset-0 bg-gradient-to-tr from-cyan-900/40 to-purple-900/40" />
-              <Cpu className="w-6 h-6 text-cyan-400 animate-pulse relative z-10" />
+              <span className="text-sm font-bold text-cyan-400 tracking-wider relative z-10">ARC</span>
               
               {/* Digital Noise Overlay */}
               <div className="absolute inset-0 opacity-20 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] mix-blend-overlay" />
             </motion.div>
-
-            {/* ARC Label */}
-            <div className="absolute right-full mr-3 top-1/2 -translate-y-1/2 px-3 py-1.5 bg-black/90 backdrop-blur border border-white/10 rounded-lg text-xs font-bold text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none tracking-wide">
-              ARC
-            </div>
           </motion.div>
         )}
       </AnimatePresence>
