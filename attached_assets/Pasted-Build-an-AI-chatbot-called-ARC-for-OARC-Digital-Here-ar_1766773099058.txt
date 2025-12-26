@@ -1,0 +1,236 @@
+Build an AI chatbot called ARC for OARC Digital. Here are the complete specifications:
+
+## PROJECT STRUCTURE
+
+Create these files:
+
+src/
+├── components/
+│   └── ARC/
+│       ├── ARCWidget.tsx          # Main widget (button + chat window)
+│       ├── ARCChat.tsx            # Chat window component
+│       ├── ARCMessage.tsx         # Individual message bubble
+│       └── ARCTypingIndicator.tsx # Typing dots animation
+├── app/
+│   └── api/
+│       └── chat/
+│           └── route.ts           # API endpoint for chat
+└── lib/
+    ├── arcSystemPrompt.ts         # ARC's personality
+    └── instantResponses.ts        # Pre-built responses (no AI needed)
+
+---
+
+## PART 1: THE FLOATING BUTTON + CHAT WINDOW
+
+### ARCWidget.tsx
+
+Create a floating chat widget with these specs:
+
+**FLOATING BUTTON (When chat is closed):**
+- Position: Fixed, bottom-right (bottom: 24px, right: 24px)
+- Size: Height 42px, padding 0 16px
+- Border-radius: 21px (pill shape)
+- Background: rgba(18, 18, 26, 0.95)
+- Backdrop-filter: blur(10px)
+- Border: 1px solid rgba(255, 255, 255, 0.08)
+- Shadow: 0 8px 32px rgba(0, 0, 0, 0.4)
+
+Content (left to right):
+- Green dot: 6px circle, #22c55e, with pulse animation
+- Text: "Chat with ARC" — font-size 13px, font-weight 500, color rgba(255,255,255,0.9)
+
+Hover state:
+- Border color: rgba(255, 255, 255, 0.15)
+- Transform: translateY(-1px)
+
+**CHAT WINDOW (When open):**
+- Position: Fixed, bottom: 24px, right: 24px
+- Size: 380px wide × 550px tall
+- Border-radius: 16px
+- Background: #0a0a0f
+- Border: 1px solid #1a1a24
+- Shadow: 0 12px 50px rgba(0, 0, 0, 0.5)
+- z-index: 9999
+
+Animation on open:
+- Fade in + scale from 0.95 to 1
+- Duration: 200ms ease-out
+
+**CHAT HEADER:**
+- Height: 60px
+- Background: #0f0f14
+- Border-bottom: 1px solid #1a1a24
+- Padding: 0 16px
+- Display: flex, align-items: center, justify-content: space-between
+
+Left side:
+- Avatar: 36px circle, background linear-gradient(135deg, #22c55e, #16a34a)
+- Letter "A" inside: white, bold, 14px
+- Next to avatar: "ARC" (white, 15px, semibold) and below it "Online" (green #22c55e, 11px)
+
+Right side:
+- Close button: "×" in gray #666, hover white, 20px
+
+**MESSAGES AREA:**
+- Flex: 1 (takes remaining space)
+- Overflow-y: auto (scrollable)
+- Padding: 16px
+- Background: #0a0a0f
+
+User messages:
+- Align: right
+- Background: #22c55e
+- Color: #000
+- Border-radius: 16px 16px 4px 16px
+- Padding: 12px 16px
+- Max-width: 80%
+- Font-size: 14px
+
+ARC messages:
+- Align: left
+- Background: #1a1a24
+- Color: #e5e5e5
+- Border-radius: 16px 16px 16px 4px
+- Padding: 12px 16px
+- Max-width: 80%
+- Font-size: 14px
+- Line-height: 1.5
+
+New message animation:
+- Fade in + slide up from y: 8px
+- Duration: 150ms
+
+**TYPING INDICATOR:**
+- Same style as ARC message
+- Contains 3 dots (6px each, gray)
+- Dots animate: bounce up 3px with staggered delay (0, 150ms, 300ms)
+- Below dots: "ARC is typing..." in gray, 11px
+
+**INPUT AREA:**
+- Height: 70px
+- Background: #0a0a0f
+- Border-top: 1px solid #1a1a24
+- Padding: 12px 16px
+- Display: flex, gap: 10px
+
+Input field:
+- Flex: 1
+- Background: #1a1a24
+- Border: 1px solid #252530
+- Border-radius: 12px
+- Padding: 12px 16px
+- Color: white
+- Font-size: 14px
+- Placeholder: "Type a message..." in #555
+- Focus: border-color #22c55e
+
+Send button:
+- Width: 44px
+- Height: 44px
+- Background: #22c55e
+- Border-radius: 12px
+- Color: #000
+- Icon: Arrow right or send icon
+- Disabled state: opacity 0.4 when input is empty
+- Hover: background #1ea34a
+
+**INITIAL GREETING:**
+When chat opens (if no messages):
+- After 300ms delay, show ARC's greeting
+- Show typing indicator first for 800ms, then show message
+
+Greeting (rotate randomly):
+1. "Hey! I'm ARC — I help people figure out if OARC is right for them. What brings you here?"
+2. "Hi there! I'm ARC. I can answer questions, roast your website, or show you what AI can do for YOUR business. What sounds useful?"
+3. "Welcome! Quick heads up — I'm not going to push you to book a call until I actually understand what you need. So... what's going on?"
+
+**SUGGESTED PROMPTS (Optional):**
+After greeting, show 3 clickable chips:
+- "Roast my website"
+- "Show me what you do"
+- "Calculate my ROI"
+
+Style: Small pills, border: 1px solid #333, color #888, padding 8px 14px, border-radius 20px
+Hover: border-color #22c55e, color #22c55e
+
+**PROACTIVE POPUP:**
+After 15 seconds (if chat not opened):
+- Show speech bubble above the button
+- Background: #1a1a24
+- Border: 1px solid #2a2a34
+- Border-radius: 12px
+- Padding: 12px 16px
+- Max-width: 200px
+- Font-size: 13px
+- Color: white
+- Shadow: 0 8px 30px rgba(0,0,0,0.4)
+
+Popup has small triangle pointing down to button.
+Small "×" to close in top-right.
+
+Message: "I can roast your website for free 🔥"
+
+Only show once per session (use sessionStorage).
+
+**MOBILE RESPONSIVE:**
+Below 640px:
+- Chat window: full screen (position fixed, inset 0)
+- Header: add back arrow instead of ×
+- Border-radius: 0
+
+---
+
+## PART 2: API ROUTE
+
+### app/api/chat/route.ts
+
+Create the API endpoint:
+
+```typescript
+import OpenAI from 'openai';
+import { ARC_SYSTEM_PROMPT } from '@/lib/arcSystemPrompt';
+import { checkInstantResponse } from '@/lib/instantResponses';
+
+const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY,
+});
+
+export async function POST(req: Request) {
+  try {
+    const { message, history } = await req.json();
+    
+    // Validate
+    if (!message || typeof message !== 'string') {
+      return Response.json({ error: 'Invalid message' }, { status: 400 });
+    }
+    
+    // LAYER 1: Check instant responses (free, no AI)
+    const instant = checkInstantResponse(message);
+    if (instant) {
+      return Response.json({ response: instant, type: 'instant' });
+    }
+    
+    // LAYER 2: Call AI
+    const completion = await openai.chat.completions.create({
+      model: 'gpt-4o-mini',
+      messages: [
+        { role: 'system', content: ARC_SYSTEM_PROMPT },
+        ...history.slice(-10),
+        { role: 'user', content: message }
+      ],
+      max_tokens: 700,
+      temperature: 0.8,
+    });
+    
+    const response = completion.choices[0].message.content;
+    return Response.json({ response, type: 'ai' });
+    
+  } catch (error) {
+    console.error('Chat error:', error);
+    return Response.json({ 
+      response: "Something went wrong. Try again, or email hello@oarcdigital.com",
+      type: 'error'
+    });
+  }
+}
