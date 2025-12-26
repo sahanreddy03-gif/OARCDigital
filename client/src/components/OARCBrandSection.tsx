@@ -57,10 +57,10 @@ export default function OARCBrandSection({ videoSrc }: OARCBrandSectionProps) {
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden"
+      className="relative overflow-hidden min-h-[320px] md:min-h-[380px]"
       data-testid="oarc-brand-section"
     >
-      {/* Video Background Layer - Full coverage, instant autoplay */}
+      {/* Video Background Layer - Full coverage, bright, instant autoplay */}
       {videoSrc && (
         <div className="absolute inset-0 z-0">
           <video
@@ -71,22 +71,21 @@ export default function OARCBrandSection({ videoSrc }: OARCBrandSectionProps) {
             playsInline
             preload="auto"
             className="w-full h-full object-cover"
-            style={{ opacity: 0.85 }}
             {...{ 'webkit-playsinline': 'true' } as any}
           >
             <source src={videoSrc} type="video/mp4" />
           </video>
-          {/* Stronger overlay for better text readability */}
+          {/* Very light overlay just for minimal text contrast */}
           <div 
             className="absolute inset-0" 
             style={{ 
-              background: 'linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.35) 100%)' 
+              background: 'linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.05) 50%, rgba(0,0,0,0.15) 100%)' 
             }} 
           />
         </div>
       )}
 
-      <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24 max-w-6xl lg:max-w-7xl relative z-10 flex flex-col min-h-[280px] md:min-h-[340px] py-10 md:py-14">
+      <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24 max-w-6xl lg:max-w-7xl relative z-10 flex flex-col h-full py-10 md:py-14">
         
         {/* OARC Letters - At very top */}
         <div className="text-center mb-auto">
