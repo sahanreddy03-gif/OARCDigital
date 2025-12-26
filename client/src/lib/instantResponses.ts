@@ -82,7 +82,8 @@ export function checkInstantResponse(message: string): string | null {
   
   for (const item of responses) {
     for (const trigger of item.triggers) {
-      if (lower.includes(trigger) || lower === trigger) {
+      const wordBoundaryRegex = new RegExp(`\\b${trigger.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'i');
+      if (wordBoundaryRegex.test(lower)) {
         return item.response;
       }
     }
