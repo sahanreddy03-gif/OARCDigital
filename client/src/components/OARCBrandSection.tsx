@@ -7,8 +7,26 @@ interface OARCBrandSectionProps {
 
 export default function OARCBrandSection({ videoSrc }: OARCBrandSectionProps) {
   const sectionRef = useRef<HTMLElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const [isVisible, setIsVisible] = useState(false);
   const prefersReducedMotion = useReducedMotion();
+
+  // Force video autoplay on mount
+  useEffect(() => {
+    const video = videoRef.current;
+    if (video) {
+      video.play().catch(() => {
+        // Autoplay failed, try again with user interaction fallback
+        const playOnInteraction = () => {
+          video.play();
+          document.removeEventListener('touchstart', playOnInteraction);
+          document.removeEventListener('click', playOnInteraction);
+        };
+        document.addEventListener('touchstart', playOnInteraction, { once: true });
+        document.addEventListener('click', playOnInteraction, { once: true });
+      });
+    }
+  }, [videoSrc]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -39,16 +57,14 @@ export default function OARCBrandSection({ videoSrc }: OARCBrandSectionProps) {
   return (
     <section
       ref={sectionRef}
-      className="relative py-10 md:py-14 overflow-hidden"
-      style={{ 
-        background: 'linear-gradient(180deg, #050505 0%, #0a0a0a 20%, #111111 50%, #1a1a1a 80%, #f5f5f5 100%)'
-      }}
+      className="relative overflow-hidden"
       data-testid="oarc-brand-section"
     >
-      {/* Video Background Layer - Super Visible, Instant Playback */}
+      {/* Video Background Layer - Full coverage, instant autoplay */}
       {videoSrc && (
         <div className="absolute inset-0 z-0">
           <video
+            ref={videoRef}
             autoPlay
             muted
             loop
@@ -56,6 +72,7 @@ export default function OARCBrandSection({ videoSrc }: OARCBrandSectionProps) {
             preload="auto"
             className="w-full h-full object-cover"
             style={{ opacity: 0.85 }}
+            {...{ 'webkit-playsinline': 'true' } as any}
           >
             <source src={videoSrc} type="video/mp4" />
           </video>
@@ -69,7 +86,7 @@ export default function OARCBrandSection({ videoSrc }: OARCBrandSectionProps) {
         </div>
       )}
 
-      <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24 max-w-6xl lg:max-w-7xl relative z-10 flex flex-col min-h-[280px] md:min-h-[340px]">
+      <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24 max-w-6xl lg:max-w-7xl relative z-10 flex flex-col min-h-[280px] md:min-h-[340px] py-10 md:py-14">
         
         {/* OARC Letters - At very top */}
         <div className="text-center mb-auto">
