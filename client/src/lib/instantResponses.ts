@@ -1,49 +1,88 @@
-interface InstantResponse {
-  patterns: RegExp[];
+interface InstantResponseItem {
+  triggers: string[];
   response: string;
 }
 
-const instantResponses: InstantResponse[] = [
+const responses: InstantResponseItem[] = [
   {
-    patterns: [/^(hi|hello|hey|yo|sup|hiya)[\s!?.]*$/i],
-    response: "Hey! 👋 I'm ARC — I help people figure out if OARC is right for them. What brings you here today?"
+    triggers: ['hi', 'hello', 'hey', 'yo', 'hola', 'good morning', 'good afternoon'],
+    response: `Hey! I'm ARC 👋
+
+I can:
+• 🔥 Roast your website (for free)
+• 📅 Create a content calendar
+• 🧮 Calculate your ROI
+• 💬 Answer questions about OARC
+
+What sounds useful?`
   },
   {
-    patterns: [/what.*your.*name|who.*are.*you/i],
-    response: "I'm ARC — OARC Digital's AI assistant. I can answer questions about our services, roast your website, or help you figure out if we're a good fit. What would you like to know?"
+    triggers: ['price', 'cost', 'pricing', 'how much', 'rates', 'budget', 'expensive', 'afford'],
+    response: `Straight answer on pricing:
+
+📱 **Social Media & Marketing**: €2,500-5,000/month
+🤖 **AI Automation**: €3,000-8,000 setup + monthly
+💻 **Custom Development**: €5,000-25,000+
+
+But real talk — the better question is: what's the problem costing you?
+
+What are you trying to solve?`
   },
   {
-    patterns: [/where.*located|where.*based|where.*you|location|office/i],
-    response: "We're based in Malta 🇲🇹 (EU), with teams in India and Dubai for round-the-clock coverage. Our Malta HQ handles strategy and client relationships, while our other offices power delivery and support."
+    triggers: ['services', 'what do you do', 'what do you offer', 'help with'],
+    response: `We do three things:
+
+**1. Creative & Marketing**
+Social media, content, ads, branding — getting you noticed.
+
+**2. AI Automation**
+Chatbots, voice agents, lead automation — working while you sleep.
+
+**3. Custom Software**
+CRMs, booking systems, tools — making operations smooth.
+
+Which one's relevant to you right now?`
   },
   {
-    patterns: [/pricing|cost|how much|price|rates|quote/i],
-    response: "Pricing depends on scope, but here's the ballpark: AI Employees start around €2,500/month, social media €1,500-5,000/month, web design €3,000-15,000, SEO €1,500-4,000/month. Want me to dig into a specific service?"
+    triggers: ['location', 'where', 'based', 'malta', 'office'],
+    response: `We're based in Malta 🇲🇹 but work with clients across Europe.
+
+Everything's remote — video calls, async updates, dashboards.
+
+Where are you based?`
   },
   {
-    patterns: [/contact|email|phone|call|reach|get in touch/i],
-    response: "You can reach the team at hello@oarcdigital.com or call +356 7945 2344 (Malta). Want me to help you figure out what to ask them first?"
+    triggers: ['bye', 'goodbye', 'thanks', 'thank you', 'cheers', 'that\'s all'],
+    response: `Anytime! 
+
+Before you go — try our free diagnostic: **oarcdigital.com/diagnostic**
+
+Finds what's costing you money in 90 seconds.
+
+Come back whenever. I'll be here 👋`
   },
   {
-    patterns: [/guarantee|money.*back|refund/i],
-    response: "Yep! Most of our services come with a 90-day money-back guarantee. If you're not seeing results, you get a full refund. It's our way of putting skin in the game."
-  },
-  {
-    patterns: [/thanks|thank you|thx|cheers/i],
-    response: "Anytime! 🙌 Let me know if you need anything else."
-  },
-  {
-    patterns: [/bye|goodbye|see ya|later|cya/i],
-    response: "Catch you later! Feel free to come back anytime. Good luck with everything! 👋"
+    triggers: ['roast', 'review', 'check my', 'look at my', 'website feedback'],
+    response: `I'd love to roast your website 🔥
+
+Drop the URL and I'll give you:
+• What's working
+• What's broken
+• 3-5 specific fixes
+• Headline alternatives
+
+No sugarcoating. Ready?`
   }
 ];
 
 export function checkInstantResponse(message: string): string | null {
-  const trimmed = message.trim();
+  const lower = message.toLowerCase().trim();
   
-  for (const item of instantResponses) {
-    for (const pattern of item.patterns) {
-      if (pattern.test(trimmed)) {
+  if (message.length > 100) return null;
+  
+  for (const item of responses) {
+    for (const trigger of item.triggers) {
+      if (lower.includes(trigger) || lower === trigger) {
         return item.response;
       }
     }
@@ -53,9 +92,15 @@ export function checkInstantResponse(message: string): string | null {
 }
 
 export const GREETING_MESSAGES = [
-  "Hey! I'm ARC — I help people figure out if OARC is right for them. What brings you here?",
-  "Hi there! I'm ARC. I can answer questions, roast your website, or show you what AI can do for YOUR business. What sounds useful?",
-  "Welcome! Quick heads up — I'm not going to push you to book a call until I actually understand what you need. So... what's going on?"
+  `Hey! I'm ARC 👋
+
+I can:
+• 🔥 Roast your website (for free)
+• 📅 Create a content calendar
+• 🧮 Calculate your ROI
+• 💬 Answer questions about OARC
+
+What sounds useful?`
 ];
 
 export function getRandomGreeting(): string {
