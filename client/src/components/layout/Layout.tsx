@@ -1,6 +1,5 @@
 import Navigation from "./Navigation";
 import Footer from "../Footer";
-import FloatingDock from "./FloatingDock";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -14,7 +13,6 @@ export default function Layout({ children, showNav = true, showFooter = true }: 
       {showNav && <Navigation />}
       <main className="flex-1">
         {children}
-        <FloatingDock />
       </main>
       {showFooter && <Footer />}
     </div>
