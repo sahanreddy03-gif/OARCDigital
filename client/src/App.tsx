@@ -91,6 +91,7 @@ import TermsConditions from "@/pages/legal/TermsConditions";
 import Tools from "@/pages/Tools";
 import DiagnosticPage from "@/pages/DiagnosticPage";
 import NotFound from "@/pages/not-found";
+import { ARCWidget } from "@/components/ARC";
 
 function Router() {
   return (
@@ -247,6 +248,7 @@ function App() {
         <TooltipProvider>
           <Toaster />
           <Router />
+          <ARCWidget />
         </TooltipProvider>
       </HelmetProvider>
     </QueryClientProvider>
