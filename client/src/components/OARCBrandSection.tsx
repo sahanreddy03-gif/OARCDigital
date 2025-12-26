@@ -11,12 +11,10 @@ export default function OARCBrandSection({ videoSrc }: OARCBrandSectionProps) {
   const [isVisible, setIsVisible] = useState(false);
   const prefersReducedMotion = useReducedMotion();
 
-  // Force video autoplay on mount
   useEffect(() => {
     const video = videoRef.current;
     if (video) {
       video.play().catch(() => {
-        // Autoplay failed, try again with user interaction fallback
         const playOnInteraction = () => {
           video.play();
           document.removeEventListener('touchstart', playOnInteraction);
@@ -46,49 +44,49 @@ export default function OARCBrandSection({ videoSrc }: OARCBrandSectionProps) {
     return () => observer.disconnect();
   }, []);
 
-  // Letter glow colors - subtle and premium
   const letters = [
-    { letter: "O", glowColor: "rgba(255,179,102,0.25)", textGlow: "rgba(255,179,102,0.4)" },  // warm orange
-    { letter: "A", glowColor: "rgba(0,209,193,0.25)", textGlow: "rgba(0,209,193,0.4)" },      // teal
-    { letter: "R", glowColor: "rgba(245,225,164,0.25)", textGlow: "rgba(245,225,164,0.4)" }, // champagne/gold
-    { letter: "C", glowColor: "rgba(207,255,102,0.25)", textGlow: "rgba(207,255,102,0.4)" }, // lime
+    { letter: "O", glowColor: "rgba(255,179,102,0.25)", textGlow: "rgba(255,179,102,0.4)" },
+    { letter: "A", glowColor: "rgba(0,209,193,0.25)", textGlow: "rgba(0,209,193,0.4)" },
+    { letter: "R", glowColor: "rgba(245,225,164,0.25)", textGlow: "rgba(245,225,164,0.4)" },
+    { letter: "C", glowColor: "rgba(207,255,102,0.25)", textGlow: "rgba(207,255,102,0.4)" },
   ];
 
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden min-h-[320px] md:min-h-[380px]"
+      className="relative w-full"
+      style={{ height: '380px' }}
       data-testid="oarc-brand-section"
     >
-      {/* Video Background Layer - Full coverage, bright, instant autoplay */}
       {videoSrc && (
-        <div className="absolute inset-0 z-0">
-          <video
-            ref={videoRef}
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="auto"
-            className="w-full h-full object-cover"
-            {...{ 'webkit-playsinline': 'true' } as any}
-          >
-            <source src={videoSrc} type="video/mp4" />
-          </video>
-          {/* Very light overlay just for minimal text contrast */}
-          <div 
-            className="absolute inset-0" 
-            style={{ 
-              background: 'linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.05) 50%, rgba(0,0,0,0.15) 100%)' 
-            }} 
-          />
-        </div>
+        <video
+          ref={videoRef}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          className="absolute top-0 left-0 w-full h-full object-cover"
+          style={{ zIndex: 0 }}
+          {...{ 'webkit-playsinline': 'true' } as any}
+        >
+          <source src={videoSrc} type="video/mp4" />
+        </video>
       )}
 
-      <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24 max-w-6xl lg:max-w-7xl relative z-10 flex flex-col min-h-[320px] md:min-h-[380px] py-6 md:py-8">
-        
-        {/* OARC Letters - At very top */}
-        <div className="text-center mb-auto">
+      <div 
+        className="absolute top-0 left-0 w-full h-full" 
+        style={{ 
+          zIndex: 1,
+          background: 'linear-gradient(180deg, rgba(0,0,0,0.08) 0%, rgba(0,0,0,0.03) 50%, rgba(0,0,0,0.1) 100%)' 
+        }} 
+      />
+
+      <div 
+        className="absolute top-0 left-0 w-full h-full flex flex-col px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24 py-8"
+        style={{ zIndex: 2 }}
+      >
+        <div className="text-center">
           <div className="flex items-center justify-center gap-3 sm:gap-4 md:gap-8 lg:gap-12">
             {letters.map((item, index) => (
               <motion.div
@@ -102,7 +100,6 @@ export default function OARCBrandSection({ videoSrc }: OARCBrandSectionProps) {
                   ease: [0.25, 0.46, 0.45, 0.94]
                 }}
               >
-                {/* Subtle glow behind letter */}
                 <motion.div 
                   className="absolute inset-0 rounded-full blur-[40px] md:blur-[60px] -z-10"
                   style={{ 
@@ -121,7 +118,6 @@ export default function OARCBrandSection({ videoSrc }: OARCBrandSectionProps) {
                   }}
                 />
                 
-                {/* The letter */}
                 <span 
                   className="font-bold text-white relative z-10"
                   style={{ 
@@ -139,9 +135,7 @@ export default function OARCBrandSection({ videoSrc }: OARCBrandSectionProps) {
           </div>
         </div>
 
-        {/* Bottom section - 2 lines with bold text and subtle shadow */}
         <div className="mt-auto">
-          {/* Line 2: Optimised + AI + Revenue intelligence + Creative - O/A/R/C bigger */}
           <motion.div
             className="text-center mb-4 md:mb-5 px-1 md:px-0"
             initial={prefersReducedMotion ? { opacity: 1 } : { opacity: 0, y: 6 }}
@@ -189,7 +183,6 @@ export default function OARCBrandSection({ videoSrc }: OARCBrandSectionProps) {
             </p>
           </motion.div>
 
-          {/* Line 3: Main Tagline - Bold with subtle shadow */}
           <motion.div
             className="text-center mb-4 md:mb-6 px-2 md:px-0"
             initial={prefersReducedMotion ? { opacity: 1 } : { opacity: 0, y: 8 }}
@@ -211,7 +204,6 @@ export default function OARCBrandSection({ videoSrc }: OARCBrandSectionProps) {
             </p>
           </motion.div>
 
-          {/* Thin gold accent line */}
           <motion.div
             className="flex justify-center"
             initial={prefersReducedMotion ? { opacity: 1 } : { opacity: 0, scaleX: 0 }}
@@ -231,6 +223,11 @@ export default function OARCBrandSection({ videoSrc }: OARCBrandSectionProps) {
           [data-testid="oarc-brand-section"] * {
             transition-duration: 0.01ms !important;
             animation-duration: 0.01ms !important;
+          }
+        }
+        @media (max-width: 768px) {
+          [data-testid="oarc-brand-section"] {
+            height: 320px !important;
           }
         }
       `}</style>
