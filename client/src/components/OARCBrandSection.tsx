@@ -85,7 +85,7 @@ export default function OARCBrandSection({ videoSrc }: OARCBrandSectionProps) {
         </div>
       )}
 
-      <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24 max-w-6xl lg:max-w-7xl relative z-10 flex flex-col h-full py-10 md:py-14">
+      <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24 max-w-6xl lg:max-w-7xl relative z-10 flex flex-col min-h-[320px] md:min-h-[380px] py-6 md:py-8">
         
         {/* OARC Letters - At very top */}
         <div className="text-center mb-auto">
