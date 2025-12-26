@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import { X, ArrowLeft, Send } from 'lucide-react';
+import { X, ArrowLeft, Send, Phone, Flame, Briefcase, Calculator } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { ARCMessage } from './ARCMessage';
 import { ARCTypingIndicator } from './ARCTypingIndicator';
@@ -16,10 +16,13 @@ interface ARCChatProps {
   isMobile: boolean;
 }
 
-const SUGGESTED_PROMPTS = [
-  "Roast my website",
-  "Show me what you do",
-  "Calculate my ROI"
+const MALTA_PHONE = '+35679711799';
+
+const QUICK_ACTIONS = [
+  { id: 'call', label: 'Talk to Sales', icon: Phone, type: 'phone' as const },
+  { id: 'roast', label: 'Roast My Website', icon: Flame, type: 'prompt' as const, prompt: 'I want you to roast my website' },
+  { id: 'services', label: 'See Our Work', icon: Briefcase, type: 'link' as const, href: '/our-work' },
+  { id: 'roi', label: 'Calculate ROI', icon: Calculator, type: 'prompt' as const, prompt: 'Help me calculate ROI' },
 ];
 
 export function ARCChat({ onClose, isMobile }: ARCChatProps) {
@@ -123,6 +126,16 @@ export function ARCChat({ onClose, isMobile }: ARCChatProps) {
     sendMessage(prompt);
   };
 
+  const handleQuickAction = (action: typeof QUICK_ACTIONS[0]) => {
+    if (action.type === 'phone') {
+      window.open(`tel:${MALTA_PHONE}`, '_self');
+    } else if (action.type === 'link' && 'href' in action) {
+      window.location.href = action.href;
+    } else if (action.type === 'prompt' && 'prompt' in action) {
+      sendMessage(action.prompt);
+    }
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.95 }}
@@ -199,32 +212,44 @@ export function ARCChat({ onClose, isMobile }: ARCChatProps) {
         
         {isTyping && <ARCTypingIndicator />}
         
-        {/* Suggested Prompts */}
+        {/* Quick Action Buttons */}
         {showPrompts && messages.length === 1 && !isTyping && (
-          <div className="flex flex-wrap gap-2 mt-4">
-            {SUGGESTED_PROMPTS.map((prompt) => (
-              <button
-                key={prompt}
-                onClick={() => handlePromptClick(prompt)}
-                className="px-3.5 py-2 text-[13px] rounded-full border transition-colors"
-                style={{
-                  borderColor: '#333',
-                  color: '#888',
-                  backgroundColor: 'transparent'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.borderColor = '#22c55e';
-                  e.currentTarget.style.color = '#22c55e';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.borderColor = '#333';
-                  e.currentTarget.style.color = '#888';
-                }}
-                data-testid={`button-prompt-${prompt.toLowerCase().replace(/\s+/g, '-')}`}
-              >
-                {prompt}
-              </button>
-            ))}
+          <div className="grid grid-cols-2 gap-2 mt-4">
+            {QUICK_ACTIONS.map((action) => {
+              const IconComponent = action.icon;
+              return (
+                <button
+                  key={action.id}
+                  onClick={() => handleQuickAction(action)}
+                  className="flex items-center gap-2 px-3 py-2.5 text-[12px] font-medium rounded-lg border transition-all"
+                  style={{
+                    borderColor: action.id === 'call' ? '#22c55e' : '#333',
+                    color: action.id === 'call' ? '#22c55e' : '#999',
+                    backgroundColor: action.id === 'call' ? 'rgba(34, 197, 94, 0.1)' : 'transparent'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.borderColor = '#22c55e';
+                    e.currentTarget.style.color = '#22c55e';
+                    e.currentTarget.style.backgroundColor = 'rgba(34, 197, 94, 0.1)';
+                  }}
+                  onMouseLeave={(e) => {
+                    if (action.id === 'call') {
+                      e.currentTarget.style.borderColor = '#22c55e';
+                      e.currentTarget.style.color = '#22c55e';
+                      e.currentTarget.style.backgroundColor = 'rgba(34, 197, 94, 0.1)';
+                    } else {
+                      e.currentTarget.style.borderColor = '#333';
+                      e.currentTarget.style.color = '#999';
+                      e.currentTarget.style.backgroundColor = 'transparent';
+                    }
+                  }}
+                  data-testid={`button-action-${action.id}`}
+                >
+                  <IconComponent size={14} />
+                  <span>{action.label}</span>
+                </button>
+              );
+            })}
           </div>
         )}
         
