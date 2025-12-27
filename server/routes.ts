@@ -163,6 +163,11 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  // Test endpoint to check if XAI_API_KEY exists
+  app.get('/api/test-key', (_req, res) => {
+    res.json({ keyExists: !!process.env.XAI_API_KEY });
+  });
+
   // SEO Enhancement Routes
   
   // Sitemap.xml - Programmatically generated
