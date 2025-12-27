@@ -4,12 +4,13 @@ import { storage } from "./storage";
 import { maltaLocations, locationServices, allServiceSlugs, allCaseStudySlugs } from "../shared/seoConfig";
 import OpenAI from "openai";
 
-function getOpenAIClient(): OpenAI | null {
-  if (!process.env.OPENAI_API_KEY) {
+function getGrokClient(): OpenAI | null {
+  if (!process.env.XAI_API_KEY) {
     return null;
   }
   return new OpenAI({
-    apiKey: process.env.OPENAI_API_KEY,
+    apiKey: process.env.XAI_API_KEY,
+    baseURL: "https://api.x.ai/v1"
   });
 }
 
@@ -131,16 +132,16 @@ export async function registerRoutes(app: Express): Promise<Server> {
         return res.status(400).json({ error: 'Invalid message' });
       }
 
-      const openai = getOpenAIClient();
-      if (!openai) {
+      const grok = getGrokClient();
+      if (!grok) {
         return res.json({ 
           response: "I'm currently in demo mode. For full AI capabilities, the team will configure this soon. In the meantime, feel free to email hello@oarcdigital.com!",
           type: 'demo'
         });
       }
 
-      const completion = await openai.chat.completions.create({
-        model: 'gpt-4o-mini',
+      const completion = await grok.chat.completions.create({
+        model: 'grok-4-1-fast-non-reasoning',
         messages: [
           { role: 'system', content: ARC_SYSTEM_PROMPT },
           ...(history || []).slice(-10),
