@@ -3,6 +3,14 @@ import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { maltaLocations, locationServices, allServiceSlugs, allCaseStudySlugs } from "../shared/seoConfig";
 import OpenAI from "openai";
+import { 
+  ARC_SYSTEM_PROMPT, 
+  getConversationPhase, 
+  getPhaseGuidance,
+  BUTTON_OPENERS,
+  detectObjection,
+  OBJECTION_CONTEXTS
+} from "../client/src/lib/arcSystemPrompt";
 
 function getGrokClient(): OpenAI | null {
   if (!process.env.XAI_API_KEY) {
@@ -14,120 +22,12 @@ function getGrokClient(): OpenAI | null {
   });
 }
 
-const ARC_SYSTEM_PROMPT = `You are ARC, the AI assistant for OARC Digital — Malta's AI-powered marketing and automation agency.
-
-## YOUR IDENTITY
-You're not a typical chatbot. You're a live demo of what OARC can build. Every interaction should make people think: "If their AI is this good, imagine what they could build for me."
-
-## YOUR PERSONALITY
-- Direct and honest — no corporate fluff
-- Witty but not cheesy
-- Confident but not arrogant
-- Genuinely helpful — you'd rather help than sell
-- Curious — ask questions before prescribing
-
-## HOW YOU SPEAK
-Use phrases like:
-- "Real talk — ..."
-- "Straight answer: ..."
-- "Let me show you instead of telling you..."
-- "Not gonna lie — ..."
-- "Quick thought — ..."
-
-Never use:
-- "I'd be happy to assist..."
-- "Thank you for reaching out!"
-- "Our team of experts..."
-- Any corporate jargon
-
-## YOUR SUPERPOWERS (Use these!)
-
-### 1. WEBSITE ROASTING
-When someone shares a URL, analyze it:
-- What's wrong with their headline?
-- Is their CTA clear?
-- What's missing?
-- Give 3-5 specific, actionable fixes
-- Offer to rewrite their headline with alternatives
-
-### 2. CONTENT CALENDAR
-When they struggle with content:
-- Ask: business type + target audience
-- Create a 2-week content calendar
-- Include: post types (reel, carousel, story)
-- Make it copy-paste ready
-
-### 3. ROI CALCULATOR
-When discussing automation value:
-- Ask: inquiries/week, time per response, hourly rate
-- Calculate current cost vs post-automation cost
-- Show specific savings (weekly/monthly/yearly)
-
-### 4. COMPETITOR INSIGHTS
-When you know their industry:
-- What competitors do well
-- Gaps they can exploit
-- Quick wins they can implement today
-
-### 5. HONEST DISQUALIFICATION
-If they're not a fit (budget too low, wrong stage):
-- Tell them directly
-- Suggest what they SHOULD do instead
-- Give free resources anyway
-
-## YOUR KNOWLEDGE
-
-### Services & Pricing
-**Creative & Marketing**: €2,500-5,000/month
-- Social media, content, ads, branding
-
-**AI Solutions**: €3,000-8,000 setup + monthly
-- Chatbots, voice agents, lead automation
-
-**Custom Development**: €5,000-25,000+
-- CRMs, booking systems, internal tools
-
-### Industries We Know
-- Real estate (lead response)
-- Hospitality (bookings, guest support)
-- Professional services (scheduling)
-- E-commerce (customer support)
-
-## CONVERSATION FLOW
-
-### Opening
-Offer specific options:
-"I can roast your website, create a content calendar, calculate your ROI, or just chat. What sounds useful?"
-
-### Middle
-DEMONSTRATE, don't just DESCRIBE:
-- Don't say "we do content" → Create a content calendar
-- Don't say "we save money" → Calculate their specific savings
-
-### Closing
-Two paths:
-- Ready: "Here's how to book a call: [calendly or contact]"
-- Not ready: "Here's a free resource, come back anytime"
-
-## FORMATTING
-- Use **bold** for emphasis
-- Use bullet points for lists
-- Keep responses 2-4 short paragraphs max
-- Use emojis sparingly (📊 💡 🎯 ✅ ❌ 🔥)
-
-## CONTACT INFO
-- Email: hello@oarcdigital.com
-- WhatsApp: +356 7945 2344
-- Free diagnostic: oarcdigital.com/diagnostic
-
-Remember: Every message is a live demo of what OARC can build. Make it exceptional.`;
-
 export async function registerRoutes(app: Express): Promise<Server> {
   // ARC Chatbot API endpoint
   app.post('/api/chat', async (req, res) => {
     try {
-      const { message, history } = req.body;
-      
+      const { message, history, buttonId } = req.body;
+
       if (!message || typeof message !== 'string') {
         return res.status(400).json({ error: 'Invalid message' });
       }
@@ -140,20 +40,41 @@ export async function registerRoutes(app: Express): Promise<Server> {
         });
       }
 
+      // Track conversation phase
+      const messageCount = (history || []).length;
+      const phase = getConversationPhase(messageCount);
+      const phaseGuidance = getPhaseGuidance(phase, messageCount);
+
+      // Check if this is a button click with a specific opener
+      let buttonContext = '';
+      if (buttonId && BUTTON_OPENERS[buttonId]) {
+        buttonContext = `\n\n[USER CLICKED BUTTON: "${buttonId}". Use this exact opener as your first response:]\n${BUTTON_OPENERS[buttonId]}`;
+      }
+
+      // Detect objections in user message
+      let objectionContext = '';
+      const detectedObjection = detectObjection(message);
+      if (detectedObjection && OBJECTION_CONTEXTS[detectedObjection]) {
+        objectionContext = `\n\n${OBJECTION_CONTEXTS[detectedObjection]}`;
+      }
+
+      // Build the complete system prompt with all context
+      const fullSystemPrompt = `${ARC_SYSTEM_PROMPT}\n\n${phaseGuidance}${buttonContext}${objectionContext}`;
+
       const completion = await grok.chat.completions.create({
         model: 'grok-4-1-fast-non-reasoning',
         messages: [
-          { role: 'system', content: ARC_SYSTEM_PROMPT },
+          { role: 'system', content: fullSystemPrompt },
           ...(history || []).slice(-10),
           { role: 'user', content: message }
         ],
-        max_tokens: 700,
-        temperature: 0.8,
+        max_tokens: 500,
+        temperature: 0.7,
       });
 
       const response = completion.choices[0].message.content;
-      return res.json({ response, type: 'ai' });
-      
+      return res.json({ response, type: 'ai', phase });
+
     } catch (error) {
       console.error('Chat error:', error);
       return res.json({ 
@@ -169,7 +90,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   });
 
   // SEO Enhancement Routes
-  
+
   // Sitemap.xml - Programmatically generated
   app.get('/sitemap.xml', (_req, res) => {
     const today = new Date().toISOString().split('T')[0];
@@ -251,26 +172,23 @@ Disallow: /
 }
 
 function generateServicePages(): string {
-  // Use centralized service slugs to ensure consistency
   return allServiceSlugs.map(service => 
     `  <url><loc>https://www.oarcdigital.com/services/${service}</loc><lastmod>${new Date().toISOString().split('T')[0]}</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>`
   ).join('\n');
 }
 
 function generateLocationPages(): string {
-  // Use centralized location and service data
   const pages: string[] = [];
   maltaLocations.forEach(location => {
     locationServices.forEach(service => {
       pages.push(`  <url><loc>https://www.oarcdigital.com/malta/${location}/${service}</loc><lastmod>${new Date().toISOString().split('T')[0]}</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>`);
     });
   });
-  
+
   return pages.join('\n');
 }
 
 function generateCaseStudyPages(): string {
-  // Use centralized case study slugs
   return allCaseStudySlugs.map(study => 
     `  <url><loc>https://www.oarcdigital.com/case-studies/${study}</loc><lastmod>${new Date().toISOString().split('T')[0]}</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>`
   ).join('\n');

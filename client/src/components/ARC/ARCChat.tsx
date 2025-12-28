@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import { X, ArrowLeft, Send, Phone, Flame, Briefcase, Calculator } from 'lucide-react';
+import { X, ArrowLeft, Send, Phone, Flame, TrendingDown, Users, MousePointerClick, Swords } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { ARCMessage } from './ARCMessage';
 import { ARCTypingIndicator } from './ARCTypingIndicator';
@@ -19,10 +19,47 @@ interface ARCChatProps {
 const MALTA_PHONE = '+35679711799';
 
 const QUICK_ACTIONS = [
-  { id: 'call', label: 'Talk to Sales', icon: Phone, type: 'phone' as const },
-  { id: 'roast', label: 'Roast My Website', icon: Flame, type: 'prompt' as const, prompt: 'I want you to roast my website' },
-  { id: 'services', label: 'See Our Work', icon: Briefcase, type: 'link' as const, href: '/our-work' },
-  { id: 'roi', label: 'Calculate ROI', icon: Calculator, type: 'prompt' as const, prompt: 'Help me calculate ROI' },
+  { 
+    id: 'more-customers', 
+    label: 'I Need More Customers', 
+    icon: Users,
+    type: 'prompt' as const, 
+    prompt: 'I need more customers' 
+  },
+  { 
+    id: 'social-not-working', 
+    label: 'Social Media Isn\'t Working', 
+    icon: TrendingDown,
+    type: 'prompt' as const, 
+    prompt: 'My social media isn\'t working' 
+  },
+  { 
+    id: 'website-not-converting', 
+    label: 'Website Isn\'t Converting', 
+    icon: MousePointerClick,
+    type: 'prompt' as const, 
+    prompt: 'My website isn\'t converting visitors' 
+  },
+  { 
+    id: 'competitors', 
+    label: 'Competitors Are Beating Me', 
+    icon: Swords,
+    type: 'prompt' as const, 
+    prompt: 'My competitors are doing better than me' 
+  },
+  { 
+    id: 'roast', 
+    label: 'Roast My Marketing', 
+    icon: Flame,
+    type: 'prompt' as const, 
+    prompt: 'Roast my marketing' 
+  },
+  { 
+    id: 'talk', 
+    label: 'Talk to Us Directly', 
+    icon: Phone,
+    type: 'phone' as const 
+  },
 ];
 
 export function ARCChat({ onClose, isMobile }: ARCChatProps) {
@@ -58,7 +95,13 @@ export function ARCChat({ onClose, isMobile }: ARCChatProps) {
     }
   }, []);
 
-  const sendMessage = async (messageText: string) => {
+  const handleQuickAction = (action: typeof QUICK_ACTIONS[0]) => {
+    if (action.type === 'phone') {
+      window.open(`tel:${MALTA_PHONE}`, '_self');
+    } else if (action.type === 'prompt' && 'prompt' in action) {
+      sendMessage(action.prompt, action.id);  // Pass the button ID
+    }
+  };
     if (!messageText.trim()) return;
 
     const userMessage: Message = {
@@ -95,7 +138,8 @@ export function ARCChat({ onClose, isMobile }: ARCChatProps) {
           history: messages.map(m => ({
             role: m.isUser ? 'user' : 'assistant',
             content: m.content
-          }))
+          })),
+          buttonId: buttonId || null
         })
       });
 
