@@ -1,6 +1,16 @@
 {
   "redirects": [
     {
+      "source": "/enterprise",
+      "destination": "/services",
+      "permanent": true
+    },
+    {
+      "source": "/ai-consulting",
+      "destination": "/services/ai-consulting",
+      "permanent": true
+    },
+    {
       "source": "/case-studies/fitnesspro-network",
       "destination": "/case-studies/apex-fitness-collective",
       "permanent": true
