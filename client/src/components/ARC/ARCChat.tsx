@@ -95,13 +95,7 @@ export function ARCChat({ onClose, isMobile }: ARCChatProps) {
     }
   }, []);
 
-  const handleQuickAction = (action: typeof QUICK_ACTIONS[0]) => {
-    if (action.type === 'phone') {
-      window.open(`tel:${MALTA_PHONE}`, '_self');
-    } else if (action.type === 'prompt' && 'prompt' in action) {
-      sendMessage(action.prompt, action.id);  // Pass the button ID
-    }
-  };
+  const sendMessage = async (messageText: string, buttonId?: string) => {
     if (!messageText.trim()) return;
 
     const userMessage: Message = {
@@ -173,10 +167,8 @@ export function ARCChat({ onClose, isMobile }: ARCChatProps) {
   const handleQuickAction = (action: typeof QUICK_ACTIONS[0]) => {
     if (action.type === 'phone') {
       window.open(`tel:${MALTA_PHONE}`, '_self');
-    } else if (action.type === 'link' && 'href' in action) {
-      window.location.href = action.href;
     } else if (action.type === 'prompt' && 'prompt' in action) {
-      sendMessage(action.prompt);
+      sendMessage(action.prompt, action.id);
     }
   };
 
