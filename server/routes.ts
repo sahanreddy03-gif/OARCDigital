@@ -23,15 +23,6 @@ function getGrokClient(): OpenAI | null {
 }
 
 export async function registerRoutes(app: Express): Promise<Server> {
-  // SEO Redirects - 301 permanent redirects for clean URLs
-  app.get('/enterprise', (_req, res) => {
-    res.redirect(301, '/services');
-  });
-
-  app.get('/ai-consulting', (_req, res) => {
-    res.redirect(301, '/services/ai-consulting');
-  });
-
   // ARC Chatbot API endpoint
   app.post('/api/chat', async (req, res) => {
     try {
