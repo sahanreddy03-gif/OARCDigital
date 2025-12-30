@@ -428,7 +428,7 @@ export default function LetsTalkRevenueSection() {
           viewport={{ once: true }}
           transition={{ delay: 0.6 }}
         >
-          <Link href="/services/custom-ai-development">
+          <Link href="/services/custom-software-development">
             <button 
               className="group inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-[#23AACA] to-[#1a8fa8] text-white text-xs font-bold uppercase tracking-[0.1em] transition-all duration-300 hover:shadow-lg hover:shadow-[#23AACA]/25 rounded-sm"
               data-testid="button-explore-custom-ai"
