@@ -437,7 +437,7 @@ export default function HireAIEmployeesSection() {
           viewport={{ once: true }}
           transition={{ delay: 0.6 }}
         >
-          <Link href="/services/ai-workforce-agents">
+          <Link href="/services/hire-ai-employees">
             <button 
               className="group inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-[#c4ff4d] to-[#a8e636] text-black text-xs font-bold uppercase tracking-[0.1em] transition-all duration-300 hover:shadow-lg hover:shadow-[#c4ff4d]/25 rounded-sm"
               data-testid="button-explore-workforce"
