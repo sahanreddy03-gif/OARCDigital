@@ -90,6 +90,7 @@ import CookiePolicy from "@/pages/legal/CookiePolicy";
 import TermsConditions from "@/pages/legal/TermsConditions";
 import Tools from "@/pages/Tools";
 import DiagnosticPage from "@/pages/DiagnosticPage";
+import OARCIntelligence from "@/pages/OARCIntelligence";
 import NotFound from "@/pages/not-found";
 import { ARCWidget } from "@/components/ARC";
 
@@ -216,8 +217,10 @@ function Router() {
       <Route path="/tools" component={Tools} />
       <Route path="/ai-sales-tools" component={Tools} />
 
-      {/* Diagnostic Tool */}
+      {/* Diagnostic Tools */}
       <Route path="/diagnostic" component={DiagnosticPage} />
+      <Route path="/diagnostics" component={OARCIntelligence} />
+      <Route path="/intelligence" component={OARCIntelligence} />
 
       {/* Legal Pages - GDPR Compliance */}
       <Route path="/privacy-policy" component={PrivacyPolicy} />

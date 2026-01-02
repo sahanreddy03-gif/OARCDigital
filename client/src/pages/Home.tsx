@@ -1,6 +1,6 @@
 import Layout from "@/components/layout/Layout";
 import HeroSection from "@/components/HeroSection";
-import CortexSection from "@/components/Cortex/CortexSection";
+import DiagnosticsTeaser from "@/components/DiagnosticsTeaser";
 import OARCBrandSection from "@/components/OARCBrandSection";
 import oarcBgVideo from "@assets/glif-chat-1766630282078_1766685897761.mov";
 import TrustedBrandsSection from "@/components/TrustedBrandsSection";
@@ -116,8 +116,8 @@ export default function Home() {
         <ComparisonSection />
         <GrowthSimulator />
         
-        {/* Cortex Business Diagnostic Tool - Compact version */}
-        <CortexSection />
+        {/* Business Diagnostics Teaser - Compact version linking to full diagnostics */}
+        <DiagnosticsTeaser />
 
         {/* Final CTAs */}
         <MoneyBackGuaranteeSection />
