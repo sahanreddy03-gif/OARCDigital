@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "wouter";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, ArrowLeft, ChevronRight, Clock, Lightbulb, Brain, Shield, TrendingUp, Zap, BarChart3 } from "lucide-react";
+import { ArrowRight, ChevronRight, Clock, Lightbulb, Brain, Shield, TrendingUp, Zap, BarChart3 } from "lucide-react";
 import { verticals, calculateTotalImpact, type Problem } from "@/data/diagnosticsData";
 import Layout from "@/components/layout/Layout";
 import SEOHead from "@/components/SEOHead";
@@ -27,33 +27,6 @@ export default function OARCIntelligence() {
       />
       <div className="min-h-screen bg-[#0a0a0c] relative">
         <div className="fixed inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none" />
-
-        <header className="relative z-10 border-b border-white/10 sticky top-0 bg-[#0a0a0c]/80 backdrop-blur-xl">
-          <div className="container mx-auto px-6 h-16 flex items-center justify-between">
-            <div className="flex items-center gap-4">
-              <Link href="/">
-                <span className="flex items-center gap-2 text-zinc-400 hover:text-white transition-colors cursor-pointer">
-                  <ArrowLeft className="h-4 w-4" />
-                  <span className="text-sm hidden sm:inline">Home</span>
-                </span>
-              </Link>
-              <div className="h-6 w-px bg-white/20" />
-              <div className="flex items-center gap-2">
-                <div className="w-6 h-6 rounded-md bg-[#c4ff4d]/20 flex items-center justify-center">
-                  <div className="w-3 h-3 rounded-sm bg-[#c4ff4d]" />
-                </div>
-                <span className="font-semibold text-white">OARC Intelligence</span>
-              </div>
-            </div>
-            <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#c4ff4d]/10 text-xs text-[#c4ff4d] border border-[#c4ff4d]/20">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#c4ff4d] opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#c4ff4d]"></span>
-              </span>
-              Live Demo
-            </div>
-          </div>
-        </header>
 
         <main className="relative z-10 container mx-auto px-6 py-8 md:py-12">
           <motion.div 

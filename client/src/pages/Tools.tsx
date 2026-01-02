@@ -3,7 +3,7 @@ import { Link } from "wouter";
 import { 
   Sparkles, Search, ArrowRight, ExternalLink,
   Zap, Target, Database, Bot, Linkedin, TrendingUp, Palette, Video,
-  Code, Layers, Shield, BarChart3, Cpu, Workflow, ChevronDown
+  Code, Layers, Shield, BarChart3, Cpu, Workflow, ChevronDown, Brain
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -1454,9 +1454,62 @@ export default function Tools() {
         </div>
       </section>
 
+      {/* OARC Built - Proprietary Tools */}
+      {activeCategory === "all" && !searchQuery && (
+        <section className="py-12 bg-gradient-to-b from-[#0a0a0a] to-[#0d0d0d]">
+          <div className="container mx-auto px-4">
+            <div className="flex items-center gap-3 mb-6">
+              <Badge className="bg-gradient-to-r from-amber-500/20 to-orange-500/20 text-amber-400 border-amber-500/30 px-3 py-1">
+                OARC Built
+              </Badge>
+              <span className="text-sm text-gray-500">Our proprietary tools</span>
+            </div>
+            
+            <Link href="/diagnostics">
+              <div 
+                className="group relative bg-gradient-to-br from-[#c4ff4d]/5 via-transparent to-amber-500/5 rounded-2xl p-6 border border-[#c4ff4d]/20 hover:border-[#c4ff4d]/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-[#c4ff4d]/10 cursor-pointer max-w-2xl"
+                data-testid="card-oarc-cortex"
+              >
+                <div className="flex items-start gap-5">
+                  <div className="w-14 h-14 rounded-xl bg-[#c4ff4d]/10 flex items-center justify-center flex-shrink-0 group-hover:bg-[#c4ff4d]/20 transition-colors">
+                    <Brain className="w-7 h-7 text-[#c4ff4d]" />
+                  </div>
+                  <div className="flex-1">
+                    <div className="flex items-center gap-2 mb-2">
+                      <h3 className="text-xl font-bold text-white group-hover:text-[#c4ff4d] transition-colors">OARC Cortex</h3>
+                      <Badge className="bg-[#c4ff4d]/10 text-[#c4ff4d] border-[#c4ff4d]/30 text-[10px]">
+                        Live Demo
+                      </Badge>
+                    </div>
+                    <p className="text-gray-400 text-sm leading-relaxed mb-4">
+                      AI-powered business diagnostics that identifies revenue leakage across 8 industries. Get psychology-backed insights on why problems occur and actionable solutions with impact metrics.
+                    </p>
+                    <div className="flex items-center gap-4 text-xs text-gray-500">
+                      <span className="flex items-center gap-1.5">
+                        <Zap className="w-3.5 h-3.5 text-[#c4ff4d]" />
+                        8 Industries
+                      </span>
+                      <span className="flex items-center gap-1.5">
+                        <Target className="w-3.5 h-3.5 text-[#c4ff4d]" />
+                        40+ Problems
+                      </span>
+                      <span className="flex items-center gap-1.5">
+                        <TrendingUp className="w-3.5 h-3.5 text-[#c4ff4d]" />
+                        120+ Solutions
+                      </span>
+                    </div>
+                  </div>
+                  <ArrowRight className="w-5 h-5 text-gray-500 group-hover:text-[#c4ff4d] group-hover:translate-x-1 transition-all flex-shrink-0" />
+                </div>
+              </div>
+            </Link>
+          </div>
+        </section>
+      )}
+
       {/* Featured Tools */}
       {activeCategory === "all" && !searchQuery && (
-        <section className="py-16 bg-gradient-to-b from-[#0a0a0a] to-[#0f0f0f]">
+        <section className="py-16 bg-gradient-to-b from-[#0d0d0d] to-[#0f0f0f]">
           <div className="container mx-auto px-4">
             <h2 className="text-2xl md:text-3xl font-bold text-white mb-8">
               Featured Tools
