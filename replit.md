@@ -72,6 +72,18 @@ The platform utilizes a modern web stack with a React frontend and an Express.js
     - Subtle three-office grid at bottom with location pins
     - Trust badge showing average response time
     - Navigation updated: Resources renamed to Contact
+-   **OARC Intelligence - Business Diagnostics (Jan 2026):** Enterprise-grade AI-powered diagnostics platform featuring:
+    - Routes: `/diagnostics` and `/intelligence` (both point to OARCIntelligence page)
+    - Dark premium aesthetic with lime green (#c4ff4d) accent color
+    - 8 industry verticals: Restaurant, Medical Clinic, Retail, Real Estate, iGaming, Legal, Finance, Marketing
+    - Each industry shows 5-6 common problems with monthly revenue loss calculations
+    - Expandable problem cards reveal:
+      - Behavioral psychology explaining why the problem occurs
+      - 3 actionable solutions with timeframes and impact metrics
+    - Data stored in `client/src/data/diagnosticsData.ts`
+    - DiagnosticsTeaser component on homepage replaces old CortexSection
+    - Premium animations with Framer Motion
+    - CTA leading to 14-day pilot program
 -   **Tools Directory Page (Dec 2025):** ColdIQ-inspired AI tools and tech stack directory featuring:
     - Premium dark hero with search functionality
     - Sticky category filter tabs (AI Sales, Sales, Data Sources, AI Agents, LinkedIn, AI Marketing, Design, Video, Development)
