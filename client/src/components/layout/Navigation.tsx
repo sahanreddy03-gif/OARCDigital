@@ -1,7 +1,7 @@
 import { Link, useLocation } from "wouter";
 import { Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
-import oarcLogo3D from "@assets/IMG_9004_1765747003784.png";
+import greenLogo from "@assets/image_1767660951950.png";
 
 export default function Navigation() {
   const [location] = useLocation();
@@ -35,10 +35,9 @@ export default function Navigation() {
           {/* Logo with Tagline */}
           <Link href="/" className="flex items-center gap-2" data-testid="link-logo-home">
             <img 
-              src={oarcLogo3D} 
-              alt="Oarc Digital logo" 
+              src={greenLogo} 
+              alt="OARC Digital logo" 
               className="h-16 w-16 md:h-18 md:w-18 lg:h-22 lg:w-22 object-contain"
-              style={{ filter: 'drop-shadow(0 2px 12px rgba(0, 0, 0, 0.5))' }}
               data-testid="img-logo"
             />
             <div className="flex flex-col">
@@ -48,8 +47,8 @@ export default function Navigation() {
               >
                 <span className="text-white text-2xl md:text-3xl lg:text-4xl">O</span>
                 <span>arc</span>
-                <span className="ml-1.5 text-[#ff914d]">D</span>
-                <span className="text-[#ff914d]">igital</span>
+                <span className="ml-1.5 text-[#c4ff4d]">D</span>
+                <span className="text-[#c4ff4d]">igital</span>
               </span>
               <span 
                 className="text-white text-[9px] md:text-[10px] lg:text-xs tracking-[0.08em] font-light italic"

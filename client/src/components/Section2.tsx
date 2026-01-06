@@ -19,7 +19,7 @@ import {
   SiBehance,
   SiDribbble
 } from "react-icons/si";
-import companyLogo from "@assets/IMG_9004_1765747003784.png";
+import greenLogo from "@assets/image_1767660951950.png";
 
 const socialCreativeBrands = [
   { name: "TikTok", icon: SiTiktok },
