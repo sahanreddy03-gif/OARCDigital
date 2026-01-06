@@ -1,8 +1,12 @@
 import { Link } from "wouter";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
-import { SiInstagram, SiFacebook, SiX, SiLinkedin } from "react-icons/si";
+import { SiInstagram, SiFacebook, SiX, SiLinkedin, SiWhatsapp } from "react-icons/si";
 import { servicesCatalog } from '@/config/servicesConfig';
 import greenLogo from "@assets/image_1767660951950.png";
+
+const WHATSAPP_NUMBER = "35679711799";
+const WHATSAPP_MESSAGE = "Hi, I'm interested in your services";
+const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
 
 const socialLinks = [
   { name: 'Instagram', icon: SiInstagram, href: 'https://instagram.com/oarcdigital' },
@@ -263,6 +267,16 @@ export default function Footer() {
                   <social.icon className="w-4 h-4 text-zinc-400 group-hover:text-white transition-colors" />
                 </a>
               ))}
+              <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full bg-[#25D366]/20 hover:bg-[#25D366]/30 border border-[#25D366]/30 hover:border-[#25D366]/50 flex items-center justify-center transition-all duration-300 group"
+                aria-label="WhatsApp"
+                data-testid="link-social-whatsapp"
+              >
+                <SiWhatsapp className="w-4 h-4 text-[#25D366] group-hover:text-[#25D366] transition-colors" />
+              </a>
             </div>
             <div className="text-zinc-500 text-sm">
               © 2025 Oarc Digital. All rights reserved.
