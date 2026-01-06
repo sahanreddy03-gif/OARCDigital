@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Palette, Bot, Rocket } from "lucide-react";
 import FloatingChipCarousel from "./FloatingChipCarousel";
 import heroBackground from '@assets/d375f1d50d97b0de7953ca2cecd2b8aea2cd96b2-3524x1181_1761251957292.avif';
+import greenLogo from '@assets/image_1767660951950.png';
 
 function SnowfallEffect() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -279,6 +280,15 @@ export default function HeroSection() {
               <div className="w-full md:max-w-2xl lg:max-w-3xl xl:max-w-4xl text-center md:text-left">
                 {/* Mobile glassmorphism panel */}
                 <div className="relative md:before:content-none before:absolute before:inset-0 before:-z-10 before:bg-black/50 before:blur-xl before:rounded-[32px] before:-m-4">
+                  
+                  {/* Green Logo Preview */}
+                  <div className="flex justify-center md:justify-start mb-4 md:mb-6 animate-[fadeSlideUp_0.6s_ease-out]">
+                    <img 
+                      src={greenLogo} 
+                      alt="OARC Digital Logo" 
+                      className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 object-contain drop-shadow-[0_0_20px_rgba(196,255,77,0.5)]"
+                    />
+                  </div>
                   
                   {/* Headline - Viewport-based on mobile for all screen sizes, bigger on desktop */}
                   {/* lg: breakpoint uses slightly smaller max to keep "Revenue" on same line as "Drives" */}
