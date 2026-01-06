@@ -281,12 +281,12 @@ export default function HeroSection() {
                 {/* Mobile glassmorphism panel */}
                 <div className="relative md:before:content-none before:absolute before:inset-0 before:-z-10 before:bg-black/50 before:blur-xl before:rounded-[32px] before:-m-4">
                   
-                  {/* Green Logo Preview */}
+                  {/* Green Logo */}
                   <div className="flex justify-center md:justify-start mb-4 md:mb-6 animate-[fadeSlideUp_0.6s_ease-out]">
                     <img 
                       src={greenLogo} 
                       alt="OARC Digital Logo" 
-                      className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 object-contain drop-shadow-[0_0_20px_rgba(196,255,77,0.5)]"
+                      className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 object-contain"
                     />
                   </div>
                   
@@ -305,7 +305,7 @@ export default function HeroSection() {
                     <span 
                       className="block font-extralight italic font-serif tracking-tight leading-[1.05] mt-0.5 md:mt-2 text-[8.5vw] md:text-[clamp(2.5rem,5.5vw,4.5rem)] lg:text-[clamp(2.5rem,4.8vw,4rem)]"
                     >
-                      That Drives <span className="text-[#ff914d] font-semibold not-italic">Revenue</span>
+                      That Drives <span className="text-[#e8ffb0] font-semibold not-italic">Revenue</span>
                     </span>
                   </h1>
 
