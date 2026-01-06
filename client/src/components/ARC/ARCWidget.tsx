@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
+import { useLocation } from 'wouter';
 import { ARCChat } from './ARCChat';
 
 export function ARCWidget() {
+  const [location] = useLocation();
   const [isOpen, setIsOpen] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
   const [popupDismissed, setPopupDismissed] = useState(false);
@@ -58,6 +60,11 @@ export function ARCWidget() {
     setPopupDismissed(true);
     sessionStorage.setItem('arc-popup-seen', 'true');
   };
+
+  // Hide ARC on Contact page (WhatsApp button shown there instead)
+  if (location === '/contact') {
+    return null;
+  }
 
   return (
     <>

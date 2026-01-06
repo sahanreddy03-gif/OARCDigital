@@ -5,9 +5,14 @@ import SEOHead from "@/components/SEOHead";
 import { supportingPagesSEO } from "@/data/seoMetadata";
 import ContactForm from "@/components/contact/ContactForm";
 import { Mail, Phone, MessageCircle, MapPin, Bot, Sparkles, ArrowRight, Send } from "lucide-react";
+import { SiWhatsapp } from "react-icons/si";
 import { Link } from "wouter";
 import { motion } from "framer-motion";
 import contactBokehBg from "@assets/contact-bokeh-bg.jpg";
+
+const WHATSAPP_NUMBER = "35679711799";
+const WHATSAPP_MESSAGE = "Hi, I'm interested in your services";
+const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
 
 const FloatingParticle = ({ delay, duration, x, y, size }: { delay: number; duration: number; x: string; y: string; size: number }) => (
   <motion.div
@@ -456,6 +461,30 @@ export default function Contact() {
           </p>
         </div>
       </section>
+
+      {/* WhatsApp Floating Button - Contact Page Only */}
+      <motion.a
+        href={WHATSAPP_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        initial={{ scale: 0, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        className="fixed bottom-6 right-6 z-[9998] cursor-pointer group"
+        data-testid="button-whatsapp-float"
+      >
+        <div className="relative">
+          {/* Glow effect */}
+          <div className="absolute inset-0 bg-[#25D366] rounded-full blur-lg opacity-40 group-hover:opacity-60 transition-opacity" />
+          
+          {/* Button */}
+          <div className="relative w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center shadow-lg shadow-[#25D366]/30 group-hover:shadow-[#25D366]/50 transition-all group-hover:scale-110">
+            <SiWhatsapp className="w-7 h-7 text-white" />
+          </div>
+          
+          {/* Pulse ring */}
+          <div className="absolute inset-0 rounded-full border-2 border-[#25D366] animate-ping opacity-30" />
+        </div>
+      </motion.a>
     </Layout>
   );
 }
