@@ -198,18 +198,6 @@ export default function Services() {
           style={{ opacity: heroOpacity }}
           className="relative z-20 text-center px-6 max-w-6xl mx-auto"
         >
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            <div className="inline-block mb-8">
-              <span className="px-5 py-2.5 bg-white/5 border border-white/20 rounded-full text-xs font-semibold text-white/70 backdrop-blur-sm uppercase tracking-[0.2em]">
-                Full-Service Creative Agency
-              </span>
-            </div>
-          </motion.div>
-
           <motion.h1 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
