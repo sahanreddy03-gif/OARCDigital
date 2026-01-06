@@ -66,6 +66,14 @@ export default function Navigation() {
             >
               Why Us
             </Link>
+            <Link 
+              href="/creative" 
+              className="text-xs xl:text-sm font-medium text-[#c4ff4d] hover:text-white transition-colors" 
+              style={{ textShadow }}
+              data-testid="link-creative"
+            >
+              Creative
+            </Link>
             
             {/* Services Mega Menu */}
             <div
@@ -216,8 +224,13 @@ export default function Navigation() {
                 Why Us
               </div>
             </Link>
+            <Link href="/creative" data-testid="link-mobile-creative" onClick={() => setShowMobileMenu(false)}>
+              <div className="text-base font-medium text-[#c4ff4d] py-3 border-b border-white/5">
+                Creative
+              </div>
+            </Link>
             <Link href="/services" data-testid="link-mobile-all-services" onClick={() => setShowMobileMenu(false)}>
-              <div className="text-base font-medium text-[#c4ff4d] py-3 flex items-center gap-2 border-b border-white/5">
+              <div className="text-base font-medium text-white py-3 flex items-center gap-2 border-b border-white/5">
                 All Services
                 <ArrowRight className="w-4 h-4" />
               </div>
