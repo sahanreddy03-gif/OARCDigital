@@ -328,12 +328,18 @@ export default function HeroSection() {
                     </div>
                   </div>
 
-                  {/* Value proposition equation - very subtle champagne tint */}
+                  {/* Value proposition equation - warm champagne/yellow tint */}
+                  {/* Mobile: more saturated to compensate for dark backdrop, Desktop: subtle champagne */}
                   <p 
                     className="max-w-none md:max-w-2xl mx-auto md:mx-0 leading-snug mb-1.5 md:mb-3 font-light tracking-normal text-[3vw] md:text-[clamp(0.95rem,1.6vw,1.35rem)]"
                     style={{ color: 'rgba(245, 230, 200, 0.75)' }}
                   >
-                    Creative AI Talent + Social-Led Marketing + Custom Workflows
+                    <span className="md:hidden" style={{ color: 'rgba(250, 235, 195, 0.85)' }}>
+                      Creative AI Talent + Social-Led Marketing + Custom Workflows
+                    </span>
+                    <span className="hidden md:inline">
+                      Creative AI Talent + Social-Led Marketing + Custom Workflows
+                    </span>
                   </p>
                   <p 
                     className="text-white/90 max-w-none md:max-w-2xl mx-auto md:mx-0 leading-tight mb-4 md:mb-6 lg:mb-8 font-semibold tracking-wide text-[4.5vw] md:text-[clamp(1.15rem,2vw,1.6rem)]"
