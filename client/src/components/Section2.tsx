@@ -74,7 +74,7 @@ export default function Section2() {
               data-testid="text-social-first"
             >
               The revenue-driven<br />
-              <span className="text-[#23AACA]">Social first</span> partner<br />
+              <span className="text-[#65a30d]">Social first</span> partner<br />
               you've been looking for
             </h2>
             
