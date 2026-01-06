@@ -2,7 +2,7 @@ import { Link } from "wouter";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { SiInstagram, SiFacebook, SiX, SiLinkedin } from "react-icons/si";
 import { servicesCatalog } from '@/config/servicesConfig';
-import companyLogo from "@assets/IMG_9004_1765747003784.png";
+import greenLogo from "@assets/image_1767660951950.png";
 
 const socialLinks = [
   { name: 'Instagram', icon: SiInstagram, href: 'https://instagram.com/oarcdigital' },
@@ -232,10 +232,9 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8">
           <div className="flex items-center gap-4">
             <img 
-              src={companyLogo} 
-              alt="Oarc Digital logo" 
+              src={greenLogo} 
+              alt="OARC Digital logo" 
               className="h-14 w-14 md:h-16 md:w-16 object-contain"
-              style={{ filter: 'drop-shadow(0 2px 8px rgba(0, 0, 0, 0.5))' }}
               data-testid="img-footer-logo"
             />
             <span 
@@ -244,8 +243,8 @@ export default function Footer() {
             >
               <span className="text-white text-2xl md:text-3xl lg:text-4xl">O</span>
               <span>arc</span>
-              <span className="ml-1.5 text-[#ff914d]">D</span>
-              <span className="text-[#ff914d]">igital</span>
+              <span className="ml-1.5 text-[#c4ff4d]">D</span>
+              <span className="text-[#c4ff4d]">igital</span>
             </span>
           </div>
 
