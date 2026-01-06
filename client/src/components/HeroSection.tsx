@@ -281,15 +281,6 @@ export default function HeroSection() {
                 {/* Mobile glassmorphism panel */}
                 <div className="relative md:before:content-none before:absolute before:inset-0 before:-z-10 before:bg-black/50 before:blur-xl before:rounded-[32px] before:-m-4">
                   
-                  {/* Green Logo */}
-                  <div className="flex justify-center md:justify-start mb-4 md:mb-6 animate-[fadeSlideUp_0.6s_ease-out]">
-                    <img 
-                      src={greenLogo} 
-                      alt="OARC Digital Logo" 
-                      className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 object-contain"
-                    />
-                  </div>
-                  
                   {/* Headline - Viewport-based on mobile for all screen sizes, bigger on desktop */}
                   {/* lg: breakpoint uses slightly smaller max to keep "Revenue" on same line as "Drives" */}
                   <h1 
