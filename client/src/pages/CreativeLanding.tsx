@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'wouter';
-import { motion, useInView, useScroll, useTransform } from 'framer-motion';
+import { motion, useInView, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
@@ -9,39 +9,60 @@ import {
   ArrowRight, Check, ChevronDown, ChevronUp, Sparkles, Zap, Target, 
   TrendingUp, Users, BarChart3, Shield, Clock, Gift, Star, X,
   MessageSquare, Palette, Video, Globe, Mail, Megaphone, Bot,
-  Instagram, Linkedin, Play, Award, Lightbulb, Layers, RefreshCw
+  Instagram, Linkedin, Play, Award, Lightbulb, Layers, RefreshCw,
+  Eye, Crosshair, Brain, Crown, Rocket, LineChart
 } from 'lucide-react';
 import { SiInstagram, SiFacebook, SiTiktok, SiLinkedin, SiYoutube, SiGoogle } from 'react-icons/si';
-import Navigation from '@/components/Navigation';
+import CreativeNavigation from '@/components/CreativeNavigation';
 import Footer from '@/components/Footer';
+import ParticleField from '@/components/ParticleField';
 import PhoneMockup from '@/components/PhoneMockup';
 import AICreativeSection from '@/components/AICreativeSection';
 import { createFAQSchema } from '@/utils/structuredData';
 
 const fadeInUp = {
-  initial: { opacity: 0, y: 30 },
+  initial: { opacity: 0, y: 40 },
   animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] }
+  transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] }
 };
 
 const staggerContainer = {
-  animate: { transition: { staggerChildren: 0.1 } }
+  animate: { transition: { staggerChildren: 0.12 } }
 };
 
-const floatAnimation = {
-  animate: {
-    y: [0, -10, 0],
-    transition: { duration: 3, repeat: Infinity, ease: "easeInOut" }
-  }
-};
-
-const platformMetrics = [
-  { platform: 'IG POST', metric: '2.4M', color: 'from-pink-500 to-purple-600', icon: SiInstagram },
-  { platform: 'VIDEO', metric: '8.7M+', color: 'from-red-500 to-orange-500', icon: Play },
-  { platform: 'TIKTOK', metric: '5.2M', color: 'from-cyan-400 to-pink-500', icon: SiTiktok },
-  { platform: 'AD ROAS', metric: '4.7x', color: 'from-orange-500 to-amber-500', icon: TrendingUp },
-  { platform: 'REELS', metric: '890K', color: 'from-emerald-500 to-teal-500', icon: Video },
-  { platform: 'LINKEDIN', metric: 'B2B', color: 'from-blue-600 to-indigo-600', icon: SiLinkedin },
+const platformVideos = [
+  { 
+    platform: 'IG POST', 
+    video: '/phone-video.mp4',
+    color: 'from-pink-500 via-purple-500 to-indigo-500',
+    icon: SiInstagram,
+    stat: '2.4M+',
+    label: 'Views Generated'
+  },
+  { 
+    platform: 'REELS', 
+    video: '/phone-video.mp4',
+    color: 'from-rose-500 via-pink-500 to-fuchsia-500',
+    icon: Video,
+    stat: '890K',
+    label: 'Engagement'
+  },
+  { 
+    platform: 'TIKTOK', 
+    video: '/phone-video.mp4',
+    color: 'from-cyan-400 via-teal-400 to-emerald-400',
+    icon: SiTiktok,
+    stat: '5.2M',
+    label: 'Reach'
+  },
+  { 
+    platform: 'VIDEO', 
+    video: '/phone-video.mp4',
+    color: 'from-orange-500 via-amber-500 to-yellow-500',
+    icon: Play,
+    stat: '8.7M+',
+    label: 'Total Views'
+  },
 ];
 
 const comparisonData = [
@@ -50,6 +71,45 @@ const comparisonData = [
   { traditional: 'Brand identity', oarc: 'Brand + AI voice guide + AI asset generator' },
   { traditional: 'Video production', oarc: 'Video + AI script + AI repurposing' },
   { traditional: 'Paid ads', oarc: 'Paid ads + AI audience analysis + AI creative' },
+];
+
+const valuePillars = [
+  {
+    icon: Crosshair,
+    title: 'Competitor Intelligence',
+    headline: 'Know exactly what works in your market',
+    description: 'We analyze your top 5 competitors monthly — their content, engagement, and gaps. You get actionable insights to outperform them.',
+    stat: '73%',
+    statLabel: 'of clients outrank competitors within 90 days',
+    color: 'from-blue-500 to-cyan-400',
+  },
+  {
+    icon: Eye,
+    title: 'Long-Term Brand Vision',
+    headline: 'Build a brand that lasts decades',
+    description: 'Not just monthly posts. We create a 12-month content roadmap aligned with your business goals, ensuring every piece builds towards something bigger.',
+    stat: '3x',
+    statLabel: 'higher brand recall after 6 months',
+    color: 'from-purple-500 to-pink-400',
+  },
+  {
+    icon: Crown,
+    title: 'Brand Avatar Creation',
+    headline: 'Give your brand a distinct personality',
+    description: 'We develop your brand\'s voice, persona, and visual identity system — so your content is instantly recognizable across all platforms.',
+    stat: '85%',
+    statLabel: 'increase in audience recognition',
+    color: 'from-amber-500 to-orange-400',
+  },
+  {
+    icon: Users,
+    title: 'Influencer Strategy',
+    headline: 'Amplify through trusted voices',
+    description: 'We identify, vet, and coordinate with relevant Malta-based influencers who align with your brand values and target audience.',
+    stat: '5+',
+    statLabel: 'influencer partnerships per month (Pro tier)',
+    color: 'from-emerald-500 to-teal-400',
+  },
 ];
 
 const channels = [
@@ -369,18 +429,6 @@ const faqItems = [
     q: 'Do I need a long-term contract?',
     a: 'No. There are no long-term lock-ins. Clients stay because the creative works — not because they\'re forced to.',
   },
-  {
-    q: 'Who owns the creative and content?',
-    a: 'You do. All creative assets, designs, and content belong to you. We believe in transparency, ownership, and trust.',
-  },
-  {
-    q: 'What happens after I click "Get pricing"?',
-    a: 'You\'ll share a few quick details, instantly view recommended packages and pricing ranges, and have the option to book a free Creative Audit. No pressure. No spam.',
-  },
-  {
-    q: 'Is this suitable for small businesses in Malta?',
-    a: 'Yes — if you care about quality and growth. This is not for businesses looking for the cheapest option. It is for brands that want creative tied to real outcomes.',
-  },
 ];
 
 function AnimatedSection({ children, className = '' }: { children: React.ReactNode; className?: string }) {
@@ -390,9 +438,9 @@ function AnimatedSection({ children, className = '' }: { children: React.ReactNo
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: 40 }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
-      transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+      initial={{ opacity: 0, y: 50 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+      transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
       className={className}
     >
       {children}
@@ -400,62 +448,107 @@ function AnimatedSection({ children, className = '' }: { children: React.ReactNo
   );
 }
 
-function PackageTier({ pkg, type }: { pkg: any; type: 'monthly' | 'oneTime' }) {
+function PremiumPackageCard({ pkg, type }: { pkg: any; type: 'monthly' | 'oneTime' }) {
+  const [isHovered, setIsHovered] = useState(false);
+  
   return (
-    <Card className={`relative p-6 lg:p-8 bg-white border-2 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 ${
-      pkg.popular ? 'border-[#c4ff4d] shadow-xl' : 'border-zinc-200 hover:border-zinc-300'
-    }`}>
-      {pkg.popular && (
-        <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#c4ff4d] text-black font-bold px-4 py-1">
-          <Star className="w-3 h-3 mr-1" /> MOST POPULAR
-        </Badge>
-      )}
-      
-      <div className="text-center mb-6">
-        <h3 className="text-xl font-bold text-zinc-900 mb-2">{pkg.name}</h3>
-        <div className="flex items-baseline justify-center gap-1">
-          <span className="text-4xl font-bold text-zinc-900">€{pkg.price}</span>
-          <span className="text-zinc-500">{type === 'monthly' ? '/month' : ''}</span>
+    <motion.div
+      onHoverStart={() => setIsHovered(true)}
+      onHoverEnd={() => setIsHovered(false)}
+      whileHover={{ y: -8 }}
+      transition={{ type: "spring", stiffness: 300, damping: 20 }}
+      className="h-full"
+    >
+      <div className={`relative h-full rounded-3xl overflow-hidden transition-all duration-500 ${
+        pkg.popular 
+          ? 'bg-gradient-to-br from-zinc-900 via-zinc-800 to-zinc-900 text-white shadow-2xl shadow-zinc-900/30' 
+          : 'bg-white border border-zinc-200 hover:border-zinc-300 hover:shadow-xl'
+      }`}>
+        {pkg.popular && (
+          <div className="absolute inset-0 bg-gradient-to-br from-[#c4ff4d]/10 via-transparent to-purple-500/10" />
+        )}
+        
+        {pkg.popular && (
+          <div className="absolute -top-px left-1/2 -translate-x-1/2">
+            <div className="bg-[#c4ff4d] text-black px-6 py-1.5 rounded-b-xl text-xs font-bold flex items-center gap-1.5">
+              <Star className="w-3 h-3" /> MOST POPULAR
+            </div>
+          </div>
+        )}
+        
+        <div className="relative p-8 pt-10">
+          <div className="text-center mb-8">
+            <p className={`text-sm font-semibold uppercase tracking-wider mb-2 ${pkg.popular ? 'text-[#c4ff4d]' : 'text-zinc-500'}`}>
+              {pkg.name}
+            </p>
+            <div className="flex items-baseline justify-center gap-1">
+              <span className={`text-5xl font-bold ${pkg.popular ? 'text-white' : 'text-zinc-900'}`}>
+                €{pkg.price}
+              </span>
+              <span className={pkg.popular ? 'text-zinc-400' : 'text-zinc-500'}>
+                {type === 'monthly' ? '/month' : ''}
+              </span>
+            </div>
+            <p className={`text-sm mt-3 ${pkg.popular ? 'text-zinc-400' : 'text-zinc-600'}`}>
+              {pkg.bestFor}
+            </p>
+          </div>
+
+          <div className="space-y-3 mb-8">
+            {pkg.features.map((feature: string, i: number) => (
+              <div key={i} className="flex items-start gap-3">
+                <div className={`w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 ${
+                  pkg.popular ? 'bg-[#c4ff4d]' : 'bg-emerald-100'
+                }`}>
+                  <Check className={`w-3 h-3 ${pkg.popular ? 'text-black' : 'text-emerald-600'}`} />
+                </div>
+                <span className={`text-sm ${pkg.popular ? 'text-zinc-300' : 'text-zinc-700'}`}>
+                  {feature}
+                </span>
+              </div>
+            ))}
+          </div>
+
+          <div className={`p-5 rounded-2xl mb-6 ${pkg.popular ? 'bg-white/5' : 'bg-zinc-50'}`}>
+            <p className={`text-xs font-bold uppercase tracking-wider mb-3 flex items-center gap-2 ${
+              pkg.popular ? 'text-[#c4ff4d]' : 'text-zinc-500'
+            }`}>
+              <Gift className="w-3.5 h-3.5" /> Included bonuses
+            </p>
+            {pkg.bonuses.map((bonus: string, i: number) => (
+              <div key={i} className="flex items-center gap-2 mb-2 last:mb-0">
+                <Sparkles className={`w-3 h-3 flex-shrink-0 ${pkg.popular ? 'text-[#c4ff4d]' : 'text-amber-500'}`} />
+                <span className={`text-xs ${pkg.popular ? 'text-zinc-400' : 'text-zinc-600'}`}>
+                  {bonus}
+                </span>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center mb-6">
+            <p className={`text-xs ${pkg.popular ? 'text-zinc-500' : 'text-zinc-500'}`}>
+              Total value: <span className="line-through">{pkg.totalValue}</span>
+            </p>
+            <p className={`text-sm font-bold ${pkg.popular ? 'text-[#c4ff4d]' : 'text-emerald-600'}`}>
+              Save {pkg.savings}
+            </p>
+          </div>
+
+          <Link href="/contact">
+            <Button 
+              className={`w-full py-6 rounded-xl font-semibold transition-all ${
+                pkg.popular 
+                  ? 'bg-[#c4ff4d] text-black hover:bg-[#b5ef3d] shadow-lg shadow-[#c4ff4d]/20' 
+                  : 'bg-zinc-900 text-white hover:bg-zinc-800'
+              }`}
+              data-testid={`button-get-pricing-${pkg.name.toLowerCase()}`}
+            >
+              Get pricing <ArrowRight className="w-4 h-4 ml-2" />
+            </Button>
+          </Link>
         </div>
-        <p className="text-sm text-zinc-600 mt-2">{pkg.bestFor}</p>
       </div>
-
-      <div className="space-y-3 mb-6">
-        <p className="text-xs font-semibold text-zinc-500 uppercase tracking-wider">What you get</p>
-        {pkg.features.map((feature: string, i: number) => (
-          <div key={i} className="flex items-start gap-2">
-            <Check className="w-4 h-4 text-emerald-500 mt-0.5 flex-shrink-0" />
-            <span className="text-sm text-zinc-700">{feature}</span>
-          </div>
-        ))}
-      </div>
-
-      <div className="space-y-2 mb-6 p-4 bg-zinc-50 rounded-lg">
-        <p className="text-xs font-semibold text-zinc-500 uppercase tracking-wider">Included bonuses</p>
-        {pkg.bonuses.map((bonus: string, i: number) => (
-          <div key={i} className="flex items-start gap-2">
-            <Gift className="w-3.5 h-3.5 text-[#c4ff4d] mt-0.5 flex-shrink-0" />
-            <span className="text-xs text-zinc-600">{bonus}</span>
-          </div>
-        ))}
-      </div>
-
-      <div className="text-center mb-4">
-        <p className="text-xs text-zinc-500">
-          Total value: <span className="line-through">{pkg.totalValue}</span>
-        </p>
-        <p className="text-sm font-bold text-emerald-600">Save {pkg.savings}</p>
-      </div>
-
-      <Link href="/contact">
-        <Button 
-          className={`w-full ${pkg.popular ? 'bg-[#c4ff4d] text-black hover:bg-[#b5ef3d]' : 'bg-zinc-900 text-white hover:bg-zinc-800'}`}
-          data-testid={`button-get-pricing-${pkg.name.toLowerCase()}`}
-        >
-          Get pricing <ArrowRight className="w-4 h-4 ml-2" />
-        </Button>
-      </Link>
-    </Card>
+    </motion.div>
   );
 }
 
@@ -463,32 +556,51 @@ function FAQItem({ item, index }: { item: { q: string; a: string }; index: numbe
   const [isOpen, setIsOpen] = useState(index === 0);
   
   return (
-    <div className="border-b border-zinc-200 last:border-0">
+    <motion.div 
+      className="border-b border-zinc-200 last:border-0"
+      initial={false}
+    >
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full py-5 flex items-center justify-between text-left hover:bg-zinc-50 transition-colors px-2 -mx-2 rounded"
+        className="w-full py-6 flex items-center justify-between text-left group"
         data-testid={`button-faq-${index}`}
       >
-        <span className="font-semibold text-zinc-900 pr-4">{item.q}</span>
-        {isOpen ? (
-          <ChevronUp className="w-5 h-5 text-zinc-500 flex-shrink-0" />
-        ) : (
-          <ChevronDown className="w-5 h-5 text-zinc-500 flex-shrink-0" />
-        )}
+        <span className="font-semibold text-zinc-900 pr-4 group-hover:text-[#9ed919] transition-colors">
+          {item.q}
+        </span>
+        <motion.div
+          animate={{ rotate: isOpen ? 180 : 0 }}
+          transition={{ duration: 0.3 }}
+        >
+          <ChevronDown className="w-5 h-5 text-zinc-400 flex-shrink-0" />
+        </motion.div>
       </button>
-      <motion.div
-        initial={false}
-        animate={{ height: isOpen ? 'auto' : 0, opacity: isOpen ? 1 : 0 }}
-        transition={{ duration: 0.3 }}
-        className="overflow-hidden"
-      >
-        <p className="pb-5 text-zinc-600 leading-relaxed">{item.a}</p>
-      </motion.div>
-    </div>
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="overflow-hidden"
+          >
+            <p className="pb-6 text-zinc-600 leading-relaxed">{item.a}</p>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.div>
   );
 }
 
 export default function CreativeLanding() {
+  const heroRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"]
+  });
+  const heroOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+  const heroY = useTransform(scrollYProgress, [0, 0.5], [0, 100]);
+
   const faqSchema = createFAQSchema(
     faqItems.map(item => ({ question: item.q, answer: item.a }))
   );
@@ -506,279 +618,251 @@ export default function CreativeLanding() {
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
       </Helmet>
 
-      <Navigation />
+      <CreativeNavigation />
       
       <main className="bg-[#fafaf8]">
-        {/* ========== HERO SECTION ========== */}
-        <section className="relative min-h-screen flex items-center overflow-hidden pt-20 pb-16">
-          {/* Animated background elements */}
-          <div className="absolute inset-0 overflow-hidden">
-            <div className="absolute top-20 right-20 w-96 h-96 bg-gradient-to-br from-purple-200/30 to-pink-200/30 rounded-full blur-3xl" />
-            <div className="absolute bottom-20 left-20 w-80 h-80 bg-gradient-to-br from-[#c4ff4d]/20 to-emerald-200/20 rounded-full blur-3xl" />
-            
-            {/* Geometric connecting lines */}
-            <svg className="absolute inset-0 w-full h-full opacity-20" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#c4ff4d" stopOpacity="0.5" />
-                  <stop offset="100%" stopColor="#8b5cf6" stopOpacity="0.3" />
-                </linearGradient>
-              </defs>
-              <path d="M100,100 Q300,50 500,150 T900,100" stroke="url(#lineGrad)" strokeWidth="1" fill="none" className="hidden lg:block" />
-              <path d="M50,300 Q250,250 450,350 T850,300" stroke="url(#lineGrad)" strokeWidth="1" fill="none" className="hidden lg:block" />
-            </svg>
-            
-            {/* Floating social icons */}
-            <motion.div {...floatAnimation} className="absolute top-32 right-[20%] hidden lg:block">
-              <div className="w-12 h-12 bg-gradient-to-br from-pink-500 to-purple-600 rounded-2xl flex items-center justify-center shadow-lg">
-                <SiInstagram className="w-6 h-6 text-white" />
-              </div>
-            </motion.div>
-            <motion.div animate={{ y: [0, -15, 0] }} transition={{ duration: 4, repeat: Infinity, delay: 0.5 }} className="absolute top-48 right-[30%] hidden lg:block">
-              <div className="w-10 h-10 bg-[#1877f2] rounded-xl flex items-center justify-center shadow-lg">
-                <SiFacebook className="w-5 h-5 text-white" />
-              </div>
-            </motion.div>
-            <motion.div animate={{ y: [0, -12, 0] }} transition={{ duration: 3.5, repeat: Infinity, delay: 1 }} className="absolute top-24 right-[40%] hidden lg:block">
-              <div className="w-8 h-8 bg-black rounded-lg flex items-center justify-center shadow-lg">
-                <SiTiktok className="w-4 h-4 text-white" />
-              </div>
-            </motion.div>
-            <motion.div animate={{ y: [0, -8, 0] }} transition={{ duration: 4.5, repeat: Infinity, delay: 0.3 }} className="absolute top-56 right-[15%] hidden lg:block">
-              <div className="w-10 h-10 bg-[#0a66c2] rounded-xl flex items-center justify-center shadow-lg">
-                <SiLinkedin className="w-5 h-5 text-white" />
-              </div>
-            </motion.div>
-            <motion.div animate={{ y: [0, -10, 0] }} transition={{ duration: 3, repeat: Infinity, delay: 0.8 }} className="absolute top-36 right-[10%] hidden lg:block">
-              <div className="w-9 h-9 bg-gradient-to-r from-pink-500 to-rose-500 rounded-full flex items-center justify-center shadow-lg">
-                <span className="text-white text-lg">❤️</span>
-              </div>
-            </motion.div>
-            <motion.div animate={{ y: [0, -6, 0] }} transition={{ duration: 5, repeat: Infinity, delay: 1.2 }} className="absolute top-64 right-[25%] hidden lg:block">
-              <div className="w-8 h-8 bg-yellow-400 rounded-lg flex items-center justify-center shadow-lg">
-                <span className="text-lg">😊</span>
-              </div>
-            </motion.div>
-          </div>
-
-          <div className="relative container mx-auto px-6 lg:px-12">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              {/* Left: Content */}
+        {/* ========== HERO SECTION - ANTIGRAVITY INSPIRED ========== */}
+        <section ref={heroRef} className="relative min-h-screen flex items-center overflow-hidden">
+          <ParticleField 
+            particleCount={100}
+            colors={['#2FA1D6', '#c4ff4d', '#8b5cf6', '#06b6d4', '#f472b6']}
+            speed={0.4}
+            connectionDistance={100}
+            showConnections={true}
+          />
+          
+          <div className="absolute inset-0 bg-gradient-to-b from-[#fafaf8]/80 via-transparent to-[#fafaf8]" />
+          
+          <motion.div 
+            style={{ opacity: heroOpacity, y: heroY }}
+            className="relative container mx-auto px-6 lg:px-12 pt-24"
+          >
+            <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center min-h-[80vh]">
               <motion.div
-                initial={{ opacity: 0, x: -30 }}
+                initial={{ opacity: 0, x: -50 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8 }}
+                transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+                className="relative z-10"
               >
-                <p className="text-sm font-semibold text-zinc-500 uppercase tracking-widest mb-4" data-testid="text-hero-label">
-                  SOCIAL MEDIA MANAGEMENT
-                </p>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2 }}
+                  className="inline-flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full border border-zinc-200 shadow-sm mb-6"
+                >
+                  <span className="w-2 h-2 bg-[#c4ff4d] rounded-full animate-pulse" />
+                  <span className="text-sm font-medium text-zinc-600">Malta's AI-Native Creative Agency</span>
+                </motion.div>
                 
                 <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] mb-6" data-testid="text-hero-headline">
                   <span className="text-zinc-900">Creative</span>
                   <br />
-                  <span className="bg-gradient-to-r from-purple-600 via-pink-500 to-orange-500 bg-clip-text text-transparent">
-                    That Converts
+                  <span className="relative">
+                    <span className="bg-gradient-to-r from-[#2FA1D6] via-purple-500 to-[#c4ff4d] bg-clip-text text-transparent">
+                      That Converts
+                    </span>
+                    <motion.svg
+                      className="absolute -bottom-2 left-0 w-full"
+                      viewBox="0 0 300 12"
+                      initial={{ pathLength: 0 }}
+                      animate={{ pathLength: 1 }}
+                      transition={{ delay: 0.8, duration: 1 }}
+                    >
+                      <motion.path
+                        d="M0 6 Q75 0 150 6 Q225 12 300 6"
+                        fill="none"
+                        stroke="url(#underlineGradient)"
+                        strokeWidth="3"
+                        strokeLinecap="round"
+                      />
+                      <defs>
+                        <linearGradient id="underlineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                          <stop offset="0%" stopColor="#2FA1D6" />
+                          <stop offset="50%" stopColor="#8b5cf6" />
+                          <stop offset="100%" stopColor="#c4ff4d" />
+                        </linearGradient>
+                      </defs>
+                    </motion.svg>
                   </span>
                 </h1>
                 
-                <p className="text-xl text-zinc-600 mb-4 max-w-lg" data-testid="text-hero-subheadline">
-                  Not just looks good — <em className="text-zinc-900 font-medium">it drives revenue.</em>
+                <p className="text-xl md:text-2xl text-zinc-600 mb-6 max-w-lg leading-relaxed">
+                  Not just looks good — <em className="text-zinc-900 font-medium not-italic">it drives revenue.</em>
                 </p>
                 
-                <p className="text-lg text-zinc-600 mb-8 max-w-lg">
-                  High-impact creative for social, brand, and campaigns —
-                  <span className="text-zinc-900 font-medium"> enhanced with AI optimisation</span> to turn attention into action.
+                <p className="text-lg text-zinc-500 mb-8 max-w-lg">
+                  High-impact creative for social, brand, and campaigns — enhanced with 
+                  <span className="text-[#2FA1D6] font-medium"> AI optimisation</span> to turn attention into action.
                 </p>
                 
-                <p className="text-sm text-zinc-500 mb-6">
-                  Built for brands that refuse to compete on price.
-                </p>
-                
-                <div className="flex flex-wrap gap-4 mb-8">
+                <div className="flex flex-wrap gap-4 mb-10">
                   <Link href="/contact">
-                    <Button 
-                      size="lg" 
-                      className="bg-[#c4ff4d] text-black hover:bg-[#b5ef3d] font-bold px-8 py-6 text-lg rounded-full shadow-lg hover:shadow-xl transition-all hover:scale-105"
+                    <motion.button
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                      className="bg-[#c4ff4d] text-zinc-900 px-8 py-4 rounded-full text-lg font-bold shadow-xl shadow-[#c4ff4d]/30 hover:shadow-2xl hover:shadow-[#c4ff4d]/40 transition-all flex items-center gap-2"
                       data-testid="button-hero-get-pricing"
                     >
-                      Get pricing <ArrowRight className="w-5 h-5 ml-2" />
-                    </Button>
+                      Get pricing <ArrowRight className="w-5 h-5" />
+                    </motion.button>
                   </Link>
                   <Link href="/our-work">
-                    <Button 
-                      variant="outline" 
-                      size="lg" 
-                      className="border-2 border-zinc-300 text-zinc-700 hover:bg-zinc-100 font-semibold px-8 py-6 text-lg rounded-full"
+                    <motion.button
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                      className="bg-white text-zinc-700 px-8 py-4 rounded-full text-lg font-semibold border-2 border-zinc-200 hover:border-zinc-300 hover:bg-zinc-50 transition-all flex items-center gap-2"
                       data-testid="button-hero-see-examples"
                     >
-                      <Play className="w-5 h-5 mr-2" /> See examples
-                    </Button>
+                      <Play className="w-5 h-5" /> See examples
+                    </motion.button>
                   </Link>
                 </div>
                 
-                <p className="text-sm text-zinc-500">
-                  Includes <span className="font-semibold text-zinc-700">FREE Creative Audit</span> and AI-enhanced optimisation on every package.
-                </p>
-              </motion.div>
-
-              {/* Right: Phone Mockup */}
-              <motion.div
-                initial={{ opacity: 0, x: 30 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="relative hidden lg:block"
-              >
-                <div className="relative max-w-sm mx-auto">
-                  <PhoneMockup />
+                <div className="flex items-center gap-6 text-sm text-zinc-500">
+                  <div className="flex items-center gap-2">
+                    <Check className="w-4 h-4 text-emerald-500" />
+                    <span>Free Creative Audit</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Check className="w-4 h-4 text-emerald-500" />
+                    <span>No lock-in contracts</span>
+                  </div>
                 </div>
               </motion.div>
-            </div>
-          </div>
-        </section>
 
-        {/* ========== PLATFORM METRICS STRIP ========== */}
-        <section className="py-8 bg-white border-y border-zinc-100">
-          <div className="container mx-auto px-6">
-            <div className="flex flex-wrap justify-center gap-4 md:gap-6 lg:gap-8">
-              {platformMetrics.map((item, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className={`relative group cursor-pointer rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all hover:-translate-y-1`}
+              <motion.div
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 1, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                className="relative hidden lg:flex items-center justify-center"
+              >
+                <motion.div 
+                  className="relative"
+                  animate={{ y: [0, -10, 0] }}
+                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
                 >
-                  <div className={`bg-gradient-to-br ${item.color} p-4 md:p-5 min-w-[100px] md:min-w-[120px]`}>
-                    <div className="flex flex-col items-center text-white">
-                      <item.icon className="w-5 h-5 mb-1 opacity-80" />
-                      <span className="text-2xl md:text-3xl font-bold">{item.metric}</span>
-                      <span className="text-[10px] md:text-xs uppercase tracking-wider opacity-80">{item.platform}</span>
+                  <div className="absolute -inset-8 bg-gradient-to-r from-[#2FA1D6]/20 via-purple-500/20 to-[#c4ff4d]/20 rounded-[3rem] blur-3xl" />
+                  <div className="relative transform scale-90">
+                    <PhoneMockup />
+                  </div>
+                </motion.div>
+                
+                <motion.div
+                  animate={{ y: [0, -8, 0], rotate: [0, 2, 0] }}
+                  transition={{ duration: 3, repeat: Infinity, delay: 0.5 }}
+                  className="absolute -top-4 -right-8 bg-white rounded-2xl p-4 shadow-2xl border border-zinc-100"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 bg-gradient-to-br from-pink-500 to-purple-600 rounded-xl flex items-center justify-center">
+                      <TrendingUp className="w-5 h-5 text-white" />
+                    </div>
+                    <div>
+                      <p className="text-xs text-zinc-500">Engagement</p>
+                      <p className="text-lg font-bold text-zinc-900">+247%</p>
                     </div>
                   </div>
                 </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ========== AI VS TRADITIONAL COMPARISON ========== */}
-        <AnimatedSection className="py-20 md:py-28">
-          <div className="container mx-auto px-6">
-            <div className="text-center mb-12">
-              <Badge className="bg-zinc-100 text-zinc-700 mb-4">THE OARC DIFFERENCE</Badge>
-              <h2 className="text-3xl md:text-4xl font-bold text-zinc-900 mb-4">
-                Every Malta agency offers social media.
-              </h2>
-              <p className="text-xl text-zinc-600">
-                <span className="font-bold text-zinc-900">ZERO</span> offer it WITH AI enhancement baked in.
-              </p>
-            </div>
-            
-            <div className="max-w-4xl mx-auto overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-xl">
-              <div className="grid grid-cols-2">
-                <div className="bg-zinc-100 p-4 font-bold text-zinc-700 text-center border-b border-r border-zinc-200">
-                  Traditional Agency
-                </div>
-                <div className="bg-[#c4ff4d] p-4 font-bold text-black text-center border-b border-zinc-200">
-                  OARC Digital
-                </div>
-              </div>
-              {comparisonData.map((row, index) => (
+                
                 <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="grid grid-cols-2 border-b last:border-0 border-zinc-100"
+                  animate={{ y: [0, -6, 0], rotate: [0, -2, 0] }}
+                  transition={{ duration: 3.5, repeat: Infinity, delay: 1 }}
+                  className="absolute bottom-20 -left-12 bg-white rounded-2xl p-4 shadow-2xl border border-zinc-100"
                 >
-                  <div className="p-4 text-zinc-600 border-r border-zinc-100 flex items-center">
-                    {row.traditional}
-                  </div>
-                  <div className="p-4 text-zinc-900 font-medium flex items-center bg-[#c4ff4d]/5">
-                    <Check className="w-4 h-4 text-emerald-500 mr-2 flex-shrink-0" />
-                    {row.oarc}
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 bg-[#c4ff4d] rounded-xl flex items-center justify-center">
+                      <LineChart className="w-5 h-5 text-zinc-900" />
+                    </div>
+                    <div>
+                      <p className="text-xs text-zinc-500">Leads</p>
+                      <p className="text-lg font-bold text-zinc-900">4.7x ROI</p>
+                    </div>
                   </div>
                 </motion.div>
-              ))}
+              </motion.div>
             </div>
-          </div>
-        </AnimatedSection>
+          </motion.div>
+          
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.5 }}
+            className="absolute bottom-8 left-1/2 -translate-x-1/2"
+          >
+            <motion.div
+              animate={{ y: [0, 8, 0] }}
+              transition={{ duration: 2, repeat: Infinity }}
+              className="text-zinc-400"
+            >
+              <ChevronDown className="w-6 h-6" />
+            </motion.div>
+          </motion.div>
+        </section>
 
-        {/* ========== CHANNELS SECTION ========== */}
-        <AnimatedSection className="py-20 md:py-28 bg-white">
-          <div className="container mx-auto px-6">
-            <div className="text-center mb-12">
+        {/* ========== PLATFORM VIDEO SHOWCASE ========== */}
+        <section className="py-16 md:py-24 bg-white relative overflow-hidden">
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:48px_48px]" />
+          
+          <div className="container mx-auto px-6 relative">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-center mb-12"
+            >
+              <Badge className="bg-zinc-100 text-zinc-700 mb-4">REAL RESULTS</Badge>
               <h2 className="text-3xl md:text-4xl font-bold text-zinc-900 mb-4">
-                Channels we design & manage creative for
+                Content that performs across every platform
               </h2>
               <p className="text-lg text-zinc-600 max-w-2xl mx-auto">
-                Wherever your audience is — we design creative that fits. Each platform has its own behaviour, formats, and conversion logic.
+                Watch our work in action. Real campaigns, real engagement, real results.
               </p>
-            </div>
+            </motion.div>
             
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 max-w-5xl mx-auto">
-              {channels.map((channel, index) => (
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 max-w-6xl mx-auto">
+              {platformVideos.map((item, index) => (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.05 }}
-                  whileHover={{ y: -5 }}
-                  className="bg-zinc-50 rounded-xl p-5 text-center hover:bg-white hover:shadow-lg transition-all border border-zinc-100"
-                >
-                  <channel.icon className="w-8 h-8 mx-auto mb-3 text-zinc-700" />
-                  <h3 className="font-semibold text-zinc-900 text-sm mb-1">{channel.name}</h3>
-                  <p className="text-xs text-zinc-500">{channel.desc}</p>
-                </motion.div>
-              ))}
-            </div>
-            
-            <p className="text-center text-sm text-zinc-500 mt-8">
-              Local + international coverage. Creative adapted for Malta market behaviour.
-            </p>
-          </div>
-        </AnimatedSection>
-
-        {/* ========== WHAT MAKES OARC DIFFERENT ========== */}
-        <AnimatedSection className="py-20 md:py-28">
-          <div className="container mx-auto px-6">
-            <div className="text-center mb-12">
-              <Badge className="bg-zinc-100 text-zinc-700 mb-4">WHY OARC</Badge>
-              <h2 className="text-3xl md:text-4xl font-bold text-zinc-900 mb-4">
-                Creative is everywhere.
-              </h2>
-              <p className="text-xl text-zinc-600">
-                <span className="font-bold text-zinc-900">Creative that performs</span> is rare.
-              </p>
-            </div>
-            
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-              {differentiators.map((item, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
+                  initial={{ opacity: 0, y: 30, scale: 0.95 }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
+                  whileHover={{ y: -8, scale: 1.02 }}
+                  className="group relative"
                 >
-                  <Card className="p-6 h-full bg-white border-zinc-200 hover:border-[#c4ff4d] hover:shadow-xl transition-all group">
-                    <div className="w-12 h-12 bg-[#c4ff4d]/20 rounded-xl flex items-center justify-center mb-4 group-hover:bg-[#c4ff4d]/40 transition-colors">
-                      <item.icon className="w-6 h-6 text-zinc-900" />
+                  <div className={`absolute -inset-1 bg-gradient-to-r ${item.color} rounded-3xl opacity-0 group-hover:opacity-100 blur-xl transition-all duration-500`} />
+                  
+                  <div className="relative bg-zinc-900 rounded-2xl overflow-hidden shadow-xl aspect-[9/16]">
+                    <video
+                      src={item.video}
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      className="w-full h-full object-cover"
+                    />
+                    
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+                    
+                    <div className="absolute top-4 left-4">
+                      <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${item.color} flex items-center justify-center shadow-lg`}>
+                        <item.icon className="w-5 h-5 text-white" />
+                      </div>
                     </div>
-                    <h3 className="font-bold text-zinc-900 mb-2">{item.title}</h3>
-                    <p className="text-sm text-zinc-600 leading-relaxed">{item.desc}</p>
-                  </Card>
+                    
+                    <div className="absolute bottom-4 left-4 right-4">
+                      <p className="text-xs text-zinc-400 uppercase tracking-wider mb-1">{item.platform}</p>
+                      <p className="text-2xl font-bold text-white">{item.stat}</p>
+                      <p className="text-sm text-zinc-400">{item.label}</p>
+                    </div>
+                  </div>
                 </motion.div>
               ))}
             </div>
           </div>
-        </AnimatedSection>
+        </section>
 
-        {/* ========== CREATIVE WORK SHOWCASE ========== */}
-        <section className="py-16 md:py-24 bg-white overflow-hidden">
+        {/* ========== AI CREATIVE SHOWCASE - MOVED UP ========== */}
+        <section className="py-16 md:py-24 bg-[#fafaf8] overflow-hidden">
           <div className="container mx-auto px-6 mb-12">
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
@@ -786,7 +870,7 @@ export default function CreativeLanding() {
               viewport={{ once: true }}
               className="text-center"
             >
-              <Badge className="bg-zinc-100 text-zinc-700 mb-4">FULL-SPECTRUM CREATIVE</Badge>
+              <Badge className="bg-[#c4ff4d]/20 text-zinc-700 border-[#c4ff4d]/30 mb-4">FULL-SPECTRUM CREATIVE</Badge>
               <h2 className="text-3xl md:text-4xl font-bold text-zinc-900 mb-4">
                 Every type of creative work you'll ever need
               </h2>
@@ -801,125 +885,306 @@ export default function CreativeLanding() {
           </div>
         </section>
 
-        {/* ========== SOCIAL MEDIA PACKAGES ========== */}
-        <AnimatedSection className="py-20 md:py-28 bg-zinc-50">
-          <div className="container mx-auto px-6">
-            <div className="text-center mb-12">
-              <Badge className="bg-[#c4ff4d] text-black mb-4">SERVICE 1</Badge>
-              <h2 className="text-3xl md:text-4xl font-bold text-zinc-900 mb-2">
-                Social Media Management
+        {/* ========== DIFFERENTIATION: VALUE BEYOND AI ========== */}
+        <AnimatedSection className="py-20 md:py-32 bg-white relative overflow-hidden">
+          <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-[#fafaf8] to-transparent" />
+          
+          <div className="container mx-auto px-6 relative">
+            <div className="text-center mb-16">
+              <Badge className="bg-zinc-900 text-white mb-4">THE OARC ADVANTAGE</Badge>
+              <h2 className="text-3xl md:text-5xl font-bold text-zinc-900 mb-6">
+                Every Malta agency offers social media.
               </h2>
-              <p className="text-xl text-zinc-600 italic">"The Feed & Lead System™"</p>
+              <p className="text-xl text-zinc-600 max-w-3xl mx-auto">
+                We offer <span className="font-bold text-zinc-900">4 pillars of strategic value</span> that transform your brand's trajectory.
+              </p>
             </div>
             
-            <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto mb-8">
-              {socialMediaPackages.map((pkg, index) => (
+            <div className="grid md:grid-cols-2 gap-6 lg:gap-8 max-w-6xl mx-auto">
+              {valuePillars.map((pillar, index) => (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
+                  whileHover={{ y: -5 }}
+                  className="group"
                 >
-                  <PackageTier pkg={pkg} type="monthly" />
+                  <div className="relative h-full rounded-3xl overflow-hidden bg-gradient-to-br from-white to-zinc-50 border border-zinc-200 hover:border-zinc-300 p-8 transition-all hover:shadow-2xl">
+                    <div className="absolute top-0 right-0 w-48 h-48 bg-gradient-to-br opacity-5 group-hover:opacity-10 transition-opacity" 
+                         style={{ background: `linear-gradient(135deg, ${pillar.color.split(' ')[0].replace('from-', '')} 0%, transparent 100%)` }} />
+                    
+                    <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${pillar.color} flex items-center justify-center mb-6 shadow-lg`}>
+                      <pillar.icon className="w-7 h-7 text-white" />
+                    </div>
+                    
+                    <p className="text-sm font-bold text-zinc-500 uppercase tracking-wider mb-2">{pillar.title}</p>
+                    <h3 className="text-2xl font-bold text-zinc-900 mb-4">{pillar.headline}</h3>
+                    <p className="text-zinc-600 mb-6 leading-relaxed">{pillar.description}</p>
+                    
+                    <div className="flex items-end gap-3 pt-4 border-t border-zinc-100">
+                      <span className={`text-4xl font-bold bg-gradient-to-r ${pillar.color} bg-clip-text text-transparent`}>
+                        {pillar.stat}
+                      </span>
+                      <span className="text-sm text-zinc-500 pb-1">{pillar.statLabel}</span>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </AnimatedSection>
+
+        {/* ========== AI VS TRADITIONAL COMPARISON ========== */}
+        <AnimatedSection className="py-20 md:py-28 bg-[#fafaf8]">
+          <div className="container mx-auto px-6">
+            <div className="text-center mb-12">
+              <Badge className="bg-[#2FA1D6]/10 text-[#2FA1D6] border-[#2FA1D6]/20 mb-4">AI-ENHANCED DELIVERY</Badge>
+              <h2 className="text-3xl md:text-4xl font-bold text-zinc-900 mb-4">
+                Same deliverables. <span className="text-[#2FA1D6]">10X more intelligence.</span>
+              </h2>
+              <p className="text-xl text-zinc-600">
+                Every service comes with AI enhancement at no extra cost.
+              </p>
+            </div>
+            
+            <div className="max-w-4xl mx-auto">
+              <div className="overflow-hidden rounded-3xl border border-zinc-200 bg-white shadow-xl">
+                <div className="grid grid-cols-2">
+                  <div className="bg-zinc-100 p-5 font-bold text-zinc-700 text-center border-b border-r border-zinc-200">
+                    Traditional Agency
+                  </div>
+                  <div className="bg-gradient-to-r from-[#c4ff4d] to-[#9ed919] p-5 font-bold text-zinc-900 text-center border-b">
+                    OARC Digital
+                  </div>
+                </div>
+                {comparisonData.map((row, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
+                    className="grid grid-cols-2 border-b last:border-0 border-zinc-100"
+                  >
+                    <div className="p-5 text-zinc-500 border-r border-zinc-100 flex items-center text-sm">
+                      {row.traditional}
+                    </div>
+                    <div className="p-5 text-zinc-900 font-medium flex items-center bg-[#c4ff4d]/5 text-sm">
+                      <Check className="w-4 h-4 text-emerald-500 mr-3 flex-shrink-0" />
+                      {row.oarc}
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </AnimatedSection>
+
+        {/* ========== WHY OARC - ANIMATED ========== */}
+        <AnimatedSection className="py-20 md:py-28 bg-white">
+          <div className="container mx-auto px-6">
+            <div className="text-center mb-16">
+              <Badge className="bg-zinc-100 text-zinc-700 mb-4">WHY OARC</Badge>
+              <h2 className="text-3xl md:text-4xl font-bold text-zinc-900 mb-4">
+                Creative is everywhere.
+              </h2>
+              <p className="text-xl text-zinc-600">
+                <span className="font-bold text-zinc-900">Creative that performs</span> is rare.
+              </p>
+            </div>
+            
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+              {differentiators.map((item, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  whileHover={{ y: -5, scale: 1.02 }}
+                  className="group"
+                >
+                  <div className="relative p-8 h-full rounded-3xl bg-gradient-to-br from-zinc-50 to-white border border-zinc-200 hover:border-[#c4ff4d] hover:shadow-xl transition-all duration-300">
+                    <motion.div 
+                      className="w-14 h-14 bg-gradient-to-br from-[#c4ff4d]/20 to-[#c4ff4d]/40 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"
+                      whileHover={{ rotate: 5 }}
+                    >
+                      <item.icon className="w-7 h-7 text-zinc-900" />
+                    </motion.div>
+                    <h3 className="font-bold text-zinc-900 text-lg mb-3">{item.title}</h3>
+                    <p className="text-zinc-600 leading-relaxed">{item.desc}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </AnimatedSection>
+
+        {/* ========== CHANNELS SECTION ========== */}
+        <AnimatedSection className="py-20 md:py-28 bg-[#fafaf8]">
+          <div className="container mx-auto px-6">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold text-zinc-900 mb-4">
+                Channels we design & manage creative for
+              </h2>
+              <p className="text-lg text-zinc-600 max-w-2xl mx-auto">
+                Wherever your audience is — we design creative that fits.
+              </p>
+            </div>
+            
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 max-w-5xl mx-auto">
+              {channels.map((channel, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.05 }}
+                  whileHover={{ y: -5, scale: 1.05 }}
+                  className="bg-white rounded-2xl p-5 text-center hover:shadow-xl transition-all border border-zinc-100 group"
+                >
+                  <div className="w-12 h-12 mx-auto mb-3 rounded-xl bg-zinc-100 group-hover:bg-[#c4ff4d]/20 flex items-center justify-center transition-colors">
+                    <channel.icon className="w-6 h-6 text-zinc-700" />
+                  </div>
+                  <h3 className="font-semibold text-zinc-900 text-sm mb-1">{channel.name}</h3>
+                  <p className="text-xs text-zinc-500">{channel.desc}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </AnimatedSection>
+
+        {/* ========== SOCIAL MEDIA PACKAGES ========== */}
+        <AnimatedSection className="py-20 md:py-28 bg-white">
+          <div className="container mx-auto px-6">
+            <div className="text-center mb-16">
+              <Badge className="bg-[#c4ff4d] text-zinc-900 mb-4">SERVICE 1</Badge>
+              <h2 className="text-3xl md:text-4xl font-bold text-zinc-900 mb-2">
+                Social Media Management
+              </h2>
+              <p className="text-xl text-zinc-600 italic">"The Feed & Lead System"</p>
+            </div>
+            
+            <div className="grid md:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto mb-12">
+              {socialMediaPackages.map((pkg, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.15 }}
+                >
+                  <PremiumPackageCard pkg={pkg} type="monthly" />
                 </motion.div>
               ))}
             </div>
             
-            {/* Guarantee */}
-            <div className="max-w-3xl mx-auto">
-              <Card className="p-6 bg-gradient-to-r from-emerald-50 to-teal-50 border-emerald-200">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-emerald-500 rounded-full flex items-center justify-center flex-shrink-0">
-                    <Shield className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-zinc-900 mb-1">The Engagement Guarantee</h3>
-                    <p className="text-zinc-700">
-                      <strong>"If your engagement doesn't increase by 50% in 90 days, we work 100% FREE until it does."</strong>
-                    </p>
-                    <p className="text-sm text-zinc-600 mt-2">
-                      PLUS: Miss a posting deadline = that week is FREE • Response time over 4 hours = €50 credit
-                    </p>
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="max-w-3xl mx-auto"
+            >
+              <div className="relative rounded-3xl overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-r from-emerald-500 to-teal-500" />
+                <div className="relative p-8 text-white">
+                  <div className="flex items-start gap-5">
+                    <div className="w-14 h-14 bg-white/20 rounded-2xl flex items-center justify-center flex-shrink-0">
+                      <Shield className="w-7 h-7 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-xl mb-2">The Engagement Guarantee</h3>
+                      <p className="text-white/90 text-lg mb-3">
+                        "If your engagement doesn't increase by <strong>50% in 90 days</strong>, we work <strong>100% FREE</strong> until it does."
+                      </p>
+                      <p className="text-white/70 text-sm">
+                        PLUS: Miss a posting deadline = that week is FREE
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </Card>
-            </div>
-            
-            <p className="text-center text-sm text-zinc-500 mt-8">
-              Most brands invest between <strong>€997–€1,997/month</strong> depending on platforms, volume, and goals.
-            </p>
+              </div>
+            </motion.div>
           </div>
         </AnimatedSection>
 
         {/* ========== WEBSITE PACKAGES ========== */}
-        <AnimatedSection className="py-20 md:py-28 bg-white">
+        <AnimatedSection className="py-20 md:py-28 bg-[#fafaf8]">
           <div className="container mx-auto px-6">
-            <div className="text-center mb-12">
-              <Badge className="bg-blue-100 text-blue-700 mb-4">SERVICE 2</Badge>
+            <div className="text-center mb-16">
+              <Badge className="bg-[#2FA1D6]/10 text-[#2FA1D6] border-[#2FA1D6]/20 mb-4">SERVICE 2</Badge>
               <h2 className="text-3xl md:text-4xl font-bold text-zinc-900 mb-2">
                 Website Design
               </h2>
-              <p className="text-xl text-zinc-600 italic">"The Click & Convert System™"</p>
+              <p className="text-xl text-zinc-600 italic">"The Click & Convert System"</p>
             </div>
             
-            <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto mb-8">
+            <div className="grid md:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto mb-12">
               {websitePackages.map((pkg, index) => (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
+                  transition={{ delay: index * 0.15 }}
                 >
-                  <PackageTier pkg={pkg} type="oneTime" />
+                  <PremiumPackageCard pkg={pkg} type="oneTime" />
                 </motion.div>
               ))}
             </div>
             
-            {/* Guarantee */}
-            <div className="max-w-3xl mx-auto">
-              <Card className="p-6 bg-gradient-to-r from-blue-50 to-indigo-50 border-blue-200">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0">
-                    <Clock className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-zinc-900 mb-1">The 4-Week Launch Guarantee</h3>
-                    <p className="text-zinc-700">
-                      <strong>"Your website goes live in 4 weeks or €300 off."</strong>
-                    </p>
-                    <p className="text-sm text-zinc-600 mt-2">
-                      PLUS: Every extra week = additional €100 credit • 30-day money-back if not satisfied • Unlimited revisions until you love it
-                    </p>
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="max-w-3xl mx-auto"
+            >
+              <div className="relative rounded-3xl overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-r from-[#2FA1D6] to-indigo-500" />
+                <div className="relative p-8 text-white">
+                  <div className="flex items-start gap-5">
+                    <div className="w-14 h-14 bg-white/20 rounded-2xl flex items-center justify-center flex-shrink-0">
+                      <Clock className="w-7 h-7 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-xl mb-2">The 4-Week Launch Guarantee</h3>
+                      <p className="text-white/90 text-lg mb-3">
+                        "Your website goes live in <strong>4 weeks</strong> or <strong>€300 off</strong>."
+                      </p>
+                      <p className="text-white/70 text-sm">
+                        PLUS: Unlimited revisions until you love it • You own everything forever
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </Card>
-            </div>
+              </div>
+            </motion.div>
           </div>
         </AnimatedSection>
 
         {/* ========== BRAND PACKAGES ========== */}
-        <AnimatedSection className="py-20 md:py-28 bg-zinc-50">
+        <AnimatedSection className="py-20 md:py-28 bg-white">
           <div className="container mx-auto px-6">
-            <div className="text-center mb-12">
+            <div className="text-center mb-16">
               <Badge className="bg-purple-100 text-purple-700 mb-4">SERVICE 3</Badge>
               <h2 className="text-3xl md:text-4xl font-bold text-zinc-900 mb-2">
                 Brand Identity
               </h2>
-              <p className="text-xl text-zinc-600 italic">"The Look & Lead System™"</p>
+              <p className="text-xl text-zinc-600 italic">"The Look & Lead System"</p>
             </div>
             
-            <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            <div className="grid md:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto">
               {brandPackages.map((pkg, index) => (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
+                  transition={{ delay: index * 0.15 }}
                 >
-                  <PackageTier pkg={pkg} type="oneTime" />
+                  <PremiumPackageCard pkg={pkg} type="oneTime" />
                 </motion.div>
               ))}
             </div>
@@ -927,9 +1192,9 @@ export default function CreativeLanding() {
         </AnimatedSection>
 
         {/* ========== HOW IT WORKS ========== */}
-        <AnimatedSection className="py-20 md:py-28 bg-white">
+        <AnimatedSection className="py-20 md:py-28 bg-[#fafaf8]">
           <div className="container mx-auto px-6">
-            <div className="text-center mb-12">
+            <div className="text-center mb-16">
               <Badge className="bg-zinc-100 text-zinc-700 mb-4">PROCESS</Badge>
               <h2 className="text-3xl md:text-4xl font-bold text-zinc-900 mb-4">
                 How it works
@@ -941,107 +1206,145 @@ export default function CreativeLanding() {
             
             <div className="max-w-4xl mx-auto">
               <div className="relative">
-                {/* Timeline line */}
-                <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#c4ff4d] via-emerald-400 to-teal-400 hidden md:block" />
+                <div className="absolute left-8 top-0 bottom-0 w-1 bg-gradient-to-b from-[#c4ff4d] via-[#2FA1D6] to-purple-500 hidden md:block rounded-full" />
                 
                 {processSteps.map((step, index) => (
                   <motion.div
                     key={index}
-                    initial={{ opacity: 0, x: -20 }}
+                    initial={{ opacity: 0, x: -30 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.15 }}
                     className="relative flex gap-6 mb-8 last:mb-0"
                   >
-                    <div className="relative z-10 w-16 h-16 bg-[#c4ff4d] rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg">
-                      <span className="text-2xl font-bold text-black">{step.step}</span>
-                    </div>
-                    <Card className="flex-1 p-6 bg-white border-zinc-200 hover:shadow-lg transition-shadow">
-                      <div className="flex flex-wrap items-center gap-3 mb-2">
-                        <h3 className="font-bold text-zinc-900">{step.title}</h3>
-                        <Badge variant="outline" className="text-xs">⏱ {step.time}</Badge>
+                    <motion.div 
+                      whileHover={{ scale: 1.1, rotate: 5 }}
+                      className="relative z-10 w-16 h-16 bg-gradient-to-br from-[#c4ff4d] to-[#9ed919] rounded-2xl flex items-center justify-center flex-shrink-0 shadow-xl shadow-[#c4ff4d]/30"
+                    >
+                      <span className="text-2xl font-bold text-zinc-900">{step.step}</span>
+                    </motion.div>
+                    <div className="flex-1 bg-white rounded-2xl p-6 border border-zinc-200 hover:shadow-lg transition-shadow">
+                      <div className="flex flex-wrap items-center gap-3 mb-3">
+                        <h3 className="font-bold text-zinc-900 text-lg">{step.title}</h3>
+                        <span className="text-xs bg-zinc-100 text-zinc-600 px-3 py-1 rounded-full">
+                          {step.time}
+                        </span>
                       </div>
                       <p className="text-zinc-600">{step.desc}</p>
-                    </Card>
+                    </div>
                   </motion.div>
                 ))}
               </div>
             </div>
             
-            <div className="text-center mt-12">
-              <p className="text-zinc-600 mb-6">
-                <strong>Total setup time:</strong> 1 week • <strong>Your time:</strong> ~5 hours first month, 2-3 hours/month ongoing
+            <div className="text-center mt-16">
+              <p className="text-zinc-600 mb-8">
+                <strong>Total setup time:</strong> 1 week • <strong>Your time:</strong> ~5 hours first month
               </p>
               <Link href="/contact">
-                <Button 
-                  size="lg" 
-                  className="bg-[#c4ff4d] text-black hover:bg-[#b5ef3d] font-bold px-8"
+                <motion.button
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="bg-[#c4ff4d] text-zinc-900 px-10 py-4 rounded-full text-lg font-bold shadow-xl shadow-[#c4ff4d]/30 hover:shadow-2xl transition-all inline-flex items-center gap-2"
                   data-testid="button-how-it-works-cta"
                 >
-                  Get pricing <ArrowRight className="w-5 h-5 ml-2" />
-                </Button>
+                  Get pricing <ArrowRight className="w-5 h-5" />
+                </motion.button>
               </Link>
             </div>
           </div>
         </AnimatedSection>
 
         {/* ========== WHO IT'S FOR / NOT FOR ========== */}
-        <AnimatedSection className="py-20 md:py-28 bg-zinc-900">
-          <div className="container mx-auto px-6">
+        <section className="py-20 md:py-28 bg-zinc-900 relative overflow-hidden">
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:48px_48px]" />
+          
+          <div className="container mx-auto px-6 relative">
             <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-              {/* For */}
-              <Card className="p-8 bg-zinc-800 border-zinc-700">
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-10 h-10 bg-emerald-500 rounded-full flex items-center justify-center">
-                    <Check className="w-5 h-5 text-white" />
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-zinc-800 to-zinc-900 border border-zinc-700/50 p-8"
+              >
+                <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/10 rounded-full blur-3xl" />
+                <div className="flex items-center gap-4 mb-8">
+                  <div className="w-12 h-12 bg-emerald-500 rounded-2xl flex items-center justify-center">
+                    <Check className="w-6 h-6 text-white" />
                   </div>
                   <h3 className="text-xl font-bold text-white">This is built for brands that</h3>
                 </div>
-                <ul className="space-y-3">
+                <ul className="space-y-4">
                   {[
                     'Care about results, not shortcuts',
                     'Want creative tied to business growth',
                     'Are done wasting money on disconnected agencies',
-                    'Want a long-term creative partner, not vendors',
+                    'Want a long-term creative partner',
                   ].map((item, i) => (
-                    <li key={i} className="flex items-start gap-3 text-zinc-300">
-                      <Check className="w-4 h-4 text-emerald-400 mt-1 flex-shrink-0" />
+                    <motion.li 
+                      key={i} 
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: i * 0.1 }}
+                      className="flex items-start gap-3 text-zinc-300"
+                    >
+                      <Check className="w-5 h-5 text-emerald-400 mt-0.5 flex-shrink-0" />
                       {item}
-                    </li>
+                    </motion.li>
                   ))}
                 </ul>
-              </Card>
+              </motion.div>
               
-              {/* Not For */}
-              <Card className="p-8 bg-zinc-800 border-zinc-700">
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-10 h-10 bg-red-500 rounded-full flex items-center justify-center">
-                    <X className="w-5 h-5 text-white" />
+              <motion.div
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-zinc-800 to-zinc-900 border border-zinc-700/50 p-8"
+              >
+                <div className="absolute top-0 right-0 w-32 h-32 bg-red-500/10 rounded-full blur-3xl" />
+                <div className="flex items-center gap-4 mb-8">
+                  <div className="w-12 h-12 bg-red-500 rounded-2xl flex items-center justify-center">
+                    <X className="w-6 h-6 text-white" />
                   </div>
                   <h3 className="text-xl font-bold text-white">This is NOT for you if</h3>
                 </div>
-                <ul className="space-y-3">
+                <ul className="space-y-4">
                   {[
                     'You want the cheapest option',
-                    'You\'re chasing viral hits without strategy',
-                    'You don\'t track performance',
-                    'You\'re looking for freelancers, not systems',
+                    "You're chasing viral hits without strategy",
+                    "You don't track performance",
+                    "You're looking for freelancers, not systems",
                   ].map((item, i) => (
-                    <li key={i} className="flex items-start gap-3 text-zinc-300">
-                      <X className="w-4 h-4 text-red-400 mt-1 flex-shrink-0" />
+                    <motion.li 
+                      key={i}
+                      initial={{ opacity: 0, x: 20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: i * 0.1 }}
+                      className="flex items-start gap-3 text-zinc-300"
+                    >
+                      <X className="w-5 h-5 text-red-400 mt-0.5 flex-shrink-0" />
                       {item}
-                    </li>
+                    </motion.li>
                   ))}
                 </ul>
-              </Card>
+              </motion.div>
             </div>
             
-            <div className="text-center mt-12">
-              <p className="text-2xl font-bold text-white mb-2">Creative shouldn't be a cost.</p>
-              <p className="text-xl text-zinc-400">It should be a <span className="text-[#c4ff4d] font-bold">growth asset</span>.</p>
-            </div>
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-center mt-16"
+            >
+              <p className="text-3xl font-bold text-white mb-3">Creative shouldn't be a cost.</p>
+              <p className="text-xl text-zinc-400">
+                It should be a <span className="text-[#c4ff4d] font-bold">growth asset</span>.
+              </p>
+            </motion.div>
           </div>
-        </AnimatedSection>
+        </section>
 
         {/* ========== FAQ SECTION ========== */}
         <AnimatedSection className="py-20 md:py-28 bg-white">
@@ -1054,7 +1357,7 @@ export default function CreativeLanding() {
                 </h2>
               </div>
               
-              <div className="divide-y divide-zinc-200">
+              <div className="bg-zinc-50 rounded-3xl p-8">
                 {faqItems.map((item, index) => (
                   <FAQItem key={index} item={item} index={index} />
                 ))}
@@ -1064,37 +1367,45 @@ export default function CreativeLanding() {
         </AnimatedSection>
 
         {/* ========== FINAL CTA ========== */}
-        <section className="py-20 md:py-28 bg-gradient-to-br from-zinc-900 via-zinc-800 to-zinc-900">
-          <div className="container mx-auto px-6 text-center">
+        <section className="py-20 md:py-32 bg-gradient-to-br from-zinc-900 via-zinc-800 to-zinc-900 relative overflow-hidden">
+          <div className="absolute inset-0">
+            <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#c4ff4d]/10 rounded-full blur-3xl" />
+            <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#2FA1D6]/10 rounded-full blur-3xl" />
+          </div>
+          
+          <div className="container mx-auto px-6 text-center relative">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
-                Ready to turn creative into revenue?
+              <h2 className="text-4xl md:text-6xl font-bold text-white mb-8">
+                Ready to turn creative
+                <br />
+                <span className="text-[#c4ff4d]">into revenue?</span>
               </h2>
-              <p className="text-xl text-zinc-400 mb-8 max-w-2xl mx-auto">
+              <p className="text-xl text-zinc-400 mb-10 max-w-2xl mx-auto">
                 Get a customised package recommendation and see exactly how we can help your brand grow.
               </p>
               
               <Link href="/contact">
-                <Button 
-                  size="lg" 
-                  className="bg-[#c4ff4d] text-black hover:bg-[#b5ef3d] font-bold px-12 py-6 text-lg rounded-full shadow-xl hover:shadow-2xl transition-all hover:scale-105"
+                <motion.button
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="bg-[#c4ff4d] text-zinc-900 px-12 py-5 rounded-full text-xl font-bold shadow-2xl shadow-[#c4ff4d]/30 hover:shadow-[#c4ff4d]/50 transition-all inline-flex items-center gap-3"
                   data-testid="button-final-cta"
                 >
-                  Get pricing <ArrowRight className="w-5 h-5 ml-2" />
-                </Button>
+                  Get pricing <ArrowRight className="w-6 h-6" />
+                </motion.button>
               </Link>
               
-              <p className="text-sm text-zinc-500 mt-6">
+              <p className="text-sm text-zinc-500 mt-8">
                 Includes a <span className="text-[#c4ff4d] font-semibold">free Creative Audit</span> for Malta-based brands.
               </p>
               
-              <div className="mt-8 flex items-center justify-center gap-2 text-sm text-zinc-500">
+              <div className="mt-10 inline-flex items-center gap-2 text-sm text-zinc-500 bg-white/5 px-5 py-3 rounded-full">
                 <Clock className="w-4 h-4" />
-                <span><strong>January onboarding is limited.</strong> We take on a small number of new creative clients each month to maintain quality.</span>
+                <span><strong className="text-zinc-300">January onboarding is limited.</strong> Small number of new clients accepted monthly.</span>
               </div>
             </motion.div>
           </div>
