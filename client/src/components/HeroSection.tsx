@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import { Palette, Bot, Rocket } from "lucide-react";
 import FloatingChipCarousel from "./FloatingChipCarousel";
 import heroBackground from '@assets/d375f1d50d97b0de7953ca2cecd2b8aea2cd96b2-3524x1181_1761251957292.avif';
-import greenLogo from '@assets/image_1767660951950.png';
 
 function SnowfallEffect() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
