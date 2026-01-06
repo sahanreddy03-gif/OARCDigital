@@ -17,6 +17,7 @@ export default function Navigation() {
   }, []);
 
   const navLinks = [
+    { href: "/creative", label: "Creative", highlight: true },
     { href: "/services", label: "Services" },
     { href: "/our-work", label: "Our Work" },
     { href: "/why-us", label: "Why Us" },
@@ -68,7 +69,9 @@ export default function Navigation() {
                 className={`text-xs lg:text-sm font-medium transition-colors ${
                   location === link.href
                     ? "text-[#c4ff4d]"
-                    : "text-white/90 hover:text-white"
+                    : link.highlight 
+                      ? "text-[#c4ff4d] hover:text-white"
+                      : "text-white/90 hover:text-white"
                 }`}
                 style={{ textShadow }}
                 data-testid={`link-${link.label.toLowerCase().replace(/\s+/g, '-')}`}
@@ -106,7 +109,9 @@ export default function Navigation() {
                   className={`block py-3 text-base font-medium border-b border-white/5 ${
                     location === link.href
                       ? "text-[#c4ff4d]"
-                      : "text-white"
+                      : link.highlight
+                        ? "text-[#c4ff4d]"
+                        : "text-white"
                   }`}
                   onClick={() => setMobileMenuOpen(false)}
                   data-testid={`link-mobile-${link.label.toLowerCase().replace(/\s+/g, '-')}`}
