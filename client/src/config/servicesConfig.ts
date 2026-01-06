@@ -277,9 +277,10 @@ export const servicesCatalog: Record<string, ServiceCategory> = {
   }
 };
 
-export const getPreviewServices = (categoryId: 'creativeDesign' | 'aiAgents' | 'growthAutomation' | 'development') => {
+export const getPreviewServices = (categoryId: string) => {
   const category = servicesCatalog[categoryId];
-  const limit = servicesConfig.previewLimits[categoryId];
+  if (!category) return [];
+  const limit = servicesConfig.previewLimits[categoryId as keyof typeof servicesConfig.previewLimits] || 5;
   return category.items.slice(0, limit);
 };
 

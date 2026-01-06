@@ -10,9 +10,9 @@ export default function Navigation() {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  const aiCreativePreview = getPreviewServices('aiCreative');
-  const aiEmployeesPreview = getPreviewServices('aiEmployees');
-  const revenuePreview = getPreviewServices('revenue');
+  const creativeDesignPreview = getPreviewServices('creativeDesign');
+  const aiAgentsPreview = getPreviewServices('aiAgents');
+  const growthPreview = getPreviewServices('growthAutomation');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -86,13 +86,13 @@ export default function Navigation() {
               {showServicesMenu && (
                 <div className="absolute top-full left-1/2 -translate-x-1/2 w-[800px] bg-zinc-900/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-white/10 p-8 z-50">
                   <div className="grid grid-cols-3 gap-8">
-                    {/* AI Creative */}
+                    {/* Creative & Design */}
                     <div>
                       <h3 className="text-sm font-bold text-white mb-4 flex items-center gap-2">
-                        {servicesCatalog.aiCreative.title}
+                        {servicesCatalog.creativeDesign?.title || 'Creative & Design'}
                       </h3>
                       <div className="space-y-2">
-                        {aiCreativePreview.map((service) => (
+                        {creativeDesignPreview.map((service) => (
                           <Link key={service.slug} href={`/services/${service.route || service.slug}`} data-testid={`link-mega-${service.slug}`}>
                             <div className="text-sm text-zinc-400 hover:text-[#c4ff4d] transition-colors py-1 cursor-pointer flex items-center justify-between group">
                               <span>{service.title}</span>
@@ -107,13 +107,13 @@ export default function Navigation() {
                       </div>
                     </div>
 
-                    {/* AI Employees */}
+                    {/* AI Agents */}
                     <div>
                       <h3 className="text-sm font-bold text-white mb-4 flex items-center gap-2">
-                        {servicesCatalog.aiEmployees.title}
+                        {servicesCatalog.aiAgents?.title || 'AI Agents'}
                       </h3>
                       <div className="space-y-2">
-                        {aiEmployeesPreview.map((service) => (
+                        {aiAgentsPreview.map((service) => (
                           <Link key={service.slug} href={`/services/${service.route || service.slug}`} data-testid={`link-mega-${service.slug}`}>
                             <div className="text-sm text-zinc-400 hover:text-[#23AACA] transition-colors py-1 cursor-pointer flex items-center justify-between group">
                               <span>{service.title}</span>
@@ -128,13 +128,13 @@ export default function Navigation() {
                       </div>
                     </div>
 
-                    {/* Revenue */}
+                    {/* Growth Automation */}
                     <div>
                       <h3 className="text-sm font-bold text-white mb-4 flex items-center gap-2">
-                        {servicesCatalog.revenue.title}
+                        {servicesCatalog.growthAutomation?.title || 'Growth & Automation'}
                       </h3>
                       <div className="space-y-2">
-                        {revenuePreview.map((service) => (
+                        {growthPreview.map((service) => (
                           <Link key={service.slug} href={`/services/${service.route || service.slug}`} data-testid={`link-mega-${service.slug}`}>
                             <div className="text-sm text-zinc-400 hover:text-[#4ade80] transition-colors py-1 cursor-pointer flex items-center justify-between group">
                               <span>{service.title}</span>
