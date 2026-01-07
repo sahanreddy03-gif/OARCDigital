@@ -42,7 +42,7 @@ export default function Navigation() {
               style={{ fontFamily: 'var(--font-punoer)' }}
             >
               <span className="text-white text-xl md:text-2xl tracking-[0.2em]">OARC</span>
-              <span className="text-[0.5rem] md:text-[0.6rem] tracking-[0.35em]" style={{ color: 'rgba(196, 255, 77, 0.6)' }}>DIGITAL</span>
+              <span className="text-[0.45rem] md:text-[0.5rem] tracking-[0.35em]" style={{ color: 'rgba(196, 255, 77, 0.6)' }}>DIGITAL</span>
             </div>
           </Link>
 

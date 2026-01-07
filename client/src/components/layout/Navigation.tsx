@@ -33,30 +33,20 @@ export default function Navigation() {
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16 md:h-18 lg:h-20">
-          {/* Logo with Tagline */}
-          <Link href="/" className="flex items-center gap-2" data-testid="link-logo-home">
+          {/* Logo - Stacked OARC / DIGITAL */}
+          <Link href="/" className="flex items-center gap-3" data-testid="link-logo-home">
             <img 
               src={greenLogo} 
               alt="OARC Digital logo" 
-              className="h-16 w-16 md:h-18 md:w-18 lg:h-22 lg:w-22 object-contain"
+              className="h-10 w-10 lg:h-11 lg:w-11 object-contain"
               data-testid="img-logo"
             />
-            <div className="flex flex-col">
-              <span 
-                className="font-logo text-white text-xl md:text-2xl lg:text-3xl tracking-[0.02em] font-bold" 
-                style={{ textShadow }}
-              >
-                <span className="text-white text-2xl md:text-3xl lg:text-4xl">O</span>
-                <span>arc</span>
-                <span className="ml-1.5 text-[#c4ff4d]">D</span>
-                <span className="text-[#c4ff4d]">igital</span>
-              </span>
-              <span 
-                className="text-white text-[9px] md:text-[10px] lg:text-xs tracking-[0.08em] font-light italic"
-                style={{ textShadow }}
-              >
-                Where Creativity Meets Revenue
-              </span>
+            <div 
+              className="flex flex-col items-center leading-none"
+              style={{ fontFamily: 'var(--font-punoer)' }}
+            >
+              <span className="text-white text-xl md:text-2xl tracking-[0.2em]">OARC</span>
+              <span className="text-[0.45rem] md:text-[0.5rem] tracking-[0.35em]" style={{ color: 'rgba(196, 255, 77, 0.6)' }}>DIGITAL</span>
             </div>
           </Link>
 
