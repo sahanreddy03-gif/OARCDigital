@@ -5,7 +5,7 @@ import { Helmet } from 'react-helmet-async';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import heroVideoSrc from '@assets/2026-01-07_01_1767820219026.mp4';
+import heroVideoSrc from '@assets/2026-01-07_01_1767825976557.mp4';
 import { 
   ArrowRight, Check, ChevronDown, ChevronUp, Sparkles, Zap, Target, 
   TrendingUp, Users, BarChart3, Shield, Clock, Gift, Star, X,
@@ -691,14 +691,20 @@ export default function CreativeLanding() {
       <main className="bg-[#F0FFF4]">
         {/* ========== HERO SECTION - VAYNERMEDIA STYLE ========== */}
         <section ref={heroRef} className="relative h-[78vh] md:h-[82vh] lg:h-[87vh] overflow-hidden" style={{ backgroundColor: '#F0FFF4' }}>
-          {/* Full-width video background */}
-          <div className="absolute inset-0 z-0">
+          {/* Full-width video background with optimized loading */}
+          <div className="absolute inset-0 z-0 bg-[#1A2E29]">
             <video
               autoPlay
               loop
               muted
               playsInline
-              className="w-full h-full object-cover object-[center_40%] md:object-[center_35%] md:saturate-[0.85] md:hue-rotate-[-5deg]"
+              preload="auto"
+              className="w-full h-full object-cover object-[center_40%] md:object-[center_35%] lg:object-center md:saturate-[0.85] md:hue-rotate-[-5deg]"
+              style={{ 
+                willChange: 'transform',
+                backfaceVisibility: 'hidden',
+                transform: 'translateZ(0)'
+              }}
               data-testid="video-hero-background"
             >
               <source src={heroVideoSrc} type="video/mp4" />
