@@ -30,22 +30,20 @@ export default function Navigation() {
     }`}>
       <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-12">
         <div className="flex items-center justify-between h-16 md:h-18 lg:h-20">
-          <Link href="/" className="flex items-center gap-2.5" data-testid="link-logo-home">
+          <Link href="/" className="flex items-center gap-3" data-testid="link-logo-home">
             <img 
               src={greenLogo} 
               alt="OARC Digital logo" 
-              className="h-9 w-9 md:h-10 md:w-10 lg:h-11 lg:w-11 object-contain"
+              className="h-10 w-10 md:h-11 md:w-11 lg:h-12 lg:w-12 object-contain"
               data-testid="img-logo"
             />
-            <span 
-              className="text-white text-sm md:text-base tracking-[0.08em] font-light" 
-              style={{ fontFamily: "'Montserrat', system-ui, sans-serif", textShadow }}
+            <div 
+              className="flex flex-col leading-none"
+              style={{ fontFamily: 'var(--font-punoer)', textShadow }}
             >
-              <span className="font-semibold">O</span>
-              <span className="text-[0.85em]">arc</span>
-              <span className="ml-1 font-semibold text-[#c4ff4d]">D</span>
-              <span className="text-[0.85em] text-[#c4ff4d]">igital</span>
-            </span>
+              <span className="text-white text-base md:text-lg tracking-[0.15em]">OARC</span>
+              <span className="text-[#c4ff4d]/80 text-xs md:text-sm tracking-[0.2em]">DIGITAL</span>
+            </div>
           </Link>
 
           {/* Desktop Menu */}
