@@ -234,11 +234,11 @@ export default function Footer() {
 
       <div className="relative max-w-7xl mx-auto px-6 md:px-12 py-12">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8">
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3">
             <img 
               src={greenLogo} 
               alt="OARC Digital logo" 
-              className="h-14 w-14 md:h-16 md:w-16 object-contain"
+              className="h-10 w-10 lg:h-11 lg:w-11 object-contain"
               data-testid="img-footer-logo"
             />
             <div 
@@ -246,8 +246,8 @@ export default function Footer() {
               style={{ fontFamily: 'var(--font-punoer)' }}
               data-testid="text-footer-logo-name"
             >
-              <span className="text-white text-3xl md:text-4xl lg:text-5xl tracking-[0.2em]">OARC</span>
-              <span className="text-xs md:text-sm tracking-[0.35em]" style={{ color: 'rgba(196, 255, 77, 0.6)' }}>DIGITAL</span>
+              <span className="text-white text-xl md:text-2xl tracking-[0.2em]">OARC</span>
+              <span className="text-[0.45rem] md:text-[0.5rem] tracking-[0.35em]" style={{ color: 'rgba(196, 255, 77, 0.6)' }}>DIGITAL</span>
             </div>
           </div>
 
