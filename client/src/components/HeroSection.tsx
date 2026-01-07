@@ -302,7 +302,7 @@ export default function HeroSection() {
                   {/* Subheading - emphasized with glass strip and underline */}
                   <div className="flex justify-center md:justify-start mb-4 md:mb-6">
                     <div 
-                      className="relative inline-block px-3 py-1.5 md:px-6 md:py-3 rounded-lg"
+                      className="relative inline-block px-2 py-1 md:px-4 md:py-2 rounded-lg"
                       style={{
                         background: 'rgba(255, 255, 255, 0.08)',
                         backdropFilter: 'blur(8px)',
@@ -310,7 +310,7 @@ export default function HeroSection() {
                       }}
                     >
                       <p 
-                        className="text-white tracking-wide whitespace-nowrap text-[3.8vw] md:text-[clamp(1.4rem,2.8vw,2.2rem)] lg:text-[clamp(1.6rem,3vw,2.5rem)]"
+                        className="text-white tracking-wide whitespace-nowrap text-[2.8vw] md:text-[clamp(0.9rem,1.5vw,1.25rem)] lg:text-[clamp(1rem,1.6vw,1.35rem)]"
                         style={{
                           fontFamily: 'var(--font-blackpast)',
                           textShadow: '0 0 30px rgba(255, 255, 255, 0.4), 0 0 60px rgba(255, 255, 255, 0.2)'
