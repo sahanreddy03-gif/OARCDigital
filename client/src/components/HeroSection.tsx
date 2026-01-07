@@ -310,8 +310,9 @@ export default function HeroSection() {
                       }}
                     >
                       <p 
-                        className="text-white font-bold tracking-wide whitespace-nowrap text-[3.8vw] md:text-[clamp(1.4rem,2.8vw,2.2rem)] lg:text-[clamp(1.6rem,3vw,2.5rem)]"
+                        className="text-white tracking-wide whitespace-nowrap text-[3.8vw] md:text-[clamp(1.4rem,2.8vw,2.2rem)] lg:text-[clamp(1.6rem,3vw,2.5rem)]"
                         style={{
+                          fontFamily: 'var(--font-blackpast)',
                           textShadow: '0 0 30px rgba(255, 255, 255, 0.4), 0 0 60px rgba(255, 255, 255, 0.2)'
                         }}
                         data-testid="text-hero-subheadline"
