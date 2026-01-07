@@ -242,12 +242,12 @@ export default function Footer() {
               data-testid="img-footer-logo"
             />
             <div 
-              className="flex flex-col leading-none"
+              className="flex flex-col items-center leading-none"
               style={{ fontFamily: 'var(--font-punoer)' }}
               data-testid="text-footer-logo-name"
             >
-              <span className="text-white text-xl md:text-2xl lg:text-3xl tracking-[0.15em]">OARC</span>
-              <span className="text-sm md:text-base lg:text-lg tracking-[0.2em]" style={{ color: 'rgba(196, 255, 77, 0.8)' }}>DIGITAL</span>
+              <span className="text-white text-3xl md:text-4xl lg:text-5xl tracking-[0.2em]">OARC</span>
+              <span className="text-xs md:text-sm tracking-[0.35em]" style={{ color: 'rgba(196, 255, 77, 0.6)' }}>DIGITAL</span>
             </div>
           </div>
 

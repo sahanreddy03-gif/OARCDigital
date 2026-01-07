@@ -38,11 +38,11 @@ export default function Navigation() {
               data-testid="img-logo"
             />
             <div 
-              className="flex flex-col leading-none"
+              className="flex flex-col items-center leading-none"
               style={{ fontFamily: 'var(--font-punoer)', textShadow }}
             >
-              <span className="text-white text-base md:text-lg tracking-[0.15em]">OARC</span>
-              <span className="text-[#c4ff4d]/80 text-xs md:text-sm tracking-[0.2em]">DIGITAL</span>
+              <span className="text-white text-xl md:text-2xl tracking-[0.2em]">OARC</span>
+              <span className="text-[#c4ff4d]/60 text-[0.5rem] md:text-[0.6rem] tracking-[0.35em]">DIGITAL</span>
             </div>
           </Link>
 
