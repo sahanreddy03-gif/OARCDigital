@@ -7,6 +7,8 @@ interface Particle {
   vy: number;
   size: number;
   opacity: number;
+  targetOpacity: number;
+  glowIntensity: number;
   rotation: number;
   rotationSpeed: number;
   shape: 'dot' | 'line' | 'triangle' | 'square';
@@ -23,36 +25,38 @@ export default function AntigravityParticles() {
     return {
       x: Math.random() * width,
       y: Math.random() * height,
-      vx: (Math.random() - 0.5) * 0.4,
-      vy: (Math.random() - 0.5) * 0.4,
+      vx: 0,
+      vy: 0,
       size: Math.random() * 4 + 2,
-      opacity: Math.random() * 0.4 + 0.2,
+      opacity: 0,
+      targetOpacity: 0,
+      glowIntensity: 0,
       rotation: Math.random() * Math.PI * 2,
       rotationSpeed: (Math.random() - 0.5) * 0.02,
       shape: shapes[Math.floor(Math.random() * shapes.length)]
     };
   }, []);
 
-  const drawParticle = useCallback((ctx: CanvasRenderingContext2D, particle: Particle, isNearMouse: boolean) => {
+  const drawParticle = useCallback((ctx: CanvasRenderingContext2D, particle: Particle) => {
+    if (particle.opacity < 0.01) return;
+    
     ctx.save();
     ctx.translate(particle.x, particle.y);
     ctx.rotate(particle.rotation);
+    ctx.globalAlpha = particle.opacity;
     
-    const baseOpacity = particle.opacity;
-    const glowOpacity = isNearMouse ? Math.min(baseOpacity * 2, 1) : baseOpacity;
-    ctx.globalAlpha = glowOpacity;
+    // Soft blue color with glow
+    const blueColor = `rgba(66, 133, 244, ${particle.opacity})`;
+    const glowColor = `rgba(100, 160, 255, ${particle.glowIntensity * 0.5})`;
     
-    // Lime green brand color (#c4ff4d)
-    const limeColor = `rgba(196, 255, 77, ${glowOpacity})`;
-    
-    // Add glow effect when near mouse
-    if (isNearMouse) {
-      ctx.shadowColor = 'rgba(196, 255, 77, 0.8)';
-      ctx.shadowBlur = 15;
+    // Add glow effect
+    if (particle.glowIntensity > 0.1) {
+      ctx.shadowColor = glowColor;
+      ctx.shadowBlur = 15 * particle.glowIntensity;
     }
     
-    ctx.fillStyle = limeColor;
-    ctx.strokeStyle = limeColor;
+    ctx.fillStyle = blueColor;
+    ctx.strokeStyle = blueColor;
     ctx.lineWidth = 1.5;
 
     const s = particle.size;
@@ -99,9 +103,9 @@ export default function AntigravityParticles() {
       canvas.height = rect.height * dpr;
       ctx.scale(dpr, dpr);
       
-      // Initialize particles - always visible like Google Antigravity
-      const particleCount = Math.floor((rect.width * rect.height) / 8000);
-      particlesRef.current = Array.from({ length: Math.min(particleCount, 150) }, () => 
+      // Initialize particles - dormant until hover
+      const particleCount = Math.floor((rect.width * rect.height) / 6000);
+      particlesRef.current = Array.from({ length: Math.min(particleCount, 200) }, () => 
         createParticle(rect.width, rect.height)
       );
     };
@@ -150,23 +154,31 @@ export default function AntigravityParticles() {
         const dx = particle.x - mouseRef.current.x;
         const dy = particle.y - mouseRef.current.y;
         const distance = Math.sqrt(dx * dx + dy * dy);
-        const activationRadius = 150;
-        const isNearMouse = mouseRef.current.active && distance < activationRadius;
+        const activationRadius = 200;
 
-        // Apply mouse repulsion when near
-        if (isNearMouse) {
-          const force = (1 - distance / activationRadius) * 2;
-          particle.vx += (dx / distance) * force * 0.3;
-          particle.vy += (dy / distance) * force * 0.3;
+        // Only activate particles near cursor
+        if (mouseRef.current.active && distance < activationRadius) {
+          // Pop into view with glow
+          const proximity = 1 - distance / activationRadius;
+          particle.targetOpacity = 0.3 + proximity * 0.7;
+          particle.glowIntensity = proximity;
+          
+          // Repulsion from cursor
+          const force = proximity * 3;
+          particle.vx += (dx / distance) * force * 0.2;
+          particle.vy += (dy / distance) * force * 0.2;
+        } else {
+          // Fade out when not near cursor
+          particle.targetOpacity = 0;
+          particle.glowIntensity *= 0.95;
         }
 
-        // Apply friction
-        particle.vx *= 0.98;
-        particle.vy *= 0.98;
+        // Smooth opacity transition
+        particle.opacity += (particle.targetOpacity - particle.opacity) * 0.1;
 
-        // Add slight random movement for constant floating effect
-        particle.vx += (Math.random() - 0.5) * 0.05;
-        particle.vy += (Math.random() - 0.5) * 0.05;
+        // Apply friction
+        particle.vx *= 0.92;
+        particle.vy *= 0.92;
 
         // Update position
         particle.x += particle.vx;
@@ -179,7 +191,7 @@ export default function AntigravityParticles() {
         if (particle.y < -20) particle.y = rect.height + 20;
         if (particle.y > rect.height + 20) particle.y = -20;
 
-        drawParticle(ctx, particle, isNearMouse);
+        drawParticle(ctx, particle);
       });
 
       animationRef.current = requestAnimationFrame(animate);
