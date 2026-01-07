@@ -51,11 +51,11 @@ export default function CreativeNavigation() {
               data-testid="img-logo"
             />
             <div 
-              className="flex flex-col leading-none"
+              className="flex flex-col items-center leading-none"
               style={{ fontFamily: 'var(--font-punoer)' }}
             >
-              <span className="text-white text-base md:text-lg tracking-[0.15em]">OARC</span>
-              <span className="text-xs md:text-sm tracking-[0.2em]" style={{ color: 'rgba(196, 255, 77, 0.8)' }}>DIGITAL</span>
+              <span className="text-white text-xl md:text-2xl tracking-[0.2em]">OARC</span>
+              <span className="text-[0.5rem] md:text-[0.6rem] tracking-[0.35em]" style={{ color: 'rgba(196, 255, 77, 0.6)' }}>DIGITAL</span>
             </div>
           </Link>
 
