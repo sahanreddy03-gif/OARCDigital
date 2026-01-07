@@ -697,7 +697,7 @@ export default function CreativeLanding() {
               loop
               muted
               playsInline
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover md:saturate-[0.85] md:hue-rotate-[-5deg]"
               data-testid="video-hero-background"
             >
               <source src="/phone-video.mp4" type="video/mp4" />

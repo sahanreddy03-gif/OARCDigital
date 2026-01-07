@@ -1,12 +1,59 @@
 import { Link, useLocation } from "wouter";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown, ArrowUpRight } from "lucide-react";
 import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import greenLogo from "@assets/image_1767660951950.png";
+
+const serviceCategories = [
+  {
+    title: "Creative design services",
+    href: "/services/creative",
+    items: [
+      { name: "Ad creative", href: "/services/ad-creative" },
+      { name: "Social media creative", href: "/services/social-media-creative" },
+      { name: "Presentation design", href: "/services/presentation" },
+      { name: "Branding services", href: "/services/branding" },
+      { name: "Web design", href: "/services/web-design" },
+      { name: "Print design", href: "/services/print-packaging" },
+    ]
+  },
+  {
+    title: "Specialized production",
+    href: "/services",
+    items: [
+      { name: "Video production", href: "/services/video-production" },
+      { name: "Motion design", href: "/services/motion-design" },
+      { name: "Email creation", href: "/services/email-marketing" },
+      { name: "Web development", href: "/services/web-design" },
+      { name: "Copywriting", href: "/services/copywriting" },
+    ]
+  },
+  {
+    title: "AI services",
+    href: "/services/ai-employees",
+    items: [
+      { name: "AI-powered creative", href: "/services/ai-creative" },
+      { name: "AI consulting", href: "/services/ai-consulting" },
+      { name: "AI employees", href: "/services/ai-employees" },
+    ]
+  },
+  {
+    title: "Marketing services",
+    href: "/services/digital-marketing",
+    items: [
+      { name: "Social media management", href: "/services/social" },
+      { name: "Paid advertising", href: "/services/paid-advertising" },
+      { name: "SEO", href: "/services/seo" },
+      { name: "Marketing strategy", href: "/services/digital-marketing" },
+    ]
+  }
+];
 
 export default function Navigation() {
   const [location] = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [showServicesMenu, setShowServicesMenu] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,8 +64,7 @@ export default function Navigation() {
   }, []);
 
   const navLinks = [
-    { href: "/creative", label: "Creative", highlight: true },
-    { href: "/services", label: "Services" },
+    { href: "/creative", label: "Creative" },
     { href: "/our-work", label: "Our Work" },
     { href: "/why-us", label: "Why Us" },
     { href: "/pricing", label: "Pricing" },
@@ -52,16 +98,118 @@ export default function Navigation() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
-            {navLinks.map((link) => (
+            <Link
+              href="/creative"
+              className={`text-xs lg:text-sm font-medium transition-colors ${
+                location === "/creative"
+                  ? "text-white"
+                  : "text-white/90 hover:text-white"
+              }`}
+              style={{ textShadow }}
+              data-testid="link-creative"
+            >
+              Creative
+            </Link>
+
+            {/* Services Dropdown */}
+            <div
+              className="relative"
+              onMouseEnter={() => setShowServicesMenu(true)}
+              onMouseLeave={() => setShowServicesMenu(false)}
+            >
+              <button 
+                className={`flex items-center gap-1 text-xs lg:text-sm font-medium transition-colors ${
+                  location.startsWith("/services")
+                    ? "text-white"
+                    : "text-white/90 hover:text-white"
+                }`}
+                style={{ textShadow }}
+                data-testid="button-services"
+              >
+                Services
+                <ChevronDown className={`w-3 h-3 transition-transform duration-300 ${showServicesMenu ? 'rotate-180' : ''}`} />
+              </button>
+
+              {/* Superside-style Mega Menu */}
+              <AnimatePresence>
+                {showServicesMenu && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10, scaleY: 0.95 }}
+                    animate={{ opacity: 1, y: 0, scaleY: 1 }}
+                    exit={{ opacity: 0, y: -10, scaleY: 0.95 }}
+                    transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
+                    style={{ transformOrigin: 'top' }}
+                    className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[800px] bg-[#F5F5F0] rounded-2xl shadow-2xl border border-zinc-200/50 overflow-hidden"
+                  >
+                    <div className="p-8">
+                      <div className="grid grid-cols-4 gap-8">
+                        {serviceCategories.map((category, idx) => (
+                          <div key={idx}>
+                            <Link 
+                              href={category.href}
+                              className="inline-flex items-center gap-1 text-xs font-semibold text-zinc-900 mb-4 px-3 py-1.5 rounded-full border border-zinc-300 hover:border-zinc-400 hover:bg-zinc-100 transition-all group"
+                              data-testid={`link-category-${idx}`}
+                            >
+                              {category.title}
+                              <ArrowUpRight className="w-3 h-3 opacity-0 -translate-y-0.5 translate-x-0.5 group-hover:opacity-100 group-hover:translate-y-0 group-hover:translate-x-0 transition-all" />
+                            </Link>
+                            <ul className="space-y-2 mt-4">
+                              {category.items.map((item, itemIdx) => (
+                                <li key={itemIdx}>
+                                  <Link
+                                    href={item.href}
+                                    className="text-sm text-zinc-600 hover:text-zinc-900 transition-colors block py-1"
+                                    data-testid={`link-service-${item.name.toLowerCase().replace(/\s+/g, '-')}`}
+                                  >
+                                    {item.name}
+                                  </Link>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        ))}
+                      </div>
+                      
+                      {/* Bottom row with featured cards like Superside */}
+                      <div className="mt-8 pt-6 border-t border-zinc-200">
+                        <div className="grid grid-cols-3 gap-6">
+                          <Link href="/our-work" className="group" data-testid="link-mega-creative-talent">
+                            <div className="aspect-video bg-zinc-200 rounded-xl overflow-hidden mb-3">
+                              <div className="w-full h-full bg-gradient-to-br from-emerald-400 to-teal-600 group-hover:scale-105 transition-transform duration-300" />
+                            </div>
+                            <h4 className="text-sm font-semibold text-zinc-900">Our creative talent</h4>
+                            <p className="text-xs text-zinc-500">Meet your dedicated team</p>
+                          </Link>
+                          <Link href="/services/ai-employees" className="group" data-testid="link-mega-ai-excellence">
+                            <div className="aspect-video bg-zinc-200 rounded-xl overflow-hidden mb-3">
+                              <div className="w-full h-full bg-gradient-to-br from-violet-400 to-purple-600 group-hover:scale-105 transition-transform duration-300" />
+                            </div>
+                            <h4 className="text-sm font-semibold text-zinc-900">AI excellence</h4>
+                            <p className="text-xs text-zinc-500">Your shortcut to AI's creative advantage</p>
+                          </Link>
+                          <Link href="/tools" className="group" data-testid="link-mega-technology">
+                            <div className="aspect-video bg-zinc-200 rounded-xl overflow-hidden mb-3">
+                              <div className="w-full h-full bg-gradient-to-br from-amber-400 to-orange-500 group-hover:scale-105 transition-transform duration-300" />
+                            </div>
+                            <h4 className="text-sm font-semibold text-zinc-900">Our technology</h4>
+                            <p className="text-xs text-zinc-500">The tech powering your creative edge</p>
+                          </Link>
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
+            {navLinks.slice(1).map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 className={`text-xs lg:text-sm font-medium transition-colors ${
                   location === link.href
-                    ? "text-[#c4ff4d]"
-                    : link.highlight 
-                      ? "text-[#c4ff4d] hover:text-white"
-                      : "text-white/90 hover:text-white"
+                    ? "text-white"
+                    : "text-white/90 hover:text-white"
                 }`}
                 style={{ textShadow }}
                 data-testid={`link-${link.label.toLowerCase().replace(/\s+/g, '-')}`}
@@ -71,7 +219,7 @@ export default function Navigation() {
             ))}
             <Link
               href="/contact"
-              className="bg-[#c4ff4d] text-black px-5 py-2 rounded-full text-xs lg:text-sm font-semibold hover:bg-[#b5ef3d] transition-all shadow-lg"
+              className="bg-white/10 backdrop-blur-sm text-white border border-white/20 px-5 py-2 rounded-full text-xs lg:text-sm font-semibold hover:bg-white/20 transition-all"
               data-testid="button-contact"
             >
               Contact Us
@@ -89,37 +237,63 @@ export default function Navigation() {
         </div>
 
         {/* Mobile Menu - Dark Glassmorphic */}
-        {mobileMenuOpen && (
-          <div className="md:hidden absolute top-full left-0 right-0 bg-black/90 backdrop-blur-xl border-b border-white/10">
-            <div className="px-6 py-4 space-y-1">
-              {navLinks.map((link) => (
+        <AnimatePresence>
+          {mobileMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+              className="md:hidden absolute top-full left-0 right-0 bg-black/90 backdrop-blur-xl border-b border-white/10 overflow-hidden"
+            >
+              <div className="px-6 py-4 space-y-1">
                 <Link
-                  key={link.href}
-                  href={link.href}
+                  href="/creative"
                   className={`block py-3 text-base font-medium border-b border-white/5 ${
-                    location === link.href
-                      ? "text-[#c4ff4d]"
-                      : link.highlight
-                        ? "text-[#c4ff4d]"
-                        : "text-white"
+                    location === "/creative" ? "text-white" : "text-white/80"
                   }`}
                   onClick={() => setMobileMenuOpen(false)}
-                  data-testid={`link-mobile-${link.label.toLowerCase().replace(/\s+/g, '-')}`}
+                  data-testid="link-mobile-creative"
                 >
-                  {link.label}
+                  Creative
                 </Link>
-              ))}
-              <Link
-                href="/contact"
-                className="block mt-4 bg-[#c4ff4d] text-black px-6 py-3 rounded-full font-semibold text-center shadow-lg hover:bg-[#b5ef3d]"
-                onClick={() => setMobileMenuOpen(false)}
-                data-testid="button-mobile-contact"
-              >
-                Contact Us
-              </Link>
-            </div>
-          </div>
-        )}
+                <Link
+                  href="/services"
+                  className={`block py-3 text-base font-medium border-b border-white/5 ${
+                    location.startsWith("/services") ? "text-white" : "text-white/80"
+                  }`}
+                  onClick={() => setMobileMenuOpen(false)}
+                  data-testid="link-mobile-services"
+                >
+                  Services
+                </Link>
+                {navLinks.slice(1).map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className={`block py-3 text-base font-medium border-b border-white/5 ${
+                      location === link.href
+                        ? "text-white"
+                        : "text-white/80"
+                    }`}
+                    onClick={() => setMobileMenuOpen(false)}
+                    data-testid={`link-mobile-${link.label.toLowerCase().replace(/\s+/g, '-')}`}
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+                <Link
+                  href="/contact"
+                  className="block mt-4 bg-white/10 border border-white/20 text-white px-6 py-3 rounded-full font-semibold text-center hover:bg-white/20 transition-all"
+                  onClick={() => setMobileMenuOpen(false)}
+                  data-testid="button-mobile-contact"
+                >
+                  Contact Us
+                </Link>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </nav>
   );
