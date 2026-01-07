@@ -3,7 +3,7 @@ import { useInView } from 'framer-motion';
 import aiExcellence from '@assets/739d30f2ecb844e9c1186e62ca63efbda518ff4a-1050x1200_1761257258076.avif';
 import creativeStrategy from '@assets/db64abcfab31dccdde04f1fb8be45337dfb692e9-1392x1392_1761257777037.avif';
 import revenueCentered from '@assets/07c35cf0cbddd33390e2f878e287f38703ae7b26-1040x904_1761258187346.avif';
-import sectionBackground from '@assets/glif-chat-1765998295471_1766033824141.png';
+import AntigravityParticles from './AntigravityParticles';
 
 const differentiators = [
   {
@@ -38,7 +38,7 @@ function MobileCard({ item, index }: { item: typeof differentiators[0]; index: n
     >
       <div className="w-full">
         <div 
-          className={`aspect-[4/3] relative overflow-hidden bg-gray-900 rounded-xl mobile-image-container transition-transform duration-700 ${
+          className={`aspect-[4/3] relative overflow-hidden bg-zinc-100 rounded-xl mobile-image-container transition-transform duration-700 ${
             isInView ? 'scale-100' : 'scale-95'
           }`}
           style={{ transitionDelay: `${index * 150 + 200}ms` }}
@@ -55,13 +55,13 @@ function MobileCard({ item, index }: { item: typeof differentiators[0]; index: n
         </div>
 
         <div 
-          className={`mt-6 pb-4 border-b border-white/30 relative transition-all duration-600 ${
+          className={`mt-6 pb-4 border-b border-zinc-200 relative transition-all duration-600 ${
             isInView ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-5'
           }`}
           style={{ transitionDelay: `${index * 150 + 300}ms` }}
         >
-          <div className="absolute bottom-0 left-0 h-[2px] bg-gradient-to-r from-[#c4ff4d] via-[#c4ff4d]/50 to-transparent w-1/3" />
-          <h3 className="text-2xl sm:text-3xl font-light text-white">
+          <div className="absolute bottom-0 left-0 h-[2px] bg-gradient-to-r from-[#4285f4] via-[#4285f4]/50 to-transparent w-1/3" />
+          <h3 className="text-2xl sm:text-3xl font-light text-zinc-900">
             <span className="italic">{item.title}</span>
           </h3>
         </div>
@@ -72,7 +72,7 @@ function MobileCard({ item, index }: { item: typeof differentiators[0]; index: n
           }`}
           style={{ transitionDelay: `${index * 150 + 450}ms` }}
         >
-          <p className="text-base sm:text-lg text-white/80 leading-relaxed">
+          <p className="text-base sm:text-lg text-zinc-600 leading-relaxed">
             {item.description}
           </p>
         </div>
@@ -99,8 +99,8 @@ function DesktopCard({ item, index }: { item: typeof differentiators[0]; index: 
     >
       <div className="relative overflow-visible rounded-xl">
         <div 
-          className={`aspect-[4/3] relative overflow-hidden bg-gray-900 rounded-xl desktop-image-container transition-shadow duration-400 ${
-            isHovered ? 'shadow-[0_0_40px_rgba(196,255,77,0.25),0_0_80px_rgba(196,255,77,0.1),0_25px_50px_rgba(0,0,0,0.4)]' : 'shadow-[0_10px_30px_rgba(0,0,0,0.3)]'
+          className={`aspect-[4/3] relative overflow-hidden bg-zinc-100 rounded-xl desktop-image-container transition-shadow duration-400 ${
+            isHovered ? 'shadow-[0_0_40px_rgba(66,133,244,0.25),0_0_80px_rgba(66,133,244,0.1),0_25px_50px_rgba(0,0,0,0.15)]' : 'shadow-[0_10px_30px_rgba(0,0,0,0.1)]'
           }`}
         >
           <img
@@ -111,7 +111,7 @@ function DesktopCard({ item, index }: { item: typeof differentiators[0]; index: 
             }`}
           />
           <div 
-            className={`absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent transition-opacity duration-400 ${
+            className={`absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent transition-opacity duration-400 ${
               isHovered ? 'opacity-100' : 'opacity-0'
             }`}
           />
@@ -120,22 +120,22 @@ function DesktopCard({ item, index }: { item: typeof differentiators[0]; index: 
               isHovered ? 'opacity-100' : 'opacity-0'
             }`}
             style={{
-              background: 'linear-gradient(135deg, rgba(196, 255, 77, 0.1) 0%, transparent 50%, rgba(196, 255, 77, 0.05) 100%)'
+              background: 'linear-gradient(135deg, rgba(66, 133, 244, 0.1) 0%, transparent 50%, rgba(66, 133, 244, 0.05) 100%)'
             }}
           />
         </div>
 
         <div 
           className={`mt-6 pb-6 border-b relative overflow-hidden transition-colors duration-300 ${
-            isHovered ? 'border-[rgba(196,255,77,0.4)]' : 'border-white/20'
+            isHovered ? 'border-[rgba(66,133,244,0.4)]' : 'border-zinc-200'
           }`}
         >
           <div
-            className={`absolute bottom-0 left-0 h-[2px] bg-gradient-to-r from-[#c4ff4d] to-transparent transition-all duration-400 ${
+            className={`absolute bottom-0 left-0 h-[2px] bg-gradient-to-r from-[#4285f4] to-transparent transition-all duration-400 ${
               isHovered ? 'w-[60%]' : 'w-0'
             }`}
           />
-          <h3 className="text-2xl lg:text-3xl xl:text-4xl font-light text-white">
+          <h3 className="text-2xl lg:text-3xl xl:text-4xl font-light text-zinc-900">
             <span className="italic">{item.title}</span>
           </h3>
         </div>
@@ -145,7 +145,7 @@ function DesktopCard({ item, index }: { item: typeof differentiators[0]; index: 
             isHovered ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'
           }`}
         >
-          <p className="text-base lg:text-lg text-white/85 leading-relaxed pb-2">
+          <p className="text-base lg:text-lg text-zinc-600 leading-relaxed pb-2">
             {item.description}
           </p>
         </div>
@@ -160,23 +160,14 @@ export default function Section5() {
 
   return (
     <section 
-      className="relative py-16 md:py-24 lg:py-32 overflow-hidden" 
+      className="relative py-16 md:py-24 lg:py-32 overflow-hidden bg-[#FAFAFA]" 
       data-testid="section-5"
     >
-      {/* Spectacular OARC branded background */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ 
-          backgroundImage: `url(${sectionBackground})`,
-          backgroundPosition: 'center 15%'
-        }}
-      />
-      
-      {/* Dark overlay for text readability - lighter to show more of the image */}
-      <div className="absolute inset-0 bg-black/50" />
+      {/* Google Antigravity-style interactive particle background */}
+      <AntigravityParticles />
       
       {/* Subtle gradient overlay for depth */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/40" />
+      <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-white/30 via-transparent to-white/30" />
       
       <div className="relative container mx-auto px-4 md:px-6 lg:px-12">
         <div 
@@ -185,12 +176,13 @@ export default function Section5() {
             headingInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
-          <h2 className="font-bold text-white" style={{ fontSize: 'clamp(2rem, 6vw, 4rem)', letterSpacing: '-0.03em', lineHeight: '1.15' }}>
+          <h2 className="font-bold text-zinc-900" style={{ fontSize: 'clamp(2rem, 6vw, 4rem)', letterSpacing: '-0.03em', lineHeight: '1.15' }}>
             Our <span 
               className={`italic transition-opacity duration-500 ${headingInView ? 'opacity-100' : 'opacity-0'}`}
-              style={{ color: '#c4ff4d', transitionDelay: '300ms' }}
+              style={{ color: '#4285f4', transitionDelay: '300ms' }}
             >Difference</span>
           </h2>
+          <p className="text-zinc-500 mt-3 text-base md:text-lg">The perfect fit for fast moving brands</p>
         </div>
 
         <div className="hidden md:grid md:grid-cols-3 gap-6 lg:gap-8 xl:gap-10">
@@ -216,7 +208,7 @@ export default function Section5() {
           inset: -2px;
           border-radius: inherit;
           padding: 2px;
-          background: linear-gradient(135deg, transparent 0%, rgba(196, 255, 77, 0) 100%);
+          background: linear-gradient(135deg, transparent 0%, rgba(66, 133, 244, 0) 100%);
           -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
           -webkit-mask-composite: xor;
           mask-composite: exclude;
@@ -228,11 +220,11 @@ export default function Section5() {
         
         .desktop-image-container:hover::before {
           opacity: 1;
-          background: linear-gradient(135deg, rgba(196, 255, 77, 0.5) 0%, rgba(196, 255, 77, 0.2) 50%, rgba(196, 255, 77, 0.5) 100%);
+          background: linear-gradient(135deg, rgba(66, 133, 244, 0.5) 0%, rgba(66, 133, 244, 0.2) 50%, rgba(66, 133, 244, 0.5) 100%);
         }
 
         .mobile-image-container {
-          box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
         }
         
         @media (max-width: 767px) {
@@ -241,7 +233,7 @@ export default function Section5() {
             position: absolute;
             inset: 0;
             border-radius: inherit;
-            box-shadow: inset 0 0 60px rgba(196, 255, 77, 0.05);
+            box-shadow: inset 0 0 60px rgba(66, 133, 244, 0.05);
             pointer-events: none;
           }
         }
