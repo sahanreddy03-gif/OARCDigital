@@ -690,7 +690,7 @@ export default function CreativeLanding() {
       
       <main className="bg-[#F0FFF4]">
         {/* ========== HERO SECTION - VAYNERMEDIA STYLE ========== */}
-        <section ref={heroRef} className="relative h-[75vh] md:h-[80vh] lg:h-[85vh] overflow-hidden" style={{ backgroundColor: '#F0FFF4' }}>
+        <section ref={heroRef} className="relative h-[78vh] md:h-[82vh] lg:h-[87vh] overflow-hidden" style={{ backgroundColor: '#F0FFF4' }}>
           {/* Full-width video background */}
           <div className="absolute inset-0 z-0">
             <video
@@ -698,7 +698,7 @@ export default function CreativeLanding() {
               loop
               muted
               playsInline
-              className="w-full h-full object-cover object-center md:object-[center_30%] md:saturate-[0.85] md:hue-rotate-[-5deg]"
+              className="w-full h-full object-cover object-[center_40%] md:object-[center_35%] md:saturate-[0.85] md:hue-rotate-[-5deg]"
               data-testid="video-hero-background"
             >
               <source src={heroVideoSrc} type="video/mp4" />
