@@ -60,7 +60,7 @@ function MobileCard({ item, index }: { item: typeof differentiators[0]; index: n
           }`}
           style={{ transitionDelay: `${index * 150 + 300}ms` }}
         >
-          <div className="absolute bottom-0 left-0 h-[2px] bg-gradient-to-r from-[#4285f4] via-[#4285f4]/50 to-transparent w-1/3" />
+          <div className="absolute bottom-0 left-0 h-[2px] bg-gradient-to-r from-[#c4ff4d] via-[#c4ff4d]/50 to-transparent w-1/3" />
           <h3 className="text-2xl sm:text-3xl font-light text-zinc-900">
             <span className="italic">{item.title}</span>
           </h3>
@@ -100,7 +100,7 @@ function DesktopCard({ item, index }: { item: typeof differentiators[0]; index: 
       <div className="relative overflow-visible rounded-xl">
         <div 
           className={`aspect-[4/3] relative overflow-hidden bg-zinc-100 rounded-xl desktop-image-container transition-shadow duration-400 ${
-            isHovered ? 'shadow-[0_0_40px_rgba(66,133,244,0.25),0_0_80px_rgba(66,133,244,0.1),0_25px_50px_rgba(0,0,0,0.15)]' : 'shadow-[0_10px_30px_rgba(0,0,0,0.1)]'
+            isHovered ? 'shadow-[0_0_40px_rgba(196,255,77,0.25),0_0_80px_rgba(196,255,77,0.1),0_25px_50px_rgba(0,0,0,0.15)]' : 'shadow-[0_10px_30px_rgba(0,0,0,0.1)]'
           }`}
         >
           <img
@@ -120,18 +120,18 @@ function DesktopCard({ item, index }: { item: typeof differentiators[0]; index: 
               isHovered ? 'opacity-100' : 'opacity-0'
             }`}
             style={{
-              background: 'linear-gradient(135deg, rgba(66, 133, 244, 0.1) 0%, transparent 50%, rgba(66, 133, 244, 0.05) 100%)'
+              background: 'linear-gradient(135deg, rgba(196, 255, 77, 0.1) 0%, transparent 50%, rgba(196, 255, 77, 0.05) 100%)'
             }}
           />
         </div>
 
         <div 
           className={`mt-6 pb-6 border-b relative overflow-hidden transition-colors duration-300 ${
-            isHovered ? 'border-[rgba(66,133,244,0.4)]' : 'border-zinc-200'
+            isHovered ? 'border-[rgba(196,255,77,0.4)]' : 'border-zinc-200'
           }`}
         >
           <div
-            className={`absolute bottom-0 left-0 h-[2px] bg-gradient-to-r from-[#4285f4] to-transparent transition-all duration-400 ${
+            className={`absolute bottom-0 left-0 h-[2px] bg-gradient-to-r from-[#c4ff4d] to-transparent transition-all duration-400 ${
               isHovered ? 'w-[60%]' : 'w-0'
             }`}
           />
@@ -160,14 +160,15 @@ export default function Section5() {
 
   return (
     <section 
-      className="relative py-16 md:py-24 lg:py-32 overflow-hidden bg-[#F5F5F0]" 
+      className="relative py-16 md:py-24 lg:py-32 overflow-hidden" 
+      style={{ backgroundColor: '#f0fff4' }}
       data-testid="section-5"
     >
-      {/* Hover-activated soft blue glow particles */}
+      {/* Hover-activated soft green glow particles */}
       <AntigravityParticles />
       
       {/* Subtle gradient overlay for depth */}
-      <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-[#F5F5F0]/30 via-transparent to-[#F5F5F0]/30" />
+      <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-[#f0fff4]/30 via-transparent to-[#f0fff4]/30" />
       
       <div className="relative container mx-auto px-4 md:px-6 lg:px-12">
         <div 
@@ -179,7 +180,7 @@ export default function Section5() {
           <h2 className="font-bold text-zinc-900" style={{ fontSize: 'clamp(2rem, 6vw, 4rem)', letterSpacing: '-0.03em', lineHeight: '1.15' }}>
             Our <span 
               className={`italic transition-opacity duration-500 ${headingInView ? 'opacity-100' : 'opacity-0'}`}
-              style={{ color: '#4285f4', transitionDelay: '300ms' }}
+              style={{ color: '#1a2e29', transitionDelay: '300ms' }}
             >Difference</span>
           </h2>
           <p className="text-zinc-500 mt-3 text-base md:text-lg">The perfect fit for fast moving brands</p>
@@ -208,7 +209,7 @@ export default function Section5() {
           inset: -2px;
           border-radius: inherit;
           padding: 2px;
-          background: linear-gradient(135deg, transparent 0%, rgba(66, 133, 244, 0) 100%);
+          background: linear-gradient(135deg, transparent 0%, rgba(196, 255, 77, 0) 100%);
           -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
           -webkit-mask-composite: xor;
           mask-composite: exclude;
@@ -220,7 +221,7 @@ export default function Section5() {
         
         .desktop-image-container:hover::before {
           opacity: 1;
-          background: linear-gradient(135deg, rgba(66, 133, 244, 0.5) 0%, rgba(66, 133, 244, 0.2) 50%, rgba(66, 133, 244, 0.5) 100%);
+          background: linear-gradient(135deg, rgba(196, 255, 77, 0.5) 0%, rgba(196, 255, 77, 0.2) 50%, rgba(196, 255, 77, 0.5) 100%);
         }
 
         .mobile-image-container {
@@ -233,7 +234,7 @@ export default function Section5() {
             position: absolute;
             inset: 0;
             border-radius: inherit;
-            box-shadow: inset 0 0 60px rgba(66, 133, 244, 0.05);
+            box-shadow: inset 0 0 60px rgba(196, 255, 77, 0.05);
             pointer-events: none;
           }
         }
