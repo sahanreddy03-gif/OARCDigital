@@ -15,10 +15,19 @@ import {
 import { SiInstagram, SiFacebook, SiTiktok, SiLinkedin, SiYoutube, SiGoogle } from 'react-icons/si';
 import CreativeNavigation from '@/components/CreativeNavigation';
 import Footer from '@/components/Footer';
-import ParticleField from '@/components/ParticleField';
-import PhoneMockup from '@/components/PhoneMockup';
 import AICreativeSection from '@/components/AICreativeSection';
 import { createFAQSchema } from '@/utils/structuredData';
+
+// Creative work categories for carousel pills
+const creativeCategories = [
+  { id: 'static', label: 'Static social content', icon: Palette },
+  { id: 'video', label: 'Video', icon: Video },
+  { id: 'campaign', label: 'Campaign concepts', icon: Megaphone },
+  { id: 'ai', label: 'AI production', icon: Bot },
+  { id: 'immersive', label: 'Immersive experiences', icon: Globe },
+  { id: 'paid', label: 'Paid social ads', icon: Target },
+  { id: 'organic', label: 'Organic social content', icon: Users },
+];
 
 const fadeInUp = {
   initial: { opacity: 0, y: 40 },
@@ -608,278 +617,361 @@ export default function CreativeLanding() {
   return (
     <>
       <Helmet>
-        <title>Creative That Converts | AI-Enhanced Creative Agency Malta | OARC Digital</title>
-        <meta name="description" content="High-impact creative for social, brand, and campaigns — enhanced with AI optimisation. Creative agency Malta delivering creative systems that drive revenue, not just reach." />
+        <title>Creative Agency Malta | AI-Powered Social Media & Brand Design | OARC Digital</title>
+        <meta name="description" content="Malta's leading creative agency. Social media management, branding, web design & video production enhanced with AI. Trusted by 500+ Malta businesses. Book your free creative audit today." />
         <link rel="canonical" href="https://oarcdigital.com/creative" />
-        <meta property="og:title" content="Creative That Converts | OARC Digital Malta" />
-        <meta property="og:description" content="High-impact creative for social, brand, and campaigns — enhanced with AI optimisation to turn attention into action." />
+        
+        {/* Open Graph */}
+        <meta property="og:title" content="Creative Agency Malta | OARC Digital - AI-Enhanced Creative Services" />
+        <meta property="og:description" content="High-impact creative for social media, branding & campaigns. Malta's modern creative agency delivering results, not just reach. Free creative audit available." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://oarcdigital.com/creative" />
+        <meta property="og:locale" content="en_MT" />
+        <meta property="og:site_name" content="OARC Digital" />
+        
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Creative Agency Malta | OARC Digital" />
+        <meta name="twitter:description" content="Malta's AI-powered creative agency. Social media, branding, web design & video. Book your free audit." />
+        
+        {/* Additional SEO */}
+        <meta name="robots" content="index, follow" />
+        <meta name="geo.region" content="MT" />
+        <meta name="geo.placename" content="Malta" />
+        <meta name="keywords" content="creative agency malta, social media agency malta, branding malta, web design malta, video production malta, marketing agency malta, AI marketing malta" />
+        
+        {/* Schema.org Structured Data */}
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          "name": "OARC Digital",
+          "description": "Malta's leading AI-powered creative agency specializing in social media management, branding, web design, and video production.",
+          "url": "https://oarcdigital.com",
+          "telephone": "+356 9999 9999",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Valletta",
+            "addressCountry": "MT"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "35.8989",
+            "longitude": "14.5146"
+          },
+          "areaServed": {
+            "@type": "Country",
+            "name": "Malta"
+          },
+          "priceRange": "€€€",
+          "openingHours": "Mo-Fr 09:00-18:00",
+          "sameAs": [
+            "https://www.instagram.com/oarcdigital",
+            "https://www.linkedin.com/company/oarcdigital",
+            "https://www.facebook.com/oarcdigital"
+          ]
+        })}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "name": "Creative Agency Services",
+          "provider": {
+            "@type": "LocalBusiness",
+            "name": "OARC Digital"
+          },
+          "areaServed": "Malta",
+          "serviceType": ["Social Media Management", "Branding", "Web Design", "Video Production", "AI Marketing"],
+          "description": "Comprehensive creative services including social media management, brand identity design, website development, and AI-enhanced marketing solutions for Malta businesses."
+        })}</script>
       </Helmet>
 
       <CreativeNavigation />
       
-      <main className="bg-[#fafaf8]">
-        {/* ========== HERO SECTION - ANTIGRAVITY INSPIRED ========== */}
-        <section ref={heroRef} className="relative min-h-screen flex items-center overflow-hidden">
-          <ParticleField 
-            particleCount={100}
-            colors={['#2FA1D6', '#c4ff4d', '#8b5cf6', '#06b6d4', '#f472b6']}
-            speed={0.4}
-            connectionDistance={100}
-            showConnections={true}
-          />
+      <main className="bg-[#F0FFF4]">
+        {/* ========== HERO SECTION - VAYNERMEDIA STYLE ========== */}
+        <section ref={heroRef} className="relative min-h-screen overflow-hidden" style={{ backgroundColor: '#F0FFF4' }}>
+          {/* Full-width video background */}
+          <div className="absolute inset-0 z-0">
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full h-full object-cover"
+              data-testid="video-hero-background"
+            >
+              <source src="/phone-video.mp4" type="video/mp4" />
+            </video>
+            {/* Dark overlay for text readability */}
+            <div className="absolute inset-0 bg-black/50" />
+          </div>
           
-          <div className="absolute inset-0 bg-gradient-to-b from-[#fafaf8]/80 via-transparent to-[#fafaf8]" />
-          
-          <motion.div 
-            style={{ opacity: heroOpacity, y: heroY }}
-            className="relative container mx-auto px-6 lg:px-12 pt-24"
-          >
-            <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center min-h-[80vh]">
-              <motion.div
-                initial={{ opacity: 0, x: -50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-                className="relative z-10"
+          {/* Hero Content */}
+          <div className="relative z-10 min-h-screen flex items-center justify-center pt-20 pb-24">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+              className="text-center px-6"
+            >
+              <h1 
+                className="text-white font-bold uppercase tracking-tight mb-8"
+                style={{ 
+                  fontSize: 'clamp(2.5rem, 8vw, 6rem)',
+                  letterSpacing: '-0.02em',
+                  lineHeight: '1.05'
+                }}
+                data-testid="text-hero-headline"
               >
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.2 }}
-                  className="inline-flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full border border-zinc-200 shadow-sm mb-6"
-                >
-                  <span className="w-2 h-2 bg-[#c4ff4d] rounded-full animate-pulse" />
-                  <span className="text-sm font-medium text-zinc-600">Malta's AI-Native Creative Agency</span>
-                </motion.div>
-                
-                <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] mb-6" data-testid="text-hero-headline">
-                  <span className="text-zinc-900">Creative</span>
-                  <br />
-                  <span className="relative">
-                    <span className="bg-gradient-to-r from-[#2FA1D6] via-purple-500 to-[#c4ff4d] bg-clip-text text-transparent">
-                      That Converts
-                    </span>
-                    <motion.svg
-                      className="absolute -bottom-2 left-0 w-full"
-                      viewBox="0 0 300 12"
-                      initial={{ pathLength: 0 }}
-                      animate={{ pathLength: 1 }}
-                      transition={{ delay: 0.8, duration: 1 }}
-                    >
-                      <motion.path
-                        d="M0 6 Q75 0 150 6 Q225 12 300 6"
-                        fill="none"
-                        stroke="url(#underlineGradient)"
-                        strokeWidth="3"
-                        strokeLinecap="round"
-                      />
-                      <defs>
-                        <linearGradient id="underlineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                          <stop offset="0%" stopColor="#2FA1D6" />
-                          <stop offset="50%" stopColor="#8b5cf6" />
-                          <stop offset="100%" stopColor="#c4ff4d" />
-                        </linearGradient>
-                      </defs>
-                    </motion.svg>
-                  </span>
-                </h1>
-                
-                <p className="text-xl md:text-2xl text-zinc-600 mb-6 max-w-lg leading-relaxed">
-                  Not just looks good — <em className="text-zinc-900 font-medium not-italic">it drives revenue.</em>
-                </p>
-                
-                <p className="text-lg text-zinc-500 mb-8 max-w-lg">
-                  High-impact creative for social, brand, and campaigns — enhanced with 
-                  <span className="text-[#2FA1D6] font-medium"> AI optimisation</span> to turn attention into action.
-                </p>
-                
-                <div className="flex flex-wrap gap-4 mb-10">
-                  <Link href="/contact">
-                    <motion.button
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                      className="bg-[#c4ff4d] text-zinc-900 px-8 py-4 rounded-full text-lg font-bold shadow-xl shadow-[#c4ff4d]/30 hover:shadow-2xl hover:shadow-[#c4ff4d]/40 transition-all flex items-center gap-2"
-                      data-testid="button-hero-get-pricing"
-                    >
-                      Get pricing <ArrowRight className="w-5 h-5" />
-                    </motion.button>
-                  </Link>
-                  <Link href="/our-work">
-                    <motion.button
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                      className="bg-white text-zinc-700 px-8 py-4 rounded-full text-lg font-semibold border-2 border-zinc-200 hover:border-zinc-300 hover:bg-zinc-50 transition-all flex items-center gap-2"
-                      data-testid="button-hero-see-examples"
-                    >
-                      <Play className="w-5 h-5" /> See examples
-                    </motion.button>
-                  </Link>
-                </div>
-                
-                <div className="flex items-center gap-6 text-sm text-zinc-500">
-                  <div className="flex items-center gap-2">
-                    <Check className="w-4 h-4 text-emerald-500" />
-                    <span>Free Creative Audit</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Check className="w-4 h-4 text-emerald-500" />
-                    <span>No lock-in contracts</span>
-                  </div>
-                </div>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, x: 50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 1, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-                className="relative hidden lg:flex items-center justify-center"
-              >
-                <motion.div 
-                  className="relative"
-                  animate={{ y: [0, -10, 0] }}
-                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                >
-                  <div className="absolute -inset-8 bg-gradient-to-r from-[#2FA1D6]/20 via-purple-500/20 to-[#c4ff4d]/20 rounded-[3rem] blur-3xl" />
-                  <div className="relative transform scale-90">
-                    <PhoneMockup />
-                  </div>
-                </motion.div>
-                
-                <motion.div
-                  animate={{ y: [0, -8, 0], rotate: [0, 2, 0] }}
-                  transition={{ duration: 3, repeat: Infinity, delay: 0.5 }}
-                  className="absolute -top-4 -right-8 bg-white rounded-2xl p-4 shadow-2xl border border-zinc-100"
-                >
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-gradient-to-br from-pink-500 to-purple-600 rounded-xl flex items-center justify-center">
-                      <TrendingUp className="w-5 h-5 text-white" />
-                    </div>
-                    <div>
-                      <p className="text-xs text-zinc-500">Engagement</p>
-                      <p className="text-lg font-bold text-zinc-900">+247%</p>
-                    </div>
-                  </div>
-                </motion.div>
-                
-                <motion.div
-                  animate={{ y: [0, -6, 0], rotate: [0, -2, 0] }}
-                  transition={{ duration: 3.5, repeat: Infinity, delay: 1 }}
-                  className="absolute bottom-20 -left-12 bg-white rounded-2xl p-4 shadow-2xl border border-zinc-100"
-                >
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-[#c4ff4d] rounded-xl flex items-center justify-center">
-                      <LineChart className="w-5 h-5 text-zinc-900" />
-                    </div>
-                    <div>
-                      <p className="text-xs text-zinc-500">Leads</p>
-                      <p className="text-lg font-bold text-zinc-900">4.7x ROI</p>
-                    </div>
-                  </div>
-                </motion.div>
-              </motion.div>
-            </div>
-          </motion.div>
+                WE ARE THE MODERN<br />
+                <span className="italic font-serif" style={{ fontFamily: 'Georgia, serif' }}>
+                  CREATIVE AGENCY
+                </span>
+              </h1>
+            </motion.div>
+          </div>
           
+          {/* Scroll indicator */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.5 }}
-            className="absolute bottom-8 left-1/2 -translate-x-1/2"
+            className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
           >
             <motion.div
               animate={{ y: [0, 8, 0] }}
               transition={{ duration: 2, repeat: Infinity }}
-              className="text-zinc-400"
+              className="text-white/60"
             >
               <ChevronDown className="w-6 h-6" />
             </motion.div>
           </motion.div>
         </section>
 
-        {/* ========== PLATFORM VIDEO SHOWCASE ========== */}
-        <section className="py-16 md:py-24 bg-white relative overflow-hidden">
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:48px_48px]" />
-          
-          <div className="container mx-auto px-6 relative">
+        {/* ========== INFINITE SCROLLING MARQUEE ========== */}
+        <section className="relative overflow-hidden" style={{ backgroundColor: '#c4ff4d' }}>
+          <div className="py-4 md:py-5">
+            <motion.div
+              animate={{ x: ['0%', '-50%'] }}
+              transition={{
+                x: {
+                  repeat: Infinity,
+                  repeatType: 'loop',
+                  duration: 20,
+                  ease: 'linear',
+                },
+              }}
+              className="flex whitespace-nowrap"
+            >
+              {[...Array(10)].map((_, i) => (
+                <span 
+                  key={i} 
+                  className="text-[#1A2E29] font-bold uppercase text-sm md:text-base tracking-wider mx-8"
+                  style={{ letterSpacing: '0.1em' }}
+                >
+                  WE PUT CREATIVE AT THE CENTER OF EVERYTHING WE DO.
+                </span>
+              ))}
+            </motion.div>
+          </div>
+        </section>
+
+        {/* ========== SUPERSIDE-STYLE CREATIVE WORK SECTION ========== */}
+        <section className="py-20 md:py-32 relative overflow-hidden" style={{ backgroundColor: '#F0FFF4' }}>
+          <div className="container mx-auto px-6 lg:px-12">
+            {/* Section Header - Superside Typography Style */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-center mb-12"
+              className="text-center mb-16"
             >
-              <Badge className="bg-zinc-100 text-zinc-700 mb-4">REAL RESULTS</Badge>
-              <h2 className="text-3xl md:text-4xl font-bold text-zinc-900 mb-4">
-                Content that performs across every platform
-              </h2>
-              <p className="text-lg text-zinc-600 max-w-2xl mx-auto">
-                Watch our work in action. Real campaigns, real engagement, real results.
+              <p 
+                className="text-xs font-bold uppercase tracking-widest mb-4"
+                style={{ color: '#1A2E29', letterSpacing: '0.3em' }}
+              >
+                SOCIAL MEDIA DESIGN SERVICES
               </p>
+              <h2 
+                className="font-bold mb-6"
+                style={{ 
+                  fontSize: 'clamp(2.5rem, 6vw, 4.5rem)',
+                  lineHeight: '1.05',
+                  letterSpacing: '-0.02em',
+                  color: '#1A2E29'
+                }}
+              >
+                <span className="italic font-serif" style={{ fontFamily: 'Georgia, serif', color: '#c4ff4d' }}>
+                  Scroll-stopping
+                </span>
+                <br />
+                campaigns <span className="font-normal">built fast</span>
+                <br />
+                <span className="font-normal">and on brand</span>
+              </h2>
+              <p 
+                className="text-lg md:text-xl max-w-2xl mx-auto mb-8"
+                style={{ color: '#1A2E29' }}
+              >
+                Get high-performing social creative across every channel, format, and size.
+                From paid ads and educational content to immersive experiences
+                and YouTube pre-roll ads, all with one creative team.
+              </p>
+              <Link href="/contact">
+                <motion.button
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="px-8 py-4 rounded-full text-lg font-semibold transition-all"
+                  style={{ 
+                    backgroundColor: '#c4ff4d', 
+                    color: '#1A2E29',
+                    boxShadow: '0 10px 40px rgba(196, 255, 77, 0.3)'
+                  }}
+                  data-testid="button-get-social-demo"
+                >
+                  Get social—book a demo
+                </motion.button>
+              </Link>
             </motion.div>
-            
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 max-w-6xl mx-auto">
-              {platformVideos.map((item, index) => (
+
+            {/* Creative Work Grid - Showcase Images */}
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="grid grid-cols-2 md:grid-cols-3 gap-4 lg:gap-6 mb-12"
+            >
+              {platformVideos.slice(0, 3).map((item, index) => (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, y: 30, scale: 0.95 }}
-                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
                   whileHover={{ y: -8, scale: 1.02 }}
-                  className="group relative"
+                  transition={{ type: "spring", stiffness: 300 }}
+                  className="group relative rounded-2xl overflow-hidden shadow-xl aspect-square"
                 >
-                  <div className={`absolute -inset-1 bg-gradient-to-r ${item.color} rounded-3xl opacity-0 group-hover:opacity-100 blur-xl transition-all duration-500`} />
-                  
-                  <div className="relative bg-zinc-900 rounded-2xl overflow-hidden shadow-xl aspect-[9/16]">
-                    <video
-                      src={item.video}
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                      className="w-full h-full object-cover"
-                    />
-                    
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-                    
-                    <div className="absolute top-4 left-4">
-                      <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${item.color} flex items-center justify-center shadow-lg`}>
-                        <item.icon className="w-5 h-5 text-white" />
-                      </div>
-                    </div>
-                    
-                    <div className="absolute bottom-4 left-4 right-4">
-                      <p className="text-xs text-zinc-400 uppercase tracking-wider mb-1">{item.platform}</p>
-                      <p className="text-2xl font-bold text-white">{item.stat}</p>
-                      <p className="text-sm text-zinc-400">{item.label}</p>
-                    </div>
+                  <video
+                    src={item.video}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <p className="text-white font-semibold">{item.platform}</p>
+                    <p className="text-white/80 text-sm">{item.stat} {item.label}</p>
                   </div>
                 </motion.div>
               ))}
-            </div>
+            </motion.div>
+
+            {/* Category Pills - Superside Style */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3 }}
+              className="flex flex-wrap justify-center gap-3 md:gap-4"
+            >
+              {creativeCategories.map((category, index) => (
+                <motion.div
+                  key={category.id}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.1 * index }}
+                  whileHover={{ y: -3, scale: 1.05 }}
+                  className="flex items-center gap-3 px-5 py-3 rounded-full border transition-all cursor-pointer"
+                  style={{ 
+                    backgroundColor: 'white',
+                    borderColor: '#e5e7eb',
+                    boxShadow: '0 4px 20px rgba(0,0,0,0.05)'
+                  }}
+                  data-testid={`pill-category-${category.id}`}
+                >
+                  <div 
+                    className="w-10 h-10 rounded-xl flex items-center justify-center"
+                    style={{ backgroundColor: '#c4ff4d' }}
+                  >
+                    <category.icon className="w-5 h-5" style={{ color: '#1A2E29' }} />
+                  </div>
+                  <span 
+                    className="font-medium text-sm md:text-base"
+                    style={{ color: '#1A2E29' }}
+                  >
+                    {category.label}
+                  </span>
+                </motion.div>
+              ))}
+            </motion.div>
           </div>
         </section>
 
-        {/* ========== AI CREATIVE SHOWCASE - MOVED UP ========== */}
-        <section className="py-16 md:py-24 bg-[#fafaf8] overflow-hidden">
-          <div className="container mx-auto px-6 mb-12">
+        {/* ========== DARK SECTION - SUPERSIDE STYLE ========== */}
+        <section className="py-20 md:py-32 overflow-hidden" style={{ backgroundColor: '#0A2818' }}>
+          <div className="container mx-auto px-6 lg:px-12">
+            {/* Section Header */}
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-center"
+              className="text-center mb-16"
             >
-              <Badge className="bg-[#c4ff4d]/20 text-zinc-700 border-[#c4ff4d]/30 mb-4">FULL-SPECTRUM CREATIVE</Badge>
-              <h2 className="text-3xl md:text-4xl font-bold text-zinc-900 mb-4">
-                Every type of creative work you'll ever need
-              </h2>
-              <p className="text-lg text-zinc-600 max-w-2xl mx-auto">
-                From ad creatives and social content to full brand identities — all designed to perform, not just look pretty.
+              <p 
+                className="text-xs font-bold uppercase tracking-widest mb-4"
+                style={{ color: 'rgba(255,255,255,0.6)', letterSpacing: '0.3em' }}
+              >
+                A NEW ERA OF CREATIVE WORK
               </p>
+              <h2 
+                className="font-bold mb-6"
+                style={{ 
+                  fontSize: 'clamp(2rem, 5vw, 3.5rem)',
+                  lineHeight: '1.1',
+                  letterSpacing: '-0.02em',
+                  color: 'white'
+                }}
+              >
+                The support your creative team
+                <br />
+                <span className="italic font-serif" style={{ fontFamily: 'Georgia, serif', color: '#c4ff4d' }}>
+                  has been asking for
+                </span>
+              </h2>
+              <p 
+                className="text-lg md:text-xl max-w-2xl mx-auto mb-8"
+                style={{ color: 'rgba(255,255,255,0.8)' }}
+              >
+                OARC Digital is your dedicated, on-call creative team to expand your production
+                capacity and extend your team's creative capabilities.
+              </p>
+              <p 
+                className="text-base max-w-xl mx-auto mb-10"
+                style={{ color: 'rgba(255,255,255,0.6)' }}
+              >
+                See us as an extension of your team, freeing you to focus
+                on your most impactful and creative work.
+              </p>
+              <Link href="/contact">
+                <motion.button
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="px-8 py-4 rounded-full text-lg font-semibold transition-all"
+                  style={{ 
+                    backgroundColor: '#c4ff4d', 
+                    color: '#1A2E29',
+                    boxShadow: '0 10px 40px rgba(196, 255, 77, 0.3)'
+                  }}
+                  data-testid="button-book-intro-call"
+                >
+                  Book intro call
+                </motion.button>
+              </Link>
             </motion.div>
           </div>
           
+          {/* Creative Carousel Section */}
           <div className="[&_section]:!py-0 [&_section]:!bg-transparent [&_.container]:!px-0 [&_h2]:!hidden [&_p.text-zinc-400]:!hidden">
             <AICreativeSection />
           </div>
