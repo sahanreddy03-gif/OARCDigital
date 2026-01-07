@@ -3,50 +3,77 @@ import { Menu, X, ChevronDown, ArrowUpRight } from "lucide-react";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import greenLogo from "@assets/image_1767660951950.png";
+import aiExcellence from '@assets/739d30f2ecb844e9c1186e62ca63efbda518ff4a-1050x1200_1761257258076.avif';
+import creativeStrategy from '@assets/db64abcfab31dccdde04f1fb8be45337dfb692e9-1392x1392_1761257777037.avif';
+import revenueCentered from '@assets/07c35cf0cbddd33390e2f878e287f38703ae7b26-1040x904_1761258187346.avif';
 
+// Creative & Marketing services FIRST (main traffic driver)
 const serviceCategories = [
   {
-    title: "Creative design services",
-    href: "/services/creative",
+    title: "Creative & Marketing",
+    href: "/creative",
     items: [
-      { name: "Ad creative", href: "/services/ad-creative" },
       { name: "Social media creative", href: "/services/social-media-creative" },
-      { name: "Presentation design", href: "/services/presentation" },
+      { name: "Ad creative", href: "/services/ad-creative" },
       { name: "Branding services", href: "/services/branding" },
-      { name: "Web design", href: "/services/web-design" },
-      { name: "Print design", href: "/services/print-packaging" },
-    ]
-  },
-  {
-    title: "Specialized production",
-    href: "/services",
-    items: [
       { name: "Video production", href: "/services/video-production" },
+      { name: "Web design", href: "/services/web-design" },
       { name: "Motion design", href: "/services/motion-design" },
-      { name: "Email creation", href: "/services/email-marketing" },
-      { name: "Web development", href: "/services/web-design" },
-      { name: "Copywriting", href: "/services/copywriting" },
     ]
   },
   {
-    title: "AI services",
-    href: "/services/ai-employees",
-    items: [
-      { name: "AI-powered creative", href: "/services/ai-creative" },
-      { name: "AI consulting", href: "/services/ai-consulting" },
-      { name: "AI employees", href: "/services/ai-employees" },
-    ]
-  },
-  {
-    title: "Marketing services",
+    title: "Digital Marketing",
     href: "/services/digital-marketing",
     items: [
       { name: "Social media management", href: "/services/social" },
       { name: "Paid advertising", href: "/services/paid-advertising" },
       { name: "SEO", href: "/services/seo" },
+      { name: "Email marketing", href: "/services/email-marketing" },
       { name: "Marketing strategy", href: "/services/digital-marketing" },
     ]
+  },
+  {
+    title: "AI Services",
+    href: "/services/ai-employees",
+    items: [
+      { name: "AI employees", href: "/services/ai-employees" },
+      { name: "AI-powered creative", href: "/services/ai-creative" },
+      { name: "AI consulting", href: "/services/ai-consulting" },
+      { name: "Automation solutions", href: "/services/automation" },
+    ]
+  },
+  {
+    title: "Specialized Production",
+    href: "/services",
+    items: [
+      { name: "Presentation design", href: "/services/presentation" },
+      { name: "Print & packaging", href: "/services/print-packaging" },
+      { name: "Copywriting", href: "/services/copywriting" },
+      { name: "Web development", href: "/services/web-development" },
+    ]
   }
+];
+
+// Why Us dropdown content - matches Our Difference section
+const whyUsItems = [
+  {
+    title: "AI Excellence",
+    description: "We spot the gaps by uncovering competitors, customers, and seasonal patterns you're missing.",
+    image: aiExcellence,
+    href: "/why-us#ai-excellence"
+  },
+  {
+    title: "Our Creative Strategy",
+    description: "We create the edge with organic, local-first ideas that actually connect with your audience.",
+    image: creativeStrategy,
+    href: "/why-us#creative-strategy"
+  },
+  {
+    title: "Revenue Centered",
+    description: "We engage & convert through automated follow-ups that keep leads warm and drive real sales.",
+    image: revenueCentered,
+    href: "/why-us#revenue-centered"
+  },
 ];
 
 export default function Navigation() {
@@ -54,6 +81,7 @@ export default function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [showServicesMenu, setShowServicesMenu] = useState(false);
+  const [showWhyUsMenu, setShowWhyUsMenu] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -66,7 +94,6 @@ export default function Navigation() {
   const navLinks = [
     { href: "/creative", label: "Creative" },
     { href: "/our-work", label: "Our Work" },
-    { href: "/why-us", label: "Why Us" },
     { href: "/pricing", label: "Pricing" },
     { href: "/tools", label: "Tools" },
   ];
@@ -202,6 +229,79 @@ export default function Navigation() {
               </AnimatePresence>
             </div>
 
+            {/* Why Us Dropdown */}
+            <div
+              className="relative"
+              onMouseEnter={() => setShowWhyUsMenu(true)}
+              onMouseLeave={() => setShowWhyUsMenu(false)}
+            >
+              <button 
+                className={`flex items-center gap-1 text-xs lg:text-sm font-medium transition-colors ${
+                  location.startsWith("/why-us")
+                    ? "text-white"
+                    : "text-white/90 hover:text-white"
+                }`}
+                style={{ textShadow }}
+                data-testid="button-why-us"
+              >
+                Why Us
+                <ChevronDown className={`w-3 h-3 transition-transform duration-300 ${showWhyUsMenu ? 'rotate-180' : ''}`} />
+              </button>
+
+              {/* Why Us Mega Menu with Our Difference content */}
+              <AnimatePresence>
+                {showWhyUsMenu && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10, scaleY: 0.95 }}
+                    animate={{ opacity: 1, y: 0, scaleY: 1 }}
+                    exit={{ opacity: 0, y: -10, scaleY: 0.95 }}
+                    transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
+                    style={{ transformOrigin: 'top' }}
+                    className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[700px] bg-[#F5F5F0] rounded-2xl shadow-2xl border border-zinc-200/50 overflow-hidden"
+                  >
+                    <div className="p-6">
+                      <div className="text-center mb-4">
+                        <h3 className="text-lg font-bold text-zinc-900">Our <span className="italic">Difference</span></h3>
+                        <p className="text-xs text-zinc-500">The perfect fit for fast moving brands</p>
+                      </div>
+                      
+                      <div className="grid grid-cols-3 gap-4">
+                        {whyUsItems.map((item, idx) => (
+                          <Link
+                            key={idx}
+                            href={item.href}
+                            className="group"
+                            data-testid={`link-whyus-${idx}`}
+                          >
+                            <div className="aspect-[4/3] rounded-xl overflow-hidden mb-3">
+                              <img 
+                                src={item.image} 
+                                alt={item.title}
+                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                              />
+                            </div>
+                            <h4 className="text-sm font-semibold text-zinc-900 italic">{item.title}</h4>
+                            <p className="text-xs text-zinc-500 mt-1 line-clamp-2">{item.description}</p>
+                          </Link>
+                        ))}
+                      </div>
+                      
+                      <div className="mt-4 pt-4 border-t border-zinc-200">
+                        <Link 
+                          href="/why-us" 
+                          className="flex items-center justify-center gap-2 text-sm font-semibold text-zinc-700 hover:text-zinc-900 transition-colors group"
+                          data-testid="link-whyus-full"
+                        >
+                          See all reasons to choose OARC
+                          <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                        </Link>
+                      </div>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
             {navLinks.slice(1).map((link) => (
               <Link
                 key={link.href}
@@ -266,6 +366,16 @@ export default function Navigation() {
                   data-testid="link-mobile-services"
                 >
                   Services
+                </Link>
+                <Link
+                  href="/why-us"
+                  className={`block py-3 text-base font-medium border-b border-white/5 ${
+                    location === "/why-us" ? "text-white" : "text-white/80"
+                  }`}
+                  onClick={() => setMobileMenuOpen(false)}
+                  data-testid="link-mobile-why-us"
+                >
+                  Why Us
                 </Link>
                 {navLinks.slice(1).map((link) => (
                   <Link
