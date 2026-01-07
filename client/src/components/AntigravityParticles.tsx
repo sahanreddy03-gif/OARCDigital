@@ -45,18 +45,18 @@ export default function AntigravityParticles() {
     ctx.rotate(particle.rotation);
     ctx.globalAlpha = particle.opacity;
     
-    // Soft blue color with glow
-    const blueColor = `rgba(66, 133, 244, ${particle.opacity})`;
-    const glowColor = `rgba(100, 160, 255, ${particle.glowIntensity * 0.5})`;
+    // Lime green brand color (#c4ff4d) with glow
+    const limeColor = `rgba(196, 255, 77, ${particle.opacity})`;
+    const glowColor = `rgba(196, 255, 77, ${particle.glowIntensity * 0.6})`;
     
     // Add glow effect
     if (particle.glowIntensity > 0.1) {
       ctx.shadowColor = glowColor;
-      ctx.shadowBlur = 15 * particle.glowIntensity;
+      ctx.shadowBlur = 20 * particle.glowIntensity;
     }
     
-    ctx.fillStyle = blueColor;
-    ctx.strokeStyle = blueColor;
+    ctx.fillStyle = limeColor;
+    ctx.strokeStyle = limeColor;
     ctx.lineWidth = 1.5;
 
     const s = particle.size;
