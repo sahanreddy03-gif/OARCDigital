@@ -50,11 +50,14 @@ export default function CreativeNavigation() {
               transition={{ type: "spring", stiffness: 400 }}
               data-testid="img-logo"
             />
-            <span className="font-medium tracking-wide">
-              <span className="text-zinc-900 text-lg font-semibold">O</span>
-              <span className="text-zinc-700 text-base">arc</span>
-              <span className="ml-1.5 text-[#9ed919] text-lg font-semibold">D</span>
-              <span className="text-[#9ed919] text-base">igital</span>
+            <span 
+              className="tracking-wide"
+              style={{ fontFamily: 'var(--font-blackpast)', fontSize: '1.5rem' }}
+            >
+              <span className="text-zinc-900">O</span>
+              <span className="text-zinc-700">arc</span>
+              <span className="ml-1 text-[#c4ff4d]">D</span>
+              <span className="text-[#c4ff4d]">igital</span>
             </span>
           </Link>
 

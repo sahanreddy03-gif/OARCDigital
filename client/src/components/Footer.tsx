@@ -242,12 +242,13 @@ export default function Footer() {
               data-testid="img-footer-logo"
             />
             <span 
-              className="font-logo text-white text-xl md:text-2xl lg:text-3xl tracking-[0.02em] font-bold"
+              className="text-xl md:text-2xl lg:text-3xl tracking-wide"
+              style={{ fontFamily: 'var(--font-blackpast)' }}
               data-testid="text-footer-logo-name"
             >
-              <span className="text-white text-2xl md:text-3xl lg:text-4xl">O</span>
-              <span>arc</span>
-              <span className="ml-1.5 text-[#c4ff4d]">D</span>
+              <span className="text-white">O</span>
+              <span className="text-zinc-300">arc</span>
+              <span className="ml-1 text-[#c4ff4d]">D</span>
               <span className="text-[#c4ff4d]">igital</span>
             </span>
           </div>
