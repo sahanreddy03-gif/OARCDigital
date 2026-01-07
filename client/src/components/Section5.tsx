@@ -160,14 +160,14 @@ export default function Section5() {
 
   return (
     <section 
-      className="relative py-16 md:py-24 lg:py-32 overflow-hidden bg-[#FAFAFA]" 
+      className="relative py-16 md:py-24 lg:py-32 overflow-hidden bg-[#F5F5F0]" 
       data-testid="section-5"
     >
-      {/* Google Antigravity-style interactive particle background */}
+      {/* Hover-activated soft blue glow particles */}
       <AntigravityParticles />
       
       {/* Subtle gradient overlay for depth */}
-      <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-white/30 via-transparent to-white/30" />
+      <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-[#F5F5F0]/30 via-transparent to-[#F5F5F0]/30" />
       
       <div className="relative container mx-auto px-4 md:px-6 lg:px-12">
         <div 

@@ -7,6 +7,8 @@ interface Particle {
   vy: number;
   size: number;
   opacity: number;
+  targetOpacity: number;
+  glowIntensity: number;
   rotation: number;
   rotationSpeed: number;
   shape: 'dot' | 'line' | 'triangle' | 'square';
@@ -23,10 +25,12 @@ export default function AntigravityParticles() {
     return {
       x: Math.random() * width,
       y: Math.random() * height,
-      vx: (Math.random() - 0.5) * 0.3,
-      vy: (Math.random() - 0.5) * 0.3,
+      vx: 0,
+      vy: 0,
       size: Math.random() * 4 + 2,
-      opacity: Math.random() * 0.5 + 0.3,
+      opacity: 0,
+      targetOpacity: 0,
+      glowIntensity: 0,
       rotation: Math.random() * Math.PI * 2,
       rotationSpeed: (Math.random() - 0.5) * 0.02,
       shape: shapes[Math.floor(Math.random() * shapes.length)]
@@ -34,12 +38,25 @@ export default function AntigravityParticles() {
   }, []);
 
   const drawParticle = useCallback((ctx: CanvasRenderingContext2D, particle: Particle) => {
+    if (particle.opacity < 0.01) return;
+    
     ctx.save();
     ctx.translate(particle.x, particle.y);
     ctx.rotate(particle.rotation);
     ctx.globalAlpha = particle.opacity;
-    ctx.fillStyle = '#4285f4'; // Google blue
-    ctx.strokeStyle = '#4285f4';
+    
+    // Soft blue color with glow
+    const blueColor = `rgba(66, 133, 244, ${particle.opacity})`;
+    const glowColor = `rgba(100, 160, 255, ${particle.glowIntensity * 0.5})`;
+    
+    // Add glow effect
+    if (particle.glowIntensity > 0.1) {
+      ctx.shadowColor = glowColor;
+      ctx.shadowBlur = 15 * particle.glowIntensity;
+    }
+    
+    ctx.fillStyle = blueColor;
+    ctx.strokeStyle = blueColor;
     ctx.lineWidth = 1.5;
 
     const s = particle.size;
@@ -86,9 +103,9 @@ export default function AntigravityParticles() {
       canvas.height = rect.height * dpr;
       ctx.scale(dpr, dpr);
       
-      // Initialize particles
-      const particleCount = Math.floor((rect.width * rect.height) / 8000);
-      particlesRef.current = Array.from({ length: Math.min(particleCount, 150) }, () => 
+      // Initialize particles - dormant until hover
+      const particleCount = Math.floor((rect.width * rect.height) / 6000);
+      particlesRef.current = Array.from({ length: Math.min(particleCount, 200) }, () => 
         createParticle(rect.width, rect.height)
       );
     };
@@ -134,27 +151,34 @@ export default function AntigravityParticles() {
       ctx.clearRect(0, 0, rect.width, rect.height);
 
       particlesRef.current.forEach((particle) => {
-        // Apply mouse repulsion when active
-        if (mouseRef.current.active) {
-          const dx = particle.x - mouseRef.current.x;
-          const dy = particle.y - mouseRef.current.y;
-          const distance = Math.sqrt(dx * dx + dy * dy);
-          const maxDistance = 150;
+        const dx = particle.x - mouseRef.current.x;
+        const dy = particle.y - mouseRef.current.y;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+        const activationRadius = 200;
 
-          if (distance < maxDistance) {
-            const force = (1 - distance / maxDistance) * 2;
-            particle.vx += (dx / distance) * force * 0.3;
-            particle.vy += (dy / distance) * force * 0.3;
-          }
+        // Only activate particles near cursor
+        if (mouseRef.current.active && distance < activationRadius) {
+          // Pop into view with glow
+          const proximity = 1 - distance / activationRadius;
+          particle.targetOpacity = 0.3 + proximity * 0.7;
+          particle.glowIntensity = proximity;
+          
+          // Repulsion from cursor
+          const force = proximity * 3;
+          particle.vx += (dx / distance) * force * 0.2;
+          particle.vy += (dy / distance) * force * 0.2;
+        } else {
+          // Fade out when not near cursor
+          particle.targetOpacity = 0;
+          particle.glowIntensity *= 0.95;
         }
 
-        // Apply friction
-        particle.vx *= 0.98;
-        particle.vy *= 0.98;
+        // Smooth opacity transition
+        particle.opacity += (particle.targetOpacity - particle.opacity) * 0.1;
 
-        // Add slight random movement
-        particle.vx += (Math.random() - 0.5) * 0.05;
-        particle.vy += (Math.random() - 0.5) * 0.05;
+        // Apply friction
+        particle.vx *= 0.92;
+        particle.vy *= 0.92;
 
         // Update position
         particle.x += particle.vx;
