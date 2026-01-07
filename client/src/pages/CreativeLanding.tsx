@@ -689,7 +689,7 @@ export default function CreativeLanding() {
       
       <main className="bg-[#F0FFF4]">
         {/* ========== HERO SECTION - VAYNERMEDIA STYLE ========== */}
-        <section ref={heroRef} className="relative min-h-screen overflow-hidden" style={{ backgroundColor: '#F0FFF4' }}>
+        <section ref={heroRef} className="relative h-[75vh] md:h-[80vh] lg:h-[85vh] overflow-hidden" style={{ backgroundColor: '#F0FFF4' }}>
           {/* Full-width video background */}
           <div className="absolute inset-0 z-0">
             <video
@@ -707,7 +707,7 @@ export default function CreativeLanding() {
           </div>
           
           {/* Hero Content */}
-          <div className="relative z-10 min-h-screen flex items-center justify-center pt-20 pb-24">
+          <div className="relative z-10 h-full flex items-center justify-center pt-16 pb-20">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}

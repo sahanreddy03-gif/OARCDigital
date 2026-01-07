@@ -7,22 +7,22 @@ import aiExcellence from '@assets/739d30f2ecb844e9c1186e62ca63efbda518ff4a-1050x
 import creativeStrategy from '@assets/db64abcfab31dccdde04f1fb8be45337dfb692e9-1392x1392_1761257777037.avif';
 import revenueCentered from '@assets/07c35cf0cbddd33390e2f878e287f38703ae7b26-1040x904_1761258187346.avif';
 
-// Creative & Marketing services FIRST (main traffic driver)
+// Reorganized service categories - no overlap, clear purpose
 const serviceCategories = [
   {
-    title: "Creative & Marketing",
+    title: "Creative Services",
     href: "/creative",
     items: [
       { name: "Social media creative", href: "/services/social-media-creative" },
       { name: "Ad creative", href: "/services/ad-creative" },
-      { name: "Branding services", href: "/services/branding" },
+      { name: "Branding", href: "/services/branding" },
       { name: "Video production", href: "/services/video-production" },
       { name: "Web design", href: "/services/web-design" },
       { name: "Motion design", href: "/services/motion-design" },
     ]
   },
   {
-    title: "Digital Marketing",
+    title: "Marketing & Growth",
     href: "/services/digital-marketing",
     items: [
       { name: "Social media management", href: "/services/social" },
@@ -43,12 +43,11 @@ const serviceCategories = [
     ]
   },
   {
-    title: "Specialized Production",
-    href: "/services",
+    title: "Custom Development",
+    href: "/services/web-development",
     items: [
-      { name: "Presentation design", href: "/services/presentation" },
-      { name: "Print & packaging", href: "/services/print-packaging" },
-      { name: "Copywriting", href: "/services/copywriting" },
+      { name: "Custom AI products", href: "/services/ai-products" },
+      { name: "Mobile applications", href: "/services/mobile-apps" },
       { name: "Web development", href: "/services/web-development" },
     ]
   }
@@ -144,18 +143,19 @@ export default function Navigation() {
               onMouseEnter={() => setShowServicesMenu(true)}
               onMouseLeave={() => setShowServicesMenu(false)}
             >
-              <button 
+              <Link 
+                href="/services"
                 className={`flex items-center gap-1 text-xs lg:text-sm font-medium transition-colors ${
                   location.startsWith("/services")
                     ? "text-white"
                     : "text-white/90 hover:text-white"
                 }`}
                 style={{ textShadow }}
-                data-testid="button-services"
+                data-testid="link-services"
               >
                 Services
                 <ChevronDown className={`w-3 h-3 transition-transform duration-300 ${showServicesMenu ? 'rotate-180' : ''}`} />
-              </button>
+              </Link>
 
               {/* Superside-style Mega Menu */}
               <AnimatePresence>
@@ -197,31 +197,16 @@ export default function Navigation() {
                         ))}
                       </div>
                       
-                      {/* Bottom row with featured cards like Superside */}
-                      <div className="mt-8 pt-6 border-t border-zinc-200">
-                        <div className="grid grid-cols-3 gap-6">
-                          <Link href="/our-work" className="group" data-testid="link-mega-creative-talent">
-                            <div className="aspect-video bg-zinc-200 rounded-xl overflow-hidden mb-3">
-                              <div className="w-full h-full bg-gradient-to-br from-emerald-400 to-teal-600 group-hover:scale-105 transition-transform duration-300" />
-                            </div>
-                            <h4 className="text-sm font-semibold text-zinc-900">Our creative talent</h4>
-                            <p className="text-xs text-zinc-500">Meet your dedicated team</p>
-                          </Link>
-                          <Link href="/services/ai-employees" className="group" data-testid="link-mega-ai-excellence">
-                            <div className="aspect-video bg-zinc-200 rounded-xl overflow-hidden mb-3">
-                              <div className="w-full h-full bg-gradient-to-br from-violet-400 to-purple-600 group-hover:scale-105 transition-transform duration-300" />
-                            </div>
-                            <h4 className="text-sm font-semibold text-zinc-900">AI excellence</h4>
-                            <p className="text-xs text-zinc-500">Your shortcut to AI's creative advantage</p>
-                          </Link>
-                          <Link href="/tools" className="group" data-testid="link-mega-technology">
-                            <div className="aspect-video bg-zinc-200 rounded-xl overflow-hidden mb-3">
-                              <div className="w-full h-full bg-gradient-to-br from-amber-400 to-orange-500 group-hover:scale-105 transition-transform duration-300" />
-                            </div>
-                            <h4 className="text-sm font-semibold text-zinc-900">Our technology</h4>
-                            <p className="text-xs text-zinc-500">The tech powering your creative edge</p>
-                          </Link>
-                        </div>
+                      {/* Browse All Services CTA */}
+                      <div className="mt-6 pt-5 border-t border-zinc-200">
+                        <Link 
+                          href="/services" 
+                          className="flex items-center justify-center gap-2 w-full py-3 px-4 bg-zinc-900 hover:bg-zinc-800 text-white text-sm font-semibold rounded-xl transition-colors group"
+                          data-testid="link-browse-all-services"
+                        >
+                          Browse all services
+                          <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                        </Link>
                       </div>
                     </div>
                   </motion.div>
