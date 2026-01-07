@@ -698,7 +698,7 @@ export default function CreativeLanding() {
               loop
               muted
               playsInline
-              className="w-full h-full object-contain md:saturate-[0.85] md:hue-rotate-[-5deg]"
+              className="w-full h-full object-cover object-center md:object-[center_30%] md:saturate-[0.85] md:hue-rotate-[-5deg]"
               data-testid="video-hero-background"
             >
               <source src={heroVideoSrc} type="video/mp4" />
