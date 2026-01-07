@@ -180,7 +180,7 @@ export default function Section5() {
           <h2 className="font-bold text-zinc-900" style={{ fontSize: 'clamp(2rem, 6vw, 4rem)', letterSpacing: '-0.03em', lineHeight: '1.15' }}>
             Our <span 
               className={`italic transition-opacity duration-500 ${headingInView ? 'opacity-100' : 'opacity-0'}`}
-              style={{ color: '#1a2e29', transitionDelay: '300ms' }}
+              style={{ color: '#c4ff4d', transitionDelay: '300ms' }}
             >Difference</span>
           </h2>
           <p className="text-zinc-500 mt-3 text-base md:text-lg">The perfect fit for fast moving brands</p>

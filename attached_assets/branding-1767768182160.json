@@ -1,0 +1,83 @@
+{
+  "colorScheme": "light",
+  "fonts": [
+    {
+      "family": "Google Sans",
+      "count": 71
+    },
+    {
+      "family": "sans-serif",
+      "count": 71
+    },
+    {
+      "family": "Symbol",
+      "count": 8
+    }
+  ],
+  "colors": {
+    "primary": "#C5BDAD",
+    "accent": "#2FA1D6",
+    "background": "#EDEDED",
+    "textPrimary": "#121317",
+    "link": "#2FA1D6"
+  },
+  "typography": {
+    "fontFamilies": {
+      "primary": "Google Sans",
+      "heading": "Google Sans"
+    },
+    "fontStacks": {
+      "body": [
+        "Google Sans",
+        "sans-serif"
+      ],
+      "heading": [
+        "Google Sans",
+        "sans-serif"
+      ],
+      "paragraph": [
+        "Google Sans",
+        "sans-serif"
+      ]
+    },
+    "fontSizes": {
+      "h1": "80px",
+      "h2": "42px",
+      "body": "24px"
+    }
+  },
+  "spacing": {
+    "baseUnit": 4,
+    "borderRadius": "4px"
+  },
+  "components": {},
+  "images": {
+    "logo": "File saved at: attached_assets/logo.svg",
+    "favicon": "https://antigravity.google/assets/image/antigravity-logo.png",
+    "ogImage": "https://antigravity.google/assets/image/sitecards/sitecard-default.png"
+  },
+  "__framework_hints": [],
+  "__llm_logo_reasoning": {
+    "selectedIndex": 0,
+    "reasoning": "Strong indicators: header logo linking to homepage, header location, visible, top-left position, highest logo on page, src contains logo, reasonable size, SVG format. Score: 120 (clear winner by 96 points)",
+    "confidence": 0.9
+  },
+  "__llm_button_reasoning": {
+    "primary": {
+      "index": -1,
+      "text": "N/A",
+      "reasoning": "LLM failed"
+    },
+    "secondary": {
+      "index": -1,
+      "text": "N/A",
+      "reasoning": "LLM failed"
+    },
+    "confidence": 0
+  },
+  "confidence": {
+    "buttons": 0,
+    "colors": 0,
+    "overall": 0
+  }
+}
