@@ -246,10 +246,8 @@ export default function Footer() {
               style={{ fontFamily: 'var(--font-blackpast)' }}
               data-testid="text-footer-logo-name"
             >
-              <span className="text-white">O</span>
-              <span className="text-zinc-300">arc</span>
-              <span className="ml-1 text-[#c4ff4d]">D</span>
-              <span className="text-[#c4ff4d]">igital</span>
+              <span className="text-white">OARC</span>
+              <span className="ml-1 text-[#c4ff4d]">Digital</span>
             </span>
           </div>
 

@@ -54,10 +54,8 @@ export default function CreativeNavigation() {
               className="tracking-wide"
               style={{ fontFamily: 'var(--font-blackpast)', fontSize: '1.5rem' }}
             >
-              <span className="text-zinc-900">O</span>
-              <span className="text-zinc-700">arc</span>
-              <span className="ml-1 text-[#c4ff4d]">D</span>
-              <span className="text-[#c4ff4d]">igital</span>
+              <span className="text-white">OARC</span>
+              <span className="ml-1 text-[#c4ff4d]">Digital</span>
             </span>
           </Link>
 
