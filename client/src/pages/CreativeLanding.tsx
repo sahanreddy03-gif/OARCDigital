@@ -5,6 +5,7 @@ import { Helmet } from 'react-helmet-async';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import heroVideoSrc from '@assets/2026-01-07_01_1767820219026.mp4';
 import { 
   ArrowRight, Check, ChevronDown, ChevronUp, Sparkles, Zap, Target, 
   TrendingUp, Users, BarChart3, Shield, Clock, Gift, Star, X,
@@ -700,7 +701,7 @@ export default function CreativeLanding() {
               className="w-full h-full object-cover md:saturate-[0.85] md:hue-rotate-[-5deg]"
               data-testid="video-hero-background"
             >
-              <source src="/phone-video.mp4" type="video/mp4" />
+              <source src={heroVideoSrc} type="video/mp4" />
             </video>
             {/* Dark overlay for text readability */}
             <div className="absolute inset-0 bg-black/50" />
