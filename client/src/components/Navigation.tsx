@@ -34,15 +34,15 @@ export default function Navigation() {
             <img 
               src={greenLogo} 
               alt="OARC Digital logo" 
-              className="h-10 w-10 md:h-11 md:w-11 lg:h-12 lg:w-12 object-contain"
+              className="h-10 w-10 lg:h-11 lg:w-11 object-contain"
               data-testid="img-logo"
             />
             <div 
               className="flex flex-col items-center leading-none"
-              style={{ fontFamily: 'var(--font-punoer)', textShadow }}
+              style={{ fontFamily: 'var(--font-punoer)' }}
             >
               <span className="text-white text-xl md:text-2xl tracking-[0.2em]">OARC</span>
-              <span className="text-[#c4ff4d]/60 text-[0.5rem] md:text-[0.6rem] tracking-[0.35em]">DIGITAL</span>
+              <span className="text-[0.5rem] md:text-[0.6rem] tracking-[0.35em]" style={{ color: 'rgba(196, 255, 77, 0.6)' }}>DIGITAL</span>
             </div>
           </Link>
 
