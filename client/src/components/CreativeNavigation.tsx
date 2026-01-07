@@ -50,13 +50,13 @@ export default function CreativeNavigation() {
               transition={{ type: "spring", stiffness: 400 }}
               data-testid="img-logo"
             />
-            <span 
-              className="tracking-wide"
-              style={{ fontFamily: 'var(--font-blackpast)', fontSize: '1.5rem' }}
+            <div 
+              className="flex flex-col leading-none"
+              style={{ fontFamily: 'var(--font-punoer)' }}
             >
-              <span style={{ color: '#FFFFFF' }}>OARC</span>
-              <span className="ml-1" style={{ color: '#c4ff4d' }}>Digital</span>
-            </span>
+              <span className="text-white text-base md:text-lg tracking-[0.15em]">OARC</span>
+              <span className="text-xs md:text-sm tracking-[0.2em]" style={{ color: 'rgba(196, 255, 77, 0.8)' }}>DIGITAL</span>
+            </div>
           </Link>
 
           <div className="hidden lg:flex items-center gap-8">

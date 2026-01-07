@@ -241,14 +241,14 @@ export default function Footer() {
               className="h-14 w-14 md:h-16 md:w-16 object-contain"
               data-testid="img-footer-logo"
             />
-            <span 
-              className="text-xl md:text-2xl lg:text-3xl tracking-wide"
-              style={{ fontFamily: 'var(--font-blackpast)' }}
+            <div 
+              className="flex flex-col leading-none"
+              style={{ fontFamily: 'var(--font-punoer)' }}
               data-testid="text-footer-logo-name"
             >
-              <span style={{ color: '#FFFFFF' }}>OARC</span>
-              <span className="ml-1" style={{ color: '#c4ff4d' }}>Digital</span>
-            </span>
+              <span className="text-white text-xl md:text-2xl lg:text-3xl tracking-[0.15em]">OARC</span>
+              <span className="text-sm md:text-base lg:text-lg tracking-[0.2em]" style={{ color: 'rgba(196, 255, 77, 0.8)' }}>DIGITAL</span>
+            </div>
           </div>
 
           <div className="flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-8">
