@@ -295,7 +295,7 @@ export default function HeroSection() {
                     <span 
                       className="block font-extralight italic font-serif tracking-tight leading-[1.05] mt-0.5 md:mt-2 text-[8.5vw] md:text-[clamp(2.5rem,5.5vw,4.5rem)] lg:text-[clamp(2.5rem,4.8vw,4rem)]"
                     >
-                      That Drives <span className="text-[#c4ff4d] not-italic" style={{ fontFamily: 'var(--font-blackpast)' }}>Revenue</span>
+                      That Drives <span className="text-[#e8ffb0] font-semibold not-italic">Revenue</span>
                     </span>
                   </h1>
 
