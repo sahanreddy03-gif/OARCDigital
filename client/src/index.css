@@ -13,7 +13,7 @@
 
 @font-face {
   font-family: 'Punoer';
-  src: url('/fonts/Punoer.otf') format('opentype');
+  src: url('/fonts/Punoer.otf?v=2') format('opentype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
