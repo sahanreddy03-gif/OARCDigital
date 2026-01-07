@@ -724,7 +724,7 @@ export default function CreativeLanding() {
                 data-testid="text-hero-headline"
               >
                 WE ARE THE MODERN<br />
-                <span className="italic font-serif" style={{ fontFamily: 'Georgia, serif' }}>
+                <span style={{ fontFamily: 'var(--font-blackpast)', fontStyle: 'italic' }}>
                   CREATIVE AGENCY
                 </span>
               </h1>
@@ -801,7 +801,7 @@ export default function CreativeLanding() {
                   color: '#1A2E29'
                 }}
               >
-                <span className="italic font-serif" style={{ fontFamily: 'Georgia, serif', color: '#c4ff4d' }}>
+                <span style={{ fontFamily: 'var(--font-blackpast)', fontStyle: 'italic', color: '#c4ff4d' }}>
                   Scroll-stopping
                 </span>
                 <br />
@@ -935,7 +935,7 @@ export default function CreativeLanding() {
               >
                 The support your creative team
                 <br />
-                <span className="italic font-serif" style={{ fontFamily: 'Georgia, serif', color: '#c4ff4d' }}>
+                <span style={{ fontFamily: 'var(--font-blackpast)', fontStyle: 'italic', color: '#c4ff4d' }}>
                   has been asking for
                 </span>
               </h2>
