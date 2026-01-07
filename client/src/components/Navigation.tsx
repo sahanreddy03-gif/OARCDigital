@@ -38,13 +38,11 @@ export default function Navigation() {
               data-testid="img-logo"
             />
             <span 
-              className="text-white text-sm md:text-base tracking-[0.08em] font-light" 
-              style={{ fontFamily: "'Montserrat', system-ui, sans-serif", textShadow }}
+              className="text-base md:text-lg tracking-wide" 
+              style={{ fontFamily: 'var(--font-blackpast)', textShadow }}
             >
-              <span className="font-semibold">O</span>
-              <span className="text-[0.85em]">arc</span>
-              <span className="ml-1 font-semibold text-[#c4ff4d]">D</span>
-              <span className="text-[0.85em] text-[#c4ff4d]">igital</span>
+              <span style={{ color: '#FFFFFF' }}>OARC</span>
+              <span className="ml-1" style={{ color: '#c4ff4d' }}>Digital</span>
             </span>
           </Link>
 
