@@ -576,17 +576,147 @@ type PackageType = {
   popular: boolean;
 };
 
+// Pricing Modal Component
+function PricingModal({ 
+  isOpen, 
+  onClose, 
+  selectedPackage 
+}: { 
+  isOpen: boolean; 
+  onClose: () => void; 
+  selectedPackage: string | null;
+}) {
+  const [formData, setFormData] = useState({ name: '', email: '', company: '' });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!formData.name || !formData.email) return;
+    
+    setIsSubmitting(true);
+    try {
+      await fetch('/api/leads', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...formData, service: selectedPackage }),
+      });
+      setIsSubmitted(true);
+    } catch (error) {
+      console.error('Error:', error);
+    }
+    setIsSubmitting(false);
+  };
+
+  if (!isOpen) return null;
+
+  return (
+    <AnimatePresence>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm"
+        onClick={onClose}
+      >
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9, y: 20 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          exit={{ opacity: 0, scale: 0.9, y: 20 }}
+          transition={{ type: "spring", damping: 25, stiffness: 300 }}
+          className="relative w-full max-w-md bg-zinc-900 rounded-3xl p-8 border border-white/10 shadow-2xl"
+          onClick={(e) => e.stopPropagation()}
+        >
+          <button
+            onClick={onClose}
+            className="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"
+            data-testid="button-close-pricing-modal"
+          >
+            <X className="w-4 h-4 text-white" />
+          </button>
+
+          {!isSubmitted ? (
+            <>
+              <div className="text-center mb-6">
+                <div className="w-14 h-14 rounded-2xl bg-[#c4ff4d]/20 flex items-center justify-center mx-auto mb-4">
+                  <Zap className="w-7 h-7 text-[#c4ff4d]" />
+                </div>
+                <h3 className="text-2xl font-bold text-white">Get Instant Pricing</h3>
+                <p className="text-zinc-400 text-sm mt-2">We'll send your custom quote within 2 hours</p>
+              </div>
+
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <input
+                  type="text"
+                  placeholder="Your Name"
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  className="w-full px-5 py-4 bg-white/10 border border-white/20 rounded-xl text-white placeholder-zinc-500 focus:border-[#c4ff4d] focus:outline-none transition-all"
+                  required
+                  data-testid="input-modal-name"
+                />
+                <input
+                  type="email"
+                  placeholder="Email Address"
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  className="w-full px-5 py-4 bg-white/10 border border-white/20 rounded-xl text-white placeholder-zinc-500 focus:border-[#c4ff4d] focus:outline-none transition-all"
+                  required
+                  data-testid="input-modal-email"
+                />
+                <input
+                  type="text"
+                  placeholder="Company (optional)"
+                  value={formData.company}
+                  onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+                  className="w-full px-5 py-4 bg-white/10 border border-white/20 rounded-xl text-white placeholder-zinc-500 focus:border-[#c4ff4d] focus:outline-none transition-all"
+                  data-testid="input-modal-company"
+                />
+                <Button 
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full bg-[#c4ff4d] text-zinc-900 hover:bg-[#b5ef3d] py-6 rounded-xl font-bold text-base shadow-lg shadow-[#c4ff4d]/20"
+                  data-testid="button-submit-pricing"
+                >
+                  {isSubmitting ? 'Sending...' : 'Get My Pricing'} <ArrowRight className="w-5 h-5 ml-2" />
+                </Button>
+              </form>
+
+              <p className="text-zinc-500 text-xs text-center mt-4">No spam, ever. Instant response guaranteed.</p>
+            </>
+          ) : (
+            <div className="text-center py-6">
+              <div className="w-16 h-16 rounded-full bg-[#c4ff4d]/20 flex items-center justify-center mx-auto mb-4">
+                <Check className="w-8 h-8 text-[#c4ff4d]" />
+              </div>
+              <h3 className="text-2xl font-bold text-white mb-2">Request Received!</h3>
+              <p className="text-zinc-400">We'll send your custom pricing within 2 hours.</p>
+              <Button 
+                onClick={onClose}
+                className="mt-6 bg-white/10 hover:bg-white/20 text-white px-8"
+                data-testid="button-close-success"
+              >
+                Close
+              </Button>
+            </div>
+          )}
+        </motion.div>
+      </motion.div>
+    </AnimatePresence>
+  );
+}
+
 function PricingCarousel({ 
   packages, 
   title, 
   icon: Icon, 
-  isUnlocked, 
+  onViewPrices,
   isMonthly = false 
 }: { 
   packages: PackageType[]; 
   title: string; 
   icon: any; 
-  isUnlocked: boolean;
+  onViewPrices: (tier: string) => void;
   isMonthly?: boolean;
 }) {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -598,12 +728,12 @@ function PricingCarousel({
   }, [emblaApi]);
 
   return (
-    <div className="mb-16 last:mb-0">
-      <div className="flex items-center justify-center gap-3 mb-6">
-        <div className="w-10 h-10 rounded-xl bg-[#c4ff4d]/20 flex items-center justify-center">
-          <Icon className="w-5 h-5 text-[#c4ff4d]" />
+    <div className="mb-12 last:mb-0">
+      <div className="flex items-center justify-center gap-3 mb-5">
+        <div className="w-9 h-9 rounded-xl bg-[#c4ff4d]/20 flex items-center justify-center">
+          <Icon className="w-4 h-4 text-[#c4ff4d]" />
         </div>
-        <h3 className="text-xl md:text-2xl font-bold text-white">{title}</h3>
+        <h3 className="text-lg md:text-xl font-bold text-white">{title}</h3>
       </div>
 
       <div className="overflow-hidden" ref={emblaRef}>
@@ -614,57 +744,36 @@ function PricingCarousel({
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                className={`relative rounded-3xl overflow-hidden backdrop-blur-xl ${
+                className={`relative rounded-2xl overflow-hidden backdrop-blur-xl ${
                   pkg.popular 
-                    ? 'bg-gradient-to-br from-[#c4ff4d]/20 via-[#c4ff4d]/10 to-transparent border-2 border-[#c4ff4d]/50 shadow-2xl shadow-[#c4ff4d]/10' 
-                    : 'bg-white/[0.07] border border-white/20'
+                    ? 'bg-gradient-to-br from-[#c4ff4d]/15 via-[#c4ff4d]/5 to-transparent border-2 border-[#c4ff4d]/40' 
+                    : 'bg-white/[0.06] border border-white/15'
                 }`}
               >
                 {pkg.popular && (
-                  <div className="absolute top-0 left-0 right-0 bg-gradient-to-r from-[#c4ff4d] to-[#9fe830] text-zinc-900 text-xs font-bold text-center py-2 uppercase tracking-widest flex items-center justify-center gap-1">
-                    <Star className="w-3 h-3" /> Most Popular
+                  <div className="absolute top-0 left-0 right-0 bg-gradient-to-r from-[#c4ff4d] to-[#9fe830] text-zinc-900 text-[10px] font-bold text-center py-1.5 uppercase tracking-widest flex items-center justify-center gap-1">
+                    <Star className="w-2.5 h-2.5" /> Most Popular
                   </div>
                 )}
                 
-                <div className={`p-6 md:p-8 ${pkg.popular ? 'pt-12' : ''}`}>
-                  <div className="text-center mb-6">
-                    <p className={`text-sm font-bold uppercase tracking-widest mb-2 ${pkg.popular ? 'text-[#c4ff4d]' : 'text-zinc-400'}`}>
+                <div className={`p-5 md:p-6 ${pkg.popular ? 'pt-10' : ''}`}>
+                  <div className="text-center mb-5">
+                    <p className={`text-xs font-bold uppercase tracking-widest mb-2 ${pkg.popular ? 'text-[#c4ff4d]' : 'text-zinc-400'}`}>
                       {pkg.name}
                     </p>
-                    
-                    <div className="flex items-baseline justify-center gap-1 mb-3">
-                      {isUnlocked ? (
-                        <>
-                          <span className="text-5xl md:text-6xl font-bold text-white">€{pkg.price}</span>
-                          <span className="text-zinc-400 text-lg">{isMonthly ? '/mo' : ''}</span>
-                        </>
-                      ) : (
-                        <div className="flex items-center gap-3">
-                          <span className="text-5xl md:text-6xl font-bold text-zinc-600 blur-lg select-none">€X,XXX</span>
-                          <Lock className="w-6 h-6 text-zinc-500" />
-                        </div>
-                      )}
-                    </div>
-                    
-                    <p className="text-zinc-400 text-sm italic">{pkg.bestFor}</p>
-                    
-                    {isUnlocked && (
-                      <div className="mt-3 inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/20 text-emerald-400 text-xs font-semibold">
-                        Save {pkg.savings} <span className="line-through text-zinc-500">{pkg.totalValue}</span>
-                      </div>
-                    )}
+                    <p className="text-zinc-400 text-sm">{pkg.bestFor}</p>
                   </div>
 
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div className="bg-white/5 rounded-2xl p-5">
-                      <p className="text-xs font-bold text-zinc-400 uppercase tracking-widest mb-4 flex items-center gap-2">
-                        <Check className="w-4 h-4 text-[#c4ff4d]" /> What's Included
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <div className="bg-white/5 rounded-xl p-4">
+                      <p className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest mb-3 flex items-center gap-1.5">
+                        <Check className="w-3 h-3 text-[#c4ff4d]" /> What's Included
                       </p>
-                      <div className="space-y-3">
+                      <div className="space-y-2">
                         {pkg.features.map((f, j) => (
-                          <div key={j} className="flex items-start gap-3 text-zinc-300 text-sm">
-                            <div className="w-5 h-5 rounded-full bg-[#c4ff4d]/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                              <Check className="w-3 h-3 text-[#c4ff4d]" />
+                          <div key={j} className="flex items-start gap-2 text-zinc-300 text-xs">
+                            <div className="w-4 h-4 rounded-full bg-[#c4ff4d]/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                              <Check className="w-2.5 h-2.5 text-[#c4ff4d]" />
                             </div>
                             <span>{f}</span>
                           </div>
@@ -672,14 +781,14 @@ function PricingCarousel({
                       </div>
                     </div>
 
-                    <div className="bg-gradient-to-br from-[#c4ff4d]/10 to-transparent rounded-2xl p-5 border border-[#c4ff4d]/20">
-                      <p className="text-xs font-bold text-[#c4ff4d] uppercase tracking-widest mb-4 flex items-center gap-2">
-                        <Gift className="w-4 h-4" /> Exclusive Bonuses
+                    <div className="bg-gradient-to-br from-[#c4ff4d]/10 to-transparent rounded-xl p-4 border border-[#c4ff4d]/15">
+                      <p className="text-[10px] font-bold text-[#c4ff4d] uppercase tracking-widest mb-3 flex items-center gap-1.5">
+                        <Gift className="w-3 h-3" /> Exclusive Bonuses
                       </p>
-                      <div className="space-y-3">
+                      <div className="space-y-2">
                         {pkg.bonuses.map((b, j) => (
-                          <div key={j} className="flex items-start gap-3 text-zinc-300 text-sm">
-                            <Sparkles className="w-4 h-4 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
+                          <div key={j} className="flex items-start gap-2 text-zinc-300 text-xs">
+                            <Sparkles className="w-3 h-3 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
                             <span>{b}</span>
                           </div>
                         ))}
@@ -687,20 +796,17 @@ function PricingCarousel({
                     </div>
                   </div>
 
-                  {isUnlocked && (
-                    <Link href="/contact">
-                      <Button 
-                        className={`w-full mt-6 py-6 rounded-xl font-bold text-base ${
-                          pkg.popular 
-                            ? 'bg-[#c4ff4d] text-zinc-900 hover:bg-[#b5ef3d] shadow-lg shadow-[#c4ff4d]/30' 
-                            : 'bg-white/10 hover:bg-white/20 text-white'
-                        }`}
-                        data-testid={`button-tier-${pkg.name.toLowerCase()}`}
-                      >
-                        Get Started <ArrowRight className="w-5 h-5 ml-2" />
-                      </Button>
-                    </Link>
-                  )}
+                  <Button 
+                    onClick={() => onViewPrices(`${title} - ${pkg.name}`)}
+                    className={`w-full mt-5 py-5 rounded-xl font-bold text-sm ${
+                      pkg.popular 
+                        ? 'bg-[#c4ff4d] text-zinc-900 hover:bg-[#b5ef3d] shadow-lg shadow-[#c4ff4d]/20' 
+                        : 'bg-white/10 hover:bg-white/20 text-white'
+                    }`}
+                    data-testid={`button-view-prices-${pkg.name.toLowerCase()}`}
+                  >
+                    View Prices <ArrowRight className="w-4 h-4 ml-2" />
+                  </Button>
                 </div>
               </motion.div>
             </div>
@@ -708,144 +814,153 @@ function PricingCarousel({
         </div>
       </div>
 
-      <div className="flex items-center justify-center gap-2 mt-6">
+      <div className="flex items-center justify-center gap-2 mt-4">
         {packages.map((_, i) => (
           <button
             key={i}
             onClick={() => emblaApi?.scrollTo(i)}
-            className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+            className={`w-2 h-2 rounded-full transition-all duration-300 ${
               currentIndex === i 
-                ? 'bg-[#c4ff4d] w-8' 
+                ? 'bg-[#c4ff4d] w-6' 
                 : 'bg-white/30 hover:bg-white/50'
             }`}
             data-testid={`dot-${title.toLowerCase().replace(' ', '-')}-${i}`}
           />
         ))}
-        <span className="text-zinc-500 text-xs ml-3">Swipe to see more</span>
+        <span className="text-zinc-500 text-[10px] ml-2">Swipe</span>
       </div>
     </div>
   );
 }
 
-function PricingUnlockSection() {
-  const [isUnlocked, setIsUnlocked] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [formData, setFormData] = useState({ name: '', contact: '', service: 'social-media' });
+// Benefits included in all plans
+const allPlansIncludes = [
+  'Dedicated creative project manager',
+  'Turnaround times starting at 48 hours',
+  'Global timezone coverage',
+  'AI-enhanced workflows',
+  'Unlimited revisions on all drafts',
+  'Support for multiple brands',
+];
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!formData.name || !formData.contact) return;
-    
-    setIsSubmitting(true);
-    try {
-      await fetch('/api/leads', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
-      });
-      setIsUnlocked(true);
-    } catch (error) {
-      console.error('Error submitting lead:', error);
-    }
-    setIsSubmitting(false);
+function PricingSection() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedPackage, setSelectedPackage] = useState<string | null>(null);
+
+  const handleViewPrices = (tier: string) => {
+    setSelectedPackage(tier);
+    setIsModalOpen(true);
   };
 
   return (
-    <section className="py-20 md:py-28 bg-gradient-to-br from-zinc-950 via-zinc-900 to-zinc-950 relative overflow-hidden">
+    <section className="py-16 md:py-20 bg-gradient-to-br from-zinc-950 via-zinc-900 to-zinc-950 relative overflow-hidden">
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:60px_60px]" />
-      <div className="absolute top-20 left-0 w-[500px] h-[500px] bg-[#c4ff4d]/5 rounded-full blur-[120px]" />
-      <div className="absolute bottom-20 right-0 w-[500px] h-[500px] bg-purple-500/5 rounded-full blur-[120px]" />
+      <div className="absolute top-10 left-0 w-[400px] h-[400px] bg-[#c4ff4d]/5 rounded-full blur-[120px]" />
+      <div className="absolute bottom-10 right-0 w-[400px] h-[400px] bg-purple-500/5 rounded-full blur-[120px]" />
       
       <div className="container mx-auto px-4 relative">
-        <div className="text-center mb-16">
-          <Badge className="bg-[#c4ff4d]/20 text-[#c4ff4d] border-[#c4ff4d]/30 mb-4 px-4 py-1.5">PACKAGES</Badge>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-5">
-            Premium <span className="text-[#c4ff4d] italic" style={{ fontFamily: 'Georgia, serif' }}>Packages</span>
+        {/* Flexible Plans Header - Compact */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-10"
+        >
+          <Badge className="bg-[#c4ff4d]/20 text-[#c4ff4d] border-[#c4ff4d]/30 mb-3 px-3 py-1 text-xs">
+            <Star className="w-3 h-3 mr-1" /> FOUNDING CLIENT SPECIAL
+          </Badge>
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">
+            Flexible plans <span className="text-zinc-400 italic font-normal" style={{ fontFamily: 'Georgia, serif' }}>for every stage.</span>
           </h2>
-          <p className="text-zinc-400 max-w-2xl mx-auto text-lg">
-            Everything you need to grow. Swipe to explore each tier.
+          <p className="text-zinc-400 max-w-xl mx-auto text-sm md:text-base">
+            Lock in your founding rate instantly. From asset production to full-scale AI automation, 
+            we move <span className="text-white font-semibold">10x faster</span> than traditional agencies.
           </p>
-        </div>
+          <Link href="/contact">
+            <Button 
+              variant="outline" 
+              className="mt-4 border-zinc-700 text-white hover:bg-white/10 px-6"
+              data-testid="button-book-strategy-call"
+            >
+              Book Strategy Call
+            </Button>
+          </Link>
+        </motion.div>
 
-        {!isUnlocked && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="max-w-lg mx-auto mb-16"
-          >
-            <form onSubmit={handleSubmit} className="bg-white/[0.08] backdrop-blur-2xl rounded-3xl p-8 border border-white/20 shadow-2xl">
-              <div className="text-center mb-6">
-                <div className="w-16 h-16 rounded-2xl bg-[#c4ff4d]/20 flex items-center justify-center mx-auto mb-4">
-                  <Unlock className="w-8 h-8 text-[#c4ff4d]" />
-                </div>
-                <h3 className="text-2xl font-bold text-white">Unlock All Prices</h3>
-                <p className="text-zinc-400 text-sm mt-1">See the full value. No spam, ever.</p>
-              </div>
-              <div className="space-y-4">
-                <input
-                  type="text"
-                  placeholder="Your Name"
-                  value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="w-full px-5 py-4 bg-white/10 border border-white/20 rounded-xl text-white placeholder-zinc-500 focus:border-[#c4ff4d] focus:outline-none transition-all focus:bg-white/15"
-                  required
-                  data-testid="input-pricing-name"
-                />
-                <input
-                  type="text"
-                  placeholder="Email or Mobile"
-                  value={formData.contact}
-                  onChange={(e) => setFormData({ ...formData, contact: e.target.value })}
-                  className="w-full px-5 py-4 bg-white/10 border border-white/20 rounded-xl text-white placeholder-zinc-500 focus:border-[#c4ff4d] focus:outline-none transition-all focus:bg-white/15"
-                  required
-                  data-testid="input-pricing-contact"
-                />
-                <select
-                  value={formData.service}
-                  onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                  className="w-full px-5 py-4 bg-white/10 border border-white/20 rounded-xl text-white focus:border-[#c4ff4d] focus:outline-none transition-all"
-                  data-testid="select-pricing-service"
-                >
-                  <option value="social-media" className="bg-zinc-900">I'm interested in Social Media</option>
-                  <option value="website" className="bg-zinc-900">I'm interested in a Website</option>
-                  <option value="branding" className="bg-zinc-900">I'm interested in Branding</option>
-                </select>
-                <Button 
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full bg-[#c4ff4d] text-zinc-900 hover:bg-[#b5ef3d] py-6 rounded-xl font-bold text-base shadow-xl shadow-[#c4ff4d]/20 transition-all hover:shadow-[#c4ff4d]/30"
-                  data-testid="button-unlock-pricing"
-                >
-                  {isSubmitting ? 'Unlocking...' : 'Reveal All Pricing'} <ArrowRight className="w-5 h-5 ml-2" />
-                </Button>
-              </div>
-            </form>
-          </motion.div>
-        )}
-
-        <div className="max-w-4xl mx-auto">
+        {/* Pricing Carousels */}
+        <div className="max-w-3xl mx-auto">
           <PricingCarousel 
             packages={socialMediaPackages} 
             title="Social Media" 
             icon={Instagram} 
-            isUnlocked={isUnlocked}
+            onViewPrices={handleViewPrices}
             isMonthly={true}
           />
           <PricingCarousel 
             packages={websitePackages} 
             title="Website" 
             icon={Globe} 
-            isUnlocked={isUnlocked}
+            onViewPrices={handleViewPrices}
           />
           <PricingCarousel 
             packages={brandPackages} 
             title="Branding" 
             icon={Palette} 
-            isUnlocked={isUnlocked}
+            onViewPrices={handleViewPrices}
           />
         </div>
+
+        {/* Included in All Plans - Compact Lime Card */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="max-w-3xl mx-auto mt-12"
+        >
+          <div className="bg-[#c4ff4d] rounded-2xl p-6 md:p-8">
+            <h3 className="text-xl md:text-2xl font-bold text-zinc-900 text-center mb-5">
+              Included in <span className="italic" style={{ fontFamily: 'Georgia, serif' }}>all plans:</span>
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              {allPlansIncludes.map((item, i) => (
+                <div key={i} className="flex items-center gap-3">
+                  <div className="w-5 h-5 rounded-full bg-zinc-900/10 flex items-center justify-center flex-shrink-0">
+                    <Check className="w-3 h-3 text-zinc-900" />
+                  </div>
+                  <span className="text-zinc-900 text-sm font-medium">{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Custom Package CTA - Compact */}
+        <motion.div 
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mt-8"
+        >
+          <p className="text-zinc-400 text-sm mb-3">
+            Need something custom? <span className="text-white">We build packages tailored to your business goals.</span>
+          </p>
+          <Link href="/contact">
+            <Button 
+              className="bg-white/10 hover:bg-white/20 text-white px-8"
+              data-testid="button-customize-package"
+            >
+              Customize Your Package <ArrowRight className="w-4 h-4 ml-2" />
+            </Button>
+          </Link>
+        </motion.div>
       </div>
+
+      {/* Pricing Modal */}
+      <PricingModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+        selectedPackage={selectedPackage}
+      />
     </section>
   );
 }
@@ -1780,7 +1895,7 @@ export default function CreativeLanding() {
         </AnimatedSection>
 
         {/* ========== PRICING UNLOCK - SUPERSIDE STYLE ========== */}
-        <PricingUnlockSection />
+        <PricingSection />
 
         {/* ========== WHATSAPP CTA - VAYNER STYLE ========== */}
         <WhatsAppCTASection />
