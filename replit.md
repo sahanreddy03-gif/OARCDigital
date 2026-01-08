@@ -92,21 +92,6 @@ The platform utilizes a modern web stack with a React frontend and an Express.js
     - FAQ section with 8 voice-search optimized questions and JSON-LD schema
     - CTA section driving to contact page
     - Route: `/tools` with navigation link added to header
--   **Creative Landing Page - Premium Redesign (Jan 2026):** VaynerMedia-inspired creative agency landing page featuring:
-    - **Color Scheme:** Dark green (#0A2818, #0D3320, #166534) with emerald/teal gradients throughout (from-emerald-500 to-teal-500)
-    - **Hero:** Full-screen video background with "WE ARE THE MODERN CREATIVE AGENCY" headline
-    - **Marquee:** Emerald gradient scrolling banner replacing lime green
-    - **Scroll-stopping Section:** Dark green gradient accents, OARC-branded USP messaging emphasizing AI-enhanced production, one creative team for every format
-    - **Creative Category Pills:** 8 service categories (Social Media, Video Production, Branding, Paid Ads, Web Design, Motion Graphics, AI-Enhanced, Campaigns) with icons and descriptions
-    - **Client Brand Logo Strip:** 6 placeholder slots for brand logos with subtle animations
-    - **Comparison Section (Traditional vs OARC):** Premium dark background (#0A2818), animated gradient blurs, icons for each comparison row, 6 feature comparisons with AI enhancements
-    - **How We Can Help (VaynerMedia-style):** 6 service cards (Creative, Paid Media, Strategy, Branding, Web Design, Video Production) with colored gradient headers and placeholder icons
-    - **AI Creative Section:** Dark green theme with emerald gradient text accents
-    - **Value Pillars:** 4 strategic value cards with emerald gradient icons and stats
-    - **Pricing Packages:** Dark green popular card styling with emerald accents
-    - **Animations:** Framer Motion throughout - smooth scroll reveals, parallax effects, staggered animations, hover interactions, floating gradient blurs
-    - **Globally-branded messaging:** Removed Malta-specific positioning for international appeal
-    - Route: `/creative`
 
 **Backend:**
 -   **Framework & Language:** Express.js with TypeScript.
