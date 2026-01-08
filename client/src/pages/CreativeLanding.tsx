@@ -15,7 +15,7 @@ import {
   Instagram, Linkedin, Play, Award, Lightbulb, Layers, RefreshCw,
   Eye, Crosshair, Brain, Crown, Rocket, LineChart
 } from 'lucide-react';
-import { SiInstagram, SiFacebook, SiTiktok, SiLinkedin, SiYoutube, SiGoogle } from 'react-icons/si';
+import { SiInstagram, SiFacebook, SiTiktok, SiLinkedin, SiYoutube, SiGoogle, SiFigma, SiSlack, SiNotion, SiMeta, SiShopify, SiHubspot, SiMailchimp, SiZapier } from 'react-icons/si';
 import CreativeNavigation from '@/components/CreativeNavigation';
 import Footer from '@/components/Footer';
 import AICreativeSection from '@/components/AICreativeSection';
@@ -1016,6 +1016,172 @@ export default function CreativeLanding() {
                 </div>
               </div>
             )}
+          </div>
+        </section>
+
+        {/* ========== BLACK BRAND LOGO STRIP ========== */}
+        <section className="py-6 overflow-hidden" style={{ backgroundColor: '#000000' }}>
+          <div className="relative">
+            <motion.div
+              className="flex items-center gap-16"
+              animate={{ x: [0, -1200] }}
+              transition={{
+                x: {
+                  repeat: Infinity,
+                  repeatType: "loop",
+                  duration: 25,
+                  ease: "linear",
+                },
+              }}
+            >
+              {[...Array(3)].flatMap((_, setIndex) => [
+                { Icon: SiFigma, name: "Figma" },
+                { Icon: SiSlack, name: "Slack" },
+                { Icon: SiNotion, name: "Notion" },
+                { Icon: SiMeta, name: "Meta" },
+                { Icon: SiGoogle, name: "Google" },
+                { Icon: SiShopify, name: "Shopify" },
+                { Icon: SiHubspot, name: "HubSpot" },
+                { Icon: SiMailchimp, name: "Mailchimp" },
+                { Icon: SiZapier, name: "Zapier" },
+              ].map((tool, index) => (
+                <div key={`${setIndex}-${index}`} className="flex-shrink-0 flex items-center gap-2">
+                  <tool.Icon className="w-6 h-6 text-white opacity-80" />
+                  <span className="text-white font-semibold text-sm opacity-80 whitespace-nowrap">{tool.name}</span>
+                </div>
+              )))}
+            </motion.div>
+          </div>
+        </section>
+
+        {/* ========== HOW WE CAN HELP YOU SECTION ========== */}
+        <section className="py-20 md:py-28 overflow-hidden" style={{ backgroundColor: '#FFFFFF' }}>
+          <div className="container mx-auto px-6 lg:px-12">
+            {/* Section Header */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-center mb-12"
+            >
+              <h2 
+                className="font-bold mb-4"
+                style={{ 
+                  fontSize: 'clamp(2rem, 5vw, 3.5rem)',
+                  lineHeight: '1.1',
+                  letterSpacing: '-0.02em',
+                  color: '#1A2E29',
+                  fontFamily: 'system-ui, -apple-system, sans-serif'
+                }}
+              >
+                HOW WE CAN HELP YOU
+              </h2>
+              <p 
+                className="text-lg md:text-xl max-w-2xl mx-auto mb-8"
+                style={{ color: '#4A5568' }}
+              >
+                We're relentlessly focused on one thing: growing your brand through creativity & AI.
+              </p>
+              <Link href="/contact">
+                <motion.button
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="px-8 py-4 rounded-full text-lg font-semibold transition-all"
+                  style={{ 
+                    backgroundColor: '#1A2E29', 
+                    color: '#FFFFFF'
+                  }}
+                  data-testid="button-learn-more-help"
+                >
+                  Learn More
+                </motion.button>
+              </Link>
+            </motion.div>
+
+            {/* Service Cards Carousel */}
+            <div className="relative -mx-6 lg:-mx-12">
+              <div className="flex gap-5 overflow-x-auto pb-4 px-6 lg:px-12 snap-x snap-mandatory" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+                {[
+                  { 
+                    category: "BUILDING RELEVANCE",
+                    title: "Creative",
+                    description: "We create content people actually want to watch. By listening to audiences, not opinions, we build ideas that drive relevance. A modern blend of traditional thinking and social-first storytelling.",
+                    image: serviceImages.adCreative
+                  },
+                  { 
+                    category: "AMPLIFIED REACH",
+                    title: "Media",
+                    description: "We're focused on driving business results, not just potential reach. We understand where consumers spend their time and turn attention into action through modern planning and analytics.",
+                    image: serviceImages.socialMedia
+                  },
+                  { 
+                    category: "TARGETED IMPACT",
+                    title: "Strategy",
+                    description: "We put human beings at the forefront of everything we do, ensuring our ideas are culturally rich and consumer-led. The most effective way to drive relevance and growth.",
+                    image: serviceImages.concept
+                  },
+                  { 
+                    category: "INTELLIGENT SCALE",
+                    title: "AI Automation",
+                    description: "Leverage AI to multiply your creative output and automate repetitive tasks. From AI-enhanced content creation to intelligent workflows, we help you scale without sacrificing quality.",
+                    image: serviceImages.aiEnhanced
+                  },
+                  { 
+                    category: "CONVERSION-READY",
+                    title: "Commerce",
+                    description: "Gen Z isn't just scrolling—they're shopping. Social is where they discover what's new and decide what to buy. We make your brand conversion-ready for the new era of social commerce.",
+                    image: serviceImages.webDesign
+                  },
+                  { 
+                    category: "BORROW OUR BRAINS",
+                    title: "Consulting",
+                    description: "Work alongside seasoned strategists, creators, and platform specialists to unlock modern solutions to your biggest business challenges. Walk away with actionable ideas and a strategic roadmap.",
+                    image: serviceImages.branding
+                  },
+                  { 
+                    category: "AUTOMATED GROWTH",
+                    title: "Revenue Systems",
+                    description: "Build automated revenue engines that work 24/7. From lead generation funnels to nurture sequences, we create systems that consistently turn prospects into customers on autopilot.",
+                    image: serviceImages.designSystems
+                  },
+                  { 
+                    category: "SOCIAL SIGNALS",
+                    title: "Analytics",
+                    description: "Numbers don't build relevance, people do. Our analytics go beyond dashboards, decoding culture in real time. We turn raw data into the insights that matter for your brand.",
+                    image: serviceImages.presentation
+                  },
+                ].map((service, index) => (
+                  <Link href="/services" key={index}>
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.05 * index }}
+                      className="group flex-shrink-0 w-[280px] md:w-[320px] snap-start cursor-pointer"
+                      data-testid={`card-help-service-${index}`}
+                    >
+                      <div className="relative rounded-xl overflow-hidden mb-4" style={{ aspectRatio: '4/3' }}>
+                        <img
+                          src={service.image}
+                          alt={service.title}
+                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                          loading="lazy"
+                        />
+                      </div>
+                      <p className="text-xs font-bold uppercase tracking-wider mb-2" style={{ color: '#888888' }}>
+                        {service.category}
+                      </p>
+                      <h3 className="text-2xl font-bold mb-3" style={{ color: '#1A2E29' }}>
+                        {service.title}
+                      </h3>
+                      <p className="text-sm leading-relaxed" style={{ color: '#4A5568' }}>
+                        {service.description}
+                      </p>
+                    </motion.div>
+                  </Link>
+                ))}
+              </div>
+            </div>
           </div>
         </section>
 
