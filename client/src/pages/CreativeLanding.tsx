@@ -13,9 +13,9 @@ import {
   TrendingUp, Users, BarChart3, Shield, Clock, Gift, Star, X,
   MessageSquare, Palette, Video, Globe, Mail, Megaphone, Bot,
   Instagram, Linkedin, Play, Award, Lightbulb, Layers, RefreshCw,
-  Eye, Crosshair, Brain, Crown, Rocket, LineChart
+  Eye, Crosshair, Brain, Crown, Rocket, LineChart, Lock, Unlock
 } from 'lucide-react';
-import { SiInstagram, SiFacebook, SiTiktok, SiLinkedin, SiYoutube, SiGoogle, SiFigma, SiSlack, SiNotion, SiMeta, SiShopify, SiHubspot, SiMailchimp, SiZapier } from 'react-icons/si';
+import { SiInstagram, SiFacebook, SiTiktok, SiLinkedin, SiYoutube, SiGoogle, SiFigma, SiSlack, SiNotion, SiMeta, SiShopify, SiHubspot, SiMailchimp, SiZapier, SiWhatsapp } from 'react-icons/si';
 import CreativeNavigation from '@/components/CreativeNavigation';
 import Footer from '@/components/Footer';
 import AICreativeSection from '@/components/AICreativeSection';
@@ -561,6 +561,183 @@ function PremiumPackageCard({ pkg, type }: { pkg: any; type: 'monthly' | 'oneTim
         </div>
       </div>
     </motion.div>
+  );
+}
+
+function PricingUnlockSection() {
+  const [isUnlocked, setIsUnlocked] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formData, setFormData] = useState({ name: '', contact: '', service: 'social-media' });
+
+  const pricingTiers = [
+    { name: 'Social Media', price: '€1,500', period: '/mo', features: ['Content Strategy', '20 Posts/month', 'Community Management'] },
+    { name: 'Website', price: '€3,000', period: 'one-time', features: ['Custom Design', 'Mobile Responsive', 'SEO Optimized'] },
+    { name: 'Full Brand', price: '€5,000', period: 'one-time', features: ['Logo & Identity', 'Brand Guidelines', 'Social Templates'] },
+  ];
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!formData.name || !formData.contact) return;
+    
+    setIsSubmitting(true);
+    try {
+      await fetch('/api/leads', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+      setIsUnlocked(true);
+    } catch (error) {
+      console.error('Error submitting lead:', error);
+    }
+    setIsSubmitting(false);
+  };
+
+  return (
+    <section className="py-16 md:py-24 bg-gradient-to-br from-zinc-900 via-zinc-800 to-zinc-900 relative overflow-hidden">
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:40px_40px]" />
+      
+      <div className="container mx-auto px-6 relative">
+        <div className="text-center mb-10">
+          <Badge className="bg-[#c4ff4d]/20 text-[#c4ff4d] border-[#c4ff4d]/30 mb-4">PRICING</Badge>
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
+            Transparent <span className="text-[#c4ff4d]">Pricing</span>
+          </h2>
+          <p className="text-zinc-400 max-w-xl mx-auto">
+            No hidden fees. No surprises. Just results.
+          </p>
+        </div>
+
+        <div className="max-w-5xl mx-auto">
+          {!isUnlocked ? (
+            <div className="grid md:grid-cols-2 gap-8 items-center">
+              <motion.form 
+                onSubmit={handleSubmit}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10"
+              >
+                <h3 className="text-xl font-bold text-white mb-4">Unlock Pricing</h3>
+                <div className="space-y-4">
+                  <input
+                    type="text"
+                    placeholder="Your Name"
+                    value={formData.name}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-zinc-400 focus:border-[#c4ff4d] focus:outline-none transition-colors"
+                    required
+                    data-testid="input-pricing-name"
+                  />
+                  <input
+                    type="text"
+                    placeholder="Email or Mobile"
+                    value={formData.contact}
+                    onChange={(e) => setFormData({ ...formData, contact: e.target.value })}
+                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-zinc-400 focus:border-[#c4ff4d] focus:outline-none transition-colors"
+                    required
+                    data-testid="input-pricing-contact"
+                  />
+                  <select
+                    value={formData.service}
+                    onChange={(e) => setFormData({ ...formData, service: e.target.value })}
+                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white focus:border-[#c4ff4d] focus:outline-none transition-colors"
+                    data-testid="select-pricing-service"
+                  >
+                    <option value="social-media" className="bg-zinc-800">Social Media</option>
+                    <option value="website" className="bg-zinc-800">Website</option>
+                    <option value="branding" className="bg-zinc-800">Full Brand</option>
+                  </select>
+                  <Button 
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="w-full bg-[#c4ff4d] text-zinc-900 hover:bg-[#b5ef3d] py-6 rounded-xl font-bold"
+                    data-testid="button-unlock-pricing"
+                  >
+                    {isSubmitting ? 'Unlocking...' : 'Unlock Pricing'} <Unlock className="w-4 h-4 ml-2" />
+                  </Button>
+                </div>
+              </motion.form>
+
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                className="space-y-4"
+              >
+                {pricingTiers.map((tier, i) => (
+                  <div key={i} className="bg-white/5 backdrop-blur-sm rounded-xl p-4 border border-white/10 flex items-center justify-between">
+                    <div>
+                      <h4 className="font-semibold text-white">{tier.name}</h4>
+                      <p className="text-sm text-zinc-400">{tier.features.length} features included</p>
+                    </div>
+                    <div className="text-right">
+                      <div className="text-2xl font-bold text-zinc-500 blur-sm select-none">€X,XXX</div>
+                      <Lock className="w-4 h-4 text-zinc-500 ml-auto" />
+                    </div>
+                  </div>
+                ))}
+              </motion.div>
+            </div>
+          ) : (
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              className="grid md:grid-cols-3 gap-6"
+            >
+              {pricingTiers.map((tier, i) => (
+                <div key={i} className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-[#c4ff4d]/30">
+                  <h4 className="font-bold text-white text-lg mb-2">{tier.name}</h4>
+                  <div className="flex items-baseline gap-1 mb-4">
+                    <span className="text-3xl font-bold text-[#c4ff4d]">{tier.price}</span>
+                    <span className="text-zinc-400 text-sm">{tier.period}</span>
+                  </div>
+                  <ul className="space-y-2 mb-6">
+                    {tier.features.map((f, j) => (
+                      <li key={j} className="flex items-center gap-2 text-zinc-300 text-sm">
+                        <Check className="w-4 h-4 text-[#c4ff4d]" /> {f}
+                      </li>
+                    ))}
+                  </ul>
+                  <Link href="/contact">
+                    <Button className="w-full bg-white/10 hover:bg-white/20 text-white" data-testid={`button-tier-${tier.name.toLowerCase().replace(' ', '-')}`}>
+                      Get Started
+                    </Button>
+                  </Link>
+                </div>
+              ))}
+            </motion.div>
+          )}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function WhatsAppCTASection() {
+  return (
+    <section className="py-12 bg-[#c4ff4d]">
+      <div className="container mx-auto px-6">
+        <div className="flex flex-col md:flex-row items-center justify-center gap-6 text-center md:text-left">
+          <div>
+            <h3 className="text-2xl md:text-3xl font-bold text-zinc-900">
+              Ready to talk? Let's chat.
+            </h3>
+            <p className="text-zinc-700">Get a response within 2 hours during business hours.</p>
+          </div>
+          <a 
+            href="https://wa.me/35679776060?text=Hi%20OARC,%20I'm%20interested%20in%20your%20creative%20services" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-3 bg-zinc-900 text-white px-8 py-4 rounded-full font-bold hover:bg-zinc-800 transition-colors shadow-xl"
+            data-testid="button-whatsapp-cta"
+          >
+            <SiWhatsapp className="w-6 h-6" />
+            WhatsApp Us Now
+          </a>
+        </div>
+      </div>
+    </section>
   );
 }
 
@@ -1472,189 +1649,7 @@ export default function CreativeLanding() {
         {/* ========== WHATSAPP CTA - VAYNER STYLE ========== */}
         <WhatsAppCTASection />
 
-        {/* Placeholder - old sections removed */}
-        <AnimatedSection className="py-20 md:py-28 bg-white">
-          <div className="container mx-auto px-6">
-            <div className="text-center mb-16">
-              <Badge className="bg-purple-100 text-purple-700 mb-4">SERVICE 3</Badge>
-              <h2 className="text-3xl md:text-4xl font-bold text-zinc-900 mb-2">
-                Brand Identity
-              </h2>
-              <p className="text-xl text-zinc-600 italic">"The Look & Lead System"</p>
-            </div>
-            
-            <div className="grid md:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto">
-              {brandPackages.map((pkg, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.15 }}
-                >
-                  <PremiumPackageCard pkg={pkg} type="oneTime" />
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </AnimatedSection>
-
-        {/* ========== HOW IT WORKS ========== */}
-        <AnimatedSection className="py-20 md:py-28 bg-[#fafaf8]">
-          <div className="container mx-auto px-6">
-            <div className="text-center mb-16">
-              <Badge className="bg-zinc-100 text-zinc-700 mb-4">PROCESS</Badge>
-              <h2 className="text-3xl md:text-4xl font-bold text-zinc-900 mb-4">
-                How it works
-              </h2>
-              <p className="text-lg text-zinc-600">
-                Simple, structured, and built to perform.
-              </p>
-            </div>
-            
-            <div className="max-w-4xl mx-auto">
-              <div className="relative">
-                <div className="absolute left-8 top-0 bottom-0 w-1 bg-gradient-to-b from-[#c4ff4d] via-[#2FA1D6] to-purple-500 hidden md:block rounded-full" />
-                
-                {processSteps.map((step, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, x: -30 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.15 }}
-                    className="relative flex gap-6 mb-8 last:mb-0"
-                  >
-                    <motion.div 
-                      whileHover={{ scale: 1.1, rotate: 5 }}
-                      className="relative z-10 w-16 h-16 bg-gradient-to-br from-[#c4ff4d] to-[#9ed919] rounded-2xl flex items-center justify-center flex-shrink-0 shadow-xl shadow-[#c4ff4d]/30"
-                    >
-                      <span className="text-2xl font-bold text-zinc-900">{step.step}</span>
-                    </motion.div>
-                    <div className="flex-1 bg-white rounded-2xl p-6 border border-zinc-200 hover:shadow-lg transition-shadow">
-                      <div className="flex flex-wrap items-center gap-3 mb-3">
-                        <h3 className="font-bold text-zinc-900 text-lg">{step.title}</h3>
-                        <span className="text-xs bg-zinc-100 text-zinc-600 px-3 py-1 rounded-full">
-                          {step.time}
-                        </span>
-                      </div>
-                      <p className="text-zinc-600">{step.desc}</p>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-            
-            <div className="text-center mt-16">
-              <p className="text-zinc-600 mb-8">
-                <strong>Total setup time:</strong> 1 week • <strong>Your time:</strong> ~5 hours first month
-              </p>
-              <Link href="/contact">
-                <motion.button
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="bg-[#c4ff4d] text-zinc-900 px-10 py-4 rounded-full text-lg font-bold shadow-xl shadow-[#c4ff4d]/30 hover:shadow-2xl transition-all inline-flex items-center gap-2"
-                  data-testid="button-how-it-works-cta"
-                >
-                  Get pricing <ArrowRight className="w-5 h-5" />
-                </motion.button>
-              </Link>
-            </div>
-          </div>
-        </AnimatedSection>
-
-        {/* ========== WHO IT'S FOR / NOT FOR ========== */}
-        <section className="py-20 md:py-28 bg-zinc-900 relative overflow-hidden">
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:48px_48px]" />
-          
-          <div className="container mx-auto px-6 relative">
-            <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-              <motion.div
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-zinc-800 to-zinc-900 border border-zinc-700/50 p-8"
-              >
-                <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/10 rounded-full blur-3xl" />
-                <div className="flex items-center gap-4 mb-8">
-                  <div className="w-12 h-12 bg-emerald-500 rounded-2xl flex items-center justify-center">
-                    <Check className="w-6 h-6 text-white" />
-                  </div>
-                  <h3 className="text-xl font-bold text-white">This is built for brands that</h3>
-                </div>
-                <ul className="space-y-4">
-                  {[
-                    'Care about results, not shortcuts',
-                    'Want creative tied to business growth',
-                    'Are done wasting money on disconnected agencies',
-                    'Want a long-term creative partner',
-                  ].map((item, i) => (
-                    <motion.li 
-                      key={i} 
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: i * 0.1 }}
-                      className="flex items-start gap-3 text-zinc-300"
-                    >
-                      <Check className="w-5 h-5 text-emerald-400 mt-0.5 flex-shrink-0" />
-                      {item}
-                    </motion.li>
-                  ))}
-                </ul>
-              </motion.div>
-              
-              <motion.div
-                initial={{ opacity: 0, x: 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-zinc-800 to-zinc-900 border border-zinc-700/50 p-8"
-              >
-                <div className="absolute top-0 right-0 w-32 h-32 bg-red-500/10 rounded-full blur-3xl" />
-                <div className="flex items-center gap-4 mb-8">
-                  <div className="w-12 h-12 bg-red-500 rounded-2xl flex items-center justify-center">
-                    <X className="w-6 h-6 text-white" />
-                  </div>
-                  <h3 className="text-xl font-bold text-white">This is NOT for you if</h3>
-                </div>
-                <ul className="space-y-4">
-                  {[
-                    'You want the cheapest option',
-                    "You're chasing viral hits without strategy",
-                    "You don't track performance",
-                    "You're looking for freelancers, not systems",
-                  ].map((item, i) => (
-                    <motion.li 
-                      key={i}
-                      initial={{ opacity: 0, x: 20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: i * 0.1 }}
-                      className="flex items-start gap-3 text-zinc-300"
-                    >
-                      <X className="w-5 h-5 text-red-400 mt-0.5 flex-shrink-0" />
-                      {item}
-                    </motion.li>
-                  ))}
-                </ul>
-              </motion.div>
-            </div>
-            
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-center mt-16"
-            >
-              <p className="text-3xl font-bold text-white mb-3">Creative shouldn't be a cost.</p>
-              <p className="text-xl text-zinc-400">
-                It should be a <span className="text-[#c4ff4d] font-bold">growth asset</span>.
-              </p>
-            </motion.div>
-          </div>
-        </section>
-
-        {/* ========== FAQ SECTION ========== */}
+        {/* ========== FAQ SECTION - SUPERSIDE STYLE ========== */}
         <AnimatedSection className="py-20 md:py-28 bg-white">
           <div className="container mx-auto px-6">
             <div className="max-w-3xl mx-auto">
