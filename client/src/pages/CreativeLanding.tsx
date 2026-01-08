@@ -7,16 +7,6 @@ import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import heroVideoSrc from '@assets/2026-01-07_01_1767825976557.mp4';
 import { serviceImages } from '@/assets/serviceImages';
-
-const categoryImageCards = [
-  { id: 'static', label: 'Static social content', image: serviceImages.branding },
-  { id: 'video', label: 'Video', image: serviceImages.motion },
-  { id: 'campaign', label: 'Campaign concepts', image: serviceImages.productDesign },
-  { id: 'ai', label: 'AI production', image: serviceImages.designSystems },
-  { id: 'immersive', label: 'Immersive experiences', image: serviceImages.email },
-  { id: 'paid', label: 'Paid social ads', image: serviceImages.webDesign },
-  { id: 'organic', label: 'Organic social content', image: serviceImages.ebook },
-];
 import { 
   ArrowRight, Check, ChevronDown, ChevronUp, Sparkles, Zap, Target, 
   TrendingUp, Users, BarChart3, Shield, Clock, Gift, Star, X,
@@ -852,82 +842,51 @@ export default function CreativeLanding() {
               </Link>
             </motion.div>
 
-            {/* Horizontal Service Carousel */}
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-              className="mb-12 -mx-6 lg:-mx-12"
-            >
-              <div className="flex gap-4 overflow-x-auto pb-4 px-6 lg:px-12 snap-x snap-mandatory scrollbar-hide" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
-                {[
-                  { title: "Ad creative", image: serviceImages.adCreative },
-                  { title: "Social media creative", image: serviceImages.socialMedia },
-                  { title: "Video production", image: serviceImages.video },
-                  { title: "Motion design", image: serviceImages.motion },
-                  { title: "AI-enhanced creative", image: serviceImages.aiEnhanced },
-                  { title: "Immersive design", image: serviceImages.immersive },
-                  { title: "Branding services", image: serviceImages.branding },
-                  { title: "Website design", image: serviceImages.webDesign },
-                ].map((service, index) => (
-                  <Link href="/services" key={index}>
-                    <motion.div
-                      whileHover={{ y: -8, scale: 1.02 }}
-                      transition={{ type: "spring", stiffness: 300 }}
-                      className="group flex-shrink-0 w-[280px] md:w-[320px] lg:w-[360px] relative rounded-2xl overflow-hidden shadow-xl aspect-[3/4] snap-start cursor-pointer"
-                    >
-                      <img
-                        src={service.image}
-                        alt={service.title}
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                        loading="lazy"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
-                      <div className="absolute bottom-4 left-4 right-4">
-                        <p className="text-white font-bold text-lg md:text-xl">{service.title}</p>
+            {/* Auto-Scrolling Service Carousel */}
+            <div className="relative w-full overflow-hidden">
+              <motion.div
+                className="flex gap-4"
+                animate={{
+                  x: [0, -2880],
+                }}
+                transition={{
+                  x: {
+                    repeat: Infinity,
+                    repeatType: "loop",
+                    duration: 40,
+                    ease: "linear",
+                  },
+                }}
+              >
+                {[...Array(3)].flatMap((_, setIndex) =>
+                  [
+                    { title: "Ad creative", image: serviceImages.adCreative },
+                    { title: "Social media creative", image: serviceImages.socialMedia },
+                    { title: "Video production", image: serviceImages.video },
+                    { title: "Motion design", image: serviceImages.motion },
+                    { title: "AI-enhanced creative", image: serviceImages.aiEnhanced },
+                    { title: "Immersive design", image: serviceImages.immersive },
+                    { title: "Branding services", image: serviceImages.branding },
+                    { title: "Website design", image: serviceImages.webDesign },
+                  ].map((service, index) => (
+                    <Link href="/services" key={`${setIndex}-${index}`}>
+                      <div className="group flex-shrink-0 w-[240px] md:w-[280px] lg:w-[320px] relative rounded-2xl overflow-hidden shadow-xl cursor-pointer" style={{ aspectRatio: '3/3.5' }}>
+                        <img
+                          src={service.image}
+                          alt={service.title}
+                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                          loading="lazy"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+                        <div className="absolute bottom-4 left-4 right-4">
+                          <p className="text-white font-bold text-lg md:text-xl">{service.title}</p>
+                        </div>
                       </div>
-                    </motion.div>
-                  </Link>
-                ))}
-              </div>
-            </motion.div>
-
-            {/* Category Image Cards */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.3 }}
-              className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-3 md:gap-4"
-            >
-              {categoryImageCards.map((category, index) => (
-                <Link href="/services" key={category.id}>
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.05 * index }}
-                    whileHover={{ y: -4, scale: 1.03 }}
-                    className="group relative aspect-square rounded-xl overflow-hidden shadow-md cursor-pointer"
-                    data-testid={`card-category-${category.id}`}
-                  >
-                    <img
-                      src={category.image}
-                      alt={category.label}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                      loading="lazy"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-                    <div className="absolute bottom-0 left-0 right-0 p-2 md:p-3">
-                      <p className="text-xs md:text-sm font-semibold text-white leading-tight text-center">
-                        {category.label}
-                      </p>
-                    </div>
-                  </motion.div>
-                </Link>
-              ))}
-            </motion.div>
+                    </Link>
+                  ))
+                )}
+              </motion.div>
+            </div>
           </div>
         </section>
 
