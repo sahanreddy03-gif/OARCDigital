@@ -4,6 +4,16 @@ import { useMediaQuery } from '@/hooks/useMediaQuery';
 import { useRef, useEffect } from 'react';
 import { serviceImages } from '@/assets/serviceImages';
 
+const categoryCards = [
+  { title: "Static social content", image: serviceImages.socialMedia },
+  { title: "Video", image: serviceImages.video },
+  { title: "Campaign concepts", image: serviceImages.concept },
+  { title: "AI production", image: serviceImages.aiEnhanced },
+  { title: "Immersive experiences", image: serviceImages.immersive },
+  { title: "Paid social ads", image: serviceImages.adCreative },
+  { title: "Organic social content", image: serviceImages.packaging },
+];
+
 const services = [
   {
     title: "Ad creative",
@@ -337,11 +347,10 @@ export default function AICreativeSection() {
         {/* Section Header - Elite Typography */}
         <div className="text-center">
           <h2 className="font-heading font-bold text-zinc-900 mb-3" data-testid="text-ai-creative-heading" style={{ fontSize: 'clamp(1.75rem, 5vw, 3.25rem)', letterSpacing: '-0.03em', lineHeight: '1.2' }}>
-            Every type of creative work
+            Scroll stopping campaigns built
           </h2>
           <p className="font-heading font-bold text-zinc-900" style={{ fontSize: 'clamp(1.75rem, 5vw, 3.25rem)', letterSpacing: '-0.03em', lineHeight: '1.2' }}>
-            you'll ever need
-            <span className="italic text-[#16a34a]"> and more</span>
+            <span className="italic text-[#16a34a]">performance based</span> & <span className="italic text-[#16a34a]">brand-led</span>
           </p>
         </div>
       </div>
@@ -477,6 +486,33 @@ export default function AICreativeSection() {
           </div>
         </div>
       )}
+
+      {/* Category Cards Grid */}
+      <div className="container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl mt-12 md:mt-16">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-3 md:gap-4">
+          {categoryCards.map((card, index) => (
+            <Link href="/services" key={index} className="group">
+              <div 
+                className="relative aspect-square overflow-hidden rounded-xl bg-zinc-100 shadow-md hover-elevate transition-all duration-300"
+                data-testid={`category-card-${index}`}
+              >
+                <img
+                  src={card.image}
+                  alt={card.title}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                <div className="absolute bottom-0 left-0 right-0 p-2 md:p-3">
+                  <p className="text-xs md:text-sm font-semibold text-white leading-tight text-center">
+                    {card.title}
+                  </p>
+                </div>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </div>
     </section>
   );
 }
