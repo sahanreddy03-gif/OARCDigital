@@ -6,6 +6,17 @@ import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import heroVideoSrc from '@assets/2026-01-07_01_1767825976557.mp4';
+import { serviceImages } from '@/assets/serviceImages';
+
+const categoryImageCards = [
+  { id: 'static', label: 'Static social content', image: serviceImages.branding },
+  { id: 'video', label: 'Video', image: serviceImages.motion },
+  { id: 'campaign', label: 'Campaign concepts', image: serviceImages.productDesign },
+  { id: 'ai', label: 'AI production', image: serviceImages.designSystems },
+  { id: 'immersive', label: 'Immersive experiences', image: serviceImages.email },
+  { id: 'paid', label: 'Paid social ads', image: serviceImages.webDesign },
+  { id: 'organic', label: 'Organic social content', image: serviceImages.ebook },
+];
 import { 
   ArrowRight, Check, ChevronDown, ChevronUp, Sparkles, Zap, Target, 
   TrendingUp, Users, BarChart3, Shield, Clock, Gift, Star, X,
@@ -809,12 +820,12 @@ export default function CreativeLanding() {
                 }}
               >
                 <span className="italic" style={{ fontFamily: 'Georgia, serif', color: '#c4ff4d' }}>
-                  Scroll-stopping
+                  Scroll stopping
                 </span>
                 <br />
-                campaigns <span className="font-normal">built fast</span>
+                campaigns <span className="font-normal">built</span>
                 <br />
-                <span className="font-normal">and on brand</span>
+                <span className="italic" style={{ fontFamily: 'Georgia, serif', color: '#c4ff4d' }}>performance based</span> & <span className="italic" style={{ fontFamily: 'Georgia, serif', color: '#c4ff4d' }}>brand-led</span>
               </h2>
               <p 
                 className="text-lg md:text-xl max-w-2xl mx-auto mb-8"
@@ -841,75 +852,80 @@ export default function CreativeLanding() {
               </Link>
             </motion.div>
 
-            {/* Creative Work Grid - Showcase Images */}
+            {/* Horizontal Service Carousel */}
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="grid grid-cols-2 md:grid-cols-3 gap-4 lg:gap-6 mb-12"
+              className="mb-12 -mx-6 lg:-mx-12"
             >
-              {platformVideos.slice(0, 3).map((item, index) => (
-                <motion.div
-                  key={index}
-                  whileHover={{ y: -8, scale: 1.02 }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                  className="group relative rounded-2xl overflow-hidden shadow-xl aspect-square"
-                >
-                  <video
-                    src={item.video}
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                  <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                    <p className="text-white font-semibold">{item.platform}</p>
-                    <p className="text-white/80 text-sm">{item.stat} {item.label}</p>
-                  </div>
-                </motion.div>
-              ))}
+              <div className="flex gap-4 overflow-x-auto pb-4 px-6 lg:px-12 snap-x snap-mandatory scrollbar-hide" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+                {[
+                  { title: "Ad creative", image: serviceImages.adCreative },
+                  { title: "Social media creative", image: serviceImages.socialMedia },
+                  { title: "Video production", image: serviceImages.video },
+                  { title: "Motion design", image: serviceImages.motion },
+                  { title: "AI-enhanced creative", image: serviceImages.aiEnhanced },
+                  { title: "Immersive design", image: serviceImages.immersive },
+                  { title: "Branding services", image: serviceImages.branding },
+                  { title: "Website design", image: serviceImages.webDesign },
+                ].map((service, index) => (
+                  <Link href="/services" key={index}>
+                    <motion.div
+                      whileHover={{ y: -8, scale: 1.02 }}
+                      transition={{ type: "spring", stiffness: 300 }}
+                      className="group flex-shrink-0 w-[280px] md:w-[320px] lg:w-[360px] relative rounded-2xl overflow-hidden shadow-xl aspect-[3/4] snap-start cursor-pointer"
+                    >
+                      <img
+                        src={service.image}
+                        alt={service.title}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        loading="lazy"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+                      <div className="absolute bottom-4 left-4 right-4">
+                        <p className="text-white font-bold text-lg md:text-xl">{service.title}</p>
+                      </div>
+                    </motion.div>
+                  </Link>
+                ))}
+              </div>
             </motion.div>
 
-            {/* Category Pills - Superside Style */}
+            {/* Category Image Cards */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.3 }}
-              className="flex flex-wrap justify-center gap-3 md:gap-4"
+              className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-3 md:gap-4"
             >
-              {creativeCategories.map((category, index) => (
-                <motion.div
-                  key={category.id}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.1 * index }}
-                  whileHover={{ y: -3, scale: 1.05 }}
-                  className="flex items-center gap-3 px-5 py-3 rounded-full border transition-all cursor-pointer"
-                  style={{ 
-                    backgroundColor: 'white',
-                    borderColor: '#e5e7eb',
-                    boxShadow: '0 4px 20px rgba(0,0,0,0.05)'
-                  }}
-                  data-testid={`pill-category-${category.id}`}
-                >
-                  <div 
-                    className="w-10 h-10 rounded-xl flex items-center justify-center"
-                    style={{ backgroundColor: '#c4ff4d' }}
+              {categoryImageCards.map((category, index) => (
+                <Link href="/services" key={category.id}>
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.05 * index }}
+                    whileHover={{ y: -4, scale: 1.03 }}
+                    className="group relative aspect-square rounded-xl overflow-hidden shadow-md cursor-pointer"
+                    data-testid={`card-category-${category.id}`}
                   >
-                    <category.icon className="w-5 h-5" style={{ color: '#1A2E29' }} />
-                  </div>
-                  <span 
-                    className="font-medium text-sm md:text-base"
-                    style={{ color: '#1A2E29' }}
-                  >
-                    {category.label}
-                  </span>
-                </motion.div>
+                    <img
+                      src={category.image}
+                      alt={category.label}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                    <div className="absolute bottom-0 left-0 right-0 p-2 md:p-3">
+                      <p className="text-xs md:text-sm font-semibold text-white leading-tight text-center">
+                        {category.label}
+                      </p>
+                    </div>
+                  </motion.div>
+                </Link>
               ))}
             </motion.div>
           </div>
