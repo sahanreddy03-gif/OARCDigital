@@ -1185,21 +1185,22 @@ export default function CreativeLanding() {
           </div>
         </section>
 
-        {/* ========== DARK SECTION - SUPERSIDE STYLE ========== */}
+        {/* ========== OARC VS ALTERNATIVES - SUPERSIDE STYLE ========== */}
         <section className="py-20 md:py-32 overflow-hidden" style={{ backgroundColor: '#0A2818' }}>
           <div className="container mx-auto px-6 lg:px-12">
-            {/* Section Header */}
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
+            
+            {/* Part 1: Checkmark Comparison Grid */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               className="text-center mb-16"
             >
               <p 
                 className="text-xs font-bold uppercase tracking-widest mb-4"
-                style={{ color: 'rgba(255,255,255,0.6)', letterSpacing: '0.3em' }}
+                style={{ color: 'rgba(255,255,255,0.5)', letterSpacing: '0.3em' }}
               >
-                A NEW ERA OF CREATIVE WORK
+                OARC VS. TRADITIONAL ALTERNATIVES
               </p>
               <h2 
                 className="font-bold mb-6"
@@ -1210,66 +1211,158 @@ export default function CreativeLanding() {
                   color: 'white'
                 }}
               >
-                The support your creative team
+                Traditional agency or DIY tools?
                 <br />
                 <span className="italic" style={{ fontFamily: 'Georgia, serif', color: '#c4ff4d' }}>
-                  has been asking for
+                  Neither.
                 </span>
               </h2>
-              <p 
-                className="text-lg md:text-xl max-w-2xl mx-auto mb-8"
-                style={{ color: 'rgba(255,255,255,0.8)' }}
-              >
-                OARC Digital is your dedicated, on-call creative team to expand your production
-                capacity and extend your team's creative capabilities.
-              </p>
-              <p 
-                className="text-base max-w-xl mx-auto mb-10"
-                style={{ color: 'rgba(255,255,255,0.6)' }}
-              >
-                See us as an extension of your team, freeing you to focus
-                on your most impactful and creative work.
-              </p>
-              <Link href="/contact">
-                <motion.button
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="px-8 py-4 rounded-full text-lg font-semibold transition-all"
-                  style={{ 
-                    backgroundColor: '#c4ff4d', 
-                    color: '#1A2E29',
-                    boxShadow: '0 10px 40px rgba(196, 255, 77, 0.3)'
-                  }}
-                  data-testid="button-book-intro-call"
-                >
-                  Book intro call
-                </motion.button>
-              </Link>
             </motion.div>
-          </div>
-          
-          {/* Creative Carousel Section */}
-          <div className="[&_section]:!py-0 [&_section]:!bg-transparent [&_.container]:!px-0 [&_h2]:!hidden [&_p.text-zinc-400]:!hidden">
-            <AICreativeSection />
-          </div>
-        </section>
 
-        {/* ========== DIFFERENTIATION: VALUE BEYOND AI ========== */}
-        <AnimatedSection className="py-20 md:py-32 bg-white relative overflow-hidden">
-          <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-[#fafaf8] to-transparent" />
-          
-          <div className="container mx-auto px-6 relative">
-            <div className="text-center mb-16">
-              <Badge className="bg-zinc-900 text-white mb-4">THE OARC ADVANTAGE</Badge>
-              <h2 className="text-3xl md:text-5xl font-bold text-zinc-900 mb-6">
-                Every Malta agency offers social media.
-              </h2>
-              <p className="text-xl text-zinc-600 max-w-3xl mx-auto">
-                We offer <span className="font-bold text-zinc-900">4 pillars of strategic value</span> that transform your brand's trajectory.
+            {/* Superside-style Checkmark Grid */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="max-w-5xl mx-auto mb-20 overflow-x-auto"
+            >
+              <div className="min-w-[600px]">
+                {/* Header Row */}
+                <div className="grid grid-cols-6 gap-2 mb-2">
+                  <div className="col-span-1"></div>
+                  {['AI Enhanced', 'SEO Included', 'Competitor Intel', 'Speed', 'Cost-Effective'].map((header) => (
+                    <div key={header} className="text-center text-xs md:text-sm font-medium" style={{ color: 'rgba(255,255,255,0.7)' }}>
+                      {header}
+                    </div>
+                  ))}
+                </div>
+                
+                {/* OARC Row - Highlighted */}
+                <motion.div 
+                  className="grid grid-cols-6 gap-2 items-center rounded-full py-4 px-4 mb-3"
+                  style={{ backgroundColor: '#c4ff4d' }}
+                  whileHover={{ scale: 1.01 }}
+                >
+                  <div className="font-bold text-sm md:text-base" style={{ color: '#0A2818' }}>OARC Digital</div>
+                  {[true, true, true, true, true].map((checked, i) => (
+                    <div key={i} className="flex justify-center">
+                      <Check className="w-5 h-5 md:w-6 md:h-6" style={{ color: '#0A2818' }} />
+                    </div>
+                  ))}
+                </motion.div>
+                
+                {/* Competitor Rows */}
+                {[
+                  { name: 'In-house team', checks: [false, false, false, true, false] },
+                  { name: 'Creative agencies', checks: [false, false, false, false, false] },
+                  { name: 'Freelancers', checks: [false, true, false, true, true] },
+                  { name: 'Self-service tools', checks: [true, false, false, true, true] },
+                ].map((row, rowIndex) => (
+                  <div 
+                    key={rowIndex}
+                    className="grid grid-cols-6 gap-2 items-center py-4 px-4 border-b"
+                    style={{ borderColor: 'rgba(255,255,255,0.1)' }}
+                  >
+                    <div className="text-sm md:text-base" style={{ color: 'rgba(255,255,255,0.8)' }}>{row.name}</div>
+                    {row.checks.map((checked, i) => (
+                      <div key={i} className="flex justify-center">
+                        {checked ? (
+                          <Check className="w-5 h-5 md:w-6 md:h-6" style={{ color: 'rgba(255,255,255,0.6)' }} />
+                        ) : (
+                          <X className="w-5 h-5 md:w-6 md:h-6" style={{ color: 'rgba(255,255,255,0.3)' }} />
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Part 2: Traditional vs OARC Detailed Comparison */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-center mb-12"
+            >
+              <h3 
+                className="font-bold mb-4"
+                style={{ 
+                  fontSize: 'clamp(1.5rem, 3vw, 2.5rem)',
+                  color: 'white'
+                }}
+              >
+                Same deliverables. <span style={{ color: '#c4ff4d' }}>10X more value.</span>
+              </h3>
+              <p style={{ color: 'rgba(255,255,255,0.7)' }} className="text-lg">
+                Every service comes with AI enhancement at no extra cost.
               </p>
-            </div>
-            
-            <div className="grid md:grid-cols-2 gap-6 lg:gap-8 max-w-6xl mx-auto">
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="max-w-4xl mx-auto mb-20"
+            >
+              <div className="rounded-2xl overflow-hidden" style={{ border: '1px solid rgba(255,255,255,0.1)' }}>
+                {/* Table Header */}
+                <div className="grid grid-cols-2">
+                  <div className="p-5 font-bold text-center text-sm md:text-base" style={{ backgroundColor: 'rgba(255,255,255,0.05)', color: 'rgba(255,255,255,0.6)', borderRight: '1px solid rgba(255,255,255,0.1)' }}>
+                    Traditional Agency
+                  </div>
+                  <div className="p-5 font-bold text-center text-sm md:text-base" style={{ background: 'linear-gradient(90deg, #c4ff4d 0%, #9ed919 100%)', color: '#0A2818' }}>
+                    OARC Digital
+                  </div>
+                </div>
+                {/* Table Rows */}
+                {comparisonData.map((row, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.05 }}
+                    className="grid grid-cols-2"
+                    style={{ borderTop: '1px solid rgba(255,255,255,0.1)' }}
+                  >
+                    <div className="p-4 md:p-5 text-sm" style={{ color: 'rgba(255,255,255,0.5)', borderRight: '1px solid rgba(255,255,255,0.1)' }}>
+                      {row.traditional}
+                    </div>
+                    <div className="p-4 md:p-5 text-sm font-medium flex items-center" style={{ color: 'white', backgroundColor: 'rgba(196, 255, 77, 0.05)' }}>
+                      <Check className="w-4 h-4 mr-3 flex-shrink-0" style={{ color: '#c4ff4d' }} />
+                      {row.oarc}
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Part 3: Value Cards with Stats */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-center mb-12"
+            >
+              <p 
+                className="text-xs font-bold uppercase tracking-widest mb-4"
+                style={{ color: 'rgba(255,255,255,0.5)', letterSpacing: '0.2em' }}
+              >
+                THE OARC ADVANTAGE
+              </p>
+              <h3 
+                className="font-bold"
+                style={{ 
+                  fontSize: 'clamp(1.5rem, 3vw, 2.5rem)',
+                  color: 'white'
+                }}
+              >
+                4 pillars of strategic value
+              </h3>
+            </motion.div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
               {valuePillars.map((pillar, index) => (
                 <motion.div
                   key={index}
@@ -1277,79 +1370,67 @@ export default function CreativeLanding() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  whileHover={{ y: -5 }}
+                  whileHover={{ y: -5, scale: 1.02 }}
                   className="group"
                 >
-                  <div className="relative h-full rounded-3xl overflow-hidden bg-gradient-to-br from-white to-zinc-50 border border-zinc-200 hover:border-zinc-300 p-8 transition-all hover:shadow-2xl">
-                    <div className="absolute top-0 right-0 w-48 h-48 bg-gradient-to-br opacity-5 group-hover:opacity-10 transition-opacity" 
-                         style={{ background: `linear-gradient(135deg, ${pillar.color.split(' ')[0].replace('from-', '')} 0%, transparent 100%)` }} />
-                    
-                    <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${pillar.color} flex items-center justify-center mb-6 shadow-lg`}>
-                      <pillar.icon className="w-7 h-7 text-white" />
+                  <div 
+                    className="h-full rounded-2xl p-6 transition-all"
+                    style={{ 
+                      backgroundColor: 'rgba(255,255,255,0.03)',
+                      border: '1px solid rgba(255,255,255,0.1)',
+                      backdropFilter: 'blur(10px)'
+                    }}
+                  >
+                    <div 
+                      className="w-12 h-12 rounded-xl flex items-center justify-center mb-5"
+                      style={{ backgroundColor: 'rgba(196, 255, 77, 0.15)' }}
+                    >
+                      <pillar.icon className="w-6 h-6" style={{ color: '#c4ff4d' }} />
                     </div>
                     
-                    <p className="text-sm font-bold text-zinc-500 uppercase tracking-wider mb-2">{pillar.title}</p>
-                    <h3 className="text-2xl font-bold text-zinc-900 mb-4">{pillar.headline}</h3>
-                    <p className="text-zinc-600 mb-6 leading-relaxed">{pillar.description}</p>
+                    <p className="text-xs font-bold uppercase tracking-wider mb-2" style={{ color: 'rgba(255,255,255,0.5)' }}>
+                      {pillar.title}
+                    </p>
+                    <h4 className="text-lg font-bold mb-3" style={{ color: 'white' }}>
+                      {pillar.headline}
+                    </h4>
+                    <p className="text-sm mb-5 leading-relaxed" style={{ color: 'rgba(255,255,255,0.6)' }}>
+                      {pillar.description}
+                    </p>
                     
-                    <div className="flex items-end gap-3 pt-4 border-t border-zinc-100">
-                      <span className={`text-4xl font-bold bg-gradient-to-r ${pillar.color} bg-clip-text text-transparent`}>
+                    <div className="pt-4" style={{ borderTop: '1px solid rgba(255,255,255,0.1)' }}>
+                      <span className="text-3xl font-bold" style={{ color: '#c4ff4d' }}>
                         {pillar.stat}
                       </span>
-                      <span className="text-sm text-zinc-500 pb-1">{pillar.statLabel}</span>
+                      <span className="text-xs ml-2" style={{ color: 'rgba(255,255,255,0.5)' }}>
+                        {pillar.statLabel}
+                      </span>
                     </div>
                   </div>
                 </motion.div>
               ))}
             </div>
-          </div>
-        </AnimatedSection>
 
-        {/* ========== AI VS TRADITIONAL COMPARISON ========== */}
-        <AnimatedSection className="py-20 md:py-28 bg-[#fafaf8]">
-          <div className="container mx-auto px-6">
-            <div className="text-center mb-12">
-              <Badge className="bg-[#2FA1D6]/10 text-[#2FA1D6] border-[#2FA1D6]/20 mb-4">AI-ENHANCED DELIVERY</Badge>
-              <h2 className="text-3xl md:text-4xl font-bold text-zinc-900 mb-4">
-                Same deliverables. <span className="text-[#2FA1D6]">10X more intelligence.</span>
-              </h2>
-              <p className="text-xl text-zinc-600">
-                Every service comes with AI enhancement at no extra cost.
-              </p>
-            </div>
-            
-            <div className="max-w-4xl mx-auto">
-              <div className="overflow-hidden rounded-3xl border border-zinc-200 bg-white shadow-xl">
-                <div className="grid grid-cols-2">
-                  <div className="bg-zinc-100 p-5 font-bold text-zinc-700 text-center border-b border-r border-zinc-200">
-                    Traditional Agency
-                  </div>
-                  <div className="bg-gradient-to-r from-[#c4ff4d] to-[#9ed919] p-5 font-bold text-zinc-900 text-center border-b">
-                    OARC Digital
-                  </div>
-                </div>
-                {comparisonData.map((row, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.1 }}
-                    className="grid grid-cols-2 border-b last:border-0 border-zinc-100"
-                  >
-                    <div className="p-5 text-zinc-500 border-r border-zinc-100 flex items-center text-sm">
-                      {row.traditional}
-                    </div>
-                    <div className="p-5 text-zinc-900 font-medium flex items-center bg-[#c4ff4d]/5 text-sm">
-                      <Check className="w-4 h-4 text-emerald-500 mr-3 flex-shrink-0" />
-                      {row.oarc}
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
+            {/* CTA Button */}
+            <div className="text-center">
+              <Link href="/contact">
+                <motion.button
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="px-8 py-4 rounded-full text-lg font-semibold transition-all"
+                  style={{ 
+                    backgroundColor: '#c4ff4d', 
+                    color: '#0A2818',
+                    boxShadow: '0 10px 40px rgba(196, 255, 77, 0.3)'
+                  }}
+                  data-testid="button-book-intro-call"
+                >
+                  Book intro call
+                </motion.button>
+              </Link>
             </div>
           </div>
-        </AnimatedSection>
+        </section>
 
         {/* ========== WHY OARC - ANIMATED ========== */}
         <AnimatedSection className="py-20 md:py-28 bg-white">
