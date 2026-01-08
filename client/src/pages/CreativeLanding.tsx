@@ -7,6 +7,7 @@ import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import heroVideoSrc from '@assets/2026-01-07_01_1767825976557.mp4';
 import { serviceImages } from '@/assets/serviceImages';
+import { useMediaQuery } from '@/hooks/useMediaQuery';
 import { 
   ArrowRight, Check, ChevronDown, ChevronUp, Sparkles, Zap, Target, 
   TrendingUp, Users, BarChart3, Shield, Clock, Gift, Star, X,
@@ -612,6 +613,86 @@ export default function CreativeLanding() {
   const heroOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
   const heroY = useTransform(scrollYProgress, [0, 0.5], [0, 100]);
 
+  // Mobile carousel animation state
+  const isDesktop = useMediaQuery('(min-width: 1024px)');
+  const leftColRef = useRef<HTMLDivElement>(null);
+  const rightColRef = useRef<HTMLDivElement>(null);
+  const animationIdRef = useRef<number>();
+
+  // Service carousel items
+  const carouselServices = [
+    { title: "Ad creative", image: serviceImages.adCreative },
+    { title: "Social media creative", image: serviceImages.socialMedia },
+    { title: "Video production", image: serviceImages.video },
+    { title: "Motion design", image: serviceImages.motion },
+    { title: "AI-enhanced creative", image: serviceImages.aiEnhanced },
+    { title: "Immersive design", image: serviceImages.immersive },
+    { title: "Branding services", image: serviceImages.branding },
+    { title: "Website design", image: serviceImages.webDesign },
+  ];
+
+  // Split for mobile 2-column layout
+  const leftColumnServices = [...carouselServices.slice(0, 4), ...carouselServices.slice(0, 4)];
+  const rightColumnServices = [...carouselServices.slice(4), ...carouselServices.slice(4)];
+
+  // Mobile vertical auto-scroll animation
+  useEffect(() => {
+    if (isDesktop) {
+      if (leftColRef.current) leftColRef.current.style.transform = '';
+      if (rightColRef.current) rightColRef.current.style.transform = '';
+      return;
+    }
+
+    const leftColumn = leftColRef.current;
+    const rightColumn = rightColRef.current;
+    if (!leftColumn || !rightColumn) return;
+
+    let animationStarted = false;
+
+    const tryStartAnimation = () => {
+      if (animationStarted) return;
+      const leftHeight = leftColumn.scrollHeight / 2;
+      const rightHeight = rightColumn.scrollHeight / 2;
+      if (leftHeight > 0 && rightHeight > 0) {
+        animationStarted = true;
+        startAnimation(leftHeight, rightHeight);
+      }
+    };
+
+    requestAnimationFrame(tryStartAnimation);
+
+    const observer = new ResizeObserver(() => tryStartAnimation());
+    observer.observe(leftColumn);
+    observer.observe(rightColumn);
+
+    const startAnimation = (leftHeight: number, rightHeight: number) => {
+      let leftPos = 0;
+      let rightPos = 0;
+      const speed = 1.2;
+
+      const animate = () => {
+        leftPos += speed;
+        const normLeft = ((leftPos % leftHeight) + leftHeight) % leftHeight;
+        leftColumn.style.transform = `translateY(${normLeft - leftHeight}px)`;
+
+        rightPos += speed;
+        const normRight = ((rightPos % rightHeight) + rightHeight) % rightHeight;
+        rightColumn.style.transform = `translateY(-${normRight}px)`;
+
+        animationIdRef.current = requestAnimationFrame(animate);
+      };
+
+      animate();
+    };
+
+    return () => {
+      observer.disconnect();
+      if (animationIdRef.current) cancelAnimationFrame(animationIdRef.current);
+      if (leftColumn) leftColumn.style.transform = '';
+      if (rightColumn) rightColumn.style.transform = '';
+    };
+  }, [isDesktop]);
+
   const faqSchema = createFAQSchema(
     faqItems.map(item => ({ question: item.q, answer: item.a }))
   );
@@ -842,51 +923,99 @@ export default function CreativeLanding() {
               </Link>
             </motion.div>
 
-            {/* Auto-Scrolling Service Carousel */}
-            <div className="relative w-full overflow-hidden">
-              <motion.div
-                className="flex gap-4"
-                animate={{
-                  x: [0, -2880],
-                }}
-                transition={{
-                  x: {
-                    repeat: Infinity,
-                    repeatType: "loop",
-                    duration: 40,
-                    ease: "linear",
-                  },
-                }}
-              >
-                {[...Array(3)].flatMap((_, setIndex) =>
-                  [
-                    { title: "Ad creative", image: serviceImages.adCreative },
-                    { title: "Social media creative", image: serviceImages.socialMedia },
-                    { title: "Video production", image: serviceImages.video },
-                    { title: "Motion design", image: serviceImages.motion },
-                    { title: "AI-enhanced creative", image: serviceImages.aiEnhanced },
-                    { title: "Immersive design", image: serviceImages.immersive },
-                    { title: "Branding services", image: serviceImages.branding },
-                    { title: "Website design", image: serviceImages.webDesign },
-                  ].map((service, index) => (
-                    <Link href="/services" key={`${setIndex}-${index}`}>
-                      <div className="group flex-shrink-0 w-[240px] md:w-[280px] lg:w-[320px] relative rounded-2xl overflow-hidden shadow-xl cursor-pointer" style={{ aspectRatio: '3/3.5' }}>
-                        <img
-                          src={service.image}
-                          alt={service.title}
-                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                          loading="lazy"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
-                        <div className="absolute bottom-4 left-4 right-4">
-                          <p className="text-white font-bold text-lg md:text-xl">{service.title}</p>
+            {/* Service Carousel - Mobile: 2-column vertical, Desktop: horizontal */}
+            {isDesktop ? (
+              /* Desktop: Horizontal Auto-Scrolling Carousel */
+              <div className="relative w-full overflow-hidden">
+                <motion.div
+                  className="flex gap-4"
+                  animate={{ x: [0, -2880] }}
+                  transition={{
+                    x: {
+                      repeat: Infinity,
+                      repeatType: "loop",
+                      duration: 40,
+                      ease: "linear",
+                    },
+                  }}
+                >
+                  {[...Array(3)].flatMap((_, setIndex) =>
+                    carouselServices.map((service, index) => (
+                      <Link href="/services" key={`${setIndex}-${index}`}>
+                        <div className="group flex-shrink-0 w-[280px] lg:w-[320px] relative rounded-2xl overflow-hidden shadow-xl cursor-pointer" style={{ aspectRatio: '3/3.5' }}>
+                          <img
+                            src={service.image}
+                            alt={service.title}
+                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                            loading="lazy"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+                          <div className="absolute bottom-4 left-4 right-4">
+                            <p className="text-white font-bold text-lg md:text-xl">{service.title}</p>
+                          </div>
                         </div>
-                      </div>
-                    </Link>
-                  ))
-                )}
-              </motion.div>
-            </div>
+                      </Link>
+                    ))
+                  )}
+                </motion.div>
+              </div>
+            ) : (
+              /* Mobile: 2-Column Vertical Floating Animation */
+              <div className="relative w-full h-[500px] overflow-hidden">
+                <div className="flex gap-3 h-full">
+                  {/* Left Column - Scrolls Down */}
+                  <div className="flex-1 overflow-hidden relative">
+                    <div
+                      ref={leftColRef}
+                      className="flex flex-col gap-3"
+                      style={{ cursor: 'grab' }}
+                    >
+                      {leftColumnServices.map((service, index) => (
+                        <Link href="/services" key={`left-${index}`}>
+                          <div className="group relative rounded-xl overflow-hidden shadow-lg cursor-pointer" style={{ aspectRatio: '3/3.5' }}>
+                            <img
+                              src={service.image}
+                              alt={service.title}
+                              className="w-full h-full object-cover"
+                              loading="lazy"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+                            <div className="absolute bottom-3 left-3 right-3">
+                              <p className="text-white font-bold text-sm">{service.title}</p>
+                            </div>
+                          </div>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                  {/* Right Column - Scrolls Up */}
+                  <div className="flex-1 overflow-hidden relative">
+                    <div
+                      ref={rightColRef}
+                      className="flex flex-col gap-3"
+                      style={{ cursor: 'grab' }}
+                    >
+                      {rightColumnServices.map((service, index) => (
+                        <Link href="/services" key={`right-${index}`}>
+                          <div className="group relative rounded-xl overflow-hidden shadow-lg cursor-pointer" style={{ aspectRatio: '3/3.5' }}>
+                            <img
+                              src={service.image}
+                              alt={service.title}
+                              className="w-full h-full object-cover"
+                              loading="lazy"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+                            <div className="absolute bottom-3 left-3 right-3">
+                              <p className="text-white font-bold text-sm">{service.title}</p>
+                            </div>
+                          </div>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
         </section>
 
