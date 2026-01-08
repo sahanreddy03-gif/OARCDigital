@@ -570,9 +570,33 @@ function PricingUnlockSection() {
   const [formData, setFormData] = useState({ name: '', contact: '', service: 'social-media' });
 
   const pricingTiers = [
-    { name: 'Social Media', price: '€1,500', period: '/mo', features: ['Content Strategy', '20 Posts/month', 'Community Management'] },
-    { name: 'Website', price: '€3,000', period: 'one-time', features: ['Custom Design', 'Mobile Responsive', 'SEO Optimized'] },
-    { name: 'Full Brand', price: '€5,000', period: 'one-time', features: ['Logo & Identity', 'Brand Guidelines', 'Social Templates'] },
+    { 
+      name: 'Social Media', 
+      price: '€1,500', 
+      period: '/mo', 
+      popular: false,
+      tagline: 'Content that converts',
+      features: ['Content Strategy & Calendar', '20 Posts/month', 'Community Management', 'Performance Reports', 'Platform Optimization'],
+      bonuses: ['Free Brand Audit', 'Competitor Analysis']
+    },
+    { 
+      name: 'Website', 
+      price: '€3,000', 
+      period: 'one-time', 
+      popular: true,
+      tagline: 'Your 24/7 sales machine',
+      features: ['Custom Design', 'Mobile Responsive', 'SEO Optimized', 'Fast Loading', 'Contact Forms', 'Analytics Setup'],
+      bonuses: ['Free Hosting (1 Year)', '3 Months Support']
+    },
+    { 
+      name: 'Full Brand', 
+      price: '€5,000', 
+      period: 'one-time', 
+      popular: false,
+      tagline: 'Stand out everywhere',
+      features: ['Logo & Identity', 'Brand Guidelines', 'Social Templates', 'Business Cards', 'Email Signature', 'Brand Strategy'],
+      bonuses: ['Free Social Kit', 'Unlimited Revisions']
+    },
   ];
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -594,121 +618,162 @@ function PricingUnlockSection() {
   };
 
   return (
-    <section className="py-16 md:py-24 bg-gradient-to-br from-zinc-900 via-zinc-800 to-zinc-900 relative overflow-hidden">
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:40px_40px]" />
+    <section className="py-20 md:py-28 bg-gradient-to-br from-zinc-900 via-zinc-800 to-zinc-900 relative overflow-hidden">
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:48px_48px]" />
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#c4ff4d]/5 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#2FA1D6]/5 rounded-full blur-3xl" />
       
       <div className="container mx-auto px-6 relative">
-        <div className="text-center mb-10">
-          <Badge className="bg-[#c4ff4d]/20 text-[#c4ff4d] border-[#c4ff4d]/30 mb-4">PRICING</Badge>
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
-            Transparent <span className="text-[#c4ff4d]">Pricing</span>
+        <div className="text-center mb-14">
+          <Badge className="bg-[#c4ff4d]/20 text-[#c4ff4d] border-[#c4ff4d]/30 mb-4">PACKAGES</Badge>
+          <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
+            Premium <span className="text-[#c4ff4d] italic" style={{ fontFamily: 'Georgia, serif' }}>Packages</span>
           </h2>
-          <p className="text-zinc-400 max-w-xl mx-auto">
-            No hidden fees. No surprises. Just results.
+          <p className="text-zinc-400 max-w-2xl mx-auto text-lg">
+            Everything you need to grow. No hidden fees. Packed with bonuses.
           </p>
         </div>
 
-        <div className="max-w-5xl mx-auto">
-          {!isUnlocked ? (
-            <div className="grid md:grid-cols-2 gap-8 items-center">
-              <motion.form 
-                onSubmit={handleSubmit}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10"
-              >
-                <h3 className="text-xl font-bold text-white mb-4">Unlock Pricing</h3>
-                <div className="space-y-4">
-                  <input
-                    type="text"
-                    placeholder="Your Name"
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-zinc-400 focus:border-[#c4ff4d] focus:outline-none transition-colors"
-                    required
-                    data-testid="input-pricing-name"
-                  />
-                  <input
-                    type="text"
-                    placeholder="Email or Mobile"
-                    value={formData.contact}
-                    onChange={(e) => setFormData({ ...formData, contact: e.target.value })}
-                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-zinc-400 focus:border-[#c4ff4d] focus:outline-none transition-colors"
-                    required
-                    data-testid="input-pricing-contact"
-                  />
-                  <select
-                    value={formData.service}
-                    onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white focus:border-[#c4ff4d] focus:outline-none transition-colors"
-                    data-testid="select-pricing-service"
-                  >
-                    <option value="social-media" className="bg-zinc-800">Social Media</option>
-                    <option value="website" className="bg-zinc-800">Website</option>
-                    <option value="branding" className="bg-zinc-800">Full Brand</option>
-                  </select>
-                  <Button 
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full bg-[#c4ff4d] text-zinc-900 hover:bg-[#b5ef3d] py-6 rounded-xl font-bold"
-                    data-testid="button-unlock-pricing"
-                  >
-                    {isSubmitting ? 'Unlocking...' : 'Unlock Pricing'} <Unlock className="w-4 h-4 ml-2" />
-                  </Button>
-                </div>
-              </motion.form>
-
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                className="space-y-4"
-              >
-                {pricingTiers.map((tier, i) => (
-                  <div key={i} className="bg-white/5 backdrop-blur-sm rounded-xl p-4 border border-white/10 flex items-center justify-between">
-                    <div>
-                      <h4 className="font-semibold text-white">{tier.name}</h4>
-                      <p className="text-sm text-zinc-400">{tier.features.length} features included</p>
-                    </div>
-                    <div className="text-right">
-                      <div className="text-2xl font-bold text-zinc-500 blur-sm select-none">€X,XXX</div>
-                      <Lock className="w-4 h-4 text-zinc-500 ml-auto" />
-                    </div>
-                  </div>
-                ))}
-              </motion.div>
-            </div>
-          ) : (
+        <div className="grid md:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto mb-12">
+          {pricingTiers.map((tier, i) => (
             <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              className="grid md:grid-cols-3 gap-6"
+              key={i}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+              className={`relative rounded-2xl overflow-hidden ${
+                tier.popular 
+                  ? 'bg-gradient-to-br from-[#c4ff4d]/20 to-[#c4ff4d]/5 border-2 border-[#c4ff4d]/50' 
+                  : 'bg-white/5 border border-white/10'
+              } backdrop-blur-sm`}
             >
-              {pricingTiers.map((tier, i) => (
-                <div key={i} className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-[#c4ff4d]/30">
-                  <h4 className="font-bold text-white text-lg mb-2">{tier.name}</h4>
-                  <div className="flex items-baseline gap-1 mb-4">
-                    <span className="text-3xl font-bold text-[#c4ff4d]">{tier.price}</span>
-                    <span className="text-zinc-400 text-sm">{tier.period}</span>
-                  </div>
-                  <ul className="space-y-2 mb-6">
-                    {tier.features.map((f, j) => (
-                      <li key={j} className="flex items-center gap-2 text-zinc-300 text-sm">
-                        <Check className="w-4 h-4 text-[#c4ff4d]" /> {f}
-                      </li>
-                    ))}
-                  </ul>
+              {tier.popular && (
+                <div className="absolute top-0 left-0 right-0 bg-[#c4ff4d] text-zinc-900 text-xs font-bold text-center py-1.5 uppercase tracking-wider">
+                  Most Popular
+                </div>
+              )}
+              
+              <div className={`p-6 ${tier.popular ? 'pt-10' : ''}`}>
+                <h3 className="text-xl font-bold text-white mb-1">{tier.name}</h3>
+                <p className="text-zinc-400 text-sm mb-4 italic">{tier.tagline}</p>
+                
+                <div className="flex items-baseline gap-2 mb-6">
+                  {isUnlocked ? (
+                    <>
+                      <span className="text-4xl font-bold text-[#c4ff4d]">{tier.price}</span>
+                      <span className="text-zinc-400">{tier.period}</span>
+                    </>
+                  ) : (
+                    <div className="flex items-center gap-2">
+                      <span className="text-4xl font-bold text-zinc-500 blur-md select-none">€X,XXX</span>
+                      <Lock className="w-5 h-5 text-zinc-500" />
+                    </div>
+                  )}
+                </div>
+
+                <div className="space-y-3 mb-6">
+                  <p className="text-xs font-semibold text-zinc-400 uppercase tracking-wider">What's included</p>
+                  {tier.features.map((f, j) => (
+                    <div key={j} className="flex items-start gap-2 text-zinc-300 text-sm">
+                      <Check className="w-4 h-4 text-[#c4ff4d] mt-0.5 flex-shrink-0" />
+                      <span>{f}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="border-t border-white/10 pt-4 mb-6">
+                  <p className="text-xs font-semibold text-[#c4ff4d] uppercase tracking-wider mb-3 flex items-center gap-1">
+                    <Gift className="w-3 h-3" /> Bonuses
+                  </p>
+                  {tier.bonuses.map((b, j) => (
+                    <div key={j} className="flex items-start gap-2 text-zinc-300 text-sm mb-2">
+                      <Star className="w-4 h-4 text-[#c4ff4d] mt-0.5 flex-shrink-0" />
+                      <span>{b}</span>
+                    </div>
+                  ))}
+                </div>
+
+                {isUnlocked ? (
                   <Link href="/contact">
-                    <Button className="w-full bg-white/10 hover:bg-white/20 text-white" data-testid={`button-tier-${tier.name.toLowerCase().replace(' ', '-')}`}>
-                      Get Started
+                    <Button 
+                      className={`w-full py-5 rounded-xl font-semibold ${
+                        tier.popular 
+                          ? 'bg-[#c4ff4d] text-zinc-900 hover:bg-[#b5ef3d]' 
+                          : 'bg-white/10 hover:bg-white/20 text-white'
+                      }`}
+                      data-testid={`button-tier-${tier.name.toLowerCase().replace(' ', '-')}`}
+                    >
+                      Get Started <ArrowRight className="w-4 h-4 ml-2" />
                     </Button>
                   </Link>
-                </div>
-              ))}
+                ) : (
+                  <Button 
+                    className="w-full py-5 rounded-xl font-semibold bg-white/10 text-zinc-400 cursor-not-allowed"
+                    disabled
+                  >
+                    <Lock className="w-4 h-4 mr-2" /> Unlock to See Price
+                  </Button>
+                )}
+              </div>
             </motion.div>
-          )}
+          ))}
         </div>
+
+        {!isUnlocked && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="max-w-md mx-auto"
+          >
+            <form onSubmit={handleSubmit} className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
+              <div className="text-center mb-5">
+                <Unlock className="w-8 h-8 text-[#c4ff4d] mx-auto mb-2" />
+                <h3 className="text-xl font-bold text-white">Unlock All Prices</h3>
+                <p className="text-zinc-400 text-sm">Quick form - no spam, ever.</p>
+              </div>
+              <div className="space-y-3">
+                <input
+                  type="text"
+                  placeholder="Your Name"
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-zinc-400 focus:border-[#c4ff4d] focus:outline-none transition-colors"
+                  required
+                  data-testid="input-pricing-name"
+                />
+                <input
+                  type="text"
+                  placeholder="Email or Mobile"
+                  value={formData.contact}
+                  onChange={(e) => setFormData({ ...formData, contact: e.target.value })}
+                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-zinc-400 focus:border-[#c4ff4d] focus:outline-none transition-colors"
+                  required
+                  data-testid="input-pricing-contact"
+                />
+                <select
+                  value={formData.service}
+                  onChange={(e) => setFormData({ ...formData, service: e.target.value })}
+                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white focus:border-[#c4ff4d] focus:outline-none transition-colors"
+                  data-testid="select-pricing-service"
+                >
+                  <option value="social-media" className="bg-zinc-800">I'm interested in Social Media</option>
+                  <option value="website" className="bg-zinc-800">I'm interested in a Website</option>
+                  <option value="branding" className="bg-zinc-800">I'm interested in Full Brand</option>
+                </select>
+                <Button 
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full bg-[#c4ff4d] text-zinc-900 hover:bg-[#b5ef3d] py-5 rounded-xl font-bold shadow-lg shadow-[#c4ff4d]/20"
+                  data-testid="button-unlock-pricing"
+                >
+                  {isSubmitting ? 'Unlocking...' : 'Reveal Pricing'} <ArrowRight className="w-4 h-4 ml-2" />
+                </Button>
+              </div>
+            </form>
+          </motion.div>
+        )}
       </div>
     </section>
   );
