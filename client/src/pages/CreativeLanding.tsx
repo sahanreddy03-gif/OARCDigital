@@ -1023,7 +1023,7 @@ export default function CreativeLanding() {
                 x: {
                   repeat: Infinity,
                   repeatType: 'loop',
-                  duration: 20,
+                  duration: isDesktop ? 20 : 10,
                   ease: 'linear',
                 },
               }}
@@ -1035,7 +1035,7 @@ export default function CreativeLanding() {
                   className="text-[#1A2E29] font-bold uppercase text-sm md:text-base tracking-wider mx-8"
                   style={{ letterSpacing: '0.1em' }}
                 >
-                  WE PUT CREATIVE AT THE CENTER OF EVERYTHING WE DO.
+                  WE PUT SOCIAL AT THE CENTER OF EVERYTHING WE DO.
                 </span>
               ))}
             </motion.div>
