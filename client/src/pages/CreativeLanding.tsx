@@ -1014,9 +1014,9 @@ export default function CreativeLanding() {
       
       <main className="bg-[#F0FFF4]">
         {/* ========== HERO SECTION - VAYNERMEDIA STYLE ========== */}
-        <section ref={heroRef} className="relative h-[78vh] md:h-[82vh] lg:h-[87vh] overflow-hidden" style={{ backgroundColor: '#F0FFF4' }}>
+        <section ref={heroRef} className="relative h-[78vh] md:h-[82vh] lg:h-[87vh] overflow-hidden bg-black">
           {/* Full-width video background with optimized loading */}
-          <div className="absolute inset-0 z-0 bg-[#1A2E29]">
+          <div className="absolute inset-0 z-0 bg-black">
             <video
               autoPlay
               loop
