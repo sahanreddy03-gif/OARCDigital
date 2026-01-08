@@ -752,7 +752,7 @@ export default function CreativeLanding() {
         </section>
 
         {/* ========== INFINITE SCROLLING MARQUEE ========== */}
-        <section className="relative overflow-hidden bg-gradient-to-r from-emerald-600 via-emerald-500 to-teal-500">
+        <section className="relative overflow-hidden" style={{ backgroundColor: '#c4ff4d' }}>
           <div className="py-4 md:py-5">
             <motion.div
               animate={{ x: ['0%', '-50%'] }}
@@ -769,8 +769,8 @@ export default function CreativeLanding() {
               {[...Array(10)].map((_, i) => (
                 <span 
                   key={i} 
-                  className="text-white font-bold uppercase text-sm md:text-base tracking-wider mx-8"
-                  style={{ letterSpacing: '0.1em' }}
+                  className="font-bold uppercase text-sm md:text-base tracking-wider mx-8"
+                  style={{ letterSpacing: '0.1em', color: '#0A2818' }}
                 >
                   WE PUT CREATIVE AT THE CENTER OF EVERYTHING WE DO.
                 </span>
