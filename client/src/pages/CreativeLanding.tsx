@@ -1103,16 +1103,16 @@ export default function CreativeLanding() {
               <div className="flex gap-5 overflow-x-auto pb-4 px-6 lg:px-12 snap-x snap-mandatory" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
                 {[
                   { 
-                    category: "BUILDING RELEVANCE",
-                    title: "Creative",
+                    category: "SOCIAL-FIRST STORYTELLING",
+                    title: "Social Creative",
                     description: "We create content people actually want to watch. By listening to audiences, not opinions, we build ideas that drive relevance. A modern blend of traditional thinking and social-first storytelling.",
-                    image: serviceImages.adCreative
+                    image: serviceImages.socialMedia
                   },
                   { 
                     category: "AMPLIFIED REACH",
                     title: "Media",
                     description: "We're focused on driving business results, not just potential reach. We understand where consumers spend their time and turn attention into action through modern planning and analytics.",
-                    image: serviceImages.socialMedia
+                    image: serviceImages.adCreative
                   },
                   { 
                     category: "TARGETED IMPACT",
@@ -1121,27 +1121,27 @@ export default function CreativeLanding() {
                     image: serviceImages.concept
                   },
                   { 
-                    category: "INTELLIGENT SCALE",
-                    title: "AI Automation",
-                    description: "Leverage AI to multiply your creative output and automate repetitive tasks. From AI-enhanced content creation to intelligent workflows, we help you scale without sacrificing quality.",
-                    image: serviceImages.aiEnhanced
-                  },
-                  { 
-                    category: "CONVERSION-READY",
-                    title: "Commerce",
-                    description: "Gen Z isn't just scrolling—they're shopping. Social is where they discover what's new and decide what to buy. We make your brand conversion-ready for the new era of social commerce.",
-                    image: serviceImages.webDesign
-                  },
-                  { 
                     category: "BORROW OUR BRAINS",
                     title: "Consulting",
                     description: "Work alongside seasoned strategists, creators, and platform specialists to unlock modern solutions to your biggest business challenges. Walk away with actionable ideas and a strategic roadmap.",
                     image: serviceImages.branding
                   },
                   { 
-                    category: "AUTOMATED GROWTH",
-                    title: "Revenue Systems",
-                    description: "Build automated revenue engines that work 24/7. From lead generation funnels to nurture sequences, we create systems that consistently turn prospects into customers on autopilot.",
+                    category: "SEARCH VISIBILITY",
+                    title: "SEO & Digital Marketing",
+                    description: "Dominate search results and build lasting organic traffic. From technical SEO to content strategy, we help your brand get found by the right people at the right time.",
+                    image: serviceImages.webDesign
+                  },
+                  { 
+                    category: "INTELLIGENT SCALE",
+                    title: "AI Automation & Agents",
+                    description: "Deploy AI employees that work 24/7. From automated content creation to intelligent customer support, we help you scale operations without scaling headcount.",
+                    image: serviceImages.aiEnhanced
+                  },
+                  { 
+                    category: "CONVERSION-READY",
+                    title: "Commerce & Revenue",
+                    description: "Build automated revenue engines that convert. From social commerce to lead generation funnels, we create systems that turn browsers into buyers on autopilot.",
                     image: serviceImages.designSystems
                   },
                   { 
