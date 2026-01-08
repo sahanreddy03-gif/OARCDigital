@@ -1432,47 +1432,7 @@ export default function CreativeLanding() {
           </div>
         </section>
 
-        {/* ========== WHY OARC - ANIMATED ========== */}
-        <AnimatedSection className="py-20 md:py-28 bg-white">
-          <div className="container mx-auto px-6">
-            <div className="text-center mb-16">
-              <Badge className="bg-zinc-100 text-zinc-700 mb-4">WHY OARC</Badge>
-              <h2 className="text-3xl md:text-4xl font-bold text-zinc-900 mb-4">
-                Creative is everywhere.
-              </h2>
-              <p className="text-xl text-zinc-600">
-                <span className="font-bold text-zinc-900">Creative that performs</span> is rare.
-              </p>
-            </div>
-            
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-              {differentiators.map((item, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  whileHover={{ y: -5, scale: 1.02 }}
-                  className="group"
-                >
-                  <div className="relative p-8 h-full rounded-3xl bg-gradient-to-br from-zinc-50 to-white border border-zinc-200 hover:border-[#c4ff4d] hover:shadow-xl transition-all duration-300">
-                    <motion.div 
-                      className="w-14 h-14 bg-gradient-to-br from-[#c4ff4d]/20 to-[#c4ff4d]/40 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"
-                      whileHover={{ rotate: 5 }}
-                    >
-                      <item.icon className="w-7 h-7 text-zinc-900" />
-                    </motion.div>
-                    <h3 className="font-bold text-zinc-900 text-lg mb-3">{item.title}</h3>
-                    <p className="text-zinc-600 leading-relaxed">{item.desc}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </AnimatedSection>
-
-        {/* ========== CHANNELS SECTION ========== */}
+        {/* ========== CHANNELS SECTION - VAYNER STYLE ========== */}
         <AnimatedSection className="py-20 md:py-28 bg-[#fafaf8]">
           <div className="container mx-auto px-6">
             <div className="text-center mb-12">
@@ -1506,115 +1466,13 @@ export default function CreativeLanding() {
           </div>
         </AnimatedSection>
 
-        {/* ========== SOCIAL MEDIA PACKAGES ========== */}
-        <AnimatedSection className="py-20 md:py-28 bg-white">
-          <div className="container mx-auto px-6">
-            <div className="text-center mb-16">
-              <Badge className="bg-[#c4ff4d] text-zinc-900 mb-4">SERVICE 1</Badge>
-              <h2 className="text-3xl md:text-4xl font-bold text-zinc-900 mb-2">
-                Social Media Management
-              </h2>
-              <p className="text-xl text-zinc-600 italic">"The Feed & Lead System"</p>
-            </div>
-            
-            <div className="grid md:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto mb-12">
-              {socialMediaPackages.map((pkg, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.15 }}
-                >
-                  <PremiumPackageCard pkg={pkg} type="monthly" />
-                </motion.div>
-              ))}
-            </div>
-            
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="max-w-3xl mx-auto"
-            >
-              <div className="relative rounded-3xl overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-r from-emerald-500 to-teal-500" />
-                <div className="relative p-8 text-white">
-                  <div className="flex items-start gap-5">
-                    <div className="w-14 h-14 bg-white/20 rounded-2xl flex items-center justify-center flex-shrink-0">
-                      <Shield className="w-7 h-7 text-white" />
-                    </div>
-                    <div>
-                      <h3 className="font-bold text-xl mb-2">The Engagement Guarantee</h3>
-                      <p className="text-white/90 text-lg mb-3">
-                        "If your engagement doesn't increase by <strong>50% in 90 days</strong>, we work <strong>100% FREE</strong> until it does."
-                      </p>
-                      <p className="text-white/70 text-sm">
-                        PLUS: Miss a posting deadline = that week is FREE
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </AnimatedSection>
+        {/* ========== PRICING UNLOCK - SUPERSIDE STYLE ========== */}
+        <PricingUnlockSection />
 
-        {/* ========== WEBSITE PACKAGES ========== */}
-        <AnimatedSection className="py-20 md:py-28 bg-[#fafaf8]">
-          <div className="container mx-auto px-6">
-            <div className="text-center mb-16">
-              <Badge className="bg-[#2FA1D6]/10 text-[#2FA1D6] border-[#2FA1D6]/20 mb-4">SERVICE 2</Badge>
-              <h2 className="text-3xl md:text-4xl font-bold text-zinc-900 mb-2">
-                Website Design
-              </h2>
-              <p className="text-xl text-zinc-600 italic">"The Click & Convert System"</p>
-            </div>
-            
-            <div className="grid md:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto mb-12">
-              {websitePackages.map((pkg, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.15 }}
-                >
-                  <PremiumPackageCard pkg={pkg} type="oneTime" />
-                </motion.div>
-              ))}
-            </div>
-            
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="max-w-3xl mx-auto"
-            >
-              <div className="relative rounded-3xl overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-r from-[#2FA1D6] to-indigo-500" />
-                <div className="relative p-8 text-white">
-                  <div className="flex items-start gap-5">
-                    <div className="w-14 h-14 bg-white/20 rounded-2xl flex items-center justify-center flex-shrink-0">
-                      <Clock className="w-7 h-7 text-white" />
-                    </div>
-                    <div>
-                      <h3 className="font-bold text-xl mb-2">The 4-Week Launch Guarantee</h3>
-                      <p className="text-white/90 text-lg mb-3">
-                        "Your website goes live in <strong>4 weeks</strong> or <strong>€300 off</strong>."
-                      </p>
-                      <p className="text-white/70 text-sm">
-                        PLUS: Unlimited revisions until you love it • You own everything forever
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </AnimatedSection>
+        {/* ========== WHATSAPP CTA - VAYNER STYLE ========== */}
+        <WhatsAppCTASection />
 
-        {/* ========== BRAND PACKAGES ========== */}
+        {/* Placeholder - old sections removed */}
         <AnimatedSection className="py-20 md:py-28 bg-white">
           <div className="container mx-auto px-6">
             <div className="text-center mb-16">

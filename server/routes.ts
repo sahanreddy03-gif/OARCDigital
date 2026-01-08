@@ -2,6 +2,7 @@ import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { maltaLocations, locationServices, allServiceSlugs, allCaseStudySlugs } from "../shared/seoConfig";
+import { insertLeadSchema } from "../shared/schema";
 import OpenAI from "openai";
 import { 
   ARC_SYSTEM_PROMPT, 
@@ -164,6 +165,21 @@ Disallow: /
 User-agent: DotBot
 Disallow: /
 `);
+  });
+
+  // Lead capture API endpoint
+  app.post('/api/leads', async (req, res) => {
+    try {
+      const result = insertLeadSchema.safeParse(req.body);
+      if (!result.success) {
+        return res.status(400).json({ error: 'Invalid lead data' });
+      }
+      const lead = await storage.createLead(result.data);
+      return res.json({ success: true, lead });
+    } catch (error) {
+      console.error('Lead capture error:', error);
+      return res.status(500).json({ error: 'Failed to save lead' });
+    }
   });
 
   const httpServer = createServer(app);
