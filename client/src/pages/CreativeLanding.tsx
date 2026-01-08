@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Link } from 'wouter';
 import { motion, useInView, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
+import useEmblaCarousel from 'embla-carousel-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -564,40 +565,172 @@ function PremiumPackageCard({ pkg, type }: { pkg: any; type: 'monthly' | 'oneTim
   );
 }
 
+type PackageType = {
+  name: string;
+  price: string;
+  bestFor: string;
+  totalValue: string;
+  savings: string;
+  features: string[];
+  bonuses: string[];
+  popular: boolean;
+};
+
+function PricingCarousel({ 
+  packages, 
+  title, 
+  icon: Icon, 
+  isUnlocked, 
+  isMonthly = false 
+}: { 
+  packages: PackageType[]; 
+  title: string; 
+  icon: any; 
+  isUnlocked: boolean;
+  isMonthly?: boolean;
+}) {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: 'center' });
+
+  useEffect(() => {
+    if (!emblaApi) return;
+    emblaApi.on('select', () => setCurrentIndex(emblaApi.selectedScrollSnap()));
+  }, [emblaApi]);
+
+  return (
+    <div className="mb-16 last:mb-0">
+      <div className="flex items-center justify-center gap-3 mb-6">
+        <div className="w-10 h-10 rounded-xl bg-[#c4ff4d]/20 flex items-center justify-center">
+          <Icon className="w-5 h-5 text-[#c4ff4d]" />
+        </div>
+        <h3 className="text-xl md:text-2xl font-bold text-white">{title}</h3>
+      </div>
+
+      <div className="overflow-hidden" ref={emblaRef}>
+        <div className="flex">
+          {packages.map((pkg, i) => (
+            <div key={i} className="flex-[0_0_100%] min-w-0 px-4 md:px-8">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                className={`relative rounded-3xl overflow-hidden backdrop-blur-xl ${
+                  pkg.popular 
+                    ? 'bg-gradient-to-br from-[#c4ff4d]/20 via-[#c4ff4d]/10 to-transparent border-2 border-[#c4ff4d]/50 shadow-2xl shadow-[#c4ff4d]/10' 
+                    : 'bg-white/[0.07] border border-white/20'
+                }`}
+              >
+                {pkg.popular && (
+                  <div className="absolute top-0 left-0 right-0 bg-gradient-to-r from-[#c4ff4d] to-[#9fe830] text-zinc-900 text-xs font-bold text-center py-2 uppercase tracking-widest flex items-center justify-center gap-1">
+                    <Star className="w-3 h-3" /> Most Popular
+                  </div>
+                )}
+                
+                <div className={`p-6 md:p-8 ${pkg.popular ? 'pt-12' : ''}`}>
+                  <div className="text-center mb-6">
+                    <p className={`text-sm font-bold uppercase tracking-widest mb-2 ${pkg.popular ? 'text-[#c4ff4d]' : 'text-zinc-400'}`}>
+                      {pkg.name}
+                    </p>
+                    
+                    <div className="flex items-baseline justify-center gap-1 mb-3">
+                      {isUnlocked ? (
+                        <>
+                          <span className="text-5xl md:text-6xl font-bold text-white">€{pkg.price}</span>
+                          <span className="text-zinc-400 text-lg">{isMonthly ? '/mo' : ''}</span>
+                        </>
+                      ) : (
+                        <div className="flex items-center gap-3">
+                          <span className="text-5xl md:text-6xl font-bold text-zinc-600 blur-lg select-none">€X,XXX</span>
+                          <Lock className="w-6 h-6 text-zinc-500" />
+                        </div>
+                      )}
+                    </div>
+                    
+                    <p className="text-zinc-400 text-sm italic">{pkg.bestFor}</p>
+                    
+                    {isUnlocked && (
+                      <div className="mt-3 inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/20 text-emerald-400 text-xs font-semibold">
+                        Save {pkg.savings} <span className="line-through text-zinc-500">{pkg.totalValue}</span>
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div className="bg-white/5 rounded-2xl p-5">
+                      <p className="text-xs font-bold text-zinc-400 uppercase tracking-widest mb-4 flex items-center gap-2">
+                        <Check className="w-4 h-4 text-[#c4ff4d]" /> What's Included
+                      </p>
+                      <div className="space-y-3">
+                        {pkg.features.map((f, j) => (
+                          <div key={j} className="flex items-start gap-3 text-zinc-300 text-sm">
+                            <div className="w-5 h-5 rounded-full bg-[#c4ff4d]/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                              <Check className="w-3 h-3 text-[#c4ff4d]" />
+                            </div>
+                            <span>{f}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="bg-gradient-to-br from-[#c4ff4d]/10 to-transparent rounded-2xl p-5 border border-[#c4ff4d]/20">
+                      <p className="text-xs font-bold text-[#c4ff4d] uppercase tracking-widest mb-4 flex items-center gap-2">
+                        <Gift className="w-4 h-4" /> Exclusive Bonuses
+                      </p>
+                      <div className="space-y-3">
+                        {pkg.bonuses.map((b, j) => (
+                          <div key={j} className="flex items-start gap-3 text-zinc-300 text-sm">
+                            <Sparkles className="w-4 h-4 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
+                            <span>{b}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+
+                  {isUnlocked && (
+                    <Link href="/contact">
+                      <Button 
+                        className={`w-full mt-6 py-6 rounded-xl font-bold text-base ${
+                          pkg.popular 
+                            ? 'bg-[#c4ff4d] text-zinc-900 hover:bg-[#b5ef3d] shadow-lg shadow-[#c4ff4d]/30' 
+                            : 'bg-white/10 hover:bg-white/20 text-white'
+                        }`}
+                        data-testid={`button-tier-${pkg.name.toLowerCase()}`}
+                      >
+                        Get Started <ArrowRight className="w-5 h-5 ml-2" />
+                      </Button>
+                    </Link>
+                  )}
+                </div>
+              </motion.div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="flex items-center justify-center gap-2 mt-6">
+        {packages.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => emblaApi?.scrollTo(i)}
+            className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+              currentIndex === i 
+                ? 'bg-[#c4ff4d] w-8' 
+                : 'bg-white/30 hover:bg-white/50'
+            }`}
+            data-testid={`dot-${title.toLowerCase().replace(' ', '-')}-${i}`}
+          />
+        ))}
+        <span className="text-zinc-500 text-xs ml-3">Swipe to see more</span>
+      </div>
+    </div>
+  );
+}
+
 function PricingUnlockSection() {
   const [isUnlocked, setIsUnlocked] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({ name: '', contact: '', service: 'social-media' });
-
-  const pricingTiers = [
-    { 
-      name: 'Social Media', 
-      price: '€1,500', 
-      period: '/mo', 
-      popular: false,
-      tagline: 'Content that converts',
-      features: ['Content Strategy & Calendar', '20 Posts/month', 'Community Management', 'Performance Reports', 'Platform Optimization'],
-      bonuses: ['Free Brand Audit', 'Competitor Analysis']
-    },
-    { 
-      name: 'Website', 
-      price: '€3,000', 
-      period: 'one-time', 
-      popular: true,
-      tagline: 'Your 24/7 sales machine',
-      features: ['Custom Design', 'Mobile Responsive', 'SEO Optimized', 'Fast Loading', 'Contact Forms', 'Analytics Setup'],
-      bonuses: ['Free Hosting (1 Year)', '3 Months Support']
-    },
-    { 
-      name: 'Full Brand', 
-      price: '€5,000', 
-      period: 'one-time', 
-      popular: false,
-      tagline: 'Stand out everywhere',
-      features: ['Logo & Identity', 'Brand Guidelines', 'Social Templates', 'Business Cards', 'Email Signature', 'Brand Strategy'],
-      bonuses: ['Free Social Kit', 'Unlimited Revisions']
-    },
-  ];
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -618,106 +751,20 @@ function PricingUnlockSection() {
   };
 
   return (
-    <section className="py-20 md:py-28 bg-gradient-to-br from-zinc-900 via-zinc-800 to-zinc-900 relative overflow-hidden">
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:48px_48px]" />
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#c4ff4d]/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#2FA1D6]/5 rounded-full blur-3xl" />
+    <section className="py-20 md:py-28 bg-gradient-to-br from-zinc-950 via-zinc-900 to-zinc-950 relative overflow-hidden">
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:60px_60px]" />
+      <div className="absolute top-20 left-0 w-[500px] h-[500px] bg-[#c4ff4d]/5 rounded-full blur-[120px]" />
+      <div className="absolute bottom-20 right-0 w-[500px] h-[500px] bg-purple-500/5 rounded-full blur-[120px]" />
       
-      <div className="container mx-auto px-6 relative">
-        <div className="text-center mb-14">
-          <Badge className="bg-[#c4ff4d]/20 text-[#c4ff4d] border-[#c4ff4d]/30 mb-4">PACKAGES</Badge>
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
+      <div className="container mx-auto px-4 relative">
+        <div className="text-center mb-16">
+          <Badge className="bg-[#c4ff4d]/20 text-[#c4ff4d] border-[#c4ff4d]/30 mb-4 px-4 py-1.5">PACKAGES</Badge>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-5">
             Premium <span className="text-[#c4ff4d] italic" style={{ fontFamily: 'Georgia, serif' }}>Packages</span>
           </h2>
           <p className="text-zinc-400 max-w-2xl mx-auto text-lg">
-            Everything you need to grow. No hidden fees. Packed with bonuses.
+            Everything you need to grow. Swipe to explore each tier.
           </p>
-        </div>
-
-        <div className="grid md:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto mb-12">
-          {pricingTiers.map((tier, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className={`relative rounded-2xl overflow-hidden ${
-                tier.popular 
-                  ? 'bg-gradient-to-br from-[#c4ff4d]/20 to-[#c4ff4d]/5 border-2 border-[#c4ff4d]/50' 
-                  : 'bg-white/5 border border-white/10'
-              } backdrop-blur-sm`}
-            >
-              {tier.popular && (
-                <div className="absolute top-0 left-0 right-0 bg-[#c4ff4d] text-zinc-900 text-xs font-bold text-center py-1.5 uppercase tracking-wider">
-                  Most Popular
-                </div>
-              )}
-              
-              <div className={`p-6 ${tier.popular ? 'pt-10' : ''}`}>
-                <h3 className="text-xl font-bold text-white mb-1">{tier.name}</h3>
-                <p className="text-zinc-400 text-sm mb-4 italic">{tier.tagline}</p>
-                
-                <div className="flex items-baseline gap-2 mb-6">
-                  {isUnlocked ? (
-                    <>
-                      <span className="text-4xl font-bold text-[#c4ff4d]">{tier.price}</span>
-                      <span className="text-zinc-400">{tier.period}</span>
-                    </>
-                  ) : (
-                    <div className="flex items-center gap-2">
-                      <span className="text-4xl font-bold text-zinc-500 blur-md select-none">€X,XXX</span>
-                      <Lock className="w-5 h-5 text-zinc-500" />
-                    </div>
-                  )}
-                </div>
-
-                <div className="space-y-3 mb-6">
-                  <p className="text-xs font-semibold text-zinc-400 uppercase tracking-wider">What's included</p>
-                  {tier.features.map((f, j) => (
-                    <div key={j} className="flex items-start gap-2 text-zinc-300 text-sm">
-                      <Check className="w-4 h-4 text-[#c4ff4d] mt-0.5 flex-shrink-0" />
-                      <span>{f}</span>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="border-t border-white/10 pt-4 mb-6">
-                  <p className="text-xs font-semibold text-[#c4ff4d] uppercase tracking-wider mb-3 flex items-center gap-1">
-                    <Gift className="w-3 h-3" /> Bonuses
-                  </p>
-                  {tier.bonuses.map((b, j) => (
-                    <div key={j} className="flex items-start gap-2 text-zinc-300 text-sm mb-2">
-                      <Star className="w-4 h-4 text-[#c4ff4d] mt-0.5 flex-shrink-0" />
-                      <span>{b}</span>
-                    </div>
-                  ))}
-                </div>
-
-                {isUnlocked ? (
-                  <Link href="/contact">
-                    <Button 
-                      className={`w-full py-5 rounded-xl font-semibold ${
-                        tier.popular 
-                          ? 'bg-[#c4ff4d] text-zinc-900 hover:bg-[#b5ef3d]' 
-                          : 'bg-white/10 hover:bg-white/20 text-white'
-                      }`}
-                      data-testid={`button-tier-${tier.name.toLowerCase().replace(' ', '-')}`}
-                    >
-                      Get Started <ArrowRight className="w-4 h-4 ml-2" />
-                    </Button>
-                  </Link>
-                ) : (
-                  <Button 
-                    className="w-full py-5 rounded-xl font-semibold bg-white/10 text-zinc-400 cursor-not-allowed"
-                    disabled
-                  >
-                    <Lock className="w-4 h-4 mr-2" /> Unlock to See Price
-                  </Button>
-                )}
-              </div>
-            </motion.div>
-          ))}
         </div>
 
         {!isUnlocked && (
@@ -725,21 +772,23 @@ function PricingUnlockSection() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="max-w-md mx-auto"
+            className="max-w-lg mx-auto mb-16"
           >
-            <form onSubmit={handleSubmit} className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
-              <div className="text-center mb-5">
-                <Unlock className="w-8 h-8 text-[#c4ff4d] mx-auto mb-2" />
-                <h3 className="text-xl font-bold text-white">Unlock All Prices</h3>
-                <p className="text-zinc-400 text-sm">Quick form - no spam, ever.</p>
+            <form onSubmit={handleSubmit} className="bg-white/[0.08] backdrop-blur-2xl rounded-3xl p-8 border border-white/20 shadow-2xl">
+              <div className="text-center mb-6">
+                <div className="w-16 h-16 rounded-2xl bg-[#c4ff4d]/20 flex items-center justify-center mx-auto mb-4">
+                  <Unlock className="w-8 h-8 text-[#c4ff4d]" />
+                </div>
+                <h3 className="text-2xl font-bold text-white">Unlock All Prices</h3>
+                <p className="text-zinc-400 text-sm mt-1">See the full value. No spam, ever.</p>
               </div>
-              <div className="space-y-3">
+              <div className="space-y-4">
                 <input
                   type="text"
                   placeholder="Your Name"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-zinc-400 focus:border-[#c4ff4d] focus:outline-none transition-colors"
+                  className="w-full px-5 py-4 bg-white/10 border border-white/20 rounded-xl text-white placeholder-zinc-500 focus:border-[#c4ff4d] focus:outline-none transition-all focus:bg-white/15"
                   required
                   data-testid="input-pricing-name"
                 />
@@ -748,32 +797,54 @@ function PricingUnlockSection() {
                   placeholder="Email or Mobile"
                   value={formData.contact}
                   onChange={(e) => setFormData({ ...formData, contact: e.target.value })}
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-zinc-400 focus:border-[#c4ff4d] focus:outline-none transition-colors"
+                  className="w-full px-5 py-4 bg-white/10 border border-white/20 rounded-xl text-white placeholder-zinc-500 focus:border-[#c4ff4d] focus:outline-none transition-all focus:bg-white/15"
                   required
                   data-testid="input-pricing-contact"
                 />
                 <select
                   value={formData.service}
                   onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white focus:border-[#c4ff4d] focus:outline-none transition-colors"
+                  className="w-full px-5 py-4 bg-white/10 border border-white/20 rounded-xl text-white focus:border-[#c4ff4d] focus:outline-none transition-all"
                   data-testid="select-pricing-service"
                 >
-                  <option value="social-media" className="bg-zinc-800">I'm interested in Social Media</option>
-                  <option value="website" className="bg-zinc-800">I'm interested in a Website</option>
-                  <option value="branding" className="bg-zinc-800">I'm interested in Full Brand</option>
+                  <option value="social-media" className="bg-zinc-900">I'm interested in Social Media</option>
+                  <option value="website" className="bg-zinc-900">I'm interested in a Website</option>
+                  <option value="branding" className="bg-zinc-900">I'm interested in Branding</option>
                 </select>
                 <Button 
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-[#c4ff4d] text-zinc-900 hover:bg-[#b5ef3d] py-5 rounded-xl font-bold shadow-lg shadow-[#c4ff4d]/20"
+                  className="w-full bg-[#c4ff4d] text-zinc-900 hover:bg-[#b5ef3d] py-6 rounded-xl font-bold text-base shadow-xl shadow-[#c4ff4d]/20 transition-all hover:shadow-[#c4ff4d]/30"
                   data-testid="button-unlock-pricing"
                 >
-                  {isSubmitting ? 'Unlocking...' : 'Reveal Pricing'} <ArrowRight className="w-4 h-4 ml-2" />
+                  {isSubmitting ? 'Unlocking...' : 'Reveal All Pricing'} <ArrowRight className="w-5 h-5 ml-2" />
                 </Button>
               </div>
             </form>
           </motion.div>
         )}
+
+        <div className="max-w-4xl mx-auto">
+          <PricingCarousel 
+            packages={socialMediaPackages} 
+            title="Social Media" 
+            icon={Instagram} 
+            isUnlocked={isUnlocked}
+            isMonthly={true}
+          />
+          <PricingCarousel 
+            packages={websitePackages} 
+            title="Website" 
+            icon={Globe} 
+            isUnlocked={isUnlocked}
+          />
+          <PricingCarousel 
+            packages={brandPackages} 
+            title="Branding" 
+            icon={Palette} 
+            isUnlocked={isUnlocked}
+          />
+        </div>
       </div>
     </section>
   );
