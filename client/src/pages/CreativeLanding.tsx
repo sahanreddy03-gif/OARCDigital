@@ -809,13 +809,13 @@ export default function CreativeLanding() {
                   color: '#1A2E29'
                 }}
               >
-                <span className="italic" style={{ fontFamily: 'Georgia, serif', color: '#c4ff4d' }}>
+                <span className="italic" style={{ fontFamily: 'Georgia, serif', color: '#c4ff4d', fontWeight: 600 }}>
                   Scroll stopping
                 </span>
                 <br />
                 campaigns <span className="font-normal">built</span>
                 <br />
-                <span className="italic" style={{ fontFamily: 'Georgia, serif', color: '#c4ff4d' }}>performance based</span> & <span className="italic" style={{ fontFamily: 'Georgia, serif', color: '#c4ff4d' }}>brand-led</span>
+                strategic & brand-led
               </h2>
               <p 
                 className="text-lg md:text-xl max-w-2xl mx-auto mb-8"
