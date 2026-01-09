@@ -1724,7 +1724,7 @@ export default function CreativeLanding() {
                   color: '#1A2E29'
                 }}
               >
-                Same deliverables. <span style={{ color: '#c4ff4d' }}>10X more value.</span>
+                Same deliverables. <span style={{ color: '#0A2818', fontWeight: 800 }}>10X more value.</span>
               </h3>
               <p style={{ color: '#4A5568' }} className="text-lg">
                 Every service comes with AI enhancement at no extra cost.
