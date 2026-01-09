@@ -730,10 +730,10 @@ function PricingCarousel({
   return (
     <div className="mb-12 last:mb-0">
       <div className="flex items-center justify-center gap-3 mb-5">
-        <div className="w-9 h-9 rounded-xl bg-[#c4ff4d]/20 flex items-center justify-center">
-          <Icon className="w-4 h-4 text-[#c4ff4d]" />
+        <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center">
+          <Icon className="w-4 h-4 text-white/80" />
         </div>
-        <h3 className="text-lg md:text-xl font-bold text-white">{title}</h3>
+        <h3 className="text-xl md:text-2xl font-bold text-white tracking-tight">{title}</h3>
       </div>
 
       <div className="overflow-hidden" ref={emblaRef}>
@@ -766,14 +766,14 @@ function PricingCarousel({
 
                   <div className="grid md:grid-cols-2 gap-4">
                     <div className="bg-white/5 rounded-xl p-4">
-                      <p className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest mb-3 flex items-center gap-1.5">
-                        <Check className="w-3 h-3 text-[#c4ff4d]" /> What's Included
+                      <p className="text-xs font-bold text-white uppercase tracking-wider mb-4 flex items-center gap-2">
+                        <Check className="w-3.5 h-3.5 text-white/70" /> What's Included
                       </p>
-                      <div className="space-y-2">
+                      <div className="space-y-2.5">
                         {pkg.features.map((f, j) => (
-                          <div key={j} className="flex items-start gap-2 text-zinc-300 text-xs">
-                            <div className="w-4 h-4 rounded-full bg-[#c4ff4d]/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                              <Check className="w-2.5 h-2.5 text-[#c4ff4d]" />
+                          <div key={j} className="flex items-start gap-2.5 text-zinc-200 text-sm">
+                            <div className="w-4 h-4 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                              <Check className="w-2.5 h-2.5 text-white/70" />
                             </div>
                             <span>{f}</span>
                           </div>
@@ -781,14 +781,14 @@ function PricingCarousel({
                       </div>
                     </div>
 
-                    <div className="bg-gradient-to-br from-[#c4ff4d]/10 to-transparent rounded-xl p-4 border border-[#c4ff4d]/15">
-                      <p className="text-[10px] font-bold text-[#c4ff4d] uppercase tracking-widest mb-3 flex items-center gap-1.5">
-                        <Gift className="w-3 h-3" /> Exclusive Bonuses
+                    <div className="bg-white/5 rounded-xl p-4 border border-white/10">
+                      <p className="text-xs font-bold text-white uppercase tracking-wider mb-4 flex items-center gap-2">
+                        <Gift className="w-3.5 h-3.5 text-white/70" /> Exclusive Bonuses
                       </p>
-                      <div className="space-y-2">
+                      <div className="space-y-2.5">
                         {pkg.bonuses.map((b, j) => (
-                          <div key={j} className="flex items-start gap-2 text-zinc-300 text-xs">
-                            <Sparkles className="w-3 h-3 text-[#c4ff4d] flex-shrink-0 mt-0.5" />
+                          <div key={j} className="flex items-start gap-2.5 text-zinc-200 text-sm">
+                            <Sparkles className="w-3.5 h-3.5 text-white/70 flex-shrink-0 mt-0.5" />
                             <span>{b}</span>
                           </div>
                         ))}
@@ -865,7 +865,7 @@ function PricingSection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <p className="text-xs font-bold uppercase tracking-widest mb-4" style={{ color: '#c4ff4d', letterSpacing: '0.2em' }}>
+          <p className="text-xs font-medium uppercase tracking-widest mb-4" style={{ color: 'rgba(255, 255, 255, 0.5)', letterSpacing: '0.15em' }}>
             FOUNDING CLIENT SPECIAL
           </p>
           <h2 className="font-bold mb-4" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', color: 'white' }}>
@@ -1828,9 +1828,9 @@ export default function CreativeLanding() {
                   >
                     <div 
                       className="w-12 h-12 rounded-xl flex items-center justify-center mb-5"
-                      style={{ backgroundColor: 'rgba(196, 255, 77, 0.15)' }}
+                      style={{ backgroundColor: 'rgba(255, 255, 255, 0.08)' }}
                     >
-                      <pillar.icon className="w-6 h-6" style={{ color: '#c4ff4d' }} />
+                      <pillar.icon className="w-6 h-6" style={{ color: 'rgba(255, 255, 255, 0.8)' }} />
                     </div>
                     
                     <p className="text-xs font-bold uppercase tracking-wider mb-2" style={{ color: 'rgba(255,255,255,0.5)' }}>
