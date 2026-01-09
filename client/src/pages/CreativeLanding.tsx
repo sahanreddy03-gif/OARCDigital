@@ -1779,11 +1779,11 @@ export default function CreativeLanding() {
           </div>
         </section>
 
-        {/* ========== OARC ADVANTAGE CONTINUES - DARK ========== */}
-        <section className="py-20 md:py-24" style={{ backgroundColor: '#0A2818' }}>
+        {/* ========== OARC ADVANTAGE - SUPERSIDE LIGHT STYLE ========== */}
+        <section className="py-20 md:py-24" style={{ backgroundColor: '#F8FAF9' }}>
           <div className="container mx-auto px-6 lg:px-12">
 
-            {/* Part 3: Value Cards with Stats */}
+            {/* Header - Superside Style */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -1792,7 +1792,7 @@ export default function CreativeLanding() {
             >
               <p 
                 className="text-xs font-bold uppercase tracking-widest mb-4"
-                style={{ color: 'rgba(255,255,255,0.5)', letterSpacing: '0.2em' }}
+                style={{ color: '#888888', letterSpacing: '0.2em' }}
               >
                 THE OARC ADVANTAGE
               </p>
@@ -1800,10 +1800,10 @@ export default function CreativeLanding() {
                 className="font-bold"
                 style={{ 
                   fontSize: 'clamp(1.5rem, 3vw, 2.5rem)',
-                  color: 'white'
+                  color: '#1A2E29'
                 }}
               >
-                4 pillars of strategic value
+                4 pillars of <span className="italic" style={{ fontFamily: 'Georgia, serif', color: '#c4ff4d' }}>strategic value</span>
               </h3>
             </motion.div>
 
@@ -1819,35 +1819,31 @@ export default function CreativeLanding() {
                   className="group"
                 >
                   <div 
-                    className="h-full rounded-2xl p-6 transition-all"
-                    style={{ 
-                      backgroundColor: 'rgba(255,255,255,0.03)',
-                      border: '1px solid rgba(255,255,255,0.1)',
-                      backdropFilter: 'blur(10px)'
-                    }}
+                    className="h-full rounded-2xl p-6 transition-all bg-white shadow-sm hover:shadow-lg"
+                    style={{ border: '1px solid #E2E8F0' }}
                   >
                     <div 
                       className="w-12 h-12 rounded-xl flex items-center justify-center mb-5"
-                      style={{ backgroundColor: 'rgba(196, 255, 77, 0.15)' }}
+                      style={{ backgroundColor: 'rgba(196, 255, 77, 0.2)' }}
                     >
-                      <pillar.icon className="w-6 h-6" style={{ color: '#c4ff4d' }} />
+                      <pillar.icon className="w-6 h-6" style={{ color: '#0A2818' }} />
                     </div>
                     
-                    <p className="text-xs font-bold uppercase tracking-wider mb-2" style={{ color: 'rgba(255,255,255,0.5)' }}>
+                    <p className="text-xs font-bold uppercase tracking-wider mb-2" style={{ color: '#888888' }}>
                       {pillar.title}
                     </p>
-                    <h4 className="text-lg font-bold mb-3" style={{ color: 'white' }}>
+                    <h4 className="text-lg font-bold mb-3" style={{ color: '#1A2E29' }}>
                       {pillar.headline}
                     </h4>
-                    <p className="text-sm mb-5 leading-relaxed" style={{ color: 'rgba(255,255,255,0.6)' }}>
+                    <p className="text-sm mb-5 leading-relaxed" style={{ color: '#4A5568' }}>
                       {pillar.description}
                     </p>
                     
-                    <div className="pt-4" style={{ borderTop: '1px solid rgba(255,255,255,0.1)' }}>
+                    <div className="pt-4" style={{ borderTop: '1px solid #E2E8F0' }}>
                       <span className="text-3xl font-bold" style={{ color: '#c4ff4d' }}>
                         {pillar.stat}
                       </span>
-                      <span className="text-xs ml-2" style={{ color: 'rgba(255,255,255,0.5)' }}>
+                      <span className="text-xs ml-2" style={{ color: '#888888' }}>
                         {pillar.statLabel}
                       </span>
                     </div>
