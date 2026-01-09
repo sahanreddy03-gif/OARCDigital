@@ -908,49 +908,56 @@ function PricingSection() {
           />
         </div>
 
-        {/* Included in All Plans - Premium Dark Card */}
+        {/* Included in All Plans - Lime Green Card */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="max-w-4xl mx-auto mt-16"
         >
-          <div className="rounded-2xl p-8 md:p-10" style={{ backgroundColor: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)' }}>
-            <h3 className="text-xl md:text-2xl font-bold text-center mb-8" style={{ color: 'white' }}>
-              Included in <span className="italic" style={{ fontFamily: 'Georgia, serif', color: '#c4ff4d' }}>all plans:</span>
+          <div className="bg-[#c4ff4d] rounded-2xl p-8 md:p-10">
+            <h3 className="text-xl md:text-2xl font-bold text-zinc-900 text-center mb-6">
+              Included in <span className="italic" style={{ fontFamily: 'Georgia, serif' }}>all plans:</span>
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {allPlansIncludes.map((item, i) => (
                 <div key={i} className="flex items-center gap-3">
-                  <div className="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: 'rgba(196, 255, 77, 0.15)' }}>
-                    <Check className="w-3 h-3" style={{ color: '#c4ff4d' }} />
+                  <div className="w-5 h-5 rounded-full bg-zinc-900/10 flex items-center justify-center flex-shrink-0">
+                    <Check className="w-3 h-3 text-zinc-900" />
                   </div>
-                  <span className="text-sm" style={{ color: 'rgba(255,255,255,0.8)' }}>{item}</span>
+                  <span className="text-zinc-900 text-sm font-medium">{item}</span>
                 </div>
               ))}
             </div>
           </div>
         </motion.div>
 
-        {/* Custom Package CTA */}
+        {/* Custom Package CTA - Highlighted */}
         <motion.div 
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="text-center mt-10"
         >
-          <p className="text-sm mb-4" style={{ color: 'rgba(255,255,255,0.5)' }}>
-            Need something custom? <span style={{ color: 'white' }}>We build packages tailored to your business goals.</span>
-          </p>
-          <Link href="/contact">
-            <Button 
-              className="px-8 py-3 rounded-full font-semibold"
-              style={{ backgroundColor: 'rgba(255,255,255,0.08)', color: 'white', border: '1px solid rgba(255,255,255,0.15)' }}
-              data-testid="button-customize-package"
-            >
-              Customize Your Package <ArrowRight className="w-4 h-4 ml-2" />
-            </Button>
-          </Link>
+          <div className="inline-block px-6 py-4 rounded-xl mb-4" style={{ backgroundColor: 'rgba(196, 255, 77, 0.15)', border: '1px solid rgba(196, 255, 77, 0.3)' }}>
+            <p className="text-base md:text-lg font-bold" style={{ color: '#c4ff4d' }}>
+              Don't see exactly what you need? <span style={{ color: 'white' }}>We customize packages to fit your unique goals.</span>
+            </p>
+            <p className="text-sm mt-1" style={{ color: 'rgba(255,255,255,0.7)' }}>
+              Every business is different — tell us your needs and we'll build a tailored solution.
+            </p>
+          </div>
+          <div className="mt-4">
+            <Link href="/contact">
+              <Button 
+                className="px-8 py-3 rounded-full font-bold text-base"
+                style={{ backgroundColor: '#c4ff4d', color: '#0A2818' }}
+                data-testid="button-customize-package"
+              >
+                Get Your Custom Package <ArrowRight className="w-4 h-4 ml-2" />
+              </Button>
+            </Link>
+          </div>
         </motion.div>
       </div>
 
