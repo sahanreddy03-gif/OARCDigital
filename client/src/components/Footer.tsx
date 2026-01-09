@@ -1,4 +1,4 @@
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { SiInstagram, SiFacebook, SiX, SiLinkedin, SiWhatsapp } from "react-icons/si";
 import { servicesCatalog } from '@/config/servicesConfig';
@@ -16,6 +16,8 @@ const socialLinks = [
 ];
 
 export default function Footer() {
+  const [location] = useLocation();
+  const isCreativePage = location === '/creative-services';
   const creativeDesignPreview = servicesCatalog.creativeDesign.items.slice(0, 8);
   const aiAgentsPreview = servicesCatalog.aiAgents.items.slice(0, 6);
   const growthAutomationPreview = servicesCatalog.growthAutomation.items.slice(0, 7);
@@ -23,34 +25,37 @@ export default function Footer() {
 
   return (
     <footer className="relative bg-[#0A0A0A] text-white overflow-hidden">
-      <div className="relative border-b border-white/5">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 py-20 md:py-28 text-center">
-          <h2 className="font-bold text-white mb-8 leading-none" style={{ fontSize: 'clamp(3rem, 12vw, 8rem)', letterSpacing: '-0.04em' }}>
-            GET IN<br />TOUCH
-          </h2>
-          
-          <div className="flex flex-col gap-3 max-w-3xl mx-auto mb-12">
-            <p className="text-lg md:text-xl text-zinc-400 leading-relaxed font-normal">
-              Ready to 10x your revenue? Let's make it happen.
-            </p>
-            <p className="text-lg md:text-xl text-zinc-400 leading-relaxed font-normal">
-              Your growth is our obsession. Let's talk strategy.
-            </p>
-            <p className="text-lg md:text-xl text-zinc-400 leading-relaxed font-normal">
-              AI-powered results. Human-crafted relationships.
-            </p>
+      {/* GET IN TOUCH CTA - Hidden on /creative-services page */}
+      {!isCreativePage && (
+        <div className="relative border-b border-white/5">
+          <div className="max-w-7xl mx-auto px-6 md:px-12 py-20 md:py-28 text-center">
+            <h2 className="font-bold text-white mb-8 leading-none" style={{ fontSize: 'clamp(3rem, 12vw, 8rem)', letterSpacing: '-0.04em' }}>
+              GET IN<br />TOUCH
+            </h2>
+            
+            <div className="flex flex-col gap-3 max-w-3xl mx-auto mb-12">
+              <p className="text-lg md:text-xl text-zinc-400 leading-relaxed font-normal">
+                Ready to 10x your revenue? Let's make it happen.
+              </p>
+              <p className="text-lg md:text-xl text-zinc-400 leading-relaxed font-normal">
+                Your growth is our obsession. Let's talk strategy.
+              </p>
+              <p className="text-lg md:text-xl text-zinc-400 leading-relaxed font-normal">
+                AI-powered results. Human-crafted relationships.
+              </p>
+            </div>
+            
+            <Link href="#contact">
+              <button className="group relative px-10 py-5 bg-[#c4ff4d] hover:bg-[#b0e845] rounded-xl font-bold text-black text-lg shadow-2xl transition-all duration-300 hover:scale-105" data-testid="button-footer-cta">
+                <div className="relative flex items-center gap-3">
+                  <span>WORK WITH US</span>
+                  <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
+                </div>
+              </button>
+            </Link>
           </div>
-          
-          <Link href="#contact">
-            <button className="group relative px-10 py-5 bg-[#c4ff4d] hover:bg-[#b0e845] rounded-xl font-bold text-black text-lg shadow-2xl transition-all duration-300 hover:scale-105" data-testid="button-footer-cta">
-              <div className="relative flex items-center gap-3">
-                <span>WORK WITH US</span>
-                <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
-              </div>
-            </button>
-          </Link>
         </div>
-      </div>
+      )}
 
       <div className="relative max-w-7xl mx-auto px-6 md:px-12 py-16 border-b border-white/5">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12" data-testid="footer-services">
