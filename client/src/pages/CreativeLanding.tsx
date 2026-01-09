@@ -853,33 +853,31 @@ function PricingSection() {
   };
 
   return (
-    <section className="py-16 md:py-20 bg-gradient-to-br from-zinc-950 via-zinc-900 to-zinc-950 relative overflow-hidden">
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:60px_60px]" />
-      <div className="absolute top-10 left-0 w-[400px] h-[400px] bg-[#c4ff4d]/5 rounded-full blur-[120px]" />
-      <div className="absolute bottom-10 right-0 w-[400px] h-[400px] bg-purple-500/5 rounded-full blur-[120px]" />
+    <section className="py-20 md:py-28 relative overflow-hidden" style={{ backgroundColor: '#0A1A12' }}>
+      {/* Subtle grid pattern */}
+      <div className="absolute inset-0 opacity-30" style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
       
-      <div className="container mx-auto px-4 relative">
-        {/* Flexible Plans Header - Compact */}
+      <div className="container mx-auto px-6 lg:px-12 relative">
+        {/* Premium Header */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-10"
+          className="text-center mb-16"
         >
-          <Badge className="bg-[#c4ff4d]/20 text-[#c4ff4d] border-[#c4ff4d]/30 mb-3 px-3 py-1 text-xs">
-            <Star className="w-3 h-3 mr-1" /> FOUNDING CLIENT SPECIAL
-          </Badge>
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">
-            Flexible plans <span className="text-zinc-400 italic font-normal" style={{ fontFamily: 'Georgia, serif' }}>for every stage.</span>
+          <p className="text-xs font-bold uppercase tracking-widest mb-4" style={{ color: '#c4ff4d', letterSpacing: '0.2em' }}>
+            FOUNDING CLIENT SPECIAL
+          </p>
+          <h2 className="font-bold mb-4" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', color: 'white' }}>
+            Flexible plans <span className="italic font-normal" style={{ fontFamily: 'Georgia, serif', color: 'rgba(255,255,255,0.5)' }}>for every stage.</span>
           </h2>
-          <p className="text-zinc-400 max-w-xl mx-auto text-sm md:text-base">
-            Lock in your founding rate instantly. From asset production to full-scale AI automation, 
-            we move <span className="text-white font-semibold">10x faster</span> than traditional agencies.
+          <p className="max-w-xl mx-auto text-base" style={{ color: 'rgba(255,255,255,0.6)' }}>
+            Lock in your founding rate instantly. We move <span style={{ color: 'white', fontWeight: 600 }}>10x faster</span> than traditional agencies.
           </p>
           <Link href="/contact">
             <Button 
-              variant="outline" 
-              className="mt-4 border-zinc-700 text-white hover:bg-white/10 px-6"
+              className="mt-6 px-8 py-3 rounded-full font-semibold"
+              style={{ backgroundColor: 'transparent', border: '1px solid rgba(255,255,255,0.3)', color: 'white' }}
               data-testid="button-book-strategy-call"
             >
               Book Strategy Call
@@ -887,8 +885,8 @@ function PricingSection() {
           </Link>
         </motion.div>
 
-        {/* Pricing Carousels */}
-        <div className="max-w-3xl mx-auto">
+        {/* Pricing Carousels - Clean Layout */}
+        <div className="max-w-4xl mx-auto">
           <PricingCarousel 
             packages={socialMediaPackages} 
             title="Social Media" 
@@ -910,43 +908,44 @@ function PricingSection() {
           />
         </div>
 
-        {/* Included in All Plans - Compact Lime Card */}
+        {/* Included in All Plans - Premium Dark Card */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="max-w-3xl mx-auto mt-12"
+          className="max-w-4xl mx-auto mt-16"
         >
-          <div className="bg-[#c4ff4d] rounded-2xl p-6 md:p-8">
-            <h3 className="text-xl md:text-2xl font-bold text-zinc-900 text-center mb-5">
-              Included in <span className="italic" style={{ fontFamily: 'Georgia, serif' }}>all plans:</span>
+          <div className="rounded-2xl p-8 md:p-10" style={{ backgroundColor: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)' }}>
+            <h3 className="text-xl md:text-2xl font-bold text-center mb-8" style={{ color: 'white' }}>
+              Included in <span className="italic" style={{ fontFamily: 'Georgia, serif', color: '#c4ff4d' }}>all plans:</span>
             </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {allPlansIncludes.map((item, i) => (
                 <div key={i} className="flex items-center gap-3">
-                  <div className="w-5 h-5 rounded-full bg-zinc-900/10 flex items-center justify-center flex-shrink-0">
-                    <Check className="w-3 h-3 text-zinc-900" />
+                  <div className="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: 'rgba(196, 255, 77, 0.15)' }}>
+                    <Check className="w-3 h-3" style={{ color: '#c4ff4d' }} />
                   </div>
-                  <span className="text-zinc-900 text-sm font-medium">{item}</span>
+                  <span className="text-sm" style={{ color: 'rgba(255,255,255,0.8)' }}>{item}</span>
                 </div>
               ))}
             </div>
           </div>
         </motion.div>
 
-        {/* Custom Package CTA - Compact */}
+        {/* Custom Package CTA */}
         <motion.div 
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mt-8"
+          className="text-center mt-10"
         >
-          <p className="text-zinc-400 text-sm mb-3">
-            Need something custom? <span className="text-white">We build packages tailored to your business goals.</span>
+          <p className="text-sm mb-4" style={{ color: 'rgba(255,255,255,0.5)' }}>
+            Need something custom? <span style={{ color: 'white' }}>We build packages tailored to your business goals.</span>
           </p>
           <Link href="/contact">
             <Button 
-              className="bg-white/10 hover:bg-white/20 text-white px-8"
+              className="px-8 py-3 rounded-full font-semibold"
+              style={{ backgroundColor: 'rgba(255,255,255,0.08)', color: 'white', border: '1px solid rgba(255,255,255,0.15)' }}
               data-testid="button-customize-package"
             >
               Customize Your Package <ArrowRight className="w-4 h-4 ml-2" />
@@ -1706,7 +1705,12 @@ export default function CreativeLanding() {
               </div>
             </motion.div>
 
-            {/* Part 2: Traditional vs OARC Detailed Comparison */}
+          </div>
+        </section>
+
+        {/* ========== SAME DELIVERABLES - WHITE/LIGHT SECTION (VAYNER STYLE) ========== */}
+        <section className="py-16 md:py-20" style={{ backgroundColor: '#F8FAF9' }}>
+          <div className="container mx-auto px-6 lg:px-12">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -1717,12 +1721,12 @@ export default function CreativeLanding() {
                 className="font-bold mb-4"
                 style={{ 
                   fontSize: 'clamp(1.5rem, 3vw, 2.5rem)',
-                  color: 'white'
+                  color: '#1A2E29'
                 }}
               >
                 Same deliverables. <span style={{ color: '#c4ff4d' }}>10X more value.</span>
               </h3>
-              <p style={{ color: 'rgba(255,255,255,0.7)' }} className="text-lg">
+              <p style={{ color: '#4A5568' }} className="text-lg">
                 Every service comes with AI enhancement at no extra cost.
               </p>
             </motion.div>
@@ -1731,12 +1735,12 @@ export default function CreativeLanding() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="max-w-4xl mx-auto mb-20"
+              className="max-w-4xl mx-auto"
             >
-              <div className="rounded-2xl overflow-hidden" style={{ border: '1px solid rgba(255,255,255,0.1)' }}>
+              <div className="rounded-2xl overflow-hidden bg-white shadow-lg" style={{ border: '1px solid #E2E8F0' }}>
                 {/* Table Header */}
                 <div className="grid grid-cols-2">
-                  <div className="p-5 font-bold text-center text-sm md:text-base" style={{ backgroundColor: 'rgba(255,255,255,0.05)', color: 'rgba(255,255,255,0.6)', borderRight: '1px solid rgba(255,255,255,0.1)' }}>
+                  <div className="p-5 font-bold text-center text-sm md:text-base" style={{ backgroundColor: '#F1F5F9', color: '#64748B', borderRight: '1px solid #E2E8F0' }}>
                     Traditional Agency
                   </div>
                   <div className="p-5 font-bold text-center text-sm md:text-base" style={{ background: 'linear-gradient(90deg, #c4ff4d 0%, #9ed919 100%)', color: '#0A2818' }}>
@@ -1752,19 +1756,25 @@ export default function CreativeLanding() {
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.05 }}
                     className="grid grid-cols-2"
-                    style={{ borderTop: '1px solid rgba(255,255,255,0.1)' }}
+                    style={{ borderTop: '1px solid #E2E8F0' }}
                   >
-                    <div className="p-4 md:p-5 text-sm" style={{ color: 'rgba(255,255,255,0.5)', borderRight: '1px solid rgba(255,255,255,0.1)' }}>
+                    <div className="p-4 md:p-5 text-sm" style={{ color: '#64748B', borderRight: '1px solid #E2E8F0' }}>
                       {row.traditional}
                     </div>
-                    <div className="p-4 md:p-5 text-sm font-medium flex items-center" style={{ color: 'white', backgroundColor: 'rgba(196, 255, 77, 0.05)' }}>
-                      <Check className="w-4 h-4 mr-3 flex-shrink-0" style={{ color: '#c4ff4d' }} />
+                    <div className="p-4 md:p-5 text-sm font-medium flex items-center" style={{ color: '#1A2E29', backgroundColor: 'rgba(196, 255, 77, 0.08)' }}>
+                      <Check className="w-4 h-4 mr-3 flex-shrink-0" style={{ color: '#22C55E' }} />
                       {row.oarc}
                     </div>
                   </motion.div>
                 ))}
               </div>
             </motion.div>
+          </div>
+        </section>
+
+        {/* ========== OARC ADVANTAGE CONTINUES - DARK ========== */}
+        <section className="py-20 md:py-24" style={{ backgroundColor: '#0A2818' }}>
+          <div className="container mx-auto px-6 lg:px-12">
 
             {/* Part 3: Value Cards with Stats */}
             <motion.div
