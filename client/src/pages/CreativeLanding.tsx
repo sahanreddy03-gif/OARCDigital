@@ -1937,46 +1937,59 @@ export default function CreativeLanding() {
           </div>
         </AnimatedSection>
 
-        {/* ========== FINAL CTA ========== */}
-        <section className="py-20 md:py-32 bg-gradient-to-br from-zinc-900 via-zinc-800 to-zinc-900 relative overflow-hidden">
-          <div className="absolute inset-0">
-            <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#c4ff4d]/10 rounded-full blur-3xl" />
-            <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#2FA1D6]/10 rounded-full blur-3xl" />
-          </div>
-          
-          <div className="container mx-auto px-6 text-center relative">
+        {/* ========== FINAL CTA - GET IN TOUCH STYLE ========== */}
+        <section className="py-24 md:py-32" style={{ backgroundColor: '#0A0A0A' }}>
+          <div className="container mx-auto px-6 text-center">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-4xl md:text-6xl font-bold text-white mb-8">
-                Ready to turn creative
+              {/* Bold Headline - GET IN TOUCH Style */}
+              <h2 
+                className="font-black tracking-tight mb-12"
+                style={{ 
+                  fontSize: 'clamp(2.5rem, 8vw, 5rem)',
+                  lineHeight: '1',
+                  color: 'white',
+                  letterSpacing: '-0.02em'
+                }}
+              >
+                READY TO TURN
                 <br />
-                <span className="text-[#c4ff4d]">into revenue?</span>
+                <span style={{ color: '#c4ff4d' }}>CREATIVE INTO</span>
+                <br />
+                REVENUE?
               </h2>
-              <p className="text-xl text-zinc-400 mb-10 max-w-2xl mx-auto">
-                Get a customised package recommendation and see exactly how we can help your brand grow.
-              </p>
               
+              {/* Subtitle Lines */}
+              <div className="space-y-3 mb-12 max-w-lg mx-auto">
+                <p style={{ color: 'rgba(255,255,255,0.6)' }} className="text-base md:text-lg">
+                  Get a customised package recommendation and see exactly how we can help your brand grow.
+                </p>
+              </div>
+              
+              {/* CTA Button - Lime Green Pill */}
               <Link href="/contact">
                 <motion.button
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="bg-[#c4ff4d] text-zinc-900 px-12 py-5 rounded-full text-xl font-bold shadow-2xl shadow-[#c4ff4d]/30 hover:shadow-[#c4ff4d]/50 transition-all inline-flex items-center gap-3"
+                  className="bg-[#c4ff4d] text-zinc-900 px-10 py-4 rounded-full text-lg font-bold inline-flex items-center gap-3 mb-10"
                   data-testid="button-final-cta"
                 >
-                  Get pricing <ArrowRight className="w-6 h-6" />
+                  GET PRICING <ArrowRight className="w-5 h-5" />
                 </motion.button>
               </Link>
               
-              <p className="text-sm text-zinc-500 mt-8">
-                Includes a <span className="text-[#c4ff4d] font-semibold">free Creative Audit</span> for Malta-based brands.
+              {/* Free Audit Line */}
+              <p style={{ color: 'rgba(255,255,255,0.5)' }} className="text-sm mb-6">
+                Includes a <span style={{ color: '#c4ff4d' }} className="font-semibold">free Creative Audit</span> for Malta-based brands.
               </p>
               
-              <div className="mt-10 inline-flex items-center gap-2 text-sm text-zinc-500 bg-white/5 px-5 py-3 rounded-full">
+              {/* Limited Notice */}
+              <div className="inline-flex items-center gap-2 text-sm px-5 py-3 rounded-full" style={{ backgroundColor: 'rgba(255,255,255,0.05)', color: 'rgba(255,255,255,0.5)' }}>
                 <Clock className="w-4 h-4" />
-                <span><strong className="text-zinc-300">January onboarding is limited.</strong> Small number of new clients accepted monthly.</span>
+                <span><strong style={{ color: 'rgba(255,255,255,0.8)' }}>January onboarding is limited.</strong> Small number of new clients accepted monthly.</span>
               </div>
             </motion.div>
           </div>
