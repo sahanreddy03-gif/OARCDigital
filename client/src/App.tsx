@@ -92,6 +92,7 @@ import Tools from "@/pages/Tools";
 import DiagnosticPage from "@/pages/DiagnosticPage";
 import OARCIntelligence from "@/pages/OARCIntelligence";
 import CreativeLanding from "@/pages/CreativeLanding";
+import AIAgentsLanding from "@/pages/AIAgentsLanding";
 import NotFound from "@/pages/not-found";
 import { ARCWidget } from "@/components/ARC";
 
@@ -102,6 +103,7 @@ function Router() {
       <Switch>
         <Route path="/" component={Home} />
       <Route path="/creative" component={CreativeLanding} />
+      <Route path="/ai-agents" component={AIAgentsLanding} />
       <Route path="/services" component={Services} />
 
       {/* Priority Service Pages - Unique Designs */}
