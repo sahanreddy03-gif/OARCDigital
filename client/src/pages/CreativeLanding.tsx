@@ -766,8 +766,8 @@ function PricingCarousel({
 
                   <div className="grid md:grid-cols-2 gap-4">
                     <div className="bg-white/5 rounded-xl p-4">
-                      <p className="text-xs font-bold text-white uppercase tracking-wider mb-4 flex items-center gap-2">
-                        <Check className="w-3.5 h-3.5 text-white/70" /> What's Included
+                      <p className="text-xs font-bold uppercase tracking-wider mb-4 flex items-center gap-2" style={{ color: '#c4ff4d' }}>
+                        <Check className="w-3.5 h-3.5" style={{ color: '#c4ff4d' }} /> What's Included
                       </p>
                       <div className="space-y-2.5">
                         {pkg.features.map((f, j) => (
@@ -782,8 +782,8 @@ function PricingCarousel({
                     </div>
 
                     <div className="bg-white/5 rounded-xl p-4 border border-white/10">
-                      <p className="text-xs font-bold text-white uppercase tracking-wider mb-4 flex items-center gap-2">
-                        <Gift className="w-3.5 h-3.5 text-white/70" /> Exclusive Bonuses
+                      <p className="text-xs font-bold uppercase tracking-wider mb-4 flex items-center gap-2" style={{ color: '#c4ff4d' }}>
+                        <Gift className="w-3.5 h-3.5" style={{ color: '#c4ff4d' }} /> Exclusive Bonuses
                       </p>
                       <div className="space-y-2.5">
                         {pkg.bonuses.map((b, j) => (
@@ -869,7 +869,7 @@ function PricingSection() {
             FOUNDING CLIENT SPECIAL
           </p>
           <h2 className="font-bold mb-4" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', color: 'white' }}>
-            Flexible plans <span className="italic font-normal" style={{ fontFamily: 'Georgia, serif', color: 'rgba(255,255,255,0.5)' }}>for every stage.</span>
+            <span style={{ color: '#c4ff4d' }}>Flexible plans</span> <span className="italic font-normal" style={{ fontFamily: 'Georgia, serif', color: 'rgba(255,255,255,0.5)' }}>for every stage.</span>
           </h2>
           <p className="max-w-xl mx-auto text-base" style={{ color: 'rgba(255,255,255,0.6)' }}>
             Lock in your founding rate instantly. We move <span style={{ color: 'white', fontWeight: 600 }}>10x faster</span> than traditional agencies.
