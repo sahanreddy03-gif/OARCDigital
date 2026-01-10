@@ -92,6 +92,20 @@ The platform utilizes a modern web stack with a React frontend and an Express.js
     - FAQ section with 8 voice-search optimized questions and JSON-LD schema
     - CTA section driving to contact page
     - Route: `/tools` with navigation link added to header
+-   **AI Agents Landing Page (Jan 2026):** World-class conversion-optimized landing page for AI workforce agents featuring:
+    - Route: `/ai-agents` with navigation link in CreativeNavigation
+    - Dark premium aesthetic with lime green (#c4ff4d) strategic accents
+    - AnimatedGridBackground with neural network particles, scan lines, concentric rings
+    - Hero with value badge, H1 headline "One AI Team for Sales, Support, Bookings & Operations", and animated KPI counters
+    - "What It Replaces" section: 5 GlassCard role tiles (Sales Reps, Support Agents, Bookings, Operations, Follow-up)
+    - 3-column comparison table (Hire Staff vs Outsource vs OARC AI) with quick metrics panel
+    - 3-step "How It Works" timeline (Discovery → Configure → Run) with GlassCards
+    - 5 Key Benefits GlassCards with stats (Ownership, Speed, Consistency, Scale, ROI)
+    - Interactive Live Demo Chat widget: 12-message script with typing animations, source badges (Calendar API, Order DB, CRM, Payments API), play/pause/reset controls
+    - 3 pricing packages (Pilot €1,500, Growth €2,997/mo, Enterprise Custom)
+    - 8 voice-search optimized FAQs using FAQSection component
+    - Final CTA with urgency messaging, trust badges, and multiple contact options
+    - Components reused: AnimatedGridBackground, GlassCard, FAQSection, AI icons
 
 **Backend:**
 -   **Framework & Language:** Express.js with TypeScript.
