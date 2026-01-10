@@ -10,7 +10,7 @@ import heroVideoSrc from '@assets/2026-01-07_01_1767825976557.mp4';
 import { serviceImages } from '@/assets/serviceImages';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 import { 
-  ArrowRight, Check, ChevronDown, ChevronUp, Sparkles, Zap, Target, 
+  ArrowRight, Check, ChevronDown, ChevronUp, ChevronLeft, ChevronRight, Sparkles, Zap, Target, 
   TrendingUp, Users, BarChart3, Shield, Clock, Gift, Star, X,
   MessageSquare, Palette, Video, Globe, Mail, Megaphone, Bot,
   Instagram, Linkedin, Play, Award, Lightbulb, Layers, RefreshCw,
@@ -1533,8 +1533,32 @@ export default function CreativeLanding() {
             </motion.div>
 
             {/* Service Cards Carousel */}
-            <div className="relative -mx-6 lg:-mx-12">
-              <div className="flex gap-5 overflow-x-auto pb-4 px-6 lg:px-12 snap-x snap-mandatory" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+            <div className="relative -mx-6 lg:-mx-12 group/carousel">
+              {/* Left Arrow */}
+              <button 
+                onClick={(e) => {
+                  const container = e.currentTarget.parentElement?.querySelector('.cards-scroll-container');
+                  if (container) container.scrollBy({ left: -340, behavior: 'smooth' });
+                }}
+                className="hidden lg:flex absolute left-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-white shadow-lg items-center justify-center hover:bg-gray-50 transition-all opacity-0 group-hover/carousel:opacity-100"
+                data-testid="button-help-scroll-left"
+              >
+                <ChevronLeft className="w-6 h-6 text-gray-700" />
+              </button>
+              
+              {/* Right Arrow */}
+              <button 
+                onClick={(e) => {
+                  const container = e.currentTarget.parentElement?.querySelector('.cards-scroll-container');
+                  if (container) container.scrollBy({ left: 340, behavior: 'smooth' });
+                }}
+                className="hidden lg:flex absolute right-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-white shadow-lg items-center justify-center hover:bg-gray-50 transition-all opacity-0 group-hover/carousel:opacity-100"
+                data-testid="button-help-scroll-right"
+              >
+                <ChevronRight className="w-6 h-6 text-gray-700" />
+              </button>
+
+              <div className="cards-scroll-container flex gap-5 overflow-x-auto pb-4 px-6 lg:px-12 snap-x snap-mandatory" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
                 {[
                   { 
                     category: "SOCIAL-FIRST STORYTELLING",
