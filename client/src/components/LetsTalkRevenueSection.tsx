@@ -1,7 +1,7 @@
-import { useRef, useState } from 'react';
+import { useRef, useState, useCallback, useEffect } from 'react';
 import { Link } from 'wouter';
-import { ArrowRight, ChevronLeft, ChevronRight, TrendingUp, BarChart3, Rocket, DollarSign } from 'lucide-react';
-import { motion, useReducedMotion, useAnimationControls } from 'framer-motion';
+import { ArrowRight, ChevronLeft, ChevronRight, TrendingUp } from 'lucide-react';
+import { motion, useReducedMotion } from 'framer-motion';
 
 import customerAcquisitionImage from '@assets/stock_images/customer_acquisition_38bd9c1d.jpg';
 import webApplicationsImage from '@assets/web-applications-optimized.webp';
@@ -227,26 +227,47 @@ function FloatingParticle({ delay, duration, size, left, top, color }: {
 export default function LetsTalkRevenueSection() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const prefersReducedMotion = useReducedMotion();
-  const controls = useAnimationControls();
-  const [isPaused, setIsPaused] = useState(false);
-  const [currentOffset, setCurrentOffset] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(0);
   
-  const cardWidth = 236; // 220px + 16px gap on mobile, 276px on desktop
-  const totalCards = services.length;
+  const scrollToIndex = useCallback((index: number) => {
+    if (!scrollRef.current) return;
+    const cardWidth = scrollRef.current.querySelector('.snap-start')?.clientWidth || 220;
+    const gap = 16;
+    scrollRef.current.scrollTo({
+      left: index * (cardWidth + gap),
+      behavior: 'smooth'
+    });
+  }, []);
   
   const handlePrev = () => {
-    setCurrentOffset(prev => {
-      const newOffset = prev + cardWidth;
-      return newOffset > 0 ? -(cardWidth * (totalCards - 1)) : newOffset;
-    });
+    const newIndex = activeIndex > 0 ? activeIndex - 1 : services.length - 1;
+    setActiveIndex(newIndex);
+    scrollToIndex(newIndex);
   };
   
   const handleNext = () => {
-    setCurrentOffset(prev => {
-      const newOffset = prev - cardWidth;
-      return newOffset < -(cardWidth * (totalCards - 1)) ? 0 : newOffset;
-    });
+    const newIndex = activeIndex < services.length - 1 ? activeIndex + 1 : 0;
+    setActiveIndex(newIndex);
+    scrollToIndex(newIndex);
   };
+  
+  const handleScroll = useCallback(() => {
+    if (!scrollRef.current) return;
+    const cardWidth = scrollRef.current.querySelector('.snap-start')?.clientWidth || 220;
+    const gap = 16;
+    const scrollLeft = scrollRef.current.scrollLeft;
+    const newIndex = Math.round(scrollLeft / (cardWidth + gap));
+    if (newIndex !== activeIndex && newIndex >= 0 && newIndex < services.length) {
+      setActiveIndex(newIndex);
+    }
+  }, [activeIndex]);
+  
+  useEffect(() => {
+    const scrollElement = scrollRef.current;
+    if (!scrollElement) return;
+    scrollElement.addEventListener('scroll', handleScroll, { passive: true });
+    return () => scrollElement.removeEventListener('scroll', handleScroll);
+  }, [handleScroll]);
 
   const particles = [
     { delay: 0, duration: 7, size: 5, left: '15%', top: '25%', color: 'rgba(35,170,202,0.5)' },
@@ -390,92 +411,98 @@ export default function LetsTalkRevenueSection() {
           </p>
         </motion.div>
 
-        {/* Auto-scrolling carousel with navigation - right to left */}
-        <div className="relative">
-          {/* Navigation Arrows */}
+        {/* Native scroll-snap carousel - smooth touch/swipe */}
+        <div 
+          ref={scrollRef}
+          className="flex gap-4 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-4 -mx-6 px-6 scrollbar-hide"
+          style={{ 
+            scrollbarWidth: 'none', 
+            msOverflowStyle: 'none',
+            WebkitOverflowScrolling: 'touch'
+          }}
+        >
+          {services.map((service, index) => (
+            <div
+              key={index}
+              className="flex-shrink-0 w-[180px] sm:w-[200px] md:w-[240px] snap-start"
+            >
+              <Link 
+                href={`/services/${service.slug}`}
+                className="block group touch-manipulation"
+                data-testid={`revenue-card-${index}`}
+              >
+                <div 
+                  className="relative aspect-[3/4] overflow-hidden bg-[#080810] rounded-lg border border-white/5 hover:border-[#23AACA]/30 transition-all duration-300 hover:-translate-y-1 hover:scale-[1.01] active:scale-[0.98]"
+                >
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    className="w-full h-full object-cover opacity-80 transition-all duration-500 ease-out group-hover:opacity-100 group-hover:scale-105"
+                    style={{ objectPosition: service.objectPosition }}
+                    loading="lazy"
+                    draggable={false}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
+                  
+                  {/* Hover Glow Effect */}
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-t from-[#23AACA]/10 to-transparent" />
+                  
+                  <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5">
+                    <p className="text-[9px] sm:text-[10px] uppercase tracking-[0.2em] text-[#23AACA]/80 mb-1.5 sm:mb-2 font-medium">
+                      {service.metric}
+                    </p>
+                    <h3 className="text-sm sm:text-base font-semibold text-white tracking-tight">
+                      {service.title}
+                    </h3>
+                  </div>
+                  
+                  {/* Corner Accent */}
+                  <div className="absolute top-3 right-3 w-6 h-6 border-t border-r border-[#23AACA]/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                </div>
+              </Link>
+            </div>
+          ))}
+        </div>
+        
+        {/* Bottom Navigation - Arrows & Dots */}
+        <div className="flex items-center justify-center gap-4 mt-6">
           <button
             onClick={handlePrev}
-            className="absolute left-0 top-1/2 -translate-y-1/2 z-20 w-10 h-10 flex items-center justify-center bg-black/60 backdrop-blur-sm border border-white/10 rounded-full text-white/80 hover:text-[#23AACA] hover:border-[#23AACA]/40 transition-all duration-200 hover:scale-105"
+            className="w-9 h-9 flex items-center justify-center bg-white/5 backdrop-blur-sm border border-white/10 rounded-full text-white/70 hover:text-[#23AACA] hover:border-[#23AACA]/40 hover:bg-white/10 transition-all duration-200"
             data-testid="button-revenue-prev"
             aria-label="Previous service"
           >
-            <ChevronLeft className="w-5 h-5" />
+            <ChevronLeft className="w-4 h-4" />
           </button>
+          
+          {/* Dot Indicators */}
+          <div className="flex items-center gap-1.5">
+            {services.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => {
+                  setActiveIndex(index);
+                  scrollToIndex(index);
+                }}
+                className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                  index === activeIndex 
+                    ? 'bg-[#23AACA] w-5' 
+                    : 'bg-white/20 hover:bg-white/40'
+                }`}
+                aria-label={`Go to service ${index + 1}`}
+                data-testid={`dot-services-${index}`}
+              />
+            ))}
+          </div>
+          
           <button
             onClick={handleNext}
-            className="absolute right-0 top-1/2 -translate-y-1/2 z-20 w-10 h-10 flex items-center justify-center bg-black/60 backdrop-blur-sm border border-white/10 rounded-full text-white/80 hover:text-[#23AACA] hover:border-[#23AACA]/40 transition-all duration-200 hover:scale-105"
+            className="w-9 h-9 flex items-center justify-center bg-white/5 backdrop-blur-sm border border-white/10 rounded-full text-white/70 hover:text-[#23AACA] hover:border-[#23AACA]/40 hover:bg-white/10 transition-all duration-200"
             data-testid="button-revenue-next"
             aria-label="Next service"
           >
-            <ChevronRight className="w-5 h-5" />
+            <ChevronRight className="w-4 h-4" />
           </button>
-          
-          <div 
-            ref={scrollRef}
-            className="overflow-hidden mx-12"
-            onMouseEnter={() => setIsPaused(true)}
-            onMouseLeave={() => setIsPaused(false)}
-            onTouchStart={() => setIsPaused(true)}
-            onTouchEnd={() => setIsPaused(false)}
-          >
-            <motion.div
-              className="flex gap-4"
-              animate={isPaused ? { x: currentOffset } : { x: ['-50%', '0%'] }}
-              transition={isPaused ? {
-                x: { duration: 0.3, ease: 'easeOut' }
-              } : {
-                x: {
-                  repeat: Infinity,
-                  repeatType: 'loop',
-                  duration: 12,
-                  ease: 'linear',
-                },
-              }}
-              style={{ willChange: 'transform' }}
-            >
-              {/* Duplicate services array for seamless loop */}
-              {[...services, ...services].map((service, index) => (
-                <div
-                  key={index}
-                  className="flex-shrink-0 w-[220px] md:w-[260px]"
-                >
-                  <Link 
-                    href={`/services/${service.slug}`}
-                    className="block group"
-                    data-testid={`revenue-card-${index}`}
-                  >
-                    <div 
-                      className="relative aspect-[3/4] overflow-hidden bg-[#080810] rounded-lg border border-white/5 hover:border-[#23AACA]/30 transition-all duration-300 hover:-translate-y-1 hover:scale-[1.01]"
-                    >
-                    <img
-                      src={service.image}
-                      alt={service.title}
-                      className="w-full h-full object-cover opacity-80 transition-all duration-500 ease-out group-hover:opacity-100 group-hover:scale-105"
-                      style={{ objectPosition: service.objectPosition }}
-                      loading="lazy"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
-                    
-                    {/* Hover Glow Effect */}
-                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-t from-[#23AACA]/10 to-transparent" />
-                    
-                    <div className="absolute bottom-0 left-0 right-0 p-5">
-                      <p className="text-[10px] uppercase tracking-[0.2em] text-[#23AACA]/80 mb-2 font-medium">
-                        {service.metric}
-                      </p>
-                      <h3 className="text-base font-semibold text-white tracking-tight">
-                        {service.title}
-                      </h3>
-                    </div>
-                    
-                    {/* Corner Accent */}
-                    <div className="absolute top-3 right-3 w-6 h-6 border-t border-r border-[#23AACA]/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                    </div>
-                  </Link>
-                </div>
-              ))}
-            </motion.div>
-          </div>
         </div>
 
         <motion.div 
