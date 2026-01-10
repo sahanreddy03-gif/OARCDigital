@@ -379,55 +379,66 @@ export default function HireAIEmployeesSection() {
           </p>
         </motion.div>
 
+        {/* Auto-scrolling carousel - left to right */}
         <div 
           ref={scrollRef}
-          className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 -mx-6 px-6 scrollbar-hide"
-          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+          className="overflow-hidden -mx-6 px-6"
         >
-          {agents.map((agent, index) => (
-            <motion.div
-              key={index}
-              className="flex-shrink-0 w-[220px] md:w-[260px] snap-start"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ delay: index * 0.08, duration: 0.4, ease: "easeOut" }}
-            >
-              <Link 
-                href={`/services/${agent.slug}`}
-                className="block group"
-                data-testid={`agent-card-${agent.slug}`}
+          <motion.div
+            className="flex gap-4"
+            animate={prefersReducedMotion ? {} : { x: ['0%', '-50%'] }}
+            transition={{
+              x: {
+                repeat: Infinity,
+                repeatType: 'loop',
+                duration: 30,
+                ease: 'linear',
+              },
+            }}
+            style={{ willChange: 'transform' }}
+          >
+            {/* Duplicate agents array for seamless loop */}
+            {[...agents, ...agents].map((agent, index) => (
+              <div
+                key={index}
+                className="flex-shrink-0 w-[220px] md:w-[260px]"
               >
-                <div 
-                  className="relative aspect-[3/4] overflow-hidden bg-[#0a0a0a] rounded-lg border border-white/5 hover:border-[#c4ff4d]/30 transition-all duration-300 hover:-translate-y-1 hover:scale-[1.01]"
+                <Link 
+                  href={`/services/${agent.slug}`}
+                  className="block group"
+                  data-testid={`agent-card-${agent.slug}-${index}`}
                 >
-                <img
-                  src={agent.image}
-                  alt={agent.title}
-                  className="w-full h-full object-cover opacity-80 transition-all duration-500 ease-out group-hover:opacity-100 group-hover:scale-105"
-                  style={{ objectPosition: agent.objectPosition }}
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
-                
-                {/* Hover Glow Effect */}
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-t from-[#c4ff4d]/10 to-transparent" />
-                
-                <div className="absolute bottom-0 left-0 right-0 p-5">
-                  <p className="text-[10px] uppercase tracking-[0.2em] text-[#c4ff4d]/80 mb-2 font-medium">
-                    {agent.metric}
-                  </p>
-                  <h3 className="text-base font-semibold text-white tracking-tight">
-                    {agent.title}
-                  </h3>
-                </div>
-                
-                {/* Corner Accent */}
-                <div className="absolute top-3 right-3 w-6 h-6 border-t border-r border-[#c4ff4d]/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                </div>
-              </Link>
-            </motion.div>
-          ))}
+                  <div 
+                    className="relative aspect-[3/4] overflow-hidden bg-[#0a0a0a] rounded-lg border border-white/5 hover:border-[#c4ff4d]/30 transition-all duration-300 hover:-translate-y-1 hover:scale-[1.01]"
+                  >
+                  <img
+                    src={agent.image}
+                    alt={agent.title}
+                    className="w-full h-full object-cover opacity-80 transition-all duration-500 ease-out group-hover:opacity-100 group-hover:scale-105"
+                    style={{ objectPosition: agent.objectPosition }}
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
+                  
+                  {/* Hover Glow Effect */}
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-t from-[#c4ff4d]/10 to-transparent" />
+                  
+                  <div className="absolute bottom-0 left-0 right-0 p-5">
+                    <p className="text-[10px] uppercase tracking-[0.2em] text-[#c4ff4d]/80 mb-2 font-medium">
+                      {agent.metric}
+                    </p>
+                    <h3 className="text-base font-semibold text-white tracking-tight">
+                      {agent.title}
+                    </h3>
+                  </div>
+                  
+                  {/* Corner Accent */}
+                  <div className="absolute top-3 right-3 w-6 h-6 border-t border-r border-[#c4ff4d]/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  </div>
+                </Link>
+              </div>
+            ))}
+          </motion.div>
         </div>
 
         <motion.div 
