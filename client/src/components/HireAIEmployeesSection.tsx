@@ -1,7 +1,7 @@
 import { useRef, useEffect, useState } from 'react';
 import { Link } from 'wouter';
-import { ArrowRight, Cpu, Zap, Network, CircuitBoard } from 'lucide-react';
-import { motion, useReducedMotion } from 'framer-motion';
+import { ArrowRight, ChevronLeft, ChevronRight, Cpu, Zap, Network, CircuitBoard } from 'lucide-react';
+import { motion, useReducedMotion, useAnimationControls } from 'framer-motion';
 
 import sdrAgentImage from '@assets/ai-sdr-agent-optimized.webp';
 import customerSupportImage from '@assets/ai-customer-support-optimized.webp';
@@ -251,6 +251,26 @@ function ConcentricRings() {
 export default function HireAIEmployeesSection() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const prefersReducedMotion = useReducedMotion();
+  const controls = useAnimationControls();
+  const [isPaused, setIsPaused] = useState(false);
+  const [currentOffset, setCurrentOffset] = useState(0);
+  
+  const cardWidth = 236; // 220px + 16px gap on mobile, 276px on desktop
+  const totalCards = agents.length;
+  
+  const handlePrev = () => {
+    setCurrentOffset(prev => {
+      const newOffset = prev + cardWidth;
+      return newOffset > 0 ? -(cardWidth * (totalCards - 1)) : newOffset;
+    });
+  };
+  
+  const handleNext = () => {
+    setCurrentOffset(prev => {
+      const newOffset = prev - cardWidth;
+      return newOffset < -(cardWidth * (totalCards - 1)) ? 0 : newOffset;
+    });
+  };
 
   const particles = [
     { delay: 0, duration: 6, size: 4, left: '10%', top: '20%', color: 'rgba(196,255,77,0.6)' },
@@ -379,66 +399,92 @@ export default function HireAIEmployeesSection() {
           </p>
         </motion.div>
 
-        {/* Auto-scrolling carousel - left to right */}
-        <div 
-          ref={scrollRef}
-          className="overflow-hidden -mx-6 px-6"
-        >
-          <motion.div
-            className="flex gap-4"
-            animate={prefersReducedMotion ? {} : { x: ['0%', '-50%'] }}
-            transition={{
-              x: {
-                repeat: Infinity,
-                repeatType: 'loop',
-                duration: 30,
-                ease: 'linear',
-              },
-            }}
-            style={{ willChange: 'transform' }}
+        {/* Auto-scrolling carousel with navigation - left to right */}
+        <div className="relative">
+          {/* Navigation Arrows */}
+          <button
+            onClick={handlePrev}
+            className="absolute left-0 top-1/2 -translate-y-1/2 z-20 w-10 h-10 flex items-center justify-center bg-black/60 backdrop-blur-sm border border-white/10 rounded-full text-white/80 hover:text-[#c4ff4d] hover:border-[#c4ff4d]/40 transition-all duration-200 hover:scale-105"
+            data-testid="button-agents-prev"
+            aria-label="Previous agent"
           >
-            {/* Duplicate agents array for seamless loop */}
-            {[...agents, ...agents].map((agent, index) => (
-              <div
-                key={index}
-                className="flex-shrink-0 w-[220px] md:w-[260px]"
-              >
-                <Link 
-                  href={`/services/${agent.slug}`}
-                  className="block group"
-                  data-testid={`agent-card-${agent.slug}-${index}`}
+            <ChevronLeft className="w-5 h-5" />
+          </button>
+          <button
+            onClick={handleNext}
+            className="absolute right-0 top-1/2 -translate-y-1/2 z-20 w-10 h-10 flex items-center justify-center bg-black/60 backdrop-blur-sm border border-white/10 rounded-full text-white/80 hover:text-[#c4ff4d] hover:border-[#c4ff4d]/40 transition-all duration-200 hover:scale-105"
+            data-testid="button-agents-next"
+            aria-label="Next agent"
+          >
+            <ChevronRight className="w-5 h-5" />
+          </button>
+          
+          <div 
+            ref={scrollRef}
+            className="overflow-hidden mx-12"
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+            onTouchStart={() => setIsPaused(true)}
+            onTouchEnd={() => setIsPaused(false)}
+          >
+            <motion.div
+              className="flex gap-4"
+              animate={isPaused ? { x: currentOffset } : { x: ['0%', '-50%'] }}
+              transition={isPaused ? {
+                x: { duration: 0.3, ease: 'easeOut' }
+              } : {
+                x: {
+                  repeat: Infinity,
+                  repeatType: 'loop',
+                  duration: 15,
+                  ease: 'linear',
+                },
+              }}
+              style={{ willChange: 'transform' }}
+            >
+              {/* Duplicate agents array for seamless loop */}
+              {[...agents, ...agents].map((agent, index) => (
+                <div
+                  key={index}
+                  className="flex-shrink-0 w-[220px] md:w-[260px]"
                 >
-                  <div 
-                    className="relative aspect-[3/4] overflow-hidden bg-[#0a0a0a] rounded-lg border border-white/5 hover:border-[#c4ff4d]/30 transition-all duration-300 hover:-translate-y-1 hover:scale-[1.01]"
+                  <Link 
+                    href={`/services/${agent.slug}`}
+                    className="block group"
+                    data-testid={`agent-card-${agent.slug}-${index}`}
                   >
-                  <img
-                    src={agent.image}
-                    alt={agent.title}
-                    className="w-full h-full object-cover opacity-80 transition-all duration-500 ease-out group-hover:opacity-100 group-hover:scale-105"
-                    style={{ objectPosition: agent.objectPosition }}
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
-                  
-                  {/* Hover Glow Effect */}
-                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-t from-[#c4ff4d]/10 to-transparent" />
-                  
-                  <div className="absolute bottom-0 left-0 right-0 p-5">
-                    <p className="text-[10px] uppercase tracking-[0.2em] text-[#c4ff4d]/80 mb-2 font-medium">
-                      {agent.metric}
-                    </p>
-                    <h3 className="text-base font-semibold text-white tracking-tight">
-                      {agent.title}
-                    </h3>
-                  </div>
-                  
-                  {/* Corner Accent */}
-                  <div className="absolute top-3 right-3 w-6 h-6 border-t border-r border-[#c4ff4d]/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  </div>
-                </Link>
-              </div>
-            ))}
-          </motion.div>
+                    <div 
+                      className="relative aspect-[3/4] overflow-hidden bg-[#0a0a0a] rounded-lg border border-white/5 hover:border-[#c4ff4d]/30 transition-all duration-300 hover:-translate-y-1 hover:scale-[1.01]"
+                    >
+                    <img
+                      src={agent.image}
+                      alt={agent.title}
+                      className="w-full h-full object-cover opacity-80 transition-all duration-500 ease-out group-hover:opacity-100 group-hover:scale-105"
+                      style={{ objectPosition: agent.objectPosition }}
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
+                    
+                    {/* Hover Glow Effect */}
+                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-t from-[#c4ff4d]/10 to-transparent" />
+                    
+                    <div className="absolute bottom-0 left-0 right-0 p-5">
+                      <p className="text-[10px] uppercase tracking-[0.2em] text-[#c4ff4d]/80 mb-2 font-medium">
+                        {agent.metric}
+                      </p>
+                      <h3 className="text-base font-semibold text-white tracking-tight">
+                        {agent.title}
+                      </h3>
+                    </div>
+                    
+                    {/* Corner Accent */}
+                    <div className="absolute top-3 right-3 w-6 h-6 border-t border-r border-[#c4ff4d]/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    </div>
+                  </Link>
+                </div>
+              ))}
+            </motion.div>
+          </div>
         </div>
 
         <motion.div 
