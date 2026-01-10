@@ -1996,7 +1996,7 @@ export default function CreativeLanding() {
         </section>
       </main>
 
-      <Footer />
+      <Footer hideGetInTouch={true} />
     </>
   );
 }
