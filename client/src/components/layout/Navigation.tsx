@@ -92,6 +92,7 @@ export default function Navigation() {
 
   const navLinks = [
     { href: "/creative", label: "Creative" },
+    { href: "/ai-agents", label: "AI Agents", highlight: true },
     { href: "/our-work", label: "Our Work" },
     { href: "/pricing", label: "Pricing" },
     { href: "/tools", label: "Tools" },
@@ -135,6 +136,19 @@ export default function Navigation() {
               data-testid="link-creative"
             >
               Creative
+            </Link>
+
+            <Link
+              href="/ai-agents"
+              className={`text-xs lg:text-sm font-medium transition-colors ${
+                location === "/ai-agents"
+                  ? "text-[#c4ff4d]"
+                  : "text-[#c4ff4d]/80 hover:text-[#c4ff4d]"
+              }`}
+              style={{ textShadow }}
+              data-testid="link-ai-agents"
+            >
+              AI Agents
             </Link>
 
             {/* Services Dropdown */}
@@ -287,7 +301,7 @@ export default function Navigation() {
               </AnimatePresence>
             </div>
 
-            {navLinks.slice(1).map((link) => (
+            {navLinks.slice(2).map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
@@ -343,6 +357,16 @@ export default function Navigation() {
                   Creative
                 </Link>
                 <Link
+                  href="/ai-agents"
+                  className={`block py-3 text-base font-medium border-b border-white/5 ${
+                    location === "/ai-agents" ? "text-[#c4ff4d]" : "text-[#c4ff4d]/80"
+                  }`}
+                  onClick={() => setMobileMenuOpen(false)}
+                  data-testid="link-mobile-ai-agents"
+                >
+                  AI Agents
+                </Link>
+                <Link
                   href="/services"
                   className={`block py-3 text-base font-medium border-b border-white/5 ${
                     location.startsWith("/services") ? "text-white" : "text-white/80"
@@ -362,7 +386,7 @@ export default function Navigation() {
                 >
                   Why Us
                 </Link>
-                {navLinks.slice(1).map((link) => (
+                {navLinks.slice(2).map((link) => (
                   <Link
                     key={link.href}
                     href={link.href}
