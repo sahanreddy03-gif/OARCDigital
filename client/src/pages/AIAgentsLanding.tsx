@@ -14,14 +14,12 @@ import CreativeNavigation from '@/components/CreativeNavigation';
 import { 
   TeamCarousel, 
   CommandConsolePanel, 
-  StatsRail, 
   PersonalizationSteps,
-  HeroAvatar,
   AITeamMember
 } from '@/components/ai';
 import { 
-  ArrowRight, Check, Target, HeadphonesIcon, Calendar, LayoutGrid, Users,
-  Zap, Clock, Shield, TrendingUp, MessageSquare, Play, Pause, RotateCcw,
+  ArrowRight, Check,
+  Zap, Shield, TrendingUp, MessageSquare, Play, Pause, RotateCcw,
   Database, Phone, Mail, Bot, Sparkles, ChevronRight
 } from 'lucide-react';
 
@@ -35,38 +33,6 @@ const staggerContainer = {
   animate: { transition: { staggerChildren: 0.1 } }
 };
 
-const roleReplacements = [
-  {
-    icon: Target,
-    title: 'Sales Reps',
-    description: 'Capture & qualify leads, book demos, and nurture automatically.',
-    metric: '3x conversion lift'
-  },
-  {
-    icon: HeadphonesIcon,
-    title: 'Support Agents',
-    description: 'Resolve 80-95% common queries instantly, escalate the rest.',
-    metric: '90% auto-resolution'
-  },
-  {
-    icon: Calendar,
-    title: 'Bookings & Scheduling',
-    description: 'Book, reschedule, and remind customers across channels.',
-    metric: '20% fewer no-shows'
-  },
-  {
-    icon: LayoutGrid,
-    title: 'Operations Coordinator',
-    description: 'Route tasks, update systems, and close the loop automatically.',
-    metric: '50% time reclaimed'
-  },
-  {
-    icon: Users,
-    title: 'Follow-up Specialist',
-    description: 'Re-engage leads and customers until they convert.',
-    metric: '10x outreach velocity'
-  }
-];
 
 const keyBenefits = [
   {
@@ -425,19 +391,6 @@ function LiveDemoChat() {
   );
 }
 
-function KPICounter({ value, label, icon: Icon }: { value: string; label: string; icon: any }) {
-  return (
-    <div className="text-center">
-      <div className="inline-flex items-center justify-center w-12 h-12 mb-3 rounded-xl bg-white/5 border border-white/10">
-        <Icon className="w-5 h-5 text-[#c4ff4d]" />
-      </div>
-      <div className="text-3xl md:text-4xl font-bold text-white mb-1">
-        <AnimatedCounter value={value} />
-      </div>
-      <p className="text-sm text-white/60">{label}</p>
-    </div>
-  );
-}
 
 export default function AIAgentsLanding() {
   const prefersReducedMotion = useReducedMotion();
@@ -469,13 +422,11 @@ export default function AIAgentsLanding() {
           />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black pointer-events-none" />
           
-          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 py-20 sm:py-32 w-full">
-            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 py-20 sm:py-32 w-full text-center">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
-                className="text-center lg:text-left"
               >
                 <motion.div 
                   className="inline-flex items-center gap-2 px-3 py-1.5 sm:py-2 bg-white/5 backdrop-blur-md border border-white/10 rounded-full mb-6 sm:mb-8"
@@ -487,18 +438,19 @@ export default function AIAgentsLanding() {
                   <span className="text-[10px] sm:text-xs md:text-sm text-white/80">We train it. It takes ownership. Delivers results.</span>
                 </motion.div>
                 
-                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight mb-6 leading-[1.15]">
-                  <span className="block">One AI Team for</span>
-                  <span className="text-[#c4ff4d]">Sales, Support,</span>
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold tracking-tight mb-6 leading-[1.1]">
+                  <span className="block font-light text-white/90">One AI Team for</span>
+                  <span className="text-[#c4ff4d] font-extrabold">Sales, Support,</span>
                   <br />
-                  <span className="text-[#c4ff4d]">Bookings</span> & Operations.
+                  <span className="text-[#c4ff4d] font-extrabold">Bookings</span>
+                  <span className="font-light text-white/90"> & Operations</span>
                 </h1>
                 
-                <p className="text-base sm:text-lg md:text-xl text-white/70 max-w-xl mx-auto lg:mx-0 mb-8 sm:mb-10 px-2 sm:px-0">
+                <p className="text-base sm:text-lg md:text-xl text-white/70 max-w-xl mx-auto mb-8 sm:mb-10 px-2 sm:px-0">
                   Buy once. Hand over the work. Your business runs smoother, faster, and more profitably.
                 </p>
                 
-                <div className="flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-4 mb-12">
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                   <Link href="/contact">
                     <Button 
                       size="lg" 
@@ -518,24 +470,10 @@ export default function AIAgentsLanding() {
                     <ChevronRight className="w-4 h-4" />
                   </a>
                 </div>
-                
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-xl mx-auto lg:mx-0">
-                  <KPICounter value="7" label="Days to Deploy" icon={Clock} />
-                  <KPICounter value="<2s" label="Response Time" icon={Zap} />
-                  <KPICounter value="90%" label="Auto-Resolution" icon={Check} />
-                  <KPICounter value="24/7" label="Availability" icon={GlobeNetwork} />
-                </div>
               </motion.div>
-              
-              <div className="hidden lg:block">
-                <HeroAvatar />
-              </div>
-            </div>
           </div>
         </section>
         
-        {/* Stats Rail - Always On */}
-        <StatsRail />
 
         {/* Meet Your AI Team - Carousel */}
         <section className="py-16 sm:py-24 px-4 sm:px-6 bg-zinc-950">
@@ -566,7 +504,7 @@ export default function AIAgentsLanding() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Why OARC AI Agents Win</h2>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight mb-4">Why OARC AI Agents Win</h2>
               <p className="text-white/60 max-w-xl mx-auto">Compare hiring, outsourcing, and AI deployment side by side.</p>
             </motion.div>
             
@@ -630,7 +568,7 @@ export default function AIAgentsLanding() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Why Businesses Choose AI Teams</h2>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight mb-4">Why Businesses Choose AI Teams</h2>
               <p className="text-white/60 max-w-xl mx-auto">Measurable impact. Predictable costs. Zero management overhead.</p>
             </motion.div>
             
@@ -670,7 +608,7 @@ export default function AIAgentsLanding() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">See It In Action</h2>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight mb-4">See It In Action</h2>
               <p className="text-white/60 max-w-xl mx-auto">Watch our AI agent handle a real booking + support request in under 15 seconds.</p>
             </motion.div>
             
@@ -687,7 +625,7 @@ export default function AIAgentsLanding() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">How Customers Start</h2>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight mb-4">How Customers Start</h2>
               <p className="text-white/60 max-w-xl mx-auto">Choose your entry point. All packages include onboarding, support, and baseline KPI guarantee.</p>
             </motion.div>
             
@@ -768,7 +706,7 @@ export default function AIAgentsLanding() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Frequently Asked Questions</h2>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight mb-4">Frequently Asked Questions</h2>
               <p className="text-white/60">Got questions? We've got answers.</p>
             </motion.div>
             
@@ -790,7 +728,7 @@ export default function AIAgentsLanding() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-3xl md:text-5xl font-bold mb-6">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight mb-6">
                 Ready to Deploy Your AI Team?
               </h2>
               <p className="text-lg text-white/70 mb-8 max-w-2xl mx-auto">
@@ -832,7 +770,7 @@ export default function AIAgentsLanding() {
                   Results guaranteed
                 </span>
                 <span className="flex items-center gap-2">
-                  <Clock className="w-4 h-4" />
+                  <ClockSpeed className="w-4 h-4" />
                   Deploy in 7-14 days
                 </span>
                 <span className="flex items-center gap-2">
