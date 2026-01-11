@@ -411,48 +411,61 @@ export default function AIAgentsLanding() {
       <CreativeNavigation />
       
       <main className="min-h-screen bg-black text-white overflow-x-hidden">
-        {/* Hero Section - Sintra-style: Full viewport, bottom-left content */}
-        <section className="relative h-screen min-h-[600px] max-h-[900px] overflow-hidden">
-          {/* Background - Ready for video, currently dark gradient */}
-          <div className="absolute inset-0 bg-gradient-to-br from-[#0a1a12] via-[#0d1f17] to-black" />
+        {/* Hero Section - Ultra Premium with Video Background */}
+        <section className="relative h-screen min-h-[600px] max-h-[1000px] overflow-hidden">
+          {/* Video Background */}
+          <div className="absolute inset-0">
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="absolute inset-0 w-full h-full object-cover"
+              poster=""
+            >
+              <source src="/attached_assets/2026-01-11_01_1768174240415.mp4" type="video/mp4" />
+            </video>
+          </div>
           
-          {/* Subtle animated grid overlay */}
-          <div className="absolute inset-0 opacity-20">
-            <AnimatedGridBackground 
-              intensity="subtle" 
-              showScanLine={false} 
-              showParticles={true}
-              showConcentricRings={false}
-              showDiagonalGrid={false}
+          {/* Cinematic dark overlays for premium feel */}
+          <div className="absolute inset-0 bg-black/50" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/20 to-transparent" />
+          
+          {/* Subtle scan line effect */}
+          <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
+            <div 
+              className="absolute inset-0"
+              style={{
+                backgroundImage: 'repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255,255,255,0.03) 2px, rgba(255,255,255,0.03) 4px)',
+              }}
             />
           </div>
           
-          {/* Dark gradient overlay for text readability */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-transparent" />
-          
           {/* Content - Bottom Left positioned like Sintra */}
-          <div className="relative z-10 h-full flex flex-col justify-end pb-16 sm:pb-20 md:pb-24 lg:pb-28">
-            <div className="px-6 sm:px-8 md:px-12 lg:px-16 max-w-3xl">
+          <div className="relative z-10 h-full flex flex-col justify-end pb-20 sm:pb-24 md:pb-28 lg:pb-32">
+            <div className="px-6 sm:px-8 md:px-12 lg:px-20 max-w-4xl">
               <motion.div
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
               >
-                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.1] mb-4 sm:mb-6">
-                  AI Employees: Your<br />
-                  <span className="text-[#c4ff4d]">Team That Never</span><br />
-                  <span className="text-[#c4ff4d]">Sleeps</span>
+                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white leading-[1.05] mb-6 sm:mb-8 tracking-tight">
+                  AI Employees
+                  <br />
+                  <span className="text-white/90">Your team that works</span>
+                  <br />
+                  <span className="text-[#c4ff4d]">24/7</span>
                 </h1>
                 
-                <p className="text-base sm:text-lg md:text-xl text-white/70 max-w-lg mb-8 sm:mb-10">
-                  Build, grow, and scale your business with a team of AI employees.
+                <p className="text-lg sm:text-xl md:text-2xl text-white/60 max-w-xl mb-10 sm:mb-12 font-light tracking-wide">
+                  Build, grow, and scale your business with our AI workforce.
                 </p>
                 
                 <Link href="/contact">
                   <Button 
                     size="lg" 
-                    className="bg-[#c4ff4d] hover:bg-[#d4ff6d] text-black font-semibold px-8 py-6 text-base sm:text-lg rounded-full"
+                    className="bg-[#c4ff4d] hover:bg-[#d4ff6d] text-black font-semibold px-10 py-7 text-lg rounded-full shadow-2xl shadow-[#c4ff4d]/20 transition-all duration-300 hover:shadow-[#c4ff4d]/30 hover:scale-[1.02]"
                     data-testid="button-hero-cta"
                   >
                     Get OARC AI
@@ -465,17 +478,84 @@ export default function AIAgentsLanding() {
         
 
         {/* Meet Your AI Team - Carousel */}
-        <section className="py-16 sm:py-24 px-4 sm:px-6 bg-zinc-950">
-          <div className="max-w-7xl mx-auto">
-            <TeamCarousel 
-              onAgentSelect={setSelectedAgent} 
-              selectedAgentId={selectedAgent?.id}
+        <section className="py-20 sm:py-28 md:py-32 bg-zinc-950">
+          <TeamCarousel 
+            onAgentSelect={setSelectedAgent} 
+            selectedAgentId={selectedAgent?.id}
+          />
+        </section>
+        
+        {/* Always On - Value Proposition Section */}
+        <section className="py-20 sm:py-28 md:py-32 px-6 sm:px-8 bg-black relative overflow-hidden">
+          {/* Subtle background pattern */}
+          <div className="absolute inset-0 opacity-[0.02]">
+            <div 
+              className="absolute inset-0"
+              style={{
+                backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)',
+                backgroundSize: '40px 40px'
+              }}
             />
+          </div>
+          
+          <div className="relative z-10 max-w-5xl mx-auto">
+            <motion.div
+              className="text-center"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+            >
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 tracking-tight leading-tight">
+                Automates work.
+                <br />
+                <span className="text-white/60">Even while you sleep.</span>
+              </h2>
+              
+              <p className="text-lg sm:text-xl md:text-2xl text-white/40 max-w-2xl mx-auto mb-12 font-light">
+                A co-worker who's always on the clock. Multiple roles. One AI team.
+              </p>
+              
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 max-w-3xl mx-auto">
+                <motion.div 
+                  className="p-6 sm:p-8 rounded-2xl bg-white/[0.02] border border-white/5"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.1 }}
+                >
+                  <div className="text-4xl sm:text-5xl font-bold text-[#c4ff4d] mb-2">24/7</div>
+                  <div className="text-sm text-white/40">Always available</div>
+                </motion.div>
+                
+                <motion.div 
+                  className="p-6 sm:p-8 rounded-2xl bg-white/[0.02] border border-white/5"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.2 }}
+                >
+                  <div className="text-4xl sm:text-5xl font-bold text-white mb-2">15+</div>
+                  <div className="text-sm text-white/40">AI employees</div>
+                </motion.div>
+                
+                <motion.div 
+                  className="p-6 sm:p-8 rounded-2xl bg-white/[0.02] border border-white/5"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.3 }}
+                >
+                  <div className="text-4xl sm:text-5xl font-bold text-white mb-2">1</div>
+                  <div className="text-sm text-white/40">Unified team</div>
+                </motion.div>
+              </div>
+            </motion.div>
           </div>
         </section>
         
         {/* Command Console - Natural Language Control */}
-        <section className="py-16 sm:py-24 px-4 sm:px-6 bg-black overflow-hidden">
+        <section className="py-20 sm:py-28 md:py-32 px-4 sm:px-6 bg-zinc-950 overflow-hidden">
           <div className="max-w-6xl mx-auto w-full">
             <CommandConsolePanel 
               autoPlay={false} 

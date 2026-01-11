@@ -1,8 +1,7 @@
-import { useRef, useState } from 'react';
-import { motion, useMotionValue, useTransform, animate } from 'framer-motion';
-import { GlassCard } from '@/components/ui/glass-card';
+import { useRef, useState, useEffect } from 'react';
+import { motion, animate } from 'framer-motion';
 import { aiTeamMembers, AITeamMember } from './aiAgentsData';
-import { ChevronLeft, ChevronRight, Sparkles } from 'lucide-react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 interface TeamCarouselProps {
   onAgentSelect?: (agent: AITeamMember) => void;
@@ -10,192 +9,135 @@ interface TeamCarouselProps {
 }
 
 export function TeamCarousel({ onAgentSelect, selectedAgentId }: TeamCarouselProps) {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [activeIndex, setActiveIndex] = useState(0);
-  const x = useMotionValue(0);
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
   
-  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
-  const cardWidth = isMobile ? Math.min(280, window.innerWidth - 48) : 320;
-  const gap = isMobile ? 16 : 24;
-  const totalCards = aiTeamMembers.length;
-  
-  const handleDragEnd = (_: any, info: { offset: { x: number }; velocity: { x: number } }) => {
-    const threshold = 50;
-    const velocity = info.velocity.x;
-    const offset = info.offset.x;
-    
-    let newIndex = activeIndex;
-    
-    if (offset < -threshold || velocity < -500) {
-      newIndex = Math.min(activeIndex + 1, totalCards - 1);
-    } else if (offset > threshold || velocity > 500) {
-      newIndex = Math.max(activeIndex - 1, 0);
+  const checkScroll = () => {
+    if (scrollRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
+      setCanScrollLeft(scrollLeft > 10);
+      setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 10);
     }
-    
-    setActiveIndex(newIndex);
-    animate(x, -newIndex * (cardWidth + gap), { type: 'spring', stiffness: 300, damping: 30 });
   };
   
-  const goTo = (index: number) => {
-    const clampedIndex = Math.max(0, Math.min(index, totalCards - 1));
-    setActiveIndex(clampedIndex);
-    animate(x, -clampedIndex * (cardWidth + gap), { type: 'spring', stiffness: 300, damping: 30 });
+  useEffect(() => {
+    checkScroll();
+    const ref = scrollRef.current;
+    if (ref) {
+      ref.addEventListener('scroll', checkScroll);
+      return () => ref.removeEventListener('scroll', checkScroll);
+    }
+  }, []);
+  
+  const scroll = (direction: 'left' | 'right') => {
+    if (scrollRef.current) {
+      const cardWidth = 340;
+      const gap = 24;
+      const scrollAmount = (cardWidth + gap) * (direction === 'left' ? -1 : 1);
+      scrollRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    }
   };
   
   return (
     <div className="relative">
-      <div className="text-center mb-12">
-        <motion.div 
-          className="inline-flex items-center gap-2 px-4 py-2 bg-[#c4ff4d]/10 border border-[#c4ff4d]/20 rounded-full mb-6"
+      {/* Section Header */}
+      <div className="text-center mb-12 md:mb-16 px-4">
+        <motion.h2 
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 tracking-tight"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <Sparkles className="w-4 h-4 text-[#c4ff4d]" />
-          <span className="text-sm text-[#c4ff4d]">Your AI Workforce</span>
-        </motion.div>
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-white mb-4">
-          Meet Your <span className="text-[#c4ff4d]">AI Team</span>
-        </h2>
-        <p className="text-lg text-white/60 max-w-2xl mx-auto">
-          Five specialized agents, each trained to excel in their domain. Swipe to explore.
-        </p>
+          AI Employees
+        </motion.h2>
+        <motion.p 
+          className="text-lg sm:text-xl text-white/50 max-w-2xl mx-auto"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.1 }}
+        >
+          Meet your new team. Each agent is specialized to excel in their domain.
+        </motion.p>
       </div>
       
-      <div className="relative overflow-hidden">
+      {/* Carousel Container */}
+      <div className="relative">
+        {/* Left Navigation Arrow */}
+        <button
+          onClick={() => scroll('left')}
+          className={`absolute left-2 sm:left-4 md:left-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-black/80 backdrop-blur-sm border border-white/10 flex items-center justify-center transition-all duration-300 ${canScrollLeft ? 'opacity-100 hover:bg-white/10 hover:border-white/20' : 'opacity-30 cursor-not-allowed'}`}
+          disabled={!canScrollLeft}
+          data-testid="button-carousel-left"
+        >
+          <ChevronLeft className="w-6 h-6 text-white" />
+        </button>
+        
+        {/* Right Navigation Arrow */}
+        <button
+          onClick={() => scroll('right')}
+          className={`absolute right-2 sm:right-4 md:right-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-black/80 backdrop-blur-sm border border-white/10 flex items-center justify-center transition-all duration-300 ${canScrollRight ? 'opacity-100 hover:bg-white/10 hover:border-white/20' : 'opacity-30 cursor-not-allowed'}`}
+          disabled={!canScrollRight}
+          data-testid="button-carousel-right"
+        >
+          <ChevronRight className="w-6 h-6 text-white" />
+        </button>
+        
+        {/* Cards Container */}
         <div 
-          ref={containerRef}
-          className="flex justify-center px-4 md:px-0"
+          ref={scrollRef}
+          className="flex gap-4 sm:gap-6 overflow-x-auto scrollbar-hide px-4 sm:px-8 md:px-16 lg:px-24 pb-4 snap-x snap-mandatory"
+          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
-          <motion.div
-            className="flex gap-4 md:gap-6 cursor-grab active:cursor-grabbing"
-            style={{ x }}
-            drag="x"
-            dragConstraints={{ 
-              left: -(totalCards - 1) * (cardWidth + gap), 
-              right: 0 
-            }}
-            dragElastic={0.1}
-            onDragEnd={handleDragEnd}
-          >
-            {aiTeamMembers.map((agent, idx) => {
-              const isActive = idx === activeIndex;
-              const isSelected = agent.id === selectedAgentId;
-              const Icon = agent.icon;
-              
-              return (
-                <motion.div
-                  key={agent.id}
-                  className="flex-shrink-0 w-[280px] md:w-[320px]"
-                  animate={{
-                    scale: isActive ? 1 : 0.9,
-                    opacity: isActive ? 1 : 0.6
-                  }}
-                  transition={{ duration: 0.3 }}
-                  onClick={() => {
-                    goTo(idx);
-                    onAgentSelect?.(agent);
-                  }}
-                  data-testid={`card-agent-${agent.id}`}
-                  aria-selected={isSelected}
-                >
-                  <GlassCard 
-                    className={`p-6 h-full transition-all duration-300 ${isSelected ? 'border-[#c4ff4d] ring-2 ring-[#c4ff4d]/30 shadow-lg shadow-[#c4ff4d]/20' : ''}`}
-                    liftOnHover={false}
-                  >
-                    <div className="relative mb-6">
-                      <div className="aspect-square w-full max-w-[200px] mx-auto rounded-2xl bg-gradient-to-br from-white/10 to-white/5 border-2 border-dashed border-[#c4ff4d]/30 flex items-center justify-center overflow-hidden">
-                        <div className="text-center p-4">
-                          <div className="w-16 h-16 mx-auto mb-3 rounded-full bg-[#c4ff4d]/10 flex items-center justify-center">
-                            <Icon className="w-8 h-8 text-[#c4ff4d]" />
-                          </div>
-                          <p className="text-xs text-white/40">Avatar placeholder</p>
-                          <p className="text-[10px] text-white/30 mt-1">User will provide</p>
-                        </div>
-                      </div>
-                      
-                      {isActive && (
-                        <motion.div
-                          className="absolute -inset-1 rounded-2xl border-2 border-[#c4ff4d]/40"
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          layoutId="activeRing"
-                        />
-                      )}
+          {aiTeamMembers.map((agent, idx) => {
+            const isSelected = agent.id === selectedAgentId;
+            const Icon = agent.icon;
+            
+            return (
+              <motion.div
+                key={agent.id}
+                className="flex-shrink-0 w-[280px] sm:w-[300px] md:w-[320px] snap-start cursor-pointer group"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.05 }}
+                onClick={() => onAgentSelect?.(agent)}
+                data-testid={`card-agent-${agent.id}`}
+              >
+                {/* Avatar Image Container - Sintra Style */}
+                <div className={`relative aspect-[4/5] rounded-2xl overflow-hidden mb-5 bg-gradient-to-br from-zinc-800 to-zinc-900 border border-white/5 transition-all duration-500 ${isSelected ? 'ring-2 ring-[#c4ff4d] ring-offset-2 ring-offset-black' : 'group-hover:border-white/10'}`}>
+                  {/* Placeholder with icon - will be replaced with actual avatar */}
+                  <div className="absolute inset-0 flex flex-col items-center justify-center p-6">
+                    <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-gradient-to-br from-white/10 to-white/5 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-500">
+                      <Icon className="w-10 h-10 sm:w-12 sm:h-12 text-white/60 group-hover:text-[#c4ff4d] transition-colors duration-300" />
                     </div>
-                    
-                    <div className="text-center">
-                      <span className="text-[10px] uppercase tracking-wider text-[#c4ff4d]/60 mb-1 block">
-                        {agent.pillar}
-                      </span>
-                      <h3 className="text-xl font-bold text-white mb-1">{agent.name}</h3>
-                      <p className="text-sm text-white/60 mb-3">{agent.role}</p>
-                      <p className="text-sm text-white/80 mb-4">{agent.description}</p>
-                      
-                      <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#c4ff4d]/10 rounded-full">
-                        <span className="text-sm font-semibold text-[#c4ff4d]">{agent.metric}</span>
-                      </div>
-                      
-                      <div className="mt-4 pt-4 border-t border-white/10">
-                        <div className="flex flex-wrap gap-2 justify-center">
-                          {agent.capabilities.slice(0, 3).map((cap, i) => (
-                            <span 
-                              key={i}
-                              className="text-[10px] px-2 py-1 bg-white/5 rounded-full text-white/50"
-                            >
-                              {cap}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  </GlassCard>
-                </motion.div>
-              );
-            })}
-          </motion.div>
+                    <p className="text-xs text-white/30 text-center">Avatar coming soon</p>
+                  </div>
+                  
+                  {/* Gradient overlay at bottom */}
+                  <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/60 to-transparent" />
+                </div>
+                
+                {/* Agent Name */}
+                <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 tracking-tight">
+                  {agent.name}
+                </h3>
+                
+                {/* Description with BOLD role at start */}
+                <p className="text-sm sm:text-base text-white/60 leading-relaxed">
+                  <span className="text-white font-semibold">{agent.role}.</span>{' '}
+                  {agent.description}
+                </p>
+              </motion.div>
+            );
+          })}
         </div>
         
-        <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-black to-transparent pointer-events-none hidden md:block" />
-        <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-black to-transparent pointer-events-none hidden md:block" />
-      </div>
-      
-      <div className="flex items-center justify-center gap-4 mt-8">
-        <button
-          onClick={() => goTo(activeIndex - 1)}
-          disabled={activeIndex === 0}
-          className="p-3 rounded-full bg-white/5 border border-white/10 text-white/60 hover:bg-white/10 hover:text-white disabled:opacity-30 disabled:cursor-not-allowed transition-all"
-          data-testid="button-carousel-prev"
-        >
-          <ChevronLeft className="w-5 h-5" />
-        </button>
-        
-        <div className="flex gap-2">
-          {aiTeamMembers.map((_, idx) => (
-            <button
-              key={idx}
-              onClick={() => goTo(idx)}
-              className={`w-2.5 h-2.5 rounded-full transition-all ${
-                idx === activeIndex 
-                  ? 'bg-[#c4ff4d] w-8' 
-                  : 'bg-white/20 hover:bg-white/40'
-              }`}
-              data-testid={`button-carousel-dot-${idx}`}
-            />
-          ))}
-        </div>
-        
-        <button
-          onClick={() => goTo(activeIndex + 1)}
-          disabled={activeIndex === totalCards - 1}
-          className="p-3 rounded-full bg-white/5 border border-white/10 text-white/60 hover:bg-white/10 hover:text-white disabled:opacity-30 disabled:cursor-not-allowed transition-all"
-          data-testid="button-carousel-next"
-        >
-          <ChevronRight className="w-5 h-5" />
-        </button>
+        {/* Gradient fade edges */}
+        <div className="absolute left-0 top-0 bottom-0 w-8 sm:w-16 md:w-24 bg-gradient-to-r from-zinc-950 to-transparent pointer-events-none z-10" />
+        <div className="absolute right-0 top-0 bottom-0 w-8 sm:w-16 md:w-24 bg-gradient-to-l from-zinc-950 to-transparent pointer-events-none z-10" />
       </div>
     </div>
   );
 }
-
-export default TeamCarousel;
