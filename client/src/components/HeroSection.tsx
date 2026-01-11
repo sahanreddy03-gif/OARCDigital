@@ -181,7 +181,7 @@ export default function HeroSection() {
   return (
     <>
       <style>{styles}</style>
-      <section className="relative min-h-[85vh] md:min-h-screen flex flex-col overflow-hidden bg-black">
+      <section className="relative min-h-[92vh] md:min-h-screen flex flex-col overflow-hidden bg-black">
         
         {/* Christmas Snowfall Effect */}
         <SnowfallEffect />
