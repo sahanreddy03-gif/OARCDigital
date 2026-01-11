@@ -12,6 +12,14 @@ import FAQSection, { FAQItem } from '@/components/FAQSection';
 import Footer from '@/components/Footer';
 import CreativeNavigation from '@/components/CreativeNavigation';
 import { 
+  TeamCarousel, 
+  CommandConsolePanel, 
+  StatsRail, 
+  PersonalizationSteps,
+  HeroAvatar,
+  AITeamMember
+} from '@/components/ai';
+import { 
   ArrowRight, Check, Target, HeadphonesIcon, Calendar, LayoutGrid, Users,
   Zap, Clock, Shield, TrendingUp, MessageSquare, Play, Pause, RotateCcw,
   Database, Phone, Mail, Bot, Sparkles, ChevronRight
@@ -433,6 +441,7 @@ function KPICounter({ value, label, icon: Icon }: { value: string; label: string
 
 export default function AIAgentsLanding() {
   const prefersReducedMotion = useReducedMotion();
+  const [selectedAgent, setSelectedAgent] = useState<AITeamMember | null>(null);
   
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -449,7 +458,7 @@ export default function AIAgentsLanding() {
       <CreativeNavigation />
       
       <main className="min-h-screen bg-black text-white">
-        {/* Hero Section */}
+        {/* Hero Section - Split Layout with Avatar */}
         <section className="relative min-h-[90vh] flex items-center overflow-hidden">
           <AnimatedGridBackground 
             intensity="high" 
@@ -460,101 +469,96 @@ export default function AIAgentsLanding() {
           />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black pointer-events-none" />
           
-          <div className="relative z-10 max-w-6xl mx-auto px-6 py-32 w-full">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="text-center"
-            >
-              <motion.div 
-                className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 backdrop-blur-md border border-white/10 rounded-full mb-8"
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.2 }}
+          <div className="relative z-10 max-w-7xl mx-auto px-6 py-32 w-full">
+            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                className="text-center lg:text-left"
               >
-                <div className="w-2 h-2 rounded-full bg-[#c4ff4d] animate-pulse" />
-                <span className="text-sm text-white/80">We train it for your business. It takes ownership. Delivers results.</span>
+                <motion.div 
+                  className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 backdrop-blur-md border border-white/10 rounded-full mb-8"
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.2 }}
+                >
+                  <div className="w-2 h-2 rounded-full bg-[#c4ff4d] animate-pulse" />
+                  <span className="text-sm text-white/80">We train it for your business. It takes ownership. Delivers results.</span>
+                </motion.div>
+                
+                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 leading-[1.1]">
+                  One AI Team for{' '}
+                  <span className="text-[#c4ff4d]">Sales, Support,</span>
+                  <br />
+                  <span className="text-[#c4ff4d]">Bookings</span> & Operations.
+                </h1>
+                
+                <p className="text-lg md:text-xl text-white/70 max-w-xl mx-auto lg:mx-0 mb-10">
+                  Buy once. Hand over the work. Your business runs smoother, faster, and more profitably.
+                </p>
+                
+                <div className="flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-4 mb-12">
+                  <Link href="/contact">
+                    <Button 
+                      size="lg" 
+                      className="bg-[#c4ff4d] hover:bg-[#d4ff6d] text-black font-semibold px-8 py-6 text-lg rounded-full group"
+                      data-testid="button-hero-cta"
+                    >
+                      Get Your AI Team
+                      <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                    </Button>
+                  </Link>
+                  <a 
+                    href="#how-it-works" 
+                    className="text-white/70 hover:text-white flex items-center gap-2 transition-colors"
+                    data-testid="link-how-it-works"
+                  >
+                    See How It Works
+                    <ChevronRight className="w-4 h-4" />
+                  </a>
+                </div>
+                
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-xl mx-auto lg:mx-0">
+                  <KPICounter value="7" label="Days to Deploy" icon={Clock} />
+                  <KPICounter value="<2s" label="Response Time" icon={Zap} />
+                  <KPICounter value="90%" label="Auto-Resolution" icon={Check} />
+                  <KPICounter value="24/7" label="Availability" icon={GlobeNetwork} />
+                </div>
               </motion.div>
               
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 leading-[1.1]">
-                One AI Team for{' '}
-                <span className="text-[#c4ff4d]">Sales, Support,</span>
-                <br />
-                <span className="text-[#c4ff4d]">Bookings</span> & Operations.
-              </h1>
-              
-              <p className="text-lg md:text-xl text-white/70 max-w-2xl mx-auto mb-10">
-                Buy once. Hand over the work. Your business runs smoother, faster, and more profitably.
-              </p>
-              
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
-                <Link href="/contact">
-                  <Button 
-                    size="lg" 
-                    className="bg-[#c4ff4d] hover:bg-[#d4ff6d] text-black font-semibold px-8 py-6 text-lg rounded-full group"
-                    data-testid="button-hero-cta"
-                  >
-                    Get Your AI Team
-                    <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                  </Button>
-                </Link>
-                <a 
-                  href="#how-it-works" 
-                  className="text-white/70 hover:text-white flex items-center gap-2 transition-colors"
-                  data-testid="link-how-it-works"
-                >
-                  See How It Works
-                  <ChevronRight className="w-4 h-4" />
-                </a>
+              <div className="hidden lg:block">
+                <HeroAvatar />
               </div>
-              
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-3xl mx-auto">
-                <KPICounter value="7" label="Days to Deploy" icon={Clock} />
-                <KPICounter value="<2s" label="Response Time" icon={Zap} />
-                <KPICounter value="90%" label="Auto-Resolution" icon={Check} />
-                <KPICounter value="24/7" label="Availability" icon={GlobeNetwork} />
-              </div>
-            </motion.div>
+            </div>
           </div>
         </section>
+        
+        {/* Stats Rail - Always On */}
+        <StatsRail />
 
-        {/* What It Replaces */}
+        {/* Meet Your AI Team - Carousel */}
         <section className="py-24 px-6 bg-zinc-950">
+          <div className="max-w-7xl mx-auto">
+            <TeamCarousel 
+              onAgentSelect={setSelectedAgent} 
+              selectedAgentId={selectedAgent?.id}
+            />
+          </div>
+        </section>
+        
+        {/* Command Console - Natural Language Control */}
+        <section className="py-24 px-6 bg-black">
           <div className="max-w-6xl mx-auto">
-            <motion.div 
-              className="text-center mb-16"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">What Your AI Team Replaces</h2>
-              <p className="text-white/60 max-w-xl mx-auto">Stop hiring for repetitive roles. Deploy AI agents that work 24/7.</p>
-            </motion.div>
-            
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
-              {roleReplacements.map((role, idx) => (
-                <motion.div
-                  key={role.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: idx * 0.1 }}
-                >
-                  <GlassCard className="p-6 h-full" showCornerAccents>
-                    <role.icon className="w-8 h-8 text-[#c4ff4d] mb-4" />
-                    <h3 className="font-semibold text-white mb-2">{role.title}</h3>
-                    <p className="text-sm text-white/60 mb-3">{role.description}</p>
-                    <span className="text-xs text-[#c4ff4d] font-medium">{role.metric}</span>
-                  </GlassCard>
-                </motion.div>
-              ))}
-            </div>
+            <CommandConsolePanel 
+              autoPlay={false} 
+              selectedAgentId={selectedAgent?.id}
+            />
           </div>
         </section>
 
         {/* Proof & Comparison */}
-        <section className="py-24 px-6 bg-black">
+        <section className="py-24 px-6 bg-zinc-950">
           <div className="max-w-6xl mx-auto">
             <motion.div 
               className="text-center mb-16"
@@ -610,54 +614,15 @@ export default function AIAgentsLanding() {
           </div>
         </section>
 
-        {/* How It Works */}
-        <section id="how-it-works" className="py-24 px-6 bg-zinc-950">
-          <div className="max-w-5xl mx-auto">
-            <motion.div 
-              className="text-center mb-16"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">How It Works</h2>
-              <p className="text-white/60 max-w-xl mx-auto">Three simple steps. No complex implementation. No 6-month timeline.</p>
-            </motion.div>
-            
-            <div className="grid md:grid-cols-3 gap-6">
-              {processSteps.map((step, idx) => (
-                <motion.div
-                  key={step.step}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: idx * 0.15 }}
-                >
-                  <GlassCard className="p-6 h-full relative" borderPulse={idx === 1}>
-                    <div className="absolute -top-3 -left-3 w-8 h-8 bg-[#c4ff4d] text-black rounded-full flex items-center justify-center font-bold text-sm">
-                      {step.step}
-                    </div>
-                    <div className="pt-4">
-                      <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
-                      <p className="text-white/60 text-sm mb-4">{step.description}</p>
-                      <div className="text-[#c4ff4d] text-sm font-medium mb-4">{step.duration}</div>
-                      <ul className="space-y-2">
-                        {step.details.map((detail) => (
-                          <li key={detail} className="flex items-center gap-2 text-sm text-white/50">
-                            <Check className="w-3 h-3 text-[#c4ff4d]" />
-                            {detail}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </GlassCard>
-                </motion.div>
-              ))}
-            </div>
+        {/* How It Works - Personalization Steps */}
+        <section id="how-it-works" className="py-24 px-6 bg-black">
+          <div className="max-w-6xl mx-auto">
+            <PersonalizationSteps />
           </div>
         </section>
 
         {/* Key Benefits */}
-        <section className="py-24 px-6 bg-black">
+        <section className="py-24 px-6 bg-zinc-950">
           <div className="max-w-6xl mx-auto">
             <motion.div 
               className="text-center mb-16"
