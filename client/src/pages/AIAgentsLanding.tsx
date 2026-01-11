@@ -411,66 +411,55 @@ export default function AIAgentsLanding() {
       <CreativeNavigation />
       
       <main className="min-h-screen bg-black text-white overflow-x-hidden">
-        {/* Hero Section - Split Layout with Avatar */}
-        <section className="relative min-h-[90vh] flex items-center overflow-hidden">
-          <AnimatedGridBackground 
-            intensity="high" 
-            showScanLine={true} 
-            showParticles={true}
-            showConcentricRings={true}
-            showDiagonalGrid={true}
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black pointer-events-none" />
+        {/* Hero Section - Sintra-style: Full viewport, bottom-left content */}
+        <section className="relative h-screen min-h-[600px] max-h-[900px] overflow-hidden">
+          {/* Background - Ready for video, currently dark gradient */}
+          <div className="absolute inset-0 bg-gradient-to-br from-[#0a1a12] via-[#0d1f17] to-black" />
           
-          <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 py-20 sm:py-32 w-full text-center">
+          {/* Subtle animated grid overlay */}
+          <div className="absolute inset-0 opacity-20">
+            <AnimatedGridBackground 
+              intensity="subtle" 
+              showScanLine={false} 
+              showParticles={true}
+              showConcentricRings={false}
+              showDiagonalGrid={false}
+            />
+          </div>
+          
+          {/* Dark gradient overlay for text readability */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-transparent" />
+          
+          {/* Content - Bottom Left positioned like Sintra */}
+          <div className="relative z-10 h-full flex flex-col justify-end pb-16 sm:pb-20 md:pb-24 lg:pb-28">
+            <div className="px-6 sm:px-8 md:px-12 lg:px-16 max-w-3xl">
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
+                transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
               >
-                <motion.div 
-                  className="inline-flex items-center gap-2 px-3 py-1.5 sm:py-2 bg-white/5 backdrop-blur-md border border-white/10 rounded-full mb-6 sm:mb-8"
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 0.2 }}
-                >
-                  <div className="w-2 h-2 rounded-full bg-[#c4ff4d] animate-pulse flex-shrink-0" />
-                  <span className="text-[10px] sm:text-xs md:text-sm text-white/80">We train it. It takes ownership. Delivers results.</span>
-                </motion.div>
-                
-                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold tracking-tight mb-6 leading-[1.1]">
-                  <span className="block font-light text-white/90">One AI Team for</span>
-                  <span className="text-[#c4ff4d] font-extrabold">Sales, Support,</span>
-                  <br />
-                  <span className="text-[#c4ff4d] font-extrabold">Bookings</span>
-                  <span className="font-light text-white/90"> & Operations</span>
+                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.1] mb-4 sm:mb-6">
+                  AI Employees: Your<br />
+                  <span className="text-[#c4ff4d]">Team That Never</span><br />
+                  <span className="text-[#c4ff4d]">Sleeps</span>
                 </h1>
                 
-                <p className="text-base sm:text-lg md:text-xl text-white/70 max-w-xl mx-auto mb-8 sm:mb-10 px-2 sm:px-0">
-                  Buy once. Hand over the work. Your business runs smoother, faster, and more profitably.
+                <p className="text-base sm:text-lg md:text-xl text-white/70 max-w-lg mb-8 sm:mb-10">
+                  Build, grow, and scale your business with a team of AI employees.
                 </p>
                 
-                <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                  <Link href="/contact">
-                    <Button 
-                      size="lg" 
-                      className="bg-[#c4ff4d] hover:bg-[#d4ff6d] text-black font-semibold px-8 py-6 text-lg rounded-full group"
-                      data-testid="button-hero-cta"
-                    >
-                      Get Your AI Team
-                      <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                    </Button>
-                  </Link>
-                  <a 
-                    href="#how-it-works" 
-                    className="text-white/70 hover:text-white flex items-center gap-2 transition-colors"
-                    data-testid="link-how-it-works"
+                <Link href="/contact">
+                  <Button 
+                    size="lg" 
+                    className="bg-[#c4ff4d] hover:bg-[#d4ff6d] text-black font-semibold px-8 py-6 text-base sm:text-lg rounded-full"
+                    data-testid="button-hero-cta"
                   >
-                    See How It Works
-                    <ChevronRight className="w-4 h-4" />
-                  </a>
-                </div>
+                    Get OARC AI
+                  </Button>
+                </Link>
               </motion.div>
+            </div>
           </div>
         </section>
         
