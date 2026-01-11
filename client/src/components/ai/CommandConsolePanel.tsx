@@ -185,19 +185,19 @@ export function CommandConsolePanel({ autoPlay = false, selectedAgentId }: Comma
                 whileHover={{ x: 4 }}
                 data-testid={`button-command-${idx}`}
               >
-                <div className="flex items-center gap-2 sm:gap-3">
-                  <div className={`w-7 h-7 sm:w-8 sm:h-8 rounded-lg flex items-center justify-center flex-shrink-0 ${
+                <div className="flex items-start gap-2 sm:gap-3">
+                  <div className={`w-7 h-7 sm:w-8 sm:h-8 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5 ${
                     isActive ? 'bg-[#c4ff4d]/20' : 'bg-white/10'
                   }`}>
                     {cmdAgent && <cmdAgent.icon className={`w-3.5 h-3.5 sm:w-4 sm:h-4 ${isActive ? 'text-[#c4ff4d]' : 'text-white/60'}`} />}
                   </div>
                   <div className="flex-1 min-w-0">
-                    <p className={`text-xs sm:text-sm font-mono truncate ${isActive ? 'text-white' : 'text-white/70'}`}>
+                    <p className={`text-xs sm:text-sm font-mono whitespace-normal break-words ${isActive ? 'text-white' : 'text-white/70'}`}>
                       {cmd.prompt}
                     </p>
-                    <p className="text-[10px] sm:text-xs text-white/40">{cmdAgent?.role}</p>
+                    <p className="text-[10px] sm:text-xs text-white/40 mt-1">{cmdAgent?.role}</p>
                   </div>
-                  <ChevronRight className={`w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0 ${isActive ? 'text-[#c4ff4d]' : 'text-white/30'}`} />
+                  <ChevronRight className={`w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0 mt-1 ${isActive ? 'text-[#c4ff4d]' : 'text-white/30'}`} />
                 </div>
               </motion.button>
             );
