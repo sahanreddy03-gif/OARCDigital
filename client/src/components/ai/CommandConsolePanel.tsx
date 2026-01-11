@@ -74,55 +74,56 @@ export function CommandConsolePanel({ autoPlay = false, selectedAgentId }: Comma
   };
   
   return (
-    <div className="relative">
-      <div className="text-center mb-12">
+    <div className="relative w-full overflow-hidden">
+      <div className="text-center mb-8 sm:mb-12 px-2">
         <motion.div 
-          className="inline-flex items-center gap-2 px-4 py-2 bg-[#c4ff4d]/10 border border-[#c4ff4d]/20 rounded-full mb-6"
+          className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 bg-[#c4ff4d]/10 border border-[#c4ff4d]/20 rounded-full mb-4 sm:mb-6"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
           <Terminal className="w-4 h-4 text-[#c4ff4d]" />
-          <span className="text-sm text-[#c4ff4d]">Command Console</span>
+          <span className="text-xs sm:text-sm text-[#c4ff4d]">Command Console</span>
         </motion.div>
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
-          Natural Language <span className="text-[#c4ff4d]">Control</span>
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 sm:mb-4">
+          <span className="block sm:inline">Natural Language</span>{' '}
+          <span className="text-[#c4ff4d]">Control</span>
         </h2>
-        <p className="text-lg text-white/60 max-w-2xl mx-auto">
+        <p className="text-base sm:text-lg text-white/60 max-w-2xl mx-auto px-2">
           Just tell your AI team what to do. They understand context and take action instantly.
         </p>
       </div>
       
-      <div className="grid lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
-        <div className="bg-black/60 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden">
-          <div className="flex items-center gap-2 px-4 py-3 bg-white/5 border-b border-white/10">
+      <div className="grid lg:grid-cols-2 gap-6 lg:gap-8 max-w-5xl mx-auto w-full">
+        <div className="bg-black/60 backdrop-blur-xl border border-white/10 rounded-xl sm:rounded-2xl overflow-hidden w-full">
+          <div className="flex items-center gap-2 px-3 sm:px-4 py-2 sm:py-3 bg-white/5 border-b border-white/10">
             <div className="flex gap-1.5">
-              <div className="w-3 h-3 rounded-full bg-red-500/60" />
-              <div className="w-3 h-3 rounded-full bg-yellow-500/60" />
-              <div className="w-3 h-3 rounded-full bg-green-500/60" />
+              <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-red-500/60" />
+              <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-yellow-500/60" />
+              <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-green-500/60" />
             </div>
-            <span className="text-xs text-white/40 ml-2 font-mono">oarc-console</span>
+            <span className="text-[10px] sm:text-xs text-white/40 ml-2 font-mono">oarc-console</span>
             <button 
               onClick={() => setIsPlaying(!isPlaying)}
-              className="ml-auto p-1.5 rounded bg-white/5 hover:bg-white/10 transition-colors"
+              className="ml-auto p-1 sm:p-1.5 rounded bg-white/5 hover:bg-white/10 transition-colors"
               data-testid="button-console-play"
             >
-              <Play className={`w-3.5 h-3.5 ${isPlaying ? 'text-[#c4ff4d]' : 'text-white/40'}`} />
+              <Play className={`w-3 h-3 sm:w-3.5 sm:h-3.5 ${isPlaying ? 'text-[#c4ff4d]' : 'text-white/40'}`} />
             </button>
           </div>
           
-          <div className="p-6 min-h-[300px]">
-            <div className="flex items-start gap-3 mb-6">
-              <div className="w-8 h-8 rounded-lg bg-[#c4ff4d]/10 flex items-center justify-center flex-shrink-0 mt-1">
-                <ChevronRight className="w-4 h-4 text-[#c4ff4d]" />
+          <div className="p-4 sm:p-6 min-h-[250px] sm:min-h-[300px]">
+            <div className="flex items-start gap-2 sm:gap-3 mb-4 sm:mb-6">
+              <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-[#c4ff4d]/10 flex items-center justify-center flex-shrink-0 mt-1">
+                <ChevronRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#c4ff4d]" />
               </div>
-              <div className="flex-1">
-                <p className="text-xs text-white/40 mb-2 font-mono">COMMAND</p>
-                <p className="text-lg text-white font-mono">
+              <div className="flex-1 min-w-0 overflow-hidden">
+                <p className="text-[10px] sm:text-xs text-white/40 mb-1.5 sm:mb-2 font-mono">COMMAND</p>
+                <p className="text-sm sm:text-lg text-white font-mono break-words">
                   {typedText}
                   {isTyping && (
                     <motion.span
-                      className="inline-block w-2 h-5 bg-[#c4ff4d] ml-1"
+                      className="inline-block w-1.5 sm:w-2 h-4 sm:h-5 bg-[#c4ff4d] ml-1"
                       animate={{ opacity: [1, 0] }}
                       transition={{ duration: 0.5, repeat: Infinity }}
                     />
@@ -137,25 +138,25 @@ export function CommandConsolePanel({ autoPlay = false, selectedAgentId }: Comma
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0 }}
-                  className="space-y-4"
+                  className="space-y-3 sm:space-y-4"
                 >
-                  <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center flex-shrink-0">
-                      {agent && <agent.icon className="w-4 h-4 text-[#c4ff4d]" />}
+                  <div className="flex items-center gap-2 sm:gap-3">
+                    <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-white/5 flex items-center justify-center flex-shrink-0">
+                      {agent && <agent.icon className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#c4ff4d]" />}
                     </div>
-                    <div>
-                      <p className="text-xs text-[#c4ff4d]/60 font-mono">{agent?.name || 'Agent'} responding...</p>
-                      <p className="text-sm text-white/80">{activeCommand.action}</p>
+                    <div className="min-w-0 flex-1">
+                      <p className="text-[10px] sm:text-xs text-[#c4ff4d]/60 font-mono">{agent?.name || 'Agent'} responding...</p>
+                      <p className="text-xs sm:text-sm text-white/80 break-words">{activeCommand.action}</p>
                     </div>
                   </div>
                   
-                  <div className="flex items-center gap-4 pt-4 border-t border-white/10">
-                    <div className="flex items-center gap-2">
-                      <Zap className="w-4 h-4 text-[#c4ff4d]" />
-                      <span className="text-xs text-white/60">Connected: {activeCommand.system}</span>
+                  <div className="flex flex-wrap items-center gap-2 sm:gap-4 pt-3 sm:pt-4 border-t border-white/10">
+                    <div className="flex items-center gap-1.5 sm:gap-2">
+                      <Zap className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#c4ff4d]" />
+                      <span className="text-[10px] sm:text-xs text-white/60">Connected: {activeCommand.system}</span>
                     </div>
                     <div className="ml-auto">
-                      <span className="text-xs px-2 py-1 bg-[#c4ff4d]/10 text-[#c4ff4d] rounded-full">
+                      <span className="text-[10px] sm:text-xs px-2 py-0.5 sm:py-1 bg-[#c4ff4d]/10 text-[#c4ff4d] rounded-full">
                         {activeCommand.impact}
                       </span>
                     </div>
@@ -166,8 +167,8 @@ export function CommandConsolePanel({ autoPlay = false, selectedAgentId }: Comma
           </div>
         </div>
         
-        <div className="space-y-3">
-          <p className="text-sm text-white/40 mb-4">Try these commands:</p>
+        <div className="space-y-2 sm:space-y-3">
+          <p className="text-xs sm:text-sm text-white/40 mb-3 sm:mb-4">Try these commands:</p>
           {filteredCommands.map((cmd, idx) => {
             const cmdAgent = aiTeamMembers.find(a => a.id === cmd.agentId);
             const isActive = idx === safeIndex;
@@ -176,7 +177,7 @@ export function CommandConsolePanel({ autoPlay = false, selectedAgentId }: Comma
               <motion.button
                 key={cmd.id}
                 onClick={() => handleCommandClick(idx)}
-                className={`w-full text-left p-4 rounded-xl border transition-all ${
+                className={`w-full text-left p-3 sm:p-4 rounded-lg sm:rounded-xl border transition-all ${
                   isActive 
                     ? 'bg-[#c4ff4d]/10 border-[#c4ff4d]/30' 
                     : 'bg-white/5 border-white/10 hover:bg-white/10'
@@ -184,19 +185,19 @@ export function CommandConsolePanel({ autoPlay = false, selectedAgentId }: Comma
                 whileHover={{ x: 4 }}
                 data-testid={`button-command-${idx}`}
               >
-                <div className="flex items-center gap-3">
-                  <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${
+                <div className="flex items-center gap-2 sm:gap-3">
+                  <div className={`w-7 h-7 sm:w-8 sm:h-8 rounded-lg flex items-center justify-center flex-shrink-0 ${
                     isActive ? 'bg-[#c4ff4d]/20' : 'bg-white/10'
                   }`}>
-                    {cmdAgent && <cmdAgent.icon className={`w-4 h-4 ${isActive ? 'text-[#c4ff4d]' : 'text-white/60'}`} />}
+                    {cmdAgent && <cmdAgent.icon className={`w-3.5 h-3.5 sm:w-4 sm:h-4 ${isActive ? 'text-[#c4ff4d]' : 'text-white/60'}`} />}
                   </div>
                   <div className="flex-1 min-w-0">
-                    <p className={`text-sm font-mono truncate ${isActive ? 'text-white' : 'text-white/70'}`}>
+                    <p className={`text-xs sm:text-sm font-mono truncate ${isActive ? 'text-white' : 'text-white/70'}`}>
                       {cmd.prompt}
                     </p>
-                    <p className="text-xs text-white/40">{cmdAgent?.role}</p>
+                    <p className="text-[10px] sm:text-xs text-white/40">{cmdAgent?.role}</p>
                   </div>
-                  <ChevronRight className={`w-4 h-4 flex-shrink-0 ${isActive ? 'text-[#c4ff4d]' : 'text-white/30'}`} />
+                  <ChevronRight className={`w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0 ${isActive ? 'text-[#c4ff4d]' : 'text-white/30'}`} />
                 </div>
               </motion.button>
             );

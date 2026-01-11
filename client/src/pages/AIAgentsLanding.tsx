@@ -548,8 +548,8 @@ export default function AIAgentsLanding() {
         </section>
         
         {/* Command Console - Natural Language Control */}
-        <section className="py-16 sm:py-24 px-4 sm:px-6 bg-black">
-          <div className="max-w-6xl mx-auto">
+        <section className="py-16 sm:py-24 px-4 sm:px-6 bg-black overflow-hidden">
+          <div className="max-w-6xl mx-auto w-full">
             <CommandConsolePanel 
               autoPlay={false} 
               selectedAgentId={selectedAgent?.id}
