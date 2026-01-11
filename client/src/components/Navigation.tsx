@@ -72,6 +72,14 @@ export default function Navigation() {
             >
               Creative
             </Link>
+            <Link 
+              href="/ai-agents" 
+              className="text-xs xl:text-sm font-medium text-[#c4ff4d] hover:text-white transition-colors" 
+              style={{ textShadow }}
+              data-testid="link-ai-agents"
+            >
+              AI Agents
+            </Link>
             
             {/* Services Mega Menu */}
             <div
@@ -225,6 +233,11 @@ export default function Navigation() {
             <Link href="/creative" data-testid="link-mobile-creative" onClick={() => setShowMobileMenu(false)}>
               <div className="text-base font-medium text-[#c4ff4d] py-3 border-b border-white/5">
                 Creative
+              </div>
+            </Link>
+            <Link href="/ai-agents" data-testid="link-mobile-ai-agents" onClick={() => setShowMobileMenu(false)}>
+              <div className="text-base font-medium text-[#c4ff4d] py-3 border-b border-white/5">
+                AI Agents
               </div>
             </Link>
             <Link href="/services" data-testid="link-mobile-all-services" onClick={() => setShowMobileMenu(false)}>
