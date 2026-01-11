@@ -14,8 +14,9 @@ export function TeamCarousel({ onAgentSelect, selectedAgentId }: TeamCarouselPro
   const [activeIndex, setActiveIndex] = useState(0);
   const x = useMotionValue(0);
   
-  const cardWidth = 320;
-  const gap = 24;
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+  const cardWidth = isMobile ? Math.min(280, window.innerWidth - 48) : 320;
+  const gap = isMobile ? 16 : 24;
   const totalCards = aiTeamMembers.length;
   
   const handleDragEnd = (_: any, info: { offset: { x: number }; velocity: { x: number } }) => {
@@ -61,13 +62,13 @@ export function TeamCarousel({ onAgentSelect, selectedAgentId }: TeamCarouselPro
         </p>
       </div>
       
-      <div className="relative overflow-hidden px-4 md:px-0">
+      <div className="relative overflow-hidden">
         <div 
           ref={containerRef}
-          className="flex justify-center"
+          className="flex justify-center px-4 md:px-0"
         >
           <motion.div
-            className="flex gap-6 cursor-grab active:cursor-grabbing"
+            className="flex gap-4 md:gap-6 cursor-grab active:cursor-grabbing"
             style={{ x }}
             drag="x"
             dragConstraints={{ 
@@ -85,8 +86,7 @@ export function TeamCarousel({ onAgentSelect, selectedAgentId }: TeamCarouselPro
               return (
                 <motion.div
                   key={agent.id}
-                  className="flex-shrink-0"
-                  style={{ width: cardWidth }}
+                  className="flex-shrink-0 w-[280px] md:w-[320px]"
                   animate={{
                     scale: isActive ? 1 : 0.9,
                     opacity: isActive ? 1 : 0.6

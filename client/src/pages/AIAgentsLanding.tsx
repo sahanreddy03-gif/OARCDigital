@@ -457,7 +457,7 @@ export default function AIAgentsLanding() {
       
       <CreativeNavigation />
       
-      <main className="min-h-screen bg-black text-white">
+      <main className="min-h-screen bg-black text-white overflow-x-hidden">
         {/* Hero Section - Split Layout with Avatar */}
         <section className="relative min-h-[90vh] flex items-center overflow-hidden">
           <AnimatedGridBackground 
@@ -469,7 +469,7 @@ export default function AIAgentsLanding() {
           />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black pointer-events-none" />
           
-          <div className="relative z-10 max-w-7xl mx-auto px-6 py-32 w-full">
+          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 py-20 sm:py-32 w-full">
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -478,23 +478,23 @@ export default function AIAgentsLanding() {
                 className="text-center lg:text-left"
               >
                 <motion.div 
-                  className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 backdrop-blur-md border border-white/10 rounded-full mb-8"
+                  className="inline-flex items-center gap-2 px-3 py-1.5 sm:py-2 bg-white/5 backdrop-blur-md border border-white/10 rounded-full mb-6 sm:mb-8"
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: 0.2 }}
                 >
-                  <div className="w-2 h-2 rounded-full bg-[#c4ff4d] animate-pulse" />
-                  <span className="text-sm text-white/80">We train it for your business. It takes ownership. Delivers results.</span>
+                  <div className="w-2 h-2 rounded-full bg-[#c4ff4d] animate-pulse flex-shrink-0" />
+                  <span className="text-[10px] sm:text-xs md:text-sm text-white/80">We train it. It takes ownership. Delivers results.</span>
                 </motion.div>
                 
-                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 leading-[1.1]">
-                  One AI Team for{' '}
+                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight mb-6 leading-[1.15]">
+                  <span className="block">One AI Team for</span>
                   <span className="text-[#c4ff4d]">Sales, Support,</span>
                   <br />
                   <span className="text-[#c4ff4d]">Bookings</span> & Operations.
                 </h1>
                 
-                <p className="text-lg md:text-xl text-white/70 max-w-xl mx-auto lg:mx-0 mb-10">
+                <p className="text-base sm:text-lg md:text-xl text-white/70 max-w-xl mx-auto lg:mx-0 mb-8 sm:mb-10 px-2 sm:px-0">
                   Buy once. Hand over the work. Your business runs smoother, faster, and more profitably.
                 </p>
                 
@@ -538,7 +538,7 @@ export default function AIAgentsLanding() {
         <StatsRail />
 
         {/* Meet Your AI Team - Carousel */}
-        <section className="py-24 px-6 bg-zinc-950">
+        <section className="py-16 sm:py-24 px-4 sm:px-6 bg-zinc-950">
           <div className="max-w-7xl mx-auto">
             <TeamCarousel 
               onAgentSelect={setSelectedAgent} 
@@ -548,7 +548,7 @@ export default function AIAgentsLanding() {
         </section>
         
         {/* Command Console - Natural Language Control */}
-        <section className="py-24 px-6 bg-black">
+        <section className="py-16 sm:py-24 px-4 sm:px-6 bg-black">
           <div className="max-w-6xl mx-auto">
             <CommandConsolePanel 
               autoPlay={false} 
@@ -558,7 +558,7 @@ export default function AIAgentsLanding() {
         </section>
 
         {/* Proof & Comparison */}
-        <section className="py-24 px-6 bg-zinc-950">
+        <section className="py-16 sm:py-24 px-4 sm:px-6 bg-zinc-950">
           <div className="max-w-6xl mx-auto">
             <motion.div 
               className="text-center mb-16"
@@ -615,14 +615,14 @@ export default function AIAgentsLanding() {
         </section>
 
         {/* How It Works - Personalization Steps */}
-        <section id="how-it-works" className="py-24 px-6 bg-black">
+        <section id="how-it-works" className="py-16 sm:py-24 px-4 sm:px-6 bg-black">
           <div className="max-w-6xl mx-auto">
             <PersonalizationSteps />
           </div>
         </section>
 
         {/* Key Benefits */}
-        <section className="py-24 px-6 bg-zinc-950">
+        <section className="py-16 sm:py-24 px-4 sm:px-6 bg-zinc-950">
           <div className="max-w-6xl mx-auto">
             <motion.div 
               className="text-center mb-16"
@@ -662,7 +662,7 @@ export default function AIAgentsLanding() {
         </section>
 
         {/* Live Demo Section */}
-        <section className="py-24 px-6 bg-zinc-950">
+        <section className="py-16 sm:py-24 px-4 sm:px-6 bg-zinc-950">
           <div className="max-w-4xl mx-auto">
             <motion.div 
               className="text-center mb-12"
@@ -679,7 +679,7 @@ export default function AIAgentsLanding() {
         </section>
 
         {/* Pricing Section */}
-        <section className="py-24 px-6 bg-black">
+        <section className="py-16 sm:py-24 px-4 sm:px-6 bg-black">
           <div className="max-w-6xl mx-auto">
             <motion.div 
               className="text-center mb-16"
@@ -760,7 +760,7 @@ export default function AIAgentsLanding() {
         </section>
 
         {/* FAQ Section */}
-        <section className="py-24 px-6 bg-zinc-950">
+        <section className="py-16 sm:py-24 px-4 sm:px-6 bg-zinc-950">
           <div className="max-w-3xl mx-auto">
             <motion.div 
               className="text-center mb-12"
@@ -781,7 +781,7 @@ export default function AIAgentsLanding() {
         </section>
 
         {/* Final CTA */}
-        <section className="py-24 px-6 bg-black relative overflow-hidden">
+        <section className="py-16 sm:py-24 px-4 sm:px-6 bg-black relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-r from-[#c4ff4d]/5 via-transparent to-[#c4ff4d]/5" />
           
           <div className="relative z-10 max-w-4xl mx-auto text-center">
