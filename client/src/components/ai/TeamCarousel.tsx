@@ -54,7 +54,7 @@ export function TeamCarousel({ onAgentSelect, selectedAgentId }: TeamCarouselPro
           <Sparkles className="w-4 h-4 text-[#c4ff4d]" />
           <span className="text-sm text-[#c4ff4d]">Your AI Workforce</span>
         </motion.div>
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-white mb-4">
           Meet Your <span className="text-[#c4ff4d]">AI Team</span>
         </h2>
         <p className="text-lg text-white/60 max-w-2xl mx-auto">

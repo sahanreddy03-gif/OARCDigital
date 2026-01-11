@@ -85,7 +85,7 @@ export function CommandConsolePanel({ autoPlay = false, selectedAgentId }: Comma
           <Terminal className="w-4 h-4 text-[#c4ff4d]" />
           <span className="text-xs sm:text-sm text-[#c4ff4d]">Command Console</span>
         </motion.div>
-        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 sm:mb-4">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-white mb-3 sm:mb-4">
           <span className="block sm:inline">Natural Language</span>{' '}
           <span className="text-[#c4ff4d]">Control</span>
         </h2>
