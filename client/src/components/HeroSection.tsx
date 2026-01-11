@@ -181,7 +181,7 @@ export default function HeroSection() {
   return (
     <>
       <style>{styles}</style>
-      <section className="relative min-h-screen flex flex-col overflow-hidden bg-black">
+      <section className="relative min-h-[85vh] md:min-h-screen flex flex-col overflow-hidden bg-black">
         
         {/* Christmas Snowfall Effect */}
         <SnowfallEffect />
@@ -231,7 +231,8 @@ export default function HeroSection() {
             transform: `translate3d(0, ${scrollY * 0.3}px, 0)`,
             willChange: 'transform',
             backfaceVisibility: 'hidden',
-            perspective: 1000
+            perspective: 1000,
+            filter: 'saturate(0.7) brightness(0.85)'
           }}
         />
         {/* AI Grid Overlay with pulse - NEON GREEN DESKTOP */}
