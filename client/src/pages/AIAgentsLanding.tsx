@@ -611,15 +611,14 @@ export default function AIAgentsLanding() {
               </div>
             </div>
             
-            {/* Content with blue accent bullets */}
+            {/* Content */}
             <div className="max-w-3xl mx-auto">
               <motion.h2 
-                className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-12 leading-tight"
+                className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6 leading-tight"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
               >
-                <span className="inline-block w-3 h-3 rounded-full bg-blue-500 mr-3 align-middle" />
                 Multiple Workspaces.
                 <br />
                 One Unified AI Team.
@@ -631,34 +630,32 @@ export default function AIAgentsLanding() {
               
               {/* Feature 1 */}
               <motion.div 
-                className="mb-10"
+                className="mb-8"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.1 }}
               >
-                <h3 className="text-xl sm:text-2xl font-semibold text-white mb-3 flex items-start gap-3">
-                  <span className="inline-block w-2.5 h-2.5 rounded-full bg-blue-500 mt-2.5 flex-shrink-0" />
+                <h3 className="text-xl sm:text-2xl font-semibold text-white mb-3">
                   Up to Five Business Profiles
                 </h3>
-                <p className="text-white/50 text-base ml-5">
+                <p className="text-white/50 text-base">
                   Create up to five distinct business profiles, each tailored to specific objectives, workflows, and operational requirements, powered by AI employees designed to deliver measurable results.
                 </p>
               </motion.div>
               
               {/* Feature 2 */}
               <motion.div 
-                className="mb-10"
+                className="mb-8"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.2 }}
               >
-                <h3 className="text-xl sm:text-2xl font-semibold text-white mb-3 flex items-start gap-3">
-                  <span className="inline-block w-2.5 h-2.5 rounded-full bg-blue-500 mt-2.5 flex-shrink-0" />
+                <h3 className="text-xl sm:text-2xl font-semibold text-white mb-3">
                   Shared Team Workspace
                 </h3>
-                <p className="text-white/50 text-base ml-5">
+                <p className="text-white/50 text-base">
                   Collaborate seamlessly with your team in real time by sharing a centralized workspace, ensuring business insights, data, and decisions are accessible to all stakeholders.
                 </p>
               </motion.div>
