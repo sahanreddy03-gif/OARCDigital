@@ -432,9 +432,12 @@ export default function AIAgentsLanding() {
               muted
               playsInline
               className="absolute inset-0 w-full h-full object-cover"
-              poster=""
+              poster="/images/ai-agents-hero-poster.jpg"
+              title="OARC Digital AI Workforce - Autonomous business agents working 24/7"
+              aria-label="Background video showcasing OARC AI agents automating business operations"
             >
               <source src="/2026-01-11_01_1768174240415.mp4" type="video/mp4" />
+              Your browser does not support the video tag. OARC AI agents automate sales, support, bookings and operations 24/7.
             </video>
           </div>
           
@@ -453,7 +456,7 @@ export default function AIAgentsLanding() {
             />
           </div>
           
-          {/* Content - Bottom Left positioned like Sintra */}
+          {/* Content - Bottom Left positioned */}
           <div className="relative z-10 h-full flex flex-col justify-end pb-20 sm:pb-24 md:pb-28 lg:pb-32">
             <div className="px-6 sm:px-8 md:px-12 lg:px-20 max-w-4xl">
               <motion.div

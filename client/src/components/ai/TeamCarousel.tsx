@@ -105,7 +105,7 @@ export function TeamCarousel({ onAgentSelect, selectedAgentId }: TeamCarouselPro
                 onClick={() => onAgentSelect?.(agent)}
                 data-testid={`card-agent-${agent.id}`}
               >
-                {/* Avatar Image Container - Sintra Style */}
+                {/* Avatar Image Container - Premium Style */}
                 <div className={`relative aspect-[4/5] rounded-2xl overflow-hidden mb-5 bg-gradient-to-br from-zinc-800 to-zinc-900 border border-white/5 transition-all duration-500 ${isSelected ? 'ring-2 ring-[#c4ff4d] ring-offset-2 ring-offset-black' : 'group-hover:border-white/10'}`}>
                   {/* Placeholder with icon - will be replaced with actual avatar */}
                   <div className="absolute inset-0 flex flex-col items-center justify-center p-6">
