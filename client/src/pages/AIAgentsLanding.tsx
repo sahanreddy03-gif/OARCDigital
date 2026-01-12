@@ -17,6 +17,7 @@ import {
   PersonalizationSteps,
   AITeamMember
 } from '@/components/ai';
+import { PricingSection } from '@/components/ai/PricingSection';
 import { 
   ArrowRight, Check,
   Zap, Shield, TrendingUp, MessageSquare, Play, Pause, RotateCcw,
@@ -109,57 +110,6 @@ const processSteps = [
     description: 'Agents operate daily, report KPIs, and improve automatically.',
     duration: 'Continuous',
     details: ['24/7 operation', 'Performance reports', 'Continuous improvement']
-  }
-];
-
-const packages = [
-  {
-    name: 'PILOT',
-    price: '1,500',
-    period: '2 weeks',
-    description: 'Best for testing with measurable results.',
-    features: [
-      '1 AI agent deployed',
-      'Up to 500 interactions',
-      'KPI baseline + dashboard',
-      'Daily performance reports',
-      'Dedicated support'
-    ],
-    cta: 'Start Pilot',
-    popular: false
-  },
-  {
-    name: 'GROWTH',
-    price: '2,997',
-    priceId: 'price_1Growth',
-    period: '/month',
-    description: 'Scale with multiple agents and full integration.',
-    features: [
-      '3 AI agents deployed',
-      'Unlimited interactions',
-      'Full tool integrations',
-      'Weekly optimization calls',
-      'Priority support',
-      'Custom training updates'
-    ],
-    cta: 'Get Started',
-    popular: true
-  },
-  {
-    name: 'ENTERPRISE',
-    price: 'Custom',
-    period: '',
-    description: 'End-to-end deployment with SLA and dedicated team.',
-    features: [
-      'Unlimited AI agents',
-      'Custom SLA guarantee',
-      'Dedicated success manager',
-      'White-label options',
-      'On-premise deployment',
-      'Advanced security controls'
-    ],
-    cta: 'Request Quote',
-    popular: false
   }
 ];
 
@@ -615,81 +565,7 @@ export default function AIAgentsLanding() {
         </section>
 
         {/* Pricing Section */}
-        <section className="relative z-10 py-16 sm:py-24 px-4 sm:px-6 bg-black">
-          <div className="max-w-6xl mx-auto">
-            <motion.div 
-              className="text-center mb-16"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold tracking-tight mb-4">How Customers Start</h2>
-              <p className="text-white/60 max-w-xl mx-auto">Choose your entry point. All packages include onboarding, support, and baseline KPI guarantee.</p>
-            </motion.div>
-            
-            <div className="grid md:grid-cols-3 gap-6">
-              {packages.map((pkg, idx) => (
-                <motion.div
-                  key={pkg.name}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: idx * 0.1 }}
-                  className="relative"
-                >
-                  {pkg.popular && (
-                    <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-10">
-                      <span className="bg-[#c4ff4d] text-black text-xs font-bold px-4 py-1 rounded-full">
-                        MOST POPULAR
-                      </span>
-                    </div>
-                  )}
-                  <GlassCard 
-                    className={`p-6 h-full ${pkg.popular ? 'border-[#c4ff4d]/30' : ''}`}
-                    variant={pkg.popular ? 'strong' : 'default'}
-                  >
-                    <div className="text-center mb-6">
-                      <h3 className="text-sm font-semibold text-[#c4ff4d] tracking-wider mb-2">{pkg.name}</h3>
-                      <div className="flex items-baseline justify-center gap-1">
-                        {pkg.price === 'Custom' ? (
-                          <span className="text-4xl font-bold">Custom</span>
-                        ) : (
-                          <>
-                            <span className="text-4xl font-bold">€{pkg.price}</span>
-                            <span className="text-white/50">{pkg.period}</span>
-                          </>
-                        )}
-                      </div>
-                      <p className="text-sm text-white/60 mt-2">{pkg.description}</p>
-                    </div>
-                    
-                    <ul className="space-y-3 mb-6">
-                      {pkg.features.map((feature) => (
-                        <li key={feature} className="flex items-start gap-2 text-sm">
-                          <Check className="w-4 h-4 text-[#c4ff4d] mt-0.5 flex-shrink-0" />
-                          <span className="text-white/80">{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-                    
-                    <Link href="/contact">
-                      <Button 
-                        className={`w-full ${
-                          pkg.popular 
-                            ? 'bg-[#c4ff4d] hover:bg-[#d4ff6d] text-black' 
-                            : 'bg-white/10 hover:bg-white/20 text-white'
-                        }`}
-                        data-testid={`button-pricing-${pkg.name.toLowerCase()}`}
-                      >
-                        {pkg.cta}
-                      </Button>
-                    </Link>
-                  </GlassCard>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
+        <PricingSection />
 
         {/* FAQ Section */}
         <section className="relative z-10 py-16 sm:py-24 px-4 sm:px-6 bg-zinc-950 border-t border-white/5">
