@@ -406,6 +406,49 @@ export default function AIAgentsLanding() {
         <title>AI Workforce Agents | Autonomous AI Team for Business | OARC Digital</title>
         <meta name="description" content="Deploy AI agents for sales, support, bookings, and operations. One AI team that takes ownership, delivers results, and runs 24/7. Pilot in 7-14 days." />
         <link rel="canonical" href="https://oarcdigital.com/ai-agents" />
+        <meta property="og:title" content="AI Workforce Agents - Your 24/7 AI Team | OARC Digital" />
+        <meta property="og:description" content="Deploy autonomous AI agents for sales, support, bookings, and operations. One AI team that delivers measurable results. Pilot in 7-14 days." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://oarcdigital.com/ai-agents" />
+        <meta property="og:image" content="https://oarcdigital.com/images/ai-agents-og.jpg" />
+        <meta property="og:image:alt" content="OARC Digital AI Workforce - 15 specialized AI agents for business automation" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="AI Workforce Agents - Your 24/7 AI Team | OARC Digital" />
+        <meta name="twitter:description" content="Deploy autonomous AI agents for sales, support, bookings, and operations. Pilot in 7-14 days." />
+        <meta name="twitter:image" content="https://oarcdigital.com/images/ai-agents-og.jpg" />
+        <meta name="twitter:image:alt" content="OARC Digital AI Workforce Agents" />
+        <meta name="robots" content="index, follow" />
+        <meta name="keywords" content="AI agents, AI employees, business automation, AI workforce, sales automation, customer support AI, booking automation, OARC Digital, Malta AI agency" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "name": "AI Workforce Agents",
+            "provider": {
+              "@type": "Organization",
+              "name": "OARC Digital",
+              "url": "https://oarcdigital.com"
+            },
+            "description": "Deploy autonomous AI agents for sales, support, bookings, and operations. One AI team that takes ownership, delivers results, and runs 24/7.",
+            "serviceType": "AI Business Automation",
+            "areaServed": "Worldwide",
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "AI Agent Services",
+              "itemListElement": [
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI Sales Agent", "description": "Automated lead qualification and demo booking" }},
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI Support Agent", "description": "90% auto-resolution of customer queries" }},
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI Bookings Agent", "description": "Automated scheduling and reminders" }},
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI Operations Agent", "description": "Workflow automation and task routing" }}
+              ]
+            },
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "4.9",
+              "reviewCount": "47"
+            }
+          })}
+        </script>
       </Helmet>
       
       <CreativeNavigation />
