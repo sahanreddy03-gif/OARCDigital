@@ -535,7 +535,7 @@ export default function AIAgentsLanding() {
         
 
         {/* Meet Your AI Team - Carousel */}
-        <section className="py-12 sm:py-16 md:py-20 bg-zinc-950">
+        <section className="relative z-10 py-12 sm:py-16 md:py-20 bg-zinc-950">
           <TeamCarousel 
             onAgentSelect={setSelectedAgent} 
             selectedAgentId={selectedAgent?.id}
@@ -543,7 +543,7 @@ export default function AIAgentsLanding() {
         </section>
         
         {/* Always On - Value Proposition Section */}
-        <section className="py-12 sm:py-16 md:py-20 px-6 sm:px-8 bg-black relative overflow-hidden">
+        <section className="relative z-10 py-12 sm:py-16 md:py-20 px-6 sm:px-8 bg-black overflow-hidden">
           {/* Subtle background pattern */}
           <div className="absolute inset-0 opacity-[0.02]">
             <div 
@@ -612,7 +612,7 @@ export default function AIAgentsLanding() {
         </section>
         
         {/* Command Console - Natural Language Control */}
-        <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 bg-zinc-950 overflow-hidden">
+        <section className="relative z-10 py-12 sm:py-16 md:py-20 px-4 sm:px-6 bg-zinc-950 overflow-hidden">
           <div className="max-w-6xl mx-auto w-full">
             <CommandConsolePanel 
               autoPlay={false} 
@@ -622,7 +622,7 @@ export default function AIAgentsLanding() {
         </section>
 
         {/* Proof & Comparison */}
-        <section className="py-12 sm:py-16 px-4 sm:px-6 bg-zinc-950">
+        <section className="relative z-10 py-12 sm:py-16 px-4 sm:px-6 bg-zinc-950">
           <div className="max-w-6xl mx-auto">
             <motion.div 
               className="text-center mb-16"
@@ -679,14 +679,14 @@ export default function AIAgentsLanding() {
         </section>
 
         {/* How It Works - Personalization Steps */}
-        <section id="how-it-works" className="py-16 sm:py-24 px-4 sm:px-6 bg-black">
+        <section id="how-it-works" className="relative z-10 py-16 sm:py-24 px-4 sm:px-6 bg-black">
           <div className="max-w-6xl mx-auto">
             <PersonalizationSteps />
           </div>
         </section>
 
         {/* Key Benefits */}
-        <section className="py-16 sm:py-24 px-4 sm:px-6 bg-zinc-950">
+        <section className="relative z-10 py-16 sm:py-24 px-4 sm:px-6 bg-zinc-950">
           <div className="max-w-6xl mx-auto">
             <motion.div 
               className="text-center mb-16"
@@ -726,7 +726,7 @@ export default function AIAgentsLanding() {
         </section>
 
         {/* Live Demo Section */}
-        <section className="py-16 sm:py-24 px-4 sm:px-6 bg-zinc-950">
+        <section className="relative z-10 py-16 sm:py-24 px-4 sm:px-6 bg-zinc-950">
           <div className="max-w-4xl mx-auto">
             <motion.div 
               className="text-center mb-12"
@@ -743,7 +743,7 @@ export default function AIAgentsLanding() {
         </section>
 
         {/* Pricing Section */}
-        <section className="py-16 sm:py-24 px-4 sm:px-6 bg-black">
+        <section className="relative z-10 py-16 sm:py-24 px-4 sm:px-6 bg-black">
           <div className="max-w-6xl mx-auto">
             <motion.div 
               className="text-center mb-16"
@@ -824,7 +824,7 @@ export default function AIAgentsLanding() {
         </section>
 
         {/* FAQ Section */}
-        <section className="py-16 sm:py-24 px-4 sm:px-6 bg-zinc-950">
+        <section className="relative z-10 py-16 sm:py-24 px-4 sm:px-6 bg-zinc-950">
           <div className="max-w-3xl mx-auto">
             <motion.div 
               className="text-center mb-12"
@@ -845,7 +845,7 @@ export default function AIAgentsLanding() {
         </section>
 
         {/* Final CTA */}
-        <section className="py-16 sm:py-24 px-4 sm:px-6 bg-black relative overflow-hidden">
+        <section className="relative z-10 py-16 sm:py-24 px-4 sm:px-6 bg-black overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-r from-[#c4ff4d]/5 via-transparent to-[#c4ff4d]/5" />
           
           <div className="relative z-10 max-w-4xl mx-auto text-center">
