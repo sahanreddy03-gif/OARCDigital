@@ -3,71 +3,79 @@ import { Link } from 'wouter';
 import { ArrowRight, ChevronLeft, ChevronRight, Cpu } from 'lucide-react';
 import { motion, useReducedMotion } from 'framer-motion';
 
-import sdrAgentImage from '@assets/ai-sdr-agent-optimized.webp';
-import customerSupportImage from '@assets/ai-customer-support-optimized.webp';
-import dataInsightsImage from '@assets/data-insights-neural-optimized.webp';
-import adminAgentImage from '@assets/ai-admin-agent-optimized.webp';
-import contentStrategistImage from '@assets/ai-content-strategist-optimized.webp';
+import salesAgentAvatar from '@assets/Sales_1768204442839.png';
+import customerSupportAvatar from '@assets/Customer_support_specalist_1768204442837.png';
+import operationsAgentAvatar from '@assets/Man_Avatar_8_1768204442838.png';
+import supportAgentAvatar from '@assets/Untitled_1768204442839.png';
+import followupAgentAvatar from '@assets/Follow_up_1768204442837.png';
 import complianceAuditor from '@assets/stock_images/legal_compliance_off_78808712.jpg';
-import appointmentBooker from '@assets/stock_images/appointment_schedule_97373ecb.jpg';
-import realEstateAgent from '@assets/stock_images/real_estate_agent_pr_d5449235.jpg';
+import bookingsAgentAvatar from '@assets/bookings_1768204442836.png';
+import businessDevAvatar from '@assets/Business_development_manager_1768204442837.png';
 
 const agents = [
   {
     title: "Sales Development Rep",
     metric: "3x conversion lift",
-    image: sdrAgentImage,
+    image: salesAgentAvatar,
     slug: "ai-sdr-agent",
-    objectPosition: "center"
+    objectPosition: "center",
+    alt: "AI Sales Development Rep - OARC Digital Malta AI agency automated lead qualification"
   },
   {
     title: "Customer Support",
     metric: "90% resolution rate",
-    image: customerSupportImage,
+    image: customerSupportAvatar,
     slug: "ai-support-specialist",
-    objectPosition: "center"
+    objectPosition: "center",
+    alt: "AI Customer Support Specialist - OARC Digital Malta AI agency customer service automation"
   },
   {
     title: "Data Insights Analyst",
     metric: "Real-time dashboards",
-    image: dataInsightsImage,
+    image: operationsAgentAvatar,
     slug: "ai-data-analyst",
-    objectPosition: "left center"
+    objectPosition: "center",
+    alt: "AI Data Insights Analyst - OARC Digital Malta AI agency real-time analytics"
   },
   {
     title: "Administrative Agent",
     metric: "50% time reclaimed",
-    image: adminAgentImage,
+    image: supportAgentAvatar,
     slug: "ai-admin-agent",
-    objectPosition: "center"
+    objectPosition: "center",
+    alt: "AI Administrative Agent - OARC Digital Malta AI agency workflow automation"
   },
   {
     title: "Content Strategist",
     metric: "10x content velocity",
-    image: contentStrategistImage,
+    image: followupAgentAvatar,
     slug: "ai-content-strategist",
-    objectPosition: "center"
+    objectPosition: "center",
+    alt: "AI Content Strategist - OARC Digital Malta AI agency content creation"
   },
   {
     title: "Compliance Auditor",
     metric: "GDPR bulletproof",
     image: complianceAuditor,
     slug: "ai-compliance-auditor",
-    objectPosition: "center"
+    objectPosition: "center",
+    alt: "AI Compliance Auditor - OARC Digital Malta AI agency GDPR compliance automation"
   },
   {
     title: "Appointment Booker",
     metric: "20% fewer no-shows",
-    image: appointmentBooker,
+    image: bookingsAgentAvatar,
     slug: "ai-appointment-booker",
-    objectPosition: "center"
+    objectPosition: "center",
+    alt: "AI Appointment Booker - OARC Digital Malta AI agency scheduling automation"
   },
   {
-    title: "Real Estate Specialist",
-    metric: "Malta-focused",
-    image: realEstateAgent,
-    slug: "ai-real-estate-agent",
-    objectPosition: "center"
+    title: "Business Development",
+    metric: "50+ leads/month",
+    image: businessDevAvatar,
+    slug: "ai-business-development",
+    objectPosition: "center",
+    alt: "AI Business Development Agent - OARC Digital Malta AI agency growth strategies"
   },
 ];
 
@@ -445,10 +453,10 @@ export default function HireAIEmployeesSection() {
                 >
                   <img
                     src={agent.image}
-                    alt={agent.title}
-                    className="w-full h-full object-cover opacity-80 transition-all duration-500 ease-out group-hover:opacity-100 group-hover:scale-105"
-                    style={{ objectPosition: agent.objectPosition }}
+                    alt={agent.alt}
+                    className="w-full h-full object-contain object-center opacity-80 transition-all duration-500 ease-out group-hover:opacity-100 group-hover:scale-105"
                     loading="lazy"
+                    decoding="async"
                     draggable={false}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
