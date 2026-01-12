@@ -4,6 +4,7 @@ import { motion, useInView, useReducedMotion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 import { Button } from '@/components/ui/button';
 import { GlassCard } from '@/components/ui/glass-card';
+import { AnimatedGridBackground } from '@/components/ui/animated-grid-background';
 import { 
   NeuralBrain, LightningBolt, ClockSpeed, GlobeNetwork, NetworkHub, DataFlow, ShieldCheck, BarChart
 } from '@/components/ui/ai-icons';
@@ -409,9 +410,20 @@ export default function AIAgentsLanding() {
       
       <CreativeNavigation />
       
-      <main className="min-h-screen bg-black text-white overflow-x-hidden" style={{ fontFamily: 'var(--font-ciscela)' }}>
+      <main className="min-h-screen bg-black text-white overflow-x-hidden relative" style={{ fontFamily: 'var(--font-ciscela)' }}>
+        {/* Fixed Animated Grid Background */}
+        <div className="fixed inset-0 z-0 pointer-events-none">
+          <AnimatedGridBackground 
+            intensity="subtle" 
+            showScanLine={true}
+            showParticles={true}
+            showConcentricRings={false}
+            showDiagonalGrid={true}
+          />
+        </div>
+        
         {/* Hero Section - Ultra Premium with Video Background */}
-        <section className="relative h-screen min-h-[600px] max-h-[1000px] overflow-hidden">
+        <section className="relative z-10 h-screen min-h-[600px] max-h-[1000px] overflow-hidden">
           {/* Video Background */}
           <div className="absolute inset-0">
             <video
