@@ -23,6 +23,7 @@ import {
   Database, Mail, Bot, Sparkles, ChevronRight
 } from 'lucide-react';
 import { SiWhatsapp } from 'react-icons/si';
+import workspaceImage from '@assets/not_ai_agent_1768231816421.png';
 
 const fadeInUp = {
   initial: { opacity: 0, y: 30 },
@@ -603,12 +604,15 @@ export default function AIAgentsLanding() {
         {/* Workspace Management Section - Sintra.ai Style */}
         <section className="relative z-10 py-16 sm:py-24 px-4 sm:px-6 bg-black">
           <div className="max-w-6xl mx-auto">
-            {/* Image placeholder - user will provide */}
+            {/* Workspace Dashboard Image */}
             <div className="mb-12 flex justify-center">
-              <div className="w-full max-w-3xl aspect-[16/10] bg-zinc-900 rounded-2xl border border-white/10 flex items-center justify-center text-white/30 text-lg">
-                {/* Workspace dashboard image placeholder - user will provide image */}
-                <span>Workspace Dashboard Image</span>
-              </div>
+              <img 
+                src={workspaceImage} 
+                alt="OARC Digital Malta AI workspace management dashboard - unified AI team for multiple business profiles"
+                loading="lazy"
+                decoding="async"
+                className="w-full max-w-md object-contain"
+              />
             </div>
             
             {/* Content */}
