@@ -409,7 +409,7 @@ export default function AIAgentsLanding() {
       
       <CreativeNavigation />
       
-      <main className="min-h-screen bg-black text-white overflow-x-hidden" style={{ fontFamily: 'var(--font-technul)' }}>
+      <main className="min-h-screen bg-black text-white overflow-x-hidden" style={{ fontFamily: 'var(--font-ciscela)' }}>
         {/* Hero Section - Ultra Premium with Video Background */}
         <section className="relative h-screen min-h-[600px] max-h-[1000px] overflow-hidden">
           {/* Video Background */}
@@ -449,7 +449,7 @@ export default function AIAgentsLanding() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
               >
-                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.05] mb-4 sm:mb-6 tracking-tight" style={{ fontFamily: 'var(--font-technul)' }}>
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.05] mb-4 sm:mb-6 tracking-tight" style={{ fontFamily: 'var(--font-ciscela)' }}>
                   AI Employees
                   <br />
                   <span className="text-white/90">Your team that works</span>
