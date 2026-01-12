@@ -313,7 +313,7 @@ export default function AIAgentsLanding() {
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
           
           {/* Content - Bottom positioned, leaving top clear for AI character */}
-          <div className="relative z-10 h-full flex flex-col justify-end pb-16 sm:pb-20 md:pb-24">
+          <div className="relative z-10 h-full flex flex-col justify-end pb-20 sm:pb-28 md:pb-32">
             <div className="px-6 sm:px-8 md:px-12 lg:px-20 max-w-4xl">
               <motion.div
                 initial={{ opacity: 0, y: 40 }}
@@ -348,37 +348,16 @@ export default function AIAgentsLanding() {
         </section>
         
         {/* AI Agents Carousel Section - 2nd Section */}
-        <section className="relative z-10 py-16 sm:py-24 px-4 sm:px-6 bg-black overflow-hidden">
+        <section className="relative z-10 py-12 sm:py-16 px-4 sm:px-6 bg-black overflow-hidden">
           <div className="max-w-7xl mx-auto">
-            <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 gap-6">
-              <div className="max-w-2xl">
-                <motion.div
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                >
-                  <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
-                    Meet Your New <br />
-                    <span className="text-[#c4ff4d]">Executive Team</span>
-                  </h2>
-                  <p className="text-white/60 text-lg font-light">
-                    15 specialized AI agents ready to take ownership of your business growth. No hiring, no training, just results.
-                  </p>
-                </motion.div>
-              </div>
-              
-              <div className="hidden md:grid grid-cols-2 gap-4 w-full max-w-xs">
-                {[
-                  { label: 'Availability', value: '24/7' },
-                  { label: 'Agents deployed', value: '40+' }
-                ].map((stat) => (
-                  <div key={stat.label} className="text-center p-4 bg-white/5 rounded-xl border border-white/10">
-                    <div className="text-2xl font-bold text-[#c4ff4d] mb-1">{stat.value}</div>
-                    <div className="text-xs text-white/50">{stat.label}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
+            <motion.h2 
+              className="text-2xl sm:text-3xl md:text-4xl font-bold text-white text-center mb-10 sm:mb-14"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              Meet Your AI Employees — 15 Specialized Agents Trained for Your Business <span className="text-[#c4ff4d]">Workflows</span>
+            </motion.h2>
             
             <TeamCarousel />
           </div>
