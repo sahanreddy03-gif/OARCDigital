@@ -467,8 +467,8 @@ export default function AIAgentsLanding() {
         </div>
         
         {/* Hero Section - Ultra Premium with Video Background */}
-        <section className="relative z-10 h-[80vh] sm:h-screen min-h-[500px] sm:min-h-[600px] max-h-[800px] sm:max-h-[1000px] overflow-hidden">
-          {/* Video Background */}
+        <section className="relative z-10 h-screen min-h-[600px] max-h-[1000px] overflow-hidden">
+          {/* Video Background - Bright and visible */}
           <div className="absolute inset-0">
             <video
               autoPlay
@@ -485,30 +485,18 @@ export default function AIAgentsLanding() {
             </video>
           </div>
           
-          {/* Cinematic dark overlays for premium feel */}
-          <div className="absolute inset-0 bg-black/50" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/20 to-transparent" />
+          {/* Light overlay - only at bottom for text readability */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
           
-          {/* Subtle scan line effect */}
-          <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
-            <div 
-              className="absolute inset-0"
-              style={{
-                backgroundImage: 'repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255,255,255,0.03) 2px, rgba(255,255,255,0.03) 4px)',
-              }}
-            />
-          </div>
-          
-          {/* Content - Bottom Left positioned */}
-          <div className="relative z-10 h-full flex flex-col justify-end pb-20 sm:pb-24 md:pb-28 lg:pb-32">
+          {/* Content - Bottom positioned, leaving top clear for AI character */}
+          <div className="relative z-10 h-full flex flex-col justify-end pb-8 sm:pb-10 md:pb-12">
             <div className="px-6 sm:px-8 md:px-12 lg:px-20 max-w-4xl">
               <motion.div
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
               >
-                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.05] mb-4 sm:mb-6 tracking-tight" style={{ fontFamily: 'var(--font-pixelag)' }}>
+                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-[1.1] mb-3 sm:mb-4 tracking-tight" style={{ fontFamily: 'var(--font-pixelag)' }}>
                   AI Employees
                   <br />
                   <span className="text-white/90">Your team that works</span>
@@ -516,14 +504,14 @@ export default function AIAgentsLanding() {
                   <span className="text-[#c4ff4d]">24/7</span>
                 </h1>
                 
-                <p className="text-lg sm:text-xl md:text-2xl text-white/60 max-w-xl mb-10 sm:mb-12 font-light tracking-wide">
+                <p className="text-base sm:text-lg md:text-xl text-white/70 max-w-xl mb-6 sm:mb-8 font-light tracking-wide">
                   Build, grow, and scale your business with our AI workforce.
                 </p>
                 
                 <Link href="/contact">
                   <Button 
-                    size="lg" 
-                    className="bg-[#c4ff4d] hover:bg-[#d4ff6d] text-black font-semibold px-10 py-7 text-lg rounded-full shadow-2xl shadow-[#c4ff4d]/20 transition-all duration-300 hover:shadow-[#c4ff4d]/30 hover:scale-[1.02]"
+                    size="default" 
+                    className="bg-[#c4ff4d] hover:bg-[#d4ff6d] text-black font-semibold px-6 py-3 text-sm sm:text-base rounded-full shadow-lg shadow-[#c4ff4d]/20 transition-all duration-300 hover:shadow-[#c4ff4d]/30 hover:scale-[1.02]"
                     data-testid="button-hero-cta"
                   >
                     Get OARC AI
