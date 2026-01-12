@@ -612,7 +612,7 @@ export default function AIAgentsLanding() {
         </section>
         
         {/* Command Console - Natural Language Control */}
-        <section className="py-20 sm:py-28 md:py-32 px-4 sm:px-6 bg-zinc-950 overflow-hidden">
+        <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 bg-zinc-950 overflow-hidden">
           <div className="max-w-6xl mx-auto w-full">
             <CommandConsolePanel 
               autoPlay={false} 
@@ -622,7 +622,7 @@ export default function AIAgentsLanding() {
         </section>
 
         {/* Proof & Comparison */}
-        <section className="py-16 sm:py-24 px-4 sm:px-6 bg-zinc-950">
+        <section className="py-12 sm:py-16 px-4 sm:px-6 bg-zinc-950">
           <div className="max-w-6xl mx-auto">
             <motion.div 
               className="text-center mb-16"
