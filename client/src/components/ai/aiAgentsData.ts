@@ -12,6 +12,9 @@ import lunaAvatar from '@assets/3333_1768232221384.png';
 import pixelAvatar from '@assets/4444_1768232221384.png';
 import sageAvatar from '@assets/222_1768232221384.png';
 import vaultAvatar from '@assets/Untitled_1768232221385.png';
+import cipherAvatar from '@assets/7_1768245852873.png';
+import quillAvatar from '@assets/6_1768245852872.png';
+import pulseAvatar from '@assets/888_1768245852873.png';
 
 export interface AITeamMember {
   id: string;
@@ -180,7 +183,7 @@ export const aiTeamMembers: AITeamMember[] = [
     description: 'Cipher turns raw data into actionable insights. Dashboards, trend analysis, and predictions at your fingertips.',
     metric: '10x faster insights',
     capabilities: ['Data analysis', 'Dashboard creation', 'Trend detection', 'Predictive analytics'],
-    avatarImage: null,
+    avatarImage: cipherAvatar,
     avatarAlt: 'Cipher AI Data Analytics Agent - OARC Digital Malta AI agency data insights'
   },
   {
@@ -192,7 +195,7 @@ export const aiTeamMembers: AITeamMember[] = [
     description: 'Quill creates blog posts, social copy, and marketing content. Quality content that resonates with your audience.',
     metric: '5x content output',
     capabilities: ['Blog writing', 'Social media copy', 'Ad copy', 'Content strategy'],
-    avatarImage: null,
+    avatarImage: quillAvatar,
     avatarAlt: 'Quill AI Content Agent - OARC Digital Malta AI agency blog and social media writing'
   },
   {
@@ -204,7 +207,7 @@ export const aiTeamMembers: AITeamMember[] = [
     description: 'Pulse manages drip campaigns, newsletters, and email automation. Your email marketing, on autopilot.',
     metric: '25% higher open rates',
     capabilities: ['Drip campaigns', 'Newsletter creation', 'Email automation', 'List management'],
-    avatarImage: null,
+    avatarImage: pulseAvatar,
     avatarAlt: 'Pulse AI Email Agent - OARC Digital Malta AI agency email campaign automation'
   }
 ];
