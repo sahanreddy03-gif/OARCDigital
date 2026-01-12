@@ -1,6 +1,6 @@
 import { useRef, useState, useEffect } from 'react';
 import { motion, useMotionValue, useSpring, animate } from 'framer-motion';
-import { Check, MessageSquare, Phone, Bot, Users, Building2, Sparkles } from 'lucide-react';
+import { Check, MessageSquare, Phone, Bot, Users, Building2, Sparkles, Gift } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'wouter';
 
@@ -13,6 +13,7 @@ interface PricingTier {
   setup: string;
   bestFor: string;
   features: string[];
+  bonuses?: string[];
   overage?: string;
   cta: string;
   ctaLink: string;
@@ -37,8 +38,14 @@ const pricingTiers: PricingTier[] = [
       'Weekly summary + basic reporting',
       'GDPR-ready processing'
     ],
+    bonuses: [
+      'Fast onboarding pack (priority install + launch QA)',
+      'Mobile booking landing template',
+      'Starter conversion script pack',
+      '14-day launch monitoring & tuning'
+    ],
     overage: '€0.05/extra conversation',
-    cta: 'Get Chatbot Starter',
+    cta: 'Get Started',
     ctaLink: '/contact',
     icon: MessageSquare
   },
@@ -58,50 +65,65 @@ const pricingTiers: PricingTier[] = [
       'Voicemail transcription',
       'Basic call analytics'
     ],
+    bonuses: [
+      'Holiday message and call script templates',
+      '7-day launch monitoring and first-week tuning'
+    ],
     overage: '€0.15/extra minute',
-    cta: 'Get Voice Starter',
+    cta: 'Get Started',
     ctaLink: '/contact',
     icon: Phone
   },
   {
-    id: 'single-agent',
-    name: 'Single Agent',
+    id: 'workflow-agent',
+    name: 'AI Workflow Agent',
     category: 'managed',
     price: '€397',
     period: '/month',
     setup: '€297 one-time setup',
     bestFor: 'Restaurants, retail, solo professionals',
     features: [
-      '1 AI agent (Bookings OR Support OR Leads)',
+      'AI agent (Bookings OR Support OR Leads)',
       'Custom training on products & policies',
       '500 conversations/month',
       '1 channel (website OR WhatsApp)',
       'Live widget + email/SMS alerts',
       'Monthly report + 14-day guarantee'
     ],
+    bonuses: [
+      'Fast onboarding pack + mobile landing template',
+      'Conversion scripts for bookings & objections',
+      '14-day launch monitoring and first-week tuning'
+    ],
     overage: '€0.15/extra conversation',
-    cta: 'Get Single Agent',
+    cta: 'Get Started',
     ctaLink: '/contact',
     icon: Bot
   },
   {
-    id: 'ai-team',
-    name: 'AI Team',
+    id: 'ai-operations-team',
+    name: 'AI Operations Team',
     category: 'managed',
     price: '€1,497',
     period: '/month',
     setup: '€497 one-time setup',
     bestFor: 'Agencies, hospitality, real estate, professional services',
     features: [
-      '3 AI agents (Sales + Support + Bookings)',
+      'Multiple AI agents (Sales + Support + Bookings)',
       'Comprehensive training & workflow mapping',
       '2,500 conversations/month',
       'Multi-channel: Web, WhatsApp, Social',
       'CRM sync + analytics dashboard',
       'Weekly optimization + 90-day ROI promise'
     ],
+    bonuses: [
+      'Paid-creative launch pack (Reel + carousel templates)',
+      'Competitor response audit + improvement playbook',
+      'Knowledge base starter (pre-built FAQ mapped to your product)',
+      '30 days post-launch priority tuning (daily checks first week)'
+    ],
     overage: '€0.10/extra conversation',
-    cta: 'Get AI Team',
+    cta: 'Get Started',
     ctaLink: '/contact',
     popular: true,
     icon: Users
@@ -115,7 +137,7 @@ const pricingTiers: PricingTier[] = [
     setup: 'Bespoke implementation',
     bestFor: 'Complex, regulated, high-volume deployments',
     features: [
-      'Up to 15 AI agents configured',
+      'Full AI team configured to your operations',
       'Enterprise-grade continuous fine-tuning',
       'Full API, payments, CRM integrations',
       'Multilingual + compliance options',
@@ -336,7 +358,7 @@ function PricingCard({ tier, index }: { tier: PricingTier; index: number }) {
       </p>
 
       {/* Features */}
-      <ul className="space-y-2.5 mb-5">
+      <ul className="space-y-2.5 mb-4">
         {tier.features.map((feature) => (
           <li key={feature} className="flex items-start gap-2 text-sm">
             <Check className="w-4 h-4 text-[#c4ff4d] mt-0.5 flex-shrink-0" />
@@ -344,6 +366,24 @@ function PricingCard({ tier, index }: { tier: PricingTier; index: number }) {
           </li>
         ))}
       </ul>
+
+      {/* Bonuses */}
+      {tier.bonuses && tier.bonuses.length > 0 && (
+        <div className="mb-4 pt-3 border-t border-white/5">
+          <div className="flex items-center gap-1.5 mb-2">
+            <Gift className="w-3.5 h-3.5 text-[#c4ff4d]" />
+            <span className="text-xs uppercase tracking-wider text-[#c4ff4d]/80 font-medium">Limited Bonuses</span>
+          </div>
+          <ul className="space-y-1.5">
+            {tier.bonuses.map((bonus) => (
+              <li key={bonus} className="flex items-start gap-2 text-xs">
+                <span className="text-[#c4ff4d]/60 mt-0.5">+</span>
+                <span className="text-white/50">{bonus}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
 
       {/* Overage */}
       {tier.overage && (
