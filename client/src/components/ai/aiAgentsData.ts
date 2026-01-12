@@ -8,6 +8,10 @@ import operationsAgentAvatar from '@assets/Man_Avatar_8_1768204442838.png';
 import followupAgentAvatar from '@assets/Follow_up_1768204442837.png';
 import customerSupportAvatar from '@assets/Customer_support_specalist_1768204442837.png';
 import businessDevAvatar from '@assets/Business_development_manager_1768204442837.png';
+import lunaAvatar from '@assets/3333_1768232221384.png';
+import pixelAvatar from '@assets/4444_1768232221384.png';
+import sageAvatar from '@assets/222_1768232221384.png';
+import vaultAvatar from '@assets/Untitled_1768232221385.png';
 
 export interface AITeamMember {
   id: string;
@@ -92,7 +96,7 @@ export const aiTeamMembers: AITeamMember[] = [
     description: 'Luna optimizes your campaigns, segments audiences, and runs A/B tests automatically. Data-driven marketing that scales.',
     metric: '40% better ROI',
     capabilities: ['Campaign optimization', 'Audience segmentation', 'A/B testing', 'Performance analytics'],
-    avatarImage: null,
+    avatarImage: lunaAvatar,
     avatarAlt: 'Luna AI Marketing Agent - OARC Digital Malta AI agency campaign optimization'
   },
   {
@@ -104,7 +108,7 @@ export const aiTeamMembers: AITeamMember[] = [
     description: 'Pixel analyzes rankings, optimizes content, and tracks competitors. Your search visibility, always improving.',
     metric: '2x organic traffic',
     capabilities: ['Keyword research', 'Content optimization', 'Rank tracking', 'Competitor analysis'],
-    avatarImage: null,
+    avatarImage: pixelAvatar,
     avatarAlt: 'Pixel AI SEO Specialist - OARC Digital Malta AI agency search optimization'
   },
   {
@@ -152,7 +156,7 @@ export const aiTeamMembers: AITeamMember[] = [
     description: 'Sage screens resumes, schedules interviews, and handles onboarding. Faster hiring cycles, better candidate experience.',
     metric: '60% faster hiring',
     capabilities: ['Resume screening', 'Interview scheduling', 'Onboarding', 'HR queries'],
-    avatarImage: null,
+    avatarImage: sageAvatar,
     avatarAlt: 'Sage AI HR Agent - OARC Digital Malta AI agency recruitment and onboarding'
   },
   {
@@ -164,7 +168,7 @@ export const aiTeamMembers: AITeamMember[] = [
     description: 'Vault processes invoices, tracks expenses, and generates financial reports. Your finances, always under control.',
     metric: '80% time saved',
     capabilities: ['Invoice processing', 'Expense tracking', 'Financial reports', 'Budget alerts'],
-    avatarImage: null,
+    avatarImage: vaultAvatar,
     avatarAlt: 'Vault AI Finance Agent - OARC Digital Malta AI agency invoice and expense management'
   },
   {
