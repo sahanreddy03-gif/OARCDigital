@@ -409,7 +409,7 @@ export default function AIAgentsLanding() {
       
       <CreativeNavigation />
       
-      <main className="min-h-screen bg-black text-white overflow-x-hidden">
+      <main className="min-h-screen bg-black text-white overflow-x-hidden" style={{ fontFamily: 'var(--font-technul)' }}>
         {/* Hero Section - Ultra Premium with Video Background */}
         <section className="relative h-screen min-h-[600px] max-h-[1000px] overflow-hidden">
           {/* Video Background */}
@@ -422,7 +422,7 @@ export default function AIAgentsLanding() {
               className="absolute inset-0 w-full h-full object-cover"
               poster=""
             >
-              <source src="/attached_assets/2026-01-11_01_1768174240415.mp4" type="video/mp4" />
+              <source src="/2026-01-11_01_1768174240415.mp4" type="video/mp4" />
             </video>
           </div>
           
@@ -449,7 +449,7 @@ export default function AIAgentsLanding() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
               >
-                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white leading-[1.05] mb-6 sm:mb-8 tracking-tight">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.05] mb-4 sm:mb-6 tracking-tight" style={{ fontFamily: 'var(--font-technul)' }}>
                   AI Employees
                   <br />
                   <span className="text-white/90">Your team that works</span>
@@ -505,7 +505,7 @@ export default function AIAgentsLanding() {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 tracking-tight leading-tight">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 tracking-tight leading-tight">
                 Automates work.
                 <br />
                 <span className="text-white/60">Even while you sleep.</span>
@@ -523,7 +523,7 @@ export default function AIAgentsLanding() {
                   viewport={{ once: true }}
                   transition={{ delay: 0.1 }}
                 >
-                  <div className="text-4xl sm:text-5xl font-bold text-[#c4ff4d] mb-2">24/7</div>
+                  <div className="text-3xl sm:text-4xl font-bold text-[#c4ff4d] mb-2">24/7</div>
                   <div className="text-sm text-white/40">Always available</div>
                 </motion.div>
                 
@@ -534,7 +534,7 @@ export default function AIAgentsLanding() {
                   viewport={{ once: true }}
                   transition={{ delay: 0.2 }}
                 >
-                  <div className="text-4xl sm:text-5xl font-bold text-white mb-2">15+</div>
+                  <div className="text-3xl sm:text-4xl font-bold text-white mb-2">15+</div>
                   <div className="text-sm text-white/40">AI employees</div>
                 </motion.div>
                 
@@ -545,7 +545,7 @@ export default function AIAgentsLanding() {
                   viewport={{ once: true }}
                   transition={{ delay: 0.3 }}
                 >
-                  <div className="text-4xl sm:text-5xl font-bold text-white mb-2">1</div>
+                  <div className="text-3xl sm:text-4xl font-bold text-white mb-2">1</div>
                   <div className="text-sm text-white/40">Unified team</div>
                 </motion.div>
               </div>
@@ -572,7 +572,7 @@ export default function AIAgentsLanding() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight mb-4">Why OARC AI Agents Win</h2>
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold tracking-tight mb-4">Why OARC AI Agents Win</h2>
               <p className="text-white/60 max-w-xl mx-auto">Compare hiring, outsourcing, and AI deployment side by side.</p>
             </motion.div>
             
@@ -636,7 +636,7 @@ export default function AIAgentsLanding() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight mb-4">Why Businesses Choose AI Teams</h2>
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold tracking-tight mb-4">Why Businesses Choose AI Teams</h2>
               <p className="text-white/60 max-w-xl mx-auto">Measurable impact. Predictable costs. Zero management overhead.</p>
             </motion.div>
             
@@ -676,7 +676,7 @@ export default function AIAgentsLanding() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight mb-4">See It In Action</h2>
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold tracking-tight mb-4">See It In Action</h2>
               <p className="text-white/60 max-w-xl mx-auto">Watch our AI agent handle a real booking + support request in under 15 seconds.</p>
             </motion.div>
             
@@ -693,7 +693,7 @@ export default function AIAgentsLanding() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight mb-4">How Customers Start</h2>
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold tracking-tight mb-4">How Customers Start</h2>
               <p className="text-white/60 max-w-xl mx-auto">Choose your entry point. All packages include onboarding, support, and baseline KPI guarantee.</p>
             </motion.div>
             
@@ -774,7 +774,7 @@ export default function AIAgentsLanding() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight mb-4">Frequently Asked Questions</h2>
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold tracking-tight mb-4">Frequently Asked Questions</h2>
               <p className="text-white/60">Got questions? We've got answers.</p>
             </motion.div>
             
@@ -796,7 +796,7 @@ export default function AIAgentsLanding() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight mb-6">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold tracking-tight mb-6">
                 Ready to Deploy Your AI Team?
               </h2>
               <p className="text-lg text-white/70 mb-8 max-w-2xl mx-auto">
