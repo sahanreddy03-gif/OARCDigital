@@ -88,7 +88,7 @@ export function TeamCarousel({ onAgentSelect, selectedAgentId }: TeamCarouselPro
         <div 
           ref={scrollRef}
           className="flex gap-4 sm:gap-6 overflow-x-auto scrollbar-hide px-4 sm:px-8 md:px-16 lg:px-24 pb-4 snap-x snap-mandatory"
-          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none', touchAction: 'pan-x pan-y' }}
         >
           {aiTeamMembers.map((agent, idx) => {
             const isSelected = agent.id === selectedAgentId;
