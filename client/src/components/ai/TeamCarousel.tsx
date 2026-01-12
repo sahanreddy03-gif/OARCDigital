@@ -106,11 +106,15 @@ export function TeamCarousel({ onAgentSelect, selectedAgentId }: TeamCarouselPro
                 data-testid={`card-agent-${agent.id}`}
               >
                 {/* Avatar Image Container - Premium Style */}
-                <div className={`relative aspect-[4/5] rounded-2xl overflow-hidden mb-5 bg-gradient-to-br from-zinc-800 to-zinc-900 border border-white/5 transition-all duration-500 ${isSelected ? 'ring-2 ring-[#c4ff4d] ring-offset-2 ring-offset-black' : 'group-hover:border-white/10'}`}>
+                <div 
+                  className={`relative aspect-[4/5] rounded-2xl overflow-hidden mb-5 bg-gradient-to-br from-zinc-800 to-zinc-900 border border-white/5 transition-all duration-500 ${isSelected ? 'ring-2 ring-[#c4ff4d] ring-offset-2 ring-offset-black' : 'group-hover:border-white/10'}`}
+                  role="img"
+                  aria-label={agent.avatarAlt}
+                >
                   {/* Placeholder with icon - will be replaced with actual avatar */}
                   <div className="absolute inset-0 flex flex-col items-center justify-center p-6">
                     <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-gradient-to-br from-white/10 to-white/5 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-500">
-                      <Icon className="w-10 h-10 sm:w-12 sm:h-12 text-white/60 group-hover:text-[#c4ff4d] transition-colors duration-300" />
+                      <Icon className="w-10 h-10 sm:w-12 sm:h-12 text-white/60 group-hover:text-[#c4ff4d] transition-colors duration-300" aria-hidden="true" />
                     </div>
                     <p className="text-xs text-white/30 text-center">Avatar coming soon</p>
                   </div>

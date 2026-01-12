@@ -10,6 +10,7 @@ export interface AITeamMember {
   metric: string;
   capabilities: string[];
   avatarPlaceholder: string;
+  avatarAlt: string;
 }
 
 export const aiTeamMembers: AITeamMember[] = [
@@ -22,7 +23,8 @@ export const aiTeamMembers: AITeamMember[] = [
     description: 'Atlas captures and qualifies leads, books demos, and nurtures prospects automatically. Your tireless sales rep that never misses a follow-up.',
     metric: '3x conversion lift',
     capabilities: ['Lead qualification', 'Demo booking', 'Follow-up sequences', 'CRM updates'],
-    avatarPlaceholder: '/placeholder-avatar-sales.png'
+    avatarPlaceholder: '/placeholder-avatar-sales.png',
+    avatarAlt: 'Atlas - OARC Digital AI Sales Agent for lead qualification and demo booking'
   },
   {
     id: 'support',
@@ -33,7 +35,8 @@ export const aiTeamMembers: AITeamMember[] = [
     description: 'Nova resolves 80-95% of common queries instantly, escalating complex issues with full context. Customer satisfaction, guaranteed.',
     metric: '90% auto-resolution',
     capabilities: ['Ticket resolution', 'Knowledge lookup', 'Smart escalation', 'Multi-channel'],
-    avatarPlaceholder: '/placeholder-avatar-support.png'
+    avatarPlaceholder: '/placeholder-avatar-support.png',
+    avatarAlt: 'Nova - OARC Digital AI Support Agent for customer query resolution'
   },
   {
     id: 'bookings',
@@ -44,7 +47,8 @@ export const aiTeamMembers: AITeamMember[] = [
     description: 'Aria handles bookings, reschedules, and sends reminders across all channels. No more no-shows or scheduling conflicts.',
     metric: '20% fewer no-shows',
     capabilities: ['Calendar sync', 'Reminders', 'Rescheduling', 'Time zone handling'],
-    avatarPlaceholder: '/placeholder-avatar-bookings.png'
+    avatarPlaceholder: '/placeholder-avatar-bookings.png',
+    avatarAlt: 'Aria - OARC Digital AI Bookings Agent for appointment scheduling'
   },
   {
     id: 'operations',
@@ -55,7 +59,8 @@ export const aiTeamMembers: AITeamMember[] = [
     description: 'Orion routes tasks, updates systems, and closes the loop automatically. Your operations run smoother than ever.',
     metric: '50% time reclaimed',
     capabilities: ['Task routing', 'System updates', 'Workflow automation', 'Status sync'],
-    avatarPlaceholder: '/placeholder-avatar-operations.png'
+    avatarPlaceholder: '/placeholder-avatar-operations.png',
+    avatarAlt: 'Orion - OARC Digital AI Operations Agent for workflow automation'
   },
   {
     id: 'followup',
@@ -66,7 +71,8 @@ export const aiTeamMembers: AITeamMember[] = [
     description: 'Echo re-engages leads and customers until they convert. Persistent, personalized outreach at scale.',
     metric: '10x outreach velocity',
     capabilities: ['Drip campaigns', 'Re-engagement', 'Personalization', 'Multi-touch'],
-    avatarPlaceholder: '/placeholder-avatar-followup.png'
+    avatarPlaceholder: '/placeholder-avatar-followup.png',
+    avatarAlt: 'Echo - OARC Digital AI Follow-up Agent for lead re-engagement'
   },
   {
     id: 'marketing',
@@ -77,7 +83,8 @@ export const aiTeamMembers: AITeamMember[] = [
     description: 'Luna optimizes your campaigns, segments audiences, and runs A/B tests automatically. Data-driven marketing that scales.',
     metric: '40% better ROI',
     capabilities: ['Campaign optimization', 'Audience segmentation', 'A/B testing', 'Performance analytics'],
-    avatarPlaceholder: '/placeholder-avatar-marketing.png'
+    avatarPlaceholder: '/placeholder-avatar-marketing.png',
+    avatarAlt: 'Luna - OARC Digital AI Marketing Agent for campaign optimization'
   },
   {
     id: 'seo',
@@ -88,7 +95,8 @@ export const aiTeamMembers: AITeamMember[] = [
     description: 'Pixel analyzes rankings, optimizes content, and tracks competitors. Your search visibility, always improving.',
     metric: '2x organic traffic',
     capabilities: ['Keyword research', 'Content optimization', 'Rank tracking', 'Competitor analysis'],
-    avatarPlaceholder: '/placeholder-avatar-seo.png'
+    avatarPlaceholder: '/placeholder-avatar-seo.png',
+    avatarAlt: 'Pixel - OARC Digital AI SEO Specialist for search optimization'
   },
   {
     id: 'sales-manager',
@@ -99,7 +107,8 @@ export const aiTeamMembers: AITeamMember[] = [
     description: 'Summit uses your business insights to craft compelling cold call scripts, design persuasive cold emails, and build pitches that close deals with confidence.',
     metric: '35% higher close rate',
     capabilities: ['Sales scripts', 'Pipeline management', 'Deal forecasting', 'Team coaching'],
-    avatarPlaceholder: '/placeholder-avatar-sales-manager.png'
+    avatarPlaceholder: '/placeholder-avatar-sales-manager.png',
+    avatarAlt: 'Summit - OARC Digital AI Sales Manager for pipeline and deal optimization'
   },
   {
     id: 'customer-support',
@@ -110,7 +119,8 @@ export const aiTeamMembers: AITeamMember[] = [
     description: 'Harmony crafts expertly tailored responses to customer queries while maintaining your brand\'s unique voice. Exceptional support, every time.',
     metric: '95% satisfaction',
     capabilities: ['Query handling', 'Brand voice', 'Empathetic responses', 'Issue resolution'],
-    avatarPlaceholder: '/placeholder-avatar-cs-specialist.png'
+    avatarPlaceholder: '/placeholder-avatar-cs-specialist.png',
+    avatarAlt: 'Harmony - OARC Digital AI Customer Support Specialist'
   },
   {
     id: 'business-dev',
@@ -121,7 +131,8 @@ export const aiTeamMembers: AITeamMember[] = [
     description: 'Maverick identifies growth opportunities, crafts outreach strategies, and delivers business insights. Your go-to AI for business development.',
     metric: '50+ leads/month',
     capabilities: ['Lead generation', 'Partnership outreach', 'Market analysis', 'Growth strategies'],
-    avatarPlaceholder: '/placeholder-avatar-bizdev.png'
+    avatarPlaceholder: '/placeholder-avatar-bizdev.png',
+    avatarAlt: 'Maverick - OARC Digital AI Business Development Agent'
   },
   {
     id: 'hr',
@@ -132,7 +143,8 @@ export const aiTeamMembers: AITeamMember[] = [
     description: 'Sage screens resumes, schedules interviews, and handles onboarding. Faster hiring cycles, better candidate experience.',
     metric: '60% faster hiring',
     capabilities: ['Resume screening', 'Interview scheduling', 'Onboarding', 'HR queries'],
-    avatarPlaceholder: '/placeholder-avatar-hr.png'
+    avatarPlaceholder: '/placeholder-avatar-hr.png',
+    avatarAlt: 'Sage - OARC Digital AI HR Agent for recruitment and onboarding'
   },
   {
     id: 'finance',
@@ -143,7 +155,8 @@ export const aiTeamMembers: AITeamMember[] = [
     description: 'Vault processes invoices, tracks expenses, and generates financial reports. Your finances, always under control.',
     metric: '80% time saved',
     capabilities: ['Invoice processing', 'Expense tracking', 'Financial reports', 'Budget alerts'],
-    avatarPlaceholder: '/placeholder-avatar-finance.png'
+    avatarPlaceholder: '/placeholder-avatar-finance.png',
+    avatarAlt: 'Vault - OARC Digital AI Finance Agent for invoice and expense management'
   },
   {
     id: 'analytics',
@@ -154,7 +167,8 @@ export const aiTeamMembers: AITeamMember[] = [
     description: 'Cipher turns raw data into actionable insights. Dashboards, trend analysis, and predictions at your fingertips.',
     metric: '10x faster insights',
     capabilities: ['Data analysis', 'Dashboard creation', 'Trend detection', 'Predictive analytics'],
-    avatarPlaceholder: '/placeholder-avatar-analytics.png'
+    avatarPlaceholder: '/placeholder-avatar-analytics.png',
+    avatarAlt: 'Cipher - OARC Digital AI Analytics Agent for data insights and reporting'
   },
   {
     id: 'content',
@@ -165,7 +179,8 @@ export const aiTeamMembers: AITeamMember[] = [
     description: 'Quill creates blog posts, social copy, and marketing content. Quality content that resonates with your audience.',
     metric: '5x content output',
     capabilities: ['Blog writing', 'Social media copy', 'Ad copy', 'Content strategy'],
-    avatarPlaceholder: '/placeholder-avatar-content.png'
+    avatarPlaceholder: '/placeholder-avatar-content.png',
+    avatarAlt: 'Quill - OARC Digital AI Content Agent for blog and social media writing'
   },
   {
     id: 'email',
@@ -176,7 +191,8 @@ export const aiTeamMembers: AITeamMember[] = [
     description: 'Pulse manages drip campaigns, newsletters, and email automation. Your email marketing, on autopilot.',
     metric: '25% higher open rates',
     capabilities: ['Drip campaigns', 'Newsletter creation', 'Email automation', 'List management'],
-    avatarPlaceholder: '/placeholder-avatar-email.png'
+    avatarPlaceholder: '/placeholder-avatar-email.png',
+    avatarAlt: 'Pulse - OARC Digital AI Email Agent for campaign automation'
   }
 ];
 
