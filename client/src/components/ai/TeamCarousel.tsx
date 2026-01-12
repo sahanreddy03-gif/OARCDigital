@@ -41,27 +41,6 @@ export function TeamCarousel({ onAgentSelect, selectedAgentId }: TeamCarouselPro
   
   return (
     <div className="relative">
-      {/* Section Header */}
-      <div className="text-center mb-12 md:mb-16 px-4">
-        <motion.h2 
-          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 tracking-tight"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
-          AI Employees
-        </motion.h2>
-        <motion.p 
-          className="text-lg sm:text-xl text-white/50 max-w-2xl mx-auto"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.1 }}
-        >
-          Meet your new team. Each agent is specialized to excel in their domain.
-        </motion.p>
-      </div>
-      
       {/* Carousel Container */}
       <div className="relative">
         {/* Left Navigation Arrow */}

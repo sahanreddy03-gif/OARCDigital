@@ -313,7 +313,7 @@ export default function AIAgentsLanding() {
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
           
           {/* Content - Bottom positioned, leaving top clear for AI character */}
-          <div className="relative z-10 h-full flex flex-col justify-end pb-20 sm:pb-28 md:pb-32">
+          <div className="relative z-10 h-full flex flex-col justify-end pb-28 sm:pb-36 md:pb-40">
             <div className="px-6 sm:px-8 md:px-12 lg:px-20 max-w-4xl">
               <motion.div
                 initial={{ opacity: 0, y: 40 }}
@@ -356,7 +356,7 @@ export default function AIAgentsLanding() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              Meet Your AI Employees — 15 Specialized Agents Trained for Your Business <span className="text-[#c4ff4d]">Workflows</span>
+              Meet Your <span className="text-[#c4ff4d]">AI Employees</span> — 15 Specialized Agents Trained for Your Business Workflows
             </motion.h2>
             
             <TeamCarousel />
