@@ -1,7 +1,9 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { commandExamples, CommandExample, aiTeamMembers } from './aiAgentsData';
-import { Terminal, Play, ChevronRight, Zap } from 'lucide-react';
+import { Terminal, Play, ChevronRight, ChevronDown, ChevronUp, Zap } from 'lucide-react';
+
+const VISIBLE_COMMANDS_COUNT = 5;
 
 interface CommandConsolePanelProps {
   autoPlay?: boolean;
@@ -14,6 +16,7 @@ export function CommandConsolePanel({ autoPlay = false, selectedAgentId }: Comma
   const [typedText, setTypedText] = useState('');
   const [showAction, setShowAction] = useState(false);
   const [isPlaying, setIsPlaying] = useState(autoPlay);
+  const [isExpanded, setIsExpanded] = useState(false);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
   
   const filteredCommands = selectedAgentId 
@@ -169,7 +172,7 @@ export function CommandConsolePanel({ autoPlay = false, selectedAgentId }: Comma
         
         <div className="space-y-2 sm:space-y-3">
           <p className="text-xs sm:text-sm text-white/40 mb-3 sm:mb-4">Try these commands:</p>
-          {filteredCommands.map((cmd, idx) => {
+          {(isExpanded ? filteredCommands : filteredCommands.slice(0, VISIBLE_COMMANDS_COUNT)).map((cmd, idx) => {
             const cmdAgent = aiTeamMembers.find(a => a.id === cmd.agentId);
             const isActive = idx === safeIndex;
             
@@ -202,6 +205,26 @@ export function CommandConsolePanel({ autoPlay = false, selectedAgentId }: Comma
               </motion.button>
             );
           })}
+          
+          {filteredCommands.length > VISIBLE_COMMANDS_COUNT && (
+            <button
+              onClick={() => setIsExpanded(!isExpanded)}
+              className="w-full flex items-center justify-center gap-2 py-2.5 text-white/50 hover:text-[#c4ff4d] transition-colors"
+              data-testid="button-toggle-commands"
+            >
+              {isExpanded ? (
+                <>
+                  <span className="text-xs">Show less</span>
+                  <ChevronUp className="w-4 h-4" />
+                </>
+              ) : (
+                <>
+                  <span className="text-xs">+{filteredCommands.length - VISIBLE_COMMANDS_COUNT} more commands</span>
+                  <ChevronDown className="w-4 h-4" />
+                </>
+              )}
+            </button>
+          )}
         </div>
       </div>
     </div>
