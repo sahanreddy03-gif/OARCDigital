@@ -410,7 +410,7 @@ export default function AIAgentsLanding() {
       
       <CreativeNavigation />
       
-      <main className="min-h-screen bg-black text-white overflow-x-hidden relative" style={{ fontFamily: 'var(--font-ciscela)' }}>
+      <main className="min-h-screen bg-black text-white overflow-x-hidden relative" style={{ fontFamily: 'var(--font-pixelag)' }}>
         {/* Fixed Animated Grid Background */}
         <div className="fixed inset-0 z-0 pointer-events-none">
           <AnimatedGridBackground 
@@ -461,7 +461,7 @@ export default function AIAgentsLanding() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
               >
-                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.05] mb-4 sm:mb-6 tracking-tight" style={{ fontFamily: 'var(--font-ciscela)' }}>
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.05] mb-4 sm:mb-6 tracking-tight" style={{ fontFamily: 'var(--font-pixelag)' }}>
                   AI Employees
                   <br />
                   <span className="text-white/90">Your team that works</span>

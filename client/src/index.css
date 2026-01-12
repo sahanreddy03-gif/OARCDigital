@@ -35,11 +35,20 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'Pixelag';
+  src: url('/fonts/Pixelag.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --font-blackpast: 'Blackpast', cursive;
   --font-punoer: 'Punoer', sans-serif;
   --font-technul: 'Technul Soft', sans-serif;
   --font-ciscela: 'Ciscela', serif;
+  --font-pixelag: 'Pixelag', monospace;
 }
 
 /* LIGHT MODE */
