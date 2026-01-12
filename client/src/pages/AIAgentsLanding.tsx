@@ -20,8 +20,9 @@ import {
 import { 
   ArrowRight, Check,
   Zap, Shield, TrendingUp, MessageSquare, Play, Pause, RotateCcw,
-  Database, Phone, Mail, Bot, Sparkles, ChevronRight
+  Database, Mail, Bot, Sparkles, ChevronRight
 } from 'lucide-react';
+import { SiWhatsapp } from 'react-icons/si';
 
 const fadeInUp = {
   initial: { opacity: 0, y: 30 },
@@ -873,12 +874,14 @@ export default function AIAgentsLanding() {
                   </Button>
                 </Link>
                 <a 
-                  href="tel:+35677788990" 
-                  className="flex items-center gap-2 text-white/70 hover:text-white transition-colors"
-                  data-testid="link-phone"
+                  href="https://wa.me/35679711799"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-white font-semibold px-6 py-3 rounded-full transition-all duration-300 hover:scale-[1.02]"
+                  data-testid="button-whatsapp"
                 >
-                  <Phone className="w-5 h-5" />
-                  +356 7778 8990
+                  <SiWhatsapp className="w-5 h-5" />
+                  WhatsApp Us
                 </a>
                 <a 
                   href="mailto:hello@oarcdigital.com" 
