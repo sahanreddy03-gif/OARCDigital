@@ -466,7 +466,7 @@ export default function AIAgentsLanding() {
         </div>
         
         {/* Hero Section - Ultra Premium with Video Background */}
-        <section className="relative z-10 h-screen min-h-[600px] max-h-[1000px] overflow-hidden">
+        <section className="relative z-10 h-[80vh] sm:h-screen min-h-[500px] sm:min-h-[600px] max-h-[800px] sm:max-h-[1000px] overflow-hidden">
           {/* Video Background */}
           <div className="absolute inset-0">
             <video
@@ -535,7 +535,7 @@ export default function AIAgentsLanding() {
         
 
         {/* Meet Your AI Team - Carousel */}
-        <section className="py-20 sm:py-28 md:py-32 bg-zinc-950">
+        <section className="py-12 sm:py-16 md:py-20 bg-zinc-950">
           <TeamCarousel 
             onAgentSelect={setSelectedAgent} 
             selectedAgentId={selectedAgent?.id}
@@ -543,7 +543,7 @@ export default function AIAgentsLanding() {
         </section>
         
         {/* Always On - Value Proposition Section */}
-        <section className="py-20 sm:py-28 md:py-32 px-6 sm:px-8 bg-black relative overflow-hidden">
+        <section className="py-12 sm:py-16 md:py-20 px-6 sm:px-8 bg-black relative overflow-hidden">
           {/* Subtle background pattern */}
           <div className="absolute inset-0 opacity-[0.02]">
             <div 
