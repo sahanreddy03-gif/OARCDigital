@@ -350,14 +350,19 @@ export default function AIAgentsLanding() {
         {/* AI Agents Carousel Section - 2nd Section */}
         <section className="relative z-10 py-12 sm:py-16 px-4 sm:px-6 bg-black overflow-hidden">
           <div className="max-w-7xl mx-auto">
-            <motion.h2 
-              className="text-2xl sm:text-3xl md:text-4xl font-bold text-white text-center mb-10 sm:mb-14"
+            <motion.div 
+              className="text-center mb-10 sm:mb-14"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              Meet Your <span className="text-[#c4ff4d]">AI Employees</span> — 15 Specialized Agents Trained for Your Business Workflows
-            </motion.h2>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#c4ff4d] mb-2">
+                AI Employees
+              </h2>
+              <p className="text-base sm:text-lg text-white/70">
+                Customised to your workflows
+              </p>
+            </motion.div>
             
             <TeamCarousel />
           </div>
