@@ -600,6 +600,72 @@ export default function AIAgentsLanding() {
           </div>
         </section>
         
+        {/* Workspace Management Section - Sintra.ai Style */}
+        <section className="relative z-10 py-16 sm:py-24 px-4 sm:px-6 bg-black">
+          <div className="max-w-6xl mx-auto">
+            {/* Image placeholder - user will provide */}
+            <div className="mb-12 flex justify-center">
+              <div className="w-full max-w-3xl aspect-[16/10] bg-zinc-900 rounded-2xl border border-white/10 flex items-center justify-center text-white/30 text-lg">
+                {/* Workspace dashboard image placeholder - user will provide image */}
+                <span>Workspace Dashboard Image</span>
+              </div>
+            </div>
+            
+            {/* Content with blue accent bullets */}
+            <div className="max-w-3xl mx-auto">
+              <motion.h2 
+                className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-12 leading-tight"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+              >
+                <span className="inline-block w-3 h-3 rounded-full bg-blue-500 mr-3 align-middle" />
+                Multiple Workspaces.
+                <br />
+                One Unified AI Team.
+              </motion.h2>
+              
+              <p className="text-white/60 text-lg mb-12">
+                Manage multiple workspaces supported by a single AI team composed of specialized AI employees.
+              </p>
+              
+              {/* Feature 1 */}
+              <motion.div 
+                className="mb-10"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 }}
+              >
+                <h3 className="text-xl sm:text-2xl font-semibold text-white mb-3 flex items-start gap-3">
+                  <span className="inline-block w-2.5 h-2.5 rounded-full bg-blue-500 mt-2.5 flex-shrink-0" />
+                  Up to Five Business Profiles
+                </h3>
+                <p className="text-white/50 text-base ml-5">
+                  Create up to five distinct business profiles, each tailored to specific objectives, workflows, and operational requirements, powered by AI employees designed to deliver measurable results.
+                </p>
+              </motion.div>
+              
+              {/* Feature 2 */}
+              <motion.div 
+                className="mb-10"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 }}
+              >
+                <h3 className="text-xl sm:text-2xl font-semibold text-white mb-3 flex items-start gap-3">
+                  <span className="inline-block w-2.5 h-2.5 rounded-full bg-blue-500 mt-2.5 flex-shrink-0" />
+                  Shared Team Workspace
+                </h3>
+                <p className="text-white/50 text-base ml-5">
+                  Collaborate seamlessly with your team in real time by sharing a centralized workspace, ensuring business insights, data, and decisions are accessible to all stakeholders.
+                </p>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+        
         {/* Command Console - Natural Language Control */}
         <section className="relative z-10 py-12 sm:py-16 md:py-20 px-4 sm:px-6 bg-zinc-950 overflow-hidden">
           <div className="max-w-6xl mx-auto w-full">
