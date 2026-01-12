@@ -131,6 +131,7 @@ const packages = [
   {
     name: 'GROWTH',
     price: '2,997',
+    priceId: 'price_1Growth',
     period: '/month',
     description: 'Scale with multiple agents and full integration.',
     features: [
@@ -160,21 +161,6 @@ const packages = [
     cta: 'Request Quote',
     popular: false
   }
-];
-
-const demoMessages = [
-  { id: 'm1', sender: 'user', text: "Hi — can I book a demo for next Tuesday at 10am?", time: 0, source: 'Website Chat' },
-  { id: 'm2', sender: 'agent', text: "Hi Sahan — I can book that. Which timezone should I use? (Malta or Home)", time: 800, source: 'OARC AI' },
-  { id: 'm3', sender: 'user', text: "Malta time please — and send an invite to sahan@oarc.com", time: 1400, source: 'Website Chat' },
-  { id: 'm4', sender: 'agent', text: "Got it. I found availability next Tue 10:00 CET. I booked the slot and sent an invite. Would you like a reminder 1 hour before?", time: 2200, source: 'Calendar API', action: 'Booked slot: Tue 10:00 CET → Calendar invite sent' },
-  { id: 'm5', sender: 'user', text: "Yes please", time: 3000, source: 'Website Chat' },
-  { id: 'm6', sender: 'agent', text: "Done — reminder created. Also, I attached the demo brief and your call link to the calendar invite.", time: 3600, source: 'CRM', action: 'Created reminder + attached docs' },
-  { id: 'm7', sender: 'user', text: "Can you answer a quick Q — do you handle refunds?", time: 4800, source: 'Website Chat' },
-  { id: 'm8', sender: 'agent', text: "Yes — I can check order #45892. One moment while I look it up.", time: 5400, source: 'Order DB' },
-  { id: 'm9', sender: 'agent', text: "Order #45892 shipped yesterday by courier — expected Thu 17:00. Would you like to initiate a refund or wait for delivery?", time: 7600, source: 'Order DB', action: 'Retrieved order: #45892 → Status: Shipped' },
-  { id: 'm10', sender: 'user', text: "Please cancel and refund. It was the wrong size.", time: 8800, source: 'Website Chat' },
-  { id: 'm11', sender: 'agent', text: "Refund initiated — €49.99 will be returned to the original payment method within 3-5 business days. I'll email the confirmation now.", time: 9600, source: 'Payments API', action: 'Initiated refund: €49.99 → Card ending 4242' },
-  { id: 'm12', sender: 'agent', text: "If you prefer, I can rebook a different size and send a return label. Which would you like?", time: 10400, source: 'CRM' }
 ];
 
 const aiAgentsFAQs: FAQItem[] = [
@@ -228,169 +214,6 @@ function AnimatedCounter({ value, suffix = '', prefix = '' }: { value: string; s
   }, [isInView, value]);
   
   return <span ref={ref}>{prefix}{displayValue}{suffix}</span>;
-}
-
-function LiveDemoChat() {
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [currentTime, setCurrentTime] = useState(0);
-  const [visibleMessages, setVisibleMessages] = useState<typeof demoMessages>([]);
-  const [expandedAction, setExpandedAction] = useState<string | null>(null);
-  const intervalRef = useRef<NodeJS.Timeout | null>(null);
-  
-  const resetDemo = useCallback(() => {
-    setCurrentTime(0);
-    setVisibleMessages([]);
-    setIsPlaying(false);
-    setExpandedAction(null);
-    if (intervalRef.current) clearInterval(intervalRef.current);
-  }, []);
-  
-  const togglePlay = useCallback(() => {
-    if (isPlaying) {
-      if (intervalRef.current) clearInterval(intervalRef.current);
-      setIsPlaying(false);
-    } else {
-      setIsPlaying(true);
-      intervalRef.current = setInterval(() => {
-        setCurrentTime(prev => prev + 100);
-      }, 100);
-    }
-  }, [isPlaying]);
-  
-  useEffect(() => {
-    const newVisible = demoMessages.filter(msg => msg.time <= currentTime);
-    setVisibleMessages(newVisible);
-    
-    if (currentTime >= 11000) {
-      if (intervalRef.current) clearInterval(intervalRef.current);
-      setIsPlaying(false);
-    }
-  }, [currentTime]);
-  
-  useEffect(() => {
-    return () => {
-      if (intervalRef.current) clearInterval(intervalRef.current);
-    };
-  }, []);
-  
-  return (
-    <div className="relative">
-      <div className="text-center mb-4">
-        <p className="text-xs text-white/50">Demo uses mock data — real integrations possible on onboarding.</p>
-      </div>
-      
-      <div className="bg-black/40 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden max-w-lg mx-auto">
-        <div className="bg-white/5 px-4 py-3 flex items-center justify-between border-b border-white/10">
-          <div className="flex items-center gap-2">
-            <div className="w-2 h-2 rounded-full bg-[#c4ff4d] animate-pulse" />
-            <span className="text-sm text-white/80 font-medium">OARC AI Agent</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <button 
-              onClick={togglePlay}
-              className="p-2 rounded-lg bg-white/5 hover:bg-white/10 transition-colors"
-              data-testid="button-demo-play"
-            >
-              {isPlaying ? <Pause className="w-4 h-4 text-white/70" /> : <Play className="w-4 h-4 text-white/70" />}
-            </button>
-            <button 
-              onClick={resetDemo}
-              className="p-2 rounded-lg bg-white/5 hover:bg-white/10 transition-colors"
-              data-testid="button-demo-reset"
-            >
-              <RotateCcw className="w-4 h-4 text-white/70" />
-            </button>
-          </div>
-        </div>
-        
-        <div className="h-[400px] overflow-y-auto p-4 space-y-3 scrollbar-hide">
-          {visibleMessages.map((msg, idx) => (
-            <motion.div
-              key={msg.id}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3 }}
-              className={`flex ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}
-            >
-              <div className={`max-w-[85%] ${msg.sender === 'user' ? 'order-1' : ''}`}>
-                <div 
-                  className={`px-4 py-2.5 rounded-2xl text-sm ${
-                    msg.sender === 'user' 
-                      ? 'bg-[#c4ff4d] text-black rounded-br-md' 
-                      : 'bg-white/10 text-white rounded-bl-md cursor-pointer hover:bg-white/15 transition-colors'
-                  }`}
-                  onClick={() => msg.action && setExpandedAction(expandedAction === msg.id ? null : msg.id)}
-                >
-                  {msg.text}
-                </div>
-                
-                <div className="flex items-center gap-2 mt-1 px-1">
-                  <span className={`text-[10px] px-2 py-0.5 rounded-full ${
-                    msg.sender === 'user' 
-                      ? 'bg-white/10 text-white/50' 
-                      : 'bg-[#c4ff4d]/20 text-[#c4ff4d]/80'
-                  }`}>
-                    {msg.source}
-                  </span>
-                </div>
-                
-                {msg.action && expandedAction === msg.id && (
-                  <motion.div
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: 'auto' }}
-                    className="mt-2 px-3 py-2 bg-[#c4ff4d]/10 border border-[#c4ff4d]/20 rounded-lg"
-                  >
-                    <p className="text-[10px] text-[#c4ff4d]/60 uppercase tracking-wider mb-1">Action Taken</p>
-                    <p className="text-xs text-white/80">{msg.action}</p>
-                  </motion.div>
-                )}
-              </div>
-            </motion.div>
-          ))}
-          
-          {isPlaying && visibleMessages.length < demoMessages.length && (
-            <div className="flex justify-start">
-              <div className="bg-white/10 rounded-2xl rounded-bl-md px-4 py-3">
-                <div className="flex gap-1">
-                  <motion.div 
-                    className="w-2 h-2 bg-white/40 rounded-full"
-                    animate={{ scale: [1, 1.2, 1] }}
-                    transition={{ duration: 0.6, repeat: Infinity, delay: 0 }}
-                  />
-                  <motion.div 
-                    className="w-2 h-2 bg-white/40 rounded-full"
-                    animate={{ scale: [1, 1.2, 1] }}
-                    transition={{ duration: 0.6, repeat: Infinity, delay: 0.2 }}
-                  />
-                  <motion.div 
-                    className="w-2 h-2 bg-white/40 rounded-full"
-                    animate={{ scale: [1, 1.2, 1] }}
-                    transition={{ duration: 0.6, repeat: Infinity, delay: 0.4 }}
-                  />
-                </div>
-              </div>
-            </div>
-          )}
-        </div>
-        
-        {currentTime >= 11000 && (
-          <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="border-t border-white/10 p-4 bg-[#c4ff4d]/5"
-          >
-            <div className="flex items-center justify-between text-xs">
-              <span className="text-white/60">Session complete</span>
-              <div className="flex items-center gap-4">
-                <span className="text-[#c4ff4d]">✓ 3 tasks resolved</span>
-                <span className="text-white/60">Response: &lt;2s avg</span>
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </div>
-    </div>
-  );
 }
 
 
@@ -515,89 +338,146 @@ export default function AIAgentsLanding() {
                     className="bg-[#c4ff4d] hover:bg-[#d4ff6d] text-black font-semibold px-6 py-3 text-sm sm:text-base rounded-full shadow-lg shadow-[#c4ff4d]/20 transition-all duration-300 hover:shadow-[#c4ff4d]/30 hover:scale-[1.02]"
                     data-testid="button-hero-cta"
                   >
-                    Get OARC AI
+                    Start Your AI Pilot
+                    <ArrowRight className="ml-2 w-4 h-4" />
                   </Button>
                 </Link>
+                
+                {/* Stats row in hero */}
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 sm:gap-8 mt-10 sm:mt-12 border-t border-white/10 pt-8 sm:pt-10">
+                  <div>
+                    <div className="text-2xl sm:text-3xl font-bold text-[#c4ff4d]">
+                      <AnimatedCounter value="90" suffix="%" />
+                    </div>
+                    <p className="text-[10px] sm:text-xs text-white/50 uppercase tracking-widest mt-1">Cost Reduction</p>
+                  </div>
+                  <div>
+                    <div className="text-2xl sm:text-3xl font-bold text-[#c4ff4d]">
+                      <AnimatedCounter value="2" suffix="s" />
+                    </div>
+                    <p className="text-[10px] sm:text-xs text-white/50 uppercase tracking-widest mt-1">Response Time</p>
+                  </div>
+                  <div className="hidden sm:block">
+                    <div className="text-2xl sm:text-3xl font-bold text-[#c4ff4d]">
+                      <AnimatedCounter value="24" suffix="/7" />
+                    </div>
+                    <p className="text-[10px] sm:text-xs text-white/50 uppercase tracking-widest mt-1">Availability</p>
+                  </div>
+                </div>
               </motion.div>
             </div>
           </div>
         </section>
         
-
-        {/* Meet Your AI Team - Carousel */}
-        <section className="relative z-10 py-12 sm:py-16 md:py-20 bg-zinc-950">
-          <TeamCarousel 
-            onAgentSelect={setSelectedAgent} 
-            selectedAgentId={selectedAgent?.id}
-          />
-        </section>
-        
-        {/* Always On - Value Proposition Section */}
-        <section className="relative z-10 py-12 sm:py-16 md:py-20 px-6 sm:px-8 bg-black overflow-hidden">
-          {/* Subtle background pattern */}
-          <div className="absolute inset-0 opacity-[0.02]">
-            <div 
-              className="absolute inset-0"
-              style={{
-                backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)',
-                backgroundSize: '40px 40px'
-              }}
-            />
-          </div>
-          
-          <div className="relative z-10 max-w-5xl mx-auto">
-            <motion.div
-              className="text-center"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-            >
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 tracking-tight leading-tight">
-                Automates work.
-                <br />
-                <span className="text-white/60">Even while you sleep.</span>
-              </h2>
-              
-              <p className="text-lg sm:text-xl md:text-2xl text-white/40 max-w-2xl mx-auto mb-12 font-light">
-                A co-worker who's always on the clock. Multiple roles. One AI team.
-              </p>
-              
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 max-w-3xl mx-auto">
-                <motion.div 
-                  className="p-6 sm:p-8 rounded-2xl bg-white/[0.02] border border-white/5"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.1 }}
-                >
-                  <div className="text-3xl sm:text-4xl font-bold text-[#c4ff4d] mb-2">24/7</div>
-                  <div className="text-sm text-white/40">Always available</div>
-                </motion.div>
+        {/* Replacement Section - Unified AI Workforce */}
+        <section className="relative z-10 py-20 sm:py-32 px-4 sm:px-6 bg-black border-t border-white/5">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+              >
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#c4ff4d]/10 border border-[#c4ff4d]/20 text-[#c4ff4d] text-[10px] uppercase tracking-widest mb-6">
+                  <Bot className="w-3 h-3" />
+                  <span>The AI Advantage</span>
+                </div>
                 
-                <motion.div 
-                  className="p-6 sm:p-8 rounded-2xl bg-white/[0.02] border border-white/5"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.2 }}
-                >
-                  <div className="text-3xl sm:text-4xl font-bold text-white mb-2">15+</div>
-                  <div className="text-sm text-white/40">AI employees</div>
-                </motion.div>
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-8 leading-tight">
+                  Stop hiring. 
+                  <br />
+                  <span className="text-[#c4ff4d]">Start deploying.</span>
+                </h2>
                 
-                <motion.div 
-                  className="p-6 sm:p-8 rounded-2xl bg-white/[0.02] border border-white/5"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.3 }}
-                >
-                  <div className="text-3xl sm:text-4xl font-bold text-white mb-2">1</div>
-                  <div className="text-sm text-white/40">Unified team</div>
-                </motion.div>
-              </div>
-            </motion.div>
+                <p className="text-white/60 text-lg mb-10 font-light leading-relaxed">
+                  The future of business isn't about more headcount. It's about higher throughput. OARC AI agents aren't just chatbots — they are autonomous employees that integrate with your tools and execute your business logic.
+                </p>
+                
+                <div className="space-y-6">
+                  {[
+                    { title: 'Self-Improving', desc: 'Every interaction makes the agent smarter through continuous learning loops.' },
+                    { title: 'Tool Integration', desc: 'Connects directly to your CRM, Calendar, DB, and custom APIs.' },
+                    { title: 'Zero Onboarding', desc: 'Deploy a world-class agent in 7-14 days with zero management overhead.' }
+                  ].map((item, idx) => (
+                    <motion.div 
+                      key={item.title}
+                      className="flex gap-4"
+                      initial={{ opacity: 0, y: 10 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.1 * idx }}
+                    >
+                      <div className="mt-1">
+                        <div className="w-5 h-5 rounded-full bg-[#c4ff4d]/20 flex items-center justify-center">
+                          <Check className="w-3 h-3 text-[#c4ff4d]" />
+                        </div>
+                      </div>
+                      <div>
+                        <h4 className="text-white font-medium mb-1">{item.title}</h4>
+                        <p className="text-white/40 text-sm leading-relaxed">{item.desc}</p>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </motion.div>
+              
+              <motion.div 
+                className="relative"
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+              >
+                {/* Visual Representation of Agent Workforce */}
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="space-y-4">
+                    <motion.div 
+                      className="p-6 sm:p-8 rounded-2xl bg-white/[0.02] border border-white/5"
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                    >
+                      <div className="text-3xl sm:text-4xl font-bold text-white mb-2">99.9%</div>
+                      <div className="text-sm text-white/40">Task accuracy</div>
+                    </motion.div>
+                    
+                    <motion.div 
+                      className="p-6 sm:p-8 rounded-2xl bg-[#c4ff4d]/5 border border-[#c4ff4d]/10"
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.1 }}
+                    >
+                      <div className="text-3xl sm:text-4xl font-bold text-[#c4ff4d] mb-2">&lt;2s</div>
+                      <div className="text-sm text-[#c4ff4d]/40">Avg response time</div>
+                    </motion.div>
+                  </div>
+                  
+                  <div className="space-y-4 mt-8">
+                    <motion.div 
+                      className="p-6 sm:p-8 rounded-2xl bg-white/[0.02] border border-white/5"
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.2 }}
+                    >
+                      <div className="text-3xl sm:text-4xl font-bold text-white mb-2">15+</div>
+                      <div className="text-sm text-white/40">AI employees</div>
+                    </motion.div>
+                    
+                    <motion.div 
+                      className="p-6 sm:p-8 rounded-2xl bg-white/[0.02] border border-white/5"
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.3 }}
+                    >
+                      <div className="text-3xl sm:text-4xl font-bold text-white mb-2">1</div>
+                      <div className="text-sm text-white/40">Unified team</div>
+                    </motion.div>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
           </div>
         </section>
         
@@ -667,70 +547,61 @@ export default function AIAgentsLanding() {
           </div>
         </section>
         
-        {/* Command Console - Natural Language Control */}
-        <section className="relative z-10 py-12 sm:py-16 md:py-20 px-4 sm:px-6 bg-zinc-950 overflow-hidden">
-          <div className="max-w-6xl mx-auto w-full">
-            <CommandConsolePanel 
-              autoPlay={false} 
-              selectedAgentId={selectedAgent?.id}
-            />
+        {/* Command Console Section */}
+        <section id="agents" className="relative z-10 py-16 sm:py-24 px-4 sm:px-6 bg-zinc-950">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-16">
+              <motion.h2 
+                className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+              >
+                The Command <span className="text-[#c4ff4d]">Console</span>
+              </motion.h2>
+              <p className="text-white/60 text-lg max-w-2xl mx-auto">
+                Manage your entire AI workforce from a single, unified interface. Monitor performance, review actions, and deploy new agents instantly.
+              </p>
+            </div>
+            
+            <CommandConsolePanel />
           </div>
         </section>
 
-        {/* Proof & Comparison */}
-        <section className="relative z-10 py-12 sm:py-16 px-4 sm:px-6 bg-zinc-950">
-          <div className="max-w-6xl mx-auto">
-            <motion.div 
-              className="text-center mb-16"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold tracking-tight mb-4">Why OARC AI Agents Win</h2>
-              <p className="text-white/60 max-w-xl mx-auto">Compare hiring, outsourcing, and AI deployment side by side.</p>
-            </motion.div>
-            
-            <div className="overflow-x-auto">
-              <table className="w-full min-w-[600px]">
-                <thead>
-                  <tr className="border-b border-white/10">
-                    <th className="text-left py-4 px-4 text-white/60 font-medium">Feature</th>
-                    <th className="text-center py-4 px-4 text-white/60 font-medium">Hire Staff</th>
-                    <th className="text-center py-4 px-4 text-white/60 font-medium">Outsource</th>
-                    <th className="text-center py-4 px-4 font-medium">
-                      <span className="text-[#c4ff4d]">OARC AI Team</span>
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {comparisonData.map((row, idx) => (
-                    <tr key={row.feature} className="border-b border-white/5">
-                      <td className="py-4 px-4 text-white/80">{row.feature}</td>
-                      <td className="py-4 px-4 text-center text-white/50">{row.hiring}</td>
-                      <td className="py-4 px-4 text-center text-white/50">{row.outsource}</td>
-                      <td className="py-4 px-4 text-center">
-                        <span className="text-[#c4ff4d] font-medium">{row.oarc}</span>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+        {/* AI Agents Carousel Section */}
+        <section className="relative z-10 py-16 sm:py-24 px-4 sm:px-6 bg-black overflow-hidden">
+          <div className="max-w-7xl mx-auto">
+            <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 gap-6">
+              <div className="max-w-2xl">
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                >
+                  <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
+                    Meet Your New <br />
+                    <span className="text-[#c4ff4d]">Executive Team</span>
+                  </h2>
+                  <p className="text-white/60 text-lg font-light">
+                    15 specialized AI agents ready to take ownership of your business growth. No hiring, no training, just results.
+                  </p>
+                </motion.div>
+              </div>
+              
+              <div className="hidden md:grid grid-cols-2 gap-4 w-full max-w-xs">
+                {[
+                  { label: 'Availability', value: '24/7' },
+                  { label: 'Agents deployed', value: '40+' }
+                ].map((stat) => (
+                  <div key={stat.label} className="text-center p-4 bg-white/5 rounded-xl border border-white/10">
+                    <div className="text-2xl font-bold text-[#c4ff4d] mb-1">{stat.value}</div>
+                    <div className="text-xs text-white/50">{stat.label}</div>
+                  </div>
+                ))}
+              </div>
             </div>
             
-            <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mt-12">
-              {[
-                { label: 'Deploy in', value: '7-14 days' },
-                { label: 'Response time', value: '<2s' },
-                { label: 'Auto-resolution', value: '90%' },
-                { label: 'Availability', value: '24/7' },
-                { label: 'Agents deployed', value: '40+' }
-              ].map((stat) => (
-                <div key={stat.label} className="text-center p-4 bg-white/5 rounded-xl border border-white/10">
-                  <div className="text-2xl font-bold text-[#c4ff4d] mb-1">{stat.value}</div>
-                  <div className="text-xs text-white/50">{stat.label}</div>
-                </div>
-              ))}
-            </div>
+            <TeamCarousel />
           </div>
         </section>
 
@@ -778,23 +649,6 @@ export default function AIAgentsLanding() {
                 </motion.div>
               ))}
             </div>
-          </div>
-        </section>
-
-        {/* Live Demo Section */}
-        <section className="relative z-10 py-16 sm:py-24 px-4 sm:px-6 bg-zinc-950">
-          <div className="max-w-4xl mx-auto">
-            <motion.div 
-              className="text-center mb-12"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold tracking-tight mb-4">See It In Action</h2>
-              <p className="text-white/60 max-w-xl mx-auto">Watch our AI agent handle a real booking + support request in under 15 seconds.</p>
-            </motion.div>
-            
-            <LiveDemoChat />
           </div>
         </section>
 
@@ -872,102 +726,82 @@ export default function AIAgentsLanding() {
                 </motion.div>
               ))}
             </div>
-            
-            <p className="text-center text-sm text-white/50 mt-8">
-              All packages include onboarding, prioritised support, and guarantee to meet baseline KPIs or we iterate at no extra cost.
-            </p>
           </div>
         </section>
 
         {/* FAQ Section */}
-        <section className="relative z-10 py-16 sm:py-24 px-4 sm:px-6 bg-zinc-950">
-          <div className="max-w-3xl mx-auto">
+        <section className="relative z-10 py-16 sm:py-24 px-4 sm:px-6 bg-zinc-950 border-t border-white/5">
+          <div className="max-w-4xl mx-auto">
             <motion.div 
-              className="text-center mb-12"
+              className="text-center mb-16"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold tracking-tight mb-4">Frequently Asked Questions</h2>
-              <p className="text-white/60">Got questions? We've got answers.</p>
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold tracking-tight mb-4">Common Questions</h2>
+              <p className="text-white/60">Everything you need to know about OARC AI Agents.</p>
             </motion.div>
             
             <FAQSection 
-              faqs={aiAgentsFAQs} 
-              schemaId="ai-agents-faq" 
+              faqs={aiAgentsFAQs}
+              schemaId="ai-agents-landing"
               darkMode={true}
             />
           </div>
         </section>
 
-        {/* Final CTA */}
-        <section className="relative z-10 py-16 sm:py-24 px-4 sm:px-6 bg-black overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-r from-[#c4ff4d]/5 via-transparent to-[#c4ff4d]/5" />
-          
-          <div className="relative z-10 max-w-4xl mx-auto text-center">
+        {/* Contact CTA */}
+        <section className="relative z-10 py-20 sm:py-32 px-4 sm:px-6 bg-[#c4ff4d]">
+          <div className="max-w-4xl mx-auto text-center">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold tracking-tight mb-6">
-                Ready to Deploy Your AI Team?
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-black mb-8 leading-tight">
+                Ready to deploy your 
+                <br />
+                <span className="opacity-70">autonomous AI team?</span>
               </h2>
-              <p className="text-lg text-white/70 mb-8 max-w-2xl mx-auto">
-                Book an intro call — onboarding limited to ensure quality. We guarantee measurable results or iterate at no extra cost.
-              </p>
               
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Link href="/contact">
                   <Button 
                     size="lg" 
-                    className="bg-[#c4ff4d] hover:bg-[#d4ff6d] text-black font-semibold px-8 py-6 text-lg rounded-full group"
+                    className="bg-black text-white hover:bg-zinc-900 rounded-full px-8 py-6 text-lg font-bold w-full sm:w-auto"
                     data-testid="button-final-cta"
                   >
-                    Book Intro Call
-                    <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                    Start 14-Day Pilot
                   </Button>
                 </Link>
+                
                 <a 
-                  href="https://wa.me/35679711799"
-                  target="_blank"
+                  href="https://wa.me/35677130656" 
+                  target="_blank" 
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-white font-semibold px-6 py-3 rounded-full transition-all duration-300 hover:scale-[1.02]"
-                  data-testid="button-whatsapp"
+                  className="w-full sm:w-auto"
                 >
-                  <SiWhatsapp className="w-5 h-5" />
-                  WhatsApp Us
-                </a>
-                <a 
-                  href="mailto:hello@oarcdigital.com" 
-                  className="flex items-center gap-2 text-white/70 hover:text-white transition-colors"
-                  data-testid="link-email"
-                >
-                  <Mail className="w-5 h-5" />
-                  hello@oarcdigital.com
+                  <Button 
+                    variant="outline" 
+                    size="lg" 
+                    className="border-black/20 text-black hover:bg-black/5 rounded-full px-8 py-6 text-lg font-bold w-full"
+                    data-testid="button-final-whatsapp"
+                  >
+                    <SiWhatsapp className="mr-2 w-5 h-5" />
+                    WhatsApp Us
+                  </Button>
                 </a>
               </div>
               
-              <div className="flex items-center justify-center gap-6 text-sm text-white/50">
-                <span className="flex items-center gap-2">
-                  <Shield className="w-4 h-4" />
-                  Results guaranteed
-                </span>
-                <span className="flex items-center gap-2">
-                  <ClockSpeed className="w-4 h-4" />
-                  Deploy in 7-14 days
-                </span>
-                <span className="flex items-center gap-2">
-                  <Check className="w-4 h-4" />
-                  No lock-in contracts
-                </span>
-              </div>
+              <p className="mt-8 text-black/60 text-sm font-medium">
+                No setup fees • SOC 2 Compliant • Integrated in 14 days
+              </p>
             </motion.div>
           </div>
         </section>
+        
+        <Footer />
       </main>
-      
-      <Footer hideGetInTouch />
     </>
   );
 }
