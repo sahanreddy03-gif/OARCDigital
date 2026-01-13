@@ -809,7 +809,7 @@ export default function RevenueSolutionsLanding() {
                     <div className="grid md:grid-cols-3 gap-8">
                       {/* Problems */}
                       <div>
-                        <h4 className="text-sm font-semibold text-red-400 mb-3 flex items-center gap-2">
+                        <h4 className="text-sm font-semibold text-red-400 mb-3 flex items-center gap-2" data-testid="heading-common-problems">
                           <AlertTriangle className="w-4 h-4" />
                           Common Problems
                         </h4>
