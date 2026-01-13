@@ -123,9 +123,9 @@ function SnowfallEffect() {
 
 const MobileGlassCard = ({ icon: Icon, label, href }: { icon: typeof Palette; label: string; href: string }) => (
   <Link href={href}>
-    <div className="flex items-center gap-1.5 md:gap-2 px-3 md:px-4 py-2 md:py-2.5 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 transition-all">
-      <Icon className="w-3.5 h-3.5 md:w-4 md:h-4 text-white" />
-      <span className="text-[11px] md:text-sm font-semibold text-white/90">{label}</span>
+    <div className="group flex items-center gap-2 md:gap-3 px-4 md:px-6 py-3 md:py-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/30 hover:bg-white/20 hover:border-white/50 hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-white/10">
+      <Icon className="w-5 h-5 md:w-6 md:h-6 text-white group-hover:scale-110 transition-transform duration-300" />
+      <span className="text-sm md:text-base font-bold text-white tracking-wide">{label}</span>
     </div>
   </Link>
 );
@@ -349,26 +349,15 @@ export default function HeroSection() {
                     = Less Waste + More Reach + More Sales
                   </p>
 
-                  {/* CTA Section - Button + Glass Cards on Mobile */}
+                  {/* Glass Cards - Prominent Landing Page Navigation */}
                   <div className="flex flex-col items-center md:items-start gap-4">
-                    {/* Mobile: Button + Glass Cards in row */}
-                    <div className="flex flex-wrap items-center justify-center md:justify-start gap-3">
-                      <Link href="/contact">
-                        <Button 
-                          size="lg" 
-                          className="rounded-full px-8 md:px-12 lg:px-14 py-5 md:py-5 lg:py-6 h-auto font-bold bg-[#c4ff4d] text-black hover:bg-[#b5ef3d] shadow-2xl hover:shadow-2xl transition-all border-0 hover:scale-105 text-[15px] md:text-[clamp(0.95rem,1.4vw,1.35rem)]"
-                          data-testid="button-start-talking"
-                        >
-                          Start Talking
-                        </Button>
-                      </Link>
-                      
-                      {/* Glass Cards - All screen sizes */}
-                      <div className="flex gap-2">
-                        <MobileGlassCard icon={Palette} label="Creative" href="/creative" />
-                        <MobileGlassCard icon={Bot} label="AI" href="/ai-agents" />
-                        <MobileGlassCard icon={Rocket} label="Growth" href="/solutions" />
-                      </div>
+                    <p className="text-white/60 text-sm md:text-base font-medium mb-1">
+                      Explore our services:
+                    </p>
+                    <div className="flex flex-wrap gap-3 md:gap-4 justify-center md:justify-start">
+                      <MobileGlassCard icon={Palette} label="Creative" href="/creative" />
+                      <MobileGlassCard icon={Bot} label="AI" href="/ai-agents" />
+                      <MobileGlassCard icon={Rocket} label="Growth" href="/solutions" />
                     </div>
                   </div>
                 </div>
