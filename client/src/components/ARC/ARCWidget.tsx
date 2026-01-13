@@ -68,6 +68,9 @@ export function ARCWidget() {
     return null;
   }
 
+  // Only show call button on landing pages
+  const isLandingPage = ['/solutions', '/creative', '/ai-agents'].includes(location);
+
   return (
     <>
       <AnimatePresence>
@@ -76,9 +79,9 @@ export function ARCWidget() {
         )}
       </AnimatePresence>
 
-      {/* Call Button - Above ARC */}
+      {/* Call Button - Above ARC - Only on landing pages */}
       <AnimatePresence>
-        {!isOpen && (
+        {!isOpen && isLandingPage && (
           <motion.a
             href={`tel:${PHONE_NUMBER}`}
             initial={{ scale: 0, opacity: 0 }}
