@@ -2,7 +2,7 @@ import { useRef, useState, useEffect } from 'react';
 import { motion, useMotionValue, useSpring, animate } from 'framer-motion';
 import { Check, MessageSquare, Phone, Bot, Users, Building2, Sparkles, Gift } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Link } from 'wouter';
+import QuickLeadModal from '@/components/QuickLeadModal';
 
 interface PricingTier {
   id: string;
@@ -154,6 +154,21 @@ export function PricingSection() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const [isScrolling, setIsScrolling] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedPlan, setSelectedPlan] = useState<string | null>(null);
+  const [isFoundingClient, setIsFoundingClient] = useState(false);
+
+  const handleOpenModal = (planName: string, isFoundingOffer: boolean = false) => {
+    setSelectedPlan(planName);
+    setIsFoundingClient(isFoundingOffer);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setSelectedPlan(null);
+    setIsFoundingClient(false);
+  };
 
   const updateActiveIndex = () => {
     if (scrollRef.current) {
@@ -206,7 +221,7 @@ export function PricingSection() {
         {/* Desktop Grid */}
         <div className="hidden lg:grid lg:grid-cols-5 gap-4 px-4">
           {pricingTiers.map((tier, idx) => (
-            <PricingCard key={tier.id} tier={tier} index={idx} />
+            <PricingCard key={tier.id} tier={tier} index={idx} onOpenModal={handleOpenModal} />
           ))}
         </div>
 
@@ -235,7 +250,7 @@ export function PricingSection() {
                   damping: 30
                 }}
               >
-                <PricingCard tier={tier} index={idx} />
+                <PricingCard tier={tier} index={idx} onOpenModal={handleOpenModal} />
               </motion.div>
             ))}
           </div>
@@ -296,23 +311,31 @@ export function PricingSection() {
                 </div>
               </div>
               
-              <Link href="/contact">
-                <Button 
-                  className="bg-[#c4ff4d] hover:bg-[#d4ff6d] text-black font-semibold px-6 py-3 rounded-full w-full md:w-auto"
-                  data-testid="button-founding-client"
-                >
-                  Apply Now
-                </Button>
-              </Link>
+              <Button 
+                onClick={() => handleOpenModal('Founding Client Offer', true)}
+                className="bg-[#c4ff4d] hover:bg-[#d4ff6d] text-black font-semibold px-6 py-3 rounded-full w-full md:w-auto"
+                data-testid="button-founding-client"
+              >
+                Apply Now
+              </Button>
             </div>
           </div>
         </motion.div>
+
+        {/* Lead Capture Modal */}
+        <QuickLeadModal
+          isOpen={isModalOpen}
+          onClose={handleCloseModal}
+          planName={selectedPlan}
+          showPlanDropdown={isFoundingClient}
+          source={isFoundingClient ? 'founding-client' : 'ai-agents'}
+        />
       </div>
     </section>
   );
 }
 
-function PricingCard({ tier, index }: { tier: PricingTier; index: number }) {
+function PricingCard({ tier, index, onOpenModal }: { tier: PricingTier; index: number; onOpenModal: (planName: string, isFoundingOffer?: boolean) => void }) {
   const Icon = tier.icon;
   
   return (
@@ -393,18 +416,17 @@ function PricingCard({ tier, index }: { tier: PricingTier; index: number }) {
       )}
 
       {/* CTA */}
-      <Link href={tier.ctaLink}>
-        <Button 
-          className={`w-full rounded-full font-medium ${
-            tier.popular 
-              ? 'bg-[#c4ff4d] hover:bg-[#d4ff6d] text-black' 
-              : 'bg-white/5 hover:bg-white/10 text-white border border-white/10'
-          }`}
-          data-testid={`button-pricing-${tier.id}`}
-        >
-          {tier.cta}
-        </Button>
-      </Link>
+      <Button 
+        onClick={() => onOpenModal(`${tier.name} (${tier.price}${tier.period})`)}
+        className={`w-full rounded-full font-medium ${
+          tier.popular 
+            ? 'bg-[#c4ff4d] hover:bg-[#d4ff6d] text-black' 
+            : 'bg-white/5 hover:bg-white/10 text-white border border-white/10'
+        }`}
+        data-testid={`button-pricing-${tier.id}`}
+      >
+        {tier.cta}
+      </Button>
     </div>
   );
 }
