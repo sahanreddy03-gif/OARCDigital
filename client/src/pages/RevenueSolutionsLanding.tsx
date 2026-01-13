@@ -9,9 +9,10 @@ import CreativeNavigation from '@/components/CreativeNavigation';
 import QuickLeadModal from '@/components/QuickLeadModal';
 import { 
   ArrowRight, Check, Clock, Zap, Users, BarChart3, 
-  Calendar, Bot, Workflow, Settings, ChevronLeft, ChevronRight
+  Calendar, Bot, Workflow, Settings, ChevronLeft, ChevronRight,
+  MessageSquare, FileText, ClipboardList, Receipt, Sparkles, Phone
 } from 'lucide-react';
-import { SiWhatsapp } from 'react-icons/si';
+import { SiWhatsapp, SiStripe, SiDocusign, SiClickup } from 'react-icons/si';
 
 const fadeInUp = {
   initial: { opacity: 0, y: 30 },
@@ -73,34 +74,77 @@ const testimonials = [
   },
 ];
 
-const whatWeAutomate = [
+const problemStats = [
   {
-    icon: BarChart3,
-    title: "Revenue Operations",
-    description: "Pipeline tracking, lead scoring, and sales automation that converts more prospects into customers."
+    percentage: 47,
+    color: "#14b8a6",
+    label: "47% of newly-created data records have at least one critical error that impacts business operations"
   },
+  {
+    percentage: 15,
+    color: "#8b5cf6",
+    label: "15-20% of available software features"
+  },
+  {
+    percentage: 30,
+    color: "#f97316",
+    label: "Businesses lose up to 30% of their annual revenue due to disconnected systems and workflow inefficiencies"
+  }
+];
+
+const services = [
   {
     icon: Users,
+    title: "CRM Management",
+    description: "Every lead status, meeting note, and follow-up task gets logged automatically. Your sales data stays current without copying and pasting between tools."
+  },
+  {
+    icon: Calendar,
     title: "Client Onboarding",
-    description: "Automated welcome sequences, document collection, and setup workflows that delight new clients."
+    description: "Contracts, and kick-off meetings happen automatically when clients sign. Your team can focus on the actual client work."
   },
   {
-    icon: Workflow,
-    title: "Project Delivery",
-    description: "Task automation, milestone tracking, and team coordination that keeps projects on schedule."
+    icon: ClipboardList,
+    title: "Project Management",
+    description: "Your project tools talk to each other, so work flows naturally. No more copying tasks between tools or chasing updates."
   },
   {
-    icon: Settings,
-    title: "Billing & Invoicing",
-    description: "Automated invoicing, payment reminders, and financial reporting that improves cash flow."
+    icon: Receipt,
+    title: "Invoice Management",
+    description: "Turn completed work into paid invoices. Automatically bill clients, track payments, and remind late payers through QuickBooks or your billing system."
+  },
+  {
+    icon: MessageSquare,
+    title: "Content",
+    description: "Generate opportunities by automating your content pipeline. Turn the calls you make into posts that resonate."
   },
 ];
 
-const benefits = [
-  { metric: "20+", label: "hours saved weekly" },
-  { metric: "3x", label: "faster client onboarding" },
-  { metric: "90%", label: "fewer missed follow-ups" },
-  { metric: "€15K+", label: "annual cost reduction" },
+const processPhases = [
+  {
+    phase: "Phase 1",
+    duration: "1 Week",
+    title: "Discover",
+    description: "Like McKinsey but modern. A process consultant interviews your team and bridges business goals to today's technology."
+  },
+  {
+    phase: "Phase 2",
+    duration: "1 Week",
+    title: "Design",
+    description: "Map out and visualize your processes to identify key automation opportunities."
+  },
+  {
+    phase: "Phase 3",
+    duration: "2-4 Weeks",
+    title: "Develop",
+    description: "Implement the automated workflows that sync your operations and eliminate manual work."
+  },
+  {
+    phase: "Phase 4",
+    duration: "Ongoing",
+    title: "Maintain",
+    description: "Edge case protection, AI research, introductions to today's top tools. All signal, no noise for our partners."
+  },
 ];
 
 const faqItems: FAQItem[] = [
@@ -138,10 +182,36 @@ const faqItems: FAQItem[] = [
   },
 ];
 
+function AnimatedProgressBar({ percentage, color, delay = 0 }: { percentage: number; color: string; delay?: number }) {
+  const barRef = useRef(null);
+  const inView = useInView(barRef, { once: true, margin: "-100px" });
+  
+  return (
+    <div ref={barRef} className="flex items-center gap-4">
+      <div 
+        className="px-4 py-2 rounded-lg text-white font-bold text-sm min-w-[60px] text-center"
+        style={{ backgroundColor: color }}
+      >
+        {percentage}%
+      </div>
+      <div className="flex-1 h-3 bg-white/10 rounded-full overflow-hidden">
+        <motion.div
+          className="h-full rounded-full"
+          style={{ backgroundColor: color }}
+          initial={{ width: 0 }}
+          animate={inView ? { width: `${percentage}%` } : { width: 0 }}
+          transition={{ duration: 1.5, delay, ease: [0.22, 1, 0.36, 1] }}
+        />
+      </div>
+    </div>
+  );
+}
+
 export default function RevenueSolutionsLanding() {
   const [showModal, setShowModal] = useState(false);
   const [modalSource, setModalSource] = useState('Automation Page');
   const [testimonialIndex, setTestimonialIndex] = useState(0);
+  const [processIndex, setProcessIndex] = useState(0);
   
   const heroRef = useRef(null);
   const heroInView = useInView(heroRef, { once: true });
@@ -157,6 +227,14 @@ export default function RevenueSolutionsLanding() {
 
   const prevTestimonial = () => {
     setTestimonialIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+  };
+
+  const nextProcess = () => {
+    setProcessIndex((prev) => (prev + 1) % processPhases.length);
+  };
+
+  const prevProcess = () => {
+    setProcessIndex((prev) => (prev - 1 + processPhases.length) % processPhases.length);
   };
 
   return (
@@ -220,7 +298,7 @@ export default function RevenueSolutionsLanding() {
                   data-testid="button-hero-cta"
                 >
                   <Calendar className="w-5 h-5" />
-                  Explore Your AI Powered Future
+                  Book a Call
                 </Button>
               </a>
             </motion.div>
@@ -246,62 +324,255 @@ export default function RevenueSolutionsLanding() {
           </div>
         </section>
 
-        {/* ========== PROBLEM SECTION ========== */}
-        <section className="py-24 px-6">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid lg:grid-cols-2 gap-16 items-center">
-              <div>
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-6">
-                  Manual & broken ops force your talented team to waste time and money
-                </h2>
-                <p className="text-white/60 text-lg mb-8 leading-relaxed">
-                  We build AI automations that eliminate manual steps, wasted clicks, and status-check messages.
+        {/* ========== YOUR TOOLS ARE WORKING AGAINST YOU ========== */}
+        <section className="py-24 border-t border-white/5">
+          <div className="max-w-4xl mx-auto px-6">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-center mb-16"
+            >
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-4">
+                Your tools are working<br />against you
+              </h2>
+            </motion.div>
+
+            <div className="space-y-16">
+              {/* Data Overload */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="space-y-6"
+              >
+                <h3 className="text-xl md:text-2xl font-bold text-white text-center">
+                  Data Overload, Not Integrity
+                </h3>
+                <p className="text-white/60 text-center max-w-2xl mx-auto leading-relaxed">
+                  Is your data clean and connected? When tools aren't fully optimized, fragmented data and inconsistent practices lead to unreliable insights and missed opportunities.
                 </p>
-                <ul className="space-y-4 mb-10">
-                  {[
-                    "20+ hours saved per week",
-                    "Immediate workflow wins",
-                    "No hiring bloat, no extra software"
-                  ].map((item, i) => (
-                    <li key={i} className="flex items-center gap-3 text-white/80">
-                      <div className="w-6 h-6 rounded-full bg-[#c4ff4d]/20 flex items-center justify-center">
-                        <Check className="w-4 h-4 text-[#c4ff4d]" />
-                      </div>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-                <a
-                  href="https://wa.me/35679711799?text=Hi%20OARC%2C%20I%27d%20like%20to%20book%20a%20discovery%20call"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <AnimatedProgressBar percentage={47} color="#14b8a6" delay={0} />
+                <p className="text-white/50 text-sm text-center">
+                  47% of newly-created data records have at least one critical error that impacts business operations
+                </p>
+              </motion.div>
+
+              {/* Wasted Software Potential */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="space-y-6"
+              >
+                <h3 className="text-xl md:text-2xl font-bold text-white text-center">
+                  Wasted Software Potential
+                </h3>
+                <p className="text-white/60 text-center max-w-2xl mx-auto leading-relaxed">
+                  You're paying for powerful software, but without proper setup, most of its capabilities go untapped. That means you're paying full price for tools that could do 5x more work for you.
+                </p>
+                <AnimatedProgressBar percentage={15} color="#8b5cf6" delay={0.2} />
+                <p className="text-white/50 text-sm text-center">
+                  15-20% of available software features
+                </p>
+              </motion.div>
+
+              {/* Tools That Don't Talk */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                className="space-y-6"
+              >
+                <h3 className="text-xl md:text-2xl font-bold text-white text-center">
+                  Tools That Don't Talk
+                </h3>
+                <p className="text-white/60 text-center max-w-2xl mx-auto leading-relaxed">
+                  When tools don't talk, work stops moving. Without integration, your team's productivity suffers, and potential growth is stifled.
+                </p>
+                <AnimatedProgressBar percentage={30} color="#f97316" delay={0.4} />
+                <p className="text-white/50 text-sm text-center">
+                  Businesses lose up to 30% of their annual revenue due to disconnected systems and workflow inefficiencies
+                </p>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
+        {/* ========== INCREASE PROFIT WITH TOOLS YOU HAVE ========== */}
+        <section className="py-24 border-t border-white/5">
+          <div className="max-w-6xl mx-auto px-6">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-center mb-16"
+            >
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-4">
+                Increase profit<br />
+                with the tools and team<br />
+                you already have
+              </h2>
+              <p className="text-white/50 text-lg max-w-2xl mx-auto">
+                Every core business process can run itself. Here's exactly what we automate for you.
+              </p>
+            </motion.div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {services.map((service, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: i * 0.1 }}
                 >
+                  <Card className="p-6 bg-white/[0.02] border-white/10 hover:bg-white/[0.04] transition-all h-full">
+                    <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-purple-500/20 to-blue-500/20 flex items-center justify-center mb-5">
+                      <service.icon className="w-7 h-7 text-purple-400" />
+                    </div>
+                    <h3 className="text-lg font-bold text-white mb-3">{service.title}</h3>
+                    <p className="text-white/50 text-sm leading-relaxed mb-4">{service.description}</p>
+                    <Button 
+                      variant="ghost" 
+                      className="text-white/70 hover:text-white p-0 h-auto font-medium gap-2"
+                    >
+                      Learn More <ArrowRight className="w-4 h-4" />
+                    </Button>
+                  </Card>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ========== TEST AN AI AGENT SECTION ========== */}
+        <section className="py-24 border-t border-white/5">
+          <div className="max-w-4xl mx-auto px-6">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <Card className="relative overflow-hidden bg-gradient-to-br from-purple-900/40 via-blue-900/30 to-purple-900/40 border-white/10">
+                <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 via-transparent to-blue-600/20" />
+                <div className="relative z-10 p-8 md:p-12 text-center">
+                  <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4 leading-tight">
+                    Test an AI agent before<br />booking a call.
+                  </h3>
+                  <p className="text-white/60 text-lg mb-2">
+                    We're value-first.
+                  </p>
+                  <p className="text-white/70 mb-6">
+                    Submit 1 transcript,<br />
+                    Get 3 LinkedIn posts.
+                  </p>
                   <Button
                     size="lg"
-                    className="bg-white text-black hover:bg-white/90 rounded-full px-8 py-6 text-base font-semibold gap-3 h-auto"
-                    data-testid="button-discovery-cta"
+                    className="bg-white text-black hover:bg-white/90 rounded-full px-8 py-5 font-semibold gap-2 h-auto"
+                    onClick={() => openModal('AI Agent Test')}
                   >
-                    <Calendar className="w-5 h-5" />
-                    Book a Discovery Call
+                    Submit Transcript <ArrowRight className="w-4 h-4" />
                   </Button>
-                </a>
-              </div>
-              
-              {/* Stats Grid */}
-              <div className="grid grid-cols-2 gap-4">
-                {benefits.map((benefit, i) => (
-                  <Card 
+                </div>
+              </Card>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* ========== HOW WE REMOVE THE MANUAL WORK ========== */}
+        <section className="py-24 border-t border-white/5">
+          <div className="max-w-6xl mx-auto px-6">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-center mb-16"
+            >
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+                How we remove<br />the manual work
+              </h2>
+              <p className="text-white/50 text-lg max-w-2xl mx-auto">
+                We simplify your operations by transforming repetitive tasks into seamless, automated workflows.
+              </p>
+            </motion.div>
+
+            {/* Process Carousel */}
+            <div className="relative">
+              {/* Desktop: Show all phases in a row */}
+              <div className="hidden lg:grid lg:grid-cols-4 gap-4">
+                {processPhases.map((phase, i) => (
+                  <motion.div
                     key={i}
-                    className="p-6 bg-white/[0.02] border-white/10 text-center"
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: i * 0.1 }}
                   >
-                    <div className="text-3xl md:text-4xl font-bold text-[#c4ff4d] mb-2">
-                      {benefit.metric}
-                    </div>
-                    <div className="text-white/50 text-sm">
-                      {benefit.label}
-                    </div>
-                  </Card>
+                    <Card className="p-6 bg-white/[0.02] border-white/10 h-full relative">
+                      {/* Connector line */}
+                      {i < processPhases.length - 1 && (
+                        <div className="absolute top-1/2 -right-2 w-4 h-0.5 bg-purple-500/50 hidden lg:block" />
+                      )}
+                      <div className="flex items-center gap-3 mb-4">
+                        <span className="px-3 py-1 rounded-full border border-yellow-500/50 text-yellow-500 text-xs font-medium">
+                          {phase.phase}
+                        </span>
+                        <span className="text-white/40 text-sm">{phase.duration}</span>
+                      </div>
+                      <h3 className="text-xl font-bold text-white mb-3">{phase.title}</h3>
+                      <p className="text-white/50 text-sm leading-relaxed">{phase.description}</p>
+                    </Card>
+                  </motion.div>
                 ))}
+              </div>
+
+              {/* Mobile: Carousel */}
+              <div className="lg:hidden">
+                <div className="flex items-center justify-center gap-2 mb-6">
+                  {processPhases.map((_, i) => (
+                    <button
+                      key={i}
+                      onClick={() => setProcessIndex(i)}
+                      className={`w-2 h-2 rounded-full transition-all ${
+                        i === processIndex ? 'bg-purple-500 w-6' : 'bg-white/20'
+                      }`}
+                    />
+                  ))}
+                </div>
+                
+                <Card className="p-6 bg-white/[0.02] border-white/10">
+                  <div className="flex items-center gap-3 mb-4">
+                    <span className="px-3 py-1 rounded-full border border-yellow-500/50 text-yellow-500 text-xs font-medium">
+                      {processPhases[processIndex].phase}
+                    </span>
+                    <span className="text-white/40 text-sm">{processPhases[processIndex].duration}</span>
+                  </div>
+                  <h3 className="text-xl font-bold text-white mb-3">{processPhases[processIndex].title}</h3>
+                  <p className="text-white/50 text-sm leading-relaxed">{processPhases[processIndex].description}</p>
+                </Card>
+
+                <div className="flex justify-center gap-4 mt-6">
+                  <button
+                    onClick={prevProcess}
+                    className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:bg-white/5 hover:text-white transition-all"
+                  >
+                    <ChevronLeft className="w-5 h-5" />
+                  </button>
+                  <button
+                    onClick={nextProcess}
+                    className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:bg-white/5 hover:text-white transition-all"
+                  >
+                    <ChevronRight className="w-5 h-5" />
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -357,35 +628,6 @@ export default function RevenueSolutionsLanding() {
                   <ChevronRight className="w-5 h-5" />
                 </button>
               </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ========== WHAT WE AUTOMATE ========== */}
-        <section className="py-24 border-t border-white/5">
-          <div className="max-w-6xl mx-auto px-6">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
-                What We Automate
-              </h2>
-              <p className="text-white/50 text-lg max-w-2xl mx-auto">
-                End-to-end automation for the operations that matter most to Malta businesses
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {whatWeAutomate.map((item, i) => (
-                <Card 
-                  key={i}
-                  className="p-6 bg-white/[0.02] border-white/10 hover:bg-white/[0.04] transition-all group"
-                >
-                  <div className="w-12 h-12 rounded-xl bg-[#c4ff4d]/10 flex items-center justify-center mb-4 group-hover:bg-[#c4ff4d]/20 transition-all">
-                    <item.icon className="w-6 h-6 text-[#c4ff4d]" />
-                  </div>
-                  <h3 className="text-lg font-semibold text-white mb-2">{item.title}</h3>
-                  <p className="text-white/50 text-sm leading-relaxed">{item.description}</p>
-                </Card>
-              ))}
             </div>
           </div>
         </section>
@@ -507,42 +749,120 @@ export default function RevenueSolutionsLanding() {
           </div>
         </section>
 
-        {/* ========== FINAL CTA ========== */}
+        {/* ========== FINAL CTA WITH WORKFLOW VISUALIZATION ========== */}
         <section className="py-24 border-t border-white/5">
-          <div className="max-w-3xl mx-auto px-6 text-center">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
-              Ready to stop losing money to manual processes?
-            </h2>
-            <p className="text-white/60 text-lg mb-10 max-w-2xl mx-auto">
-              Book a free discovery call and we'll show you exactly where automation can save you time and money.
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="max-w-4xl mx-auto px-6">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-center mb-12"
+            >
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-6">
+                Ready to automate<br />workflows and reclaim<br />your time?
+              </h2>
+              <p className="text-white/60 text-lg max-w-2xl mx-auto mb-10">
+                Unlock the full potential of your business with seamless, AI-powered automation. Let OARC handle the repetitive tasks, so you can focus on growth.
+              </p>
+              
               <a
-                href="https://wa.me/35679711799?text=Hi%20OARC%2C%20I%27d%20like%20to%20discuss%20automation%20for%20my%20business"
+                href="https://wa.me/35679711799?text=Hi%20OARC%2C%20I%27d%20like%20to%20book%20a%20call%20to%20discuss%20automation"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <Button
                   size="lg"
-                  className="bg-[#c4ff4d] text-black hover:bg-[#b5ef3d] rounded-full px-10 py-6 text-lg font-semibold gap-3 h-auto"
+                  className="bg-white text-black hover:bg-white/90 rounded-full px-10 py-6 text-lg font-semibold gap-3 h-auto border-2 border-yellow-400/50"
                   data-testid="button-final-cta"
                 >
-                  <SiWhatsapp className="w-5 h-5" />
-                  Message Us on WhatsApp
+                  <Calendar className="w-5 h-5" />
+                  Book a Call
                 </Button>
               </a>
+            </motion.div>
+
+            {/* Workflow Integration Cards */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="relative"
+            >
+              {/* Connecting line */}
+              <div className="absolute top-1/2 left-1/4 right-1/4 h-0.5 bg-gradient-to-r from-transparent via-purple-500/50 to-transparent hidden md:block" />
+              
+              <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-12">
+                {/* Stripe Card */}
+                <Card className="p-4 bg-white/[0.02] border-white/10 flex items-center gap-3 min-w-[200px]">
+                  <div className="w-10 h-10 rounded-lg bg-purple-500/20 flex items-center justify-center">
+                    <SiStripe className="w-5 h-5 text-purple-400" />
+                  </div>
+                  <div>
+                    <div className="text-white font-semibold text-sm">New Purchase</div>
+                    <div className="text-white/40 text-xs">Stripe</div>
+                  </div>
+                </Card>
+
+                {/* OARC Badge */}
+                <div className="text-[#c4ff4d] font-bold text-sm tracking-wider">
+                  OARC
+                </div>
+
+                {/* Docusign Card */}
+                <Card className="p-4 bg-white/[0.02] border-white/10 flex items-center gap-3 min-w-[200px] border-l-2 border-l-purple-500">
+                  <div className="w-10 h-10 rounded-lg bg-red-500/20 flex items-center justify-center">
+                    <FileText className="w-5 h-5 text-red-400" />
+                  </div>
+                  <div>
+                    <div className="text-white font-semibold text-sm">Send Contract</div>
+                    <div className="text-white/40 text-xs">Docusign</div>
+                  </div>
+                </Card>
+
+                {/* ClickUp Card */}
+                <Card className="p-4 bg-white/[0.02] border-white/10 flex items-center gap-3 min-w-[200px] border-l-2 border-l-purple-500">
+                  <div className="w-10 h-10 rounded-lg bg-pink-500/20 flex items-center justify-center">
+                    <ClipboardList className="w-5 h-5 text-pink-400" />
+                  </div>
+                  <div>
+                    <div className="text-white font-semibold text-sm">Client Workspace</div>
+                    <div className="text-white/40 text-xs">ClickUp</div>
+                  </div>
+                </Card>
+              </div>
+            </motion.div>
+
+            {/* Contact Options */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-12">
               <a href="tel:+35679711799">
                 <Button
                   variant="outline"
                   size="lg"
-                  className="rounded-full px-10 py-6 text-lg border-white/20 text-white hover:bg-white/10 h-auto"
+                  className="rounded-full px-8 py-5 border-white/20 text-white hover:bg-white/10 h-auto gap-2"
                   data-testid="button-call-cta"
                 >
-                  Or Call +356 7971 1799
+                  <Phone className="w-4 h-4" />
+                  +356 7971 1799
+                </Button>
+              </a>
+              <a
+                href="https://wa.me/35679711799"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="rounded-full px-8 py-5 border-white/20 text-white hover:bg-white/10 h-auto gap-2"
+                >
+                  <SiWhatsapp className="w-4 h-4" />
+                  WhatsApp
                 </Button>
               </a>
             </div>
-            <p className="text-white/40 text-sm mt-6">
+            <p className="text-white/40 text-sm text-center mt-6">
               We respond within 2 hours during business hours
             </p>
           </div>
