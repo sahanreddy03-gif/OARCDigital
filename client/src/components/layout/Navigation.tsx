@@ -93,6 +93,7 @@ export default function Navigation() {
   const navLinks = [
     { href: "/creative", label: "Creative" },
     { href: "/ai-agents", label: "AI Agents", highlight: true },
+    { href: "/solutions", label: "Automation", highlight: true },
     { href: "/our-work", label: "Our Work" },
     { href: "/pricing", label: "Pricing" },
     { href: "/tools", label: "Tools" },
