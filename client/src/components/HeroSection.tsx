@@ -121,9 +121,12 @@ function SnowfallEffect() {
   );
 }
 
-const MobileGlassCard = ({ icon: Icon, label, href }: { icon: typeof Palette; label: string; href: string }) => (
+const MobileGlassCard = ({ icon: Icon, label, href, testId }: { icon: typeof Palette; label: string; href: string; testId: string }) => (
   <Link href={href}>
-    <div className="group flex items-center gap-2 md:gap-3 px-4 md:px-6 py-3 md:py-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/30 hover:bg-white/20 hover:border-white/50 hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-white/10">
+    <div 
+      className="group flex items-center gap-2 md:gap-3 px-4 md:px-6 py-3 md:py-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/30 hover:bg-white/20 hover:border-white/50 hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-white/10"
+      data-testid={testId}
+    >
       <Icon className="w-5 h-5 md:w-6 md:h-6 text-white group-hover:scale-110 transition-transform duration-300" />
       <span className="text-sm md:text-base font-bold text-white tracking-wide">{label}</span>
     </div>
@@ -355,9 +358,9 @@ export default function HeroSection() {
                       Explore our services:
                     </p>
                     <div className="flex flex-wrap gap-3 md:gap-4 justify-center md:justify-start">
-                      <MobileGlassCard icon={Palette} label="Creative" href="/creative" />
-                      <MobileGlassCard icon={Bot} label="AI" href="/ai-agents" />
-                      <MobileGlassCard icon={Rocket} label="Growth" href="/solutions" />
+                      <MobileGlassCard icon={Palette} label="Creative" href="/creative" testId="button-nav-creative" />
+                      <MobileGlassCard icon={Bot} label="AI" href="/ai-agents" testId="button-nav-ai" />
+                      <MobileGlassCard icon={Rocket} label="Growth" href="/solutions" testId="button-nav-growth" />
                     </div>
                   </div>
                 </div>
