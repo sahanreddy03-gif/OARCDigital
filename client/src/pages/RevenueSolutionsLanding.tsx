@@ -12,7 +12,7 @@ import {
   Calendar, Bot, Workflow, Settings, ChevronLeft, ChevronRight,
   MessageSquare, FileText, ClipboardList, Receipt, Sparkles, Phone
 } from 'lucide-react';
-import { SiWhatsapp, SiStripe, SiDocusign, SiClickup } from 'react-icons/si';
+import { SiWhatsapp, SiStripe } from 'react-icons/si';
 
 const fadeInUp = {
   initial: { opacity: 0, y: 30 },
@@ -441,6 +441,7 @@ export default function RevenueSolutionsLanding() {
                     <Button 
                       variant="ghost" 
                       className="text-white/70 hover:text-white p-0 h-auto font-medium gap-2"
+                      data-testid={`button-service-${service.title.toLowerCase().replace(/\s+/g, '-')}`}
                     >
                       Learn More <ArrowRight className="w-4 h-4" />
                     </Button>
@@ -477,6 +478,7 @@ export default function RevenueSolutionsLanding() {
                     size="lg"
                     className="bg-white text-black hover:bg-white/90 rounded-full px-8 py-5 font-semibold gap-2 h-auto"
                     onClick={() => openModal('AI Agent Test')}
+                    data-testid="button-submit-transcript"
                   >
                     Submit Transcript <ArrowRight className="w-4 h-4" />
                   </Button>
@@ -544,6 +546,7 @@ export default function RevenueSolutionsLanding() {
                       className={`w-2 h-2 rounded-full transition-all ${
                         i === processIndex ? 'bg-purple-500 w-6' : 'bg-white/20'
                       }`}
+                      data-testid={`button-process-dot-${i}`}
                     />
                   ))}
                 </div>
@@ -563,12 +566,14 @@ export default function RevenueSolutionsLanding() {
                   <button
                     onClick={prevProcess}
                     className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:bg-white/5 hover:text-white transition-all"
+                    data-testid="button-process-prev"
                   >
                     <ChevronLeft className="w-5 h-5" />
                   </button>
                   <button
                     onClick={nextProcess}
                     className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:bg-white/5 hover:text-white transition-all"
+                    data-testid="button-process-next"
                   >
                     <ChevronRight className="w-5 h-5" />
                   </button>
@@ -795,39 +800,39 @@ export default function RevenueSolutionsLanding() {
               
               <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-12">
                 {/* Stripe Card */}
-                <Card className="p-4 bg-white/[0.02] border-white/10 flex items-center gap-3 min-w-[200px]">
+                <Card className="p-4 bg-white/[0.02] border-white/10 flex items-center gap-3 min-w-[200px]" data-testid="card-workflow-stripe">
                   <div className="w-10 h-10 rounded-lg bg-purple-500/20 flex items-center justify-center">
                     <SiStripe className="w-5 h-5 text-purple-400" />
                   </div>
                   <div>
-                    <div className="text-white font-semibold text-sm">New Purchase</div>
+                    <div className="text-white font-semibold text-sm" data-testid="text-workflow-new-purchase">New Purchase</div>
                     <div className="text-white/40 text-xs">Stripe</div>
                   </div>
                 </Card>
 
                 {/* OARC Badge */}
-                <div className="text-[#c4ff4d] font-bold text-sm tracking-wider">
+                <div className="text-[#c4ff4d] font-bold text-sm tracking-wider" data-testid="text-workflow-oarc">
                   OARC
                 </div>
 
                 {/* Docusign Card */}
-                <Card className="p-4 bg-white/[0.02] border-white/10 flex items-center gap-3 min-w-[200px] border-l-2 border-l-purple-500">
+                <Card className="p-4 bg-white/[0.02] border-white/10 flex items-center gap-3 min-w-[200px] border-l-2 border-l-purple-500" data-testid="card-workflow-docusign">
                   <div className="w-10 h-10 rounded-lg bg-red-500/20 flex items-center justify-center">
                     <FileText className="w-5 h-5 text-red-400" />
                   </div>
                   <div>
-                    <div className="text-white font-semibold text-sm">Send Contract</div>
+                    <div className="text-white font-semibold text-sm" data-testid="text-workflow-send-contract">Send Contract</div>
                     <div className="text-white/40 text-xs">Docusign</div>
                   </div>
                 </Card>
 
                 {/* ClickUp Card */}
-                <Card className="p-4 bg-white/[0.02] border-white/10 flex items-center gap-3 min-w-[200px] border-l-2 border-l-purple-500">
+                <Card className="p-4 bg-white/[0.02] border-white/10 flex items-center gap-3 min-w-[200px] border-l-2 border-l-purple-500" data-testid="card-workflow-clickup">
                   <div className="w-10 h-10 rounded-lg bg-pink-500/20 flex items-center justify-center">
                     <ClipboardList className="w-5 h-5 text-pink-400" />
                   </div>
                   <div>
-                    <div className="text-white font-semibold text-sm">Client Workspace</div>
+                    <div className="text-white font-semibold text-sm" data-testid="text-workflow-client-workspace">Client Workspace</div>
                     <div className="text-white/40 text-xs">ClickUp</div>
                   </div>
                 </Card>
@@ -856,6 +861,7 @@ export default function RevenueSolutionsLanding() {
                   variant="outline"
                   size="lg"
                   className="rounded-full px-8 py-5 border-white/20 text-white hover:bg-white/10 h-auto gap-2"
+                  data-testid="button-whatsapp-cta"
                 >
                   <SiWhatsapp className="w-4 h-4" />
                   WhatsApp
