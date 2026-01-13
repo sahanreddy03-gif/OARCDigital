@@ -8,7 +8,7 @@ interface QuickLeadModalProps {
   onClose: () => void;
   planName?: string | null;
   showPlanDropdown?: boolean;
-  source?: 'ai-agents' | 'creative' | 'founding-client';
+  source?: string;
 }
 
 const planOptions = [
