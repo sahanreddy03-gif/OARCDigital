@@ -86,13 +86,15 @@ export function ARCWidget() {
             exit={{ scale: 0, opacity: 0 }}
             transition={{ delay: 0.1 }}
             className="fixed bottom-24 right-6 z-[9997] cursor-pointer group"
-            data-testid="button-call-float"
+            data-testid="link-call-float"
+            aria-label="Call OARC"
           >
             <motion.div 
               whileHover={{ scale: 1.1 }}
               className="relative w-11 h-11 bg-[#c4ff4d] rounded-full flex items-center justify-center shadow-lg shadow-[#c4ff4d]/30 transition-all"
             >
-              <Phone className="w-5 h-5 text-black" />
+              <Phone className="w-5 h-5 text-black" aria-hidden="true" />
+              <span className="sr-only">Call OARC</span>
             </motion.div>
           </motion.a>
         )}
