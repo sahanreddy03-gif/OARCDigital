@@ -596,12 +596,25 @@ function PricingModal({
     
     setIsSubmitting(true);
     try {
-      await fetch('/api/leads', {
+      const response = await fetch('https://formspree.io/f/xblnedyl', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...formData, service: selectedPackage }),
+        headers: { 
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({ 
+          name: formData.name,
+          email: formData.email,
+          company: formData.company,
+          service: selectedPackage,
+          source: 'creative',
+          page: '/creative',
+          timestamp: new Date().toISOString(),
+        }),
       });
-      setIsSubmitted(true);
+      if (response.ok) {
+        setIsSubmitted(true);
+      }
     } catch (error) {
       console.error('Error:', error);
     }
@@ -980,10 +993,9 @@ function WhatsAppCTASection() {
             <h3 className="text-2xl md:text-3xl font-bold text-zinc-900">
               Ready to talk? Let's chat.
             </h3>
-            <p className="text-zinc-700">Get a response within 2 hours during business hours.</p>
           </div>
           <a 
-            href="https://wa.me/35679776060?text=Hi%20OARC,%20I'm%20interested%20in%20your%20creative%20services" 
+            href="https://wa.me/35679711799?text=Hi%20OARC,%20I'm%20interested%20in%20your%20creative%20services" 
             target="_blank" 
             rel="noopener noreferrer"
             className="inline-flex items-center gap-3 bg-zinc-900 text-white px-8 py-4 rounded-full font-bold hover:bg-zinc-800 transition-colors shadow-xl"

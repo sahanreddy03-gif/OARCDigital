@@ -92,19 +92,9 @@ export default function Contact() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <motion.div 
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm mb-8"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.3 }}
-            >
-              <Sparkles className="w-4 h-4 text-[#ff914d]" />
-              <span className="text-sm text-white/70">AI-Powered Agency</span>
-            </motion.div>
-
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-[1.1]">
               <span className="block text-white">Let's Build Something</span>
-              <span className="block bg-gradient-to-r from-[#ff914d] via-orange-400 to-amber-300 bg-clip-text text-transparent">
+              <span className="block text-[#c4ff4d]">
                 Extraordinary
               </span>
             </h1>
