@@ -90,10 +90,10 @@ export function ARCWidget() {
             aria-label="Call OARC"
           >
             <motion.div 
-              whileHover={{ scale: 1.1 }}
-              className="relative w-11 h-11 bg-[#c4ff4d] rounded-full flex items-center justify-center shadow-lg shadow-[#c4ff4d]/30 transition-all"
+              whileHover={{ scale: 1.05 }}
+              className="relative w-10 h-10 bg-zinc-900/90 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/10 shadow-lg transition-all hover:border-white/20"
             >
-              <Phone className="w-5 h-5 text-black" aria-hidden="true" />
+              <Phone className="w-4 h-4 text-white/70" aria-hidden="true" />
               <span className="sr-only">Call OARC</span>
             </motion.div>
           </motion.a>
