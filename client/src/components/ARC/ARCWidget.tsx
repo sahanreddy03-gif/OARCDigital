@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X } from 'lucide-react';
+import { X, Phone } from 'lucide-react';
 import { useLocation } from 'wouter';
 import { ARCChat } from './ARCChat';
+
+const PHONE_NUMBER = '+35679711799';
 
 export function ARCWidget() {
   const [location] = useLocation();
@@ -74,6 +76,29 @@ export function ARCWidget() {
         )}
       </AnimatePresence>
 
+      {/* Call Button - Above ARC */}
+      <AnimatePresence>
+        {!isOpen && (
+          <motion.a
+            href={`tel:${PHONE_NUMBER}`}
+            initial={{ scale: 0, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0, opacity: 0 }}
+            transition={{ delay: 0.1 }}
+            className="fixed bottom-24 right-6 z-[9997] cursor-pointer group"
+            data-testid="button-call-float"
+          >
+            <motion.div 
+              whileHover={{ scale: 1.1 }}
+              className="relative w-11 h-11 bg-[#c4ff4d] rounded-full flex items-center justify-center shadow-lg shadow-[#c4ff4d]/30 transition-all"
+            >
+              <Phone className="w-5 h-5 text-black" />
+            </motion.div>
+          </motion.a>
+        )}
+      </AnimatePresence>
+
+      {/* ARC Chat Button */}
       <AnimatePresence>
         {!isOpen && (
           <motion.div

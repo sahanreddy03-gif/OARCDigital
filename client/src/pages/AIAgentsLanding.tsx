@@ -282,16 +282,20 @@ export default function AIAgentsLanding() {
                   Build, grow, and scale your business with our AI workforce.
                 </p>
                 
-                <Link href="/contact">
+                <a
+                  href="https://wa.me/35679711799?text=Hi%20OARC,%20I'm%20interested%20in%20your%20AI%20agents"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <Button 
                     size="default" 
                     className="bg-[#c4ff4d] hover:bg-[#d4ff6d] text-black font-semibold px-6 py-3 text-sm sm:text-base rounded-full shadow-lg shadow-[#c4ff4d]/20 transition-all duration-300 hover:shadow-[#c4ff4d]/30 hover:scale-[1.02]"
                     data-testid="button-hero-cta"
                   >
-                    Start Your AI Pilot
-                    <ArrowRight className="ml-2 w-4 h-4" />
+                    <SiWhatsapp className="mr-2 w-4 h-4" />
+                    Chat With Us
                   </Button>
-                </Link>
+                </a>
               </motion.div>
             </div>
           </div>
@@ -603,18 +607,24 @@ export default function AIAgentsLanding() {
               </h2>
               
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <Link href="/contact">
+                <a
+                  href="https://wa.me/35679711799?text=Hi%20OARC,%20I'm%20interested%20in%20starting%20a%2014-day%20AI%20pilot"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full sm:w-auto"
+                >
                   <Button 
                     size="lg" 
-                    className="bg-black text-white hover:bg-zinc-900 rounded-full px-8 py-6 text-lg font-bold w-full sm:w-auto"
+                    className="bg-black text-white hover:bg-zinc-900 rounded-full px-8 py-6 text-lg font-bold w-full"
                     data-testid="button-final-cta"
                   >
+                    <SiWhatsapp className="mr-2 w-5 h-5" />
                     Start 14-Day Pilot
                   </Button>
-                </Link>
+                </a>
                 
                 <a 
-                  href="https://wa.me/35677130656" 
+                  href="https://wa.me/35679711799?text=Hi%20OARC,%20I'm%20interested%20in%20your%20AI%20agents" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="w-full sm:w-auto"
