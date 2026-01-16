@@ -70,6 +70,15 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'Heat Robox';
+  src: url('/fonts/heat-robox.woff2') format('woff2'),
+       url('/fonts/heat-robox.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --font-blackpast: 'Blackpast', cursive;
   --font-punoer: 'Punoer', sans-serif;
@@ -79,6 +88,7 @@
   --font-blackfuture: 'Black Future', sans-serif;
   --font-swarsh: 'Swarsh Daisy', serif;
   --font-halfre: 'Halfre', sans-serif;
+  --font-heatrobox: 'Heat Robox', sans-serif;
 }
 
 /* LIGHT MODE */
