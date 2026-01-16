@@ -52,6 +52,15 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'Swarsh Daisy';
+  src: url('/fonts/swarsh-daisy-regular.woff2') format('woff2'),
+       url('/fonts/swarsh-daisy-regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --font-blackpast: 'Blackpast', cursive;
   --font-punoer: 'Punoer', sans-serif;
@@ -59,6 +68,7 @@
   --font-ciscela: 'Ciscela', serif;
   --font-pixelag: 'Pixelag', monospace;
   --font-blackfuture: 'Black Future', sans-serif;
+  --font-swarsh: 'Swarsh Daisy', serif;
 }
 
 /* LIGHT MODE */
