@@ -229,28 +229,19 @@ export default function AIAgentsLanding() {
       <CreativeNavigation />
       
       <main className="min-h-screen bg-black text-white overflow-x-hidden relative" style={{ fontFamily: 'var(--font-pixelag)' }}>
-        {/* Fixed Animated Grid Background */}
-        <div className="fixed inset-0 z-0 pointer-events-none">
-          <AnimatedGridBackground 
-            intensity="subtle" 
-            showScanLine={true}
-            showParticles={true}
-            showConcentricRings={false}
-            showDiagonalGrid={true}
-          />
-        </div>
         
-        {/* Hero Section - Ultra Premium with Video Background */}
+        {/* Hero Section - Clean video background, no grid overlay */}
         <section className="relative z-10 h-screen min-h-[600px] max-h-[1000px] overflow-hidden">
-          {/* Video Background - Bright and visible */}
+          {/* Video Background - Loads immediately with preload */}
           <div className="absolute inset-0">
             <video
               autoPlay
               loop
               muted
               playsInline
+              preload="auto"
               className="absolute inset-0 w-full h-full object-cover"
-              poster="/images/ai-agents-hero-poster.jpg"
+              style={{ objectPosition: 'center top' }}
               title="OARC Digital AI Workforce - Autonomous business agents working 24/7"
               aria-label="Background video showcasing OARC AI agents automating business operations"
             >
