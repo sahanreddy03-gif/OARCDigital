@@ -4,7 +4,6 @@ import { motion, useInView, useReducedMotion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 import { Button } from '@/components/ui/button';
 import { GlassCard } from '@/components/ui/glass-card';
-import { AnimatedGridBackground } from '@/components/ui/animated-grid-background';
 import { 
   NeuralBrain, LightningBolt, ClockSpeed, GlobeNetwork, NetworkHub, DataFlow, ShieldCheck, BarChart
 } from '@/components/ui/ai-icons';
@@ -170,9 +169,16 @@ function AnimatedCounter({ value, suffix = '', prefix = '' }: { value: string; s
 export default function AIAgentsLanding() {
   const prefersReducedMotion = useReducedMotion();
   const [selectedAgent, setSelectedAgent] = useState<AITeamMember | null>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
   
   useEffect(() => {
     window.scrollTo(0, 0);
+    // Force video to play immediately
+    if (videoRef.current) {
+      videoRef.current.play().catch(() => {
+        // Autoplay was prevented, try again with user interaction
+      });
+    }
   }, []);
 
   return (
@@ -230,11 +236,12 @@ export default function AIAgentsLanding() {
       
       <main className="min-h-screen bg-black text-white overflow-x-hidden relative" style={{ fontFamily: 'var(--font-pixelag)' }}>
         
-        {/* Hero Section - Clean video background, no grid overlay */}
-        <section className="relative z-10 h-screen min-h-[600px] max-h-[1000px] overflow-hidden">
-          {/* Video Background - Loads immediately with preload */}
-          <div className="absolute inset-0">
+        {/* Hero Section - Clean video background only, NO grid effects */}
+        <section className="relative h-screen min-h-[600px] max-h-[1000px] overflow-hidden bg-black">
+          {/* Video Background - Immediate playback */}
+          <div className="absolute inset-0 z-0">
             <video
+              ref={videoRef}
               autoPlay
               loop
               muted
@@ -242,16 +249,13 @@ export default function AIAgentsLanding() {
               preload="auto"
               className="absolute inset-0 w-full h-full object-cover"
               style={{ objectPosition: 'center top' }}
-              title="OARC Digital AI Workforce - Autonomous business agents working 24/7"
-              aria-label="Background video showcasing OARC AI agents automating business operations"
             >
               <source src="/2026-01-11_01_1768174240415.mp4" type="video/mp4" />
-              Your browser does not support the video tag. OARC AI agents automate sales, support, bookings and operations 24/7.
             </video>
           </div>
           
-          {/* Light overlay - only at bottom for text readability */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
+          {/* Gradient overlay for text readability - only at bottom */}
+          <div className="absolute inset-0 z-[1] bg-gradient-to-t from-black via-black/20 to-transparent pointer-events-none" />
           
           {/* Content - Bottom positioned, leaving top clear for AI character */}
           <div className="relative z-10 h-full flex flex-col justify-end pb-8 sm:pb-12 md:pb-16">
