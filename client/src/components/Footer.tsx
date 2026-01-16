@@ -249,7 +249,7 @@ export default function Footer({ hideGetInTouch = false }: FooterProps) {
             />
             <div 
               className="flex flex-col items-center leading-none"
-              style={{ fontFamily: 'var(--font-punoer)' }}
+              style={{ fontFamily: 'var(--font-blackfuture)' }}
               data-testid="text-footer-logo-name"
             >
               <span className="text-white text-xl md:text-2xl tracking-[0.2em]">OARC</span>
