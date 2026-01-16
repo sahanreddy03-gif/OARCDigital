@@ -61,6 +61,15 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'Halfre';
+  src: url('/fonts/halfre.woff2') format('woff2'),
+       url('/fonts/halfre.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --font-blackpast: 'Blackpast', cursive;
   --font-punoer: 'Punoer', sans-serif;
@@ -69,6 +78,7 @@
   --font-pixelag: 'Pixelag', monospace;
   --font-blackfuture: 'Black Future', sans-serif;
   --font-swarsh: 'Swarsh Daisy', serif;
+  --font-halfre: 'Halfre', sans-serif;
 }
 
 /* LIGHT MODE */
