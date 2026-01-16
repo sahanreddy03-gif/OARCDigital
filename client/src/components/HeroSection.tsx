@@ -278,7 +278,8 @@ export default function HeroSection() {
                   >
                     {/* Mobile: 8.5vw scales from ~27px on iPhone SE to ~36px on iPhone 16 Pro Max */}
                     <span 
-                      className="block font-bold tracking-tight leading-[1.05] text-[8.5vw] md:text-[clamp(2.5rem,5.5vw,4.5rem)] lg:text-[clamp(2.5rem,4.8vw,4rem)]"
+                      className="block tracking-tight leading-[1.05] text-[8.5vw] md:text-[clamp(2.5rem,5.5vw,4.5rem)] lg:text-[clamp(2.5rem,4.8vw,4rem)]"
+                      style={{ fontFamily: 'var(--font-swarsh)' }}
                     >
                       AI-Native Marketing Agency
                     </span>
