@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Palette, Bot, Rocket } from "lucide-react";
@@ -134,16 +134,6 @@ const MobileGlassCard = ({ icon: Icon, label, href, testId }: { icon: typeof Pal
 );
 
 export default function HeroSection() {
-  const [scrollY, setScrollY] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   const styles = `
     @keyframes float {
       0%, 100% { transform: translateY(0) translateX(0); opacity: 0.3; }
@@ -225,17 +215,13 @@ export default function HeroSection() {
         </div>
 
         {/* ========== DESKTOP LAYOUT ========== */}
-        {/* Background with parallax - GPU accelerated for smooth flow */}
+        {/* Background - fixed, no parallax to prevent zoom scroll issues */}
         <div 
-          className="hidden md:block absolute inset-0 bg-cover bg-no-repeat"
+          className="hidden md:block absolute inset-0 bg-cover bg-no-repeat bg-fixed"
           style={{ 
             backgroundImage: `url(${heroBackground})`,
             backgroundPosition: '35% center',
-            transform: `translate3d(0, ${scrollY * 0.3}px, 0)`,
-            willChange: 'transform',
-            backfaceVisibility: 'hidden',
-            perspective: 1000,
-            filter: 'saturate(0.7) brightness(0.85)'
+            filter: 'saturate(1.0) brightness(1.0)'
           }}
         />
         {/* AI Grid Overlay with pulse - NEON GREEN DESKTOP */}
