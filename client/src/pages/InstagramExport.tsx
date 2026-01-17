@@ -25,7 +25,7 @@ export default function InstagramExport() {
 
     // Load custom fonts
     Promise.all([
-      document.fonts.load("bold 48px 'Space Future'"),
+      document.fonts.load("600 48px 'Orbitron'"),
       document.fonts.load("bold 28px 'Nextf Games'"),
     ]).then(() => {
       setFontsLoaded(true);
@@ -80,14 +80,14 @@ export default function InstagramExport() {
       ctx.drawImage(logoRef.current, logoX, logoY, logoSize, logoSize);
     }
 
-    // OARC text with Space Future font
+    // OARC text with Orbitron font (geometric tech style matching branding)
     ctx.textAlign = 'left';
-    ctx.font = "48px 'Space Future', 'Orbitron', sans-serif";
+    ctx.font = "600 48px 'Orbitron', sans-serif";
     ctx.fillStyle = '#FFFFFF';
     ctx.fillText('OARC', logoX + logoSize + 20, logoY + 55);
 
     // DIGITAL text - smaller, below OARC
-    ctx.font = "28px 'Space Future', 'Orbitron', sans-serif";
+    ctx.font = "600 28px 'Orbitron', sans-serif";
     ctx.fillStyle = '#FFFFFF';
     ctx.fillText('DIGITAL', logoX + logoSize + 20, logoY + 90);
 
