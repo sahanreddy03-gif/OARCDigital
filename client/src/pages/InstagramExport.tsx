@@ -27,7 +27,7 @@ export default function InstagramExport() {
     Promise.all([
       document.fonts.load("48px 'Heat Robox'"),
       document.fonts.load("bold 28px 'Nextf Games'"),
-      document.fonts.load("28px 'Ciscela'"),
+      document.fonts.load("28px 'Baligon'"),
     ]).then(() => {
       setFontsLoaded(true);
     }).catch(() => {
@@ -85,12 +85,18 @@ export default function InstagramExport() {
     ctx.textAlign = 'left';
     ctx.font = "48px 'Heat Robox', sans-serif";
     ctx.fillStyle = '#FFFFFF';
-    ctx.fillText('OARC', logoX + logoSize + 20, logoY + 55);
+    const orcTextX = logoX + logoSize + 20;
+    ctx.fillText('OARC', orcTextX, logoY + 55);
+    
+    // Measure OARC width to center DIGITAL under it
+    const oarcWidth = ctx.measureText('OARC').width;
 
-    // DIGITAL text - smaller, below OARC, in GREEN (like homepage)
+    // DIGITAL text - smaller, centered under OARC, in GREEN (like homepage)
     ctx.font = "24px 'Heat Robox', sans-serif";
     ctx.fillStyle = '#c4ff4d';
-    ctx.fillText('DIGITAL', logoX + logoSize + 22, logoY + 85);
+    const digitalWidth = ctx.measureText('DIGITAL').width;
+    const digitalX = orcTextX + (oarcWidth - digitalWidth) / 2;
+    ctx.fillText('DIGITAL', digitalX, logoY + 85);
 
     // Main headline - centered
     ctx.textAlign = 'center';
@@ -116,7 +122,7 @@ export default function InstagramExport() {
     
     // Define ticker segments with their fonts
     const normalFont = "bold 28px 'Nextf Games', 'Arial Black', sans-serif";
-    const accentFont = "28px 'Ciscela', Georgia, serif";
+    const accentFont = "28px 'Baligon', Georgia, serif";
     
     const segments = [
       { text: 'WE PUT ', font: normalFont },

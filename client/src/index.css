@@ -38,6 +38,15 @@
 }
 
 @font-face {
+  font-family: 'Baligon';
+  src: url('/fonts/baligon.woff') format('woff'),
+       url('/fonts/baligon.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
   font-family: 'Pixelag';
   src: url('/fonts/Pixelag.ttf') format('truetype');
   font-weight: normal;
