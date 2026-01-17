@@ -2,337 +2,309 @@ import { useRef, useState, useCallback, useEffect } from 'react';
 import heroVideo from '@assets/video_final_1768658189717.mp4';
 
 export default function InstagramExport() {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [isFullScreen, setIsFullScreen] = useState(false);
   const [isReady, setIsReady] = useState(false);
+  const [isRecording, setIsRecording] = useState(false);
+  const [progress, setProgress] = useState(0);
+  const [downloadUrl, setDownloadUrl] = useState<string | null>(null);
+  const [error, setError] = useState<string | null>(null);
+  const animationRef = useRef<number>(0);
+  const startTimeRef = useRef<number>(0);
 
-  // Handle video ready state
-  const handleVideoLoaded = useCallback(() => {
-    setTimeout(() => {
-      setIsReady(true);
-    }, 500);
-  }, []);
+  // Draw frame to canvas
+  const drawFrame = useCallback((ctx: CanvasRenderingContext2D, video: HTMLVideoElement | null, time: number) => {
+    const width = 1080;
+    const height = 1350;
 
-  // Fallback: enable after 3 seconds even if video doesn't load
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsReady(true);
-    }, 3000);
-    return () => clearTimeout(timer);
-  }, []);
+    // Clear and fill background
+    ctx.fillStyle = '#000000';
+    ctx.fillRect(0, 0, width, height);
 
-  // Toggle fullscreen
-  const toggleFullScreen = useCallback(() => {
-    setIsFullScreen(!isFullScreen);
-  }, [isFullScreen]);
+    // Draw video if available
+    if (video && video.readyState >= 2) {
+      const videoAspect = video.videoWidth / video.videoHeight;
+      const canvasAspect = width / height;
+      let drawWidth = width;
+      let drawHeight = height;
+      let offsetX = 0;
+      let offsetY = 0;
 
-  // Exit fullscreen on Escape
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape' && isFullScreen) {
-        setIsFullScreen(false);
+      if (videoAspect > canvasAspect) {
+        drawWidth = height * videoAspect;
+        offsetX = (width - drawWidth) / 2;
+      } else {
+        drawHeight = width / videoAspect;
+        offsetY = (height - drawHeight) / 2;
       }
+
+      ctx.drawImage(video, offsetX, offsetY, drawWidth, drawHeight);
+    }
+
+    // Dark gradient overlay
+    const gradient = ctx.createLinearGradient(0, 0, 0, height);
+    gradient.addColorStop(0, 'rgba(0,0,0,0.65)');
+    gradient.addColorStop(0.35, 'rgba(0,0,0,0.25)');
+    gradient.addColorStop(0.65, 'rgba(0,0,0,0.25)');
+    gradient.addColorStop(1, 'rgba(0,0,0,0.75)');
+    ctx.fillStyle = gradient;
+    ctx.fillRect(0, 0, width, height);
+
+    // OARC Logo circle
+    const logoY = 100;
+    ctx.strokeStyle = '#BFFF00';
+    ctx.lineWidth = 3;
+    ctx.beginPath();
+    ctx.arc(width/2 - 80, logoY, 28, 0, Math.PI * 2);
+    ctx.stroke();
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.ellipse(width/2 - 80, logoY, 10, 22, 0, 0, Math.PI * 2);
+    ctx.stroke();
+
+    // OARC text
+    ctx.font = "bold 52px 'Orbitron', 'Arial', sans-serif";
+    ctx.textAlign = 'left';
+    ctx.fillStyle = '#BFFF00';
+    ctx.fillText('O', width/2 - 35, logoY + 18);
+    ctx.fillStyle = '#FFFFFF';
+    ctx.fillText('ARC', width/2 + 15, logoY + 18);
+
+    // Main headline - centered
+    ctx.textAlign = 'center';
+    ctx.font = "800 62px 'Montserrat', 'Arial Black', sans-serif";
+    ctx.fillStyle = '#FFFFFF';
+    ctx.fillText('WE ARE THE MODERN', width/2, height/2 - 40);
+    ctx.fillText('AI', width/2, height/2 + 40);
+
+    // Italic subheadline
+    ctx.font = "italic 78px 'Georgia', serif";
+    ctx.fillStyle = '#FFFFFF';
+    ctx.fillText('CREATIVE AGENCY', width/2, height/2 + 150);
+
+    // Ticker bar background
+    const tickerY = height - 70;
+    const tickerHeight = 70;
+    ctx.fillStyle = '#BFFF00';
+    ctx.fillRect(0, tickerY, width, tickerHeight);
+
+    // Ticker text - animated
+    ctx.font = "bold 18px 'Arial', sans-serif";
+    ctx.fillStyle = '#000000';
+    ctx.textAlign = 'left';
+    
+    const tickerText = 'WE PUT SOCIAL · AI · STRATEGY AT THE CENTER OF EVERYTHING WE DO.          ';
+    const charWidth = 14;
+    const textWidth = tickerText.length * charWidth;
+    const offset = (time * 80) % textWidth;
+    
+    for (let i = -1; i < 6; i++) {
+      ctx.fillText(tickerText, i * textWidth - offset + 50, tickerY + 44);
+    }
+  }, []);
+
+  // Live preview animation loop
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    const video = videoRef.current;
+    if (!canvas) return;
+
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    let running = true;
+    const animate = () => {
+      if (!running) return;
+      const time = performance.now() / 1000;
+      drawFrame(ctx, video, time);
+      animationRef.current = requestAnimationFrame(animate);
     };
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [isFullScreen]);
 
-  // Fullscreen view - render at exact 1080x1350
-  if (isFullScreen) {
-    return (
-      <div 
-        className="fixed inset-0 bg-black flex items-center justify-center z-50"
-        onClick={() => setIsFullScreen(false)}
-      >
-        <div 
-          className="relative overflow-hidden"
-          style={{ 
-            width: 1080, 
-            height: 1350,
-            maxWidth: '100vw',
-            maxHeight: '100vh',
-          }}
-          onClick={(e) => e.stopPropagation()}
-        >
-          {/* Video Background */}
-          <video
-            ref={videoRef}
-            autoPlay
-            muted
-            loop
-            playsInline
-            className="absolute inset-0 w-full h-full object-cover"
-          >
-            <source src={heroVideo} type="video/mp4" />
-          </video>
+    animate();
 
-          {/* Dark Gradient Overlay */}
-          <div 
-            className="absolute inset-0"
-            style={{
-              background: 'linear-gradient(180deg, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.25) 35%, rgba(0,0,0,0.25) 65%, rgba(0,0,0,0.75) 100%)'
-            }}
-          />
+    return () => {
+      running = false;
+      cancelAnimationFrame(animationRef.current);
+    };
+  }, [drawFrame]);
 
-          {/* Content */}
-          <div className="relative z-10 w-full h-full flex flex-col items-center justify-between">
-            {/* OARC Logo */}
-            <div className="pt-16 flex items-center gap-3">
-              <svg width="56" height="56" viewBox="0 0 56 56" fill="none">
-                <circle cx="28" cy="28" r="24" stroke="#BFFF00" strokeWidth="3" />
-                <ellipse cx="28" cy="28" rx="9" ry="20" stroke="#BFFF00" strokeWidth="2" />
-              </svg>
-              <span 
-                className="text-5xl tracking-[0.3em]"
-                style={{ fontFamily: "'Heat Robox', 'Orbitron', sans-serif", fontWeight: 500 }}
-              >
-                <span style={{ color: '#BFFF00' }}>O</span>
-                <span className="text-white">ARC</span>
-              </span>
-            </div>
+  // Handle video ready
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
 
-            {/* Main Headline */}
-            <div className="text-center px-12 -mt-20">
-              <h1 
-                className="text-white uppercase leading-tight"
-                style={{ 
-                  fontFamily: "'Montserrat', 'Helvetica Neue', sans-serif",
-                  fontSize: 68,
-                  fontWeight: 800,
-                  letterSpacing: '0.1em'
-                }}
-              >
-                WE ARE THE MODERN AI
-              </h1>
-              <h2 
-                className="text-white uppercase mt-6"
-                style={{ 
-                  fontFamily: "'EB Garamond', Georgia, serif",
-                  fontSize: 88,
-                  fontWeight: 400,
-                  fontStyle: 'italic',
-                  letterSpacing: '0.12em'
-                }}
-              >
-                CREATIVE AGENCY
-              </h2>
-            </div>
+    const handleLoaded = () => setIsReady(true);
+    video.addEventListener('loadeddata', handleLoaded);
+    
+    // Fallback
+    const timer = setTimeout(() => setIsReady(true), 3000);
 
-            {/* Ticker Bar */}
-            <div 
-              className="w-full overflow-hidden"
-              style={{ backgroundColor: '#BFFF00', padding: '22px 0' }}
-            >
-              <div 
-                className="flex whitespace-nowrap animate-ticker-fullscreen"
-                style={{ 
-                  fontFamily: "'Montserrat', sans-serif",
-                  fontSize: 16,
-                  fontWeight: 700,
-                  color: '#000000',
-                  letterSpacing: '0.15em',
-                  textTransform: 'uppercase'
-                }}
-              >
-                {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
-                  <span key={i} className="mr-16">
-                    WE PUT SOCIAL · AI · STRATEGY AT THE CENTER OF EVERYTHING WE DO.
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
+    return () => {
+      video.removeEventListener('loadeddata', handleLoaded);
+      clearTimeout(timer);
+    };
+  }, []);
 
-          {/* Exit hint */}
-          <div className="absolute top-4 right-4 z-20">
-            <button 
-              onClick={() => setIsFullScreen(false)}
-              className="px-4 py-2 bg-black/50 text-white text-sm rounded hover:bg-black/70"
-            >
-              Press ESC or click here to exit
-            </button>
-          </div>
-        </div>
+  // Start recording
+  const startRecording = useCallback(async () => {
+    const canvas = canvasRef.current;
+    const video = videoRef.current;
+    if (!canvas) return;
 
-        <style>{`
-          @keyframes ticker-fullscreen {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-          }
-          .animate-ticker-fullscreen {
-            animation: ticker-fullscreen 20s linear infinite;
-          }
-        `}</style>
-      </div>
-    );
-  }
+    setError(null);
+    setDownloadUrl(null);
+    setIsRecording(true);
+    setProgress(0);
 
-  // Normal preview view
+    // Reset video
+    if (video) {
+      video.currentTime = 0;
+      video.play().catch(() => {});
+    }
+
+    const duration = 8000;
+    startTimeRef.current = performance.now();
+    const chunks: Blob[] = [];
+
+    try {
+      const stream = canvas.captureStream(30);
+      
+      // Try different codecs
+      let mimeType = 'video/webm;codecs=vp8';
+      if (MediaRecorder.isTypeSupported('video/webm;codecs=vp9')) {
+        mimeType = 'video/webm;codecs=vp9';
+      }
+
+      const mediaRecorder = new MediaRecorder(stream, {
+        mimeType,
+        videoBitsPerSecond: 5000000
+      });
+
+      mediaRecorder.ondataavailable = (e) => {
+        if (e.data.size > 0) {
+          chunks.push(e.data);
+        }
+      };
+
+      mediaRecorder.onstop = () => {
+        const blob = new Blob(chunks, { type: 'video/webm' });
+        const url = URL.createObjectURL(blob);
+        setDownloadUrl(url);
+        setIsRecording(false);
+        setProgress(100);
+      };
+
+      mediaRecorder.onerror = (e) => {
+        console.error('MediaRecorder error:', e);
+        setError('Recording failed');
+        setIsRecording(false);
+      };
+
+      mediaRecorder.start(100);
+
+      // Progress tracking
+      const progressInterval = setInterval(() => {
+        const elapsed = performance.now() - startTimeRef.current;
+        const pct = Math.min(99, Math.floor((elapsed / duration) * 100));
+        setProgress(pct);
+
+        if (elapsed >= duration) {
+          clearInterval(progressInterval);
+          mediaRecorder.stop();
+        }
+      }, 100);
+
+    } catch (err) {
+      console.error('Recording setup failed:', err);
+      setError('Recording not supported in this browser');
+      setIsRecording(false);
+    }
+  }, []);
+
+  // Download
+  const handleDownload = useCallback(() => {
+    if (!downloadUrl) return;
+    const a = document.createElement('a');
+    a.href = downloadUrl;
+    a.download = 'oarc-instagram-1080x1350.webm';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  }, [downloadUrl]);
+
   return (
     <div className="min-h-screen bg-neutral-950 flex flex-col items-center py-8 px-4">
-      {/* Controls */}
+      {/* Hidden video */}
+      <video
+        ref={videoRef}
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="hidden"
+      >
+        <source src={heroVideo} type="video/mp4" />
+      </video>
+
+      {/* Header */}
       <div className="mb-6 flex flex-col items-center gap-4">
         <h1 className="text-2xl font-bold text-white">Instagram Export (1080×1350)</h1>
         
-        <div className="text-white/60 text-sm max-w-lg text-center space-y-2">
-          <p>Click "Open Full Screen" to view at actual size, then screen record using:</p>
-          <ul className="text-left list-disc list-inside">
-            <li><strong>Mac:</strong> QuickTime Player → New Screen Recording</li>
-            <li><strong>Windows:</strong> OBS Studio (free) or Xbox Game Bar (Win+G)</li>
-            <li><strong>Chrome:</strong> Use DevTools (F12) → Device mode → Set 1080×1350</li>
-          </ul>
+        <p className="text-white/60 text-sm max-w-md text-center">
+          Click "Start Recording" to capture 8 seconds of video with the animated ticker.
+        </p>
+        
+        {error && <p className="text-red-400 text-sm">{error}</p>}
+
+        <div className="flex gap-4">
+          {!downloadUrl ? (
+            <button
+              onClick={startRecording}
+              disabled={!isReady || isRecording}
+              className={`px-8 py-4 font-bold rounded-lg transition-colors text-lg ${
+                isReady && !isRecording
+                  ? 'bg-[#BFFF00] text-black hover:bg-[#BFFF00]/90' 
+                  : 'bg-gray-600 text-gray-400 cursor-not-allowed'
+              }`}
+              data-testid="button-record"
+            >
+              {isRecording ? `Recording... ${progress}%` : (isReady ? 'Start Recording' : 'Loading...')}
+            </button>
+          ) : (
+            <>
+              <button
+                onClick={handleDownload}
+                className="px-8 py-4 font-bold rounded-lg bg-[#BFFF00] text-black hover:bg-[#BFFF00]/90 text-lg"
+                data-testid="button-download"
+              >
+                Download Video
+              </button>
+              <button
+                onClick={() => { setDownloadUrl(null); setProgress(0); }}
+                className="px-6 py-4 font-bold rounded-lg bg-white/10 text-white hover:bg-white/20 text-lg"
+                data-testid="button-record-again"
+              >
+                Record Again
+              </button>
+            </>
+          )}
         </div>
-        
-        {!isReady && (
-          <p className="text-yellow-400 text-sm">Loading video...</p>
-        )}
-        
-        <button
-          onClick={toggleFullScreen}
-          disabled={!isReady}
-          className={`px-8 py-4 font-bold rounded-lg transition-colors text-lg ${
-            isReady 
-              ? 'bg-[#BFFF00] text-black hover:bg-[#BFFF00]/90' 
-              : 'bg-gray-600 text-gray-400 cursor-not-allowed'
-          }`}
-          data-testid="button-fullscreen"
-        >
-          Open Full Screen Preview
-        </button>
       </div>
 
-      {/* Preview Frame - Scaled down for display */}
-      <div 
-        className="relative border-4 border-white/20 rounded-lg overflow-hidden shadow-2xl cursor-pointer hover:border-[#BFFF00]/50 transition-colors"
-        style={{ 
-          width: 360, 
-          height: 450,
-        }}
-        onClick={toggleFullScreen}
-      >
-        {/* Actual 1080x1350 content scaled down */}
-        <div 
-          className="origin-top-left"
-          style={{ 
-            width: 1080, 
-            height: 1350,
-            transform: 'scale(0.333)',
-            transformOrigin: 'top left'
-          }}
-        >
-          {/* Video Background */}
-          <video
-            ref={videoRef}
-            autoPlay
-            muted
-            loop
-            playsInline
-            onLoadedData={handleVideoLoaded}
-            className="absolute inset-0 w-full h-full object-cover"
-          >
-            <source src={heroVideo} type="video/mp4" />
-          </video>
-
-          {/* Dark Gradient Overlay */}
-          <div 
-            className="absolute inset-0"
-            style={{
-              background: 'linear-gradient(180deg, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.25) 35%, rgba(0,0,0,0.25) 65%, rgba(0,0,0,0.75) 100%)'
-            }}
-          />
-
-          {/* Content */}
-          <div className="relative z-10 w-full h-full flex flex-col items-center justify-between">
-            {/* OARC Logo */}
-            <div className="pt-16 flex items-center gap-3">
-              <svg width="56" height="56" viewBox="0 0 56 56" fill="none">
-                <circle cx="28" cy="28" r="24" stroke="#BFFF00" strokeWidth="3" />
-                <ellipse cx="28" cy="28" rx="9" ry="20" stroke="#BFFF00" strokeWidth="2" />
-              </svg>
-              <span 
-                className="text-5xl tracking-[0.3em]"
-                style={{ fontFamily: "'Heat Robox', 'Orbitron', sans-serif", fontWeight: 500 }}
-              >
-                <span style={{ color: '#BFFF00' }}>O</span>
-                <span className="text-white">ARC</span>
-              </span>
-            </div>
-
-            {/* Main Headline */}
-            <div className="text-center px-12 -mt-20">
-              <h1 
-                className="text-white uppercase leading-tight"
-                style={{ 
-                  fontFamily: "'Montserrat', 'Helvetica Neue', sans-serif",
-                  fontSize: 68,
-                  fontWeight: 800,
-                  letterSpacing: '0.1em'
-                }}
-              >
-                WE ARE THE MODERN AI
-              </h1>
-              <h2 
-                className="text-white uppercase mt-6"
-                style={{ 
-                  fontFamily: "'EB Garamond', Georgia, serif",
-                  fontSize: 88,
-                  fontWeight: 400,
-                  fontStyle: 'italic',
-                  letterSpacing: '0.12em'
-                }}
-              >
-                CREATIVE AGENCY
-              </h2>
-            </div>
-
-            {/* Ticker Bar */}
-            <div 
-              className="w-full overflow-hidden"
-              style={{ backgroundColor: '#BFFF00', padding: '22px 0' }}
-            >
-              <div 
-                className="flex whitespace-nowrap animate-ticker"
-                style={{ 
-                  fontFamily: "'Montserrat', sans-serif",
-                  fontSize: 16,
-                  fontWeight: 700,
-                  color: '#000000',
-                  letterSpacing: '0.15em',
-                  textTransform: 'uppercase'
-                }}
-              >
-                {[1, 2, 3, 4, 5].map((i) => (
-                  <span key={i} className="mr-16">
-                    WE PUT SOCIAL · AI · STRATEGY AT THE CENTER OF EVERYTHING WE DO.
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Click to enlarge overlay */}
-        <div className="absolute inset-0 flex items-center justify-center bg-black/0 hover:bg-black/30 transition-colors">
-          <span className="text-white/0 hover:text-white/90 transition-colors font-bold text-lg">
-            Click to Preview Full Size
-          </span>
-        </div>
+      {/* Canvas */}
+      <div className="border-4 border-white/20 rounded-lg overflow-hidden shadow-2xl">
+        <canvas
+          ref={canvasRef}
+          width={1080}
+          height={1350}
+          className="bg-black"
+          style={{ width: 360, height: 450 }}
+        />
       </div>
 
       <p className="mt-4 text-white/40 text-sm">
-        Preview shown at 33% scale. Click to view at full 1080×1350 pixels.
+        Preview shown at 33% scale. Recording exports at full 1080×1350 pixels.
       </p>
-
-      {/* Ticker animation CSS */}
-      <style>{`
-        @keyframes ticker {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-20%); }
-        }
-        .animate-ticker {
-          animation: ticker 8s linear infinite;
-        }
-      `}</style>
     </div>
   );
 }
