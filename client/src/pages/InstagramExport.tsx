@@ -27,6 +27,7 @@ export default function InstagramExport() {
     Promise.all([
       document.fonts.load("600 48px 'Orbitron'"),
       document.fonts.load("bold 28px 'Nextf Games'"),
+      document.fonts.load("28px 'Ciscela'"),
     ]).then(() => {
       setFontsLoaded(true);
     }).catch(() => {
@@ -109,20 +110,41 @@ export default function InstagramExport() {
     ctx.fillStyle = '#BFFF00';
     ctx.fillRect(0, tickerY, width, tickerHeight);
 
-    // Ticker text - BIGGER with Nextf Games font, TIGHT spacing
-    ctx.font = "bold 28px 'Nextf Games', 'Arial Black', sans-serif";
+    // Ticker with mixed fonts - Ciscela for SOCIAL, AI, STRATEGY, Nextf Games for rest
     ctx.fillStyle = '#000000';
     ctx.textAlign = 'left';
     
-    // Ticker text with tight spacing - only a bullet separator between repeats
-    const tickerText = 'WE PUT SOCIAL · AI · STRATEGY AT THE CENTER OF EVERYTHING WE DO. · ';
-    const textMetrics = ctx.measureText(tickerText);
-    const textWidth = textMetrics.width;
-    const offset = (time * 100) % textWidth;
+    // Define ticker segments with their fonts
+    const normalFont = "bold 28px 'Nextf Games', 'Arial Black', sans-serif";
+    const accentFont = "28px 'Ciscela', Georgia, serif";
+    
+    const segments = [
+      { text: 'WE PUT ', font: normalFont },
+      { text: 'SOCIAL', font: accentFont },
+      { text: ' · ', font: normalFont },
+      { text: 'AI', font: accentFont },
+      { text: ' · ', font: normalFont },
+      { text: 'STRATEGY', font: accentFont },
+      { text: ' AT THE CENTER OF EVERYTHING WE DO. · ', font: normalFont },
+    ];
+    
+    // Calculate total width of one full ticker repeat
+    let totalWidth = 0;
+    for (const seg of segments) {
+      ctx.font = seg.font;
+      totalWidth += ctx.measureText(seg.text).width;
+    }
+    
+    const offset = (time * 100) % totalWidth;
     
     // Draw multiple copies for seamless scrolling
     for (let i = -1; i < 4; i++) {
-      ctx.fillText(tickerText, i * textWidth - offset, tickerY + 62);
+      let xPos = i * totalWidth - offset;
+      for (const seg of segments) {
+        ctx.font = seg.font;
+        ctx.fillText(seg.text, xPos, tickerY + 62);
+        xPos += ctx.measureText(seg.text).width;
+      }
     }
   }, []);
 
