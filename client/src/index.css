@@ -75,7 +75,8 @@
 @font-face {
   font-family: 'Heat Robox';
   src: url('/fonts/heat-robox.woff2') format('woff2'),
-       url('/fonts/heat-robox.woff') format('woff');
+       url('/fonts/heat-robox.woff') format('woff'),
+       url('/fonts/heat-robox.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
