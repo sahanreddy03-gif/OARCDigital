@@ -25,7 +25,7 @@ export default function InstagramExport() {
 
     // Load custom fonts
     Promise.all([
-      document.fonts.load("600 48px 'Orbitron'"),
+      document.fonts.load("48px 'Heat Robox'"),
       document.fonts.load("bold 28px 'Nextf Games'"),
       document.fonts.load("28px 'Ciscela'"),
     ]).then(() => {
@@ -81,16 +81,16 @@ export default function InstagramExport() {
       ctx.drawImage(logoRef.current, logoX, logoY, logoSize, logoSize);
     }
 
-    // OARC text with Orbitron font (geometric tech style matching branding)
+    // OARC text with Heat Robox font (same as homepage)
     ctx.textAlign = 'left';
-    ctx.font = "600 48px 'Orbitron', sans-serif";
+    ctx.font = "48px 'Heat Robox', sans-serif";
     ctx.fillStyle = '#FFFFFF';
     ctx.fillText('OARC', logoX + logoSize + 20, logoY + 55);
 
-    // DIGITAL text - smaller, below OARC
-    ctx.font = "600 28px 'Orbitron', sans-serif";
-    ctx.fillStyle = '#FFFFFF';
-    ctx.fillText('DIGITAL', logoX + logoSize + 20, logoY + 90);
+    // DIGITAL text - smaller, below OARC, in GREEN (like homepage)
+    ctx.font = "24px 'Heat Robox', sans-serif";
+    ctx.fillStyle = '#c4ff4d';
+    ctx.fillText('DIGITAL', logoX + logoSize + 22, logoY + 85);
 
     // Main headline - centered
     ctx.textAlign = 'center';
