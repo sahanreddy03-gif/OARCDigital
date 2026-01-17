@@ -47,6 +47,16 @@
 }
 
 @font-face {
+  font-family: 'Boldisy';
+  src: url('/fonts/boldisy.woff2') format('woff2'),
+       url('/fonts/boldisy.woff') format('woff'),
+       url('/fonts/boldisy.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
   font-family: 'Pixelag';
   src: url('/fonts/Pixelag.ttf') format('truetype');
   font-weight: normal;

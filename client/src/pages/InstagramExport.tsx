@@ -27,7 +27,7 @@ export default function InstagramExport() {
     Promise.all([
       document.fonts.load("48px 'Heat Robox'"),
       document.fonts.load("bold 28px 'Nextf Games'"),
-      document.fonts.load("28px 'Baligon'"),
+      document.fonts.load("bold 28px 'Boldisy'"),
     ]).then(() => {
       setFontsLoaded(true);
     }).catch(() => {
@@ -122,7 +122,7 @@ export default function InstagramExport() {
     
     // Define ticker segments with their fonts
     const normalFont = "bold 28px 'Nextf Games', 'Arial Black', sans-serif";
-    const accentFont = "28px 'Baligon', Georgia, serif";
+    const accentFont = "bold 28px 'Boldisy', Georgia, serif";
     
     const segments = [
       { text: 'WE PUT ', font: normalFont },
