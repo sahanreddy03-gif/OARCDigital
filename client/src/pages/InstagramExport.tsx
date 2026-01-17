@@ -1,9 +1,11 @@
 import { useRef, useState, useCallback, useEffect } from 'react';
 import heroVideo from '@assets/video_final_1768658189717.mp4';
+import logoImage from '@assets/download_(2)_1768663468684.png';
 
 export default function InstagramExport() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const logoRef = useRef<HTMLImageElement | null>(null);
   const [isReady, setIsReady] = useState(false);
   const [isRecording, setIsRecording] = useState(false);
   const [progress, setProgress] = useState(0);
@@ -11,6 +13,26 @@ export default function InstagramExport() {
   const [error, setError] = useState<string | null>(null);
   const animationRef = useRef<number>(0);
   const startTimeRef = useRef<number>(0);
+  const [fontsLoaded, setFontsLoaded] = useState(false);
+
+  // Load logo image and fonts
+  useEffect(() => {
+    const img = new Image();
+    img.onload = () => {
+      logoRef.current = img;
+    };
+    img.src = logoImage;
+
+    // Load custom fonts
+    Promise.all([
+      document.fonts.load("bold 48px 'Space Future'"),
+      document.fonts.load("bold 28px 'Nextf Games'"),
+    ]).then(() => {
+      setFontsLoaded(true);
+    }).catch(() => {
+      setFontsLoaded(true); // Continue anyway with fallback fonts
+    });
+  }, []);
 
   // Draw frame to canvas
   const drawFrame = useCallback((ctx: CanvasRenderingContext2D, video: HTMLVideoElement | null, time: number) => {
@@ -43,32 +65,31 @@ export default function InstagramExport() {
 
     // Dark gradient overlay
     const gradient = ctx.createLinearGradient(0, 0, 0, height);
-    gradient.addColorStop(0, 'rgba(0,0,0,0.65)');
-    gradient.addColorStop(0.35, 'rgba(0,0,0,0.25)');
-    gradient.addColorStop(0.65, 'rgba(0,0,0,0.25)');
-    gradient.addColorStop(1, 'rgba(0,0,0,0.75)');
+    gradient.addColorStop(0, 'rgba(0,0,0,0.70)');
+    gradient.addColorStop(0.35, 'rgba(0,0,0,0.30)');
+    gradient.addColorStop(0.65, 'rgba(0,0,0,0.30)');
+    gradient.addColorStop(1, 'rgba(0,0,0,0.80)');
     ctx.fillStyle = gradient;
     ctx.fillRect(0, 0, width, height);
 
-    // OARC Logo circle
-    const logoY = 100;
-    ctx.strokeStyle = '#BFFF00';
-    ctx.lineWidth = 3;
-    ctx.beginPath();
-    ctx.arc(width/2 - 80, logoY, 28, 0, Math.PI * 2);
-    ctx.stroke();
-    ctx.lineWidth = 2;
-    ctx.beginPath();
-    ctx.ellipse(width/2 - 80, logoY, 10, 22, 0, 0, Math.PI * 2);
-    ctx.stroke();
+    // Draw logo image
+    const logoSize = 100;
+    const logoX = width / 2 - 160;
+    const logoY = 60;
+    if (logoRef.current) {
+      ctx.drawImage(logoRef.current, logoX, logoY, logoSize, logoSize);
+    }
 
-    // OARC text
-    ctx.font = "bold 52px 'Orbitron', 'Arial', sans-serif";
+    // OARC text with Space Future font
     ctx.textAlign = 'left';
-    ctx.fillStyle = '#BFFF00';
-    ctx.fillText('O', width/2 - 35, logoY + 18);
+    ctx.font = "48px 'Space Future', 'Orbitron', sans-serif";
     ctx.fillStyle = '#FFFFFF';
-    ctx.fillText('ARC', width/2 + 15, logoY + 18);
+    ctx.fillText('OARC', logoX + logoSize + 20, logoY + 55);
+
+    // DIGITAL text - smaller, below OARC
+    ctx.font = "28px 'Space Future', 'Orbitron', sans-serif";
+    ctx.fillStyle = '#FFFFFF';
+    ctx.fillText('DIGITAL', logoX + logoSize + 20, logoY + 90);
 
     // Main headline - centered
     ctx.textAlign = 'center';
@@ -78,28 +99,30 @@ export default function InstagramExport() {
     ctx.fillText('AI', width/2, height/2 + 40);
 
     // Italic subheadline
-    ctx.font = "italic 78px 'Georgia', serif";
+    ctx.font = "italic 78px 'EB Garamond', Georgia, serif";
     ctx.fillStyle = '#FFFFFF';
     ctx.fillText('CREATIVE AGENCY', width/2, height/2 + 150);
 
-    // Ticker bar background
-    const tickerY = height - 70;
-    const tickerHeight = 70;
+    // Ticker bar background - TALLER
+    const tickerHeight = 100;
+    const tickerY = height - tickerHeight;
     ctx.fillStyle = '#BFFF00';
     ctx.fillRect(0, tickerY, width, tickerHeight);
 
-    // Ticker text - animated
-    ctx.font = "bold 18px 'Arial', sans-serif";
+    // Ticker text - BIGGER with Nextf Games font, TIGHT spacing
+    ctx.font = "bold 28px 'Nextf Games', 'Arial Black', sans-serif";
     ctx.fillStyle = '#000000';
     ctx.textAlign = 'left';
     
-    const tickerText = 'WE PUT SOCIAL · AI · STRATEGY AT THE CENTER OF EVERYTHING WE DO.          ';
-    const charWidth = 14;
-    const textWidth = tickerText.length * charWidth;
-    const offset = (time * 80) % textWidth;
+    // Ticker text with minimal gap - words close together, small gap after sentence
+    const tickerText = 'WE PUT SOCIAL · AI · STRATEGY AT THE CENTER OF EVERYTHING WE DO.   ';
+    const textMetrics = ctx.measureText(tickerText);
+    const textWidth = textMetrics.width;
+    const offset = (time * 100) % textWidth;
     
-    for (let i = -1; i < 6; i++) {
-      ctx.fillText(tickerText, i * textWidth - offset + 50, tickerY + 44);
+    // Draw multiple copies for seamless scrolling
+    for (let i = -1; i < 4; i++) {
+      ctx.fillText(tickerText, i * textWidth - offset, tickerY + 62);
     }
   }, []);
 
@@ -232,6 +255,8 @@ export default function InstagramExport() {
     document.body.removeChild(a);
   }, [downloadUrl]);
 
+  const canRecord = isReady && fontsLoaded;
+
   return (
     <div className="min-h-screen bg-neutral-950 flex flex-col items-center py-8 px-4">
       {/* Hidden video */}
@@ -260,15 +285,15 @@ export default function InstagramExport() {
           {!downloadUrl ? (
             <button
               onClick={startRecording}
-              disabled={!isReady || isRecording}
+              disabled={!canRecord || isRecording}
               className={`px-8 py-4 font-bold rounded-lg transition-colors text-lg ${
-                isReady && !isRecording
+                canRecord && !isRecording
                   ? 'bg-[#BFFF00] text-black hover:bg-[#BFFF00]/90' 
                   : 'bg-gray-600 text-gray-400 cursor-not-allowed'
               }`}
               data-testid="button-record"
             >
-              {isRecording ? `Recording... ${progress}%` : (isReady ? 'Start Recording' : 'Loading...')}
+              {isRecording ? `Recording... ${progress}%` : (canRecord ? 'Start Recording' : 'Loading...')}
             </button>
           ) : (
             <>

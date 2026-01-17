@@ -79,6 +79,23 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'Space Future';
+  src: url('/fonts/SpacedFuture.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Nextf Games';
+  src: url('/fonts/NextFGames-Bold.woff2') format('woff2'),
+       url('/fonts/NextFGames-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --font-blackpast: 'Blackpast', cursive;
   --font-punoer: 'Punoer', sans-serif;
@@ -89,6 +106,8 @@
   --font-swarsh: 'Swarsh Daisy', serif;
   --font-halfre: 'Halfre', sans-serif;
   --font-heatrobox: 'Heat Robox', sans-serif;
+  --font-spacefuture: 'Space Future', sans-serif;
+  --font-nextfgames: 'Nextf Games', sans-serif;
 }
 
 /* LIGHT MODE */
