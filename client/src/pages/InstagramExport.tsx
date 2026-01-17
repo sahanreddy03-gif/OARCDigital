@@ -114,8 +114,8 @@ export default function InstagramExport() {
     ctx.fillStyle = '#000000';
     ctx.textAlign = 'left';
     
-    // Ticker text with minimal gap - words close together, small gap after sentence
-    const tickerText = 'WE PUT SOCIAL · AI · STRATEGY AT THE CENTER OF EVERYTHING WE DO.   ';
+    // Ticker text with tight spacing - only a bullet separator between repeats
+    const tickerText = 'WE PUT SOCIAL · AI · STRATEGY AT THE CENTER OF EVERYTHING WE DO. · ';
     const textMetrics = ctx.measureText(tickerText);
     const textWidth = textMetrics.width;
     const offset = (time * 100) % textWidth;
