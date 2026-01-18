@@ -77,6 +77,14 @@
 }
 
 @font-face {
+  font-family: 'Roctaria';
+  src: url('/fonts/roctaria.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
   font-family: 'Pixelag';
   src: url('/fonts/Pixelag.ttf') format('truetype');
   font-weight: normal;
