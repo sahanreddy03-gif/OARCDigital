@@ -110,10 +110,15 @@ export default function InstagramExport() {
     ctx.fillStyle = '#FFFFFF';
     ctx.fillText('CREATIVE AGENCY', width/2, height/2 + 150);
 
-    // Ticker bar background - TALLER
-    const tickerHeight = 100;
-    const tickerY = height - tickerHeight;
-    ctx.fillStyle = '#BFFF00';
+    // Bottom section: Ticker (60px) + CTA (90px) = 150px total
+    const ctaHeight = 90;
+    const tickerHeight = 60;
+    const totalBottomHeight = tickerHeight + ctaHeight;
+    const tickerY = height - totalBottomHeight;
+    const ctaY = tickerY + tickerHeight;
+    
+    // Ticker bar background - lime green matching site palette
+    ctx.fillStyle = '#c4ff4d';
     ctx.fillRect(0, tickerY, width, tickerHeight);
 
     // Ticker with mixed fonts - Quicky Class for SOCIAL, AI, STRATEGY, Soreille for rest
@@ -147,10 +152,36 @@ export default function InstagramExport() {
       let xPos = i * totalWidth - offset;
       for (const seg of segments) {
         ctx.font = seg.font;
-        ctx.fillText(seg.text, xPos, tickerY + 62);
+        ctx.fillText(seg.text, xPos, tickerY + 40);
         xPos += ctx.measureText(seg.text).width;
       }
     }
+    
+    // CTA section below ticker - same lime green background matching site palette
+    ctx.fillStyle = '#c4ff4d';
+    ctx.fillRect(0, ctaY, width, ctaHeight);
+    
+    // Left-aligned CTA text
+    ctx.fillStyle = '#000000';
+    ctx.textAlign = 'left';
+    const ctaLeftPadding = 60;
+    
+    // Line 1: Transform Your Brand in 30 Days
+    ctx.font = "bold 32px 'Montserrat', sans-serif";
+    const line1Y = ctaY + 35;
+    ctx.fillText('Transform Your Brand in 30 Days', ctaLeftPadding, line1Y);
+    
+    // Line 2: Book your free strategy call
+    ctx.font = "24px 'Soreille', Georgia, serif";
+    const line2Y = ctaY + 68;
+    ctx.fillText('Book your free strategy call', ctaLeftPadding, line2Y);
+    
+    // Arrow on the right side, vertically centered between the two lines
+    const arrowX = width - 120;
+    const arrowCenterY = (line1Y + line2Y) / 2;
+    ctx.font = "bold 48px sans-serif";
+    ctx.textAlign = 'center';
+    ctx.fillText('→', arrowX, arrowCenterY + 8);
   }, []);
 
   // Live preview animation loop
