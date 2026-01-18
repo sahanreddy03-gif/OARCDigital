@@ -23,16 +23,22 @@ export default function InstagramExport() {
     };
     img.src = logoImage;
 
-    // Load custom fonts
-    Promise.all([
-      document.fonts.load("48px 'Heat Robox'"),
-      document.fonts.load("28px 'Soreille'"),
-      document.fonts.load("28px 'Roctaria'"),
-    ]).then(() => {
-      setFontsLoaded(true);
-    }).catch(() => {
-      setFontsLoaded(true); // Continue anyway with fallback fonts
-    });
+    // Load custom fonts using FontFace API for canvas
+    const loadFonts = async () => {
+      try {
+        const roctaria = new FontFace('Roctaria', 'url(/fonts/roctaria.ttf)');
+        const heatRobox = new FontFace('Heat Robox', 'url(/fonts/heat-robox.ttf)');
+        const soreille = new FontFace('Soreille', 'url(/fonts/soreille.ttf)');
+        
+        const fonts = await Promise.all([roctaria.load(), heatRobox.load(), soreille.load()]);
+        fonts.forEach(font => document.fonts.add(font));
+        setFontsLoaded(true);
+      } catch (err) {
+        console.error('Font loading error:', err);
+        setFontsLoaded(true); // Continue anyway with fallback fonts
+      }
+    };
+    loadFonts();
   }, []);
 
   // Draw frame to canvas
