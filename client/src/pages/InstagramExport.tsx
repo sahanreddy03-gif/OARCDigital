@@ -26,7 +26,7 @@ export default function InstagramExport() {
     // Load custom fonts using FontFace API for canvas
     const loadFonts = async () => {
       try {
-        const roctaria = new FontFace('Roctaria', 'url(/fonts/roctaria.ttf)');
+        const roctaria = new FontFace('Roctaria', 'url(/fonts/roctaria.woff2)');
         const heatRobox = new FontFace('Heat Robox', 'url(/fonts/heat-robox.ttf)');
         const soreille = new FontFace('Soreille', 'url(/fonts/soreille.ttf)');
         
@@ -323,6 +323,11 @@ export default function InstagramExport() {
 
   return (
     <div className="min-h-screen bg-neutral-950 flex flex-col items-center py-8 px-4">
+      {/* Hidden font preloaders - forces browser to load fonts for canvas */}
+      <span style={{ fontFamily: 'Roctaria', position: 'absolute', opacity: 0, pointerEvents: 'none' }}>.</span>
+      <span style={{ fontFamily: 'Soreille', position: 'absolute', opacity: 0, pointerEvents: 'none' }}>.</span>
+      <span style={{ fontFamily: 'Heat Robox', position: 'absolute', opacity: 0, pointerEvents: 'none' }}>.</span>
+      
       {/* Hidden video */}
       <video
         ref={videoRef}
