@@ -26,8 +26,7 @@ export default function InstagramExport() {
     // Load custom fonts
     Promise.all([
       document.fonts.load("48px 'Heat Robox'"),
-      document.fonts.load("bold 28px 'Nextf Games'"),
-      document.fonts.load("bold 28px 'Boldisy'"),
+      document.fonts.load("28px 'Soreille'"),
     ]).then(() => {
       setFontsLoaded(true);
     }).catch(() => {
@@ -116,41 +115,20 @@ export default function InstagramExport() {
     ctx.fillStyle = '#BFFF00';
     ctx.fillRect(0, tickerY, width, tickerHeight);
 
-    // Ticker with mixed fonts - Ciscela for SOCIAL, AI, STRATEGY, Nextf Games for rest
+    // Ticker with Soreille font for entire text
     ctx.fillStyle = '#000000';
     ctx.textAlign = 'left';
+    ctx.font = "28px 'Soreille', Georgia, serif";
     
-    // Define ticker segments with their fonts
-    const normalFont = "bold 28px 'Nextf Games', 'Arial Black', sans-serif";
-    const accentFont = "bold 28px 'Boldisy', Georgia, serif";
-    
-    const segments = [
-      { text: 'WE PUT ', font: normalFont },
-      { text: 'SOCIAL', font: accentFont },
-      { text: ' · ', font: normalFont },
-      { text: 'AI', font: accentFont },
-      { text: ' · ', font: normalFont },
-      { text: 'STRATEGY', font: accentFont },
-      { text: ' AT THE CENTER OF EVERYTHING WE DO. · ', font: normalFont },
-    ];
-    
-    // Calculate total width of one full ticker repeat
-    let totalWidth = 0;
-    for (const seg of segments) {
-      ctx.font = seg.font;
-      totalWidth += ctx.measureText(seg.text).width;
-    }
+    const tickerText = 'WE PUT SOCIAL · AI · STRATEGY AT THE CENTER OF EVERYTHING WE DO. · ';
+    const totalWidth = ctx.measureText(tickerText).width;
     
     const offset = (time * 100) % totalWidth;
     
     // Draw multiple copies for seamless scrolling
     for (let i = -1; i < 4; i++) {
-      let xPos = i * totalWidth - offset;
-      for (const seg of segments) {
-        ctx.font = seg.font;
-        ctx.fillText(seg.text, xPos, tickerY + 62);
-        xPos += ctx.measureText(seg.text).width;
-      }
+      const xPos = i * totalWidth - offset;
+      ctx.fillText(tickerText, xPos, tickerY + 62);
     }
   }, []);
 
