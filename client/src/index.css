@@ -78,7 +78,9 @@
 
 @font-face {
   font-family: 'Roctaria';
-  src: url('/fonts/roctaria.ttf') format('truetype');
+  src: url('/fonts/roctaria.woff2') format('woff2'),
+       url('/fonts/roctaria.woff') format('woff'),
+       url('/fonts/roctaria.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
