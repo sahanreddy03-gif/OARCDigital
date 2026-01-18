@@ -1,5 +1,5 @@
 import { useRef, useState, useCallback, useEffect } from 'react';
-import heroVideo from '@assets/video_final_1768658189717.mp4';
+import heroVideo from '@assets/video_final_1768707020686.mp4';
 import logoImage from '@assets/download_(2)_1768663468684.png';
 
 export default function InstagramExport() {
@@ -243,7 +243,7 @@ export default function InstagramExport() {
       video.play().catch(() => {});
     }
 
-    const duration = 8000;
+    const duration = 13000;
     startTimeRef.current = performance.now();
     const chunks: Blob[] = [];
 
