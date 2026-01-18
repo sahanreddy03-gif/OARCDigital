@@ -67,6 +67,16 @@
 }
 
 @font-face {
+  font-family: 'Quicky Class';
+  src: url('/fonts/quicky-class.woff2') format('woff2'),
+       url('/fonts/quicky-class.woff') format('woff'),
+       url('/fonts/quicky-class.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
   font-family: 'Pixelag';
   src: url('/fonts/Pixelag.ttf') format('truetype');
   font-weight: normal;
