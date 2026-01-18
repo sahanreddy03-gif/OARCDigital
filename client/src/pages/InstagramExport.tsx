@@ -27,6 +27,7 @@ export default function InstagramExport() {
     Promise.all([
       document.fonts.load("48px 'Heat Robox'"),
       document.fonts.load("28px 'Soreille'"),
+      document.fonts.load("28px 'Quicky Class'"),
     ]).then(() => {
       setFontsLoaded(true);
     }).catch(() => {
@@ -115,20 +116,40 @@ export default function InstagramExport() {
     ctx.fillStyle = '#BFFF00';
     ctx.fillRect(0, tickerY, width, tickerHeight);
 
-    // Ticker with Soreille font for entire text
+    // Ticker with mixed fonts - Quicky Class for SOCIAL, AI, STRATEGY, Soreille for rest
     ctx.fillStyle = '#000000';
     ctx.textAlign = 'left';
-    ctx.font = "28px 'Soreille', Georgia, serif";
     
-    const tickerText = 'WE PUT SOCIAL · AI · STRATEGY AT THE CENTER OF EVERYTHING WE DO. · ';
-    const totalWidth = ctx.measureText(tickerText).width;
+    const normalFont = "28px 'Soreille', Georgia, serif";
+    const accentFont = "28px 'Quicky Class', Georgia, serif";
+    
+    const segments = [
+      { text: 'WE PUT ', font: normalFont },
+      { text: 'SOCIAL', font: accentFont },
+      { text: ' · ', font: normalFont },
+      { text: 'AI', font: accentFont },
+      { text: ' · ', font: normalFont },
+      { text: 'STRATEGY', font: accentFont },
+      { text: ' AT THE CENTER OF EVERYTHING WE DO. · ', font: normalFont },
+    ];
+    
+    // Calculate total width of one full ticker repeat
+    let totalWidth = 0;
+    for (const seg of segments) {
+      ctx.font = seg.font;
+      totalWidth += ctx.measureText(seg.text).width;
+    }
     
     const offset = (time * 100) % totalWidth;
     
     // Draw multiple copies for seamless scrolling
     for (let i = -1; i < 4; i++) {
-      const xPos = i * totalWidth - offset;
-      ctx.fillText(tickerText, xPos, tickerY + 62);
+      let xPos = i * totalWidth - offset;
+      for (const seg of segments) {
+        ctx.font = seg.font;
+        ctx.fillText(seg.text, xPos, tickerY + 62);
+        xPos += ctx.measureText(seg.text).width;
+      }
     }
   }, []);
 
