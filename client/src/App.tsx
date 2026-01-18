@@ -82,6 +82,7 @@ import LocationService from "@/pages/LocationService";
 import Comparison from "@/pages/Comparison";
 import Blog from "@/pages/Blog";
 import InstagramExport from "@/pages/InstagramExport";
+import AIAgentsExport from "@/pages/AIAgentsExport";
 import SeoMalta from "@/pages/blog/SeoMalta";
 import MarketingTrendsMalta from "@/pages/blog/MarketingTrendsMalta";
 import DigitalMarketingMalta from "@/pages/blog/DigitalMarketingMalta";
@@ -243,6 +244,7 @@ function Router() {
       <Route path="/pdf/one-pager" component={PDFOnePager} />
       <Route path="/pdf/ai-creative-profile" component={PDFAICreativeProfile} />
       <Route path="/instagram-export" component={InstagramExport} />
+      <Route path="/instagram-export-ai" component={AIAgentsExport} />
 
       {/* Programmatic SEO - Location Pages */}
       <Route path="/malta/:location/:service" component={LocationService} />
