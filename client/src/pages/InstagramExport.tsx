@@ -157,8 +157,8 @@ export default function InstagramExport() {
       }
     }
     
-    // CTA section below ticker - same lime green background matching site palette
-    ctx.fillStyle = '#c4ff4d';
+    // CTA section below ticker - lighter pale green (softer than ticker)
+    ctx.fillStyle = '#e8ffe0';
     ctx.fillRect(0, ctaY, width, ctaHeight);
     
     // Left-aligned CTA text
