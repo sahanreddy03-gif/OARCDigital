@@ -27,7 +27,7 @@ export default function InstagramExport() {
     Promise.all([
       document.fonts.load("48px 'Heat Robox'"),
       document.fonts.load("28px 'Soreille'"),
-      document.fonts.load("28px 'Quicky Class'"),
+      document.fonts.load("28px 'Roctaria'"),
     ]).then(() => {
       setFontsLoaded(true);
     }).catch(() => {
@@ -121,12 +121,12 @@ export default function InstagramExport() {
     ctx.fillStyle = '#c4ff4d';
     ctx.fillRect(0, tickerY, width, tickerHeight);
 
-    // Ticker with mixed fonts - Quicky Class for SOCIAL, AI, STRATEGY, Soreille for rest
+    // Ticker with mixed fonts - Roctaria for SOCIAL, AI, STRATEGY, Soreille for rest
     ctx.fillStyle = '#000000';
     ctx.textAlign = 'left';
     
     const normalFont = "28px 'Soreille', Georgia, serif";
-    const accentFont = "28px 'Quicky Class', Georgia, serif";
+    const accentFont = "28px 'Roctaria', Georgia, serif";
     
     const segments = [
       { text: 'WE PUT ', font: normalFont },
