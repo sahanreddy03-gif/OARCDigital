@@ -14,6 +14,7 @@ export default function AIAgentsExport() {
   const animationRef = useRef<number>(0);
   const startTimeRef = useRef<number>(0);
   const [fontsLoaded, setFontsLoaded] = useState(false);
+  const tickerWidthRef = useRef<number>(0);
 
   // Load logo image and fonts
   useEffect(() => {
