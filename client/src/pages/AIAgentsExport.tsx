@@ -41,16 +41,16 @@ export default function AIAgentsExport() {
     loadFonts();
   }, []);
 
-  // Draw frame to canvas
+  // Draw frame to canvas - 1080x1080 square format
   const drawFrame = useCallback((ctx: CanvasRenderingContext2D, video: HTMLVideoElement | null, time: number) => {
     const width = 1080;
-    const height = 1350;
+    const height = 1080; // Square format for Instagram
 
     // Clear and fill background
     ctx.fillStyle = '#000000';
     ctx.fillRect(0, 0, width, height);
 
-    // Draw video if available
+    // Draw video if available - cover the canvas
     if (video && video.readyState >= 2) {
       const videoAspect = video.videoWidth / video.videoHeight;
       const canvasAspect = width / height;
@@ -73,56 +73,56 @@ export default function AIAgentsExport() {
     // Dark gradient overlay
     const gradient = ctx.createLinearGradient(0, 0, 0, height);
     gradient.addColorStop(0, 'rgba(0,0,0,0.70)');
-    gradient.addColorStop(0.35, 'rgba(0,0,0,0.30)');
-    gradient.addColorStop(0.65, 'rgba(0,0,0,0.30)');
+    gradient.addColorStop(0.35, 'rgba(0,0,0,0.25)');
+    gradient.addColorStop(0.65, 'rgba(0,0,0,0.25)');
     gradient.addColorStop(1, 'rgba(0,0,0,0.80)');
     ctx.fillStyle = gradient;
     ctx.fillRect(0, 0, width, height);
 
-    // Draw logo image
-    const logoSize = 100;
-    const logoX = width / 2 - 160;
-    const logoY = 60;
+    // Draw logo image - smaller for square format
+    const logoSize = 80;
+    const logoX = width / 2 - 130;
+    const logoY = 40;
     if (logoRef.current) {
       ctx.drawImage(logoRef.current, logoX, logoY, logoSize, logoSize);
     }
 
     // OARC text with Heat Robox font
     ctx.textAlign = 'left';
-    ctx.font = "48px 'Heat Robox', sans-serif";
+    ctx.font = "40px 'Heat Robox', sans-serif";
     ctx.fillStyle = '#FFFFFF';
-    const orcTextX = logoX + logoSize + 20;
-    ctx.fillText('OARC', orcTextX, logoY + 55);
+    const orcTextX = logoX + logoSize + 16;
+    ctx.fillText('OARC', orcTextX, logoY + 45);
     
     // Measure OARC width to center DIGITAL under it
     const oarcWidth = ctx.measureText('OARC').width;
 
     // DIGITAL text - smaller, centered under OARC, in GREEN
-    ctx.font = "24px 'Heat Robox', sans-serif";
+    ctx.font = "20px 'Heat Robox', sans-serif";
     ctx.fillStyle = '#c4ff4d';
     const digitalWidth = ctx.measureText('DIGITAL').width;
     const digitalX = orcTextX + (oarcWidth - digitalWidth) / 2;
-    ctx.fillText('DIGITAL', digitalX, logoY + 85);
+    ctx.fillText('DIGITAL', digitalX, logoY + 72);
 
-    // Main headline - LEFT ALIGNED, positioned lower
-    const headlineX = 60;
-    const headlineY = height / 2 + 100;
+    // Main headline - LEFT ALIGNED, positioned for square format
+    const headlineX = 50;
+    const headlineY = height / 2 + 40;
     
     ctx.textAlign = 'left';
-    ctx.font = "bold 52px 'Montserrat', 'Arial Black', sans-serif";
+    ctx.font = "bold 46px 'Montserrat', 'Arial Black', sans-serif";
     ctx.fillStyle = '#FFFFFF';
     
-    // Split into lines for better layout
+    // Split into lines for better layout - adjusted for square
     ctx.fillText('Build, grow, and scale', headlineX, headlineY);
-    ctx.fillText('your business with our', headlineX, headlineY + 65);
+    ctx.fillText('your business with our', headlineX, headlineY + 58);
     
     // AI workforce in accent color
     ctx.fillStyle = '#c4ff4d';
-    ctx.fillText('AI workforce', headlineX, headlineY + 130);
+    ctx.fillText('AI workforce', headlineX, headlineY + 116);
 
-    // Bottom section: Ticker (60px) + CTA (90px) = 150px total
-    const ctaHeight = 90;
-    const tickerHeight = 60;
+    // Bottom section: Ticker (55px) + CTA (80px) = 135px total - smaller for square
+    const ctaHeight = 80;
+    const tickerHeight = 55;
     const totalBottomHeight = tickerHeight + ctaHeight;
     const tickerY = height - totalBottomHeight;
     const ctaY = tickerY + tickerHeight;
@@ -135,8 +135,8 @@ export default function AIAgentsExport() {
     ctx.fillStyle = '#000000';
     ctx.textAlign = 'left';
     
-    const normalFont = "28px 'Soreille', Georgia, serif";
-    const accentFont = "28px 'Roctaria', Georgia, serif";
+    const normalFont = "24px 'Soreille', Georgia, serif";
+    const accentFont = "24px 'Roctaria', Georgia, serif";
     
     const segments = [
       { text: 'Your Team that works 24/7: ', font: normalFont },
@@ -162,7 +162,7 @@ export default function AIAgentsExport() {
       let xPos = i * totalWidth - offset;
       for (const seg of segments) {
         ctx.font = seg.font;
-        ctx.fillText(seg.text, xPos, tickerY + 40);
+        ctx.fillText(seg.text, xPos, tickerY + 36);
         xPos += ctx.measureText(seg.text).width;
       }
     }
@@ -174,24 +174,24 @@ export default function AIAgentsExport() {
     // Left-aligned CTA text
     ctx.fillStyle = '#000000';
     ctx.textAlign = 'left';
-    const ctaLeftPadding = 60;
+    const ctaLeftPadding = 50;
     
     // Line 1: Transform Your Business in 30 Days
-    ctx.font = "bold 32px 'Montserrat', sans-serif";
-    const line1Y = ctaY + 35;
+    ctx.font = "bold 28px 'Montserrat', sans-serif";
+    const line1Y = ctaY + 32;
     ctx.fillText('Transform Your Business in 30 Days', ctaLeftPadding, line1Y);
     
     // Line 2: Book your free strategy call
-    ctx.font = "24px 'Soreille', Georgia, serif";
-    const line2Y = ctaY + 68;
+    ctx.font = "22px 'Soreille', Georgia, serif";
+    const line2Y = ctaY + 60;
     ctx.fillText('Book your free strategy call', ctaLeftPadding, line2Y);
     
     // Arrow on the right side
-    const arrowX = width - 120;
+    const arrowX = width - 100;
     const arrowCenterY = (line1Y + line2Y) / 2;
-    ctx.font = "bold 48px sans-serif";
+    ctx.font = "bold 40px sans-serif";
     ctx.textAlign = 'center';
-    ctx.fillText('→', arrowX, arrowCenterY + 8);
+    ctx.fillText('→', arrowX, arrowCenterY + 6);
   }, []);
 
   // Live preview animation loop
@@ -236,63 +236,94 @@ export default function AIAgentsExport() {
     };
   }, []);
 
-  // Start recording - 12 seconds (6 sec video x2)
+  // Start recording - 12 seconds (6 sec video x2) with audio
   const startRecording = useCallback(async () => {
     const canvas = canvasRef.current;
     const video = videoRef.current;
-    if (!canvas) return;
+    if (!canvas || !video) return;
 
     setError(null);
     setDownloadUrl(null);
     setIsRecording(true);
     setProgress(0);
 
-    // Reset video
-    if (video) {
-      video.currentTime = 0;
-      video.play().catch(() => {});
-    }
+    // Reset and unmute video for audio capture
+    video.currentTime = 0;
+    video.muted = false;
+    video.volume = 1.0;
+    await video.play().catch(() => {});
 
     const duration = 12000; // 12 seconds (6 sec video loops twice)
     startTimeRef.current = performance.now();
     const chunks: Blob[] = [];
 
     try {
-      const stream = canvas.captureStream(30);
+      // Capture canvas at 60fps for smoother video
+      const canvasStream = canvas.captureStream(60);
       
-      let mimeType = 'video/webm;codecs=vp8';
-      if (MediaRecorder.isTypeSupported('video/webm;codecs=vp9')) {
-        mimeType = 'video/webm;codecs=vp9';
+      // Capture audio from video element
+      const videoStream = (video as any).captureStream ? (video as any).captureStream() : null;
+      
+      // Create combined stream with video from canvas + audio from source video
+      const combinedStream = new MediaStream();
+      
+      // Add video tracks from canvas
+      canvasStream.getVideoTracks().forEach(track => {
+        combinedStream.addTrack(track);
+      });
+      
+      // Add audio tracks from source video if available
+      if (videoStream) {
+        videoStream.getAudioTracks().forEach((track: MediaStreamTrack) => {
+          combinedStream.addTrack(track);
+        });
       }
+      
+      // Use VP8+Opus for video+audio, higher bitrate for quality
+      const mimeType = 'video/webm;codecs=vp8,opus';
 
-      const mediaRecorder = new MediaRecorder(stream, {
+      const mediaRecorder = new MediaRecorder(combinedStream, {
         mimeType,
-        videoBitsPerSecond: 5000000
+        videoBitsPerSecond: 15000000, // 15Mbps for high quality
+        audioBitsPerSecond: 192000 // 192kbps audio
       });
 
       mediaRecorder.ondataavailable = (e) => {
-        if (e.data.size > 0) {
+        if (e.data && e.data.size > 0) {
           chunks.push(e.data);
         }
       };
 
       mediaRecorder.onstop = () => {
-        const blob = new Blob(chunks, { type: 'video/webm' });
-        const url = URL.createObjectURL(blob);
-        setDownloadUrl(url);
-        setIsRecording(false);
-        setProgress(100);
+        // Re-mute video after recording
+        video.muted = true;
+        
+        // Wait a moment to ensure all data is flushed
+        setTimeout(() => {
+          if (chunks.length === 0) {
+            setError('No video data captured');
+            setIsRecording(false);
+            return;
+          }
+          const blob = new Blob(chunks, { type: 'video/webm' });
+          const url = URL.createObjectURL(blob);
+          setDownloadUrl(url);
+          setIsRecording(false);
+          setProgress(100);
+        }, 100);
       };
 
       mediaRecorder.onerror = (e) => {
         console.error('MediaRecorder error:', e);
+        video.muted = true; // Re-mute on error
         setError('Recording failed');
         setIsRecording(false);
       };
 
-      mediaRecorder.start(100);
+      // Start with larger timeslice (1 second) for more complete chunks
+      mediaRecorder.start(1000);
 
-      // Progress tracking
+      // Progress tracking and stop
       const progressInterval = setInterval(() => {
         const elapsed = performance.now() - startTimeRef.current;
         const pct = Math.min(99, Math.floor((elapsed / duration) * 100));
@@ -300,12 +331,21 @@ export default function AIAgentsExport() {
 
         if (elapsed >= duration) {
           clearInterval(progressInterval);
-          mediaRecorder.stop();
+          // Request any remaining data before stopping
+          if (mediaRecorder.state === 'recording') {
+            mediaRecorder.requestData();
+            setTimeout(() => {
+              if (mediaRecorder.state === 'recording') {
+                mediaRecorder.stop();
+              }
+            }, 200);
+          }
         }
       }, 100);
 
     } catch (err) {
       console.error('Recording setup failed:', err);
+      video.muted = true;
       setError('Recording not supported in this browser');
       setIsRecording(false);
     }
@@ -316,7 +356,7 @@ export default function AIAgentsExport() {
     if (!downloadUrl) return;
     const a = document.createElement('a');
     a.href = downloadUrl;
-    a.download = 'oarc-ai-agents-instagram-1080x1350.webm';
+    a.download = 'oarc-ai-agents-instagram-1080x1080.webm';
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
@@ -345,10 +385,10 @@ export default function AIAgentsExport() {
 
       {/* Header */}
       <div className="mb-6 flex flex-col items-center gap-4">
-        <h1 className="text-2xl font-bold text-white">AI Agents Instagram Export (1080×1350)</h1>
+        <h1 className="text-2xl font-bold text-white">AI Agents Instagram Export (1080×1080)</h1>
         
         <p className="text-white/60 text-sm max-w-md text-center">
-          Click "Start Recording" to capture 12 seconds of video with the animated ticker.
+          Click "Start Recording" to capture 12 seconds of video with audio and animated ticker.
         </p>
         
         {error && <p className="text-red-400 text-sm">{error}</p>}
@@ -393,14 +433,14 @@ export default function AIAgentsExport() {
         <canvas
           ref={canvasRef}
           width={1080}
-          height={1350}
+          height={1080}
           className="bg-black"
-          style={{ width: 360, height: 450 }}
+          style={{ width: 400, height: 400 }}
         />
       </div>
 
       <p className="mt-4 text-white/40 text-sm">
-        Preview shown at 33% scale. Recording exports at full 1080×1350 pixels.
+        Preview shown at 37% scale. Recording exports at full 1080×1080 pixels with audio.
       </p>
     </div>
   );
