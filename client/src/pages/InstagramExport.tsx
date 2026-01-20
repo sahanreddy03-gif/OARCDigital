@@ -217,33 +217,52 @@ export default function InstagramExport() {
   const startRecording = useCallback(async () => {
     const canvas = canvasRef.current;
     const video = videoRef.current;
-    if (!canvas) return;
+    if (!canvas || !video) return;
 
     setError(null);
     setDownloadUrl(null);
     setIsRecording(true);
     setProgress(0);
 
-    // Reset video
-    if (video) {
-      video.currentTime = 0;
-      await video.play().catch(() => {});
-    }
+    // Reset and unmute video for audio capture
+    video.currentTime = 0;
+    video.muted = false;
+    video.volume = 1.0;
+    await video.play().catch(() => {});
 
     const duration = 13000;
     startTimeRef.current = performance.now();
     const chunks: Blob[] = [];
 
     try {
-      // Capture at 30fps
-      const stream = canvas.captureStream(30);
+      // Capture canvas at 60fps for smoother video
+      const canvasStream = canvas.captureStream(60);
       
-      // Use VP8 for better compatibility - VP9 can cause playback issues
-      const mimeType = 'video/webm;codecs=vp8';
+      // Capture audio from video element
+      const videoStream = (video as any).captureStream ? (video as any).captureStream() : null;
+      
+      // Create combined stream with video from canvas + audio from source video
+      const combinedStream = new MediaStream();
+      
+      // Add video tracks from canvas
+      canvasStream.getVideoTracks().forEach(track => {
+        combinedStream.addTrack(track);
+      });
+      
+      // Add audio tracks from source video if available
+      if (videoStream) {
+        videoStream.getAudioTracks().forEach((track: MediaStreamTrack) => {
+          combinedStream.addTrack(track);
+        });
+      }
+      
+      // Use VP8+Opus for video+audio, higher bitrate for quality
+      const mimeType = 'video/webm;codecs=vp8,opus';
 
-      const mediaRecorder = new MediaRecorder(stream, {
+      const mediaRecorder = new MediaRecorder(combinedStream, {
         mimeType,
-        videoBitsPerSecond: 8000000
+        videoBitsPerSecond: 15000000, // 15Mbps for high quality
+        audioBitsPerSecond: 192000 // 192kbps audio
       });
 
       mediaRecorder.ondataavailable = (e) => {
@@ -253,6 +272,9 @@ export default function InstagramExport() {
       };
 
       mediaRecorder.onstop = () => {
+        // Re-mute video after recording
+        video.muted = true;
+        
         // Wait a moment to ensure all data is flushed
         setTimeout(() => {
           if (chunks.length === 0) {
@@ -270,6 +292,7 @@ export default function InstagramExport() {
 
       mediaRecorder.onerror = (e) => {
         console.error('MediaRecorder error:', e);
+        video.muted = true; // Re-mute on error
         setError('Recording failed');
         setIsRecording(false);
       };
