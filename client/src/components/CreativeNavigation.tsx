@@ -21,9 +21,9 @@ export default function CreativeNavigation() {
   const navLinks = [
     { href: "/", label: "Home" },
     { href: "/why-us", label: "Why Us" },
-    { href: "/creative", label: "Creative", highlight: true },
-    { href: "/ai-agents", label: "AI Agents", highlight: true },
-    { href: "/solutions", label: "Automation", highlight: true },
+    { href: "/creative", label: "Creative" },
+    { href: "/ai-agents", label: "AI Agents" },
+    { href: "/solutions", label: "Automation" },
     { href: "/our-work", label: "Our Work" },
   ];
 
@@ -69,9 +69,7 @@ export default function CreativeNavigation() {
                 className={`text-sm font-medium transition-all duration-200 relative group ${
                   location === link.href
                     ? "text-[#9ed919]"
-                    : link.highlight
-                      ? "text-[#9ed919] hover:text-[#8bc717]"
-                      : "text-zinc-700 hover:text-zinc-900"
+                    : "text-zinc-700 hover:text-zinc-900"
                 }`}
                 data-testid={`link-${link.label.toLowerCase().replace(/\s+/g, '-')}`}
               >
@@ -179,9 +177,7 @@ export default function CreativeNavigation() {
                       className={`block py-3 px-4 rounded-xl text-base font-medium transition-colors ${
                         location === link.href
                           ? "bg-[#c4ff4d]/10 text-[#9ed919]"
-                          : link.highlight
-                            ? "text-[#9ed919]"
-                            : "text-zinc-700 hover:bg-zinc-100"
+                          : "text-zinc-700 hover:bg-zinc-100"
                       }`}
                       data-testid={`link-mobile-${link.label.toLowerCase().replace(/\s+/g, '-')}`}
                     >
