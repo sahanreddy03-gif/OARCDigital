@@ -41,16 +41,16 @@ export default function InstagramExport() {
     loadFonts();
   }, []);
 
-  // Draw frame to canvas - 1080x1080 square format for Instagram
+  // Draw frame to canvas - 1080x1350 portrait format for Instagram (4:5 ratio)
   const drawFrame = useCallback((ctx: CanvasRenderingContext2D, video: HTMLVideoElement | null, time: number) => {
     const width = 1080;
-    const height = 1080;
+    const height = 1350;
 
     // Clear and fill background
     ctx.fillStyle = '#000000';
     ctx.fillRect(0, 0, width, height);
 
-    // Draw video if available - cover fill for square
+    // Draw video if available - cover fill for portrait
     if (video && video.readyState >= 2) {
       const videoAspect = video.videoWidth / video.videoHeight;
       const canvasAspect = width / height;
@@ -73,52 +73,52 @@ export default function InstagramExport() {
     // Dark gradient overlay for text readability
     const gradient = ctx.createLinearGradient(0, 0, 0, height);
     gradient.addColorStop(0, 'rgba(0,0,0,0.75)');
-    gradient.addColorStop(0.30, 'rgba(0,0,0,0.35)');
-    gradient.addColorStop(0.60, 'rgba(0,0,0,0.35)');
+    gradient.addColorStop(0.25, 'rgba(0,0,0,0.30)');
+    gradient.addColorStop(0.65, 'rgba(0,0,0,0.30)');
     gradient.addColorStop(1, 'rgba(0,0,0,0.85)');
     ctx.fillStyle = gradient;
     ctx.fillRect(0, 0, width, height);
 
-    // Draw logo image - top left area
-    const logoSize = 90;
-    const logoX = width / 2 - 140;
-    const logoY = 50;
+    // Draw logo image - top center area
+    const logoSize = 100;
+    const logoX = width / 2 - 160;
+    const logoY = 60;
     if (logoRef.current) {
       ctx.drawImage(logoRef.current, logoX, logoY, logoSize, logoSize);
     }
 
     // OARC text with Heat Robox font
     ctx.textAlign = 'left';
-    ctx.font = "44px 'Heat Robox', sans-serif";
+    ctx.font = "48px 'Heat Robox', sans-serif";
     ctx.fillStyle = '#FFFFFF';
-    const orcTextX = logoX + logoSize + 18;
-    ctx.fillText('OARC', orcTextX, logoY + 50);
+    const orcTextX = logoX + logoSize + 20;
+    ctx.fillText('OARC', orcTextX, logoY + 55);
     
     // Measure OARC width to center DIGITAL under it
     const oarcWidth = ctx.measureText('OARC').width;
 
     // DIGITAL text - smaller, centered under OARC, in GREEN
-    ctx.font = "22px 'Heat Robox', sans-serif";
+    ctx.font = "24px 'Heat Robox', sans-serif";
     ctx.fillStyle = '#c4ff4d';
     const digitalWidth = ctx.measureText('DIGITAL').width;
     const digitalX = orcTextX + (oarcWidth - digitalWidth) / 2;
-    ctx.fillText('DIGITAL', digitalX, logoY + 78);
+    ctx.fillText('DIGITAL', digitalX, logoY + 85);
 
-    // Main headline - centered, adjusted for square format
+    // Main headline - centered, positioned for portrait format
     ctx.textAlign = 'center';
-    ctx.font = "800 56px 'Montserrat', 'Arial Black', sans-serif";
+    ctx.font = "800 62px 'Montserrat', 'Arial Black', sans-serif";
     ctx.fillStyle = '#FFFFFF';
-    ctx.fillText('WE ARE THE MODERN', width/2, height/2 - 60);
-    ctx.fillText('AI', width/2, height/2 + 10);
+    ctx.fillText('WE ARE THE MODERN', width/2, height/2 - 40);
+    ctx.fillText('AI', width/2, height/2 + 40);
 
     // Italic subheadline
-    ctx.font = "italic 68px 'EB Garamond', Georgia, serif";
+    ctx.font = "italic 76px 'EB Garamond', Georgia, serif";
     ctx.fillStyle = '#FFFFFF';
-    ctx.fillText('CREATIVE AGENCY', width/2, height/2 + 110);
+    ctx.fillText('CREATIVE AGENCY', width/2, height/2 + 150);
 
-    // Bottom section: Ticker (55px) + CTA (85px) = 140px total
-    const ctaHeight = 85;
-    const tickerHeight = 55;
+    // Bottom section: Ticker (60px) + CTA (90px) = 150px total
+    const ctaHeight = 90;
+    const tickerHeight = 60;
     const totalBottomHeight = tickerHeight + ctaHeight;
     const tickerY = height - totalBottomHeight;
     const ctaY = tickerY + tickerHeight;
@@ -130,7 +130,7 @@ export default function InstagramExport() {
     // Ticker with Halfre font
     ctx.fillStyle = '#000000';
     ctx.textAlign = 'left';
-    ctx.font = "26px 'Halfre', sans-serif";
+    ctx.font = "28px 'Halfre', sans-serif";
     
     const tickerText = 'WE PUT SOCIAL · AI · STRATEGY AT THE CENTER OF EVERYTHING WE DO. · ';
     
@@ -141,7 +141,7 @@ export default function InstagramExport() {
     // Draw multiple copies for seamless scrolling
     for (let i = -1; i < 4; i++) {
       const xPos = i * totalWidth - offset;
-      ctx.fillText(tickerText, xPos, tickerY + 37);
+      ctx.fillText(tickerText, xPos, tickerY + 40);
     }
     
     // CTA section below ticker - lighter pale green
@@ -332,7 +332,7 @@ export default function InstagramExport() {
     if (!downloadUrl) return;
     const a = document.createElement('a');
     a.href = downloadUrl;
-    a.download = 'oarc-instagram-1080x1080.webm';
+    a.download = 'oarc-instagram-1080x1350.webm';
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
@@ -361,10 +361,10 @@ export default function InstagramExport() {
 
       {/* Header */}
       <div className="mb-6 flex flex-col items-center gap-4">
-        <h1 className="text-2xl font-bold text-white">Instagram Export (1080×1080)</h1>
+        <h1 className="text-2xl font-bold text-white">Instagram Export (1080×1350)</h1>
         
         <p className="text-white/60 text-sm max-w-md text-center">
-          Click "Start Recording" to capture 13 seconds of video with the animated ticker. 1:1 square format for Instagram.
+          Click "Start Recording" to capture 13 seconds of video with audio. 4:5 portrait format for Instagram Reels.
         </p>
         
         {error && <p className="text-red-400 text-sm">{error}</p>}
@@ -404,19 +404,19 @@ export default function InstagramExport() {
         </div>
       </div>
 
-      {/* Canvas - square format */}
+      {/* Canvas - portrait format */}
       <div className="border-4 border-white/20 rounded-lg overflow-hidden shadow-2xl">
         <canvas
           ref={canvasRef}
           width={1080}
-          height={1080}
+          height={1350}
           className="bg-black"
-          style={{ width: 400, height: 400 }}
+          style={{ width: 360, height: 450 }}
         />
       </div>
 
       <p className="mt-4 text-white/40 text-sm">
-        Preview shown at 37% scale. Recording exports at full 1080×1080 pixels.
+        Preview shown at 33% scale. Recording exports at full 1080×1350 pixels with audio.
       </p>
     </div>
   );
