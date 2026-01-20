@@ -246,7 +246,7 @@ export default function InstagramExport() {
     // Reset video
     if (video) {
       video.currentTime = 0;
-      video.play().catch(() => {});
+      await video.play().catch(() => {});
     }
 
     const duration = 13000;
@@ -254,31 +254,37 @@ export default function InstagramExport() {
     const chunks: Blob[] = [];
 
     try {
+      // Capture at 30fps
       const stream = canvas.captureStream(30);
       
-      // Try different codecs for best quality
-      let mimeType = 'video/webm;codecs=vp8';
-      if (MediaRecorder.isTypeSupported('video/webm;codecs=vp9')) {
-        mimeType = 'video/webm;codecs=vp9';
-      }
+      // Use VP8 for better compatibility - VP9 can cause playback issues
+      const mimeType = 'video/webm;codecs=vp8';
 
       const mediaRecorder = new MediaRecorder(stream, {
         mimeType,
-        videoBitsPerSecond: 8000000 // Higher bitrate for quality
+        videoBitsPerSecond: 8000000
       });
 
       mediaRecorder.ondataavailable = (e) => {
-        if (e.data.size > 0) {
+        if (e.data && e.data.size > 0) {
           chunks.push(e.data);
         }
       };
 
       mediaRecorder.onstop = () => {
-        const blob = new Blob(chunks, { type: 'video/webm' });
-        const url = URL.createObjectURL(blob);
-        setDownloadUrl(url);
-        setIsRecording(false);
-        setProgress(100);
+        // Wait a moment to ensure all data is flushed
+        setTimeout(() => {
+          if (chunks.length === 0) {
+            setError('No video data captured');
+            setIsRecording(false);
+            return;
+          }
+          const blob = new Blob(chunks, { type: 'video/webm' });
+          const url = URL.createObjectURL(blob);
+          setDownloadUrl(url);
+          setIsRecording(false);
+          setProgress(100);
+        }, 100);
       };
 
       mediaRecorder.onerror = (e) => {
@@ -287,9 +293,10 @@ export default function InstagramExport() {
         setIsRecording(false);
       };
 
-      mediaRecorder.start(100);
+      // Start with larger timeslice (1 second) for more complete chunks
+      mediaRecorder.start(1000);
 
-      // Progress tracking
+      // Progress tracking and stop
       const progressInterval = setInterval(() => {
         const elapsed = performance.now() - startTimeRef.current;
         const pct = Math.min(99, Math.floor((elapsed / duration) * 100));
@@ -297,7 +304,15 @@ export default function InstagramExport() {
 
         if (elapsed >= duration) {
           clearInterval(progressInterval);
-          mediaRecorder.stop();
+          // Request any remaining data before stopping
+          if (mediaRecorder.state === 'recording') {
+            mediaRecorder.requestData();
+            setTimeout(() => {
+              if (mediaRecorder.state === 'recording') {
+                mediaRecorder.stop();
+              }
+            }, 200);
+          }
         }
       }, 100);
 
