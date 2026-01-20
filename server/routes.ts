@@ -4,6 +4,14 @@ import { storage } from "./storage";
 import { maltaLocations, locationServices, allServiceSlugs, allCaseStudySlugs } from "../shared/seoConfig";
 import { insertLeadSchema } from "../shared/schema";
 import OpenAI from "openai";
+import multer from "multer";
+import { exec } from "child_process";
+import { promisify } from "util";
+import fs from "fs";
+import path from "path";
+
+const execAsync = promisify(exec);
+const upload = multer({ dest: '/tmp/uploads/' });
 import { 
   ARC_SYSTEM_PROMPT, 
   getConversationPhase, 
@@ -165,6 +173,44 @@ Disallow: /
 User-agent: DotBot
 Disallow: /
 `);
+  });
+
+  // Video conversion endpoint - WebM to MP4 (H.264) for Meta Ads
+  app.post('/api/convert-video', upload.single('video'), async (req, res) => {
+    try {
+      if (!req.file) {
+        return res.status(400).json({ error: 'No video file uploaded' });
+      }
+
+      const inputPath = req.file.path;
+      const outputPath = path.join('/tmp', `output-${Date.now()}.mp4`);
+
+      // FFmpeg command for Meta Ads compatible MP4:
+      // - H.264 codec with yuv420p pixel format
+      // - Exact 1080x1080 resolution
+      // - 30fps frame rate
+      // - AAC audio codec
+      // - faststart for web streaming
+      const ffmpegCmd = `ffmpeg -i "${inputPath}" -c:v libx264 -preset medium -crf 18 -r 30 -s 1080x1080 -aspect 1:1 -c:a aac -b:a 192k -movflags +faststart -pix_fmt yuv420p -y "${outputPath}"`;
+
+      await execAsync(ffmpegCmd);
+
+      // Read the converted file
+      const mp4Data = fs.readFileSync(outputPath);
+
+      // Clean up temp files
+      fs.unlinkSync(inputPath);
+      fs.unlinkSync(outputPath);
+
+      // Send MP4 back
+      res.setHeader('Content-Type', 'video/mp4');
+      res.setHeader('Content-Disposition', 'attachment; filename="oarc-instagram-1080x1080.mp4"');
+      res.send(mp4Data);
+
+    } catch (error) {
+      console.error('Video conversion error:', error);
+      res.status(500).json({ error: 'Video conversion failed' });
+    }
   });
 
   // Lead capture API endpoint
