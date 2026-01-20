@@ -184,16 +184,26 @@ Disallow: /
 
       const inputPath = req.file.path;
       const outputPath = path.join('/tmp', `output-${Date.now()}.mp4`);
+      
+      // Check format parameter for 4:5 vertical or 1:1 square
+      const format = req.body?.format || '1:1';
+      const isVertical = format === '4:5';
+      
+      // Dimensions based on format
+      const targetWidth = 1080;
+      const targetHeight = isVertical ? 1350 : 1080;
+      const displayAspect = isVertical ? '4:5' : '1:1';
+      const filename = isVertical ? 'oarc-instagram-1080x1350.mp4' : 'oarc-instagram-1080x1080.mp4';
 
       // Meta-safe FFmpeg command that fixes ALL common rejection issues:
-      // - scale + crop for TRUE 1080x1080 (no fake square)
+      // - scale + crop for TRUE dimensions (no fake aspect ratio)
       // - setsar=1:1 for square pixels
-      // - setdar=1:1 for correct display aspect ratio
+      // - setdar for correct display aspect ratio
       // - H.264 high profile level 4.2 (Meta preferred)
       // - yuv420p pixel format (required by Meta)
       // - faststart for streaming
       // - Removes hidden padding/metadata quirks
-      const ffmpegCmd = `ffmpeg -y -i "${inputPath}" -vf "scale=1080:1080:force_original_aspect_ratio=increase,crop=1080:1080,setsar=1:1,setdar=1:1" -r 30 -c:v libx264 -profile:v high -level 4.2 -pix_fmt yuv420p -movflags +faststart -c:a aac -b:a 128k "${outputPath}"`;
+      const ffmpegCmd = `ffmpeg -y -i "${inputPath}" -vf "scale=${targetWidth}:${targetHeight}:force_original_aspect_ratio=increase,crop=${targetWidth}:${targetHeight},setsar=1:1,setdar=${displayAspect}" -r 30 -c:v libx264 -profile:v high -level 4.2 -pix_fmt yuv420p -movflags +faststart -c:a aac -b:a 128k "${outputPath}"`;
 
       await execAsync(ffmpegCmd);
 
@@ -206,7 +216,7 @@ Disallow: /
 
       // Send MP4 back
       res.setHeader('Content-Type', 'video/mp4');
-      res.setHeader('Content-Disposition', 'attachment; filename="oarc-instagram-1080x1080.mp4"');
+      res.setHeader('Content-Disposition', `attachment; filename="${filename}"`);
       res.send(mp4Data);
 
     } catch (error) {
