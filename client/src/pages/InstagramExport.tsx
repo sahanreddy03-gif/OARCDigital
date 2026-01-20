@@ -26,11 +26,11 @@ export default function InstagramExport() {
     // Load custom fonts using FontFace API for canvas
     const loadFonts = async () => {
       try {
-        const roctaria = new FontFace('Roctaria', 'url(/fonts/roctaria.woff2)');
+        const halfre = new FontFace('Halfre', 'url(/fonts/halfre.woff2)');
         const heatRobox = new FontFace('Heat Robox', 'url(/fonts/heat-robox.ttf)');
         const soreille = new FontFace('Soreille', 'url(/fonts/soreille.ttf)');
         
-        const fonts = await Promise.all([roctaria.load(), heatRobox.load(), soreille.load()]);
+        const fonts = await Promise.all([halfre.load(), heatRobox.load(), soreille.load()]);
         fonts.forEach(font => document.fonts.add(font));
         setFontsLoaded(true);
       } catch (err) {
@@ -127,40 +127,21 @@ export default function InstagramExport() {
     ctx.fillStyle = '#c4ff4d';
     ctx.fillRect(0, tickerY, width, tickerHeight);
 
-    // Ticker with mixed fonts - Roctaria for SOCIAL, AI, STRATEGY, Soreille for rest
+    // Ticker with Halfre font
     ctx.fillStyle = '#000000';
     ctx.textAlign = 'left';
+    ctx.font = "26px 'Halfre', sans-serif";
     
-    const normalFont = "26px 'Soreille', Georgia, serif";
-    const accentFont = "26px 'Roctaria', Georgia, serif";
-    
-    const segments = [
-      { text: 'WE PUT ', font: normalFont },
-      { text: 'SOCIAL', font: accentFont },
-      { text: ' · ', font: normalFont },
-      { text: 'AI', font: accentFont },
-      { text: ' · ', font: normalFont },
-      { text: 'STRATEGY', font: accentFont },
-      { text: ' AT THE CENTER OF EVERYTHING WE DO. · ', font: normalFont },
-    ];
+    const tickerText = 'WE PUT SOCIAL · AI · STRATEGY AT THE CENTER OF EVERYTHING WE DO. · ';
     
     // Calculate total width of one full ticker repeat
-    let totalWidth = 0;
-    for (const seg of segments) {
-      ctx.font = seg.font;
-      totalWidth += ctx.measureText(seg.text).width;
-    }
-    
+    const totalWidth = ctx.measureText(tickerText).width;
     const offset = (time * 100) % totalWidth;
     
     // Draw multiple copies for seamless scrolling
     for (let i = -1; i < 4; i++) {
-      let xPos = i * totalWidth - offset;
-      for (const seg of segments) {
-        ctx.font = seg.font;
-        ctx.fillText(seg.text, xPos, tickerY + 37);
-        xPos += ctx.measureText(seg.text).width;
-      }
+      const xPos = i * totalWidth - offset;
+      ctx.fillText(tickerText, xPos, tickerY + 37);
     }
     
     // CTA section below ticker - lighter pale green
@@ -339,7 +320,7 @@ export default function InstagramExport() {
   return (
     <div className="min-h-screen bg-neutral-950 flex flex-col items-center py-8 px-4">
       {/* Hidden font preloaders - forces browser to load fonts for canvas */}
-      <span style={{ fontFamily: 'Roctaria', position: 'absolute', opacity: 0, pointerEvents: 'none' }}>.</span>
+      <span style={{ fontFamily: 'Halfre', position: 'absolute', opacity: 0, pointerEvents: 'none' }}>.</span>
       <span style={{ fontFamily: 'Soreille', position: 'absolute', opacity: 0, pointerEvents: 'none' }}>.</span>
       <span style={{ fontFamily: 'Heat Robox', position: 'absolute', opacity: 0, pointerEvents: 'none' }}>.</span>
       
