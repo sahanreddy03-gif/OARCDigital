@@ -267,6 +267,13 @@ export default function InstagramExport() {
         setIsConverting(true);
         setProgress(50);
         
+        // Animate progress during conversion (takes ~2 minutes)
+        let conversionProgress = 50;
+        const progressTimer = setInterval(() => {
+          conversionProgress = Math.min(95, conversionProgress + 0.5);
+          setProgress(Math.floor(conversionProgress));
+        }, 1000);
+        
         try {
           const webmBlob = new Blob(chunks, { type: 'video/webm' });
           
@@ -279,6 +286,8 @@ export default function InstagramExport() {
             body: formData
           });
           
+          clearInterval(progressTimer);
+          
           if (!response.ok) {
             throw new Error('Conversion failed');
           }
@@ -289,8 +298,9 @@ export default function InstagramExport() {
           setDownloadUrl(url);
           setProgress(100);
         } catch (err) {
+          clearInterval(progressTimer);
           console.error('Conversion error:', err);
-          setError('MP4 conversion failed');
+          setError('MP4 conversion failed - please try again');
         }
         
         setIsConverting(false);
@@ -365,7 +375,7 @@ export default function InstagramExport() {
         <h1 className="text-2xl font-bold text-white">Instagram Export (1080×1080 MP4)</h1>
         
         <p className="text-white/60 text-sm max-w-md text-center">
-          True 1:1 square format MP4 (H.264) for Meta Ads. 30fps, no padding or letterboxing.
+          True 1:1 square format MP4 (H.264) for Meta Ads. 30fps, no padding or letterboxing. Conversion takes ~2 minutes.
         </p>
         
         <div className="flex gap-2 text-xs">

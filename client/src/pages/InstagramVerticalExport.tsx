@@ -252,6 +252,13 @@ export default function InstagramVerticalExport() {
         setIsConverting(true);
         setProgress(50);
         
+        // Animate progress during conversion (takes ~2 minutes)
+        let conversionProgress = 50;
+        const progressTimer = setInterval(() => {
+          conversionProgress = Math.min(95, conversionProgress + 0.5);
+          setProgress(Math.floor(conversionProgress));
+        }, 1000);
+        
         try {
           const webmBlob = new Blob(chunks, { type: 'video/webm' });
           
@@ -264,6 +271,8 @@ export default function InstagramVerticalExport() {
             body: formData
           });
           
+          clearInterval(progressTimer);
+          
           if (!response.ok) {
             throw new Error('Conversion failed');
           }
@@ -274,8 +283,9 @@ export default function InstagramVerticalExport() {
           setDownloadUrl(url);
           setProgress(100);
         } catch (err) {
+          clearInterval(progressTimer);
           console.error('Conversion error:', err);
-          setError('MP4 conversion failed');
+          setError('MP4 conversion failed - please try again');
         }
         
         setIsConverting(false);
@@ -349,7 +359,7 @@ export default function InstagramVerticalExport() {
         <h1 className="text-2xl font-bold text-white">Instagram Vertical Export (1080×1350 MP4)</h1>
         
         <p className="text-white/60 text-sm max-w-md text-center">
-          4:5 vertical format MP4 (H.264) for Instagram Reels & Stories. 30fps, Meta Ads compatible.
+          4:5 vertical format MP4 (H.264) for Instagram Reels & Stories. 30fps, Meta Ads compatible. Conversion takes ~2 minutes.
         </p>
         
         <div className="flex gap-2 text-xs">
