@@ -1,4 +1,6 @@
 import { useRef, useState, useCallback, useEffect } from 'react';
+import { FFmpeg } from '@ffmpeg/ffmpeg';
+import { fetchFile, toBlobURL } from '@ffmpeg/util';
 import heroVideo from '@assets/video_final_1768707020686.mp4';
 import logoImage from '@assets/download_(2)_1768663468684.png';
 
@@ -6,14 +8,40 @@ export default function InstagramExport() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const logoRef = useRef<HTMLImageElement | null>(null);
+  const ffmpegRef = useRef<FFmpeg | null>(null);
   const [isReady, setIsReady] = useState(false);
   const [isRecording, setIsRecording] = useState(false);
+  const [isConverting, setIsConverting] = useState(false);
   const [progress, setProgress] = useState(0);
   const [downloadUrl, setDownloadUrl] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const animationRef = useRef<number>(0);
   const startTimeRef = useRef<number>(0);
   const [fontsLoaded, setFontsLoaded] = useState(false);
+  const [ffmpegLoaded, setFfmpegLoaded] = useState(false);
+
+  // Load FFmpeg on mount
+  useEffect(() => {
+    const loadFFmpeg = async () => {
+      try {
+        const ffmpeg = new FFmpeg();
+        ffmpegRef.current = ffmpeg;
+        
+        const baseURL = 'https://unpkg.com/@ffmpeg/core@0.12.6/dist/umd';
+        await ffmpeg.load({
+          coreURL: await toBlobURL(`${baseURL}/ffmpeg-core.js`, 'text/javascript'),
+          wasmURL: await toBlobURL(`${baseURL}/ffmpeg-core.wasm`, 'application/wasm'),
+        });
+        
+        setFfmpegLoaded(true);
+        console.log('FFmpeg loaded successfully');
+      } catch (err) {
+        console.error('FFmpeg load error:', err);
+        setError('Failed to load video converter');
+      }
+    };
+    loadFFmpeg();
+  }, []);
 
   // Load logo image and fonts
   useEffect(() => {
@@ -23,7 +51,6 @@ export default function InstagramExport() {
     };
     img.src = logoImage;
 
-    // Load custom fonts using FontFace API for canvas
     const loadFonts = async () => {
       try {
         const halfre = new FontFace('Halfre', 'url(/fonts/halfre.woff2)');
@@ -35,30 +62,31 @@ export default function InstagramExport() {
         setFontsLoaded(true);
       } catch (err) {
         console.error('Font loading error:', err);
-        setFontsLoaded(true); // Continue anyway with fallback fonts
+        setFontsLoaded(true);
       }
     };
     loadFonts();
   }, []);
 
-  // Draw frame to canvas - 1080x1350 portrait format for Instagram (4:5 ratio)
+  // Draw frame to canvas - TRUE 1080x1080 square format for Meta Ads
   const drawFrame = useCallback((ctx: CanvasRenderingContext2D, video: HTMLVideoElement | null, time: number) => {
     const width = 1080;
-    const height = 1350;
+    const height = 1080;
 
     // Clear and fill background
     ctx.fillStyle = '#000000';
     ctx.fillRect(0, 0, width, height);
 
-    // Draw video if available - cover fill for portrait
+    // Draw video - COVER FILL (scale and center, no letterboxing)
     if (video && video.readyState >= 2) {
       const videoAspect = video.videoWidth / video.videoHeight;
-      const canvasAspect = width / height;
+      const canvasAspect = 1.0; // Square
       let drawWidth = width;
       let drawHeight = height;
       let offsetX = 0;
       let offsetY = 0;
 
+      // Scale to cover entire canvas (crop if needed)
       if (videoAspect > canvasAspect) {
         drawWidth = height * videoAspect;
         offsetX = (width - drawWidth) / 2;
@@ -73,52 +101,51 @@ export default function InstagramExport() {
     // Dark gradient overlay for text readability
     const gradient = ctx.createLinearGradient(0, 0, 0, height);
     gradient.addColorStop(0, 'rgba(0,0,0,0.75)');
-    gradient.addColorStop(0.25, 'rgba(0,0,0,0.30)');
-    gradient.addColorStop(0.65, 'rgba(0,0,0,0.30)');
+    gradient.addColorStop(0.30, 'rgba(0,0,0,0.35)');
+    gradient.addColorStop(0.60, 'rgba(0,0,0,0.35)');
     gradient.addColorStop(1, 'rgba(0,0,0,0.85)');
     ctx.fillStyle = gradient;
     ctx.fillRect(0, 0, width, height);
 
     // Draw logo image - top center area
-    const logoSize = 100;
-    const logoX = width / 2 - 160;
-    const logoY = 60;
+    const logoSize = 90;
+    const logoX = width / 2 - 140;
+    const logoY = 50;
     if (logoRef.current) {
       ctx.drawImage(logoRef.current, logoX, logoY, logoSize, logoSize);
     }
 
     // OARC text with Heat Robox font
     ctx.textAlign = 'left';
-    ctx.font = "48px 'Heat Robox', sans-serif";
+    ctx.font = "44px 'Heat Robox', sans-serif";
     ctx.fillStyle = '#FFFFFF';
-    const orcTextX = logoX + logoSize + 20;
-    ctx.fillText('OARC', orcTextX, logoY + 55);
+    const orcTextX = logoX + logoSize + 18;
+    ctx.fillText('OARC', orcTextX, logoY + 50);
     
-    // Measure OARC width to center DIGITAL under it
     const oarcWidth = ctx.measureText('OARC').width;
 
     // DIGITAL text - smaller, centered under OARC, in GREEN
-    ctx.font = "24px 'Heat Robox', sans-serif";
+    ctx.font = "22px 'Heat Robox', sans-serif";
     ctx.fillStyle = '#c4ff4d';
     const digitalWidth = ctx.measureText('DIGITAL').width;
     const digitalX = orcTextX + (oarcWidth - digitalWidth) / 2;
-    ctx.fillText('DIGITAL', digitalX, logoY + 85);
+    ctx.fillText('DIGITAL', digitalX, logoY + 78);
 
-    // Main headline - centered, positioned for portrait format
+    // Main headline - centered for square format
     ctx.textAlign = 'center';
-    ctx.font = "800 62px 'Montserrat', 'Arial Black', sans-serif";
+    ctx.font = "800 56px 'Montserrat', 'Arial Black', sans-serif";
     ctx.fillStyle = '#FFFFFF';
-    ctx.fillText('WE ARE THE MODERN', width/2, height/2 - 40);
-    ctx.fillText('AI', width/2, height/2 + 40);
+    ctx.fillText('WE ARE THE MODERN', width/2, height/2 - 60);
+    ctx.fillText('AI', width/2, height/2 + 10);
 
     // Italic subheadline
-    ctx.font = "italic 76px 'EB Garamond', Georgia, serif";
+    ctx.font = "italic 68px 'EB Garamond', Georgia, serif";
     ctx.fillStyle = '#FFFFFF';
-    ctx.fillText('CREATIVE AGENCY', width/2, height/2 + 150);
+    ctx.fillText('CREATIVE AGENCY', width/2, height/2 + 110);
 
-    // Bottom section: Ticker (60px) + CTA (90px) = 150px total
-    const ctaHeight = 90;
-    const tickerHeight = 60;
+    // Bottom section: Ticker (55px) + CTA (85px) = 140px total
+    const ctaHeight = 85;
+    const tickerHeight = 55;
     const totalBottomHeight = tickerHeight + ctaHeight;
     const tickerY = height - totalBottomHeight;
     const ctaY = tickerY + tickerHeight;
@@ -130,43 +157,37 @@ export default function InstagramExport() {
     // Ticker with Halfre font
     ctx.fillStyle = '#000000';
     ctx.textAlign = 'left';
-    ctx.font = "28px 'Halfre', sans-serif";
+    ctx.font = "26px 'Halfre', sans-serif";
     
     const tickerText = 'WE PUT SOCIAL · AI · STRATEGY AT THE CENTER OF EVERYTHING WE DO. · ';
     
-    // Calculate total width of one full ticker repeat
     const totalWidth = ctx.measureText(tickerText).width;
     const offset = (time * 100) % totalWidth;
     
-    // Draw multiple copies for seamless scrolling
     for (let i = -1; i < 4; i++) {
       const xPos = i * totalWidth - offset;
-      ctx.fillText(tickerText, xPos, tickerY + 40);
+      ctx.fillText(tickerText, xPos, tickerY + 37);
     }
     
-    // CTA section below ticker - lighter pale green
+    // CTA section below ticker
     ctx.fillStyle = '#e8ffe0';
     ctx.fillRect(0, ctaY, width, ctaHeight);
     
-    // Left-aligned CTA text
     ctx.fillStyle = '#000000';
     ctx.textAlign = 'left';
     const ctaLeftPadding = 50;
     
-    // Line 1: Transform Your Brand in 30 Days
-    ctx.font = "bold 30px 'Montserrat', sans-serif";
+    ctx.font = "bold 28px 'Montserrat', sans-serif";
     const line1Y = ctaY + 32;
     ctx.fillText('Transform Your Brand in 30 Days', ctaLeftPadding, line1Y);
     
-    // Line 2: Book your free strategy call
-    ctx.font = "22px 'Soreille', Georgia, serif";
-    const line2Y = ctaY + 62;
+    ctx.font = "20px 'Soreille', Georgia, serif";
+    const line2Y = ctaY + 58;
     ctx.fillText('Book your free strategy call', ctaLeftPadding, line2Y);
     
-    // Arrow on the right side
     const arrowX = width - 100;
     const arrowCenterY = (line1Y + line2Y) / 2;
-    ctx.font = "bold 44px sans-serif";
+    ctx.font = "bold 40px sans-serif";
     ctx.textAlign = 'center';
     ctx.fillText('→', arrowX, arrowCenterY + 6);
   }, []);
@@ -204,7 +225,6 @@ export default function InstagramExport() {
     const handleLoaded = () => setIsReady(true);
     video.addEventListener('loadeddata', handleLoaded);
     
-    // Fallback
     const timer = setTimeout(() => setIsReady(true), 3000);
 
     return () => {
@@ -213,18 +233,18 @@ export default function InstagramExport() {
     };
   }, []);
 
-  // Start recording
+  // Start recording - 30fps for Meta Ads compatibility
   const startRecording = useCallback(async () => {
     const canvas = canvasRef.current;
     const video = videoRef.current;
-    if (!canvas || !video) return;
+    const ffmpeg = ffmpegRef.current;
+    if (!canvas || !video || !ffmpeg) return;
 
     setError(null);
     setDownloadUrl(null);
     setIsRecording(true);
     setProgress(0);
 
-    // Reset and unmute video for audio capture
     video.currentTime = 0;
     video.muted = false;
     video.volume = 1.0;
@@ -235,34 +255,29 @@ export default function InstagramExport() {
     const chunks: Blob[] = [];
 
     try {
-      // Capture canvas at 60fps for smoother video
-      const canvasStream = canvas.captureStream(60);
+      // Capture canvas at 30fps for Meta Ads
+      const canvasStream = canvas.captureStream(30);
       
-      // Capture audio from video element
       const videoStream = (video as any).captureStream ? (video as any).captureStream() : null;
       
-      // Create combined stream with video from canvas + audio from source video
       const combinedStream = new MediaStream();
       
-      // Add video tracks from canvas
       canvasStream.getVideoTracks().forEach(track => {
         combinedStream.addTrack(track);
       });
       
-      // Add audio tracks from source video if available
       if (videoStream) {
         videoStream.getAudioTracks().forEach((track: MediaStreamTrack) => {
           combinedStream.addTrack(track);
         });
       }
       
-      // Use VP8+Opus for video+audio, higher bitrate for quality
       const mimeType = 'video/webm;codecs=vp8,opus';
 
       const mediaRecorder = new MediaRecorder(combinedStream, {
         mimeType,
-        videoBitsPerSecond: 15000000, // 15Mbps for high quality
-        audioBitsPerSecond: 192000 // 192kbps audio
+        videoBitsPerSecond: 20000000, // 20Mbps for high quality source
+        audioBitsPerSecond: 192000
       });
 
       mediaRecorder.ondataavailable = (e) => {
@@ -271,36 +286,74 @@ export default function InstagramExport() {
         }
       };
 
-      mediaRecorder.onstop = () => {
-        // Re-mute video after recording
+      mediaRecorder.onstop = async () => {
         video.muted = true;
         
-        // Wait a moment to ensure all data is flushed
-        setTimeout(() => {
+        setTimeout(async () => {
           if (chunks.length === 0) {
             setError('No video data captured');
             setIsRecording(false);
             return;
           }
-          const blob = new Blob(chunks, { type: 'video/webm' });
-          const url = URL.createObjectURL(blob);
-          setDownloadUrl(url);
+          
           setIsRecording(false);
-          setProgress(100);
+          setIsConverting(true);
+          setProgress(0);
+          
+          try {
+            const webmBlob = new Blob(chunks, { type: 'video/webm' });
+            
+            // Write WebM to FFmpeg virtual filesystem
+            await ffmpeg.writeFile('input.webm', await fetchFile(webmBlob));
+            
+            // Convert to MP4 with H.264 codec - exact 1080x1080, 30fps
+            ffmpeg.on('progress', ({ progress }) => {
+              setProgress(Math.min(99, Math.round(progress * 100)));
+            });
+            
+            await ffmpeg.exec([
+              '-i', 'input.webm',
+              '-c:v', 'libx264',
+              '-preset', 'medium',
+              '-crf', '18',
+              '-r', '30',
+              '-s', '1080x1080',
+              '-aspect', '1:1',
+              '-c:a', 'aac',
+              '-b:a', '192k',
+              '-movflags', '+faststart',
+              '-pix_fmt', 'yuv420p',
+              'output.mp4'
+            ]);
+            
+            const data = await ffmpeg.readFile('output.mp4');
+            const mp4Blob = new Blob([data], { type: 'video/mp4' });
+            const url = URL.createObjectURL(mp4Blob);
+            
+            // Clean up
+            await ffmpeg.deleteFile('input.webm');
+            await ffmpeg.deleteFile('output.mp4');
+            
+            setDownloadUrl(url);
+            setProgress(100);
+          } catch (err) {
+            console.error('FFmpeg conversion error:', err);
+            setError('MP4 conversion failed');
+          }
+          
+          setIsConverting(false);
         }, 100);
       };
 
       mediaRecorder.onerror = (e) => {
         console.error('MediaRecorder error:', e);
-        video.muted = true; // Re-mute on error
+        video.muted = true;
         setError('Recording failed');
         setIsRecording(false);
       };
 
-      // Start with larger timeslice (1 second) for more complete chunks
       mediaRecorder.start(1000);
 
-      // Progress tracking and stop
       const progressInterval = setInterval(() => {
         const elapsed = performance.now() - startTimeRef.current;
         const pct = Math.min(99, Math.floor((elapsed / duration) * 100));
@@ -308,7 +361,6 @@ export default function InstagramExport() {
 
         if (elapsed >= duration) {
           clearInterval(progressInterval);
-          // Request any remaining data before stopping
           if (mediaRecorder.state === 'recording') {
             mediaRecorder.requestData();
             setTimeout(() => {
@@ -327,27 +379,26 @@ export default function InstagramExport() {
     }
   }, []);
 
-  // Download
+  // Download MP4
   const handleDownload = useCallback(() => {
     if (!downloadUrl) return;
     const a = document.createElement('a');
     a.href = downloadUrl;
-    a.download = 'oarc-instagram-1080x1350.webm';
+    a.download = 'oarc-instagram-1080x1080.mp4';
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
   }, [downloadUrl]);
 
-  const canRecord = isReady && fontsLoaded;
+  const canRecord = isReady && fontsLoaded && ffmpegLoaded;
+  const isBusy = isRecording || isConverting;
 
   return (
     <div className="min-h-screen bg-neutral-950 flex flex-col items-center py-8 px-4">
-      {/* Hidden font preloaders - forces browser to load fonts for canvas */}
       <span style={{ fontFamily: 'Halfre', position: 'absolute', opacity: 0, pointerEvents: 'none' }}>.</span>
       <span style={{ fontFamily: 'Soreille', position: 'absolute', opacity: 0, pointerEvents: 'none' }}>.</span>
       <span style={{ fontFamily: 'Heat Robox', position: 'absolute', opacity: 0, pointerEvents: 'none' }}>.</span>
       
-      {/* Hidden video */}
       <video
         ref={videoRef}
         autoPlay
@@ -359,13 +410,21 @@ export default function InstagramExport() {
         <source src={heroVideo} type="video/mp4" />
       </video>
 
-      {/* Header */}
       <div className="mb-6 flex flex-col items-center gap-4">
-        <h1 className="text-2xl font-bold text-white">Instagram Export (1080×1350)</h1>
+        <h1 className="text-2xl font-bold text-white">Instagram Export (1080×1080 MP4)</h1>
         
         <p className="text-white/60 text-sm max-w-md text-center">
-          Click "Start Recording" to capture 13 seconds of video with audio. 4:5 portrait format for Instagram Reels.
+          True 1:1 square format MP4 (H.264) for Meta Ads. 30fps, no padding or letterboxing.
         </p>
+        
+        <div className="flex gap-2 text-xs">
+          <span className={`px-2 py-1 rounded ${ffmpegLoaded ? 'bg-green-600' : 'bg-yellow-600'}`}>
+            {ffmpegLoaded ? 'Converter Ready' : 'Loading Converter...'}
+          </span>
+          <span className={`px-2 py-1 rounded ${fontsLoaded ? 'bg-green-600' : 'bg-yellow-600'}`}>
+            {fontsLoaded ? 'Fonts Ready' : 'Loading Fonts...'}
+          </span>
+        </div>
         
         {error && <p className="text-red-400 text-sm">{error}</p>}
 
@@ -373,15 +432,19 @@ export default function InstagramExport() {
           {!downloadUrl ? (
             <button
               onClick={startRecording}
-              disabled={!canRecord || isRecording}
+              disabled={!canRecord || isBusy}
               className={`px-8 py-4 font-bold rounded-lg transition-colors text-lg ${
-                canRecord && !isRecording
+                canRecord && !isBusy
                   ? 'bg-[#c4ff4d] text-black hover:bg-[#c4ff4d]/90' 
                   : 'bg-gray-600 text-gray-400 cursor-not-allowed'
               }`}
               data-testid="button-record"
             >
-              {isRecording ? `Recording... ${progress}%` : (canRecord ? 'Start Recording' : 'Loading...')}
+              {isRecording 
+                ? `Recording... ${progress}%` 
+                : isConverting 
+                  ? `Converting to MP4... ${progress}%` 
+                  : (canRecord ? 'Start Recording' : 'Loading...')}
             </button>
           ) : (
             <>
@@ -390,7 +453,7 @@ export default function InstagramExport() {
                 className="px-8 py-4 font-bold rounded-lg bg-[#c4ff4d] text-black hover:bg-[#c4ff4d]/90 text-lg"
                 data-testid="button-download"
               >
-                Download Video
+                Download MP4
               </button>
               <button
                 onClick={() => { setDownloadUrl(null); setProgress(0); }}
@@ -404,19 +467,18 @@ export default function InstagramExport() {
         </div>
       </div>
 
-      {/* Canvas - portrait format */}
       <div className="border-4 border-white/20 rounded-lg overflow-hidden shadow-2xl">
         <canvas
           ref={canvasRef}
           width={1080}
-          height={1350}
+          height={1080}
           className="bg-black"
-          style={{ width: 360, height: 450 }}
+          style={{ width: 400, height: 400 }}
         />
       </div>
 
       <p className="mt-4 text-white/40 text-sm">
-        Preview shown at 33% scale. Recording exports at full 1080×1350 pixels with audio.
+        Preview at 37% scale. Exports true 1080×1080 MP4 (H.264) at 30fps.
       </p>
     </div>
   );
