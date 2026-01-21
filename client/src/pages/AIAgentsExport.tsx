@@ -31,8 +31,9 @@ export default function AIAgentsExport() {
         const roctaria = new FontFace('Roctaria', 'url(/fonts/roctaria.woff2)');
         const heatRobox = new FontFace('Heat Robox', 'url(/fonts/heat-robox.ttf)');
         const soreille = new FontFace('Soreille', 'url(/fonts/soreille.ttf)');
+        const squiver = new FontFace('Squiver', 'url(/fonts/squiver.woff2)');
         
-        const fonts = await Promise.all([roctaria.load(), heatRobox.load(), soreille.load()]);
+        const fonts = await Promise.all([roctaria.load(), heatRobox.load(), soreille.load(), squiver.load()]);
         fonts.forEach(font => document.fonts.add(font));
         setFontsLoaded(true);
       } catch (err) {
@@ -133,21 +134,20 @@ export default function AIAgentsExport() {
     ctx.fillStyle = '#c4ff4d';
     ctx.fillRect(0, tickerY, width, tickerHeight);
 
-    // Ticker with mixed fonts - Roctaria for AI Employees, Automation, Custom Solutions
+    // Ticker with Squiver font
     ctx.fillStyle = '#000000';
     ctx.textAlign = 'left';
     
-    const normalFont = "28px 'Soreille', Georgia, serif";
-    const accentFont = "28px 'Roctaria', Georgia, serif";
+    const tickerFont = "32px 'Squiver', Arial, sans-serif";
     
     const segments = [
-      { text: 'Your Team that works 24/7: ', font: normalFont },
-      { text: 'AI Employees', font: accentFont },
-      { text: ' • ', font: normalFont },
-      { text: 'Automation', font: accentFont },
-      { text: ' • ', font: normalFont },
-      { text: 'Custom Solutions', font: accentFont },
-      { text: ' · ', font: normalFont },
+      { text: 'Your Team that works 24/7: ', font: tickerFont },
+      { text: 'AI Employees', font: tickerFont },
+      { text: ' • ', font: tickerFont },
+      { text: 'Automation', font: tickerFont },
+      { text: ' • ', font: tickerFont },
+      { text: 'Custom Solutions', font: tickerFont },
+      { text: ' · ', font: tickerFont },
     ];
     
     // Calculate total width of one full ticker repeat
@@ -407,6 +407,7 @@ export default function AIAgentsExport() {
       {/* Hidden font preloaders */}
       <span style={{ fontFamily: 'Roctaria', position: 'absolute', opacity: 0, pointerEvents: 'none' }}>.</span>
       <span style={{ fontFamily: 'Soreille', position: 'absolute', opacity: 0, pointerEvents: 'none' }}>.</span>
+      <span style={{ fontFamily: 'Squiver', position: 'absolute', opacity: 0, pointerEvents: 'none' }}>.</span>
       <span style={{ fontFamily: 'Heat Robox', position: 'absolute', opacity: 0, pointerEvents: 'none' }}>.</span>
       
       {/* Hidden video */}
