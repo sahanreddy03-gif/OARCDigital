@@ -140,6 +140,16 @@
 }
 
 @font-face {
+  font-family: 'Squiver';
+  src: url('/fonts/squiver.woff2') format('woff2'),
+       url('/fonts/squiver.woff') format('woff'),
+       url('/fonts/squiver.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
   font-family: 'Nextf Games';
   src: url('/fonts/NextFGames-Bold.woff2') format('woff2'),
        url('/fonts/NextFGames-Bold.ttf') format('truetype');
