@@ -618,7 +618,7 @@ export default function MVPSoftwareDevelopment() {
             <GlassCard className="overflow-hidden" glowOnHover={false}>
               <div className="grid grid-cols-3 bg-white/5 p-4 border-b border-white/10">
                 <div className="font-bold text-white/80 text-sm"></div>
-                <div className="font-bold text-[#4ade80] text-center">OARC Digital</div>
+                <div className="font-bold text-[#4ade80] text-center" style={{ fontFamily: 'var(--font-heatrobox)' }}>OARC Digital</div>
                 <div className="font-bold text-white/80 text-center">In-House Team</div>
               </div>
               {vsInHouse.map((row, idx) => (

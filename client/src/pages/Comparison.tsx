@@ -49,7 +49,7 @@ export default function Comparison() {
           <div className="max-w-7xl mx-auto px-6 md:px-8">
             <div className="max-w-3xl mx-auto text-center">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-                Why Choose <span className="text-green-500">OARC Digital</span>?
+                Why Choose <span className="text-green-500" style={{ fontFamily: 'var(--font-heatrobox)' }}>OARC Digital</span>?
               </h1>
               <p className="text-xl text-zinc-300 mb-8">
                 The AI-powered marketing agency that delivers enterprise results at unprecedented speed and scale
