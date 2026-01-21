@@ -5,6 +5,8 @@ import { Palette, Bot, Rocket } from "lucide-react";
 import FloatingChipCarousel from "./FloatingChipCarousel";
 import heroBackground from '@assets/d375f1d50d97b0de7953ca2cecd2b8aea2cd96b2-3524x1181_1761251957292.avif';
 
+const HERO_PLACEHOLDER = 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAANACgDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAECAwQF/8QAGhAAAwEBAQEAAAAAAAAAAAAAAAERAgMSIv/EABYBAQEBAAAAAAAAAAAAAAAAAAIAAf/EABcRAQEBAQAAAAAAAAAAAAAAAAARAQL/2gAMAwEAAhEDEQA/AOUODgIwlnPNZsz85MnNwu9uB2nnUQ7ugLToEq//2Q==';
+
 function useImagePreload(src: string) {
   const [loaded, setLoaded] = useState(false);
   useEffect(() => {
@@ -194,12 +196,23 @@ export default function HeroSection() {
         
         {/* ========== MOBILE LAYOUT ========== */}
         <div className="md:hidden absolute inset-0">
-          {/* Background Image - loads first, always visible */}
+          {/* Instant placeholder - blurred, loads immediately */}
           <div 
             className="absolute inset-0 bg-cover bg-no-repeat"
             style={{ 
+              backgroundImage: `url(${HERO_PLACEHOLDER})`,
+              backgroundPosition: '60% center',
+              filter: 'blur(20px)',
+              transform: 'scale(1.1)'
+            }}
+          />
+          {/* Real background - fades in over placeholder */}
+          <div 
+            className="absolute inset-0 bg-cover bg-no-repeat transition-opacity duration-700"
+            style={{ 
               backgroundImage: `url(${heroBackground})`,
-              backgroundPosition: '60% center'
+              backgroundPosition: '60% center',
+              opacity: imageLoaded ? 1 : 0
             }}
           />
           {/* Gradient overlay - always visible for text readability */}
@@ -234,13 +247,23 @@ export default function HeroSection() {
         </div>
 
         {/* ========== DESKTOP LAYOUT ========== */}
-        {/* Background - fixed, loads first and always visible */}
+        {/* Desktop instant placeholder - blurred, loads immediately */}
         <div 
           className="hidden md:block absolute inset-0 bg-cover bg-no-repeat bg-fixed"
           style={{ 
+            backgroundImage: `url(${HERO_PLACEHOLDER})`,
+            backgroundPosition: '35% center',
+            filter: 'blur(20px)',
+            transform: 'scale(1.1)'
+          }}
+        />
+        {/* Desktop real background - fades in over placeholder */}
+        <div 
+          className="hidden md:block absolute inset-0 bg-cover bg-no-repeat bg-fixed transition-opacity duration-700"
+          style={{ 
             backgroundImage: `url(${heroBackground})`,
             backgroundPosition: '35% center',
-            filter: 'saturate(1.0) brightness(1.0)'
+            opacity: imageLoaded ? 1 : 0
           }}
         />
         {/* Desktop gradient overlays - always visible for text readability */}
