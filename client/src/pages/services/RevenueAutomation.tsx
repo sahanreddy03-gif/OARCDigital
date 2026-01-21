@@ -599,7 +599,7 @@ export default function RevenueAutomation() {
       <section className="py-14 px-4 bg-[#f5f0e6]">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-black text-black mb-2">
-            Why Choose <span className="text-[#5FD4C4]">OARC Digital</span>
+            Why Choose <span className="text-[#5FD4C4]" style={{ fontFamily: 'var(--font-heatrobox)' }}>OARC Digital</span>
           </h2>
 
           <p className="text-base text-[#1a2e29]/70 mb-8">

@@ -99,7 +99,7 @@ export default function Blog() {
           <div className="max-w-7xl mx-auto px-6 md:px-8">
             <div className="max-w-3xl">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-                OARC Digital <span className="text-green-500">Blog</span>
+                <span style={{ fontFamily: 'var(--font-heatrobox)' }}>OARC Digital</span> <span className="text-green-500">Blog</span>
               </h1>
               <p className="text-xl text-zinc-300">
                 Expert insights on AI marketing, creative excellence, and revenue growth strategies

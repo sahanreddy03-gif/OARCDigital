@@ -54,7 +54,7 @@ export default function PDFCapabilitiesDeck() {
 
             {/* Brand */}
             <div className="space-y-4">
-              <div className="font-display font-black text-6xl tracking-tight">
+              <div className="font-black text-6xl tracking-tight" style={{ fontFamily: 'var(--font-heatrobox)' }}>
                 <span className="text-white">OARC</span>
                 <span className="text-[#c4ff4d]"> Digital</span>
               </div>
@@ -171,7 +171,7 @@ export default function PDFCapabilitiesDeck() {
         {/* PAGE 3: WHY OARC */}
         <div className="pdf-page">
           <div className="pdf-section-header">
-            <h2>Why OARC Digital?</h2>
+            <h2><span style={{ fontFamily: 'var(--font-heatrobox)' }}>OARC Digital</span> — Why Us?</h2>
             <p>What Makes Us Different</p>
           </div>
 

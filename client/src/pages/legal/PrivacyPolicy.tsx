@@ -64,7 +64,7 @@ export default function PrivacyPolicy() {
                   The data controller responsible for your personal data is:
                 </p>
                 <div className="bg-black/50 p-4 rounded-lg space-y-2">
-                  <p className="text-white font-bold">OARC Digital</p>
+                  <p className="text-white font-bold" style={{ fontFamily: 'var(--font-heatrobox)' }}>OARC Digital</p>
                   <div className="flex items-center gap-2 text-white/70">
                     <MapPin className="w-4 h-4" />
                     <span>Malta, European Union</span>

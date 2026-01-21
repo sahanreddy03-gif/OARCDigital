@@ -119,7 +119,7 @@ export default function ComparisonSection() {
         <div className="mb-12 md:mb-16">
           <p
             className="text-xs md:text-sm font-bold tracking-[0.3em] uppercase mb-4"
-            style={{ color: "rgba(0, 0, 0, 0.35)" }}
+            style={{ color: "rgba(0, 0, 0, 0.35)", fontFamily: 'var(--font-heatrobox)' }}
           >
             Why OARC Digital
           </p>

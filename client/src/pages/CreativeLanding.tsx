@@ -1668,7 +1668,7 @@ export default function CreativeLanding() {
             >
               <p 
                 className="text-xs font-bold uppercase tracking-widest mb-4"
-                style={{ color: 'rgba(255,255,255,0.5)', letterSpacing: '0.3em' }}
+                style={{ color: 'rgba(255,255,255,0.5)', letterSpacing: '0.3em', fontFamily: 'var(--font-heatrobox)' }}
               >
                 OARC VS. TRADITIONAL ALTERNATIVES
               </p>
@@ -1713,7 +1713,7 @@ export default function CreativeLanding() {
                   style={{ backgroundColor: '#c4ff4d' }}
                   whileHover={{ scale: 1.01 }}
                 >
-                  <div className="font-bold text-sm md:text-base" style={{ color: '#0A2818' }}>OARC Digital</div>
+                  <div className="font-bold text-sm md:text-base" style={{ color: '#0A2818', fontFamily: 'var(--font-heatrobox)' }}>OARC Digital</div>
                   {[true, true, true, true, true].map((checked, i) => (
                     <div key={i} className="flex justify-center">
                       <Check className="w-5 h-5 md:w-6 md:h-6" style={{ color: '#0A2818' }} />
@@ -1786,7 +1786,7 @@ export default function CreativeLanding() {
                   <div className="p-5 font-bold text-center text-sm md:text-base" style={{ backgroundColor: '#F1F5F9', color: '#64748B', borderRight: '1px solid #E2E8F0' }}>
                     Traditional Agency
                   </div>
-                  <div className="p-5 font-bold text-center text-sm md:text-base" style={{ background: 'linear-gradient(90deg, #c4ff4d 0%, #9ed919 100%)', color: '#0A2818' }}>
+                  <div className="p-5 font-bold text-center text-sm md:text-base" style={{ background: 'linear-gradient(90deg, #c4ff4d 0%, #9ed919 100%)', color: '#0A2818', fontFamily: 'var(--font-heatrobox)' }}>
                     OARC Digital
                   </div>
                 </div>
@@ -1828,7 +1828,7 @@ export default function CreativeLanding() {
             >
               <p 
                 className="text-xs font-bold uppercase tracking-widest mb-4"
-                style={{ color: 'rgba(255,255,255,0.5)', letterSpacing: '0.2em' }}
+                style={{ color: 'rgba(255,255,255,0.5)', letterSpacing: '0.2em', fontFamily: 'var(--font-heatrobox)' }}
               >
                 THE OARC ADVANTAGE
               </p>
