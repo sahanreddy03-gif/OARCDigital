@@ -347,26 +347,25 @@ export default function HeroSection() {
                     </div>
                   </div>
 
-                  {/* Value proposition - elegant uppercase tracking */}
+                  {/* Value proposition - readable with better contrast */}
                   <p 
-                    className="max-w-none md:max-w-2xl mx-auto md:mx-0 leading-snug mb-2 md:mb-4 font-light tracking-[0.15em] uppercase text-[2.6vw] md:text-[clamp(0.85rem,1.4vw,1.15rem)]"
-                    style={{ color: 'rgba(255, 255, 255, 0.55)' }}
+                    className="max-w-none md:max-w-2xl mx-auto md:mx-0 leading-snug mb-2 md:mb-4 font-normal tracking-[0.08em] text-[2.8vw] md:text-[clamp(0.9rem,1.5vw,1.2rem)]"
+                    style={{ color: 'rgba(255, 255, 255, 0.85)' }}
                     data-testid="text-value-proposition"
                   >
                     Creative AI Talent + Social-Led Marketing + Custom Workflows
                   </p>
-                  {/* Result line - bold with accent highlight */}
+                  {/* Result line - white only with typography variation */}
                   <p 
-                    className="max-w-none md:max-w-2xl mx-auto md:mx-0 leading-tight mb-5 md:mb-7 lg:mb-9 tracking-tight text-[4.2vw] md:text-[clamp(1.2rem,2.2vw,1.8rem)]"
-                    style={{ fontFamily: 'var(--font-swarsh)' }}
+                    className="max-w-none md:max-w-2xl mx-auto md:mx-0 leading-tight mb-5 md:mb-7 lg:mb-9 text-[4.2vw] md:text-[clamp(1.2rem,2.2vw,1.8rem)]"
                     data-testid="text-result-line"
                   >
-                    <span className="text-white/80">=</span>{' '}
-                    <span className="text-[#c4ff4d] font-bold">Less Waste</span>
-                    <span className="text-white/60"> + </span>
+                    <span className="text-white/70 font-light">=</span>{' '}
+                    <span className="text-white font-bold italic">Less Waste</span>
+                    <span className="text-white/50 font-light"> + </span>
                     <span className="text-white font-semibold">More Reach</span>
-                    <span className="text-white/60"> + </span>
-                    <span className="text-[#e8ffb0] font-bold">More Sales</span>
+                    <span className="text-white/50 font-light"> + </span>
+                    <span className="text-white font-bold tracking-wide">More Sales</span>
                   </p>
 
                   {/* Premium Service Navigation Cards */}
