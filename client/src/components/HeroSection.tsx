@@ -1,9 +1,23 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Palette, Bot, Rocket } from "lucide-react";
 import FloatingChipCarousel from "./FloatingChipCarousel";
 import heroBackground from '@assets/d375f1d50d97b0de7953ca2cecd2b8aea2cd96b2-3524x1181_1761251957292.avif';
+
+function useImagePreload(src: string) {
+  const [loaded, setLoaded] = useState(false);
+  useEffect(() => {
+    const img = new Image();
+    img.src = src;
+    if (img.complete) {
+      setLoaded(true);
+    } else {
+      img.onload = () => setLoaded(true);
+    }
+  }, [src]);
+  return loaded;
+}
 
 function SnowfallEffect() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -134,6 +148,8 @@ const MobileGlassCard = ({ icon: Icon, label, href, testId }: { icon: typeof Pal
 );
 
 export default function HeroSection() {
+  const imageLoaded = useImagePreload(heroBackground);
+  
   const styles = `
     @keyframes float {
       0%, 100% { transform: translateY(0) translateX(0); opacity: 0.3; }
@@ -176,12 +192,9 @@ export default function HeroSection() {
       <style>{styles}</style>
       <section className="relative min-h-[92vh] md:min-h-screen flex flex-col overflow-hidden bg-black">
         
-        {/* Christmas Snowfall Effect */}
-        <SnowfallEffect />
-        
         {/* ========== MOBILE LAYOUT ========== */}
         <div className="md:hidden absolute inset-0">
-          {/* Background Image */}
+          {/* Background Image - loads first, always visible */}
           <div 
             className="absolute inset-0 bg-cover bg-no-repeat"
             style={{ 
@@ -189,33 +202,39 @@ export default function HeroSection() {
               backgroundPosition: '60% center'
             }}
           />
-          {/* AI Grid Overlay with pulse - NEON GREEN */}
-          <div 
-            className="absolute inset-0 animate-[gridPulse_6s_ease-in-out_infinite]" 
-            style={{
-              backgroundImage: 'linear-gradient(rgba(196, 255, 77, 0.6) 1px, transparent 1px), linear-gradient(90deg, rgba(196, 255, 77, 0.6) 1px, transparent 1px)',
-              backgroundSize: '35px 35px'
-            }} 
-          />
-          {/* Horizontal data streams - BRIGHT NEON */}
-          <div 
-            className="absolute w-[250px] h-[2px] bg-gradient-to-r from-transparent via-[#c4ff4d] to-transparent animate-[scanHorizontal1_6s_linear_infinite]" 
-            style={{ top: '25%', boxShadow: '0 0 20px rgba(196, 255, 77, 0.8), 0 0 40px rgba(196, 255, 77, 0.4)' }} 
-          />
-          <div 
-            className="absolute w-[200px] h-[2px] bg-gradient-to-r from-transparent via-[#c4ff4d]/90 to-transparent animate-[scanHorizontal2_8s_linear_infinite]" 
-            style={{ top: '45%', boxShadow: '0 0 18px rgba(196, 255, 77, 0.7), 0 0 35px rgba(196, 255, 77, 0.3)', animationDelay: '2s' }} 
-          />
-          <div 
-            className="absolute w-[220px] h-[2px] bg-gradient-to-r from-transparent via-[#c4ff4d]/80 to-transparent animate-[scanHorizontal1_10s_linear_infinite]" 
-            style={{ top: '65%', boxShadow: '0 0 16px rgba(196, 255, 77, 0.6), 0 0 30px rgba(196, 255, 77, 0.3)', animationDelay: '4s' }} 
-          />
-          {/* Gradient overlay */}
+          {/* Gradient overlay - always visible for text readability */}
           <div className="absolute inset-0 bg-gradient-to-b from-transparent from-0% via-zinc-950/60 via-50% to-zinc-950/85 to-95%" />
+          
+          {/* Animations only appear after image loads */}
+          {imageLoaded && (
+            <>
+              {/* AI Grid Overlay with pulse - NEON GREEN */}
+              <div 
+                className="absolute inset-0 animate-[gridPulse_6s_ease-in-out_infinite] transition-opacity duration-500" 
+                style={{
+                  backgroundImage: 'linear-gradient(rgba(196, 255, 77, 0.6) 1px, transparent 1px), linear-gradient(90deg, rgba(196, 255, 77, 0.6) 1px, transparent 1px)',
+                  backgroundSize: '35px 35px'
+                }} 
+              />
+              {/* Horizontal data streams - BRIGHT NEON */}
+              <div 
+                className="absolute w-[250px] h-[2px] bg-gradient-to-r from-transparent via-[#c4ff4d] to-transparent animate-[scanHorizontal1_6s_linear_infinite]" 
+                style={{ top: '25%', boxShadow: '0 0 20px rgba(196, 255, 77, 0.8), 0 0 40px rgba(196, 255, 77, 0.4)' }} 
+              />
+              <div 
+                className="absolute w-[200px] h-[2px] bg-gradient-to-r from-transparent via-[#c4ff4d]/90 to-transparent animate-[scanHorizontal2_8s_linear_infinite]" 
+                style={{ top: '45%', boxShadow: '0 0 18px rgba(196, 255, 77, 0.7), 0 0 35px rgba(196, 255, 77, 0.3)', animationDelay: '2s' }} 
+              />
+              <div 
+                className="absolute w-[220px] h-[2px] bg-gradient-to-r from-transparent via-[#c4ff4d]/80 to-transparent animate-[scanHorizontal1_10s_linear_infinite]" 
+                style={{ top: '65%', boxShadow: '0 0 16px rgba(196, 255, 77, 0.6), 0 0 30px rgba(196, 255, 77, 0.3)', animationDelay: '4s' }} 
+              />
+            </>
+          )}
         </div>
 
         {/* ========== DESKTOP LAYOUT ========== */}
-        {/* Background - fixed, no parallax to prevent zoom scroll issues */}
+        {/* Background - fixed, loads first and always visible */}
         <div 
           className="hidden md:block absolute inset-0 bg-cover bg-no-repeat bg-fixed"
           style={{ 
@@ -224,42 +243,50 @@ export default function HeroSection() {
             filter: 'saturate(1.0) brightness(1.0)'
           }}
         />
-        {/* AI Grid Overlay with pulse - NEON GREEN DESKTOP */}
-        <div 
-          className="hidden md:block absolute inset-0 animate-[gridPulse_6s_ease-in-out_infinite]" 
-          style={{
-            backgroundImage: 'linear-gradient(rgba(196, 255, 77, 0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(196, 255, 77, 0.5) 1px, transparent 1px)',
-            backgroundSize: '45px 45px'
-          }} 
-        />
-        {/* Horizontal data streams - Desktop - BRIGHT NEON */}
-        <div 
-          className="hidden md:block absolute w-[350px] h-[2px] bg-gradient-to-r from-transparent via-[#c4ff4d] to-transparent animate-[scanHorizontal1_7s_linear_infinite]" 
-          style={{ top: '28%', left: 0, boxShadow: '0 0 20px rgba(196, 255, 77, 0.8), 0 0 40px rgba(196, 255, 77, 0.4)' }} 
-        />
-        <div 
-          className="hidden md:block absolute w-[300px] h-[2px] bg-gradient-to-r from-transparent via-[#c4ff4d]/90 to-transparent animate-[scanHorizontal2_9s_linear_infinite]" 
-          style={{ top: '48%', left: 0, boxShadow: '0 0 18px rgba(196, 255, 77, 0.7), 0 0 35px rgba(196, 255, 77, 0.35)', animationDelay: '3s' }} 
-        />
-        <div 
-          className="hidden md:block absolute w-[330px] h-[2px] bg-gradient-to-r from-transparent via-[#c4ff4d]/85 to-transparent animate-[scanHorizontal1_11s_linear_infinite]" 
-          style={{ top: '68%', left: 0, boxShadow: '0 0 16px rgba(196, 255, 77, 0.65), 0 0 32px rgba(196, 255, 77, 0.3)', animationDelay: '5s' }} 
-        />
-        <div 
-          className="hidden md:block absolute w-[280px] h-[2px] bg-gradient-to-r from-transparent via-[#c4ff4d]/75 to-transparent animate-[scanHorizontal2_13s_linear_infinite]" 
-          style={{ top: '82%', left: 0, boxShadow: '0 0 14px rgba(196, 255, 77, 0.55), 0 0 28px rgba(196, 255, 77, 0.25)', animationDelay: '7s' }} 
-        />
-        {/* Light Sweep Effect */}
-        <div className="hidden md:block absolute inset-0 overflow-hidden pointer-events-none">
-          <div 
-            className="absolute w-1/3 h-[200%] -top-1/2 bg-gradient-to-r from-transparent via-white/5 to-transparent animate-[lightSweep_15s_ease-in-out_infinite]" 
-            style={{ animationDelay: '2s' }} 
-          />
-        </div>
-        {/* Desktop gradient overlays */}
+        {/* Desktop gradient overlays - always visible for text readability */}
         <div className="hidden md:block absolute inset-0 bg-gradient-to-r from-black/80 via-black/30 to-transparent" />
         <div className="hidden md:block absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/50" />
         <div className="hidden md:block absolute inset-0 bg-gradient-to-l from-transparent via-black/10 to-black/60" />
+        
+        {/* Desktop animations only appear after image loads */}
+        {imageLoaded && (
+          <>
+            {/* Christmas Snowfall Effect */}
+            <SnowfallEffect />
+            {/* AI Grid Overlay with pulse - NEON GREEN DESKTOP */}
+            <div 
+              className="hidden md:block absolute inset-0 animate-[gridPulse_6s_ease-in-out_infinite] transition-opacity duration-500" 
+              style={{
+                backgroundImage: 'linear-gradient(rgba(196, 255, 77, 0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(196, 255, 77, 0.5) 1px, transparent 1px)',
+                backgroundSize: '45px 45px'
+              }} 
+            />
+            {/* Horizontal data streams - Desktop - BRIGHT NEON */}
+            <div 
+              className="hidden md:block absolute w-[350px] h-[2px] bg-gradient-to-r from-transparent via-[#c4ff4d] to-transparent animate-[scanHorizontal1_7s_linear_infinite]" 
+              style={{ top: '28%', left: 0, boxShadow: '0 0 20px rgba(196, 255, 77, 0.8), 0 0 40px rgba(196, 255, 77, 0.4)' }} 
+            />
+            <div 
+              className="hidden md:block absolute w-[300px] h-[2px] bg-gradient-to-r from-transparent via-[#c4ff4d]/90 to-transparent animate-[scanHorizontal2_9s_linear_infinite]" 
+              style={{ top: '48%', left: 0, boxShadow: '0 0 18px rgba(196, 255, 77, 0.7), 0 0 35px rgba(196, 255, 77, 0.35)', animationDelay: '3s' }} 
+            />
+            <div 
+              className="hidden md:block absolute w-[330px] h-[2px] bg-gradient-to-r from-transparent via-[#c4ff4d]/85 to-transparent animate-[scanHorizontal1_11s_linear_infinite]" 
+              style={{ top: '68%', left: 0, boxShadow: '0 0 16px rgba(196, 255, 77, 0.65), 0 0 32px rgba(196, 255, 77, 0.3)', animationDelay: '5s' }} 
+            />
+            <div 
+              className="hidden md:block absolute w-[280px] h-[2px] bg-gradient-to-r from-transparent via-[#c4ff4d]/75 to-transparent animate-[scanHorizontal2_13s_linear_infinite]" 
+              style={{ top: '82%', left: 0, boxShadow: '0 0 14px rgba(196, 255, 77, 0.55), 0 0 28px rgba(196, 255, 77, 0.25)', animationDelay: '7s' }} 
+            />
+            {/* Light Sweep Effect */}
+            <div className="hidden md:block absolute inset-0 overflow-hidden pointer-events-none">
+              <div 
+                className="absolute w-1/3 h-[200%] -top-1/2 bg-gradient-to-r from-transparent via-white/5 to-transparent animate-[lightSweep_15s_ease-in-out_infinite]" 
+                style={{ animationDelay: '2s' }} 
+              />
+            </div>
+          </>
+        )}
         
         {/* ========== CONTENT ========== */}
         <div className="relative flex-1 flex flex-col justify-end pt-14 md:pt-16 lg:pt-20 pb-6 -mt-8 md:mt-0">
@@ -320,35 +347,33 @@ export default function HeroSection() {
                     </div>
                   </div>
 
-                  {/* Value proposition equation - warm champagne/yellow tint */}
-                  {/* Mobile: more saturated to compensate for dark backdrop, Desktop: subtle champagne */}
+                  {/* Value proposition - elegant uppercase tracking */}
                   <p 
-                    className="max-w-none md:max-w-2xl mx-auto md:mx-0 leading-snug mb-1.5 md:mb-3 font-light tracking-normal text-[3vw] md:text-[clamp(0.95rem,1.6vw,1.35rem)]"
-                    style={{ color: 'rgba(245, 230, 200, 0.75)' }}
+                    className="max-w-none md:max-w-2xl mx-auto md:mx-0 leading-snug mb-2 md:mb-4 font-light tracking-[0.15em] uppercase text-[2.6vw] md:text-[clamp(0.85rem,1.4vw,1.15rem)]"
+                    style={{ color: 'rgba(255, 255, 255, 0.55)' }}
+                    data-testid="text-value-proposition"
                   >
-                    <span className="md:hidden" style={{ color: 'rgba(250, 235, 195, 0.85)' }}>
-                      Creative AI Talent + Social-Led Marketing + Custom Workflows
-                    </span>
-                    <span className="hidden md:inline">
-                      Creative AI Talent + Social-Led Marketing + Custom Workflows
-                    </span>
+                    Creative AI Talent + Social-Led Marketing + Custom Workflows
                   </p>
+                  {/* Result line - bold with accent highlight */}
                   <p 
-                    className="text-white/90 max-w-none md:max-w-2xl mx-auto md:mx-0 leading-tight mb-4 md:mb-6 lg:mb-8 font-semibold tracking-wide text-[4.5vw] md:text-[clamp(1.15rem,2vw,1.6rem)]"
+                    className="max-w-none md:max-w-2xl mx-auto md:mx-0 leading-tight mb-5 md:mb-7 lg:mb-9 tracking-tight text-[4.2vw] md:text-[clamp(1.2rem,2.2vw,1.8rem)]"
+                    style={{ fontFamily: 'var(--font-swarsh)' }}
+                    data-testid="text-result-line"
                   >
-                    = Less Waste + More Reach + More Sales
+                    <span className="text-white/80">=</span>{' '}
+                    <span className="text-[#c4ff4d] font-bold">Less Waste</span>
+                    <span className="text-white/60"> + </span>
+                    <span className="text-white font-semibold">More Reach</span>
+                    <span className="text-white/60"> + </span>
+                    <span className="text-[#e8ffb0] font-bold">More Sales</span>
                   </p>
 
-                  {/* Glass Cards - Prominent Landing Page Navigation */}
-                  <div className="flex flex-col items-center md:items-start gap-4">
-                    <p className="text-white/60 text-sm md:text-base font-medium mb-1">
-                      Explore our services:
-                    </p>
-                    <div className="flex flex-wrap gap-3 md:gap-4 justify-center md:justify-start">
-                      <MobileGlassCard icon={Palette} label="Creative" href="/creative" testId="button-nav-creative" />
-                      <MobileGlassCard icon={Bot} label="AI" href="/ai-agents" testId="button-nav-ai" />
-                      <MobileGlassCard icon={Rocket} label="Growth" href="/solutions" testId="button-nav-growth" />
-                    </div>
+                  {/* Premium Service Navigation Cards */}
+                  <div className="flex flex-wrap gap-3 md:gap-4 justify-center md:justify-start">
+                    <MobileGlassCard icon={Palette} label="Creative" href="/creative" testId="button-nav-creative" />
+                    <MobileGlassCard icon={Bot} label="AI" href="/ai-agents" testId="button-nav-ai" />
+                    <MobileGlassCard icon={Rocket} label="Growth" href="/solutions" testId="button-nav-growth" />
                   </div>
                 </div>
               </div>
@@ -358,7 +383,7 @@ export default function HeroSection() {
           {/* Carousel with green wave */}
           <div className="w-full mt-8 md:mt-5 relative">
             <FloatingChipCarousel />
-            {/* Green curved wave below carousel */}
+            {/* Subtle green curved wave below carousel - barely visible */}
             <div className="absolute -bottom-8 md:-bottom-16 left-0 right-0 pointer-events-none">
               <svg 
                 viewBox="0 0 1440 120" 
@@ -368,12 +393,12 @@ export default function HeroSection() {
                 <path 
                   d="M0,60 C360,120 720,0 1080,60 C1260,90 1380,80 1440,60 L1440,120 L0,120 Z" 
                   fill="#c4ff4d"
-                  opacity="0.4"
+                  opacity="0.08"
                 />
                 <path 
                   d="M0,80 C320,40 640,100 960,60 C1200,30 1360,70 1440,50 L1440,120 L0,120 Z" 
                   fill="#c4ff4d"
-                  opacity="0.25"
+                  opacity="0.05"
                 />
               </svg>
             </div>
