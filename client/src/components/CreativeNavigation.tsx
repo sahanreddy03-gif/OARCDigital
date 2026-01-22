@@ -43,7 +43,7 @@ export default function CreativeNavigation() {
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="flex items-center justify-between h-20">
-          <Link href="/" className="flex items-center gap-1.5" data-testid="link-logo-home">
+          <Link href="/" className="flex items-center gap-0.5" data-testid="link-logo-home">
             <motion.img 
               src={greenLogo} 
               alt="OARC Digital logo" 
