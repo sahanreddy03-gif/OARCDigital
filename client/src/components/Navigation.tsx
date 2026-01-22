@@ -74,7 +74,7 @@ export default function Navigation() {
             </Link>
             <Link 
               href="/ai-agents" 
-              className="text-xs xl:text-sm font-medium text-[#c4ff4d] hover:text-white transition-colors" 
+              className="text-xs xl:text-sm font-medium text-white/90 hover:text-white transition-colors" 
               style={{ textShadow }}
               data-testid="link-ai-agents"
             >
@@ -236,7 +236,7 @@ export default function Navigation() {
               </div>
             </Link>
             <Link href="/ai-agents" data-testid="link-mobile-ai-agents" onClick={() => setShowMobileMenu(false)}>
-              <div className="text-base font-medium text-[#c4ff4d] py-3 border-b border-white/5">
+              <div className="text-base font-medium text-white py-3 border-b border-white/5">
                 AI Agents
               </div>
             </Link>
