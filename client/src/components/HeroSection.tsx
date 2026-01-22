@@ -334,7 +334,7 @@ export default function HeroSection() {
                       AI-Native Marketing Agency
                     </span>
                     <span 
-                      className="block font-extralight italic font-serif tracking-tight leading-[1.05] mt-0.5 md:mt-2 text-[8.5vw] md:text-[clamp(2.5rem,5.5vw,4.5rem)] lg:text-[clamp(2.5rem,4.8vw,4rem)] lg:pl-[9rem]"
+                      className="block font-extralight italic font-serif tracking-tight leading-[1.05] mt-0.5 md:mt-2 text-[8.5vw] md:text-[clamp(2.5rem,5.5vw,4.5rem)] lg:text-[clamp(2.5rem,4.8vw,4rem)] lg:ml-[9rem]"
                     >
                       That Drives <span className="text-[#e8ffb0] font-semibold not-italic">Revenue</span>
                     </span>
