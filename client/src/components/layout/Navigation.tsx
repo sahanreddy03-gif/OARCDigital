@@ -92,8 +92,8 @@ export default function Navigation() {
 
   const navLinks = [
     { href: "/creative", label: "Creative" },
-    { href: "/ai-agents", label: "AI Agents", highlight: true },
-    { href: "/solutions", label: "Automation", highlight: true },
+    { href: "/ai-agents", label: "AI Agents" },
+    { href: "/solutions", label: "Automation" },
     { href: "/our-work", label: "Our Work" },
     { href: "/pricing", label: "Pricing" },
     { href: "/tools", label: "Tools" },
@@ -143,8 +143,8 @@ export default function Navigation() {
               href="/ai-agents"
               className={`text-xs lg:text-sm font-medium transition-colors ${
                 location === "/ai-agents"
-                  ? "text-[#c4ff4d]"
-                  : "text-[#c4ff4d]/80 hover:text-[#c4ff4d]"
+                  ? "text-white"
+                  : "text-white/90 hover:text-white"
               }`}
               style={{ textShadow }}
               data-testid="link-ai-agents"
@@ -360,7 +360,7 @@ export default function Navigation() {
                 <Link
                   href="/ai-agents"
                   className={`block py-3 text-base font-medium border-b border-white/5 ${
-                    location === "/ai-agents" ? "text-[#c4ff4d]" : "text-[#c4ff4d]/80"
+                    location === "/ai-agents" ? "text-white" : "text-white/80"
                   }`}
                   onClick={() => setMobileMenuOpen(false)}
                   data-testid="link-mobile-ai-agents"
