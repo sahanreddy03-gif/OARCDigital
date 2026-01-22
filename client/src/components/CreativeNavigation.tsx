@@ -66,17 +66,11 @@ export default function CreativeNavigation() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-sm font-medium transition-all duration-200 relative group ${
-                  location === link.href
-                    ? "text-[#9ed919]"
-                    : "text-zinc-700 hover:text-zinc-900"
-                }`}
+                className="text-sm font-medium transition-all duration-200 relative group text-zinc-700 hover:text-zinc-900"
                 data-testid={`link-${link.label.toLowerCase().replace(/\s+/g, '-')}`}
               >
                 {link.label}
-                <span className={`absolute -bottom-1 left-0 h-0.5 bg-[#9ed919] transition-all duration-200 ${
-                  location === link.href ? 'w-full' : 'w-0 group-hover:w-full'
-                }`} />
+                <span className="absolute -bottom-1 left-0 h-0.5 bg-zinc-800 transition-all duration-200 w-0 group-hover:w-full" />
               </Link>
             ))}
 
