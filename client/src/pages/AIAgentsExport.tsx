@@ -84,17 +84,17 @@ export default function AIAgentsExport() {
 
     // Draw logo image - positioned for 4:5 vertical format
     const logoSize = 100;
-    const logoX = width / 2 - 150;
+    const logoX = width / 2 - 140;
     const logoY = 60;
     if (logoRef.current) {
       ctx.drawImage(logoRef.current, logoX, logoY, logoSize, logoSize);
     }
 
-    // OARC text with Heat Robox font
+    // OARC text with Heat Robox font - VERY CLOSE to logo (only 8px gap)
     ctx.textAlign = 'left';
     ctx.font = "48px 'Heat Robox', sans-serif";
     ctx.fillStyle = '#FFFFFF';
-    const orcTextX = logoX + logoSize + 20;
+    const orcTextX = logoX + logoSize + 8;
     ctx.fillText('OARC', orcTextX, logoY + 55);
     
     // Measure OARC width to center DIGITAL under it
