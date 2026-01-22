@@ -134,19 +134,19 @@ export default function AIAgentsExport() {
     ctx.fillStyle = '#c4ff4d';
     ctx.fillRect(0, tickerY, width, tickerHeight);
 
-    // Ticker with Squiver font - sized to match creative export
+    // Ticker with clean readable Montserrat font
     ctx.fillStyle = '#000000';
     ctx.textAlign = 'left';
     
-    const tickerFont = "28px 'Squiver', Arial, sans-serif";
+    const tickerFont = "bold 26px 'Montserrat', Arial, sans-serif";
     
     const segments = [
-      { text: 'Your Team that works 24/7: ', font: tickerFont },
-      { text: 'AI Employees', font: tickerFont },
+      { text: 'YOUR TEAM THAT WORKS 24/7: ', font: tickerFont },
+      { text: 'AI EMPLOYEES', font: tickerFont },
       { text: ' • ', font: tickerFont },
-      { text: 'Automation', font: tickerFont },
+      { text: 'AUTOMATION', font: tickerFont },
       { text: ' • ', font: tickerFont },
-      { text: 'Custom Solutions', font: tickerFont },
+      { text: 'CUSTOM SOLUTIONS', font: tickerFont },
       { text: ' · ', font: tickerFont },
     ];
     
