@@ -196,14 +196,14 @@ Disallow: /
       const filename = isVertical ? 'oarc-instagram-1080x1350.mp4' : 'oarc-instagram-1080x1080.mp4';
 
       // Meta-safe FFmpeg command that fixes ALL common rejection issues:
-      // - scale + crop for TRUE dimensions (no fake aspect ratio)
-      // - setsar=1:1 for square pixels
-      // - setdar for correct display aspect ratio
+      // - scale + crop for exact TRUE dimensions
+      // - setsar=1:1 for square pixels (critical for Meta)
+      // - NO setdar - let dimensions speak for themselves
       // - H.264 high profile level 4.2 (Meta preferred)
       // - yuv420p pixel format (required by Meta)
       // - faststart for streaming
-      // - Removes hidden padding/metadata quirks
-      const ffmpegCmd = `ffmpeg -y -i "${inputPath}" -vf "scale=${targetWidth}:${targetHeight}:force_original_aspect_ratio=increase,crop=${targetWidth}:${targetHeight},setsar=1:1,setdar=${displayAspect}" -r 30 -c:v libx264 -profile:v high -level 4.2 -pix_fmt yuv420p -movflags +faststart -c:a aac -b:a 128k "${outputPath}"`;
+      // - Explicit pixel dimensions in metadata
+      const ffmpegCmd = `ffmpeg -y -i "${inputPath}" -vf "scale=${targetWidth}:${targetHeight}:force_original_aspect_ratio=disable,setsar=1:1" -r 30 -c:v libx264 -profile:v high -level 4.2 -pix_fmt yuv420p -movflags +faststart -c:a aac -b:a 128k "${outputPath}"`;
 
       await execAsync(ffmpegCmd);
 
