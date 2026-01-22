@@ -107,21 +107,21 @@ export default function AIAgentsExport() {
     const digitalX = orcTextX + (oarcWidth - digitalWidth) / 2;
     ctx.fillText('DIGITAL', digitalX, logoY + 85);
 
-    // Main headline - LEFT ALIGNED, positioned for 4:5 vertical format
-    const headlineX = 50;
-    const headlineY = height / 2 + 80;
+    // Main headline - CENTERED for 4:5 vertical format (matching creative export)
+    const headlineY = height / 2 - 60;
     
-    ctx.textAlign = 'left';
-    ctx.font = "bold 54px 'Montserrat', 'Arial Black', sans-serif";
+    ctx.textAlign = 'center';
+    ctx.font = "800 58px 'Montserrat', 'Arial Black', sans-serif";
     ctx.fillStyle = '#FFFFFF';
     
-    // Split into lines for better layout - adjusted for 4:5 vertical
-    ctx.fillText('Build, grow, and scale', headlineX, headlineY);
-    ctx.fillText('your business with our', headlineX, headlineY + 68);
+    // Split into lines - centered with proper vertical spacing
+    ctx.fillText('BUILD, GROW &', width / 2, headlineY);
+    ctx.fillText('SCALE WITH OUR', width / 2, headlineY + 75);
     
-    // AI workforce in accent color
+    // AI workforce in accent color - italic serif for emphasis
+    ctx.font = "italic 68px 'EB Garamond', Georgia, serif";
     ctx.fillStyle = '#c4ff4d';
-    ctx.fillText('AI workforce', headlineX, headlineY + 136);
+    ctx.fillText('AI Workforce', width / 2, headlineY + 165);
 
     // Bottom section: Ticker (65px) + CTA (100px) = 165px total - sized for 4:5 vertical
     const ctaHeight = 100;
@@ -134,11 +134,11 @@ export default function AIAgentsExport() {
     ctx.fillStyle = '#c4ff4d';
     ctx.fillRect(0, tickerY, width, tickerHeight);
 
-    // Ticker with Squiver font
+    // Ticker with Squiver font - sized to match creative export
     ctx.fillStyle = '#000000';
     ctx.textAlign = 'left';
     
-    const tickerFont = "32px 'Squiver', Arial, sans-serif";
+    const tickerFont = "28px 'Squiver', Arial, sans-serif";
     
     const segments = [
       { text: 'Your Team that works 24/7: ', font: tickerFont },
