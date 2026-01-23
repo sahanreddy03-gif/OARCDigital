@@ -582,30 +582,31 @@ export default function AIAgentsLanding() {
                 Every business is unique. Tell us about your needs and we'll create a tailored proposal with transparent pricing - no hidden fees, no surprises.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-                <Link href="/contact">
-                  <motion.button
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="px-8 py-4 bg-[#c4ff4d] text-black font-bold rounded-full text-lg shadow-lg shadow-[#c4ff4d]/20 hover:shadow-xl hover:shadow-[#c4ff4d]/30 transition-all"
-                    data-testid="button-get-custom-pricing"
-                  >
-                    Get Custom Pricing
-                  </motion.button>
-                </Link>
                 <a
-                  href="https://wa.me/35679711799?text=Hi%20OARC,%20I'd%20like%20to%20discuss%20AI%20workforce%20pricing"
+                  href="https://wa.me/35699263179?text=Hi%20OARC%20Digital%2C%20I%27m%20interested%20in%20AI%20workforce%20pricing%20for%20my%20business"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   <motion.button
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    className="px-8 py-4 bg-transparent border-2 border-white/20 text-white font-bold rounded-full text-lg hover:border-white/40 transition-all"
-                    data-testid="button-whatsapp-pricing"
+                    className="px-8 py-4 bg-[#c4ff4d] text-black font-bold rounded-full text-lg shadow-lg shadow-[#c4ff4d]/20 hover:shadow-xl hover:shadow-[#c4ff4d]/30 transition-all flex items-center gap-2"
+                    data-testid="button-get-custom-pricing"
                   >
-                    WhatsApp Us
+                    <SiWhatsapp className="w-5 h-5" />
+                    Get Prices Now
                   </motion.button>
                 </a>
+                <Link href="/contact">
+                  <motion.button
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="px-8 py-4 bg-transparent border-2 border-white/20 text-white font-bold rounded-full text-lg hover:border-white/40 transition-all"
+                    data-testid="button-contact-pricing"
+                  >
+                    Book a Call
+                  </motion.button>
+                </Link>
               </div>
               <p className="text-white/40 text-sm pt-2">
                 Typically respond within 2 hours during business hours

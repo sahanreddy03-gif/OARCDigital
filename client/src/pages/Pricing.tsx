@@ -3,9 +3,11 @@ import Layout from "@/components/layout/Layout";
 import SEOHead from "@/components/SEOHead";
 import { supportingPagesSEO } from "@/data/seoMetadata";
 import { Button } from "@/components/ui/button";
-import { Check, Star, Building2, Zap, Sparkles, Crown } from 'lucide-react';
+import { Input } from "@/components/ui/input";
+import { Check, Star, Building2, Zap, Sparkles, Crown, MessageCircle, Lock, ArrowRight, Loader2 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'wouter';
+import { SiWhatsapp } from 'react-icons/si';
 
 const pricingCategories = [
   {
@@ -48,39 +50,82 @@ const pricingData = {
   social: [
     {
       name: "STARTER",
-      price: "910",
+      price: "799",
       period: "/month",
-      desc: "Perfect for businesses ready to build a consistent social presence.",
-      sub: "Save €1,000+ vs agencies",
-      originalPrice: "1,500",
-      bonuses: ["Brand Style Guide (€300 value)", "Content Calendar Template", "30-Day Strategy Session"],
-      features: ["12 High-Fidelity Posts/mo", "1 Platform", "Custom Design System", "Monthly Performance Report", "48-Hour Turnaround"],
+      desc: "Build a consistent social presence with video content included.",
+      sub: "Save €800+ vs agencies",
+      originalPrice: "1,299",
+      bonuses: [
+        "Brand Style Guide (€300 value)", 
+        "Content Calendar Template", 
+        "30-Day Strategy Session",
+        "Hashtag Research Pack",
+        "Free Stock Library Access"
+      ],
+      features: [
+        "12 High-Fidelity Posts/mo", 
+        "2 Short-Form Videos/mo",
+        "1 Platform", 
+        "Custom Design System", 
+        "Monthly Performance Report", 
+        "48-Hour Turnaround",
+        "Dedicated Account Manager"
+      ],
       icon: Sparkles,
       style: "basic",
-      cta: "Start Growing"
+      cta: "Get Started"
     },
     {
       name: "GROWTH",
-      price: "2,250",
+      price: "1,899",
       period: "/month",
-      desc: "Scale your presence across platforms with video content.",
-      sub: "Most Popular • Save €1,700",
-      originalPrice: "3,950",
-      bonuses: ["Competitor Analysis (€500 value)", "4 Reels/Videos Included", "Engagement Strategy", "Priority Support"],
-      features: ["24 High-Fidelity Posts/mo", "3 Platforms", "8 Short-Form Videos", "Community Management", "Influencer Outreach"],
+      desc: "Scale across platforms with professional video production.",
+      sub: "Most Popular • Best Value",
+      originalPrice: "2,999",
+      bonuses: [
+        "Competitor Analysis (€500 value)", 
+        "Engagement Strategy Blueprint",
+        "Priority 24-Hour Support",
+        "Quarterly Brand Audit",
+        "Trend Reports Weekly"
+      ],
+      features: [
+        "24 High-Fidelity Posts/mo", 
+        "8 Professional Videos/mo",
+        "3 Platforms", 
+        "Community Management", 
+        "Influencer Outreach",
+        "Story Templates Pack",
+        "Performance Dashboard"
+      ],
       icon: Zap,
       style: "popular",
       cta: "Accelerate Growth"
     },
     {
       name: "SCALE",
-      price: "4,000",
+      price: "3,499",
       period: "/month",
-      desc: "Full creative department at a fraction of the cost.",
-      sub: "Enterprise • Save €4,300",
-      originalPrice: "8,300",
-      bonuses: ["Dedicated Creative Lead", "Quarterly Brand Refresh", "UGC Creator Network Access", "White-Label Reports"],
-      features: ["Daily Posting (32/mo)", "All Platforms", "12 Cinematic Videos", "Paid Ad Creative", "Influencer Campaigns"],
+      desc: "Full creative department at a fraction of in-house cost.",
+      sub: "Enterprise Grade",
+      originalPrice: "5,999",
+      bonuses: [
+        "Dedicated Creative Lead", 
+        "Quarterly Brand Refresh",
+        "UGC Creator Network Access", 
+        "White-Label Reporting",
+        "VIP Strategy Calls Monthly",
+        "Crisis Management Support"
+      ],
+      features: [
+        "Daily Posting (32/mo)", 
+        "16 Cinematic Videos/mo",
+        "All Platforms", 
+        "Paid Ad Creative Library", 
+        "Influencer Campaign Management",
+        "Real-Time Analytics",
+        "Unlimited Revisions"
+      ],
       icon: Crown,
       style: "premium",
       cta: "Dominate Market"
@@ -89,39 +134,78 @@ const pricingData = {
   web: [
     { 
       name: "STARTER", 
-      price: "1,800", 
+      price: "1,499", 
       period: "one-time", 
-      desc: "Professional landing page that converts visitors.", 
+      desc: "Professional landing page that converts visitors into leads.", 
       sub: "Includes 3 months hosting",
-      originalPrice: "2,500",
-      bonuses: ["SEO Optimization (€300 value)", "Mobile Responsive", "Contact Form Setup"],
-      features: ["5 Pages", "Custom Design", "Basic SEO", "Contact Form", "Speed Optimized"], 
+      originalPrice: "2,299",
+      bonuses: [
+        "SEO Optimization (€300 value)", 
+        "Mobile Responsive Design", 
+        "Contact Form + CRM Setup",
+        "Speed Optimization",
+        "SSL Certificate"
+      ],
+      features: [
+        "5 Custom Pages", 
+        "Conversion-Focused Design", 
+        "Basic SEO Setup", 
+        "Contact Forms", 
+        "Google Analytics",
+        "Social Media Integration"
+      ], 
       icon: Sparkles, 
       style: "basic", 
-      cta: "Build Site" 
+      cta: "Build My Site" 
     },
     { 
       name: "GROWTH", 
-      price: "4,600", 
+      price: "3,999", 
       period: "one-time", 
-      desc: "Conversion-focused website with CMS and booking.", 
-      sub: "Best Value • Save €1,400",
-      originalPrice: "6,000",
-      bonuses: ["CMS Training (€400 value)", "Booking Integration", "Analytics Setup", "3 Revisions"],
-      features: ["10 Pages", "CMS Setup", "Advanced SEO", "Booking System", "Blog Setup"], 
+      desc: "Full website with CMS, booking system, and blog.", 
+      sub: "Best Value",
+      originalPrice: "5,499",
+      bonuses: [
+        "CMS Training Session (€400 value)", 
+        "Booking System Integration", 
+        "Google My Business Setup",
+        "3 Rounds of Revisions",
+        "1 Month Free Support"
+      ],
+      features: [
+        "10 Custom Pages", 
+        "Content Management System", 
+        "Advanced SEO Setup", 
+        "Booking/Calendar System", 
+        "Blog with Categories",
+        "Email Newsletter Integration"
+      ], 
       icon: Zap, 
       style: "popular", 
       cta: "Build Platform" 
     },
     { 
       name: "E-COMMERCE", 
-      price: "9,000", 
+      price: "7,999", 
       period: "one-time", 
-      desc: "Full-scale online store ready for sales.", 
-      sub: "Enterprise • Save €3,000",
-      originalPrice: "12,000",
-      bonuses: ["Payment Gateway Setup", "Inventory System", "Email Automation", "Launch Support"],
-      features: ["50+ Products", "Payment Processing", "Inventory Logic", "Customer Portal", "Abandoned Cart"], 
+      desc: "Complete online store ready for sales from day one.", 
+      sub: "Enterprise",
+      originalPrice: "10,999",
+      bonuses: [
+        "Payment Gateway Setup", 
+        "Inventory Management System", 
+        "Email Automation Flows",
+        "Launch Marketing Support",
+        "90-Day Priority Support"
+      ],
+      features: [
+        "Unlimited Products", 
+        "Payment Processing", 
+        "Inventory & Order Logic", 
+        "Customer Portal", 
+        "Abandoned Cart Recovery",
+        "Multi-Currency Support"
+      ], 
       icon: Crown, 
       style: "premium", 
       cta: "Launch Store" 
@@ -130,26 +214,52 @@ const pricingData = {
   ai: [
     { 
       name: "PILOT", 
-      price: "1,500", 
+      price: "1,299", 
       period: "one-time", 
       desc: "14-day pilot to prove ROI before you commit.", 
       sub: "Risk-Free Trial",
-      originalPrice: "2,500",
-      bonuses: ["Full Implementation", "Training Session", "Performance Report", "No Monthly Lock-in"],
-      features: ["1 AI Agent", "Lead Capture Bot", "24/7 Availability", "CRM Integration", "Custom Training"], 
+      originalPrice: "1,999",
+      bonuses: [
+        "Full Implementation", 
+        "Team Training Session", 
+        "Performance Report",
+        "No Monthly Lock-in",
+        "Free Migration Support"
+      ],
+      features: [
+        "1 AI Agent", 
+        "Lead Capture Bot", 
+        "24/7 Availability", 
+        "CRM Integration", 
+        "Custom Knowledge Base",
+        "Slack/Teams Notifications"
+      ], 
       icon: Sparkles, 
       style: "basic", 
       cta: "Start Pilot" 
     },
     { 
       name: "GROWTH", 
-      price: "2,997", 
+      price: "2,497", 
       period: "/month", 
-      desc: "Full AI workforce handling sales, support & operations.", 
+      desc: "Full AI workforce for sales, support & operations.", 
       sub: "Most Popular • Replace 3-5 Staff",
-      originalPrice: "4,500",
-      bonuses: ["Dedicated Success Manager", "Weekly Optimization", "Multi-Language Support", "Priority Response"],
-      features: ["3 AI Agents", "Sales + Support + Ops", "Unlimited Conversations", "Advanced Analytics", "API Access"], 
+      originalPrice: "3,997",
+      bonuses: [
+        "Dedicated Success Manager", 
+        "Weekly Optimization Calls", 
+        "Multi-Language Support (10+)",
+        "Priority Response SLA",
+        "Custom Integrations"
+      ],
+      features: [
+        "3 AI Agents", 
+        "Sales + Support + Ops", 
+        "Unlimited Conversations", 
+        "Advanced Analytics Dashboard", 
+        "API Access",
+        "Workflow Automation"
+      ], 
       icon: Zap, 
       style: "popular", 
       cta: "Deploy AI Team" 
@@ -158,10 +268,23 @@ const pricingData = {
       name: "ENTERPRISE", 
       price: "Custom", 
       period: "", 
-      desc: "Tailored AI solutions for complex operations.", 
+      desc: "Tailored AI solutions for complex enterprise operations.", 
       sub: "Full Department Replacement",
-      bonuses: ["Custom LLM Training", "Dedicated Dev Team", "SLA Guarantee", "On-Premise Option"],
-      features: ["Unlimited Agents", "Custom Integrations", "White-Label", "Compliance Ready", "24/7 Support"], 
+      bonuses: [
+        "Custom LLM Training", 
+        "Dedicated Dev Team", 
+        "SLA Guarantee (99.9%)",
+        "On-Premise Option",
+        "Compliance Audit Support"
+      ],
+      features: [
+        "Unlimited Agents", 
+        "Custom Integrations", 
+        "White-Label Solutions", 
+        "Enterprise Compliance", 
+        "24/7 Priority Support",
+        "Dedicated Infrastructure"
+      ], 
       icon: Crown, 
       style: "premium", 
       cta: "Book Strategy Call" 
@@ -202,8 +325,156 @@ const AnimatedBackground = () => (
   </div>
 );
 
+// Inline pricing gate form
+function PricingGateForm({ onUnlock }: { onUnlock: () => void }) {
+  const [formData, setFormData] = useState({ name: '', email: '', company: '' });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState('');
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setError('');
+    
+    if (!formData.name.trim() || !formData.email.trim()) {
+      setError('Please fill in your name and email');
+      return;
+    }
+
+    setIsSubmitting(true);
+    
+    try {
+      const response = await fetch('https://formspree.io/f/xblnedyl', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          ...formData,
+          source: 'Pricing Page - Price Reveal',
+          timestamp: new Date().toISOString()
+        })
+      });
+
+      if (response.ok) {
+        onUnlock();
+      } else {
+        setError('Something went wrong. Please try again.');
+      }
+    } catch {
+      setError('Connection error. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  return (
+    <motion.div 
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      className="max-w-xl mx-auto"
+    >
+      <div className="bg-white rounded-3xl shadow-2xl border border-slate-200 p-8 md:p-12">
+        <div className="text-center mb-8">
+          <div className="inline-flex items-center gap-2 mb-4 px-4 py-2 bg-slate-100 rounded-full">
+            <Lock className="w-4 h-4 text-slate-600" />
+            <span className="text-sm font-semibold text-slate-700">Personalized Pricing</span>
+          </div>
+          <h3 className="text-2xl md:text-3xl font-bold text-slate-900 mb-3">
+            Get Your Custom Quote
+          </h3>
+          <p className="text-slate-600 leading-relaxed">
+            Every business is unique. We tailor our packages to fit your specific needs and budget. 
+            <span className="font-semibold text-slate-800"> Enter your details to see pricing.</span>
+          </p>
+        </div>
+
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div>
+            <Input
+              type="text"
+              placeholder="Your Name"
+              value={formData.name}
+              onChange={(e) => setFormData(prev => ({ ...prev, name: e.target.value }))}
+              className="h-12 rounded-xl border-slate-200 focus:border-slate-400"
+              data-testid="input-gate-name"
+            />
+          </div>
+          <div>
+            <Input
+              type="email"
+              placeholder="Work Email"
+              value={formData.email}
+              onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
+              className="h-12 rounded-xl border-slate-200 focus:border-slate-400"
+              data-testid="input-gate-email"
+            />
+          </div>
+          <div>
+            <Input
+              type="text"
+              placeholder="Company Name (Optional)"
+              value={formData.company}
+              onChange={(e) => setFormData(prev => ({ ...prev, company: e.target.value }))}
+              className="h-12 rounded-xl border-slate-200 focus:border-slate-400"
+              data-testid="input-gate-company"
+            />
+          </div>
+
+          {error && (
+            <p className="text-red-500 text-sm text-center">{error}</p>
+          )}
+
+          <Button 
+            type="submit" 
+            disabled={isSubmitting}
+            className="w-full h-14 rounded-xl bg-slate-900 hover:bg-black text-white font-bold text-base"
+            data-testid="button-reveal-pricing"
+          >
+            {isSubmitting ? (
+              <Loader2 className="w-5 h-5 animate-spin" />
+            ) : (
+              <>
+                Reveal Pricing <ArrowRight className="w-4 h-4 ml-2" />
+              </>
+            )}
+          </Button>
+        </form>
+
+        <div className="mt-6 pt-6 border-t border-slate-100 text-center">
+          <p className="text-xs text-slate-500 mb-4">Or speak with us directly</p>
+          <a 
+            href="https://wa.me/35699263179?text=Hi%20OARC%20Digital%2C%20I%27m%20interested%20in%20your%20pricing%20packages"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-green-500 hover:bg-green-600 text-white rounded-full font-semibold transition-colors"
+            data-testid="button-whatsapp-pricing"
+          >
+            <SiWhatsapp className="w-5 h-5" />
+            Chat on WhatsApp
+          </a>
+        </div>
+      </div>
+    </motion.div>
+  );
+}
+
+// Floating WhatsApp button
+function FloatingWhatsApp() {
+  return (
+    <a
+      href="https://wa.me/35699263179?text=Hi%20OARC%20Digital%2C%20I%27m%20interested%20in%20your%20services"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="fixed bottom-6 right-6 z-50 flex items-center gap-3 bg-green-500 hover:bg-green-600 text-white px-5 py-3 rounded-full shadow-lg hover:shadow-xl transition-all group"
+      data-testid="button-floating-whatsapp"
+    >
+      <SiWhatsapp className="w-6 h-6" />
+      <span className="font-semibold hidden sm:inline">Chat with us</span>
+    </a>
+  );
+}
+
 export default function Pricing() {
   const [activeTab, setActiveTab] = useState<'social' | 'web' | 'ai'>('social');
+  const [pricingUnlocked, setPricingUnlocked] = useState(false);
   const activeTheme = pricingCategories.find(c => c.id === activeTab) || pricingCategories[0];
 
   return (
@@ -306,7 +577,12 @@ export default function Pricing() {
             </div>
           </div>
 
-          {/* --- PRICING CARDS --- */}
+          {/* --- PRICING GATE OR CARDS --- */}
+          {!pricingUnlocked ? (
+            <div className="mb-32">
+              <PricingGateForm onUnlock={() => setPricingUnlocked(true)} />
+            </div>
+          ) : (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-32 items-start">
             <AnimatePresence mode="wait">
               {pricingData[activeTab].map((plan, i) => {
@@ -408,6 +684,7 @@ export default function Pricing() {
               })}
             </AnimatePresence>
           </div>
+          )}
 
           {/* --- ENTERPRISE SECTION --- */}
           <div className="rounded-[2.5rem] bg-slate-900 text-white p-10 md:p-20 relative overflow-hidden shadow-2xl">
@@ -451,6 +728,9 @@ export default function Pricing() {
 
         </div>
       </div>
+
+      {/* Floating WhatsApp Button */}
+      <FloatingWhatsApp />
     </Layout>
   );
 }

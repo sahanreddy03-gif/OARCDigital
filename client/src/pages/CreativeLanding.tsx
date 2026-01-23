@@ -1961,29 +1961,29 @@ export default function CreativeLanding() {
                 Every brand is unique. Tell us about your goals and we'll build a tailored creative package with transparent pricing - everything included, no surprises.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-6">
-                <Link href="/contact">
-                  <Button 
-                    size="lg" 
-                    className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-6 text-lg rounded-full"
-                    data-testid="button-get-custom-creative-pricing"
-                  >
-                    Get Custom Pricing <ArrowRight className="w-5 h-5 ml-2" />
-                  </Button>
-                </Link>
                 <a
-                  href="https://wa.me/35679711799?text=Hi%20OARC,%20I'd%20like%20to%20discuss%20creative%20services%20pricing"
+                  href="https://wa.me/35699263179?text=Hi%20OARC%20Digital%2C%20I%27m%20interested%20in%20creative%20services%20pricing%20for%20my%20business"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   <Button 
                     size="lg" 
-                    variant="outline" 
-                    className="border-white/20 text-white hover:bg-white/5 px-8 py-6 text-lg rounded-full"
-                    data-testid="button-whatsapp-creative-pricing"
+                    className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-6 text-lg rounded-full"
+                    data-testid="button-get-custom-creative-pricing"
                   >
-                    <SiWhatsapp className="w-5 h-5 mr-2" /> WhatsApp Us
+                    <SiWhatsapp className="w-5 h-5 mr-2" /> Get Prices Now
                   </Button>
                 </a>
+                <Link href="/contact">
+                  <Button 
+                    size="lg" 
+                    variant="outline" 
+                    className="border-white/20 text-white hover:bg-white/5 px-8 py-6 text-lg rounded-full"
+                    data-testid="button-contact-creative-pricing"
+                  >
+                    Book a Call <ArrowRight className="w-5 h-5 ml-2" />
+                  </Button>
+                </Link>
               </div>
               <p className="text-white/40 text-sm">
                 Typically respond within 2 hours during business hours
