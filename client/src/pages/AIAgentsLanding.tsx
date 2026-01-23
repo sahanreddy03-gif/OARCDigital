@@ -116,7 +116,7 @@ const aiAgentsFAQs: FAQItem[] = [
   { question: "How long to see ROI?", answer: "Typical pilots deliver measurable improvements in 4-8 weeks. Most clients see positive ROI within the first month of full deployment." },
   { question: "Is my data safe?", answer: "Data remains yours. We use secure integrations, SOC 2 compliant infrastructure, and provide an enterprise data control agreement. No data is used to train external models." },
   { question: "What if the agent fails?", answer: "Agents escalate with full context to humans and we fix issues within SLA windows. Human oversight is always available, and we continuously improve based on edge cases." },
-  { question: "What's the pricing model?", answer: "We offer pilots from €1,500 and fixed monthly packages starting at €2,997/month. Enterprise custom pricing available. Request a quote for a clear, no-surprise estimate." },
+  { question: "What's the pricing model?", answer: "We offer flexible pricing based on your specific needs. Request a custom quote to get transparent pricing tailored to your business - no hidden fees, no surprises." },
   { question: "Which tools do you integrate?", answer: "CRMs (Salesforce, HubSpot), booking systems (Calendly, Cal.com), payment gateways (Stripe), email, Slack/Teams, WhatsApp, and more. We handle all connectors." },
   { question: "How quickly can you deploy?", answer: "Basic agents deploy in 7-14 days. Complex enterprise deployments with custom integrations typically take 4-6 weeks." },
   { question: "Can we try before committing?", answer: "Yes. Our 2-week pilot program lets you test with real workflows and measurable KPIs before committing to a long-term engagement." }

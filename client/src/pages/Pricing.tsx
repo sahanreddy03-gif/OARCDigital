@@ -356,7 +356,7 @@ export default function Pricing() {
                         </div>
                       )}
                       <div className={`flex items-center justify-center gap-1 ${isPremium ? 'text-white' : 'text-slate-900'}`}>
-                        <span className="text-sm font-bold">€</span>
+                        {plan.price !== 'Custom' && <span className="text-sm font-bold">€</span>}
                         <span className="text-5xl font-black tracking-tighter">{plan.price}</span>
                       </div>
                       <div className={`text-[10px] font-bold uppercase tracking-wider mt-2 ${isPremium ? 'text-slate-500' : 'text-slate-400'}`}>{plan.period}</div>
