@@ -16,7 +16,6 @@ import {
   PersonalizationSteps,
   AITeamMember
 } from '@/components/ai';
-import { PricingSection } from '@/components/ai/PricingSection';
 import { 
   ArrowRight, Check,
   Zap, Shield, TrendingUp, MessageSquare, Play, Pause, RotateCcw,
@@ -563,8 +562,57 @@ export default function AIAgentsLanding() {
           </div>
         </section>
 
-        {/* Pricing Section */}
-        <PricingSection />
+        {/* Custom Pricing CTA - Pricing hidden, revealed via form */}
+        <section className="relative z-10 py-20 sm:py-28 px-4 sm:px-6 bg-zinc-900/50 border-y border-white/5">
+          <div className="max-w-4xl mx-auto text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="space-y-6"
+            >
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#c4ff4d]/10 border border-[#c4ff4d]/20 text-[#c4ff4d] text-sm font-medium">
+                <span className="w-2 h-2 rounded-full bg-[#c4ff4d] animate-pulse" />
+                Limited Pilot Slots Available
+              </div>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">
+                Get Your Custom AI Workforce Quote
+              </h2>
+              <p className="text-white/60 text-lg max-w-2xl mx-auto">
+                Every business is unique. Tell us about your needs and we'll create a tailored proposal with transparent pricing - no hidden fees, no surprises.
+              </p>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+                <Link href="/contact">
+                  <motion.button
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="px-8 py-4 bg-[#c4ff4d] text-black font-bold rounded-full text-lg shadow-lg shadow-[#c4ff4d]/20 hover:shadow-xl hover:shadow-[#c4ff4d]/30 transition-all"
+                    data-testid="button-get-custom-pricing"
+                  >
+                    Get Custom Pricing
+                  </motion.button>
+                </Link>
+                <a
+                  href="https://wa.me/35679711799?text=Hi%20OARC,%20I'd%20like%20to%20discuss%20AI%20workforce%20pricing"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <motion.button
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="px-8 py-4 bg-transparent border-2 border-white/20 text-white font-bold rounded-full text-lg hover:border-white/40 transition-all"
+                    data-testid="button-whatsapp-pricing"
+                  >
+                    WhatsApp Us
+                  </motion.button>
+                </a>
+              </div>
+              <p className="text-white/40 text-sm pt-2">
+                Typically respond within 2 hours during business hours
+              </p>
+            </motion.div>
+          </div>
+        </section>
 
         {/* FAQ Section */}
         <section className="relative z-10 py-16 sm:py-24 px-4 sm:px-6 bg-zinc-950 border-t border-white/5">
