@@ -995,7 +995,7 @@ function WhatsAppCTASection() {
             </h3>
           </div>
           <a 
-            href="https://wa.me/35679711799?text=Hi%20OARC,%20I'm%20interested%20in%20your%20creative%20services" 
+            href="https://wa.me/35699263179?text=Hi%20OARC%20Digital%2C%20I%27m%20interested%20in%20your%20creative%20services" 
             target="_blank" 
             rel="noopener noreferrer"
             className="inline-flex items-center gap-3 bg-zinc-900 text-white px-8 py-4 rounded-full font-bold hover:bg-zinc-800 transition-colors shadow-xl"

@@ -277,7 +277,7 @@ export default function AIAgentsLanding() {
                 </p>
                 
                 <a
-                  href="https://wa.me/35679711799?text=Hi%20OARC,%20I'm%20interested%20in%20your%20AI%20agents"
+                  href="https://wa.me/35699263179?text=Hi%20OARC%20Digital%2C%20I%27m%20interested%20in%20your%20AI%20agents"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -652,7 +652,7 @@ export default function AIAgentsLanding() {
               
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <a
-                  href="https://wa.me/35679711799?text=Hi%20OARC,%20I'm%20interested%20in%20starting%20a%2014-day%20AI%20pilot"
+                  href="https://wa.me/35699263179?text=Hi%20OARC%20Digital%2C%20I%27m%20interested%20in%20starting%20a%2014-day%20AI%20pilot"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full sm:w-auto"
@@ -668,7 +668,7 @@ export default function AIAgentsLanding() {
                 </a>
                 
                 <a 
-                  href="https://wa.me/35679711799?text=Hi%20OARC,%20I'm%20interested%20in%20your%20AI%20agents" 
+                  href="https://wa.me/35699263179?text=Hi%20OARC%20Digital%2C%20I%27m%20interested%20in%20your%20AI%20agents" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="w-full sm:w-auto"
