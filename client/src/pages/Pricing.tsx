@@ -48,47 +48,124 @@ const pricingData = {
   social: [
     {
       name: "STARTER",
-      price: "299",
+      price: "910",
       period: "/month",
-      desc: "Essentials for early-stage branding.",
-      sub: "€10/day equivalent",
-      features: ["16 High-Fidelity Posts", "1 Platform", "Custom Design System", "Monthly Analytics"],
+      desc: "Perfect for businesses ready to build a consistent social presence.",
+      sub: "Save €1,000+ vs agencies",
+      originalPrice: "1,500",
+      bonuses: ["Brand Style Guide (€300 value)", "Content Calendar Template", "30-Day Strategy Session"],
+      features: ["12 High-Fidelity Posts/mo", "1 Platform", "Custom Design System", "Monthly Performance Report", "48-Hour Turnaround"],
       icon: Sparkles,
       style: "basic",
-      cta: "Start Basic"
+      cta: "Start Growing"
     },
     {
       name: "GROWTH",
-      price: "549",
+      price: "2,250",
       period: "/month",
-      desc: "Accelerated output for scaling teams.",
-      sub: "Best Value",
-      features: ["24 High-Fidelity Posts", "2 Platforms", "4 Short-Form Videos", "Community Management"],
+      desc: "Scale your presence across platforms with video content.",
+      sub: "Most Popular • Save €1,700",
+      originalPrice: "3,950",
+      bonuses: ["Competitor Analysis (€500 value)", "4 Reels/Videos Included", "Engagement Strategy", "Priority Support"],
+      features: ["24 High-Fidelity Posts/mo", "3 Platforms", "8 Short-Form Videos", "Community Management", "Influencer Outreach"],
       icon: Zap,
       style: "popular",
       cta: "Accelerate Growth"
     },
     {
       name: "SCALE",
-      price: "895",
+      price: "4,000",
       period: "/month",
-      desc: "Maximum dominance & daily volume.",
-      sub: "Enterprise Grade",
-      features: ["Daily Posting (32/mo)", "All Platforms", "2 Cinematic Videos", "Influencer Outreach"],
+      desc: "Full creative department at a fraction of the cost.",
+      sub: "Enterprise • Save €4,300",
+      originalPrice: "8,300",
+      bonuses: ["Dedicated Creative Lead", "Quarterly Brand Refresh", "UGC Creator Network Access", "White-Label Reports"],
+      features: ["Daily Posting (32/mo)", "All Platforms", "12 Cinematic Videos", "Paid Ad Creative", "Influencer Campaigns"],
       icon: Crown,
       style: "premium",
       cta: "Dominate Market"
     }
   ],
   web: [
-    { name: "ESSENTIALS", price: "995", period: "one-time", desc: "Professional landing page system.", sub: "+€49/mo hosting", features: ["5 Pages", "Contact Form", "Basic SEO"], icon: Sparkles, style: "basic", cta: "Build Site" },
-    { name: "GROWTH", price: "1,995", period: "one-time", desc: "Conversion-focused growth engine.", sub: "Best Value", features: ["10 Pages", "CMS Setup", "Booking System"], icon: Zap, style: "popular", cta: "Build Platform" },
-    { name: "E-COMMERCE", price: "3,995", period: "one-time", desc: "Full-scale digital retail storefront.", sub: "Enterprise Grade", features: ["50 Products", "Payments", "Inventory Logic"], icon: Crown, style: "premium", cta: "Launch Store" }
+    { 
+      name: "STARTER", 
+      price: "1,800", 
+      period: "one-time", 
+      desc: "Professional landing page that converts visitors.", 
+      sub: "Includes 3 months hosting",
+      originalPrice: "2,500",
+      bonuses: ["SEO Optimization (€300 value)", "Mobile Responsive", "Contact Form Setup"],
+      features: ["5 Pages", "Custom Design", "Basic SEO", "Contact Form", "Speed Optimized"], 
+      icon: Sparkles, 
+      style: "basic", 
+      cta: "Build Site" 
+    },
+    { 
+      name: "GROWTH", 
+      price: "4,600", 
+      period: "one-time", 
+      desc: "Conversion-focused website with CMS and booking.", 
+      sub: "Best Value • Save €1,400",
+      originalPrice: "6,000",
+      bonuses: ["CMS Training (€400 value)", "Booking Integration", "Analytics Setup", "3 Revisions"],
+      features: ["10 Pages", "CMS Setup", "Advanced SEO", "Booking System", "Blog Setup"], 
+      icon: Zap, 
+      style: "popular", 
+      cta: "Build Platform" 
+    },
+    { 
+      name: "E-COMMERCE", 
+      price: "9,000", 
+      period: "one-time", 
+      desc: "Full-scale online store ready for sales.", 
+      sub: "Enterprise • Save €3,000",
+      originalPrice: "12,000",
+      bonuses: ["Payment Gateway Setup", "Inventory System", "Email Automation", "Launch Support"],
+      features: ["50+ Products", "Payment Processing", "Inventory Logic", "Customer Portal", "Abandoned Cart"], 
+      icon: Crown, 
+      style: "premium", 
+      cta: "Launch Store" 
+    }
   ],
   ai: [
-    { name: "ASSISTANT", price: "1,495", period: "setup", desc: "24/7 Customer support agent.", sub: "+€149/mo maintain", features: ["Chatbot", "Lead Capture", "100 FAQs"], icon: Sparkles, style: "basic", cta: "Deploy AI" },
-    { name: "WORKFLOW", price: "2,995", period: "setup", desc: "Automate core business ops.", sub: "Best Value", features: ["3 Workflows", "CRM Sync", "Email Bots"], icon: Zap, style: "popular", cta: "Automate" },
-    { name: "CUSTOM", price: "Custom", period: "", desc: "Tailored enterprise solutions.", sub: "Scope Dependent", features: ["Full Department", "Custom LLMs", "API Dev"], icon: Crown, style: "premium", cta: "Book Call" }
+    { 
+      name: "PILOT", 
+      price: "1,500", 
+      period: "one-time", 
+      desc: "14-day pilot to prove ROI before you commit.", 
+      sub: "Risk-Free Trial",
+      originalPrice: "2,500",
+      bonuses: ["Full Implementation", "Training Session", "Performance Report", "No Monthly Lock-in"],
+      features: ["1 AI Agent", "Lead Capture Bot", "24/7 Availability", "CRM Integration", "Custom Training"], 
+      icon: Sparkles, 
+      style: "basic", 
+      cta: "Start Pilot" 
+    },
+    { 
+      name: "GROWTH", 
+      price: "2,997", 
+      period: "/month", 
+      desc: "Full AI workforce handling sales, support & operations.", 
+      sub: "Most Popular • Replace 3-5 Staff",
+      originalPrice: "4,500",
+      bonuses: ["Dedicated Success Manager", "Weekly Optimization", "Multi-Language Support", "Priority Response"],
+      features: ["3 AI Agents", "Sales + Support + Ops", "Unlimited Conversations", "Advanced Analytics", "API Access"], 
+      icon: Zap, 
+      style: "popular", 
+      cta: "Deploy AI Team" 
+    },
+    { 
+      name: "ENTERPRISE", 
+      price: "Custom", 
+      period: "", 
+      desc: "Tailored AI solutions for complex operations.", 
+      sub: "Full Department Replacement",
+      bonuses: ["Custom LLM Training", "Dedicated Dev Team", "SLA Guarantee", "On-Premise Option"],
+      features: ["Unlimited Agents", "Custom Integrations", "White-Label", "Compliance Ready", "24/7 Support"], 
+      icon: Crown, 
+      style: "premium", 
+      cta: "Book Strategy Call" 
+    }
   ]
 };
 
@@ -272,17 +349,42 @@ export default function Pricing() {
                     </div>
 
                     {/* Price Block */}
-                    <div className={`mb-8 p-6 rounded-2xl text-center ${isPremium ? 'bg-white/5 border border-white/10' : 'bg-slate-50 border border-slate-100'}`}>
+                    <div className={`mb-6 p-6 rounded-2xl text-center ${isPremium ? 'bg-white/5 border border-white/10' : 'bg-slate-50 border border-slate-100'}`}>
+                      {plan.originalPrice && (
+                        <div className={`text-sm line-through mb-1 ${isPremium ? 'text-slate-500' : 'text-slate-400'}`}>
+                          Was €{plan.originalPrice}
+                        </div>
+                      )}
                       <div className={`flex items-center justify-center gap-1 ${isPremium ? 'text-white' : 'text-slate-900'}`}>
-                        <span className="text-sm font-bold">€</span>
+                        {plan.price !== 'Custom' && <span className="text-sm font-bold">€</span>}
                         <span className="text-5xl font-black tracking-tighter">{plan.price}</span>
                       </div>
                       <div className={`text-[10px] font-bold uppercase tracking-wider mt-2 ${isPremium ? 'text-slate-500' : 'text-slate-400'}`}>{plan.period}</div>
                       {plan.sub && <div className={`text-xs mt-2 font-bold ${isPremium ? 'text-lime-400' : activeTheme.accent}`}>{plan.sub}</div>}
                     </div>
 
+                    {/* Bonuses */}
+                    {plan.bonuses && plan.bonuses.length > 0 && (
+                      <div className={`mb-6 p-4 rounded-xl ${isPremium ? 'bg-lime-400/10 border border-lime-400/20' : 'bg-lime-50 border border-lime-200'}`}>
+                        <div className={`text-xs font-bold uppercase tracking-wider mb-3 ${isPremium ? 'text-lime-400' : 'text-lime-700'}`}>
+                          Included Bonuses
+                        </div>
+                        <div className="space-y-2">
+                          {plan.bonuses.map((bonus: string) => (
+                            <div key={bonus} className="flex items-center gap-2 text-xs font-medium">
+                              <Check className={`w-3 h-3 flex-shrink-0 ${isPremium ? 'text-lime-400' : 'text-lime-600'}`} />
+                              <span className={isPremium ? 'text-lime-200' : 'text-lime-800'}>{bonus}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
                     {/* Features */}
-                    <div className="flex-grow space-y-4 mb-10">
+                    <div className="flex-grow space-y-3 mb-10">
+                      <div className={`text-xs font-bold uppercase tracking-wider mb-3 ${isPremium ? 'text-slate-500' : 'text-slate-400'}`}>
+                        What's Included
+                      </div>
                       {plan.features.map((feat: string) => (
                         <div key={feat} className="flex items-center gap-3 text-sm font-medium">
                           <div className={`w-1.5 h-1.5 rounded-full ${isPremium ? 'bg-lime-400' : 'bg-slate-300 group-hover:bg-slate-900'}`} />
