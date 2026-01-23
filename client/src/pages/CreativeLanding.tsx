@@ -1947,50 +1947,8 @@ export default function CreativeLanding() {
           </div>
         </AnimatedSection>
 
-        {/* ========== GET CUSTOM PRICING CTA ========== */}
-        <AnimatedSection className="py-20 md:py-28 bg-gradient-to-br from-zinc-900 via-zinc-800 to-zinc-900">
-          <div className="container mx-auto px-6">
-            <div className="max-w-4xl mx-auto text-center space-y-6">
-              <Badge className="bg-orange-500/10 text-orange-400 border-orange-500/20">
-                Limited Capacity
-              </Badge>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white">
-                Get Your Custom Creative Package
-              </h2>
-              <p className="text-white/60 text-lg max-w-2xl mx-auto">
-                Every brand is unique. Tell us about your goals and we'll build a tailored creative package with transparent pricing - everything included, no surprises.
-              </p>
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-6">
-                <Link href="/contact">
-                  <Button 
-                    size="lg" 
-                    className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-6 text-lg rounded-full"
-                    data-testid="button-get-custom-creative-pricing"
-                  >
-                    Get Custom Pricing <ArrowRight className="w-5 h-5 ml-2" />
-                  </Button>
-                </Link>
-                <a
-                  href="https://wa.me/35679711799?text=Hi%20OARC,%20I'd%20like%20to%20discuss%20creative%20services%20pricing"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Button 
-                    size="lg" 
-                    variant="outline" 
-                    className="border-white/20 text-white hover:bg-white/5 px-8 py-6 text-lg rounded-full"
-                    data-testid="button-whatsapp-creative-pricing"
-                  >
-                    <SiWhatsapp className="w-5 h-5 mr-2" /> WhatsApp Us
-                  </Button>
-                </a>
-              </div>
-              <p className="text-white/40 text-sm">
-                Typically respond within 2 hours during business hours
-              </p>
-            </div>
-          </div>
-        </AnimatedSection>
+        {/* ========== PRICING UNLOCK - SUPERSIDE STYLE ========== */}
+        <PricingSection />
 
         {/* ========== WHATSAPP CTA - VAYNER STYLE ========== */}
         <WhatsAppCTASection />
