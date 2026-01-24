@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import { X, ArrowLeft, Send, Phone, Flame, TrendingDown, Users, MousePointerClick, Swords } from 'lucide-react';
+import { X, ArrowLeft, Send, Phone, Flame, TrendingDown, Users, MousePointerClick, Swords, ExternalLink } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { ARCMessage } from './ARCMessage';
 import { ARCTypingIndicator } from './ARCTypingIndicator';
@@ -9,6 +9,7 @@ interface Message {
   id: string;
   content: string;
   isUser: boolean;
+  showPricingCTA?: boolean;
 }
 
 interface ARCChatProps {
@@ -109,15 +110,16 @@ export function ARCChat({ onClose, isMobile }: ARCChatProps) {
     setShowPrompts(false);
     setIsTyping(true);
 
-    const instantResponse = checkInstantResponse(messageText);
+    const instantResult = checkInstantResponse(messageText);
     
-    if (instantResponse) {
+    if (instantResult) {
       setTimeout(() => {
         setIsTyping(false);
         setMessages(prev => [...prev, {
           id: (Date.now() + 1).toString(),
-          content: instantResponse,
-          isUser: false
+          content: instantResult.response,
+          isUser: false,
+          showPricingCTA: instantResult.showPricingCTA
         }]);
       }, 500);
       return;
@@ -239,11 +241,31 @@ export function ARCChat({ onClose, isMobile }: ARCChatProps) {
         style={{ backgroundColor: '#0a0a0f' }}
       >
         {messages.map(message => (
-          <ARCMessage 
-            key={message.id} 
-            content={message.content} 
-            isUser={message.isUser} 
-          />
+          <div key={message.id}>
+            <ARCMessage 
+              content={message.content} 
+              isUser={message.isUser} 
+            />
+            {message.showPricingCTA && (
+              <div className="mt-3 mb-4">
+                <a
+                  href="/pricing"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-4 py-2.5 text-sm font-medium rounded-lg transition-all"
+                  style={{
+                    background: 'linear-gradient(135deg, #22c55e, #16a34a)',
+                    color: 'white',
+                    boxShadow: '0 4px 14px rgba(34, 197, 94, 0.3)'
+                  }}
+                  data-testid="button-pricing-cta"
+                >
+                  <ExternalLink size={16} />
+                  Get Custom Pricing
+                </a>
+              </div>
+            )}
+          </div>
         ))}
         
         {isTyping && <ARCTypingIndicator />}

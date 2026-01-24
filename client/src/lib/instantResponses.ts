@@ -1,6 +1,12 @@
 interface InstantResponseItem {
   triggers: string[];
   response: string;
+  showPricingCTA?: boolean;
+}
+
+export interface InstantResponseResult {
+  response: string;
+  showPricingCTA: boolean;
 }
 
 const responses: InstantResponseItem[] = [
@@ -9,24 +15,24 @@ const responses: InstantResponseItem[] = [
     response: `Hey! I'm ARC 👋
 
 I can:
-• 🔥 Roast your website (for free)
-• 📅 Create a content calendar
-• 🧮 Calculate your ROI
-• 💬 Answer questions about OARC
+• Roast your website (for free)
+• Answer questions about OARC
+• Help you find the right package
 
 What sounds useful?`
   },
   {
     triggers: ['price', 'cost', 'pricing', 'how much', 'rates', 'budget', 'expensive', 'afford'],
-    response: `Straight answer on pricing:
+    response: `We customize packages based on your needs. Here's the structure:
 
-📱 **Social Media & Marketing**: €2,500-5,000/month
-🤖 **AI Automation**: €3,000-8,000 setup + monthly
-💻 **Custom Development**: €5,000-25,000+
+- **3 tiers** — Starter, Growth, Scale
+- **Each includes** — Core deliverables + video production + bonuses
+- **Bonuses** — Strategy sessions, competitor analysis, priority support
 
-But real talk — the better question is: what's the problem costing you?
+Exact pricing depends on your goals. Fill out the quick form (30 seconds) to see packages tailored to you.
 
-What are you trying to solve?`
+What problem are you trying to solve?`,
+    showPricingCTA: true
   },
   {
     triggers: ['services', 'what do you do', 'what do you offer', 'help with'],
@@ -75,7 +81,7 @@ No sugarcoating. Ready?`
   }
 ];
 
-export function checkInstantResponse(message: string): string | null {
+export function checkInstantResponse(message: string): InstantResponseResult | null {
   const lower = message.toLowerCase().trim();
   
   if (message.length > 100) return null;
@@ -84,7 +90,10 @@ export function checkInstantResponse(message: string): string | null {
     for (const trigger of item.triggers) {
       const wordBoundaryRegex = new RegExp(`\\b${trigger.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'i');
       if (wordBoundaryRegex.test(lower)) {
-        return item.response;
+        return {
+          response: item.response,
+          showPricingCTA: item.showPricingCTA || false
+        };
       }
     }
   }
