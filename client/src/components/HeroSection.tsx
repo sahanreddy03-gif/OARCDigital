@@ -8,16 +8,26 @@ import heroBackground from '@assets/d375f1d50d97b0de7953ca2cecd2b8aea2cd96b2-352
 const HERO_PLACEHOLDER = 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAANACgDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAECAwQF/8QAGhAAAwEBAQEAAAAAAAAAAAAAAAERAgMSIv/EABYBAQEBAAAAAAAAAAAAAAAAAAIAAf/EABcRAQEBAQAAAAAAAAAAAAAAAAARAQL/2gAMAwEAAhEDEQA/AOUODgIwlnPNZsz85MnNwu9uB2nnUQ7ugLToEq//2Q==';
 
 function useImagePreload(src: string) {
-  const [loaded, setLoaded] = useState(false);
-  useEffect(() => {
+  // Check if image is already cached IMMEDIATELY (synchronously)
+  const checkCached = () => {
     const img = new Image();
     img.src = src;
-    if (img.complete) {
+    return img.complete && img.naturalWidth > 0;
+  };
+  
+  const [loaded, setLoaded] = useState(() => checkCached());
+  
+  useEffect(() => {
+    if (loaded) return; // Already loaded, skip
+    const img = new Image();
+    img.src = src;
+    if (img.complete && img.naturalWidth > 0) {
       setLoaded(true);
     } else {
       img.onload = () => setLoaded(true);
     }
-  }, [src]);
+  }, [src, loaded]);
+  
   return loaded;
 }
 
@@ -245,20 +255,18 @@ export default function HeroSection() {
         <div className="hidden md:block absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/50" />
         <div className="hidden md:block absolute inset-0 bg-gradient-to-l from-transparent via-black/10 to-black/60" />
         
-        {/* Desktop animations only appear after image loads */}
-        {imageLoaded && (
-          <>
-            {/* Christmas Snowfall Effect */}
-            <SnowfallEffect />
-            {/* Light Sweep Effect */}
-            <div className="hidden md:block absolute inset-0 overflow-hidden pointer-events-none">
-              <div 
-                className="absolute w-1/3 h-[200%] -top-1/2 bg-gradient-to-r from-transparent via-white/5 to-transparent animate-[lightSweep_15s_ease-in-out_infinite]" 
-                style={{ animationDelay: '2s' }} 
-              />
-            </div>
-          </>
-        )}
+        {/* Desktop animations - always show immediately */}
+        <>
+          {/* Christmas Snowfall Effect */}
+          <SnowfallEffect />
+          {/* Light Sweep Effect */}
+          <div className="hidden md:block absolute inset-0 overflow-hidden pointer-events-none">
+            <div 
+              className="absolute w-1/3 h-[200%] -top-1/2 bg-gradient-to-r from-transparent via-white/5 to-transparent animate-[lightSweep_15s_ease-in-out_infinite]" 
+              style={{ animationDelay: '2s' }} 
+            />
+          </div>
+        </>
         
         {/* ========== CONTENT ========== */}
         <div className="relative flex-1 flex flex-col justify-end pt-14 md:pt-16 lg:pt-20 pb-6 -mt-8 md:mt-0">
@@ -272,7 +280,7 @@ export default function HeroSection() {
                   {/* Headline - Viewport-based on mobile for all screen sizes, bigger on desktop */}
                   {/* lg: breakpoint uses slightly smaller max to keep "Revenue" on same line as "Drives" */}
                   <h1 
-                    className="mb-3 md:mb-6 lg:mb-8 text-white animate-[fadeSlideUp_0.8s_ease-out]" 
+                    className="mb-3 md:mb-6 lg:mb-8 text-white" 
                     data-testid="text-hero-headline"
                   >
                     {/* Mobile: 8.5vw scales from ~27px on iPhone SE to ~36px on iPhone 16 Pro Max */}
