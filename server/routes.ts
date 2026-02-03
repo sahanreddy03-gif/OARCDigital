@@ -18,7 +18,8 @@ import {
   getPhaseGuidance,
   BUTTON_OPENERS,
   detectObjection,
-  OBJECTION_CONTEXTS
+  OBJECTION_CONTEXTS,
+  FORMAT_REMINDER
 } from "../client/src/lib/arcSystemPrompt";
 
 function getGrokClient(): OpenAI | null {
@@ -67,15 +68,16 @@ export async function registerRoutes(app: Express): Promise<Server> {
         objectionContext = `\n\n${OBJECTION_CONTEXTS[detectedObjection]}`;
       }
 
-      // Build the complete system prompt with all context
-      const fullSystemPrompt = `${ARC_SYSTEM_PROMPT}\n\n${phaseGuidance}${buttonContext}${objectionContext}`;
+      // Build the complete system prompt with all context + FORMAT_REMINDER at the end
+      const fullSystemPrompt = `${ARC_SYSTEM_PROMPT}\n\n${phaseGuidance}${buttonContext}${objectionContext}${FORMAT_REMINDER}`;
 
       const completion = await grok.chat.completions.create({
         model: 'grok-4-1-fast-non-reasoning',
         messages: [
           { role: 'system', content: fullSystemPrompt },
           ...(history || []).slice(-10),
-          { role: 'user', content: message }
+          { role: 'user', content: message },
+          { role: 'system', content: 'CRITICAL: Your response MUST use bullet points. No paragraphs. Format: 1 short intro sentence → bullet points → 1 short closing sentence or question.' }
         ],
         max_tokens: 500,
         temperature: 0.7,
