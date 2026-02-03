@@ -670,3 +670,22 @@ export function detectObjection(message: string): string | null {
 
   return null;
 }
+
+// ============================================
+// FINAL FORMATTING REMINDER (always appended)
+// ============================================
+
+export const FORMAT_REMINDER = `
+
+---
+
+**REMINDER: FORMAT YOUR RESPONSE NOW**
+
+Before you send this response, check:
+✅ Did you use bullet points (• or -)?
+✅ Is each bullet under 15 words?
+✅ Did you avoid paragraphs?
+✅ Max 1 sentence intro, then bullets, then max 1 sentence closing?
+
+If NO to any of these — REWRITE your response with bullets.
+`;
