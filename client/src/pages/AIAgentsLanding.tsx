@@ -183,10 +183,10 @@ export default function AIAgentsLanding() {
   return (
     <>
       <Helmet>
-        <title>AI Agents & AI Employees Malta | Sales, Support & Booking Automation | OARC Digital</title>
+        <title>AI Agents & Intelligent Automation — Malta's First | OARC Digital</title>
         <meta name="description" content="Deploy AI agents for sales, customer support, bookings & operations in Malta. AI employees that work 24/7 — qualify leads, answer queries, book appointments, and manage workflows. Pilot in 7-14 days. Malta's first AI workforce agency." />
         <link rel="canonical" href="https://oarcdigital.com/ai-agents" />
-        <meta property="og:title" content="AI Agents & AI Employees Malta | 24/7 AI Workforce | OARC Digital" />
+        <meta property="og:title" content="AI Agents & Intelligent Automation — Malta's First | OARC Digital" />
         <meta property="og:description" content="Deploy AI agents for sales, support, bookings & operations. AI employees that work 24/7. Pilot in 7-14 days. Malta's first AI workforce agency." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://oarcdigital.com/ai-agents" />

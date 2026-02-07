@@ -1146,12 +1146,12 @@ export default function CreativeLanding() {
   return (
     <>
       <Helmet>
-        <title>Creative & Brand Agency Malta | Social Media, Branding, Web Design & Video | OARC Digital</title>
+        <title>Creative & Brand Strategy — Malta's First | OARC Digital</title>
         <meta name="description" content="Malta's top creative agency for social media management, brand strategy, web design, video production & paid advertising. AI-enhanced creative that converts. Trusted by 500+ Malta businesses. From content calendars to full brand identity — we handle everything. Get your free creative audit today." />
         <link rel="canonical" href="https://oarcdigital.com/creative" />
         
         {/* Open Graph */}
-        <meta property="og:title" content="Creative & Brand Agency Malta | Social Media, Branding, Web Design & Video | OARC Digital" />
+        <meta property="og:title" content="Creative & Brand Strategy — Malta's First | OARC Digital" />
         <meta property="og:description" content="Malta's top creative agency. Social media management, brand strategy, web design, video production & paid advertising — all enhanced with AI. Free creative audit available." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://oarcdigital.com/creative" />
