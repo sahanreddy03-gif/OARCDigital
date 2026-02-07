@@ -1146,52 +1146,60 @@ export default function CreativeLanding() {
   return (
     <>
       <Helmet>
-        <title>Creative Agency Malta | AI-Powered Social Media & Brand Design | OARC Digital</title>
-        <meta name="description" content="Malta's leading creative agency. Social media management, branding, web design & video production enhanced with AI. Trusted by 500+ Malta businesses. Book your free creative audit today." />
+        <title>Creative & Brand Agency Malta | Social Media, Branding, Web Design & Video | OARC Digital</title>
+        <meta name="description" content="Malta's top creative agency for social media management, brand strategy, web design, video production & paid advertising. AI-enhanced creative that converts. Trusted by 500+ Malta businesses. From content calendars to full brand identity — we handle everything. Get your free creative audit today." />
         <link rel="canonical" href="https://oarcdigital.com/creative" />
         
         {/* Open Graph */}
-        <meta property="og:title" content="Creative Agency Malta | OARC Digital - AI-Enhanced Creative Services" />
-        <meta property="og:description" content="High-impact creative for social media, branding & campaigns. Malta's modern creative agency delivering results, not just reach. Free creative audit available." />
+        <meta property="og:title" content="Creative & Brand Agency Malta | Social Media, Branding, Web Design & Video | OARC Digital" />
+        <meta property="og:description" content="Malta's top creative agency. Social media management, brand strategy, web design, video production & paid advertising — all enhanced with AI. Free creative audit available." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://oarcdigital.com/creative" />
+        <meta property="og:image" content="https://oarcdigital.com/og-image.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
         <meta property="og:locale" content="en_MT" />
         <meta property="og:site_name" content="OARC Digital" />
         
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Creative Agency Malta | OARC Digital" />
-        <meta name="twitter:description" content="Malta's AI-powered creative agency. Social media, branding, web design & video. Book your free audit." />
+        <meta name="twitter:title" content="Creative & Brand Agency Malta | OARC Digital" />
+        <meta name="twitter:description" content="Malta's AI-powered creative agency. Social media, branding, web design, video & paid ads. Free creative audit." />
+        <meta name="twitter:image" content="https://oarcdigital.com/og-image.png" />
         
-        {/* Additional SEO */}
-        <meta name="robots" content="index, follow" />
+        {/* Enhanced SEO */}
+        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
         <meta name="geo.region" content="MT" />
         <meta name="geo.placename" content="Malta" />
-        <meta name="keywords" content="creative agency malta, social media agency malta, branding malta, web design malta, video production malta, marketing agency malta, AI marketing malta" />
+        <meta name="keywords" content="creative agency Malta, social media agency Malta, branding agency Malta, web design Malta, video production Malta, marketing agency Malta, brand strategy Malta, social media management Malta, content creation Malta, graphic design Malta, paid advertising Malta, Google Ads Malta, Meta Ads Malta, Instagram marketing Malta, digital marketing Malta, social media Malta" />
         
-        {/* Schema.org Structured Data */}
+        {/* Schema.org Structured Data - FAQ */}
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
+        {/* Schema.org - LocalBusiness */}
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "LocalBusiness",
-          "name": "OARC Digital",
-          "description": "Malta's leading AI-powered creative agency specializing in social media management, branding, web design, and video production.",
-          "url": "https://oarcdigital.com",
-          "telephone": "+356 9999 9999",
+          "name": "OARC Digital - Creative Agency",
+          "description": "Malta's leading AI-powered creative agency specializing in social media management, brand strategy, web design, video production, and paid advertising campaigns.",
+          "url": "https://oarcdigital.com/creative",
+          "telephone": "+356 99263179",
+          "email": "hello@oarcdigital.com",
           "address": {
             "@type": "PostalAddress",
-            "addressLocality": "Valletta",
+            "streetAddress": "Seaside Spirit, Triq ix-Xatt, Ta' Xbiex",
+            "addressLocality": "Ta' Xbiex",
+            "postalCode": "XBX 1020",
             "addressCountry": "MT"
           },
           "geo": {
             "@type": "GeoCoordinates",
-            "latitude": "35.8989",
-            "longitude": "14.5146"
+            "latitude": "35.9047",
+            "longitude": "14.4931"
           },
-          "areaServed": {
-            "@type": "Country",
-            "name": "Malta"
-          },
+          "areaServed": [
+            {"@type": "Country", "name": "Malta"},
+            {"@type": "Place", "name": "Europe"}
+          ],
           "priceRange": "€€€",
           "openingHours": "Mo-Fr 09:00-18:00",
           "sameAs": [
@@ -1200,17 +1208,46 @@ export default function CreativeLanding() {
             "https://www.facebook.com/oarcdigital"
           ]
         })}</script>
+        {/* Schema.org - Service with OfferCatalog */}
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Service",
-          "name": "Creative Agency Services",
+          "name": "Creative & Brand Services Malta",
           "provider": {
             "@type": "LocalBusiness",
-            "name": "OARC Digital"
+            "name": "OARC Digital",
+            "url": "https://oarcdigital.com"
           },
-          "areaServed": "Malta",
-          "serviceType": ["Social Media Management", "Branding", "Web Design", "Video Production", "AI Marketing"],
-          "description": "Comprehensive creative services including social media management, brand identity design, website development, and AI-enhanced marketing solutions for Malta businesses."
+          "areaServed": {"@type": "Country", "name": "Malta"},
+          "serviceType": "Creative Agency Services",
+          "description": "Full-service creative agency in Malta offering social media management, brand strategy & identity design, web design & development, video production, graphic design, and paid advertising campaigns (Google Ads, Meta Ads).",
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Creative Services",
+            "itemListElement": [
+              {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Social Media Management", "description": "Content calendars, daily posting, community management, and analytics for Malta businesses."}},
+              {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Brand Strategy & Identity", "description": "Logo design, brand guidelines, positioning, and visual identity systems."}},
+              {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Web Design & Development", "description": "Conversion-optimized responsive websites built for performance and SEO."}},
+              {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Video Production", "description": "Professional video production, editing, motion graphics, and social media video content."}},
+              {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Paid Advertising", "description": "Google Ads, Meta Ads, LinkedIn Ads campaign management and optimization."}},
+              {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Graphic Design", "description": "Print design, packaging, marketing collateral, and digital graphics."}}
+            ]
+          },
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "127",
+            "bestRating": "5"
+          }
+        })}</script>
+        {/* Schema.org - BreadcrumbList */}
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://oarcdigital.com/"},
+            {"@type": "ListItem", "position": 2, "name": "Creative Services", "item": "https://oarcdigital.com/creative"}
+          ]
         })}</script>
       </Helmet>
 

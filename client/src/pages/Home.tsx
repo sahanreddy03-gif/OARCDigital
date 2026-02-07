@@ -75,9 +75,9 @@ export default function Home() {
   return (
     <Layout>
       <SEOHead
-        title="OARC Digital | AI-Powered Creative & Marketing Agency in Malta"
-        description="Premium AI-powered creative services, AI employees, and revenue automation solutions. Elite marketing agency in Malta delivering world-class digital experiences across Europe, Middle East, and Asia."
-        canonicalUrl="https://oarcdigital.com"
+        title="OARC Digital | Brand Strategy, AI Solutions & Growth Automation — Malta"
+        description="OARC Digital helps Maltese businesses grow revenue through brand strategy, AI-driven automation, performance marketing, and scalable growth systems. Malta's first AI-native creative, automation & intelligent agents agency."
+        canonicalUrl="https://oarcdigital.com/"
         structuredData={homepageSchema}
       />
       <div className="overflow-x-hidden">

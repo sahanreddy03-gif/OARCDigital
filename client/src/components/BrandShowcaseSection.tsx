@@ -38,6 +38,7 @@ export default function BrandShowcaseSection() {
                     src={heroStudy.thumbnailImage}
                     alt={heroStudy.brand}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                    loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"></div>
                 </div>
@@ -76,6 +77,7 @@ export default function BrandShowcaseSection() {
                       src={study.thumbnailImage}
                       alt={study.brand}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+                      loading="lazy"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent"></div>
                   </div>
@@ -112,6 +114,7 @@ export default function BrandShowcaseSection() {
                       src={study.thumbnailImage}
                       alt={study.brand}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.05]"
+                      loading="lazy"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
                   </div>

@@ -14,12 +14,12 @@ export default function SEOHead({
   title,
   description,
   canonicalUrl,
-  ogImage = 'https://www.oarcdigital.com/og-image.png',
+  ogImage = 'https://oarcdigital.com/og-image.png',
   ogType = 'website',
   structuredData,
   schemaId = 'primary'
 }: SEOHeadProps) {
-  const siteUrl = 'https://www.oarcdigital.com';
+  const siteUrl = 'https://oarcdigital.com';
   const fullCanonical = canonicalUrl
     ? (canonicalUrl.startsWith('http') ? canonicalUrl : `${siteUrl}${canonicalUrl}`)
     : window.location.href;
@@ -38,13 +38,22 @@ export default function SEOHead({
       <meta property="og:description" content={description} />
       <meta property="og:type" content={ogType} />
       <meta property="og:image" content={fullOgImage} />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
       <meta property="og:url" content={fullCanonical} />
+      <meta property="og:locale" content="en_MT" />
+      <meta property="og:site_name" content="OARC Digital" />
 
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={fullOgImage} />
+
+      {/* Enhanced SEO */}
+      <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+      <meta name="geo.region" content="MT" />
+      <meta name="geo.placename" content="Malta" />
 
       {/* Favicon - OARC Logo (all sizes) */}
       <link rel="icon" type="image/png" sizes="512x512" href="/favicon.png" />
