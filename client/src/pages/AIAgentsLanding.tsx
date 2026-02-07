@@ -183,50 +183,94 @@ export default function AIAgentsLanding() {
   return (
     <>
       <Helmet>
-        <title>AI Workforce Agents | Autonomous AI Team for Business | OARC Digital</title>
-        <meta name="description" content="Deploy AI agents for sales, support, bookings, and operations. One AI team that takes ownership, delivers results, and runs 24/7. Pilot in 7-14 days." />
+        <title>AI Agents & AI Employees Malta | Sales, Support & Booking Automation | OARC Digital</title>
+        <meta name="description" content="Deploy AI agents for sales, customer support, bookings & operations in Malta. AI employees that work 24/7 — qualify leads, answer queries, book appointments, and manage workflows. Pilot in 7-14 days. Malta's first AI workforce agency." />
         <link rel="canonical" href="https://oarcdigital.com/ai-agents" />
-        <meta property="og:title" content="AI Workforce Agents - Your 24/7 AI Team | OARC Digital" />
-        <meta property="og:description" content="Deploy autonomous AI agents for sales, support, bookings, and operations. One AI team that delivers measurable results. Pilot in 7-14 days." />
+        <meta property="og:title" content="AI Agents & AI Employees Malta | 24/7 AI Workforce | OARC Digital" />
+        <meta property="og:description" content="Deploy AI agents for sales, support, bookings & operations. AI employees that work 24/7. Pilot in 7-14 days. Malta's first AI workforce agency." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://oarcdigital.com/ai-agents" />
-        <meta property="og:image" content="https://oarcdigital.com/images/ai-agents-og.jpg" />
-        <meta property="og:image:alt" content="OARC Digital AI Workforce - 15 specialized AI agents for business automation" />
+        <meta property="og:image" content="https://oarcdigital.com/og-image.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="OARC Digital AI Workforce - Specialized AI agents for business automation in Malta" />
+        <meta property="og:locale" content="en_MT" />
+        <meta property="og:site_name" content="OARC Digital" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="AI Workforce Agents - Your 24/7 AI Team | OARC Digital" />
-        <meta name="twitter:description" content="Deploy autonomous AI agents for sales, support, bookings, and operations. Pilot in 7-14 days." />
-        <meta name="twitter:image" content="https://oarcdigital.com/images/ai-agents-og.jpg" />
-        <meta name="twitter:image:alt" content="OARC Digital AI Workforce Agents" />
-        <meta name="robots" content="index, follow" />
-        <meta name="keywords" content="AI agents, AI employees, business automation, AI workforce, sales automation, customer support AI, booking automation, OARC Digital, Malta AI agency" />
+        <meta name="twitter:title" content="AI Agents & AI Employees Malta | OARC Digital" />
+        <meta name="twitter:description" content="Deploy AI agents for sales, support, bookings & operations. AI employees that work 24/7. Malta's first AI workforce agency." />
+        <meta name="twitter:image" content="https://oarcdigital.com/og-image.png" />
+        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+        <meta name="geo.region" content="MT" />
+        <meta name="geo.placename" content="Malta" />
+        <meta name="keywords" content="AI agents Malta, AI employees Malta, AI workforce, AI sales agent, AI customer support, AI booking agent, chatbot Malta, business automation Malta, AI virtual assistant Malta, AI receptionist Malta, AI lead generation Malta, automated customer service Malta" />
+        {/* Schema.org - Service with OfferCatalog */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Service",
-            "name": "AI Workforce Agents",
+            "name": "AI Workforce Agents Malta",
             "provider": {
               "@type": "Organization",
               "name": "OARC Digital",
               "url": "https://oarcdigital.com"
             },
-            "description": "Deploy autonomous AI agents for sales, support, bookings, and operations. One AI team that takes ownership, delivers results, and runs 24/7.",
+            "description": "Deploy autonomous AI agents for sales, customer support, bookings, and operations in Malta. AI employees that work 24/7 — qualify leads, answer queries, book appointments, and manage workflows automatically.",
             "serviceType": "AI Business Automation",
-            "areaServed": "Worldwide",
+            "areaServed": [
+              {"@type": "Country", "name": "Malta"},
+              {"@type": "Place", "name": "Europe"}
+            ],
             "hasOfferCatalog": {
               "@type": "OfferCatalog",
               "name": "AI Agent Services",
               "itemListElement": [
-                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI Sales Agent", "description": "Automated lead qualification and demo booking" }},
-                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI Support Agent", "description": "90% auto-resolution of customer queries" }},
-                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI Bookings Agent", "description": "Automated scheduling and reminders" }},
-                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI Operations Agent", "description": "Workflow automation and task routing" }}
+                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "AI Sales Representative", "description": "Automated lead qualification, follow-up sequences, and demo booking for Malta businesses."}},
+                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "AI Customer Support Agent", "description": "90% auto-resolution of customer queries with human-like conversations, 24/7."}},
+                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "AI Booking & Reservation Assistant", "description": "Automated scheduling, reminders, and calendar management for restaurants, clinics, and service businesses."}},
+                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "AI Operations Manager", "description": "Workflow automation, task routing, and operational efficiency optimization."}},
+                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "AI Lead Follow-up Agent", "description": "Automated lead nurturing, re-engagement campaigns, and conversion optimization."}}
               ]
             },
             "aggregateRating": {
               "@type": "AggregateRating",
               "ratingValue": "4.9",
-              "reviewCount": "47"
+              "reviewCount": "47",
+              "bestRating": "5"
             }
+          })}
+        </script>
+        {/* Schema.org - LocalBusiness */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "name": "OARC Digital - AI Agents",
+            "description": "Malta's first AI workforce agency. Deploy AI agents for sales, support, bookings & operations.",
+            "url": "https://oarcdigital.com/ai-agents",
+            "telephone": "+356 99263179",
+            "email": "hello@oarcdigital.com",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Seaside Spirit, Triq ix-Xatt, Ta' Xbiex",
+              "addressLocality": "Ta' Xbiex",
+              "postalCode": "XBX 1020",
+              "addressCountry": "MT"
+            },
+            "geo": {"@type": "GeoCoordinates", "latitude": "35.9047", "longitude": "14.4931"},
+            "areaServed": [{"@type": "Country", "name": "Malta"}, {"@type": "Place", "name": "Europe"}],
+            "priceRange": "€€€"
+          })}
+        </script>
+        {/* Schema.org - BreadcrumbList */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://oarcdigital.com/"},
+              {"@type": "ListItem", "position": 2, "name": "AI Agents", "item": "https://oarcdigital.com/ai-agents"}
+            ]
           })}
         </script>
       </Helmet>

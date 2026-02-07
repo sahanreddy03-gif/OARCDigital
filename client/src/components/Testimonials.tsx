@@ -169,6 +169,7 @@ export default function Testimonials() {
                   src={testimonial.avatar} 
                   alt={testimonial.author}
                   className="w-full h-full object-cover"
+                  loading="lazy"
                 />
               </button>
             ))}

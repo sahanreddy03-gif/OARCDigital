@@ -220,13 +220,71 @@ export default function RevenueSolutionsLanding() {
   return (
     <>
       <Helmet>
-        <title>Business Solutions Malta | Automation & Custom Software | OARC Digital</title>
-        <meta name="description" content="Transform your business with OARC Digital. We combine automation and custom software development to eliminate operational chaos and build competitive advantages. Malta's premier digital solutions partner." />
-        <meta name="keywords" content="business automation Malta, custom software development, digital transformation, Malta business solutions, workflow automation, web development Malta" />
-        <link rel="canonical" href="https://oarcdigital.com/solutions" />
-        <meta property="og:title" content="Business Solutions Malta | OARC Digital" />
-        <meta property="og:description" content="Automation + Custom Software. One team, complete digital transformation." />
+        <title>Business Automation Malta | Workflow Automation, CRM & Custom Software | OARC Digital</title>
+        <meta name="description" content="Automate your Malta business with OARC Digital. Workflow automation, CRM integration, API connections, lead funnels, email sequences & custom software development. Eliminate manual processes, reduce costs by 60%, and scale operations. Malta's premier automation partner." />
+        <meta name="keywords" content="business automation Malta, workflow automation Malta, CRM Malta, custom software Malta, digital transformation Malta, API integration Malta, lead generation Malta, email marketing Malta, marketing automation Malta, process automation Malta, Zapier Malta, HubSpot Malta, sales automation Malta" />
+        <link rel="canonical" href="https://oarcdigital.com/automation" />
+        <meta property="og:title" content="Business Automation Malta | Workflow, CRM & Custom Software | OARC Digital" />
+        <meta property="og:description" content="Automate your Malta business. Workflow automation, CRM integration, lead funnels, email sequences & custom software. Reduce costs by 60%." />
         <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://oarcdigital.com/automation" />
+        <meta property="og:image" content="https://oarcdigital.com/og-image.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:locale" content="en_MT" />
+        <meta property="og:site_name" content="OARC Digital" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Business Automation Malta | OARC Digital" />
+        <meta name="twitter:description" content="Workflow automation, CRM, lead funnels & custom software for Malta businesses. Reduce costs by 60%." />
+        <meta name="twitter:image" content="https://oarcdigital.com/og-image.png" />
+        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+        <meta name="geo.region" content="MT" />
+        <meta name="geo.placename" content="Malta" />
+        {/* Schema.org - Service */}
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "name": "Business Automation Services Malta",
+          "provider": {"@type": "Organization", "name": "OARC Digital", "url": "https://oarcdigital.com"},
+          "description": "Complete business automation for Malta businesses. Workflow automation, CRM integration, API connections, lead generation funnels, email marketing sequences, and custom software development.",
+          "serviceType": "Business Automation",
+          "areaServed": [{"@type": "Country", "name": "Malta"}, {"@type": "Place", "name": "Europe"}],
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Automation Services",
+            "itemListElement": [
+              {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Workflow Automation", "description": "Automate repetitive business processes and connect your tools."}},
+              {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "CRM & Pipeline Automation", "description": "Set up and automate your sales pipeline with HubSpot, Pipedrive, or custom CRM."}},
+              {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Lead Generation Funnels", "description": "Automated lead capture, qualification, and nurturing funnels."}},
+              {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Email Marketing Sequences", "description": "Automated email campaigns, drip sequences, and re-engagement flows."}},
+              {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Custom Software Development", "description": "Bespoke web applications, dashboards, and internal tools built for your business."}}
+            ]
+          },
+          "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "89", "bestRating": "5"}
+        })}</script>
+        {/* Schema.org - LocalBusiness */}
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          "name": "OARC Digital - Business Automation",
+          "description": "Malta's premier business automation partner. Workflow automation, CRM, and custom software development.",
+          "url": "https://oarcdigital.com/automation",
+          "telephone": "+356 99263179",
+          "email": "hello@oarcdigital.com",
+          "address": {"@type": "PostalAddress", "streetAddress": "Seaside Spirit, Triq ix-Xatt, Ta' Xbiex", "addressLocality": "Ta' Xbiex", "postalCode": "XBX 1020", "addressCountry": "MT"},
+          "geo": {"@type": "GeoCoordinates", "latitude": "35.9047", "longitude": "14.4931"},
+          "areaServed": [{"@type": "Country", "name": "Malta"}],
+          "priceRange": "€€€"
+        })}</script>
+        {/* Schema.org - BreadcrumbList */}
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://oarcdigital.com/"},
+            {"@type": "ListItem", "position": 2, "name": "Business Automation", "item": "https://oarcdigital.com/automation"}
+          ]
+        })}</script>
       </Helmet>
 
       <CreativeNavigation />

@@ -4,26 +4,30 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
     
-    <title>OARC Digital - Elite AI Marketing Agency Malta | Revenue Automation Experts</title>
-    <meta name="description" content="Premium AI-powered marketing agency delivering creative services, AI employees, and revenue automation to elite brands. Based in Malta, serving Europe with world-class results." />
+    <title>OARC Digital | Brand Strategy, AI Solutions & Growth Automation — Malta</title>
+    <meta name="description" content="OARC Digital helps Maltese businesses grow revenue through brand strategy, AI-driven automation, performance marketing, and scalable growth systems. Malta's first AI-native creative, automation & intelligent agents agency." />
     
-    <meta property="og:title" content="OARC Digital - Elite AI Marketing Agency Malta" />
-    <meta property="og:description" content="Transform your marketing with AI-powered creative services, automated revenue systems, and dedicated AI employees. Trusted by premium brands across Europe." />
+    <meta property="og:title" content="OARC Digital | Brand Strategy, AI Solutions & Growth Automation — Malta" />
+    <meta property="og:description" content="OARC Digital helps Maltese businesses grow revenue fast through brand strategy, AI-driven automation, and performance marketing. Malta's first AI-native agency." />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://www.oarcdigital.com" />
-    <meta property="og:image" content="/og-image.png" />
-    <meta property="og:locale" content="en_EU" />
+    <meta property="og:url" content="https://oarcdigital.com/" />
+    <meta property="og:image" content="https://oarcdigital.com/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="en_MT" />
     <meta property="og:site_name" content="OARC Digital" />
     
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="OARC Digital - Elite AI Marketing Agency Malta" />
-    <meta name="twitter:description" content="Premium AI marketing agency delivering creative services, AI employees, and revenue automation to elite brands across Europe." />
-    <meta name="twitter:image" content="/og-image.png" />
+    <meta name="twitter:title" content="OARC Digital | Brand Strategy, AI Solutions & Growth Automation — Malta" />
+    <meta name="twitter:description" content="OARC Digital helps Maltese businesses grow revenue fast through brand strategy, AI-driven automation, and performance marketing." />
+    <meta name="twitter:image" content="https://oarcdigital.com/og-image.png" />
     
-    <meta name="keywords" content="AI marketing agency, Malta digital agency, revenue automation, AI creative services, marketing automation, AI employees, premium marketing agency, Europe marketing services" />
+    <meta name="keywords" content="marketing agency Malta, brand strategy Malta, AI solutions Malta, growth automation, social media agency Malta, AI employees, business automation Malta, digital marketing Malta, creative agency Malta, web design Malta, video production Malta, AI agents Malta" />
     <meta name="author" content="OARC Digital" />
-    <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://www.oarcdigital.com" />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <meta name="geo.region" content="MT" />
+    <meta name="geo.placename" content="Malta" />
+    <link rel="canonical" href="https://oarcdigital.com/" />
     
     <!-- Favicon - OARC Logo (all sizes from largest to smallest) -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -49,6 +53,8 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Space+Grotesk:wght@300..700&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
     
     <!-- Google Ads Conversion Tracking (gtag.js) -->
@@ -58,6 +64,26 @@
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'AW-17936148786');
+    </script>
+    <!-- Conversion Event Tracking (WhatsApp, Phone, Form) -->
+    <script>
+      document.addEventListener('click', function(e) {
+        var el = e.target.closest('a[href]');
+        if (!el) return;
+        var href = el.getAttribute('href') || '';
+        if (href.indexOf('wa.me') !== -1 || href.indexOf('whatsapp') !== -1) {
+          gtag('event', 'conversion', {send_to: 'AW-17936148786', event_category: 'engagement', event_label: 'whatsapp_click'});
+          gtag('event', 'whatsapp_click', {event_category: 'engagement', event_label: href});
+        }
+        if (href.indexOf('tel:') === 0) {
+          gtag('event', 'conversion', {send_to: 'AW-17936148786', event_category: 'engagement', event_label: 'phone_click'});
+          gtag('event', 'phone_click', {event_category: 'engagement', event_label: href});
+        }
+      });
+      document.addEventListener('submit', function(e) {
+        gtag('event', 'conversion', {send_to: 'AW-17936148786', event_category: 'engagement', event_label: 'form_submit'});
+        gtag('event', 'form_submit', {event_category: 'engagement', event_label: window.location.pathname});
+      });
     </script>
   </head>
   <body>
