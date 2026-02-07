@@ -220,11 +220,11 @@ export default function RevenueSolutionsLanding() {
   return (
     <>
       <Helmet>
-        <title>Business Automation Malta | Workflow Automation, CRM & Custom Software | OARC Digital</title>
+        <title>Business Automation & Revenue Solutions — Malta's First | OARC Digital</title>
         <meta name="description" content="Automate your Malta business with OARC Digital. Workflow automation, CRM integration, API connections, lead funnels, email sequences & custom software development. Eliminate manual processes, reduce costs by 60%, and scale operations. Malta's premier automation partner." />
         <meta name="keywords" content="business automation Malta, workflow automation Malta, CRM Malta, custom software Malta, digital transformation Malta, API integration Malta, lead generation Malta, email marketing Malta, marketing automation Malta, process automation Malta, Zapier Malta, HubSpot Malta, sales automation Malta" />
         <link rel="canonical" href="https://oarcdigital.com/automation" />
-        <meta property="og:title" content="Business Automation Malta | Workflow, CRM & Custom Software | OARC Digital" />
+        <meta property="og:title" content="Business Automation & Revenue Solutions — Malta's First | OARC Digital" />
         <meta property="og:description" content="Automate your Malta business. Workflow automation, CRM integration, lead funnels, email sequences & custom software. Reduce costs by 60%." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://oarcdigital.com/automation" />
