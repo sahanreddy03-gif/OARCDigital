@@ -19,7 +19,7 @@ const webAppFAQs: FAQItem[] = [
   { question: "What makes OARC's web apps different?", answer: "Product-focused development. We build apps users love, not just features clients requested." },
   { question: "Do you handle UX/UI design?", answer: "Yes, design is included. Research, wireframes, prototypes, and final UI design before development begins." },
   { question: "Can you scale existing applications?", answer: "Absolutely. We audit, optimize, and scale existing apps. Performance tuning and architecture improvements." },
-  { question: "What is the investment for web app development?", answer: "MVPs start from €25,000. Full-featured applications range from €50,000-200,000 based on scope." },
+  { question: "What is the investment for web app development?", answer: "Our web application packages are tailored to your project scope and technical requirements. Contact us for a custom quote." },
   { question: "Do you offer SLA-backed maintenance?", answer: "Yes, enterprise maintenance packages include uptime SLAs, security updates, and priority support." }
 ];
 

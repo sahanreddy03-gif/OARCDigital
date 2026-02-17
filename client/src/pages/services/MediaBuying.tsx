@@ -15,7 +15,7 @@ const mediaBuyingFAQs: FAQItem[] = [
   { question: "What platforms do you buy media on?", answer: "Google, Meta, LinkedIn, TikTok, YouTube, programmatic networks, and traditional media. Full-spectrum media coverage." },
   { question: "How do you reduce wasted ad spend?", answer: "AI-powered optimization, continuous testing, and audience refinement. We eliminate underperforming placements ruthlessly." },
   { question: "What makes OARC's media buying different?", answer: "Transparent reporting with no hidden margins. You see exactly where every euro goes and what it generates." },
-  { question: "What's the minimum budget for media buying?", answer: "We recommend minimum €3,000/month ad spend for effective campaigns. Smaller budgets limit testing and optimization." },
+  { question: "What's the minimum budget for media buying?", answer: "We work with clients across a range of budgets and tailor our media buying approach to maximize ROI. Contact us to discuss your goals." },
   { question: "Do you handle creative production?", answer: "Yes, ad creative production is included in our media buying packages. Seamless strategy-to-creative execution." },
   { question: "What is your management fee structure?", answer: "Percentage of spend with caps. Typical fees range from 10-20% depending on budget size and complexity." },
   { question: "How do you report on performance?", answer: "Weekly automated reports plus monthly strategy reviews. Custom dashboards with real-time performance data." }

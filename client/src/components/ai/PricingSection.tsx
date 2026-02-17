@@ -8,13 +8,9 @@ interface PricingTier {
   id: string;
   name: string;
   category: 'productized' | 'managed' | 'enterprise';
-  price: string;
-  period: string;
-  setup: string;
   bestFor: string;
   features: string[];
   bonuses?: string[];
-  overage?: string;
   cta: string;
   ctaLink: string;
   popular?: boolean;
@@ -26,9 +22,6 @@ const pricingTiers: PricingTier[] = [
     id: 'chatbot-starter',
     name: 'AI Chatbot',
     category: 'productized',
-    price: '€79',
-    period: '/month',
-    setup: '€199 one-time setup',
     bestFor: 'Micro-businesses, landing pages, freelancers',
     features: [
       '1 AI chatbot (website or social)',
@@ -44,7 +37,6 @@ const pricingTiers: PricingTier[] = [
       'Starter conversion script pack',
       '14-day launch monitoring & tuning'
     ],
-    overage: '€0.05/extra conversation',
     cta: 'Get Started',
     ctaLink: '/contact',
     icon: MessageSquare
@@ -53,9 +45,6 @@ const pricingTiers: PricingTier[] = [
     id: 'voice-starter',
     name: 'AI Voice Assistant',
     category: 'productized',
-    price: '€179',
-    period: '/month',
-    setup: '€299 one-time setup',
     bestFor: 'Small businesses automating inbound calls',
     features: [
       '1 AI voice agent + dedicated number',
@@ -69,7 +58,6 @@ const pricingTiers: PricingTier[] = [
       'Holiday message and call script templates',
       '7-day launch monitoring and first-week tuning'
     ],
-    overage: '€0.15/extra minute',
     cta: 'Get Started',
     ctaLink: '/contact',
     icon: Phone
@@ -78,9 +66,6 @@ const pricingTiers: PricingTier[] = [
     id: 'workflow-agent',
     name: 'AI Workflow Agent',
     category: 'managed',
-    price: '€397',
-    period: '/month',
-    setup: '€297 one-time setup',
     bestFor: 'Restaurants, retail, solo professionals',
     features: [
       'AI agent (Bookings OR Support OR Leads)',
@@ -95,7 +80,6 @@ const pricingTiers: PricingTier[] = [
       'Conversion scripts for bookings & objections',
       '14-day launch monitoring and first-week tuning'
     ],
-    overage: '€0.15/extra conversation',
     cta: 'Get Started',
     ctaLink: '/contact',
     icon: Bot
@@ -104,9 +88,6 @@ const pricingTiers: PricingTier[] = [
     id: 'ai-operations-team',
     name: 'AI Operations Team',
     category: 'managed',
-    price: '€1,497',
-    period: '/month',
-    setup: '€497 one-time setup',
     bestFor: 'Agencies, hospitality, real estate, professional services',
     features: [
       'Multiple AI agents (Sales + Support + Bookings)',
@@ -122,7 +103,6 @@ const pricingTiers: PricingTier[] = [
       'Knowledge base starter (pre-built FAQ mapped to your product)',
       '30 days post-launch priority tuning (daily checks first week)'
     ],
-    overage: '€0.10/extra conversation',
     cta: 'Get Started',
     ctaLink: '/contact',
     popular: true,
@@ -132,9 +112,6 @@ const pricingTiers: PricingTier[] = [
     id: 'enterprise',
     name: 'Enterprise',
     category: 'enterprise',
-    price: 'Custom',
-    period: '',
-    setup: 'Bespoke implementation',
     bestFor: 'Complex, regulated, high-volume deployments',
     features: [
       'Full AI team configured to your operations',
@@ -211,21 +188,19 @@ export function PricingSection() {
           viewport={{ once: true }}
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-3 tracking-tight">
-            Pricing
+            Our Solutions
           </h2>
           <p className="text-base sm:text-lg text-white/50 max-w-xl mx-auto">
-            Clear pricing. No surprises. Choose your entry point.
+            Choose your AI solution. We'll tailor pricing to your specific needs.
           </p>
         </motion.div>
 
-        {/* Desktop Grid */}
         <div className="hidden lg:grid lg:grid-cols-5 gap-4 px-4">
           {pricingTiers.map((tier, idx) => (
             <PricingCard key={tier.id} tier={tier} index={idx} onOpenModal={handleOpenModal} />
           ))}
         </div>
 
-        {/* Mobile/Tablet Snap Scroll Carousel */}
         <div className="lg:hidden">
           <div 
             ref={scrollRef}
@@ -255,7 +230,6 @@ export function PricingSection() {
             ))}
           </div>
 
-          {/* Dot Indicators */}
           <div className="flex justify-center gap-2 mt-4">
             {pricingTiers.map((_, idx) => (
               <button
@@ -272,7 +246,6 @@ export function PricingSection() {
           </div>
         </div>
 
-        {/* Founding Client Offer */}
         <motion.div 
           className="mt-16 sm:mt-20 mx-4 sm:mx-0"
           initial={{ opacity: 0, y: 20 }}
@@ -297,7 +270,7 @@ export function PricingSection() {
                   <ul className="space-y-2">
                     <li className="flex items-center gap-2 text-sm text-white/80">
                       <Check className="w-4 h-4 text-[#c4ff4d] flex-shrink-0" />
-                      <span>40% off first 3 months on managed tiers</span>
+                      <span>Exclusive early-access pricing on managed tiers</span>
                     </li>
                     <li className="flex items-center gap-2 text-sm text-white/80">
                       <Check className="w-4 h-4 text-[#c4ff4d] flex-shrink-0" />
@@ -322,7 +295,6 @@ export function PricingSection() {
           </div>
         </motion.div>
 
-        {/* Lead Capture Modal */}
         <QuickLeadModal
           isOpen={isModalOpen}
           onClose={handleCloseModal}
@@ -355,7 +327,6 @@ function PricingCard({ tier, index, onOpenModal }: { tier: PricingTier; index: n
         </div>
       )}
 
-      {/* Header */}
       <div className="mb-4">
         <div className="flex items-center gap-2 mb-3">
           <Icon className="w-4 h-4 text-white/40" />
@@ -366,21 +337,10 @@ function PricingCard({ tier, index, onOpenModal }: { tier: PricingTier; index: n
         <h3 className="text-lg sm:text-xl font-bold text-white mb-1">{tier.name}</h3>
       </div>
 
-      {/* Price */}
-      <div className="mb-4">
-        <div className="flex items-baseline gap-1">
-          <span className="text-3xl sm:text-4xl font-bold text-white">{tier.price}</span>
-          {tier.period && <span className="text-white/40 text-sm">{tier.period}</span>}
-        </div>
-        <p className="text-xs text-white/30 mt-1">{tier.setup}</p>
-      </div>
-
-      {/* Best For */}
       <p className="text-sm text-white/50 italic mb-4 pb-4 border-b border-white/5">
         {tier.bestFor}
       </p>
 
-      {/* Features */}
       <ul className="space-y-2.5 mb-4">
         {tier.features.map((feature) => (
           <li key={feature} className="flex items-start gap-2 text-sm">
@@ -390,7 +350,6 @@ function PricingCard({ tier, index, onOpenModal }: { tier: PricingTier; index: n
         ))}
       </ul>
 
-      {/* Bonuses */}
       {tier.bonuses && tier.bonuses.length > 0 && (
         <div className="mb-4 pt-3 border-t border-white/5">
           <div className="flex items-center gap-1.5 mb-2">
@@ -408,16 +367,8 @@ function PricingCard({ tier, index, onOpenModal }: { tier: PricingTier; index: n
         </div>
       )}
 
-      {/* Overage */}
-      {tier.overage && (
-        <p className="text-xs text-white/30 mb-4">
-          Overage: {tier.overage}
-        </p>
-      )}
-
-      {/* CTA */}
       <Button 
-        onClick={() => onOpenModal(`${tier.name} (${tier.price}${tier.period})`)}
+        onClick={() => onOpenModal(tier.name)}
         className={`w-full rounded-full font-medium ${
           tier.popular 
             ? 'bg-[#c4ff4d] hover:bg-[#d4ff6d] text-black' 

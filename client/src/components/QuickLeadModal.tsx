@@ -13,11 +13,11 @@ interface QuickLeadModalProps {
 
 const planOptions = [
   { value: '', label: 'Select a plan (optional)' },
-  { value: 'AI Chatbot (€79/mo)', label: 'AI Chatbot - €79/month' },
-  { value: 'AI Voice Assistant (€179/mo)', label: 'AI Voice Assistant - €179/month' },
-  { value: 'AI Workflow Agent (€397/mo)', label: 'AI Workflow Agent - €397/month' },
-  { value: 'AI Operations Team (€1,497/mo)', label: 'AI Operations Team - €1,497/month' },
-  { value: 'Enterprise (Custom)', label: 'Enterprise - Custom' },
+  { value: 'AI Chatbot', label: 'AI Chatbot' },
+  { value: 'AI Voice Assistant', label: 'AI Voice Assistant' },
+  { value: 'AI Workflow Agent', label: 'AI Workflow Agent' },
+  { value: 'AI Operations Team', label: 'AI Operations Team' },
+  { value: 'Enterprise', label: 'Enterprise' },
   { value: 'Just a consultation', label: 'Just a consultation' },
 ];
 

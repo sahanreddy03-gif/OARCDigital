@@ -45,7 +45,7 @@ const aiConsultingFAQs: FAQItem[] = [
   { question: "How long does AI consulting engagement take?", answer: "Strategy assessments take 2-4 weeks. Full implementation roadmaps typically require 4-8 weeks depending on scope and complexity." },
   { question: "Do you help with AI vendor selection?", answer: "Yes, we evaluate AI tools and platforms objectively. We recommend solutions based on your needs, not vendor relationships." },
   { question: "What makes OARC's AI consulting different?", answer: "We're practitioners, not just advisors. Our team builds and deploys AI solutions daily—we recommend what actually works." },
-  { question: "What is the investment for AI consulting?", answer: "AI audits start from €3,000. Comprehensive consulting engagements with implementation support range from €10,000-30,000." },
+  { question: "What is the investment for AI consulting?", answer: "Our AI consulting packages are tailored to your business needs and implementation goals. Contact us for a custom quote." },
   { question: "Can you train our team on AI?", answer: "Yes, we offer AI training workshops. Upskill your team on AI tools, prompt engineering, and integration strategies." }
 ];
 

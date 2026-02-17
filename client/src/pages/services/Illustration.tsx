@@ -17,7 +17,7 @@ const illustrationFAQs: FAQItem[] = [
   { question: "What makes OARC's illustration different?", answer: "Strategic design thinking behind every illustration. Visuals that communicate your message, not just decorate." },
   { question: "Can you match our brand style?", answer: "Absolutely. We study your brand guidelines and create illustrations that feel authentically yours." },
   { question: "Do you create animated illustrations?", answer: "Yes, we offer motion design for illustrations including Lottie animations and interactive SVGs." },
-  { question: "What is the investment for illustration?", answer: "Individual illustrations start from €300. Illustration packages and brand sets range from €2,000-10,000." },
+  { question: "What is the investment for illustration?", answer: "Our illustration packages are tailored to your project scope and creative needs. Contact us for a custom quote." },
   { question: "Can we license illustrations exclusively?", answer: "Yes, all custom illustrations include full commercial rights and exclusive ownership for your brand." }
 ];
 

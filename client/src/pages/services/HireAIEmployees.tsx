@@ -127,7 +127,7 @@ const aiEmployeesFAQs: FAQItem[] = [
   { question: "Can AI employees integrate with our existing software?", answer: "Yes, our agents integrate with CRMs, helpdesks, databases, and most business software via APIs. We handle all technical integration." },
   { question: "What tasks can AI employees handle?", answer: "Sales development, customer support, data analysis, appointment booking, content creation, document processing, and administrative tasks. Anything repetitive and rule-based." },
   { question: "How do you ensure AI employee quality and accuracy?", answer: "We train agents on your data, monitor performance continuously, and refine responses. Human oversight ensures quality before full autonomy." },
-  { question: "What is the investment for AI employees?", answer: "AI agents start from €1,500/month per agent. Custom enterprise deployments with multiple agents are priced based on scope and integration needs." },
+  { question: "What is the investment for AI employees?", answer: "Our AI employee packages are tailored to your business needs and deployment requirements. Contact us for a custom quote." },
   { question: "Can we try an AI employee before committing?", answer: "Yes, we offer pilot programs. Test an agent for 30 days with measurable KPIs before committing to a long-term engagement." }
 ];
 

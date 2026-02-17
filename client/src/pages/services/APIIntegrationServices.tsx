@@ -19,7 +19,7 @@ const apiIntegrationFAQs: FAQItem[] = [
   { question: "What makes OARC's integration different?", answer: "We build robust, maintainable connections. Our integrations include error handling, monitoring, and documentation." },
   { question: "Can you integrate legacy systems?", answer: "Yes, we specialize in connecting modern tools with older systems. Custom middleware solutions bridge the gap." },
   { question: "Do you provide ongoing support?", answer: "Absolutely. Maintenance packages include monitoring, updates, and troubleshooting to keep integrations running smoothly." },
-  { question: "What is the investment for API integration?", answer: "Simple integrations start from €3,000. Complex multi-system projects range from €10,000-40,000 based on requirements." },
+  { question: "What is the investment for API integration?", answer: "Our API integration packages are tailored to your technical requirements and system complexity. Contact us for a custom quote." },
   { question: "How do you handle data security?", answer: "Encrypted connections, secure authentication, and access controls. Your data stays protected throughout the integration." }
 ];
 

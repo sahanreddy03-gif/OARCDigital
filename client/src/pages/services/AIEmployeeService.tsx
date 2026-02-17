@@ -223,7 +223,7 @@ const aiServiceFAQs: FAQItem[] = [
   { question: "What results can we expect from AI employees?", answer: "Clients typically see 50-90% reduction in manual task time, 24/7 availability, and significant cost savings compared to traditional staffing." },
   { question: "How secure is the AI employee platform?", answer: "Enterprise-grade security with encryption, access controls, and GDPR compliance. Your data never leaves secure environments." },
   { question: "Do AI employees require ongoing training?", answer: "We handle continuous improvement. AI learns from interactions and we refine responses based on performance data and feedback." },
-  { question: "What is the investment for AI employees?", answer: "AI employee services start from €1,500/month. Enterprise solutions with multiple agents and custom integrations are priced on scope." },
+  { question: "What is the investment for AI employees?", answer: "Our AI employee packages are tailored to your business needs and automation goals. Contact us for a custom quote." },
   { question: "How quickly can we deploy AI employees?", answer: "Basic agents deploy in 2-3 weeks. Complex custom agents with deep integrations typically take 4-8 weeks." }
 ];
 

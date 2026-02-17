@@ -14,7 +14,7 @@ const creativeFAQs: FAQItem[] = [
   { question: "Do you provide creative strategy?", answer: "Yes, every project includes strategic direction. We align creative with your business goals and platform best practices." },
   { question: "Can you handle ongoing content production?", answer: "Absolutely. Retained production partnerships provide consistent content flow at predictable costs." },
   { question: "What platforms do you create content for?", answer: "TikTok, Instagram, YouTube, LinkedIn, Meta Ads, Google Ads, and emerging platforms. Native content for every channel." },
-  { question: "What is the investment for creative services?", answer: "Project-based work starts from €1,500. Monthly retainers for ongoing content range from €3,000-15,000." },
+  { question: "What is the investment for creative services?", answer: "Our creative packages are tailored to your project scope and ongoing needs. Contact us for a custom quote." },
   { question: "Do you offer revisions?", answer: "Yes, revision rounds are included in all packages. We iterate until you're completely satisfied with the final creative." }
 ];
 import videoProductionImg from '@assets/pexels-lewis-r-241208113-12341819_1764635856482.jpg';

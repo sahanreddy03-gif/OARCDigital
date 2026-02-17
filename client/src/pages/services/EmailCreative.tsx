@@ -17,7 +17,7 @@ const emailCreativeFAQs: FAQItem[] = [
   { question: "What makes OARC's email creative different?", answer: "Mobile-first design with conversion optimization. Every email is tested across devices and clients." },
   { question: "Do you write email copy too?", answer: "Yes, copywriting is included. Subject lines, body copy, and CTAs crafted for maximum open and click rates." },
   { question: "Can you handle our email automation?", answer: "Absolutely. We design complete automated sequences—welcome series, cart abandonment, re-engagement campaigns." },
-  { question: "What is the investment for email creative?", answer: "Single campaigns start from €500. Monthly email packages range from €1,500-4,000 based on volume." },
+  { question: "What is the investment for email creative?", answer: "Our email creative packages are tailored to your campaign needs and volume requirements. Contact us for a custom quote." },
   { question: "Do you provide A/B testing?", answer: "Yes, we design test variants and analyze results. Continuous optimization improves performance over time." }
 ];
 

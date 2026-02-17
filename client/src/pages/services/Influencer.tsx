@@ -14,7 +14,7 @@ const influencerFAQs: FAQItem[] = [
   { question: "Do you handle contracts and payments?", answer: "Yes, we manage all legal agreements, usage rights, and creator payments. Complete end-to-end campaign execution." },
   { question: "What platforms do you cover?", answer: "Instagram, TikTok, YouTube, LinkedIn, and emerging platforms. We match creators to where your audience engages most." },
   { question: "Can you provide UGC without posting on creator channels?", answer: "Absolutely. Our creator network produces authentic content specifically for your owned channels and paid ads." },
-  { question: "What is the investment for influencer campaigns?", answer: "Campaigns start from €5,000. Monthly ongoing partnerships range from €3,000-20,000 depending on scale and objectives." },
+  { question: "What is the investment for influencer campaigns?", answer: "Our influencer campaign packages are tailored to your brand goals and target audience. Contact us for a custom quote." },
   { question: "How do you measure campaign success?", answer: "Custom tracking with discount codes, UTM parameters, and attribution modeling. Transparent reporting on every campaign metric." }
 ];
 import picnicImg from '@assets/stock_images/social_media_influen_3c07c2fc.jpg';

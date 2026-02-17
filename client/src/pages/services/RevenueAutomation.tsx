@@ -20,7 +20,7 @@ const revenueAutomationFAQs: FAQItem[] = [
   { question: "What makes OARC's automation different?", answer: "We combine AI intelligence with workflow automation. Our systems learn and adapt, not just follow static rules. Plus we build, not just configure." },
   { question: "Will automation work with our existing systems?", answer: "Yes, we integrate with QuickBooks, HubSpot, Salesforce, Zapier, and hundreds of other tools. Custom API integrations available for proprietary systems." },
   { question: "How much time can we save with automation?", answer: "Clients typically save 10-20 hours per week on manual tasks. Some have doubled their client capacity without hiring additional staff." },
-  { question: "What is the investment for revenue automation?", answer: "Automation projects start from €3,000 for single-process automation. Full revenue operations automation ranges from €10,000-25,000 based on complexity." },
+  { question: "What is the investment for revenue automation?", answer: "Our revenue automation solutions are tailored to your business processes and goals. Contact us for a custom quote." },
   { question: "Do you provide ongoing support after implementation?", answer: "Yes, we offer maintenance packages and optimization services. Our team monitors, updates, and improves your automations continuously." }
 ];
 

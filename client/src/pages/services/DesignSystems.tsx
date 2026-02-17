@@ -17,7 +17,7 @@ const designSystemsFAQs: FAQItem[] = [
   { question: "How long does design system creation take?", answer: "Basic systems take 4-6 weeks. Comprehensive enterprise design systems typically require 8-12 weeks." },
   { question: "What makes OARC's design systems different?", answer: "We build systems that developers actually use. Practical, documented, and integrated with your tech stack." },
   { question: "Do you build in Figma or code?", answer: "Both. We create synchronized Figma libraries and coded component libraries that stay in sync." },
-  { question: "What is the investment for a design system?", answer: "Starter systems begin from €10,000. Enterprise-grade systems range from €25,000-75,000 based on complexity." },
+  { question: "What is the investment for a design system?", answer: "Our design system packages are tailored to your organization size and complexity needs. Contact us for a custom quote." },
   { question: "Can you audit our existing design system?", answer: "Yes, we evaluate existing systems and provide optimization recommendations and implementation support." }
 ];
 

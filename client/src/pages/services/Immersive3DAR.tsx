@@ -17,7 +17,7 @@ const immersive3DFAQs: FAQItem[] = [
   { question: "What makes OARC's 3D/AR different?", answer: "Marketing-focused immersive experiences. We create 3D that drives engagement and conversions, not just looks impressive." },
   { question: "What platforms do AR experiences work on?", answer: "Web-based AR works on any smartphone browser. No app download required for your customers." },
   { question: "Can we update 3D products ourselves?", answer: "Yes, we build systems where you can swap textures, colors, and configurations without technical skills." },
-  { question: "What is the investment for 3D/AR?", answer: "Product visualizations start from €2,000. Complete AR experiences range from €10,000-50,000 based on complexity." },
+  { question: "What is the investment for 3D/AR?", answer: "Our 3D and AR packages are tailored to your project scope and complexity. Contact us for a custom quote." },
   { question: "Do you provide hosting for 3D assets?", answer: "Yes, we offer optimized CDN hosting for 3D assets ensuring fast loading and smooth performance globally." }
 ];
 

@@ -17,7 +17,7 @@ const brandingServicesFAQs: FAQItem[] = [
   { question: "What deliverables do we receive?", answer: "Logo files, brand guidelines, color systems, typography, and templates. Everything needed to implement your brand consistently." },
   { question: "Do you help with brand strategy?", answer: "Yes, positioning, messaging, and competitive analysis included. We define who you are before how you look." },
   { question: "Can you update our existing brand?", answer: "Absolutely. Brand refreshes and evolution projects modernize your identity while preserving brand equity." },
-  { question: "What is the investment for branding?", answer: "Logo projects start from €2,500. Complete brand identity packages range from €8,000-25,000." },
+  { question: "What is the investment for branding?", answer: "Our branding packages are tailored to your business needs and scope. Contact us for a custom quote." },
   { question: "Do you offer brand guidelines?", answer: "Yes, comprehensive guidelines ensure consistent brand application across all touchpoints." }
 ];
 

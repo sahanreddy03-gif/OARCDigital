@@ -37,7 +37,7 @@ const socialMediaFAQs: FAQItem[] = [
   },
   {
     question: "What is the typical investment for social media management?",
-    answer: "Our packages start from €1,500/month for essential management. Full-service packages with content creation and community management range from €2,500-5,000/month based on scope."
+    answer: "Our social media management packages are tailored to your specific needs and goals. Contact us for a custom quote."
   },
   {
     question: "Do you offer a trial period or guarantee?",

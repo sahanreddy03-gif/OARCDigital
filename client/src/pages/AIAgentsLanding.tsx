@@ -73,8 +73,8 @@ const keyBenefits = [
     title: 'Measurable ROI',
     headline: 'Dashboard shows conversion lift, response time, and cost saved.',
     description: 'Every interaction tracked. Every metric visible.',
-    stat: '€0.02',
-    statLabel: 'Per interaction avg'
+    stat: '<2s',
+    statLabel: 'Avg response time'
   }
 ];
 
@@ -82,7 +82,7 @@ const comparisonData = [
   { feature: 'Deployment time', hiring: '2-6 months', outsource: '2-4 weeks', oarc: '7-14 days' },
   { feature: 'Response time', hiring: 'Minutes-hours', outsource: 'Seconds-minutes', oarc: '<2 seconds' },
   { feature: 'Availability', hiring: 'Business hours', outsource: '12-16 hours', oarc: '24/7/365' },
-  { feature: 'Cost per interaction', hiring: '€5-15', outsource: '€1-3', oarc: '€0.02-0.10' },
+  { feature: 'Cost efficiency', hiring: 'High overhead', outsource: 'Moderate', oarc: 'Fraction of the cost' },
   { feature: 'Quality consistency', hiring: 'Variable', outsource: 'Variable', oarc: '99.9% consistent' },
   { feature: 'Scalability', hiring: 'Linear cost', outsource: 'Moderate', oarc: 'Infinite at fixed cost' },
 ];

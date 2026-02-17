@@ -554,8 +554,8 @@ export default function PDFCapabilitiesDeck() {
                 <h3 className="text-2xl font-black mb-2">Starter</h3>
                 <p className="text-sm text-gray-600 mb-4">Perfect for launching your AI journey</p>
                 <div className="price-tag">
-                  <span className="text-4xl font-black">€2,499</span>
-                  <span className="text-sm text-gray-500">/month</span>
+                  <span className="text-2xl font-black">Contact Us</span>
+                  <span className="text-sm text-gray-500">for pricing</span>
                 </div>
               </div>
 
@@ -592,8 +592,8 @@ export default function PDFCapabilitiesDeck() {
                 <h3 className="text-2xl font-black mb-2">Growth</h3>
                 <p className="text-sm text-gray-600 mb-4">Ideal for scaling businesses</p>
                 <div className="price-tag">
-                  <span className="text-4xl font-black">€4,999</span>
-                  <span className="text-sm text-gray-500">/month</span>
+                  <span className="text-2xl font-black">Contact Us</span>
+                  <span className="text-sm text-gray-500">for pricing</span>
                 </div>
               </div>
 
@@ -630,8 +630,8 @@ export default function PDFCapabilitiesDeck() {
                 <h3 className="text-2xl font-black mb-2">Enterprise</h3>
                 <p className="text-sm text-gray-600 mb-4">Complete AI transformation</p>
                 <div className="price-tag">
-                  <span className="text-4xl font-black">€9,999</span>
-                  <span className="text-sm text-gray-500">/month</span>
+                  <span className="text-2xl font-black">Contact Us</span>
+                  <span className="text-sm text-gray-500">for pricing</span>
                 </div>
               </div>
 

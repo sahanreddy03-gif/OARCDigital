@@ -42,7 +42,7 @@ export default function WebDesign() {
     { question: "Do you build websites on WordPress?", answer: "We build on WordPress, Webflow, Shopify, and custom React applications. We recommend the platform that best suits your needs and goals." },
     { question: "Is the website mobile-friendly?", answer: "Absolutely. All our websites are fully responsive and optimized for mobile, tablet, and desktop. Mobile-first design is our standard approach." },
     { question: "Do you handle website hosting and maintenance?", answer: "Yes, we offer managed hosting and maintenance packages. Security updates, backups, and performance monitoring are all included." },
-    { question: "What is the investment for web design?", answer: "Websites start from €3,500 for essential sites. E-commerce and custom web applications range from €7,500-25,000 based on complexity." },
+    { question: "What is the investment for web design?", answer: "Our web design packages are tailored to your project scope and business goals. Contact us for a custom quote." },
     { question: "Do you offer SEO with web design?", answer: "Yes, all websites include on-page SEO optimization. We also offer comprehensive SEO services as an add-on for ongoing visibility." }
   ];
 

@@ -23,7 +23,7 @@ const brandingFAQs: FAQItem[] = [
   { question: "Do you offer rebranding services for existing businesses?", answer: "Yes, we specialize in brand evolution. We can refresh your existing identity or create a complete rebrand while respecting your brand equity." },
   { question: "Can you help with brand naming and taglines?", answer: "Absolutely. Our strategy phase includes naming exploration, tagline development, and brand messaging frameworks that resonate with your audience." },
   { question: "What file formats do we receive?", answer: "You receive all source files (AI, PSD), web-ready formats (SVG, PNG, JPG), and print-ready files (PDF, EPS). Full ownership of all assets." },
-  { question: "What is the investment for brand identity design?", answer: "Brand identity packages start from €3,500 for essential branding. Comprehensive brand systems with strategy range from €7,500-15,000." },
+  { question: "What is the investment for brand identity design?", answer: "Our brand identity packages are tailored to your business needs and growth stage. Contact us for a custom quote." },
   { question: "Do you work with startups and small businesses?", answer: "Yes, we work with businesses at all stages. We have starter packages designed for early-stage companies with scaling needs." }
 ];
 

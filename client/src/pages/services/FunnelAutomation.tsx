@@ -17,7 +17,7 @@ const funnelAutomationFAQs: FAQItem[] = [
   { question: "What makes OARC's funnel automation different?", answer: "AI-powered personalization combined with proven frameworks. Our funnels adapt to behavior, not just trigger on time delays." },
   { question: "Do you write the email sequences?", answer: "Yes, copywriting is included. We create entire nurture sequences optimized for conversion at each funnel stage." },
   { question: "Can you fix our existing broken funnels?", answer: "Absolutely. We audit existing automation, identify leaks, and optimize for better conversion rates and customer experience." },
-  { question: "What is the investment for funnel automation?", answer: "Funnel builds start from €3,500. Complete sales automation systems range from €7,500-20,000 based on complexity." },
+  { question: "What is the investment for funnel automation?", answer: "Our funnel automation packages are tailored to your sales process and business goals. Contact us for a custom quote." },
   { question: "Do you provide ongoing funnel management?", answer: "Yes, we offer optimization retainers. Continuous testing, refinement, and expansion of your automated systems." }
 ];
 

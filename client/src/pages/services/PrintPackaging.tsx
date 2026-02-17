@@ -426,7 +426,7 @@ export default function PrintPackaging() {
           { question: "What makes OARC's print design different?", answer: "Strategic design that extends your digital brand into physical touchpoints. Consistent brand experience everywhere." },
           { question: "How long does print design take?", answer: "Simple items take 3-5 days. Complete print collateral packages typically require 2-4 weeks." },
           { question: "Can you help with sustainable packaging?", answer: "Yes, we design eco-friendly packaging using recyclable and biodegradable materials. Sustainability without compromising aesthetics." },
-          { question: "What is the investment for print design?", answer: "Individual print items start from €500. Comprehensive print packages range from €3,000-15,000." },
+          { question: "What is the investment for print design?", answer: "Our print and packaging design packages are tailored to your project requirements. Contact us for a custom quote." },
           { question: "Do you offer international print delivery?", answer: "Yes, we coordinate with print partners globally. Consistent quality whether printing in Malta, EU, or worldwide." }
         ];
         return <FAQSection faqs={printPackagingFAQs} title="Frequently Asked Questions" subtitle="Everything you need to know about print and packaging" schemaId="faq-print-packaging" />;

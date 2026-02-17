@@ -13,9 +13,9 @@ const paidAdsFAQs: FAQItem[] = [
   { question: "How do you optimize campaigns?", answer: "AI-enhanced optimization combined with human expertise. We continuously test creative, audiences, and bidding strategies to maximize ROAS." },
   { question: "What makes OARC's paid media different?", answer: "Performance-first approach. We focus on revenue and profitability, not just clicks and impressions. Every campaign is tied to business outcomes." },
   { question: "Do you create ad creative?", answer: "Yes, our in-house creative team produces performance ads specifically designed for each platform and funnel stage." },
-  { question: "What minimum budget do you recommend?", answer: "We typically work with clients spending €3,000+ monthly on ads. Smaller budgets can work for testing specific channels." },
+  { question: "What minimum budget do you recommend?", answer: "We work with clients across a range of budgets and tailor our approach accordingly. Contact us to discuss your goals." },
   { question: "How do you report on performance?", answer: "Custom dashboards with real-time data. Attribution modeling, conversion tracking, and transparent reporting on every metric that matters." },
-  { question: "What is the investment for paid media management?", answer: "Management fees start from €1,500/month or 15% of ad spend, whichever is greater. Includes strategy, optimization, and reporting." },
+  { question: "What is the investment for paid media management?", answer: "Our management fees are tailored to your campaign scope and objectives. All packages include strategy, optimization, and reporting. Contact us for a custom quote." },
   { question: "How quickly will I see results?", answer: "Initial optimization takes 2-4 weeks. Most clients see measurable improvements within the first 90 days of partnership." }
 ];
 import heroImage from '@assets/paid-advertising-optimized.jpg';

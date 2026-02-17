@@ -21,7 +21,7 @@ const socialCreativeFAQs: FAQItem[] = [
   { question: "Do you handle video content for social?", answer: "Yes, we create Reels, TikToks, Stories, and short-form video. Motion graphics and simple animations included in most packages." },
   { question: "Can you match our existing brand style?", answer: "Absolutely. We follow your brand guidelines precisely while adapting to each platform's best practices for maximum engagement." },
   { question: "What's the turnaround time for content?", answer: "Standard turnaround is 3-5 business days per content batch. Rush delivery available for time-sensitive campaigns." },
-  { question: "What is the investment for social creative?", answer: "Social content packages start from €1,500/month. Full creative suites with video and animation range from €3,000-6,000/month." },
+  { question: "What is the investment for social creative?", answer: "Our social creative packages are tailored to your content needs and creative scope. Contact us for a custom quote." },
   { question: "Do you offer content calendar planning?", answer: "Yes, we provide monthly content calendars aligned with your marketing goals, campaigns, and key dates." }
 ];
 

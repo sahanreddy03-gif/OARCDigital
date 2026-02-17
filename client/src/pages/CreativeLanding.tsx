@@ -165,12 +165,7 @@ const differentiators = [
 const socialMediaPackages = [
   {
     name: 'STARTER',
-    price: '497',
     bestFor: 'New or local brands getting consistent, professional creative.',
-    coreValue: '€910/mo',
-    bonusValue: '€1,000',
-    totalValue: '€1,910/mo',
-    savings: '74%',
     features: [
       '2 platforms managed',
       '12 custom posts (designed + written)',
@@ -188,12 +183,7 @@ const socialMediaPackages = [
   },
   {
     name: 'GROWTH',
-    price: '997',
     bestFor: 'Growing brands that want creative tied to real business results.',
-    coreValue: '€2,250/mo',
-    bonusValue: '€1,700',
-    totalValue: '€3,950/mo',
-    savings: '75%',
     features: [
       '3 platforms managed',
       '20 custom posts (designed + written)',
@@ -213,12 +203,7 @@ const socialMediaPackages = [
   },
   {
     name: 'PRO',
-    price: '1,997',
     bestFor: 'Established brands ready to scale creative aggressively.',
-    coreValue: '€4,000/mo',
-    bonusValue: '€4,300',
-    totalValue: '€8,300/mo',
-    savings: '76%',
     features: [
       '4 platforms managed',
       '30 custom posts (designed + written)',
@@ -242,11 +227,7 @@ const socialMediaPackages = [
 const websitePackages = [
   {
     name: 'STARTER',
-    price: '1,497',
-    oneTime: true,
     bestFor: 'Small businesses needing a professional online presence.',
-    totalValue: '€3,341',
-    savings: '55%',
     features: [
       '5-page custom website',
       'Mobile responsive design',
@@ -264,11 +245,7 @@ const websitePackages = [
   },
   {
     name: 'BUSINESS',
-    price: '2,997',
-    oneTime: true,
     bestFor: 'Growing businesses ready to convert visitors into customers.',
-    totalValue: '€9,282',
-    savings: '68%',
     features: [
       '10-page custom website',
       'CMS (edit yourself)',
@@ -288,11 +265,7 @@ const websitePackages = [
   },
   {
     name: 'PREMIUM',
-    price: '5,997',
-    oneTime: true,
     bestFor: 'Established brands needing advanced functionality.',
-    totalValue: '€27,646',
-    savings: '78%',
     features: [
       '15+ page custom website',
       'E-commerce ready',
@@ -315,11 +288,7 @@ const websitePackages = [
 const brandPackages = [
   {
     name: 'ESSENTIAL',
-    price: '997',
-    oneTime: true,
     bestFor: 'Startups and new businesses establishing identity.',
-    totalValue: '€1,800',
-    savings: '45%',
     features: [
       'Logo design (3 concepts)',
       'Color palette',
@@ -336,11 +305,7 @@ const brandPackages = [
   },
   {
     name: 'PROFESSIONAL',
-    price: '1,997',
-    oneTime: true,
     bestFor: 'Brands ready to look as premium as they perform.',
-    totalValue: '€4,600',
-    savings: '57%',
     features: [
       'Logo design (5 concepts)',
       'Color palette + secondary colors',
@@ -360,11 +325,7 @@ const brandPackages = [
   },
   {
     name: 'COMPLETE',
-    price: '3,997',
-    oneTime: true,
     bestFor: 'Enterprise brands requiring full identity systems.',
-    totalValue: '€9,000+',
-    savings: '55%+',
     features: [
       'Everything in Professional',
       'Full brand strategy',
@@ -436,7 +397,7 @@ const faqItems = [
   },
   {
     q: 'Do you offer flexible packages?',
-    a: 'Yes. We show starting price ranges publicly, and final packages are customised based on platforms used, content volume, creative complexity, and business objectives. This ensures you only pay for what you actually need.',
+    a: 'Yes. Our packages are customised based on platforms used, content volume, creative complexity, and business objectives. Contact us for a tailored quote.',
   },
   {
     q: 'Do I need a long-term contract?',
@@ -494,14 +455,6 @@ function PremiumPackageCard({ pkg, type }: { pkg: any; type: 'monthly' | 'oneTim
             <p className={`text-sm font-semibold uppercase tracking-wider mb-2 ${pkg.popular ? 'text-[#c4ff4d]' : 'text-zinc-500'}`}>
               {pkg.name}
             </p>
-            <div className="flex items-baseline justify-center gap-1">
-              <span className={`text-5xl font-bold ${pkg.popular ? 'text-white' : 'text-zinc-900'}`}>
-                €{pkg.price}
-              </span>
-              <span className={pkg.popular ? 'text-zinc-400' : 'text-zinc-500'}>
-                {type === 'monthly' ? '/month' : ''}
-              </span>
-            </div>
             <p className={`text-sm mt-3 ${pkg.popular ? 'text-zinc-400' : 'text-zinc-600'}`}>
               {pkg.bestFor}
             </p>
@@ -538,14 +491,6 @@ function PremiumPackageCard({ pkg, type }: { pkg: any; type: 'monthly' | 'oneTim
             ))}
           </div>
 
-          <div className="text-center mb-6">
-            <p className={`text-xs ${pkg.popular ? 'text-zinc-500' : 'text-zinc-500'}`}>
-              Total value: <span className="line-through">{pkg.totalValue}</span>
-            </p>
-            <p className={`text-sm font-bold ${pkg.popular ? 'text-[#c4ff4d]' : 'text-emerald-600'}`}>
-              Save {pkg.savings}
-            </p>
-          </div>
 
           <Link href="/contact">
             <Button 
@@ -556,7 +501,7 @@ function PremiumPackageCard({ pkg, type }: { pkg: any; type: 'monthly' | 'oneTim
               }`}
               data-testid={`button-get-pricing-${pkg.name.toLowerCase()}`}
             >
-              Get pricing <ArrowRight className="w-4 h-4 ml-2" />
+              Request a Quote <ArrowRight className="w-4 h-4 ml-2" />
             </Button>
           </Link>
         </div>
@@ -567,10 +512,7 @@ function PremiumPackageCard({ pkg, type }: { pkg: any; type: 'monthly' | 'oneTim
 
 type PackageType = {
   name: string;
-  price: string;
   bestFor: string;
-  totalValue: string;
-  savings: string;
   features: string[];
   bonuses: string[];
   popular: boolean;
@@ -818,7 +760,7 @@ function PricingCarousel({
                     }`}
                     data-testid={`button-view-prices-${pkg.name.toLowerCase()}`}
                   >
-                    View Prices <ArrowRight className="w-4 h-4 ml-2" />
+                    Request a Quote <ArrowRight className="w-4 h-4 ml-2" />
                   </Button>
                 </div>
               </motion.div>
