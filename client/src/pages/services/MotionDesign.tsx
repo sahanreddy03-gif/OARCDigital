@@ -20,7 +20,7 @@ const motionDesignFAQs: FAQItem[] = [
   { question: "What file formats do you deliver?", answer: "MP4, MOV, GIF, and Lottie files for web. Platform-specific exports optimized for Instagram, TikTok, YouTube, and LinkedIn." },
   { question: "Do you handle audio and music?", answer: "Yes, we source licensed music and create sound design. Voiceover production and audio mixing included for video projects." },
   { question: "Can you animate our existing brand assets?", answer: "Absolutely. We bring static logos, icons, and graphics to life while maintaining brand consistency and guidelines." },
-  { question: "What is the investment for motion design?", answer: "Logo animations start from €500. Explainer videos range from €3,000-10,000 depending on length and complexity." },
+  { question: "What is the investment for motion design?", answer: "Our motion design packages are tailored to your project scope and creative needs. Contact us for a custom quote." },
   { question: "Do you offer motion design packages?", answer: "Yes, we offer monthly content packages for consistent social media animation needs. Retainer clients get priority and discounts." }
 ];
 

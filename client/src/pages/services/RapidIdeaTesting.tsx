@@ -449,7 +449,7 @@ export default function RapidIdeaTesting() {
           { question: "What makes OARC's testing different?", answer: "We combine marketing expertise with product thinking. Test not just feasibility, but marketability from day one." },
           { question: "What do we get at the end?", answer: "Validation report with user feedback, market data, and recommendations for next steps. Clear go/no-go decision support." },
           { question: "Can testing kill a bad idea early?", answer: "Absolutely—and that's the point. Saving months of development on ideas that won't work is incredibly valuable." },
-          { question: "What is the investment for idea testing?", answer: "Validation sprints start from €5,000. Comprehensive market testing packages range from €10,000-25,000." },
+          { question: "What is the investment for idea testing?", answer: "Our idea testing packages are tailored to your validation needs and market scope. Contact us for a custom quote." },
           { question: "Do you help with product roadmap after testing?", answer: "Yes, successful validations include development roadmap recommendations and next-phase planning support." }
         ];
         return <FAQSection faqs={rapidTestingFAQs} title="Frequently Asked Questions" subtitle="Everything you need to know about rapid idea testing" schemaId="faq-rapid-testing" />;

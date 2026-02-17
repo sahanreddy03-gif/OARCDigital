@@ -19,7 +19,7 @@ const aiCopywritingFAQs: FAQItem[] = [
   { question: "How much content can you produce monthly?", answer: "AI-powered production scales infinitely. Standard packages include 10-50+ pieces monthly based on your content calendar needs." },
   { question: "What makes OARC's AI copywriting different?", answer: "Human-led AI—not just automated content. Strategists guide direction while AI accelerates production 10x faster." },
   { question: "Do you offer SEO-optimized content?", answer: "Yes, all content includes SEO optimization. Keyword research, meta descriptions, and search-friendly structure included." },
-  { question: "What is the investment for AI copywriting?", answer: "Content packages start from €1,500/month for essential needs. Enterprise content programs range from €3,000-8,000/month." },
+  { question: "What is the investment for AI copywriting?", answer: "Our AI copywriting packages are tailored to your content needs and volume requirements. Contact us for a custom quote." },
   { question: "Can you handle multilingual content?", answer: "Yes, we produce content in 20+ languages with native-level quality. Translation and localization services available." }
 ];
 

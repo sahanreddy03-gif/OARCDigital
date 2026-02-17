@@ -15,7 +15,7 @@ const socialCreativeManagementFAQs: FAQItem[] = [
   { question: "What makes OARC's social management different?", answer: "Performance-driven creative. Every piece is designed for engagement, not just aesthetics. We track what works." },
   { question: "Do you handle community management?", answer: "Yes, engagement and response management available. We maintain your brand voice in every interaction." },
   { question: "How do you measure success?", answer: "Engagement rates, reach growth, profile visits, and business conversions. Monthly reporting with actionable insights." },
-  { question: "What is the investment for social management?", answer: "Social management starts from €1,500/month. Premium packages range from €3,000-8,000/month based on scope." },
+  { question: "What is the investment for social management?", answer: "Our social management packages are tailored to your specific needs and goals. Contact us for a custom quote." },
   { question: "Can we approve content before posting?", answer: "Yes, full approval workflows available. Review and approve everything or trust our team—your choice." }
 ];
 import { 
@@ -467,7 +467,7 @@ export default function SocialMediaCreativeManagement() {
     {
       id: "ecommerce",
       title: "E-commerce Disruptors",
-      description: "We've scaled 47+ e-commerce brands from €10K to €1M+ monthly revenue.",
+      description: "We've scaled 47+ e-commerce brands to significant monthly revenue growth.",
       points: ["Predictive audience discovery", "Dynamic product creative", "Malta Edge: EU-compliant scaling"],
       color: "from-[#FF6B9D] to-[#C77DFF]"
     },

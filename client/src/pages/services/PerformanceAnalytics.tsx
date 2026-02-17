@@ -15,7 +15,7 @@ const analyticsFAQs: FAQItem[] = [
   { question: "What makes OARC's analytics different?", answer: "Actionable insights, not just data. We translate numbers into recommendations that directly improve your results." },
   { question: "Do you provide real-time reporting?", answer: "Yes, live dashboards accessible 24/7. Automated alerts for significant changes and regular strategic reviews." },
   { question: "Can you help with data privacy compliance?", answer: "Absolutely. GDPR-compliant tracking setup, cookie consent, and privacy-first analytics configurations." },
-  { question: "What is the investment for analytics services?", answer: "Analytics setup starts from €2,000. Ongoing reporting and optimization retainers range from €1,500-4,000/month." },
+  { question: "What is the investment for analytics services?", answer: "Our analytics packages are tailored to your reporting needs and optimization goals. Contact us for a custom quote." },
   { question: "Do you help implement tracking?", answer: "Yes, complete implementation including pixel setup, event tracking, UTM strategies, and conversion tracking." }
 ];
 

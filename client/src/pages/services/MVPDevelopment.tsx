@@ -33,7 +33,7 @@ const mvpFAQs: FAQItem[] = [
   { question: "What technologies do you use for MVPs?", answer: "React, Node.js, Next.js, and modern cloud infrastructure. We choose tech that scales with your growth, not just for today." },
   { question: "Do you help with product strategy?", answer: "Yes, MVP includes product strategy, user research, and feature prioritization. We help define what to build first for maximum impact." },
   { question: "What happens after MVP launch?", answer: "We offer ongoing development partnerships. Scale features based on user feedback, or hand off to your internal team." },
-  { question: "What is the investment for MVP development?", answer: "MVPs start from €15,000 for simple applications. Full-featured products typically range from €30,000-75,000." },
+  { question: "What is the investment for MVP development?", answer: "Our MVP development packages are tailored to your product scope and technical requirements. Contact us for a custom quote." },
   { question: "Can you help raise funding with the MVP?", answer: "Yes, we prepare investor-ready demos and pitch materials. Our MVPs are built to impress investors and early customers." }
 ];
 
@@ -48,7 +48,7 @@ export default function MVPDevelopment() {
     { value: '8-12', label: 'Weeks to Launch', icon: Clock },
     { value: '70%', label: 'Cost Savings vs In-House', icon: TrendingUp },
     { value: '40+', label: 'MVPs Shipped', icon: Rocket },
-    { value: '€5M+', label: 'Raised by Clients', icon: Euro }
+    { value: '5M+', label: 'Raised by Clients', icon: Euro }
   ];
 
   const whatYouGet = [
@@ -148,11 +148,11 @@ export default function MVPDevelopment() {
 
   const testimonials = [
     {
-      quote: "OARC took our concept from napkin sketch to App Store in just 10 weeks. The MVP attracted €500K in seed funding within 3 months of launch. Their understanding of the Malta startup ecosystem was invaluable.",
+      quote: "OARC took our concept from napkin sketch to App Store in just 10 weeks. The MVP attracted significant seed funding within 3 months of launch. Their understanding of the Malta startup ecosystem was invaluable.",
       author: "Sarah Vella",
       role: "Founder & CEO",
       company: "TechStartup Malta",
-      metric: "€500K raised",
+      metric: "Seed funded",
       metricLabel: "Seed Funding"
     },
     {
@@ -184,7 +184,7 @@ export default function MVPDevelopment() {
     },
     {
       question: 'How much does MVP development cost?',
-      answer: 'MVP projects typically range from €25,000-€75,000 depending on complexity, platform (web, mobile, or both), and integrations required. We provide detailed estimates after our Discovery Sprint, with fixed-price options available for well-defined scopes. Compared to in-house development, our approach saves 70% on average—money you can redirect to growth.'
+      answer: 'Our MVP projects are scoped and priced based on complexity, platform requirements, and integrations. We provide detailed estimates after our Discovery Sprint, with fixed-price options available for well-defined scopes. Compared to in-house development, our approach saves 70% on average—money you can redirect to growth. Contact us for a custom quote.'
     },
     {
       question: 'Can the MVP scale when we grow?',
@@ -239,7 +239,7 @@ export default function MVPDevelopment() {
     },
     {
       title: 'Startup Ecosystem',
-      description: 'Connected to Malta Enterprise, tech incubators, and VC networks. We\'ve helped clients access €2M+ in startup grants and incentives.',
+      description: 'Connected to Malta Enterprise, tech incubators, and VC networks. We\'ve helped clients access significant startup grants and incentives.',
       icon: Rocket
     },
     {
@@ -277,7 +277,7 @@ export default function MVPDevelopment() {
       title: 'FinTech Mobile App',
       category: 'Payment Processing',
       description: 'Cross-border payment MVP with full MGA compliance',
-      metric: '€2M',
+      metric: 'Funded',
       metricLabel: 'Series A raised',
       image: mvpMobileScreens
     },
@@ -308,7 +308,7 @@ export default function MVPDevelopment() {
     <Layout>
       <SEOHead
         title="MVP Development Services Malta | Launch Your Startup in 8-12 Weeks | OARC Digital"
-        description="Build your MVP with Malta's leading product development team. From concept validation to market launch in 8-12 weeks. €25K-€75K fixed price. 40+ MVPs shipped. Get a free consultation."
+        description="Build your MVP with Malta's leading product development team. From concept validation to market launch in 8-12 weeks. 40+ MVPs shipped. Get a free consultation."
         canonicalUrl="https://oarcdigital.com/services/mvp-development"
         ogType="article"
       />
@@ -916,7 +916,7 @@ export default function MVPDevelopment() {
                 ))}
               </div>
               <div className="mt-8 pt-8 border-t border-white/10 text-center">
-                <div className="text-3xl font-black text-white mb-2">€25,000 - €75,000</div>
+                <div className="text-3xl font-black text-white mb-2">Custom Quote</div>
                 <p className="text-white/50 text-sm">Fixed price available after Discovery Sprint</p>
               </div>
             </GlassCard>

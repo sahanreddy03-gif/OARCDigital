@@ -19,7 +19,7 @@ const customSoftwareFAQs: FAQItem[] = [
   { question: "What makes OARC's development different?", answer: "We combine modern tech with AI acceleration. Our development process is 40% faster while maintaining enterprise-grade quality." },
   { question: "Do you provide ongoing maintenance?", answer: "Yes, we offer maintenance packages including updates, security patches, performance monitoring, and feature additions." },
   { question: "Can you integrate with existing systems?", answer: "Absolutely. API integration with CRMs, ERPs, payment systems, and legacy software is our specialty." },
-  { question: "What is the investment for custom software?", answer: "Projects start from €15,000 for simpler applications. Enterprise systems range from €50,000-150,000 based on complexity." },
+  { question: "What is the investment for custom software?", answer: "Our custom software packages are tailored to your project requirements and business objectives. Contact us for a custom quote." },
   { question: "Do you offer fixed-price or time-and-materials?", answer: "Both options available. Fixed-price for defined scopes, time-and-materials for flexible ongoing development." }
 ];
 

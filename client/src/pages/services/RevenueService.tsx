@@ -135,7 +135,7 @@ const revenueServiceFAQs: FAQItem[] = [
   { question: "What makes OARC's revenue services different?", answer: "We combine marketing expertise with sales operations knowledge. We optimize the entire revenue engine, not just parts." },
   { question: "Do you integrate with existing tools?", answer: "Yes, we work with your current tech stack. We optimize what you have before recommending new tools." },
   { question: "How quickly do we see results?", answer: "Quick wins within 30 days. Significant revenue impact typically visible within 3-6 months of systematic optimization." },
-  { question: "What is the investment for revenue services?", answer: "Consulting engagements start from €5,000. Ongoing revenue optimization retainers range from €4,000-10,000/month." },
+  { question: "What is the investment for revenue services?", answer: "Our revenue consulting packages are tailored to your business goals and growth stage. Contact us for a custom quote." },
   { question: "Can you work with our sales team?", answer: "Absolutely. We collaborate closely with sales, providing tools and processes that help them close more deals." }
 ];
 

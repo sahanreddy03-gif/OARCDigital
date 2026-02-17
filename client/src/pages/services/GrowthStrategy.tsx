@@ -15,7 +15,7 @@ const growthStrategyFAQs: FAQItem[] = [
   { question: "How quickly can we see growth results?", answer: "Quick wins appear within 30-60 days. Sustainable growth systems typically show significant results within 3-6 months." },
   { question: "What makes OARC's growth strategy different?", answer: "We combine strategic thinking with execution capability. We don't just plan—we help you implement and measure results." },
   { question: "Do you offer fractional CMO services?", answer: "Yes, we provide fractional marketing leadership. Get senior strategy expertise without full-time executive costs." },
-  { question: "What is the investment for growth strategy?", answer: "Strategy engagements start from €5,000. Ongoing fractional CMO services range from €3,000-8,000/month." },
+  { question: "What is the investment for growth strategy?", answer: "Our growth strategy packages are tailored to your business goals and growth stage. Contact us for a custom quote." },
   { question: "How do you measure growth success?", answer: "We track revenue growth, customer acquisition cost, lifetime value, and other key metrics aligned with your goals." }
 ];
 

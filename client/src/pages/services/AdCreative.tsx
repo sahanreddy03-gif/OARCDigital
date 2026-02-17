@@ -20,7 +20,7 @@ const adCreativeFAQs: FAQItem[] = [
   { question: "Do you offer unlimited creative revisions?", answer: "Our packages include generous revision rounds. Unlimited revision options available in premium tiers for ongoing campaigns." },
   { question: "Can you A/B test different creative versions?", answer: "Yes, we create multiple variants for testing. We analyze performance data and optimize creative based on what converts." },
   { question: "Do you handle copy as well as design?", answer: "Yes, ad copywriting is included. Headlines, body copy, and calls-to-action crafted for each platform and audience." },
-  { question: "What is the investment for ad creative?", answer: "Creative packages start from €1,000/month for essential needs. Unlimited creative subscriptions range from €2,500-5,000/month." },
+  { question: "What is the investment for ad creative?", answer: "Our ad creative packages are tailored to your campaign needs and creative volume. Contact us for a custom quote." },
   { question: "Can you match our brand guidelines?", answer: "Absolutely. We follow your brand guidelines precisely while optimizing for ad performance on each platform." }
 ];
 

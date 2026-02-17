@@ -17,7 +17,7 @@ const leadGenFAQs: FAQItem[] = [
   { question: "What makes OARC's lead generation different?", answer: "AI qualification combined with multi-channel outreach. We don't just generate volume—we deliver prospects ready to buy." },
   { question: "Do you guarantee lead quality?", answer: "Yes, we guarantee lead quality standards. Leads not meeting agreed criteria are replaced at no additional cost." },
   { question: "What information do you capture per lead?", answer: "Name, email, phone, company, role, and custom qualification data. CRM integration pushes leads directly to your sales pipeline." },
-  { question: "What is the cost per lead?", answer: "CPL varies by industry—typically €20-150 for B2B leads. We optimize campaigns continuously to reduce cost per acquisition." },
+  { question: "What is the cost per lead?", answer: "CPL varies by industry and campaign strategy. We optimize campaigns continuously to reduce cost per acquisition. Contact us to discuss your goals." },
   { question: "How quickly can lead generation start?", answer: "Campaign setup takes 1-2 weeks. First leads typically arrive within the first week of campaign launch." }
 ];
 

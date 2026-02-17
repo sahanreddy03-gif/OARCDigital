@@ -14,10 +14,10 @@ const paidAdsFAQs: FAQItem[] = [
   { question: "What advertising platforms do you manage?", answer: "Google Ads, Meta (Facebook/Instagram), LinkedIn, TikTok, YouTube, and programmatic display. We optimize across platforms for maximum ROI." },
   { question: "How quickly can paid ads generate leads?", answer: "Campaigns can be live within 48 hours. Initial results appear within days, with optimization improving performance over 2-4 weeks." },
   { question: "What makes OARC's paid advertising different?", answer: "AI-powered optimization runs 24/7, adjusting bids and targeting automatically. Human strategists guide direction while machines handle execution." },
-  { question: "What's a typical advertising budget to start?", answer: "We recommend minimum €2,000/month ad spend for meaningful testing. Optimal results typically come from €5,000+ monthly budgets." },
+  { question: "What's a typical advertising budget to start?", answer: "We work with clients across a range of budgets and tailor our approach to maximize ROI. Contact us to discuss your goals." },
   { question: "How do you measure advertising success?", answer: "We track cost per lead, cost per acquisition, ROAS, and revenue attribution. Transparent reporting shows exactly where every euro goes." },
   { question: "Do you create the ad creatives?", answer: "Yes, ad creative production is included. We design high-converting images, videos, and copy optimized for each platform." },
-  { question: "What is your management fee structure?", answer: "Management starts from €1,000/month plus ad spend. Performance-based pricing available for qualified campaigns." },
+  { question: "What is your management fee structure?", answer: "Our management fees are tailored to your campaign scope and objectives. Performance-based pricing available for qualified campaigns. Contact us for a custom quote." },
   { question: "Can you help with tracking and attribution?", answer: "Yes, we set up comprehensive tracking including pixels, conversions, and UTM parameters. Full attribution modeling available." }
 ];
 

@@ -449,7 +449,7 @@ export default function CustomerAcquisition() {
           { question: "What makes OARC's acquisition different?", answer: "Full-funnel thinking. We optimize the entire customer journey, not just top-of-funnel traffic generation." },
           { question: "How quickly do acquisition campaigns work?", answer: "Initial results within 2-4 weeks. Optimized campaigns typically reach peak performance in 2-3 months." },
           { question: "Do you handle creative and ads?", answer: "Yes, complete campaign production included. Strategy, creative, media buying, and optimization all integrated." },
-          { question: "What is the investment for acquisition services?", answer: "Acquisition programs start from €4,000/month plus ad spend. Enterprise programs range from €8,000-20,000/month." },
+          { question: "What is the investment for acquisition services?", answer: "Our acquisition packages are tailored to your growth targets and market. Contact us for a custom quote." },
           { question: "How do you report on performance?", answer: "Weekly reports, monthly strategy reviews, and real-time dashboards. Full visibility into CAC, LTV, and ROAS." }
         ];
         return <FAQSection faqs={customerAcquisitionFAQs} title="Frequently Asked Questions" subtitle="Everything you need to know about customer acquisition" schemaId="faq-customer-acquisition" />;

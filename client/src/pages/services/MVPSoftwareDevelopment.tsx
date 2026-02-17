@@ -36,7 +36,7 @@ export default function MVPSoftwareDevelopment() {
     { value: '8-12', label: 'Weeks to Launch', icon: Clock },
     { value: '70%', label: 'Cost Savings', icon: TrendingUp },
     { value: '40+', label: 'Software MVPs', icon: Code2 },
-    { value: '€5M+', label: 'Client Funding', icon: Euro }
+    { value: '5M+', label: 'Client Funding', icon: Euro }
   ];
 
   const whatYouGet = [
@@ -148,7 +148,7 @@ export default function MVPSoftwareDevelopment() {
       author: "Maria Spiteri",
       role: "Product Director",
       company: "Enterprise Tech Malta",
-      metric: "€1.2M",
+      metric: "1.2M",
       metricLabel: "Series A raised"
     },
     {
@@ -168,7 +168,7 @@ export default function MVPSoftwareDevelopment() {
     { question: "What makes OARC's MVP development different?", answer: "Startup experience. We've built and scaled MVPs ourselves—we know what corners to cut and what to build properly." },
     { question: "What technologies do you use for MVPs?", answer: "Modern stack: React, Node.js, TypeScript, PostgreSQL. Scalable foundations that won't need rewriting later." },
     { question: "What happens after MVP launch?", answer: "We gather user feedback, analyze metrics, and iterate. Optional ongoing development to scale proven concepts." },
-    { question: "What is the investment for MVP development?", answer: "MVPs start from €15,000 for simpler concepts. Complex products range from €30,000-60,000 based on scope." },
+    { question: "What is the investment for MVP development?", answer: "Our MVP development packages are tailored to your product scope and technical requirements. Contact us for a custom quote." },
     { question: "Do you help with funding after MVP?", answer: "We can connect you with investors and help prepare pitch materials based on your validated MVP metrics." }
   ];
 
@@ -226,7 +226,7 @@ export default function MVPSoftwareDevelopment() {
       title: 'Multi-Tenant SaaS',
       category: 'Enterprise',
       description: 'White-label platform serving 200+ business customers',
-      metric: '€2M',
+      metric: '2M',
       metricLabel: 'Series A raised',
       image: mvpMobileScreens
     }
@@ -234,7 +234,7 @@ export default function MVPSoftwareDevelopment() {
 
   const vsInHouse = [
     { feature: 'Time to launch', oarc: '8-12 weeks', inHouse: '6-12 months' },
-    { feature: 'Upfront cost', oarc: '€25K-€75K', inHouse: '€150K-€300K+' },
+    { feature: 'Upfront cost', oarc: 'Custom quote', inHouse: 'Significantly higher' },
     { feature: 'Hiring time', oarc: 'None', inHouse: '3-6 months' },
     { feature: 'Technology risk', oarc: 'Mitigated by experience', inHouse: 'Learning curve' },
     { feature: 'Scalability', oarc: 'Built-in from day 1', inHouse: 'Depends on team' },
@@ -258,7 +258,7 @@ export default function MVPSoftwareDevelopment() {
     <Layout>
       <SEOHead
         title="MVP Software Development Services | SaaS & Enterprise | OARC Digital Malta"
-        description="Build your software MVP in 8-12 weeks with Malta's leading development team. SaaS platforms, enterprise tools, API products. React, Node.js, AWS. €25K-€75K fixed price. Free consultation."
+        description="Build your software MVP in 8-12 weeks with Malta's leading development team. SaaS platforms, enterprise tools, API products. React, Node.js, AWS. Get a free consultation."
         canonicalUrl="https://oarcdigital.com/services/mvp-development/for-software"
         ogType="article"
       />
@@ -841,7 +841,7 @@ export default function MVPSoftwareDevelopment() {
                 ))}
               </div>
               <div className="mt-8 pt-8 border-t border-white/10 text-center">
-                <div className="text-3xl font-black text-white mb-2">€25,000 - €75,000</div>
+                <div className="text-3xl font-black text-white mb-2">Custom Quote</div>
                 <p className="text-white/50 text-sm">Fixed price available after Discovery Sprint</p>
               </div>
             </GlassCard>

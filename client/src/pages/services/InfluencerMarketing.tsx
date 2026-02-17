@@ -20,7 +20,7 @@ const influencerFAQs: FAQItem[] = [
   { question: "How do you measure influencer campaign success?", answer: "We track reach, engagement, clicks, conversions, and sales attribution. Full reporting on every campaign with ROI analysis." },
   { question: "What makes OARC's influencer marketing different?", answer: "Data-driven selection combined with relationship management. We build authentic partnerships, not one-off sponsored posts." },
   { question: "Do you handle contract negotiations?", answer: "Yes, we manage all influencer negotiations, contracts, and payments. Full campaign management from outreach to reporting." },
-  { question: "What is the investment for influencer marketing?", answer: "Management fees start from €2,000/month plus influencer costs. Campaign budgets vary based on creator tier and scale." },
+  { question: "What is the investment for influencer marketing?", answer: "Our influencer marketing packages are tailored to your campaign objectives and creator requirements. Contact us for a custom quote." },
   { question: "Can you work with micro-influencers?", answer: "Absolutely. Micro-influencers often deliver higher ROI. We build strategies across nano, micro, mid-tier, and macro creators." }
 ];
 

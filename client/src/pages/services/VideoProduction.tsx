@@ -22,7 +22,7 @@ const videoProductionFAQs: FAQItem[] = [
   { question: "Do you handle video distribution and advertising?", answer: "Yes, we offer full distribution services including YouTube optimization, social media posting, and paid video advertising on Meta and TikTok." },
   { question: "What equipment and technology do you use?", answer: "We use cinema-grade cameras, professional lighting, and industry-standard editing software. Our AI-powered tools enhance efficiency without sacrificing quality." },
   { question: "Can you work with existing brand guidelines?", answer: "Absolutely. We follow your brand guidelines precisely while bringing creative vision. We can also help develop video-specific brand standards." },
-  { question: "What is the typical investment for video production?", answer: "Projects start from €2,500 for simple social content. Brand films and explainer videos typically range from €5,000-15,000 depending on complexity." },
+  { question: "What is the typical investment for video production?", answer: "Our video production packages are tailored to your project scope and creative requirements. Contact us for a custom quote." },
   { question: "Do you offer video packages or retainer options?", answer: "Yes, we offer monthly video packages for consistent content needs. Retainer clients enjoy priority scheduling and discounted rates." }
 ];
 

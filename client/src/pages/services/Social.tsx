@@ -17,7 +17,7 @@ const socialMediaFAQs: FAQItem[] = [
   { question: "What makes OARC's social management different?", answer: "Algorithm-native content engineered for each platform. We combine creative excellence with data-driven optimization." },
   { question: "Do you handle community management?", answer: "Yes, engagement, response management, and community building included. We maintain your brand voice in every interaction." },
   { question: "How do you measure social success?", answer: "Engagement rates, follower growth, reach, website traffic, and business conversions. Monthly reporting with actionable insights." },
-  { question: "What is the investment for social management?", answer: "Organic social management starts from €1,500/month. Premium multi-platform packages range from €3,000-8,000/month." },
+  { question: "What is the investment for social management?", answer: "Our social management packages are tailored to your specific needs and goals. Contact us for a custom quote." },
   { question: "Can we review content before posting?", answer: "Yes, full content calendars and approval workflows available. You control what goes live while we handle the execution." }
 ];
 

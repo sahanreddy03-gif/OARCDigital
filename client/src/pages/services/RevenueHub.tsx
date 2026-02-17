@@ -64,7 +64,7 @@ const revenueHubFAQs: FAQItem[] = [
   { question: "What CRM platforms do you work with?", answer: "HubSpot, Salesforce, Pipedrive, and others. We're platform-agnostic—we recommend what fits your needs." },
   { question: "How long does Revenue Hub setup take?", answer: "Initial implementation takes 4-8 weeks. Optimization and refinement continue over the following months." },
   { question: "What makes OARC's Revenue Hub different?", answer: "Marketing meets sales meets tech. We bridge the gap between lead generation and closed deals with integrated systems." },
-  { question: "What is the investment for Revenue Hub?", answer: "Implementation starts from €8,000. Ongoing optimization retainers range from €3,000-8,000/month." },
+  { question: "What is the investment for Revenue Hub?", answer: "Our Revenue Hub packages are tailored to your business requirements and growth objectives. Contact us for a custom quote." },
   { question: "Do you train our sales team?", answer: "Yes, team training and enablement included. Your team learns to use the systems independently." }
 ];
 

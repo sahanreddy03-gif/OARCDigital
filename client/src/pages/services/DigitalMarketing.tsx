@@ -17,7 +17,7 @@ const digitalMarketingFAQs: FAQItem[] = [
   { question: "How quickly can we see marketing results?", answer: "Paid ads show results within days. SEO and content marketing typically take 3-6 months for significant organic traffic growth." },
   { question: "Do you work with specific industries?", answer: "We specialize in B2B, SaaS, e-commerce, and professional services. Our Malta base gives us EU compliance expertise." },
   { question: "What's your approach to marketing strategy?", answer: "Data-driven and audience-first. We start with research, define metrics, test rapidly, and scale what works best." },
-  { question: "What is the investment for digital marketing?", answer: "Marketing retainers start from €2,000/month for focused campaigns. Comprehensive programs range from €5,000-15,000/month." },
+  { question: "What is the investment for digital marketing?", answer: "Our digital marketing packages are tailored to your business goals and campaign scope. Contact us for a custom quote." },
   { question: "Do you offer marketing on a project basis?", answer: "Yes, we offer campaign-based projects for launches, promotions, and specific initiatives alongside ongoing retainer relationships." }
 ];
 

@@ -104,7 +104,7 @@ export default function MobileAppsDevelopment() {
     { question: "Do you handle App Store submission?", answer: "Yes, we manage complete App Store and Google Play submission including metadata, screenshots, and approval process." },
     { question: "Can you integrate with existing systems?", answer: "Absolutely. API integration with your backend, CRM, payment systems, and third-party services is standard practice." },
     { question: "Do you offer app maintenance and updates?", answer: "Yes, we provide ongoing maintenance packages including bug fixes, OS updates, and feature enhancements." },
-    { question: "What is the investment for mobile app development?", answer: "Simple apps start from €20,000. Feature-rich applications typically range from €40,000-100,000 based on complexity." },
+    { question: "What is the investment for mobile app development?", answer: "Our mobile app development packages are tailored to your project scope and feature requirements. Contact us for a custom quote." },
     { question: "Native or cross-platform—which should I choose?", answer: "We recommend based on your goals. Cross-platform offers cost efficiency; native provides better performance for complex apps." }
   ];
 
