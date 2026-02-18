@@ -44,6 +44,7 @@ import MVPDevelopment from "@/pages/services/MVPDevelopment";
 import MVPSoftwareDevelopment from "@/pages/services/MVPSoftwareDevelopment";
 import WebApplicationDevelopment from "@/pages/services/WebApplicationDevelopment";
 import APIIntegrationServices from "@/pages/services/APIIntegrationServices";
+import CookieConsent from "@/components/CookieConsent";
 import OurWork from "@/pages/OurWork";
 import WhyUs from "@/pages/WhyUs";
 import Roadmap2026 from "@/pages/Roadmap2026";
@@ -265,6 +266,7 @@ function App() {
           <Toaster />
           <Router />
           <ARCWidget />
+          <CookieConsent />
         </TooltipProvider>
       </HelmetProvider>
     </QueryClientProvider>
