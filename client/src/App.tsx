@@ -98,6 +98,7 @@ import OARCIntelligence from "@/pages/OARCIntelligence";
 import CreativeLanding from "@/pages/CreativeLanding";
 import AIAgentsLanding from "@/pages/AIAgentsLanding";
 import RevenueSolutionsLanding from "@/pages/RevenueSolutionsLanding";
+import PjazzaApp from "@/pjazza/PjazzaApp";
 import NotFound from "@/pages/not-found";
 import { ARCWidget } from "@/components/ARC";
 
@@ -251,6 +252,13 @@ function Router() {
 
       {/* Programmatic SEO - Location Pages */}
       <Route path="/malta/:location/:service" component={LocationService} />
+
+      {/* PJAZZA App — self-contained */}
+      <Route path="/pjazza/business/stream" component={PjazzaApp} />
+      <Route path="/pjazza/business/dashboard" component={PjazzaApp} />
+      <Route path="/pjazza/business/onboard" component={PjazzaApp} />
+      <Route path="/pjazza/discover" component={PjazzaApp} />
+      <Route path="/pjazza" component={PjazzaApp} />
 
         <Route component={NotFound} />
       </Switch>
