@@ -38,12 +38,13 @@ export default function CookieConsent() {
       aria-label="Cookie consent"
       data-testid="cookie-consent-banner"
     >
-      <div className="flex items-center gap-4 px-5 py-3.5 rounded-md bg-black/35 backdrop-blur-xl border border-white/[0.04]">
-        <p className="text-[13px] text-white/40 leading-relaxed flex-1">
+      <div className="flex items-center gap-4 px-5 py-3.5 rounded-md border" style={{ background: 'rgba(10, 10, 12, 0.95)', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)', borderColor: 'rgba(255, 255, 255, 0.1)', boxShadow: '0 8px 32px rgba(0, 0, 0, 0.4)' }}>
+        <p className="text-[13px] leading-relaxed flex-1" style={{ color: 'rgba(255, 255, 255, 0.7)' }}>
           We use cookies to improve your experience.{' '}
           <Link
             href="/cookie-policy"
-            className="text-white/55 underline underline-offset-2 decoration-white/15"
+            className="underline underline-offset-2"
+            style={{ color: 'rgba(255, 255, 255, 0.85)', textDecorationColor: 'rgba(255, 255, 255, 0.3)' }}
             data-testid="link-cookie-policy"
           >
             Learn more
@@ -51,9 +52,9 @@ export default function CookieConsent() {
         </p>
         <Button
           onClick={accept}
-          variant="outline"
           size="sm"
-          className="flex-shrink-0 text-[13px] backdrop-blur-sm bg-white/10 border-white/10"
+          className="flex-shrink-0 text-[13px] font-semibold text-white"
+          style={{ background: '#ff914d', borderColor: '#e07a3a', color: 'white' }}
           data-testid="button-cookie-accept"
         >
           Got it
