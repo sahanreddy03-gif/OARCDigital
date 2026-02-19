@@ -1,217 +1,127 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLocation } from 'wouter';
-import CountUp from '../components/CountUp';
+import { ArrowRight, Radio, MapPin, Users, Zap } from 'lucide-react';
+import { PortalScene } from '../components/Scene3D';
 import LivePulse from '../components/LivePulse';
-
-function GoldenParticles() {
-  return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      {Array.from({ length: 30 }).map((_, i) => (
-        <motion.div
-          key={i}
-          className="absolute rounded-full"
-          style={{
-            width: Math.random() * 3 + 1,
-            height: Math.random() * 3 + 1,
-            background: `rgba(196,148,30,${Math.random() * 0.4 + 0.1})`,
-            left: `${Math.random() * 100}%`,
-            top: `${Math.random() * 100}%`,
-          }}
-          animate={{
-            y: [0, -30, 0],
-            x: [0, Math.random() * 20 - 10, 0],
-            opacity: [0.2, 0.6, 0.2],
-            scale: [1, 1.5, 1],
-          }}
-          transition={{
-            duration: Math.random() * 4 + 3,
-            repeat: Infinity,
-            delay: Math.random() * 3,
-            ease: 'easeInOut',
-          }}
-        />
-      ))}
-    </div>
-  );
-}
-
-function LogoMark() {
-  return (
-    <motion.div
-      className="relative"
-      initial={{ scale: 0, opacity: 0 }}
-      animate={{ scale: 1, opacity: 1 }}
-      transition={{ delay: 0.3, duration: 0.8, type: 'spring', stiffness: 200, damping: 20 }}
-    >
-      <motion.div
-        className="absolute inset-0 rounded-3xl"
-        style={{
-          background: 'radial-gradient(circle, rgba(196,148,30,0.4) 0%, transparent 70%)',
-          filter: 'blur(30px)',
-        }}
-        animate={{
-          scale: [1, 1.2, 1],
-          opacity: [0.3, 0.6, 0.3],
-        }}
-        transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
-      />
-      <div
-        className="relative w-24 h-24 rounded-3xl flex items-center justify-center pj-gold-glow"
-        style={{
-          background: 'linear-gradient(135deg, #C4941E, #D4A843)',
-          transform: 'perspective(600px) rotateX(5deg)',
-        }}
-      >
-        <motion.span
-          className="text-5xl"
-          style={{ filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.3))' }}
-          animate={{ rotateY: [0, 5, -5, 0] }}
-          transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
-        >
-          🏛️
-        </motion.span>
-      </div>
-    </motion.div>
-  );
-}
 
 export default function Portal() {
   const [, navigate] = useLocation();
-  const [transitioning, setTransitioning] = useState<'explore' | 'business' | null>(null);
+  const [entered, setEntered] = useState(false);
 
-  const handleNavigate = (type: 'explore' | 'business') => {
-    setTransitioning(type);
-    setTimeout(() => {
-      navigate(type === 'explore' ? '/pjazza/discover' : '/pjazza/business/onboard');
-    }, 600);
+  const handleEnter = () => {
+    setEntered(true);
+    setTimeout(() => navigate('/pjazza/discover'), 800);
   };
 
   return (
-    <div className="relative min-h-screen flex flex-col items-center justify-center px-6 overflow-hidden" style={{ background: '#0D0D0F' }}>
-      <GoldenParticles />
+    <div className="relative min-h-screen flex flex-col overflow-hidden" style={{ background: '#080808' }}>
+      <PortalScene />
+
+      <div className="pj-content-overlay flex-1 flex flex-col">
+        <motion.div
+          className="flex items-center justify-between px-5 pt-5"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5 }}
+        >
+          <div className="flex items-center gap-2">
+            <LivePulse size={6} />
+            <span className="text-[10px] font-bold tracking-[3px] uppercase" style={{ color: 'var(--pj-red)' }}>
+              LIVE
+            </span>
+          </div>
+          <span className="text-[10px] font-medium" style={{ color: 'var(--pj-text-tertiary)' }}>MALTA</span>
+        </motion.div>
+
+        <div className="flex-1 flex flex-col justify-center px-5">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.8, duration: 0.8 }}
+          >
+            <h1 className="text-6xl font-black tracking-tighter leading-[0.9] mb-6">
+              <span className="text-white">See</span>
+              <br />
+              <span style={{ color: 'var(--pj-red)' }}>Everything.</span>
+            </h1>
+            <p className="text-base leading-relaxed mb-2" style={{ color: 'var(--pj-text-secondary)' }}>
+              Malta's living digital town square.
+            </p>
+            <p className="text-sm" style={{ color: 'var(--pj-text-tertiary)' }}>
+              Live streams. Real crowds. Trusted transactions.
+            </p>
+          </motion.div>
+
+          <motion.div
+            className="flex gap-6 mt-10"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.3 }}
+          >
+            {[
+              { icon: Radio, value: '47', label: 'Live Now' },
+              { icon: Users, value: '2.4K', label: 'Online' },
+              { icon: MapPin, value: '180+', label: 'Venues' },
+            ].map((stat, i) => (
+              <motion.div
+                key={i}
+                className="flex flex-col"
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1.5 + i * 0.15 }}
+              >
+                <stat.icon size={14} style={{ color: 'var(--pj-red)', marginBottom: 6 }} />
+                <span className="text-xl font-black text-white pj-number-mono">{stat.value}</span>
+                <span className="text-[10px]" style={{ color: 'var(--pj-text-tertiary)' }}>{stat.label}</span>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+
+        <motion.div
+          className="px-5 pb-10"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.8 }}
+        >
+          <motion.button
+            className="w-full pj-btn-primary py-4 text-base font-black flex items-center justify-center gap-2"
+            whileTap={{ scale: 0.96 }}
+            onClick={handleEnter}
+            data-testid="button-enter-pjazza"
+          >
+            <span>Enter PJAZZA</span>
+            <ArrowRight size={18} />
+          </motion.button>
+
+          <div className="flex items-center justify-center gap-4 mt-5">
+            <motion.button
+              className="text-[12px] font-semibold px-4 py-2 rounded-xl"
+              style={{ color: 'var(--pj-text-secondary)', border: '1px solid var(--pj-border)' }}
+              whileTap={{ scale: 0.96 }}
+              onClick={() => navigate('/pjazza/business/onboard')}
+              data-testid="button-business-cta"
+            >
+              <Zap size={12} className="inline mr-1.5" style={{ color: 'var(--pj-red)' }} />
+              I'm a business
+            </motion.button>
+          </div>
+        </motion.div>
+      </div>
 
       <AnimatePresence>
-        {transitioning && (
+        {entered && (
           <motion.div
             className="fixed inset-0 z-50"
-            initial={{ scale: 0, borderRadius: '50%' }}
-            animate={{ scale: 4, borderRadius: '0%' }}
+            initial={{ scaleY: 0 }}
+            animate={{ scaleY: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            style={{
-              background: transitioning === 'explore'
-                ? 'linear-gradient(135deg, #C4941E, #D4A843)'
-                : 'rgba(255,255,255,0.1)',
-              transformOrigin: transitioning === 'explore' ? '30% 60%' : '70% 60%',
-            }}
+            style={{ transformOrigin: 'bottom', background: 'var(--pj-red)' }}
           />
         )}
       </AnimatePresence>
-
-      <div className="relative z-10 flex flex-col items-center text-center">
-        <LogoMark />
-
-        <motion.h1
-          className="mt-8 text-5xl font-black text-white tracking-tighter leading-none"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.8, duration: 0.6 }}
-        >
-          PJAZZA
-        </motion.h1>
-
-        <motion.p
-          className="mt-4 text-[11px] font-bold tracking-[6px] uppercase"
-          style={{ color: '#C4941E' }}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.2, duration: 0.6 }}
-        >
-          ENTER MALTA'S LIVING WORLD
-        </motion.p>
-
-        <motion.div
-          className="mt-12 flex gap-3 w-full"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 2.0, duration: 0.6, type: 'spring', stiffness: 200, damping: 25 }}
-        >
-          <motion.button
-            className="flex-1 pj-gold-btn py-5 px-4 flex flex-col items-center gap-1 pj-gold-glow-sm"
-            whileTap={{ scale: 0.96 }}
-            whileHover={{ scale: 1.02 }}
-            onClick={() => handleNavigate('explore')}
-            data-testid="button-portal-explore"
-          >
-            <span className="text-3xl mb-1">🔍</span>
-            <span className="text-lg font-black text-white">EXPLORE</span>
-            <span className="text-[10px] text-white/50">Tourist • Expat • Local</span>
-          </motion.button>
-
-          <motion.button
-            className="flex-1 pj-glass py-5 px-4 flex flex-col items-center gap-1 transition-all duration-300"
-            whileTap={{ scale: 0.96 }}
-            whileHover={{ scale: 1.02, borderColor: 'rgba(196,148,30,0.3)' }}
-            onClick={() => handleNavigate('business')}
-            data-testid="button-portal-business"
-          >
-            <span className="text-3xl mb-1">💼</span>
-            <span className="text-lg font-black text-white">BUSINESS</span>
-            <span className="text-[10px] text-white/50">Go Live • Earn • Grow</span>
-          </motion.button>
-        </motion.div>
-
-        <motion.div
-          className="mt-10 flex items-center gap-3 flex-wrap justify-center"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 2.4, duration: 0.5 }}
-        >
-          {[
-            { end: 3.8, suffix: 'M', label: 'Tourists', prefix: '' },
-            { end: 540, suffix: 'K', label: 'Locals', prefix: '' },
-            { end: 0, suffix: '', label: 'to Start', prefix: '€' },
-          ].map((stat, i) => (
-            <motion.div
-              key={i}
-              className="pj-glass px-4 py-2 flex items-center gap-2"
-              style={{ borderRadius: 100 }}
-              animate={{ y: [-4, 4, -4] }}
-              transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut', delay: i * 0.5 }}
-            >
-              <span className="text-sm font-black text-white">
-                {stat.end === 0 ? (
-                  '€0'
-                ) : (
-                  <CountUp end={stat.end} suffix={stat.suffix} prefix={stat.prefix} decimals={stat.end < 10 ? 1 : 0} />
-                )}
-              </span>
-              <span className="text-[10px] text-white/40 font-medium">{stat.label}</span>
-            </motion.div>
-          ))}
-        </motion.div>
-
-        <motion.div
-          className="mt-8 flex items-center gap-2"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 2.8, duration: 0.5 }}
-        >
-          <div className="flex gap-1">
-            {[0, 0.3, 0.6].map((d, i) => (
-              <motion.div
-                key={i}
-                className="w-1.5 h-1.5 rounded-full"
-                style={{ background: '#E05A3A' }}
-                animate={{ opacity: [0.3, 1, 0.3], scale: [0.8, 1.2, 0.8] }}
-                transition={{ duration: 1.5, repeat: Infinity, delay: d }}
-              />
-            ))}
-          </div>
-          <span className="text-[10px] text-white/30">47 businesses are live right now</span>
-        </motion.div>
-      </div>
     </div>
   );
 }
