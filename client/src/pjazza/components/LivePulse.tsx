@@ -1,26 +1,13 @@
-interface LivePulseProps {
-  size?: number;
-  color?: string;
-  className?: string;
-}
-
-export default function LivePulse({ size = 8, color = '#E05A3A', className = '' }: LivePulseProps) {
+export default function LivePulse({ size = 8, color = '#E05A3A' }: { size?: number; color?: string }) {
   return (
-    <span className={`relative inline-flex items-center justify-center ${className}`} style={{ width: size, height: size }}>
+    <span className="relative inline-flex" style={{ width: size, height: size }}>
       <span
-        className="absolute inset-0 rounded-full"
-        style={{
-          background: color,
-          animation: 'pj-pulse-ring 1.5s ease-out infinite',
-        }}
+        className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-50"
+        style={{ backgroundColor: color }}
       />
       <span
-        className="relative rounded-full"
-        style={{
-          width: size,
-          height: size,
-          background: color,
-        }}
+        className="relative inline-flex rounded-full"
+        style={{ width: size, height: size, backgroundColor: color }}
       />
     </span>
   );
