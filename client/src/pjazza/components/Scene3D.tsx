@@ -30,24 +30,27 @@ function useWebGLSupport() {
   return supported;
 }
 
+const CRIMSON = '#C41E3A';
+
 function CSSFallback({ variant = 'portal' }: { variant?: 'portal' | 'discover' | 'dashboard' }) {
   const opacity = variant === 'portal' ? 1 : variant === 'discover' ? 0.5 : 0.35;
   return (
     <div
       className="pj-canvas-container"
+      data-testid="scene-fallback"
       style={{
         opacity,
         background: `
-          radial-gradient(circle at 30% 40%, rgba(224,90,58,0.12), transparent 50%),
-          radial-gradient(circle at 70% 60%, rgba(224,90,58,0.08), transparent 50%),
-          radial-gradient(circle at 50% 80%, rgba(224,90,58,0.05), transparent 50%)
+          radial-gradient(ellipse 120% 80% at 50% 0%, rgba(196,30,58,0.1), transparent 60%),
+          radial-gradient(ellipse 80% 120% at 0% 50%, rgba(59,130,246,0.03), transparent 60%),
+          radial-gradient(ellipse 80% 120% at 100% 80%, rgba(196,30,58,0.06), transparent 60%)
         `,
       }}
     />
   );
 }
 
-function FloatingParticles({ count = 80, color = '#E05A3A', spread = 8 }: { count?: number; color?: string; spread?: number }) {
+function FloatingParticles({ count = 80, color = CRIMSON, spread = 8 }: { count?: number; color?: string; spread?: number }) {
   const meshRef = useRef<THREE.InstancedMesh>(null!);
   const dummy = useMemo(() => new THREE.Object3D(), []);
 
@@ -58,9 +61,9 @@ function FloatingParticles({ count = 80, color = '#E05A3A', spread = 8 }: { coun
         (Math.random() - 0.5) * spread,
         (Math.random() - 0.5) * spread * 0.5,
       ] as [number, number, number],
-      speed: 0.2 + Math.random() * 0.5,
+      speed: 0.15 + Math.random() * 0.4,
       offset: Math.random() * Math.PI * 2,
-      scale: 0.02 + Math.random() * 0.04,
+      scale: 0.015 + Math.random() * 0.035,
     }));
   }, [count, spread]);
 
@@ -68,11 +71,11 @@ function FloatingParticles({ count = 80, color = '#E05A3A', spread = 8 }: { coun
     const t = state.clock.elapsedTime;
     particles.forEach((p, i) => {
       dummy.position.set(
-        p.position[0] + Math.sin(t * p.speed + p.offset) * 0.3,
-        p.position[1] + Math.cos(t * p.speed * 0.7 + p.offset) * 0.4,
-        p.position[2] + Math.sin(t * p.speed * 0.5) * 0.2,
+        p.position[0] + Math.sin(t * p.speed + p.offset) * 0.4,
+        p.position[1] + Math.cos(t * p.speed * 0.7 + p.offset) * 0.5,
+        p.position[2] + Math.sin(t * p.speed * 0.4) * 0.2,
       );
-      dummy.scale.setScalar(p.scale * (1 + Math.sin(t * 2 + p.offset) * 0.3));
+      dummy.scale.setScalar(p.scale * (1 + Math.sin(t * 1.5 + p.offset) * 0.4));
       dummy.updateMatrix();
       meshRef.current.setMatrixAt(i, dummy.matrix);
     });
@@ -82,24 +85,24 @@ function FloatingParticles({ count = 80, color = '#E05A3A', spread = 8 }: { coun
   return (
     <instancedMesh ref={meshRef} args={[undefined, undefined, count]}>
       <sphereGeometry args={[1, 8, 8]} />
-      <meshBasicMaterial color={color} transparent opacity={0.6} />
+      <meshBasicMaterial color={color} transparent opacity={0.5} />
     </instancedMesh>
   );
 }
 
-function PortalRing({ radius = 2.5, tubeRadius = 0.04 }: { radius?: number; tubeRadius?: number }) {
+function PortalRing({ radius = 2.5, tubeRadius = 0.04, speed = 1 }: { radius?: number; tubeRadius?: number; speed?: number }) {
   const ref = useRef<THREE.Mesh>(null!);
   useFrame((state) => {
-    const t = state.clock.elapsedTime;
-    ref.current.rotation.x = Math.sin(t * 0.3) * 0.1;
-    ref.current.rotation.y = t * 0.15;
-    ref.current.rotation.z = Math.cos(t * 0.2) * 0.05;
+    const t = state.clock.elapsedTime * speed;
+    ref.current.rotation.x = Math.sin(t * 0.3) * 0.15;
+    ref.current.rotation.y = t * 0.12;
+    ref.current.rotation.z = Math.cos(t * 0.2) * 0.08;
   });
 
   return (
     <mesh ref={ref}>
       <torusGeometry args={[radius, tubeRadius, 16, 100]} />
-      <meshBasicMaterial color="#E05A3A" transparent opacity={0.7} />
+      <meshBasicMaterial color={CRIMSON} transparent opacity={0.6} />
     </mesh>
   );
 }
@@ -107,9 +110,10 @@ function PortalRing({ radius = 2.5, tubeRadius = 0.04 }: { radius?: number; tube
 function PortalRings() {
   return (
     <group>
-      <PortalRing radius={2.2} tubeRadius={0.03} />
-      <PortalRing radius={2.8} tubeRadius={0.02} />
-      <PortalRing radius={3.4} tubeRadius={0.015} />
+      <PortalRing radius={2.0} tubeRadius={0.035} speed={1} />
+      <PortalRing radius={2.6} tubeRadius={0.025} speed={0.8} />
+      <PortalRing radius={3.2} tubeRadius={0.018} speed={0.6} />
+      <PortalRing radius={3.8} tubeRadius={0.012} speed={0.4} />
     </group>
   );
 }
@@ -118,13 +122,13 @@ function GlowSphere() {
   const ref = useRef<THREE.Mesh>(null!);
   useFrame((state) => {
     const t = state.clock.elapsedTime;
-    ref.current.scale.setScalar(1 + Math.sin(t * 1.5) * 0.1);
+    ref.current.scale.setScalar(1 + Math.sin(t * 1.2) * 0.15);
   });
 
   return (
     <mesh ref={ref}>
-      <sphereGeometry args={[0.8, 32, 32]} />
-      <meshBasicMaterial color="#E05A3A" transparent opacity={0.08} />
+      <sphereGeometry args={[0.6, 32, 32]} />
+      <meshBasicMaterial color={CRIMSON} transparent opacity={0.06} />
     </mesh>
   );
 }
@@ -133,16 +137,16 @@ function GridFloor() {
   const ref = useRef<THREE.GridHelper>(null!);
   useFrame((state) => {
     if (ref.current) {
-      ref.current.position.z = -(state.clock.elapsedTime * 0.3 % 1);
+      ref.current.position.z = -(state.clock.elapsedTime * 0.2 % 1);
     }
   });
 
   return (
     <gridHelper
       ref={ref}
-      args={[20, 20, '#E05A3A', 'rgba(224,90,58,0.05)']}
+      args={[20, 20, CRIMSON, 'rgba(196,30,58,0.03)']}
       position={[0, -3, 0]}
-      material-opacity={0.08}
+      material-opacity={0.06}
       material-transparent
     />
   );
@@ -151,14 +155,15 @@ function GridFloor() {
 function FloatingGeometry() {
   const groupRef = useRef<THREE.Group>(null!);
   useFrame((state) => {
-    groupRef.current.rotation.y = state.clock.elapsedTime * 0.05;
+    groupRef.current.rotation.y = state.clock.elapsedTime * 0.04;
   });
 
   const shapes = useMemo(() => [
-    { pos: [-3, 1.5, -2] as [number, number, number], type: 'oct', scale: 0.3 },
-    { pos: [3.5, -1, -1.5] as [number, number, number], type: 'ico', scale: 0.25 },
-    { pos: [-2, -2, -3] as [number, number, number], type: 'oct', scale: 0.2 },
-    { pos: [2, 2.5, -2.5] as [number, number, number], type: 'ico', scale: 0.15 },
+    { pos: [-3, 1.5, -2] as [number, number, number], type: 'oct', scale: 0.25 },
+    { pos: [3.5, -1, -1.5] as [number, number, number], type: 'ico', scale: 0.2 },
+    { pos: [-2, -2, -3] as [number, number, number], type: 'oct', scale: 0.18 },
+    { pos: [2, 2.5, -2.5] as [number, number, number], type: 'ico', scale: 0.12 },
+    { pos: [0, -3, -2] as [number, number, number], type: 'oct', scale: 0.15 },
   ], []);
 
   return (
@@ -174,15 +179,15 @@ function FloatingShape({ position, type, scale, index }: { position: [number, nu
   const ref = useRef<THREE.Mesh>(null!);
   useFrame((state) => {
     const t = state.clock.elapsedTime;
-    ref.current.position.y = position[1] + Math.sin(t * 0.5 + index) * 0.3;
-    ref.current.rotation.x = t * 0.2 + index;
-    ref.current.rotation.z = t * 0.15 + index * 0.5;
+    ref.current.position.y = position[1] + Math.sin(t * 0.4 + index) * 0.4;
+    ref.current.rotation.x = t * 0.15 + index;
+    ref.current.rotation.z = t * 0.1 + index * 0.5;
   });
 
   return (
     <mesh ref={ref} position={position} scale={scale}>
       {type === 'oct' ? <octahedronGeometry args={[1]} /> : <icosahedronGeometry args={[1]} />}
-      <meshBasicMaterial color="#E05A3A" wireframe transparent opacity={0.15} />
+      <meshBasicMaterial color={CRIMSON} wireframe transparent opacity={0.12} />
     </mesh>
   );
 }
@@ -195,7 +200,7 @@ export function PortalScene() {
     <WebGLErrorBoundary fallback={<CSSFallback variant="portal" />}>
       <div className="pj-canvas-container">
         <Canvas camera={{ position: [0, 0, 5], fov: 60 }} dpr={[1, 1.5]}>
-          <ambientLight intensity={0.1} />
+          <ambientLight intensity={0.08} />
           <GlowSphere />
           <PortalRings />
           <FloatingParticles count={60} spread={6} />
@@ -214,7 +219,7 @@ export function DiscoverScene() {
     <WebGLErrorBoundary fallback={<CSSFallback variant="discover" />}>
       <div className="pj-canvas-container" style={{ opacity: 0.5 }}>
         <Canvas camera={{ position: [0, 0, 4], fov: 50 }} dpr={[1, 1.5]}>
-          <FloatingParticles count={40} spread={10} color="#E05A3A" />
+          <FloatingParticles count={40} spread={10} color={CRIMSON} />
           <GridFloor />
         </Canvas>
       </div>
@@ -228,9 +233,9 @@ export function DashboardScene() {
 
   return (
     <WebGLErrorBoundary fallback={<CSSFallback variant="dashboard" />}>
-      <div className="pj-canvas-container" style={{ opacity: 0.35 }}>
+      <div className="pj-canvas-container" style={{ opacity: 0.3 }}>
         <Canvas camera={{ position: [0, 0, 5], fov: 50 }} dpr={[1, 1.5]}>
-          <FloatingParticles count={30} spread={8} color="#E05A3A" />
+          <FloatingParticles count={25} spread={8} color={CRIMSON} />
           <FloatingGeometry />
         </Canvas>
       </div>
