@@ -1,253 +1,338 @@
-import { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useState } from 'react';
 import { useLocation } from 'wouter';
-import { Video, Square, Camera, Smartphone, Film, Radio, Tv, Check, Flame, ArrowLeft, Sparkles } from 'lucide-react';
-import LivePulse from '../components/LivePulse';
+import {
+  ArrowLeft, Video, Camera, Square, Smartphone,
+  Radio, Users, MessageSquare, Settings, Lightbulb,
+  X, ChevronDown
+} from 'lucide-react';
 
-const presets = [
-  { Icon: Smartphone, label: 'TikTok', duration: '15-60s', aspect: '9:16' },
-  { Icon: Video, label: 'Shorts', duration: '<60s', aspect: '9:16' },
-  { Icon: Camera, label: 'Story', duration: '15s', aspect: '9:16' },
-  { Icon: Film, label: 'Feed', duration: '30-90s', aspect: '4:5' },
-  { Icon: Radio, label: 'Live', duration: '\u221e', aspect: '9:16' },
-  { Icon: Tv, label: 'Vibe Cam', duration: 'Loop', aspect: '1:1' },
-];
+function ViewHeader({ onBack }: { onBack: () => void }) {
+  return (
+    <div
+      style={{
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+        zIndex: 20,
+        padding: '12px 16px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        background: 'linear-gradient(rgba(0,0,0,0.5), transparent)',
+      }}
+    >
+      <button
+        className="pj-touch"
+        style={{
+          width: 40,
+          height: 40,
+          borderRadius: '50%',
+          background: 'rgba(0,0,0,0.4)',
+          backdropFilter: 'blur(12px)',
+          border: 'none',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          color: 'white',
+        }}
+        onClick={onBack}
+        data-testid="button-back"
+      >
+        <ArrowLeft size={20} strokeWidth={2} />
+      </button>
 
-const platforms = ['TikTok', 'Reels', 'Shorts', 'Stories'];
+      <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: 6,
+            padding: '6px 12px',
+            borderRadius: 'var(--pj-radius-pill)',
+            background: 'rgba(0,0,0,0.4)',
+            backdropFilter: 'blur(12px)',
+            fontSize: 'var(--pj-size-xs)',
+            fontWeight: 600,
+            color: 'white',
+          }}
+        >
+          <Users size={12} />
+          <span className="pj-mono">0</span>
+        </div>
+        <button
+          className="pj-touch"
+          style={{
+            width: 40,
+            height: 40,
+            borderRadius: '50%',
+            background: 'rgba(0,0,0,0.4)',
+            backdropFilter: 'blur(12px)',
+            border: 'none',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            color: 'white',
+          }}
+          data-testid="button-settings"
+        >
+          <Settings size={18} strokeWidth={2} />
+        </button>
+      </div>
+    </div>
+  );
+}
 
-export default function RecordingStudio() {
-  const [selectedPreset, setSelectedPreset] = useState(0);
-  const [isRecording, setIsRecording] = useState(false);
-  const [seconds, setSeconds] = useState(0);
-  const [showSaved, setShowSaved] = useState(false);
-  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
-  const [, navigate] = useLocation();
+function Viewfinder() {
+  return (
+    <div
+      style={{
+        position: 'relative',
+        aspectRatio: '9/16',
+        maxHeight: '65vh',
+        background: 'var(--pj-surface-1)',
+        borderRadius: 'var(--pj-radius-lg)',
+        overflow: 'hidden',
+        margin: '0 16px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+      }}
+    >
+      <div style={{ textAlign: 'center', padding: 24 }}>
+        <div
+          style={{
+            width: 64,
+            height: 64,
+            borderRadius: '50%',
+            background: 'var(--pj-surface-3)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            margin: '0 auto 16px',
+          }}
+        >
+          <Video size={24} strokeWidth={1.5} style={{ color: 'var(--pj-text-tertiary)' }} />
+        </div>
+        <p style={{ fontSize: 'var(--pj-size-body)', fontWeight: 600, color: 'var(--pj-text-secondary)', marginBottom: 4 }}>
+          Camera preview
+        </p>
+        <p style={{ fontSize: 'var(--pj-size-xs)', color: 'var(--pj-text-tertiary)' }}>
+          Tap record to start streaming
+        </p>
+      </div>
 
-  const toggleRecording = () => {
-    if (isRecording) {
-      if (intervalRef.current) clearInterval(intervalRef.current);
-      setIsRecording(false);
-      setShowSaved(true);
-    } else {
-      setSeconds(0);
-      setShowSaved(false);
-      setIsRecording(true);
-      intervalRef.current = setInterval(() => setSeconds(s => s + 1), 1000);
-    }
-  };
+      <div
+        style={{
+          position: 'absolute',
+          bottom: 12,
+          left: 12,
+          right: 12,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+        }}
+      >
+        <div
+          style={{
+            padding: '4px 10px',
+            borderRadius: 'var(--pj-radius-pill)',
+            background: 'rgba(0,0,0,0.5)',
+            backdropFilter: 'blur(8px)',
+            fontSize: 'var(--pj-size-micro)',
+            fontWeight: 600,
+            color: 'var(--pj-text-secondary)',
+          }}
+        >
+          9:16
+        </div>
+        <div
+          style={{
+            padding: '4px 10px',
+            borderRadius: 'var(--pj-radius-pill)',
+            background: 'rgba(0,0,0,0.5)',
+            backdropFilter: 'blur(8px)',
+            fontSize: 'var(--pj-size-micro)',
+            fontWeight: 600,
+            color: 'var(--pj-text-secondary)',
+          }}
+        >
+          HD 1080p
+        </div>
+      </div>
+    </div>
+  );
+}
 
-  useEffect(() => {
-    return () => {
-      if (intervalRef.current) clearInterval(intervalRef.current);
-    };
-  }, []);
-
-  const formatTime = (s: number) => {
-    const mins = Math.floor(s / 60);
-    const secs = s % 60;
-    return `${mins}:${secs.toString().padStart(2, '0')}`;
-  };
+function StreamPresets({ active, onChange }: { active: string; onChange: (v: string) => void }) {
+  const presets = [
+    { id: 'product', label: 'Product', Icon: Smartphone },
+    { id: 'tour', label: 'Tour', Icon: Video },
+    { id: 'portrait', label: 'Portrait', Icon: Camera },
+  ];
 
   return (
-    <div className="min-h-screen flex flex-col pj-grain" style={{ background: 'var(--pj-deep)' }}>
-      <div className="relative flex-1" style={{ minHeight: '60vh' }}>
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, var(--pj-surface-1), var(--pj-deep))' }}>
-          <div className="absolute inset-0">
-            {[33.33, 66.66].map((pos, i) => (
-              <div key={`v${i}`} className="absolute top-0 bottom-0" style={{ left: `${pos}%`, width: 1, background: 'var(--pj-border-subtle)' }} />
-            ))}
-            {[33.33, 66.66].map((pos, i) => (
-              <div key={`h${i}`} className="absolute left-0 right-0" style={{ top: `${pos}%`, height: 1, background: 'var(--pj-border-subtle)' }} />
-            ))}
-          </div>
+    <div style={{ padding: '16px 16px 0', display: 'flex', gap: 8 }}>
+      {presets.map((p) => (
+        <button
+          key={p.id}
+          className={`pj-pill ${active === p.id ? 'pj-pill-active' : ''}`}
+          onClick={() => onChange(p.id)}
+          data-testid={`button-preset-${p.id}`}
+          style={{ flex: 1, justifyContent: 'center' }}
+        >
+          <p.Icon size={14} strokeWidth={2} />
+          {p.label}
+        </button>
+      ))}
+    </div>
+  );
+}
 
-          {!isRecording && !showSaved && (
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="flex flex-col items-center gap-3">
-                <Camera size={48} strokeWidth={1.2} style={{ color: 'var(--pj-crimson)', opacity: 0.08 }} />
-                <span className="text-[11px] font-medium" style={{ fontFamily: 'var(--pj-font-display)', color: 'var(--pj-text-muted)' }}>
-                  Camera preview
-                </span>
-              </div>
-            </div>
-          )}
+function RecordControls({ onRecord }: { onRecord: () => void }) {
+  return (
+    <div style={{ padding: '20px 16px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 32 }}>
+      <button
+        className="pj-touch"
+        style={{
+          width: 44,
+          height: 44,
+          borderRadius: '50%',
+          background: 'var(--pj-surface-2)',
+          border: '1px solid var(--pj-border)',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          color: 'var(--pj-text-secondary)',
+        }}
+        data-testid="button-flip-camera"
+      >
+        <Camera size={18} strokeWidth={2} />
+      </button>
+
+      <button
+        className="pj-touch"
+        onClick={onRecord}
+        style={{
+          width: 72,
+          height: 72,
+          borderRadius: '50%',
+          background: 'transparent',
+          border: '3px solid var(--pj-red)',
+          padding: 4,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+        data-testid="button-record"
+      >
+        <div
+          style={{
+            width: '100%',
+            height: '100%',
+            borderRadius: '50%',
+            background: 'var(--pj-red)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+        >
+          <Radio size={24} strokeWidth={2.5} style={{ color: 'white' }} />
         </div>
+      </button>
 
-        <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-10">
-          <motion.button
-            className="pj-pill text-[11px] gap-1.5"
-            style={{ background: 'var(--pj-surface-glass)', backdropFilter: 'blur(12px)' }}
-            whileTap={{ scale: 0.95 }}
-            onClick={() => navigate('/pjazza/business/dashboard')}
-          >
-            <ArrowLeft size={14} strokeWidth={2.5} />
-            Back
-          </motion.button>
+      <button
+        className="pj-touch"
+        style={{
+          width: 44,
+          height: 44,
+          borderRadius: '50%',
+          background: 'var(--pj-surface-2)',
+          border: '1px solid var(--pj-border)',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          color: 'var(--pj-text-secondary)',
+        }}
+        data-testid="button-chat"
+      >
+        <MessageSquare size={18} strokeWidth={2} />
+      </button>
+    </div>
+  );
+}
 
-          <AnimatePresence>
-            {isRecording && (
-              <motion.div
-                className="pj-live-badge px-3"
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.8 }}
-              >
-                <LivePulse size={6} color="#fff" />
-                <span className="text-[11px] font-bold text-white" style={{ fontFamily: 'var(--pj-font-display)' }}>REC</span>
-              </motion.div>
-            )}
-          </AnimatePresence>
+function CoachingTip() {
+  const [dismissed, setDismissed] = useState(false);
 
-          <div
-            className="pj-pill text-[10px]"
-            style={{ background: 'var(--pj-surface-glass)', backdropFilter: 'blur(12px)' }}
-          >
-            {presets[selectedPreset].aspect} · 30fps
-          </div>
+  if (dismissed) return null;
+
+  return (
+    <div style={{ padding: '0 16px 24px' }}>
+      <div
+        className="pj-card"
+        style={{
+          padding: 16,
+          display: 'flex',
+          gap: 12,
+          alignItems: 'flex-start',
+          borderColor: 'var(--pj-border-hover)',
+        }}
+      >
+        <Lightbulb size={18} strokeWidth={2} style={{ color: 'var(--pj-gold)', flexShrink: 0, marginTop: 2 }} />
+        <div style={{ flex: 1 }}>
+          <h4 style={{ fontSize: 'var(--pj-size-small)', fontWeight: 700, color: 'var(--pj-text)', marginBottom: 4 }}>
+            Quick tip
+          </h4>
+          <p style={{ fontSize: 'var(--pj-size-xs)', color: 'var(--pj-text-tertiary)', lineHeight: 1.5 }}>
+            Start with your best product. Smile, introduce yourself, and tell viewers what makes it special. Keep it under 15 minutes for best engagement.
+          </p>
         </div>
+        <button
+          className="pj-touch"
+          onClick={() => setDismissed(true)}
+          style={{
+            background: 'transparent',
+            border: 'none',
+            color: 'var(--pj-text-tertiary)',
+            padding: 4,
+          }}
+          data-testid="button-dismiss-tip"
+        >
+          <X size={14} />
+        </button>
+      </div>
+    </div>
+  );
+}
 
-        <div className="absolute bottom-4 left-4 right-4 z-10">
-          <AnimatePresence>
-            {!showSaved && !isRecording && (
-              <motion.div
-                className="pj-card-glow px-4 py-3 text-[11px] text-center font-medium flex items-center justify-center gap-2"
-                style={{ color: 'var(--pj-text-tertiary)' }}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0 }}
-              >
-                <Sparkles size={13} strokeWidth={2.5} style={{ color: 'var(--pj-crimson)' }} />
-                Hook in first 2 seconds
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </div>
+export default function RecordingStudio() {
+  const [, navigate] = useLocation();
+  const [preset, setPreset] = useState('product');
 
-        <AnimatePresence>
-          {showSaved && (
-            <motion.div
-              className="absolute inset-0 z-20 flex flex-col items-center justify-center"
-              style={{ background: 'rgba(10,10,15,0.88)', backdropFilter: 'blur(24px)' }}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-            >
-              <motion.div
-                className="w-16 h-16 rounded-full flex items-center justify-center mb-5"
-                style={{ background: 'var(--pj-green-subtle)', border: '2px solid var(--pj-green)' }}
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                transition={{ type: 'spring', stiffness: 300, damping: 15 }}
-              >
-                <Check size={28} strokeWidth={2.5} style={{ color: 'var(--pj-green)' }} />
-              </motion.div>
-              <p
-                className="text-xl font-bold mb-6"
-                style={{ fontFamily: 'var(--pj-font-display)', color: 'var(--pj-text)' }}
-              >
-                Video Saved!
-              </p>
-              <div className="flex flex-wrap gap-2 justify-center">
-                {platforms.map((p, i) => (
-                  <motion.div
-                    key={i}
-                    className="pj-pill text-[11px] font-bold"
-                    style={{ background: 'var(--pj-green-subtle)', border: '1px solid rgba(52,211,153,0.15)', color: 'var(--pj-green)' }}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.3 + i * 0.12 }}
-                  >
-                    <Check size={11} strokeWidth={2.5} /> {p}
-                  </motion.div>
-                ))}
-              </div>
-              <motion.button
-                className="mt-7 pj-btn-primary px-8 py-3.5 text-[14px] font-bold"
-                style={{ fontFamily: 'var(--pj-font-display)' }}
-                whileTap={{ scale: 0.96 }}
-                onClick={() => setShowSaved(false)}
-              >
-                Record Another
-              </motion.button>
-            </motion.div>
-          )}
-        </AnimatePresence>
+  return (
+    <div
+      style={{
+        minHeight: '100dvh',
+        background: 'var(--pj-black)',
+        display: 'flex',
+        flexDirection: 'column',
+      }}
+    >
+      <div style={{ position: 'relative' }}>
+        <ViewHeader onBack={() => navigate('/pjazza/business/dashboard')} />
       </div>
 
-      <div className="px-6 py-5" style={{ background: 'var(--pj-deep)', borderTop: '1px solid var(--pj-border)' }}>
-        <div className="flex gap-2 overflow-x-auto pb-4 pj-scrollbar-hide">
-          {presets.map((preset, i) => (
-            <motion.button
-              key={i}
-              className="flex-shrink-0 flex items-center gap-1.5 px-4 py-2.5 rounded-full text-[11px] font-bold whitespace-nowrap transition-all duration-300"
-              style={{
-                fontFamily: 'var(--pj-font-display)',
-                background: selectedPreset === i ? 'var(--pj-crimson)' : 'var(--pj-surface-1)',
-                color: selectedPreset === i ? 'white' : 'var(--pj-text-tertiary)',
-                border: `1px solid ${selectedPreset === i ? 'transparent' : 'var(--pj-border)'}`,
-                boxShadow: selectedPreset === i ? '0 4px 16px rgba(196,30,58,0.3)' : 'none',
-              }}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => setSelectedPreset(i)}
-              data-testid={`button-preset-${preset.label.toLowerCase()}`}
-            >
-              <preset.Icon size={13} strokeWidth={2} />
-              {preset.label}
-            </motion.button>
-          ))}
-        </div>
-
-        <div className="flex items-center justify-center py-4">
-          <motion.button
-            className="relative flex items-center justify-center"
-            style={{
-              width: 72,
-              height: 72,
-              borderRadius: '50%',
-              background: 'var(--pj-crimson)',
-              boxShadow: isRecording
-                ? '0 0 50px rgba(196,30,58,0.5)'
-                : '0 0 24px rgba(196,30,58,0.3)',
-            }}
-            whileTap={{ scale: 0.9 }}
-            onClick={toggleRecording}
-            data-testid="button-record"
-            animate={isRecording ? {
-              boxShadow: ['0 0 30px rgba(196,30,58,0.3)', '0 0 60px rgba(196,30,58,0.6)', '0 0 30px rgba(196,30,58,0.3)'],
-            } : {}}
-            transition={isRecording ? { duration: 1, repeat: Infinity } : {}}
-          >
-            {isRecording && (
-              <motion.div
-                className="absolute inset-0 rounded-full"
-                style={{ border: '3px solid rgba(196,30,58,0.3)' }}
-                animate={{ scale: [1, 1.3, 1], opacity: [0.4, 0, 0.4] }}
-                transition={{ duration: 1.5, repeat: Infinity }}
-              />
-            )}
-            <div className="relative z-10 flex flex-col items-center">
-              {isRecording ? (
-                <>
-                  <Square size={20} fill="white" className="text-white" />
-                  <span
-                    className="text-[10px] font-bold text-white mt-1 pj-number-mono"
-                    style={{ fontFamily: 'var(--pj-font-display)' }}
-                  >
-                    {formatTime(seconds)}
-                  </span>
-                </>
-              ) : (
-                <span
-                  className="text-[11px] font-bold text-white"
-                  style={{ fontFamily: 'var(--pj-font-display)', letterSpacing: '0.05em' }}
-                >
-                  START
-                </span>
-              )}
-            </div>
-          </motion.button>
-        </div>
+      <div style={{ paddingTop: 56 }}>
+        <Viewfinder />
       </div>
+
+      <StreamPresets active={preset} onChange={setPreset} />
+
+      <div style={{ flex: 1 }} />
+
+      <RecordControls onRecord={() => {}} />
+      <CoachingTip />
     </div>
   );
 }
