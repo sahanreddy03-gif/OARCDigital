@@ -11,7 +11,7 @@ function PitchHero() {
   const [, navigate] = useLocation();
 
   return (
-    <div style={{ padding: '60px 24px 40px', background: 'var(--pj-black)' }}>
+    <div className="pj-section" style={{ paddingTop: 60, paddingBottom: 40 }}>
       <ScrollReveal>
         <div className="pj-live-badge" style={{ marginBottom: 20 }}>
           <span className="pj-live-dot" />
@@ -31,24 +31,26 @@ function PitchHero() {
           <br />
           <span style={{ color: 'var(--pj-red)' }}>is now live.</span>
         </h1>
-        <p style={{ fontSize: 'var(--pj-size-body)', color: 'var(--pj-text-secondary)', lineHeight: 1.6, marginBottom: 32, maxWidth: 320 }}>
+        <p style={{ fontSize: 'var(--pj-size-body)', color: 'var(--pj-text-secondary)', lineHeight: 1.6, marginBottom: 32, maxWidth: 480 }}>
           Show Malta what you do — in real time. No ads, no algorithms. Just real customers watching your business, live.
         </p>
       </ScrollReveal>
 
       <ScrollReveal delay={100}>
-        <button
-          className="pj-btn-primary"
-          style={{ width: '100%', padding: '18px 24px', fontSize: 16 }}
-          onClick={() => navigate('/pjazza/business/dashboard')}
-          data-testid="button-start-free"
-        >
-          <span>Start Free — 90 Days</span>
-          <ArrowRight size={18} strokeWidth={2.5} />
-        </button>
-        <p style={{ fontSize: 'var(--pj-size-micro)', color: 'var(--pj-text-tertiary)', textAlign: 'center', marginTop: 12 }}>
-          No credit card. No commitment. Cancel anytime.
-        </p>
+        <div className="pj-cta-container">
+          <button
+            className="pj-btn-primary"
+            style={{ width: '100%', padding: '18px 24px', fontSize: 16 }}
+            onClick={() => navigate('/pjazza/business/dashboard')}
+            data-testid="button-start-free"
+          >
+            <span>Start Free — 90 Days</span>
+            <ArrowRight size={18} strokeWidth={2.5} />
+          </button>
+          <p style={{ fontSize: 'var(--pj-size-micro)', color: 'var(--pj-text-tertiary)', textAlign: 'center', marginTop: 12 }}>
+            No credit card. No commitment. Cancel anytime.
+          </p>
+        </div>
       </ScrollReveal>
     </div>
   );
@@ -70,7 +72,7 @@ function ProblemSection() {
         </h2>
       </ScrollReveal>
 
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+      <div className="pj-grid-cards">
         {problems.map((p, i) => (
           <ScrollReveal key={i} delay={i * 80}>
             <div style={{ display: 'flex', gap: 16, alignItems: 'flex-start', padding: '12px 0' }}>
@@ -116,10 +118,10 @@ function SolutionSection() {
         </h2>
       </ScrollReveal>
 
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+      <div className="pj-pitch-grid">
         {features.map((f, i) => (
           <ScrollReveal key={i} delay={i * 80}>
-            <div className="pj-card" style={{ padding: 20 }}>
+            <div className="pj-card" style={{ padding: 20, height: '100%' }}>
               <div style={{ display: 'flex', gap: 14, alignItems: 'flex-start' }}>
                 <div
                   style={{
@@ -168,7 +170,7 @@ function ProofSection() {
         </h2>
       </ScrollReveal>
 
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+      <div className="pj-grid-cards">
         {metrics.map((m, i) => (
           <ScrollReveal key={i} delay={i * 80}>
             <div className="pj-card" style={{ padding: 20 }}>
@@ -210,7 +212,7 @@ function IndustrySection() {
         </h2>
       </ScrollReveal>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
+      <div className="pj-grid-2">
         {industries.map((ind, i) => (
           <ScrollReveal key={i} delay={i * 60}>
             <div className="pj-card pj-touch" style={{ padding: 16, height: '100%' }}>
@@ -240,50 +242,52 @@ function PricingSection() {
       </ScrollReveal>
 
       <ScrollReveal delay={80}>
-        <div
-          className="pj-card"
-          style={{ padding: 24, borderColor: 'var(--pj-red-border)' }}
-        >
-          <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 16 }}>
-            <Star size={16} fill="#D4A574" style={{ color: '#D4A574' }} />
-            <span style={{ fontSize: 'var(--pj-size-small)', fontWeight: 700, color: 'var(--pj-gold)' }}>
-              Founding Partner
-            </span>
-          </div>
-          <div style={{ display: 'flex', alignItems: 'baseline', gap: 4, marginBottom: 8 }}>
-            <span className="pj-mono" style={{ fontSize: 'var(--pj-size-h1)', fontWeight: 800, color: 'var(--pj-text)' }}>
-              €0
-            </span>
-            <span style={{ fontSize: 'var(--pj-size-small)', color: 'var(--pj-text-tertiary)' }}>
-              for 90 days
-            </span>
-          </div>
-          <p style={{ fontSize: 'var(--pj-size-small)', color: 'var(--pj-text-secondary)', marginBottom: 20, lineHeight: 1.5 }}>
-            Then 5% commission on completed sales only. You pay nothing until you earn.
-          </p>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-            {[
-              'Unlimited live streams',
-              'Real-time analytics dashboard',
-              'Escrow payment processing',
-              'Customer chat & offers',
-              'Cruise ship schedule alerts',
-              'Priority "Founding Partner" badge',
-            ].map((f, i) => (
-              <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-                <CheckCircle size={14} style={{ color: 'var(--pj-green)', flexShrink: 0 }} />
-                <span style={{ fontSize: 'var(--pj-size-small)', color: 'var(--pj-text-secondary)' }}>
-                  {f}
-                </span>
-              </div>
-            ))}
+        <div style={{ maxWidth: 560 }}>
+          <div
+            className="pj-card"
+            style={{ padding: 24, borderColor: 'var(--pj-red-border)' }}
+          >
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 16 }}>
+              <Star size={16} fill="#D4A574" style={{ color: '#D4A574' }} />
+              <span style={{ fontSize: 'var(--pj-size-small)', fontWeight: 700, color: 'var(--pj-gold)' }}>
+                Founding Partner
+              </span>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'baseline', gap: 4, marginBottom: 8 }}>
+              <span className="pj-mono" style={{ fontSize: 'var(--pj-size-h1)', fontWeight: 800, color: 'var(--pj-text)' }}>
+                €0
+              </span>
+              <span style={{ fontSize: 'var(--pj-size-small)', color: 'var(--pj-text-tertiary)' }}>
+                for 90 days
+              </span>
+            </div>
+            <p style={{ fontSize: 'var(--pj-size-small)', color: 'var(--pj-text-secondary)', marginBottom: 20, lineHeight: 1.5 }}>
+              Then 5% commission on completed sales only. You pay nothing until you earn.
+            </p>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 12 }}>
+              {[
+                'Unlimited live streams',
+                'Real-time analytics dashboard',
+                'Escrow payment processing',
+                'Customer chat & offers',
+                'Cruise ship schedule alerts',
+                'Priority "Founding Partner" badge',
+              ].map((f, i) => (
+                <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                  <CheckCircle size={14} style={{ color: 'var(--pj-green)', flexShrink: 0 }} />
+                  <span style={{ fontSize: 'var(--pj-size-small)', color: 'var(--pj-text-secondary)' }}>
+                    {f}
+                  </span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </ScrollReveal>
 
       <ScrollReveal delay={160}>
-        <div style={{ textAlign: 'center', padding: '24px 0 0' }}>
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, marginBottom: 4 }}>
+        <div style={{ padding: '24px 0 0', maxWidth: 560 }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4 }}>
             <DollarSign size={14} style={{ color: 'var(--pj-text-tertiary)' }} />
             <span style={{ fontSize: 'var(--pj-size-xs)', color: 'var(--pj-text-tertiary)' }}>
               Revenue math
@@ -318,15 +322,17 @@ function FinalCTA() {
           <br />
           Lock in your position now.
         </p>
-        <button
-          className="pj-btn-primary"
-          style={{ width: '100%', padding: '18px 24px', fontSize: 16 }}
-          onClick={() => navigate('/pjazza/business/dashboard')}
-          data-testid="button-claim-spot"
-        >
-          <span>Claim Your Spot</span>
-          <ArrowRight size={18} strokeWidth={2.5} />
-        </button>
+        <div className="pj-cta-container" style={{ margin: '0 auto' }}>
+          <button
+            className="pj-btn-primary"
+            style={{ width: '100%', padding: '18px 24px', fontSize: 16 }}
+            onClick={() => navigate('/pjazza/business/dashboard')}
+            data-testid="button-claim-spot"
+          >
+            <span>Claim Your Spot</span>
+            <ArrowRight size={18} strokeWidth={2.5} />
+          </button>
+        </div>
         <p
           className="pj-mono"
           style={{ fontSize: 'var(--pj-size-micro)', color: 'var(--pj-text-tertiary)', marginTop: 16 }}

@@ -3,7 +3,7 @@ import { useLocation } from 'wouter';
 import {
   ArrowLeft, Video, Camera, Square, Smartphone,
   Radio, Users, MessageSquare, Settings, Lightbulb,
-  X, ChevronDown
+  X
 } from 'lucide-react';
 
 function ViewHeader({ onBack }: { onBack: () => void }) {
@@ -317,22 +317,25 @@ export default function RecordingStudio() {
         background: 'var(--pj-black)',
         display: 'flex',
         flexDirection: 'column',
+        alignItems: 'center',
       }}
     >
-      <div style={{ position: 'relative' }}>
-        <ViewHeader onBack={() => navigate('/pjazza/business/dashboard')} />
+      <div className="pj-studio-container">
+        <div style={{ position: 'relative' }}>
+          <ViewHeader onBack={() => navigate('/pjazza/business/dashboard')} />
+        </div>
+
+        <div style={{ paddingTop: 56 }}>
+          <Viewfinder />
+        </div>
+
+        <StreamPresets active={preset} onChange={setPreset} />
+
+        <div style={{ flex: 1 }} />
+
+        <RecordControls onRecord={() => {}} />
+        <CoachingTip />
       </div>
-
-      <div style={{ paddingTop: 56 }}>
-        <Viewfinder />
-      </div>
-
-      <StreamPresets active={preset} onChange={setPreset} />
-
-      <div style={{ flex: 1 }} />
-
-      <RecordControls onRecord={() => {}} />
-      <CoachingTip />
     </div>
   );
 }
