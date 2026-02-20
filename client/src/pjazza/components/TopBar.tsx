@@ -1,21 +1,24 @@
 import { useLocation } from 'wouter';
-import { Search, Bell, Home, Compass, Radio, Briefcase, User } from 'lucide-react';
+import { Search, Bell, Home, Compass, Radio, Briefcase, Info, Grid3X3 } from 'lucide-react';
 
 const desktopLinks = [
   { id: 'home', Icon: Home, label: 'Home', path: '/pjazza/discover' },
-  { id: 'explore', Icon: Compass, label: 'Explore', path: '/pjazza/discover' },
+  { id: 'sectors', Icon: Grid3X3, label: 'Sectors', path: '/pjazza/sectors' },
+  { id: 'how', Icon: Info, label: 'How It Works', path: '/pjazza/how-it-works' },
   { id: 'live', Icon: Radio, label: 'Go Live', path: '/pjazza/business/stream' },
   { id: 'business', Icon: Briefcase, label: 'Business', path: '/pjazza/business/dashboard' },
-  { id: 'profile', Icon: User, label: 'Profile', path: '/pjazza/discover' },
 ];
 
 export default function TopBar() {
   const [location, navigate] = useLocation();
 
   const getActive = () => {
+    if (location.includes('/sectors')) return 'sectors';
+    if (location.includes('/how-it-works')) return 'how';
     if (location.includes('/business/stream')) return 'live';
     if (location.includes('/business')) return 'business';
-    return 'home';
+    if (location === '/pjazza/discover') return 'home';
+    return '';
   };
 
   const active = getActive();
