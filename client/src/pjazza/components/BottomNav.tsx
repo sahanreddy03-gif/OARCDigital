@@ -1,82 +1,110 @@
-import { motion } from 'framer-motion';
-import { Home, ShoppingBag, Radio, Wrench, User } from 'lucide-react';
+import { useLocation } from 'wouter';
+import { Home, Compass, Radio, Briefcase, User } from 'lucide-react';
 
 const tabs = [
-  { id: 'home', Icon: Home, label: 'Home' },
-  { id: 'shop', Icon: ShoppingBag, label: 'Shop' },
-  { id: 'live', Icon: Radio, label: 'LIVE' },
-  { id: 'services', Icon: Wrench, label: 'Services' },
-  { id: 'profile', Icon: User, label: 'Profile' },
+  { id: 'home', Icon: Home, label: 'Home', path: '/pjazza/discover' },
+  { id: 'explore', Icon: Compass, label: 'Explore', path: '/pjazza/discover' },
+  { id: 'live', Icon: Radio, label: 'LIVE', path: '/pjazza/business/stream' },
+  { id: 'business', Icon: Briefcase, label: 'Business', path: '/pjazza/business/dashboard' },
+  { id: 'profile', Icon: User, label: 'Profile', path: '/pjazza/discover' },
 ];
 
 export default function BottomNav() {
+  const [location, navigate] = useLocation();
+
+  const getActiveTab = () => {
+    if (location.includes('/business/stream')) return 'live';
+    if (location.includes('/business/dashboard')) return 'business';
+    if (location.includes('/business/onboard')) return 'business';
+    if (location === '/pjazza/discover') return 'home';
+    return 'home';
+  };
+
+  const activeTab = getActiveTab();
+
   return (
-    <div className="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[420px] z-40">
-      <div className="mx-3 mb-3 rounded-[28px] pj-frosted border" style={{ borderColor: 'var(--pj-border)' }}>
-        <div className="flex items-center justify-around px-2 py-2">
+    <div
+      style={{
+        position: 'fixed',
+        bottom: 0,
+        left: '50%',
+        transform: 'translateX(-50%)',
+        width: '100%',
+        maxWidth: 420,
+        zIndex: 40,
+      }}
+    >
+      <div
+        className="pj-frosted"
+        style={{
+          borderTop: '1px solid var(--pj-border)',
+          paddingBottom: 'env(safe-area-inset-bottom, 0px)',
+        }}
+      >
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-around',
+            padding: '8px 4px 8px',
+          }}
+        >
           {tabs.map((tab) => {
-            const isActive = tab.id === 'home';
+            const isActive = activeTab === tab.id;
             const isLive = tab.id === 'live';
 
-            if (isLive) {
-              return (
-                <motion.button
-                  key={tab.id}
-                  className="relative flex flex-col items-center"
-                  whileTap={{ scale: 0.88 }}
-                  data-testid="button-nav-live"
-                >
-                  <div className="relative">
-                    <motion.div
-                      className="absolute -inset-1.5 rounded-full"
-                      style={{ background: 'var(--pj-crimson)' }}
-                      animate={{ scale: [1, 1.3, 1], opacity: [0.2, 0, 0.2] }}
-                      transition={{ duration: 2, repeat: Infinity }}
-                    />
-                    <div
-                      className="relative w-11 h-11 rounded-full flex items-center justify-center"
-                      style={{
-                        background: 'var(--pj-crimson)',
-                        boxShadow: '0 4px 20px rgba(196,30,58,0.4)',
-                      }}
-                    >
-                      <Radio size={18} className="text-white" strokeWidth={2.5} />
-                    </div>
-                  </div>
-                </motion.button>
-              );
-            }
-
             return (
-              <motion.button
+              <button
                 key={tab.id}
-                className="relative flex flex-col items-center py-1.5 px-3"
-                whileTap={{ scale: 0.88 }}
+                className="pj-touch"
+                style={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  gap: 4,
+                  padding: '6px 12px',
+                  background: 'transparent',
+                  border: 'none',
+                  minWidth: 56,
+                }}
+                onClick={() => navigate(tab.path)}
                 data-testid={`button-nav-${tab.id}`}
               >
-                {isActive && (
-                  <motion.div
-                    className="absolute -top-0.5 left-1/2 -translate-x-1/2 w-5 h-1 rounded-full"
-                    style={{ background: 'var(--pj-crimson)' }}
-                    layoutId="nav-pill"
-                    transition={{ type: 'spring', stiffness: 400, damping: 30 }}
+                {isLive ? (
+                  <div
+                    style={{
+                      width: 40,
+                      height: 40,
+                      borderRadius: '50%',
+                      background: 'var(--pj-red)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                    }}
+                  >
+                    <Radio size={18} strokeWidth={2.5} style={{ color: 'white' }} />
+                  </div>
+                ) : (
+                  <tab.Icon
+                    size={22}
+                    strokeWidth={isActive ? 2.5 : 1.8}
+                    style={{
+                      color: isActive ? 'var(--pj-text)' : 'var(--pj-text-tertiary)',
+                    }}
                   />
                 )}
-                <tab.Icon
-                  size={20}
-                  strokeWidth={isActive ? 2.5 : 1.8}
-                  style={{ color: isActive ? 'var(--pj-text)' : 'var(--pj-text-tertiary)' }}
-                />
-                <span
-                  className="text-[9px] font-semibold mt-1"
-                  style={{
-                    fontFamily: 'var(--pj-font-display)',
-                    color: isActive ? 'var(--pj-text)' : 'var(--pj-text-tertiary)',
-                  }}
-                >
-                  {tab.label}
-                </span>
-              </motion.button>
+                {!isLive && (
+                  <span
+                    style={{
+                      fontSize: 'var(--pj-size-micro)',
+                      fontWeight: isActive ? 700 : 500,
+                      color: isActive ? 'var(--pj-text)' : 'var(--pj-text-tertiary)',
+                    }}
+                  >
+                    {tab.label}
+                  </span>
+                )}
+              </button>
             );
           })}
         </div>
