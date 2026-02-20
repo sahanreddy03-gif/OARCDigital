@@ -4,7 +4,7 @@ import { Home, Grid3X3, Radio, Briefcase, Users } from 'lucide-react';
 const tabs = [
   { id: 'home', Icon: Home, label: 'Home', path: '/pjazza/discover' },
   { id: 'sectors', Icon: Grid3X3, label: 'Sectors', path: '/pjazza/sectors' },
-  { id: 'live', Icon: Radio, label: 'LIVE', path: '/pjazza/business/stream' },
+  { id: 'live', Icon: Radio, label: 'LIVE', path: '/pjazza/live-shop' },
   { id: 'people', Icon: Users, label: 'People', path: '/pjazza/people' },
   { id: 'business', Icon: Briefcase, label: 'Business', path: '/pjazza/business/dashboard' },
 ];
@@ -13,10 +13,11 @@ export default function BottomNav() {
   const [location, navigate] = useLocation();
 
   const getActiveTab = () => {
+    if (location.includes('/live-shop')) return 'live';
     if (location.includes('/sectors')) return 'sectors';
     if (location.includes('/people')) return 'people';
     if (location.includes('/how-it-works')) return 'how';
-    if (location.includes('/business/stream')) return 'live';
+    if (location.includes('/business/stream')) return 'business';
     if (location.includes('/business/dashboard')) return 'business';
     if (location.includes('/business/onboard')) return 'business';
     if (location === '/pjazza/discover') return 'home';

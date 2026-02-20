@@ -6,6 +6,8 @@ import Discover from './pages/Discover';
 import HowItWorks from './pages/HowItWorks';
 import Sectors from './pages/Sectors';
 import People from './pages/People';
+import LiveShop from './pages/LiveShop';
+import LiveShopSession from './pages/LiveShopSession';
 import BusinessOnboard from './pages/BusinessOnboard';
 import BusinessDashboard from './pages/BusinessDashboard';
 import RecordingStudio from './pages/RecordingStudio';
@@ -19,6 +21,8 @@ export default function PjazzaApp() {
         <Route path="/pjazza/how-it-works" component={HowItWorks} />
         <Route path="/pjazza/sectors" component={Sectors} />
         <Route path="/pjazza/people" component={People} />
+        <Route path="/pjazza/live-shop" component={LiveShop} />
+        <Route path="/pjazza/live-shop/:storeId" component={LiveShopSession} />
         <Route path="/pjazza/business/onboard" component={BusinessOnboard} />
         <Route path="/pjazza/business/dashboard" component={BusinessDashboard} />
         <Route path="/pjazza/business/stream" component={RecordingStudio} />

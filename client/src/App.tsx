@@ -254,6 +254,8 @@ function Router() {
       <Route path="/malta/:location/:service" component={LocationService} />
 
       {/* PJAZZA App — self-contained */}
+      <Route path="/pjazza/live-shop/:storeId" component={PjazzaApp} />
+      <Route path="/pjazza/live-shop" component={PjazzaApp} />
       <Route path="/pjazza/business/stream" component={PjazzaApp} />
       <Route path="/pjazza/business/dashboard" component={PjazzaApp} />
       <Route path="/pjazza/business/onboard" component={PjazzaApp} />
