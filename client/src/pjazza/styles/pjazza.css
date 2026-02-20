@@ -252,6 +252,21 @@
   border-radius: 50%;
   background: var(--pj-red);
   flex-shrink: 0;
+  animation: pj-pulse 1.8s ease-in-out infinite;
+}
+
+@keyframes pj-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.7); }
+}
+
+@keyframes pj-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(225, 29, 72, 0.4); }
+  50% { box-shadow: 0 0 0 6px rgba(225, 29, 72, 0); }
+}
+
+.pj-live-ring {
+  animation: pj-glow 2s ease-in-out infinite;
 }
 
 .pj-live-badge {
@@ -266,6 +281,93 @@
   color: var(--pj-red);
   letter-spacing: 0.02em;
 }
+
+.pj-live-badge-lg {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: var(--pj-radius-pill);
+  background: rgba(225, 29, 72, 0.15);
+  border: 1px solid rgba(225, 29, 72, 0.2);
+  font-size: var(--pj-size-small);
+  font-weight: 700;
+  color: var(--pj-red);
+  letter-spacing: 0.02em;
+}
+
+.pj-gold-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 8px;
+  border-radius: var(--pj-radius-pill);
+  background: rgba(212, 165, 116, 0.1);
+  border: 1px solid rgba(212, 165, 116, 0.2);
+  font-size: var(--pj-size-micro);
+  font-weight: 700;
+  color: var(--pj-gold);
+}
+
+.pj-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.pj-avatar-lg {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.pj-btn-book {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: var(--pj-red);
+  color: white;
+  font-family: var(--pj-font);
+  font-weight: 700;
+  font-size: var(--pj-size-small);
+  border: none;
+  border-radius: var(--pj-radius-pill);
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: transform 0.1s ease, opacity 0.15s ease;
+  -webkit-tap-highlight-color: transparent;
+  width: 100%;
+}
+
+.pj-btn-book:hover { opacity: 0.92; }
+.pj-btn-book:active { transform: scale(0.97); }
+
+.pj-btn-watch {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: transparent;
+  color: var(--pj-red);
+  font-family: var(--pj-font);
+  font-weight: 700;
+  font-size: var(--pj-size-small);
+  border: 1px solid var(--pj-red-border);
+  border-radius: var(--pj-radius-pill);
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: transform 0.1s ease, background 0.15s ease;
+  -webkit-tap-highlight-color: transparent;
+  width: 100%;
+}
+
+.pj-btn-watch:hover { background: var(--pj-red-soft); }
+.pj-btn-watch:active { transform: scale(0.97); }
 
 /* Section spacing */
 .pj-section {

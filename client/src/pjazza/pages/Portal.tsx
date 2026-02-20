@@ -4,7 +4,7 @@ import {
   Utensils, Home, Ship, Car, Heart, Wrench, Landmark,
   ShoppingBag, Smartphone, GraduationCap, PawPrint, Compass,
   Users, Lock, Video, MessageSquare, ChevronRight, Zap,
-  TrendingUp, Package
+  Package, Calendar
 } from 'lucide-react';
 import ScrollReveal from '../components/ScrollReveal';
 import BrandMarquee from '../components/BrandMarquee';
@@ -15,20 +15,27 @@ import thumbProperty from '../assets/thumb-property.jpg';
 import thumbCar from '../assets/thumb-car.jpg';
 import thumbWellness from '../assets/thumb-wellness.jpg';
 
+import imgElectrician from '../assets/people/electrician.jpg';
+import imgYoga from '../assets/people/yoga.jpg';
+import imgScuba from '../assets/people/scuba.jpg';
+import imgLawyer from '../assets/people/lawyer.jpg';
+import imgChef from '../assets/people/chef.jpg';
+import imgHairstylist from '../assets/people/hairstylist.jpg';
+
 function Hero() {
   const [, navigate] = useLocation();
 
   return (
-    <div className="pj-image-wash" style={{ position: 'relative', minHeight: '70vh', display: 'flex', alignItems: 'flex-end' }}>
+    <div className="pj-image-wash" style={{ position: 'relative', minHeight: '75vh', display: 'flex', alignItems: 'flex-end' }}>
       <img
         src={heroImg}
         alt=""
-        style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', opacity: 0.5 }}
+        style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', opacity: 0.45 }}
       />
       <div style={{ position: 'relative', zIndex: 2, width: '100%' }}>
-        <div className="pj-container" style={{ paddingBottom: 40, paddingTop: 80 }}>
-          <div className="pj-live-badge" style={{ marginBottom: 16 }}>
-            <span className="pj-live-dot" />
+        <div className="pj-container" style={{ paddingBottom: 48, paddingTop: 80 }}>
+          <div className="pj-live-badge-lg" style={{ marginBottom: 20 }}>
+            <span className="pj-live-dot" style={{ width: 8, height: 8 }} />
             <span>47 live now across Malta</span>
           </div>
           <h1
@@ -38,25 +45,25 @@ function Hero() {
               lineHeight: 0.95,
               letterSpacing: '-0.03em',
               color: 'var(--pj-text)',
-              marginBottom: 16,
+              marginBottom: 20,
             }}
           >
-            Malta's Live
+            Watch it live.
             <br />
-            Shopping
+            Buy it
             <br />
-            <span style={{ color: 'var(--pj-red)' }}>Marketplace.</span>
+            <span style={{ color: 'var(--pj-red)' }}>now.</span>
           </h1>
           <p
             style={{
-              fontSize: 'var(--pj-size-body)',
-              lineHeight: 1.6,
+              fontSize: 'var(--pj-size-h3)',
+              lineHeight: 1.5,
               color: 'var(--pj-text-secondary)',
               maxWidth: 440,
-              marginBottom: 32,
+              marginBottom: 36,
             }}
           >
-            Watch real businesses live. Browse property, cars, food, services, fashion — everything Malta has to offer. Chat directly. Buy with escrow protection.
+            Malta's live shopping marketplace. See every product, service, and property in real time before you buy.
           </p>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, maxWidth: 440 }}>
             <button
@@ -65,8 +72,8 @@ function Hero() {
               onClick={() => navigate('/pjazza/discover')}
               data-testid="button-start-shopping"
             >
-              <span>Start Shopping</span>
-              <ArrowRight size={18} strokeWidth={2.5} />
+              <Play size={16} fill="white" style={{ marginRight: 2 }} />
+              <span>Watch Live</span>
             </button>
             <button
               className="pj-btn-secondary"
@@ -99,11 +106,14 @@ function LiveNowPreview() {
       <ScrollReveal>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 20 }}>
           <div>
-            <h2 style={{ fontSize: 'var(--pj-size-h2)', fontWeight: 700, color: 'var(--pj-text)', letterSpacing: '-0.01em' }}>
-              Shopping Live Now
-            </h2>
-            <p style={{ fontSize: 'var(--pj-size-xs)', color: 'var(--pj-text-tertiary)', marginTop: 2 }}>
-              Watch, chat, and buy — in real time
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4 }}>
+              <span className="pj-live-dot" style={{ width: 8, height: 8 }} />
+              <h2 style={{ fontSize: 'var(--pj-size-h2)', fontWeight: 700, color: 'var(--pj-text)', letterSpacing: '-0.01em' }}>
+                Live Now
+              </h2>
+            </div>
+            <p style={{ fontSize: 'var(--pj-size-small)', color: 'var(--pj-text-tertiary)', marginTop: 2 }}>
+              Watch, chat, and buy in real time
             </p>
           </div>
           <button className="pj-btn-ghost" style={{ gap: 4 }} onClick={() => navigate('/pjazza/discover')} data-testid="button-see-all-live">
@@ -123,33 +133,33 @@ function LiveNowPreview() {
               <div style={{ position: 'relative', aspectRatio: '16/10', overflow: 'hidden' }}>
                 <img src={stream.img} alt={stream.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(transparent 40%, rgba(0,0,0,0.6))' }} />
-                <div style={{ position: 'absolute', top: 8, left: 8, display: 'flex', alignItems: 'center', gap: 4, padding: '3px 8px', borderRadius: 'var(--pj-radius-pill)', background: 'var(--pj-red)', fontSize: 9, fontWeight: 700, color: 'white' }}>
-                  <span className="pj-live-dot" style={{ background: 'white', width: 4, height: 4 }} />
+                <div style={{ position: 'absolute', top: 8, left: 8, display: 'flex', alignItems: 'center', gap: 4, padding: '4px 10px', borderRadius: 'var(--pj-radius-pill)', background: 'var(--pj-red)', fontSize: 11, fontWeight: 700, color: 'white' }}>
+                  <span className="pj-live-dot" style={{ background: 'white', width: 5, height: 5 }} />
                   LIVE
                 </div>
-                <div style={{ position: 'absolute', top: 8, right: 8, display: 'flex', alignItems: 'center', gap: 3, padding: '3px 8px', borderRadius: 'var(--pj-radius-pill)', background: 'rgba(0,0,0,0.6)', backdropFilter: 'blur(8px)', fontSize: 9, fontWeight: 600, color: 'white' }}>
-                  <Eye size={10} /> {stream.viewers}
+                <div style={{ position: 'absolute', top: 8, right: 8, display: 'flex', alignItems: 'center', gap: 3, padding: '4px 10px', borderRadius: 'var(--pj-radius-pill)', background: 'rgba(0,0,0,0.6)', backdropFilter: 'blur(8px)', fontSize: 11, fontWeight: 600, color: 'white' }}>
+                  <Eye size={11} /> {stream.viewers}
                 </div>
                 <div style={{ position: 'absolute', bottom: 8, left: 0, right: 0, display: 'flex', justifyContent: 'center' }}>
-                  <div style={{ width: 32, height: 32, borderRadius: '50%', background: 'rgba(255,255,255,0.2)', backdropFilter: 'blur(8px)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                    <Play size={14} fill="white" style={{ color: 'white', marginLeft: 2 }} />
+                  <div style={{ width: 36, height: 36, borderRadius: '50%', background: 'rgba(255,255,255,0.2)', backdropFilter: 'blur(8px)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <Play size={16} fill="white" style={{ color: 'white', marginLeft: 2 }} />
                   </div>
                 </div>
               </div>
               <div style={{ padding: '12px 14px' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 4, marginBottom: 2 }}>
-                  <span style={{ fontSize: 'var(--pj-size-small)', fontWeight: 700, color: 'var(--pj-text)' }}>{stream.name}</span>
-                  <CheckCircle size={12} style={{ color: 'var(--pj-green)', flexShrink: 0 }} />
+                  <span style={{ fontSize: 'var(--pj-size-body)', fontWeight: 700, color: 'var(--pj-text)' }}>{stream.name}</span>
+                  <CheckCircle size={13} style={{ color: 'var(--pj-green)', flexShrink: 0 }} />
                 </div>
-                <p style={{ fontSize: 'var(--pj-size-micro)', color: 'var(--pj-text-tertiary)', marginBottom: 8 }}>
+                <p style={{ fontSize: 'var(--pj-size-small)', color: 'var(--pj-text-tertiary)', marginBottom: 8 }}>
                   {stream.location} · {stream.category}
                 </p>
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                  <span style={{ fontSize: 'var(--pj-size-micro)', color: 'var(--pj-text-secondary)', display: 'flex', alignItems: 'center', gap: 3 }}>
-                    <Star size={10} fill="#D4A574" style={{ color: '#D4A574' }} /> {stream.rating}
+                  <span style={{ fontSize: 'var(--pj-size-small)', color: 'var(--pj-text-secondary)', display: 'flex', alignItems: 'center', gap: 3 }}>
+                    <Star size={12} fill="#D4A574" style={{ color: '#D4A574' }} /> {stream.rating}
                   </span>
-                  <span style={{ fontSize: 'var(--pj-size-micro)', fontWeight: 700, color: 'var(--pj-red)', display: 'flex', alignItems: 'center', gap: 3 }}>
-                    Watch <ArrowRight size={10} />
+                  <span style={{ fontSize: 'var(--pj-size-small)', fontWeight: 700, color: 'var(--pj-red)', display: 'flex', alignItems: 'center', gap: 3 }}>
+                    Watch <ArrowRight size={12} />
                   </span>
                 </div>
               </div>
@@ -165,30 +175,27 @@ function AllSectors() {
   const [, navigate] = useLocation();
 
   const sectors = [
-    { Icon: Utensils, name: 'Food & Dining', desc: 'Restaurants, cafes, bakeries, catering', color: 'var(--pj-red)' },
-    { Icon: Home, name: 'Property', desc: 'Rentals, sales, live virtual tours', color: 'var(--pj-gold)' },
-    { Icon: Car, name: 'Cars & Auto', desc: 'Dealers, private sales, live walkarounds', color: 'var(--pj-text-secondary)' },
-    { Icon: Ship, name: 'Yachts & Marine', desc: 'Charters, boat sales, marina services', color: 'var(--pj-text-secondary)' },
-    { Icon: Wrench, name: 'Home Services', desc: 'Plumbers, electricians, builders, painters', color: 'var(--pj-green)' },
-    { Icon: Users, name: 'Freelancers', desc: 'Designers, developers, consultants', color: 'var(--pj-gold)' },
-    { Icon: Heart, name: 'Health & Wellness', desc: 'Spas, gyms, clinics, beauty salons', color: 'var(--pj-red)' },
-    { Icon: ShoppingBag, name: 'Fashion & Retail', desc: 'Clothing, boutiques, accessories', color: 'var(--pj-text-secondary)' },
-    { Icon: Smartphone, name: 'Electronics', desc: 'Phone shops, repairs, gadgets', color: 'var(--pj-text-secondary)' },
-    { Icon: Compass, name: 'Tourism', desc: 'Tours, excursions, boat trips, events', color: 'var(--pj-gold)' },
-    { Icon: GraduationCap, name: 'Education', desc: 'Tutors, courses, language schools', color: 'var(--pj-green)' },
-    { Icon: PawPrint, name: 'Pets & Animals', desc: 'Pet shops, vets, grooming, breeders', color: 'var(--pj-red)' },
+    { Icon: Utensils, name: 'Food & Dining', color: 'var(--pj-red)' },
+    { Icon: Home, name: 'Property', color: 'var(--pj-gold)' },
+    { Icon: Car, name: 'Cars & Auto', color: 'var(--pj-text-secondary)' },
+    { Icon: Ship, name: 'Yachts & Marine', color: 'var(--pj-text-secondary)' },
+    { Icon: Wrench, name: 'Home Services', color: 'var(--pj-green)' },
+    { Icon: Users, name: 'Freelancers', color: 'var(--pj-gold)' },
+    { Icon: Heart, name: 'Health & Wellness', color: 'var(--pj-red)' },
+    { Icon: ShoppingBag, name: 'Fashion & Retail', color: 'var(--pj-text-secondary)' },
+    { Icon: Smartphone, name: 'Electronics', color: 'var(--pj-text-secondary)' },
+    { Icon: Compass, name: 'Tourism', color: 'var(--pj-gold)' },
+    { Icon: GraduationCap, name: 'Education', color: 'var(--pj-green)' },
+    { Icon: PawPrint, name: 'Pets & Animals', color: 'var(--pj-red)' },
   ];
 
   return (
     <div className="pj-section">
       <ScrollReveal>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 20 }}>
-          <div>
-            <span className="pj-label" style={{ display: 'block', marginBottom: 6 }}>BROWSE BY SECTOR</span>
-            <h2 style={{ fontSize: 'var(--pj-size-h2)', fontWeight: 700, color: 'var(--pj-text)', letterSpacing: '-0.01em' }}>
-              All of Malta, in one place.
-            </h2>
-          </div>
+          <h2 style={{ fontSize: 'var(--pj-size-h2)', fontWeight: 700, color: 'var(--pj-text)', letterSpacing: '-0.01em' }}>
+            12 Sectors
+          </h2>
           <button className="pj-btn-ghost" style={{ gap: 4 }} onClick={() => navigate('/pjazza/sectors')} data-testid="button-all-sectors">
             View all <ChevronRight size={14} />
           </button>
@@ -197,18 +204,18 @@ function AllSectors() {
 
       <div className="pj-grid-2">
         {sectors.map((s, i) => (
-          <ScrollReveal key={i} delay={i * 40}>
+          <ScrollReveal key={i} delay={i * 30}>
             <div
               className="pj-card pj-touch"
               style={{ padding: 16, height: '100%', cursor: 'pointer' }}
               onClick={() => navigate('/pjazza/sectors')}
               data-testid={`card-sector-${s.name.toLowerCase().replace(/[^a-z]/g, '-')}`}
             >
-              <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 6 }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
                 <div
                   style={{
-                    width: 36,
-                    height: 36,
+                    width: 40,
+                    height: 40,
                     borderRadius: 'var(--pj-radius-md)',
                     background: 'var(--pj-surface-2)',
                     display: 'flex',
@@ -217,16 +224,11 @@ function AllSectors() {
                     flexShrink: 0,
                   }}
                 >
-                  <s.Icon size={18} strokeWidth={2} style={{ color: s.color }} />
+                  <s.Icon size={20} strokeWidth={2} style={{ color: s.color }} />
                 </div>
-                <div style={{ minWidth: 0 }}>
-                  <h3 style={{ fontSize: 'var(--pj-size-small)', fontWeight: 700, color: 'var(--pj-text)' }}>
-                    {s.name}
-                  </h3>
-                  <p style={{ fontSize: 'var(--pj-size-micro)', color: 'var(--pj-text-tertiary)', lineHeight: 1.3 }}>
-                    {s.desc}
-                  </p>
-                </div>
+                <h3 style={{ fontSize: 'var(--pj-size-body)', fontWeight: 700, color: 'var(--pj-text)' }}>
+                  {s.name}
+                </h3>
               </div>
             </div>
           </ScrollReveal>
@@ -250,14 +252,9 @@ function FeaturedListings() {
     <div className="pj-section">
       <ScrollReveal>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 20 }}>
-          <div>
-            <h2 style={{ fontSize: 'var(--pj-size-h2)', fontWeight: 700, color: 'var(--pj-text)', letterSpacing: '-0.01em' }}>
-              Featured Listings
-            </h2>
-            <p style={{ fontSize: 'var(--pj-size-xs)', color: 'var(--pj-text-tertiary)', marginTop: 2 }}>
-              Property, cars, services — all escrow protected
-            </p>
-          </div>
+          <h2 style={{ fontSize: 'var(--pj-size-h2)', fontWeight: 700, color: 'var(--pj-text)', letterSpacing: '-0.01em' }}>
+            Featured
+          </h2>
           <button className="pj-btn-ghost" style={{ gap: 4 }} onClick={() => navigate('/pjazza/discover')} data-testid="button-browse-listings">
             Browse <ChevronRight size={14} />
           </button>
@@ -269,17 +266,17 @@ function FeaturedListings() {
           <ScrollReveal key={i} delay={i * 60}>
             <div className="pj-card pj-touch" style={{ overflow: 'hidden' }} data-testid={`card-listing-${i}`}>
               <div style={{ display: 'flex' }}>
-                <div style={{ width: 110, flexShrink: 0, position: 'relative' }}>
-                  <img src={item.img} alt={item.title} style={{ width: '100%', height: '100%', objectFit: 'cover', minHeight: 100 }} />
-                  <div style={{ position: 'absolute', top: 8, left: 8, fontSize: 8, fontWeight: 700, color: 'white', background: 'var(--pj-red)', padding: '2px 6px', borderRadius: 'var(--pj-radius-pill)', display: 'flex', alignItems: 'center', gap: 3 }}>
-                    <span className="pj-live-dot" style={{ width: 4, height: 4, background: 'white' }} />
+                <div style={{ width: 120, flexShrink: 0, position: 'relative' }}>
+                  <img src={item.img} alt={item.title} style={{ width: '100%', height: '100%', objectFit: 'cover', minHeight: 110 }} />
+                  <div style={{ position: 'absolute', top: 8, left: 8, fontSize: 10, fontWeight: 700, color: 'white', background: 'var(--pj-red)', padding: '3px 8px', borderRadius: 'var(--pj-radius-pill)', display: 'flex', alignItems: 'center', gap: 4 }}>
+                    <span className="pj-live-dot" style={{ width: 5, height: 5, background: 'white' }} />
                     {item.badge}
                   </div>
                 </div>
-                <div style={{ padding: 14, flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-                  <span style={{ fontSize: 'var(--pj-size-micro)', color: 'var(--pj-text-tertiary)', marginBottom: 2 }}>{item.sector}</span>
-                  <h3 style={{ fontSize: 'var(--pj-size-small)', fontWeight: 700, color: 'var(--pj-text)', marginBottom: 4 }}>{item.title}</h3>
-                  <p style={{ fontSize: 'var(--pj-size-micro)', color: 'var(--pj-text-tertiary)', marginBottom: 8 }}>{item.location}</p>
+                <div style={{ padding: 16, flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                  <span style={{ fontSize: 'var(--pj-size-small)', color: 'var(--pj-text-tertiary)', marginBottom: 3 }}>{item.sector}</span>
+                  <h3 style={{ fontSize: 'var(--pj-size-body)', fontWeight: 700, color: 'var(--pj-text)', marginBottom: 4 }}>{item.title}</h3>
+                  <p style={{ fontSize: 'var(--pj-size-small)', color: 'var(--pj-text-tertiary)', marginBottom: 10 }}>{item.location}</p>
                   <span className="pj-mono" style={{ fontSize: 'var(--pj-size-h3)', fontWeight: 800, color: 'var(--pj-text)' }}>{item.price}</span>
                 </div>
               </div>
@@ -294,48 +291,39 @@ function FeaturedListings() {
 function HowItWorksPreview() {
   const [, navigate] = useLocation();
 
-  const steps = [
-    { num: '01', Icon: Video, title: 'Watch live streams', desc: 'Browse real businesses across Malta streaming live. See the food, the property, the product — as it is.' },
-    { num: '02', Icon: MessageSquare, title: 'Chat & negotiate', desc: 'Ask questions in real time. Request a closer look. Make an offer directly to the seller.' },
-    { num: '03', Icon: Lock, title: 'Buy with escrow', desc: 'Your money is held safely by PJAZZA until you confirm you received what you ordered.' },
-  ];
-
   return (
     <div className="pj-section">
       <ScrollReveal>
-        <span className="pj-label" style={{ display: 'block', marginBottom: 8 }}>HOW PJAZZA WORKS</span>
-        <h2 style={{ fontSize: 'var(--pj-size-h2)', fontWeight: 700, color: 'var(--pj-text)', marginBottom: 8, letterSpacing: '-0.01em' }}>
+        <h2 style={{ fontSize: 'var(--pj-size-h2)', fontWeight: 700, color: 'var(--pj-text)', marginBottom: 24, letterSpacing: '-0.01em' }}>
           See it. Chat it. Buy it.
         </h2>
-        <p style={{ fontSize: 'var(--pj-size-small)', color: 'var(--pj-text-tertiary)', marginBottom: 24, lineHeight: 1.5, maxWidth: 480 }}>
-          Live video shopping with real trust. No surprises, no scams.
-        </p>
       </ScrollReveal>
 
       <div className="pj-grid-cards">
-        {steps.map((step, i) => (
+        {[
+          { num: '01', Icon: Video, title: 'Watch live', color: 'var(--pj-red)' },
+          { num: '02', Icon: MessageSquare, title: 'Chat & negotiate', color: 'var(--pj-text)' },
+          { num: '03', Icon: Shield, title: 'Protected payment', color: 'var(--pj-green)' },
+        ].map((step, i) => (
           <ScrollReveal key={i} delay={i * 80}>
-            <div className="pj-card" style={{ padding: 20, display: 'flex', gap: 16, height: '100%' }}>
+            <div className="pj-card" style={{ padding: 20, display: 'flex', alignItems: 'center', gap: 16, height: '100%' }}>
               <div
                 style={{
-                  width: 44,
-                  height: 44,
+                  width: 48,
+                  height: 48,
                   borderRadius: 'var(--pj-radius-md)',
-                  background: i === 2 ? 'var(--pj-green-soft)' : 'var(--pj-surface-2)',
+                  background: 'var(--pj-surface-2)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
                   flexShrink: 0,
                 }}
               >
-                <step.Icon size={20} strokeWidth={2} style={{ color: i === 2 ? 'var(--pj-green)' : 'var(--pj-text)' }} />
+                <step.Icon size={22} strokeWidth={2} style={{ color: step.color }} />
               </div>
-              <div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4 }}>
-                  <span className="pj-mono" style={{ fontSize: 'var(--pj-size-xs)', fontWeight: 700, color: 'var(--pj-red)' }}>{step.num}</span>
-                  <h3 style={{ fontSize: 'var(--pj-size-body)', fontWeight: 700, color: 'var(--pj-text)' }}>{step.title}</h3>
-                </div>
-                <p style={{ fontSize: 'var(--pj-size-small)', color: 'var(--pj-text-tertiary)', lineHeight: 1.5 }}>{step.desc}</p>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                <span className="pj-mono" style={{ fontSize: 'var(--pj-size-small)', fontWeight: 700, color: 'var(--pj-red)' }}>{step.num}</span>
+                <h3 style={{ fontSize: 'var(--pj-size-h3)', fontWeight: 700, color: 'var(--pj-text)' }}>{step.title}</h3>
               </div>
             </div>
           </ScrollReveal>
@@ -346,61 +334,14 @@ function HowItWorksPreview() {
         <div style={{ marginTop: 20, textAlign: 'center' }}>
           <button
             className="pj-btn-ghost"
-            style={{ color: 'var(--pj-red)', gap: 6 }}
+            style={{ color: 'var(--pj-text-secondary)', gap: 6 }}
             onClick={() => navigate('/pjazza/how-it-works')}
             data-testid="button-learn-more-how"
           >
-            Learn more about how it works <ArrowRight size={14} />
+            Learn more <ArrowRight size={14} />
           </button>
         </div>
       </ScrollReveal>
-    </div>
-  );
-}
-
-function TrustSection() {
-  const features = [
-    { Icon: Shield, title: 'Escrow Protection', desc: 'Money held safely until delivery confirmed. No risk for buyers or sellers.', color: 'var(--pj-green)' },
-    { Icon: CheckCircle, title: 'Verified Sellers', desc: 'Every business is ID-verified, reviewed, and rated by the community.', color: 'var(--pj-green)' },
-    { Icon: Eye, title: 'Live Video Proof', desc: 'See exactly what you\'re getting before you pay. No stock photos, no surprises.', color: 'var(--pj-text)' },
-    { Icon: Zap, title: 'Instant Communication', desc: 'Chat directly with sellers during live streams. Ask anything in real time.', color: 'var(--pj-text)' },
-  ];
-
-  return (
-    <div className="pj-section">
-      <ScrollReveal>
-        <span className="pj-label" style={{ display: 'block', marginBottom: 8 }}>TRUST & SAFETY</span>
-        <h2 style={{ fontSize: 'var(--pj-size-h2)', fontWeight: 700, color: 'var(--pj-text)', marginBottom: 24, letterSpacing: '-0.01em' }}>
-          Every transaction protected.
-        </h2>
-      </ScrollReveal>
-
-      <div className="pj-pitch-grid">
-        {features.map((f, i) => (
-          <ScrollReveal key={i} delay={i * 60}>
-            <div style={{ display: 'flex', gap: 14, alignItems: 'flex-start', padding: '8px 0' }}>
-              <div
-                style={{
-                  width: 40,
-                  height: 40,
-                  borderRadius: 'var(--pj-radius-md)',
-                  background: 'var(--pj-surface-2)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  flexShrink: 0,
-                }}
-              >
-                <f.Icon size={18} strokeWidth={2} style={{ color: f.color }} />
-              </div>
-              <div>
-                <h3 style={{ fontSize: 'var(--pj-size-body)', fontWeight: 700, color: 'var(--pj-text)', marginBottom: 2 }}>{f.title}</h3>
-                <p style={{ fontSize: 'var(--pj-size-small)', color: 'var(--pj-text-tertiary)', lineHeight: 1.5 }}>{f.desc}</p>
-              </div>
-            </div>
-          </ScrollReveal>
-        ))}
-      </div>
     </div>
   );
 }
@@ -420,7 +361,7 @@ function StatsBar() {
               key={i}
               style={{
                 textAlign: 'center',
-                padding: 16,
+                padding: 18,
                 background: 'var(--pj-surface-1)',
                 borderRadius: i === 0 ? '12px 0 0 12px' : i === 3 ? '0 12px 12px 0' : '0',
                 borderLeft: i > 0 ? '1px solid var(--pj-border)' : 'none',
@@ -430,7 +371,7 @@ function StatsBar() {
               <div className="pj-mono" style={{ fontSize: 'var(--pj-size-h3)', fontWeight: 700, color: 'var(--pj-text)', marginBottom: 2 }}>
                 {stat.value}
               </div>
-              <div style={{ fontSize: 'var(--pj-size-micro)', color: 'var(--pj-text-tertiary)' }}>{stat.label}</div>
+              <div style={{ fontSize: 'var(--pj-size-small)', color: 'var(--pj-text-tertiary)' }}>{stat.label}</div>
             </div>
           ))}
         </div>
@@ -439,65 +380,25 @@ function StatsBar() {
   );
 }
 
-function SuccessStories() {
-  const stories = [
-    { business: "Noni's Kitchen", result: '47 viewers, 12 bookings, €540 revenue', time: '20 min stream', sector: 'Restaurant' },
-    { business: 'Joe the Plumber', result: '3 new clients, €420 in jobs booked', time: '15 min stream', sector: 'Home Services' },
-    { business: 'Island Boutique', result: '28 viewers, 8 sales, €320 revenue', time: '25 min stream', sector: 'Fashion' },
-  ];
-
-  return (
-    <div className="pj-section">
-      <ScrollReveal>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4 }}>
-          <TrendingUp size={16} style={{ color: 'var(--pj-red)' }} />
-          <span style={{ fontSize: 'var(--pj-size-xs)', fontWeight: 700, color: 'var(--pj-red)', letterSpacing: '0.02em' }}>
-            SUCCESS STORIES
-          </span>
-        </div>
-        <h2 style={{ fontSize: 'var(--pj-size-h2)', fontWeight: 700, color: 'var(--pj-text)', marginBottom: 20, letterSpacing: '-0.01em' }}>
-          Real businesses. Real results.
-        </h2>
-      </ScrollReveal>
-
-      <div className="pj-grid-cards">
-        {stories.map((s, i) => (
-          <ScrollReveal key={i} delay={i * 80}>
-            <div className="pj-card" style={{ padding: 20, borderColor: 'var(--pj-border-hover)' }}>
-              <span style={{ fontSize: 'var(--pj-size-micro)', color: 'var(--pj-text-tertiary)', marginBottom: 8, display: 'block' }}>{s.sector}</span>
-              <h3 style={{ fontSize: 'var(--pj-size-body)', fontWeight: 700, color: 'var(--pj-text)', marginBottom: 6 }}>{s.business}</h3>
-              <p style={{ fontSize: 'var(--pj-size-small)', fontWeight: 600, color: 'var(--pj-gold)', marginBottom: 4 }}>{s.result}</p>
-              <p style={{ fontSize: 'var(--pj-size-micro)', color: 'var(--pj-text-tertiary)' }}>{s.time}</p>
-            </div>
-          </ScrollReveal>
-        ))}
-      </div>
-    </div>
-  );
-}
-
 function PeoplePreview() {
   const [, navigate] = useLocation();
 
   const featured = [
-    { name: 'Mark Borg', role: 'Licensed Electrician', location: 'Birkirkara', rating: 4.9, liveNow: true },
-    { name: 'Elena Vella', role: 'Yoga Instructor', location: 'Sliema', rating: 5.0, liveNow: false },
-    { name: 'Pierre Camilleri', role: 'Scuba Instructor', location: 'Gozo', rating: 4.9, liveNow: true },
-    { name: 'Dr. Sarah Mifsud', role: 'Corporate Lawyer', location: 'Valletta', rating: 4.8, liveNow: false },
-    { name: 'Maria Grech', role: 'Cooking Teacher', location: 'Mdina', rating: 4.8, liveNow: false },
-    { name: 'Anna Cassar', role: 'Hair Stylist', location: 'Sliema', rating: 4.7, liveNow: true },
+    { name: 'Mark Borg', role: 'Electrician', rating: 4.9, liveNow: true, topRated: true, img: imgElectrician },
+    { name: 'Elena Vella', role: 'Yoga Instructor', rating: 5.0, liveNow: false, topRated: true, img: imgYoga },
+    { name: 'Pierre Camilleri', role: 'Scuba Instructor', rating: 4.9, liveNow: true, topRated: true, img: imgScuba },
+    { name: 'Dr. Sarah Mifsud', role: 'Lawyer', rating: 4.8, liveNow: false, topRated: true, img: imgLawyer },
+    { name: 'Maria Grech', role: 'Cooking Teacher', rating: 4.8, liveNow: false, topRated: false, img: imgChef },
+    { name: 'Anna Cassar', role: 'Hair Stylist', rating: 4.7, liveNow: true, topRated: false, img: imgHairstylist },
   ];
 
   return (
     <div className="pj-section">
       <ScrollReveal>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 20 }}>
-          <div>
-            <span className="pj-label" style={{ display: 'block', marginBottom: 6 }}>INDIVIDUALS & FREELANCERS</span>
-            <h2 style={{ fontSize: 'var(--pj-size-h2)', fontWeight: 700, color: 'var(--pj-text)', letterSpacing: '-0.01em' }}>
-              Hire anyone in Malta.
-            </h2>
-          </div>
+          <h2 style={{ fontSize: 'var(--pj-size-h2)', fontWeight: 700, color: 'var(--pj-text)', letterSpacing: '-0.01em' }}>
+            Hire Anyone
+          </h2>
           <button className="pj-btn-ghost" style={{ gap: 4 }} onClick={() => navigate('/pjazza/people')} data-testid="button-all-people">
             View all <ChevronRight size={14} />
           </button>
@@ -513,44 +414,39 @@ function PeoplePreview() {
               onClick={() => navigate('/pjazza/people')}
               data-testid={`card-person-preview-${i}`}
             >
-              <div
-                style={{
-                  width: 48,
-                  height: 48,
-                  borderRadius: '50%',
-                  background: 'var(--pj-surface-2)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  margin: '0 auto 10px',
-                  border: person.liveNow ? '2px solid var(--pj-red)' : '2px solid var(--pj-border)',
-                  position: 'relative',
-                }}
-              >
-                <span style={{ fontSize: 16, fontWeight: 700, color: 'var(--pj-text-secondary)' }}>
-                  {person.name.split(' ').map(n => n[0]).join('')}
-                </span>
+              <div style={{ position: 'relative', display: 'inline-block', marginBottom: 10 }}>
+                <img
+                  src={person.img}
+                  alt={person.name}
+                  className={person.liveNow ? 'pj-live-ring' : ''}
+                  style={{
+                    width: 56,
+                    height: 56,
+                    borderRadius: '50%',
+                    objectFit: 'cover',
+                    border: person.liveNow ? '2.5px solid var(--pj-red)' : person.topRated ? '2.5px solid var(--pj-gold)' : '2.5px solid var(--pj-border)',
+                  }}
+                />
                 {person.liveNow && (
                   <div style={{
                     position: 'absolute', bottom: -2, right: -2,
-                    width: 14, height: 14, borderRadius: '50%',
-                    background: 'var(--pj-red)', border: '2px solid var(--pj-black)',
+                    width: 18, height: 18, borderRadius: '50%',
+                    background: 'var(--pj-red)', border: '2.5px solid var(--pj-black)',
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
                   }}>
-                    <Video size={7} strokeWidth={3} style={{ color: 'white' }} />
+                    <Play size={8} fill="white" strokeWidth={0} style={{ color: 'white', marginLeft: 1 }} />
                   </div>
                 )}
               </div>
-              <h3 style={{ fontSize: 'var(--pj-size-small)', fontWeight: 700, color: 'var(--pj-text)', marginBottom: 2, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+              <h3 style={{ fontSize: 'var(--pj-size-body)', fontWeight: 700, color: 'var(--pj-text)', marginBottom: 2, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
                 {person.name}
               </h3>
-              <p style={{ fontSize: 'var(--pj-size-micro)', color: 'var(--pj-red)', fontWeight: 600, marginBottom: 4, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+              <p style={{ fontSize: 'var(--pj-size-small)', color: 'var(--pj-text-secondary)', fontWeight: 600, marginBottom: 6, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
                 {person.role}
               </p>
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 4 }}>
-                <Star size={10} fill="#D4A574" style={{ color: '#D4A574' }} />
-                <span style={{ fontSize: 'var(--pj-size-micro)', color: 'var(--pj-text-tertiary)' }}>{person.rating}</span>
-                <span style={{ fontSize: 'var(--pj-size-micro)', color: 'var(--pj-text-tertiary)' }}>· {person.location}</span>
+                <Star size={12} fill="#D4A574" style={{ color: '#D4A574' }} />
+                <span style={{ fontSize: 'var(--pj-size-small)', color: 'var(--pj-gold)', fontWeight: 600 }}>{person.rating}</span>
               </div>
             </div>
           </ScrollReveal>
@@ -564,18 +460,15 @@ function FinalCTA() {
   const [, navigate] = useLocation();
 
   return (
-    <div className="pj-section" style={{ textAlign: 'center' }}>
+    <div className="pj-section" style={{ textAlign: 'center', paddingTop: 64, paddingBottom: 64 }}>
       <ScrollReveal>
-        <Package size={32} strokeWidth={1.5} style={{ color: 'var(--pj-red)', marginBottom: 16 }} />
-        <h2 style={{ fontSize: 'var(--pj-size-h2)', fontWeight: 800, color: 'var(--pj-text)', marginBottom: 8, letterSpacing: '-0.01em' }}>
+        <h2 style={{ fontSize: 'var(--pj-size-h1)', fontWeight: 800, color: 'var(--pj-text)', marginBottom: 12, letterSpacing: '-0.02em' }}>
           Everything Malta has to offer.
           <br />
-          <span style={{ color: 'var(--pj-gold)' }}>Live and protected.</span>
+          <span style={{ color: 'var(--pj-gold)' }}>Live.</span>
         </h2>
-        <p style={{ fontSize: 'var(--pj-size-small)', color: 'var(--pj-text-tertiary)', marginBottom: 28, lineHeight: 1.6, maxWidth: 400, margin: '0 auto 28px' }}>
-          12 sectors. 180+ businesses. Escrow on every transaction.
-          <br />
-          The marketplace Malta has been waiting for.
+        <p style={{ fontSize: 'var(--pj-size-body)', color: 'var(--pj-text-tertiary)', marginBottom: 32, lineHeight: 1.6, maxWidth: 380, margin: '0 auto 32px' }}>
+          12 sectors. 180+ businesses. 200+ individuals.
         </p>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, justifyContent: 'center', maxWidth: 440, margin: '0 auto' }}>
           <button
@@ -584,8 +477,8 @@ function FinalCTA() {
             onClick={() => navigate('/pjazza/discover')}
             data-testid="button-explore-now"
           >
+            <Play size={16} fill="white" style={{ marginRight: 2 }} />
             <span>Explore Now</span>
-            <ArrowRight size={18} strokeWidth={2.5} />
           </button>
           <button
             className="pj-btn-secondary"
@@ -601,11 +494,33 @@ function FinalCTA() {
   );
 }
 
+function TrustLine() {
+  return (
+    <ScrollReveal>
+      <div className="pj-section-tight" style={{ paddingTop: 0 }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 20, flexWrap: 'wrap', padding: '16px 0' }}>
+          {[
+            { Icon: Shield, text: 'Escrow protected' },
+            { Icon: CheckCircle, text: 'Verified sellers' },
+            { Icon: Video, text: 'Live video proof' },
+          ].map((item, i) => (
+            <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+              <item.Icon size={15} strokeWidth={2} style={{ color: 'var(--pj-green)' }} />
+              <span style={{ fontSize: 'var(--pj-size-small)', fontWeight: 600, color: 'var(--pj-text-tertiary)' }}>{item.text}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </ScrollReveal>
+  );
+}
+
 export default function Portal() {
   return (
     <div style={{ minHeight: '100vh', background: 'var(--pj-black)' }}>
       <Hero />
       <StatsBar />
+      <TrustLine />
       <LiveNowPreview />
       <div className="pj-divider" />
       <AllSectors />
@@ -615,10 +530,6 @@ export default function Portal() {
       <PeoplePreview />
       <div className="pj-divider" />
       <HowItWorksPreview />
-      <div className="pj-divider" />
-      <TrustSection />
-      <div className="pj-divider" />
-      <SuccessStories />
       <div className="pj-divider" />
       <FinalCTA />
       <div style={{ height: 48 }} />
