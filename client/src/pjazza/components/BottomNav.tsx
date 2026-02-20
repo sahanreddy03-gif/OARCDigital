@@ -1,11 +1,11 @@
 import { useLocation } from 'wouter';
-import { Home, Grid3X3, Radio, Briefcase, Info } from 'lucide-react';
+import { Home, Grid3X3, Radio, Briefcase, Users } from 'lucide-react';
 
 const tabs = [
   { id: 'home', Icon: Home, label: 'Home', path: '/pjazza/discover' },
   { id: 'sectors', Icon: Grid3X3, label: 'Sectors', path: '/pjazza/sectors' },
   { id: 'live', Icon: Radio, label: 'LIVE', path: '/pjazza/business/stream' },
-  { id: 'how', Icon: Info, label: 'How It Works', path: '/pjazza/how-it-works' },
+  { id: 'people', Icon: Users, label: 'People', path: '/pjazza/people' },
   { id: 'business', Icon: Briefcase, label: 'Business', path: '/pjazza/business/dashboard' },
 ];
 
@@ -14,6 +14,7 @@ export default function BottomNav() {
 
   const getActiveTab = () => {
     if (location.includes('/sectors')) return 'sectors';
+    if (location.includes('/people')) return 'people';
     if (location.includes('/how-it-works')) return 'how';
     if (location.includes('/business/stream')) return 'live';
     if (location.includes('/business/dashboard')) return 'business';

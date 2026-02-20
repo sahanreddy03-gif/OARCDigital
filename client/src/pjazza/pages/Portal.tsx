@@ -476,6 +476,90 @@ function SuccessStories() {
   );
 }
 
+function PeoplePreview() {
+  const [, navigate] = useLocation();
+
+  const featured = [
+    { name: 'Mark Borg', role: 'Licensed Electrician', location: 'Birkirkara', rating: 4.9, liveNow: true },
+    { name: 'Elena Vella', role: 'Yoga Instructor', location: 'Sliema', rating: 5.0, liveNow: false },
+    { name: 'Pierre Camilleri', role: 'Scuba Instructor', location: 'Gozo', rating: 4.9, liveNow: true },
+    { name: 'Dr. Sarah Mifsud', role: 'Corporate Lawyer', location: 'Valletta', rating: 4.8, liveNow: false },
+    { name: 'Maria Grech', role: 'Cooking Teacher', location: 'Mdina', rating: 4.8, liveNow: false },
+    { name: 'Anna Cassar', role: 'Hair Stylist', location: 'Sliema', rating: 4.7, liveNow: true },
+  ];
+
+  return (
+    <div className="pj-section">
+      <ScrollReveal>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 20 }}>
+          <div>
+            <span className="pj-label" style={{ display: 'block', marginBottom: 6 }}>INDIVIDUALS & FREELANCERS</span>
+            <h2 style={{ fontSize: 'var(--pj-size-h2)', fontWeight: 700, color: 'var(--pj-text)', letterSpacing: '-0.01em' }}>
+              Hire anyone in Malta.
+            </h2>
+          </div>
+          <button className="pj-btn-ghost" style={{ gap: 4 }} onClick={() => navigate('/pjazza/people')} data-testid="button-all-people">
+            View all <ChevronRight size={14} />
+          </button>
+        </div>
+      </ScrollReveal>
+
+      <div className="pj-stream-grid">
+        {featured.map((person, i) => (
+          <ScrollReveal key={i} delay={i * 50}>
+            <div
+              className="pj-card pj-touch"
+              style={{ width: 160, padding: 16, textAlign: 'center', cursor: 'pointer' }}
+              onClick={() => navigate('/pjazza/people')}
+              data-testid={`card-person-preview-${i}`}
+            >
+              <div
+                style={{
+                  width: 48,
+                  height: 48,
+                  borderRadius: '50%',
+                  background: 'var(--pj-surface-2)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  margin: '0 auto 10px',
+                  border: person.liveNow ? '2px solid var(--pj-red)' : '2px solid var(--pj-border)',
+                  position: 'relative',
+                }}
+              >
+                <span style={{ fontSize: 16, fontWeight: 700, color: 'var(--pj-text-secondary)' }}>
+                  {person.name.split(' ').map(n => n[0]).join('')}
+                </span>
+                {person.liveNow && (
+                  <div style={{
+                    position: 'absolute', bottom: -2, right: -2,
+                    width: 14, height: 14, borderRadius: '50%',
+                    background: 'var(--pj-red)', border: '2px solid var(--pj-black)',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  }}>
+                    <Video size={7} strokeWidth={3} style={{ color: 'white' }} />
+                  </div>
+                )}
+              </div>
+              <h3 style={{ fontSize: 'var(--pj-size-small)', fontWeight: 700, color: 'var(--pj-text)', marginBottom: 2, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                {person.name}
+              </h3>
+              <p style={{ fontSize: 'var(--pj-size-micro)', color: 'var(--pj-red)', fontWeight: 600, marginBottom: 4, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                {person.role}
+              </p>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 4 }}>
+                <Star size={10} fill="#D4A574" style={{ color: '#D4A574' }} />
+                <span style={{ fontSize: 'var(--pj-size-micro)', color: 'var(--pj-text-tertiary)' }}>{person.rating}</span>
+                <span style={{ fontSize: 'var(--pj-size-micro)', color: 'var(--pj-text-tertiary)' }}>· {person.location}</span>
+              </div>
+            </div>
+          </ScrollReveal>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 function FinalCTA() {
   const [, navigate] = useLocation();
 
@@ -527,6 +611,8 @@ export default function Portal() {
       <AllSectors />
       <BrandMarquee />
       <FeaturedListings />
+      <div className="pj-divider" />
+      <PeoplePreview />
       <div className="pj-divider" />
       <HowItWorksPreview />
       <div className="pj-divider" />
