@@ -1,4 +1,3 @@
-import { useRef } from 'react';
 import { useLocation } from 'wouter';
 import {
   Utensils, Landmark, Home, Ship, Car, ShoppingBag, Wrench, Heart,
@@ -18,7 +17,7 @@ import thumbWellness from '../assets/thumb-wellness.jpg';
 
 function HeroSection() {
   return (
-    <div className="pj-image-wash" style={{ position: 'relative', height: '40vh', minHeight: 280 }}>
+    <div className="pj-image-wash" style={{ position: 'relative', height: '40vh', minHeight: 280, maxHeight: 500 }}>
       <img
         src={heroImg}
         alt=""
@@ -30,38 +29,38 @@ function HeroSection() {
           bottom: 0,
           left: 0,
           right: 0,
-          padding: '0 24px 28px',
           zIndex: 2,
         }}
       >
-        <div className="pj-live-badge" style={{ marginBottom: 12 }}>
-          <span className="pj-live-dot" />
-          <span>47 live now</span>
+        <div className="pj-container" style={{ paddingBottom: 28 }}>
+          <div className="pj-live-badge" style={{ marginBottom: 12 }}>
+            <span className="pj-live-dot" />
+            <span>47 live now</span>
+          </div>
+          <h1
+            style={{
+              fontSize: 'var(--pj-size-h1)',
+              fontWeight: 800,
+              lineHeight: 1.1,
+              letterSpacing: '-0.02em',
+              color: 'var(--pj-text)',
+              marginBottom: 8,
+            }}
+          >
+            What's happening
+            <br />
+            right now
+          </h1>
+          <p style={{ fontSize: 'var(--pj-size-small)', color: 'var(--pj-text-secondary)', lineHeight: 1.5, maxWidth: 420 }}>
+            Live streams across Malta. Watch, shop, book — all in real time.
+          </p>
         </div>
-        <h1
-          style={{
-            fontSize: 'var(--pj-size-h1)',
-            fontWeight: 800,
-            lineHeight: 1.1,
-            letterSpacing: '-0.02em',
-            color: 'var(--pj-text)',
-            marginBottom: 8,
-          }}
-        >
-          What's happening
-          <br />
-          right now
-        </h1>
-        <p style={{ fontSize: 'var(--pj-size-small)', color: 'var(--pj-text-secondary)', lineHeight: 1.5 }}>
-          Live streams across Malta. Watch, shop, book — all in real time.
-        </p>
       </div>
     </div>
   );
 }
 
 function LiveNowSection() {
-  const scrollRef = useRef<HTMLDivElement>(null);
   const streams = [
     {
       name: "Noni's Kitchen",
@@ -117,17 +116,13 @@ function LiveNowSection() {
               Happening across Malta right now
             </p>
           </div>
-          <button className="pj-btn-ghost" style={{ gap: 4 }}>
+          <button className="pj-btn-ghost" style={{ gap: 4 }} data-testid="button-see-all-live">
             See all <ChevronRight size={14} />
           </button>
         </div>
       </ScrollReveal>
 
-      <div
-        ref={scrollRef}
-        className="pj-scroll-x"
-        style={{ gap: 12, paddingBottom: 4, marginLeft: -24, marginRight: -24, paddingLeft: 24, paddingRight: 24 }}
-      >
+      <div className="pj-stream-grid">
         {streams.map((stream, i) => (
           <ScrollReveal key={i} delay={i * 60}>
             <div
@@ -253,10 +248,7 @@ function LiveNowSection() {
 function SuccessStory() {
   return (
     <ScrollReveal>
-      <div
-        className="pj-section-tight"
-        style={{ paddingTop: 0 }}
-      >
+      <div className="pj-section-tight" style={{ paddingTop: 0 }}>
         <div
           className="pj-card"
           style={{
@@ -348,12 +340,12 @@ function HowItWorks() {
         </h2>
       </ScrollReveal>
 
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+      <div className="pj-grid-cards">
         {steps.map((step, i) => (
           <ScrollReveal key={i} delay={i * 80}>
             <div
               className="pj-card"
-              style={{ padding: 20, display: 'flex', gap: 16 }}
+              style={{ padding: 20, display: 'flex', gap: 16, height: '100%' }}
             >
               <span
                 className="pj-mono"
@@ -399,7 +391,7 @@ function TrustSection() {
         </h2>
       </ScrollReveal>
 
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+      <div className="pj-grid-cards">
         {features.map((f, i) => (
           <ScrollReveal key={i} delay={i * 80}>
             <div style={{ display: 'flex', gap: 16, alignItems: 'flex-start', padding: '12px 0' }}>
@@ -455,7 +447,7 @@ function HighValueSection() {
         </div>
       </ScrollReveal>
 
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+      <div className="pj-listing-grid">
         {items.map((item, i) => (
           <ScrollReveal key={i} delay={i * 80}>
             <div className="pj-card pj-touch" style={{ overflow: 'hidden' }} data-testid={`card-listing-${i}`}>
@@ -530,7 +522,7 @@ function CrowdIntelligence() {
         </p>
       </ScrollReveal>
 
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+      <div className="pj-crowd-grid">
         {venues.map((v, i) => (
           <ScrollReveal key={i} delay={i * 60}>
             <div className="pj-card" style={{ padding: 16 }}>

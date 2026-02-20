@@ -1,6 +1,25 @@
-import { Search, Bell } from 'lucide-react';
+import { useLocation } from 'wouter';
+import { Search, Bell, Home, Compass, Radio, Briefcase, User } from 'lucide-react';
+
+const desktopLinks = [
+  { id: 'home', Icon: Home, label: 'Home', path: '/pjazza/discover' },
+  { id: 'explore', Icon: Compass, label: 'Explore', path: '/pjazza/discover' },
+  { id: 'live', Icon: Radio, label: 'Go Live', path: '/pjazza/business/stream' },
+  { id: 'business', Icon: Briefcase, label: 'Business', path: '/pjazza/business/dashboard' },
+  { id: 'profile', Icon: User, label: 'Profile', path: '/pjazza/discover' },
+];
 
 export default function TopBar() {
+  const [location, navigate] = useLocation();
+
+  const getActive = () => {
+    if (location.includes('/business/stream')) return 'live';
+    if (location.includes('/business')) return 'business';
+    return 'home';
+  };
+
+  const active = getActive();
+
   return (
     <div
       className="pj-frosted"
@@ -11,26 +30,47 @@ export default function TopBar() {
         borderBottom: '1px solid var(--pj-border)',
       }}
     >
-      <div
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          padding: '12px 20px',
-        }}
-      >
-        <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-          <span
+      <div className="pj-topbar-inner">
+        <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+          <button
+            onClick={() => navigate('/pjazza')}
             style={{
-              fontSize: 18,
-              fontWeight: 800,
-              letterSpacing: '-0.02em',
-              color: 'var(--pj-text)',
+              background: 'none',
+              border: 'none',
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              gap: 8,
+              padding: 0,
             }}
+            data-testid="button-logo"
           >
-            PJAZZA
-          </span>
-          <span className="pj-live-dot" />
+            <span
+              style={{
+                fontSize: 18,
+                fontWeight: 800,
+                letterSpacing: '-0.02em',
+                color: 'var(--pj-text)',
+              }}
+            >
+              PJAZZA
+            </span>
+            <span className="pj-live-dot" />
+          </button>
+
+          <nav className="pj-desktop-nav">
+            {desktopLinks.map((link) => (
+              <button
+                key={link.id}
+                className={`pj-desktop-nav-item ${active === link.id ? 'active' : ''}`}
+                onClick={() => navigate(link.path)}
+                data-testid={`button-desknav-${link.id}`}
+              >
+                <link.Icon size={16} strokeWidth={2} />
+                {link.label}
+              </button>
+            ))}
+          </nav>
         </div>
 
         <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>

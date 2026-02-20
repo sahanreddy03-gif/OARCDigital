@@ -24,13 +24,14 @@ export default function BottomNav() {
 
   return (
     <div
+      className="pj-bottom-nav"
       style={{
         position: 'fixed',
         bottom: 0,
         left: '50%',
         transform: 'translateX(-50%)',
         width: '100%',
-        maxWidth: 420,
+        maxWidth: 600,
         zIndex: 40,
       }}
     >

@@ -19,26 +19,24 @@ function QuickStats() {
 
   return (
     <ScrollReveal>
-      <div style={{ padding: '20px 20px 0' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
-          {stats.map((s, i) => (
-            <div key={i} className="pj-metric">
-              <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 8 }}>
-                <s.Icon size={14} strokeWidth={2} style={{ color: s.color }} />
-                <span style={{ fontSize: 'var(--pj-size-micro)', color: 'var(--pj-text-tertiary)' }}>
-                  {s.label}
-                </span>
-              </div>
-              <span
-                className="pj-mono"
-                style={{ fontSize: 'var(--pj-size-h2)', fontWeight: 800, color: 'var(--pj-text)' }}
-                data-testid={`text-metric-${s.label.toLowerCase().replace(/\s/g, '-')}`}
-              >
-                {s.value}
+      <div className="pj-stats-grid">
+        {stats.map((s, i) => (
+          <div key={i} className="pj-metric">
+            <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 8 }}>
+              <s.Icon size={14} strokeWidth={2} style={{ color: s.color }} />
+              <span style={{ fontSize: 'var(--pj-size-micro)', color: 'var(--pj-text-tertiary)' }}>
+                {s.label}
               </span>
             </div>
-          ))}
-        </div>
+            <span
+              className="pj-mono"
+              style={{ fontSize: 'var(--pj-size-h2)', fontWeight: 800, color: 'var(--pj-text)' }}
+              data-testid={`text-metric-${s.label.toLowerCase().replace(/\s/g, '-')}`}
+            >
+              {s.value}
+            </span>
+          </div>
+        ))}
       </div>
     </ScrollReveal>
   );
@@ -49,7 +47,7 @@ function GoLiveButton() {
 
   return (
     <ScrollReveal delay={60}>
-      <div style={{ padding: '20px' }}>
+      <div className="pj-cta-container">
         <button
           className="pj-btn-primary"
           style={{ width: '100%', padding: '18px 24px', fontSize: 16, gap: 10 }}
@@ -67,44 +65,42 @@ function GoLiveButton() {
 function CruiseShipAlert() {
   return (
     <ScrollReveal delay={100}>
-      <div style={{ padding: '0 20px 20px' }}>
-        <div
-          className="pj-card"
-          style={{
-            padding: 16,
-            borderColor: 'var(--pj-red-border)',
-          }}
-        >
-          <div style={{ display: 'flex', alignItems: 'flex-start', gap: 12 }}>
-            <div
-              style={{
-                width: 40,
-                height: 40,
-                borderRadius: 'var(--pj-radius-md)',
-                background: 'var(--pj-red-soft)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                flexShrink: 0,
-              }}
-            >
-              <Ship size={18} strokeWidth={2} style={{ color: 'var(--pj-red)' }} />
+      <div
+        className="pj-card"
+        style={{
+          padding: 16,
+          borderColor: 'var(--pj-red-border)',
+        }}
+      >
+        <div style={{ display: 'flex', alignItems: 'flex-start', gap: 12 }}>
+          <div
+            style={{
+              width: 40,
+              height: 40,
+              borderRadius: 'var(--pj-radius-md)',
+              background: 'var(--pj-red-soft)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              flexShrink: 0,
+            }}
+          >
+            <Ship size={18} strokeWidth={2} style={{ color: 'var(--pj-red)' }} />
+          </div>
+          <div style={{ flex: 1 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 4 }}>
+              <span style={{ fontSize: 'var(--pj-size-small)', fontWeight: 700, color: 'var(--pj-text)' }}>
+                MSC Grandiosa arriving
+              </span>
             </div>
-            <div style={{ flex: 1 }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 4 }}>
-                <span style={{ fontSize: 'var(--pj-size-small)', fontWeight: 700, color: 'var(--pj-text)' }}>
-                  MSC Grandiosa arriving
-                </span>
-              </div>
-              <p style={{ fontSize: 'var(--pj-size-xs)', color: 'var(--pj-text-tertiary)', marginBottom: 8 }}>
-                Tomorrow 8:00 AM · 4,842 passengers · Grand Harbour
-              </p>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-                <TrendingUp size={12} style={{ color: 'var(--pj-green)' }} />
-                <span style={{ fontSize: 'var(--pj-size-micro)', color: 'var(--pj-green)', fontWeight: 600 }}>
-                  Best time to go live: 9:30 - 11:00 AM
-                </span>
-              </div>
+            <p style={{ fontSize: 'var(--pj-size-xs)', color: 'var(--pj-text-tertiary)', marginBottom: 8 }}>
+              Tomorrow 8:00 AM · 4,842 passengers · Grand Harbour
+            </p>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+              <TrendingUp size={12} style={{ color: 'var(--pj-green)' }} />
+              <span style={{ fontSize: 'var(--pj-size-micro)', color: 'var(--pj-green)', fontWeight: 600 }}>
+                Best time to go live: 9:30 - 11:00 AM
+              </span>
             </div>
           </div>
         </div>
@@ -126,42 +122,40 @@ function RevenueChart() {
 
   return (
     <ScrollReveal>
-      <div style={{ padding: '0 20px 20px' }}>
-        <div className="pj-card" style={{ padding: 20 }}>
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 20 }}>
-            <div>
-              <h3 style={{ fontSize: 'var(--pj-size-h3)', fontWeight: 700, color: 'var(--pj-text)' }}>
-                Revenue this week
-              </h3>
-              <span className="pj-mono" style={{ fontSize: 'var(--pj-size-h2)', fontWeight: 800, color: 'var(--pj-text)' }}>
-                €2,380
+      <div className="pj-card" style={{ padding: 20 }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 20 }}>
+          <div>
+            <h3 style={{ fontSize: 'var(--pj-size-h3)', fontWeight: 700, color: 'var(--pj-text)' }}>
+              Revenue this week
+            </h3>
+            <span className="pj-mono" style={{ fontSize: 'var(--pj-size-h2)', fontWeight: 800, color: 'var(--pj-text)' }}>
+              €2,380
+            </span>
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
+            <TrendingUp size={14} style={{ color: 'var(--pj-green)' }} />
+            <span style={{ fontSize: 'var(--pj-size-xs)', fontWeight: 700, color: 'var(--pj-green)' }}>
+              +18%
+            </span>
+          </div>
+        </div>
+        <div style={{ display: 'flex', alignItems: 'flex-end', gap: 8, height: 80 }}>
+          {days.map((d, i) => (
+            <div key={i} style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6 }}>
+              <div
+                style={{
+                  width: '100%',
+                  height: `${(d.value / d.max) * 60}px`,
+                  background: d.label === 'Tue' ? 'var(--pj-red)' : 'var(--pj-surface-3)',
+                  borderRadius: 4,
+                  transition: 'height 0.3s ease',
+                }}
+              />
+              <span style={{ fontSize: 9, color: 'var(--pj-text-tertiary)', fontWeight: 500 }}>
+                {d.label}
               </span>
             </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
-              <TrendingUp size={14} style={{ color: 'var(--pj-green)' }} />
-              <span style={{ fontSize: 'var(--pj-size-xs)', fontWeight: 700, color: 'var(--pj-green)' }}>
-                +18%
-              </span>
-            </div>
-          </div>
-          <div style={{ display: 'flex', alignItems: 'flex-end', gap: 8, height: 80 }}>
-            {days.map((d, i) => (
-              <div key={i} style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6 }}>
-                <div
-                  style={{
-                    width: '100%',
-                    height: `${(d.value / d.max) * 60}px`,
-                    background: d.label === 'Tue' ? 'var(--pj-red)' : 'var(--pj-surface-3)',
-                    borderRadius: 4,
-                    transition: 'height 0.3s ease',
-                  }}
-                />
-                <span style={{ fontSize: 9, color: 'var(--pj-text-tertiary)', fontWeight: 500 }}>
-                  {d.label}
-                </span>
-              </div>
-            ))}
-          </div>
+          ))}
         </div>
       </div>
     </ScrollReveal>
@@ -177,7 +171,7 @@ function RecentRequests() {
 
   return (
     <ScrollReveal>
-      <div style={{ padding: '0 20px 20px' }}>
+      <div>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 12 }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
             <MessageSquare size={14} style={{ color: 'var(--pj-text-tertiary)' }} />
@@ -185,7 +179,7 @@ function RecentRequests() {
               Recent requests
             </span>
           </div>
-          <button className="pj-btn-ghost" style={{ gap: 4 }}>
+          <button className="pj-btn-ghost" style={{ gap: 4 }} data-testid="button-all-requests">
             All <ChevronRight size={14} />
           </button>
         </div>
@@ -252,7 +246,7 @@ function UpcomingStreams() {
 
   return (
     <ScrollReveal>
-      <div style={{ padding: '0 20px 20px' }}>
+      <div>
         <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 12 }}>
           <Calendar size={14} style={{ color: 'var(--pj-text-tertiary)' }} />
           <span style={{ fontSize: 'var(--pj-size-h3)', fontWeight: 700, color: 'var(--pj-text)' }}>
@@ -285,7 +279,7 @@ export default function BusinessDashboard() {
     <div className="pj-safe-bottom" style={{ minHeight: '100vh', background: 'var(--pj-black)' }}>
       <TopBar />
 
-      <div style={{ padding: '20px 20px 12px' }}>
+      <div className="pj-section" style={{ paddingTop: 20, paddingBottom: 0 }}>
         <ScrollReveal>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4 }}>
             <h1 style={{ fontSize: 'var(--pj-size-h2)', fontWeight: 800, color: 'var(--pj-text)', letterSpacing: '-0.01em' }}>
@@ -310,12 +304,30 @@ export default function BusinessDashboard() {
         </ScrollReveal>
       </div>
 
-      <QuickStats />
-      <GoLiveButton />
-      <CruiseShipAlert />
-      <RevenueChart />
-      <RecentRequests />
-      <UpcomingStreams />
+      <div className="pj-section" style={{ paddingTop: 20, paddingBottom: 20 }}>
+        <QuickStats />
+
+        <div style={{ marginTop: 20 }}>
+          <GoLiveButton />
+        </div>
+
+        <div style={{ marginTop: 20 }}>
+          <CruiseShipAlert />
+        </div>
+      </div>
+
+      <div className="pj-section" style={{ paddingTop: 0, paddingBottom: 20 }}>
+        <div className="pj-dash-grid" style={{ padding: 0 }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
+            <RevenueChart />
+          </div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
+            <RecentRequests />
+            <UpcomingStreams />
+          </div>
+        </div>
+      </div>
+
       <div style={{ height: 32 }} />
       <BottomNav />
     </div>
