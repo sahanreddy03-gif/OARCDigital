@@ -259,6 +259,7 @@ function Router() {
       <Route path="/pjazza/business/onboard" component={PjazzaApp} />
       <Route path="/pjazza/how-it-works" component={PjazzaApp} />
       <Route path="/pjazza/sectors" component={PjazzaApp} />
+      <Route path="/pjazza/people" component={PjazzaApp} />
       <Route path="/pjazza/discover" component={PjazzaApp} />
       <Route path="/pjazza" component={PjazzaApp} />
 
