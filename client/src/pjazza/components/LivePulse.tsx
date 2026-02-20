@@ -1,4 +1,4 @@
-export default function LivePulse({ size = 8, color = '#E05A3A' }: { size?: number; color?: string }) {
+export default function LivePulse({ size = 8, color = '#C41E3A' }: { size?: number; color?: string }) {
   return (
     <span className="relative inline-flex" style={{ width: size, height: size }}>
       <span
