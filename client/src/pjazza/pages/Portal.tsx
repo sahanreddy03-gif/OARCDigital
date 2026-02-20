@@ -69,11 +69,11 @@ function Hero() {
             <button
               className="pj-btn-primary"
               style={{ flex: 1, minWidth: 180, padding: '18px 24px', fontSize: 16 }}
-              onClick={() => navigate('/pjazza/discover')}
+              onClick={() => navigate('/pjazza/live-shop')}
               data-testid="button-start-shopping"
             >
               <Play size={16} fill="white" style={{ marginRight: 2 }} />
-              <span>Watch Live</span>
+              <span>Shop Live</span>
             </button>
             <button
               className="pj-btn-secondary"
@@ -116,7 +116,7 @@ function LiveNowPreview() {
               Watch, chat, and buy in real time
             </p>
           </div>
-          <button className="pj-btn-ghost" style={{ gap: 4 }} onClick={() => navigate('/pjazza/discover')} data-testid="button-see-all-live">
+          <button className="pj-btn-ghost" style={{ gap: 4 }} onClick={() => navigate('/pjazza/live-shop')} data-testid="button-see-all-live">
             See all <ChevronRight size={14} />
           </button>
         </div>
@@ -474,11 +474,11 @@ function FinalCTA() {
           <button
             className="pj-btn-primary"
             style={{ minWidth: 180, padding: '18px 24px', fontSize: 16 }}
-            onClick={() => navigate('/pjazza/discover')}
+            onClick={() => navigate('/pjazza/live-shop')}
             data-testid="button-explore-now"
           >
             <Play size={16} fill="white" style={{ marginRight: 2 }} />
-            <span>Explore Now</span>
+            <span>Shop Live</span>
           </button>
           <button
             className="pj-btn-secondary"

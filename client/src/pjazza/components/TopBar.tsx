@@ -1,12 +1,12 @@
 import { useLocation } from 'wouter';
-import { Search, Bell, Home, Compass, Radio, Briefcase, Info, Grid3X3, Users } from 'lucide-react';
+import { Search, Bell, Home, Compass, Radio, Briefcase, Info, Grid3X3, Users, ShoppingBag } from 'lucide-react';
 
 const desktopLinks = [
   { id: 'home', Icon: Home, label: 'Home', path: '/pjazza/discover' },
+  { id: 'live-shop', Icon: ShoppingBag, label: 'Live Shop', path: '/pjazza/live-shop' },
   { id: 'sectors', Icon: Grid3X3, label: 'Sectors', path: '/pjazza/sectors' },
   { id: 'people', Icon: Users, label: 'People', path: '/pjazza/people' },
   { id: 'how', Icon: Info, label: 'How It Works', path: '/pjazza/how-it-works' },
-  { id: 'live', Icon: Radio, label: 'Go Live', path: '/pjazza/business/stream' },
   { id: 'business', Icon: Briefcase, label: 'Business', path: '/pjazza/business/dashboard' },
 ];
 
@@ -14,10 +14,10 @@ export default function TopBar() {
   const [location, navigate] = useLocation();
 
   const getActive = () => {
+    if (location.includes('/live-shop')) return 'live-shop';
     if (location.includes('/sectors')) return 'sectors';
     if (location.includes('/people')) return 'people';
     if (location.includes('/how-it-works')) return 'how';
-    if (location.includes('/business/stream')) return 'live';
     if (location.includes('/business')) return 'business';
     if (location === '/pjazza/discover') return 'home';
     return '';
