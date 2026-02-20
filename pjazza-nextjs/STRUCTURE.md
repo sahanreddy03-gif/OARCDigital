@@ -28,11 +28,10 @@ pjazza-nextjs/
 │       │   └── stream/
 │       │       └── page.tsx        # Recording studio (live + upload)
 ├── components/
-│   └── pjazza/
-│       ├── TopBar.tsx              # Sticky frosted nav with desktop links
-│       ├── BottomNav.tsx           # Mobile bottom tab bar (hidden ≥1024px)
-│       ├── ScrollReveal.tsx        # Intersection Observer scroll animations
-│       └── BrandMarquee.tsx        # Infinite horizontal marquee
+│   ├── TopBar.tsx                  # Sticky frosted nav with desktop links
+│   ├── BottomNav.tsx               # Mobile bottom tab bar (hidden ≥1024px)
+│   ├── ScrollReveal.tsx            # Intersection Observer scroll animations
+│   └── BrandMarquee.tsx            # Infinite horizontal marquee
 ├── styles/
 │   └── pjazza.css                  # Complete design system (831 lines, unchanged)
 ├── public/
