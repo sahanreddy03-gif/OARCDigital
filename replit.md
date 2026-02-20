@@ -42,11 +42,19 @@ The platform is built on a modern web stack using React for the frontend and Exp
 **Data Storage:**
 -   **Database:** PostgreSQL (Neon serverless) managed with Drizzle ORM.
 
-**PJAZZA — Mobile-First Marketplace (Secondary Project):**
--   **Architecture:** Separate module under `/pjazza/*` with its own `PjazzaApp.tsx` entry point.
--   **Design:** Mobile-first (max width 420px), deep crimson (#C41E3A) and rich dark palette, Space Grotesk and Inter fonts, self-contained CSS (`pjazza.css`).
--   **Advanced Features:** React Three Fiber for 3D elements, a custom design system including icon orbs, pill buttons, video frames, starburst badges, living backgrounds, glass cards with tilt interaction, and frosted navigation.
--   **Screens:** Portal, Discover, Business Onboard, Business Dashboard, and Recording Studio with specialized UI/UX.
+**PJAZZA — Live Shopping Marketplace for Malta (Secondary Project):**
+-   **Architecture:** Separate module under `/pjazza/*` with its own `PjazzaApp.tsx` entry point. Routes registered in both `App.tsx` (top-level) and `PjazzaApp.tsx` (internal).
+-   **Design:** Fully responsive (375px–1440px+), true black (#000000), rose-red (#E11D48) accents, gold (#D4A574) premium touches, Space Grotesk and Inter fonts, self-contained CSS (`pjazza.css`).
+-   **12 Sectors:** Food & Dining, Property, Cars, Yachts, Home Services, Freelancers, Wellness, Fashion & Retail, Electronics, Tourism, Education, Pets & Animals.
+-   **Pages (7 total):**
+    -   **Portal** (`/pjazza`): Full landing page — hero, live streams preview, 12-sector grid, featured listings, how-it-works overview, trust signals, stats, success stories, dual CTAs.
+    -   **Discover** (`/pjazza/discover`): Marketplace feed — live streams, category pills (12 sectors), high-value listings, crowd intelligence, quick links to How It Works & Sectors.
+    -   **How It Works** (`/pjazza/how-it-works`): Buyer flow (5 steps), seller flow (5 steps), escrow explainer, 8 FAQs with expand/collapse.
+    -   **Sectors** (`/pjazza/sectors`): All 12 categories with descriptions, examples, business counts, live counts, quick nav pills.
+    -   **Business Onboard** (`/pjazza/business/onboard`): Pitch page — problem/solution, proof metrics, 12 industries, pricing with founding partner offer.
+    -   **Business Dashboard** (`/pjazza/business/dashboard`): Seller analytics dashboard.
+    -   **Recording Studio** (`/pjazza/business/stream`): Live streaming studio.
+-   **Navigation:** TopBar (desktop 1024px+) and BottomNav (mobile) with Home, Sectors, LIVE, How It Works, Business tabs.
 
 ### External Dependencies
 
