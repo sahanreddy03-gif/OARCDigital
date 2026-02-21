@@ -88,7 +88,7 @@ export default function WebinarSection() {
             <div className="space-y-2 mb-10">
               <p className="flex items-center gap-2 text-emerald-400 font-semibold" data-testid="text-webinar-date">
                 <Calendar className="w-4 h-4" />
-                Date: Sunday, March 2nd, 2026
+                Date: Monday, March 2nd, 2026
               </p>
               <p className="flex items-center gap-2 text-emerald-400 font-semibold" data-testid="text-webinar-time">
                 <Clock className="w-4 h-4" />
