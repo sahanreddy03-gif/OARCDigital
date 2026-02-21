@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Palette, Bot, Rocket } from "lucide-react";
@@ -147,17 +147,43 @@ function SnowfallEffect() {
   );
 }
 
-const MobileGlassCard = ({ icon: Icon, label, href, testId }: { icon: typeof Palette; label: string; href: string; testId: string }) => (
-  <Link href={href}>
-    <div 
-      className="group flex items-center gap-2 md:gap-3 px-4 md:px-6 py-3 md:py-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/30 hover:bg-white/20 hover:border-white/50 hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-white/10"
-      data-testid={testId}
-    >
-      <Icon className="w-5 h-5 md:w-6 md:h-6 text-white group-hover:scale-110 transition-transform duration-300" />
-      <span className="text-sm md:text-base font-bold text-white tracking-wide">{label}</span>
-    </div>
-  </Link>
-);
+function MobileGlassCard({ icon: Icon, label, href, testId, glowColor = "rgba(255,255,255,0.15)" }: { icon: typeof Palette; label: string; href: string; testId: string; glowColor?: string }) {
+  const cardRef = useRef<HTMLDivElement>(null);
+  const [glow, setGlow] = useState({ x: 50, y: 50, active: false });
+
+  const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
+    if (!cardRef.current) return;
+    const rect = cardRef.current.getBoundingClientRect();
+    setGlow({
+      x: ((e.clientX - rect.left) / rect.width) * 100,
+      y: ((e.clientY - rect.top) / rect.height) * 100,
+      active: true,
+    });
+  }, []);
+
+  return (
+    <Link href={href}>
+      <div
+        ref={cardRef}
+        onMouseMove={handleMouseMove}
+        onMouseEnter={() => setGlow(g => ({ ...g, active: true }))}
+        onMouseLeave={() => setGlow(g => ({ ...g, active: false }))}
+        className="group relative flex items-center gap-2 md:gap-3 px-4 md:px-6 py-3 md:py-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/30 hover:bg-white/15 hover:border-white/50 hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-white/10 overflow-hidden cursor-pointer"
+        data-testid={testId}
+      >
+        <div
+          className="absolute inset-0 rounded-2xl pointer-events-none transition-opacity duration-400"
+          style={{
+            background: `radial-gradient(120px circle at ${glow.x}% ${glow.y}%, ${glowColor}, transparent 70%)`,
+            opacity: glow.active ? 1 : 0,
+          }}
+        />
+        <Icon className="relative z-10 w-5 h-5 md:w-6 md:h-6 text-white group-hover:scale-110 transition-transform duration-300" />
+        <span className="relative z-10 text-sm md:text-base font-bold text-white tracking-wide">{label}</span>
+      </div>
+    </Link>
+  );
+}
 
 export default function HeroSection() {
   const imageLoaded = useImagePreload(heroBackground);
@@ -350,9 +376,9 @@ export default function HeroSection() {
 
                   {/* Premium Service Navigation Cards */}
                   <div className="flex flex-wrap gap-3 md:gap-4 justify-center md:justify-start">
-                    <MobileGlassCard icon={Palette} label="Creative" href="/creative" testId="button-nav-creative" />
-                    <MobileGlassCard icon={Bot} label="AI" href="/ai-agents" testId="button-nav-ai" />
-                    <MobileGlassCard icon={Rocket} label="Growth" href="/solutions" testId="button-nav-growth" />
+                    <MobileGlassCard icon={Palette} label="Creative" href="/creative" testId="button-nav-creative" glowColor="rgba(96,165,250,0.25)" />
+                    <MobileGlassCard icon={Bot} label="AI" href="/ai-agents" testId="button-nav-ai" glowColor="rgba(74,222,128,0.25)" />
+                    <MobileGlassCard icon={Rocket} label="Growth" href="/solutions" testId="button-nav-growth" glowColor="rgba(147,197,253,0.25)" />
                   </div>
                 </div>
               </div>
