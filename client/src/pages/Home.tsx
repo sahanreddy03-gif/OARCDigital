@@ -4,6 +4,7 @@ import DiagnosticsTeaser from "@/components/DiagnosticsTeaser";
 import OARCBrandSection from "@/components/OARCBrandSection";
 import oarcBgVideo from "@assets/glif-chat-1766630282078_1766685897761.mov";
 import TrustedBrandsSection from "@/components/TrustedBrandsSection";
+import ServicePillarsSection from "@/components/ServicePillarsSection";
 import AICreativeSection from "@/components/AICreativeSection";
 import Section2 from "@/components/Section2";
 import Section5 from "@/components/Section5";
@@ -88,6 +89,7 @@ export default function Home() {
 
         {/* What We Do - Creative Services */}
         <TrustedBrandsSection />
+        <ServicePillarsSection />
         <AICreativeSection />
 
         {/* Services Showcase */}
