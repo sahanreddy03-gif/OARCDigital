@@ -1,141 +1,165 @@
 import { useEffect, useRef, useState, useCallback } from "react";
-import { Palette, Bot, Zap, ArrowUpRight } from "lucide-react";
+import { Palette, Bot, TrendingUp, ArrowRight } from "lucide-react";
 import { Link } from "wouter";
 
-const pillars = [
-  {
-    id: "creative",
-    icon: Palette,
-    title: "Creative Media",
-    subtitle: "Brand, social & ad campaigns",
-    link: "/services/creative",
-    accentColor: "#f97316",
-  },
-  {
-    id: "ai",
-    icon: Bot,
-    title: "AI Solutions",
-    subtitle: "Custom AI tools & systems",
-    link: "/services/ai-solutions",
-    accentColor: "#c4ff4d",
-  },
-  {
-    id: "automation",
-    icon: Zap,
-    title: "Workflow Automation",
-    subtitle: "Funnels that convert",
-    link: "/services/automation",
-    accentColor: "#f97316",
-  },
-];
-
-interface PillarCardProps {
-  pillar: (typeof pillars)[0];
-  index: number;
-  isVisible: boolean;
+interface GlassGlowCardProps {
+  icon: typeof Palette;
+  title: string;
+  subtitle: string;
+  description: string;
+  features: string[];
+  href: string;
+  glowColor: string;
+  borderColor: string;
+  iconBg: string;
 }
 
-function PillarCard({ pillar, index, isVisible }: PillarCardProps) {
+function GlassGlowCard({ icon: Icon, title, subtitle, description, features, href, glowColor, borderColor, iconBg }: GlassGlowCardProps) {
   const cardRef = useRef<HTMLDivElement>(null);
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [glowPosition, setGlowPosition] = useState({ x: 50, y: 50 });
   const [isHovered, setIsHovered] = useState(false);
-  const Icon = pillar.icon;
 
   const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
     if (!cardRef.current) return;
     const rect = cardRef.current.getBoundingClientRect();
-    setMousePos({
-      x: e.clientX - rect.left,
-      y: e.clientY - rect.top,
-    });
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    const y = ((e.clientY - rect.top) / rect.height) * 100;
+    setGlowPosition({ x, y });
   }, []);
 
   return (
-    <Link href={pillar.link}>
+    <Link href={href}>
       <div
         ref={cardRef}
         onMouseMove={handleMouseMove}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
-        className={`group relative rounded-2xl overflow-hidden cursor-pointer transition-all duration-700 ${
-          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-        }`}
-        style={{ 
-          transitionDelay: `${150 + index * 100}ms`,
-          backgroundColor: "#fafafa",
-          border: "1px solid rgba(0, 0, 0, 0.06)",
-          boxShadow: isHovered 
-            ? "0 20px 40px -15px rgba(0, 0, 0, 0.12)" 
-            : "0 2px 12px -4px rgba(0, 0, 0, 0.05)",
-          transform: isHovered ? "translateY(-4px)" : "translateY(0)"
+        className="relative group cursor-pointer rounded-2xl p-[1px] transition-all duration-500"
+        style={{
+          background: isHovered
+            ? `linear-gradient(135deg, ${borderColor}40, ${borderColor}20, transparent, ${borderColor}20)`
+            : `linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03))`,
         }}
-        data-testid={`pillar-card-${pillar.id}`}
+        data-testid={`card-pillar-${title.toLowerCase().replace(/\s+/g, '-')}`}
       >
-        {/* Spotlight effect */}
-        <div 
-          className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+        <div
+          className="relative rounded-2xl p-8 lg:p-10 h-full overflow-hidden"
           style={{
-            background: `radial-gradient(400px circle at ${mousePos.x}px ${mousePos.y}px, ${pillar.accentColor}12, transparent 40%)`,
+            background: 'linear-gradient(145deg, rgba(10,15,25,0.92), rgba(8,12,20,0.97))',
+            backdropFilter: 'blur(40px)',
           }}
-        />
-
-        {/* Content */}
-        <div className="relative z-10 flex items-center gap-4 p-5 md:p-6">
-          {/* Icon */}
+        >
           <div
-            className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 transition-all duration-500"
-            style={{ 
-              backgroundColor: isHovered ? pillar.accentColor : `${pillar.accentColor}15`,
-              transform: isHovered ? "rotate(-6deg) scale(1.05)" : "rotate(0) scale(1)"
-            }}
-          >
-            <Icon
-              className="w-6 h-6 transition-colors duration-500"
-              style={{ 
-                color: isHovered ? (pillar.accentColor === "#c4ff4d" ? "#0a0a0a" : "#ffffff") : pillar.accentColor
-              }}
-              strokeWidth={1.5}
-            />
-          </div>
-
-          {/* Text */}
-          <div className="flex-1 min-w-0">
-            <h3 
-              className="text-base md:text-lg font-bold mb-0.5 transition-all duration-300"
-              style={{ color: "#0a0a0a" }}
-            >
-              {pillar.title}
-            </h3>
-            <p 
-              className="text-xs md:text-sm truncate"
-              style={{ color: "rgba(0, 0, 0, 0.5)" }}
-            >
-              {pillar.subtitle}
-            </p>
-          </div>
-
-          {/* Arrow */}
-          <ArrowUpRight 
-            className="w-4 h-4 flex-shrink-0 transition-all duration-500"
-            style={{ 
-              color: isHovered ? pillar.accentColor : "rgba(0, 0, 0, 0.2)",
-              transform: isHovered ? "translate(2px, -2px)" : "translate(0, 0)"
+            className="absolute inset-0 rounded-2xl transition-opacity duration-500 pointer-events-none"
+            style={{
+              background: `radial-gradient(600px circle at ${glowPosition.x}% ${glowPosition.y}%, ${glowColor}, transparent 40%)`,
+              opacity: isHovered ? 1 : 0,
             }}
           />
-        </div>
 
-        {/* Bottom accent */}
-        <div 
-          className="absolute bottom-0 left-0 h-0.5 transition-all duration-500"
-          style={{
-            width: isHovered ? "100%" : "0%",
-            backgroundColor: pillar.accentColor,
-          }}
-        />
+          <div
+            className="absolute inset-0 rounded-2xl transition-opacity duration-700 pointer-events-none"
+            style={{
+              background: `radial-gradient(300px circle at ${glowPosition.x}% ${glowPosition.y}%, ${borderColor}15, transparent 50%)`,
+              opacity: isHovered ? 0.8 : 0,
+            }}
+          />
+
+          <div className="relative z-10">
+            <div
+              className="w-14 h-14 rounded-xl flex items-center justify-center mb-6 transition-all duration-500 group-hover:scale-110"
+              style={{
+                background: iconBg,
+                boxShadow: isHovered ? `0 0 30px ${borderColor}30` : 'none',
+              }}
+            >
+              <Icon className="w-7 h-7 text-white" />
+            </div>
+
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] mb-2 transition-colors duration-300"
+              style={{ color: borderColor }}>
+              {subtitle}
+            </p>
+
+            <h3 className="text-2xl lg:text-3xl font-bold text-white mb-4 tracking-tight">
+              {title}
+            </h3>
+
+            <p className="text-zinc-400 text-sm leading-relaxed mb-8">
+              {description}
+            </p>
+
+            <div className="space-y-3 mb-8">
+              {features.map((feature, i) => (
+                <div key={i} className="flex items-center gap-3">
+                  <div className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: borderColor }} />
+                  <span className="text-zinc-300 text-sm">{feature}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="flex items-center gap-2 text-sm font-semibold transition-all duration-300 group-hover:gap-3"
+              style={{ color: borderColor }}>
+              <span>Explore {title}</span>
+              <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+            </div>
+          </div>
+        </div>
       </div>
     </Link>
   );
 }
+
+const pillars = [
+  {
+    icon: Palette,
+    title: "Creative",
+    subtitle: "Design & Brand",
+    description: "World-class creative services powered by AI. From ad creative to full brand identities — designed to convert.",
+    features: [
+      "Ad creative & social assets",
+      "Brand identity & design systems",
+      "Video production & motion",
+      "Presentation & pitch decks",
+    ],
+    href: "/creative",
+    glowColor: "rgba(59,130,246,0.07)",
+    borderColor: "#3b82f6",
+    iconBg: "linear-gradient(135deg, #1e40af, #3b82f6)",
+  },
+  {
+    icon: Bot,
+    title: "AI Agents",
+    subtitle: "Virtual Talent Hub",
+    description: "Hire AI employees that work 24/7. Sales reps, support agents, and analysts — ready to scale your operations.",
+    features: [
+      "AI Sales Development Rep",
+      "Customer Support Specialist",
+      "Data Insights Analyst",
+      "Content & Admin Agents",
+    ],
+    href: "/ai-agents",
+    glowColor: "rgba(34,197,94,0.07)",
+    borderColor: "#22c55e",
+    iconBg: "linear-gradient(135deg, #166534, #22c55e)",
+  },
+  {
+    icon: TrendingUp,
+    title: "Revenue",
+    subtitle: "Growth & Automation",
+    description: "End-to-end revenue automation. From lead generation to funnel optimisation — engineered for measurable growth.",
+    features: [
+      "Lead generation engines",
+      "Marketing automation suite",
+      "Funnel optimisation",
+      "Custom software & MVPs",
+    ],
+    href: "/solutions",
+    glowColor: "rgba(147,197,253,0.06)",
+    borderColor: "#93c5fd",
+    iconBg: "linear-gradient(135deg, #1e3a5f, #60a5fa)",
+  },
+];
 
 export default function ServicePillarsSection() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -149,7 +173,7 @@ export default function ServicePillarsSection() {
           observer.disconnect();
         }
       },
-      { threshold: 0.2 }
+      { threshold: 0.15 }
     );
 
     if (sectionRef.current) {
@@ -162,31 +186,43 @@ export default function ServicePillarsSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative py-8 md:py-12 overflow-hidden"
-      style={{ backgroundColor: "#ffffff" }}
+      className="relative py-24 lg:py-32 overflow-hidden"
+      style={{ background: 'linear-gradient(180deg, #030712 0%, #0a0f1a 50%, #030712 100%)' }}
       data-testid="service-pillars-section"
     >
-      <div className="container mx-auto px-4 md:px-6 max-w-4xl relative z-10">
-        {/* Compact 3-column grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4">
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full opacity-[0.03]"
+          style={{ background: 'radial-gradient(circle, #3b82f6, transparent 70%)' }} />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full opacity-[0.03]"
+          style={{ background: 'radial-gradient(circle, #22c55e, transparent 70%)' }} />
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className={`text-center mb-16 lg:mb-20 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-blue-400 mb-4" data-testid="text-pillars-label">
+            Three Pillars of Growth
+          </p>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight mb-5" data-testid="text-pillars-headline">
+            Everything your brand needs.<br className="hidden sm:block" />
+            <span className="text-zinc-400">Under one roof.</span>
+          </h2>
+          <p className="text-zinc-400 text-base lg:text-lg max-w-2xl mx-auto leading-relaxed">
+            Creative excellence, intelligent automation, and revenue engineering — combined into a single platform built for scale.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8" data-testid="grid-pillars">
           {pillars.map((pillar, index) => (
-            <PillarCard
-              key={pillar.id}
-              pillar={pillar}
-              index={index}
-              isVisible={isVisible}
-            />
+            <div
+              key={pillar.title}
+              className={`transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+              style={{ transitionDelay: `${200 + index * 150}ms` }}
+            >
+              <GlassGlowCard {...pillar} />
+            </div>
           ))}
         </div>
       </div>
-
-      <style>{`
-        @media (prefers-reduced-motion: reduce) {
-          [data-testid="service-pillars-section"] * {
-            transition-duration: 0.01ms !important;
-          }
-        }
-      `}</style>
     </section>
   );
 }
