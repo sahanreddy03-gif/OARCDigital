@@ -83,7 +83,7 @@ export default function Home() {
         structuredData={homepageSchema}
       />
       <NeuralGrid />
-      <div className="overflow-x-hidden relative z-[2]">
+      <div className="overflow-x-hidden">
         <HeroSection />
 
         <ScrollReveal>
