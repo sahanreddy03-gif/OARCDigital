@@ -21,6 +21,7 @@ import CTASections from "@/components/CTASections";
 import NeedHelpCTA from "@/components/NeedHelpCTA";
 import FAQ from "@/components/FAQ";
 import SEOHead from "@/components/SEOHead";
+import ScrollReveal from "@/components/ScrollReveal";
 import { localBusinessSchema, organizationSchema, createFAQSchema } from "@/utils/structuredData";
 import { createAggregateRatingSchema, createReviewSchema } from "@/utils/advancedSchema";
 
@@ -83,48 +84,81 @@ export default function Home() {
       <div className="overflow-x-hidden">
         <HeroSection />
 
-        {/* OARC Brand Section - premium display of OARC acronym with video background */}
-        <OARCBrandSection videoSrc={oarcBgVideo} />
+        <ScrollReveal>
+          <OARCBrandSection videoSrc={oarcBgVideo} />
+        </ScrollReveal>
 
-        {/* What We Do - Creative Services */}
-        <TrustedBrandsSection />
-        <AICreativeSection />
+        <ScrollReveal delay={100}>
+          <TrustedBrandsSection />
+        </ScrollReveal>
 
-        {/* Services Showcase */}
-        <Section2 />
+        <ScrollReveal>
+          <AICreativeSection />
+        </ScrollReveal>
 
-        {/* Our Difference */}
-        <Section5 />
+        <ScrollReveal>
+          <Section2 />
+        </ScrollReveal>
 
-        {/* AI Services Pillars - Dark Premium Zone */}
-        <HireAIEmployeesSection />
-        <LetsTalkRevenueSection />
+        <ScrollReveal>
+          <Section5 />
+        </ScrollReveal>
 
-        {/* Tech & Services */}
-        <TechEnabledSection />
+        <ScrollReveal>
+          <HireAIEmployeesSection />
+        </ScrollReveal>
 
-        {/* Success Metrics */}
-        <SuccessInNumbers />
+        <ScrollReveal delay={50}>
+          <LetsTalkRevenueSection />
+        </ScrollReveal>
 
-        {/* Case Studies & Social Proof */}
-        <BrandShowcaseSection />
+        <ScrollReveal>
+          <TechEnabledSection />
+        </ScrollReveal>
 
-        {/* Testimonials */}
-        <Testimonials />
+        <ScrollReveal>
+          <SuccessInNumbers />
+        </ScrollReveal>
 
-        {/* Why OARC - Comparison */}
-        <ComparisonSection />
-        <GrowthSimulator />
-        
-        {/* Business Diagnostics Teaser - Compact version linking to full diagnostics */}
-        <DiagnosticsTeaser />
+        <ScrollReveal>
+          <BrandShowcaseSection />
+        </ScrollReveal>
 
-        {/* Final CTAs */}
-        <MoneyBackGuaranteeSection />
-        <BlogPreviewSection />
-        <CTASections />
-        <NeedHelpCTA />
-        <FAQ />
+        <ScrollReveal>
+          <Testimonials />
+        </ScrollReveal>
+
+        <ScrollReveal>
+          <ComparisonSection />
+        </ScrollReveal>
+
+        <ScrollReveal>
+          <GrowthSimulator />
+        </ScrollReveal>
+
+        <ScrollReveal>
+          <DiagnosticsTeaser />
+        </ScrollReveal>
+
+        <ScrollReveal>
+          <MoneyBackGuaranteeSection />
+        </ScrollReveal>
+
+        <ScrollReveal>
+          <BlogPreviewSection />
+        </ScrollReveal>
+
+        <ScrollReveal>
+          <CTASections />
+        </ScrollReveal>
+
+        <ScrollReveal>
+          <NeedHelpCTA />
+        </ScrollReveal>
+
+        <ScrollReveal>
+          <FAQ />
+        </ScrollReveal>
       </div>
     </Layout>
   );
