@@ -11,21 +11,11 @@ interface GridNode {
   brightness: number;
 }
 
-interface DataFlow {
-  fromNode: number;
-  toNode: number;
-  progress: number;
-  speed: number;
-  active: boolean;
-  color: string;
-}
-
 export default function NeuralGrid() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const animationRef = useRef<number>();
   const mouseRef = useRef({ x: 0, y: 0 });
   const nodesRef = useRef<GridNode[]>([]);
-  const flowsRef = useRef<DataFlow[]>([]);
   const timeRef = useRef(0);
 
   const PROJECT_Y = 0.42;
@@ -69,30 +59,6 @@ export default function NeuralGrid() {
     nodesRef.current = nodes;
   }, [projectPoint]);
 
-  const initFlows = useCallback(() => {
-    const flows: DataFlow[] = [];
-    const nodes = nodesRef.current;
-    const colors = [
-      `rgba(${ACCENT_GREEN.r},${ACCENT_GREEN.g},${ACCENT_GREEN.b}`,
-      `rgba(${ACCENT_TEAL.r},${ACCENT_TEAL.g},${ACCENT_TEAL.b}`,
-    ];
-
-    for (let i = 0; i < 18; i++) {
-      const fromIdx = Math.floor(Math.random() * nodes.length);
-      let toIdx = fromIdx + 1 + Math.floor(Math.random() * GRID_COLS);
-      if (toIdx >= nodes.length) toIdx = Math.floor(Math.random() * nodes.length);
-      flows.push({
-        fromNode: fromIdx,
-        toNode: toIdx,
-        progress: Math.random(),
-        speed: 0.003 + Math.random() * 0.006,
-        active: true,
-        color: colors[Math.floor(Math.random() * colors.length)],
-      });
-    }
-    flowsRef.current = flows;
-  }, []);
-
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -109,7 +75,6 @@ export default function NeuralGrid() {
       canvas.style.height = window.innerHeight + 'px';
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       initNodes(window.innerWidth, window.innerHeight);
-      initFlows();
     };
     resize();
     window.addEventListener('resize', resize);
@@ -121,8 +86,6 @@ export default function NeuralGrid() {
 
     if (prefersReducedMotion) {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      const w = window.innerWidth;
-      const h = window.innerHeight;
       for (let row = 0; row < GRID_ROWS; row++) {
         for (let col = 0; col < GRID_COLS - 1; col++) {
           const idx = row * GRID_COLS + col;
@@ -172,9 +135,8 @@ export default function NeuralGrid() {
       ctx.clearRect(0, 0, w, h);
 
       const nodes = nodesRef.current;
-      const flows = flowsRef.current;
 
-      nodes.forEach((node, i) => {
+      nodes.forEach((node) => {
         node.pulse += node.pulseSpeed;
         const pulseVal = Math.sin(node.pulse) * 0.5 + 0.5;
 
@@ -273,52 +235,6 @@ export default function NeuralGrid() {
         ctx.fill();
       });
 
-      flows.forEach((flow) => {
-        flow.progress += flow.speed;
-        if (flow.progress > 1) {
-          flow.progress = 0;
-          flow.fromNode = Math.floor(Math.random() * nodes.length);
-          let toIdx = flow.fromNode + 1 + Math.floor(Math.random() * GRID_COLS);
-          if (toIdx >= nodes.length) toIdx = Math.floor(Math.random() * nodes.length);
-          flow.toNode = toIdx;
-        }
-
-        const from = nodes[flow.fromNode];
-        const to = nodes[flow.toNode];
-        if (!from || !to) return;
-
-        const px = from.screenX + (to.screenX - from.screenX) * flow.progress;
-        const py = from.screenY + (to.screenY - from.screenY) * flow.progress;
-
-        const fadeIn = flow.progress < 0.15 ? flow.progress / 0.15 : 1;
-        const fadeOut = flow.progress > 0.85 ? (1 - flow.progress) / 0.15 : 1;
-        const alpha = fadeIn * fadeOut * 0.6;
-
-        const trailLength = 0.15;
-        const trailStart = Math.max(0, flow.progress - trailLength);
-        const tx = from.screenX + (to.screenX - from.screenX) * trailStart;
-        const ty = from.screenY + (to.screenY - from.screenY) * trailStart;
-
-        const gradient = ctx.createLinearGradient(tx, ty, px, py);
-        gradient.addColorStop(0, `${flow.color},0)`);
-        gradient.addColorStop(1, `${flow.color},${alpha})`);
-
-        ctx.beginPath();
-        ctx.moveTo(tx, ty);
-        ctx.lineTo(px, py);
-        ctx.strokeStyle = gradient;
-        ctx.lineWidth = 1.5;
-        ctx.stroke();
-
-        const dotGrad = ctx.createRadialGradient(px, py, 0, px, py, 4);
-        dotGrad.addColorStop(0, `${flow.color},${alpha})`);
-        dotGrad.addColorStop(1, `${flow.color},0)`);
-        ctx.beginPath();
-        ctx.arc(px, py, 4, 0, Math.PI * 2);
-        ctx.fillStyle = dotGrad;
-        ctx.fill();
-      });
-
       const horizonY = h * VANISH_Y;
       const horizonGrad = ctx.createRadialGradient(
         w * VANISH_X, horizonY, 0,
@@ -340,12 +256,12 @@ export default function NeuralGrid() {
       window.removeEventListener('mousemove', handleMouseMove);
       if (animationRef.current) cancelAnimationFrame(animationRef.current);
     };
-  }, [initNodes, initFlows, projectPoint]);
+  }, [initNodes, projectPoint]);
 
   return (
     <canvas
       ref={canvasRef}
-      className="absolute inset-0 pointer-events-none z-20 motion-reduce:hidden"
+      className="fixed inset-0 pointer-events-none z-[1] motion-reduce:hidden"
       data-testid="neural-grid-canvas"
     />
   );
