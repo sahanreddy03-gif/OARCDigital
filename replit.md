@@ -14,7 +14,7 @@ The platform is built on a modern web stack using React for the frontend and Exp
 -   **Design & Aesthetics:** Premium agency-grade aesthetic featuring a two-palette color system (primary green, orange-600 accents), fluid typography (Montserrat, Nunito Sans, EB Garamond), extensive CSS animations (Framer Motion, ScrollReveal), and responsive design.
 -   **Key Features:**
     -   **Navigation:** Master services page with accordion layout, desktop hover mega menu, and footer service categories.
-    -   **Animations:** Large icons with hover effects, redesigned carousels, infinite logo marquees, campaign galleries, parallax scrolling, light sweep animations, and ultra-premium mobile animations with GPU acceleration.
+    -   **Animations:** NeuralGrid 3D perspective canvas (replaced snow effect), WordReveal word-by-word text animations, ScrollReveal entrance animations on all homepage sections, AnimatedCounter counting stats, staggered card entrances, cursor-tracking glass glow on hero cards, large icons with hover effects, redesigned carousels, infinite logo marquees, campaign galleries, parallax scrolling, light sweep animations, and ultra-premium mobile animations with GPU acceleration. All animations respect prefers-reduced-motion.
     -   **Content & Services:** 25 specialized service pages (creative, growth, AI services), comprehensive homepage with 19 sections (3D Concave Carousel, brand DNA, service pillars, ROI calculator), six featured case studies, and dedicated pages for AI Employee & Revenue Services, and Creative Services.
     -   **Specialized Page Designs:**
         -   **Our Work Page:** Redesigned portfolio with bokeh background, orange accents, clean filter tabs, and subtle hover effects on case study cards.
