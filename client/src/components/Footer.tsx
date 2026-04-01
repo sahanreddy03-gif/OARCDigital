@@ -181,7 +181,9 @@ export default function Footer({ hideGetInTouch = false }: FooterProps) {
           <div>
             <h5 className="text-zinc-500 text-xs uppercase tracking-wider mb-2 font-medium">Malta</h5>
             <address className="text-zinc-400 text-sm not-italic leading-relaxed">
-              Birkirkara CBD 2010, Malta
+              Level 1, The Brewhouse,<br />
+              Zone 2, Central Business District,<br />
+              Mdina Road, Birkirkara CBD 2010, Malta
             </address>
             <a href="tel:+35679711799" className="text-zinc-500 hover:text-zinc-300 text-xs mt-2 inline-block transition-colors" data-testid="link-phone-malta">
               +356 7971 1799
