@@ -1,4 +1,4 @@
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect, useRef, useState } from "react";
 import Layout from "@/components/layout/Layout";
 import HeroSection from "@/components/HeroSection";
 import SEOHead from "@/components/SEOHead";
@@ -26,7 +26,45 @@ const CTASections           = lazy(() => import("@/components/CTASections"));
 const NeedHelpCTA           = lazy(() => import("@/components/NeedHelpCTA"));
 const FAQ                   = lazy(() => import("@/components/FAQ"));
 
-const SectionFallback = () => <div style={{ minHeight: '1px' }} />;
+/**
+ * DeferredSection — mounts children only once the placeholder div enters the
+ * viewport (with a generous rootMargin so chunks start loading slightly before
+ * they're needed). Until then the lazy component is never instantiated and its
+ * JS chunk is never requested.
+ */
+function DeferredSection({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [shouldRender, setShouldRender] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShouldRender(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "300px 0px" }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div ref={ref}>
+      {shouldRender ? (
+        <Suspense fallback={<div style={{ minHeight: "1px" }} />}>
+          {children}
+        </Suspense>
+      ) : (
+        <div style={{ minHeight: "1px" }} />
+      )}
+    </div>
+  );
+}
 
 export default function Home() {
   const faqSchema = createFAQSchema([
@@ -85,121 +123,124 @@ export default function Home() {
         structuredData={homepageSchema}
       />
       <div className="overflow-x-hidden">
+
+        {/* Hero — always eager, no deferral */}
         <HeroSection />
 
-        <Suspense fallback={<SectionFallback />}>
+        <DeferredSection>
           <ScrollReveal>
             <OARCBrandSection />
           </ScrollReveal>
-        </Suspense>
+        </DeferredSection>
 
-        <Suspense fallback={<SectionFallback />}>
+        <DeferredSection>
           <ScrollReveal delay={100}>
             <TrustedBrandsSection />
           </ScrollReveal>
-        </Suspense>
+        </DeferredSection>
 
-        <Suspense fallback={<SectionFallback />}>
+        <DeferredSection>
           <ScrollReveal>
             <AICreativeSection />
           </ScrollReveal>
-        </Suspense>
+        </DeferredSection>
 
-        <Suspense fallback={<SectionFallback />}>
+        <DeferredSection>
           <ScrollReveal>
             <Section2 />
           </ScrollReveal>
-        </Suspense>
+        </DeferredSection>
 
-        <Suspense fallback={<SectionFallback />}>
+        <DeferredSection>
           <ScrollReveal>
             <Section5 />
           </ScrollReveal>
-        </Suspense>
+        </DeferredSection>
 
-        <Suspense fallback={<SectionFallback />}>
+        <DeferredSection>
           <ScrollReveal>
             <HireAIEmployeesSection />
           </ScrollReveal>
-        </Suspense>
+        </DeferredSection>
 
-        <Suspense fallback={<SectionFallback />}>
+        <DeferredSection>
           <ScrollReveal delay={50}>
             <LetsTalkRevenueSection />
           </ScrollReveal>
-        </Suspense>
+        </DeferredSection>
 
-        <Suspense fallback={<SectionFallback />}>
+        <DeferredSection>
           <ScrollReveal>
             <TechEnabledSection />
           </ScrollReveal>
-        </Suspense>
+        </DeferredSection>
 
-        <Suspense fallback={<SectionFallback />}>
+        <DeferredSection>
           <ScrollReveal>
             <SuccessInNumbers />
           </ScrollReveal>
-        </Suspense>
+        </DeferredSection>
 
-        <Suspense fallback={<SectionFallback />}>
+        <DeferredSection>
           <ScrollReveal>
             <BrandShowcaseSection />
           </ScrollReveal>
-        </Suspense>
+        </DeferredSection>
 
-        <Suspense fallback={<SectionFallback />}>
+        <DeferredSection>
           <ScrollReveal>
             <Testimonials />
           </ScrollReveal>
-        </Suspense>
+        </DeferredSection>
 
-        <Suspense fallback={<SectionFallback />}>
+        <DeferredSection>
           <ScrollReveal>
             <ComparisonSection />
           </ScrollReveal>
-        </Suspense>
+        </DeferredSection>
 
-        <Suspense fallback={<SectionFallback />}>
+        <DeferredSection>
           <ScrollReveal>
             <GrowthSimulator />
           </ScrollReveal>
-        </Suspense>
+        </DeferredSection>
 
-        <Suspense fallback={<SectionFallback />}>
+        <DeferredSection>
           <ScrollReveal>
             <DiagnosticsTeaser />
           </ScrollReveal>
-        </Suspense>
+        </DeferredSection>
 
-        <Suspense fallback={<SectionFallback />}>
+        <DeferredSection>
           <ScrollReveal>
             <MoneyBackGuaranteeSection />
           </ScrollReveal>
-        </Suspense>
+        </DeferredSection>
 
-        <Suspense fallback={<SectionFallback />}>
+        <DeferredSection>
           <ScrollReveal>
             <BlogPreviewSection />
           </ScrollReveal>
-        </Suspense>
+        </DeferredSection>
 
-        <Suspense fallback={<SectionFallback />}>
+        <DeferredSection>
           <ScrollReveal>
             <CTASections />
           </ScrollReveal>
-        </Suspense>
+        </DeferredSection>
 
-        <Suspense fallback={<SectionFallback />}>
+        <DeferredSection>
           <ScrollReveal>
             <NeedHelpCTA />
           </ScrollReveal>
-        </Suspense>
+        </DeferredSection>
 
-        <Suspense fallback={<SectionFallback />}>
+        <DeferredSection>
           <ScrollReveal>
             <FAQ />
           </ScrollReveal>
-        </Suspense>
+        </DeferredSection>
+
       </div>
     </Layout>
   );
