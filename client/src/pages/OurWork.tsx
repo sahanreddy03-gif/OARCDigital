@@ -43,17 +43,16 @@ const filterCategories = [
 ];
 
 const featuredSlugs = [
-  'pjazza',
   'nexgen-retail-ai-transformation',
   'national-distributor-nlp',
   'cricketpulse-india',
   'apex-fitness-collective',
   'digital-finance-solutions',
+  'maison-lumiere'
 ];
 
-// Custom order — PJAZZA first (OARC's own product), then best images
+// Custom order to mix creative and AI case studies - best images first
 const displayOrder = [
-  'pjazza',                  // OARC's own product — always first
   'volta-home',              // Creative - premium kitchen lifestyle
   'naturalcare-beauty',      // Creative - great lifestyle image
   'national-distributor-nlp',// AI - data engineering visual

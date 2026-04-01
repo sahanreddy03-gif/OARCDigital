@@ -4,7 +4,6 @@ import Layout from "@/components/layout/Layout";
 import SEOHead from "@/components/SEOHead";
 import { supportingPagesSEO } from "@/data/seoMetadata";
 import ContactForm from "@/components/contact/ContactForm";
-import WebinarSection from "@/components/contact/WebinarSection";
 import { Mail, Phone, MessageCircle, MapPin, Bot, Sparkles, ArrowRight, Send } from "lucide-react";
 import { SiWhatsapp } from "react-icons/si";
 import { Link } from "wouter";
@@ -387,9 +386,9 @@ export default function Contact() {
               </div>
               <h3 className="text-white font-bold text-lg mb-2">Malta</h3>
               <address className="text-zinc-400 text-sm not-italic leading-relaxed">
-                Zone 2, Central Business District<br />
-                Level 1, The Brewhouse, Mdina Road<br />
-                Birkirkara CBD 2010
+                Seaside Spirit<br />
+                Triq ix-Xatt, Ta' Xbiex<br />
+                XBX 1020
               </address>
             </div>
 
@@ -421,9 +420,6 @@ export default function Contact() {
           </div>
         </div>
       </section>
-
-      {/* Webinar Registration Section */}
-      <WebinarSection />
 
       {/* Trust Strip */}
       <section className="bg-zinc-950 border-t border-white/5 py-12">

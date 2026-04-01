@@ -17,11 +17,13 @@ export default function ScrollReveal({
   const elementRef = useRef<HTMLDivElement>(null);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
+  // Check for reduced motion preference
   const prefersReducedMotion = typeof window !== 'undefined' 
     ? window.matchMedia('(prefers-reduced-motion: reduce)').matches 
     : false;
 
   useEffect(() => {
+    // Skip animation if user prefers reduced motion
     if (prefersReducedMotion) {
       setIsVisible(true);
       return;
@@ -30,18 +32,14 @@ export default function ScrollReveal({
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          // Disconnect immediately — no need to keep observing after first reveal
-          observer.disconnect();
-          if (delay > 0) {
-            timeoutRef.current = setTimeout(() => setIsVisible(true), delay);
-          } else {
+          timeoutRef.current = setTimeout(() => {
             setIsVisible(true);
-          }
+          }, delay);
         }
       },
       {
         threshold: 0.1,
-        rootMargin: '0px 0px -40px 0px'
+        rootMargin: '0px 0px -50px 0px'
       }
     );
 
@@ -50,7 +48,10 @@ export default function ScrollReveal({
     }
 
     return () => {
-      observer.disconnect();
+      if (elementRef.current) {
+        observer.unobserve(elementRef.current);
+      }
+      // Clear timeout to prevent setState after unmount
       if (timeoutRef.current) {
         clearTimeout(timeoutRef.current);
       }
@@ -59,11 +60,12 @@ export default function ScrollReveal({
 
   const getInitialTransform = () => {
     switch (direction) {
-      case 'up':    return 'translateY(24px)';
-      case 'down':  return 'translateY(-24px)';
-      case 'left':  return 'translateX(24px)';
-      case 'right': return 'translateX(-24px)';
-      default:      return 'translateY(0)';
+      case 'up': return 'translateY(30px)';
+      case 'down': return 'translateY(-30px)';
+      case 'left': return 'translateX(30px)';
+      case 'right': return 'translateX(-30px)';
+      case 'fade': return 'translateY(0)';
+      default: return 'translateY(30px)';
     }
   };
 
@@ -73,11 +75,10 @@ export default function ScrollReveal({
       className={className}
       style={{
         opacity: isVisible || prefersReducedMotion ? 1 : 0,
-        transform: isVisible || prefersReducedMotion ? 'none' : getInitialTransform(),
-        transition: prefersReducedMotion
-          ? 'none'
-          : 'opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)',
-        willChange: isVisible ? 'auto' : 'opacity, transform',
+        transform: isVisible || prefersReducedMotion ? 'translateY(0) translateX(0)' : getInitialTransform(),
+        transition: prefersReducedMotion 
+          ? 'none' 
+          : 'opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1)',
       }}
     >
       {children}

@@ -2,6 +2,7 @@ import Layout from "@/components/layout/Layout";
 import HeroSection from "@/components/HeroSection";
 import DiagnosticsTeaser from "@/components/DiagnosticsTeaser";
 import OARCBrandSection from "@/components/OARCBrandSection";
+import oarcBgVideo from "@assets/glif-chat-1766630282078_1766685897761.mov";
 import TrustedBrandsSection from "@/components/TrustedBrandsSection";
 import AICreativeSection from "@/components/AICreativeSection";
 import Section2 from "@/components/Section2";
@@ -20,7 +21,6 @@ import CTASections from "@/components/CTASections";
 import NeedHelpCTA from "@/components/NeedHelpCTA";
 import FAQ from "@/components/FAQ";
 import SEOHead from "@/components/SEOHead";
-import ScrollReveal from "@/components/ScrollReveal";
 import { localBusinessSchema, organizationSchema, createFAQSchema } from "@/utils/structuredData";
 import { createAggregateRatingSchema, createReviewSchema } from "@/utils/advancedSchema";
 
@@ -32,7 +32,7 @@ export default function Home() {
     },
     {
       question: "Where is OARC Digital located?",
-      answer: "OARC Digital has offices in Malta (Birkirkara CBD), Chennai (India), and Dubai (UAE), serving clients across Europe, Middle East, and Asia."
+      answer: "OARC Digital has offices in Malta (Ta' Xbiex), Chennai (India), and Dubai (UAE), serving clients across Europe, Middle East, and Asia."
     },
     {
       question: "How does OARC Digital use AI in marketing?",
@@ -83,79 +83,48 @@ export default function Home() {
       <div className="overflow-x-hidden">
         <HeroSection />
 
-        <OARCBrandSection />
+        {/* OARC Brand Section - premium display of OARC acronym with video background */}
+        <OARCBrandSection videoSrc={oarcBgVideo} />
 
-        <ScrollReveal delay={100}>
-          <TrustedBrandsSection />
-        </ScrollReveal>
+        {/* What We Do - Creative Services */}
+        <TrustedBrandsSection />
+        <AICreativeSection />
 
-        <ScrollReveal>
-          <AICreativeSection />
-        </ScrollReveal>
+        {/* Services Showcase */}
+        <Section2 />
 
-        <ScrollReveal>
-          <Section2 />
-        </ScrollReveal>
+        {/* Our Difference */}
+        <Section5 />
 
-        <ScrollReveal>
-          <Section5 />
-        </ScrollReveal>
+        {/* AI Services Pillars - Dark Premium Zone */}
+        <HireAIEmployeesSection />
+        <LetsTalkRevenueSection />
 
-        <ScrollReveal>
-          <HireAIEmployeesSection />
-        </ScrollReveal>
+        {/* Tech & Services */}
+        <TechEnabledSection />
 
-        <ScrollReveal delay={50}>
-          <LetsTalkRevenueSection />
-        </ScrollReveal>
+        {/* Success Metrics */}
+        <SuccessInNumbers />
 
-        <ScrollReveal>
-          <TechEnabledSection />
-        </ScrollReveal>
+        {/* Case Studies & Social Proof */}
+        <BrandShowcaseSection />
 
-        <ScrollReveal>
-          <SuccessInNumbers />
-        </ScrollReveal>
+        {/* Testimonials */}
+        <Testimonials />
 
-        <ScrollReveal>
-          <BrandShowcaseSection />
-        </ScrollReveal>
+        {/* Why OARC - Comparison */}
+        <ComparisonSection />
+        <GrowthSimulator />
+        
+        {/* Business Diagnostics Teaser - Compact version linking to full diagnostics */}
+        <DiagnosticsTeaser />
 
-        <ScrollReveal>
-          <Testimonials />
-        </ScrollReveal>
-
-        <ScrollReveal>
-          <ComparisonSection />
-        </ScrollReveal>
-
-        <ScrollReveal>
-          <GrowthSimulator />
-        </ScrollReveal>
-
-        <ScrollReveal>
-          <DiagnosticsTeaser />
-        </ScrollReveal>
-
-        <ScrollReveal>
-          <MoneyBackGuaranteeSection />
-        </ScrollReveal>
-
-        <ScrollReveal>
-          <BlogPreviewSection />
-        </ScrollReveal>
-
-        <ScrollReveal>
-          <CTASections />
-        </ScrollReveal>
-
-        <ScrollReveal>
-          <NeedHelpCTA />
-        </ScrollReveal>
-
-        <ScrollReveal>
-          <FAQ />
-        </ScrollReveal>
+        {/* Final CTAs */}
+        <MoneyBackGuaranteeSection />
+        <BlogPreviewSection />
+        <CTASections />
+        <NeedHelpCTA />
+        <FAQ />
       </div>
     </Layout>
   );

@@ -100,7 +100,6 @@ import AIAgentsLanding from "@/pages/AIAgentsLanding";
 import RevenueSolutionsLanding from "@/pages/RevenueSolutionsLanding";
 import NotFound from "@/pages/not-found";
 import { ARCWidget } from "@/components/ARC";
-import PjazzaCaseStudy from "@/pages/case-studies/Pjazza";
 
 function Router() {
   return (
@@ -252,9 +251,6 @@ function Router() {
 
       {/* Programmatic SEO - Location Pages */}
       <Route path="/malta/:location/:service" component={LocationService} />
-
-      {/* PJAZZA Case Study */}
-      <Route path="/case-studies/pjazza" component={PjazzaCaseStudy} />
 
         <Route component={NotFound} />
       </Switch>
