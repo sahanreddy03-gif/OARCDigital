@@ -1,7 +1,5 @@
-import { useRef } from "react";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
-import { useInView } from "framer-motion";
 import { 
   Smartphone,
   Wrench,
@@ -16,29 +14,6 @@ interface TechCard {
   icon: React.ElementType;
   variant: 'lime' | 'cream' | 'sage' | 'teal';
   hasToolsLink?: boolean;
-}
-
-function StaggerCard({ children, className, delay, testId }: { children: React.ReactNode; className: string; delay: number; testId: string }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-60px" });
-  const prefersReducedMotion = typeof window !== 'undefined'
-    ? window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    : false;
-  const visible = isInView || prefersReducedMotion;
-  return (
-    <div
-      ref={ref}
-      className={`${className} ${prefersReducedMotion ? '' : 'transition-all duration-700 ease-out'}`}
-      style={{
-        opacity: visible ? 1 : 0,
-        transform: visible ? 'translateY(0) scale(1)' : 'translateY(40px) scale(0.97)',
-        transitionDelay: prefersReducedMotion ? '0ms' : `${delay}ms`,
-      }}
-      data-testid={testId}
-    >
-      {children}
-    </div>
-  );
 }
 
 const TechEnabledSection = () => {
@@ -155,14 +130,13 @@ const TechEnabledSection = () => {
         {/* Desktop: Bento Grid Layout | Mobile: Stack */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-5">
           {/* Card 1 - Lime - Large Left */}
-          <StaggerCard
+          <div 
             className={`
-              group relative rounded-2xl overflow-hidden hover:scale-[1.02]
+              group relative rounded-2xl overflow-hidden transition-all duration-300 hover:scale-[1.02]
               ${getCardStyles('lime').bg}
               md:col-span-7 min-h-[220px] md:min-h-[280px]
             `}
-            delay={0}
-            testId="card-tech-feature-0"
+            data-testid="card-tech-feature-0"
           >
             <div className="p-6 md:p-8 h-full flex flex-col">
               <div className={`w-11 h-11 md:w-12 md:h-12 rounded-xl ${getCardStyles('lime').iconBg} flex items-center justify-center mb-5`}>
@@ -178,17 +152,16 @@ const TechEnabledSection = () => {
                 {techCards[0].description}
               </p>
             </div>
-          </StaggerCard>
+          </div>
 
           {/* Card 2 - Cream - Small Right - AI Tools */}
-          <StaggerCard
+          <div 
             className={`
-              group relative rounded-2xl overflow-hidden hover:scale-[1.02]
+              group relative rounded-2xl overflow-hidden transition-all duration-300 hover:scale-[1.02]
               ${getCardStyles('cream').bg}
               md:col-span-5 min-h-[200px] md:min-h-[280px]
             `}
-            delay={120}
-            testId="card-tech-feature-1"
+            data-testid="card-tech-feature-1"
           >
             <div className="p-6 md:p-8 h-full flex flex-col">
               <div className={`w-11 h-11 md:w-12 md:h-12 rounded-xl ${getCardStyles('cream').iconBg} flex items-center justify-center mb-5`}>
@@ -217,17 +190,16 @@ const TechEnabledSection = () => {
                 </Link>
               </div>
             </div>
-          </StaggerCard>
+          </div>
 
           {/* Card 3 - Teal - Small Left */}
-          <StaggerCard
+          <div 
             className={`
-              group relative rounded-2xl overflow-hidden hover:scale-[1.02]
+              group relative rounded-2xl overflow-hidden transition-all duration-300 hover:scale-[1.02]
               ${getCardStyles('teal').bg}
               md:col-span-5 min-h-[200px] md:min-h-[280px]
             `}
-            delay={240}
-            testId="card-tech-feature-2"
+            data-testid="card-tech-feature-2"
           >
             <div className="p-6 md:p-8 h-full flex flex-col">
               <div className={`w-11 h-11 md:w-12 md:h-12 rounded-xl ${getCardStyles('teal').iconBg} flex items-center justify-center mb-5`}>
@@ -243,17 +215,16 @@ const TechEnabledSection = () => {
                 {techCards[2].description}
               </p>
             </div>
-          </StaggerCard>
+          </div>
 
           {/* Card 4 - Sage - Large Right */}
-          <StaggerCard
+          <div 
             className={`
-              group relative rounded-2xl overflow-hidden hover:scale-[1.02]
+              group relative rounded-2xl overflow-hidden transition-all duration-300 hover:scale-[1.02]
               ${getCardStyles('sage').bg}
               md:col-span-7 min-h-[220px] md:min-h-[280px]
             `}
-            delay={360}
-            testId="card-tech-feature-3"
+            data-testid="card-tech-feature-3"
           >
             <div className="p-6 md:p-8 h-full flex flex-col">
               <div className={`w-11 h-11 md:w-12 md:h-12 rounded-xl ${getCardStyles('sage').iconBg} flex items-center justify-center mb-5`}>
@@ -269,7 +240,7 @@ const TechEnabledSection = () => {
                 {techCards[3].description}
               </p>
             </div>
-          </StaggerCard>
+          </div>
         </div>
       </div>
     </section>

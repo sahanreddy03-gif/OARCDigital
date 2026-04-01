@@ -252,9 +252,9 @@ export default function AIAgentsLanding() {
             "email": "hello@oarcdigital.com",
             "address": {
               "@type": "PostalAddress",
-              "streetAddress": "Zone 2, Central Business District, Level 1, The Brewhouse, Mdina Road",
-              "addressLocality": "Birkirkara",
-              "postalCode": "CBD 2010",
+              "streetAddress": "Seaside Spirit, Triq ix-Xatt, Ta' Xbiex",
+              "addressLocality": "Ta' Xbiex",
+              "postalCode": "XBX 1020",
               "addressCountry": "MT"
             },
             "geo": {"@type": "GeoCoordinates", "latitude": "35.9047", "longitude": "14.4931"},

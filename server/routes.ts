@@ -2,7 +2,7 @@ import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { maltaLocations, locationServices, allServiceSlugs, allCaseStudySlugs } from "../shared/seoConfig";
-import { insertLeadSchema, insertWebinarRegistrationSchema } from "../shared/schema";
+import { insertLeadSchema } from "../shared/schema";
 import OpenAI from "openai";
 import multer from "multer";
 import { exec } from "child_process";
@@ -243,20 +243,6 @@ Disallow: /
     } catch (error) {
       console.error('Lead capture error:', error);
       return res.status(500).json({ error: 'Failed to save lead' });
-    }
-  });
-
-  app.post('/api/webinar-register', async (req, res) => {
-    try {
-      const result = insertWebinarRegistrationSchema.safeParse(req.body);
-      if (!result.success) {
-        return res.status(400).json({ error: 'Invalid registration data', details: result.error.flatten() });
-      }
-      const registration = await storage.createWebinarRegistration(result.data);
-      return res.json({ success: true, registration });
-    } catch (error) {
-      console.error('Webinar registration error:', error);
-      return res.status(500).json({ error: 'Failed to save registration' });
     }
   });
 

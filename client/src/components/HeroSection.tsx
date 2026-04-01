@@ -1,9 +1,35 @@
-import { useEffect, useRef, useState, useCallback } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Palette, Bot, Rocket } from "lucide-react";
 import FloatingChipCarousel from "./FloatingChipCarousel";
 import heroBackground from '@assets/d375f1d50d97b0de7953ca2cecd2b8aea2cd96b2-3524x1181_1761251957292.avif';
+
+const HERO_PLACEHOLDER = 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAANACgDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAECAwQF/8QAGhAAAwEBAQEAAAAAAAAAAAAAAAERAgMSIv/EABYBAQEBAAAAAAAAAAAAAAAAAAIAAf/EABcRAQEBAQAAAAAAAAAAAAAAAAARAQL/2gAMAwEAAhEDEQA/AOUODgIwlnPNZsz85MnNwu9uB2nnUQ7ugLToEq//2Q==';
+
+function useImagePreload(src: string) {
+  // Check if image is already cached IMMEDIATELY (synchronously)
+  const checkCached = () => {
+    const img = new Image();
+    img.src = src;
+    return img.complete && img.naturalWidth > 0;
+  };
+  
+  const [loaded, setLoaded] = useState(() => checkCached());
+  
+  useEffect(() => {
+    if (loaded) return; // Already loaded, skip
+    const img = new Image();
+    img.src = src;
+    if (img.complete && img.naturalWidth > 0) {
+      setLoaded(true);
+    } else {
+      img.onload = () => setLoaded(true);
+    }
+  }, [src, loaded]);
+  
+  return loaded;
+}
 
 function SnowfallEffect() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -11,6 +37,7 @@ function SnowfallEffect() {
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
+
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
@@ -41,6 +68,7 @@ function SnowfallEffect() {
       const layer = Math.random();
       const isFar = layer < 0.4;
       const isMid = layer >= 0.4 && layer < 0.75;
+      
       snowflakes.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
@@ -51,7 +79,7 @@ function SnowfallEffect() {
         wobbleSpeed: Math.random() * 0.02 + 0.01,
         twinkleSpeed: Math.random() * 0.03 + 0.02,
         twinkleOffset: Math.random() * Math.PI * 2,
-        layer,
+        layer: layer,
       });
     }
 
@@ -64,11 +92,12 @@ function SnowfallEffect() {
 
       snowflakes.forEach((flake) => {
         flake.y += flake.speed;
-
+        
         const wobble = Math.sin(time * flake.wobbleSpeed + flake.wobbleOffset) * 0.4;
         let displayX = flake.x + wobble;
+        
         displayX = Math.max(0, Math.min(canvas.width, displayX));
-
+        
         const twinkle = Math.sin(time * flake.twinkleSpeed + flake.twinkleOffset) * 0.12 + 1;
         const currentOpacity = Math.min(flake.baseOpacity * twinkle, 1);
 
@@ -99,7 +128,9 @@ function SnowfallEffect() {
     };
 
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (!prefersReducedMotion) animate();
+    if (!prefersReducedMotion) {
+      animate();
+    }
 
     return () => {
       window.removeEventListener('resize', resize);
@@ -116,70 +147,17 @@ function SnowfallEffect() {
   );
 }
 
-const HERO_PLACEHOLDER = 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAANACgDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAECAwQF/8QAGhAAAwEBAQEAAAAAAAAAAAAAAAERAgMSIv/EABYBAQEBAAAAAAAAAAAAAAAAAAIAAf/EABcRAQEBAQAAAAAAAAAAAAAAAAARAQL/2gAMAwEAAhEDEQA/AOUODgIwlnPNZsz85MnNwu9uB2nnUQ7ugLToEq//2Q==';
-
-function useImagePreload(src: string) {
-  // Check if image is already cached IMMEDIATELY (synchronously)
-  const checkCached = () => {
-    const img = new Image();
-    img.src = src;
-    return img.complete && img.naturalWidth > 0;
-  };
-  
-  const [loaded, setLoaded] = useState(() => checkCached());
-  
-  useEffect(() => {
-    if (loaded) return; // Already loaded, skip
-    const img = new Image();
-    img.src = src;
-    if (img.complete && img.naturalWidth > 0) {
-      setLoaded(true);
-    } else {
-      img.onload = () => setLoaded(true);
-    }
-  }, [src, loaded]);
-  
-  return loaded;
-}
-
-
-function MobileGlassCard({ icon: Icon, label, href, testId, glowColor = "rgba(255,255,255,0.15)" }: { icon: typeof Palette; label: string; href: string; testId: string; glowColor?: string }) {
-  const cardRef = useRef<HTMLDivElement>(null);
-  const [glow, setGlow] = useState({ x: 50, y: 50, active: false });
-
-  const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
-    if (!cardRef.current) return;
-    const rect = cardRef.current.getBoundingClientRect();
-    setGlow({
-      x: ((e.clientX - rect.left) / rect.width) * 100,
-      y: ((e.clientY - rect.top) / rect.height) * 100,
-      active: true,
-    });
-  }, []);
-
-  return (
-    <Link href={href}>
-      <div
-        ref={cardRef}
-        onMouseMove={handleMouseMove}
-        onMouseEnter={() => setGlow(g => ({ ...g, active: true }))}
-        onMouseLeave={() => setGlow(g => ({ ...g, active: false }))}
-        className="group relative flex items-center gap-2 md:gap-3 px-4 md:px-6 py-3 md:py-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/30 hover:bg-white/15 hover:border-white/50 hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-white/10 overflow-hidden cursor-pointer"
-        data-testid={testId}
-      >
-        <div
-          className="absolute inset-0 rounded-2xl pointer-events-none transition-opacity duration-400"
-          style={{
-            background: `radial-gradient(120px circle at ${glow.x}% ${glow.y}%, ${glowColor}, transparent 70%)`,
-            opacity: glow.active ? 1 : 0,
-          }}
-        />
-        <Icon className="relative z-10 w-5 h-5 md:w-6 md:h-6 text-white group-hover:scale-110 transition-transform duration-300" />
-        <span className="relative z-10 text-sm md:text-base font-bold text-white tracking-wide">{label}</span>
-      </div>
-    </Link>
-  );
-}
+const MobileGlassCard = ({ icon: Icon, label, href, testId }: { icon: typeof Palette; label: string; href: string; testId: string }) => (
+  <Link href={href}>
+    <div 
+      className="group flex items-center gap-2 md:gap-3 px-4 md:px-6 py-3 md:py-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/30 hover:bg-white/20 hover:border-white/50 hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-white/10"
+      data-testid={testId}
+    >
+      <Icon className="w-5 h-5 md:w-6 md:h-6 text-white group-hover:scale-110 transition-transform duration-300" />
+      <span className="text-sm md:text-base font-bold text-white tracking-wide">{label}</span>
+    </div>
+  </Link>
+);
 
 export default function HeroSection() {
   const imageLoaded = useImagePreload(heroBackground);
@@ -225,7 +203,6 @@ export default function HeroSection() {
     <>
       <style>{styles}</style>
       <section className="relative min-h-[92vh] md:min-h-screen flex flex-col overflow-hidden bg-black">
-        <SnowfallEffect />
         
         {/* ========== MOBILE LAYOUT ========== */}
         <div className="md:hidden absolute inset-0">
@@ -280,7 +257,8 @@ export default function HeroSection() {
         
         {/* Desktop animations - always show immediately */}
         <>
-          {/* Neural Grid now rendered at page level */}
+          {/* Christmas Snowfall Effect */}
+          <SnowfallEffect />
           {/* Light Sweep Effect */}
           <div className="hidden md:block absolute inset-0 overflow-hidden pointer-events-none">
             <div 
@@ -372,9 +350,9 @@ export default function HeroSection() {
 
                   {/* Premium Service Navigation Cards */}
                   <div className="flex flex-wrap gap-3 md:gap-4 justify-center md:justify-start">
-                    <MobileGlassCard icon={Palette} label="Creative" href="/creative" testId="button-nav-creative" glowColor="rgba(96,165,250,0.25)" />
-                    <MobileGlassCard icon={Bot} label="AI" href="/ai-agents" testId="button-nav-ai" glowColor="rgba(74,222,128,0.25)" />
-                    <MobileGlassCard icon={Rocket} label="Growth" href="/solutions" testId="button-nav-growth" glowColor="rgba(147,197,253,0.25)" />
+                    <MobileGlassCard icon={Palette} label="Creative" href="/creative" testId="button-nav-creative" />
+                    <MobileGlassCard icon={Bot} label="AI" href="/ai-agents" testId="button-nav-ai" />
+                    <MobileGlassCard icon={Rocket} label="Growth" href="/solutions" testId="button-nav-growth" />
                   </div>
                 </div>
               </div>
