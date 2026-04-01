@@ -83,9 +83,7 @@ export default function Home() {
       <div className="overflow-x-hidden">
         <HeroSection />
 
-        <ScrollReveal>
-          <OARCBrandSection />
-        </ScrollReveal>
+        <OARCBrandSection />
 
         <ScrollReveal delay={100}>
           <TrustedBrandsSection />
