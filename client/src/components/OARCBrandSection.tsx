@@ -4,7 +4,6 @@ import oarcBgVideo from "@assets/glif-chat-1766630282078_1766685897761.mov";
 
 export default function OARCBrandSection() {
   const sectionRef = useRef<HTMLElement>(null);
-  const videoRef = useRef<HTMLVideoElement>(null);
   const [isVisible, setIsVisible] = useState(false);
   const [videoReady, setVideoReady] = useState(false);
   const prefersReducedMotion = useReducedMotion();
@@ -24,19 +23,6 @@ export default function OARCBrandSection() {
     return () => observer.disconnect();
   }, []);
 
-  // Start loading the video 1.5 s after mount — hero resources are done by then.
-  // autoPlay kicks in automatically once enough data is buffered.
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      const vid = videoRef.current;
-      if (vid && !vid.src) {
-        vid.src = oarcBgVideo;
-        vid.load();
-      }
-    }, 1500);
-    return () => clearTimeout(timer);
-  }, []);
-
   const letters = [
     { letter: "O", glowColor: "rgba(255,179,102,0.25)", textGlow: "rgba(255,179,102,0.4)" },
     { letter: "A", glowColor: "rgba(0,209,193,0.25)", textGlow: "rgba(0,209,193,0.4)" },
@@ -48,35 +34,34 @@ export default function OARCBrandSection() {
     <section
       ref={sectionRef}
       className="relative pt-16 md:pt-20 pb-12 md:pb-16 overflow-hidden"
-      style={{
-        // Kept fully dark — no white at the bottom (was #f5f5f5 causing the white flash)
-        background: 'linear-gradient(180deg, #050505 0%, #0a0a0a 20%, #111111 60%, #1a1a1a 100%)'
-      }}
+      style={{ background: '#050505' }}
       data-testid="oarc-brand-section"
     >
-      {/* Video background — src injected after 1.5 s to avoid competing with hero.
-          autoPlay fires the moment the browser has buffered enough data. */}
-      <div
-        className="absolute inset-0 z-0"
-        style={{ opacity: videoReady ? 1 : 0, transition: 'opacity 1s ease' }}
+      {/* Video loads immediately with preload="auto" — no delay, no dark flash.
+          Fades in the instant the browser has enough data to begin playback. */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+        onLoadedData={() => setVideoReady(true)}
+        className="absolute inset-0 w-full h-full object-cover z-0"
+        style={{
+          opacity: videoReady ? 0.85 : 0,
+          transition: 'opacity 0.8s ease',
+        }}
       >
-        <video
-          ref={videoRef}
-          autoPlay
-          muted
-          loop
-          playsInline
-          onCanPlay={() => setVideoReady(true)}
-          className="w-full h-full object-cover"
-          style={{ opacity: 0.85 }}
-        />
-        <div
-          className="absolute inset-0"
-          style={{
-            background: 'linear-gradient(180deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.15) 50%, rgba(0,0,0,0.2) 100%)'
-          }}
-        />
-      </div>
+        <source src={oarcBgVideo} type="video/mp4" />
+      </video>
+
+      {/* Overlay for text contrast */}
+      <div
+        className="absolute inset-0 z-[1]"
+        style={{
+          background: 'linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.15) 50%, rgba(0,0,0,0.25) 100%)'
+        }}
+      />
 
       <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24 max-w-6xl lg:max-w-7xl relative z-10">
 
