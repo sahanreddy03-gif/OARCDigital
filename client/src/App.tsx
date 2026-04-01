@@ -74,6 +74,7 @@ import StrategyPulseCaseStudy from "@/pages/case-studies/StrategyPulse";
 import NationalDistributorNLPCaseStudy from "@/pages/case-studies/NationalDistributorNLP";
 import CricketPulseIndiaCaseStudy from "@/pages/case-studies/CricketPulseIndia";
 import NexGenRetailAICaseStudy from "@/pages/case-studies/NexGenRetailAI";
+import PjazzaCaseStudy from "@/pages/case-studies/Pjazza";
 import PDFHub from "@/pages/PDFHub";
 import PDFCompanyProfile from "@/pages/PDFCompanyProfile";
 import PDFOnePager from "@/pages/PDFOnePager";
@@ -207,6 +208,7 @@ function Router() {
       <Route path="/case-studies/national-distributor-nlp" component={NationalDistributorNLPCaseStudy} />
       <Route path="/case-studies/cricketpulse-india" component={CricketPulseIndiaCaseStudy} />
       <Route path="/case-studies/nexgen-retail-ai-transformation" component={NexGenRetailAICaseStudy} />
+      <Route path="/case-studies/pjazza" component={PjazzaCaseStudy} />
       <Route path="/our-work/:slug" component={() => <div>Case Study Detail (Phase 3)</div>} />
       <Route path="/why-us" component={WhyUs} />
       <Route path="/roadmap" component={Roadmap2026} />
