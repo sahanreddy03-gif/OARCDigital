@@ -143,8 +143,8 @@ export default function AntigravityParticles() {
 
     canvas.addEventListener('mousemove', handleMouseMove);
     canvas.addEventListener('mouseleave', handleMouseLeave);
-    canvas.addEventListener('touchmove', handleTouchMove);
-    canvas.addEventListener('touchend', handleTouchEnd);
+    canvas.addEventListener('touchmove', handleTouchMove, { passive: true });
+    canvas.addEventListener('touchend', handleTouchEnd, { passive: true });
 
     const animate = () => {
       const rect = canvas.getBoundingClientRect();
@@ -215,7 +215,7 @@ export default function AntigravityParticles() {
     <canvas
       ref={canvasRef}
       className="absolute inset-0 w-full h-full pointer-events-auto"
-      style={{ touchAction: 'none' }}
+      style={{ touchAction: 'pan-y' }}
       data-testid="canvas-antigravity-particles"
     />
   );
