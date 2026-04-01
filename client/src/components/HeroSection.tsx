@@ -112,7 +112,6 @@ function SnowfallEffect() {
       ref={canvasRef}
       className="absolute inset-0 pointer-events-none z-20 motion-reduce:hidden"
       style={{ opacity: 0.9 }}
-      data-testid="neural-grid-canvas"
     />
   );
 }
