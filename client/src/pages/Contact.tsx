@@ -386,7 +386,9 @@ export default function Contact() {
               </div>
               <h3 className="text-white font-bold text-lg mb-2">Malta</h3>
               <address className="text-zinc-400 text-sm not-italic leading-relaxed">
-                Birkirkara CBD 2010, Malta
+                Level 1, The Brewhouse,<br />
+                Zone 2, Central Business District,<br />
+                Mdina Road, Birkirkara CBD 2010, Malta
               </address>
             </div>
 
