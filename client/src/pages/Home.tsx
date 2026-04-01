@@ -22,7 +22,6 @@ import NeedHelpCTA from "@/components/NeedHelpCTA";
 import FAQ from "@/components/FAQ";
 import SEOHead from "@/components/SEOHead";
 import ScrollReveal from "@/components/ScrollReveal";
-import NeuralGrid from "@/components/NeuralGrid";
 import { localBusinessSchema, organizationSchema, createFAQSchema } from "@/utils/structuredData";
 import { createAggregateRatingSchema, createReviewSchema } from "@/utils/advancedSchema";
 
@@ -82,7 +81,6 @@ export default function Home() {
         canonicalUrl="https://oarcdigital.com/"
         structuredData={homepageSchema}
       />
-      <NeuralGrid />
       <div className="overflow-x-hidden">
         <HeroSection />
 
