@@ -5,6 +5,118 @@ import { Palette, Bot, Rocket } from "lucide-react";
 import FloatingChipCarousel from "./FloatingChipCarousel";
 import heroBackground from '@assets/d375f1d50d97b0de7953ca2cecd2b8aea2cd96b2-3524x1181_1761251957292.avif';
 
+function SnowfallEffect() {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    const resize = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    };
+    resize();
+    window.addEventListener('resize', resize);
+
+    interface Snowflake {
+      x: number;
+      y: number;
+      radius: number;
+      speed: number;
+      baseOpacity: number;
+      wobbleOffset: number;
+      wobbleSpeed: number;
+      twinkleSpeed: number;
+      twinkleOffset: number;
+      layer: number;
+    }
+
+    const snowflakes: Snowflake[] = [];
+    const snowflakeCount = 80;
+
+    for (let i = 0; i < snowflakeCount; i++) {
+      const layer = Math.random();
+      const isFar = layer < 0.4;
+      const isMid = layer >= 0.4 && layer < 0.75;
+      snowflakes.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        radius: isFar ? Math.random() * 1 + 0.5 : isMid ? Math.random() * 1.5 + 1 : Math.random() * 2 + 1.5,
+        speed: isFar ? Math.random() * 0.4 + 0.2 : isMid ? Math.random() * 0.6 + 0.4 : Math.random() * 0.8 + 0.6,
+        baseOpacity: isFar ? Math.random() * 0.2 + 0.3 : isMid ? Math.random() * 0.25 + 0.5 : Math.random() * 0.2 + 0.7,
+        wobbleOffset: Math.random() * Math.PI * 2,
+        wobbleSpeed: Math.random() * 0.02 + 0.01,
+        twinkleSpeed: Math.random() * 0.03 + 0.02,
+        twinkleOffset: Math.random() * Math.PI * 2,
+        layer,
+      });
+    }
+
+    let animationId: number;
+    let time = 0;
+
+    const animate = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      time += 1;
+
+      snowflakes.forEach((flake) => {
+        flake.y += flake.speed;
+
+        const wobble = Math.sin(time * flake.wobbleSpeed + flake.wobbleOffset) * 0.4;
+        let displayX = flake.x + wobble;
+        displayX = Math.max(0, Math.min(canvas.width, displayX));
+
+        const twinkle = Math.sin(time * flake.twinkleSpeed + flake.twinkleOffset) * 0.12 + 1;
+        const currentOpacity = Math.min(flake.baseOpacity * twinkle, 1);
+
+        if (flake.y > canvas.height + 10) {
+          flake.y = -10 - Math.random() * 20;
+          flake.x = Math.random() * canvas.width;
+          flake.wobbleOffset = Math.random() * Math.PI * 2;
+          flake.twinkleOffset = Math.random() * Math.PI * 2;
+        }
+
+        ctx.beginPath();
+        ctx.arc(displayX, flake.y, flake.radius, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255, 255, 255, ${currentOpacity})`;
+        ctx.fill();
+
+        const glowSize = flake.radius * 2.5;
+        const gradient = ctx.createRadialGradient(displayX, flake.y, 0, displayX, flake.y, glowSize);
+        gradient.addColorStop(0, `rgba(255, 255, 255, ${currentOpacity * 0.35})`);
+        gradient.addColorStop(0.5, `rgba(255, 255, 255, ${currentOpacity * 0.1})`);
+        gradient.addColorStop(1, 'rgba(255, 255, 255, 0)');
+        ctx.beginPath();
+        ctx.arc(displayX, flake.y, glowSize, 0, Math.PI * 2);
+        ctx.fillStyle = gradient;
+        ctx.fill();
+      });
+
+      animationId = requestAnimationFrame(animate);
+    };
+
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!prefersReducedMotion) animate();
+
+    return () => {
+      window.removeEventListener('resize', resize);
+      cancelAnimationFrame(animationId);
+    };
+  }, []);
+
+  return (
+    <canvas
+      ref={canvasRef}
+      className="absolute inset-0 pointer-events-none z-20 motion-reduce:hidden"
+      style={{ opacity: 0.9 }}
+      data-testid="neural-grid-canvas"
+    />
+  );
+}
+
 const HERO_PLACEHOLDER = 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAANACgDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAECAwQF/8QAGhAAAwEBAQEAAAAAAAAAAAAAAAERAgMSIv/EABYBAQEBAAAAAAAAAAAAAAAAAAIAAf/EABcRAQEBAQAAAAAAAAAAAAAAAAARAQL/2gAMAwEAAhEDEQA/AOUODgIwlnPNZsz85MnNwu9uB2nnUQ7ugLToEq//2Q==';
 
 function useImagePreload(src: string) {
@@ -114,6 +226,7 @@ export default function HeroSection() {
     <>
       <style>{styles}</style>
       <section className="relative min-h-[92vh] md:min-h-screen flex flex-col overflow-hidden bg-black">
+        <SnowfallEffect />
         
         {/* ========== MOBILE LAYOUT ========== */}
         <div className="md:hidden absolute inset-0">
