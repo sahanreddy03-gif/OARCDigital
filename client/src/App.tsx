@@ -80,6 +80,9 @@ import PDFOnePager from "@/pages/PDFOnePager";
 import PDFAICreativeProfile from "@/pages/PDFAICreativeProfile";
 import PDFCapabilitiesDeck from "@/pages/PDFCapabilitiesDeck";
 import LocationService from "@/pages/LocationService";
+import IndustryHub from "@/pages/IndustryHub";
+import ServiceIndustry from "@/pages/ServiceIndustry";
+import IndustryHubIndex from "@/pages/IndustryHubIndex";
 import Comparison from "@/pages/Comparison";
 import Blog from "@/pages/Blog";
 import InstagramExport from "@/pages/InstagramExport";
@@ -175,6 +178,13 @@ function Router() {
       <Route path="/services/api-integration" component={APIIntegrationServices} />
       <Route path="/services/mvp-development" component={MVPDevelopment} />
       <Route path="/services/mvp-development/for-software" component={MVPSoftwareDevelopment} />
+
+      {/* Industry Hub Pages */}
+      <Route path="/industries" component={IndustryHubIndex} />
+      <Route path="/industries/:industry" component={IndustryHub} />
+
+      {/* Service × Industry Programmatic Pages */}
+      <Route path="/services/:serviceSlug/:industry" component={ServiceIndustry} />
 
       {/* Fallback for other services */}
       <Route path="/services/:service" component={ServiceDetail} />
