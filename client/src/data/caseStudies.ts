@@ -30,6 +30,10 @@ export interface CaseStudy {
   clientQuote?: ClientQuote;
 }
 
+// PJAZZA — OARC's own product
+import pjazzaThumb from '@assets/screenshot-1775060277130.png';
+import pjazzaHero from '@assets/IMG_0614_1775060265078.png';
+
 // Import thumbnails/hero images  
 import gymGroupImg from '@assets/IMG_8206_1763165592775.jpeg';
 import azzaroImg from '@assets/stock_images/luxury_fashion_retai_a6eca040.jpg';
@@ -73,6 +77,28 @@ import aiDataEngineThumb from '@assets/pexels-googledeepmind-17485707_1766245298
 import tefalInfluencerThumb from '@assets/TefalPictures-32-scaled_1761760754960-DVSuvcTH_1766245435310.jpg';
 
 export const caseStudies: Record<string, CaseStudy> = {
+  'pjazza': {
+    slug: 'pjazza',
+    brand: 'PJAZZA',
+    category: "OARC's Own Product",
+    description: "Malta's First Live Shopping Marketplace",
+    fullDescription: "PJAZZA is OARC Digital's own product — a live commerce marketplace purpose-built for Malta. 200+ founding businesses, 12 sectors, launching May 2026 at maltaverse.live.",
+    challenge: "Malta's local businesses lacked a trusted, modern digital commerce platform. Facebook groups and WhatsApp chains dominated local trade with zero infrastructure for live selling or buyer protection.",
+    strategy: "OARC built PJAZZA from scratch — a live streaming marketplace with built-in escrow, 12 sector verticals, a professional broadcasting studio, and onboarding tools for non-technical business owners.",
+    results: "200+ founding businesses committed pre-launch. Full platform shipped across mobile and desktop. Live streaming, escrow, analytics, and a dedicated business dashboard all production-ready for May 2026.",
+    metrics: { value: '200+', label: 'Founding Businesses' },
+    secondaryMetrics: [
+      { value: '12', label: 'Sectors' },
+      { value: 'May 2026', label: 'Launch' },
+      { value: 'Live', label: 'Commerce' }
+    ],
+    services: ['Product Strategy', 'UX Design', 'Brand Identity', 'Full-Stack Development', 'Live Commerce Architecture', 'Business Onboarding'],
+    platforms: ['iOS', 'Android', 'Web'],
+    thumbnailImage: pjazzaThumb,
+    heroImage: pjazzaHero,
+    gridClass: 'col-span-12 md:col-span-8',
+    timeline: '2025–2026',
+  },
   'nexgen-retail-ai-transformation': {
     slug: 'nexgen-retail-ai-transformation',
     brand: 'NexGen Retail Group',
@@ -581,14 +607,14 @@ export const caseStudies: Record<string, CaseStudy> = {
 // Export as array for easy iteration
 export const caseStudiesArray = Object.values(caseStudies);
 
-// Featured case studies for homepage (6 most impressive)
+// Featured case studies for homepage — PJAZZA first (OARC's own product)
 export const featuredCaseStudies = [
+  caseStudies['pjazza'],
   caseStudies['nexgen-retail-ai-transformation'],
   caseStudies['national-distributor-nlp'],
   caseStudies['cricketpulse-india'],
   caseStudies['apex-fitness-collective'],
   caseStudies['naturalcare-beauty'],
-  caseStudies['maison-lumiere']
 ].filter(Boolean);
 
 // Case studies by category for filtering

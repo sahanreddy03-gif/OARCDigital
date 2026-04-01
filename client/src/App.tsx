@@ -1,4 +1,3 @@
-import { lazy, Suspense } from "react";
 import { Switch, Route } from "wouter";
 import ScrollToTop from "@/components/layout/ScrollToTop";
 import { queryClient } from "./lib/queryClient";
@@ -99,17 +98,9 @@ import OARCIntelligence from "@/pages/OARCIntelligence";
 import CreativeLanding from "@/pages/CreativeLanding";
 import AIAgentsLanding from "@/pages/AIAgentsLanding";
 import RevenueSolutionsLanding from "@/pages/RevenueSolutionsLanding";
-const LazyPjazzaApp = lazy(() => import("@/pjazza/PjazzaApp"));
 import NotFound from "@/pages/not-found";
 import { ARCWidget } from "@/components/ARC";
-
-function PjazzaLoader() {
-  return (
-    <Suspense fallback={<div className="flex items-center justify-center min-h-screen bg-black"><div className="w-8 h-8 border-2 border-rose-600 border-t-transparent rounded-full animate-spin" /></div>}>
-      <LazyPjazzaApp />
-    </Suspense>
-  );
-}
+import PjazzaCaseStudy from "@/pages/case-studies/Pjazza";
 
 function Router() {
   return (
@@ -262,17 +253,8 @@ function Router() {
       {/* Programmatic SEO - Location Pages */}
       <Route path="/malta/:location/:service" component={LocationService} />
 
-      {/* PJAZZA App — lazy-loaded, self-contained */}
-      <Route path="/pjazza/live-shop/:storeId" component={PjazzaLoader} />
-      <Route path="/pjazza/live-shop" component={PjazzaLoader} />
-      <Route path="/pjazza/business/stream" component={PjazzaLoader} />
-      <Route path="/pjazza/business/dashboard" component={PjazzaLoader} />
-      <Route path="/pjazza/business/onboard" component={PjazzaLoader} />
-      <Route path="/pjazza/how-it-works" component={PjazzaLoader} />
-      <Route path="/pjazza/sectors" component={PjazzaLoader} />
-      <Route path="/pjazza/people" component={PjazzaLoader} />
-      <Route path="/pjazza/discover" component={PjazzaLoader} />
-      <Route path="/pjazza" component={PjazzaLoader} />
+      {/* PJAZZA Case Study */}
+      <Route path="/case-studies/pjazza" component={PjazzaCaseStudy} />
 
         <Route component={NotFound} />
       </Switch>
