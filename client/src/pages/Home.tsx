@@ -1,30 +1,28 @@
-import { lazy, Suspense } from "react";
 import Layout from "@/components/layout/Layout";
 import HeroSection from "@/components/HeroSection";
+import DiagnosticsTeaser from "@/components/DiagnosticsTeaser";
+import OARCBrandSection from "@/components/OARCBrandSection";
+import TrustedBrandsSection from "@/components/TrustedBrandsSection";
+import AICreativeSection from "@/components/AICreativeSection";
+import Section2 from "@/components/Section2";
+import Section5 from "@/components/Section5";
+import HireAIEmployeesSection from "@/components/HireAIEmployeesSection";
+import TechEnabledSection from "@/components/TechEnabledSection";
+import LetsTalkRevenueSection from "@/components/LetsTalkRevenueSection";
+import { SuccessInNumbers } from "@/components/SuccessInNumbers";
+import BrandShowcaseSection from "@/components/BrandShowcaseSection";
+import Testimonials from "@/components/Testimonials";
+import ComparisonSection from "@/components/ComparisonSection";
+import GrowthSimulator from "@/components/GrowthSimulator";
+import MoneyBackGuaranteeSection from "@/components/MoneyBackGuaranteeSection";
+import BlogPreviewSection from "@/components/BlogPreviewSection";
+import CTASections from "@/components/CTASections";
+import NeedHelpCTA from "@/components/NeedHelpCTA";
+import FAQ from "@/components/FAQ";
 import SEOHead from "@/components/SEOHead";
 import ScrollReveal from "@/components/ScrollReveal";
 import { localBusinessSchema, organizationSchema, createFAQSchema } from "@/utils/structuredData";
 import { createAggregateRatingSchema, createReviewSchema } from "@/utils/advancedSchema";
-
-const OARCBrandSection          = lazy(() => import("@/components/OARCBrandSection"));
-const TrustedBrandsSection      = lazy(() => import("@/components/TrustedBrandsSection"));
-const AICreativeSection         = lazy(() => import("@/components/AICreativeSection"));
-const Section2                  = lazy(() => import("@/components/Section2"));
-const Section5                  = lazy(() => import("@/components/Section5"));
-const HireAIEmployeesSection    = lazy(() => import("@/components/HireAIEmployeesSection"));
-const TechEnabledSection        = lazy(() => import("@/components/TechEnabledSection"));
-const LetsTalkRevenueSection    = lazy(() => import("@/components/LetsTalkRevenueSection"));
-const SuccessInNumbers          = lazy(() => import("@/components/SuccessInNumbers").then(m => ({ default: m.SuccessInNumbers })));
-const BrandShowcaseSection      = lazy(() => import("@/components/BrandShowcaseSection"));
-const Testimonials              = lazy(() => import("@/components/Testimonials"));
-const ComparisonSection         = lazy(() => import("@/components/ComparisonSection"));
-const GrowthSimulator           = lazy(() => import("@/components/GrowthSimulator"));
-const DiagnosticsTeaser         = lazy(() => import("@/components/DiagnosticsTeaser"));
-const MoneyBackGuaranteeSection = lazy(() => import("@/components/MoneyBackGuaranteeSection"));
-const BlogPreviewSection        = lazy(() => import("@/components/BlogPreviewSection"));
-const CTASections               = lazy(() => import("@/components/CTASections"));
-const NeedHelpCTA               = lazy(() => import("@/components/NeedHelpCTA"));
-const FAQ                       = lazy(() => import("@/components/FAQ"));
 
 export default function Home() {
   const faqSchema = createFAQSchema([
@@ -83,123 +81,83 @@ export default function Home() {
         structuredData={homepageSchema}
       />
       <div className="overflow-x-hidden">
-
         <HeroSection />
 
-        <Suspense fallback={null}>
-          <ScrollReveal>
-            <OARCBrandSection />
-          </ScrollReveal>
-        </Suspense>
+        <ScrollReveal>
+          <OARCBrandSection />
+        </ScrollReveal>
 
-        <Suspense fallback={null}>
-          <ScrollReveal delay={100}>
-            <TrustedBrandsSection />
-          </ScrollReveal>
-        </Suspense>
+        <ScrollReveal delay={100}>
+          <TrustedBrandsSection />
+        </ScrollReveal>
 
-        <Suspense fallback={null}>
-          <ScrollReveal>
-            <AICreativeSection />
-          </ScrollReveal>
-        </Suspense>
+        <ScrollReveal>
+          <AICreativeSection />
+        </ScrollReveal>
 
-        <Suspense fallback={null}>
-          <ScrollReveal>
-            <Section2 />
-          </ScrollReveal>
-        </Suspense>
+        <ScrollReveal>
+          <Section2 />
+        </ScrollReveal>
 
-        <Suspense fallback={null}>
-          <ScrollReveal>
-            <Section5 />
-          </ScrollReveal>
-        </Suspense>
+        <ScrollReveal>
+          <Section5 />
+        </ScrollReveal>
 
-        <Suspense fallback={null}>
-          <ScrollReveal>
-            <HireAIEmployeesSection />
-          </ScrollReveal>
-        </Suspense>
+        <ScrollReveal>
+          <HireAIEmployeesSection />
+        </ScrollReveal>
 
-        <Suspense fallback={null}>
-          <ScrollReveal delay={50}>
-            <LetsTalkRevenueSection />
-          </ScrollReveal>
-        </Suspense>
+        <ScrollReveal delay={50}>
+          <LetsTalkRevenueSection />
+        </ScrollReveal>
 
-        <Suspense fallback={null}>
-          <ScrollReveal>
-            <TechEnabledSection />
-          </ScrollReveal>
-        </Suspense>
+        <ScrollReveal>
+          <TechEnabledSection />
+        </ScrollReveal>
 
-        <Suspense fallback={null}>
-          <ScrollReveal>
-            <SuccessInNumbers />
-          </ScrollReveal>
-        </Suspense>
+        <ScrollReveal>
+          <SuccessInNumbers />
+        </ScrollReveal>
 
-        <Suspense fallback={null}>
-          <ScrollReveal>
-            <BrandShowcaseSection />
-          </ScrollReveal>
-        </Suspense>
+        <ScrollReveal>
+          <BrandShowcaseSection />
+        </ScrollReveal>
 
-        <Suspense fallback={null}>
-          <ScrollReveal>
-            <Testimonials />
-          </ScrollReveal>
-        </Suspense>
+        <ScrollReveal>
+          <Testimonials />
+        </ScrollReveal>
 
-        <Suspense fallback={null}>
-          <ScrollReveal>
-            <ComparisonSection />
-          </ScrollReveal>
-        </Suspense>
+        <ScrollReveal>
+          <ComparisonSection />
+        </ScrollReveal>
 
-        <Suspense fallback={null}>
-          <ScrollReveal>
-            <GrowthSimulator />
-          </ScrollReveal>
-        </Suspense>
+        <ScrollReveal>
+          <GrowthSimulator />
+        </ScrollReveal>
 
-        <Suspense fallback={null}>
-          <ScrollReveal>
-            <DiagnosticsTeaser />
-          </ScrollReveal>
-        </Suspense>
+        <ScrollReveal>
+          <DiagnosticsTeaser />
+        </ScrollReveal>
 
-        <Suspense fallback={null}>
-          <ScrollReveal>
-            <MoneyBackGuaranteeSection />
-          </ScrollReveal>
-        </Suspense>
+        <ScrollReveal>
+          <MoneyBackGuaranteeSection />
+        </ScrollReveal>
 
-        <Suspense fallback={null}>
-          <ScrollReveal>
-            <BlogPreviewSection />
-          </ScrollReveal>
-        </Suspense>
+        <ScrollReveal>
+          <BlogPreviewSection />
+        </ScrollReveal>
 
-        <Suspense fallback={null}>
-          <ScrollReveal>
-            <CTASections />
-          </ScrollReveal>
-        </Suspense>
+        <ScrollReveal>
+          <CTASections />
+        </ScrollReveal>
 
-        <Suspense fallback={null}>
-          <ScrollReveal>
-            <NeedHelpCTA />
-          </ScrollReveal>
-        </Suspense>
+        <ScrollReveal>
+          <NeedHelpCTA />
+        </ScrollReveal>
 
-        <Suspense fallback={null}>
-          <ScrollReveal>
-            <FAQ />
-          </ScrollReveal>
-        </Suspense>
-
+        <ScrollReveal>
+          <FAQ />
+        </ScrollReveal>
       </div>
     </Layout>
   );
