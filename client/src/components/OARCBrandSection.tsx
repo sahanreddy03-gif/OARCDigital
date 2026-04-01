@@ -4,6 +4,7 @@ import oarcBgVideo from "@assets/glif-chat-1766630282078_1766685897761.mov";
 
 export default function OARCBrandSection() {
   const sectionRef = useRef<HTMLElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const [isVisible, setIsVisible] = useState(false);
   const prefersReducedMotion = useReducedMotion();
 
@@ -15,7 +16,7 @@ export default function OARCBrandSection() {
           observer.disconnect();
         }
       },
-      { threshold: 0.2 }
+      { threshold: 0.1 }
     );
 
     if (sectionRef.current) {
@@ -24,6 +25,16 @@ export default function OARCBrandSection() {
 
     return () => observer.disconnect();
   }, []);
+
+  // Start playing only once the section is visible — prevents browser from
+  // eagerly downloading the 2.1MB video file before the user scrolls to it
+  useEffect(() => {
+    if (isVisible && videoRef.current) {
+      videoRef.current.play().catch(() => {
+        // autoplay blocked by browser policy — silent fail, video stays as static bg
+      });
+    }
+  }, [isVisible]);
 
   const letters = [
     { letter: "O", glowColor: "rgba(255,179,102,0.25)", textGlow: "rgba(255,179,102,0.4)" },
@@ -41,27 +52,27 @@ export default function OARCBrandSection() {
       }}
       data-testid="oarc-brand-section"
     >
-      {/* Video Background — only inserted into DOM once section is visible */}
-      {isVisible && (
-        <div className="absolute inset-0 z-0">
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            className="w-full h-full object-cover"
-            style={{ opacity: 0.85 }}
-          >
-            <source src={oarcBgVideo} type="video/mp4" />
-          </video>
-          <div 
-            className="absolute inset-0" 
-            style={{ 
-              background: 'linear-gradient(180deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.15) 50%, rgba(0,0,0,0.2) 100%)' 
-            }} 
-          />
-        </div>
-      )}
+      {/* Video background — always in DOM but preload=none prevents any download
+          until the browser is ready; .play() is called programmatically on visibility */}
+      <div className="absolute inset-0 z-0" style={{ opacity: isVisible ? 1 : 0, transition: 'opacity 0.6s ease' }}>
+        <video
+          ref={videoRef}
+          muted
+          loop
+          playsInline
+          preload="none"
+          className="w-full h-full object-cover"
+          style={{ opacity: 0.85 }}
+        >
+          <source src={oarcBgVideo} type="video/mp4" />
+        </video>
+        <div 
+          className="absolute inset-0" 
+          style={{ 
+            background: 'linear-gradient(180deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.15) 50%, rgba(0,0,0,0.2) 100%)' 
+          }} 
+        />
+      </div>
 
       <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24 max-w-6xl lg:max-w-7xl relative z-10">
         
