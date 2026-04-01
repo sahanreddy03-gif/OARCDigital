@@ -6,8 +6,10 @@ export default function OARCBrandSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isVisible, setIsVisible] = useState(false);
+  const [videoReady, setVideoReady] = useState(false);
   const prefersReducedMotion = useReducedMotion();
 
+  // Reveal letter animations when section enters viewport
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -16,25 +18,24 @@ export default function OARCBrandSection() {
           observer.disconnect();
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.05 }
     );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
+    if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
   }, []);
 
-  // Start playing only once the section is visible — prevents browser from
-  // eagerly downloading the 2.1MB video file before the user scrolls to it
+  // Start loading the video 1.5 s after mount — hero resources are done by then.
+  // autoPlay kicks in automatically once enough data is buffered.
   useEffect(() => {
-    if (isVisible && videoRef.current) {
-      videoRef.current.play().catch(() => {
-        // autoplay blocked by browser policy — silent fail, video stays as static bg
-      });
-    }
-  }, [isVisible]);
+    const timer = setTimeout(() => {
+      const vid = videoRef.current;
+      if (vid && !vid.src) {
+        vid.src = oarcBgVideo;
+        vid.load();
+      }
+    }, 1500);
+    return () => clearTimeout(timer);
+  }, []);
 
   const letters = [
     { letter: "O", glowColor: "rgba(255,179,102,0.25)", textGlow: "rgba(255,179,102,0.4)" },
@@ -47,35 +48,39 @@ export default function OARCBrandSection() {
     <section
       ref={sectionRef}
       className="relative pt-16 md:pt-20 pb-12 md:pb-16 overflow-hidden"
-      style={{ 
-        background: 'linear-gradient(180deg, #050505 0%, #0a0a0a 20%, #111111 50%, #1a1a1a 80%, #f5f5f5 100%)'
+      style={{
+        // Kept fully dark — no white at the bottom (was #f5f5f5 causing the white flash)
+        background: 'linear-gradient(180deg, #050505 0%, #0a0a0a 20%, #111111 60%, #1a1a1a 100%)'
       }}
       data-testid="oarc-brand-section"
     >
-      {/* Video background — always in DOM but preload=none prevents any download
-          until the browser is ready; .play() is called programmatically on visibility */}
-      <div className="absolute inset-0 z-0" style={{ opacity: isVisible ? 1 : 0, transition: 'opacity 0.6s ease' }}>
+      {/* Video background — src injected after 1.5 s to avoid competing with hero.
+          autoPlay fires the moment the browser has buffered enough data. */}
+      <div
+        className="absolute inset-0 z-0"
+        style={{ opacity: videoReady ? 1 : 0, transition: 'opacity 1s ease' }}
+      >
         <video
           ref={videoRef}
+          autoPlay
           muted
           loop
           playsInline
-          preload="none"
+          onCanPlay={() => setVideoReady(true)}
           className="w-full h-full object-cover"
           style={{ opacity: 0.85 }}
-        >
-          <source src={oarcBgVideo} type="video/mp4" />
-        </video>
-        <div 
-          className="absolute inset-0" 
-          style={{ 
-            background: 'linear-gradient(180deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.15) 50%, rgba(0,0,0,0.2) 100%)' 
-          }} 
+        />
+        <div
+          className="absolute inset-0"
+          style={{
+            background: 'linear-gradient(180deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.15) 50%, rgba(0,0,0,0.2) 100%)'
+          }}
         />
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24 max-w-6xl lg:max-w-7xl relative z-10">
-        
+
+        {/* OARC Letters */}
         <div className="text-center mb-6 md:mb-8">
           <div className="flex items-center justify-center gap-3 sm:gap-4 md:gap-8 lg:gap-12">
             {letters.map((item, index) => (
@@ -84,33 +89,32 @@ export default function OARCBrandSection() {
                 className="relative"
                 initial={prefersReducedMotion ? { opacity: 1 } : { opacity: 0, scale: 0.9 }}
                 animate={isVisible ? { opacity: 1, scale: 1 } : {}}
-                transition={{ 
-                  delay: index * 0.12, 
+                transition={{
+                  delay: index * 0.12,
                   duration: 0.5,
                   ease: [0.25, 0.46, 0.45, 0.94]
                 }}
               >
-                <motion.div 
+                <motion.div
                   className="absolute inset-0 rounded-full blur-[40px] md:blur-[60px] -z-10"
-                  style={{ 
+                  style={{
                     background: `radial-gradient(circle, ${item.glowColor} 0%, transparent 70%)`,
                     transform: 'scale(2.5)'
                   }}
-                  animate={isVisible && !prefersReducedMotion ? { 
+                  animate={isVisible && !prefersReducedMotion ? {
                     opacity: [0.6, 1, 0.6],
                     scale: [2.3, 2.6, 2.3]
                   } : {}}
-                  transition={{ 
-                    duration: 3, 
-                    repeat: Infinity, 
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
                     ease: 'easeInOut',
                     delay: index * 0.3
                   }}
                 />
-                
-                <span 
+                <span
                   className="font-bold text-white/95 relative z-10"
-                  style={{ 
+                  style={{
                     fontSize: 'clamp(2.8rem, 10vw, 6rem)',
                     lineHeight: 1,
                     textShadow: `0 0 30px ${item.textGlow}`,
@@ -125,33 +129,35 @@ export default function OARCBrandSection() {
           </div>
         </div>
 
+        {/* Subheading */}
         <motion.div
           className="text-center mb-5 md:mb-6 px-1 md:px-0"
           initial={prefersReducedMotion ? { opacity: 1 } : { opacity: 0, y: 6 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.5, duration: 0.5, ease: 'easeOut' }}
         >
-          <p 
+          <p
             className="text-[#E8E8E8] font-semibold whitespace-nowrap tracking-[0.04em] sm:tracking-[0.08em] md:tracking-[0.15em] lg:tracking-[0.22em]"
             style={{ fontSize: 'clamp(0.72rem, 3vw, 1.5rem)' }}
           >
-            <span className="font-extrabold text-white" style={{ textShadow: '0 0 10px rgba(255,255,255,0.4)' }}>O</span>ptimised 
-            <span className="mx-1.5 sm:mx-3 text-white/60">+</span> 
-            <span className="font-extrabold text-white" style={{ textShadow: '0 0 10px rgba(255,255,255,0.4)' }}>A</span>I 
-            <span className="mx-1.5 sm:mx-3 text-white/60">+</span> 
-            <span className="font-extrabold text-white" style={{ textShadow: '0 0 10px rgba(255,255,255,0.4)' }}>R</span>evenue intelligence 
-            <span className="mx-1.5 sm:mx-3 text-white/60">+</span> 
+            <span className="font-extrabold text-white" style={{ textShadow: '0 0 10px rgba(255,255,255,0.4)' }}>O</span>ptimised
+            <span className="mx-1.5 sm:mx-3 text-white/60">+</span>
+            <span className="font-extrabold text-white" style={{ textShadow: '0 0 10px rgba(255,255,255,0.4)' }}>A</span>I
+            <span className="mx-1.5 sm:mx-3 text-white/60">+</span>
+            <span className="font-extrabold text-white" style={{ textShadow: '0 0 10px rgba(255,255,255,0.4)' }}>R</span>evenue intelligence
+            <span className="mx-1.5 sm:mx-3 text-white/60">+</span>
             <span className="font-extrabold text-white" style={{ textShadow: '0 0 10px rgba(255,255,255,0.4)' }}>C</span>reative
           </p>
         </motion.div>
 
+        {/* Tagline */}
         <motion.div
           className="text-center mb-6 md:mb-8 px-2 md:px-0"
           initial={prefersReducedMotion ? { opacity: 1 } : { opacity: 0, y: 8 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.65, duration: 0.5, ease: 'easeOut' }}
         >
-          <p 
+          <p
             className="max-w-3xl lg:max-w-5xl mx-auto leading-relaxed font-medium md:whitespace-nowrap"
             style={{ fontSize: 'clamp(0.82rem, 3vw, 1.5rem)', color: '#FFFFFF', textShadow: '0 0 6px rgba(255,255,255,0.2)' }}
             data-testid="oarc-tagline"
@@ -162,16 +168,14 @@ export default function OARCBrandSection() {
           </p>
         </motion.div>
 
+        {/* Gold accent line */}
         <motion.div
           className="flex justify-center"
           initial={prefersReducedMotion ? { opacity: 1 } : { opacity: 0, scaleX: 0 }}
           animate={isVisible ? { opacity: 1, scaleX: 1 } : {}}
           transition={{ delay: 0.8, duration: 0.4, ease: 'easeOut' }}
         >
-          <div 
-            className="w-10 h-[2px] rounded-full"
-            style={{ backgroundColor: '#F5E1A4' }}
-          />
+          <div className="w-10 h-[2px] rounded-full" style={{ backgroundColor: '#F5E1A4' }} />
         </motion.div>
       </div>
 
