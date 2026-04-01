@@ -1,11 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
+import oarcBgVideo from "@assets/glif-chat-1766630282078_1766685897761.mov";
 
-interface OARCBrandSectionProps {
-  videoSrc?: string;
-}
-
-export default function OARCBrandSection({ videoSrc }: OARCBrandSectionProps) {
+export default function OARCBrandSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const [isVisible, setIsVisible] = useState(false);
   const prefersReducedMotion = useReducedMotion();
@@ -28,12 +25,11 @@ export default function OARCBrandSection({ videoSrc }: OARCBrandSectionProps) {
     return () => observer.disconnect();
   }, []);
 
-  // Letter glow colors - subtle and premium
   const letters = [
-    { letter: "O", glowColor: "rgba(255,179,102,0.25)", textGlow: "rgba(255,179,102,0.4)" },  // warm orange
-    { letter: "A", glowColor: "rgba(0,209,193,0.25)", textGlow: "rgba(0,209,193,0.4)" },      // teal
-    { letter: "R", glowColor: "rgba(245,225,164,0.25)", textGlow: "rgba(245,225,164,0.4)" }, // champagne/gold
-    { letter: "C", glowColor: "rgba(207,255,102,0.25)", textGlow: "rgba(207,255,102,0.4)" }, // lime
+    { letter: "O", glowColor: "rgba(255,179,102,0.25)", textGlow: "rgba(255,179,102,0.4)" },
+    { letter: "A", glowColor: "rgba(0,209,193,0.25)", textGlow: "rgba(0,209,193,0.4)" },
+    { letter: "R", glowColor: "rgba(245,225,164,0.25)", textGlow: "rgba(245,225,164,0.4)" },
+    { letter: "C", glowColor: "rgba(207,255,102,0.25)", textGlow: "rgba(207,255,102,0.4)" },
   ];
 
   return (
@@ -45,8 +41,8 @@ export default function OARCBrandSection({ videoSrc }: OARCBrandSectionProps) {
       }}
       data-testid="oarc-brand-section"
     >
-      {/* Video Background Layer - Super Visible */}
-      {videoSrc && (
+      {/* Video Background — only inserted into DOM once section is visible */}
+      {isVisible && (
         <div className="absolute inset-0 z-0">
           <video
             autoPlay
@@ -56,9 +52,8 @@ export default function OARCBrandSection({ videoSrc }: OARCBrandSectionProps) {
             className="w-full h-full object-cover"
             style={{ opacity: 0.85 }}
           >
-            <source src={videoSrc} type="video/mp4" />
+            <source src={oarcBgVideo} type="video/mp4" />
           </video>
-          {/* Very light overlay just for text contrast */}
           <div 
             className="absolute inset-0" 
             style={{ 
@@ -70,7 +65,6 @@ export default function OARCBrandSection({ videoSrc }: OARCBrandSectionProps) {
 
       <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24 max-w-6xl lg:max-w-7xl relative z-10">
         
-        {/* OARC Letters - Always on one line */}
         <div className="text-center mb-6 md:mb-8">
           <div className="flex items-center justify-center gap-3 sm:gap-4 md:gap-8 lg:gap-12">
             {letters.map((item, index) => (
@@ -85,7 +79,6 @@ export default function OARCBrandSection({ videoSrc }: OARCBrandSectionProps) {
                   ease: [0.25, 0.46, 0.45, 0.94]
                 }}
               >
-                {/* Subtle glow behind letter */}
                 <motion.div 
                   className="absolute inset-0 rounded-full blur-[40px] md:blur-[60px] -z-10"
                   style={{ 
@@ -104,7 +97,6 @@ export default function OARCBrandSection({ videoSrc }: OARCBrandSectionProps) {
                   }}
                 />
                 
-                {/* The letter */}
                 <span 
                   className="font-bold text-white/95 relative z-10"
                   style={{ 
@@ -122,7 +114,6 @@ export default function OARCBrandSection({ videoSrc }: OARCBrandSectionProps) {
           </div>
         </div>
 
-        {/* Subheading - Optimised · AI · Revenue Intelligence · Creativity */}
         <motion.div
           className="text-center mb-5 md:mb-6 px-1 md:px-0"
           initial={prefersReducedMotion ? { opacity: 1 } : { opacity: 0, y: 6 }}
@@ -143,7 +134,6 @@ export default function OARCBrandSection({ videoSrc }: OARCBrandSectionProps) {
           </p>
         </motion.div>
 
-        {/* Main Tagline */}
         <motion.div
           className="text-center mb-6 md:mb-8 px-2 md:px-0"
           initial={prefersReducedMotion ? { opacity: 1 } : { opacity: 0, y: 8 }}
@@ -161,7 +151,6 @@ export default function OARCBrandSection({ videoSrc }: OARCBrandSectionProps) {
           </p>
         </motion.div>
 
-        {/* Thin gold accent line */}
         <motion.div
           className="flex justify-center"
           initial={prefersReducedMotion ? { opacity: 1 } : { opacity: 0, scaleX: 0 }}
