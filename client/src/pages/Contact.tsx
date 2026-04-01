@@ -386,9 +386,7 @@ export default function Contact() {
               </div>
               <h3 className="text-white font-bold text-lg mb-2">Malta</h3>
               <address className="text-zinc-400 text-sm not-italic leading-relaxed">
-                Seaside Spirit<br />
-                Triq ix-Xatt, Ta' Xbiex<br />
-                XBX 1020
+                Birkirkara CBD 2010, Malta
               </address>
             </div>
 

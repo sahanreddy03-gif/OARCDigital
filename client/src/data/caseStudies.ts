@@ -72,7 +72,33 @@ import strategicPulseThumb from '@assets/strategic_pulse_1766244402580.png';
 import aiDataEngineThumb from '@assets/pexels-googledeepmind-17485707_1766245298201.jpg';
 import tefalInfluencerThumb from '@assets/TefalPictures-32-scaled_1761760754960-DVSuvcTH_1766245435310.jpg';
 
+// PJAZZA case study assets
+import pjazzaThumb from '@assets/IMG_0605_1775068068190.jpeg';
+import pjazzaHero from '@assets/screenshot-1775068037591.png';
+
 export const caseStudies: Record<string, CaseStudy> = {
+  'pjazza': {
+    slug: 'pjazza',
+    brand: 'PJAZZA',
+    category: "OARC's Own Product",
+    description: "Malta's First Live Shopping Marketplace",
+    fullDescription: "PJAZZA is OARC Digital's own product — a live commerce marketplace purpose-built for Malta. 24+ founding businesses, 12 sectors, live at maltaverse.live/pjazza.",
+    challenge: "Malta's local businesses lacked a trusted, modern digital commerce platform — invisible online and unable to sell live to their community.",
+    strategy: "OARC built PJAZZA from scratch — a live streaming marketplace with built-in escrow, 12 sector verticals, a people/freelancer marketplace, and same-day delivery.",
+    results: "24+ founding businesses committed. Full platform live at maltaverse.live/pjazza covering 12 sectors across Malta's entire economy.",
+    metrics: { value: '24+', label: 'Founding Businesses' },
+    secondaryMetrics: [
+      { value: '12', label: 'Sectors' },
+      { value: 'Live', label: 'Platform' },
+      { value: 'Malta', label: 'First' }
+    ],
+    services: ['Product Strategy', 'UX Design', 'Brand Identity', 'Full-Stack Development', 'Live Commerce Architecture', 'Business Onboarding'],
+    platforms: ['iOS', 'Android', 'Web'],
+    thumbnailImage: pjazzaThumb,
+    heroImage: pjazzaHero,
+    gridClass: 'col-span-12 md:col-span-8',
+    timeline: '2025–Present',
+  },
   'nexgen-retail-ai-transformation': {
     slug: 'nexgen-retail-ai-transformation',
     brand: 'NexGen Retail Group',
@@ -583,12 +609,12 @@ export const caseStudiesArray = Object.values(caseStudies);
 
 // Featured case studies for homepage (6 most impressive)
 export const featuredCaseStudies = [
+  caseStudies['pjazza'],
   caseStudies['nexgen-retail-ai-transformation'],
   caseStudies['national-distributor-nlp'],
   caseStudies['cricketpulse-india'],
   caseStudies['apex-fitness-collective'],
   caseStudies['naturalcare-beauty'],
-  caseStudies['maison-lumiere']
 ].filter(Boolean);
 
 // Case studies by category for filtering
