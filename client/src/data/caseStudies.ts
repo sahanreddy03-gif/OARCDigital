@@ -82,22 +82,22 @@ export const caseStudies: Record<string, CaseStudy> = {
     brand: 'PJAZZA',
     category: "OARC's Own Product",
     description: "Malta's First Live Shopping Marketplace",
-    fullDescription: "PJAZZA is OARC Digital's own product — a live commerce marketplace purpose-built for Malta. 24+ founding businesses, 12 sectors, live at maltaverse.live/pjazza.",
+    fullDescription: "PJAZZA is OARC Digital's own product — a live commerce marketplace purpose-built for Malta. 200+ founding businesses, 12 sectors, launching May 2026 at maltaverse.live.",
     challenge: "Malta's local businesses lacked a trusted, modern digital commerce platform — invisible online and unable to sell live to their community.",
     strategy: "OARC built PJAZZA from scratch — a live streaming marketplace with built-in escrow, 12 sector verticals, a people/freelancer marketplace, and same-day delivery.",
-    results: "24+ founding businesses committed. Full platform live at maltaverse.live/pjazza covering 12 sectors across Malta's entire economy.",
-    metrics: { value: '24+', label: 'Founding Businesses' },
+    results: "200+ founding businesses committed pre-launch. Full platform shipped for May 2026 launch at maltaverse.live/pjazza.",
+    metrics: { value: '200+', label: 'Founding Businesses' },
     secondaryMetrics: [
       { value: '12', label: 'Sectors' },
-      { value: 'Live', label: 'Platform' },
-      { value: 'Malta', label: 'First' }
+      { value: 'May 2026', label: 'Launch' },
+      { value: 'Malta-first', label: 'Live Commerce' }
     ],
     services: ['Product Strategy', 'UX Design', 'Brand Identity', 'Full-Stack Development', 'Live Commerce Architecture', 'Business Onboarding'],
     platforms: ['iOS', 'Android', 'Web'],
     thumbnailImage: pjazzaThumb,
     heroImage: pjazzaHero,
     gridClass: 'col-span-12 md:col-span-8',
-    timeline: '2025–Present',
+    timeline: '2025–2026',
   },
   'nexgen-retail-ai-transformation': {
     slug: 'nexgen-retail-ai-transformation',
