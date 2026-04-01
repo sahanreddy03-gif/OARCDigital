@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect, useRef, useState } from "react";
+import { lazy, Suspense } from "react";
 import Layout from "@/components/layout/Layout";
 import HeroSection from "@/components/HeroSection";
 import SEOHead from "@/components/SEOHead";
@@ -6,65 +6,25 @@ import ScrollReveal from "@/components/ScrollReveal";
 import { localBusinessSchema, organizationSchema, createFAQSchema } from "@/utils/structuredData";
 import { createAggregateRatingSchema, createReviewSchema } from "@/utils/advancedSchema";
 
-const OARCBrandSection      = lazy(() => import("@/components/OARCBrandSection"));
-const TrustedBrandsSection  = lazy(() => import("@/components/TrustedBrandsSection"));
-const AICreativeSection     = lazy(() => import("@/components/AICreativeSection"));
-const Section2              = lazy(() => import("@/components/Section2"));
-const Section5              = lazy(() => import("@/components/Section5"));
-const HireAIEmployeesSection= lazy(() => import("@/components/HireAIEmployeesSection"));
-const TechEnabledSection    = lazy(() => import("@/components/TechEnabledSection"));
-const LetsTalkRevenueSection= lazy(() => import("@/components/LetsTalkRevenueSection"));
-const SuccessInNumbers      = lazy(() => import("@/components/SuccessInNumbers").then(m => ({ default: m.SuccessInNumbers })));
-const BrandShowcaseSection  = lazy(() => import("@/components/BrandShowcaseSection"));
-const Testimonials          = lazy(() => import("@/components/Testimonials"));
-const ComparisonSection     = lazy(() => import("@/components/ComparisonSection"));
-const GrowthSimulator       = lazy(() => import("@/components/GrowthSimulator"));
-const DiagnosticsTeaser     = lazy(() => import("@/components/DiagnosticsTeaser"));
+const OARCBrandSection          = lazy(() => import("@/components/OARCBrandSection"));
+const TrustedBrandsSection      = lazy(() => import("@/components/TrustedBrandsSection"));
+const AICreativeSection         = lazy(() => import("@/components/AICreativeSection"));
+const Section2                  = lazy(() => import("@/components/Section2"));
+const Section5                  = lazy(() => import("@/components/Section5"));
+const HireAIEmployeesSection    = lazy(() => import("@/components/HireAIEmployeesSection"));
+const TechEnabledSection        = lazy(() => import("@/components/TechEnabledSection"));
+const LetsTalkRevenueSection    = lazy(() => import("@/components/LetsTalkRevenueSection"));
+const SuccessInNumbers          = lazy(() => import("@/components/SuccessInNumbers").then(m => ({ default: m.SuccessInNumbers })));
+const BrandShowcaseSection      = lazy(() => import("@/components/BrandShowcaseSection"));
+const Testimonials              = lazy(() => import("@/components/Testimonials"));
+const ComparisonSection         = lazy(() => import("@/components/ComparisonSection"));
+const GrowthSimulator           = lazy(() => import("@/components/GrowthSimulator"));
+const DiagnosticsTeaser         = lazy(() => import("@/components/DiagnosticsTeaser"));
 const MoneyBackGuaranteeSection = lazy(() => import("@/components/MoneyBackGuaranteeSection"));
-const BlogPreviewSection    = lazy(() => import("@/components/BlogPreviewSection"));
-const CTASections           = lazy(() => import("@/components/CTASections"));
-const NeedHelpCTA           = lazy(() => import("@/components/NeedHelpCTA"));
-const FAQ                   = lazy(() => import("@/components/FAQ"));
-
-/**
- * DeferredSection — mounts children only once the placeholder div enters the
- * viewport (with a generous rootMargin so chunks start loading slightly before
- * they're needed). Until then the lazy component is never instantiated and its
- * JS chunk is never requested.
- */
-function DeferredSection({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const [shouldRender, setShouldRender] = useState(false);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setShouldRender(true);
-          observer.disconnect();
-        }
-      },
-      { rootMargin: "300px 0px" }
-    );
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
-
-  return (
-    <div ref={ref}>
-      {shouldRender ? (
-        <Suspense fallback={<div style={{ minHeight: "1px" }} />}>
-          {children}
-        </Suspense>
-      ) : (
-        <div style={{ minHeight: "1px" }} />
-      )}
-    </div>
-  );
-}
+const BlogPreviewSection        = lazy(() => import("@/components/BlogPreviewSection"));
+const CTASections               = lazy(() => import("@/components/CTASections"));
+const NeedHelpCTA               = lazy(() => import("@/components/NeedHelpCTA"));
+const FAQ                       = lazy(() => import("@/components/FAQ"));
 
 export default function Home() {
   const faqSchema = createFAQSchema([
@@ -124,122 +84,121 @@ export default function Home() {
       />
       <div className="overflow-x-hidden">
 
-        {/* Hero — always eager, no deferral */}
         <HeroSection />
 
-        <DeferredSection>
+        <Suspense fallback={null}>
           <ScrollReveal>
             <OARCBrandSection />
           </ScrollReveal>
-        </DeferredSection>
+        </Suspense>
 
-        <DeferredSection>
+        <Suspense fallback={null}>
           <ScrollReveal delay={100}>
             <TrustedBrandsSection />
           </ScrollReveal>
-        </DeferredSection>
+        </Suspense>
 
-        <DeferredSection>
+        <Suspense fallback={null}>
           <ScrollReveal>
             <AICreativeSection />
           </ScrollReveal>
-        </DeferredSection>
+        </Suspense>
 
-        <DeferredSection>
+        <Suspense fallback={null}>
           <ScrollReveal>
             <Section2 />
           </ScrollReveal>
-        </DeferredSection>
+        </Suspense>
 
-        <DeferredSection>
+        <Suspense fallback={null}>
           <ScrollReveal>
             <Section5 />
           </ScrollReveal>
-        </DeferredSection>
+        </Suspense>
 
-        <DeferredSection>
+        <Suspense fallback={null}>
           <ScrollReveal>
             <HireAIEmployeesSection />
           </ScrollReveal>
-        </DeferredSection>
+        </Suspense>
 
-        <DeferredSection>
+        <Suspense fallback={null}>
           <ScrollReveal delay={50}>
             <LetsTalkRevenueSection />
           </ScrollReveal>
-        </DeferredSection>
+        </Suspense>
 
-        <DeferredSection>
+        <Suspense fallback={null}>
           <ScrollReveal>
             <TechEnabledSection />
           </ScrollReveal>
-        </DeferredSection>
+        </Suspense>
 
-        <DeferredSection>
+        <Suspense fallback={null}>
           <ScrollReveal>
             <SuccessInNumbers />
           </ScrollReveal>
-        </DeferredSection>
+        </Suspense>
 
-        <DeferredSection>
+        <Suspense fallback={null}>
           <ScrollReveal>
             <BrandShowcaseSection />
           </ScrollReveal>
-        </DeferredSection>
+        </Suspense>
 
-        <DeferredSection>
+        <Suspense fallback={null}>
           <ScrollReveal>
             <Testimonials />
           </ScrollReveal>
-        </DeferredSection>
+        </Suspense>
 
-        <DeferredSection>
+        <Suspense fallback={null}>
           <ScrollReveal>
             <ComparisonSection />
           </ScrollReveal>
-        </DeferredSection>
+        </Suspense>
 
-        <DeferredSection>
+        <Suspense fallback={null}>
           <ScrollReveal>
             <GrowthSimulator />
           </ScrollReveal>
-        </DeferredSection>
+        </Suspense>
 
-        <DeferredSection>
+        <Suspense fallback={null}>
           <ScrollReveal>
             <DiagnosticsTeaser />
           </ScrollReveal>
-        </DeferredSection>
+        </Suspense>
 
-        <DeferredSection>
+        <Suspense fallback={null}>
           <ScrollReveal>
             <MoneyBackGuaranteeSection />
           </ScrollReveal>
-        </DeferredSection>
+        </Suspense>
 
-        <DeferredSection>
+        <Suspense fallback={null}>
           <ScrollReveal>
             <BlogPreviewSection />
           </ScrollReveal>
-        </DeferredSection>
+        </Suspense>
 
-        <DeferredSection>
+        <Suspense fallback={null}>
           <ScrollReveal>
             <CTASections />
           </ScrollReveal>
-        </DeferredSection>
+        </Suspense>
 
-        <DeferredSection>
+        <Suspense fallback={null}>
           <ScrollReveal>
             <NeedHelpCTA />
           </ScrollReveal>
-        </DeferredSection>
+        </Suspense>
 
-        <DeferredSection>
+        <Suspense fallback={null}>
           <ScrollReveal>
             <FAQ />
           </ScrollReveal>
-        </DeferredSection>
+        </Suspense>
 
       </div>
     </Layout>
