@@ -42,19 +42,11 @@ The platform is built on a modern web stack using React for the frontend and Exp
 **Data Storage:**
 -   **Database:** PostgreSQL (Neon serverless) managed with Drizzle ORM.
 
-**PJAZZA — Live Shopping Marketplace for Malta (Secondary Project):**
--   **Architecture:** Separate module under `/pjazza/*` with its own `PjazzaApp.tsx` entry point. Routes registered in both `App.tsx` (top-level) and `PjazzaApp.tsx` (internal).
--   **Design:** Fully responsive (375px–1440px+), true black (#000000), rose-red (#E11D48) accents, gold (#D4A574) premium touches, Space Grotesk and Inter fonts, self-contained CSS (`pjazza.css`).
--   **12 Sectors:** Food & Dining, Property, Cars, Yachts, Home Services, Freelancers, Wellness, Fashion & Retail, Electronics, Tourism, Education, Pets & Animals.
--   **Pages (7 total):**
-    -   **Portal** (`/pjazza`): Full landing page — hero, live streams preview, 12-sector grid, featured listings, how-it-works overview, trust signals, stats, success stories, dual CTAs.
-    -   **Discover** (`/pjazza/discover`): Marketplace feed — live streams, category pills (12 sectors), high-value listings, crowd intelligence, quick links to How It Works & Sectors.
-    -   **How It Works** (`/pjazza/how-it-works`): Buyer flow (5 steps), seller flow (5 steps), escrow explainer, 8 FAQs with expand/collapse.
-    -   **Sectors** (`/pjazza/sectors`): All 12 categories with descriptions, examples, business counts, live counts, quick nav pills.
-    -   **Business Onboard** (`/pjazza/business/onboard`): Pitch page — problem/solution, proof metrics, 12 industries, pricing with founding partner offer.
-    -   **Business Dashboard** (`/pjazza/business/dashboard`): Seller analytics dashboard.
-    -   **Recording Studio** (`/pjazza/business/stream`): Live streaming studio.
--   **Navigation:** TopBar (desktop 1024px+) and BottomNav (mobile) with Home, Sectors, LIVE, How It Works, Business tabs.
+**PJAZZA — OARC Digital's Own Product (Case Study):**
+-   **Status:** All platform source code removed. Featured as a case study at `/case-studies/pjazza`.
+-   **Case Study:** Premium full-page case study using 17 uploaded screenshots, hero on homepage and Our Work page.
+-   **Product Summary:** Malta's first live shopping marketplace — 200+ founding businesses, 12 sectors, launching May 2026 at maltaverse.live/pjazza.
+-   **Design:** Dark premium aesthetic (#E11D48 rose-red accents), full-viewport hero, masonry screenshot gallery, 12-sector grid, launch callout.
 
 ### External Dependencies
 
