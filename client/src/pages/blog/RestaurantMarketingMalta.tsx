@@ -25,7 +25,7 @@ export default function RestaurantMarketingMalta() {
         description="Why some Malta restaurants are always full and others struggle — the marketing strategies, content approaches, and operational decisions that separate them."
         canonicalUrl="https://oarcdigital.com/blog/restaurant-marketing-malta"
         ogType="article"
-        structuredData={{
+        structuredData={[{
           "@context": "https://schema.org",
           "@type": "Article",
           "headline": "Restaurant Marketing in Malta: What the Top Venues Do Differently",
@@ -34,7 +34,7 @@ export default function RestaurantMarketingMalta() {
           "publisher": { "@type": "Organization", "name": "OARC Digital", "url": "https://oarcdigital.com" },
           "datePublished": "2026-03-01",
           "dateModified": "2026-04-01",
-        }}
+        }, { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{ "@type": "Question", "name": "How much should a Malta restaurant spend on marketing?", "acceptedAnswer": { "@type": "Answer", "text": "3–5% of monthly revenue. A restaurant turning over €30,000 per month should spend €900–€1,500 on marketing covering social media management, photography, and advertising." } }, { "@type": "Question", "name": "What is the most important marketing channel for Malta restaurants?", "acceptedAnswer": { "@type": "Answer", "text": "Google Business Profile is the most important free marketing tool, driving 40–60% of local discovery searches. After that: Instagram for locals and TikTok for tourist discovery." } }, { "@type": "Question", "name": "Is TripAdvisor still relevant for Malta restaurants?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, specifically for tourist traffic. Maltese locals use Google predominantly, but tourists from the UK, Germany, and Italy still reference TripAdvisor heavily." } }] }]}
       />
       <main className="min-h-screen bg-background">
         <section className="bg-gradient-to-br from-zinc-900 to-zinc-950 text-white py-16 md:py-24">

@@ -23,7 +23,7 @@ export default function TikTokMaltaBusiness() {
         description="TikTok isn't just for teenagers. Here's how Malta businesses are using it to get 50,000+ views and turn them into actual customers in 2026."
         canonicalUrl="https://oarcdigital.com/blog/tiktok-for-malta-businesses"
         ogType="article"
-        structuredData={{
+        structuredData={[{
           "@context": "https://schema.org",
           "@type": "Article",
           "headline": "TikTok for Malta Businesses: The No-Nonsense Guide for 2026",
@@ -32,7 +32,7 @@ export default function TikTokMaltaBusiness() {
           "publisher": { "@type": "Organization", "name": "OARC Digital", "url": "https://oarcdigital.com" },
           "datePublished": "2026-03-01",
           "dateModified": "2026-04-01",
-        }}
+        }, { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{ "@type": "Question", "name": "Does TikTok work for Malta businesses?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. TikTok does not require an existing audience — a brand-new account can reach 50,000+ people in 24 hours with the right content. Malta small population means strong local reach." } }, { "@type": "Question", "name": "How often should Malta businesses post on TikTok?", "acceptedAnswer": { "@type": "Answer", "text": "Post minimum 4 times per week for the first 3 months. TikTok rewards consistency and volume builds the algorithm understanding of your content." } }, { "@type": "Question", "name": "What TikTok content performs best for Malta businesses?", "acceptedAnswer": { "@type": "Answer", "text": "Trending audio with original concept, day-in-the-life format, and behind-the-scenes content consistently outperform straight product showcase content on TikTok." } }] }]}
       />
       <main className="min-h-screen bg-background">
         <section className="bg-gradient-to-br from-zinc-900 to-zinc-950 text-white py-16 md:py-24">

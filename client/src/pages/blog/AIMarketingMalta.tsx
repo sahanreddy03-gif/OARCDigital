@@ -32,7 +32,7 @@ export default function AIMarketingMalta() {
         description="Beyond the hype — the AI marketing tools saving Malta businesses real time and money in 2026. What works, what doesn't, and what OARC actually uses with clients."
         canonicalUrl="https://oarcdigital.com/blog/ai-marketing-malta"
         ogType="article"
-        structuredData={{
+        structuredData={[{
           "@context": "https://schema.org",
           "@type": "Article",
           "headline": "AI Marketing in Malta: What's Actually Useful for Your Business Right Now",
@@ -41,7 +41,7 @@ export default function AIMarketingMalta() {
           "publisher": { "@type": "Organization", "name": "OARC Digital", "url": "https://oarcdigital.com" },
           "datePublished": "2026-03-01",
           "dateModified": "2026-04-01",
-        }}
+        }, { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{ "@type": "Question", "name": "What AI marketing tools work best for Malta businesses?", "acceptedAnswer": { "@type": "Answer", "text": "AI content drafting saves 6–8 hours per month. AI SDR agents save 15+ hours for B2B outreach. AI customer support saves 20+ hours. Marketing automation handles review requests and follow-ups automatically." } }, { "@type": "Question", "name": "Is AI marketing affordable for small Malta businesses?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. A €20 per month AI writing tool saving 6 hours per month delivers extraordinary ROI regardless of business size. The tools with the highest ROI are often the most affordable." } }, { "@type": "Question", "name": "Will Google penalise AI-generated content?", "acceptedAnswer": { "@type": "Answer", "text": "Google penalises unhelpful content, not AI-generated content. Well-researched, accurate, human-reviewed AI-assisted content ranks fine." } }] }]}
       />
       <main className="min-h-screen bg-background">
         <section className="bg-gradient-to-br from-zinc-900 to-zinc-950 text-white py-16 md:py-24">

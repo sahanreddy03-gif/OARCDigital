@@ -30,7 +30,7 @@ export default function SocialMediaCostMalta() {
         description="Real pricing for social media management in Malta. Freelancers vs agencies, what you actually get, and how to know if you're being overcharged. Updated 2026."
         canonicalUrl="https://oarcdigital.com/blog/social-media-management-cost-malta"
         ogType="article"
-        structuredData={{
+        structuredData={[{
           "@context": "https://schema.org",
           "@type": "Article",
           "headline": "How Much Does Social Media Management Cost in Malta? (2026 Guide)",
@@ -39,7 +39,7 @@ export default function SocialMediaCostMalta() {
           "publisher": { "@type": "Organization", "name": "OARC Digital", "url": "https://oarcdigital.com" },
           "datePublished": "2026-02-15",
           "dateModified": "2026-03-20",
-        }}
+        }, { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{ "@type": "Question", "name": "How much does social media management cost in Malta?", "acceptedAnswer": { "@type": "Answer", "text": "Social media management in Malta typically costs €400–€2,500 per month for a serious service. The sweet spot for most Malta SMEs is €800–€1,500 per month." } }, { "@type": "Question", "name": "Should I hire a freelancer or an agency for social media in Malta?", "acceptedAnswer": { "@type": "Answer", "text": "Freelancers offer lower cost but limited accountability. Agencies offer systems and consistency — especially important if social media is critical to your revenue." } }, { "@type": "Question", "name": "How long before social media management shows results?", "acceptedAnswer": { "@type": "Answer", "text": "Organic social media growth takes 60–90 days to gain meaningful momentum. Sustainable compounding results take 6+ months of consistent work." } }] }]}
       />
 
       <main className="min-h-screen bg-background">

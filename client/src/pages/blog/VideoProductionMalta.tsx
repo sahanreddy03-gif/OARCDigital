@@ -22,7 +22,7 @@ export default function VideoProductionMalta() {
         description="Short-form, long-form, corporate, social — what video formats Malta businesses should be investing in, what they cost, and which ones actually bring in customers."
         canonicalUrl="https://oarcdigital.com/blog/video-production-malta"
         ogType="article"
-        structuredData={{
+        structuredData={[{
           "@context": "https://schema.org",
           "@type": "Article",
           "headline": "Video Production in Malta: Costs, Formats, and What Actually Converts",
@@ -31,7 +31,7 @@ export default function VideoProductionMalta() {
           "publisher": { "@type": "Organization", "name": "OARC Digital", "url": "https://oarcdigital.com" },
           "datePublished": "2026-03-01",
           "dateModified": "2026-04-01",
-        }}
+        }, { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{ "@type": "Question", "name": "How much does a professional video shoot cost in Malta?", "acceptedAnswer": { "@type": "Answer", "text": "A half-day professional shoot in Malta typically runs €400–€800. A full day with a two-person crew and professional editing runs €1,200–€3,000." } }, { "@type": "Question", "name": "What video formats work best for Malta businesses?", "acceptedAnswer": { "@type": "Answer", "text": "Short-form social (Reels and TikTok) delivers the highest reach and customer acquisition. Product videos on delivery platforms increase orders by 35–60%. Corporate brand video builds long-term trust." } }, { "@type": "Question", "name": "How often should a Malta business post video content?", "acceptedAnswer": { "@type": "Answer", "text": "Minimum 3–4 short-form videos per week on TikTok and Reels. This is achievable with a focused 2-hour filming session per week." } }] }]}
       />
       <main className="min-h-screen bg-background">
         <section className="bg-gradient-to-br from-zinc-900 to-zinc-950 text-white py-16 md:py-24">

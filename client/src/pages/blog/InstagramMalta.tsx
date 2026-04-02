@@ -31,7 +31,7 @@ export default function InstagramMalta() {
         description="What works on Instagram in Malta in 2026 — the posting times, content formats, hashtag strategy, and growth tactics that Malta businesses are using to build real audiences."
         canonicalUrl="https://oarcdigital.com/blog/instagram-marketing-malta"
         ogType="article"
-        structuredData={{
+        structuredData={[{
           "@context": "https://schema.org",
           "@type": "Article",
           "headline": "Instagram Marketing in Malta: How to Actually Get Results in 2026",
@@ -40,7 +40,7 @@ export default function InstagramMalta() {
           "publisher": { "@type": "Organization", "name": "OARC Digital", "url": "https://oarcdigital.com" },
           "datePublished": "2026-03-01",
           "dateModified": "2026-04-01",
-        }}
+        }, { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{ "@type": "Question", "name": "What are the best posting times for Instagram in Malta?", "acceptedAnswer": { "@type": "Answer", "text": "The best times to post on Instagram in Malta are 12:00–13:00 (lunch), 18:00–20:00 (evening), and 21:00–22:00 (night scroll). Avoid posting before 10:00 or after 23:00." } }, { "@type": "Question", "name": "How do I grow my Instagram account in Malta?", "acceptedAnswer": { "@type": "Answer", "text": "Post every day for the first 30 days. Engage with competitor accounts and local Malta pages before posting. Run one local collaboration in the first 60 days. Focus on Reels for reach." } }, { "@type": "Question", "name": "What Instagram content works best for Malta businesses?", "acceptedAnswer": { "@type": "Answer", "text": "Behind-the-scenes content, founder and owner content, and Reels with trending audio consistently outperform polished promotional posts for Malta businesses." } }] }]}
       />
       <main className="min-h-screen bg-background">
         <section className="bg-gradient-to-br from-zinc-900 to-zinc-950 text-white py-16 md:py-24">
