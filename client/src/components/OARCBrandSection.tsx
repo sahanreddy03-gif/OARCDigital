@@ -6,7 +6,7 @@ export default function OARCBrandSection({ videoSrc }: OARCBrandSectionProps) {
   return (
     <section
       className="relative min-h-[50vh] md:min-h-[65vh] overflow-hidden"
-      style={{ background: "#0a0a0a" }}
+      style={{ background: "#0a0a0a", touchAction: "pan-y" }}
       data-testid="oarc-brand-section"
     >
       {videoSrc && (
