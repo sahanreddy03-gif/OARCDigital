@@ -1,5 +1,5 @@
 import { Link } from "wouter";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { SiInstagram, SiFacebook, SiX, SiLinkedin, SiWhatsapp } from "react-icons/si";
 import { servicesCatalog } from '@/config/servicesConfig';
 import greenLogo from "@assets/image_1767660951950.png";
