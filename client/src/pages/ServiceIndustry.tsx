@@ -119,13 +119,13 @@ function getComboContent(serviceSlug: string, industry: string, serviceMeta: Ser
     why: [
       `${industryMeta.plural} in Malta operate in a competitive market where the brands that invest in ${serviceMeta.title.toLowerCase()} consistently outperform those that don't`,
       `OARC Digital brings both technical ${serviceMeta.title.toLowerCase()} expertise and local Malta market knowledge — a combination you won't find elsewhere`,
-      `We have a proven track record delivering measurable results for businesses in ${industryMeta.description ?? `the ${industryMeta.name.toLowerCase()} sector`}`,
+      `We have a proven track record delivering measurable results for businesses in the ${industryMeta.name.toLowerCase()} sector`,
     ],
     deliverables: [
       `Custom ${serviceMeta.title.toLowerCase()} strategy tailored to your ${industryMeta.name.toLowerCase()} business and Malta market`,
       `Full implementation and management — you focus on your business, we handle the ${serviceMeta.title.toLowerCase()}`,
       `Regular reporting with clear metrics tied to your business goals`,
-      `Dedicated account manager with experience in ${industryMeta.description ?? `the ${industryMeta.name.toLowerCase()} sector`}`,
+      `Dedicated account manager with experience in the ${industryMeta.name.toLowerCase()} sector`,
     ],
   };
 }
