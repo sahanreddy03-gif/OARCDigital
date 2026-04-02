@@ -260,7 +260,6 @@ export default function RevenueSolutionsLanding() {
               {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Custom Software Development", "description": "Bespoke web applications, dashboards, and internal tools built for your business."}}
             ]
           },
-          "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "89", "bestRating": "5"}
         })}</script>
         {/* Schema.org - LocalBusiness */}
         <script type="application/ld+json">{JSON.stringify({
