@@ -32,13 +32,76 @@ const blogPosts: BlogPost[] = [
     image: 'https://images.unsplash.com/photo-1432821596592-e2c18b78144f?w=800&h=500&fit=crop&q=80'
   },
   {
+    slug: 'restaurant-marketing-malta',
+    title: 'Restaurant Marketing in Malta: What the Top Venues Do Differently',
+    excerpt: 'Why some Malta restaurants are always full and others struggle — the marketing strategies, content approaches, and operational decisions that separate them.',
+    category: 'Revenue Growth',
+    readTime: '13 min',
+    publishDate: '2026-03-01',
+    image: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&h=500&fit=crop&q=80'
+  },
+  {
+    slug: 'instagram-marketing-malta',
+    title: 'Instagram Marketing in Malta: How to Actually Get Results in 2026',
+    excerpt: 'What works on Instagram in Malta in 2026 — the posting times, content formats, hashtag strategy, and growth tactics that Malta businesses are using to build real audiences.',
+    category: 'Creative Services',
+    readTime: '11 min',
+    publishDate: '2026-03-01',
+    image: 'https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=800&h=500&fit=crop&q=80'
+  },
+  {
+    slug: 'tiktok-for-malta-businesses',
+    title: 'TikTok for Malta Businesses: The No-Nonsense Guide for 2026',
+    excerpt: 'TikTok is not just for teenagers. Here is how Malta businesses are using it to get 50,000+ views and turn them into actual customers.',
+    category: 'Creative Services',
+    readTime: '10 min',
+    publishDate: '2026-03-01',
+    image: 'https://images.unsplash.com/photo-1611605698335-8441168e7f54?w=800&h=500&fit=crop&q=80'
+  },
+  {
+    slug: 'ai-marketing-malta',
+    title: 'AI Marketing in Malta: What\'s Actually Useful for Your Business Right Now',
+    excerpt: 'Beyond the hype — the AI marketing tools saving Malta businesses real time and money in 2026.',
+    category: 'AI Marketing',
+    readTime: '12 min',
+    publishDate: '2026-03-01',
+    image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=500&fit=crop&q=80'
+  },
+  {
+    slug: 'branding-agency-malta',
+    title: 'What a Branding Agency in Malta Actually Does (And What to Expect)',
+    excerpt: 'Logo vs brand. What Malta businesses get wrong about branding, what it costs, and how to know if you need a branding agency.',
+    category: 'Creative Services',
+    readTime: '11 min',
+    publishDate: '2026-03-01',
+    image: 'https://images.unsplash.com/photo-1558655146-d09347e92766?w=800&h=500&fit=crop&q=80'
+  },
+  {
+    slug: 'video-production-malta',
+    title: 'Video Production in Malta: Costs, Formats, and What Actually Converts',
+    excerpt: 'Short-form, long-form, corporate, social — what video formats Malta businesses should invest in and what they cost in 2026.',
+    category: 'Creative Services',
+    readTime: '12 min',
+    publishDate: '2026-03-01',
+    image: 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=800&h=500&fit=crop&q=80'
+  },
+  {
+    slug: 'social-media-management-cost-malta',
+    title: 'How Much Does Social Media Management Cost in Malta? (2026 Guide)',
+    excerpt: 'Real pricing for social media management in Malta. Freelancers vs agencies, what you actually get, and how to know if you are being overcharged.',
+    category: 'Revenue Growth',
+    readTime: '12 min',
+    publishDate: '2026-03-20',
+    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=500&fit=crop&q=80'
+  },
+  {
     slug: 'marketing-trends-malta-2025',
     title: 'Malta Business Marketing in 2025: What\'s Working Now',
     excerpt: 'Discover the top marketing trends shaping Malta\'s business landscape in 2025, from AI adoption to voice search and sustainability marketing.',
     category: 'AI Marketing',
     readTime: '15 min',
     publishDate: '2025-12-11',
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=500&fit=crop&q=80'
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop&q=80'
   },
   {
     slug: 'digital-marketing-malta',
@@ -47,7 +110,7 @@ const blogPosts: BlogPost[] = [
     category: 'Revenue Growth',
     readTime: '20 min',
     publishDate: '2025-12-11',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop&q=80'
+    image: 'https://images.unsplash.com/photo-1432821596592-e2c18b78144f?w=800&h=500&fit=crop&q=80'
   },
   {
     slug: 'ai-solutions-malta',

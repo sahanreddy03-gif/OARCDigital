@@ -93,6 +93,12 @@ import MarketingTrendsMalta from "@/pages/blog/MarketingTrendsMalta";
 import DigitalMarketingMalta from "@/pages/blog/DigitalMarketingMalta";
 import AiSolutionsMalta from "@/pages/blog/AiSolutionsMalta";
 import SocialMediaCostMalta from "@/pages/blog/SocialMediaCostMalta";
+import InstagramMalta from "@/pages/blog/InstagramMalta";
+import TikTokMaltaBusiness from "@/pages/blog/TikTokMaltaBusiness";
+import RestaurantMarketingMalta from "@/pages/blog/RestaurantMarketingMalta";
+import AIMarketingMalta from "@/pages/blog/AIMarketingMalta";
+import BrandingMalta from "@/pages/blog/BrandingMalta";
+import VideoProductionMalta from "@/pages/blog/VideoProductionMalta";
 import PrivacyPolicy from "@/pages/legal/PrivacyPolicy";
 import CookiePolicy from "@/pages/legal/CookiePolicy";
 import TermsConditions from "@/pages/legal/TermsConditions";
@@ -236,6 +242,12 @@ function Router() {
       <Route path="/blog/digital-marketing-malta" component={DigitalMarketingMalta} />
       <Route path="/blog/ai-solutions-malta" component={AiSolutionsMalta} />
       <Route path="/blog/social-media-management-cost-malta" component={SocialMediaCostMalta} />
+      <Route path="/blog/instagram-marketing-malta" component={InstagramMalta} />
+      <Route path="/blog/tiktok-for-malta-businesses" component={TikTokMaltaBusiness} />
+      <Route path="/blog/restaurant-marketing-malta" component={RestaurantMarketingMalta} />
+      <Route path="/blog/ai-marketing-malta" component={AIMarketingMalta} />
+      <Route path="/blog/branding-agency-malta" component={BrandingMalta} />
+      <Route path="/blog/video-production-malta" component={VideoProductionMalta} />
 
       {/* Tools Directory */}
       <Route path="/tools" component={Tools} />
