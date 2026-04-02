@@ -113,14 +113,13 @@ export default function ShiftHappensSection() {
           </div>
         </motion.div>
 
-        {/* Full-width gradient rule */}
+        {/* Full-width horizontal rule */}
         <motion.div {...fadeUp(0.18)} className="w-full mt-5 sm:mt-6 md:mt-8">
           <div
             style={{
-              height: "1.5px",
+              height: "2px",
               width: "100%",
-              background:
-                "linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.1) 2%, rgba(255,255,255,0.65) 15%, rgba(255,255,255,0.88) 50%, rgba(255,255,255,0.65) 85%, rgba(255,255,255,0.1) 98%, transparent 100%)",
+              background: "rgba(255,255,255,0.45)",
             }}
           />
         </motion.div>
