@@ -74,13 +74,15 @@ import StrategyPulseCaseStudy from "@/pages/case-studies/StrategyPulse";
 import NationalDistributorNLPCaseStudy from "@/pages/case-studies/NationalDistributorNLP";
 import CricketPulseIndiaCaseStudy from "@/pages/case-studies/CricketPulseIndia";
 import NexGenRetailAICaseStudy from "@/pages/case-studies/NexGenRetailAI";
-import PjazzaCaseStudy from "@/pages/case-studies/Pjazza";
 import PDFHub from "@/pages/PDFHub";
 import PDFCompanyProfile from "@/pages/PDFCompanyProfile";
 import PDFOnePager from "@/pages/PDFOnePager";
 import PDFAICreativeProfile from "@/pages/PDFAICreativeProfile";
 import PDFCapabilitiesDeck from "@/pages/PDFCapabilitiesDeck";
 import LocationService from "@/pages/LocationService";
+import IndustryHub from "@/pages/IndustryHub";
+import ServiceIndustry from "@/pages/ServiceIndustry";
+import IndustryHubIndex from "@/pages/IndustryHubIndex";
 import Comparison from "@/pages/Comparison";
 import Blog from "@/pages/Blog";
 import InstagramExport from "@/pages/InstagramExport";
@@ -101,6 +103,7 @@ import AIAgentsLanding from "@/pages/AIAgentsLanding";
 import RevenueSolutionsLanding from "@/pages/RevenueSolutionsLanding";
 import NotFound from "@/pages/not-found";
 import { ARCWidget } from "@/components/ARC";
+import PjazzaCaseStudy from "@/pages/case-studies/Pjazza";
 
 function Router() {
   return (
@@ -176,6 +179,13 @@ function Router() {
       <Route path="/services/mvp-development" component={MVPDevelopment} />
       <Route path="/services/mvp-development/for-software" component={MVPSoftwareDevelopment} />
 
+      {/* Industry Hub Pages */}
+      <Route path="/industries" component={IndustryHubIndex} />
+      <Route path="/industries/:industry" component={IndustryHub} />
+
+      {/* Service × Industry Programmatic Pages */}
+      <Route path="/services/:serviceSlug/:industry" component={ServiceIndustry} />
+
       {/* Fallback for other services */}
       <Route path="/services/:service" component={ServiceDetail} />
 
@@ -208,7 +218,6 @@ function Router() {
       <Route path="/case-studies/national-distributor-nlp" component={NationalDistributorNLPCaseStudy} />
       <Route path="/case-studies/cricketpulse-india" component={CricketPulseIndiaCaseStudy} />
       <Route path="/case-studies/nexgen-retail-ai-transformation" component={NexGenRetailAICaseStudy} />
-      <Route path="/case-studies/pjazza" component={PjazzaCaseStudy} />
       <Route path="/our-work/:slug" component={() => <div>Case Study Detail (Phase 3)</div>} />
       <Route path="/why-us" component={WhyUs} />
       <Route path="/roadmap" component={Roadmap2026} />
@@ -253,6 +262,9 @@ function Router() {
 
       {/* Programmatic SEO - Location Pages */}
       <Route path="/malta/:location/:service" component={LocationService} />
+
+      {/* PJAZZA Case Study */}
+      <Route path="/case-studies/pjazza" component={PjazzaCaseStudy} />
 
         <Route component={NotFound} />
       </Switch>
