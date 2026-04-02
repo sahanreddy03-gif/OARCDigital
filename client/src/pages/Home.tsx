@@ -2,6 +2,7 @@ import Layout from "@/components/layout/Layout";
 import HeroSection from "@/components/HeroSection";
 import DiagnosticsTeaser from "@/components/DiagnosticsTeaser";
 import OARCBrandSection from "@/components/OARCBrandSection";
+import ShiftHappensSection from "@/components/ShiftHappensSection";
 import oarcBgVideo from "@assets/glif-chat-1766630282078_1766685897761.mov";
 import TrustedBrandsSection from "@/components/TrustedBrandsSection";
 import AICreativeSection from "@/components/AICreativeSection";
@@ -83,7 +84,10 @@ export default function Home() {
       <div className="overflow-x-hidden">
         <HeroSection />
 
-        {/* OARC Brand Section - premium display of OARC acronym with video background */}
+        {/* SHIFT HAPPENS — editorial identity section that fills the gap */}
+        <ShiftHappensSection />
+
+        {/* OARC Brand Section - clean video background */}
         <OARCBrandSection videoSrc={oarcBgVideo} />
 
         {/* What We Do - Creative Services */}
