@@ -95,6 +95,15 @@ const blogPosts: BlogPost[] = [
     image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=500&fit=crop&q=80'
   },
   {
+    slug: 'ai-sales-automation-malta',
+    title: 'AI Sales Automation in Malta: How Businesses Are Replacing SDRs With AI Agents',
+    excerpt: 'A human SDR in Malta costs €2,000–€3,500/month and makes 30–50 outreach attempts per week. An AI SDR costs €200–€800 and makes 200–500. The economics are not close.',
+    category: 'AI Marketing',
+    readTime: '11 min',
+    publishDate: '2026-03-01',
+    image: 'https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=800&h=500&fit=crop&q=80'
+  },
+  {
     slug: 'marketing-agency-malta',
     title: 'How to Choose a Marketing Agency in Malta (Without Getting Burned)',
     excerpt: 'Malta has dozens of marketing agencies claiming to grow your business. Most won\'t. Here\'s how to tell the difference before you sign a contract — including a direct comparison table.',

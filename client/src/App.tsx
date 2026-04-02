@@ -105,6 +105,7 @@ import HotelMarketingMalta from "@/pages/blog/HotelMarketingMalta";
 import IGamingMarketingMalta from "@/pages/blog/IGamingMarketingMalta";
 import ContentMarketingMalta from "@/pages/blog/ContentMarketingMalta";
 import MarketingAgencyMalta from "@/pages/blog/MarketingAgencyMalta";
+import AISalesAutomationMalta from "@/pages/blog/AISalesAutomationMalta";
 import PrivacyPolicy from "@/pages/legal/PrivacyPolicy";
 import CookiePolicy from "@/pages/legal/CookiePolicy";
 import TermsConditions from "@/pages/legal/TermsConditions";
@@ -260,6 +261,7 @@ function Router() {
       <Route path="/blog/igaming-marketing-malta" component={IGamingMarketingMalta} />
       <Route path="/blog/content-marketing-malta" component={ContentMarketingMalta} />
       <Route path="/blog/marketing-agency-malta" component={MarketingAgencyMalta} />
+      <Route path="/blog/ai-sales-automation-malta" component={AISalesAutomationMalta} />
 
       {/* Tools Directory */}
       <Route path="/tools" component={Tools} />
