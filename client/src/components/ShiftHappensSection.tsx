@@ -91,7 +91,7 @@ export default function ShiftHappensSection() {
             style={{
               fontFamily: "'EB Garamond', Georgia, serif",
               fontSize: "clamp(1.1rem, 5vw, 5.5rem)",
-              letterSpacing: "0.08em",
+              letterSpacing: "0.12em",
               textTransform: "uppercase",
               lineHeight: 1.1,
               color: "#ffffff",
