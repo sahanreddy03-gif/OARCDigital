@@ -95,6 +95,60 @@ const blogPosts: BlogPost[] = [
     image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=500&fit=crop&q=80'
   },
   {
+    slug: 'marketing-agency-malta',
+    title: 'How to Choose a Marketing Agency in Malta (Without Getting Burned)',
+    excerpt: 'Malta has dozens of marketing agencies claiming to grow your business. Most won\'t. Here\'s how to tell the difference before you sign a contract — including a direct comparison table.',
+    category: 'Revenue Growth',
+    readTime: '12 min',
+    publishDate: '2026-03-01',
+    image: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=800&h=500&fit=crop&q=80'
+  },
+  {
+    slug: 'web-design-malta',
+    title: 'Web Design in Malta: What It Costs and What You Actually Need (2026)',
+    excerpt: 'Most Malta businesses overpay for websites they don\'t need, or underpay for websites that quietly kill their credibility.',
+    category: 'Creative Services',
+    readTime: '10 min',
+    publishDate: '2026-03-01',
+    image: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&h=500&fit=crop&q=80'
+  },
+  {
+    slug: 'paid-advertising-malta',
+    title: 'Facebook and Google Ads in Malta: What Paid Advertising Actually Costs',
+    excerpt: 'Malta has one of the most competitive paid advertising markets in Europe per capita. Here\'s how to not waste your budget.',
+    category: 'Revenue Growth',
+    readTime: '10 min',
+    publishDate: '2026-03-01',
+    image: 'https://images.unsplash.com/photo-1611162616475-46b635cb6868?w=800&h=500&fit=crop&q=80'
+  },
+  {
+    slug: 'hotel-marketing-malta',
+    title: 'Hotel Marketing in Malta: How to Fill Rooms Year-Round',
+    excerpt: 'The hotels that fill rooms year-round aren\'t the ones with the biggest budgets — they\'re the ones with the smartest distribution strategy.',
+    category: 'Revenue Growth',
+    readTime: '12 min',
+    publishDate: '2026-03-01',
+    image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&h=500&fit=crop&q=80'
+  },
+  {
+    slug: 'igaming-marketing-malta',
+    title: 'iGaming Marketing in Malta: What Works in 2026',
+    excerpt: 'Malta is the iGaming capital of Europe. Over 300 licensed operators are based here — here\'s what the marketing landscape actually looks like.',
+    category: 'AI Marketing',
+    readTime: '11 min',
+    publishDate: '2026-03-01',
+    image: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?w=800&h=500&fit=crop&q=80'
+  },
+  {
+    slug: 'content-marketing-malta',
+    title: 'Content Marketing in Malta: The Strategy That Builds Traffic While You Sleep',
+    excerpt: 'You don\'t need more content — you need content that compounds. Here\'s how to build a content strategy that generates leads 24/7.',
+    category: 'Revenue Growth',
+    readTime: '11 min',
+    publishDate: '2026-03-01',
+    image: 'https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=800&h=500&fit=crop&q=80'
+  },
+  {
     slug: 'marketing-trends-malta-2025',
     title: 'Malta Business Marketing in 2025: What\'s Working Now',
     excerpt: 'Discover the top marketing trends shaping Malta\'s business landscape in 2025, from AI adoption to voice search and sustainability marketing.',
