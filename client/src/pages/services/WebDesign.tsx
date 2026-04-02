@@ -330,6 +330,26 @@ export default function WebDesign() {
         schemaId="faq-web-design" 
       />
 
+      {/* Further Reading */}
+      <section className="py-16 bg-background border-t">
+        <div className="max-w-4xl mx-auto px-6 md:px-8">
+          <h2 className="text-xl font-bold mb-6">Further Reading</h2>
+          <div className="grid md:grid-cols-2 gap-4">
+            {[
+              { href: "/blog/web-design-malta", label: "Web Design in Malta: What It Costs and What You Actually Need", cat: "Guide" },
+              { href: "/blog/paid-advertising-malta", label: "Facebook and Google Ads in Malta: What Paid Advertising Actually Costs", cat: "Paid Media" },
+            ].map((a, i) => (
+              <Link key={i} href={a.href}>
+                <div className="p-4 rounded-xl border bg-card hover:border-orange-400 transition-colors cursor-pointer h-full">
+                  <span className="text-xs font-semibold text-orange-500 uppercase tracking-wider mb-2 block">{a.cat}</span>
+                  <p className="text-sm font-medium leading-snug">{a.label}</p>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* FINAL CTA */}
       <section className="py-20 px-4 bg-zinc-950 text-white">
         <div className="max-w-4xl mx-auto text-center">
