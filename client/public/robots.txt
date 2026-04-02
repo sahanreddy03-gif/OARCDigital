@@ -3,4 +3,4 @@ Allow: /
 Disallow: /api/
 Disallow: /admin/
 
-Sitemap: https://www.oarcdigital.com/sitemap.xml
+Sitemap: https://oarcdigital.com/sitemap.xml
