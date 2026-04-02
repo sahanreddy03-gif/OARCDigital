@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { Link } from 'wouter';
 import { ArrowRight } from 'lucide-react';
-import { SiTiktok } from 'react-icons/si';
+import { SiTiktok, SiWhatsapp } from 'react-icons/si';
 import Layout from '@/components/layout/Layout';
 import SEOHead from '@/components/SEOHead';
 import { caseStudiesSEO } from '@/data/seoMetadata';
@@ -366,14 +366,14 @@ export default function DontMakeAdsCaseStudy() {
             We'll show you how to start powerful conversation, drive social engagement, build your brand, hit sales targets or meet other goals you have, wherever you are in the world.
           </p>
 
-          <Link href="/contact">
+          <a href="https://wa.me/35679711799" target="_blank" rel="noopener noreferrer">
             <button className="inline-flex items-center gap-3 bg-[#c4ff4d] text-black rounded-full pl-10 pr-4 py-4 text-base font-semibold hover-elevate active-elevate-2 btn-shimmer glow-lime mb-12" data-testid="button-work-with-us">
-              WORK WITH US
+              WhatsApp Us
               <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
-                <ArrowRight className="h-5 w-5 text-zinc-400" />
+                <SiWhatsapp className="h-5 w-5 text-green-600" />
               </div>
             </button>
-          </Link>
+          </a>
 
           {/* Key Stats Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-left">

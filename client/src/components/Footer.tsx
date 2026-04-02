@@ -46,14 +46,14 @@ export default function Footer({ hideGetInTouch = false }: FooterProps) {
               </p>
             </div>
             
-            <Link href="#contact">
+            <a href="https://wa.me/35679711799" target="_blank" rel="noopener noreferrer">
               <button className="group relative px-10 py-5 bg-[#c4ff4d] hover:bg-[#b0e845] rounded-xl font-bold text-black text-lg shadow-2xl transition-all duration-300 hover:scale-105" data-testid="button-footer-cta">
                 <div className="relative flex items-center gap-3">
-                  <span>WORK WITH US</span>
-                  <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
+                  <SiWhatsapp className="w-6 h-6" />
+                  <span>WhatsApp Us</span>
                 </div>
               </button>
-            </Link>
+            </a>
           </div>
         </div>
       )}
