@@ -29,7 +29,7 @@ export default function AISalesAutomationMalta() {
         description="Malta businesses are deploying AI SDR agents to automate outreach, follow-ups, and lead qualification — at a fraction of the cost of a human sales rep. Here's how it works."
         canonicalUrl="https://oarcdigital.com/blog/ai-sales-automation-malta"
         ogType="article"
-        structuredData={{
+        structuredData={[{
           "@context": "https://schema.org",
           "@type": "Article",
           "headline": "AI Sales Automation in Malta: How Businesses Are Replacing SDRs With AI Agents",
@@ -38,7 +38,7 @@ export default function AISalesAutomationMalta() {
           "publisher": { "@type": "Organization", "name": "OARC Digital", "url": "https://oarcdigital.com" },
           "datePublished": "2026-03-01",
           "dateModified": "2026-04-01",
-        }}
+        }, { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{ "@type": "Question", "name": "How long does it take to deploy an AI SDR agent?", "acceptedAnswer": { "@type": "Answer", "text": "OARC builds and deploys AI SDR agents in 2–4 weeks. Setup includes ICP definition, sequence building, data source connection, and supervised testing before going live." } }, { "@type": "Question", "name": "Is AI outreach compliant with GDPR in Malta?", "acceptedAnswer": { "@type": "Answer", "text": "B2B cold outreach to business email addresses has legitimate interest basis under GDPR, provided recipients can opt out. We build opt-out handling into every sequence." } }, { "@type": "Question", "name": "How much does an AI SDR agent cost in Malta?", "acceptedAnswer": { "@type": "Answer", "text": "Setup runs €500–€1,500. Monthly management costs €300–€800. One closed deal typically covers 6 months of cost." } }] }]}
       />
       <main className="min-h-screen bg-background">
         <section className="bg-gradient-to-br from-zinc-900 to-zinc-950 text-white py-16 md:py-24">

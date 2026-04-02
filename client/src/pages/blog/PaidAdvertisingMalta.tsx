@@ -25,7 +25,7 @@ export default function PaidAdvertisingMalta() {
         description="Malta has one of the most competitive paid advertising markets in Europe per capita. Here's how to not waste your budget on Facebook ads and Google ads in Malta."
         canonicalUrl="https://oarcdigital.com/blog/paid-advertising-malta"
         ogType="article"
-        structuredData={{
+        structuredData={[{
           "@context": "https://schema.org",
           "@type": "Article",
           "headline": "Facebook and Google Ads in Malta: What Paid Advertising Actually Costs (2026)",
@@ -34,7 +34,7 @@ export default function PaidAdvertisingMalta() {
           "publisher": { "@type": "Organization", "name": "OARC Digital", "url": "https://oarcdigital.com" },
           "datePublished": "2026-03-01",
           "dateModified": "2026-04-01",
-        }}
+        }, { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{ "@type": "Question", "name": "How much should I spend on Facebook ads in Malta?", "acceptedAnswer": { "@type": "Answer", "text": "Minimum €300 per month to gather data. €800 per month to test properly. Under €300 you are not getting enough impressions to learn anything." } }, { "@type": "Question", "name": "Do Facebook ads work for restaurants in Malta?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, but only with strong creative. A video of food being prepared with a specific offer converts significantly better than a generic post." } }, { "@type": "Question", "name": "What is the average cost per click for Google ads in Malta?", "acceptedAnswer": { "@type": "Answer", "text": "Google Search ads in Malta average €0.80–€3.50 per click depending on industry. iGaming and financial services are higher. Hospitality is at the lower end." } }] }]}
       />
       <main className="min-h-screen bg-background">
         <section className="bg-gradient-to-br from-zinc-900 to-zinc-950 text-white py-16 md:py-24">

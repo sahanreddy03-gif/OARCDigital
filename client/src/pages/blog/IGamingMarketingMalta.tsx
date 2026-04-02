@@ -12,7 +12,7 @@ export default function IGamingMarketingMalta() {
         description="Malta is the iGaming capital of Europe. Over 300 licensed operators are based here, and the marketing landscape is unlike any other vertical — high budgets, strict regulation, and hyper-competitive acquisition."
         canonicalUrl="https://oarcdigital.com/blog/igaming-marketing-malta"
         ogType="article"
-        structuredData={{
+        structuredData={[{
           "@context": "https://schema.org",
           "@type": "Article",
           "headline": "iGaming Marketing in Malta: What Works in 2026",
@@ -21,7 +21,7 @@ export default function IGamingMarketingMalta() {
           "publisher": { "@type": "Organization", "name": "OARC Digital", "url": "https://oarcdigital.com" },
           "datePublished": "2026-03-01",
           "dateModified": "2026-04-01",
-        }}
+        }, { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{ "@type": "Question", "name": "Can a Malta marketing agency handle iGaming compliance?", "acceptedAnswer": { "@type": "Answer", "text": "Most cannot. Ensure your agency has specific experience with MGA guidelines and platform advertising policies for gambling." } }, { "@type": "Question", "name": "What is the best channel for iGaming B2B marketing in Malta?", "acceptedAnswer": { "@type": "Answer", "text": "LinkedIn for awareness, email for direct outreach, events like SiGMA and ICE for high-value face-to-face, and content marketing for long-term inbound." } }, { "@type": "Question", "name": "What does SiGMA mean for iGaming marketing?", "acceptedAnswer": { "@type": "Answer", "text": "SiGMA brings 25,000+ professionals to Malta annually. Businesses that run a 6-week campaign around it extract 10x more value than those treating it as a 4-day event." } }] }]}
       />
       <main className="min-h-screen bg-background">
         <section className="bg-gradient-to-br from-zinc-900 to-zinc-950 text-white py-16 md:py-24">

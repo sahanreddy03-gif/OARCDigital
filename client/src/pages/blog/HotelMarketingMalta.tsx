@@ -12,7 +12,7 @@ export default function HotelMarketingMalta() {
         description="Malta welcomes 2.3 million tourists annually. The hotels that fill rooms year-round aren't the ones with the biggest budgets — they're the ones with the smartest distribution strategy."
         canonicalUrl="https://oarcdigital.com/blog/hotel-marketing-malta"
         ogType="article"
-        structuredData={{
+        structuredData={[{
           "@context": "https://schema.org",
           "@type": "Article",
           "headline": "Hotel Marketing in Malta: How to Fill Rooms Year-Round (2026)",
@@ -21,7 +21,7 @@ export default function HotelMarketingMalta() {
           "publisher": { "@type": "Organization", "name": "OARC Digital", "url": "https://oarcdigital.com" },
           "datePublished": "2026-03-01",
           "dateModified": "2026-04-01",
-        }}
+        }, { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{ "@type": "Question", "name": "What is the best OTA for Malta hotels?", "acceptedAnswer": { "@type": "Answer", "text": "Booking.com dominates Malta search volume. Expedia matters for US travellers. Airbnb is growing for boutique properties. None should represent more than 60% of bookings." } }, { "@type": "Question", "name": "How do Malta hotels get more direct bookings?", "acceptedAnswer": { "@type": "Answer", "text": "Offer a 5% discount for direct booking. Capture email at check-in. Run a simple email sequence with a return visit offer 60 days after checkout." } }, { "@type": "Question", "name": "Does social media drive hotel bookings in Malta?", "acceptedAnswer": { "@type": "Answer", "text": "Indirectly yes. Social media drives awareness that results in a search, which results in a booking. The attribution is indirect but the impact is real." } }] }]}
       />
       <main className="min-h-screen bg-background">
         <section className="bg-gradient-to-br from-zinc-900 to-zinc-950 text-white py-16 md:py-24">
