@@ -412,6 +412,26 @@ export default function PaidAdvertising() {
         schemaId="faq-paid-advertising" 
       />
 
+      {/* Further Reading */}
+      <section className="py-16 bg-background border-t">
+        <div className="max-w-4xl mx-auto px-6 md:px-8">
+          <h2 className="text-xl font-bold mb-6">Further Reading</h2>
+          <div className="grid md:grid-cols-2 gap-4">
+            {[
+              { href: "/blog/ai-marketing-malta", label: "AI Marketing in Malta: What's Actually Useful for Your Business Right Now", cat: "AI" },
+              { href: "/blog/social-media-management-cost-malta", label: "How Much Does Social Media Management Cost in Malta?", cat: "Pricing" },
+            ].map((a, i) => (
+              <Link key={i} href={a.href}>
+                <div className="p-4 rounded-xl border bg-card hover:border-orange-400 transition-colors cursor-pointer h-full">
+                  <span className="text-xs font-semibold text-orange-500 uppercase tracking-wider mb-2 block">{a.cat}</span>
+                  <p className="text-sm font-medium leading-snug">{a.label}</p>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="py-20 px-4 relative overflow-hidden bg-[#23AACA]">
         <div className="relative z-10 max-w-4xl mx-auto text-center text-white">

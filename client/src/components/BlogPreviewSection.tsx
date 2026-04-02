@@ -7,31 +7,31 @@ import { Link } from "wouter";
 
 const blogPosts = [
   {
-    id: "seo-malta-complete-guide",
+    id: "restaurant-marketing-malta",
     category: "Revenue Growth",
-    title: "How to Get Your Malta Business on Page 1 of Google",
-    excerpt: "Expert guide to SEO in Malta covering local search, Google Business Profile optimization, and strategies for Maltese businesses to dominate search results.",
-    image: "https://images.unsplash.com/photo-1432821596592-e2c18b78144f?w=600&h=400&fit=crop&q=80",
-    readTime: "18 min read",
-    date: "Dec 11, 2025"
+    title: "Restaurant Marketing in Malta: What the Top Venues Do Differently",
+    excerpt: "Why some Malta restaurants are always full and others struggle — the marketing strategies and operational decisions that separate them.",
+    image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&h=400&fit=crop&q=80",
+    readTime: "13 min read",
+    date: "Mar 1, 2026"
   },
   {
-    id: "marketing-trends-malta-2025",
+    id: "ai-marketing-malta",
     category: "AI Marketing",
-    title: "Malta Business Marketing in 2025: What's Working Now",
-    excerpt: "Discover the top marketing trends shaping Malta's business landscape in 2025, from AI adoption to voice search and sustainability marketing.",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop&q=80",
-    readTime: "15 min read",
-    date: "Dec 11, 2025"
-  },
-  {
-    id: "ai-solutions-malta",
-    category: "AI Marketing",
-    title: "AI Solutions for Malta Businesses: Complete Guide 2025",
-    excerpt: "Complete guide to AI solutions for Malta businesses covering chatbots, automation, analytics, and implementation strategies with ROI projections.",
+    title: "AI Marketing in Malta: What's Actually Useful for Your Business Right Now",
+    excerpt: "Beyond the hype — the AI marketing tools saving Malta businesses real time and money in 2026.",
     image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop&q=80",
-    readTime: "16 min read",
-    date: "Dec 11, 2025"
+    readTime: "12 min read",
+    date: "Mar 1, 2026"
+  },
+  {
+    id: "social-media-management-cost-malta",
+    category: "Revenue Growth",
+    title: "How Much Does Social Media Management Cost in Malta? (2026 Guide)",
+    excerpt: "Real pricing for social media management in Malta — freelancers vs agencies, what you actually get, and how to know if you are being overcharged.",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop&q=80",
+    readTime: "12 min read",
+    date: "Mar 20, 2026"
   }
 ];
 

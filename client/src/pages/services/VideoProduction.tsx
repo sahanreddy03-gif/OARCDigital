@@ -337,6 +337,26 @@ export default function VideoProduction() {
       <FAQSection faqs={videoProductionFAQs} title="Frequently Asked Questions" subtitle="Everything you need to know about our video production services" schemaId="faq-video-production" />
 
       {/* FINAL CTA */}
+      {/* Further Reading */}
+      <section className="py-16 bg-background border-t">
+        <div className="max-w-4xl mx-auto px-6 md:px-8">
+          <h2 className="text-xl font-bold mb-6">Further Reading</h2>
+          <div className="grid md:grid-cols-2 gap-4">
+            {[
+              { href: "/blog/video-production-malta", label: "Video Production in Malta: Costs, Formats, and What Actually Converts", cat: "Guide" },
+              { href: "/blog/tiktok-for-malta-businesses", label: "TikTok for Malta Businesses: The No-Nonsense Guide for 2026", cat: "Social Media" },
+            ].map((a, i) => (
+              <Link key={i} href={a.href}>
+                <div className="p-4 rounded-xl border bg-card hover:border-orange-400 transition-colors cursor-pointer h-full">
+                  <span className="text-xs font-semibold text-orange-500 uppercase tracking-wider mb-2 block">{a.cat}</span>
+                  <p className="text-sm font-medium leading-snug">{a.label}</p>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="py-20 px-4 bg-black text-white">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl md:text-5xl font-black mb-6">
