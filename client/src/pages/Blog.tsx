@@ -183,6 +183,96 @@ const blogPosts: BlogPost[] = [
     readTime: '16 min',
     publishDate: '2025-12-11',
     image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=500&fit=crop&q=80'
+  },
+  {
+    slug: 'email-marketing-malta',
+    title: 'Email Marketing Malta: How to Get 40%+ Open Rates',
+    excerpt: 'Most Malta businesses send emails nobody reads. Here is how to build a list, craft campaigns that convert, and achieve open rates that put you ahead of every competitor on the island.',
+    category: 'Digital Marketing',
+    readTime: '10 min',
+    publishDate: '2026-04-03',
+    image: 'https://images.unsplash.com/photo-1596526131083-e8c633c948d2?w=800&h=500&fit=crop&q=80'
+  },
+  {
+    slug: 'linkedin-marketing-malta',
+    title: 'LinkedIn Marketing Malta: B2B Lead Generation for Maltese Companies',
+    excerpt: 'Malta has a concentrated, well-connected professional community on LinkedIn. Here is how to turn that into a predictable pipeline of B2B leads for your business.',
+    category: 'Digital Marketing',
+    readTime: '11 min',
+    publishDate: '2026-04-03',
+    image: 'https://images.unsplash.com/photo-1611944212129-29977ae1398c?w=800&h=500&fit=crop&q=80'
+  },
+  {
+    slug: 'ecommerce-marketing-malta',
+    title: 'eCommerce Marketing Malta: How to Sell More Online in 2025',
+    excerpt: 'Malta eCommerce is growing fast but most local stores are leaving money on the table. This guide covers what actually drives online sales in the Maltese market.',
+    category: 'Digital Marketing',
+    readTime: '12 min',
+    publishDate: '2026-04-03',
+    image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&h=500&fit=crop&q=80'
+  },
+  {
+    slug: 'local-seo-malta',
+    title: 'Local SEO Malta: Rank #1 on Google Maps in Your Area',
+    excerpt: 'Google Maps is the most valuable piece of digital real estate for any Malta business with a physical location. Here is how to own it.',
+    category: 'SEO',
+    readTime: '11 min',
+    publishDate: '2026-04-03',
+    image: 'https://images.unsplash.com/photo-1569336415962-a4bd9f69cd83?w=800&h=500&fit=crop&q=80'
+  },
+  {
+    slug: 'content-strategy-malta',
+    title: 'Content Strategy Malta: Build Authority and Drive Traffic in 2025',
+    excerpt: 'A content strategy is not a content calendar. It is a plan to make your Malta business the most trusted voice in your industry. Here is how to build one.',
+    category: 'Digital Marketing',
+    readTime: '10 min',
+    publishDate: '2026-04-03',
+    image: 'https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=800&h=500&fit=crop&q=80'
+  },
+  {
+    slug: 'google-ads-malta',
+    title: 'Google Ads Malta: Get More Customers Without Wasting Budget',
+    excerpt: 'Most Malta businesses running Google Ads are paying for clicks that never convert. This guide shows you how to set up, optimise, and scale campaigns that actually work.',
+    category: 'Paid Advertising',
+    readTime: '13 min',
+    publishDate: '2026-04-03',
+    image: 'https://images.unsplash.com/photo-1573804633927-bfcbcd909acd?w=800&h=500&fit=crop&q=80'
+  },
+  {
+    slug: 'facebook-ads-malta',
+    title: 'Facebook Ads Malta: The Complete Guide to Meta Advertising in 2025',
+    excerpt: 'Facebook and Instagram advertising in Malta is one of the most cost-effective ways to reach both locals and tourists. Here is the complete playbook.',
+    category: 'Paid Advertising',
+    readTime: '12 min',
+    publishDate: '2026-04-03',
+    image: 'https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?w=800&h=500&fit=crop&q=80'
+  },
+  {
+    slug: 'reputation-management-malta',
+    title: 'Reputation Management Malta: How to Manage Your Google Reviews',
+    excerpt: 'One bad review at the wrong moment can cost a Malta business thousands. Here is how to build a review strategy that protects and grows your reputation.',
+    category: 'Digital Marketing',
+    readTime: '9 min',
+    publishDate: '2026-04-03',
+    image: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&h=500&fit=crop&q=80'
+  },
+  {
+    slug: 'ai-automation-malta',
+    title: 'AI Automation Malta: How Maltese Businesses Are Saving 20+ Hours Per Week',
+    excerpt: 'AI automation is no longer just for big companies. Malta businesses across hospitality, legal, accounting, and retail are saving hours every week. Here is how.',
+    category: 'AI Marketing',
+    readTime: '11 min',
+    publishDate: '2026-04-03',
+    image: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&h=500&fit=crop&q=80'
+  },
+  {
+    slug: 'hospitality-marketing-malta',
+    title: 'Hospitality Marketing Malta: Fill Your Restaurant, Hotel or Bar Every Night',
+    excerpt: 'Malta has over 1,500 restaurants competing for the same customers. The venues fully booked every night are not always the best — they are the best marketed.',
+    category: 'Hospitality',
+    readTime: '12 min',
+    publishDate: '2026-04-03',
+    image: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&h=500&fit=crop&q=80'
   }
 ];
 

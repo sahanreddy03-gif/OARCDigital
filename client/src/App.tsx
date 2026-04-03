@@ -106,6 +106,16 @@ import IGamingMarketingMalta from "@/pages/blog/IGamingMarketingMalta";
 import ContentMarketingMalta from "@/pages/blog/ContentMarketingMalta";
 import MarketingAgencyMalta from "@/pages/blog/MarketingAgencyMalta";
 import AISalesAutomationMalta from "@/pages/blog/AISalesAutomationMalta";
+import EmailMarketingMalta from "@/pages/blog/EmailMarketingMalta";
+import LinkedInMarketingMalta from "@/pages/blog/LinkedInMarketingMalta";
+import EcommerceMarketingMalta from "@/pages/blog/EcommerceMarketingMalta";
+import LocalSeoMalta from "@/pages/blog/LocalSeoMalta";
+import ContentStrategyMalta from "@/pages/blog/ContentStrategyMalta";
+import GoogleAdsMalta from "@/pages/blog/GoogleAdsMalta";
+import FacebookAdsMalta from "@/pages/blog/FacebookAdsMalta";
+import ReputationManagementMalta from "@/pages/blog/ReputationManagementMalta";
+import AIAutomationMalta from "@/pages/blog/AIAutomationMalta";
+import HospitalityMarketingMalta from "@/pages/blog/HospitalityMarketingMalta";
 import PrivacyPolicy from "@/pages/legal/PrivacyPolicy";
 import CookiePolicy from "@/pages/legal/CookiePolicy";
 import TermsConditions from "@/pages/legal/TermsConditions";
@@ -262,6 +272,16 @@ function Router() {
       <Route path="/blog/content-marketing-malta" component={ContentMarketingMalta} />
       <Route path="/blog/marketing-agency-malta" component={MarketingAgencyMalta} />
       <Route path="/blog/ai-sales-automation-malta" component={AISalesAutomationMalta} />
+      <Route path="/blog/email-marketing-malta" component={EmailMarketingMalta} />
+      <Route path="/blog/linkedin-marketing-malta" component={LinkedInMarketingMalta} />
+      <Route path="/blog/ecommerce-marketing-malta" component={EcommerceMarketingMalta} />
+      <Route path="/blog/local-seo-malta" component={LocalSeoMalta} />
+      <Route path="/blog/content-strategy-malta" component={ContentStrategyMalta} />
+      <Route path="/blog/google-ads-malta" component={GoogleAdsMalta} />
+      <Route path="/blog/facebook-ads-malta" component={FacebookAdsMalta} />
+      <Route path="/blog/reputation-management-malta" component={ReputationManagementMalta} />
+      <Route path="/blog/ai-automation-malta" component={AIAutomationMalta} />
+      <Route path="/blog/hospitality-marketing-malta" component={HospitalityMarketingMalta} />
 
       {/* Tools Directory */}
       <Route path="/tools" component={Tools} />
