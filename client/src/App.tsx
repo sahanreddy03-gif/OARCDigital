@@ -80,6 +80,7 @@ import PDFOnePager from "@/pages/PDFOnePager";
 import PDFAICreativeProfile from "@/pages/PDFAICreativeProfile";
 import PDFCapabilitiesDeck from "@/pages/PDFCapabilitiesDeck";
 import LocationService from "@/pages/LocationService";
+import IndustryLocationService from "@/pages/IndustryLocationService";
 import IndustryHub from "@/pages/IndustryHub";
 import ServiceIndustry from "@/pages/ServiceIndustry";
 import IndustryHubIndex from "@/pages/IndustryHubIndex";
@@ -323,6 +324,8 @@ function Router() {
       <Route path="/instagram-export-ai" component={AIAgentsExport} />
 
       {/* Programmatic SEO - Location Pages */}
+      {/* 3-param route MUST come before 2-param route in Wouter */}
+      <Route path="/malta/:location/:industry/:service" component={IndustryLocationService} />
       <Route path="/malta/:location/:service" component={LocationService} />
 
       {/* PJAZZA Case Study */}
