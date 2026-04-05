@@ -67,6 +67,62 @@ export async function setupVite(app: Express, server: Server) {
   });
 }
 
+const PRERENDER_TOKEN = 'Pxkbsw0Uk9YVB3Wz6beq';
+
+const BOT_AGENTS = [
+  'googlebot', 'bingbot', 'yandex', 'duckduckbot', 'slurp',
+  'baiduspider', 'facebookexternalhit', 'twitterbot', 'rogerbot',
+  'linkedinbot', 'embedly', 'showyoubot', 'outbrain', 'pinterest',
+  'slackbot', 'redditbot', 'applebot', 'whatsapp', 'discordbot',
+  'telegrambot', 'google page speed', 'chrome-lighthouse', 'prerender',
+];
+
+const IGNORE_EXTENSIONS = [
+  '.js', '.css', '.xml', '.less', '.png', '.jpg', '.jpeg', '.gif',
+  '.pdf', '.ico', '.rss', '.zip', '.mp3', '.rar', '.exe', '.wmv',
+  '.avi', '.mp4', '.m4v', '.svg', '.webp', '.woff', '.woff2', '.ttf',
+];
+
+function isBot(userAgent: string): boolean {
+  const ua = userAgent.toLowerCase();
+  return BOT_AGENTS.some(bot => ua.includes(bot));
+}
+
+async function prerenderMiddleware(req: any, res: any, next: any) {
+  const ua = req.headers['user-agent'] || '';
+  const url = req.path;
+
+  // Only intercept bots
+  if (!isBot(ua)) return next();
+
+  // Skip static files and API
+  if (IGNORE_EXTENSIONS.some(ext => url.endsWith(ext))) return next();
+  if (url.startsWith('/api/')) return next();
+
+  const fullUrl = `https://oarcdigital.com${url}`;
+  const prerenderUrl = `https://service.prerender.io/${fullUrl}`;
+
+  try {
+    const response = await fetch(prerenderUrl, {
+      headers: {
+        'X-Prerender-Token': PRERENDER_TOKEN,
+        'User-Agent': ua,
+      },
+    });
+
+    if (response.ok) {
+      const html = await response.text();
+      res.setHeader('Content-Type', 'text/html; charset=utf-8');
+      res.setHeader('X-Prerendered', 'true');
+      return res.status(200).send(html);
+    }
+  } catch (e) {
+    // Prerender failed — fall through to normal response
+  }
+
+  return next();
+}
+
 export function serveStatic(app: Express) {
   const distPath = path.resolve(import.meta.dirname, "public");
 
@@ -75,6 +131,9 @@ export function serveStatic(app: Express) {
       `Could not find the build directory: ${distPath}, make sure to build the client first`,
     );
   }
+
+  // Prerender middleware — intercepts bots before static file serving
+  app.use(prerenderMiddleware);
 
   app.use(express.static(distPath));
 
