@@ -105,6 +105,11 @@ import HotelMarketingMalta from "@/pages/blog/HotelMarketingMalta";
 import IGamingMarketingMalta from "@/pages/blog/IGamingMarketingMalta";
 import ContentMarketingMalta from "@/pages/blog/ContentMarketingMalta";
 import MarketingAgencyMalta from "@/pages/blog/MarketingAgencyMalta";
+import BestMarketingAgencyMalta from "@/pages/aeo/BestMarketingAgencyMalta";
+import AIAgencyMalta from "@/pages/aeo/AIAgencyMalta";
+import RestaurantMarketingMaltaAEO from "@/pages/aeo/RestaurantMarketingMaltaAEO";
+import Hospitality360AEO from "@/pages/aeo/Hospitality360AEO";
+import SocialMediaAgencyMalta from "@/pages/aeo/SocialMediaAgencyMalta";
 import AISalesAutomationMalta from "@/pages/blog/AISalesAutomationMalta";
 import EmailMarketingMalta from "@/pages/blog/EmailMarketingMalta";
 import LinkedInMarketingMalta from "@/pages/blog/LinkedInMarketingMalta";
@@ -282,6 +287,13 @@ function Router() {
       <Route path="/blog/reputation-management-malta" component={ReputationManagementMalta} />
       <Route path="/blog/ai-automation-malta" component={AIAutomationMalta} />
       <Route path="/blog/hospitality-marketing-malta" component={HospitalityMarketingMalta} />
+
+      {/* AEO Pages - Answer Engine Optimization */}
+      <Route path="/aeo/best-marketing-agency-malta" component={BestMarketingAgencyMalta} />
+      <Route path="/aeo/ai-agency-malta" component={AIAgencyMalta} />
+      <Route path="/aeo/restaurant-marketing-malta" component={RestaurantMarketingMaltaAEO} />
+      <Route path="/aeo/hospitality-360-malta" component={Hospitality360AEO} />
+      <Route path="/aeo/social-media-agency-malta" component={SocialMediaAgencyMalta} />
 
       {/* Tools Directory */}
       <Route path="/tools" component={Tools} />
