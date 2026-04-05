@@ -125,6 +125,7 @@ import PrivacyPolicy from "@/pages/legal/PrivacyPolicy";
 import CookiePolicy from "@/pages/legal/CookiePolicy";
 import TermsConditions from "@/pages/legal/TermsConditions";
 import Tools from "@/pages/Tools";
+import MaltaDigitalScore from "@/pages/MaltaDigitalScore";
 import DiagnosticPage from "@/pages/DiagnosticPage";
 import OARCIntelligence from "@/pages/OARCIntelligence";
 import CreativeLanding from "@/pages/CreativeLanding";
@@ -297,6 +298,7 @@ function Router() {
 
       {/* Tools Directory */}
       <Route path="/tools" component={Tools} />
+      <Route path="/tools/malta-digital-score" component={MaltaDigitalScore} />
       <Route path="/ai-sales-tools" component={Tools} />
 
       {/* Diagnostic Tools */}
