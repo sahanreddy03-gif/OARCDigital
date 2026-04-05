@@ -81,6 +81,7 @@ import PDFAICreativeProfile from "@/pages/PDFAICreativeProfile";
 import PDFCapabilitiesDeck from "@/pages/PDFCapabilitiesDeck";
 import LocationService from "@/pages/LocationService";
 import IndustryLocationService from "@/pages/IndustryLocationService";
+import LocationHub from "@/pages/LocationHub";
 import IndustryHub from "@/pages/IndustryHub";
 import ServiceIndustry from "@/pages/ServiceIndustry";
 import IndustryHubIndex from "@/pages/IndustryHubIndex";
@@ -327,6 +328,7 @@ function Router() {
       {/* 3-param route MUST come before 2-param route in Wouter */}
       <Route path="/malta/:location/:industry/:service" component={IndustryLocationService} />
       <Route path="/malta/:location/:service" component={LocationService} />
+      <Route path="/malta/:location" component={LocationHub} />
 
       {/* PJAZZA Case Study */}
       <Route path="/case-studies/pjazza" component={PjazzaCaseStudy} />
