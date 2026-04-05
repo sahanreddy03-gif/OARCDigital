@@ -4,7 +4,11 @@
 // Malta locations for programmatic SEO
 export const maltaLocations = [
   'valletta', 'sliema', 'st-julians', 'mosta', 'birkirkara',
-  'qormi', 'hamrun', 'naxxar', 'zabbar', 'attard'
+  'qormi', 'hamrun', 'naxxar', 'zabbar', 'attard',
+  'mdina', 'rabat', 'marsaskala', 'marsaxlokk', 'birgu',
+  'san-gwann', 'msida', 'gzira', 'swieqi', 'mellieha',
+  'bugibba', 'san-pawl-il-bahar', 'zejtun', 'zurrieq',
+  'paola', 'tarxien', 'fgura', 'balzan'
 ] as const;
 
 // Top services available for location-based pages
@@ -17,7 +21,9 @@ export const locationServices = [
   'video-production',
   'ai-copywriting',
   'hire-ai-employees',
-  'revenue-automation'
+  'revenue-automation',
+  'paid-advertising',
+  'ai-consulting'
 ] as const;
 
 // All valid service slugs - ONLY services with explicit routes in App.tsx
