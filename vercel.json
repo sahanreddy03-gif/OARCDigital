@@ -43,10 +43,6 @@
   ],
   "rewrites": [
     {
-      "source": "/api/:path*",
-      "destination": "/api"
-    },
-    {
       "source": "/llms.txt",
       "destination": "/llms.txt"
     },
