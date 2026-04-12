@@ -1175,12 +1175,6 @@ export default function CreativeLanding() {
               {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Graphic Design", "description": "Print design, packaging, marketing collateral, and digital graphics."}}
             ]
           },
-          "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.9",
-            "reviewCount": "127",
-            "bestRating": "5"
-          }
         })}</script>
         {/* Schema.org - BreadcrumbList */}
         <script type="application/ld+json">{JSON.stringify({

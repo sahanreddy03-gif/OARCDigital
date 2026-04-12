@@ -31,7 +31,7 @@ export default function Comparison() {
     'Service'
   );
   
-  const combinedSchema = [breadcrumbSchema, serviceSchema, ratingSchema];
+  const combinedSchema = [breadcrumbSchema, serviceSchema];
   
   return (
     <Layout>

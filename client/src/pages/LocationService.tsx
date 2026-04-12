@@ -283,7 +283,7 @@ export default function LocationService() {
     'Service'
   );
   
-  const combinedSchema = [localBusinessSchema, breadcrumbSchema, serviceSchema, ratingSchema];
+  const combinedSchema = [localBusinessSchema, breadcrumbSchema, serviceSchema];
   
   return (
     <Layout>
