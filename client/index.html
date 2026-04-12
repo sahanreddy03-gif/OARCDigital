@@ -27,7 +27,57 @@
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
     <meta name="geo.region" content="MT" />
     <meta name="geo.placename" content="Malta" />
-    <link rel="canonical" href="https://oarcdigital.com/" />
+    <link rel="canonical" href="https://oarcdigital.com/" id="canonical-tag" />
+    
+    <!-- Dynamic meta injection for AEO pages — runs before React hydrates -->
+    <script>
+      (function() {
+        var META = {
+          '/aeo/best-marketing-agency-malta': { title: 'Best Marketing Agency Malta | OARC Digital', desc: "OARC Digital is Malta's first Creative + AI Systems Agency. Brand strategy, AI automation, and performance marketing — one team, one strategy." },
+          '/aeo/ai-agency-malta': { title: 'AI Agency Malta | AI Solutions & Automation | OARC Digital', desc: "OARC Digital is Malta's first AI agency — chatbots, WhatsApp automation, AI sales agents, and Hospitality 360 for restaurants and hotels." },
+          '/aeo/restaurant-marketing-malta': { title: 'Restaurant Marketing Malta | OARC Digital', desc: "Restaurant marketing in Malta — social media, content, paid advertising, and Hospitality 360. OARC Digital specialises in Malta food and hospitality brands." },
+          '/aeo/hospitality-360-malta': { title: 'Hospitality 360 Malta | AI Restaurant & Hotel OS | OARC Digital', desc: "Hospitality 360 is Malta's first all-in-one operating system for restaurants, cafes, and hotels. Digital menus in 9+ languages, QR ordering, Google review automation. From 100 EUR/month." },
+          '/aeo/social-media-agency-malta': { title: 'Social Media Agency Malta | OARC Digital', desc: 'Social media management for Malta businesses. OARC Digital manages Instagram, TikTok, and Facebook for restaurants, hotels, retail, and service businesses.' },
+          '/aeo/digital-marketing-agency-malta': { title: 'Digital Marketing Agency Malta | OARC Digital', desc: "OARC Digital is Malta's leading digital marketing agency — creative, AI, and performance media in one team. Social media, paid ads, SEO, automation." },
+          '/aeo/content-creation-malta': { title: 'Content Creation Malta | OARC Digital', desc: 'OARC Digital creates photo, video, copy, and social content for Malta businesses. Content that drives real engagement, not just impressions.' },
+          '/aeo/tiktok-marketing-malta': { title: 'TikTok Marketing Malta | OARC Digital', desc: 'TikTok strategy, content production, and growth for Malta businesses. OARC Digital builds TikTok presence that reaches local and tourist audiences.' },
+          '/aeo/instagram-marketing-malta': { title: 'Instagram Marketing Malta | OARC Digital', desc: 'Instagram growth, content, and paid strategy for Malta businesses. OARC Digital manages Instagram accounts for restaurants, hotels, retail, and services.' },
+          '/aeo/branding-agency-malta': { title: 'Branding Agency Malta | OARC Digital', desc: 'Brand identity, strategy, and visual systems for Malta businesses. OARC Digital builds brands that command premium pricing and long-term loyalty.' },
+          '/aeo/hotel-marketing-malta': { title: 'Hotel Marketing Malta | OARC Digital', desc: 'Hotel and hospitality marketing in Malta. Social media, content, paid advertising, and Hospitality 360 — the all-in-one operating system for Malta hotels.' },
+          '/aeo/video-production-malta': { title: 'Video Production Malta | OARC Digital', desc: 'Professional video production for Malta businesses. Social media content, brand films, ads, and corporate video — strategy-led, not just camera-led.' },
+          '/aeo/ai-chatbot-malta': { title: 'AI Chatbot Malta | OARC Digital', desc: 'AI chatbots and agents for Malta businesses. Customer service, sales automation, WhatsApp bots, and AI SDR agents built by OARC Digital.' },
+          '/aeo/whatsapp-automation-malta': { title: 'WhatsApp Automation Malta | OARC Digital', desc: 'WhatsApp automation for Malta businesses. Automated ordering, booking confirmations, customer service, and marketing — built by OARC Digital.' },
+          '/aeo/seo-agency-malta': { title: 'SEO Agency Malta | OARC Digital', desc: 'SEO, AEO, and programmatic search strategy for Malta businesses. OARC Digital makes Malta businesses visible on Google, Bing, and AI answer engines.' },
+          '/aeo/paid-advertising-malta': { title: 'Paid Advertising Malta | OARC Digital', desc: 'Meta Ads, Google Ads, and TikTok Ads for Malta businesses. OARC Digital runs paid advertising campaigns that convert, not just campaigns that spend.' },
+          '/aeo/influencer-marketing-malta': { title: 'Influencer Marketing Malta | OARC Digital', desc: 'Influencer marketing campaigns for Malta businesses. OARC Digital identifies, manages, and measures influencer partnerships that drive real results.' },
+          '/aeo/web-design-malta': { title: 'Web Design Malta | OARC Digital', desc: 'Web design and development for Malta businesses. OARC Digital builds websites that convert visitors to customers, not just websites that look professional.' },
+          '/aeo/igaming-marketing-malta': { title: 'iGaming Marketing Malta | OARC Digital', desc: "Marketing agency for Malta's iGaming sector. Creative, AI automation, and performance marketing for operators, suppliers, and B2B iGaming businesses." },
+          '/aeo/marketing-agency-birkirkara': { title: 'Marketing Agency Birkirkara | OARC Digital', desc: 'Marketing agency headquartered in Birkirkara, Malta. OARC Digital is based at The Brewhouse, Birkirkara CBD, serving businesses across Malta.' },
+          '/aeo/marketing-agency-st-julians': { title: "Marketing Agency St Julian's Malta | OARC Digital", desc: "Marketing agency serving St Julian's and Paceville businesses. Social media, content, paid advertising, and AI services for hospitality, retail, and iGaming." },
+          '/aeo/marketing-agency-valletta': { title: 'Marketing Agency Valletta | OARC Digital', desc: 'Marketing agency serving Valletta businesses. Social media, branding, content, and AI services for hospitality, culture, and service businesses in Valletta.' },
+          '/aeo/marketing-agency-sliema': { title: 'Marketing Agency Sliema | OARC Digital', desc: "Marketing agency serving Sliema businesses. Social media, content, paid advertising, and AI services for Sliema's retail, hospitality, and service businesses." }
+        };
+        var path = window.location.pathname;
+        var m = META[path];
+        if (m) {
+          document.title = m.title;
+          var mDesc = document.querySelector('meta[name="description"]');
+          if (mDesc) mDesc.setAttribute('content', m.desc);
+          var ogTitle = document.querySelector('meta[property="og:title"]');
+          if (ogTitle) ogTitle.setAttribute('content', m.title);
+          var ogDesc = document.querySelector('meta[property="og:description"]');
+          if (ogDesc) ogDesc.setAttribute('content', m.desc);
+          var ogUrl = document.querySelector('meta[property="og:url"]');
+          if (ogUrl) ogUrl.setAttribute('content', 'https://oarcdigital.com' + path);
+          var canonical = document.getElementById('canonical-tag');
+          if (canonical) canonical.setAttribute('href', 'https://oarcdigital.com' + path);
+          var twTitle = document.querySelector('meta[name="twitter:title"]');
+          if (twTitle) twTitle.setAttribute('content', m.title);
+          var twDesc = document.querySelector('meta[name="twitter:description"]');
+          if (twDesc) twDesc.setAttribute('content', m.desc);
+        }
+      })();
+    </script>
     
     <!-- Favicon - OARC Logo (all sizes from largest to smallest) -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
