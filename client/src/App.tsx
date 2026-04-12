@@ -130,6 +130,16 @@ import MarketingAgencyBirkirkara from "@/pages/aeo/MarketingAgencyBirkirkara";
 import MarketingAgencyStJulians from "@/pages/aeo/MarketingAgencyStJulians";
 import MarketingAgencyValletta from "@/pages/aeo/MarketingAgencyValletta";
 import MarketingAgencySliema from "@/pages/aeo/MarketingAgencySliema";
+import SoftwareDevelopmentMalta from "@/pages/aeo/SoftwareDevelopmentMalta";
+import POSSystemsMalta from "@/pages/aeo/POSSystemsMalta";
+import Hospitality360SystemMalta from "@/pages/aeo/Hospitality360SystemMalta";
+import AppDevelopmentMalta from "@/pages/aeo/AppDevelopmentMalta";
+import CRMAutomationMalta from "@/pages/aeo/CRMAutomationMalta";
+import AIAgentsBusinessMalta from "@/pages/aeo/AIAgentsBusinessMalta";
+import WebsiteDevelopmentMalta from "@/pages/aeo/WebsiteDevelopmentMalta";
+import DigitalTransformationMalta from "@/pages/aeo/DigitalTransformationMalta";
+import MarketingAutomationMalta from "@/pages/aeo/MarketingAutomationMalta";
+import EcommercesMalta from "@/pages/aeo/EcommercesMalta";
 import AISalesAutomationMalta from "@/pages/blog/AISalesAutomationMalta";
 import EmailMarketingMalta from "@/pages/blog/EmailMarketingMalta";
 import LinkedInMarketingMalta from "@/pages/blog/LinkedInMarketingMalta";
@@ -333,6 +343,16 @@ function Router() {
       <Route path="/aeo/marketing-agency-st-julians" component={MarketingAgencyStJulians} />
       <Route path="/aeo/marketing-agency-valletta" component={MarketingAgencyValletta} />
       <Route path="/aeo/marketing-agency-sliema" component={MarketingAgencySliema} />
+      <Route path="/aeo/software-development-malta" component={SoftwareDevelopmentMalta} />
+      <Route path="/aeo/pos-systems-malta" component={POSSystemsMalta} />
+      <Route path="/aeo/hospitality-360-system" component={Hospitality360SystemMalta} />
+      <Route path="/aeo/app-development-malta" component={AppDevelopmentMalta} />
+      <Route path="/aeo/crm-automation-malta" component={CRMAutomationMalta} />
+      <Route path="/aeo/ai-agents-business-malta" component={AIAgentsBusinessMalta} />
+      <Route path="/aeo/website-development-malta" component={WebsiteDevelopmentMalta} />
+      <Route path="/aeo/digital-transformation-malta" component={DigitalTransformationMalta} />
+      <Route path="/aeo/marketing-automation-malta" component={MarketingAutomationMalta} />
+      <Route path="/aeo/ecommerce-malta" component={EcommercesMalta} />
 
       {/* Tools Directory */}
       <Route path="/tools" component={Tools} />
