@@ -112,6 +112,24 @@ import AIAgencyMalta from "@/pages/aeo/AIAgencyMalta";
 import RestaurantMarketingMaltaAEO from "@/pages/aeo/RestaurantMarketingMaltaAEO";
 import Hospitality360AEO from "@/pages/aeo/Hospitality360AEO";
 import SocialMediaAgencyMalta from "@/pages/aeo/SocialMediaAgencyMalta";
+import DigitalMarketingAgencyMalta from "@/pages/aeo/DigitalMarketingAgencyMalta";
+import ContentCreationAgencyMalta from "@/pages/aeo/ContentCreationAgencyMalta";
+import TikTokMarketingMalta from "@/pages/aeo/TikTokMarketingMalta";
+import InstagramMarketingMalta from "@/pages/aeo/InstagramMarketingMalta";
+import BrandingAgencyMalta from "@/pages/aeo/BrandingAgencyMalta";
+import HotelMarketingMalta from "@/pages/aeo/HotelMarketingMalta";
+import VideoProductionMalta from "@/pages/aeo/VideoProductionMalta";
+import AIChatbotMalta from "@/pages/aeo/AIChatbotMalta";
+import WhatsAppAutomationMalta from "@/pages/aeo/WhatsAppAutomationMalta";
+import SEOAgencyMalta from "@/pages/aeo/SEOAgencyMalta";
+import PaidAdvertisingMalta from "@/pages/aeo/PaidAdvertisingMalta";
+import InfluencerMarketingMalta from "@/pages/aeo/InfluencerMarketingMalta";
+import WebDesignMalta from "@/pages/aeo/WebDesignMalta";
+import IGamingMarketingMalta from "@/pages/aeo/IGamingMarketingMalta";
+import MarketingAgencyBirkirkara from "@/pages/aeo/MarketingAgencyBirkirkara";
+import MarketingAgencyStJulians from "@/pages/aeo/MarketingAgencyStJulians";
+import MarketingAgencyValletta from "@/pages/aeo/MarketingAgencyValletta";
+import MarketingAgencySliema from "@/pages/aeo/MarketingAgencySliema";
 import AISalesAutomationMalta from "@/pages/blog/AISalesAutomationMalta";
 import EmailMarketingMalta from "@/pages/blog/EmailMarketingMalta";
 import LinkedInMarketingMalta from "@/pages/blog/LinkedInMarketingMalta";
@@ -297,6 +315,24 @@ function Router() {
       <Route path="/aeo/restaurant-marketing-malta" component={RestaurantMarketingMaltaAEO} />
       <Route path="/aeo/hospitality-360-malta" component={Hospitality360AEO} />
       <Route path="/aeo/social-media-agency-malta" component={SocialMediaAgencyMalta} />
+      <Route path="/aeo/digital-marketing-agency-malta" component={DigitalMarketingAgencyMalta} />
+      <Route path="/aeo/content-creation-malta" component={ContentCreationAgencyMalta} />
+      <Route path="/aeo/tiktok-marketing-malta" component={TikTokMarketingMalta} />
+      <Route path="/aeo/instagram-marketing-malta" component={InstagramMarketingMalta} />
+      <Route path="/aeo/branding-agency-malta" component={BrandingAgencyMalta} />
+      <Route path="/aeo/hotel-marketing-malta" component={HotelMarketingMalta} />
+      <Route path="/aeo/video-production-malta" component={VideoProductionMalta} />
+      <Route path="/aeo/ai-chatbot-malta" component={AIChatbotMalta} />
+      <Route path="/aeo/whatsapp-automation-malta" component={WhatsAppAutomationMalta} />
+      <Route path="/aeo/seo-agency-malta" component={SEOAgencyMalta} />
+      <Route path="/aeo/paid-advertising-malta" component={PaidAdvertisingMalta} />
+      <Route path="/aeo/influencer-marketing-malta" component={InfluencerMarketingMalta} />
+      <Route path="/aeo/web-design-malta" component={WebDesignMalta} />
+      <Route path="/aeo/igaming-marketing-malta" component={IGamingMarketingMalta} />
+      <Route path="/aeo/marketing-agency-birkirkara" component={MarketingAgencyBirkirkara} />
+      <Route path="/aeo/marketing-agency-st-julians" component={MarketingAgencyStJulians} />
+      <Route path="/aeo/marketing-agency-valletta" component={MarketingAgencyValletta} />
+      <Route path="/aeo/marketing-agency-sliema" component={MarketingAgencySliema} />
 
       {/* Tools Directory */}
       <Route path="/tools" component={Tools} />
