@@ -274,15 +274,6 @@ export default function LocationService() {
     service.title
   );
   
-  // Aggregate rating schema - shows stars in search!
-  const ratingSchema = createAggregateRatingSchema(
-    `${service.title} in ${locationInfo.name}`,
-    4.9,
-    127,
-    5,
-    'Service'
-  );
-  
   const combinedSchema = [localBusinessSchema, breadcrumbSchema, serviceSchema];
   
   return (
