@@ -1,6 +1,51 @@
 {
   "redirects": [
     {
+      "source": "https://www.oarcdigital.com/(.*)",
+      "destination": "https://oarcdigital.com/$1",
+      "permanent": true
+    },
+    {
+      "source": "/case-studies/venturehub-co",
+      "destination": "/case-studies",
+      "permanent": true
+    },
+    {
+      "source": "/case-studies/apex-fitness-collective",
+      "destination": "/case-studies",
+      "permanent": true
+    },
+    {
+      "source": "/case-studies/volta-home",
+      "destination": "/case-studies",
+      "permanent": true
+    },
+    {
+      "source": "/case-studies/phantom-peripherals",
+      "destination": "/case-studies",
+      "permanent": true
+    },
+    {
+      "source": "/case-studies/riftleague",
+      "destination": "/case-studies",
+      "permanent": true
+    },
+    {
+      "source": "/case-studies/maison-lumiere",
+      "destination": "/case-studies",
+      "permanent": true
+    },
+    {
+      "source": "/case-studies/global-supply-systems",
+      "destination": "/case-studies",
+      "permanent": true
+    },
+    {
+      "source": "/services/ai-content-strategist",
+      "destination": "/services",
+      "permanent": true
+    },
+    {
       "source": "/enterprise",
       "destination": "/services",
       "permanent": true

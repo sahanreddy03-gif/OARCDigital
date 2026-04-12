@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { Link } from 'wouter';
 import { ArrowRight, TrendingUp, Target, Filter, Zap, Lightbulb, Clock, Globe } from 'lucide-react';
 import Layout from '@/components/layout/Layout';
+import SEOHead from '@/components/SEOHead';
 import ScrollReveal from '@/components/ScrollReveal';
 import FAQSection, { FAQItem } from '@/components/FAQSection';
 import { motion } from 'framer-motion';
@@ -75,6 +76,11 @@ export default function RevenueHub() {
 
   return (
     <Layout>
+      <SEOHead
+        title="Revenue Automation Malta | AI Revenue Engine | OARC Digital"
+        description="AI-powered revenue automation for Malta businesses. OARC Digital builds systems that generate and convert leads automatically. Contact hello@oarcdigital.com."
+        canonicalUrl="https://oarcdigital.com/services/revenue-automation"
+      />
       <div className="min-h-screen bg-black text-white">
 
       {/* Hero Section with Animated Background */}

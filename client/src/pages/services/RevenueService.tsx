@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useLocation, Link } from 'wouter';
 import { ArrowRight, CheckCircle2, Sparkles, TrendingUp, Zap, Clock, MessageSquare, Brain, Target, BarChart3, Users, Mail, Filter, Database, Globe } from 'lucide-react';
 import Layout from '@/components/layout/Layout';
+import SEOHead from '@/components/SEOHead';
 import ScrollReveal from '@/components/ScrollReveal';
 import FAQSection, { FAQItem } from '@/components/FAQSection';
 import { motion } from 'framer-motion';
@@ -199,8 +200,19 @@ export default function RevenueService() {
 
   const heroImage = HERO_IMAGES[slug];
 
-  return (
+  const slugToMeta: Record<string, {title: string, desc: string, canon: string}> = {
+  'lead-generation': { title: 'Lead Generation Malta | AI-Powered Lead Gen | OARC Digital', desc: 'AI-powered lead generation for Malta businesses. OARC Digital builds automated lead funnels that qualify prospects and book meetings 24/7. Contact hello@oarcdigital.com.', canon: 'https://oarcdigital.com/services/lead-generation' },
+  'lead-generation-engine': { title: 'Lead Generation Engine Malta | OARC Digital', desc: 'AI lead generation engine for Malta businesses. Automated prospect qualification, outreach sequences, and meeting booking. OARC Digital.', canon: 'https://oarcdigital.com/services/lead-generation-engine' },
+  'customer-acquisition': { title: 'Customer Acquisition Malta | OARC Digital', desc: 'Customer acquisition systems for Malta businesses. OARC Digital builds automated funnels that turn strangers into paying customers. Contact hello@oarcdigital.com.', canon: 'https://oarcdigital.com/services/customer-acquisition' },
+  'customer-acquisition-accelerator': { title: 'Customer Acquisition Accelerator | OARC Digital', desc: 'Accelerate customer acquisition for your Malta business. AI-powered acquisition systems that scale. OARC Digital.', canon: 'https://oarcdigital.com/services/customer-acquisition-accelerator' },
+  'funnel-optimization-agent': { title: 'Funnel Optimization Malta | OARC Digital', desc: 'Funnel optimization for Malta businesses. OARC Digital audits, rebuilds, and automates your conversion funnel.', canon: 'https://oarcdigital.com/services/funnel-optimization-agent' },
+  'marketing-automation-suite': { title: 'Marketing Automation Malta | OARC Digital', desc: 'Marketing automation for Malta businesses. Email sequences, CRM workflows, and lead nurturing — automated by OARC Digital.', canon: 'https://oarcdigital.com/services/marketing-automation-suite' },
+};
+const pageMeta = slugToMeta[slug] || { title: 'Revenue Services | OARC Digital', desc: 'Revenue automation and lead generation services for Malta businesses. OARC Digital.', canon: `https://oarcdigital.com/services/${slug}` };
+
+return (
     <Layout>
+      <SEOHead title={pageMeta.title} description={pageMeta.desc} canonicalUrl={pageMeta.canon} />
       <div className="min-h-screen bg-black text-white">
 
       {/* Hero Section with Animated Background */}
