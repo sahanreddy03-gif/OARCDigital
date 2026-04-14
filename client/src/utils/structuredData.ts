@@ -2,45 +2,57 @@
 
 export const localBusinessSchema = {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
+  "@type": "MarketingAgency",
   "name": "OARC Digital",
-  "description": "AI-powered creative services, AI employees, and revenue automation solutions. Elite marketing agency delivering premium digital experiences.",
+  "description": "Malta's first Creative + AI Systems Agency. Social media management, video production, branding, web design, AI agents, and marketing automation for Malta businesses.",
   "url": "https://oarcdigital.com",
-  "telephone": "+356 79711799",
+  "telephone": "+35679711799",
   "email": "hello@oarcdigital.com",
-  "address": [
-    {
-      "@type": "PostalAddress",
-      "streetAddress": "Seaside Spirit, Triq ix-Xatt, Ta' Xbiex",
-      "addressLocality": "Ta' Xbiex",
-      "postalCode": "XBX 1020",
-      "addressCountry": "MT"
-    },
-    {
-      "@type": "PostalAddress",
-      "streetAddress": "Olympia Tech Park, SIDCO Industrial Estate, Guindy",
-      "addressLocality": "Chennai",
-      "postalCode": "600032",
-      "addressCountry": "IN"
-    },
-    {
-      "@type": "PostalAddress",
-      "streetAddress": "Cluster F, Jumeirah Lake Towers",
-      "addressLocality": "Dubai",
-      "addressCountry": "AE"
-    }
-  ],
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Level 1, The Brewhouse, Zone 2, Central Business District, Mdina Road",
+    "addressLocality": "Birkirkara",
+    "postalCode": "CBD 2010",
+    "addressCountry": "MT"
+  },
   "geo": {
     "@type": "GeoCoordinates",
-    "latitude": "35.9047",
-    "longitude": "14.4931"
+    "latitude": "35.8952",
+    "longitude": "14.4603"
   },
-  "sameAs": [
-    "https://www.linkedin.com/company/oarc-digital",
-    "https://twitter.com/oarcdigital"
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+      "opens": "09:00",
+      "closes": "18:00"
+    }
   ],
-  "priceRange": "$$$$",
-  "areaServed": ["Malta", "Europe", "Middle East", "Asia"]
+  "sameAs": [
+    "https://www.instagram.com/oarcdigital",
+    "https://www.linkedin.com/company/oarcdigital",
+    "https://www.facebook.com/oarcdigital"
+  ],
+  "priceRange": "€€€",
+  "areaServed": {
+    "@type": "Country",
+    "name": "Malta"
+  },
+  "knowsAbout": [
+    "Social media marketing Malta",
+    "Instagram marketing",
+    "TikTok for business",
+    "AI marketing automation",
+    "Restaurant marketing Malta",
+    "iGaming marketing Malta",
+    "Hotel marketing Malta",
+    "Branding agency Malta",
+    "Web design Malta",
+    "Video production Malta",
+    "AI SDR agents",
+    "Content marketing Malta",
+    "Paid advertising Malta"
+  ]
 };
 
 export const createServiceSchema = (

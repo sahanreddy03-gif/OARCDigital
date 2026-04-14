@@ -524,6 +524,23 @@ export default function AICustomerSupport() {
           <p className="text-xl text-white/80 mb-10">
             Deploy your AI support agent in days, not months
           </p>
+          {/* Further Reading */}
+          <div className="max-w-4xl mx-auto w-full mb-12 text-left">
+            <h3 className="text-xl font-bold mb-6 text-white">Further Reading</h3>
+            <div className="grid md:grid-cols-2 gap-4">
+              {[
+                { href: "/blog/ai-marketing-malta", label: "AI Marketing in Malta: What's Actually Useful for Your Business Right Now" },
+                { href: "/blog/igaming-marketing-malta", label: "iGaming Marketing in Malta: What Works in 2026" },
+              ].map((a, i) => (
+                <Link key={i} href={a.href}>
+                  <div className="p-4 rounded-xl bg-white/10 border border-white/20 hover:border-orange-400 transition-colors cursor-pointer">
+                    <p className="text-sm text-white/80 hover:text-orange-400 transition-colors">{a.label} →</p>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+
           <Link href="/contact">
             <button
               className="btn-shimmer inline-flex items-center gap-3 bg-white text-[#23AACA] rounded-full pl-10 pr-4 py-5 text-lg font-bold hover:bg-white/90 transition-colors"

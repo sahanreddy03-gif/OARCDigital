@@ -1406,6 +1406,23 @@ export default function AIConsulting() {
               </div>
             </Link>
 
+            {/* Further Reading */}
+            <div className="col-span-full mt-8 pt-8 border-t border-zinc-800">
+              <h3 className="text-lg font-bold text-white mb-4">Further Reading</h3>
+              <div className="grid md:grid-cols-2 gap-4">
+                {[
+                  { href: "/blog/ai-marketing-malta", label: "AI Marketing in Malta: What's Actually Useful for Your Business Right Now" },
+                  { href: "/blog/igaming-marketing-malta", label: "iGaming Marketing in Malta: What Works in 2026" },
+                ].map((a, i) => (
+                  <Link key={i} href={a.href}>
+                    <div className="p-4 rounded-xl bg-zinc-900 border border-zinc-700 hover:border-orange-400 transition-colors cursor-pointer">
+                      <p className="text-sm text-white/80 hover:text-orange-400 transition-colors">{a.label} →</p>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </div>
+
             <Link href="/services/mvp-development">
               <div className="group bg-zinc-900 rounded-2xl p-8 border-2 border-zinc-800 hover:border-indigo-500 transition-all cursor-pointer" data-testid="related-service-mvp">
                 <div className="flex items-start justify-between mb-4">

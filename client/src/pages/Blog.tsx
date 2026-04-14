@@ -32,13 +32,139 @@ const blogPosts: BlogPost[] = [
     image: 'https://images.unsplash.com/photo-1432821596592-e2c18b78144f?w=800&h=500&fit=crop&q=80'
   },
   {
+    slug: 'restaurant-marketing-malta',
+    title: 'Restaurant Marketing in Malta: What the Top Venues Do Differently',
+    excerpt: 'Why some Malta restaurants are always full and others struggle — the marketing strategies, content approaches, and operational decisions that separate them.',
+    category: 'Revenue Growth',
+    readTime: '13 min',
+    publishDate: '2026-03-01',
+    image: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&h=500&fit=crop&q=80'
+  },
+  {
+    slug: 'instagram-marketing-malta',
+    title: 'Instagram Marketing in Malta: How to Actually Get Results in 2026',
+    excerpt: 'What works on Instagram in Malta in 2026 — the posting times, content formats, hashtag strategy, and growth tactics that Malta businesses are using to build real audiences.',
+    category: 'Creative Services',
+    readTime: '11 min',
+    publishDate: '2026-03-01',
+    image: 'https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=800&h=500&fit=crop&q=80'
+  },
+  {
+    slug: 'tiktok-for-malta-businesses',
+    title: 'TikTok for Malta Businesses: The No-Nonsense Guide for 2026',
+    excerpt: 'TikTok is not just for teenagers. Here is how Malta businesses are using it to get 50,000+ views and turn them into actual customers.',
+    category: 'Creative Services',
+    readTime: '10 min',
+    publishDate: '2026-03-01',
+    image: 'https://images.unsplash.com/photo-1611605698335-8441168e7f54?w=800&h=500&fit=crop&q=80'
+  },
+  {
+    slug: 'ai-marketing-malta',
+    title: 'AI Marketing in Malta: What\'s Actually Useful for Your Business Right Now',
+    excerpt: 'Beyond the hype — the AI marketing tools saving Malta businesses real time and money in 2026.',
+    category: 'AI Marketing',
+    readTime: '12 min',
+    publishDate: '2026-03-01',
+    image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=500&fit=crop&q=80'
+  },
+  {
+    slug: 'branding-agency-malta',
+    title: 'What a Branding Agency in Malta Actually Does (And What to Expect)',
+    excerpt: 'Logo vs brand. What Malta businesses get wrong about branding, what it costs, and how to know if you need a branding agency.',
+    category: 'Creative Services',
+    readTime: '11 min',
+    publishDate: '2026-03-01',
+    image: 'https://images.unsplash.com/photo-1558655146-d09347e92766?w=800&h=500&fit=crop&q=80'
+  },
+  {
+    slug: 'video-production-malta',
+    title: 'Video Production in Malta: Costs, Formats, and What Actually Converts',
+    excerpt: 'Short-form, long-form, corporate, social — what video formats Malta businesses should invest in and what they cost in 2026.',
+    category: 'Creative Services',
+    readTime: '12 min',
+    publishDate: '2026-03-01',
+    image: 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=800&h=500&fit=crop&q=80'
+  },
+  {
+    slug: 'social-media-management-cost-malta',
+    title: 'How Much Does Social Media Management Cost in Malta? (2026 Guide)',
+    excerpt: 'Real pricing for social media management in Malta. Freelancers vs agencies, what you actually get, and how to know if you are being overcharged.',
+    category: 'Revenue Growth',
+    readTime: '12 min',
+    publishDate: '2026-03-20',
+    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=500&fit=crop&q=80'
+  },
+  {
+    slug: 'ai-sales-automation-malta',
+    title: 'AI Sales Automation in Malta: How Businesses Are Replacing SDRs With AI Agents',
+    excerpt: 'A human SDR in Malta costs €2,000–€3,500/month and makes 30–50 outreach attempts per week. An AI SDR costs €200–€800 and makes 200–500. The economics are not close.',
+    category: 'AI Marketing',
+    readTime: '11 min',
+    publishDate: '2026-03-01',
+    image: 'https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=800&h=500&fit=crop&q=80'
+  },
+  {
+    slug: 'marketing-agency-malta',
+    title: 'How to Choose a Marketing Agency in Malta (Without Getting Burned)',
+    excerpt: 'Malta has dozens of marketing agencies claiming to grow your business. Most won\'t. Here\'s how to tell the difference before you sign a contract — including a direct comparison table.',
+    category: 'Revenue Growth',
+    readTime: '12 min',
+    publishDate: '2026-03-01',
+    image: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=800&h=500&fit=crop&q=80'
+  },
+  {
+    slug: 'web-design-malta',
+    title: 'Web Design in Malta: What It Costs and What You Actually Need (2026)',
+    excerpt: 'Most Malta businesses overpay for websites they don\'t need, or underpay for websites that quietly kill their credibility.',
+    category: 'Creative Services',
+    readTime: '10 min',
+    publishDate: '2026-03-01',
+    image: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&h=500&fit=crop&q=80'
+  },
+  {
+    slug: 'paid-advertising-malta',
+    title: 'Facebook and Google Ads in Malta: What Paid Advertising Actually Costs',
+    excerpt: 'Malta has one of the most competitive paid advertising markets in Europe per capita. Here\'s how to not waste your budget.',
+    category: 'Revenue Growth',
+    readTime: '10 min',
+    publishDate: '2026-03-01',
+    image: 'https://images.unsplash.com/photo-1611162616475-46b635cb6868?w=800&h=500&fit=crop&q=80'
+  },
+  {
+    slug: 'hotel-marketing-malta',
+    title: 'Hotel Marketing in Malta: How to Fill Rooms Year-Round',
+    excerpt: 'The hotels that fill rooms year-round aren\'t the ones with the biggest budgets — they\'re the ones with the smartest distribution strategy.',
+    category: 'Revenue Growth',
+    readTime: '12 min',
+    publishDate: '2026-03-01',
+    image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&h=500&fit=crop&q=80'
+  },
+  {
+    slug: 'igaming-marketing-malta',
+    title: 'iGaming Marketing in Malta: What Works in 2026',
+    excerpt: 'Malta is the iGaming capital of Europe. Over 300 licensed operators are based here — here\'s what the marketing landscape actually looks like.',
+    category: 'AI Marketing',
+    readTime: '11 min',
+    publishDate: '2026-03-01',
+    image: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?w=800&h=500&fit=crop&q=80'
+  },
+  {
+    slug: 'content-marketing-malta',
+    title: 'Content Marketing in Malta: The Strategy That Builds Traffic While You Sleep',
+    excerpt: 'You don\'t need more content — you need content that compounds. Here\'s how to build a content strategy that generates leads 24/7.',
+    category: 'Revenue Growth',
+    readTime: '11 min',
+    publishDate: '2026-03-01',
+    image: 'https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=800&h=500&fit=crop&q=80'
+  },
+  {
     slug: 'marketing-trends-malta-2025',
     title: 'Malta Business Marketing in 2025: What\'s Working Now',
     excerpt: 'Discover the top marketing trends shaping Malta\'s business landscape in 2025, from AI adoption to voice search and sustainability marketing.',
     category: 'AI Marketing',
     readTime: '15 min',
     publishDate: '2025-12-11',
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=500&fit=crop&q=80'
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop&q=80'
   },
   {
     slug: 'digital-marketing-malta',
@@ -47,7 +173,7 @@ const blogPosts: BlogPost[] = [
     category: 'Revenue Growth',
     readTime: '20 min',
     publishDate: '2025-12-11',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop&q=80'
+    image: 'https://images.unsplash.com/photo-1432821596592-e2c18b78144f?w=800&h=500&fit=crop&q=80'
   },
   {
     slug: 'ai-solutions-malta',
