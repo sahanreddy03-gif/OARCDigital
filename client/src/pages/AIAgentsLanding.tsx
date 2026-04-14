@@ -232,12 +232,6 @@ export default function AIAgentsLanding() {
                 {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "AI Lead Follow-up Agent", "description": "Automated lead nurturing, re-engagement campaigns, and conversion optimization."}}
               ]
             },
-            "aggregateRating": {
-              "@type": "AggregateRating",
-              "ratingValue": "4.9",
-              "reviewCount": "47",
-              "bestRating": "5"
-            }
           })}
         </script>
         {/* Schema.org - LocalBusiness */}

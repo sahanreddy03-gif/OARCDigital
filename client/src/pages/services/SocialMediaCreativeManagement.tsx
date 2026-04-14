@@ -511,9 +511,9 @@ export default function SocialMediaCreativeManagement() {
   return (
     <Layout>
       <SEOHead
-        title="AI-Powered Marketing Services | Revenue, Creative & Growth | OARC Digital Malta"
-        description="Malta's leading AI marketing agency. We engineer revenue systems, not just campaigns. Explore our AI-powered social, creative lab, and creator network services."
-        canonicalUrl="https://oarcdigital.com/services/how-we-help"
+        title="Social Media Management Malta | Creative Content Agency | OARC Digital"
+        description="Social media management and creative content production for Malta businesses. OARC Digital manages Instagram, TikTok, and Facebook with strategy-first content that builds brands and drives customers."
+        canonicalUrl="https://oarcdigital.com/services/social-media-creative-management"
         ogType="article"
         structuredData={createServiceSchema(
           "AI-Powered Marketing Services",

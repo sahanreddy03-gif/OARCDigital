@@ -22,16 +22,7 @@ export default function Comparison() {
     'Marketing & Advertising'
   );
   
-  // Aggregate rating schema
-  const ratingSchema = createAggregateRatingSchema(
-    'OARC Digital Marketing Services',
-    4.9,
-    127,
-    5,
-    'Service'
-  );
-  
-  const combinedSchema = [breadcrumbSchema, serviceSchema, ratingSchema];
+  const combinedSchema = [breadcrumbSchema, serviceSchema];
   
   return (
     <Layout>

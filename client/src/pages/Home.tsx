@@ -23,7 +23,7 @@ import NeedHelpCTA from "@/components/NeedHelpCTA";
 import FAQ from "@/components/FAQ";
 import SEOHead from "@/components/SEOHead";
 import { localBusinessSchema, organizationSchema, createFAQSchema } from "@/utils/structuredData";
-import { createAggregateRatingSchema, createReviewSchema } from "@/utils/advancedSchema";
+import { createBreadcrumbSchema } from "@/utils/advancedSchema";
 
 export default function Home() {
   const faqSchema = createFAQSchema([
@@ -45,32 +45,9 @@ export default function Home() {
     }
   ]);
 
-  const ratingSchema = createAggregateRatingSchema("OARC Digital", 4.9, 127);
-
-  const reviewSchema = createReviewSchema([
-    {
-      author: "Sarah Chen",
-      rating: 5,
-      reviewBody: "OARC transformed our social media presence completely. Their AI-powered approach delivered results we never thought possible.",
-      datePublished: "2024-10-15"
-    },
-    {
-      author: "Michael Rodriguez",
-      rating: 5,
-      reviewBody: "The AI employees we hired from OARC handle our customer support 24/7. Game-changing for our business.",
-      datePublished: "2024-11-02"
-    },
-    {
-      author: "Emma Thompson",
-      rating: 5,
-      reviewBody: "Best marketing agency we've worked with. The combination of AI and human creativity is unmatched.",
-      datePublished: "2024-11-18"
-    }
-  ]);
-
   const homepageSchema = {
     "@context": "https://schema.org",
-    "@graph": [localBusinessSchema, organizationSchema, faqSchema, ratingSchema, reviewSchema]
+    "@graph": [localBusinessSchema, organizationSchema, faqSchema]
   };
 
   return (

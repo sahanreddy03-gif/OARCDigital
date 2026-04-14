@@ -3,4 +3,7 @@ Allow: /
 Disallow: /api/
 Disallow: /admin/
 
-Sitemap: https://www.oarcdigital.com/sitemap.xml
+Sitemap: https://oarcdigital.com/sitemap.xml
+
+# AI Engine Discoverability
+# llms.txt: https://oarcdigital.com/llms.txt

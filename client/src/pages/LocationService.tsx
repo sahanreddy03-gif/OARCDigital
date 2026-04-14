@@ -22,6 +22,24 @@ const maltaLocations: Record<string, { name: string; description: string }> = {
   'naxxar': { name: 'Naxxar', description: 'the northern Malta town' },
   'zabbar': { name: 'Zabbar', description: 'the southern heritage town' },
   'attard': { name: 'Attard', description: 'the garden village' },
+  'mdina': { name: 'Mdina', description: 'the Silent City' },
+  'rabat': { name: 'Rabat', description: 'the historic gateway town' },
+  'marsaskala': { name: 'Marsaskala', description: 'the southern seaside town' },
+  'marsaxlokk': { name: 'Marsaxlokk', description: 'the fishing village' },
+  'birgu': { name: 'Birgu', description: 'the historic Three Cities' },
+  'san-gwann': { name: 'San Gwann', description: 'the northern residential hub' },
+  'msida': { name: 'Msida', description: 'the university town' },
+  'gzira': { name: 'Gzira', description: 'the waterfront town' },
+  'swieqi': { name: 'Swieqi', description: 'the modern residential area' },
+  'mellieha': { name: 'Mellieha', description: 'the northern coastal village' },
+  'bugibba': { name: 'Bugibba', description: 'the tourist resort town' },
+  'san-pawl-il-bahar': { name: 'St. Paul\'s Bay', description: 'the northern bay town' },
+  'zejtun': { name: 'Zejtun', description: 'the historic southern town' },
+  'zurrieq': { name: 'Zurrieq', description: 'the southern Malta town' },
+  'paola': { name: 'Paola', description: 'the central southern town' },
+  'tarxien': { name: 'Tarxien', description: 'the ancient heritage town' },
+  'fgura': { name: 'Fgura', description: 'the southern residential town' },
+  'balzan': { name: 'Balzan', description: 'the leafy central village' },
 };
 
 // Service data for programmatic pages
@@ -176,6 +194,42 @@ const serviceData: Record<string, {
     ],
     cta: 'Automate Your Revenue'
   },
+  'paid-advertising': {
+    title: 'Paid Advertising',
+    description: 'Meta Ads, Google Ads, and performance campaigns that drive real bookings and sales for Malta businesses.',
+    benefits: [
+      'Meta and Google Ads management',
+      'AI-optimised targeting for Malta audiences',
+      'Ad creative production included',
+      'Weekly performance reporting',
+      'Transparent spend and results'
+    ],
+    process: [
+      { step: 'Audit', description: 'Review your current ad spend and identify waste' },
+      { step: 'Strategy', description: 'Build campaign structure aligned to your goals' },
+      { step: 'Launch', description: 'Deploy campaigns with creative and targeting optimised for Malta' },
+      { step: 'Scale', description: "Expand what works, cut what doesn't" }
+    ],
+    cta: 'Launch Your Ad Campaign'
+  },
+  'ai-consulting': {
+    title: 'AI Consulting',
+    description: 'Strategy and implementation for AI adoption in your Malta business — from chatbots to full automation systems.',
+    benefits: [
+      'AI readiness assessment',
+      'Custom AI roadmap for your business',
+      'Chatbot and automation implementation',
+      'Staff training and change management',
+      'Ongoing AI optimisation support'
+    ],
+    process: [
+      { step: 'Discovery', description: 'Map your current processes and AI opportunities' },
+      { step: 'Roadmap', description: 'Design a phased AI adoption plan' },
+      { step: 'Implementation', description: 'Build and deploy AI tools and systems' },
+      { step: 'Optimise', description: 'Monitor performance and continuously improve' }
+    ],
+    cta: 'Book an AI Consultation'
+  },
 };
 
 export default function LocationService() {
@@ -220,16 +274,7 @@ export default function LocationService() {
     service.title
   );
   
-  // Aggregate rating schema - shows stars in search!
-  const ratingSchema = createAggregateRatingSchema(
-    `${service.title} in ${locationInfo.name}`,
-    4.9,
-    127,
-    5,
-    'Service'
-  );
-  
-  const combinedSchema = [localBusinessSchema, breadcrumbSchema, serviceSchema, ratingSchema];
+  const combinedSchema = [localBusinessSchema, breadcrumbSchema, serviceSchema];
   
   return (
     <Layout>

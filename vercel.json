@@ -1,6 +1,51 @@
 {
   "redirects": [
     {
+      "source": "https://www.oarcdigital.com/(.*)",
+      "destination": "https://oarcdigital.com/$1",
+      "permanent": true
+    },
+    {
+      "source": "/case-studies/venturehub-co",
+      "destination": "/case-studies",
+      "permanent": true
+    },
+    {
+      "source": "/case-studies/apex-fitness-collective",
+      "destination": "/case-studies",
+      "permanent": true
+    },
+    {
+      "source": "/case-studies/volta-home",
+      "destination": "/case-studies",
+      "permanent": true
+    },
+    {
+      "source": "/case-studies/phantom-peripherals",
+      "destination": "/case-studies",
+      "permanent": true
+    },
+    {
+      "source": "/case-studies/riftleague",
+      "destination": "/case-studies",
+      "permanent": true
+    },
+    {
+      "source": "/case-studies/maison-lumiere",
+      "destination": "/case-studies",
+      "permanent": true
+    },
+    {
+      "source": "/case-studies/global-supply-systems",
+      "destination": "/case-studies",
+      "permanent": true
+    },
+    {
+      "source": "/services/ai-content-strategist",
+      "destination": "/services",
+      "permanent": true
+    },
+    {
       "source": "/enterprise",
       "destination": "/services",
       "permanent": true
@@ -43,12 +88,64 @@
   ],
   "rewrites": [
     {
-      "source": "/api/:path*",
-      "destination": "/api"
+      "source": "/llms.txt",
+      "destination": "/llms.txt"
+    },
+    {
+      "source": "/sitemap.xml",
+      "destination": "/sitemap.xml"
+    },
+    {
+      "source": "/robots.txt",
+      "destination": "/robots.txt"
+    },
+    {
+      "source": "/oarc-digital",
+      "destination": "/oarc-digital.html"
+    },
+    {
+      "source": "/marketing-agency-malta",
+      "destination": "/marketing-agency-malta.html"
+    },
+    {
+      "source": "/ai-agency-malta",
+      "destination": "/ai-agency-malta.html"
+    },
+    {
+      "source": "/social-media-agency-malta",
+      "destination": "/social-media-agency-malta.html"
     },
     {
       "source": "/(.*)",
       "destination": "/index.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/llms.txt",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "text/plain; charset=utf-8"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400"
+        }
+      ]
+    },
+    {
+      "source": "/sitemap.xml",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/xml; charset=utf-8"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600"
+        }
+      ]
     }
   ]
 }
