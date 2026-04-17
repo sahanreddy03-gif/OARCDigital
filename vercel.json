@@ -100,20 +100,12 @@
       "destination": "/robots.txt"
     },
     {
-      "source": "/oarc-digital",
-      "destination": "/oarc-digital.html"
-    },
-    {
       "source": "/marketing-agency-malta",
-      "destination": "/marketing-agency-malta.html"
+      "destination": "/public/marketing-agency-malta.html"
     },
     {
       "source": "/ai-agency-malta",
-      "destination": "/ai-agency-malta.html"
-    },
-    {
-      "source": "/social-media-agency-malta",
-      "destination": "/social-media-agency-malta.html"
+      "destination": "/public/ai-agency-malta.html"
     },
     {
       "source": "/(.*)",

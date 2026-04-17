@@ -151,6 +151,7 @@ import FacebookAdsMalta from "@/pages/blog/FacebookAdsMalta";
 import ReputationManagementMalta from "@/pages/blog/ReputationManagementMalta";
 import AIAutomationMalta from "@/pages/blog/AIAutomationMalta";
 import HospitalityMarketingMalta from "@/pages/blog/HospitalityMarketingMalta";
+import PjazzaLiveVideoMalta from "@/pages/blog/PjazzaLiveVideoMalta";
 import PrivacyPolicy from "@/pages/legal/PrivacyPolicy";
 import CookiePolicy from "@/pages/legal/CookiePolicy";
 import TermsConditions from "@/pages/legal/TermsConditions";
@@ -318,6 +319,7 @@ function Router() {
       <Route path="/blog/reputation-management-malta" component={ReputationManagementMalta} />
       <Route path="/blog/ai-automation-malta" component={AIAutomationMalta} />
       <Route path="/blog/hospitality-marketing-malta" component={HospitalityMarketingMalta} />
+      <Route path="/blog/pjazza-live-video-marketplace-malta" component={PjazzaLiveVideoMalta} />
 
       {/* AEO Pages - Answer Engine Optimization */}
       <Route path="/aeo/best-marketing-agency-malta" component={BestMarketingAgencyMalta} />

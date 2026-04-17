@@ -23,12 +23,12 @@ export function ARCWidget() {
   useEffect(() => {
     if (isOpen || popupDismissed) return;
     
-    const hasSeenPopup = sessionStorage.getItem('arc-popup-seen');
+    const hasSeenPopup = sessionStorage.getItem('arc-popup-seen-v2');
     if (hasSeenPopup) return;
 
     const showTimer = setTimeout(() => {
       setShowPopup(true);
-    }, 20000);
+    }, 5000);
 
     return () => clearTimeout(showTimer);
   }, [isOpen, popupDismissed]);
@@ -39,7 +39,7 @@ export function ARCWidget() {
     const hideTimer = setTimeout(() => {
       setShowPopup(false);
       setPopupDismissed(true);
-      sessionStorage.setItem('arc-popup-seen', 'true');
+      sessionStorage.setItem('arc-popup-seen-v2', 'true');
     }, 8000);
 
     return () => clearTimeout(hideTimer);
@@ -49,7 +49,7 @@ export function ARCWidget() {
     setIsOpen(true);
     setShowPopup(false);
     setPopupDismissed(true);
-    sessionStorage.setItem('arc-popup-seen', 'true');
+    sessionStorage.setItem('arc-popup-seen-v2', 'true');
   };
 
   const handleCloseChat = () => {
@@ -60,7 +60,7 @@ export function ARCWidget() {
     e.stopPropagation();
     setShowPopup(false);
     setPopupDismissed(true);
-    sessionStorage.setItem('arc-popup-seen', 'true');
+    sessionStorage.setItem('arc-popup-seen-v2', 'true');
   };
 
   // Hide ARC on Contact page (WhatsApp button shown there instead)
@@ -140,7 +140,7 @@ export function ARCWidget() {
                     >
                       <X size={14} />
                     </button>
-                    <span className="pr-4">Ask me anything about growth</span>
+                    <span className="pr-4">Give me your problem. I'll solve it today.</span>
                     {/* Triangle pointer */}
                     <div 
                       className="absolute -bottom-2 right-6 w-0 h-0"
