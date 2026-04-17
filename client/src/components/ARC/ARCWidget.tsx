@@ -23,7 +23,7 @@ export function ARCWidget() {
   useEffect(() => {
     if (isOpen || popupDismissed) return;
     
-    const hasSeenPopup = sessionStorage.getItem('arc-popup-seen');
+    const hasSeenPopup = sessionStorage.getItem('arc-popup-seen-v2');
     if (hasSeenPopup) return;
 
     const showTimer = setTimeout(() => {
@@ -39,7 +39,7 @@ export function ARCWidget() {
     const hideTimer = setTimeout(() => {
       setShowPopup(false);
       setPopupDismissed(true);
-      sessionStorage.setItem('arc-popup-seen', 'true');
+      sessionStorage.setItem('arc-popup-seen-v2', 'true');
     }, 8000);
 
     return () => clearTimeout(hideTimer);
@@ -49,7 +49,7 @@ export function ARCWidget() {
     setIsOpen(true);
     setShowPopup(false);
     setPopupDismissed(true);
-    sessionStorage.setItem('arc-popup-seen', 'true');
+    sessionStorage.setItem('arc-popup-seen-v2', 'true');
   };
 
   const handleCloseChat = () => {
@@ -60,7 +60,7 @@ export function ARCWidget() {
     e.stopPropagation();
     setShowPopup(false);
     setPopupDismissed(true);
-    sessionStorage.setItem('arc-popup-seen', 'true');
+    sessionStorage.setItem('arc-popup-seen-v2', 'true');
   };
 
   // Hide ARC on Contact page (WhatsApp button shown there instead)
