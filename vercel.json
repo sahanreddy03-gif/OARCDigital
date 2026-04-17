@@ -84,16 +84,6 @@
       "source": "/case-studies/streamflow-automation",
       "destination": "/case-studies",
       "permanent": true
-    },
-    {
-      "source": "/marketing-agency-malta",
-      "destination": "/aeo/best-marketing-agency-malta",
-      "permanent": false
-    },
-    {
-      "source": "/ai-agency-malta",
-      "destination": "/aeo/ai-agency-malta",
-      "permanent": false
     }
   ],
   "rewrites": [
@@ -114,8 +104,16 @@
       "destination": "/oarc-digital.html"
     },
     {
+      "source": "/marketing-agency-malta",
+      "destination": "/aeo/best-marketing-agency-malta"
+    },
+    {
       "source": "/social-media-agency-malta",
       "destination": "/social-media-agency-malta.html"
+    },
+    {
+      "source": "/ai-agency-malta",
+      "destination": "/aeo/ai-agency-malta"
     },
     {
       "source": "/(.*)",
