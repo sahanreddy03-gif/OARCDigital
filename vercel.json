@@ -105,15 +105,15 @@
     },
     {
       "source": "/marketing-agency-malta",
-      "destination": "/aeo/best-marketing-agency-malta"
+      "destination": "/marketing-agency-malta.html"
+    },
+    {
+      "source": "/ai-agency-malta",
+      "destination": "/ai-agency-malta.html"
     },
     {
       "source": "/social-media-agency-malta",
       "destination": "/social-media-agency-malta.html"
-    },
-    {
-      "source": "/ai-agency-malta",
-      "destination": "/aeo/ai-agency-malta"
     },
     {
       "source": "/(.*)",
@@ -157,5 +157,6 @@
       "runtime": "nodejs20.x",
       "maxDuration": 10
     }
-  }
+  },
+  "outputDirectory": "dist/public"
 }
