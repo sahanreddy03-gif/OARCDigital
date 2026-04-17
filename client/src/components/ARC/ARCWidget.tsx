@@ -28,7 +28,7 @@ export function ARCWidget() {
 
     const showTimer = setTimeout(() => {
       setShowPopup(true);
-    }, 20000);
+    }, 5000);
 
     return () => clearTimeout(showTimer);
   }, [isOpen, popupDismissed]);
@@ -140,7 +140,7 @@ export function ARCWidget() {
                     >
                       <X size={14} />
                     </button>
-                    <span className="pr-4">Ask me anything about growth</span>
+                    <span className="pr-4">Give me your problem. I'll solve it today.</span>
                     {/* Triangle pointer */}
                     <div 
                       className="absolute -bottom-2 right-6 w-0 h-0"

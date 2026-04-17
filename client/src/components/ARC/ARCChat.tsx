@@ -21,11 +21,18 @@ const MALTA_PHONE = '+35679711799';
 
 const QUICK_ACTIONS = [
   { 
+    id: 'solve-problem', 
+    label: 'Solve My Problem Today', 
+    icon: Flame,
+    type: 'prompt' as const, 
+    prompt: 'I have a problem I need solved today' 
+  },
+  { 
     id: 'more-customers', 
     label: 'I Need More Customers', 
     icon: Users,
     type: 'prompt' as const, 
-    prompt: 'I need more customers' 
+    prompt: 'I need more customers for my business' 
   },
   { 
     id: 'social-not-working', 
@@ -33,13 +40,6 @@ const QUICK_ACTIONS = [
     icon: TrendingDown,
     type: 'prompt' as const, 
     prompt: 'My social media isn\'t working' 
-  },
-  { 
-    id: 'website-not-converting', 
-    label: 'Website Isn\'t Converting', 
-    icon: MousePointerClick,
-    type: 'prompt' as const, 
-    prompt: 'My website isn\'t converting visitors' 
   },
   { 
     id: 'competitors', 
@@ -50,14 +50,14 @@ const QUICK_ACTIONS = [
   },
   { 
     id: 'roast', 
-    label: 'Roast My Marketing', 
-    icon: Flame,
+    label: 'Roast My Business', 
+    icon: MousePointerClick,
     type: 'prompt' as const, 
-    prompt: 'Roast my marketing' 
+    prompt: 'Give me an honest assessment of my business and what needs to change' 
   },
   { 
     id: 'talk', 
-    label: 'Talk to Us Directly', 
+    label: 'Talk to a Human Now', 
     icon: Phone,
     type: 'phone' as const 
   },

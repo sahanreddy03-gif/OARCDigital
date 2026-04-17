@@ -102,15 +102,35 @@ export function checkInstantResponse(message: string): InstantResponseResult | n
 }
 
 export const GREETING_MESSAGES = [
-  `Hey! I'm ARC 👋
+  `Hey. I'm ARC.
 
-I can:
-• 🔥 Roast your website (for free)
-• 📅 Create a content calendar
-• 🧮 Calculate your ROI
-• 💬 Answer questions about OARC
+I find what's killing your revenue and tell you exactly how to fix it.
 
-What sounds useful?`
+• **Got a problem?** Tell me. I'll diagnose it in 60 seconds.
+• **Not sure where to start?** Pick one of the buttons below.
+• **Want to talk to a human?** Hit the call button.
+
+What's the one thing that's not working right now?`,
+
+  `ARC here. OARC Digital's diagnostic engine.
+
+One question to start:
+
+**What's your biggest business problem right now?**
+
+• Not enough customers?
+• Social media not converting?
+• No platform, no automation, just chaos?
+
+Tell me the problem. I'll tell you if we can fix it — and how.`,
+
+  `Hey — I'm ARC.
+
+I'm not going to ask how your day is going.
+
+**Give me your biggest problem and I'll tell you exactly what we'd do about it.**
+
+No sales pitch. No fluff. Just the answer.`
 ];
 
 export function getRandomGreeting(): string {
