@@ -1,4 +1,6 @@
 {
+  "buildCommand": "vite build",
+  "outputDirectory": "dist/public",
   "redirects": [
     {
       "source": "https://www.oarcdigital.com/(.*)",
@@ -100,12 +102,16 @@
       "destination": "/robots.txt"
     },
     {
+      "source": "/BingSiteAuth.xml",
+      "destination": "/BingSiteAuth.xml"
+    },
+    {
       "source": "/marketing-agency-malta",
-      "destination": "/public/marketing-agency-malta.html"
+      "destination": "/marketing-agency-malta.html"
     },
     {
       "source": "/ai-agency-malta",
-      "destination": "/public/ai-agency-malta.html"
+      "destination": "/ai-agency-malta.html"
     },
     {
       "source": "/(.*)",
@@ -136,6 +142,19 @@
         {
           "key": "Cache-Control",
           "value": "public, max-age=3600"
+        }
+      ]
+    },
+    {
+      "source": "/BingSiteAuth.xml",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/xml; charset=utf-8"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400"
         }
       ]
     }
