@@ -252,7 +252,14 @@ export function ARCChat({ onClose, isMobile }: ARCChatProps) {
 
     } catch (_error) {
       setIsTyping(false);
-      addArcMessage('Connection issue. Try again, or reach us at hello@oarcdigital.com');
+      const fallback = checkInstantResponse(messageText) || { response: `Here's my honest take:
+
+• **Most businesses** have the same core issues — wrong audience, inconsistent content, no follow-up system
+• **The right fix** depends on your specific situation
+• **Fastest path forward** — call Sahan: +356 7971 1799
+
+What industry are you in?`, showPricingCTA: false };
+      addArcMessage(fallback.response);
     }
   };
 
