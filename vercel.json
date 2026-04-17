@@ -116,6 +116,10 @@
       "destination": "/social-media-agency-malta.html"
     },
     {
+      "source": "/api/(.*)",
+      "destination": "/api/$1"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
     }
