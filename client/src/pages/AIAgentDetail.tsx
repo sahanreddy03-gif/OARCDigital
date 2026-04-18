@@ -9,7 +9,6 @@ import Footer from '@/components/Footer';
 import { aiTeamMembers } from '@/components/ai/aiAgentsData';
 import { ArrowLeft, Check, ChevronRight } from 'lucide-react';
 import { SiWhatsapp } from 'react-icons/si';
-import { ARCWidget } from '@/components/ARC';
 
 export default function AIAgentDetail() {
   const params = useParams<{ agentId: string }>();
@@ -274,7 +273,6 @@ export default function AIAgentDetail() {
         <Footer />
       </main>
 
-      <ARCWidget />
     </>
   );
 }
