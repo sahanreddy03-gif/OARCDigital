@@ -13,8 +13,7 @@ import CreativeNavigation from '@/components/CreativeNavigation';
 import { 
   TeamCarousel, 
   CommandConsolePanel, 
-  PersonalizationSteps,
-  AITeamMember
+  PersonalizationSteps
 } from '@/components/ai';
 import { 
   ArrowRight, Check,
@@ -167,7 +166,6 @@ function AnimatedCounter({ value, suffix = '', prefix = '' }: { value: string; s
 
 export default function AIAgentsLanding() {
   const prefersReducedMotion = useReducedMotion();
-  const [selectedAgent, setSelectedAgent] = useState<AITeamMember | null>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   
   useEffect(() => {
@@ -284,6 +282,7 @@ export default function AIAgentsLanding() {
               muted
               playsInline
               preload="auto"
+              poster="/ai-agents-hero-poster.jpg"
               className="absolute inset-0 w-full h-full object-cover"
               style={{ objectPosition: 'center top' }}
             >
