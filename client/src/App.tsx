@@ -161,6 +161,7 @@ import DiagnosticPage from "@/pages/DiagnosticPage";
 import OARCIntelligence from "@/pages/OARCIntelligence";
 import CreativeLanding from "@/pages/CreativeLanding";
 import AIAgentsLanding from "@/pages/AIAgentsLanding";
+import AIAgentDetail from "@/pages/AIAgentDetail";
 import RevenueSolutionsLanding from "@/pages/RevenueSolutionsLanding";
 import NotFound from "@/pages/not-found";
 import { ARCWidget } from "@/components/ARC";
@@ -174,6 +175,7 @@ function Router() {
         <Route path="/" component={Home} />
       <Route path="/creative" component={CreativeLanding} />
       <Route path="/ai-agents" component={AIAgentsLanding} />
+      <Route path="/ai-agents/:agentId" component={AIAgentDetail} />
       <Route path="/solutions" component={RevenueSolutionsLanding} />
       <Route path="/automation" component={RevenueSolutionsLanding} />
       <Route path="/services" component={Services} />
