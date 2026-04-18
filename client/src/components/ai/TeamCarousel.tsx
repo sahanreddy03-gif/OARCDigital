@@ -1,14 +1,10 @@
 import { useRef, useState, useEffect } from 'react';
-import { motion, animate } from 'framer-motion';
-import { aiTeamMembers, AITeamMember } from './aiAgentsData';
+import { motion } from 'framer-motion';
+import { Link } from 'wouter';
+import { aiTeamMembers } from './aiAgentsData';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
-interface TeamCarouselProps {
-  onAgentSelect?: (agent: AITeamMember) => void;
-  selectedAgentId?: string;
-}
-
-export function TeamCarousel({ onAgentSelect, selectedAgentId }: TeamCarouselProps) {
+export function TeamCarousel() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
@@ -70,55 +66,60 @@ export function TeamCarousel({ onAgentSelect, selectedAgentId }: TeamCarouselPro
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none', touchAction: 'pan-x pan-y' }}
         >
           {aiTeamMembers.map((agent, idx) => {
-            const isSelected = agent.id === selectedAgentId;
             const Icon = agent.icon;
             
             return (
               <motion.div
                 key={agent.id}
-                className="flex-shrink-0 w-[280px] sm:w-[300px] md:w-[320px] snap-start cursor-pointer group"
+                className="flex-shrink-0 w-[280px] sm:w-[300px] md:w-[320px] snap-start"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.05 }}
-                onClick={() => onAgentSelect?.(agent)}
                 data-testid={`card-agent-${agent.id}`}
               >
-                {/* Avatar Image Container - Premium Style */}
-                <div 
-                  className={`relative aspect-[4/5] rounded-2xl overflow-hidden mb-5 bg-gradient-to-br from-zinc-800 to-zinc-900 border border-white/5 transition-all duration-500 ${isSelected ? 'ring-2 ring-[#c4ff4d] ring-offset-2 ring-offset-black' : 'group-hover:border-white/10'}`}
-                >
-                  {agent.avatarImage ? (
-                    <img
-                      src={agent.avatarImage}
-                      alt={agent.avatarAlt}
-                      loading="lazy"
-                      decoding="async"
-                      className="absolute inset-0 w-full h-full object-contain object-center group-hover:scale-105 transition-transform duration-500"
-                    />
-                  ) : (
-                    <div className="absolute inset-0 flex flex-col items-center justify-center p-6">
-                      <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-gradient-to-br from-white/10 to-white/5 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-500">
-                        <Icon className="w-10 h-10 sm:w-12 sm:h-12 text-white/60 group-hover:text-[#c4ff4d] transition-colors duration-300" aria-hidden="true" />
+                <Link href={`/ai-agents/${agent.id}`}>
+                  <div className="cursor-pointer group block">
+                    {/* Avatar Image Container - Premium Style */}
+                    <div className="relative aspect-[4/5] rounded-2xl overflow-hidden mb-5 bg-gradient-to-br from-zinc-800 to-zinc-900 border border-white/5 transition-all duration-500 group-hover:border-[#c4ff4d]/30 group-hover:shadow-lg group-hover:shadow-[#c4ff4d]/10">
+                      {agent.avatarImage ? (
+                        <img
+                          src={agent.avatarImage}
+                          alt={agent.avatarAlt}
+                          loading="lazy"
+                          decoding="async"
+                          className="absolute inset-0 w-full h-full object-contain object-center group-hover:scale-105 transition-transform duration-500"
+                        />
+                      ) : (
+                        <div className="absolute inset-0 flex flex-col items-center justify-center p-6">
+                          <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-gradient-to-br from-white/10 to-white/5 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-500">
+                            <Icon className="w-10 h-10 sm:w-12 sm:h-12 text-white/60 group-hover:text-[#c4ff4d] transition-colors duration-300" aria-hidden="true" />
+                          </div>
+                          <p className="text-xs text-white/30 text-center">Avatar coming soon</p>
+                        </div>
+                      )}
+                      
+                      {/* Gradient overlay at bottom */}
+                      <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/60 to-transparent pointer-events-none" />
+
+                      {/* Hover indicator */}
+                      <div className="absolute inset-x-0 bottom-0 py-3 flex justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <span className="text-xs text-[#c4ff4d] font-medium tracking-wide">View Agent →</span>
                       </div>
-                      <p className="text-xs text-white/30 text-center">Avatar coming soon</p>
                     </div>
-                  )}
-                  
-                  {/* Gradient overlay at bottom */}
-                  <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/60 to-transparent pointer-events-none" />
-                </div>
-                
-                {/* Agent Name */}
-                <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 tracking-tight">
-                  {agent.name}
-                </h3>
-                
-                {/* Description with BOLD role at start */}
-                <p className="text-sm sm:text-base text-white/60 leading-relaxed">
-                  <span className="text-white font-semibold">{agent.role}.</span>{' '}
-                  {agent.description}
-                </p>
+                    
+                    {/* Agent Name */}
+                    <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 tracking-tight group-hover:text-[#c4ff4d] transition-colors duration-300">
+                      {agent.name}
+                    </h3>
+                    
+                    {/* Description with BOLD role at start */}
+                    <p className="text-sm sm:text-base text-white/60 leading-relaxed">
+                      <span className="text-white font-semibold">{agent.role}.</span>{' '}
+                      {agent.description}
+                    </p>
+                  </div>
+                </Link>
               </motion.div>
             );
           })}
