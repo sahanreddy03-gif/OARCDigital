@@ -28,7 +28,7 @@ export default function BrandShowcaseSection() {
           
           {/* HERO - Large Left Card (spans 7 cols, 2 rows) */}
           <div className="col-span-12 md:col-span-7 md:row-span-2">
-            <Link href={`/case-studies/${heroStudy.slug}`} asChild>
+            <Link href={`/case-studies/${heroStudy.slug}`}>
               <div
                 className="group relative overflow-hidden rounded-xl bg-zinc-900 hover-elevate hover:-translate-y-1 transition-all duration-500 cursor-pointer h-[280px] md:h-full"
                 data-testid="card-case-study-hero"
@@ -67,7 +67,7 @@ export default function BrandShowcaseSection() {
           {/* MEDIUM Cards - Right Column (stacked) */}
           {mediumStudies.map((study, index) => (
             <div key={index} className="col-span-6 md:col-span-5">
-              <Link href={`/case-studies/${study.slug}`} asChild>
+              <Link href={`/case-studies/${study.slug}`}>
                 <div
                   className="group relative overflow-hidden rounded-xl bg-zinc-900 hover-elevate hover:-translate-y-0.5 transition-all duration-400 cursor-pointer h-[180px] md:h-[160px]"
                   data-testid={`card-case-study-medium-${index}`}
@@ -104,7 +104,7 @@ export default function BrandShowcaseSection() {
           {/* SMALL Cards - Bottom Row (3 compact cards) */}
           {smallStudies.map((study, index) => (
             <div key={index} className="col-span-4">
-              <Link href={`/case-studies/${study.slug}`} asChild>
+              <Link href={`/case-studies/${study.slug}`}>
                 <div
                   className="group relative overflow-hidden rounded-lg bg-zinc-900 hover-elevate hover:-translate-y-0.5 transition-all duration-400 cursor-pointer h-[140px] md:h-[130px]"
                   data-testid={`card-case-study-small-${index}`}
