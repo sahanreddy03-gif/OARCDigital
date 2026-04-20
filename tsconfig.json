@@ -1,8 +1,6 @@
 {
   "include": [
-    "client/src/**/*",
     "shared/**/*",
-    "server/**/*",
     "app/**/*",
     "lib/**/*",
     "components/**/*",
@@ -14,11 +12,7 @@
     "build",
     "dist",
     ".next",
-    "**/*.test.ts",
-    "client/src/components/examples/**",
-    "client/src/pages/**",
-    "client/src/App.tsx",
-    "client/src/main.tsx"
+    "**/*.test.ts"
   ],
   "compilerOptions": {
     "incremental": true,
@@ -45,27 +39,16 @@
       "vite/client"
     ],
     "paths": {
-      "@/*": [
-        "./*",
-        "./client/src/*"
-      ],
-      "@/components/*": [
-        "./components/*",
-        "./client/src/components/*"
-      ],
-      "@/lib/*": [
-        "./lib/*",
-        "./client/src/lib/*"
-      ],
-      "@/shared/*": [
-        "./shared/*"
-      ],
-      "@shared/*": [
-        "./shared/*"
-      ],
-      "@assets/*": [
-        "./attached_assets/*"
-      ]
+      "@/*": ["./*"],
+      "@/components/*": ["./components/*"],
+      "@/lib/*": ["./lib/*"],
+      "@/shared/*": ["./shared/*"],
+      "@shared/*": ["./shared/*"],
+      "@assets/*": ["./attached_assets/*"],
+      "@/assets/*": ["./lib/assets/*"],
+      "@/config/*": ["./lib/config/*"],
+      "@/data/*": ["./lib/data/*"],
+      "@/hooks/*": ["./lib/hooks/*"]
     },
     "plugins": [
       {
