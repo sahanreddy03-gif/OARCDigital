@@ -54,18 +54,24 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://oarcdigital.com"),
-  title: {
-    default: "OARC Digital | Brand Strategy, AI Solutions & Growth Automation — Malta's First",
-    template: "%s | OARC Digital",
-  },
+  title:
+    "OARC Digital | Brand Strategy, AI Solutions & Growth Automation — Malta's First",
   description:
     "OARC Digital helps Maltese businesses grow revenue through brand strategy, AI-driven automation, performance marketing, and scalable growth systems. Malta's first AI-native creative, automation & intelligent agents agency.",
-  keywords:
-    "marketing agency Malta, brand strategy Malta, AI solutions Malta, growth automation, social media agency Malta, AI employees, business automation Malta, digital marketing Malta, creative agency Malta, web design Malta, video production Malta, AI agents Malta",
-  authors: [{ name: "OARC Digital" }],
-  alternates: {
-    canonical: "/",
+  metadataBase: new URL("https://oarcdigital.com"),
+  openGraph: {
+    title:
+      "OARC Digital | Brand Strategy, AI Solutions & Growth Automation — Malta's First",
+    description:
+      "OARC Digital helps Maltese businesses grow revenue fast through brand strategy, AI-driven automation, and performance marketing. Malta's first AI-native agency.",
+    type: "website",
+    url: "https://oarcdigital.com/",
+    images: [{ url: "https://oarcdigital.com/og-image.png", width: 1200, height: 630 }],
+    locale: "en_MT",
+    siteName: "OARC Digital",
+  },
+  verification: {
+    google: "8I0VqGfWyLV9j7HwwmE3AJRWrLcpnAooe9IX952BLzw",
   },
   robots: {
     index: true,
@@ -77,25 +83,6 @@ export const metadata: Metadata = {
       "max-image-preview": "large",
       "max-video-preview": -1,
     },
-  },
-  verification: {
-    google: "8I0VqGfWyLV9j7HwwmE3AJRWrLcpnAooe9IX952BLzw",
-  },
-  openGraph: {
-    title: "OARC Digital | Brand Strategy, AI Solutions & Growth Automation — Malta's First",
-    description:
-      "OARC Digital helps Maltese businesses grow revenue fast through brand strategy, AI-driven automation, and performance marketing. Malta's first AI-native agency.",
-    type: "website",
-    url: "https://oarcdigital.com/",
-    images: [
-      {
-        url: "https://oarcdigital.com/og-image.png",
-        width: 1200,
-        height: 630,
-      },
-    ],
-    locale: "en_MT",
-    siteName: "OARC Digital",
   },
   twitter: {
     card: "summary_large_image",
