@@ -4,7 +4,6 @@ import { useEffect } from 'react';
 import Link from 'next/link';
 import { ArrowRight, Calendar, Building2 } from 'lucide-react';
 import Layout from '@/components/layout/Layout';
-import { caseStudiesSEO } from '@/data/seoMetadata';
 import heroImg from '@assets/stock_images/healthcare_patient_c_b0453f09.jpg';
 import img1 from '@assets/stock_images/healthcare_patient_c_82f1ca94.jpg';
 import img2 from '@assets/stock_images/healthcare_patient_c_6419333c.jpg';
@@ -22,6 +21,7 @@ export default function AcclaimAutism() {
 
   return (
     <Layout>
+      
       {/* Hero Section */}
       <section className="relative h-[70vh] min-h-[500px] flex items-end overflow-hidden">
         <div className="absolute inset-0">

@@ -1,3 +1,4 @@
+import JsonLd from '@/components/JsonLd';
 import Layout from '@/components/layout/Layout';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
@@ -30,6 +31,15 @@ const services = [
 export default function AIAgencyMalta() {
   return (
     <Layout>
+      <JsonLd data={[{
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: faqs.map((faq) => ({
+            '@type': 'Question',
+            name: faq.q,
+            acceptedAnswer: { '@type': 'Answer', text: faq.a },
+          })),
+        }]} />
       <main className="min-h-screen bg-background">
         <section className="bg-gradient-to-br from-zinc-900 to-zinc-950 text-white py-16 md:py-24">
           <div className="max-w-4xl mx-auto px-6 md:px-8">

@@ -1,5 +1,6 @@
 "use client";
 
+import JsonLd from '@/components/JsonLd';
 
 import Layout from '@/components/layout/Layout';
 import { Button } from '@/components/ui/button';
@@ -67,6 +68,28 @@ export default function DigitalMarketingMalta() {
 
     return (
         <Layout>
+            <JsonLd data={{
+                    "@context": "https://schema.org",
+                    "@type": "Article",
+                    "headline": "The Complete Guide to Digital Marketing in Malta 2025",
+                    "image": "https://oarcdigital.com/assets/blog/malta-digital-marketing-2025.jpg",
+                    "author": {
+                        "@type": "Organization",
+                        "name": "OARC Digital Team"
+                    },
+                    "publisher": {
+                        "@type": "Organization",
+                        "name": "OARC Digital",
+                        "logo": {
+                            "@type": "ImageObject",
+                            "url": "https://oarcdigital.com/logo.png"
+                        }
+                    },
+                    "datePublished": publishDate,
+                    "dateModified": publishDate,
+                    "description": "Comprehensive guide for Malta businesses on digital marketing strategies, costs, and trends for 2025."
+                }} id="article-1" />
+
             <article className="min-h-screen bg-background text-foreground font-sans">
                 {/* Hero Section */}
                 <header className="relative w-full h-[60vh] min-h-[500px] flex items-center justify-center overflow-hidden bg-slate-950">

@@ -1,5 +1,6 @@
 "use client";
 
+import JsonLd from '@/components/JsonLd';
 
 import Layout from '@/components/layout/Layout';
 import { Button } from '@/components/ui/button';
@@ -53,6 +54,27 @@ export default function MarketingTrendsMalta() {
 
     return (
         <Layout>
+            <JsonLd data={{
+                    "@context": "https://schema.org",
+                    "@type": "Article",
+                    "headline": "Malta Business Marketing in 2025: What's Working Now",
+                    "image": "https://oarcdigital.com/assets/blog/malta-marketing-2025.jpg",
+                    "author": {
+                        "@type": "Organization",
+                        "name": "OARC Digital Team"
+                    },
+                    "publisher": {
+                        "@type": "Organization",
+                        "name": "OARC Digital",
+                        "logo": {
+                            "@type": "ImageObject",
+                            "url": "https://oarcdigital.com/logo.png"
+                        }
+                    },
+                    "datePublished": publishDate,
+                    "dateModified": publishDate,
+                }} id="article-3" />
+
             <article className="min-h-screen bg-background text-foreground font-sans">
                 {/* Hero Section */}
                 <header className="relative w-full py-24 bg-zinc-50 dark:bg-zinc-950 border-b">

@@ -1,3 +1,4 @@
+import JsonLd from '@/components/JsonLd';
 import Layout from '@/components/layout/Layout';
 import { Button } from '@/components/ui/button';
 import { CheckCircle2, ArrowRight, AlertTriangle, Star } from 'lucide-react';
@@ -6,6 +7,16 @@ import Link from 'next/link';
 export default function BrandingMalta() {
   return (
     <Layout>
+      <JsonLd data={[{
+          "@context": "https://schema.org",
+          "@type": "Article",
+          "headline": "What a Branding Agency in Malta Actually Does (And What to Expect)",
+          "description": "The difference between a logo and a brand, what branding costs in Malta, and how to know if you actually need a branding agency.",
+          "author": { "@type": "Organization", "name": "OARC Digital" },
+          "publisher": { "@type": "Organization", "name": "OARC Digital", "url": "https://oarcdigital.com" },
+          "datePublished": "2026-03-01",
+          "dateModified": "2026-04-01",
+        }, { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{ "@type": "Question", "name": "How much does branding cost in Malta?", "acceptedAnswer": { "@type": "Answer", "text": "Logo-only from a Malta freelancer: €500–€1,500. Full brand strategy and identity from a professional agency: €3,000–€8,000. The cost reflects the depth of strategy work included." } }, { "@type": "Question", "name": "What is the difference between a logo and a brand?", "acceptedAnswer": { "@type": "Answer", "text": "A logo is a visual mark. A brand is the total impression your business creates — your positioning, personality, values, visual language, and tone of voice." } }, { "@type": "Question", "name": "How long does a branding project take in Malta?", "acceptedAnswer": { "@type": "Answer", "text": "A full brand strategy and identity project takes 6–12 weeks with a professional agency. Logo-only projects take 1–3 weeks." } }] }]} />
       <main className="min-h-screen bg-background">
         <section className="bg-gradient-to-br from-zinc-900 to-zinc-950 text-white py-16 md:py-24">
           <div className="max-w-4xl mx-auto px-6 md:px-8">

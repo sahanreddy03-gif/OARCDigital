@@ -96,6 +96,7 @@ export default function HospitalityMarketingMalta() {
 
   return (
     <Layout>
+      
       <div className="min-h-screen bg-white">
         <div className="bg-gradient-to-br from-gray-900 to-gray-800 text-white py-20 px-4">
           <div className="max-w-4xl mx-auto">

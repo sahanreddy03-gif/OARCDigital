@@ -1,3 +1,4 @@
+import JsonLd from '@/components/JsonLd';
 import Layout from '@/components/layout/Layout';
 import Link from 'next/link';
 
@@ -52,6 +53,7 @@ export default function LocalSeoMalta() {
 
   return (
     <Layout>
+      <JsonLd data={[faqSchema, articleSchema]} />
       <div className="min-h-screen bg-white">
         <div className="bg-gradient-to-br from-gray-900 to-gray-800 text-white py-20 px-4">
           <div className="max-w-4xl mx-auto">

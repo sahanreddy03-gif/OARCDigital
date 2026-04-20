@@ -45,6 +45,8 @@ export default function StrategyPulseCaseStudy() {
 
   return (
     <Layout>
+      
+
       {/* Hero Section - Full Width Dark */}
       <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-black" data-testid="section-hero">
         <AnimatedGridBackground 

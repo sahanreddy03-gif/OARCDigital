@@ -4,7 +4,6 @@ import { useEffect } from 'react';
 import Link from 'next/link';
 import { ArrowRight, Calendar, Building2 } from 'lucide-react';
 import Layout from '@/components/layout/Layout';
-import { caseStudiesSEO } from '@/data/seoMetadata';
 import heroImg from '@assets/stock_images/ai_software_developm_725be51d.jpg';
 import img1 from '@assets/stock_images/ai_software_developm_2652993c.jpg';
 import img2 from '@assets/stock_images/ai_software_developm_58a580cd.jpg';
@@ -24,6 +23,7 @@ export default function WorkForceConnectAI() {
 
   return (
     <Layout>
+      
       {/* Hero Section */}
       <section className="relative h-[70vh] min-h-[500px] flex items-end overflow-hidden">
         <div className="absolute inset-0">

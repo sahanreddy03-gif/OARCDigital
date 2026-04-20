@@ -66,6 +66,8 @@ export default function CricketPulseIndiaCaseStudy() {
 
   return (
     <Layout>
+      
+
       {/* Hero Section - Vibrant Cricket Theme */}
       <section className="relative min-h-[90vh] flex items-center overflow-hidden" data-testid="section-hero">
         {/* Gradient Background */}

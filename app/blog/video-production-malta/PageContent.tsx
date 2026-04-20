@@ -1,5 +1,6 @@
 "use client";
 
+import JsonLd from '@/components/JsonLd';
 import Layout from '@/components/layout/Layout';
 import { Button } from '@/components/ui/button';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
@@ -18,6 +19,16 @@ const costData = [
 export default function VideoProductionMalta() {
   return (
     <Layout>
+      <JsonLd data={[{
+          "@context": "https://schema.org",
+          "@type": "Article",
+          "headline": "Video Production in Malta: Costs, Formats, and What Actually Converts",
+          "description": "Video production costs, formats, and conversion rates for Malta businesses in 2026.",
+          "author": { "@type": "Organization", "name": "OARC Digital" },
+          "publisher": { "@type": "Organization", "name": "OARC Digital", "url": "https://oarcdigital.com" },
+          "datePublished": "2026-03-01",
+          "dateModified": "2026-04-01",
+        }, { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{ "@type": "Question", "name": "How much does a professional video shoot cost in Malta?", "acceptedAnswer": { "@type": "Answer", "text": "A half-day professional shoot in Malta typically runs €400–€800. A full day with a two-person crew and professional editing runs €1,200–€3,000." } }, { "@type": "Question", "name": "What video formats work best for Malta businesses?", "acceptedAnswer": { "@type": "Answer", "text": "Short-form social (Reels and TikTok) delivers the highest reach and customer acquisition. Product videos on delivery platforms increase orders by 35–60%. Corporate brand video builds long-term trust." } }, { "@type": "Question", "name": "How often should a Malta business post video content?", "acceptedAnswer": { "@type": "Answer", "text": "Minimum 3–4 short-form videos per week on TikTok and Reels. This is achievable with a focused 2-hour filming session per week." } }] }]} />
       <main className="min-h-screen bg-background">
         <section className="bg-gradient-to-br from-zinc-900 to-zinc-950 text-white py-16 md:py-24">
           <div className="max-w-4xl mx-auto px-6 md:px-8">

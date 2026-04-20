@@ -6,8 +6,6 @@ import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import Layout from '@/components/layout/Layout';
-import { caseStudiesSEO } from '@/data/seoMetadata';
-
 export default function StartUpVenturesCaseStudy() {
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -15,6 +13,7 @@ export default function StartUpVenturesCaseStudy() {
 
   return (
     <Layout>
+      
       {/* Hero Section */}
       <section className="relative min-h-[70vh] flex items-center justify-center bg-gradient-to-br from-purple-900 via-indigo-900 to-black text-white overflow-hidden">
         <div className="absolute top-0 right-0 w-80 h-80 bg-[#c4ff4d]/15 rounded-full blur-3xl"></div>

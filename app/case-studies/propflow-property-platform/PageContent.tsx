@@ -30,6 +30,8 @@ export default function PropFlowCaseStudy() {
 
   return (
     <Layout>
+      
+
       {/* Hero Section - Monochrome Design */}
       <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden" data-testid="section-hero">
         <AnimatedGridBackground intensity="high" showParticles={true} showScanLine={true} />

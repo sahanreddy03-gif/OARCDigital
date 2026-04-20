@@ -15,6 +15,8 @@ export default function PjazzaLiveVideoMalta() {
 
   return (
     <Layout>
+      
+
       <div className="min-h-screen bg-black text-white">
         <div className="max-w-3xl mx-auto px-6 py-20">
 

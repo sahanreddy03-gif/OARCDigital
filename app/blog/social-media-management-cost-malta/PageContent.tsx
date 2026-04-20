@@ -1,5 +1,6 @@
 "use client";
 
+import JsonLd from '@/components/JsonLd';
 import Layout from '@/components/layout/Layout';
 import { Button } from '@/components/ui/button';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
@@ -26,6 +27,17 @@ const roiData = [
 export default function SocialMediaCostMalta() {
   return (
     <Layout>
+      <JsonLd data={[{
+          "@context": "https://schema.org",
+          "@type": "Article",
+          "headline": "How Much Does Social Media Management Cost in Malta? (2026 Guide)",
+          "description": "Real pricing for social media management in Malta. What freelancers charge vs agencies, what you get for your money, and red flags to watch for.",
+          "author": { "@type": "Organization", "name": "OARC Digital" },
+          "publisher": { "@type": "Organization", "name": "OARC Digital", "url": "https://oarcdigital.com" },
+          "datePublished": "2026-02-15",
+          "dateModified": "2026-03-20",
+        }, { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{ "@type": "Question", "name": "How much does social media management cost in Malta?", "acceptedAnswer": { "@type": "Answer", "text": "Social media management in Malta typically costs €400–€2,500 per month for a serious service. The sweet spot for most Malta SMEs is €800–€1,500 per month." } }, { "@type": "Question", "name": "Should I hire a freelancer or an agency for social media in Malta?", "acceptedAnswer": { "@type": "Answer", "text": "Freelancers offer lower cost but limited accountability. Agencies offer systems and consistency — especially important if social media is critical to your revenue." } }, { "@type": "Question", "name": "How long before social media management shows results?", "acceptedAnswer": { "@type": "Answer", "text": "Organic social media growth takes 60–90 days to gain meaningful momentum. Sustainable compounding results take 6+ months of consistent work." } }] }]} />
+
       <main className="min-h-screen bg-background">
         {/* Hero */}
         <section className="bg-gradient-to-br from-zinc-900 to-zinc-950 text-white py-16 md:py-24">

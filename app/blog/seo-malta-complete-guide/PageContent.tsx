@@ -1,5 +1,6 @@
 "use client";
 
+import JsonLd from '@/components/JsonLd';
 
 import Layout from '@/components/layout/Layout';
 import { Button } from '@/components/ui/button';
@@ -51,6 +52,27 @@ export default function SeoMalta() {
 
     return (
         <Layout>
+            <JsonLd data={{
+                    "@context": "https://schema.org",
+                    "@type": "Article",
+                    "headline": "How to Get Your Malta Business on Page 1 of Google",
+                    "image": "https://oarcdigital.com/assets/blog/seo-malta-hero.jpg",
+                    "author": {
+                        "@type": "Organization",
+                        "name": "OARC Digital Team"
+                    },
+                    "publisher": {
+                        "@type": "Organization",
+                        "name": "OARC Digital",
+                        "logo": {
+                            "@type": "ImageObject",
+                            "url": "https://oarcdigital.com/logo.png"
+                        }
+                    },
+                    "datePublished": publishDate,
+                    "dateModified": publishDate,
+                }} id="article-2" />
+
             <article className="min-h-screen bg-background text-foreground font-sans">
                 {/* Hero Section */}
                 <header className="relative w-full py-24 bg-gradient-to-b from-slate-900 to-slate-950 border-b border-slate-800">
