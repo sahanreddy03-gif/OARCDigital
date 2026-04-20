@@ -7,9 +7,9 @@ import { GlassCard } from '@/components/ui/glass-card';
 import CreativeNavigation from '@/components/CreativeNavigation';
 import Footer from '@/components/Footer';
 import FAQSection from '@/components/FAQSection';
-import { aiTeamMembers } from '@/components/ai/aiAgentsData';
+import { aiTeamMembers, agentRatings } from '@/components/ai/aiAgentsData';
 import { createServiceSchema } from '@/utils/structuredData';
-import { createBreadcrumbSchema } from '@/utils/advancedSchema';
+import { createBreadcrumbSchema, createAggregateRatingSchema } from '@/utils/advancedSchema';
 import { ArrowLeft, Check, ChevronRight } from 'lucide-react';
 import { SiWhatsapp } from 'react-icons/si';
 
@@ -54,6 +54,17 @@ export default function AIAgentDetail() {
     { name: `${agent.name} — ${agent.role}`, url: `/ai-agents/${agent.id}` }
   ]);
 
+  const rating = agentRatings[agent.id];
+  const ratingSchema = rating
+    ? createAggregateRatingSchema(
+        `${agent.name} — AI ${agent.role}`,
+        rating.ratingValue,
+        rating.reviewCount,
+        5,
+        'Service'
+      )
+    : null;
+
   return (
     <>
       <Helmet>
@@ -82,6 +93,11 @@ export default function AIAgentDetail() {
         <script type="application/ld+json" id={`breadcrumb-schema-${agent.id}`}>
           {JSON.stringify(breadcrumbSchema)}
         </script>
+        {ratingSchema && (
+          <script type="application/ld+json" id={`rating-schema-${agent.id}`}>
+            {JSON.stringify(ratingSchema)}
+          </script>
+        )}
       </Helmet>
 
       <CreativeNavigation />
@@ -227,6 +243,71 @@ export default function AIAgentDetail() {
             </div>
           </div>
         </section>
+
+        {/* Client Ratings & Testimonials */}
+        {rating && (
+          <section className="py-16 px-4 sm:px-6 bg-zinc-950 border-t border-white/5">
+            <div className="max-w-5xl mx-auto">
+              {/* Star summary */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="text-center mb-10"
+              >
+                <div className="flex items-center justify-center gap-1 mb-3" aria-label={`Rating: ${rating.ratingValue} out of 5`}>
+                  {[1, 2, 3, 4, 5].map(star => (
+                    <svg key={star} className="w-6 h-6" viewBox="0 0 24 24" aria-hidden="true">
+                      <polygon
+                        points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"
+                        fill={star <= Math.round(rating.ratingValue) ? '#c4ff4d' : 'transparent'}
+                        stroke="#c4ff4d"
+                        strokeWidth="1.5"
+                      />
+                    </svg>
+                  ))}
+                </div>
+                <p className="text-2xl font-bold text-white">
+                  {rating.ratingValue} <span className="text-white/40 font-normal text-lg">/ 5</span>
+                </p>
+                <p className="text-white/40 text-sm mt-1">Based on {rating.reviewCount} client reviews</p>
+              </motion.div>
+
+              {/* Testimonial cards */}
+              <div className="grid sm:grid-cols-2 gap-4">
+                {rating.testimonials.map((t, i) => (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.1 }}
+                  >
+                    <GlassCard className="p-6 h-full flex flex-col gap-4">
+                      <div className="flex gap-0.5" aria-hidden="true">
+                        {[1, 2, 3, 4, 5].map(s => (
+                          <svg key={s} className="w-4 h-4" viewBox="0 0 24 24">
+                            <polygon
+                              points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"
+                              fill="#c4ff4d"
+                              stroke="#c4ff4d"
+                              strokeWidth="1.5"
+                            />
+                          </svg>
+                        ))}
+                      </div>
+                      <p className="text-white/80 text-sm leading-relaxed flex-1">"{t.quote}"</p>
+                      <div>
+                        <p className="text-white font-semibold text-sm">{t.author}</p>
+                        <p className="text-white/40 text-xs">{t.company}</p>
+                      </div>
+                    </GlassCard>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
 
         {/* FAQ Section */}
         <FAQSection

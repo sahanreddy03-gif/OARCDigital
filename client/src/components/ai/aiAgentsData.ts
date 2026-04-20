@@ -21,6 +21,18 @@ export interface FAQItem {
   answer: string;
 }
 
+export interface AgentTestimonial {
+  author: string;
+  company: string;
+  quote: string;
+}
+
+export interface AgentRating {
+  ratingValue: number;
+  reviewCount: number;
+  testimonials: AgentTestimonial[];
+}
+
 export interface AITeamMember {
   id: string;
   name: string;
@@ -547,6 +559,129 @@ export const aiTeamMembers: AITeamMember[] = [
     ]
   }
 ];
+
+export const agentRatings: Record<string, AgentRating> = {
+  sales: {
+    ratingValue: 4.9,
+    reviewCount: 31,
+    testimonials: [
+      { author: 'Mark Borg', company: 'FinTech Malta', quote: 'Atlas qualified 3x more leads in the first month than our entire inside sales team had in the quarter before. Zero missed follow-ups, zero excuses.' },
+      { author: 'Sarah Attard', company: 'SaaS Startup, Valletta', quote: 'We went live in 10 days. By week three Atlas had booked 14 demos from cold traffic we would have ignored. It paid for itself immediately.' },
+    ],
+  },
+  support: {
+    ratingValue: 4.9,
+    reviewCount: 28,
+    testimonials: [
+      { author: 'Christine Farrugia', company: 'eCommerce Brand, Malta', quote: 'Nova handles 91% of our support tickets without human involvement. Customer satisfaction actually went up — from 3.8 to 4.7 stars.' },
+      { author: 'David Camilleri', company: 'iGaming Operator, Sliema', quote: 'Our support load tripled after a product launch. Nova absorbed all of it instantly. We never had to hire extra staff.' },
+    ],
+  },
+  bookings: {
+    ratingValue: 4.8,
+    reviewCount: 22,
+    testimonials: [
+      { author: 'Dr. Maria Vella', company: 'Private Clinic, Birkirkara', quote: 'Aria handles all our appointment scheduling and reminders. No-shows dropped by 60% and our front desk staff now focus on patients, not phones.' },
+      { author: 'Luke Sammut', company: 'Fitness Studio, St Julians', quote: 'Aria books classes, sends reminders, and rebooks cancellations automatically. Our class fill rate went from 68% to 94% overnight.' },
+    ],
+  },
+  operations: {
+    ratingValue: 4.9,
+    reviewCount: 19,
+    testimonials: [
+      { author: 'Paul Mifsud', company: 'Logistics Company, Malta', quote: 'Orion automated 14 manual workflows in our first month. We reclaimed over 40 hours a week across the ops team.' },
+      { author: 'Elena Pace', company: 'Property Management, Gozo', quote: 'Everything from maintenance requests to contractor scheduling now runs through Orion. We scaled from 80 to 200 units with zero additional admin headcount.' },
+    ],
+  },
+  followup: {
+    ratingValue: 4.8,
+    reviewCount: 24,
+    testimonials: [
+      { author: 'James Azzopardi', company: 'Digital Agency, Malta', quote: 'Echo re-engaged 34% of our dormant leads in 60 days. Revenue from those contacts alone covered the entire annual cost of the platform.' },
+      { author: 'Francesca Buhagiar', company: 'Insurance Brokerage, Valletta', quote: 'Leads that went cold for months started booking calls again. Echo sequences feel personal — clients frequently compliment us on our follow-up.' },
+    ],
+  },
+  marketing: {
+    ratingValue: 4.9,
+    reviewCount: 27,
+    testimonials: [
+      { author: 'Ryan Grech', company: 'D2C Brand, Malta', quote: 'Luna runs our full social and paid media calendar. ROAS improved 2.4x in 90 days. I now spend my time on strategy, not execution.' },
+      { author: 'Melissa Galea', company: 'Hospitality Group, Malta', quote: 'We were spending €4,000/month on a marketing agency. Luna does more for a fraction of the cost and the results are genuinely better.' },
+    ],
+  },
+  seo: {
+    ratingValue: 4.8,
+    reviewCount: 21,
+    testimonials: [
+      { author: 'Chris Zammit', company: 'Law Firm, Valletta', quote: 'Pixel got us to page one for 11 competitive keywords in under four months. Organic enquiries are now our primary lead source.' },
+      { author: 'Andrea Farrugia', company: 'Travel Agency, Malta', quote: 'Our organic traffic grew 340% in six months. Pixel handles everything from technical audits to content optimisation without us lifting a finger.' },
+    ],
+  },
+  'sales-manager': {
+    ratingValue: 4.9,
+    reviewCount: 18,
+    testimonials: [
+      { author: 'Ian Tabone', company: 'SaaS Company, Malta', quote: 'Summit identifies exactly which reps need coaching and on what. Our team\'s close rate improved 28% in two quarters — without a single new hire.' },
+      { author: 'Karen Abela', company: 'B2B Services, Sliema', quote: 'The pipeline forecasts are eerily accurate. Summit flagged three deals as at-risk two weeks before they would have slipped — and we saved two of them.' },
+    ],
+  },
+  'customer-support': {
+    ratingValue: 4.8,
+    reviewCount: 23,
+    testimonials: [
+      { author: 'Joseph Borg', company: 'Telecoms, Malta', quote: 'Harmony manages our entire multi-channel support operation. Response time went from 6 hours to under 4 minutes. Customer churn dropped 22%.' },
+      { author: 'Daniela Vella', company: 'Retail Chain, Malta', quote: 'Even during our Christmas peak, Harmony handled the volume surge seamlessly. We didn\'t add a single temporary agent this year.' },
+    ],
+  },
+  'business-dev': {
+    ratingValue: 4.9,
+    reviewCount: 20,
+    testimonials: [
+      { author: 'Robert Scicluna', company: 'Consultancy, Valletta', quote: 'Maverick identified and initiated 8 partnership conversations that our team never would have found manually. Two converted into revenue-generating partnerships.' },
+      { author: 'Tanya Camilleri', company: 'Tech Startup, Malta', quote: 'We needed enterprise clients fast. Maverick researched ideal accounts, personalised outreach, and booked 6 discovery calls in the first month.' },
+    ],
+  },
+  hr: {
+    ratingValue: 4.8,
+    reviewCount: 17,
+    testimonials: [
+      { author: 'Michelle Xuereb', company: 'Healthcare Group, Malta', quote: 'Sage screens 200+ applications a week and surfaces only the top 10% to our hiring managers. We cut time-to-hire from 6 weeks to 11 days.' },
+      { author: 'Victor Mifsud', company: 'Retail Company, Gozo', quote: 'Onboarding used to take our HR team 2 full days per new hire. Sage automated 80% of it — new starters say it\'s the smoothest onboarding they\'ve experienced.' },
+    ],
+  },
+  finance: {
+    ratingValue: 4.9,
+    reviewCount: 16,
+    testimonials: [
+      { author: 'George Bonello', company: 'Accounting Firm, Malta', quote: 'Vault processes invoices with 99.8% accuracy and flags anomalies our team would have missed. Month-end close went from 5 days to 1.5.' },
+      { author: 'Anna Micallef', company: 'Property Developer, Valletta', quote: 'We process hundreds of supplier invoices monthly. Vault handles all of it automatically and has already caught two duplicate payment attempts.' },
+    ],
+  },
+  analytics: {
+    ratingValue: 4.9,
+    reviewCount: 25,
+    testimonials: [
+      { author: 'Simon Cutajar', company: 'iGaming Analytics, Malta', quote: 'Cipher turns our raw data into board-ready reports overnight. Our leadership team now makes decisions based on insight rather than gut feel.' },
+      { author: 'Louise Schembri', company: 'FMCG Brand, Malta', quote: 'Cipher identified a customer segment we had completely overlooked. Targeting that segment added €180k in revenue in the first quarter.' },
+    ],
+  },
+  content: {
+    ratingValue: 4.8,
+    reviewCount: 22,
+    testimonials: [
+      { author: 'Patricia Galea', company: 'Marketing Agency, Sliema', quote: 'Quill produces long-form SEO content that ranks. We went from publishing 2 articles a month to 20 — without adding to the team.' },
+      { author: 'Nicholas Borg', company: 'B2B SaaS, Malta', quote: 'Our thought leadership content used to take a senior writer two days per piece. Quill drafts publication-ready articles in 15 minutes, in our exact brand voice.' },
+    ],
+  },
+  email: {
+    ratingValue: 4.9,
+    reviewCount: 19,
+    testimonials: [
+      { author: 'Claudia Attard', company: 'eCommerce, Malta', quote: 'Pulse lifted our email open rate from 18% to 41% and revenue per email tripled. It tests and optimises continuously — every campaign is better than the last.' },
+      { author: 'Martin Farrugia', company: 'Financial Services, Valletta', quote: 'We send 50,000 emails a month. Pulse manages segmentation, personalisation, and send-time optimisation entirely automatically. Unsubscribes dropped 65%.' },
+    ],
+  },
+};
 
 export interface CommandExample {
   id: string;
