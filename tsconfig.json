@@ -9,7 +9,13 @@
     "next-env.d.ts",
     ".next/types/**/*.ts"
   ],
-  "exclude": ["node_modules", "build", "dist", ".next", "**/*.test.ts"],
+  "exclude": [
+    "node_modules",
+    "build",
+    "dist",
+    ".next",
+    "**/*.test.ts"
+  ],
   "compilerOptions": {
     "incremental": true,
     "tsBuildInfoFile": "./node_modules/typescript/tsbuildinfo",
@@ -17,7 +23,11 @@
     "module": "ESNext",
     "target": "ES2020",
     "strict": true,
-    "lib": ["esnext", "dom", "dom.iterable"],
+    "lib": [
+      "esnext",
+      "dom",
+      "dom.iterable"
+    ],
     "jsx": "preserve",
     "esModuleInterop": true,
     "skipLibCheck": true,
@@ -26,14 +36,35 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "baseUrl": ".",
-    "types": ["node", "vite/client"],
+    "types": [
+      "node",
+      "vite/client"
+    ],
     "paths": {
-      "@/*": ["./*", "./client/src/*"],
-      "@/components/*": ["./components/*", "./client/src/components/*"],
-      "@/lib/*": ["./lib/*", "./client/src/lib/*"],
-      "@/shared/*": ["./shared/*"],
-      "@shared/*": ["./shared/*"]
+      "@/*": [
+        "./*",
+        "./client/src/*"
+      ],
+      "@/components/*": [
+        "./components/*",
+        "./client/src/components/*"
+      ],
+      "@/lib/*": [
+        "./lib/*",
+        "./client/src/lib/*"
+      ],
+      "@/shared/*": [
+        "./shared/*"
+      ],
+      "@shared/*": [
+        "./shared/*"
+      ]
     },
-    "plugins": [{ "name": "next" }]
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "allowJs": true
   }
 }
