@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: pdfPagesSEO.aiCreativeProfile.title,
     description: pdfPagesSEO.aiCreativeProfile.description,
     url: `https://oarcdigital.com${pdfPagesSEO.aiCreativeProfile.path}`,
-    type: pdfPagesSEO.aiCreativeProfile.ogType,
+    type: pdfPagesSEO.aiCreativeProfile.ogType as any,
   },
   twitter: {
     card: "summary_large_image",
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 
 import { companyInfo, aboutText, coreServices, caseStudies, technologyStack, processSteps } from "@/data/companyProfile";
 import { Brain, Sparkles, BarChart3, Zap } from "lucide-react";
-import "../styles/pdf.css";
+import "@/styles/pdf.css";
 import logoImage from "@assets/fdfdfd_1762818183304.png";
 
 export default function Page() {

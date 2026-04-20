@@ -7,7 +7,7 @@ import useEmblaCarousel from 'embla-carousel-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import heroVideoSrc from '@assets/2026-01-07_01_1767825976557.mp4';
+const heroVideoSrc = '/media/2026-01-07_01_1767825976557.mp4';
 import { serviceImages } from '@/assets/serviceImages';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 import { 

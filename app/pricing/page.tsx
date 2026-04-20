@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     title: "Pricing Plans | OARC Digital",
     description: "Flexible plans built for growth. Pay for outcomes, not outputs. 10x faster than traditional agencies.",
     url: `https://oarcdigital.com${supportingPagesSEO.pricing.path}`,
-    type: supportingPagesSEO.pricing.ogType,
+    type: supportingPagesSEO.pricing.ogType as any,
   },
   twitter: {
     card: "summary_large_image",

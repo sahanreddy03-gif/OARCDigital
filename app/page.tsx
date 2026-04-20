@@ -21,7 +21,7 @@ import HeroSection from "@/components/HeroSection";
 import DiagnosticsTeaser from "@/components/DiagnosticsTeaser";
 import OARCBrandSection from "@/components/OARCBrandSection";
 import ShiftHappensSection from "@/components/ShiftHappensSection";
-import oarcBgVideo from "@assets/glif-chat-1766630282078_1766685897761.mov";
+const oarcBgVideo = "/media/glif-chat-1766630282078_1766685897761.mov";
 import TrustedBrandsSection from "@/components/TrustedBrandsSection";
 import AICreativeSection from "@/components/AICreativeSection";
 import Section2 from "@/components/Section2";
