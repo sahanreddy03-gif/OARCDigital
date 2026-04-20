@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { allServiceSlugs, maltaIndustries } from "@/shared/seoConfig";
-import ServiceIndustryClient, { serviceMap, industryMap } from "./ServiceIndustryClient";
+import ServiceIndustryClient, { getServiceMeta, getIndustryMeta } from "./ServiceIndustryClient";
 
 export async function generateStaticParams() {
   return allServiceSlugs.flatMap((serviceSlug) =>
@@ -9,11 +9,8 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: { params: { serviceSlug: string; industry: string } }): Promise<Metadata> {
-  const service = serviceMap[params.serviceSlug];
-  const ind = industryMap[params.industry];
-  if (!service || !ind) {
-    return { title: "Page Not Found | OARC Digital" };
-  }
+  const service = getServiceMeta(params.serviceSlug);
+  const ind = getIndustryMeta(params.industry);
   const title = `${service.title} for ${ind.plural} in Malta | OARC Digital`;
   const description = `Professional ${service.title.toLowerCase()} for ${ind.plural.toLowerCase()} in Malta. OARC Digital delivers measurable results. Book a free strategy call today.`;
   const canonical = `https://oarcdigital.com/services/${params.serviceSlug}/${params.industry}`;
