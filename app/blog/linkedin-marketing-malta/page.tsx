@@ -1,0 +1,23 @@
+import type { Metadata } from "next";
+import PageContent from "./PageContent";
+
+export const metadata: Metadata = {
+  title: "LinkedIn Marketing Malta: B2B Lead Generation for Maltese Companies | OARC Digital",
+  description: "How Malta B2B companies use LinkedIn to generate high-quality leads, build authority, and close bigger deals — without paid advertising.",
+  alternates: { canonical: "https://oarcdigital.com/blog/linkedin-marketing-malta" },
+  openGraph: {
+    title: "LinkedIn Marketing Malta: B2B Lead Generation for Maltese Companies | OARC Digital",
+    description: "How Malta B2B companies use LinkedIn to generate high-quality leads, build authority, and close bigger deals — without paid advertising.",
+    url: "https://oarcdigital.com/blog/linkedin-marketing-malta",
+    type: "article",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "LinkedIn Marketing Malta: B2B Lead Generation for Maltese Companies | OARC Digital",
+    description: "How Malta B2B companies use LinkedIn to generate high-quality leads, build authority, and close bigger deals — without paid advertising.",
+  },
+};
+
+export default function Page() {
+  return <PageContent />;
+}
