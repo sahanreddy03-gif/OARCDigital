@@ -1,9 +1,12 @@
-/** @type {import('next').NextConfig} */
-const path = require('path');
+import path from 'path';
+import { fileURLToPath } from 'url';
 
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
+/** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  images: { unoptimized: true, formats: ['image/avif', 'image/webp'] },
+  images: { unoptimized: true, disableStaticImages: true },
   webpack: (config) => {
     config.resolve.alias = {
       ...(config.resolve.alias || {}),
@@ -11,17 +14,17 @@ const nextConfig = {
       '@shared': path.resolve(__dirname, 'shared'),
     };
     config.module.rules.push({
-      test: /\.(mp4|mov|webm|avi|m4v|ogv)$/i,
+      test: /\.(png|jpg|jpeg|gif|webp|avif|ico|bmp|svg|heic|heif)$/i,
       type: 'asset/resource',
       generator: { filename: 'static/media/[name].[hash][ext]' },
     });
     config.module.rules.push({
-      test: /\.(avif|heic|heif)$/i,
+      test: /\.(mp4|mov|webm|avi|m4v|ogv)$/i,
       type: 'asset/resource',
-      generator: { filename: 'static/images/[name].[hash][ext]' },
+      generator: { filename: 'static/media/[name].[hash][ext]' },
     });
     return config;
   },
 };
 
-module.exports = nextConfig;
+export default nextConfig;

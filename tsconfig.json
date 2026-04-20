@@ -14,7 +14,11 @@
     "build",
     "dist",
     ".next",
-    "**/*.test.ts"
+    "**/*.test.ts",
+    "client/src/components/examples/**",
+    "client/src/pages/**",
+    "client/src/App.tsx",
+    "client/src/main.tsx"
   ],
   "compilerOptions": {
     "incremental": true,

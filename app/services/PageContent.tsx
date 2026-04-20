@@ -88,6 +88,7 @@ export default function PageContent() {
   const validCategoryIds = categories.map(c => c.id);
   
   const getInitialCategory = () => {
+    if (typeof window === 'undefined') return 'creativeDesign';
     const hash = window.location.hash.slice(1);
     if (hash && validCategoryIds.includes(hash)) {
       return hash;
