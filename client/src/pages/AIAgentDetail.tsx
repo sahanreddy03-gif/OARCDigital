@@ -61,7 +61,7 @@ export default function AIAgentDetail() {
         rating.ratingValue,
         rating.reviewCount,
         5,
-        'Service'
+        'Product'
       )
     : null;
 
