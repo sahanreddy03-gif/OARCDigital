@@ -23,7 +23,6 @@ import { FileText, File, Brain } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/layout/Layout";
 import logoImage from "@assets/fdfdfd_1762818183304.png";
-import { pdfPagesSEO } from "@/data/seoMetadata";
 
 export default function Page() {
   const pdfs = [

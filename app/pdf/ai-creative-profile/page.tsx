@@ -22,7 +22,6 @@ import { companyInfo, aboutText, coreServices, caseStudies, technologyStack, pro
 import { Brain, Sparkles, BarChart3, Zap } from "lucide-react";
 import "../styles/pdf.css";
 import logoImage from "@assets/fdfdfd_1762818183304.png";
-import { pdfPagesSEO } from "@/data/seoMetadata";
 
 export default function Page() {
   const aiCaseStudies = caseStudies.filter(cs => 
