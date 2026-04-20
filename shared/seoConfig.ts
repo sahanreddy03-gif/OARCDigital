@@ -2,56 +2,50 @@
 // This ensures sitemap, routes, and components stay in sync
 
 // Malta locations for programmatic SEO
+// REDUCED for Next.js migration: 50 -> 10 (top traffic locations only).
+// Archived locations are preserved here in a comment block for reference.
+//
+// ARCHIVED (40): mosta, qormi, hamrun, naxxar, attard, mdina, rabat,
+// marsaskala, marsaxlokk, birgu, msida, swieqi, mellieha, bugibba,
+// san-pawl-il-bahar, zejtun, zurrieq, paola, tarxien, fgura, balzan,
+// floriana, marsa, luqa, gudja, birzebbuga, kirkop, siggiewi, mqabba,
+// lija, iklin, san-lawrenz, santa-venera, pieta, pembroke, swatar,
+// ghaxaq, xghajra, kalkara, isla, bormla, cospicua
 export const maltaLocations = [
-  // Original 10
-  'valletta', 'sliema', 'st-julians', 'mosta', 'birkirkara',
-  'qormi', 'hamrun', 'naxxar', 'zabbar', 'attard',
-  // Batch 2 (18 more)
-  'mdina', 'rabat', 'marsaskala', 'marsaxlokk', 'birgu',
-  'san-gwann', 'msida', 'gzira', 'swieqi', 'mellieha',
-  'bugibba', 'san-pawl-il-bahar', 'zejtun', 'zurrieq',
-  'paola', 'tarxien', 'fgura', 'balzan',
-  // Batch 3 (22 more — total 50)
-  'floriana', 'marsa', 'luqa', 'gudja', 'birzebbuga',
-  'kirkop', 'siggiewi', 'mqabba', 'lija', 'iklin',
-  'san-lawrenz', 'santa-venera', 'pieta',
-  'pembroke', 'swatar', 'ghaxaq', 'xghajra',
-  'kalkara', 'isla', 'bormla', 'cospicua'
+  'valletta',
+  'sliema',
+  'st-julians',
+  'birkirkara',
+  'mosta',
+  'qormi',
+  'zabbar',
+  'san-gwann',
+  'gzira',
+  'hamrun',
 ] as const;
 
+// REDUCED for Next.js migration: 15 -> 3 (top vertical industries only).
+// ARCHIVED (12): cafe, bar, spa-wellness, gym-fitness, retail, igaming,
+// fintech, healthcare, law-firm, car-dealership, construction, ecommerce
 export const maltaIndustries = [
   'restaurant',
   'hotel',
-  'cafe',
-  'bar',
-  'spa-wellness',
-  'gym-fitness',
-  'retail',
   'real-estate',
-  'igaming',
-  'fintech',
-  'healthcare',
-  'law-firm',
-  'car-dealership',
-  'construction',
-  'ecommerce'
 ] as const;
 
 export type MaltaIndustry = typeof maltaIndustries[number];
 
 // Top services available for location-based pages
 // MUST match the serviceData keys in LocationService.tsx
+// REDUCED for Next.js migration: 10 -> 5 (top converting services only).
+// ARCHIVED (5): branding-services, video-production, ai-copywriting,
+// hire-ai-employees, revenue-automation
 export const locationServices = [
   'social-media-creative-management',
   'digital-marketing',
-  'branding-services',
-  'web-design',
-  'video-production',
-  'ai-copywriting',
-  'hire-ai-employees',
-  'revenue-automation',
   'paid-advertising',
-  'ai-consulting'
+  'web-design',
+  'ai-consulting',
 ] as const;
 
 // All valid service slugs - ONLY services with explicit routes in App.tsx

@@ -62,6 +62,7 @@
     "lucide-react": "^0.453.0",
     "memorystore": "^1.6.7",
     "multer": "^2.0.2",
+    "next": "^14.2.35",
     "next-themes": "^0.4.6",
     "openai": "^6.15.0",
     "passport": "^0.7.0",
@@ -99,6 +100,7 @@
     "@types/react": "^18.3.11",
     "@types/react-dom": "^18.3.1",
     "@types/ws": "^8.5.13",
+    "@vercel/node": "^3.0.0",
     "@vitejs/plugin-react": "^4.7.0",
     "autoprefixer": "^10.4.20",
     "drizzle-kit": "^0.31.4",
@@ -110,8 +112,7 @@
     "typescript": "5.6.3",
     "vite": "^5.4.20",
     "vite-plugin-pages": "^0.33.2",
-    "vite-plugin-ssr": "^0.4.142",
-    "@vercel/node": "^3.0.0"
+    "vite-plugin-ssr": "^0.4.142"
   },
   "optionalDependencies": {
     "bufferutil": "^4.0.8"
