@@ -3,7 +3,8 @@
   "outputDirectory": "dist/public",
   "redirects": [
     {
-      "source": "https://www.oarcdigital.com/(.*)",
+      "source": "/(.*)",
+      "has": [{"type": "host", "value": "www.oarcdigital.com"}],
       "destination": "https://oarcdigital.com/$1",
       "permanent": true
     },
