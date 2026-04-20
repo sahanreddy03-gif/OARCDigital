@@ -2,7 +2,7 @@ export interface PageSEO {
   title: string;
   description: string;
   path: string;
-  ogType?: string;
+  ogType?: 'website' | 'article';
 }
 
 export const supportingPagesSEO: Record<string, PageSEO> = {

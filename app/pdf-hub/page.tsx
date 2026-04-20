@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: pdfPagesSEO.pdfHub.title,
     description: pdfPagesSEO.pdfHub.description,
     url: `https://oarcdigital.com${pdfPagesSEO.pdfHub.path}`,
-    type: pdfPagesSEO.pdfHub.ogType as any,
+    type: pdfPagesSEO.pdfHub.ogType,
   },
   twitter: {
     card: "summary_large_image",

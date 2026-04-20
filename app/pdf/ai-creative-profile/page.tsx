@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: pdfPagesSEO.aiCreativeProfile.title,
     description: pdfPagesSEO.aiCreativeProfile.description,
     url: `https://oarcdigital.com${pdfPagesSEO.aiCreativeProfile.path}`,
-    type: pdfPagesSEO.aiCreativeProfile.ogType as any,
+    type: pdfPagesSEO.aiCreativeProfile.ogType,
   },
   twitter: {
     card: "summary_large_image",

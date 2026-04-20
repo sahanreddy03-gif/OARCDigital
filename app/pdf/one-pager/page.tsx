@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: pdfPagesSEO.onePager.title,
     description: pdfPagesSEO.onePager.description,
     url: `https://oarcdigital.com${pdfPagesSEO.onePager.path}`,
-    type: pdfPagesSEO.onePager.ogType as any,
+    type: pdfPagesSEO.onePager.ogType,
   },
   twitter: {
     card: "summary_large_image",
