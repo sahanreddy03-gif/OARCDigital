@@ -21,9 +21,23 @@ interface ComboContent {
   deliverables: string[];
 }
 
+const titleCase = (slug: string) =>
+  slug
+    .split("-")
+    .map((w) => (w.length <= 3 && w === w.toLowerCase() && /^(ai|ar|3d|seo|sdr|api|crm)$/.test(w) ? w.toUpperCase() : w.charAt(0).toUpperCase() + w.slice(1)))
+    .join(" ");
+
+const categorize = (slug: string): string => {
+  if (slug.startsWith("ai-") || slug === "hire-ai-employees" || slug === "ai-virtual-talent-hub") return "AI Workforce Agents";
+  if (slug.includes("revenue") || slug.includes("lead-generation") || slug.includes("funnel") || slug.includes("customer-acquisition") || slug.includes("automation") || slug === "idea-validation-engine") return "Growth Automation";
+  if (slug.includes("development") || slug === "mvp-development") return "Development";
+  return "Creative & Design";
+};
+
 export const serviceMap: Record<string, ServiceMeta> = {
   "social-media-creative-management": { title: "Social Media Management", category: "Creative & Design" },
   "video-production": { title: "Video Production", category: "Creative & Design" },
+  "branding": { title: "Brand Identity", category: "Creative & Design" },
   "branding-services": { title: "Brand Identity", category: "Creative & Design" },
   "ai-sdr-agent": { title: "AI Sales Agent", category: "AI Workforce Agents" },
   "ai-support-specialist": { title: "AI Customer Support", category: "AI Workforce Agents" },
@@ -32,11 +46,16 @@ export const serviceMap: Record<string, ServiceMeta> = {
   "paid-advertising": { title: "Paid Advertising", category: "Creative & Design" },
 };
 
+const getServiceMeta = (slug: string): ServiceMeta =>
+  serviceMap[slug] ?? { title: titleCase(slug), category: categorize(slug) };
+
 export const industryMap: Record<string, IndustryMeta> = {
   restaurant: { name: "Restaurant", plural: "Restaurants" },
   hotel: { name: "Hotel", plural: "Hotels" },
   restaurants: { name: "Restaurant", plural: "Restaurants" },
   hotels: { name: "Hotel", plural: "Hotels" },
+  cafe: { name: "Cafe", plural: "Cafes" },
+  bar: { name: "Bar & Nightlife", plural: "Bars" },
   cafes: { name: "Cafe", plural: "Cafes" },
   bars: { name: "Bar & Nightlife", plural: "Bars" },
   igaming: { name: "iGaming", plural: "iGaming Companies" },
@@ -107,9 +126,25 @@ const comboOverrides: Record<string, ComboContent> = {
   },
 };
 
+const industryPluralAlias: Record<string, string> = {
+  restaurant: "restaurants",
+  hotel: "hotels",
+  cafe: "cafes",
+  bar: "bars",
+};
+
 export function getComboContent(serviceSlug: string, industry: string, serviceMeta: ServiceMeta, industryMeta: IndustryMeta): ComboContent {
-  const key = `${serviceSlug}_${industry}`;
-  if (comboOverrides[key]) return comboOverrides[key];
+  const altIndustry = industryPluralAlias[industry] ?? industry;
+  const altService = serviceSlug === "branding" ? "branding-services" : serviceSlug === "branding-services" ? "branding" : serviceSlug;
+  const keys = [
+    `${serviceSlug}_${industry}`,
+    `${serviceSlug}_${altIndustry}`,
+    `${altService}_${industry}`,
+    `${altService}_${altIndustry}`,
+  ];
+  for (const k of keys) {
+    if (comboOverrides[k]) return comboOverrides[k];
+  }
   return {
     intro: `${serviceMeta.title} is one of the most effective growth tools available to ${industryMeta.plural.toLowerCase()} in Malta today. OARC Digital combines deep understanding of ${industryMeta.plural.toLowerCase()} with proven ${serviceMeta.title.toLowerCase()} expertise to deliver results that move the needle for your business.`,
     why: [
@@ -127,23 +162,8 @@ export function getComboContent(serviceSlug: string, industry: string, serviceMe
 }
 
 export default function ServiceIndustryClient({ serviceSlug, industry }: { serviceSlug: string; industry: string }) {
-  if (!serviceMap[serviceSlug] || !industryMap[industry]) {
-    return (
-      <Layout>
-        <div className="min-h-screen flex items-center justify-center">
-          <div className="text-center">
-            <h1 className="text-2xl font-bold mb-4">Page Not Found</h1>
-            <Link href="/services">
-              <Button>View All Services</Button>
-            </Link>
-          </div>
-        </div>
-      </Layout>
-    );
-  }
-
-  const service = serviceMap[serviceSlug];
-  const ind = industryMap[industry];
+  const service = getServiceMeta(serviceSlug);
+  const ind = industryMap[industry] ?? { name: titleCase(industry), plural: titleCase(industry) };
   const content = getComboContent(serviceSlug, industry, service, ind);
 
   return (

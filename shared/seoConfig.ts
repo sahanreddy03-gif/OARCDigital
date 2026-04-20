@@ -58,6 +58,7 @@ export const allServiceSlugs = [
   'creative',
   'influencer',
   'branding',
+  'branding-services',
   'ad-creative',
   'web-design',
   'video-production',

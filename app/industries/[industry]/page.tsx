@@ -537,7 +537,7 @@ export default function IndustryHubPage({ params }: { params: { industry: string
         </section>
 
         {/* Further Reading — industry-specific */}
-        {(industry === 'restaurants' || industry === 'cafes' || industry === 'bars') && (
+        {(dataKey === 'restaurants' || dataKey === 'cafes' || dataKey === 'bars') && (
           <section className="py-16 bg-background border-t">
             <div className="max-w-4xl mx-auto px-6 md:px-8">
               <h2 className="text-xl font-bold mb-6">Further Reading</h2>
@@ -558,7 +558,7 @@ export default function IndustryHubPage({ params }: { params: { industry: string
             </div>
           </section>
         )}
-        {(industry === 'igaming' || industry === 'fintech') && (
+        {(dataKey === 'igaming' || dataKey === 'fintech') && (
           <section className="py-16 bg-background border-t">
             <div className="max-w-4xl mx-auto px-6 md:px-8">
               <h2 className="text-xl font-bold mb-6">Further Reading</h2>
