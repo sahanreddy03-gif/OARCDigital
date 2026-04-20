@@ -55,6 +55,9 @@ export default function AIAgentDetail() {
   ]);
 
   const rating = agentRatings[agent.id];
+  if (import.meta.env.DEV && !rating) {
+    console.warn(`[AIAgentDetail] No agentRatings entry for agent id "${agent.id}". Add it to aiAgentsData.ts to enable star ratings schema.`);
+  }
   const ratingSchema = rating
     ? createAggregateRatingSchema(
         `${agent.name} — AI ${agent.role}`,
