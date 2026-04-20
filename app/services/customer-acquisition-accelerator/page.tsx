@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: "Customer Acquisition Accelerator | Multi-Channel Growth | OARC Digital",
     description: "Turn ad spend into predictable revenue. AI optimizes your campaigns across every channel in real-time, cutting acquisition costs by 40% while scaling what works.",
     url: "https://oarcdigital.com/services/customer-acquisition-accelerator",
-    type: "website",
+    type: "article",
   },
   twitter: {
     card: "summary_large_image",

@@ -2,19 +2,19 @@ import type { Metadata } from "next";
 import PageContent from "./PageContent";
 
 export const metadata: Metadata = {
-  title: "OARC Digital",
-  description: "",
+  title: "Rapid Idea Testing | Marketing Experimentation | OARC Digital",
+  description: "Validate marketing ideas fast with OARC Digital's rapid testing framework. Reduce risk and accelerate innovation with AI-powered experimentation.",
   alternates: { canonical: "https://oarcdigital.com/services/rapid-idea-testing" },
   openGraph: {
-    title: "OARC Digital",
-    description: "",
+    title: "Rapid Idea Testing | Marketing Experimentation | OARC Digital",
+    description: "Validate marketing ideas fast with OARC Digital's rapid testing framework. Reduce risk and accelerate innovation with AI-powered experimentation.",
     url: "https://oarcdigital.com/services/rapid-idea-testing",
     type: "article",
   },
   twitter: {
     card: "summary_large_image",
-    title: "OARC Digital",
-    description: "",
+    title: "Rapid Idea Testing | Marketing Experimentation | OARC Digital",
+    description: "Validate marketing ideas fast with OARC Digital's rapid testing framework. Reduce risk and accelerate innovation with AI-powered experimentation.",
   },
 };
 

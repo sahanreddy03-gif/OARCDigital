@@ -1,6 +1,5 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import Layout from "@/components/layout/Layout";
 import Hero from "@/components/reusable/Hero";
 import MetricCounters from "@/components/reusable/MetricCounters";
@@ -32,63 +31,7 @@ interface ServiceContent {
   faq: Array<{ question: string; answer: string }>;
 }
 
-export default function ServiceDetailClient({ service }: { service: string }) {
-  const [content, setContent] = useState<ServiceContent | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    async function loadContent() {
-      if (!service) return;
-      try {
-        setLoading(true);
-        const response = await fetch(`/content/services/${service}.json`);
-        if (!response.ok) {
-          throw new Error(`Service content not found for ${service}`);
-        }
-        const data = await response.json();
-        setContent(data);
-      } catch (err) {
-        setError(err instanceof Error ? err.message : "Failed to load service content");
-      } finally {
-        setLoading(false);
-      }
-    }
-    loadContent();
-  }, [service]);
-
-  if (loading) {
-    return (
-      <Layout>
-        <div className="min-h-screen flex items-center justify-center">
-          <div className="text-center">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#c4ff4d] mx-auto mb-4"></div>
-            <p className="text-gray-400">Loading service...</p>
-          </div>
-        </div>
-      </Layout>
-    );
-  }
-
-  if (error || !content) {
-    return (
-      <Layout>
-        <div className="min-h-screen flex items-center justify-center">
-          <div className="text-center">
-            <h1 className="text-4xl font-bold mb-4">Service Not Found</h1>
-            <p className="text-gray-400 mb-8">{error || "This service page is not yet available."}</p>
-            <a
-              href="/services"
-              className="inline-block bg-[#c4ff4d] text-gray-900 px-6 py-3 rounded-full font-semibold hover:bg-[#b3e842] transition-colors"
-            >
-              View All Services
-            </a>
-          </div>
-        </div>
-      </Layout>
-    );
-  }
-
+export default function ServiceDetailClient({ service, content }: { service: string; content: ServiceContent }) {
   const heroBackgroundImage = serviceImagesBySlug[service];
 
   return (
