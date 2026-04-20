@@ -46,7 +46,7 @@ export const serviceMap: Record<string, ServiceMeta> = {
   "paid-advertising": { title: "Paid Advertising", category: "Creative & Design" },
 };
 
-const getServiceMeta = (slug: string): ServiceMeta =>
+export const getServiceMeta = (slug: string): ServiceMeta =>
   serviceMap[slug] ?? { title: titleCase(slug), category: categorize(slug) };
 
 export const industryMap: Record<string, IndustryMeta> = {
@@ -125,6 +125,9 @@ const comboOverrides: Record<string, ComboContent> = {
     ],
   },
 };
+
+export const getIndustryMeta = (slug: string): IndustryMeta =>
+  industryMap[slug] ?? { name: titleCase(slug), plural: titleCase(slug) };
 
 const industryPluralAlias: Record<string, string> = {
   restaurant: "restaurants",
