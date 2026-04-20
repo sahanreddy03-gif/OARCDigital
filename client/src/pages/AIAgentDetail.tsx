@@ -13,6 +13,9 @@ import { createBreadcrumbSchema } from '@/utils/advancedSchema';
 import { ArrowLeft, Check, ChevronRight } from 'lucide-react';
 import { SiWhatsapp } from 'react-icons/si';
 
+const agentOgImageUrl = (agentId: string) =>
+  `https://oarcdigital.com/agents/${agentId}.webp`;
+
 export default function AIAgentDetail() {
   const params = useParams<{ agentId: string }>();
   const agentId = params.agentId;
@@ -62,7 +65,7 @@ export default function AIAgentDetail() {
         <meta property="og:url" content={`https://oarcdigital.com/ai-agents/${agent.id}`} />
         <meta property="og:title" content={`${agent.name} — ${agent.role} | OARC Digital AI Agents Malta`} />
         <meta property="og:description" content={`Deploy ${agent.name}, OARC Digital's AI ${agent.role} for Malta businesses. ${agent.description}`} />
-        <meta property="og:image" content={`https://oarcdigital.com/agents/${agent.id}.webp`} />
+        <meta property="og:image" content={agentOgImageUrl(agent.id)} />
         <meta property="og:image:width" content="320" />
         <meta property="og:image:height" content="400" />
         <meta property="og:image:alt" content={agent.avatarAlt} />
@@ -71,7 +74,7 @@ export default function AIAgentDetail() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={`${agent.name} — ${agent.role} | OARC Digital AI Agents Malta`} />
         <meta name="twitter:description" content={`Deploy ${agent.name}, OARC Digital's AI ${agent.role} for Malta businesses. ${agent.description}`} />
-        <meta name="twitter:image" content={`https://oarcdigital.com/agents/${agent.id}.webp`} />
+        <meta name="twitter:image" content={agentOgImageUrl(agent.id)} />
         <meta name="twitter:image:alt" content={agent.avatarAlt} />
         <script type="application/ld+json" id={`service-schema-${agent.id}`}>
           {JSON.stringify(serviceSchema)}
