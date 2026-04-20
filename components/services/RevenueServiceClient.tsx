@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 import { ArrowRight, CheckCircle2, Sparkles, TrendingUp, Zap, Clock, MessageSquare, Brain, Target, BarChart3, Users, Mail, Filter, Database, Globe } from 'lucide-react';
 import Layout from '@/components/layout/Layout';
 import ScrollReveal from '@/components/ScrollReveal';
@@ -142,9 +141,8 @@ const revenueServiceFAQs: FAQItem[] = [
   { question: "Can you work with our sales team?", answer: "Absolutely. We collaborate closely with sales, providing tools and processes that help them close more deals." }
 ];
 
-export default function RevenueService() {
-  const location = usePathname() || '';
-  const slug = location.split('/').filter(Boolean).pop() || '';
+export default function RevenueService({ slug }: { slug: string }) {
+  const location = `/services/${slug}`;
   const [content, setContent] = useState<ServiceContent | null>(null);
   const [loading, setLoading] = useState(true);
 

@@ -1,23 +1,20 @@
 import type { Metadata } from "next";
-import { revenueServicesSEO } from "@/data/seoMetadata";
 import PageContent from "./PageContent";
 
-const seo = revenueServicesSEO.aiConsulting;
-
 export const metadata: Metadata = {
-  title: seo.title,
-  description: seo.description,
-  alternates: { canonical: `https://oarcdigital.com${seo.path}` },
+  title: "Performance Analytics & Reporting | Data-Driven Insights | OARC Digital",
+  description: "Custom analytics dashboards, ROI tracking, attribution modeling, and performance insights. Transform data into actionable growth strategies.",
+  alternates: { canonical: "https://oarcdigital.com/services/performance-analytics" },
   openGraph: {
-    title: seo.title,
-    description: seo.description,
-    url: `https://oarcdigital.com${seo.path}`,
-    type: seo.ogType ?? "website",
+    title: "Performance Analytics & Reporting | Data-Driven Insights | OARC Digital",
+    description: "Custom analytics dashboards, ROI tracking, attribution modeling, and performance insights. Transform data into actionable growth strategies.",
+    url: "https://oarcdigital.com/services/performance-analytics",
+    type: "article",
   },
   twitter: {
     card: "summary_large_image",
-    title: seo.title,
-    description: seo.description,
+    title: "Performance Analytics & Reporting | Data-Driven Insights | OARC Digital",
+    description: "Custom analytics dashboards, ROI tracking, attribution modeling, and performance insights. Transform data into actionable growth strategies.",
   },
 };
 

@@ -1,23 +1,20 @@
 import type { Metadata } from "next";
-import { revenueServicesSEO } from "@/data/seoMetadata";
 import PageContent from "./PageContent";
 
-const seo = revenueServicesSEO.customSoftwareDevelopment;
-
 export const metadata: Metadata = {
-  title: seo.title,
-  description: seo.description,
-  alternates: { canonical: `https://oarcdigital.com${seo.path}` },
+  title: "API Integration Services | Connect Any System | OARC Digital",
+  description: "Seamlessly connect your systems with custom API integrations. Stripe, Salesforce, Twilio, and 500+ platforms. Enterprise-grade reliability.",
+  alternates: { canonical: "https://oarcdigital.com/services/api-integration-services" },
   openGraph: {
-    title: seo.title,
-    description: seo.description,
-    url: `https://oarcdigital.com${seo.path}`,
-    type: seo.ogType ?? "website",
+    title: "API Integration Services | Connect Any System | OARC Digital",
+    description: "Seamlessly connect your systems with custom API integrations. Stripe, Salesforce, Twilio, and 500+ platforms. Enterprise-grade reliability.",
+    url: "https://oarcdigital.com/services/api-integration-services",
+    type: "article",
   },
   twitter: {
     card: "summary_large_image",
-    title: seo.title,
-    description: seo.description,
+    title: "API Integration Services | Connect Any System | OARC Digital",
+    description: "Seamlessly connect your systems with custom API integrations. Stripe, Salesforce, Twilio, and 500+ platforms. Enterprise-grade reliability.",
   },
 };
 

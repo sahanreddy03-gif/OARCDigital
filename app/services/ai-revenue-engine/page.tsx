@@ -1,23 +1,20 @@
 import type { Metadata } from "next";
-import { revenueServicesSEO } from "@/data/seoMetadata";
 import PageContent from "./PageContent";
 
-const seo = revenueServicesSEO.aiRevenueEngine;
-
 export const metadata: Metadata = {
-  title: seo.title,
-  description: seo.description,
-  alternates: { canonical: `https://oarcdigital.com${seo.path}` },
+  title: "Revenue Automation Malta | AI Revenue Engine | OARC Digital",
+  description: "AI-powered revenue automation for Malta businesses. OARC Digital builds systems that generate and convert leads automatically. Contact hello@oarcdigital.com.",
+  alternates: { canonical: "https://oarcdigital.com/services/revenue-automation" },
   openGraph: {
-    title: seo.title,
-    description: seo.description,
-    url: `https://oarcdigital.com${seo.path}`,
-    type: seo.ogType ?? "website",
+    title: "Revenue Automation Malta | AI Revenue Engine | OARC Digital",
+    description: "AI-powered revenue automation for Malta businesses. OARC Digital builds systems that generate and convert leads automatically. Contact hello@oarcdigital.com.",
+    url: "https://oarcdigital.com/services/revenue-automation",
+    type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: seo.title,
-    description: seo.description,
+    title: "Revenue Automation Malta | AI Revenue Engine | OARC Digital",
+    description: "AI-powered revenue automation for Malta businesses. OARC Digital builds systems that generate and convert leads automatically. Contact hello@oarcdigital.com.",
   },
 };
 

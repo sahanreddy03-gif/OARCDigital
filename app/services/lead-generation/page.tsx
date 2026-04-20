@@ -1,26 +1,23 @@
 import type { Metadata } from "next";
-import { revenueServicesSEO } from "@/data/seoMetadata";
 import PageContent from "@/components/services/RevenueServiceClient";
 
-const seo = revenueServicesSEO.leadGeneration;
-
 export const metadata: Metadata = {
-  title: seo.title,
-  description: seo.description,
-  alternates: { canonical: `https://oarcdigital.com${seo.path}` },
+  title: "Lead Generation | B2B & B2C Lead Gen | OARC Digital Malta",
+  description: "Premium lead generation services combining AI automation with creative strategy. OARC Digital delivers qualified leads at scale for ambitious brands.",
+  alternates: { canonical: "https://oarcdigital.com/services/lead-generation" },
   openGraph: {
-    title: seo.title,
-    description: seo.description,
-    url: `https://oarcdigital.com${seo.path}`,
-    type: seo.ogType ?? "website",
+    title: "Lead Generation | B2B & B2C Lead Gen | OARC Digital Malta",
+    description: "Premium lead generation services combining AI automation with creative strategy. OARC Digital delivers qualified leads at scale for ambitious brands.",
+    url: "https://oarcdigital.com/services/lead-generation",
+    type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: seo.title,
-    description: seo.description,
+    title: "Lead Generation | B2B & B2C Lead Gen | OARC Digital Malta",
+    description: "Premium lead generation services combining AI automation with creative strategy. OARC Digital delivers qualified leads at scale for ambitious brands.",
   },
 };
 
 export default function Page() {
-  return <PageContent />;
+  return <PageContent slug="lead-generation" />;
 }

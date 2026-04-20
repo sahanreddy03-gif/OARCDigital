@@ -1,23 +1,20 @@
 import type { Metadata } from "next";
-import { revenueServicesSEO } from "@/data/seoMetadata";
 import PageContent from "./PageContent";
 
-const seo = revenueServicesSEO.mobileAppsDevelopment;
-
 export const metadata: Metadata = {
-  title: seo.title,
-  description: seo.description,
-  alternates: { canonical: `https://oarcdigital.com${seo.path}` },
+  title: "Mobile App Development | iOS & Android | OARC Digital",
+  description: "Build apps people love. Native iOS, Android, and cross-platform development. From MVP to millions of users.",
+  alternates: { canonical: "https://oarcdigital.com/services/mobile-apps-development" },
   openGraph: {
-    title: seo.title,
-    description: seo.description,
-    url: `https://oarcdigital.com${seo.path}`,
-    type: seo.ogType ?? "website",
+    title: "Mobile App Development | iOS & Android | OARC Digital",
+    description: "Build apps people love. Native iOS, Android, and cross-platform development. From MVP to millions of users.",
+    url: "https://oarcdigital.com/services/mobile-apps-development",
+    type: "article",
   },
   twitter: {
     card: "summary_large_image",
-    title: seo.title,
-    description: seo.description,
+    title: "Mobile App Development | iOS & Android | OARC Digital",
+    description: "Build apps people love. Native iOS, Android, and cross-platform development. From MVP to millions of users.",
   },
 };
 

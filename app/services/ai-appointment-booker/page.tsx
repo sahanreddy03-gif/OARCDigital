@@ -1,26 +1,23 @@
 import type { Metadata } from "next";
-import { aiEmployeeServicesSEO } from "@/data/seoMetadata";
 import PageContent from "@/components/services/AIEmployeeServiceClient";
 
-const seo = aiEmployeeServicesSEO.aiAppointmentBooker;
-
 export const metadata: Metadata = {
-  title: seo.title,
-  description: seo.description,
-  alternates: { canonical: `https://oarcdigital.com${seo.path}` },
+  title: "Appointment Booker Agent | AI Scheduling Assistant | OARC Digital",
+  description: "Reduce no-shows by 20% with intelligent scheduling. Our AI Appointment Booker handles availability, reminders, and rescheduling automatically.",
+  alternates: { canonical: "https://oarcdigital.com/services/ai-appointment-booker" },
   openGraph: {
-    title: seo.title,
-    description: seo.description,
-    url: `https://oarcdigital.com${seo.path}`,
-    type: seo.ogType ?? "website",
+    title: "Appointment Booker Agent | AI Scheduling Assistant | OARC Digital",
+    description: "Reduce no-shows by 20% with intelligent scheduling. Our AI Appointment Booker handles availability, reminders, and rescheduling automatically.",
+    url: "https://oarcdigital.com/services/ai-appointment-booker",
+    type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: seo.title,
-    description: seo.description,
+    title: "Appointment Booker Agent | AI Scheduling Assistant | OARC Digital",
+    description: "Reduce no-shows by 20% with intelligent scheduling. Our AI Appointment Booker handles availability, reminders, and rescheduling automatically.",
   },
 };
 
 export default function Page() {
-  return <PageContent />;
+  return <PageContent slug="ai-appointment-booker" />;
 }

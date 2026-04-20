@@ -1,23 +1,20 @@
 import type { Metadata } from "next";
-import { creativeServicesSEO } from "@/data/seoMetadata";
 import PageContent from "./PageContent";
 
-const seo = creativeServicesSEO.branding;
-
 export const metadata: Metadata = {
-  title: seo.title,
-  description: seo.description,
-  alternates: { canonical: `https://oarcdigital.com${seo.path}` },
+  title: "Branding & Identity Design | OARC Digital",
+  description: "Build brands that resonate. From strategy to visual identity, we create complete brand systems that stand out and scale with your business.",
+  alternates: { canonical: "https://oarcdigital.com/services/branding" },
   openGraph: {
-    title: seo.title,
-    description: seo.description,
-    url: `https://oarcdigital.com${seo.path}`,
-    type: seo.ogType ?? "website",
+    title: "Branding & Identity Design | OARC Digital",
+    description: "Build brands that resonate. From strategy to visual identity, we create complete brand systems that stand out and scale with your business.",
+    url: "https://oarcdigital.com/services/branding",
+    type: "article",
   },
   twitter: {
     card: "summary_large_image",
-    title: seo.title,
-    description: seo.description,
+    title: "Branding & Identity Design | OARC Digital",
+    description: "Build brands that resonate. From strategy to visual identity, we create complete brand systems that stand out and scale with your business.",
   },
 };
 

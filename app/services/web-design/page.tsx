@@ -1,23 +1,20 @@
 import type { Metadata } from "next";
-import { creativeServicesSEO } from "@/data/seoMetadata";
 import PageContent from "./PageContent";
 
-const seo = creativeServicesSEO.webDesign;
-
 export const metadata: Metadata = {
-  title: seo.title,
-  description: seo.description,
-  alternates: { canonical: `https://oarcdigital.com${seo.path}` },
+  title: "Web Design | Conversion-Focused Sites | OARC Digital",
+  description: "Websites engineered for conversion. Performance-optimized, mobile-first, A/B tested. See real metrics from sites we've built.",
+  alternates: { canonical: "https://oarcdigital.com/services/web-design" },
   openGraph: {
-    title: seo.title,
-    description: seo.description,
-    url: `https://oarcdigital.com${seo.path}`,
-    type: seo.ogType ?? "website",
+    title: "Web Design | Conversion-Focused Sites | OARC Digital",
+    description: "Websites engineered for conversion. Performance-optimized, mobile-first, A/B tested. See real metrics from sites we've built.",
+    url: "https://oarcdigital.com/services/web-design",
+    type: "article",
   },
   twitter: {
     card: "summary_large_image",
-    title: seo.title,
-    description: seo.description,
+    title: "Web Design | Conversion-Focused Sites | OARC Digital",
+    description: "Websites engineered for conversion. Performance-optimized, mobile-first, A/B tested. See real metrics from sites we've built.",
   },
 };
 

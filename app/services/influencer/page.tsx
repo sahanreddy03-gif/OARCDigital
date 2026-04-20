@@ -1,23 +1,20 @@
 import type { Metadata } from "next";
-import { revenueServicesSEO } from "@/data/seoMetadata";
 import PageContent from "./PageContent";
 
-const seo = revenueServicesSEO.influencerMarketing;
-
 export const metadata: Metadata = {
-  title: seo.title,
-  description: seo.description,
-  alternates: { canonical: `https://oarcdigital.com${seo.path}` },
+  title: "Influencer Partners | Creator Campaigns | OARC Digital",
+  description: "Connect with vetted creators who align with your brand. We handle sourcing, outreach, contracts, and campaign management from start to finish.",
+  alternates: { canonical: "https://oarcdigital.com/services/influencer-marketing" },
   openGraph: {
-    title: seo.title,
-    description: seo.description,
-    url: `https://oarcdigital.com${seo.path}`,
-    type: seo.ogType ?? "website",
+    title: "Influencer Partners | Creator Campaigns | OARC Digital",
+    description: "Connect with vetted creators who align with your brand. We handle sourcing, outreach, contracts, and campaign management from start to finish.",
+    url: "https://oarcdigital.com/services/influencer-marketing",
+    type: "article",
   },
   twitter: {
     card: "summary_large_image",
-    title: seo.title,
-    description: seo.description,
+    title: "Influencer Partners | Creator Campaigns | OARC Digital",
+    description: "Connect with vetted creators who align with your brand. We handle sourcing, outreach, contracts, and campaign management from start to finish.",
   },
 };
 

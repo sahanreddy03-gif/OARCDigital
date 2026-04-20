@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 import { ArrowRight, Sparkles, MessageSquare, Brain, Zap, Shield, Users, TrendingUp, Clock, BarChart3, Mail, Calendar, Headphones, Bot, Database, Globe, CheckCircle2, Rocket, Crown, Building2, Briefcase, Lightbulb, Search, Heart, Landmark, Settings, Megaphone, ShoppingCart, Code, Calculator, Target, UserCheck, Construction } from 'lucide-react';
 import Layout from '@/components/layout/Layout';
 import FAQSection, { FAQItem } from '@/components/FAQSection';
@@ -239,9 +238,8 @@ const INTEGRATION_ICONS = [
   { icon: <Globe className="w-full h-full" />, name: "Web" },
 ];
 
-export default function AIEmployeeService() {
-  const location = usePathname() || '';
-  const slug = location.split('/').filter(Boolean).pop() || '';
+export default function AIEmployeeService({ slug }: { slug: string }) {
+  const location = `/services/${slug}`;
   const [content, setContent] = useState<ServiceContent | null>(null);
   const [loading, setLoading] = useState(true);
 

@@ -1,23 +1,20 @@
 import type { Metadata } from "next";
-import { creativeServicesSEO } from "@/data/seoMetadata";
 import PageContent from "./PageContent";
 
-const seo = creativeServicesSEO.socialMediaCreative;
-
 export const metadata: Metadata = {
-  title: seo.title,
-  description: seo.description,
-  alternates: { canonical: `https://oarcdigital.com${seo.path}` },
+  title: "Social Media Management Malta | Creative Content Agency | OARC Digital",
+  description: "Social media management and creative content production for Malta businesses. OARC Digital manages Instagram, TikTok, and Facebook with strategy-first content that builds brands and drives customers.",
+  alternates: { canonical: "https://oarcdigital.com/services/social-media-creative-management" },
   openGraph: {
-    title: seo.title,
-    description: seo.description,
-    url: `https://oarcdigital.com${seo.path}`,
-    type: seo.ogType ?? "website",
+    title: "Social Media Management Malta | Creative Content Agency | OARC Digital",
+    description: "Social media management and creative content production for Malta businesses. OARC Digital manages Instagram, TikTok, and Facebook with strategy-first content that builds brands and drives customers.",
+    url: "https://oarcdigital.com/services/social-media-creative-management",
+    type: "article",
   },
   twitter: {
     card: "summary_large_image",
-    title: seo.title,
-    description: seo.description,
+    title: "Social Media Management Malta | Creative Content Agency | OARC Digital",
+    description: "Social media management and creative content production for Malta businesses. OARC Digital manages Instagram, TikTok, and Facebook with strategy-first content that builds brands and drives customers.",
   },
 };
 

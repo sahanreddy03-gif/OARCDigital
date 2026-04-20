@@ -1,26 +1,23 @@
 import type { Metadata } from "next";
-import { revenueServicesSEO } from "@/data/seoMetadata";
 import PageContent from "@/components/services/RevenueServiceClient";
 
-const seo = revenueServicesSEO.leadGenerationEngine;
-
 export const metadata: Metadata = {
-  title: seo.title,
-  description: seo.description,
-  alternates: { canonical: `https://oarcdigital.com${seo.path}` },
+  title: "Lead Generation & Qualification Engine | AI-Powered Pipeline | OARC Digital",
+  description: "Stop chasing cold leads. OARC\\",
+  alternates: { canonical: "https://oarcdigital.com/services/lead-generation-engine" },
   openGraph: {
-    title: seo.title,
-    description: seo.description,
-    url: `https://oarcdigital.com${seo.path}`,
-    type: seo.ogType ?? "website",
+    title: "Lead Generation & Qualification Engine | AI-Powered Pipeline | OARC Digital",
+    description: "Stop chasing cold leads. OARC\\",
+    url: "https://oarcdigital.com/services/lead-generation-engine",
+    type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: seo.title,
-    description: seo.description,
+    title: "Lead Generation & Qualification Engine | AI-Powered Pipeline | OARC Digital",
+    description: "Stop chasing cold leads. OARC\\",
   },
 };
 
 export default function Page() {
-  return <PageContent />;
+  return <PageContent slug="lead-generation-engine" />;
 }
