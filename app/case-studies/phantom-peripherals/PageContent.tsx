@@ -7,7 +7,6 @@ import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { SiInstagram, SiTiktok, SiTwitch, SiYoutube } from 'react-icons/si';
 import Layout from '@/components/layout/Layout';
-import { caseStudiesSEO } from '@/data/seoMetadata';
 import tefalHeroImg from '@assets/TefalPictures-32-scaled_1761760754960.jpg';
 import dontMakeAdsHeroImg from '@assets/generated_images/social_media_creators_marketing_image.png';
 import bodyShopHeroImg from '@assets/IMG_7951_1761931806299.jpeg';
@@ -47,6 +46,7 @@ export default function LenovoLegionCaseStudy() {
 
   return (
     <Layout>
+      
       {/* Hero Section */}
       <section className="relative min-h-[60vh] flex items-center justify-center bg-black text-white overflow-hidden">
         

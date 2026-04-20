@@ -1,5 +1,6 @@
 "use client";
 
+import JsonLd from '@/components/JsonLd';
 import Layout from '@/components/layout/Layout';
 import { Button } from '@/components/ui/button';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
@@ -27,6 +28,16 @@ const postingTimes = [
 export default function InstagramMalta() {
   return (
     <Layout>
+      <JsonLd data={[{
+          "@context": "https://schema.org",
+          "@type": "Article",
+          "headline": "Instagram Marketing in Malta: How to Actually Get Results in 2026",
+          "description": "What works on Instagram in Malta in 2026 — posting times, content formats, and growth strategies for Malta businesses.",
+          "author": { "@type": "Organization", "name": "OARC Digital" },
+          "publisher": { "@type": "Organization", "name": "OARC Digital", "url": "https://oarcdigital.com" },
+          "datePublished": "2026-03-01",
+          "dateModified": "2026-04-01",
+        }, { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{ "@type": "Question", "name": "What are the best posting times for Instagram in Malta?", "acceptedAnswer": { "@type": "Answer", "text": "The best times to post on Instagram in Malta are 12:00–13:00 (lunch), 18:00–20:00 (evening), and 21:00–22:00 (night scroll). Avoid posting before 10:00 or after 23:00." } }, { "@type": "Question", "name": "How do I grow my Instagram account in Malta?", "acceptedAnswer": { "@type": "Answer", "text": "Post every day for the first 30 days. Engage with competitor accounts and local Malta pages before posting. Run one local collaboration in the first 60 days. Focus on Reels for reach." } }, { "@type": "Question", "name": "What Instagram content works best for Malta businesses?", "acceptedAnswer": { "@type": "Answer", "text": "Behind-the-scenes content, founder and owner content, and Reels with trending audio consistently outperform polished promotional posts for Malta businesses." } }] }]} />
       <main className="min-h-screen bg-background">
         <section className="bg-gradient-to-br from-zinc-900 to-zinc-950 text-white py-16 md:py-24">
           <div className="max-w-4xl mx-auto px-6 md:px-8">

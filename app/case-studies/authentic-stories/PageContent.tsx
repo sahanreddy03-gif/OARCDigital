@@ -5,7 +5,6 @@ import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { SiTiktok, SiWhatsapp } from 'react-icons/si';
 import Layout from '@/components/layout/Layout';
-import { caseStudiesSEO } from '@/data/seoMetadata';
 import relatedCase1 from '@assets/generated_images/social_media_creators_marketing_image.png';
 import tefalHeroImg from '@assets/TefalPictures-32-scaled_1761760754960.jpg';
 import azzaroHeroImg from '@assets/IMG_7990_1761953778756.png';
@@ -47,6 +46,7 @@ export default function DontMakeAdsCaseStudy() {
 
   return (
     <Layout>
+      
       {/* Hero Section with Background Image */}
       <section className="relative h-[60vh] min-h-[500px] bg-black overflow-hidden">
         

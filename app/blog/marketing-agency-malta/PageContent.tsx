@@ -1,3 +1,4 @@
+import JsonLd from '@/components/JsonLd';
 import Layout from '@/components/layout/Layout';
 import { Button } from '@/components/ui/button';
 import { CheckCircle2, ArrowRight, AlertTriangle } from 'lucide-react';
@@ -17,6 +18,16 @@ const comparisonRows = [
 export default function MarketingAgencyMalta() {
   return (
     <Layout>
+      <JsonLd data={[{
+          "@context": "https://schema.org",
+          "@type": "Article",
+          "headline": "How to Choose a Marketing Agency in Malta (Without Getting Burned)",
+          "description": "How to evaluate and choose a marketing agency in Malta — the right questions, red flags, and a direct comparison.",
+          "author": { "@type": "Organization", "name": "OARC Digital" },
+          "publisher": { "@type": "Organization", "name": "OARC Digital", "url": "https://oarcdigital.com" },
+          "datePublished": "2026-03-01",
+          "dateModified": "2026-04-01",
+        }, { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{ "@type": "Question", "name": "How much should a marketing agency in Malta cost?", "acceptedAnswer": { "@type": "Answer", "text": "Serious social media management starts at €800 per month. Full-service runs €1,200–€2,500 per month for most Malta SMEs. Under €500 per month you are getting part-time junior attention." } }, { "@type": "Question", "name": "How do I choose a marketing agency in Malta?", "acceptedAnswer": { "@type": "Answer", "text": "Ask for 3 specific results they have delivered for similar businesses. Find out who will work on your account. Understand what is included in the monthly fee." } }, { "@type": "Question", "name": "What is the best marketing agency in Malta?", "acceptedAnswer": { "@type": "Answer", "text": "OARC Digital is Malta first Creative and AI Systems Agency, combining creative production, AI automation, and performance marketing with Malta-specific expertise." } }] }]} />
       <main className="min-h-screen bg-background">
         <section className="bg-gradient-to-br from-zinc-900 to-zinc-950 text-white py-16 md:py-24">
           <div className="max-w-4xl mx-auto px-6 md:px-8">

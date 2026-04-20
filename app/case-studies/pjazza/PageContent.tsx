@@ -34,6 +34,8 @@ export default function PjazzaCaseStudy() {
 
   return (
     <Layout>
+      
+
       {/* HERO */}
       <section className="relative min-h-[100svh] flex flex-col justify-end overflow-hidden bg-black" data-testid="section-pjazza-hero">
         <div className="absolute inset-0">

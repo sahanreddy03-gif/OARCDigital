@@ -7,7 +7,6 @@ import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { SiInstagram, SiPinterest, SiSnapchat, SiTiktok, SiYoutube } from 'react-icons/si';
 import Layout from '@/components/layout/Layout';
-import { caseStudiesSEO } from '@/data/seoMetadata';
 import challengeImg1 from '@assets/IMG_7995_1761955512246.png';
 import challengeImg2 from '@assets/IMG_7996_1761955512246.jpeg';
 import strategyImg1 from '@assets/IMG_7997_1761955811646.jpeg';
@@ -40,6 +39,7 @@ export default function BodyShopCaseStudy() {
 
   return (
     <Layout>
+      
       {/* Hero Section */}
       <section className="relative min-h-[60vh] flex items-center justify-center bg-black text-white overflow-hidden">
         

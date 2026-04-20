@@ -1,3 +1,4 @@
+import JsonLd from '@/components/JsonLd';
 import Layout from '@/components/layout/Layout';
 import { Button } from '@/components/ui/button';
 import { CheckCircle2, ArrowRight, AlertTriangle, TrendingUp } from 'lucide-react';
@@ -6,6 +7,16 @@ import Link from 'next/link';
 export default function ContentMarketingMalta() {
   return (
     <Layout>
+      <JsonLd data={[{
+          "@context": "https://schema.org",
+          "@type": "Article",
+          "headline": "Content Marketing in Malta: The Strategy That Builds Traffic While You Sleep",
+          "description": "How Malta businesses can use content marketing to build compounding organic traffic and leads.",
+          "author": { "@type": "Organization", "name": "OARC Digital" },
+          "publisher": { "@type": "Organization", "name": "OARC Digital", "url": "https://oarcdigital.com" },
+          "datePublished": "2026-03-01",
+          "dateModified": "2026-04-01",
+        }, { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{ "@type": "Question", "name": "How long until content marketing shows results in Malta?", "acceptedAnswer": { "@type": "Answer", "text": "Typically 3–6 months for initial Google rankings, 6–12 months for significant organic traffic. Content marketing is the slowest to start but the most durable." } }, { "@type": "Question", "name": "What content formats work best for SEO in Malta?", "acceptedAnswer": { "@type": "Answer", "text": "Cost guides, comparison articles, how-to guides, and industry-specific local articles consistently rank well for Malta search terms with minimal competition." } }, { "@type": "Question", "name": "How much content should a Malta business publish?", "acceptedAnswer": { "@type": "Answer", "text": "Quality over quantity. 2 well-researched articles per month beats 8 thin pieces. Start with 2 per month and scale once you see what is working." } }] }]} />
       <main className="min-h-screen bg-background">
         <section className="bg-gradient-to-br from-zinc-900 to-zinc-950 text-white py-16 md:py-24">
           <div className="max-w-4xl mx-auto px-6 md:px-8">

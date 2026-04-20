@@ -5,7 +5,6 @@ import Link from 'next/link';
 import { ArrowRight, ChevronLeft, ChevronRight, Instagram, Youtube } from 'lucide-react';
 import { SiSnapchat, SiTiktok, SiWhatsapp } from 'react-icons/si';
 import Layout from '@/components/layout/Layout';
-import { caseStudiesSEO } from '@/data/seoMetadata';
 import tefalHeroImg from '@assets/pexels-shvetsa-12673974_1764638693005.jpg';
 import tefalAboutImg from '@assets/HOME-LAME-3-About-Tefal_1761847874021.jpg';
 import tefalVideoImg from '@assets/image_1761847809835.png';
@@ -61,6 +60,7 @@ export default function TefalCaseStudy() {
 
   return (
     <Layout>
+      
       {/* Hero Section with Background Image */}
       <section className="relative h-[60vh] min-h-[500px] bg-black overflow-hidden">
         

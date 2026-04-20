@@ -1,3 +1,4 @@
+import JsonLd from '@/components/JsonLd';
 import Layout from '@/components/layout/Layout';
 import { Button } from '@/components/ui/button';
 import { CheckCircle2, ArrowRight, AlertTriangle } from 'lucide-react';
@@ -13,6 +14,16 @@ const costTable = [
 export default function WebDesignMalta() {
   return (
     <Layout>
+      <JsonLd data={[{
+          "@context": "https://schema.org",
+          "@type": "Article",
+          "headline": "Web Design in Malta: What It Costs and What You Actually Need (2026)",
+          "description": "Real web design costs and advice for Malta businesses in 2026.",
+          "author": { "@type": "Organization", "name": "OARC Digital" },
+          "publisher": { "@type": "Organization", "name": "OARC Digital", "url": "https://oarcdigital.com" },
+          "datePublished": "2026-03-01",
+          "dateModified": "2026-04-01",
+        }, { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{ "@type": "Question", "name": "How much does a website cost in Malta?", "acceptedAnswer": { "@type": "Answer", "text": "Web design in Malta ranges from €300–€1,500 for a freelancer-built brochure site, €1,500–€4,000 for a basic agency site, and €4,000–€12,000 for a custom build." } }, { "@type": "Question", "name": "How long does a website take to build in Malta?", "acceptedAnswer": { "@type": "Answer", "text": "A basic 5-page site takes 2–4 weeks. A full custom build takes 6–12 weeks. Any agency promising a fully custom site in under 2 weeks is delivering a template." } }, { "@type": "Question", "name": "Should I use WordPress or a custom build for my Malta website?", "acceptedAnswer": { "@type": "Answer", "text": "For most Malta SMEs, WordPress or a modern headless framework like Next.js is the right choice. Custom builds make sense only when you have specific functionality no platform can deliver." } }] }]} />
       <main className="min-h-screen bg-background">
         <section className="bg-gradient-to-br from-zinc-900 to-zinc-950 text-white py-16 md:py-24">
           <div className="max-w-4xl mx-auto px-6 md:px-8">

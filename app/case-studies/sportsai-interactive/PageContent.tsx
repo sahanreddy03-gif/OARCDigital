@@ -4,7 +4,6 @@ import { useEffect } from 'react';
 import Link from 'next/link';
 import { ArrowRight, Calendar, Building2 } from 'lucide-react';
 import Layout from '@/components/layout/Layout';
-import { caseStudiesSEO } from '@/data/seoMetadata';
 import heroImg from '@assets/stock_images/ai_chatbot_customer__a2c79604.jpg';
 import img1 from '@assets/stock_images/ai_chatbot_customer__070fc7ce.jpg';
 import img2 from '@assets/stock_images/ai_chatbot_customer__fad0f638.jpg';
@@ -23,6 +22,7 @@ export default function BetSmartSportsBuddyAI() {
 
   return (
     <Layout>
+      
       {/* Hero Section */}
       <section className="relative h-[70vh] min-h-[500px] flex items-end overflow-hidden">
         <div className="absolute inset-0">
