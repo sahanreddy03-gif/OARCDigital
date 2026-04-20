@@ -37,7 +37,22 @@ export async function POST(request: NextRequest) {
   }
 }
 
-export async function GET() {
+export async function GET(request: NextRequest) {
+  // Gate admin-style lead retrieval behind a shared secret so the endpoint is
+  // not publicly enumerable. Accepts either `Authorization: Bearer <token>`
+  // or an `x-admin-token` header; expects LEADS_ADMIN_TOKEN to be set.
+  const expected = process.env.LEADS_ADMIN_TOKEN;
+  if (!expected) {
+    return NextResponse.json({ error: "Admin access not configured" }, { status: 503 });
+  }
+  const auth = request.headers.get("authorization") ?? "";
+  const bearer = auth.toLowerCase().startsWith("bearer ") ? auth.slice(7) : "";
+  const headerToken = request.headers.get("x-admin-token") ?? "";
+  const provided = bearer || headerToken;
+  if (!provided || provided !== expected) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
+
   try {
     const leads = await storage.getLeads();
     return NextResponse.json(leads);
