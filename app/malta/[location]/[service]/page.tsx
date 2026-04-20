@@ -1,0 +1,449 @@
+// Programmatic Location-Based Service Pages
+// SEO powerhouse: [Service] in [Malta Location]
+
+
+import { ArrowRight, MapPin, Phone, Mail } from 'lucide-react';
+import Link from 'next/link';
+import Layout from '@/components/layout/Layout';
+import JsonLd from '@/components/JsonLd';
+import { notFound } from 'next/navigation';
+import type { Metadata } from 'next';
+import { maltaLocations as validLocations, locationServices as validServices } from '@/shared/seoConfig';
+import { Button } from '@/components/ui/button';
+import { createBreadcrumbSchema } from '@/utils/advancedSchema';
+import { localBusinessSchema, createServiceSchema } from '@/utils/structuredData';
+
+// Malta locations with SEO-optimized data
+const maltaLocations: Record<string, { name: string; description: string }> = {
+  'valletta': { name: 'Valletta', description: 'the historic capital city' },
+  'sliema': { name: 'Sliema', description: 'the bustling commercial hub' },
+  'st-julians': { name: 'St. Julians', description: 'the vibrant entertainment district' },
+  'mosta': { name: 'Mosta', description: 'the central Malta town' },
+  'birkirkara': { name: 'Birkirkara', description: 'Malta\'s largest town' },
+  'qormi': { name: 'Qormi', description: 'the artisan\'s city' },
+  'hamrun': { name: 'Hamrun', description: 'the industrial heart' },
+  'naxxar': { name: 'Naxxar', description: 'the northern Malta town' },
+  'zabbar': { name: 'Zabbar', description: 'the southern heritage town' },
+  'attard': { name: 'Attard', description: 'the garden village' },
+  'mdina': { name: 'Mdina', description: 'the Silent City' },
+  'rabat': { name: 'Rabat', description: 'the historic gateway town' },
+  'marsaskala': { name: 'Marsaskala', description: 'the southern seaside town' },
+  'marsaxlokk': { name: 'Marsaxlokk', description: 'the fishing village' },
+  'birgu': { name: 'Birgu', description: 'the historic Three Cities' },
+  'san-gwann': { name: 'San Gwann', description: 'the northern residential hub' },
+  'msida': { name: 'Msida', description: 'the university town' },
+  'gzira': { name: 'Gzira', description: 'the waterfront town' },
+  'swieqi': { name: 'Swieqi', description: 'the modern residential area' },
+  'mellieha': { name: 'Mellieha', description: 'the northern coastal village' },
+  'bugibba': { name: 'Bugibba', description: 'the tourist resort town' },
+  'san-pawl-il-bahar': { name: 'St. Paul\'s Bay', description: 'the northern bay town' },
+  'zejtun': { name: 'Zejtun', description: 'the historic southern town' },
+  'zurrieq': { name: 'Zurrieq', description: 'the southern Malta town' },
+  'paola': { name: 'Paola', description: 'the central southern town' },
+  'tarxien': { name: 'Tarxien', description: 'the ancient heritage town' },
+  'fgura': { name: 'Fgura', description: 'the southern residential town' },
+  'balzan': { name: 'Balzan', description: 'the leafy central village' },
+};
+
+// Service data for programmatic pages
+const serviceData: Record<string, {
+  title: string;
+  description: string;
+  benefits: string[];
+  process: { step: string; description: string }[];
+  cta: string;
+}> = {
+  'social-media-creative-management': {
+    title: 'Social Media Marketing',
+    description: 'Professional social media management and creative services powered by AI and expert strategists.',
+    benefits: [
+      'Custom content creation for your brand',
+      'AI-powered audience targeting and engagement',
+      'Complete social media strategy and management',
+      'Monthly analytics and performance reports',
+      'Dedicated account manager in Malta'
+    ],
+    process: [
+      { step: 'Discovery Call', description: 'We learn about your business, goals, and target audience' },
+      { step: 'Strategy Development', description: 'Create a custom social media strategy tailored to your location' },
+      { step: 'Content Creation', description: 'Design and produce engaging posts, stories, and campaigns' },
+      { step: 'Launch & Optimize', description: 'Go live and continuously improve based on performance data' }
+    ],
+    cta: 'Start Your Social Media Campaign'
+  },
+  'digital-marketing': {
+    title: 'Digital Marketing',
+    description: 'Comprehensive digital marketing solutions combining AI automation with human creativity.',
+    benefits: [
+      'Multi-channel digital marketing campaigns',
+      'SEO optimization for local and international reach',
+      'PPC and paid advertising management',
+      'Email marketing automation',
+      'Conversion rate optimization'
+    ],
+    process: [
+      { step: 'Market Research', description: 'Analyze your local market and competitors' },
+      { step: 'Campaign Planning', description: 'Design integrated digital marketing strategy' },
+      { step: 'Implementation', description: 'Launch campaigns across all digital channels' },
+      { step: 'Performance Tracking', description: 'Monitor, analyze, and optimize for maximum ROI' }
+    ],
+    cta: 'Boost Your Digital Presence'
+  },
+  'branding-services': {
+    title: 'Brand Identity & Design',
+    description: 'Create a powerful brand identity that resonates with your Malta audience and beyond.',
+    benefits: [
+      'Complete brand identity development',
+      'Logo design and brand guidelines',
+      'Marketing collateral and business materials',
+      'Digital and print design assets',
+      'Brand strategy consulting'
+    ],
+    process: [
+      { step: 'Brand Discovery', description: 'Understand your vision, values, and target market' },
+      { step: 'Concept Development', description: 'Create multiple brand concepts and directions' },
+      { step: 'Design Refinement', description: 'Perfect your chosen brand identity' },
+      { step: 'Brand Rollout', description: 'Deliver complete brand assets and guidelines' }
+    ],
+    cta: 'Build Your Brand Identity'
+  },
+  'web-design': {
+    title: 'Web Design & Development',
+    description: 'Beautiful, high-converting websites designed for Malta businesses and beyond.',
+    benefits: [
+      'Custom responsive website design',
+      'SEO-optimized development',
+      'Mobile-first approach',
+      'Fast loading speeds',
+      'Ongoing support and maintenance'
+    ],
+    process: [
+      { step: 'Planning', description: 'Define website goals, structure, and features' },
+      { step: 'Design', description: 'Create stunning visual designs aligned with your brand' },
+      { step: 'Development', description: 'Build your website with cutting-edge technology' },
+      { step: 'Launch', description: 'Go live with full SEO optimization and analytics' }
+    ],
+    cta: 'Get Your Custom Website'
+  },
+  'video-production': {
+    title: 'Video Production',
+    description: 'Professional video production services from concept to final delivery.',
+    benefits: [
+      'Commercial and promotional videos',
+      'Social media video content',
+      'Product demonstrations and explainers',
+      'Corporate and event videography',
+      'Professional editing and post-production'
+    ],
+    process: [
+      { step: 'Concept Development', description: 'Brainstorm ideas and create storyboards' },
+      { step: 'Pre-Production', description: 'Plan shooting schedule, locations, and resources' },
+      { step: 'Production', description: 'Professional filming with high-end equipment' },
+      { step: 'Post-Production', description: 'Edit, color grade, and add effects for final delivery' }
+    ],
+    cta: 'Create Stunning Videos'
+  },
+  'ai-copywriting': {
+    title: 'AI Copywriting Services',
+    description: 'Powerful, conversion-focused copy created by AI and refined by expert writers.',
+    benefits: [
+      'Website copy and landing pages',
+      'Blog articles and SEO content',
+      'Ad copy and marketing materials',
+      'Email campaigns and newsletters',
+      'Social media captions and posts'
+    ],
+    process: [
+      { step: 'Brief', description: 'Share your brand voice, audience, and goals' },
+      { step: 'AI Generation', description: 'Create initial copy using advanced AI models' },
+      { step: 'Human Refinement', description: 'Expert writers polish and perfect the content' },
+      { step: 'Delivery', description: 'Receive ready-to-publish, high-converting copy' }
+    ],
+    cta: 'Get Professional Copy'
+  },
+  'hire-ai-employees': {
+    title: 'Hire AI Employees',
+    description: 'Scale your team instantly with AI-powered employees for every role.',
+    benefits: [
+      'Available 24/7 without breaks or holidays',
+      'Handles unlimited volume of work',
+      'Consistent quality and performance',
+      'No training or onboarding required',
+      'Significant cost savings vs traditional hiring'
+    ],
+    process: [
+      { step: 'Consultation', description: 'Discuss your business needs and challenges' },
+      { step: 'AI Selection', description: 'Choose the right AI employee for your role' },
+      { step: 'Integration', description: 'Seamlessly integrate AI into your workflows' },
+      { step: 'Optimization', description: 'Fine-tune performance for maximum efficiency' }
+    ],
+    cta: 'Hire Your AI Employee'
+  },
+  'revenue-automation': {
+    title: 'Revenue Automation',
+    description: 'Automate your entire revenue stack from lead generation to customer acquisition.',
+    benefits: [
+      'Automated lead generation and nurturing',
+      'Sales funnel optimization',
+      'Customer acquisition automation',
+      'Revenue tracking and analytics',
+      'Integration with your existing tools'
+    ],
+    process: [
+      { step: 'Audit', description: 'Analyze your current revenue processes' },
+      { step: 'Strategy', description: 'Design automation workflows and systems' },
+      { step: 'Implementation', description: 'Build and deploy automation tools' },
+      { step: 'Scale', description: 'Optimize and scale your revenue operations' }
+    ],
+    cta: 'Automate Your Revenue'
+  },
+  'paid-advertising': {
+    title: 'Paid Advertising',
+    description: 'Meta Ads, Google Ads, and performance campaigns that drive real bookings and sales for Malta businesses.',
+    benefits: [
+      'Meta and Google Ads management',
+      'AI-optimised targeting for Malta audiences',
+      'Ad creative production included',
+      'Weekly performance reporting',
+      'Transparent spend and results'
+    ],
+    process: [
+      { step: 'Audit', description: 'Review your current ad spend and identify waste' },
+      { step: 'Strategy', description: 'Build campaign structure aligned to your goals' },
+      { step: 'Launch', description: 'Deploy campaigns with creative and targeting optimised for Malta' },
+      { step: 'Scale', description: "Expand what works, cut what doesn't" }
+    ],
+    cta: 'Launch Your Ad Campaign'
+  },
+  'ai-consulting': {
+    title: 'AI Consulting',
+    description: 'Strategy and implementation for AI adoption in your Malta business — from chatbots to full automation systems.',
+    benefits: [
+      'AI readiness assessment',
+      'Custom AI roadmap for your business',
+      'Chatbot and automation implementation',
+      'Staff training and change management',
+      'Ongoing AI optimisation support'
+    ],
+    process: [
+      { step: 'Discovery', description: 'Map your current processes and AI opportunities' },
+      { step: 'Roadmap', description: 'Design a phased AI adoption plan' },
+      { step: 'Implementation', description: 'Build and deploy AI tools and systems' },
+      { step: 'Optimise', description: 'Monitor performance and continuously improve' }
+    ],
+    cta: 'Book an AI Consultation'
+  },
+};
+
+export async function generateStaticParams() {
+  return validLocations.flatMap((location) =>
+    validServices.map((service) => ({ location, service }))
+  );
+}
+
+export async function generateMetadata({ params }: { params: { location: string; service: string } }): Promise<Metadata> {
+  const locationInfo = maltaLocations[params.location];
+  const service = serviceData[params.service];
+  if (!locationInfo || !service) return { title: 'Service Not Found | OARC Digital' };
+  const title = `${service.title} in ${locationInfo.name}, Malta | OARC Digital`;
+  const description = `Professional ${service.title.toLowerCase()} services in ${locationInfo.name}, Malta. ${service.description} Contact OARC Digital for a free consultation.`;
+  const canonical = `https://oarcdigital.com/malta/${params.location}/${params.service}`;
+  return {
+    title,
+    description,
+    alternates: { canonical },
+    openGraph: { title, description, url: canonical, type: 'website' },
+    twitter: { card: 'summary_large_image', title, description },
+  };
+}
+
+export default function LocationServicePage({ params }: { params: { location: string; service: string } }) {
+  const location = params.location;
+  const serviceSlug = params.service;
+
+  if (!maltaLocations[location] || !serviceData[serviceSlug]) {
+    notFound();
+  }
+
+  const locationInfo = maltaLocations[location];
+  const service = serviceData[serviceSlug];
+
+  // Breadcrumb schema for better search results
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: 'Home', url: '/' },
+    { name: 'Services', url: '/services' },
+    { name: 'Malta', url: '/malta' },
+    { name: locationInfo.name, url: `/malta/${location}` },
+    { name: service.title, url: `/malta/${location}/${serviceSlug}` }
+  ]);
+  
+  // Service schema for this specific service
+  const serviceSchema = createServiceSchema(
+    `${service.title} in ${locationInfo.name}`,
+    service.description,
+    service.title
+  );
+  
+  const combinedSchema = [localBusinessSchema, breadcrumbSchema, serviceSchema];
+  
+  return (
+    <Layout>
+      <JsonLd id={`location-${location}-${serviceSlug}`} data={combinedSchema} />
+      
+      <main className="min-h-screen">
+        {/* Hero Section */}
+        <section className="relative bg-gradient-to-br from-zinc-900 via-neutral-900 to-zinc-950 text-white py-24 md:py-32">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(16,185,129,0.08),transparent_50%),radial-gradient(circle_at_70%_80%,rgba(59,130,246,0.06),transparent_50%)]"></div>
+          
+          <div className="relative max-w-7xl mx-auto px-6 md:px-8">
+            <div className="flex items-center gap-2 mb-6 text-sm text-zinc-400">
+              <Link href="/" className="hover:text-white transition-colors">Home</Link>
+              <span>/</span>
+              <Link href="/services" className="hover:text-white transition-colors">Services</Link>
+              <span>/</span>
+              <span className="text-white">{locationInfo.name}</span>
+            </div>
+            
+            <div className="max-w-3xl">
+              <div className="flex items-center gap-2 mb-4">
+                <MapPin className="w-5 h-5 text-green-500" />
+                <span className="text-green-500 font-semibold uppercase tracking-wider text-sm">
+                  Serving {locationInfo.name}, Malta
+                </span>
+              </div>
+              
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+                {service.title} in <span className="text-green-500">{locationInfo.name}</span>
+              </h1>
+              
+              <p className="text-xl text-zinc-300 mb-8 leading-relaxed">
+                {service.description} Proudly serving businesses in {locationInfo.name}, {locationInfo.description}.
+              </p>
+              
+              <div className="flex flex-wrap gap-4">
+                <Link href="/contact">
+                  <Button size="lg" className="bg-green-600 hover:bg-green-700 text-white">
+                    {service.cta} <ArrowRight className="ml-2 w-4 h-4" />
+                  </Button>
+                </Link>
+                <a href="tel:+35679711799">
+                  <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10">
+                    <Phone className="mr-2 w-4 h-4" /> Call Us Now
+                  </Button>
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        {/* Benefits Section */}
+        <section className="py-20 bg-background">
+          <div className="max-w-7xl mx-auto px-6 md:px-8">
+            <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
+              Why Choose <span style={{ fontFamily: 'var(--font-heatrobox)' }}>OARC Digital</span> in {locationInfo.name}?
+            </h2>
+            
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {service.benefits.map((benefit, index) => (
+                <div key={index} className="flex items-start gap-4 p-6 rounded-lg bg-card border hover-elevate transition-all">
+                  <div className="w-8 h-8 rounded-full bg-green-500/10 flex items-center justify-center flex-shrink-0">
+                    <span className="text-green-600 font-bold">{index + 1}</span>
+                  </div>
+                  <p className="text-foreground">{benefit}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+        
+        {/* Process Section */}
+        <section className="py-20 bg-muted/30">
+          <div className="max-w-7xl mx-auto px-6 md:px-8">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">Our Process</h2>
+            <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
+              We've perfected our approach to deliver exceptional results for businesses in {locationInfo.name}
+            </p>
+            
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {service.process.map((step, index) => (
+                <div key={index} className="relative">
+                  <div className="bg-card p-6 rounded-lg border h-full hover-elevate transition-all">
+                    <div className="text-5xl font-bold text-green-500/20 mb-3">0{index + 1}</div>
+                    <h3 className="text-xl font-bold mb-2">{step.step}</h3>
+                    <p className="text-muted-foreground text-sm">{step.description}</p>
+                  </div>
+                  {index < service.process.length - 1 && (
+                    <div className="hidden lg:block absolute top-1/2 -right-3 w-6 h-0.5 bg-green-500/30"></div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+        
+        {/* Local CTA Section */}
+        <section className="py-20 bg-gradient-to-br from-green-600 to-green-700 text-white">
+          <div className="max-w-4xl mx-auto px-6 md:px-8 text-center">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              Ready to Transform Your Business in {locationInfo.name}?
+            </h2>
+            <p className="text-xl mb-8 text-white/90">
+              Join hundreds of satisfied clients across Malta who trust OARC Digital for their {service.title.toLowerCase()} needs.
+            </p>
+            
+            <div className="flex flex-wrap justify-center gap-4">
+              <Link href="/contact">
+                <Button size="lg" variant="secondary">
+                  <Mail className="mr-2 w-4 h-4" /> Get Free Consultation
+                </Button>
+              </Link>
+              <a href="tel:+35679711799">
+                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/20">
+                  <Phone className="mr-2 w-4 h-4" /> +356 7971 1799
+                </Button>
+              </a>
+            </div>
+          </div>
+        </section>
+        
+        {/* FAQ Section - Voice Search Optimized */}
+        <section className="py-20 bg-background">
+          <div className="max-w-4xl mx-auto px-6 md:px-8">
+            <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
+              Frequently Asked Questions
+            </h2>
+            
+            <div className="space-y-6">
+              <div className="bg-card p-6 rounded-lg border">
+                <h3 className="text-lg font-bold mb-2">
+                  How much does {service.title.toLowerCase()} cost in {locationInfo.name}?
+                </h3>
+                <p className="text-muted-foreground">
+                  Our pricing is customized based on your specific needs and goals. Contact us for a free consultation and personalized quote.
+                </p>
+              </div>
+              
+              <div className="bg-card p-6 rounded-lg border">
+                <h3 className="text-lg font-bold mb-2">
+                  Do you serve businesses outside of {locationInfo.name}?
+                </h3>
+                <p className="text-muted-foreground">
+                  Yes! While we're proud to serve {locationInfo.name}, we work with clients across all of Malta, Europe, Middle East, and Asia.
+                </p>
+              </div>
+              
+              <div className="bg-card p-6 rounded-lg border">
+                <h3 className="text-lg font-bold mb-2">
+                  How quickly can we get started?
+                </h3>
+                <p className="text-muted-foreground">
+                  We can typically begin within 48 hours of your initial consultation. Our team is ready to help you achieve your goals quickly.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </Layout>
+  );
+}

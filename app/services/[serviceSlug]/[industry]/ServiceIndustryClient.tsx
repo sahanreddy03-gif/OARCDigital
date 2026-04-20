@@ -24,7 +24,7 @@ interface ComboContent {
 export const serviceMap: Record<string, ServiceMeta> = {
   "social-media-creative-management": { title: "Social Media Management", category: "Creative & Design" },
   "video-production": { title: "Video Production", category: "Creative & Design" },
-  "branding": { title: "Brand Identity", category: "Creative & Design" },
+  "branding-services": { title: "Brand Identity", category: "Creative & Design" },
   "ai-sdr-agent": { title: "AI Sales Agent", category: "AI Workforce Agents" },
   "ai-support-specialist": { title: "AI Customer Support", category: "AI Workforce Agents" },
   "marketing-automation-suite": { title: "Marketing Automation", category: "Growth Automation" },
