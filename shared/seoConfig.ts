@@ -5,12 +5,12 @@
 // REDUCED for Next.js migration: 50 -> 10 (top traffic locations only).
 // Archived locations are preserved here in a comment block for reference.
 //
-// ARCHIVED (40): mosta, qormi, hamrun, naxxar, attard, mdina, rabat,
-// marsaskala, marsaxlokk, birgu, msida, swieqi, mellieha, bugibba,
-// san-pawl-il-bahar, zejtun, zurrieq, paola, tarxien, fgura, balzan,
-// floriana, marsa, luqa, gudja, birzebbuga, kirkop, siggiewi, mqabba,
-// lija, iklin, san-lawrenz, santa-venera, pieta, pembroke, swatar,
-// ghaxaq, xghajra, kalkara, isla, bormla, cospicua
+// ARCHIVED (40): naxxar, attard, mdina, rabat, marsaskala, marsaxlokk,
+// birgu, msida, swieqi, mellieha, bugibba, san-pawl-il-bahar, zejtun,
+// zurrieq, paola, tarxien, fgura, balzan, floriana, marsa, luqa, gudja,
+// birzebbuga, kirkop, siggiewi, mqabba, lija, iklin, san-lawrenz,
+// santa-venera, pieta, pembroke, swatar, ghaxaq, xghajra, kalkara,
+// isla, bormla, cospicua
 export const maltaLocations = [
   'valletta',
   'sliema',

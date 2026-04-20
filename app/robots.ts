@@ -4,11 +4,10 @@ export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
       { userAgent: "*", allow: "/" },
-      { userAgent: "Googlebot", allow: "/", crawlDelay: 0 },
-      { userAgent: "Bingbot", allow: "/", crawlDelay: 0 },
-      { userAgent: "AhrefsBot", disallow: "/" },
-      { userAgent: "SemrushBot", disallow: "/" },
-      { userAgent: "DotBot", disallow: "/" },
+      { userAgent: "GPTBot", allow: "/" },
+      { userAgent: "ChatGPT-User", allow: "/" },
+      { userAgent: "Claude-Web", allow: "/" },
+      { userAgent: "PerplexityBot", allow: "/" },
     ],
     sitemap: "https://oarcdigital.com/sitemap.xml",
   };

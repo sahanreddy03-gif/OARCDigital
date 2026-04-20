@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import {
   maltaLocations,
   locationServices,
+  maltaIndustries,
   allServiceSlugs,
   allCaseStudySlugs,
 } from "../shared/seoConfig";
@@ -104,6 +105,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
   });
 
+  const industryPages: MetadataRoute.Sitemap = maltaIndustries.map((industry) => ({
+    url: `${BASE}/industries/${industry}`,
+    lastModified: today,
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }));
+
   return [
     ...corePages,
     ...blogPages,
@@ -113,5 +121,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...servicePages,
     ...caseStudyPages,
     ...locationPages,
+    ...industryPages,
   ];
 }
