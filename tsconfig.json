@@ -28,9 +28,9 @@
     "baseUrl": ".",
     "types": ["node", "vite/client"],
     "paths": {
-      "@/*": ["./*"],
-      "@/components/*": ["./components/*"],
-      "@/lib/*": ["./lib/*"],
+      "@/*": ["./*", "./client/src/*"],
+      "@/components/*": ["./components/*", "./client/src/components/*"],
+      "@/lib/*": ["./lib/*", "./client/src/lib/*"],
       "@/shared/*": ["./shared/*"],
       "@shared/*": ["./shared/*"]
     },
