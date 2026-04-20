@@ -7,6 +7,16 @@ import Link from 'next/link';
 import Layout from '@/components/layout/Layout';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
+import { maltaIndustries } from '@/shared/seoConfig';
+
+// Alias singular maltaIndustries slugs to the existing plural keys in the
+// industries data map so the shared slug vocabulary resolves correctly.
+const industrySlugAlias: Record<string, string> = {
+  'restaurant': 'restaurants',
+  'hotel': 'hotels',
+  'real-estate': 'real-estate',
+};
+const resolveIndustryKey = (slug: string) => industrySlugAlias[slug] ?? slug;
 import { Button } from '@/components/ui/button';
 
 interface IndustryData {
@@ -320,11 +330,11 @@ const topServiceSlugs = [
 ];
 
 export async function generateStaticParams() {
-  return Object.keys(industries).map((industry) => ({ industry }));
+  return maltaIndustries.map((industry) => ({ industry }));
 }
 
 export async function generateMetadata({ params }: { params: { industry: string } }): Promise<Metadata> {
-  const data = industries[params.industry];
+  const data = industries[resolveIndustryKey(params.industry)];
   if (!data) return { title: 'Industry Not Found | OARC Digital' };
   const title = `${data.name} Marketing Agency Malta | OARC Digital`;
   const description = `Malta's leading marketing agency for ${data.plural.toLowerCase()}. We help ${data.plural.toLowerCase()} grow with social media, video, AI, and automation. Results guaranteed. Contact OARC Digital today.`;
@@ -340,12 +350,13 @@ export async function generateMetadata({ params }: { params: { industry: string 
 
 export default function IndustryHubPage({ params }: { params: { industry: string } }) {
   const industry = params.industry;
+  const dataKey = resolveIndustryKey(industry);
 
-  if (!industries[industry]) {
+  if (!industries[dataKey]) {
     notFound();
   }
 
-  const data = industries[industry];
+  const data = industries[dataKey];
 
   return (
     <Layout>

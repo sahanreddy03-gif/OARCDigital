@@ -33,6 +33,8 @@ export const serviceMap: Record<string, ServiceMeta> = {
 };
 
 export const industryMap: Record<string, IndustryMeta> = {
+  restaurant: { name: "Restaurant", plural: "Restaurants" },
+  hotel: { name: "Hotel", plural: "Hotels" },
   restaurants: { name: "Restaurant", plural: "Restaurants" },
   hotels: { name: "Hotel", plural: "Hotels" },
   cafes: { name: "Cafe", plural: "Cafes" },
