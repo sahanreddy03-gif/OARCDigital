@@ -6,7 +6,10 @@ import { Button } from '@/components/ui/button';
 import { GlassCard } from '@/components/ui/glass-card';
 import CreativeNavigation from '@/components/CreativeNavigation';
 import Footer from '@/components/Footer';
+import FAQSection from '@/components/FAQSection';
 import { aiTeamMembers } from '@/components/ai/aiAgentsData';
+import { createServiceSchema } from '@/utils/structuredData';
+import { createBreadcrumbSchema } from '@/utils/advancedSchema';
 import { ArrowLeft, Check, ChevronRight } from 'lucide-react';
 import { SiWhatsapp } from 'react-icons/si';
 
@@ -36,12 +39,30 @@ export default function AIAgentDetail() {
   const Icon = agent.icon;
   const whatsappMsg = encodeURIComponent(`Hi OARC Digital, I'm interested in deploying ${agent.name} (${agent.role}) for my business.`);
 
+  const serviceSchema = createServiceSchema(
+    `${agent.name} — AI ${agent.role}`,
+    `Deploy ${agent.name}, OARC Digital's AI ${agent.role} for Malta businesses. ${agent.description}`,
+    `AI ${agent.role}`
+  );
+
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: 'Home', url: '/' },
+    { name: 'AI Agents', url: '/ai-agents' },
+    { name: `${agent.name} — ${agent.role}`, url: `/ai-agents/${agent.id}` }
+  ]);
+
   return (
     <>
       <Helmet>
         <title>{agent.name} — {agent.role} | OARC Digital AI Agents Malta</title>
         <meta name="description" content={`Deploy ${agent.name}, OARC Digital's AI ${agent.role} for Malta businesses. ${agent.description}`} />
         <link rel="canonical" href={`https://oarcdigital.com/ai-agents/${agent.id}`} />
+        <script type="application/ld+json" id={`service-schema-${agent.id}`}>
+          {JSON.stringify(serviceSchema)}
+        </script>
+        <script type="application/ld+json" id={`breadcrumb-schema-${agent.id}`}>
+          {JSON.stringify(breadcrumbSchema)}
+        </script>
       </Helmet>
 
       <CreativeNavigation />
@@ -184,6 +205,15 @@ export default function AIAgentDetail() {
             </div>
           </div>
         </section>
+
+        {/* FAQ Section */}
+        <FAQSection
+          faqs={agent.faqs}
+          title={`${agent.name} FAQ`}
+          subtitle={`Common questions about deploying ${agent.name} as your AI ${agent.role.toLowerCase()} in Malta`}
+          darkMode={true}
+          schemaId={`faq-schema-${agent.id}`}
+        />
 
         {/* Other agents */}
         <section className="py-16 px-4 sm:px-6 bg-black border-t border-white/5">
