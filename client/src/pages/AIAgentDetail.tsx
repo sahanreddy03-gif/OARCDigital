@@ -57,6 +57,22 @@ export default function AIAgentDetail() {
         <title>{agent.name} — {agent.role} | OARC Digital AI Agents Malta</title>
         <meta name="description" content={`Deploy ${agent.name}, OARC Digital's AI ${agent.role} for Malta businesses. ${agent.description}`} />
         <link rel="canonical" href={`https://oarcdigital.com/ai-agents/${agent.id}`} />
+        {/* Open Graph */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={`https://oarcdigital.com/ai-agents/${agent.id}`} />
+        <meta property="og:title" content={`${agent.name} — ${agent.role} | OARC Digital AI Agents Malta`} />
+        <meta property="og:description" content={`Deploy ${agent.name}, OARC Digital's AI ${agent.role} for Malta businesses. ${agent.description}`} />
+        <meta property="og:image" content={`https://oarcdigital.com/agents/${agent.id}.webp`} />
+        <meta property="og:image:width" content="320" />
+        <meta property="og:image:height" content="400" />
+        <meta property="og:image:alt" content={agent.avatarAlt} />
+        <meta property="og:site_name" content="OARC Digital" />
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={`${agent.name} — ${agent.role} | OARC Digital AI Agents Malta`} />
+        <meta name="twitter:description" content={`Deploy ${agent.name}, OARC Digital's AI ${agent.role} for Malta businesses. ${agent.description}`} />
+        <meta name="twitter:image" content={`https://oarcdigital.com/agents/${agent.id}.webp`} />
+        <meta name="twitter:image:alt" content={agent.avatarAlt} />
         <script type="application/ld+json" id={`service-schema-${agent.id}`}>
           {JSON.stringify(serviceSchema)}
         </script>
