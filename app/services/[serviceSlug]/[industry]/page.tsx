@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { allServiceSlugs, maltaIndustries } from "@/shared/seoConfig";
-import ServiceIndustryClient, { getServiceMeta, getIndustryMeta } from "./ServiceIndustryClient";
+import ServiceIndustryClient from "./ServiceIndustryClient";
+import { getServiceMeta, getIndustryMeta } from "./meta";
 
 export async function generateStaticParams() {
   return allServiceSlugs.flatMap((serviceSlug) =>
