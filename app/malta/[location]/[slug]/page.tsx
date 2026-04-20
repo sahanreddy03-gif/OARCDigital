@@ -237,7 +237,7 @@ const serviceData: Record<string, {
 
 export async function generateStaticParams() {
   return validLocations.flatMap((location) =>
-    validServices.map((service) => ({ location, service }))
+    validServices.map((service) => ({ location, slug: service }))
   );
 }
 
