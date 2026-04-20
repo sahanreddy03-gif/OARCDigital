@@ -68,7 +68,12 @@
           '/aeo/marketing-agency-sliema': { title: 'Marketing Agency Sliema | OARC Digital', desc: "Marketing agency serving Sliema businesses. Social media, content, paid advertising, and AI services for Sliema's retail, hospitality, and service businesses." }
         };
         var path = window.location.pathname;
+        // Strip trailing slash except on root, for canonical consistency
+        var canonPath = (path !== '/' && path.slice(-1) === '/') ? path.slice(0, -1) : path;
         var m = META[path];
+        // Always set canonical to the current page — never let it default to homepage
+        var canonical = document.getElementById('canonical-tag');
+        if (canonical) canonical.setAttribute('href', (m && m.canon) ? m.canon : ('https://oarcdigital.com' + canonPath));
         if (m) {
           document.title = m.title;
           var mDesc = document.querySelector('meta[name="description"]');
@@ -78,9 +83,7 @@
           var ogDesc = document.querySelector('meta[property="og:description"]');
           if (ogDesc) ogDesc.setAttribute('content', m.desc);
           var ogUrl = document.querySelector('meta[property="og:url"]');
-          if (ogUrl) ogUrl.setAttribute('content', 'https://oarcdigital.com' + path);
-          var canonical = document.getElementById('canonical-tag');
-          if (canonical) canonical.setAttribute('href', m.canon || ('https://oarcdigital.com' + path));
+          if (ogUrl) ogUrl.setAttribute('content', 'https://oarcdigital.com' + canonPath);
           var twTitle = document.querySelector('meta[name="twitter:title"]');
           if (twTitle) twTitle.setAttribute('content', m.title);
           var twDesc = document.querySelector('meta[name="twitter:description"]');
