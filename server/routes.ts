@@ -329,6 +329,20 @@ Disallow: /
         return res.status(400).json({ error: 'Invalid lead data' });
       }
       const lead = await storage.createLead(result.data);
+
+      // Fire-and-forget: notify via Formspree so lead lands in email inbox
+      fetch('https://formspree.io/f/xblnedyl', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          name: result.data.name,
+          contact: result.data.contact,
+          service: result.data.service,
+          source: 'ARC Chat Widget',
+          message: `New lead from ARC chat — ${result.data.name} | ${result.data.contact} | Interest: ${result.data.service}`,
+        }),
+      }).catch((err) => console.error('Formspree notification failed:', err));
+
       return res.json({ success: true, lead });
     } catch (error) {
       console.error('Lead capture error:', error);
