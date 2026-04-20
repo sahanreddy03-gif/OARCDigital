@@ -86,8 +86,10 @@ export function TeamCarousel() {
                         <img
                           src={agent.avatarImage}
                           alt={agent.avatarAlt}
-                          loading="lazy"
+                          loading={idx < 4 ? 'eager' : 'lazy'}
                           decoding="async"
+                          width={320}
+                          height={400}
                           className="absolute inset-0 w-full h-full object-contain object-center group-hover:scale-105 transition-transform duration-500"
                         />
                       ) : (

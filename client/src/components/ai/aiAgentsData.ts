@@ -1,20 +1,20 @@
 import { Target, HeadphonesIcon, Calendar, LayoutGrid, Users, Megaphone, Search, TrendingUp, UserCheck, Briefcase, UserPlus, Wallet, BarChart3, FileText, Mail, LucideIcon } from 'lucide-react';
 
-import salesAgentAvatar from '@assets/Sales_1768204442839.png';
-import salesManagerAvatar from '@assets/sales_manager_1768204442838.png';
-import supportAgentAvatar from '@assets/Untitled_1768204442839.png';
-import bookingsAgentAvatar from '@assets/bookings_1768204442836.png';
-import operationsAgentAvatar from '@assets/Man_Avatar_8_1768204442838.png';
-import followupAgentAvatar from '@assets/Follow_up_1768204442837.png';
-import customerSupportAvatar from '@assets/Customer_support_specalist_1768204442837.png';
-import businessDevAvatar from '@assets/Business_development_manager_1768204442837.png';
-import lunaAvatar from '@assets/3333_1768232221384.png';
-import pixelAvatar from '@assets/4444_1768232221384.png';
-import sageAvatar from '@assets/222_1768232221384.png';
-import vaultAvatar from '@assets/Untitled_1768232221385.png';
-import cipherAvatar from '@assets/7_1768245852873.png';
-import quillAvatar from '@assets/6_1768245852872.png';
-import pulseAvatar from '@assets/888_1768245852873.png';
+import salesAgentAvatar from '@assets/Sales_1768204442839.webp';
+import salesManagerAvatar from '@assets/sales_manager_1768204442838.webp';
+import supportAgentAvatar from '@assets/Untitled_1768204442839.webp';
+import bookingsAgentAvatar from '@assets/bookings_1768204442836.webp';
+import operationsAgentAvatar from '@assets/Man_Avatar_8_1768204442838.webp';
+import followupAgentAvatar from '@assets/Follow_up_1768204442837.webp';
+import customerSupportAvatar from '@assets/Customer_support_specalist_1768204442837.webp';
+import businessDevAvatar from '@assets/Business_development_manager_1768204442837.webp';
+import lunaAvatar from '@assets/3333_1768232221384.webp';
+import pixelAvatar from '@assets/4444_1768232221384.webp';
+import sageAvatar from '@assets/222_1768232221384.webp';
+import vaultAvatar from '@assets/Untitled_1768232221385.webp';
+import cipherAvatar from '@assets/7_1768245852873.webp';
+import quillAvatar from '@assets/6_1768245852872.webp';
+import pulseAvatar from '@assets/888_1768245852873.webp';
 
 export interface FAQItem {
   question: string;

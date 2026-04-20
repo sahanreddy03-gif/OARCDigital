@@ -104,6 +104,9 @@ export default function AIAgentDetail() {
                       src={agent.avatarImage}
                       alt={agent.avatarAlt}
                       loading="eager"
+                      decoding="async"
+                      width={320}
+                      height={400}
                       className="absolute inset-0 w-full h-full object-contain object-center"
                     />
                   ) : (
@@ -247,6 +250,9 @@ export default function AIAgentDetail() {
                                 src={other.avatarImage}
                                 alt={other.name}
                                 loading="lazy"
+                                decoding="async"
+                                width={160}
+                                height={128}
                                 className="absolute inset-0 w-full h-full object-contain object-center group-hover:scale-105 transition-transform duration-300"
                               />
                             ) : (
