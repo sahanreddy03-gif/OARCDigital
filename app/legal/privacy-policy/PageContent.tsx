@@ -100,7 +100,7 @@ export default function PageContent() {
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="w-2 h-2 bg-[#4ade80] rounded-full mt-2 flex-shrink-0"></span>
-                    <span><strong>Browse our website</strong> (automatically collected data via cookies - see our <Link href="/cookie-policy" className="text-[#4ade80] hover:underline">Cookie Policy</Link>)</span>
+                    <span><strong>Browse our website</strong> (automatically collected data via cookies - see our <Link href="/legal/cookie-policy" className="text-[#4ade80] hover:underline">Cookie Policy</Link>)</span>
                   </li>
                 </ul>
               </div>
@@ -287,7 +287,7 @@ export default function PageContent() {
                 <p className="text-white/80">
                   Our website uses cookies to enhance your browsing experience. For detailed information 
                   about the cookies we use and how to manage your preferences, please see our{' '}
-                  <Link href="/cookie-policy" className="text-[#4ade80] hover:underline">Cookie Policy</Link>.
+                  <Link href="/legal/cookie-policy" className="text-[#4ade80] hover:underline">Cookie Policy</Link>.
                 </p>
               </div>
 

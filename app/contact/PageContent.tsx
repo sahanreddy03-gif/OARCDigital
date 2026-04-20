@@ -442,7 +442,7 @@ export default function PageContent() {
         <div className="container mx-auto px-6 py-8">
           <p className="text-xs text-zinc-600 text-center max-w-3xl mx-auto" data-testid="text-gdpr-notice">
             When you contact us, we process your information in accordance with our{' '}
-            <Link href="/privacy-policy" className="underline hover:text-zinc-400 transition-colors">Privacy Policy</Link>. 
+            <Link href="/legal/privacy-policy" className="underline hover:text-zinc-400 transition-colors">Privacy Policy</Link>. 
             OARC Digital is registered in Malta and complies with GDPR.
           </p>
         </div>

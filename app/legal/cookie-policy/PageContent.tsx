@@ -296,7 +296,7 @@ export default function PageContent() {
                 <h2 className="text-xl font-bold text-white mb-4">Questions About Cookies?</h2>
                 <p className="text-white/80 mb-4">
                   If you have any questions about our use of cookies, please contact us or see our{' '}
-                  <Link href="/privacy-policy" className="text-[#23AACA] hover:underline">Privacy Policy</Link>.
+                  <Link href="/legal/privacy-policy" className="text-[#23AACA] hover:underline">Privacy Policy</Link>.
                 </p>
                 <Link href="/contact">
                   <button className="inline-flex items-center gap-2 bg-[#23AACA] text-black font-bold px-6 py-3 rounded-lg hover:bg-[#3dc0d8] transition-colors" data-testid="button-contact">
