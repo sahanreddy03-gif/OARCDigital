@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     title: pdfPagesSEO.capabilitiesDeck.title,
     description: pdfPagesSEO.capabilitiesDeck.description,
     url: `https://oarcdigital.com${pdfPagesSEO.capabilitiesDeck.path}`,
-    type: pdfPagesSEO.capabilitiesDeck.ogType,
+    type: pdfPagesSEO.capabilitiesDeck.ogType ?? "website",
   },
   twitter: {
     card: "summary_large_image",

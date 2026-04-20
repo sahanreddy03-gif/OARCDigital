@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: supportingPagesSEO.enterprise.title,
     description: supportingPagesSEO.enterprise.description,
     url: `https://oarcdigital.com${supportingPagesSEO.enterprise.path}`,
-    type: supportingPagesSEO.enterprise.ogType,
+    type: supportingPagesSEO.enterprise.ogType ?? "website",
   },
   twitter: {
     card: "summary_large_image",
