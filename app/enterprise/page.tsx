@@ -19,7 +19,6 @@ export const metadata: Metadata = {
 };
 
 import Layout from "@/components/layout/Layout";
-import { supportingPagesSEO } from "@/data/seoMetadata";
 
 export default function Page() {
   return (

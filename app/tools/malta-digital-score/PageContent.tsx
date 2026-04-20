@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { usePathname } from "next/navigation";
+import { useRouter } from "next/navigation";
 import Layout from "@/components/layout/Layout";
 // ─── Scoring Engine ───────────────────────────────────────────────────────────
 
@@ -141,7 +141,8 @@ const INDUSTRIES: { value: Industry; label: string }[] = [
 ];
 
 export default function PageContent() {
-  const [, navigate] = useLocation();
+  const router = useRouter();
+  const navigate = (href: string) => router.push(href);
   const [businessName, setBusinessName] = useState("");
   const [industry, setIndustry] = useState<Industry>("restaurant");
   const [result, setResult] = useState<ScoreResult | null>(null);

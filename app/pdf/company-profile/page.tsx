@@ -22,7 +22,6 @@ import { companyInfo, aboutText, coreServices, whyChooseUs, processSteps, caseSt
 import { Palette, Users, TrendingUp, Zap, Target, Clock, Globe, Cpu, Mail, Phone, MapPin, Globe2 } from "lucide-react";
 import "../styles/pdf.css";
 import logoImage from "@assets/fdfdfd_1762818183304.png";
-import { pdfPagesSEO } from "@/data/seoMetadata";
 
 const iconMap: Record<string, any> = {
   palette: Palette,

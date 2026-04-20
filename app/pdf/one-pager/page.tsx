@@ -22,7 +22,6 @@ import { companyInfo, coreServices, keyDifferentiators, targetIndustries } from 
 import { Zap, Target, Clock, Globe, Cpu, TrendingUp } from "lucide-react";
 import "../styles/pdf.css";
 import logoImage from "@assets/fdfdfd_1762818183304.png";
-import { pdfPagesSEO } from "@/data/seoMetadata";
 
 const iconMap: Record<string, any> = {
   zap: Zap,
