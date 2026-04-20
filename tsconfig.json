@@ -28,11 +28,11 @@
     "baseUrl": ".",
     "types": ["node", "vite/client"],
     "paths": {
-      "@/*": ["./client/src/*"],
-      "@shared/*": ["./shared/*"],
-      "@app/*": ["./app/*"],
-      "@lib/*": ["./lib/*"],
-      "@components/*": ["./components/*"]
+      "@/*": ["./*"],
+      "@/components/*": ["./components/*"],
+      "@/lib/*": ["./lib/*"],
+      "@/shared/*": ["./shared/*"],
+      "@shared/*": ["./shared/*"]
     },
     "plugins": [{ "name": "next" }]
   }

@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import "./globals.css";
+import { Providers } from "./providers";
 
 const ORGANIZATION_JSONLD = [
   {
@@ -157,7 +158,7 @@ export default function RootLayout({
         />
       </head>
       <body>
-        {children}
+        <Providers>{children}</Providers>
 
         {/* Google Ads Conversion Tracking (gtag.js) */}
         <Script
