@@ -1,6 +1,14 @@
 import type { Metadata } from "next";
 import ServiceIndustryClient, { serviceMap, industryMap } from "./ServiceIndustryClient";
 
+export async function generateStaticParams() {
+  const serviceSlugs = Object.keys(serviceMap);
+  const industries = Object.keys(industryMap);
+  return serviceSlugs.flatMap((serviceSlug) =>
+    industries.map((industry) => ({ serviceSlug, industry }))
+  );
+}
+
 export async function generateMetadata({ params }: { params: { serviceSlug: string; industry: string } }): Promise<Metadata> {
   const service = serviceMap[params.serviceSlug];
   const ind = industryMap[params.industry];
