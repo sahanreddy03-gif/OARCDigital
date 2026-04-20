@@ -331,16 +331,18 @@ Disallow: /
       const lead = await storage.createLead(result.data);
 
       // Fire-and-forget: notify via Formspree so lead lands in email inbox
-      fetch('https://formspree.io/f/xblnedyl', {
+      void fetch('https://formspree.io/f/xblnedyl', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify({
           name: result.data.name,
           contact: result.data.contact,
           service: result.data.service,
-          source: 'ARC Chat Widget',
+          source: 'ARC Chat',
           message: `New lead from ARC chat — ${result.data.name} | ${result.data.contact} | Interest: ${result.data.service}`,
         }),
+      }).then((r) => {
+        if (!r.ok) console.error('Formspree notification returned non-2xx:', r.status);
       }).catch((err) => console.error('Formspree notification failed:', err));
 
       return res.json({ success: true, lead });
