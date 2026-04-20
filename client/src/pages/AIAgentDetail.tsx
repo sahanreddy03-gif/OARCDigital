@@ -58,6 +58,7 @@ export default function AIAgentDetail() {
   if (import.meta.env.DEV && !rating) {
     console.warn(`[AIAgentDetail] No agentRatings entry for agent id "${agent.id}". Add it to aiAgentsData.ts to enable star ratings schema.`);
   }
+  const titlePrefix = rating ? `${rating.ratingValue}\u2605 (${rating.reviewCount} reviews) \u2014 ` : '';
   const ratingSchema = rating
     ? createAggregateRatingSchema(
         `${agent.name} — AI ${agent.role}`,
@@ -71,7 +72,7 @@ export default function AIAgentDetail() {
   return (
     <>
       <Helmet>
-        <title>{agent.name} — {agent.role} | OARC Digital AI Agents Malta</title>
+        <title>{titlePrefix}{agent.name} AI {agent.role} | OARC Digital Malta</title>
         <meta name="description" content={`Deploy ${agent.name}, OARC Digital's AI ${agent.role} for Malta businesses. ${agent.description}`} />
         <link rel="canonical" href={`https://oarcdigital.com/ai-agents/${agent.id}`} />
         {/* Open Graph */}
