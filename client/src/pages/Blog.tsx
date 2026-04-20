@@ -12,7 +12,7 @@ interface BlogPost {
   slug: string;
   title: string;
   excerpt: string;
-  category: 'AI Marketing' | 'Creative Services' | 'Revenue Growth' | 'Case Studies';
+  category: string;
   readTime: string;
   publishDate: string;
   featured?: boolean;

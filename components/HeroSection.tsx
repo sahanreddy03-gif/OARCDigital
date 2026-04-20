@@ -12,6 +12,7 @@ const HERO_PLACEHOLDER = 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wB
 function useImagePreload(src: string) {
   // Check if image is already cached IMMEDIATELY (synchronously)
   const checkCached = () => {
+    if (typeof window === 'undefined') return false;
     const img = new Image();
     img.src = src;
     return img.complete && img.naturalWidth > 0;
