@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: "Lead Generation | B2B & B2C Lead Gen | OARC Digital Malta",
     description: "Premium lead generation services combining AI automation with creative strategy. OARC Digital delivers qualified leads at scale for ambitious brands.",
     url: "https://oarcdigital.com/services/lead-generation",
-    type: "website",
+    type: "article",
   },
   twitter: {
     card: "summary_large_image",

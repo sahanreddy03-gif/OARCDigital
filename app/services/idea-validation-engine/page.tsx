@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: "Idea Validation & Growth Hacker | Rapid Market Testing | OARC Digital",
     description: "Launch with confidence, not guesswork. Validate product-market fit in weeks with AI-driven testing frameworks used by top startups. 10x faster validation.",
     url: "https://oarcdigital.com/services/idea-validation-engine",
-    type: "website",
+    type: "article",
   },
   twitter: {
     card: "summary_large_image",

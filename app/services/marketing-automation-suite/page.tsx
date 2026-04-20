@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: "Marketing Automation Suite | Campaign Orchestration | OARC Digital",
     description: "Kill manual marketing tasks forever. Automate email sequences, social campaigns, and customer journeys with workflows that scale without extra headcount.",
     url: "https://oarcdigital.com/services/marketing-automation-suite",
-    type: "website",
+    type: "article",
   },
   twitter: {
     card: "summary_large_image",

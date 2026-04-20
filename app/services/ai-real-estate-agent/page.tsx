@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: "Real Estate Sales Specialist | Malta Property AI | OARC Digital Malta",
     description: "Malta-focused, bilingual deal acceleration for real estate. Our AI Real Estate Specialist qualifies buyers, schedules viewings, and accelerates property sales.",
     url: "https://oarcdigital.com/services/ai-real-estate-agent",
-    type: "website",
+    type: "article",
   },
   twitter: {
     card: "summary_large_image",

@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
 import fs from "fs";
 import path from "path";
+import { notFound } from "next/navigation";
 import ServiceDetailClient from "./ServiceDetailClient";
 
-function readServiceContent(service: string): { title: string; description: string } | null {
+function readServiceContent(service: string): any | null {
   try {
     const p = path.join(process.cwd(), "client", "public", "content", "services", `${service}.json`);
     const raw = fs.readFileSync(p, "utf8");
-    const data = JSON.parse(raw);
-    return { title: data?.meta?.title ?? "", description: data?.meta?.description ?? "" };
+    return JSON.parse(raw);
   } catch {
     return null;
   }
@@ -16,8 +16,8 @@ function readServiceContent(service: string): { title: string; description: stri
 
 export async function generateMetadata({ params }: { params: { serviceSlug: string } }): Promise<Metadata> {
   const content = readServiceContent(params.serviceSlug);
-  const title = content?.title || "Service | OARC Digital";
-  const description = content?.description || "";
+  const title = content?.meta?.title || "Service | OARC Digital";
+  const description = content?.meta?.description || "";
   const canonical = `https://oarcdigital.com/services/${params.serviceSlug}`;
   return {
     title,
@@ -38,5 +38,7 @@ export async function generateMetadata({ params }: { params: { serviceSlug: stri
 }
 
 export default function Page({ params }: { params: { serviceSlug: string } }) {
-  return <ServiceDetailClient service={params.serviceSlug} />;
+  const content = readServiceContent(params.serviceSlug);
+  if (!content) notFound();
+  return <ServiceDetailClient service={params.serviceSlug} content={content} />;
 }

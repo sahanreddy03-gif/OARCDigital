@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: "Funnel Optimization Agent | Conversion Intelligence | OARC Digital Malta",
     description: "Every visitor is a revenue opportunity. Our AI continuously tests, learns, and optimizes your entire funnel—from first click to closed deal. 2.5x conversion rate.",
     url: "https://oarcdigital.com/services/funnel-optimization-agent",
-    type: "website",
+    type: "article",
   },
   twitter: {
     card: "summary_large_image",

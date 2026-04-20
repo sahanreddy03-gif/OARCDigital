@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: "Compliance & Legal Auditor | GDPR & Risk Scanning | OARC Digital",
     description: "GDPR bulletproof with real-time risk scanning. Our AI Compliance Auditor monitors regulations, flags violations, and keeps your business protected 24/7.",
     url: "https://oarcdigital.com/services/ai-compliance-auditor",
-    type: "website",
+    type: "article",
   },
   twitter: {
     card: "summary_large_image",
