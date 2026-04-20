@@ -1,0 +1,365 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import Link from 'next/link';
+import { ArrowRight, Gauge, MousePointer2, TrendingUp, Timer, Users, Zap, ArrowUpRight, BarChart3, Target, Eye, ShoppingCart } from "lucide-react";
+import Layout from "@/components/layout/Layout";
+import { createServiceSchema } from "@/utils/structuredData";
+import ScrollReveal from "@/components/ScrollReveal";
+import FAQSection, { FAQItem } from "@/components/FAQSection";
+
+import heroImage from '@assets/website-design-optimized.jpg';
+import webImg1 from "@assets/stock_images/modern_web_design_ux_d23df466.jpg";
+import webImg2 from "@assets/stock_images/modern_web_design_ux_62274473.jpg";
+import webImg3 from "@assets/stock_images/modern_web_design_ux_699e8c91.jpg";
+import webImg4 from "@assets/stock_images/modern_website_desig_4ba94acf.jpg";
+import webAppImg from "@assets/stock_images/modern_web_design_we_927d8700.jpg";
+
+export default function WebDesign() {
+  const [activeMetric, setActiveMetric] = useState(0);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveMetric((prev) => (prev + 1) % 4);
+    }, 2500);
+    return () => clearInterval(interval);
+  }, []);
+
+  const liveMetrics = [
+    { label: "Page Speed", value: "0.8s", target: "<1.5s", status: "good" },
+    { label: "Bounce Rate", value: "28%", target: "<35%", status: "good" },
+    { label: "Conversion", value: "4.2%", target: ">3%", status: "good" },
+    { label: "Mobile Score", value: "98", target: ">90", status: "good" },
+  ];
+
+  const webDesignFAQs: FAQItem[] = [
+    { question: "What's included in web design services?", answer: "Strategy, wireframes, visual design, development, mobile optimization, and launch. Complete end-to-end website creation with ongoing support options." },
+    { question: "How long does it take to build a website?", answer: "Simple websites take 3-4 weeks. Complex sites with custom functionality typically require 6-10 weeks from concept to launch." },
+    { question: "What makes OARC's web design different?", answer: "We design for conversion, not just aesthetics. Every element is optimized to turn visitors into leads using data-driven design principles." },
+    { question: "Do you build websites on WordPress?", answer: "We build on WordPress, Webflow, Shopify, and custom React applications. We recommend the platform that best suits your needs and goals." },
+    { question: "Is the website mobile-friendly?", answer: "Absolutely. All our websites are fully responsive and optimized for mobile, tablet, and desktop. Mobile-first design is our standard approach." },
+    { question: "Do you handle website hosting and maintenance?", answer: "Yes, we offer managed hosting and maintenance packages. Security updates, backups, and performance monitoring are all included." },
+    { question: "What is the investment for web design?", answer: "Our web design packages are tailored to your project scope and business goals. Contact us for a custom quote." },
+    { question: "Do you offer SEO with web design?", answer: "Yes, all websites include on-page SEO optimization. We also offer comprehensive SEO services as an add-on for ongoing visibility." }
+  ];
+
+  return (
+    <Layout>
+      {/* HERO: Performance Dashboard Style */}
+      <section className="relative min-h-[90vh] flex items-center bg-zinc-950 overflow-hidden">
+        <div className="absolute inset-0">
+          <img 
+            src={heroImage}
+            alt="Web design"
+            className="w-full h-full object-cover opacity-20"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-zinc-950 via-zinc-950/95 to-zinc-950/80"></div>
+        </div>
+        
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 py-20">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <p className="text-[#23AACA] text-sm uppercase tracking-widest mb-4">Web Design & Development</p>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6" data-testid="heading-web-design">
+                Websites that actually convert.
+              </h1>
+              <p className="text-xl text-white/80 mb-8">
+                Not just pretty. Profitable. Every pixel optimized for performance, every interaction designed to convert.
+              </p>
+              
+              <Link href="/contact">
+                <button
+                  className="inline-flex items-center gap-3 bg-[#23AACA] text-white rounded-full pl-8 pr-4 py-4 text-lg font-bold hover:bg-[#1a8fa8] transition-colors"
+                  data-testid="button-get-audit"
+                >
+                  Get a Free UX Audit
+                  <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
+                    <ArrowRight className="h-5 w-5" />
+                  </div>
+                </button>
+              </Link>
+            </div>
+
+            {/* Live metrics dashboard */}
+            <div className="bg-zinc-900/80 backdrop-blur-xl rounded-2xl border border-zinc-800 p-6">
+              <div className="flex items-center justify-between mb-6">
+                <span className="text-white/70 text-sm">Live site performance</span>
+                <span className="flex items-center gap-2 text-[#23AACA] text-sm">
+                  <span className="w-2 h-2 bg-[#23AACA] rounded-full animate-pulse"></span>
+                  All systems healthy
+                </span>
+              </div>
+
+              <div className="grid grid-cols-2 gap-4">
+                {liveMetrics.map((metric, i) => (
+                  <div 
+                    key={i}
+                    className={`p-4 rounded-xl transition-all ${
+                      activeMetric === i ? 'bg-[#23AACA]/20 border border-[#23AACA]/50' : 'bg-zinc-800/50'
+                    }`}
+                    data-testid={`metric-${i}`}
+                  >
+                    <div className="text-white/70 text-xs mb-1">{metric.label}</div>
+                    <div className="text-2xl font-black text-white">{metric.value}</div>
+                    <div className="text-[#23AACA] text-xs">Target: {metric.target}</div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-6 pt-6 border-t border-zinc-800">
+                <div className="flex items-center justify-between text-sm">
+                  <span className="text-white/70">Lighthouse Score</span>
+                  <span className="text-[#23AACA] font-bold">99/100</span>
+                </div>
+                <div className="mt-2 h-2 bg-zinc-800 rounded-full overflow-hidden">
+                  <div className="h-full w-[99%] bg-gradient-to-r from-[#23AACA] to-[#c4ff4d] rounded-full"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 2: Case Study Spotlight with Before/After */}
+      <ScrollReveal>
+        <section className="py-20 px-4 bg-zinc-950">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-black text-white mb-4">Real results, not mockups</h2>
+              <p className="text-white/70">Actual performance improvements from recent projects</p>
+            </div>
+
+            {/* Featured case study */}
+            <div className="grid lg:grid-cols-2 gap-8 items-center mb-12">
+              <div className="relative rounded-2xl overflow-hidden">
+                <img src={webImg1} alt="SaaS website redesign" className="w-full h-[400px] object-cover" />
+                <div className="absolute top-4 left-4 px-3 py-1 bg-[#23AACA] text-white text-sm font-bold rounded-full">
+                  SaaS Redesign
+                </div>
+              </div>
+              
+              <div>
+                <h3 className="text-2xl font-black text-white mb-4">Fintech SaaS Platform</h3>
+                <p className="text-white/80 mb-8">
+                  Complete redesign of signup flow and pricing page. The old site had a 1.2% conversion rate with slow load times. We rebuilt it from scratch with conversion in mind.
+                </p>
+                
+                <div className="grid grid-cols-3 gap-6">
+                  {[
+                    { before: "1.2%", after: "4.8%", label: "Conversion Rate", change: "+300%" },
+                    { before: "4.2s", after: "0.9s", label: "Load Time", change: "-78%" },
+                    { before: "68%", after: "32%", label: "Bounce Rate", change: "-53%" },
+                  ].map((stat, i) => (
+                    <div key={i} className="text-center" data-testid={`case-stat-${i}`}>
+                      <div className="text-[#23AACA] text-xs font-bold mb-1">{stat.change}</div>
+                      <div className="text-white/70 text-xs line-through">{stat.before}</div>
+                      <div className="text-2xl font-black text-white">{stat.after}</div>
+                      <div className="text-white/70 text-xs">{stat.label}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* More case thumbnails */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              {[
+                { img: webImg2, title: "E-commerce", metric: "+127% revenue" },
+                { img: webImg3, title: "Lead Gen Site", metric: "+89% leads" },
+                { img: webImg4, title: "SaaS Landing", metric: "+156% signups" },
+                { img: webAppImg, title: "B2B Platform", metric: "+67% demos" },
+              ].map((project, i) => (
+                <div 
+                  key={i}
+                  className="group relative rounded-xl overflow-hidden cursor-pointer"
+                  data-testid={`project-${i}`}
+                >
+                  <img 
+                    src={project.img}
+                    alt={project.title}
+                    className="w-full h-40 object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                  <div className="absolute bottom-3 left-3 right-3">
+                    <span className="text-[#23AACA] text-xs font-bold">{project.metric}</span>
+                    <h4 className="text-white font-bold text-sm">{project.title}</h4>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      </ScrollReveal>
+
+      {/* SECTION 3: Conversion Framework */}
+      <ScrollReveal>
+        <section className="py-20 px-4 bg-black">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-black text-white mb-4">
+                Our conversion framework
+              </h2>
+              <p className="text-white/70 max-w-xl mx-auto">
+                Every website we build follows a proven methodology for turning visitors into customers.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-6">
+              {[
+                { 
+                  icon: Eye, 
+                  step: "Capture", 
+                  title: "Above-the-fold impact",
+                  desc: "Hook visitors in 3 seconds with clear value props, strong visuals, and obvious next steps.",
+                  tactics: ["Hero messaging", "Social proof", "Clear CTA"]
+                },
+                { 
+                  icon: MousePointer2, 
+                  step: "Guide", 
+                  title: "Intuitive user journeys",
+                  desc: "Remove friction and lead visitors toward conversion with smart UX patterns.",
+                  tactics: ["Progressive disclosure", "Sticky nav", "F-pattern layout"]
+                },
+                { 
+                  icon: Target, 
+                  step: "Convert", 
+                  title: "Optimized conversion points",
+                  desc: "Forms, CTAs, and checkout flows designed to maximize completion rates.",
+                  tactics: ["Multi-step forms", "Urgency triggers", "Trust signals"]
+                },
+              ].map((phase, i) => (
+                <div 
+                  key={i}
+                  className="p-8 rounded-2xl bg-zinc-900 border border-zinc-800 group hover:border-[#23AACA]/50 transition-colors"
+                  data-testid={`framework-${i}`}
+                >
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="w-10 h-10 rounded-full bg-[#23AACA]/20 flex items-center justify-center">
+                      <phase.icon className="w-5 h-5 text-[#23AACA]" />
+                    </div>
+                    <span className="text-[#23AACA] text-sm font-bold uppercase">{phase.step}</span>
+                  </div>
+                  <h3 className="text-xl font-bold text-white mb-3">{phase.title}</h3>
+                  <p className="text-white/70 text-sm mb-6">{phase.desc}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {phase.tactics.map((tactic, j) => (
+                      <span key={j} className="px-3 py-1 bg-zinc-800 text-white/70 text-xs rounded-full">
+                        {tactic}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      </ScrollReveal>
+
+      {/* SECTION 4: What We Build */}
+      <ScrollReveal>
+        <section className="py-20 px-4 bg-[#f5f0e6]">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-black text-center mb-12 text-[#1a2e29]">
+              Sites built for specific goals
+            </h2>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[
+                { icon: TrendingUp, title: "SaaS Websites", desc: "Product pages, pricing, demo flows optimized for trial signups." },
+                { icon: ShoppingCart, title: "E-commerce", desc: "Product pages, cart, checkout flows that reduce abandonment." },
+                { icon: Target, title: "Lead Generation", desc: "Landing pages and forms designed for maximum lead capture." },
+                { icon: BarChart3, title: "B2B Platforms", desc: "Professional sites that establish credibility and generate demos." },
+                { icon: Zap, title: "Landing Pages", desc: "Single-purpose pages for campaigns, launches, and promotions." },
+                { icon: Users, title: "Corporate Sites", desc: "Brand-forward sites that communicate company values and attract talent." },
+              ].map((type, i) => (
+                <div 
+                  key={i}
+                  className="p-6 rounded-2xl bg-white border border-[#1a2e29]/10 hover:border-[#23AACA] hover:shadow-lg transition-all group"
+                  data-testid={`site-type-${i}`}
+                >
+                  <type.icon className="w-8 h-8 text-[#23AACA] mb-4" />
+                  <h3 className="font-bold text-lg mb-2 text-[#1a2e29]">{type.title}</h3>
+                  <p className="text-[#1a2e29]/60 text-sm">{type.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      </ScrollReveal>
+
+      {/* SECTION 5: Tech & Performance */}
+      <section className="py-16 px-4 bg-[#23AACA]">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            {[
+              { value: "99/100", label: "Lighthouse Score" },
+              { value: "<1s", label: "First Paint" },
+              { value: "Mobile-First", label: "All Responsive" },
+              { value: "A/B Ready", label: "Built for Testing" },
+            ].map((stat, i) => (
+              <div key={i} data-testid={`perf-stat-${i}`}>
+                <div className="text-3xl md:text-4xl font-black text-black">{stat.value}</div>
+                <div className="text-sm text-black/70">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <FAQSection 
+        faqs={webDesignFAQs} 
+        title="Frequently Asked Questions" 
+        subtitle="Everything you need to know about our web design services" 
+        schemaId="faq-web-design" 
+      />
+
+      {/* Further Reading */}
+      <section className="py-16 bg-background border-t">
+        <div className="max-w-4xl mx-auto px-6 md:px-8">
+          <h2 className="text-xl font-bold mb-6">Further Reading</h2>
+          <div className="grid md:grid-cols-2 gap-4">
+            {[
+              { href: "/blog/web-design-malta", label: "Web Design in Malta: What It Costs and What You Actually Need", cat: "Guide" },
+              { href: "/blog/paid-advertising-malta", label: "Facebook and Google Ads in Malta: What Paid Advertising Actually Costs", cat: "Paid Media" },
+            ].map((a, i) => (
+              <Link key={i} href={a.href}>
+                <div className="p-4 rounded-xl border bg-card hover:border-orange-400 transition-colors cursor-pointer h-full">
+                  <span className="text-xs font-semibold text-orange-500 uppercase tracking-wider mb-2 block">{a.cat}</span>
+                  <p className="text-sm font-medium leading-snug">{a.label}</p>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FINAL CTA */}
+      <section className="py-20 px-4 bg-zinc-950 text-white">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-4xl md:text-5xl font-black mb-6">
+            Want a site that works harder?
+          </h2>
+          <p className="text-white/80 text-lg mb-10">
+            Get a free UX audit and see where your current site is losing conversions.
+          </p>
+          <Link href="/contact">
+            <button
+              className="inline-flex items-center gap-3 bg-[#23AACA] text-white rounded-full pl-10 pr-4 py-5 text-lg font-bold hover:bg-[#1a8fa8] transition-colors"
+              data-testid="button-cta-audit"
+            >
+              Get Free UX Audit
+              <div className="w-12 h-12 bg-black/20 rounded-full flex items-center justify-center">
+                <ArrowRight className="h-6 w-6" />
+              </div>
+            </button>
+          </Link>
+        </div>
+      </section>
+    </Layout>
+  );
+}

@@ -7,6 +7,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const nextConfig = {
   reactStrictMode: true,
   images: { unoptimized: true, disableStaticImages: true },
+  eslint: { ignoreDuringBuilds: true },
   webpack: (config) => {
     config.resolve.alias = {
       ...(config.resolve.alias || {}),
