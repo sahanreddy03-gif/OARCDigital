@@ -1,23 +1,20 @@
 import type { Metadata } from "next";
-import { aiEmployeeServicesSEO } from "@/data/seoMetadata";
 import PageContent from "./PageContent";
 
-const seo = aiEmployeeServicesSEO.aiVirtualTalentHub;
-
 export const metadata: Metadata = {
-  title: seo.title,
-  description: seo.description,
-  alternates: { canonical: `https://oarcdigital.com${seo.path}` },
+  title: "AI Virtual Talent Hub | Autonomous AI Agents On-Demand | OARC Digital Malta",
+  description: "Hire autonomous AI agents as on-demand team members. Our production-tested agents think, adapt, and execute 24/7 while slashing your hiring costs. Malta-based support.",
+  alternates: { canonical: "https://oarcdigital.com/services/ai-virtual-talent-hub" },
   openGraph: {
-    title: seo.title,
-    description: seo.description,
-    url: `https://oarcdigital.com${seo.path}`,
-    type: seo.ogType ?? "website",
+    title: "AI Virtual Talent Hub | Autonomous AI Agents On-Demand | OARC Digital Malta",
+    description: "Hire autonomous AI agents as on-demand team members. Our production-tested agents think, adapt, and execute 24/7 while slashing your hiring costs. Malta-based support.",
+    url: "https://oarcdigital.com/services/ai-virtual-talent-hub",
+    type: "article",
   },
   twitter: {
     card: "summary_large_image",
-    title: seo.title,
-    description: seo.description,
+    title: "AI Virtual Talent Hub | Autonomous AI Agents On-Demand | OARC Digital Malta",
+    description: "Hire autonomous AI agents as on-demand team members. Our production-tested agents think, adapt, and execute 24/7 while slashing your hiring costs. Malta-based support.",
   },
 };
 

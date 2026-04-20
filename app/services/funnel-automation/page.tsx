@@ -1,26 +1,23 @@
 import type { Metadata } from "next";
-import { revenueServicesSEO } from "@/data/seoMetadata";
 import PageContent from "@/components/services/RevenueServiceClient";
 
-const seo = revenueServicesSEO.funnelAutomation;
-
 export const metadata: Metadata = {
-  title: seo.title,
-  description: seo.description,
-  alternates: { canonical: `https://oarcdigital.com${seo.path}` },
+  title: "Funnel Automation | Conversion Optimization | OARC Digital Malta",
+  description: "Automate your marketing funnels with OARC Digital. Build, test, and optimize conversion funnels using AI-powered automation for predictable revenue growth.",
+  alternates: { canonical: "https://oarcdigital.com/services/funnel-automation" },
   openGraph: {
-    title: seo.title,
-    description: seo.description,
-    url: `https://oarcdigital.com${seo.path}`,
-    type: seo.ogType ?? "website",
+    title: "Funnel Automation | Conversion Optimization | OARC Digital Malta",
+    description: "Automate your marketing funnels with OARC Digital. Build, test, and optimize conversion funnels using AI-powered automation for predictable revenue growth.",
+    url: "https://oarcdigital.com/services/funnel-automation",
+    type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: seo.title,
-    description: seo.description,
+    title: "Funnel Automation | Conversion Optimization | OARC Digital Malta",
+    description: "Automate your marketing funnels with OARC Digital. Build, test, and optimize conversion funnels using AI-powered automation for predictable revenue growth.",
   },
 };
 
 export default function Page() {
-  return <PageContent />;
+  return <PageContent slug="funnel-automation" />;
 }

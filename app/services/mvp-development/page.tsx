@@ -1,23 +1,20 @@
 import type { Metadata } from "next";
-import { revenueServicesSEO } from "@/data/seoMetadata";
 import PageContent from "./PageContent";
 
-const seo = revenueServicesSEO.customSoftwareDevelopment;
-
 export const metadata: Metadata = {
-  title: seo.title,
-  description: seo.description,
-  alternates: { canonical: `https://oarcdigital.com${seo.path}` },
+  title: "MVP Development Services Malta | Launch Your Startup in 8-12 Weeks | OARC Digital",
+  description: "Build your MVP with Malta's leading product development team. From concept validation to market launch in 8-12 weeks. 40+ MVPs shipped. Get a free consultation.",
+  alternates: { canonical: "https://oarcdigital.com/services/mvp-development" },
   openGraph: {
-    title: seo.title,
-    description: seo.description,
-    url: `https://oarcdigital.com${seo.path}`,
-    type: seo.ogType ?? "website",
+    title: "MVP Development Services Malta | Launch Your Startup in 8-12 Weeks | OARC Digital",
+    description: "Build your MVP with Malta's leading product development team. From concept validation to market launch in 8-12 weeks. 40+ MVPs shipped. Get a free consultation.",
+    url: "https://oarcdigital.com/services/mvp-development",
+    type: "article",
   },
   twitter: {
     card: "summary_large_image",
-    title: seo.title,
-    description: seo.description,
+    title: "MVP Development Services Malta | Launch Your Startup in 8-12 Weeks | OARC Digital",
+    description: "Build your MVP with Malta's leading product development team. From concept validation to market launch in 8-12 weeks. 40+ MVPs shipped. Get a free consultation.",
   },
 };
 

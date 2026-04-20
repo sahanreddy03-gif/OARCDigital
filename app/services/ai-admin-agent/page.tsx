@@ -1,26 +1,23 @@
 import type { Metadata } from "next";
-import { aiEmployeeServicesSEO } from "@/data/seoMetadata";
 import PageContent from "@/components/services/AIEmployeeServiceClient";
 
-const seo = aiEmployeeServicesSEO.aiAdminAgent;
-
 export const metadata: Metadata = {
-  title: seo.title,
-  description: seo.description,
-  alternates: { canonical: `https://oarcdigital.com${seo.path}` },
+  title: "Administrative Workflow Agent | AI Virtual Assistant | OARC Digital",
+  description: "Reclaim 50% of your day from routine tasks. Deploy an AI administrative agent that handles scheduling, email management, and workflows automatically.",
+  alternates: { canonical: "https://oarcdigital.com/services/ai-admin-agent" },
   openGraph: {
-    title: seo.title,
-    description: seo.description,
-    url: `https://oarcdigital.com${seo.path}`,
-    type: seo.ogType ?? "website",
+    title: "Administrative Workflow Agent | AI Virtual Assistant | OARC Digital",
+    description: "Reclaim 50% of your day from routine tasks. Deploy an AI administrative agent that handles scheduling, email management, and workflows automatically.",
+    url: "https://oarcdigital.com/services/ai-admin-agent",
+    type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: seo.title,
-    description: seo.description,
+    title: "Administrative Workflow Agent | AI Virtual Assistant | OARC Digital",
+    description: "Reclaim 50% of your day from routine tasks. Deploy an AI administrative agent that handles scheduling, email management, and workflows automatically.",
   },
 };
 
 export default function Page() {
-  return <PageContent />;
+  return <PageContent slug="ai-admin-agent" />;
 }

@@ -1,26 +1,23 @@
 import type { Metadata } from "next";
-import { aiEmployeeServicesSEO } from "@/data/seoMetadata";
 import PageContent from "@/components/services/AIEmployeeServiceClient";
 
-const seo = aiEmployeeServicesSEO.aiComplianceAuditor;
-
 export const metadata: Metadata = {
-  title: seo.title,
-  description: seo.description,
-  alternates: { canonical: `https://oarcdigital.com${seo.path}` },
+  title: "Compliance & Legal Auditor | GDPR & Risk Scanning | OARC Digital",
+  description: "GDPR bulletproof with real-time risk scanning. Our AI Compliance Auditor monitors regulations, flags violations, and keeps your business protected 24/7.",
+  alternates: { canonical: "https://oarcdigital.com/services/ai-compliance-auditor" },
   openGraph: {
-    title: seo.title,
-    description: seo.description,
-    url: `https://oarcdigital.com${seo.path}`,
-    type: seo.ogType ?? "website",
+    title: "Compliance & Legal Auditor | GDPR & Risk Scanning | OARC Digital",
+    description: "GDPR bulletproof with real-time risk scanning. Our AI Compliance Auditor monitors regulations, flags violations, and keeps your business protected 24/7.",
+    url: "https://oarcdigital.com/services/ai-compliance-auditor",
+    type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: seo.title,
-    description: seo.description,
+    title: "Compliance & Legal Auditor | GDPR & Risk Scanning | OARC Digital",
+    description: "GDPR bulletproof with real-time risk scanning. Our AI Compliance Auditor monitors regulations, flags violations, and keeps your business protected 24/7.",
   },
 };
 
 export default function Page() {
-  return <PageContent />;
+  return <PageContent slug="ai-compliance-auditor" />;
 }

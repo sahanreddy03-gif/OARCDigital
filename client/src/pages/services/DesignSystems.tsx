@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Link } from "wouter";
-import { Layers, Code, Palette, FileText, Settings, Zap, CheckCircle2, Component, Layout as LayoutIcon } from "lucide-react";
+import { Layers, Code, Palette, FileText, Settings, Zap, CheckCircle2, Component, Layout as LayoutIcon, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ScrollableCards } from "@/components/ui/scrollable-cards";
 import Layout from "@/components/layout/Layout";

@@ -1,26 +1,23 @@
 import type { Metadata } from "next";
-import { revenueServicesSEO } from "@/data/seoMetadata";
 import PageContent from "@/components/services/RevenueServiceClient";
 
-const seo = revenueServicesSEO.customerAcquisitionAccelerator;
-
 export const metadata: Metadata = {
-  title: seo.title,
-  description: seo.description,
-  alternates: { canonical: `https://oarcdigital.com${seo.path}` },
+  title: "Customer Acquisition Accelerator | Multi-Channel Growth | OARC Digital",
+  description: "Turn ad spend into predictable revenue. AI optimizes your campaigns across every channel in real-time, cutting acquisition costs by 40% while scaling what works.",
+  alternates: { canonical: "https://oarcdigital.com/services/customer-acquisition-accelerator" },
   openGraph: {
-    title: seo.title,
-    description: seo.description,
-    url: `https://oarcdigital.com${seo.path}`,
-    type: seo.ogType ?? "website",
+    title: "Customer Acquisition Accelerator | Multi-Channel Growth | OARC Digital",
+    description: "Turn ad spend into predictable revenue. AI optimizes your campaigns across every channel in real-time, cutting acquisition costs by 40% while scaling what works.",
+    url: "https://oarcdigital.com/services/customer-acquisition-accelerator",
+    type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: seo.title,
-    description: seo.description,
+    title: "Customer Acquisition Accelerator | Multi-Channel Growth | OARC Digital",
+    description: "Turn ad spend into predictable revenue. AI optimizes your campaigns across every channel in real-time, cutting acquisition costs by 40% while scaling what works.",
   },
 };
 
 export default function Page() {
-  return <PageContent />;
+  return <PageContent slug="customer-acquisition-accelerator" />;
 }

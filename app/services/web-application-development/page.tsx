@@ -1,23 +1,20 @@
 import type { Metadata } from "next";
-import { revenueServicesSEO } from "@/data/seoMetadata";
 import PageContent from "./PageContent";
 
-const seo = revenueServicesSEO.customSoftwareDevelopment;
-
 export const metadata: Metadata = {
-  title: seo.title,
-  description: seo.description,
-  alternates: { canonical: `https://oarcdigital.com${seo.path}` },
+  title: "Web Application Development | React, Next.js, Vue | OARC Digital",
+  description: "Build high-performance web applications that convert. Custom SaaS platforms, e-commerce sites, and enterprise portals built with React, Next.js, and modern tech.",
+  alternates: { canonical: "https://oarcdigital.com/services/web-application-development" },
   openGraph: {
-    title: seo.title,
-    description: seo.description,
-    url: `https://oarcdigital.com${seo.path}`,
-    type: seo.ogType ?? "website",
+    title: "Web Application Development | React, Next.js, Vue | OARC Digital",
+    description: "Build high-performance web applications that convert. Custom SaaS platforms, e-commerce sites, and enterprise portals built with React, Next.js, and modern tech.",
+    url: "https://oarcdigital.com/services/web-application-development",
+    type: "article",
   },
   twitter: {
     card: "summary_large_image",
-    title: seo.title,
-    description: seo.description,
+    title: "Web Application Development | React, Next.js, Vue | OARC Digital",
+    description: "Build high-performance web applications that convert. Custom SaaS platforms, e-commerce sites, and enterprise portals built with React, Next.js, and modern tech.",
   },
 };
 

@@ -1,23 +1,20 @@
 import type { Metadata } from "next";
-import { creativeServicesSEO } from "@/data/seoMetadata";
 import PageContent from "./PageContent";
 
-const seo = creativeServicesSEO.socialMediaCreative;
-
 export const metadata: Metadata = {
-  title: seo.title,
-  description: seo.description,
-  alternates: { canonical: `https://oarcdigital.com${seo.path}` },
+  title: "Organic Social Media Management | Strategy & Community | OARC Digital",
+  description: "Build engaged communities that drive real business results. Daily content, community management, and data-driven strategy to grow your organic presence.",
+  alternates: { canonical: "https://oarcdigital.com/services/social" },
   openGraph: {
-    title: seo.title,
-    description: seo.description,
-    url: `https://oarcdigital.com${seo.path}`,
-    type: seo.ogType ?? "website",
+    title: "Organic Social Media Management | Strategy & Community | OARC Digital",
+    description: "Build engaged communities that drive real business results. Daily content, community management, and data-driven strategy to grow your organic presence.",
+    url: "https://oarcdigital.com/services/social",
+    type: "article",
   },
   twitter: {
     card: "summary_large_image",
-    title: seo.title,
-    description: seo.description,
+    title: "Organic Social Media Management | Strategy & Community | OARC Digital",
+    description: "Build engaged communities that drive real business results. Daily content, community management, and data-driven strategy to grow your organic presence.",
   },
 };
 

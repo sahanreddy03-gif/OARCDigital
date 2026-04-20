@@ -1,26 +1,23 @@
 import type { Metadata } from "next";
-import { revenueServicesSEO } from "@/data/seoMetadata";
 import PageContent from "@/components/services/RevenueServiceClient";
 
-const seo = revenueServicesSEO.customerAcquisition;
-
 export const metadata: Metadata = {
-  title: seo.title,
-  description: seo.description,
-  alternates: { canonical: `https://oarcdigital.com${seo.path}` },
+  title: "Customer Acquisition | Growth Marketing | OARC Digital",
+  description: "Scalable customer acquisition strategies from OARC Digital. Combine AI automation, creative excellence, and data-driven marketing to accelerate growth.",
+  alternates: { canonical: "https://oarcdigital.com/services/customer-acquisition" },
   openGraph: {
-    title: seo.title,
-    description: seo.description,
-    url: `https://oarcdigital.com${seo.path}`,
-    type: seo.ogType ?? "website",
+    title: "Customer Acquisition | Growth Marketing | OARC Digital",
+    description: "Scalable customer acquisition strategies from OARC Digital. Combine AI automation, creative excellence, and data-driven marketing to accelerate growth.",
+    url: "https://oarcdigital.com/services/customer-acquisition",
+    type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: seo.title,
-    description: seo.description,
+    title: "Customer Acquisition | Growth Marketing | OARC Digital",
+    description: "Scalable customer acquisition strategies from OARC Digital. Combine AI automation, creative excellence, and data-driven marketing to accelerate growth.",
   },
 };
 
 export default function Page() {
-  return <PageContent />;
+  return <PageContent slug="customer-acquisition" />;
 }

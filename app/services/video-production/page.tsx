@@ -1,23 +1,20 @@
 import type { Metadata } from "next";
-import { creativeServicesSEO } from "@/data/seoMetadata";
 import PageContent from "./PageContent";
 
-const seo = creativeServicesSEO.videoProduction;
-
 export const metadata: Metadata = {
-  title: seo.title,
-  description: seo.description,
-  alternates: { canonical: `https://oarcdigital.com${seo.path}` },
+  title: "Video Production | Full-Service Studio | OARC Digital",
+  description: "Full-service video production studio. From concept to distribution. Explainer videos, brand films, social ads, testimonials. Watch our reel.",
+  alternates: { canonical: "https://oarcdigital.com/services/video-production" },
   openGraph: {
-    title: seo.title,
-    description: seo.description,
-    url: `https://oarcdigital.com${seo.path}`,
-    type: seo.ogType ?? "website",
+    title: "Video Production | Full-Service Studio | OARC Digital",
+    description: "Full-service video production studio. From concept to distribution. Explainer videos, brand films, social ads, testimonials. Watch our reel.",
+    url: "https://oarcdigital.com/services/video-production",
+    type: "article",
   },
   twitter: {
     card: "summary_large_image",
-    title: seo.title,
-    description: seo.description,
+    title: "Video Production | Full-Service Studio | OARC Digital",
+    description: "Full-service video production studio. From concept to distribution. Explainer videos, brand films, social ads, testimonials. Watch our reel.",
   },
 };
 
