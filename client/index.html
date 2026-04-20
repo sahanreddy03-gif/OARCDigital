@@ -118,12 +118,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Space+Grotesk:wght@300..700&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Orbitron:wght@400..900&family=Anton&display=swap" rel="stylesheet">
     
     <!-- Google Ads Conversion Tracking (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17936148786"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17812517147"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'AW-17936148786');
+      gtag('config', 'AW-17812517147');
     </script>
     <!-- Conversion Event Tracking (WhatsApp, Phone, Form) -->
     <script>
@@ -132,16 +132,16 @@
         if (!el) return;
         var href = el.getAttribute('href') || '';
         if (href.indexOf('wa.me') !== -1 || href.indexOf('whatsapp') !== -1) {
-          gtag('event', 'conversion', {send_to: 'AW-17936148786', event_category: 'engagement', event_label: 'whatsapp_click'});
+          gtag('event', 'conversion', {send_to: 'AW-17812517147', event_category: 'engagement', event_label: 'whatsapp_click'});
           gtag('event', 'whatsapp_click', {event_category: 'engagement', event_label: href});
         }
         if (href.indexOf('tel:') === 0) {
-          gtag('event', 'conversion', {send_to: 'AW-17936148786', event_category: 'engagement', event_label: 'phone_click'});
+          gtag('event', 'conversion', {send_to: 'AW-17812517147', event_category: 'engagement', event_label: 'phone_click'});
           gtag('event', 'phone_click', {event_category: 'engagement', event_label: href});
         }
       });
       document.addEventListener('submit', function(e) {
-        gtag('event', 'conversion', {send_to: 'AW-17936148786', event_category: 'engagement', event_label: 'form_submit'});
+        gtag('event', 'conversion', {send_to: 'AW-17812517147', event_category: 'engagement', event_label: 'form_submit'});
         gtag('event', 'form_submit', {event_category: 'engagement', event_label: window.location.pathname});
       });
     </script>
