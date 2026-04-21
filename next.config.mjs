@@ -13,7 +13,13 @@ const nextConfig = {
   reactStrictMode: true,
   images: {
     unoptimized: false,
-    disableStaticImages: false,
+    // Kept true: 461 @assets imports across the codebase are used as plain
+    // URL strings (CSS background-image, <img src>, etc). Flipping this would
+    // make Next augment those imports as `StaticImageData` objects and break
+    // every consumer. The dedicated webpack `asset/resource` rule below keeps
+    // returning strings for direct optimization. Migration to <Image /> per
+    // component is tracked in follow-up #44.
+    disableStaticImages: true,
     formats: ['image/avif', 'image/webp'],
     deviceSizes: [360, 480, 640, 750, 828, 1080, 1200, 1440, 1920, 2400],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384, 512],
