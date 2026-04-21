@@ -1,7 +1,7 @@
 // /malta/[location]/[service] — kept services only.
 // Archived service slugs are 410'd by middleware before reaching this route.
 
-import { ArrowRight, MapPin, Phone, Mail, Quote } from 'lucide-react';
+import { ArrowRight, MapPin, Phone, Mail } from 'lucide-react';
 import Link from 'next/link';
 import Layout from '@/components/layout/Layout';
 import JsonLd from '@/components/JsonLd';
@@ -10,8 +10,6 @@ import type { Metadata } from 'next';
 import { Button } from '@/components/ui/button';
 import { buildLocationServiceContent } from '@/lib/seo/generateUniquePageContent';
 import { getLocationProfile } from '@/lib/seo/locationData';
-// Tier 1/2 restore allowlist — single source of truth for what we statically
-// render (Task #51 / #52). Anything outside this list is 410'd by middleware.
 import restore from '@/.local/seo/restore.json';
 
 export async function generateStaticParams() {
@@ -140,28 +138,6 @@ export default function LocationServicePage({ params }: { params: { location: st
                   )}
                 </div>
               ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Per-page case-study hook + Maltese testimonial */}
-        <section className="py-20 bg-background">
-          <div className="max-w-5xl mx-auto px-6 md:px-8">
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="rounded-xl border bg-card p-6" data-testid={`block-case-study-${params.location}-${params.slug}`}>
-                <div className="text-green-600 dark:text-green-500 text-xs font-semibold uppercase tracking-wider mb-3">Recent Result</div>
-                <h3 className="text-lg font-bold mb-3 leading-snug">{c.caseStudyHook.headline}</h3>
-                <p className="text-muted-foreground leading-relaxed mb-4">{c.caseStudyHook.outcome}</p>
-                <div className="text-sm font-semibold text-green-600 dark:text-green-500">{c.caseStudyHook.metric}</div>
-              </div>
-              <div className="rounded-xl border bg-card p-6" data-testid={`block-testimonial-${params.location}-${params.slug}`}>
-                <Quote className="w-6 h-6 text-green-500 mb-3" />
-                <p className="text-foreground leading-relaxed mb-4 italic">&ldquo;{c.testimonial.quote}&rdquo;</p>
-                <div className="text-sm">
-                  <div className="font-semibold text-foreground">{c.testimonial.author}</div>
-                  <div className="text-muted-foreground">{c.testimonial.role} · {c.testimonial.business}</div>
-                </div>
-              </div>
             </div>
           </div>
         </section>

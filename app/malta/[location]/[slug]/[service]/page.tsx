@@ -6,11 +6,8 @@ import JsonLd from '@/components/JsonLd';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { Quote } from 'lucide-react';
 import { buildLocationIndustryServiceContent } from '@/lib/seo/generateUniquePageContent';
 import { getLocationProfile } from '@/lib/seo/locationData';
-// Tier 1/2 restore allowlist — single source of truth for what we statically
-// render (Task #51 / #52). Anything outside this list is 410'd by middleware.
 import restore from '@/.local/seo/restore.json';
 
 export async function generateStaticParams() {
@@ -105,24 +102,6 @@ export default function IndustryLocationServicePage({
               The Opportunity in {loc.name}
             </h2>
             <p className="text-foreground leading-relaxed">{c.opportunity}</p>
-          </div>
-
-          {/* Per-page case-study hook + Maltese testimonial */}
-          <div className="grid md:grid-cols-2 gap-6 mb-12">
-            <div className="rounded-xl border border-zinc-200 dark:border-zinc-800 p-6 bg-card" data-testid={`block-case-study-${params.location}-${params.slug}-${params.service}`}>
-              <div className="text-orange-500 text-xs font-semibold uppercase tracking-wider mb-3">Recent Result</div>
-              <h3 className="text-lg font-bold mb-3 leading-snug">{c.caseStudyHook.headline}</h3>
-              <p className="text-muted-foreground leading-relaxed mb-4">{c.caseStudyHook.outcome}</p>
-              <div className="text-sm font-semibold text-orange-600 dark:text-orange-400">{c.caseStudyHook.metric}</div>
-            </div>
-            <div className="rounded-xl border border-zinc-200 dark:border-zinc-800 p-6 bg-card" data-testid={`block-testimonial-${params.location}-${params.slug}-${params.service}`}>
-              <Quote className="w-6 h-6 text-orange-500 mb-3" />
-              <p className="text-foreground leading-relaxed mb-4 italic">&ldquo;{c.testimonial.quote}&rdquo;</p>
-              <div className="text-sm">
-                <div className="font-semibold text-foreground">{c.testimonial.author}</div>
-                <div className="text-muted-foreground">{c.testimonial.role} · {c.testimonial.business}</div>
-              </div>
-            </div>
           </div>
 
           {/* FAQ */}

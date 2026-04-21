@@ -439,21 +439,6 @@ export const locationProfiles: Record<string, LocationProfile> = {
     geo: { lat: 35.8939, lng: 14.4961 },
   },
 
-  // Source: https://en.wikipedia.org/wiki/Marsa,_Malta
-  'marsa': {
-    slug: 'marsa', name: 'Marsa',
-    shortDescription: 'the industrial port and trades district',
-    longIntro: 'Marsa is Malta\'s primary commercial port and industrial trades district, with the largest concentration of heavy logistics, shipping, racecourse facilities, and a fast-growing population of African and South-Asian residents working in trades and logistics. It is gritty, working, and the engine room of Malta\'s import economy.',
-    populationDensity: 5200, businessDensity: 'medium',
-    primaryIndustries: ['logistics and freight', 'industrial supply', 'wholesale', 'auto repair and trades', 'remittance services'],
-    landmarks: ['Marsa Power Station', 'Marsa Racecourse', 'Marsa Industrial Estate', 'Triq Aldo Moro', 'Marsa Sports Complex'],
-    nearestLocations: ['Ħamrun', 'Paola', 'Qormi'],
-    challenges: ['a B2B audience that requires patient long-cycle nurturing', 'a multi-language community where English-only marketing reaches half the catchment at most', 'an industrial environment where curb appeal is low and digital is the only reliable channel'],
-    opportunities: ['B2B SEO for \"Malta logistics / freight / wholesale / industrial supply\"', 'WhatsApp-first multi-language marketing for the trades and remittance audience', 'LinkedIn campaigns into the logistics decision-maker audience'],
-    audienceProfile: 'Industrial workers, logistics decision-makers, and a large African and South-Asian working community.',
-    geo: { lat: 35.8722, lng: 14.4933 },
-  },
-
   // Source: https://en.wikipedia.org/wiki/Floriana
   'floriana': {
     slug: 'floriana', name: 'Floriana',
@@ -516,7 +501,7 @@ export const locationProfiles: Record<string, LocationProfile> = {
 
   // Source: https://en.wikipedia.org/wiki/Marsaskala
   'marsascala': {
-    slug: 'marsascala', name: 'Marsaskala',
+    slug: 'marsaskala', name: 'Marsaskala',
     shortDescription: 'the south-eastern seaside town with a year-round growing residential base',
     longIntro: 'Marsaskala has grown rapidly as a seaside residential town in south-eastern Malta, popular with Maltese families and retirees who want coast access without the density of Sliema. The seafront promenade is the social spine and the summer audience easily doubles the resident population.',
     populationDensity: 1700, businessDensity: 'medium',
@@ -649,36 +634,6 @@ export const locationProfiles: Record<string, LocationProfile> = {
     geo: { lat: 35.8431, lng: 14.4694 },
   },
 
-  // Source: https://en.wikipedia.org/wiki/Kirkop
-  'kirkop': {
-    slug: 'kirkop', name: 'Kirkop',
-    shortDescription: 'one of Malta\'s smallest residential villages',
-    longIntro: 'Kirkop is one of Malta\'s smallest villages by population, sitting in the southern airport-adjacent zone with a quiet residential character and a small commercial footprint.',
-    populationDensity: 2500, businessDensity: 'low',
-    primaryIndustries: ['family retail', 'food and groceries', 'beauty and wellness', 'auto services', 'small-scale hospitality'],
-    landmarks: ['St Leonard\'s Parish Church', 'Kirkop Square', 'Tal-Bjar', 'Kirkop village core', 'Tal-Karmnu'],
-    nearestLocations: ['Mqabba', 'Safi', 'Luqa'],
-    challenges: ['a tiny audience requiring catchment-wide marketing to be viable', 'a quiet village core with very few storefronts', 'a Maltese-only audience with conservative digital habits'],
-    opportunities: ['Facebook targeting of the wider southern-Malta family-decision audience', 'Google Business Profile optimisation for the small village commercial core', 'parish-driven community marketing'],
-    audienceProfile: 'Long-established Maltese families with deep parish ties.',
-    geo: { lat: 35.8417, lng: 14.4797 },
-  },
-
-  // Source: https://en.wikipedia.org/wiki/Safi,_Malta
-  'safi': {
-    slug: 'safi', name: 'Safi',
-    shortDescription: 'a small southern village beside the airport runway',
-    longIntro: 'Safi is a small southern Maltese village sitting alongside the airport runway, with a quiet residential core and a small commercial footprint largely serving local families.',
-    populationDensity: 2700, businessDensity: 'low',
-    primaryIndustries: ['family retail', 'beauty and wellness', 'food and groceries', 'auto services', 'small hospitality'],
-    landmarks: ['St Paul Parish Church', 'Safi Square', 'Safi village core', 'Tal-Ħlas Chapel', 'MIA runway viewpoint'],
-    nearestLocations: ['Kirkop', 'Mqabba', 'Żurrieq'],
-    challenges: ['a tiny year-round audience requiring catchment-wide marketing', 'aircraft noise that limits hospitality-business potential', 'limited storefront supply'],
-    opportunities: ['Facebook targeting of the wider southern-Malta audience', 'Google Business Profile optimisation for the small village commercial core', 'community-driven marketing tied to parish life'],
-    audienceProfile: 'Long-established Maltese families with deep village ties.',
-    geo: { lat: 35.8336, lng: 14.4842 },
-  },
-
   // Source: https://en.wikipedia.org/wiki/%C5%BBurrieq
   'zurrieq': {
     slug: 'zurrieq', name: 'Żurrieq',
@@ -739,21 +694,6 @@ export const locationProfiles: Record<string, LocationProfile> = {
     geo: { lat: 35.8606, lng: 14.3853 },
   },
 
-  // Source: https://en.wikipedia.org/wiki/Mtarfa
-  'mtarfa': {
-    slug: 'mtarfa', name: 'Mtarfa',
-    shortDescription: 'a small hilltop village next to Mdina with strong British-military heritage',
-    longIntro: 'Mtarfa sits on a hilltop next to Mdina with a deep British-military heritage (the Mtarfa Clock Tower and the old British military hospital). It is a quiet residential community with limited commercial supply.',
-    populationDensity: 1700, businessDensity: 'low',
-    primaryIndustries: ['family retail', 'private healthcare (military hospital area)', 'small hospitality', 'beauty and wellness', 'auto services'],
-    landmarks: ['Mtarfa Clock Tower', 'Old British Military Hospital', 'St Lucia Parish', 'Mtarfa Sports Complex', 'Mdina view ridge'],
-    nearestLocations: ['Mdina', 'Rabat', 'Mosta'],
-    challenges: ['a tiny year-round audience requiring catchment-wide marketing', 'limited commercial supply', 'overshadowed by Mdina and Rabat next door'],
-    opportunities: ['Facebook targeting of the wider central-Malta audience', 'heritage-tourism content marketing tied to the Clock Tower and military hospital', 'Google Business Profile optimisation for the small village commercial core'],
-    audienceProfile: 'Long-established Maltese families with strong central-Malta ties.',
-    geo: { lat: 35.8917, lng: 14.4031 },
-  },
-
   // Source: https://en.wikipedia.org/wiki/G%C4%A7ar%C4%A7ur
   'gharghur': {
     slug: 'gharghur', name: 'Għargħur',
@@ -799,39 +739,9 @@ export const locationProfiles: Record<string, LocationProfile> = {
     geo: { lat: 35.9197, lng: 14.3656 },
   },
 
-  // Source: https://en.wikipedia.org/wiki/Bu%C4%A1ibba
-  'bugibba': {
-    slug: 'bugibba', name: 'Buġibba',
-    shortDescription: 'a northern resort town within the St Paul\'s Bay locality',
-    longIntro: 'Buġibba is one of Malta\'s most-visited resort districts, with the highest concentration of mid-market hotels and a long seafront promenade. It runs almost entirely on tourism, with peak summer crowds and a quiet winter.',
-    populationDensity: 5500, businessDensity: 'high',
-    primaryIndustries: ['hospitality', 'restaurants', 'tourism', 'water sports', 'mid-market retail'],
-    landmarks: ['Buġibba Square', 'Buġibba promenade', 'Malta National Aquarium', 'Buġibba Roman Baths', 'Buġibba water polo pitch'],
-    nearestLocations: ['Qawra', 'St Paul\'s Bay', 'Mellieħa'],
-    challenges: ['extreme summer-winter swing where 80% of revenue is in June–September', 'fierce competition between dozens of mid-market hotels and restaurants in a small footprint', 'a tourist audience that books on price and reviews above all else'],
-    opportunities: ['multi-language SEO for \"Buġibba hotel / restaurant / water-sports\" targeting cruise-ship and city-break tourists', 'Google Business Profile and TripAdvisor dominance', 'partnerships with the Malta National Aquarium for family-tourism content'],
-    audienceProfile: 'A heavy summer international tourist audience plus a year-round mid-market expat residential base.',
-    geo: { lat: 35.9508, lng: 14.4097 },
-  },
-
-  // Source: https://en.wikipedia.org/wiki/Qawra
-  'qawra': {
-    slug: 'qawra', name: 'Qawra',
-    shortDescription: 'a northern coastal resort district adjoining Buġibba',
-    longIntro: 'Qawra is the coastal extension of the Buġibba/St Paul\'s Bay resort cluster, with a long promenade, a dense hotel and restaurant strip, and a strong year-round expat residential community.',
-    populationDensity: 5500, businessDensity: 'high',
-    primaryIndustries: ['hospitality', 'restaurants', 'tourism', 'expat residential services', 'water sports'],
-    landmarks: ['Qawra Point', 'Qawra Tower', 'Qawra promenade', 'Salina salt pans', 'Coastline Hotel cluster'],
-    nearestLocations: ['Buġibba', 'St Paul\'s Bay', 'Salina'],
-    challenges: ['the same summer-winter swing as Buġibba', 'a saturated mid-market hotel and restaurant strip', 'a tourist audience that books almost entirely on review scores'],
-    opportunities: ['multi-language SEO for \"Qawra hotel / restaurant / water-sports\"', 'Google Business Profile and TripAdvisor dominance for the coastal strip', 'expat-residential content for the year-round international community'],
-    audienceProfile: 'Heavy summer international tourists plus a year-round expat residential base.',
-    geo: { lat: 35.9569, lng: 14.4192 },
-  },
-
   // Source: https://en.wikipedia.org/wiki/St._Paul%27s_Bay
   'st-pauls-bay': {
-    slug: 'st-pauls-bay', name: 'St Paul\'s Bay',
+    slug: 'san-pawl-il-bahar', name: 'San Pawl il-Baħar (St Paul\'s Bay)',
     shortDescription: 'the northern coastal locality covering Buġibba, Qawra, and the bay itself',
     longIntro: 'St Paul\'s Bay is the larger administrative locality covering Buġibba, Qawra, and the historic bay area. By total population it is now the largest locality in Malta, mixing year-round residents with one of the densest tourist populations on the island.',
     populationDensity: 4200, businessDensity: 'high',
@@ -844,84 +754,9 @@ export const locationProfiles: Record<string, LocationProfile> = {
     geo: { lat: 35.9486, lng: 14.4014 },
   },
 
-  // Source: https://en.wikipedia.org/wiki/Manikata
-  'manikata': {
-    slug: 'manikata', name: 'Manikata',
-    shortDescription: 'a tiny rural hamlet near Golden Bay',
-    longIntro: 'Manikata is a tiny rural hamlet in north-western Malta, sitting next to Golden Bay and Għajn Tuffieħa with a quiet agricultural character and a small but loyal local audience.',
-    populationDensity: 200, businessDensity: 'low',
-    primaryIndustries: ['agriculture', 'rural tourism', 'small hospitality', 'agritourism', 'family retail'],
-    landmarks: ['Manikata Parish Church', 'Golden Bay', 'Għajn Tuffieħa Bay', 'Manikata farms', 'Ta\' Lippija'],
-    nearestLocations: ['Mġarr', 'Mellieħa', 'St Paul\'s Bay'],
-    challenges: ['an extremely small audience', 'beach-tourism flow that bypasses the hamlet core', 'limited commercial supply'],
-    opportunities: ['agritourism and farm-to-table content for the rural-luxury Maltese audience', 'multi-language SEO targeting Golden Bay holidaymakers', 'Google Business Profile dominance for the small commercial core'],
-    audienceProfile: 'A tiny Maltese rural community plus a heavy summer beach-tourism audience.',
-    geo: { lat: 35.9447, lng: 14.3503 },
-  },
-
-  // Source: https://en.wikipedia.org/wiki/Victoria,_Gozo
-  'victoria-gozo': {
-    slug: 'victoria-gozo', name: 'Victoria (Gozo)',
-    shortDescription: 'the capital and commercial centre of Gozo',
-    longIntro: 'Victoria (locally Rabat) is the capital and commercial heart of Gozo, anchored by the imposing Cittadella citadel and a busy market square. It is the natural commercial centre for the entire island of Gozo.',
-    populationDensity: 1900, businessDensity: 'medium',
-    primaryIndustries: ['family retail', 'tourism (Cittadella)', 'restaurants', 'professional services', 'agritourism'],
-    landmarks: ['Cittadella', 'It-Tokk Square', 'St George\'s Basilica', 'Victoria parish church', 'Astra Theatre'],
-    nearestLocations: ['Xewkija', 'Għajnsielem', 'Marsalforn'],
-    challenges: ['a Gozo-only catchment that is small relative to mainland Malta', 'a dispersed island where customers may prefer to shop in mainland Malta for major purchases', 'tourism that competes against Mdina and Valletta for visitor share'],
-    opportunities: ['Gozo-specific multi-language SEO targeting day-trippers from mainland Malta', 'Google Business Profile dominance for \"Victoria Gozo restaurant / hotel / shop\"', 'cultural-tourism content tied to the Cittadella and the Astra Theatre season'],
-    audienceProfile: 'Long-established Gozitan families plus a year-round international tourist audience.',
-    geo: { lat: 36.0444, lng: 14.2389 },
-  },
-
-  // Source: https://en.wikipedia.org/wiki/Xewkija
-  'xewkija': {
-    slug: 'xewkija', name: 'Xewkija (Gozo)',
-    shortDescription: 'a Gozo village famous for the Rotunda parish church',
-    longIntro: 'Xewkija is a Gozo village best known for its huge Rotunda parish church (one of the largest unsupported domes in Europe). It has a strong agricultural and trades base, and an industrial estate that anchors the local economy.',
-    populationDensity: 700, businessDensity: 'low',
-    primaryIndustries: ['light industry', 'agriculture', 'family retail', 'trades', 'food production'],
-    landmarks: ['Xewkija Rotunda', 'Xewkija Industrial Estate', 'St John the Baptist Square', 'Triq Profs Edgar Walter', 'Xewkija War Memorial'],
-    nearestLocations: ['Victoria', 'Għajnsielem', 'Sannat'],
-    challenges: ['a small Gozo audience requiring island-wide marketing to be viable', 'overshadowed commercially by Victoria next door', 'limited storefront supply'],
-    opportunities: ['B2B SEO for \"Gozo industrial supply / fabricator / trades\"', 'Google Business Profile dominance for the small commercial core', 'Facebook targeting of the wider Gozo family audience'],
-    audienceProfile: 'Long-established Gozitan families with strong trade and farming roots.',
-    geo: { lat: 36.0297, lng: 14.2611 },
-  },
-
-  // Source: https://en.wikipedia.org/wiki/G%C4%A7ajnsielem
-  'ghajnsielem': {
-    slug: 'ghajnsielem', name: 'Għajnsielem (Gozo)',
-    shortDescription: 'the Gozo gateway village beside the Mġarr ferry terminal',
-    longIntro: 'Għajnsielem is the Gozo village wrapping around the Mġarr ferry terminal — the entry point for everyone arriving from mainland Malta. It runs on transit traffic, family hospitality, and a small year-round residential base.',
-    populationDensity: 700, businessDensity: 'medium',
-    primaryIndustries: ['ferry-adjacent services', 'restaurants', 'tourism', 'family retail', 'small hospitality'],
-    landmarks: ['Mġarr ferry terminal', 'Our Lady of Loreto Parish', 'Fort Chambray', 'Comino ferry quay', 'Mġarr Marina'],
-    nearestLocations: ['Mġarr (Gozo)', 'Xewkija', 'Victoria'],
-    challenges: ['a transit-heavy audience that often passes through to Victoria without stopping', 'tourism flow heavily dependent on the ferry timetable', 'a small year-round audience'],
-    opportunities: ['Google Business Profile dominance for \"Gozo ferry restaurant / coffee / first stop\"', 'tourism content targeting day-trippers and Comino visitors', 'partnerships with ferry operators for first-arrival promotions'],
-    audienceProfile: 'Day-trippers, Comino visitors, ferry-arrival tourists, and a small Gozo resident base.',
-    geo: { lat: 36.0250, lng: 14.2842 },
-  },
-
-  // Source: https://en.wikipedia.org/wiki/Marsalforn
-  'marsalforn': {
-    slug: 'marsalforn', name: 'Marsalforn (Gozo)',
-    shortDescription: 'the northern Gozo seaside resort town',
-    longIntro: 'Marsalforn is Gozo\'s primary seaside resort, with a long promenade, a strong summer hospitality scene, and a Maltese-and-Gozitan-family weekend audience that doubles the resident population in summer.',
-    populationDensity: 800, businessDensity: 'medium',
-    primaryIndustries: ['hospitality', 'restaurants', 'tourism', 'water sports', 'short-let property'],
-    landmarks: ['Marsalforn Bay', 'Marsalforn promenade', 'Qbajjar Bay', 'Salt Pans of Xwejni', 'Tal-Merżuq hill'],
-    nearestLocations: ['Victoria', 'Żebbuġ (Gozo)', 'Xagħra'],
-    challenges: ['extreme summer-winter swing typical of seasonal resorts', 'a Gozo-and-mainland-day-tripper audience that books almost entirely on price and reviews', 'a saturated promenade with dozens of similar restaurants'],
-    opportunities: ['multi-language SEO for \"Marsalforn restaurant / hotel / water-sports\"', 'Google Business Profile and TripAdvisor dominance for the promenade strip', 'short-let-property content for summer holidaymakers'],
-    audienceProfile: 'Heavy summer Maltese day-trippers and tourists plus a small year-round Gozitan resident base.',
-    geo: { lat: 36.0708, lng: 14.2583 },
-  },
-
   // Source: https://en.wikipedia.org/wiki/Birgu
   'vittoriosa': {
-    slug: 'vittoriosa', name: 'Vittoriosa (Birgu)',
+    slug: 'birgu', name: 'Birgu (Vittoriosa)',
     shortDescription: 'one of the historic Three Cities, anchored by the Vittoriosa waterfront and Fort St Angelo',
     longIntro: 'Vittoriosa (locally Birgu) is one of the Three Cities of southern Malta, with a postcard-perfect waterfront, the historic Fort St Angelo, and a fast-growing tourism, fine-dining, and superyacht-marina footprint. It punches well above its size.',
     populationDensity: 5400, businessDensity: 'medium',
@@ -936,7 +771,7 @@ export const locationProfiles: Record<string, LocationProfile> = {
 
   // Source: https://en.wikipedia.org/wiki/Senglea
   'senglea': {
-    slug: 'senglea', name: 'Senglea (Isla)',
+    slug: 'isla', name: 'Isla (Senglea)',
     shortDescription: 'one of the historic Three Cities, with a tight peninsula footprint',
     longIntro: 'Senglea (locally Isla) is the smallest of the Three Cities by area but one of the most densely built — a fortified peninsula with a strong residential character and a growing fine-dining and tourism footprint along the waterfront.',
     populationDensity: 12200, businessDensity: 'medium',
@@ -951,7 +786,7 @@ export const locationProfiles: Record<string, LocationProfile> = {
 
   // Source: https://en.wikipedia.org/wiki/Cospicua
   'cospicua': {
-    slug: 'cospicua', name: 'Cospicua (Bormla)',
+    slug: 'bormla', name: 'Bormla (Cospicua)',
     shortDescription: 'the largest of the Three Cities, with a strong residential and commercial base',
     longIntro: 'Cospicua (locally Bormla) is the largest of the Three Cities by population, with a strong family-residential character, an active commercial high street, and a growing waterfront regeneration including the AX Hotels Cospicua development.',
     populationDensity: 7400, businessDensity: 'medium',
@@ -977,6 +812,96 @@ export const locationProfiles: Record<string, LocationProfile> = {
     opportunities: ['B2B targeting of Smart City Malta tenants and tech professionals', 'Google Business Profile dominance for \"Kalkara restaurant / café / service\" near Smart City', 'Three-Cities cross-locality content marketing'],
     audienceProfile: 'A small Maltese resident base plus a weekday Smart City tech-professional inflow.',
     geo: { lat: 35.8889, lng: 14.5306 },
+  },
+
+  // Source: https://en.wikipedia.org/wiki/Iklin
+  'iklin': {
+    slug: 'iklin', name: 'Iklin',
+    shortDescription: 'a quiet residential locality favoured by Maltese professionals',
+    longIntro: 'Iklin is one of Malta\'s smallest local councils, a quiet, leafy residential area between Lija and Naxxar that has become a preferred address for Maltese professional families seeking calm and low traffic.',
+    populationDensity: 4100, businessDensity: 'low',
+    primaryIndustries: ['professional services', 'private tutors', 'wellness practitioners', 'home services', 'real estate'],
+    landmarks: ['Iklin parish church', 'Triq tas-Sliem', 'Triq il-Bosk', 'Iklin local council', 'Iklin valley'],
+    nearestLocations: ['Lija', 'Naxxar', 'Balzan'],
+    challenges: ['a very small catchment that requires hyper-local targeting', 'few brick-and-mortar businesses', 'high overlap with Lija and Naxxar audiences'],
+    opportunities: ['Google Business Profile presence for the few resident-serving businesses', 'family-targeted home services and wellness ads', 'real-estate content for buyers searching the Iklin / Lija / Balzan corridor'],
+    audienceProfile: 'Maltese professional families and older homeowners who chose Iklin for its quiet streets.',
+    geo: { lat: 35.9011, lng: 14.4500 },
+  },
+
+  // Source: https://en.wikipedia.org/wiki/San_Lawrenz
+  'san-lawrenz': {
+    slug: 'san-lawrenz', name: 'San Lawrenz',
+    shortDescription: 'the Gozo village beside Dwejra and the former Azure Window',
+    longIntro: 'San Lawrenz is a small Gozo village best known for the dramatic Dwejra coastline, the former Azure Window site, and the Kempinski resort. Tourism, hospitality and a small artisan craft economy define it.',
+    populationDensity: 700, businessDensity: 'low',
+    primaryIndustries: ['hospitality and resorts', 'tourism services', 'crafts and artisan', 'restaurants', 'diving and water sports'],
+    landmarks: ['Dwejra Bay', 'Inland Sea', 'Kempinski San Lawrenz', 'San Lawrenz Crafts Village', 'parish church'],
+    nearestLocations: ['Gharb', 'Victoria', 'Munxar'],
+    challenges: ['extreme tourism seasonality', 'a tiny year-round resident base', 'reliance on a single resort for shoulder-season demand'],
+    opportunities: ['EN/IT/DE multilingual SEO for Dwejra and West-Gozo experiences', 'artisan crafts e-commerce reaching tourists post-visit', 'wedding and incentive group marketing through the Kempinski'],
+    audienceProfile: 'A small Gozitan village population multiplied many times over by tourists and resort guests.',
+    geo: { lat: 36.0556, lng: 14.2050 },
+  },
+
+  // Source: https://en.wikipedia.org/wiki/Santa_Venera
+  'santa-venera': {
+    slug: 'santa-venera', name: 'Santa Venera',
+    shortDescription: 'a dense central locality on the Birkirkara/Ħamrun corridor',
+    longIntro: 'Santa Venera is a busy, densely-built central locality wedged between Birkirkara and Ħamrun, dominated by a long commercial spine on the main road and a working-resident population.',
+    populationDensity: 8800, businessDensity: 'high',
+    primaryIndustries: ['retail along the main road', 'auto and trades', 'cafés and takeaways', 'professional services', 'logistics'],
+    landmarks: ['Wignacourt Aqueduct arches', 'Triq il-Kanun', 'Santa Venera parish', 'Casa Leoni', 'Triq Fleur-de-Lys'],
+    nearestLocations: ['Birkirkara', 'Ħamrun', 'Msida'],
+    challenges: ['drive-by main-road traffic that does not convert without strong local SEO', 'extreme competition from Birkirkara and Ħamrun businesses', 'a multi-language working population'],
+    opportunities: ['hyper-local Google Business Profile and review marketing on the main road corridor', 'multilingual paid social to the working-resident audience', 'B2B targeting of the auto-and-trades cluster'],
+    audienceProfile: 'Working-class Maltese plus a sizeable foreign-resident community on a high-traffic central artery.',
+    geo: { lat: 35.8867, lng: 14.4767 },
+  },
+
+  // Source: https://en.wikipedia.org/wiki/Birkirkara (Swatar is administratively part of Birkirkara)
+  'swatar': {
+    slug: 'swatar', name: 'Swatar',
+    shortDescription: 'an upper-middle residential pocket bordering Birkirkara and Msida',
+    longIntro: 'Swatar is a quieter residential pocket on the upper edge of Birkirkara and the Msida boundary, with a notable concentration of clinics, the Mater Dei catchment, and university-adjacent rentals.',
+    populationDensity: 7200, businessDensity: 'medium',
+    primaryIndustries: ['private clinics and medical', 'student rentals', 'professional services', 'cafés', 'tutoring'],
+    landmarks: ['Swatar parish church', 'Triq il-Kbira San Ġużepp', 'Mater Dei catchment access', 'Triq Birkirkara', 'Swatar football grounds'],
+    nearestLocations: ['Birkirkara', 'Msida', 'Mrieħel'],
+    challenges: ['often searched as part of Birkirkara, fragmenting local SEO signal', 'high rental turnover from the student population', 'medical advertising regulatory caution'],
+    opportunities: ['compliant medical and clinic SEO/SEA for Mater Dei catchment', 'student-housing landing pages timed to academic calendar', 'B2B targeting of the clinic and professional cluster'],
+    audienceProfile: 'A mix of Maltese homeowners, medical professionals, and a transient student-rental population.',
+    geo: { lat: 35.8917, lng: 14.4711 },
+  },
+
+  // Source: https://en.wikipedia.org/wiki/G%C4%A7axaq
+  'ghaxaq': {
+    slug: 'ghaxaq', name: 'Għaxaq',
+    shortDescription: 'a traditional southern village near Malta International Airport',
+    longIntro: 'Għaxaq is a traditional southern Maltese village a short drive from the airport and Birżebbuġa freeport corridor, with a strong band-club and feast culture and a primarily Maltese population.',
+    populationDensity: 3800, businessDensity: 'low',
+    primaryIndustries: ['airport-and-freeport logistics', 'home services', 'restaurants and pastizzeriji', 'auto and trades', 'real estate'],
+    landmarks: ['Għaxaq parish (Assumption)', 'Palazzo Saliba', 'Għaxaq band club', 'Triq il-Kbira', 'Pinetum Wignacourt'],
+    nearestLocations: ['Gudja', 'Tarxien', 'Birżebbuġa'],
+    challenges: ['a strongly Maltese-speaking traditional audience that responds poorly to generic English ads', 'limited foot traffic outside feast season', 'underserved by national chains'],
+    opportunities: ['Maltese-language paid social around feast-season demand', 'B2B SEO for the airport-and-freeport logistics cluster', 'local home-services and trades Google ads'],
+    audienceProfile: 'Maltese traditional families with strong band-club and parish ties, plus an airport-and-logistics workforce.',
+    geo: { lat: 35.8478, lng: 14.5189 },
+  },
+
+  // Source: https://en.wikipedia.org/wiki/Xg%C4%A7ajra
+  'xghajra': {
+    slug: 'xghajra', name: 'Xgħajra',
+    shortDescription: 'a small coastal village on the eastern shore below Żabbar',
+    longIntro: 'Xgħajra is a small coastal village on the eastern shore below Żabbar, with a quiet seafront, the Rinella Battery and Smart City Malta nearby, and a steadily growing residential base.',
+    populationDensity: 2900, businessDensity: 'low',
+    primaryIndustries: ['hospitality and short-let', 'cafés and seafront dining', 'real estate', 'home services', 'water sports'],
+    landmarks: ['Xgħajra promenade', 'Rinella Battery', 'Triq is-Salib tal-Marsa', 'Smart City catchment', 'Xgħajra parish'],
+    nearestLocations: ['Żabbar', 'Smart City Malta', 'Kalkara'],
+    challenges: ['a tiny year-round market', 'limited search volume requiring east-coast cluster strategies', 'hospitality demand tied to summer'],
+    opportunities: ['short-let listings optimisation for a quieter eastern-shore alternative to Sliema', 'Smart City worker targeting for nearby food-and-beverage', 'east-coast cluster SEO with Żabbar and Kalkara'],
+    audienceProfile: 'A small Maltese resident base plus seasonal holiday-let visitors and Smart City spillover.',
+    geo: { lat: 35.8861, lng: 14.5511 },
   },
 };
 
