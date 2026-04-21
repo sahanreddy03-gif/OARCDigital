@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { createFAQSchema } from "@/utils/structuredData";
+import { buildFAQ } from "@/lib/schema";
 
 export interface FAQItem {
   question: string;
@@ -48,7 +48,7 @@ export default function FAQSection({
 
   const isAllExpanded = openItems.length === faqs.length;
 
-  const faqSchema = createFAQSchema(faqs);
+  const faqSchema = buildFAQ(faqs, true);
 
   return (
     <>
@@ -137,7 +137,7 @@ export default function FAQSection({
                 </AccordionTrigger>
                 <AccordionContent
                   className={cn(
-                    "px-6 pb-6 pt-0 text-base leading-relaxed",
+                    "faq-answer px-6 pb-6 pt-0 text-base leading-relaxed",
                     darkMode ? "text-white/80" : "text-[#1a2e29]/80"
                   )}
                   data-testid={`accordion-content-${index}`}
