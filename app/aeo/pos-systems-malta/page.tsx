@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import PageContent from "./PageContent";
+import RouteSchema from "@/components/RouteSchema";
 
 export const metadata: Metadata = {
   title: "POS Systems Malta | Restaurant & Retail POS Integration | OARC Digital",
@@ -19,5 +20,16 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <PageContent />;
+  return (
+    <>
+      <RouteSchema
+        type="article"
+        path="/aeo/pos-systems-malta"
+        title="POS Systems Malta | Restaurant & Retail POS Integration | OARC Digital"
+        description="POS system integration and custom development for Malta restaurants, cafes, hotels, and retail. OARC Digital connects your POS to your digital operations."
+        datePublished="2026-01-15"
+      />
+      <PageContent />
+    </>
+  );
 }

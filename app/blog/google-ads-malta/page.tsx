@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import PageContent from "./PageContent";
+import RouteSchema from "@/components/RouteSchema";
 
 export const metadata: Metadata = {
   title: "Google Ads Malta: Get More Customers Without Wasting Budget | OARC Digital",
@@ -19,5 +20,16 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <PageContent />;
+  return (
+    <>
+      <RouteSchema
+        type="article"
+        path="/blog/google-ads-malta"
+        title="Google Ads Malta: Get More Customers Without Wasting Budget | OARC Digital"
+        description="The complete guide to Google Ads for Malta businesses. Learn how to set up campaigns that convert, avoid common budget mistakes, and measure what actually matters."
+        datePublished="2025-12-01"
+      />
+      <PageContent />
+    </>
+  );
 }

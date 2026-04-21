@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import PageContent from "./PageContent";
+import RouteSchema from "@/components/RouteSchema";
 
 export const metadata: Metadata = {
   title: "WhatsApp Automation Malta | OARC Digital",
@@ -19,5 +20,16 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <PageContent />;
+  return (
+    <>
+      <RouteSchema
+        type="article"
+        path="/aeo/whatsapp-automation-malta"
+        title="WhatsApp Automation Malta | OARC Digital"
+        description="WhatsApp automation for Malta businesses. Automated ordering, booking confirmations, customer service, and marketing — built by OARC Digital."
+        datePublished="2026-01-15"
+      />
+      <PageContent />
+    </>
+  );
 }

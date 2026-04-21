@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import PageContent from "./PageContent";
+import RouteSchema from "@/components/RouteSchema";
 
 export const metadata: Metadata = {
   title: "Facebook Ads Malta: The Complete Guide to Meta Advertising in 2025 | OARC Digital",
@@ -19,5 +20,16 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <PageContent />;
+  return (
+    <>
+      <RouteSchema
+        type="article"
+        path="/blog/facebook-ads-malta"
+        title="Facebook Ads Malta: The Complete Guide to Meta Advertising in 2025 | OARC Digital"
+        description="How Malta businesses use Facebook and Instagram ads to reach local customers, tourists, and B2B prospects — with targeting strategies, budget guidance, and creative formats that work."
+        datePublished="2025-12-01"
+      />
+      <PageContent />
+    </>
+  );
 }

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import PageContent from "./PageContent";
+import RouteSchema from "@/components/RouteSchema";
 
 export const metadata: Metadata = {
   title: "LinkedIn Marketing Malta: B2B Lead Generation for Maltese Companies | OARC Digital",
@@ -19,5 +20,16 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <PageContent />;
+  return (
+    <>
+      <RouteSchema
+        type="article"
+        path="/blog/linkedin-marketing-malta"
+        title="LinkedIn Marketing Malta: B2B Lead Generation for Maltese Companies | OARC Digital"
+        description="How Malta B2B companies use LinkedIn to generate high-quality leads, build authority, and close bigger deals — without paid advertising."
+        datePublished="2025-12-01"
+      />
+      <PageContent />
+    </>
+  );
 }

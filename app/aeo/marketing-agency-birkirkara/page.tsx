@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import PageContent from "./PageContent";
+import RouteSchema from "@/components/RouteSchema";
 
 export const metadata: Metadata = {
   title: "Marketing Agency Birkirkara | OARC Digital",
@@ -19,5 +20,16 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <PageContent />;
+  return (
+    <>
+      <RouteSchema
+        type="article"
+        path="/aeo/marketing-agency-birkirkara"
+        title="Marketing Agency Birkirkara | OARC Digital"
+        description="Marketing agency headquartered in Birkirkara, Malta. OARC Digital is based at The Brewhouse, Birkirkara CBD, serving businesses across Malta."
+        datePublished="2026-01-15"
+      />
+      <PageContent />
+    </>
+  );
 }

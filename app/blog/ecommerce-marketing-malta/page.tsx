@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import PageContent from "./PageContent";
+import RouteSchema from "@/components/RouteSchema";
 
 export const metadata: Metadata = {
   title: "eCommerce Marketing Malta: How to Sell More Online in 2025 | OARC Digital",
@@ -19,5 +20,16 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <PageContent />;
+  return (
+    <>
+      <RouteSchema
+        type="article"
+        path="/blog/ecommerce-marketing-malta"
+        title="eCommerce Marketing Malta: How to Sell More Online in 2025 | OARC Digital"
+        description="The complete eCommerce marketing guide for Malta businesses — from platform selection and traffic generation to conversion optimisation and customer retention."
+        datePublished="2025-12-01"
+      />
+      <PageContent />
+    </>
+  );
 }

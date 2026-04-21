@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import PageContent from "./PageContent";
+import RouteSchema from "@/components/RouteSchema";
 
 export const metadata: Metadata = {
   title: "AI Marketing in Malta: What's Actually Useful for Your Business Right Now",
@@ -19,5 +20,16 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <PageContent />;
+  return (
+    <>
+      <RouteSchema
+        type="article"
+        path="/blog/ai-marketing-malta"
+        title="AI Marketing in Malta: What's Actually Useful for Your Business Right Now"
+        description="Beyond the hype — the AI marketing tools saving Malta businesses real time and money in 2026. What works, what doesn't, and what OARC actually uses with clients."
+        datePublished="2025-12-01"
+      />
+      <PageContent />
+    </>
+  );
 }

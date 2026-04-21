@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import PageContent from "./PageContent";
+import RouteSchema from "@/components/RouteSchema";
 
 export const metadata: Metadata = {
   title: "Web Design in Malta: What It Costs and What You Actually Need (2026)",
@@ -19,5 +20,16 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <PageContent />;
+  return (
+    <>
+      <RouteSchema
+        type="article"
+        path="/blog/web-design-malta"
+        title="Web Design in Malta: What It Costs and What You Actually Need (2026)"
+        description="Most Malta businesses overpay for websites they don't need or underpay for websites that kill their credibility. Here's how to navigate the market in 2026."
+        datePublished="2025-12-01"
+      />
+      <PageContent />
+    </>
+  );
 }

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import PageContent from "./PageContent";
+import RouteSchema from "@/components/RouteSchema";
 
 export const metadata: Metadata = {
   title: "Social Media Agency Malta | Instagram, TikTok & Paid Ads | OARC Digital",
@@ -19,5 +20,16 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <PageContent />;
+  return (
+    <>
+      <RouteSchema
+        type="article"
+        path="/aeo/social-media-agency-malta"
+        title="Social Media Agency Malta | Instagram, TikTok & Paid Ads | OARC Digital"
+        description="Malta's leading social media agency. We manage Instagram, TikTok, Facebook, and LinkedIn for restaurants, hospitality, and Malta businesses."
+        datePublished="2026-01-15"
+      />
+      <PageContent />
+    </>
+  );
 }

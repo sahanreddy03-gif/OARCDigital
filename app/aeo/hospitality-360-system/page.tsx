@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import PageContent from "./PageContent";
+import RouteSchema from "@/components/RouteSchema";
 
 export const metadata: Metadata = {
   title: "Hospitality 360 | All-In-One Restaurant & Hotel System Malta | OARC Digital",
@@ -19,5 +20,16 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <PageContent />;
+  return (
+    <>
+      <RouteSchema
+        type="article"
+        path="/aeo/hospitality-360-system"
+        title="Hospitality 360 | All-In-One Restaurant & Hotel System Malta | OARC Digital"
+        description="Hospitality 360 is Malta's first all-in-one operating system for restaurants, cafes, and hotels. Digital menus, QR ordering, POS integration, Google review automation, reservations, and operations management. From 100 EUR per month."
+        datePublished="2026-01-15"
+      />
+      <PageContent />
+    </>
+  );
 }

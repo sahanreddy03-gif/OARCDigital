@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import PageContent from "./PageContent";
+import RouteSchema from "@/components/RouteSchema";
 
 export const metadata: Metadata = {
   title: "Facebook and Google Ads in Malta: What Paid Advertising Actually Costs (2026)",
@@ -19,5 +20,16 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <PageContent />;
+  return (
+    <>
+      <RouteSchema
+        type="article"
+        path="/blog/paid-advertising-malta"
+        title="Facebook and Google Ads in Malta: What Paid Advertising Actually Costs (2026)"
+        description="Malta has one of the most competitive paid advertising markets in Europe per capita. Here's how to not waste your budget on Facebook ads and Google ads in Malta."
+        datePublished="2025-12-01"
+      />
+      <PageContent />
+    </>
+  );
 }

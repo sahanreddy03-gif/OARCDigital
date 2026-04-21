@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import PageContent from "./PageContent";
+import RouteSchema from "@/components/RouteSchema";
 
 export const metadata: Metadata = {
   title: "AI Chatbot Malta | OARC Digital",
@@ -19,5 +20,16 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <PageContent />;
+  return (
+    <>
+      <RouteSchema
+        type="article"
+        path="/aeo/ai-chatbot-malta"
+        title="AI Chatbot Malta | OARC Digital"
+        description="AI chatbots and agents for Malta businesses. Customer service, sales automation, WhatsApp bots, and AI SDR agents built by OARC Digital."
+        datePublished="2026-01-15"
+      />
+      <PageContent />
+    </>
+  );
 }
