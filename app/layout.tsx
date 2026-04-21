@@ -1,7 +1,58 @@
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
+import { Suspense } from "react";
+import { Nunito_Sans, Montserrat, Inter, Space_Grotesk, EB_Garamond, Orbitron, Anton } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
+import ScrollToTop from "@/components/ScrollToTop";
+
+const nunitoSans = Nunito_Sans({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-nunito-sans",
+  weight: ["200", "300", "400", "600", "700", "800", "900"],
+});
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-montserrat",
+});
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
+});
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-space-grotesk",
+});
+const ebGaramond = EB_Garamond({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-eb-garamond",
+});
+const orbitron = Orbitron({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-orbitron",
+});
+const anton = Anton({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-anton",
+  weight: "400",
+});
+
+const fontVariables = [
+  nunitoSans.variable,
+  montserrat.variable,
+  inter.variable,
+  spaceGrotesk.variable,
+  ebGaramond.variable,
+  orbitron.variable,
+  anton.variable,
+].join(" ");
 
 const ORGANIZATION_JSONLD = [
   {
@@ -116,7 +167,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={fontVariables}>
       <head>
         <link
           rel="preload"
@@ -130,21 +181,19 @@ export default function RootLayout({
           as="image"
           href="/assets/d375f1d50d97b0de7953ca2cecd2b8aea2cd96b2-3524x1181_1761251957292.avif"
           type="image/avif"
+          fetchPriority="high"
         />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Space+Grotesk:wght@300..700&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Orbitron:wght@400..900&family=Anton&display=swap"
-          rel="stylesheet"
-        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(ORGANIZATION_JSONLD) }}
         />
       </head>
       <body>
+        <Suspense fallback={null}>
+          <ScrollToTop />
+        </Suspense>
         <Providers>{children}</Providers>
 
         {/* Google Ads Conversion Tracking (gtag.js) */}
