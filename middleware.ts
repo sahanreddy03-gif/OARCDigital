@@ -7,6 +7,10 @@ import {
   HARD_410_PATHS,
   SERVICE_ALIASES,
 } from "./lib/seo/seoSets";
+import {
+  ARCHIVED_LOCATION_REDIRECTS,
+  INDUSTRY_REDIRECTS,
+} from "./lib/seo/redirectMap";
 
 const GONE_HTML = `<!doctype html>
 <html lang="en"><head><meta charset="utf-8"/>
@@ -44,6 +48,19 @@ export function middleware(req: NextRequest): NextResponse | undefined {
   const aliasTo = SERVICE_ALIASES[pathname];
   if (aliasTo) return permanentRedirect(req, aliasTo);
 
+  // /industries/{slug} — redirect archived industry slugs to nearest KEPT.
+  if (pathname.startsWith("/industries/")) {
+    const parts = pathname.replace(/\/+$/, "").split("/").filter(Boolean);
+    if (parts.length === 2) {
+      const slug = parts[1];
+      if (KEPT_INDUSTRIES.has(slug)) return undefined;
+      const target = INDUSTRY_REDIRECTS[slug];
+      if (target) return permanentRedirect(req, `/industries/${target}`);
+      return gone();
+    }
+    if (parts.length > 2) return gone();
+  }
+
   if (pathname === "/malta" || pathname === "/malta/") {
     return permanentRedirect(req, "/services");
   }
@@ -52,7 +69,16 @@ export function middleware(req: NextRequest): NextResponse | undefined {
     const parts = pathname.replace(/\/+$/, "").split("/").filter(Boolean);
     // parts: ['malta', loc, ?slug, ?service]
     const loc = parts[1];
-    if (!loc || !KEPT_LOCATIONS.has(loc)) {
+    if (!loc) return gone();
+
+    // Archived locality → 308 to nearest KEPT, preserving any sub-path.
+    if (!KEPT_LOCATIONS.has(loc)) {
+      const targetLoc = ARCHIVED_LOCATION_REDIRECTS[loc];
+      if (targetLoc) {
+        const rest = parts.slice(2).join("/");
+        const tail = rest ? `/${rest}` : "";
+        return permanentRedirect(req, `/malta/${targetLoc}${tail}`);
+      }
       return gone();
     }
 
@@ -69,6 +95,9 @@ export function middleware(req: NextRequest): NextResponse | undefined {
       if (KEPT_INDUSTRIES.has(slug)) {
         return permanentRedirect(req, `/industries/${slug}`);
       }
+      // Archived industry slug under /malta/{loc}/{ind} → bounce to industries.
+      const indTarget = INDUSTRY_REDIRECTS[slug];
+      if (indTarget) return permanentRedirect(req, `/industries/${indTarget}`);
       return gone();
     }
 
@@ -87,6 +116,11 @@ export function middleware(req: NextRequest): NextResponse | undefined {
       if (indKept) {
         return permanentRedirect(req, `/industries/${ind}`);
       }
+      const indTarget = INDUSTRY_REDIRECTS[ind];
+      if (indTarget && svcKept) {
+        return permanentRedirect(req, `/malta/${loc}/${svc}`);
+      }
+      if (indTarget) return permanentRedirect(req, `/industries/${indTarget}`);
       return gone();
     }
 
@@ -111,6 +145,7 @@ export const config = {
     "/malta",
     "/malta/:path*",
     "/services/:path*",
+    "/industries/:path*",
     "/case-studies/:path*",
     "/automation-test",
   ],
