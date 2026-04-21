@@ -3,12 +3,17 @@ import { fileURLToPath } from 'url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
+const withBundleAnalyzer =
+  process.env.ANALYZE === 'true'
+    ? (await import('@next/bundle-analyzer')).default({ enabled: true })
+    : (cfg) => cfg;
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
   images: {
     unoptimized: false,
-    disableStaticImages: true,
+    disableStaticImages: false,
     formats: ['image/avif', 'image/webp'],
     deviceSizes: [360, 480, 640, 750, 828, 1080, 1200, 1440, 1920, 2400],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384, 512],
@@ -26,19 +31,16 @@ const nextConfig = {
     const immutableCache = [
       { key: 'Cache-Control', value: 'public, max-age=31536000, immutable' },
     ];
-    const mediumCache = [
-      { key: 'Cache-Control', value: 'public, max-age=86400, stale-while-revalidate=604800' },
-    ];
     return [
       { source: '/_next/static/:path*', headers: immutableCache },
       { source: '/static/media/:path*', headers: immutableCache },
       { source: '/fonts/:path*', headers: immutableCache },
-      { source: '/assets/:path*', headers: mediumCache },
-      { source: '/media/:path*', headers: mediumCache },
-      { source: '/agents/:path*', headers: mediumCache },
+      { source: '/assets/:path*', headers: immutableCache },
+      { source: '/media/:path*', headers: immutableCache },
+      { source: '/agents/:path*', headers: immutableCache },
       {
-        source: '/:path*\\.(png|jpg|jpeg|webp|avif|svg|ico|gif|mp4|webm|mov)',
-        headers: mediumCache,
+        source: '/:path*\\.(png|jpg|jpeg|webp|avif|svg|ico|gif|woff|woff2|ttf|otf|mp4|webm|mov)',
+        headers: immutableCache,
       },
     ];
   },
@@ -66,4 +68,4 @@ const nextConfig = {
   },
 };
 
-export default nextConfig;
+export default withBundleAnalyzer(nextConfig);
