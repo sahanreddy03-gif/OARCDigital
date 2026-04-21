@@ -35,13 +35,6 @@ export default function SpeculationRules() {
           eagerness: "moderate",
         },
       ],
-      prefetch: [
-        {
-          source: "document",
-          where: { href_matches: "/*" },
-          eagerness: "moderate",
-        },
-      ],
     });
     document.head.appendChild(script);
   }, []);
