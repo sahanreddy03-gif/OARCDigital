@@ -285,7 +285,7 @@ export default function IndustryLocationServicePage({ params }: { params: { loca
         <section className="bg-gradient-to-br from-zinc-900 to-zinc-950 text-white py-16 md:py-24">
           <div className="max-w-4xl mx-auto px-6 md:px-8">
             <div className="flex items-center gap-2 mb-6 text-sm text-zinc-400">
-              <a href="/" className="hover:text-white transition-colors">Home</a>
+              <Link href="/" className="hover:text-white transition-colors">Home</Link>
               <span>/</span>
               <span className="text-white">{loc.name}</span>
               <span>/</span>
