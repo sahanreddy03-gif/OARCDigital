@@ -2,6 +2,55 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ========================================
+   View Transitions API — graceful no-op in Safari/Firefox.
+   Chromium gets a smooth cross-fade between page navigations.
+   ======================================== */
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 220ms;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+::view-transition-old(root) {
+  animation-name: oarc-vt-fade-out;
+}
+
+::view-transition-new(root) {
+  animation-name: oarc-vt-fade-in;
+}
+
+@keyframes oarc-vt-fade-out {
+  to { opacity: 0; }
+}
+
+@keyframes oarc-vt-fade-in {
+  from { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none !important;
+  }
+}
+
+/* ========================================
+   .defer-paint — content-visibility for below-fold sections.
+   Apply to long-page sections that sit BELOW the first viewport
+   (blog detail, case study detail, AEO pages, /tools, /malta/*).
+   NEVER apply to hero, header, or anything in the first viewport
+   — that breaks LCP measurement.
+   ======================================== */
+.defer-paint {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 800px;
+}
+
 /* Custom Fonts */
 @font-face {
   font-family: 'Blackpast';

@@ -11,6 +11,23 @@ const withBundleAnalyzer =
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  experimental: {
+    // NOTE: framer-motion deliberately NOT in this list — it causes build
+    // hangs in Next 14.2.x (the optimizer mis-handles its barrel exports).
+    // Re-evaluate after the Next 15 upgrade in the follow-up task.
+    optimizePackageImports: [
+      "lucide-react",
+      "react-icons",
+      "recharts",
+      "@radix-ui/react-icons",
+      "@radix-ui/react-accordion",
+      "@radix-ui/react-dialog",
+      "@radix-ui/react-dropdown-menu",
+      "@radix-ui/react-navigation-menu",
+      "@radix-ui/react-tabs",
+      "date-fns",
+    ],
+  },
   images: {
     unoptimized: false,
     // Kept true: 461 @assets imports across the codebase are used as plain
