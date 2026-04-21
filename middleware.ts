@@ -117,9 +117,8 @@ export function middleware(req: NextRequest): NextResponse | undefined {
         return permanentRedirect(req, `/industries/${ind}`);
       }
       const indTarget = INDUSTRY_REDIRECTS[ind];
-      if (indTarget && svcKept) {
-        return permanentRedirect(req, `/malta/${loc}/${svc}`);
-      }
+      // svcKept is already handled above, so we only land here for archived
+      // industries paired with archived/unknown services.
       if (indTarget) return permanentRedirect(req, `/industries/${indTarget}`);
       return gone();
     }
