@@ -500,7 +500,7 @@ export const locationProfiles: Record<string, LocationProfile> = {
   },
 
   // Source: https://en.wikipedia.org/wiki/Marsaskala
-  'marsascala': {
+  'marsaskala': {
     slug: 'marsaskala', name: 'Marsaskala',
     shortDescription: 'the south-eastern seaside town with a year-round growing residential base',
     longIntro: 'Marsaskala has grown rapidly as a seaside residential town in south-eastern Malta, popular with Maltese families and retirees who want coast access without the density of Sliema. The seafront promenade is the social spine and the summer audience easily doubles the resident population.',
@@ -740,7 +740,7 @@ export const locationProfiles: Record<string, LocationProfile> = {
   },
 
   // Source: https://en.wikipedia.org/wiki/St._Paul%27s_Bay
-  'st-pauls-bay': {
+  'san-pawl-il-bahar': {
     slug: 'san-pawl-il-bahar', name: 'San Pawl il-Baħar (St Paul\'s Bay)',
     shortDescription: 'the northern coastal locality covering Buġibba, Qawra, and the bay itself',
     longIntro: 'St Paul\'s Bay is the larger administrative locality covering Buġibba, Qawra, and the historic bay area. By total population it is now the largest locality in Malta, mixing year-round residents with one of the densest tourist populations on the island.',
@@ -755,7 +755,7 @@ export const locationProfiles: Record<string, LocationProfile> = {
   },
 
   // Source: https://en.wikipedia.org/wiki/Birgu
-  'vittoriosa': {
+  'birgu': {
     slug: 'birgu', name: 'Birgu (Vittoriosa)',
     shortDescription: 'one of the historic Three Cities, anchored by the Vittoriosa waterfront and Fort St Angelo',
     longIntro: 'Vittoriosa (locally Birgu) is one of the Three Cities of southern Malta, with a postcard-perfect waterfront, the historic Fort St Angelo, and a fast-growing tourism, fine-dining, and superyacht-marina footprint. It punches well above its size.',
@@ -770,7 +770,7 @@ export const locationProfiles: Record<string, LocationProfile> = {
   },
 
   // Source: https://en.wikipedia.org/wiki/Senglea
-  'senglea': {
+  'isla': {
     slug: 'isla', name: 'Isla (Senglea)',
     shortDescription: 'one of the historic Three Cities, with a tight peninsula footprint',
     longIntro: 'Senglea (locally Isla) is the smallest of the Three Cities by area but one of the most densely built — a fortified peninsula with a strong residential character and a growing fine-dining and tourism footprint along the waterfront.',
@@ -785,7 +785,7 @@ export const locationProfiles: Record<string, LocationProfile> = {
   },
 
   // Source: https://en.wikipedia.org/wiki/Cospicua
-  'cospicua': {
+  'bormla': {
     slug: 'bormla', name: 'Bormla (Cospicua)',
     shortDescription: 'the largest of the Three Cities, with a strong residential and commercial base',
     longIntro: 'Cospicua (locally Bormla) is the largest of the Three Cities by population, with a strong family-residential character, an active commercial high street, and a growing waterfront regeneration including the AX Hotels Cospicua development.',
