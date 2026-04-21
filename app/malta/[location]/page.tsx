@@ -3,144 +3,109 @@ import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { notFound } from 'next/navigation';
 import Layout from '@/components/layout/Layout';
-import { maltaLocations as validLocations } from '@/shared/seoConfig';
+import JsonLd from '@/components/JsonLd';
+import { maltaLocations as validLocations, locationServices } from '@/shared/seoConfig';
+import { buildLocationHubContent, getServiceProfile } from '@/lib/seo/generateUniquePageContent';
 
-const locationNames: Record<string, { name: string; description: string }> = {
-  'valletta': { name: 'Valletta', description: 'the historic capital city' },
-  'sliema': { name: 'Sliema', description: 'the bustling commercial hub' },
-  'st-julians': { name: 'St. Julians', description: 'the vibrant entertainment district' },
-  'mosta': { name: 'Mosta', description: 'the central Malta town' },
-  'birkirkara': { name: 'Birkirkara', description: "Malta's largest town" },
-  'qormi': { name: 'Qormi', description: "the artisan's city" },
-  'hamrun': { name: 'Hamrun', description: 'the industrial heart' },
-  'naxxar': { name: 'Naxxar', description: 'the northern Malta town' },
-  'zabbar': { name: 'Zabbar', description: 'the southern heritage town' },
-  'attard': { name: 'Attard', description: 'the garden village' },
-  'mdina': { name: 'Mdina', description: 'the Silent City' },
-  'rabat': { name: 'Rabat', description: 'the historic gateway town' },
-  'marsaskala': { name: 'Marsaskala', description: 'the southern seaside town' },
-  'marsaxlokk': { name: 'Marsaxlokk', description: 'the fishing village' },
-  'birgu': { name: 'Birgu', description: 'the historic Three Cities' },
-  'san-gwann': { name: 'San Gwann', description: 'the northern residential hub' },
-  'msida': { name: 'Msida', description: 'the university town' },
-  'gzira': { name: 'Gzira', description: 'the waterfront town' },
-  'swieqi': { name: 'Swieqi', description: 'the modern residential area' },
-  'mellieha': { name: 'Mellieha', description: 'the northern coastal village' },
-  'bugibba': { name: 'Bugibba', description: 'the tourist resort town' },
-  'san-pawl-il-bahar': { name: "St. Paul's Bay", description: 'the northern bay town' },
-  'zejtun': { name: 'Zejtun', description: 'the historic southern town' },
-  'zurrieq': { name: 'Zurrieq', description: 'the southern Malta town' },
-  'paola': { name: 'Paola', description: 'the central southern town' },
-  'tarxien': { name: 'Tarxien', description: 'the ancient heritage town' },
-  'fgura': { name: 'Fgura', description: 'the southern residential town' },
-  'balzan': { name: 'Balzan', description: 'the leafy central village' },
-  'floriana': { name: 'Floriana', description: 'the grand harbour gateway' },
-  'marsa': { name: 'Marsa', description: 'the harbour industrial town' },
-  'luqa': { name: 'Luqa', description: 'the airport gateway town' },
-  'gudja': { name: 'Gudja', description: 'the southern Malta village' },
-  'birzebbuga': { name: 'Birzebbuga', description: 'the southern bay village' },
-  'kirkop': { name: 'Kirkop', description: 'the southern Malta village' },
-  'siggiewi': { name: 'Siggiewi', description: 'the western Malta town' },
-  'mqabba': { name: 'Mqabba', description: 'the southern Malta village' },
-  'lija': { name: 'Lija', description: 'the charming central village' },
-  'iklin': { name: 'Iklin', description: 'the northern residential village' },
-  'santa-venera': { name: 'Santa Venera', description: 'the central Malta town' },
-  'pieta': { name: 'Pieta', description: 'the harbour town' },
-  'pembroke': { name: 'Pembroke', description: 'the northern coastal town' },
-  'ghaxaq': { name: 'Ghaxaq', description: 'the southern Malta village' },
-  'xghajra': { name: 'Xghajra', description: 'the eastern coastal village' },
-  'kalkara': { name: 'Kalkara', description: 'the Three Cities harbour village' },
-  'isla': { name: 'Isla', description: 'the historic Senglea peninsula' },
-  'bormla': { name: 'Bormla', description: 'the historic Cospicua city' },
-  'cospicua': { name: 'Cospicua', description: 'the historic Three Cities' },
-  'san-lawrenz': { name: 'San Lawrenz', description: 'the Gozo village' },
-  'swatar': { name: 'Swatar', description: 'the residential suburb' },
-};
-
-const services = [
-  { slug: 'social-media-creative-management', name: 'Social Media Management', desc: 'Instagram, TikTok, Facebook and LinkedIn management' },
-  { slug: 'digital-marketing', name: 'Digital Marketing', desc: 'Multi-channel campaigns, SEO, and paid advertising' },
-  { slug: 'branding-services', name: 'Branding', desc: 'Brand identity, logo design, and brand guidelines' },
-  { slug: 'web-design', name: 'Web Design', desc: 'Custom, mobile-first websites built to convert' },
-  { slug: 'video-production', name: 'Video Production', desc: 'Professional video for social media and advertising' },
-  { slug: 'paid-advertising', name: 'Paid Advertising', desc: 'Meta Ads and Google Ads management' },
-  { slug: 'hire-ai-employees', name: 'AI Employees', desc: 'Custom AI agents for customer service and sales' },
-  { slug: 'ai-consulting', name: 'AI Consulting', desc: 'Strategy and implementation for AI adoption' },
-  { slug: 'revenue-automation', name: 'Revenue Automation', desc: 'End-to-end automation for growth' },
-  { slug: 'ai-copywriting', name: 'AI Copywriting', desc: 'AI-powered copy for web, ads, and social' },
-];
+const serviceCatalog = locationServices.map((slug) => {
+  const svc = getServiceProfile(slug);
+  return {
+    slug,
+    name: svc?.name ?? slug,
+    desc: svc?.description.split('—')[0].trim() ?? '',
+  };
+});
 
 export async function generateStaticParams() {
   return validLocations.map((location) => ({ location }));
 }
 
 export async function generateMetadata({ params }: { params: { location: string } }): Promise<Metadata> {
-  const loc = locationNames[params.location];
-  if (!loc) return { title: 'Location Not Found | OARC Digital' };
-  const title = `Marketing Agency in ${loc.name}, Malta | OARC Digital`;
-  const description = `OARC Digital provides social media management, branding, AI automation, web design, and paid advertising for businesses in ${loc.name}, Malta. Malta's first Creative + AI Systems Agency.`;
-  const canonical = `https://oarcdigital.com/malta/${params.location}`;
+  const c = buildLocationHubContent(params.location, serviceCatalog);
+  if (!c) return { title: 'Location Not Found | OARC Digital' };
   return {
-    title,
-    description,
-    alternates: { canonical },
-    openGraph: { title, description, url: canonical, type: 'website' },
-    twitter: { card: 'summary_large_image', title, description },
+    title: c.title,
+    description: c.description,
+    alternates: { canonical: c.canonical },
+    openGraph: { title: c.title, description: c.description, url: c.canonical, type: 'website' },
+    twitter: { card: 'summary_large_image', title: c.title, description: c.description },
   };
 }
 
 export default function LocationHubPage({ params }: { params: { location: string } }) {
-  const { location } = params;
-  const loc = locationNames[location];
-
-  if (!loc) notFound();
+  const c = buildLocationHubContent(params.location, serviceCatalog);
+  if (!c) notFound();
 
   return (
     <Layout>
+      <JsonLd id={`malta-${params.location}-hub`} data={c.schema} />
       <main className="min-h-screen bg-background">
         <section className="bg-gradient-to-br from-zinc-900 to-zinc-950 text-white py-16 md:py-24">
           <div className="max-w-4xl mx-auto px-6 md:px-8">
             <div className="flex items-center gap-2 mb-6 text-sm text-zinc-400">
               <Link href="/" className="hover:text-white transition-colors">Home</Link>
               <span>/</span>
-              <span className="text-white">{loc.name}</span>
+              <span className="text-white">{c.hero.eyebrow.replace('Malta — ', '')}</span>
             </div>
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/10 border border-orange-500/20 mb-6">
-              <span className="text-orange-400 text-xs font-semibold uppercase tracking-wider">Malta — {loc.name}</span>
+              <span className="text-orange-400 text-xs font-semibold uppercase tracking-wider">{c.hero.eyebrow}</span>
             </div>
             <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
-              Marketing Agency in {loc.name}, Malta
+              {c.hero.h1}
             </h1>
             <p className="text-xl text-zinc-300 leading-relaxed">
-              OARC Digital serves businesses in {loc.name}, {loc.description}. Malta's first Creative + AI Systems Agency — combining brand strategy, content production, and AI automation in one team.
+              {c.hero.intro}
             </p>
           </div>
         </section>
 
         <section className="max-w-4xl mx-auto px-6 md:px-8 py-16">
-          <h2 className="text-2xl md:text-3xl font-bold mb-8">Services Available in {loc.name}</h2>
+          <h2 className="text-2xl md:text-3xl font-bold mb-6">About {c.hero.eyebrow.replace('Malta — ', '')}</h2>
+          <p className="text-muted-foreground leading-relaxed mb-12">{c.whyHere}</p>
+
+          <div className="grid md:grid-cols-2 gap-8 mb-12">
+            <div>
+              <h3 className="text-lg font-bold mb-4">Local Challenges</h3>
+              <ul className="space-y-3">
+                {c.challenges.map((item, i) => (
+                  <li key={i} className="text-muted-foreground leading-relaxed">• {item}</li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-lg font-bold mb-4">Marketing Opportunities</h3>
+              <ul className="space-y-3">
+                {c.opportunities.map((item, i) => (
+                  <li key={i} className="text-muted-foreground leading-relaxed">• {item}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          <h2 className="text-2xl md:text-3xl font-bold mb-8">Services Available in {c.hero.eyebrow.replace('Malta — ', '')}</h2>
           <div className="grid md:grid-cols-2 gap-4 mb-12">
-            {services.map((service) => (
+            {c.services.map((service) => (
               <Link
                 key={service.slug}
-                href={`/malta/${location}/${service.slug}`}
+                href={`/malta/${params.location}/${service.slug}`}
                 className="group p-6 rounded-xl border border-zinc-200 dark:border-zinc-800 hover:border-orange-500/50 transition-all"
+                data-testid={`link-service-${service.slug}`}
               >
-                <div className="flex items-start justify-between">
+                <div className="flex items-start justify-between gap-4">
                   <div>
                     <h3 className="font-bold mb-1">{service.name}</h3>
                     <p className="text-sm text-muted-foreground">{service.desc}</p>
                   </div>
-                  <ArrowRight className="w-4 h-4 text-orange-500 mt-1 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="w-4 h-4 text-orange-500 mt-1 group-hover:translate-x-1 transition-transform flex-shrink-0" />
                 </div>
               </Link>
             ))}
           </div>
 
           <div className="bg-zinc-900 text-white rounded-2xl p-8 text-center">
-            <h2 className="text-2xl font-bold mb-3">Ready to grow your business in {loc.name}?</h2>
-            <p className="text-zinc-300 mb-6">OARC Digital — Malta's First Creative + AI Systems Agency. Month-to-month contracts. Senior team on every account.</p>
-            <Link href="/contact" className="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-8 rounded-lg transition-colors">
+            <h2 className="text-2xl font-bold mb-3">Ready to grow your business in {c.hero.eyebrow.replace('Malta — ', '')}?</h2>
+            <p className="text-zinc-300 mb-6">OARC Digital — Malta&apos;s First Creative + AI Systems Agency. Month-to-month contracts. Senior team on every account.</p>
+            <Link href="/contact" className="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-8 rounded-lg transition-colors" data-testid="link-contact-cta">
               Start a Conversation
             </Link>
             <p className="text-zinc-500 text-sm mt-4">hello@oarcdigital.com · +356 7971 1799</p>
