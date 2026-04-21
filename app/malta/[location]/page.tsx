@@ -1,11 +1,14 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Quote } from 'lucide-react';
 import { notFound } from 'next/navigation';
 import Layout from '@/components/layout/Layout';
 import JsonLd from '@/components/JsonLd';
-import { maltaLocations as validLocations, locationServices } from '@/shared/seoConfig';
+import { locationServices } from '@/shared/seoConfig';
 import { buildLocationHubContent, getServiceProfile } from '@/lib/seo/generateUniquePageContent';
+// Tier 1/2 restore allowlist — single source of truth for what we statically
+// render (Task #51 / #52). Anything outside this list is 410'd by middleware.
+import restore from '@/.local/seo/restore.json';
 
 const serviceCatalog = locationServices.map((slug) => {
   const svc = getServiceProfile(slug);
@@ -17,7 +20,7 @@ const serviceCatalog = locationServices.map((slug) => {
 });
 
 export async function generateStaticParams() {
-  return validLocations.map((location) => ({ location }));
+  return (restore as { kept: { locationHubs: { location: string }[] } }).kept.locationHubs;
 }
 
 export async function generateMetadata({ params }: { params: { location: string } }): Promise<Metadata> {
@@ -79,6 +82,25 @@ export default function LocationHubPage({ params }: { params: { location: string
                   <li key={i} className="text-muted-foreground leading-relaxed">• {item}</li>
                 ))}
               </ul>
+            </div>
+          </div>
+
+          {/* Per-location case-study hook + Maltese testimonial — required by
+              Task #52 to give every restored URL a unique social-proof block. */}
+          <div className="grid md:grid-cols-2 gap-6 mb-16">
+            <div className="rounded-xl border border-zinc-200 dark:border-zinc-800 p-6 bg-card" data-testid={`block-case-study-${params.location}`}>
+              <div className="text-orange-500 text-xs font-semibold uppercase tracking-wider mb-3">Recent Result</div>
+              <h3 className="text-lg font-bold mb-3 leading-snug">{c.caseStudyHook.headline}</h3>
+              <p className="text-muted-foreground leading-relaxed mb-4">{c.caseStudyHook.outcome}</p>
+              <div className="text-sm font-semibold text-orange-600 dark:text-orange-400">{c.caseStudyHook.metric}</div>
+            </div>
+            <div className="rounded-xl border border-zinc-200 dark:border-zinc-800 p-6 bg-card" data-testid={`block-testimonial-${params.location}`}>
+              <Quote className="w-6 h-6 text-orange-500 mb-3" />
+              <p className="text-foreground leading-relaxed mb-4 italic">&ldquo;{c.testimonial.quote}&rdquo;</p>
+              <div className="text-sm">
+                <div className="font-semibold text-foreground">{c.testimonial.author}</div>
+                <div className="text-muted-foreground">{c.testimonial.role} · {c.testimonial.business}</div>
+              </div>
             </div>
           </div>
 
