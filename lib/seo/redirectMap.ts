@@ -1,9 +1,23 @@
+import * as fs from "node:fs";
+import * as path from "node:path";
 import { locationProfiles } from "./locationData";
 import { maltaLocations, maltaIndustries, allServiceSlugs } from "../../shared/seoConfig";
 
 const KEPT_LOCATIONS = new Set<string>(maltaLocations);
 const KEPT_INDUSTRIES = new Set<string>(maltaIndustries);
 const ALL_SERVICES = new Set<string>(allServiceSlugs);
+
+// Best-effort check that a service slug has a real `app/services/<slug>/`
+// directory. Used by the build-time validator below so we catch destinations
+// that exist in the slug allowlist but have no actual page.
+function serviceDirExists(slug: string): boolean {
+  try {
+    const dir = path.join(process.cwd(), "app", "services", slug);
+    return fs.statSync(dir).isDirectory();
+  } catch {
+    return false;
+  }
+}
 
 function haversineKm(
   a: { lat: number; lng: number },
@@ -102,6 +116,8 @@ export const ARCHIVED_SERVICE_REDIRECTS: Readonly<Record<string, string>> = Obje
   for (const [from, to] of Object.entries(ARCHIVED_SERVICE_REDIRECTS)) {
     if (!ALL_SERVICES.has(to)) {
       errors.push(`ARCHIVED_SERVICE_REDIRECTS: ${from} -> ${to} (target not in allServiceSlugs)`);
+    } else if (!serviceDirExists(to)) {
+      errors.push(`ARCHIVED_SERVICE_REDIRECTS: ${from} -> ${to} (no app/services/${to}/ directory)`);
     }
   }
   if (errors.length > 0) {
