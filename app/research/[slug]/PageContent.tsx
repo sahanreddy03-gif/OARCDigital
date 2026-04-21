@@ -19,6 +19,61 @@ import {
 import FAQSection from "@/components/FAQSection";
 import type { ResearchEntry, ResearchSection } from "@/lib/research/data";
 
+const DEFAULT_CITATIONS = [
+  {
+    label: "National Statistics Office Malta",
+    href: "https://nso.gov.mt",
+    description: "Official Maltese economic and demographic data.",
+  },
+  {
+    label: "Malta Tourism Authority",
+    href: "https://www.mta.com.mt",
+    description: "Tourism and hospitality statistics for Malta.",
+  },
+  {
+    label: "MFSA — Malta Financial Services Authority",
+    href: "https://www.mfsa.mt",
+    description: "Regulatory and financial sector data.",
+  },
+  {
+    label: "Eurostat — Digital Economy and Society",
+    href: "https://ec.europa.eu/eurostat",
+    description: "EU-level digital readiness benchmarks for comparison.",
+  },
+  {
+    label: "Google Keyword Planner & Ahrefs",
+    href: "https://ads.google.com/intl/en_us/home/tools/keyword-planner/",
+    description: "Search-volume and keyword-difficulty triangulation.",
+  },
+];
+
+const DEFAULT_RELATED = [
+  {
+    title: "SEO services in Malta",
+    href: "/services/seo-services",
+    description:
+      "Local SEO, technical SEO, and content programmes built specifically for the Maltese market.",
+  },
+  {
+    title: "AI agents & automation",
+    href: "/ai-agents",
+    description:
+      "Production AI workflows for sales, support, bookings and operations — built and run by OARC Digital.",
+  },
+  {
+    title: "Marketing strategy",
+    href: "/services/marketing-strategy",
+    description:
+      "Channel mix, positioning, and the operating model behind every benchmark in our reports.",
+  },
+  {
+    title: "OARC Intelligence diagnostics",
+    href: "/diagnostics",
+    description:
+      "Free 14-day pilot to size the revenue at risk in your business — anchored to data like this.",
+  },
+];
+
 function ChartBlock({ chart }: { chart: NonNullable<ResearchSection["chart"]> }) {
   if (chart.type === "pie") {
     return (
@@ -189,7 +244,59 @@ export default function ResearchPageContent({ entry }: { entry: ResearchEntry })
             </section>
           ))}
 
-          <div className="rounded-lg bg-[#1a2e29] text-white p-8 mt-12">
+          <section className="mt-14">
+            <h2 className="text-2xl md:text-3xl font-bold text-[#1a2e29] mb-4">
+              Sources & methodology
+            </h2>
+            <p className="text-[#1a2e29]/85 mb-4 leading-relaxed">
+              The numbers in this report combine OARC Digital's own primary
+              research (surveys, anonymised client data, and SERP tracking)
+              with the following public sources. Where ranges are reported,
+              they reflect the inter-quartile range of the underlying sample
+              rather than absolute extremes.
+            </p>
+            <ul className="space-y-3 text-[#1a2e29]/85">
+              {(entry.citations ?? DEFAULT_CITATIONS).map((c) => (
+                <li key={c.href} className="leading-relaxed">
+                  <a
+                    href={c.href}
+                    target="_blank"
+                    rel="noopener noreferrer nofollow"
+                    className="font-semibold text-[#1a2e29] hover:text-[#ff914d] underline underline-offset-4"
+                    data-testid={`link-citation-${c.label}`}
+                  >
+                    {c.label}
+                  </a>
+                  {c.description && (
+                    <span className="text-[#1a2e29]/65"> — {c.description}</span>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </section>
+
+          <section className="mt-14">
+            <h2 className="text-2xl md:text-3xl font-bold text-[#1a2e29] mb-4">
+              Related OARC Digital services
+            </h2>
+            <div className="grid md:grid-cols-2 gap-4">
+              {(entry.relatedServices ?? DEFAULT_RELATED).map((s) => (
+                <Link
+                  key={s.href}
+                  href={s.href}
+                  className="block rounded-lg border border-[#1a2e29]/15 bg-white p-5 hover:border-[#ff914d] hover:shadow-md transition-all"
+                  data-testid={`link-related-${s.href.replace(/\//g, "-")}`}
+                >
+                  <div className="font-semibold text-[#1a2e29] mb-2">{s.title}</div>
+                  <div className="text-sm text-[#1a2e29]/70 leading-relaxed">
+                    {s.description}
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </section>
+
+          <div className="rounded-lg bg-[#1a2e29] text-white p-8 mt-14">
             <h3 className="text-2xl font-bold mb-3">Want the underlying dataset?</h3>
             <p className="text-white/80 mb-5">
               We share the anonymised dataset behind every OARC Digital research report

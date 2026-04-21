@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import PageContent from "./PageContent";
+import RouteSchema from "@/components/RouteSchema";
 
 export const metadata: Metadata = {
   title: "Content Marketing in Malta: The Strategy That Builds Traffic While You Sleep",
@@ -19,5 +20,16 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <PageContent />;
+  return (
+    <>
+      <RouteSchema
+        type="article"
+        path="/blog/content-marketing-malta"
+        title="Content Marketing in Malta: The Strategy That Builds Traffic While You Sleep"
+        description="Every Malta business owner has heard 'you need to post more content.' That's the wrong frame. You don't need more content — you need content that compounds."
+        datePublished="2025-12-01"
+      />
+      <PageContent />
+    </>
+  );
 }

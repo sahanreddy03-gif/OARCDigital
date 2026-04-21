@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import PageContent from "./PageContent";
+import RouteSchema from "@/components/RouteSchema";
 
 export const metadata: Metadata = {
   title: "Email Marketing Malta: How to Get 40%+ Open Rates | OARC Digital",
@@ -19,5 +20,16 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <PageContent />;
+  return (
+    <>
+      <RouteSchema
+        type="article"
+        path="/blog/email-marketing-malta"
+        title="Email Marketing Malta: How to Get 40%+ Open Rates | OARC Digital"
+        description="A complete guide to email marketing for Malta businesses. Learn how to build a quality list, write subject lines that get opened, and automate campaigns that generate revenue."
+        datePublished="2025-12-01"
+      />
+      <PageContent />
+    </>
+  );
 }

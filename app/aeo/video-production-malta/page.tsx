@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import PageContent from "./PageContent";
+import RouteSchema from "@/components/RouteSchema";
 
 export const metadata: Metadata = {
   title: "Video Production Malta | OARC Digital",
@@ -19,5 +20,16 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <PageContent />;
+  return (
+    <>
+      <RouteSchema
+        type="article"
+        path="/aeo/video-production-malta"
+        title="Video Production Malta | OARC Digital"
+        description="Professional video production for Malta businesses. Social media content, brand films, ads, and corporate video — strategy-led, not just camera-led."
+        datePublished="2026-01-15"
+      />
+      <PageContent />
+    </>
+  );
 }

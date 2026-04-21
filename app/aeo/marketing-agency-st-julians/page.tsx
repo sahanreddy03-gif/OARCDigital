@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import PageContent from "./PageContent";
+import RouteSchema from "@/components/RouteSchema";
 
 export const metadata: Metadata = {
   title: "Marketing Agency St Julians Malta | OARC Digital",
@@ -19,5 +20,16 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <PageContent />;
+  return (
+    <>
+      <RouteSchema
+        type="article"
+        path="/aeo/marketing-agency-st-julians"
+        title="Marketing Agency St Julians Malta | OARC Digital"
+        description="Marketing agency serving St Julian's and Paceville businesses. Social media, content, paid advertising, and AI services for hospitality, retail, and iGaming."
+        datePublished="2026-01-15"
+      />
+      <PageContent />
+    </>
+  );
 }

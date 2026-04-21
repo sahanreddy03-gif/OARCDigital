@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import PageContent from "./PageContent";
+import RouteSchema from "@/components/RouteSchema";
 
 export const metadata: Metadata = {
   title: "Video Production in Malta: Costs, Formats, and What Actually Converts",
@@ -19,5 +20,16 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <PageContent />;
+  return (
+    <>
+      <RouteSchema
+        type="article"
+        path="/blog/video-production-malta"
+        title="Video Production in Malta: Costs, Formats, and What Actually Converts"
+        description="Short-form, long-form, corporate, social — what video formats Malta businesses should be investing in, what they cost, and which ones actually bring in customers."
+        datePublished="2025-12-01"
+      />
+      <PageContent />
+    </>
+  );
 }

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import PageContent from "./PageContent";
+import RouteSchema from "@/components/RouteSchema";
 
 export const metadata: Metadata = {
   title: "PJAZZA — Malta's First Live Video Marketplace | OARC Digital",
@@ -19,5 +20,16 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <PageContent />;
+  return (
+    <>
+      <RouteSchema
+        type="article"
+        path="/blog/pjazza-live-video-marketplace-malta"
+        title="PJAZZA — Malta's First Live Video Marketplace | OARC Digital"
+        description="PJAZZA is Malta's first live video marketplace. Businesses go live, customers discover and buy in real time. Launching May 2026. Powered by OARC Digital and Maltaverse."
+        datePublished="2025-12-01"
+      />
+      <PageContent />
+    </>
+  );
 }

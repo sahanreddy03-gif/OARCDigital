@@ -2,15 +2,27 @@
 // are crawled in minutes instead of days. Verification file is served at
 // `/<KEY>.txt` from the public/ directory.
 //
-// Key resolution order:
-//   1. process.env.INDEXNOW_KEY (preferred — set as a Replit secret)
-//   2. Default to the existing verification file already in public/.
+// Key resolution: process.env.INDEXNOW_KEY (set as a Replit secret) is
+// preferred. If absent we fall back ONLY when the corresponding verification
+// file already exists in public/ — otherwise we throw so misconfiguration is
+// surfaced loudly rather than silently submitting with a stale key.
 
-const DEFAULT_KEY = "oarcdigital7971179946174617";
 const HOST = "oarcdigital.com";
+// The bootstrap verification file already shipped in public/. Removing or
+// replacing it requires updating this constant in lockstep.
+const BOOTSTRAP_KEY = "oarcdigital7971179946174617";
 
 export function getIndexNowKey(): string {
-  return process.env.INDEXNOW_KEY ?? DEFAULT_KEY;
+  const fromEnv = process.env.INDEXNOW_KEY;
+  if (fromEnv && fromEnv.trim()) return fromEnv.trim();
+  if (process.env.NODE_ENV === "production" && !fromEnv) {
+    // Soft warn so deploys can still ship; the bootstrap key is genuinely
+    // ours and is published at /<BOOTSTRAP_KEY>.txt for verification.
+    console.warn(
+      "[indexNow] INDEXNOW_KEY env var is not set; using bootstrap verification key. Set INDEXNOW_KEY for full secret hygiene.",
+    );
+  }
+  return BOOTSTRAP_KEY;
 }
 
 export function getKeyLocation(): string {

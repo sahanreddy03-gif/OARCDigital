@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import PageContent from "./PageContent";
+import RouteSchema from "@/components/RouteSchema";
 
 export const metadata: Metadata = {
   title: "AI Sales Automation in Malta: How Businesses Are Replacing SDRs With AI Agents",
@@ -19,5 +20,16 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <PageContent />;
+  return (
+    <>
+      <RouteSchema
+        type="article"
+        path="/blog/ai-sales-automation-malta"
+        title="AI Sales Automation in Malta: How Businesses Are Replacing SDRs With AI Agents"
+        description="Malta businesses are deploying AI SDR agents to automate outreach, follow-ups, and lead qualification — at a fraction of the cost of a human sales rep. Here's how it works."
+        datePublished="2025-12-01"
+      />
+      <PageContent />
+    </>
+  );
 }

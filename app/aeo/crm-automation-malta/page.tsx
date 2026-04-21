@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import PageContent from "./PageContent";
+import RouteSchema from "@/components/RouteSchema";
 
 export const metadata: Metadata = {
   title: "CRM & Automation Malta | Business Systems Integration | OARC Digital",
@@ -19,5 +20,16 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <PageContent />;
+  return (
+    <>
+      <RouteSchema
+        type="article"
+        path="/aeo/crm-automation-malta"
+        title="CRM & Automation Malta | Business Systems Integration | OARC Digital"
+        description="CRM integration and business automation for Malta businesses. OARC Digital connects your tools, automates your workflows, and eliminates manual data entry."
+        datePublished="2026-01-15"
+      />
+      <PageContent />
+    </>
+  );
 }

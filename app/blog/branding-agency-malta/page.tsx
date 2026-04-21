@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import PageContent from "./PageContent";
+import RouteSchema from "@/components/RouteSchema";
 
 export const metadata: Metadata = {
   title: "What a Branding Agency in Malta Actually Does (And What to Expect)",
@@ -19,5 +20,16 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <PageContent />;
+  return (
+    <>
+      <RouteSchema
+        type="article"
+        path="/blog/branding-agency-malta"
+        title="What a Branding Agency in Malta Actually Does (And What to Expect)"
+        description="Logo vs brand. What Malta businesses get wrong about branding, what a branding agency actually delivers, what it costs, and how to know if you need one."
+        datePublished="2025-12-01"
+      />
+      <PageContent />
+    </>
+  );
 }

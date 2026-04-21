@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import PageContent from "./PageContent";
+import RouteSchema from "@/components/RouteSchema";
 
 export const metadata: Metadata = {
   title: "Hospitality Marketing Malta: Fill Your Venue Every Night | OARC Digital",
@@ -19,5 +20,16 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <PageContent />;
+  return (
+    <>
+      <RouteSchema
+        type="article"
+        path="/blog/hospitality-marketing-malta"
+        title="Hospitality Marketing Malta: Fill Your Venue Every Night | OARC Digital"
+        description="Expert hospitality marketing for Malta restaurants, hotels and bars. Social media, Google reviews, content creation and AI automation — strategies that actually fill seats."
+        datePublished="2025-12-01"
+      />
+      <PageContent />
+    </>
+  );
 }

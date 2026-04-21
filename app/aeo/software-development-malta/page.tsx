@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import PageContent from "./PageContent";
+import RouteSchema from "@/components/RouteSchema";
 
 export const metadata: Metadata = {
   title: "Software Development Malta | Custom Apps & Web | OARC Digital",
@@ -19,5 +20,16 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <PageContent />;
+  return (
+    <>
+      <RouteSchema
+        type="article"
+        path="/aeo/software-development-malta"
+        title="Software Development Malta | Custom Apps & Web | OARC Digital"
+        description="Custom software development for Malta businesses. OARC Digital builds web apps, mobile apps, APIs, CRM systems, and automation tools tailored to your business."
+        datePublished="2026-01-15"
+      />
+      <PageContent />
+    </>
+  );
 }

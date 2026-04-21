@@ -33,7 +33,33 @@ export type ResearchEntry = {
   sections: ResearchSection[];
   faqs: { question: string; answer: string }[];
   keywords: string[];
+  citations?: { label: string; href: string; description?: string }[];
+  relatedServices?: { title: string; href: string; description: string }[];
 };
+
+// Default citations + service links applied to every research report.
+const COMMON_CITATIONS = [
+  {
+    label: "National Statistics Office Malta",
+    href: "https://nso.gov.mt",
+    description: "Official Maltese economic and demographic data.",
+  },
+  {
+    label: "Malta Tourism Authority",
+    href: "https://www.mta.com.mt",
+    description: "Tourism and hospitality statistics for Malta.",
+  },
+  {
+    label: "MFSA — Malta Financial Services Authority",
+    href: "https://www.mfsa.mt",
+    description: "Regulatory and financial sector data.",
+  },
+  {
+    label: "Eurostat — Digital Economy and Society",
+    href: "https://ec.europa.eu/eurostat",
+    description: "EU-level digital readiness benchmarks.",
+  },
+];
 
 const ORANGE = "#ff914d";
 const TEAL = "#1a2e29";
