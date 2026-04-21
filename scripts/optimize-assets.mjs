@@ -16,9 +16,9 @@ import path from 'node:path';
 import sharp from 'sharp';
 
 const ROOT = path.resolve('attached_assets');
-const THRESHOLD_BYTES = (Number(process.env.THRESHOLD_KB) || 300) * 1024;
+const THRESHOLD_BYTES = (Number(process.env.THRESHOLD_KB) || 500) * 1024;
 const MAX_DIM = 2400;
-const WEBP_QUALITY = 80;
+const WEBP_QUALITY = 75;
 const AVIF_QUALITY = 60;
 const FORMATS = (process.env.FORMATS || 'webp,avif').split(',').map((s) => s.trim());
 
