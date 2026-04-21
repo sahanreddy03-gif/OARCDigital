@@ -24,6 +24,25 @@ export const maltaLocations = [
   'hamrun',
 ] as const;
 
+// Full canonical 50-locality Malta map. The Tier-1 `maltaLocations` set above
+// is what we statically render today (10 KEPT). The remaining 40 are warm-bench
+// localities with full LocationProfile entries in `lib/seo/locationData.ts`,
+// ready to promote into the Tier-1 list and `restore.json` without further
+// research. Matches `Object.keys(locationProfiles)` 1:1.
+export const maltaLocationsAll = [
+  'valletta', 'sliema', 'st-julians', 'birkirkara', 'mosta', 'qormi',
+  'zabbar', 'san-gwann', 'gzira', 'hamrun',
+  'attard', 'balzan', 'lija', 'naxxar', 'mellieha', 'rabat', 'mdina',
+  'msida', 'pieta', 'ta-xbiex', 'swieqi', 'pembroke', 'gharghur',
+  'mgarr', 'dingli', 'siggiewi', 'qrendi', 'mqabba', 'zurrieq', 'luqa',
+  'gudja', 'tarxien', 'paola', 'fgura', 'birzebbuga', 'marsaxlokk',
+  'marsaskala', 'zejtun', 'floriana', 'san-pawl-il-bahar', 'birgu',
+  'isla', 'bormla', 'kalkara', 'iklin', 'san-lawrenz', 'santa-venera',
+  'swatar', 'ghaxaq', 'xghajra',
+] as const;
+
+export type MaltaLocationAll = typeof maltaLocationsAll[number];
+
 // REDUCED for Next.js migration: 15 -> 3 (top vertical industries only).
 // ARCHIVED (12): cafe, bar, spa-wellness, gym-fitness, retail, igaming,
 // fintech, healthcare, law-firm, car-dealership, construction, ecommerce
