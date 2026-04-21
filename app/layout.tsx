@@ -2,9 +2,12 @@ import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import { Suspense } from "react";
 import { Nunito_Sans, Montserrat, Inter, Space_Grotesk, EB_Garamond, Orbitron, Anton } from "next/font/google";
+import { partytownSnippet } from "@builder.io/partytown/integration";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 import { Providers } from "./providers";
 import ScrollToTop from "@/components/ScrollToTop";
+import SpeculationRules from "@/components/SpeculationRules";
 
 const nunitoSans = Nunito_Sans({
   subsets: ["latin"],
@@ -185,6 +188,16 @@ export default function RootLayout({
         />
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        {/* Partytown — runs gtag in a Web Worker, off the main thread.
+            App Router pattern: inline init snippet, no React component. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `partytown = { forward: ["gtag", "dataLayer.push"] };`,
+          }}
+        />
+        <script
+          dangerouslySetInnerHTML={{ __html: partytownSnippet() }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(ORGANIZATION_JSONLD) }}
@@ -194,21 +207,29 @@ export default function RootLayout({
         <Suspense fallback={null}>
           <ScrollToTop />
         </Suspense>
+        <SpeculationRules />
         <Providers>{children}</Providers>
 
-        {/* Google Ads Conversion Tracking (gtag.js) */}
-        <Script
+        {/* Google Ads gtag.js — runs in a Web Worker via Partytown.
+            We use the canonical Partytown attributes (`type="text/partytown"`)
+            instead of next/script `strategy="worker"`, which is unstable in
+            Next 14 App Router. Partytown's snippet (in <head>) rewrites these
+            tags to load inside its worker. */}
+        <script
+          type="text/partytown"
           src="https://www.googletagmanager.com/gtag/js?id=AW-17812517147"
-          strategy="afterInteractive"
         />
-        <Script id="gtag-init" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'AW-17812517147');
-          `}
-        </Script>
+        <script
+          type="text/partytown"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'AW-17812517147');
+            `,
+          }}
+        />
         <Script id="gtag-conversion-tracking" strategy="afterInteractive">
           {`
             document.addEventListener('click', function(e) {
@@ -230,6 +251,7 @@ export default function RootLayout({
             });
           `}
         </Script>
+        <SpeedInsights />
       </body>
     </html>
   );

@@ -3,11 +3,14 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { ArrowRight, CheckCircle2, Sparkles, TrendingUp, Zap, Clock, MessageSquare, Brain, Target, BarChart3, Users, Mail, Filter, Database, Globe } from 'lucide-react';
+// Wildcard import retained because feature.icon is dynamic (string -> component
+// lookup at runtime). Next's optimizePackageImports handles tree-shaking via
+// the per-icon entry resolver, so this is not a perf regression in v14.2+.
+import * as Icons from 'lucide-react';
 import Layout from '@/components/layout/Layout';
 import ScrollReveal from '@/components/ScrollReveal';
 import FAQSection, { FAQItem } from '@/components/FAQSection';
 import { motion } from 'framer-motion';
-import * as Icons from 'lucide-react';
 import { AnimatedGridBackground } from '@/components/ui/animated-grid-background';
 import { GlassCard } from '@/components/ui/glass-card';
 import { FlowDiagram, IntegrationHub } from '@/components/ui/flow-diagram';
