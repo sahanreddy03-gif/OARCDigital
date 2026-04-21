@@ -26,6 +26,9 @@ export const SERVICE_ALIASES: Record<string, string> = {
   "/services/mobile-applications-development": "/services/mobile-apps-development",
   "/services/web-application-development": "/services/web-apps-development",
   "/services/mvp-development/software": "/services/custom-software-development",
+  // Archived service: directory does not exist. Redirects to its canonical
+  // counterpart so SEO equity consolidates instead of returning 404.
+  "/services/branding-services": "/services/branding",
 };
 
 // Slugs we should not advertise in the sitemap because they redirect away.

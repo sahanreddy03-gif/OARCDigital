@@ -45,6 +45,13 @@ The platform utilizes a modern web stack with a React frontend and an Express.js
     - **Branding:** Brand lab approach with color palette/typography preview hero, storytelling portfolio format, brand pillars section, touchpoint rollout display, and interactive typography exploration.
     - **Mobile Apps:** Product lifecycle approach with App Store-style hero card, product roadmap phases (MVP → v1.0 → Growth), real case studies with metrics, and native vs cross-platform tech comparison.
 -   **Advanced SEO Infrastructure:** Centralized SEO configuration, programmatic location pages (80+), auto-generated dynamic sitemap.xml, optimized robots.txt, advanced schema markup (FAQ, Review, BreadcrumbList, HowTo, VideoObject, Article, Product, Service, Event, Organization, LocalBusiness, AggregateRating), voice search optimization, intelligent internal linking, and an SEO-optimized blog system.
+-   **Archived URL 308 Redirects (Apr 2026):** All Vite-era URLs that no longer exist as canonical Next.js pages now 308-redirect to their nearest live equivalent instead of returning 410/404, preserving inbound SEO link equity:
+    - **Archived localities** (40 of 50 Malta towns) redirect by haversine geo-distance to the nearest of the 10 KEPT localities. Sub-paths are preserved, e.g. `/malta/naxxar/web-design` → `/malta/mosta/web-design`. Map is auto-generated in `lib/seo/redirectMap.ts` from `locationProfiles[*].geo`.
+    - **Archived industries** (cafes, bars, igaming, fintech, retail, fitness, wellness, events, plus singular Vite variants) hand-curated to nearest KEPT industry (restaurant / hotel / real-estate). Plural slugs are also canonicalized to singular.
+    - **Archived services** with no surviving directory (`branding-services`) redirect via `SERVICE_ALIASES`.
+    - All redirect logic lives in `middleware.ts` alongside the existing 410 layer; targets are validated at module load (throws in production if any target is missing).
+    - Smoke-test script `scripts/verify-redirects.ts` curls every archived URL and asserts 308 + correct `Location` header.
+    - Surgical refinement based on Google Search Console impression data is tracked as a follow-up.
 -   **FAQ Sections on All Service Pages (Dec 2025):** Comprehensive FAQ implementation across 43 service pages featuring:
     - Reusable FAQSection component (`client/src/components/FAQSection.tsx`) with accordion UI
     - 8 voice-search optimized questions per service page
