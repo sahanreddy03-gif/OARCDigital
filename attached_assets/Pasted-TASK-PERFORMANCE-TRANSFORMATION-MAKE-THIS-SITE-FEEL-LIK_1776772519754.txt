@@ -1,0 +1,512 @@
+TASK: PERFORMANCE TRANSFORMATION — MAKE THIS SITE FEEL LIKE GOOGLE
+CONTEXT
+The Next.js migration is complete. Build succeeded with 511 static pages. Now the site must become extremely fast — instant page loads, zero perceived lag, smooth animations, handles aggressive user behavior (rapid clicks, fast scrolling, multiple tabs) without breaking.
+Non-negotiable: The homepage's existing animations and visual quality stay exactly as they are. We're making it faster without touching the design.
+
+THE STANDARD
+When a user clicks any link, the next page must appear in under 100ms (feel instant).
+When scrolling, frame rate must stay at 60fps minimum.
+When hovering nav links, next page must prefetch silently.
+When opening 10 tabs rapidly, each loads without blocking.
+When tested on a 3G mobile connection (Malta realistic speed), core content visible in under 1.5 seconds.
+Benchmark target:
+
+Lighthouse Performance: 95+
+LCP (Largest Contentful Paint): under 1.2s
+FID (First Input Delay): under 50ms
+CLS (Cumulative Layout Shift): under 0.05
+INP (Interaction to Next Paint): under 100ms
+
+
+PART 1: CORE PERFORMANCE STACK
+1.1 Enable Next.js 14 Performance Features
+In next.config.js:
+js/** @type {import('next').NextConfig} */
+module.exports = {
+  reactStrictMode: true,
+  
+  experimental: {
+    // Enable Partial Prerendering — static shell + dynamic holes
+    ppr: 'incremental',
+    
+    // Optimize package imports (tree-shake lucide-react, framer-motion)
+    optimizePackageImports: [
+      'lucide-react',
+      'framer-motion',
+      '@radix-ui/react-icons',
+      'recharts'
+    ],
+    
+    // Server Actions cache
+    serverActions: {
+      bodySizeLimit: '2mb'
+    }
+  },
+  
+  // Image optimization
+  images: {
+    formats: ['image/avif', 'image/webp'],
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    minimumCacheTTL: 31536000, // 1 year
+  },
+  
+  // Compression
+  compress: true,
+  
+  // Strict production output
+  output: 'standalone',
+  
+  // Aggressive caching headers
+  async headers() {
+    return [
+      {
+        source: '/:path*',
+        headers: [
+          { key: 'X-DNS-Prefetch-Control', value: 'on' },
+          { key: 'X-Frame-Options', value: 'SAMEORIGIN' },
+          { key: 'X-Content-Type-Options', value: 'nosniff' },
+        ],
+      },
+      {
+        source: '/_next/static/:path*',
+        headers: [
+          { key: 'Cache-Control', value: 'public, max-age=31536000, immutable' }
+        ],
+      },
+      {
+        source: '/fonts/:path*',
+        headers: [
+          { key: 'Cache-Control', value: 'public, max-age=31536000, immutable' }
+        ],
+      }
+    ]
+  }
+}
+1.2 Install Million.js (React 70% Faster)
+bashnpm install million
+In next.config.js:
+jsconst million = require('million/compiler')
+
+const nextConfig = { /* config above */ }
+
+module.exports = million.next(nextConfig, { auto: true })
+Million makes every React component 70% faster with zero code changes.
+1.3 Install Partytown (Third-Party Scripts to Web Worker)
+bashnpm install @builder.io/partytown
+Move Google Ads tag, analytics to web worker so main thread stays free.
+In app/layout.tsx:
+tsximport { Partytown } from '@builder.io/partytown/react'
+
+export default function RootLayout({ children }) {
+  return (
+    <html lang="en">
+      <head>
+        <Partytown debug={false} forward={['gtag', 'dataLayer.push']} />
+        <script 
+          type="text/partytown"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'AW-17812517147');
+            `
+          }}
+        />
+        <script type="text/partytown" src="https://www.googletagmanager.com/gtag/js?id=AW-17812517147" />
+      </head>
+      <body>{children}</body>
+    </html>
+  )
+}
+This moves ~200kb of Google Ads code off the main thread. Massive speed win.
+
+PART 2: NAVIGATION + PREFETCHING
+2.1 Aggressive Link Prefetching
+Replace all <Link> usage to prefetch aggressively:
+tsximport Link from 'next/link'
+
+<Link href="/services/creative" prefetch={true}>
+  Creative Services
+</Link>
+Next.js already prefetches on viewport — good. Keep default.
+2.2 Speculation Rules API (Next-Level)
+Create app/speculation-rules.tsx:
+tsx'use client'
+import { useEffect } from 'react'
+
+export function SpeculationRules() {
+  useEffect(() => {
+    const script = document.createElement('script')
+    script.type = 'speculationrules'
+    script.textContent = JSON.stringify({
+      prerender: [
+        {
+          source: 'list',
+          urls: [
+            '/services',
+            '/case-studies',
+            '/contact',
+            '/pricing',
+            '/about'
+          ]
+        }
+      ],
+      prefetch: [
+        {
+          source: 'document',
+          where: {
+            and: [
+              { href_matches: '/*' },
+              { not: { href_matches: '/api/*' } }
+            ]
+          },
+          eagerness: 'moderate'
+        }
+      ]
+    })
+    document.head.appendChild(script)
+  }, [])
+  
+  return null
+}
+Include in app/layout.tsx. Chrome browsers will pre-render pages user is likely to click.
+2.3 View Transitions API (Instant Page Feel)
+In app/globals.css:
+css@view-transition {
+  navigation: auto;
+}
+
+::view-transition-old(root) {
+  animation: fade-out 200ms ease-out;
+}
+
+::view-transition-new(root) {
+  animation: fade-in 200ms ease-out;
+}
+
+@keyframes fade-out {
+  to { opacity: 0; }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+}
+Page transitions feel native. No jarring load.
+
+PART 3: IMAGE OPTIMIZATION (Your Biggest Win)
+3.1 Convert Every Image to Next.js Image Component
+Find every <img> in the codebase. Replace with:
+tsximport Image from 'next/image'
+
+<Image 
+  src="/images/valletta-restaurant.jpg"
+  alt="Valletta restaurant marketing agency OARC Digital"
+  width={1200}
+  height={800}
+  priority={true}  // above-fold
+  loading="eager"  // above-fold
+  placeholder="blur"
+  blurDataURL="data:image/jpeg;base64,..."
+/>
+For below-fold images:
+tsx<Image 
+  src="..."
+  alt="..."
+  width={1200}
+  height={800}
+  loading="lazy"
+  placeholder="blur"
+/>
+3.2 Generate Blur Placeholders Automatically
+Create script scripts/generate-blur.ts:
+tsimport sharp from 'sharp'
+import fs from 'fs'
+import path from 'path'
+
+async function generateBlur(imagePath: string) {
+  const buffer = await sharp(imagePath)
+    .resize(10, 10, { fit: 'inside' })
+    .toBuffer()
+  return `data:image/jpeg;base64,${buffer.toString('base64')}`
+}
+
+// Run on all /public/images/ at build time
+3.3 Image SEO Leverage (Critical)
+For every image on every page, ensure:
+
+Descriptive filename: marketing-agency-malta.webp NOT IMG_1234.jpg
+Keyword-rich alt text: "OARC Digital marketing agency office in Valletta Malta"
+Title attribute (optional): for hover context
+Proper dimensions: never just width={500} — set both width and height
+Schema markup: ImageObject schema for hero images
+
+Create components/SEOImage.tsx:
+tsxinterface SEOImageProps {
+  src: string
+  alt: string
+  title?: string
+  width: number
+  height: number
+  priority?: boolean
+}
+
+export function SEOImage({ src, alt, title, width, height, priority }: SEOImageProps) {
+  return (
+    <>
+      <Image 
+        src={src}
+        alt={alt}
+        title={title}
+        width={width}
+        height={height}
+        priority={priority}
+        loading={priority ? 'eager' : 'lazy'}
+        placeholder="blur"
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'ImageObject',
+            url: `https://oarcdigital.com${src}`,
+            name: alt,
+            description: alt
+          })
+        }}
+      />
+    </>
+  )
+}
+3.4 Image Sitemap
+Create app/image-sitemap.xml/route.ts:
+tsximport { NextResponse } from 'next/server'
+import { readdirSync } from 'fs'
+import path from 'path'
+
+export async function GET() {
+  const imagesDir = path.join(process.cwd(), 'public/images')
+  const files = readdirSync(imagesDir)
+  
+  const xml = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://oarcdigital.com/</loc>
+    ${files.map(file => `
+    <image:image>
+      <image:loc>https://oarcdigital.com/images/${file}</image:loc>
+      <image:title>${file.replace(/\.[^/.]+$/, '').replace(/-/g, ' ')}</image:title>
+    </image:image>`).join('')}
+  </url>
+</urlset>`
+  
+  return new NextResponse(xml, {
+    headers: { 'Content-Type': 'application/xml' }
+  })
+}
+Submit to Google Search Console. This makes your images findable on Google Image Search = extra traffic.
+
+PART 4: ANIMATION OPTIMIZATION (Keep Quality, Gain Speed)
+4.1 Switch Framer Motion to LazyMotion
+Find every file importing motion from framer-motion:
+tsx// OLD (ships 60kb)
+import { motion } from 'framer-motion'
+
+// NEW (ships 10kb)
+import { LazyMotion, domAnimation, m } from 'framer-motion'
+
+<LazyMotion features={domAnimation}>
+  <m.div animate={{ opacity: 1 }} />
+</LazyMotion>
+Wrap root layout with <LazyMotion>.
+4.2 Content Visibility for Long Pages
+Add to global CSS:
+css.defer-paint {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 500px;
+}
+Apply to sections below fold:
+tsx<section className="defer-paint">
+  {/* Content only renders when near viewport */}
+</section>
+Browser skips rendering offscreen content. Massive FPS gain on long pages.
+4.3 GPU Animations Only
+Audit all CSS animations. Allow only:
+
+transform (translate, scale, rotate)
+opacity
+filter
+
+Ban these (cause layout thrashing):
+
+width, height animations
+top, left, right, bottom
+margin, padding
+box-shadow (animate via opacity of pseudo-element instead)
+
+
+PART 5: FONT OPTIMIZATION
+5.1 Next.js Font Optimization
+tsx// app/layout.tsx
+import { Inter, Playfair_Display } from 'next/font/google'
+
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-inter',
+  preload: true
+})
+
+const playfair = Playfair_Display({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-playfair',
+  preload: true
+})
+
+export default function RootLayout({ children }) {
+  return (
+    <html className={`${inter.variable} ${playfair.variable}`}>
+      <body>{children}</body>
+    </html>
+  )
+}
+Fonts self-host from Google, subset automatically, zero layout shift.
+
+PART 6: BUNDLE OPTIMIZATION
+6.1 Dynamic Imports for Heavy Components
+Any component over 30kb — make it dynamic:
+tsximport dynamic from 'next/dynamic'
+
+const ARCChat = dynamic(() => import('@/components/ARCChat'), {
+  ssr: false,
+  loading: () => null
+})
+
+const ParticleField = dynamic(() => import('@/components/ParticleField'), {
+  ssr: false,
+  loading: () => null
+})
+
+const ScrollReveal = dynamic(() => import('@/components/ScrollReveal'))
+6.2 Remove Unused Code
+Run bundle analyzer:
+bashnpm install @next/bundle-analyzer
+js// next.config.js
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true'
+})
+
+module.exports = withBundleAnalyzer(nextConfig)
+Run: ANALYZE=true npm run build
+Any package over 50kb — justify or remove.
+
+PART 7: CACHING STRATEGY
+7.1 Static Generation (Already Done)
+511 pages pre-rendered = served as static HTML from CDN edge. This is already gold-standard.
+7.2 ISR (Incremental Static Regeneration) for Content That Changes
+For blog posts (rare updates):
+tsxexport const revalidate = 86400 // 24 hours
+For pages with dynamic data:
+tsxexport const revalidate = 60 // 1 minute
+7.3 Aggressive CDN Caching via Vercel
+Vercel automatically caches static pages at 100+ edge locations worldwide including EU (Malta gets Milan/Frankfurt edge).
+
+PART 8: MONITORING + TESTING
+8.1 Install Real User Monitoring
+bashnpm install @vercel/speed-insights
+In app/layout.tsx:
+tsximport { SpeedInsights } from '@vercel/speed-insights/next'
+
+export default function RootLayout({ children }) {
+  return (
+    <html>
+      <body>
+        {children}
+        <SpeedInsights />
+      </body>
+    </html>
+  )
+}
+Vercel dashboard will show actual user performance from Malta.
+8.2 Stress Test Before Deploy
+Install k6 for load testing:
+bashbrew install k6
+Create stress-test.js:
+jsimport http from 'k6/http'
+import { check } from 'k6'
+
+export const options = {
+  stages: [
+    { duration: '30s', target: 50 },  // 50 users in 30s
+    { duration: '1m', target: 100 },  // ramp to 100
+    { duration: '30s', target: 0 }
+  ]
+}
+
+export default function() {
+  const urls = [
+    'https://oarcdigital.com/',
+    'https://oarcdigital.com/services/creative',
+    'https://oarcdigital.com/malta/valletta/social-media',
+    // ... 30 URLs
+  ]
+  
+  const randomUrl = urls[Math.floor(Math.random() * urls.length)]
+  const res = http.get(randomUrl)
+  
+  check(res, {
+    'status is 200': (r) => r.status === 200,
+    'response under 500ms': (r) => r.timings.duration < 500
+  })
+}
+Run: k6 run stress-test.js
+Pass criteria: 100% requests under 500ms during 100 concurrent users.
+
+PART 9: FUTURE-PROOFING (20 YEARS AHEAD)
+9.1 Web Standards, Not Frameworks
+Every technique above uses web platform APIs (View Transitions, Speculation Rules, Content Visibility) that will outlive Next.js.
+9.2 Progressive Enhancement
+Site must work without JavaScript:
+
+All page content in HTML (Next.js SSG handles this)
+Forms work with plain HTML <form> actions
+Nav is real <a> tags
+Images load without JS
+
+Test: Disable JavaScript in browser. Site must still be usable.
+9.3 Accessibility = Performance
+
+aria-labels on all interactive elements
+Skip-to-content link
+Keyboard navigation works
+Color contrast AAA standard
+
+Accessible sites are faster (screen readers demand efficient DOM).
+
+PART 10: IMAGE SEO — USE EVERY IMAGE AS AN SEO WEAPON
+10.1 Audit All Images
+Create a script that:
+
+Lists every image in /public/
+Checks each for: filename, alt text in code, size, format
+Outputs report: which images need renaming, which need better alt text, which need conversion to WebP/AVIF
+
+10.2 Rename All Images SEO-Friendly
+Pattern: {keyword}-{location}-{context}.webp
+Examples:
+
+IMG_3421.jpg → social-media-agency-malta-valletta.webp
+hero.jpg → ai-marketing-agency-malta-hero.webp
+team.jpg → oarc-digital-team-marketing-malta.webp
+
+10.3 Alt Text Formula
+[What it shows] + [Brand/keyword] + [Location if relevant]
+Examples:
+
+"Marketing campaign dashboard OARC Digital Malta"
+"Restaurant social media strategy by OARC Digital in Sliema"
+"AI automation for hospitality OARC Digital Valletta"
