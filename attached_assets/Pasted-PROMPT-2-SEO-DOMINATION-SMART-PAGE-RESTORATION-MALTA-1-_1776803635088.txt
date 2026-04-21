@@ -1,0 +1,682 @@
+PROMPT 2: SEO DOMINATION — SMART PAGE RESTORATION + MALTA #1 RANKING
+Paste this AFTER Prompt 1 (Performance) is complete and verified.
+
+TASK: SEO DOMINATION FOR MALTA MARKET
+CONTEXT
+Current state:
+
+571 Next.js pages built, ~561 indexed by Google
+5,210 old Vite pages Google previously indexed are being lost (deleted during migration)
+2,610 "crawled, not indexed" — these were flagged as thin/duplicate and should stay deleted
+Target: Rank #1 for "best [service] Malta" queries across 27 services
+Secondary: Dominate AI search (ChatGPT, Claude, Perplexity, Gemini)
+
+Goal: Be #1 for every high-intent Malta agency query within 6 months. Not by adding more pages, but by making existing pages genuinely authoritative and restoring only the valuable programmatic pages with real unique content.
+
+PART 1: EXPORT GROUND TRUTH FROM GOOGLE SEARCH CONSOLE
+FIRST ACTION — I (user) will do this manually:
+
+Open Google Search Console
+Go to Indexing → Pages → Indexed (5.21K)
+Click Export → CSV
+Drop file in /attached_assets/gsc-indexed-pages.csv
+Also export: Not Indexed → "Crawled, not indexed" → CSV → /attached_assets/gsc-not-indexed.csv
+
+Replit: Do not proceed with Part 2 until both files exist.
+
+PART 2: ANALYZE THE 5,210 INDEXED PAGES
+Write a script scripts/analyze-gsc-export.ts:
+typescript// For each URL in the indexed CSV:
+// 1. Does it exist in current Next.js routes?
+// 2. If not, what's the closest match?
+// 3. Is the content template-swap or genuinely unique?
+// 4. Does it get impressions/clicks? (from GSC Performance export)
+
+// Output report:
+// - URLs to restore with content uplift: [list]
+// - URLs to 301 redirect to closest match: [list]
+// - URLs to 410 Gone (junk): [list]
+Pass criteria: Report identifies exactly which URLs to restore, redirect, or kill.
+
+PART 3: SMART PAGE RESTORATION (Not Blind Restoration)
+The Rule
+Only restore a programmatic URL if ONE of these is true:
+
+It gets organic clicks/impressions in GSC (proven demand)
+It matches a high-volume Malta keyword we can rank for
+It corresponds to a real service we offer in that location
+
+Default: Do not restore. 301 redirect to closest live match.
+Restoration Tiers
+Tier 1 — Definitely Restore (estimated 200-400 URLs):
+
+Top 10 Malta locations × top 7 services × top 3 industries = 210 max
+Criteria: Population > 10,000 OR tourist hub (Valletta, Sliema, St Julian's)
+Industries: restaurant, hotel, real-estate (proven revenue)
+
+Tier 2 — Restore with Smart Content (estimated 100-200 URLs):
+
+Location hubs: 10 × /malta/[location] pages
+Industry hubs: 3 × /industries/[industry] pages
+Service × industry combos with high search volume
+
+Tier 3 — 301 Redirect (estimated 2,000-4,000 URLs):
+
+Everything else
+Map each archived location to nearest live location
+Map each archived industry to closest category
+Map each archived service to canonical service
+
+Tier 4 — 410 Gone (junk URLs):
+
+Pages with zero impressions in 12 months
+Tells Google to drop immediately
+
+Implementation
+Update shared/seoConfig.ts:
+typescript// TIER 1 — Fully generated
+export const maltaLocations = [
+  { slug: 'valletta', name: 'Valletta', population: 5900, type: 'capital' },
+  { slug: 'sliema', name: 'Sliema', population: 22000, type: 'commercial' },
+  { slug: 'st-julians', name: "St Julian's", population: 14000, type: 'tourist' },
+  { slug: 'birkirkara', name: 'Birkirkara', population: 25000, type: 'residential' },
+  { slug: 'mosta', name: 'Mosta', population: 20000, type: 'residential' },
+  { slug: 'qormi', name: 'Qormi', population: 16000, type: 'residential' },
+  { slug: 'zabbar', name: 'Zabbar', population: 15000, type: 'residential' },
+  { slug: 'san-gwann', name: 'San Gwann', population: 13000, type: 'residential' },
+  { slug: 'gzira', name: 'Gzira', population: 8000, type: 'waterfront' },
+  { slug: 'hamrun', name: 'Hamrun', population: 11000, type: 'commercial' },
+  // ALL 50 as { slug, name, population, type, uniqueIntro, localData }
+  // Not just slug strings
+]
+
+// Add rich data per location
+export const locationData: Record<string, LocationProfile> = {
+  'valletta': {
+    intro: 'As Malta\'s UNESCO World Heritage capital, Valletta houses 1,200+ businesses and attracts 1.8M annual tourists...',
+    businessDensity: 'high',
+    primaryIndustries: ['government', 'tourism', 'finance'],
+    populationDensity: 7000,
+    nearestLocations: ['floriana', 'msida', 'pieta'],
+    landmarks: ['Grandmaster\'s Palace', 'St John\'s Co-Cathedral'],
+    businessChallenges: 'Limited parking, high foot traffic, heritage regulations',
+    marketingOpportunities: 'Tourist-focused campaigns, cultural partnerships, cruise ship visibility'
+  },
+  // ... every location gets real data
+}
+Unique Content Generator
+Create lib/generateUniquePageContent.ts:
+typescriptexport function generateLocationServiceContent(
+  location: LocationProfile,
+  service: ServiceProfile,
+  industry?: IndustryProfile
+) {
+  return {
+    hero: {
+      headline: `${service.name} for ${location.name} Businesses`,
+      subheadline: `${location.intro.substring(0, 120)}... Here's how we help.`
+    },
+    
+    locationContext: `${location.name} has ${location.businessCount || 'over 100'} active businesses in our target industries. The ${location.type} character means ${getLocationInsight(location)}. For ${service.name}, this creates specific opportunities: ${getServiceInsight(location, service)}.`,
+    
+    caseStudyHook: getRelevantCaseStudy(location, service, industry),
+    
+    faq: generateLocationServiceFAQ(location, service),
+    
+    testimonial: getTestimonialFor(location, industry),
+    
+    localSchema: generateLocalBusinessSchema(location),
+    
+    pricing: getPricingFor(service, location), // Slight variation based on location
+  }
+}
+This makes every page genuinely different. Not template-swap.
+
+PART 4: SITEMAP ARCHITECTURE (PROFESSIONAL-GRADE)
+Problem with Current Sitemap
+
+Hardcoded lists missing 70% of pages
+lastModified: new Date() on every request (Google loses trust)
+No image sitemap
+No video sitemap
+No sub-sitemaps
+
+Solution: Filesystem-Driven Sitemap Index
+Delete app/sitemap.ts. Replace with:
+app/sitemap.xml/route.ts (Sitemap Index):
+typescriptimport { NextResponse } from 'next/server'
+
+export async function GET() {
+  const sitemaps = [
+    'sitemap-pages.xml',
+    'sitemap-services.xml',
+    'sitemap-locations.xml',
+    'sitemap-industries.xml',
+    'sitemap-blog.xml',
+    'sitemap-aeo.xml',
+    'sitemap-case-studies.xml',
+    'sitemap-ai-agents.xml',
+    'sitemap-images.xml',
+    'sitemap-videos.xml'
+  ]
+  
+  const xml = `<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${sitemaps.map(s => `  <sitemap>
+    <loc>https://oarcdigital.com/${s}</loc>
+    <lastmod>${new Date().toISOString()}</lastmod>
+  </sitemap>`).join('\n')}
+</sitemapindex>`
+  
+  return new NextResponse(xml, { headers: { 'Content-Type': 'application/xml' } })
+}
+For each sub-sitemap (example for services):
+app/sitemap-services.xml/route.ts:
+typescriptimport { readdirSync, statSync } from 'fs'
+import path from 'path'
+import { NextResponse } from 'next/server'
+
+export async function GET() {
+  const servicesDir = path.join(process.cwd(), 'app/services')
+  const slugs = readdirSync(servicesDir, { withFileTypes: true })
+    .filter(d => d.isDirectory())
+    .map(d => d.name)
+  
+  const urls = slugs.map(slug => {
+    const filePath = path.join(servicesDir, slug, 'page.tsx')
+    const mtime = statSync(filePath).mtime.toISOString()
+    return `
+  <url>
+    <loc>https://oarcdigital.com/services/${slug}</loc>
+    <lastmod>${mtime}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>`
+  }).join('')
+  
+  return new NextResponse(
+    `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${urls}
+</urlset>`,
+    { headers: { 'Content-Type': 'application/xml' } }
+  )
+}
+Do this pattern for all 10 sub-sitemaps.
+Real file mtimes = Google trusts the lastmod signal.
+
+PART 5: REDIRECTS + 410 GONE (CRITICAL)
+Create next.config.mjs redirects section:
+javascriptasync redirects() {
+  // Map every archived location to nearest live one
+  const locationRedirects = [
+    { from: 'naxxar', to: 'mosta' },      // geographic neighbor
+    { from: 'attard', to: 'mosta' },
+    { from: 'mdina', to: 'mosta' },
+    { from: 'rabat', to: 'mosta' },
+    { from: 'mellieha', to: 'mosta' },
+    { from: 'bugibba', to: 'mosta' },
+    { from: 'san-pawl-il-bahar', to: 'mosta' },
+    { from: 'swieqi', to: 'st-julians' },
+    { from: 'pembroke', to: 'st-julians' },
+    { from: 'msida', to: 'sliema' },
+    { from: 'pieta', to: 'sliema' },
+    { from: 'gzira', to: 'sliema' },       // waterfront
+    { from: 'floriana', to: 'valletta' },
+    { from: 'marsa', to: 'valletta' },
+    { from: 'isla', to: 'valletta' },
+    { from: 'bormla', to: 'valletta' },
+    { from: 'cospicua', to: 'valletta' },
+    { from: 'birgu', to: 'valletta' },
+    { from: 'kalkara', to: 'valletta' },
+    { from: 'marsaskala', to: 'zabbar' },
+    { from: 'marsaxlokk', to: 'zabbar' },
+    { from: 'zejtun', to: 'zabbar' },
+    { from: 'xghajra', to: 'zabbar' },
+    { from: 'zurrieq', to: 'qormi' },
+    { from: 'paola', to: 'qormi' },
+    { from: 'tarxien', to: 'qormi' },
+    { from: 'fgura', to: 'qormi' },
+    { from: 'luqa', to: 'qormi' },
+    { from: 'gudja', to: 'qormi' },
+    { from: 'balzan', to: 'birkirkara' },
+    { from: 'lija', to: 'birkirkara' },
+    { from: 'iklin', to: 'birkirkara' },
+    { from: 'santa-venera', to: 'birkirkara' },
+    { from: 'swatar', to: 'birkirkara' },
+    { from: 'birzebbuga', to: 'hamrun' },
+    { from: 'kirkop', to: 'hamrun' },
+    { from: 'siggiewi', to: 'hamrun' },
+    { from: 'mqabba', to: 'hamrun' },
+    { from: 'ghaxaq', to: 'hamrun' },
+    { from: 'san-lawrenz', to: 'mosta' },
+  ]
+  
+  const industryRedirects = [
+    { from: 'cafe', to: 'restaurant' },
+    { from: 'bar', to: 'restaurant' },
+    { from: 'spa-wellness', to: 'hotel' },
+    { from: 'gym-fitness', to: 'hotel' },
+    { from: 'retail', to: 'real-estate' },
+    { from: 'igaming', to: 'real-estate' },
+    { from: 'fintech', to: 'real-estate' },
+    { from: 'healthcare', to: 'real-estate' },
+    { from: 'law-firm', to: 'real-estate' },
+    { from: 'car-dealership', to: 'real-estate' },
+    { from: 'construction', to: 'real-estate' },
+    { from: 'ecommerce', to: 'restaurant' },
+  ]
+  
+  const serviceRedirects = [
+    { from: 'branding-services', to: 'branding' },
+    { from: 'video-production', to: 'creative' },
+    { from: 'ai-copywriting', to: 'ai-content-strategist' },
+    { from: 'hire-ai-employees', to: 'ai-virtual-talent-hub' },
+    { from: 'revenue-automation', to: 'ai-revenue-engine' },
+  ]
+  
+  const redirects = []
+  
+  // Location redirects
+  for (const r of locationRedirects) {
+    redirects.push({
+      source: `/malta/${r.from}`,
+      destination: `/malta/${r.to}`,
+      permanent: true
+    })
+    redirects.push({
+      source: `/malta/${r.from}/:path*`,
+      destination: `/malta/${r.to}/:path*`,
+      permanent: true
+    })
+  }
+  
+  // Industry redirects
+  for (const r of industryRedirects) {
+    redirects.push({
+      source: `/industries/${r.from}`,
+      destination: `/industries/${r.to}`,
+      permanent: true
+    })
+  }
+  
+  // Service redirects
+  for (const r of serviceRedirects) {
+    redirects.push({
+      source: `/services/${r.from}`,
+      destination: `/services/${r.to}`,
+      permanent: true
+    })
+  }
+  
+  return redirects
+}
+Every archived URL now 301s to closest live page. Zero link equity lost.
+
+PART 6: 410 GONE FOR TRUE JUNK
+Create app/[...junk]/page.tsx middleware:
+typescript// Use middleware to return 410 for known junk URL patterns
+// This tells Google "these are permanently gone, remove immediately"
+// vs 404 which says "might come back later"
+Better: Use middleware.ts:
+typescriptimport { NextResponse } from 'next/server'
+
+const junkPatterns = [
+  /\/old-blog\//,
+  /\/legacy\//,
+  // patterns from GSC that have zero traffic
+]
+
+export function middleware(request) {
+  const { pathname } = request.nextUrl
+  
+  if (junkPatterns.some(p => p.test(pathname))) {
+    return new NextResponse(null, { status: 410 })
+  }
+  
+  return NextResponse.next()
+}
+
+PART 7: ROBOTS.TXT — EXPLICIT FOR EVERY CRAWLER
+Update app/robots.ts:
+typescriptimport { MetadataRoute } from 'next'
+
+export default function robots(): MetadataRoute.Robots {
+  return {
+    rules: [
+      // Default
+      { userAgent: '*', allow: '/', disallow: ['/api/', '/pdf/', '/_next/', '/admin/'] },
+      
+      // Major search engines
+      { userAgent: 'Googlebot', allow: '/', disallow: ['/api/', '/_next/'] },
+      { userAgent: 'Googlebot-Image', allow: '/', disallow: ['/api/'] },
+      { userAgent: 'Googlebot-Video', allow: '/' },
+      { userAgent: 'Bingbot', allow: '/', disallow: ['/api/', '/_next/'] },
+      { userAgent: 'Applebot', allow: '/' },           // Safari + Siri + Spotlight
+      { userAgent: 'DuckDuckBot', allow: '/' },
+      { userAgent: 'YandexBot', allow: '/' },
+      { userAgent: 'Baiduspider', allow: '/' },
+      
+      // AI crawlers (critical for 2026)
+      { userAgent: 'GPTBot', allow: '/' },
+      { userAgent: 'ChatGPT-User', allow: '/' },
+      { userAgent: 'OAI-SearchBot', allow: '/' },
+      { userAgent: 'Claude-Web', allow: '/' },
+      { userAgent: 'ClaudeBot', allow: '/' },
+      { userAgent: 'anthropic-ai', allow: '/' },
+      { userAgent: 'PerplexityBot', allow: '/' },
+      { userAgent: 'Google-Extended', allow: '/' },    // Gemini training
+      { userAgent: 'Cohere-AI', allow: '/' },
+      { userAgent: 'Amazonbot', allow: '/' },
+      { userAgent: 'Meta-ExternalAgent', allow: '/' },
+      { userAgent: 'Bytespider', allow: '/' },         // TikTok search
+      { userAgent: 'Diffbot', allow: '/' },
+      { userAgent: 'FacebookBot', allow: '/' },
+    ],
+    sitemap: 'https://oarcdigital.com/sitemap.xml'
+  }
+}
+
+PART 8: LLMS.TXT — AI CRAWLER MANIFEST
+Create public/llms.txt:
+# OARC Digital
+
+OARC Digital is Malta's first Creative + AI Systems Agency. We combine brand-building, AI automation, and software development for businesses in hospitality, real estate, fintech, and iGaming.
+
+## Who we are
+- Founded in Malta
+- Specialize in Malta market with offices in India and Dubai
+- 27 services across Creative, AI Agents, Automation, and Consulting
+- Featured on Clutch, GoodFirms, The Manifest
+
+## Most important pages (read these first)
+- https://oarcdigital.com/ — homepage
+- https://oarcdigital.com/creative — creative services landing
+- https://oarcdigital.com/ai-agents — AI employees landing
+- https://oarcdigital.com/automation — automation landing
+- https://oarcdigital.com/our-work — case studies
+- https://oarcdigital.com/pricing — pricing
+- https://oarcdigital.com/contact — contact
+
+## Services we offer
+[auto-generate list from seoConfig]
+
+## Locations we serve
+Malta (all localities), India, UAE
+
+## Industries
+Restaurant, Hotel, Real Estate, iGaming, Fintech, Hospitality, Retail
+
+## Contact
+Website: https://oarcdigital.com
+Email: hello@oarcdigital.com
+Location: Malta
+This is the emerging standard for AI crawlers. ChatGPT, Perplexity, Claude use this.
+
+PART 9: SCHEMA MARKUP — EVERY PAGE, EVERY TYPE
+On Homepage (app/page.tsx):
+tsxconst homeSchemas = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "OARC Digital",
+    "url": "https://oarcdigital.com",
+    "logo": "https://oarcdigital.com/logo.png",
+    "description": "Malta's first Creative + AI Systems Agency",
+    "sameAs": [
+      "https://linkedin.com/company/oarc-digital",
+      "https://instagram.com/oarcdigital",
+      "https://facebook.com/oarcdigital",
+      "https://www.clutch.co/profile/oarc-digital"
+    ],
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Birkirkara",
+      "addressRegion": "Malta",
+      "addressCountry": "MT"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "url": "https://oarcdigital.com",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://oarcdigital.com/search?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "OARC Digital",
+    "image": "https://oarcdigital.com/office.jpg",
+    "@id": "https://oarcdigital.com",
+    "url": "https://oarcdigital.com",
+    "telephone": "+356XXXXXXXX",
+    "priceRange": "€€€",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "The Brewhouse",
+      "addressLocality": "Birkirkara",
+      "addressRegion": "Central Business District",
+      "postalCode": "CBD",
+      "addressCountry": "MT"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 35.8975,
+      "longitude": 14.4614
+    },
+    "openingHours": "Mo-Fr 09:00-18:00",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5.0",
+      "reviewCount": "12"
+    }
+  }
+]
+On Service Pages:
+tsx{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": serviceName,
+  "provider": { "@type": "Organization", "name": "OARC Digital" },
+  "areaServed": { "@type": "Country", "name": "Malta" },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": serviceName,
+    "itemListElement": features.map(f => ({
+      "@type": "Offer",
+      "itemOffered": { "@type": "Service", "name": f }
+    }))
+  }
+}
+On Location Pages:
+tsx{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": `OARC Digital - ${location}`,
+  "description": locationSpecificDescription,
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": location,
+    "addressCountry": "MT"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": locationCoordinates.lat,
+    "longitude": locationCoordinates.lng
+  }
+}
+On Blog/AEO Pages:
+tsx{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": title,
+  "author": { "@type": "Person", "name": authorName },
+  "datePublished": publishDate,
+  "dateModified": lastModified,
+  "publisher": { "@type": "Organization", "name": "OARC Digital" },
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [".voice-summary", ".faq-answer"]
+  }
+}
+Speakable = voice search (Siri, Alexa, Google Assistant) reads these sections aloud.
+
+PART 10: THE KILLER MOVES (What Competitors Don't Do)
+10.1 Breadcrumb Schema on EVERY Page
+tsx{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": breadcrumbs.map((item, idx) => ({
+    "@type": "ListItem",
+    "position": idx + 1,
+    "name": item.name,
+    "item": item.url
+  }))
+}
+Breadcrumbs in Google SERP = higher CTR.
+10.2 Voice Search FAQ Blocks
+On every service page, add FAQ block with voice-search-friendly questions:
+tsxconst faqs = [
+  {
+    question: `What is the best ${service} agency in Malta?`,
+    answer: `OARC Digital is Malta's first Creative + AI Systems Agency, specializing in ${service} for [industry] businesses.`
+  },
+  {
+    question: `How much does ${service} cost in Malta?`,
+    answer: `[Specific pricing]`
+  },
+  {
+    question: `Who offers ${service} in [location]?`,
+    answer: `OARC Digital serves ${location} businesses with ${service}...`
+  }
+]
+With FAQPage schema. Google reads these in voice results.
+10.3 Original Research Pages (Authority Builders)
+Create 5 long-form authority pages that no competitor has:
+
+/research/malta-restaurant-marketing-report-2026 — original data
+/research/malta-hospitality-ai-adoption-survey — survey results
+/research/malta-digital-marketing-pricing-benchmark — pricing data
+/research/malta-small-business-tech-readiness — study
+/research/malta-seo-search-volume-analysis — keyword research
+
+These attract backlinks from Malta Chamber, Times of Malta, media. Backlinks = rankings.
+10.4 Video SEO Pages
+Every service page embeds a YouTube video. YouTube is Google's #2 search engine.
+
+Upload to YouTube with optimized title/description
+Embed on service page
+Add VideoObject schema
+Video snippets appear in Google SERP
+
+10.5 Image SEO Aggressive
+Every image on every page:
+
+SEO filename (ai-marketing-agency-malta-valletta.webp)
+Keyword-rich alt text
+ImageObject schema
+Listed in image sitemap
+
+Google Image Search = significant Malta traffic source.
+10.6 Regional Schema for Dominance
+Add @id references so Google understands you serve ALL of Malta:
+tsx{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "areaServed": [
+    { "@type": "City", "name": "Valletta" },
+    { "@type": "City", "name": "Sliema" },
+    // all 50 Malta cities
+    { "@type": "Country", "name": "Malta" }
+  ]
+}
+
+PART 11: INDEXNOW API — INSTANT INDEXING
+Create lib/indexNow.ts:
+typescriptconst INDEXNOW_KEY = process.env.INDEXNOW_KEY // Generate at indexnow.org
+
+export async function submitToIndexNow(urls: string[]) {
+  await fetch('https://api.indexnow.org/indexnow', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      host: 'oarcdigital.com',
+      key: INDEXNOW_KEY,
+      keyLocation: `https://oarcdigital.com/${INDEXNOW_KEY}.txt`,
+      urlList: urls
+    })
+  })
+}
+Call on every deploy. Submits to Bing, Yandex, DuckDuckGo instantly.
+
+PART 12: MONITORING — PROVE IT'S WORKING
+12.1 Rank Tracking
+Install free rank tracker or use:
+
+Google Search Console (manual)
+Ahrefs free webmaster tools
+Semrush free tier
+
+Track weekly for 30 keywords:
+
+"marketing agency Malta"
+"social media agency Malta"
+"AI agency Malta"
+"best [service] Malta" for all 27 services
+"[service] [location]" for top combos
+
+12.2 Rich Results Test
+Run every page type through https://search.google.com/test/rich-results
+
+Verify all schema markup valid
+Fix errors immediately
+
+12.3 Core Web Vitals Dashboard
+Vercel Speed Insights (already in Prompt 1) shows real user data.
+
+EXECUTION ORDER
+Sequential, not parallel:
+
+✅ User exports GSC CSVs to /attached_assets/
+⬇️ Run analysis script
+⬇️ Update seoConfig.ts with rich location/industry/service data
+⬇️ Build unique content generator
+⬇️ Restore Tier 1 + Tier 2 pages with unique content (target: 500-700 total pages)
+⬇️ Implement redirects
+⬇️ Implement filesystem-driven sitemap with sub-sitemaps
+⬇️ Add 410 middleware for junk
+⬇️ Update robots.ts with explicit crawler rules
+⬇️ Create llms.txt
+⬇️ Add all schema markup types
+⬇️ Add breadcrumbs everywhere
+⬇️ Add FAQ sections to service pages
+⬇️ Create 5 original research pages (spread over 2 weeks)
+⬇️ Add YouTube video embeds with VideoObject schema
+⬇️ Image SEO audit and rename
+⬇️ IndexNow API integration
+⬇️ Deploy
+⬇️ Submit updated sitemap to GSC + Bing + IndexNow
+⬇️ Monitor rankings weekly
+
+
+SUCCESS CRITERIA
+
+ 500-700 genuinely unique pages (down from 5,210 thin, up from 571 current)
+ Zero "crawled, not indexed" on new pages (30 days after deploy)
+ Every archived URL returns 301 or 410 (not 404)
+ Sitemap matches filesystem exactly
+ All 40+ crawlers explicitly allowed
+ Every page has proper schema markup
+ Every page has canonical URL
+ Every image has SEO filename + alt text
+ llms.txt accessible at /llms.txt
+ IndexNow pings on deploy
+ Rich Results Test passes for all page types
+ Rank in top 10 for 10+ Malta queries within 90 days
+ Rank #1 for 3-5 Malta queries within 180 days
+
+
+Reply: "Understood. Starting SEO Domination."
