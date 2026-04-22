@@ -19,7 +19,8 @@ export type Hub =
   | "service"
   | "aeo-service"
   | "aeo-city"
-  | "aeo-vertical";
+  | "aeo-vertical"
+  | "blog";
 
 export type LinkNode = {
   path: string;
@@ -701,6 +702,46 @@ const NODES: LinkNode[] = [
       "/aeo/content-creation-malta",
       "/aeo/influencer-marketing-malta",
     ],
+  },
+  // Service-shell + blog leaves referenced as spokes from other nodes. They
+  // are declared here (without their own outbound spokes) so the production
+  // graph validator does not throw. Their own SEO content lives in their
+  // route files; this graph node exists only so getRelatedLinks() can resolve
+  // titles when these are surfaced in another page's RelatedLinks block.
+  {
+    path: "/services/mvp-development",
+    title: "MVP Development",
+    shortLabel: "MVP",
+    hub: "service",
+    spokes: [],
+  },
+  {
+    path: "/services/api-integration-services",
+    title: "API & Integration Services",
+    shortLabel: "API Integration",
+    hub: "service",
+    spokes: [],
+  },
+  {
+    path: "/services/branding",
+    title: "Branding & Identity",
+    shortLabel: "Branding",
+    hub: "service",
+    spokes: [],
+  },
+  {
+    path: "/services/video-production",
+    title: "Video Production",
+    shortLabel: "Video",
+    hub: "service",
+    spokes: [],
+  },
+  {
+    path: "/blog/seo-malta-complete-guide",
+    title: "SEO Malta: Complete Guide",
+    shortLabel: "SEO Guide",
+    hub: "blog",
+    spokes: [],
   },
 ];
 
