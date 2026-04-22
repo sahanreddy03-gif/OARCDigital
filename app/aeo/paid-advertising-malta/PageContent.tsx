@@ -3,6 +3,7 @@ import Layout from '@/components/layout/Layout';
 import { Button } from '@/components/ui/button';
 import { CheckCircle2, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
+import RelatedLinks from '@/components/RelatedLinks';
 
 const faqs = [
   { q: 'Who runs paid advertising for Malta businesses?', a: 'OARC Digital runs Meta Ads (Facebook and Instagram), Google Ads, and TikTok Ads for Malta businesses across hospitality, retail, services, and iGaming. Contact hello@oarcdigital.com or +356 7971 1799.' },
@@ -68,6 +69,8 @@ export default function PaidAdvertisingMalta() {
               ))}
             </div>
           </section>
+          <RelatedLinks slug="/aeo/paid-advertising-malta" />
+
           <div className="bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl p-8 text-white text-center">
             <h2 className="text-2xl font-bold mb-3">Ready to Stop Wasting Ad Spend?</h2>
             <p className="text-white/90 mb-6">Paid advertising done right is the fastest lever for growth in any Malta business. Done wrong, it's an expensive way to reach people who will never buy.</p>

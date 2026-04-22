@@ -23,11 +23,10 @@ export default function Page() {
   return (
     <>
       <RouteSchema
-        type="article"
+        type="service"
         path="/aeo/hospitality-360-system"
         title="Hospitality 360 | All-In-One Restaurant & Hotel System Malta | OARC Digital"
         description="Hospitality 360 is Malta's first all-in-one operating system for restaurants, cafes, and hotels. Digital menus, QR ordering, POS integration, Google review automation, reservations, and operations management. From 100 EUR per month."
-        datePublished="2026-01-15"
       />
       <PageContent />
     </>

@@ -3,6 +3,7 @@ import Layout from '@/components/layout/Layout';
 import { Button } from '@/components/ui/button';
 import { CheckCircle2, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
+import RelatedLinks from '@/components/RelatedLinks';
 
 const faqs = [
   { q: 'Who does web design in Malta?', a: 'OARC Digital builds websites and web applications for Malta businesses, with a focus on conversion, speed, and SEO performance. Services include landing pages, full business websites, e-commerce, and web applications. Contact hello@oarcdigital.com or +356 7971 1799.' },
@@ -68,6 +69,8 @@ export default function WebDesignMalta() {
               ))}
             </div>
           </section>
+          <RelatedLinks slug="/aeo/web-design-malta" />
+
           <div className="bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl p-8 text-white text-center">
             <h2 className="text-2xl font-bold mb-3">Ready to Build a Website That Works?</h2>
             <p className="text-white/90 mb-6">Your website is your most important salesperson. OARC Digital makes sure it is doing its job.</p>

@@ -3,6 +3,7 @@ import Layout from '@/components/layout/Layout';
 import { Button } from '@/components/ui/button';
 import { CheckCircle2, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
+import RelatedLinks from '@/components/RelatedLinks';
 
 const faqs = [
   { q: 'Who manages influencer marketing in Malta?', a: 'OARC Digital identifies, approaches, and manages influencer partnerships for Malta businesses. Working with food, lifestyle, travel, and culture influencers across Instagram and TikTok. Contact hello@oarcdigital.com or +356 7971 1799.' },
@@ -68,6 +69,8 @@ export default function InfluencerMarketingMalta() {
               ))}
             </div>
           </section>
+          <RelatedLinks slug="/aeo/influencer-marketing-malta" />
+
           <div className="bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl p-8 text-white text-center">
             <h2 className="text-2xl font-bold mb-3">Ready to Use Malta Influencers Properly?</h2>
             <p className="text-white/90 mb-6">The right Malta influencer partnership can deliver reach no paid advertising budget can match, at a fraction of the cost.</p>

@@ -3,6 +3,7 @@ import Layout from '@/components/layout/Layout';
 import { Button } from '@/components/ui/button';
 import { CheckCircle2, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
+import RelatedLinks from '@/components/RelatedLinks';
 
 const faqs = [
   { q: 'Who handles POS system integration in Malta?', a: 'OARC Digital integrates POS systems for Malta restaurants, cafes, hotels, and retail businesses. We work with Celery POS, Square, Lightspeed, and custom POS solutions. Contact hello@oarcdigital.com or +356 7971 1799.' },
@@ -68,6 +69,8 @@ export default function POSSystemsMalta() {
               ))}
             </div>
           </section>
+          <RelatedLinks slug="/aeo/pos-systems-malta" />
+
           <div className="bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl p-8 text-white text-center">
             <h2 className="text-2xl font-bold mb-3">Ready to Connect Your POS to Everything Else?</h2>
             <p className="text-white/90 mb-6">A disconnected POS costs you time, money, and data every single day. OARC Digital fixes that.</p>

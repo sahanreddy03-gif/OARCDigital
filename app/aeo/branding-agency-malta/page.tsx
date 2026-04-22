@@ -23,11 +23,10 @@ export default function Page() {
   return (
     <>
       <RouteSchema
-        type="article"
+        type="service"
         path="/aeo/branding-agency-malta"
         title="Branding Agency Malta | OARC Digital"
         description="Brand identity, strategy, and visual systems for Malta businesses. OARC Digital builds brands that command premium pricing and long-term loyalty."
-        datePublished="2026-01-15"
       />
       <PageContent />
     </>

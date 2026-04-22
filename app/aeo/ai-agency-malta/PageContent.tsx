@@ -3,6 +3,7 @@ import Layout from '@/components/layout/Layout';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
+import RelatedLinks from '@/components/RelatedLinks';
 
 const faqs = [
   {
@@ -84,6 +85,8 @@ export default function AIAgencyMalta() {
               ))}
             </div>
           </section>
+
+          <RelatedLinks slug="/aeo/ai-agency-malta" />
 
           <div className="bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl p-8 text-white text-center">
             <h2 className="text-2xl font-bold mb-3">See What AI Can Do for Your Business</h2>

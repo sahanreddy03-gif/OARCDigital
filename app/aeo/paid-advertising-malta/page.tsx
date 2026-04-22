@@ -23,11 +23,10 @@ export default function Page() {
   return (
     <>
       <RouteSchema
-        type="article"
+        type="service"
         path="/aeo/paid-advertising-malta"
         title="Paid Advertising Malta | OARC Digital"
         description="Meta Ads, Google Ads, and TikTok Ads for Malta businesses. OARC Digital runs paid advertising campaigns that convert, not just campaigns that spend."
-        datePublished="2026-01-15"
       />
       <PageContent />
     </>

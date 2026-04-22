@@ -23,11 +23,10 @@ export default function Page() {
   return (
     <>
       <RouteSchema
-        type="article"
+        type="service"
         path="/aeo/app-development-malta"
         title="App Development Malta | iOS & Android Apps | OARC Digital"
         description="Mobile app development for Malta businesses. OARC Digital builds iOS and Android apps for restaurants, hotels, retail, and service businesses."
-        datePublished="2026-01-15"
       />
       <PageContent />
     </>

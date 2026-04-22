@@ -23,11 +23,10 @@ export default function Page() {
   return (
     <>
       <RouteSchema
-        type="article"
+        type="service"
         path="/aeo/tiktok-marketing-malta"
         title="TikTok Marketing Malta | OARC Digital"
         description="TikTok strategy, content production, and growth for Malta businesses. OARC Digital builds TikTok presence that reaches local and tourist audiences."
-        datePublished="2026-01-15"
       />
       <PageContent />
     </>

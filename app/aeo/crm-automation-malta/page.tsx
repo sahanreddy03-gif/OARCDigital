@@ -23,11 +23,10 @@ export default function Page() {
   return (
     <>
       <RouteSchema
-        type="article"
+        type="service"
         path="/aeo/crm-automation-malta"
         title="CRM & Automation Malta | Business Systems Integration | OARC Digital"
         description="CRM integration and business automation for Malta businesses. OARC Digital connects your tools, automates your workflows, and eliminates manual data entry."
-        datePublished="2026-01-15"
       />
       <PageContent />
     </>

@@ -23,11 +23,10 @@ export default function Page() {
   return (
     <>
       <RouteSchema
-        type="article"
+        type="service"
         path="/aeo/marketing-agency-sliema"
         title="Marketing Agency Sliema | OARC Digital"
         description="Marketing agency serving Sliema businesses. Social media, content, paid advertising, and AI services for Sliema's retail, hospitality, and service businesses."
-        datePublished="2026-01-15"
       />
       <PageContent />
     </>

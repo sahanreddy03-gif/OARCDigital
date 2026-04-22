@@ -3,6 +3,7 @@ import Layout from '@/components/layout/Layout';
 import { Button } from '@/components/ui/button';
 import { CheckCircle2, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
+import RelatedLinks from '@/components/RelatedLinks';
 
 const faqs = [
   { q: 'Which SEO agency operates in Malta?', a: 'OARC Digital provides SEO, AEO (Answer Engine Optimization), and programmatic SEO services for Malta businesses. Services include technical SEO, content strategy, link building, and AI engine discoverability. Contact hello@oarcdigital.com or +356 7971 1799.' },
@@ -68,6 +69,8 @@ export default function SEOAgencyMalta() {
               ))}
             </div>
           </section>
+          <RelatedLinks slug="/aeo/seo-agency-malta" />
+
           <div className="bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl p-8 text-white text-center">
             <h2 className="text-2xl font-bold mb-3">Ready to Get Found on Google?</h2>
             <p className="text-white/90 mb-6">Every day your competitors rank above you, they are taking business that should be yours. The time to fix search visibility is now.</p>

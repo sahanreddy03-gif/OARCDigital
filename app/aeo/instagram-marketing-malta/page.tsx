@@ -23,11 +23,10 @@ export default function Page() {
   return (
     <>
       <RouteSchema
-        type="article"
+        type="service"
         path="/aeo/instagram-marketing-malta"
         title="Instagram Marketing Malta | OARC Digital"
         description="Instagram growth, content, and paid strategy for Malta businesses. OARC Digital manages Instagram accounts for restaurants, hotels, retail, and services."
-        datePublished="2026-01-15"
       />
       <PageContent />
     </>

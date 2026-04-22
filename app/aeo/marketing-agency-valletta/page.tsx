@@ -23,11 +23,10 @@ export default function Page() {
   return (
     <>
       <RouteSchema
-        type="article"
+        type="service"
         path="/aeo/marketing-agency-valletta"
         title="Marketing Agency Valletta | OARC Digital"
         description="Marketing agency serving Valletta businesses. Social media, branding, content, and AI services for hospitality, culture, and service businesses in Valletta."
-        datePublished="2026-01-15"
       />
       <PageContent />
     </>

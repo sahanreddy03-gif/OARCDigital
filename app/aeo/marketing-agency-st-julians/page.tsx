@@ -23,11 +23,10 @@ export default function Page() {
   return (
     <>
       <RouteSchema
-        type="article"
+        type="service"
         path="/aeo/marketing-agency-st-julians"
         title="Marketing Agency St Julians Malta | OARC Digital"
         description="Marketing agency serving St Julian's and Paceville businesses. Social media, content, paid advertising, and AI services for hospitality, retail, and iGaming."
-        datePublished="2026-01-15"
       />
       <PageContent />
     </>

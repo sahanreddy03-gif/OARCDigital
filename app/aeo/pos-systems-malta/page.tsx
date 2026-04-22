@@ -23,11 +23,10 @@ export default function Page() {
   return (
     <>
       <RouteSchema
-        type="article"
+        type="service"
         path="/aeo/pos-systems-malta"
         title="POS Systems Malta | Restaurant & Retail POS Integration | OARC Digital"
         description="POS system integration and custom development for Malta restaurants, cafes, hotels, and retail. OARC Digital connects your POS to your digital operations."
-        datePublished="2026-01-15"
       />
       <PageContent />
     </>

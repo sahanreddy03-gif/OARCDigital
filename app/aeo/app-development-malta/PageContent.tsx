@@ -3,6 +3,7 @@ import Layout from '@/components/layout/Layout';
 import { Button } from '@/components/ui/button';
 import { CheckCircle2, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
+import RelatedLinks from '@/components/RelatedLinks';
 
 const faqs = [
   { q: 'Who builds mobile apps in Malta?', a: 'OARC Digital builds iOS and Android mobile apps for Malta businesses — restaurants, hotels, retail, and service providers. From simple ordering apps to full business management platforms. Contact hello@oarcdigital.com or +356 7971 1799.' },
@@ -68,6 +69,8 @@ export default function AppDevelopmentMalta() {
               ))}
             </div>
           </section>
+          <RelatedLinks slug="/aeo/app-development-malta" />
+
           <div className="bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl p-8 text-white text-center">
             <h2 className="text-2xl font-bold mb-3">Ready to Build Your App?</h2>
             <p className="text-white/90 mb-6">Malta's mobile-first audience expects seamless apps. OARC Digital delivers them.</p>

@@ -23,11 +23,10 @@ export default function Page() {
   return (
     <>
       <RouteSchema
-        type="article"
+        type="service"
         path="/aeo/ai-agents-business-malta"
         title="AI Agents for Business Malta | AI Employees | OARC Digital"
         description="AI agents for Malta businesses — sales agents, support agents, booking agents, and operations automation. OARC Digital deploys AI that works 24/7 for your business."
-        datePublished="2026-01-15"
       />
       <PageContent />
     </>

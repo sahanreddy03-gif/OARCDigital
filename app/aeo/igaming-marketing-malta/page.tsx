@@ -23,11 +23,10 @@ export default function Page() {
   return (
     <>
       <RouteSchema
-        type="article"
+        type="service"
         path="/aeo/igaming-marketing-malta"
         title="iGaming Marketing Malta | OARC Digital"
         description="Marketing agency for Malta's iGaming sector. Creative, AI automation, and performance marketing for operators, suppliers, and B2B iGaming businesses."
-        datePublished="2026-01-15"
       />
       <PageContent />
     </>
