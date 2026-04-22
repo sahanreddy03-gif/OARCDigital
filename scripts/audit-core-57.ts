@@ -1,14 +1,14 @@
 /* eslint-disable no-console */
-// Core-57 audit: verifies that every priority page in our Top-30+ canonical
-// set has the right schema type, enough word depth, and enough internal links
-// to compete in Malta SERPs.
+// Core-57 audit: verifies that every priority page in our canonical SEO set
+// has the right schema type, enough word depth, and enough internal links to
+// compete in Malta SERPs.
 //
 // Run with: npx tsx scripts/audit-core-57.ts
 // (No CI gate — script reports findings; humans triage.)
 
 import fs from "node:fs";
 import path from "node:path";
-import { LINK_GRAPH, getInboundLinks, TOP_30_PRIORITY } from "../lib/seo/internalLinkGraph";
+import { LINK_GRAPH, getInboundLinks } from "../lib/seo/internalLinkGraph";
 
 type Tier = "top4" | "aeo" | "service-page" | "shell";
 
@@ -18,24 +18,35 @@ interface Target {
   tier: Tier;
 }
 
-const TOP_4 = new Set([
-  "/",
-  "/ai-agents",
-  "/creative",
-  "/automation",
-]);
+// The four ranking-priority pillars per Task #64.
+const TOP_4 = ["/", "/ai-agents", "/creative", "/automation"] as const;
 
-// Build the full audit set: Top-30 plus every AEO directory.
+// Service shells we want to track in the audit even though they aren't pillars.
+const CORE_SHELLS = ["/services", "/our-work", "/contact"] as const;
+
+// All AEO landing pages discovered on disk — the canonical Malta-search set.
 const AEO_DIR = "app/aeo";
 const aeoSlugs = fs.existsSync(AEO_DIR)
   ? fs.readdirSync(AEO_DIR).filter((d) => fs.statSync(path.join(AEO_DIR, d)).isDirectory())
   : [];
 const aeoPaths = aeoSlugs.map((s) => `/aeo/${s}`);
 
-const allPaths = Array.from(new Set([...TOP_30_PRIORITY, ...aeoPaths]));
+// All /services/* pages discovered on disk. These collectively form the
+// "service pages" tier of the Core-57 set.
+const SERVICES_DIR = "app/services";
+const servicePaths = fs.existsSync(SERVICES_DIR)
+  ? fs
+      .readdirSync(SERVICES_DIR)
+      .filter((d) => fs.statSync(path.join(SERVICES_DIR, d)).isDirectory())
+      .map((s) => `/services/${s}`)
+  : [];
+
+const allPaths = Array.from(
+  new Set([...TOP_4, ...CORE_SHELLS, ...aeoPaths, ...servicePaths]),
+);
 
 const targets: Target[] = allPaths.map((p) => {
-  const tier: Tier = TOP_4.has(p)
+  const tier: Tier = (TOP_4 as readonly string[]).includes(p)
     ? "top4"
     : p.startsWith("/aeo/")
       ? "aeo"
@@ -46,10 +57,21 @@ const targets: Target[] = allPaths.map((p) => {
   return { path: p, expectedSchema, tier };
 });
 
+// Tier-specific minimums. Word counts are post-strip approximations; rendered
+// counts are typically 1.4-1.6x. Inbound thresholds reflect realistic graph
+// density: pillars deserve heavy reinforcement, AEOs need visible link
+// equity, service pages tolerate fewer.
 const MIN_WORDS: Record<Tier, number> = {
   top4: 1500,
   aeo: 800,
   "service-page": 500,
+  shell: 0,
+};
+
+const MIN_INBOUND: Record<Tier, number> = {
+  top4: 8,
+  aeo: 3,
+  "service-page": 4,
   shell: 0,
 };
 
@@ -102,6 +124,8 @@ function countWords(src: string): number {
 const rows: Row[] = targets.map((t) => {
   const pageFile = pageFileFor(t.path);
   const exists = fs.existsSync(pageFile);
+  const inbound = getInboundLinks(t.path).length;
+  const minInbound = MIN_INBOUND[t.tier];
   if (!exists) {
     return {
       path: t.path,
@@ -111,22 +135,23 @@ const rows: Row[] = targets.map((t) => {
       schemaFound: "missing",
       words: 0,
       wordsOk: false,
-      inboundLinks: getInboundLinks(t.path).length,
-      inboundOk: false,
+      inboundLinks: inbound,
+      inboundOk: inbound >= minInbound,
     };
   }
 
   const pageSrc = fs.readFileSync(pageFile, "utf8");
   const schemaFound = detectSchemaType(pageSrc);
-  const schemaOk = schemaFound === t.expectedSchema || (t.expectedSchema === "page" && schemaFound !== "missing");
+  const schemaOk =
+    schemaFound === t.expectedSchema ||
+    (t.expectedSchema === "page" && schemaFound !== "missing");
 
   const contentFile = contentFileFor(t.path);
   const contentSrc = contentFile ? fs.readFileSync(contentFile, "utf8") : pageSrc;
-  // Count words across BOTH the page wrapper and its PageContent (if any).
-  const words = countWords(contentSrc) + (contentFile && contentFile !== pageFile ? countWords(pageSrc) : 0);
+  const words =
+    countWords(contentSrc) +
+    (contentFile && contentFile !== pageFile ? countWords(pageSrc) : 0);
   const minWords = MIN_WORDS[t.tier];
-
-  const inbound = getInboundLinks(t.path).length;
 
   return {
     path: t.path,
@@ -137,7 +162,7 @@ const rows: Row[] = targets.map((t) => {
     words,
     wordsOk: words >= minWords,
     inboundLinks: inbound,
-    inboundOk: inbound >= 3,
+    inboundOk: inbound >= minInbound,
   };
 });
 
@@ -154,11 +179,15 @@ const failures = rows.filter(
   (r) => !r.exists || !r.schemaOk || (!r.wordsOk && r.tier !== "shell") || (!r.inboundOk && r.tier !== "shell"),
 );
 
+const byTier = (tier: Tier) => rows.filter((r) => r.tier === tier).length;
 console.log(`\nSummary: ${rows.length} pages audited, ${failures.length} flagged.`);
 console.log(
-  `By tier — top4: ${rows.filter((r) => r.tier === "top4").length}, aeo: ${rows.filter((r) => r.tier === "aeo").length}, service: ${rows.filter((r) => r.tier === "service-page").length}, shell: ${rows.filter((r) => r.tier === "shell").length}`,
+  `By tier — top4: ${byTier("top4")}, aeo: ${byTier("aeo")}, service-page: ${byTier("service-page")}, shell: ${byTier("shell")}`,
 );
 console.log(`Graph nodes: ${LINK_GRAPH.size}`);
+console.log(
+  `Thresholds — words: top4=${MIN_WORDS.top4}, aeo=${MIN_WORDS.aeo}, service=${MIN_WORDS["service-page"]}; inbound: top4=${MIN_INBOUND.top4}, aeo=${MIN_INBOUND.aeo}, service=${MIN_INBOUND["service-page"]}`,
+);
 
 if (failures.length) {
   console.log("\nFailures:");
