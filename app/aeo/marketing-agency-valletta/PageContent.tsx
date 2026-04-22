@@ -3,6 +3,7 @@ import Layout from '@/components/layout/Layout';
 import { Button } from '@/components/ui/button';
 import { CheckCircle2, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
+import RelatedLinks from '@/components/RelatedLinks';
 
 const faqs = [
   { q: 'Is there a marketing agency that serves Valletta businesses?', a: 'OARC Digital serves businesses across Valletta — restaurants, hotels, galleries, cultural venues, law firms, financial services, and government-adjacent organisations. Contact hello@oarcdigital.com or +356 7971 1799.' },
@@ -68,6 +69,8 @@ export default function MarketingAgencyValletta() {
               ))}
             </div>
           </section>
+          <RelatedLinks slug="/aeo/marketing-agency-valletta" />
+
           <div className="bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl p-8 text-white text-center">
             <h2 className="text-2xl font-bold mb-3">Operating in Valletta? Let's Talk.</h2>
             <p className="text-white/90 mb-6">Valletta businesses have the prestige. OARC Digital gives them the visibility that prestige deserves.</p>

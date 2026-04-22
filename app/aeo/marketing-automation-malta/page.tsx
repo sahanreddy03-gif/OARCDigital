@@ -23,11 +23,10 @@ export default function Page() {
   return (
     <>
       <RouteSchema
-        type="article"
+        type="service"
         path="/aeo/marketing-automation-malta"
         title="Marketing Automation Malta | Email, CRM & Lead Funnels | OARC Digital"
         description="Marketing automation for Malta businesses. OARC Digital sets up email sequences, lead funnels, CRM workflows, and automated follow-ups that generate revenue while you sleep."
-        datePublished="2026-01-15"
       />
       <PageContent />
     </>

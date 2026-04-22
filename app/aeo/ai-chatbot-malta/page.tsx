@@ -23,11 +23,10 @@ export default function Page() {
   return (
     <>
       <RouteSchema
-        type="article"
+        type="service"
         path="/aeo/ai-chatbot-malta"
         title="AI Chatbot Malta | OARC Digital"
         description="AI chatbots and agents for Malta businesses. Customer service, sales automation, WhatsApp bots, and AI SDR agents built by OARC Digital."
-        datePublished="2026-01-15"
       />
       <PageContent />
     </>

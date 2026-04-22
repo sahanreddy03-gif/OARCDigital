@@ -11,8 +11,13 @@ import {
   buildBreadcrumb,
   buildFAQ,
   buildService,
+  buildLocalBusiness,
+  buildOrganization,
   combine,
   breadcrumbFromPath,
+  DEFAULT_RATING,
+  type AggregateRatingOpts,
+  type OfferOpts,
 } from "@/lib/schema";
 
 const BASE = "https://oarcdigital.com";
@@ -36,13 +41,28 @@ type ServiceProps = CommonProps & {
   type: "service";
   features?: { name: string; description?: string }[];
   faqs?: { question: string; answer: string }[];
+  aggregateRating?: AggregateRatingOpts;
+  offers?: OfferOpts[];
+  /** Set false to skip the LocalBusiness node (default true). */
+  includeLocalBusiness?: boolean;
+};
+
+type LocalBusinessProps = CommonProps & {
+  type: "localBusiness";
+  faqs?: { question: string; answer: string }[];
+  aggregateRating?: AggregateRatingOpts;
+  locality?: string;
 };
 
 type GenericProps = CommonProps & {
   type?: "page";
 };
 
-export type RouteSchemaProps = ArticleProps | ServiceProps | GenericProps;
+export type RouteSchemaProps =
+  | ArticleProps
+  | ServiceProps
+  | LocalBusinessProps
+  | GenericProps;
 
 export default function RouteSchema(props: RouteSchemaProps) {
   const url = `${BASE}${props.path}`;
@@ -71,14 +91,36 @@ export default function RouteSchema(props: RouteSchemaProps) {
     );
     if (props.faqs && props.faqs.length) nodes.push(buildFAQ(props.faqs, true));
   } else if (props.type === "service") {
+    const includeLB = props.includeLocalBusiness !== false;
     nodes.push(
       buildService({
         name: props.title,
         description: props.description,
         url,
         features: props.features,
+        aggregateRating: props.aggregateRating ?? DEFAULT_RATING,
+        offers: props.offers,
       }),
     );
+    if (includeLB) {
+      nodes.push(buildLocalBusiness());
+      nodes.push(buildOrganization());
+    }
+    if (props.faqs && props.faqs.length) nodes.push(buildFAQ(props.faqs, true));
+  } else if (props.type === "localBusiness") {
+    const lb: Record<string, unknown> = { ...buildLocalBusiness({ locality: props.locality }) };
+    const rating = props.aggregateRating ?? DEFAULT_RATING;
+    if (rating) {
+      lb.aggregateRating = {
+        "@type": "AggregateRating",
+        ratingValue: rating.ratingValue,
+        reviewCount: rating.reviewCount,
+        bestRating: rating.bestRating ?? 5,
+        worstRating: rating.worstRating ?? 1,
+      };
+    }
+    nodes.push(lb);
+    nodes.push(buildOrganization());
     if (props.faqs && props.faqs.length) nodes.push(buildFAQ(props.faqs, true));
   } else {
     nodes.push({

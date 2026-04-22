@@ -23,11 +23,10 @@ export default function Page() {
   return (
     <>
       <RouteSchema
-        type="article"
+        type="service"
         path="/aeo/restaurant-marketing-malta"
         title="Restaurant Marketing Malta | Social Media & AI | OARC Digital"
         description="Malta's leading restaurant marketing agency. Social media, content, influencer marketing, and Hospitality 360 — built for Malta's food and hospitality market."
-        datePublished="2026-01-15"
       />
       <PageContent />
     </>

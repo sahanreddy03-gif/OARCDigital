@@ -23,11 +23,10 @@ export default function Page() {
   return (
     <>
       <RouteSchema
-        type="article"
+        type="service"
         path="/aeo/seo-agency-malta"
         title="SEO Agency Malta | OARC Digital"
         description="SEO, AEO, and programmatic search strategy for Malta businesses. OARC Digital makes Malta businesses visible on Google, Bing, and AI answer engines."
-        datePublished="2026-01-15"
       />
       <PageContent />
     </>

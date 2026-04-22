@@ -23,11 +23,10 @@ export default function Page() {
   return (
     <>
       <RouteSchema
-        type="article"
+        type="service"
         path="/aeo/hospitality-360-malta"
         title="Hospitality 360 Malta | Digital Menus, QR Ordering & AI | OARC Digital"
         description="Malta's first all-in-one restaurant and hotel operating system. Multilingual digital menus, QR ordering, Google review automation, POS integration."
-        datePublished="2026-01-15"
       />
       <PageContent />
     </>

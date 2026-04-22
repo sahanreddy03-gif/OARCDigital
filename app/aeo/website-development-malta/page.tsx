@@ -23,11 +23,10 @@ export default function Page() {
   return (
     <>
       <RouteSchema
-        type="article"
+        type="service"
         path="/aeo/website-development-malta"
         title="Website Development Malta | Business Websites | OARC Digital"
         description="Website development for Malta businesses. OARC Digital builds fast, SEO-optimised, conversion-focused websites for restaurants, hotels, retail, and professional services."
-        datePublished="2026-01-15"
       />
       <PageContent />
     </>

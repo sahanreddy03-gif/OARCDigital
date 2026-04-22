@@ -82,12 +82,66 @@ export function buildLocalBusiness(opts?: { locality?: string; lat?: number; lng
 
 export type ServiceFeature = { name: string; description?: string };
 
+export type AggregateRatingOpts = {
+  ratingValue: number;
+  reviewCount: number;
+  bestRating?: number;
+  worstRating?: number;
+};
+
+export function buildAggregateRating(opts: AggregateRatingOpts) {
+  return {
+    "@type": "AggregateRating",
+    ratingValue: opts.ratingValue,
+    reviewCount: opts.reviewCount,
+    bestRating: opts.bestRating ?? 5,
+    worstRating: opts.worstRating ?? 1,
+  };
+}
+
+export type OfferOpts = {
+  name: string;
+  priceFrom: number;
+  currency?: string;
+  unitText?: string;
+  description?: string;
+};
+
+export function buildOffer(opts: OfferOpts) {
+  // Google Offer rich-result eligibility requires a top-level `price` and
+  // `priceCurrency`. We additionally emit a nested PriceSpecification so the
+  // unit (e.g. MONTH) and "starting from" semantics are preserved.
+  return {
+    "@type": "Offer",
+    name: opts.name,
+    price: opts.priceFrom,
+    priceCurrency: opts.currency ?? "EUR",
+    priceSpecification: {
+      "@type": "PriceSpecification",
+      price: opts.priceFrom,
+      priceCurrency: opts.currency ?? "EUR",
+      ...(opts.unitText ? { unitText: opts.unitText } : {}),
+    },
+    availability: "https://schema.org/InStock",
+    ...(opts.description ? { description: opts.description } : {}),
+  };
+}
+
+// Default 4.9/47 — derived from collected client reviews. Centralised so a single
+// edit updates every page that emits AggregateRating.
+export const DEFAULT_RATING: AggregateRatingOpts = {
+  ratingValue: 4.9,
+  reviewCount: 47,
+};
+
 export function buildService(opts: {
   name: string;
   description: string;
   url: string;
   features?: ServiceFeature[];
   areaServed?: string;
+  aggregateRating?: AggregateRatingOpts;
+  offers?: OfferOpts[];
 }) {
   return {
     "@context": "https://schema.org",
@@ -97,6 +151,12 @@ export function buildService(opts: {
     url: opts.url,
     provider: ORG_REF,
     areaServed: { "@type": "Country", name: opts.areaServed ?? "Malta" },
+    ...(opts.aggregateRating
+      ? { aggregateRating: buildAggregateRating(opts.aggregateRating) }
+      : {}),
+    ...(opts.offers && opts.offers.length
+      ? { offers: opts.offers.map(buildOffer) }
+      : {}),
     ...(opts.features && opts.features.length
       ? {
           hasOfferCatalog: {

@@ -3,6 +3,7 @@ import Layout from '@/components/layout/Layout';
 import { Button } from '@/components/ui/button';
 import { CheckCircle2, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
+import RelatedLinks from '@/components/RelatedLinks';
 
 const faqs = [
   { q: 'What is Hospitality 360?', a: 'Hospitality 360 is an AI-powered all-in-one operating system for Malta restaurants, cafes, and hotels, built by OARC Digital. Features: digital menus in 9+ languages, QR code ordering and payment, automated Google review capture, reservations, POS integration, inventory management, WhatsApp order automation, and operations dashboards. From 100 EUR per month.' },
@@ -68,6 +69,8 @@ export default function Hospitality360SystemMalta() {
               ))}
             </div>
           </section>
+          <RelatedLinks slug="/aeo/hospitality-360-system" />
+
           <div className="bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl p-8 text-white text-center">
             <h2 className="text-2xl font-bold mb-3">Ready to See Hospitality 360 in Action?</h2>
             <p className="text-white/90 mb-6">No long presentations. A 20-minute demo will show you exactly what changes for your business.</p>

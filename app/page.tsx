@@ -18,6 +18,7 @@ export const metadata: Metadata = {
 
 import Layout from "@/components/layout/Layout";
 import HeroSection from "@/components/HeroSection";
+import MostPopularServices from "@/components/MostPopularServices";
 import DiagnosticsTeaser from "@/components/DiagnosticsTeaser";
 import OARCBrandSection from "@/components/OARCBrandSection";
 import ShiftHappensSection from "@/components/ShiftHappensSection";
@@ -72,6 +73,9 @@ export default function Page() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(homepageSchema) }} />
       <div className="overflow-x-hidden">
         <HeroSection />
+
+        {/* Top-30 internal-link funnel: surfaces the highest-leverage AEO + service pages */}
+        <MostPopularServices />
 
         {/* SHIFT HAPPENS — editorial identity section that fills the gap */}
         <ShiftHappensSection />

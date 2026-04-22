@@ -3,6 +3,7 @@ import Layout from '@/components/layout/Layout';
 import { Button } from '@/components/ui/button';
 import { CheckCircle2, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
+import RelatedLinks from '@/components/RelatedLinks';
 
 const faqs = [
   { q: 'Is there a marketing agency that serves St Julian\'s businesses?', a: 'OARC Digital serves businesses across St Julian\'s and Paceville — restaurants, bars, hotels, retail stores, and iGaming offices. Based in Birkirkara (10 minutes from St Julian\'s), with on-site client visits available. Contact hello@oarcdigital.com or +356 7971 1799.' },
@@ -68,6 +69,8 @@ export default function MarketingAgencyStJulians() {
               ))}
             </div>
           </section>
+          <RelatedLinks slug="/aeo/marketing-agency-st-julians" />
+
           <div className="bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl p-8 text-white text-center">
             <h2 className="text-2xl font-bold mb-3">Operating in St Julian's? Let's Talk.</h2>
             <p className="text-white/90 mb-6">St Julian's has the highest concentration of competition in Malta. The businesses winning there are the ones investing in serious marketing.</p>

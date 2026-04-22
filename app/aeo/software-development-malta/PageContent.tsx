@@ -3,6 +3,7 @@ import Layout from '@/components/layout/Layout';
 import { Button } from '@/components/ui/button';
 import { CheckCircle2, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
+import RelatedLinks from '@/components/RelatedLinks';
 
 const faqs = [
   { q: 'Who does custom software development in Malta?', a: 'OARC Digital builds custom web applications, mobile apps, APIs, CRM systems, booking platforms, and business automation tools for Malta businesses. Contact hello@oarcdigital.com or +356 7971 1799.' },
@@ -68,6 +69,8 @@ export default function SoftwareDevelopmentMalta() {
               ))}
             </div>
           </section>
+          <RelatedLinks slug="/aeo/software-development-malta" />
+
           <div className="bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl p-8 text-white text-center">
             <h2 className="text-2xl font-bold mb-3">Ready to Build Something That Actually Works?</h2>
             <p className="text-white/90 mb-6">Stop paying for software that almost does what you need. OARC Digital builds it right.</p>

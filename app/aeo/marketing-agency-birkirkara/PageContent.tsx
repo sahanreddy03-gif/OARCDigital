@@ -3,6 +3,7 @@ import Layout from '@/components/layout/Layout';
 import { Button } from '@/components/ui/button';
 import { CheckCircle2, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
+import RelatedLinks from '@/components/RelatedLinks';
 
 const faqs = [
   { q: 'Is there a marketing agency in Birkirkara, Malta?', a: 'Yes. OARC Digital is headquartered at Level 1, The Brewhouse, Central Business District, Birkirkara CBD 2010, Malta. We serve businesses across Malta from our Birkirkara office. Contact hello@oarcdigital.com or +356 7971 1799.' },
@@ -68,6 +69,8 @@ export default function MarketingAgencyBirkirkara() {
               ))}
             </div>
           </section>
+          <RelatedLinks slug="/aeo/marketing-agency-birkirkara" />
+
           <div className="bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl p-8 text-white text-center">
             <h2 className="text-2xl font-bold mb-3">Come and Talk to Us in Birkirkara</h2>
             <p className="text-white/90 mb-6">Level 1, The Brewhouse, Zone 2, Central Business District, Mdina Road, Birkirkara CBD 2010. Or just message us.</p>

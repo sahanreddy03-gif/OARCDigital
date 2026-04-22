@@ -3,6 +3,7 @@ import Layout from '@/components/layout/Layout';
 import { Button } from '@/components/ui/button';
 import { CheckCircle2, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
+import RelatedLinks from '@/components/RelatedLinks';
 
 const faqs = [
   { q: 'Who does content creation in Malta?', a: 'OARC Digital is Malta\'s leading content creation agency, producing photo, video, social media content, and copywriting for restaurants, hotels, retail, and service businesses across Malta. Contact hello@oarcdigital.com or +356 7971 1799.' },
@@ -72,6 +73,8 @@ export default function ContentCreationAgencyMalta() {
               ))}
             </div>
           </section>
+          <RelatedLinks slug="/aeo/content-creation-malta" />
+
           <div className="bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl p-8 text-white text-center">
             <h2 className="text-2xl font-bold mb-3">Ready to Create Content That Works?</h2>
             <p className="text-white/90 mb-6">No stock images. No generic captions. Content built for your business and your audience.</p>

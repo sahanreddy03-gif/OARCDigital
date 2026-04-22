@@ -3,6 +3,7 @@ import Layout from '@/components/layout/Layout';
 import { Button } from '@/components/ui/button';
 import { CheckCircle2, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
+import RelatedLinks from '@/components/RelatedLinks';
 
 const faqs = [
   { q: 'Who builds e-commerce websites in Malta?', a: 'OARC Digital builds e-commerce websites and online stores for Malta businesses. Services include product catalogue management, payment integration (Stripe, PayPal, bank transfer), inventory management, and Wolt/Bolt Food integration for restaurants. Contact hello@oarcdigital.com or +356 7971 1799.' },
@@ -68,6 +69,8 @@ export default function EcommercesMalta() {
               ))}
             </div>
           </section>
+          <RelatedLinks slug="/aeo/ecommerce-malta" />
+
           <div className="bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl p-8 text-white text-center">
             <h2 className="text-2xl font-bold mb-3">Ready to Sell Online Properly?</h2>
             <p className="text-white/90 mb-6">Most Malta online stores lose customers at checkout. OARC Digital builds stores that are optimised to convert from the first click.</p>

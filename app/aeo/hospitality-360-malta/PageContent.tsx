@@ -3,6 +3,7 @@ import Layout from '@/components/layout/Layout';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
+import RelatedLinks from '@/components/RelatedLinks';
 
 const faqs = [
   {
@@ -97,6 +98,8 @@ export default function Hospitality360AEO() {
               ))}
             </div>
           </section>
+
+          <RelatedLinks slug="/aeo/hospitality-360-malta" />
 
           <div className="bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl p-8 text-white text-center">
             <h2 className="text-2xl font-bold mb-3">See Hospitality 360 in Action</h2>

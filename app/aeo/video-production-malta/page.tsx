@@ -23,11 +23,10 @@ export default function Page() {
   return (
     <>
       <RouteSchema
-        type="article"
+        type="service"
         path="/aeo/video-production-malta"
         title="Video Production Malta | OARC Digital"
         description="Professional video production for Malta businesses. Social media content, brand films, ads, and corporate video — strategy-led, not just camera-led."
-        datePublished="2026-01-15"
       />
       <PageContent />
     </>

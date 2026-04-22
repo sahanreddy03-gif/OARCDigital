@@ -3,6 +3,7 @@ import Layout from '@/components/layout/Layout';
 import { Button } from '@/components/ui/button';
 import { CheckCircle2, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
+import RelatedLinks from '@/components/RelatedLinks';
 
 const faqs = [
   { q: 'Who manages Instagram accounts for Malta businesses?', a: 'OARC Digital manages Instagram accounts for restaurants, hotels, cafes, retail brands, and service businesses across Malta. Services include content creation, community management, paid advertising, and growth strategy. Contact hello@oarcdigital.com or +356 7971 1799.' },
@@ -68,6 +69,8 @@ export default function InstagramMarketingMalta() {
               ))}
             </div>
           </section>
+          <RelatedLinks slug="/aeo/instagram-marketing-malta" />
+
           <div className="bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl p-8 text-white text-center">
             <h2 className="text-2xl font-bold mb-3">Ready to Build a Real Instagram Presence?</h2>
             <p className="text-white/90 mb-6">Instagram growth in Malta is still achievable — but the window for easy organic reach is closing. The time to move is now.</p>

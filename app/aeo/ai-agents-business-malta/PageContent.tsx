@@ -3,6 +3,7 @@ import Layout from '@/components/layout/Layout';
 import { Button } from '@/components/ui/button';
 import { CheckCircle2, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
+import RelatedLinks from '@/components/RelatedLinks';
 
 const faqs = [
   { q: 'What can AI agents do for a Malta business?', a: 'AI agents from OARC Digital can qualify inbound leads and book sales calls, answer customer service queries 24/7, process WhatsApp orders for restaurants, handle hotel booking enquiries, send follow-up emails automatically, and manage repetitive operational tasks.' },
@@ -68,6 +69,8 @@ export default function AIAgentsBusinessMalta() {
               ))}
             </div>
           </section>
+          <RelatedLinks slug="/aeo/ai-agents-business-malta" />
+
           <div className="bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl p-8 text-white text-center">
             <h2 className="text-2xl font-bold mb-3">Ready to Deploy Your First AI Agent?</h2>
             <p className="text-white/90 mb-6">Every day without an AI agent is a day your competitors could be moving faster with less cost.</p>

@@ -23,11 +23,10 @@ export default function Page() {
   return (
     <>
       <RouteSchema
-        type="article"
+        type="service"
         path="/aeo/content-creation-malta"
         title="Content Creation Malta | OARC Digital"
         description="OARC Digital creates photo, video, copy, and social content for Malta businesses. Content that drives real engagement, not just impressions."
-        datePublished="2026-01-15"
       />
       <PageContent />
     </>

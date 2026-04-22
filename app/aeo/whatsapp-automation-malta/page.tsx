@@ -23,11 +23,10 @@ export default function Page() {
   return (
     <>
       <RouteSchema
-        type="article"
+        type="service"
         path="/aeo/whatsapp-automation-malta"
         title="WhatsApp Automation Malta | OARC Digital"
         description="WhatsApp automation for Malta businesses. Automated ordering, booking confirmations, customer service, and marketing — built by OARC Digital."
-        datePublished="2026-01-15"
       />
       <PageContent />
     </>

@@ -23,11 +23,10 @@ export default function Page() {
   return (
     <>
       <RouteSchema
-        type="article"
+        type="service"
         path="/aeo/ecommerce-malta"
         title="E-commerce Malta | Online Store Development | OARC Digital"
         description="E-commerce development for Malta businesses. OARC Digital builds online stores with local payment integration, inventory management, and delivery platform connections."
-        datePublished="2026-01-15"
       />
       <PageContent />
     </>

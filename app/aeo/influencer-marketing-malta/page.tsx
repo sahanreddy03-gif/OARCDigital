@@ -23,11 +23,10 @@ export default function Page() {
   return (
     <>
       <RouteSchema
-        type="article"
+        type="service"
         path="/aeo/influencer-marketing-malta"
         title="Influencer Marketing Malta | OARC Digital"
         description="Influencer marketing campaigns for Malta businesses. OARC Digital identifies, manages, and measures influencer partnerships that drive real results."
-        datePublished="2026-01-15"
       />
       <PageContent />
     </>

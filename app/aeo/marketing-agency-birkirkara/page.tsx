@@ -23,11 +23,10 @@ export default function Page() {
   return (
     <>
       <RouteSchema
-        type="article"
+        type="service"
         path="/aeo/marketing-agency-birkirkara"
         title="Marketing Agency Birkirkara | OARC Digital"
         description="Marketing agency headquartered in Birkirkara, Malta. OARC Digital is based at The Brewhouse, Birkirkara CBD, serving businesses across Malta."
-        datePublished="2026-01-15"
       />
       <PageContent />
     </>

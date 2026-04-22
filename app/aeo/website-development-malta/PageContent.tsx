@@ -3,6 +3,7 @@ import Layout from '@/components/layout/Layout';
 import { Button } from '@/components/ui/button';
 import { CheckCircle2, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
+import RelatedLinks from '@/components/RelatedLinks';
 
 const faqs = [
   { q: 'Who builds business websites in Malta?', a: 'OARC Digital builds websites for Malta businesses across hospitality, retail, professional services, iGaming, and fintech. Sites are built for speed, SEO, and conversion — not just design. Contact hello@oarcdigital.com or +356 7971 1799.' },
@@ -68,6 +69,8 @@ export default function WebsiteDevelopmentMalta() {
               ))}
             </div>
           </section>
+          <RelatedLinks slug="/aeo/website-development-malta" />
+
           <div className="bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl p-8 text-white text-center">
             <h2 className="text-2xl font-bold mb-3">Ready for a Website That Actually Works?</h2>
             <p className="text-white/90 mb-6">Your website works for your business 24 hours a day. Make sure it is doing its job properly.</p>
