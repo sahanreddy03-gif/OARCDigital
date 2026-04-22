@@ -708,6 +708,26 @@ export const LINK_GRAPH: ReadonlyMap<string, LinkNode> = new Map(
   NODES.map((n) => [n.path, n]),
 );
 
+// Module-load validation: every declared spoke must resolve to a real node in
+// the graph. Throws at import time so a broken edge cannot silently erode
+// internal-link equity in production. Wrapped in NODE_ENV check so unit tests
+// can intentionally probe broken graphs if they ever need to.
+(function validateGraph() {
+  const errors: string[] = [];
+  for (const node of NODES) {
+    for (const spoke of node.spokes) {
+      if (!LINK_GRAPH.has(spoke)) {
+        errors.push(`  ${node.path} -> ${spoke} (spoke target not declared)`);
+      }
+    }
+  }
+  if (errors.length) {
+    const msg = `internalLinkGraph: ${errors.length} broken spoke(s):\n${errors.join("\n")}`;
+    if (process.env.NODE_ENV === "production") throw new Error(msg);
+    console.warn(msg);
+  }
+})();
+
 /**
  * Return the related-links list for a given path. Falls back to an empty
  * array if the path is not in the graph (the page just won't render the block).
