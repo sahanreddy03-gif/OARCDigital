@@ -224,10 +224,10 @@ export default function PageContent() {
 <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Service",
-          "name": "AI Solutions for Malta Businesses",
+          "name": "Business Automation Services Malta",
           "provider": {"@type": "Organization", "name": "OARC Digital", "url": "https://oarcdigital.com"},
-          "description": "End-to-end AI solutions for Malta businesses: AI employees, business automation, creative production, and revenue growth systems delivered by OARC Digital.",
-          "serviceType": "AI Business Solutions",
+          "description": "Complete business automation for Malta businesses. Workflow automation, CRM integration, API connections, lead generation funnels, email marketing sequences, and custom software development.",
+          "serviceType": "Business Automation",
           "areaServed": [{"@type": "Country", "name": "Malta"}, {"@type": "Place", "name": "Europe"}],
           "hasOfferCatalog": {
             "@type": "OfferCatalog",
@@ -244,9 +244,9 @@ export default function PageContent() {
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "LocalBusiness",
-          "name": "OARC Digital - AI Solutions",
-          "description": "Malta's premier AI solutions partner. AI employees, business automation, creative production, and revenue growth.",
-          "url": "https://oarcdigital.com/solutions",
+          "name": "OARC Digital - Business Automation",
+          "description": "Malta's premier business automation partner. Workflow automation, CRM, and custom software development.",
+          "url": "https://oarcdigital.com/automation",
           "telephone": "+35679711799",
           "email": "hello@oarcdigital.com",
           "address": {"@type": "PostalAddress", "streetAddress": "Level 1, The Brewhouse, Zone 2, Central Business District, Mdina Road", "addressLocality": "Birkirkara", "addressRegion": "Birkirkara", "postalCode": "CBD 2010", "addressCountry": "MT"},
@@ -259,7 +259,7 @@ export default function PageContent() {
           "@type": "BreadcrumbList",
           "itemListElement": [
             {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://oarcdigital.com/"},
-            {"@type": "ListItem", "position": 2, "name": "Solutions", "item": "https://oarcdigital.com/solutions"}
+            {"@type": "ListItem", "position": 2, "name": "Business Automation", "item": "https://oarcdigital.com/automation"}
           ]
         })}</script>
 </>
