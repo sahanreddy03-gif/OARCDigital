@@ -24,6 +24,14 @@ interface FAQSectionProps {
   className?: string;
   schemaId?: string;
   darkMode?: boolean;
+  /**
+   * When the page already emits a FAQPage node via RouteSchema (the
+   * canonical pattern for SERVICE_SCHEMAS-backed pages), pass false to
+   * suppress this component's inline JSON-LD and avoid duplicate
+   * FAQPage graphs in the rendered HTML. Defaults to true so legacy
+   * callers continue to ship FAQ schema unchanged.
+   */
+  emitJsonLd?: boolean;
 }
 
 export default function FAQSection({
@@ -34,6 +42,7 @@ export default function FAQSection({
   className,
   schemaId = "faq-schema",
   darkMode = false,
+  emitJsonLd = true,
 }: FAQSectionProps) {
   const [openItems, setOpenItems] = useState<string[]>(["faq-0"]);
   const allItemValues = faqs.map((_, index) => `faq-${index}`);
@@ -52,11 +61,13 @@ export default function FAQSection({
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        id={schemaId}
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      {emitJsonLd && (
+        <script
+          type="application/ld+json"
+          id={schemaId}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+      )}
 
       <section
         className={cn(

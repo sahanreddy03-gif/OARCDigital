@@ -323,7 +323,8 @@ export default function VideoProduction() {
         </section>
       </ScrollReveal>
 
-      <FAQSection faqs={videoProductionFAQs} title="Frequently Asked Questions" subtitle="Everything you need to know about our video production services" schemaId="faq-video-production" />
+      <FAQSection faqs={videoProductionFAQs} title="Frequently Asked Questions" subtitle="Everything you need to know about our video production services" schemaId="faq-video-production"
+        emitJsonLd={false} />
 
       <RelatedLinks slug="/services/video-production" />
 
