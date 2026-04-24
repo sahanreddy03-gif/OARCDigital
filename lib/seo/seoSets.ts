@@ -25,6 +25,7 @@ export const SERVICE_ALIASES: Record<string, string> = {
   "/services/api-integration": "/services/api-integration-services",
   "/services/mobile-applications-development": "/services/mobile-apps-development",
   "/services/web-application-development": "/services/web-apps-development",
+  "/services/web-app-development": "/services/web-apps-development",
   "/services/mvp-development/software": "/services/custom-software-development",
   // Archived service: directory does not exist. Redirects to its canonical
   // counterpart so SEO equity consolidates instead of returning 404.
