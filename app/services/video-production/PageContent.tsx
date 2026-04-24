@@ -4,7 +4,6 @@ import { useEffect, useState, useRef } from "react";
 import Link from 'next/link';
 import { Play, Pause, ArrowRight, Volume2, VolumeX, Eye, Share2, TrendingUp, Youtube, Instagram, Monitor, Linkedin } from "lucide-react";
 import Layout from "@/components/layout/Layout";
-import { createServiceSchema } from "@/utils/structuredData";
 import ScrollReveal from "@/components/ScrollReveal";
 import FAQSection, { FAQItem } from "@/components/FAQSection";
 import RelatedLinks from "@/components/RelatedLinks";

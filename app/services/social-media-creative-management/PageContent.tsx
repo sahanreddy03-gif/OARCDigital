@@ -5,7 +5,6 @@ import Layout from "@/components/layout/Layout";
 import FAQSection, { FAQItem } from "@/components/FAQSection";
 import RelatedLinks from "@/components/RelatedLinks";
 import { creativeServicesSEO } from "@/data/seoMetadata";
-import { createServiceSchema } from "@/utils/structuredData";
 import { useEffect, useState, useRef, useCallback } from "react";
 import Link from 'next/link';
 import { motion, useReducedMotion, useInView, useSpring, useMotionValue, AnimatePresence } from "framer-motion";

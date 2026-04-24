@@ -7,7 +7,6 @@ import { Button } from "@/components/ui/button";
 import { ScrollableCards } from "@/components/ui/scrollable-cards";
 import Layout from "@/components/layout/Layout";
 import { revenueServicesSEO } from "@/data/seoMetadata";
-import { createServiceSchema } from "@/utils/structuredData";
 import FAQSection, { type FAQItem } from "@/components/FAQSection";
 import RelatedLinks from "@/components/RelatedLinks";
 import heroImage from '@assets/paid advertising_1763088406833.avif';
