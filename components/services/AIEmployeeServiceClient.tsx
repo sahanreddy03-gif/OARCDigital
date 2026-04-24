@@ -239,7 +239,13 @@ const INTEGRATION_ICONS = [
   { icon: <Globe className="w-full h-full" />, name: "Web" },
 ];
 
-export default function AIEmployeeService({ slug }: { slug: string }) {
+export default function AIEmployeeService({
+  slug,
+  emitFaqJsonLd = true,
+}: {
+  slug: string;
+  emitFaqJsonLd?: boolean;
+}) {
   const location = `/services/${slug}`;
   const [content, setContent] = useState<ServiceContent | null>(null);
   const [loading, setLoading] = useState(true);
@@ -784,6 +790,7 @@ export default function AIEmployeeService({ slug }: { slug: string }) {
         subtitle="Everything you need to know about AI employee services" 
         schemaId="faq-ai-employee-service"
         darkMode={true}
+        emitJsonLd={emitFaqJsonLd}
       />
 
       <RelatedLinks slug={`/services/${slug}`} />

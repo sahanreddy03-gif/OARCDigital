@@ -145,7 +145,13 @@ const revenueServiceFAQs: FAQItem[] = [
   { question: "Can you work with our sales team?", answer: "Absolutely. We collaborate closely with sales, providing tools and processes that help them close more deals." }
 ];
 
-export default function RevenueService({ slug }: { slug: string }) {
+export default function RevenueService({
+  slug,
+  emitFaqJsonLd = true,
+}: {
+  slug: string;
+  emitFaqJsonLd?: boolean;
+}) {
   const location = `/services/${slug}`;
   const [content, setContent] = useState<ServiceContent | null>(null);
   const [loading, setLoading] = useState(true);
@@ -571,6 +577,7 @@ return (
         subtitle="Everything you need to know about revenue services" 
         schemaId="faq-revenue-service" 
         darkMode={true}
+        emitJsonLd={emitFaqJsonLd}
       />
 
       <RelatedLinks slug={`/services/${slug}`} />

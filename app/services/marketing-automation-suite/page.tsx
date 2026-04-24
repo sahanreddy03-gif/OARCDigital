@@ -36,7 +36,7 @@ export default function Page() {
         offers={SCHEMA.offers}
         faqs={SCHEMA.faqs}
       />
-      <PageContent slug={SLUG} />
+      <PageContent slug={SLUG} emitFaqJsonLd={false} />
     </>
   );
 }
