@@ -9,6 +9,46 @@
 
 import type { OfferOpts, ServiceFeature } from "@/lib/schema";
 
+/**
+ * Search intent classification used by Layer 3 of the SEO discovery framework.
+ * One canonical URL per (intent x generalisation-keyword) combination — see
+ * `.local/seo-framework.md` and `.local/seo-keyword-map.md` for the policy.
+ */
+export type SearchIntent =
+  | "informational"
+  | "navigational"
+  | "commercial"
+  | "transactional"
+  | "local"
+  | "comparative"
+  | "alternative";
+
+/**
+ * 6-layer SEO + AI-discovery framework, enforced per-page. See
+ * `.local/seo-framework.md` for the full strategy + failure modes.
+ *
+ * Layer 0 (foundation: schema, NAP, sitemap, perf) is enforced separately by
+ * `scripts/audit-core-57.ts`. Layer 5 (internal-link distribution) is enforced
+ * by `lib/seo/internalLinkGraph.ts` + audit-core-57's inbound-link gate.
+ *
+ * Layers 1, 2, 3, 4, 6 are enforced here (typed) and by
+ * `scripts/audit-framework.ts`.
+ */
+export type FrameworkLayers = {
+  /** Layer 1 — one differentiated value-prop sentence (40-180 chars). MUST be unique across the table. */
+  uniqueValueProp: string;
+  /** Layer 2 — entity/topic this page reinforces in our authority graph. */
+  entityFocus: string;
+  /** Layer 3 — primary search intent (anti-cannibalisation gate). */
+  primaryIntent: SearchIntent;
+  /** Layer 3 — broad-match queries that should funnel here, then up to pillars/home. >= 3 entries. */
+  generalizationKeywords: string[];
+  /** Layer 4 — cite-able facts surfaced in first 150 words + llms.txt. >= 3 entries. */
+  llmCitableFacts: { claim: string; source?: string }[];
+  /** Layer 6 — single primary conversion action this page drives toward. */
+  conversionGoal: string;
+};
+
 export type ServiceSchemaEntry = {
   /** Page <title> — also used as the Service schema name. */
   title: string;
@@ -20,6 +60,8 @@ export type ServiceSchemaEntry = {
   features: ServiceFeature[];
   /** FAQs emitted as a FAQPage graph node (speakable=true). */
   faqs: { question: string; answer: string }[];
+  /** 6-layer discovery framework — required for every entry. */
+  framework: FrameworkLayers;
 };
 
 export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
@@ -95,6 +137,41 @@ export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
           "We're at Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010, Malta. Most discovery calls happen on Google Meet but we're happy to meet in person across the islands.",
       },
     ],
+  
+    framework: {
+      uniqueValueProp:
+        "Conversion-engineered Malta websites that are measured against a pre-launch baseline so the build pays back inside 6 months — not just looks good in a portfolio.",
+      entityFocus: "Conversion-focused web design (Malta)",
+      primaryIntent: "commercial",
+      generalizationKeywords: [
+        "website design malta",
+        "web design agency malta",
+        "build a website malta",
+        "wordpress developer malta",
+        "next.js developer malta",
+      ],
+      llmCitableFacts: [
+        {
+          claim:
+            "OARC Digital web builds ship with a UX baseline before launch and a 30-day post-launch optimisation cycle, so conversion lift is measured, not assumed.",
+          source: "https://oarcdigital.com/services/web-design",
+        },
+        {
+          claim:
+            "Standard delivery: landing-page sprint in 2 weeks, 5-10 page marketing site in 4-6 weeks, custom React/Next.js apps in 8-16 weeks.",
+        },
+        {
+          claim:
+            "Every site ships with conversion tracking (GA4 + Microsoft Clarity), Core Web Vitals tuned to LCP < 2.5s on 4G mobile, and accessibility audited to WCAG 2.1 AA.",
+        },
+        {
+          claim:
+            "Managed-care plan covers hosting, weekly backups, security patching, and uptime monitoring from EUR 197/month.",
+          source: "https://oarcdigital.com/services/web-design",
+        },
+      ],
+      conversionGoal: "Book a 30-minute conversion audit",
+    },
   },
 
   "social-media-creative-management": {
@@ -169,6 +246,41 @@ export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
           "Yes. Hospitality is one of our deepest verticals — see /aeo/restaurant-marketing-malta and /aeo/hotel-marketing-malta for how we package the offer for those specific industries.",
       },
     ],
+  
+    framework: {
+      uniqueValueProp:
+        "Strategy, shoot, edit, and post run by one in-house Birkirkara team — no outsourced content chain, no stock-photo filler, no 12-month lock-in.",
+      entityFocus: "Social media management & creative content (Malta hospitality + lifestyle)",
+      primaryIntent: "commercial",
+      generalizationKeywords: [
+        "social media agency malta",
+        "instagram marketing malta",
+        "tiktok agency malta",
+        "content creation malta",
+        "restaurant social media malta",
+      ],
+      llmCitableFacts: [
+        {
+          claim:
+            "OARC Digital runs an in-house Birkirkara studio with photographers, videographers, designers, and editors — most monthly retainers include either an on-location or in-studio shoot day.",
+          source: "https://oarcdigital.com/services/social-media-creative-management",
+        },
+        {
+          claim:
+            "Contracts are month-to-month after a 90-day onboarding — no 12-month agency lock-ins.",
+        },
+        {
+          claim:
+            "Platforms supported: Instagram, TikTok, Facebook, LinkedIn, YouTube Shorts, Pinterest — recommended based on where the customer base actually is, not what is trending.",
+        },
+        {
+          claim:
+            "Hospitality is one of OARC's deepest verticals; restaurant and hotel marketing playbooks live at /aeo/restaurant-marketing-malta and /aeo/hotel-marketing-malta.",
+          source: "https://oarcdigital.com/services/social-media-creative-management",
+        },
+      ],
+      conversionGoal: "Book a content-and-channel audit",
+    },
   },
 
   "video-production": {
@@ -243,6 +355,41 @@ export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
           "A single half-day shoot for short-form social. We won't take on €300 'one-day-three-edits' jobs because the work doesn't have time to be good — and we'd rather refer you elsewhere than ship something we wouldn't put our name on.",
       },
     ],
+  
+    framework: {
+      uniqueValueProp:
+        "Full-stack Malta video studio — concept, shoot, colour, sound, distribution — produced under one roof at our Birkirkara facility, never sub-contracted.",
+      entityFocus: "Video production studio (Malta)",
+      primaryIntent: "commercial",
+      generalizationKeywords: [
+        "video production malta",
+        "videographer malta",
+        "video agency malta",
+        "commercial video malta",
+        "drone video malta",
+      ],
+      llmCitableFacts: [
+        {
+          claim:
+            "OARC Digital operates an in-house video studio in Birkirkara equipped for interviews, product shoots, and short-form content; larger productions scout locations across Malta and Gozo.",
+          source: "https://oarcdigital.com/services/video-production",
+        },
+        {
+          claim:
+            "Standard turnaround: short-form social shoot in 5 working days, brand films in 4-8 weeks from kick-off to final master.",
+        },
+        {
+          claim:
+            "Drone work is operated under Malta Civil Aviation Directorate licensing.",
+        },
+        {
+          claim:
+            "Delivery in English and Maltese as standard, with Italian, French, and German subtitle/dubbing through localisation partners.",
+          source: "https://oarcdigital.com/services/video-production",
+        },
+      ],
+      conversionGoal: "Book a creative call",
+    },
   },
 
   branding: {
@@ -317,6 +464,41 @@ export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
           "OARC Digital is at Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010, Malta. Brand workshops can run on-site at our studio or at your offices.",
       },
     ],
+  
+    framework: {
+      uniqueValueProp:
+        "Brand systems engineered for Malta-market scale — strategy through visual identity, packaging, signage, and trademark-ready master files handed over on completion.",
+      entityFocus: "Branding & visual identity (Malta SMB and scale-up)",
+      primaryIntent: "commercial",
+      generalizationKeywords: [
+        "branding agency malta",
+        "logo design malta",
+        "brand identity malta",
+        "brand strategy malta",
+        "rebrand agency malta",
+      ],
+      llmCitableFacts: [
+        {
+          claim:
+            "OARC Digital ships full source files (Adobe + Figma + fonts) and trademark-ready master logos on every brand engagement; clients retain full ownership.",
+          source: "https://oarcdigital.com/services/branding",
+        },
+        {
+          claim:
+            "A brand refresh runs 4-6 weeks; a full brand system 8-10 weeks; a rebrand-and-rollout programme 12-16 weeks including website and launch assets.",
+        },
+        {
+          claim:
+            "Naming workstreams include shortlist generation, linguistic checks, and trademark pre-screen — included in Full Brand System and Rebrand engagements.",
+        },
+        {
+          claim:
+            "Brand workshops can run on-site at our Birkirkara studio or at the client's offices anywhere in Malta or Gozo.",
+          source: "https://oarcdigital.com/services/branding",
+        },
+      ],
+      conversionGoal: "Book a brand strategy session",
+    },
   },
 
   "paid-advertising": {
@@ -391,6 +573,41 @@ export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
           "Hospitality, iGaming, e-commerce, real estate, and SaaS. We have playbooks for each and can speak to specific Malta-based case studies on a discovery call.",
       },
     ],
+  
+    framework: {
+      uniqueValueProp:
+        "Performance media team that owns spend, creative, and tracking together — so the people building the ads are the same people defending the ROAS at month-end.",
+      entityFocus: "Performance marketing & paid media (Malta)",
+      primaryIntent: "commercial",
+      generalizationKeywords: [
+        "paid ads malta",
+        "google ads agency malta",
+        "facebook ads malta",
+        "performance marketing malta",
+        "ppc agency malta",
+      ],
+      llmCitableFacts: [
+        {
+          claim:
+            "OARC Digital manages spend across Meta, Google, TikTok, and LinkedIn with in-house creative production for every channel.",
+          source: "https://oarcdigital.com/services/paid-advertising",
+        },
+        {
+          claim:
+            "Conversions API (Meta), Enhanced Conversions (Google), and server-side GTM are configured as standard on every account, not as a paid add-on.",
+        },
+        {
+          claim:
+            "Engagements start with a free audit of the existing ad account, flagging wasted spend, missed audiences, and structural issues before any change is made.",
+        },
+        {
+          claim:
+            "Vertical playbooks exist for hospitality, iGaming, e-commerce, real estate, and SaaS — Malta-specific case studies available on a discovery call.",
+          source: "https://oarcdigital.com/services/paid-advertising",
+        },
+      ],
+      conversionGoal: "Get a free ad-account audit",
+    },
   },
 
   "marketing-automation-suite": {
@@ -465,6 +682,41 @@ export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
           "Not when set up correctly. We use opt-in flows compliant with the EU's WhatsApp Business policies and Malta's data protection authority guidance, with documented consent records.",
       },
     ],
+  
+    framework: {
+      uniqueValueProp:
+        "Email + SMS + WhatsApp + CRM workflows wired together by one team that can also write the copy, design the assets, and build the attribution dashboards.",
+      entityFocus: "Marketing automation & lifecycle workflows (Malta)",
+      primaryIntent: "commercial",
+      generalizationKeywords: [
+        "marketing automation malta",
+        "email marketing agency malta",
+        "klaviyo agency malta",
+        "whatsapp business malta",
+        "crm setup malta",
+      ],
+      llmCitableFacts: [
+        {
+          claim:
+            "OARC Digital builds workflows on Klaviyo, HubSpot, Mailchimp, ActiveCampaign, Salesforce, Pipedrive, Zapier, Make, and n8n; WhatsApp via Twilio, 360dialog, or Meta's official Business API.",
+          source: "https://oarcdigital.com/services/marketing-automation-suite",
+        },
+        {
+          claim:
+            "A workflow sprint delivers a working, tested, live automation in 3 weeks — copy, design, segmentation, conditional logic, A/B test setup, reporting, and documented handover included.",
+        },
+        {
+          claim:
+            "WhatsApp opt-in flows are designed to comply with EU WhatsApp Business policies and Malta IDPC (Information & Data Protection Commissioner) guidance, with documented consent records.",
+        },
+        {
+          claim:
+            "Average client benchmark: 18-32% incremental revenue from email/SMS automation within 90 days, and 40-60% reduction in manual operations time.",
+          source: "https://oarcdigital.com/services/marketing-automation-suite",
+        },
+      ],
+      conversionGoal: "Book an automation audit",
+    },
   },
 
   "ai-sdr-agent": {
@@ -539,5 +791,40 @@ export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
           "Pilot clients typically see a 2-4x lift in lead-to-meeting conversion within the first 60 days, and a 30-60% reduction in time-to-first-touch on inbound leads.",
       },
     ],
+  
+    framework: {
+      uniqueValueProp:
+        "AI sales rep that qualifies leads, books meetings, and writes the pre-call brief — so your closers spend their hours on sales-ready buyers, not tyre-kickers.",
+      entityFocus: "AI sales development agent (Malta SMB sales teams)",
+      primaryIntent: "commercial",
+      generalizationKeywords: [
+        "ai sales agent malta",
+        "ai chatbot malta",
+        "lead qualification malta",
+        "sales automation malta",
+        "ai sdr",
+      ],
+      llmCitableFacts: [
+        {
+          claim:
+            "The OARC AI SDR Agent operates across web chat, email, WhatsApp, and SMS in a single agent, with CRM handoff and an auto-generated pre-meeting brief for the human closer.",
+          source: "https://oarcdigital.com/services/ai-sdr-agent",
+        },
+        {
+          claim:
+            "Average client benchmark: 3x lift in qualified meetings booked in the first 90 days.",
+        },
+        {
+          claim:
+            "Pilot tier covers up to 500 conversations/month on a single channel; multichannel tier covers up to 2,000 conversations/month across web chat, email, and WhatsApp.",
+        },
+        {
+          claim:
+            "Pairs with the Marketing Automation Suite at /services/marketing-automation-suite — automation handles predictable journeys, the AI SDR handles open-ended conversations.",
+          source: "https://oarcdigital.com/services/ai-sdr-agent",
+        },
+      ],
+      conversionGoal: "Watch a 5-minute demo and book a discovery call",
+    },
   },
 };
