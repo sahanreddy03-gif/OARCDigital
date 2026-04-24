@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import Link from 'next/link';
 import { ArrowRight, Gauge, MousePointer2, TrendingUp, Timer, Users, Zap, ArrowUpRight, BarChart3, Target, Eye, ShoppingCart } from "lucide-react";
 import Layout from "@/components/layout/Layout";
-import { createServiceSchema } from "@/utils/structuredData";
 import ScrollReveal from "@/components/ScrollReveal";
 import FAQSection, { FAQItem } from "@/components/FAQSection";
 import RelatedLinks from "@/components/RelatedLinks";
