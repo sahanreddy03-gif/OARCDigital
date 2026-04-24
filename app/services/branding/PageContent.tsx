@@ -7,6 +7,7 @@ import Layout from '@/components/layout/Layout';
 import { createServiceSchema } from "@/utils/structuredData";
 import ScrollReveal from "@/components/ScrollReveal";
 import FAQSection, { FAQItem } from "@/components/FAQSection";
+import RelatedLinks from "@/components/RelatedLinks";
 
 import brandImg1 from "@assets/stock_images/branding_design_logo_562a38a3.jpg";
 import brandImg2 from "@assets/stock_images/branding_design_logo_ccf3aba4.jpg";
@@ -344,6 +345,9 @@ export default function Branding() {
       </section>
 
       <FAQSection faqs={brandingFAQs} title="Frequently Asked Questions" subtitle="Everything you need to know about our branding services" schemaId="faq-branding" />
+
+      <RelatedLinks slug="/services/branding" />
+
 
       {/* FINAL CTA */}
       <section className="py-20 px-4 bg-zinc-950 text-white">

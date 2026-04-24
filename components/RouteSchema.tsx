@@ -5,7 +5,6 @@
 //
 // Includes BreadcrumbList automatically derived from `path`.
 
-import Script from "next/script";
 import {
   buildArticle,
   buildBreadcrumb,
@@ -136,11 +135,14 @@ export default function RouteSchema(props: RouteSchemaProps) {
   const id =
     props.scriptId ?? `route-schema-${props.path.replace(/[^a-z0-9]+/gi, "-")}`;
 
+  // Plain inline <script> renders deterministically in SSR HTML. next/script
+  // with strategy="beforeInteractive" is silently dropped outside app/layout
+  // (Next.js docs), which previously prevented Service / BreadcrumbList nodes
+  // from reaching the rendered page on every /services/<slug> route.
   return (
-    <Script
+    <script
       id={id}
       type="application/ld+json"
-      strategy="beforeInteractive"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(graph) }}
     />
   );

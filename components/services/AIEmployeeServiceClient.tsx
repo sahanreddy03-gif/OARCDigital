@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { ArrowRight, Sparkles, MessageSquare, Brain, Zap, Shield, Users, TrendingUp, Clock, BarChart3, Mail, Calendar, Headphones, Bot, Database, Globe, CheckCircle2, Rocket, Crown, Building2, Briefcase, Lightbulb, Search, Heart, Landmark, Settings, Megaphone, ShoppingCart, Code, Calculator, Target, UserCheck, Construction } from 'lucide-react';
 import Layout from '@/components/layout/Layout';
 import FAQSection, { FAQItem } from '@/components/FAQSection';
+import RelatedLinks from '@/components/RelatedLinks';
 import ScrollReveal from '@/components/ScrollReveal';
 import { motion } from 'framer-motion';
 import * as Icons from 'lucide-react';
@@ -784,6 +785,9 @@ export default function AIEmployeeService({ slug }: { slug: string }) {
         schemaId="faq-ai-employee-service"
         darkMode={true}
       />
+
+      <RelatedLinks slug={`/services/${slug}`} />
+
 
       {/* CTA with Premium Treatment */}
       <section className="py-40 px-6 bg-zinc-950 border-t border-white/10 relative overflow-hidden">

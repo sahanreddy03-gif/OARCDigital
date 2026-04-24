@@ -10,6 +10,7 @@ import * as Icons from 'lucide-react';
 import Layout from '@/components/layout/Layout';
 import ScrollReveal from '@/components/ScrollReveal';
 import FAQSection, { FAQItem } from '@/components/FAQSection';
+import RelatedLinks from '@/components/RelatedLinks';
 import { motion } from 'framer-motion';
 import { AnimatedGridBackground } from '@/components/ui/animated-grid-background';
 import { GlassCard } from '@/components/ui/glass-card';
@@ -571,6 +572,9 @@ return (
         schemaId="faq-revenue-service" 
         darkMode={true}
       />
+
+      <RelatedLinks slug={`/services/${slug}`} />
+
 
       {/* CTA with Premium Treatment */}
       <section className="py-32 px-6 bg-black border-t border-white/5 relative overflow-hidden">

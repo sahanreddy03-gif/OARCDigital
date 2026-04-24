@@ -9,6 +9,7 @@ import Layout from "@/components/layout/Layout";
 import { revenueServicesSEO } from "@/data/seoMetadata";
 import { createServiceSchema } from "@/utils/structuredData";
 import FAQSection, { type FAQItem } from "@/components/FAQSection";
+import RelatedLinks from "@/components/RelatedLinks";
 import heroImage from '@assets/paid advertising_1763088406833.avif';
 
 const paidAdsFAQs: FAQItem[] = [
@@ -420,6 +421,9 @@ export default function PaidAdvertising() {
           </div>
         </div>
       </section>
+
+      <RelatedLinks slug="/services/paid-advertising" />
+
 
       {/* CTA */}
       <section className="py-20 px-4 relative overflow-hidden bg-[#23AACA]">
