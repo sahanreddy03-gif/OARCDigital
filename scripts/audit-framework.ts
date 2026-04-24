@@ -80,8 +80,9 @@ function extractMetaDescription(html: string): string | null {
   return null;
 }
 
-function jsonldHasServiceWithDescription(html: string, expected: string): boolean {
+function collectJsonldNodes(html: string): unknown[] {
   const re = /<script[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi;
+  const all: unknown[] = [];
   let match: RegExpExecArray | null;
   while ((match = re.exec(html)) !== null) {
     const raw = match[1].trim();
@@ -92,24 +93,35 @@ function jsonldHasServiceWithDescription(html: string, expected: string): boolea
     } catch {
       continue;
     }
-    const nodes: unknown[] = [];
     const walk = (v: unknown) => {
       if (Array.isArray(v)) v.forEach(walk);
       else if (v && typeof v === "object") {
-        nodes.push(v);
+        all.push(v);
         const graph = (v as { "@graph"?: unknown })["@graph"];
         if (graph) walk(graph);
       }
     };
     walk(data);
-    for (const node of nodes) {
-      const n = node as { "@type"?: unknown; description?: unknown };
-      const types = Array.isArray(n["@type"]) ? n["@type"] : n["@type"] ? [n["@type"]] : [];
-      const isService = types.some((t) => typeof t === "string" && t === "Service");
-      if (isService && typeof n.description === "string" && n.description === expected) return true;
-    }
+  }
+  return all;
+}
+
+function nodeHasType(node: unknown, type: string): boolean {
+  const n = node as { "@type"?: unknown };
+  const types = Array.isArray(n["@type"]) ? n["@type"] : n["@type"] ? [n["@type"]] : [];
+  return types.some((t) => typeof t === "string" && t === type);
+}
+
+function jsonldHasServiceWithDescription(html: string, expected: string): boolean {
+  for (const node of collectJsonldNodes(html)) {
+    const n = node as { description?: unknown };
+    if (nodeHasType(node, "Service") && typeof n.description === "string" && n.description === expected) return true;
   }
   return false;
+}
+
+function countJsonldNodesByType(html: string, type: string): number {
+  return collectJsonldNodes(html).filter((n) => nodeHasType(n, type)).length;
 }
 
 // Build the expected AUTOGEN section content in-memory for exact-block parity.
@@ -252,6 +264,19 @@ async function audit() {
             layer: 1,
             message: `no Service JSON-LD node on ${url} has description === SCHEMA.description`,
           });
+        }
+        // Defensive gate: a RouteSchema-backed page must emit exactly one
+        // FAQPage node. >1 means a stray FAQ schema (e.g. a child component
+        // re-emitting one) and is a structured-data regression Google flags.
+        if (entry.faqs && entry.faqs.length > 0) {
+          const faqCount = countJsonldNodesByType(html, "FAQPage");
+          if (faqCount !== 1) {
+            issues.push({
+              slug,
+              layer: 1,
+              message: `expected exactly 1 FAQPage JSON-LD node on ${url}, got ${faqCount}`,
+            });
+          }
         }
       }
     }
