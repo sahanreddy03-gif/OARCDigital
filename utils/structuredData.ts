@@ -17,8 +17,8 @@ export const localBusinessSchema = {
   },
   "geo": {
     "@type": "GeoCoordinates",
-    "latitude": "35.8952",
-    "longitude": "14.4603"
+    "latitude": "35.8978",
+    "longitude": "14.4617"
   },
   "openingHoursSpecification": [
     {
@@ -106,14 +106,15 @@ export const organizationSchema = {
   ],
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "Seaside Spirit, Triq ix-Xatt, Ta' Xbiex",
-    "addressLocality": "Ta' Xbiex",
-    "postalCode": "XBX 1020",
+    "streetAddress": "Level 1, The Brewhouse, Zone 2, Central Business District, Mdina Road",
+    "addressLocality": "Birkirkara",
+    "addressRegion": "Birkirkara",
+    "postalCode": "CBD 2010",
     "addressCountry": "MT"
   },
   "contactPoint": {
     "@type": "ContactPoint",
-    "telephone": "+356 99263179",
+    "telephone": "+35679711799",
     "contactType": "Customer Service",
     "email": "hello@oarcdigital.com",
     "areaServed": "Worldwide",

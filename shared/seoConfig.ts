@@ -98,9 +98,13 @@ export const allServiceSlugs = [
   'growth-strategy',
   'performance-analytics',
   // Development Services
+  // NOTE: web-apps-development is the canonical slug; web-application-development
+  // is permanently 308-aliased in lib/seo/seoSets.ts (SERVICE_ALIASES) so the
+  // sitemap, internal-link graph, and any consumer of allServiceSlugs only
+  // ever advertise the canonical URL.
   'mobile-apps-development',
   'custom-software-development',
-  'web-application-development',
+  'web-apps-development',
   'api-integration-services',
   'mvp-development',
   // AI Employees Hub

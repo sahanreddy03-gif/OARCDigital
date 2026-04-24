@@ -11,13 +11,44 @@
  *
  * Exits non-zero if any row fails so it can be wired into CI later.
  */
+import * as fs from "node:fs";
+import * as path from "node:path";
 import {
   ARCHIVED_LOCATION_REDIRECTS,
   INDUSTRY_REDIRECTS,
   ARCHIVED_SERVICE_REDIRECTS,
 } from "../lib/seo/redirectMap";
+import { SERVICE_ALIASES } from "../lib/seo/seoSets";
 
 const BASE = process.env.BASE ?? "http://localhost:5000";
+
+// Build-time check that previously lived in `lib/seo/redirectMap.ts` — moved
+// here because middleware (which imports redirectMap) compiles to the Edge
+// Runtime and Edge forbids `node:fs`. Every service-alias destination must
+// exist as a real `app/services/<slug>/` directory.
+function verifyServiceDirsExistOrExit(): void {
+  const targets = new Set<string>([
+    ...Object.values(ARCHIVED_SERVICE_REDIRECTS),
+    ...Object.values(SERVICE_ALIASES).map((p) => p.replace(/^\/services\//, "")),
+  ]);
+  const missing: string[] = [];
+  for (const slug of targets) {
+    const dir = path.join(process.cwd(), "app", "services", slug);
+    try {
+      if (!fs.statSync(dir).isDirectory()) missing.push(slug);
+    } catch {
+      missing.push(slug);
+    }
+  }
+  if (missing.length) {
+    // eslint-disable-next-line no-console
+    console.error(
+      "[verify-redirects] Missing app/services/<slug>/ directories for redirect targets:\n  " +
+        missing.join("\n  "),
+    );
+    process.exit(2);
+  }
+}
 
 type Row = {
   from: string;
@@ -57,6 +88,8 @@ async function checkOne(from: string, expectedPath: string): Promise<Row> {
 }
 
 async function main() {
+  verifyServiceDirsExistOrExit();
+
   const rows: Row[] = [];
 
   for (const [from, to] of Object.entries(ARCHIVED_LOCATION_REDIRECTS)) {
@@ -75,6 +108,12 @@ async function main() {
 
   for (const [from, to] of Object.entries(ARCHIVED_SERVICE_REDIRECTS)) {
     rows.push(await checkOne(`/services/${from}`, `/services/${to}`));
+  }
+
+  // Duplicate-slug consolidation: every key in SERVICE_ALIASES must 308 to
+  // its canonical counterpart so we never advertise two URLs for one offering.
+  for (const [from, to] of Object.entries(SERVICE_ALIASES)) {
+    rows.push(await checkOne(from, to));
   }
 
   const failed = rows.filter((r) => !r.ok);
