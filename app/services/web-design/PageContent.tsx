@@ -316,7 +316,8 @@ export default function WebDesign() {
         faqs={webDesignFAQs} 
         title="Frequently Asked Questions" 
         subtitle="Everything you need to know about our web design services" 
-        schemaId="faq-web-design" 
+        schemaId="faq-web-design"
+        emitJsonLd={false} 
       />
 
       {/* Further Reading */}

@@ -399,7 +399,8 @@ export default function PaidAdvertising() {
         faqs={paidAdsFAQs} 
         title="Frequently Asked Questions" 
         subtitle="Everything you need to know about paid advertising" 
-        schemaId="faq-paid-advertising" 
+        schemaId="faq-paid-advertising"
+        emitJsonLd={false} 
       />
 
       {/* Further Reading */}

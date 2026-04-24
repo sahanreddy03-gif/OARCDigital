@@ -1365,6 +1365,7 @@ export default function SocialMediaCreativeManagement() {
         subtitle="Common questions about our comprehensive social media services"
         schemaId="faq-social-creative-management"
         darkMode={true}
+        emitJsonLd={false}
       />
 
       <RelatedLinks slug="/services/social-media-creative-management" />

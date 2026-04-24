@@ -344,7 +344,8 @@ export default function Branding() {
         </div>
       </section>
 
-      <FAQSection faqs={brandingFAQs} title="Frequently Asked Questions" subtitle="Everything you need to know about our branding services" schemaId="faq-branding" />
+      <FAQSection faqs={brandingFAQs} title="Frequently Asked Questions" subtitle="Everything you need to know about our branding services" schemaId="faq-branding"
+        emitJsonLd={false} />
 
       <RelatedLinks slug="/services/branding" />
 
