@@ -1,23 +1,42 @@
 import type { Metadata } from "next";
 import PageContent from "@/components/services/AIEmployeeServiceClient";
+import RouteSchema from "@/components/RouteSchema";
+import { SERVICE_SCHEMAS } from "@/lib/seo/serviceSchemaConfig";
+
+const SLUG = "ai-sdr-agent";
+const SCHEMA = SERVICE_SCHEMAS[SLUG];
+const URL = `https://oarcdigital.com/services/${SLUG}`;
 
 export const metadata: Metadata = {
-  title: "Sales Development Rep Agent | AI-Powered Lead Qualification | OARC Digital",
-  description: "Precision lead qualification with 3x conversion lift. Our AI SDR Agent qualifies prospects, books meetings, and nurtures leads—so your sales team only talks to buyers ready to convert.",
-  alternates: { canonical: "https://oarcdigital.com/services/ai-sdr-agent" },
+  title: SCHEMA.title,
+  description: SCHEMA.description,
+  alternates: { canonical: URL },
   openGraph: {
-    title: "Sales Development Rep Agent | AI-Powered Lead Qualification | OARC Digital",
-    description: "Precision lead qualification with 3x conversion lift. Our AI SDR Agent qualifies prospects, books meetings, and nurtures leads—so your sales team only talks to buyers ready to convert.",
-    url: "https://oarcdigital.com/services/ai-sdr-agent",
+    title: SCHEMA.title,
+    description: SCHEMA.description,
+    url: URL,
     type: "article",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Sales Development Rep Agent | AI-Powered Lead Qualification | OARC Digital",
-    description: "Precision lead qualification with 3x conversion lift. Our AI SDR Agent qualifies prospects, books meetings, and nurtures leads—so your sales team only talks to buyers ready to convert.",
+    title: SCHEMA.title,
+    description: SCHEMA.description,
   },
 };
 
 export default function Page() {
-  return <PageContent slug="ai-sdr-agent" />;
+  return (
+    <>
+      <RouteSchema
+        type="service"
+        path={`/services/${SLUG}`}
+        title={SCHEMA.title}
+        description={SCHEMA.description}
+        features={SCHEMA.features}
+        offers={SCHEMA.offers}
+        faqs={SCHEMA.faqs}
+      />
+      <PageContent slug={SLUG} />
+    </>
+  );
 }

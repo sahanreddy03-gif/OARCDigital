@@ -1,23 +1,42 @@
 import type { Metadata } from "next";
 import PageContent from "@/components/services/RevenueServiceClient";
+import RouteSchema from "@/components/RouteSchema";
+import { SERVICE_SCHEMAS } from "@/lib/seo/serviceSchemaConfig";
+
+const SLUG = "marketing-automation-suite";
+const SCHEMA = SERVICE_SCHEMAS[SLUG];
+const URL = `https://oarcdigital.com/services/${SLUG}`;
 
 export const metadata: Metadata = {
-  title: "Marketing Automation Suite | Campaign Orchestration | OARC Digital",
-  description: "Kill manual marketing tasks forever. Automate email sequences, social campaigns, and customer journeys with workflows that scale without extra headcount.",
-  alternates: { canonical: "https://oarcdigital.com/services/marketing-automation-suite" },
+  title: SCHEMA.title,
+  description: SCHEMA.description,
+  alternates: { canonical: URL },
   openGraph: {
-    title: "Marketing Automation Suite | Campaign Orchestration | OARC Digital",
-    description: "Kill manual marketing tasks forever. Automate email sequences, social campaigns, and customer journeys with workflows that scale without extra headcount.",
-    url: "https://oarcdigital.com/services/marketing-automation-suite",
+    title: SCHEMA.title,
+    description: SCHEMA.description,
+    url: URL,
     type: "article",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Marketing Automation Suite | Campaign Orchestration | OARC Digital",
-    description: "Kill manual marketing tasks forever. Automate email sequences, social campaigns, and customer journeys with workflows that scale without extra headcount.",
+    title: SCHEMA.title,
+    description: SCHEMA.description,
   },
 };
 
 export default function Page() {
-  return <PageContent slug="marketing-automation-suite" />;
+  return (
+    <>
+      <RouteSchema
+        type="service"
+        path={`/services/${SLUG}`}
+        title={SCHEMA.title}
+        description={SCHEMA.description}
+        features={SCHEMA.features}
+        offers={SCHEMA.offers}
+        faqs={SCHEMA.faqs}
+      />
+      <PageContent slug={SLUG} />
+    </>
+  );
 }

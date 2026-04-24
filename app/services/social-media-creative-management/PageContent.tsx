@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/layout/Layout";
 import FAQSection, { FAQItem } from "@/components/FAQSection";
+import RelatedLinks from "@/components/RelatedLinks";
 import { creativeServicesSEO } from "@/data/seoMetadata";
 import { createServiceSchema } from "@/utils/structuredData";
 import { useEffect, useState, useRef, useCallback } from "react";
@@ -1365,6 +1366,9 @@ export default function SocialMediaCreativeManagement() {
         schemaId="faq-social-creative-management"
         darkMode={true}
       />
+
+      <RelatedLinks slug="/services/social-media-creative-management" />
+
 
       {/* Final CTA - Vibrant Gradient */}
       <section className="py-24 px-6 bg-gradient-to-br from-[#7B2FF7] via-[#FF6B9D] to-[#FF6B53] relative overflow-hidden">

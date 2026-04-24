@@ -7,6 +7,7 @@ import Layout from "@/components/layout/Layout";
 import { createServiceSchema } from "@/utils/structuredData";
 import ScrollReveal from "@/components/ScrollReveal";
 import FAQSection, { FAQItem } from "@/components/FAQSection";
+import RelatedLinks from "@/components/RelatedLinks";
 
 import heroImage from '@assets/website-design-optimized.jpg';
 import webImg1 from "@assets/stock_images/modern_web_design_ux_d23df466.jpg";
@@ -337,6 +338,9 @@ export default function WebDesign() {
           </div>
         </div>
       </section>
+
+      <RelatedLinks slug="/services/web-design" />
+
 
       {/* FINAL CTA */}
       <section className="py-20 px-4 bg-zinc-950 text-white">

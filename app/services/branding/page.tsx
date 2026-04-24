@@ -1,23 +1,42 @@
 import type { Metadata } from "next";
 import PageContent from "./PageContent";
+import RouteSchema from "@/components/RouteSchema";
+import { SERVICE_SCHEMAS } from "@/lib/seo/serviceSchemaConfig";
+
+const SLUG = "branding";
+const SCHEMA = SERVICE_SCHEMAS[SLUG];
+const URL = `https://oarcdigital.com/services/${SLUG}`;
 
 export const metadata: Metadata = {
-  title: "Branding & Identity Design | OARC Digital",
-  description: "Build brands that resonate. From strategy to visual identity, we create complete brand systems that stand out and scale with your business.",
-  alternates: { canonical: "https://oarcdigital.com/services/branding" },
+  title: SCHEMA.title,
+  description: SCHEMA.description,
+  alternates: { canonical: URL },
   openGraph: {
-    title: "Branding & Identity Design | OARC Digital",
-    description: "Build brands that resonate. From strategy to visual identity, we create complete brand systems that stand out and scale with your business.",
-    url: "https://oarcdigital.com/services/branding",
+    title: SCHEMA.title,
+    description: SCHEMA.description,
+    url: URL,
     type: "article",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Branding & Identity Design | OARC Digital",
-    description: "Build brands that resonate. From strategy to visual identity, we create complete brand systems that stand out and scale with your business.",
+    title: SCHEMA.title,
+    description: SCHEMA.description,
   },
 };
 
 export default function Page() {
-  return <PageContent />;
+  return (
+    <>
+      <RouteSchema
+        type="service"
+        path={`/services/${SLUG}`}
+        title={SCHEMA.title}
+        description={SCHEMA.description}
+        features={SCHEMA.features}
+        offers={SCHEMA.offers}
+        faqs={SCHEMA.faqs}
+      />
+      <PageContent />
+    </>
+  );
 }

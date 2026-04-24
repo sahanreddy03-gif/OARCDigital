@@ -1,23 +1,42 @@
 import type { Metadata } from "next";
 import PageContent from "./PageContent";
+import RouteSchema from "@/components/RouteSchema";
+import { SERVICE_SCHEMAS } from "@/lib/seo/serviceSchemaConfig";
+
+const SLUG = "paid-advertising";
+const SCHEMA = SERVICE_SCHEMAS[SLUG];
+const URL = `https://oarcdigital.com/services/${SLUG}`;
 
 export const metadata: Metadata = {
-  title: "Paid Advertising | Performance Marketing | OARC Digital",
-  description: "Elite paid advertising management from OARC Digital. Drive ROI with data-driven campaigns across Google, Meta, LinkedIn, and programmatic platforms.",
-  alternates: { canonical: "https://oarcdigital.com/services/paid-advertising" },
+  title: SCHEMA.title,
+  description: SCHEMA.description,
+  alternates: { canonical: URL },
   openGraph: {
-    title: "Paid Advertising | Performance Marketing | OARC Digital",
-    description: "Elite paid advertising management from OARC Digital. Drive ROI with data-driven campaigns across Google, Meta, LinkedIn, and programmatic platforms.",
-    url: "https://oarcdigital.com/services/paid-advertising",
+    title: SCHEMA.title,
+    description: SCHEMA.description,
+    url: URL,
     type: "article",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Paid Advertising | Performance Marketing | OARC Digital",
-    description: "Elite paid advertising management from OARC Digital. Drive ROI with data-driven campaigns across Google, Meta, LinkedIn, and programmatic platforms.",
+    title: SCHEMA.title,
+    description: SCHEMA.description,
   },
 };
 
 export default function Page() {
-  return <PageContent />;
+  return (
+    <>
+      <RouteSchema
+        type="service"
+        path={`/services/${SLUG}`}
+        title={SCHEMA.title}
+        description={SCHEMA.description}
+        features={SCHEMA.features}
+        offers={SCHEMA.offers}
+        faqs={SCHEMA.faqs}
+      />
+      <PageContent />
+    </>
+  );
 }

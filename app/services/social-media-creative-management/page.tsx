@@ -1,23 +1,42 @@
 import type { Metadata } from "next";
 import PageContent from "./PageContent";
+import RouteSchema from "@/components/RouteSchema";
+import { SERVICE_SCHEMAS } from "@/lib/seo/serviceSchemaConfig";
+
+const SLUG = "social-media-creative-management";
+const SCHEMA = SERVICE_SCHEMAS[SLUG];
+const URL = `https://oarcdigital.com/services/${SLUG}`;
 
 export const metadata: Metadata = {
-  title: "Social Media Management Malta | Creative Content Agency | OARC Digital",
-  description: "Social media management and creative content production for Malta businesses. OARC Digital manages Instagram, TikTok, and Facebook with strategy-first content that builds brands and drives customers.",
-  alternates: { canonical: "https://oarcdigital.com/services/social-media-creative-management" },
+  title: SCHEMA.title,
+  description: SCHEMA.description,
+  alternates: { canonical: URL },
   openGraph: {
-    title: "Social Media Management Malta | Creative Content Agency | OARC Digital",
-    description: "Social media management and creative content production for Malta businesses. OARC Digital manages Instagram, TikTok, and Facebook with strategy-first content that builds brands and drives customers.",
-    url: "https://oarcdigital.com/services/social-media-creative-management",
+    title: SCHEMA.title,
+    description: SCHEMA.description,
+    url: URL,
     type: "article",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Social Media Management Malta | Creative Content Agency | OARC Digital",
-    description: "Social media management and creative content production for Malta businesses. OARC Digital manages Instagram, TikTok, and Facebook with strategy-first content that builds brands and drives customers.",
+    title: SCHEMA.title,
+    description: SCHEMA.description,
   },
 };
 
 export default function Page() {
-  return <PageContent />;
+  return (
+    <>
+      <RouteSchema
+        type="service"
+        path={`/services/${SLUG}`}
+        title={SCHEMA.title}
+        description={SCHEMA.description}
+        features={SCHEMA.features}
+        offers={SCHEMA.offers}
+        faqs={SCHEMA.faqs}
+      />
+      <PageContent />
+    </>
+  );
 }

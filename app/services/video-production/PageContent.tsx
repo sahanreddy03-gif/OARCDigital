@@ -7,6 +7,7 @@ import Layout from "@/components/layout/Layout";
 import { createServiceSchema } from "@/utils/structuredData";
 import ScrollReveal from "@/components/ScrollReveal";
 import FAQSection, { FAQItem } from "@/components/FAQSection";
+import RelatedLinks from "@/components/RelatedLinks";
 
 import showreelVideo from "@assets/55555_1764634237326.mp4";
 import videoImg1 from "@assets/stock_images/professional_video_p_57625a3b.jpg";
@@ -323,6 +324,9 @@ export default function VideoProduction() {
       </ScrollReveal>
 
       <FAQSection faqs={videoProductionFAQs} title="Frequently Asked Questions" subtitle="Everything you need to know about our video production services" schemaId="faq-video-production" />
+
+      <RelatedLinks slug="/services/video-production" />
+
 
       {/* FINAL CTA */}
       {/* Further Reading */}
