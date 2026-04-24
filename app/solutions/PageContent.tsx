@@ -224,10 +224,10 @@ export default function PageContent() {
 <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Service",
-          "name": "Business Automation Services Malta",
+          "name": "AI Solutions for Malta Businesses",
           "provider": {"@type": "Organization", "name": "OARC Digital", "url": "https://oarcdigital.com"},
-          "description": "Complete business automation for Malta businesses. Workflow automation, CRM integration, API connections, lead generation funnels, email marketing sequences, and custom software development.",
-          "serviceType": "Business Automation",
+          "description": "End-to-end AI solutions for Malta businesses: AI employees, business automation, creative production, and revenue growth systems delivered by OARC Digital.",
+          "serviceType": "AI Business Solutions",
           "areaServed": [{"@type": "Country", "name": "Malta"}, {"@type": "Place", "name": "Europe"}],
           "hasOfferCatalog": {
             "@type": "OfferCatalog",
@@ -244,13 +244,13 @@ export default function PageContent() {
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "LocalBusiness",
-          "name": "OARC Digital - Business Automation",
-          "description": "Malta's premier business automation partner. Workflow automation, CRM, and custom software development.",
-          "url": "https://oarcdigital.com/automation",
-          "telephone": "+356 99263179",
+          "name": "OARC Digital - AI Solutions",
+          "description": "Malta's premier AI solutions partner. AI employees, business automation, creative production, and revenue growth.",
+          "url": "https://oarcdigital.com/solutions",
+          "telephone": "+35679711799",
           "email": "hello@oarcdigital.com",
-          "address": {"@type": "PostalAddress", "streetAddress": "Seaside Spirit, Triq ix-Xatt, Ta' Xbiex", "addressLocality": "Ta' Xbiex", "postalCode": "XBX 1020", "addressCountry": "MT"},
-          "geo": {"@type": "GeoCoordinates", "latitude": "35.9047", "longitude": "14.4931"},
+          "address": {"@type": "PostalAddress", "streetAddress": "Level 1, The Brewhouse, Zone 2, Central Business District, Mdina Road", "addressLocality": "Birkirkara", "addressRegion": "Birkirkara", "postalCode": "CBD 2010", "addressCountry": "MT"},
+          "geo": {"@type": "GeoCoordinates", "latitude": "35.8978", "longitude": "14.4617"},
           "areaServed": [{"@type": "Country", "name": "Malta"}],
           "priceRange": "€€€"
         })}</script>
@@ -259,7 +259,7 @@ export default function PageContent() {
           "@type": "BreadcrumbList",
           "itemListElement": [
             {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://oarcdigital.com/"},
-            {"@type": "ListItem", "position": 2, "name": "Business Automation", "item": "https://oarcdigital.com/automation"}
+            {"@type": "ListItem", "position": 2, "name": "Solutions", "item": "https://oarcdigital.com/solutions"}
           ]
         })}</script>
 </>

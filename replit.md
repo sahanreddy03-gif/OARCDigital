@@ -1,123 +1,40 @@
 # OARC Digital - Marketing Agency Platform
 
 ### Overview
-OARC Digital (Optimised AI Revenue Creativity) is a marketing agency platform focused on delivering AI-powered creative services, AI employees, and revenue automation solutions to a premium market. The platform aims to provide high-end, AI-driven marketing solutions, emphasizing a sophisticated aesthetic, advanced animations, and a multi-page architecture to support its 25 distinct service offerings and 6 supporting pages.
+OARC Digital (Optimised AI Revenue Creativity) is a marketing agency platform delivering AI-powered creative services, AI employees, and revenue automation solutions to a premium market. The platform aims to provide high-end, AI-driven marketing solutions with a sophisticated aesthetic, advanced animations, and a multi-page architecture supporting 25 distinct service offerings and 6 supporting pages. Its core ambition is to be a leader in AI-powered marketing, offering unparalleled creative and automation capabilities to drive significant revenue growth for its clients.
 
 ### User Preferences
 Preferred communication style: Simple, everyday language.
 
 ### System Architecture
-The platform utilizes a modern web stack with a React frontend and an Express.js backend.
+The platform utilizes a modern web stack with a React frontend and an Express.js backend, designed for scalability and high performance.
 
 **Frontend:**
 -   **Framework & Language:** React 18+ with TypeScript, powered by Vite.
--   **UI/Styling:** Shadcn/ui (New York style) based on Radix UI, Tailwind CSS with a custom HSL-based color palette. Typography uses Montserrat (headings), Nunito Sans (body), and EB Garamond (logo). Extensive CSS animations, including Framer Motion for scroll effects, and `ScrollReveal` with Intersection Observer for fade-in animations.
--   **Logo Typography:** "OARC Digital" uses EB Garamond serif font with "O" in orange (#ff914d) and slightly larger than other letters, "arc", "D", and "igital" all bold white. Consistent styling across navigation and footer via `.font-logo` CSS utility class.
+-   **UI/Styling:** Shadcn/ui (New York style) based on Radix UI, Tailwind CSS with a custom HSL-based color palette. Typography uses Montserrat, Nunito Sans, and EB Garamond. Extensive CSS animations include Framer Motion for scroll effects and `ScrollReveal` for fade-in animations.
 -   **State Management & Routing:** Wouter for client-side routing, TanStack Query for server state management, and React Hook Form with Zod for form validation.
 -   **Design System:** Features a two-palette color system (primary green, orange-600 accents, with teal/turquoise and blue/purple brand colors), responsive typography, and performance-optimized CSS animations.
--   **Key Features:** Comprehensive homepage, 25 specialized service pages (creative, growth, AI services), consistent component standards, SPA-safe Open Graph tags, and mobile-first responsive design.
--   **Navigation:** Includes a master services page (`/services`) with an accordion layout, a desktop hover mega menu, and footer service categories.
--   **UI/UX Decisions:** Premium agency-grade aesthetic with fluid typography, large icons with hover animations, redesigned carousels, infinite logo marquees, campaign galleries, parallax scrolling, and light sweep animations.
--   **Mobile Animations:** Three distinct ultra-premium mobile animations for different service categories, using modulo-based wrapping with RAF for 60fps GPU acceleration.
--   **Case Studies:** Centralized metadata system for brand, category, metrics, and routing, with six featured case studies and individual pages.
--   **Our Work Page - Premium Portfolio (Dec 2025):** Redesigned with professional yet creative aesthetic featuring:
-    - Full-width bokeh background hero with dark overlays for text readability
-    - Orange (#ff914d) brand accents throughout: "Excellence" headline accent, filter tabs, CTA buttons
-    - Clean filter tabs with orange active states (All Work, Creative & Marketing, AI & Automation, Featured)
-    - Premium case study cards with subtle hover effects (scale, shadow) - no glow effects
-    - AI category badges with orange tint, creative with neutral styling
-    - Streamlined design: removed stats sections for cleaner visual flow
-    - Professional CTA with orange "Extraordinary" accent text
--   **PDF Marketing Collateral:** Professional, print-ready HTML-based PDF documents for client proposals with a premium design aesthetic.
--   **AI Employee & Revenue Service Pages:** Feature an "Elevated Monochrome Futurism" design with custom grayscale hero images, animated grid backgrounds, glassmorphism effects, integration hub visualizations, and workflow diagrams.
--   **Creative Services Pages:** Utilize a vibrant design philosophy with colorful gradients, animated particles, and dynamic typography to showcase creative capabilities.
--   **Social Media Creative Management Page (Dec 2025):** Flagship service page featuring:
-    - Hero with "Creative That Converts" headline and modern Inter typography
-    - **Four Pillars of Creative Growth** - Elite premium image-based cards (520px height) with:
-      - Background images with gradient overlays (Deep Purple, Rich Burgundy, Burnt Orange, Deep Emerald)
-      - Minimal content: icon, title, one-line description, CTA button
-      - Premium hover effects: -12px lift, image scale 1.05, CTA shift with glow
-      - Editorial magazine aesthetic matching Vogue-level premium agency positioning
-    - Portfolio gallery showcasing platform-specific content
--   **Bespoke Service Page Framework (Dec 2025):** Priority service pages redesigned with unique, narrative-driven structures that match each service's delivery model:
-    - **Video Production:** Studio reel approach with showreel hero, masonry work gallery, behind-the-scenes production story, distribution platforms grid, and paired services recommendations.
-    - **Web Design:** Conversion lab approach with performance dashboard hero, before/after case study metrics, conversion framework (Capture → Guide → Convert), and site types for specific goals.
-    - **Branding:** Brand lab approach with color palette/typography preview hero, storytelling portfolio format, brand pillars section, touchpoint rollout display, and interactive typography exploration.
-    - **Mobile Apps:** Product lifecycle approach with App Store-style hero card, product roadmap phases (MVP → v1.0 → Growth), real case studies with metrics, and native vs cross-platform tech comparison.
--   **Advanced SEO Infrastructure:** Centralized SEO configuration, programmatic location pages (80+), auto-generated dynamic sitemap.xml, optimized robots.txt, advanced schema markup (FAQ, Review, BreadcrumbList, HowTo, VideoObject, Article, Product, Service, Event, Organization, LocalBusiness, AggregateRating), voice search optimization, intelligent internal linking, and an SEO-optimized blog system.
--   **Archived URL 308 Redirects (Apr 2026):** All Vite-era URLs that no longer exist as canonical Next.js pages now 308-redirect to their nearest live equivalent instead of returning 410/404, preserving inbound SEO link equity:
-    - **Archived localities** (40 of 50 Malta towns) redirect by haversine geo-distance to the nearest of the 10 KEPT localities. Sub-paths are preserved, e.g. `/malta/naxxar/web-design` → `/malta/mosta/web-design`. Map is auto-generated in `lib/seo/redirectMap.ts` from `locationProfiles[*].geo`.
-    - **Archived industries** (cafes, bars, igaming, fintech, retail, fitness, wellness, events, plus singular Vite variants) hand-curated to nearest KEPT industry (restaurant / hotel / real-estate). Plural slugs are also canonicalized to singular.
-    - **Archived services** with no surviving directory (`branding-services`) redirect via `SERVICE_ALIASES`.
-    - All redirect logic lives in `middleware.ts` alongside the existing 410 layer; targets are validated at module load (throws in production if any target is missing).
-    - Smoke-test script `scripts/verify-redirects.ts` curls every archived URL and asserts 308 + correct `Location` header.
-    - Surgical refinement based on Google Search Console impression data is tracked as a follow-up.
--   **FAQ Sections on All Service Pages (Dec 2025):** Comprehensive FAQ implementation across 43 service pages featuring:
-    - Reusable FAQSection component (`client/src/components/FAQSection.tsx`) with accordion UI
-    - 8 voice-search optimized questions per service page
-    - Automatic JSON-LD FAQPage schema generation via `createFAQSchema` utility
-    - Unique schemaId for each page's structured data
-    - Expand/collapse all functionality with first-item-open default
-    - Dark mode support for pages with dark backgrounds
-    - SEO-optimized answers targeting featured snippets and voice search
--   **Malta-Focused Blog Articles (Dec 2025):** Four comprehensive SEO articles targeting Malta market:
-    - `/blog/seo-malta-complete-guide` - Complete SEO guide for Malta businesses (18 min read)
-    - `/blog/marketing-trends-malta-2025` - Marketing trends for Malta 2025 (15 min read)
-    - `/blog/digital-marketing-malta` - Digital marketing strategy guide (20 min read)
-    - `/blog/ai-solutions-malta` - AI solutions for Malta businesses (16 min read)
-    - Features: Recharts data visualizations, tables, internal linking, breadcrumb schemas
--   **Homepage Structure:** Comprises 19 sections including a 3D Concave Carousel, brand DNA strip, service pillars, trusted brands, creative work showcase, AI employee sections, revenue automation, success metrics, case studies, testimonials, an ROI calculator, and a money-back guarantee section.
--   **Typography System:** 9 semantic levels with fluid `clamp()` values.
--   **Smooth Scroll System:** `AdvancedScrollReveal` component for scroll-triggered animations with variants, staggered delays, and custom easing.
--   **Mobile Landscape Mode:** CSS media queries for adapting layout in landscape orientation.
--   **Icon Standardization:** Lucide React for generic icons, `react-icons/si` for brand logos.
--   **MVP Development Service Pages:** Two interconnected pages with "Elevated Monochrome Futurism" design, detailing MVP services with process timelines, tech stack marquees, case study carousels, and specific sections targeting software founders. These pages include AI-generated product mockups.
--   **Contact Page (Dec 2025):** Redesigned with premium dark aesthetic featuring:
-    - Hero with dual CTA buttons (Send us a Message / Call Us Directly) with smooth scroll
-    - Two-column layout: Contact form on left, click-to-call phone numbers on right
-    - Direct contact options for Malta, India, Dubai offices plus email and WhatsApp
-    - Subtle three-office grid at bottom with location pins
-    - Trust badge showing average response time
-    - Navigation updated: Resources renamed to Contact
--   **OARC Intelligence - Business Diagnostics (Jan 2026):** Enterprise-grade AI-powered diagnostics platform featuring:
-    - Routes: `/diagnostics` and `/intelligence` (both point to OARCIntelligence page)
-    - Dark premium aesthetic with lime green (#c4ff4d) accent color
-    - 8 industry verticals: Restaurant, Medical Clinic, Retail, Real Estate, iGaming, Legal, Finance, Marketing
-    - Each industry shows 5-6 common problems with monthly revenue loss calculations
-    - Expandable problem cards reveal:
-      - Behavioral psychology explaining why the problem occurs
-      - 3 actionable solutions with timeframes and impact metrics
-    - Data stored in `client/src/data/diagnosticsData.ts`
-    - DiagnosticsTeaser component on homepage replaces old CortexSection
-    - Premium animations with Framer Motion
-    - CTA leading to 14-day pilot program
--   **Tools Directory Page (Dec 2025):** ColdIQ-inspired AI tools and tech stack directory featuring:
-    - Premium dark hero with search functionality
-    - Sticky category filter tabs (AI Sales, Sales, Data Sources, AI Agents, LinkedIn, AI Marketing, Design, Video, Development)
-    - 50+ curated tools with logos, descriptions, rankings, and OARC use cases
-    - Featured tools grid with large cards for top tools (Clay, Instantly, Midjourney, etc.)
-    - FAQ section with 8 voice-search optimized questions and JSON-LD schema
-    - CTA section driving to contact page
-    - Route: `/tools` with navigation link added to header
--   **AI Agents Landing Page (Jan 2026):** World-class conversion-optimized landing page for AI workforce agents featuring:
-    - Route: `/ai-agents` with navigation link in CreativeNavigation
-    - Dark premium aesthetic with lime green (#c4ff4d) strategic accents
-    - AnimatedGridBackground with neural network particles, scan lines, concentric rings
-    - Hero with value badge, H1 headline "One AI Team for Sales, Support, Bookings & Operations", and animated KPI counters
-    - "What It Replaces" section: 5 GlassCard role tiles (Sales Reps, Support Agents, Bookings, Operations, Follow-up)
-    - 3-column comparison table (Hire Staff vs Outsource vs OARC AI) with quick metrics panel
-    - 3-step "How It Works" timeline (Discovery → Configure → Run) with GlassCards
-    - 5 Key Benefits GlassCards with stats (Ownership, Speed, Consistency, Scale, ROI)
-    - Interactive Live Demo Chat widget: 12-message script with typing animations, source badges (Calendar API, Order DB, CRM, Payments API), play/pause/reset controls
-    - 3 pricing packages (Pilot €1,500, Growth €2,997/mo, Enterprise Custom)
-    - 8 voice-search optimized FAQs using FAQSection component
-    - Final CTA with urgency messaging, trust badges, and multiple contact options
-    - Components reused: AnimatedGridBackground, GlassCard, FAQSection, AI icons
+-   **Key Features:** Comprehensive homepage (19 sections including 3D Concave Carousel, ROI calculator), 25 specialized service pages, master services page with mega menu, consistent component standards, SPA-safe Open Graph tags, and mobile-first responsive design.
+-   **UI/UX Decisions:** Premium agency-grade aesthetic with fluid typography, large icons with hover animations, redesigned carousels, infinite logo marquees, campaign galleries, parallax scrolling, light sweep animations, and ultra-premium mobile animations.
+-   **Specialized Page Designs:**
+    -   **"Our Work" Page:** Professional yet creative aesthetic with full-width bokeh background, orange accents, clean filter tabs, premium case study cards, and AI category badges.
+    -   **PDF Marketing Collateral:** Professional, print-ready HTML-based PDF documents.
+    -   **AI Employee & Revenue Service Pages:** "Elevated Monochrome Futurism" design with custom grayscale hero images, animated grid backgrounds, glassmorphism, integration hub visualizations, and workflow diagrams.
+    -   **Creative Services Pages:** Vibrant design with colorful gradients, animated particles, and dynamic typography.
+    -   **Bespoke Service Page Framework:** Unique, narrative-driven structures for priority services (e.g., Video Production as a studio reel, Web Design as a conversion lab, Branding as a brand lab, Mobile Apps as a product lifecycle).
+    -   **OARC Intelligence - Business Diagnostics:** Dark premium aesthetic with lime green accent, 8 industry verticals showing problems, revenue loss calculations, behavioral psychology, and actionable solutions.
+    -   **Tools Directory Page:** ColdIQ-inspired design with search, sticky category filters, 50+ curated tools, and featured tools grid.
+    -   **AI Agents Landing Page:** Conversion-optimized with dark premium aesthetic, lime green accents, animated grid background, "What It Replaces" section, comparison table, "How It Works" timeline, key benefits, interactive live demo chat, and three pricing packages.
+-   **Advanced SEO Infrastructure:** Centralized SEO configuration, programmatic location pages (80+), auto-generated dynamic sitemap.xml, optimized robots.txt, comprehensive advanced schema markup (e.g., FAQ, Review, Service, Article), voice search optimization, intelligent internal linking, and an SEO-optimized blog system.
+-   **SEO Anti-Spam Constraints (Apr 2026):** The previous 5,200-page programmatic push got flagged by Google. All future page rollout is governed by `.local/seo-rollout-calendar.md` (drip 5–8 pages/week, never burst >10 in any 7-day window) and `.local/seo-keyword-map.md` (one canonical URL per query intent — anti-cannibalisation gate). Canonical NAP is **Level 1, The Brewhouse, Birkirkara CBD 2010, +356 7971 1799** — every JSON-LD address block emits this; Ta' Xbiex appears only as a legitimate location in `lib/seo/locationData.ts`. The duplicate-slug 308 layer in `lib/seo/seoSets.ts → SERVICE_ALIASES` is now smoke-tested by `scripts/verify-redirects.ts` (which also checks every redirect target has a real `app/services/<slug>/` directory — that build-time check moved out of `lib/seo/redirectMap.ts` because middleware compiles to Edge Runtime and Edge forbids `node:fs`). Multi-week phases (RouteSchema migration of 55 service pages, 9 missing services, 11 missing AEOs, 8 industries, 30 industry × service crosses, pillar composition) are tracked as separate follow-up tasks, each gated by audit-core-57 + verify-redirects before each batch publish.
+    -   Includes anti-spam constraints (drip-feed page rollout, canonical URL per query intent, consistent NAP) and archived URL 308 redirects to preserve SEO link equity.
+-   **FAQ Sections:** Comprehensive FAQ implementation across service pages with reusable component, 8 voice-search optimized questions per page, automatic JSON-LD FAQPage schema, and dark mode support.
+-   **Malta-Focused Blog Articles:** Four comprehensive SEO articles targeting the Malta market with data visualizations, tables, internal linking, and breadcrumb schemas.
 
 **Backend:**
 -   **Framework & Language:** Express.js with TypeScript.
 -   **API:** RESTful API with shared TypeScript schemas and Zod validation.
--   **SEO Routes:** Server routes for sitemap.xml and robots.txt with programmatic generation.
+-   **SEO Routes:** Server routes for programmatic sitemap.xml and robots.txt generation.
 
 **Data Storage:**
 -   **Database:** PostgreSQL (Neon serverless) managed with Drizzle ORM.

@@ -1096,19 +1096,20 @@ export default function PageContent() {
           "name": "OARC Digital - Creative Agency",
           "description": "Malta's leading AI-powered creative agency specializing in social media management, brand strategy, web design, video production, and paid advertising campaigns.",
           "url": "https://oarcdigital.com/creative",
-          "telephone": "+356 99263179",
+          "telephone": "+35679711799",
           "email": "hello@oarcdigital.com",
           "address": {
             "@type": "PostalAddress",
-            "streetAddress": "Seaside Spirit, Triq ix-Xatt, Ta' Xbiex",
-            "addressLocality": "Ta' Xbiex",
-            "postalCode": "XBX 1020",
+            "streetAddress": "Level 1, The Brewhouse, Zone 2, Central Business District, Mdina Road",
+            "addressLocality": "Birkirkara",
+            "addressRegion": "Birkirkara",
+            "postalCode": "CBD 2010",
             "addressCountry": "MT"
           },
           "geo": {
             "@type": "GeoCoordinates",
-            "latitude": "35.9047",
-            "longitude": "14.4931"
+            "latitude": "35.8978",
+            "longitude": "14.4617"
           },
           "areaServed": [
             {"@type": "Country", "name": "Malta"},

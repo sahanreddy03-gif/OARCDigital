@@ -51,7 +51,7 @@ export default function Page() {
     },
     {
       question: "Where is OARC Digital located?",
-      answer: "OARC Digital has offices in Malta (Ta' Xbiex), Chennai (India), and Dubai (UAE), serving clients across Europe, Middle East, and Asia."
+      answer: "OARC Digital is headquartered at Level 1, The Brewhouse, Central Business District, Birkirkara CBD 2010, Malta, with additional offices in Chennai (India) and Dubai (UAE), serving clients across Europe, the Middle East, and Asia."
     },
     {
       question: "How does OARC Digital use AI in marketing?",
