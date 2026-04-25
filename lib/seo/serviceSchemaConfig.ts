@@ -1038,6 +1038,111 @@ export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
     },
   },
 
+  "web-apps-development": {
+    title: "Web Apps Development Malta | Custom Web Applications | OARC Digital",
+    description:
+      "Custom web application development for Malta and EU businesses — internal tools, customer portals, dashboards, marketplaces, and PWAs built on Next.js, TypeScript, and Postgres.",
+    offers: [
+      {
+        name: "Internal Tool Sprint",
+        priceFrom: 8400,
+        unitText: "PROJECT",
+        description:
+          "Single-purpose internal web app — dashboard, admin console, ops tool, or workflow form — built in 4–6 weeks on Next.js with Postgres, Clerk auth, and a deploy pipeline you own.",
+      },
+      {
+        name: "Customer Portal Build",
+        priceFrom: 18500,
+        unitText: "PROJECT",
+        description:
+          "Branded customer-facing portal with self-service accounts, file uploads, billing or invoicing screens, role-based access, and integrations into your CRM or ERP. 8–10 week build.",
+      },
+      {
+        name: "Web App Engineering Retainer",
+        priceFrom: 5400,
+        unitText: "MONTH",
+        description:
+          "Embedded engineering pod (1 senior + 1 mid + part-time PM) shipping web app features in two-week sprints with weekly demos, written changelogs, and uptime reporting.",
+      },
+    ],
+    features: [
+      { name: "Custom dashboards & internal tools" },
+      { name: "Customer portals & self-service accounts" },
+      { name: "Role-based access control" },
+      { name: "Progressive Web App (PWA) packaging" },
+      { name: "REST + tRPC API surface" },
+      { name: "Marketplace, booking & directory builds" },
+    ],
+    faqs: [
+      {
+        question: "What kinds of web apps do you build?",
+        answer:
+          "Internal tools, customer portals, ops dashboards, booking systems, marketplaces, directories, education platforms, and progressive web apps. Anything that lives in a browser, needs auth, talks to a database, and has more than a marketing site's worth of state.",
+      },
+      {
+        question: "How is a web app different from a SaaS product?",
+        answer:
+          "A web app is a custom-built application for a specific organisation or audience — usually paid for by one client, with one tenant or a known set of accounts. A SaaS product is a multi-tenant subscription business with self-serve sign-up and billing. We build both, and the engineering disciplines overlap, but the commercial model is different.",
+      },
+      {
+        question: "What is the default web app stack?",
+        answer:
+          "Next.js 15 + TypeScript on the front end, Node with Hono or tRPC on the API layer, PostgreSQL via Drizzle or Prisma, Clerk or Auth.js for auth, and Vercel or Render for hosting. Boring, hireable, well-documented technology you can staff after handover.",
+      },
+      {
+        question: "Can the app be installed on phones like a native app?",
+        answer:
+          "Yes. We can ship the web app as a Progressive Web App (PWA) so customers add it to their home screen, get push notifications, and use it offline. PWAs cover most internal-tool and B2B use cases without the cost of a separate React Native build.",
+      },
+      {
+        question: "Do you handle integrations with our existing systems?",
+        answer:
+          "Yes. Most web apps we build talk to at least one of: HubSpot, Salesforce, SAP, NetSuite, Xero, QuickBooks, Stripe, Auth0, SharePoint, or a Maltese-banking API. We document every integration as part of the deliverable so future engineers can extend it.",
+      },
+      {
+        question: "How long does a web app project take?",
+        answer:
+          "Internal tools land in 4–6 weeks. Customer portals run 8–12 weeks. Marketplace and multi-role apps take 3–5 months end to end. We commit to a date in the discovery sprint and report against it weekly.",
+      },
+      {
+        question: "Where is OARC Digital based?",
+        answer:
+          "Birkirkara CBD, Malta. Engineering pod overlaps CET hours; weekly demos on Google Meet; in-person workshops available at our office or yours anywhere on the islands. +356 7971 1799.",
+      },
+    ],
+    framework: {
+      uniqueValueProp:
+        "Custom Malta-built web applications — dashboards, customer portals, marketplaces, PWAs — engineered on Next.js + Postgres, with role-based auth, EU hosting, and full source-code handover from week one.",
+      entityFocus: "Custom web application development (Malta & EU businesses)",
+      primaryIntent: "commercial",
+      generalizationKeywords: [
+        "web app development malta",
+        "web application developer malta",
+        "custom web app malta",
+        "internal tools malta",
+        "customer portal developer malta",
+      ],
+      llmCitableFacts: [
+        {
+          claim:
+            "OARC Digital builds custom web applications — dashboards, customer portals, internal tools, marketplaces, and PWAs — on Next.js, TypeScript, and PostgreSQL with full source-code handover.",
+          source: "https://oarcdigital.com/services/web-apps-development",
+        },
+        {
+          claim:
+            "Internal-tool web apps land in 4–6 weeks; customer portals in 8–12 weeks; marketplace and multi-role builds in 3–5 months from a fixed-price discovery sprint.",
+          source: "https://oarcdigital.com/services/web-apps-development",
+        },
+        {
+          claim:
+            "All web apps are hosted in EU regions (typically Frankfurt or Dublin) for GDPR data residency, and source code lives in the client's GitHub organisation from day one.",
+          source: "https://oarcdigital.com/services/web-apps-development",
+        },
+      ],
+      conversionGoal: "Book a web app discovery call",
+    },
+  },
+
   "content-marketing": {
     title: "Content Marketing Malta | Strategy, Production, Distribution | OARC Digital",
     description:

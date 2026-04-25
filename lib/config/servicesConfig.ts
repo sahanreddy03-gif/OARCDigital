@@ -256,8 +256,8 @@ export const servicesCatalog: Record<string, ServiceCategory> = {
         description: 'iOS, Android, cross-platform apps, native development'
       },
       { 
-        title: 'Web Application Development', 
-        slug: 'web-application-development', 
+        title: 'Web Apps Development', 
+        slug: 'web-apps-development', 
         icon: Code2,
         description: 'SaaS platforms, customer portals, internal tools, progressive web apps'
       },
