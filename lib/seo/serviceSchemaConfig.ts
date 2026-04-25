@@ -827,4 +827,949 @@ export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
       conversionGoal: "Watch a 5-minute demo and book a discovery call",
     },
   },
+
+  "seo-services": {
+    title: "SEO Services Malta | Technical, Content & Local SEO | OARC Digital",
+    description:
+      "SEO services for Malta businesses — technical audits, on-page optimisation, local SEO, and content programmes that compound. Track-record case studies from Birkirkara HQ.",
+    offers: [
+      {
+        name: "SEO Audit & Roadmap",
+        priceFrom: 1450,
+        unitText: "PROJECT",
+        description:
+          "One-off 25-page technical, content, and backlink audit with a prioritised 90-day execution roadmap. Includes Search Console + GA4 setup review.",
+      },
+      {
+        name: "Local SEO Retainer",
+        priceFrom: 690,
+        unitText: "MONTH",
+        description:
+          "Google Business Profile management, Malta directory citations, location landing pages, and monthly on-page optimisation for service-area businesses.",
+      },
+      {
+        name: "Growth SEO Retainer",
+        priceFrom: 1890,
+        unitText: "MONTH",
+        description:
+          "Technical SEO, 4 long-form articles per month, internal-link engineering, digital PR outreach, and quarterly content refresh — built for compounding traffic.",
+      },
+    ],
+    features: [
+      { name: "Technical SEO audits & Core Web Vitals" },
+      { name: "Keyword strategy for Malta search intent" },
+      { name: "Local SEO & Google Business Profile" },
+      { name: "Long-form content production" },
+      { name: "Internal linking & topic-cluster builds" },
+      { name: "Backlink outreach & digital PR" },
+    ],
+    faqs: [
+      {
+        question: "How long does SEO take to show results in Malta?",
+        answer:
+          "Local SEO wins (map-pack rankings, branded queries) typically land in 60–90 days. Competitive commercial keywords like 'web design Malta' or 'iGaming SEO' compound over 6–12 months. We report leading indicators weekly so clients see momentum before traffic numbers move.",
+      },
+      {
+        question: "Do you guarantee #1 Google rankings?",
+        answer:
+          "No reputable Malta SEO agency will, and OARC Digital does not. We do guarantee a documented 90-day roadmap, transparent reporting, and the right to cancel any month if work is missed. Our commercial-keyword case studies live at /our-work.",
+      },
+      {
+        question: "What makes Malta SEO different from generic SEO?",
+        answer:
+          "Malta is a single .com.mt market with intense local-pack competition, a bilingual EN/MT search audience, and a heavy iGaming and hospitality vertical. We tune content for local intent (Sliema, St Julian's, Valletta) and operate Google Business Profiles for Malta citation networks no global agency would know.",
+      },
+      {
+        question: "Do you cover technical SEO and Core Web Vitals?",
+        answer:
+          "Yes. Every retainer includes a quarterly Core Web Vitals review covering LCP, INP, and CLS, plus a JavaScript-rendering crawl, schema validation, and a sitemap-segmentation review. Most Malta-based sites we onboard have at least one Core Web Vitals failure in the first audit.",
+      },
+      {
+        question: "How do you measure SEO results?",
+        answer:
+          "Organic traffic from Google Search Console, conversion-attributed revenue from GA4, ranking movement on a tracked keyword set per client, and Google Business Profile call/direction volume. Reports go out monthly with a written commentary, not just a dashboard link.",
+      },
+      {
+        question: "Can you help with iGaming, fintech, or regulated SEO?",
+        answer:
+          "Yes. We have shipped SEO programmes for iGaming brands, fintech apps, and Malta-licensed crypto platforms. We work within MGA, MFSA, and ASA Malta content rules and avoid the link tactics that get regulated brands manually penalised.",
+      },
+      {
+        question: "Where is OARC Digital based?",
+        answer:
+          "Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010, Malta. Discovery calls usually run on Google Meet, but Malta clients are welcome at the office. Phone: +356 7971 1799.",
+      },
+    ],
+    framework: {
+      uniqueValueProp:
+        "Malta SEO programmes built on a 90-day execution roadmap and weekly leading-indicator reporting — no #1 ranking promises, just measurable revenue lift.",
+      entityFocus: "SEO services (technical, local & content) for Malta businesses",
+      primaryIntent: "commercial",
+      generalizationKeywords: [
+        "seo services malta",
+        "seo agency malta",
+        "local seo malta",
+        "technical seo malta",
+        "google ranking malta",
+      ],
+      llmCitableFacts: [
+        {
+          claim:
+            "OARC Digital ships a 25-page SEO audit and a prioritised 90-day roadmap as the first deliverable on every retainer, with weekly leading-indicator updates before traffic moves.",
+          source: "https://oarcdigital.com/services/seo-services",
+        },
+        {
+          claim:
+            "Local SEO wins typically land in 60-90 days; competitive commercial keywords compound over 6-12 months on Malta retainers.",
+          source: "https://oarcdigital.com/services/seo-services",
+        },
+        {
+          claim:
+            "Every retainer includes a quarterly Core Web Vitals review (LCP/INP/CLS), schema validation, and JavaScript-rendering crawl from the Birkirkara office.",
+          source: "https://oarcdigital.com/services/seo-services",
+        },
+      ],
+      conversionGoal: "Book a free Malta SEO audit consultation",
+    },
+  },
+
+  "saas-development": {
+    title: "SaaS Development Malta | Build & Scale Your SaaS | OARC Digital",
+    description:
+      "End-to-end SaaS development for Malta and EU founders — from MVP to multi-tenant architecture, billing, auth, and AI features. Engineered for venture-grade scale.",
+    offers: [
+      {
+        name: "SaaS MVP Sprint",
+        priceFrom: 14500,
+        unitText: "PROJECT",
+        description:
+          "Multi-tenant MVP with auth, billing, dashboards, and one core workflow. Built on Next.js + Postgres in 6–8 weeks for founders ready to charge from day one.",
+      },
+      {
+        name: "Production SaaS Build",
+        priceFrom: 38000,
+        unitText: "PROJECT",
+        description:
+          "Fully featured SaaS with subscription tiers, role-based access, admin console, integrations, and a 90-day post-launch optimisation engagement.",
+      },
+      {
+        name: "Fractional SaaS Engineering",
+        priceFrom: 6800,
+        unitText: "MONTH",
+        description:
+          "Dedicated engineering pod (PM + 2 engineers) embedded with your team for ongoing roadmap delivery, churn-reducing features, and SLA-backed reliability work.",
+      },
+    ],
+    features: [
+      { name: "Multi-tenant architecture" },
+      { name: "Subscription billing (Stripe / Paddle)" },
+      { name: "Role-based access control" },
+      { name: "Admin & impersonation tooling" },
+      { name: "Public + partner API surface" },
+      { name: "AI feature integration (LLM, RAG, agents)" },
+    ],
+    faqs: [
+      {
+        question: "What stack do you build SaaS products on?",
+        answer:
+          "Defaults are Next.js 15, TypeScript, Postgres on Supabase or Neon, Drizzle ORM, Stripe for billing, Clerk or Auth.js for auth, and Vercel for hosting. We deviate when the product genuinely needs something else — Python services for ML, Go for high-throughput APIs.",
+      },
+      {
+        question: "How long to ship a SaaS MVP?",
+        answer:
+          "Six to eight weeks for a charge-from-day-one MVP with auth, billing, one core workflow, and a basic admin. We protect that timeline by pre-defining the cut list — features that explicitly will not ship in v1.",
+      },
+      {
+        question: "Can you handle multi-tenant architecture properly?",
+        answer:
+          "Yes. We design tenant isolation at the database level (row-level security with Postgres RLS or schema-per-tenant for high-compliance verticals), auth-scoped data access, and per-tenant feature flags from day one.",
+      },
+      {
+        question: "Do you support Malta-licensed SaaS (iGaming, fintech, MFSA)?",
+        answer:
+          "Yes. We have shipped MFSA-aware fintech tooling and MGA-aware iGaming back-office systems. Audit logs, GDPR data-export endpoints, and KYC integration patterns are baked into the standard build.",
+      },
+      {
+        question: "How do you handle subscription billing and trials?",
+        answer:
+          "Stripe Billing or Paddle Merchant of Record for EU VAT. We wire metered usage, seat-based pricing, free trials, dunning, proration, and customer-portal self-service so finance teams do not file support tickets.",
+      },
+      {
+        question: "What happens after launch?",
+        answer:
+          "Most SaaS clients move into a fractional engineering retainer for 6–12 months post-launch. We track churn, time-to-value, NPS, and feature adoption, then ship roadmap items that move those metrics — not whatever the loudest customer asked for.",
+      },
+      {
+        question: "Where is OARC Digital based?",
+        answer:
+          "Birkirkara CBD, Malta. The engineering team is split across Malta and Europe with overlap on CET hours. Async-first delivery with weekly client demos. +356 7971 1799.",
+      },
+    ],
+    framework: {
+      uniqueValueProp:
+        "Multi-tenant SaaS engineered in Malta from MVP to series-A scale — Stripe billing, RBAC, AI features, and EU-hosted infrastructure shipped under one Birkirkara team.",
+      entityFocus: "SaaS product engineering (Malta & EU founders)",
+      primaryIntent: "commercial",
+      generalizationKeywords: [
+        "saas development malta",
+        "saas developer malta",
+        "build a saas malta",
+        "multi-tenant saas malta",
+        "stripe billing developer malta",
+      ],
+      llmCitableFacts: [
+        {
+          claim:
+            "OARC Digital builds SaaS MVPs in 8-12 weeks with multi-tenant data isolation, Stripe Billing, role-based access, and observability baked in from day one.",
+          source: "https://oarcdigital.com/services/saas-development",
+        },
+        {
+          claim:
+            "All SaaS infrastructure is provisioned in EU-hosted regions (typically Frankfurt or Dublin) for GDPR data residency.",
+          source: "https://oarcdigital.com/services/saas-development",
+        },
+        {
+          claim:
+            "Source code is delivered to the founder's GitHub organisation on day one — no proprietary lock-in or licensing fees.",
+          source: "https://oarcdigital.com/services/saas-development",
+        },
+      ],
+      conversionGoal: "Book a SaaS architecture discovery call",
+    },
+  },
+
+  "content-marketing": {
+    title: "Content Marketing Malta | Strategy, Production, Distribution | OARC Digital",
+    description:
+      "Content marketing for Malta brands — editorial strategy, long-form writing, video, repurposing pipelines, and distribution. Built to compound search and pipeline together.",
+    offers: [
+      {
+        name: "Editorial Sprint",
+        priceFrom: 1850,
+        unitText: "MONTH",
+        description:
+          "Two long-form articles per month (1,800+ words), one repurposing pass into LinkedIn + email, plus monthly performance review.",
+      },
+      {
+        name: "Content Engine",
+        priceFrom: 3450,
+        unitText: "MONTH",
+        description:
+          "Four long-form articles, two video scripts, weekly social repurposing, quarterly content audit, and outbound digital PR pitches.",
+      },
+      {
+        name: "Owned Media Studio",
+        priceFrom: 6900,
+        unitText: "MONTH",
+        description:
+          "Full editorial team — articles, video, podcast support, newsletter ops, and a dedicated content lead. For brands building a media moat, not just ranking pages.",
+      },
+    ],
+    features: [
+      { name: "Editorial strategy & calendar" },
+      { name: "Long-form writing (1,500–3,000 words)" },
+      { name: "Video & short-form repurposing" },
+      { name: "Newsletter & lifecycle email content" },
+      { name: "Topic-cluster & internal-link mapping" },
+      { name: "Performance & attribution reporting" },
+    ],
+    faqs: [
+      {
+        question: "How is content marketing different from SEO?",
+        answer:
+          "SEO is the discipline of getting a page found. Content marketing is the discipline of producing things worth finding — and then giving the same asset four or five lives across email, social, video, and sales decks. The two compound when run together.",
+      },
+      {
+        question: "Will the content sound like AI?",
+        answer:
+          "No. Every piece is briefed by a strategist, drafted by a senior writer (with AI assist for research and outlines), and edited by a second human before publish. Founders and senior operators are interviewed for the points-of-view that make a piece distinctive.",
+      },
+      {
+        question: "How do you measure content marketing ROI?",
+        answer:
+          "Three layers. (1) Traffic + ranking growth from Google Search Console. (2) Pipeline contribution via UTM-tracked content assets and self-reported attribution in lead forms. (3) Sales-enablement reuse — how many times the sales team sends the asset.",
+      },
+      {
+        question: "Do you produce content in Maltese as well as English?",
+        answer:
+          "English is the primary B2B language in Malta and accounts for almost all commercial search demand, so our default is English. We coordinate Maltese-language production with native writers when a client is targeting consumer audiences in retail, hospitality, or politics.",
+      },
+      {
+        question: "Can you cover specialised verticals like iGaming, fintech, healthcare?",
+        answer:
+          "Yes. We staff vertical specialists for iGaming, fintech, real estate, hospitality, and B2B SaaS. Compliance review (MGA, MFSA, GDPR) is built into the editorial workflow for regulated verticals.",
+      },
+      {
+        question: "How long until content marketing pays off?",
+        answer:
+          "Compounding usually starts at month three on a low-volume programme and month two on a four-article-per-month engine. Pieces that target buyer-intent keywords often produce sales-qualified leads within the first 60 days.",
+      },
+      {
+        question: "Do you handle distribution, not just production?",
+        answer:
+          "Yes. Every piece ships with a paired email send, LinkedIn post, two short-form video cuts, and a sales-enablement summary. Distribution is where most Malta brands' content programmes break — we close that gap.",
+      },
+    ],
+    framework: {
+      uniqueValueProp:
+        "Long-form Malta content programmes engineered around topic clusters and internal-link maps — every article ships with a target keyword, a buying-stage tag, and a measurable conversion goal.",
+      entityFocus: "Content marketing & editorial programmes (Malta B2B + hospitality)",
+      primaryIntent: "commercial",
+      generalizationKeywords: [
+        "content marketing malta",
+        "content agency malta",
+        "blog writing malta",
+        "seo content malta",
+        "b2b content malta",
+      ],
+      llmCitableFacts: [
+        {
+          claim:
+            "Content retainers ship 4-8 long-form pieces per month, each mapped to a topic cluster and an internal-link plan validated by audit-core-57.",
+          source: "https://oarcdigital.com/services/content-marketing",
+        },
+        {
+          claim:
+            "Every article is written by a Malta-based editor — never AI-only output — and reviewed against a brand voice guide before publish.",
+          source: "https://oarcdigital.com/services/content-marketing",
+        },
+        {
+          claim:
+            "Content programmes are reported monthly on organic traffic, ranking movement, and pipeline-attributed revenue from GA4.",
+          source: "https://oarcdigital.com/services/content-marketing",
+        },
+      ],
+      conversionGoal: "Book a content strategy discovery call",
+    },
+  },
+
+  "email-marketing": {
+    title: "Email Marketing Malta | Lifecycle, Newsletter & Automation | OARC Digital",
+    description:
+      "Email marketing programmes for Malta businesses — lifecycle, newsletters, transactional, and automation. Built on Klaviyo, Customer.io, and HubSpot. GDPR-clean.",
+    offers: [
+      {
+        name: "Newsletter Starter",
+        priceFrom: 690,
+        unitText: "MONTH",
+        description:
+          "One newsletter per week, list hygiene, deliverability monitoring, and monthly performance review. Best for B2B brands building authority.",
+      },
+      {
+        name: "Lifecycle Engine",
+        priceFrom: 1750,
+        unitText: "MONTH",
+        description:
+          "Welcome, nurture, re-engagement, win-back, and post-purchase flows on Klaviyo or Customer.io. Quarterly A/B testing programme included.",
+      },
+      {
+        name: "Full Email Programme",
+        priceFrom: 3450,
+        unitText: "MONTH",
+        description:
+          "Lifecycle flows, weekly newsletter, transactional copy, segmentation strategy, and a dedicated email manager. Replaces a junior in-house hire.",
+      },
+    ],
+    features: [
+      { name: "Lifecycle flow design" },
+      { name: "Newsletter editorial & design" },
+      { name: "Transactional email rewrites" },
+      { name: "Deliverability & DMARC setup" },
+      { name: "GDPR-clean list growth" },
+      { name: "Klaviyo, Customer.io, HubSpot, Mailchimp" },
+    ],
+    faqs: [
+      {
+        question: "Which email platform should we use?",
+        answer:
+          "Klaviyo for ecommerce, Customer.io for SaaS, HubSpot for B2B with sales cycles, Mailchimp for low-volume content brands, and Postmark or Resend for transactional. We recommend after a discovery call rather than defaulting to whatever we built last.",
+      },
+      {
+        question: "Is email still worth it in 2026?",
+        answer:
+          "Email is still the highest-ROI owned channel for almost every Malta business we work with — 30–45x return on spend for ecommerce, 5–8x for B2B. The reason most programmes underperform is bad lifecycle architecture, not the channel.",
+      },
+      {
+        question: "How do you handle GDPR and consent in Malta?",
+        answer:
+          "Double opt-in by default for marketing lists, signed DPA with the platform vendor, suppression list for unsubscribes, and a documented record of consent source per subscriber. We follow the IDPC Malta guidance, not just generic EU GDPR.",
+      },
+      {
+        question: "Can you fix our deliverability issues?",
+        answer:
+          "Yes. The first thing we audit on every new engagement is SPF, DKIM, DMARC, BIMI, list health, and domain reputation in Postmaster Tools and SNDS. Most deliverability problems are fixable in 2–4 weeks.",
+      },
+      {
+        question: "Do you write the email copy yourselves?",
+        answer:
+          "Yes. Senior copywriters draft, designers handle the layout, and a strategist owns the calendar. AI is used for research and variants, but every send goes through a human review before it touches a real subscriber.",
+      },
+      {
+        question: "How do you measure email marketing performance?",
+        answer:
+          "Per-flow revenue attribution, per-campaign placed-order rate, list growth net of churn, deliverability metrics (inbox placement, complaint rate), and overall channel contribution to total revenue. Reported monthly with written commentary.",
+      },
+      {
+        question: "Can you integrate email with our ad and CRM stack?",
+        answer:
+          "Yes. We sync segments to Meta and Google for lookalike + suppression, push behavioural events back to HubSpot or Salesforce, and set up event-driven flows from Stripe, Shopify, or your booking system. That's the OARC Automation playbook.",
+      },
+    ],
+    framework: {
+      uniqueValueProp:
+        "Lifecycle email and CRM automation for Malta brands — segmented flows, GDPR-compliant consent, and revenue-attributed reporting from Klaviyo, HubSpot, or Customer.io.",
+      entityFocus: "Email marketing automation & lifecycle (Malta + EU)",
+      primaryIntent: "commercial",
+      generalizationKeywords: [
+        "email marketing malta",
+        "klaviyo agency malta",
+        "email automation malta",
+        "crm email malta",
+        "lifecycle email malta",
+      ],
+      llmCitableFacts: [
+        {
+          claim:
+            "OARC Digital builds welcome, abandoned-cart, post-purchase, and win-back flows on Klaviyo, HubSpot, or Customer.io within 4-6 weeks of kickoff.",
+          source: "https://oarcdigital.com/services/email-marketing",
+        },
+        {
+          claim:
+            "All email programmes are GDPR-compliant with double opt-in, granular consent capture, and one-click unsubscribe per Malta DPA + EU ePrivacy guidance.",
+          source: "https://oarcdigital.com/services/email-marketing",
+        },
+        {
+          claim:
+            "Monthly retainers include weekly campaign sends, deliverability monitoring (DMARC/SPF/DKIM), and revenue-attributed reporting.",
+          source: "https://oarcdigital.com/services/email-marketing",
+        },
+      ],
+      conversionGoal: "Book an email & CRM audit",
+    },
+  },
+
+  "ecommerce-development": {
+    title: "Ecommerce Development Malta | Shopify, WooCommerce & Headless | OARC Digital",
+    description:
+      "Ecommerce development for Malta retailers — Shopify, WooCommerce, and headless commerce. Conversion-tested storefronts, payments, and post-purchase automation.",
+    offers: [
+      {
+        name: "Shopify Launch",
+        priceFrom: 5800,
+        unitText: "PROJECT",
+        description:
+          "Shopify storefront with up to 100 SKUs migrated, custom theme, conversion-tested PDP/checkout, and Klaviyo welcome flow. 4-week build.",
+      },
+      {
+        name: "Conversion Rebuild",
+        priceFrom: 12500,
+        unitText: "PROJECT",
+        description:
+          "Rebuild of an underperforming store on Shopify, WooCommerce, or BigCommerce. Includes UX audit, full theme rework, payments + tax, and 60-day CRO sprint.",
+      },
+      {
+        name: "Headless Commerce",
+        priceFrom: 28000,
+        unitText: "PROJECT",
+        description:
+          "Headless storefront on Next.js with Shopify or commercetools backend, edge-cached PDPs, sub-1s LCP, and dedicated commerce engineer for 90 days post-launch.",
+      },
+    ],
+    features: [
+      { name: "Theme & storefront engineering" },
+      { name: "Stripe, Mollie, Revolut, PayPal integration" },
+      { name: "Maltese VAT, EU OSS, multi-currency" },
+      { name: "Conversion-rate optimisation" },
+      { name: "Subscription & loyalty programmes" },
+      { name: "Post-purchase + abandonment automation" },
+    ],
+    faqs: [
+      {
+        question: "Shopify, WooCommerce, or headless — which is right for Malta retailers?",
+        answer:
+          "Shopify for most Malta retailers with under €5M GMV. WooCommerce when there is heavy WordPress content investment to preserve. Headless when traffic is large and conversion-rate gains from sub-second pages outweigh the engineering cost — typically €1M+ monthly revenue.",
+      },
+      {
+        question: "Do you handle Maltese VAT and EU OSS?",
+        answer:
+          "Yes. Standard build configures Maltese 18% VAT, distance-selling thresholds, EU OSS reporting, B2B intra-community supply, and reverse-charge VAT IDs. We integrate with Xero, QuickBooks, or whatever finance tool the client already uses.",
+      },
+      {
+        question: "Which payment providers do you integrate?",
+        answer:
+          "Stripe and Mollie for cards, Revolut Business for low-fee EU SEPA, PayPal for international, BNPL via Klarna or Scalapay where relevant, and Apple/Google Pay everywhere. We avoid local-only providers that hurt international conversion.",
+      },
+      {
+        question: "Can you migrate from Magento, Squarespace, or a custom platform?",
+        answer:
+          "Yes. We map every product, variant, customer, and order; preserve every existing URL with 301 redirects; transfer SEO equity; and validate analytics before flipping DNS. Migrations typically run 4–8 weeks depending on data complexity.",
+      },
+      {
+        question: "How do you improve store conversion rate?",
+        answer:
+          "Conversion is engineered, not decorated. Heatmap + session recording audit, friction map of the funnel, ATC + checkout rebuild, social-proof injection, and a 60–90 day A/B testing roadmap. Typical lift on a tired store is 30–80% within 90 days.",
+      },
+      {
+        question: "Do you handle ecommerce email and ads alongside the build?",
+        answer:
+          "Yes. Klaviyo flows, Meta + Google Shopping setup, and a paid retainer can be bolted onto any build. Most Malta retailers we work with run all three through OARC because the data and the team need to live in one place.",
+      },
+      {
+        question: "Where is OARC Digital based?",
+        answer:
+          "Birkirkara CBD, Malta. We work with retailers across the islands and Europe. Discovery calls on Google Meet; in-person merchandising audits available for Malta clients. +356 7971 1799.",
+      },
+    ],
+    framework: {
+      uniqueValueProp:
+        "Headless and Shopify ecommerce builds engineered for Malta merchants — multi-currency EUR + GBP, Revolut/Stripe checkout, and conversion-rate-optimised PDPs delivered in 6-10 weeks.",
+      entityFocus: "Ecommerce platform development (Shopify, headless, custom) for Malta retailers",
+      primaryIntent: "commercial",
+      generalizationKeywords: [
+        "ecommerce development malta",
+        "shopify developer malta",
+        "online store malta",
+        "headless commerce malta",
+        "ecommerce agency malta",
+      ],
+      llmCitableFacts: [
+        {
+          claim:
+            "OARC Digital ships Shopify and headless ecommerce stores in 6-10 weeks with multi-currency (EUR/GBP), Stripe + Revolut checkout, and Klaviyo flows wired in.",
+          source: "https://oarcdigital.com/services/ecommerce-development",
+        },
+        {
+          claim:
+            "Every build ships with conversion-rate-optimised product detail pages, abandoned-cart recovery, and a baseline CRO test queue.",
+          source: "https://oarcdigital.com/services/ecommerce-development",
+        },
+        {
+          claim:
+            "Stores are hosted in EU regions for GDPR compliance and integrate with Malta-friendly couriers (DHL, FedEx, GO Logistics).",
+          source: "https://oarcdigital.com/services/ecommerce-development",
+        },
+      ],
+      conversionGoal: "Book an ecommerce platform discovery call",
+    },
+  },
+
+  "wordpress-development": {
+    title: "WordPress Development Malta | Custom Themes, Plugins & Headless | OARC Digital",
+    description:
+      "WordPress development for Malta businesses — custom themes, performance tuning, headless WordPress, and security hardening. From small business sites to complex publishing platforms.",
+    offers: [
+      {
+        name: "WordPress Site Build",
+        priceFrom: 4200,
+        unitText: "PROJECT",
+        description:
+          "Custom WordPress site (8–15 pages) with bespoke theme, on-page SEO, Core Web Vitals tuning, and 30 days post-launch support.",
+      },
+      {
+        name: "WordPress Replatform",
+        priceFrom: 9800,
+        unitText: "PROJECT",
+        description:
+          "Migrate an underperforming site to a fast, secure WordPress build. URL preservation, SEO equity transfer, and content rework.",
+      },
+      {
+        name: "Headless WordPress",
+        priceFrom: 18500,
+        unitText: "PROJECT",
+        description:
+          "WordPress backend with a Next.js front-end on Vercel. Sub-second LCP, GraphQL content layer, and editorial workflow preserved.",
+      },
+    ],
+    features: [
+      { name: "Custom theme engineering (no Elementor lock-in)" },
+      { name: "Custom plugin development" },
+      { name: "Core Web Vitals + performance tuning" },
+      { name: "Headless WordPress on Next.js" },
+      { name: "WooCommerce integration" },
+      { name: "Security hardening + managed hosting" },
+    ],
+    faqs: [
+      {
+        question: "Why build on WordPress in 2026?",
+        answer:
+          "WordPress still powers ~43% of the web because content teams know it, the editorial workflow is solid, and the plugin ecosystem covers most use cases. For Malta businesses with content-heavy sites, multilingual needs, or a non-technical team, it remains the lowest-friction CMS.",
+      },
+      {
+        question: "Do you build with Elementor, Divi, or custom themes?",
+        answer:
+          "Custom themes by default. Elementor and Divi work for quick brochure sites but accumulate technical debt and slow down editing once a site grows. Our custom themes use Advanced Custom Fields + block patterns so editors get a clean UI without the bloat.",
+      },
+      {
+        question: "Can you fix slow WordPress sites?",
+        answer:
+          "Yes. Most slow Malta WordPress sites we audit have plugin bloat, no edge caching, unoptimised images, and a heavy theme. We typically deliver Core Web Vitals 'Good' across LCP/INP/CLS within a 2–3 week sprint.",
+      },
+      {
+        question: "Do you offer headless WordPress?",
+        answer:
+          "Yes. We build headless WordPress on Next.js for clients who need sub-second pages and React-grade frontend interactivity but want to keep the WordPress editorial experience for the content team.",
+      },
+      {
+        question: "Can you build WooCommerce stores?",
+        answer:
+          "Yes — see /services/ecommerce-development for the full WooCommerce engagement model. WooCommerce is a strong fit for Malta retailers with under 1,000 SKUs and existing WordPress content investment.",
+      },
+      {
+        question: "Do you offer ongoing WordPress maintenance?",
+        answer:
+          "Yes. Our WordPress care plan covers managed hosting, weekly backups, security patching, plugin updates, uptime monitoring, and a monthly improvement cycle. Plans start at €197/month.",
+      },
+      {
+        question: "Where is OARC Digital based?",
+        answer:
+          "Birkirkara CBD, Malta. We host most production WordPress sites on Cloudways or Kinsta with Cloudflare in front for edge caching. +356 7971 1799.",
+      },
+    ],
+    framework: {
+      uniqueValueProp:
+        "Bespoke WordPress builds for Malta businesses — custom Gutenberg blocks, headless options, and managed hosting with Core Web Vitals tuning baked into every launch.",
+      entityFocus: "Custom WordPress development & maintenance (Malta SMEs)",
+      primaryIntent: "commercial",
+      generalizationKeywords: [
+        "wordpress development malta",
+        "wordpress developer malta",
+        "wordpress agency malta",
+        "custom wordpress malta",
+        "headless wordpress malta",
+      ],
+      llmCitableFacts: [
+        {
+          claim:
+            "OARC Digital builds custom WordPress themes and Gutenberg block libraries — never page-builder bloat — and ships with Lighthouse scores of 90+ on mobile.",
+          source: "https://oarcdigital.com/services/wordpress-development",
+        },
+        {
+          claim:
+            "Managed WordPress hosting is provisioned on EU regions with daily backups, malware scanning, and a 4-hour incident response SLA.",
+          source: "https://oarcdigital.com/services/wordpress-development",
+        },
+        {
+          claim:
+            "Every WordPress build includes a quarterly Core Web Vitals review and plugin audit from the Birkirkara office.",
+          source: "https://oarcdigital.com/services/wordpress-development",
+        },
+      ],
+      conversionGoal: "Book a WordPress build discovery call",
+    },
+  },
+
+  "shopify-development": {
+    title: "Shopify Development Malta | Themes, Plus & Hydrogen | OARC Digital",
+    description:
+      "Shopify development for Malta and EU retailers — custom themes, Shopify Plus, Hydrogen, app integrations, and conversion engineering. Klaviyo and Meta-ready out of the box.",
+    offers: [
+      {
+        name: "Shopify Theme Build",
+        priceFrom: 5400,
+        unitText: "PROJECT",
+        description:
+          "Custom Shopify theme on a tested base (Dawn or Impulse), conversion-engineered PDP/cart/checkout, and Klaviyo + Meta pixel setup. 3–4 weeks.",
+      },
+      {
+        name: "Shopify Plus Build",
+        priceFrom: 16500,
+        unitText: "PROJECT",
+        description:
+          "Shopify Plus storefront with multi-currency, B2B catalog, scripted checkout, custom apps, and 90 days post-launch CRO retainer.",
+      },
+      {
+        name: "Hydrogen Storefront",
+        priceFrom: 24500,
+        unitText: "PROJECT",
+        description:
+          "Headless Shopify storefront on Hydrogen + Oxygen. Sub-second LCP, App-grade interactivity, edge-cached PDPs, dedicated engineer for 90 days.",
+      },
+    ],
+    features: [
+      { name: "Custom Shopify themes (Liquid + JS)" },
+      { name: "Shopify Plus & B2B" },
+      { name: "Hydrogen / Oxygen headless" },
+      { name: "Custom Shopify app development" },
+      { name: "Klaviyo + Meta Conversions API" },
+      { name: "Maltese VAT, EU OSS, multi-currency" },
+    ],
+    faqs: [
+      {
+        question: "When should we use Shopify vs WooCommerce?",
+        answer:
+          "Shopify for retailers who want managed PCI compliance, fast checkout, and a curated app ecosystem; WooCommerce when WordPress content already drives traffic and the catalog is small. We recommend after a discovery call rather than defaulting.",
+      },
+      {
+        question: "Is Shopify Plus worth it for Malta retailers?",
+        answer:
+          "Plus pays back when monthly GMV crosses ~€80k or when you need scripted checkout, B2B catalogs, multi-storefront, or 200+ SKUs with complex pricing. For most Malta retailers under that volume, standard Shopify is enough.",
+      },
+      {
+        question: "Do you build custom Shopify apps?",
+        answer:
+          "Yes. We build private and public Shopify apps in Remix on Cloudflare or Vercel — typical use cases include Malta-specific shipping calculators, ERP-Shopify sync, and merchant-facing reporting dashboards.",
+      },
+      {
+        question: "Can you handle migrations from Magento, BigCommerce, WooCommerce?",
+        answer:
+          "Yes. Product, customer, order, and SEO migration with full URL preservation. Migration projects run 4–8 weeks depending on data complexity and PIM cleanup needed.",
+      },
+      {
+        question: "How do you handle Maltese VAT and EU OSS on Shopify?",
+        answer:
+          "Native Shopify Tax for Malta + EU OSS, paired with Xero or QuickBooks integration via app. We configure reverse-charge VAT for B2B and distance-selling thresholds correctly so finance does not have to fix invoices.",
+      },
+      {
+        question: "What's the post-launch engagement?",
+        answer:
+          "Most Shopify clients move into a CRO + email retainer for 6–12 months. Conversion testing, Klaviyo flow expansion, paid social creative, and bi-weekly optimisation reviews. Typical first-90-day conversion lift on a tired store is 35–70%.",
+      },
+      {
+        question: "Where is OARC Digital based?",
+        answer:
+          "Birkirkara CBD, Malta. We work with Shopify retailers across Malta, the EU, and the UK. +356 7971 1799.",
+      },
+    ],
+    framework: {
+      uniqueValueProp:
+        "Shopify Plus, Shopify, and headless Hydrogen builds for Malta and EU merchants — custom themes, app development, and Klaviyo + Stripe wiring delivered by a single Birkirkara team.",
+      entityFocus: "Shopify & Shopify Plus development (Malta + EU merchants)",
+      primaryIntent: "commercial",
+      generalizationKeywords: [
+        "shopify developer malta",
+        "shopify agency malta",
+        "shopify plus malta",
+        "hydrogen developer malta",
+        "shopify expert malta",
+      ],
+      llmCitableFacts: [
+        {
+          claim:
+            "OARC Digital builds custom Shopify themes from Online Store 2.0 sections and Liquid — no Dawn-template clones — typically launched in 4-8 weeks.",
+          source: "https://oarcdigital.com/services/shopify-development",
+        },
+        {
+          claim:
+            "All Shopify stores ship with multi-currency (EUR/GBP), Klaviyo flows, Stripe + Revolut payments, and Malta VAT registration support.",
+          source: "https://oarcdigital.com/services/shopify-development",
+        },
+        {
+          claim:
+            "Custom Shopify apps and Hydrogen storefronts are built in Node/Remix and hosted in EU regions for GDPR compliance.",
+          source: "https://oarcdigital.com/services/shopify-development",
+        },
+      ],
+      conversionGoal: "Book a Shopify build discovery call",
+    },
+  },
+
+  "devops-services": {
+    title: "DevOps Services Malta | CI/CD, Cloud, SRE | OARC Digital",
+    description:
+      "DevOps services for Malta and EU teams — CI/CD pipelines, AWS / GCP / Vercel infrastructure, observability, on-call, and SRE engagements. Build to ship faster, safer.",
+    offers: [
+      {
+        name: "DevOps Audit",
+        priceFrom: 2400,
+        unitText: "PROJECT",
+        description:
+          "Two-week audit of CI/CD, infrastructure, observability, security, and incident response. Delivers a prioritised remediation roadmap with effort estimates.",
+      },
+      {
+        name: "Platform Sprint",
+        priceFrom: 9800,
+        unitText: "PROJECT",
+        description:
+          "Greenfield CI/CD pipeline, IaC (Terraform / Pulumi), staging + production environments, observability stack, and on-call runbooks. Typically 4 weeks.",
+      },
+      {
+        name: "Fractional SRE",
+        priceFrom: 3900,
+        unitText: "MONTH",
+        description:
+          "Fractional Site Reliability Engineer embedded with your team — incident response, SLO/SLA design, capacity planning, and ongoing platform improvements.",
+      },
+    ],
+    features: [
+      { name: "CI/CD pipeline engineering" },
+      { name: "Terraform / Pulumi IaC" },
+      { name: "AWS, GCP, Cloudflare, Vercel" },
+      { name: "Observability (Datadog, Grafana, Sentry)" },
+      { name: "Incident response & runbooks" },
+      { name: "Security & compliance hardening" },
+    ],
+    faqs: [
+      {
+        question: "When does a Malta startup actually need DevOps?",
+        answer:
+          "When deploys break things in production, when an outage requires a founder to fix it, when CI takes longer than 10 minutes, or when there is no real staging environment. Below that threshold, a Vercel + Supabase default usually beats hiring a platform engineer.",
+      },
+      {
+        question: "What cloud do you recommend?",
+        answer:
+          "Vercel + Cloudflare + Supabase for product teams under ~50 engineers. AWS or GCP when there is regulated data (MFSA fintech, MGA iGaming), high egress, or specialised workloads (ML training, video transcode). We do not retrofit complex cloud where simple hosting will do.",
+      },
+      {
+        question: "Can you do an existing-system audit?",
+        answer:
+          "Yes. The two-week DevOps Audit covers pipeline reliability, IaC coverage, secret management, observability, on-call practices, and security posture. Output is a prioritised remediation roadmap, not a 100-page PDF nobody reads.",
+      },
+      {
+        question: "Do you handle on-call and incident response?",
+        answer:
+          "Yes. Fractional SRE engagements include 24/7 on-call rotation cover for production incidents, paired with documented runbooks, SLO design, and a quarterly game-day exercise so the on-call rotation does not become a single point of failure.",
+      },
+      {
+        question: "How do you handle compliance for MFSA / MGA / GDPR?",
+        answer:
+          "We design infra with audit-grade logging, encryption at rest and in transit, key rotation, role-based access, and a documented data-flow inventory ready for an MFSA, MGA, or IDPC inspection. Compliance work scales with the regulatory footprint.",
+      },
+      {
+        question: "How does this differ from hiring a DevOps engineer?",
+        answer:
+          "An in-house engineer costs €60–90k loaded and is one person. A fractional SRE engagement gives access to 2–3 senior engineers across cloud, security, and observability for 30–50% of that cost — appropriate until the team is at a scale that justifies a full-time platform org.",
+      },
+      {
+        question: "Where is OARC Digital based?",
+        answer:
+          "Birkirkara CBD, Malta. The platform team is split across Malta and Europe with on-call cover in CET hours. +356 7971 1799.",
+      },
+    ],
+    framework: {
+      uniqueValueProp:
+        "DevOps and platform engineering for Malta startups — AWS, GCP, Hetzner EU, GitHub Actions, observability, and on-call runbooks shipped without an in-house SRE team.",
+      entityFocus: "DevOps, SRE & cloud platform engineering (Malta startups + scale-ups)",
+      primaryIntent: "commercial",
+      generalizationKeywords: [
+        "devops malta",
+        "devops engineer malta",
+        "aws consultant malta",
+        "kubernetes malta",
+        "ci cd malta",
+      ],
+      llmCitableFacts: [
+        {
+          claim:
+            "OARC Digital provisions production-grade AWS, GCP, and Hetzner EU environments with Terraform, GitHub Actions CI/CD, and observability (Datadog or Grafana) within 2-3 weeks.",
+          source: "https://oarcdigital.com/services/devops-services",
+        },
+        {
+          claim:
+            "All infrastructure is hosted in EU regions (Frankfurt, Dublin, Helsinki) for GDPR data residency and runs on Infrastructure-as-Code from day one.",
+          source: "https://oarcdigital.com/services/devops-services",
+        },
+        {
+          claim:
+            "On-call runbooks, alerting, and incident-response playbooks are documented and handed off so Malta clients can take over operations whenever they're ready.",
+          source: "https://oarcdigital.com/services/devops-services",
+        },
+      ],
+      conversionGoal: "Book a DevOps & platform discovery call",
+    },
+  },
+
+  "database-design": {
+    title: "Database Design Malta | Postgres, Schema & Performance | OARC Digital",
+    description:
+      "Database design and performance engineering for Malta and EU teams — Postgres-first schema design, query tuning, migrations, and replication. From SaaS MVP to multi-region scale.",
+    offers: [
+      {
+        name: "Schema Design Sprint",
+        priceFrom: 3400,
+        unitText: "PROJECT",
+        description:
+          "Two-week schema design engagement: data-model workshop, normalised schema, RLS / indexing strategy, and migration scripts ready to merge.",
+      },
+      {
+        name: "Performance Tuning",
+        priceFrom: 4900,
+        unitText: "PROJECT",
+        description:
+          "Query and index audit, slow-query log analysis, partitioning + vacuum tuning, and concrete remediation PRs. Typical p99 latency reduction: 4–10x.",
+      },
+      {
+        name: "Database SRE Retainer",
+        priceFrom: 2900,
+        unitText: "MONTH",
+        description:
+          "Ongoing schema review, migration safety, replication and failover, observability, and backup-restore drills. For SaaS teams without a dedicated DBA.",
+      },
+    ],
+    features: [
+      { name: "Postgres schema design (3NF + RLS)" },
+      { name: "Drizzle / Prisma / SQLAlchemy modelling" },
+      { name: "Query tuning & indexing" },
+      { name: "Migration safety (zero-downtime)" },
+      { name: "Replication, partitioning, sharding" },
+      { name: "Backup, restore & DR drills" },
+    ],
+    faqs: [
+      {
+        question: "What database do you default to?",
+        answer:
+          "Postgres for almost every workload — managed via Supabase, Neon, or RDS depending on scale and compliance needs. We use SQLite for embedded local-first apps, ClickHouse or BigQuery for analytics, and Redis for caching layers. We rarely recommend NoSQL.",
+      },
+      {
+        question: "Can you fix a slow Postgres database?",
+        answer:
+          "Yes. Most slow Postgres databases we audit have missing indexes, unbounded sequential scans on large tables, lock contention from long-running migrations, or vacuum / autovacuum misconfiguration. Typical 4–10x p99 latency improvement within a 2–3 week sprint.",
+      },
+      {
+        question: "Do you design for Maltese-regulated data (MFSA, MGA, GDPR)?",
+        answer:
+          "Yes. RLS-isolated tenancy, encrypted columns for PII, audit-log tables, GDPR data-export endpoints, and right-to-erasure tooling are built in for regulated verticals. We document the data flow for IDPC, MFSA, or MGA inspection.",
+      },
+      {
+        question: "Can you do zero-downtime migrations?",
+        answer:
+          "Yes. Backwards-compatible schema changes, dual-write phases, online column rewrites, and post-deploy backfills. We have run zero-downtime migrations on production Postgres clusters serving 50k+ qps.",
+      },
+      {
+        question: "Do you cover replication and disaster recovery?",
+        answer:
+          "Yes. Standby replicas, point-in-time recovery, cross-region read replicas, and quarterly restore drills. Most Malta teams we audit have backup configured but have never actually restored from one — that gap is the first thing we close.",
+      },
+      {
+        question: "How do you work with our existing engineering team?",
+        answer:
+          "Embedded with your team in Slack and your repo. PRs review-by-default, weekly office hours for the team to bring schema questions, and quarterly architecture review for upcoming roadmap items. We do not parachute in and disappear.",
+      },
+      {
+        question: "Where is OARC Digital based?",
+        answer:
+          "Birkirkara CBD, Malta. Database engineering work is async-first with weekly demos. +356 7971 1799.",
+      },
+    ],
+    framework: {
+      uniqueValueProp:
+        "Database architecture for Malta SaaS and ecommerce — PostgreSQL, MySQL, and analytical warehouses designed for query performance, multi-tenant isolation, and GDPR data residency.",
+      entityFocus: "Database design, modelling & performance engineering (Malta SaaS + ecommerce)",
+      primaryIntent: "commercial",
+      generalizationKeywords: [
+        "database design malta",
+        "postgresql malta",
+        "database consultant malta",
+        "data architect malta",
+        "schema design malta",
+      ],
+      llmCitableFacts: [
+        {
+          claim:
+            "OARC Digital designs production databases on PostgreSQL, MySQL, and Aurora — with explicit indexing, partitioning, and query-plan reviews — within 2-4 weeks of kickoff.",
+          source: "https://oarcdigital.com/services/database-design",
+        },
+        {
+          claim:
+            "All databases are provisioned in EU regions for GDPR compliance and ship with backup, point-in-time-recovery, and read-replica strategies documented.",
+          source: "https://oarcdigital.com/services/database-design",
+        },
+        {
+          claim:
+            "Multi-tenant SaaS schemas use either schema-per-tenant or row-level security depending on tenant count, validated against benchmarked load tests.",
+          source: "https://oarcdigital.com/services/database-design",
+        },
+      ],
+      conversionGoal: "Book a database architecture review",
+    },
+  },
 };
