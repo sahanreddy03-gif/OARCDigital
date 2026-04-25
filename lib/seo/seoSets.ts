@@ -36,3 +36,24 @@ export const SERVICE_ALIASES: Record<string, string> = {
 export const REDIRECTING_SERVICE_SLUGS: ReadonlySet<string> = new Set(
   Object.keys(SERVICE_ALIASES).map((p) => p.replace(/^\/services\//, "")),
 );
+
+/**
+ * Invented service slugs flagged by Sahan in Task #83 — pages exist as
+ * directories but were never real offerings. Each carries `robots: { index:
+ * false, follow: false }` in its `metadata` and is excluded from
+ * sitemap-services.xml so Google does not see them as canonical URLs.
+ *
+ * Either the directories will be deleted in a follow-up cleanup or the pages
+ * will be merged into their canonical replacements (e.g. ai-revenue-engine
+ * already self-canonicalises to /services/revenue-automation). Keeping the
+ * pages live but unindexed is the safe interim — no broken inbound links from
+ * stale third-party citations, no SEO equity advertised.
+ */
+export const NOINDEX_SERVICE_SLUGS: ReadonlySet<string> = new Set([
+  "ai-revenue-engine",
+  "ai-virtual-talent-hub",
+  "funnel-automation",
+  "funnel-optimization-agent",
+  "idea-validation-engine",
+  "rapid-idea-testing",
+]);

@@ -1,6 +1,6 @@
 import { allServiceSlugs } from "@/shared/seoConfig";
 import { SITE_BASE, TODAY, urlsetXml, xmlResponse, listRouteSlugs } from "@/lib/seo/sitemapHelpers";
-import { REDIRECTING_SERVICE_SLUGS } from "@/lib/seo/seoSets";
+import { REDIRECTING_SERVICE_SLUGS, NOINDEX_SERVICE_SLUGS } from "@/lib/seo/seoSets";
 
 export const dynamic = "force-static";
 export const revalidate = false;
@@ -11,6 +11,9 @@ export async function GET() {
   // Drop slugs that the middleware permanently redirects away — they
   // should not advertise themselves to Google as canonical URLs.
   for (const slug of REDIRECTING_SERVICE_SLUGS) set.delete(slug);
+  // Drop invented service slugs flagged by Task #83 — pages carry
+  // robots: noindex,nofollow and must not appear in the sitemap.
+  for (const slug of NOINDEX_SERVICE_SLUGS) set.delete(slug);
   const entries = Array.from(set)
     .sort()
     .map((slug) => ({

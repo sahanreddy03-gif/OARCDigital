@@ -355,14 +355,14 @@ Value: Multi-tenant SaaS engineered in Malta from MVP to series-A scale — Stri
 
 ### Web Apps Development Malta
 Canonical: https://oarcdigital.com/services/web-apps-development
-Value: Custom Malta-built web applications — dashboards, customer portals, marketplaces, PWAs — engineered on Next.js + Postgres, with role-based auth, EU hosting, and full source-code handover from week one.
+Value: Custom Malta-built web apps — dashboards, customer portals, marketplaces, PWAs — engineered on Next.js + Postgres with role-based auth, EU hosting, and source-code handover.
 - OARC Digital builds custom web applications — dashboards, customer portals, internal tools, marketplaces, and PWAs — on Next.js, TypeScript, and PostgreSQL with full source-code handover.
 - Internal-tool web apps land in 4–6 weeks; customer portals in 8–12 weeks; marketplace and multi-role builds in 3–5 months from a fixed-price discovery sprint.
 - All web apps are hosted in EU regions (typically Frankfurt or Dublin) for GDPR data residency, and source code lives in the client's GitHub organisation from day one.
 
 ### Content Marketing Malta
 Canonical: https://oarcdigital.com/services/content-marketing
-Value: Long-form Malta content programmes engineered around topic clusters and internal-link maps — every article ships with a target keyword, a buying-stage tag, and a measurable conversion goal.
+Value: Long-form Malta content programmes built around topic clusters and internal-link maps — every article ships with a keyword, a buying-stage tag, and a conversion goal.
 - Content retainers ship 4-8 long-form pieces per month, each mapped to a topic cluster and an internal-link plan validated by audit-core-57.
 - Every article is written by a Malta-based editor — never AI-only output — and reviewed against a brand voice guide before publish.
 - Content programmes are reported monthly on organic traffic, ranking movement, and pipeline-attributed revenue from GA4.
@@ -376,7 +376,7 @@ Value: Lifecycle email and CRM automation for Malta brands — segmented flows, 
 
 ### Ecommerce Development Malta
 Canonical: https://oarcdigital.com/services/ecommerce-development
-Value: Headless and Shopify ecommerce builds engineered for Malta merchants — multi-currency EUR + GBP, Revolut/Stripe checkout, and conversion-rate-optimised PDPs delivered in 6-10 weeks.
+Value: Headless and Shopify ecommerce for Malta merchants — multi-currency EUR + GBP, Revolut/Stripe checkout, and CRO-optimised PDPs delivered in 6-10 weeks.
 - OARC Digital ships Shopify and headless ecommerce stores in 6-10 weeks with multi-currency (EUR/GBP), Stripe + Revolut checkout, and Klaviyo flows wired in.
 - Every build ships with conversion-rate-optimised product detail pages, abandoned-cart recovery, and a baseline CRO test queue.
 - Stores are hosted in EU regions for GDPR compliance and integrate with Malta-friendly couriers (DHL, FedEx, GO Logistics).
