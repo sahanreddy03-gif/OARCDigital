@@ -6,6 +6,29 @@ const BASE = "https://oarcdigital.com";
 
 const ORG_REF = { "@id": `${BASE}/#organization` };
 
+// Founder identity. sameAs left empty by default — Sahan supplies real
+// LinkedIn URL via FOUNDER_SAMEAS environment variable rather than hard-code
+// (Rule 3 — no fabricated authority signals). When NEXT_PUBLIC_FOUNDER_LINKEDIN
+// is set the schema picks it up automatically.
+const FOUNDER_SAMEAS: string[] = [
+  process.env.NEXT_PUBLIC_FOUNDER_LINKEDIN,
+  process.env.NEXT_PUBLIC_FOUNDER_TWITTER,
+].filter((v): v is string => Boolean(v && v.trim()));
+
+export function buildPerson() {
+  const node: Record<string, unknown> = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": `${BASE}/#founder`,
+    name: "Sahan",
+    jobTitle: "Founder & CEO",
+    worksFor: ORG_REF,
+    url: BASE,
+  };
+  if (FOUNDER_SAMEAS.length) node.sameAs = FOUNDER_SAMEAS;
+  return node;
+}
+
 export function buildOrganization() {
   return {
     "@context": "https://schema.org",

@@ -27,8 +27,22 @@
 import fs from "node:fs";
 import path from "node:path";
 import { SERVICE_SCHEMAS, type ServiceSchemaEntry } from "../lib/seo/serviceSchemaConfig";
+import { PILLAR_SCHEMAS, type PillarSchemaEntry } from "../lib/seo/pillarSchemaConfig";
 
 type Issue = { slug: string; layer: 1 | 2 | 3 | 4 | 6; message: string };
+
+type FrameworkSourced = { slug: string; entry: ServiceSchemaEntry | PillarSchemaEntry; kind: "service" | "pillar" };
+
+function allFrameworkEntries(): FrameworkSourced[] {
+  const out: FrameworkSourced[] = [];
+  for (const [slug, entry] of Object.entries(SERVICE_SCHEMAS)) {
+    out.push({ slug, entry, kind: "service" });
+  }
+  for (const [slug, entry] of Object.entries(PILLAR_SCHEMAS)) {
+    out.push({ slug, entry, kind: "pillar" });
+  }
+  return out;
+}
 
 const issues: Issue[] = [];
 const BASE = process.env.BASE?.replace(/\/$/, "") ?? "";
@@ -133,7 +147,7 @@ function buildExpectedFactsSection(): string {
   lines.push("## Cite-Able Service Facts (for AI answer engines)");
   lines.push("");
   lines.push(
-    "Auto-generated from lib/seo/serviceSchemaConfig.ts by scripts/generate-llms-txt-facts.ts. Do not hand-edit between the AUTOGEN markers — re-run the generator instead.",
+    "Auto-generated from lib/seo/serviceSchemaConfig.ts + lib/seo/pillarSchemaConfig.ts by scripts/generate-llms-txt-facts.ts. Do not hand-edit between the AUTOGEN markers — re-run the generator instead.",
   );
   lines.push("");
 
@@ -143,6 +157,20 @@ function buildExpectedFactsSection(): string {
     const canonical = `https://oarcdigital.com/services/${slug}`;
     lines.push(`### ${entry.title.replace(/\s*\|.*$/, "").trim()}`);
     lines.push(`Canonical: ${canonical}`);
+    lines.push(`Value: ${fw.uniqueValueProp}`);
+    for (const f of fw.llmCitableFacts) lines.push(`- ${f.claim}`);
+    lines.push("");
+  }
+
+  lines.push("## Cite-Able Pillar Facts (for AI answer engines)");
+  lines.push("");
+
+  for (const [path, entry] of Object.entries(PILLAR_SCHEMAS) as [string, PillarSchemaEntry][]) {
+    const fw = entry.framework;
+    if (!fw) continue;
+    const canonical = `https://oarcdigital.com${path === "/" ? "" : path}`;
+    lines.push(`### ${entry.title.replace(/\s*\|.*$/, "").trim()}`);
+    lines.push(`Canonical: ${canonical || "https://oarcdigital.com/"}`);
     lines.push(`Value: ${fw.uniqueValueProp}`);
     for (const f of fw.llmCitableFacts) lines.push(`- ${f.claim}`);
     lines.push("");
@@ -182,11 +210,12 @@ function checkLlmsTxtParity(): Issue[] {
 }
 
 async function audit() {
-  // Per-entry (Layers 1-6) checks
-  for (const [slug, entry] of Object.entries(SERVICE_SCHEMAS) as [string, ServiceSchemaEntry][]) {
+  const all = allFrameworkEntries();
+  // Per-entry (Layers 1-6) checks across SERVICE_SCHEMAS + PILLAR_SCHEMAS
+  for (const { slug, entry, kind } of all) {
     const fw = entry.framework;
     if (!fw) {
-      issues.push({ slug, layer: 1, message: "missing framework block entirely" });
+      issues.push({ slug, layer: 1, message: `[${kind}] missing framework block entirely` });
       continue;
     }
 
@@ -243,9 +272,13 @@ async function audit() {
     if (!goal) issues.push({ slug, layer: 6, message: "conversionGoal empty" });
     else if (goal.length < 8) issues.push({ slug, layer: 6, message: `conversionGoal too short (${goal.length} chars)` });
 
-    // Layer 1 (live SSR) — meta description AND Service JSON-LD description
+    // Layer 1 (live SSR) — meta description AND (Service|WebPage) JSON-LD
+    // description. Pillar pages do not emit a Service node, so the JSON-LD
+    // description gate only fires for service entries.
     if (BASE) {
-      const url = `${BASE}/services/${slug}`;
+      const url = kind === "pillar"
+        ? `${BASE}${slug}`
+        : `${BASE}/services/${slug}`;
       const html = await fetchHtml(url);
       if (!html) {
         issues.push({ slug, layer: 1, message: `live SSR fetch failed for ${url}` });
@@ -258,7 +291,7 @@ async function audit() {
             message: `<meta name="description"> on ${url} did not match SCHEMA.description (got ${meta === null ? "no tag" : `"${meta.slice(0, 60)}…"`})`,
           });
         }
-        if (!jsonldHasServiceWithDescription(html, entry.description)) {
+        if (kind === "service" && !jsonldHasServiceWithDescription(html, entry.description)) {
           issues.push({
             slug,
             layer: 1,
@@ -285,12 +318,12 @@ async function audit() {
   // Global Layer 4 parity gate
   for (const i of checkLlmsTxtParity()) issues.push(i);
 
-  const total = Object.keys(SERVICE_SCHEMAS).length;
+  const total = all.length;
   const failedSlugs = new Set(issues.map((i) => i.slug));
   const passed = total - [...failedSlugs].filter((s) => s !== "_global").length;
 
   const liveTag = BASE ? ` (with live SSR check against ${BASE})` : " (offline; pass BASE=... for live SSR check)";
-  console.log(`framework audit${liveTag}: ${passed}/${total} service entries pass all 6 layer checks\n`);
+  console.log(`framework audit${liveTag}: ${passed}/${total} entries pass all 6 layer checks (${Object.keys(SERVICE_SCHEMAS).length} service + ${Object.keys(PILLAR_SCHEMAS).length} pillar)\n`);
 
   if (issues.length === 0) {
     console.log("  ✓ all 6 framework layers satisfied for every entry");

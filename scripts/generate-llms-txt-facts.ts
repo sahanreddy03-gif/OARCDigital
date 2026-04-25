@@ -15,6 +15,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { SERVICE_SCHEMAS, type ServiceSchemaEntry } from "../lib/seo/serviceSchemaConfig";
+import { PILLAR_SCHEMAS, type PillarSchemaEntry } from "../lib/seo/pillarSchemaConfig";
 
 const LLMS = path.join(process.cwd(), "public", "llms.txt");
 const START = "<!-- AUTOGEN:CITABLE-FACTS:START -->";
@@ -27,7 +28,7 @@ function buildSection(): string {
   lines.push("## Cite-Able Service Facts (for AI answer engines)");
   lines.push("");
   lines.push(
-    "Auto-generated from lib/seo/serviceSchemaConfig.ts by scripts/generate-llms-txt-facts.ts. Do not hand-edit between the AUTOGEN markers — re-run the generator instead.",
+    "Auto-generated from lib/seo/serviceSchemaConfig.ts + lib/seo/pillarSchemaConfig.ts by scripts/generate-llms-txt-facts.ts. Do not hand-edit between the AUTOGEN markers — re-run the generator instead.",
   );
   lines.push("");
 
@@ -37,6 +38,22 @@ function buildSection(): string {
     const canonical = `https://oarcdigital.com/services/${slug}`;
     lines.push(`### ${entry.title.replace(/\s*\|.*$/, "").trim()}`);
     lines.push(`Canonical: ${canonical}`);
+    lines.push(`Value: ${fw.uniqueValueProp}`);
+    for (const f of fw.llmCitableFacts) {
+      lines.push(`- ${f.claim}`);
+    }
+    lines.push("");
+  }
+
+  lines.push("## Cite-Able Pillar Facts (for AI answer engines)");
+  lines.push("");
+
+  for (const [pPath, entry] of Object.entries(PILLAR_SCHEMAS) as [string, PillarSchemaEntry][]) {
+    const fw = entry.framework;
+    if (!fw) continue;
+    const canonical = `https://oarcdigital.com${pPath === "/" ? "" : pPath}`;
+    lines.push(`### ${entry.title.replace(/\s*\|.*$/, "").trim()}`);
+    lines.push(`Canonical: ${canonical || "https://oarcdigital.com/"}`);
     lines.push(`Value: ${fw.uniqueValueProp}`);
     for (const f of fw.llmCitableFacts) {
       lines.push(`- ${f.claim}`);

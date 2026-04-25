@@ -8,6 +8,8 @@ import "./globals.css";
 import { Providers } from "./providers";
 import ScrollToTop from "@/components/ScrollToTop";
 import SpeculationRules from "@/components/SpeculationRules";
+import MobileStickyCTA from "@/components/MobileStickyCTA";
+import Analytics from "@/components/Analytics";
 
 const nunitoSans = Nunito_Sans({
   subsets: ["latin"],
@@ -209,6 +211,8 @@ export default function RootLayout({
         </Suspense>
         <SpeculationRules />
         <Providers>{children}</Providers>
+        <MobileStickyCTA />
+        <Analytics />
 
         {/* Google Ads gtag.js — runs in a Web Worker via Partytown.
             We use the canonical Partytown attributes (`type="text/partytown"`)

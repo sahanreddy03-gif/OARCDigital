@@ -7,11 +7,12 @@
 
 import {
   buildArticle,
-  buildBreadcrumb,
   buildFAQ,
   buildService,
   buildLocalBusiness,
   buildOrganization,
+  buildPerson,
+  buildWebSite,
   combine,
   breadcrumbFromPath,
   DEFAULT_RATING,
@@ -53,6 +54,13 @@ type LocalBusinessProps = CommonProps & {
   locality?: string;
 };
 
+type PillarProps = CommonProps & {
+  type: "pillar";
+  faqs?: { question: string; answer: string }[];
+  /** Set false to skip the LocalBusiness node (default true). */
+  includeLocalBusiness?: boolean;
+};
+
 type GenericProps = CommonProps & {
   type?: "page";
 };
@@ -61,6 +69,7 @@ export type RouteSchemaProps =
   | ArticleProps
   | ServiceProps
   | LocalBusinessProps
+  | PillarProps
   | GenericProps;
 
 export default function RouteSchema(props: RouteSchemaProps) {
@@ -120,6 +129,26 @@ export default function RouteSchema(props: RouteSchemaProps) {
     }
     nodes.push(lb);
     nodes.push(buildOrganization());
+    if (props.faqs && props.faqs.length) nodes.push(buildFAQ(props.faqs, true));
+  } else if (props.type === "pillar") {
+    // Money-page schema: Organization + LocalBusiness + WebSite + Person
+    // (founder) + BreadcrumbList + FAQPage. No Service node — pillars promote
+    // the brand entity, the spoke /services/<slug> pages emit Service nodes.
+    nodes.push(buildOrganization());
+    if (props.includeLocalBusiness !== false) nodes.push(buildLocalBusiness());
+    nodes.push(buildWebSite());
+    nodes.push(buildPerson());
+    nodes.push({
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "@id": `${url}#webpage`,
+      url,
+      name: props.title,
+      description: props.description,
+      isPartOf: { "@id": `${BASE}/#website` },
+      about: { "@id": `${BASE}/#organization` },
+      primaryImageOfPage: { "@type": "ImageObject", url: `${BASE}/oarc-logo.png` },
+    });
     if (props.faqs && props.faqs.length) nodes.push(buildFAQ(props.faqs, true));
   } else {
     nodes.push({

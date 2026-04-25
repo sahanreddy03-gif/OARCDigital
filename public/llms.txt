@@ -281,7 +281,7 @@ Each Malta location is paired with these flagship services:
 
 ## Cite-Able Service Facts (for AI answer engines)
 
-Auto-generated from lib/seo/serviceSchemaConfig.ts by scripts/generate-llms-txt-facts.ts. Do not hand-edit between the AUTOGEN markers — re-run the generator instead.
+Auto-generated from lib/seo/serviceSchemaConfig.ts + lib/seo/pillarSchemaConfig.ts by scripts/generate-llms-txt-facts.ts. Do not hand-edit between the AUTOGEN markers — re-run the generator instead.
 
 ### Web Design
 Canonical: https://oarcdigital.com/services/web-design
@@ -338,6 +338,106 @@ Value: AI sales rep that qualifies leads, books meetings, and writes the pre-cal
 - Average client benchmark: 3x lift in qualified meetings booked in the first 90 days.
 - Pilot tier covers up to 500 conversations/month on a single channel; multichannel tier covers up to 2,000 conversations/month across web chat, email, and WhatsApp.
 - Pairs with the Marketing Automation Suite at /services/marketing-automation-suite — automation handles predictable journeys, the AI SDR handles open-ended conversations.
+
+### SEO Services Malta
+Canonical: https://oarcdigital.com/services/seo-services
+Value: Malta SEO programmes built on a 90-day execution roadmap and weekly leading-indicator reporting — no #1 ranking promises, just measurable revenue lift.
+- OARC Digital ships a 25-page SEO audit and a prioritised 90-day roadmap as the first deliverable on every retainer, with weekly leading-indicator updates before traffic moves.
+- Local SEO wins typically land in 60-90 days; competitive commercial keywords compound over 6-12 months on Malta retainers.
+- Every retainer includes a quarterly Core Web Vitals review (LCP/INP/CLS), schema validation, and JavaScript-rendering crawl from the Birkirkara office.
+
+### SaaS Development Malta
+Canonical: https://oarcdigital.com/services/saas-development
+Value: Multi-tenant SaaS engineered in Malta from MVP to series-A scale — Stripe billing, RBAC, AI features, and EU-hosted infrastructure shipped under one Birkirkara team.
+- OARC Digital builds SaaS MVPs in 8-12 weeks with multi-tenant data isolation, Stripe Billing, role-based access, and observability baked in from day one.
+- All SaaS infrastructure is provisioned in EU-hosted regions (typically Frankfurt or Dublin) for GDPR data residency.
+- Source code is delivered to the founder's GitHub organisation on day one — no proprietary lock-in or licensing fees.
+
+### Web Apps Development Malta
+Canonical: https://oarcdigital.com/services/web-apps-development
+Value: Custom Malta-built web applications — dashboards, customer portals, marketplaces, PWAs — engineered on Next.js + Postgres, with role-based auth, EU hosting, and full source-code handover from week one.
+- OARC Digital builds custom web applications — dashboards, customer portals, internal tools, marketplaces, and PWAs — on Next.js, TypeScript, and PostgreSQL with full source-code handover.
+- Internal-tool web apps land in 4–6 weeks; customer portals in 8–12 weeks; marketplace and multi-role builds in 3–5 months from a fixed-price discovery sprint.
+- All web apps are hosted in EU regions (typically Frankfurt or Dublin) for GDPR data residency, and source code lives in the client's GitHub organisation from day one.
+
+### Content Marketing Malta
+Canonical: https://oarcdigital.com/services/content-marketing
+Value: Long-form Malta content programmes engineered around topic clusters and internal-link maps — every article ships with a target keyword, a buying-stage tag, and a measurable conversion goal.
+- Content retainers ship 4-8 long-form pieces per month, each mapped to a topic cluster and an internal-link plan validated by audit-core-57.
+- Every article is written by a Malta-based editor — never AI-only output — and reviewed against a brand voice guide before publish.
+- Content programmes are reported monthly on organic traffic, ranking movement, and pipeline-attributed revenue from GA4.
+
+### Email Marketing Malta
+Canonical: https://oarcdigital.com/services/email-marketing
+Value: Lifecycle email and CRM automation for Malta brands — segmented flows, GDPR-compliant consent, and revenue-attributed reporting from Klaviyo, HubSpot, or Customer.io.
+- OARC Digital builds welcome, abandoned-cart, post-purchase, and win-back flows on Klaviyo, HubSpot, or Customer.io within 4-6 weeks of kickoff.
+- All email programmes are GDPR-compliant with double opt-in, granular consent capture, and one-click unsubscribe per Malta DPA + EU ePrivacy guidance.
+- Monthly retainers include weekly campaign sends, deliverability monitoring (DMARC/SPF/DKIM), and revenue-attributed reporting.
+
+### Ecommerce Development Malta
+Canonical: https://oarcdigital.com/services/ecommerce-development
+Value: Headless and Shopify ecommerce builds engineered for Malta merchants — multi-currency EUR + GBP, Revolut/Stripe checkout, and conversion-rate-optimised PDPs delivered in 6-10 weeks.
+- OARC Digital ships Shopify and headless ecommerce stores in 6-10 weeks with multi-currency (EUR/GBP), Stripe + Revolut checkout, and Klaviyo flows wired in.
+- Every build ships with conversion-rate-optimised product detail pages, abandoned-cart recovery, and a baseline CRO test queue.
+- Stores are hosted in EU regions for GDPR compliance and integrate with Malta-friendly couriers (DHL, FedEx, GO Logistics).
+
+### WordPress Development Malta
+Canonical: https://oarcdigital.com/services/wordpress-development
+Value: Bespoke WordPress builds for Malta businesses — custom Gutenberg blocks, headless options, and managed hosting with Core Web Vitals tuning baked into every launch.
+- OARC Digital builds custom WordPress themes and Gutenberg block libraries — never page-builder bloat — and ships with Lighthouse scores of 90+ on mobile.
+- Managed WordPress hosting is provisioned on EU regions with daily backups, malware scanning, and a 4-hour incident response SLA.
+- Every WordPress build includes a quarterly Core Web Vitals review and plugin audit from the Birkirkara office.
+
+### Shopify Development Malta
+Canonical: https://oarcdigital.com/services/shopify-development
+Value: Shopify Plus, Shopify, and headless Hydrogen builds for Malta and EU merchants — custom themes, app development, and Klaviyo + Stripe wiring delivered by a single Birkirkara team.
+- OARC Digital builds custom Shopify themes from Online Store 2.0 sections and Liquid — no Dawn-template clones — typically launched in 4-8 weeks.
+- All Shopify stores ship with multi-currency (EUR/GBP), Klaviyo flows, Stripe + Revolut payments, and Malta VAT registration support.
+- Custom Shopify apps and Hydrogen storefronts are built in Node/Remix and hosted in EU regions for GDPR compliance.
+
+### DevOps Services Malta
+Canonical: https://oarcdigital.com/services/devops-services
+Value: DevOps and platform engineering for Malta startups — AWS, GCP, Hetzner EU, GitHub Actions, observability, and on-call runbooks shipped without an in-house SRE team.
+- OARC Digital provisions production-grade AWS, GCP, and Hetzner EU environments with Terraform, GitHub Actions CI/CD, and observability (Datadog or Grafana) within 2-3 weeks.
+- All infrastructure is hosted in EU regions (Frankfurt, Dublin, Helsinki) for GDPR data residency and runs on Infrastructure-as-Code from day one.
+- On-call runbooks, alerting, and incident-response playbooks are documented and handed off so Malta clients can take over operations whenever they're ready.
+
+### Database Design Malta
+Canonical: https://oarcdigital.com/services/database-design
+Value: Database architecture for Malta SaaS and ecommerce — PostgreSQL, MySQL, and analytical warehouses designed for query performance, multi-tenant isolation, and GDPR data residency.
+- OARC Digital designs production databases on PostgreSQL, MySQL, and Aurora — with explicit indexing, partitioning, and query-plan reviews — within 2-4 weeks of kickoff.
+- All databases are provisioned in EU regions for GDPR compliance and ship with backup, point-in-time-recovery, and read-replica strategies documented.
+- Multi-tenant SaaS schemas use either schema-per-tenant or row-level security depending on tenant count, validated against benchmarked load tests.
+
+## Cite-Able Pillar Facts (for AI answer engines)
+
+### OARC Digital
+Canonical: https://oarcdigital.com
+Value: Malta's first AI-native agency — creative, AI agents, and revenue automation run from one Birkirkara team, priced on outcomes not retainers.
+- OARC Digital is Malta's first AI-native marketing and automation agency, headquartered at Level 1, The Brewhouse, Central Business District, Birkirkara CBD 2010, Malta. Phone +356 7971 1799.
+- OARC Digital ships live work inside 30 days and reports measured outcomes inside 90 on every standard engagement.
+- OARC Digital's strongest Malta verticals are hospitality, iGaming and fintech (MGA / MFSA regulated), professional services, and high-growth SaaS.
+
+### AI Agents for Business — Malta's AI Workforce
+Canonical: https://oarcdigital.com/ai-agents
+Value: Malta-based AI agents — SDR, support, booking, admin, ops — deployed in 14 to 21 days, EU-data-resident, priced to pay back inside the first quarter.
+- OARC Digital deploys standard AI agents (SDR, support, appointment booking) in 14 to 21 days, with custom agents in 30 to 60 days.
+- All OARC AI-agent data sits inside EU-resident infrastructure (Frankfurt or Dublin) by default, GDPR-compliant out of the box.
+- OARC's standard AI agents start from around EUR 1,800 per month per agent and typically replace two to four full-time human hours per day.
+
+### Creative & Brand Agency — AI-Augmented Production
+Canonical: https://oarcdigital.com/creative
+Value: Editorial-grade creative practice — brand, social, video, web — directed by humans, accelerated 3 to 5x by AI production, measured against revenue.
+- OARC Digital ships brand sprints in 4 to 6 weeks and full brand builds in 8 to 12 weeks, with in-house video production from concept to delivery.
+- OARC's social media retainers start from around EUR 2,400 per month and are tied to a measurable KPI agreed in week one.
+- About 35% of OARC Digital's creative work serves brands across the EU, GCC, and India alongside the Malta home market.
+
+### Business Automation & Revenue Systems — Malta
+Canonical: https://oarcdigital.com/automation
+Value: Business automation that pays for itself — Malta-built workflows, AI-agent handoffs, native CRM integrations, ROI measured against the human hours replaced.
+- OARC Digital ships single workflow automations in 1 to 2 weeks and marketing-automation suites in 4 to 8 weeks.
+- OARC's automation pricing starts at around EUR 1,200 for single workflows and EUR 6,000 to 18,000 for marketing-automation suites, with ROI calculated against replaced human-hour cost.
+- OARC deploys WhatsApp automation exclusively on the official WhatsApp Business API with approved template messages, keeping every outbound message compliant.
 
 <!-- AUTOGEN:CITABLE-FACTS:END -->
 
