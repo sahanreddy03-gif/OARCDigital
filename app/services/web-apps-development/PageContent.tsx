@@ -1,521 +1,210 @@
-"use client";
+import Layout from "@/components/layout/Layout";
+import RelatedLinks from "@/components/RelatedLinks";
+import { Button } from "@/components/ui/button";
+import { CheckCircle2, ArrowRight, MapPin, Phone, Mail } from "lucide-react";
+import Link from "next/link";
+import { SERVICE_SCHEMAS } from "@/lib/seo/serviceSchemaConfig";
 
-import { useState, useEffect } from 'react';
-import Link from 'next/link';
-import { motion, useReducedMotion } from 'framer-motion';
-import { ArrowRight, Globe, Monitor, Zap, Shield, BarChart3, CheckCircle2, Code2, Layers, Server, Database, Cloud, Lock, Users, Cpu, ChevronRight, TrendingUp, Clock, Target } from 'lucide-react';
-import { SiReact, SiNextdotjs, SiVuedotjs, SiTypescript, SiNodedotjs, SiPostgresql, SiTailwindcss, SiVercel } from 'react-icons/si';
-import Layout from '@/components/layout/Layout';
-import { createServiceSchema } from "@/utils/structuredData";
-import ScrollReveal from "@/components/ScrollReveal";
-import { Button } from '@/components/ui/button';
-import { AnimatedGridBackground } from '@/components/ui/animated-grid-background';
-import { GlassCard } from '@/components/ui/glass-card';
-import FAQSection, { FAQItem } from '@/components/FAQSection';
+const SCHEMA = SERVICE_SCHEMAS["web-apps-development"];
 
-const webAppFAQs: FAQItem[] = [
-  { question: "What web applications do you build?", answer: "SaaS platforms, dashboards, portals, booking systems, marketplaces, and custom business tools. Full-stack web development." },
-  { question: "What technologies do you use?", answer: "React, TypeScript, Node.js, PostgreSQL, and modern cloud infrastructure. Enterprise-grade tech stack." },
-  { question: "How long does web app development take?", answer: "MVPs take 8-12 weeks. Full-featured applications typically require 4-8 months depending on complexity." },
-  { question: "What makes OARC's web apps different?", answer: "Product-focused development. We build apps users love, not just features clients requested." },
-  { question: "Do you handle UX/UI design?", answer: "Yes, design is included. Research, wireframes, prototypes, and final UI design before development begins." },
-  { question: "Can you scale existing applications?", answer: "Absolutely. We audit, optimize, and scale existing apps. Performance tuning and architecture improvements." },
-  { question: "What is the investment for web app development?", answer: "Our web application packages are tailored to your project scope and technical requirements. Contact us for a custom quote." },
-  { question: "Do you offer SLA-backed maintenance?", answer: "Yes, enterprise maintenance packages include uptime SLAs, security updates, and priority support." }
+const phases = [
+  { title: "Discovery & architecture (week 1)", detail: "We map the workflows, draft the data model, sketch the screens, and price the build in a one-week fixed-fee discovery sprint. You walk away with an architecture document and a Linear backlog whether or not you proceed." },
+  { title: "Foundation build (weeks 2–4)", detail: "Auth, role-based access, the database schema, the deployment pipeline, and the empty shell of every screen. By the end of this phase your team can log in, click around, and see exactly where the product is going." },
+  { title: "Feature build (weeks 5–10)", detail: "Two-week sprints, each ending in a Loom demo and a written changelog. Features ship to a staging environment your stakeholders can poke at long before launch — no big-reveal surprises." },
+  { title: "Launch & handover (week 11)", detail: "Production deploy with monitoring, error tracking, an on-call rota for the first 30 days, and a written runbook. Source code lives in your GitHub from day one, so handover is a permission change, not a migration." },
 ];
 
-import dashboardImg from '@assets/stock_images/financial_dashboard__226af471.jpg';
-import softwareDevImg1 from '@assets/stock_images/software_development_5606ca42.jpg';
-import softwareDevImg2 from '@assets/stock_images/software_development_bf22fbae.jpg';
+const stack = [
+  { area: "Frontend", choice: "Next.js 15 + TypeScript + Tailwind. Server components for fast first paint, client components where interactivity matters, no framework lock-in further down the road." },
+  { area: "API layer", choice: "Node.js with Hono or tRPC. Type-safe end-to-end so a renamed database column produces a TypeScript error instead of a 3am page." },
+  { area: "Database", choice: "PostgreSQL via Drizzle or Prisma — battle-tested in EU regions, easy to staff, and supported by every major Maltese hosting partner." },
+  { area: "Auth & permissions", choice: "Clerk or Auth.js with role-based access enforced at the database layer using Postgres policies, not just in the UI." },
+  { area: "Hosting", choice: "Vercel, Render, or AWS in eu-central-1 / eu-west-1 for sub-100ms latency to Maltese users and clean GDPR data residency for EU customers." },
+];
 
-const ELITE_COLORS = {
-  primary: '#6366f1',
-  secondary: '#8b5cf6',
-  accent: '#22d3ee',
-  success: '#22c55e',
-};
+const useCases = [
+  { title: "Internal tools & ops dashboards", detail: "Replace the spreadsheet, the Airtable, or the legacy access-database your operations team has outgrown. Same data, but with audit trails, permissions, and a UI nobody curses at." },
+  { title: "Customer portals", detail: "Branded self-service portals for clients to view orders, raise tickets, upload documents, and pay invoices — wired into the CRM, ERP, or accounting tool you already run." },
+  { title: "Marketplaces & directories", detail: "Two-sided marketplaces, supplier directories, classifieds, and B2B catalogues with search, filtering, payments, and moderation tools built in." },
+  { title: "Booking & scheduling apps", detail: "Resource scheduling, appointment booking, course enrolment, and calendar-integration apps — including Google Calendar, Outlook, and Microsoft 365 sync." },
+  { title: "Progressive Web Apps", detail: "Installable, offline-capable web apps that behave like native iOS or Android apps without the App Store overhead. Push notifications, home-screen install, the lot." },
+  { title: "Workflow & approval systems", detail: "Multi-step approval flows for procurement, HR, finance, or compliance teams — with audit logs, email/Slack notifications, and reporting dashboards baked in." },
+];
 
-export default function WebApplicationDevelopment() {
-  const [activeType, setActiveType] = useState(0);
-  const [hoveredMetric, setHoveredMetric] = useState<number | null>(null);
-  const prefersReducedMotion = useReducedMotion();
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
-  const webAppTypes = [
-    {
-      title: "SaaS Platforms",
-      icon: Cloud,
-      desc: "Multi-tenant applications with subscription billing, user management, and analytics dashboards",
-      features: ["User authentication", "Subscription management", "Admin dashboards", "API access"],
-      example: "CRM, Project management, Analytics tools"
-    },
-    {
-      title: "E-Commerce",
-      icon: TrendingUp,
-      desc: "High-performance online stores with inventory, payments, and order management",
-      features: ["Product catalogs", "Payment processing", "Inventory sync", "Order tracking"],
-      example: "Online stores, Marketplaces, B2B portals"
-    },
-    {
-      title: "Enterprise Portals",
-      icon: Users,
-      desc: "Internal tools, dashboards, and workflow automation for large organizations",
-      features: ["Role-based access", "Data visualization", "Workflow automation", "Integrations"],
-      example: "Employee portals, Data dashboards, Reporting tools"
-    },
-    {
-      title: "Real-time Apps",
-      icon: Zap,
-      desc: "Live collaboration, chat, and streaming applications with instant updates",
-      features: ["WebSocket connections", "Live updates", "Presence indicators", "Notifications"],
-      example: "Chat apps, Collaboration tools, Live dashboards"
-    },
-  ];
-
-  const techStack = [
-    { name: 'React', Icon: SiReact, color: '#61DAFB', desc: 'Component UI' },
-    { name: 'Next.js', Icon: SiNextdotjs, color: '#ffffff', desc: 'Full-stack framework' },
-    { name: 'Vue.js', Icon: SiVuedotjs, color: '#4FC08D', desc: 'Progressive framework' },
-    { name: 'TypeScript', Icon: SiTypescript, color: '#3178C6', desc: 'Type-safe code' },
-    { name: 'Node.js', Icon: SiNodedotjs, color: '#339933', desc: 'Server runtime' },
-    { name: 'PostgreSQL', Icon: SiPostgresql, color: '#4169E1', desc: 'Database' },
-    { name: 'Tailwind', Icon: SiTailwindcss, color: '#06B6D4', desc: 'Styling' },
-    { name: 'Vercel', Icon: SiVercel, color: '#ffffff', desc: 'Deployment' },
-  ];
-
-  const performanceMetrics = [
-    { value: "<1s", label: "Load Time", icon: Clock, desc: "First contentful paint under 1 second" },
-    { value: "100", label: "Performance Score", icon: BarChart3, desc: "Google Lighthouse perfect score" },
-    { value: "99.9%", label: "Uptime SLA", icon: Shield, desc: "Enterprise-grade reliability" },
-    { value: "A+", label: "Security Grade", icon: Lock, desc: "SSL Labs security rating" },
-  ];
-
-  const conversionProcess = [
-    { phase: "Capture", icon: Target, color: "#22d3ee", desc: "Engaging landing pages that convert visitors into leads" },
-    { phase: "Guide", icon: Layers, color: "#6366f1", desc: "Intuitive UX that guides users through your funnel" },
-    { phase: "Convert", icon: TrendingUp, color: "#22c55e", desc: "Optimized checkout and signup flows that close deals" },
-  ];
-
+export default function WebAppsDevelopmentContent() {
   return (
     <Layout>
-      {/* HERO */}
-      <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-black">
-        <AnimatedGridBackground 
-          intensity="high" 
-          showScanLine={true} 
-          showParticles={true}
-          showConcentricRings={true}
-          showDiagonalGrid={true}
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/50 to-black pointer-events-none" />
-
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 py-20">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                className="inline-flex items-center gap-3 mb-8"
-              >
-                <div className="px-5 py-2.5 bg-white/[0.05] backdrop-blur-md border border-white/15 rounded-full flex items-center gap-3">
-                  <motion.div 
-                    className="w-2 h-2 bg-cyan-400 rounded-full"
-                    animate={prefersReducedMotion ? {} : { scale: [1, 1.5, 1], opacity: [1, 0.5, 1] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                  />
-                  <span className="text-xs font-medium text-white/70 uppercase tracking-[0.2em]">
-                    Web Development
-                  </span>
-                </div>
-              </motion.div>
-              
-              <motion.h1
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.1 }}
-                className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 leading-[1.05]"
-                data-testid="heading-web-apps"
-              >
-                Web Apps That{' '}
-                <span className="bg-gradient-to-r from-cyan-400 via-indigo-400 to-purple-400 bg-clip-text text-transparent">
-                  Convert
-                </span>
-              </motion.h1>
-              
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                className="text-xl text-white/60 mb-8 leading-relaxed max-w-xl"
-              >
-                Lightning-fast, conversion-optimized web applications. Built with React, Next.js, and modern architecture that scales.
-              </motion.p>
-
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.3 }}
-                className="flex flex-wrap gap-4"
-              >
-                <Link href="/contact">
-                  <Button size="lg" className="bg-cyan-500 hover:bg-cyan-600 text-white font-bold text-lg px-8" data-testid="button-start-project">
-                    Start Your Project
-                    <ArrowRight className="w-5 h-5 ml-2" />
-                  </Button>
-                </Link>
-              </motion.div>
+      <main className="min-h-screen bg-background">
+        <section className="bg-gradient-to-br from-zinc-900 to-zinc-950 text-white py-16 md:py-24">
+          <div className="max-w-4xl mx-auto px-6 md:px-8">
+            <div className="flex items-center gap-2 mb-6 text-sm text-zinc-400">
+              <Link href="/" className="hover:text-white transition-colors">Home</Link>
+              <span>/</span>
+              <Link href="/services" className="hover:text-white transition-colors">Services</Link>
+              <span>/</span>
+              <span className="text-white">Web Apps Development</span>
             </div>
-
-            {/* Performance Dashboard Preview */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              className="relative hidden lg:block"
-            >
-              <div className="absolute -inset-4 bg-gradient-to-r from-cyan-500/20 via-indigo-500/20 to-purple-500/20 rounded-3xl blur-2xl" />
-              <GlassCard className="p-6" variant="strong" showCornerAccents={true}>
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse" />
-                  <span className="text-white/70 text-sm font-medium">Performance Dashboard</span>
-                </div>
-                
-                <div className="grid grid-cols-2 gap-4 mb-6">
-                  {performanceMetrics.map((metric, i) => (
-                    <motion.div
-                      key={i}
-                      onHoverStart={() => setHoveredMetric(i)}
-                      onHoverEnd={() => setHoveredMetric(null)}
-                      className={`p-4 rounded-xl bg-white/[0.03] border transition-all ${
-                        hoveredMetric === i ? 'border-cyan-500/50' : 'border-white/10'
-                      }`}
-                    >
-                      <metric.icon className="w-5 h-5 text-cyan-400 mb-2" />
-                      <div className="text-2xl font-black text-white">{metric.value}</div>
-                      <div className="text-xs text-white/50">{metric.label}</div>
-                    </motion.div>
-                  ))}
-                </div>
-
-                <div className="h-24 bg-white/[0.02] rounded-lg border border-white/10 flex items-end p-4 gap-1">
-                  {[40, 65, 45, 80, 55, 90, 70, 85, 60, 95, 75, 88].map((h, i) => (
-                    <motion.div
-                      key={i}
-                      className="flex-1 bg-gradient-to-t from-cyan-500 to-indigo-500 rounded-t"
-                      initial={{ height: 0 }}
-                      animate={{ height: `${h}%` }}
-                      transition={{ duration: 0.5, delay: i * 0.05 }}
-                    />
-                  ))}
-                </div>
-              </GlassCard>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* CONVERSION FRAMEWORK */}
-      <section className="py-24 px-4 bg-zinc-950 border-t border-white/10 relative overflow-hidden">
-        <AnimatedGridBackground intensity="subtle" showScanLine={false} showParticles={true} showConcentricRings={false} />
-        <div className="relative max-w-6xl mx-auto">
-          <ScrollReveal>
-            <div className="text-center mb-16">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className="inline-flex items-center gap-3 px-5 py-2.5 bg-white/[0.05] border border-white/15 rounded-full mb-6"
-              >
-                <TrendingUp className="w-4 h-4 text-cyan-400" />
-                <span className="text-xs text-white/70 uppercase tracking-[0.2em]">Conversion Framework</span>
-              </motion.div>
-              <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
-                Built to <span className="text-cyan-400">Convert</span>
-              </h2>
-              <p className="text-lg text-white/60 max-w-2xl mx-auto">
-                Every web app we build follows our proven conversion framework
-              </p>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/10 border border-orange-500/20 mb-6">
+              <span className="text-orange-400 text-xs font-semibold uppercase tracking-wider">Web Application Engineering</span>
             </div>
-          </ScrollReveal>
-
-          <ScrollReveal delay={0.2}>
-            <div className="grid md:grid-cols-3 gap-8">
-              {conversionProcess.map((step, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1 }}
-                >
-                  <GlassCard className="p-8 text-center h-full" variant="strong" glowOnHover={true}>
-                    <div 
-                      className="w-20 h-20 rounded-2xl mx-auto mb-6 flex items-center justify-center"
-                      style={{ backgroundColor: `${step.color}20` }}
-                    >
-                      <step.icon className="w-10 h-10" style={{ color: step.color }} />
-                    </div>
-                    <div className="text-xs font-bold uppercase tracking-wider mb-2" style={{ color: step.color }}>
-                      Step {i + 1}
-                    </div>
-                    <h3 className="text-2xl font-black text-white mb-4">{step.phase}</h3>
-                    <p className="text-white/60">{step.desc}</p>
-                  </GlassCard>
-                </motion.div>
-              ))}
-            </div>
-
-            {/* Connection arrows */}
-            <div className="hidden md:flex justify-center items-center gap-4 mt-8">
-              {[0, 1].map((i) => (
-                <div key={i} className="flex items-center gap-4">
-                  <div className="w-32 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent" />
-                  <ChevronRight className="w-5 h-5 text-white/30" />
-                  <div className="w-32 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent" />
-                </div>
-              ))}
-            </div>
-          </ScrollReveal>
-        </div>
-      </section>
-
-      {/* WEB APP TYPES */}
-      <ScrollReveal>
-        <section className="py-24 px-4 bg-black border-t border-white/10">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
-                What We <span className="text-cyan-400">Build</span>
-              </h2>
-              <p className="text-lg text-white/60 max-w-2xl mx-auto">
-                From SaaS platforms to enterprise portals—web apps that drive business results
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-6">
-              {webAppTypes.map((type, i) => (
-                <motion.div
-                  key={i}
-                  whileHover={{ y: -4 }}
-                  onClick={() => setActiveType(i)}
-                  data-testid={`app-type-${i}`}
-                >
-                  <GlassCard 
-                    className={`p-6 cursor-pointer h-full transition-all ${
-                      activeType === i ? 'border-cyan-500/50' : ''
-                    }`}
-                    variant="strong"
-                    glowOnHover={true}
-                  >
-                    <div className="flex items-start gap-4">
-                      <div className="w-14 h-14 rounded-xl bg-cyan-500/20 flex items-center justify-center flex-shrink-0">
-                        <type.icon className="w-7 h-7 text-cyan-400" />
-                      </div>
-                      <div className="flex-1">
-                        <div className="flex items-center gap-2 mb-2">
-                          <h3 className="text-xl font-bold text-white">{type.title}</h3>
-                          <ChevronRight className={`w-4 h-4 text-white/40 transition-transform ${activeType === i ? 'rotate-90' : ''}`} />
-                        </div>
-                        <p className="text-white/60 text-sm mb-4">{type.desc}</p>
-                        
-                        <div className="flex flex-wrap gap-2 mb-4">
-                          {type.features.map((feature, j) => (
-                            <span key={j} className="px-3 py-1 rounded-full text-xs bg-white/5 text-white/70 border border-white/10">
-                              {feature}
-                            </span>
-                          ))}
-                        </div>
-
-                        <div className="text-xs text-cyan-400">
-                          Examples: {type.example}
-                        </div>
-                      </div>
-                    </div>
-                  </GlassCard>
-                </motion.div>
-              ))}
+            <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">Web Apps Development for Malta &amp; EU Businesses</h1>
+            <p className="text-xl text-zinc-300 leading-relaxed mb-8">
+              Custom internal tools, customer portals, marketplaces, and progressive web apps — built by a Birkirkara engineering team that ships in weeks, hands the keys over on day one, and stays around for the awkward edge cases.
+            </p>
+            <div className="flex flex-wrap gap-3">
+              <Link href="/contact"><Button size="lg" className="bg-orange-500 hover:bg-orange-600 text-white" data-testid="button-book-call">Book a discovery call <ArrowRight className="ml-2 w-4 h-4" /></Button></Link>
+              <a href="tel:+35679711799"><Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10" data-testid="button-call-phone"><Phone className="mr-2 w-4 h-4" /> +356 7971 1799</Button></a>
             </div>
           </div>
         </section>
-      </ScrollReveal>
 
-      {/* TECH STACK */}
-      <section className="py-20 px-4 bg-zinc-950 border-t border-white/10 overflow-hidden">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-black text-white mb-4">
-              Modern <span className="text-cyan-400">Tech Stack</span>
-            </h2>
-            <p className="text-white/60">Battle-tested technologies for scalable applications</p>
-          </div>
+        <article className="max-w-4xl mx-auto px-6 md:px-8 py-16">
+          <section className="mb-12">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">When a Spreadsheet Is No Longer Enough</h2>
+            <p className="text-foreground leading-relaxed mb-4">
+              Most Malta businesses do not need a SaaS product. They need a single, custom web application that replaces three spreadsheets, a forgotten Airtable, and a chain of email approvals. They need it to enforce permissions, leave an audit trail, talk to the accounting system, and stop falling over every time payroll runs an export. They need it shipped this quarter, not next financial year.
+            </p>
+            <p className="text-foreground leading-relaxed">
+              That is the bracket OARC Digital occupies. We are a small, senior product-engineering team in Birkirkara that builds web apps for one client at a time — internal tools for ops, customer portals for B2B, marketplaces for retail and hospitality, dashboards for finance and compliance. The technology is boring on purpose; the delivery model is the differentiator.
+            </p>
+          </section>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {techStack.map((tech, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.05 }}
-              >
-                <GlassCard className="p-6 text-center" variant="strong" glowOnHover={true}>
-                  <tech.Icon className="w-10 h-10 mx-auto mb-3" style={{ color: tech.color }} />
-                  <div className="text-white font-bold">{tech.name}</div>
-                  <div className="text-xs text-white/50">{tech.desc}</div>
-                </GlassCard>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CASE STUDY PREVIEW */}
-      <ScrollReveal>
-        <section className="py-24 px-4 bg-black border-t border-white/10">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div>
-                <div className="inline-flex items-center gap-2 px-4 py-2 bg-cyan-500/20 border border-cyan-500/30 rounded-full text-cyan-400 text-sm font-medium mb-6">
-                  <BarChart3 className="w-4 h-4" />
-                  Case Study
+          <section className="mb-12">
+            <h2 className="text-2xl md:text-3xl font-bold mb-6">What We Build</h2>
+            <div className="grid md:grid-cols-2 gap-4">
+              {useCases.map((u) => (
+                <div key={u.title} className="p-5 rounded-xl bg-card border" data-testid={`use-case-${u.title.replace(/[^a-z0-9]+/gi, "-").toLowerCase()}`}>
+                  <h3 className="font-bold mb-2">{u.title}</h3>
+                  <p className="text-sm text-muted-foreground">{u.detail}</p>
                 </div>
-                <h2 className="text-4xl md:text-5xl font-black text-white mb-6">
-                  +340% Conversion <span className="text-cyan-400">Increase</span>
-                </h2>
-                <p className="text-lg text-white/60 mb-8">
-                  We rebuilt an enterprise SaaS platform from legacy PHP to modern React/Next.js. The result: lightning-fast load times, improved UX, and a 340% increase in trial-to-paid conversions.
-                </p>
+              ))}
+            </div>
+          </section>
 
-                <div className="space-y-4 mb-8">
-                  {[
-                    { before: "4.2s", after: "0.8s", label: "Page Load Time" },
-                    { before: "2.1%", after: "9.2%", label: "Conversion Rate" },
-                    { before: "45%", after: "78%", label: "User Retention" },
-                  ].map((metric, i) => (
-                    <div key={i} className="flex items-center gap-4">
-                      <div className="flex-1">
-                        <div className="text-sm text-white/50 mb-1">{metric.label}</div>
-                        <div className="h-2 bg-white/10 rounded-full overflow-hidden">
-                          <motion.div 
-                            className="h-full bg-gradient-to-r from-cyan-500 to-indigo-500 rounded-full"
-                            initial={{ width: 0 }}
-                            whileInView={{ width: '100%' }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 1, delay: i * 0.2 }}
-                          />
-                        </div>
-                      </div>
-                      <div className="text-right">
-                        <span className="text-white/50 text-sm line-through mr-2">{metric.before}</span>
-                        <span className="text-cyan-400 font-bold">{metric.after}</span>
-                      </div>
-                    </div>
-                  ))}
+          <section className="mb-12">
+            <h2 className="text-2xl md:text-3xl font-bold mb-6">How an OARC Web App Build Runs</h2>
+            <div className="space-y-4">
+              {phases.map((p, i) => (
+                <div key={i} className="p-5 rounded-xl bg-card border">
+                  <div className="flex items-start gap-3 mb-2">
+                    <span className="text-orange-500 font-bold text-sm mt-0.5">{String(i + 1).padStart(2, "0")}</span>
+                    <h3 className="font-bold">{p.title}</h3>
+                  </div>
+                  <p className="text-muted-foreground pl-8">{p.detail}</p>
                 </div>
+              ))}
+            </div>
+          </section>
 
-                <Link href="/our-work">
-                  <Button variant="outline" className="border-white/20 text-white hover:bg-white/10">
-                    View Case Studies
-                    <ArrowRight className="w-4 h-4 ml-2" />
-                  </Button>
-                </Link>
-              </div>
-
-              <div className="relative">
-                <div className="absolute -inset-4 bg-gradient-to-r from-cyan-500/20 to-indigo-500/20 rounded-2xl blur-2xl" />
-                <div className="relative rounded-2xl overflow-hidden border border-white/10">
-                  <img src={dashboardImg} alt="Web application dashboard" className="w-full h-auto" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+          <section className="mb-12">
+            <h2 className="text-2xl md:text-3xl font-bold mb-6">The Default Stack (and Why)</h2>
+            <p className="text-foreground leading-relaxed mb-6">
+              We bias toward boring, hireable technology. The point is for any future engineer in Malta or remote to be able to read the codebase and ship a feature in their first week.
+            </p>
+            <div className="space-y-3">
+              {stack.map((s) => (
+                <div key={s.area} className="p-4 rounded-xl bg-card border">
+                  <div className="font-bold mb-1">{s.area}</div>
+                  <div className="text-sm text-muted-foreground">{s.choice}</div>
                 </div>
-              </div>
+              ))}
             </div>
+          </section>
+
+          <section className="mb-12">
+            <h2 className="text-2xl md:text-3xl font-bold mb-6">What Comes With Every Web App Build</h2>
+            <div className="grid md:grid-cols-2 gap-4">
+              {SCHEMA.features.map((f) => (
+                <div key={f.name} className="flex items-start gap-3 p-4 rounded-xl bg-card border">
+                  <CheckCircle2 className="w-5 h-5 text-orange-500 mt-0.5 flex-shrink-0" />
+                  <p className="text-foreground">{f.name}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section className="mb-12">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">Web App vs. SaaS vs. Mobile App — How To Decide</h2>
+            <p className="text-foreground leading-relaxed mb-4">
+              We build all three, and we are happy to talk founders out of the wrong one. A custom web app is right when one organisation (or a known set of accounts) needs a tool that does not exist off the shelf. A SaaS product is right when the same problem is shared by hundreds of organisations and you intend to charge them a subscription. A native mobile app is right only when the use case genuinely demands camera access, offline-first data, push at scale, or App Store discoverability — otherwise a Progressive Web App will cover 90% of the requirement at a quarter of the cost.
+            </p>
+            <p className="text-foreground leading-relaxed">
+              If you are not sure which category your idea sits in, the discovery sprint will resolve that. We have killed our own scope on more than one project because the right answer turned out to be a Notion automation or a Make.com flow, not a custom build.
+            </p>
+          </section>
+
+          <section className="mb-12">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">Integrations We Wire In Most Often</h2>
+            <p className="text-foreground leading-relaxed mb-4">
+              Most Malta web apps do not live in a vacuum. They sit inside an existing operating model with HubSpot or Salesforce on the front end, Xero or QuickBooks on the finance side, and a handful of internal systems that the IT team would rather not rebuild. We wire in those integrations as part of the standard build — using webhooks where systems support them, polling where they do not, and a properly versioned ETL job for the rest.
+            </p>
+            <p className="text-foreground leading-relaxed">
+              For Malta-licensed verticals, that integration list often expands to KYC providers, AML screening services, MFSA filing endpoints, MGA reporting feeds, and the local banking APIs. Every external system is documented, retried with exponential back-off, and monitored — so when a third party breaks, your operations team gets a message in Slack instead of a phone call from an angry customer.
+            </p>
+          </section>
+
+          <section className="mb-12">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">Performance, Security, and the Boring Operational Stuff</h2>
+            <p className="text-foreground leading-relaxed mb-4">
+              Performance budgets are non-negotiable: target a Largest Contentful Paint under 1.5 seconds on a Maltese 4G connection, an Interaction-to-Next-Paint under 200ms, and a Lighthouse performance score of 90+ on the busiest screens. We measure those numbers in CI on every pull request and refuse to merge code that regresses them.
+            </p>
+            <p className="text-foreground leading-relaxed">
+              Security gets the same treatment. Every endpoint is rate-limited, every input validated server-side with Zod, every database query parameterised, and every secret rotated through a managed vault rather than committed to a .env file. We run dependency audits weekly, hand over a written threat model after launch, and book a free security review at the six-month mark.
+            </p>
+          </section>
+
+          <section className="mb-12">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">Documentation and Knowledge Transfer Built Into Every Sprint</h2>
+            <p className="text-foreground leading-relaxed">
+              Sprint reviews always include a recorded walkthrough of the code shipped that fortnight, an updated architecture diagram, and a brief written commentary on technical debt taken on or paid down. Onboarding documentation, runbooks, and an operations manual live in the client repository from the first sprint, so when you eventually hire your first in-house engineer or bring on a CTO, the codebase and the documentation are both ready for them on day one.
+            </p>
+          </section>
+
+          <section className="mb-12">
+            <h2 className="text-2xl md:text-3xl font-bold mb-6">Pricing</h2>
+            <p className="text-muted-foreground mb-6">Three transparent tiers. No setup fees, no annual lock-in.</p>
+            <div className="grid md:grid-cols-3 gap-4">
+              {SCHEMA.offers.map((offer) => (
+                <div key={offer.name} className="rounded-xl border p-6 bg-card flex flex-col" data-testid={`pricing-tier-${offer.name.replace(/[^a-z0-9]+/gi, "-").toLowerCase()}`}>
+                  <h3 className="font-bold text-lg mb-1">{offer.name}</h3>
+                  <p className="text-3xl font-bold text-orange-600 mb-1">€{offer.priceFrom.toLocaleString()}</p>
+                  <p className="text-xs uppercase tracking-wider text-muted-foreground mb-4">{offer.unitText?.toLowerCase() ?? "project"}</p>
+                  <p className="text-sm text-muted-foreground flex-1">{offer.description}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section className="mb-12">
+            <h2 className="text-2xl md:text-3xl font-bold mb-6">Frequently Asked Questions</h2>
+            <div className="space-y-4">
+              {SCHEMA.faqs.map((faq, i) => (
+                <div key={i} className="p-5 rounded-xl bg-card border">
+                  <h3 className="font-bold mb-2">{faq.question}</h3>
+                  <p className="text-muted-foreground faq-answer">{faq.answer}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section className="mb-12">
+            <h2 className="text-2xl md:text-3xl font-bold mb-6">Visit OARC Digital</h2>
+            <div className="rounded-xl border bg-card p-6">
+              <div className="flex items-start gap-3 mb-3"><MapPin className="w-5 h-5 text-orange-500 mt-0.5" /><address className="not-italic text-foreground leading-relaxed">Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010, Malta</address></div>
+              <div className="flex items-center gap-3 mb-3"><Phone className="w-5 h-5 text-orange-500" /><a href="tel:+35679711799" className="text-foreground hover:text-orange-600">+356 7971 1799</a></div>
+              <div className="flex items-center gap-3"><Mail className="w-5 h-5 text-orange-500" /><a href="mailto:hello@oarcdigital.com" className="text-foreground hover:text-orange-600">hello@oarcdigital.com</a></div>
+            </div>
+          </section>
+
+          <RelatedLinks slug="/services/web-apps-development" />
+
+          <div className="bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl p-8 text-white text-center">
+            <h2 className="text-2xl font-bold mb-3">Have a Web App Idea Sitting in a Doc?</h2>
+            <p className="text-white/90 mb-6 max-w-xl mx-auto">Bring it to a 30-minute discovery call. We will tell you honestly whether to build, buy, or duct-tape it together — and if it is worth building, what it would cost and how long to ship.</p>
+            <Link href="/contact"><Button size="lg" className="bg-white text-orange-600 hover:bg-orange-50 font-bold" data-testid="button-cta-contact">Book the call <ArrowRight className="ml-2 w-4 h-4" /></Button></Link>
           </div>
-        </section>
-      </ScrollReveal>
-
-      {/* STATS */}
-      <section className="py-16 px-4 bg-gradient-to-r from-cyan-600 via-indigo-600 to-cyan-600">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            {[
-              { value: "200+", label: "Web Apps Launched", icon: Globe },
-              { value: "<1s", label: "Avg. Load Time", icon: Zap },
-              { value: "99.9%", label: "Uptime SLA", icon: Shield },
-              { value: "100", label: "Lighthouse Score", icon: BarChart3 },
-            ].map((stat, i) => (
-              <div key={i} data-testid={`stat-${i}`}>
-                <stat.icon className="w-8 h-8 text-white/80 mx-auto mb-3" />
-                <div className="text-3xl md:text-4xl font-black text-white">{stat.value}</div>
-                <div className="text-sm text-white/80">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <FAQSection faqs={webAppFAQs} title="Frequently Asked Questions" subtitle="Everything you need to know about web application development" schemaId="faq-web-app" darkMode={true} />
-
-      {/* FINAL CTA */}
-      <section className="py-24 px-4 bg-black text-white relative overflow-hidden border-t border-white/10">
-        <AnimatedGridBackground intensity="subtle" showScanLine={false} showParticles={true} showConcentricRings={true} />
-        <div className="relative max-w-4xl mx-auto text-center">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-4xl md:text-5xl font-black mb-6"
-          >
-            Ready to build a <span className="bg-gradient-to-r from-cyan-400 to-indigo-400 bg-clip-text text-transparent">high-performance</span> web app?
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="text-white/60 text-lg mb-10 max-w-2xl mx-auto"
-          >
-            Free technical consultation. We'll analyze your requirements and propose the optimal architecture.
-          </motion.p>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-          >
-            <Link href="/contact">
-              <Button size="lg" className="bg-cyan-500 hover:bg-cyan-600 text-white font-bold text-lg px-10" data-testid="button-cta-contact">
-                Start Your Web Project
-                <ArrowRight className="w-5 h-5 ml-2" />
-              </Button>
-            </Link>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3 }}
-            className="flex flex-wrap gap-6 justify-center items-center mt-12"
-          >
-            <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
-              <CheckCircle2 className="w-5 h-5 text-white" />
-              <span className="text-white text-sm font-medium">Free consultation</span>
-            </div>
-            <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
-              <Zap className="w-5 h-5 text-white" />
-              <span className="text-white text-sm font-medium">Launch in 8-12 weeks</span>
-            </div>
-            <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
-              <Shield className="w-5 h-5 text-white" />
-              <span className="text-white text-sm font-medium">Full code ownership</span>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+        </article>
+      </main>
     </Layout>
   );
 }

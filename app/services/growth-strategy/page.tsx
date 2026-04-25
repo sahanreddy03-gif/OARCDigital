@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import PageContent from "./PageContent";
+import RouteSchema from "@/components/RouteSchema";
+import { SERVICE_SCHEMA_EXTRAS } from "@/lib/seo/serviceSchemaExtras";
 
 export const metadata: Metadata = {
   title: "Growth Strategy & Consulting | Strategic Planning | OARC Digital",
@@ -19,5 +21,20 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <PageContent />;
-}
+    const schema = SERVICE_SCHEMA_EXTRAS["growth-strategy"];
+    return (
+      <>
+        <RouteSchema
+          type="service"
+          path="/services/growth-strategy"
+          title={schema.title}
+          description={schema.description}
+          features={schema.features}
+          offers={schema.offers}
+          faqs={schema.faqs}
+        />
+        <PageContent />
+      </>
+    );
+  }
+  

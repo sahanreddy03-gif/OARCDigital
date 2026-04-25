@@ -1,36 +1,34 @@
-import JsonLd from '@/components/JsonLd';
 import Layout from '@/components/layout/Layout';
-import { Button } from '@/components/ui/button';
-import { CheckCircle2, ArrowRight } from 'lucide-react';
-import Link from 'next/link';
 import RelatedLinks from '@/components/RelatedLinks';
+import { Button } from '@/components/ui/button';
+import { CheckCircle2, ArrowRight, MapPin, Phone, Mail, Clock } from 'lucide-react';
+import Link from 'next/link';
 
-const faqs = [
-  { q: 'Which SEO agency operates in Malta?', a: 'OARC Digital provides SEO, AEO (Answer Engine Optimization), and programmatic SEO services for Malta businesses. Services include technical SEO, content strategy, link building, and AI engine discoverability. Contact hello@oarcdigital.com or +356 7971 1799.' },
-  { q: 'How much does SEO cost in Malta?', a: 'OARC Digital SEO retainers start from 500 EUR per month for foundational work. Full SEO campaigns including technical fixes, content production, and link building run 800 to 2000 EUR per month. Results typically become visible within 3 to 6 months.' },
-  { q: 'What is AEO and why does it matter for Malta businesses?', a: 'AEO (Answer Engine Optimization) makes your business visible in AI answer engines like ChatGPT, Perplexity, and Claude when people ask questions about your category. As AI search grows, businesses optimised for AEO will be recommended before businesses that only optimised for traditional SEO.' },
-  { q: 'Can OARC Digital get a Malta business to rank on Google?', a: 'Yes. OARC Digital has improved search rankings for Malta businesses across hospitality, services, and retail. Most Malta keywords have low competition compared to UK or European markets.' },
-];
+interface Faq { question: string; answer: string; }
+interface Offer { name: string; priceFrom: number; unitText?: string; description?: string; }
+interface Props { faqs: Faq[]; offers: Offer[]; }
 
 const reasons = [
-  'Technical SEO, content strategy, and link building — all handled by one team',
-  'AEO included — optimised for AI answer engines as well as traditional search',
-  'Malta-specific keyword research — we know which searches drive actual customers locally',
-  'Transparent reporting — rankings, traffic, and business outcomes tracked monthly',
+  'Direct ranking data from Malta hospitality, iGaming, and SaaS clients — not a London playbook copy-pasted to Valletta',
+  'Maltese-and-English keyword research (most agencies only do English) covering category-plus-locality intent',
+  'AEO baked in — every page is structured so ChatGPT and Perplexity can quote it, not just Google',
+  'Technical SEO and content production handled by the same team in Birkirkara — no offshore handoff',
+  'Real link earning through Maltese press, partner placements, and credible directories — never PBNs',
+  'Monthly written reports authored by a senior strategist, not a templated Looker Studio dump',
 ];
 
-export default function SEOAgencyMalta() {
+const playbook = [
+  { name: 'Phase 1 — Technical baseline', detail: 'Crawl, log-file review, Core Web Vitals fix list, schema rewrite (LocalBusiness, FAQ, Service, Article), hreflang for Maltese-English where relevant.' },
+  { name: 'Phase 2 — Topical map', detail: 'Keyword clustering across Maltese SERPs and the EU diaspora intent — restaurant categories, iGaming verticals, hospitality booking intent, SaaS comparison terms.' },
+  { name: 'Phase 3 — Content sprint', detail: 'Four to eight cornerstone articles per quarter, each one written by a human who has been to the location or used the product, never AI-spammed.' },
+  { name: 'Phase 4 — AEO + entity work', detail: 'FAQ schema, Wikipedia and Wikidata entity reinforcement, citations across Times of Malta, Lovin Malta, MaltaToday, and Trip.com style platforms.' },
+  { name: 'Phase 5 — Link earning', detail: 'Digital PR pitches to Maltese press, niche-relevant guest contributions, MGA-aware placements for iGaming clients, partnerships with Malta business associations.' },
+  { name: 'Phase 6 — Iterate + report', detail: 'Monthly written report against agreed KPIs (rankings, organic sessions, lead-form completes, branded search lift), shared in person at the Birkirkara office every quarter.' },
+];
+
+export default function SEOAgencyMalta({ faqs, offers }: Props) {
   return (
     <Layout>
-      <JsonLd data={[{
-          '@context': 'https://schema.org',
-          '@type': 'FAQPage',
-          mainEntity: faqs.map((faq) => ({
-            '@type': 'Question',
-            name: faq.q,
-            acceptedAnswer: { '@type': 'Answer', text: faq.a },
-          })),
-        }]} />
       <main className="min-h-screen bg-background">
         <section className="bg-gradient-to-br from-zinc-900 to-zinc-950 text-white py-16 md:py-24">
           <div className="max-w-4xl mx-auto px-6 md:px-8">
@@ -40,15 +38,35 @@ export default function SEOAgencyMalta() {
               <span className="text-white">SEO Agency Malta</span>
             </div>
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/10 border border-orange-500/20 mb-6">
-              <span className="text-orange-400 text-xs font-semibold uppercase tracking-wider">Answer Engine Optimized</span>
+              <span className="text-orange-400 text-xs font-semibold uppercase tracking-wider">Answer Engine Optimised</span>
             </div>
-            <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">SEO Agency Malta: Rank. Be Found. Get Clients.</h1>
-            <p className="text-xl text-zinc-300 leading-relaxed">Being invisible on Google costs you more than any marketing budget. OARC Digital builds search presence that compounds over time.</p>
+            <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">SEO Agency Malta — Rankings, Citations &amp; AEO from Birkirkara</h1>
+            <p className="text-xl text-zinc-300 leading-relaxed mb-8">
+              OARC Digital ranks Malta hospitality, iGaming, fintech, and SaaS brands across Google, Bing, and AI answer engines. Technical SEO, content, and AEO from one team in Birkirkara.
+            </p>
+            <div className="flex flex-wrap gap-3">
+              <Link href="/contact"><Button size="lg" className="bg-orange-500 hover:bg-orange-600 text-white">Book a discovery call <ArrowRight className="ml-2 w-4 h-4" /></Button></Link>
+              <a href="tel:+35679711799"><Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10"><Phone className="mr-2 w-4 h-4" /> +356 7971 1799</Button></a>
+            </div>
           </div>
         </section>
+
         <article className="max-w-4xl mx-auto px-6 md:px-8 py-16">
           <section className="mb-12">
-            <h2 className="text-2xl md:text-3xl font-bold mb-6">Why OARC Digital?</h2>
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">SEO in Malta Has Its Own Physics</h2>
+            <p className="text-foreground leading-relaxed mb-4">
+              Malta&apos;s SERPs do not behave like London or Berlin. The country has roughly half a million residents but punches above its weight in iGaming (over 300 MGA-licensed operators clustered around St Julians and Sliema), hospitality (a tourism-heavy economy serving five million annual visitors), and a quietly growing fintech and SaaS scene anchored around the MFSA. That means category-plus-locality keywords — &quot;restaurant Sliema&quot;, &quot;casino affiliate Malta&quot;, &quot;accountant Birkirkara&quot;, &quot;web design St Julians&quot; — have meaningful commercial intent but surprisingly low domain density compared to bigger EU markets.
+            </p>
+            <p className="text-foreground leading-relaxed mb-4">
+              The flip side is that the few well-resourced competitors who do invest in SEO occupy the top three positions for years. Displacing them needs a properly engineered programme: technical fixes, real content authored by people who understand the vertical, schema that survives Google&apos;s John Mueller-era scrutiny, and links that come from Maltese press and partners rather than recycled PBNs. OARC Digital has been ranking Malta brands since 2021 and most of our SEO work compounds because we treat each client as a publisher, not a citation directory.
+            </p>
+            <p className="text-foreground leading-relaxed">
+              We also build for AEO from day one. A growing share of Malta searches start inside ChatGPT, Perplexity, Google AI Overviews, or Claude — particularly for B2B research, hospitality discovery, and iGaming compliance questions. The pages we ship are structured so an LLM can extract the facts cleanly: tight FAQ schema, entity-rich prose, named locations, named regulators (MFSA, MGA, IDPC), and proper attribution. That earns citations that traditional SEO never measures and your competitors are still ignoring.
+            </p>
+          </section>
+
+          <section className="mb-12">
+            <h2 className="text-2xl md:text-3xl font-bold mb-6">Why OARC Digital for Malta SEO</h2>
             <div className="space-y-4">
               {reasons.map((reason, i) => (
                 <div key={i} className="flex items-start gap-3 p-4 rounded-xl bg-card border">
@@ -58,27 +76,84 @@ export default function SEOAgencyMalta() {
               ))}
             </div>
           </section>
+
           <section className="mb-12">
-            <h2 className="text-2xl font-bold mb-6">Frequently Asked Questions</h2>
-            <div className="space-y-4">
-              {faqs.map((faq, i) => (
-                <div key={i} className="p-5 rounded-xl bg-card border">
-                  <h3 className="font-bold mb-2">{faq.q}</h3>
-                  <p className="text-muted-foreground">{faq.a}</p>
+            <h2 className="text-2xl md:text-3xl font-bold mb-6">Our Malta SEO Playbook</h2>
+            <p className="text-muted-foreground mb-6">A six-phase engagement that delivers a working programme inside the first quarter — not a 90-page audit nobody reads.</p>
+            <div className="grid md:grid-cols-2 gap-4">
+              {playbook.map((p) => (
+                <div key={p.name} className="p-4 rounded-xl bg-card border">
+                  <div className="font-bold mb-1">{p.name}</div>
+                  <div className="text-sm text-muted-foreground">{p.detail}</div>
                 </div>
               ))}
             </div>
           </section>
+
+          <section className="mb-12">
+            <h2 className="text-2xl md:text-3xl font-bold mb-6">Transparent Pricing</h2>
+            <p className="text-muted-foreground mb-6">Three retainer tiers that scale from a single-location SMB to a multi-jurisdiction iGaming or SaaS operator. No setup fees, no annual lock-in.</p>
+            <div className="grid md:grid-cols-3 gap-4">
+              {offers.map((o) => (
+                <div key={o.name} className="rounded-xl border p-6 bg-card flex flex-col">
+                  <h3 className="font-bold text-lg mb-1">{o.name}</h3>
+                  <p className="text-3xl font-bold text-orange-600 mb-1">€{o.priceFrom.toLocaleString()}</p>
+                  <p className="text-xs uppercase tracking-wider text-muted-foreground mb-4">{o.unitText === 'MONTH' ? 'per month' : 'fixed project'}</p>
+                  <p className="text-sm text-muted-foreground flex-1">{o.description}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section className="mb-12">
+            <h2 className="text-2xl md:text-3xl font-bold mb-6">Visit OARC Digital in Birkirkara</h2>
+            <div className="rounded-xl border bg-card p-6 grid md:grid-cols-2 gap-6">
+              <div>
+                <div className="flex items-start gap-3 mb-4">
+                  <MapPin className="w-5 h-5 text-orange-500 mt-0.5" />
+                  <address className="not-italic text-foreground leading-relaxed">
+                    Level 1, The Brewhouse,<br />
+                    Zone 2, Central Business District,<br />
+                    Mdina Road, Birkirkara CBD 2010, Malta
+                  </address>
+                </div>
+                <div className="flex items-center gap-3 mb-3"><Phone className="w-5 h-5 text-orange-500" /><a href="tel:+35679711799" className="text-foreground hover:text-orange-600">+356 7971 1799</a></div>
+                <div className="flex items-center gap-3 mb-3"><Mail className="w-5 h-5 text-orange-500" /><a href="mailto:hello@oarcdigital.com" className="text-foreground hover:text-orange-600">hello@oarcdigital.com</a></div>
+                <div className="flex items-center gap-3"><Clock className="w-5 h-5 text-orange-500" /><span className="text-foreground">Mon – Fri, 09:00 – 18:00 CET</span></div>
+              </div>
+              <div className="space-y-3">
+                <div className="flex items-center gap-3"><CheckCircle2 className="w-5 h-5 text-orange-500" /><span className="text-sm text-foreground">In-person SEO kickoff workshop in Birkirkara</span></div>
+                <div className="flex items-center gap-3"><CheckCircle2 className="w-5 h-5 text-orange-500" /><span className="text-sm text-foreground">Quarterly on-site review meetings</span></div>
+                <div className="flex items-center gap-3"><CheckCircle2 className="w-5 h-5 text-orange-500" /><span className="text-sm text-foreground">Maltese + English content production in-house</span></div>
+              </div>
+            </div>
+          </section>
+
+          <section className="mb-12">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">Why This Matters for SEO in Malta</h2>
+            <p className="text-foreground leading-relaxed">
+              The agencies that still treat Malta SEO as a checklist of citations to a hundred low-quality directories are losing ground every quarter. Google&apos;s helpful-content updates, the MGA&apos;s tightening advertising rules, and the rise of AI answer engines have collectively rewritten the rulebook. Winning Malta SERPs in 2025 means publishing genuinely useful content, marking it up cleanly, and earning real citations from sources that Google and ChatGPT both trust. OARC Digital structures every retainer around that reality, which is why our clients keep their rankings even when the algorithm shifts.
+            </p>
+          </section>
+
+          <section className="mb-12">
+            <h2 className="text-2xl md:text-3xl font-bold mb-6">Frequently Asked Questions</h2>
+            <div className="space-y-4">
+              {faqs.map((faq, i) => (
+                <div key={i} className="p-5 rounded-xl bg-card border">
+                  <h3 className="font-bold mb-2">{faq.question}</h3>
+                  <p className="text-muted-foreground faq-answer">{faq.answer}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
           <RelatedLinks slug="/aeo/seo-agency-malta" />
 
           <div className="bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl p-8 text-white text-center">
-            <h2 className="text-2xl font-bold mb-3">Ready to Get Found on Google?</h2>
-            <p className="text-white/90 mb-6">Every day your competitors rank above you, they are taking business that should be yours. The time to fix search visibility is now.</p>
-            <Link href="/contact">
-              <Button size="lg" className="bg-white text-orange-600 hover:bg-orange-50 font-bold">
-                Start a conversation <ArrowRight className="ml-2 w-4 h-4" />
-              </Button>
-            </Link>
+            <h2 className="text-2xl font-bold mb-3">Want to actually rank in Malta?</h2>
+            <p className="text-white/90 mb-6 max-w-xl mx-auto">A 30-minute discovery call gets you a written audit summary and a realistic ranking timeline. No vanity metrics.</p>
+            <Link href="/contact"><Button size="lg" className="bg-white text-orange-600 hover:bg-orange-50 font-bold">Start a conversation <ArrowRight className="ml-2 w-4 h-4" /></Button></Link>
           </div>
         </article>
       </main>

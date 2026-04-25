@@ -38,7 +38,7 @@ const services = [
     title: "Web Applications",
     metric: "Enterprise-grade",
     image: webApplicationsImage,
-    slug: "web-application-development",
+    slug: "web-apps-development",
     objectPosition: "center"
   },
   {

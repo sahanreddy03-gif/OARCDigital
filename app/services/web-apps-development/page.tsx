@@ -1,23 +1,33 @@
 import type { Metadata } from "next";
 import PageContent from "./PageContent";
+import RouteSchema from "@/components/RouteSchema";
+import { SERVICE_SCHEMAS } from "@/lib/seo/serviceSchemaConfig";
+
+const SLUG = "web-apps-development";
+const SCHEMA = SERVICE_SCHEMAS[SLUG];
+const URL = `https://oarcdigital.com/services/${SLUG}`;
 
 export const metadata: Metadata = {
-  title: "Web Application Development | React, Next.js, Vue | OARC Digital",
-  description: "Build high-performance web applications that convert. Custom SaaS platforms, e-commerce sites, and enterprise portals built with React, Next.js, and modern tech.",
-  alternates: { canonical: "https://oarcdigital.com/services/web-application-development" },
-  openGraph: {
-    title: "Web Application Development | React, Next.js, Vue | OARC Digital",
-    description: "Build high-performance web applications that convert. Custom SaaS platforms, e-commerce sites, and enterprise portals built with React, Next.js, and modern tech.",
-    url: "https://oarcdigital.com/services/web-application-development",
-    type: "article",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Web Application Development | React, Next.js, Vue | OARC Digital",
-    description: "Build high-performance web applications that convert. Custom SaaS platforms, e-commerce sites, and enterprise portals built with React, Next.js, and modern tech.",
-  },
+  title: SCHEMA.title,
+  description: SCHEMA.description,
+  alternates: { canonical: URL },
+  openGraph: { title: SCHEMA.title, description: SCHEMA.description, url: URL, type: "article" },
+  twitter: { card: "summary_large_image", title: SCHEMA.title, description: SCHEMA.description },
 };
 
 export default function Page() {
-  return <PageContent />;
+  return (
+    <>
+      <RouteSchema
+        type="service"
+        path={`/services/${SLUG}`}
+        title={SCHEMA.title}
+        description={SCHEMA.description}
+        features={SCHEMA.features}
+        offers={SCHEMA.offers}
+        faqs={SCHEMA.faqs}
+      />
+      <PageContent />
+    </>
+  );
 }

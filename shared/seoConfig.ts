@@ -128,7 +128,17 @@ export const allServiceSlugs = [
   'idea-validation-engine',
   'lead-generation',
   'customer-acquisition',
-  'funnel-automation'
+  'funnel-automation',
+  // Phase C — 9 new commercial-intent service pages (Task #70)
+  'seo-services',
+  'saas-development',
+  'content-marketing',
+  'email-marketing',
+  'ecommerce-development',
+  'wordpress-development',
+  'shopify-development',
+  'devops-services',
+  'database-design'
 ] as const;
 
 // All valid case study slugs (from App.tsx routes - canonical names only)

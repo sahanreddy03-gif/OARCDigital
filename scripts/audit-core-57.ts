@@ -38,6 +38,9 @@ const servicePaths = fs.existsSync(SERVICES_DIR)
   ? fs
       .readdirSync(SERVICES_DIR)
       .filter((d) => fs.statSync(path.join(SERVICES_DIR, d)).isDirectory())
+      // Skip Next.js dynamic routes (e.g. [serviceSlug]) — they aren't a single
+      // crawlable URL, so they don't fit the per-page audit model.
+      .filter((d) => !d.startsWith("["))
       .map((s) => `/services/${s}`)
   : [];
 

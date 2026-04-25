@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
-import PageContent from "@/components/services/RevenueServiceClient";
+import ServiceClient from "@/components/services/RevenueServiceClient";
+import DeepContent from "./PageContent";
+import RouteSchema from "@/components/RouteSchema";
+import { SERVICE_SCHEMA_EXTRAS } from "@/lib/seo/serviceSchemaExtras";
 
 export const metadata: Metadata = {
   title: "Funnel Optimization Agent | Conversion Intelligence | OARC Digital Malta",
@@ -19,5 +22,20 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <PageContent slug="funnel-optimization-agent" />;
-}
+    const schema = SERVICE_SCHEMA_EXTRAS["funnel-optimization-agent"];
+    return (
+      <>
+        <RouteSchema
+          type="service"
+          path="/services/funnel-optimization-agent"
+          title={schema.title}
+          description={schema.description}
+          features={schema.features}
+          offers={schema.offers}
+          faqs={schema.faqs}
+        />
+        <ServiceClient slug="funnel-optimization-agent" extraSeoContent={<DeepContent />} />
+      </>
+    );
+  }
+  

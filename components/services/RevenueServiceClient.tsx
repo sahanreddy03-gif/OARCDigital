@@ -148,8 +148,12 @@ const revenueServiceFAQs: FAQItem[] = [
 export default function RevenueService({
   slug,
   emitFaqJsonLd = true,
+  extraSeoContent,
 }: {
   slug: string;
+  // Optional server-rendered SEO content slot. Rendered before the
+  // CTA block so per-page deep content sits inside the <Layout> tree.
+  extraSeoContent?: React.ReactNode;
   emitFaqJsonLd?: boolean;
 }) {
   const location = `/services/${slug}`;
@@ -582,6 +586,7 @@ return (
 
       <RelatedLinks slug={`/services/${slug}`} />
 
+      {extraSeoContent}
 
       {/* CTA with Premium Treatment */}
       <section className="py-32 px-6 bg-black border-t border-white/5 relative overflow-hidden">
