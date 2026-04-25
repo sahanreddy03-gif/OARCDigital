@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
-import PageContent from "@/components/services/RevenueServiceClient";
+import ServiceClient from "@/components/services/RevenueServiceClient";
+import DeepContent from "./PageContent";
+import RouteSchema from "@/components/RouteSchema";
+import { SERVICE_SCHEMA_EXTRAS } from "@/lib/seo/serviceSchemaExtras";
 
 export const metadata: Metadata = {
   title: "Lead Generation & Qualification Engine | AI-Powered Pipeline | OARC Digital",
@@ -19,5 +22,20 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <PageContent slug="lead-generation-engine" />;
-}
+    const schema = SERVICE_SCHEMA_EXTRAS["lead-generation-engine"];
+    return (
+      <>
+        <RouteSchema
+          type="service"
+          path="/services/lead-generation-engine"
+          title={schema.title}
+          description={schema.description}
+          features={schema.features}
+          offers={schema.offers}
+          faqs={schema.faqs}
+        />
+        <ServiceClient slug="lead-generation-engine" extraSeoContent={<DeepContent />} />
+      </>
+    );
+  }
+  

@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
-import PageContent from "@/components/services/RevenueServiceClient";
+import ServiceClient from "@/components/services/RevenueServiceClient";
+import DeepContent from "./PageContent";
+import RouteSchema from "@/components/RouteSchema";
+import { SERVICE_SCHEMA_EXTRAS } from "@/lib/seo/serviceSchemaExtras";
 
 export const metadata: Metadata = {
   title: "Idea Validation & Growth Hacker | Rapid Market Testing | OARC Digital",
@@ -19,5 +22,20 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <PageContent slug="idea-validation-engine" />;
-}
+    const schema = SERVICE_SCHEMA_EXTRAS["idea-validation-engine"];
+    return (
+      <>
+        <RouteSchema
+          type="service"
+          path="/services/idea-validation-engine"
+          title={schema.title}
+          description={schema.description}
+          features={schema.features}
+          offers={schema.offers}
+          faqs={schema.faqs}
+        />
+        <ServiceClient slug="idea-validation-engine" extraSeoContent={<DeepContent />} />
+      </>
+    );
+  }
+  

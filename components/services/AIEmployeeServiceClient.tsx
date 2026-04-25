@@ -242,9 +242,11 @@ const INTEGRATION_ICONS = [
 export default function AIEmployeeService({
   slug,
   emitFaqJsonLd = true,
+  extraSeoContent,
 }: {
   slug: string;
   emitFaqJsonLd?: boolean;
+  extraSeoContent?: React.ReactNode;
 }) {
   const location = `/services/${slug}`;
   const [content, setContent] = useState<ServiceContent | null>(null);
@@ -857,6 +859,8 @@ export default function AIEmployeeService({
           </div>
         </ScrollReveal>
       </section>
+
+      {extraSeoContent}
 
       {/* Further Reading */}
       <section className="py-16 bg-background border-t">

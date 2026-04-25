@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
-import PageContent from "@/components/services/RevenueServiceClient";
+import ServiceClient from "@/components/services/RevenueServiceClient";
+import DeepContent from "./PageContent";
+import RouteSchema from "@/components/RouteSchema";
+import { SERVICE_SCHEMA_EXTRAS } from "@/lib/seo/serviceSchemaExtras";
 
 export const metadata: Metadata = {
   title: "Customer Acquisition Accelerator | Multi-Channel Growth | OARC Digital",
@@ -19,5 +22,20 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <PageContent slug="customer-acquisition-accelerator" />;
-}
+    const schema = SERVICE_SCHEMA_EXTRAS["customer-acquisition-accelerator"];
+    return (
+      <>
+        <RouteSchema
+          type="service"
+          path="/services/customer-acquisition-accelerator"
+          title={schema.title}
+          description={schema.description}
+          features={schema.features}
+          offers={schema.offers}
+          faqs={schema.faqs}
+        />
+        <ServiceClient slug="customer-acquisition-accelerator" extraSeoContent={<DeepContent />} />
+      </>
+    );
+  }
+  

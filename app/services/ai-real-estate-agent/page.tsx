@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
-import PageContent from "@/components/services/AIEmployeeServiceClient";
+import ServiceClient from "@/components/services/AIEmployeeServiceClient";
+import DeepContent from "./PageContent";
+import RouteSchema from "@/components/RouteSchema";
+import { SERVICE_SCHEMA_EXTRAS } from "@/lib/seo/serviceSchemaExtras";
 
 export const metadata: Metadata = {
   title: "Real Estate Sales Specialist | Malta Property AI | OARC Digital Malta",
@@ -19,5 +22,20 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <PageContent slug="ai-real-estate-agent" />;
-}
+    const schema = SERVICE_SCHEMA_EXTRAS["ai-real-estate-agent"];
+    return (
+      <>
+        <RouteSchema
+          type="service"
+          path="/services/ai-real-estate-agent"
+          title={schema.title}
+          description={schema.description}
+          features={schema.features}
+          offers={schema.offers}
+          faqs={schema.faqs}
+        />
+        <ServiceClient slug="ai-real-estate-agent" extraSeoContent={<DeepContent />} />
+      </>
+    );
+  }
+  

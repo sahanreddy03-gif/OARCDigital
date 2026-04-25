@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
-import PageContent from "@/components/services/AIEmployeeServiceClient";
+import ServiceClient from "@/components/services/AIEmployeeServiceClient";
+import DeepContent from "./PageContent";
+import RouteSchema from "@/components/RouteSchema";
+import { SERVICE_SCHEMA_EXTRAS } from "@/lib/seo/serviceSchemaExtras";
 
 export const metadata: Metadata = {
   title: "Appointment Booker Agent | AI Scheduling Assistant | OARC Digital",
@@ -19,5 +22,20 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <PageContent slug="ai-appointment-booker" />;
-}
+    const schema = SERVICE_SCHEMA_EXTRAS["ai-appointment-booker"];
+    return (
+      <>
+        <RouteSchema
+          type="service"
+          path="/services/ai-appointment-booker"
+          title={schema.title}
+          description={schema.description}
+          features={schema.features}
+          offers={schema.offers}
+          faqs={schema.faqs}
+        />
+        <ServiceClient slug="ai-appointment-booker" extraSeoContent={<DeepContent />} />
+      </>
+    );
+  }
+  

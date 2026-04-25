@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
-import PageContent from "@/components/services/AIEmployeeServiceClient";
+import ServiceClient from "@/components/services/AIEmployeeServiceClient";
+import DeepContent from "./PageContent";
+import RouteSchema from "@/components/RouteSchema";
+import { SERVICE_SCHEMA_EXTRAS } from "@/lib/seo/serviceSchemaExtras";
 
 export const metadata: Metadata = {
   title: "Compliance & Legal Auditor | GDPR & Risk Scanning | OARC Digital",
@@ -19,5 +22,20 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <PageContent slug="ai-compliance-auditor" />;
-}
+    const schema = SERVICE_SCHEMA_EXTRAS["ai-compliance-auditor"];
+    return (
+      <>
+        <RouteSchema
+          type="service"
+          path="/services/ai-compliance-auditor"
+          title={schema.title}
+          description={schema.description}
+          features={schema.features}
+          offers={schema.offers}
+          faqs={schema.faqs}
+        />
+        <ServiceClient slug="ai-compliance-auditor" extraSeoContent={<DeepContent />} />
+      </>
+    );
+  }
+  

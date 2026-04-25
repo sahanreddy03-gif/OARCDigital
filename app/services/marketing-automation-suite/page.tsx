@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import PageContent from "@/components/services/RevenueServiceClient";
+import DeepContent from "./PageContent";
 import RouteSchema from "@/components/RouteSchema";
 import { SERVICE_SCHEMAS } from "@/lib/seo/serviceSchemaConfig";
 
@@ -36,7 +37,7 @@ export default function Page() {
         offers={SCHEMA.offers}
         faqs={SCHEMA.faqs}
       />
-      <PageContent slug={SLUG} emitFaqJsonLd={false} />
+      <PageContent slug={SLUG} emitFaqJsonLd={false} extraSeoContent={<DeepContent />} />
     </>
   );
 }

@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
-import PageContent from "@/components/services/AIEmployeeServiceClient";
+import ServiceClient from "@/components/services/AIEmployeeServiceClient";
+import DeepContent from "./PageContent";
+import RouteSchema from "@/components/RouteSchema";
+import { SERVICE_SCHEMA_EXTRAS } from "@/lib/seo/serviceSchemaExtras";
 
 export const metadata: Metadata = {
   title: "Administrative Workflow Agent | AI Virtual Assistant | OARC Digital",
@@ -19,5 +22,20 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <PageContent slug="ai-admin-agent" />;
-}
+    const schema = SERVICE_SCHEMA_EXTRAS["ai-admin-agent"];
+    return (
+      <>
+        <RouteSchema
+          type="service"
+          path="/services/ai-admin-agent"
+          title={schema.title}
+          description={schema.description}
+          features={schema.features}
+          offers={schema.offers}
+          faqs={schema.faqs}
+        />
+        <ServiceClient slug="ai-admin-agent" extraSeoContent={<DeepContent />} />
+      </>
+    );
+  }
+  

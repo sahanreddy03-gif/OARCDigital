@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import PageContent from "./PageContent";
+import RouteSchema from "@/components/RouteSchema";
+import { SERVICE_SCHEMA_EXTRAS } from "@/lib/seo/serviceSchemaExtras";
 
 export const metadata: Metadata = {
   title: "AI Customer Support Agent | 24/7 Automated Support | OARC Digital",
@@ -19,5 +21,20 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <PageContent />;
-}
+    const schema = SERVICE_SCHEMA_EXTRAS["ai-support-specialist"];
+    return (
+      <>
+        <RouteSchema
+          type="service"
+          path="/services/ai-support-specialist"
+          title={schema.title}
+          description={schema.description}
+          features={schema.features}
+          offers={schema.offers}
+          faqs={schema.faqs}
+        />
+        <PageContent />
+      </>
+    );
+  }
+  
