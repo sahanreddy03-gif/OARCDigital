@@ -1,0 +1,146 @@
+APPROVED with patches. Send this revised plan back as 
+task-80a.md before starting execution.
+
+CRITICAL CHANGE — REMOVE BIRKIRKARA FOCUS
+
+Strike the entire "44 unique Birkirkara visit blocks" 
+requirement. Office location is not a conversion driver 
+for a digital agency. Customers don't visit the office to 
+hire us — they call, WhatsApp, or book Cal.com.
+
+Replace with: 44 unique "Why Malta businesses choose OARC" 
+trust blocks per indexed page, each emphasizing a different 
+proof angle:
+- Speed of delivery (real timelines from past projects)
+- Industry depth (which Malta verticals OARC has shipped for)
+- AI capability (concrete AI deployments live with clients)
+- Founder access (Sahan available directly via WhatsApp)
+- Transparency (pricing, process, what's included)
+- Local market understanding (Malta-specific challenges)
+- Speed of communication (WhatsApp response time)
+- Long-term partnership (case studies showing ongoing work)
+- Multi-disciplinary (creative + AI + automation in one team)
+- Proof over promise (clients on record, not testimonial farm)
+- 11 more angles distributed across pages
+
+Each variant: 60 words, ends with a CTA pattern (WhatsApp 
+or Cal.com link). Audit checks for >40% word overlap 
+between variants — same anti-duplication enforcement, 
+better content focus.
+
+Birkirkara office address still appears in:
+- Footer (legal/contact requirement)
+- Schema Organization (address structured data)
+- /contact page (full address + hours)
+- Google Business Profile (linked via sameAs)
+
+That's enough Local SEO signal. Stop bloating service 
+pages with office content.
+
+PATCH 1 — Calibrate similarity threshold
+Run scan on 17 existing framework pages. Document baseline 
+similarity in .local/similarity-baseline.md. Set threshold 
+at baseline + 8 percentage points. Calibrated, not guessed.
+
+PATCH 2 — Fix noindex equity leak
+6 invented services keep noindex,follow but ALSO get 
+nofollow on every internal link pointing to them from 
+indexed pages. PageRank doesn't drain into noindex pages.
+
+PATCH 3 — Capture baseline before any change
+Add Step 0 to 80A: capture pre-change snapshot in 
+.local/baseline-2026-04.md including:
+- GSC impressions per page (top 50)
+- GSC clicks per page (top 50)
+- Average position on 20 highest-impression queries
+- Lighthouse mobile scores on Top 4
+- Ahrefs Domain Rating (or equivalent)
+Without this, success is unmeasurable.
+
+PATCH 4 — Specify llms-full.txt structure
+Reference anthropic.com/llms.txt as format spec. Required 
+sections: company entity (H1), service categories (H2), 
+individual services (H3 with 150-word context), 
+citation-ready facts in <blockquote>, sourced claims with 
+linked sources.
+
+PATCH 5 — Verify IndexNow delivers
+Within 24 hours of first deploy with IndexNow live, check 
+Bing Webmaster "Submitted URLs" report. Confirm at least 
+5 URLs appear. If not, IndexNow is broken.
+
+PATCH 6 — Add Schema.org external validation gate
+Run all 21 pages through Schema.org validator API before 
+audit reports 21/21 pass. External validation failure = 
+task failure even if internal audit passes.
+
+PATCH 7 — Add Lighthouse baseline measurement
+80A measures (not fixes) Lighthouse mobile on Top 4 + 
+Tier A (12 pages). Documents pages <85 for W3. Just 
+measurement, no fix in 80A.
+
+PATCH 8 — Add Speakable + hreflang en-MT
+Both add to schema bundle in 80A. Top 4 + Tier A get 
+Speakable schema on H1 + first paragraph. All pages get 
+hreflang en-MT + x-default.
+
+PATCH 9 — REPLACE BIRKIRKARA WITH TRUST/PROOF BLOCKS
+Per critical change above. Audit enforces:
+- 44 unique 60-word "Why choose OARC" variants
+- >40% word overlap = audit fail
+- Each variant ends with WhatsApp or Cal.com CTA
+- Variants reference specific Malta verticals where relevant 
+  (iGaming, fintech, hospitality, real estate)
+
+PATCH 10 — Mobile-first content priority
+Every indexed page must have:
+- Above-fold value prop visible without scroll on 375px width
+- Sticky bottom mobile CTA (WhatsApp + Call + Book)
+- Tap targets ≥48x48px
+- One-tap WhatsApp opens app via wa.me/356XXXXXXXX
+- One-tap call uses tel:+356XXXXXXXX
+- Above-fold load <1.5s on 4G
+80A audits these — W3 fixes failures.
+
+PATCH 11 — Conversion attribution per page
+Every WhatsApp + Cal.com link on every page gets UTM 
+parameters: 
+?utm_source={page_slug}&utm_medium=whatsapp&utm_campaign=organic
+Same for Cal.com. Tracking dashboard breaks down 
+inquiries by source page. We must know which page drives 
+calls.
+
+PATCH 12 — Image alt text audit
+Top 4 + 17 framework pages get image audit. Alt text must 
+describe content + include relevant keyword. Generic alt 
+text ("logo", "image", "photo") fails audit.
+
+ADDITIONAL ASKS
+
+A1 — 404 crawl post-merge. Zero broken internal links 
+(or documented exceptions).
+A2 — Pre/post merge Playwright screenshot diff on 14 pages 
+(Top 4 + Tier A).
+A3 — Document rollback command in task file.
+A4 — Confirm robots.txt allowlist preserves any monitoring 
+tools Sahan uses (UptimeRobot, etc.) before blocking 
+AhrefsBot/SemrushBot/MJ12bot.
+
+CONFIRMING
+
+CONFIRMED — START 80A WITH 50-PAGE SCOPE + 12 PATCHES + 
+4 ASKS.
+
+Sahan delivers by end of Day 3 of W1:
+- GA4 Measurement ID
+- Microsoft Clarity Project ID
+- Cal.com booking URL
+- Sahan full name + LinkedIn URL
+- Vercel preview access for Lighthouse review
+- WhatsApp number (+356) for tel: + wa.me links
+- Cal.com booking URL for embed
+
+If Sahan misses Day 3, W2 doesn't start. Sahan's critical 
+path, not Replit's.
+
+Begin 80A.
