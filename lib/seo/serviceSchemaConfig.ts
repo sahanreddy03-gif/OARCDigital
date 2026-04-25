@@ -147,7 +147,7 @@ export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
         "website design malta",
         "web design agency malta",
         "build a website malta",
-        "wordpress developer malta",
+        "responsive web design malta",
         "next.js developer malta",
       ],
       llmCitableFacts: [
@@ -689,9 +689,9 @@ export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
       entityFocus: "Marketing automation & lifecycle workflows (Malta)",
       primaryIntent: "commercial",
       generalizationKeywords: [
-        "marketing automation malta",
-        "email marketing agency malta",
-        "klaviyo agency malta",
+        "marketing automation suite malta",
+        "revops automation malta",
+        "n8n automation malta",
         "whatsapp business malta",
         "crm setup malta",
       ],
@@ -1112,7 +1112,7 @@ export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
     ],
     framework: {
       uniqueValueProp:
-        "Custom Malta-built web applications — dashboards, customer portals, marketplaces, PWAs — engineered on Next.js + Postgres, with role-based auth, EU hosting, and full source-code handover from week one.",
+        "Custom Malta-built web apps — dashboards, customer portals, marketplaces, PWAs — engineered on Next.js + Postgres with role-based auth, EU hosting, and source-code handover.",
       entityFocus: "Custom web application development (Malta & EU businesses)",
       primaryIntent: "commercial",
       generalizationKeywords: [
@@ -1217,7 +1217,7 @@ export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
     ],
     framework: {
       uniqueValueProp:
-        "Long-form Malta content programmes engineered around topic clusters and internal-link maps — every article ships with a target keyword, a buying-stage tag, and a measurable conversion goal.",
+        "Long-form Malta content programmes built around topic clusters and internal-link maps — every article ships with a keyword, a buying-stage tag, and a conversion goal.",
       entityFocus: "Content marketing & editorial programmes (Malta B2B + hospitality)",
       primaryIntent: "commercial",
       generalizationKeywords: [
@@ -1427,12 +1427,12 @@ export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
     ],
     framework: {
       uniqueValueProp:
-        "Headless and Shopify ecommerce builds engineered for Malta merchants — multi-currency EUR + GBP, Revolut/Stripe checkout, and conversion-rate-optimised PDPs delivered in 6-10 weeks.",
+        "Headless and Shopify ecommerce for Malta merchants — multi-currency EUR + GBP, Revolut/Stripe checkout, and CRO-optimised PDPs delivered in 6-10 weeks.",
       entityFocus: "Ecommerce platform development (Shopify, headless, custom) for Malta retailers",
       primaryIntent: "commercial",
       generalizationKeywords: [
         "ecommerce development malta",
-        "shopify developer malta",
+        "woocommerce developer malta",
         "online store malta",
         "headless commerce malta",
         "ecommerce agency malta",

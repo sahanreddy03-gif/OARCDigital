@@ -28,6 +28,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { SERVICE_SCHEMAS, type ServiceSchemaEntry } from "../lib/seo/serviceSchemaConfig";
 import { PILLAR_SCHEMAS, type PillarSchemaEntry } from "../lib/seo/pillarSchemaConfig";
+import { findBannedPhrase } from "../lib/seo/phraseBlocklist";
 
 type Issue = { slug: string; layer: 1 | 2 | 3 | 4 | 6; message: string };
 
@@ -271,6 +272,38 @@ async function audit() {
     const goal = (fw.conversionGoal ?? "").trim();
     if (!goal) issues.push({ slug, layer: 6, message: "conversionGoal empty" });
     else if (goal.length < 8) issues.push({ slug, layer: 6, message: `conversionGoal too short (${goal.length} chars)` });
+
+    // Phrase blocklist — sweep every framework string field plus
+    // entry.description and entry.faqs.answer for AI-tell phrases. Any hit
+    // fails the audit so the page cannot ship. Source list:
+    // lib/seo/phraseBlocklist.ts.
+    const stringsToScan: { label: string; value: string }[] = [
+      { label: "framework.uniqueValueProp", value: fw.uniqueValueProp ?? "" },
+      { label: "framework.entityFocus", value: fw.entityFocus ?? "" },
+      { label: "framework.conversionGoal", value: fw.conversionGoal ?? "" },
+      { label: "description", value: entry.description ?? "" },
+    ];
+    for (let i = 0; i < (fw.llmCitableFacts ?? []).length; i++) {
+      stringsToScan.push({ label: `framework.llmCitableFacts[${i}].claim`, value: fw.llmCitableFacts[i]?.claim ?? "" });
+    }
+    for (let i = 0; i < (fw.generalizationKeywords ?? []).length; i++) {
+      stringsToScan.push({ label: `framework.generalizationKeywords[${i}]`, value: fw.generalizationKeywords[i] ?? "" });
+    }
+    for (let i = 0; i < (entry.faqs ?? []).length; i++) {
+      const faq = entry.faqs[i];
+      if (faq?.question) stringsToScan.push({ label: `faqs[${i}].question`, value: faq.question });
+      if (faq?.answer) stringsToScan.push({ label: `faqs[${i}].answer`, value: faq.answer });
+    }
+    for (const { label, value } of stringsToScan) {
+      const hit = findBannedPhrase(value);
+      if (hit) {
+        issues.push({
+          slug,
+          layer: 1,
+          message: `phrase blocklist: "${hit}" found in ${label} — see lib/seo/phraseBlocklist.ts`,
+        });
+      }
+    }
 
     // Layer 1 (live SSR) — meta description AND (Service|WebPage) JSON-LD
     // description. Pillar pages do not emit a Service node, so the JSON-LD

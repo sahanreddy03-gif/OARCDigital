@@ -24,6 +24,35 @@ export default function robots(): MetadataRoute.Robots {
       { userAgent: "CCBot", allow: "/" },
       { userAgent: "cohere-ai", allow: "/" },
       { userAgent: "Bytespider", allow: "/" },
+      // Uptime / availability monitors — explicitly allowed so production
+      // health checks keep working when Sahan adds a monitor. If he uses one
+      // not on this list (e.g. Pingdom RUM, NewRelic Synthetics, Datadog
+      // Synthetics) it should be added in a follow-up task — see Task #83
+      // Ask A4.
+      { userAgent: "UptimeRobot", allow: "/" },
+      { userAgent: "Pingdom.com_bot", allow: "/" },
+      { userAgent: "StatusCake", allow: "/" },
+      // Competitor SEO scrapers — block. These crawl the entire site to feed
+      // backlink / keyword databases sold to competitors and contribute
+      // nothing to user discovery. Sahan flagged these in Task #83 Step 2
+      // after the W1 scrape audit.
+      { userAgent: "AhrefsBot", disallow: "/" },
+      { userAgent: "AhrefsSiteAudit", disallow: "/" },
+      { userAgent: "SemrushBot", disallow: "/" },
+      { userAgent: "SemrushBot-SA", disallow: "/" },
+      { userAgent: "MJ12bot", disallow: "/" },
+      { userAgent: "DotBot", disallow: "/" },
+      { userAgent: "BLEXBot", disallow: "/" },
+      { userAgent: "SeekportBot", disallow: "/" },
+      { userAgent: "BacklinkCrawler", disallow: "/" },
+      { userAgent: "SerpstatBot", disallow: "/" },
+      { userAgent: "MegaIndex.ru", disallow: "/" },
+      { userAgent: "WebMeUp", disallow: "/" },
+      { userAgent: "Exabot", disallow: "/" },
+      { userAgent: "rogerbot", disallow: "/" },
+      { userAgent: "ZoominfoBot", disallow: "/" },
+      { userAgent: "DataForSeoBot", disallow: "/" },
+      { userAgent: "BarkrowlerBot", disallow: "/" },
     ],
     sitemap: [
       "https://oarcdigital.com/sitemap.xml",

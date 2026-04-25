@@ -6,6 +6,7 @@ import { SERVICE_SCHEMA_EXTRAS } from "@/lib/seo/serviceSchemaExtras";
 export const metadata: Metadata = {
   title: "Rapid Idea Testing | Marketing Experimentation | OARC Digital",
   description: "Validate marketing ideas fast with OARC Digital's rapid testing framework. Reduce risk and accelerate innovation with AI-powered experimentation.",
+  robots: { index: false, follow: false },
   alternates: { canonical: "https://oarcdigital.com/services/rapid-idea-testing" },
   openGraph: {
     title: "Rapid Idea Testing | Marketing Experimentation | OARC Digital",
