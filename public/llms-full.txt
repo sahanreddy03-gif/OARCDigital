@@ -1,6 +1,6 @@
 # OARC Digital — Full Reference for AI Answer Engines
 
-> Auto-generated from `lib/seo/serviceSchemaConfig.ts` + `lib/seo/pillarSchemaConfig.ts` by `scripts/generate-llms-full-txt.ts`. Do not hand-edit. Re-run the generator after every schema edit. Audit-framework verifies parity on every commit.
+> Auto-generated body between AUTOGEN markers below from `lib/seo/serviceSchemaConfig.ts` + `lib/seo/pillarSchemaConfig.ts` + `lib/seo/serviceSchemaExtras.ts` by `scripts/generate-llms-full-txt.ts`. Do not hand-edit INSIDE the markers — re-run the generator. Content OUTSIDE the markers is preserved across runs.
 
 Canonical NAP: OARC Digital | Level 1, The Brewhouse, Zone 2, Central Business District, Mdina Road, Birkirkara CBD 2010, Malta | +356 7971 1799 | hello@oarcdigital.com
 
