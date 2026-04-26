@@ -1,3 +1,5 @@
+import { locationProfiles } from "./locationData";
+
 // Canonical NAP (Name / Address / Phone) for OARC Digital.
 //
 // Single source of truth for every place the address, phone, or email is
@@ -107,4 +109,5 @@ export const ADDRESS_ONE_LINE = `${NAP.streetAddressShort}, ${NAP.addressLocalit
  */
 export const PERMITTED_NAP_LOCALITIES: readonly string[] = Object.freeze([
   NAP.addressLocality,
+  ...Object.values(locationProfiles).map((p) => p.name),
 ]);

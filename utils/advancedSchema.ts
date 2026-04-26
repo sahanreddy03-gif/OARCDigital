@@ -19,7 +19,11 @@ export interface HowToStep {
   image?: string;
 }
 
-// Aggregate Rating Schema - Shows stars in Google search results!
+// Aggregate Rating Schema - Shows stars in Google search results.
+// When the wrapping entity is a Service or LocalBusiness, schema.org's
+// required properties for that type (provider, areaServed) must also be
+// present — otherwise Google silently drops the rich result and the
+// per-@type required-property tier in scripts/audit-schema.ts fails.
 export function createAggregateRatingSchema(
   itemName: string,
   ratingValue: number,
@@ -27,7 +31,7 @@ export function createAggregateRatingSchema(
   bestRating: number = 5,
   schemaType: 'Organization' | 'Service' | 'Product' | 'LocalBusiness' = 'Organization'
 ) {
-  return {
+  const base: Record<string, unknown> = {
     "@context": "https://schema.org",
     "@type": schemaType,
     "name": itemName,
@@ -39,6 +43,18 @@ export function createAggregateRatingSchema(
       "worstRating": 1
     }
   };
+  if (schemaType === 'Service' || schemaType === 'LocalBusiness') {
+    base.provider = {
+      "@type": "Organization",
+      "name": "OARC Digital",
+      "url": "https://oarcdigital.com",
+    };
+    base.areaServed = [
+      { "@type": "Country", "name": "Malta" },
+      { "@type": "Place", "name": "Europe" },
+    ];
+  }
+  return base;
 }
 
 // Review Schema - Individual testimonials

@@ -20,7 +20,7 @@
  *
  * Exits non-zero if any URL fails so the gate gate:full breaks loudly.
  */
-import { NAP } from "../lib/seo/nap";
+import { NAP, PERMITTED_NAP_LOCALITIES } from "../lib/seo/nap";
 import {
   extractJsonLd,
   flattenJsonLdEntities,
@@ -163,30 +163,52 @@ async function fetchPage(url: string): Promise<string | null> {
  * Per-page locality permission. The site canonical NAP locality is
  * Birkirkara — but `lib/seo/locationData.ts` legitimately renders other
  * Malta towns (Ta' Xbiex, Sliema, Valletta, etc.) on the location surfaces
- * (`/aeo/*` and `/malta/*`). Any locality OTHER than Birkirkara is allowed
- * ONLY when the URL maps to the location-data origin tag.
+ * (`/aeo/*` and `/malta/*`). A non-Birkirkara locality is allowed ONLY
+ * when ALL three guards line up:
+ *   (a) the URL maps to the location-data origin tag (built-in URL surface
+ *       known to import from locationData.ts),
+ *   (b) the locality string matches a known PERMITTED_NAP_LOCALITIES entry
+ *       (i.e. it's an actual Malta town we publish a service-area page
+ *       for — not arbitrary text), and
+ *   (c) the surrounding entity is a LocalBusiness/MarketingAgency variant
+ *       (so a stray locality leaking into an Article author block, an
+ *       Offer, or a Person still fails the gate).
  *
  * This is the source-aware Ta' Xbiex exception called for in the task spec:
- * a stray `Ta' Xbiex` reference in any non-location-data page (e.g. a core
- * service page or a blog post) breaks the gate.
+ * a stray `Ta' Xbiex` reference in any non-location-data page, or a real
+ * locality leaking into the wrong entity type, breaks the gate.
  */
 function isPermittedLocality(
   url: string,
   locality: string | undefined,
+  entityType: string | string[] | undefined,
 ): boolean {
   if (locality === expectedLocality) return true;
   if (locality === undefined) return false;
-  return originTagForPath(url) === "location-data";
+  if (originTagForPath(url) !== "location-data") return false;
+  if (!PERMITTED_NAP_LOCALITIES.includes(locality)) return false;
+  // Final guard: only LocalBusiness-family entities may carry a non-
+  // canonical locality, even on location-data surfaces.
+  const types = Array.isArray(entityType)
+    ? entityType
+    : entityType !== undefined
+      ? [entityType]
+      : [];
+  return types.some((t) => (NAP_ENTITY_TYPES as readonly string[]).includes(t));
 }
 
-function checkAddressBlock(url: string, addr: unknown): void {
+function checkAddressBlock(
+  url: string,
+  addr: unknown,
+  parentType: string | string[] | undefined,
+): void {
   if (!addr || typeof addr !== "object") {
     fail(url, "jsonld-field", "address block missing or non-object");
     return;
   }
   const a = addr as Record<string, unknown>;
   const localityValue = typeof a.addressLocality === "string" ? a.addressLocality : undefined;
-  if (!isPermittedLocality(url, localityValue)) {
+  if (!isPermittedLocality(url, localityValue, parentType)) {
     fail(
       url,
       "jsonld-locality",
@@ -244,9 +266,73 @@ function auditJsonLd(url: string, html: string): void {
       fail(url, "jsonld-field", `${ent["@type"]}.email = ${JSON.stringify(ent.email)} (expected ${JSON.stringify(expectedEmail)})`);
     }
     if (ent.address !== undefined) {
-      checkAddressBlock(url, ent.address);
+      checkAddressBlock(url, ent.address, ent["@type"] as string | string[] | undefined);
     }
   }
+  // Generic recursive key-walk tier. Independent of @type targeting:
+  // walks every object in the JSON-LD tree and validates the canonical
+  // fields wherever they appear. Catches drift in unexpected places —
+  // an Article author block carrying a stale phone, a Person sub-entity
+  // with the wrong email, etc. Locality drift is gated by the same
+  // three-guard isPermittedLocality() so location-data pages still pass.
+  for (const ent of entities) {
+    walkRecursiveKeys(url, ent, undefined);
+  }
+}
+
+/**
+ * Recursive key-based field auditor. Walks every nested object/array in a
+ * JSON-LD payload and validates `streetAddress`, `addressLocality`,
+ * `addressRegion`, `postalCode`, `telephone`, and `email` wherever they
+ * appear, regardless of containing entity type. The `parentType` carried
+ * down the recursion lets the locality guard distinguish a real
+ * LocalBusiness emission from a stray locality leaking into a
+ * Person/Article/Offer sub-entity.
+ */
+function walkRecursiveKeys(
+  url: string,
+  node: unknown,
+  parentType: string | string[] | undefined,
+): void {
+  if (Array.isArray(node)) {
+    for (const item of node) walkRecursiveKeys(url, item, parentType);
+    return;
+  }
+  if (!node || typeof node !== "object") return;
+  const obj = node as Record<string, unknown>;
+  const ownType = (obj["@type"] as string | string[] | undefined) ?? parentType;
+  // Field-level checks (only when the value is a string — anything else
+  // would be flagged separately by audit-schema's required-field tier).
+  if (typeof obj.telephone === "string" && obj.telephone !== expectedPhoneE164) {
+    fail(url, "jsonld-field", `recursive: ${describeType(ownType)}.telephone = ${JSON.stringify(obj.telephone)} (expected ${JSON.stringify(expectedPhoneE164)})`);
+  }
+  if (typeof obj.email === "string" && obj.email !== expectedEmail) {
+    fail(url, "jsonld-field", `recursive: ${describeType(ownType)}.email = ${JSON.stringify(obj.email)} (expected ${JSON.stringify(expectedEmail)})`);
+  }
+  if (typeof obj.streetAddress === "string" && originTagForPath(url) === "core") {
+    if (obj.streetAddress !== expectedStreet && obj.streetAddress !== expectedStreetShort) {
+      fail(url, "jsonld-field", `recursive: ${describeType(ownType)}.streetAddress = ${JSON.stringify(obj.streetAddress)} (expected ${JSON.stringify(expectedStreet)} or ${JSON.stringify(expectedStreetShort)})`);
+    }
+  }
+  if (typeof obj.postalCode === "string" && originTagForPath(url) === "core" && obj.postalCode !== expectedPostal) {
+    fail(url, "jsonld-field", `recursive: ${describeType(ownType)}.postalCode = ${JSON.stringify(obj.postalCode)} (expected ${JSON.stringify(expectedPostal)})`);
+  }
+  if (typeof obj.addressLocality === "string" && !isPermittedLocality(url, obj.addressLocality, ownType)) {
+    fail(url, "jsonld-locality", `recursive: ${describeType(ownType)}.addressLocality = ${JSON.stringify(obj.addressLocality)} not permitted on this URL (only ${JSON.stringify(expectedLocality)} allowed outside location-data surfaces)`);
+  }
+  if (typeof obj.addressRegion === "string" && obj.addressRegion !== "Malta" && obj.addressRegion !== expectedLocality) {
+    fail(url, "jsonld-field", `recursive: ${describeType(ownType)}.addressRegion = ${JSON.stringify(obj.addressRegion)} (expected "Malta" or "${expectedLocality}")`);
+  }
+  // Recurse into every value — keep ownType as parent so PostalAddress
+  // (which has no @type sometimes) inherits the right entity context.
+  for (const v of Object.values(obj)) {
+    walkRecursiveKeys(url, v, ownType);
+  }
+}
+
+function describeType(t: string | string[] | undefined): string {
+  if (Array.isArray(t)) return t.join("|");
+  return t ?? "<no-@type>";
 }
 
 function auditRenderedHtml(url: string, htmlInput: string): void {
