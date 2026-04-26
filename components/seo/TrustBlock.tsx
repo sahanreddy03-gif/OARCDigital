@@ -32,7 +32,7 @@ function VisitBlock({ slug }: { slug: string }) {
         className="flex items-start gap-3 hover-elevate rounded-md p-2 -m-2"
         data-testid={`trustblock-visit-address-${slug}`}
       >
-        <MapPin className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
+        <MapPin className="w-4 h-4 text-brand-orange mt-1 flex-shrink-0" />
         <span className="text-foreground leading-relaxed">
           {NAP.streetAddressShort}, {NAP.addressLocality} {NAP.postalCode}, Malta
         </span>
@@ -42,7 +42,7 @@ function VisitBlock({ slug }: { slug: string }) {
         className="flex items-start gap-3 hover-elevate rounded-md p-2 -m-2"
         data-testid={`trustblock-visit-phone-${slug}`}
       >
-        <Phone className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
+        <Phone className="w-4 h-4 text-brand-orange mt-1 flex-shrink-0" />
         <span className="text-foreground">{NAP.phoneDisplay}</span>
       </a>
       <a
@@ -50,7 +50,7 @@ function VisitBlock({ slug }: { slug: string }) {
         className="flex items-start gap-3 hover-elevate rounded-md p-2 -m-2"
         data-testid={`trustblock-visit-email-${slug}`}
       >
-        <Mail className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
+        <Mail className="w-4 h-4 text-brand-orange mt-1 flex-shrink-0" />
         <span className="text-foreground break-all">{NAP.email}</span>
       </a>
     </div>
@@ -64,15 +64,15 @@ function BadgesBlock({ slug }: { slug: string }) {
       data-testid={`trustblock-badges-${slug}`}
     >
       <div className="flex items-center gap-2 text-sm text-foreground">
-        <ShieldCheck className="w-4 h-4 text-orange-500" />
+        <ShieldCheck className="w-4 h-4 text-brand-orange" />
         <span>Malta-registered (CBD 2010)</span>
       </div>
       <div className="flex items-center gap-2 text-sm text-foreground">
-        <Award className="w-4 h-4 text-orange-500" />
+        <Award className="w-4 h-4 text-brand-orange" />
         <span>EU GDPR-compliant delivery</span>
       </div>
       <div className="flex items-center gap-2 text-sm text-foreground">
-        <MapPin className="w-4 h-4 text-orange-500" />
+        <MapPin className="w-4 h-4 text-brand-orange" />
         <span>{NAP.addressLocality} CBD studio — walk-ins by appointment</span>
       </div>
     </div>
@@ -87,7 +87,7 @@ function ReviewsBlock({ slug }: { slug: string }) {
     >
       <div className="flex items-center gap-1">
         {[0, 1, 2, 3, 4].map((i) => (
-          <Star key={i} className="w-4 h-4 fill-orange-500 text-orange-500" />
+          <Star key={i} className="w-4 h-4 fill-brand-orange text-brand-orange" />
         ))}
       </div>
       <p className="text-sm text-foreground leading-relaxed">

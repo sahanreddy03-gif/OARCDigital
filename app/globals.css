@@ -298,6 +298,14 @@
   /* Brand accent green */
   --accent-green: #00FF88;
 
+  /* Brand accent orange — semantic token for the orange-500/600 brand
+   * palette (per replit.md design-system note). Use via:
+   *   text-[hsl(var(--brand-orange))]  fill-[hsl(var(--brand-orange))]
+   * or the helper utilities `.text-brand-orange` / `.fill-brand-orange`
+   * defined in this stylesheet. Single source of truth — palette tweaks
+   * happen here, not by find-replacing `text-orange-500` across the app. */
+  --brand-orange: 25 95% 53%;
+
   /* Responsive typography for hero headings */
   --h1-mobile: 38px;
   --h1-tablet: 52px;
@@ -597,6 +605,15 @@
   .font-logo {
     font-family: var(--font-eb-garamond), Georgia, serif !important;
   }
+
+  /* Brand orange semantic helpers — single source of truth via the
+   * `--brand-orange` HSL token defined at the top of this file. Prefer
+   * these over `text-orange-500` in new components so the palette stays
+   * tweakable from one place. */
+  .text-brand-orange { color: hsl(var(--brand-orange)); }
+  .fill-brand-orange { fill: hsl(var(--brand-orange)); }
+  .bg-brand-orange   { background-color: hsl(var(--brand-orange)); }
+  .border-brand-orange { border-color: hsl(var(--brand-orange)); }
 
   /* Hide ugly search cancel button in Chrome until we can style it properly */
   input[type="search"]::-webkit-search-cancel-button {

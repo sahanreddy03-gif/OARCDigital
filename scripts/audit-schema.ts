@@ -156,6 +156,40 @@ type Failure = {
   detail: string;
 };
 
+// Per-@type required-property contract. When an entity declares one of
+// these types it MUST also declare every key in the corresponding array.
+// Missing properties = the entity is structurally invalid for that type
+// and rich results / answer-engine extraction silently degrade. Only the
+// types we actively emit are listed; sub-entity types (PostalAddress,
+// Offer, etc.) are validated indirectly via their parents' contracts.
+const REQUIRED_PROPS_BY_TYPE: Record<string, readonly string[]> = {
+  Organization: ["name", "url", "address"],
+  LocalBusiness: ["name", "address", "telephone"],
+  MarketingAgency: ["name", "address", "telephone"],
+  ProfessionalService: ["name", "address", "telephone"],
+  Service: ["name", "provider", "areaServed"],
+  Article: ["headline", "datePublished", "author", "publisher"],
+  BlogPosting: ["headline", "datePublished", "author", "publisher"],
+  NewsArticle: ["headline", "datePublished", "author", "publisher"],
+  WebSite: ["url", "name"],
+  WebPage: ["url"],
+  BreadcrumbList: ["itemListElement"],
+  FAQPage: ["mainEntity"],
+  Question: ["name", "acceptedAnswer"],
+  Answer: ["text"],
+  Person: ["name"],
+  PostalAddress: ["streetAddress", "addressLocality", "postalCode", "addressCountry"],
+  GeoCoordinates: ["latitude", "longitude"],
+  Offer: ["price", "priceCurrency"],
+  Review: ["reviewRating", "author"],
+  AggregateRating: ["ratingValue", "reviewCount"],
+};
+
+// `@id` values must be absolute URIs. A bare slug like `"hello"` or a
+// relative path like `"/foo#bar"` is silently dropped by Google. Allow
+// http(s) URIs and `urn:` IRIs (legitimate for non-resolvable identities).
+const ID_FORMAT_RE = /^(https?:\/\/[^\s]+|urn:[a-z0-9][a-z0-9-]+:.+)$/i;
+
 // schema.org property names whose value must be ISO 8601 (date or
 // dateTime). Anything else is invisible to Google's date-aware crawlers.
 const ISO_DATE_PROPS = new Set<string>([
@@ -251,6 +285,30 @@ function auditEntities(
       if (!ALLOWED_TYPES.has(t)) {
         fail(url, "type-allowlist", `unknown @type ${JSON.stringify(t)} — typo or new schema?`);
       }
+      // Per-@type required-property contract — enforced at every entity
+      // level (top + nested), not just the URL_CONTRACT keys, so a
+      // PostalAddress sub-entity missing `streetAddress` fails everywhere
+      // it appears.
+      const required = REQUIRED_PROPS_BY_TYPE[t];
+      if (required) {
+        const missing = required.filter((k) => e[k] === undefined);
+        if (missing.length > 0) {
+          fail(
+            url,
+            "required-field",
+            `${t} missing required propert${missing.length === 1 ? "y" : "ies"} ${JSON.stringify(missing)}`,
+          );
+        }
+      }
+    }
+    // @id values, when present, must be absolute URIs. Relative paths
+    // and bare slugs silently break Google's id-graph resolution.
+    if (typeof e["@id"] === "string" && !ID_FORMAT_RE.test(e["@id"] as string)) {
+      fail(
+        url,
+        "required-field",
+        `${JSON.stringify(types)}.@id is not an absolute URI: ${JSON.stringify(e["@id"])}`,
+      );
     }
   }
 }
