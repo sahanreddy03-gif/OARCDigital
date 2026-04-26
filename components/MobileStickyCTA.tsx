@@ -3,7 +3,7 @@
 // Bottom-fixed conversion bar shown on mobile only. Two slots are always
 // visible (WhatsApp + Call) because both work without external configuration.
 // The Cal.com slot is conditional on NEXT_PUBLIC_CALCOM_BOOKING_URL being set
-// — Rule 3 (CONTRACT.md) prohibits rendering a fallback that 404s.
+// — Prohibits rendering a fallback that 404s.
 
 import { usePathname } from "next/navigation";
 import { Phone, MessageCircle, Calendar } from "lucide-react";

@@ -11,6 +11,7 @@ import FAQSection, { type FAQItem } from "@/components/FAQSection";
 import RelatedLinks from "@/components/RelatedLinks";
 import heroImage from '@assets/paid advertising_1763088406833.avif';
 
+import MaltaContextBlock from "@/components/seo/MaltaContextBlock";
 const paidAdsFAQs: FAQItem[] = [
   { question: "What advertising platforms do you manage?", answer: "Google Ads, Meta (Facebook/Instagram), LinkedIn, TikTok, YouTube, and programmatic display. We optimize across platforms for maximum ROI." },
   { question: "How quickly can paid ads generate leads?", answer: "Campaigns can be live within 48 hours. Initial results appear within days, with optimization improving performance over 2-4 weeks." },
@@ -393,6 +394,8 @@ export default function PaidAdvertising() {
           </div>
         </div>
       </section>
+
+          <MaltaContextBlock slug="paid-advertising" />
 
       <FAQSection 
         faqs={paidAdsFAQs} 

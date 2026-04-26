@@ -15,6 +15,7 @@ import webImg3 from "@assets/stock_images/modern_web_design_ux_699e8c91.jpg";
 import webImg4 from "@assets/stock_images/modern_website_desig_4ba94acf.jpg";
 import webAppImg from "@assets/stock_images/modern_web_design_we_927d8700.jpg";
 
+import MaltaContextBlock from "@/components/seo/MaltaContextBlock";
 export default function WebDesign() {
   const [activeMetric, setActiveMetric] = useState(0);
 
@@ -311,6 +312,8 @@ export default function WebDesign() {
       </section>
 
       {/* FAQ Section */}
+          <MaltaContextBlock slug="web-design" />
+
       <FAQSection 
         faqs={webDesignFAQs} 
         title="Frequently Asked Questions" 

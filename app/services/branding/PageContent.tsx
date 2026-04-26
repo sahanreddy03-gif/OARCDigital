@@ -17,6 +17,7 @@ import corporateLogoImg2 from "@assets/stock_images/corporate_brand_logo_3ecd3c3
 import designSystemImg from "@assets/stock_images/design_system_compon_362ff5cd.jpg";
 import graphicDesignImg from "@assets/stock_images/graphic_design_creat_297cb911.jpg";
 
+import MaltaContextBlock from "@/components/seo/MaltaContextBlock";
 const brandingFAQs: FAQItem[] = [
   { question: "What's included in a complete brand identity package?", answer: "Logo design, color palette, typography, brand guidelines, business cards, social templates, and brand voice guidelines. A complete system for consistent brand expression." },
   { question: "How long does the branding process take?", answer: "Full brand identity projects take 6-8 weeks. This includes discovery, strategy, design exploration, refinement, and final delivery with comprehensive guidelines." },
@@ -342,6 +343,8 @@ export default function Branding() {
           </div>
         </div>
       </section>
+
+          <MaltaContextBlock slug="branding" />
 
       <FAQSection faqs={brandingFAQs} title="Frequently Asked Questions" subtitle="Everything you need to know about our branding services" schemaId="faq-branding"
         emitJsonLd={false} />

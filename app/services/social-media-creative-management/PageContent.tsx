@@ -48,6 +48,7 @@ import paidAdsImg from "@assets/stock_images/professional_ad_crea_01a208c3.jpg";
 import contentCreationImg from "@assets/generated_images/Video_Production_Service_f2c7300b.png";
 import influencerImg from "@assets/stock_images/social_media_creativ_8b2d8cae.jpg";
 
+import MaltaContextBlock from "@/components/seo/MaltaContextBlock";
 function AnimatedCounter({ value, suffix = "", prefix = "", duration = 2 }: { 
   value: number; 
   suffix?: string; 
@@ -1358,6 +1359,8 @@ export default function SocialMediaCreativeManagement() {
       </section>
 
       {/* FAQ Section */}
+          <MaltaContextBlock slug="social-media-creative-management" />
+
       <FAQSection
         faqs={socialCreativeManagementFAQs}
         title="Social Media Creative Management FAQ"
