@@ -95,16 +95,24 @@ export const GEO_COORDINATES = deepFreeze({
 export const ADDRESS_ONE_LINE = `${NAP.streetAddressShort}, ${NAP.addressLocality} ${NAP.postalCode}, Malta`;
 
 /**
- * The locality names permitted to appear in JSON-LD address blocks.
- * Anything else is a drift signal. Ta' Xbiex is intentionally NOT here —
- * it appears only in locationData.ts service-area pages where it is the
- * *page's* subject, not the agency's primary NAP.
+ * The locality names permitted to appear in JSON-LD address blocks
+ * site-wide. Strict by design: only the canonical Birkirkara HQ plus
+ * Ta' Xbiex (the only legitimate non-Birkirkara locality the agency
+ * publishes from — referenced by `lib/seo/locationData.ts`). Every
+ * other Malta town that locationData.ts publishes a service-area page
+ * for is presented as page subject (Place / areaServed schema) — not
+ * as the agency's `addressLocality`. The audit's URL-origin guard
+ * additionally requires that any non-Birkirkara emission come from a
+ * `/aeo/*` or `/malta/*` URL whose slug is registered in
+ * locationProfiles, so a stray "Ta' Xbiex" in a /services/* JSON-LD
+ * block still fails the gate.
  *
  * Stored as a frozen readonly tuple (not a Set) because Object.freeze
  * does NOT prevent Set mutations (`set.add()` still succeeds on a frozen
  * Set in non-strict mode). Callers do membership checks via includes()
  * which is fine at this list size.
  */
-// PERMITTED_NAP_LOCALITIES has been moved to ./permittedLocalities to keep
-// this file a pure constants module with zero imports. Import the locality
-// allow-list directly from `lib/seo/permittedLocalities`.
+export const PERMITTED_NAP_LOCALITIES: readonly string[] = Object.freeze([
+  NAP.addressLocality,
+  "Ta' Xbiex",
+]);
