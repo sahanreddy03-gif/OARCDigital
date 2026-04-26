@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { NAP } from "@/lib/seo/nap";
 import PageContent from "./PageContent";
 import RouteSchema from "@/components/RouteSchema";
 
@@ -16,13 +17,13 @@ export const metadata: Metadata = {
 };
 
 const faqs = [
-  { question: "Which branding agency works with Malta businesses?", answer: "OARC Digital is a Birkirkara-based branding agency building identity systems, naming, logos, brand guidelines and visual systems for Malta hospitality, iGaming, fintech and retail operators. Discovery happens on-site at the Brewhouse in Birkirkara. Reach the team on +356 7971 1799 or hello@oarcdigital.com." },
+  { question: "Which branding agency works with Malta businesses?", answer: `OARC Digital is a Birkirkara-based branding agency building identity systems, naming, logos, brand guidelines and visual systems for Malta hospitality, iGaming, fintech and retail operators. Discovery happens on-site at the Brewhouse in Birkirkara. Reach the team on ${NAP.phoneDisplay} or ${NAP.email}.` },
   { question: "What does an OARC Digital brand identity engagement include?", answer: "Every OARC brand engagement covers strategy and positioning, naming if required, logo and mark system, colour palette, typography pairing, photography and illustration direction, tone of voice, and a 40+ page brand guideline document. Implementation across website, social, menus, signage and packaging is included on the full identity tier." },
   { question: "How much does branding cost in Malta?", answer: "OARC Digital scopes Malta brand identity work at three tiers: a Brand Sprint at €3,500 fixed for a logo + mini-guidelines, a Full Identity System at €9,500 fixed covering strategy, naming, identity and 40-page guidelines, and an enterprise rebrand from €25,000 for hospitality groups, iGaming operators and licensed fintech." },
   { question: "How long does a Malta branding project take?", answer: "OARC Digital ships a Brand Sprint in 3 weeks, a Full Identity System in 6 to 8 weeks, and an enterprise rebrand in 10 to 14 weeks depending on stakeholder count and category research. Each engagement starts with a half-day workshop on-site at the Birkirkara HQ." },
   { question: "Does OARC Digital handle iGaming and MFSA-licensed brand work?", answer: "Yes. OARC Digital has built and refreshed brands for MGA-licensed iGaming operators in Ta&apos; Xbiex, payment institutions under MFSA supervision, and fintechs working with EU regulators. Compliance constraints (responsible gambling messaging, MFSA disclosure, advertising rules) are baked into the brand guidelines from day one." },
   { question: "Can OARC Digital rebrand an existing Malta business?", answer: "Yes. Roughly half of OARC&apos;s brand work is rebranding established Malta operators repositioning for premium pricing, expansion into the EU mainland or a generational handover. Each rebrand starts with stakeholder interviews, a category audit and a written brand brief before any visual work begins." },
-  { question: "Where is OARC Digital based?", answer: "Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010, Malta. Brand workshops happen at the Birkirkara HQ or at your premises &mdash; in Sliema, St Julians, Valletta, Mosta or anywhere else on the islands. Reach the team on +356 7971 1799 or hello@oarcdigital.com." },
+  { question: "Where is OARC Digital based?", answer: `Level 1, The Brewhouse, Mdina Road, ${NAP.addressLocality} ${NAP.postalCode}, Malta. Brand workshops happen at the Birkirkara HQ or at your premises &mdash; in Sliema, St Julians, Valletta, Mosta or anywhere else on the islands. Reach the team on ${NAP.phoneDisplay} or ${NAP.email}.` },
 ];
 
 const offers = [

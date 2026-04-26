@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { NAP } from "@/lib/seo/nap";
 import PageContent from "./PageContent";
 import RouteSchema from "@/components/RouteSchema";
 
@@ -49,7 +50,7 @@ const faqs = [
   {
     question: "Where is OARC Digital based?",
     answer:
-      "OARC Digital is at Level 1, The Brewhouse, Zone 2, Central Business District, Mdina Road, Birkirkara CBD 2010, Malta. Phone +356 7971 1799. Email hello@oarcdigital.com. Engineering team works on-site or hybrid across the islands.",
+      `OARC Digital is at Level 1, The Brewhouse, Zone 2, Central Business District, Mdina Road, ${NAP.addressLocality} ${NAP.postalCode}, Malta. Phone ${NAP.phoneDisplay}. Email ${NAP.email}. Engineering team works on-site or hybrid across the islands.`,
   },
   {
     question: "Does OARC Digital offer a digital transformation guarantee?",

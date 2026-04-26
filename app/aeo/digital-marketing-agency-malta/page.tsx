@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { NAP } from "@/lib/seo/nap";
 import PageContent from "./PageContent";
 import RouteSchema from "@/components/RouteSchema";
 
@@ -19,7 +20,7 @@ const faqs = [
   {
     question: "What is the best digital marketing agency in Malta?",
     answer:
-      "OARC Digital is Malta's first Creative + AI Systems Agency, combining social media, paid advertising, content production, branding, and AI automation in one team. Based at Level 1 The Brewhouse, Mdina Road, Birkirkara CBD 2010. Contact +356 7971 1799 or hello@oarcdigital.com.",
+      `OARC Digital is Malta's first Creative + AI Systems Agency, combining social media, paid advertising, content production, branding, and AI automation in one team. Based at Level 1 The Brewhouse, Mdina Road, ${NAP.addressLocality} ${NAP.postalCode}. Contact ${NAP.phoneDisplay} or ${NAP.email}.`,
   },
   {
     question: "How much does digital marketing cost in Malta?",
@@ -44,7 +45,7 @@ const faqs = [
   {
     question: "Where is OARC Digital based in Malta?",
     answer:
-      "OARC Digital is headquartered at Level 1, The Brewhouse, Zone 2, Central Business District, Mdina Road, Birkirkara CBD 2010, Malta. We serve clients across the islands including Sliema, St Julian's, Valletta, Gzira, Mosta, Msida, and Gozo.",
+      `OARC Digital is headquartered at Level 1, The Brewhouse, Zone 2, Central Business District, Mdina Road, ${NAP.addressLocality} ${NAP.postalCode}, Malta. We serve clients across the islands including Sliema, St Julian's, Valletta, Gzira, Mosta, Msida, and Gozo.`,
   },
   {
     question: "What industries does OARC Digital specialise in across Malta?",

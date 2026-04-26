@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { NAP } from "@/lib/seo/nap";
 import PageContent from "./PageContent";
 import RouteSchema from "@/components/RouteSchema";
 
@@ -16,13 +17,13 @@ export const metadata: Metadata = {
 };
 
 const faqs = [
-  { question: "Which agency does hotel marketing in Malta?", answer: "OARC Digital is a Birkirkara-based hospitality marketing agency that works with Maltese boutique hotels, four and five-star resorts, and apartment-hotel groups. Focus areas: direct-booking growth, OTA dependency reduction, source-market paid acquisition (UK, Germany, Italy, France, Scandinavia), and Hospitality 360 review automation. Reach +356 7971 1799 or hello@oarcdigital.com." },
+  { question: "Which agency does hotel marketing in Malta?", answer: `OARC Digital is a Birkirkara-based hospitality marketing agency that works with Maltese boutique hotels, four and five-star resorts, and apartment-hotel groups. Focus areas: direct-booking growth, OTA dependency reduction, source-market paid acquisition (UK, Germany, Italy, France, Scandinavia), and Hospitality 360 review automation. Reach ${NAP.phoneDisplay} or ${NAP.email}.` },
   { question: "How does OARC Digital reduce OTA dependency for Malta hotels?", answer: "Booking.com and Expedia commissions of 15 to 22% are the largest controllable cost in most Malta hotel P&Ls. OARC Digital builds the direct channel — branded Google Ads, paid social into the source markets, fast booking-engine UX, multilingual content, and a price-parity strategy — so direct bookings rise as a share of total without losing OTA inventory entirely." },
   { question: "Does OARC Digital report on RevPAR for Malta hotel campaigns?", answer: "Yes. Every hotel retainer ships a monthly board pack with RevPAR, ADR, occupancy, direct-booking share, OTA share, source-market mix, and paid-acquisition cost per booking. We tie marketing spend back to the room-night economics, not vanity metrics like impressions or follower growth." },
   { question: "Which source markets matter most for Malta hotel paid acquisition?", answer: "The MTA inbound numbers point to the UK, Italy, Germany, France, Poland, and Scandinavia as Malta&apos;s top hotel source markets. OARC Digital splits paid budget by market and shoulder season, runs language-native creative for each, and weights the campaign calendar to MLA flight schedules and bank holidays." },
   { question: "How much does hotel marketing cost in Malta?", answer: "OARC Digital hotel retainers start at €1,800 per month for a single property focused on direct-booking growth, €3,500 per month for a multi-property group with multilingual creative across source markets, and €6,000 per month for full-service including Hospitality 360 deployment, content production, and source-market PR. No annual lock-in." },
   { question: "Can OARC Digital integrate with our PMS or booking engine?", answer: "Yes. OARC Digital integrates marketing and review automation with Mews, Cloudbeds, Opera, Protel, and Apaleo, plus the major booking engines (SiteMinder, BookingSuite, GuestCentric). Outlet-level Hospitality 360 deployments post charges back to the PMS so guest spend rolls into the right folio." },
-  { question: "Where is OARC Digital based?", answer: "Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010, Malta — within an hour of every Malta hotel cluster (Sliema, St Julians, Valletta, Mellieha, Qawra, Bugibba, Gozo via the ferry). Hotel clients meet the team at Birkirkara or on-site at the property. Hours Monday to Friday 09:00 to 18:00 CET on +356 7971 1799." },
+  { question: "Where is OARC Digital based?", answer: `Level 1, The Brewhouse, Mdina Road, ${NAP.addressLocality} ${NAP.postalCode}, Malta — within an hour of every Malta hotel cluster (Sliema, St Julians, Valletta, Mellieha, Qawra, Bugibba, Gozo via the ferry). Hotel clients meet the team at Birkirkara or on-site at the property. Hours Monday to Friday 09:00 to 18:00 CET on ${NAP.phoneDisplay}.` },
 ];
 
 const offers = [

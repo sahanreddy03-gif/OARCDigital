@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { NAP } from "@/lib/seo/nap";
 import PageContent from "./PageContent";
 import RouteSchema from "@/components/RouteSchema";
 
@@ -16,13 +17,13 @@ export const metadata: Metadata = {
 };
 
 const faqs = [
-  { question: "What kinds of Malta venues run Hospitality 360?", answer: "Hospitality 360 runs across the full Malta venue mix — boutique hotels in Valletta and Mdina, four and five-star resorts in St Julians, beach clubs along the Sliema and Mellieha coasts, fine-dining restaurants, family trattorias, gelaterias, cocktail bars, and hotel F&B departments. OARC Digital tailors the deployment per venue type. Reach the team on +356 7971 1799 or hello@oarcdigital.com." },
+  { question: "What kinds of Malta venues run Hospitality 360?", answer: `Hospitality 360 runs across the full Malta venue mix — boutique hotels in Valletta and Mdina, four and five-star resorts in St Julians, beach clubs along the Sliema and Mellieha coasts, fine-dining restaurants, family trattorias, gelaterias, cocktail bars, and hotel F&B departments. OARC Digital tailors the deployment per venue type. Reach the team on ${NAP.phoneDisplay} or ${NAP.email}.` },
   { question: "How does Hospitality 360 work in a beach club versus a fine-dining restaurant?", answer: "Beach clubs typically use the QR-to-sunbed ordering flow with multilingual menus and Apple Pay or card payment, while fine-dining restaurants use a server-mediated mode where the QR powers the menu and review prompt but the waiter still takes the order. OARC Digital configures both modes from the Birkirkara HQ during onboarding." },
   { question: "Can a Malta hotel deploy Hospitality 360 in multiple outlets at once?", answer: "Yes. Hotels with a lobby bar, pool deck, breakfast room, and signature restaurant deploy Hospitality 360 across each outlet from one tenant — separate menus and pricing per outlet, single guest profile, single Google review pipeline. OARC Digital ships multi-outlet rollouts in two to three weeks." },
   { question: "Does Hospitality 360 work for gelaterias and cafes in Malta?", answer: "Hospitality 360 is the system OARC Digital recommends for high-throughput Malta gelaterias and cafes — visitors scan, browse the multilingual menu, pay at the counter or via Stripe, and receive an automated Google review prompt minutes later. The whole loop is designed for the tourist density Malta sees in summer." },
   { question: "Is Hospitality 360 EU-hosted and GDPR-compliant?", answer: "Hospitality 360 runs on EU-region infrastructure (Vercel eu-west-1 and Render Frankfurt) so guest data never leaves the EU. OARC Digital provides the data-flow diagram and processor agreement on day one — useful for hotel groups answering IDPC (Information and Data Protection Commissioner) questionnaires." },
   { question: "How quickly can a Malta venue go live on Hospitality 360?", answer: "A single-outlet Malta restaurant or beach club is typically live on Hospitality 360 in 7 to 10 working days from menu sign-off. Multi-outlet hotel groups go live in 2 to 3 weeks. OARC Digital handles menu translation, QR design, and staff training on-site from the Birkirkara HQ." },
-  { question: "Where is the Hospitality 360 team based?", answer: "Hospitality 360 is built and supported by OARC Digital from Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010, Malta. Team is reachable on +356 7971 1799 and hello@oarcdigital.com Monday to Friday between 09:00 and 18:00 CET, with on-call response for live venues during service hours." },
+  { question: "Where is the Hospitality 360 team based?", answer: `Hospitality 360 is built and supported by OARC Digital from Level 1, The Brewhouse, Mdina Road, ${NAP.addressLocality} ${NAP.postalCode}, Malta. Team is reachable on ${NAP.phoneDisplay} and ${NAP.email} Monday to Friday between 09:00 and 18:00 CET, with on-call response for live venues during service hours.` },
 ];
 
 const offers = [

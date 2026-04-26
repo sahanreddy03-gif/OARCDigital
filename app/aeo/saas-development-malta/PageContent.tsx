@@ -2,6 +2,7 @@ import Layout from '@/components/layout/Layout';
 import RelatedLinks from '@/components/RelatedLinks';
 import { Button } from '@/components/ui/button';
 import { CheckCircle2, ArrowRight, MapPin, Phone, Mail, Clock } from 'lucide-react';
+import TrustBlock from "@/components/seo/TrustBlock";
 import Link from 'next/link';
 import { NAP } from "@/lib/seo/nap";
 
@@ -116,27 +117,8 @@ export default function SaasDevelopmentMalta({ faqs, offers }: Props) {
           </section>
 
           <section className="mb-12">
-            <h2 className="text-2xl md:text-3xl font-bold mb-6">Visit OARC Digital in Birkirkara</h2>
-            <div className="rounded-xl border bg-card p-6 grid md:grid-cols-2 gap-6">
-              <div>
-                <div className="flex items-start gap-3 mb-4">
-                  <MapPin className="w-5 h-5 text-orange-500 mt-0.5" />
-                  <address className="not-italic text-foreground leading-relaxed">
-                    Level 1, The Brewhouse,<br />
-                    Zone 2, Central Business District,<br />
-                    Mdina Road, Birkirkara CBD 2010, Malta
-                  </address>
-                </div>
-                <div className="flex items-center gap-3 mb-3"><Phone className="w-5 h-5 text-orange-500" /><a href={`tel:${NAP.phoneE164}`} className="text-foreground hover:text-orange-600">{NAP.phoneDisplay}</a></div>
-                <div className="flex items-center gap-3 mb-3"><Mail className="w-5 h-5 text-orange-500" /><a href={`mailto:${NAP.email}`} className="text-foreground hover:text-orange-600">{NAP.email}</a></div>
-                <div className="flex items-center gap-3"><Clock className="w-5 h-5 text-orange-500" /><span className="text-foreground">Mon – Fri, 09:00 – 18:00 CET</span></div>
-              </div>
-              <div className="space-y-3">
-                <div className="flex items-center gap-3"><CheckCircle2 className="w-5 h-5 text-orange-500" /><span className="text-sm text-foreground">EU-region hosting on every project</span></div>
-                <div className="flex items-center gap-3"><CheckCircle2 className="w-5 h-5 text-orange-500" /><span className="text-sm text-foreground">Full IP and source-code ownership</span></div>
-                <div className="flex items-center gap-3"><CheckCircle2 className="w-5 h-5 text-orange-500" /><span className="text-sm text-foreground">Founders served across Malta + EU</span></div>
-              </div>
-            </div>
+            <h2 className="text-2xl md:text-3xl font-bold mb-6">Visit OARC Digital in {NAP.addressLocality}</h2>
+            <TrustBlock variant="visit" />
           </section>
 
           <section className="mb-12">

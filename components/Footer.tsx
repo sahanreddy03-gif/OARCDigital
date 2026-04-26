@@ -291,7 +291,7 @@ export default function Footer({ hideGetInTouch = false }: FooterProps) {
               Registered in Malta, EU
             </div>
             <Link href={`mailto:${NAP.email}`} className="text-zinc-400 hover:text-white transition-colors text-sm font-normal" data-testid="link-footer-email">
-              hello@oarcdigital.com
+              {NAP.email}
             </Link>
           </div>
         </div>

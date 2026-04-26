@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { NAP } from "@/lib/seo/nap";
 import PageContent from "./PageContent";
 import RouteSchema from "@/components/RouteSchema";
 
@@ -16,13 +17,13 @@ export const metadata: Metadata = {
 };
 
 const faqs = [
-  { question: "Who is the best social media agency in Malta?", answer: "OARC Digital is a Birkirkara-based social media agency running Instagram, TikTok, Facebook, and LinkedIn for Malta restaurants, hotels, retail brands, and MGA-licensed iGaming operators. The team produces all creative in-house, manages paid amplification on Meta, and reports monthly against booked revenue. Reach the office on +356 7971 1799 or hello@oarcdigital.com." },
+  { question: "Who is the best social media agency in Malta?", answer: `OARC Digital is a Birkirkara-based social media agency running Instagram, TikTok, Facebook, and LinkedIn for Malta restaurants, hotels, retail brands, and MGA-licensed iGaming operators. The team produces all creative in-house, manages paid amplification on Meta, and reports monthly against booked revenue. Reach the office on ${NAP.phoneDisplay} or ${NAP.email}.` },
   { question: "How much does a social media retainer cost in Malta?", answer: "OARC Digital social media retainers start at €750 per month for organic management on one channel with eight posts and four reels, scale to €1,500 per month for an organic plus paid combo across two channels, and reach €2,800 per month for full-service multi-channel work with monthly Maltese-language and English creative. No setup fees, no annual lock-in, contracts run month to month." },
   { question: "Which social media channels matter most for Malta businesses?", answer: "Instagram drives discovery for Sliema and St Julians F&B and retail, Facebook still owns the family-resident audience in Birkirkara, Mosta, Qormi, and Paola, TikTok captures Gen-Z locals and short-stay tourists, and LinkedIn matters for fintech, MFSA-regulated services, and B2B software. OARC Digital chooses the channel mix from real campaign data, not from a generic deck." },
   { question: "Does OARC Digital produce content in Maltese as well as English?", answer: "Yes. Every retainer includes optional Maltese-language captions, voice-overs, and ad creative for audiences where Maltese outperforms English — typically Mosta, Birkirkara, Qormi, Paola, Mellieha, and the residential parts of Gzira. Tourist-facing brands in St Julians and Valletta usually run English with bilingual story slots when the calendar calls for it." },
   { question: "Can OARC Digital run paid ads alongside organic social?", answer: "Yes. The agency manages Meta Ads Manager and TikTok Ads Manager from the same retainer, with paid budgets typically starting at €600 per month per channel. Creative production, audience strategy, and reporting all live in one team so the organic feed and the paid feed do not contradict each other." },
   { question: "How quickly do Malta clients see social media results?", answer: "Paid social delivers booking enquiries or trackable add-to-carts within 14 days of campaign launch for most Malta hospitality and retail clients. Organic Instagram and TikTok growth compound across 60 to 90 days as the algorithm learns the audience. LinkedIn for B2B Malta clients usually takes one full quarter to show pipeline impact." },
-  { question: "Where is OARC Digital based?", answer: "Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010, Malta. The office is the production hub — shoots, editing, and content reviews happen on-site. The team also visits client venues across Sliema, St Julians, Valletta, Mellieha, and the Three Cities for monthly content days. Email hello@oarcdigital.com or call +356 7971 1799 to book a discovery call." },
+  { question: "Where is OARC Digital based?", answer: `Level 1, The Brewhouse, Mdina Road, ${NAP.addressLocality} ${NAP.postalCode}, Malta. The office is the production hub — shoots, editing, and content reviews happen on-site. The team also visits client venues across Sliema, St Julians, Valletta, Mellieha, and the Three Cities for monthly content days. Email ${NAP.email} or call ${NAP.phoneDisplay} to book a discovery call.` },
 ];
 
 const offers = [

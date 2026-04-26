@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Loader2, Send } from "lucide-react";
+import { NAP } from "@/lib/seo/nap";
 
 type Status = "idle" | "sending" | "success" | "error";
 
@@ -151,7 +152,7 @@ export default function ContactForm() {
               data-testid="text-form-error"
               className="text-red-400 text-center text-sm font-medium"
             >
-              Something went wrong. Email us at hello@oarcdigital.com
+              Something went wrong. Email us at {NAP.email}
             </p>
           )}
 
