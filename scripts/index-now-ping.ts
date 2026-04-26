@@ -17,9 +17,11 @@
 //   - The `vercel.json` `buildCommand` gates this on VERCEL_ENV === 'production'
 //     (the script no-ops on preview/dev). Preview deploys must NOT ping
 //     IndexNow (would tell Bing/Yandex about preview URLs that won't exist
-//     post-deploy). The ping lives in `buildCommand` because package.json
-//     edits are blocked in this environment — `vercel.json` carries an
-//     `$IndexNowNote` field documenting the constraint.
+//     post-deploy). The ping lives at the END of `buildCommand` (NOT a
+//     package.json `postbuild` hook) because package.json edits are blocked
+//     in this environment by repl_setup constraints. Order matters:
+//     `gate:full -> next build -> ping` so the ping only fires when both
+//     the audit gate and the build succeed.
 //   - INDEXNOW_KEY env var is required in production (lib/indexNow.ts throws
 //     loudly if absent — no silent submission with a stale bootstrap key).
 //
