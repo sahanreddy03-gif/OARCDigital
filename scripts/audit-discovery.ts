@@ -105,6 +105,17 @@ function countDataSpeakable(html: string): number {
   return (html.match(re) ?? []).length;
 }
 
+function hasSpeakableHeading(html: string): boolean {
+  // Tightens the audit beyond a raw count: at least ONE [data-speakable]
+  // target must be on a real heading element (h1/h2/h3). This blocks the
+  // failure mode where someone tags two paragraphs but no heading — answer
+  // engines need the heading to anchor the spoken excerpt.
+  // Tolerates attribute order (data-speakable before or after other attrs)
+  // and self-closing variants.
+  return /<h[1-3]\b[^>]*\bdata-speakable\b/i.test(html)
+    || /<h[1-3]\b[^>]*\sdata-speakable=/i.test(html);
+}
+
 function extractHreflangs(html: string): Map<string, string> {
   const out = new Map<string, string>();
   const re = /<link[^>]*\brel=["']alternate["'][^>]*>/gi;
@@ -162,6 +173,16 @@ async function auditPage(p: TopPage) {
       layer: "speakable",
       message:
         `Speakable target count = ${speakableCount} at ${url}; expected >=2 (headline + lead paragraph)`,
+    });
+  } else if (!hasSpeakableHeading(html)) {
+    // Tightening (round 4): at least one of those targets must be on a real
+    // heading element (h1/h2/h3). Tagging two paragraphs without a heading
+    // means answer engines have no anchor for the spoken excerpt.
+    issues.push({
+      path: p.path,
+      layer: "speakable",
+      message:
+        `Speakable targets at ${url} include no <h1>/<h2>/<h3> — at least one heading must carry data-speakable to anchor the spoken excerpt`,
     });
   }
 
