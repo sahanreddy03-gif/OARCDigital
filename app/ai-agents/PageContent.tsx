@@ -11,6 +11,7 @@ import {
 import FAQSection, { FAQItem } from '@/components/FAQSection';
 import Footer from '@/components/Footer';
 import CreativeNavigation from '@/components/CreativeNavigation';
+import { NAP } from "@/lib/seo/nap";
 import { 
   TeamCarousel, 
   CommandConsolePanel, 
@@ -226,17 +227,17 @@ export default function PageContent() {
             "name": "OARC Digital - AI Agents",
             "description": "Malta's first AI workforce agency. Deploy AI agents for sales, support, bookings & operations.",
             "url": "https://oarcdigital.com/ai-agents",
-            "telephone": "+35679711799",
-            "email": "hello@oarcdigital.com",
+            "telephone": NAP.phoneE164,
+            "email": NAP.email,
             "address": {
               "@type": "PostalAddress",
-              "streetAddress": "Level 1, The Brewhouse, Zone 2, Central Business District, Mdina Road",
-              "addressLocality": "Birkirkara",
-              "addressRegion": "Birkirkara",
-              "postalCode": "CBD 2010",
-              "addressCountry": "MT"
+              "streetAddress": NAP.streetAddress,
+              "addressLocality": NAP.addressLocality,
+              "addressRegion": NAP.addressRegion,
+              "postalCode": NAP.postalCode,
+              "addressCountry": NAP.addressCountry
             },
-            "geo": {"@type": "GeoCoordinates", "latitude": "35.8978", "longitude": "14.4617"},
+            "geo": {"@type": "GeoCoordinates", "latitude": NAP.geo.lat, "longitude": NAP.geo.lng},
             "areaServed": [{"@type": "Country", "name": "Malta"}, {"@type": "Place", "name": "Europe"}],
             "priceRange": "€€€"
           })}

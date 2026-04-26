@@ -1,3 +1,5 @@
+import { NAP } from "@/lib/seo/nap";
+
 interface InstantResponseItem {
   triggers: string[];
   response: string;
@@ -8,6 +10,14 @@ export interface InstantResponseResult {
   response: string;
   showPricingCTA: boolean;
 }
+
+// Conversational NAP fragments derived from the canonical record. Every
+// `${PHONE}` / `${EMAIL}` / Birkirkara reference in this
+// file MUST come from these constants — the audit (`audit-nap.ts`) walks
+// the rendered ARC chat surface in addition to JSON-LD blobs.
+const PHONE = NAP.phoneDisplay;
+const EMAIL = NAP.email;
+const ADDRESS = `${NAP.streetAddressShort}, ${NAP.addressLocality} CBD, Malta`;
 
 const responses: InstantResponseItem[] = [
   {
@@ -30,7 +40,7 @@ Tell me the industry you're in and what's broken.`
 
 Every package includes a strategy session, not just execution.
 
-**Call Sahan directly for your quote: +356 7971 1799**
+**Call Sahan directly for your quote: ${PHONE}**
 
 What's your industry? I'll tell you which tier makes sense.`,
     showPricingCTA: true
@@ -88,7 +98,7 @@ Want me to tell you specifically what's wrong with your current content? Drop yo
 
 Plus full social media management for your brand.
 
-**Call +356 7971 1799 to see a live demo.**
+**Call ${PHONE} to see a live demo.**
 
 How many locations do you have?`
   },
@@ -104,7 +114,7 @@ Same drone footage. Same listing photos. Same "stunning sea views" captions.
 • Personal brand content for the agent, not just the listing
 • WhatsApp automation for instant lead follow-up
 
-**First step:** 15-minute strategy call. +356 7971 1799
+**First step:** 15-minute strategy call. ${PHONE}
 
 How many properties are you typically listing per month?`
   },
@@ -119,7 +129,7 @@ How many properties are you typically listing per month?`
 • AI-powered content scaling across markets
 
 **This needs a proper call** — iGaming work is bespoke.
-+356 7971 1799 | hello@oarcdigital.com
+${PHONE} | ${EMAIL}
 
 Are you B2C (player-facing) or B2B?`
   },
@@ -135,7 +145,7 @@ Are you B2C (player-facing) or B2B?`
 
 **Most businesses save 15-20 hours/week** once automation is running.
 
-**Let's map your automation opportunities:** +356 7971 1799
+**Let's map your automation opportunities:** ${PHONE}
 
 What's the most repetitive thing your team does manually right now?`
   },
@@ -152,7 +162,7 @@ Think QVC meets Instagram Live, built for Malta.
 
 **First 200 businesses get free onboarding + 6 months featured placement.**
 
-Call now to secure your spot: +356 7971 1799`
+Call now to secure your spot: ${PHONE}`
   },
   {
     triggers: ['hospitality 360', 'h360', 'digital menu', 'qr menu', 'qr code'],
@@ -170,16 +180,16 @@ Call now to secure your spot: +356 7971 1799`
 • WhatsApp automation for returning guests
 
 **From €100/month. Live demo available.**
-Call +356 7971 1799`
+Call ${PHONE}`
   },
   {
     triggers: ['location', 'where', 'based', 'malta', 'office', 'address'],
-    response: `OARC Digital — Level 1, The Brewhouse, Birkirkara CBD, Malta.
+    response: `OARC Digital — ${ADDRESS}.
 
 We work with businesses across Malta and internationally.
 
-📞 +356 7971 1799
-📧 hello@oarcdigital.com
+📞 ${PHONE}
+📧 ${EMAIL}
 🌐 oarcdigital.com
 
 Walk-ins welcome. Or book a call — usually same day.`
@@ -188,8 +198,8 @@ Walk-ins welcome. Or book a call — usually same day.`
     triggers: ['contact', 'call', 'speak', 'talk', 'meet', 'sahan', 'human'],
     response: `Talk to Sahan directly — he's the founder and handles all new client conversations personally.
 
-📞 **+356 7971 1799** (WhatsApp or call)
-📧 **hello@oarcdigital.com**
+📞 **${PHONE}** (WhatsApp or call)
+📧 **${EMAIL}**
 🌐 **oarcdigital.com/contact**
 
 Usually responds within a few hours during business hours (9am–6pm Malta time).`
@@ -211,7 +221,7 @@ No sugarcoating. Ready?`
 
 Before you go — if you want a proper diagnosis of what's holding your business back:
 
-📞 **+356 7971 1799** — call or WhatsApp Sahan directly.
+📞 **${PHONE}** — call or WhatsApp Sahan directly.
 
 Come back whenever. ARC is always here.`
   },
@@ -285,7 +295,7 @@ export function checkInstantResponse(message: string): InstantResponseResult | n
 • **The fix** depends on your industry, current setup, and what you've already tried
 • **Best move** — 15 minutes with Sahan: he'll tell you exactly what's wrong and what we'd do
 
-📞 **+356 7971 1799** | hello@oarcdigital.com
+📞 **${PHONE}** | ${EMAIL}
 
 What industry are you in?`,
       showPricingCTA: false
@@ -302,7 +312,7 @@ I find what's killing your revenue and tell you exactly how to fix it.
 
 • **Got a problem?** Tell me. I'll diagnose it in 60 seconds.
 • **Not sure where to start?** Pick one of the buttons below.
-• **Want to talk to a human?** Call +356 7971 1799.
+• **Want to talk to a human?** Call ${PHONE}.
 
 What's the one thing that's not working right now?`,
 
@@ -322,7 +332,7 @@ Tell me the problem. I'll tell you if we can fix it — and how.`,
 
 No sales pitch. No fluff. Just the answer.
 
-Or call Sahan directly: +356 7971 1799`
+Or call Sahan directly: ${PHONE}`
 ];
 
 export function getRandomGreeting(): string {

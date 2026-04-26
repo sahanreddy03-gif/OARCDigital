@@ -5,8 +5,9 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X, Phone } from 'lucide-react';
 import { usePathname } from "next/navigation";
 import { ARCChat } from './ARCChat';
+import { NAP } from "@/lib/seo/nap";
 
-const PHONE_NUMBER = '+35679711799';
+const PHONE_NUMBER = NAP.phoneE164;
 
 export function ARCWidget() {
   const location = usePathname();

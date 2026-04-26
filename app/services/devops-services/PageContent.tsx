@@ -6,6 +6,7 @@ import Link from "next/link";
 import { SERVICE_SCHEMAS } from "@/lib/seo/serviceSchemaConfig";
 
 import MaltaContextBlock from "@/components/seo/MaltaContextBlock";
+import TrustBlock from "@/components/seo/TrustBlock";
 const SCHEMA = SERVICE_SCHEMAS["devops-services"];
 
 const phases = [
@@ -139,11 +140,7 @@ export default function DevopsServicesContent() {
           </section>
           <section className="mb-12">
             <h2 className="text-2xl md:text-3xl font-bold mb-6">Visit OARC Digital</h2>
-            <div className="rounded-xl border bg-card p-6">
-              <div className="flex items-start gap-3 mb-3"><MapPin className="w-5 h-5 text-orange-500 mt-0.5" /><address className="not-italic text-foreground leading-relaxed">Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010, Malta</address></div>
-              <div className="flex items-center gap-3 mb-3"><Phone className="w-5 h-5 text-orange-500" /><a href="tel:+35679711799" className="text-foreground hover:text-orange-600">+356 7971 1799</a></div>
-              <div className="flex items-center gap-3"><Mail className="w-5 h-5 text-orange-500" /><a href="mailto:hello@oarcdigital.com" className="text-foreground hover:text-orange-600">hello@oarcdigital.com</a></div>
-            </div>
+            <TrustBlock slug="devops-services" />
           </section>
           <RelatedLinks slug="/services/devops-services" />
           <div className="bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl p-8 text-white text-center">
