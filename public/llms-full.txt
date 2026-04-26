@@ -206,6 +206,15 @@ Canonical: https://oarcdigital.com/services/ai-sdr-agent
 **Description**
 Precision lead qualification with 3x conversion lift. The OARC AI SDR Agent qualifies prospects, books meetings, and nurtures leads — so your Malta sales team only talks to buyers ready to convert.
 
+**Features**
+
+- Inbound lead qualification
+- Outbound prospecting cadence
+- Calendar booking & meeting prep
+- CRM enrichment & handoff
+- Multichannel: web chat, email, WhatsApp, SMS
+- Continuous prompt tuning & QA
+
 **Value proposition**
 AI sales rep that qualifies leads, books meetings, and writes the pre-call brief — so your closers spend their hours on sales-ready buyers, not tyre-kickers.
 
@@ -250,6 +259,15 @@ Canonical: https://oarcdigital.com/services/branding
 
 **Description**
 Build brands that resonate. From strategy to visual identity, OARC Digital creates complete brand systems that stand out in Malta and scale with your business.
+
+**Features**
+
+- Brand strategy & positioning
+- Logo & visual identity design
+- Type & colour systems
+- Brand voice & messaging framework
+- Brand guidelines & asset library
+- Packaging, signage & print collateral
 
 **Value proposition**
 Brand systems engineered for Malta-market scale — strategy through visual identity, packaging, signage, and trademark-ready master files handed over on completion.
@@ -296,6 +314,15 @@ Canonical: https://oarcdigital.com/services/content-marketing
 **Description**
 Content marketing for Malta brands — editorial strategy, long-form writing, video, repurposing pipelines, and distribution. Built to compound search and pipeline together.
 
+**Features**
+
+- Editorial strategy & calendar
+- Long-form writing (1,500–3,000 words)
+- Video & short-form repurposing
+- Newsletter & lifecycle email content
+- Topic-cluster & internal-link mapping
+- Performance & attribution reporting
+
 **Value proposition**
 Long-form Malta content programmes built around topic clusters and internal-link maps — every article ships with a keyword, a buying-stage tag, and a conversion goal.
 
@@ -339,6 +366,15 @@ Canonical: https://oarcdigital.com/services/database-design
 
 **Description**
 Database design and performance engineering for Malta and EU teams — Postgres-first schema design, query tuning, migrations, and replication. From SaaS MVP to multi-region scale.
+
+**Features**
+
+- Postgres schema design (3NF + RLS)
+- Drizzle / Prisma / SQLAlchemy modelling
+- Query tuning & indexing
+- Migration safety (zero-downtime)
+- Replication, partitioning, sharding
+- Backup, restore & DR drills
 
 **Value proposition**
 Database architecture for Malta SaaS and ecommerce — PostgreSQL, MySQL, and analytical warehouses designed for query performance, multi-tenant isolation, and GDPR data residency.
@@ -384,6 +420,15 @@ Canonical: https://oarcdigital.com/services/devops-services
 **Description**
 DevOps services for Malta and EU teams — CI/CD pipelines, AWS / GCP / Vercel infrastructure, observability, on-call, and SRE engagements. Build to ship faster, safer.
 
+**Features**
+
+- CI/CD pipeline engineering
+- Terraform / Pulumi IaC
+- AWS, GCP, Cloudflare, Vercel
+- Observability (Datadog, Grafana, Sentry)
+- Incident response & runbooks
+- Security & compliance hardening
+
 **Value proposition**
 DevOps and platform engineering for Malta startups — AWS, GCP, Hetzner EU, GitHub Actions, observability, and on-call runbooks shipped without an in-house SRE team.
 
@@ -427,6 +472,15 @@ Canonical: https://oarcdigital.com/services/ecommerce-development
 
 **Description**
 Ecommerce development for Malta retailers — Shopify, WooCommerce, and headless commerce. Conversion-tested storefronts, payments, and post-purchase automation.
+
+**Features**
+
+- Theme & storefront engineering
+- Stripe, Mollie, Revolut, PayPal integration
+- Maltese VAT, EU OSS, multi-currency
+- Conversion-rate optimisation
+- Subscription & loyalty programmes
+- Post-purchase + abandonment automation
 
 **Value proposition**
 Headless and Shopify ecommerce for Malta merchants — multi-currency EUR + GBP, Revolut/Stripe checkout, and CRO-optimised PDPs delivered in 6-10 weeks.
@@ -472,6 +526,15 @@ Canonical: https://oarcdigital.com/services/email-marketing
 **Description**
 Email marketing programmes for Malta businesses — lifecycle, newsletters, transactional, and automation. Built on Klaviyo, Customer.io, and HubSpot. GDPR-clean.
 
+**Features**
+
+- Lifecycle flow design
+- Newsletter editorial & design
+- Transactional email rewrites
+- Deliverability & DMARC setup
+- GDPR-clean list growth
+- Klaviyo, Customer.io, HubSpot, Mailchimp
+
 **Value proposition**
 Lifecycle email and CRM automation for Malta brands — segmented flows, GDPR-compliant consent, and revenue-attributed reporting from Klaviyo, HubSpot, or Customer.io.
 
@@ -515,6 +578,15 @@ Canonical: https://oarcdigital.com/services/marketing-automation-suite
 
 **Description**
 Kill manual marketing tasks forever. OARC Digital builds email, SMS, WhatsApp, and CRM workflows that scale your Malta business without extra headcount.
+
+**Features**
+
+- Email lifecycle automation (Klaviyo, HubSpot, Mailchimp)
+- SMS & WhatsApp Business journeys
+- CRM workflow design & integration
+- Lead scoring & sales handoff
+- AI-powered personalisation
+- Attribution dashboards & reporting
 
 **Value proposition**
 Email + SMS + WhatsApp + CRM workflows wired together by one team that can also write the copy, design the assets, and build the attribution dashboards.
@@ -561,6 +633,15 @@ Canonical: https://oarcdigital.com/services/paid-advertising
 **Description**
 Elite paid advertising management from OARC Digital. Drive ROI with data-driven Meta, Google, LinkedIn, and TikTok campaigns built for Malta businesses scaling profitably.
 
+**Features**
+
+- Meta Ads (Facebook & Instagram)
+- Google Ads (Search, Performance Max, YouTube)
+- TikTok & LinkedIn campaigns
+- Creative production & ad-variant testing
+- Conversion tracking & server-side attribution
+- Landing-page CRO & A/B testing
+
 **Value proposition**
 Performance media team that owns spend, creative, and tracking together — so the people building the ads are the same people defending the ROAS at month-end.
 
@@ -606,6 +687,15 @@ Canonical: https://oarcdigital.com/services/saas-development
 **Description**
 End-to-end SaaS development for Malta and EU founders — from MVP to multi-tenant architecture, billing, auth, and AI features. Engineered for venture-grade scale.
 
+**Features**
+
+- Multi-tenant architecture
+- Subscription billing (Stripe / Paddle)
+- Role-based access control
+- Admin & impersonation tooling
+- Public + partner API surface
+- AI feature integration (LLM, RAG, agents)
+
 **Value proposition**
 Multi-tenant SaaS engineered in Malta from MVP to series-A scale — Stripe billing, RBAC, AI features, and EU-hosted infrastructure shipped under one Birkirkara team.
 
@@ -649,6 +739,15 @@ Canonical: https://oarcdigital.com/services/seo-services
 
 **Description**
 SEO services for Malta businesses — technical audits, on-page optimisation, local SEO, and content programmes that compound. Track-record case studies from Birkirkara HQ.
+
+**Features**
+
+- Technical SEO audits & Core Web Vitals
+- Keyword strategy for Malta search intent
+- Local SEO & Google Business Profile
+- Long-form content production
+- Internal linking & topic-cluster builds
+- Backlink outreach & digital PR
 
 **Value proposition**
 Malta SEO programmes built on a 90-day execution roadmap and weekly leading-indicator reporting — no #1 ranking promises, just measurable revenue lift.
@@ -694,6 +793,15 @@ Canonical: https://oarcdigital.com/services/shopify-development
 **Description**
 Shopify development for Malta and EU retailers — custom themes, Shopify Plus, Hydrogen, app integrations, and conversion engineering. Klaviyo and Meta-ready out of the box.
 
+**Features**
+
+- Custom Shopify themes (Liquid + JS)
+- Shopify Plus & B2B
+- Hydrogen / Oxygen headless
+- Custom Shopify app development
+- Klaviyo + Meta Conversions API
+- Maltese VAT, EU OSS, multi-currency
+
 **Value proposition**
 Shopify Plus, Shopify, and headless Hydrogen builds for Malta and EU merchants — custom themes, app development, and Klaviyo + Stripe wiring delivered by a single Birkirkara team.
 
@@ -737,6 +845,15 @@ Canonical: https://oarcdigital.com/services/social-media-creative-management
 
 **Description**
 Social media management and creative content production for Malta businesses. OARC Digital manages Instagram, TikTok, and Facebook with strategy-first content that builds brands and drives customers.
+
+**Features**
+
+- Strategy & content calendar
+- In-house photo & video shoots
+- Reels, TikTok, and short-form edits
+- Community management
+- Paid social creative variants
+- Monthly performance reports
 
 **Value proposition**
 Strategy, shoot, edit, and post run by one in-house Birkirkara team — no outsourced content chain, no stock-photo filler, no 12-month lock-in.
@@ -783,6 +900,15 @@ Canonical: https://oarcdigital.com/services/video-production
 **Description**
 Full-service video production studio in Malta. From concept to distribution. Brand films, explainers, social ads, testimonials, and reels shot in-house at our Birkirkara studio.
 
+**Features**
+
+- Concept development & scripting
+- Director, DOP, sound, lighting
+- Studio & location production
+- Colour grading & sound design
+- Subtitles, dubbing, multi-format delivery
+- Drone & aerial cinematography
+
 **Value proposition**
 Full-stack Malta video studio — concept, shoot, colour, sound, distribution — produced under one roof at our Birkirkara facility, never sub-contracted.
 
@@ -828,6 +954,15 @@ Canonical: https://oarcdigital.com/services/web-apps-development
 **Description**
 Custom web application development for Malta and EU businesses — internal tools, customer portals, dashboards, marketplaces, and PWAs built on Next.js, TypeScript, and Postgres.
 
+**Features**
+
+- Custom dashboards & internal tools
+- Customer portals & self-service accounts
+- Role-based access control
+- Progressive Web App (PWA) packaging
+- REST + tRPC API surface
+- Marketplace, booking & directory builds
+
 **Value proposition**
 Custom Malta-built web apps — dashboards, customer portals, marketplaces, PWAs — engineered on Next.js + Postgres with role-based auth, EU hosting, and source-code handover.
 
@@ -871,6 +1006,15 @@ Canonical: https://oarcdigital.com/services/web-design
 
 **Description**
 Websites engineered for conversion. Performance-optimized, mobile-first, A/B tested. See real metrics from sites we've built for Malta businesses.
+
+**Features**
+
+- UX research & wireframes
+- Mobile-first responsive design
+- On-page SEO & Core Web Vitals tuning
+- A/B testing & CRO
+- Accessibility (WCAG 2.1 AA)
+- Managed hosting & maintenance
 
 **Value proposition**
 Conversion-engineered Malta websites that are measured against a pre-launch baseline so the build pays back inside 6 months — not just looks good in a portfolio.
@@ -916,6 +1060,15 @@ Canonical: https://oarcdigital.com/services/wordpress-development
 
 **Description**
 WordPress development for Malta businesses — custom themes, performance tuning, headless WordPress, and security hardening. From small business sites to complex publishing platforms.
+
+**Features**
+
+- Custom theme engineering (no Elementor lock-in)
+- Custom plugin development
+- Core Web Vitals + performance tuning
+- Headless WordPress on Next.js
+- WooCommerce integration
+- Security hardening + managed hosting
 
 **Value proposition**
 Bespoke WordPress builds for Malta businesses — custom Gutenberg blocks, headless options, and managed hosting with Core Web Vitals tuning baked into every launch.

@@ -24,7 +24,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { TOP_PAGES, topPageCanonical, type TopPage } from "../lib/seo/topPages";
-import { buildLlmsFullFile, LLMS_FULL_PATH } from "../lib/seo/llmsFullBuilder";
+import { applyLlmsFullTransform, LLMS_FULL_PATH } from "../lib/seo/llmsFullBuilder";
 
 type Issue = { path: string; layer: string; message: string };
 
@@ -202,13 +202,16 @@ function checkLlmsFullParity(): Issue[] {
     return out;
   }
   const current = fs.readFileSync(fullPath, "utf-8");
-  const expected = buildLlmsFullFile();
+  // Marker-scoped parity: applyLlmsFullTransform is idempotent, so
+  // current === transform(current) iff the AUTOGEN body is in sync. Content
+  // OUTSIDE the markers is intentionally preserved across runs.
+  const expected = applyLlmsFullTransform(current);
   if (current !== expected) {
     out.push({
       path: "_global",
       layer: "llms-full",
       message:
-        `${LLMS_FULL_PATH} drifted from generator output — run \`npx tsx scripts/generate-llms-full-txt.ts\` and commit`,
+        `${LLMS_FULL_PATH} AUTOGEN body drifted from generator output — run \`npx tsx scripts/generate-llms-full-txt.ts\` and commit`,
     });
   }
   return out;

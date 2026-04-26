@@ -138,5 +138,6 @@
       ]
     }
   ],
+  "$IndexNowNote": "IndexNow ping intentionally lives at the END of buildCommand (NOT a package.json `postbuild` hook). package.json edits are forbidden by the project repl_setup constraints, so we cannot wire `postbuild`. Order matters: gate:full -> next build -> ping (production only, delta from VERCEL_GIT_PREVIOUS_SHA). Ping runs only if next build succeeds, so the && chain is intentional.",
   "buildCommand": "npm run gate:full && next build && (if [ \"$VERCEL_ENV\" = \"production\" ]; then npx tsx scripts/index-now-ping.ts --delta; else echo \"[postbuild] skipping IndexNow ping (VERCEL_ENV=$VERCEL_ENV)\"; fi)"
 }
