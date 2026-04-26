@@ -9,6 +9,7 @@ import Link from 'next/link';
 import { buildLocationIndustryServiceContent } from '@/lib/seo/generateUniquePageContent';
 import { getLocationProfile } from '@/lib/seo/locationData';
 import restore from '@/.local/seo/restore.json';
+import { NAP } from '@/lib/seo/nap';
 
 export async function generateStaticParams() {
   return (restore as { kept: { locationIndustryServices: { location: string; industry: string; service: string }[] } })
@@ -131,7 +132,7 @@ export default function IndustryLocationServicePage({
             >
               Start a Conversation
             </a>
-            <p className="text-zinc-500 text-sm mt-4">hello@oarcdigital.com · +356 7971 1799</p>
+            <p className="text-zinc-500 text-sm mt-4">{NAP.email} · {NAP.phoneDisplay}</p>
           </div>
         </section>
       </main>

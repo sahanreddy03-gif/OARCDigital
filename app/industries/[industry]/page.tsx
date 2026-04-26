@@ -18,6 +18,7 @@ const industrySlugAlias: Record<string, string> = {
 };
 const resolveIndustryKey = (slug: string) => industrySlugAlias[slug] ?? slug;
 import { Button } from '@/components/ui/button';
+import { NAP } from "@/lib/seo/nap";
 
 interface IndustryData {
   name: string;
@@ -383,14 +384,14 @@ export default function IndustryHubPage({ params }: { params: { industry: string
               </h1>
               <p className="text-xl text-zinc-300 mb-8 leading-relaxed">{data.intro}</p>
               <div className="flex flex-wrap gap-4">
-                <a href="https://wa.me/35679711799" target="_blank" rel="noopener noreferrer">
+                <a href={`https://wa.me/${NAP.whatsappNumber}`} target="_blank" rel="noopener noreferrer">
                   <Button size="lg" className="bg-orange-500 hover:bg-orange-600 text-white">
                     Book a Free Strategy Call <ArrowRight className="ml-2 w-4 h-4" />
                   </Button>
                 </a>
-                <a href="tel:+35679711799">
+                <a href={`tel:${NAP.phoneE164}`}>
                   <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10">
-                    <Phone className="mr-2 w-4 h-4" /> +356 7971 1799
+                    <Phone className="mr-2 w-4 h-4" /> {NAP.phoneDisplay}
                   </Button>
                 </a>
               </div>
@@ -476,14 +477,14 @@ export default function IndustryHubPage({ params }: { params: { industry: string
               Book a free 30-minute strategy call. No obligation — just a straight conversation about what's possible for your business.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <a href="https://wa.me/35679711799" target="_blank" rel="noopener noreferrer">
+              <a href={`https://wa.me/${NAP.whatsappNumber}`} target="_blank" rel="noopener noreferrer">
                 <Button size="lg" variant="secondary" className="font-bold">
                   WhatsApp Us Now <ArrowRight className="ml-2 w-4 h-4" />
                 </Button>
               </a>
-              <a href="mailto:hello@oarcdigital.com">
+              <a href={`mailto:${NAP.email}`}>
                 <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/20">
-                  <Mail className="mr-2 w-4 h-4" /> hello@oarcdigital.com
+                  <Mail className="mr-2 w-4 h-4" /> {NAP.email}
                 </Button>
               </a>
             </div>

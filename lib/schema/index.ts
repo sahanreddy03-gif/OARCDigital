@@ -205,8 +205,11 @@ export function buildArticle(opts: {
   authorName?: string;
   speakable?: boolean;
 }) {
-  return {
-    "@context": "https://schema.org",
+  // Article references the canonical Organization via `@id`. Emit both in
+  // a `@graph` wrapper so the reference resolves locally — otherwise the
+  // `audit-schema.ts` id-orphan tier breaks (and Google can't follow the
+  // dead reference).
+  const article: Record<string, unknown> = {
     "@type": "Article",
     headline: opts.headline,
     description: opts.description,
@@ -219,14 +222,16 @@ export function buildArticle(opts: {
       ? { "@type": "Organization", name: opts.authorName, url: BASE }
       : ORG_REF,
     publisher: ORG_REF,
-    ...(opts.speakable
-      ? {
-          speakable: {
-            "@type": "SpeakableSpecification",
-            cssSelector: [".voice-summary", ".faq-answer"],
-          },
-        }
-      : {}),
+  };
+  if (opts.speakable) {
+    article.speakable = {
+      "@type": "SpeakableSpecification",
+      cssSelector: [".voice-summary", ".faq-answer"],
+    };
+  }
+  return {
+    "@context": "https://schema.org",
+    "@graph": [article, buildOrganization()],
   };
 }
 

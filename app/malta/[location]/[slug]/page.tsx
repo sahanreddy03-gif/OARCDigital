@@ -11,6 +11,7 @@ import { Button } from '@/components/ui/button';
 import { buildLocationServiceContent } from '@/lib/seo/generateUniquePageContent';
 import { getLocationProfile } from '@/lib/seo/locationData';
 import restore from '@/.local/seo/restore.json';
+import { NAP } from "@/lib/seo/nap";
 
 export async function generateStaticParams() {
   return (restore as { kept: { locationServices: { location: string; service: string }[] } }).kept
@@ -75,7 +76,7 @@ export default function LocationServicePage({ params }: { params: { location: st
                     {c.cta} <ArrowRight className="ml-2 w-4 h-4" />
                   </Button>
                 </Link>
-                <a href="tel:+35679711799">
+                <a href={`tel:${NAP.phoneE164}`}>
                   <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10">
                     <Phone className="mr-2 w-4 h-4" /> Call Us Now
                   </Button>
@@ -158,9 +159,9 @@ export default function LocationServicePage({ params }: { params: { location: st
                   <Mail className="mr-2 w-4 h-4" /> Get Free Consultation
                 </Button>
               </Link>
-              <a href="tel:+35679711799">
+              <a href={`tel:${NAP.phoneE164}`}>
                 <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/20">
-                  <Phone className="mr-2 w-4 h-4" /> +356 7971 1799
+                  <Phone className="mr-2 w-4 h-4" /> {NAP.phoneDisplay}
                 </Button>
               </a>
             </div>

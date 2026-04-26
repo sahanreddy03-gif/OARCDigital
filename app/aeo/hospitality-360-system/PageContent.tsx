@@ -3,6 +3,7 @@ import RelatedLinks from '@/components/RelatedLinks';
 import { Button } from '@/components/ui/button';
 import { CheckCircle2, ArrowRight, MapPin, Phone, Mail, Clock } from 'lucide-react';
 import Link from 'next/link';
+import { NAP } from "@/lib/seo/nap";
 
 interface Faq { question: string; answer: string; }
 interface Offer { name: string; priceFrom: number; unitText?: string; description?: string; }
@@ -46,7 +47,7 @@ export default function Hospitality360System({ faqs, offers }: Props) {
             </p>
             <div className="flex flex-wrap gap-3">
               <Link href="/contact"><Button size="lg" className="bg-orange-500 hover:bg-orange-600 text-white">Book a discovery call <ArrowRight className="ml-2 w-4 h-4" /></Button></Link>
-              <a href="tel:+35679711799"><Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10"><Phone className="mr-2 w-4 h-4" /> +356 7971 1799</Button></a>
+              <a href={`tel:${NAP.phoneE164}`}><Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10"><Phone className="mr-2 w-4 h-4" />{NAP.phoneDisplay}</Button></a>
             </div>
           </div>
         </section>
@@ -117,8 +118,8 @@ export default function Hospitality360System({ faqs, offers }: Props) {
                     Mdina Road, Birkirkara CBD 2010, Malta
                   </address>
                 </div>
-                <div className="flex items-center gap-3 mb-3"><Phone className="w-5 h-5 text-orange-500" /><a href="tel:+35679711799" className="text-foreground hover:text-orange-600">+356 7971 1799</a></div>
-                <div className="flex items-center gap-3 mb-3"><Mail className="w-5 h-5 text-orange-500" /><a href="mailto:hello@oarcdigital.com" className="text-foreground hover:text-orange-600">hello@oarcdigital.com</a></div>
+                <div className="flex items-center gap-3 mb-3"><Phone className="w-5 h-5 text-orange-500" /><a href={`tel:${NAP.phoneE164}`} className="text-foreground hover:text-orange-600">{NAP.phoneDisplay}</a></div>
+                <div className="flex items-center gap-3 mb-3"><Mail className="w-5 h-5 text-orange-500" /><a href={`mailto:${NAP.email}`} className="text-foreground hover:text-orange-600">{NAP.email}</a></div>
                 <div className="flex items-center gap-3"><Clock className="w-5 h-5 text-orange-500" /><span className="text-foreground">Mon – Fri, 09:00 – 18:00 CET</span></div>
               </div>
               <div className="space-y-3">

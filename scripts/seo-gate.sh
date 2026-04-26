@@ -78,11 +78,17 @@ if [ "$MODE" = "gate" ]; then
 fi
 
 # --- gate:full (HTTP smoke tests on top) -----------------------------------
+# `AUDIT_FULL=1` forces audit-nap and audit-schema to walk every URL the
+# live sitemap-index advertises (instead of the default ~60-URL sample).
+# `gate:full` is the right place for that — it is the long pre-deploy run
+# (manual or CI), and missing a regression on a non-sampled URL would only
+# be caught at the next batch publish. Inner-loop iteration uses the
+# faster sample mode by invoking the scripts directly without this flag.
 if server_up; then
   run_step "verify-redirects (HTTP)"  env BASE="$BASE" npx tsx scripts/verify-redirects.ts
   run_step "audit-sitemap (HTTP)"     env BASE="$BASE" npx tsx scripts/audit-sitemap.ts --http
-  run_step "audit-nap (HTTP)"         env BASE="$BASE" npx tsx scripts/audit-nap.ts
-  run_step "audit-schema (HTTP)"      env BASE="$BASE" npx tsx scripts/audit-schema.ts
+  run_step "audit-nap (HTTP)"         env BASE="$BASE" AUDIT_FULL=1 npx tsx scripts/audit-nap.ts
+  run_step "audit-schema (HTTP)"      env BASE="$BASE" AUDIT_FULL=1 npx tsx scripts/audit-schema.ts
 else
   echo
   echo "==> verify-redirects (HTTP)"

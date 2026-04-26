@@ -3,7 +3,7 @@
  *
  * Complements `audit-nap.ts`. Where audit-nap focuses on the *content* of
  * NAP-bearing entities, audit-schema focuses on the *structure* of every
- * JSON-LD block on every monitored URL:
+ * JSON-LD block on every URL the live sitemap advertises:
  *
  *   1. Parse-error tier — every <script type="application/ld+json"> block
  *      MUST parse cleanly via JSON.parse. A parse error here is an outage:
@@ -14,7 +14,13 @@
  *   3. Type-allow-list tier — only schema.org types we actually use are
  *      allowed; an unknown @type is almost always a typo (e.g. `LocalBus`)
  *      that silently disables rich-result eligibility.
- *   4. Per-page contract — pages with a documented schema obligation must
+ *   4. @id-orphan resolution — every reference-only `{@id: "..."}` shape
+ *      must resolve to a defined entity declared on the same page.
+ *   5. ISO-8601 date format — every `datePublished` / `dateModified` /
+ *      `startDate` / `endDate` value must be a valid ISO 8601 string.
+ *   6. Banned-property — entities must not contain lower-cased
+ *      `id`/`type`/`context` typos or stray crawler-hint keys.
+ *   7. Per-page contract — pages with a documented schema obligation must
  *      emit at least one entity of the expected type. Catches a regression
  *      where a refactor accidentally drops a Service / FAQPage block.
  *
@@ -30,8 +36,10 @@ import {
   flattenJsonLdEntities,
   findEntitiesByType,
 } from "../lib/seo/jsonLdExtract";
+import { walkSitemap } from "../lib/seo/sitemapWalker";
 
 const BASE = process.env.BASE ?? "http://localhost:5000";
+const CONCURRENCY = Number(process.env.AUDIT_CONCURRENCY ?? "6");
 
 // schema.org @type values OARC actually uses. Anything else is a typo / a
 // new schema we should consciously add to this list (forcing review).
@@ -82,15 +90,17 @@ const ALLOWED_TYPES = new Set<string>([
   "QuantitativeValue",
   "Demand",
   "MonetaryAmount",
+  // Used by /malta/* location pages and review/rating widgets.
+  "City",
+  "Rating",
+  "Audience",
 ]);
 
-// Per-URL contract. Each entry asserts that the page emits at least one
-// entity of the listed @type. Missing keys = no contract (parse + required-
-// field tiers still apply).
-//
-// Mirror of `audit-nap.ts` TARGETS: top-level surfaces explicitly listed,
-// plus representative AEO / blog / case-study / industry pages so a
-// template-level schema regression in those directories breaks the gate.
+// Per-URL schema contract — listed pages MUST emit at least one entity of
+// the named @type. Missing keys = no contract (parse / required-field /
+// type-allowlist / @id-orphan / date-format / banned-property tiers still
+// apply via the sitemap walk). Empty array = explicit "no parent schema
+// yet" (deliberate placeholder, see comments below).
 const URL_CONTRACT: Record<string, readonly string[]> = {
   "/": ["Organization"],
   "/contact": ["LocalBusiness", "MarketingAgency", "Organization"],
@@ -134,9 +144,47 @@ const TARGETS = Object.keys(URL_CONTRACT);
 
 type Failure = {
   url: string;
-  tier: "parse" | "required-field" | "type-allowlist" | "contract" | "fetch";
+  tier:
+    | "parse"
+    | "required-field"
+    | "type-allowlist"
+    | "id-orphan"
+    | "date-format"
+    | "banned-property"
+    | "contract"
+    | "fetch";
   detail: string;
 };
+
+// schema.org property names whose value must be ISO 8601 (date or
+// dateTime). Anything else is invisible to Google's date-aware crawlers.
+const ISO_DATE_PROPS = new Set<string>([
+  "datePublished",
+  "dateModified",
+  "dateCreated",
+  "startDate",
+  "endDate",
+  "validFrom",
+  "validThrough",
+  "uploadDate",
+  "expires",
+]);
+
+// Properties that must NEVER appear in JSON-LD blobs. These are typos or
+// JS-side property names that leaked into the schema (lowercase variants
+// of @-prefixed keys, googlebot crawler hints that belong in <meta>, etc.).
+const BANNED_PROPS = new Set<string>([
+  "id",          // wrong-cased — the schema-org key is `@id`
+  "type",        // wrong-cased — the schema-org key is `@type`
+  "context",     // wrong-cased — the schema-org key is `@context`
+  "googleBot",
+  "googlebot",
+  "robots",
+  "viewport",
+]);
+
+// ISO 8601 (lenient): YYYY[-MM[-DD]][Thh:mm[:ss[.sss]][Z|±hh:mm]]
+const ISO_DATE_RE = /^\d{4}(-\d{2}(-\d{2})?)?(T\d{2}:\d{2}(:\d{2}(\.\d+)?)?(Z|[+-]\d{2}:?\d{2})?)?$/;
 
 const failures: Failure[] = [];
 
@@ -236,23 +284,38 @@ async function auditUrl(url: string): Promise<void> {
   // the graph inherit it — we must NOT flag them as "missing @context".
   const flatTop: unknown[] = [];
   const flatGraphInherited: unknown[] = [];
+  // Recursively unwrap a single value: top-level arrays are spread, and
+  // `@graph` wrappers (with or without their own `@context`) push their
+  // children into the right bucket so context inheritance is tracked.
+  const unwrap = (value: unknown): void => {
+    if (Array.isArray(value)) {
+      for (const v of value) unwrap(v);
+      return;
+    }
+    if (value && typeof value === "object") {
+      const obj = value as Record<string, unknown>;
+      if (Array.isArray(obj["@graph"])) {
+        const wrapperHasContext = obj["@context"] !== undefined;
+        const bucket = wrapperHasContext ? flatGraphInherited : flatTop;
+        for (const child of obj["@graph"] as unknown[]) {
+          // Children may themselves be `@graph` wrappers — keep unwrapping.
+          if (
+            child && typeof child === "object" && !Array.isArray(child) &&
+            Array.isArray((child as Record<string, unknown>)["@graph"])
+          ) {
+            unwrap(child);
+          } else {
+            bucket.push(child);
+          }
+        }
+        return;
+      }
+    }
+    flatTop.push(value);
+  };
   for (const r of results) {
     if (!r.ok) continue;
-    if (Array.isArray(r.data)) {
-      flatTop.push(...r.data);
-      continue;
-    }
-    const d = r.data as Record<string, unknown> | undefined;
-    if (d && Array.isArray(d["@graph"])) {
-      const wrapperHasContext = d["@context"] !== undefined;
-      if (wrapperHasContext) {
-        flatGraphInherited.push(...(d["@graph"] as unknown[]));
-      } else {
-        flatTop.push(...(d["@graph"] as unknown[]));
-      }
-    } else {
-      flatTop.push(r.data);
-    }
+    unwrap(r.data);
   }
   const flat = [...flatTop, ...flatGraphInherited];
   if (flat.length === 0 && URL_CONTRACT[url]?.length) {
@@ -261,12 +324,13 @@ async function auditUrl(url: string): Promise<void> {
   }
   auditEntities(url, flatTop, { contextInheritedFromWrapper: false });
   auditEntities(url, flatGraphInherited, { contextInheritedFromWrapper: true });
-  // Also walk every parsed entity recursively for sub-entity allow-list
-  // checks (e.g. an Offer nested under a Service).
+  // Also walk every parsed entity recursively for sub-entity allow-list,
+  // banned-property, and ISO-date checks.
   for (const r of results) {
     if (!r.ok) continue;
     walkSubEntities(url, r.data);
   }
+  auditIdGraph(url, results.filter((r) => r.ok).map((r) => r.data));
   auditContract(url, flat);
 }
 
@@ -279,7 +343,24 @@ function walkSubEntities(url: string, node: unknown): void {
       fail(url, "type-allowlist", `unknown nested @type ${JSON.stringify(t)}`);
     }
   }
-  for (const value of Object.values(e)) {
+  // Banned-property + ISO date checks at every nesting level.
+  for (const [key, value] of Object.entries(e)) {
+    if (BANNED_PROPS.has(key)) {
+      fail(
+        url,
+        "banned-property",
+        `entity ${JSON.stringify(types)} has banned property ${JSON.stringify(key)} = ${JSON.stringify(value)} (use the @-prefixed schema-org form)`,
+      );
+    }
+    if (ISO_DATE_PROPS.has(key)) {
+      if (typeof value !== "string" || !ISO_DATE_RE.test(value)) {
+        fail(
+          url,
+          "date-format",
+          `entity ${JSON.stringify(types)} property ${JSON.stringify(key)} = ${JSON.stringify(value)} is not ISO 8601`,
+        );
+      }
+    }
     if (Array.isArray(value)) {
       for (const v of value) walkSubEntities(url, v);
     } else if (value && typeof value === "object") {
@@ -288,8 +369,117 @@ function walkSubEntities(url: string, node: unknown): void {
   }
 }
 
+/**
+ * @id orphan-reference resolver. Schema.org allows entities to reference
+ * each other by `@id`. A reference-only object — `{"@id": "https://x/#y"}`
+ * with no other meaningful keys — must resolve to a defined entity that
+ * has the SAME `@id` and at least one other property. Otherwise the
+ * reference is dead and Google can't follow the link.
+ *
+ * Walks the full entity tree to:
+ *   1. Collect every `@id` declared on a "real" entity (object with
+ *      `@type` or with non-trivial content).
+ *   2. Collect every reference-only `{@id: ...}` shape.
+ *   3. Fail when a reference cannot be resolved.
+ */
+function auditIdGraph(url: string, roots: unknown[]): void {
+  const declared = new Set<string>();
+  const refsToCheck: { id: string; parentTypes: string[] }[] = [];
+
+  function visit(node: unknown, parentTypes: string[]): void {
+    if (!node || typeof node !== "object") return;
+    if (Array.isArray(node)) {
+      for (const v of node) visit(v, parentTypes);
+      return;
+    }
+    const e = node as Record<string, unknown>;
+    const id = typeof e["@id"] === "string" ? (e["@id"] as string) : undefined;
+    const types = typesOf(e);
+    const keys = Object.keys(e);
+    const meaningfulKeys = keys.filter((k) => k !== "@id" && k !== "@context");
+    const isReferenceOnly = id !== undefined && meaningfulKeys.length === 0;
+    if (id && !isReferenceOnly) {
+      declared.add(id);
+    }
+    if (isReferenceOnly) {
+      refsToCheck.push({ id: id!, parentTypes: types.length ? types : parentTypes });
+    }
+    for (const value of Object.values(e)) {
+      visit(value, types.length ? types : parentTypes);
+    }
+  }
+
+  for (const r of roots) visit(r, []);
+
+  for (const ref of refsToCheck) {
+    if (!declared.has(ref.id)) {
+      fail(
+        url,
+        "id-orphan",
+        `reference-only @id ${JSON.stringify(ref.id)} (parent ${JSON.stringify(ref.parentTypes)}) does not resolve to any declared entity on this page`,
+      );
+    }
+  }
+}
+
+async function runWithConcurrency(
+  urls: string[],
+  worker: (url: string) => Promise<void>,
+  concurrency: number,
+): Promise<void> {
+  let cursor = 0;
+  let done = 0;
+  const total = urls.length;
+  await Promise.all(
+    Array.from({ length: Math.min(concurrency, total) }, async () => {
+      while (true) {
+        const i = cursor++;
+        if (i >= total) return;
+        await worker(urls[i]);
+        done++;
+        if (done % 25 === 0) {
+          process.stdout.write(`  [${done}/${total}]\n`);
+        } else {
+          process.stdout.write(".");
+        }
+      }
+    }),
+  );
+}
+
+// See audit-nap.ts for the same sample-cap-vs-full-walk design rationale.
+const SAMPLE_CAP = Number(process.env.AUDIT_SAMPLE ?? "60");
+const FULL_WALK = process.env.AUDIT_FULL === "1";
+
+async function resolveTargets(): Promise<string[]> {
+  const override = process.env.AUDIT_URLS;
+  if (override) {
+    return override.split(",").map((s) => s.trim()).filter(Boolean);
+  }
+  const { paths } = await walkSitemap(BASE);
+  if (FULL_WALK) {
+    const merged = new Set<string>([...paths, ...Object.keys(URL_CONTRACT)]);
+    return Array.from(merged).sort();
+  }
+  // Default sampled walk: every URL_CONTRACT key (load-bearing schema
+  // contract tier) plus a deterministic round-robin across the sitemap so
+  // parse / type-allowlist / banned-property / id-orphan / date-format
+  // tiers cover the wider site surface, not just the listed surfaces.
+  const contractKeys = Object.keys(URL_CONTRACT);
+  const must = contractKeys.filter((p) => paths.includes(p));
+  const mustExtra = contractKeys.filter((p) => !paths.includes(p));
+  const remainder = paths.filter((p) => !contractKeys.includes(p));
+  const want = Math.max(0, SAMPLE_CAP - must.length - mustExtra.length);
+  const stride = Math.max(1, Math.floor(remainder.length / Math.max(1, want)));
+  const sampled: string[] = [];
+  for (let i = 0; sampled.length < want && i < remainder.length; i += stride) {
+    sampled.push(remainder[i]);
+  }
+  return [...must, ...mustExtra, ...sampled];
+}
+
 async function main(): Promise<void> {
-  console.log(`audit-schema: BASE=${BASE} targets=${TARGETS.length}`);
+  console.log(`audit-schema: BASE=${BASE}`);
   try {
     const probe = await fetch(BASE, { method: "HEAD" });
     if (!probe.ok && probe.status !== 405) {
@@ -302,13 +492,12 @@ async function main(): Promise<void> {
     console.error("audit-schema: this audit only runs in gate:full and requires the dev server up");
     process.exit(2);
   }
-  for (const url of TARGETS) {
-    await auditUrl(url);
-    process.stdout.write(".");
-  }
+  const targets = await resolveTargets();
+  console.log(`audit-schema: walking ${targets.length} URL(s) from sitemap (concurrency=${CONCURRENCY})`);
+  await runWithConcurrency(targets, auditUrl, CONCURRENCY);
   console.log();
   if (failures.length === 0) {
-    console.log(`audit-schema: PASS (${TARGETS.length}/${TARGETS.length} URLs)`);
+    console.log(`audit-schema: PASS (${targets.length}/${targets.length} URLs)`);
     return;
   }
   console.error(`audit-schema: FAIL — ${failures.length} issue(s) across ${new Set(failures.map((f) => f.url)).size} URL(s):`);

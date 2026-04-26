@@ -46,6 +46,11 @@ export const NAP = deepFreeze({
   phoneDisplay: "+356 7971 1799",
   // wa.me-compatible form (no leading +).
   whatsappNumber: "35679711799",
+  // Separate WhatsApp line dedicated to the AI Agents service surface.
+  // Routed to the AI Agents pod inbox rather than the main agency line.
+  // The audit-nap.ts wa.me-tier allow-lists this number alongside the
+  // primary one so /ai-agents/* and /creative pages don't false-positive.
+  whatsappAgentNumber: "35699263179",
 
   email: "hello@oarcdigital.com",
 
