@@ -434,11 +434,14 @@ function auditRenderedHtml(url: string, htmlInput: string): void {
 }
 
 /**
- * Pull the rendered text of every TrustBlock visit-* testid container and
- * assert it contains the canonical NAP. The testid pattern comes from
- * `components/seo/TrustBlock.tsx`. This makes the TrustBlock → audit
- * coupling concrete: removing the canonical NAP from the component (or
- * accidentally rendering a stale NAP via a sibling fork) breaks the gate.
+ * Pull the rendered text of every TrustBlock visit container and assert it
+ * contains the canonical NAP. The selector targets the semantic
+ * `data-trustblock-variant="visit"` attribute on the outer wrapper from
+ * `components/seo/TrustBlock.tsx` (data-testid is reserved for end-to-end
+ * tests; this audit binds to the public component contract instead). This
+ * makes the TrustBlock → audit coupling concrete: removing the canonical
+ * NAP from the component (or accidentally rendering a stale NAP via a
+ * sibling fork) breaks the gate.
  */
 function auditTrustBlock(url: string, htmlInput: string): void {
   // Strip <script> blocks so we only walk the visible DOM.
@@ -446,8 +449,11 @@ function auditTrustBlock(url: string, htmlInput: string): void {
   // The TrustBlock wrapper is always a <section> (see TrustBlock.tsx) so
   // close on </section>. Matching a generic </tag> would close on the
   // first nested </a> / </span> / </div> long before the wrapper ends.
+  // We deliberately match `data-trustblock-variant="visit"` (the semantic
+  // public attribute) rather than `data-testid="trustblock-visit"` so the
+  // audit cannot silently break if a future refactor renames test ids.
   const sectionRe =
-    /<section\s[^>]*data-testid="trustblock-visit-[a-z0-9-]+"[^>]*>([\s\S]*?)<\/section>/gi;
+    /<section\s[^>]*data-trustblock-variant="visit"[^>]*>([\s\S]*?)<\/section>/gi;
   let m: RegExpExecArray | null;
   let foundAny = false;
   while ((m = sectionRe.exec(html)) !== null) {
