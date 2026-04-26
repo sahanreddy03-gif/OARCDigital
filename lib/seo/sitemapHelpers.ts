@@ -1,7 +1,73 @@
 import { promises as fs } from "node:fs";
+import { execSync } from "node:child_process";
 import path from "node:path";
 
 export const SITE_BASE = "https://oarcdigital.com";
+
+/**
+ * Frozen baseline date used for sitemap `lastmod` when git has no record
+ * for a path (untracked file, missing path, or git unavailable in the
+ * build environment). Set to the date of the merge commit shipping the
+ * Tier-2/3 SEO lockdown work. Update only at major release boundaries.
+ */
+export const DEPLOY_BASELINE = "2026-04-26";
+
+const _gitDateCache = new Map<string, string>();
+
+function _shellEscape(s: string): string {
+  // Allow only safe path chars; if anything else slips in, refuse the call
+  // rather than risk shell injection.
+  if (!/^[A-Za-z0-9._/\-]+$/.test(s)) {
+    return "";
+  }
+  return s;
+}
+
+/**
+ * Resolve a repo-relative file or directory path to its most recent
+ * git-committed change date in YYYY-MM-DD format. Falls back to
+ * DEPLOY_BASELINE if git returns no date (path untracked, doesn't exist,
+ * or git is unavailable).
+ *
+ * Build-time only — sitemap routes use `force-static` so this runs once
+ * per build, never per request. Results are memoised in-process so a
+ * sitemap with N URLs over K unique paths costs K git calls, not N.
+ */
+export function lastmodForPath(repoRelativePath: string): string {
+  const cached = _gitDateCache.get(repoRelativePath);
+  if (cached) return cached;
+  let date: string = DEPLOY_BASELINE;
+  const safe = _shellEscape(repoRelativePath);
+  if (safe) {
+    try {
+      const out = execSync(
+        `git log -1 --format=%cd --date=short -- ${safe}`,
+        { encoding: "utf8", stdio: ["ignore", "pipe", "ignore"], timeout: 5000 },
+      ).trim();
+      if (/^\d{4}-\d{2}-\d{2}$/.test(out)) {
+        date = out;
+      }
+    } catch {
+      // git unavailable, path missing, or timeout — fall back to baseline.
+    }
+  }
+  _gitDateCache.set(repoRelativePath, date);
+  return date;
+}
+
+/**
+ * Resolve the most recent date across a set of paths. For aggregated
+ * sitemap entries whose source spans many directories.
+ */
+export function lastmodForPaths(repoRelativePaths: string[]): string {
+  if (repoRelativePaths.length === 0) return DEPLOY_BASELINE;
+  let max = "";
+  for (const p of repoRelativePaths) {
+    const d = lastmodForPath(p);
+    if (d > max) max = d;
+  }
+  return max || DEPLOY_BASELINE;
+}
 
 export interface UrlEntry {
   loc: string;
@@ -78,4 +144,11 @@ export async function listRouteSlugs(dirRelativeToCwd: string): Promise<string[]
   return slugs.sort();
 }
 
+/**
+ * @deprecated Use `lastmodForPath()` / `lastmodForPaths()` instead.
+ * Emitting today's date for every URL is a sitemap-spam tell that Google
+ * penalises. Retained only so legacy imports continue to type-check until
+ * fully migrated. The audit at `scripts/audit-sitemap.ts` will fail any
+ * sitemap whose URLs cluster on a single date.
+ */
 export const TODAY = new Date().toISOString().split("T")[0];

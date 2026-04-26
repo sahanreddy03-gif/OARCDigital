@@ -1,5 +1,11 @@
 import { allServiceSlugs } from "@/shared/seoConfig";
-import { SITE_BASE, TODAY, urlsetXml, xmlResponse, listRouteSlugs } from "@/lib/seo/sitemapHelpers";
+import {
+  SITE_BASE,
+  lastmodForPath,
+  urlsetXml,
+  xmlResponse,
+  listRouteSlugs,
+} from "@/lib/seo/sitemapHelpers";
 import { REDIRECTING_SERVICE_SLUGS, NOINDEX_SERVICE_SLUGS } from "@/lib/seo/seoSets";
 
 export const dynamic = "force-static";
@@ -18,7 +24,7 @@ export async function GET() {
     .sort()
     .map((slug) => ({
       loc: `${SITE_BASE}/services/${slug}`,
-      lastmod: TODAY,
+      lastmod: lastmodForPath(`app/services/${slug}`),
       changefreq: "weekly" as const,
       priority: 0.8,
     }));
