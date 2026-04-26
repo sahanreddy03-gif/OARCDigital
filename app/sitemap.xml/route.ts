@@ -1,4 +1,5 @@
-import { SITE_BASE, TODAY, sitemapIndexXml, xmlResponse } from "@/lib/seo/sitemapHelpers";
+import { SITE_BASE, sitemapIndexXml, xmlResponse } from "@/lib/seo/sitemapHelpers";
+import { getSitemapLastmod } from "@/lib/seo/sitemapSources";
 
 export const dynamic = "force-static";
 export const revalidate = false;
@@ -13,7 +14,10 @@ export async function GET() {
     "sitemap-aeo.xml",
     "sitemap-blog.xml",
     "image-sitemap.xml",
-  ].map((name) => ({ loc: `${SITE_BASE}/${name}`, lastmod: TODAY }));
+  ].map((name) => ({
+    loc: `${SITE_BASE}/${name}`,
+    lastmod: getSitemapLastmod(name),
+  }));
 
   return xmlResponse(sitemapIndexXml(sitemaps));
 }

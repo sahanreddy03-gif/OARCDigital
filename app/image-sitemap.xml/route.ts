@@ -1,5 +1,6 @@
 import { promises as fs } from "node:fs";
 import path from "node:path";
+import { lastmodForPaths } from "@/lib/seo/sitemapHelpers";
 
 export const dynamic = "force-static";
 export const revalidate = false;
@@ -70,12 +71,19 @@ export async function GET() {
 
   // Group all under the homepage as a permissive sitemap entry.
   // Search Console accepts <image:image> children of any <url> entry.
+  const lastmod = lastmodForPaths([
+    "public/assets",
+    "public/agents",
+    "public/media",
+    "public/static",
+  ]);
   const body =
     `<?xml version="1.0" encoding="UTF-8"?>\n` +
     `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n` +
     `        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n` +
     `  <url>\n` +
     `    <loc>${BASE}/</loc>\n` +
+    `    <lastmod>${lastmod}</lastmod>\n` +
     images
       .map(
         (img) =>

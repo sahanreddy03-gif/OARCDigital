@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+# OARC Digital pre-commit gate. Runs the server-free SEO + type checks.
+# Bypass with: HUSKY=0 git commit ...    (justify in the PR description)
+
+npm run gate:fast

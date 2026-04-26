@@ -1,10 +1,32 @@
-import { SITE_BASE, TODAY, urlsetXml, xmlResponse, type UrlEntry } from "@/lib/seo/sitemapHelpers";
+import {
+  SITE_BASE,
+  DEPLOY_BASELINE,
+  lastmodForPath,
+  urlsetXml,
+  xmlResponse,
+  type UrlEntry,
+} from "@/lib/seo/sitemapHelpers";
 
 export const dynamic = "force-static";
 export const revalidate = false;
 
-const CORE: { path: string; priority: number; changefreq: UrlEntry["changefreq"] }[] = [
-  { path: "/", priority: 1.0, changefreq: "weekly" },
+// Exported so `lib/seo/sitemapSources.ts` can derive the index `lastmod` for
+// /sitemap-core.xml from the actual underlying page sources, not just the
+// route file itself.
+export interface CoreEntry {
+  path: string;
+  priority: number;
+  changefreq: UrlEntry["changefreq"];
+  /** Repo path used to date this URL. Defaults to `app${path}/page.tsx`. */
+  source?: string;
+}
+
+export function coreSourcePath(c: CoreEntry): string {
+  return c.source ?? `app${c.path === "/" ? "" : c.path}`;
+}
+
+export const CORE: CoreEntry[] = [
+  { path: "/", priority: 1.0, changefreq: "weekly", source: "app/page.tsx" },
   { path: "/services", priority: 0.9, changefreq: "weekly" },
   { path: "/our-work", priority: 0.9, changefreq: "weekly" },
   { path: "/contact", priority: 0.9, changefreq: "monthly" },
@@ -35,10 +57,17 @@ const CORE: { path: string; priority: number; changefreq: UrlEntry["changefreq"]
   { path: "/legal/terms-conditions", priority: 0.3, changefreq: "yearly" },
 ];
 
+function dateFor(c: CoreEntry): string {
+  const date = lastmodForPath(coreSourcePath(c));
+  // If the directory exists but has no git history (rare), fall back to the
+  // baseline rather than emitting nothing.
+  return date || DEPLOY_BASELINE;
+}
+
 export async function GET() {
   const entries: UrlEntry[] = CORE.map((c) => ({
     loc: `${SITE_BASE}${c.path}`,
-    lastmod: TODAY,
+    lastmod: dateFor(c),
     changefreq: c.changefreq,
     priority: c.priority,
   }));

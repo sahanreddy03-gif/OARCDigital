@@ -10,7 +10,11 @@
     "check": "tsc",
     "db:push": "drizzle-kit push",
     "assets:optimize": "node scripts/optimize-assets.mjs",
-    "analyze": "ANALYZE=true next build"
+    "analyze": "ANALYZE=true next build",
+    "prepare": "husky",
+    "gate": "bash scripts/seo-gate.sh gate",
+    "gate:fast": "bash scripts/seo-gate.sh gate:fast",
+    "gate:full": "bash scripts/seo-gate.sh gate:full"
   },
   "dependencies": {
     "@builder.io/partytown": "^0.10.3",
@@ -63,6 +67,7 @@
     "express-session": "^1.18.1",
     "framer-motion": "^11.18.2",
     "gsap": "^3.13.0",
+    "husky": "^9.1.7",
     "input-otp": "^1.4.2",
     "lucide-react": "^0.453.0",
     "memorystore": "^1.6.7",
