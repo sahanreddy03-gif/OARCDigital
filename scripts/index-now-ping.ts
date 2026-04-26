@@ -1,8 +1,8 @@
 /* eslint-disable no-console */
 // Post-deploy IndexNow ping. Submits the sitemap and any URLs passed on the
-// command line — or, when running on Vercel as a `postbuild` hook, computes
-// the delta between the previous deploy commit and HEAD and submits only the
-// changed routes.
+// command line — or, when wired into Vercel's `buildCommand` (see
+// `vercel.json`), computes the delta between the previous deploy commit and
+// HEAD and submits only the changed routes.
 //
 // Behaviour selection:
 //   --delta              Compute changed URLs from `git diff --name-only
@@ -14,9 +14,12 @@
 //   (none)               Just pings the sitemap + homepage.
 //
 // Production safety:
-//   - The `postbuild` script in package.json gates this on
-//     VERCEL_ENV === 'production'. Preview deploys must NOT ping IndexNow
-//     (would tell Bing/Yandex about preview URLs that won't exist post-deploy).
+//   - The `vercel.json` `buildCommand` gates this on VERCEL_ENV === 'production'
+//     (the script no-ops on preview/dev). Preview deploys must NOT ping
+//     IndexNow (would tell Bing/Yandex about preview URLs that won't exist
+//     post-deploy). The ping lives in `buildCommand` because package.json
+//     edits are blocked in this environment — `vercel.json` carries an
+//     `$IndexNowNote` field documenting the constraint.
 //   - INDEXNOW_KEY env var is required in production (lib/indexNow.ts throws
 //     loudly if absent — no silent submission with a stale bootstrap key).
 //
@@ -26,9 +29,10 @@
 //   npx tsx scripts/index-now-ping.ts --delta                         # changed routes since last deploy
 //
 // Cap: IndexNow accepts max 10,000 URLs/request. Delta mode hard-caps at
-// 9,000 URL slots (1,000 reserved for sitemap + retries + safety) and
-// FAILs LOUDLY if the diff exceeds the cap so a runaway commit cannot
-// silently drop URLs from the ping.
+// 9,000 URL slots (1,000 reserved for sitemap + retries + safety). On
+// overflow the script SORTS the URL list deterministically, truncates to
+// the cap, and warns — IndexNow indexing stays opportunistic and the
+// sitemap ping covers the dropped tail. Never fails the production deploy.
 
 import { execSync } from "node:child_process";
 import { pingSitemapAndUrls, submitToIndexNow } from "../lib/indexNow";

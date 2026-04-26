@@ -904,6 +904,7 @@ export default function SocialMediaCreativeManagement() {
                 transition={prefersReducedMotion ? {} : { delay: 0.1, duration: 0.5 }}
                 className="mb-2 md:mb-3 leading-[0.85]"
                 style={{ fontFamily: 'var(--font-display)' }}
+                data-speakable
               >
                 {/* CREATIVE - Clean solid dark */}
                 <span 
