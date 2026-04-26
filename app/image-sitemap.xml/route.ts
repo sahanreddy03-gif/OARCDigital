@@ -41,6 +41,21 @@ function titleFromFile(file: string) {
     .slice(0, 90);
 }
 
+/**
+ * Source-of-truth lastmod for this sitemap. The image-sitemap is structurally
+ * different from the urlset sitemaps (one URL with image:image children),
+ * so it doesn't expose `buildEntries()`; instead the index reads this single
+ * date directly. See `lib/seo/sitemapSources.ts`.
+ */
+export function buildLastmod(): string {
+  return lastmodForPaths([
+    "public/assets",
+    "public/agents",
+    "public/media",
+    "public/static",
+  ]);
+}
+
 export async function GET() {
   const publicDir = path.resolve(process.cwd(), "public");
   const seen = new Set<string>();
@@ -71,12 +86,7 @@ export async function GET() {
 
   // Group all under the homepage as a permissive sitemap entry.
   // Search Console accepts <image:image> children of any <url> entry.
-  const lastmod = lastmodForPaths([
-    "public/assets",
-    "public/agents",
-    "public/media",
-    "public/static",
-  ]);
+  const lastmod = buildLastmod();
   const body =
     `<?xml version="1.0" encoding="UTF-8"?>\n` +
     `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n` +

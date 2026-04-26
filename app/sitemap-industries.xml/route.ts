@@ -5,13 +5,19 @@ import {
   lastmodForPaths,
   urlsetXml,
   xmlResponse,
+  type UrlEntry,
 } from "@/lib/seo/sitemapHelpers";
 
 export const dynamic = "force-static";
 export const revalidate = false;
 
-export async function GET() {
-  const entries = [
+/**
+ * Source of truth for the URL entries this sitemap emits. See
+ * `lib/seo/sitemapSources.ts` — the index `lastmod` is derived from
+ * `max(entry.lastmod)` across these entries.
+ */
+export function buildEntries(): UrlEntry[] {
+  return [
     {
       loc: `${SITE_BASE}/industries`,
       lastmod: lastmodForPath("app/industries/page.tsx"),
@@ -33,5 +39,8 @@ export async function GET() {
       priority: 0.7,
     })),
   ];
-  return xmlResponse(urlsetXml(entries));
+}
+
+export async function GET() {
+  return xmlResponse(urlsetXml(buildEntries()));
 }
