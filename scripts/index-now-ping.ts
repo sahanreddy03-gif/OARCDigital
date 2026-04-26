@@ -132,11 +132,19 @@ function computeDeltaUrls(): string[] {
   }
   const list = [...urls];
   if (list.length > DELTA_CAP) {
-    console.error(
+    // Cap and warn — never fail the deploy. A history rewrite (force-push,
+    // rebase merge) can blow the diff up to thousands of files; failing the
+    // production build over an opportunistic ping is worse than skipping the
+    // tail. We sort for deterministic truncation so consecutive deploys ping
+    // the same prefix and the sitemap path catches the rest.
+    list.sort();
+    const dropped = list.length - DELTA_CAP;
+    console.warn(
       `[index-now-ping] --delta: ${list.length} changed URLs exceeds DELTA_CAP=${DELTA_CAP}. ` +
-        `Refusing to truncate silently — submit sitemap-only ping or split the deploy.`,
+        `Submitting first ${DELTA_CAP} (sorted), dropping ${dropped}. ` +
+        `Sitemap ping covers the tail. Likely cause: history rewrite or oversized deploy.`,
     );
-    process.exit(1);
+    list.length = DELTA_CAP;
   }
   console.log(
     `[index-now-ping] --delta: ${files.length} changed files → ${list.length} ping-able URLs.`,
