@@ -1,31 +1,13 @@
-/**
- * Index ↔ children parity: by construction.
- *
- * Each child sitemap route exports a `buildEntries()` function that returns
- * the exact `UrlEntry[]` it serves. `getSitemapLastmod(name)` calls that
- * same function and returns `max(entry.lastmod)` over the result. The index
- * `lastmod` for a child therefore CANNOT diverge from the true max of the
- * URLs that child emits — there is no SUPERSET heuristic, no second source
- * of truth, no manually-maintained path map to drift.
- *
- * The image-sitemap is structurally different (one URL with `image:image`
- * children) so it exposes a `buildLastmod()` function instead and we read
- * that single date directly.
- *
- * All sitemap routes are `force-static`, so this runs once per build, not
- * per request.
- */
+// Computes the index sitemap.xml's per-child <lastmod> as the actual
+// max(entry.lastmod) of the UrlEntry[] each child route serves. Routes are
+// force-static so this runs once per build.
 
 import type { UrlEntry } from "./sitemapHelpers";
 import { DEPLOY_BASELINE } from "./sitemapHelpers";
 
 type EntriesBuilder = () => Promise<UrlEntry[]> | UrlEntry[];
 
-/**
- * Lazy loaders for each child sitemap's `buildEntries()` export. Lazy so
- * importing this module doesn't pull every sitemap route's transitive
- * deps into the build graph eagerly.
- */
+// Lazy imports so this module doesn't pull every route's deps eagerly.
 const ENTRIES_BUILDERS: Record<string, () => Promise<EntriesBuilder>> = {
   "sitemap-core.xml": async () =>
     (await import("@/app/sitemap-core.xml/route")).buildEntries,

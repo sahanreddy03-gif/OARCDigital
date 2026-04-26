@@ -137,20 +137,8 @@ function audit(name: string, lastmods: string[]): Result {
   };
 }
 
-/**
- * Index ↔ children parity audit.
- *
- * Architecturally this can't drift — `getSitemapLastmod()` calls each
- * child's exact `buildEntries()` and returns max(entry.lastmod), so the
- * index date IS the children's max by construction. This regression test
- * exists anyway as a guard-rail: if a future refactor splits the data
- * source between index and child (the exact bug class architect rejected
- * the previous round on), parity will still be checked at CI time.
- *
- * Reads the index sitemap.xml's <sitemap><loc>…</loc><lastmod>…</lastmod>
- * pairs, parses each child's actual <lastmod> values, and asserts:
- *   index_lastmod_for(child) === max(child.urls[].lastmod)
- */
+// Asserts the index sitemap.xml's per-child <lastmod> equals
+// max(child.url[].lastmod) for that child.
 function extractIndexEntries(xml: string): { name: string; lastmod: string }[] {
   const entries: { name: string; lastmod: string }[] = [];
   const blocks = xml.matchAll(/<sitemap>([\s\S]*?)<\/sitemap>/g);

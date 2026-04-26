@@ -12,12 +12,8 @@ import { REDIRECTING_SERVICE_SLUGS, NOINDEX_SERVICE_SLUGS } from "@/lib/seo/seoS
 export const dynamic = "force-static";
 export const revalidate = false;
 
-/**
- * Source of truth for the URL entries this sitemap emits. Imported by
- * `lib/seo/sitemapSources.ts` so the index `lastmod` for /sitemap-services.xml
- * is computed as `max(entry.lastmod)` from the same data the GET handler
- * serves — index honesty is enforced by construction.
- */
+// Exported so lib/seo/sitemapSources.ts derives the index lastmod from
+// the same entries the GET handler serves.
 export async function buildEntries(): Promise<UrlEntry[]> {
   const fsSlugs = await listRouteSlugs("app/services");
   const set = new Set<string>([...allServiceSlugs, ...fsSlugs]);
