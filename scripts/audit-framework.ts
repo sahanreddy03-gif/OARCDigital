@@ -435,6 +435,42 @@ async function audit() {
     }
   }
 
+  // Layer 2 — JSX wiring gate. Data coverage alone is not enough: someone
+  // can revert .local/scripts/inject-malta-context.mjs's edits and the
+  // page would silently lose its Malta context block while the data file
+  // still passes. This statically verifies that each service's
+  // PageContent.tsx actually renders <MaltaContextBlock slug="<slug>" />.
+  // Static-only check (no runtime fetch); cheap to run on every commit.
+  for (const slug of Object.keys(SERVICE_SCHEMAS)) {
+    const file = path.join(process.cwd(), "app", "services", slug, "PageContent.tsx");
+    if (!fs.existsSync(file)) {
+      // Some service slugs may legitimately have a different page shape
+      // (e.g. shells routed elsewhere). Surface, do not hard-fail.
+      issues.push({
+        slug,
+        layer: 2,
+        message: `app/services/${slug}/PageContent.tsx not found — verify the slug has a matching route`,
+      });
+      continue;
+    }
+    const src = fs.readFileSync(file, "utf-8");
+    if (!src.includes(`<MaltaContextBlock`)) {
+      issues.push({
+        slug,
+        layer: 2,
+        message: `app/services/${slug}/PageContent.tsx does not render <MaltaContextBlock> — re-run .local/scripts/inject-malta-context.mjs`,
+      });
+      continue;
+    }
+    if (!src.includes(`slug="${slug}"`)) {
+      issues.push({
+        slug,
+        layer: 2,
+        message: `app/services/${slug}/PageContent.tsx renders <MaltaContextBlock> but with wrong/missing slug prop (expected slug="${slug}")`,
+      });
+    }
+  }
+
   const total = all.length;
   const failedSlugs = new Set(issues.map((i) => i.slug));
   const passed = total - [...failedSlugs].filter((s) => s !== "_global").length;
