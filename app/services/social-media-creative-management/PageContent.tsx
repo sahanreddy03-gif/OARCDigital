@@ -944,6 +944,7 @@ export default function SocialMediaCreativeManagement() {
                 animate={fadeInVisible}
                 transition={prefersReducedMotion ? {} : { delay: 0.2, duration: 0.5 }}
                 className="text-base sm:text-lg md:text-xl text-[#525252] max-w-xs sm:max-w-md mb-5 md:mb-6 leading-relaxed"
+                data-speakable
                 style={{ fontFamily: 'Inter, system-ui, -apple-system, sans-serif' }}
               >
                 We combine organic content, paid campaigns, production, and influencer partnerships into one integrated system that drives revenue—not just reach.

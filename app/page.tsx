@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import { PILLAR_SCHEMAS } from "@/lib/seo/pillarSchemaConfig";
+import { getHreflangAlternates, SpeakableJsonLd } from "@/lib/seo/discoveryTags";
 
 const pillarMeta = PILLAR_SCHEMAS["/"];
 
 export const metadata: Metadata = {
   title: pillarMeta.title,
   description: pillarMeta.description,
-  alternates: { canonical: "https://oarcdigital.com/" },
+  alternates: getHreflangAlternates("/"),
   openGraph: {
     title: pillarMeta.title,
     description: pillarMeta.description,
@@ -50,6 +51,7 @@ export default function Page() {
 
   return (
     <Layout>
+      <SpeakableJsonLd path="/" />
       <RouteSchema
         type="pillar"
         path="/"

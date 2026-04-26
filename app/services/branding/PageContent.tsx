@@ -60,10 +60,10 @@ export default function Branding() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <p className="text-orange-400 text-sm uppercase tracking-widest mb-4">Brand Design Studio</p>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6" data-testid="heading-branding">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6" data-testid="heading-branding" data-speakable>
                 Brands people remember.
               </h1>
-              <p className="text-xl text-white/80 mb-8">
+              <p className="text-xl text-white/80 mb-8" data-speakable>
                 More than a logo. We build complete brand systems—strategy, identity, voice, and everything in between.
               </p>
               

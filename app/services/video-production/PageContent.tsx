@@ -86,7 +86,7 @@ export default function VideoProduction() {
         <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-12">
           <div className="max-w-7xl mx-auto w-full">
             <p className="text-white/80 text-sm uppercase tracking-widest mb-2">Our Showreel</p>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-white mb-4" data-testid="heading-video">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-white mb-4" data-testid="heading-video" data-speakable>
               See what we make.
             </h1>
             

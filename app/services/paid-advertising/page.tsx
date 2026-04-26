@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import PageContent from "./PageContent";
 import RouteSchema from "@/components/RouteSchema";
 import { SERVICE_SCHEMAS } from "@/lib/seo/serviceSchemaConfig";
+import { getHreflangAlternates, SpeakableJsonLd } from "@/lib/seo/discoveryTags";
 
 const SLUG = "paid-advertising";
 const SCHEMA = SERVICE_SCHEMAS[SLUG];
@@ -10,7 +11,7 @@ const URL = `https://oarcdigital.com/services/${SLUG}`;
 export const metadata: Metadata = {
   title: SCHEMA.title,
   description: SCHEMA.description,
-  alternates: { canonical: URL },
+  alternates: getHreflangAlternates(`/services/${SLUG}`),
   openGraph: {
     title: SCHEMA.title,
     description: SCHEMA.description,
@@ -27,6 +28,7 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <>
+      <SpeakableJsonLd path={`/services/${SLUG}`} />
       <RouteSchema
         type="service"
         path={`/services/${SLUG}`}

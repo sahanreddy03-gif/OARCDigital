@@ -1212,6 +1212,7 @@ export default function PageContent() {
                   lineHeight: '1.05'
                 }}
                 data-testid="text-hero-headline"
+                data-speakable
               >
                 WE ARE THE MODERN<br />
                 <span className="italic" style={{ fontFamily: 'Georgia, serif' }}>

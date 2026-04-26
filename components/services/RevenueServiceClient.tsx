@@ -254,6 +254,7 @@ return (
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
                 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.05] tracking-tight"
+                data-speakable
               >
                 {content.title}
               </motion.h1>
@@ -263,6 +264,7 @@ return (
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
                 className="text-xl md:text-2xl text-white/60 font-light leading-relaxed"
+                data-speakable
               >
                 {content.subtitle}
               </motion.p>

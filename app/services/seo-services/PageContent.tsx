@@ -40,8 +40,8 @@ export default function SeoServicesContent() {
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/10 border border-orange-500/20 mb-6">
               <span className="text-orange-400 text-xs font-semibold uppercase tracking-wider">Search Visibility</span>
             </div>
-            <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">SEO Services for Malta-Based Businesses</h1>
-            <p className="text-xl text-zinc-300 leading-relaxed mb-8">
+            <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight" data-speakable>SEO Services for Malta-Based Businesses</h1>
+            <p className="text-xl text-zinc-300 leading-relaxed mb-8" data-speakable>
               Six-month organic growth programmes built specifically for the Malta market — its mixed-language search behaviour, its tight competitive set, and its outsized reliance on tourism and iGaming demand cycles.
             </p>
             <div className="flex flex-wrap gap-3">

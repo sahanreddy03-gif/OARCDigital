@@ -297,7 +297,7 @@ export default function PageContent() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
               >
-                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-[1.1] mb-3 sm:mb-4 tracking-tight" style={{ fontFamily: 'var(--font-pixelag)' }}>
+                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-[1.1] mb-3 sm:mb-4 tracking-tight" style={{ fontFamily: 'var(--font-pixelag)' }} data-speakable>
                   AI Employees
                   <br />
                   <span className="text-white/90">Your team that works</span>
@@ -305,7 +305,7 @@ export default function PageContent() {
                   <span className="text-[#c4ff4d]">24/7</span>
                 </h1>
                 
-                <p className="text-base sm:text-lg md:text-xl text-white/70 max-w-xl mb-6 sm:mb-8 font-light tracking-wide">
+                <p className="text-base sm:text-lg md:text-xl text-white/70 max-w-xl mb-6 sm:mb-8 font-light tracking-wide" data-speakable>
                   Build, grow, and scale your business with our AI workforce.
                 </p>
                 
