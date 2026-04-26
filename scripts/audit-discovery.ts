@@ -96,9 +96,13 @@ function findSpeakableNode(html: string): { ok: boolean; cssSelectors: string[] 
   return { ok: false, cssSelectors: [] };
 }
 
-function htmlHasDataSpeakable(html: string): boolean {
+function countDataSpeakable(html: string): number {
   // Server-rendered Next.js may emit attributes with or without quotes; tolerate both.
-  return /\bdata-speakable(=|\s|>)/.test(html);
+  // Counts every occurrence so we can enforce the headline + lead-paragraph
+  // pair (>=2 targets) — Speakable with a single target loses the lead-p
+  // signal answer engines need to vocalise the page summary.
+  const re = /\bdata-speakable(=|\s|>)/g;
+  return (html.match(re) ?? []).length;
 }
 
 function extractHreflangs(html: string): Map<string, string> {
@@ -140,13 +144,24 @@ async function auditPage(p: TopPage) {
     });
   }
 
-  // 2. data-speakable target present
-  if (!htmlHasDataSpeakable(html)) {
+  // 2. data-speakable targets present — require BOTH a headline and a lead
+  // paragraph (>=2 occurrences). A single target makes Speakable parse-valid
+  // but useless: answer engines need the lead-p to vocalise the page summary
+  // after reading the headline. Anything less is half-implemented.
+  const speakableCount = countDataSpeakable(html);
+  if (speakableCount === 0) {
     issues.push({
       path: p.path,
       layer: "speakable",
       message:
         `Speakable selector [data-speakable] has no matching element in rendered HTML at ${url}`,
+    });
+  } else if (speakableCount < 2) {
+    issues.push({
+      path: p.path,
+      layer: "speakable",
+      message:
+        `Speakable target count = ${speakableCount} at ${url}; expected >=2 (headline + lead paragraph)`,
     });
   }
 

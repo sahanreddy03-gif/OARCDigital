@@ -336,6 +336,7 @@ export default function HeroSection() {
                     className="max-w-none md:max-w-2xl mx-auto md:mx-0 leading-snug mb-2 md:mb-4 font-normal tracking-[0.08em] text-[2.8vw] md:text-[clamp(0.9rem,1.5vw,1.2rem)]"
                     style={{ color: 'rgba(255, 255, 255, 0.85)' }}
                     data-testid="text-value-proposition"
+                    data-speakable
                   >
                     Creative AI Talent + Social-Led Marketing + Custom Workflows
                   </p>

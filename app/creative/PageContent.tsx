@@ -1303,6 +1303,7 @@ export default function PageContent() {
               <p 
                 className="text-lg md:text-xl max-w-2xl mx-auto mb-8"
                 style={{ color: '#1A2E29' }}
+                data-speakable
               >
                 Get high-performing social creative across every channel, format, and size.
                 From paid ads and educational content to immersive experiences
