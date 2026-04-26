@@ -6,10 +6,12 @@
 #   gate       — local CI / manual. Adds the slower server-free audits.
 #                gate:fast + audit-core-57 + audit-images +
 #                audit-sitemap (static).
-#   gate:full  — Vercel build / pre-push. Adds the HTTP smoke tests
-#                that need the dev server up. In CI (no server) the HTTP
-#                steps are skipped with a NOTE so the build still gates
-#                on every server-free audit.
+#   gate:full  — Vercel build / pre-push. Adds the HTTP smoke tests on
+#                top. If no server is reachable on $BASE the gate boots
+#                its own `npm run dev` instance, waits up to 90s for the
+#                first 200, runs the HTTP audits against it, and tears
+#                the process down on exit. Bootstrap failure (server
+#                never comes up) FAILs the gate — no skip path.
 #
 # Bypass:
 #   HUSKY=0           skips the pre-commit hook itself (Husky-level).
@@ -84,27 +86,59 @@ fi
 # (manual or CI), and missing a regression on a non-sampled URL would only
 # be caught at the next batch publish. Inner-loop iteration uses the
 # faster sample mode by invoking the scripts directly without this flag.
-if server_up; then
-  run_step "verify-redirects (HTTP)"  env BASE="$BASE" npx tsx scripts/verify-redirects.ts
-  run_step "audit-sitemap (HTTP)"     env BASE="$BASE" npx tsx scripts/audit-sitemap.ts --http
-  run_step "audit-nap (HTTP)"         env BASE="$BASE" AUDIT_FULL=1 npx tsx scripts/audit-nap.ts
-  run_step "audit-schema (HTTP)"      env BASE="$BASE" AUDIT_FULL=1 npx tsx scripts/audit-schema.ts
-else
-  echo
-  echo "==> verify-redirects (HTTP)"
-  echo "    NOTE skipped — no server at $BASE (CI: $([ "${CI:-0}" = "1" ] && echo yes || echo no))"
-  echo "==> audit-sitemap (HTTP)"
-  echo "    NOTE skipped — no server at $BASE"
-  echo "==> audit-nap (HTTP)"
-  echo "    NOTE skipped — no server at $BASE"
-  echo "==> audit-schema (HTTP)"
-  echo "    NOTE skipped — no server at $BASE"
-  echo
-  echo "seo-gate: HTTP smoke tests skipped (server not reachable). The"
-  echo "          server-free static equivalents above already gated the"
-  echo "          structural surface, so this is acceptable in CI but you"
-  echo "          should run gate:full locally before push."
+SPAWNED_SERVER_PID=""
+cleanup_spawned_server() {
+  if [ -n "$SPAWNED_SERVER_PID" ] && kill -0 "$SPAWNED_SERVER_PID" 2>/dev/null; then
+    echo "seo-gate: stopping spawned dev server (pid=$SPAWNED_SERVER_PID)"
+    kill -TERM "$SPAWNED_SERVER_PID" 2>/dev/null || true
+    # Give Next.js a moment to teardown gracefully before SIGKILL.
+    sleep 2
+    kill -KILL "$SPAWNED_SERVER_PID" 2>/dev/null || true
+  fi
+}
+trap cleanup_spawned_server EXIT
+
+bootstrap_server() {
+  echo "seo-gate: no server at $BASE — booting 'npm run dev' ourselves"
+  # Strip the protocol+host so we can compute the bind port. Default 5000.
+  local port="${BASE##*:}"
+  port="${port%%/*}"
+  : "${port:=5000}"
+  # Run in background, redirect logs so they don't pollute the gate output.
+  ( PORT="$port" npm run dev > /tmp/seo-gate-server.log 2>&1 ) &
+  SPAWNED_SERVER_PID=$!
+  echo "seo-gate: spawned server pid=$SPAWNED_SERVER_PID — waiting up to 90s for first 200"
+  local attempt=0
+  while [ $attempt -lt 90 ]; do
+    if server_up; then
+      echo "seo-gate: server ready after ${attempt}s"
+      return 0
+    fi
+    if ! kill -0 "$SPAWNED_SERVER_PID" 2>/dev/null; then
+      echo "seo-gate: ERROR — spawned server (pid=$SPAWNED_SERVER_PID) died before responding"
+      tail -40 /tmp/seo-gate-server.log || true
+      return 1
+    fi
+    sleep 1
+    attempt=$((attempt + 1))
+  done
+  echo "seo-gate: ERROR — server did not respond at $BASE within 90s"
+  tail -40 /tmp/seo-gate-server.log || true
+  return 1
+}
+
+if ! server_up; then
+  if ! bootstrap_server; then
+    echo
+    echo "seo-gate: FAIL — gate:full requires a reachable server (auto-boot failed)"
+    exit 1
+  fi
 fi
+
+run_step "verify-redirects (HTTP)"  env BASE="$BASE" npx tsx scripts/verify-redirects.ts
+run_step "audit-sitemap (HTTP)"     env BASE="$BASE" npx tsx scripts/audit-sitemap.ts --http
+run_step "audit-nap (HTTP)"         env BASE="$BASE" AUDIT_FULL=1 npx tsx scripts/audit-nap.ts
+run_step "audit-schema (HTTP)"      env BASE="$BASE" AUDIT_FULL=1 npx tsx scripts/audit-schema.ts
 
 echo
 echo "seo-gate: all audits passed ($MODE)"

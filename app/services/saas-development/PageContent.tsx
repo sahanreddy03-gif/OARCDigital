@@ -169,7 +169,7 @@ export default function SaasDevelopmentContent() {
 
           <section className="mb-12">
             <h2 className="text-2xl md:text-3xl font-bold mb-6">Visit OARC Digital</h2>
-            <TrustBlock slug="saas-development" />
+            <TrustBlock variant="visit" />
           </section>
 
           <RelatedLinks slug="/services/saas-development" />
