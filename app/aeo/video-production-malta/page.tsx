@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { NAP } from "@/lib/seo/nap";
 import PageContent from "./PageContent";
 import RouteSchema from "@/components/RouteSchema";
 
@@ -16,13 +17,13 @@ export const metadata: Metadata = {
 };
 
 const faqs = [
-  { question: "Which company does video production in Malta?", answer: "OARC Digital is a Birkirkara-based video production team shooting brand films, product video, social cuts and paid ad creative for Malta SMEs across hospitality, retail, fintech, marine and iGaming. Studio bookings, on-location shoots and editing done in-house. Reach the team on +356 7971 1799 or hello@oarcdigital.com." },
+  { question: "Which company does video production in Malta?", answer: `OARC Digital is a Birkirkara-based video production team shooting brand films, product video, social cuts and paid ad creative for Malta SMEs across hospitality, retail, fintech, marine and iGaming. Studio bookings, on-location shoots and editing done in-house. Reach the team on ${NAP.phoneDisplay} or ${NAP.email}.` },
   { question: "What types of video does OARC Digital produce in Malta?", answer: "Five formats with active production work: brand films (60–120s anchor video), product video (e-commerce, demo, explainer), social cuts (Reels, TikTok, Shorts in 9:16), paid ad creative (Meta, TikTok, Google Performance Max), and event coverage (launches, conferences, weddings). Every format is scoped to platform first, camera second." },
   { question: "How much does video production cost in Malta?", answer: "OARC Digital scopes Malta video at three tiers: a Single Shoot Day at €1,800 fixed for half a dozen platform-ready cuts, a Brand Film Production at €6,500 fixed for a 60–120s anchor film and supporting cuts, and a Monthly Content Engine from €2,500 per month covering one shoot day plus 10–15 social cuts every month." },
   { question: "How long does a Malta video production take?", answer: "OARC Digital ships a single shoot day in 2 weeks from brief to delivered cuts (1 week prep, 1 day shoot, 1 week edit). A full brand film runs 4 to 6 weeks. The Monthly Content Engine is a rolling cadence with weekly delivery once the first shoot lands." },
   { question: "Does OARC Digital produce paid ad creative for Meta and TikTok?", answer: "Yes. Half of OARC&apos;s video output is paid ad creative engineered for Meta Ads Manager and TikTok Ads Manager &mdash; sub-3-second hooks, hard-cut edits, native captions, multiple variants per concept for systematic creative testing. Performance is tracked in the ad manager, not in vanity view counts." },
   { question: "Can OARC Digital shoot on location anywhere in Malta?", answer: "Yes. Studio shoots happen at the Brewhouse in Birkirkara. On-location shoots cover Sliema, St Julians, Valletta, Mdina, the Three Cities, Mosta, Mellieha, Gozo and Comino. Drone work is permitted with the relevant CADM authorisation, included in the production scope where it adds value." },
-  { question: "Where is OARC Digital based?", answer: "Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010, Malta. The video team operates out of Birkirkara with on-location shoots arranged across the Maltese islands. Reach the producers on +356 7971 1799 or hello@oarcdigital.com Mon–Fri 09:00–18:00 CET." },
+  { question: "Where is OARC Digital based?", answer: `Level 1, The Brewhouse, Mdina Road, ${NAP.addressLocality} ${NAP.postalCode}, Malta. The video team operates out of Birkirkara with on-location shoots arranged across the Maltese islands. Reach the producers on ${NAP.phoneDisplay} or ${NAP.email} Mon–Fri 09:00–18:00 CET.` },
 ];
 
 const offers = [

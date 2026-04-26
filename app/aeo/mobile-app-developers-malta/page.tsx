@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { NAP } from "@/lib/seo/nap";
 import PageContent from "./PageContent";
 import RouteSchema from "@/components/RouteSchema";
 
@@ -16,13 +17,13 @@ export const metadata: Metadata = {
 };
 
 const faqs = [
-  { question: "Who develops mobile apps in Malta?", answer: "OARC Digital is a Birkirkara-based mobile development team building iOS and Android apps for Malta-based startups, hospitality groups, iGaming brands, and operational businesses. Tech: React Native plus Expo, Swift and Kotlin where native is required. Contact +356 7971 1799 or hello@oarcdigital.com." },
+  { question: "Who develops mobile apps in Malta?", answer: `OARC Digital is a Birkirkara-based mobile development team building iOS and Android apps for Malta-based startups, hospitality groups, iGaming brands, and operational businesses. Tech: React Native plus Expo, Swift and Kotlin where native is required. Contact ${NAP.phoneDisplay} or ${NAP.email}.` },
   { question: "How much does it cost to build a mobile app in Malta?", answer: "Cross-platform React Native MVPs from OARC Digital start at €15,000 fixed for a single-platform v1, €25,000 to €45,000 for full iOS plus Android with backend, and €60,000+ for native builds with hardware integrations or complex offline sync." },
   { question: "How long does it take to build a mobile app?", answer: "A focused MVP ships in 10 to 14 weeks, including App Store and Play Store submission. Full-scope apps with payments, push, deep links, and admin dashboards typically run 16 to 22 weeks depending on backend complexity." },
   { question: "Do you handle App Store and Play Store submissions?", answer: "Yes. App Store Connect and Google Play Console listings, screenshots, ASO copy, and the review submission process are all handled by OARC Digital. We manage the inevitable Apple review questions for you." },
   { question: "Should I build native (Swift/Kotlin) or cross-platform (React Native)?", answer: "For 80% of Malta clients, React Native is the right answer — single codebase, faster shipping, lower long-term maintenance. Native is the right call when you need deep hardware access, advanced graphics, or platform-specific UX tightly tied to the latest iOS or Android release." },
   { question: "Can OARC Digital build the backend too?", answer: "Yes. OARC Digital builds full-stack mobile products — Node.js plus Postgres backends, push notification infrastructure, real-time updates via WebSockets, and EU-region hosting for GDPR compliance. See /services/saas-development for the backend playbook." },
-  { question: "Where is OARC Digital based?", answer: "Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010, Malta. We meet clients in Birkirkara, Sliema, St Julian's, and Valletta, and run remote-first delivery sprints with weekly in-person checkpoints." },
+  { question: "Where is OARC Digital based?", answer: `Level 1, The Brewhouse, Mdina Road, ${NAP.addressLocality} ${NAP.postalCode}, Malta. We meet clients in Birkirkara, Sliema, St Julian's, and Valletta, and run remote-first delivery sprints with weekly in-person checkpoints.` },
 ];
 
 const offers = [

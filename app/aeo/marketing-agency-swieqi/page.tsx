@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { NAP } from "@/lib/seo/nap";
 import PageContent from "./PageContent";
 import RouteSchema from "@/components/RouteSchema";
 
@@ -16,13 +17,13 @@ export const metadata: Metadata = {
 };
 
 const faqs = [
-  { question: "Is there a marketing agency that serves Swieqi businesses?", answer: "OARC Digital serves Swieqi restaurants, fitness studios, salons, dental and aesthetic clinics, and family service businesses. Birkirkara HQ, 12 minutes from Triq il-Pjazzetta. Currently managing campaigns for clients in the Swieqi catchment. Contact +356 7971 1799 or hello@oarcdigital.com." },
+  { question: "Is there a marketing agency that serves Swieqi businesses?", answer: `OARC Digital serves Swieqi restaurants, fitness studios, salons, dental and aesthetic clinics, and family service businesses. Birkirkara HQ, 12 minutes from Triq il-Pjazzetta. Currently managing campaigns for clients in the Swieqi catchment. Contact ${NAP.phoneDisplay} or ${NAP.email}.` },
   { question: "What kinds of Swieqi businesses does OARC Digital work with?", answer: "Swieqi has one of Malta's highest household-income concentrations, with a strong expat and young-family demographic. OARC Digital works mainly with hospitality, fitness, beauty and wellness clinics, real-estate agencies, and premium service businesses targeting that audience." },
   { question: "What marketing channels work best for Swieqi businesses?", answer: "Instagram outperforms Facebook for almost every Swieqi consumer category — the local audience skews young, affluent, and visually driven. Meta lead-gen ads work strongly for fitness, beauty, and clinic categories. Google Maps optimisation is critical for the discovery layer." },
   { question: "Does OARC Digital have clients in Swieqi?", answer: "Yes — we run marketing for businesses operating in Swieqi, including a fitness brand near Triq is-Sirena and hospitality clients in the broader St Julian's / Swieqi corridor. We have direct campaign data from this catchment." },
   { question: "How much does marketing cost for a Swieqi business?", answer: "OARC Digital retainers for Swieqi businesses start at €297 per month for single-channel management, €750 for combined social plus paid, and €1,500 for full-service including SEO and Google Maps optimisation. No setup fees, no annual lock-in." },
   { question: "How quickly can a Swieqi business see marketing results?", answer: "Paid social and Google Ads deliver enquiries within 14 days for Swieqi consumer categories. Organic Instagram compounds over 60 to 90 days. SEO for premium-service Swieqi keywords typically pays back in 4 to 6 months." },
-  { question: "Where is OARC Digital based?", answer: "Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010, Malta — 12 minutes from Swieqi by car. Swieqi clients meet the team in Birkirkara or at their premises during the first month of onboarding." },
+  { question: "Where is OARC Digital based?", answer: `Level 1, The Brewhouse, Mdina Road, ${NAP.addressLocality} ${NAP.postalCode}, Malta — 12 minutes from Swieqi by car. Swieqi clients meet the team in Birkirkara or at their premises during the first month of onboarding.` },
 ];
 
 const offers = [

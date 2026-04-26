@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { NAP } from "@/lib/seo/nap";
 import PageContent from "./PageContent";
 import RouteSchema from "@/components/RouteSchema";
 
@@ -16,13 +17,13 @@ export const metadata: Metadata = {
 };
 
 const faqs = [
-  { question: "Who runs paid advertising for Malta businesses?", answer: "OARC Digital runs Meta Ads (Facebook + Instagram), Google Ads, TikTok Ads, and YouTube campaigns for Malta hospitality, retail, fintech, SaaS, and MGA-licensed iGaming brands. The team works from Birkirkara and reports monthly in plain English. Reach us on +356 7971 1799 or hello@oarcdigital.com." },
+  { question: "Who runs paid advertising for Malta businesses?", answer: `OARC Digital runs Meta Ads (Facebook + Instagram), Google Ads, TikTok Ads, and YouTube campaigns for Malta hospitality, retail, fintech, SaaS, and MGA-licensed iGaming brands. The team works from Birkirkara and reports monthly in plain English. Reach us on ${NAP.phoneDisplay} or ${NAP.email}.` },
   { question: "How much does paid advertising cost in Malta?", answer: "OARC Digital management fees start at €600 per month for a single platform with up to €3,000 in monthly ad spend, €1,200 per month for multi-platform with creative production included, and custom pricing above €15,000 monthly spend. Fees are management-only — your ad spend goes directly to Meta, Google, or TikTok." },
   { question: "What ad platforms work best for a Malta business?", answer: "For B2C hospitality and retail, Meta Ads dominate Malta because Facebook and Instagram penetration sits above 80 percent of online adults. Google Ads converts strongly for high-intent service categories like accountants, dentists, and trades. TikTok works for Gen-Z hospitality and tourism. WhatsApp Business + Click-to-WhatsApp ads close the loop on local enquiries." },
   { question: "Can OARC Digital handle paid advertising for an MGA-licensed iGaming operator?", answer: "Yes. We work with MGA-licensed casino, sportsbook, and affiliate operators based in St Julians, Sliema, and Ta Xbiex. Our team understands the MGA advertising guidelines, the EU jurisdiction-by-jurisdiction acquisition rules, GamStop-style exclusion handling, and Meta&apos;s gambling-vertical certification process. Compliance is baked into the campaign brief." },
   { question: "Can you target tourists planning to visit Malta?", answer: "Yes. We run geo-targeted prospecting campaigns aimed at the UK, Germany, Italy, France, and Scandinavia (Malta&apos;s top inbound markets) timed against booking-window data, plus on-island retargeting that reaches tourists already in Malta via location radius from St Julians, Sliema, Mellieha, and Valletta hotel zones." },
   { question: "How quickly will paid ads deliver results?", answer: "Click-to-Lead and Click-to-WhatsApp campaigns typically generate enquiries inside 7 days for a Malta service business. Meta Advantage+ shopping for Malta retail compounds within 21 days. Google Search ads start converting from day 1 if intent and bid strategy are calibrated. We share weekly results in the first month and monthly thereafter." },
-  { question: "Where is OARC Digital based?", answer: "Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010, Malta — open Monday to Friday, 09:00 to 18:00 CET. Clients meet the paid team in person for the kickoff workshop and quarterly reviews. Phone +356 7971 1799 or email hello@oarcdigital.com." },
+  { question: "Where is OARC Digital based?", answer: `Level 1, The Brewhouse, Mdina Road, ${NAP.addressLocality} ${NAP.postalCode}, Malta — open Monday to Friday, 09:00 to 18:00 CET. Clients meet the paid team in person for the kickoff workshop and quarterly reviews. Phone ${NAP.phoneDisplay} or email ${NAP.email}.` },
 ];
 
 const offers = [
