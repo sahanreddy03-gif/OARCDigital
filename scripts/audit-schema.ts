@@ -389,22 +389,111 @@ async function auditUrl(url: string): Promise<void> {
   auditEntities(url, flatTop, { contextInheritedFromWrapper: false });
   auditEntities(url, flatGraphInherited, { contextInheritedFromWrapper: true });
   // Also walk every parsed entity recursively for sub-entity allow-list,
-  // banned-property, and ISO-date checks.
+  // banned-property, ISO-date AND required-property checks. The recursion
+  // tracks two pieces of state:
+  //  - `isRoot` so top-level entities skip the required-prop double-check
+  //    (auditEntities above already covered them).
+  //  - `parentKeys` — the chain of property names from the root to this
+  //    entity. Lets us recognise reference-container slots (e.g.
+  //    `itemOffered`, `hasOfferCatalog.itemListElement`) where Schema.org
+  //    expects a thin reference rather than a fully-defined entity.
   for (const r of results) {
     if (!r.ok) continue;
-    walkSubEntities(url, r.data);
+    walkSubEntities(url, r.data, /* isRoot */ true, []);
   }
   auditIdGraph(url, results.filter((r) => r.ok).map((r) => r.data));
   auditContract(url, flat);
 }
 
-function walkSubEntities(url: string, node: unknown): void {
+// Entity property slots where Schema.org / Google explicitly accepts a
+// thin reference rather than a fully-defined entity (provider, price etc.
+// inherit from the parent context). When a nested entity sits directly in
+// one of these slots, required-property enforcement is suppressed for it.
+// `provider` itself is NOT in this set: Service.provider is allowed to be
+// `{ "@id": "..." }`, but the @id-graph tier already verifies that the
+// reference resolves to a fully-defined Organization elsewhere — we want
+// the canonical Organization to still satisfy required-prop checks.
+const REFERENCE_PARENT_SLOTS = new Set<string>([
+  "itemOffered",      // Offer.itemOffered → thin Service descriptor.
+  "itemReviewed",     // Review.itemReviewed → reference to reviewed thing.
+  "mainEntityOfPage", // CreativeWork.mainEntityOfPage → page reference.
+  "isPartOf",         // CreativeWork.isPartOf → parent-collection ref.
+  "publisher",        // CreativeWork.publisher → Organization ref.
+  "author",           // CreativeWork.author → Person/Organization ref.
+  "creator",          // CreativeWork.creator → Person/Organization ref.
+  "sourceOrganization",
+]);
+
+function walkSubEntities(
+  url: string,
+  node: unknown,
+  isRoot: boolean,
+  parentKeys: readonly string[],
+): void {
+  if (Array.isArray(node)) {
+    // Arrays at the root (or inside a `@graph`) are containers, not
+    // entities — recurse into each element preserving root semantics so
+    // top-level entities still skip the required-prop double-check.
+    for (const v of node) walkSubEntities(url, v, isRoot, parentKeys);
+    return;
+  }
   if (!node || typeof node !== "object") return;
   const e = node as Record<string, unknown>;
+  // `@graph` wrappers are containers — descend into the children with
+  // `isRoot=true` so the children themselves are still treated as
+  // top-level entities (required-prop already handled by auditEntities).
+  if (Array.isArray(e["@graph"])) {
+    for (const child of e["@graph"] as unknown[]) {
+      walkSubEntities(url, child, /* isRoot */ true, parentKeys);
+    }
+    return;
+  }
   const types = typesOf(e);
+  // A bare reference object — `{"@id": "..."}` with no @type and no other
+  // descriptive keys — is by definition a pointer, not an entity. The
+  // @id-graph tier resolves it. Skip type/required-prop validation here.
+  const keys = Object.keys(e);
+  const isBareReference = typeof e["@id"] === "string" &&
+    types.length === 0 &&
+    keys.every((k) => k === "@id" || k === "@type" || k === "@context");
+  // Slot-based reference: parent property is one of the known reference
+  // slots (e.g. `itemOffered`). The entity may carry a @type and a few
+  // descriptive props but Schema.org permits it to omit the canonical
+  // required props because the canonical record lives elsewhere.
+  const lastParentKey = parentKeys[parentKeys.length - 1];
+  // `itemListElement` inside an OfferCatalog (or any *Catalog wrapper)
+  // is a catalog membership slot — Offer entries here are list-membership
+  // descriptors, not full Offer records.
+  const isOfferCatalogMember =
+    lastParentKey === "itemListElement" &&
+    parentKeys.some((k) => k === "hasOfferCatalog" || /Catalog$/i.test(k));
+  const isReferenceSlot = lastParentKey !== undefined &&
+    REFERENCE_PARENT_SLOTS.has(lastParentKey);
+  const skipRequiredProps =
+    isRoot || isBareReference || isReferenceSlot || isOfferCatalogMember;
   for (const t of types) {
     if (!ALLOWED_TYPES.has(t)) {
       fail(url, "type-allowlist", `unknown nested @type ${JSON.stringify(t)}`);
+    }
+    // Per-@type required-property contract — enforced for every NESTED
+    // entity (sub-entities like PostalAddress / Offer / Person / Review)
+    // EXCEPT bare references and entities sitting in known reference
+    // slots, which Schema.org explicitly permits to be thin.
+    if (!skipRequiredProps) {
+      const required = REQUIRED_PROPS_BY_TYPE[t];
+      if (required) {
+        const missing = required.filter((k) => e[k] === undefined);
+        if (missing.length > 0) {
+          const path = parentKeys.length
+            ? ` at $.${parentKeys.join(".")}`
+            : "";
+          fail(
+            url,
+            "required-field",
+            `nested ${t}${path} missing required propert${missing.length === 1 ? "y" : "ies"} ${JSON.stringify(missing)}`,
+          );
+        }
+      }
     }
   }
   // Banned-property + ISO date checks at every nesting level.
@@ -426,9 +515,11 @@ function walkSubEntities(url: string, node: unknown): void {
       }
     }
     if (Array.isArray(value)) {
-      for (const v of value) walkSubEntities(url, v);
+      for (const v of value) {
+        walkSubEntities(url, v, /* isRoot */ false, [...parentKeys, key]);
+      }
     } else if (value && typeof value === "object") {
-      walkSubEntities(url, value);
+      walkSubEntities(url, value, /* isRoot */ false, [...parentKeys, key]);
     }
   }
 }
@@ -542,7 +633,94 @@ async function resolveTargets(): Promise<string[]> {
   return [...must, ...mustExtra, ...sampled];
 }
 
+/**
+ * Self-test fixture. Exercises walkSubEntities's nested required-property
+ * tier with a controlled JSON-LD blob so future refactors that silently
+ * drop the recursive enforcement (the round-4 review-comment defect) get
+ * caught at gate:fast time, before any sitemap walk. Asserts both:
+ *   (1) the negative path — a nested PostalAddress missing streetAddress
+ *       MUST produce a `required-field` failure.
+ *   (2) the slot-exception positive path — a thin Service inside an
+ *       OfferCatalog itemListElement MUST NOT produce a failure.
+ * Exits non-zero on assertion mismatch so seo-gate fails loudly.
+ */
+function runSelfTest(): void {
+  const previousFailures = failures.length;
+  // Snapshot + clear so the self-test failures don't pollute a real run if
+  // we ever invoke this mid-run (defensive — current callers always invoke
+  // self-test in isolation).
+  const snapshot = failures.splice(0, failures.length);
+
+  const fixtureUrl = "<self-test-fixture>";
+  const broken = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    name: "Broken NAP fixture",
+    address: {
+      "@type": "PostalAddress",
+      // missing streetAddress + addressCountry on purpose
+      addressLocality: "Birkirkara",
+      postalCode: "CBD 2010",
+    },
+  };
+  walkSubEntities(fixtureUrl, broken, /* isRoot */ true, []);
+  const negativeHits = failures.filter(
+    (f) => f.url === fixtureUrl && f.tier === "required-field" &&
+      /PostalAddress/.test(f.detail) &&
+      /streetAddress/.test(f.detail) && /addressCountry/.test(f.detail),
+  );
+  if (negativeHits.length === 0) {
+    console.error("audit-schema --self-test: FAIL — recursive required-prop tier did not catch the broken nested PostalAddress");
+    console.error("  full failure list captured during self-test:");
+    for (const f of failures) console.error(`    [${f.tier}] ${f.detail}`);
+    process.exit(1);
+  }
+  // Slot-exception positive path: thin Service inside an OfferCatalog
+  // itemListElement → must NOT trigger required-field.
+  failures.length = 0;
+  const catalog = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: "Catalog parent",
+    provider: { "@id": "https://example.com/#org" },
+    areaServed: { "@type": "Country", name: "Malta" },
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Booker tiers",
+      itemListElement: [
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Catalog member service",
+            description: "Thin descriptor — provider+areaServed inherited.",
+          },
+        },
+      ],
+    },
+  };
+  walkSubEntities(fixtureUrl, catalog, /* isRoot */ true, []);
+  const falsePositives = failures.filter((f) =>
+    f.url === fixtureUrl && f.tier === "required-field"
+  );
+  if (falsePositives.length > 0) {
+    console.error("audit-schema --self-test: FAIL — slot exception over-triggered (false positives on OfferCatalog members)");
+    for (const f of falsePositives) console.error(`    [${f.tier}] ${f.detail}`);
+    process.exit(1);
+  }
+
+  // Restore prior state for caller hygiene.
+  failures.length = 0;
+  for (const f of snapshot) failures.push(f);
+  void previousFailures;
+  console.log("audit-schema --self-test: PASS (negative path caught broken PostalAddress, slot exception suppressed false positive on OfferCatalog member)");
+}
+
 async function main(): Promise<void> {
+  if (process.argv.includes("--self-test")) {
+    runSelfTest();
+    return;
+  }
   console.log(`audit-schema: BASE=${BASE}`);
   try {
     const probe = await fetch(BASE, { method: "HEAD" });
