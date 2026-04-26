@@ -16,6 +16,7 @@ import behindScenesImg1 from "@assets/stock_images/behind_the_scenes_vi_512df08f
 import behindScenesImg2 from "@assets/stock_images/behind_the_scenes_vi_80403517.jpg";
 import creativeTeamImg from "@assets/stock_images/creative_team_workin_79883382.jpg";
 
+import MaltaContextBlock from "@/components/seo/MaltaContextBlock";
 const videoProductionFAQs: FAQItem[] = [
   { question: "What types of videos does OARC Digital produce?", answer: "We produce explainer videos, brand films, social ads, testimonials, product demos, and corporate videos. From 15-second ads to full documentary-style brand films." },
   { question: "How long does video production take from concept to delivery?", answer: "Typical projects take 3-6 weeks depending on complexity. Simple social ads can be delivered in 1-2 weeks. Large productions may take 8-12 weeks." },
@@ -321,6 +322,8 @@ export default function VideoProduction() {
           </div>
         </section>
       </ScrollReveal>
+
+          <MaltaContextBlock slug="video-production" />
 
       <FAQSection faqs={videoProductionFAQs} title="Frequently Asked Questions" subtitle="Everything you need to know about our video production services" schemaId="faq-video-production"
         emitJsonLd={false} />

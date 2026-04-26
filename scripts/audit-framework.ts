@@ -29,6 +29,7 @@ import path from "node:path";
 import { SERVICE_SCHEMAS, type ServiceSchemaEntry } from "../lib/seo/serviceSchemaConfig";
 import { PILLAR_SCHEMAS, type PillarSchemaEntry } from "../lib/seo/pillarSchemaConfig";
 import { findBannedPhrase } from "../lib/seo/phraseBlocklist";
+import { MALTA_CONTEXT } from "../lib/seo/maltaContext";
 
 type Issue = { slug: string; layer: 1 | 2 | 3 | 4 | 6; message: string };
 
@@ -350,6 +351,89 @@ async function audit() {
 
   // Global Layer 4 parity gate
   for (const i of checkLlmsTxtParity()) issues.push(i);
+
+  // Global Layer 2 — MALTA_CONTEXT coverage and authoring discipline.
+  //   - Every SERVICE_SCHEMAS slug MUST have a MALTA_CONTEXT entry
+  //     (presence is what gates `<MaltaContextBlock slug=...>` rendering).
+  //   - Each entry MUST literally mention both `towns` and the `anchor`
+  //     in its `paragraph` (case-insensitive). Catches drift where someone
+  //     edits the data but forgets to update the prose.
+  //   - Paragraphs MUST be substantively unique — exact-equality dupes
+  //     across two slugs is the template-clone failure mode and fails here.
+  //   - Phrase blocklist sweep, same as the per-entry framework strings.
+  const seenMaltaParagraphs = new Map<string, string>();
+  for (const slug of Object.keys(SERVICE_SCHEMAS)) {
+    const ctx = MALTA_CONTEXT[slug];
+    if (!ctx) {
+      issues.push({
+        slug,
+        layer: 2,
+        message: `MALTA_CONTEXT entry missing — add to lib/seo/maltaContext.ts so <MaltaContextBlock slug="${slug}" /> renders`,
+      });
+      continue;
+    }
+    if (!Array.isArray(ctx.towns) || ctx.towns.length !== 2 || !ctx.towns[0] || !ctx.towns[1]) {
+      issues.push({ slug, layer: 2, message: `MALTA_CONTEXT.towns must be a 2-tuple of non-empty strings` });
+    }
+    if (!ctx.anchor || ctx.anchor.trim().length < 3) {
+      issues.push({ slug, layer: 2, message: `MALTA_CONTEXT.anchor missing or too short (min 3 chars)` });
+    }
+    const para = (ctx.paragraph ?? "").trim();
+    if (para.length < 200) {
+      issues.push({ slug, layer: 2, message: `MALTA_CONTEXT.paragraph too short (${para.length} chars, min 200)` });
+    }
+    if (para.length > 900) {
+      issues.push({ slug, layer: 2, message: `MALTA_CONTEXT.paragraph too long (${para.length} chars, max 900)` });
+    }
+    const lower = para.toLowerCase();
+    for (const town of ctx.towns ?? []) {
+      if (town && !lower.includes(town.toLowerCase())) {
+        issues.push({
+          slug,
+          layer: 2,
+          message: `MALTA_CONTEXT.paragraph does not mention required town "${town}"`,
+        });
+      }
+    }
+    if (ctx.anchor && !lower.includes(ctx.anchor.toLowerCase())) {
+      issues.push({
+        slug,
+        layer: 2,
+        message: `MALTA_CONTEXT.paragraph does not mention required anchor "${ctx.anchor}"`,
+      });
+    }
+    const dupeKey = normalise(para);
+    if (dupeKey) {
+      const prior = seenMaltaParagraphs.get(dupeKey);
+      if (prior) {
+        issues.push({
+          slug,
+          layer: 2,
+          message: `MALTA_CONTEXT.paragraph duplicates ${prior} (template-clone failure mode)`,
+        });
+      } else {
+        seenMaltaParagraphs.set(dupeKey, slug);
+      }
+    }
+    const hit = findBannedPhrase(para);
+    if (hit) {
+      issues.push({
+        slug,
+        layer: 2,
+        message: `phrase blocklist: "${hit}" found in MALTA_CONTEXT.paragraph — see lib/seo/phraseBlocklist.ts`,
+      });
+    }
+  }
+  // Surface stale entries (a maltaContext key without a matching service slug)
+  for (const slug of Object.keys(MALTA_CONTEXT)) {
+    if (!(slug in SERVICE_SCHEMAS)) {
+      issues.push({
+        slug,
+        layer: 2,
+        message: `MALTA_CONTEXT entry has no matching SERVICE_SCHEMAS slug — remove from lib/seo/maltaContext.ts`,
+      });
+    }
+  }
 
   const total = all.length;
   const failedSlugs = new Set(issues.map((i) => i.slug));

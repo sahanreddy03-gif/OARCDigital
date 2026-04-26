@@ -2,7 +2,7 @@
 // across the app MUST go through these so attribution lands consistently in
 // GA4 + Clarity + WhatsApp Business inbox.
 //
-// Rule 3 (CONTRACT.md) — no silent fallbacks. If an env-gated destination
+// No silent fallbacks. If an env-gated destination
 // (Cal.com booking URL) is not configured, the helper returns `null` and the
 // caller is responsible for hiding the slot rather than rendering a broken
 // link.

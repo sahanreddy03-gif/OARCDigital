@@ -1,3 +1,5 @@
+import MaltaContextBlock from "@/components/seo/MaltaContextBlock";
+
 export default function PageContent() {
     return (
       <section className="py-16 md:py-24 bg-background border-t">
@@ -56,6 +58,7 @@ export default function PageContent() {
             </p>
           </div>
         </div>
+          <MaltaContextBlock slug="marketing-automation-suite" />
       </section>
     );
   }

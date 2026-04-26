@@ -5,6 +5,7 @@ import { CheckCircle2, ArrowRight, MapPin, Phone, Mail } from "lucide-react";
 import Link from "next/link";
 import { SERVICE_SCHEMAS } from "@/lib/seo/serviceSchemaConfig";
 
+import MaltaContextBlock from "@/components/seo/MaltaContextBlock";
 const SCHEMA = SERVICE_SCHEMAS["web-apps-development"];
 
 const phases = [
@@ -175,6 +176,8 @@ export default function WebAppsDevelopmentContent() {
             </div>
           </section>
 
+          
+          <MaltaContextBlock slug="web-apps-development" />
           <section className="mb-12">
             <h2 className="text-2xl md:text-3xl font-bold mb-6">Frequently Asked Questions</h2>
             <div className="space-y-4">

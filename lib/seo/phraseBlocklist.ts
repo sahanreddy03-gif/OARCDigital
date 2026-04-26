@@ -3,9 +3,9 @@
 // description, faqs.answer) is scanned for these phrases by
 // scripts/audit-framework.ts. A hit fails the audit so the page cannot ship.
 //
-// Maintained as a per-task drop set — Sahan added the W1 cohort in Task #83.
-// Add new phrases as we catch more LLM tells. Removing a phrase is a
-// deliberate decision (e.g. it was a false positive on a real product term).
+// SOURCE OF TRUTH: `.local/seo-phrase-blocklist.md`. This module reads that
+// markdown file at module-load time and exposes the parsed list. Edit the
+// markdown file, not this file, when adding/removing phrases.
 //
 // Matching rules:
 //  - Case-insensitive.
@@ -13,50 +13,47 @@
 //  - Must match a whole-word boundary on either side (so "innovate" does not
 //    flag "automation").
 
-export const BANNED_PHRASES: ReadonlyArray<string> = [
-  "dive into",
-  "deep dive into",
-  "in today's fast-paced world",
-  "in today's digital landscape",
-  "in today's competitive market",
-  "in the realm of",
-  "unlock the power of",
-  "unleash the power of",
-  "harness the power of",
-  "leverage cutting-edge",
-  "leverage the power of",
-  "revolutionize",
-  "revolutionise",
-  "game-changer",
-  "game changer",
-  "in this article we will explore",
-  "in this article, we will explore",
-  "in this post we will explore",
-  "look no further",
-  "are you tired of",
-  "the world of digital",
-  "navigate the complexities",
-  "in conclusion",
-  "to sum up",
-  "embark on a journey",
-  "supercharge your",
-  "next-level",
-  "best-in-class",
-  "world-class solutions",
-  "transformative experience",
-  "seamless integration",
-  "robust solution",
-  "cutting-edge technology",
-  "state-of-the-art",
-  "tailored to your unique",
-  "tailored to meet your unique",
-  "elevate your business",
-  "elevate your brand",
-  "take your business to the next level",
-  "delve into",
-  "embrace the future",
-  "stay ahead of the curve",
-];
+import fs from "node:fs";
+import path from "node:path";
+
+const BLOCKLIST_MD_PATH = path.join(process.cwd(), ".local", "seo-phrase-blocklist.md");
+
+function loadBlocklist(): readonly string[] {
+  let raw = "";
+  try {
+    raw = fs.readFileSync(BLOCKLIST_MD_PATH, "utf-8");
+  } catch (err) {
+    throw new Error(
+      `phraseBlocklist: could not read source-of-truth markdown at ${BLOCKLIST_MD_PATH}: ${(err as Error).message}`,
+    );
+  }
+  // Extract the fenced ```phrases block. There must be exactly one.
+  const re = /```phrases\s*\n([\s\S]*?)```/;
+  const match = raw.match(re);
+  if (!match) {
+    throw new Error(
+      `phraseBlocklist: no \`\`\`phrases code block found in ${BLOCKLIST_MD_PATH}`,
+    );
+  }
+  const lines = match[1].split("\n");
+  const out: string[] = [];
+  const seen = new Set<string>();
+  for (const line of lines) {
+    const trimmed = line.trim();
+    if (!trimmed) continue;
+    if (trimmed.startsWith("#")) continue;
+    const norm = trimmed.toLowerCase();
+    if (seen.has(norm)) continue;
+    seen.add(norm);
+    out.push(trimmed);
+  }
+  if (out.length === 0) {
+    throw new Error(`phraseBlocklist: ${BLOCKLIST_MD_PATH} parsed to zero phrases`);
+  }
+  return Object.freeze(out);
+}
+
+export const BANNED_PHRASES: readonly string[] = loadBlocklist();
 
 /**
  * Returns the first banned phrase found in `text`, or null if clean.
@@ -75,7 +72,7 @@ export function findBannedPhrase(text: string): string | null {
     // longer compound — sometimes that is the intent (still an AI tell)
     // but it creates surprising false positives, so we require an explicit
     // boundary char on each side. If you want a stem to match every variant,
-    // list each variant explicitly in BANNED_PHRASES.
+    // list each variant explicitly in the markdown source.
     const leftChar = idx === 0 ? " " : normalised[idx - 1];
     if (/\w/.test(leftChar)) continue;
     const endIdx = idx + p.length;
