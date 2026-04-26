@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import Layout from "@/components/layout/Layout";
 import Link from "next/link";
 import { ArrowLeft, Shield, Mail, MapPin, Phone, ExternalLink } from "lucide-react";
+import { NAP } from "@/lib/seo/nap";
 
 export default function PageContent() {
   useEffect(() => {
@@ -67,7 +68,7 @@ export default function PageContent() {
                   </div>
                   <div className="flex items-center gap-2 text-white/70">
                     <Mail className="w-4 h-4" />
-                    <a href="mailto:hello@oarcdigital.com" className="hover:text-[#4ade80] transition-colors">hello@oarcdigital.com</a>
+                    <a href={`mailto:${NAP.email}`} className="hover:text-[#4ade80] transition-colors">{NAP.email}</a>
                   </div>
                   <div className="flex items-center gap-2 text-white/70">
                     <Phone className="w-4 h-4" />
@@ -273,7 +274,7 @@ export default function PageContent() {
                 </div>
                 <p className="text-white/70 text-sm mt-4">
                   To exercise any of these rights, please contact us at{' '}
-                  <a href="mailto:hello@oarcdigital.com" className="text-[#4ade80] hover:underline">hello@oarcdigital.com</a>.
+                  <a href={`mailto:${NAP.email}`} className="text-[#4ade80] hover:underline">{NAP.email}</a>.
                   We will respond within one month.
                 </p>
               </div>

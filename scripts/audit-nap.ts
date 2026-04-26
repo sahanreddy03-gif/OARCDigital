@@ -26,28 +26,23 @@ import {
   flattenJsonLdEntities,
   findEntitiesByType,
 } from "../lib/seo/jsonLdExtract";
+import { walkSitemap, originTagForPath } from "../lib/seo/sitemapWalker";
 
 const BASE = process.env.BASE ?? "http://localhost:5000";
+const CONCURRENCY = Number(process.env.AUDIT_CONCURRENCY ?? "6");
+// Default sample cap. Walking the full ~280-URL sitemap against a Next.js
+// dev server (which compiles each route on first hit) takes ~6 minutes —
+// too slow for a pre-deploy gate iteration loop. Set AUDIT_FULL=1 (CI does
+// this against the production server) to walk every URL the sitemap
+// advertises. The default cap is biased toward `MUST_AUDIT_PATHS` so the
+// load-bearing pages always run.
+const SAMPLE_CAP = Number(process.env.AUDIT_SAMPLE ?? "60");
+const FULL_WALK = process.env.AUDIT_FULL === "1";
 
-// URLs the audit must check. Two tiers:
-//   - Top-level surfaces that emit a LocalBusiness / MarketingAgency block
-//     via JSON-LD plus the high-traffic service pages (canonical TrustBlock
-//     consumers).
-//   - Representative AEO / blog / case-study / industry / malta pages.
-//     Each of those directories has 10–60 sibling pages built from a shared
-//     template; auditing one representative file per directory catches any
-//     template-level drift in NAP literals while keeping HTTP run-time
-//     bounded. When a NEW page in those directories ships with bespoke NAP
-//     literals (not template-derived), it should be added explicitly.
-//
-// Adding a new "OARC HQ" surface MUST come with a new entry here — that is
-// the lock. Bulk-migration of remaining hard-coded NAP literals across the
-// 100+ AEO/blog/malta/case-study/industry pages is tracked as a separate
-// follow-up task; once those import from `lib/seo/nap.ts` directly, the
-// representative-sample approach below can be replaced with a sitemap-
-// derived dynamic walk.
-const TARGETS = [
-  // Top-level + canonical service pages (TrustBlock consumers)
+// Pages that MUST be audited on every gate:full invocation regardless of
+// the sample cap — the canonical NAP-bearing surfaces. Keeping this list
+// ≤25 entries means the bias is minor and the rest of the sitemap rotates.
+const MUST_AUDIT_PATHS: readonly string[] = [
   "/",
   "/contact",
   "/automation",
@@ -64,25 +59,47 @@ const TARGETS = [
   "/services/content-marketing",
   "/services/database-design",
   "/services/devops-services",
-  // Representative AEO pages — depth-parity refactor (Task #76) gives every
-  // /aeo/* page the same NAP-bearing structure, so one per category catches
-  // template-level regressions.
   "/aeo/saas-development-malta",
   "/aeo/marketing-agency-mosta",
   "/aeo/marketing-agency-swieqi",
-  "/aeo/web-development-agency-malta",
-  "/aeo/mobile-app-developers-malta",
-  // Representative blog post (Malta-focused articles share a footer/CTA
-  // surface that renders the canonical NAP).
   "/blog/marketing-agency-malta",
-  "/blog/igaming-marketing-malta",
-  // Representative case studies.
   "/case-studies/volta-home",
-  "/case-studies/authentic-stories",
-  // Industries + malta location pages (template-driven NAP rendering).
   "/industries",
   "/legal/privacy-policy",
 ];
+
+/**
+ * Targets are derived dynamically from the live sitemap-index — every page
+ * the site advertises to crawlers is a candidate. No static TARGETS list to
+ * drift out of sync.
+ *
+ * Defaults sample SAMPLE_CAP URLs (with MUST_AUDIT_PATHS always included
+ * first, then a deterministic round-robin across the remaining sitemap so
+ * coverage rotates rather than always hitting the same prefix). Set
+ * AUDIT_FULL=1 for the full walk (used in CI), or AUDIT_URLS=/a,/b to
+ * override entirely.
+ */
+async function resolveTargets(): Promise<string[]> {
+  const override = process.env.AUDIT_URLS;
+  if (override) {
+    return override.split(",").map((s) => s.trim()).filter(Boolean);
+  }
+  const { paths } = await walkSitemap(BASE);
+  if (FULL_WALK) return paths;
+  const mustSet = new Set(MUST_AUDIT_PATHS);
+  const must = MUST_AUDIT_PATHS.filter((p) => paths.includes(p));
+  const remainder = paths.filter((p) => !mustSet.has(p));
+  // Round-robin across remainder so coverage rotates by run-time order
+  // (sitemap is alphabetised — picking every Kth URL spreads the sample
+  // across all directories instead of front-loading /aeo/*).
+  const want = Math.max(0, SAMPLE_CAP - must.length);
+  const stride = Math.max(1, Math.floor(remainder.length / Math.max(1, want)));
+  const sampled: string[] = [];
+  for (let i = 0; sampled.length < want && i < remainder.length; i += stride) {
+    sampled.push(remainder[i]);
+  }
+  return [...must, ...sampled];
+}
 
 const NAP_ENTITY_TYPES = [
   "LocalBusiness",
@@ -93,7 +110,13 @@ const NAP_ENTITY_TYPES = [
 
 type Failure = {
   url: string;
-  category: "jsonld-parse" | "jsonld-field" | "html-phone" | "html-address" | "fetch";
+  category:
+    | "jsonld-parse"
+    | "jsonld-field"
+    | "jsonld-locality"
+    | "html-phone"
+    | "html-address"
+    | "fetch";
   detail: string;
 };
 
@@ -136,34 +159,64 @@ async function fetchPage(url: string): Promise<string | null> {
   }
 }
 
+/**
+ * Per-page locality permission. The site canonical NAP locality is
+ * Birkirkara — but `lib/seo/locationData.ts` legitimately renders other
+ * Malta towns (Ta' Xbiex, Sliema, Valletta, etc.) on the location surfaces
+ * (`/aeo/*` and `/malta/*`). Any locality OTHER than Birkirkara is allowed
+ * ONLY when the URL maps to the location-data origin tag.
+ *
+ * This is the source-aware Ta' Xbiex exception called for in the task spec:
+ * a stray `Ta' Xbiex` reference in any non-location-data page (e.g. a core
+ * service page or a blog post) breaks the gate.
+ */
+function isPermittedLocality(
+  url: string,
+  locality: string | undefined,
+): boolean {
+  if (locality === expectedLocality) return true;
+  if (locality === undefined) return false;
+  return originTagForPath(url) === "location-data";
+}
+
 function checkAddressBlock(url: string, addr: unknown): void {
   if (!addr || typeof addr !== "object") {
     fail(url, "jsonld-field", "address block missing or non-object");
     return;
   }
   const a = addr as Record<string, unknown>;
-  const expectations: [string, unknown][] = [
-    ["addressLocality", expectedLocality],
-    ["postalCode", expectedPostal],
-    ["addressCountry", expectedCountry],
-  ];
-  // streetAddress can legitimately be the long or short form depending on
-  // which constant the page chose — both are canonical so both pass.
-  if (a.streetAddress !== expectedStreet && a.streetAddress !== expectedStreetShort) {
+  const localityValue = typeof a.addressLocality === "string" ? a.addressLocality : undefined;
+  if (!isPermittedLocality(url, localityValue)) {
     fail(
       url,
-      "jsonld-field",
-      `address.streetAddress = ${JSON.stringify(a.streetAddress)} (expected ${JSON.stringify(expectedStreet)} or ${JSON.stringify(expectedStreetShort)})`,
+      "jsonld-locality",
+      `address.addressLocality = ${JSON.stringify(localityValue)} not permitted on this URL (only ${JSON.stringify(expectedLocality)} allowed outside /aeo/* and /malta/*)`,
     );
   }
-  for (const [key, want] of expectations) {
-    if (a[key] !== want) {
+  // postalCode + addressCountry must be canonical UNLESS the URL is a
+  // location-data origin (where alternative postals/towns are expected).
+  if (originTagForPath(url) === "core") {
+    if (a.postalCode !== expectedPostal) {
       fail(
         url,
         "jsonld-field",
-        `address.${key} = ${JSON.stringify(a[key])} (expected ${JSON.stringify(want)})`,
+        `address.postalCode = ${JSON.stringify(a.postalCode)} (expected ${JSON.stringify(expectedPostal)})`,
       );
     }
+    if (a.streetAddress !== expectedStreet && a.streetAddress !== expectedStreetShort) {
+      fail(
+        url,
+        "jsonld-field",
+        `address.streetAddress = ${JSON.stringify(a.streetAddress)} (expected ${JSON.stringify(expectedStreet)} or ${JSON.stringify(expectedStreetShort)})`,
+      );
+    }
+  }
+  if (a.addressCountry !== expectedCountry) {
+    fail(
+      url,
+      "jsonld-field",
+      `address.addressCountry = ${JSON.stringify(a.addressCountry)} (expected ${JSON.stringify(expectedCountry)})`,
+    );
   }
 }
 
@@ -232,6 +285,26 @@ function auditRenderedHtml(url: string, htmlInput: string): void {
     if (m !== `tel:${expectedPhoneE164}`) {
       fail(url, "html-phone", `non-canonical tel: href: ${JSON.stringify(m)}`);
     }
+  }
+  // Every `wa.me/<digits>` link MUST use the canonical WhatsApp number
+  // (NAP.whatsappNumber). Catches drift to a stale or fabricated number,
+  // and catches the literal-vs-NAP regression class the architect flagged.
+  // Allowlist: a separate WhatsApp line is intentionally used by the
+  // /ai-agents/* surface (NAP.whatsappAgentNumber when set, currently a
+  // distinct service-line number) — that path is exempt.
+  const expectedWhatsapp = NAP.whatsappNumber;
+  const altWhatsapp = (NAP as Record<string, unknown>).whatsappAgentNumber;
+  const waRe = /wa\.me\/(\d+)/g;
+  let waMatch: RegExpExecArray | null;
+  while ((waMatch = waRe.exec(html)) !== null) {
+    const num = waMatch[1];
+    if (num === expectedWhatsapp) continue;
+    if (typeof altWhatsapp === "string" && num === altWhatsapp) continue;
+    fail(
+      url,
+      "html-phone",
+      `non-canonical wa.me number: ${JSON.stringify(num)} (expected ${JSON.stringify(expectedWhatsapp)})`,
+    );
   }
   // Every `mailto:hello@oarcdigital.com` href and every visible
   // `hello@oarcdigital.com` mention must be the canonical email. Catches
@@ -319,10 +392,35 @@ async function auditUrl(url: string): Promise<void> {
   auditTrustBlock(url, html);
 }
 
+async function runWithConcurrency(
+  urls: string[],
+  worker: (url: string) => Promise<void>,
+  concurrency: number,
+): Promise<void> {
+  let cursor = 0;
+  let done = 0;
+  const total = urls.length;
+  await Promise.all(
+    Array.from({ length: Math.min(concurrency, total) }, async () => {
+      while (true) {
+        const i = cursor++;
+        if (i >= total) return;
+        await worker(urls[i]);
+        done++;
+        if (done % 25 === 0) {
+          process.stdout.write(`  [${done}/${total}]\n`);
+        } else {
+          process.stdout.write(".");
+        }
+      }
+    }),
+  );
+}
+
 async function main(): Promise<void> {
-  console.log(`audit-nap: BASE=${BASE} targets=${TARGETS.length}`);
+  console.log(`audit-nap: BASE=${BASE}`);
   // Quick reachability check so the audit fails loudly with a clear message
-  // rather than 16 individual fetch failures.
+  // rather than per-URL fetch failures.
   try {
     const probe = await fetch(BASE, { method: "HEAD" });
     if (!probe.ok && probe.status !== 405) {
@@ -335,13 +433,12 @@ async function main(): Promise<void> {
     console.error("audit-nap: this audit only runs in gate:full and requires the dev server up");
     process.exit(2);
   }
-  for (const url of TARGETS) {
-    await auditUrl(url);
-    process.stdout.write(".");
-  }
+  const targets = await resolveTargets();
+  console.log(`audit-nap: walking ${targets.length} URL(s) from sitemap (concurrency=${CONCURRENCY})`);
+  await runWithConcurrency(targets, auditUrl, CONCURRENCY);
   console.log();
   if (failures.length === 0) {
-    console.log(`audit-nap: PASS (${TARGETS.length}/${TARGETS.length} URLs)`);
+    console.log(`audit-nap: PASS (${targets.length}/${targets.length} URLs)`);
     return;
   }
   console.error(`audit-nap: FAIL — ${failures.length} issue(s) across ${new Set(failures.map((f) => f.url)).size} URL(s):`);

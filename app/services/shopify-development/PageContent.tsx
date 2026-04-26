@@ -7,6 +7,7 @@ import { SERVICE_SCHEMAS } from "@/lib/seo/serviceSchemaConfig";
 
 import MaltaContextBlock from "@/components/seo/MaltaContextBlock";
 import TrustBlock from "@/components/seo/TrustBlock";
+import { NAP } from "@/lib/seo/nap";
 const SCHEMA = SERVICE_SCHEMAS["shopify-development"];
 
 const phases = [
@@ -43,7 +44,7 @@ export default function ShopifyDevelopmentContent() {
             </p>
             <div className="flex flex-wrap gap-3">
               <Link href="/contact"><Button size="lg" className="bg-orange-500 hover:bg-orange-600 text-white">Book a Shopify strategy call <ArrowRight className="ml-2 w-4 h-4" /></Button></Link>
-              <a href="tel:+35679711799"><Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10"><Phone className="mr-2 w-4 h-4" /> +356 7971 1799</Button></a>
+              <a href={`tel:${NAP.phoneE164}`}><Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10"><Phone className="mr-2 w-4 h-4" />{NAP.phoneDisplay}</Button></a>
             </div>
           </div>
         </section>

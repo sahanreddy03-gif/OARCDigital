@@ -1,5 +1,6 @@
 import Layout from '@/components/layout/Layout';
 import Link from 'next/link';
+import { NAP } from "@/lib/seo/nap";
 
 export default function PjazzaLiveVideoMalta() {
   const articleSchema = {
@@ -87,17 +88,17 @@ export default function PjazzaLiveVideoMalta() {
               <p className="text-gray-300 mb-6">Contact us directly. First 200 businesses get free onboarding + 6 months featured placement.</p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <a
-                  href="tel:+35679711799"
+                  href={`tel:${NAP.phoneE164}`}
                   className="inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold text-black transition-all"
                   style={{ backgroundColor: '#22c55e' }}
                 >
-                  Call +356 7971 1799
+                  Call {NAP.phoneDisplay}
                 </a>
                 <a
-                  href="mailto:hello@oarcdigital.com"
+                  href={`mailto:${NAP.email}`}
                   className="inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold text-green-400 border border-green-500/30 hover:border-green-500 transition-all"
                 >
-                  hello@oarcdigital.com
+                  {NAP.email}
                 </a>
               </div>
             </div>

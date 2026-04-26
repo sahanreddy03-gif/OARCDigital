@@ -90,22 +90,31 @@ export function extractJsonLd(html: string): JsonLdResult[] {
  */
 export function flattenJsonLdEntities(results: JsonLdResult[]): unknown[] {
   const entities: unknown[] = [];
+  // Recursively unwrap a value into entities. Three legitimate top-level
+  // shapes for a JSON-LD block, freely composable (a top-level array can
+  // contain `@graph` wrappers, and a `@graph` can contain further `@graph`
+  // wrappers — both seen in the wild on this site, e.g. blog pages emit
+  // `[faqSchema, articleSchema]` where `articleSchema` is a `@graph`):
+  //   1. A single entity object (most common)
+  //   2. A wrapper object with `@graph: [ … ]` of entities
+  //   3. A bare top-level array `[ {…}, {…} ]` (less common but valid)
+  const unwrap = (value: unknown): void => {
+    if (Array.isArray(value)) {
+      for (const v of value) unwrap(v);
+      return;
+    }
+    if (value && typeof value === "object") {
+      const obj = value as Record<string, unknown>;
+      if (Array.isArray(obj["@graph"])) {
+        unwrap(obj["@graph"]);
+        return;
+      }
+    }
+    entities.push(value);
+  };
   for (const r of results) {
     if (!r.ok) continue;
-    // Three legitimate top-level shapes for a JSON-LD block:
-    //   1. A single entity object (most common)
-    //   2. A wrapper object with `@graph: [ … ]` of entities
-    //   3. A bare top-level array `[ {…}, {…} ]` (less common but valid)
-    if (Array.isArray(r.data)) {
-      entities.push(...r.data);
-      continue;
-    }
-    const d = r.data as Record<string, unknown> | undefined;
-    if (d && Array.isArray((d as { "@graph"?: unknown[] })["@graph"])) {
-      entities.push(...((d as { "@graph": unknown[] })["@graph"]));
-    } else {
-      entities.push(r.data);
-    }
+    unwrap(r.data);
   }
   return entities;
 }

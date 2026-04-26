@@ -7,6 +7,7 @@ import JsonLd from '@/components/JsonLd';
 import { locationServices } from '@/shared/seoConfig';
 import { buildLocationHubContent, getServiceProfile } from '@/lib/seo/generateUniquePageContent';
 import restore from '@/.local/seo/restore.json';
+import { NAP } from '@/lib/seo/nap';
 
 const serviceCatalog = locationServices.map((slug) => {
   const svc = getServiceProfile(slug);
@@ -109,7 +110,7 @@ export default function LocationHubPage({ params }: { params: { location: string
             <Link href="/contact" className="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-8 rounded-lg transition-colors" data-testid="link-contact-cta">
               Start a Conversation
             </Link>
-            <p className="text-zinc-500 text-sm mt-4">hello@oarcdigital.com · +356 7971 1799</p>
+            <p className="text-zinc-500 text-sm mt-4">{NAP.email} · {NAP.phoneDisplay}</p>
           </div>
         </section>
       </main>
