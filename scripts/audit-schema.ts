@@ -94,6 +94,12 @@ const ALLOWED_TYPES = new Set<string>([
   "City",
   "Rating",
   "Audience",
+  // Emitted by lib/schema/index.ts (Dataset for stats blocks, PropertyValue
+  // for typed Dataset metadata) and required-map (NewsArticle — kept here
+  // so the allowlist and the per-type required-property map never drift).
+  "Dataset",
+  "PropertyValue",
+  "NewsArticle",
 ]);
 
 // Per-URL schema contract — listed pages MUST emit at least one entity of
