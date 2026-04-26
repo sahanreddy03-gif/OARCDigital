@@ -144,11 +144,11 @@ export default function Creative() {
               Social Media Management
             </span>
           </div>
-          <h1 className="text-4xl md:text-6xl lg:text-7xl xl:text-[88px] font-black text-black mb-8 md:mb-10" style={{ fontFamily: 'Inter, system-ui, -apple-system, sans-serif' }} data-testid="heading-creative">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl xl:text-[88px] font-black text-black mb-8 md:mb-10" style={{ fontFamily: 'Inter, system-ui, -apple-system, sans-serif' }} data-testid="heading-creative" data-speakable>
             Creative That Converts
           </h1>
 
-          <p className="text-lg md:text-xl lg:text-2xl text-black/80 mb-8 md:mb-10 max-w-3xl leading-relaxed" style={{ fontFamily: 'Inter, system-ui, -apple-system, sans-serif' }}>
+          <p className="text-lg md:text-xl lg:text-2xl text-black/80 mb-8 md:mb-10 max-w-3xl leading-relaxed" style={{ fontFamily: 'Inter, system-ui, -apple-system, sans-serif' }} data-speakable>
             We combine organic content, paid campaigns, production, and influencer partnerships into one integrated system that drives revenue—not just reach.
           </p>
 

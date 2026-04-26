@@ -199,7 +199,7 @@ export default function VideoProduction() {
                 <h2 className="text-4xl md:text-5xl font-black text-white mb-6">
                   How we make it happen
                 </h2>
-                <p className="text-white/80 text-lg mb-8">
+                <p className="text-white/80 text-lg mb-8" data-speakable>
                   We're a small team that moves fast. No bloated agency overhead. Just talented people who love making great video.
                 </p>
                 
