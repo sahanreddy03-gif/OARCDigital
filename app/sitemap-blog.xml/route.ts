@@ -10,11 +10,8 @@ import {
 export const dynamic = "force-static";
 export const revalidate = false;
 
-/**
- * Source of truth for the URL entries this sitemap emits. See
- * `lib/seo/sitemapSources.ts` — the index `lastmod` is derived from
- * `max(entry.lastmod)` across these entries.
- */
+// Exported so lib/seo/sitemapSources.ts derives the index lastmod from
+// the same entries the GET handler serves.
 export async function buildEntries(): Promise<UrlEntry[]> {
   const slugs = await listRouteSlugs("app/blog");
   return [
