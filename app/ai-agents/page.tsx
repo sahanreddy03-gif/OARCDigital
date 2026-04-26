@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import PageContent from "./PageContent";
 import RouteSchema from "@/components/RouteSchema";
 import { PILLAR_SCHEMAS } from "@/lib/seo/pillarSchemaConfig";
+import { getHreflangAlternates, SpeakableJsonLd } from "@/lib/seo/discoveryTags";
 
 const pillarMeta = PILLAR_SCHEMAS["/ai-agents"];
 
@@ -9,7 +10,7 @@ export const metadata: Metadata = {
   title: pillarMeta.title,
   description: pillarMeta.description,
   keywords: "AI agents Malta, AI employees Malta, AI workforce, AI sales agent, AI customer support, AI booking agent, chatbot Malta, business automation Malta, AI virtual assistant Malta, AI receptionist Malta, AI lead generation Malta, automated customer service Malta",
-  alternates: { canonical: "https://oarcdigital.com/ai-agents" },
+  alternates: getHreflangAlternates("/ai-agents"),
   openGraph: {
     title: pillarMeta.title,
     description: pillarMeta.description,
@@ -29,6 +30,7 @@ export default function Page() {
   const pillar = PILLAR_SCHEMAS["/ai-agents"];
   return (
     <>
+      <SpeakableJsonLd path="/ai-agents" />
       <RouteSchema
         type="pillar"
         path="/ai-agents"

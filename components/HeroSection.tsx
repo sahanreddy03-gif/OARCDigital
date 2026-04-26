@@ -285,6 +285,7 @@ export default function HeroSection() {
                   <h1 
                     className="mb-3 md:mb-6 lg:mb-8 text-white" 
                     data-testid="text-hero-headline"
+                    data-speakable
                   >
                     {/* Mobile: 8.5vw scales from ~27px on iPhone SE to ~36px on iPhone 16 Pro Max */}
                     <span 

@@ -62,6 +62,7 @@ run_step "audit-framework"            npx tsx scripts/audit-framework.ts
 run_step "audit-schema (self-test)"   npx tsx scripts/audit-schema.ts --self-test
 run_step "verify-redirects (static)"  npx tsx scripts/verify-redirects.ts --static
 run_step "AUTOGEN parity (llms.txt)"  npx tsx scripts/generate-llms-txt-facts.ts --check
+run_step "AUTOGEN parity (llms-full.txt)" npx tsx scripts/generate-llms-full-txt.ts --check
 
 if [ "$MODE" = "gate:fast" ]; then
   echo
@@ -140,6 +141,7 @@ run_step "verify-redirects (HTTP)"  env BASE="$BASE" npx tsx scripts/verify-redi
 run_step "audit-sitemap (HTTP)"     env BASE="$BASE" npx tsx scripts/audit-sitemap.ts --http
 run_step "audit-nap (HTTP)"         env BASE="$BASE" AUDIT_FULL=1 npx tsx scripts/audit-nap.ts
 run_step "audit-schema (HTTP)"      env BASE="$BASE" AUDIT_FULL=1 npx tsx scripts/audit-schema.ts
+run_step "audit-discovery (HTTP)"   env BASE="$BASE" npx tsx scripts/audit-discovery.ts
 
 echo
 echo "seo-gate: all audits passed ($MODE)"

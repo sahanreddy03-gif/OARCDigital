@@ -305,6 +305,7 @@ export default function PageContent() {
                 className="text-4xl md:text-5xl lg:text-7xl font-bold text-white leading-[1.1] mb-6"
                 style={{ fontFamily: 'var(--font-swarsh)' }}
                 data-testid="text-hero-headline"
+                data-speakable
               >
                 One Team.<br />
                 <span className="text-[#c4ff4d]">Complete</span> Digital<br />
@@ -314,6 +315,7 @@ export default function PageContent() {
               <p 
                 className="text-lg md:text-xl text-white/60 max-w-3xl mx-auto mb-10 leading-relaxed"
                 style={{ fontFamily: 'var(--font-halfre)' }}
+                data-speakable
               >
                 We automate your operations AND build custom software to solve your unique challenges.
                 Stop juggling vendors — get one partner for your entire digital strategy.
