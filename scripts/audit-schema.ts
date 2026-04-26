@@ -169,7 +169,14 @@ type Failure = {
 // types we actively emit are listed; sub-entity types (PostalAddress,
 // Offer, etc.) are validated indirectly via their parents' contracts.
 const REQUIRED_PROPS_BY_TYPE: Record<string, readonly string[]> = {
-  Organization: ["name", "url", "address"],
+  // Organization is intentionally lax: schema.org requires only `name`, and
+  // we don't want to false-positive on every Service.provider Organization
+  // (which is allowed to be a thin descriptor `{@type, name, url}` per
+  // schema.org). Address-bearing requirements live on the more specific
+  // LocalBusiness / MarketingAgency / ProfessionalService rows below — those
+  // are what Google's local-pack ingests for NAP, and that is what we are
+  // protecting. A bare Organization without address is valid markup.
+  Organization: ["name", "url"],
   LocalBusiness: ["name", "address", "telephone"],
   MarketingAgency: ["name", "address", "telephone"],
   ProfessionalService: ["name", "address", "telephone"],

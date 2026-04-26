@@ -1131,7 +1131,17 @@ export default function PageContent() {
           "provider": {
             "@type": "LocalBusiness",
             "name": "OARC Digital",
-            "url": "https://oarcdigital.com"
+            "url": "https://oarcdigital.com",
+            "telephone": NAP.phoneE164,
+            "email": NAP.email,
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": NAP.streetAddress,
+              "addressLocality": NAP.addressLocality,
+              "addressRegion": NAP.addressRegion,
+              "postalCode": NAP.postalCode,
+              "addressCountry": NAP.addressCountry
+            }
           },
           "areaServed": {"@type": "Country", "name": "Malta"},
           "serviceType": "Creative Agency Services",

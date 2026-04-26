@@ -4,6 +4,7 @@
 // triangulated from public sources (NSO Malta, MTA, MFSA, CSO, GamblingMalta)
 // — they are clearly labelled as estimates inside each report.
 
+import { NAP } from "@/lib/seo/nap";
 export type ChartPoint = Record<string, string | number>;
 
 export type ResearchSection = {
@@ -166,7 +167,7 @@ export const RESEARCH: ResearchEntry[] = [
       {
         question: "Where can I download the Malta Restaurant Marketing Report?",
         answer:
-          "The full benchmark is published on this page and updated each quarter. For the underlying anonymised dataset, contact OARC Digital at hello@oarcdigital.com.",
+          `The full benchmark is published on this page and updated each quarter. For the underlying anonymised dataset, contact OARC Digital at ${NAP.email}.`,
       },
     ],
     keywords: [
@@ -503,7 +504,7 @@ export const RESEARCH: ResearchEntry[] = [
       {
         question: "Where can I see my own business's tech readiness score?",
         answer:
-          "OARC Digital runs a free 30-minute readiness assessment for Maltese SMEs. Contact us at hello@oarcdigital.com and we will score you across all five dimensions.",
+          `OARC Digital runs a free 30-minute readiness assessment for Maltese SMEs. Contact us at ${NAP.email} and we will score you across all five dimensions.`,
       },
     ],
     keywords: [
