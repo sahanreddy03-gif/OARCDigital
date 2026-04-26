@@ -10,6 +10,7 @@ import ScrollToTop from "@/components/ScrollToTop";
 import SpeculationRules from "@/components/SpeculationRules";
 import MobileStickyCTA from "@/components/MobileStickyCTA";
 import Analytics from "@/components/Analytics";
+import { NAP, POSTAL_ADDRESS, GEO_COORDINATES } from "@/lib/seo/nap";
 
 const nunitoSans = Nunito_Sans({
   subsets: ["latin"],
@@ -63,28 +64,21 @@ const ORGANIZATION_JSONLD = [
   {
     "@context": "https://schema.org",
     "@type": ["LocalBusiness", "ProfessionalService"],
-    name: "OARC Digital",
-    alternateName: "OARC Digital Malta",
+    name: NAP.name,
+    alternateName: NAP.alternateName,
     description:
       "Malta's first Creative + AI Systems Agency. Brand strategy, social media, photo and video production, influencer marketing, AI solutions, and Hospitality 360 — all in one growth system. Strategy + Technology + Data + Analytics.",
     url: "https://oarcdigital.com",
-    telephone: "+35679711799",
-    email: "hello@oarcdigital.com",
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: "Level 1, The Brewhouse, Zone 2, Central Business District, Mdina Road",
-      addressLocality: "Birkirkara",
-      addressRegion: "Birkirkara",
-      postalCode: "CBD 2010",
-      addressCountry: "MT",
-    },
+    telephone: NAP.phoneE164,
+    email: NAP.email,
+    address: POSTAL_ADDRESS,
     sameAs: [
       "https://www.instagram.com/oarcdigital",
       "https://www.linkedin.com/company/oarc-digital",
       "https://www.facebook.com/oarcdigital",
     ],
-    geo: { "@type": "GeoCoordinates", latitude: 35.8978, longitude: 14.4617 },
-    hasMap: "https://maps.google.com/?q=Level+1+The+Brewhouse+Birkirkara+Malta",
+    geo: GEO_COORDINATES,
+    hasMap: NAP.mapUrl,
     areaServed: [{ "@type": "Country", name: "Malta" }],
     knowsAbout: [
       "Digital Marketing",
@@ -159,10 +153,10 @@ export const metadata: Metadata = {
     shortcut: [{ url: "/favicon.png" }],
   },
   other: {
-    "geo.region": "MT-09",
-    "geo.placename": "Birkirkara, Malta",
-    "geo.position": "35.8978;14.4617",
-    ICBM: "35.8978, 14.4617",
+    "geo.region": NAP.regionCode,
+    "geo.placename": `${NAP.addressLocality}, Malta`,
+    "geo.position": `${NAP.geo.lat};${NAP.geo.lng}`,
+    ICBM: `${NAP.geo.lat}, ${NAP.geo.lng}`,
   },
 };
 

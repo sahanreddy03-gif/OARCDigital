@@ -10,8 +10,9 @@ import { SiWhatsapp } from "react-icons/si";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import contactBokehBg from "@assets/contact-bokeh-bg.jpg";
+import { NAP } from "@/lib/seo/nap";
 
-const WHATSAPP_NUMBER = "35679711799";
+const WHATSAPP_NUMBER = NAP.whatsappNumber;
 const WHATSAPP_MESSAGE = "Hi, I'm interested in your services";
 const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
 
@@ -128,7 +129,7 @@ export default function PageContent() {
 
                   {/* Malta Phone - Featured */}
                   <a 
-                    href="tel:+35679711799"
+                    href={`tel:${NAP.phoneE164}`}
                     className="flex items-center gap-4 p-4 mb-4 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 transition-all group/phone"
                     data-testid="link-call-malta-hero"
                   >
@@ -137,7 +138,7 @@ export default function PageContent() {
                     </div>
                     <div>
                       <p className="text-xs text-cyan-400/70 uppercase tracking-wider">Malta</p>
-                      <p className="text-lg font-semibold text-white group-hover/phone:text-cyan-400 transition-colors">+356 7971 1799</p>
+                      <p className="text-lg font-semibold text-white group-hover/phone:text-cyan-400 transition-colors">{NAP.phoneDisplay}</p>
                     </div>
                   </a>
                   
@@ -261,7 +262,7 @@ export default function PageContent() {
                   
                   {/* Malta - Featured/Larger */}
                   <a 
-                    href="tel:+35679711799" 
+                    href={`tel:${NAP.phoneE164}`} 
                     className="group flex items-center gap-4 p-6 mb-4 bg-gradient-to-br from-[#ff914d]/10 to-[#ff914d]/5 border border-[#ff914d]/20 rounded-2xl hover:border-[#ff914d]/40 transition-all"
                     data-testid="link-call-malta"
                   >
@@ -270,7 +271,7 @@ export default function PageContent() {
                     </div>
                     <div>
                       <p className="text-xs uppercase tracking-wider text-[#ff914d]/70 mb-1 font-medium">Malta</p>
-                      <p className="text-xl font-bold text-white group-hover:text-[#ff914d] transition-colors">+356 7971 1799</p>
+                      <p className="text-xl font-bold text-white group-hover:text-[#ff914d] transition-colors">{NAP.phoneDisplay}</p>
                     </div>
                   </a>
 
@@ -297,7 +298,7 @@ export default function PageContent() {
 
                   {/* Email */}
                   <a 
-                    href="mailto:hello@oarcdigital.com" 
+                    href={`mailto:${NAP.email}`} 
                     className="group flex items-center gap-4 p-4 mb-4 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 transition-all"
                     data-testid="link-email"
                   >
@@ -306,13 +307,13 @@ export default function PageContent() {
                     </div>
                     <div>
                       <p className="text-xs uppercase tracking-wider text-white/40 mb-0.5">Email</p>
-                      <p className="font-semibold text-white group-hover:text-white/80 transition-colors">hello@oarcdigital.com</p>
+                      <p className="font-semibold text-white group-hover:text-white/80 transition-colors">{NAP.email}</p>
                     </div>
                   </a>
 
                   {/* WhatsApp - Prominent */}
                   <a 
-                    href="https://wa.me/35679711799" 
+                    href={`https://wa.me/${NAP.whatsappNumber}`} 
                     target="_blank"
                     rel="noopener noreferrer"
                     className="group flex items-center gap-4 p-4 bg-[#25D366]/10 border border-[#25D366]/20 rounded-xl hover:bg-[#25D366]/20 transition-all"
@@ -384,7 +385,7 @@ export default function PageContent() {
               <address className="text-zinc-400 text-sm not-italic leading-relaxed">
                 Level 1, The Brewhouse,<br />
                 Zone 2, Central Business District,<br />
-                Mdina Road, Birkirkara CBD 2010, Malta
+                Mdina Road, {NAP.addressLocality} {NAP.postalCode}, Malta
               </address>
             </div>
 

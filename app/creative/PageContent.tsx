@@ -20,6 +20,7 @@ import {
 import { SiInstagram, SiFacebook, SiTiktok, SiLinkedin, SiYoutube, SiGoogle, SiFigma, SiSlack, SiNotion, SiMeta, SiShopify, SiHubspot, SiMailchimp, SiZapier, SiWhatsapp } from 'react-icons/si';
 import CreativeNavigation from '@/components/CreativeNavigation';
 import Footer from '@/components/Footer';
+import { NAP } from "@/lib/seo/nap";
 import AICreativeSection from '@/components/AICreativeSection';
 import { createFAQSchema } from '@/utils/structuredData';
 
@@ -1096,20 +1097,20 @@ export default function PageContent() {
           "name": "OARC Digital - Creative Agency",
           "description": "Malta's leading AI-powered creative agency specializing in social media management, brand strategy, web design, video production, and paid advertising campaigns.",
           "url": "https://oarcdigital.com/creative",
-          "telephone": "+35679711799",
-          "email": "hello@oarcdigital.com",
+          "telephone": NAP.phoneE164,
+          "email": NAP.email,
           "address": {
             "@type": "PostalAddress",
-            "streetAddress": "Level 1, The Brewhouse, Zone 2, Central Business District, Mdina Road",
-            "addressLocality": "Birkirkara",
-            "addressRegion": "Birkirkara",
-            "postalCode": "CBD 2010",
-            "addressCountry": "MT"
+            "streetAddress": NAP.streetAddress,
+            "addressLocality": NAP.addressLocality,
+            "addressRegion": NAP.addressRegion,
+            "postalCode": NAP.postalCode,
+            "addressCountry": NAP.addressCountry
           },
           "geo": {
             "@type": "GeoCoordinates",
-            "latitude": "35.8978",
-            "longitude": "14.4617"
+            "latitude": NAP.geo.lat,
+            "longitude": NAP.geo.lng
           },
           "areaServed": [
             {"@type": "Country", "name": "Malta"},

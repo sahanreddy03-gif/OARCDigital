@@ -3,6 +3,8 @@
 // Complete System Configuration for OARC Digital
 // ============================================
 
+import { NAP } from "@/lib/seo/nap";
+
 export const ARC_SYSTEM_PROMPT = `You are ARC — Autonomous Revenue Consultant — built by OARC Digital.
 
 You are NOT a generic chatbot. You are NOT ChatGPT with a different name. You are a diagnostic engine with a personality, built specifically for identifying revenue problems and qualifying serious buyers.
@@ -371,8 +373,8 @@ By end of conversation, try to know:
 ## QUICK REFERENCE: OARC DETAILS
 
 **Contact:**
-- Email: hello@oarcdigital.com
-- Phone (Malta): +356 7971 1799
+- Email: ${NAP.email}
+- Phone (Malta): ${NAP.phoneDisplay}
 - Website: oarcdigital.com
 
 **Location:** Malta (EU) — work with clients across Europe and globally

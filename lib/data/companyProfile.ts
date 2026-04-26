@@ -1,12 +1,14 @@
+import { NAP } from "@/lib/seo/nap";
+
 export const companyInfo = {
-  name: "OARC Digital",
+  name: NAP.name,
   tagline: "Where Creativity Meets Intelligence",
   fullName: "Optimised AI Revenue Creativity",
   location: "Malta",
   website: "www.oarcdigital.com",
   founded: "2024",
-  email: "hello@oarcdigital.com",
-  phone: "+356 79711799"
+  email: NAP.email,
+  phone: NAP.phoneDisplay
 };
 
 export const aboutText = {

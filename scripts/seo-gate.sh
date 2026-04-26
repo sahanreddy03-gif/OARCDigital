@@ -81,11 +81,17 @@ fi
 if server_up; then
   run_step "verify-redirects (HTTP)"  env BASE="$BASE" npx tsx scripts/verify-redirects.ts
   run_step "audit-sitemap (HTTP)"     env BASE="$BASE" npx tsx scripts/audit-sitemap.ts --http
+  run_step "audit-nap (HTTP)"         env BASE="$BASE" npx tsx scripts/audit-nap.ts
+  run_step "audit-schema (HTTP)"      env BASE="$BASE" npx tsx scripts/audit-schema.ts
 else
   echo
   echo "==> verify-redirects (HTTP)"
   echo "    NOTE skipped — no server at $BASE (CI: $([ "${CI:-0}" = "1" ] && echo yes || echo no))"
   echo "==> audit-sitemap (HTTP)"
+  echo "    NOTE skipped — no server at $BASE"
+  echo "==> audit-nap (HTTP)"
+  echo "    NOTE skipped — no server at $BASE"
+  echo "==> audit-schema (HTTP)"
   echo "    NOTE skipped — no server at $BASE"
   echo
   echo "seo-gate: HTTP smoke tests skipped (server not reachable). The"

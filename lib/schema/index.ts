@@ -2,6 +2,8 @@
 // Pure functions returning serialisable objects; emit via <JsonLd> or
 // <script type="application/ld+json"> in the page head.
 
+import { NAP, POSTAL_ADDRESS, GEO_COORDINATES } from "@/lib/seo/nap";
+
 const BASE = "https://oarcdigital.com";
 
 const ORG_REF = { "@id": `${BASE}/#organization` };
@@ -34,22 +36,15 @@ export function buildOrganization() {
     "@context": "https://schema.org",
     "@type": "Organization",
     "@id": `${BASE}/#organization`,
-    name: "OARC Digital",
-    alternateName: "OARC Digital Malta",
+    name: NAP.name,
+    alternateName: NAP.alternateName,
     url: BASE,
     logo: `${BASE}/oarc-logo.png`,
     description:
       "Malta's first AI-native creative, automation & intelligent agents agency. Brand strategy, social media, video, and AI systems for Maltese businesses.",
-    telephone: "+35679711799",
-    email: "hello@oarcdigital.com",
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: "Level 1, The Brewhouse, Zone 2, Central Business District, Mdina Road",
-      addressLocality: "Birkirkara",
-      addressRegion: "Birkirkara",
-      postalCode: "CBD 2010",
-      addressCountry: "MT",
-    },
+    telephone: NAP.phoneE164,
+    email: NAP.email,
+    address: POSTAL_ADDRESS,
     sameAs: [
       "https://www.instagram.com/oarcdigital",
       "https://www.linkedin.com/company/oarc-digital",
@@ -76,27 +71,32 @@ export function buildWebSite() {
 }
 
 export function buildLocalBusiness(opts?: { locality?: string; lat?: number; lng?: number }) {
+  // `opts.locality` allows location-specific pages (e.g. /malta/sliema/...)
+  // to override the addressLocality. The audit script (audit-nap.ts)
+  // permits non-canonical localities ONLY when emitted via this code
+  // path (via the lib/seo/locationData.ts integration); a stray Ta' Xbiex
+  // string anywhere else is flagged.
   return {
     "@context": "https://schema.org",
     "@type": ["LocalBusiness", "ProfessionalService"],
     "@id": `${BASE}/#localbusiness`,
-    name: "OARC Digital",
+    name: NAP.name,
     url: BASE,
-    telephone: "+35679711799",
-    email: "hello@oarcdigital.com",
+    telephone: NAP.phoneE164,
+    email: NAP.email,
     priceRange: "€€€",
     address: {
       "@type": "PostalAddress",
-      streetAddress: "Level 1, The Brewhouse, Zone 2, Central Business District, Mdina Road",
-      addressLocality: opts?.locality ?? "Birkirkara",
-      addressRegion: "Birkirkara",
-      postalCode: "CBD 2010",
-      addressCountry: "MT",
+      streetAddress: NAP.streetAddress,
+      addressLocality: opts?.locality ?? NAP.addressLocality,
+      addressRegion: NAP.addressRegion,
+      postalCode: NAP.postalCode,
+      addressCountry: NAP.addressCountry,
     },
     geo: {
       "@type": "GeoCoordinates",
-      latitude: opts?.lat ?? 35.8978,
-      longitude: opts?.lng ?? 14.4617,
+      latitude: opts?.lat ?? NAP.geo.lat,
+      longitude: opts?.lng ?? NAP.geo.lng,
     },
     areaServed: [{ "@type": "Country", name: "Malta" }],
     parentOrganization: ORG_REF,

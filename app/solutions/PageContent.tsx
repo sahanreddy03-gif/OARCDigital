@@ -9,6 +9,7 @@ import FAQSection, { FAQItem } from '@/components/FAQSection';
 import Footer from '@/components/Footer';
 import CreativeNavigation from '@/components/CreativeNavigation';
 import QuickLeadModal from '@/components/QuickLeadModal';
+import { NAP } from "@/lib/seo/nap";
 import { 
   ArrowRight, Check, Zap, Users, BarChart3, 
   Calendar, Bot, Workflow, Settings, ChevronRight,
@@ -247,10 +248,10 @@ export default function PageContent() {
           "name": "OARC Digital - Business Automation",
           "description": "Malta's premier business automation partner. Workflow automation, CRM, and custom software development.",
           "url": "https://oarcdigital.com/automation",
-          "telephone": "+35679711799",
-          "email": "hello@oarcdigital.com",
-          "address": {"@type": "PostalAddress", "streetAddress": "Level 1, The Brewhouse, Zone 2, Central Business District, Mdina Road", "addressLocality": "Birkirkara", "addressRegion": "Birkirkara", "postalCode": "CBD 2010", "addressCountry": "MT"},
-          "geo": {"@type": "GeoCoordinates", "latitude": "35.8978", "longitude": "14.4617"},
+          "telephone": NAP.phoneE164,
+          "email": NAP.email,
+          "address": {"@type": "PostalAddress", "streetAddress": NAP.streetAddress, "addressLocality": NAP.addressLocality, "addressRegion": NAP.addressRegion, "postalCode": NAP.postalCode, "addressCountry": NAP.addressCountry},
+          "geo": {"@type": "GeoCoordinates", "latitude": NAP.geo.lat, "longitude": NAP.geo.lng},
           "areaServed": [{"@type": "Country", "name": "Malta"}],
           "priceRange": "€€€"
         })}</script>
@@ -321,7 +322,7 @@ export default function PageContent() {
               {/* Dual CTA */}
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a
-                  href="https://wa.me/35679711799?text=Hi%20OARC%2C%20I%27d%20like%20to%20explore%20solutions%20for%20my%20business"
+                  href={`https://wa.me/${NAP.whatsappNumber}?text=Hi%20OARC%2C%20I%27d%20like%20to%20explore%20solutions%20for%20my%20business`}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -334,7 +335,7 @@ export default function PageContent() {
                     Chat With Us
                   </Button>
                 </a>
-                <a href="tel:+35679711799">
+                <a href={`tel:${NAP.phoneE164}`}>
                   <Button
                     size="lg"
                     variant="outline"
@@ -342,7 +343,7 @@ export default function PageContent() {
                     data-testid="button-hero-call"
                   >
                     <Phone className="w-5 h-5" />
-                    +356 7971 1799
+                    {NAP.phoneDisplay}
                   </Button>
                 </a>
               </div>
@@ -738,7 +739,7 @@ export default function PageContent() {
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a
-                  href="https://wa.me/35679711799?text=Hi%20OARC%2C%20I%27d%20like%20to%20discuss%20solutions%20for%20my%20business"
+                  href={`https://wa.me/${NAP.whatsappNumber}?text=Hi%20OARC%2C%20I%27d%20like%20to%20discuss%20solutions%20for%20my%20business`}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -751,7 +752,7 @@ export default function PageContent() {
                     Start a Conversation
                   </Button>
                 </a>
-                <a href="tel:+35679711799">
+                <a href={`tel:${NAP.phoneE164}`}>
                   <Button
                     size="lg"
                     variant="outline"

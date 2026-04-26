@@ -1,24 +1,27 @@
 // Structured Data (JSON-LD) utilities for SEO
 
+import { NAP } from "@/lib/seo/nap";
+
 export const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "MarketingAgency",
-  "name": "OARC Digital",
+  "name": NAP.name,
   "description": "Malta's first Creative + AI Systems Agency. Social media management, video production, branding, web design, AI agents, and marketing automation for Malta businesses.",
   "url": "https://oarcdigital.com",
-  "telephone": "+35679711799",
-  "email": "hello@oarcdigital.com",
+  "telephone": NAP.phoneE164,
+  "email": NAP.email,
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "Level 1, The Brewhouse, Zone 2, Central Business District, Mdina Road",
-    "addressLocality": "Birkirkara",
-    "postalCode": "CBD 2010",
-    "addressCountry": "MT"
+    "streetAddress": NAP.streetAddress,
+    "addressLocality": NAP.addressLocality,
+    "addressRegion": NAP.addressRegion,
+    "postalCode": NAP.postalCode,
+    "addressCountry": NAP.addressCountry
   },
   "geo": {
     "@type": "GeoCoordinates",
-    "latitude": "35.8978",
-    "longitude": "14.4617"
+    "latitude": NAP.geo.lat,
+    "longitude": NAP.geo.lng
   },
   "openingHoursSpecification": [
     {
@@ -106,17 +109,17 @@ export const organizationSchema = {
   ],
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "Level 1, The Brewhouse, Zone 2, Central Business District, Mdina Road",
-    "addressLocality": "Birkirkara",
-    "addressRegion": "Birkirkara",
-    "postalCode": "CBD 2010",
-    "addressCountry": "MT"
+    "streetAddress": NAP.streetAddress,
+    "addressLocality": NAP.addressLocality,
+    "addressRegion": NAP.addressRegion,
+    "postalCode": NAP.postalCode,
+    "addressCountry": NAP.addressCountry
   },
   "contactPoint": {
     "@type": "ContactPoint",
-    "telephone": "+35679711799",
+    "telephone": NAP.phoneE164,
     "contactType": "Customer Service",
-    "email": "hello@oarcdigital.com",
+    "email": NAP.email,
     "areaServed": "Worldwide",
     "availableLanguage": ["English"]
   },

@@ -2,9 +2,10 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { SiInstagram, SiFacebook, SiX, SiLinkedin, SiWhatsapp } from "react-icons/si";
 import { servicesCatalog } from '@/config/servicesConfig';
+import { NAP } from "@/lib/seo/nap";
 import greenLogo from "@assets/image_1767660951950.png";
 
-const WHATSAPP_NUMBER = "35679711799";
+const WHATSAPP_NUMBER = NAP.whatsappNumber;
 const WHATSAPP_MESSAGE = "Hi, I'm interested in your services";
 const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
 
@@ -46,7 +47,7 @@ export default function Footer({ hideGetInTouch = false }: FooterProps) {
               </p>
             </div>
             
-            <a href="https://wa.me/35679711799" target="_blank" rel="noopener noreferrer">
+            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
               <button className="group relative px-10 py-5 bg-[#c4ff4d] hover:bg-[#b0e845] rounded-xl font-bold text-black text-lg shadow-2xl transition-all duration-300 hover:scale-105" data-testid="button-footer-cta">
                 <div className="relative flex items-center gap-3">
                   <SiWhatsapp className="w-6 h-6" />
@@ -183,10 +184,10 @@ export default function Footer({ hideGetInTouch = false }: FooterProps) {
             <address className="text-zinc-400 text-sm not-italic leading-relaxed">
               Level 1, The Brewhouse,<br />
               Zone 2, Central Business District,<br />
-              Mdina Road, Birkirkara CBD 2010, Malta
+              Mdina Road, {NAP.addressLocality} {NAP.postalCode}, Malta
             </address>
-            <a href="tel:+35679711799" className="text-zinc-500 hover:text-zinc-300 text-xs mt-2 inline-block transition-colors" data-testid="link-phone-malta">
-              +356 7971 1799
+            <a href={`tel:${NAP.phoneE164}`} className="text-zinc-500 hover:text-zinc-300 text-xs mt-2 inline-block transition-colors" data-testid="link-phone-malta">
+              {NAP.phoneDisplay}
             </a>
           </div>
 

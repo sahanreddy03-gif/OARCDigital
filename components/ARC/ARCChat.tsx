@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 import { ARCMessage } from './ARCMessage';
 import { ARCTypingIndicator } from './ARCTypingIndicator';
 import { getRandomGreeting, checkInstantResponse } from '@/lib/instantResponses';
+import { NAP } from "@/lib/seo/nap";
 
 interface Message {
   id: string;
@@ -21,7 +22,9 @@ interface ARCChatProps {
 
 type LeadStage = 'chat' | 'ask_name' | 'ask_contact' | 'captured';
 
-const MALTA_PHONE = '+35679711799';
+const MALTA_PHONE = NAP.phoneE164;
+const MALTA_PHONE_DISPLAY = NAP.phoneDisplay;
+const MALTA_EMAIL = NAP.email;
 
 const QUICK_ACTIONS = [
   {
@@ -170,7 +173,7 @@ export function ARCChat({ onClose, isMobile }: ARCChatProps) {
 
     setTimeout(() => {
       setIsTyping(false);
-      addArcMessage(`Perfect. You're on the list, ${leadName}.\n\n• **Sahan will reach out to you directly** — usually within a few hours\n• **In the meantime** — call anytime: +356 7971 1799\n• **Or email:** hello@oarcdigital.com\n\nAnything else you want me to answer right now?`);
+      addArcMessage(`Perfect. You're on the list, ${leadName}.\n\n• **Sahan will reach out to you directly** — usually within a few hours\n• **In the meantime** — call anytime: ${MALTA_PHONE_DISPLAY}\n• **Or email:** ${MALTA_EMAIL}\n\nAnything else you want me to answer right now?`);
     }, 800);
   };
 
@@ -242,7 +245,7 @@ export function ARCChat({ onClose, isMobile }: ARCChatProps) {
 
       const arcResponse: Message = {
         id: (Date.now() + 1).toString(),
-        content: data.response || 'Something went wrong. Try again, or email hello@oarcdigital.com',
+        content: data.response || `Something went wrong. Try again, or email ${MALTA_EMAIL}`,
         isUser: false
       };
       const updated = [...newMessages, arcResponse];
@@ -258,7 +261,7 @@ export function ARCChat({ onClose, isMobile }: ARCChatProps) {
 
 • **Most businesses** have the same core issues — wrong audience, inconsistent content, no follow-up system
 • **The right fix** depends on your specific situation
-• **Fastest path forward** — call Sahan: +356 7971 1799
+• **Fastest path forward** — call Sahan: ${MALTA_PHONE_DISPLAY}
 
 What industry are you in?`, showPricingCTA: false };
       addArcMessage(fallback.response);

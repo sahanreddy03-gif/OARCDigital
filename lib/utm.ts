@@ -7,8 +7,10 @@
 // caller is responsible for hiding the slot rather than rendering a broken
 // link.
 
-const WHATSAPP_NUMBER = "35679711799";
-const PHONE_E164 = "+35679711799";
+import { NAP } from "@/lib/seo/nap";
+
+const WHATSAPP_NUMBER = NAP.whatsappNumber;
+const PHONE_E164 = NAP.phoneE164;
 
 const DEFAULT_WHATSAPP_MESSAGE =
   "Hi OARC Digital, I'd like to talk about a project.";
@@ -52,5 +54,5 @@ export function calcomUrl(sourcePath: string): string | null {
 export const CONTACT = {
   phoneE164: PHONE_E164,
   whatsappNumber: WHATSAPP_NUMBER,
-  email: "hello@oarcdigital.com",
+  email: NAP.email,
 };
