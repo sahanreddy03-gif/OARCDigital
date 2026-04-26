@@ -32,7 +32,11 @@
  */
 
 const BASE = process.env.BASE ?? "http://localhost:5000";
-const MAX_DOMINANT_PCT = 90; // single-date threshold per sitemap
+// Per task #89 spec: ">50% of URLs sharing today's date" is the spam tell.
+// We FAIL only when the dominant date is today AND it covers >MAX_DOMINANT_PCT
+// of URLs. Historical bulk-commit days (e.g. 100% of /malta on 2026-04-25)
+// pass cleanly because the date is not today.
+const MAX_DOMINANT_PCT = 50;
 const MIN_URLS_FOR_AUDIT = 5;
 
 const TODAY_UTC = new Date().toISOString().slice(0, 10);
@@ -41,6 +45,7 @@ const TODAY_DATES = new Set([TODAY_UTC]);
 const MODE: "static" | "http" = process.argv.includes("--http") ? "http" : "static";
 
 const SITEMAPS = [
+  "sitemap.xml",            // index: must show varied dates across children
   "sitemap-core.xml",
   "sitemap-services.xml",
   "sitemap-malta.xml",
@@ -72,6 +77,7 @@ async function fetchSitemapHttp(name: string): Promise<string> {
 // Response so we can import handlers lazily and skip ones we don't need.
 type RouteGetter = () => Promise<Response>;
 const STATIC_GETTERS: Record<string, () => Promise<RouteGetter>> = {
+  "sitemap.xml": async () => (await import("../app/sitemap.xml/route")).GET,
   "sitemap-core.xml": async () => (await import("../app/sitemap-core.xml/route")).GET,
   "sitemap-services.xml": async () => (await import("../app/sitemap-services.xml/route")).GET,
   "sitemap-malta.xml": async () => (await import("../app/sitemap-malta.xml/route")).GET,

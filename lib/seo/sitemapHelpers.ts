@@ -1,5 +1,5 @@
 import { promises as fs } from "node:fs";
-import { execSync } from "node:child_process";
+import { execFileSync } from "node:child_process";
 import path from "node:path";
 
 export const SITE_BASE = "https://oarcdigital.com";
@@ -14,15 +14,6 @@ export const DEPLOY_BASELINE = "2026-04-26";
 
 const _gitDateCache = new Map<string, string>();
 
-function _shellEscape(s: string): string {
-  // Allow only safe path chars; if anything else slips in, refuse the call
-  // rather than risk shell injection.
-  if (!/^[A-Za-z0-9._/\-]+$/.test(s)) {
-    return "";
-  }
-  return s;
-}
-
 /**
  * Resolve a repo-relative file or directory path to its most recent
  * git-committed change date in YYYY-MM-DD format. Falls back to
@@ -32,24 +23,27 @@ function _shellEscape(s: string): string {
  * Build-time only — sitemap routes use `force-static` so this runs once
  * per build, never per request. Results are memoised in-process so a
  * sitemap with N URLs over K unique paths costs K git calls, not N.
+ *
+ * Uses `execFileSync` with array args so the path is passed directly to
+ * git without going through a shell — no shell metacharacter parsing,
+ * no injection surface, and Next.js dynamic-segment paths like
+ * `app/industries/[industry]/page.tsx` work without sanitisation.
  */
 export function lastmodForPath(repoRelativePath: string): string {
   const cached = _gitDateCache.get(repoRelativePath);
   if (cached) return cached;
   let date: string = DEPLOY_BASELINE;
-  const safe = _shellEscape(repoRelativePath);
-  if (safe) {
-    try {
-      const out = execSync(
-        `git log -1 --format=%cd --date=short -- ${safe}`,
-        { encoding: "utf8", stdio: ["ignore", "pipe", "ignore"], timeout: 5000 },
-      ).trim();
-      if (/^\d{4}-\d{2}-\d{2}$/.test(out)) {
-        date = out;
-      }
-    } catch {
-      // git unavailable, path missing, or timeout — fall back to baseline.
+  try {
+    const out = execFileSync(
+      "git",
+      ["log", "-1", "--format=%cd", "--date=short", "--", repoRelativePath],
+      { encoding: "utf8", stdio: ["ignore", "pipe", "ignore"], timeout: 5000 },
+    ).trim();
+    if (/^\d{4}-\d{2}-\d{2}$/.test(out)) {
+      date = out;
     }
+  } catch {
+    // git unavailable, path missing, or timeout — fall back to baseline.
   }
   _gitDateCache.set(repoRelativePath, date);
   return date;
