@@ -898,7 +898,7 @@ export default function SocialMediaCreativeManagement() {
             {/* Text Content - Full width on mobile, with room for target animation */}
             <div className="w-full text-left pr-[140px] sm:pr-40 md:pr-0">
               {/* Main Headline - Space Grotesk, clean and elegant */}
-              <motion.div 
+              <motion.h1
                 initial={fadeIn}
                 animate={fadeInVisible}
                 transition={prefersReducedMotion ? {} : { delay: 0.1, duration: 0.5 }}
@@ -926,7 +926,7 @@ export default function SocialMediaCreativeManagement() {
                 >
                   That Converts
                 </span>
-              </motion.div>
+              </motion.h1>
               
               {/* Small Tagline - Social Media Management */}
               <motion.p 
