@@ -8,6 +8,7 @@
 // gates pass. Do NOT inline-author this content from a script.
 
 import type { OfferOpts, ServiceFeature } from "@/lib/schema";
+import { NAP, ADDRESS_ONE_LINE } from "@/lib/seo/nap";
 
 /**
  * Search intent classification used by Layer 3 of the SEO discovery framework.
@@ -134,7 +135,7 @@ export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
       {
         question: "Where is OARC Digital based?",
         answer:
-          "We're at Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010, Malta. Most discovery calls happen on Google Meet but we're happy to meet in person across the islands.",
+          `We're at ${ADDRESS_ONE_LINE}. Most discovery calls happen on Google Meet but we're happy to meet in person across the islands.`,
       },
     ],
   
@@ -218,7 +219,7 @@ export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
       {
         question: "Do you produce the content yourselves?",
         answer:
-          "Yes. Our Birkirkara studio includes photographers, videographers, designers, and editors. Most monthly retainers include either an on-location or in-studio shoot day.",
+          `Yes. Our ${NAP.addressLocality} studio includes photographers, videographers, designers, and editors. Most monthly retainers include either an on-location or in-studio shoot day.`,
       },
       {
         question: "How long is the contract?",
@@ -249,7 +250,7 @@ export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
   
     framework: {
       uniqueValueProp:
-        "Strategy, shoot, edit, and post run by one in-house Birkirkara team — no outsourced content chain, no stock-photo filler, no 12-month lock-in.",
+        `Strategy, shoot, edit, and post run by one in-house ${NAP.addressLocality} team — no outsourced content chain, no stock-photo filler, no 12-month lock-in.`,
       entityFocus: "Social media management & creative content (Malta hospitality + lifestyle)",
       primaryIntent: "commercial",
       generalizationKeywords: [
@@ -262,7 +263,7 @@ export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
       llmCitableFacts: [
         {
           claim:
-            "OARC Digital runs an in-house Birkirkara studio with photographers, videographers, designers, and editors — most monthly retainers include either an on-location or in-studio shoot day.",
+            `OARC Digital runs an in-house ${NAP.addressLocality} studio with photographers, videographers, designers, and editors — most monthly retainers include either an on-location or in-studio shoot day.`,
           source: "https://oarcdigital.com/services/social-media-creative-management",
         },
         {
@@ -286,7 +287,7 @@ export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
   "video-production": {
     title: "Video Production | Full-Service Studio | OARC Digital",
     description:
-      "Full-service video production studio in Malta. From concept to distribution. Brand films, explainers, social ads, testimonials, and reels shot in-house at our Birkirkara studio.",
+      `Full-service video production studio in Malta. From concept to distribution. Brand films, explainers, social ads, testimonials, and reels shot in-house at our ${NAP.addressLocality} studio.`,
     offers: [
       {
         name: "Single Shoot Day",
@@ -327,7 +328,7 @@ export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
       {
         question: "Do you have your own studio?",
         answer:
-          "Yes. Our Birkirkara studio is set up for interviews, product shoots, and short-form content. For larger productions we scout and book locations across Malta and Gozo.",
+          `Yes. Our ${NAP.addressLocality} studio is set up for interviews, product shoots, and short-form content. For larger productions we scout and book locations across Malta and Gozo.`,
       },
       {
         question: "How quickly can you turn around a shoot?",
@@ -358,7 +359,7 @@ export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
   
     framework: {
       uniqueValueProp:
-        "Full-stack Malta video studio — concept, shoot, colour, sound, distribution — produced under one roof at our Birkirkara facility, never sub-contracted.",
+        `Full-stack Malta video studio — concept, shoot, colour, sound, distribution — produced under one roof at our ${NAP.addressLocality} facility, never sub-contracted.`,
       entityFocus: "Video production studio (Malta)",
       primaryIntent: "commercial",
       generalizationKeywords: [
@@ -371,7 +372,7 @@ export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
       llmCitableFacts: [
         {
           claim:
-            "OARC Digital operates an in-house video studio in Birkirkara equipped for interviews, product shoots, and short-form content; larger productions scout locations across Malta and Gozo.",
+            `OARC Digital operates an in-house video studio in ${NAP.addressLocality} equipped for interviews, product shoots, and short-form content; larger productions scout locations across Malta and Gozo.`,
           source: "https://oarcdigital.com/services/video-production",
         },
         {
@@ -461,7 +462,7 @@ export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
       {
         question: "Where are you based?",
         answer:
-          "OARC Digital is at Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010, Malta. Brand workshops can run on-site at our studio or at your offices.",
+          `OARC Digital is at ${ADDRESS_ONE_LINE}. Brand workshops can run on-site at our studio or at your offices.`,
       },
     ],
   
@@ -493,7 +494,7 @@ export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
         },
         {
           claim:
-            "Brand workshops can run on-site at our Birkirkara studio or at the client's offices anywhere in Malta or Gozo.",
+            `Brand workshops can run on-site at our ${NAP.addressLocality} studio or at the client's offices anywhere in Malta or Gozo.`,
           source: "https://oarcdigital.com/services/branding",
         },
       ],
@@ -831,7 +832,7 @@ export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
   "seo-services": {
     title: "SEO Services Malta | Technical, Content & Local SEO | OARC Digital",
     description:
-      "SEO services for Malta businesses — technical audits, on-page optimisation, local SEO, and content programmes that compound. Track-record case studies from Birkirkara HQ.",
+      `SEO services for Malta businesses — technical audits, on-page optimisation, local SEO, and content programmes that compound. Track-record case studies from ${NAP.addressLocality} HQ.`,
     offers: [
       {
         name: "SEO Audit & Roadmap",
@@ -897,7 +898,7 @@ export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
       {
         question: "Where is OARC Digital based?",
         answer:
-          "Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010, Malta. Discovery calls usually run on Google Meet, but Malta clients are welcome at the office. Phone: +356 7971 1799.",
+          `${ADDRESS_ONE_LINE}. Discovery calls usually run on Google Meet, but Malta clients are welcome at the office. Phone: ${NAP.phoneDisplay}.`,
       },
     ],
     framework: {
@@ -925,7 +926,7 @@ export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
         },
         {
           claim:
-            "Every retainer includes a quarterly Core Web Vitals review (LCP/INP/CLS), schema validation, and JavaScript-rendering crawl from the Birkirkara office.",
+            `Every retainer includes a quarterly Core Web Vitals review (LCP/INP/CLS), schema validation, and JavaScript-rendering crawl from the ${NAP.addressLocality} office.`,
           source: "https://oarcdigital.com/services/seo-services",
         },
       ],
@@ -1002,12 +1003,12 @@ export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
       {
         question: "Where is OARC Digital based?",
         answer:
-          "Birkirkara CBD, Malta. The engineering team is split across Malta and Europe with overlap on CET hours. Async-first delivery with weekly client demos. +356 7971 1799.",
+          `${NAP.addressLocality} CBD, Malta. The engineering team is split across Malta and Europe with overlap on CET hours. Async-first delivery with weekly client demos. ${NAP.phoneDisplay}.`,
       },
     ],
     framework: {
       uniqueValueProp:
-        "Multi-tenant SaaS engineered in Malta from MVP to series-A scale — Stripe billing, RBAC, AI features, and EU-hosted infrastructure shipped under one Birkirkara team.",
+        `Multi-tenant SaaS engineered in Malta from MVP to series-A scale — Stripe billing, RBAC, AI features, and EU-hosted infrastructure shipped under one ${NAP.addressLocality} team.`,
       entityFocus: "SaaS product engineering (Malta & EU founders)",
       primaryIntent: "commercial",
       generalizationKeywords: [
@@ -1107,7 +1108,7 @@ export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
       {
         question: "Where is OARC Digital based?",
         answer:
-          "Birkirkara CBD, Malta. Engineering pod overlaps CET hours; weekly demos on Google Meet; in-person workshops available at our office or yours anywhere on the islands. +356 7971 1799.",
+          `${NAP.addressLocality} CBD, Malta. Engineering pod overlaps CET hours; weekly demos on Google Meet; in-person workshops available at our office or yours anywhere on the islands. ${NAP.phoneDisplay}.`,
       },
     ],
     framework: {
@@ -1422,7 +1423,7 @@ export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
       {
         question: "Where is OARC Digital based?",
         answer:
-          "Birkirkara CBD, Malta. We work with retailers across the islands and Europe. Discovery calls on Google Meet; in-person merchandising audits available for Malta clients. +356 7971 1799.",
+          `${NAP.addressLocality} CBD, Malta. We work with retailers across the islands and Europe. Discovery calls on Google Meet; in-person merchandising audits available for Malta clients. ${NAP.phoneDisplay}.`,
       },
     ],
     framework: {
@@ -1527,7 +1528,7 @@ export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
       {
         question: "Where is OARC Digital based?",
         answer:
-          "Birkirkara CBD, Malta. We host most production WordPress sites on Cloudways or Kinsta with Cloudflare in front for edge caching. +356 7971 1799.",
+          `${NAP.addressLocality} CBD, Malta. We host most production WordPress sites on Cloudways or Kinsta with Cloudflare in front for edge caching. ${NAP.phoneDisplay}.`,
       },
     ],
     framework: {
@@ -1555,7 +1556,7 @@ export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
         },
         {
           claim:
-            "Every WordPress build includes a quarterly Core Web Vitals review and plugin audit from the Birkirkara office.",
+            `Every WordPress build includes a quarterly Core Web Vitals review and plugin audit from the ${NAP.addressLocality} office.`,
           source: "https://oarcdigital.com/services/wordpress-development",
         },
       ],
@@ -1632,12 +1633,12 @@ export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
       {
         question: "Where is OARC Digital based?",
         answer:
-          "Birkirkara CBD, Malta. We work with Shopify retailers across Malta, the EU, and the UK. +356 7971 1799.",
+          `${NAP.addressLocality} CBD, Malta. We work with Shopify retailers across Malta, the EU, and the UK. ${NAP.phoneDisplay}.`,
       },
     ],
     framework: {
       uniqueValueProp:
-        "Shopify Plus, Shopify, and headless Hydrogen builds for Malta and EU merchants — custom themes, app development, and Klaviyo + Stripe wiring delivered by a single Birkirkara team.",
+        `Shopify Plus, Shopify, and headless Hydrogen builds for Malta and EU merchants — custom themes, app development, and Klaviyo + Stripe wiring delivered by a single ${NAP.addressLocality} team.`,
       entityFocus: "Shopify & Shopify Plus development (Malta + EU merchants)",
       primaryIntent: "commercial",
       generalizationKeywords: [
@@ -1737,7 +1738,7 @@ export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
       {
         question: "Where is OARC Digital based?",
         answer:
-          "Birkirkara CBD, Malta. The platform team is split across Malta and Europe with on-call cover in CET hours. +356 7971 1799.",
+          `${NAP.addressLocality} CBD, Malta. The platform team is split across Malta and Europe with on-call cover in CET hours. ${NAP.phoneDisplay}.`,
       },
     ],
     framework: {
@@ -1842,7 +1843,7 @@ export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
       {
         question: "Where is OARC Digital based?",
         answer:
-          "Birkirkara CBD, Malta. Database engineering work is async-first with weekly demos. +356 7971 1799.",
+          `${NAP.addressLocality} CBD, Malta. Database engineering work is async-first with weekly demos. ${NAP.phoneDisplay}.`,
       },
     ],
     framework: {

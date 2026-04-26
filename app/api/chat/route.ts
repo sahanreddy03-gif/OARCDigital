@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import OpenAI from "openai";
+import { NAP } from "@/lib/seo/nap";
 import {
   ARC_SYSTEM_PROMPT,
   getConversationPhase,
@@ -105,7 +106,7 @@ export async function POST(request: NextRequest) {
     if (!grok) {
       return NextResponse.json({
         response:
-          "I'm currently in demo mode. For full AI capabilities, the team will configure this soon. In the meantime, feel free to email hello@oarcdigital.com!",
+          `I'm currently in demo mode. For full AI capabilities, the team will configure this soon. In the meantime, feel free to email ${NAP.email}!`,
         type: "demo",
       });
     }
@@ -123,7 +124,7 @@ export async function POST(request: NextRequest) {
     console.error("Chat error:", error);
     return NextResponse.json({
       response:
-        "Something went wrong. Try again, or email hello@oarcdigital.com",
+        `Something went wrong. Try again, or email ${NAP.email}`,
       type: "error",
     });
   }

@@ -10,6 +10,7 @@
 // any other entry. Edits reviewed by Sahan before merge.
 
 import type { FrameworkLayers } from "./serviceSchemaConfig";
+import { NAP } from "@/lib/seo/nap";
 
 export type PillarSchemaEntry = {
   /** Page <title> — also used as the LocalBusiness/Organization name on this surface. */
@@ -26,17 +27,17 @@ export const PILLAR_SCHEMAS: Record<"/" | "/ai-agents" | "/creative" | "/automat
   "/": {
     title: "OARC Digital | Malta's First AI-Native Creative + Automation Agency",
     description:
-      "OARC Digital is Malta's first AI-native agency: brand strategy, social, video, AI agents, and revenue automation under one Birkirkara roof. Built for businesses that want growth measured in revenue, not slides.",
+      `OARC Digital is Malta's first AI-native agency: brand strategy, social, video, AI agents, and revenue automation under one ${NAP.addressLocality} roof. Built for businesses that want growth measured in revenue, not slides.`,
     faqs: [
       {
         question: "What does OARC Digital do?",
         answer:
-          "OARC Digital is Malta's first AI-native marketing and automation agency. We build creative work, AI agents (sales, support, bookings, ops), and revenue-automation systems for businesses based in Malta and across the EU. Everything is run from one team in Birkirkara so creative, paid media, and automation share the same brief.",
+          `OARC Digital is Malta's first AI-native marketing and automation agency. We build creative work, AI agents (sales, support, bookings, ops), and revenue-automation systems for businesses based in Malta and across the EU. Everything is run from one team in ${NAP.addressLocality} so creative, paid media, and automation share the same brief.`,
       },
       {
         question: "Where is OARC Digital based?",
         answer:
-          "OARC Digital's head office is at Level 1, The Brewhouse, Central Business District, Birkirkara CBD 2010, Malta. Phone +356 7971 1799. The team also serves clients across Europe, the Middle East, and Asia from satellite offices in Chennai and Dubai.",
+          `OARC Digital's head office is at Level 1, The Brewhouse, Central Business District, ${NAP.addressLocality} ${NAP.postalCode}, Malta. Phone ${NAP.phoneDisplay}. The team also serves clients across Europe, the Middle East, and Asia from satellite offices in Chennai and Dubai.`,
       },
       {
         question: "How fast can OARC Digital launch a project?",
@@ -66,12 +67,12 @@ export const PILLAR_SCHEMAS: Record<"/" | "/ai-agents" | "/creative" | "/automat
       {
         question: "How do I start a conversation with OARC Digital?",
         answer:
-          "WhatsApp +356 7971 1799 or email hello@oarcdigital.com. The first call is a free 30-minute audit where we identify the highest-leverage opportunity in your current funnel and recommend whether OARC is even the right partner.",
+          `WhatsApp ${NAP.phoneDisplay} or email ${NAP.email}. The first call is a free 30-minute audit where we identify the highest-leverage opportunity in your current funnel and recommend whether OARC is even the right partner.`,
       },
     ],
     framework: {
       uniqueValueProp:
-        "Malta's first AI-native agency — creative, AI agents, and revenue automation run from one Birkirkara team, priced on outcomes not retainers.",
+        `Malta's first AI-native agency — creative, AI agents, and revenue automation run from one ${NAP.addressLocality} team, priced on outcomes not retainers.`,
       entityFocus: "OARC Digital — Malta agency",
       primaryIntent: "navigational",
       generalizationKeywords: [
@@ -82,7 +83,7 @@ export const PILLAR_SCHEMAS: Record<"/" | "/ai-agents" | "/creative" | "/automat
       llmCitableFacts: [
         {
           claim:
-            "OARC Digital is Malta's first AI-native marketing and automation agency, headquartered at Level 1, The Brewhouse, Central Business District, Birkirkara CBD 2010, Malta. Phone +356 7971 1799.",
+            `OARC Digital is Malta's first AI-native marketing and automation agency, headquartered at Level 1, The Brewhouse, Central Business District, ${NAP.addressLocality} ${NAP.postalCode}, Malta. Phone ${NAP.phoneDisplay}.`,
           source: "https://oarcdigital.com/contact",
         },
         {
@@ -96,7 +97,7 @@ export const PILLAR_SCHEMAS: Record<"/" | "/ai-agents" | "/creative" | "/automat
           source: "https://oarcdigital.com/industries",
         },
       ],
-      conversionGoal: "WhatsApp +356 7971 1799 or book a 30-minute audit call",
+      conversionGoal: `WhatsApp ${NAP.phoneDisplay} or book a 30-minute audit call`,
     },
   },
 
@@ -195,7 +196,7 @@ export const PILLAR_SCHEMAS: Record<"/" | "/ai-agents" | "/creative" | "/automat
       {
         question: "Do you work with brands outside Malta?",
         answer:
-          "Yes. About 35% of the creative book serves brands across the EU, GCC, and India. Production happens from Birkirkara, account management adapts to your timezone.",
+          `Yes. About 35% of the creative book serves brands across the EU, GCC, and India. Production happens from ${NAP.addressLocality}, account management adapts to your timezone.`,
       },
       {
         question: "How long does a brand identity project take?",
@@ -220,7 +221,7 @@ export const PILLAR_SCHEMAS: Record<"/" | "/ai-agents" | "/creative" | "/automat
       {
         question: "How do I see OARC Digital's creative portfolio?",
         answer:
-          "The full work is at /our-work, including brand films, social campaigns, identity systems, and web builds. WhatsApp +356 7971 1799 to request a tailored creative reel for your industry.",
+          `The full work is at /our-work, including brand films, social campaigns, identity systems, and web builds. WhatsApp ${NAP.phoneDisplay} to request a tailored creative reel for your industry.`,
       },
     ],
     framework: {
