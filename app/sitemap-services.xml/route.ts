@@ -5,13 +5,20 @@ import {
   urlsetXml,
   xmlResponse,
   listRouteSlugs,
+  type UrlEntry,
 } from "@/lib/seo/sitemapHelpers";
 import { REDIRECTING_SERVICE_SLUGS, NOINDEX_SERVICE_SLUGS } from "@/lib/seo/seoSets";
 
 export const dynamic = "force-static";
 export const revalidate = false;
 
-export async function GET() {
+/**
+ * Source of truth for the URL entries this sitemap emits. Imported by
+ * `lib/seo/sitemapSources.ts` so the index `lastmod` for /sitemap-services.xml
+ * is computed as `max(entry.lastmod)` from the same data the GET handler
+ * serves — index honesty is enforced by construction.
+ */
+export async function buildEntries(): Promise<UrlEntry[]> {
   const fsSlugs = await listRouteSlugs("app/services");
   const set = new Set<string>([...allServiceSlugs, ...fsSlugs]);
   // Drop slugs that the middleware permanently redirects away — they
@@ -20,7 +27,7 @@ export async function GET() {
   // Drop invented service slugs flagged by Task #83 — pages carry
   // robots: noindex,nofollow and must not appear in the sitemap.
   for (const slug of NOINDEX_SERVICE_SLUGS) set.delete(slug);
-  const entries = Array.from(set)
+  return Array.from(set)
     .sort()
     .map((slug) => ({
       loc: `${SITE_BASE}/services/${slug}`,
@@ -28,5 +35,8 @@ export async function GET() {
       changefreq: "weekly" as const,
       priority: 0.8,
     }));
-  return xmlResponse(urlsetXml(entries));
+}
+
+export async function GET() {
+  return xmlResponse(urlsetXml(await buildEntries()));
 }

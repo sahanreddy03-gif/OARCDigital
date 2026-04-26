@@ -64,12 +64,22 @@ function dateFor(c: CoreEntry): string {
   return date || DEPLOY_BASELINE;
 }
 
-export async function GET() {
-  const entries: UrlEntry[] = CORE.map((c) => ({
+/**
+ * Source of truth for the URL entries this sitemap emits. Imported by
+ * `lib/seo/sitemapSources.ts` so the index `lastmod` for /sitemap-core.xml
+ * is computed as `max(entry.lastmod)` from the same data the GET handler
+ * serves — index honesty is enforced by construction, not by a SUPERSET
+ * heuristic.
+ */
+export function buildEntries(): UrlEntry[] {
+  return CORE.map((c) => ({
     loc: `${SITE_BASE}${c.path}`,
     lastmod: dateFor(c),
     changefreq: c.changefreq,
     priority: c.priority,
   }));
-  return xmlResponse(urlsetXml(entries));
+}
+
+export async function GET() {
+  return xmlResponse(urlsetXml(buildEntries()));
 }

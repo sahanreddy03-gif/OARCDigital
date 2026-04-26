@@ -1,70 +1,64 @@
 /**
- * Per-sitemap source-path declarations. Each child sitemap declares which
- * repo-relative paths represent the source-of-truth for the URLs it lists,
- * so the index sitemap can compute an honest `lastmod` per child as the
- * max date across those paths.
+ * Index ↔ children parity: by construction.
  *
- * Used by `app/sitemap.xml/route.ts`. Per-URL `lastmod` inside each child
- * sitemap is computed from the URL's own source path (e.g. for
- * `/services/seo-services` the source is `app/services/seo-services`).
+ * Each child sitemap route exports a `buildEntries()` function that returns
+ * the exact `UrlEntry[]` it serves. `getSitemapLastmod(name)` calls that
+ * same function and returns `max(entry.lastmod)` over the result. The index
+ * `lastmod` for a child therefore CANNOT diverge from the true max of the
+ * URLs that child emits — there is no SUPERSET heuristic, no second source
+ * of truth, no manually-maintained path map to drift.
  *
- * For `sitemap-core.xml` we derive sources from the actual `CORE` array in
- * the route file rather than hard-coding paths here, so changes to the
- * core URL list automatically flow into the index `lastmod` calculation
- * without a separate edit.
+ * The image-sitemap is structurally different (one URL with `image:image`
+ * children) so it exposes a `buildLastmod()` function instead and we read
+ * that single date directly.
+ *
+ * All sitemap routes are `force-static`, so this runs once per build, not
+ * per request.
  */
 
-import { lastmodForPath, lastmodForPaths } from "./sitemapHelpers";
-import { CORE, coreSourcePath } from "@/app/sitemap-core.xml/route";
+import type { UrlEntry } from "./sitemapHelpers";
+import { DEPLOY_BASELINE } from "./sitemapHelpers";
 
-// Source paths MUST be a SUPERSET of every path the corresponding child
-// sitemap route uses for its per-URL `lastmod` calls. This guarantees that
-// `getSitemapLastmod(name)` returns the maximum date present in the child,
-// so the index `lastmod` is honest (== max(children)).
-const STATIC_SITEMAP_SOURCES: Record<string, string[]> = {
-  "sitemap-services.xml": [
-    "app/services",
-    "shared/seoConfig.ts",
-    "lib/seo/seoSets.ts",
-  ],
-  // Mirrors `MALTA_SOURCES` in app/sitemap-malta.xml/route.ts.
-  "sitemap-malta.xml": [
-    "shared/seoConfig.ts",
-    "lib/seo/locationData.ts",
-    "app/malta",
-  ],
-  "sitemap-aeo.xml": ["app/aeo"],
-  "sitemap-blog.xml": ["app/blog"],
-  "sitemap-case-studies.xml": ["app/case-studies"],
-  // Mirrors what app/sitemap-industries.xml/route.ts dates from: the
-  // listing page, the dynamic [industry] template, and the slug data.
-  "sitemap-industries.xml": [
-    "app/industries/page.tsx",
-    "app/industries/[industry]/page.tsx",
-    "shared/seoConfig.ts",
-  ],
-  "image-sitemap.xml": [
-    "public/assets",
-    "public/agents",
-    "public/media",
-    "public/static",
-  ],
+type EntriesBuilder = () => Promise<UrlEntry[]> | UrlEntry[];
+
+/**
+ * Lazy loaders for each child sitemap's `buildEntries()` export. Lazy so
+ * importing this module doesn't pull every sitemap route's transitive
+ * deps into the build graph eagerly.
+ */
+const ENTRIES_BUILDERS: Record<string, () => Promise<EntriesBuilder>> = {
+  "sitemap-core.xml": async () =>
+    (await import("@/app/sitemap-core.xml/route")).buildEntries,
+  "sitemap-services.xml": async () =>
+    (await import("@/app/sitemap-services.xml/route")).buildEntries,
+  "sitemap-malta.xml": async () =>
+    (await import("@/app/sitemap-malta.xml/route")).buildEntries,
+  "sitemap-industries.xml": async () =>
+    (await import("@/app/sitemap-industries.xml/route")).buildEntries,
+  "sitemap-case-studies.xml": async () =>
+    (await import("@/app/sitemap-case-studies.xml/route")).buildEntries,
+  "sitemap-aeo.xml": async () =>
+    (await import("@/app/sitemap-aeo.xml/route")).buildEntries,
+  "sitemap-blog.xml": async () =>
+    (await import("@/app/sitemap-blog.xml/route")).buildEntries,
 };
 
-function coreSourcePaths(): string[] {
-  return CORE.map((c) => coreSourcePath(c));
-}
-
-export function getSitemapLastmod(name: string): string {
-  if (name === "sitemap-core.xml") {
-    return lastmodForPaths(coreSourcePaths());
+function maxLastmod(entries: UrlEntry[]): string {
+  let max = "";
+  for (const e of entries) {
+    if (e.lastmod && e.lastmod > max) max = e.lastmod;
   }
-  const paths = STATIC_SITEMAP_SOURCES[name];
-  if (!paths) return lastmodForPath(`app/${name}/route.ts`);
-  return lastmodForPaths(paths);
+  return max || DEPLOY_BASELINE;
 }
 
-export const SITEMAP_SOURCES: Record<string, string[] | (() => string[])> = {
-  "sitemap-core.xml": coreSourcePaths,
-  ...STATIC_SITEMAP_SOURCES,
-};
+export async function getSitemapLastmod(name: string): Promise<string> {
+  if (name === "image-sitemap.xml") {
+    const { buildLastmod } = await import("@/app/image-sitemap.xml/route");
+    return buildLastmod() || DEPLOY_BASELINE;
+  }
+  const loader = ENTRIES_BUILDERS[name];
+  if (!loader) return DEPLOY_BASELINE;
+  const buildEntries = await loader();
+  const entries = await buildEntries();
+  return maxLastmod(entries);
+}

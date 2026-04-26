@@ -19,7 +19,13 @@ const MALTA_SOURCES = [
   "app/malta",
 ];
 
-export async function GET() {
+/**
+ * Source of truth for the URL entries this sitemap emits. See
+ * `lib/seo/sitemapSources.ts` — the index `lastmod` is derived from
+ * `max(entry.lastmod)` across these entries (which all share one date
+ * here, since the Malta grid is programmatic from one data surface).
+ */
+export function buildEntries(): UrlEntry[] {
   // Compute one date for the whole Malta grid — these URLs are programmatic
   // and share a single content surface, so a single derived `lastmod` is
   // honest. (Any edit to the data file or routes bumps the date.)
@@ -56,5 +62,9 @@ export async function GET() {
     }
   }
 
-  return xmlResponse(urlsetXml(entries));
+  return entries;
+}
+
+export async function GET() {
+  return xmlResponse(urlsetXml(buildEntries()));
 }

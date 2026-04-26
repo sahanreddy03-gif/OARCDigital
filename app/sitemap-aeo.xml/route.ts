@@ -4,18 +4,27 @@ import {
   urlsetXml,
   xmlResponse,
   listRouteSlugs,
+  type UrlEntry,
 } from "@/lib/seo/sitemapHelpers";
 
 export const dynamic = "force-static";
 export const revalidate = false;
 
-export async function GET() {
+/**
+ * Source of truth for the URL entries this sitemap emits. See
+ * `lib/seo/sitemapSources.ts` — the index `lastmod` is derived from
+ * `max(entry.lastmod)` across these entries.
+ */
+export async function buildEntries(): Promise<UrlEntry[]> {
   const slugs = await listRouteSlugs("app/aeo");
-  const entries = slugs.map((slug) => ({
+  return slugs.map((slug) => ({
     loc: `${SITE_BASE}/aeo/${slug}`,
     lastmod: lastmodForPath(`app/aeo/${slug}`),
     changefreq: "monthly" as const,
     priority: 0.85,
   }));
-  return xmlResponse(urlsetXml(entries));
+}
+
+export async function GET() {
+  return xmlResponse(urlsetXml(await buildEntries()));
 }

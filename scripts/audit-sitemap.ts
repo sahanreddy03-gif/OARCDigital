@@ -137,14 +137,112 @@ function audit(name: string, lastmods: string[]): Result {
   };
 }
 
+/**
+ * Index ↔ children parity audit.
+ *
+ * Architecturally this can't drift — `getSitemapLastmod()` calls each
+ * child's exact `buildEntries()` and returns max(entry.lastmod), so the
+ * index date IS the children's max by construction. This regression test
+ * exists anyway as a guard-rail: if a future refactor splits the data
+ * source between index and child (the exact bug class architect rejected
+ * the previous round on), parity will still be checked at CI time.
+ *
+ * Reads the index sitemap.xml's <sitemap><loc>…</loc><lastmod>…</lastmod>
+ * pairs, parses each child's actual <lastmod> values, and asserts:
+ *   index_lastmod_for(child) === max(child.urls[].lastmod)
+ */
+function extractIndexEntries(xml: string): { name: string; lastmod: string }[] {
+  const entries: { name: string; lastmod: string }[] = [];
+  const blocks = xml.matchAll(/<sitemap>([\s\S]*?)<\/sitemap>/g);
+  for (const b of blocks) {
+    const inner = b[1];
+    const loc = /<loc>([^<]+)<\/loc>/.exec(inner)?.[1]?.trim() ?? "";
+    const lm = /<lastmod>([^<]+)<\/lastmod>/.exec(inner)?.[1]?.trim().slice(0, 10) ?? "";
+    if (loc && lm) {
+      const name = loc.split("/").pop() ?? loc;
+      entries.push({ name, lastmod: lm });
+    }
+  }
+  return entries;
+}
+
+interface ParityResult {
+  child: string;
+  indexLastmod: string;
+  childMaxLastmod: string;
+  status: "PASS" | "FAIL" | "SKIP";
+  reason?: string;
+}
+
+async function auditIndexParity(
+  fetchSitemap: (name: string) => Promise<string>,
+): Promise<ParityResult[]> {
+  let indexXml: string;
+  try {
+    indexXml = await fetchSitemap("sitemap.xml");
+  } catch (e) {
+    const err = e instanceof Error ? e.message : String(e);
+    return [
+      {
+        child: "(index)",
+        indexLastmod: "",
+        childMaxLastmod: "",
+        status: "FAIL",
+        reason: `failed to load sitemap.xml: ${err}`,
+      },
+    ];
+  }
+  const indexEntries = extractIndexEntries(indexXml);
+  const results: ParityResult[] = [];
+  for (const { name, lastmod: indexLm } of indexEntries) {
+    try {
+      const childXml = await fetchSitemap(name);
+      const childLms = extractLastmods(childXml);
+      if (childLms.length === 0) {
+        results.push({
+          child: name,
+          indexLastmod: indexLm,
+          childMaxLastmod: "",
+          status: "SKIP",
+          reason: "child has no <lastmod> tags",
+        });
+        continue;
+      }
+      const childMax = childLms.reduce((m, d) => (d > m ? d : m), "");
+      const ok = indexLm === childMax;
+      results.push({
+        child: name,
+        indexLastmod: indexLm,
+        childMaxLastmod: childMax,
+        status: ok ? "PASS" : "FAIL",
+        reason: ok
+          ? undefined
+          : `index says ${indexLm}, child max is ${childMax} — drift detected`,
+      });
+    } catch (e) {
+      const err = e instanceof Error ? e.message : String(e);
+      results.push({
+        child: name,
+        indexLastmod: indexLm,
+        childMaxLastmod: "",
+        status: "FAIL",
+        reason: `failed to load child: ${err}`,
+      });
+    }
+  }
+  return results;
+}
+
 async function main() {
   const tag = MODE === "http" ? `mode=http BASE=${BASE}` : "mode=static";
   console.log(`audit-sitemap: ${tag} threshold=${MAX_DOMINANT_PCT}%`);
 
+  const fetchSitemap = MODE === "http" ? fetchSitemapHttp : fetchSitemapStatic;
+
   const results: Result[] = [];
   for (const name of SITEMAPS) {
     try {
-      const xml = MODE === "http" ? await fetchSitemapHttp(name) : await fetchSitemapStatic(name);
+      const xml = await fetchSitemap(name);
       const lastmods = extractLastmods(xml);
       results.push(audit(name, lastmods));
     } catch (e) {
@@ -166,9 +264,31 @@ async function main() {
     if (r.status === "FAIL") failed++;
   }
 
-  console.log(`\naudit-sitemap: ${results.length - failed}/${results.length} sitemaps clean`);
-  if (failed > 0) {
-    console.error(`audit-sitemap: ${failed} sitemap(s) failed — over-clustered lastmod values detected`);
+  console.log(`\naudit-sitemap: ${results.length - failed}/${results.length} sitemaps clean (TODAY-regression check)`);
+
+  console.log(`\naudit-sitemap: index ↔ children parity check`);
+  const parity = await auditIndexParity(fetchSitemap);
+  let parityFailed = 0;
+  for (const p of parity) {
+    const label = p.status === "PASS" ? "  PASS" : p.status === "SKIP" ? "  SKIP" : "  FAIL";
+    const detail =
+      p.status === "SKIP"
+        ? p.reason ?? ""
+        : p.status === "PASS"
+        ? `index=${p.indexLastmod} == max(child)=${p.childMaxLastmod}`
+        : p.reason ?? "";
+    console.log(`${label}  ${p.child.padEnd(28)} ${detail}`);
+    if (p.status === "FAIL") parityFailed++;
+  }
+  console.log(
+    `\naudit-sitemap: ${parity.length - parityFailed}/${parity.length} children agree with index (parity)`,
+  );
+
+  const total = failed + parityFailed;
+  if (total > 0) {
+    console.error(
+      `audit-sitemap: ${failed} TODAY-regression failure(s), ${parityFailed} parity failure(s)`,
+    );
     process.exit(1);
   }
 }
