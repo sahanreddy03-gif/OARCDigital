@@ -152,7 +152,7 @@ export default function EcommerceDevelopmentContent() {
           </section>
           <section className="mb-12">
             <h2 className="text-2xl md:text-3xl font-bold mb-6">Visit OARC Digital</h2>
-            <TrustBlock slug="ecommerce-development" />
+            <TrustBlock variant="visit" />
           </section>
           <RelatedLinks slug="/services/ecommerce-development" />
           <div className="bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl p-8 text-white text-center">

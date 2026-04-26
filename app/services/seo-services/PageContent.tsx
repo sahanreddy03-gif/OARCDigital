@@ -167,7 +167,7 @@ export default function SeoServicesContent() {
 
           <section className="mb-12">
             <h2 className="text-2xl md:text-3xl font-bold mb-6">Visit OARC Digital</h2>
-            <TrustBlock slug="seo-services" />
+            <TrustBlock variant="visit" />
           </section>
 
           <RelatedLinks slug="/services/seo-services" />

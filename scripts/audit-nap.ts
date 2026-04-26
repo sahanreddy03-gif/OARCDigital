@@ -20,7 +20,8 @@
  *
  * Exits non-zero if any URL fails so the gate gate:full breaks loudly.
  */
-import { NAP, PERMITTED_NAP_LOCALITIES } from "../lib/seo/nap";
+import { NAP } from "../lib/seo/nap";
+import { PERMITTED_NAP_LOCALITIES } from "../lib/seo/permittedLocalities";
 import {
   extractJsonLd,
   flattenJsonLdEntities,

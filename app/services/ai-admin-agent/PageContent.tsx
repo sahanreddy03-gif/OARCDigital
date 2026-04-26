@@ -1,3 +1,5 @@
+import TrustBlock from "@/components/seo/TrustBlock";
+
 export default function PageContent() {
     return (
       <section className="py-16 md:py-24 bg-background border-t">
@@ -54,6 +56,10 @@ export default function PageContent() {
           <p className="text-base md:text-lg text-foreground/80 leading-relaxed mb-4">
               If you are evaluating multiple admin / EA tooling options — Lindy, Relevance AI, Cassidy, MS Copilot — the practical difference is that OARC ships and operates the agent for you, in EU regions, with humans who answer the phone in Malta time zone when something needs tuning. The product is the managed service, not the model.
             </p>
+          </div>
+
+        <div className="mt-12">
+            <TrustBlock variant="visit" />
           </div>
         </div>
       </section>

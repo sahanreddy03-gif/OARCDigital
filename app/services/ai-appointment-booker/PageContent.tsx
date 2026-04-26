@@ -1,3 +1,5 @@
+import TrustBlock from "@/components/seo/TrustBlock";
+
 export default function PageContent() {
     return (
       <section className="py-16 md:py-24 bg-background border-t">
@@ -54,6 +56,10 @@ export default function PageContent() {
           <p className="text-base md:text-lg text-foreground/80 leading-relaxed mb-4">
               If you are comparing against ChatGPT-style 'all-purpose' bots or platform-locked options like Calendly's AI scheduler, the OARC pitch is operational rather than feature-led: we run the agent, tune the script weekly, monitor deliverability on WhatsApp and SMS, and answer the phone in CET hours when something breaks. The agent is a software product; the value is the managed service.
             </p>
+          </div>
+
+        <div className="mt-12">
+            <TrustBlock variant="visit" />
           </div>
         </div>
       </section>
