@@ -138,5 +138,5 @@
       ]
     }
   ],
-  "buildCommand": "npm run gate && next build"
+  "buildCommand": "npm run gate:full && next build"
 }

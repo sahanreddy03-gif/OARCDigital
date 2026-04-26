@@ -22,6 +22,14 @@ import { SERVICE_ALIASES } from "../lib/seo/seoSets";
 
 const BASE = process.env.BASE ?? "http://localhost:5000";
 
+// `--static` skips the HTTP smoke test and runs only the structural checks
+// that the build-time gate cares about: every redirect target points at a
+// real `app/services/<slug>/` directory AND every entry in the redirect
+// maps is well-formed (no empty/relative/duplicated keys). This is what
+// the Vercel build runs; the HTTP variant runs in `gate:full` against the
+// dev server.
+const STATIC_ONLY = process.argv.includes("--static");
+
 // Build-time check that previously lived in `lib/seo/redirectMap.ts` — moved
 // here because middleware (which imports redirectMap) compiles to the Edge
 // Runtime and Edge forbids `node:fs`. Every service-alias destination must
@@ -87,8 +95,44 @@ async function checkOne(from: string, expectedPath: string): Promise<Row> {
   }
 }
 
+function verifyRedirectMapsStructurallyOrExit(): void {
+  // Catches: empty keys, keys/values that don't start with "/", duplicated
+  // keys across maps that would cause silent shadowing in middleware.
+  const seen = new Map<string, string>();
+  const errors: string[] = [];
+  const groups: Array<[string, Record<string, string>]> = [
+    ["ARCHIVED_LOCATION_REDIRECTS", ARCHIVED_LOCATION_REDIRECTS],
+    ["INDUSTRY_REDIRECTS", INDUSTRY_REDIRECTS],
+    ["ARCHIVED_SERVICE_REDIRECTS", ARCHIVED_SERVICE_REDIRECTS],
+    ["SERVICE_ALIASES", SERVICE_ALIASES],
+  ];
+  for (const [name, map] of groups) {
+    for (const [from, to] of Object.entries(map)) {
+      if (!from || !to) errors.push(`${name}: empty key or value (${JSON.stringify({ from, to })})`);
+      if (name === "SERVICE_ALIASES") {
+        if (!from.startsWith("/") || !to.startsWith("/")) errors.push(`${name}: keys/values must be absolute paths (${from} → ${to})`);
+        const prior = seen.get(from);
+        if (prior && prior !== to) errors.push(`${name}: duplicate key ${from} resolves to both ${prior} and ${to}`);
+        seen.set(from, to);
+      }
+    }
+  }
+  if (errors.length) {
+    // eslint-disable-next-line no-console
+    console.error("[verify-redirects] structural failures:\n  " + errors.join("\n  "));
+    process.exit(2);
+  }
+}
+
 async function main() {
   verifyServiceDirsExistOrExit();
+  verifyRedirectMapsStructurallyOrExit();
+
+  if (STATIC_ONLY) {
+    // eslint-disable-next-line no-console
+    console.log("verify-redirects (static): structural + directory checks passed");
+    return;
+  }
 
   const rows: Row[] = [];
 

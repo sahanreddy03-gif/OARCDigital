@@ -65,8 +65,7 @@ function buildSection(): string {
   return lines.join("\n");
 }
 
-function main() {
-  let txt = fs.readFileSync(LLMS, "utf-8");
+function applyTransform(txt: string): string {
   const startIdx = txt.indexOf(START);
   const endIdx = txt.indexOf(END);
   const section = buildSection();
@@ -75,21 +74,43 @@ function main() {
     // Replace existing autogen block (inclusive of markers)
     const before = txt.slice(0, startIdx);
     const after = txt.slice(endIdx + END.length);
-    txt = before + section + after;
-  } else {
-    // First run: replace the legacy "## Cite-Able Service Facts" section in
-    // place. Find the heading and the next "---" delimiter that separates it
-    // from "## Search Surfaces" so we don't gobble unrelated content.
-    const headingPat = /## Cite-Able Service Facts[\s\S]*?(?=\n---\n)/;
-    if (headingPat.test(txt)) {
-      txt = txt.replace(headingPat, section + "\n");
-    } else {
-      // Append at end as a last resort.
-      txt = txt.trimEnd() + "\n\n" + section + "\n";
+    return before + section + after;
+  }
+  // First run: replace the legacy "## Cite-Able Service Facts" section in
+  // place. Find the heading and the next "---" delimiter that separates it
+  // from "## Search Surfaces" so we don't gobble unrelated content.
+  const headingPat = /## Cite-Able Service Facts[\s\S]*?(?=\n---\n)/;
+  if (headingPat.test(txt)) {
+    return txt.replace(headingPat, section + "\n");
+  }
+  // Append at end as a last resort.
+  return txt.trimEnd() + "\n\n" + section + "\n";
+}
+
+function main() {
+  // `--check` is the AUTOGEN parity gate used by the SEO pre-commit hook:
+  // it computes what the file would be regenerated to and exits non-zero if
+  // the on-disk file differs. Use it to catch the case where someone edited
+  // serviceSchemaConfig.ts without rerunning the generator.
+  const checkOnly = process.argv.includes("--check");
+
+  const current = fs.readFileSync(LLMS, "utf-8");
+  const next = applyTransform(current);
+
+  if (checkOnly) {
+    if (current !== next) {
+      console.error(
+        "[generate-llms-txt-facts] AUTOGEN parity FAILED — public/llms.txt is out of date.\n" +
+          "  Run: npx tsx scripts/generate-llms-txt-facts.ts\n" +
+          "  Then commit the regenerated llms.txt.",
+      );
+      process.exit(1);
     }
+    console.log("AUTOGEN parity ok — public/llms.txt matches generator output");
+    return;
   }
 
-  fs.writeFileSync(LLMS, txt);
+  fs.writeFileSync(LLMS, next);
   console.log(`generated cite-able facts section for ${Object.keys(SERVICE_SCHEMAS).length} services`);
 }
 

@@ -17,17 +17,32 @@
 import { lastmodForPath, lastmodForPaths } from "./sitemapHelpers";
 import { CORE, coreSourcePath } from "@/app/sitemap-core.xml/route";
 
+// Source paths MUST be a SUPERSET of every path the corresponding child
+// sitemap route uses for its per-URL `lastmod` calls. This guarantees that
+// `getSitemapLastmod(name)` returns the maximum date present in the child,
+// so the index `lastmod` is honest (== max(children)).
 const STATIC_SITEMAP_SOURCES: Record<string, string[]> = {
   "sitemap-services.xml": [
     "app/services",
     "shared/seoConfig.ts",
     "lib/seo/seoSets.ts",
   ],
-  "sitemap-malta.xml": ["shared/seoConfig.ts", "lib/seo/locationData.ts"],
+  // Mirrors `MALTA_SOURCES` in app/sitemap-malta.xml/route.ts.
+  "sitemap-malta.xml": [
+    "shared/seoConfig.ts",
+    "lib/seo/locationData.ts",
+    "app/malta",
+  ],
   "sitemap-aeo.xml": ["app/aeo"],
   "sitemap-blog.xml": ["app/blog"],
   "sitemap-case-studies.xml": ["app/case-studies"],
-  "sitemap-industries.xml": ["app/industries", "shared/seoConfig.ts"],
+  // Mirrors what app/sitemap-industries.xml/route.ts dates from: the
+  // listing page, the dynamic [industry] template, and the slug data.
+  "sitemap-industries.xml": [
+    "app/industries/page.tsx",
+    "app/industries/[industry]/page.tsx",
+    "shared/seoConfig.ts",
+  ],
   "image-sitemap.xml": [
     "public/assets",
     "public/agents",
