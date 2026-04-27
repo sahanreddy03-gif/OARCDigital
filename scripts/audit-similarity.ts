@@ -255,7 +255,14 @@ async function fetchAll(paths: string[]): Promise<Map<string, Set<string>>> {
       const text = extractVisibleText(html);
       const words = tokenise(text);
       const sh = shingles(words, SHINGLE_SIZE);
-      if (sh.size >= 20) out.set(p, sh); // pages with too few shingles are noise
+      // Pages with <20 5-word shingles after strip have <~25 words of unique
+      // content, so any Jaccard score against another such page is dominated
+      // by chrome leftovers (e.g. nav strings the strip missed) rather than
+      // page-body duplication. Excluding them is a noise filter, not a
+      // coverage gap — short routes are evaluated by the alts/schema/NAP
+      // audits instead. Reviewed 2026-04-27; revisit if a thin landing page
+      // ever needs duplication-checking.
+      if (sh.size >= 20) out.set(p, sh);
     }
   }
   await Promise.all(Array.from({ length: FETCH_CONCURRENCY }, () => worker()));
