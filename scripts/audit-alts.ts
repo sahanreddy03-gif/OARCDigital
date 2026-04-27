@@ -93,13 +93,32 @@ function attrLiteralValue(attr: ts.JsxAttribute): string | null {
   return null; // dynamic — cannot statically inspect
 }
 
+// Is this attribute the JSX equivalent of a truthy boolean? Accepts every
+// idiom React lets you use: bare `<img aria-hidden />`, `aria-hidden=""`,
+// `aria-hidden="true"`, and `aria-hidden={true}`. Anything else (dynamic
+// expression like `aria-hidden={someVar}`, or `aria-hidden={false}`) is
+// rejected — we don't want to silently accept a runtime value we can't
+// statically verify.
+function attrIsBooleanTrue(attr: ts.JsxAttribute): boolean {
+  const init = attr.initializer;
+  if (!init) return true; // bare `aria-hidden` is JSX shorthand for `={true}`
+  if (ts.isStringLiteral(init)) return init.text === "" || init.text === "true";
+  if (ts.isJsxExpression(init) && init.expression) {
+    const expr = init.expression;
+    if (expr.kind === ts.SyntaxKind.TrueKeyword) return true;
+    if (ts.isStringLiteral(expr)) return expr.text === "true";
+    if (ts.isNoSubstitutionTemplateLiteral(expr)) return expr.text === "true";
+  }
+  return false;
+}
+
 function isDecorativeOptOut(attrs: ts.JsxAttributes): boolean {
   const ariaHidden = getAttr(attrs, "aria-hidden");
-  if (ariaHidden && attrLiteralValue(ariaHidden) === "true") return true;
+  if (ariaHidden && attrIsBooleanTrue(ariaHidden)) return true;
   const role = getAttr(attrs, "role");
-  if (role && attrLiteralValue(role) === "presentation") return true;
+  const roleVal = role ? attrLiteralValue(role) : null;
   // role="none" is the modern equivalent of role="presentation" per WAI-ARIA 1.2.
-  if (role && attrLiteralValue(role) === "none") return true;
+  if (roleVal === "presentation" || roleVal === "none") return true;
   return false;
 }
 
