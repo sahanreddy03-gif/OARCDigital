@@ -392,9 +392,15 @@ async function main() {
     // capture leaves an inconsistent baseline corpus (some routes on
     // the new floor, some on the old) — refuse to commit that. The
     // operator must re-run --update against a healthy server.
-    if (captured !== TOP_PERF_PAGES.length) {
-      const missing = TOP_PERF_PAGES.length - captured;
-      console.log(`\nlighthouse-baseline: FAIL — --update captured ${captured}/${TOP_PERF_PAGES.length} routes (${missing} missing). Re-run after fixing the capture errors above; do NOT commit a partial baseline.`);
+    // Completeness is enforced against the (potentially filtered) ROUTES
+    // set, NOT the full TOP_PERF_PAGES — otherwise a deliberate batched
+    // seeding run via LIGHTHOUSE_ROUTE_FILTER would always FAIL because
+    // it captured fewer routes than the full corpus. The check still
+    // catches the "some routes failed mid-run" case the operator cares
+    // about.
+    if (captured !== ROUTES.length) {
+      const missing = ROUTES.length - captured;
+      console.log(`\nlighthouse-baseline: FAIL — --update captured ${captured}/${ROUTES.length} routes (${missing} missing). Re-run after fixing the capture errors above; do NOT commit a partial baseline.`);
       process.exit(1);
     }
     console.log(`\nlighthouse-baseline: ${captured} route(s) (re)captured. Commit ${BASELINE_DIR}/.`);
