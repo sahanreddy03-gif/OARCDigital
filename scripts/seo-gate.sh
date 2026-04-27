@@ -41,6 +41,32 @@ run_step() {
   fi
 }
 
+# Optional step — runs the command iff the gate-level prerequisite check
+# passes. The check is a shell expression supplied as the first arg
+# (e.g. `command -v chromium`). When it fails, we PRINT a SKIP note and
+# RETURN 0 so the gate stays green. This is the contract from Task #93:
+# Playwright + Lighthouse + lychee are optional-but-preferred — they run
+# locally for OARC's container, skip cleanly on a fresh clone, and never
+# block the gate just because the binary isn't present. The skip note
+# is always loud (printed to stdout, no `2>/dev/null`) so a missing
+# tool is visible in the CI output and never silently disabled.
+run_step_optional() {
+  local name="$1"; shift
+  local prereq="$1"; shift
+  echo
+  echo "==> $name (optional)"
+  if ! eval "$prereq" >/dev/null 2>&1; then
+    echo "    SKIP — prereq not met: $prereq"
+    return 0
+  fi
+  if "$@"; then
+    echo "    OK"
+  else
+    echo "    FAIL — $name"
+    exit 1
+  fi
+}
+
 server_up() {
   curl -s -o /dev/null -w "%{http_code}" --max-time 2 "$BASE" 2>/dev/null \
     | grep -Eq "^(2|3)"
@@ -144,6 +170,26 @@ run_step "audit-nap (HTTP)"         env BASE="$BASE" AUDIT_FULL=1 npx tsx script
 run_step "audit-schema (HTTP)"      env BASE="$BASE" AUDIT_FULL=1 npx tsx scripts/audit-schema.ts
 run_step "audit-discovery (HTTP)"   env BASE="$BASE" npx tsx scripts/audit-discovery.ts
 run_step "audit-similarity (HTTP)"  env BASE="$BASE" AUDIT_FULL=1 npx tsx scripts/audit-similarity.ts
+
+# --- Optional baselines (Task #93) -----------------------------------------
+# Three optional gates that ship as part of the 12-gate set when their
+# binaries are present and skip cleanly otherwise. The trio is bundled
+# at the END of gate:full because they are the slowest single steps —
+# putting them last means a fast-failing audit upstream still saves the
+# operator the perf/visual/crawl wall-time. Per Task #93, the gate:full
+# total still targets <5min on the OARC container; on a fresh clone
+# without chromium/lychee these steps print SKIP and contribute 0s.
+run_step_optional "visual-diff (Playwright)" \
+  "command -v chromium && [ -x node_modules/.bin/playwright ]" \
+  env PLAYWRIGHT_BASE_URL="$BASE" npx playwright test --reporter=list
+
+run_step_optional "lighthouse-baseline" \
+  "command -v chromium && [ -d node_modules/lighthouse ]" \
+  env BASE="$BASE" npx tsx scripts/lighthouse-baseline.ts
+
+run_step_optional "lychee-crawl" \
+  "command -v lychee" \
+  env BASE="$BASE" bash scripts/lychee-crawl.sh
 
 echo
 echo "seo-gate: all audits passed ($MODE)"
