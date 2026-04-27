@@ -264,7 +264,11 @@ async function fetchAll(paths: string[]): Promise<Map<string, Set<string>>> {
 
 type Pair = { a: string; b: string; score: number; aSize: number; bSize: number };
 
-function topPairs(map: Map<string, Set<string>>, top: number): Pair[] {
+// Returns ALL pairs with positive overlap, sorted by score descending.
+// The caller decides how many to print (top-N) but failure counting is
+// always done across the full set so a doorway-clone batch that produces
+// 200 failing pairs is reported as 200, not capped at the print limit.
+function allPairsSorted(map: Map<string, Set<string>>): Pair[] {
   const keys = Array.from(map.keys()).sort();
   const all: Pair[] = [];
   for (let i = 0; i < keys.length; i++) {
@@ -278,7 +282,7 @@ function topPairs(map: Map<string, Set<string>>, top: number): Pair[] {
     }
   }
   all.sort((x, y) => y.score - x.score);
-  return all.slice(0, top);
+  return all;
 }
 
 function pickSample(paths: string[], cap: number): string[] {
@@ -328,25 +332,48 @@ async function main() {
   const shingleMap = await fetchAll(targetPaths);
   process.stderr.write(`audit-similarity: kept ${shingleMap.size} pages with >=20 shingles\n`);
 
-  const pairs = topPairs(shingleMap, top);
-  const failing = pairs.filter((p) => p.score >= threshold);
+  const allPairs = allPairsSorted(shingleMap);
+  // Failure count is computed across ALL positive-overlap pairs, not
+  // just the printed top-N — otherwise a doorway-clone batch producing
+  // 200 failing pairs would be capped at `top` (default 50) and
+  // misreported. Top-N controls only the printed output.
+  const failing = allPairs.filter((p) => p.score >= threshold);
+  const printed = allPairs.slice(0, top);
 
   if (json) {
-    process.stdout.write(JSON.stringify({ threshold, totalPairs: pairs.length, failing: failing.length, pairs }, null, 2));
+    process.stdout.write(
+      JSON.stringify(
+        {
+          threshold,
+          totalPairs: allPairs.length,
+          failing: failing.length,
+          printed: printed.length,
+          pairs: printed,
+          failingPairs: failing,
+        },
+        null,
+        2,
+      ),
+    );
     return;
   }
 
-  console.log(`\nTop ${pairs.length} most-similar page pairs (threshold=${threshold}):\n`);
-  for (const p of pairs) {
+  console.log(
+    `\nTop ${printed.length} most-similar page pairs (threshold=${threshold}; ${allPairs.length} total positive-overlap pairs):\n`,
+  );
+  for (const p of printed) {
     const flag = p.score >= threshold ? "FAIL" : "    ";
     console.log(`  ${flag}  ${p.score.toFixed(3)}  ${p.a}  vs  ${p.b}   (shingles ${p.aSize}/${p.bSize})`);
   }
 
   if (failing.length === 0) {
-    console.log(`\naudit-similarity: OK — no page pair exceeds Jaccard ${threshold}\n`);
+    console.log(`\naudit-similarity: OK — no page pair exceeds Jaccard ${threshold} (across all ${allPairs.length} pairs)\n`);
     process.exit(0);
   }
-  console.log(`\naudit-similarity: FAIL — ${failing.length} pair(s) >= threshold ${threshold}`);
+  console.log(`\naudit-similarity: FAIL — ${failing.length} pair(s) >= threshold ${threshold} (across all ${allPairs.length} pairs)`);
+  if (failing.length > printed.length) {
+    console.log(`  Note: ${failing.length - printed.length} additional failing pair(s) not shown above (raise --top to see them).`);
+  }
   console.log(`  See .local/seo-similarity-backlog.md for triage guidance.\n`);
   process.exit(1);
 }

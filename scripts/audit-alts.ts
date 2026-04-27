@@ -127,14 +127,20 @@ function checkElement(
   const snippet = source.getFullText().slice(start, Math.min(start + 140, node.getEnd())).replace(/\s+/g, " ");
 
   if (!altAttr) {
-    if (decorative) return; // opt-out covers the missing alt — accessible per WAI-ARIA.
+    // Strict-mode: even decorative images MUST carry an explicit alt prop
+    // — the canonical WAI-ARIA pattern is `alt="" aria-hidden="true"`,
+    // not bare `aria-hidden="true"`. Some screen readers and crawlers
+    // still announce the image filename when alt is absent, defeating
+    // the decorative intent. Force the author to declare it.
     findings.push({
       file,
       line: line + 1,
       col: character + 1,
       tag,
       severity: "error",
-      reason: `<${tag}> missing alt prop (use alt="..." or mark decorative with aria-hidden="true" / role="presentation")`,
+      reason: decorative
+        ? `<${tag}> is marked decorative but missing alt="" — WAI-ARIA requires both alt="" AND aria-hidden/role together`
+        : `<${tag}> missing alt prop (use alt="..." or mark decorative with alt="" + aria-hidden="true" / role="presentation")`,
       snippet,
     });
     return;
