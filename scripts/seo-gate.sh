@@ -259,7 +259,7 @@ run_step "audit-similarity (HTTP)"  env BASE="$BASE" AUDIT_FULL=1 npx tsx script
 # are buffered per-step and replayed in declaration order so CI
 # output is unchanged.
 run_optional_parallel \
-  "visual-diff (Playwright)|command -v chromium && [ -x node_modules/.bin/playwright ]|env PLAYWRIGHT_BASE_URL=\"$BASE\" npx playwright test --reporter=list" \
+  "visual-diff (Playwright)|command -v chromium && [ -x node_modules/.bin/playwright ]|env PLAYWRIGHT_BASE_URL=\"$BASE\" npx playwright test tests/visual/visual.spec.ts --reporter=list" \
   "lighthouse-baseline|command -v chromium && [ -d node_modules/lighthouse ]|env BASE=\"$BASE\" npx tsx scripts/lighthouse-baseline.ts" \
   "lychee-crawl|command -v lychee|env BASE=\"$BASE\" bash scripts/lychee-crawl.sh"
 
