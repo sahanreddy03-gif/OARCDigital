@@ -56,7 +56,16 @@ import { TOP_PERF_PAGES, perfBaselineFilename } from "../lib/seo/topPerfPages";
 
 const BASE = (process.env.BASE ?? "http://localhost:5000").replace(/\/$/, "");
 const BASELINE_DIR = ".local/lighthouse-baseline";
-const RUNS_PER_ROUTE = 3;
+// Default 3 (median dampens LH lab variance below the 5% threshold).
+// Override via env when seeding incrementally on a slow dev server —
+// LIGHTHOUSE_RUNS_PER_ROUTE=1 trades precision for capture wall-time
+// (one LH pass = ~25-40s on this dev server vs. ~75-120s for three).
+// Production seeding should always be the default 3 against a prod
+// build (see header `Dev server vs production build` notes).
+const RUNS_PER_ROUTE = Math.max(
+  1,
+  Math.min(5, parseInt(process.env.LIGHTHOUSE_RUNS_PER_ROUTE ?? "3", 10) || 3),
+);
 // Regression thresholds. Score columns (perf, a11y, best-practices, seo)
 // are scaled 0-100 — 5% absolute. CWV are time-based — 20% relative.
 const SCORE_REGRESSION_PCT = 0.05;
