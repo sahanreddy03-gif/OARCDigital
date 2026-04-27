@@ -18,9 +18,22 @@
 // across the site by design, and each is independently gated by its
 // own audit. Comparing them again here is noise.
 //
+// Coverage modes (resolved in this order):
+//   1. AUDIT_FULL=1       — walks every URL in the sitemap (gate-safe).
+//   2. --sample=N         — walks N URLs (manual calibration).
+//   3. SAMPLE_CAP default — walks 50 URLs (inner-loop iteration).
+//
+// Direct invocation defaults to sampled mode so a developer running the
+// script ad-hoc on a freshly-booted dev server doesn't pay the
+// full-walk cold-compile cost. The SEO gate (`scripts/seo-gate.sh →
+// gate:full`) explicitly sets AUDIT_FULL=1 so release gating ALWAYS
+// runs every-route-pair coverage. Sampled-mode runs print a stderr
+// warning naming the AUDIT_FULL=1 flag so the trade-off is obvious.
+//
 // Usage:
 //   BASE=http://localhost:5000 npx tsx scripts/audit-similarity.ts
 //   BASE=http://localhost:5000 AUDIT_FULL=1 npx tsx scripts/audit-similarity.ts
+//   BASE=http://localhost:5000 npx tsx scripts/audit-similarity.ts --sample=120
 //   BASE=http://localhost:5000 npx tsx scripts/audit-similarity.ts --threshold=0.85
 //   BASE=http://localhost:5000 npx tsx scripts/audit-similarity.ts --top=100 --json
 
@@ -302,6 +315,11 @@ async function main() {
   process.stderr.write(
     `audit-similarity: BASE=${BASE} threshold=${threshold} top=${top} mode=${FULL_WALK ? "full" : `sample(cap=${cap})`}\n`,
   );
+  if (!FULL_WALK) {
+    process.stderr.write(
+      `audit-similarity: WARNING — sampled mode. Set AUDIT_FULL=1 to walk every URL (gate-equivalent coverage).\n`,
+    );
+  }
 
   const { paths } = await walkSitemap(BASE);
   const targetPaths = FULL_WALK ? paths : pickSample(paths, cap);
