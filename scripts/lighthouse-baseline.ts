@@ -29,6 +29,20 @@
 // script captures the LOCAL FLOOR only; treat absolute numbers as
 // trend signals, not vendor-comparable benchmarks.
 //
+// Dev server vs production build:
+//   The script consumes whatever URL `BASE` points at. By default it
+//   talks to the dev server at http://localhost:5000 — those numbers
+//   are NOT vendor-comparable (HMR, source maps, no minification) but
+//   they ARE drift-comparable: a perf score that drops 8 points
+//   between two dev-server runs is still a real regression. To capture
+//   against a production build instead, the operator runs:
+//     npm run build && PORT=5000 npm start &
+//     BASE=http://localhost:5000 npx tsx scripts/lighthouse-baseline.ts --update
+//   The committed baseline corpus in `.local/lighthouse-baseline/` was
+//   captured against the dev server at HEAD. Re-baselining against
+//   prod requires re-running with `--update` and the prod server up.
+//   This is documented in `.local/seo-tier-doc.md` Section 2.
+//
 // Usage:
 //   BASE=http://localhost:5000 npx tsx scripts/lighthouse-baseline.ts
 //   BASE=http://localhost:5000 npx tsx scripts/lighthouse-baseline.ts --update

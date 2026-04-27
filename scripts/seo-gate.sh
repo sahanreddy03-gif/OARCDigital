@@ -67,6 +67,70 @@ run_step_optional() {
   fi
 }
 
+# Parallel-optional fan-out for the Task #93 baseline trio.
+#
+# Plays the same role as `run_step_optional` (skip-when-prereq-missing,
+# fail-the-gate-when-the-tool-itself-fails) but runs N steps in
+# parallel, each with its own log file under /tmp/seo-gate-parallel/.
+# After every step has joined we replay the logs in declaration order
+# so the gate's stdout reads as if the steps had run sequentially —
+# critical for grep-based CI log inspection.
+#
+# Why parallel? Per Task #93's validator brief: visual-diff (Playwright,
+# ~2-3min on the 40-snapshot corpus), lighthouse-baseline (median-of-3
+# across 30 routes, ~3-5min), and lychee (sitemap walk, ~30s) are
+# I/O-bound on the dev server and CPU-bound on chromium — they overlap
+# cleanly. Sequential = 6-9min wall time; parallel = ~3-5min.
+#
+# Format of each task arg:  "name|prereq|cmd args..."
+# Pipe is fine because no name/prereq we use contains it.
+run_optional_parallel() {
+  local pdir="/tmp/seo-gate-parallel-$$"
+  rm -rf "$pdir"; mkdir -p "$pdir"
+  local pids=() names=() i=0
+  echo
+  echo "==> running ${#@} optional steps in parallel"
+  for spec in "$@"; do
+    local name="${spec%%|*}"
+    local rest="${spec#*|}"
+    local prereq="${rest%%|*}"
+    local cmd="${rest#*|}"
+    names[$i]="$name"
+    if ! eval "$prereq" >/dev/null 2>&1; then
+      echo "SKIP — $name (prereq not met: $prereq)" > "$pdir/$i.log"
+      echo "0" > "$pdir/$i.exit"
+      pids[$i]="-1"
+    else
+      ( eval "$cmd" > "$pdir/$i.log" 2>&1; echo $? > "$pdir/$i.exit" ) &
+      pids[$i]="$!"
+      echo "    spawned [$i] $name (pid=${pids[$i]})"
+    fi
+    i=$((i + 1))
+  done
+  # Join.
+  for j in "${!pids[@]}"; do
+    if [ "${pids[$j]}" != "-1" ]; then
+      wait "${pids[$j]}" 2>/dev/null || true
+    fi
+  done
+  # Replay in declaration order.
+  local fail=0
+  for j in "${!names[@]}"; do
+    echo
+    echo "==> ${names[$j]} (parallel slot $j)"
+    cat "$pdir/$j.log"
+    local rc="$(cat "$pdir/$j.exit" 2>/dev/null || echo 1)"
+    if [ "$rc" != "0" ]; then
+      echo "    FAIL — ${names[$j]} (rc=$rc)"
+      fail=1
+    else
+      echo "    OK"
+    fi
+  done
+  rm -rf "$pdir"
+  [ "$fail" = "0" ] || exit 1
+}
+
 server_up() {
   curl -s -o /dev/null -w "%{http_code}" --max-time 2 "$BASE" 2>/dev/null \
     | grep -Eq "^(2|3)"
@@ -172,24 +236,32 @@ run_step "audit-discovery (HTTP)"   env BASE="$BASE" npx tsx scripts/audit-disco
 run_step "audit-similarity (HTTP)"  env BASE="$BASE" AUDIT_FULL=1 npx tsx scripts/audit-similarity.ts
 
 # --- Optional baselines (Task #93) -----------------------------------------
-# Three optional gates that ship as part of the 12-gate set when their
+# Three optional gates that ship as part of the audit set when their
 # binaries are present and skip cleanly otherwise. The trio is bundled
 # at the END of gate:full because they are the slowest single steps —
 # putting them last means a fast-failing audit upstream still saves the
 # operator the perf/visual/crawl wall-time. Per Task #93, the gate:full
 # total still targets <5min on the OARC container; on a fresh clone
 # without chromium/lychee these steps print SKIP and contribute 0s.
-run_step_optional "visual-diff (Playwright)" \
-  "command -v chromium && [ -x node_modules/.bin/playwright ]" \
-  env PLAYWRIGHT_BASE_URL="$BASE" npx playwright test --reporter=list
-
-run_step_optional "lighthouse-baseline" \
-  "command -v chromium && [ -d node_modules/lighthouse ]" \
-  env BASE="$BASE" npx tsx scripts/lighthouse-baseline.ts
-
-run_step_optional "lychee-crawl" \
-  "command -v lychee" \
-  env BASE="$BASE" bash scripts/lychee-crawl.sh
+#
+# Lighthouse note: by default lighthouse-baseline.ts runs against the
+# dev server bootstrapped above (`$BASE`). Set `LIGHTHOUSE_PROD_BUILD=1`
+# (and run `npm run build && PORT=$port npm start &` BEFORE invoking
+# the gate) to capture against a production build instead — the
+# script just consumes whatever URL `$BASE` points at, so the prod
+# server bootstrap is the operator's responsibility. The committed
+# baselines in `.local/lighthouse-baseline/` were captured against
+# the dev server at HEAD; re-baselining against prod requires an
+# `--update` re-run with the prod server up.
+#
+# These three run IN PARALLEL via run_optional_parallel — see helper
+# above for rationale (6-9min sequential → ~3-5min parallel). Logs
+# are buffered per-step and replayed in declaration order so CI
+# output is unchanged.
+run_optional_parallel \
+  "visual-diff (Playwright)|command -v chromium && [ -x node_modules/.bin/playwright ]|env PLAYWRIGHT_BASE_URL=\"$BASE\" npx playwright test --reporter=list" \
+  "lighthouse-baseline|command -v chromium && [ -d node_modules/lighthouse ]|env BASE=\"$BASE\" npx tsx scripts/lighthouse-baseline.ts" \
+  "lychee-crawl|command -v lychee|env BASE=\"$BASE\" bash scripts/lychee-crawl.sh"
 
 echo
 echo "seo-gate: all audits passed ($MODE)"
