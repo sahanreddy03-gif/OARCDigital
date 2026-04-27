@@ -74,6 +74,20 @@ const args = new Set(process.argv.slice(2));
 const updateMode = args.has("--update");
 const checkBinaryOnly = args.has("--check-binary");
 
+// Optional route filter: `LIGHTHOUSE_ROUTE_FILTER=/services/web-design,/`
+// captures or diffs ONLY those routes. Used by the operator to stage
+// the baseline corpus in batches when the dev server's cold-compile
+// makes a single 30-route run impractical (each median-of-3 capture
+// is ~30-90s; batched seeding lets the corpus grow incrementally
+// across multiple sessions). Empty / unset = full TOP_PERF_PAGES.
+const routeFilter = (process.env.LIGHTHOUSE_ROUTE_FILTER ?? "")
+  .split(",")
+  .map((r) => r.trim())
+  .filter(Boolean);
+const ROUTES = routeFilter.length > 0
+  ? TOP_PERF_PAGES.filter((r) => routeFilter.includes(r))
+  : TOP_PERF_PAGES;
+
 function resolveChromiumPath(): string | null {
   if (process.env.LIGHTHOUSE_CHROMIUM_PATH) return process.env.LIGHTHOUSE_CHROMIUM_PATH;
   try {
@@ -289,31 +303,41 @@ async function main() {
   // gate from "diff vs committed floor" into "always-pass capture mode"
   // and mutate the working tree mid-gate. Operator must run --update
   // explicitly to seed/refresh the baseline corpus, then commit it.
+  // Diff mode: skip routes that have no committed baseline yet (the
+  // operator is staging the corpus incrementally — see Task #101).
+  // The gate FAILs only when (a) zero routes are covered or (b) a
+  // covered route regresses. Routes without a baseline are listed
+  // as "uncovered" so the operator knows what's left to seed.
+  // Update mode runs all ROUTES in the (filtered) set unconditionally.
+  let routesToRun: readonly string[] = ROUTES;
   if (!updateMode) {
-    const missing = TOP_PERF_PAGES.filter(
-      (r) => !fs.existsSync(path.join(BASELINE_DIR, perfBaselineFilename(r))),
+    const covered = ROUTES.filter((r) =>
+      fs.existsSync(path.join(BASELINE_DIR, perfBaselineFilename(r))),
     );
-    if (missing.length === TOP_PERF_PAGES.length) {
+    const uncovered = ROUTES.filter((r) =>
+      !fs.existsSync(path.join(BASELINE_DIR, perfBaselineFilename(r))),
+    );
+    if (covered.length === 0) {
       console.log(
         `lighthouse-baseline: SKIP — no baseline corpus in ${BASELINE_DIR}/. ` +
           `Run \`npx tsx scripts/lighthouse-baseline.ts --update\` once to seed it, then commit.`,
       );
       process.exit(0);
     }
-    if (missing.length > 0) {
+    if (uncovered.length > 0) {
       console.log(
-        `lighthouse-baseline: FAIL — ${missing.length} route(s) missing baseline files. ` +
-          `Either re-run with --update (intentional new routes) or commit the missing baselines.`,
+        `lighthouse-baseline: NOTE — ${covered.length}/${ROUTES.length} routes covered; ` +
+          `${uncovered.length} uncovered (drift NOT enforced for these — re-run with --update to seed).`,
       );
-      for (const r of missing) console.log(`  missing: ${perfBaselineFilename(r)} (${r})`);
-      process.exit(1);
+      for (const r of uncovered) console.log(`  uncovered: ${r}`);
     }
+    routesToRun = covered;
   }
 
-  console.log(`lighthouse-baseline: mode=${updateMode ? "update" : "diff"} routes=${TOP_PERF_PAGES.length} BASE=${BASE}`);
+  console.log(`lighthouse-baseline: mode=${updateMode ? "update" : "diff"} routes=${routesToRun.length}/${ROUTES.length} BASE=${BASE}${routeFilter.length ? " filter=ON" : ""}`);
   const allIssues: Issue[] = [];
   let captured = 0;
-  for (const route of TOP_PERF_PAGES) {
+  for (const route of routesToRun) {
     process.stdout.write(`  > ${route} ... `);
     const result = await runRoute(route);
     if (!result) {

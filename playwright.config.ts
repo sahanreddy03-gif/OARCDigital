@@ -45,14 +45,25 @@ const BASE_URL = process.env.PLAYWRIGHT_BASE_URL ?? process.env.BASE ?? "http://
 
 export default defineConfig({
   testDir: "./tests/visual",
-  // Default test corpus = visual.spec.ts (the DIFF spec) only.
-  // baseline.spec.ts is the operator-only CAPTURE spec — it must NEVER
-  // run as part of the default `npx playwright test` invocation that
-  // seo-gate.sh fires, otherwise every gate run would (a) double the
-  // wall time and (b) silently re-write baselines into a parallel
-  // snapshot folder. Operator targets it explicitly:
+  // testMatch accepts BOTH visual.spec.ts (the DIFF spec) and
+  // baseline.spec.ts (the operator-only CAPTURE spec). The seo-gate
+  // orchestrator (`scripts/seo-gate.sh`) ALWAYS invokes the diff spec
+  // by name (`npx playwright test tests/visual/visual.spec.ts`) so the
+  // capture spec never runs in CI. Operator targets it explicitly:
   //   npx playwright test tests/visual/baseline.spec.ts --update-snapshots
-  testMatch: /visual\.spec\.ts$/,
+  // (Restricting testMatch to ONLY visual.spec.ts would break the
+  // capture flow because Playwright resolves the requested file
+  // through testMatch BEFORE running it, returning "No tests found".)
+  testMatch: /(visual|baseline)\.spec\.ts$/,
+  // Both visual.spec.ts (DIFF) and baseline.spec.ts (CAPTURE) must read /
+  // write the SAME snapshot folder so an operator-side `--update-snapshots`
+  // run on baseline.spec.ts refreshes the floor that the gate's diff spec
+  // compares against. By default Playwright resolves snapshot paths
+  // relative to the SPEC file (`<spec>-snapshots/`), which would cause the
+  // capture spec to write into a parallel folder the diff spec never
+  // reads. Pin both to `visual.spec.ts-snapshots/` here.
+  snapshotPathTemplate:
+    "{testDir}/visual.spec.ts-snapshots/{arg}-{projectName}-{platform}{ext}",
   // Single worker — diff runs sequentially so the dev-server's on-demand
   // compile doesn't OOM the container under parallel page loads.
   workers: 1,
