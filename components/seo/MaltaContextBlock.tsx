@@ -19,6 +19,7 @@ export default function MaltaContextBlock({ slug }: Props) {
     <section
       className="mb-12 rounded-xl border bg-card p-6"
       data-testid={`section-malta-context-${slug}`}
+      data-similarity-ignore
     >
       <div className="flex items-start gap-3">
         <MapPin className="w-5 h-5 text-orange-500 mt-1 flex-shrink-0" />

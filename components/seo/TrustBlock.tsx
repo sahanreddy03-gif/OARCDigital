@@ -99,6 +99,7 @@ export default function TrustBlock({ variant, className }: Props) {
       className={`${containerClasses}${className ? ` ${className}` : ""}`}
       data-testid={`trustblock-${variant}`}
       data-trustblock-variant={variant}
+      data-similarity-ignore
     >
       {variant === "visit" && <VisitBlock />}
       {variant === "badges" && <BadgesBlock />}
