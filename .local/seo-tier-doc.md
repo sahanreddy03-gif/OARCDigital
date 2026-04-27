@@ -169,12 +169,20 @@ Section 4 shows the full audit set after this batch.
   **Incremental seeding via `LIGHTHOUSE_ROUTE_FILTER`:** the script
   accepts an env var of comma-separated routes (e.g.
   `LIGHTHOUSE_ROUTE_FILTER=/services/web-design,/`) that restricts
-  the run to that subset, both in `--update` (capture only those)
-  and diff (compare only those) modes. Diff mode also tolerates a
-  partial corpus — it runs only against routes that have committed
-  baseline files and prints an `uncovered:` list for the rest, so
-  the operator can grow the baseline corpus across multiple staging
-  sessions without the gate FAILing on the missing routes.
+  `--update` capture to that subset (capture only those routes,
+  leave the rest of the corpus untouched). The completeness check
+  at end-of-loop is enforced against the filtered set, so a batched
+  seeding session no longer always-FAILs.
+  **Diff-mode coverage contract — strict, by design:** diff mode
+  enforces "zero or full" — corpus state must be EITHER no baseline
+  files at all (gate SKIPs cleanly, fresh-clone friendly) OR every
+  one of the 30 TOP_PERF_PAGES routes seeded (gate enforces drift
+  on all of them). Partial coverage is a hard FAIL because a drift
+  gate that only checks SOME routes is silently misleading — an
+  unchecked route can regress freely and the gate stays green. The
+  FAIL message lists exactly which routes are missing so the
+  operator knows what to seed (or, equivalently, can `rm -rf
+  .local/lighthouse-baseline/` to drop back to skip mode).
   **Baseline seeding state at Task #93 close:** 0 of 30 JSONs
   committed. Each median-of-3 capture is ~30-90s on the cold-compile
   dev server, putting a full 30-route run at ~45min — exceeds the

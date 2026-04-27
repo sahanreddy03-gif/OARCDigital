@@ -307,40 +307,40 @@ async function main() {
     process.exit(0);
   }
 
-  // Diff mode requires a complete baseline. If ANY route is missing its
-  // baseline file, refuse to silently capture — that would convert this
-  // gate from "diff vs committed floor" into "always-pass capture mode"
-  // and mutate the working tree mid-gate. Operator must run --update
-  // explicitly to seed/refresh the baseline corpus, then commit it.
-  // Diff mode: skip routes that have no committed baseline yet (the
-  // operator is staging the corpus incrementally — see Task #101).
-  // The gate FAILs only when (a) zero routes are covered or (b) a
-  // covered route regresses. Routes without a baseline are listed
-  // as "uncovered" so the operator knows what's left to seed.
-  // Update mode runs all ROUTES in the (filtered) set unconditionally.
+  // Diff mode coverage contract: corpus state must be EITHER zero
+  // (fresh clone, gate skips) OR complete (every TOP_PERF_PAGES route
+  // has a committed baseline JSON, gate enforces drift on all of
+  // them). Partial coverage is a hard FAIL because it indicates
+  // incomplete seeding — the operator started but didn't finish, and
+  // a "drift gate" that only checks a subset is silently misleading.
+  // Update mode runs all ROUTES in the (filtered) set unconditionally;
+  // the completeness check at end-of-loop catches partial captures.
   let routesToRun: readonly string[] = ROUTES;
   if (!updateMode) {
-    const covered = ROUTES.filter((r) =>
+    const covered = TOP_PERF_PAGES.filter((r) =>
       fs.existsSync(path.join(BASELINE_DIR, perfBaselineFilename(r))),
     );
-    const uncovered = ROUTES.filter((r) =>
-      !fs.existsSync(path.join(BASELINE_DIR, perfBaselineFilename(r))),
+    const uncovered = TOP_PERF_PAGES.filter(
+      (r) => !fs.existsSync(path.join(BASELINE_DIR, perfBaselineFilename(r))),
     );
     if (covered.length === 0) {
       console.log(
         `lighthouse-baseline: SKIP — no baseline corpus in ${BASELINE_DIR}/. ` +
-          `Run \`npx tsx scripts/lighthouse-baseline.ts --update\` once to seed it, then commit.`,
+          `Run \`npx tsx scripts/lighthouse-baseline.ts --update\` once to seed all ${TOP_PERF_PAGES.length} routes, then commit.`,
       );
       process.exit(0);
     }
     if (uncovered.length > 0) {
       console.log(
-        `lighthouse-baseline: NOTE — ${covered.length}/${ROUTES.length} routes covered; ` +
-          `${uncovered.length} uncovered (drift NOT enforced for these — re-run with --update to seed).`,
+        `lighthouse-baseline: FAIL — partial corpus (${covered.length}/${TOP_PERF_PAGES.length} routes seeded). ` +
+          `A partial baseline is worse than none — it silently converts the drift gate into a checks-only-some-routes gate. ` +
+          `Re-run \`npx tsx scripts/lighthouse-baseline.ts --update\` to seed the missing routes (or remove ${BASELINE_DIR}/ entirely to skip the gate).`,
       );
-      for (const r of uncovered) console.log(`  uncovered: ${r}`);
+      for (const r of uncovered) console.log(`  missing: ${r}`);
+      process.exit(1);
     }
-    routesToRun = covered;
+    // Full corpus — diff every route in TOP_PERF_PAGES.
+    routesToRun = TOP_PERF_PAGES;
   }
 
   console.log(`lighthouse-baseline: mode=${updateMode ? "update" : "diff"} routes=${routesToRun.length}/${ROUTES.length} BASE=${BASE}${routeFilter.length ? " filter=ON" : ""}`);
