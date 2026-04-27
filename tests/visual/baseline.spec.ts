@@ -64,19 +64,19 @@ for (const path of TOP_VISUAL_PAGES) {
     await page.waitForLoadState("networkidle", { timeout: 3000 }).catch(() => undefined);
     await page.evaluate(() => window.scrollTo(0, 0));
     await page.waitForTimeout(150);
-    // We re-use the visualSnapshotName + the visual.spec.ts-snapshots
-    // folder name for the diff spec so this capture spec writes into
-    // the SAME snapshot directory the diff spec reads from. This is
-    // achieved by passing `snapshotPathTemplate` via the test info —
-    // Playwright resolves snapshot names relative to the spec file
-    // by default (here: `baseline.spec.ts-snapshots/`), so we override
-    // with an explicit path that points at the diff spec's folder.
+    // Capture spec writes into the SAME folder the diff spec reads
+    // from — `tests/visual/visual.spec.ts-snapshots/` — because
+    // `snapshotPathTemplate` is set globally in `playwright.config.ts`
+    // to a fixed `visual.spec.ts-snapshots/{arg}-{projectName}-{platform}`
+    // path that does NOT vary by the spec file under run. Both specs
+    // therefore share one snapshot folder by construction.
     await expect(page).toHaveScreenshot(visualSnapshotName(path, viewport), {
       fullPage: true,
       // Capture mode never compares — `--update-snapshots` overwrites.
-      // We still set a generous threshold so a re-run of this spec
-      // without `--update-snapshots` does not fail noisily; the
-      // operator will see the warning and re-invoke with the flag.
+      // The 1.0 ratio means a re-run WITHOUT `--update-snapshots`
+      // (operator forgot the flag) is a no-op rather than a noisy
+      // failure: it captures the actual screenshot, then "matches"
+      // any baseline because 100% pixel-diff is permitted.
       maxDiffPixelRatio: 1.0,
     });
   });

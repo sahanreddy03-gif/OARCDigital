@@ -10,3 +10,19 @@ vite.config.ts.*
 .next/
 out/
 nohup.out
+
+# Playwright transient outputs
+tests/visual/.output/
+tests/visual/test-results/
+
+# SEO docs — these live under .local/ (which the system gitignore
+# excludes wholesale) but MUST be tracked so the seo-tier-doc /
+# framework guide ship with the repo.
+!.local/
+.local/*
+!.local/seo-tier-doc.md
+!.local/seo-framework.md
+!.local/seo-keyword-map.md
+!.local/seo-rollout-calendar.md
+!.local/seo-framework.md
+!.local/lychee-allowlist.txt
