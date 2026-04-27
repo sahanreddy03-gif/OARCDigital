@@ -45,6 +45,14 @@ const BASE_URL = process.env.PLAYWRIGHT_BASE_URL ?? process.env.BASE ?? "http://
 
 export default defineConfig({
   testDir: "./tests/visual",
+  // Default test corpus = visual.spec.ts (the DIFF spec) only.
+  // baseline.spec.ts is the operator-only CAPTURE spec — it must NEVER
+  // run as part of the default `npx playwright test` invocation that
+  // seo-gate.sh fires, otherwise every gate run would (a) double the
+  // wall time and (b) silently re-write baselines into a parallel
+  // snapshot folder. Operator targets it explicitly:
+  //   npx playwright test tests/visual/baseline.spec.ts --update-snapshots
+  testMatch: /visual\.spec\.ts$/,
   // Single worker — diff runs sequentially so the dev-server's on-demand
   // compile doesn't OOM the container under parallel page loads.
   workers: 1,
@@ -52,7 +60,15 @@ export default defineConfig({
   retries: 0,
   reporter: [["list"]],
   outputDir: "tests/visual/.output",
+  // Per-test default timeout. Cold-compile + render + screenshot can run
+  // up to 60s per route on this dev server (Next.js on-demand compile +
+  // 40-route fixture). Default 30s isn't enough.
+  timeout: 90 * 1000,
   expect: {
+    // Default expect-timeout for individual matchers. We bump it well
+    // above the dev-server's worst-case render time so a one-off slow
+    // compile doesn't flake the gate.
+    timeout: 30 * 1000,
     toHaveScreenshot: {
       // >1% pixel diff fails (per Task #93 spec). The threshold is on
       // ratio, not absolute count, so it scales with viewport size.
@@ -62,6 +78,12 @@ export default defineConfig({
       // Playwright-recommended starting value.
       threshold: 0.2,
       animations: "disabled",
+      // Screenshot-stability detection re-captures until two consecutive
+      // captures match. Default 5s is way too tight on the dev server
+      // (lazy images, IntersectionObserver triggers, Vercel analytics
+      // settle late). Bump to 60s so a slow first paint doesn't fail
+      // the capture in `--update-snapshots` mode.
+      timeout: 60 * 1000,
     },
   },
   use: {
