@@ -293,11 +293,18 @@ function pickSample(paths: string[], cap: number): string[] {
 }
 
 async function main() {
-  const { threshold, top, json } = parseArgs();
-  process.stderr.write(`audit-similarity: BASE=${BASE} threshold=${threshold} top=${top} mode=${FULL_WALK ? "full" : "sample"}\n`);
+  const { threshold, top, json, sample } = parseArgs();
+  // Resolution order: AUDIT_FULL=1 wins (every URL); else --sample=N if
+  // provided; else SAMPLE_CAP fallback. The CLI flag exists so a human
+  // calibrating the threshold can dial coverage up or down without
+  // editing the script and without paying the full-walk cost.
+  const cap = sample ?? SAMPLE_CAP;
+  process.stderr.write(
+    `audit-similarity: BASE=${BASE} threshold=${threshold} top=${top} mode=${FULL_WALK ? "full" : `sample(cap=${cap})`}\n`,
+  );
 
   const { paths } = await walkSitemap(BASE);
-  const targetPaths = FULL_WALK ? paths : pickSample(paths, SAMPLE_CAP);
+  const targetPaths = FULL_WALK ? paths : pickSample(paths, cap);
   process.stderr.write(`audit-similarity: walking ${targetPaths.length} of ${paths.length} sitemap URLs\n`);
 
   const shingleMap = await fetchAll(targetPaths);
