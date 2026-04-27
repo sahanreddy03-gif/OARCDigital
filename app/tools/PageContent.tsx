@@ -1166,6 +1166,7 @@ export default function PageContent() {
         <img 
           src={toolsHeroBg} 
           alt="" 
+          aria-hidden="true"
           className="absolute inset-0 w-full h-full object-cover opacity-60"
           loading="eager"
         />

@@ -56,6 +56,7 @@ export default function PageContent() {
         <img 
           src={contactBokehBg} 
           alt="" 
+          aria-hidden="true"
           className="absolute inset-0 w-full h-full object-cover opacity-40"
           loading="eager"
         />
@@ -214,6 +215,7 @@ export default function PageContent() {
         <img 
           src={contactBokehBg} 
           alt="" 
+          aria-hidden="true"
           className="absolute inset-0 w-full h-full object-cover opacity-20"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-zinc-950 via-zinc-950/95 to-zinc-950" />
@@ -370,7 +372,7 @@ export default function PageContent() {
       {/* Global Offices */}
       <section className="relative bg-zinc-900 border-t border-white/5 py-16 overflow-hidden">
         <div className="absolute inset-0 opacity-10">
-          <img src={contactBokehBg} alt="" className="w-full h-full object-cover" />
+          <img src={contactBokehBg} alt="" aria-hidden="true" className="w-full h-full object-cover" />
         </div>
         <div className="relative z-10 container mx-auto px-6">
           <h2 className="text-xs uppercase tracking-[0.2em] text-zinc-500 mb-10 text-center">Global Presence</h2>
