@@ -24,5 +24,9 @@ tests/visual/test-results/
 !.local/seo-framework.md
 !.local/seo-keyword-map.md
 !.local/seo-rollout-calendar.md
-!.local/seo-framework.md
 !.local/lychee-allowlist.txt
+# .local/seo/restore.json holds the kept-slug whitelist used by
+# generateStaticParams() in the /malta/[location]/* dynamic routes.
+# Must be tracked or Vercel build fails on missing import.
+!.local/seo/
+!.local/seo/restore.json
