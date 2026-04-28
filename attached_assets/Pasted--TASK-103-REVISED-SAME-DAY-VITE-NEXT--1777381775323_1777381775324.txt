@@ -1,0 +1,409 @@
+=========================================================
+TASK #103 REVISED — SAME-DAY VITE → NEXT.JS CUTOVER
+=========================================================
+
+CHANGE FROM PREVIOUS PROMPT
+Old prompt was 4 days with 48-hour observation. Wrong call. 
+Production has 13 clicks per 6 months — there is no traffic 
+to protect. Compress to single-session execution.
+
+NON-NEGOTIABLE PRINCIPLES
+- All execution today. No multi-day phases.
+- Dead weight cut in same session. No "cleanup later."
+- Vite gone completely. Tag for git history only.
+- Bulletproof = pass every gate, not "wait and see."
+- Failure at any gate = stop, fix, retry. Never silent skip.
+
+=========================================================
+PHASE 1 — DEAD WEIGHT REMOVAL + PACKAGE FIX (45 min)
+=========================================================
+
+Run in Replit Shell. All commands sequential, verify after each:
+
+# Clear stale lock
+rm -f .git/index.lock
+
+# Confirm branch
+git branch --show-current
+# Must show: nextjs-migration
+
+# Fix devDependencies (Task #93 absorbed into #103)
+npm uninstall @playwright/test lighthouse
+npm install --save-dev @playwright/test lighthouse
+
+# Remove Express zombie weight
+npm uninstall express cors body-parser
+npm uninstall @types/express @types/cors @types/body-parser
+# (Skip any that aren't installed; npm handles silently)
+
+# Remove dead subrepl remotes
+for r in $(git remote | grep subrepl-); do 
+  git remote remove $r
+done
+
+# Remove gitsafe-backup if it points to dead Vite
+git remote -v
+# If gitsafe-backup → main (Vite), remove:
+git remote remove gitsafe-backup
+# (Skip if not present)
+
+# Verify clean state
+grep -A 50 '"dependencies"' package.json | head -60
+grep -A 30 '"devDependencies"' package.json
+git remote -v
+
+# Run all gates
+npm run build
+bash scripts/seo-gate.sh gate:fast
+npx tsx scripts/audit-framework.ts
+npx tsx scripts/verify-redirects.ts
+
+# All must pass before proceeding. If any FAIL, stop and 
+# report. Do not continue.
+
+# Commit
+git add -A
+git commit -m "Phase 1: dead weight removed (Express, subrepls, devDeps fix)
+
+- @playwright/test + lighthouse moved to devDependencies
+- Express + cors + body-parser removed (zombie from Vite era)
+- Dead subrepl-* git remotes purged
+- All audit gates green: gate:fast, audit-framework 21/21, 
+  verify-redirects 108/108, npm run build clean"
+
+# Do NOT push yet — Phase 2 handles first push
+
+CHECKPOINT: Report Phase 1 completion with:
+- Output of `git remote -v` (clean)
+- Output of grep devDependencies (packages present)
+- Output of grep dependencies (Express NOT present)
+- Gate results pasted
+
+=========================================================
+PHASE 2 — VITE ARCHIVE TAG + FIRST GITHUB PUSH (15 min)
+=========================================================
+
+# Tag current Vite main as historical archive
+git fetch origin
+git tag -a vite-archive-2026-04-28 origin/main \
+  -m "Final Vite codebase before Next.js cutover. 
+  Historical reference only. Not deployable."
+git push origin vite-archive-2026-04-28
+
+# Verify tag pushed
+git ls-remote --tags origin | grep vite-archive
+
+# Push nextjs-migration branch to GitHub for first time
+git push origin nextjs-migration
+
+# Verify branch on GitHub
+git ls-remote --heads origin | grep nextjs-migration
+
+CHECKPOINT: Confirm
+- Vite tag visible in GitHub Releases/Tags
+- nextjs-migration branch visible in GitHub Branches
+- All 128 commits pushed (verify commit count)
+
+=========================================================
+PHASE 3 — VERCEL PREVIEW DEPLOY + SMOKE TEST (60 min)
+=========================================================
+
+Vercel auto-creates preview from new branch push.
+
+Watch Vercel dashboard for preview deploy completion 
+(typically 3-5 min). If deploy fails, fix on 
+nextjs-migration, push, retry.
+
+When preview deploys successfully, run smoke test against 
+preview URL:
+
+# Schema validation (external)
+# Test 5 representative pages via Schema.org validator
+# Top 4 + 1 service page minimum
+
+# Redirect smoke test (curl-based)
+# Sample 10 random URLs from redirect map
+# Each must return 301 with correct Location header
+
+# Sitemap accessibility
+curl -I [preview-url]/sitemap.xml
+curl -I [preview-url]/sitemap-services.xml
+curl -I [preview-url]/sitemap-aeo.xml
+curl -I [preview-url]/sitemap-blog.xml
+curl -I [preview-url]/sitemap-case-studies.xml
+curl -I [preview-url]/sitemap-core.xml
+curl -I [preview-url]/sitemap-malta.xml
+curl -I [preview-url]/sitemap-industries.xml
+# All must return 200
+
+# robots.txt + llms.txt + IndexNow
+curl [preview-url]/robots.txt
+curl [preview-url]/llms.txt
+curl [preview-url]/llms-full.txt
+curl [preview-url]/oarcdigital7971179946174617.txt
+# All must return content (not 404)
+
+# 404 page test
+curl -I [preview-url]/this-url-does-not-exist
+# Must return 404, not 200 or redirect
+
+# Mobile sticky CTA test (manual on phone)
+# Visit preview URL on phone, verify:
+# - WhatsApp button works (opens wa.me)
+# - Cal.com link works (or graceful fallback)
+# - tel: link works
+# - Bottom sticky bar persists on scroll
+
+# Console error check (manual on Top 4 pages)
+# Open DevTools, navigate Top 4 pages, verify no errors
+
+If all smoke tests pass, proceed to Phase 4.
+
+If any smoke test fails:
+- Stop
+- Fix on nextjs-migration branch
+- Push fix
+- Vercel auto-redeploys preview
+- Re-run failed smoke tests
+- Iterate until clean
+
+CHECKPOINT: Smoke test report with PASS/FAIL per check.
+
+=========================================================
+PHASE 4 — PRODUCTION CUTOVER (30 min)
+=========================================================
+
+Sahan confirms: "PROCEED CUTOVER"
+
+Cutover sequence:
+
+# In Vercel dashboard (Sahan does manually OR Replit via API 
+# if Replit has Vercel access):
+
+# Step 1: Update Production Branch
+# Vercel project → Settings → Git → Production Branch
+# Change from: main
+# Change to: nextjs-migration
+# Save
+
+# Step 2: Verify build settings
+# Build command: next build
+# Output directory: .next (or leave empty for Next.js auto)
+# Framework preset: Next.js
+# Save
+
+# Step 3: Trigger production deploy
+# Vercel → Deployments → Deploy → from nextjs-migration
+
+# Watch deploy log in real-time
+# Expected: 5-10 min build, then green deploy
+
+# If deploy fails:
+# - Sahan + Replit review error log
+# - Fix on nextjs-migration
+# - Push fix
+# - Vercel auto-redeploys
+# - Repeat until green
+
+# If deploy succeeds:
+# - oarcdigital.com now serves Next.js
+# - Continue to Phase 5
+
+ROLLBACK INSTRUCTIONS (only if deploy fails OR Phase 5 
+validation fails):
+1. Vercel → Deployments → previous deployment → "Promote to 
+   Production"
+2. Vercel → Settings → Git → Production Branch → revert to "main"
+3. Diagnose issue on nextjs-migration
+4. Restart Phase 3 smoke test
+
+=========================================================
+PHASE 5 — POST-CUTOVER VALIDATION (30 min)
+=========================================================
+
+Within 30 minutes of successful cutover:
+
+# Confirm production serves Next.js
+curl -s https://oarcdigital.com | head -20
+# Must contain Next.js fingerprint (e.g., __NEXT_DATA__ script)
+
+# Verify Top 4 pages
+curl -s -o /dev/null -w "%{http_code}" https://oarcdigital.com/
+curl -s -o /dev/null -w "%{http_code}" https://oarcdigital.com/ai-agents
+curl -s -o /dev/null -w "%{http_code}" https://oarcdigital.com/creative
+curl -s -o /dev/null -w "%{http_code}" https://oarcdigital.com/automation
+# All must return 200
+
+# Verify 5 service pages
+# (Pick 5 from the 50)
+# All must return 200
+
+# Verify 5 sample redirects
+# Pick 5 from redirect map
+# All must return 301 with correct Location
+
+# Sitemap submission
+# Sahan submits to GSC manually:
+# Search Console → Sitemaps → submit each:
+# - sitemap.xml
+# - sitemap-services.xml
+# - sitemap-aeo.xml
+# - sitemap-blog.xml
+# - sitemap-case-studies.xml
+# - sitemap-core.xml
+# - sitemap-malta.xml
+# - sitemap-industries.xml
+
+# Bing Webmaster
+# Submit same sitemaps in Bing Webmaster Tools
+
+# IndexNow auto-fires on deploy (verify in deploy logs)
+
+# Mobile real-device test
+# Sahan loads oarcdigital.com on phone
+# Verifies: hero loads, navigation works, mobile CTA visible
+
+ROLLBACK TRIGGER:
+If any Phase 5 validation fails, immediate rollback per 
+Phase 4 procedure.
+
+=========================================================
+PHASE 6 — BRANCH CLEANUP (15 min, after 1 hour stability)
+=========================================================
+
+Wait 1 hour after Phase 5 success. Verify production stable. 
+Then:
+
+# Delete old GitHub main (Vite version)
+git push origin --delete main
+
+# Rename nextjs-migration to main
+git branch -m nextjs-migration main
+git push origin main
+git push origin --set-upstream main
+
+# In GitHub Settings → Branches:
+# - Set main as default branch
+# - Add branch protection rules if desired
+
+# In Vercel:
+# - Production Branch: revert to "main"
+# - Verify next deploy uses correct branch
+
+# Verify final state:
+git ls-remote --heads origin
+# Must show ONLY main (and any other intentional branches)
+# nextjs-migration must be GONE
+
+git ls-remote --tags origin | grep vite-archive
+# vite-archive-2026-04-28 must remain
+
+# Final commit (cleanup notes)
+# (No commit needed; branch operations are server-side)
+
+=========================================================
+PHASE 7 — REPO HYGIENE (15 min)
+=========================================================
+
+# Update README.md
+# Remove any Vite references
+# Document Next.js-only architecture
+# Add link to vite-archive tag for historical context
+
+# Update CHANGELOG.md
+# Document cutover with date, key changes, rollback procedure
+
+# Final repo state check
+ls -la
+# Verify NO: client/, server/, App.jsx, vite.config.ts
+# Confirm YES: app/, next.config.mjs, all framework files
+
+# Commit hygiene updates
+git add README.md CHANGELOG.md
+git commit -m "Phase 7: post-cutover documentation cleanup"
+git push origin main
+
+=========================================================
+DELIVERABLES — END OF SESSION
+=========================================================
+
+1. Production serves Next.js at oarcdigital.com
+2. All 50 service pages live and accessible
+3. All sitemaps submitted to GSC + Bing
+4. IndexNow firing on deploys
+5. Vite archive tag preserved at vite-archive-2026-04-28
+6. GitHub: main = Next.js, nextjs-migration deleted
+7. Vercel: Production Branch = main
+8. README + CHANGELOG updated
+9. Dead weight removed (Express, subrepl remotes)
+10. All gates green throughout
+
+=========================================================
+SAHAN ANSWERS (provided in advance — no blocking)
+=========================================================
+
+Q1: Vercel project settings access
+A: Sahan does Production Branch + build settings manually in 
+Vercel dashboard during Phase 4. Replit cannot do this.
+
+Q2: Environment variables
+A: Sahan reviews and confirms post-cutover. Most should 
+carry over. Replit flags any that look Vite-specific for 
+removal post-cutover.
+
+Q3: Cal.com booking URL
+A: Ship without it for now. Sahan adds env var post-cutover. 
+Pages render with WhatsApp + tel: CTAs, no Cal.com.
+
+Q4: GA4 Measurement ID
+A: Same — ship without, add env var post-cutover.
+
+Q5: Microsoft Clarity Project ID
+A: Same — ship without, add env var post-cutover.
+
+Q6: Lighthouse baseline pre-cutover
+A: SKIP. Replit's existing dev baselines suffice for 
+comparison. Pre-cutover Vite Lighthouse is irrelevant.
+
+Q7: Cutover window
+A: TODAY. Whenever Replit completes Phase 1-3 successfully, 
+Sahan triggers Phase 4 immediately.
+
+Q8: GSC ownership method
+A: Sahan checks GSC Settings → Ownership Verification right 
+now. Reports method to Replit. If HTML file or meta tag, 
+Replit verifies preservation in Phase 3 smoke test.
+
+=========================================================
+EXECUTION RULES
+=========================================================
+
+Per CONTRACT.md:
+- Rule 1: Each phase reports state before changes
+- Rule 4: Every PASS includes evidence (curl output, gate 
+  results, screenshots)
+- Rule 5: Tag operations preserve rollback capability
+- Rule 11: Phase complete only when all checks pass
+
+Approval gates (Sahan must explicitly confirm):
+- After Phase 1: "PROCEED PHASE 2" 
+- After Phase 3: "PROCEED CUTOVER" (this is the big one)
+- After Phase 5: "PROCEED CLEANUP"
+
+All other phases auto-progress on success.
+
+Failure handling:
+- Any gate fails → stop, fix, retry
+- 3 consecutive failures on same gate → escalate to Sahan
+- Never silent skip
+- Never "close enough"
+
+=========================================================
+START EXECUTION
+=========================================================
+
+CONFIRMED — START TASK #103 PHASE 1.
+
+Begin with dead weight removal in Replit Shell. Report 
+Phase 1 completion with evidence per Rule 4. Wait for 
+"PROCEED PHASE 2" before tagging Vite archive.
