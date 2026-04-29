@@ -25,6 +25,10 @@ tests/visual/test-results/
 !.local/seo-keyword-map.md
 !.local/seo-rollout-calendar.md
 !.local/lychee-allowlist.txt
+# .local/seo-phrase-blocklist.md is the source-of-truth markdown read at
+# module load by lib/seo/phraseBlocklist.ts (which audit-framework imports).
+# Must be tracked or Vercel build fails on the very first audit step.
+!.local/seo-phrase-blocklist.md
 # .local/seo/restore.json holds the kept-slug whitelist used by
 # generateStaticParams() in the /malta/[location]/* dynamic routes.
 # Must be tracked or Vercel build fails on missing import.
