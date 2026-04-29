@@ -6,7 +6,7 @@ import Layout from '@/components/layout/Layout';
 import JsonLd from '@/components/JsonLd';
 import { locationServices } from '@/shared/seoConfig';
 import { buildLocationHubContent, getServiceProfile } from '@/lib/seo/generateUniquePageContent';
-import restore from '@/.local/seo/restore.json';
+import restore from '@/lib/seo/restore.json';
 import { NAP } from '@/lib/seo/nap';
 
 const serviceCatalog = locationServices.map((slug) => {

@@ -16,7 +16,7 @@
 import fs from "node:fs";
 import path from "node:path";
 
-const BLOCKLIST_MD_PATH = path.join(process.cwd(), ".local", "seo-phrase-blocklist.md");
+const BLOCKLIST_MD_PATH = path.join(process.cwd(), "lib", "seo", "phrase-blocklist.md");
 
 function loadBlocklist(): readonly string[] {
   let raw = "";
