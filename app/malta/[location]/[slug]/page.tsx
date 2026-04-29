@@ -10,7 +10,7 @@ import type { Metadata } from 'next';
 import { Button } from '@/components/ui/button';
 import { buildLocationServiceContent } from '@/lib/seo/generateUniquePageContent';
 import { getLocationProfile } from '@/lib/seo/locationData';
-import restore from '@/.local/seo/restore.json';
+import restore from '@/lib/seo/restore.json';
 import { NAP } from "@/lib/seo/nap";
 
 export async function generateStaticParams() {
