@@ -138,5 +138,6 @@
       ]
     }
   ],
-  "buildCommand": "npm run gate && next build && (if [ \"$VERCEL_ENV\" = \"production\" ]; then npx tsx scripts/index-now-ping.ts --delta; else echo \"[postbuild] skipping IndexNow ping (VERCEL_ENV=$VERCEL_ENV)\"; fi)"
+  "buildCommand": "next build",
+  "framework": "nextjs"
 }
