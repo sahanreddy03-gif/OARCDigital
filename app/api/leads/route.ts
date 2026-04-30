@@ -4,7 +4,18 @@ import { storage } from "@/lib/storage";
 
 export const runtime = "nodejs";
 
+// Build-resilience: do NOT crash `next build` when DATABASE_URL is unset.
+// Both handlers short-circuit with 503 before touching the database client.
+// This lets the static portion of the site ship while DB-backed endpoints
+// remain disabled until the env var is configured in the Vercel dashboard.
+
 export async function POST(request: NextRequest) {
+  if (!process.env.DATABASE_URL) {
+    return NextResponse.json(
+      { error: "Database not configured" },
+      { status: 503 },
+    );
+  }
   try {
     const body = await request.json();
     const result = insertLeadSchema.safeParse(body);
@@ -41,6 +52,12 @@ export async function GET(request: NextRequest) {
   // Gate admin-style lead retrieval behind a shared secret so the endpoint is
   // not publicly enumerable. Accepts either `Authorization: Bearer <token>`
   // or an `x-admin-token` header; expects LEADS_ADMIN_TOKEN to be set.
+  if (!process.env.DATABASE_URL) {
+    return NextResponse.json(
+      { error: "Database not configured" },
+      { status: 503 },
+    );
+  }
   const expected = process.env.LEADS_ADMIN_TOKEN;
   if (!expected) {
     return NextResponse.json({ error: "Admin access not configured" }, { status: 503 });
