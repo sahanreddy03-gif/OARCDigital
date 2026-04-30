@@ -50,3 +50,6 @@ timeoutMs = 20000
 
 [userenv.shared]
 VERCEL_DEPLOY_HOOK = "https://api.vercel.com/v1/integrations/deploy/prj_Qk3PU0iTUXzr2ORmUlboIsJ9oCwA/VngquKosOI"
+NEXT_PUBLIC_CALCOM_BOOKING_URL = "https://cal.com/oarc-digital-srwvnv"
+NEXT_PUBLIC_FOUNDER_LINKEDIN = "https://www.linkedin.com/in/sahanoarcdigital"
+CLOUDFLARE_AI_MODEL = "@cf/meta/llama-3-8b-instruct"
