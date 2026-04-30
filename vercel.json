@@ -138,5 +138,6 @@
       ]
     }
   ],
-  "buildCommand": "next build"
+  "buildCommand": "next build",
+  "framework": "nextjs"
 }
