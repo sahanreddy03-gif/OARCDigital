@@ -1,0 +1,8 @@
+uploads = []
+generated = []
+
+[[outputs]]
+id = "dBQslWAR-bdBtVmrkX_0n"
+uri = "file://.local/env-var-reference.md"
+type = "text"
+title = "OARC env-var reference for Vercel cutover"
