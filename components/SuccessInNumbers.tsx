@@ -1,4 +1,8 @@
 import { Briefcase, Star, Clock, Users } from "lucide-react";
+import {
+  PROOF_PROJECTS_DELIVERED,
+  PROOF_SATISFACTION_RATING,
+} from "@/lib/proofMetrics";
 
 export function SuccessInNumbers() {
   return (
@@ -32,7 +36,7 @@ export function SuccessInNumbers() {
                 <span className="text-xs uppercase tracking-wider text-emerald-400/80 font-medium">Projects</span>
               </div>
               <div className="text-4xl md:text-5xl lg:text-6xl font-light text-white mb-3" style={{ letterSpacing: '-0.02em' }}>
-                47+
+                {PROOF_PROJECTS_DELIVERED}
               </div>
               <p className="text-xs md:text-sm text-white/60 font-light leading-snug">
                 Projects delivered successfully across industries.
@@ -46,7 +50,7 @@ export function SuccessInNumbers() {
                 <span className="text-xs uppercase tracking-wider text-emerald-400/80 font-medium">Satisfaction</span>
               </div>
               <div className="text-4xl md:text-5xl lg:text-6xl font-light text-white mb-3" style={{ letterSpacing: '-0.02em' }}>
-                4.9/5
+                {PROOF_SATISFACTION_RATING}
               </div>
               <p className="text-xs md:text-sm text-white/60 font-light leading-snug">
                 Average client satisfaction rating.

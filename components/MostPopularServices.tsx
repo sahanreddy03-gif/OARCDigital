@@ -1,8 +1,15 @@
 import Link from "next/link";
 import { ArrowUpRight, Sparkles } from "lucide-react";
+import {
+  PROOF_PROJECTS_DELIVERED,
+  PROOF_SATISFACTION_RATING,
+} from "@/lib/proofMetrics";
 
 // 6 destination URLs and their data-testid attributes are SEO/test contracts —
 // preserve verbatim.
+
+const PROJECTS_NUM = PROOF_PROJECTS_DELIVERED.replace(/\+$/, "");
+const [RATING_NUM, RATING_DENOM] = PROOF_SATISFACTION_RATING.split("/");
 
 type AccentTheme = "amber" | "teal" | "violet";
 
@@ -250,13 +257,12 @@ function HeroCard({ tile }: { tile: Tile }) {
         {tile.blurb}
       </p>
 
-      {/* Proof numbers below mirror SuccessInNumbers.tsx (47+ projects, 4.9/5 rating).
-          Update both files together. */}
       <div className="mt-auto pt-8">
         <div className="flex items-end gap-4 border-t border-white/10 pt-6">
           <div>
             <div className="text-4xl font-light leading-none tracking-tight text-white md:text-5xl">
-              47<span className="text-orange-400">+</span>
+              {PROJECTS_NUM}
+              <span className="text-orange-400">+</span>
             </div>
             <p className="mt-2 text-xs font-medium uppercase tracking-wider text-zinc-400">
               Malta projects shipped to date
@@ -264,7 +270,8 @@ function HeroCard({ tile }: { tile: Tile }) {
           </div>
           <div className="ml-auto hidden text-right md:block">
             <div className="text-2xl font-light leading-none tracking-tight text-white">
-              4.9<span className="text-orange-400/70">/5</span>
+              {RATING_NUM}
+              <span className="text-orange-400/70">/{RATING_DENOM}</span>
             </div>
             <p className="mt-2 text-xs font-medium uppercase tracking-wider text-zinc-400">
               Avg client rating
