@@ -250,6 +250,8 @@ function HeroCard({ tile }: { tile: Tile }) {
         {tile.blurb}
       </p>
 
+      {/* Proof numbers below mirror SuccessInNumbers.tsx (47+ projects, 4.9/5 rating).
+          Update both files together. */}
       <div className="mt-auto pt-8">
         <div className="flex items-end gap-4 border-t border-white/10 pt-6">
           <div>
