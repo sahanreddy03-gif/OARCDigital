@@ -177,12 +177,77 @@ function StandardCard({ tile }: { tile: Tile }) {
   );
 }
 
+// Medium-wide card (lg+: col-span-2). Used for the second-most-important
+// AEO destination so it visually outranks the small tiles next to it.
+function MediumCard({ tile }: { tile: Tile }) {
+  const a = ACCENTS[tile.accent];
+  return (
+    <CardShell tile={tile} className="lg:col-span-2 p-6 md:p-7">
+      <div className="mb-5 flex items-start justify-between gap-3">
+        <span
+          className={`text-[11px] font-semibold uppercase tracking-[0.18em] ${a.eyebrow}`}
+        >
+          {tile.label}
+        </span>
+        <ArrowUpRight
+          className={`h-4 w-4 shrink-0 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 ${a.arrow}`}
+        />
+      </div>
+      <h3 className="mb-2 text-lg font-bold leading-snug text-white md:text-xl lg:text-2xl">
+        {tile.title}
+      </h3>
+      <p className="mt-auto max-w-md text-sm leading-relaxed text-zinc-300/90 md:text-base">
+        {tile.blurb}
+      </p>
+    </CardShell>
+  );
+}
+
+// Tall portrait card (lg+: col-span-1 row-span-2). The single "vertical"
+// form factor in the bento — anchors the right edge and breaks the
+// symmetric tile rhythm. At md and below it falls back to a normal 1×1
+// since the 2-col grid can't accommodate a row-span without leaving gaps.
+function TallCard({ tile }: { tile: Tile }) {
+  const a = ACCENTS[tile.accent];
+  return (
+    <CardShell
+      tile={tile}
+      className="lg:row-span-2 min-h-[220px] lg:min-h-0 p-6 md:p-7"
+    >
+      <div className="mb-5 flex items-start justify-between gap-3">
+        <span
+          className={`text-[11px] font-semibold uppercase tracking-[0.18em] ${a.eyebrow}`}
+        >
+          {tile.label}
+        </span>
+        <ArrowUpRight
+          className={`h-4 w-4 shrink-0 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 ${a.arrow}`}
+        />
+      </div>
+      <h3 className="mb-3 text-lg font-bold leading-snug text-white md:text-xl">
+        {tile.title}
+      </h3>
+      <p className="text-sm leading-relaxed text-zinc-300/90">{tile.blurb}</p>
+      {/* Bottom-anchored emphasis chip — only visible in tall layout where
+          there's vertical room. Reinforces the "vertical" identity. */}
+      <div className="mt-auto hidden pt-6 lg:block">
+        <div className="flex items-center gap-2 border-t border-white/10 pt-4">
+          <span className="inline-block h-1.5 w-1.5 rounded-full bg-teal-400" />
+          <span className="text-[11px] font-medium uppercase tracking-wider text-zinc-400">
+            Live · 24/7 ops
+          </span>
+        </div>
+      </div>
+    </CardShell>
+  );
+}
+
 function HeroCard({ tile }: { tile: Tile }) {
   const a = ACCENTS[tile.accent];
   return (
     <CardShell
       tile={tile}
-      className="lg:col-span-2 lg:row-span-2 min-h-[320px] lg:min-h-[460px] p-7 md:p-9"
+      className="md:col-span-2 lg:col-span-3 lg:row-span-2 min-h-[320px] md:min-h-[380px] lg:min-h-[460px] p-7 md:p-9"
     >
       {/* Decorative grid for depth on the hero card only */}
       <span
@@ -238,7 +303,7 @@ function HeroCard({ tile }: { tile: Tile }) {
 function WideCard({ tile }: { tile: Tile }) {
   const a = ACCENTS[tile.accent];
   return (
-    <CardShell tile={tile} className="lg:col-span-4 p-7 md:p-8">
+    <CardShell tile={tile} className="md:col-span-2 lg:col-span-6 p-7 md:p-8">
       <div className="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
         <div className="flex-1">
           <div className="mb-3 flex items-center gap-3">
@@ -315,17 +380,23 @@ export default function MostPopularServices() {
           </Link>
         </div>
 
-        {/* Bento grid:
-            - lg+: 4-col grid, hero spans 2x2, four 1x1 supporting cards in
-              the top-right cluster, wide CTA card spans full width on row 3.
-            - md: 2-col, hero spans 2 across the top, then 4 supporting in
-              two rows of two, then wide card full-width.
+        {/* Bento grid (asymmetric, varied form factors):
+            - lg+ (6-col): Hero(3×2 top-left) + Medium(2×1) + Tall(1×2 right edge)
+              + two 1×1 small tiles + Wide(6×1 bottom). Five distinct form
+              factors so each card has a unique visual identity.
+            - md (2-col): Hero spans 2 across the top, supporting cards stack
+              in pairs, wide card full-width. Tall card collapses to 1×1.
             - sm: single column stack, hero stays first. */}
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-5 lg:grid-cols-4 lg:auto-rows-fr">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-5 lg:grid-cols-6 lg:auto-rows-fr">
           <HeroCard tile={HERO} />
-          {SUPPORTING.map((tile) => (
-            <StandardCard key={tile.href} tile={tile} />
-          ))}
+          {/* Render order matters for grid auto-flow — careful: */}
+          {/* Row 1 right side: MediumCard takes cols 4-5, TallCard takes col 6 (rows 1-2). */}
+          {/* Row 2 right side: TallCard continues, the two StandardCards take cols 4 and 5. */}
+          {/* Row 3 full width: WideCard. */}
+          <MediumCard tile={SUPPORTING[0]} />
+          <TallCard tile={SUPPORTING[3]} />
+          <StandardCard tile={SUPPORTING[1]} />
+          <StandardCard tile={SUPPORTING[2]} />
           <WideCard tile={WIDE} />
         </div>
       </div>
