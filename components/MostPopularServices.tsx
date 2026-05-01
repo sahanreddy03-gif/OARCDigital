@@ -11,7 +11,7 @@ import {
 const PROJECTS_NUM = PROOF_PROJECTS_DELIVERED.replace(/\+$/, "");
 const [RATING_NUM, RATING_DENOM] = PROOF_SATISFACTION_RATING.split("/");
 
-type AccentTheme = "amber" | "teal" | "violet";
+type AccentTheme = "amber" | "teal";
 
 type Tile = {
   label: string;
@@ -53,7 +53,7 @@ const SUPPORTING: Tile[] = [
     title: "Social Media Creative Management",
     blurb:
       "Editorial-grade social production for Malta's most discerning brands.",
-    accent: "violet",
+    accent: "teal",
   },
   {
     label: "Service",
@@ -91,13 +91,6 @@ const ACCENTS: Record<
       "radial-gradient(circle at center, rgba(45,212,191,0.22) 0%, rgba(45,212,191,0.06) 40%, transparent 70%)",
     arrow: "text-teal-300 group-hover:text-teal-200",
     ring: "group-hover:border-teal-400/50 group-hover:shadow-[0_20px_60px_-20px_rgba(45,212,191,0.4)]",
-  },
-  violet: {
-    eyebrow: "text-violet-300",
-    glowCss:
-      "radial-gradient(circle at center, rgba(167,139,250,0.25) 0%, rgba(167,139,250,0.06) 40%, transparent 70%)",
-    arrow: "text-violet-300 group-hover:text-violet-200",
-    ring: "group-hover:border-violet-400/50 group-hover:shadow-[0_20px_60px_-20px_rgba(167,139,250,0.45)]",
   },
 };
 
@@ -347,7 +340,7 @@ export default function MostPopularServices() {
             </h2>
             <p className="mt-4 max-w-xl text-sm leading-relaxed text-zinc-400 md:text-base">
               Read together by the founders behind{" "}
-              <span className="text-zinc-200">47+ shipped Malta projects</span>{" "}
+              <span className="text-zinc-200">{PROOF_PROJECTS_DELIVERED} shipped Malta projects</span>{" "}
               — the entry points that tell you whether OARC is the right fit before you ever fill in a form.
             </p>
           </div>
