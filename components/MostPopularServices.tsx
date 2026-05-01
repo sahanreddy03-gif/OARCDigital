@@ -1,17 +1,8 @@
 import Link from "next/link";
 import { ArrowUpRight, Sparkles } from "lucide-react";
 
-// Surfaces the highest-leverage Top-30 destinations on the homepage.
-// Hand-curated split: 3 AEO landing pages (Google search demand) + 3 service
-// pages (conversion intent) so internal-link equity flows to the right targets.
-//
-// Layout: editorial bento — one hero card (Digital Marketing Agency Malta,
-// the most-searched destination) + 5 supporting cards in asymmetric sizes.
-// AEO cards use an amber/orange wash; service cards use teal/violet washes.
-// Hover lifts the card on the Z-axis and shifts the arrow icon.
-//
-// All 6 destination URLs and their `data-testid` attributes are SEO/test
-// infra contracts and must be preserved verbatim.
+// 6 destination URLs and their data-testid attributes are SEO/test contracts —
+// preserve verbatim.
 
 type AccentTheme = "amber" | "teal" | "violet";
 
@@ -75,8 +66,7 @@ const WIDE: Tile = {
   accent: "teal",
 };
 
-// Per-accent class bundles. Kept verbose (not template-literal interpolated)
-// so Tailwind's JIT can statically detect every utility.
+// Class strings expanded (not interpolated) so Tailwind JIT detects every utility.
 const ACCENTS: Record<
   AccentTheme,
   { eyebrow: string; glowCss: string; arrow: string; ring: string }
@@ -104,8 +94,6 @@ const ACCENTS: Record<
   },
 };
 
-// Stable card id used in data-testid (kept identical to the previous build
-// so existing test selectors keep working).
 function testId(href: string) {
   return `link-popular-${href.replace(/[^a-z0-9]+/gi, "-")}`;
 }
@@ -129,21 +117,17 @@ function CardShell({
         "border border-white/10 bg-white/[0.03] backdrop-blur-sm",
         "transition-all duration-300 ease-out",
         "hover:-translate-y-1 hover:bg-white/[0.05]",
-        // Touch/active parity — mirrors the hover lift so mobile users
-        // get equivalent feedback on tap (devices without hover capability).
         "active:-translate-y-0.5 active:bg-white/[0.06] active:scale-[0.99]",
         "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400/70 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950",
         a.ring,
         className ?? "",
       ].join(" ")}
     >
-      {/* Per-card ambient wash anchored to the top-right corner */}
       <span
         aria-hidden
         className="pointer-events-none absolute -top-1/3 -right-1/3 h-[120%] w-[120%] rounded-full opacity-70 blur-2xl transition-opacity duration-500 group-hover:opacity-100"
         style={{ backgroundImage: a.glowCss }}
       />
-      {/* Subtle inner top highlight for premium glass feel */}
       <span
         aria-hidden
         className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/15 to-transparent"
@@ -152,6 +136,7 @@ function CardShell({
     </Link>
   );
 }
+
 
 function StandardCard({ tile }: { tile: Tile }) {
   const a = ACCENTS[tile.accent];
@@ -177,8 +162,6 @@ function StandardCard({ tile }: { tile: Tile }) {
   );
 }
 
-// Medium-wide card (lg+: col-span-2). Used for the second-most-important
-// AEO destination so it visually outranks the small tiles next to it.
 function MediumCard({ tile }: { tile: Tile }) {
   const a = ACCENTS[tile.accent];
   return (
@@ -203,10 +186,6 @@ function MediumCard({ tile }: { tile: Tile }) {
   );
 }
 
-// Tall portrait card (lg+: col-span-1 row-span-2). The single "vertical"
-// form factor in the bento — anchors the right edge and breaks the
-// symmetric tile rhythm. At md and below it falls back to a normal 1×1
-// since the 2-col grid can't accommodate a row-span without leaving gaps.
 function TallCard({ tile }: { tile: Tile }) {
   const a = ACCENTS[tile.accent];
   return (
@@ -228,8 +207,6 @@ function TallCard({ tile }: { tile: Tile }) {
         {tile.title}
       </h3>
       <p className="text-sm leading-relaxed text-zinc-300/90">{tile.blurb}</p>
-      {/* Bottom-anchored emphasis chip — only visible in tall layout where
-          there's vertical room. Reinforces the "vertical" identity. */}
       <div className="mt-auto hidden pt-6 lg:block">
         <div className="flex items-center gap-2 border-t border-white/10 pt-4">
           <span className="inline-block h-1.5 w-1.5 rounded-full bg-teal-400" />
@@ -249,7 +226,6 @@ function HeroCard({ tile }: { tile: Tile }) {
       tile={tile}
       className="md:col-span-2 lg:col-span-3 lg:row-span-2 min-h-[320px] md:min-h-[380px] lg:min-h-[460px] p-7 md:p-9"
     >
-      {/* Decorative grid for depth on the hero card only */}
       <span
         aria-hidden
         className="pointer-events-none absolute inset-0 opacity-[0.07] [background-image:linear-gradient(to_right,rgba(255,255,255,0.6)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.6)_1px,transparent_1px)] [background-size:48px_48px]"
@@ -274,8 +250,6 @@ function HeroCard({ tile }: { tile: Tile }) {
         {tile.blurb}
       </p>
 
-      {/* Proof block — uses the canonical site-wide '47+ projects' figure
-          surfaced in <SuccessInNumbers />. Defensible, not fabricated. */}
       <div className="mt-auto pt-8">
         <div className="flex items-end gap-4 border-t border-white/10 pt-6">
           <div>
@@ -340,8 +314,6 @@ export default function MostPopularServices() {
       className="relative overflow-hidden bg-zinc-950 py-20 text-white md:py-28"
       data-testid="section-most-popular-services"
     >
-      {/* Section-level ambient depth: orange bloom top-left, zinc wash bottom-right,
-          subtle dot grid texture. All decorative, pointer-events disabled. */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 -z-0"
@@ -380,19 +352,8 @@ export default function MostPopularServices() {
           </Link>
         </div>
 
-        {/* Bento grid (asymmetric, varied form factors):
-            - lg+ (6-col): Hero(3×2 top-left) + Medium(2×1) + Tall(1×2 right edge)
-              + two 1×1 small tiles + Wide(6×1 bottom). Five distinct form
-              factors so each card has a unique visual identity.
-            - md (2-col): Hero spans 2 across the top, supporting cards stack
-              in pairs, wide card full-width. Tall card collapses to 1×1.
-            - sm: single column stack, hero stays first. */}
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-5 lg:grid-cols-6 lg:auto-rows-fr">
           <HeroCard tile={HERO} />
-          {/* Render order matters for grid auto-flow — careful: */}
-          {/* Row 1 right side: MediumCard takes cols 4-5, TallCard takes col 6 (rows 1-2). */}
-          {/* Row 2 right side: TallCard continues, the two StandardCards take cols 4 and 5. */}
-          {/* Row 3 full width: WideCard. */}
           <MediumCard tile={SUPPORTING[0]} />
           <TallCard tile={SUPPORTING[3]} />
           <StandardCard tile={SUPPORTING[1]} />
