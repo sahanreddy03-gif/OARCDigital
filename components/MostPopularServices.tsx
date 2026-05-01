@@ -129,6 +129,9 @@ function CardShell({
         "border border-white/10 bg-white/[0.03] backdrop-blur-sm",
         "transition-all duration-300 ease-out",
         "hover:-translate-y-1 hover:bg-white/[0.05]",
+        // Touch/active parity — mirrors the hover lift so mobile users
+        // get equivalent feedback on tap (devices without hover capability).
+        "active:-translate-y-0.5 active:bg-white/[0.06] active:scale-[0.99]",
         "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400/70 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950",
         a.ring,
         className ?? "",
@@ -305,7 +308,7 @@ export default function MostPopularServices() {
           <Link
             href="/services"
             data-testid="link-most-popular-all-services"
-            className="group inline-flex items-center gap-2 self-start rounded-full border border-white/15 bg-white/[0.04] px-5 py-2.5 text-sm font-medium text-white backdrop-blur-sm transition-colors duration-200 hover:border-orange-400/40 hover:bg-white/[0.08] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400/70 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 md:self-auto"
+            className="group inline-flex items-center gap-2 self-start rounded-full border border-white/15 bg-white/[0.04] px-5 py-2.5 text-sm font-medium text-white backdrop-blur-sm transition-all duration-200 hover:border-orange-400/40 hover:bg-white/[0.08] active:bg-white/[0.12] active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400/70 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 md:self-auto"
           >
             See all services
             <ArrowUpRight className="h-4 w-4 text-orange-300 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
