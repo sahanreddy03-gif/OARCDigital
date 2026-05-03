@@ -234,6 +234,7 @@ run_step "audit-nap (HTTP)"         env BASE="$BASE" AUDIT_FULL=1 npx tsx script
 run_step "audit-schema (HTTP)"      env BASE="$BASE" AUDIT_FULL=1 npx tsx scripts/audit-schema.ts
 run_step "audit-discovery (HTTP)"   env BASE="$BASE" npx tsx scripts/audit-discovery.ts
 run_step "audit-similarity (HTTP)"  env BASE="$BASE" AUDIT_FULL=1 npx tsx scripts/audit-similarity.ts
+run_step "audit-broken-links (HTTP)" env BASE="$BASE" npx tsx scripts/audit-broken-links.ts
 
 # --- Optional baselines (Task #93) -----------------------------------------
 # Three optional gates that ship as part of the audit set when their
