@@ -18,6 +18,18 @@ interface Message {
 interface ARCChatProps {
   onClose: () => void;
   isMobile: boolean;
+  initialPrompt?: string | null;
+}
+
+// Pulls an email or international/local phone number out of free text.
+const EMAIL_RE = /\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b/;
+const PHONE_RE = /(\+?\d[\d\s().-]{6,}\d)/;
+function extractContact(text: string): string | null {
+  const e = text.match(EMAIL_RE);
+  if (e) return e[0];
+  const p = text.match(PHONE_RE);
+  if (p) return p[0].trim();
+  return null;
 }
 
 type LeadStage = 'chat' | 'ask_name' | 'ask_contact' | 'captured';
@@ -78,7 +90,7 @@ function shouldCaptureLead(messages: Message[]): boolean {
   return aiMessages.length >= LEAD_CAPTURE_AFTER;
 }
 
-export function ARCChat({ onClose, isMobile }: ARCChatProps) {
+export function ARCChat({ onClose, isMobile, initialPrompt }: ARCChatProps) {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState('');
   const [isTyping, setIsTyping] = useState(false);
@@ -86,6 +98,8 @@ export function ARCChat({ onClose, isMobile }: ARCChatProps) {
   const [leadStage, setLeadStage] = useState<LeadStage>('chat');
   const [leadName, setLeadName] = useState('');
   const [leadService, setLeadService] = useState('Website Chat');
+  const [proactiveLeadSent, setProactiveLeadSent] = useState(false);
+  const initialPromptSentRef = useRef(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -113,6 +127,17 @@ export function ARCChat({ onClose, isMobile }: ARCChatProps) {
       return () => clearTimeout(timer);
     }
   }, []);
+
+  // If the launcher passed an initialPrompt (e.g. "Get a quote"), send it
+  // automatically once the greeting is on screen — exactly once per mount.
+  useEffect(() => {
+    if (!initialPrompt || initialPromptSentRef.current) return;
+    if (messages.length === 0 || isTyping) return;
+    initialPromptSentRef.current = true;
+    const t = setTimeout(() => sendMessage(initialPrompt), 400);
+    return () => clearTimeout(t);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [initialPrompt, messages.length, isTyping]);
 
   const addArcMessage = (content: string, showPricingCTA = false) => {
     setMessages(prev => [...prev, {
@@ -157,6 +182,9 @@ export function ARCChat({ onClose, isMobile }: ARCChatProps) {
     }, 700);
   };
 
+  const buildTranscript = (msgs: Message[]) =>
+    msgs.map(m => `${m.isUser ? 'USER' : 'ARC'}: ${m.content}`).join('\n\n');
+
   const handleLeadContact = async (contact: string) => {
     setLeadStage('captured');
     setIsTyping(true);
@@ -165,7 +193,13 @@ export function ARCChat({ onClose, isMobile }: ARCChatProps) {
       await fetch('/api/leads', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name: leadName, contact, service: leadService })
+        body: JSON.stringify({
+          name: leadName,
+          contact,
+          service: leadService,
+          source: 'ARC Chat — guided',
+          transcript: buildTranscript(messages),
+        }),
       });
     } catch (_e) {
       // silent — don't break UX
@@ -206,6 +240,26 @@ export function ARCChat({ onClose, isMobile }: ARCChatProps) {
     setInput('');
     setShowPrompts(false);
     setIsTyping(true);
+
+    // Proactive lead capture: if the user drops an email or phone into ANY
+    // free-form message (not just the guided ask_contact stage), email it
+    // immediately to hello@oarcdigital.com — once per session.
+    const proactiveContact = extractContact(messageText);
+    if (proactiveContact && !proactiveLeadSent && leadStage === 'chat') {
+      setProactiveLeadSent(true);
+      const inferredName = leadName || 'Website visitor';
+      void fetch('/api/leads', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: inferredName,
+          contact: proactiveContact,
+          service: leadService,
+          source: 'ARC Chat — proactive',
+          transcript: buildTranscript(newMessages),
+        }),
+      }).catch(() => { /* non-blocking */ });
+    }
 
     const instantResult = checkInstantResponse(messageText);
 

@@ -15,6 +15,24 @@ export function ARCWidget() {
   const [showPopup, setShowPopup] = useState(false);
   const [popupDismissed, setPopupDismissed] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [initialPrompt, setInitialPrompt] = useState<string | null>(null);
+
+  // Global open hook: any element on the page can call
+  //   window.dispatchEvent(new CustomEvent('arc:open', { detail: { prompt?: string } }))
+  // to launch ARC and (optionally) seed the first user message.
+  useEffect(() => {
+    const handler = (e: Event) => {
+      const custom = e as CustomEvent<{ prompt?: string }>;
+      if (custom.detail?.prompt) setInitialPrompt(custom.detail.prompt);
+      else setInitialPrompt(null);
+      setIsOpen(true);
+      setShowPopup(false);
+      setPopupDismissed(true);
+      try { sessionStorage.setItem('arc-popup-seen-v2', 'true'); } catch { /* ignore */ }
+    };
+    window.addEventListener('arc:open', handler as EventListener);
+    return () => window.removeEventListener('arc:open', handler as EventListener);
+  }, []);
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 640);
@@ -66,19 +84,22 @@ export function ARCWidget() {
     sessionStorage.setItem('arc-popup-seen-v2', 'true');
   };
 
-  // Hide ARC on Contact page (WhatsApp button shown there instead)
-  if (location === '/contact') {
-    return null;
-  }
-
   // Only show call button on landing pages
   const isLandingPage = ['/solutions', '/creative', '/ai-agents'].includes(location);
+  // On Contact page the floating launcher is hidden (the page has its own
+  // "Launch AI Strategist" CTA which dispatches `arc:open`), but the chat
+  // panel still mounts when triggered.
+  const hideFloatingButton = location === '/contact';
 
   return (
     <>
       <AnimatePresence>
         {isOpen && (
-          <ARCChat onClose={handleCloseChat} isMobile={isMobile} />
+          <ARCChat
+            onClose={handleCloseChat}
+            isMobile={isMobile}
+            initialPrompt={initialPrompt}
+          />
         )}
       </AnimatePresence>
 
@@ -108,7 +129,7 @@ export function ARCWidget() {
 
       {/* ARC Chat Button */}
       <AnimatePresence>
-        {!isOpen && (
+        {!isOpen && !hideFloatingButton && (
           <motion.div
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}

@@ -9,39 +9,65 @@ export const runtime = "nodejs";
 // This lets the static portion of the site ship while DB-backed endpoints
 // remain disabled until the env var is configured in the Vercel dashboard.
 
-export async function POST(request: NextRequest) {
-  if (!process.env.DATABASE_URL) {
-    return NextResponse.json(
-      { error: "Database not configured" },
-      { status: 503 },
-    );
+async function notifyFormspree(payload: {
+  name: string;
+  contact: string;
+  service: string;
+  source?: string;
+  transcript?: string;
+}) {
+  const res = await fetch("https://formspree.io/f/xblnedyl", {
+    method: "POST",
+    headers: { "Content-Type": "application/json", Accept: "application/json" },
+    body: JSON.stringify({
+      _replyto: payload.contact,
+      _subject: `New ARC lead — ${payload.name} (${payload.service})`,
+      name: payload.name,
+      contact: payload.contact,
+      service: payload.service,
+      source: payload.source ?? "ARC Chat",
+      transcript: payload.transcript ?? "",
+      message:
+        `New lead from ARC chat — ${payload.name} | ${payload.contact} | Interest: ${payload.service}` +
+        (payload.transcript ? `\n\n--- Transcript ---\n${payload.transcript}` : ""),
+    }),
+  });
+  if (!res.ok) {
+    console.error("Formspree notification returned non-2xx:", res.status);
   }
+  return res.ok;
+}
+
+export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
     const result = insertLeadSchema.safeParse(body);
     if (!result.success) {
       return NextResponse.json({ error: "Invalid lead data" }, { status: 400 });
     }
-    const lead = await storage.createLead(result.data);
 
-    // Fire-and-forget: notify via Formspree so lead lands in email inbox
-    void fetch("https://formspree.io/f/xblnedyl", {
-      method: "POST",
-      headers: { "Content-Type": "application/json", Accept: "application/json" },
-      body: JSON.stringify({
-        name: result.data.name,
-        contact: result.data.contact,
-        service: result.data.service,
-        source: "ARC Chat",
-        message: `New lead from ARC chat — ${result.data.name} | ${result.data.contact} | Interest: ${result.data.service}`,
-      }),
-    })
-      .then((r) => {
-        if (!r.ok) console.error("Formspree notification returned non-2xx:", r.status);
-      })
-      .catch((err) => console.error("Formspree notification failed:", err));
+    // ALWAYS email the lead via Formspree — even when DATABASE_URL is unset.
+    // Email delivery to hello@oarcdigital.com is the contractual guarantee;
+    // DB persistence is a best-effort secondary store.
+    const transcript = (body && typeof body.transcript === "string") ? body.transcript : "";
+    const emailed = await notifyFormspree({
+      name: result.data.name,
+      contact: result.data.contact,
+      service: result.data.service,
+      source: typeof body?.source === "string" ? body.source : "ARC Chat",
+      transcript,
+    });
 
-    return NextResponse.json({ success: true, lead });
+    let lead: unknown = null;
+    if (process.env.DATABASE_URL) {
+      try {
+        lead = await storage.createLead(result.data);
+      } catch (dbErr) {
+        console.error("Lead DB write failed (email already sent):", dbErr);
+      }
+    }
+
+    return NextResponse.json({ success: true, emailed, lead });
   } catch (error) {
     console.error("Lead capture error:", error);
     return NextResponse.json({ error: "Failed to save lead" }, { status: 500 });
