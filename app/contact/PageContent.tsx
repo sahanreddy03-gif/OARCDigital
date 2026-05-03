@@ -181,19 +181,28 @@ export default function PageContent() {
                     Get instant answers about our services, pricing, and how we can help your business grow.
                   </p>
 
-                  {/* Sample prompts */}
+                  {/* Sample prompts — each opens ARC pre-loaded with that question */}
                   <div className="space-y-2 mb-6">
-                    {["Get a quote", "Explore AI services", "See case studies"].map((prompt, i) => (
-                      <div 
+                    {[
+                      { label: "Get a quote", prompt: "Can you give me a quote for your services?" },
+                      { label: "Explore AI services", prompt: "Tell me about your AI services." },
+                      { label: "See case studies", prompt: "Show me some case studies." },
+                    ].map((chip, i) => (
+                      <button
                         key={i}
+                        type="button"
+                        onClick={() => window.dispatchEvent(new CustomEvent('arc:open', { detail: { prompt: chip.prompt } }))}
                         className="inline-block mr-2 px-3 py-1.5 bg-white/5 border border-white/10 rounded-full text-xs text-white/60 hover:bg-white/10 hover:text-white/80 transition-colors cursor-pointer"
+                        data-testid={`button-arc-prompt-${i}`}
                       >
-                        {prompt}
-                      </div>
+                        {chip.label}
+                      </button>
                     ))}
                   </div>
-                  
-                  <button 
+
+                  <button
+                    type="button"
+                    onClick={() => window.dispatchEvent(new CustomEvent('arc:open'))}
                     className="w-full flex items-center justify-center gap-2 px-6 py-4 bg-gradient-to-r from-[#ff914d] to-orange-500 text-black font-semibold rounded-xl hover:shadow-lg hover:shadow-[#ff914d]/20 transition-all duration-300 group/btn"
                     data-testid="button-ai-strategist"
                   >

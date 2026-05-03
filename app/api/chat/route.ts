@@ -89,7 +89,7 @@ export async function POST(request: NextRequest) {
       {
         role: "system",
         content:
-          "CRITICAL: Your response MUST use bullet points. No paragraphs. Format: 1 short intro sentence → bullet points → 1 short closing sentence or question.",
+          "CRITICAL: Match response length to the question. Short questions get 1-3 sentences, never bullets. Diagnostic questions can use bullets ONLY for 3+ distinct items. Never repeat yourself. Never write the same idea twice. No 'Great question'. Start with the answer.",
       },
     ];
 
