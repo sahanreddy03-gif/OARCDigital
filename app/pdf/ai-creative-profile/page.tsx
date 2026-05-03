@@ -471,7 +471,7 @@ export default function Page() {
         </div>
 
         <div className="pdf-footer">
-          <div className="pdf-footer-text">© 2024 OARC Digital • All Rights Reserved</div>
+          <div className="pdf-footer-text">© {new Date().getFullYear()} OARC Digital • All Rights Reserved</div>
           <div className="pdf-footer-text">{companyInfo.website}</div>
         </div>
       </div>

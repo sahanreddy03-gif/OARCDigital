@@ -79,7 +79,7 @@ export default function SeoMalta() {
                     <div className="max-w-4xl mx-auto px-6 text-center">
                         <div className="flex items-center justify-center gap-2 mb-6">
                             <Badge variant="outline" className="border-green-500 text-green-400">SEO Masterclass</Badge>
-                            <span className="text-slate-400 text-sm">Updated for 2025</span>
+                            <span className="text-slate-400 text-sm" suppressHydrationWarning>Updated for {new Date().getFullYear()}</span>
                         </div>
 
                         <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-6 leading-tight">

@@ -11,6 +11,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import contactBokehBg from "@assets/contact-bokeh-bg.jpg";
 import { NAP } from "@/lib/seo/nap";
+import { buildContactShellGraph } from "@/lib/schema/shellSchemas";
 
 const WHATSAPP_NUMBER = NAP.whatsappNumber;
 const WHATSAPP_MESSAGE = "Hi, I'm interested in your services";
@@ -48,6 +49,10 @@ export default function PageContent() {
 
   return (
     <Layout>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(buildContactShellGraph()) }}
+      />
       
       
       {/* Cinematic Hero Section */}

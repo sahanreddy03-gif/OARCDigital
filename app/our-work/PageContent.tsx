@@ -6,6 +6,7 @@ import Link from "next/link";
 import { ArrowUpRight, Bot, Palette, Grid3X3, Sparkles } from "lucide-react";
 import { caseStudies, CaseStudy } from "@/data/caseStudies";
 import { supportingPagesSEO } from "@/data/seoMetadata";
+import { buildOurWorkShellGraph } from "@/lib/schema/shellSchemas";
 import { motion } from "framer-motion";
 import heroBgImage from "@assets/IMG_8144_1765567236984.jpeg";
 
@@ -112,6 +113,10 @@ export default function PageContent() {
 
   return (
     <Layout>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(buildOurWorkShellGraph()) }}
+      />
       
       
       {/* Full Page Background - Same as Hero */}

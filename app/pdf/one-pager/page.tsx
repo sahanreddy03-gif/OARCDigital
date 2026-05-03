@@ -181,7 +181,7 @@ export default function Page() {
           borderTop: '1px solid rgba(255, 255, 255, 0.1)' 
         }}>
           <div style={{ fontSize: '12px', color: '#666' }}>
-            © 2024 OARC Digital • {companyInfo.tagline}
+            © {new Date().getFullYear()} OARC Digital • {companyInfo.tagline}
           </div>
           <div style={{ fontSize: '12px', color: '#666' }}>
             {companyInfo.location} • {companyInfo.phone}
