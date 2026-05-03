@@ -37,7 +37,7 @@ export const PILLAR_SCHEMAS: Record<"/" | "/ai-agents" | "/creative" | "/automat
       {
         question: "Where is OARC Digital based?",
         answer:
-          `OARC Digital's head office is at Level 1, The Brewhouse, Central Business District, ${NAP.addressLocality} ${NAP.postalCode}, Malta. Phone ${NAP.phoneDisplay}. The team also serves clients across Europe, the Middle East, and Asia from satellite offices in Chennai and Dubai.`,
+          `OARC Digital's head office is at Level 1, The Brewhouse, Central Business District, ${NAP.addressLocality} ${NAP.postalCode}, Malta. Phone ${NAP.phoneDisplay}. The team works on-island, with European, Middle Eastern, and Asian clients served remotely.`,
       },
       {
         question: "How fast can OARC Digital launch a project?",

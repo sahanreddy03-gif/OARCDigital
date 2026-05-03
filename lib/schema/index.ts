@@ -8,28 +8,67 @@ const BASE = "https://oarcdigital.com";
 
 const ORG_REF = { "@id": `${BASE}/#organization` };
 
-// Founder identity. sameAs left empty by default — Sahan supplies real
-// LinkedIn URL via FOUNDER_SAMEAS environment variable rather than hard-code
-// (Rule 3 — no fabricated authority signals). When NEXT_PUBLIC_FOUNDER_LINKEDIN
-// is set the schema picks it up automatically.
+// Founder identity. The Person entity is anchored at `/about` (the single
+// page where Mr Reddy is publicly named — every other surface keeps founder
+// visibility low per his stated preference). Schema name is the full
+// "Sahan Reddy" form so the Person entity resolves cleanly against the
+// LinkedIn vanity URL `/in/sahanoarcdigital`; visible page prose calls him
+// "Reddy" or "Mr Reddy" only. The sameAs array carries the LinkedIn URL by
+// default and accepts a Twitter override via env var.
+const FOUNDER_LINKEDIN_DEFAULT = "https://www.linkedin.com/in/sahanoarcdigital";
 const FOUNDER_SAMEAS: string[] = [
-  process.env.NEXT_PUBLIC_FOUNDER_LINKEDIN,
+  process.env.NEXT_PUBLIC_FOUNDER_LINKEDIN ?? FOUNDER_LINKEDIN_DEFAULT,
   process.env.NEXT_PUBLIC_FOUNDER_TWITTER,
 ].filter((v): v is string => Boolean(v && v.trim()));
 
 export function buildPerson() {
-  const node: Record<string, unknown> = {
+  return {
     "@context": "https://schema.org",
     "@type": "Person",
     "@id": `${BASE}/#founder`,
-    name: "Sahan",
-    jobTitle: "Founder & CEO",
+    name: "Sahan Reddy",
+    givenName: "Sahan",
+    familyName: "Reddy",
+    jobTitle: "Founder",
     worksFor: ORG_REF,
-    url: BASE,
+    url: `${BASE}/about`,
+    sameAs: FOUNDER_SAMEAS,
+    knowsAbout: [
+      "Artificial Intelligence",
+      "Digital Marketing",
+      "Software Development",
+      "Hospitality Technology",
+      "Malta Business Strategy",
+    ],
   };
-  if (FOUNDER_SAMEAS.length) node.sameAs = FOUNDER_SAMEAS;
-  return node;
 }
+
+// Canonical Organization sameAs — kept centralised here so every emission
+// site-wide stays in lockstep. URLs MUST be live, owned by OARC Digital,
+// and carry real engagement signals (profile photo, bio, recent activity).
+// Empty/abandoned profiles read as "fake entity created for SEO" to AI
+// answer engines and damage trust — better to omit a profile than ship a
+// dead one. Yellow Pages and directory listings auto-populate from
+// outdated data; verify NAP exact-match before adding.
+// Exported so legacy emitters (utils/structuredData.ts, app/layout.tsx,
+// app/creative/PageContent.tsx) can import the canonical list instead of
+// hard-coding their own — preventing the kind of 3-vs-13 drift that
+// surfaced during Task 80B NAP-cleanup.
+export const ORG_SAMEAS: string[] = [
+  "https://www.instagram.com/oarcdigital/",
+  "https://www.facebook.com/profile.php?id=61584491206896",
+  "https://www.linkedin.com/in/sahanoarcdigital",
+  "https://www.linkedin.com/company/oarc-digital",
+  "https://www.youtube.com/@oarcdigital",
+  "https://www.yellow.com.mt/oarc-digital_marketing-consultants+bkara/",
+  "https://clutch.co/profile/oarc-digital",
+  "https://www.goodfirms.co/company/oarc-digital",
+  "https://www.agencyspotter.com/oarc-digital",
+  "https://theresanaiforthat.com/ai/oarc-digital-ai-workforce-agents/",
+  "https://toolhunt.io/oarc-digital-ai-workforce-agents/",
+  "https://huntscreens.com/products/oarc-digital-ai-workforce-agents",
+  "https://cal.com/oarc-digital-srwvnv",
+];
 
 export function buildOrganization() {
   return {
@@ -45,11 +84,8 @@ export function buildOrganization() {
     telephone: NAP.phoneE164,
     email: NAP.email,
     address: POSTAL_ADDRESS,
-    sameAs: [
-      "https://www.instagram.com/oarcdigital",
-      "https://www.linkedin.com/company/oarc-digital",
-      "https://www.facebook.com/oarcdigital",
-    ],
+    founder: { "@id": `${BASE}/#founder` },
+    sameAs: ORG_SAMEAS,
   };
 }
 

@@ -155,6 +155,12 @@ export default function Footer({ hideGetInTouch = false }: FooterProps) {
                 </Link>
               </li>
               <li>
+                <Link href="/about" className="group inline-flex items-center gap-1 text-zinc-400 hover:text-white transition-colors text-sm font-normal" data-testid="link-footer-about">
+                  <span>About</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                </Link>
+              </li>
+              <li>
                 <Link href="/roadmap" className="group inline-flex items-center gap-1 text-zinc-400 hover:text-white transition-colors text-sm font-normal" data-testid="link-footer-roadmap">
                   <span>Road Map 2026</span>
                   <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -177,43 +183,20 @@ export default function Footer({ hideGetInTouch = false }: FooterProps) {
         </div>
       </div>
 
+      {/* NAP block — single canonical Malta HQ. The India (Chennai) and Dubai (JLT)
+          office cards that previously lived here were removed in Task 80B
+          NAP-cleanup so Google sees ONE address + ONE phone for the entity. */}
       <div className="relative max-w-7xl mx-auto px-6 md:px-12 py-10 border-b border-white/5">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div>
-            <h5 className="text-zinc-500 text-xs uppercase tracking-wider mb-2 font-medium">Malta</h5>
-            <address className="text-zinc-400 text-sm not-italic leading-relaxed">
-              Level 1, The Brewhouse,<br />
-              Zone 2, Central Business District,<br />
-              Mdina Road, {NAP.addressLocality} {NAP.postalCode}, Malta
-            </address>
-            <a href={`tel:${NAP.phoneE164}`} className="text-zinc-500 hover:text-zinc-300 text-xs mt-2 inline-block transition-colors" data-testid="link-phone-malta">
-              {NAP.phoneDisplay}
-            </a>
-          </div>
-
-          <div>
-            <h5 className="text-zinc-500 text-xs uppercase tracking-wider mb-2 font-medium">India — Chennai</h5>
-            <address className="text-zinc-400 text-sm not-italic leading-relaxed">
-              OARC Digital,<br />
-              Olympia Tech Park, SIDCO Industrial Estate,<br />
-              Guindy, Chennai 600032, India
-            </address>
-            <a href="tel:+919900555588" className="text-zinc-500 hover:text-zinc-300 text-xs mt-2 inline-block transition-colors" data-testid="link-phone-chennai">
-              +91 99005 55588
-            </a>
-          </div>
-
-          <div>
-            <h5 className="text-zinc-500 text-xs uppercase tracking-wider mb-2 font-medium">Dubai — JLT</h5>
-            <address className="text-zinc-400 text-sm not-italic leading-relaxed">
-              OARC Digital,<br />
-              Cluster F, Jumeirah Lake Towers,<br />
-              Dubai, United Arab Emirates
-            </address>
-            <a href="tel:+971526472981" className="text-zinc-500 hover:text-zinc-300 text-xs mt-2 inline-block transition-colors" data-testid="link-phone-dubai">
-              +971 52 647 2981
-            </a>
-          </div>
+        <div className="max-w-md">
+          <h5 className="text-zinc-500 text-xs uppercase tracking-wider mb-2 font-medium">Malta — Headquarters</h5>
+          <address className="text-zinc-400 text-sm not-italic leading-relaxed">
+            Level 1, The Brewhouse,<br />
+            Zone 2, Central Business District,<br />
+            Mdina Road, {NAP.addressLocality} {NAP.postalCode}, Malta
+          </address>
+          <a href={`tel:${NAP.phoneE164}`} className="text-zinc-500 hover:text-zinc-300 text-xs mt-2 inline-block transition-colors" data-testid="link-phone-malta">
+            {NAP.phoneDisplay}
+          </a>
         </div>
       </div>
 
@@ -285,7 +268,7 @@ export default function Footer({ hideGetInTouch = false }: FooterProps) {
               </a>
             </div>
             <div className="text-zinc-500 text-sm">
-              © 2025 Oarc Digital. All rights reserved.
+              © {new Date().getFullYear()} OARC Digital. All rights reserved.
             </div>
             <div className="text-zinc-600 text-xs">
               Registered in Malta, EU
