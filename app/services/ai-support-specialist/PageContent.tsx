@@ -326,7 +326,7 @@ export default function AICustomerSupport() {
                 Connects to Your Stack
               </h2>
               <p className="text-lg text-white/60 max-w-2xl mx-auto">
-                Seamless integration with your existing tools in minutes
+                Tight integration with your existing tools in minutes
               </p>
             </div>
 

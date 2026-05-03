@@ -132,7 +132,7 @@ export default function WorkForceConnectAI() {
             </div>
 
             <div className="border-l-4 border-[#5FD4C4] pl-6">
-              <h3 className="text-xl font-bold text-black mb-3">Seamless Integration</h3>
+              <h3 className="text-xl font-bold text-black mb-3">Tight Integration</h3>
               <p className="text-base text-gray-700 leading-relaxed">
                 Our nearshore delivery model ensured teams worked in overlapping timezones with WorkForce Connect's core team. We adopted their tools, processes, and communication patterns to create a truly integrated experience—not just outsourced development.
               </p>

@@ -228,7 +228,7 @@ export default function DigitalMarketing() {
 
           <div className="space-y-6">
             {[
-              { step: "01", title: "Discovery & Strategy", desc: "Deep dive into your business, customers, competitors, and market. Build comprehensive strategy covering all channels with clear objectives and KPIs." },
+              { step: "01", title: "Discovery & Strategy", desc: "Closely examine your business, customers, competitors, and market. Build comprehensive strategy covering all channels with clear objectives and KPIs." },
               { step: "02", title: "Campaign Development", desc: "Create campaign assets including creative, copy, landing pages, and email sequences. Set up tracking, attribution, and reporting infrastructure." },
               { step: "03", title: "Multi-Channel Launch", desc: "Launch integrated campaigns across paid, organic, and owned channels. Coordinate messaging and timing for maximum impact and efficiency." },
               { step: "04", title: "Test, Learn, Scale", desc: "Weekly optimization across all channels. A/B test creative, messaging, audiences, and budgets. Scale what works, kill what doesn't." },

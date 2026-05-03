@@ -116,7 +116,7 @@ export default function PerformanceAnalytics() {
             Data clarity. <span className="italic text-cyan-400">Growth velocity.</span>
           </h2>
           <p className="text-lg text-zinc-400 max-w-2xl">
-            From raw data to actionable insights that drive revenue
+            From raw data to actionable insights that grow revenue
           </p>
         </div>
 

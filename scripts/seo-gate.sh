@@ -155,6 +155,7 @@ run_step "verify-redirects (static)"  npx tsx scripts/verify-redirects.ts --stat
 run_step "AUTOGEN parity (llms.txt)"  npx tsx scripts/generate-llms-txt-facts.ts --check
 run_step "AUTOGEN parity (llms-full.txt)" npx tsx scripts/generate-llms-full-txt.ts --check
 run_step "audit-alts"                 npx tsx scripts/audit-alts.ts
+run_step "audit-banned-phrases"       npx tsx scripts/audit-banned-phrases.ts
 
 if [ "$MODE" = "gate:fast" ]; then
   echo

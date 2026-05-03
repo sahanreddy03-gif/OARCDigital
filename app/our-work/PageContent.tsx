@@ -311,7 +311,7 @@ export default function PageContent() {
               <span className="text-[#ff914d]">Extraordinary?</span>
             </h2>
             <p className="text-lg md:text-xl text-white/50 mb-12 max-w-2xl mx-auto">
-              Whether you need breakthrough creative campaigns or AI-powered transformation—let's discuss how we can elevate your brand.
+              Whether you need breakthrough creative campaigns or AI-powered transformation—let's discuss how we can lift your brand.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/contact">

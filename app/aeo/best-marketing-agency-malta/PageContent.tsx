@@ -13,7 +13,7 @@ interface Props { faqs: Faq[]; offers: Offer[]; }
 const criteria = [
   { title: 'Local Malta presence', detail: 'A real office you can visit. OARC Digital is at Level 1, The Brewhouse, Birkirkara — meet the team in person, not just on Zoom.' },
   { title: 'One team for creative + paid', detail: 'Most agencies separate the people who make content from the people who run ads. That gap is where ROI dies. OARC owns both.' },
-  { title: 'Month-to-month contracts', detail: 'A truly best-in-class agency does not need a 12-month lock-in to keep clients. OARC works on rolling 30-day terms.' },
+  { title: 'Month-to-month contracts', detail: 'An agency confident in its work does not need a 12-month lock-in to keep clients. OARC works on rolling 30-day terms.' },
   { title: 'Revenue-grade case studies', detail: 'Demand named industries, real metrics, and the timeframe over which results were achieved. Vanity reach numbers are not results.' },
   { title: 'Proprietary tools for Malta', detail: 'OARC built Hospitality 360 specifically for Malta restaurants and hotels — not a global tool retrofitted, but a Malta-first system.' },
 ];

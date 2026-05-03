@@ -138,7 +138,7 @@ export default function PageContent() {
     {
       quarter: "Q3 2026",
       title: "Creative Automation Platform v2.0",
-      description: "Launch next-generation creative engine with human-AI collaboration tools, faster output, and higher quality standards."
+      description: "Launch newer-generation creative engine with human-AI collaboration tools, faster output, and higher quality standards."
     },
     {
       quarter: "Q4 2026",

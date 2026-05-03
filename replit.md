@@ -9,6 +9,9 @@ Preferred communication style: Simple, everyday language.
 ## System Architecture
 The platform utilizes a modern web stack with a React frontend and an Express.js backend, designed for scalability and high performance.
 
+**Build Gate (`scripts/seo-gate.sh`):** A pre-commit + CI gate enforces the SEO/content contract. Notable steps in `gate:fast`:
+-   `audit-banned-phrases` — scans every `app/**/*.tsx` and `components/**/*.tsx` for the AI-tell phrase blocklist (`lib/seo/phrase-blocklist.md`). Skips comments/imports/code-only lines and strips noise attrs (`className`, `data-testid`, `href`, `src`, `id`, `key`, `name`, `aria-*`, `role`, `from "..."`) so only user-visible JSX text is checked. Hits in Tier 1 content-locked pages are reported but grandfathered (allowlist in the script itself with a per-prefix justification); hits anywhere else hard-fail. Single source of truth = `lib/seo/phrase-blocklist.md`, parsed by `lib/seo/phraseBlocklist.ts`.
+
 **Frontend:**
 -   **Framework & Language:** React 18+ with TypeScript, powered by Vite.
 -   **UI/Styling:** Shadcn/ui (New York style) based on Radix UI, Tailwind CSS with a custom HSL-based color palette. Typography uses Montserrat, Nunito Sans, and EB Garamond. Extensive CSS animations include Framer Motion for scroll effects and `ScrollReveal` for fade-in animations.

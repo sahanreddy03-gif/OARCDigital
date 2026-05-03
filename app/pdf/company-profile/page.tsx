@@ -301,7 +301,7 @@ export default function Page() {
         
         <h2 className="pdf-section-title">Technology & Tools</h2>
         <p className="pdf-section-subtitle">
-          Best-in-class AI and automation platforms powering your growth.
+          Category-leading AI and automation platforms powering your growth.
         </p>
 
         <div className="mb-large">

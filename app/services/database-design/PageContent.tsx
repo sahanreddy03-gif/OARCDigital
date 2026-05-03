@@ -18,7 +18,7 @@ const phases = [
 ];
 
 const stack = [
-  { name: "PostgreSQL", role: "Default for almost every Malta SaaS, fintech, and operational system. Best-in-class reliability and SQL feature set." },
+  { name: "PostgreSQL", role: "Default for almost every Malta SaaS, fintech, and operational system. Top-tier reliability and SQL feature set." },
   { name: "MySQL / MariaDB", role: "Where existing systems already standardise on it. Strong for high-write transactional workloads." },
   { name: "Supabase / Neon / RDS", role: "Managed Postgres options — Supabase for fast prototyping with auth and edge functions, Neon for serverless branching, RDS or Cloud SQL for production scale." },
   { name: "Drizzle / Prisma / Kysely", role: "Typed ORM and query-builder layer matched to your team's preference and the product's data complexity." },

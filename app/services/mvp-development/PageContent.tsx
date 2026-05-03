@@ -112,7 +112,7 @@ export default function MVPDevelopment() {
       step: '01',
       title: 'Discovery Sprint',
       duration: 'Week 1-2',
-      description: 'Deep dive into your vision, market, and users. We emerge with a validated feature set, technical architecture, and a clear roadmap to launch.',
+      description: 'Closely examine your vision, market, and users. We emerge with a validated feature set, technical architecture, and a clear roadmap to launch.',
       deliverables: ['User personas', 'Feature prioritization', 'Technical spec', 'Project timeline']
     },
     {

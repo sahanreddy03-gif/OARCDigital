@@ -273,7 +273,7 @@ export default function AiSolutionsMalta() {
                         <h2 className="text-3xl font-bold mb-6">Build the Future</h2>
                         <p className="text-zinc-400 mb-8 max-w-xl mx-auto">
                             Don't buy a generic tool. Build a system that knows your business.
-                            OARC Digital is Malta's leading AI development agency.
+                            OARC Digital is a Malta-based AI development agency.
                         </p>
                         <div className="flex flex-col md:flex-row items-center justify-center gap-4">
                             <Button asChild size="lg" className="bg-green-500 hover:bg-green-600 text-black font-bold">

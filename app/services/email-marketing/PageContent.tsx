@@ -19,7 +19,7 @@ const flows = [
 ];
 
 const platforms = [
-  { name: "Klaviyo", best: "Shopify and ecommerce — best-in-class segmentation and revenue attribution." },
+  { name: "Klaviyo", best: "Shopify and ecommerce — top-tier segmentation and revenue attribution." },
   { name: "Mailchimp", best: "Small business and B2C with simple needs and existing lists." },
   { name: "HubSpot", best: "B2B with sales-aligned funnels and CRM-driven personalisation." },
   { name: "ActiveCampaign", best: "Service businesses with longer sales cycles and complex automations." },
