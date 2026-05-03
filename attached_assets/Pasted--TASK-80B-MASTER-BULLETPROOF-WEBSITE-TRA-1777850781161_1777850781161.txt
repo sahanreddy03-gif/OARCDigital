@@ -1,0 +1,144 @@
+=========================================================
+TASK 80B-MASTER — BULLETPROOF WEBSITE TRANSFORMATION
+Goal: OARC Digital ranks #1 in Malta on Google + Maps + AI 
+engines (ChatGPT, Perplexity, Gemini, Claude) for commercial 
+queries. Mobile-first. Voice-search-ready. 12-week execution.
+=========================================================
+
+NON-NEGOTIABLE PRINCIPLES
+
+1. FOUNDER PRIVACY (Sahan visibility)
+"Sahan" appears on website ONLY on:
+- /about page (small bio + photo + LinkedIn link, footer-style)
+- Person schema (technical, not visible)
+- Author byline on long-form articles (small, footer-style)
+
+No prominent placement. No hero text. No homepage mention. 
+Sahan's name is technical SEO requirement, not marketing.
+
+2. SINGLE NAP (Name, Address, Phone) — Day 1 priority
+- Remove ALL India phone (+919900555588 if present)
+- Remove ALL UAE phone (+971526472981 if present)
+- Remove ALL India address references
+- Remove ALL UAE address references
+- Keep ONLY: OARC Digital, [Sahan provides Malta address], 
+  [Sahan provides Malta phone]
+- Audit every file: components, schema, footer, mobile CTA, 
+  contact pages, lib/seo/locationData.ts, NAP constants
+- Build NAP audit script that fails build if multiple phone 
+  numbers detected
+- Single Malta phone, single Malta address, period
+
+3. PHASED ROLLOUT respecting anti-spam cap
+- Improvements to existing pages: unlimited pace
+- NEW page publishing: max 8/week, never burst >10 in 7 days
+- Re-flag risk if violated. Non-negotiable.
+
+4. BANNED CONTENT (audit-enforced)
+- No AI-generated images (no Midjourney, DALL-E, 
+  Stable Diffusion)
+- Banned phrases: "best-in-class," "cutting-edge," 
+  "world-class," "next-generation," "AI-powered," 
+  "leverage," "synergy," "ecosystem," "harness the power," 
+  "unlock potential," "drive results," "transform your 
+  business," "revolutionary," "industry-leading," 
+  "seamless," "robust," "elevate," "empower," "boost," 
+  "supercharge"
+- No identical content across pages (>35% similarity = fail)
+- No identical structure across all pages
+
+5. ORGANIC + EXPERT-VOICED CONTENT
+Every page reads as written by domain expert with 8+ years 
+real experience. Not marketing copywriter. Not AI.
+
+=========================================================
+PROTECTED PAGES — 3-TIER PROTECTION SYSTEM
+=========================================================
+
+TIER 1 — FULL LOCK (15 pages, technical SEO only)
+
+Pages:
+- /
+- /creative
+- /ai-agents
+- /solutions
+- /services/social-media-creative-management
+- /services/branding
+- /services/video-production
+- /services/ai-consulting
+- /services/web-design
+- /services/social
+- /services/influencer
+- /services/motion-design
+- /services/presentation-pitch
+- /services/paid-advertising
+- /services/hire-ai-employees
+
+Replit MAY:
+- Add or fix JSON-LD schema (invisible)
+- Add sameAs array to Organization schema
+- Update meta title + meta description (invisible on page, 
+  visible only in search results)
+- Add or improve alt text on existing images
+- Add internal links FROM this page to other pages 
+  (this page's content unchanged)
+- Add Speakable schema markers (invisible)
+- Add canonical tags (invisible)
+- Add Open Graph + Twitter Card tags (invisible)
+
+Replit MUST NOT:
+- Rewrite, edit, or modify any visible copy
+- Change layout, structure, or design
+- Add new visible sections (FAQs, banners, embeds)
+- Replace, remove, or modify existing images
+- Modify hero sections
+- Add Cal.com or other embeds
+- Change CTAs
+
+If audit shows critical issue requiring visible change, 
+escalate to Sahan with proposal. Wait for "PROCEED CHANGE 
+TO [page]" approval. Default: no change.
+
+TIER 2 — ADD-ONLY (20 pages)
+
+Pages:
+- /services/ai-sdr-agent
+- /services/ai-support-specialist
+- /services/ai-appointment-booker
+- /services/ai-data-analyst
+- /services/seo-services
+- /services/email-marketing
+- /services/content-marketing
+- /services/lead-generation
+- /services/marketing-automation-suite
+- /services/revenue-automation
+- /services/funnel-automation
+- /services/customer-acquisition-accelerator
+- /services
+- /our-work
+- /contact
+- /pricing
+- /why-us
+- /blog
+- /case-studies
+- /tools
+
+Replit MAY (everything in Tier 1, plus):
+- Add FAQ section AT BOTTOM of page if missing (clear new 
+  section, doesn't disturb existing content above it)
+- Add 1-3 images if page has zero (positioned in 
+  appropriate spots without breaking existing layout)
+- Add LocalBusiness schema to /contact only
+- Embed Google Map on /contact only
+- Add to sitemap if missing (e.g., /blog)
+
+Replit MUST NOT:
+- Modify any existing copy above the additions
+- Change existing layout
+- Modify existing FAQs (only ADD new section if missing)
+- Replace existing images
+- Modify hero sections
+- Add embeds beyond what's specified above
+
+ADDITIONS ARE PURELY ADDITIVE. Existing page renders 
+identically until new section appears. New s...
