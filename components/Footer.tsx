@@ -167,7 +167,7 @@ export default function Footer({ hideGetInTouch = false }: FooterProps) {
                 </Link>
               </li>
               <li>
-                <Link href="/pdf" className="group inline-flex items-center gap-1 text-zinc-400 hover:text-white transition-colors text-sm font-normal" data-testid="link-footer-pdf">
+                <Link href="/pdf-hub" className="group inline-flex items-center gap-1 text-zinc-400 hover:text-white transition-colors text-sm font-normal" data-testid="link-footer-pdf">
                   <span>Client PDFs</span>
                   <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity" />
                 </Link>

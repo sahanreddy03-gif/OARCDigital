@@ -45,6 +45,13 @@ export function middleware(req: NextRequest): NextResponse | undefined {
 
   if (HARD_410_PATHS.has(pathname)) return gone();
 
+  // /pdf has no page.tsx of its own — only sub-routes like /pdf/company-profile.
+  // Bare /pdf used to be linked from the footer ("Client PDFs") and 404'd.
+  // 308 it to the real hub at /pdf-hub so any external inbound link survives.
+  if (pathname === "/pdf" || pathname === "/pdf/") {
+    return permanentRedirect(req, "/pdf-hub");
+  }
+
   const aliasTo = SERVICE_ALIASES[pathname];
   if (aliasTo) return permanentRedirect(req, aliasTo);
 
@@ -147,5 +154,6 @@ export const config = {
     "/industries/:path*",
     "/case-studies/:path*",
     "/automation-test",
+    "/pdf",
   ],
 };
