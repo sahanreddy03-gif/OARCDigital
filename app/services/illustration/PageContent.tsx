@@ -416,7 +416,7 @@ export default function Illustration() {
             Ready for original artwork?
           </h2>
           <p className="text-lg md:text-xl text-white/90 mb-8">
-            Let's create custom illustrations that elevate your brand and captivate your audience.
+            Let's create custom illustrations that lift your brand and captivate your audience.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <Button size="lg" className="bg-white text-[#23AACA] hover:bg-white/90" data-testid="button-cta-primary">

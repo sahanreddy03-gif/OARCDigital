@@ -120,7 +120,7 @@ const processPhases = [
     phase: "01",
     title: "Discovery",
     duration: "Week 1",
-    description: "Deep dive into your business processes, pain points, and goals. We map everything.",
+    description: "We closely examine your business processes, pain points, and goals, and map everything.",
     color: "#c4ff4d"
   },
   {
@@ -173,7 +173,7 @@ const testimonials = [
 const faqItems: FAQItem[] = [
   {
     question: "Do you only do automation, or can you build custom software too?",
-    answer: "We do both - and often together. Many clients start with automation to solve immediate operational pain, then expand into custom software for unique competitive advantages. Having one team handle both means seamless integration."
+    answer: "We do both - and often together. Many clients start with automation to solve immediate operational pain, then expand into custom software for unique competitive advantages. Having one team handle both means tight integration."
   },
   {
     question: "What types of businesses in Malta do you work with?",
@@ -642,7 +642,7 @@ export default function PageContent() {
                   </h3>
                   <p className="text-white/60 text-lg max-w-2xl mx-auto mb-8 leading-relaxed">
                     Most businesses need automation <span className="text-[#c4ff4d]">AND</span> custom software.
-                    Having one team handle both means seamless integration, faster delivery,
+                    Having one team handle both means tight integration, faster delivery,
                     and a partner who understands your entire digital ecosystem.
                   </p>
                   

@@ -64,7 +64,7 @@ export default function Page() {
               with AI-Powered Creativity
             </h1>
             <p style={{ fontSize: '16px', color: '#a0a0a0', maxWidth: '700px', lineHeight: '1.7', margin: 0 }}>
-              At OARC Digital, we don't just partner with you—we design the blueprint for your growth. With our mastery in AI Creative Services, Digital Employees, and Revenue Automation, we deep-dive into your challenges to forge future-ready solutions. Join us where innovation evolves into action.
+              At OARC Digital, we don't just partner with you—we design the blueprint for your growth. With our mastery in AI Creative Services, Digital Employees, and Revenue Automation, we closely examine your challenges to forge future-ready solutions. Join us where innovation evolves into action.
             </p>
           </div>
 

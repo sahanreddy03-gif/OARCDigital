@@ -71,7 +71,7 @@ export default function DontMakeAdsCaseStudy() {
         <div className="relative h-full flex items-center justify-center px-4">
           <div className="max-w-5xl text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight uppercase" data-testid="heading-hero">
-              SHOWING SMALL BUSINESSES HOW TO HARNESS THE POWER OF TIKTOK WITH A B2B MARKETING CAMPAIGN.
+              SHOWING SMALL BUSINESSES HOW TO USE TIKTOK FOR A B2B MARKETING CAMPAIGN.
             </h1>
           </div>
         </div>

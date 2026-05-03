@@ -156,7 +156,7 @@ export default function LuxuryRetailGroupAutomation() {
             <div className="border-l-4 border-[#5FD4C4] pl-6">
               <h3 className="text-xl font-bold text-black mb-3">Future-Ready AI Integration</h3>
               <p className="text-base text-gray-700 leading-relaxed">
-                LuxuryRetail Group is now testing next-generation agentic AI capabilities for customer care automation through Salesforce integration, as well as generative AI for predictive analytics—positioning them at the forefront of retail innovation.
+                LuxuryRetail Group is now testing newer-generation agentic AI capabilities for customer care automation through Salesforce integration, as well as generative AI for predictive analytics—positioning them at the forefront of retail innovation.
               </p>
             </div>
           </div>

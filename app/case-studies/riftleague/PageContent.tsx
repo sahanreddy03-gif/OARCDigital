@@ -408,7 +408,7 @@ export default function EslGamingCaseStudy() {
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl md:text-5xl font-black mb-6 uppercase">Get In Touch</h2>
           <p className="text-lg text-gray-300 mb-10 max-w-2xl mx-auto">
-            Ready to elevate your brand with TikTok and gaming content excellence? Let's create something extraordinary together.
+            Ready to lift your brand with TikTok and gaming content excellence? Let's create something extraordinary together.
           </p>
           <Link href="/contact">
             <Button size="lg" variant="outline" className="group btn-shimmer glow-lime" data-testid="button-get-in-touch">

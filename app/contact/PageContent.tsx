@@ -382,6 +382,25 @@ export default function PageContent() {
               Mdina Road, {NAP.addressLocality} {NAP.postalCode}, Malta
             </address>
           </div>
+
+          {/* Google Maps embed — Tier 2 ADD-ONLY allows this on /contact only.
+              Anchored on the Birkirkara CBD coords from lib/seo/nap.ts so the
+              embed and the LocalBusiness JSON-LD geo node stay in lockstep. */}
+          <div
+            className="mt-12 max-w-3xl mx-auto rounded-md overflow-hidden border border-white/10"
+            data-testid="contact-map-embed"
+          >
+            <iframe
+              title="OARC Digital — Birkirkara CBD studio location"
+              src={`https://www.google.com/maps?q=${NAP.geo.lat},${NAP.geo.lng}&z=15&output=embed`}
+              width="100%"
+              height="320"
+              style={{ border: 0, display: "block" }}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              allowFullScreen
+            />
+          </div>
         </div>
       </section>
 

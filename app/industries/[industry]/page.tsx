@@ -36,7 +36,7 @@ const industries: Record<string, IndustryData> = {
     name: 'Restaurant',
     plural: 'Restaurants',
     description: 'the hospitality sector',
-    hero: "Malta's Leading Restaurant Marketing Agency",
+    hero: "A Malta-Based Restaurant Marketing Agency",
     intro: "We help Malta's restaurants fill tables, grow followers, and build brands that keep customers coming back. From Valletta to St. Julian's, we know what works for food businesses in Malta.",
     pain: [
       'Low footfall during off-peak hours despite good food and service',

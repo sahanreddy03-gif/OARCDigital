@@ -198,7 +198,7 @@ export default function GrowthStrategy() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { name: "Strategic Assessment", desc: "Deep dive into your business, market, competition, and opportunities. Identify the highest-impact growth levers." },
+              { name: "Strategic Assessment", desc: "Closely examine your business, market, competition, and opportunities. Identify the highest-impact growth levers." },
               { name: "Growth Roadmap", desc: "Detailed 12-month strategic plan with clear milestones, KPIs, and action items. Know exactly what to do and when." },
               { name: "Experiment Design", desc: "Prioritized experiment backlog with hypotheses, success metrics, and testing protocols. Build a culture of rapid learning." },
               { name: "Weekly Strategy Sessions", desc: "Regular working sessions to review progress, remove blockers, and adapt strategy based on learnings." },

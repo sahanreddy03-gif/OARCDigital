@@ -188,7 +188,7 @@ export const generateServiceFAQs = (
     },
     {
       question: `Can I integrate ${serviceName} with my existing systems?`,
-      answer: `Absolutely. We specialize in seamless integration with your current tech stack, CRM, and marketing platforms.`,
+      answer: `Absolutely. We specialize in tight integration with your current tech stack, CRM, and marketing platforms.`,
     },
   ];
 
