@@ -34,11 +34,17 @@ type LinkCheck = {
 };
 
 function listServiceSlugs(): string[] {
+  // Only static service pages — exclude Next.js dynamic-route directories
+  // (`[serviceSlug]`, `[industry]`), route groups (`(group)`), and
+  // private/underscore folders (`_components`). A literal `/services/[serviceSlug]`
+  // source URL would never resolve and would only generate gate noise.
   const dir = path.join(process.cwd(), "app", "services");
   try {
     return fs
       .readdirSync(dir, { withFileTypes: true })
       .filter((d) => d.isDirectory())
+      .filter((d) => !/[[\]()]/.test(d.name) && !d.name.startsWith("_"))
+      .filter((d) => fs.existsSync(path.join(dir, d.name, "page.tsx")))
       .map((d) => d.name)
       .sort();
   } catch {
@@ -83,32 +89,47 @@ async function fetchWithTimeout(url: string, init?: RequestInit): Promise<Respon
   }
 }
 
+// Anchors AND button-driven navigation. React `<Link>` already renders to
+// `<a href>`, so the anchor regex covers all wouter/next-link usage. The
+// data-* regex covers button-wrappers in this codebase that emit
+// `data-href` / `data-link` / `data-navigate-to` for instrumentation —
+// these are what shows up on rendered buttons whose onClick calls
+// `router.push(...)` (the JS handler itself isn't in HTML, but the
+// data-attr is).
 const HREF_RE = /<a\b[^>]*\bhref=["']([^"']+)["'][^>]*>/gi;
+const BTN_DATA_RE = /<(?:button|div|span)\b[^>]*\bdata-(?:href|link|navigate-to)=["']([^"']+)["'][^>]*>/gi;
 
 function extractInternalHrefs(html: string): string[] {
   const out = new Set<string>();
-  let m: RegExpExecArray | null;
-  while ((m = HREF_RE.exec(html)) !== null) {
-    let href = m[1].trim();
-    if (!href) continue;
-    if (href.startsWith("#")) continue;
-    if (href.startsWith("mailto:") || href.startsWith("tel:")) continue;
-    if (href.startsWith("javascript:")) continue;
-    // Strip absolute prefix if it points at our own origin.
-    if (href.startsWith("https://oarcdigital.com")) {
-      href = href.slice("https://oarcdigital.com".length) || "/";
+  const collect = (re: RegExp) => {
+    let m: RegExpExecArray | null;
+    while ((m = re.exec(html)) !== null) {
+      pushHref(m[1].trim(), out);
     }
-    if (href.startsWith("http://") || href.startsWith("https://")) continue;
-    if (!href.startsWith("/")) continue;
-    // Strip query + hash.
-    const noHash = href.split("#")[0];
-    const noQuery = noHash.split("?")[0];
-    if (!noQuery) continue;
-    // Skip dynamic-route template literals (e.g. /services/[serviceSlug]).
-    if (noQuery.includes("[") || noQuery.includes("]")) continue;
-    out.add(noQuery);
-  }
+  };
+  collect(HREF_RE);
+  collect(BTN_DATA_RE);
   return Array.from(out);
+}
+
+function pushHref(raw: string, out: Set<string>): void {
+  let href = raw;
+  if (!href) return;
+  if (href.startsWith("#")) return;
+  if (href.startsWith("mailto:") || href.startsWith("tel:")) return;
+  if (href.startsWith("javascript:")) return;
+  // Strip absolute prefix if it points at our own origin.
+  if (href.startsWith("https://oarcdigital.com")) {
+    href = href.slice("https://oarcdigital.com".length) || "/";
+  }
+  if (href.startsWith("http://") || href.startsWith("https://")) return;
+  if (!href.startsWith("/")) return;
+  const noHash = href.split("#")[0];
+  const noQuery = noHash.split("?")[0];
+  if (!noQuery) return;
+  // Skip dynamic-route template literals (e.g. /services/[serviceSlug]).
+  if (noQuery.includes("[") || noQuery.includes("]")) return;
+  out.add(noQuery);
 }
 
 async function checkUrl(url: string): Promise<{ status: number | "ERR"; finalStatus?: number; note?: string }> {
@@ -124,12 +145,16 @@ async function checkUrl(url: string): Promise<{ status: number | "ERR"; finalSta
       if (res.status >= 200 && res.status < 300) {
         return { status: firstStatus, finalStatus: res.status };
       }
-      if (res.status === 308 || res.status === 301 || res.status === 307 || res.status === 302) {
+      // Task #106 contract: only 2xx and documented 308 are acceptable.
+      // 301/302/307 are NOT acceptable — they indicate stale link rot the
+      // gate should surface. We still FOLLOW a 308 to confirm the chain
+      // ultimately lands on a 2xx (a 308 → 404 is still a failure).
+      if (res.status === 308) {
         const loc = res.headers.get("location");
         if (!loc) return { status: firstStatus, note: "redirect without Location" };
         const next = new URL(loc, `${BASE}${current}`);
         if (next.origin !== BASE) {
-          // External redirect — accept as OK (we only audit internal targets).
+          // External 308 — accept as OK (we only audit internal targets).
           return { status: firstStatus, finalStatus: res.status };
         }
         current = next.pathname + next.search;
@@ -212,12 +237,16 @@ async function main() {
   // 4) Build failure list per source.
   for (const occ of occurrences) {
     const result = checked.get(occ.href)!;
+    // Pass = (a) direct 2xx, OR (b) a 308 chain that ultimately resolves
+    // to 2xx. Bare 308 with no traceable 2xx terminus = fail. 301/302/307
+    // are NEVER ok per Task #106 contract.
     const ok =
       result.status !== "ERR" &&
       ((result.status >= 200 && result.status < 300) ||
-        (result.finalStatus !== undefined && result.finalStatus >= 200 && result.finalStatus < 300) ||
-        result.status === 308 ||
-        result.status === 301);
+        (result.status === 308 &&
+          result.finalStatus !== undefined &&
+          result.finalStatus >= 200 &&
+          result.finalStatus < 300));
     if (!ok) {
       failures.push({
         source: occ.src,
