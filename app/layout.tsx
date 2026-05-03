@@ -184,16 +184,6 @@ export default function RootLayout({
         />
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-        {/* Partytown — runs gtag in a Web Worker, off the main thread.
-            App Router pattern: inline init snippet, no React component. */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `partytown = { forward: ["gtag", "dataLayer.push"] };`,
-          }}
-        />
-        <script
-          dangerouslySetInnerHTML={{ __html: partytownSnippet() }}
-        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(ORGANIZATION_JSONLD) }}
@@ -208,10 +198,26 @@ export default function RootLayout({
         <MobileStickyCTA />
         <Analytics />
 
+        {/* Partytown init — must run BEFORE any `type="text/partytown"`
+            tag below. Lives in <body> via next/script (afterInteractive)
+            because raw <script dangerouslySetInnerHTML> in <head> hydration-
+            mismatches in Next 14 App Router. */}
+        <Script
+          id="partytown-config"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `partytown = { forward: ["gtag", "dataLayer.push"] };`,
+          }}
+        />
+        <Script
+          id="partytown-snippet"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{ __html: partytownSnippet() }}
+        />
         {/* Google Ads gtag.js — runs in a Web Worker via Partytown.
             We use the canonical Partytown attributes (`type="text/partytown"`)
             instead of next/script `strategy="worker"`, which is unstable in
-            Next 14 App Router. Partytown's snippet (in <head>) rewrites these
+            Next 14 App Router. Partytown's snippet above rewrites these
             tags to load inside its worker. */}
         <script
           type="text/partytown"
