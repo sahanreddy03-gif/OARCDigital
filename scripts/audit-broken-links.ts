@@ -154,8 +154,10 @@ async function checkUrl(url: string): Promise<{ status: number | "ERR"; finalSta
         if (!loc) return { status: firstStatus, note: "redirect without Location" };
         const next = new URL(loc, `${BASE}${current}`);
         if (next.origin !== BASE) {
-          // External 308 — accept as OK (we only audit internal targets).
-          return { status: firstStatus, finalStatus: res.status };
+          // External 308 — internal links should never redirect off-origin.
+          // Surface it as a failure (returns finalStatus=308 which the ok
+          // predicate rejects, since 308→2xx is the only acceptable chain).
+          return { status: firstStatus, finalStatus: res.status, note: `308 to external origin ${next.origin}` };
         }
         current = next.pathname + next.search;
         continue;
