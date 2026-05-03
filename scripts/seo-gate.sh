@@ -149,6 +149,7 @@ echo "seo-gate: mode=$MODE base=$BASE"
 # --- gate:fast (cheap, server-free) ----------------------------------------
 run_step "tsc --noEmit"               npx tsc --noEmit
 run_step "audit-framework"            npx tsx scripts/audit-framework.ts
+run_step "audit-no-foreign-nap"       npx tsx scripts/audit-no-foreign-nap.ts
 run_step "audit-schema (self-test)"   npx tsx scripts/audit-schema.ts --self-test
 run_step "verify-redirects (static)"  npx tsx scripts/verify-redirects.ts --static
 run_step "AUTOGEN parity (llms.txt)"  npx tsx scripts/generate-llms-txt-facts.ts --check

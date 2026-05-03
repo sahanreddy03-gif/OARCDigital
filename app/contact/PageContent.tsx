@@ -286,27 +286,6 @@ export default function PageContent() {
                     </div>
                   </a>
 
-                  {/* India & Dubai - Smaller */}
-                  <div className="grid grid-cols-2 gap-3 mb-4">
-                    <a 
-                      href="tel:+919900555588" 
-                      className="group p-4 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 transition-all"
-                      data-testid="link-call-india"
-                    >
-                      <p className="text-xs uppercase tracking-wider text-white/40 mb-1">India</p>
-                      <p className="text-sm font-semibold text-white group-hover:text-[#ff914d] transition-colors">+91 99005 55588</p>
-                    </a>
-                    
-                    <a 
-                      href="tel:+971526472981" 
-                      className="group p-4 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 transition-all"
-                      data-testid="link-call-dubai"
-                    >
-                      <p className="text-xs uppercase tracking-wider text-white/40 mb-1">Dubai</p>
-                      <p className="text-sm font-semibold text-white group-hover:text-[#ff914d] transition-colors">+971 52 647 2981</p>
-                    </a>
-                  </div>
-
                   {/* Email */}
                   <a 
                     href={`mailto:${NAP.email}`} 
@@ -378,53 +357,25 @@ export default function PageContent() {
         </div>
       </section>
 
-      {/* Global Offices */}
+      {/* Malta HQ block — single-office layout. The previous 3-office "Global
+          Presence" grid (India + Dubai) was removed in Task 80B NAP-cleanup
+          so Google + AI engines see one canonical entity location. */}
       <section className="relative bg-zinc-900 border-t border-white/5 py-16 overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <img src={contactBokehBg} alt="" aria-hidden="true" className="w-full h-full object-cover" />
         </div>
         <div className="relative z-10 container mx-auto px-6">
-          <h2 className="text-xs uppercase tracking-[0.2em] text-zinc-500 mb-10 text-center">Global Presence</h2>
-          
-          <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            {/* Malta - Larger */}
-            <div className="text-center md:scale-110" data-testid="office-malta">
-              <div className="w-12 h-12 rounded-full bg-[#ff914d]/10 border border-[#ff914d]/20 flex items-center justify-center mx-auto mb-4">
-                <MapPin className="w-5 h-5 text-[#ff914d]" />
-              </div>
-              <h3 className="text-white font-bold text-lg mb-2">Malta</h3>
-              <address className="text-zinc-400 text-sm not-italic leading-relaxed">
-                Level 1, The Brewhouse,<br />
-                Zone 2, Central Business District,<br />
-                Mdina Road, {NAP.addressLocality} {NAP.postalCode}, Malta
-              </address>
+          <h2 className="text-xs uppercase tracking-[0.2em] text-zinc-500 mb-10 text-center">Visit the Studio</h2>
+          <div className="text-center max-w-md mx-auto" data-testid="office-malta">
+            <div className="w-12 h-12 rounded-full bg-[#ff914d]/10 border border-[#ff914d]/20 flex items-center justify-center mx-auto mb-4">
+              <MapPin className="w-5 h-5 text-[#ff914d]" />
             </div>
-
-            {/* India */}
-            <div className="text-center" data-testid="office-india">
-              <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center mx-auto mb-4">
-                <MapPin className="w-4 h-4 text-zinc-400" />
-              </div>
-              <h3 className="text-white font-semibold mb-2">India</h3>
-              <address className="text-zinc-500 text-sm not-italic leading-relaxed">
-                Olympia Tech Park<br />
-                Guindy, Chennai<br />
-                600032
-              </address>
-            </div>
-
-            {/* Dubai */}
-            <div className="text-center" data-testid="office-dubai">
-              <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center mx-auto mb-4">
-                <MapPin className="w-4 h-4 text-zinc-400" />
-              </div>
-              <h3 className="text-white font-semibold mb-2">Dubai</h3>
-              <address className="text-zinc-500 text-sm not-italic leading-relaxed">
-                Cluster F<br />
-                Jumeirah Lake Towers<br />
-                UAE
-              </address>
-            </div>
+            <h3 className="text-white font-bold text-lg mb-2">Malta — Birkirkara CBD</h3>
+            <address className="text-zinc-400 text-sm not-italic leading-relaxed">
+              Level 1, The Brewhouse,<br />
+              Zone 2, Central Business District,<br />
+              Mdina Road, {NAP.addressLocality} {NAP.postalCode}, Malta
+            </address>
           </div>
         </div>
       </section>

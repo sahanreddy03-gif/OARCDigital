@@ -11,6 +11,7 @@ import SpeculationRules from "@/components/SpeculationRules";
 import MobileStickyCTA from "@/components/MobileStickyCTA";
 import Analytics from "@/components/Analytics";
 import { NAP, POSTAL_ADDRESS, GEO_COORDINATES } from "@/lib/seo/nap";
+import { ORG_SAMEAS } from "@/lib/schema";
 
 const nunitoSans = Nunito_Sans({
   subsets: ["latin"],
@@ -72,11 +73,7 @@ const ORGANIZATION_JSONLD = [
     telephone: NAP.phoneE164,
     email: NAP.email,
     address: POSTAL_ADDRESS,
-    sameAs: [
-      "https://www.instagram.com/oarcdigital",
-      "https://www.linkedin.com/company/oarc-digital",
-      "https://www.facebook.com/oarcdigital",
-    ],
+    sameAs: ORG_SAMEAS,
     geo: GEO_COORDINATES,
     hasMap: NAP.mapUrl,
     areaServed: [{ "@type": "Country", name: "Malta" }],

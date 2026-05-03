@@ -1,6 +1,7 @@
 // Structured Data (JSON-LD) utilities for SEO
 
 import { NAP } from "@/lib/seo/nap";
+import { ORG_SAMEAS } from "@/lib/schema";
 
 export const localBusinessSchema = {
   "@context": "https://schema.org",
@@ -31,11 +32,7 @@ export const localBusinessSchema = {
       "closes": "18:00"
     }
   ],
-  "sameAs": [
-    "https://www.instagram.com/oarcdigital",
-    "https://www.linkedin.com/company/oarcdigital",
-    "https://www.facebook.com/oarcdigital"
-  ],
+  "sameAs": ORG_SAMEAS,
   "priceRange": "€€€",
   "areaServed": {
     "@type": "Country",
@@ -123,11 +120,7 @@ export const organizationSchema = {
     "areaServed": "Worldwide",
     "availableLanguage": ["English"]
   },
-  "sameAs": [
-    "https://www.linkedin.com/company/oarcdigital",
-    "https://www.facebook.com/oarcdigital",
-    "https://www.instagram.com/oarcdigital"
-  ],
+  "sameAs": ORG_SAMEAS,
   "department": [
     {
       "@type": "Organization",

@@ -32,7 +32,7 @@ export const supportingPagesSEO: Record<string, PageSEO> = {
   },
   contact: {
     title: 'Contact OARC Digital | Get in Touch with Our Team',
-    description: 'Connect with OARC Digital\'s team across Malta, Chennai, and Dubai. Discuss your AI creative, AI employee, or revenue automation needs with our elite marketing experts. Premium service, dedicated support.',
+    description: 'Talk to the OARC Digital team in Birkirkara CBD about AI creative, AI employees, and revenue automation. Walk in to The Brewhouse on weekdays, call +356 7971 1799, or book a slot online.',
     path: '/contact',
     ogType: 'website'
   },

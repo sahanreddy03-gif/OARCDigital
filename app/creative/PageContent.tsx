@@ -21,6 +21,7 @@ import { SiInstagram, SiFacebook, SiTiktok, SiLinkedin, SiYoutube, SiGoogle, SiF
 import CreativeNavigation from '@/components/CreativeNavigation';
 import Footer from '@/components/Footer';
 import { NAP } from "@/lib/seo/nap";
+import { ORG_SAMEAS } from "@/lib/schema";
 import AICreativeSection from '@/components/AICreativeSection';
 import { createFAQSchema } from '@/utils/structuredData';
 
@@ -1118,11 +1119,7 @@ export default function PageContent() {
           ],
           "priceRange": "€€€",
           "openingHours": "Mo-Fr 09:00-18:00",
-          "sameAs": [
-            "https://www.instagram.com/oarcdigital",
-            "https://www.linkedin.com/company/oarcdigital",
-            "https://www.facebook.com/oarcdigital"
-          ]
+          "sameAs": ORG_SAMEAS
         })}</script>
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
