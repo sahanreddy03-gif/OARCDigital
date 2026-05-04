@@ -6,6 +6,21 @@ OARC Digital (Optimised AI Revenue Creativity) is a marketing agency platform de
 ## User Preferences
 Preferred communication style: Simple, everyday language.
 
+## Canonical Core URL Ranking (LOCKED)
+The authoritative ranked list of ~60 core URLs lives at `.local/memory/core-url-rank.md`. Always read this file before planning any SEO/content/redirect work. Highlights:
+- **Tier 1 (P0) — 4 pillars:** `/`, `/creative`, `/ai-agents`, `/solutions`
+- **Tier 2 (P1) — 8 top-nav:** `/services`, `/our-work`, `/case-studies`, `/pricing`, `/contact`, `/why-us`, `/about`, `/blog`
+- **Tier 3 (P1) — 8 headline services:** social-media-creative-management, branding, video-production, web-design, seo-services, paid-advertising, content-marketing, email-marketing
+- **Tier 4 (P1) — 10 AI/Revenue:** hire-ai-employees, ai-consulting, ai-sdr-agent, ai-support-specialist, ai-appointment-booker, ai-data-analyst, ai-admin-agent, revenue-automation, marketing-automation-suite, funnel-automation
+- **Tier 5 (P2) — 12 growth+engineering spokes**
+- **Tier 6 (P2/P3) — 10 creative spokes**
+- **Tier 7 (P2) — 8 strategic supports:** /industries, /intelligence, /diagnostics, /automation, /enterprise, /roadmap-2026, /tools, /pdf-hub
+- **Slug-collision 308s pending:** `/paid`, `/mobile-applications-development`, `/api-integration`, `/influencer`, `/lead-generation-engine`, `/customer-acquisition`, `/why-oarc`, `/diagnostic`
+- **Demoted to P3 (defer):** digital-marketing, media-buying, wordpress-development, shopify-development, database-design, ai-copywriting, ai-compliance-auditor, ai-real-estate-agent, ai-virtual-talent-hub, ai-revenue-engine, funnel-optimization-agent, idea-validation-engine, rapid-idea-testing
+- **Programmatic (P4):** /aeo/* (44), /industries/[industry] (19), /malta/[location]/* (~80) — template-driven, not in core 60
+
+**Strategic call (user-confirmed):** Design + content are good. The real gap is **technical SEO + AEO** — schema completeness, internal-link graph, slug-collision cleanup, AEO/voice coverage, programmatic tail governance, and the Next 16 upgrade (#111) for the technical foundation.
+
 ## System Architecture
 The platform utilizes a modern web stack with a React frontend and an Express.js backend, designed for scalability and high performance.
 
