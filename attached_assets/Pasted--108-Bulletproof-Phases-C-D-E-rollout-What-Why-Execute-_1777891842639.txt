@@ -1,0 +1,66 @@
+#108 - Bulletproof Phases C/D/E rollout
+What & Why
+Execute Phases C, D, and E from .local/seo-rollout-calendar.md as a single coordinated rollout on the Next 14 baseline. These three phases close the structural SEO gaps identified after Tasks #83–#93: 9 missing service pages (Phase C), 11 missing AEO/Malta-location pages (Phase D), and 8 missing industry pages plus an /industries master hub rebuild (Phase E). Together they make the on-page surface area "bulletproof" against template-clone detection and complete the canonical Malta search-intent map.
+
+Hard constraints (non-negotiable)
+Anti-flag throttle: Maximum 10 published pages in any rolling 7-day window across ALL SEO work. Coordinate cadence with any concurrent SEO tasks. Slip rather than burst.
+No AI-generated body copy ships without a human edit pass. Reddy must review each page before it goes live.
+Audit gate before every batch publish: npx tsx scripts/audit-core-57.ts (zero critical failures), npx tsx scripts/verify-redirects.ts (every previously-live URL → 200 or 308), bash scripts/seo-gate.sh (gate:fast must be green), and a manual render check on 3 random pages from the batch.
+Each new page must contain ≥1,000 unique words (Phase C: 1,000+, Phase D: 1,200+, Phase E industries: 1,000+) with real Malta context, named local references, and content that cannot be derived by template substitution.
+Internal-link graph is updated AS each page ships, not in a batch at the end (lib/seo/internalLinkGraph.ts validates every spoke at module load — a broken spoke throws in production).
+Canonical-per-intent rule: never publish two pages targeting the same query intent. Expand the canonical instead.
+NAP consistency: Birkirkara CBD 2010 / +356 7971 1799 across every new page.
+Done looks like
+All 9 Phase C service pages live at /services/{slug}, each rendering with the full Service + LocalBusiness + Organization + AggregateRating + Offers + Breadcrumb schema graph and a MaltaContextBlock + TrustBlock + RelatedLinks block before the CTA.
+All 11 Phase D AEO/Malta-location pages live (under app/aeo/ for service-AEO pages, and app/marketing-agency-{town}/ or the existing aeo pattern for town pages — match whichever directory the existing equivalents use). Audit which Phase D slugs may already exist (e.g. app/aeo/custom-software-malta is already present) and dedupe before scaffolding to avoid canonical collisions.
+8 new industries added to the industries data source and rendered via app/industries/[industry]/page.tsx: healthcare-clinics, legal-services, professional-services, construction, beauty-wellness, automotive, education, nonprofits-ngos.
+/industries master hub rebuilt to surface all 19 industries (existing 11 + 8 new) with per-industry case study counts, schema, and internal links.
+Every new page is added to lib/seo/internalLinkGraph.ts as it ships.
+Every new page has a "last updated" date stamp.
+audit-core-57, verify-redirects, and gate:fast all pass after the final batch.
+Sitemap segments (sitemap-services, sitemap-aeo, sitemap-malta, sitemap-industries) regenerate to include the new URLs.
+replit.md updated with the new page counts.
+Out of scope
+Phase F (30 industry × service cross-pages) — separate future task.
+Phase G (schema + trust hygiene cleanup of legacy AggregateRating) — separate future task.
+Phase H (off-page citations, HARO, podcast bookings) — operational, not code.
+Phase I (GA4 funnel + reporting dashboards) — separate task.
+Pillar rebuilds for /software-development and /automation (Phase B) — covered by superseded Task #71's scope; if needed, propose as a separate task.
+The Next 14 → 16 + React 19 upgrade (Task #107).
+Steps
+Phase C — 9 missing service pages (3 weeks, 3 pages/week per the calendar). Order: W5 — seo-services, content-marketing, email-marketing. W6 — saas-development, ecommerce-development, wordpress-development. W7 — shopify-development, devops-services, database-design. Each page uses the same scaffold as existing app/services/{slug}/{page.tsx, PageContent.tsx} pages, emits the full schema graph, includes MaltaContextBlock, TrustBlock, transparent pricing tile, and RelatedLinks. Update internalLinkGraph.ts and the service slug list as each ships. Run the audit gate before each weekly publish. Note: content-marketing and email-marketing already exist as directories — verify whether they're stub/placeholder pages that need full builds or already-shipped pages that should be skipped.
+
+Phase D — 11 missing AEO + Malta-location pages (4 weeks, ~3/week). Order: W5 — saas-development-malta, mobile-app-developers-malta. W6 — web-development-agency-malta, outsource-development-malta. W7 — custom-software-malta, marketing-agency-mosta. W8 — marketing-agency-qormi, marketing-agency-swieqi, marketing-agency-gzira. W9 — marketing-agency-mellieha, marketing-agency-paola. Audit existing slugs first — some may already exist (custom-software-malta, several marketing-agency-* pages are already in app/aeo/); for those, either upgrade in place or skip. New pages: 1,200+ unique words, full schema, real town/region references, RelatedLinks, added to internalLinkGraph.ts AS they ship. Counts toward the 10/week cap.
+
+Phase E — 8 industries + master hub rebuild (3 weeks). Order: W7 — healthcare-clinics, legal-services, professional-services. W8 — construction, beauty-wellness, automotive. W9 — education, nonprofits-ngos, plus rebuild /industries master hub. Add each industry to the data source in shared/seoConfig.ts (look for maltaIndustries or equivalent — check lib/seo/seoSets.ts and lib/seo/redirectMap.ts too); verify the dynamic route app/industries/[industry]/page.tsx picks them up. Each industry page: 1,000+ words, ≥1 named Malta client/case-study reference, full schema, RelatedLinks. The master hub rebuild surfaces all 19 industries with case-study counts, schema, and internal links.
+
+Final close-out. Regenerate all sitemap segments, run audit-core-57 + verify-redirects + gate:fast end-to-end, update replit.md page counts, archive the audit CSV reports under .local/audit-reports/audit-YYYY-MM-DD.csv per phase, and update .local/seo-rollout-calendar.md to mark Phases C/D/E as LANDED.
+
+Critical architectural constraints
+Do NOT bypass the audit gate even for "small" batches. Every weekly publish runs all three checks.
+Do NOT add new location slugs without updating KEPT_LOCATIONS and the redirect graph in the same change (per calendar's "What we will NOT do" section).
+Do NOT publish two pages targeting the same query intent. If a Phase D slug overlaps a Phase C slug or an existing AEO page, expand the existing canonical rather than creating a duplicate.
+internalLinkGraph.ts updates ship in the SAME commit as the page — never a follow-up commit.
+The phrase blocklist in lib/seo/phraseBlocklist.ts is enforced by gate:fast. Read it before writing copy.
+Relevant files
+.local/seo-rollout-calendar.md
+.local/seo-keyword-map.md
+.local/seo-tier-doc.md
+app/services/web-design/page.tsx
+app/services/web-design/PageContent.tsx
+app/aeo/
+app/industries/[industry]/page.tsx
+app/industries/page.tsx
+shared/seoConfig.ts
+lib/seo/serviceSchemaConfig.ts
+lib/seo/internalLinkGraph.ts
+lib/seo/maltaContext.ts
+lib/seo/seoSets.ts
+lib/seo/redirectMap.ts
+lib/seo/phraseBlocklist.ts
+components/seo/MaltaContextBlock.tsx
+components/seo/TrustBlock.tsx
+scripts/audit-core-57.ts
+scripts/verify-redirects.ts
+scripts/seo-gate.sh
+replit.md
