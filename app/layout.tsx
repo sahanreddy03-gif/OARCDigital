@@ -183,6 +183,28 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
       </head>
       <body suppressHydrationWarning>
+        {/* Swallow the cross-origin SecurityError emitted by the Replit
+            preview iframe wrapper. The wrapper script tries to call
+            `dispatchEvent` on its parent window, which is cross-origin in
+            the Replit preview pane, throwing an unhandled SecurityError on
+            every page load. Replit's crash detector matches on any
+            unhandled error and slaps a "Your application encountered an
+            error" overlay over the working page, even though the site
+            itself rendered correctly. We register an early `error` listener
+            (capture phase) that calls `preventDefault()` only on this
+            specific cross-origin SecurityError, leaving every other error
+            to surface normally.
+
+            Uses a raw <script dangerouslySetInnerHTML> placed in <body>
+            (not <head>) — body inline scripts hydrate cleanly in Next 14
+            App Router (proven by the JSON-LD <script> below). next/script
+            with beforeInteractive was tried first but loads asynchronously
+            in dev, missing the SecurityError that fires on first paint. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{window.addEventListener('error',function(e){var m=(e&&e.message)||'';if(m.indexOf('Blocked a frame with origin')!==-1||m.indexOf("cross-origin frame")!==-1){e.preventDefault();e.stopImmediatePropagation();return false;}},true);}catch(_){}})();`,
+          }}
+        />
         {/* Organization JSON-LD — rendered in <body> rather than <head>
             because raw <script dangerouslySetInnerHTML> inside <head> of
             App Router root layout triggers a hydration type-mismatch
