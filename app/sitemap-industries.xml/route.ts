@@ -1,4 +1,4 @@
-import { maltaIndustries } from "@/shared/seoConfig";
+import { industryHubSlugs } from "@/shared/seoConfig";
 import {
   SITE_BASE,
   lastmodForPath,
@@ -26,7 +26,7 @@ export function buildEntries(): UrlEntry[] {
     // directories. Date them by the last edit to that single template plus
     // the data file that drives the slug list, so a content edit on either
     // bumps every industry URL's lastmod honestly.
-    ...maltaIndustries.map((slug) => ({
+    ...industryHubSlugs.map((slug) => ({
       loc: `${SITE_BASE}/industries/${slug}`,
       lastmod: lastmodForPaths([
         "app/industries/[industry]/page.tsx",

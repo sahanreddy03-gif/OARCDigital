@@ -1,8 +1,16 @@
 import { locationProfiles } from "./locationData";
-import { maltaLocations, maltaIndustries, allServiceSlugs } from "../../shared/seoConfig";
+import {
+  maltaLocations,
+  industryHubSlugs,
+  allServiceSlugs,
+} from "../../shared/seoConfig";
 
 const KEPT_LOCATIONS = new Set<string>(maltaLocations);
-const KEPT_INDUSTRIES = new Set<string>(maltaIndustries);
+// Validator below checks INDUSTRY_REDIRECTS targets resolve to a real hub.
+// Hubs are the broader `industryHubSlugs` set, not the location-paired
+// `maltaIndustries` set, so a redirect like `healthcare → healthcare-clinics`
+// is valid even though `healthcare-clinics` is not a maltaIndustries slug.
+const KEPT_INDUSTRY_HUBS = new Set<string>(industryHubSlugs);
 const ALL_SERVICES = new Set<string>(allServiceSlugs);
 
 // NOTE: this module is imported by `middleware.ts`, which compiles to the Edge
@@ -53,33 +61,28 @@ function buildArchivedLocationMap(): Record<string, string> {
 export const ARCHIVED_LOCATION_REDIRECTS: Readonly<Record<string, string>> =
   Object.freeze(buildArchivedLocationMap());
 
-// Hand-curated archived industry slugs → nearest KEPT industry (singular,
-// matching `maltaIndustries` and `app/industries/[industry]/generateStaticParams`).
-// Covers both plural slugs (used in the /industries index links) and singular
-// slugs (older inbound links from the Vite era).
+// Hand-curated legacy/archived industry slugs → canonical hub slug.
+// Targets must resolve in `industryHubSlugs` (validated below). The current
+// canonical hubs (restaurants, hotels, cafes, bars, igaming, fintech,
+// real-estate, retail, fitness, wellness, events, healthcare-clinics,
+// legal-services, professional-services, construction, beauty-wellness,
+// automotive, education, nonprofits-ngos) are NOT listed here — they serve
+// directly via `app/industries/[industry]/page.tsx` without a redirect hop.
+// Only Vite-era / SEO-domination-era archived URLs need a 308 to preserve
+// inbound link equity.
 export const INDUSTRY_REDIRECTS: Readonly<Record<string, string>> = Object.freeze({
-  // plural canonicalisation (kept already as singular)
-  restaurants: "restaurant",
-  hotels: "hotel",
-  // archived plurals → nearest KEPT singular
-  cafes: "restaurant",
-  bars: "restaurant",
-  igaming: "real-estate",
-  fintech: "real-estate",
-  retail: "real-estate",
-  fitness: "hotel",
-  wellness: "hotel",
-  events: "hotel",
-  // legacy singular variants (Vite-era URLs) → KEPT singular
-  cafe: "restaurant",
-  bar: "restaurant",
-  "spa-wellness": "hotel",
-  "gym-fitness": "hotel",
-  healthcare: "real-estate",
-  "law-firm": "real-estate",
-  "car-dealership": "real-estate",
-  construction: "real-estate",
-  ecommerce: "restaurant",
+  // Singular legacy slugs from the maltaIndustries-only era → plural hub.
+  restaurant: "restaurants",
+  hotel: "hotels",
+  // Vite-era singular variants → current hub.
+  cafe: "cafes",
+  bar: "bars",
+  "spa-wellness": "beauty-wellness",
+  "gym-fitness": "fitness",
+  healthcare: "healthcare-clinics",
+  "law-firm": "legal-services",
+  "car-dealership": "automotive",
+  ecommerce: "retail",
 });
 
 // Archived /services/* slugs whose page directory does not exist.
@@ -101,8 +104,8 @@ export const ARCHIVED_SERVICE_REDIRECTS: Readonly<Record<string, string>> = Obje
     }
   }
   for (const [from, to] of Object.entries(INDUSTRY_REDIRECTS)) {
-    if (!KEPT_INDUSTRIES.has(to)) {
-      errors.push(`INDUSTRY_REDIRECTS: ${from} -> ${to} (target not in maltaIndustries)`);
+    if (!KEPT_INDUSTRY_HUBS.has(to)) {
+      errors.push(`INDUSTRY_REDIRECTS: ${from} -> ${to} (target not in industryHubSlugs)`);
     }
   }
   for (const [from, to] of Object.entries(ARCHIVED_SERVICE_REDIRECTS)) {

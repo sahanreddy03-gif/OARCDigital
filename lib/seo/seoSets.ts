@@ -1,12 +1,17 @@
 import {
   maltaLocations,
   maltaIndustries,
+  industryHubSlugs,
   locationServices,
   allServiceSlugs,
 } from "../../shared/seoConfig";
 
 export const KEPT_LOCATIONS: ReadonlySet<string> = new Set(maltaLocations);
+// `KEPT_INDUSTRIES` gates the location-paired routes only
+// (/malta/{loc}/{ind} and /services/{svc}/{ind}). The standalone
+// /industries/{slug} hubs use the broader `KEPT_INDUSTRY_HUBS` below.
 export const KEPT_INDUSTRIES: ReadonlySet<string> = new Set(maltaIndustries);
+export const KEPT_INDUSTRY_HUBS: ReadonlySet<string> = new Set(industryHubSlugs);
 export const KEPT_LOCATION_SERVICES: ReadonlySet<string> = new Set(locationServices);
 export const ALL_SERVICES: ReadonlySet<string> = new Set(allServiceSlugs);
 

@@ -7,7 +7,7 @@ import Link from 'next/link';
 import Layout from '@/components/layout/Layout';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
-import { maltaIndustries } from '@/shared/seoConfig';
+import { maltaIndustries, industryHubSlugs } from '@/shared/seoConfig';
 
 // Alias singular maltaIndustries slugs to the existing plural keys in the
 // industries data map so the shared slug vocabulary resolves correctly.
@@ -318,7 +318,239 @@ const industries: Record<string, IndustryData> = {
       { q: 'Can you help with recurring event series?', a: 'Absolutely — recurring events benefit enormously from a professional marketing system. We build the content calendar, paid strategy, and automation that makes each event promotion smoother and more effective than the last.' },
     ],
   },
+  'healthcare-clinics': {
+    name: 'Healthcare Clinic',
+    plural: 'Healthcare Clinics',
+    description: 'the private healthcare and medical clinic sector',
+    hero: "Healthcare Clinic Marketing Agency in Malta",
+    intro: "Malta's private healthcare market is competitive and tightly regulated. We help clinics, dental practices, and specialist consultants build patient trust, fill appointment books, and produce content that respects both patients and the Medicines Authority's promotional rules.",
+    pain: [
+      'Patient acquisition stuck on word of mouth — no predictable digital intake channel',
+      'Compliance fear stopping any social or paid activity, even where it is permitted',
+      'Booking forms losing leads because nothing follows up automatically when a patient enquires after hours',
+    ],
+    services: [
+      { slug: 'web-design', title: 'Website Design', description: 'Patient-first sites with clear treatment pages, transparent pricing where possible, and online booking integrated to your PMS' },
+      { slug: 'social-media-creative-management', title: 'Social Media Management', description: 'Practitioner-led educational content that builds authority without breaching advertising rules' },
+      { slug: 'paid-advertising', title: 'Paid Advertising', description: 'Google Search and Meta campaigns aligned with Maltese and EU healthcare advertising standards' },
+      { slug: 'ai-appointment-booker', title: 'AI Appointment Booker', description: 'After-hours WhatsApp and web-chat booking that hands qualified patients to reception in the morning' },
+      { slug: 'marketing-automation-suite', title: 'Marketing Automation', description: 'Recall sequences, no-show reduction reminders, and post-treatment follow-up workflows' },
+      { slug: 'branding-services', title: 'Brand Identity', description: 'Calm, professional clinic branding that reads correctly on signage, prescriptions, and digital channels' },
+    ],
+    faqs: [
+      { q: 'Can you advertise a private clinic in Malta legally?', a: 'Yes — within the Medicines Authority and applicable professional-body rules. We work alongside your clinical team on every claim and never write copy that promises medical outcomes. Our standard creative review includes a compliance pass before any ad goes live.' },
+      { q: 'What is the fastest way for a private clinic to grow new patient volume?', a: 'For most clinics, a combination of fast Google Search ads on high-intent treatment terms, a clean booking page, and an automated WhatsApp follow-up handles 60-70% of the gap. Social and SEO build the longer-term moat.' },
+      { q: 'Do you handle multilingual content for international patients?', a: 'Yes — English, Italian, French, and German content is part of our standard delivery for clinics serving expats and medical-tourism enquiries from southern Europe.' },
+      { q: 'Can you integrate with our practice management system?', a: 'Most modern PMS tools (Dentally, Cliniko, MediSoft, custom systems) expose either an API or a webhook we can route booking confirmations and patient data through. Where the system is closed, we build a Calendly or HubSpot bridge.' },
+    ],
+  },
+  'legal-services': {
+    name: 'Law Firm',
+    plural: 'Law Firms',
+    description: 'the legal services sector',
+    hero: "Law Firm Marketing Agency in Malta",
+    intro: "Malta's legal market spans corporate, gaming, fintech, citizenship, and family practice — each with very different buyers. We help firms generate qualified instructions, build partner-level thought leadership, and move beyond the directories that quietly own most legal lead flow today.",
+    pain: [
+      'Over-reliance on Chambers, Legal 500, and referral networks for new instructions',
+      'Partner-written content sitting unpublished because there is no editorial process or distribution plan',
+      'Website built like a brochure — no clear conversion path for the in-house counsel comparing three firms on a Tuesday afternoon',
+    ],
+    services: [
+      { slug: 'web-design', title: 'Website Design', description: 'Practice-area-led websites with clear partner bios, case experience, and direct enquiry routing' },
+      { slug: 'content-marketing', title: 'Content Marketing', description: 'Partner-bylined briefings on regulatory change, ghost-written and edited to your house style' },
+      { slug: 'seo-services', title: 'SEO', description: 'Organic visibility on practice-area and regulator-driven search terms — MFSA, MGA, Citizenship by Naturalisation, and the like' },
+      { slug: 'ai-sdr-agent', title: 'AI Sales Agent', description: 'Outbound qualification for corporate, gaming, and fintech BD pipelines without burning associate hours' },
+      { slug: 'social-media-creative-management', title: 'Social Media Management', description: 'LinkedIn-first presence for partners, with selective Twitter/X for regulatory commentators' },
+      { slug: 'branding-services', title: 'Brand Identity', description: 'Quiet, confident firm branding that survives a 30-page corporate due-diligence pack' },
+    ],
+    faqs: [
+      { q: 'Is digital marketing actually worth it for a Malta law firm?', a: 'For corporate and regulated practice areas, yes — high-intent Google searches like "MFSA license application lawyer Malta" route directly to instruction. For private-client work, content and SEO compound over 9-12 months and often outperform any single referral source.' },
+      { q: 'Will you write content the partners can defend in front of a client?', a: 'Yes. Every piece is partner-bylined, ghost-drafted, then run through your nominated reviewer before publication. We do not push generic "5 things to know" filler.' },
+      { q: 'Can you help with citizenship and residency programme marketing?', a: 'We have worked on residency-by-investment and citizenship messaging within Identità and Residency Malta Agency rules. Compliance is part of the brief on day one, not an afterthought.' },
+      { q: 'How do you measure return for a law firm engagement?', a: 'Qualified enquiries from your priority practice areas, attributed to the channel that delivered them, plus authority signals — backlinks won, partner mentions, speaking invitations. We share a quarterly partnership review, not a vanity-metrics dashboard.' },
+    ],
+  },
+  'professional-services': {
+    name: 'Professional Services Firm',
+    plural: 'Professional Services Firms',
+    description: 'the professional services sector — accounting, consulting, advisory, and corporate services',
+    hero: "Professional Services Marketing Agency in Malta",
+    intro: "Accounting, advisory, and corporate services firms in Malta sell expertise, not products. We build the marketing systems that let your senior team spend less time chasing leads and more time billing — without diluting the technical credibility that won the firm its reputation in the first place.",
+    pain: [
+      'Senior partners spending billable hours on cold outreach and proposal writing',
+      'Strong technical reputation that does not translate online because the website was built five years ago for a different firm',
+      'No visibility on which marketing activity actually produces fee income vs. just looks busy',
+    ],
+    services: [
+      { slug: 'web-design', title: 'Website Design', description: 'Service-line-led website that explains complex offerings in plain English without losing the technical buyer' },
+      { slug: 'seo-services', title: 'SEO', description: 'Visibility on advisory and corporate services search terms specific to Malta, EU, and offshore-structuring buyers' },
+      { slug: 'content-marketing', title: 'Content Marketing', description: 'Partner-led briefings on tax change, IFRS updates, ESG, and regulatory deadlines that bring inbound enquiries' },
+      { slug: 'ai-sdr-agent', title: 'AI Sales Agent', description: 'Targeted outbound to specific decision-makers in your ICP without burning principal time' },
+      { slug: 'marketing-automation-suite', title: 'Marketing Automation', description: 'Lead nurture for the 6-12 month consideration cycle typical in professional services buying' },
+      { slug: 'branding-services', title: 'Brand Identity', description: 'Refined firm branding that reads correctly on a 60-page report and on a LinkedIn banner' },
+    ],
+    faqs: [
+      { q: 'Will marketing actually move the needle for a partner-led firm?', a: 'Yes — but only if it is built around how partners genuinely sell. We design systems that surface partner expertise (briefings, talks, panel placements) and route the resulting demand into a clean enquiry pipeline.' },
+      { q: 'Do you understand the regulated side — tax advisory, audit, corporate services?', a: 'We work with firms regulated by the Malta Financial Services Authority and the Accountancy Board. Every claim is reviewed before it ships, and we do not write copy that crosses independence or solicitation rules.' },
+      { q: 'Can you help with B2B pipeline for corporate services and structuring work?', a: 'B2B pipeline is one of our core deliverables. Most engagements combine LinkedIn-led outbound, a focused content programme, and a clean lead-handling workflow back into the firm.' },
+      { q: 'How does pricing work for a professional services engagement?', a: 'A quarterly retainer based on scope (typically EUR 2,500-7,500 per month for a partner-led firm under 30 people). Larger engagements with multiple service lines are quoted on a per-programme basis after a discovery call.' },
+    ],
+  },
+  construction: {
+    name: 'Construction & Property Development',
+    plural: 'Construction Firms',
+    description: 'the construction and property development sector',
+    hero: "Construction & Property Development Marketing Agency in Malta",
+    intro: "Construction and property developers in Malta operate on long sales cycles, big-ticket buyers, and reputation built over years. We help developers, contractors, and finishing trades win the right work — and showcase it properly when the project is delivered.",
+    pain: [
+      'New developments launching with weak pre-sales because marketing started after, not before, the BCA permit cleared',
+      'Site progress and finished projects under-documented — losing the storytelling asset for the next development',
+      'No B2B pipeline for commercial fit-out, MEP, and main-contracting work outside the existing referral network',
+    ],
+    services: [
+      { slug: 'video-production', title: 'Video Production', description: 'Drone-led project documentation, interior walk-throughs, and developer story films from concept through delivery' },
+      { slug: 'web-design', title: 'Website Design', description: 'Development-launch microsites and main-contractor brochure sites that handle qualified buyer enquiry' },
+      { slug: 'paid-advertising', title: 'Paid Advertising', description: 'Targeted Meta and Google campaigns reaching Malta and overseas buyers actively researching property' },
+      { slug: 'social-media-creative-management', title: 'Social Media Management', description: 'Build-progress content, finishing reveals, and showroom updates that keep prospects engaged through long buying cycles' },
+      { slug: 'branding-services', title: 'Brand Identity', description: 'Developer and contractor branding that holds up on hoarding, on a marble lobby plaque, and on a tender document' },
+      { slug: 'marketing-automation-suite', title: 'Marketing Automation', description: 'Buyer nurture, viewing reminders, snagging follow-up, and post-handover satisfaction tracking' },
+    ],
+    faqs: [
+      { q: 'When should we start marketing a new development?', a: 'As soon as the planning permit and basic massing are confirmed — typically 9-12 months before practical completion. Early pre-sales reservations from a soft-launch phase often fund the construction draw and de-risk the project.' },
+      { q: 'Can you produce drone footage of our site?', a: 'Yes. Our drone work is operated under Malta Civil Aviation Directorate licensing, with insurance certificates supplied to your H&S officer before any flight. We capture progress monthly so you build a full project archive at the same time.' },
+      { q: 'Do you market to international property buyers?', a: 'Yes — we run campaigns into the UK, Italy, Scandinavia, and the Gulf for Malta property, with creative localised to the buyer-search behaviour in each market.' },
+      { q: 'Can you help with B2B work — main-contracting, MEP, fit-out?', a: 'Yes. The B2B side is a different programme — focused outbound to architects, project managers, and developer commercial teams, plus a credentials site built for procurement, not consumer marketing.' },
+    ],
+  },
+  'beauty-wellness': {
+    name: 'Beauty Salon & Med Spa',
+    plural: 'Beauty Salons & Med Spas',
+    description: 'the beauty salon, aesthetic clinic, and med spa sector',
+    hero: "Beauty Salon & Med Spa Marketing Agency in Malta",
+    intro: "From St Julian's blowdry bars to clinical aesthetic practices in Sliema and Mosta, the Maltese beauty market is busy, visual, and unforgiving of weak content. We help salons and clinics fill columns, sell retail, and move clients up the treatment ladder without resorting to constant discounting.",
+    pain: [
+      'Empty mid-week appointment columns despite a packed Saturday book',
+      'Heavy discounting on Groupon-style platforms attracting one-off clients who never rebook',
+      'Aesthetic services sitting under-marketed because the team is unsure what is permitted to advertise under medical rules',
+    ],
+    services: [
+      { slug: 'social-media-creative-management', title: 'Social Media Management', description: 'Treatment showcases, before-and-after content (where compliant), and client-story reels' },
+      { slug: 'video-production', title: 'Video Production', description: 'Salon and clinic walk-throughs, treatment explainers, and practitioner introductions' },
+      { slug: 'paid-advertising', title: 'Paid Advertising', description: 'Hyper-local Meta and Google campaigns targeting people inside a 5km catchment around your salon' },
+      { slug: 'web-design', title: 'Website Design', description: 'Booking-first websites with online deposit handling, treatment menus, and clear practitioner credentials' },
+      { slug: 'marketing-automation-suite', title: 'Marketing Automation', description: 'Rebook reminders, retail follow-up, course-of-treatment progression, and birthday offers' },
+      { slug: 'ai-appointment-booker', title: 'AI Appointment Booker', description: 'After-hours WhatsApp and Instagram DM booking that captures the client at the moment of intent' },
+    ],
+    faqs: [
+      { q: 'Can you fill mid-week appointment slots specifically?', a: 'Yes — mid-week recovery is one of the most measurable wins we deliver. A combination of geo-targeted paid promotions for off-peak slots and an automated rebooking sequence for existing clients typically lifts mid-week occupancy by 25-40% inside 90 days.' },
+      { q: 'What is permitted when advertising aesthetic and injectable treatments in Malta?', a: 'Advertising of regulated medical aesthetic treatments is governed by the Medicines Authority and applicable professional body rules. We work with your medical director on every claim and have a standard pre-publish review for injectables, laser, and prescription-grade products.' },
+      { q: 'Do you handle Instagram and TikTok content production?', a: 'Yes — most salon retainers include a monthly half-day shoot with our content team, producing Reels, TikToks, treatment stills, and retail product shots from the same session.' },
+      { q: 'Can you help us reduce dependence on discount platforms?', a: 'That is the core of most engagements. We rebuild your direct booking funnel, set up Google reviews properly, and run paid campaigns to your own offers — so client lifetime value is yours, not a platform commission.' },
+    ],
+  },
+  automotive: {
+    name: 'Automotive Dealer & Garage',
+    plural: 'Automotive Businesses',
+    description: 'the automotive sales, service, and aftermarket sector',
+    hero: "Automotive Marketing Agency in Malta",
+    intro: "Malta's automotive market spans new-car dealers, used-car forecourts, service garages, and specialist aftermarket trades. We help showrooms move stock, garages fill service bays, and aftermarket businesses build a customer base that comes back every season.",
+    pain: [
+      'Stock listings buried on aggregator sites with no direct route from buyer search to your showroom',
+      'Service bay schedule under-utilised between MOT peaks and end-of-warranty work',
+      'No content engine showcasing workshop quality, technician credentials, or specialist capability — losing buyers to perception of "any garage will do"',
+    ],
+    services: [
+      { slug: 'web-design', title: 'Website Design', description: 'Inventory-led dealer sites and service-booking-first garage sites with WhatsApp routing built in' },
+      { slug: 'paid-advertising', title: 'Paid Advertising', description: 'Google Vehicle Ads, Meta inventory campaigns, and service-booking promotions targeting your local catchment' },
+      { slug: 'video-production', title: 'Video Production', description: 'Used-stock walkarounds, workshop tours, technician profiles, and customer-handover films' },
+      { slug: 'social-media-creative-management', title: 'Social Media Management', description: 'New-arrival reels, build-quality content, and customer-story posts that build trust over weeks not minutes' },
+      { slug: 'marketing-automation-suite', title: 'Marketing Automation', description: 'Service reminders, MOT follow-up, end-of-warranty trade-in campaigns, and parts retail nurture' },
+      { slug: 'ai-support-specialist', title: 'AI Customer Support', description: 'Inventory enquiry handling and service-booking triage 24/7 across WhatsApp, web chat, and Instagram DMs' },
+    ],
+    faqs: [
+      { q: 'Can you help us sell more used stock?', a: 'Yes — used-vehicle marketing benefits hugely from short-form video and clean Google Vehicle Ads. A monthly walkaround content shoot, paired with daily inventory feed updates to Google and Meta, typically lifts test-drive bookings within 60 days.' },
+      { q: 'How do we fill quieter service bays?', a: 'A combination of automated service-recall reminders against your existing CRM, paired with paid promotions on lower-margin services (wheel alignment, AC regas, brake checks) is usually the fastest way to lift service-bay utilisation.' },
+      { q: 'Do you work with main dealers as well as independents?', a: 'Both. For main dealers we operate within the brand co-op marketing rules and your manufacturer creative guidelines. For independents we have more creative freedom and can build a sharper local identity.' },
+      { q: 'Can you handle electric-vehicle marketing specifically?', a: 'Yes. EV buyer education is a longer cycle and benefits from a content programme covering range, charging infrastructure in Malta, total-cost-of-ownership, and government incentive guidance — all of which we produce as part of an EV-focused engagement.' },
+    ],
+  },
+  education: {
+    name: 'School & Education Provider',
+    plural: 'Education Providers',
+    description: 'the education sector — independent schools, English-language colleges, and professional training providers',
+    hero: "Education Marketing Agency in Malta",
+    intro: "From independent schools to ELT colleges and professional training providers, Malta's education sector competes for attention from parents, students, and corporate buyers — often across multiple countries. We build the marketing systems that fill open-day calendars and student intakes year after year.",
+    pain: [
+      'Open-day registrations dropping despite strong word-of-mouth reputation',
+      'International student intake too dependent on agent commissions, eating margin every term',
+      'Course pages and prospectus PDFs not converting the parents and students who do reach the site',
+    ],
+    services: [
+      { slug: 'web-design', title: 'Website Design', description: 'Parent-and-student-first websites with clear curriculum pages, fee transparency, and an open-day or course enquiry path on every page' },
+      { slug: 'paid-advertising', title: 'Paid Advertising', description: 'Google and Meta campaigns targeting parents in Malta and international students researching ELT or higher-education in southern Europe' },
+      { slug: 'social-media-creative-management', title: 'Social Media Management', description: 'Authentic life-on-campus content, student-and-teacher voices, and event coverage that speaks to both parents and students' },
+      { slug: 'video-production', title: 'Video Production', description: 'Campus tours, principal welcomes, alumni stories, and course-experience films for prospectuses and paid creative' },
+      { slug: 'content-marketing', title: 'Content Marketing', description: 'Subject-area thought leadership for academic credibility and SEO around curriculum and exam-board search terms' },
+      { slug: 'marketing-automation-suite', title: 'Marketing Automation', description: 'Open-day reminders, application-stage nurture, and re-enrolment cycles that lift conversion at every step of the funnel' },
+    ],
+    faqs: [
+      { q: 'Can you help us reduce dependence on student-recruitment agents?', a: 'Yes — building direct channels (paid search in source markets, content in the relevant languages, automated nurture from enquiry to deposit) is one of the highest-ROI programmes for ELT and international-student providers. Most clients see direct-channel intake double inside 12 months.' },
+      { q: 'Do you understand the safeguarding and child-image considerations for school marketing?', a: 'Yes. Every campaign and every piece of content goes through a safeguarding review before publication. We follow your nominated lead\'s sign-off on any image or footage involving students under 18, and we never run paid creative featuring minors without explicit parental consent on file.' },
+      { q: 'Can you produce content in multiple languages?', a: 'Yes — English, Italian, French, German, and Arabic are part of our standard delivery for international-facing schools and ELT providers, with localised paid creative in each market.' },
+      { q: 'How long before we see results from an education marketing engagement?', a: 'Open-day registrations typically lift inside the first 60 days from paid activity. Direct-applicant share and reduced agent dependency are 9-12 month metrics — they require sustained content and SEO investment but the compounding return is significant.' },
+    ],
+  },
+  'nonprofits-ngos': {
+    name: 'Non-Profit & NGO',
+    plural: 'Non-Profits & NGOs',
+    description: 'the non-profit, NGO, and registered-foundation sector',
+    hero: "Non-Profit & NGO Marketing Agency in Malta",
+    intro: "Malta's voluntary sector is rich and under-resourced. We work with NGOs, registered foundations, and social enterprises to grow donor bases, recruit volunteers, and tell stories that move funders — at a price point built around real charity-sector budgets.",
+    pain: [
+      'Donor base ageing with no consistent acquisition channel for a younger audience',
+      'Strong programme work going under-told because the team has no capacity for content production',
+      'Grant applications and major-donor decks competing against larger NGOs with full-time communications staff',
+    ],
+    services: [
+      { slug: 'social-media-creative-management', title: 'Social Media Management', description: 'Programme-impact storytelling that shows real beneficiary outcomes without exploiting the people you serve' },
+      { slug: 'video-production', title: 'Video Production', description: 'Beneficiary stories, programme documentaries, and appeal films produced with a charity-sector ethics framework' },
+      { slug: 'web-design', title: 'Website Design', description: 'Donation-first websites with one-click giving, recurring-gift handling, and gift-aid or VO equivalent processing' },
+      { slug: 'content-marketing', title: 'Content Marketing', description: 'Annual reports, impact briefings, and grant-application support written for a funder reader, not a marketing audience' },
+      { slug: 'marketing-automation-suite', title: 'Marketing Automation', description: 'Donor-journey nurture, lapsed-supporter reactivation, and volunteer onboarding workflows' },
+      { slug: 'paid-advertising', title: 'Paid Advertising', description: 'Google Ad Grants management, Meta cause-targeted appeals, and event-promotion campaigns within charity-sector ad rules' },
+    ],
+    faqs: [
+      { q: 'Can a small Malta NGO actually afford agency support?', a: 'Yes — we keep a charity-sector engagement model with reduced retainers, pro-bono hours on every paid month, and a Google Ad Grants programme that brings in up to USD 10,000/month of free search advertising once approved. Most engagements pay back in lifted donations inside two quarters.' },
+      { q: 'Will you help us apply for Google Ad Grants and run them properly?', a: 'Yes — we handle the application, eligibility documentation, and ongoing account management. Most NGOs underuse the grant by 70%+ because the account rules are strict; we keep yours compliant and productive.' },
+      { q: 'Can you help with grant-application materials and major-donor decks?', a: 'Yes. Grant copywriting, impact reporting, and major-donor proposal design are part of our charity offer. We write to the assessor or the donor in mind, not as marketing collateral.' },
+      { q: 'How do you handle ethical considerations in charity storytelling?', a: 'Every beneficiary story is told with informed consent, with the person\'s own voice where possible, and with an option to remain anonymous. We do not use poverty-tourism imagery, and we follow established sector frameworks like the Dochas Code on Images and Messages.' },
+    ],
+  },
 };
+
+// Source of truth for the hub slug list lives in `shared/seoConfig.ts`
+// (`industryHubSlugs`) — kept in sync with the `industries` Record above.
+// We re-derive locally here so generateStaticParams stays in this module
+// without an extra import dance, and the assertion below catches drift
+// between the Record and the shared list at module load.
+const INDUSTRY_HUB_SLUGS = Object.keys(industries);
+
+(function assertHubsInSync() {
+  const recordKeys = new Set<string>(INDUSTRY_HUB_SLUGS);
+  const sharedKeys = new Set<string>(industryHubSlugs);
+  const missingFromShared = INDUSTRY_HUB_SLUGS.filter((s) => !sharedKeys.has(s));
+  const missingFromRecord = industryHubSlugs.filter((s) => !recordKeys.has(s));
+  if (missingFromShared.length || missingFromRecord.length) {
+    const msg =
+      `[industries] hub slug drift between app/industries/[industry]/page.tsx ` +
+      `and shared/seoConfig.industryHubSlugs:\n` +
+      (missingFromShared.length ? `  in Record only: ${missingFromShared.join(', ')}\n` : '') +
+      (missingFromRecord.length ? `  in shared only: ${missingFromRecord.join(', ')}` : '');
+    // eslint-disable-next-line no-console
+    console.error(msg);
+    if (process.env.NODE_ENV === 'production') throw new Error(msg);
+  }
+})();
 
 const topServiceSlugs = [
   'social-media-creative-management',
@@ -331,7 +563,7 @@ const topServiceSlugs = [
 ];
 
 export async function generateStaticParams() {
-  return maltaIndustries.map((industry) => ({ industry }));
+  return INDUSTRY_HUB_SLUGS.map((industry) => ({ industry }));
 }
 
 export async function generateMetadata({ params }: { params: { industry: string } }): Promise<Metadata> {

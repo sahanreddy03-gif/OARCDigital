@@ -44,6 +44,12 @@ export const maltaLocationsAll = [
 export type MaltaLocationAll = typeof maltaLocationsAll[number];
 
 // REDUCED for Next.js migration: 15 -> 3 (top vertical industries only).
+// This list gates the /malta/{loc}/{ind} programmatic routes and the
+// /services/{svc}/{ind} pairing pages. It is INTENTIONALLY narrower than
+// `industryHubSlugs` below — location-paired pages multiply combinatorially
+// so we keep that surface tight, while the standalone `/industries/{slug}`
+// hubs can grow independently.
+//
 // ARCHIVED (12): cafe, bar, spa-wellness, gym-fitness, retail, igaming,
 // fintech, healthcare, law-firm, car-dealership, construction, ecommerce
 export const maltaIndustries = [
@@ -53,6 +59,37 @@ export const maltaIndustries = [
 ] as const;
 
 export type MaltaIndustry = typeof maltaIndustries[number];
+
+// Industry hub slugs served by `app/industries/[industry]/page.tsx`.
+// Single source of truth for: middleware allow-list, sitemap-industries,
+// generateStaticParams, and the master /industries grid. When adding a hub:
+// 1) add the data entry in `app/industries/[industry]/page.tsx`,
+// 2) add the slug here,
+// 3) add a card to `app/industries/page.tsx`.
+// All three changes ship in the same commit (audit-core-57 walks them).
+export const industryHubSlugs = [
+  'restaurants',
+  'hotels',
+  'cafes',
+  'bars',
+  'igaming',
+  'fintech',
+  'real-estate',
+  'retail',
+  'fitness',
+  'wellness',
+  'events',
+  'healthcare-clinics',
+  'legal-services',
+  'professional-services',
+  'construction',
+  'beauty-wellness',
+  'automotive',
+  'education',
+  'nonprofits-ngos',
+] as const;
+
+export type IndustryHubSlug = typeof industryHubSlugs[number];
 
 // Top services available for location-based pages
 // MUST match the serviceData keys in LocationService.tsx
