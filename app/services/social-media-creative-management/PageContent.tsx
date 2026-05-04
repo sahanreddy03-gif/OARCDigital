@@ -412,7 +412,7 @@ export default function SocialMediaCreativeManagement() {
       icon: Video,
       description: "Production-quality content at social-speed delivery",
       cta: "Explore Content",
-      link: "/services/creative",
+      link: "/creative",
       image: contentCreationImg,
       overlayGradient: "linear-gradient(to top, rgba(194, 65, 12, 0.92) 0%, rgba(154, 52, 18, 0.75) 50%, rgba(154, 52, 18, 0.4) 75%, transparent 100%)",
       ctaStyle: {

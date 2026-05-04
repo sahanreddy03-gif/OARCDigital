@@ -87,9 +87,23 @@ export const INDUSTRY_REDIRECTS: Readonly<Record<string, string>> = Object.freez
 
 // Archived /services/* slugs whose page directory does not exist.
 // (Other "archived" service slugs from the SEO Domination prompt —
-// video-production, ai-copywriting, hire-ai-employees, revenue-automation —
-// still have live `app/services/*` directories so we deliberately do NOT
-// redirect them. They are kept live until the Tier-2 consolidation task.)
+// video-production, hire-ai-employees, revenue-automation — still have live
+// `app/services/*` directories so we deliberately do NOT redirect them.)
+//
+// Task #116 (SEO Foundation) — 10 duplicate / cannibalising URLs were
+// permanently retired. Their 308s are NOT here because they live in
+// `lib/seo/seoSets.ts` (SERVICE_ALIASES + CROSS_SECTION_ALIASES) which is
+// the runtime middleware source of truth. Listed here for the record:
+//   /services/ai-revenue-engine        → /services/revenue-automation
+//   /services/funnel-optimization-agent → /services/funnel-automation
+//   /services/rapid-idea-testing       → /services/idea-validation-engine
+//   /services/ai-virtual-talent-hub    → /services/hire-ai-employees
+//   /services/media-buying             → /services/paid-advertising
+//   /services/ai-copywriting           → /services/content-marketing
+//   /services/digital-marketing        → /services
+//   /services/creative                 → /creative
+//   /diagnostic                        → /diagnostics
+//   /roadmap                           → /roadmap-2026
 export const ARCHIVED_SERVICE_REDIRECTS: Readonly<Record<string, string>> = Object.freeze({
   "branding-services": "branding",
 });

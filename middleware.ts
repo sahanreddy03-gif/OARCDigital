@@ -7,6 +7,8 @@ import {
   ALL_SERVICES,
   HARD_410_PATHS,
   SERVICE_ALIASES,
+  CROSS_SECTION_ALIASES,
+  LOCATION_SERVICE_ALIASES,
 } from "./lib/seo/seoSets";
 import {
   ARCHIVED_LOCATION_REDIRECTS,
@@ -53,7 +55,7 @@ export function middleware(req: NextRequest): NextResponse | undefined {
     return permanentRedirect(req, "/pdf-hub");
   }
 
-  const aliasTo = SERVICE_ALIASES[pathname];
+  const aliasTo = SERVICE_ALIASES[pathname] ?? CROSS_SECTION_ALIASES[pathname];
   if (aliasTo) return permanentRedirect(req, aliasTo);
 
   // /industries/{slug} — allow any current hub slug, redirect legacy/
@@ -100,6 +102,13 @@ export function middleware(req: NextRequest): NextResponse | undefined {
     if (parts.length === 3) {
       const slug = parts[2];
       if (KEPT_LOCATION_SERVICES.has(slug)) return undefined;
+      // Task #116: consolidated location-paired service slug → 308 to the
+      // new locality page (preserves locality equity) instead of bouncing to
+      // /services/{slug} (which would itself 308 again, losing the locality).
+      const locAlias = LOCATION_SERVICE_ALIASES[slug];
+      if (locAlias) {
+        return permanentRedirect(req, `/malta/${loc}/${locAlias}`);
+      }
       if (ALL_SERVICES.has(slug)) {
         return permanentRedirect(req, `/services/${slug}`);
       }
@@ -159,5 +168,8 @@ export const config = {
     "/case-studies/:path*",
     "/automation-test",
     "/pdf",
+    // Task #116: cross-section 308s (CROSS_SECTION_ALIASES).
+    "/diagnostic",
+    "/roadmap",
   ],
 };

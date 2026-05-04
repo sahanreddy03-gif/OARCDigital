@@ -88,9 +88,11 @@ function fileToUrl(file: string): string {
 
 function tierFor(url: string): Tier {
   if (["/", "/ai-agents", "/creative", "/automation"].includes(url)) return "pillar";
+  // Task #116: /diagnostic and /roadmap removed — 308 → /diagnostics and
+  // /roadmap-2026 respectively (CROSS_SECTION_ALIASES in lib/seo/seoSets.ts).
   if (["/services", "/our-work", "/contact", "/pricing", "/why-us", "/why-oarc",
-       "/blog", "/case-studies", "/resources", "/enterprise", "/roadmap",
-       "/roadmap-2026", "/diagnostic", "/diagnostics", "/intelligence",
+       "/blog", "/case-studies", "/resources", "/enterprise",
+       "/roadmap-2026", "/diagnostics", "/intelligence",
        "/research", "/comparison", "/solutions", "/tools", "/malta",
        "/pdf", "/pdf-hub"].includes(url)) return "shell";
   if (url.startsWith("/services/")) return "service";

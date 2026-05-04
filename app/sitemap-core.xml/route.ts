@@ -45,10 +45,10 @@ export const CORE: CoreEntry[] = [
   { path: "/tools", priority: 0.8, changefreq: "monthly" },
   { path: "/diagnostics", priority: 0.8, changefreq: "monthly" },
   { path: "/intelligence", priority: 0.8, changefreq: "monthly" },
-  { path: "/diagnostic", priority: 0.7, changefreq: "monthly" },
+  // Task #116: /diagnostic 308 → /diagnostics; /roadmap 308 → /roadmap-2026.
+  // Removed from sitemap so we never advertise the redirecting URL.
   { path: "/industries", priority: 0.8, changefreq: "monthly" },
   { path: "/enterprise", priority: 0.7, changefreq: "monthly" },
-  { path: "/roadmap", priority: 0.6, changefreq: "monthly" },
   { path: "/roadmap-2026", priority: 0.6, changefreq: "monthly" },
   { path: "/resources", priority: 0.6, changefreq: "monthly" },
   { path: "/pdf-hub", priority: 0.6, changefreq: "monthly" },

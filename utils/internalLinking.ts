@@ -11,7 +11,7 @@ export interface InternalLink {
 const serviceRelationships: Record<string, string[]> = {
   'social-media-creative-management': [
     'ad-creative',
-    'ai-copywriting',
+    'content-marketing',
     'video-production',
     'influencer-marketing'
   ],
@@ -51,7 +51,7 @@ const serviceRelationships: Record<string, string[]> = {
     'ad-creative',
     'presentation-pitch'
   ],
-  'ai-copywriting': [
+  'content-marketing': [
     'social-media-creative-management',
     'email-creative',
     'digital-marketing',

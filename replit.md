@@ -15,7 +15,8 @@ The authoritative ranked list of ~60 core URLs lives at `.local/memory/core-url-
 - **Tier 5 (P2) — 12 growth+engineering spokes**
 - **Tier 6 (P2/P3) — 10 creative spokes**
 - **Tier 7 (P2) — 8 strategic supports:** /industries, /intelligence, /diagnostics, /automation, /enterprise, /roadmap-2026, /tools, /pdf-hub
-- **Slug-collision 308s pending:** `/paid`, `/mobile-applications-development`, `/api-integration`, `/influencer`, `/lead-generation-engine`, `/customer-acquisition`, `/why-oarc`, `/diagnostic`
+- **Slug-collision 308s — Task #116 LANDED (2026-05-04):** Foundation merged 10 hard-kill 308s — `/services/{ai-revenue-engine, funnel-optimization-agent, rapid-idea-testing, ai-virtual-talent-hub, media-buying, ai-copywriting, digital-marketing, creative}`, `/diagnostic`, `/roadmap` → canonical winners. New `CROSS_SECTION_ALIASES` map in `lib/seo/seoSets.ts` for non-`/services/<slug>` targets (avoids `verify-redirects` false-flags). Folders deleted, sitemap-core cleaned, internal links rewritten in Footer/CTASections/Navigation/internalLinkGraph. `/services/paid` and `/services/influencer` kept live (Tasks #119/#120 will repurpose).
+- **Slug-collision 308s pending:** `/mobile-applications-development`, `/api-integration`, `/lead-generation-engine`, `/customer-acquisition` (Task #116 follow-ups for less-trafficked variants).
 - **Demoted to P3 (defer):** digital-marketing, media-buying, wordpress-development, shopify-development, database-design, ai-copywriting, ai-compliance-auditor, ai-real-estate-agent, ai-virtual-talent-hub, ai-revenue-engine, funnel-optimization-agent, idea-validation-engine, rapid-idea-testing
 - **Programmatic (P4):** /aeo/* (44), /industries/[industry] (19), /malta/[location]/* (~80) — template-driven, not in core 60
 

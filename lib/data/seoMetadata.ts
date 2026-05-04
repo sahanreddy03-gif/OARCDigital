@@ -60,7 +60,7 @@ export const aiEmployeeServicesSEO: Record<string, PageSEO> = {
   aiVirtualTalentHub: {
     title: 'AI Virtual Talent Hub | Autonomous AI Agents On-Demand | OARC Digital Malta',
     description: 'Hire autonomous AI agents as on-demand team members. Production-tested agents for sales, support, compliance, real estate, and more—thinking, adapting, and executing 24/7.',
-    path: '/services/ai-virtual-talent-hub',
+    path: '/services/hire-ai-employees',
     ogType: 'article'
   },
   aiSdrAgent: {
@@ -147,7 +147,7 @@ export const creativeServicesSEO: Record<string, PageSEO> = {
   aiCopywriting: {
     title: 'AI Copywriting | Conversion-Focused Copy | OARC Digital',
     description: 'Elite AI-powered copywriting services from OARC Digital. Create compelling, conversion-focused copy at scale with human creativity and AI efficiency.',
-    path: '/services/ai-copywriting',
+    path: '/services/content-marketing',
     ogType: 'article'
   },
   printPackaging: {
@@ -198,7 +198,7 @@ export const revenueServicesSEO: Record<string, PageSEO> = {
   aiRevenueEngine: {
     title: 'AI Revenue Ignition Engine | Automated Growth Systems | OARC Digital',
     description: 'Fuel your growth with OARC\'s AI Revenue Ignition Engine. End-to-end automation systems that optimize pipelines, acquire customers, and validate ideas on autopilot.',
-    path: '/services/ai-revenue-engine',
+    path: '/services/revenue-automation',
     ogType: 'article'
   },
   leadGenerationEngine: {
@@ -216,7 +216,7 @@ export const revenueServicesSEO: Record<string, PageSEO> = {
   funnelOptimizationAgent: {
     title: 'Funnel Optimization Agent | Conversion Intelligence | OARC Digital Malta',
     description: 'Every visitor is a revenue opportunity. Our AI continuously tests, learns, and optimizes your entire funnel—from first click to closed deal. 2.5x conversion rate.',
-    path: '/services/funnel-optimization-agent',
+    path: '/services/funnel-automation',
     ogType: 'article'
   },
   marketingAutomationSuite: {
@@ -264,7 +264,7 @@ export const revenueServicesSEO: Record<string, PageSEO> = {
   mediaBuying: {
     title: 'Media Buying | Programmatic Advertising | OARC Digital Malta',
     description: 'Strategic media buying and programmatic advertising from OARC Digital. Optimize ad spend and maximize reach with elite media planning and execution.',
-    path: '/services/media-buying',
+    path: '/services/paid-advertising',
     ogType: 'article'
   },
   influencerMarketing: {
@@ -276,7 +276,7 @@ export const revenueServicesSEO: Record<string, PageSEO> = {
   digitalMarketing: {
     title: 'Digital Marketing | Full-Service Marketing | OARC Digital Malta',
     description: 'Comprehensive digital marketing services from OARC Digital. Integrate strategy, creative, and technology for ambitious brands across Europe, Middle East, and Asia.',
-    path: '/services/digital-marketing',
+    path: '/services',
     ogType: 'article'
   },
   socialMediaManagement: {
@@ -288,7 +288,7 @@ export const revenueServicesSEO: Record<string, PageSEO> = {
   rapidIdeaTesting: {
     title: 'Rapid Idea Testing | Marketing Experimentation | OARC Digital',
     description: 'Validate marketing ideas fast with OARC Digital\'s rapid testing framework. Reduce risk and accelerate innovation with AI-powered experimentation.',
-    path: '/services/rapid-idea-testing',
+    path: '/services/idea-validation-engine',
     ogType: 'article'
   },
   aiConsulting: {
@@ -312,7 +312,7 @@ export const revenueServicesSEO: Record<string, PageSEO> = {
   hireAIEmployees: {
     title: 'AI Virtual Talent Hub | Autonomous AI Agents On-Demand | OARC Digital Malta',
     description: 'Hire autonomous AI agents as on-demand team members. Production-tested agents for sales, support, compliance, real estate, and more—thinking, adapting, and executing 24/7.',
-    path: '/services/ai-virtual-talent-hub',
+    path: '/services/hire-ai-employees',
     ogType: 'article'
   }
 };

@@ -35,11 +35,65 @@ export const SERVICE_ALIASES: Record<string, string> = {
   // Archived service: directory does not exist. Redirects to its canonical
   // counterpart so SEO equity consolidates instead of returning 404.
   "/services/branding-services": "/services/branding",
+  // Task #116 (SEO Foundation) — duplicate / cannibalising service slugs
+  // collapsed into canonical winners. Folders deleted; equity consolidates
+  // on the target. See `.local/tasks/MASTER-seo-aeo-rebuild.md`.
+  "/services/ai-revenue-engine": "/services/revenue-automation",
+  "/services/funnel-optimization-agent": "/services/funnel-automation",
+  "/services/rapid-idea-testing": "/services/idea-validation-engine",
+  "/services/ai-virtual-talent-hub": "/services/hire-ai-employees",
+  "/services/media-buying": "/services/paid-advertising",
+  "/services/ai-copywriting": "/services/content-marketing",
+};
+
+/**
+ * Programmatic /malta/{loc}/{svc} aliases — preserve LOCATION SEO equity
+ * when a service slug is consolidated. Maps the OLD slug → NEW slug, both
+ * in the location-paired vocabulary. Middleware uses this in the
+ * /malta/{loc}/{svc} branch BEFORE falling through to gone(): if the slug
+ * has been merged we 308 to /malta/{loc}/{newSlug} so Google moves the
+ * locality-page ranking to the new canonical slug rather than dropping it.
+ *
+ * Task #116:
+ *   digital-marketing → seo-services    (new locationServices member)
+ *
+ * Other consolidated services (ai-copywriting, media-buying, etc.) were
+ * never in `locationServices` so no /malta/{loc}/{slug} pages existed for
+ * them — no alias needed.
+ */
+export const LOCATION_SERVICE_ALIASES: Record<string, string> = {
+  "digital-marketing": "seo-services",
+};
+
+/**
+ * Cross-section 308 redirects whose TARGET is NOT under `/services/<slug>/`.
+ * Kept separate from `SERVICE_ALIASES` so the build-time `verify-redirects`
+ * check (which asserts every alias target maps to a real `app/services/<slug>/`
+ * directory) doesn't false-flag them. Middleware checks both maps; sitemap
+ * filters use both as well.
+ *
+ * Task #116:
+ *   /services/digital-marketing → /services        (umbrella too generic, fan out via hub)
+ *   /services/creative          → /creative       (was duplicate of pillar)
+ *   /diagnostic                 → /diagnostics    (singular legacy variant)
+ *   /roadmap                    → /roadmap-2026   (year-anchored canonical)
+ */
+export const CROSS_SECTION_ALIASES: Record<string, string> = {
+  "/services/digital-marketing": "/services",
+  "/services/creative": "/creative",
+  "/diagnostic": "/diagnostics",
+  "/roadmap": "/roadmap-2026",
 };
 
 // Slugs we should not advertise in the sitemap because they redirect away.
+// Combines: (1) every `/services/<slug>` key in SERVICE_ALIASES, and (2)
+// every `/services/<slug>` key in CROSS_SECTION_ALIASES (e.g.
+// digital-marketing → /services, creative → /creative).
 export const REDIRECTING_SERVICE_SLUGS: ReadonlySet<string> = new Set(
-  Object.keys(SERVICE_ALIASES).map((p) => p.replace(/^\/services\//, "")),
+  [
+    ...Object.keys(SERVICE_ALIASES),
+    ...Object.keys(CROSS_SECTION_ALIASES).filter((p) => p.startsWith("/services/")),
+  ].map((p) => p.replace(/^\/services\//, "")),
 );
 
 /**
@@ -54,11 +108,9 @@ export const REDIRECTING_SERVICE_SLUGS: ReadonlySet<string> = new Set(
  * pages live but unindexed is the safe interim — no broken inbound links from
  * stale third-party citations, no SEO equity advertised.
  */
-export const NOINDEX_SERVICE_SLUGS: ReadonlySet<string> = new Set([
-  "ai-revenue-engine",
-  "ai-virtual-talent-hub",
-  "funnel-automation",
-  "funnel-optimization-agent",
-  "idea-validation-engine",
-  "rapid-idea-testing",
-]);
+// Task #116: ai-revenue-engine, ai-virtual-talent-hub,
+// funnel-optimization-agent, rapid-idea-testing — pages DELETED, no longer
+// need noindex (308 redirects fire from middleware via SERVICE_ALIASES).
+// funnel-automation and idea-validation-engine REMOVED from this set —
+// they are the canonical winners and must be indexed.
+export const NOINDEX_SERVICE_SLUGS: ReadonlySet<string> = new Set<string>([]);

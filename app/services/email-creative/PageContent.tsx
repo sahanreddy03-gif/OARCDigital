@@ -368,8 +368,8 @@ export default function EmailCreative() {
             Services That Work Great Together
           </h2>
           <div className="grid md:grid-cols-3 gap-6">
-            <Link href="/services/ai-copywriting">
-              <div className="p-6 bg-zinc-900 border border-zinc-800 rounded-xl hover-elevate cursor-pointer transition-all" data-testid="related-service-ai-copywriting">
+            <Link href="/services/content-marketing">
+              <div className="p-6 bg-zinc-900 border border-zinc-800 rounded-xl hover-elevate cursor-pointer transition-all" data-testid="related-service-content-marketing">
                 <h3 className="text-xl font-bold mb-3 text-white">AI Copywriting</h3>
                 <p className="text-white/70 mb-4">
                   Beautiful emails need compelling copy—scale your email content with AI-powered writing that converts.
@@ -392,8 +392,8 @@ export default function EmailCreative() {
               </div>
             </Link>
 
-            <Link href="/services/digital-marketing">
-              <div className="p-6 bg-zinc-900 border border-zinc-800 rounded-xl hover-elevate cursor-pointer transition-all" data-testid="related-service-digital-marketing">
+            <Link href="/services">
+              <div className="p-6 bg-zinc-900 border border-zinc-800 rounded-xl hover-elevate cursor-pointer transition-all" data-testid="related-service-content-marketing">
                 <h3 className="text-xl font-bold mb-3 text-white">Digital Marketing Services</h3>
                 <p className="text-white/70 mb-4">
                   Integrate email with a full-funnel marketing strategy for maximum customer acquisition and retention.

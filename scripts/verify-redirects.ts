@@ -18,7 +18,7 @@ import {
   INDUSTRY_REDIRECTS,
   ARCHIVED_SERVICE_REDIRECTS,
 } from "../lib/seo/redirectMap";
-import { SERVICE_ALIASES } from "../lib/seo/seoSets";
+import { SERVICE_ALIASES, CROSS_SECTION_ALIASES } from "../lib/seo/seoSets";
 
 const BASE = process.env.BASE ?? "http://localhost:5000";
 
@@ -105,11 +105,12 @@ function verifyRedirectMapsStructurallyOrExit(): void {
     ["INDUSTRY_REDIRECTS", INDUSTRY_REDIRECTS],
     ["ARCHIVED_SERVICE_REDIRECTS", ARCHIVED_SERVICE_REDIRECTS],
     ["SERVICE_ALIASES", SERVICE_ALIASES],
+    ["CROSS_SECTION_ALIASES", CROSS_SECTION_ALIASES],
   ];
   for (const [name, map] of groups) {
     for (const [from, to] of Object.entries(map)) {
       if (!from || !to) errors.push(`${name}: empty key or value (${JSON.stringify({ from, to })})`);
-      if (name === "SERVICE_ALIASES") {
+      if (name === "SERVICE_ALIASES" || name === "CROSS_SECTION_ALIASES") {
         if (!from.startsWith("/") || !to.startsWith("/")) errors.push(`${name}: keys/values must be absolute paths (${from} → ${to})`);
         const prior = seen.get(from);
         if (prior && prior !== to) errors.push(`${name}: duplicate key ${from} resolves to both ${prior} and ${to}`);
@@ -157,6 +158,13 @@ async function main() {
   // Duplicate-slug consolidation: every key in SERVICE_ALIASES must 308 to
   // its canonical counterpart so we never advertise two URLs for one offering.
   for (const [from, to] of Object.entries(SERVICE_ALIASES)) {
+    rows.push(await checkOne(from, to));
+  }
+
+  // Task #116 cross-section 308s (e.g. /diagnostic → /diagnostics,
+  // /services/digital-marketing → /services). Validated structurally above
+  // and asserted live here.
+  for (const [from, to] of Object.entries(CROSS_SECTION_ALIASES)) {
     rows.push(await checkOne(from, to));
   }
 

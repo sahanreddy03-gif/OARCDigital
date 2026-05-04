@@ -26,13 +26,13 @@ const serviceCategories = [
   },
   {
     title: "Marketing & Growth",
-    href: "/services/digital-marketing",
+    href: "/services",
     items: [
-      { name: "Social media management", href: "/services/social" },
+      { name: "Social media management", href: "/services/social-media-creative-management" },
       { name: "Paid advertising", href: "/services/paid-advertising" },
-      { name: "SEO", href: "/services/seo" },
+      { name: "SEO", href: "/services/seo-services" },
       { name: "Email marketing", href: "/services/email-marketing" },
-      { name: "Marketing strategy", href: "/services/digital-marketing" },
+      { name: "Content marketing", href: "/services/content-marketing" },
     ]
   },
   {

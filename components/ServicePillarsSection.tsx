@@ -10,7 +10,7 @@ const pillars = [
     icon: Palette,
     title: "Creative Media",
     subtitle: "Brand, social & ad campaigns",
-    link: "/services/creative",
+    link: "/creative",
     accentColor: "#f97316",
   },
   {
