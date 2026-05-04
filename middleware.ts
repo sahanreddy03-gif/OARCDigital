@@ -2,6 +2,7 @@ import { NextResponse, type NextRequest } from "next/server";
 import {
   KEPT_LOCATIONS,
   KEPT_INDUSTRIES,
+  KEPT_INDUSTRY_HUBS,
   KEPT_LOCATION_SERVICES,
   ALL_SERVICES,
   HARD_410_PATHS,
@@ -55,12 +56,15 @@ export function middleware(req: NextRequest): NextResponse | undefined {
   const aliasTo = SERVICE_ALIASES[pathname];
   if (aliasTo) return permanentRedirect(req, aliasTo);
 
-  // /industries/{slug} — redirect archived industry slugs to nearest KEPT.
+  // /industries/{slug} — allow any current hub slug, redirect legacy/
+  // archived slugs to their canonical hub, 410 anything else.
+  // Hub allow-list is `KEPT_INDUSTRY_HUBS` (broader than `KEPT_INDUSTRIES`,
+  // which only gates the location-paired /malta/{loc}/{ind} routes).
   if (pathname.startsWith("/industries/")) {
     const parts = pathname.replace(/\/+$/, "").split("/").filter(Boolean);
     if (parts.length === 2) {
       const slug = parts[1];
-      if (KEPT_INDUSTRIES.has(slug)) return undefined;
+      if (KEPT_INDUSTRY_HUBS.has(slug)) return undefined;
       const target = INDUSTRY_REDIRECTS[slug];
       if (target) return permanentRedirect(req, `/industries/${target}`);
       return gone();
