@@ -267,7 +267,7 @@ export default function Footer({ hideGetInTouch = false }: FooterProps) {
                 <SiWhatsapp className="w-4 h-4 text-[#25D366] group-hover:text-[#25D366] transition-colors" />
               </a>
             </div>
-            <div className="text-zinc-500 text-sm">
+            <div className="text-zinc-500 text-sm" suppressHydrationWarning>
               © {new Date().getFullYear()} OARC Digital. All rights reserved.
             </div>
             <div className="text-zinc-600 text-xs">
