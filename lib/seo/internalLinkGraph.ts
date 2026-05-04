@@ -20,6 +20,7 @@ export type Hub =
   | "aeo-service"
   | "aeo-city"
   | "aeo-vertical"
+  | "industry-hub"
   | "blog";
 
 export type LinkNode = {
@@ -1839,4 +1840,127 @@ export const TOP_30_PRIORITY: readonly string[] = [
   "/aeo/seo-agency-malta",
   "/aeo/marketing-automation-malta",
   "/aeo/whatsapp-automation-malta",
+  // ── Industry Hubs (Phase E — added Task #108) ──────────────────────────
+  "/industries",
+  "/industries/healthcare-clinics",
+  "/industries/legal-services",
+  "/industries/professional-services",
+  "/industries/construction",
+  "/industries/beauty-wellness",
+  "/industries/automotive",
+  "/industries/education",
+  "/industries/nonprofits-ngos",
 ] as const;
+
+// ── Industry Hub LinkNodes (Phase E — Task #108) ─────────────────────────
+// Appended after the main NODES array to keep the existing graph stable.
+// Each new hub links to its 3 most relevant services plus the master
+// /industries hub and a related AEO city page where relevant.
+const INDUSTRY_HUB_NODES: LinkNode[] = [
+  {
+    path: "/industries/healthcare-clinics",
+    title: "Healthcare Clinic Marketing Agency in Malta",
+    shortLabel: "Healthcare Clinics",
+    hub: "industry-hub",
+    spokes: [
+      "/services/web-design",
+      "/services/content-marketing",
+      "/services/marketing-automation-suite",
+      "/services/paid-advertising",
+      "/industries",
+    ],
+  },
+  {
+    path: "/industries/legal-services",
+    title: "Law Firm Marketing Agency in Malta",
+    shortLabel: "Law Firms",
+    hub: "industry-hub",
+    spokes: [
+      "/services/seo-services",
+      "/services/content-marketing",
+      "/services/web-design",
+      "/services/branding-services",
+      "/industries",
+    ],
+  },
+  {
+    path: "/industries/professional-services",
+    title: "Professional Services Marketing Agency in Malta",
+    shortLabel: "Professional Services",
+    hub: "industry-hub",
+    spokes: [
+      "/services/branding-services",
+      "/services/content-marketing",
+      "/services/marketing-automation-suite",
+      "/services/ai-sdr-agent",
+      "/industries",
+    ],
+  },
+  {
+    path: "/industries/construction",
+    title: "Construction & Property Marketing Agency in Malta",
+    shortLabel: "Construction",
+    hub: "industry-hub",
+    spokes: [
+      "/services/video-production",
+      "/services/web-design",
+      "/services/paid-advertising",
+      "/services/branding-services",
+      "/industries",
+    ],
+  },
+  {
+    path: "/industries/beauty-wellness",
+    title: "Beauty & Med Spa Marketing Agency in Malta",
+    shortLabel: "Beauty & Med Spas",
+    hub: "industry-hub",
+    spokes: [
+      "/services/social-media-creative-management",
+      "/services/paid-advertising",
+      "/services/marketing-automation-suite",
+      "/services/web-design",
+      "/industries",
+    ],
+  },
+  {
+    path: "/industries/automotive",
+    title: "Automotive Marketing Agency in Malta",
+    shortLabel: "Automotive",
+    hub: "industry-hub",
+    spokes: [
+      "/services/video-production",
+      "/services/paid-advertising",
+      "/services/social-media-creative-management",
+      "/services/web-design",
+      "/industries",
+    ],
+  },
+  {
+    path: "/industries/education",
+    title: "Education Marketing Agency in Malta",
+    shortLabel: "Education",
+    hub: "industry-hub",
+    spokes: [
+      "/services/video-production",
+      "/services/paid-advertising",
+      "/services/content-marketing",
+      "/services/social-media-creative-management",
+      "/industries",
+    ],
+  },
+  {
+    path: "/industries/nonprofits-ngos",
+    title: "Non-Profit & NGO Marketing Agency in Malta",
+    shortLabel: "Non-Profits & NGOs",
+    hub: "industry-hub",
+    spokes: [
+      "/services/content-marketing",
+      "/services/paid-advertising",
+      "/services/video-production",
+      "/services/branding-services",
+      "/industries",
+    ],
+  },
+];
+
+NODES.push(...INDUSTRY_HUB_NODES);
