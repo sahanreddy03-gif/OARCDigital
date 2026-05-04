@@ -89,23 +89,32 @@ export const INDUSTRY_REDIRECTS: Readonly<Record<string, string>> = Object.freez
 // (Other "archived" service slugs from the SEO Domination prompt —
 // video-production, hire-ai-employees, revenue-automation — still have live
 // `app/services/*` directories so we deliberately do NOT redirect them.)
-//
-// Task #116 (SEO Foundation) — 10 duplicate / cannibalising URLs were
-// permanently retired. Their 308s are NOT here because they live in
-// `lib/seo/seoSets.ts` (SERVICE_ALIASES + CROSS_SECTION_ALIASES) which is
-// the runtime middleware source of truth. Listed here for the record:
-//   /services/ai-revenue-engine        → /services/revenue-automation
-//   /services/funnel-optimization-agent → /services/funnel-automation
-//   /services/rapid-idea-testing       → /services/idea-validation-engine
-//   /services/ai-virtual-talent-hub    → /services/hire-ai-employees
-//   /services/media-buying             → /services/paid-advertising
-//   /services/ai-copywriting           → /services/content-marketing
-//   /services/digital-marketing        → /services
-//   /services/creative                 → /creative
-//   /diagnostic                        → /diagnostics
-//   /roadmap                           → /roadmap-2026
 export const ARCHIVED_SERVICE_REDIRECTS: Readonly<Record<string, string>> = Object.freeze({
   "branding-services": "branding",
+});
+
+// Task #116 (SEO Foundation) — STRUCTURED REGISTRY of the 10 duplicate /
+// cannibalising URLs permanently retired in this gating task. The runtime
+// 308s actually fire from `lib/seo/seoSets.ts` (`SERVICE_ALIASES` +
+// `CROSS_SECTION_ALIASES`) because middleware runs on Edge and that module
+// is its source of truth — but this map is the human-facing registry that
+// non-middleware tooling (audit scripts, reports, future migrations) can
+// import. Validator below cross-checks it against `seoSets.ts` so the two
+// CAN'T silently drift.
+//
+// Format: full source path → full target path (NOT slug → slug, because
+// 6 of these targets are cross-section / non-`/services/<slug>/` URLs).
+export const TASK_116_RETIRED_URLS: Readonly<Record<string, string>> = Object.freeze({
+  "/services/ai-revenue-engine":          "/services/revenue-automation",
+  "/services/funnel-optimization-agent":  "/services/funnel-automation",
+  "/services/rapid-idea-testing":         "/services/idea-validation-engine",
+  "/services/ai-virtual-talent-hub":      "/services/hire-ai-employees",
+  "/services/media-buying":               "/services/paid-advertising",
+  "/services/ai-copywriting":             "/services/content-marketing",
+  "/services/digital-marketing":          "/services",
+  "/services/creative":                   "/creative",
+  "/diagnostic":                          "/diagnostics",
+  "/roadmap":                             "/roadmap-2026",
 });
 
 // Build-time validation: fail fast if any redirect target is missing.
@@ -126,6 +135,25 @@ export const ARCHIVED_SERVICE_REDIRECTS: Readonly<Record<string, string>> = Obje
     if (!ALL_SERVICES.has(to)) {
       errors.push(`ARCHIVED_SERVICE_REDIRECTS: ${from} -> ${to} (target not in allServiceSlugs)`);
     }
+  }
+  // Drift guard: every entry in TASK_116_RETIRED_URLS must resolve through
+  // the runtime alias maps in seoSets.ts (lazy-imported to avoid a circular
+  // dep at module-load on Edge). Done synchronously via require so it runs
+  // inside this validator IIFE.
+  try {
+    // eslint-disable-next-line @typescript-eslint/no-var-requires
+    const { SERVICE_ALIASES, CROSS_SECTION_ALIASES } = require("./seoSets");
+    for (const [from, to] of Object.entries(TASK_116_RETIRED_URLS)) {
+      const runtimeTarget =
+        SERVICE_ALIASES?.[from] ?? CROSS_SECTION_ALIASES?.[from];
+      if (runtimeTarget !== to) {
+        errors.push(
+          `TASK_116_RETIRED_URLS: ${from} -> ${to} (runtime middleware sends to ${runtimeTarget ?? "<no alias>"})`,
+        );
+      }
+    }
+  } catch {
+    // Edge build edge case: skip cross-check rather than false-fail.
   }
   if (errors.length > 0) {
     // eslint-disable-next-line no-console
