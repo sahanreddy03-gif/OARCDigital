@@ -55,7 +55,16 @@ export function middleware(req: NextRequest): NextResponse | undefined {
     return permanentRedirect(req, "/pdf-hub");
   }
 
-  const aliasTo = SERVICE_ALIASES[pathname] ?? CROSS_SECTION_ALIASES[pathname];
+  // Normalize a trailing slash before alias lookup so `/services/creative/`
+  // 308s the same as `/services/creative`. (Only strip when there's an
+  // actual trailing slash AND a non-empty preceding path — never collapse
+  // bare "/".)
+  const normalized =
+    pathname.length > 1 && pathname.endsWith("/")
+      ? pathname.slice(0, -1)
+      : pathname;
+  const aliasTo =
+    SERVICE_ALIASES[normalized] ?? CROSS_SECTION_ALIASES[normalized];
   if (aliasTo) return permanentRedirect(req, aliasTo);
 
   // /industries/{slug} — allow any current hub slug, redirect legacy/
