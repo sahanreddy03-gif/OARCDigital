@@ -1754,9 +1754,162 @@ const NODES: LinkNode[] = [
   },
 ];
 
+// ── Industry Hub LinkNodes (Phase E — Task #108) ─────────────────────────
+// Merged into NODES BEFORE LINK_GRAPH is constructed below — appending
+// after Map construction would silently exclude these from the runtime
+// graph and break getRelatedLinks() + spoke validation.
+NODES.push(
+  {
+    path: "/industries",
+    title: "Industries We Serve in Malta",
+    shortLabel: "Industries",
+    hub: "industry-hub",
+    spokes: [
+      "/industries/healthcare-clinics",
+      "/industries/legal-services",
+      "/industries/professional-services",
+      "/industries/construction",
+      "/industries/beauty-wellness",
+      "/industries/automotive",
+      "/industries/education",
+      "/industries/nonprofits-ngos",
+      "/services",
+    ],
+  },
+  {
+    path: "/industries/healthcare-clinics",
+    title: "Healthcare Clinic Marketing Agency in Malta",
+    shortLabel: "Healthcare Clinics",
+    hub: "industry-hub",
+    spokes: [
+      "/services/web-design",
+      "/services/content-marketing",
+      "/services/marketing-automation-suite",
+      "/services/paid-advertising",
+      "/industries",
+    ],
+  },
+  {
+    path: "/industries/legal-services",
+    title: "Law Firm Marketing Agency in Malta",
+    shortLabel: "Law Firms",
+    hub: "industry-hub",
+    spokes: [
+      "/services/seo-services",
+      "/services/content-marketing",
+      "/services/web-design",
+      "/services/branding",
+      "/industries",
+    ],
+  },
+  {
+    path: "/industries/professional-services",
+    title: "Professional Services Marketing Agency in Malta",
+    shortLabel: "Professional Services",
+    hub: "industry-hub",
+    spokes: [
+      "/services/branding",
+      "/services/content-marketing",
+      "/services/marketing-automation-suite",
+      "/services/ai-sdr-agent",
+      "/industries",
+    ],
+  },
+  {
+    path: "/industries/construction",
+    title: "Construction & Property Marketing Agency in Malta",
+    shortLabel: "Construction",
+    hub: "industry-hub",
+    spokes: [
+      "/services/video-production",
+      "/services/web-design",
+      "/services/paid-advertising",
+      "/services/branding",
+      "/industries",
+    ],
+  },
+  {
+    path: "/industries/beauty-wellness",
+    title: "Beauty & Med Spa Marketing Agency in Malta",
+    shortLabel: "Beauty & Med Spas",
+    hub: "industry-hub",
+    spokes: [
+      "/services/social-media-creative-management",
+      "/services/paid-advertising",
+      "/services/marketing-automation-suite",
+      "/services/web-design",
+      "/industries",
+    ],
+  },
+  {
+    path: "/industries/automotive",
+    title: "Automotive Marketing Agency in Malta",
+    shortLabel: "Automotive",
+    hub: "industry-hub",
+    spokes: [
+      "/services/video-production",
+      "/services/paid-advertising",
+      "/services/social-media-creative-management",
+      "/services/web-design",
+      "/industries",
+    ],
+  },
+  {
+    path: "/industries/education",
+    title: "Education Marketing Agency in Malta",
+    shortLabel: "Education",
+    hub: "industry-hub",
+    spokes: [
+      "/services/video-production",
+      "/services/paid-advertising",
+      "/services/content-marketing",
+      "/services/social-media-creative-management",
+      "/industries",
+    ],
+  },
+  {
+    path: "/industries/nonprofits-ngos",
+    title: "Non-Profit & NGO Marketing Agency in Malta",
+    shortLabel: "Non-Profits & NGOs",
+    hub: "industry-hub",
+    spokes: [
+      "/services/content-marketing",
+      "/services/paid-advertising",
+      "/services/video-production",
+      "/services/branding",
+      "/industries",
+    ],
+  },
+);
+
+// Module-load invariant: every Phase E hub MUST be in the graph. Catches
+// the class of bug where a node array is appended after LINK_GRAPH is
+// constructed (the Map snapshot would silently exclude late additions).
+const REQUIRED_INDUSTRY_HUBS = [
+  "/industries/healthcare-clinics",
+  "/industries/legal-services",
+  "/industries/professional-services",
+  "/industries/construction",
+  "/industries/beauty-wellness",
+  "/industries/automotive",
+  "/industries/education",
+  "/industries/nonprofits-ngos",
+];
+
 export const LINK_GRAPH: ReadonlyMap<string, LinkNode> = new Map(
   NODES.map((n) => [n.path, n]),
 );
+
+if (process.env.NODE_ENV !== "test") {
+  for (const path of REQUIRED_INDUSTRY_HUBS) {
+    if (!LINK_GRAPH.has(path)) {
+      throw new Error(
+        `internalLinkGraph: required Phase E industry hub missing from LINK_GRAPH: ${path}. ` +
+          `Likely cause: INDUSTRY_HUB_NODES was appended after LINK_GRAPH construction.`,
+      );
+    }
+  }
+}
 
 // Module-load validation: every declared spoke must resolve to a real node in
 // the graph. Throws at import time so a broken edge cannot silently erode
@@ -1851,116 +2004,3 @@ export const TOP_30_PRIORITY: readonly string[] = [
   "/industries/education",
   "/industries/nonprofits-ngos",
 ] as const;
-
-// ── Industry Hub LinkNodes (Phase E — Task #108) ─────────────────────────
-// Appended after the main NODES array to keep the existing graph stable.
-// Each new hub links to its 3 most relevant services plus the master
-// /industries hub and a related AEO city page where relevant.
-const INDUSTRY_HUB_NODES: LinkNode[] = [
-  {
-    path: "/industries/healthcare-clinics",
-    title: "Healthcare Clinic Marketing Agency in Malta",
-    shortLabel: "Healthcare Clinics",
-    hub: "industry-hub",
-    spokes: [
-      "/services/web-design",
-      "/services/content-marketing",
-      "/services/marketing-automation-suite",
-      "/services/paid-advertising",
-      "/industries",
-    ],
-  },
-  {
-    path: "/industries/legal-services",
-    title: "Law Firm Marketing Agency in Malta",
-    shortLabel: "Law Firms",
-    hub: "industry-hub",
-    spokes: [
-      "/services/seo-services",
-      "/services/content-marketing",
-      "/services/web-design",
-      "/services/branding-services",
-      "/industries",
-    ],
-  },
-  {
-    path: "/industries/professional-services",
-    title: "Professional Services Marketing Agency in Malta",
-    shortLabel: "Professional Services",
-    hub: "industry-hub",
-    spokes: [
-      "/services/branding-services",
-      "/services/content-marketing",
-      "/services/marketing-automation-suite",
-      "/services/ai-sdr-agent",
-      "/industries",
-    ],
-  },
-  {
-    path: "/industries/construction",
-    title: "Construction & Property Marketing Agency in Malta",
-    shortLabel: "Construction",
-    hub: "industry-hub",
-    spokes: [
-      "/services/video-production",
-      "/services/web-design",
-      "/services/paid-advertising",
-      "/services/branding-services",
-      "/industries",
-    ],
-  },
-  {
-    path: "/industries/beauty-wellness",
-    title: "Beauty & Med Spa Marketing Agency in Malta",
-    shortLabel: "Beauty & Med Spas",
-    hub: "industry-hub",
-    spokes: [
-      "/services/social-media-creative-management",
-      "/services/paid-advertising",
-      "/services/marketing-automation-suite",
-      "/services/web-design",
-      "/industries",
-    ],
-  },
-  {
-    path: "/industries/automotive",
-    title: "Automotive Marketing Agency in Malta",
-    shortLabel: "Automotive",
-    hub: "industry-hub",
-    spokes: [
-      "/services/video-production",
-      "/services/paid-advertising",
-      "/services/social-media-creative-management",
-      "/services/web-design",
-      "/industries",
-    ],
-  },
-  {
-    path: "/industries/education",
-    title: "Education Marketing Agency in Malta",
-    shortLabel: "Education",
-    hub: "industry-hub",
-    spokes: [
-      "/services/video-production",
-      "/services/paid-advertising",
-      "/services/content-marketing",
-      "/services/social-media-creative-management",
-      "/industries",
-    ],
-  },
-  {
-    path: "/industries/nonprofits-ngos",
-    title: "Non-Profit & NGO Marketing Agency in Malta",
-    shortLabel: "Non-Profits & NGOs",
-    hub: "industry-hub",
-    spokes: [
-      "/services/content-marketing",
-      "/services/paid-advertising",
-      "/services/video-production",
-      "/services/branding-services",
-      "/industries",
-    ],
-  },
-];
-
-NODES.push(...INDUSTRY_HUB_NODES);
