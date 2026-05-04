@@ -8,6 +8,8 @@ import Layout from '@/components/layout/Layout';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import { maltaIndustries, industryHubSlugs } from '@/shared/seoConfig';
+import { hubLastUpdated } from '@/lib/seo/industryHubMeta';
+import { NAP as NAP_FOR_SCHEMA } from '@/lib/seo/nap';
 
 // Alias singular maltaIndustries slugs to the existing plural keys in the
 // industries data map so the shared slug vocabulary resolves correctly.
@@ -590,21 +592,88 @@ export default function IndustryHubPage({ params }: { params: { industry: string
   }
 
   const data = industries[dataKey];
+  const canonical = `https://oarcdigital.com/industries/${industry}`;
+  const lastUpdated = hubLastUpdated(industry, '2026-04-15');
+  const lastUpdatedDisplay = new Date(lastUpdated + 'T00:00:00Z').toLocaleDateString('en-GB', {
+    year: 'numeric', month: 'long', day: 'numeric',
+  });
+
+  // Per-page schema graph: BreadcrumbList + Service + FAQPage.
+  // Single @graph keeps everything addressable from one node and avoids
+  // duplicated Organization references across multiple <script> blocks.
+  const schemaGraph = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'BreadcrumbList',
+        '@id': `${canonical}#breadcrumbs`,
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://oarcdigital.com/' },
+          { '@type': 'ListItem', position: 2, name: 'Industries', item: 'https://oarcdigital.com/industries' },
+          { '@type': 'ListItem', position: 3, name: data.plural, item: canonical },
+        ],
+      },
+      {
+        '@type': 'Service',
+        '@id': `${canonical}#service`,
+        name: `${data.name} Marketing Agency in Malta`,
+        description: data.intro,
+        url: canonical,
+        serviceType: `Marketing services for ${data.plural.toLowerCase()}`,
+        areaServed: { '@type': 'Country', name: 'Malta' },
+        provider: {
+          '@type': 'Organization',
+          name: 'OARC Digital',
+          url: 'https://oarcdigital.com',
+          telephone: NAP_FOR_SCHEMA.phoneE164,
+          email: NAP_FOR_SCHEMA.email,
+        },
+        offers: data.services.map((s) => ({
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: s.title,
+            url: `https://oarcdigital.com/services/${s.slug}`,
+          },
+        })),
+        dateModified: lastUpdated,
+      },
+      {
+        '@type': 'FAQPage',
+        '@id': `${canonical}#faq`,
+        mainEntity: data.faqs.map((f) => ({
+          '@type': 'Question',
+          name: f.q,
+          acceptedAnswer: { '@type': 'Answer', text: f.a },
+        })),
+      },
+    ],
+  };
 
   return (
     <Layout>
 
       <main className="min-h-screen">
+        {/* Per-page schema graph (BreadcrumbList + Service + FAQPage) */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaGraph) }}
+        />
         {/* Hero */}
         <section className="relative bg-gradient-to-br from-zinc-900 via-neutral-900 to-zinc-950 text-white py-24 md:py-32">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,145,77,0.08),transparent_50%),radial-gradient(circle_at_70%_80%,rgba(59,130,246,0.06),transparent_50%)]" />
           <div className="relative max-w-7xl mx-auto px-6 md:px-8">
-            <div className="flex items-center gap-2 mb-6 text-sm text-zinc-400">
-              <Link href="/" className="hover:text-white transition-colors">Home</Link>
-              <span>/</span>
-              <Link href="/industries" className="hover:text-white transition-colors">Industries</Link>
-              <span>/</span>
-              <span className="text-white">{data.plural}</span>
+            <div className="flex items-center justify-between gap-4 mb-6 text-sm text-zinc-400 flex-wrap">
+              <div className="flex items-center gap-2">
+                <Link href="/" className="hover:text-white transition-colors">Home</Link>
+                <span>/</span>
+                <Link href="/industries" className="hover:text-white transition-colors">Industries</Link>
+                <span>/</span>
+                <span className="text-white">{data.plural}</span>
+              </div>
+              <time dateTime={lastUpdated} className="text-xs text-zinc-500" data-testid={`text-last-updated-${industry}`}>
+                Last updated: {lastUpdatedDisplay}
+              </time>
             </div>
             <div className="max-w-3xl">
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-500/10 border border-orange-500/20 mb-6">
