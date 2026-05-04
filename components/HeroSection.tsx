@@ -222,6 +222,7 @@ export default function HeroSection() {
           {/* Real background - fades in over placeholder */}
           <div 
             className="absolute inset-0 bg-cover bg-no-repeat transition-opacity duration-700"
+            suppressHydrationWarning
             style={{ 
               backgroundImage: `url(${heroBackground})`,
               backgroundPosition: '60% center',
@@ -247,6 +248,7 @@ export default function HeroSection() {
         {/* Desktop real background - fades in over placeholder */}
         <div 
           className="hidden md:block absolute inset-0 bg-cover bg-no-repeat bg-fixed transition-opacity duration-700"
+          suppressHydrationWarning
           style={{ 
             backgroundImage: `url(${heroBackground})`,
             backgroundPosition: '35% center',

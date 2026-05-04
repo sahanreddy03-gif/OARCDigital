@@ -114,14 +114,14 @@ export default function OARCStripSection() {
         </div>
       </div>
 
-      <style>{`
+      <style dangerouslySetInnerHTML={{ __html: `
         @media (prefers-reduced-motion: reduce) {
           [data-testid="oarc-strip-section"] * {
             transition-duration: 0.01ms !important;
             animation: none !important;
           }
         }
-      `}</style>
+      ` }} />
     </section>
   );
 }

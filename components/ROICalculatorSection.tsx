@@ -463,14 +463,14 @@ export default function ROICalculatorSection() {
         </div>
       </div>
 
-      <style>{`
+      <style dangerouslySetInnerHTML={{ __html: `
         @media (prefers-reduced-motion: reduce) {
           [data-testid="section-roi-calculator"] * {
             transition-duration: 0.01ms !important;
             animation-duration: 0.01ms !important;
           }
         }
-      `}</style>
+      ` }} />
     </section>
   );
 }

@@ -92,7 +92,7 @@ export default function AmbitiousBrandsSection() {
         </div>
       </div>
 
-      <style>{`
+      <style dangerouslySetInnerHTML={{ __html: `
         @keyframes ambitious-scroll {
           0% {
             transform: translateX(0);
@@ -109,7 +109,7 @@ export default function AmbitiousBrandsSection() {
         .animate-ambitious-scroll:hover {
           animation-play-state: paused;
         }
-      `}</style>
+      ` }} />
     </section>
   );
 }
