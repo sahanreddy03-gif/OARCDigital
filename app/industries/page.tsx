@@ -46,33 +46,59 @@ import {
 import Layout from '@/components/layout/Layout';
 import { Button } from '@/components/ui/button';
 
-type Industry = { slug: string; name: string; description: string; icon: LucideIcon };
+type Industry = { slug: string; name: string; description: string; icon: LucideIcon; caseStudyCount: number };
 
+// Live case-study counts derived from app/case-studies/ subdirectories.
+// Update this map when new case studies are published.
 const industries: Industry[] = [
-  { slug: 'restaurants', name: 'Restaurants', description: 'Social media, video, branding, and AI for Malta restaurants', icon: UtensilsCrossed },
-  { slug: 'hotels', name: 'Hotels', description: 'Direct booking campaigns, property video, and guest automation', icon: Hotel },
-  { slug: 'cafes', name: 'Cafes', description: 'Brand identity, content strategy, and local advertising for cafes', icon: Coffee },
-  { slug: 'bars', name: 'Bars & Nightlife', description: 'Event promotion, atmosphere content, and reputation management', icon: Wine },
-  { slug: 'igaming', name: 'iGaming', description: 'Compliant creative, AI outreach, and B2B marketing for operators', icon: Target },
-  { slug: 'fintech', name: 'Fintech', description: 'Trust-building branding, lead nurturing, and B2B automation', icon: CreditCard },
-  { slug: 'real-estate', name: 'Real Estate', description: 'Property video, lead generation, and international buyer campaigns', icon: Home },
-  { slug: 'retail', name: 'Retail', description: 'Product content, e-commerce strategy, and foot traffic campaigns', icon: ShoppingBag },
-  { slug: 'fitness', name: 'Fitness', description: 'Member acquisition, transformation content, and retention automation', icon: Dumbbell },
-  { slug: 'wellness', name: 'Wellness', description: 'Authentic brand storytelling, SEO, and online booking optimisation', icon: Sparkles },
-  { slug: 'events', name: 'Events', description: 'Ticket sales campaigns, event content, and audience building', icon: PartyPopper },
-  { slug: 'healthcare-clinics', name: 'Healthcare Clinics', description: 'Compliant patient acquisition, online booking, and recall automation', icon: Stethoscope },
-  { slug: 'legal-services', name: 'Law Firms', description: 'Practice-area SEO, partner content, and B2B instruction pipelines', icon: Scale },
-  { slug: 'professional-services', name: 'Professional Services', description: 'Advisory thought leadership, partner-led pipeline, and brand systems', icon: Briefcase },
-  { slug: 'construction', name: 'Construction & Property', description: 'Development microsites, drone documentation, and B2B contractor pipeline', icon: HardHat },
-  { slug: 'beauty-wellness', name: 'Beauty & Med Spas', description: 'Local Meta and Google, mid-week column fills, and rebook automation', icon: Scissors },
-  { slug: 'automotive', name: 'Automotive', description: 'Inventory marketing, service-bay automation, and walkaround video', icon: Car },
-  { slug: 'education', name: 'Education', description: 'Open-day funnels, international student acquisition, and campus film', icon: GraduationCap },
-  { slug: 'nonprofits-ngos', name: 'Non-Profits & NGOs', description: 'Donor acquisition, Google Ad Grants, and ethical impact storytelling', icon: HeartHandshake },
+  { slug: 'restaurants', name: 'Restaurants', description: 'Social media, video, branding, and AI for Malta restaurants', icon: UtensilsCrossed, caseStudyCount: 1 },
+  { slug: 'hotels', name: 'Hotels', description: 'Direct booking campaigns, property video, and guest automation', icon: Hotel, caseStudyCount: 1 },
+  { slug: 'cafes', name: 'Cafes', description: 'Brand identity, content strategy, and local advertising for cafes', icon: Coffee, caseStudyCount: 0 },
+  { slug: 'bars', name: 'Bars & Nightlife', description: 'Event promotion, atmosphere content, and reputation management', icon: Wine, caseStudyCount: 0 },
+  { slug: 'igaming', name: 'iGaming', description: 'Compliant creative, AI outreach, and B2B marketing for operators', icon: Target, caseStudyCount: 6 },
+  { slug: 'fintech', name: 'Fintech', description: 'Trust-building branding, lead nurturing, and B2B automation', icon: CreditCard, caseStudyCount: 1 },
+  { slug: 'real-estate', name: 'Real Estate', description: 'Property video, lead generation, and international buyer campaigns', icon: Home, caseStudyCount: 3 },
+  { slug: 'retail', name: 'Retail', description: 'Product content, e-commerce strategy, and foot traffic campaigns', icon: ShoppingBag, caseStudyCount: 2 },
+  { slug: 'fitness', name: 'Fitness', description: 'Member acquisition, transformation content, and retention automation', icon: Dumbbell, caseStudyCount: 2 },
+  { slug: 'wellness', name: 'Wellness', description: 'Authentic brand storytelling, SEO, and online booking optimisation', icon: Sparkles, caseStudyCount: 1 },
+  { slug: 'events', name: 'Events', description: 'Ticket sales campaigns, event content, and audience building', icon: PartyPopper, caseStudyCount: 0 },
+  { slug: 'healthcare-clinics', name: 'Healthcare Clinics', description: 'Compliant patient acquisition, online booking, and recall automation', icon: Stethoscope, caseStudyCount: 1 },
+  { slug: 'legal-services', name: 'Law Firms', description: 'Practice-area SEO, partner content, and B2B instruction pipelines', icon: Scale, caseStudyCount: 0 },
+  { slug: 'professional-services', name: 'Professional Services', description: 'Advisory thought leadership, partner-led pipeline, and brand systems', icon: Briefcase, caseStudyCount: 4 },
+  { slug: 'construction', name: 'Construction & Property', description: 'Development microsites, drone documentation, and B2B contractor pipeline', icon: HardHat, caseStudyCount: 1 },
+  { slug: 'beauty-wellness', name: 'Beauty & Med Spas', description: 'Local Meta and Google, mid-week column fills, and rebook automation', icon: Scissors, caseStudyCount: 4 },
+  { slug: 'automotive', name: 'Automotive', description: 'Inventory marketing, service-bay automation, and walkaround video', icon: Car, caseStudyCount: 0 },
+  { slug: 'education', name: 'Education', description: 'Open-day funnels, international student acquisition, and campus film', icon: GraduationCap, caseStudyCount: 0 },
+  { slug: 'nonprofits-ngos', name: 'Non-Profits & NGOs', description: 'Donor acquisition, Google Ad Grants, and ethical impact storytelling', icon: HeartHandshake, caseStudyCount: 0 },
 ];
+
+// CollectionPage + ItemList JSON-LD for the master industries hub.
+const itemListJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  '@id': 'https://oarcdigital.com/industries#collection',
+  name: 'Industries We Serve in Malta',
+  url: 'https://oarcdigital.com/industries',
+  description: 'OARC Digital serves 19 industries across Malta with industry-specific marketing, video, and AI systems.',
+  mainEntity: {
+    '@type': 'ItemList',
+    numberOfItems: industries.length,
+    itemListElement: industries.map((ind, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      url: `https://oarcdigital.com/industries/${ind.slug}`,
+      name: ind.name,
+    })),
+  },
+};
 
 export default function Page() {
   return (
     <Layout>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListJsonLd) }}
+      />
       <main className="min-h-screen">
         {/* Hero */}
         <section className="relative bg-gradient-to-br from-zinc-900 via-neutral-900 to-zinc-950 text-white py-24 md:py-32">
@@ -112,9 +138,16 @@ export default function Page() {
                       </div>
                       <h3 className="text-xl font-bold mb-2" data-testid={`text-industry-name-${ind.slug}`}>{ind.name}</h3>
                       <p className="text-muted-foreground text-sm mb-4">{ind.description}</p>
-                      <span className="text-sm font-medium" style={{ color: '#ff914d' }}>
-                        See how we help {ind.name.toLowerCase()} →
-                      </span>
+                      <div className="flex items-center justify-between gap-3 text-sm">
+                        <span className="text-xs text-muted-foreground" data-testid={`text-case-study-count-${ind.slug}`}>
+                          {ind.caseStudyCount === 0
+                            ? 'New sector — case studies coming'
+                            : `${ind.caseStudyCount} case stud${ind.caseStudyCount === 1 ? 'y' : 'ies'}`}
+                        </span>
+                        <span className="font-medium" style={{ color: '#ff914d' }}>
+                          See how we help →
+                        </span>
+                      </div>
                     </div>
                   </Link>
                 );
