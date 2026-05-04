@@ -8,13 +8,13 @@ import ScrollReveal from "@/components/ScrollReveal";
 import FAQSection, { FAQItem } from "@/components/FAQSection";
 import RelatedLinks from "@/components/RelatedLinks";
 
-import showreelVideo from "@assets/55555_1764634237326.mp4";
-import videoImg1 from "@assets/stock_images/professional_video_p_57625a3b.jpg";
-import videoImg2 from "@assets/stock_images/professional_video_p_4775d034.jpg";
-import videoImg3 from "@assets/stock_images/professional_video_p_5547a3ec.jpg";
-import behindScenesImg1 from "@assets/stock_images/behind_the_scenes_vi_512df08f.jpg";
-import behindScenesImg2 from "@assets/stock_images/behind_the_scenes_vi_80403517.jpg";
-import creativeTeamImg from "@assets/stock_images/creative_team_workin_79883382.jpg";
+const showreelVideo = "/attached_assets/55555_1764634237326.mp4";
+const videoImg1 = "/attached_assets/stock_images/professional_video_p_57625a3b.jpg";
+const videoImg2 = "/attached_assets/stock_images/professional_video_p_4775d034.jpg";
+const videoImg3 = "/attached_assets/stock_images/professional_video_p_5547a3ec.jpg";
+const behindScenesImg1 = "/attached_assets/stock_images/behind_the_scenes_vi_512df08f.jpg";
+const behindScenesImg2 = "/attached_assets/stock_images/behind_the_scenes_vi_80403517.jpg";
+const creativeTeamImg = "/attached_assets/stock_images/creative_team_workin_79883382.jpg";
 
 import MaltaContextBlock from "@/components/seo/MaltaContextBlock";
 const videoProductionFAQs: FAQItem[] = [

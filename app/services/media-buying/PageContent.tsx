@@ -9,7 +9,7 @@ import Layout from "@/components/layout/Layout";
 import { revenueServicesSEO } from "@/data/seoMetadata";
 import { createServiceSchema } from "@/utils/structuredData";
 import FAQSection, { FAQItem } from "@/components/FAQSection";
-import heroImage from '@assets/media-buying-optimized.jpg';
+const heroImage = "/attached_assets/media-buying-optimized.jpg";
 
 const mediaBuyingFAQs: FAQItem[] = [
   { question: "What is media buying?", answer: "Strategic purchasing of advertising space across platforms. We negotiate rates, optimize placements, and maximize your ad spend ROI." },

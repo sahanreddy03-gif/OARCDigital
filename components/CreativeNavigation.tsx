@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X, ChevronDown, ArrowRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import greenLogo from "@assets/image_1767660951950.png";
+const greenLogo = "/attached_assets/image_1767660951950.png";
 
 export default function CreativeNavigation() {
   const location = usePathname();

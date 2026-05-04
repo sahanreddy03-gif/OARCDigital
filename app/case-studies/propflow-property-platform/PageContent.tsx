@@ -10,7 +10,7 @@ import { GlassCard } from '@/components/ui/glass-card';
 import { FlowDiagram } from '@/components/ui/flow-diagram';
 import { motion } from 'framer-motion';
 
-import aiRealEstateDashboard from '@assets/generated_images/ai_real_estate_lead_dashboard.png';
+const aiRealEstateDashboard = "/attached_assets/generated_images/ai_real_estate_lead_dashboard.png";
 
 export default function PropFlowCaseStudy() {
   useEffect(() => {

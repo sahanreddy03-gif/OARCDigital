@@ -7,8 +7,8 @@ import Layout from '@/components/layout/Layout';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
 
-import cricketBettingApp from '@assets/generated_images/cricket_betting_mobile_app_mockup.png';
-import cricketStadium from '@assets/generated_images/vibrant_ipl_cricket_stadium.png';
+const cricketBettingApp = "/attached_assets/generated_images/cricket_betting_mobile_app_mockup.png";
+const cricketStadium = "/attached_assets/generated_images/vibrant_ipl_cricket_stadium.png";
 
 export default function CricketPulseIndiaCaseStudy() {
   useEffect(() => {

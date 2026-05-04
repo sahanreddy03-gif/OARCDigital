@@ -3,7 +3,7 @@ import { ArrowUpRight } from "lucide-react";
 import { SiInstagram, SiFacebook, SiX, SiLinkedin, SiWhatsapp } from "react-icons/si";
 import { servicesCatalog } from '@/config/servicesConfig';
 import { NAP } from "@/lib/seo/nap";
-import greenLogo from "@assets/image_1767660951950.png";
+const greenLogo = "/attached_assets/image_1767660951950.png";
 
 const WHATSAPP_NUMBER = NAP.whatsappNumber;
 const WHATSAPP_MESSAGE = "Hi, I'm interested in your services";

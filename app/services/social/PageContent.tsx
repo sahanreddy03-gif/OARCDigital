@@ -22,13 +22,13 @@ const socialMediaFAQs: FAQItem[] = [
   { question: "Can we review content before posting?", answer: "Yes, full content calendars and approval workflows available. You control what goes live while we handle the execution." }
 ];
 
-import conferenceImg from "@assets/pexels-sasi-tha-13049577_1764633603081.jpg";
-import arcadeImg from "@assets/pexels-pho-tomass-883344227-31612601_1764634936625.jpg";
-import awardTeamImg from "@assets/pexels-mikael-blomkvist-6476256_1764635228817.jpg";
-import largeTeamImg from "@assets/pexels-bertellifotografia-2467506_1761761073217.jpg";
-import beybladeImg from "@assets/TefalPictures-32-scaled_1761760754960.jpg";
-import videoImg1 from "@assets/stock_images/social_media_content_75f5c57d.jpg";
-import videoImg2 from "@assets/stock_images/social_media_content_806a81e8.jpg";
+const conferenceImg = "/attached_assets/pexels-sasi-tha-13049577_1764633603081.jpg";
+const arcadeImg = "/attached_assets/pexels-pho-tomass-883344227-31612601_1764634936625.jpg";
+const awardTeamImg = "/attached_assets/pexels-mikael-blomkvist-6476256_1764635228817.jpg";
+const largeTeamImg = "/attached_assets/pexels-bertellifotografia-2467506_1761761073217.jpg";
+const beybladeImg = "/attached_assets/TefalPictures-32-scaled_1761760754960.jpg";
+const videoImg1 = "/attached_assets/stock_images/social_media_content_75f5c57d.jpg";
+const videoImg2 = "/attached_assets/stock_images/social_media_content_806a81e8.jpg";
 
 export default function Social() {
   const [currentService, setCurrentService] = useState(0);

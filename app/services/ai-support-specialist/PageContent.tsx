@@ -25,10 +25,10 @@ import { createServiceSchema } from "@/utils/structuredData";
 import ScrollReveal from "@/components/ScrollReveal";
 import FAQSection, { FAQItem } from "@/components/FAQSection";
 
-import supportHeroImg from "@assets/stock_images/customer_support_spe_789ecb6b.jpg";
-import aiChatbotImg1 from "@assets/stock_images/ai_chatbot_customer__070fc7ce.jpg";
-import aiChatbotImg2 from "@assets/stock_images/ai_chatbot_customer__7c3539e1.jpg";
-import aiAssistantImg from "@assets/stock_images/ai_assistant_virtual_e8654e3e.jpg";
+const supportHeroImg = "/attached_assets/stock_images/customer_support_spe_789ecb6b.jpg";
+const aiChatbotImg1 = "/attached_assets/stock_images/ai_chatbot_customer__070fc7ce.jpg";
+const aiChatbotImg2 = "/attached_assets/stock_images/ai_chatbot_customer__7c3539e1.jpg";
+const aiAssistantImg = "/attached_assets/stock_images/ai_assistant_virtual_e8654e3e.jpg";
 
 interface ChatMessage {
   role: 'user' | 'ai';

@@ -17,20 +17,20 @@ import {
 } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import heroImg from "@assets/download_1765164422640.jpg";
+const heroImg = "/attached_assets/download_1765164422640.jpg";
 
-import birthTeam from "@assets/pexels-thirdman-5257897 (1)_1763243949488.jpg";
-import maltaHub from "@assets/pexels-pham-ngoc-anh-170983008-14237665_1763244193737.jpg";
-import experimentsWorkspace from "@assets/campaign-img1_1763245285586.png";
-import globalNetwork from "@assets/global-influencer-marketing-agency-socially-powerful_1763244062764.jpg";
+const birthTeam = "/attached_assets/pexels-thirdman-5257897 (1)_1763243949488.jpg";
+const maltaHub = "/attached_assets/pexels-pham-ngoc-anh-170983008-14237665_1763244193737.jpg";
+const experimentsWorkspace = "/attached_assets/campaign-img1_1763245285586.png";
+const globalNetwork = "/attached_assets/global-influencer-marketing-agency-socially-powerful_1763244062764.jpg";
 
-import carousel1 from "@assets/stock_images/modern_marketing_age_2cb6d515.jpg";
-import carousel3 from "@assets/stock_images/modern_marketing_age_0c16bbf6.jpg";
-import carouselWorkspace from "@assets/image_1763243239681.png";
-import carouselBiolage from "@assets/Biolage-influencer-marketing-agency-socially-powerful_1763243258630.jpg";
-import carouselBeauty from "@assets/it-cosmetics-socially-powerful-marketing-agency-1_1763243258630.png";
-import carouselFashion from "@assets/joshua-rondeau-7mHMwHbJ_0o-unsplash-scaled-e1690895515404_1763243258631.jpg";
-import carouselJoy from "@assets/Screenshot-2023-08-01-at-16.06.24_1763243258631.png";
+const carousel1 = "/attached_assets/stock_images/modern_marketing_age_2cb6d515.jpg";
+const carousel3 = "/attached_assets/stock_images/modern_marketing_age_0c16bbf6.jpg";
+const carouselWorkspace = "/attached_assets/image_1763243239681.png";
+const carouselBiolage = "/attached_assets/Biolage-influencer-marketing-agency-socially-powerful_1763243258630.jpg";
+const carouselBeauty = "/attached_assets/it-cosmetics-socially-powerful-marketing-agency-1_1763243258630.png";
+const carouselFashion = "/attached_assets/joshua-rondeau-7mHMwHbJ_0o-unsplash-scaled-e1690895515404_1763243258631.jpg";
+const carouselJoy = "/attached_assets/Screenshot-2023-08-01-at-16.06.24_1763243258631.png";
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);

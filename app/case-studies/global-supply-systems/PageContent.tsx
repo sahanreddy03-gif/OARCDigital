@@ -4,15 +4,15 @@ import { useEffect } from 'react';
 import Link from 'next/link';
 import { ArrowRight, Calendar, Building2 } from 'lucide-react';
 import Layout from '@/components/layout/Layout';
-import heroImg from '@assets/stock_images/food_supply_chain_au_9bb3c110.jpg';
-import img1 from '@assets/stock_images/food_supply_chain_au_e3896516.jpg';
-import img2 from '@assets/stock_images/food_supply_chain_au_88dc232a.jpg';
-import img3 from '@assets/stock_images/food_supply_chain_au_c26dd390.jpg';
-import img4 from '@assets/stock_images/food_supply_chain_au_16bda18b.jpg';
-import img5 from '@assets/stock_images/food_supply_chain_au_7765b7e8.jpg';
-import img6 from '@assets/stock_images/business_automation__26134094.jpg';
-import img7 from '@assets/stock_images/revenue_growth_data__682db86c.jpg';
-import img8 from '@assets/stock_images/team_collaboration_b_c8b7e41b.jpg';
+const heroImg = "/attached_assets/stock_images/food_supply_chain_au_9bb3c110.jpg";
+const img1 = "/attached_assets/stock_images/food_supply_chain_au_e3896516.jpg";
+const img2 = "/attached_assets/stock_images/food_supply_chain_au_88dc232a.jpg";
+const img3 = "/attached_assets/stock_images/food_supply_chain_au_c26dd390.jpg";
+const img4 = "/attached_assets/stock_images/food_supply_chain_au_16bda18b.jpg";
+const img5 = "/attached_assets/stock_images/food_supply_chain_au_7765b7e8.jpg";
+const img6 = "/attached_assets/stock_images/business_automation__26134094.jpg";
+const img7 = "/attached_assets/stock_images/revenue_growth_data__682db86c.jpg";
+const img8 = "/attached_assets/stock_images/team_collaboration_b_c8b7e41b.jpg";
 
 export default function FreshFarmFoodsAutomation() {
   useEffect(() => {

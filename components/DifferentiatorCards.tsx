@@ -1,8 +1,8 @@
 import { Card } from "@/components/ui/card";
 import { Brain, Lightbulb, TrendingUp } from "lucide-react";
-import marketIntelligence from '@assets/generated_images/AI_Market_Intelligence_Image_37e917d2.png';
-import creativeStrategy from '@assets/generated_images/Creative_Strategy_Image_4f7ee50c.png';
-import revenueCentered from '@assets/generated_images/Revenue_Centered_Image_633860e7.png';
+const marketIntelligence = "/attached_assets/generated_images/AI_Market_Intelligence_Image_37e917d2.png";
+const creativeStrategy = "/attached_assets/generated_images/Creative_Strategy_Image_4f7ee50c.png";
+const revenueCentered = "/attached_assets/generated_images/Revenue_Centered_Image_633860e7.png";
 
 const differentiators = [
   {

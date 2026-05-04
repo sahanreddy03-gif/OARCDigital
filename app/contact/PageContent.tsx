@@ -9,7 +9,7 @@ import { Mail, Phone, MessageCircle, MapPin, Bot, Sparkles, ArrowRight, Send } f
 import { SiWhatsapp } from "react-icons/si";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import contactBokehBg from "@assets/contact-bokeh-bg.jpg";
+const contactBokehBg = "/attached_assets/contact-bokeh-bg.jpg";
 import { NAP } from "@/lib/seo/nap";
 import { buildContactShellGraph } from "@/lib/schema/shellSchemas";
 

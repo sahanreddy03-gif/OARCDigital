@@ -18,11 +18,11 @@ const creativeFAQs: FAQItem[] = [
   { question: "What is the investment for creative services?", answer: "Our creative packages are tailored to your project scope and ongoing needs. Contact us for a custom quote." },
   { question: "Do you offer revisions?", answer: "Yes, revision rounds are included in all packages. We iterate until you're completely satisfied with the final creative." }
 ];
-import videoProductionImg from '@assets/pexels-lewis-r-241208113-12341819_1764635856482.jpg';
-import cameraMonitorImg from '@assets/pexels-emmali-5400806_1764636075578.jpg';
-import designWorkspaceImg from '@assets/stock_images/creative_team_workin_79883382.jpg';
-import largeTeamImg from '@assets/stock_images/creative_team_workin_4b023730.jpg';
-import fitnessImg1 from '@assets/stock_images/fitness_gym_workout__500a23f2.jpg';
+const videoProductionImg = "/attached_assets/pexels-lewis-r-241208113-12341819_1764635856482.jpg";
+const cameraMonitorImg = "/attached_assets/pexels-emmali-5400806_1764636075578.jpg";
+const designWorkspaceImg = "/attached_assets/stock_images/creative_team_workin_79883382.jpg";
+const largeTeamImg = "/attached_assets/stock_images/creative_team_workin_4b023730.jpg";
+const fitnessImg1 = "/attached_assets/stock_images/fitness_gym_workout__500a23f2.jpg";
 
 export default function Creative() {
   const [currentService, setCurrentService] = useState(0);

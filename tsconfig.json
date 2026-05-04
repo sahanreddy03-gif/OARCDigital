@@ -44,7 +44,6 @@
       "@/lib/*": ["./lib/*"],
       "@/shared/*": ["./shared/*"],
       "@shared/*": ["./shared/*"],
-      "@assets/*": ["./attached_assets/*"],
       "@/assets/*": ["./lib/assets/*"],
       "@/config/*": ["./lib/config/*"],
       "@/data/*": ["./lib/data/*"],

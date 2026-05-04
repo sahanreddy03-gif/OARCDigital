@@ -4,15 +4,15 @@ import { useEffect } from 'react';
 import Link from 'next/link';
 import { ArrowRight, Calendar, Building2 } from 'lucide-react';
 import Layout from '@/components/layout/Layout';
-import heroImg from '@assets/stock_images/luxury_fashion_retai_32a7703b.jpg';
-import img1 from '@assets/stock_images/luxury_fashion_retai_7a69979f.jpg';
-import img2 from '@assets/stock_images/luxury_fashion_retai_855070e4.jpg';
-import img3 from '@assets/stock_images/luxury_fashion_retai_b96cd116.jpg';
-import img4 from '@assets/stock_images/luxury_fashion_retai_a6eca040.jpg';
-import img5 from '@assets/stock_images/luxury_fashion_retai_4c037440.jpg';
-import img6 from '@assets/stock_images/business_automation__26134094.jpg';
-import img7 from '@assets/stock_images/revenue_growth_data__682db86c.jpg';
-import img8 from '@assets/stock_images/team_collaboration_b_c8b7e41b.jpg';
+const heroImg = "/attached_assets/stock_images/luxury_fashion_retai_32a7703b.jpg";
+const img1 = "/attached_assets/stock_images/luxury_fashion_retai_7a69979f.jpg";
+const img2 = "/attached_assets/stock_images/luxury_fashion_retai_855070e4.jpg";
+const img3 = "/attached_assets/stock_images/luxury_fashion_retai_b96cd116.jpg";
+const img4 = "/attached_assets/stock_images/luxury_fashion_retai_a6eca040.jpg";
+const img5 = "/attached_assets/stock_images/luxury_fashion_retai_4c037440.jpg";
+const img6 = "/attached_assets/stock_images/business_automation__26134094.jpg";
+const img7 = "/attached_assets/stock_images/revenue_growth_data__682db86c.jpg";
+const img8 = "/attached_assets/stock_images/team_collaboration_b_c8b7e41b.jpg";
 
 export default function LuxuryRetailGroupAutomation() {
   useEffect(() => {

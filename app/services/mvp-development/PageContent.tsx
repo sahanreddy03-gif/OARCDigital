@@ -23,9 +23,9 @@ import {
   SiFlutter, SiKotlin, SiSwift, SiDocker
 } from 'react-icons/si';
 
-import mvpMobileScreens from '@assets/generated_images/mvp_mobile_app_prototype_screens.png';
-import mvpDashboard from '@assets/generated_images/saas_mvp_dashboard_interface.png';
-import mvpProcess from '@assets/generated_images/mvp_development_process_diagram.png';
+const mvpMobileScreens = "/attached_assets/generated_images/mvp_mobile_app_prototype_screens.png";
+const mvpDashboard = "/attached_assets/generated_images/saas_mvp_dashboard_interface.png";
+const mvpProcess = "/attached_assets/generated_images/mvp_development_process_diagram.png";
 
 const mvpFAQs: FAQItem[] = [
   { question: "What is MVP development?", answer: "Minimum Viable Product development builds the essential version of your product to validate market fit quickly. Ship fast, learn faster, iterate smarter." },

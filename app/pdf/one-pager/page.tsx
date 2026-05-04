@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 import { companyInfo, coreServices, keyDifferentiators, targetIndustries } from "@/data/companyProfile";
 import { Zap, Target, Clock, Globe, Cpu, TrendingUp } from "lucide-react";
 import "@/styles/pdf.css";
-import logoImage from "@assets/fdfdfd_1762818183304.png";
+const logoImage = "/attached_assets/fdfdfd_1762818183304.png";
 
 const iconMap: Record<string, any> = {
   zap: Zap,

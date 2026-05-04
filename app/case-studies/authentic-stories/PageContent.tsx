@@ -5,15 +5,15 @@ import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { SiTiktok, SiWhatsapp } from 'react-icons/si';
 import Layout from '@/components/layout/Layout';
-import relatedCase1 from '@assets/generated_images/social_media_creators_marketing_image.png';
-import tefalHeroImg from '@assets/TefalPictures-32-scaled_1761760754960.jpg';
-import azzaroHeroImg from '@assets/IMG_7990_1761953778756.png';
-import challengeImg1 from '@assets/IMG_7969_1761934914497.png';
-import challengeImg2 from '@assets/IMG_7970_1761934905389.png';
-import strategyImg from '@assets/IMG_7972_1761935442823.png';
-import resultsImg1 from '@assets/IMG_7969_1761940684139.png';
-import resultsImg2 from '@assets/IMG_7971_1761940684140.png';
-import resultsImg3 from '@assets/IMG_7976_1761940684140.png';
+const relatedCase1 = "/attached_assets/generated_images/social_media_creators_marketing_image.png";
+const tefalHeroImg = "/attached_assets/TefalPictures-32-scaled_1761760754960.jpg";
+const azzaroHeroImg = "/attached_assets/IMG_7990_1761953778756.png";
+const challengeImg1 = "/attached_assets/IMG_7969_1761934914497.png";
+const challengeImg2 = "/attached_assets/IMG_7970_1761934905389.png";
+const strategyImg = "/attached_assets/IMG_7972_1761935442823.png";
+const resultsImg1 = "/attached_assets/IMG_7969_1761940684139.png";
+const resultsImg2 = "/attached_assets/IMG_7971_1761940684140.png";
+const resultsImg3 = "/attached_assets/IMG_7976_1761940684140.png";
 
 export default function DontMakeAdsCaseStudy() {
   useEffect(() => {

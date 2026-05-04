@@ -4,17 +4,17 @@ import { useEffect } from 'react';
 import Link from 'next/link';
 import { ArrowRight, Calendar, Building2 } from 'lucide-react';
 import Layout from '@/components/layout/Layout';
-import heroImg from '@assets/stock_images/ai_software_developm_725be51d.jpg';
-import img1 from '@assets/stock_images/ai_software_developm_2652993c.jpg';
-import img2 from '@assets/stock_images/ai_software_developm_58a580cd.jpg';
-import img3 from '@assets/stock_images/ai_software_developm_aeb365ec.jpg';
-import img4 from '@assets/stock_images/ai_software_developm_171781f0.jpg';
-import img5 from '@assets/stock_images/team_collaboration_b_c8b7e41b.jpg';
-import img6 from '@assets/stock_images/team_collaboration_b_542d7c06.jpg';
-import img7 from '@assets/stock_images/team_collaboration_b_30e61c8c.jpg';
-import img8 from '@assets/stock_images/team_collaboration_b_d0b83af6.jpg';
-import img9 from '@assets/stock_images/team_collaboration_b_e4204dcc.jpg';
-import img10 from '@assets/stock_images/business_strategy_co_75cf4bec.jpg';
+const heroImg = "/attached_assets/stock_images/ai_software_developm_725be51d.jpg";
+const img1 = "/attached_assets/stock_images/ai_software_developm_2652993c.jpg";
+const img2 = "/attached_assets/stock_images/ai_software_developm_58a580cd.jpg";
+const img3 = "/attached_assets/stock_images/ai_software_developm_aeb365ec.jpg";
+const img4 = "/attached_assets/stock_images/ai_software_developm_171781f0.jpg";
+const img5 = "/attached_assets/stock_images/team_collaboration_b_c8b7e41b.jpg";
+const img6 = "/attached_assets/stock_images/team_collaboration_b_542d7c06.jpg";
+const img7 = "/attached_assets/stock_images/team_collaboration_b_30e61c8c.jpg";
+const img8 = "/attached_assets/stock_images/team_collaboration_b_d0b83af6.jpg";
+const img9 = "/attached_assets/stock_images/team_collaboration_b_e4204dcc.jpg";
+const img10 = "/attached_assets/stock_images/business_strategy_co_75cf4bec.jpg";
 
 export default function WorkForceConnectAI() {
   useEffect(() => {

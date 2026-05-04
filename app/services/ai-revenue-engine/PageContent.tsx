@@ -10,11 +10,11 @@ import { motion } from 'framer-motion';
 import { AnimatedGridBackground } from '@/components/ui/animated-grid-background';
 import { GlassCard } from '@/components/ui/glass-card';
 
-import leadGenImage from '@assets/stock_images/lead_generation_qual_b9d50c93.jpg';
-import customerAcquisitionImage from '@assets/stock_images/customer_acquisition_38bd9c1d.jpg';
-import funnelOptimizationImage from '@assets/stock_images/sales_funnel_optimiz_42aebf8c.jpg';
-import marketingAutomationImage from '@assets/stock_images/marketing_automation_630ae165.jpg';
-import ideaValidationImage from '@assets/stock_images/startup_idea_validat_9b100223.jpg';
+const leadGenImage = "/attached_assets/stock_images/lead_generation_qual_b9d50c93.jpg";
+const customerAcquisitionImage = "/attached_assets/stock_images/customer_acquisition_38bd9c1d.jpg";
+const funnelOptimizationImage = "/attached_assets/stock_images/sales_funnel_optimiz_42aebf8c.jpg";
+const marketingAutomationImage = "/attached_assets/stock_images/marketing_automation_630ae165.jpg";
+const ideaValidationImage = "/attached_assets/stock_images/startup_idea_validat_9b100223.jpg";
 
 const services = [
   {

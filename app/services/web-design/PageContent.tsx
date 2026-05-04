@@ -8,12 +8,12 @@ import ScrollReveal from "@/components/ScrollReveal";
 import FAQSection, { FAQItem } from "@/components/FAQSection";
 import RelatedLinks from "@/components/RelatedLinks";
 
-import heroImage from '@assets/website-design-optimized.jpg';
-import webImg1 from "@assets/stock_images/modern_web_design_ux_d23df466.jpg";
-import webImg2 from "@assets/stock_images/modern_web_design_ux_62274473.jpg";
-import webImg3 from "@assets/stock_images/modern_web_design_ux_699e8c91.jpg";
-import webImg4 from "@assets/stock_images/modern_website_desig_4ba94acf.jpg";
-import webAppImg from "@assets/stock_images/modern_web_design_we_927d8700.jpg";
+const heroImage = "/attached_assets/website-design-optimized.jpg";
+const webImg1 = "/attached_assets/stock_images/modern_web_design_ux_d23df466.jpg";
+const webImg2 = "/attached_assets/stock_images/modern_web_design_ux_62274473.jpg";
+const webImg3 = "/attached_assets/stock_images/modern_web_design_ux_699e8c91.jpg";
+const webImg4 = "/attached_assets/stock_images/modern_website_desig_4ba94acf.jpg";
+const webAppImg = "/attached_assets/stock_images/modern_web_design_we_927d8700.jpg";
 
 import MaltaContextBlock from "@/components/seo/MaltaContextBlock";
 export default function WebDesign() {

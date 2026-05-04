@@ -18,11 +18,11 @@ const influencerFAQs: FAQItem[] = [
   { question: "What is the investment for influencer campaigns?", answer: "Our influencer campaign packages are tailored to your brand goals and target audience. Contact us for a custom quote." },
   { question: "How do you measure campaign success?", answer: "Custom tracking with discount codes, UTM parameters, and attribution modeling. Transparent reporting on every campaign metric." }
 ];
-import picnicImg from '@assets/stock_images/social_media_influen_3c07c2fc.jpg';
-import skincareImg from '@assets/stock_images/social_media_influen_496eb368.jpg';
-import packageImg from '@assets/stock_images/social_media_influen_0dbb3056.jpg';
-import tefalHeroImg from '@assets/TefalPictures-32-scaled_1761760754960.jpg';
-import bodyShopHeroImg from '@assets/The-Body-Shop-Social-Marketing-Agency_1761842288034.jpg';
+const picnicImg = "/attached_assets/stock_images/social_media_influen_3c07c2fc.jpg";
+const skincareImg = "/attached_assets/stock_images/social_media_influen_496eb368.jpg";
+const packageImg = "/attached_assets/stock_images/social_media_influen_0dbb3056.jpg";
+const tefalHeroImg = "/attached_assets/TefalPictures-32-scaled_1761760754960.jpg";
+const bodyShopHeroImg = "/attached_assets/The-Body-Shop-Social-Marketing-Agency_1761842288034.jpg";
 
 export default function Influencer() {
   const [currentService, setCurrentService] = useState(0);

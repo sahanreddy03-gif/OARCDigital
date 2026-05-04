@@ -31,50 +31,50 @@ export interface CaseStudy {
 }
 
 // Import thumbnails/hero images  
-import gymGroupImg from '@assets/IMG_8206_1763165592775.jpeg';
-import azzaroImg from '@assets/stock_images/luxury_fashion_retai_a6eca040.jpg';
-import bodyShopImg from '@assets/IMG_8208_1763165901315.jpeg';
-import tefalImg from '@assets/TefalPictures-32-scaled_1761760754960.jpg';
-import homecraftHeroImg from '@assets/pexels-shvetsa-12673974_1764638693005.jpg';
-import lenovoImg from '@assets/stock_images/modern_digital_techn_529f85c8.jpg';
-import eslImg from '@assets/stock_images/ai_artificial_intell_5f3c3d5c.jpg';
-import healthcareImg from '@assets/stock_images/healthcare_patient_c_b0453f09.jpg';
-import bankingImg from '@assets/stock_images/banking_financial_se_82fcc7e7.jpg';
-import automationImg from '@assets/stock_images/business_automation__26134094.jpg';
-import socialMediaImg from '@assets/generated_images/social_media_creators_marketing_image.png';
-import aiChatbotImg from '@assets/stock_images/ai_chatbot_customer__a2c79604.jpg';
-import foodSupplyImg from '@assets/stock_images/food_supply_chain_au_9bb3c110.jpg';
-import aiEngineeringImg from '@assets/stock_images/ai_software_developm_725be51d.jpg';
-import teamCollabImg from '@assets/stock_images/team_collaboration_b_c8b7e41b.jpg';
-import luxuryFashionImg from '@assets/stock_images/luxury_fashion_retai_32a7703b.jpg';
-import designWorkspaceImg from '@assets/stock_images/creative_team_workin_79883382.jpg';
-import aiRealEstateDashboard from '@assets/generated_images/ai_real_estate_lead_dashboard.png';
-import aiLeadEngineDashboard from '@assets/generated_images/ai_lead_engine_dashboard.png';
-import strategicPlanningDashboard from '@assets/generated_images/strategic_planning_dashboard_ui.png';
-import aiDataCleansingDashboard from '@assets/generated_images/ai_data_cleansing_dashboard.png';
-import colorfulDataAnalyticsImg from '@assets/generated_images/colorful_data_analytics_dashboard.png';
-import cricketBettingAppImg from '@assets/generated_images/cricket_betting_mobile_app_mockup.png';
-import cricketStadiumImg from '@assets/generated_images/vibrant_ipl_cricket_stadium.png';
-import aiAutomationDashboard from '@assets/generated_images/ai_automation_enterprise_dashboard.png';
-import aiCallCenterImg from '@assets/generated_images/colorful_ai-powered_call_center.png';
+const gymGroupImg = "/attached_assets/IMG_8206_1763165592775.jpeg";
+const azzaroImg = "/attached_assets/stock_images/luxury_fashion_retai_a6eca040.jpg";
+const bodyShopImg = "/attached_assets/IMG_8208_1763165901315.jpeg";
+const tefalImg = "/attached_assets/TefalPictures-32-scaled_1761760754960.jpg";
+const homecraftHeroImg = "/attached_assets/pexels-shvetsa-12673974_1764638693005.jpg";
+const lenovoImg = "/attached_assets/stock_images/modern_digital_techn_529f85c8.jpg";
+const eslImg = "/attached_assets/stock_images/ai_artificial_intell_5f3c3d5c.jpg";
+const healthcareImg = "/attached_assets/stock_images/healthcare_patient_c_b0453f09.jpg";
+const bankingImg = "/attached_assets/stock_images/banking_financial_se_82fcc7e7.jpg";
+const automationImg = "/attached_assets/stock_images/business_automation__26134094.jpg";
+const socialMediaImg = "/attached_assets/generated_images/social_media_creators_marketing_image.png";
+const aiChatbotImg = "/attached_assets/stock_images/ai_chatbot_customer__a2c79604.jpg";
+const foodSupplyImg = "/attached_assets/stock_images/food_supply_chain_au_9bb3c110.jpg";
+const aiEngineeringImg = "/attached_assets/stock_images/ai_software_developm_725be51d.jpg";
+const teamCollabImg = "/attached_assets/stock_images/team_collaboration_b_c8b7e41b.jpg";
+const luxuryFashionImg = "/attached_assets/stock_images/luxury_fashion_retai_32a7703b.jpg";
+const designWorkspaceImg = "/attached_assets/stock_images/creative_team_workin_79883382.jpg";
+const aiRealEstateDashboard = "/attached_assets/generated_images/ai_real_estate_lead_dashboard.png";
+const aiLeadEngineDashboard = "/attached_assets/generated_images/ai_lead_engine_dashboard.png";
+const strategicPlanningDashboard = "/attached_assets/generated_images/strategic_planning_dashboard_ui.png";
+const aiDataCleansingDashboard = "/attached_assets/generated_images/ai_data_cleansing_dashboard.png";
+const colorfulDataAnalyticsImg = "/attached_assets/generated_images/colorful_data_analytics_dashboard.png";
+const cricketBettingAppImg = "/attached_assets/generated_images/cricket_betting_mobile_app_mockup.png";
+const cricketStadiumImg = "/attached_assets/generated_images/vibrant_ipl_cricket_stadium.png";
+const aiAutomationDashboard = "/attached_assets/generated_images/ai_automation_enterprise_dashboard.png";
+const aiCallCenterImg = "/attached_assets/generated_images/colorful_ai-powered_call_center.png";
 
 // Colorful homepage case study thumbnails
-import colorfulDashboardImg from '@assets/generated_images/colorful_analytics_dashboard_laptop.png';
-import colorfulRealEstateImg from '@assets/generated_images/colorful_real_estate_property_showcase.png';
-import colorfulSalesTeamImg from '@assets/generated_images/vibrant_sales_team_celebrating.png';
-import colorfulGymImg from '@assets/generated_images/colorful_modern_gym_interior.png';
-import colorfulPerfumeImg from '@assets/generated_images/colorful_luxury_perfume_product.png';
-import colorfulBeautyImg from '@assets/generated_images/colorful_natural_beauty_products.png';
+const colorfulDashboardImg = "/attached_assets/generated_images/colorful_analytics_dashboard_laptop.png";
+const colorfulRealEstateImg = "/attached_assets/generated_images/colorful_real_estate_property_showcase.png";
+const colorfulSalesTeamImg = "/attached_assets/generated_images/vibrant_sales_team_celebrating.png";
+const colorfulGymImg = "/attached_assets/generated_images/colorful_modern_gym_interior.png";
+const colorfulPerfumeImg = "/attached_assets/generated_images/colorful_luxury_perfume_product.png";
+const colorfulBeautyImg = "/attached_assets/generated_images/colorful_natural_beauty_products.png";
 
 // User-provided case study thumbnails
-import naturalCareBeautyThumb from '@assets/natural_care_beauty_1766244402579.jpeg';
-import strategicPulseThumb from '@assets/strategic_pulse_1766244402580.png';
-import aiDataEngineThumb from '@assets/pexels-googledeepmind-17485707_1766245298201.jpg';
-import tefalInfluencerThumb from '@assets/TefalPictures-32-scaled_1761760754960-DVSuvcTH_1766245435310.jpg';
+const naturalCareBeautyThumb = "/attached_assets/natural_care_beauty_1766244402579.jpeg";
+const strategicPulseThumb = "/attached_assets/strategic_pulse_1766244402580.png";
+const aiDataEngineThumb = "/attached_assets/pexels-googledeepmind-17485707_1766245298201.jpg";
+const tefalInfluencerThumb = "/attached_assets/TefalPictures-32-scaled_1761760754960-DVSuvcTH_1766245435310.jpg";
 
 // PJAZZA case study assets
-import pjazzaThumb from '@assets/IMG_0605_1775068068190.jpeg';
-import pjazzaHero from '@assets/screenshot-1775068037591.png';
+const pjazzaThumb = "/attached_assets/IMG_0605_1775068068190.jpeg";
+const pjazzaHero = "/attached_assets/screenshot-1775068037591.png";
 
 export const caseStudies: Record<string, CaseStudy> = {
   'pjazza': {

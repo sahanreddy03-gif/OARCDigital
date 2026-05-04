@@ -24,13 +24,13 @@ const customSoftwareFAQs: FAQItem[] = [
   { question: "Do you offer fixed-price or time-and-materials?", answer: "Both options available. Fixed-price for defined scopes, time-and-materials for flexible ongoing development." }
 ];
 
-import heroImg from '@assets/stock_images/custom_software_deve_6f9a0242.jpg';
-import softwareDevImg1 from '@assets/stock_images/software_development_5606ca42.jpg';
-import softwareDevImg2 from '@assets/stock_images/software_development_bf22fbae.jpg';
-import softwareDevImg3 from '@assets/stock_images/software_development_e22831c9.jpg';
-import aiSoftwareImg from '@assets/stock_images/ai_software_developm_171781f0.jpg';
-import dashboardImg from '@assets/stock_images/financial_dashboard__226af471.jpg';
-import mobileAppImg from '@assets/stock_images/mobile_app_developme_12e99cc2.jpg';
+const heroImg = "/attached_assets/stock_images/custom_software_deve_6f9a0242.jpg";
+const softwareDevImg1 = "/attached_assets/stock_images/software_development_5606ca42.jpg";
+const softwareDevImg2 = "/attached_assets/stock_images/software_development_bf22fbae.jpg";
+const softwareDevImg3 = "/attached_assets/stock_images/software_development_e22831c9.jpg";
+const aiSoftwareImg = "/attached_assets/stock_images/ai_software_developm_171781f0.jpg";
+const dashboardImg = "/attached_assets/stock_images/financial_dashboard__226af471.jpg";
+const mobileAppImg = "/attached_assets/stock_images/mobile_app_developme_12e99cc2.jpg";
 
 const ELITE_COLORS = {
   primary: '#6366f1',

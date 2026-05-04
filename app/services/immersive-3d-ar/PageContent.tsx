@@ -8,7 +8,7 @@ import { ScrollableCards } from "@/components/ui/scrollable-cards";
 import Layout from "@/components/layout/Layout";
 import { creativeServicesSEO } from "@/data/seoMetadata";
 import { createServiceSchema } from "@/utils/structuredData";
-import heroImage from "@assets/stock_images/virtual_reality_vr_h_6d01f361.jpg";
+const heroImage = "/attached_assets/stock_images/virtual_reality_vr_h_6d01f361.jpg";
 import FAQSection, { FAQItem } from '@/components/FAQSection';
 
 const immersive3DFAQs: FAQItem[] = [

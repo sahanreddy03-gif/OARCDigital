@@ -12,7 +12,7 @@ import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import Layout from "@/components/layout/Layout";
 import FAQSection, { FAQItem } from "@/components/FAQSection";
-import toolsHeroBg from "@assets/pexels-ahmetyuksek-31444049_1766033593561.jpg";
+const toolsHeroBg = "/attached_assets/pexels-ahmetyuksek-31444049_1766033593561.jpg";
 
 type ToolCategory = 
   | "all"

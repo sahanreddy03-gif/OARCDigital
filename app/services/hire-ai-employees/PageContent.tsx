@@ -21,14 +21,14 @@ import {
 } from '@/components/ui/ai-icons';
 import FAQSection, { FAQItem } from "@/components/FAQSection";
 
-import sdrAgent from '@assets/stock_images/elite_sales_professi_1c84b4b4.jpg';
-import supportSpecialist from '@assets/stock_images/customer_support_spe_789ecb6b.jpg';
-import dataAnalyst from '@assets/stock_images/data_analyst_profess_4f5ff172.jpg';
-import adminAgent from '@assets/stock_images/administrative_assis_da9e94eb.jpg';
-import contentStrategist from '@assets/stock_images/content_strategist_c_61044a33.jpg';
-import complianceAuditor from '@assets/stock_images/legal_compliance_off_78808712.jpg';
-import appointmentBooker from '@assets/stock_images/appointment_schedule_97373ecb.jpg';
-import realEstateAgent from '@assets/stock_images/real_estate_agent_pr_d5449235.jpg';
+const sdrAgent = "/attached_assets/stock_images/elite_sales_professi_1c84b4b4.jpg";
+const supportSpecialist = "/attached_assets/stock_images/customer_support_spe_789ecb6b.jpg";
+const dataAnalyst = "/attached_assets/stock_images/data_analyst_profess_4f5ff172.jpg";
+const adminAgent = "/attached_assets/stock_images/administrative_assis_da9e94eb.jpg";
+const contentStrategist = "/attached_assets/stock_images/content_strategist_c_61044a33.jpg";
+const complianceAuditor = "/attached_assets/stock_images/legal_compliance_off_78808712.jpg";
+const appointmentBooker = "/attached_assets/stock_images/appointment_schedule_97373ecb.jpg";
+const realEstateAgent = "/attached_assets/stock_images/real_estate_agent_pr_d5449235.jpg";
 
 const agents = [
   {

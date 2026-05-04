@@ -25,7 +25,7 @@ import {
 import { createAggregateRatingSchema } from '@/utils/advancedSchema';
 import { agentRatings } from '@/components/ai/aiAgentsData';
 import { SiWhatsapp } from 'react-icons/si';
-import workspaceImage from '@assets/not_ai_agent_1768231816421.png';
+const workspaceImage = "/attached_assets/not_ai_agent_1768231816421.png";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 30 },

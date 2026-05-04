@@ -2,11 +2,11 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Sparkles, Users, DollarSign, ArrowRight } from "lucide-react";
 import Link from "next/link";
-import brandImage from '@assets/generated_images/Brand_Image_Library_Card_94571438.png';
-import keyArt from '@assets/generated_images/Key_Art_Composition_Card_eb4acb99.png';
-import motionGraphics from '@assets/generated_images/Motion_Graphics_Card_dcb90033.png';
-import characterDev from '@assets/generated_images/Character_Development_Card_f5d07add.png';
-import voiceover from '@assets/generated_images/Voiceover_Generation_Card_b5ecfb72.png';
+const brandImage = "/attached_assets/generated_images/Brand_Image_Library_Card_94571438.png";
+const keyArt = "/attached_assets/generated_images/Key_Art_Composition_Card_eb4acb99.png";
+const motionGraphics = "/attached_assets/generated_images/Motion_Graphics_Card_dcb90033.png";
+const characterDev = "/attached_assets/generated_images/Character_Development_Card_f5d07add.png";
+const voiceover = "/attached_assets/generated_images/Voiceover_Generation_Card_b5ecfb72.png";
 
 const services = [
   {

@@ -6,15 +6,15 @@ import { ArrowLeft, ArrowUpRight, ExternalLink, Play, Users, Layers, Globe, Tren
 import Layout from '@/components/layout/Layout';
 import { motion } from 'framer-motion';
 
-import pjazzaLogo from '@assets/logo.svg';
-import heroScreen from '@assets/IMG_0605_1775068068190.jpeg';
-import desktopShot from '@assets/screenshot-1775068037591.png';
-import howItWorks from '@assets/IMG_0612_1775068068190.jpeg';
-import liveFeed from '@assets/IMG_0610_1775068068190.jpeg';
-import storeBrowse from '@assets/IMG_0606_1775068068190.jpeg';
-import peopleHire from '@assets/IMG_0613_1775068068190.jpeg';
-import businessScreen from '@assets/IMG_0620_1775068068190.jpeg';
-import whyPjazza from '@assets/IMG_0622_1775068068190.jpeg';
+const pjazzaLogo = "/attached_assets/logo.svg";
+const heroScreen = "/attached_assets/IMG_0605_1775068068190.jpeg";
+const desktopShot = "/attached_assets/screenshot-1775068037591.png";
+const howItWorks = "/attached_assets/IMG_0612_1775068068190.jpeg";
+const liveFeed = "/attached_assets/IMG_0610_1775068068190.jpeg";
+const storeBrowse = "/attached_assets/IMG_0606_1775068068190.jpeg";
+const peopleHire = "/attached_assets/IMG_0613_1775068068190.jpeg";
+const businessScreen = "/attached_assets/IMG_0620_1775068068190.jpeg";
+const whyPjazza = "/attached_assets/IMG_0622_1775068068190.jpeg";
 
 const stats = [
   { value: '24+', label: 'Founding Businesses', icon: Users },

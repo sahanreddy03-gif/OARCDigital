@@ -9,7 +9,7 @@ import { GlassCard } from '@/components/ui/glass-card';
 import { FlowDiagram } from '@/components/ui/flow-diagram';
 import { motion } from 'framer-motion';
 
-import aiDataCleansingDashboard from '@assets/generated_images/ai_data_cleansing_dashboard.png';
+const aiDataCleansingDashboard = "/attached_assets/generated_images/ai_data_cleansing_dashboard.png";
 
 export default function NationalDistributorNLPCaseStudy() {
   useEffect(() => {

@@ -8,7 +8,7 @@ import { caseStudies, CaseStudy } from "@/data/caseStudies";
 import { supportingPagesSEO } from "@/data/seoMetadata";
 import { buildOurWorkShellGraph } from "@/lib/schema/shellSchemas";
 import { motion } from "framer-motion";
-import heroBgImage from "@assets/IMG_8144_1765567236984.jpeg";
+const heroBgImage = "/attached_assets/IMG_8144_1765567236984.jpeg";
 
 const AI_CATEGORIES = [
   'AI Solutions',
