@@ -682,7 +682,7 @@ export default function IndustryHubPage({ params }: { params: { industry: string
             </p>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {data.services.map((service, i) => (
-                <Link key={i} href={`/services/${service.slug}/${industry}`}>
+                <Link key={i} href={`/services/${service.slug}`}>
                   <div className="p-6 rounded-xl bg-card border border-border hover:border-orange-500/40 hover:-translate-y-1 transition-all cursor-pointer h-full">
                     <div className="flex items-start gap-3">
                       <CheckCircle className="w-5 h-5 text-orange-400 mt-0.5 flex-shrink-0" />
@@ -741,7 +741,7 @@ export default function IndustryHubPage({ params }: { params: { industry: string
                   'paid-advertising': 'Paid Advertising',
                 };
                 return (
-                  <Link key={slug} href={`/services/${slug}/${industry}`}>
+                  <Link key={slug} href={`/services/${slug}`}>
                     <span className="px-4 py-2 rounded-full border border-border hover:border-orange-400 hover:text-orange-400 text-sm transition-all cursor-pointer">
                       {labels[slug]} for {data.plural}
                     </span>
