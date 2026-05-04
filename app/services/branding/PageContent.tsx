@@ -8,14 +8,14 @@ import ScrollReveal from "@/components/ScrollReveal";
 import FAQSection, { FAQItem } from "@/components/FAQSection";
 import RelatedLinks from "@/components/RelatedLinks";
 
-import brandImg1 from "@assets/stock_images/branding_design_logo_562a38a3.jpg";
-import brandImg2 from "@assets/stock_images/branding_design_logo_ccf3aba4.jpg";
-import brandImg3 from "@assets/stock_images/branding_design_logo_def8ba83.jpg";
-import brandIdentityImg from "@assets/stock_images/brand_identity_desig_a250cc24.jpg";
-import corporateLogoImg1 from "@assets/stock_images/corporate_brand_logo_36956200.jpg";
-import corporateLogoImg2 from "@assets/stock_images/corporate_brand_logo_3ecd3c3a.jpg";
-import designSystemImg from "@assets/stock_images/design_system_compon_362ff5cd.jpg";
-import graphicDesignImg from "@assets/stock_images/graphic_design_creat_297cb911.jpg";
+const brandImg1 = "/attached_assets/stock_images/branding_design_logo_562a38a3.jpg";
+const brandImg2 = "/attached_assets/stock_images/branding_design_logo_ccf3aba4.jpg";
+const brandImg3 = "/attached_assets/stock_images/branding_design_logo_def8ba83.jpg";
+const brandIdentityImg = "/attached_assets/stock_images/brand_identity_desig_a250cc24.jpg";
+const corporateLogoImg1 = "/attached_assets/stock_images/corporate_brand_logo_36956200.jpg";
+const corporateLogoImg2 = "/attached_assets/stock_images/corporate_brand_logo_3ecd3c3a.jpg";
+const designSystemImg = "/attached_assets/stock_images/design_system_compon_362ff5cd.jpg";
+const graphicDesignImg = "/attached_assets/stock_images/graphic_design_creat_297cb911.jpg";
 
 import MaltaContextBlock from "@/components/seo/MaltaContextBlock";
 const brandingFAQs: FAQItem[] = [

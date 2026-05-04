@@ -9,10 +9,10 @@ import FAQSection, { FAQItem } from "@/components/FAQSection";
 import { revenueServicesSEO } from "@/data/seoMetadata";
 import { createServiceSchema } from "@/utils/structuredData";
 import { Users, TrendingUp, Heart, Zap, Target, BarChart3, ArrowRight, CheckCircle2 } from "lucide-react";
-import heroImage from '@assets/influencer-marketing-optimized.jpg';
-import influencerImg1 from "@assets/stock_images/influencer_marketing_e096cc44.jpg";
-import influencerImg2 from "@assets/stock_images/influencer_marketing_47b0ede7.jpg";
-import influencerImg3 from "@assets/stock_images/influencer_marketing_3b6f7762.jpg";
+const heroImage = "/attached_assets/influencer-marketing-optimized.jpg";
+const influencerImg1 = "/attached_assets/stock_images/influencer_marketing_e096cc44.jpg";
+const influencerImg2 = "/attached_assets/stock_images/influencer_marketing_47b0ede7.jpg";
+const influencerImg3 = "/attached_assets/stock_images/influencer_marketing_3b6f7762.jpg";
 
 const influencerFAQs: FAQItem[] = [
   { question: "How do you find the right influencers?", answer: "AI-powered matching analyzes audience overlap, engagement quality, and brand fit. We vet creators manually before any partnership." },

@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Menu, ChevronDown, ArrowRight, X } from "lucide-react";
 import { getPreviewServices, servicesCatalog } from '@/config/servicesConfig';
-import greenLogo from "@assets/image_1767660951950.png";
+const greenLogo = "/attached_assets/image_1767660951950.png";
 
 export default function Navigation() {
   const [showServicesMenu, setShowServicesMenu] = useState(false);

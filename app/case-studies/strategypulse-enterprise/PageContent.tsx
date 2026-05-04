@@ -9,9 +9,9 @@ import { GlassCard } from '@/components/ui/glass-card';
 import { FlowDiagram } from '@/components/ui/flow-diagram';
 import { motion } from 'framer-motion';
 
-import strategicDashboard from '@assets/generated_images/strategic_planning_dashboard_ui.png';
-import collaborationPlatform from '@assets/generated_images/team_collaboration_platform_ui.png';
-import analyticsDashboard from '@assets/generated_images/business_analytics_dashboard.png';
+const strategicDashboard = "/attached_assets/generated_images/strategic_planning_dashboard_ui.png";
+const collaborationPlatform = "/attached_assets/generated_images/team_collaboration_platform_ui.png";
+const analyticsDashboard = "/attached_assets/generated_images/business_analytics_dashboard.png";
 
 export default function StrategyPulseCaseStudy() {
   useEffect(() => {

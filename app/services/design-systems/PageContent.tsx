@@ -8,7 +8,7 @@ import { ScrollableCards } from "@/components/ui/scrollable-cards";
 import Layout from "@/components/layout/Layout";
 import { creativeServicesSEO } from "@/data/seoMetadata";
 import { createServiceSchema } from "@/utils/structuredData";
-import heroImage from '@assets/15_1763085718435.avif';
+const heroImage = "/attached_assets/15_1763085718435.avif";
 import FAQSection, { FAQItem } from '@/components/FAQSection';
 
 const designSystemsFAQs: FAQItem[] = [

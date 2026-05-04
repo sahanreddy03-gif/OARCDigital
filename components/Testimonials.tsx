@@ -2,10 +2,10 @@
 
 import { useState, useEffect, useRef } from "react";
 import { ChevronUp, ChevronDown } from "lucide-react";
-import sarahChenImg from "@assets/sara chen_1763248379257.jpg";
-import michaelRodriguezImg from "@assets/michael_1763248379256.jpg";
-import emmaThompsonImg from "@assets/emma_1763248379256.jpg";
-import rajeevShuklaImg from "@assets/Rajeev sukla_1763248379257.jpg";
+const sarahChenImg = "/attached_assets/sara chen_1763248379257.jpg";
+const michaelRodriguezImg = "/attached_assets/michael_1763248379256.jpg";
+const emmaThompsonImg = "/attached_assets/emma_1763248379256.jpg";
+const rajeevShuklaImg = "/attached_assets/Rajeev sukla_1763248379257.jpg";
 
 const testimonials = [
   {

@@ -4,16 +4,16 @@ import { useEffect } from 'react';
 import Link from 'next/link';
 import { ArrowRight, Calendar, Building2 } from 'lucide-react';
 import Layout from '@/components/layout/Layout';
-import heroImg from '@assets/stock_images/ai_chatbot_customer__a2c79604.jpg';
-import img1 from '@assets/stock_images/ai_chatbot_customer__070fc7ce.jpg';
-import img2 from '@assets/stock_images/ai_chatbot_customer__fad0f638.jpg';
-import img3 from '@assets/stock_images/ai_chatbot_customer__7c3539e1.jpg';
-import img4 from '@assets/stock_images/ai_chatbot_customer__aab38c78.jpg';
-import img5 from '@assets/stock_images/ai_software_developm_725be51d.jpg';
-import img6 from '@assets/stock_images/ai_software_developm_2652993c.jpg';
-import img7 from '@assets/stock_images/ai_software_developm_58a580cd.jpg';
-import img8 from '@assets/stock_images/team_collaboration_b_c8b7e41b.jpg';
-import img9 from '@assets/stock_images/business_strategy_co_75cf4bec.jpg';
+const heroImg = "/attached_assets/stock_images/ai_chatbot_customer__a2c79604.jpg";
+const img1 = "/attached_assets/stock_images/ai_chatbot_customer__070fc7ce.jpg";
+const img2 = "/attached_assets/stock_images/ai_chatbot_customer__fad0f638.jpg";
+const img3 = "/attached_assets/stock_images/ai_chatbot_customer__7c3539e1.jpg";
+const img4 = "/attached_assets/stock_images/ai_chatbot_customer__aab38c78.jpg";
+const img5 = "/attached_assets/stock_images/ai_software_developm_725be51d.jpg";
+const img6 = "/attached_assets/stock_images/ai_software_developm_2652993c.jpg";
+const img7 = "/attached_assets/stock_images/ai_software_developm_58a580cd.jpg";
+const img8 = "/attached_assets/stock_images/team_collaboration_b_c8b7e41b.jpg";
+const img9 = "/attached_assets/stock_images/business_strategy_co_75cf4bec.jpg";
 
 export default function BetSmartSportsBuddyAI() {
   useEffect(() => {

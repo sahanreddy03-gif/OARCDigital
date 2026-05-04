@@ -19,15 +19,15 @@ const paidAdsFAQs: FAQItem[] = [
   { question: "What is the investment for paid media management?", answer: "Our management fees are tailored to your campaign scope and objectives. All packages include strategy, optimization, and reporting. Contact us for a custom quote." },
   { question: "How quickly will I see results?", answer: "Initial optimization takes 2-4 weeks. Most clients see measurable improvements within the first 90 days of partnership." }
 ];
-import heroImage from '@assets/paid-advertising-optimized.jpg';
-import formalTeamImg from '@assets/stock_images/digital_advertising__84eb3355.jpg';
-import conferenceTeamImg from '@assets/stock_images/digital_advertising__e3a5e56c.jpg';
-import studioImg from '@assets/stock_images/graphic_design_creat_e05eb8ba.jpg';
-import largeTeamImg from '@assets/stock_images/digital_advertising__72c578c7.jpg';
-import gamingImg1 from '@assets/stock_images/gaming_esports_compu_611efecd.jpg';
-import gamingImg2 from '@assets/stock_images/gaming_esports_compu_315351f1.jpg';
-import retailStoreImg from '@assets/stock_images/retail_store_fashion_343ad2e2.jpg';
-import eyeglassesImg from '@assets/stock_images/eyeglasses_optical_s_879c2628.jpg';
+const heroImage = "/attached_assets/paid-advertising-optimized.jpg";
+const formalTeamImg = "/attached_assets/stock_images/digital_advertising__84eb3355.jpg";
+const conferenceTeamImg = "/attached_assets/stock_images/digital_advertising__e3a5e56c.jpg";
+const studioImg = "/attached_assets/stock_images/graphic_design_creat_e05eb8ba.jpg";
+const largeTeamImg = "/attached_assets/stock_images/digital_advertising__72c578c7.jpg";
+const gamingImg1 = "/attached_assets/stock_images/gaming_esports_compu_611efecd.jpg";
+const gamingImg2 = "/attached_assets/stock_images/gaming_esports_compu_315351f1.jpg";
+const retailStoreImg = "/attached_assets/stock_images/retail_store_fashion_343ad2e2.jpg";
+const eyeglassesImg = "/attached_assets/stock_images/eyeglasses_optical_s_879c2628.jpg";
 
 export default function Paid() {
   const [currentService, setCurrentService] = useState(0);

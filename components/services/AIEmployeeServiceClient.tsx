@@ -29,14 +29,14 @@ import {
   AIIconWithGlow
 } from '@/components/ui/ai-icons';
 
-import sdrAgentImage from '@assets/ai-sdr-agent-optimized.webp';
-import customerSupportImage from '@assets/ai-customer-support-optimized.webp';
-import dataInsightsNeuralImage from '@assets/data-insights-neural-optimized.webp';
-import adminAgentImage from '@assets/ai-admin-agent-optimized.webp';
-import contentStrategistImage from '@assets/ai-content-strategist-optimized.webp';
-import complianceAuditorImage from '@assets/stock_images/legal_compliance_off_78808712.jpg';
-import appointmentBookerImage from '@assets/stock_images/appointment_schedule_97373ecb.jpg';
-import realEstateAgentImage from '@assets/stock_images/real_estate_agent_pr_d5449235.jpg';
+const sdrAgentImage = "/attached_assets/ai-sdr-agent-optimized.webp";
+const customerSupportImage = "/attached_assets/ai-customer-support-optimized.webp";
+const dataInsightsNeuralImage = "/attached_assets/data-insights-neural-optimized.webp";
+const adminAgentImage = "/attached_assets/ai-admin-agent-optimized.webp";
+const contentStrategistImage = "/attached_assets/ai-content-strategist-optimized.webp";
+const complianceAuditorImage = "/attached_assets/stock_images/legal_compliance_off_78808712.jpg";
+const appointmentBookerImage = "/attached_assets/stock_images/appointment_schedule_97373ecb.jpg";
+const realEstateAgentImage = "/attached_assets/stock_images/real_estate_agent_pr_d5449235.jpg";
 
 interface TargetAudienceItem {
   title: string;

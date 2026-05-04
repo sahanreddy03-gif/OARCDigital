@@ -7,20 +7,20 @@ import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { SiTiktok } from 'react-icons/si';
 import Layout from '@/components/layout/Layout';
-import tefalHeroImg from '@assets/TefalPictures-32-scaled_1761760754960.jpg';
-import dontMakeAdsHeroImg from '@assets/generated_images/social_media_creators_marketing_image.png';
-import bodyShopHeroImg from '@assets/The-Body-Shop-Social-Marketing-Agency_1761842288034.jpg';
-import fitnessImg1 from '@assets/IMG_8206_1763165592775_1765127367343.jpeg';
-import fitnessImg2 from '@assets/stock_images/fitness_gym_workout__6cda6782.jpg';
-import fitnessImg3 from '@assets/stock_images/fitness_gym_workout__509badd9.jpg';
-import contentImg1 from '@assets/stock_images/fitness_gym_workout__43cec023.jpg';
-import contentImg2 from '@assets/stock_images/fitness_gym_workout__7fbcce24.jpg';
-import contentImg3 from '@assets/stock_images/fitness_gym_workout__a4da8115.jpg';
-import contentImg4 from '@assets/stock_images/fitness_gym_workout__d7caa1f0.jpg';
-import contentImg5 from '@assets/stock_images/gym_personal_trainin_fb56e04c.jpg';
-import contentImg6 from '@assets/stock_images/gym_personal_trainin_219a3467.jpg';
-import contentImg7 from '@assets/stock_images/gym_personal_trainin_17a601d1.jpg';
-import contentImg8 from '@assets/stock_images/gym_personal_trainin_fa5f5bec.jpg';
+const tefalHeroImg = "/attached_assets/TefalPictures-32-scaled_1761760754960.jpg";
+const dontMakeAdsHeroImg = "/attached_assets/generated_images/social_media_creators_marketing_image.png";
+const bodyShopHeroImg = "/attached_assets/The-Body-Shop-Social-Marketing-Agency_1761842288034.jpg";
+const fitnessImg1 = "/attached_assets/IMG_8206_1763165592775_1765127367343.jpeg";
+const fitnessImg2 = "/attached_assets/stock_images/fitness_gym_workout__6cda6782.jpg";
+const fitnessImg3 = "/attached_assets/stock_images/fitness_gym_workout__509badd9.jpg";
+const contentImg1 = "/attached_assets/stock_images/fitness_gym_workout__43cec023.jpg";
+const contentImg2 = "/attached_assets/stock_images/fitness_gym_workout__7fbcce24.jpg";
+const contentImg3 = "/attached_assets/stock_images/fitness_gym_workout__a4da8115.jpg";
+const contentImg4 = "/attached_assets/stock_images/fitness_gym_workout__d7caa1f0.jpg";
+const contentImg5 = "/attached_assets/stock_images/gym_personal_trainin_fb56e04c.jpg";
+const contentImg6 = "/attached_assets/stock_images/gym_personal_trainin_219a3467.jpg";
+const contentImg7 = "/attached_assets/stock_images/gym_personal_trainin_17a601d1.jpg";
+const contentImg8 = "/attached_assets/stock_images/gym_personal_trainin_fa5f5bec.jpg";
 
 export default function GymGroupCaseStudy() {
   useEffect(() => {

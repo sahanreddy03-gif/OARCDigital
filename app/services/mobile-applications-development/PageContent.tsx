@@ -13,14 +13,14 @@ import { AnimatedGridBackground } from '@/components/ui/animated-grid-background
 import { GlassCard } from '@/components/ui/glass-card';
 import FAQSection, { FAQItem } from '@/components/FAQSection';
 
-import heroImg from '@assets/stock_images/mobile_app_design_us_2b0d5cbd.jpg';
-import appImg1 from '@assets/stock_images/mobile_app_design_us_5eb8ced7.jpg';
-import appImg2 from '@assets/stock_images/mobile_app_design_us_1ba5497a.jpg';
-import mobileDevImg1 from '@assets/stock_images/mobile_app_developme_12e99cc2.jpg';
-import mobileDevImg2 from '@assets/stock_images/mobile_app_developme_41ccf1c2.jpg';
-import mobileDevImg3 from '@assets/stock_images/mobile_app_developme_51e6a80f.jpg';
-import mobileDevImg4 from '@assets/stock_images/mobile_app_developme_8bd59a4e.jpg';
-import mobileAppsRobotImg from '@assets/mobile-apps-robot-optimized.webp';
+const heroImg = "/attached_assets/stock_images/mobile_app_design_us_2b0d5cbd.jpg";
+const appImg1 = "/attached_assets/stock_images/mobile_app_design_us_5eb8ced7.jpg";
+const appImg2 = "/attached_assets/stock_images/mobile_app_design_us_1ba5497a.jpg";
+const mobileDevImg1 = "/attached_assets/stock_images/mobile_app_developme_12e99cc2.jpg";
+const mobileDevImg2 = "/attached_assets/stock_images/mobile_app_developme_41ccf1c2.jpg";
+const mobileDevImg3 = "/attached_assets/stock_images/mobile_app_developme_51e6a80f.jpg";
+const mobileDevImg4 = "/attached_assets/stock_images/mobile_app_developme_8bd59a4e.jpg";
+const mobileAppsRobotImg = "/attached_assets/mobile-apps-robot-optimized.webp";
 
 const ELITE_COLORS = {
   primary: '#6366f1',

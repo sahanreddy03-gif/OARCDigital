@@ -5,12 +5,12 @@ import Link from "next/link";
 import { ArrowRight, ChevronLeft, ChevronRight, TrendingUp } from 'lucide-react';
 import { motion, useReducedMotion } from 'framer-motion';
 
-import customerAcquisitionImage from '@assets/stock_images/customer_acquisition_38bd9c1d.jpg';
-import webApplicationsImage from '@assets/web-applications-optimized.webp';
-import marketingAutomationImage from '@assets/marketing-automation-optimized.webp';
-import mobileAppsRobotImage from '@assets/mobile-apps-robot-optimized.webp';
-import customAISolutionsRobotsImage from '@assets/custom-ai-solutions-robots-optimized.webp';
-import aiConsultingImage from '@assets/ai-consulting-presentation-optimized.webp';
+const customerAcquisitionImage = "/attached_assets/stock_images/customer_acquisition_38bd9c1d.jpg";
+const webApplicationsImage = "/attached_assets/web-applications-optimized.webp";
+const marketingAutomationImage = "/attached_assets/marketing-automation-optimized.webp";
+const mobileAppsRobotImage = "/attached_assets/mobile-apps-robot-optimized.webp";
+const customAISolutionsRobotsImage = "/attached_assets/custom-ai-solutions-robots-optimized.webp";
+const aiConsultingImage = "/attached_assets/ai-consulting-presentation-optimized.webp";
 
 const services = [
   {

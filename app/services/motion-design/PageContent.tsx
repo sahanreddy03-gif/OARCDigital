@@ -9,10 +9,10 @@ import Layout from "@/components/layout/Layout";
 import { creativeServicesSEO } from "@/data/seoMetadata";
 import { createServiceSchema } from "@/utils/structuredData";
 import FAQSection, { type FAQItem } from "@/components/FAQSection";
-import heroImage from '@assets/motion design_1763084597887.avif';
-import motionImg1 from "@assets/stock_images/motion_graphics_anim_30522a7b.jpg";
-import motionImg2 from "@assets/stock_images/motion_graphics_anim_efb22394.jpg";
-import motionImg3 from "@assets/stock_images/motion_graphics_anim_aae15d3e.jpg";
+const heroImage = "/attached_assets/motion design_1763084597887.avif";
+const motionImg1 = "/attached_assets/stock_images/motion_graphics_anim_30522a7b.jpg";
+const motionImg2 = "/attached_assets/stock_images/motion_graphics_anim_efb22394.jpg";
+const motionImg3 = "/attached_assets/stock_images/motion_graphics_anim_aae15d3e.jpg";
 
 const motionDesignFAQs: FAQItem[] = [
   { question: "What types of motion design do you create?", answer: "Logo animations, explainer videos, social media motion graphics, UI animations, and full animated commercials. From subtle to spectacular." },

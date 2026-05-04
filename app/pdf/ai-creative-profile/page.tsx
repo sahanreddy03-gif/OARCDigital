@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 import { companyInfo, aboutText, coreServices, caseStudies, technologyStack, processSteps } from "@/data/companyProfile";
 import { Brain, Sparkles, BarChart3, Zap } from "lucide-react";
 import "@/styles/pdf.css";
-import logoImage from "@assets/fdfdfd_1762818183304.png";
+const logoImage = "/attached_assets/fdfdfd_1762818183304.png";
 
 export default function Page() {
   const aiCaseStudies = caseStudies.filter(cs => 

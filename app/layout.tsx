@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import { Suspense } from "react";
 import { Nunito_Sans, Montserrat, Inter, Space_Grotesk, EB_Garamond, Orbitron, Anton } from "next/font/google";
-import { partytownSnippet } from "@builder.io/partytown/integration";
+import { partytownSnippet } from "@qwik.dev/partytown/integration";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 import { Providers } from "./providers";

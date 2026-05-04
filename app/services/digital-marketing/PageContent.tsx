@@ -9,7 +9,7 @@ import Layout from "@/components/layout/Layout";
 import { revenueServicesSEO } from "@/data/seoMetadata";
 import { createServiceSchema } from "@/utils/structuredData";
 import FAQSection, { FAQItem } from "@/components/FAQSection";
-import heroImage from "@assets/digital-marketing-optimized.jpg";
+const heroImage = "/attached_assets/digital-marketing-optimized.jpg";
 
 const digitalMarketingFAQs: FAQItem[] = [
   { question: "What digital marketing services do you offer?", answer: "SEO, paid advertising, social media marketing, email marketing, content marketing, and conversion optimization. Full-funnel digital growth services." },

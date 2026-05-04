@@ -22,7 +22,7 @@ import Link from "next/link";
 import { FileText, File, Brain } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/layout/Layout";
-import logoImage from "@assets/fdfdfd_1762818183304.png";
+const logoImage = "/attached_assets/fdfdfd_1762818183304.png";
 
 export default function Page() {
   const pdfs = [

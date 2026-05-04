@@ -5,14 +5,14 @@ import Link from "next/link";
 import { ArrowRight, ChevronLeft, ChevronRight, Cpu } from 'lucide-react';
 import { motion, useReducedMotion } from 'framer-motion';
 
-import salesAgentAvatar from '@assets/Sales_1768204442839.png';
-import customerSupportAvatar from '@assets/Customer_support_specalist_1768204442837.png';
-import operationsAgentAvatar from '@assets/Man_Avatar_8_1768204442838.png';
-import supportAgentAvatar from '@assets/Untitled_1768204442839.png';
-import followupAgentAvatar from '@assets/Follow_up_1768204442837.png';
-import complianceAuditor from '@assets/stock_images/legal_compliance_off_78808712.jpg';
-import bookingsAgentAvatar from '@assets/bookings_1768204442836.png';
-import businessDevAvatar from '@assets/Business_development_manager_1768204442837.png';
+const salesAgentAvatar = "/attached_assets/Sales_1768204442839.png";
+const customerSupportAvatar = "/attached_assets/Customer_support_specalist_1768204442837.png";
+const operationsAgentAvatar = "/attached_assets/Man_Avatar_8_1768204442838.png";
+const supportAgentAvatar = "/attached_assets/Untitled_1768204442839.png";
+const followupAgentAvatar = "/attached_assets/Follow_up_1768204442837.png";
+const complianceAuditor = "/attached_assets/stock_images/legal_compliance_off_78808712.jpg";
+const bookingsAgentAvatar = "/attached_assets/bookings_1768204442836.png";
+const businessDevAvatar = "/attached_assets/Business_development_manager_1768204442837.png";
 
 const agents = [
   {

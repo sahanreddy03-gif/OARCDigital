@@ -10,7 +10,7 @@ import { GlassCard } from '@/components/ui/glass-card';
 import { FlowDiagram } from '@/components/ui/flow-diagram';
 import { motion } from 'framer-motion';
 
-import aiLeadEngineDashboard from '@assets/generated_images/ai_lead_engine_dashboard.png';
+const aiLeadEngineDashboard = "/attached_assets/generated_images/ai_lead_engine_dashboard.png";
 
 export default function FanStakeCaseStudy() {
   useEffect(() => {

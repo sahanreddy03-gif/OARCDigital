@@ -1,22 +1,22 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import digitalMarketing from '@assets/digital-marketing-optimized.jpg';
-import socialMedia from '@assets/social-media-management-optimized.jpg';
-import aiVideo from '@assets/ai-video-production-optimized.jpg';
-import branding from '@assets/branding-services-optimized.jpg';
-import paidAdvertising from '@assets/paid-advertising-optimized.jpg';
-import websiteDesign from '@assets/website-design-optimized.jpg';
-import leadGen from '@assets/lead-generation-optimized.jpg';
-import creativeAds from '@assets/creative-ad-campaigns-optimized.jpg';
-import funnelAutomation from '@assets/funnel-automation-optimized.jpg';
-import salesAI from '@assets/sales-ai-employee-optimized.jpg';
-import supportAI from '@assets/support-ai-employee-optimized.jpg';
+const digitalMarketing = "/attached_assets/digital-marketing-optimized.jpg";
+const socialMedia = "/attached_assets/social-media-management-optimized.jpg";
+const aiVideo = "/attached_assets/ai-video-production-optimized.jpg";
+const branding = "/attached_assets/branding-services-optimized.jpg";
+const paidAdvertising = "/attached_assets/paid-advertising-optimized.jpg";
+const websiteDesign = "/attached_assets/website-design-optimized.jpg";
+const leadGen = "/attached_assets/lead-generation-optimized.jpg";
+const creativeAds = "/attached_assets/creative-ad-campaigns-optimized.jpg";
+const funnelAutomation = "/attached_assets/funnel-automation-optimized.jpg";
+const salesAI = "/attached_assets/sales-ai-employee-optimized.jpg";
+const supportAI = "/attached_assets/support-ai-employee-optimized.jpg";
 // New AI & Development Services
-import mobileApps from '@assets/mobile-apps-robot-optimized.webp';
-import webApps from '@assets/web-applications-optimized.webp';
-import customAI from '@assets/custom-ai-solutions-robots-optimized.webp';
-import aiConsulting from '@assets/ai-consulting-presentation-optimized.webp';
+const mobileApps = "/attached_assets/mobile-apps-robot-optimized.webp";
+const webApps = "/attached_assets/web-applications-optimized.webp";
+const customAI = "/attached_assets/custom-ai-solutions-robots-optimized.webp";
+const aiConsulting = "/attached_assets/ai-consulting-presentation-optimized.webp";
 
 const services = [
   { text: "Digital Marketing", image: digitalMarketing },

@@ -9,7 +9,7 @@ import Layout from "@/components/layout/Layout";
 import FAQSection, { FAQItem } from "@/components/FAQSection";
 import { creativeServicesSEO } from "@/data/seoMetadata";
 import { createServiceSchema } from "@/utils/structuredData";
-import heroImage from '@assets/printy design_1763086257815.avif';
+const heroImage = "/attached_assets/printy design_1763086257815.avif";
 
 export default function PrintPackaging() {
   useEffect(() => {

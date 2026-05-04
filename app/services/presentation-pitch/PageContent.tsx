@@ -9,7 +9,7 @@ import Layout from "@/components/layout/Layout";
 import FAQSection, { FAQItem } from "@/components/FAQSection";
 import { creativeServicesSEO } from "@/data/seoMetadata";
 import { createServiceSchema } from "@/utils/structuredData";
-import heroImage from '@assets/presentation design_1763086077235.avif';
+const heroImage = "/attached_assets/presentation design_1763086077235.avif";
 
 export default function PresentationPitch() {
   useEffect(() => {

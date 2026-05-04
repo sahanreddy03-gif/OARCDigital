@@ -7,13 +7,13 @@ import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { SiInstagram, SiTiktok, SiTwitch, SiYoutube } from 'react-icons/si';
 import Layout from '@/components/layout/Layout';
-import tefalHeroImg from '@assets/TefalPictures-32-scaled_1761760754960.jpg';
-import dontMakeAdsHeroImg from '@assets/generated_images/social_media_creators_marketing_image.png';
-import bodyShopHeroImg from '@assets/IMG_7951_1761931806299.jpeg';
-import gamingImg1 from '@assets/stock_images/gaming_esports_compu_611efecd.jpg';
-import gamingImg2 from '@assets/stock_images/gaming_esports_compu_315351f1.jpg';
-import gamingImg3 from '@assets/stock_images/gaming_esports_compu_3ad523c7.jpg';
-import gamingImg4 from '@assets/stock_images/gaming_esports_compu_496ae89d.jpg';
+const tefalHeroImg = "/attached_assets/TefalPictures-32-scaled_1761760754960.jpg";
+const dontMakeAdsHeroImg = "/attached_assets/generated_images/social_media_creators_marketing_image.png";
+const bodyShopHeroImg = "/attached_assets/IMG_7951_1761931806299.jpeg";
+const gamingImg1 = "/attached_assets/stock_images/gaming_esports_compu_611efecd.jpg";
+const gamingImg2 = "/attached_assets/stock_images/gaming_esports_compu_315351f1.jpg";
+const gamingImg3 = "/attached_assets/stock_images/gaming_esports_compu_3ad523c7.jpg";
+const gamingImg4 = "/attached_assets/stock_images/gaming_esports_compu_496ae89d.jpg";
 
 export default function LenovoLegionCaseStudy() {
   useEffect(() => {

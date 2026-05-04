@@ -5,10 +5,10 @@ import { usePathname } from "next/navigation";
 import { Menu, X, ChevronDown, ArrowUpRight } from "lucide-react";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import greenLogo from "@assets/image_1767660951950.png";
-import aiExcellence from '@assets/739d30f2ecb844e9c1186e62ca63efbda518ff4a-1050x1200_1761257258076.avif';
-import creativeStrategy from '@assets/db64abcfab31dccdde04f1fb8be45337dfb692e9-1392x1392_1761257777037.avif';
-import revenueCentered from '@assets/07c35cf0cbddd33390e2f878e287f38703ae7b26-1040x904_1761258187346.avif';
+const greenLogo = "/attached_assets/image_1767660951950.png";
+const aiExcellence = "/attached_assets/739d30f2ecb844e9c1186e62ca63efbda518ff4a-1050x1200_1761257258076.avif";
+const creativeStrategy = "/attached_assets/db64abcfab31dccdde04f1fb8be45337dfb692e9-1392x1392_1761257777037.avif";
+const revenueCentered = "/attached_assets/07c35cf0cbddd33390e2f878e287f38703ae7b26-1040x904_1761258187346.avif";
 
 // Reorganized service categories - no overlap, clear purpose
 const serviceCategories = [

@@ -9,7 +9,7 @@ import Layout from "@/components/layout/Layout";
 import FAQSection, { FAQItem } from "@/components/FAQSection";
 import { revenueServicesSEO } from "@/data/seoMetadata";
 import { createServiceSchema } from "@/utils/structuredData";
-import heroImage from "@assets/rapid-idea-testing-optimized.jpg";
+const heroImage = "/attached_assets/rapid-idea-testing-optimized.jpg";
 
 export default function RapidIdeaTesting() {
   useEffect(() => {

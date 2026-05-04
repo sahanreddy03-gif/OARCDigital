@@ -9,7 +9,7 @@ import Layout from "@/components/layout/Layout";
 import { creativeServicesSEO } from "@/data/seoMetadata";
 import { createServiceSchema } from "@/utils/structuredData";
 import FAQSection, { FAQItem } from "@/components/FAQSection";
-import heroImage from '@assets/email craetion_1763085804635.avif';
+const heroImage = "/attached_assets/email craetion_1763085804635.avif";
 
 const emailCreativeFAQs: FAQItem[] = [
   { question: "What email design services do you offer?", answer: "Custom templates, campaign designs, automation sequences, newsletters, and transactional emails. Beautiful emails that convert." },

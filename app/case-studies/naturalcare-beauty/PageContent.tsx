@@ -7,13 +7,13 @@ import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { SiInstagram, SiPinterest, SiSnapchat, SiTiktok, SiYoutube } from 'react-icons/si';
 import Layout from '@/components/layout/Layout';
-import challengeImg1 from '@assets/IMG_7995_1761955512246.png';
-import challengeImg2 from '@assets/IMG_7996_1761955512246.jpeg';
-import strategyImg1 from '@assets/IMG_7997_1761955811646.jpeg';
-import strategyImg2 from '@assets/IMG_7994_1761955811646.jpeg';
-import tefalHeroImg from '@assets/TefalPictures-32-scaled_1761760754960.jpg';
-import dontMakeAdsHeroImg from '@assets/generated_images/social_media_creators_marketing_image.png';
-import beautyHeroImg from '@assets/stock_images/beauty_skincare_cosm_560a8e27.jpg';
+const challengeImg1 = "/attached_assets/IMG_7995_1761955512246.png";
+const challengeImg2 = "/attached_assets/IMG_7996_1761955512246.jpeg";
+const strategyImg1 = "/attached_assets/IMG_7997_1761955811646.jpeg";
+const strategyImg2 = "/attached_assets/IMG_7994_1761955811646.jpeg";
+const tefalHeroImg = "/attached_assets/TefalPictures-32-scaled_1761760754960.jpg";
+const dontMakeAdsHeroImg = "/attached_assets/generated_images/social_media_creators_marketing_image.png";
+const beautyHeroImg = "/attached_assets/stock_images/beauty_skincare_cosm_560a8e27.jpg";
 
 export default function BodyShopCaseStudy() {
   useEffect(() => {

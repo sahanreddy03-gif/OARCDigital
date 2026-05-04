@@ -9,9 +9,9 @@ import { GlassCard } from '@/components/ui/glass-card';
 import { FlowDiagram } from '@/components/ui/flow-diagram';
 import { motion } from 'framer-motion';
 
-import aiAutomationDashboard from '@assets/generated_images/ai_automation_enterprise_dashboard.png';
-import aiLeadEngineDashboard from '@assets/generated_images/ai_lead_engine_dashboard.png';
-import foodSupplyImg from '@assets/stock_images/food_supply_chain_au_9bb3c110.jpg';
+const aiAutomationDashboard = "/attached_assets/generated_images/ai_automation_enterprise_dashboard.png";
+const aiLeadEngineDashboard = "/attached_assets/generated_images/ai_lead_engine_dashboard.png";
+const foodSupplyImg = "/attached_assets/stock_images/food_supply_chain_au_9bb3c110.jpg";
 
 export default function NexGenRetailAICaseStudy() {
   useEffect(() => {

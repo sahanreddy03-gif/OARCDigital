@@ -7,14 +7,14 @@ import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { SiTiktok } from 'react-icons/si';
 import Layout from '@/components/layout/Layout';
-import challengeImg1 from '@assets/IMG_7990_1761953778756.png';
-import challengeImg2 from '@assets/IMG_7989_1761953778756.png';
-import challengeImg3 from '@assets/IMG_7987_1761953778756.png';
-import strategyImg1 from '@assets/IMG_7986_1761954243676.png';
-import strategyImg2 from '@assets/IMG_7985_1761954243676.png';
-import tefalHeroImg from '@assets/TefalPictures-32-scaled_1761760754960.jpg';
-import dontMakeAdsHeroImg from '@assets/generated_images/social_media_creators_marketing_image.png';
-import fragranceHeroImg from '@assets/stock_images/luxury_perfume_fragr_8ec132de.jpg';
+const challengeImg1 = "/attached_assets/IMG_7990_1761953778756.png";
+const challengeImg2 = "/attached_assets/IMG_7989_1761953778756.png";
+const challengeImg3 = "/attached_assets/IMG_7987_1761953778756.png";
+const strategyImg1 = "/attached_assets/IMG_7986_1761954243676.png";
+const strategyImg2 = "/attached_assets/IMG_7985_1761954243676.png";
+const tefalHeroImg = "/attached_assets/TefalPictures-32-scaled_1761760754960.jpg";
+const dontMakeAdsHeroImg = "/attached_assets/generated_images/social_media_creators_marketing_image.png";
+const fragranceHeroImg = "/attached_assets/stock_images/luxury_perfume_fragr_8ec132de.jpg";
 
 export default function AzzaroCaseStudy() {
   useEffect(() => {

@@ -4,7 +4,7 @@ import { Zap, Users, TrendingUp, Target, Clock, Globe, Cpu, Palette, Database, R
 import { companyInfo, aboutText, coreServices, whyChooseUs, processSteps, caseStudies as maltaCaseStudies, technologyStack, clientTestimonials, keyDifferentiators } from "@/data/companyProfile";
 import { caseStudies as websiteCaseStudies } from "@/data/caseStudies";
 import { useEffect } from "react";
-import logoImage from "@assets/fdfdfd_1762818183304.png";
+const logoImage = "/attached_assets/fdfdfd_1762818183304.png";
 import { pdfPagesSEO } from "@/data/seoMetadata";
 
 export default function PageContent() {

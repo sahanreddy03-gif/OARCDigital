@@ -9,7 +9,7 @@ import Layout from "@/components/layout/Layout";
 import { revenueServicesSEO } from "@/data/seoMetadata";
 import FAQSection, { type FAQItem } from "@/components/FAQSection";
 import RelatedLinks from "@/components/RelatedLinks";
-import heroImage from '@assets/paid advertising_1763088406833.avif';
+const heroImage = "/attached_assets/paid advertising_1763088406833.avif";
 
 import MaltaContextBlock from "@/components/seo/MaltaContextBlock";
 const paidAdsFAQs: FAQItem[] = [

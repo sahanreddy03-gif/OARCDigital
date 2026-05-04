@@ -4,15 +4,15 @@ import { useEffect } from 'react';
 import Link from 'next/link';
 import { ArrowRight, Calendar, Building2 } from 'lucide-react';
 import Layout from '@/components/layout/Layout';
-import heroImg from '@assets/stock_images/healthcare_patient_c_b0453f09.jpg';
-import img1 from '@assets/stock_images/healthcare_patient_c_82f1ca94.jpg';
-import img2 from '@assets/stock_images/healthcare_patient_c_6419333c.jpg';
-import img3 from '@assets/stock_images/healthcare_patient_c_f806076a.jpg';
-import img4 from '@assets/stock_images/healthcare_patient_c_8e957903.jpg';
-import img5 from '@assets/stock_images/healthcare_patient_c_54512b5c.jpg';
-import img6 from '@assets/stock_images/business_automation__3ddf701d.jpg';
-import img7 from '@assets/stock_images/ai_software_developm_58a580cd.jpg';
-import img8 from '@assets/stock_images/team_collaboration_b_c8b7e41b.jpg';
+const heroImg = "/attached_assets/stock_images/healthcare_patient_c_b0453f09.jpg";
+const img1 = "/attached_assets/stock_images/healthcare_patient_c_82f1ca94.jpg";
+const img2 = "/attached_assets/stock_images/healthcare_patient_c_6419333c.jpg";
+const img3 = "/attached_assets/stock_images/healthcare_patient_c_f806076a.jpg";
+const img4 = "/attached_assets/stock_images/healthcare_patient_c_8e957903.jpg";
+const img5 = "/attached_assets/stock_images/healthcare_patient_c_54512b5c.jpg";
+const img6 = "/attached_assets/stock_images/business_automation__3ddf701d.jpg";
+const img7 = "/attached_assets/stock_images/ai_software_developm_58a580cd.jpg";
+const img8 = "/attached_assets/stock_images/team_collaboration_b_c8b7e41b.jpg";
 
 export default function AcclaimAutism() {
   useEffect(() => {
