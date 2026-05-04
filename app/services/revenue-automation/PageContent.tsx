@@ -38,7 +38,7 @@ const services = [
     metric: "2.5x conversion rate",
     description: "Continuous AI analysis and optimization of your entire funnel.",
     image: funnelOptimizationImage,
-    slug: "funnel-optimization-agent",
+    slug: "funnel-automation",
     icon: Filter
   },
   {

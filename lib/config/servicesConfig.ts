@@ -209,7 +209,7 @@ export const servicesCatalog: Record<string, ServiceCategory> = {
       },
       { 
         title: 'Conversion Rate Optimization', 
-        slug: 'funnel-optimization-agent', 
+        slug: 'funnel-automation', 
         badge: 'New',
         icon: Filter,
         description: 'A/B testing, funnel analysis, landing page optimization, UX improvements'

@@ -258,9 +258,9 @@ export default function FanStakeCaseStudy() {
 
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              { title: 'AI Revenue Engine', description: 'End-to-end revenue automation', link: '/services/ai-revenue-engine' },
+              { title: 'AI Revenue Engine', description: 'End-to-end revenue automation', link: '/services/revenue-automation' },
               { title: 'Customer Acquisition', description: 'Automated growth systems', link: '/services/customer-acquisition-accelerator' },
-              { title: 'Funnel Optimization', description: 'AI-powered conversion boost', link: '/services/funnel-optimization-agent' },
+              { title: 'Funnel Optimization', description: 'AI-powered conversion boost', link: '/services/funnel-automation' },
             ].map((service, i) => (
               <Link key={i} href={service.link}>
                 <GlassCard className="p-6 h-full cursor-pointer" glowOnHover={true}>

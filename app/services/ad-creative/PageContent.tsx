@@ -380,7 +380,7 @@ export default function AdCreative() {
               </div>
             </Link>
 
-            <Link href="/services/rapid-idea-testing">
+            <Link href="/services/idea-validation-engine">
               <div className="p-6 bg-zinc-900 border border-zinc-800 rounded-xl hover:border-[#23AACA] cursor-pointer transition-all" data-testid="related-service-rapid-testing">
                 <h3 className="text-xl font-bold mb-3 text-white">Rapid Idea Testing</h3>
                 <p className="text-white/70 mb-4">
@@ -392,8 +392,8 @@ export default function AdCreative() {
               </div>
             </Link>
 
-            <Link href="/services/ai-copywriting">
-              <div className="p-6 bg-zinc-900 border border-zinc-800 rounded-xl hover:border-[#23AACA] cursor-pointer transition-all" data-testid="related-service-ai-copywriting">
+            <Link href="/services/content-marketing">
+              <div className="p-6 bg-zinc-900 border border-zinc-800 rounded-xl hover:border-[#23AACA] cursor-pointer transition-all" data-testid="related-service-content-marketing">
                 <h3 className="text-xl font-bold mb-3 text-white">AI Copywriting</h3>
                 <p className="text-white/70 mb-4">
                   Scale ad copy production 10x with AI-powered writing optimized for conversions.

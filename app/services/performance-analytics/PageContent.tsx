@@ -323,7 +323,7 @@ export default function PerformanceAnalytics() {
                 <p className="text-sm text-zinc-400">AI readiness assessment and implementation roadmap.</p>
               </div>
             </Link>
-            <Link href="/services/funnel-optimization-agent">
+            <Link href="/services/funnel-automation">
               <div className="p-6 bg-zinc-900 border border-zinc-800 rounded-xl hover:border-cyan-500/30 cursor-pointer transition-all" data-testid="related-service-funnel">
                 <h3 className="text-xl font-bold mb-3 text-white">Conversion Optimization</h3>
                 <p className="text-sm text-zinc-400">A/B testing and funnel analysis to improve conversion rates.</p>

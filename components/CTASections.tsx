@@ -35,7 +35,7 @@ export default function CTASections() {
               <p className="text-muted-foreground leading-relaxed mb-6">
                 Discover our exciting plans for the future. New AI capabilities, expanded services, and innovative solutions coming your way.
               </p>
-              <Link href="/roadmap">
+              <Link href="/roadmap-2026">
                 <Button variant="outline" size="lg" className="w-full rounded-full" data-testid="button-roadmap">
                   View Roadmap
                 </Button>

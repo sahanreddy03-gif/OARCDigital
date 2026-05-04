@@ -15,7 +15,7 @@ const titleCase = (slug: string) =>
     .join(" ");
 
 const categorize = (slug: string): string => {
-  if (slug.startsWith("ai-") || slug === "hire-ai-employees" || slug === "ai-virtual-talent-hub") return "AI Workforce Agents";
+  if (slug.startsWith("ai-") || slug === "hire-ai-employees") return "AI Workforce Agents";
   if (slug.includes("revenue") || slug.includes("lead-generation") || slug.includes("funnel") || slug.includes("customer-acquisition") || slug.includes("automation") || slug === "idea-validation-engine") return "Growth Automation";
   if (slug.includes("development") || slug === "mvp-development") return "Development";
   return "Creative & Design";

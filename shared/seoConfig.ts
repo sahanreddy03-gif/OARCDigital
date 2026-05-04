@@ -96,9 +96,11 @@ export type IndustryHubSlug = typeof industryHubSlugs[number];
 // REDUCED for Next.js migration: 10 -> 5 (top converting services only).
 // ARCHIVED (5): branding-services, video-production, ai-copywriting,
 // hire-ai-employees, revenue-automation
+// Task #116: digital-marketing removed (folder deleted, 308 → /services).
+// Replaced with seo-services to keep 5 high-intent location-paired offers.
 export const locationServices = [
   'social-media-creative-management',
-  'digital-marketing',
+  'seo-services',
   'paid-advertising',
   'web-design',
   'ai-consulting',
@@ -108,10 +110,12 @@ export const locationServices = [
 // These are guaranteed to render without 404s
 export const allServiceSlugs = [
   // Creative & Marketing Services
+  // Task #116: removed creative, media-buying, ai-copywriting, digital-marketing,
+  // rapid-idea-testing — folders deleted, 308'd via SERVICE_ALIASES /
+  // CROSS_SECTION_ALIASES in lib/seo/seoSets.ts.
   'social-media-creative-management',
   'social',
   'paid',
-  'creative',
   'influencer',
   'branding',
   'branding-services',
@@ -119,11 +123,7 @@ export const allServiceSlugs = [
   'web-design',
   'video-production',
   'paid-advertising',
-  'media-buying',
   'influencer-marketing',
-  'ai-copywriting',
-  'digital-marketing',
-  'rapid-idea-testing',
   'presentation-pitch',
   'illustration',
   'print-packaging',
@@ -145,7 +145,7 @@ export const allServiceSlugs = [
   'api-integration-services',
   'mvp-development',
   // AI Employees Hub
-  'ai-virtual-talent-hub',
+  // Task #116: removed ai-virtual-talent-hub — 308 → hire-ai-employees.
   'hire-ai-employees',
   'ai-sdr-agent',
   'ai-support-specialist',
@@ -156,11 +156,10 @@ export const allServiceSlugs = [
   'ai-appointment-booker',
   'ai-real-estate-agent',
   // Revenue Automation Hub
-  'ai-revenue-engine',
+  // Task #116: removed ai-revenue-engine, funnel-optimization-agent — 308'd.
   'revenue-automation',
   'lead-generation-engine',
   'customer-acquisition-accelerator',
-  'funnel-optimization-agent',
   'marketing-automation-suite',
   'idea-validation-engine',
   'lead-generation',

@@ -161,7 +161,7 @@ export default function Footer({ hideGetInTouch = false }: FooterProps) {
                 </Link>
               </li>
               <li>
-                <Link href="/roadmap" className="group inline-flex items-center gap-1 text-zinc-400 hover:text-white transition-colors text-sm font-normal" data-testid="link-footer-roadmap">
+                <Link href="/roadmap-2026" className="group inline-flex items-center gap-1 text-zinc-400 hover:text-white transition-colors text-sm font-normal" data-testid="link-footer-roadmap">
                   <span>Road Map 2026</span>
                   <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity" />
                 </Link>

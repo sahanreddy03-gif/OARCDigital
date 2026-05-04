@@ -354,7 +354,7 @@ export default function PaidAdvertising() {
 
           <div className="grid md:grid-cols-3 gap-6">
             <Link href="/services/social-media-creative">
-              <div className="group p-6 rounded-xl bg-zinc-900 border border-zinc-800 hover:border-[#23AACA] transition-all duration-300 hover:-translate-y-1 cursor-pointer" data-testid="related-service-creative">
+              <div className="group p-6 rounded-xl bg-zinc-900 border border-zinc-800 hover:border-[#23AACA] transition-all duration-300 hover:-translate-y-1 cursor-pointer" data-testid="related-service-creative-pillar">
                 <div className="flex items-start justify-between mb-4">
                   <h3 className="text-lg font-bold text-white group-hover:text-[#c4ff4d] transition-colors">Social Media Creative</h3>
                   <ArrowRight className="h-5 w-5 text-[#c4ff4d] group-hover:translate-x-1 transition-transform" />

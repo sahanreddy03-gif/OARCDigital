@@ -405,7 +405,7 @@ export default function InfluencerMarketing() {
             </Link>
 
             <Link href="/services/social-media-creative">
-              <div className="group p-8 bg-zinc-900 rounded-xl border border-zinc-800 hover:border-[#23AACA] transition-all duration-300 cursor-pointer" data-testid="related-service-creative">
+              <div className="group p-8 bg-zinc-900 rounded-xl border border-zinc-800 hover:border-[#23AACA] transition-all duration-300 cursor-pointer" data-testid="related-service-creative-pillar">
                 <div className="flex items-start justify-between mb-4">
                   <h3 className="text-xl font-bold text-white group-hover:text-[#c4ff4d] transition-colors">Social Creative Production</h3>
                   <ArrowRight className="h-5 w-5 text-[#c4ff4d] group-hover:translate-x-1 transition-transform" />

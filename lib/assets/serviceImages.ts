@@ -94,7 +94,6 @@ export const serviceImagesBySlug: Record<string, string> = {
   'ai-enhanced-creative': img17,
   'paid': paidAdvertisingBanner,
   'paid-advertising': paidAdvertisingBanner,
-  'media-buying': mediaBuyingBanner,
   'influencer-marketing': influencerMarketingBanner,
   'ai-consulting': aiConsultingBanner,
 };
