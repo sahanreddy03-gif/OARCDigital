@@ -182,7 +182,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
       </head>
-      <body>
+      <body suppressHydrationWarning>
         {/* Organization JSON-LD — rendered in <body> rather than <head>
             because raw <script dangerouslySetInnerHTML> inside <head> of
             App Router root layout triggers a hydration type-mismatch
