@@ -181,12 +181,18 @@ export default function RootLayout({
         />
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+      </head>
+      <body>
+        {/* Organization JSON-LD — rendered in <body> rather than <head>
+            because raw <script dangerouslySetInnerHTML> inside <head> of
+            App Router root layout triggers a hydration type-mismatch
+            (server renders type="null", client renders "application/ld+json").
+            Googlebot reads JSON-LD from anywhere in the document, so body
+            placement is SEO-equivalent and hydration-safe. */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(ORGANIZATION_JSONLD) }}
         />
-      </head>
-      <body>
         <Suspense fallback={null}>
           <ScrollToTop />
         </Suspense>

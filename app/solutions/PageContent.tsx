@@ -781,7 +781,7 @@ export default function PageContent() {
         source={modalSource}
       />
 
-      <style>{`
+      <style dangerouslySetInnerHTML={{ __html: `
         @keyframes marquee {
           0% { transform: translateX(0); }
           100% { transform: translateX(-33.333%); }
@@ -789,7 +789,7 @@ export default function PageContent() {
         .animate-marquee {
           animation: marquee 30s linear infinite;
         }
-      `}</style>
+      ` }} />
     </>
   );
 }

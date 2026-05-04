@@ -187,7 +187,7 @@ export default function Section2() {
         </div>
       </div>
 
-      <style>{`
+      <style dangerouslySetInnerHTML={{ __html: `
         @keyframes fast-scroll {
           0% {
             transform: translateX(0);
@@ -204,7 +204,7 @@ export default function Section2() {
         .animate-fast-scroll:hover {
           animation-play-state: paused;
         }
-      `}</style>
+      ` }} />
     </section>
   );
 }

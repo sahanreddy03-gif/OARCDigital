@@ -204,7 +204,7 @@ export default function Section5() {
         </div>
       </div>
 
-      <style>{`
+      <style dangerouslySetInnerHTML={{ __html: `
         .desktop-image-container::before {
           content: '';
           position: absolute;
@@ -240,7 +240,7 @@ export default function Section5() {
             pointer-events: none;
           }
         }
-      `}</style>
+      ` }} />
     </section>
   );
 }

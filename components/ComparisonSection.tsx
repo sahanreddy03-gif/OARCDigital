@@ -323,14 +323,14 @@ export default function ComparisonSection() {
         </div>
       </div>
 
-      <style>{`
+      <style dangerouslySetInnerHTML={{ __html: `
         @media (prefers-reduced-motion: reduce) {
           [data-testid="section-comparison"] * {
             transition-duration: 0.01ms !important;
             animation-duration: 0.01ms !important;
           }
         }
-      `}</style>
+      ` }} />
     </section>
   );
 }

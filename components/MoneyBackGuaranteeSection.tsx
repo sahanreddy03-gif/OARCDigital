@@ -205,14 +205,14 @@ export default function MoneyBackGuaranteeSection() {
         </div>
       </div>
 
-      <style>{`
+      <style dangerouslySetInnerHTML={{ __html: `
         @media (prefers-reduced-motion: reduce) {
           [data-testid="section-money-back-guarantee"] * {
             transition-duration: 0.01ms !important;
             animation-duration: 0.01ms !important;
           }
         }
-      `}</style>
+      ` }} />
     </section>
   );
 }

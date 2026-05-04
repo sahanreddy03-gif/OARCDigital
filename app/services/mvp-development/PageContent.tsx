@@ -445,7 +445,7 @@ export default function MVPDevelopment() {
             })}
           </div>
         </div>
-        <style>{`
+        <style dangerouslySetInnerHTML={{ __html: `
           @keyframes scroll {
             0% { transform: translateX(0); }
             100% { transform: translateX(-33.33%); }
@@ -453,7 +453,7 @@ export default function MVPDevelopment() {
           .animate-scroll {
             animation: scroll 30s linear infinite;
           }
-        `}</style>
+        ` }} />
       </section>
 
       {/* What You Get Section */}

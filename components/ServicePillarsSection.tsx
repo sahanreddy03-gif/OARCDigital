@@ -182,13 +182,13 @@ export default function ServicePillarsSection() {
         </div>
       </div>
 
-      <style>{`
+      <style dangerouslySetInnerHTML={{ __html: `
         @media (prefers-reduced-motion: reduce) {
           [data-testid="service-pillars-section"] * {
             transition-duration: 0.01ms !important;
           }
         }
-      `}</style>
+      ` }} />
     </section>
   );
 }
