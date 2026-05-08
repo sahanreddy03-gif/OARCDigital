@@ -1,0 +1,44 @@
+Please make the following updates carefully and precisely:
+
+1) HERO SECTION – SMOOTH FLOW (DESKTOP & LAPTOP ONLY) no changes in mobile, it’s perfect 
+On desktop and laptop views only:
+- The floating carousel/grid elements in the hero section currently feel delayed and slightly “stuck” while loading.
+
+- The transition should feel premium, fluid, and uninterrupted (no visual lag or sudden jumps).
+- Do NOT change anything mobile hero behavior
+
+2) REMOVE COOKIE / PRIVACY POP-UP COMPLETELY
+- Remove the cookie / privacy consent pop-up entirely.
+- It should NEVER appear on desktop, tablet, or mobile.
+- No “accept”, “reject”, or privacy modal should block or interrupt first-time visitors.
+- Ensure this removal is permanent (not session-based, not environment-based).
+
+3) HERO PERFORMANCE OPTIMIZATION (IMPORTANT)
+- The hero section is loading slowly, especially due to the background image.
+- Please optimize hero load speed by:
+  - Improving image loading strategy (compression, responsive sizing, lazy/preload where appropriate)
+  - Ensuring the hero renders immediately without blocking the page
+ 
+- The goal is: instant visual load with smooth motion, especially on desktop
+You see what you can do to make it better but highest priority no changes in anything 
+
+4) SEO & SITEMAP task and double check 
+
+Task: Add sitemap support to this Vite + React project
+
+Requirements:
+	1.	Install vite-plugin-sitemap as a dev dependency
+	2.	Update vite.config.ts to generate sitemap.xml with hostname https://www.oarcdigital.com
+	3.	Ensure sitemap is generated on npm run build
+	4.	Do NOT change routing, DNS, backend, or deployment settings
+	5.	Do NOT add extra SEO libraries
+
+Expected result:
+Visiting /sitemap.xml on production should return a valid XML sitemap.
+
+And then 
+- Confirm sitemap.xml and robots.txt remain correct and unchanged.
+- Ensure canonical URLs still point to https://www.oarcdigital.com
+- Do not alter routing or page structure.
+
+Please focus on smooth UX, performance, and correctness.

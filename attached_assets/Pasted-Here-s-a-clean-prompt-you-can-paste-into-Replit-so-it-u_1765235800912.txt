@@ -1,0 +1,67 @@
+Here’s a clean prompt you can paste into Replit so it understands exactly what to build for the OARC section:
+
+⸻
+
+Prompt for Replit (OARC Bridge Section)
+
+Create a premium “OARC meaning” section that sits between the hero banner and the “Every type of creative work you’ll ever need and more” section. This section should visually bridge the dark hero and the light creative grid below.
+
+Layout & structure
+	•	Full-width section, centered content.
+	•	Top padding ~80px, bottom padding ~60px (tighter than now).
+	•	All content centered horizontally.
+
+Background
+	•	Use a smooth vertical gradient:
+	•	Top: very dark (#050505–#0A0A0A)
+	•	Middle: #111111
+	•	Bottom: fade into the same light background colour used in the next “every type of creative work” section.
+	•	This should feel like a visual transition from dark to light, not a hard cut.
+
+Main letters (O A R C)
+	•	Display O A R C in one row, even on mobile.
+	•	Desktop: large letters but 20–25% smaller than current version.
+	•	Mobile: scale letters down ~35–40% and reduce spacing so they still fit on one line.
+	•	Font: same family as hero headline (bold / semi-bold).
+	•	Colour: letters themselves should be white or off-white (#F2F2F2).
+	•	Behind each letter, add a very subtle soft glow/accent, not neon:
+	•	O → soft warm orange glow (#FFB366, low opacity, big blur)
+	•	A → soft teal glow (#00D1C1)
+	•	R → soft champagne/gold glow (#F5E1A4)
+	•	C → soft lime glow (#CFFF66)
+	•	Glow intensity must be subtle and premium, not cartoonish.
+
+Subheading under OARC
+
+Directly under the big letters, add a small, elegant line of text:
+
+Optimised · AI · Revenue Intelligence · Creativity
+
+	•	Use a smaller font (around 14–15px) with increased letter spacing.
+	•	Colour: light grey (#CCCCCC).
+	•	Add middle dots (·) as separators.
+
+Main tagline
+
+Under that, add the brand statement:
+
+OARC represents our core belief: Optimised AI + Revenue Intelligence + Creativity — engineered together for growth.
+
+	•	Font size around 16–17px on desktop, slightly smaller on mobile.
+	•	Colour: #DDDDDD.
+	•	Centered, with comfortable line spacing.
+	•	Under the tagline, add a short, thin line (about 40px width, 1–2px height) in a soft gold (#F5E1A4), centered — this replaces any text underline.
+
+Animation
+	•	As this section scrolls into view:
+	•	Background gradient subtly fades in.
+	•	O, A, R, C fade in one by one with a very light scale-up (1.03) and glow pulse, then stop.
+	•	The subheading and tagline fade in from 5–8px lower (subtle upward motion), no big bouncy effects.
+	•	Animations must feel smooth, minimal, premium, similar to high-end agency sites (no sliding from left/right, no harsh easings).
+
+Responsiveness
+	•	Keep O A R C on a single line on all breakpoints.
+	•	Reduce font sizes and spacing on mobile but maintain the hierarchy and center alignment.
+	•	Ensure the bottom of this section visually connects to the background of the next section so the scroll feels like one continuous story.
+
+This section should feel like a brand philosophy moment and a visual bridge between the hero and the creative work section — clean, minimal, cinematic, and expensive.

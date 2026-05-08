@@ -1,0 +1,92 @@
+{
+  "colorScheme": "light",
+  "fonts": [
+    {
+      "family": "Switzer",
+      "role": "body"
+    },
+    {
+      "family": "Clash Display",
+      "role": "display"
+    }
+  ],
+  "colors": {
+    "primary": "#FC2865",
+    "accent": "#000022",
+    "background": "#FDFDFD",
+    "textPrimary": "#000022",
+    "link": "#000022"
+  },
+  "typography": {
+    "fontFamilies": {
+      "primary": "Switzer",
+      "heading": "Clash Display"
+    },
+    "fontStacks": {
+      "heading": [
+        "ClashDisplay-Variable"
+      ],
+      "body": [
+        "Switzer"
+      ],
+      "paragraph": [
+        "Switzer"
+      ]
+    },
+    "fontSizes": {
+      "h1": "44px",
+      "h2": "44px",
+      "body": "18px"
+    }
+  },
+  "spacing": {
+    "baseUnit": 4,
+    "borderRadius": "12px"
+  },
+  "components": {
+    "input": {
+      "borderColor": "#CCCCCC",
+      "borderRadius": "12px"
+    }
+  },
+  "images": {
+    "logo": "https://gojilabs.com/wp-content/uploads/2021/11/Logo-1.png",
+    "favicon": "https://gojilabs.com/wp-content/uploads/2022/01/Frame-3.png",
+    "ogImage": "https://gojilabs.com/wp-content/uploads/2022/12/pocketlogo-1-1.png"
+  },
+  "__framework_hints": [
+    "WP Rocket 3.19.0.1"
+  ],
+  "__llm_logo_reasoning": {
+    "selectedIndex": 0,
+    "reasoning": "The logo at index 0 is visible, matches the brand name 'Goji Labs | App & Software Development, UI/UX Design', and links to the homepage, making it the most suitable choice for the brand logo.",
+    "confidence": 0.95
+  },
+  "__llm_button_reasoning": {
+    "primary": {
+      "index": -1,
+      "text": "N/A",
+      "reasoning": "All buttons have a transparent background, which does not indicate a vibrant or saturated color for a primary CTA. None of the buttons stand out as a primary call-to-action based on color."
+    },
+    "secondary": {
+      "index": -1,
+      "text": "N/A",
+      "reasoning": "Since all buttons are in the same color group (transparent), there is no valid secondary button that can be selected. All buttons are equally muted and do not provide a clear distinction for secondary action."
+    },
+    "confidence": 0.5
+  },
+  "personality": {
+    "tone": "modern",
+    "energy": "medium",
+    "targetAudience": "tech-savvy individuals and businesses looking for app and software development solutions."
+  },
+  "designSystem": {
+    "framework": "unknown",
+    "componentLibrary": null
+  },
+  "confidence": {
+    "buttons": 0.5,
+    "colors": 0.9,
+    "overall": 0.7
+  }
+}

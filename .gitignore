@@ -35,5 +35,5 @@ tests/visual/test-results/
 !.local/seo/
 !.local/seo/restore.json
 
-# Replit chat upload scratch — never deploy
-attached_assets/
+# Repo root scratch only — production assets live in public/attached_assets/
+/attached_assets/

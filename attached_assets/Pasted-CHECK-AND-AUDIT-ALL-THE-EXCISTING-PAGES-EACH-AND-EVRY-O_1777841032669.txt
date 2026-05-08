@@ -1,0 +1,35 @@
+CHECK AND AUDIT ALL THE EXCISTING PAGES EACH AND EVRY ONE IN OUR WEBSIYTE , EVEN A TINY APRT OF THE PAGE IS BROKEM WE ARE DONE , EBFORE I GO TOPhase A: Verify the site actually works (30 minutes)
+
+Test homepage on real phone
+Open oarcdigital.com on your actual phone (not desktop simulator).
+Hero loads under 3 seconds
+Logo, navigation, CTAs all visible
+WhatsApp button works (taps open WhatsApp)
+Phone tap-to-call works
+Scroll feels smooth, no broken layouts
+No console errors (open Safari/Chrome DevTools on phone)
+
+If any fail → fix before continuing.
+2. Test top 4 money pages on phone
+
+oarcdigital.com/ (homepage)
+oarcdigital.com/ai-agents
+oarcdigital.com/creative
+oarcdigital.com/automation
+
+Each must load, render, and have working CTAs.
+3. Test 5 random service pages
+Pick 5 from your service list. Visit each. Confirm:
+
+Content loads
+No 404 errors
+No layout breakage
+Internal links work
+
+Test that the contact path works end-to-end
+WhatsApp link → does it open WhatsApp with the right number?
+Cal.com link → does it open booking? (Or graceful fallback if not configured)
+Phone tap-to-call → does it dial +356 number?
+Contact form → does it submit?
+
+If contact path is broken, ranking high is worthless because nobody can reach you.--------------------------NOT JUST THE FOUR PAGES OR IMPORTANT PAGE SI MENTION IN THE ABOVE MESSAGE I WANT YOU TO LITERALLY CHECK EVRRTYTHING AMND ALSO SEE IN EVERYS INGLKE PAGE I NEED TO KNOW WHAT KEYSOWRDS FOR SEO OR AEO OR GEO OR LLM OR ROBOTICS OR SITEMAP OR AEO O BLOG OR CASE STUDIES OR INDEXES AND HOW MANY PAGES AERE WITHOUT ANY PICTUIRES AND HOW MANY PAGES HAVE NO NOTHING AND HOW MANY HAVE EVERYGREEN CONTENT AND VALUE THEY BRING TO THE GENERAL PEOPLE BEACSUE THAT IS WHAT MATTERS TO GOOGLE , FIND ALL THE FAILURES AND GAPS, DONT BE LAZY AND BE VERY CRITICALA ND STRICT TO FIND ALL THE GAPS AND HOW MANY PROGRAMMTISC SEO OR AEO OR ANY KIND OF BUIDLING EXPOSURE PAGES ARE ALIVE AND IN TNAT HOW MANY ARE DEAD AND ARE AT RISK AND HOW MANY HAVE VERY BAD CONTENT AND DO WE EED TO AHEV IMAGE FOR ALL ? AND WHAT TO DO THERE TO AMKE ALL BETETR ?MAKE THIS THE MOST IMPORTANT TASLK OF LIFE AND REVERSE ENGINENR M,Y PROMPT FOIRSTA ND REVER ENGINEER YOUR PLAN TO FIND THE RIGHTR PLAN AN EXPERT IN THIS INDUSTRY MAN WOULD THINKA DN AS QUESTIONS AND REVERSE ENGINEER MY GOAL, MY GOAL IS SIMPEL TO BE NUMBER 1 AND TO FAST TARCK THE PROCES TO MAKE OARC DIGITAL NUMBER 1 , SO REVERSE ENGINEER ALL THE HURDLES AND FIALUERS AND COMPLICATIONS WE NEED TO FACE IN ORDER TO BEACOME THAT, EVERY BLOCK IS OUR SUICCESS AND IF ITS EASY IT MEANS ITS NOT ROIGHT

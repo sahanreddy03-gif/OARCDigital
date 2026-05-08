@@ -1,0 +1,604 @@
+BUILD OARC DIGITAL — FULL SITE BLUEPRINT & IMPLEMENTATION
+
+Context:
+- Project = OARC Digital (AI-powered creative & revenue automation agency). Homepage is already in this Replit project (entry: /index.html and /src/main.tsx). Preserve current homepage exactly and reuse components/styles where possible. :contentReference[oaicite:8]{index=8}
+- Reference style & information: Superside’s site and the attached Superside analysis document should be used as primary design/inspiration references (layout, content structure, animation style, service landing page granularity). Use those patterns liberally. :contentReference[oaicite:9]{index=9} :contentReference[oaicite:10]{index=10}
+
+Deliverables:
+1) Convert current project into a component-driven React+TS site with routing so each of the following pages exist and are linked from the top nav:
+   - Home (preserve)
+   - Services (category landing)
+   - All service landing pages (see Services list below)
+   - Our Work (portfolio index + case study pages)
+   - Why Us (team / process / AI excellence)
+   - Resources (guides)
+   - Pricing
+   - Enterprise
+   - Contact / Book a demo
+
+Services (create each as a long-form landing page):
+- Ad Creative
+- Social Media Creative
+- Branding & Identity
+- Presentation & Pitch
+- Illustration
+- Print & Packaging
+- Video Production
+- Motion Design
+- Immersive / 3D / AR
+- Email Creative
+- Web Design & Landing Pages
+- Design Systems
+- AI-Powered Creative
+- AI Consulting
+- HIRE AI EMPLOYEES (OARC) — dedicated page
+- REVENUE AUTOMATION & GROWTH (OARC) — dedicated page
+- Growth & Performance Marketing
+- Paid Media & AdOps
+- Organic Social Strategy
+
+2) Use the page template pattern:
+   - Hero (full-bleed with video/Lottie or high-res art) + H1 + short sub + primary CTA
+   - Why/problem section (1 short block)
+   - What we offer (card grid)
+   - How it works (3-step / pinned scroll story for OARC)
+   - Case studies gallery
+   - Metrics counters
+   - Testimonials
+   - Closing CTA block
+
+3) Content & copy expectations:
+   - Copy must be original, non-generic, benefit-focused, and tailored per service. Use the supplied short hero & scroll lines for OARC (see prompt examples above).
+   - If copying wording/format from Superside for structure is helpful, you may use it as a layout reference but do not replicate generic phrases; rewrite for OARC voice.
+
+4) Visual assets & images:
+   - Keep 8K design masters in /assets/masters but serve responsive WebP/AVIF per breakpoint using an automated image pipeline.
+   - Hero loops: short 3–8s MP4/WebM or Lottie. Use Lottie for UI microinteractions and GSAP ScrollTrigger for cinematic pinned sequences.
+   - All hero & key images must be ultra-high-quality (source masters 8K). On the web serve multiple sizes and lazy-load larger ones.
+
+5) Animations & interaction rules:
+   - Section entrances: fade/slide 180–220ms easing.
+   - CTA hover: scale or glow 150–180ms.
+   - Pinned scroll story (for the OARC hero section) must pin, then step through the four scroll states:
+     “Optimised…”, “AI-Driven…”, “Revenue…”, “Creative…”, then unlock to the hero CTA.
+   - Counters animate on scroll; testimonial carousel auto-play with manual controls.
+
+6) Technical:
+   - Routes: /services/[slug], /our-work/[slug], /resources/[slug]
+   - Components: Hero, ServiceGrid, FeatureCard, CaseGrid, TrustedLogos, TestimonialCarousel, MetricCounters, PinnedScrollStory
+   - Image pipeline: Sharp (or Replit-compatible tool) to generate WebP/AVIF + srcset.
+   - SEO: metaTitle, metaDesc, OG image per page, schema.org JSON-LD for case studies.
+   - Performance: critical CSS for hero, preconnect fonts, lazy-load non-critical assets.
+
+7) Accessibility:
+   - Alt text, correct heading order, keyboard focus, aria roles for carousels.
+
+8) Content-first tasks (priority order):
+   1. Map top nav & mega-menu and create skeleton routes/pages.
+   2. Export existing homepage into component layout (preserve).
+   3. Implement global components (Hero, FooterCTA).
+   4. Build 5 highest-priority service pages first: Hire AI Employees, Revenue Automation, Web Design, Ad Creative, Social Media Creative — complete with copy, assets, and case thumbnails.
+   5. Auto-generate remaining service pages using the same templates (write unique copy per page).
+   6. Populate Our Work with 8 sample case studies (realistic content and outcomes).
+   7. Final pass: imagery quality check, accessibility, performance audit.
+
+Design permission:
+- You are allowed to copy Superside’s layout, animation patterns, and structure as a design reference. For content, replicate structure but use original OARC copy (do not wholesale copy text). Use Superside only as UI/UX/section-reference. :contentReference[oaicite:11]{index=11}
+
+References: Use attachments “Superside Website Analysis for Replit’s Blueprint.pdf” and “Superside Website Structure and Pages.pdf” as LOE + design reference. :contentReference[oaicite:12]{index=12} :contentReference[oaicite:13]{index=13}
+
+Deliverable format:
+- Fully linked site within this Replit project (routes working).
+- A `/design-assets` folder with master 8K imagery + exported web versions.
+- A `/specs/README.md` that lists each page, hero copy, CTA text, image filenames for each section, chosen animation library and precise animation timings.
+- A short `handoff.zip` (or repo branch) containing image masters and the README for you to review.
+
+Performance & Quality bar: Everything must feel cinematic, non-generic, modern (2025-grade). Animations should be subtle & purposeful. Copy must be crisp, benefit-first, and conversion-optimized.
+
+If you understand, start by:
+1) Creating the skeleton routes and components and committing to a new branch `oarc/blueprint`.
+2) I will review the first 5 completed service pages and approve before you generate the remaining pages.
+
+End of prompt.PAGE 1 — HIRE AI EMPLOYEES (OARC)
+
+Meta
+
+metaTitle: Hire AI Employees — OARC Digital
+
+metaDesc: Scale your team instantly with trained AI-powered employees for marketing, sales, support and ops. Reduce cost, increase output, deploy in days.
+
+Hero
+
+H1: Hire AI employees
+
+Subhead: Cut cost, scale capacity. Trained AI employees for marketing, sales, support and operations.
+
+Primary CTA: Book a 15-min demo
+
+Secondary CTA: Explore AI team packages
+
+3 immediate benefits (short bullets)
+
+Deploy role-specific AI in days — no hiring lag.
+
+Reduce repetitive labor costs while keeping quality control.
+
+24/7 availability across chat, email, outreach and analytics.
+
+3 conversion KPIs (placeholders to show on hero metrics tiles)
+
+Up to 40% reduction in support costs (typical).
+
+2× increase in qualified lead throughput.
+
+<24h deployment for core roles (pilot).
+
+What’s included (short list)
+
+Dedicated AI roles: Support Agent, Sales Qualifier, Marketing Copywriter, Ops Automator.
+
+Playbook training on your brand voice and SOPs.
+
+Dashboard & audit logs for oversight.
+
+Integration with CRM/Slack/email + monthly tuning.
+
+How it works (3 steps)
+
+Discover — Quick audit of workflows and outcomes (48–72h).
+
+Pilot — Spin up 1–3 AI employees trained to your playbook (1–2 weeks).
+
+Scale — Expand roles and tune models to KPIs (ongoing).
+
+Mini-case snapshots (2)
+
+Client: Local Retailer — Problem: expensive 24/7 support. Solution: AI Support+Ticket triage. Result: 35% cost reduction + 60% faster response times.
+
+Client: SaaS Scaleup — Problem: top-of-funnel lead qualification lag. Solution: AI Sales Qualifier that pre-qualifies leads and books demos. Result: qualified lead rate +28%.
+
+Short FAQ (4)
+
+Q: Are AI employees replacing my team?
+A: No — they augment teams, handle repetitive tasks, and free humans for high-value work.
+
+Q: How is data handled?
+A: Your data remains private. We train role models on your dataset with enterprise-grade encryption and audit logs.
+
+Q: How long till results?
+A: Pilots return measurable impact within 2–6 weeks depending on scope.
+
+Q: Who owns the outputs?
+A: You retain ownership. We give you logs, prompts, and exportable models.
+
+Hero image brief
+
+Cinematic phone+desktop loop showing a ticket conversation resolved automatically, an outbound outreach DM, and a dashboard KPI spike. Palette: cool blue + electric teal. Motion: subtle typing, pulse on metric numbers.
+
+PAGE 2 — REVENUE AUTOMATION & GROWTH (OARC)
+
+Meta
+
+metaTitle: Revenue Automation & Growth Systems — OARC Digital
+
+metaDesc: Automate revenue workflows and run AI-driven funnels that scale. Integrate CRM, ad signals and creative to multiply conversions.
+
+Hero
+
+H1: Revenue, automated.
+
+Subhead: Systems that learn, multiply output, and convert more of your traffic into revenue.
+
+Primary CTA: Show me the demo
+
+Secondary CTA: Request an enterprise review
+
+3 immediate benefits
+
+Turn ad spend into predictable pipeline with automated follow-ups.
+
+Real-time signals connect creative performance to spend and optimize bids.
+
+Automated experiments that compound wins across audiences.
+
+3 conversion KPIs
+
+↓ 25–45% cost per acquisition (typical with automation tuning).
+
+↑ 30–60% increase in pipeline conversion rate.
+
+Automated LTV modeling for smarter budgeting.
+
+What’s included
+
+Revenue pipeline audits, automated follow-up sequences, audience re-engagement flows.
+
+Signal layer integration: ad platforms → CRM → CDP → email/SMS.
+
+Automation playbooks & governance for privacy/compliance.
+
+How it works (3 steps)
+
+Audit & Connect — Map existing funnels and data sources.
+
+Automate & Test — Build orchestration & experiment automation.
+
+Optimize & Scale — Tune models and expand winning flows.
+
+Mini-case snapshots
+
+Client: D2C Brand — Challenge: low checkout conversion. Solution: Dynamic retargeting + automated cart recover flows. Result: +38% revenue from retargeting segment.
+
+Client: B2B SaaS — Challenge: long sales cycles. Solution: Lead scoring + nurtures triggered by intent signals. Result: Sales-qualified leads ↑45%, demo-to-deal time reduced 22%.
+
+FAQ
+
+Q: Which CRMs do you support?
+A: We integrate with major CRMs (Salesforce, HubSpot, Pipedrive) and custom APIs.
+
+Q: Is this just “set and forget”?
+A: No — initial automation plus continuous optimization; we run experiments and update flows.
+
+Q: What about data security?
+A: Encrypted integrations and role-based access; logs and rollback available.
+
+Q: How do you charge?
+A: Options: monthly retainer + value-based success fees for enterprise setups.
+
+Hero image brief
+
+Abstract “network” motion — nodes representing ad creative, CRM, and customers, pulsing when conversions happen. Color: dark background, neon teal highlights. Loop length 4–6s.
+
+PAGE 3 — WEB DESIGN & LANDING PAGES
+
+Meta
+
+metaTitle: Web Design & Landing Pages — OARC Digital
+
+metaDesc: High-converting websites and landing pages designed for conversions — fast builds, modular design systems, and motion-led interactions.
+
+Hero
+
+H1: Web design that converts.
+
+Subhead: Pixel-perfect sites and landing pages—fast to launch, faster to convert.
+
+Primary CTA: Build my page
+
+Secondary CTA: View templates
+
+3 immediate benefits
+
+Conversion-first design, A/B-ready from day one.
+
+Modular pages built with design systems for fast iteration.
+
+Motion and content optimized for attention retention.
+
+3 conversion KPIs
+
+↑ 18–40% uplift in conversion rate post-launch.
+
+↓ 50% time-to-launch with modular templates.
+
+<0.8s average hero LCP (optimized setup).
+
+What’s included
+
+UX audit, wireframes, high-fidelity design, Webflow/React implementation, analytics setup.
+
+Design tokens and CMS for content editors.
+
+A/B testing and post-launch tuning.
+
+How it works (3 steps)
+
+Research & Wireframe — rapid user/goal workshop and wireframes.
+
+Design & Build — high-fidelity design, dev handoff or Webflow build.
+
+Optimize — A/B tests and iterative improvements.
+
+Mini-case snapshots
+
+Client: Fintech Startup — Problem: low landing conversion. Solution: new funnel landing + Lottie micro-interactions. Result: +72% conversion on paid channels.
+
+Client: Hospitality Chain — Problem: slow booking flow. Solution: streamlined booking UI + trust microcopy. Result: booking completion ↑31%.
+
+FAQ
+
+Q: Do you provide CMS?
+A: Yes — content editing via headless CMS or Webflow CMS depending on stack.
+
+Q: Can you create templates for multiple campaigns?
+A: Yes — modular components allow productionizing landing pages.
+
+Q: What tech stacks do you use?
+A: React/Vite, Next.js, Webflow, Tailwind, or custom stacks per requirement.
+
+Q: Do you include analytics?
+A: Yes — GA4, server-side tracking, conversion pixels, and dashboards.
+
+Hero image brief
+
+Screen + device mockups showing a landing page with micro-motion (hero headline morph, CTA pulse). Warm neutral background, subtle card shadows.
+
+PAGE 4 — AD CREATIVE
+
+Meta
+
+metaTitle: Ad Creative & Paid Social — OARC Digital
+
+metaDesc: Scroll-stopping ad creative designed for performance across platforms — from UGC-style to animated motion ads.
+
+Hero
+
+H1: Ad creative that performs.
+
+Subhead: From thumb-stopping short-form to long-form video — creative engineered for clicks and conversions.
+
+Primary CTA: See creative packages
+
+Secondary CTA: Watch sample reels
+
+3 immediate benefits
+
+Creative templates proven to lift CTR and lower CPA.
+
+Rapid turnarounds for iterating ads across platforms.
+
+Data-led creative: testing variants connected to performance metrics.
+
+3 conversion KPIs
+
+↓ 20–40% Cost per Click / Cost per Lead after creative refresh.
+
+↑ 1.5–3× ad engagement lift with tailored story formats.
+
+2–5 creative variants produced per month per campaign (as package).
+
+What’s included
+
+Static ads, animated video (6–60s), UGC-style verticals, thumbnail & caption tests.
+
+Creative testing frameworks and winner promotion flows.
+
+Full production or rapid-retainer creative supply.
+
+How it works (3 steps)
+
+Creative Brief — target audience, hooks, CTA.
+
+Produce & Test — multi-variant production + initial A/B testing.
+
+Scale — push winning variants, adjust messaging to audience segments.
+
+Mini-case snapshots
+
+Client: App Launch — Problem: low CTR on FB. Solution: UGC-style creative + headline test. Result: CTR ↑2.8× and CPA ↓34%.
+
+Client: Retail Brand — Problem: weak remarketing creative. Solution: dynamic video ads + format tailoring. Result: remarketing ROAS ↑3.1×.
+
+FAQ
+
+Q: Which platforms do you support?
+A: All major platforms — Meta, TikTok, YouTube, LinkedIn — plus programmatic.
+
+Q: Can you produce local language variants?
+A: Yes — multilingual creative & caption localization available.
+
+Q: How do you measure creative success?
+A: CTR, video watch rate, landing conversion, and post-click revenue attribution.
+
+Q: Can you match our brand guidelines?
+A: Yes — we adapt to brand style guides and provide governance docs.
+
+Hero image brief
+
+Montage loop: fast cuts of vertical video ads, creative frames, and a KPI overlay rising. Bold colors and quick rhythm (4–6s loop).
+
+PAGE 5 — SOCIAL MEDIA CREATIVE
+
+Meta
+
+metaTitle: Social Media Creative — OARC Digital
+
+metaDesc: High-volume social content and strategy that builds awareness and converts—scroll-stopping creative across TikTok, Instagram, and YouTube.
+
+Hero
+
+H1: Social-first creative.
+
+Subhead: Content that builds attention and converts — volume, velocity, and creative precision.
+
+Primary CTA: Start a social pilot
+
+Secondary CTA: View example feed
+
+3 immediate benefits
+
+Scalable content output tuned to platform behavior.
+
+Native-first formats that respect each channel’s audience.
+
+Composer + analytics workflow for fast iteration.
+
+3 conversion KPIs
+
+↑ 40–120% increase in organic engagement for pilot campaigns.
+
+↓ 20–35% content production cost vs ad-hoc freelance sourcing.
+
+X pieces per week delivered per plan (package dependent).
+
+What’s included
+
+Content calendar, short-form video (15–60s), Reels/TikTok native creatives, caption & test ideas.
+
+Community prompts & engagement playbook.
+
+Paid+organic coordination and UGC integration.
+
+How it works (3 steps)
+
+Strategy Sprint — audience, tones, top-performing formats.
+
+Bulk Production — weekly content drops with A/B hooks.
+
+Amplify — paid promotion for best-performing creative.
+
+Mini-case snapshots
+
+Client: F&B Chain — Problem: low store visits. Solution: localized UGC + targeted geo-ads. Result: in-store footfall ↑22%.
+
+Client: SaaS Brand — Problem: low demo signups from social. Solution: value-driven short form + gated CTA. Result: demo signups ↑45%.
+
+FAQ
+
+Q: How many assets per month?
+A: Depends on plan — typical ranges: 8, 20, 40 pieces/month.
+
+Q: Do you handle comments/community?
+A: Yes — optional community management add-on.
+
+Q: Do you use influencers?
+A: We run influencer sourcing & managed campaigns as an add-on.
+
+Q: Will you track creative performance?
+A: Yes — weekly reporting and content-level attribution.
+
+Hero image brief
+
+Feed-style loop: quick vertical video montage, user comments floating, an overlay CTA pop. Colors: warm, social-native saturation; 5–8s loop. ASSET BRIEF — OARC DIGITAL: CREATE HIGH-END, NON-GENERIC VISUAL ASSETS
+
+Context:
+- Project: OARC Digital (AI + Media + Revenue automation agency).
+- Homepage preserved in repo. New pages will use cinematic, art-directed hero images and short loops. All images must be original (not generic stock), premium, and delivered as 8K masters plus optimized web exports.
+- Use these reference sites for visual inspiration & pacing: 
+  - https://www.superside.com
+  - https://sociallypowerful.com
+  - https://thesocialshepherd.com
+  - https://coldiq.com
+- DO NOT copy text from references — copy design/structure only. Visuals must feel unique to OARC Digital.
+
+General Requirements (apply to every visual asset):
+1. Masters: Produce **8K masters** (7680 × 4320 px) as TIFF/ProRes sequences for videos or layered PSD/EXR for stills. Place masters in `/design-assets/masters/`.
+2. Web exports: From each master create optimized variants in `/design-assets/web/`:
+   - 3840×2160 (4K), 2048×1152, 1600×900, 1200×675, 800×450, 480×270.
+   - Formats: WebP and AVIF for stills; MP4 (H.264) + WebM (VP9/VP8 or AV1 if supported) for loops.
+   - Target file size per web image: ≤300 KB for hero web variants (use AVIF/WebP + sensible compression), ≤3–5 MB per 1080×1920 loop combinaton.
+3. Naming & folder convention (mandatory):
+   - `/design-assets/masters/{page-slug}/{page-slug}-hero-master.tiff` (or `.mov` for master loop)
+   - `/design-assets/web/{page-slug}/{page-slug}-hero-3840.avif`
+   - `/design-assets/web/{page-slug}/{page-slug}-hero-1200.webp`
+   - `/design-assets/web/{page-slug}/{page-slug}-loop-1080.mp4`
+   - Include a JSON manifest `/design-assets/manifest.json` listing filenames, descriptions, and `srcset` lines.
+4. LQIP & placeholders:
+   - Generate a blurred tiny placeholder (SVG or base64) and produce a 20px blur image as `page-slug-hero-lqip.jpg`.
+5. Accessibility:
+   - Provide `alt` text suggestion in manifest for every image.
+6. Visual uniqueness:
+   - No generic “people sitting at laptops” stock clichés. All assets must be *art-directed* — show product/AI in action, abstract data flows, stylized mockups, or cinematic micro-cinematic scenes tailored to the page concept.
+7. Source attribution: If any stock or third-party asset is used, include license & attribution file next to the master and use only licensed premium content.
+
+Animation / Loop requirements:
+- Loop length: 4–8 seconds (seamlessly loopable).
+- Silent, muted, playsInline, autoplay, loop.
+- Delivery formats: `.mp4` H.264 (fallback) + `.webm` (VP9/AV1 preferred).
+- Provide a poster still optimized for first paint.
+
+Lottie / Microinteraction requirements:
+- For UI microinteractions (icons, small UI flows), produce Lottie JSON via Bodymovin export from After Effects or use LottieFiles builder.
+- Provide source `.aep` files and final `lottie.json`.
+- Lottie should be < 250 KB when possible and degrade to SVG fallback on unsupported browsers.
+
+Image processing pipeline (implement or run locally in Replit):
+- Use `sharp` (or Replit equivalent) to generate web sizes and AVIF/WebP:
+  - sharp master.tiff --resize 3840 --toFile hero-3840.avif (quality 70)
+  - sharp hero-3840.avif --resize 1200 --toFile hero-1200.webp (quality 70)
+- Generate `srcset` strings in manifest.json automatically.
+- Include a small script `scripts/generate-assets.js` that reads `/design-assets/masters/` and outputs `/design-assets/web/` + `manifest.json`.
+
+Quality & creative brief rules (must be enforced before commit):
+- Every hero must have:
+  - a clear visual *story* tied to the page’s proposition (see per-page briefs below),
+  - a unique composition (not re-used photo across pages),
+  - one visual hook (motion, particle field, stylized UI, hero mock overlay).
+- Avoid face-forward stock imagery. If people are used, they must feel cinematic, documentary, and brand-matched (lighting, color grade).
+- Use the brand palette (dark premium background + accent teal/orange). Provide color swatches in README.
+
+Approval checklist (assets blocked until all are met):
+- 8K master exists + exported web variants for hero and 2 secondary sizes.
+- Loop file (mp4 + webm) with ≤5s start/end clean loop.
+- LQIP and manifest.json entries present.
+- alt text written & included.
+- No stock cliché usage; any third-party asset declared.
+
+Deliverables for each page (minimum):
+- `page-slug-hero-master.tiff` (or `.mov` if motion)
+- `page-slug-hero-3840.avif`, `page-slug-hero-1200.webp`, `page-slug-hero-800.webp`
+- `page-slug-hero-loop-1080.mp4`, `page-slug-hero-loop-1080.webm`
+- `page-slug-lqip.svg` or base64
+- `page-slug-icon-lottie.json` (if applicable)
+- Add manifest entry with alt text, credits, and `srcset`.
+
+Per-page art briefs (first 5 priority pages) — produce masters and web exports now:
+
+1) **hire-ai-employees (HIRE AI EMPLOYEES page)**
+- Mood: clinical + warm; smart and human-assistive (not robotic).
+- Visual idea: layered scene — foreground stylized phone/desktop UI showing a support ticket resolved; midground translucent neural mesh flowing into the UI; background soft city/night bokeh. Motion: typing cursor + pulses on resolved ticket + subtle neural mesh flow left→right.
+- Color: deep charcoal background, electric teal highlights, soft white UI.
+- Shot & composition: 3/4 angle of device mockup (not direct screenshot). Include subtle KPI overlay (small green number animating up).
+- Deliver: hero master .mov 7680×4320, loop 6s seamless. LQIP: blurred card.
+
+2) **revenue-automation (REVENUE AUTOMATION page)**
+- Mood: kinetic, data-driven, confident.
+- Visual idea: abstract node/edge network with highlighted conversion path; a signal pulse travels nodes, triggers a rising bar chart on the right. Motion: a glowing pulse that runs the path and increments bars.
+- Color: dark navy, neon teal, amber accent for conversion points.
+- Deliver: hero master .mov 7680×4320, loop 5s; include static poster image.
+
+3) **web-design (WEB DESIGN & LANDING PAGES)**
+- Mood: premium, tactile, fast.
+- Visual idea: floating layered device mockups (phone + laptop) with micro-interactions (button pulses, headline morphs). Background: soft gradient + subtle grain. Motion: micro parallax + CTA pulse.
+- Styling: clean shadows, crisp typography sample shown inside mockups. Avoid generic smiling faces.
+- Deliver: hero master image (prefer a still + small Lottie microinteraction for the CTA), 4K and 1200 variants.
+
+4) **ad-creative (AD CREATIVE)**
+- Mood: bold, energetic, editorial.
+- Visual idea: fast cut montage style but represented as a stylized loop: split-screen frames that flip showing vertical ad frames, with motion blur and a KPI counter overlay that rises. Use creative frames (not people thumbnails).
+- Color: high contrast, saturated accent palette.
+- Motion: 4–6s cut rhythm loop.
+- Deliver: hero .mov 6s + keyframes exported as webp sprites for fallback.
+
+5) **social-media-creative (SOCIAL MEDIA CREATIVE)**
+- Mood: native, platform-first, playful.
+- Visual idea: feed simulation loop — quick vertical cards sliding up, comments/likes floating as animated micro-overlays; a highlighted post expands into a short video frame. Keep UI generic; do not emulate any platform’s UI exactly.
+- Color: warm saturation, natural skin tones if people are used; but prefer stylized UGC frames (camera shake, jump cuts).
+- Deliver: hero loop 5–8s + two micro-Lottie elements (reaction pop, comment float).
+
+Asset pipeline & automation tasks to implement immediately:
+- Add `scripts/generate-assets.js` (Node) to repo to:
+  - Validate presence of master assets in `/design-assets/masters/`.
+  - Produce WebP/AVIF and MP4/WebM outputs via sharp/ffmpeg.
+  - Build `manifest.json` with `srcset` strings and alt text placeholders.
+- Example commands:
+  - ffmpeg (loop master to webm + optimize):  
+    `ffmpeg -i master.mov -vf "scale=1920:-2,trim=duration=6,loop=0" -c:v libvpx-vp9 -b:v 0 -crf 30 hero-1080.webm`
+  - sharp (image resize + avif):  
+    `sharp master.tiff .resize(3840).avif({quality:70}).toFile('hero-3840.avif')`
+- Add a `design-assets/README.md` that lists color palette, fonts, and acceptance criteria.
+
+If any hero master needs photography of people, brief a small directed photoshoot or high-end royalty/licensed imagery (not free stock), or use generative pipelines only if you add strong style constraints — *confirm with the client before using AI-generated faces*.
+
+Final QA & delivery:
+- For each page, create a PR under branch `oarc/blueprint-assets` with:
+  - `/design-assets/masters/{page-slug}/` (master files)
+  - `/design-assets/web/{page-slug}/` (web exports)
+  - `design-assets/manifest.json`
+  - `design-assets/README.md`
+  - A short visual rationale (2–3 lines) describing why each hero matches the page proposition.
+- I will review the first batch (5 pages) and sign off before mass-generating remaining pages.
+
+Start with the five briefs above. Do not proceed to auto-generate remaining page masters until first 5 are approved.
+
+End of asset brief. ------------------this is all i will give to replit from this should i remove any or add any?

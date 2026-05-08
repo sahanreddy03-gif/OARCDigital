@@ -1,0 +1,275 @@
+landing pages must be goldmines for traffic, leads, and SEO. Below I’ll give you a surgical, battle-tested blueprint that turns the Creative pillar landing page into a world-class page (copy, SEO, CRO, UX, analytics, and repurposing). I’ll also show exactly how to fold the Grand Slam Offer into the page so it converts and feeds the rest of your campaigns.
+
+I’ll deliver:
+
+A conversion-first page structure (section-by-section, with copy intent)
+
+Concrete SEO plan (keywords, meta, schema)
+
+Visual / UX components and placement
+
+How Grand Slam Offer becomes the lead magnet + sales engine
+
+Analytics, tracking, and A/B test plan
+
+Asset checklist and priorities (what to build first)
+
+KPI targets and timeline for launch
+
+1 — Overall strategy (single line)
+
+Build a single-purpose, pillar-first landing page on oarcdigital.com/creative that sells creative outcomes, uses AI as the credibility multiplier, anchors pricing, and gates the Grand Slam Offer as a lead magnet for qualification.
+
+Primary CTA: Book a Creative Audit
+Secondary gated CTA: Download the Grand Slam Offer (PDF)
+
+2 — Page structure (wireframe + purpose + copy intent)
+
+I keep your ratio but expand into concrete modules and microcopy. Use NO top nav. Logo top-left, sticky CTA top-right.
+
+Hero (10–12% of visible fold)
+
+H1 (big, specific): “Creative That Sells — Not Just Pretty Content”
+
+Subhead (one line): “High-conversion creative + AI-powered optimisation for brands that refuse to compete on price.”
+
+3 micro bullets (outcome-focused): “More high-value leads • Better creative ROI • Fast repurposing”
+
+Primary CTA: “Book a Free Creative Audit” (scroll → /book)
+
+Secondary CTA: “Download Grand Slam Offer” (opens gated modal)
+
+Visual: short auto-play muted hero video (10–12s) of work clips + dashboard flashes
+
+Problem / Cost of Inaction (20%)
+
+Headline: “Most creative agencies make pretty posts. You lose customers.”
+
+Three short pain points with micro-statistics (missed sales, wasted ad spend, low repurpose)
+
+Quick bridge: “We fix that by designing creative that converts — then automating scale.”
+
+New Mechanism / Reframe (15%)
+
+Headline: “Creative + Intelligence™: Why this matters”
+
+Short paragraph: explain OARC method (human-led creative, AI optimization, workflow automation)
+
+Visual: simple 3-icon row (Creative -> AI -> Systems)
+
+Core Offer / What They Get (25%)
+
+Headline: “What you get — creative that drives revenue”
+
+Outcome first (3 bullets): e.g. “50% more qualified leads,” “30% lower CPA,” “2–4x repurposing output”
+
+Packages anchor (compact):
+
+Starter (Anchor): “From €497 / month”
+
+Growth (Most Popular): “€997 / month”
+
+Pro (Enterprise-ready): “€1,997+ / month or custom”
+
+CTA under each: “See what’s included” → expands inline (no full table)
+
+Microcopy: “Custom packages available — we recommend a call to scope exact deliverables.”
+
+Proof & Social (15%)
+
+Headline: “Trusted by” + logo strip (clients, local + EU)
+
+3 short video testimonials (30s) or 5 text testimonials with role/outcome
+
+1 case study highlight with metrics (thumbnail → modal)
+
+Trust badges: guarantees, uptime, GDPR compliance, Malta-based
+
+Investment Anchoring (10%)
+
+Headline: “Transparent investment”
+
+Copy:
+
+“Creative services start from €497/month”
+
+“Most clients invest €997–€1,997/month.”
+
+“Enterprise & AI-enhanced projects from €5,000+”
+
+Micro CTA: “Not sure where you fit? Book a 20-min audit.”
+
+Process / Next Steps (10%)
+
+Headline: “How it works (14-day onboarding)”
+
+4-step flow with time: Discover → Create → Launch → Optimize
+
+Explicit client time commitment and deliverable expectations
+
+FAQ + Objection Handling (5%)
+
+Top 6 FAQs (pricing, IP, guarantees, results timelines, reporting, integration)
+
+Include FAQ schema (structured data)
+
+CTA / Scarcity (3–5%)
+
+Small panel: “We take 3 Creative clients / month for white-glove onboarding”
+
+CTA: “Apply for a free audit” (application form with 5 fields, conditional)
+
+Secondary: Gated Grand Slam Offer modal / download
+
+Short form (name, email, company, budget band)
+
+Deliverable: “Grand Slam Offer — full package deck + examples (PDF)”
+
+On submit: show “Book a free audit” confirmation + calendar booking link
+
+Footer (no general nav) — minimal: contact, privacy, social, micro sitemap links for SEO.
+
+3 — Copy examples (short, ready-to-use snippets)
+
+Hero H1: “Creative That Sells — Not Just Pretty Content”
+Hero subhead: “Human creativity, AI optimisation, systems for repeatable revenue.”
+Primary CTA: “Book a Free Creative Audit”
+Price anchor line (investment section): “Creative packages from €497/month — most clients spend €997–€1,997.”
+
+Problem headline: “Pretty posts don’t pay the bills.”
+Mechanism headline: “Our Creative Intelligence™ makes your creative measurable and repeatable.”
+Process CTA: “See the 14-day onboarding”
+
+4 — SEO plan (technical + content)
+
+Purpose: rank for transactional and intent-driven queries. Use landing page as pillar content for the creative offering.
+
+URL: https://oarcdigital.com/creative
+Meta title (70 char): “Creative Agency Malta — Creative + AI for Revenue | OARC Digital”
+Meta description (155–165 chars): “Creative that converts. AI-enhanced creative and social packages from €497/month. Book a free Creative Audit with OARC — Malta’s AI-native agency.”
+
+Primary keywords (focus)
+
+creative agency malta
+
+creative services malta
+
+creative agency + ai
+
+social media creative agency
+
+creative production malta
+
+Secondary (long-tail)
+
+creative and ai agency Malta
+
+social media creative packages Malta
+
+agency that uses ai for creative
+
+creative audit Malta
+
+On-page:
+
+Use H1, H2s with keyword variations
+
+1,600–3,000 words (rich, scannable) — landing page should be in-depth to capture organic long-tail
+
+Add 2–3 supporting blog posts linking to this LP (content hub): e.g., “How AI increases creative ROI”, “Case study: X client reduced CPA by 30%”, “Creative audits: What we look for”
+
+Internal linking: from /services, blog, team pages to /creative
+
+Schema: Organization, LocalBusiness, FAQ, Product (for packages), Article for case studies
+
+Open Graph & Twitter card tags, with hero image and PDF alt text
+
+Technical SEO:
+
+Fast load (LCP < 2.5s), compressed images, use WebP
+
+Mobile-first design
+
+Canonical tags, sitemap update
+
+Use structured data JSON-LD for FAQ and LocalBusiness
+
+Hreflang if you target Italian/French markets later
+
+Backlinks & Content Distribution:
+
+Publish the Grand Slam Offer as gated asset and pitch to niche newsletters, local trade press, LinkedIn long-form posts
+
+Repurpose case studies into guest posts
+
+Use HARO for PR mentions where relevant
+
+5 — CRO & Analytics (events, experiments)
+
+Events to track (via GTM + FB Pixel + GA4):
+
+view_content (landing)
+
+download_grand_slam (gated form submit)
+
+book_audit_start (click)
+
+book_audit_complete (calendar booking)
+
+scroll_50 / scroll_75
+
+testimonial_click
+
+video_play / video_complete
+
+Conversion funnel:
+
+Paid traffic CTR → landing (target 3–8%)
+
+Landing → book-audit (target 4–12% for paid; organic lower)
+
+Landing → gated download (target 8–15%)
+
+A/B tests:
+
+Hero CTA phrasing: “Book a Free Creative Audit” vs “Get a 20-minute Creative Audit”
+
+Price anchor visible vs price anchor hidden on hero
+
+Video hero vs static hero image
+
+Multi-step application form vs single-step lead form
+
+“Download Grand Slam” gated before or after proof section
+
+Heatmaps & Session Recording:
+
+Hotjar or FullStory for first 1,000 visitors
+
+Look for drop-off at pricing, form friction, or video autoplay issues
+
+Progressive profiling:
+
+First convert: name + email + budget band; follow-up form: company + website
+
+Add users to drip: 3-email sequence: welcome + case studies + schedule CTA
+
+6 — Grand Slam Offer integration (how it becomes the goldmine)
+
+The Grand Slam Offer is the lead magnet: 12–16 page PDF containing your “Grand Slam materials” — value stacks, 2–3 mini case studies, creative examples, typical results, and a one-page audit checklist.
+
+Place prominent CTA for “Download Grand Slam Offer” in hero and in Core Offer section.
+
+Gated download qualifies the lead (ask budget band).
+
+After download: Immediate email + brief value video and link to calendly.
+
+Use the PDF as a retargeting asset: people who opened but did not book get a 3-email nudge and remarketing ads.
+
+Why it works:
+
+Shows you did the homework
+
+Lets you send the heavy bonus content without posting it publicly
+
+Filters and qualifies leads by budget band on download

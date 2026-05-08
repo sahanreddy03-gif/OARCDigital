@@ -1,0 +1,494 @@
+ABSOLUTE RULES — ZERO TOLERANCE FOR VIOLATIONS
+This is a production website with significant SEO investment, Google Ads, analytics, schema markup, and conversion tracking. Any loss of functionality or visual change is unacceptable.
+Before you start: Create a Git branch called nextjs-migration. Work only in that branch. Do not merge to main until I explicitly approve after testing.
+
+RULE 1: ZERO VISUAL CHANGES
+The final website must be pixel-perfect identical to the current Vite version.
+
+Same fonts, same colors, same spacing, same animations
+Same layout on every viewport (mobile, tablet, desktop)
+Same hover states, same transitions, same loading behavior
+I must not be able to tell the difference by looking
+
+If a single pixel changes, the migration has failed.
+
+RULE 2: ZERO URL CHANGES
+Every URL must work identically:
+
+/services/creative stays /services/creative
+/malta/valletta/restaurant/social-media stays exactly that
+All 300+ routes mapped 1:1
+Trailing slashes behave identically
+Query parameters work identically
+
+
+RULE 3: ZERO FUNCTIONALITY LOSS
+Every feature must work:
+
+ARC chatbot (ARCChat, ARCWidget) — Cloudflare AI integration
+Contact form submission
+Lead capture (/api/leads)
+All animations (framer-motion, GSAP)
+Scroll effects, particle fields, canvas animations
+Instagram export, AI agents export (@ffmpeg/ffmpeg features)
+Cookie consent banner
+All 54 Shadcn UI components
+All custom components (flow diagrams, AI icons, scrollable cards)
+
+
+RULE 4: ALL SEO WORK PRESERVED 100%
+This is non-negotiable. Months of SEO work must survive.
+Preserve:
+
+Every <SEOHead> configuration → migrated to Next.js Metadata API with identical values
+Every meta tag (title, description, OG tags, Twitter cards)
+Every canonical URL
+Organisation JSON-LD schema (from client/index.html lines 151-178)
+Google Ads tag AW-17812517147 with all conversion events (WhatsApp, phone, form)
+llms.txt at /llms.txt
+robots.txt with all AI bot allowances (GPTBot, ChatGPT-User, Claude-Web, PerplexityBot)
+BingSiteAuth.xml
+Google Search Console verification
+All AEO page content (29 pages)
+All programmatic SEO structure (keep top 10 locations × 5 services only — delete the rest)
+
+7 types of SEO already implemented must continue working:
+
+Technical SEO (meta tags, canonicals, sitemap)
+On-page SEO (keywords, headings, structure)
+Local SEO (Malta locations, schema)
+AEO (Answer Engine Optimization pages)
+LLM SEO (ChatGPT, Claude, Perplexity discoverability)
+Content SEO (blog posts, case studies)
+Schema markup (Organisation, LocalBusiness, Article)
+
+
+RULE 5: ONLY DELETE THE 2,400 THIN PROGRAMMATIC PAGES
+This is the ONLY deletion allowed:
+In shared/seoConfig.ts:
+
+Reduce maltaLocations from 50 → 10 (top population: Valletta, Sliema, St Julian's, Birkirkara, Mosta, Qormi, Zabbar, San Gwann, Gzira, Hamrun)
+Reduce locationServices from 10 → 5 (top: social-media, seo, ai-automation, content-marketing, paid-ads)
+Reduce maltaIndustries from 15 → 3 (top: restaurant, hotel, real-estate)
+
+Keep everything else exactly as is. All 47 service pages, all 24 blog posts, all 29 AEO pages, all 21 case studies stay.
+
+MIGRATION APPROACH — IN-PLACE ON SAME PROJECT
+Since this is in-place migration:
+
+Create Git branch nextjs-migration first — absolute requirement
+Work only in this branch
+Never commit to main during migration
+Keep old Vite files until Next.js version is verified working
+Only delete old files in final commit after all tests pass
+
+
+EXACT MIGRATION STEPS
+STEP 1: BRANCH + BACKUP
+bashgit checkout -b nextjs-migration
+git push -u origin nextjs-migration
+Tag current state:
+bashgit tag pre-nextjs-migration
+git push origin pre-nextjs-migration
+This gives us a rollback point.
+
+STEP 2: INSTALL NEXT.JS ALONGSIDE VITE
+Add Next.js to existing package.json:
+json"next": "^14.2.0",
+"react": "^18.3.1",
+"react-dom": "^18.3.1"
+Keep Vite dependencies temporarily — will remove after verification.
+
+STEP 3: CREATE APP DIRECTORY
+Create app/ at project root (sibling to existing client/).
+Structure:
+/app
+  /layout.tsx
+  /page.tsx
+  /globals.css
+  /sitemap.ts
+  /robots.ts
+  [all routes]
+Do NOT delete client/ yet.
+
+STEP 4: MIGRATE GLOBAL FILES
+FromToActionclient/index.htmlapp/layout.tsxConvert to React layoutInline script lines 36-93DELETENext.js handles metadata nativelyOrganisation JSON-LD (lines 151-178)app/layout.tsxKeep in <head> via ScriptGoogle Ads tag (lines 124-150)app/layout.tsxKeep in <head> via Scriptclient/src/index.cssapp/globals.cssCopy exactlyclient/public/*public/*Move to project roottailwind.config.tsRoot tailwind.config.tsUpdate content paths
+
+STEP 5: MIGRATE COMPONENTS
+Copy entire client/src/components/ → components/:
+
+components/ui/ — all 54 Shadcn files unchanged
+components/layout/ — Navigation, Footer, ScrollToTop
+components/ARC/ — ARCChat, ARCWidget
+components/SEOHead.tsx — DELETE (replaced by Next.js Metadata API)
+All other shared components
+
+Add "use client" directive to components using:
+
+useState, useEffect, any React hooks
+framer-motion, gsap
+window, document access
+Event handlers
+Context (dark mode, etc.)
+
+Wrap these in next/dynamic with ssr: false:
+tsxconst ARCWidget = dynamic(() => import('@/components/ARCWidget'), { ssr: false })
+const ParticleField = dynamic(() => import('@/components/ParticleField'), { ssr: false })
+const InstagramExport = dynamic(() => import('@/components/InstagramExport'), { ssr: false })
+const AIAgentsExport = dynamic(() => import('@/components/AIAgentsExport'), { ssr: false })
+
+STEP 6: MIGRATE SHARED DATA
+FromToshared/seoConfig.tslib/seoConfig.tsshared/schema.tslib/schema.tsclient/src/lib/*lib/*
+
+STEP 7: MIGRATE ALL PAGES (1:1 MAPPING)
+Static pages (hardcoded content):
+SourceDestinationclient/src/pages/Home.tsxapp/page.tsxclient/src/pages/Contact.tsxapp/contact/page.tsxclient/src/pages/Pricing.tsxapp/pricing/page.tsxclient/src/pages/About.tsxapp/about/page.tsxEvery file in pages/services/*.tsxapp/services/[name]/page.tsxEvery file in pages/blog/*.tsxapp/blog/[name]/page.tsxEvery file in pages/aeo/*.tsxapp/aeo/[name]/page.tsxEvery file in pages/case-studies/*.tsxapp/case-studies/[name]/page.tsxEvery file in pages/legal/*.tsxapp/legal/[name]/page.tsx
+Dynamic template pages:
+SourceDestinationLocationService.tsxapp/malta/[location]/[service]/page.tsxLocationHub.tsxapp/malta/[location]/page.tsxIndustryHub.tsxapp/industries/[industry]/page.tsxIndustryLocationService.tsxapp/malta/[location]/[industry]/[service]/page.tsxServiceIndustry.tsxapp/services/[serviceSlug]/[industry]/page.tsx
+For each dynamic page, add at the top:
+tsximport type { Metadata } from 'next'
+import { maltaLocations, locationServices } from '@/lib/seoConfig'
+
+export async function generateStaticParams() {
+  return maltaLocations.flatMap(location =>
+    locationServices.map(service => ({ location, service }))
+  )
+}
+
+export async function generateMetadata({ params }: { params: { location: string; service: string } }): Promise<Metadata> {
+  return {
+    title: `[EXACT same title from current SEOHead]`,
+    description: `[EXACT same description from current SEOHead]`,
+    alternates: { canonical: `https://oarcdigital.com/malta/${params.location}/${params.service}` },
+    openGraph: { ... },
+    twitter: { ... }
+  }
+}
+
+export default function Page({ params }: { params: { location: string; service: string } }) {
+  // Copy ENTIRE JSX from LocationService.tsx here, unchanged
+  // Replace useRoute() from wouter with params prop
+  // Replace useLocation() with usePathname() from next/navigation
+}
+
+STEP 8: REPLACE ROUTING
+Wouter → Next.js:
+WouterNext.jsimport { Link } from 'wouter'import Link from 'next/link'<Link href="/x"><Link href="/x"> (same API)import { useLocation } from 'wouter'import { usePathname } from 'next/navigation'const [location] = useLocation()const location = usePathname()import { useRoute } from 'wouter'Use params prop<Switch>...<Route>File-based routing (already done in Step 7)<Redirect to="/x" />import { redirect } from 'next/navigation'; redirect('/x')
+Update every component import for wouter → Next.js equivalent.
+
+STEP 9: REPLACE SEOHEAD WITH METADATA API
+Find every occurrence of:
+tsx<SEOHead 
+  title="XYZ"
+  description="ABC"
+  canonicalUrl="https://oarcdigital.com/path"
+  ogImage="..."
+/>
+Replace with (at top of page file):
+tsximport type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'XYZ',
+  description: 'ABC',
+  alternates: { canonical: 'https://oarcdigital.com/path' },
+  openGraph: {
+    title: 'XYZ',
+    description: 'ABC',
+    url: 'https://oarcdigital.com/path',
+    images: ['...']
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'XYZ',
+    description: 'ABC',
+    images: ['...']
+  }
+}
+Preserve EVERY value exactly. Do not rewrite titles or descriptions.
+Delete SEOHead.tsx after all pages migrated.
+Remove react-helmet-async from dependencies.
+
+STEP 10: MIGRATE API ROUTES
+From server/routes.ts to Next.js route handlers:
+ExpressNext.jsPOST /api/chatapp/api/chat/route.tsPOST /api/leadsapp/api/leads/route.ts
+Example app/api/chat/route.ts:
+tsximport { NextRequest, NextResponse } from 'next/server'
+
+export async function POST(request: NextRequest) {
+  // Copy exact logic from server/routes.ts chat handler
+}
+Preserve:
+
+Cloudflare AI integration (CLOUDFLARE_ACCOUNT_ID, CLOUDFLARE_AI_TOKEN)
+Database connections (Drizzle/Neon)
+All business logic
+
+
+STEP 11: SITEMAP + ROBOTS
+Create app/sitemap.ts:
+tsximport { MetadataRoute } from 'next'
+import { maltaLocations, locationServices, allServiceSlugs, allCaseStudySlugs, maltaIndustries } from '@/lib/seoConfig'
+
+export default function sitemap(): MetadataRoute.Sitemap {
+  const base = 'https://oarcdigital.com'
+  const now = new Date()
+  
+  const staticRoutes = [
+    { url: `${base}`, priority: 1.0, changeFrequency: 'weekly' as const },
+    { url: `${base}/about`, priority: 0.8, changeFrequency: 'monthly' as const },
+    { url: `${base}/contact`, priority: 0.8, changeFrequency: 'monthly' as const },
+    { url: `${base}/pricing`, priority: 0.9, changeFrequency: 'monthly' as const },
+    // ... all static routes
+  ].map(r => ({ ...r, lastModified: now }))
+  
+  const servicePages = allServiceSlugs.map(slug => ({
+    url: `${base}/services/${slug}`,
+    lastModified: now,
+    changeFrequency: 'monthly' as const,
+    priority: 0.8
+  }))
+  
+  const caseStudyPages = allCaseStudySlugs.map(slug => ({
+    url: `${base}/case-studies/${slug}`,
+    lastModified: now,
+    changeFrequency: 'monthly' as const,
+    priority: 0.7
+  }))
+  
+  const locationServicePages = maltaLocations.flatMap(location =>
+    locationServices.map(service => ({
+      url: `${base}/malta/${location}/${service}`,
+      lastModified: now,
+      changeFrequency: 'monthly' as const,
+      priority: 0.6
+    }))
+  )
+  
+  const industryPages = maltaIndustries.map(industry => ({
+    url: `${base}/industries/${industry}`,
+    lastModified: now,
+    changeFrequency: 'monthly' as const,
+    priority: 0.7
+  }))
+  
+  // Add blog, AEO pages
+  
+  return [
+    ...staticRoutes,
+    ...servicePages,
+    ...caseStudyPages,
+    ...locationServicePages,
+    ...industryPages
+  ]
+}
+Delete old sitemap logic from server/routes.ts.
+Create app/robots.ts:
+tsximport { MetadataRoute } from 'next'
+
+export default function robots(): MetadataRoute.Robots {
+  return {
+    rules: [
+      { userAgent: '*', allow: '/' },
+      { userAgent: 'GPTBot', allow: '/' },
+      { userAgent: 'ChatGPT-User', allow: '/' },
+      { userAgent: 'Claude-Web', allow: '/' },
+      { userAgent: 'PerplexityBot', allow: '/' }
+    ],
+    sitemap: 'https://oarcdigital.com/sitemap.xml'
+  }
+}
+Keep public/llms.txt as a static file.
+
+STEP 12: CONFIGURATION
+Create next.config.js:
+js/** @type {import('next').NextConfig} */
+module.exports = {
+  reactStrictMode: true,
+  images: {
+    remotePatterns: [
+      // Keep existing domains used for images
+    ]
+  },
+  // Path aliases matching current Vite setup
+  experimental: {},
+}
+Update tsconfig.json paths:
+json{
+  "compilerOptions": {
+    "paths": {
+      "@/*": ["./*"],
+      "@/components/*": ["./components/*"],
+      "@/lib/*": ["./lib/*"]
+    }
+  }
+}
+Update package.json scripts:
+json{
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  }
+}
+
+STEP 13: UPDATE vercel.json
+Remove:
+
+buildCommand: "vite build"
+Catch-all rewrite /(.*) → /index.html
+
+Replace with Next.js auto-detection (Vercel handles Next.js natively — minimal config needed).
+
+STEP 14: REDUCE PROGRAMMATIC PAGES
+In lib/seoConfig.ts:
+Keep these 10 locations:
+tsexport const maltaLocations = [
+  'valletta', 'sliema', 'st-julians', 'birkirkara', 'mosta',
+  'qormi', 'zabbar', 'san-gwann', 'gzira', 'hamrun'
+]
+Keep these 5 services:
+tsexport const locationServices = [
+  'social-media', 'seo', 'ai-automation', 'content-marketing', 'paid-ads'
+]
+Keep these 3 industries:
+tsexport const maltaIndustries = [
+  'restaurant', 'hotel', 'real-estate'
+]
+Archive the removed slugs in a commented-out block for potential future use. Don't delete the arrays — just move the removed items to a comment.
+
+STEP 15: DELETE OLD VITE FILES (ONLY AFTER TESTING)
+Only after successful testing, delete:
+
+client/ directory (entire)
+server/ directory (entire — after API routes verified)
+vite.config.ts
+client/index.html
+SEOHead.tsx
+react-helmet-async from dependencies
+wouter from dependencies
+
+Do not delete these yet. Wait until Step 17 verification passes.
+
+STEP 16: BUILD VERIFICATION
+Run:
+bashnpm run build
+Expected output:
+✓ Compiled successfully
+✓ Generating static pages (XXX/XXX)
+Required:
+
+Zero errors
+Zero warnings (critical ones)
+All dynamic routes generated as static HTML
+Total pages: ~150-200 (not 2,513)
+
+
+STEP 17: VERIFICATION CHECKLIST
+Before any deployment, verify ALL:
+Visual (must be 100% identical):
+
+ Homepage looks identical
+ All service pages look identical
+ All blog pages look identical
+ All case study pages look identical
+ All AEO pages look identical
+ Navigation identical (desktop + mobile)
+ Footer identical
+ Fonts render identically
+ Colors match
+ Spacing matches
+ Animations behave the same
+
+Functional:
+
+ Every link in navigation works
+ Every link in footer works
+ Contact form submits successfully
+ ARC chatbot opens and responds
+ Cookie consent appears
+ Scroll animations trigger
+ Hover states work
+ Mobile menu works
+ 404 page works
+
+SEO:
+
+ view-source: on every page shows proper HTML + meta tags
+ Canonical URL correct on every page
+ Title tag correct on every page
+ Meta description correct on every page
+ Open Graph tags present
+ Twitter card tags present
+ JSON-LD schema in <head>
+ Google Ads tag in <head>
+ /sitemap.xml returns all URLs
+ /robots.txt returns correct rules
+ /llms.txt accessible
+ /BingSiteAuth.xml accessible
+
+Technical:
+
+ Lighthouse SEO score ≥ 95
+ Lighthouse Performance score ≥ 85
+ No console errors in browser
+ No 404s in network tab
+ All images load
+ All fonts load
+
+URL Integrity:
+
+ Every URL from old sitemap resolves on new site
+ No 404 errors for existing indexed pages
+ Redirects work if any URLs legitimately changed
+
+
+STEP 18: DEPLOY
+After verification passes:
+
+Merge nextjs-migration branch to main
+Push to GitHub
+Vercel auto-deploys
+Verify production URLs
+Submit updated sitemap to Google Search Console
+Monitor for 48 hours
+
+
+IF YOU HIT PROBLEMS
+Report back with:
+
+Exact error message
+Which step
+What you've tried
+
+Do NOT:
+
+Skip steps
+Take shortcuts
+Leave "TODOs" for later
+Delete anything before verification
+
+DO:
+
+Preserve every meta tag value exactly
+Preserve every component exactly
+Ask for clarification if anything is ambiguous
+Commit frequently on the branch so rollback is easy
+
+
+FINAL CHECK BEFORE YOU START
+Confirm you understand:
+
+✅ You are working on branch nextjs-migration only
+✅ The main branch must stay working at all times
+✅ Every visual element must remain identical
+✅ Every URL must remain identical
+✅ Every meta tag value must be preserved exactly
+✅ Only the 2,400 thin pages are deleted (via seoConfig.ts reduction)
+✅ Everything else — 47 services, 24 blogs, 29 AEO, 21 case studies — stays intact
+✅ All 7 types of SEO work continues to function
+✅ Google Ads, Search Console, Business Profile unaffected
+✅ Domain, URLs, rankings preserved
+
+Reply: "Understood. Starting Step 1."
+Then begin.

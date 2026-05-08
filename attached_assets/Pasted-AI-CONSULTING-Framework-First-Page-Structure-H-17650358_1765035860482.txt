@@ -1,0 +1,97 @@
+AI CONSULTING (Framework-First)
+Page Structure:
+┌─────────────────────────────────────────────┐
+│  HERO: Interactive Framework               │
+│  ─────────────────────────────              │
+│  Circular diagram (animated):               │
+│                                             │
+│        [Assess]                             │
+│       ↗        ↖                           │
+│  [Deploy] ← [Design]                        │
+│       ↖        ↗                           │
+│        [Build]                              │
+│                                             │
+│  Click each phase → Expands with details    │
+│                                             │
+│  Text: "AI Consulting Without the Hype"     │
+└─────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────┐
+│  SECTION 1: The Confusion (Visual Problem)  │
+│  ─────────────────────────────              │
+│  Illustration showing:                      │
+│                                             │
+│  CEO surrounded by:                         │
+│  - "Use ChatGPT!"                          │
+│  - "Build custom AI!"                       │
+│  - "Wait for AGI!"                          │
+│  - "Hire AI team!"                          │
+│  - "Do nothing!"                            │
+│                                             │
+│  Text: "Everyone has opinions. Few have     │
+│  actually built production AI systems."     │
+└─────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────┐
+│  SECTION 2: Our Approach (Maturity Model)   │
+│  ─────────────────────────────              │
+│  Visual ladder/staircase:                   │
+│                                             │
+│  Level 4: Custom AI Systems                 │
+│  Level 3: AI Workflow Integration           │
+│  Level 2: Tool Deployment                   │
+│  Level 1: AI Readiness                      │
+│  Level 0: Manual Processes ← You are here   │
+│                                             │
+│  Interactive: Click level → See what's      │
+│  involved, timeline, investment             │
+│                                             │
+│  Text: "We meet you where you are."         │
+└─────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────┐
+│  SECTION 3: What You Get (Document Mockups) │
+│  ─────────────────────────────              │
+│  Visual showing actual deliverables:        │
+│                                             │
+│  [PDF mockup] AI Readiness Assessment       │
+│  [Spreadsheet] Tool Evaluation Matrix       │
+│  [Diagram] Implementation Roadmap           │
+│  [Document] ROI Projections                 │
+│  [Presentation] Board Deck                  │
+│                                             │
+│  Text: "Consulting means deliverables,      │
+│  not just conversations."                   │
+└─────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────┐
+│  SECTION 4: Timeline (Gantt-style Visual)   │
+│  ─────────────────────────────              │
+│  Visual project timeline:                   │
+│                                             │
+│  Week 1-2: Discovery & Assessment           │
+│  [Progress bar with milestones]             │
+│                                             │
+│  Week 3-4: Strategy & Roadmap               │
+│  [Progress bar with milestones]             │
+│                                             │
+│  Week 5-6: Implementation Plan              │
+│  [Progress bar with milestones]             │
+│                                             │
+│  Week 7+: Ongoing Support (optional)        │
+└─────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────┐
+│  SECTION 5: Why Trust Us (Credentials)      │
+│  ─────────────────────────────              │
+│  Visual credential grid:                    │
+│                                             │
+│  "We don't just consult on AI.              │
+│  We build it."                              │
+│                                             │
+│  [Screenshot] Our custom AI agents          │
+│  [Screenshot] Our automation systems        │
+│  [Screenshot] Our development work          │
+│                                             │
+│  Text: "Consulting from practitioners,      │
+│  not theorists."              

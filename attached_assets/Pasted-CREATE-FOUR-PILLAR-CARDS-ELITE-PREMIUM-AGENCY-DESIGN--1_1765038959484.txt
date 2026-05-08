@@ -1,0 +1,589 @@
+CREATE FOUR PILLAR CARDS - ELITE PREMIUM AGENCY DESIGN
+
+═══════════════════════════════════════════════════════════
+CRITICAL DESIGN PRINCIPLES
+═══════════════════════════════════════════════════════════
+
+Brand Positioning: Premium creative agency, NOT playful startup
+Aesthetic: Sophisticated, editorial, high-end
+Color Strategy: Dark, refined gradients with sophisticated accents
+Visual Hierarchy: 75% visuals, 25% text
+
+═══════════════════════════════════════════════════════════
+COLOR SYSTEM - ELITE PALETTE
+═══════════════════════════════════════════════════════════
+
+Use this refined color system across all 4 cards:
+
+CARD 1: ORGANIC SOCIAL
+- Overlay: Deep Purple (#6b21a8 → #581c87)
+- CTA: Purple with subtle glow
+- Feel: Sophisticated, strategic
+
+CARD 2: PAID ADVERTISING  
+- Overlay: Rich Burgundy/Wine (#831843 → #9d174d)
+- CTA: Deep rose with glow
+- Feel: Premium, results-driven
+
+CARD 3: CONTENT CREATION
+- Overlay: Burnt Orange (#c2410c → #9a3412)
+- CTA: Warm orange with glow
+- Feel: Creative, energetic (but refined)
+
+CARD 4: INFLUENCER MARKETING
+- Overlay: Deep Emerald (#047857 → #065f46)
+- CTA: Rich green with glow
+- Feel: Growth, partnership, premium
+
+All overlays should be DARK and sophisticated - not bright or saturated.
+This creates an editorial, high-end magazine aesthetic.
+
+═══════════════════════════════════════════════════════════
+SECTION STRUCTURE
+═══════════════════════════════════════════════════════════
+
+<section class="four-pillars">
+  
+  <!-- Section Header -->
+  <div class="pillars-header">
+    <span class="section-label">OUR SERVICES</span>
+    <h2 class="section-title">
+      Four Pillars of
+      <span class="gradient-text">Creative Growth</span>
+    </h2>
+    <p class="section-description">
+      Strategic services designed to elevate your brand and drive measurable results
+    </p>
+  </div>
+  
+  <!-- Cards Grid -->
+  <div class="pillars-grid">
+    
+    <!-- 4 cards here -->
+    
+  </div>
+  
+</section>
+
+═══════════════════════════════════════════════════════════
+CARD 1: ORGANIC SOCIAL
+═══════════════════════════════════════════════════════════
+
+<div class="pillar-card organic">
+  
+  <div class="card-background">
+    <!-- USE EXISTING HIGH-QUALITY IMAGE -->
+    <!-- Path: Look for organic social content images -->
+    <!-- Should show: Instagram posts, TikTok videos, social content -->
+    <img src="[PATH_TO_ORGANIC_SOCIAL_IMAGE]" alt="Organic social content">
+    <div class="gradient-overlay"></div>
+  </div>
+  
+  <div class="card-content">
+    <div class="card-icon">🧠</div>
+    <h3 class="card-title">Organic Social</h3>
+    <p class="card-description">
+      Content engineered for algorithms & audiences
+    </p>
+    <a href="/services/social-media/organic" class="card-cta">
+      Explore Organic
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </a>
+  </div>
+  
+</div>
+
+═══════════════════════════════════════════════════════════
+CARD 2: PAID ADVERTISING
+═══════════════════════════════════════════════════════════
+
+<div class="pillar-card paid">
+  
+  <div class="card-background">
+    <!-- USE EXISTING HIGH-QUALITY IMAGE -->
+    <!-- Should show: Ad campaigns, performance dashboards, Meta Ads -->
+    <img src="[PATH_TO_PAID_ADS_IMAGE]" alt="Paid advertising campaigns">
+    <div class="gradient-overlay"></div>
+  </div>
+  
+  <div class="card-content">
+    <div class="card-icon">📈</div>
+    <h3 class="card-title">Paid Advertising</h3>
+    <p class="card-description">
+      Campaigns built to scale, not just spend
+    </p>
+    <a href="/services/social-media/paid-ads" class="card-cta">
+      Explore Paid Ads
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </a>
+  </div>
+  
+</div>
+
+═══════════════════════════════════════════════════════════
+CARD 3: CONTENT CREATION
+═══════════════════════════════════════════════════════════
+
+<div class="pillar-card content">
+  
+  <div class="card-background">
+    <!-- USE EXISTING HIGH-QUALITY IMAGE OR VIDEO -->
+    <!-- Should show: Video production, photography, motion graphics -->
+    <!-- If video available, use <video> tag with autoplay, muted, loop -->
+    <img src="[PATH_TO_CONTENT_CREATION_IMAGE]" alt="Content creation">
+    <!-- OR if video exists: -->
+    <!-- <video autoplay muted loop playsinline>
+      <source src="[PATH_TO_VIDEO]" type="video/mp4">
+    </video> -->
+    <div class="gradient-overlay"></div>
+  </div>
+  
+  <div class="card-content">
+    <div class="card-icon">🎬</div>
+    <h3 class="card-title">Content Creation</h3>
+    <p class="card-description">
+      Production-quality content at social-speed delivery
+    </p>
+    <a href="/services/social-media/content" class="card-cta">
+      Explore Content
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </a>
+  </div>
+  
+</div>
+
+═══════════════════════════════════════════════════════════
+CARD 4: INFLUENCER MARKETING
+═══════════════════════════════════════════════════════════
+
+<div class="pillar-card influencer">
+  
+  <div class="card-background">
+    <!-- USE EXISTING HIGH-QUALITY IMAGE -->
+    <!-- Should show: Influencer collaborations, creator content, partnerships -->
+    <img src="[PATH_TO_INFLUENCER_IMAGE]" alt="Influencer marketing">
+    <div class="gradient-overlay"></div>
+  </div>
+  
+  <div class="card-content">
+    <div class="card-icon">👥</div>
+    <h3 class="card-title">Influencer Marketing</h3>
+    <p class="card-description">
+      Vetted creators who amplify your message authentically
+    </p>
+    <a href="/services/social-media/influencer" class="card-cta">
+      Explore Influencer
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </a>
+  </div>
+  
+</div>
+
+═══════════════════════════════════════════════════════════
+COMPLETE CSS - ELITE PREMIUM STYLING
+═══════════════════════════════════════════════════════════
+
+/* ─────────────────────────────────── */
+/* SECTION CONTAINER */
+/* ─────────────────────────────────── */
+
+.four-pillars {
+  padding: 120px 24px;
+  background: #0a0a14;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* ─────────────────────────────────── */
+/* SECTION HEADER */
+/* ─────────────────────────────────── */
+
+.pillars-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.section-label {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: #a855f7;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+.section-title {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(40px, 5vw, 64px);
+  font-weight: 900;
+  line-height: 1.1;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.section-description {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.6);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* ─────────────────────────────────── */
+/* CARDS GRID */
+/* ─────────────────────────────────── */
+
+.pillars-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .pillars-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+  }
+}
+
+/* ─────────────────────────────────── */
+/* INDIVIDUAL CARD BASE */
+/* ─────────────────────────────────── */
+
+.pillar-card {
+  position: relative;
+  height: 520px;
+  border-radius: 24px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+}
+
+.pillar-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 32px 64px rgba(0, 0, 0, 0.5);
+}
+
+/* ─────────────────────────────────── */
+/* CARD BACKGROUND */
+/* ─────────────────────────────────── */
+
+.card-background {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.card-background img,
+.card-background video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.pillar-card:hover .card-background img,
+.pillar-card:hover .card-background video {
+  transform: scale(1.05);
+}
+
+/* ─────────────────────────────────── */
+/* ELITE GRADIENT OVERLAYS */
+/* ─────────────────────────────────── */
+
+/* CARD 1: Deep Purple (Organic Social) */
+.pillar-card.organic .gradient-overlay {
+  background: linear-gradient(
+    to top,
+    rgba(107, 33, 168, 0.92) 0%,      /* #6b21a8 - Deep purple */
+    rgba(88, 28, 135, 0.75) 50%,      /* #581c87 - Darker purple */
+    rgba(88, 28, 135, 0.4) 75%,
+    transparent 100%
+  );
+}
+
+/* CARD 2: Rich Burgundy (Paid Ads) */
+.pillar-card.paid .gradient-overlay {
+  background: linear-gradient(
+    to top,
+    rgba(131, 24, 67, 0.92) 0%,       /* #831843 - Deep burgundy */
+    rgba(157, 23, 77, 0.75) 50%,      /* #9d174d - Rich wine */
+    rgba(157, 23, 77, 0.4) 75%,
+    transparent 100%
+  );
+}
+
+/* CARD 3: Burnt Orange (Content Creation) */
+.pillar-card.content .gradient-overlay {
+  background: linear-gradient(
+    to top,
+    rgba(194, 65, 12, 0.92) 0%,       /* #c2410c - Burnt orange */
+    rgba(154, 52, 18, 0.75) 50%,      /* #9a3412 - Deep terracotta */
+    rgba(154, 52, 18, 0.4) 75%,
+    transparent 100%
+  );
+}
+
+/* CARD 4: Deep Emerald (Influencer) */
+.pillar-card.influencer .gradient-overlay {
+  background: linear-gradient(
+    to top,
+    rgba(4, 120, 87, 0.92) 0%,        /* #047857 - Deep emerald */
+    rgba(6, 95, 70, 0.75) 50%,        /* #065f46 - Forest green */
+    rgba(6, 95, 70, 0.4) 75%,
+    transparent 100%
+  );
+}
+
+.gradient-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}
+
+/* ─────────────────────────────────── */
+/* CARD CONTENT */
+/* ─────────────────────────────────── */
+
+.card-content {
+  position: relative;
+  z-index: 3;
+  height: 100%;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.card-icon {
+  font-size: 40px;
+  margin-bottom: 20px;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.5));
+  transition: transform 0.3s ease;
+}
+
+.pillar-card:hover .card-icon {
+  transform: scale(1.1);
+}
+
+.card-title {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 36px;
+  font-weight: 800;
+  line-height: 1.15;
+  color: #ffffff;
+  margin-bottom: 16px;
+  text-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
+  letter-spacing: -0.5px;
+}
+
+.card-description {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.95);
+  margin-bottom: 28px;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+  max-width: 90%;
+}
+
+/* ─────────────────────────────────── */
+/* CARD CTA BUTTONS - ELITE STYLING */
+/* ─────────────────────────────────── */
+
+.card-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: 0.3px;
+  
+  color: #ffffff;
+  text-decoration: none;
+  
+  padding: 16px 28px;
+  border-radius: 12px;
+  
+  width: fit-content;
+  
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Card 1 CTA: Purple */
+.pillar-card.organic .card-cta {
+  background: rgba(168, 85, 247, 0.25);
+  border: 1.5px solid rgba(168, 85, 247, 0.5);
+  box-shadow: 0 8px 24px rgba(168, 85, 247, 0.2);
+}
+
+.pillar-card.organic .card-cta:hover {
+  background: rgba(168, 85, 247, 0.4);
+  border-color: rgba(168, 85, 247, 0.8);
+  box-shadow: 0 12px 32px rgba(168, 85, 247, 0.35);
+  transform: translateX(6px);
+}
+
+/* Card 2 CTA: Deep Rose */
+.pillar-card.paid .card-cta {
+  background: rgba(219, 39, 119, 0.25);
+  border: 1.5px solid rgba(219, 39, 119, 0.5);
+  box-shadow: 0 8px 24px rgba(219, 39, 119, 0.2);
+}
+
+.pillar-card.paid .card-cta:hover {
+  background: rgba(219, 39, 119, 0.4);
+  border-color: rgba(219, 39, 119, 0.8);
+  box-shadow: 0 12px 32px rgba(219, 39, 119, 0.35);
+  transform: translateX(6px);
+}
+
+/* Card 3 CTA: Burnt Orange */
+.pillar-card.content .card-cta {
+  background: rgba(234, 88, 12, 0.25);
+  border: 1.5px solid rgba(234, 88, 12, 0.5);
+  box-shadow: 0 8px 24px rgba(234, 88, 12, 0.2);
+}
+
+.pillar-card.content .card-cta:hover {
+  background: rgba(234, 88, 12, 0.4);
+  border-color: rgba(234, 88, 12, 0.8);
+  box-shadow: 0 12px 32px rgba(234, 88, 12, 0.35);
+  transform: translateX(6px);
+}
+
+/* Card 4 CTA: Emerald Green */
+.pillar-card.influencer .card-cta {
+  background: rgba(16, 185, 129, 0.25);
+  border: 1.5px solid rgba(16, 185, 129, 0.5);
+  box-shadow: 0 8px 24px rgba(16, 185, 129, 0.2);
+}
+
+.pillar-card.influencer .card-cta:hover {
+  background: rgba(16, 185, 129, 0.4);
+  border-color: rgba(16, 185, 129, 0.8);
+  box-shadow: 0 12px 32px rgba(16, 185, 129, 0.35);
+  transform: translateX(6px);
+}
+
+.card-cta svg {
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-cta:hover svg {
+  transform: translateX(4px);
+}
+
+/* ─────────────────────────────────── */
+/* MOBILE RESPONSIVE */
+/* ─────────────────────────────────── */
+
+@media (max-width: 767px) {
+  .four-pillars {
+    padding: 80px 20px;
+  }
+  
+  .pillars-header {
+    margin-bottom: 60px;
+  }
+  
+  .pillar-card {
+    height: 480px;
+  }
+  
+  .card-content {
+    padding: 32px 28px;
+  }
+  
+  .card-title {
+    font-size: 30px;
+  }
+  
+  .card-description {
+    font-size: 16px;
+    max-width: 100%;
+  }
+}
+
+═══════════════════════════════════════════════════════════
+IMAGE REQUIREMENTS
+═══════════════════════════════════════════════════════════
+
+For each card, use EXISTING high-quality images from the project:
+
+CARD 1 (Organic Social):
+- Look for images showing: social media posts, Instagram content, 
+  TikTok videos, community engagement
+- Filename might be: organic-social.jpg, social-content.jpg, 
+  instagram-posts.jpg, etc.
+
+CARD 2 (Paid Ads):
+- Look for images showing: ad campaigns, Meta Ads Manager, 
+  Google Ads dashboard, performance graphs
+- Filename might be: paid-ads.jpg, ad-campaign.jpg, 
+  meta-ads.jpg, etc.
+
+CARD 3 (Content Creation):
+- Look for images/videos showing: video production, photography, 
+  motion graphics, content being created
+- Filename might be: content-creation.jpg, video-production.mp4, 
+  creative-work.jpg, etc.
+- PREFER VIDEO if available
+
+CARD 4 (Influencer):
+- Look for images showing: influencer partnerships, creator content, 
+  collaborative campaigns
+- Filename might be: influencer.jpg, creator-partnerships.jpg, 
+  influencer-campaign.jpg, etc.
+
+IMPORTANT: 
+- Use the ACTUAL file paths from the project
+- Images should be high resolution (at least 1200px wide)
+- Optimize images for web (compress without losing quality)
+- If images don't exist, use placeholder and notify user
+
+═══════════════════════════════════════════════════════════
+FINAL CHECKLIST
+═══════════════════════════════════════════════════════════
+
+✓ All 4 cards use existing high-quality background images
+✓ Elite color palette: Purple, Burgundy, Burnt Orange, Emerald
+✓ Dark, sophisticated gradient overlays (not bright/playful)
+✓ Minimal text: Title + 1 short benefit line + CTA
+✓ Smooth hover effects with proper easing
+✓ Fully responsive for mobile
+✓ Premium typography (Inter font family)
+✓ Proper shadows and depth
+✓ Professional, editorial aesthetic
+✓ NO playful colors or childish design
+
+This is a PREMIUM CREATIVE AGENCY.
+The design should feel like Vogue, not a SaaS startup.

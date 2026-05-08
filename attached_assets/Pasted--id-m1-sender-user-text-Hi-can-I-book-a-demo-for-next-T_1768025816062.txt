@@ -1,0 +1,98 @@
+[
+  {
+    "id": "m1",
+    "sender": "user",
+    "text": "Hi — can I book a demo for next Tuesday at 10am?",
+    "time_offset_ms": 0,
+    "message_type": "text",
+    "source_badge": "Website Chat"
+  },
+  {
+    "id": "m2",
+    "sender": "agent",
+    "text": "Hi Sahan 👋 — I can book that. Which timezone should I use? (Malta or Home)",
+    "time_offset_ms": 800,
+    "message_type": "text",
+    "source_badge": "OARC AI (trained)"
+  },
+  {
+    "id": "m3",
+    "sender": "user",
+    "text": "Malta time please — and send an invite to sahan@oarc.com",
+    "time_offset_ms": 1400,
+    "message_type": "text",
+    "source_badge": "Website Chat"
+  },
+  {
+    "id": "m4",
+    "sender": "agent",
+    "text": "Got it. I found availability next Tue 10:00 CET. I booked the slot and sent an invite. Would you like a reminder 1 hour before?",
+    "time_offset_ms": 2200,
+    "message_type": "action",
+    "source_badge": "Calendar API"
+  },
+  {
+    "id": "m5",
+    "sender": "user",
+    "text": "Yes please",
+    "time_offset_ms": 3000,
+    "message_type": "text",
+    "source_badge": "Website Chat"
+  },
+  {
+    "id": "m6",
+    "sender": "agent",
+    "text": "Done — reminder created. Also, I attached the demo brief and your call link to the calendar invite.",
+    "time_offset_ms": 3600,
+    "message_type": "file",
+    "source_badge": "CRM"
+  },
+  {
+    "id": "m7",
+    "sender": "user",
+    "text": "Can you answer a quick Q — do you handle refunds?",
+    "time_offset_ms": 4800,
+    "message_type": "text",
+    "source_badge": "Website Chat"
+  },
+  {
+    "id": "m8",
+    "sender": "agent",
+    "text": "Yes — I can check order #45892. One moment while I look it up.",
+    "time_offset_ms": 5400,
+    "message_type": "text",
+    "source_badge": "Order DB"
+  },
+  {
+    "id": "m9",
+    "sender": "agent",
+    "text": "Order #45892 shipped yesterday by courier — expected Thu 17:00. Would you like to initiate a refund or wait for delivery?",
+    "time_offset_ms": 7600,
+    "message_type": "text",
+    "source_badge": "Order DB"
+  },
+  {
+    "id": "m10",
+    "sender": "user",
+    "text": "Please cancel and refund. It was the wrong size.",
+    "time_offset_ms": 8800,
+    "message_type": "text",
+    "source_badge": "Website Chat"
+  },
+  {
+    "id": "m11",
+    "sender": "agent",
+    "text": "Refund initiated — €49.99 will be returned to the original payment method within 3–5 business days. I'll email the confirmation now.",
+    "time_offset_ms": 9600,
+    "message_type": "text",
+    "source_badge": "Payments API"
+  },
+  {
+    "id": "m12",
+    "sender": "agent",
+    "text": "If you prefer, I can rebook a different size and send a return label. Which would you like?",
+    "time_offset_ms": 10400,
+    "message_type": "text",
+    "source_badge": "CRM"
+  }
+]

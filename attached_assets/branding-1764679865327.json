@@ -1,0 +1,86 @@
+{
+  "colorScheme": "dark",
+  "fonts": [
+    {
+      "family": "Spline Sans",
+      "role": "body"
+    },
+    {
+      "family": "PP Formula Extended Bold",
+      "role": "heading"
+    },
+    {
+      "family": "Inter",
+      "role": "body"
+    }
+  ],
+  "colors": {
+    "primary": "#47F5E4",
+    "accent": "#1863DC",
+    "background": "#0A0409",
+    "textPrimary": "#0A0409",
+    "link": "#1863DC"
+  },
+  "typography": {
+    "fontFamilies": {
+      "primary": "Spline Sans",
+      "heading": "PP Formula Extended Bold"
+    },
+    "fontStacks": {
+      "heading": [
+        "PP Formula Extended Bold",
+        "sans-serif"
+      ],
+      "body": [
+        "Spline Sans",
+        "sans-serif"
+      ],
+      "paragraph": [
+        "Spline Sans",
+        "sans-serif"
+      ]
+    },
+    "fontSizes": {
+      "h1": "70px",
+      "h2": "326.4px",
+      "body": "18px"
+    }
+  },
+  "spacing": {
+    "baseUnit": 4,
+    "borderRadius": "4px"
+  },
+  "components": {
+    "input": {
+      "borderColor": "#CCCCCC",
+      "borderRadius": "4px"
+    }
+  },
+  "images": {
+    "logo": "https://bullshark.digital/wp-content/uploads/2023/11/logo.svg",
+    "favicon": "https://bullshark.digital/wp-content/uploads/2023/12/cropped-Frame-4666-32x32.png",
+    "ogImage": "https://bullshark.digital/wp-content/uploads/2025/07/Rectangle-1416-1024x418.webp"
+  },
+  "__framework_hints": [
+    "WordPress 6.8.3"
+  ],
+  "__llm_logo_reasoning": {
+    "selectedIndex": 0,
+    "reasoning": "The logo at index 0 is the only one that visually represents the brand name 'bullshark.digital' and is located in the header, linking to the homepage, making it the primary brand logo.",
+    "confidence": 0.95
+  },
+  "personality": {
+    "tone": "modern",
+    "energy": "high",
+    "targetAudience": "digital marketing professionals and businesses seeking innovative solutions"
+  },
+  "designSystem": {
+    "framework": "tailwind",
+    "componentLibrary": null
+  },
+  "confidence": {
+    "buttons": 0.9,
+    "colors": 0.95,
+    "overall": 0.925
+  }
+}

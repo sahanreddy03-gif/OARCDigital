@@ -1,0 +1,104 @@
+{
+  "colorScheme": "light",
+  "fonts": [
+    {
+      "family": "Switzer",
+      "role": "body"
+    },
+    {
+      "family": "Clash Display",
+      "role": "display"
+    }
+  ],
+  "colors": {
+    "primary": "#072231",
+    "accent": "#23AACA",
+    "background": "#FFFFFF",
+    "textPrimary": "#000022",
+    "link": "#000022"
+  },
+  "typography": {
+    "fontFamilies": {
+      "primary": "Switzer",
+      "heading": "Clash Display"
+    },
+    "fontStacks": {
+      "heading": [
+        "ClashDisplay-Variable"
+      ],
+      "body": [
+        "Switzer"
+      ],
+      "paragraph": [
+        "Switzer"
+      ]
+    },
+    "fontSizes": {
+      "h1": "32px",
+      "h2": "32px",
+      "body": "20px"
+    }
+  },
+  "spacing": {
+    "baseUnit": 4,
+    "borderRadius": "12px"
+  },
+  "components": {
+    "input": {
+      "borderColor": "#CCCCCC",
+      "borderRadius": "12px"
+    },
+    "buttonPrimary": {
+      "background": "#23AACA",
+      "textColor": "#FFFFFF",
+      "borderRadius": "0px",
+      "shadow": "none"
+    },
+    "buttonSecondary": {
+      "background": "#F8F8FF",
+      "textColor": "#000022",
+      "borderRadius": "0px",
+      "shadow": "none"
+    }
+  },
+  "images": {
+    "logo": "https://gojilabs.com/wp-content/uploads/2021/11/Logo-1.png",
+    "favicon": "https://gojilabs.com/wp-content/uploads/2022/01/Frame-3.png",
+    "ogImage": "https://gojilabs.com/wp-content/uploads/2024/11/mvp-app-dev.webp"
+  },
+  "__framework_hints": [
+    "WP Rocket 3.19.0.1"
+  ],
+  "__llm_logo_reasoning": {
+    "selectedIndex": 0,
+    "reasoning": "Logo #0 visually represents the brand name 'Goji Labs | App & Software Development, UI/UX Design' and is located in the header, linking to the homepage, making it the main brand logo.",
+    "confidence": 0.9
+  },
+  "__llm_button_reasoning": {
+    "primary": {
+      "index": 10,
+      "text": "Read Case Study",
+      "reasoning": "Button #10 has a vibrant blue background (#23AACA) and action-oriented text 'Read Case Study', making it the primary call-to-action. It stands out due to its color and purpose."
+    },
+    "secondary": {
+      "index": 0,
+      "text": "Free Consultation",
+      "reasoning": "Button #0 has a blue background (#F8F8FF) and text 'Free Consultation', which is less prominent than the primary button. It serves as a secondary action, distinct from the primary button's color."
+    },
+    "confidence": 0.95
+  },
+  "personality": {
+    "tone": "professional",
+    "energy": "medium",
+    "targetAudience": "businesses and startups looking for app development and design services."
+  },
+  "designSystem": {
+    "framework": "unknown",
+    "componentLibrary": null
+  },
+  "confidence": {
+    "buttons": 0.95,
+    "colors": 0.9,
+    "overall": 0.925
+  }
+}

@@ -1,0 +1,277 @@
+ rest-express@1.0.0 build
+> next build
+
+  ▲ Next.js 14.2.35
+
+   Creating an optimized production build ...
+ ⨯ Failed to find font override values for font `Nunito Sans`
+ ⨯ Failed to find font override values for font `Nunito Sans`
+Browserslist: browsers data (caniuse-lite) is 18 months old. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+Browserslist: caniuse-lite is outdated. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+ ✓ Compiled successfully
+   Skipping linting
+ ✓ Checking validity of types    
+ ✓ Collecting page data    
+ ✓ Generating static pages (621/621)
+ ✓ Collecting build traces    
+ ✓ Finalizing page optimization    
+
+Route (app)                                                        Size     First Load JS
+┌ ○ /                                                              106 kB          292 kB
+├ ○ /_not-found                                                    142 B          87.8 kB
+├ ○ /aeo/ai-agency-malta                                           3.22 kB         148 kB
+├ ○ /aeo/ai-agents-business-malta                                  3.22 kB         148 kB
+├ ○ /aeo/ai-chatbot-malta                                          3.22 kB         148 kB
+├ ○ /aeo/app-development-malta                                     3.22 kB         148 kB
+├ ○ /aeo/best-marketing-agency-malta                               3.22 kB         148 kB
+├ ○ /aeo/branding-agency-malta                                     3.22 kB         148 kB
+├ ○ /aeo/content-creation-malta                                    3.22 kB         148 kB
+├ ○ /aeo/crm-automation-malta                                      3.22 kB         148 kB
+├ ○ /aeo/custom-software-malta                                     3.22 kB         148 kB
+├ ○ /aeo/digital-marketing-agency-malta                            3.22 kB         148 kB
+├ ○ /aeo/digital-transformation-malta                              3.22 kB         148 kB
+├ ○ /aeo/ecommerce-malta                                           3.22 kB         148 kB
+├ ○ /aeo/hospitality-360-malta                                     3.22 kB         148 kB
+├ ○ /aeo/hospitality-360-system                                    3.22 kB         148 kB
+├ ○ /aeo/hotel-marketing-malta                                     3.22 kB         148 kB
+├ ○ /aeo/igaming-marketing-malta                                   3.22 kB         148 kB
+├ ○ /aeo/influencer-marketing-malta                                3.22 kB         148 kB
+├ ○ /aeo/instagram-marketing-malta                                 3.22 kB         148 kB
+├ ○ /aeo/marketing-agency-birkirkara                               3.22 kB         148 kB
+├ ○ /aeo/marketing-agency-gzira                                    3.22 kB         148 kB
+├ ○ /aeo/marketing-agency-mellieha                                 3.22 kB         148 kB
+├ ○ /aeo/marketing-agency-mosta                                    3.22 kB         148 kB
+├ ○ /aeo/marketing-agency-paola                                    3.22 kB         148 kB
+├ ○ /aeo/marketing-agency-qormi                                    3.22 kB         148 kB
+├ ○ /aeo/marketing-agency-sliema                                   3.22 kB         148 kB
+├ ○ /aeo/marketing-agency-st-julians                               3.22 kB         148 kB
+├ ○ /aeo/marketing-agency-swieqi                                   3.22 kB         148 kB
+├ ○ /aeo/marketing-agency-valletta                                 3.22 kB         148 kB
+├ ○ /aeo/marketing-automation-malta                                3.22 kB         148 kB
+├ ○ /aeo/mobile-app-developers-malta                               3.22 kB         148 kB
+├ ○ /aeo/outsource-development-malta                               3.22 kB         148 kB
+├ ○ /aeo/paid-advertising-malta                                    3.22 kB         148 kB
+├ ○ /aeo/pos-systems-malta                                         3.22 kB         148 kB
+├ ○ /aeo/restaurant-marketing-malta                                3.22 kB         148 kB
+├ ○ /aeo/saas-development-malta                                    3.22 kB         148 kB
+├ ○ /aeo/seo-agency-malta                                          3.22 kB         148 kB
+├ ○ /aeo/social-media-agency-malta                                 3.22 kB         148 kB
+├ ○ /aeo/software-development-malta                                3.22 kB         148 kB
+├ ○ /aeo/tiktok-marketing-malta                                    3.22 kB         148 kB
+├ ○ /aeo/video-production-malta                                    3.22 kB         148 kB
+├ ○ /aeo/web-design-malta                                          3.22 kB         148 kB
+├ ○ /aeo/web-development-agency-malta                              3.22 kB         148 kB
+├ ○ /aeo/website-development-malta                                 3.22 kB         148 kB
+├ ○ /aeo/whatsapp-automation-malta                                 3.22 kB         148 kB
+├ ○ /ai-agents                                                     11.1 kB         219 kB
+├ ● /ai-agents/[agentId]                                           3.09 kB         208 kB
+├   ├ /ai-agents/sales
+├   ├ /ai-agents/support
+├   ├ /ai-agents/bookings
+├   └ [+12 more paths]
+├ ƒ /api/chat                                                      0 B                0 B
+├ ƒ /api/leads                                                     0 B                0 B
+├ ○ /automation                                                    6.93 kB         200 kB
+├ ○ /blog                                                          3.22 kB         148 kB
+├ ○ /blog/ai-automation-malta                                      1.49 kB         140 kB
+├ ○ /blog/ai-marketing-malta                                       7.07 kB         288 kB
+├ ○ /blog/ai-sales-automation-malta                                6.2 kB          287 kB
+├ ○ /blog/ai-solutions-malta                                       5.62 kB         286 kB
+├ ○ /blog/branding-agency-malta                                    3.22 kB         148 kB
+├ ○ /blog/content-marketing-malta                                  3.22 kB         148 kB
+├ ○ /blog/content-strategy-malta                                   1.49 kB         140 kB
+├ ○ /blog/digital-marketing-malta                                  9.35 kB         298 kB
+├ ○ /blog/ecommerce-marketing-malta                                1.49 kB         140 kB
+├ ○ /blog/email-marketing-malta                                    1.49 kB         140 kB
+├ ○ /blog/facebook-ads-malta                                       1.49 kB         140 kB
+├ ○ /blog/google-ads-malta                                         1.49 kB         140 kB
+├ ○ /blog/hospitality-marketing-malta                              1.49 kB         140 kB
+├ ○ /blog/hotel-marketing-malta                                    3.22 kB         148 kB
+├ ○ /blog/igaming-marketing-malta                                  3.22 kB         148 kB
+├ ○ /blog/instagram-marketing-malta                                7 kB            287 kB
+├ ○ /blog/linkedin-marketing-malta                                 1.49 kB         140 kB
+├ ○ /blog/local-seo-malta                                          1.49 kB         140 kB
+├ ○ /blog/marketing-agency-malta                                   3.22 kB         148 kB
+├ ○ /blog/marketing-trends-malta-2025                              9.46 kB         288 kB
+├ ○ /blog/paid-advertising-malta                                   4.7 kB          186 kB
+├ ○ /blog/pjazza-live-video-marketplace-malta                      1.49 kB         140 kB
+├ ○ /blog/reputation-management-malta                              1.49 kB         140 kB
+├ ○ /blog/restaurant-marketing-malta                               3.22 kB         148 kB
+├ ○ /blog/seo-malta-complete-guide                                 7.1 kB          292 kB
+├ ○ /blog/social-media-management-cost-malta                       6.5 kB          287 kB
+├ ○ /blog/tiktok-for-malta-businesses                              6.82 kB         287 kB
+├ ○ /blog/video-production-malta                                   6.6 kB          287 kB
+├ ○ /blog/web-design-malta                                         3.22 kB         148 kB
+├ ○ /case-studies/apex-fitness-collective                          5.11 kB         187 kB
+├ ○ /case-studies/authentic-stories                                6.17 kB         178 kB
+├ ○ /case-studies/cloudbase-technologies                           5.03 kB         177 kB
+├ ○ /case-studies/cricketpulse-india                               8.68 kB         188 kB
+├ ○ /case-studies/digital-finance-solutions                        5.8 kB          178 kB
+├ ○ /case-studies/fanstake-sports-platform                         7.95 kB         190 kB
+├ ○ /case-studies/fitnesspro-network                               5.11 kB         187 kB
+├ ○ /case-studies/gamingtech-elite                                 5.23 kB         187 kB
+├ ○ /case-studies/global-supply-systems                            5.96 kB         178 kB
+├ ○ /case-studies/healthpath-ai                                    5.8 kB          178 kB
+├ ○ /case-studies/heritage-luxury-group                            5.7 kB          178 kB
+├ ○ /case-studies/homecraft-innovations                            7.36 kB         180 kB
+├ ○ /case-studies/luxe-essence                                     4.82 kB         187 kB
+├ ○ /case-studies/maison-lumiere                                   4.82 kB         187 kB
+├ ○ /case-studies/national-distributor-nlp                         7.13 kB         189 kB
+├ ○ /case-studies/naturalcare-beauty                               7.67 kB         187 kB
+├ ○ /case-studies/nexgen-retail-ai-transformation                  10.3 kB         189 kB
+├ ○ /case-studies/phantom-peripherals                              5.22 kB         187 kB
+├ ○ /case-studies/pjazza                                           7.24 kB         179 kB
+├ ○ /case-studies/progamer-network                                 5.06 kB         187 kB
+├ ○ /case-studies/propflow-property-platform                       7.94 kB         190 kB
+├ ○ /case-studies/riftleague                                       5.06 kB         187 kB
+├ ○ /case-studies/sportsai-interactive                             5.57 kB         178 kB
+├ ○ /case-studies/strategypulse-enterprise                         6.71 kB         189 kB
+├ ○ /case-studies/talentscale-solutions                            5.23 kB         177 kB
+├ ○ /case-studies/venturehub-co                                    6.27 kB         185 kB
+├ ○ /case-studies/volta-home                                       7.36 kB         180 kB
+├ ○ /comparison                                                    3.22 kB         148 kB
+├ ○ /contact                                                       9.34 kB         188 kB
+├ ○ /creative                                                      16 kB           197 kB
+├ ○ /diagnostic                                                    13.8 kB         159 kB
+├ ○ /diagnostics                                                   5.03 kB         186 kB
+├ ○ /enterprise                                                    1.49 kB         140 kB
+├ ○ /image-sitemap.xml                                             0 B                0 B
+├ ○ /industries                                                    3.22 kB         148 kB
+├ ● /industries/[industry]                                         3.22 kB         148 kB
+├   ├ /industries/restaurant
+├   ├ /industries/hotel
+├   └ /industries/real-estate
+├ ○ /intelligence                                                  5.03 kB         186 kB
+├ ○ /legal/cookie-policy                                           5.32 kB         178 kB
+├ ○ /legal/privacy-policy                                          5.89 kB         178 kB
+├ ○ /legal/terms-conditions                                        5.91 kB         178 kB
+├ ● /malta/[location]                                              1.49 kB         140 kB
+├   ├ /malta/valletta
+├   ├ /malta/sliema
+├   ├ /malta/st-julians
+├   └ [+7 more paths]
+├ ● /malta/[location]/[slug]                                       3.22 kB         148 kB
+├   ├ /malta/valletta/social-media-creative-management
+├   ├ /malta/valletta/digital-marketing
+├   ├ /malta/valletta/paid-advertising
+├   └ [+47 more paths]
+├ ● /malta/[location]/[slug]/[service]                             1.49 kB         140 kB
+├   ├ /malta/valletta/restaurant/social-media-creative-management
+├   ├ /malta/valletta/restaurant/digital-marketing
+├   ├ /malta/valletta/restaurant/paid-advertising
+├   └ [+147 more paths]
+├ ○ /our-work                                                      4.93 kB         188 kB
+├ ○ /pdf-hub                                                       3.06 kB         148 kB
+├ ○ /pdf/ai-creative-profile                                       274 B            88 kB
+├ ○ /pdf/capabilities-deck                                         10.5 kB         109 kB
+├ ○ /pdf/company-profile                                           274 B            88 kB
+├ ○ /pdf/one-pager                                                 274 B            88 kB
+├ ○ /pricing                                                       13.3 kB         192 kB
+├ ○ /research                                                      190 B            99 kB
+├ ● /research/[slug]                                               4.19 kB         230 kB
+├   ├ /research/malta-restaurant-marketing-report-2026
+├   ├ /research/malta-hospitality-ai-survey-2026
+├   ├ /research/malta-agency-pricing-benchmark-2026
+├   └ [+2 more paths]
+├ ○ /resources                                                     5.11 kB         150 kB
+├ ○ /roadmap                                                       5.6 kB          188 kB
+├ ○ /roadmap-2026                                                  5.6 kB          188 kB
+├ ○ /robots.txt                                                    0 B                0 B
+├ ○ /services                                                      4.32 kB         182 kB
+├ ƒ /services/[serviceSlug]                                        5.6 kB          178 kB
+├ ● /services/[serviceSlug]/[industry]                             8.57 kB         188 kB
+├   ├ /services/social-media-creative-management/restaurant
+├   ├ /services/social-media-creative-management/hotel
+├   ├ /services/social-media-creative-management/real-estate
+├   └ [+177 more paths]
+├ ○ /services/ad-creative                                          6.07 kB         203 kB
+├ ○ /services/ai-admin-agent                                       183 B           210 kB
+├ ○ /services/ai-appointment-booker                                184 B           210 kB
+├ ○ /services/ai-compliance-auditor                                183 B           210 kB
+├ ○ /services/ai-consulting                                        14.8 kB         202 kB
+├ ○ /services/ai-copywriting                                       7.92 kB         204 kB
+├ ○ /services/ai-data-analyst                                      184 B           210 kB
+├ ○ /services/ai-real-estate-agent                                 183 B           210 kB
+├ ○ /services/ai-revenue-engine                                    8.13 kB         196 kB
+├ ○ /services/ai-sdr-agent                                         184 B           210 kB
+├ ○ /services/ai-support-specialist                                8.07 kB         196 kB
+├ ○ /services/ai-virtual-talent-hub                                7.65 kB         201 kB
+├ ○ /services/api-integration                                      10.2 kB         198 kB
+├ ○ /services/api-integration-services                             10.2 kB         198 kB
+├ ○ /services/branding                                             11.9 kB         205 kB
+├ ○ /services/content-marketing                                    3.22 kB         148 kB
+├ ○ /services/creative                                             8.94 kB         197 kB
+├ ○ /services/custom-software-development                          12.2 kB         200 kB
+├ ○ /services/customer-acquisition                                 183 B           363 kB
+├ ○ /services/customer-acquisition-accelerator                     182 B           363 kB
+├ ○ /services/database-design                                      3.22 kB         148 kB
+├ ○ /services/design-systems                                       6.89 kB         203 kB
+├ ○ /services/devops-services                                      3.22 kB         148 kB
+├ ○ /services/digital-marketing                                    6.72 kB         203 kB
+├ ○ /services/ecommerce-development                                3.22 kB         148 kB
+├ ○ /services/email-creative                                       6.28 kB         203 kB
+├ ○ /services/email-marketing                                      3.22 kB         148 kB
+├ ○ /services/funnel-automation                                    183 B           363 kB
+├ ○ /services/funnel-optimization-agent                            183 B           363 kB
+├ ○ /services/growth-strategy                                      5.91 kB         202 kB
+├ ○ /services/hire-ai-employees                                    7.64 kB         201 kB
+├ ○ /services/idea-validation-engine                               183 B           363 kB
+├ ○ /services/illustration                                         6.16 kB         203 kB
+├ ○ /services/immersive-3d-ar                                      6.24 kB         203 kB
+├ ○ /services/influencer                                           8.13 kB         196 kB
+├ ○ /services/influencer-marketing                                 6.38 kB         203 kB
+├ ○ /services/lead-generation                                      183 B           363 kB
+├ ○ /services/lead-generation-engine                               183 B           363 kB
+├ ○ /services/marketing-automation-suite                           183 B           363 kB
+├ ○ /services/media-buying                                         6.39 kB         203 kB
+├ ○ /services/mobile-applications-development                      8.17 kB         198 kB
+├ ○ /services/mobile-apps-development                              8.17 kB         198 kB
+├ ○ /services/motion-design                                        6.29 kB         203 kB
+├ ○ /services/mvp-development                                      14 kB           204 kB
+├ ○ /services/mvp-development/for-software                         14.2 kB         202 kB
+├ ○ /services/paid                                                 8.7 kB          196 kB
+├ ○ /services/paid-advertising                                     12.3 kB         214 kB
+├ ○ /services/performance-analytics                                5.95 kB         202 kB
+├ ○ /services/presentation-pitch                                   6.66 kB         203 kB
+├ ○ /services/print-packaging                                      6.56 kB         203 kB
+├ ○ /services/rapid-idea-testing                                   6.56 kB         203 kB
+├ ○ /services/revenue-automation                                   8.13 kB         196 kB
+├ ○ /services/saas-development                                     3.22 kB         148 kB
+├ ○ /services/seo-services                                         3.22 kB         148 kB
+├ ○ /services/shopify-development                                  3.22 kB         148 kB
+├ ○ /services/social                                               8.6 kB          196 kB
+├ ○ /services/social-media-creative-management                     20.4 kB         214 kB
+├ ○ /services/video-production                                     12.4 kB         206 kB
+├ ○ /services/web-apps-development                                 3.22 kB         148 kB
+├ ○ /services/web-design                                           11.8 kB         205 kB
+├ ○ /services/wordpress-development                                3.22 kB         148 kB
+├ ○ /sitemap-aeo.xml                                               0 B                0 B
+├ ○ /sitemap-blog.xml                                              0 B                0 B
+├ ○ /sitemap-case-studies.xml                                      0 B                0 B
+├ ○ /sitemap-core.xml                                              0 B                0 B
+├ ○ /sitemap-industries.xml                                        0 B                0 B
+├ ○ /sitemap-malta.xml                                             0 B                0 B
+├ ○ /sitemap-services.xml                                          0 B                0 B
+├ ○ /sitemap.xml                                                   0 B                0 B
+├ ○ /solutions                                                     6.92 kB         200 kB
+├ ○ /tools                                                         17.4 kB         205 kB
+├ ○ /tools/malta-digital-score                                     5.09 kB         177 kB
+├ ○ /why-oarc                                                      3.22 kB         148 kB
+└ ○ /why-us                                                        50.6 kB         223 kB
++ First Load JS shared by all                                      87.7 kB
+  ├ chunks/2117-29730092588f34d3.js                                31.9 kB
+  ├ chunks/fd9d1056-dda8f8960881b7f6.js                            53.7 kB
+  └ other shared chunks (total)                                    2.15 kB
+
+
+ƒ Middleware                                                       46.4 kB
+
+○  (Static)   prerendered as static content
+●  (SSG)      prerendered as static HTML (uses getStaticProps)
+ƒ  (Dynamic)  server-rendered on demand
+
+~/workspace$ 

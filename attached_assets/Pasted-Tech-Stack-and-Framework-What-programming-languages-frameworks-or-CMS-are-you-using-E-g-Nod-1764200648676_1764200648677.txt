@@ -1,0 +1,33 @@
+Tech Stack and Framework
+•  What programming languages, frameworks, or CMS are you using? (E.g., Node.js with Express/React/Next.js, PHP with WordPress, static HTML/CSS/JS, Python with Django/Flask, etc.)
+•  Is it a static site (pre-built pages, no server-side rendering) or dynamic (requires runtime processing, databases, user interactions)?
+•  Any specific dependencies or build tools? (E.g., npm/yarn for Node, Composer for PHP, or custom scripts.)
+2. Site Size and Complexity
+•  Number of pages (you mentioned “too many”—is it 100+, 1,000+?) and types (e.g., mostly static content, forms, e-commerce, blogs).
+•  Details on animations and media: What library handles them (e.g., GSAP, CSS transitions, Lottie)? Are they heavy (e.g., video embeds, high-res images, interactive elements that could impact load times)?
+•  File sizes: Approximate total size of the site (e.g., 100 MB code/assets) and any large assets (e.g., images/videos over 1 MB each).
+•  Database usage: Do you have one? If yes, type (e.g., MongoDB, PostgreSQL, MySQL), size (e.g., number of records/tables), and how it’s accessed (e.g., read-heavy, write-heavy).
+3. Traffic and Usage Patterns
+•  Expected or current monthly visitors/users (e.g., 1K, 10K, 100K+)?
+•  Peak times or spikes (e.g., daily highs during business hours, seasonal surges)?
+•  Geographic distribution of users (e.g., mostly US, global)? This affects CDN needs for speed.
+•  Interactivity level: Does it involve real-time features (e.g., chat, live updates via WebSockets), user logins, payments, or API calls?
+4. Security Requirements
+•  Why “cannot be compromised”? Specific concerns (e.g., handling sensitive data like user PII, payments, health info; compliance needs like GDPR, HIPAA, PCI-DSS)?
+•  Current security measures: SSL/TLS (HTTPS), firewalls, authentication (e.g., JWT, OAuth), input validation, rate limiting?
+•  Vulnerabilities or past issues: Any known risks in your stack (e.g., outdated dependencies)?
+•  Backup and recovery needs: How often do you need automated backups, and what’s your tolerance for downtime (e.g., under 5 minutes)?
+5. Performance Goals
+•  Target load times (e.g., under 2 seconds per page)?
+•  Current bottlenecks (e.g., slow queries, animation lag on mobile)?
+•  Testing done: Have you run tools like Google PageSpeed, Lighthouse, or GTmetrix? Share scores if available.
+•  Device/browser support: Mostly desktop, mobile-heavy, or specific browsers?
+6. Budget and Scalability
+•  Monthly budget range (e.g., under $50, $100–$500)?
+•  Growth plans: Will traffic double in 6 months? Need auto-scaling?
+•  Current hosting (if any): Provider, plan, and issues (e.g., Render’s costs too high?).
+7. Other Integrations and Requirements
+•  Third-party services: APIs (e.g., Stripe for payments, Google Maps), email (e.g., SendGrid), analytics (e.g., Google Analytics)?
+•  Custom domain and email: Already set up, or need hosting that includes them?
+•  Deployment process: How do you deploy now (e.g., Git push, manual uploads)? CI/CD needs?
+•  Environment specifics: Dev/staging/prod setups? Any server-side rendering or edge computing?
