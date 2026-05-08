@@ -34,3 +34,6 @@ tests/visual/test-results/
 # Must be tracked or Vercel build fails on missing import.
 !.local/seo/
 !.local/seo/restore.json
+
+# Replit chat upload scratch — never deploy
+attached_assets/
