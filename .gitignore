@@ -34,3 +34,6 @@ tests/visual/test-results/
 # Must be tracked or Vercel build fails on missing import.
 !.local/seo/
 !.local/seo/restore.json
+
+# Repo root scratch only — production assets live in public/attached_assets/
+/attached_assets/
