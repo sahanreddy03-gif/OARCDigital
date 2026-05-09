@@ -1,0 +1,22 @@
+# Lychee crawl exclude list (Task #93).
+#
+# This file is a `--exclude-path` argument to lychee in
+# scripts/lychee-crawl.sh. Patterns here are EXEMPT from the 404 gate.
+#
+# RULES (binding):
+#   - Internal 404s NEVER go in this file. They are bugs and must be
+#     fixed in the same PR that added them.
+#   - Only documented EXTERNAL-domain failures may be added — a partner
+#     page that 404'd outside our control, a deliberately broken
+#     example URL in copy, etc.
+#   - Every entry MUST carry a comment with: (a) the why, (b) the date
+#     it was added (YYYY-MM-DD), (c) the PR / task that added it.
+#   - Entries are reviewed every release. Stale entries (the upstream
+#     fixed the link, or we removed the inbound copy) must be deleted.
+#
+# Format: one regex per line. Lines starting with `#` are comments.
+# See https://lychee.cli.rs/usage/cli/#--exclude-path
+#
+# (no entries yet — Task #93 ships an empty allowlist; first lychee
+# run will populate it iff the on-call reviewer agrees the failure is
+# truly external and out of our control.)
