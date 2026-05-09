@@ -350,7 +350,7 @@ export default function AICreativeSection() {
 
       {/* Desktop: Horizontal Auto-Scrolling Carousel */}
       {isDesktop && (
-        <div className="relative w-full" data-testid="ai-creative-desktop-carousel">
+      <div className="relative w-full" data-testid="ai-creative-desktop-carousel">
           <div className="flex gap-4 md:gap-6 lg:gap-8 cursor-grab active:cursor-grabbing" data-testid="carousel-track" ref={trackRef} style={{ willChange: 'transform' }}>
             {duplicatedServices.map((service, index) => (
               <Link
@@ -391,7 +391,7 @@ export default function AICreativeSection() {
 
       {/* Mobile: Dual-Column Opposite Direction Infinite Scroll */}
       {!isDesktop && (
-        <div className="relative flex gap-3 px-4 h-[520px] overflow-hidden" data-testid="ai-creative-mobile-carousel">
+      <div className="relative flex gap-3 px-4 h-[520px] overflow-hidden" data-testid="ai-creative-mobile-carousel">
           {/* Left Column - Top to Bottom */}
           <div className="flex-1 relative h-full overflow-hidden">
             <div

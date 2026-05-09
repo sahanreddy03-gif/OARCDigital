@@ -162,6 +162,17 @@ export function middleware(req: NextRequest): NextResponse | undefined {
       if (ALL_SERVICES.has(slug)) return undefined;
       return gone();
     }
+    // Anything deeper than /services/{slug} is 410 by design (Task #109).
+    // The legacy `/services/{serviceSlug}/{industry}` programmatic route
+    // was deleted — service-pillar × industry combos are not part of the
+    // current SEO surface, only the standalone `/services/{slug}` and
+    // `/industries/{slug}` hubs are. The lone `/services/mvp-development/
+    // for-software` page is an exception that owns its own static file
+    // at `app/services/mvp-development/for-software/page.tsx`; we let it
+    // through here so Next can render it.
+    if (parts.length === 3 && parts[1] === "mvp-development" && parts[2] === "for-software") {
+      return undefined;
+    }
     if (parts.length > 2) return gone();
   }
 
