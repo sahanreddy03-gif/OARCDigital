@@ -12,3 +12,9 @@ id = "YocO0WecOQZORMU0LomWP"
 uri = "file://.local/site-audit-report.md"
 type = "text"
 title = "OARC Digital — Full Site Audit Report (201 pages, brutal-honest)"
+
+[[outputs]]
+id = "NVpIIMRnWO4fnjTBGUsGC"
+uri = "file://.local/task-109-diagnostics.txt"
+type = "text"
+title = "Task #109 diagnostics for Replit support"
