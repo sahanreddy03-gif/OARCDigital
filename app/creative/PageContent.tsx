@@ -1245,7 +1245,7 @@ export default function PageContent() {
                 x: {
                   repeat: Infinity,
                   repeatType: 'loop',
-                  duration: isDesktop ? 20 : 10,
+                  duration: 20,
                   ease: 'linear',
                 },
               }}
@@ -1324,9 +1324,8 @@ export default function PageContent() {
             </motion.div>
 
             {/* Service Carousel - Mobile: 2-column vertical, Desktop: horizontal */}
-            {isDesktop ? (
-              /* Desktop: Horizontal Auto-Scrolling Carousel */
-              <div className="relative w-full overflow-hidden">
+            {/* Desktop: Horizontal Auto-Scrolling Carousel */}
+              <div className="hidden lg:block relative w-full overflow-hidden">
                 <motion.div
                   className="flex gap-4"
                   animate={{ x: [0, -2880] }}
@@ -1359,9 +1358,8 @@ export default function PageContent() {
                   )}
                 </motion.div>
               </div>
-            ) : (
-              /* Mobile: 2-Column Vertical Floating Animation */
-              <div className="relative w-full h-[500px] overflow-hidden">
+              {/* Mobile: 2-Column Vertical Floating Animation */}
+              <div className="lg:hidden relative w-full h-[500px] overflow-hidden">
                 <div className="flex gap-3 h-full">
                   {/* Left Column - Scrolls Down */}
                   <div className="flex-1 overflow-hidden relative">
@@ -1415,7 +1413,6 @@ export default function PageContent() {
                   </div>
                 </div>
               </div>
-            )}
           </div>
         </section>
 
