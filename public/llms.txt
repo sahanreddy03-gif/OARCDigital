@@ -367,12 +367,12 @@ Value: Long-form Malta content programmes built around topic clusters and intern
 - Every article is written by a Malta-based editor — never AI-only output — and reviewed against a brand voice guide before publish.
 - Content programmes are reported monthly on organic traffic, ranking movement, and pipeline-attributed revenue from GA4.
 
-### Email Marketing Malta
+### Email Marketing Automation Malta
 Canonical: https://oarcdigital.com/services/email-marketing
-Value: Lifecycle email and CRM automation for Malta brands — segmented flows, GDPR-compliant consent, and revenue-attributed reporting from Klaviyo, HubSpot, or Customer.io.
-- OARC Digital builds welcome, abandoned-cart, post-purchase, and win-back flows on Klaviyo, HubSpot, or Customer.io within 4-6 weeks of kickoff.
-- All email programmes are GDPR-compliant with double opt-in, granular consent capture, and one-click unsubscribe per Malta DPA + EU ePrivacy guidance.
-- Monthly retainers include weekly campaign sends, deliverability monitoring (DMARC/SPF/DKIM), and revenue-attributed reporting.
+Value: Email automation for Malta brands on Klaviyo, Mailchimp, ActiveCampaign, and HubSpot — lifecycle flows, SPF/DKIM/DMARC alignment, and revenue-attributed reporting.
+- OARC Digital builds and operates email automation on Klaviyo, Mailchimp, ActiveCampaign, HubSpot, and Customer.io — typically 6-8 lifecycle and triggered flows live within 4-6 weeks of kickoff.
+- Every email automation engagement starts with an SPF, DKIM, and DMARC alignment audit and moves DMARC to p=quarantine once authentication is clean, per Gmail and Yahoo bulk-sender requirements since February 2024.
+- Email automation programmes report on revenue per recipient, per-flow attributed revenue, placed-order rate, deliverability metrics, and LTV lift — not vanity opens distorted by Apple Mail Privacy Protection.
 
 ### Ecommerce Development Malta
 Canonical: https://oarcdigital.com/services/ecommerce-development

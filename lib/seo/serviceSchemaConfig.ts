@@ -1278,107 +1278,107 @@ export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
   },
 
   "email-marketing": {
-    title: "Email Marketing Malta | Lifecycle, Newsletter & Automation | OARC Digital",
+    title: "Email Marketing Automation Malta | Klaviyo, Mailchimp, ActiveCampaign | OARC Digital",
     description:
-      "Email marketing programmes for Malta businesses — lifecycle, newsletters, transactional, and automation. Built on Klaviyo, Customer.io, and HubSpot. GDPR-clean.",
+      "Email marketing automation built on Klaviyo, Mailchimp, ActiveCampaign, and HubSpot — lifecycle flows, triggered campaigns, deliverability, segmentation, and revenue reporting for Malta brands.",
     offers: [
       {
-        name: "Newsletter Starter",
-        priceFrom: 690,
+        name: "Automation Starter",
+        priceFrom: 990,
         unitText: "MONTH",
         description:
-          "One newsletter per week, list hygiene, deliverability monitoring, and monthly performance review. Best for B2B brands building authority.",
+          "Platform set-up on Klaviyo or Mailchimp, three core triggered flows (welcome, abandoned cart, post-purchase), SPF/DKIM/DMARC alignment, and monthly reporting.",
       },
       {
         name: "Lifecycle Engine",
-        priceFrom: 1750,
+        priceFrom: 2200,
         unitText: "MONTH",
         description:
-          "Welcome, nurture, re-engagement, win-back, and post-purchase flows on Klaviyo or Customer.io. Quarterly A/B testing programme included.",
+          "Six to eight automated flows on Klaviyo, ActiveCampaign, or HubSpot — segmentation, A/B testing, deliverability monitoring, and weekly winner iteration.",
       },
       {
-        name: "Full Email Programme",
-        priceFrom: 3450,
+        name: "Full Automation Programme",
+        priceFrom: 4200,
         unitText: "MONTH",
         description:
-          "Lifecycle flows, weekly newsletter, transactional copy, segmentation strategy, and a dedicated email manager. Replaces a junior in-house hire.",
+          "End-to-end automation: lifecycle flows, triggered campaigns, segmentation strategy, transactional copy, CRM sync, and a dedicated email manager. Replaces a junior in-house hire.",
       },
     ],
     features: [
-      { name: "Lifecycle flow design" },
-      { name: "Newsletter editorial & design" },
-      { name: "Transactional email rewrites" },
-      { name: "Deliverability & DMARC setup" },
-      { name: "GDPR-clean list growth" },
-      { name: "Klaviyo, Customer.io, HubSpot, Mailchimp" },
+      { name: "Klaviyo, Mailchimp, ActiveCampaign, HubSpot, Customer.io" },
+      { name: "Lifecycle flow design and build" },
+      { name: "Triggered campaigns from Stripe / Shopify / CRM" },
+      { name: "SPF, DKIM, DMARC alignment" },
+      { name: "Behavioural segmentation and A/B testing" },
+      { name: "Revenue-attributed monthly reporting" },
     ],
     faqs: [
       {
-        question: "Which email platform should we use?",
+        question: "Which email automation platform should we use — Klaviyo, Mailchimp, or ActiveCampaign?",
         answer:
-          "Klaviyo for ecommerce, Customer.io for SaaS, HubSpot for B2B with sales cycles, Mailchimp for low-volume content brands, and Postmark or Resend for transactional. We recommend after a discovery call rather than defaulting to whatever we built last.",
+          "Klaviyo for Shopify and ecommerce because the revenue attribution and segmentation depth are unmatched. ActiveCampaign for service businesses with longer sales cycles and conditional automations across email and SMS. Mailchimp for lower-volume B2C and content brands where simplicity beats power. HubSpot when the email list and the sales CRM need to share a single contact record. We recommend on a discovery call against your stack and list size, not by default.",
       },
       {
-        question: "Is email still worth it in 2026?",
+        question: "How do you fix SPF, DKIM, and DMARC for our sending domain?",
         answer:
-          "Email is still the highest-ROI owned channel for almost every Malta business we work with — 30–45x return on spend for ecommerce, 5–8x for B2B. The reason most programmes underperform is bad lifecycle architecture, not the channel.",
+          "We audit the existing DNS records first — most Malta sending domains have at least one of SPF, DKIM, or DMARC misconfigured or missing alignment. Fixes typically include flattening an over-10-lookup SPF record, publishing platform-specific DKIM keys (Klaviyo, Mailchimp, and ActiveCampaign each need their own selector), and moving DMARC from `p=none` reporting mode to `p=quarantine` once alignment is clean. Reports from Postmaster Tools and Microsoft SNDS are checked weekly.",
       },
       {
-        question: "How do you handle GDPR and consent in Malta?",
+        question: "Is email automation GDPR-compliant for Malta businesses?",
         answer:
-          "Double opt-in by default for marketing lists, signed DPA with the platform vendor, suppression list for unsubscribes, and a documented record of consent source per subscriber. We follow the IDPC Malta guidance, not just generic EU GDPR.",
+          "Yes when configured correctly. Every account ships with double opt-in, granular consent capture per processing purpose, a documented record of consent source per subscriber, one-click unsubscribe (Gmail and Yahoo bulk-sender requirement since February 2024), and a signed DPA with the platform vendor. We follow IDPC Malta guidance specifically, not just generic EU GDPR boilerplate.",
       },
       {
-        question: "Can you fix our deliverability issues?",
+        question: "What does behavioural segmentation actually look like inside Klaviyo or ActiveCampaign?",
         answer:
-          "Yes. The first thing we audit on every new engagement is SPF, DKIM, DMARC, BIMI, list health, and domain reputation in Postmaster Tools and SNDS. Most deliverability problems are fixable in 2–4 weeks.",
+          "Segments built from product views, cart events, purchase recency, lifetime value bands, and engagement decay rather than demographic guesses. A typical Malta ecommerce account ends up with 12–18 active segments, each tied to at least one triggered campaign. We document the segment logic in plain English so a future in-house marketer can edit without us.",
       },
       {
-        question: "Do you write the email copy yourselves?",
+        question: "Which triggered campaigns do you run from Shopify, Stripe, or our CRM?",
         answer:
-          "Yes. Senior copywriters draft, designers handle the layout, and a strategist owns the calendar. AI is used for research and variants, but every send goes through a human review before it touches a real subscriber.",
+          "Welcome flow on opt-in, abandoned cart and abandoned checkout, post-purchase thank-you and review request, replenishment for consumables, win-back for lapsed customers, price-drop and back-in-stock, and CRM events such as renewal-due, trial-ending, or appointment-booked. Stripe webhooks and Shopify event streams are wired into the platform during onboarding so triggers fire in seconds, not on a daily sync.",
       },
       {
-        question: "How do you measure email marketing performance?",
+        question: "Can you migrate us from Mailchimp to Klaviyo or ActiveCampaign without losing list reputation?",
         answer:
-          "Per-flow revenue attribution, per-campaign placed-order rate, list growth net of churn, deliverability metrics (inbox placement, complaint rate), and overall channel contribution to total revenue. Reported monthly with written commentary.",
+          "Yes. We export contacts with consent-source metadata intact, rebuild segments and flows in the new platform, warm up the new sending domain (or subdomain) over 14–21 days against engaged subscribers first, and run both platforms in parallel until inbox placement on the new sender matches the old. Most migrations complete inside four weeks.",
       },
       {
-        question: "Can you integrate email with our ad and CRM stack?",
+        question: "How do you measure email automation performance?",
         answer:
-          "Yes. We sync segments to Meta and Google for lookalike + suppression, push behavioural events back to HubSpot or Salesforce, and set up event-driven flows from Stripe, Shopify, or your booking system. That's the OARC Automation playbook.",
+          "Revenue per recipient (more durable than open rate after Apple Mail Privacy Protection), per-flow attributed revenue, placed-order rate, list growth net of unsubscribes and suppressions, deliverability metrics (inbox placement, complaint rate, bounce rate), and lifetime-value lift on subscribers who entered each flow versus those who did not. Monthly reports include written commentary and the raw export.",
       },
     ],
     framework: {
       uniqueValueProp:
-        "Lifecycle email and CRM automation for Malta brands — segmented flows, GDPR-compliant consent, and revenue-attributed reporting from Klaviyo, HubSpot, or Customer.io.",
-      entityFocus: "Email marketing automation & lifecycle (Malta + EU)",
+        "Email automation for Malta brands on Klaviyo, Mailchimp, ActiveCampaign, and HubSpot — lifecycle flows, SPF/DKIM/DMARC alignment, and revenue-attributed reporting.",
+      entityFocus: "Email marketing automation platforms (Klaviyo, Mailchimp, ActiveCampaign) for Malta + EU",
       primaryIntent: "commercial",
       generalizationKeywords: [
-        "email marketing malta",
+        "email marketing automation malta",
         "klaviyo agency malta",
-        "email automation malta",
-        "crm email malta",
-        "lifecycle email malta",
+        "mailchimp agency malta",
+        "activecampaign agency malta",
+        "email automation platform malta",
       ],
       llmCitableFacts: [
         {
           claim:
-            "OARC Digital builds welcome, abandoned-cart, post-purchase, and win-back flows on Klaviyo, HubSpot, or Customer.io within 4-6 weeks of kickoff.",
+            "OARC Digital builds and operates email automation on Klaviyo, Mailchimp, ActiveCampaign, HubSpot, and Customer.io — typically 6-8 lifecycle and triggered flows live within 4-6 weeks of kickoff.",
           source: "https://oarcdigital.com/services/email-marketing",
         },
         {
           claim:
-            "All email programmes are GDPR-compliant with double opt-in, granular consent capture, and one-click unsubscribe per Malta DPA + EU ePrivacy guidance.",
+            "Every email automation engagement starts with an SPF, DKIM, and DMARC alignment audit and moves DMARC to p=quarantine once authentication is clean, per Gmail and Yahoo bulk-sender requirements since February 2024.",
           source: "https://oarcdigital.com/services/email-marketing",
         },
         {
           claim:
-            "Monthly retainers include weekly campaign sends, deliverability monitoring (DMARC/SPF/DKIM), and revenue-attributed reporting.",
+            "Email automation programmes report on revenue per recipient, per-flow attributed revenue, placed-order rate, deliverability metrics, and LTV lift — not vanity opens distorted by Apple Mail Privacy Protection.",
           source: "https://oarcdigital.com/services/email-marketing",
         },
       ],
-      conversionGoal: "Book an email & CRM audit",
+      conversionGoal: "Book an email automation audit",
     },
   },
 
