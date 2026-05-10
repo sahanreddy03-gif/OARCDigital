@@ -2,18 +2,22 @@ import type { Metadata } from "next";
 import PageContent from "./PageContent";
 import RouteSchema from "@/components/RouteSchema";
 import { SERVICE_SCHEMA_EXTRAS } from "@/lib/seo/serviceSchemaExtras";
+import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
+
 
 export const metadata: Metadata = {
   title: "Motion Design | Animation & Motion Graphics | OARC Digital",
   description: "Elite motion design and animation services. OARC Digital creates stunning motion graphics, explainer videos, and animated content that captivates audiences.",
   alternates: { canonical: "https://oarcdigital.com/services/motion-design" },
   openGraph: {
+    images: ogImageEntry({ title: "Motion Design | Animation & Motion Graphics | OARC Digital", subtitle: "Elite motion design and animation services. OARC Digital creates stunning motion graphics, explainer videos, and animated content that captivates audiences." }),
     title: "Motion Design | Animation & Motion Graphics | OARC Digital",
     description: "Elite motion design and animation services. OARC Digital creates stunning motion graphics, explainer videos, and animated content that captivates audiences.",
     url: "https://oarcdigital.com/services/motion-design",
     type: "article",
   },
   twitter: {
+    images: [ogImageUrl({ title: "Motion Design | Animation & Motion Graphics | OARC Digital", subtitle: "Elite motion design and animation services. OARC Digital creates stunning motion graphics, explainer videos, and animated content that captivates audiences." })],
     card: "summary_large_image",
     title: "Motion Design | Animation & Motion Graphics | OARC Digital",
     description: "Elite motion design and animation services. OARC Digital creates stunning motion graphics, explainer videos, and animated content that captivates audiences.",

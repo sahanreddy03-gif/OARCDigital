@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import PageContent from "./PageContent";
+import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
+
 
 const SPEAKABLE_JSONLD = {
   "@context": "https://schema.org",
@@ -17,6 +19,7 @@ export const metadata: Metadata = {
     "Four free tools — Industry Scan, Growth Simulator, AI Workforce Designer, and the Cortex Business Intelligence Scan — for Malta SMEs who want a fast read on where revenue is leaking and what to fix first.",
   alternates: { canonical: "https://oarcdigital.com/diagnostics" },
   openGraph: {
+    images: ogImageEntry({ title: "Free Business Diagnostics — Malta | OARC Digital", subtitle: "Four free tools — Industry Scan, Growth Simulator, AI Workforce Designer, and the Cortex Business Intelligence Scan — for Malta SMEs who want a fast read on where revenue is leaking and what to fix first." }),
     title: "Free Business Diagnostics — Malta | OARC Digital",
     description:
       "Run four free diagnostic tools on your own business. Industry Scan, Growth Simulator, AI Workforce Designer, Cortex Business Intelligence Scan. No login.",
@@ -24,6 +27,7 @@ export const metadata: Metadata = {
     type: "website",
   },
   twitter: {
+    images: [ogImageUrl({ title: "Free Business Diagnostics — Malta | OARC Digital", subtitle: "Four free tools — Industry Scan, Growth Simulator, AI Workforce Designer, and the Cortex Business Intelligence Scan — for Malta SMEs who want a fast read on where revenue is leaking and what to fix first." })],
     card: "summary_large_image",
     title: "Free Business Diagnostics — Malta | OARC Digital",
     description:

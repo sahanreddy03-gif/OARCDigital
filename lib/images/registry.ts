@@ -653,3 +653,1158 @@ export function getImagesForRoute(route: string): RegistryImage[] {
 export function publicSrc(img: RegistryImage, ext: "avif" | "webp" | "jpg" = "avif"): string {
   return `/images/registry/${img.seoFilename}.${ext}`;
 }
+
+// ──────────────────────────────────────────────────────────────────────────
+// AI-generated gap-fill batch (Task #131). Files live under
+// public/images/ai-generated/ and were produced by
+// .local/scripts/ai-image-gap-manifest.mjs +
+// .local/scripts/build-ai-gap-registry.mjs.
+// ──────────────────────────────────────────────────────────────────────────
+
+export interface AIGeneratedImage {
+  id: string;
+  seoFilename: string;
+  altText: string;
+  caption: string;
+  dimensions: { width: number; height: number };
+  aspect: string;
+  assignedTo: string[];
+}
+
+export const AI_GAP_REGISTRY: readonly AIGeneratedImage[] = [
+  {
+    "id": "img-039",
+    "seoFilename": "seo-services-hero-malta",
+    "altText": "Organic SEO authority compounding for Malta businesses",
+    "caption": "Search authority that compounds — Malta SEO services.",
+    "dimensions": {
+      "width": 1408,
+      "height": 768
+    },
+    "aspect": "16:9",
+    "assignedTo": [
+      "/services/seo-services"
+    ]
+  },
+  {
+    "id": "img-040",
+    "seoFilename": "paid-advertising-hero-malta",
+    "altText": "Performance paid media targeting for Malta brands",
+    "caption": "Paid media that hits the target — every Euro accountable.",
+    "dimensions": {
+      "width": 1408,
+      "height": 768
+    },
+    "aspect": "16:9",
+    "assignedTo": [
+      "/services/paid-advertising"
+    ]
+  },
+  {
+    "id": "img-041",
+    "seoFilename": "content-marketing-hero-malta",
+    "altText": "Editorial content strategy for Malta service businesses",
+    "caption": "Editorial-grade content built to rank and convert.",
+    "dimensions": {
+      "width": 1408,
+      "height": 768
+    },
+    "aspect": "16:9",
+    "assignedTo": [
+      "/services/content-marketing"
+    ]
+  },
+  {
+    "id": "img-042",
+    "seoFilename": "email-marketing-hero-malta",
+    "altText": "Lifecycle email marketing automation for Malta SMBs",
+    "caption": "Lifecycle email — every send earning its keep.",
+    "dimensions": {
+      "width": 1408,
+      "height": 768
+    },
+    "aspect": "16:9",
+    "assignedTo": [
+      "/services/email-marketing"
+    ]
+  },
+  {
+    "id": "img-043",
+    "seoFilename": "social-media-management-hero-malta",
+    "altText": "Social media creative management team in Sliema, Malta",
+    "caption": "Always-on social, Malta-native voice.",
+    "dimensions": {
+      "width": 1408,
+      "height": 768
+    },
+    "aspect": "16:9",
+    "assignedTo": [
+      "/services/social-media-creative-management"
+    ]
+  },
+  {
+    "id": "img-044",
+    "seoFilename": "branding-hero-malta",
+    "altText": "Premium brand identity development in Malta",
+    "caption": "Brand systems with depth, weight, and proof.",
+    "dimensions": {
+      "width": 1408,
+      "height": 768
+    },
+    "aspect": "16:9",
+    "assignedTo": [
+      "/services/branding"
+    ]
+  },
+  {
+    "id": "img-045",
+    "seoFilename": "video-production-hero-malta",
+    "altText": "Cinematic video production crew on a Mdina rooftop",
+    "caption": "Story-led video — Malta to Manhattan polish.",
+    "dimensions": {
+      "width": 1408,
+      "height": 768
+    },
+    "aspect": "16:9",
+    "assignedTo": [
+      "/services/video-production"
+    ]
+  },
+  {
+    "id": "img-046",
+    "seoFilename": "web-design-hero-malta",
+    "altText": "High-conversion web design wireframing for Malta brands",
+    "caption": "Web design engineered for conversion, not awards.",
+    "dimensions": {
+      "width": 1408,
+      "height": 768
+    },
+    "aspect": "16:9",
+    "assignedTo": [
+      "/services/web-design"
+    ]
+  },
+  {
+    "id": "img-047",
+    "seoFilename": "ai-consulting-hero-malta",
+    "altText": "AI strategy consulting for Maltese executives",
+    "caption": "AI strategy boards your CFO will actually approve.",
+    "dimensions": {
+      "width": 1408,
+      "height": 768
+    },
+    "aspect": "16:9",
+    "assignedTo": [
+      "/services/ai-consulting"
+    ]
+  },
+  {
+    "id": "img-048",
+    "seoFilename": "hire-ai-employees-hero-malta",
+    "altText": "Hire AI employees for Malta SMB teams",
+    "caption": "AI employees — onboarded in days, not months.",
+    "dimensions": {
+      "width": 1408,
+      "height": 768
+    },
+    "aspect": "16:9",
+    "assignedTo": [
+      "/services/hire-ai-employees"
+    ]
+  },
+  {
+    "id": "img-049",
+    "seoFilename": "marketing-automation-hero-malta",
+    "altText": "Marketing automation suite for Malta revenue teams",
+    "caption": "Tools you already pay for, finally talking.",
+    "dimensions": {
+      "width": 1408,
+      "height": 768
+    },
+    "aspect": "16:9",
+    "assignedTo": [
+      "/services/marketing-automation-suite"
+    ]
+  },
+  {
+    "id": "img-050",
+    "seoFilename": "revenue-automation-hero-malta",
+    "altText": "Revenue automation flywheel for Malta service businesses",
+    "caption": "Revenue on autopilot — predictable, not promotional.",
+    "dimensions": {
+      "width": 1408,
+      "height": 768
+    },
+    "aspect": "16:9",
+    "assignedTo": [
+      "/services/revenue-automation"
+    ]
+  },
+  {
+    "id": "img-051",
+    "seoFilename": "funnel-automation-hero-malta",
+    "altText": "Conversion funnel automation for Malta businesses",
+    "caption": "Three-stage funnels that convert without babysitting.",
+    "dimensions": {
+      "width": 1408,
+      "height": 768
+    },
+    "aspect": "16:9",
+    "assignedTo": [
+      "/services/funnel-automation"
+    ]
+  },
+  {
+    "id": "img-052",
+    "seoFilename": "customer-acquisition-hero-malta",
+    "altText": "Customer acquisition accelerator for Malta retailers",
+    "caption": "New customers walking in, every day.",
+    "dimensions": {
+      "width": 1408,
+      "height": 768
+    },
+    "aspect": "16:9",
+    "assignedTo": [
+      "/services/customer-acquisition-accelerator"
+    ]
+  },
+  {
+    "id": "img-053",
+    "seoFilename": "lead-generation-hero-malta",
+    "altText": "Qualified lead generation for Malta B2B teams",
+    "caption": "Qualified leads — caught, not chased.",
+    "dimensions": {
+      "width": 1408,
+      "height": 768
+    },
+    "aspect": "16:9",
+    "assignedTo": [
+      "/services/lead-generation"
+    ]
+  },
+  {
+    "id": "img-054",
+    "seoFilename": "growth-strategy-hero-malta",
+    "altText": "Growth strategy planning for Malta scale-ups",
+    "caption": "Growth strategy with the next three moves mapped.",
+    "dimensions": {
+      "width": 1408,
+      "height": 768
+    },
+    "aspect": "16:9",
+    "assignedTo": [
+      "/services/growth-strategy"
+    ]
+  },
+  {
+    "id": "img-055",
+    "seoFilename": "performance-analytics-hero-malta",
+    "altText": "Performance analytics dashboard sculpture for Malta brands",
+    "caption": "Numbers that drive decisions, not dashboards.",
+    "dimensions": {
+      "width": 1408,
+      "height": 768
+    },
+    "aspect": "16:9",
+    "assignedTo": [
+      "/services/performance-analytics"
+    ]
+  },
+  {
+    "id": "img-056",
+    "seoFilename": "saas-development-hero-malta",
+    "altText": "SaaS product development team in Malta",
+    "caption": "SaaS built right — shipped, not stalled.",
+    "dimensions": {
+      "width": 1408,
+      "height": 768
+    },
+    "aspect": "16:9",
+    "assignedTo": [
+      "/services/saas-development"
+    ]
+  },
+  {
+    "id": "img-057",
+    "seoFilename": "mobile-apps-development-hero-malta",
+    "altText": "iOS and Android mobile app development in Malta",
+    "caption": "iOS and Android apps your users actually keep.",
+    "dimensions": {
+      "width": 1408,
+      "height": 768
+    },
+    "aspect": "16:9",
+    "assignedTo": [
+      "/services/mobile-apps-development"
+    ]
+  },
+  {
+    "id": "img-058",
+    "seoFilename": "web-apps-development-hero-malta",
+    "altText": "Modular web application architecture for Malta companies",
+    "caption": "Web apps built modular, scaled effortlessly.",
+    "dimensions": {
+      "width": 1408,
+      "height": 768
+    },
+    "aspect": "16:9",
+    "assignedTo": [
+      "/services/web-apps-development"
+    ]
+  },
+  {
+    "id": "img-059",
+    "seoFilename": "ecommerce-development-hero-malta",
+    "altText": "Custom ecommerce development for Malta retailers",
+    "caption": "Ecommerce that loads fast and converts faster.",
+    "dimensions": {
+      "width": 1408,
+      "height": 768
+    },
+    "aspect": "16:9",
+    "assignedTo": [
+      "/services/ecommerce-development"
+    ]
+  },
+  {
+    "id": "img-060",
+    "seoFilename": "mvp-development-hero-malta",
+    "altText": "Rapid MVP development workshop for Malta founders",
+    "caption": "Founders' MVPs shipped in four to six weeks.",
+    "dimensions": {
+      "width": 1408,
+      "height": 768
+    },
+    "aspect": "16:9",
+    "assignedTo": [
+      "/services/mvp-development"
+    ]
+  },
+  {
+    "id": "img-061",
+    "seoFilename": "devops-services-hero-malta",
+    "altText": "DevOps and platform reliability for Malta teams",
+    "caption": "Pipelines that ship daily, alerts that don't lie.",
+    "dimensions": {
+      "width": 1408,
+      "height": 768
+    },
+    "aspect": "16:9",
+    "assignedTo": [
+      "/services/devops-services"
+    ]
+  },
+  {
+    "id": "img-062",
+    "seoFilename": "custom-software-development-hero-malta",
+    "altText": "Custom software development for Maltese enterprises",
+    "caption": "Software fitted to your operation — not the reverse.",
+    "dimensions": {
+      "width": 1408,
+      "height": 768
+    },
+    "aspect": "16:9",
+    "assignedTo": [
+      "/services/custom-software-development"
+    ]
+  },
+  {
+    "id": "img-063",
+    "seoFilename": "api-integration-services-hero-malta",
+    "altText": "Enterprise API integration services in Malta",
+    "caption": "APIs that make your stack feel like one product.",
+    "dimensions": {
+      "width": 1408,
+      "height": 768
+    },
+    "aspect": "16:9",
+    "assignedTo": [
+      "/services/api-integration-services"
+    ]
+  },
+  {
+    "id": "img-064",
+    "seoFilename": "ad-creative-hero-malta",
+    "altText": "Ad creative variants production for Malta brands",
+    "caption": "Ad creative engineered to outperform stock formulas.",
+    "dimensions": {
+      "width": 1408,
+      "height": 768
+    },
+    "aspect": "16:9",
+    "assignedTo": [
+      "/services/ad-creative"
+    ]
+  },
+  {
+    "id": "img-065",
+    "seoFilename": "email-creative-hero-malta",
+    "altText": "On-brand email creative production for Malta lifecycle marketers",
+    "caption": "Email creative that survives every inbox.",
+    "dimensions": {
+      "width": 1408,
+      "height": 768
+    },
+    "aspect": "16:9",
+    "assignedTo": [
+      "/services/email-creative"
+    ]
+  },
+  {
+    "id": "img-066",
+    "seoFilename": "print-packaging-hero-malta",
+    "altText": "Premium print and packaging design in Malta",
+    "caption": "Packaging shoppers want to keep.",
+    "dimensions": {
+      "width": 1408,
+      "height": 768
+    },
+    "aspect": "16:9",
+    "assignedTo": [
+      "/services/print-packaging"
+    ]
+  },
+  {
+    "id": "img-067",
+    "seoFilename": "illustration-hero-malta",
+    "altText": "Editorial illustration commissions in Malta",
+    "caption": "Illustration that earns the page it sits on.",
+    "dimensions": {
+      "width": 1408,
+      "height": 768
+    },
+    "aspect": "16:9",
+    "assignedTo": [
+      "/services/illustration"
+    ]
+  },
+  {
+    "id": "img-068",
+    "seoFilename": "design-systems-hero-malta",
+    "altText": "Scalable design systems engineering for Malta product teams",
+    "caption": "Design systems that ship on day one.",
+    "dimensions": {
+      "width": 1408,
+      "height": 768
+    },
+    "aspect": "16:9",
+    "assignedTo": [
+      "/services/design-systems"
+    ]
+  },
+  {
+    "id": "img-069",
+    "seoFilename": "immersive-3d-ar-hero-malta",
+    "altText": "Immersive 3D and AR experiences in Malta",
+    "caption": "3D and AR — beyond the demo, into the brief.",
+    "dimensions": {
+      "width": 1408,
+      "height": 768
+    },
+    "aspect": "16:9",
+    "assignedTo": [
+      "/services/immersive-3d-ar"
+    ]
+  },
+  {
+    "id": "img-070",
+    "seoFilename": "motion-design-hero-malta",
+    "altText": "Motion design and animation studio for Malta brands",
+    "caption": "Motion that earns the eye, not just the click.",
+    "dimensions": {
+      "width": 1408,
+      "height": 768
+    },
+    "aspect": "16:9",
+    "assignedTo": [
+      "/services/motion-design"
+    ]
+  },
+  {
+    "id": "img-071",
+    "seoFilename": "presentation-pitch-hero-malta",
+    "altText": "Investor pitch deck design in Malta",
+    "caption": "Pitch decks investors actually finish.",
+    "dimensions": {
+      "width": 1408,
+      "height": 768
+    },
+    "aspect": "16:9",
+    "assignedTo": [
+      "/services/presentation-pitch"
+    ]
+  },
+  {
+    "id": "img-072",
+    "seoFilename": "influencer-marketing-hero-malta",
+    "altText": "Influencer marketing campaigns in Malta",
+    "caption": "Creator partnerships built on real audience trust.",
+    "dimensions": {
+      "width": 1408,
+      "height": 768
+    },
+    "aspect": "16:9",
+    "assignedTo": [
+      "/services/influencer-marketing"
+    ]
+  },
+  {
+    "id": "img-073",
+    "seoFilename": "social-spoke-hero-malta",
+    "altText": "Always-on social content for Malta lifestyle brands",
+    "caption": "Always-on social — calendar, captions, conversions.",
+    "dimensions": {
+      "width": 1408,
+      "height": 768
+    },
+    "aspect": "16:9",
+    "assignedTo": [
+      "/services/social"
+    ]
+  },
+  {
+    "id": "img-074",
+    "seoFilename": "ai-sdr-agent-hero-malta",
+    "altText": "AI SDR agent qualifying B2B leads in Malta",
+    "caption": "An SDR that prospects, qualifies and books — 24/7.",
+    "dimensions": {
+      "width": 1408,
+      "height": 768
+    },
+    "aspect": "16:9",
+    "assignedTo": [
+      "/services/ai-sdr-agent"
+    ]
+  },
+  {
+    "id": "img-075",
+    "seoFilename": "ai-support-specialist-hero-malta",
+    "altText": "AI customer support specialist for Malta service businesses",
+    "caption": "Tier-1 support resolved before your team logs in.",
+    "dimensions": {
+      "width": 1408,
+      "height": 768
+    },
+    "aspect": "16:9",
+    "assignedTo": [
+      "/services/ai-support-specialist"
+    ]
+  },
+  {
+    "id": "img-076",
+    "seoFilename": "ai-appointment-booker-hero-malta",
+    "altText": "AI appointment booker filling Malta clinic calendars",
+    "caption": "Calendars that fill themselves — no double-bookings.",
+    "dimensions": {
+      "width": 1408,
+      "height": 768
+    },
+    "aspect": "16:9",
+    "assignedTo": [
+      "/services/ai-appointment-booker"
+    ]
+  },
+  {
+    "id": "img-077",
+    "seoFilename": "ai-data-analyst-hero-malta",
+    "altText": "AI data analyst surfacing insights for Malta businesses",
+    "caption": "Insights surfaced before you knew the question.",
+    "dimensions": {
+      "width": 1408,
+      "height": 768
+    },
+    "aspect": "16:9",
+    "assignedTo": [
+      "/services/ai-data-analyst"
+    ]
+  },
+  {
+    "id": "img-078",
+    "seoFilename": "ai-admin-agent-hero-malta",
+    "altText": "AI admin agent automating back-office work in Malta",
+    "caption": "Admin work, finally off your team's plate.",
+    "dimensions": {
+      "width": 1408,
+      "height": 768
+    },
+    "aspect": "16:9",
+    "assignedTo": [
+      "/services/ai-admin-agent"
+    ]
+  },
+  {
+    "id": "img-079",
+    "seoFilename": "ai-sdr-dashboard-malta",
+    "altText": "AI SDR pipeline dashboard for Malta sales teams",
+    "caption": "SDR pipeline filled while you sleep.",
+    "dimensions": {
+      "width": 1408,
+      "height": 768
+    },
+    "aspect": "16:9",
+    "assignedTo": [
+      "/ai-agents/ai-sdr-agent"
+    ]
+  },
+  {
+    "id": "img-080",
+    "seoFilename": "ai-support-dashboard-malta",
+    "altText": "AI customer support routing dashboard for Malta brands",
+    "caption": "Support tickets, triaged in seconds.",
+    "dimensions": {
+      "width": 1408,
+      "height": 768
+    },
+    "aspect": "16:9",
+    "assignedTo": [
+      "/ai-agents/ai-support-specialist"
+    ]
+  },
+  {
+    "id": "img-081",
+    "seoFilename": "ai-appointment-dashboard-malta",
+    "altText": "AI appointment booking heat map for Malta clinics",
+    "caption": "Booking heat map you can actually act on.",
+    "dimensions": {
+      "width": 1408,
+      "height": 768
+    },
+    "aspect": "16:9",
+    "assignedTo": [
+      "/ai-agents/ai-appointment-booker"
+    ]
+  },
+  {
+    "id": "img-082",
+    "seoFilename": "ai-data-analyst-dashboard-malta",
+    "altText": "AI data analyst BI dashboard for Malta operators",
+    "caption": "KPIs that explain themselves.",
+    "dimensions": {
+      "width": 1408,
+      "height": 768
+    },
+    "aspect": "16:9",
+    "assignedTo": [
+      "/ai-agents/ai-data-analyst"
+    ]
+  },
+  {
+    "id": "img-083",
+    "seoFilename": "ai-admin-dashboard-malta",
+    "altText": "AI admin agent inbox automation for Malta operations",
+    "caption": "Inbox zero, kept that way.",
+    "dimensions": {
+      "width": 1408,
+      "height": 768
+    },
+    "aspect": "16:9",
+    "assignedTo": [
+      "/ai-agents/ai-admin-agent"
+    ]
+  },
+  {
+    "id": "img-084",
+    "seoFilename": "wordpress-dashboard-malta",
+    "altText": "WordPress site management dashboard for Malta businesses",
+    "caption": "WordPress managed like a product, not a hobby.",
+    "dimensions": {
+      "width": 1408,
+      "height": 768
+    },
+    "aspect": "16:9",
+    "assignedTo": [
+      "/services/web-design"
+    ]
+  },
+  {
+    "id": "img-085",
+    "seoFilename": "shopify-checkout-malta",
+    "altText": "Optimised Shopify checkout for Malta ecommerce",
+    "caption": "Checkouts that close — on every device.",
+    "dimensions": {
+      "width": 1408,
+      "height": 768
+    },
+    "aspect": "16:9",
+    "assignedTo": [
+      "/services/ecommerce-development"
+    ]
+  },
+  {
+    "id": "img-086",
+    "seoFilename": "saas-dashboard-malta",
+    "altText": "Custom SaaS dashboard built for Malta operators",
+    "caption": "SaaS dashboards your operators actually open.",
+    "dimensions": {
+      "width": 1408,
+      "height": 768
+    },
+    "aspect": "16:9",
+    "assignedTo": [
+      "/services/saas-development"
+    ]
+  },
+  {
+    "id": "img-087",
+    "seoFilename": "database-visualisation-malta",
+    "altText": "Database architecture visualisation for Malta engineering teams",
+    "caption": "Schemas that scale before you do.",
+    "dimensions": {
+      "width": 1408,
+      "height": 768
+    },
+    "aspect": "16:9",
+    "assignedTo": [
+      "/services/api-integration-services"
+    ]
+  },
+  {
+    "id": "img-088",
+    "seoFilename": "email-automation-flow-malta",
+    "altText": "Lifecycle email automation workflow for Malta SMBs",
+    "caption": "Lifecycle flows that earn revenue while you sleep.",
+    "dimensions": {
+      "width": 1408,
+      "height": 768
+    },
+    "aspect": "16:9",
+    "assignedTo": [
+      "/services/email-marketing"
+    ]
+  },
+  {
+    "id": "img-089",
+    "seoFilename": "social-analytics-dashboard-malta",
+    "altText": "Social media analytics dashboard for Malta brands",
+    "caption": "Social analytics that actually move strategy.",
+    "dimensions": {
+      "width": 1408,
+      "height": 768
+    },
+    "aspect": "16:9",
+    "assignedTo": [
+      "/services/social-media-creative-management"
+    ]
+  },
+  {
+    "id": "img-090",
+    "seoFilename": "creative-pillar-hero-malta",
+    "altText": "OARC creative pillar studio in Malta",
+    "caption": "Creative that ships — and proves itself.",
+    "dimensions": {
+      "width": 1408,
+      "height": 768
+    },
+    "aspect": "16:9",
+    "assignedTo": [
+      "/creative"
+    ]
+  },
+  {
+    "id": "img-091",
+    "seoFilename": "ai-agents-pillar-hero-malta",
+    "altText": "AI agents pillar — Malta's AI workforce",
+    "caption": "Your AI workforce, on shift now.",
+    "dimensions": {
+      "width": 1408,
+      "height": 768
+    },
+    "aspect": "16:9",
+    "assignedTo": [
+      "/ai-agents"
+    ]
+  },
+  {
+    "id": "img-092",
+    "seoFilename": "solutions-pillar-hero-malta",
+    "altText": "OARC solutions pillar — productised growth systems for Malta",
+    "caption": "Productised solutions, deployed in days.",
+    "dimensions": {
+      "width": 1408,
+      "height": 768
+    },
+    "aspect": "16:9",
+    "assignedTo": [
+      "/solutions"
+    ]
+  },
+  {
+    "id": "img-093",
+    "seoFilename": "services-master-hero-malta",
+    "altText": "OARC services master index for Malta clients",
+    "caption": "Twenty-five services. One growth system.",
+    "dimensions": {
+      "width": 1408,
+      "height": 768
+    },
+    "aspect": "16:9",
+    "assignedTo": [
+      "/services"
+    ]
+  },
+  {
+    "id": "img-094",
+    "seoFilename": "our-work-hero-malta",
+    "altText": "OARC portfolio wall in Sliema studio",
+    "caption": "Receipts on the wall, not just the website.",
+    "dimensions": {
+      "width": 1408,
+      "height": 768
+    },
+    "aspect": "16:9",
+    "assignedTo": [
+      "/our-work"
+    ]
+  },
+  {
+    "id": "img-095",
+    "seoFilename": "case-studies-hero-malta",
+    "altText": "OARC case studies for Malta growth clients",
+    "caption": "Long-form proof — numbers, names, outcomes.",
+    "dimensions": {
+      "width": 1408,
+      "height": 768
+    },
+    "aspect": "16:9",
+    "assignedTo": [
+      "/case-studies"
+    ]
+  },
+  {
+    "id": "img-096",
+    "seoFilename": "pricing-hero-malta",
+    "altText": "Transparent OARC pricing tiers for Malta SMBs",
+    "caption": "Pricing in the open — no surprise invoices.",
+    "dimensions": {
+      "width": 1408,
+      "height": 768
+    },
+    "aspect": "16:9",
+    "assignedTo": [
+      "/pricing"
+    ]
+  },
+  {
+    "id": "img-097",
+    "seoFilename": "why-us-hero-malta",
+    "altText": "Why Malta brands choose OARC Digital",
+    "caption": "Why Malta brands choose OARC.",
+    "dimensions": {
+      "width": 1408,
+      "height": 768
+    },
+    "aspect": "16:9",
+    "assignedTo": [
+      "/why-us"
+    ]
+  },
+  {
+    "id": "img-098",
+    "seoFilename": "about-hero-malta",
+    "altText": "OARC Digital team in their Birkirkara studio",
+    "caption": "The team behind Malta's AI-native agency.",
+    "dimensions": {
+      "width": 1408,
+      "height": 768
+    },
+    "aspect": "16:9",
+    "assignedTo": [
+      "/about"
+    ]
+  },
+  {
+    "id": "img-099",
+    "seoFilename": "contact-hero-malta",
+    "altText": "Contact OARC Digital in Birkirkara, Malta",
+    "caption": "Talk to a strategist — not a chatbot.",
+    "dimensions": {
+      "width": 1408,
+      "height": 768
+    },
+    "aspect": "16:9",
+    "assignedTo": [
+      "/contact"
+    ]
+  },
+  {
+    "id": "img-100",
+    "seoFilename": "blog-hero-malta",
+    "altText": "OARC blog — Malta marketing intelligence",
+    "caption": "Field notes from Malta's growth front line.",
+    "dimensions": {
+      "width": 1408,
+      "height": 768
+    },
+    "aspect": "16:9",
+    "assignedTo": [
+      "/blog"
+    ]
+  },
+  {
+    "id": "img-101",
+    "seoFilename": "tools-hero-malta",
+    "altText": "OARC free tools for Malta marketers",
+    "caption": "Free tools your team will keep using.",
+    "dimensions": {
+      "width": 1408,
+      "height": 768
+    },
+    "aspect": "16:9",
+    "assignedTo": [
+      "/tools"
+    ]
+  },
+  {
+    "id": "img-102",
+    "seoFilename": "industries-hero-malta",
+    "altText": "OARC industry hubs — nineteen Malta verticals",
+    "caption": "Nineteen industries. One operating system.",
+    "dimensions": {
+      "width": 1408,
+      "height": 768
+    },
+    "aspect": "16:9",
+    "assignedTo": [
+      "/industries"
+    ]
+  },
+  {
+    "id": "img-103",
+    "seoFilename": "intelligence-hero-malta",
+    "altText": "OARC intelligence dark-premium dashboard for Malta operators",
+    "caption": "Decision intelligence — beyond dashboards.",
+    "dimensions": {
+      "width": 1408,
+      "height": 768
+    },
+    "aspect": "16:9",
+    "assignedTo": [
+      "/intelligence"
+    ]
+  },
+  {
+    "id": "img-104",
+    "seoFilename": "diagnostics-hero-malta",
+    "altText": "Business diagnostics scan for Malta SMBs",
+    "caption": "A 7-point scan of your growth engine.",
+    "dimensions": {
+      "width": 1408,
+      "height": 768
+    },
+    "aspect": "16:9",
+    "assignedTo": [
+      "/diagnostics"
+    ]
+  },
+  {
+    "id": "img-105",
+    "seoFilename": "automation-hero-malta",
+    "altText": "Marketing and revenue automation for Malta operations",
+    "caption": "Operations on rails — automation that pays back.",
+    "dimensions": {
+      "width": 1408,
+      "height": 768
+    },
+    "aspect": "16:9",
+    "assignedTo": [
+      "/automation"
+    ]
+  },
+  {
+    "id": "img-106",
+    "seoFilename": "enterprise-hero-malta",
+    "altText": "Enterprise growth partnerships in Malta",
+    "caption": "Enterprise-grade — without enterprise drag.",
+    "dimensions": {
+      "width": 1408,
+      "height": 768
+    },
+    "aspect": "16:9",
+    "assignedTo": [
+      "/enterprise"
+    ]
+  },
+  {
+    "id": "img-107",
+    "seoFilename": "roadmap-2026-hero-malta",
+    "altText": "OARC 2026 product and growth roadmap for Malta",
+    "caption": "Where OARC is taking Malta growth in 2026.",
+    "dimensions": {
+      "width": 1408,
+      "height": 768
+    },
+    "aspect": "16:9",
+    "assignedTo": [
+      "/roadmap-2026"
+    ]
+  },
+  {
+    "id": "img-108",
+    "seoFilename": "pdf-hub-hero-malta",
+    "altText": "OARC PDF marketing collateral hub",
+    "caption": "PDFs your prospects actually read.",
+    "dimensions": {
+      "width": 1408,
+      "height": 768
+    },
+    "aspect": "16:9",
+    "assignedTo": [
+      "/pdf-hub"
+    ]
+  },
+  {
+    "id": "img-109",
+    "seoFilename": "industry-legal-services-hero-malta",
+    "altText": "Legal services marketing in Malta",
+    "caption": "Law firms — case-grade marketing, ethically.",
+    "dimensions": {
+      "width": 1408,
+      "height": 768
+    },
+    "aspect": "16:9",
+    "assignedTo": [
+      "/industries/legal-services"
+    ]
+  },
+  {
+    "id": "img-110",
+    "seoFilename": "industry-fintech-hero-malta",
+    "altText": "Fintech growth marketing in Malta",
+    "caption": "Fintech growth — compliant, conversion-led.",
+    "dimensions": {
+      "width": 1408,
+      "height": 768
+    },
+    "aspect": "16:9",
+    "assignedTo": [
+      "/industries/fintech"
+    ]
+  },
+  {
+    "id": "img-111",
+    "seoFilename": "industry-construction-hero-malta",
+    "altText": "Construction firm marketing in Malta",
+    "caption": "Construction — pipeline beyond the next project.",
+    "dimensions": {
+      "width": 1408,
+      "height": 768
+    },
+    "aspect": "16:9",
+    "assignedTo": [
+      "/industries/construction"
+    ]
+  },
+  {
+    "id": "img-112",
+    "seoFilename": "industry-retail-hero-malta",
+    "altText": "Retail marketing for Malta high-street brands",
+    "caption": "Retail — footfall and ecom, one engine.",
+    "dimensions": {
+      "width": 1408,
+      "height": 768
+    },
+    "aspect": "16:9",
+    "assignedTo": [
+      "/industries/retail"
+    ]
+  },
+  {
+    "id": "img-113",
+    "seoFilename": "industry-logistics-hero-malta",
+    "altText": "Logistics and freight marketing in Malta",
+    "caption": "Logistics — capacity sold before the sailing.",
+    "dimensions": {
+      "width": 1408,
+      "height": 768
+    },
+    "aspect": "16:9",
+    "assignedTo": [
+      "/industries/logistics"
+    ]
+  },
+  {
+    "id": "img-114",
+    "seoFilename": "industry-fitness-wellness-hero-malta",
+    "altText": "Fitness and wellness marketing in Malta",
+    "caption": "Studios filled — memberships that renew.",
+    "dimensions": {
+      "width": 1408,
+      "height": 768
+    },
+    "aspect": "16:9",
+    "assignedTo": [
+      "/industries/fitness-wellness"
+    ]
+  },
+  {
+    "id": "img-115",
+    "seoFilename": "industry-beauty-spa-hero-malta",
+    "altText": "Beauty and spa marketing in Malta",
+    "caption": "Beauty and spa — bookings booked, reviews won.",
+    "dimensions": {
+      "width": 1408,
+      "height": 768
+    },
+    "aspect": "16:9",
+    "assignedTo": [
+      "/industries/beauty-spa"
+    ]
+  },
+  {
+    "id": "img-116",
+    "seoFilename": "industry-education-hero-malta",
+    "altText": "Education and training provider marketing in Malta",
+    "caption": "Education — enrolments earned, not advertised.",
+    "dimensions": {
+      "width": 1408,
+      "height": 768
+    },
+    "aspect": "16:9",
+    "assignedTo": [
+      "/industries/education"
+    ]
+  },
+  {
+    "id": "img-117",
+    "seoFilename": "industry-professional-services-hero-malta",
+    "altText": "Professional services marketing in Malta",
+    "caption": "Professional services — referrals you can engineer.",
+    "dimensions": {
+      "width": 1408,
+      "height": 768
+    },
+    "aspect": "16:9",
+    "assignedTo": [
+      "/industries/professional-services"
+    ]
+  },
+  {
+    "id": "img-118",
+    "seoFilename": "industry-b2b-saas-hero-malta",
+    "altText": "B2B SaaS go-to-market in Malta",
+    "caption": "B2B SaaS — pipeline that compounds quarterly.",
+    "dimensions": {
+      "width": 1408,
+      "height": 768
+    },
+    "aspect": "16:9",
+    "assignedTo": [
+      "/industries/b2b-saas"
+    ]
+  }
+] as const;
+
+export function getAIImage(slug: string): AIGeneratedImage | undefined {
+  return AI_GAP_REGISTRY.find((i) => i.seoFilename === slug);
+}
+
+export function getAIImagesForRoute(route: string): AIGeneratedImage[] {
+  return AI_GAP_REGISTRY.filter((i) => i.assignedTo.includes(route));
+}
+
+export function aiPublicSrc(
+  img: AIGeneratedImage,
+  ext: "avif" | "webp" | "jpg" = "avif",
+): string {
+  return `/images/ai-generated/${img.seoFilename}.${ext}`;
+}

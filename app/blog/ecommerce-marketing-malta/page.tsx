@@ -1,18 +1,22 @@
 import type { Metadata } from "next";
 import PageContent from "./PageContent";
 import RouteSchema from "@/components/RouteSchema";
+import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
+
 
 export const metadata: Metadata = {
   title: "eCommerce Marketing Malta: How to Sell More Online in 2025 | OARC Digital",
   description: "The complete eCommerce marketing guide for Malta businesses — from platform selection and traffic generation to conversion optimisation and customer retention.",
   alternates: { canonical: "https://oarcdigital.com/blog/ecommerce-marketing-malta" },
   openGraph: {
+    images: ogImageEntry({ title: "eCommerce Marketing Malta: How to Sell More Online in 2025 | OARC Digital", subtitle: "The complete eCommerce marketing guide for Malta businesses — from platform selection and traffic generation to conversion optimisation and customer retention." }),
     title: "eCommerce Marketing Malta: How to Sell More Online in 2025 | OARC Digital",
     description: "The complete eCommerce marketing guide for Malta businesses — from platform selection and traffic generation to conversion optimisation and customer retention.",
     url: "https://oarcdigital.com/blog/ecommerce-marketing-malta",
     type: "article",
   },
   twitter: {
+    images: [ogImageUrl({ title: "eCommerce Marketing Malta: How to Sell More Online in 2025 | OARC Digital", subtitle: "The complete eCommerce marketing guide for Malta businesses — from platform selection and traffic generation to conversion optimisation and customer retention." })],
     card: "summary_large_image",
     title: "eCommerce Marketing Malta: How to Sell More Online in 2025 | OARC Digital",
     description: "The complete eCommerce marketing guide for Malta businesses — from platform selection and traffic generation to conversion optimisation and customer retention.",

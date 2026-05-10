@@ -1,17 +1,21 @@
 import type { Metadata } from "next";
 import PageContent from "./PageContent";
+import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
+
 
 export const metadata: Metadata = {
   title: "ProGamer Network Social Media Campaign | OARC Digital",
   description: "How OARC Digital created engaging social media campaigns for ProGamer Network, connecting with gaming communities across multiple platforms.",
   alternates: { canonical: "https://oarcdigital.com/case-studies/progamer-network" },
   openGraph: {
+    images: ogImageEntry({ title: "ProGamer Network Social Media Campaign | OARC Digital", subtitle: "How OARC Digital created engaging social media campaigns for ProGamer Network, connecting with gaming communities across multiple platforms." }),
     title: "ProGamer Network Social Media Campaign | OARC Digital",
     description: "How OARC Digital created engaging social media campaigns for ProGamer Network, connecting with gaming communities across multiple platforms.",
     url: "https://oarcdigital.com/case-studies/progamer-network",
     type: "article",
   },
   twitter: {
+    images: [ogImageUrl({ title: "ProGamer Network Social Media Campaign | OARC Digital", subtitle: "How OARC Digital created engaging social media campaigns for ProGamer Network, connecting with gaming communities across multiple platforms." })],
     card: "summary_large_image",
     title: "ProGamer Network Social Media Campaign | OARC Digital",
     description: "How OARC Digital created engaging social media campaigns for ProGamer Network, connecting with gaming communities across multiple platforms.",

@@ -2,18 +2,22 @@ import type { Metadata } from "next";
 import PageContent from "./PageContent";
 import RouteSchema from "@/components/RouteSchema";
 import { SERVICE_SCHEMA_EXTRAS } from "@/lib/seo/serviceSchemaExtras";
+import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
+
 
 export const metadata: Metadata = {
   title: "Print & Packaging Design | Physical Product Design | OARC Digital",
   description: "Premium print and packaging design services. OARC Digital creates stunning physical brand experiences from product packaging to marketing collateral.",
   alternates: { canonical: "https://oarcdigital.com/services/print-packaging" },
   openGraph: {
+    images: ogImageEntry({ title: "Print & Packaging Design | Physical Product Design | OARC Digital", subtitle: "Premium print and packaging design services. OARC Digital creates stunning physical brand experiences from product packaging to marketing collateral." }),
     title: "Print & Packaging Design | Physical Product Design | OARC Digital",
     description: "Premium print and packaging design services. OARC Digital creates stunning physical brand experiences from product packaging to marketing collateral.",
     url: "https://oarcdigital.com/services/print-packaging",
     type: "article",
   },
   twitter: {
+    images: [ogImageUrl({ title: "Print & Packaging Design | Physical Product Design | OARC Digital", subtitle: "Premium print and packaging design services. OARC Digital creates stunning physical brand experiences from product packaging to marketing collateral." })],
     card: "summary_large_image",
     title: "Print & Packaging Design | Physical Product Design | OARC Digital",
     description: "Premium print and packaging design services. OARC Digital creates stunning physical brand experiences from product packaging to marketing collateral.",

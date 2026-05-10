@@ -6,12 +6,14 @@ export const metadata: Metadata = {
   description: pdfPagesSEO.pdfHub.description,
   alternates: { canonical: `https://oarcdigital.com${pdfPagesSEO.pdfHub.path}` },
   openGraph: {
+    images: ogImageEntry({ title: pdfPagesSEO.pdfHub.title, subtitle: pdfPagesSEO.pdfHub.description }),
     title: pdfPagesSEO.pdfHub.title,
     description: pdfPagesSEO.pdfHub.description,
     url: `https://oarcdigital.com${pdfPagesSEO.pdfHub.path}`,
     type: pdfPagesSEO.pdfHub.ogType ?? "website",
   },
   twitter: {
+    images: [ogImageUrl({ title: pdfPagesSEO.pdfHub.title, subtitle: pdfPagesSEO.pdfHub.description })],
     card: "summary_large_image",
     title: pdfPagesSEO.pdfHub.title,
     description: pdfPagesSEO.pdfHub.description,
@@ -22,6 +24,8 @@ import Link from "next/link";
 import { FileText, File, Brain } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/layout/Layout";
+import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
+
 const logoImage = "/attached_assets/fdfdfd_1762818183304.png";
 
 export default function Page() {

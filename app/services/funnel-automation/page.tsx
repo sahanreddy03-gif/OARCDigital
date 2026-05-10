@@ -3,18 +3,22 @@ import ServiceClient from "@/components/services/RevenueServiceClient";
 import DeepContent from "./PageContent";
 import RouteSchema from "@/components/RouteSchema";
 import { SERVICE_SCHEMA_EXTRAS } from "@/lib/seo/serviceSchemaExtras";
+import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
+
 
 export const metadata: Metadata = {
   title: "Funnel Automation | Conversion Optimization | OARC Digital Malta",
   description: "Automate your marketing funnels with OARC Digital. Build, test, and optimize conversion funnels using AI-powered automation for predictable revenue growth.",
   alternates: { canonical: "https://oarcdigital.com/services/funnel-automation" },
   openGraph: {
+    images: ogImageEntry({ title: "Funnel Automation | Conversion Optimization | OARC Digital Malta", subtitle: "Automate your marketing funnels with OARC Digital. Build, test, and optimize conversion funnels using AI-powered automation for predictable revenue growth." }),
     title: "Funnel Automation | Conversion Optimization | OARC Digital Malta",
     description: "Automate your marketing funnels with OARC Digital. Build, test, and optimize conversion funnels using AI-powered automation for predictable revenue growth.",
     url: "https://oarcdigital.com/services/funnel-automation",
     type: "article",
   },
   twitter: {
+    images: [ogImageUrl({ title: "Funnel Automation | Conversion Optimization | OARC Digital Malta", subtitle: "Automate your marketing funnels with OARC Digital. Build, test, and optimize conversion funnels using AI-powered automation for predictable revenue growth." })],
     card: "summary_large_image",
     title: "Funnel Automation | Conversion Optimization | OARC Digital Malta",
     description: "Automate your marketing funnels with OARC Digital. Build, test, and optimize conversion funnels using AI-powered automation for predictable revenue growth.",

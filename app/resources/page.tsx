@@ -6,12 +6,14 @@ export const metadata: Metadata = {
   description: supportingPagesSEO.resources.description,
   alternates: { canonical: `https://oarcdigital.com${supportingPagesSEO.resources.path}` },
   openGraph: {
+    images: ogImageEntry({ title: supportingPagesSEO.resources.title, subtitle: supportingPagesSEO.resources.description }),
     title: supportingPagesSEO.resources.title,
     description: supportingPagesSEO.resources.description,
     url: `https://oarcdigital.com${supportingPagesSEO.resources.path}`,
     type: supportingPagesSEO.resources.ogType ?? "website",
   },
   twitter: {
+    images: [ogImageUrl({ title: supportingPagesSEO.resources.title, subtitle: supportingPagesSEO.resources.description })],
     card: "summary_large_image",
     title: supportingPagesSEO.resources.title,
     description: supportingPagesSEO.resources.description,
@@ -20,6 +22,8 @@ export const metadata: Metadata = {
 
 import Layout from "@/components/layout/Layout";
 import ContactForm from "@/components/contact/ContactForm";
+import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
+
 
 export default function Page() {
   return (

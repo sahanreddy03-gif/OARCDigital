@@ -1,3 +1,4 @@
+import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
 // Programmatic Industry Hub Pages
 // SEO: OARC Digital for [Industry] in Malta
 
@@ -604,8 +605,8 @@ export async function generateMetadata({ params }: { params: { industry: string 
     title,
     description,
     alternates: { canonical },
-    openGraph: { title, description, url: canonical, type: 'website' },
-    twitter: { card: 'summary_large_image', title, description },
+    openGraph: { title, description, url: canonical, type: 'website', images: ogImageEntry({ title, subtitle: description }) },
+    twitter: { card: 'summary_large_image', title, description, images: [ogImageUrl({ title, subtitle: description })] },
   };
 }
 

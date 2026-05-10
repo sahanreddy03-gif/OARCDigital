@@ -2,18 +2,22 @@ import type { Metadata } from "next";
 import PageContent from "./PageContent";
 import RouteSchema from "@/components/RouteSchema";
 import { SERVICE_SCHEMA_EXTRAS } from "@/lib/seo/serviceSchemaExtras";
+import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
+
 
 export const metadata: Metadata = {
   title: "Growth Strategy & Consulting | Strategic Planning | OARC Digital",
   description: "Expert growth strategy consulting. Market validation, growth experiments, strategic planning, and scaling roadmaps that transform ambitious businesses into market leaders.",
   alternates: { canonical: "https://oarcdigital.com/services/growth-strategy" },
   openGraph: {
+    images: ogImageEntry({ title: "Growth Strategy & Consulting | Strategic Planning | OARC Digital", subtitle: "Expert growth strategy consulting. Market validation, growth experiments, strategic planning, and scaling roadmaps that transform ambitious businesses into market leaders." }),
     title: "Growth Strategy & Consulting | Strategic Planning | OARC Digital",
     description: "Expert growth strategy consulting. Market validation, growth experiments, strategic planning, and scaling roadmaps that transform ambitious businesses into market leaders.",
     url: "https://oarcdigital.com/services/growth-strategy",
     type: "article",
   },
   twitter: {
+    images: [ogImageUrl({ title: "Growth Strategy & Consulting | Strategic Planning | OARC Digital", subtitle: "Expert growth strategy consulting. Market validation, growth experiments, strategic planning, and scaling roadmaps that transform ambitious businesses into market leaders." })],
     card: "summary_large_image",
     title: "Growth Strategy & Consulting | Strategic Planning | OARC Digital",
     description: "Expert growth strategy consulting. Market validation, growth experiments, strategic planning, and scaling roadmaps that transform ambitious businesses into market leaders.",

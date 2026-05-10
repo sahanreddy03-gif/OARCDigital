@@ -156,6 +156,7 @@ run_step "AUTOGEN parity (llms.txt)"  npx tsx scripts/generate-llms-txt-facts.ts
 run_step "AUTOGEN parity (llms-full.txt)" npx tsx scripts/generate-llms-full-txt.ts --check
 run_step "audit-alts"                 npx tsx scripts/audit-alts.ts
 run_step "audit-banned-phrases"       npx tsx scripts/audit-banned-phrases.ts
+run_step "audit-og-images"            node scripts/audit-og-images.mjs
 run_step "audit-organization"         npx tsx scripts/audit-organization.ts
 
 if [ "$MODE" = "gate:fast" ]; then

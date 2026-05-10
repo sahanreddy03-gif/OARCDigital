@@ -6,6 +6,8 @@ import { ArrowRight, MapPin, Building2, Users, Globe, Camera, TrendingUp, Brain,
 import RelatedLinks from "@/components/RelatedLinks";
 import TrustBlock from "@/components/seo/TrustBlock";
 import { IMAGE_REGISTRY } from "@/lib/images/registry";
+import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
+
 
 const HERO_IMAGE_ID = "img-001";
 const heroEntry = IMAGE_REGISTRY.find((e) => e.id === HERO_IMAGE_ID);
@@ -24,12 +26,14 @@ export const metadata: Metadata = {
   description: "The full real estate marketing stack for Malta agencies and developers — listings SEO, paid buyer campaigns, virtual tours, CRM automation, lead generation, and the AI Real Estate Agent that qualifies enquiries 24/7.",
   alternates: { canonical: CANONICAL },
   openGraph: {
+    images: ogImageEntry({ title: "Real Estate Marketing in Malta | Listings, Leads & AI Agents", subtitle: "The full real estate marketing stack for Malta agencies and developers — listings SEO, paid buyer campaigns, virtual tours, CRM automation, lead generation, and the AI Real Estate Agent that qualifies enquiries 24/7." }),
     title: "Real Estate Marketing in Malta | Listings, Leads & AI Agents",
     description: "Listings SEO, paid buyer campaigns, virtual tours, CRM, lead generation, and the AI Real Estate Agent — built for Malta agencies and developers.",
     url: CANONICAL,
     type: "article",
   },
   twitter: {
+    images: [ogImageUrl({ title: "Real Estate Marketing in Malta | Listings, Leads & AI Agents", subtitle: "The full real estate marketing stack for Malta agencies and developers — listings SEO, paid buyer campaigns, virtual tours, CRM automation, lead generation, and the AI Real Estate Agent that qualifies enquiries 24/7." })],
     card: "summary_large_image",
     title: "Real Estate Marketing in Malta | Listings, Leads & AI Agents",
     description: "The full real estate marketing stack for Malta agencies and developers — from listings SEO to AI enquiry qualification.",

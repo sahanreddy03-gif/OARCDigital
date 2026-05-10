@@ -6,12 +6,14 @@ export const metadata: Metadata = {
   description: supportingPagesSEO.enterprise.description,
   alternates: { canonical: `https://oarcdigital.com${supportingPagesSEO.enterprise.path}` },
   openGraph: {
+    images: ogImageEntry({ title: supportingPagesSEO.enterprise.title, subtitle: supportingPagesSEO.enterprise.description }),
     title: supportingPagesSEO.enterprise.title,
     description: supportingPagesSEO.enterprise.description,
     url: `https://oarcdigital.com${supportingPagesSEO.enterprise.path}`,
     type: supportingPagesSEO.enterprise.ogType ?? "website",
   },
   twitter: {
+    images: [ogImageUrl({ title: supportingPagesSEO.enterprise.title, subtitle: supportingPagesSEO.enterprise.description })],
     card: "summary_large_image",
     title: supportingPagesSEO.enterprise.title,
     description: supportingPagesSEO.enterprise.description,
@@ -19,6 +21,8 @@ export const metadata: Metadata = {
 };
 
 import Layout from "@/components/layout/Layout";
+import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
+
 
 export default function Page() {
   return (

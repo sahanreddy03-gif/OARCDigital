@@ -2,18 +2,22 @@ import type { Metadata } from "next";
 import PageContent from "./PageContent";
 import RouteSchema from "@/components/RouteSchema";
 import { SERVICE_SCHEMA_EXTRAS } from "@/lib/seo/serviceSchemaExtras";
+import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
+
 
 export const metadata: Metadata = {
   title: "Influencer Marketing | Creator Partnerships | OARC Digital",
   description: "Premium influencer marketing campaigns from OARC Digital. Connect with authentic creators and drive results through strategic influencer partnerships.",
   alternates: { canonical: "https://oarcdigital.com/services/influencer-marketing" },
   openGraph: {
+    images: ogImageEntry({ title: "Influencer Marketing | Creator Partnerships | OARC Digital", subtitle: "Premium influencer marketing campaigns from OARC Digital. Connect with authentic creators and drive results through strategic influencer partnerships." }),
     title: "Influencer Marketing | Creator Partnerships | OARC Digital",
     description: "Premium influencer marketing campaigns from OARC Digital. Connect with authentic creators and drive results through strategic influencer partnerships.",
     url: "https://oarcdigital.com/services/influencer-marketing",
     type: "article",
   },
   twitter: {
+    images: [ogImageUrl({ title: "Influencer Marketing | Creator Partnerships | OARC Digital", subtitle: "Premium influencer marketing campaigns from OARC Digital. Connect with authentic creators and drive results through strategic influencer partnerships." })],
     card: "summary_large_image",
     title: "Influencer Marketing | Creator Partnerships | OARC Digital",
     description: "Premium influencer marketing campaigns from OARC Digital. Connect with authentic creators and drive results through strategic influencer partnerships.",

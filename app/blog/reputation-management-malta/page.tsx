@@ -1,18 +1,22 @@
 import type { Metadata } from "next";
 import PageContent from "./PageContent";
 import RouteSchema from "@/components/RouteSchema";
+import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
+
 
 export const metadata: Metadata = {
   title: "Reputation Management Malta: How to Manage Your Google Reviews | OARC Digital",
   description: "How Malta businesses build and protect their online reputation — responding to reviews, generating new ones, and managing what appears when customers search for them.",
   alternates: { canonical: "https://oarcdigital.com/blog/reputation-management-malta" },
   openGraph: {
+    images: ogImageEntry({ title: "Reputation Management Malta: How to Manage Your Google Reviews | OARC Digital", subtitle: "How Malta businesses build and protect their online reputation — responding to reviews, generating new ones, and managing what appears when customers search for them." }),
     title: "Reputation Management Malta: How to Manage Your Google Reviews | OARC Digital",
     description: "How Malta businesses build and protect their online reputation — responding to reviews, generating new ones, and managing what appears when customers search for them.",
     url: "https://oarcdigital.com/blog/reputation-management-malta",
     type: "article",
   },
   twitter: {
+    images: [ogImageUrl({ title: "Reputation Management Malta: How to Manage Your Google Reviews | OARC Digital", subtitle: "How Malta businesses build and protect their online reputation — responding to reviews, generating new ones, and managing what appears when customers search for them." })],
     card: "summary_large_image",
     title: "Reputation Management Malta: How to Manage Your Google Reviews | OARC Digital",
     description: "How Malta businesses build and protect their online reputation — responding to reviews, generating new ones, and managing what appears when customers search for them.",

@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import PageContent from "./PageContent";
 import RouteSchema from "@/components/RouteSchema";
 import { SERVICE_SCHEMA_EXTRAS } from "@/lib/seo/serviceSchemaExtras";
+import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
+
 
 export const metadata: Metadata = {
   title: "Social Media Strategy & Audit | OARC Digital Malta",
@@ -9,6 +11,7 @@ export const metadata: Metadata = {
     "A one-time social media strategy and audit for Malta brands. Forensic teardown of your channels, competitor matrix, content pillars, and a 90-day execution plan.",
   alternates: { canonical: "https://oarcdigital.com/services/social" },
   openGraph: {
+    images: ogImageEntry({ title: "Social Media Strategy & Audit | OARC Digital Malta", subtitle: "A one-time social media strategy and audit for Malta brands. Forensic teardown of your channels, competitor matrix, content pillars, and a 90-day execution plan." }),
     title: "Social Media Strategy & Audit | OARC Digital Malta",
     description:
       "A one-time social media strategy and audit for Malta brands. Forensic teardown of your channels, competitor matrix, content pillars, and a 90-day execution plan.",
@@ -16,6 +19,7 @@ export const metadata: Metadata = {
     type: "article",
   },
   twitter: {
+    images: [ogImageUrl({ title: "Social Media Strategy & Audit | OARC Digital Malta", subtitle: "A one-time social media strategy and audit for Malta brands. Forensic teardown of your channels, competitor matrix, content pillars, and a 90-day execution plan." })],
     card: "summary_large_image",
     title: "Social Media Strategy & Audit | OARC Digital Malta",
     description:

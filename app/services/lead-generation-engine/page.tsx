@@ -3,18 +3,22 @@ import ServiceClient from "@/components/services/RevenueServiceClient";
 import DeepContent from "./PageContent";
 import RouteSchema from "@/components/RouteSchema";
 import { SERVICE_SCHEMA_EXTRAS } from "@/lib/seo/serviceSchemaExtras";
+import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
+
 
 export const metadata: Metadata = {
   title: "Lead Generation & Qualification Engine | AI-Powered Pipeline | OARC Digital",
   description: "Stop chasing cold leads. OARC's Lead Generation Engine identifies, scores, and nurtures high-intent prospects automatically—3x qualified leads guaranteed.",
   alternates: { canonical: "https://oarcdigital.com/services/lead-generation-engine" },
   openGraph: {
+    images: ogImageEntry({ title: "Lead Generation & Qualification Engine | AI-Powered Pipeline | OARC Digital", subtitle: "Stop chasing cold leads. OARC's Lead Generation Engine identifies, scores, and nurtures high-intent prospects automatically—3x qualified leads guaranteed." }),
     title: "Lead Generation & Qualification Engine | AI-Powered Pipeline | OARC Digital",
     description: "Stop chasing cold leads. OARC's Lead Generation Engine identifies, scores, and nurtures high-intent prospects automatically—3x qualified leads guaranteed.",
     url: "https://oarcdigital.com/services/lead-generation-engine",
     type: "article",
   },
   twitter: {
+    images: [ogImageUrl({ title: "Lead Generation & Qualification Engine | AI-Powered Pipeline | OARC Digital", subtitle: "Stop chasing cold leads. OARC's Lead Generation Engine identifies, scores, and nurtures high-intent prospects automatically—3x qualified leads guaranteed." })],
     card: "summary_large_image",
     title: "Lead Generation & Qualification Engine | AI-Powered Pipeline | OARC Digital",
     description: "Stop chasing cold leads. OARC's Lead Generation Engine identifies, scores, and nurtures high-intent prospects automatically—3x qualified leads guaranteed.",

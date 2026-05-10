@@ -5,11 +5,13 @@ export const metadata: Metadata = {
   description: "OARC Digital serves restaurants, hotels, healthcare, legal, professional services, construction, beauty, automotive, education, NGOs, iGaming, fintech, real estate, retail, ecommerce, fitness, wellness, and events across Malta. Pick your industry to see how we package the offer.",
   alternates: { canonical: "https://oarcdigital.com/industries" },
   openGraph: {
+    images: ogImageEntry({ title: "Industries We Serve in Malta | OARC Digital", subtitle: "OARC Digital serves restaurants, hotels, healthcare, legal, professional services, construction, beauty, automotive, education, NGOs, iGaming, fintech, real estate, retail, ecommerce, fitness, wellness, and events across Malta. Pick your industry to see how we package the offer." }),
     title: "Industries We Serve in Malta | OARC Digital",
     description: "OARC Digital serves 19 industries across Malta with industry-specific marketing, video, and AI systems. Find your sector to see the packaged offer, common pain points, and the services that move the needle for businesses like yours.",
     url: "https://oarcdigital.com/industries",
   },
   twitter: {
+    images: [ogImageUrl({ title: "Industries We Serve in Malta | OARC Digital", subtitle: "OARC Digital serves restaurants, hotels, healthcare, legal, professional services, construction, beauty, automotive, education, NGOs, iGaming, fintech, real estate, retail, ecommerce, fitness, wellness, and events across Malta. Pick your industry to see how we package the offer." })],
     card: "summary_large_image",
     title: "Industries We Serve in Malta | OARC Digital",
     description: "OARC Digital serves 19 industries across Malta with industry-specific marketing, video, and AI systems. Find your sector below.",
@@ -46,6 +48,8 @@ import {
 } from 'lucide-react';
 import Layout from '@/components/layout/Layout';
 import { Button } from '@/components/ui/button';
+import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
+
 
 type Industry = { slug: string; name: string; description: string; icon: LucideIcon; caseStudyCount: number };
 

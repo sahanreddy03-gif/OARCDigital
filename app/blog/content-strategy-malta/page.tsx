@@ -1,18 +1,22 @@
 import type { Metadata } from "next";
 import PageContent from "./PageContent";
 import RouteSchema from "@/components/RouteSchema";
+import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
+
 
 export const metadata: Metadata = {
   title: "Content Strategy Malta: Build Authority and Drive Traffic in 2025 | OARC Digital",
   description: "How Malta businesses build content strategies that generate organic traffic, establish authority, and create compounding returns long after the initial investment.",
   alternates: { canonical: "https://oarcdigital.com/blog/content-strategy-malta" },
   openGraph: {
+    images: ogImageEntry({ title: "Content Strategy Malta: Build Authority and Drive Traffic in 2025 | OARC Digital", subtitle: "How Malta businesses build content strategies that generate organic traffic, establish authority, and create compounding returns long after the initial investment." }),
     title: "Content Strategy Malta: Build Authority and Drive Traffic in 2025 | OARC Digital",
     description: "How Malta businesses build content strategies that generate organic traffic, establish authority, and create compounding returns long after the initial investment.",
     url: "https://oarcdigital.com/blog/content-strategy-malta",
     type: "article",
   },
   twitter: {
+    images: [ogImageUrl({ title: "Content Strategy Malta: Build Authority and Drive Traffic in 2025 | OARC Digital", subtitle: "How Malta businesses build content strategies that generate organic traffic, establish authority, and create compounding returns long after the initial investment." })],
     card: "summary_large_image",
     title: "Content Strategy Malta: Build Authority and Drive Traffic in 2025 | OARC Digital",
     description: "How Malta businesses build content strategies that generate organic traffic, establish authority, and create compounding returns long after the initial investment.",

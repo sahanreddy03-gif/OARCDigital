@@ -3,6 +3,8 @@ import Link from "next/link";
 import Script from "next/script";
 import { RESEARCH } from "@/lib/research/data";
 import { buildBreadcrumb, combine } from "@/lib/schema";
+import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
+
 
 const BASE = "https://oarcdigital.com";
 
@@ -12,6 +14,7 @@ export const metadata: Metadata = {
     "Original benchmarks and reports on marketing, AI, and SEO in Malta — from restaurant booking sources to agency pricing to small business tech readiness.",
   alternates: { canonical: `${BASE}/research` },
   openGraph: {
+    images: ogImageEntry({ title: "Malta Marketing & AI Research | OARC Digital", subtitle: "Original benchmarks and reports on marketing, AI, and SEO in Malta — from restaurant booking sources to agency pricing to small business tech readiness." }),
     title: "Malta Marketing & AI Research | OARC Digital",
     description:
       "Original benchmarks and reports on marketing, AI, and SEO in Malta — from OARC Digital's research desk.",

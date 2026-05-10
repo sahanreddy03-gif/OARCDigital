@@ -7,6 +7,8 @@
 
 import type { Metadata } from "next";
 import PageContent from "./PageContent";
+import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
+
 
 const TITLE = "About OARC Digital | Malta's AI-Native Creative & Automation Agency";
 const DESCRIPTION =
@@ -18,6 +20,7 @@ export const metadata: Metadata = {
   description: DESCRIPTION,
   alternates: { canonical: URL },
   openGraph: {
+    images: ogImageEntry({ title: TITLE, subtitle: DESCRIPTION }),
     type: "website",
     url: URL,
     title: TITLE,
@@ -25,6 +28,7 @@ export const metadata: Metadata = {
     siteName: "OARC Digital",
   },
   twitter: {
+    images: [ogImageUrl({ title: TITLE, subtitle: DESCRIPTION })],
     card: "summary_large_image",
     title: TITLE,
     description: DESCRIPTION,

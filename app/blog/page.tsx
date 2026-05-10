@@ -5,11 +5,13 @@ export const metadata: Metadata = {
   description: "Expert insights on AI marketing, creative services, and revenue growth. Learn from real case studies, how-to guides, and industry best practices.",
   alternates: { canonical: "https://oarcdigital.com/blog" },
   openGraph: {
+    images: ogImageEntry({ title: "OARC Digital Blog | AI Marketing, Creative Services & Growth Strategies", subtitle: "Expert insights on AI marketing, creative services, and revenue growth. Learn from real case studies, how-to guides, and industry best practices." }),
     title: "OARC Digital Blog | AI Marketing, Creative Services & Growth Strategies",
     description: "Expert insights on AI marketing, creative services, and revenue growth. Learn from real case studies, how-to guides, and industry best practices.",
     url: "https://oarcdigital.com/blog",
   },
   twitter: {
+    images: [ogImageUrl({ title: "OARC Digital Blog | AI Marketing, Creative Services & Growth Strategies", subtitle: "Expert insights on AI marketing, creative services, and revenue growth. Learn from real case studies, how-to guides, and industry best practices." })],
     card: "summary_large_image",
     title: "OARC Digital Blog | AI Marketing, Creative Services & Growth Strategies",
     description: "Expert insights on AI marketing, creative services, and revenue growth. Learn from real case studies, how-to guides, and industry best practices.",
@@ -24,6 +26,8 @@ import { createBreadcrumbSchema, createArticleSchema } from '@/utils/advancedSch
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Calendar, Clock } from 'lucide-react';
 import Link from "next/link";
+import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
+
 
 interface BlogPost {
   slug: string;
