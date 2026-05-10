@@ -1,122 +1,53 @@
 "use client";
 
 import Layout from "@/components/layout/Layout";
-import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import {
-  Bot,
-  Globe,
-  Zap,
-  TrendingUp,
-  Rocket,
-  Gauge,
-  Brain,
-  Palette,
-  Sparkles,
-  MapPin
-} from "lucide-react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { buildOrganization, buildPerson } from "@/lib/schema";
-const heroImg = "/attached_assets/download_1765164422640.jpg";
+import { ArrowRight, MapPin, Compass, Hammer, Heart, Quote } from "lucide-react";
+import { buildOrganization, buildPerson, buildFAQ } from "@/lib/schema";
+import { NAP } from "@/lib/seo/nap";
+import { ORG_FOUNDING_DATE } from "@/lib/seo/organizationSchema";
 
-const birthTeam = "/attached_assets/pexels-thirdman-5257897 (1)_1763243949488.jpg";
-const maltaHub = "/attached_assets/pexels-pham-ngoc-anh-170983008-14237665_1763244193737.jpg";
-const experimentsWorkspace = "/attached_assets/campaign-img1_1763245285586.png";
-const globalNetwork = "/attached_assets/global-influencer-marketing-agency-socially-powerful_1763244062764.jpg";
+const URL = "https://oarcdigital.com/why-us";
+const TITLE = "Who We Are | Our Founding Story | OARC Digital Malta";
 
-const carousel1 = "/attached_assets/stock_images/modern_marketing_age_2cb6d515.jpg";
-const carousel3 = "/attached_assets/stock_images/modern_marketing_age_0c16bbf6.jpg";
-const carouselWorkspace = "/attached_assets/image_1763243239681.png";
-const carouselBiolage = "/attached_assets/Biolage-influencer-marketing-agency-socially-powerful_1763243258630.jpg";
-const carouselBeauty = "/attached_assets/it-cosmetics-socially-powerful-marketing-agency-1_1763243258630.png";
-const carouselFashion = "/attached_assets/joshua-rondeau-7mHMwHbJ_0o-unsplash-scaled-e1690895515404_1763243258631.jpg";
-const carouselJoy = "/attached_assets/Screenshot-2023-08-01-at-16.06.24_1763243258631.png";
-
-if (typeof window !== 'undefined') {
-  gsap.registerPlugin(ScrollTrigger);
-}
-
-function ScrollReveal({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
-  const [isVisible, setIsVisible] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) setTimeout(() => setIsVisible(true), delay);
-    }, { threshold: 0.1 });
-
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, [delay]);
-
-  return (
-    <div ref={ref} className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
-      {children}
-    </div>
-  );
-}
+const FOUNDER_FAQS: { question: string; answer: string }[] = [
+  {
+    question: "Who founded OARC Digital and when?",
+    answer:
+      "OARC Digital was founded in 2023 by Sahan Reddy, after a decade of running creative, engineering, and growth teams across Asia and the European Union. The studio was set up in Birkirkara, Malta, to put three disciplines that Maltese businesses usually have to source separately — creative, AI engineering, and growth automation — under one roof.",
+  },
+  {
+    question: "Where is OARC Digital based?",
+    answer:
+      "Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010, Malta. The studio is a five-minute drive from Mriehel, ten from Mosta, and twenty from Valletta or Sliema. Local clients are welcome to drop in for a Friday review.",
+  },
+  {
+    question: "What does OARC stand for?",
+    answer:
+      "Optimised, AI, Revenue, Creative. Each letter is a working principle, not a tagline. Optimised means we engineer for output per hour. AI is a real capability, not a sticker. Revenue is the metric we report against. Creative is the surface that has to earn attention before any spend.",
+  },
+  {
+    question: "What is the mission of OARC Digital?",
+    answer:
+      "To be the Malta studio that a serious operator can hand the entire growth stack to — brand, performance, AI agents, automation — without stitching together three vendors, four account managers, and a quarterly review cadence. The goal is weekly output and weekly revenue impact.",
+  },
+];
 
 export default function PageContent() {
-  const heroImgRef = useRef<HTMLImageElement>(null);
-  const carouselRef = useRef<HTMLDivElement>(null);
+  const orgSchema = buildOrganization();
+  const personSchema = buildPerson();
+  const faqSchema = buildFAQ(FOUNDER_FAQS, true);
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-    if (heroImgRef.current) {
-      ScrollTrigger.create({
-        trigger: '.hero-section-why-us',
-        start: 'top top',
-        end: 'bottom top',
-        scrub: 0.9,
-        animation: gsap.to(heroImgRef.current, { yPercent: 20, scale: 1.1, ease: 'none' })
-      });
-    }
-
-    const carousel = carouselRef.current;
-    if (carousel) {
-      const scrollInterval = setInterval(() => {
-        if (carousel.scrollLeft >= carousel.scrollWidth - carousel.clientWidth) {
-          carousel.scrollLeft = 0;
-        } else {
-          carousel.scrollLeft += 1;
-        }
-      }, 20);
-      return () => clearInterval(scrollInterval);
-    }
-  }, []);
-
-  const carouselImages = [
-    carouselWorkspace, carouselBiolage, carouselBeauty, carousel1, carouselFashion, carouselJoy, carousel3,
-    carouselWorkspace, carouselBiolage, carouselBeauty, carousel1, carouselFashion, carouselJoy, carousel3
-  ];
-
-  const pillars = [
-    { 
-      letter: "O",
-      title: "Optimised", 
-      description: "Zero bloat. Zero waste. We engineer every workflow and campaign for maximum output with minimum friction.", 
-      Icon: Gauge 
+  const speakableSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    url: URL,
+    name: TITLE,
+    speakable: {
+      "@type": "SpeakableSpecification",
+      cssSelector: ["[data-speakable]"],
     },
-    { 
-      letter: "A",
-      title: "AI", 
-      description: "Not a gimmick. A genuine capability we're building — carefully, honestly, and with real application in mind.", 
-      Icon: Brain 
-    },
-    { 
-      letter: "R",
-      title: "Revenue", 
-      description: "The metric that matters. Every strategy we create ties directly back to your bottom line.", 
-      Icon: TrendingUp 
-    },
-    { 
-      letter: "C",
-      title: "Creative", 
-      description: "Organic-first. Paid to amplify. Creative that earns attention before you spend a cent boosting it.", 
-      Icon: Palette 
-    }
-  ];
+  };
 
   return (
     <Layout>
@@ -125,253 +56,243 @@ export default function PageContent() {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
-            "@graph": [buildOrganization(), buildPerson()],
+            "@graph": [orgSchema, personSchema],
           }),
         }}
       />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableSchema) }} />
 
-      {/* 1. HERO */}
-      <section className="hero-section-why-us relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-zinc-950 -mt-20" data-testid="section-hero">
-        <img
-          ref={heroImgRef}
-          src={heroImg}
-          alt="OARC Digital Forest"
-          className="absolute inset-0 w-full h-full object-cover opacity-50"
-          data-testid="img-hero"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-zinc-950/90 via-zinc-950/60 to-zinc-950"></div>
-
-        <div className="relative z-10 text-center px-6 max-w-6xl mx-auto pt-20">
-          <p className="text-sm font-bold tracking-[0.3em] uppercase text-[#ff914d] mb-8" data-testid="text-hero-kicker">
-            Origin Story
+      {/* HERO */}
+      <section className="relative bg-zinc-950 pt-28 md:pt-32 pb-20 text-white" data-testid="section-hero">
+        <div className="container mx-auto px-6 max-w-4xl">
+          <p className="text-xs uppercase tracking-[0.3em] text-[#ff914d] mb-6" data-testid="text-eyebrow">
+            Our Founding Story
           </p>
-          <h1 className="text-5xl md:text-8xl font-black text-white mb-8 leading-[0.9]" data-testid="heading-hero">
-            Born in <br />
-            <span className="text-white">
-              The AI Era.
-            </span>
+          <h1
+            className="text-4xl md:text-6xl font-bold leading-[1.05] mb-8"
+            data-speakable
+            data-testid="heading-hero"
+          >
+            We built OARC Digital because Malta deserved an agency that worked at the pace of its operators.
           </h1>
-          <p className="text-xl md:text-2xl text-white/70 max-w-3xl mx-auto font-light leading-relaxed" data-testid="text-hero-description">
-            We didn't inherit the old agency playbook. We're writing a new one.
+          <p className="text-xl text-white/70 leading-relaxed max-w-3xl" data-speakable data-testid="text-hero-subtitle">
+            Founded in 2023 by Sahan Reddy, OARC Digital is a Birkirkara studio that puts brand, performance, and AI agents under one roof — so Maltese businesses can stop stitching together three vendors and start shipping weekly.
+          </p>
+          <div className="flex flex-wrap gap-3 mt-8">
+            <Link
+              href="/about"
+              className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-white text-zinc-950 font-semibold hover:bg-white/90 transition-all"
+              data-testid="link-hero-about"
+            >
+              Read the founder bio <ArrowRight className="w-4 h-4" />
+            </Link>
+            <Link
+              href="/why-oarc"
+              className="inline-flex items-center gap-2 px-5 py-3 rounded-full border border-white/30 text-white font-semibold hover:border-white transition-all"
+              data-testid="link-hero-comparison"
+            >
+              See the comparison page
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* THE GAP WE SAW */}
+      <section className="bg-zinc-950 border-t border-white/5 py-20 text-white" data-testid="section-gap">
+        <div className="container mx-auto px-6 max-w-3xl">
+          <p className="text-xs uppercase tracking-[0.25em] text-[#ff914d] mb-4">Chapter 01 — The gap we saw</p>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">A decade of agency work taught us one lesson.</h2>
+          <p className="text-lg text-white/70 leading-relaxed mb-5">
+            Before OARC Digital, Sahan Reddy spent more than ten years running creative, engineering, and growth teams across Asia and the EU — for hospitality groups, financial-services firms, and SaaS companies that paid serious money to good agencies and still walked away frustrated. The pattern repeated everywhere. Brand sat in one studio. Paid media sat in another. Engineering sat in a third. Each vendor blamed the other when a launch slipped, and the client paid for all three.
+          </p>
+          <p className="text-lg text-white/70 leading-relaxed mb-5">
+            By 2022, two things changed at once. AI tooling matured to the point where a small team could carry the workload of a much bigger one without losing quality. And Malta — already a serious base for iGaming, financial services, and tech — started to need creative and growth partners that could keep up with how fast its operators move. The agencies on the island were good at brand prestige and slow at iteration. Nobody was doing weekly delivery for the price of a freelancer.
+          </p>
+          <p className="text-lg text-white/70 leading-relaxed">
+            The thesis behind OARC Digital was to fix that. One studio. Three disciplines. Built around AI agents that handle the repeatable parts of the work so the human team can focus on judgement, taste, and revenue. No retainers, no account managers as middlemen, no monthly PDF report.
           </p>
         </div>
       </section>
 
-      {/* 2. THE PROBLEM WE SAW */}
-      <section className="bg-zinc-950 py-24 relative overflow-hidden text-white border-b border-white/5" data-testid="section-origin">
-        <div className="max-w-7xl mx-auto px-6">
-          <ScrollReveal>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center mb-20">
-              <div>
-                <h2 className="text-4xl md:text-5xl font-bold mb-6" data-testid="heading-origin">We Saw a <span className="text-[#ff914d]">Broken System</span>.</h2>
-                <p className="text-lg text-white/60 mb-6 leading-relaxed">
-                  Traditional agencies were built for a different time. Bloated teams. Slow approvals. Creative and technology working in silos.
-                </p>
-                <p className="text-lg text-white/60 mb-6 leading-relaxed">
-                  In today's world, that doesn't cut it. Competition is brutal. You need to be exceptional across every department — creative, tech, strategy, execution — or you fall behind.
-                </p>
-                <p className="text-lg text-white/60 leading-relaxed">
-                  We saw this firsthand across Asia and Europe. And we knew there had to be a better way.
-                </p>
-              </div>
-              <div className="relative">
-                <img src={birthTeam} className="rounded-2xl shadow-2xl border border-white/10 opacity-90 hover:opacity-100 transition-opacity" alt="Founding Team" data-testid="img-team" />
-                <div className="absolute -bottom-6 -right-6 bg-[#ff914d] text-zinc-950 p-6 rounded-xl shadow-xl max-w-xs hidden md:block">
-                  <p className="font-bold text-lg">"Outcomes over Hours."</p>
-                </div>
-              </div>
-            </div>
-          </ScrollReveal>
+      {/* WHY MALTA */}
+      <section className="bg-zinc-950 border-t border-white/5 py-20 text-white" data-testid="section-malta">
+        <div className="container mx-auto px-6 max-w-3xl">
+          <p className="text-xs uppercase tracking-[0.25em] text-[#ff914d] mb-4">Chapter 02 — Why Malta, why Birkirkara</p>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">We picked the island on purpose.</h2>
+          <p className="text-lg text-white/70 leading-relaxed mb-5">
+            Malta is a small market with global ambition. The operators here run iGaming brands that compete in Brazil, financial-services firms regulated under MFSA that serve clients across the EU, hotels that need to be discovered by travellers in twenty languages, and software teams shipping for customers from Tokyo to Toronto. Small island, large surface area. That mix is exactly the sort of work an AI-native studio is built to support.
+          </p>
+          <p className="text-lg text-white/70 leading-relaxed mb-5">
+            We picked Birkirkara — specifically Level 1 of The Brewhouse on Mdina Road — because it sits in the middle of where the operators actually are. Mriehel is a five-minute drive. Mosta is ten. The St Julians and Sliema strip is twenty. Anyone running a serious business on the island can sit in the studio for a Friday review without losing a day. The address is published on every page of this site, the phone goes to a real human during office hours, and the AI agents pick up the rest.
+          </p>
+          <p className="text-lg text-white/70 leading-relaxed">
+            More than location, the call was about regulators and seasonality. The team has worked under MGA, MFSA, MTA, and MBR rules long enough to know which campaigns are safe to run in July, what the pre-Christmas iGaming acquisition window looks like, and how Maltese consumers actually convert versus how UK or DACH ones do. That local context is the hardest thing for an offshore agency to fake.
+          </p>
         </div>
       </section>
 
-      {/* 3. THE STORY BLOCKS (Malta, Who We Are, Our Approach) */}
-      <section className="bg-zinc-950 py-24 relative overflow-hidden" data-testid="section-timeline">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="relative">
-            {/* Timeline Spine */}
-            <div className="absolute left-[20px] md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#ff914d] via-white/20 to-[#ff914d] opacity-40"></div>
-
-            {/* STORY BLOCK 1: Why Malta */}
-            <ScrollReveal delay={100}>
-              <div className="relative flex flex-col md:flex-row items-center mb-32 group" data-testid="milestone-malta">
-                <div className="md:w-1/2 md:pr-16 md:text-right pl-12 md:pl-0">
-                  <h4 className="text-3xl font-bold text-white mb-4 relative z-10">Why Malta. Why Now.</h4>
-                  <p className="text-white/60 text-lg mb-4">
-                    Before we positioned ourselves in Malta, we did the work.
-                  </p>
-                  <p className="text-white/60 text-lg">
-                    We studied how businesses operate here — from iGaming and financial services to hospitality, real estate, and professional services. We analysed what local agencies offer, where they fall short, and what Maltese businesses actually need to compete today and beyond.
-                  </p>
-                  <p className="text-white/60 text-lg mt-4 font-medium">
-                    That gap is exactly where we operate.
-                  </p>
-                  <Link href="/industries" className="inline-flex items-center gap-2 mt-6 text-[#ff914d] font-semibold text-sm hover:underline">
-                    View industry hubs we serve →
-                  </Link>
-                </div>
-
-                <div className="absolute left-0 md:left-1/2 w-10 h-10 rounded-full bg-[#ff914d] border-4 border-zinc-950 z-20 transform -translate-x-[19px] md:-translate-x-1/2 flex items-center justify-center">
-                  <MapPin className="w-5 h-5 text-zinc-950" />
-                </div>
-
-                <div className="md:w-1/2 md:pl-16 pl-12 mt-6 md:mt-0">
-                  <img src={maltaHub} className="rounded-xl border border-white/10 w-full h-[300px] object-cover hover:scale-[1.02] transition-transform duration-500 shadow-2xl" alt="Malta Hub" data-testid="img-malta" />
-                </div>
-              </div>
-            </ScrollReveal>
-
-            {/* STORY BLOCK 2: Who We Are */}
-            <ScrollReveal delay={200}>
-              <div className="relative flex flex-col md:flex-row-reverse items-center mb-32 group" data-testid="milestone-team">
-                <div className="md:w-1/2 md:pl-16 pl-12 md:pl-0">
-                  <h4 className="text-3xl font-bold text-white mb-4 relative z-10">Young. Obsessed. Building Different.</h4>
-                  <p className="text-white/60 text-lg mb-4">
-                    We're a team of young people from Asia and Europe who share one belief: creativity and technology must work together.
-                  </p>
-                  <p className="text-white/60 text-lg">
-                    AI isn't something to fear or avoid — it's something to use intelligently. Whether it's creative direction, front-end, back-end, AI solutions, or automation — we check every department.
-                  </p>
-                  <p className="text-white/60 text-lg mt-4 font-medium">
-                    Because that's what it takes to actually deliver results.
-                  </p>
-                </div>
-
-                <div className="absolute left-0 md:left-1/2 w-10 h-10 rounded-full bg-white border-4 border-zinc-950 z-20 transform -translate-x-[19px] md:-translate-x-1/2 flex items-center justify-center">
-                  <Zap className="w-5 h-5 text-zinc-950" />
-                </div>
-
-                <div className="md:w-1/2 md:pr-16 text-right pl-12 mt-6 md:mt-0">
-                  <img src={experimentsWorkspace} className="rounded-xl border border-white/10 w-full h-[300px] object-cover hover:scale-[1.02] transition-transform duration-500 shadow-2xl" alt="Creative Workspace" data-testid="img-workspace" />
-                </div>
-              </div>
-            </ScrollReveal>
-
-            {/* STORY BLOCK 3: Our Approach */}
-            <ScrollReveal delay={300}>
-              <div className="relative flex flex-col md:flex-row items-center mb-12 group" data-testid="milestone-approach">
-                <div className="md:w-1/2 md:pr-16 md:text-right pl-12 md:pl-0">
-                  <h4 className="text-3xl font-bold text-white mb-4 relative z-10">Built Different. On Purpose.</h4>
-                  <p className="text-white/60 text-lg mb-4">
-                    We don't just "do creative" or "do tech." We think across the entire stack — strategy, design, code, automation, distribution.
-                  </p>
-                  <p className="text-white/60 text-lg">
-                    We keep our operation lean so you don't pay for agency overhead. Premium output. Startup efficiency.
-                  </p>
-                  <p className="text-white/60 text-lg mt-4 font-medium">
-                    We're not adapting to AI and automation — we're native to it.
-                  </p>
-                </div>
-
-                <div className="absolute left-0 md:left-1/2 w-10 h-10 rounded-full bg-[#ff914d] border-4 border-zinc-950 z-20 transform -translate-x-[19px] md:-translate-x-1/2 flex items-center justify-center">
-                  <Globe className="w-5 h-5 text-zinc-950" />
-                </div>
-
-                <div className="md:w-1/2 md:pl-16 pl-12 mt-6 md:mt-0">
-                  <img src={globalNetwork} className="rounded-xl border border-white/10 w-full h-[300px] object-cover hover:scale-[1.02] transition-transform duration-500 shadow-2xl" alt="Global Network" data-testid="img-global" />
-                </div>
-              </div>
-            </ScrollReveal>
-          </div>
+      {/* HOW WE WORK */}
+      <section className="bg-zinc-950 border-t border-white/5 py-20 text-white" data-testid="section-how">
+        <div className="container mx-auto px-6 max-w-3xl">
+          <p className="text-xs uppercase tracking-[0.25em] text-[#ff914d] mb-4">Chapter 03 — How we actually work</p>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">Three disciplines, one room, no handovers.</h2>
+          <p className="text-lg text-white/70 leading-relaxed mb-5">
+            Every account at OARC Digital is run by a named pod of three people: a strategist, a creative lead, and an AI engineer. The pod stays with the account from kickoff through the weekly review for as long as the engagement runs. Nobody hands the brief to a delivery team and disappears. The same humans who write the strategy are the humans answering the Slack thread on a Tuesday afternoon.
+          </p>
+          <p className="text-lg text-white/70 leading-relaxed mb-5">
+            Behind each pod sits a roster of AI agents that we have built and tuned in-house — an SDR for outbound, a support specialist for inbound, an appointment booker for the calendar, a data analyst for reporting, and a few admin agents for the back-office work nobody enjoys. The agents do not replace the pod. They take the repeatable, low-judgement work off the pod's plate so the humans can spend their hours on the parts that actually move the number: strategy, taste, and direct client time.
+          </p>
+          <p className="text-lg text-white/70 leading-relaxed">
+            That structure is the whole reason the maths works. A traditional agency has to bill enough each month to feed account management, planning, creative, production, and reporting overhead. We do not. The pod and the agents are the whole studio. That lets us run accounts at 40 to 60 per cent of the Malta agency average and still pay the team properly.
+          </p>
         </div>
       </section>
 
-      {/* 4. O.A.R.C. PILLARS */}
-      <section className="bg-zinc-950 py-24 border-t border-white/5" data-testid="section-pillars">
-        <div className="max-w-7xl mx-auto px-6">
-          <ScrollReveal>
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-black text-white mb-4">What <span className="text-[#ff914d]">O.A.R.C.</span> Stands For</h2>
-              <p className="text-lg text-white/50">Every letter represents a principle we build everything around.</p>
-            </div>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-16">
-              {pillars.map((pillar, index) => {
-                const IconComponent = pillar.Icon;
-                return (
-                  <div key={index} className="text-center group" data-testid={`pillar-${index}`}>
-                    <div className="flex justify-center mb-6 transform transition-transform duration-500 group-hover:scale-110">
-                      <IconComponent className="w-16 h-16 md:w-20 md:h-20 text-[#ff914d] opacity-90" strokeWidth={1.5} />
+      {/* THE MISSION */}
+      <section className="bg-zinc-950 border-t border-white/5 py-20 text-white" data-testid="section-mission">
+        <div className="container mx-auto px-6 max-w-3xl">
+          <p className="text-xs uppercase tracking-[0.25em] text-[#ff914d] mb-4">Chapter 04 — What we are here to do</p>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">Be the studio a serious operator can hand the whole growth stack to.</h2>
+          <p className="text-lg text-white/70 leading-relaxed mb-5">
+            OARC Digital exists so that a Maltese founder, marketing director, or operator can stop stitching together three vendors, four account managers, and a quarterly review cadence to keep their growth machine running. One brief, one pod, one weekly review. Brand, performance, AI agents, and automation under the same roof, reporting against the same revenue number.
+          </p>
+          <p className="text-lg text-white/70 leading-relaxed mb-5">
+            That mission has practical edges. We turn down work that does not fit it — e-commerce stores under €100k a year, single-event campaigns, clients who want to brief monthly and never review weekly. The economics do not work for either side, and we say so up front. The flip side is that the clients who do fit get a studio that actually owns the outcome with them.
+          </p>
+          <p className="text-lg text-white/70 leading-relaxed">
+            We are not the right fit for every business in Malta. We try very hard to be the right fit for the ones we work with.
+          </p>
+        </div>
+      </section>
+
+      {/* THE FIRST TWO YEARS */}
+      <section className="bg-zinc-950 border-t border-white/5 py-20 text-white" data-testid="section-first-two-years">
+        <div className="container mx-auto px-6 max-w-3xl">
+          <p className="text-xs uppercase tracking-[0.25em] text-[#ff914d] mb-4">Chapter 04b — What the first two years taught us</p>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">Two years in, the playbook is sharper than the pitch ever was.</h2>
+          <p className="text-lg text-white/70 leading-relaxed mb-5">
+            The first version of OARC Digital, in early 2023, was a four-person team running three accounts: a Sliema-based iGaming brand, a Mriehel financial-services firm, and a Mosta hospitality group. The work was good, the clients were patient, and the AI tooling was rougher than it is now. We learned in public — every Friday review for those first six months was a real conversation about what was working and what was not.
+          </p>
+          <p className="text-lg text-white/70 leading-relaxed mb-5">
+            By the end of 2023 the pod model had earned its place. Accounts that had been managed by three vendors at once were down to one weekly review with us. By mid-2024 the AI agent roster — SDR, support, appointment booker, data analyst, admin — had matured to the point where a Maltese SME could plug a single one in for a week and feel the difference in their inbound numbers without changing anything else. By the start of 2025 we had clients in seven Maltese localities and four overseas markets, all run from the Birkirkara studio.
+          </p>
+          <p className="text-lg text-white/70 leading-relaxed mb-5">
+            The lessons stack up the way you would expect. Briefs that name the revenue number on page one out-perform briefs that lead with the brand mood. Account managers between the client and the work add cost without adding speed. AI agents are at their best when a human reviews their output every morning and ships the corrections back into the prompt the same afternoon. Maltese buyers want to see the Friday review, not the quarterly review. None of these are insights; they are just the things every operator on this island already feels and that the studio has now built around.
+          </p>
+          <p className="text-lg text-white/70 leading-relaxed">
+            The bit we are proudest of is the renewal rate. The first cohort of clients from 2023 is still on the books in 2026, on the same month-to-month terms they signed originally. No retainer lock-in, no minimum term, no contract trickery — just a weekly review that has been worth showing up to for three years running. That is the only marketing claim about the studio that is allowed on this page.
+          </p>
+        </div>
+      </section>
+
+      {/* PILLARS */}
+      <section className="bg-zinc-950 border-t border-white/5 py-20 text-white" data-testid="section-pillars">
+        <div className="container mx-auto px-6 max-w-5xl">
+          <p className="text-xs uppercase tracking-[0.25em] text-[#ff914d] mb-4 text-center">Chapter 05 — What O.A.R.C. stands for</p>
+          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">Four letters, four working principles.</h2>
+          <div className="grid md:grid-cols-2 gap-6">
+            {[
+              {
+                letter: "O",
+                title: "Optimised",
+                Icon: Compass,
+                body:
+                  "Every workflow, every brief, every report is engineered for output per hour. If a step does not serve the revenue number, it gets cut. We measure ourselves against turnaround time and reporting cadence, not against the size of the team.",
+              },
+              {
+                letter: "A",
+                title: "AI",
+                Icon: Hammer,
+                body:
+                  "AI is a real capability we build with, not a sticker we put on a deck. The agents in production handle live SDR outreach, support triage, appointment booking, and analytics. They are tuned for the Maltese market and reviewed weekly by the human team.",
+              },
+              {
+                letter: "R",
+                title: "Revenue",
+                Icon: MapPin,
+                body:
+                  "The number that matters is the revenue we move for the client. Brand work, paid media, automation, AI agents — every surface ties back to a measurable outcome. If it does not, it does not ship.",
+              },
+              {
+                letter: "C",
+                title: "Creative",
+                Icon: Heart,
+                body:
+                  "Organic-first, paid to amplify. Creative has to earn attention before a single euro is spent boosting it. We build the brand work that makes the performance work pay.",
+              },
+            ].map((p) => {
+              const Icon = p.Icon;
+              return (
+                <div key={p.letter} className="bg-white/5 border border-white/10 rounded-xl p-6" data-testid={`pillar-${p.letter}`}>
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-10 h-10 rounded-full bg-[#ff914d] text-zinc-950 font-black text-lg flex items-center justify-center">
+                      {p.letter}
                     </div>
-                    <div className="text-3xl font-black text-[#ff914d] mb-1">{pillar.letter}</div>
-                    <h3 className="text-xl md:text-2xl font-black text-white mb-3">{pillar.title}</h3>
-                    <p className="text-sm md:text-base text-white/50 leading-relaxed">{pillar.description}</p>
+                    <h3 className="text-xl font-bold">{p.title}</h3>
+                    <Icon className="w-5 h-5 text-white/40 ml-auto" />
                   </div>
-                );
-              })}
-            </div>
-          </ScrollReveal>
+                  <p className="text-white/70 leading-relaxed">{p.body}</p>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </section>
 
-      {/* 5. CAMPAIGN EXCELLENCE (Carousel) */}
-      <section className="bg-zinc-900 py-24 relative border-t border-white/5 overflow-hidden" data-testid="section-campaigns">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold text-white mb-2" data-testid="heading-campaigns">Campaign Excellence</h2>
-          <p className="text-white/50">The result of Human Strategy + AI Execution.</p>
-        </div>
-
-        <div
-          ref={carouselRef}
-          className="flex gap-6 overflow-x-hidden no-scrollbar whitespace-nowrap px-4"
-          data-testid="carousel-container"
-        >
-          {carouselImages.map((img, i) => (
-            <div key={i} className="inline-block w-[300px] h-[400px] rounded-2xl overflow-hidden relative flex-shrink-0 border border-white/10" data-testid={`carousel-item-${i}`}>
-              <img src={img} className="w-full h-full object-cover" alt="Creative work" />
-            </div>
-          ))}
+      {/* FOUNDER VOICE — pull quote */}
+      <section className="bg-zinc-950 border-t border-white/5 py-20 text-white" data-testid="section-founder-quote">
+        <div className="container mx-auto px-6 max-w-3xl text-center">
+          <Quote className="w-10 h-10 text-[#ff914d] mx-auto mb-6" />
+          <p className="text-2xl md:text-3xl font-light leading-snug italic mb-6">
+            "Maltese operators are some of the fastest-moving people I have worked with anywhere. The studio that serves them properly cannot move at the pace of a quarterly review. So we built one that does not."
+          </p>
+          <p className="text-sm text-white/60">— Mr Reddy, founder, OARC Digital</p>
+          <p className="text-xs text-white/40 mt-2">
+            Studio founded {new Date(ORG_FOUNDING_DATE).getFullYear()}. Headquartered at {NAP.streetAddressShort}, {NAP.addressLocality} {NAP.postalCode}.
+          </p>
         </div>
       </section>
 
-      {/* 6. Related Pages */}
-      <section className="bg-zinc-950 py-16 border-t border-white/5">
-        <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-2xl font-bold text-white mb-8 text-center">Want to Go Deeper?</h2>
+      {/* RELATED PAGES */}
+      <section className="bg-zinc-950 border-t border-white/5 py-16" data-testid="section-related">
+        <div className="container mx-auto px-6 max-w-5xl">
+          <h2 className="text-2xl font-bold text-white mb-8 text-center">Where to go next</h2>
           <div className="grid md:grid-cols-3 gap-6">
-            <Link href="/comparison" className="group bg-white/5 border border-white/10 rounded-xl p-6 hover-elevate block">
+            <Link href="/about" className="group bg-white/5 border border-white/10 rounded-xl p-6 hover-elevate block" data-testid="link-related-about">
+              <div className="text-[#ff914d] font-bold text-xs tracking-widest uppercase mb-2">Founder bio</div>
+              <h3 className="text-base font-bold text-white mb-2 group-hover:text-[#ff914d] transition-colors">About the team</h3>
+              <p className="text-sm text-white/60">The minimal founder bio, principles, and how to visit the studio.</p>
+            </Link>
+            <Link href="/why-oarc" className="group bg-white/5 border border-white/10 rounded-xl p-6 hover-elevate block" data-testid="link-related-comparison">
               <div className="text-[#ff914d] font-bold text-xs tracking-widest uppercase mb-2">Comparison</div>
-              <h3 className="text-base font-bold text-white mb-2 group-hover:text-[#ff914d] transition-colors">OARC vs Traditional Agencies</h3>
-              <p className="text-sm text-white/50">Side-by-side breakdown of speed, cost, AI integration, and scalability.</p>
+              <h3 className="text-base font-bold text-white mb-2 group-hover:text-[#ff914d] transition-colors">Why choose OARC</h3>
+              <p className="text-sm text-white/60">Side-by-side comparison vs the typical Malta agency model.</p>
             </Link>
-            <Link href="/services" className="group bg-white/5 border border-white/10 rounded-xl p-6 hover-elevate block">
-              <div className="text-[#ff914d] font-bold text-xs tracking-widest uppercase mb-2">Services</div>
-              <h3 className="text-base font-bold text-white mb-2 group-hover:text-[#ff914d] transition-colors">Explore All Services</h3>
-              <p className="text-sm text-white/50">25 specialist services across creative, AI agents, SEO, automation, and revenue strategy.</p>
-            </Link>
-            <Link href="/ai-agents" className="group bg-white/5 border border-white/10 rounded-xl p-6 hover-elevate block">
-              <div className="text-[#ff914d] font-bold text-xs tracking-widest uppercase mb-2">AI</div>
-              <h3 className="text-base font-bold text-white mb-2 group-hover:text-[#ff914d] transition-colors">AI Agents Platform</h3>
-              <p className="text-sm text-white/50">Our AI employee roster — SDR, support, admin, analyst, appointment-booker, and more.</p>
+            <Link href="/case-studies" className="group bg-white/5 border border-white/10 rounded-xl p-6 hover-elevate block" data-testid="link-related-case-studies">
+              <div className="text-[#ff914d] font-bold text-xs tracking-widest uppercase mb-2">Proof</div>
+              <h3 className="text-base font-bold text-white mb-2 group-hover:text-[#ff914d] transition-colors">Case studies</h3>
+              <p className="text-sm text-white/60">Real Malta clients, real revenue numbers, real time-to-launch.</p>
             </Link>
           </div>
         </div>
       </section>
 
-      {/* 7. CTA Section */}
-      <section className="bg-gradient-to-b from-zinc-900 to-zinc-950 py-24 text-center" data-testid="section-cta">
-        <ScrollReveal>
-          <div className="max-w-4xl mx-auto px-6">
-            <Sparkles className="w-12 h-12 text-[#ff914d] mx-auto mb-6" />
-            <h2 className="text-4xl md:text-5xl font-black text-white mb-6" data-testid="heading-cta">
-              Ready to Work With a Team That <span className="text-[#ff914d]">Gets It</span>?
-            </h2>
-            <p className="text-xl text-white/60 mb-10">
-              Partner with an agency that understands Malta, masters technology, and puts your revenue first.
-            </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <Link href="/contact">
-                <button className="bg-[#ff914d] text-zinc-950 font-bold px-10 py-4 rounded-full text-lg transition-all hover:scale-105" data-testid="button-cta">
-                  Start Your Journey
-                </button>
-              </Link>
-              <Link href="/comparison">
-                <button className="border border-white/30 text-white font-bold px-10 py-4 rounded-full text-lg transition-all hover:border-[#ff914d] hover:text-[#ff914d]" data-testid="button-comparison">
-                  See How We Compare
-                </button>
-              </Link>
-            </div>
-          </div>
-        </ScrollReveal>
+      {/* CTA */}
+      <section className="bg-gradient-to-b from-zinc-900 to-zinc-950 py-20 text-center" data-testid="section-cta">
+        <div className="max-w-3xl mx-auto px-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Want to meet the pod that would run your account?</h2>
+          <p className="text-lg text-white/70 mb-8">
+            Thirty minutes, no slide deck. We will pull live data on your current presence and walk you through what we would change in the first ninety days.
+          </p>
+          <Link
+            href="/contact"
+            className="inline-flex items-center gap-2 bg-[#ff914d] text-zinc-950 font-bold px-8 py-4 rounded-full text-lg hover:scale-[1.02] transition-transform"
+            data-testid="button-cta"
+          >
+            Book the audit call <ArrowRight className="w-5 h-5" />
+          </Link>
+        </div>
       </section>
     </Layout>
   );

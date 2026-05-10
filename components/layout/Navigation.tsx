@@ -56,25 +56,29 @@ const serviceCategories = [
   }
 ];
 
-// Why Us dropdown content - matches Our Difference section
+// Why Us dropdown — two distinct intents (Task #121):
+//   /why-oarc = comparison-stage ("over other Malta agencies")
+//   /why-us   = brand-discovery / founder origin story
+// Plus /about as the founder bio anchor. Each card targets a separate
+// search intent to avoid the cannibalisation the old hash-anchor menu caused.
 const whyUsItems = [
   {
-    title: "AI Excellence",
-    description: "We spot the gaps by uncovering competitors, customers, and seasonal patterns you're missing.",
+    title: "Why Choose OARC",
+    description: "Side-by-side comparison vs the typical Malta agency model — speed, cost, AI integration, lock-in.",
     image: aiExcellence,
-    href: "/why-us#ai-excellence"
+    href: "/why-oarc"
   },
   {
-    title: "Our Creative Strategy",
-    description: "We create the edge with organic, local-first ideas that actually connect with your audience.",
+    title: "Our Founding Story",
+    description: "How OARC Digital was founded in Birkirkara, the gap we saw, and the principles we built around.",
     image: creativeStrategy,
-    href: "/why-us#creative-strategy"
+    href: "/why-us"
   },
   {
-    title: "Revenue Centered",
-    description: "We engage & convert through automated follow-ups that keep leads warm and drive real sales.",
+    title: "About the Team",
+    description: "The minimal founder bio, how we work, and how to visit the studio for a Friday review.",
     image: revenueCentered,
-    href: "/why-us#revenue-centered"
+    href: "/about"
   },
 ];
 
@@ -264,8 +268,8 @@ export default function Navigation() {
                   >
                     <div className="p-6">
                       <div className="text-center mb-4">
-                        <h3 className="text-lg font-bold text-zinc-900">Our <span className="italic">Difference</span></h3>
-                        <p className="text-xs text-zinc-500">The perfect fit for fast moving brands</p>
+                        <h3 className="text-lg font-bold text-zinc-900">Get to <span className="italic">know us</span></h3>
+                        <p className="text-xs text-zinc-500">Compare us, read our story, or meet the team</p>
                       </div>
                       
                       <div className="grid grid-cols-3 gap-4">
@@ -295,7 +299,7 @@ export default function Navigation() {
                           className="flex items-center justify-center gap-2 text-sm font-semibold text-zinc-700 hover:text-zinc-900 transition-colors group"
                           data-testid="link-whyus-full"
                         >
-                          See all reasons to choose OARC
+                          Read the full founding story
                           <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                         </Link>
                       </div>
@@ -381,6 +385,16 @@ export default function Navigation() {
                   Services
                 </Link>
                 <Link
+                  href="/why-oarc"
+                  className={`block py-3 text-base font-medium border-b border-white/5 ${
+                    location === "/why-oarc" ? "text-white" : "text-white/80"
+                  }`}
+                  onClick={() => setMobileMenuOpen(false)}
+                  data-testid="link-mobile-why-oarc"
+                >
+                  Why Choose OARC
+                </Link>
+                <Link
                   href="/why-us"
                   className={`block py-3 text-base font-medium border-b border-white/5 ${
                     location === "/why-us" ? "text-white" : "text-white/80"
@@ -388,7 +402,17 @@ export default function Navigation() {
                   onClick={() => setMobileMenuOpen(false)}
                   data-testid="link-mobile-why-us"
                 >
-                  Why Us
+                  Our Founding Story
+                </Link>
+                <Link
+                  href="/about"
+                  className={`block py-3 text-base font-medium border-b border-white/5 ${
+                    location === "/about" ? "text-white" : "text-white/80"
+                  }`}
+                  onClick={() => setMobileMenuOpen(false)}
+                  data-testid="link-mobile-about"
+                >
+                  About the Team
                 </Link>
                 {navLinks.slice(2).map((link) => (
                   <Link
