@@ -17,6 +17,7 @@ import {
 } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { buildOrganization, buildPerson } from "@/lib/schema";
 const heroImg = "/attached_assets/download_1765164422640.jpg";
 
 const birthTeam = "/attached_assets/pexels-thirdman-5257897 (1)_1763243949488.jpg";
@@ -119,7 +120,15 @@ export default function PageContent() {
 
   return (
     <Layout>
-      
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@graph": [buildOrganization(), buildPerson()],
+          }),
+        }}
+      />
 
       {/* 1. HERO */}
       <section className="hero-section-why-us relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-zinc-950 -mt-20" data-testid="section-hero">

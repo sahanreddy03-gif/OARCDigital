@@ -156,6 +156,7 @@ run_step "AUTOGEN parity (llms.txt)"  npx tsx scripts/generate-llms-txt-facts.ts
 run_step "AUTOGEN parity (llms-full.txt)" npx tsx scripts/generate-llms-full-txt.ts --check
 run_step "audit-alts"                 npx tsx scripts/audit-alts.ts
 run_step "audit-banned-phrases"       npx tsx scripts/audit-banned-phrases.ts
+run_step "audit-organization"         npx tsx scripts/audit-organization.ts
 
 if [ "$MODE" = "gate:fast" ]; then
   echo
@@ -237,6 +238,7 @@ run_step "audit-schema (HTTP)"      env BASE="$BASE" AUDIT_FULL=1 npx tsx script
 run_step "audit-discovery (HTTP)"   env BASE="$BASE" npx tsx scripts/audit-discovery.ts
 run_step "audit-similarity (HTTP)"  env BASE="$BASE" AUDIT_FULL=1 npx tsx scripts/audit-similarity.ts
 run_step "audit-broken-links (HTTP)" env BASE="$BASE" npx tsx scripts/audit-broken-links.ts
+run_step "audit-org-sameas-live"     npx tsx scripts/audit-org-sameas-live.ts
 
 # --- Optional baselines (Task #93) -----------------------------------------
 # Three optional gates that ship as part of the audit set when their
