@@ -425,6 +425,26 @@ export default function PaidAdvertising() {
         </div>
       </section>
 
+      <div className="px-4 pb-8 max-w-4xl mx-auto">
+        <div className="p-6 rounded-xl bg-orange-500/5 border border-orange-500/20">
+          <h2 className="text-xl font-bold mb-3">Paid Ads vs SEO vs Content — what makes paid different</h2>
+          <p className="text-sm text-muted-foreground mb-4">
+            Paid advertising is the only channel that delivers qualified pipeline in 48 hours. <strong className="text-foreground">SEO</strong> builds organic rankings over 6–12 months and creates an asset that pays back for years — but requires patience that is not always available. <strong className="text-foreground">Content marketing</strong> builds topical authority and feeds AI search citations — it operates on a 3–9 month horizon. Paid is the lever when you need pipeline now, or when you need to test a new market, product, or message before investing in the slower channels.
+          </p>
+          <p className="text-sm text-muted-foreground mb-4">
+            The OARC model: paid advertising funds growth while SEO and content are ramping. At month 6–9 the organic channels start contributing and the paid budget is redirected toward expansion audiences and remarketing rather than pure cold acquisition. This is how Malta SMEs get CAC improvement without stopping the pipeline tap during the ramp period.
+          </p>
+          <div className="flex flex-wrap gap-4 mt-4">
+            <Link href="/services/seo-services" className="inline-flex items-center gap-2 text-orange-500 font-medium hover:text-orange-600 transition-colors text-sm">
+              SEO Services — the long-term organic alternative <ArrowRight className="w-4 h-4" />
+            </Link>
+            <Link href="/services/content-marketing" className="inline-flex items-center gap-2 text-orange-500 font-medium hover:text-orange-600 transition-colors text-sm">
+              Content Marketing — feed the funnel with authority content <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </div>
+      </div>
+
       <RelatedLinks slug="/services/paid-advertising" />
 
 

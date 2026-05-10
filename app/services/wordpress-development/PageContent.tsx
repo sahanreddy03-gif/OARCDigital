@@ -143,6 +143,18 @@ export default function WordPressDevelopmentContent() {
             <h2 className="text-2xl md:text-3xl font-bold mb-6">Visit OARC Digital</h2>
             <TrustBlock variant="visit" />
           </section>
+          <section className="mb-8 p-6 rounded-xl bg-orange-500/5 border border-orange-500/20">
+            <h2 className="text-xl font-bold mb-3">WordPress vs Shopify — choosing the right CMS for your Malta business</h2>
+            <p className="text-sm text-muted-foreground mb-4">
+              WordPress is the right choice when your business needs a flexible, content-led site — a service business, a hospitality group, a professional-services firm, or any brand where editorial publishing and SEO are central to growth. It scales to any content complexity and integrates with every marketing tool on the planet.
+            </p>
+            <p className="text-sm text-muted-foreground mb-4">
+              If your primary need is an <strong className="text-foreground">ecommerce storefront</strong> — a catalogue, a cart, a checkout, and order management — Shopify is typically the faster route to a high-converting store. The two platforms are optimised for different jobs; we will tell you honestly which one fits your business model before a single line of code is written.
+            </p>
+            <Link href="/services/shopify-development" className="inline-flex items-center gap-2 text-orange-500 font-medium hover:text-orange-600 transition-colors text-sm">
+              Shopify Development — for ecommerce-first businesses <ArrowRight className="w-4 h-4" />
+            </Link>
+          </section>
           <RelatedLinks slug="/services/wordpress-development" />
           <div className="bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl p-8 text-white text-center">
             <h2 className="text-2xl font-bold mb-3">Site Slow or Outdated?</h2>

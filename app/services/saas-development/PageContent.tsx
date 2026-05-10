@@ -172,6 +172,19 @@ export default function SaasDevelopmentContent() {
             <TrustBlock variant="visit" />
           </section>
 
+          <section className="mb-8 p-6 rounded-xl bg-orange-500/5 border border-orange-500/20">
+            <h2 className="text-xl font-bold mb-3">SaaS MVP vs Custom Software — and when to validate before building either</h2>
+            <p className="text-sm text-muted-foreground mb-4">
+              A SaaS MVP is built for a repeatable commercial problem — one you believe hundreds or thousands of buyers will pay to solve. The engineering decisions optimise for multi-tenant scale, subscription billing, and activation metrics. <strong className="text-foreground">Custom software</strong> is built for one organisation&apos;s internal problem — the criteria are operational fit and maintainability, not activation rate or churn.
+            </p>
+            <p className="text-sm text-muted-foreground mb-4">
+              Before committing to either, the most common mistake is skipping demand validation. The OARC <strong className="text-foreground">Idea Validation Engine</strong> runs a 14-day live-market test — real landing page, real paid traffic, real discovery calls — that produces a go/no-go recommendation before a line of SaaS code is written. We will not scope a SaaS build for an idea that has not passed that gate.
+            </p>
+            <Link href="/services/idea-validation-engine" className="inline-flex items-center gap-2 text-orange-500 font-medium hover:text-orange-600 transition-colors text-sm">
+              Idea Validation Engine — 14-day go/no-go before you build <ArrowRight className="w-4 h-4" />
+            </Link>
+          </section>
+
           <RelatedLinks slug="/services/saas-development" />
 
           <div className="bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl p-8 text-white text-center">

@@ -155,6 +155,18 @@ export default function DatabaseDesignContent() {
             <h2 className="text-2xl md:text-3xl font-bold mb-6">Visit OARC Digital</h2>
             <TrustBlock variant="visit" />
           </section>
+          <section className="mb-8 p-6 rounded-xl bg-orange-500/5 border border-orange-500/20">
+            <h2 className="text-xl font-bold mb-3">Database design vs AI data analyst — which problem are you solving?</h2>
+            <p className="text-sm text-muted-foreground mb-4">
+              Database architecture solves the <em>storage and retrieval</em> problem: how data is structured, how queries run at scale, and how the schema evolves cleanly as the product grows. It is engineering work that happens once — well — and then stays invisible. <strong className="text-foreground">AI data analysis</strong> solves the <em>insight</em> problem: extracting patterns, building dashboards, and answering business questions from data that is already stored.
+            </p>
+            <p className="text-sm text-muted-foreground mb-4">
+              You need good database design first — a poorly structured schema produces ambiguous, unreliable analysis regardless of how sophisticated the analytics layer is. The OARC <strong className="text-foreground">AI Data Analyst</strong> is deployed after the schema is solid, not instead of fixing it.
+            </p>
+            <Link href="/services/ai-data-analyst" className="inline-flex items-center gap-2 text-orange-500 font-medium hover:text-orange-600 transition-colors text-sm">
+              AI Data Analyst — extract insights from a well-designed schema <ArrowRight className="w-4 h-4" />
+            </Link>
+          </section>
           <RelatedLinks slug="/services/database-design" />
           <div className="bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl p-8 text-white text-center">
             <h2 className="text-2xl font-bold mb-3">Schema Bothering You?</h2>

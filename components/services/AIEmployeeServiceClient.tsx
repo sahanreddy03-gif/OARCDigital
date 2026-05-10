@@ -29,10 +29,10 @@ import {
   AIIconWithGlow
 } from '@/components/ui/ai-icons';
 
-const sdrAgentImage = "/attached_assets/ai-sdr-agent-optimized.webp";
+const sdrAgentImage = "/attached_assets/stock_images/professional_sales_r_08d96be3.jpg";
 const customerSupportImage = "/attached_assets/ai-customer-support-optimized.webp";
 const dataInsightsNeuralImage = "/attached_assets/data-insights-neural-optimized.webp";
-const adminAgentImage = "/attached_assets/ai-admin-agent-optimized.webp";
+const adminAgentImage = "/attached_assets/stock_images/administrative_assis_c2205c82.jpg";
 const contentStrategistImage = "/attached_assets/ai-content-strategist-optimized.webp";
 const complianceAuditorImage = "/attached_assets/stock_images/legal_compliance_off_78808712.jpg";
 const appointmentBookerImage = "/attached_assets/stock_images/appointment_schedule_97373ecb.jpg";

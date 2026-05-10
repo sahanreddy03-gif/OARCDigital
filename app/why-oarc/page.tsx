@@ -258,6 +258,42 @@ export default function Page() {
           </div>
         </section>
         
+        {/* Related Pages */}
+        <section className="py-16 bg-background border-t">
+          <div className="max-w-7xl mx-auto px-6 md:px-8">
+            <h2 className="text-2xl font-bold mb-8 text-center">Explore What Makes OARC Different</h2>
+            <div className="grid md:grid-cols-3 gap-6">
+              <Link href="/hire-ai-employees" className="group bg-card border rounded-lg p-6 hover-elevate block">
+                <div className="text-green-600 font-bold text-xs tracking-widest uppercase mb-2">AI Employees</div>
+                <h3 className="text-lg font-bold mb-2 group-hover:text-green-600 transition-colors">Hire AI Employees</h3>
+                <p className="text-sm text-muted-foreground">SDR, support, admin, and analyst AI agents deployed in days — not months of hiring.</p>
+              </Link>
+              <Link href="/ai-agents" className="group bg-card border rounded-lg p-6 hover-elevate block">
+                <div className="text-green-600 font-bold text-xs tracking-widest uppercase mb-2">AI Agents</div>
+                <h3 className="text-lg font-bold mb-2 group-hover:text-green-600 transition-colors">AI Agent Solutions</h3>
+                <p className="text-sm text-muted-foreground">Full suite of specialised AI agents — from outbound sales to appointment booking and data analysis.</p>
+              </Link>
+              <Link href="/why-us" className="group bg-card border rounded-lg p-6 hover-elevate block">
+                <div className="text-orange-500 font-bold text-xs tracking-widest uppercase mb-2">Our Story</div>
+                <h3 className="text-lg font-bold mb-2 group-hover:text-orange-500 transition-colors">Who We Are</h3>
+                <p className="text-sm text-muted-foreground">The origin story — why we built OARC Digital, what drives us, and how we think differently.</p>
+              </Link>
+            </div>
+            <div className="grid md:grid-cols-2 gap-6 mt-6">
+              <Link href="/pricing" className="group bg-card border rounded-lg p-6 hover-elevate block">
+                <div className="text-green-600 font-bold text-xs tracking-widest uppercase mb-2">Pricing</div>
+                <h3 className="text-lg font-bold mb-2 group-hover:text-green-600 transition-colors">Transparent Pricing</h3>
+                <p className="text-sm text-muted-foreground">See exactly what you get and what it costs — no hidden fees, no bloated retainers.</p>
+              </Link>
+              <Link href="/case-studies" className="group bg-card border rounded-lg p-6 hover-elevate block">
+                <div className="text-green-600 font-bold text-xs tracking-widest uppercase mb-2">Proof</div>
+                <h3 className="text-lg font-bold mb-2 group-hover:text-green-600 transition-colors">Case Studies</h3>
+                <p className="text-sm text-muted-foreground">Real results, real businesses — see the ROI OARC has delivered for clients across Malta and beyond.</p>
+              </Link>
+            </div>
+          </div>
+        </section>
+
         {/* CTA Section */}
         <section className="py-20 bg-gradient-to-br from-green-600 to-green-700 text-white">
           <div className="max-w-4xl mx-auto px-6 md:px-8 text-center">
@@ -265,7 +301,7 @@ export default function Page() {
               Ready to Experience the Difference?
             </h2>
             <p className="text-xl mb-8 text-white/90">
-              Join hundreds of companies that switched to OARC Digital and never looked back
+              Join companies that switched to OARC Digital and never looked back
             </p>
             
             <div className="flex flex-wrap justify-center gap-4">
@@ -275,7 +311,7 @@ export default function Page() {
                 </Button>
               </Link>
               <Link href="/services">
-                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/20">
+                <Button size="lg" variant="outline" className="border-white text-white">
                   Explore Services
                 </Button>
               </Link>

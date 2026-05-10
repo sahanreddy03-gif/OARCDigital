@@ -155,6 +155,24 @@ export default function ContentMarketingContent() {
             <h2 className="text-2xl md:text-3xl font-bold mb-6">Visit OARC Digital</h2>
             <TrustBlock variant="visit" />
           </section>
+          <section className="mb-12 p-6 rounded-xl bg-orange-500/5 border border-orange-500/20">
+            <h2 className="text-xl font-bold mb-3">Content Marketing vs SEO vs Paid Advertising — how they work together</h2>
+            <p className="text-sm text-muted-foreground mb-4">
+              Content marketing is the engine that <strong className="text-foreground">feeds both SEO and AI search</strong>. Without original editorial content, SEO has no topical authority to build on. Without SEO infrastructure — technical health, internal links, schema — content sits unranked. The two are symbiotic: the OARC content retainer is designed to run in parallel with the SEO retainer from month one.
+            </p>
+            <p className="text-sm text-muted-foreground mb-4">
+              <strong className="text-foreground">Paid advertising</strong> amplifies content to audiences that are not yet finding you organically — seeding articles, promoting lead magnets, and retargeting blog readers down the funnel. Content marketing is slower than paid but creates an asset that compounds for years. The typical OARC client splits budget 60% content + SEO, 40% paid — and shifts that split as organic positions fill in.
+            </p>
+            <div className="flex flex-wrap gap-4 mt-4">
+              <Link href="/services/seo-services" className="inline-flex items-center gap-2 text-orange-500 font-medium hover:text-orange-600 transition-colors text-sm">
+                SEO Services — rank the content you create <ArrowRight className="w-4 h-4" />
+              </Link>
+              <Link href="/services/paid-advertising" className="inline-flex items-center gap-2 text-orange-500 font-medium hover:text-orange-600 transition-colors text-sm">
+                Paid Advertising — amplify content to cold audiences <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </section>
+
           <RelatedLinks slug="/services/content-marketing" />
           <div className="bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl p-8 text-white text-center">
             <h2 className="text-2xl font-bold mb-3">Want a Free Content Audit?</h2>
