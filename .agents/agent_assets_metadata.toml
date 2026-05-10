@@ -12,6 +12,12 @@ uri = "file://public/images/services/shopify-development-hero.png"
 type = "image"
 title = "shopify checkout dashboard hero"
 
+[[generated]]
+id = "xxAesmiz-7OVRACSXtyAi"
+uri = "file://public/images/services/saas-development-hero.png"
+type = "image"
+title = "saas dashboard hero"
+
 [[outputs]]
 id = "dBQslWAR-bdBtVmrkX_0n"
 uri = "file://.local/env-var-reference.md"

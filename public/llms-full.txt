@@ -681,11 +681,11 @@ A: Hospitality, iGaming, e-commerce, real estate, and SaaS. We have playbooks fo
 
 ---
 
-### SaaS Development Malta | Build & Scale Your SaaS | OARC Digital
+### SaaS Product Development & MVPs for Malta Startups | OARC Digital
 Canonical: https://oarcdigital.com/services/saas-development
 
 **Description**
-End-to-end SaaS development for Malta and EU founders — from MVP to multi-tenant architecture, billing, auth, and AI features. Engineered for venture-grade scale.
+SaaS product development for Malta startups — paid MVP in 6 weeks, multi-tenant architecture, Stripe billing, product analytics, and founder enablement. Charge customers from day one.
 
 **Features**
 
@@ -715,7 +715,19 @@ Q: What stack do you build SaaS products on?
 A: Defaults are Next.js 15, TypeScript, Postgres on Supabase or Neon, Drizzle ORM, Stripe for billing, Clerk or Auth.js for auth, and Vercel for hosting. We deviate when the product genuinely needs something else — Python services for ML, Go for high-throughput APIs.
 
 Q: How long to ship a SaaS MVP?
-A: Six to eight weeks for a charge-from-day-one MVP with auth, billing, one core workflow, and a basic admin. We protect that timeline by pre-defining the cut list — features that explicitly will not ship in v1.
+A: Six weeks for a charge-from-day-one MVP with auth, Stripe billing, one core workflow, and a basic admin. We protect that timeline by pre-defining the cut list — features that explicitly will not ship in v1.
+
+Q: Which pricing models do you support out of the box?
+A: Flat monthly or annual subscriptions, per-seat, tiered (Starter/Pro/Business), usage-based metering, and credit-pack top-ups. We wire all of them through Stripe Billing with EU VAT, proration, dunning, and self-serve plan switching from the customer portal so you can change pricing in the dashboard rather than redeploying.
+
+Q: How do you help reduce churn after launch?
+A: Three layers. First, instrumentation: we track activation, time-to-value, and feature adoption per cohort from day one so you actually see churn signals before the cancellation. Second, lifecycle: failed-payment dunning, in-app cancel flows with offer logic, and win-back email sequences. Third, retainer prioritisation: every roadmap sprint is graded against gross-revenue retention, not feature ticket count.
+
+Q: How do we track MRR, ARR, and the rest of our SaaS metrics?
+A: We ship a founder-grade metrics dashboard with every build — MRR, ARR, net new MRR, expansion, contraction, churn, LTV, CAC payback, and active accounts — wired directly off Stripe and your product database. No paid Baremetrics or ChartMogul subscription required, and no monthly export-to-spreadsheet ritual.
+
+Q: Will the architecture actually scale past the first 1,000 customers?
+A: Yes. We default to row-level-security multi-tenancy on Postgres with read-replica read paths, a queue layer (BullMQ or SQS) for background work, and Cloudflare in front of Vercel or AWS for edge caching. The first hard scale ceiling is typically database write throughput at around 10k tenants — by which point you have the revenue to fund a dedicated platform engineer, who inherits a clean migration plan we wrote during the original build.
 
 Q: Can you handle multi-tenant architecture properly?
 A: Yes. We design tenant isolation at the database level (row-level security with Postgres RLS or schema-per-tenant for high-compliance verticals), auth-scoped data access, and per-tenant feature flags from day one.

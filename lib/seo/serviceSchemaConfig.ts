@@ -65,6 +65,8 @@ export type ServiceSchemaEntry = {
   framework: FrameworkLayers;
   /** Optional Schema.org Service.serviceType (e.g. "WordPress Development"). */
   serviceType?: string;
+  /** Optional Schema.org Service.audience array (verticals/personas this Service targets). */
+  audience?: string[];
   /** Optional Schema.org Service.areaServed override; defaults to "Malta". */
   areaServed?: string;
 };
@@ -939,16 +941,18 @@ export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
   },
 
   "saas-development": {
-    title: "SaaS Development Malta | Build & Scale Your SaaS | OARC Digital",
+    title: "SaaS Product Development & MVPs for Malta Startups | OARC Digital",
     description:
-      "End-to-end SaaS development for Malta and EU founders — from MVP to multi-tenant architecture, billing, auth, and AI features. Engineered for venture-grade scale.",
+      "SaaS product development for Malta startups — paid MVP in 6 weeks, multi-tenant architecture, Stripe billing, product analytics, and founder enablement. Charge customers from day one.",
+    serviceType: "SaaS Development",
+    audience: ["Startup", "Founder", "B2B SaaS"],
     offers: [
       {
         name: "SaaS MVP Sprint",
         priceFrom: 14500,
         unitText: "PROJECT",
         description:
-          "Multi-tenant MVP with auth, billing, dashboards, and one core workflow. Built on Next.js + Postgres in 6–8 weeks for founders ready to charge from day one.",
+          "Multi-tenant MVP with auth, Stripe billing, product analytics, and one core workflow. Built on Next.js + Postgres in 6 weeks for founders ready to charge from day one.",
       },
       {
         name: "Production SaaS Build",
@@ -982,7 +986,27 @@ export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
       {
         question: "How long to ship a SaaS MVP?",
         answer:
-          "Six to eight weeks for a charge-from-day-one MVP with auth, billing, one core workflow, and a basic admin. We protect that timeline by pre-defining the cut list — features that explicitly will not ship in v1.",
+          "Six weeks for a charge-from-day-one MVP with auth, Stripe billing, one core workflow, and a basic admin. We protect that timeline by pre-defining the cut list — features that explicitly will not ship in v1.",
+      },
+      {
+        question: "Which pricing models do you support out of the box?",
+        answer:
+          "Flat monthly or annual subscriptions, per-seat, tiered (Starter/Pro/Business), usage-based metering, and credit-pack top-ups. We wire all of them through Stripe Billing with EU VAT, proration, dunning, and self-serve plan switching from the customer portal so you can change pricing in the dashboard rather than redeploying.",
+      },
+      {
+        question: "How do you help reduce churn after launch?",
+        answer:
+          "Three layers. First, instrumentation: we track activation, time-to-value, and feature adoption per cohort from day one so you actually see churn signals before the cancellation. Second, lifecycle: failed-payment dunning, in-app cancel flows with offer logic, and win-back email sequences. Third, retainer prioritisation: every roadmap sprint is graded against gross-revenue retention, not feature ticket count.",
+      },
+      {
+        question: "How do we track MRR, ARR, and the rest of our SaaS metrics?",
+        answer:
+          "We ship a founder-grade metrics dashboard with every build — MRR, ARR, net new MRR, expansion, contraction, churn, LTV, CAC payback, and active accounts — wired directly off Stripe and your product database. No paid Baremetrics or ChartMogul subscription required, and no monthly export-to-spreadsheet ritual.",
+      },
+      {
+        question: "Will the architecture actually scale past the first 1,000 customers?",
+        answer:
+          "Yes. We default to row-level-security multi-tenancy on Postgres with read-replica read paths, a queue layer (BullMQ or SQS) for background work, and Cloudflare in front of Vercel or AWS for edge caching. The first hard scale ceiling is typically database write throughput at around 10k tenants — by which point you have the revenue to fund a dedicated platform engineer, who inherits a clean migration plan we wrote during the original build.",
       },
       {
         question: "Can you handle multi-tenant architecture properly?",

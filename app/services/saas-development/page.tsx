@@ -26,6 +26,9 @@ export default function Page() {
         features={SCHEMA.features}
         offers={SCHEMA.offers}
         faqs={SCHEMA.faqs}
+        serviceType={SCHEMA.serviceType}
+        audience={SCHEMA.audience}
+        dateModified="2026-05-10"
       />
       <PageContent />
     </>
