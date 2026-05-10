@@ -9,6 +9,7 @@ import {
   SERVICE_ALIASES,
   CROSS_SECTION_ALIASES,
   LOCATION_SERVICE_ALIASES,
+  INDUSTRY_HUBS_PENDING_CONTENT,
 } from "./lib/seo/seoSets";
 import {
   ARCHIVED_LOCATION_REDIRECTS,
@@ -75,6 +76,13 @@ export function middleware(req: NextRequest): NextResponse | undefined {
     const parts = pathname.replace(/\/+$/, "").split("/").filter(Boolean);
     if (parts.length === 2) {
       const slug = parts[1];
+      // Task #138 (Programmatic cluster cull): hubs declared in
+      // `industryHubSlugs` but missing a content record render notFound()
+      // — 308 to the master /industries instead so equity flows up rather
+      // than into a 404.
+      if (INDUSTRY_HUBS_PENDING_CONTENT.has(slug)) {
+        return permanentRedirect(req, `/industries`);
+      }
       if (KEPT_INDUSTRY_HUBS.has(slug)) return undefined;
       const target = INDUSTRY_REDIRECTS[slug];
       if (target) return permanentRedirect(req, `/industries/${target}`);
