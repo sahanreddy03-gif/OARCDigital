@@ -1315,18 +1315,23 @@ const NODES: LinkNode[] = [
       ],
     },
   {
+      // Repurposed (Task #119) as the industry-specific paid-ads hub:
+      // hospitality, iGaming, e-commerce, real estate, SaaS. Companion to
+      // the generic /services/paid-advertising page — that one owns
+      // platform/channel intent, this one owns vertical/industry intent.
       path: "/services/paid",
-      title: "Paid Media",
-      shortLabel: "Paid Media",
-      hub: "creative",
+      title: "Industry-Specific Paid Ads (Hospitality, iGaming, E-commerce, Real Estate, SaaS)",
+      shortLabel: "Industry Paid Ads",
+      hub: "service",
       spokes: [
+        "/services/paid-advertising",
         "/services/ad-creative",
-      "/services/content-marketing",
-      "/creative",
-      "/services/design-systems",
-      "/services/email-creative",
-      "/creative",
-      "/services/social-media-creative-management",
+        "/services/saas-development",
+        "/services/ecommerce-development",
+        "/services/marketing-automation-suite",
+        "/services/content-marketing",
+        "/industries",
+        "/creative",
       ],
     },
   {

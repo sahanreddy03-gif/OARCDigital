@@ -43,6 +43,12 @@ type ServiceProps = CommonProps & {
   faqs?: { question: string; answer: string }[];
   aggregateRating?: AggregateRatingOpts;
   offers?: OfferOpts[];
+  /** Optional Service.serviceType (e.g. "Industry-Specific Paid Advertising"). */
+  serviceType?: string;
+  /** Optional Service.audience array (verticals this Service targets). */
+  audience?: string[];
+  /** Optional Service.areaServed override; defaults to Malta. */
+  areaServed?: string;
   /** Set false to skip the LocalBusiness node (default true). */
   includeLocalBusiness?: boolean;
   /** ISO date (YYYY-MM-DD). When set, emits a WebPage node carrying dateModified
@@ -118,6 +124,9 @@ export default function RouteSchema(props: RouteSchemaProps) {
         features: props.features,
         aggregateRating: props.aggregateRating ?? DEFAULT_RATING,
         offers: props.offers,
+        serviceType: props.serviceType,
+        audience: props.audience,
+        areaServed: props.areaServed,
       }),
     );
     if (includeLB) {

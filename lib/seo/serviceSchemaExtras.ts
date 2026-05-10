@@ -6,6 +6,15 @@ export type ServiceSchemaExtra = {
   offers: OfferOpts[];
   features: ServiceFeature[];
   faqs: { question: string; answer: string }[];
+  /** Optional Schema.org Service.serviceType for vertical/industry-specific
+   *  Service nodes (e.g. /services/paid declares "Industry-Specific Paid
+   *  Advertising" to disambiguate from /services/paid-advertising). */
+  serviceType?: string;
+  /** Optional Schema.org Service.audience array (verticals targeted). */
+  audience?: string[];
+  /** Optional Schema.org Service.areaServed override. Defaults to "Malta"
+   *  inside buildService when not set. */
+  areaServed?: string;
 };
 
 export const SERVICE_SCHEMA_EXTRAS: Record<string, ServiceSchemaExtra> = {
@@ -2494,65 +2503,92 @@ export const SERVICE_SCHEMA_EXTRAS: Record<string, ServiceSchemaExtra> = {
   },
 
   "paid": {
-    title: "Paid Advertising Services Malta | Meta, Google, TikTok | OARC Digital",
+    title:
+      "Industry-Specific Paid Ads in Malta | Hospitality, iGaming, E-commerce, Real Estate, SaaS",
     description:
-      "Paid advertising services for Malta and EU brands — Meta, Google, TikTok, LinkedIn, YouTube. Daily account work, weekly creative iteration, monthly business reviews.",
+      "Vertical-first paid advertising for Malta hospitality, iGaming, e-commerce, real estate and SaaS brands. Industry buying psychology, channel mix and creative built for each sector.",
+    serviceType: "Industry-Specific Paid Advertising",
+    areaServed: "Malta",
+    audience: [
+      "Hospitality (hotels, restaurants, venues)",
+      "iGaming (MGA-licensed operators and affiliates)",
+      "E-commerce (DTC and marketplace brands)",
+      "Real estate (sales agencies and developers)",
+      "SaaS (B2B software, fintech, developer tools)",
+    ],
     offers: [
       {
-        name: "Paid Pilot",
-        priceFrom: 1900,
-        unitText: "MONTH",
+        name: "Industry Sprint",
+        priceFrom: 2400,
+        unitText: "PROJECT",
         description:
-          "Single platform (Meta or Google) under €25k/mo spend, daily optimisation and weekly reporting.",
+          "Two-week vertical-fit audit: industry research, competitor teardown, channel-mix recommendation, and a 30-day test plan tailored to your sector.",
       },
       {
-        name: "Paid Multi-Channel",
-        priceFrom: 3900,
+        name: "Vertical Retainer",
+        priceFrom: 3600,
         unitText: "MONTH",
         description:
-          "Meta + Google + one of (TikTok / LinkedIn / YouTube), under €100k/mo spend, dedicated buyer + analyst.",
+          "Single-vertical paid retainer (hospitality, iGaming, e-commerce, real estate, or SaaS). Industry creative, sector-specific tracking, weekly reporting against vertical benchmarks.",
       },
       {
-        name: "Paid Pod",
+        name: "Multi-Vertical Pod",
         priceFrom: 7900,
         unitText: "MONTH",
         description:
-          "€100k+/mo spend, embedded buyer team, paired creative pod, monthly executive briefing.",
+          "For multi-brand operators across two or more verticals — embedded buyer team, paired industry creative, and a monthly executive briefing per vertical.",
       },
     ],
     features: [
-      { name: "Meta, Google, TikTok, LinkedIn, YouTube" },
-      { name: "Daily account optimisation" },
-      { name: "Creative iteration cadence" },
-      { name: "Server-side tracking (CAPI / Enhanced Conversions)" },
-      { name: "Conversion-rate optimisation feedback" },
-      { name: "Weekly performance reporting" },
+      { name: "Hospitality paid ads (hotels, restaurants, venues)" },
+      { name: "iGaming-aware compliance and creative angles" },
+      { name: "E-commerce shopping, Performance Max, and feed work" },
+      { name: "Real estate listing and buyer-pipeline campaigns" },
+      { name: "SaaS demand-gen, MQL pipelines and LinkedIn ABM" },
+      { name: "Vertical benchmarks per sector, not generic CPL targets" },
     ],
     faqs: [
       {
-        question: "How is this different from /services/paid-advertising and /services/media-buying?",
+        question:
+          "How is /services/paid different from /services/paid-advertising?",
         answer:
-          "Same engineering team and pricing. We publish three pages because real-world Malta buyers search 'paid', 'paid advertising', and 'media buying' as distinct terms. Each page is differentiated in copy emphasis but the underlying offering is consistent.",
+          "/services/paid-advertising is the generic media-buying offer — Meta, Google, TikTok, LinkedIn, YouTube across any business. /services/paid is industry-specific: the playbook, channel mix, creative angles and benchmarks change for hospitality, iGaming, e-commerce, real estate and SaaS. Pick this page if your sector behaves differently from a generic e-commerce funnel — most do.",
       },
       {
-        question: "What's the minimum ad spend you work with?",
+        question: "Which industries do you actually have paid-ads experience in?",
         answer:
-          "€8k/mo for the Paid Pilot to be commercially sensible. Below that, our management fee becomes a disproportionate share of total cost.",
+          "Five core verticals in Malta and the wider EU: hospitality (hotels, restaurants, beach clubs, venues), iGaming (within MGA marketing rules), e-commerce (DTC and marketplace), real estate (sales and rentals — agencies and developers), and B2B SaaS. Each has its own buyer pod, benchmark library and creative back-catalogue.",
+      },
+      {
+        question: "Why does paid for hospitality look different to paid for SaaS?",
+        answer:
+          "Hospitality buyers decide in days, often on mobile, and convert through a booking engine — channel mix leans Meta + Google + metasearch, creative leans short-form video of the actual property. SaaS buyers decide over weeks with a buying committee — channel mix leans LinkedIn + Google + retargeting, creative leans demo loops, ROI calculators and case studies. Treating them the same is why most agency campaigns underperform.",
+      },
+      {
+        question: "Do you handle iGaming compliance?",
+        answer:
+          "Yes. Every iGaming campaign is run against MGA marketing rules and platform policy (Meta and Google's gambling certification, TikTok's restricted-industry list). We refuse work for unlicensed operators and never run player-acquisition creative that breaches responsible-gaming guidelines.",
+      },
+      {
+        question:
+          "We are an e-commerce brand selling outside Malta — does this still apply?",
+        answer:
+          "Yes. The e-commerce vertical playbook ships globally — feed engineering, Shopping/Performance Max, server-side conversions and Klaviyo retargeting are the same in Berlin, Dublin or Dubai. The Malta base means EU-time-zone account work and EUR billing, not a geographic restriction on where the campaigns run.",
+      },
+      {
+        question: "What's the minimum spend per vertical?",
+        answer:
+          "€8,000 monthly media spend for the Vertical Retainer to be commercially sensible. Below that, management fees become a disproportionate share of total cost — we'll usually point smaller spenders at the generic /services/paid-advertising starter offer or the Industry Sprint instead.",
+      },
+      {
+        question: "Will you also build the landing pages and creative?",
+        answer:
+          "Yes via /services/ad-creative for assets and /services/web-design or /services/ecommerce-development for landing pages. Most vertical retainers bundle creative — vertical performance lives or dies on creative iteration, and shipping a hotel ad with the wrong room photography is a guaranteed CPL tax.",
       },
       {
         question: "How is the monthly fee calculated?",
         answer:
-          "Flat retainer based on platform count, spend tier, and creative iteration cadence — not a percentage of spend. Percent-of-spend incentivises agencies to spend more, not better.",
-      },
-      {
-        question: "Do you handle creative production?",
-        answer:
-          "Yes via /services/ad-creative or /services/creative — most paid clients pair both because the performance loop relies on weekly creative iteration.",
-      },
-      {
-        question: "What attribution model do you use?",
-        answer:
-          "Multi-touch with platform-native attribution as the floor, server-side tracking as the spine, and a Hex / Looker dashboard combining first-party + paid data on top. We surface incrementality where statistically valid.",
+          "Flat retainer based on vertical complexity, platform count and creative cadence — never a percentage of spend. Percent-of-spend pricing rewards agencies for burning your budget; flat fees reward us for running tighter campaigns.",
       },
       {
         question: "Can you work with our in-house marketing team?",

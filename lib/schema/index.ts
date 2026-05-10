@@ -132,6 +132,14 @@ export function buildService(opts: {
   areaServed?: string;
   aggregateRating?: AggregateRatingOpts;
   offers?: OfferOpts[];
+  /** Optional Schema.org `serviceType` — vertical/industry-specific subtype
+   *  (e.g. "Industry-Specific Paid Advertising"). When omitted, we don't
+   *  emit the field. Used by /services/paid (Task #119) to disambiguate
+   *  from the generic /services/paid-advertising Service node. */
+  serviceType?: string;
+  /** Optional Schema.org `audience` array. When set, emits one Audience
+   *  node per entry to declare the verticals this service targets. */
+  audience?: string[];
 }) {
   return {
     "@context": "https://schema.org",
@@ -141,6 +149,15 @@ export function buildService(opts: {
     url: opts.url,
     provider: ORG_REF,
     areaServed: { "@type": "Country", name: opts.areaServed ?? "Malta" },
+    ...(opts.serviceType ? { serviceType: opts.serviceType } : {}),
+    ...(opts.audience && opts.audience.length
+      ? {
+          audience: opts.audience.map((a) => ({
+            "@type": "Audience",
+            audienceType: a,
+          })),
+        }
+      : {}),
     ...(opts.aggregateRating
       ? { aggregateRating: buildAggregateRating(opts.aggregateRating) }
       : {}),
