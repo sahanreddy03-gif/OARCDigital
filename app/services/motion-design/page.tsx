@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import PageContent from "./PageContent";
 import RouteSchema from "@/components/RouteSchema";
-import { SpeakableJsonLd } from "@/lib/seo/discoveryTags";
+import { getHreflangAlternates, SpeakableJsonLd } from "@/lib/seo/discoveryTags";
 import { SERVICE_SCHEMA_EXTRAS } from "@/lib/seo/serviceSchemaExtras";
 import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
 
@@ -9,7 +9,7 @@ import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
 export const metadata: Metadata = {
   title: "Motion Design | Animation & Motion Graphics | OARC Digital",
   description: "Elite motion design and animation services. OARC Digital creates stunning motion graphics, explainer videos, and animated content that captivates audiences.",
-  alternates: { canonical: "https://oarcdigital.com/services/motion-design" },
+  alternates: getHreflangAlternates("/services/motion-design"),
   openGraph: {
     images: ogImageEntry({ title: "Motion Design | Animation & Motion Graphics | OARC Digital", subtitle: "Elite motion design and animation services. OARC Digital creates stunning motion graphics, explainer videos, and animated content that captivates audiences." }),
     title: "Motion Design | Animation & Motion Graphics | OARC Digital",

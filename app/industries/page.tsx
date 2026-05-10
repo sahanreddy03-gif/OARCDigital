@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import RouteSchema from "@/components/RouteSchema";
-import { SpeakableJsonLd } from "@/lib/seo/discoveryTags";
+import { getHreflangAlternates, SpeakableJsonLd } from "@/lib/seo/discoveryTags";
 import { SUPPORTING_PAGE_SCHEMAS } from "@/lib/seo/supportingPagesSchema";
 
 export const metadata: Metadata = {
   title: "Industries We Serve in Malta | OARC Digital",
   description: "OARC Digital serves restaurants, hotels, healthcare, legal, professional services, construction, beauty, automotive, education, NGOs, iGaming, fintech, real estate, retail, ecommerce, fitness, wellness, and events across Malta. Pick your industry to see how we package the offer.",
-  alternates: { canonical: "https://oarcdigital.com/industries" },
+  alternates: getHreflangAlternates("/industries"),
   openGraph: {
     images: ogImageEntry({ title: "Industries We Serve in Malta | OARC Digital", subtitle: "OARC Digital serves restaurants, hotels, healthcare, legal, professional services, construction, beauty, automotive, education, NGOs, iGaming, fintech, real estate, retail, ecommerce, fitness, wellness, and events across Malta. Pick your industry to see how we package the offer." }),
     title: "Industries We Serve in Malta | OARC Digital",

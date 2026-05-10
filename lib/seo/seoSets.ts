@@ -26,7 +26,12 @@ export const HARD_410_PATHS: ReadonlySet<string> = new Set([
 // consolidates on a single URL.
 export const SERVICE_ALIASES: Record<string, string> = {
   "/services/customer-acquisition": "/services/customer-acquisition-accelerator",
-  "/services/lead-generation": "/services/lead-generation-engine",
+  // Task #134: canonical winner is /services/lead-generation per the locked
+  // ranked list (`.local/memory/core-url-rank.md` row 32). The legacy
+  // /services/lead-generation-engine 308s into it. Direction was reversed
+  // before #134 — that made the canonical itself a 308 source (a self-
+  // cannibalising HARD FAIL caught by `scripts/audit-canonical.ts`).
+  "/services/lead-generation-engine": "/services/lead-generation",
   "/services/api-integration": "/services/api-integration-services",
   "/services/mobile-applications-development": "/services/mobile-apps-development",
   "/services/web-application-development": "/services/web-apps-development",

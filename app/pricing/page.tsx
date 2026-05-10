@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import RouteSchema from "@/components/RouteSchema";
-import { SpeakableJsonLd } from "@/lib/seo/discoveryTags";
+import { getHreflangAlternates, SpeakableJsonLd } from "@/lib/seo/discoveryTags";
 import { SUPPORTING_PAGE_SCHEMAS } from "@/lib/seo/supportingPagesSchema";
 import { supportingPagesSEO } from "@/data/seoMetadata";
 import PageContent from "./PageContent";
@@ -8,9 +8,9 @@ import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
 
 
 export const metadata: Metadata = {
+  alternates: getHreflangAlternates("/pricing"),
   title: "Pricing Plans | OARC Digital",
   description: "Flexible plans built for growth. Pay for outcomes, not outputs. 10x faster than traditional agencies.",
-  alternates: { canonical: `https://oarcdigital.com${supportingPagesSEO.pricing.path}` },
   openGraph: {
     images: ogImageEntry({ title: "Pricing Plans | OARC Digital", subtitle: "Flexible plans built for growth. Pay for outcomes, not outputs. 10x faster than traditional agencies." }),
     title: "Pricing Plans | OARC Digital",

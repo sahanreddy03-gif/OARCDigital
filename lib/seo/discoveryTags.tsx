@@ -1,46 +1,22 @@
-// AI/voice discovery tag helpers for the top-12 priority pages.
+// AI/voice discovery tag helpers for the canonical-60 priority pages.
 //
 // Two surfaces:
 //   1. <SpeakableJsonLd path="..." /> — emits a WebPage JSON-LD node with a
 //      Speakable specification targeting any element marked with the
 //      `data-speakable` attribute. Targets the smart-speaker / voice-search
 //      use case (Google Assistant Speakable spec).
-//   2. getHreflangAlternates(path) — returns the Next.js `metadata.alternates`
-//      object with the en-MT/en-GB/x-default cluster. Same canonical URL on
-//      every variant since we serve a single domain to both Maltese and UK
-//      audiences. NO en-US emission — that surface is intentionally not
-//      claimed.
+//   2. getHreflangAlternates(path, opts?) — re-exported from `./hreflang` for
+//      backwards compatibility. Source of truth lives in `lib/seo/hreflang.ts`
+//      (Task #134). New callers should import directly from `@/lib/seo/hreflang`.
 //
-// Both helpers no-op for paths not in TOP_PAGES (Layer 3 anti-cannibalisation
-// — voice-answer signal is intentionally scarce). Audited by
-// `scripts/audit-discovery.ts`.
+// SpeakableJsonLd no-ops for paths not in TOP_PAGES (Layer 3 anti-
+// cannibalisation — voice-answer signal is intentionally scarce). Audited by
+// `scripts/audit-discovery.ts`. Hreflang/canonical consistency is audited by
+// `scripts/audit-canonical.ts`.
 
 import { isTopPage, topPageCanonical } from "./topPages";
-
-export type HreflangAlternates = {
-  canonical: string;
-  languages: Record<string, string>;
-};
-
-/**
- * Returns the `metadata.alternates` object for the top-12 pages with the
- * en-MT/en-GB/x-default hreflang cluster. For non-top pages, returns just
- * the canonical (callers can spread or replace).
- */
-export function getHreflangAlternates(path: string): HreflangAlternates {
-  const url = topPageCanonical(path);
-  if (!isTopPage(path)) {
-    return { canonical: url, languages: {} };
-  }
-  return {
-    canonical: url,
-    languages: {
-      "en-MT": url,
-      "en-GB": url,
-      "x-default": url,
-    },
-  };
-}
+export { getHreflangAlternates } from "./hreflang";
+export type { HreflangAlternates, HreflangOptions } from "./hreflang";
 
 /**
  * Inline JSON-LD `<script>` tag emitting a WebPage node with a Speakable

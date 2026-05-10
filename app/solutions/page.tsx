@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import PageContent from "./PageContent";
 import RouteSchema from "@/components/RouteSchema";
 import { PILLAR_SCHEMAS } from "@/lib/seo/pillarSchemaConfig";
-import { SpeakableJsonLd } from "@/lib/seo/discoveryTags";
+import { getHreflangAlternates, SpeakableJsonLd } from "@/lib/seo/discoveryTags";
 
 const pillarMeta = PILLAR_SCHEMAS["/automation"];
 
@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   title: "Business Automation & Revenue Solutions — Malta's First | OARC Digital",
   description: "Automate your Malta business with OARC Digital. Workflow automation, CRM integration, API connections, lead funnels, email sequences & custom software development. Eliminate manual processes, reduce costs by 60%, and scale operations. Malta's premier automation partner.",
   keywords: "business automation Malta, workflow automation Malta, CRM Malta, custom software Malta, digital transformation Malta, API integration Malta, lead generation Malta, email marketing Malta, marketing automation Malta, process automation Malta, Zapier Malta, HubSpot Malta, sales automation Malta",
-  alternates: { canonical: "https://oarcdigital.com/automation" },
+  alternates: getHreflangAlternates("/solutions", { canonical: "https://oarcdigital.com/automation" }),
   openGraph: {
     title: "Business Automation & Revenue Solutions — Malta's First | OARC Digital",
     description: "Automate your Malta business. Workflow automation, CRM integration, lead funnels, email sequences & custom software. Reduce costs by 60%.",

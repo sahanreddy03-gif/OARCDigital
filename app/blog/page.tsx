@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "OARC Digital Blog | AI Marketing, Creative Services & Growth Strategies",
   description: "Expert insights on AI marketing, creative services, and revenue growth. Learn from real case studies, how-to guides, and industry best practices.",
-  alternates: { canonical: "https://oarcdigital.com/blog" },
+  alternates: getHreflangAlternates("/blog"),
   openGraph: {
     images: ogImageEntry({ title: "OARC Digital Blog | AI Marketing, Creative Services & Growth Strategies", subtitle: "Expert insights on AI marketing, creative services, and revenue growth. Learn from real case studies, how-to guides, and industry best practices." }),
     title: "OARC Digital Blog | AI Marketing, Creative Services & Growth Strategies",
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
 import Layout from '@/components/layout/Layout';
 import { createBreadcrumbSchema, createArticleSchema } from '@/utils/advancedSchema';
 import RouteSchema from "@/components/RouteSchema";
-import { SpeakableJsonLd } from "@/lib/seo/discoveryTags";
+import { getHreflangAlternates, SpeakableJsonLd } from "@/lib/seo/discoveryTags";
 import { SUPPORTING_PAGE_SCHEMAS } from "@/lib/seo/supportingPagesSchema";
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Calendar, Clock } from 'lucide-react';

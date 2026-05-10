@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import RouteSchema from "@/components/RouteSchema";
-import { SpeakableJsonLd } from "@/lib/seo/discoveryTags";
+import { getHreflangAlternates, SpeakableJsonLd } from "@/lib/seo/discoveryTags";
 import { SUPPORTING_PAGE_SCHEMAS } from "@/lib/seo/supportingPagesSchema";
 import { supportingPagesSEO } from "@/data/seoMetadata";
 import PageContent from "./PageContent";
@@ -8,9 +8,9 @@ import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
 
 
 export const metadata: Metadata = {
+  alternates: getHreflangAlternates("/services"),
   title: supportingPagesSEO.services.title,
   description: supportingPagesSEO.services.description,
-  alternates: { canonical: `https://oarcdigital.com${supportingPagesSEO.services.path}` },
   openGraph: {
     images: ogImageEntry({ title: supportingPagesSEO.services.title, subtitle: supportingPagesSEO.services.description }),
     title: supportingPagesSEO.services.title,

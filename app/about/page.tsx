@@ -7,7 +7,7 @@
 
 import type { Metadata } from "next";
 import RouteSchema from "@/components/RouteSchema";
-import { SpeakableJsonLd } from "@/lib/seo/discoveryTags";
+import { getHreflangAlternates, SpeakableJsonLd } from "@/lib/seo/discoveryTags";
 import { SUPPORTING_PAGE_SCHEMAS } from "@/lib/seo/supportingPagesSchema";
 import PageContent from "./PageContent";
 import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
@@ -21,7 +21,7 @@ const URL = "https://oarcdigital.com/about";
 export const metadata: Metadata = {
   title: TITLE,
   description: DESCRIPTION,
-  alternates: { canonical: URL },
+  alternates: getHreflangAlternates("/about"),
   openGraph: {
     images: ogImageEntry({ title: TITLE, subtitle: DESCRIPTION }),
     type: "website",

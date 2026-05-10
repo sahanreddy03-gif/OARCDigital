@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import PageContent from "./PageContent";
 import RouteSchema from "@/components/RouteSchema";
-import { SpeakableJsonLd } from "@/lib/seo/discoveryTags";
+import { getHreflangAlternates, SpeakableJsonLd } from "@/lib/seo/discoveryTags";
 import { SERVICE_SCHEMA_EXTRAS } from "@/lib/seo/serviceSchemaExtras";
 import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
 
@@ -9,7 +9,7 @@ import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
 export const metadata: Metadata = {
   title: "3D & AR Experiences | Immersive Design | OARC Digital Malta",
   description: "Cutting-edge 3D and augmented reality experiences from OARC Digital. Create immersive brand experiences that engage audiences in innovative ways.",
-  alternates: { canonical: "https://oarcdigital.com/services/immersive-3d-ar" },
+  alternates: getHreflangAlternates("/services/immersive-3d-ar"),
   openGraph: {
     images: ogImageEntry({ title: "3D & AR Experiences | Immersive Design | OARC Digital Malta", subtitle: "Cutting-edge 3D and augmented reality experiences from OARC Digital. Create immersive brand experiences that engage audiences in innovative ways." }),
     title: "3D & AR Experiences | Immersive Design | OARC Digital Malta",

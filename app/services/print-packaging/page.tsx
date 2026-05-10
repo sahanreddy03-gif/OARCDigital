@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import PageContent from "./PageContent";
 import RouteSchema from "@/components/RouteSchema";
-import { SpeakableJsonLd } from "@/lib/seo/discoveryTags";
+import { getHreflangAlternates, SpeakableJsonLd } from "@/lib/seo/discoveryTags";
 import { SERVICE_SCHEMA_EXTRAS } from "@/lib/seo/serviceSchemaExtras";
 import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
 
@@ -9,7 +9,7 @@ import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
 export const metadata: Metadata = {
   title: "Print & Packaging Design | Physical Product Design | OARC Digital",
   description: "Premium print and packaging design services. OARC Digital creates stunning physical brand experiences from product packaging to marketing collateral.",
-  alternates: { canonical: "https://oarcdigital.com/services/print-packaging" },
+  alternates: getHreflangAlternates("/services/print-packaging"),
   openGraph: {
     images: ogImageEntry({ title: "Print & Packaging Design | Physical Product Design | OARC Digital", subtitle: "Premium print and packaging design services. OARC Digital creates stunning physical brand experiences from product packaging to marketing collateral." }),
     title: "Print & Packaging Design | Physical Product Design | OARC Digital",

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import PageContent from "./PageContent";
 import RouteSchema from "@/components/RouteSchema";
-import { SpeakableJsonLd } from "@/lib/seo/discoveryTags";
+import { getHreflangAlternates, SpeakableJsonLd } from "@/lib/seo/discoveryTags";
 import { SERVICE_SCHEMAS } from "@/lib/seo/serviceSchemaConfig";
 import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
 
@@ -13,7 +13,7 @@ const URL = `https://oarcdigital.com/services/${SLUG}`;
 export const metadata: Metadata = {
   title: SCHEMA.title,
   description: SCHEMA.description,
-  alternates: { canonical: URL },
+  alternates: getHreflangAlternates("/services/ecommerce-development"),
   openGraph: { images: ogImageEntry({ title: SCHEMA.title, subtitle: SCHEMA.description }),
  title: SCHEMA.title, description: SCHEMA.description, url: URL, type: "article" },
   twitter: { images: [ogImageUrl({ title: SCHEMA.title, subtitle: SCHEMA.description })],

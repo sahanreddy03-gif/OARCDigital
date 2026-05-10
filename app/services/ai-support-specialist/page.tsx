@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import PageContent from "./PageContent";
 import RouteSchema from "@/components/RouteSchema";
-import { SpeakableJsonLd } from "@/lib/seo/discoveryTags";
+import { getHreflangAlternates, SpeakableJsonLd } from "@/lib/seo/discoveryTags";
 import { SERVICE_SCHEMA_EXTRAS } from "@/lib/seo/serviceSchemaExtras";
 import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
 
@@ -9,7 +9,7 @@ import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
 export const metadata: Metadata = {
   title: "AI Customer Support Agent | 24/7 Automated Support | OARC Digital",
   description: "Deploy an AI support agent that handles customer inquiries 24/7. Instant responses, ticket resolution, and seamless escalation to human agents when needed.",
-  alternates: { canonical: "https://oarcdigital.com/services/ai-support-specialist" },
+  alternates: getHreflangAlternates("/services/ai-support-specialist"),
   openGraph: {
     images: ogImageEntry({ title: "AI Customer Support Agent | 24/7 Automated Support | OARC Digital", subtitle: "Deploy an AI support agent that handles customer inquiries 24/7. Instant responses, ticket resolution, and seamless escalation to human agents when needed." }),
     title: "AI Customer Support Agent | 24/7 Automated Support | OARC Digital",

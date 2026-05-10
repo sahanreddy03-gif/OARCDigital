@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import PageContent from "./PageContent";
 import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
 import RouteSchema from "@/components/RouteSchema";
-import { SpeakableJsonLd } from "@/lib/seo/discoveryTags";
+import { getHreflangAlternates, SpeakableJsonLd } from "@/lib/seo/discoveryTags";
 import { SUPPORTING_PAGE_SCHEMAS } from "@/lib/seo/supportingPagesSchema";
 
 
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   title: "Free Business Diagnostics — Malta | OARC Digital",
   description:
     "Four free tools — Industry Scan, Growth Simulator, AI Workforce Designer, and the Cortex Business Intelligence Scan — for Malta SMEs who want a fast read on where revenue is leaking and what to fix first.",
-  alternates: { canonical: "https://oarcdigital.com/diagnostics" },
+  alternates: getHreflangAlternates("/diagnostics"),
   openGraph: {
     images: ogImageEntry({ title: "Free Business Diagnostics — Malta | OARC Digital", subtitle: "Four free tools — Industry Scan, Growth Simulator, AI Workforce Designer, and the Cortex Business Intelligence Scan — for Malta SMEs who want a fast read on where revenue is leaking and what to fix first." }),
     title: "Free Business Diagnostics — Malta | OARC Digital",

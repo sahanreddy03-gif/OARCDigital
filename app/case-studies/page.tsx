@@ -9,7 +9,7 @@ import { ArrowUpRight } from "lucide-react";
 import Layout from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import RouteSchema from "@/components/RouteSchema";
-import { SpeakableJsonLd } from "@/lib/seo/discoveryTags";
+import { getHreflangAlternates, SpeakableJsonLd } from "@/lib/seo/discoveryTags";
 import { SUPPORTING_PAGE_SCHEMAS } from "@/lib/seo/supportingPagesSchema";
 import { caseStudiesArray } from "@/data/caseStudies";
 import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
@@ -22,7 +22,7 @@ const URL = "https://oarcdigital.com/case-studies";
 export const metadata: Metadata = {
   title: TITLE,
   description: DESCRIPTION,
-  alternates: { canonical: URL },
+  alternates: getHreflangAlternates("/case-studies"),
   openGraph: {
     images: ogImageEntry({ title: TITLE, subtitle: DESCRIPTION }),
     title: TITLE,

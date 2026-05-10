@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import PageContent from "./PageContent";
 import RouteSchema from "@/components/RouteSchema";
-import { SpeakableJsonLd } from "@/lib/seo/discoveryTags";
+import { getHreflangAlternates, SpeakableJsonLd } from "@/lib/seo/discoveryTags";
 import { SERVICE_SCHEMA_EXTRAS } from "@/lib/seo/serviceSchemaExtras";
 import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
 
@@ -9,7 +9,7 @@ import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
 export const metadata: Metadata = {
   title: "Ad Creative Design | Performance Marketing Creative | OARC Digital",
   description: "High-converting ad creative from OARC Digital. Design performance marketing assets that drive results across paid social, display, and video advertising.",
-  alternates: { canonical: "https://oarcdigital.com/services/ad-creative" },
+  alternates: getHreflangAlternates("/services/ad-creative"),
   openGraph: {
     images: ogImageEntry({ title: "Ad Creative Design | Performance Marketing Creative | OARC Digital", subtitle: "High-converting ad creative from OARC Digital. Design performance marketing assets that drive results across paid social, display, and video advertising." }),
     title: "Ad Creative Design | Performance Marketing Creative | OARC Digital",

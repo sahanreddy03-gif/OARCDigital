@@ -159,6 +159,7 @@ run_step "audit-alts"                 npx tsx scripts/audit-alts.ts
 run_step "audit-banned-phrases"       npx tsx scripts/audit-banned-phrases.ts
 run_step "audit-og-images"            node scripts/audit-og-images.mjs
 run_step "audit-organization"         npx tsx scripts/audit-organization.ts
+run_step "audit-canonical"            npx tsx scripts/audit-canonical.ts
 
 if [ "$MODE" = "gate:fast" ]; then
   echo
@@ -238,6 +239,7 @@ run_step "audit-sitemap (HTTP)"     env BASE="$BASE" npx tsx scripts/audit-sitem
 run_step "audit-nap (HTTP)"         env BASE="$BASE" AUDIT_FULL=1 npx tsx scripts/audit-nap.ts
 run_step "audit-schema (HTTP)"      env BASE="$BASE" AUDIT_FULL=1 npx tsx scripts/audit-schema.ts
 run_step "audit-discovery (HTTP)"   env BASE="$BASE" npx tsx scripts/audit-discovery.ts
+run_step "audit-canonical (HTTP)"   env BASE="$BASE" npx tsx scripts/audit-canonical.ts --http
 run_step "audit-similarity (HTTP)"  env BASE="$BASE" AUDIT_FULL=1 npx tsx scripts/audit-similarity.ts
 run_step "audit-broken-links (HTTP)" env BASE="$BASE" npx tsx scripts/audit-broken-links.ts
 run_step "audit-org-sameas-live"     npx tsx scripts/audit-org-sameas-live.ts

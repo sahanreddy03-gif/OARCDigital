@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import RouteSchema from "@/components/RouteSchema";
-import { SpeakableJsonLd } from "@/lib/seo/discoveryTags";
+import { getHreflangAlternates, SpeakableJsonLd } from "@/lib/seo/discoveryTags";
 import { SUPPORTING_PAGE_SCHEMAS } from "@/lib/seo/supportingPagesSchema";
 import PageContent from "./PageContent";
 import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
@@ -9,7 +9,7 @@ import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
 export const metadata: Metadata = {
   title: "AI Tools & Tech Stack | OARC Digital",
   description: "Discover the 80+ AI sales tools, marketing automation, and creative software we use to deliver results. From Clay and Instantly to Midjourney and Figma.",
-  alternates: { canonical: "https://oarcdigital.com/tools" },
+  alternates: getHreflangAlternates("/tools"),
   openGraph: {
     images: ogImageEntry({ title: "AI Tools & Tech Stack | OARC Digital", subtitle: "Discover the 80+ AI sales tools, marketing automation, and creative software we use to deliver results. From Clay and Instantly to Midjourney and Figma." }),
     title: "AI Tools & Tech Stack | OARC Digital",

@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import { pdfPagesSEO } from "@/data/seoMetadata";
 import RouteSchema from "@/components/RouteSchema";
-import { SpeakableJsonLd } from "@/lib/seo/discoveryTags";
+import { getHreflangAlternates, SpeakableJsonLd } from "@/lib/seo/discoveryTags";
 import { SUPPORTING_PAGE_SCHEMAS } from "@/lib/seo/supportingPagesSchema";
 
 export const metadata: Metadata = {
+  alternates: getHreflangAlternates("/pdf-hub"),
   title: pdfPagesSEO.pdfHub.title,
   description: pdfPagesSEO.pdfHub.description,
-  alternates: { canonical: `https://oarcdigital.com${pdfPagesSEO.pdfHub.path}` },
   openGraph: {
     images: ogImageEntry({ title: pdfPagesSEO.pdfHub.title, subtitle: pdfPagesSEO.pdfHub.description }),
     title: pdfPagesSEO.pdfHub.title,

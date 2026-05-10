@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import PageContent from "./PageContent";
 import RouteSchema from "@/components/RouteSchema";
-import { SpeakableJsonLd } from "@/lib/seo/discoveryTags";
+import { getHreflangAlternates, SpeakableJsonLd } from "@/lib/seo/discoveryTags";
 import { SERVICE_SCHEMA_EXTRAS } from "@/lib/seo/serviceSchemaExtras";
 import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
 
@@ -9,7 +9,7 @@ import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
 export const metadata: Metadata = {
   title: "Influencer Marketing | Creator Partnerships | OARC Digital",
   description: "Premium influencer marketing campaigns from OARC Digital. Connect with authentic creators and drive results through strategic influencer partnerships.",
-  alternates: { canonical: "https://oarcdigital.com/services/influencer-marketing" },
+  alternates: getHreflangAlternates("/services/influencer-marketing"),
   openGraph: {
     images: ogImageEntry({ title: "Influencer Marketing | Creator Partnerships | OARC Digital", subtitle: "Premium influencer marketing campaigns from OARC Digital. Connect with authentic creators and drive results through strategic influencer partnerships." }),
     title: "Influencer Marketing | Creator Partnerships | OARC Digital",
