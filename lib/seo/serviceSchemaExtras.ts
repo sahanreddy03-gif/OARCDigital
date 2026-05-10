@@ -2964,70 +2964,71 @@ export const SERVICE_SCHEMA_EXTRAS: Record<string, ServiceSchemaExtra> = {
   },
 
   "social": {
-    title: "Social Media Services Malta | Strategy, Content, Community | OARC Digital",
+    title: "Social Media Strategy & Audit | OARC Digital Malta",
     description:
-      "Social media services for Malta brands — strategy, content production, community management, paid amplification, and creator partnerships under one roof.",
+      "A one-time social media strategy and audit for Malta brands. Forensic teardown of your channels, competitor matrix, content pillars, and a 90-day execution plan you can run in-house or hand to any agency.",
+    serviceType: "Social Media Strategy & Audit",
     offers: [
       {
-        name: "Social Sprint",
-        priceFrom: 2900,
+        name: "Strategy Sprint",
+        priceFrom: 2400,
         unitText: "PROJECT",
         description:
-          "4-week social audit, content strategy, monthly editorial calendar, and 12-piece content pack.",
+          "Two-week audit of one channel (Instagram, TikTok, or LinkedIn), competitor matrix, content pillar framework, and a 90-day posting plan. One read-out call.",
       },
       {
-        name: "Social Pod Retainer",
+        name: "Strategy & Audit",
         priceFrom: 3900,
-        unitText: "MONTH",
+        unitText: "PROJECT",
         description:
-          "Monthly content production, scheduling, community management, and weekly performance reporting.",
+          "Three-week audit across up to three channels, full competitor benchmark, paid-vs-organic mix recommendation, content pillars, 90-day editorial calendar, and a board-ready slide deck.",
       },
       {
-        name: "Social + Creator Program",
-        priceFrom: 7900,
-        unitText: "MONTH",
+        name: "Audit + Implementation Handover",
+        priceFrom: 5800,
+        unitText: "PROJECT",
         description:
-          "Social Pod plus 5-8 creator partnerships per month, paid amplification budget, monthly executive briefing.",
+          "Strategy & Audit deliverables plus a four-week implementation handover — onboarding your in-house team or any external agency, SOPs, reporting templates, and a 30-day check-in.",
       },
     ],
     features: [
-      { name: "Channel strategy and ICP-fit" },
-      { name: "Content production (static, motion, UGC)" },
-      { name: "Editorial calendar management" },
-      { name: "Community management and DM response" },
-      { name: "Paid amplification" },
-      { name: "Creator partnerships (Maltese + EU)" },
+      { name: "Channel-by-channel performance audit" },
+      { name: "Competitor matrix (5-8 named competitors)" },
+      { name: "Content pillar and message hierarchy" },
+      { name: "90-day editorial calendar" },
+      { name: "Paid-vs-organic mix recommendation" },
+      { name: "Board-ready slide deck and read-out call" },
     ],
     faqs: [
       {
-        question: "Which channels do you cover?",
+        question: "What exactly do I get when the audit is finished?",
         answer:
-          "Instagram, TikTok, YouTube, Facebook, LinkedIn, X, Threads, Pinterest. Channel selection is per-client based on ICP and brand maturity — we don't believe in being everywhere.",
-      },
-      {
-        question: "Do you produce in-Malta content?",
-        answer:
-          "Yes — Birkirkara studio plus on-location across Malta and Gozo. Maltese-language and English-Malta variants both supported.",
+          "A board-ready slide deck (typically 35-50 slides), a competitor matrix in spreadsheet form, a 90-day editorial calendar with named content pillars, and a read-out call with the founder. Everything is yours to keep — no licensing, no lock-in.",
       },
       {
         question: "How is this different from /services/social-media-creative-management?",
         answer:
-          "/services/social-media-creative-management is the deeper management-platform offering with case studies. /services/social is the simpler intent-match for buyers searching 'social media agency'. Both share the same delivery team and pricing structure.",
+          "Different intent. /services/social-media-creative-management is an ongoing managed retainer where our pod runs your channels every day. This page is a one-time, project-based deliverable: you get the strategy and the plan, and you (or your in-house team, or another agency) execute. Buyers often start here, then graduate to the managed retainer once the plan is proven.",
       },
       {
-        question: "Do you handle community management and DMs?",
+        question: "Will you actually post for me?",
         answer:
-          "Yes — Social Pod tier and above include community management with a 4-hour weekday response SLA. Bilingual EN/MT response for Malta-based audiences.",
+          "Not under this engagement. The audit ends with a written plan and a handover. If you want us to execute, the natural next step is the managed retainer at /services/social-media-creative-management — we'll discount the audit fee against the first month if you continue with us.",
       },
       {
-        question: "Will you boost / run paid ads?",
+        question: "What channels do you audit?",
         answer:
-          "Always-On + Social + Creator Program tiers include paid amplification of high-performing organic posts. For dedicated paid social, see /services/paid-advertising or /services/media-buying.",
+          "Instagram, TikTok, LinkedIn, Facebook, YouTube, X, Threads, and Pinterest. Most Malta brands need a deep audit on two to three channels rather than a shallow audit on eight, so we scope per client during the kick-off call.",
       },
       {
-        question: "What's the typical contract?",
+        question: "How long does the audit take?",
         answer:
-          "30-day rolling, 90-day minimum on pod retainers — content strategy compounds, a 30-day judgment is too short.",
+          "Strategy Sprint is two weeks from kick-off to read-out. Strategy & Audit is three weeks. Audit + Implementation Handover is seven weeks total (three weeks of audit, four weeks of handover and SOP work). Calendar invites land on day one.",
+      },
+      {
+        question: "Do you work with brands outside Malta?",
+        answer:
+          "Yes. The methodology is the same. Malta clients get a competitor matrix weighted toward local players (and our knowledge of Birkirkara, Sliema, and Gozo media buying), while overseas clients get a benchmark against their primary geographic market.",
       },
     ],
   },
