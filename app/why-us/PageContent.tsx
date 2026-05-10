@@ -197,6 +197,9 @@ export default function PageContent() {
                   <p className="text-white/60 text-lg mt-4 font-medium">
                     That gap is exactly where we operate.
                   </p>
+                  <Link href="/industries" className="inline-flex items-center gap-2 mt-6 text-[#ff914d] font-semibold text-sm hover:underline">
+                    View industry hubs we serve →
+                  </Link>
                 </div>
 
                 <div className="absolute left-0 md:left-1/2 w-10 h-10 rounded-full bg-[#ff914d] border-4 border-zinc-950 z-20 transform -translate-x-[19px] md:-translate-x-1/2 flex items-center justify-center">
@@ -311,7 +314,31 @@ export default function PageContent() {
         </div>
       </section>
 
-      {/* 6. CTA Section */}
+      {/* 6. Related Pages */}
+      <section className="bg-zinc-950 py-16 border-t border-white/5">
+        <div className="max-w-7xl mx-auto px-6">
+          <h2 className="text-2xl font-bold text-white mb-8 text-center">Want to Go Deeper?</h2>
+          <div className="grid md:grid-cols-3 gap-6">
+            <Link href="/comparison" className="group bg-white/5 border border-white/10 rounded-xl p-6 hover-elevate block">
+              <div className="text-[#ff914d] font-bold text-xs tracking-widest uppercase mb-2">Comparison</div>
+              <h3 className="text-base font-bold text-white mb-2 group-hover:text-[#ff914d] transition-colors">OARC vs Traditional Agencies</h3>
+              <p className="text-sm text-white/50">Side-by-side breakdown of speed, cost, AI integration, and scalability.</p>
+            </Link>
+            <Link href="/services" className="group bg-white/5 border border-white/10 rounded-xl p-6 hover-elevate block">
+              <div className="text-[#ff914d] font-bold text-xs tracking-widest uppercase mb-2">Services</div>
+              <h3 className="text-base font-bold text-white mb-2 group-hover:text-[#ff914d] transition-colors">Explore All Services</h3>
+              <p className="text-sm text-white/50">25 specialist services across creative, AI agents, SEO, automation, and revenue strategy.</p>
+            </Link>
+            <Link href="/ai-agents" className="group bg-white/5 border border-white/10 rounded-xl p-6 hover-elevate block">
+              <div className="text-[#ff914d] font-bold text-xs tracking-widest uppercase mb-2">AI</div>
+              <h3 className="text-base font-bold text-white mb-2 group-hover:text-[#ff914d] transition-colors">AI Agents Platform</h3>
+              <p className="text-sm text-white/50">Our AI employee roster — SDR, support, admin, analyst, appointment-booker, and more.</p>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* 7. CTA Section */}
       <section className="bg-gradient-to-b from-zinc-900 to-zinc-950 py-24 text-center" data-testid="section-cta">
         <ScrollReveal>
           <div className="max-w-4xl mx-auto px-6">
@@ -322,11 +349,18 @@ export default function PageContent() {
             <p className="text-xl text-white/60 mb-10">
               Partner with an agency that understands Malta, masters technology, and puts your revenue first.
             </p>
-            <Link href="/contact">
-              <button className="bg-[#ff914d] hover:bg-[#ff8033] text-zinc-950 font-bold px-10 py-4 rounded-full text-lg transition-all hover:scale-105" data-testid="button-cta">
-                Start Your Journey
-              </button>
-            </Link>
+            <div className="flex flex-wrap justify-center gap-4">
+              <Link href="/contact">
+                <button className="bg-[#ff914d] text-zinc-950 font-bold px-10 py-4 rounded-full text-lg transition-all hover:scale-105" data-testid="button-cta">
+                  Start Your Journey
+                </button>
+              </Link>
+              <Link href="/comparison">
+                <button className="border border-white/30 text-white font-bold px-10 py-4 rounded-full text-lg transition-all hover:border-[#ff914d] hover:text-[#ff914d]" data-testid="button-comparison">
+                  See How We Compare
+                </button>
+              </Link>
+            </div>
           </div>
         </ScrollReveal>
       </section>

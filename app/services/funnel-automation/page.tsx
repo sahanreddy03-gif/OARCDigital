@@ -7,7 +7,6 @@ import { SERVICE_SCHEMA_EXTRAS } from "@/lib/seo/serviceSchemaExtras";
 export const metadata: Metadata = {
   title: "Funnel Automation | Conversion Optimization | OARC Digital Malta",
   description: "Automate your marketing funnels with OARC Digital. Build, test, and optimize conversion funnels using AI-powered automation for predictable revenue growth.",
-  robots: { index: false, follow: false },
   alternates: { canonical: "https://oarcdigital.com/services/funnel-automation" },
   openGraph: {
     title: "Funnel Automation | Conversion Optimization | OARC Digital Malta",

@@ -170,6 +170,24 @@ export default function SeoServicesContent() {
             <TrustBlock variant="visit" />
           </section>
 
+          <section className="mb-12 p-6 rounded-xl bg-orange-500/5 border border-orange-500/20">
+            <h2 className="text-xl font-bold mb-3">SEO vs Paid Ads vs Content Marketing — which should you start with?</h2>
+            <p className="text-sm text-muted-foreground mb-4">
+              SEO builds a compounding organic asset — once rankings are earned, traffic arrives without paying per click. It takes 4–9 months before results compound. <strong className="text-foreground">Paid advertising</strong> delivers results in days but stops the moment the budget stops. <strong className="text-foreground">Content marketing</strong> builds topical authority and feeds both SEO and AI search citations, but relies on SEO infrastructure to distribute the content.
+            </p>
+            <p className="text-sm text-muted-foreground mb-4">
+              For most Malta SMEs: if you need pipeline in 30 days, start with paid. If you are willing to invest 6 months in a channel that pays back for 3 years, start with SEO. If you want to be cited by ChatGPT and Perplexity alongside organic rankings, you need content. Most OARC retainer clients run SEO and content in parallel, with paid supplementing high-intent keywords where organic is not yet ranked.
+            </p>
+            <div className="flex flex-wrap gap-4 mt-4">
+              <Link href="/services/paid-advertising" className="inline-flex items-center gap-2 text-orange-500 font-medium hover:text-orange-600 transition-colors text-sm">
+                Paid Advertising — results in 48 hours <ArrowRight className="w-4 h-4" />
+              </Link>
+              <Link href="/services/content-marketing" className="inline-flex items-center gap-2 text-orange-500 font-medium hover:text-orange-600 transition-colors text-sm">
+                Content Marketing — authority and AI citations <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </section>
+
           <RelatedLinks slug="/services/seo-services" />
 
           <div className="bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl p-8 text-white text-center">

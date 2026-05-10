@@ -158,6 +158,23 @@ export default function ShopifyDevelopmentContent() {
             <h2 className="text-2xl md:text-3xl font-bold mb-6">Visit OARC Digital</h2>
             <TrustBlock variant="visit" />
           </section>
+          <section className="mb-8 p-6 rounded-xl bg-orange-500/5 border border-orange-500/20">
+            <h2 className="text-xl font-bold mb-3">Shopify vs WordPress vs Custom Build — picking the right platform</h2>
+            <p className="text-sm text-muted-foreground mb-4">
+              Shopify is purpose-built for ecommerce: the cart, checkout, inventory, and Shopify Markets are production-grade out of the box. If your primary job is selling products online, Shopify compresses time-to-revenue vs a custom build or a WooCommerce installation. <strong className="text-foreground">WordPress</strong> is the right choice when content, blogging, and flexibility are the primary need — for service businesses, editorial brands, and hospitality groups.
+            </p>
+            <p className="text-sm text-muted-foreground mb-4">
+              A <strong className="text-foreground">custom web design</strong> sits above both — when your product or brand experience cannot be expressed within a theme framework, or when you need bespoke interaction design, animation, or a design language that differentiates you from every other Shopify or WP store in Malta.
+            </p>
+            <div className="flex flex-wrap gap-4">
+              <Link href="/services/wordpress-development" className="inline-flex items-center gap-2 text-orange-500 font-medium hover:text-orange-600 transition-colors text-sm">
+                WordPress Development — for content and service businesses <ArrowRight className="w-4 h-4" />
+              </Link>
+              <Link href="/services/web-design" className="inline-flex items-center gap-2 text-orange-500 font-medium hover:text-orange-600 transition-colors text-sm">
+                Custom Web Design — bespoke design beyond any theme <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </section>
           <RelatedLinks slug="/services/shopify-development" />
           <div className="bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl p-8 text-white text-center">
             <h2 className="text-2xl font-bold mb-3">Migrating Or Building From Scratch?</h2>

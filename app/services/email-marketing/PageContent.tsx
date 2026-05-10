@@ -157,6 +157,18 @@ export default function EmailMarketingContent() {
             <h2 className="text-2xl md:text-3xl font-bold mb-6">Visit OARC Digital</h2>
             <TrustBlock variant="visit" />
           </section>
+          <section className="mb-8 p-6 rounded-xl bg-orange-500/5 border border-orange-500/20">
+            <h2 className="text-xl font-bold mb-3">Email Marketing vs Content Marketing — what each channel does</h2>
+            <p className="text-sm text-muted-foreground mb-4">
+              Email marketing works on your existing audience — subscribers who have already opted in. It is the highest-ROI channel for lifecycle nurture, retention, and upsell because you own the list and pay per send rather than per click. <strong className="text-foreground">Content marketing</strong> works on cold audiences you do not yet own — building organic search rankings and AI-search citations that attract new readers into the top of the funnel, where email captures and converts them.
+            </p>
+            <p className="text-sm text-muted-foreground mb-4">
+              The two channels are complementary, not competing. Every new blog reader who opts into a lead magnet becomes an email subscriber. Every email campaign that links to a piece of long-form content extends its reach. OARC clients running both channels see average list-growth 3x faster than those running either in isolation.
+            </p>
+            <Link href="/services/content-marketing" className="inline-flex items-center gap-2 text-orange-500 font-medium hover:text-orange-600 transition-colors text-sm">
+              Content Marketing — grow the audience that email then converts <ArrowRight className="w-4 h-4" />
+            </Link>
+          </section>
           <RelatedLinks slug="/services/email-marketing" />
           <div className="bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl p-8 text-white text-center">
             <h2 className="text-2xl font-bold mb-3">Want a Free Email Audit?</h2>
