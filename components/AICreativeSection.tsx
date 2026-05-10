@@ -138,7 +138,7 @@ export default function AICreativeSection() {
   const startYRightRef = useRef(0);
   const scrollTopLeftRef = useRef(0);
   const scrollTopRightRef = useRef(0);
-  const animationIdRef = useRef<number>();
+  const animationIdRef = useRef<number | undefined>(undefined);
   const cleanupHandlersRef = useRef<(() => void) | null>(null);
 
   // Desktop: triple services for seamless horizontal looping

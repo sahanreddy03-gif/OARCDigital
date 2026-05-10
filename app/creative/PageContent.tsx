@@ -1008,7 +1008,7 @@ export default function PageContent() {
   const isDesktop = useMediaQuery('(min-width: 1024px)');
   const leftColRef = useRef<HTMLDivElement>(null);
   const rightColRef = useRef<HTMLDivElement>(null);
-  const animationIdRef = useRef<number>();
+  const animationIdRef = useRef<number | undefined>(undefined);
 
   // Service carousel items
   const carouselServices = [
