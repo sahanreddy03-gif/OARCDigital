@@ -37,6 +37,8 @@ export default function Page() {
     <>
       <RouteSchema
         type="service"
+        dateModified="2026-05-10"
+        townGeo={{ latitude: 35.9217, longitude: 14.4775, locality: "Swieqi" }}
         path="/aeo/marketing-agency-swieqi"
         title={TITLE}
         description={DESCRIPTION}

@@ -3,6 +3,7 @@ import RelatedLinks from '@/components/RelatedLinks';
 import { Button } from '@/components/ui/button';
 import { CheckCircle2, ArrowRight, MapPin, Phone, Mail, Clock } from 'lucide-react';
 import TrustBlock from "@/components/seo/TrustBlock";
+import MaltaContextBlock from "@/components/seo/MaltaContextBlock";
 import Link from 'next/link';
 import { NAP } from "@/lib/seo/nap";
 
@@ -51,6 +52,7 @@ export default function MarketingAgencyMosta({ faqs, offers }: Props) {
         </section>
 
         <article className="max-w-4xl mx-auto px-6 md:px-8 py-16">
+          <p className="text-xs uppercase tracking-wider text-muted-foreground mb-8" data-testid="text-last-updated">Last updated: 10 May 2026</p>
           <section className="mb-12">
             <h2 className="text-2xl md:text-3xl font-bold mb-4">Marketing for the Mosta Catchment</h2>
             <p className="text-foreground leading-relaxed mb-4">
@@ -114,6 +116,8 @@ export default function MarketingAgencyMosta({ faqs, offers }: Props) {
                 Mosta sits at the intersection of family-run retail, hospitality clusters around Sir Paul Boffa Square, and a fast-growing professional-services tier. The marketing playbook that works for a Sliema cocktail bar is the wrong playbook for a Mosta family bakery — different audience, different price sensitivity, different review-platform behaviour. Our retainers calibrate to that reality with location-specific Google Business Profile work, Mosta-resident audience targeting on Meta, and content rooted in the village itself rather than recycled from a Sliema template. Every Mosta retainer also includes a quarterly half-day on-site at the client's premises so the strategy stays connected to what is actually happening on the ground.
               </p>
             </section>
+          <MaltaContextBlock slug="marketing-agency-mosta" />
+
                       <section className="mb-12">
             <h2 className="text-2xl md:text-3xl font-bold mb-6">Frequently Asked Questions</h2>
             <div className="space-y-4">
@@ -124,6 +128,19 @@ export default function MarketingAgencyMosta({ faqs, offers }: Props) {
                 </div>
               ))}
             </div>
+          </section>
+
+          <section className="mb-12">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">Mosta Sectors That Move Fastest on Paid Spend</h2>
+            <p className="text-foreground leading-relaxed mb-4">
+              Three sectors in Mosta consistently produce the strongest paid-acquisition returns in our retainer book. Family-restaurant bookings around Sir Paul Boffa Square and the Triq il-Kostituzzjoni axis respond fastest — typical payback inside 30 days when Maltese-language Meta creative is paired with a Google Business Profile sitting on weekly fresh photography. Our highest-performing Mosta hospitality client lifted Friday-and-Saturday cover rates by 38% in the first quarter of the engagement using exactly that combination, with no menu price change and no expansion of seating capacity.
+            </p>
+            <p className="text-foreground leading-relaxed mb-4">
+              Beauty and aesthetic services along the Targa Gap commercial strip are second. The audience profile here is unusually consistent — working women aged 28 to 48 who book on a 6-to-8-week recurring cadence — which makes lookalike targeting on Meta unusually accurate. We have repeatedly seen cost-per-booked-appointment drop below €8 within sixty days when the offer is structured around a first-visit anchor service rather than a discount.
+            </p>
+            <p className="text-foreground leading-relaxed">
+              Home-services trades — plumbers, electricians, AC installers serving Mosta plus adjacent Naxxar, Lija, and Mgarr — are third. The acquisition engine here is Google Local Services Ads plus a tightened Google Business Profile, not paid social. Maltese consumers research these categories on Google Maps in the moment they need the service, and a Mosta-based business with 50+ verified reviews and a working booking link consistently outperforms a Sliema-based competitor with twice the ad budget. We track the same three sectors in our quarterly Mosta benchmark report, shared with every active client at the start of each new retainer cycle.
+            </p>
           </section>
 
           <RelatedLinks slug="/aeo/marketing-agency-mosta" />

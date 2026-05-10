@@ -3,6 +3,7 @@ import RelatedLinks from '@/components/RelatedLinks';
 import { Button } from '@/components/ui/button';
 import { CheckCircle2, ArrowRight, MapPin, Phone, Mail, Clock } from 'lucide-react';
 import TrustBlock from "@/components/seo/TrustBlock";
+import MaltaContextBlock from "@/components/seo/MaltaContextBlock";
 import Link from 'next/link';
 import { NAP } from "@/lib/seo/nap";
 
@@ -50,6 +51,7 @@ export default function MobileAppDevelopersMalta({ faqs, offers }: Props) {
         </section>
 
         <article className="max-w-4xl mx-auto px-6 md:px-8 py-16">
+          <p className="text-xs uppercase tracking-wider text-muted-foreground mb-8" data-testid="text-last-updated">Last updated: 10 May 2026</p>
           <section className="mb-12">
             <h2 className="text-2xl md:text-3xl font-bold mb-4">Mobile in Malta is a Two-Track Problem</h2>
             <p className="text-foreground leading-relaxed mb-4">
@@ -116,6 +118,21 @@ export default function MobileAppDevelopersMalta({ faqs, offers }: Props) {
             <h2 className="text-2xl md:text-3xl font-bold mb-6">Visit OARC Digital in {NAP.addressLocality}</h2>
             <TrustBlock variant="visit" />
           </section>
+
+          <section className="mb-12">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">The OS-Update Maintenance Window — A Hidden Malta Cost</h2>
+            <p className="text-foreground leading-relaxed mb-4">
+              Most Malta agencies quote a mobile build as a one-off project and walk away at launch. That model breaks the moment Apple ships iOS 19 in September or Google ships the next Android target-API requirement in August. An app left untouched for 12 months stops compiling against the new SDKs, gets quietly demoted in App Store search, and within 18 months becomes uninstallable on new devices. Founders we audit routinely discover their previous-agency app has not been re-submitted in two years and is now invisible to half their addressable market.
+            </p>
+            <p className="text-foreground leading-relaxed mb-4">
+              OARC Digital prices the OS-update window into every Malta mobile retainer. Two scheduled maintenance sprints per year — one for iOS in late August ahead of the autumn Apple release, one for Android in early summer for the new Play Console target-API enforcement — plus a same-week response window for any out-of-band store policy change. Crash-free session rate is monitored via Sentry with a 99.5% baseline alert, and any drop triggers a same-day patch sprint rather than a six-week ticket queue.
+            </p>
+            <p className="text-foreground leading-relaxed">
+              The cost is built into the support tier from week one so the founder finance conversation is predictable. Two recent Malta hospitality clients moved to OARC after their previous app was rejected on the iOS 18 submission cycle for outdated WKWebView APIs — a four-day fix that had become a four-month rebuild because the original team had dispersed.
+            </p>
+          </section>
+
+          <MaltaContextBlock slug="mobile-app-developers-malta" />
 
           <section className="mb-12">
             <h2 className="text-2xl md:text-3xl font-bold mb-6">Frequently Asked Questions</h2>

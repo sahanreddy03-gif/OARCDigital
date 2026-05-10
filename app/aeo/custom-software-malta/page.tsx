@@ -37,6 +37,7 @@ export default function Page() {
     <>
       <RouteSchema
         type="service"
+        dateModified="2026-05-10"
         path="/aeo/custom-software-malta"
         title={TITLE}
         description={DESCRIPTION}

@@ -45,6 +45,16 @@ type ServiceProps = CommonProps & {
   offers?: OfferOpts[];
   /** Set false to skip the LocalBusiness node (default true). */
   includeLocalBusiness?: boolean;
+  /** ISO date (YYYY-MM-DD). When set, emits a WebPage node carrying dateModified
+   *  alongside the Service node so AI/SERP freshness signals pick it up. */
+  dateModified?: string;
+  /** Town-page geo. When set, the page node becomes `AboutPage` and carries
+   *  `geo` (GeoCoordinates) + `contentLocation` (Place with PostalAddress +
+   *  GeoCoordinates) for the named town. The LocalBusiness node STAYS
+   *  anchored to the canonical Birkirkara HQ NAP and geo — town pages serve
+   *  the locality from HQ, they do NOT claim a physical office in the town.
+   *  Required for marketing-agency-{mosta,qormi,swieqi,gzira,mellieha,paola}. */
+  townGeo?: { latitude: number; longitude: number; locality: string };
 };
 
 type LocalBusinessProps = CommonProps & {
@@ -111,8 +121,48 @@ export default function RouteSchema(props: RouteSchemaProps) {
       }),
     );
     if (includeLB) {
+      // LocalBusiness is ALWAYS anchored to the canonical Birkirkara HQ NAP
+      // and geo. Town pages serve the locality from the HQ — they do NOT
+      // claim a physical office in the town. Town-specific geo is expressed
+      // on the AboutPage node below (geo + contentLocation), not by mutating
+      // the LocalBusiness address.
       nodes.push(buildLocalBusiness());
       nodes.push(buildOrganization());
+    }
+    if (props.dateModified || props.townGeo) {
+      const pageNode: Record<string, unknown> = {
+        "@context": "https://schema.org",
+        "@type": props.townGeo ? "AboutPage" : "WebPage",
+        "@id": `${url}#webpage`,
+        url,
+        name: props.title,
+        description: props.description,
+        isPartOf: { "@id": `${BASE}/#website` },
+        about: { "@id": `${BASE}/#organization` },
+      };
+      if (props.dateModified) pageNode.dateModified = props.dateModified;
+      if (props.townGeo) {
+        pageNode.geo = {
+          "@type": "GeoCoordinates",
+          latitude: props.townGeo.latitude,
+          longitude: props.townGeo.longitude,
+        };
+        pageNode.contentLocation = {
+          "@type": "Place",
+          name: props.townGeo.locality,
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: props.townGeo.locality,
+            addressCountry: "MT",
+          },
+          geo: {
+            "@type": "GeoCoordinates",
+            latitude: props.townGeo.latitude,
+            longitude: props.townGeo.longitude,
+          },
+        };
+      }
+      nodes.push(pageNode);
     }
     if (props.faqs && props.faqs.length) nodes.push(buildFAQ(props.faqs, true));
   } else if (props.type === "localBusiness") {

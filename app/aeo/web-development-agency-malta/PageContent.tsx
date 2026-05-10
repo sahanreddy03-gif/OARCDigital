@@ -3,6 +3,7 @@ import RelatedLinks from '@/components/RelatedLinks';
 import { Button } from '@/components/ui/button';
 import { CheckCircle2, ArrowRight, MapPin, Phone, Mail, Clock } from 'lucide-react';
 import TrustBlock from "@/components/seo/TrustBlock";
+import MaltaContextBlock from "@/components/seo/MaltaContextBlock";
 import Link from 'next/link';
 import { NAP } from "@/lib/seo/nap";
 
@@ -50,6 +51,7 @@ export default function WebDevelopmentAgencyMalta({ faqs, offers }: Props) {
         </section>
 
         <article className="max-w-4xl mx-auto px-6 md:px-8 py-16">
+          <p className="text-xs uppercase tracking-wider text-muted-foreground mb-8" data-testid="text-last-updated">Last updated: 10 May 2026</p>
           <section className="mb-12">
             <h2 className="text-2xl md:text-3xl font-bold mb-4">Choosing a Web Development Agency in Malta</h2>
             <p className="text-foreground leading-relaxed mb-4">
@@ -116,6 +118,21 @@ export default function WebDevelopmentAgencyMalta({ faqs, offers }: Props) {
             <h2 className="text-2xl md:text-3xl font-bold mb-6">Visit OARC Digital in {NAP.addressLocality}</h2>
             <TrustBlock variant="visit" />
           </section>
+
+          <section className="mb-12">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">Core Web Vitals + The Maltese Hosting Reality</h2>
+            <p className="text-foreground leading-relaxed mb-4">
+              Google measures Core Web Vitals from real device data, not lab tests, and the median Maltese mobile visitor is on a 4G connection routed through one of three local carrier networks. That means a site hosted in Sydney loads its first byte 280ms slower than one hosted in Frankfurt before a single image even starts to download. For a Largest Contentful Paint target under 2.5 seconds, the regional hosting choice is not a nice-to-have, it is the difference between passing and failing the metric in Search Console.
+            </p>
+            <p className="text-foreground leading-relaxed mb-4">
+              Every OARC build defaults to EU-region infrastructure: Cloudways Frankfurt or Hetzner Helsinki for WordPress, Vercel eu-west-1 for Next.js, Webflow&apos;s native CDN for Webflow, Shopify&apos;s built-in for ecommerce. Image-CDN is Cloudflare R2 with Polish for automatic AVIF conversion, fonts are self-hosted with preload hints, and JavaScript is route-split so the homepage ships under 90KB compressed on the first paint. The result is a Lighthouse mobile score above 90 at launch and a real-world LCP under 2 seconds for visitors on the major Maltese carriers.
+            </p>
+            <p className="text-foreground leading-relaxed">
+              We verify this on the day of go-live with a Chrome User Experience Report check pulled fresh from BigQuery, then again at 28 days when the field data has accumulated enough sample size to be statistically meaningful. Any regression triggers an unbudgeted patch sprint — the launch is not done until the field data confirms the lab numbers.
+            </p>
+          </section>
+
+          <MaltaContextBlock slug="web-development-agency-malta" />
 
           <section className="mb-12">
             <h2 className="text-2xl md:text-3xl font-bold mb-6">Frequently Asked Questions</h2>
