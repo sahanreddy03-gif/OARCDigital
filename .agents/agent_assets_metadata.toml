@@ -6,6 +6,12 @@ uri = "file://public/images/services/wordpress-development-hero.png"
 type = "image"
 title = "wordpress dashboard hero"
 
+[[generated]]
+id = "2trON-XVihfQ_815lgN_-"
+uri = "file://public/images/services/shopify-development-hero.png"
+type = "image"
+title = "shopify checkout dashboard hero"
+
 [[outputs]]
 id = "dBQslWAR-bdBtVmrkX_0n"
 uri = "file://.local/env-var-reference.md"

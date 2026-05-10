@@ -1581,9 +1581,11 @@ export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
   },
 
   "shopify-development": {
-    title: "Shopify Development Malta | Themes, Plus & Hydrogen | OARC Digital",
+    title: "Shopify Store Development & Optimisation Malta | OARC Digital",
     description:
-      "Shopify development for Malta and EU retailers — custom themes, Shopify Plus, Hydrogen, app integrations, and conversion engineering. Klaviyo and Meta-ready out of the box.",
+      "Shopify-only specialists in Malta — Liquid theme builds, custom Shopify apps, checkout extensibility, and Shopify Plus migrations from WooCommerce, Magento, or BigCommerce.",
+    serviceType: "Shopify Development",
+    areaServed: "Malta",
     offers: [
       {
         name: "Shopify Theme Build",

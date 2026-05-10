@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Industries We Serve in Malta | OARC Digital",
-  description: "OARC Digital serves restaurants, hotels, healthcare, legal, professional services, construction, beauty, automotive, education, NGOs, iGaming, fintech, real estate, retail, fitness, wellness, and events across Malta. Pick your industry to see how we package the offer.",
+  description: "OARC Digital serves restaurants, hotels, healthcare, legal, professional services, construction, beauty, automotive, education, NGOs, iGaming, fintech, real estate, retail, ecommerce, fitness, wellness, and events across Malta. Pick your industry to see how we package the offer.",
   alternates: { canonical: "https://oarcdigital.com/industries" },
   openGraph: {
     title: "Industries We Serve in Malta | OARC Digital",
@@ -30,6 +30,7 @@ import {
   CreditCard,
   Home,
   ShoppingBag,
+  ShoppingCart,
   Dumbbell,
   Sparkles,
   PartyPopper,
@@ -59,6 +60,7 @@ const industries: Industry[] = [
   { slug: 'fintech', name: 'Fintech', description: 'Trust-building branding, lead nurturing, and B2B automation', icon: CreditCard, caseStudyCount: 1 },
   { slug: 'real-estate', name: 'Real Estate', description: 'Property video, lead generation, and international buyer campaigns', icon: Home, caseStudyCount: 3 },
   { slug: 'retail', name: 'Retail', description: 'Product content, e-commerce strategy, and foot traffic campaigns', icon: ShoppingBag, caseStudyCount: 2 },
+  { slug: 'ecommerce', name: 'Ecommerce & DTC', description: 'Shopify builds, Klaviyo lifecycle, paid social, and Plus migrations for DTC brands', icon: ShoppingCart, caseStudyCount: 0 },
   { slug: 'fitness', name: 'Fitness', description: 'Member acquisition, transformation content, and retention automation', icon: Dumbbell, caseStudyCount: 2 },
   { slug: 'wellness', name: 'Wellness', description: 'Authentic brand storytelling, SEO, and online booking optimisation', icon: Sparkles, caseStudyCount: 1 },
   { slug: 'events', name: 'Events', description: 'Ticket sales campaigns, event content, and audience building', icon: PartyPopper, caseStudyCount: 0 },

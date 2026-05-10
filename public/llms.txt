@@ -388,7 +388,7 @@ Value: WordPress for Malta — custom Gutenberg themes, WooCommerce, plugin engi
 - Managed WordPress hosting is provisioned on EU regions with daily backups, malware scanning, and a 4-hour incident response SLA.
 - Every WordPress build includes a quarterly Core Web Vitals review and plugin audit from the Birkirkara office.
 
-### Shopify Development Malta
+### Shopify Store Development & Optimisation Malta
 Canonical: https://oarcdigital.com/services/shopify-development
 Value: Shopify Plus, Shopify, and headless Hydrogen builds for Malta and EU merchants — custom themes, app development, and Klaviyo + Stripe wiring delivered by a single Birkirkara team.
 - OARC Digital builds custom Shopify themes from Online Store 2.0 sections and Liquid — no Dawn-template clones — typically launched in 4-8 weeks.

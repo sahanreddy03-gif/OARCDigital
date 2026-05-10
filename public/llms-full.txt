@@ -787,11 +787,11 @@ A: Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010, Malta. Discovery cal
 
 ---
 
-### Shopify Development Malta | Themes, Plus & Hydrogen | OARC Digital
+### Shopify Store Development & Optimisation Malta | OARC Digital
 Canonical: https://oarcdigital.com/services/shopify-development
 
 **Description**
-Shopify development for Malta and EU retailers — custom themes, Shopify Plus, Hydrogen, app integrations, and conversion engineering. Klaviyo and Meta-ready out of the box.
+Shopify-only specialists in Malta — Liquid theme builds, custom Shopify apps, checkout extensibility, and Shopify Plus migrations from WooCommerce, Magento, or BigCommerce.
 
 **Features**
 
