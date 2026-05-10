@@ -1882,70 +1882,90 @@ export const SERVICE_SCHEMA_EXTRAS: Record<string, ServiceSchemaExtra> = {
   },
 
   "influencer": {
-    title: "Influencer Marketing Services Malta | Creator Partnerships at Scale | OARC Digital",
+    title:
+      "Malta Influencer Marketing | Local Creator Network for Hospitality, Lifestyle & iGaming",
     description:
-      "Influencer marketing for Malta and EU brands — Maltese creators, EU micro-influencers, and global macro talent. Briefed, contracted, and reported as cost-per-acquired-customer.",
+      "Malta-local creator partnerships for hospitality, lifestyle, sport, food and MGA-licensed iGaming brands. We source, brief and contract Maltese creators who actually move bookings, deposits and footfall.",
+    serviceType: "Local Influencer & Creator Marketing",
+    areaServed: "Malta",
+    audience: [
+      "Hospitality (hotels, restaurants, beach clubs)",
+      "Lifestyle (fashion, beauty, wellness, family)",
+      "Sport and fitness brands",
+      "Food and beverage operators",
+      "iGaming (MGA-licensed operators within marketing rules)",
+    ],
     offers: [
       {
-        name: "Single Campaign",
-        priceFrom: 4500,
+        name: "Local Launch Campaign",
+        priceFrom: 3900,
         unitText: "PROJECT",
         description:
-          "5 creators, briefed and contracted, 10 pieces of content delivered, performance report inclusive of paid amplification recommendations.",
+          "5 Malta-based creators, fully briefed and contracted, 10 pieces of content for one launch moment — opening week, new menu, product drop or summer season — with a performance report on bookings, footfall or sign-ups.",
       },
       {
-        name: "Always-On Creator Pod",
-        priceFrom: 4900,
+        name: "Always-On Maltese Creator Pod",
+        priceFrom: 4400,
         unitText: "MONTH",
         description:
-          "8-12 creators / month on rolling brief, content rights for paid ad usage, monthly performance reports.",
+          "8-12 Maltese creators per month on a rolling brief across hospitality, lifestyle and food verticals, with paid usage rights, weekly content cadence and a monthly review against booking and revenue data.",
       },
       {
-        name: "Brand Ambassador Program",
-        priceFrom: 14500,
+        name: "Hospitality Ambassador Programme",
+        priceFrom: 12500,
         unitText: "PROJECT",
         description:
-          "12-month ambassador program — 3-5 long-term creators, retainer contracts, exclusivity terms, monthly content cadence.",
+          "12-month ambassador programme for one hotel, restaurant group or destination brand — 3-5 long-term Maltese creators on retainer, exclusivity within category, monthly cadence and quarterly on-property shoot days.",
       },
     ],
     features: [
-      { name: "Maltese creator roster" },
-      { name: "EU micro-influencer network" },
-      { name: "Briefing and contract management" },
-      { name: "Content rights for paid amplification" },
-      { name: "ASA / EU disclosure compliance" },
-      { name: "Performance reporting (CPA, ROAS)" },
+      { name: "Maltese creator network across hospitality, lifestyle, sport and food" },
+      { name: "iGaming-aware briefs that respect MGA marketing rules" },
+      { name: "Briefing, contract and payment management in EUR" },
+      { name: "Content rights for paid amplification on Meta and TikTok" },
+      { name: "ASA Malta and EU disclosure compliance" },
+      { name: "Reporting tied to bookings, deposits or footfall — not just reach" },
     ],
     faqs: [
       {
-        question: "Do you have a Malta-specific creator roster?",
+        question: "Why work with Maltese creators instead of import influencers from London or Milan?",
         answer:
-          "Yes — we maintain working relationships with around 80 Malta-based creators across lifestyle, food, hospitality, tech, and family verticals, plus a wider EU bench. For Malta-only campaigns we usually shortlist 8-12 creators in the first 48 hours.",
+          "Local recognition. A creator who is genuinely known on the islands lands better with buyers in Sliema, St Julian's, Valletta and Gozo than a flown-in macro influencer. They already eat at the restaurants you compete with, drink at the same beach clubs, and their followers convert into actual table bookings or hotel stays — not vanity reach from an audience that will never visit Malta.",
       },
       {
-        question: "How do you measure influencer ROI?",
+        question: "Which creator categories does the network cover?",
         answer:
-          "Three layers: (1) creator-level — engagement, completion, audience overlap; (2) campaign-level — referral codes, UTMs, post-purchase surveys; (3) business-level — incremental cost-per-acquired-customer attributable to the campaign window.",
+          "Five working categories: hospitality (hotel, restaurant, beach club and venue creators), lifestyle (fashion, beauty, wellness, family), sport and fitness, food and beverage, and entertainment (DJ, music, nightlife). We deliberately avoid categories where we lack real Maltese depth — politics, hard news commentary and finance influencers are not on the roster.",
       },
       {
-        question: "Do you handle ASA Malta and EU disclosure compliance?",
+        question: "Will you name specific creators in the proposal?",
         answer:
-          "Yes — every brief includes the disclosure language for the relevant jurisdiction (#ad / #advertising / sponsored / paid partnership) and we audit posts at delivery. Non-compliance gets corrected before payout.",
+          "Not in the public proposal. The first conversation discusses category, audience size and budget. Once the brief is signed and an NDA is in place, you receive a shortlist of named Maltese creators with audience demographics, engagement history and past brand partnerships. This protects creator pricing and the brands they have worked with.",
       },
       {
-        question: "Can the content be re-used as paid ads?",
+        question: "Can you run an iGaming influencer campaign in Malta?",
         answer:
-          "Always-On Creator Pod and Ambassador Program contracts include 90-day or 12-month paid usage rights for the brand. Single-campaign contracts can extend usage rights for an additional fee.",
+          "Yes — for MGA-licensed operators only, and only for creators whose audience is 18+ and whose content is reviewable against MGA marketing rules and platform policy. We refuse work for unlicensed operators and never run player-acquisition creative that breaches responsible-gaming guidelines or hides the affiliate relationship.",
       },
       {
-        question: "What about macro / celebrity talent?",
+        question: "How do you measure whether a Malta creator campaign worked?",
         answer:
-          "We broker macro talent (>500k followers) and Malta celebrity talent on a per-deal basis, typically for launch moments. Pricing is bespoke.",
+          "Three reporting layers tied to your business, not just to the post. Creator-level — reach, completion, save and share rate per piece of content. Campaign-level — UTMs, discount codes, QR menu scans and form fills attributable to the campaign window. Business-level — bookings, table covers, hotel nights, deposits or sign-ups in the week after the post versus the prior baseline.",
       },
       {
         question: "How is this different from /services/influencer-marketing?",
         answer:
-          "/services/influencer is the lead gateway — many buyers search 'influencer agency' generically. /services/influencer-marketing goes deeper on the strategy + program side. Same team, slightly different content and offers.",
+          "/services/influencer-marketing is the generic strategy and programme offer for any market — Malta, EU or further afield. /services/influencer is specifically the Malta-local creator network: Maltese creators only, hospitality / lifestyle / iGaming focus, and reporting that ties back to revenue on the islands. Pick this page if your brand operates in Malta and wants local recognition.",
+      },
+      {
+        question: "What is the minimum campaign size?",
+        answer:
+          "The Local Launch Campaign at €3,900 is the floor. Below that, contract management, payments and reporting eat too much of the brief to leave anything meaningful for the creators themselves. Smaller pilots are usually better served as a single hospitality content shoot through /services/social-media-creative-management.",
+      },
+      {
+        question: "Who owns the content after the campaign ends?",
+        answer:
+          "Each contract spells it out. The default for the Always-On pod and Ambassador programmes is 90-day to 12-month paid usage rights for the brand on Meta and TikTok, plus permanent organic re-share rights with the original credit. Single-campaign contracts default to 30-day paid usage and can be extended for an additional fee per creator.",
       },
     ],
   },
