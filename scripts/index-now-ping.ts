@@ -37,8 +37,16 @@
 // sitemap ping covers the dropped tail. Never fails the production deploy.
 
 import { execSync } from "node:child_process";
+import { mkdirSync, writeFileSync } from "node:fs";
+import { dirname } from "node:path";
 import { pingSitemapAndUrls, submitToIndexNow } from "../lib/indexNow";
 import { TOP_PAGES, topPageCanonical } from "../lib/seo/topPages";
+
+// Persistent post-ping artifact consumed by `scripts/verify-indexnow.ts` to
+// prove that IndexNow actually fired in the last deploy window. Path is
+// gitignored under `.local/*` so it never pollutes the diff; CI reads it
+// in the same job that produced it (post-build, pre-teardown).
+const LAST_PING_ARTIFACT = ".local/.indexnow-last-ping.json";
 
 const HOST = "oarcdigital.com";
 const DELTA_CAP = 9000;
@@ -200,6 +208,36 @@ async function main() {
     process.exit(1);
   }
   console.log(`[index-now-ping] done (${results.length - failed}/${results.length} succeeded).`);
+
+  // Persist a marker so verify-indexnow.ts can prove the ping fired in this
+  // deploy. Best-effort; failures here must NEVER fail the production deploy
+  // (the ping itself already succeeded).
+  try {
+    let commit = process.env.VERCEL_GIT_COMMIT_SHA ?? "";
+    if (!commit) {
+      try {
+        commit = execSync("git rev-parse HEAD", { encoding: "utf-8" }).trim();
+      } catch {
+        commit = "";
+      }
+    }
+    const payload = {
+      pingedAt: new Date().toISOString(),
+      commit,
+      vercelEnv: process.env.VERCEL_ENV ?? null,
+      mode: isDelta ? "delta" : "full",
+      extraUrlCount: extras.length,
+      endpointsTotal: results.length,
+      endpointsOk: results.length - failed,
+    };
+    mkdirSync(dirname(LAST_PING_ARTIFACT), { recursive: true });
+    writeFileSync(LAST_PING_ARTIFACT, JSON.stringify(payload, null, 2) + "\n");
+    console.log(`[index-now-ping] wrote marker → ${LAST_PING_ARTIFACT}`);
+  } catch (err) {
+    console.warn(
+      `[index-now-ping] could not write last-ping marker: ${err instanceof Error ? err.message : String(err)}`,
+    );
+  }
 }
 
 main().catch((err) => {

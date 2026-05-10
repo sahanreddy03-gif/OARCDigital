@@ -55,6 +55,7 @@ export const ORG_SAMEAS: readonly string[] = Object.freeze([
   "https://www.linkedin.com/in/sahanoarcdigital",
   "https://www.linkedin.com/company/oarc-digital",
   "https://www.youtube.com/@oarcdigital",
+  "https://www.crunchbase.com/organization/oarc-digital",
   "https://www.yellow.com.mt/oarc-digital_marketing-consultants+bkara/",
   "https://clutch.co/profile/oarc-digital",
   "https://www.goodfirms.co/company/oarc-digital",

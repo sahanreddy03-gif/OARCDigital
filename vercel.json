@@ -138,6 +138,6 @@
       ]
     }
   ],
-  "buildCommand": "next build",
+  "buildCommand": "next build && bash -c 'if [ \"$VERCEL_ENV\" = \"production\" ]; then npx tsx scripts/index-now-ping.ts --delta && npx tsx scripts/verify-indexnow.ts; else echo \"[deploy] VERCEL_ENV=$VERCEL_ENV — skipping IndexNow ping (production-only)\"; fi'",
   "framework": "nextjs"
 }
