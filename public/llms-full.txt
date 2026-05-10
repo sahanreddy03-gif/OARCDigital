@@ -1055,11 +1055,11 @@ A: We're at Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010, Malta. Most
 
 ---
 
-### WordPress Development Malta | Custom Themes, Plugins & Headless | OARC Digital
+### WordPress Development & Maintenance Malta | OARC Digital
 Canonical: https://oarcdigital.com/services/wordpress-development
 
 **Description**
-WordPress development for Malta businesses — custom themes, performance tuning, headless WordPress, and security hardening. From small business sites to complex publishing platforms.
+WordPress development and maintenance for Malta businesses — Gutenberg themes, WooCommerce stores, custom plugin engineering, security hardening, and migrations with zero traffic loss.
 
 **Features**
 
@@ -1071,7 +1071,7 @@ WordPress development for Malta businesses — custom themes, performance tuning
 - Security hardening + managed hosting
 
 **Value proposition**
-Bespoke WordPress builds for Malta businesses — custom Gutenberg blocks, headless options, and managed hosting with Core Web Vitals tuning baked into every launch.
+WordPress for Malta — custom Gutenberg themes, WooCommerce, plugin engineering, security hardening, and migrations with SEO equity preserved.
 
 **Entity focus**: Custom WordPress development & maintenance (Malta SMEs)
 **Primary intent**: commercial
@@ -1102,6 +1102,12 @@ A: Yes — see /services/ecommerce-development for the full WooCommerce engageme
 
 Q: Do you offer ongoing WordPress maintenance?
 A: Yes. Our WordPress care plan covers managed hosting, weekly backups, security patching, plugin updates, uptime monitoring, and a monthly improvement cycle. Plans start at €197/month.
+
+Q: Is your WordPress hosting GDPR-compliant for Malta clients?
+A: Yes. Production hosting is provisioned on EU regions only — typically Cloudways Frankfurt, Kinsta Amsterdam, or Hetzner Falkenstein — with a signed DPA, encrypted backups inside the EU, Cloudflare in EU-only mode, and a cookie banner configured against IDPC guidance. We avoid US-region hosting for Maltese client data by default.
+
+Q: Can you build a multilingual WordPress site (English, Maltese, Italian)?
+A: Yes. We use Polylang for smaller sites and WPML for complex publishers. Hreflang is generated server-side, the language switcher is keyboard- and screen-reader-accessible, and we hand-translate Maltese rather than relying on machine output. Italian is common for cross-border B2B and we wire it the same way.
 
 Q: Where is OARC Digital based?
 A: Birkirkara CBD, Malta. We host most production WordPress sites on Cloudways or Kinsta with Cloudflare in front for edge caching. +356 7971 1799.

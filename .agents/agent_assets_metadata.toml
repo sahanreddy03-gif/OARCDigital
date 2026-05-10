@@ -1,5 +1,10 @@
 uploads = []
-generated = []
+
+[[generated]]
+id = "I_XyjKrGkYa1opeKPR5SF"
+uri = "file://public/images/services/wordpress-development-hero.png"
+type = "image"
+title = "wordpress dashboard hero"
 
 [[outputs]]
 id = "dBQslWAR-bdBtVmrkX_0n"

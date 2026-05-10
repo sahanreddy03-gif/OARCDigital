@@ -381,9 +381,9 @@ Value: Headless and Shopify ecommerce for Malta merchants — multi-currency EUR
 - Every build ships with conversion-rate-optimised product detail pages, abandoned-cart recovery, and a baseline CRO test queue.
 - Stores are hosted in EU regions for GDPR compliance and integrate with Malta-friendly couriers (DHL, FedEx, GO Logistics).
 
-### WordPress Development Malta
+### WordPress Development & Maintenance Malta
 Canonical: https://oarcdigital.com/services/wordpress-development
-Value: Bespoke WordPress builds for Malta businesses — custom Gutenberg blocks, headless options, and managed hosting with Core Web Vitals tuning baked into every launch.
+Value: WordPress for Malta — custom Gutenberg themes, WooCommerce, plugin engineering, security hardening, and migrations with SEO equity preserved.
 - OARC Digital builds custom WordPress themes and Gutenberg block libraries — never page-builder bloat — and ships with Lighthouse scores of 90+ on mobile.
 - Managed WordPress hosting is provisioned on EU regions with daily backups, malware scanning, and a 4-hour incident response SLA.
 - Every WordPress build includes a quarterly Core Web Vitals review and plugin audit from the Birkirkara office.

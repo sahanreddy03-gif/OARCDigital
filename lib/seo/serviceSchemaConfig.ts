@@ -63,6 +63,10 @@ export type ServiceSchemaEntry = {
   faqs: { question: string; answer: string }[];
   /** 6-layer discovery framework — required for every entry. */
   framework: FrameworkLayers;
+  /** Optional Schema.org Service.serviceType (e.g. "WordPress Development"). */
+  serviceType?: string;
+  /** Optional Schema.org Service.areaServed override; defaults to "Malta". */
+  areaServed?: string;
 };
 
 export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
@@ -1460,9 +1464,11 @@ export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
   },
 
   "wordpress-development": {
-    title: "WordPress Development Malta | Custom Themes, Plugins & Headless | OARC Digital",
+    title: "WordPress Development & Maintenance Malta | OARC Digital",
     description:
-      "WordPress development for Malta businesses — custom themes, performance tuning, headless WordPress, and security hardening. From small business sites to complex publishing platforms.",
+      "WordPress development and maintenance for Malta businesses — Gutenberg themes, WooCommerce stores, custom plugin engineering, security hardening, and migrations with zero traffic loss.",
+    serviceType: "WordPress Development",
+    areaServed: "Malta",
     offers: [
       {
         name: "WordPress Site Build",
@@ -1526,6 +1532,16 @@ export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
           "Yes. Our WordPress care plan covers managed hosting, weekly backups, security patching, plugin updates, uptime monitoring, and a monthly improvement cycle. Plans start at €197/month.",
       },
       {
+        question: "Is your WordPress hosting GDPR-compliant for Malta clients?",
+        answer:
+          "Yes. Production hosting is provisioned on EU regions only — typically Cloudways Frankfurt, Kinsta Amsterdam, or Hetzner Falkenstein — with a signed DPA, encrypted backups inside the EU, Cloudflare in EU-only mode, and a cookie banner configured against IDPC guidance. We avoid US-region hosting for Maltese client data by default.",
+      },
+      {
+        question: "Can you build a multilingual WordPress site (English, Maltese, Italian)?",
+        answer:
+          "Yes. We use Polylang for smaller sites and WPML for complex publishers. Hreflang is generated server-side, the language switcher is keyboard- and screen-reader-accessible, and we hand-translate Maltese rather than relying on machine output. Italian is common for cross-border B2B and we wire it the same way.",
+      },
+      {
         question: "Where is OARC Digital based?",
         answer:
           `${NAP.addressLocality} CBD, Malta. We host most production WordPress sites on Cloudways or Kinsta with Cloudflare in front for edge caching. ${NAP.phoneDisplay}.`,
@@ -1533,7 +1549,7 @@ export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
     ],
     framework: {
       uniqueValueProp:
-        "Bespoke WordPress builds for Malta businesses — custom Gutenberg blocks, headless options, and managed hosting with Core Web Vitals tuning baked into every launch.",
+        "WordPress for Malta — custom Gutenberg themes, WooCommerce, plugin engineering, security hardening, and migrations with SEO equity preserved.",
       entityFocus: "Custom WordPress development & maintenance (Malta SMEs)",
       primaryIntent: "commercial",
       generalizationKeywords: [

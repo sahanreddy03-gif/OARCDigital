@@ -26,6 +26,8 @@ export default function Page() {
         features={SCHEMA.features}
         offers={SCHEMA.offers}
         faqs={SCHEMA.faqs}
+        serviceType={SCHEMA.serviceType}
+        areaServed={SCHEMA.areaServed}
       />
       <PageContent />
     </>
