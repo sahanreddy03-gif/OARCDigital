@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import ServiceClient from "@/components/services/RevenueServiceClient";
 import DeepContent from "./PageContent";
 import RouteSchema from "@/components/RouteSchema";
+import { SpeakableJsonLd } from "@/lib/seo/discoveryTags";
 import { SERVICE_SCHEMA_EXTRAS } from "@/lib/seo/serviceSchemaExtras";
 import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
 
@@ -29,6 +30,7 @@ export default function Page() {
     const schema = SERVICE_SCHEMA_EXTRAS["lead-generation"];
     return (
       <>
+        <SpeakableJsonLd path="/services/lead-generation" />
         <RouteSchema
           type="service"
           path="/services/lead-generation"

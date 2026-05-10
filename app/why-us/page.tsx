@@ -1,4 +1,7 @@
 import type { Metadata } from "next";
+import RouteSchema from "@/components/RouteSchema";
+import { SpeakableJsonLd } from "@/lib/seo/discoveryTags";
+import { SUPPORTING_PAGE_SCHEMAS } from "@/lib/seo/supportingPagesSchema";
 import PageContent from "./PageContent";
 
 const TITLE = "Who We Are | Our Founding Story | OARC Digital Malta";
@@ -34,5 +37,17 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <PageContent />;
+  return (
+    <>
+      <SpeakableJsonLd path="/why-us" />
+        <RouteSchema
+          type="pillar"
+          path="/why-us"
+          title="Why OARC Digital — Founding Story & Operating Principles | Malta"
+          description="Why OARC Digital exists, who founded it, and the operating principles that put creative, AI engineering, and revenue automation under one Birkirkara roof."
+          faqs={SUPPORTING_PAGE_SCHEMAS["/why-us"].faqs}
+        />
+      <PageContent />
+    </>
+  );
 }

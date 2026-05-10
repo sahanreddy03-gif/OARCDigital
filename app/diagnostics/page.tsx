@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import PageContent from "./PageContent";
 import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
+import RouteSchema from "@/components/RouteSchema";
+import { SpeakableJsonLd } from "@/lib/seo/discoveryTags";
+import { SUPPORTING_PAGE_SCHEMAS } from "@/lib/seo/supportingPagesSchema";
 
 
 const SPEAKABLE_JSONLD = {
@@ -38,6 +41,14 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <>
+      <SpeakableJsonLd path="/diagnostics" />
+      <RouteSchema
+        type="pillar"
+        path="/diagnostics"
+        title="Free Business Diagnostics for Malta SMEs | OARC Digital"
+        description="Four free diagnostic tools for Malta SMEs: Industry Scan, Growth Simulator, AI Workforce Designer, and the Cortex Business Intelligence Scan. No login required."
+        faqs={SUPPORTING_PAGE_SCHEMAS["/diagnostics"].faqs}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(SPEAKABLE_JSONLD) }}

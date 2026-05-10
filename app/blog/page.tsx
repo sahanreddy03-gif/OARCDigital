@@ -23,6 +23,9 @@ export const metadata: Metadata = {
 
 import Layout from '@/components/layout/Layout';
 import { createBreadcrumbSchema, createArticleSchema } from '@/utils/advancedSchema';
+import RouteSchema from "@/components/RouteSchema";
+import { SpeakableJsonLd } from "@/lib/seo/discoveryTags";
+import { SUPPORTING_PAGE_SCHEMAS } from "@/lib/seo/supportingPagesSchema";
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Calendar, Clock } from 'lucide-react';
 import Link from "next/link";
@@ -322,7 +325,15 @@ export default function Page() {
   
   return (
     <Layout>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(combinedSchema) }} />
+      <SpeakableJsonLd path="/blog" />
+        <RouteSchema
+          type="pillar"
+          path="/blog"
+          title="OARC Digital Blog — AI Marketing, Creative & Growth in Malta"
+          description="Long-form guides on AI marketing, creative production, paid media, SEO, and revenue automation in Malta. Written by the OARC Digital team."
+          faqs={SUPPORTING_PAGE_SCHEMAS["/blog"].faqs}
+        />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(combinedSchema) }} />
       
       <main className="min-h-screen">
         {/* Hero Section */}

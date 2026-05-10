@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import ServiceClient from "@/components/services/AIEmployeeServiceClient";
 import DeepContent from "./PageContent";
 import RouteSchema from "@/components/RouteSchema";
+import { SpeakableJsonLd } from "@/lib/seo/discoveryTags";
 import { SERVICE_SCHEMA_EXTRAS } from "@/lib/seo/serviceSchemaExtras";
 
 const SLUG = "ai-admin-agent";
@@ -82,6 +83,7 @@ export default function Page() {
       />
       <h1 className="sr-only" data-speakable>{TITLE}</h1>
       <p className="sr-only" data-speakable>{DESCRIPTION}</p>
+      <SpeakableJsonLd path="/services/ai-admin-agent" />
       <RouteSchema
         type="service"
         path={`/services/${SLUG}`}

@@ -1,4 +1,7 @@
 import type { Metadata } from "next";
+import RouteSchema from "@/components/RouteSchema";
+import { SpeakableJsonLd } from "@/lib/seo/discoveryTags";
+import { SUPPORTING_PAGE_SCHEMAS } from "@/lib/seo/supportingPagesSchema";
 import PageContent from "./PageContent";
 import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
 
@@ -20,5 +23,17 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <PageContent />;
+  return (
+    <>
+      <SpeakableJsonLd path="/intelligence" />
+        <RouteSchema
+          type="pillar"
+          path="/intelligence"
+          title="OARC Intelligence — Business Diagnostics & Market Intel | Malta"
+          description="OARC Intelligence is the diagnostic layer: industry scans, growth simulators, and AI workforce design tools that surface where revenue is leaking and what to fix first."
+          faqs={SUPPORTING_PAGE_SCHEMAS["/intelligence"].faqs}
+        />
+      <PageContent />
+    </>
+  );
 }

@@ -1,4 +1,7 @@
 import type { Metadata } from "next";
+import RouteSchema from "@/components/RouteSchema";
+import { SpeakableJsonLd } from "@/lib/seo/discoveryTags";
+import { SUPPORTING_PAGE_SCHEMAS } from "@/lib/seo/supportingPagesSchema";
 import { supportingPagesSEO } from "@/data/seoMetadata";
 import PageContent from "./PageContent";
 import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
@@ -24,5 +27,17 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <PageContent />;
+  return (
+    <>
+      <SpeakableJsonLd path="/contact" />
+        <RouteSchema
+          type="pillar"
+          path="/contact"
+          title="Contact OARC Digital — Birkirkara, Malta | Book a 30-Minute Audit"
+          description="Talk to the OARC Digital team in Birkirkara CBD about creative, AI agents, and revenue automation. Walk in to The Brewhouse on weekdays, call us, or book a slot online."
+          faqs={SUPPORTING_PAGE_SCHEMAS["/contact"].faqs}
+        />
+      <PageContent />
+    </>
+  );
 }

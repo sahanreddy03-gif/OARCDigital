@@ -1,4 +1,7 @@
 import type { Metadata } from "next";
+import RouteSchema from "@/components/RouteSchema";
+import { SpeakableJsonLd } from "@/lib/seo/discoveryTags";
+import { SUPPORTING_PAGE_SCHEMAS } from "@/lib/seo/supportingPagesSchema";
 
 export const metadata: Metadata = {
   title: "Industries We Serve in Malta | OARC Digital",
@@ -101,6 +104,14 @@ const itemListJsonLd = {
 export default function Page() {
   return (
     <Layout>
+      <SpeakableJsonLd path="/industries" />
+      <RouteSchema
+        type="pillar"
+        path="/industries"
+        title="Industries — OARC Digital Serves Hospitality, iGaming, Fintech & More"
+        description="OARC Digital serves restaurants, hotels, healthcare, legal, professional services, construction, beauty, automotive, education, NGOs, iGaming, fintech, real estate, retail, ecommerce, fitness, and wellness across Malta."
+        faqs={SUPPORTING_PAGE_SCHEMAS["/industries"].faqs}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListJsonLd) }}

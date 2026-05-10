@@ -1,4 +1,7 @@
 import type { Metadata } from "next";
+import RouteSchema from "@/components/RouteSchema";
+import { SpeakableJsonLd } from "@/lib/seo/discoveryTags";
+import { SUPPORTING_PAGE_SCHEMAS } from "@/lib/seo/supportingPagesSchema";
 import { supportingPagesSEO } from "@/data/seoMetadata";
 import PageContent from "./PageContent";
 import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
@@ -24,5 +27,17 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <PageContent />;
+  return (
+    <>
+      <SpeakableJsonLd path="/our-work" />
+        <RouteSchema
+          type="pillar"
+          path="/our-work"
+          title="Our Work — Case Studies & Campaigns | OARC Digital Malta"
+          description="Selected OARC Digital projects: AI agents in production, brand systems, video, paid campaigns, and revenue automation builds across Malta and the EU."
+          faqs={SUPPORTING_PAGE_SCHEMAS["/our-work"].faqs}
+        />
+      <PageContent />
+    </>
+  );
 }

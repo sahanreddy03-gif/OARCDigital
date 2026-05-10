@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import ServiceClient from "@/components/services/AIEmployeeServiceClient";
 import DeepContent from "./PageContent";
 import RouteSchema from "@/components/RouteSchema";
+import { SpeakableJsonLd } from "@/lib/seo/discoveryTags";
 import { SERVICE_SCHEMA_EXTRAS } from "@/lib/seo/serviceSchemaExtras";
 import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
 
@@ -29,6 +30,7 @@ export default function Page() {
     const schema = SERVICE_SCHEMA_EXTRAS["ai-data-analyst"];
     return (
       <>
+        <SpeakableJsonLd path="/services/ai-data-analyst" />
         <RouteSchema
           type="service"
           path="/services/ai-data-analyst"

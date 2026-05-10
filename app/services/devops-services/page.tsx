@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import PageContent from "./PageContent";
 import RouteSchema from "@/components/RouteSchema";
+import { SpeakableJsonLd } from "@/lib/seo/discoveryTags";
 import { SERVICE_SCHEMAS } from "@/lib/seo/serviceSchemaConfig";
 import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
 
@@ -22,6 +23,7 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <>
+      <SpeakableJsonLd path="/services/devops-services" />
       <RouteSchema
         type="service"
         path={`/services/${SLUG}`}

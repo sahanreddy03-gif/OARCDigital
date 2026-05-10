@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import PageContent from "./PageContent";
 import RouteSchema from "@/components/RouteSchema";
+import { SpeakableJsonLd } from "@/lib/seo/discoveryTags";
 import { SERVICE_SCHEMA_EXTRAS } from "@/lib/seo/serviceSchemaExtras";
 import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
 
@@ -28,6 +29,7 @@ export default function Page() {
     const schema = SERVICE_SCHEMA_EXTRAS["immersive-3d-ar"];
     return (
       <>
+        <SpeakableJsonLd path="/services/immersive-3d-ar" />
         <RouteSchema
           type="service"
           path="/services/immersive-3d-ar"

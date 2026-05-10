@@ -1,4 +1,7 @@
 import type { Metadata } from "next";
+import RouteSchema from "@/components/RouteSchema";
+import { SpeakableJsonLd } from "@/lib/seo/discoveryTags";
+import { SUPPORTING_PAGE_SCHEMAS } from "@/lib/seo/supportingPagesSchema";
 import PageContent from "./PageContent";
 import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
 
@@ -23,5 +26,17 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <PageContent />;
+  return (
+    <>
+      <SpeakableJsonLd path="/tools" />
+        <RouteSchema
+          type="pillar"
+          path="/tools"
+          title="AI Tools & Tech Stack — OARC Digital Malta"
+          description="The AI sales, marketing automation, creative, and analytics tools OARC Digital deploys. Curated stack of 80+ platforms, including pricing notes and use cases."
+          faqs={SUPPORTING_PAGE_SCHEMAS["/tools"].faqs}
+        />
+      <PageContent />
+    </>
+  );
 }

@@ -6,6 +6,9 @@
 // cleanly against the LinkedIn vanity URL `/in/sahanoarcdigital`.
 
 import type { Metadata } from "next";
+import RouteSchema from "@/components/RouteSchema";
+import { SpeakableJsonLd } from "@/lib/seo/discoveryTags";
+import { SUPPORTING_PAGE_SCHEMAS } from "@/lib/seo/supportingPagesSchema";
 import PageContent from "./PageContent";
 import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
 
@@ -36,5 +39,17 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <PageContent />;
+  return (
+    <>
+      <SpeakableJsonLd path="/about" />
+        <RouteSchema
+          type="pillar"
+          path="/about"
+          title="About OARC Digital — Malta's AI-Native Creative & Automation Agency"
+          description="Founded in Birkirkara to bring creative, AI engineering, and revenue automation under one roof for Maltese businesses. Our team, story, and operating principles."
+          faqs={SUPPORTING_PAGE_SCHEMAS["/about"].faqs}
+        />
+      <PageContent />
+    </>
+  );
 }

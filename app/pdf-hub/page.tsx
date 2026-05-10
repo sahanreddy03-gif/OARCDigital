@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import { pdfPagesSEO } from "@/data/seoMetadata";
+import RouteSchema from "@/components/RouteSchema";
+import { SpeakableJsonLd } from "@/lib/seo/discoveryTags";
+import { SUPPORTING_PAGE_SCHEMAS } from "@/lib/seo/supportingPagesSchema";
 
 export const metadata: Metadata = {
   title: pdfPagesSEO.pdfHub.title,
@@ -43,7 +46,14 @@ export default function Page() {
 
   return (
     <Layout>
-      
+      <SpeakableJsonLd path="/pdf-hub" />
+      <RouteSchema
+        type="pillar"
+        path="/pdf-hub"
+        title="OARC Digital PDF Hub — Capabilities Decks & Methodology Briefs"
+        description="Download OARC Digital's capabilities deck, methodology briefs, AI workforce playbook, and case-study compendium. Free, no email gate."
+        faqs={SUPPORTING_PAGE_SCHEMAS["/pdf-hub"].faqs}
+      />
       <div className="min-h-screen bg-black">
       
       <div className="pt-32 pb-20 px-6">
