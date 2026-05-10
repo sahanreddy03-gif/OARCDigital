@@ -39,6 +39,7 @@ export default function WordPressDevelopmentContent() {
               <Link href="/contact"><Button size="lg" className="bg-orange-500 hover:bg-orange-600 text-white">Book a WordPress audit <ArrowRight className="ml-2 w-4 h-4" /></Button></Link>
               <a href={`tel:${NAP.phoneE164}`}><Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10"><Phone className="mr-2 w-4 h-4" />{NAP.phoneDisplay}</Button></a>
             </div>
+            <p className="mt-6 text-xs text-zinc-500">Last updated: 10 May 2026</p>
           </div>
         </section>
         <article className="max-w-4xl mx-auto px-6 md:px-8 py-16">

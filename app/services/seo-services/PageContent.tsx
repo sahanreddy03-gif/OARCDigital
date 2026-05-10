@@ -52,6 +52,7 @@ export default function SeoServicesContent() {
                 <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10"><Phone className="mr-2 w-4 h-4" />{NAP.phoneDisplay}</Button>
               </a>
             </div>
+            <p className="mt-6 text-xs text-zinc-500">Last updated: 10 May 2026</p>
           </div>
         </section>
 

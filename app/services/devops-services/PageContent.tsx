@@ -39,6 +39,7 @@ export default function DevopsServicesContent() {
               <Link href="/contact"><Button size="lg" className="bg-orange-500 hover:bg-orange-600 text-white">Book an infrastructure audit <ArrowRight className="ml-2 w-4 h-4" /></Button></Link>
               <a href={`tel:${NAP.phoneE164}`}><Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10"><Phone className="mr-2 w-4 h-4" />{NAP.phoneDisplay}</Button></a>
             </div>
+            <p className="mt-6 text-xs text-zinc-500">Last updated: 10 May 2026</p>
           </div>
         </section>
         <article className="max-w-4xl mx-auto px-6 md:px-8 py-16">
@@ -102,6 +103,9 @@ export default function DevopsServicesContent() {
             </section>
             <section className="mb-12">
             <h2 className="text-2xl md:text-3xl font-bold mb-4">Documentation That Outlives the Engagement</h2>
+            <p className="text-foreground leading-relaxed mb-4">
+              Engineering knowledge is the most expensive asset a Malta SaaS or fintech team accumulates, and the easiest one to lose when a contractor rotates out or a key engineer takes a role at a larger Sliema operator. Our documentation discipline exists specifically to break that pattern. Every architectural decision is captured in an ADR file inside the client&apos;s repository, every runbook is version-controlled next to the infrastructure-as-code that it operates, and every quarterly review is a written artefact rather than a conversation that evaporates the same week.
+            </p>
             <p className="text-foreground leading-relaxed">
               Every retainer ships with a living architecture document, a runbook for the top ten failure modes, a written escalation tree, an inventory of every cloud resource with its owner and purpose, and a quarterly cost report. Documentation is updated inside the client's own GitHub repository alongside the infrastructure-as-code so it cannot drift away from the running system. If the client decides to bring DevOps in-house at any point, a new platform engineer can read the documentation and operate the stack within their first week — no tribal knowledge held hostage in our heads, no opaque dashboards, no exit toll. The same documentation also accelerates security reviews and SOC2 readiness because auditors find a coherent paper trail rather than a folder full of screenshots.
             </p>
