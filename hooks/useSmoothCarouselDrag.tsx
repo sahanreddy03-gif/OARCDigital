@@ -21,8 +21,8 @@ export function useSmoothCarouselDrag({
   const velocityRef = useRef(0);
   const lastMoveTimeRef = useRef(0);
   const lastMoveXRef = useRef(0);
-  const animationIdRef = useRef<number>();
-  const autoScrollIdRef = useRef<number>();
+  const animationIdRef = useRef<number | undefined>(undefined);
+  const autoScrollIdRef = useRef<number | undefined>(undefined);
 
   useEffect(() => {
     const track = trackRef.current;

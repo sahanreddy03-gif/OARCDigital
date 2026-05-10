@@ -33,7 +33,7 @@ export default function ParticleField({
 }: ParticleFieldProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const particlesRef = useRef<Particle[]>([]);
-  const animationRef = useRef<number>();
+  const animationRef = useRef<number | undefined>(undefined);
   const mouseRef = useRef({ x: 0, y: 0, active: false });
 
   const createParticle = useCallback((canvas: HTMLCanvasElement): Particle => {

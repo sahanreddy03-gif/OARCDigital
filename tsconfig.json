@@ -6,7 +6,8 @@
     "components/**/*",
     "types/**/*.d.ts",
     "next-env.d.ts",
-    ".next/types/**/*.ts"
+    ".next/types/**/*.ts",
+    ".next/dev/types/**/*.ts"
   ],
   "exclude": [
     "node_modules",
@@ -27,7 +28,7 @@
       "dom",
       "dom.iterable"
     ],
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "esModuleInterop": true,
     "skipLibCheck": true,
     "allowImportingTsExtensions": true,
@@ -39,15 +40,33 @@
       "node"
     ],
     "paths": {
-      "@/*": ["./*"],
-      "@/components/*": ["./components/*"],
-      "@/lib/*": ["./lib/*"],
-      "@/shared/*": ["./shared/*"],
-      "@shared/*": ["./shared/*"],
-      "@/assets/*": ["./lib/assets/*"],
-      "@/config/*": ["./lib/config/*"],
-      "@/data/*": ["./lib/data/*"],
-      "@/hooks/*": ["./lib/hooks/*"]
+      "@/*": [
+        "./*"
+      ],
+      "@/components/*": [
+        "./components/*"
+      ],
+      "@/lib/*": [
+        "./lib/*"
+      ],
+      "@/shared/*": [
+        "./shared/*"
+      ],
+      "@shared/*": [
+        "./shared/*"
+      ],
+      "@/assets/*": [
+        "./lib/assets/*"
+      ],
+      "@/config/*": [
+        "./lib/config/*"
+      ],
+      "@/data/*": [
+        "./lib/data/*"
+      ],
+      "@/hooks/*": [
+        "./lib/hooks/*"
+      ]
     },
     "plugins": [
       {

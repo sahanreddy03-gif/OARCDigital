@@ -40,7 +40,7 @@ const services = [
 
 function StraightCarousel() {
   const scrollRef = useRef<HTMLDivElement>(null);
-  const animationRef = useRef<number>();
+  const animationRef = useRef<number | undefined>(undefined);
   const positionRef = useRef(0);
   const contentWidthRef = useRef(0);
   
