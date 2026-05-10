@@ -1,5 +1,10 @@
 import type { Metadata } from "next";
 import PageContent from "./PageContent";
+import RouteSchema from "@/components/RouteSchema";
+import { PILLAR_SCHEMAS } from "@/lib/seo/pillarSchemaConfig";
+import { SpeakableJsonLd } from "@/lib/seo/discoveryTags";
+
+const pillarMeta = PILLAR_SCHEMAS["/automation"];
 
 export const metadata: Metadata = {
   title: "Business Automation & Revenue Solutions — Malta's First | OARC Digital",
@@ -22,5 +27,17 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <PageContent />;
+  return (
+    <>
+      <SpeakableJsonLd path="/solutions" />
+      <RouteSchema
+        type="pillar"
+        path="/solutions"
+        title={pillarMeta.title}
+        description={pillarMeta.description}
+        faqs={pillarMeta.faqs}
+      />
+      <PageContent />
+    </>
+  );
 }

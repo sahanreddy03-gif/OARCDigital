@@ -1966,6 +1966,149 @@ export default function PageContent() {
           </div>
         </AnimatedSection>
 
+        {/* ========== EXPLORE THE CREATIVE SPOKES — 10+ INTERNAL LINKS + IMAGE GRID ========== */}
+        <section className="py-20 md:py-28" style={{ backgroundColor: '#FFFFFF' }} data-testid="section-creative-spokes">
+          <div className="container mx-auto px-6 lg:px-12 max-w-6xl">
+            <div className="text-center mb-12">
+              <h2
+                className="font-bold mb-4"
+                style={{
+                  fontSize: 'clamp(2rem, 5vw, 3.5rem)',
+                  lineHeight: '1.1',
+                  letterSpacing: '-0.02em',
+                  color: '#1A2E29',
+                }}
+              >
+                EXPLORE EVERY CREATIVE SPOKE
+              </h2>
+              <p className="text-lg md:text-xl max-w-3xl mx-auto" style={{ color: '#4A5568' }}>
+                Pick the discipline that's holding your funnel back. Each spoke ships standalone or as part of
+                a Creative-on-Demand retainer — same team, same brand voice, one workflow.
+              </p>
+            </div>
+
+            {/* Registry image grid — hero + 4 supporting */}
+            <div className="grid grid-cols-12 gap-3 mb-12" data-testid="grid-creative-images">
+              <picture className="col-span-12 md:col-span-8 rounded-2xl overflow-hidden block" style={{ border: '1px solid rgba(26,46,41,0.08)' }}>
+                <source srcSet="/images/registry/creative-ai-powerhouse-studio-malta.avif" type="image/avif" />
+                <source srcSet="/images/registry/creative-ai-powerhouse-studio-malta.webp" type="image/webp" />
+                <img
+                  src="/images/registry/creative-ai-powerhouse-studio-malta.jpg"
+                  alt="Creative AI studio producing brand-matched imagery for a Malta agency"
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-full object-cover aspect-[16/10]"
+                />
+              </picture>
+              <picture className="col-span-12 md:col-span-4 rounded-2xl overflow-hidden block" style={{ border: '1px solid rgba(26,46,41,0.08)' }}>
+                <source srcSet="/images/registry/ai-video-production-pipeline-malta.avif" type="image/avif" />
+                <source srcSet="/images/registry/ai-video-production-pipeline-malta.webp" type="image/webp" />
+                <img
+                  src="/images/registry/ai-video-production-pipeline-malta.jpg"
+                  alt="AI-assisted video production pipeline for short-form social"
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-full object-cover aspect-[16/10]"
+                />
+              </picture>
+              <picture className="col-span-6 md:col-span-6 rounded-2xl overflow-hidden block" style={{ border: '1px solid rgba(26,46,41,0.08)' }}>
+                <source srcSet="/images/registry/ad-creative-variants-generator-malta.avif" type="image/avif" />
+                <source srcSet="/images/registry/ad-creative-variants-generator-malta.webp" type="image/webp" />
+                <img
+                  src="/images/registry/ad-creative-variants-generator-malta.jpg"
+                  alt="Dozens of ad creative variants generated from a single brand brief"
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-full object-cover aspect-[16/10]"
+                />
+              </picture>
+              <picture className="col-span-6 md:col-span-6 rounded-2xl overflow-hidden block" style={{ border: '1px solid rgba(26,46,41,0.08)' }}>
+                <source srcSet="/images/registry/creative-media-studio-malta-content-production.avif" type="image/avif" />
+                <source srcSet="/images/registry/creative-media-studio-malta-content-production.webp" type="image/webp" />
+                <img
+                  src="/images/registry/creative-media-studio-malta-content-production.jpg"
+                  alt="OARC creative media studio in Malta — content production floor"
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-full object-cover aspect-[16/10]"
+                />
+              </picture>
+              <picture className="col-span-12 rounded-2xl overflow-hidden block" style={{ border: '1px solid rgba(26,46,41,0.08)' }}>
+                <source srcSet="/images/registry/seo-content-flywheel-malta.avif" type="image/avif" />
+                <source srcSet="/images/registry/seo-content-flywheel-malta.webp" type="image/webp" />
+                <img
+                  src="/images/registry/seo-content-flywheel-malta.jpg"
+                  alt="SEO content flywheel — how creative output compounds into search demand for Malta brands"
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-full object-cover aspect-[21/9]"
+                />
+              </picture>
+            </div>
+
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4" data-testid="grid-creative-spokes">
+              {[
+                { slug: "social-media-creative-management", title: "Social Media Creative", desc: "Always-on content engine for IG, TikTok, LinkedIn and YouTube — strategy, shooting and posting." },
+                { slug: "branding", title: "Branding", desc: "Identity systems, naming, and brand guidelines built for Malta and EU operators." },
+                { slug: "video-production", title: "Video Production", desc: "Short-form, long-form and TVC-grade video — script to grade in one studio." },
+                { slug: "web-design", title: "Web Design", desc: "Conversion-led websites with measurable funnels, not just pretty pages." },
+                { slug: "paid-advertising", title: "Paid Advertising", desc: "Meta, Google, TikTok and LinkedIn — creative + media buying under one roof." },
+                { slug: "content-marketing", title: "Content Marketing", desc: "SEO-anchored editorial that earns rankings and answers buyer questions." },
+                { slug: "email-marketing", title: "Email Marketing", desc: "Lifecycle, broadcast and automation flows that pay for themselves in 90 days." },
+                { slug: "motion-design", title: "Motion Design", desc: "Animated logos, explainers and product motion for ads and product surfaces." },
+                { slug: "ad-creative", title: "Ad Creative", desc: "Hooks, scroll-stoppers and creative variants tested at media-buyer scale." },
+                { slug: "design-systems", title: "Design Systems", desc: "Reusable component libraries that keep brand and product in lock-step." },
+                { slug: "presentation-pitch", title: "Presentation & Pitch", desc: "Investor decks, sales decks and keynote design for Malta founders and exec teams." },
+                { slug: "immersive-3d-ar", title: "Immersive 3D & AR", desc: "Interactive product, retail and event experiences in 3D, WebGL and AR." },
+              ].map((spoke) => (
+                <Link
+                  key={spoke.slug}
+                  href={`/services/${spoke.slug}`}
+                  data-testid={`link-creative-spoke-${spoke.slug}`}
+                  className="block"
+                >
+                  <Card className="p-6 h-full hover-elevate active-elevate-2" style={{ borderColor: 'rgba(26,46,41,0.08)' }}>
+                    <h3 className="font-semibold mb-2 flex items-center justify-between gap-2" style={{ color: '#1A2E29' }}>
+                      <span>{spoke.title}</span>
+                      <ArrowRight className="w-4 h-4 flex-shrink-0" style={{ color: '#1A2E29' }} />
+                    </h3>
+                    <p className="text-sm leading-relaxed" style={{ color: '#4A5568' }}>{spoke.desc}</p>
+                  </Card>
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* ItemList JSON-LD — the 12 creative spokes for AI-discovery */}
+          <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            "name": "OARC Digital — Creative Service Pages",
+            "description": "Creative spokes — design, content, video, web and paid disciplines offered by OARC Digital from Malta.",
+            "numberOfItems": 12,
+            "itemListOrder": "https://schema.org/ItemListOrderAscending",
+            "itemListElement": [
+              { slug: "social-media-creative-management", name: "Social Media Creative Management" },
+              { slug: "branding", name: "Branding" },
+              { slug: "video-production", name: "Video Production" },
+              { slug: "web-design", name: "Web Design" },
+              { slug: "paid-advertising", name: "Paid Advertising" },
+              { slug: "content-marketing", name: "Content Marketing" },
+              { slug: "email-marketing", name: "Email Marketing" },
+              { slug: "motion-design", name: "Motion Design" },
+              { slug: "ad-creative", name: "Ad Creative" },
+              { slug: "design-systems", name: "Design Systems" },
+              { slug: "presentation-pitch", name: "Presentation & Pitch" },
+              { slug: "immersive-3d-ar", name: "Immersive 3D & AR" },
+            ].map((s, i) => ({
+              "@type": "ListItem",
+              "position": i + 1,
+              "url": `https://oarcdigital.com/services/${s.slug}`,
+              "name": s.name,
+            })),
+          }) }} />
+        </section>
+
         {/* ========== FINAL CTA - GET IN TOUCH STYLE ========== */}
         <section className="py-24 md:py-32" style={{ backgroundColor: '#0A0A0A' }}>
           <div className="container mx-auto px-6 text-center">
