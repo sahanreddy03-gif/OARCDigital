@@ -1,20 +1,44 @@
 import type { Metadata } from "next";
 import PageContent from "./PageContent";
 
+const SPEAKABLE_JSONLD = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  url: "https://oarcdigital.com/diagnostics",
+  speakable: {
+    "@type": "SpeakableSpecification",
+    cssSelector: ["[data-speakable]"],
+  },
+};
+
 export const metadata: Metadata = {
-  title: "Business Diagnostics | OARC Intelligence",
-  description: "Discover what's costing your business. AI-powered diagnostics identify revenue leakage, operational inefficiencies, and hidden cost centers across 8 industries.",
+  title: "Free Business Diagnostics — Malta | OARC Digital",
+  description:
+    "Four free tools — Industry Scan, Growth Simulator, AI Workforce Designer, and the Cortex Business Intelligence Scan — for Malta SMEs who want a fast read on where revenue is leaking and what to fix first.",
+  alternates: { canonical: "https://oarcdigital.com/diagnostics" },
   openGraph: {
-    title: "Business Diagnostics | OARC Intelligence",
-    description: "Discover what's costing your business. AI-powered diagnostics identify revenue leakage, operational inefficiencies, and hidden cost centers across 8 industries.",
+    title: "Free Business Diagnostics — Malta | OARC Digital",
+    description:
+      "Run four free diagnostic tools on your own business. Industry Scan, Growth Simulator, AI Workforce Designer, Cortex Business Intelligence Scan. No login.",
+    url: "https://oarcdigital.com/diagnostics",
+    type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Business Diagnostics | OARC Intelligence",
-    description: "Discover what's costing your business. AI-powered diagnostics identify revenue leakage, operational inefficiencies, and hidden cost centers across 8 industries.",
+    title: "Free Business Diagnostics — Malta | OARC Digital",
+    description:
+      "Four free tools for Malta SMEs to diagnose revenue leakage and design an AI workforce. No login, no credit card.",
   },
 };
 
 export default function Page() {
-  return <PageContent />;
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(SPEAKABLE_JSONLD) }}
+      />
+      <PageContent />
+    </>
+  );
 }

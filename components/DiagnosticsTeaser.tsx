@@ -30,10 +30,10 @@ export default function DiagnosticsTeaser() {
             AI-Powered Business Intelligence
           </div>
           <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">
-            Discover What's <span className="text-[#c4ff4d]">Costing You</span>
+            Run a free <span className="text-[#c4ff4d]">60-second business diagnostic</span>
           </h2>
           <p className="text-zinc-400 max-w-xl mx-auto text-sm md:text-base">
-            Enterprise-grade diagnostics that identify revenue leakage across 8 industries
+            Four free tools — Industry Scan, Growth Simulator, AI Workforce Designer, Cortex Business Intelligence Scan — for Malta operators who want a fast read on revenue leakage.
           </p>
         </motion.div>
 
