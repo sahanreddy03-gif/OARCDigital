@@ -1,6 +1,10 @@
-import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
-import { getRelatedLinks } from "@/lib/seo/internalLinkGraph";
+import {
+  getRelatedLinks,
+  getAnchors,
+  pickAnchor,
+} from "@/lib/seo/internalLinkGraph";
+import SmartLink from "@/components/SmartLink";
 
 interface RelatedLinksProps {
   slug: string;
@@ -50,24 +54,34 @@ export default function RelatedLinks({
         <p className={`text-base ${introColor} max-w-2xl`}>{intro}</p>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
-        {links.map((link) => (
-          <Link
-            key={link.path}
-            href={link.path}
-            data-testid={`link-related-${link.path.replace(/[^a-z0-9]+/gi, "-")}`}
-            className={`group flex items-start justify-between gap-3 rounded-xl border ${cardBg} p-4 transition-all hover-elevate active-elevate-2`}
-          >
-            <div className="flex-1 min-w-0">
-              <span className={`block text-[11px] font-semibold uppercase tracking-wider ${labelColor} mb-1`}>
-                {HUB_LABELS[link.hub] ?? link.hub}
+        {links.map((link, idx) => {
+          // Anchor-text diversification (Task #136): the visible anchor
+          // is picked from the graph deterministically seeded by
+          // (sourceSlug -> target, idx). SmartLink wraps the card so the
+          // href + data-anchor + data-smartlink-target attributes are
+          // emitted centrally for analytics + audit sampling.
+          const anchor = pickAnchor(getAnchors(link), `${slug}->${link.path}`, idx);
+          return (
+            <SmartLink
+              key={link.path}
+              to={link.path}
+              sourcePath={slug}
+              index={idx}
+              data-testid={`link-related-${link.path.replace(/[^a-z0-9]+/gi, "-")}`}
+              className={`group flex items-start justify-between gap-3 rounded-xl border ${cardBg} p-4 transition-all hover-elevate active-elevate-2`}
+            >
+              <span className="flex-1 min-w-0 block">
+                <span className={`block text-[11px] font-semibold uppercase tracking-wider ${labelColor} mb-1`}>
+                  {HUB_LABELS[link.hub] ?? link.hub}
+                </span>
+                <span className={`block text-sm font-semibold ${titleColor} leading-snug`}>
+                  {anchor || link.title}
+                </span>
               </span>
-              <span className={`block text-sm font-semibold ${titleColor} leading-snug`}>
-                {link.title}
-              </span>
-            </div>
-            <ArrowUpRight className={`w-4 h-4 mt-0.5 flex-shrink-0 ${isDark ? "text-zinc-500 group-hover:text-orange-400" : "text-zinc-400 group-hover:text-orange-500"} transition-colors`} />
-          </Link>
-        ))}
+              <ArrowUpRight className={`w-4 h-4 mt-0.5 flex-shrink-0 ${isDark ? "text-zinc-500 group-hover:text-orange-400" : "text-zinc-400 group-hover:text-orange-500"} transition-colors`} />
+            </SmartLink>
+          );
+        })}
       </div>
     </section>
   );

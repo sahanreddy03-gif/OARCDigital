@@ -30,6 +30,11 @@ export type LinkNode = {
   hub: Hub;
   // Ordered list of related page paths. First 3-6 are surfaced on the page.
   spokes: string[];
+  // Anchor-text variants used by <SmartLink to={path} />. Optional; when
+  // omitted (or fewer than 3 supplied) the runtime augments the list with
+  // hub-aware defaults so every node always exposes >=3 variants. See
+  // `getAnchors()` and `pickAnchor()`.
+  anchors?: string[];
 };
 
 const NODES: LinkNode[] = [
@@ -1216,9 +1221,9 @@ const NODES: LinkNode[] = [
       hub: "creative",
       spokes: [
         "/services/influencer-marketing",
-      "/industries/hotels",
-      "/industries/restaurants",
-      "/industries/igaming",
+      "/aeo/restaurant-marketing-malta",
+      "/aeo/hotel-marketing-malta",
+      "/aeo/igaming-marketing-malta",
       "/services/social-media-creative-management",
       "/services/paid-advertising",
       "/aeo/influencer-marketing-malta",
@@ -1903,6 +1908,305 @@ const REQUIRED_INDUSTRY_HUBS = [
   "/industries/nonprofits-ngos",
 ];
 
+// ── Pillar mapping (Task #136) ────────────────────────────────────────────
+// Every spoke MUST link UP to at least one pillar. We expose the mapping
+// here so the audit can verify it and so we can auto-inject the pillar
+// edge at module-load time for any spoke that's missing it. Pillars never
+// need to link up to themselves.
+//
+// PILLAR_PATHS = the 6 ranking pillars subject to the >=6-spoke fanout
+// contract. /our-work and /contact are conversion shells (homepage hub)
+// — they participate as spokes (and link UP to pillars) but are NOT
+// held to the high-fanout bar.
+export const PILLAR_PATHS: ReadonlySet<string> = new Set([
+  "/",
+  "/ai-agents",
+  "/creative",
+  "/automation",
+  "/services",
+  "/industries",
+]);
+
+export function pillarFor(node: LinkNode): string | null {
+  if (PILLAR_PATHS.has(node.path)) return null;
+  switch (node.hub) {
+    case "ai":
+      return "/ai-agents";
+    case "creative":
+      return "/creative";
+    case "automation":
+      return "/automation";
+    case "industry-hub":
+      return "/industries";
+    case "service":
+    case "aeo-service":
+    case "aeo-city":
+    case "aeo-vertical":
+    case "blog":
+    case "services-index":
+    case "homepage":
+    default:
+      return "/services";
+  }
+}
+
+// Auto-inject the pillar edge for any spoke missing it. Mutating NODES is
+// safe here because LINK_GRAPH is constructed on the next line. Doing the
+// injection at module-load (rather than hand-editing every node) keeps the
+// pillar contract impossible to forget when a future node is added.
+for (const node of NODES) {
+  const pillar = pillarFor(node);
+  if (pillar && !node.spokes.includes(pillar)) {
+    node.spokes.push(pillar);
+  }
+}
+
+// ── Anchor-text variants (Task #136) ──────────────────────────────────────
+// Hub-aware default generator. Every node ends up with >=3 distinct anchor
+// strings. Hand-curated variants on individual nodes override the defaults.
+// All variants are sanitised through the shared phrase blocklist by
+// scripts/audit-internal-links.ts so AI-tell phrases never sneak in.
+function deriveDefaultAnchors(node: LinkNode): string[] {
+  const t = node.title.trim();
+  const s = node.shortLabel.trim();
+  const sLower = s.toLowerCase();
+  let third: string;
+  switch (node.hub) {
+    case "homepage":
+      third = node.path === "/" ? "OARC Digital home" : `OARC's ${sLower}`;
+      break;
+    case "ai":
+      third = `${sLower} workflow`;
+      break;
+    case "creative":
+      third = `${sLower} studio`;
+      break;
+    case "automation":
+      third = `${sLower} systems`;
+      break;
+    case "services-index":
+      third = "full service catalogue";
+      break;
+    case "service":
+      third = `${sLower} team`;
+      break;
+    case "aeo-service":
+      third = `${sLower} specialists`;
+      break;
+    case "aeo-city":
+      third = `marketing in ${sLower}`;
+      break;
+    case "aeo-vertical":
+      third = `${sLower} marketing in Malta`;
+      break;
+    case "industry-hub":
+      third = `${sLower} marketing`;
+      break;
+    case "blog":
+      third = `${sLower} guide`;
+      break;
+    default:
+      third = sLower;
+  }
+  const seen = new Set<string>();
+  const out: string[] = [];
+  for (const candidate of [t, s, third]) {
+    const key = candidate.toLowerCase().trim();
+    if (!key || seen.has(key)) continue;
+    seen.add(key);
+    out.push(candidate);
+  }
+  // If title and shortLabel collapsed (rare), pad with one more variant.
+  if (out.length < 3) {
+    const padding = `OARC's ${sLower}`;
+    if (!seen.has(padding.toLowerCase())) out.push(padding);
+  }
+  if (out.length < 3) {
+    out.push(`see ${sLower}`);
+  }
+  return out;
+}
+
+/**
+ * Returns >=3 distinct anchor-text variants for the given node. Merges the
+ * node's hand-curated `anchors` array (if any) with hub-aware defaults so
+ * the contract is impossible to violate accidentally.
+ */
+export function getAnchors(node: LinkNode): string[] {
+  const seen = new Set<string>();
+  const out: string[] = [];
+  const push = (s: string) => {
+    const key = s.toLowerCase().trim();
+    if (!key || seen.has(key)) return;
+    seen.add(key);
+    out.push(s);
+  };
+  if (node.anchors) for (const a of node.anchors) push(a);
+  for (const a of deriveDefaultAnchors(node)) push(a);
+  return out;
+}
+
+/**
+ * Deterministic anchor picker: same (sourcePath, targetPath) pair always
+ * resolves to the same variant, so SSR + CSR render identically and there's
+ * no hydration mismatch — but two different placements of the same target
+ * across the site naturally use different anchors, defeating exact-match
+ * over-optimisation flags.
+ */
+export function pickAnchor(
+  anchors: string[],
+  seed: string,
+  index = 0,
+): string {
+  if (anchors.length === 0) return "";
+  let h = 2166136261 >>> 0; // FNV-1a 32-bit init
+  for (let i = 0; i < seed.length; i++) {
+    h ^= seed.charCodeAt(i);
+    h = Math.imul(h, 16777619) >>> 0;
+  }
+  return anchors[(h + index) % anchors.length];
+}
+
+// ── Hand-curated anchor overrides (high-priority ranking targets) ─────────
+// Wired in after NODES is built so hand-picks don't clutter the (very long)
+// node table above. Overrides apply to the most-linked-to pages only — the
+// rest fall back to the hub-aware defaults.
+const ANCHOR_OVERRIDES: Record<string, string[]> = {
+  "/": ["OARC Digital", "Malta's creative + AI agency", "OARC's home base"],
+  "/ai-agents": [
+    "AI agents for business",
+    "OARC's AI workforce",
+    "AI employees",
+    "AI agent platform",
+  ],
+  "/creative": [
+    "creative services",
+    "OARC's creative studio",
+    "brand + design work",
+    "creative production team",
+  ],
+  "/automation": [
+    "automation & AI systems",
+    "marketing automation pillar",
+    "revenue + ops automation",
+    "OARC's automation stack",
+  ],
+  "/services": [
+    "all services",
+    "service catalogue",
+    "what OARC does",
+    "service line-up",
+  ],
+  "/our-work": [
+    "case studies & portfolio",
+    "client work",
+    "OARC's recent campaigns",
+    "see the work",
+  ],
+  "/contact": [
+    "talk to OARC",
+    "book an intro call",
+    "get in touch",
+    "contact the team",
+  ],
+  "/industries": [
+    "industries we serve",
+    "by industry",
+    "vertical-specific marketing",
+    "Malta industry hubs",
+  ],
+  "/services/social-media-creative-management": [
+    "social media creative",
+    "managed social posting",
+    "social content production",
+    "OARC's social team",
+  ],
+  "/services/ai-sdr-agent": [
+    "AI sales rep",
+    "outbound automation",
+    "OARC's SDR agent",
+    "AI prospecting",
+  ],
+  "/services/ai-support-specialist": [
+    "AI customer support",
+    "support automation",
+    "OARC's AI helpdesk",
+  ],
+  "/services/ai-appointment-booker": [
+    "AI booking agent",
+    "automated appointment setting",
+    "OARC's calendar bot",
+  ],
+  "/services/ai-consulting": [
+    "AI consulting",
+    "AI strategy advisory",
+    "where to start with AI",
+  ],
+  "/services/marketing-automation-suite": [
+    "marketing automation suite",
+    "lifecycle automation",
+    "campaign orchestration",
+  ],
+  "/services/web-design": [
+    "web design",
+    "website design + build",
+    "OARC's web team",
+  ],
+  "/services/branding": [
+    "branding & identity",
+    "brand systems",
+    "visual identity work",
+  ],
+  "/services/video-production": [
+    "video production",
+    "video & motion content",
+    "production crew",
+  ],
+  "/services/seo-services": [
+    "SEO services",
+    "organic search programme",
+    "ranking + technical SEO",
+  ],
+  "/services/paid-advertising": [
+    "paid advertising",
+    "performance media",
+    "Meta + Google ads",
+  ],
+  "/services/content-marketing": [
+    "content marketing",
+    "editorial + content programme",
+    "long-form content team",
+  ],
+  "/services/email-marketing": [
+    "email marketing",
+    "lifecycle email",
+    "newsletter + email automation",
+  ],
+  "/services/custom-software-development": [
+    "custom software development",
+    "bespoke software builds",
+    "engineering team",
+  ],
+  "/services/saas-development": [
+    "SaaS development",
+    "product engineering",
+    "SaaS build partner",
+  ],
+  "/services/mobile-apps-development": [
+    "mobile app development",
+    "iOS + Android builds",
+    "mobile product team",
+  ],
+};
+
+for (const [p, anchors] of Object.entries(ANCHOR_OVERRIDES)) {
+  for (const node of NODES) {
+    if (node.path === p) {
+      node.anchors = anchors;
+    }
+  }
+}
+
 export const LINK_GRAPH: ReadonlyMap<string, LinkNode> = new Map(
   NODES.map((n) => [n.path, n]),
 );
@@ -1948,11 +2252,27 @@ if (process.env.NODE_ENV !== "test") {
 export function getRelatedLinks(path: string, max = 6): LinkNode[] {
   const node = LINK_GRAPH.get(path);
   if (!node) return [];
+  // Task #136: reserve the LAST slot for the pillar link so spoke pages
+  // always render their UP-link to the pillar, even when the spoke list
+  // already has 6+ entries that would otherwise truncate it. Pillars
+  // themselves (or nodes whose spokes don't include the pillar at all)
+  // fall through to the natural ordering.
+  const pillar = pillarFor(node);
+  const pillarTarget = pillar ? LINK_GRAPH.get(pillar) : null;
+  const wantsPillar = pillarTarget !== null && pillarTarget !== undefined;
+  const reserveForPillar = wantsPillar ? 1 : 0;
+  const fillCap = Math.max(0, max - reserveForPillar);
+
   const out: LinkNode[] = [];
   for (const spoke of node.spokes) {
+    if (wantsPillar && spoke === pillar) continue; // appended last
     const target = LINK_GRAPH.get(spoke);
     if (target) out.push(target);
-    if (out.length >= max) break;
+    if (out.length >= fillCap) break;
+  }
+  if (wantsPillar && pillarTarget && !out.some((n) => n.path === pillarTarget.path)) {
+    if (out.length >= max) out.pop(); // make room
+    out.push(pillarTarget);
   }
   return out;
 }
