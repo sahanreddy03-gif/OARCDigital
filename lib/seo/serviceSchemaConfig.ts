@@ -1817,45 +1817,64 @@ export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
   },
 
   "database-design": {
-    title: "Database Design Malta | Postgres, Schema & Performance | OARC Digital",
+    title: "Database Design & Data Engineering Malta | PostgreSQL, MongoDB, Snowflake",
     description:
-      "Database design and performance engineering for Malta and EU teams — Postgres-first schema design, query tuning, migrations, and replication. From SaaS MVP to multi-region scale.",
+      "Database architecture and data engineering for Malta and EU teams — PostgreSQL, MongoDB, and Snowflake schema design, query optimisation, zero-downtime migrations, and ETL data pipelines. From SaaS MVP to multi-region warehouse.",
     offers: [
       {
         name: "Schema Design Sprint",
         priceFrom: 3400,
         unitText: "PROJECT",
         description:
-          "Two-week schema design engagement: data-model workshop, normalised schema, RLS / indexing strategy, and migration scripts ready to merge.",
+          "Two-week schema design engagement on PostgreSQL or MongoDB: data-model workshop, normalised schema, RLS / indexing strategy, and migration scripts ready to merge.",
       },
       {
-        name: "Performance Tuning",
+        name: "Query & Performance Tuning",
         priceFrom: 4900,
         unitText: "PROJECT",
         description:
-          "Query and index audit, slow-query log analysis, partitioning + vacuum tuning, and concrete remediation PRs. Typical p99 latency reduction: 4–10x.",
+          "Query and index audit, slow-query log analysis, partitioning and vacuum tuning, and concrete remediation PRs. Typical p99 latency reduction: 4–10x.",
+      },
+      {
+        name: "Data Pipeline & ETL Build",
+        priceFrom: 6900,
+        unitText: "PROJECT",
+        description:
+          "Production ETL: source connectors, dbt models, Snowflake or BigQuery warehouse, orchestration on Airflow or Dagster, monitoring, and a written runbook.",
       },
       {
         name: "Database SRE Retainer",
         priceFrom: 2900,
         unitText: "MONTH",
         description:
-          "Ongoing schema review, migration safety, replication and failover, observability, and backup-restore drills. For SaaS teams without a dedicated DBA.",
+          "Ongoing schema review, migration safety, replication and failover, pipeline observability, and backup-restore drills. For SaaS teams without a dedicated DBA.",
       },
     ],
     features: [
-      { name: "Postgres schema design (3NF + RLS)" },
+      { name: "PostgreSQL schema design (3NF + RLS)" },
+      { name: "MongoDB document modelling and indexing" },
+      { name: "Snowflake / BigQuery warehouse design" },
       { name: "Drizzle / Prisma / SQLAlchemy modelling" },
-      { name: "Query tuning & indexing" },
-      { name: "Migration safety (zero-downtime)" },
-      { name: "Replication, partitioning, sharding" },
-      { name: "Backup, restore & DR drills" },
+      { name: "Query tuning, indexing, and partitioning" },
+      { name: "Zero-downtime schema migrations" },
+      { name: "ETL data pipelines (Airflow, Dagster, dbt)" },
+      { name: "Replication, sharding, and DR drills" },
     ],
     faqs: [
       {
         question: "What database do you default to?",
         answer:
-          "Postgres for almost every workload — managed via Supabase, Neon, or RDS depending on scale and compliance needs. We use SQLite for embedded local-first apps, ClickHouse or BigQuery for analytics, and Redis for caching layers. We rarely recommend NoSQL.",
+          "PostgreSQL for almost every operational workload — managed via Supabase, Neon, or RDS depending on scale and compliance needs. MongoDB where the document shape genuinely varies per tenant. Snowflake or BigQuery as the analytical warehouse, with dbt as the transformation layer. SQLite for embedded local-first apps and Redis for caching.",
+      },
+      {
+        question: "Do you build the ETL and data pipelines too?",
+        answer:
+          "Yes. We extract from PostgreSQL CDC, MongoDB change streams, Stripe, HubSpot, and GA4 using Fivetran or Airbyte, land it into Snowflake or BigQuery in EU regions, and model it in dbt with tests and documentation. Orchestration runs on Airflow or Dagster with row-count and freshness alerts wired into Slack or PagerDuty.",
+      },
+      {
+        question: "When should I pick MongoDB over PostgreSQL?",
+        answer:
+          "Rarely — PostgreSQL with JSONB handles 90% of the workloads MongoDB is reached for. We recommend MongoDB when the document shape genuinely varies per tenant, when sharding across regions is a day-one requirement, or when an existing team already has deep operational experience with it. We never pick it because the schema is undecided.",
       },
       {
         question: "Can you fix a slow Postgres database?",

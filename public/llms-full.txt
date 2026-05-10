@@ -361,20 +361,22 @@ A: Yes. Every piece ships with a paired email send, LinkedIn post, two short-for
 
 ---
 
-### Database Design Malta | Postgres, Schema & Performance | OARC Digital
+### Database Design & Data Engineering Malta | PostgreSQL, MongoDB, Snowflake
 Canonical: https://oarcdigital.com/services/database-design
 
 **Description**
-Database design and performance engineering for Malta and EU teams — Postgres-first schema design, query tuning, migrations, and replication. From SaaS MVP to multi-region scale.
+Database architecture and data engineering for Malta and EU teams — PostgreSQL, MongoDB, and Snowflake schema design, query optimisation, zero-downtime migrations, and ETL data pipelines. From SaaS MVP to multi-region warehouse.
 
 **Features**
 
-- Postgres schema design (3NF + RLS)
+- PostgreSQL schema design (3NF + RLS)
+- MongoDB document modelling and indexing
+- Snowflake / BigQuery warehouse design
 - Drizzle / Prisma / SQLAlchemy modelling
-- Query tuning & indexing
-- Migration safety (zero-downtime)
-- Replication, partitioning, sharding
-- Backup, restore & DR drills
+- Query tuning, indexing, and partitioning
+- Zero-downtime schema migrations
+- ETL data pipelines (Airflow, Dagster, dbt)
+- Replication, sharding, and DR drills
 
 **Value proposition**
 Database architecture for Malta SaaS and ecommerce — PostgreSQL, MySQL, and analytical warehouses designed for query performance, multi-tenant isolation, and GDPR data residency.
@@ -392,7 +394,13 @@ Database architecture for Malta SaaS and ecommerce — PostgreSQL, MySQL, and an
 **FAQs**
 
 Q: What database do you default to?
-A: Postgres for almost every workload — managed via Supabase, Neon, or RDS depending on scale and compliance needs. We use SQLite for embedded local-first apps, ClickHouse or BigQuery for analytics, and Redis for caching layers. We rarely recommend NoSQL.
+A: PostgreSQL for almost every operational workload — managed via Supabase, Neon, or RDS depending on scale and compliance needs. MongoDB where the document shape genuinely varies per tenant. Snowflake or BigQuery as the analytical warehouse, with dbt as the transformation layer. SQLite for embedded local-first apps and Redis for caching.
+
+Q: Do you build the ETL and data pipelines too?
+A: Yes. We extract from PostgreSQL CDC, MongoDB change streams, Stripe, HubSpot, and GA4 using Fivetran or Airbyte, land it into Snowflake or BigQuery in EU regions, and model it in dbt with tests and documentation. Orchestration runs on Airflow or Dagster with row-count and freshness alerts wired into Slack or PagerDuty.
+
+Q: When should I pick MongoDB over PostgreSQL?
+A: Rarely — PostgreSQL with JSONB handles 90% of the workloads MongoDB is reached for. We recommend MongoDB when the document shape genuinely varies per tenant, when sharding across regions is a day-one requirement, or when an existing team already has deep operational experience with it. We never pick it because the schema is undecided.
 
 Q: Can you fix a slow Postgres database?
 A: Yes. Most slow Postgres databases we audit have missing indexes, unbounded sequential scans on large tables, lock contention from long-running migrations, or vacuum / autovacuum misconfiguration. Typical 4–10x p99 latency improvement within a 2–3 week sprint.

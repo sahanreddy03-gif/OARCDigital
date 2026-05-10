@@ -402,7 +402,7 @@ Value: DevOps and platform engineering for Malta startups — AWS, GCP, Hetzner 
 - All infrastructure is hosted in EU regions (Frankfurt, Dublin, Helsinki) for GDPR data residency and runs on Infrastructure-as-Code from day one.
 - On-call runbooks, alerting, and incident-response playbooks are documented and handed off so Malta clients can take over operations whenever they're ready.
 
-### Database Design Malta
+### Database Design & Data Engineering Malta
 Canonical: https://oarcdigital.com/services/database-design
 Value: Database architecture for Malta SaaS and ecommerce — PostgreSQL, MySQL, and analytical warehouses designed for query performance, multi-tenant isolation, and GDPR data residency.
 - OARC Digital designs production databases on PostgreSQL, MySQL, and Aurora — with explicit indexing, partitioning, and query-plan reviews — within 2-4 weeks of kickoff.
