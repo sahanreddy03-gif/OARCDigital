@@ -5,6 +5,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "next dev --webpack",
+    "prebuild": "tsx scripts/generate-llms-txt-facts.ts && tsx scripts/generate-llms-full-txt.ts",
     "build": "next build --webpack",
     "start": "next start",
     "check": "tsc",

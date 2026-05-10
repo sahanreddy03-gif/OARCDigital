@@ -9,6 +9,7 @@
 import { SERVICE_SCHEMAS, type ServiceSchemaEntry } from "./serviceSchemaConfig";
 import { PILLAR_SCHEMAS, type PillarSchemaEntry } from "./pillarSchemaConfig";
 import { NAP } from "./nap";
+import { buildSupplementalLlmsFullEntries } from "./llmsTxtGenerator";
 
 export const LLMS_FULL_PATH = "public/llms-full.txt";
 export const LLMS_FULL_START = "<!-- AUTOGEN:LLMS-FULL:START -->";
@@ -142,6 +143,14 @@ export function buildLlmsFullBody(): string {
     emitFaqs(lines, entry.faqs);
     lines.push("---");
     lines.push("");
+  }
+
+  // Task #135 — supplemental Core 60 stubs. Throws if a TOP_PAGES path
+  // has no resolvable metadata, so a missing core page hard-fails the
+  // generator AND its --check parity gate (gate:fast).
+  const supplemental = buildSupplementalLlmsFullEntries();
+  if (supplemental) {
+    lines.push(supplemental);
   }
 
   lines.push(LLMS_FULL_END);
