@@ -7,7 +7,6 @@ import { SERVICE_SCHEMA_EXTRAS } from "@/lib/seo/serviceSchemaExtras";
 export const metadata: Metadata = {
   title: "Idea Validation & Growth Hacker | Rapid Market Testing | OARC Digital",
   description: "Launch with confidence, not guesswork. Validate product-market fit in weeks with AI-driven testing frameworks used by top startups. 10x faster validation.",
-  robots: { index: false, follow: false },
   alternates: { canonical: "https://oarcdigital.com/services/idea-validation-engine" },
   openGraph: {
     title: "Idea Validation & Growth Hacker | Rapid Market Testing | OARC Digital",

@@ -263,7 +263,7 @@ export default function Page() {
           <div className="max-w-7xl mx-auto px-6 md:px-8">
             <h2 className="text-2xl font-bold mb-8 text-center">Explore What Makes OARC Different</h2>
             <div className="grid md:grid-cols-3 gap-6">
-              <Link href="/hire-ai-employees" className="group bg-card border rounded-lg p-6 hover-elevate block">
+              <Link href="/services/hire-ai-employees" className="group bg-card border rounded-lg p-6 hover-elevate block">
                 <div className="text-green-600 font-bold text-xs tracking-widest uppercase mb-2">AI Employees</div>
                 <h3 className="text-lg font-bold mb-2 group-hover:text-green-600 transition-colors">Hire AI Employees</h3>
                 <p className="text-sm text-muted-foreground">SDR, support, admin, and analyst AI agents deployed in days — not months of hiring.</p>
