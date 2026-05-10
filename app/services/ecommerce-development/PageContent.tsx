@@ -45,6 +45,7 @@ export default function EcommerceDevelopmentContent() {
               <Link href="/contact"><Button size="lg" className="bg-orange-500 hover:bg-orange-600 text-white">Book a store strategy call <ArrowRight className="ml-2 w-4 h-4" /></Button></Link>
               <a href={`tel:${NAP.phoneE164}`}><Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10"><Phone className="mr-2 w-4 h-4" />{NAP.phoneDisplay}</Button></a>
             </div>
+            <p className="mt-6 text-xs text-zinc-500">Last updated: 10 May 2026</p>
           </div>
         </section>
         <article className="max-w-4xl mx-auto px-6 md:px-8 py-16">
@@ -53,8 +54,11 @@ export default function EcommerceDevelopmentContent() {
             <p className="text-foreground leading-relaxed mb-4">
               A Malta-first ecommerce store has different constraints from one built in London or Berlin. The home market is small, so cross-border EU shipping has to be planned in from day one if the brand is going to scale. Malta Post and DPD dominate domestic delivery, but their tariff structures differ enough that the wrong shipping zone configuration can quietly destroy unit economics. VAT compliance under Malta&apos;s EU OSS regime requires correct origin-of-supply handling that most off-the-shelf themes mismanage by default.
             </p>
-            <p className="text-foreground leading-relaxed">
+            <p className="text-foreground leading-relaxed mb-4">
               OARC Digital builds stores that handle these realities cleanly. We bake the operational rules into the build rather than discovering them after launch — and we measure success in checkout completion rate, return rate, and 60-day repeat-purchase rate, not visual polish.
+            </p>
+            <p className="text-foreground leading-relaxed">
+              The merchants we work with in Sliema, Valletta, and St Julian&apos;s share a common second-year challenge: scaling beyond the Maltese household to serve Italian, Sicilian, and southern French buyers without a second platform build. Our store architecture answers that on day one — Shopify Markets or WooCommerce multi-store from the start, EUR pricing with locale-aware checkout copy, and a fulfilment model that switches from Malta-origin shipping to a Sicilian 3PL once monthly volume crosses the break-even point. The brand never has to migrate platforms to grow into the EU.
             </p>
           </section>
           <section className="mb-12">
