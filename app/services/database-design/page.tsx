@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import PageContent from "./PageContent";
 import RouteSchema from "@/components/RouteSchema";
 import { SERVICE_SCHEMAS } from "@/lib/seo/serviceSchemaConfig";
+import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
+
 
 const SLUG = "database-design";
 const SCHEMA = SERVICE_SCHEMAS[SLUG];
@@ -11,8 +13,10 @@ export const metadata: Metadata = {
   title: SCHEMA.title,
   description: SCHEMA.description,
   alternates: { canonical: URL },
-  openGraph: { title: SCHEMA.title, description: SCHEMA.description, url: URL, type: "article" },
-  twitter: { card: "summary_large_image", title: SCHEMA.title, description: SCHEMA.description },
+  openGraph: { images: ogImageEntry({ title: SCHEMA.title, subtitle: SCHEMA.description }),
+ title: SCHEMA.title, description: SCHEMA.description, url: URL, type: "article" },
+  twitter: { images: [ogImageUrl({ title: SCHEMA.title, subtitle: SCHEMA.description })],
+ card: "summary_large_image", title: SCHEMA.title, description: SCHEMA.description },
 };
 
 export default function Page() {
@@ -26,6 +30,8 @@ export default function Page() {
         features={SCHEMA.features}
         offers={SCHEMA.offers}
         faqs={SCHEMA.faqs}
+        serviceType="Database Engineering"
+        dateModified="2026-05-10"
       />
       <PageContent />
     </>

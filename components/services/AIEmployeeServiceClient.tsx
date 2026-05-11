@@ -29,14 +29,14 @@ import {
   AIIconWithGlow
 } from '@/components/ui/ai-icons';
 
-const sdrAgentImage = "/attached_assets/stock_images/professional_sales_r_08d96be3.jpg";
+const sdrAgentImage = "/images/influencer/hero-while-competitors-post.webp";
 const customerSupportImage = "/attached_assets/ai-customer-support-optimized.webp";
 const dataInsightsNeuralImage = "/attached_assets/data-insights-neural-optimized.webp";
-const adminAgentImage = "/attached_assets/stock_images/administrative_assis_c2205c82.jpg";
+const adminAgentImage = "/attached_assets/generated_images/ai_automation_enterprise_dashboard.png";
 const contentStrategistImage = "/attached_assets/ai-content-strategist-optimized.webp";
 const complianceAuditorImage = "/attached_assets/stock_images/legal_compliance_off_78808712.jpg";
 const appointmentBookerImage = "/attached_assets/stock_images/appointment_schedule_97373ecb.jpg";
-const realEstateAgentImage = "/attached_assets/stock_images/real_estate_agent_pr_d5449235.jpg";
+const realEstateAgentImage = "/attached_assets/ai-real-estate-agent-malta-sliema-property-hero.png";
 
 interface TargetAudienceItem {
   title: string;

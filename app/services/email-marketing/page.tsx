@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import PageContent from "./PageContent";
 import RouteSchema from "@/components/RouteSchema";
+import { getHreflangAlternates, SpeakableJsonLd } from "@/lib/seo/discoveryTags";
 import { SERVICE_SCHEMAS } from "@/lib/seo/serviceSchemaConfig";
+import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
+
 
 const SLUG = "email-marketing";
 const SCHEMA = SERVICE_SCHEMAS[SLUG];
@@ -10,14 +13,17 @@ const URL = `https://oarcdigital.com/services/${SLUG}`;
 export const metadata: Metadata = {
   title: SCHEMA.title,
   description: SCHEMA.description,
-  alternates: { canonical: URL },
-  openGraph: { title: SCHEMA.title, description: SCHEMA.description, url: URL, type: "article" },
-  twitter: { card: "summary_large_image", title: SCHEMA.title, description: SCHEMA.description },
+  alternates: getHreflangAlternates("/services/email-marketing"),
+  openGraph: { images: ogImageEntry({ title: SCHEMA.title, subtitle: SCHEMA.description }),
+ title: SCHEMA.title, description: SCHEMA.description, url: URL, type: "article" },
+  twitter: { images: [ogImageUrl({ title: SCHEMA.title, subtitle: SCHEMA.description })],
+ card: "summary_large_image", title: SCHEMA.title, description: SCHEMA.description },
 };
 
 export default function Page() {
   return (
     <>
+      <SpeakableJsonLd path="/services/email-marketing" />
       <RouteSchema
         type="service"
         path={`/services/${SLUG}`}
@@ -26,6 +32,8 @@ export default function Page() {
         features={SCHEMA.features}
         offers={SCHEMA.offers}
         faqs={SCHEMA.faqs}
+        serviceType="Email Marketing Automation"
+        dateModified="2026-05-10"
       />
       <PageContent />
     </>

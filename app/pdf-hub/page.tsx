@@ -1,17 +1,22 @@
 import type { Metadata } from "next";
 import { pdfPagesSEO } from "@/data/seoMetadata";
+import RouteSchema from "@/components/RouteSchema";
+import { getHreflangAlternates, SpeakableJsonLd } from "@/lib/seo/discoveryTags";
+import { SUPPORTING_PAGE_SCHEMAS } from "@/lib/seo/supportingPagesSchema";
 
 export const metadata: Metadata = {
+  alternates: getHreflangAlternates("/pdf-hub"),
   title: pdfPagesSEO.pdfHub.title,
   description: pdfPagesSEO.pdfHub.description,
-  alternates: { canonical: `https://oarcdigital.com${pdfPagesSEO.pdfHub.path}` },
   openGraph: {
+    images: ogImageEntry({ title: pdfPagesSEO.pdfHub.title, subtitle: pdfPagesSEO.pdfHub.description }),
     title: pdfPagesSEO.pdfHub.title,
     description: pdfPagesSEO.pdfHub.description,
     url: `https://oarcdigital.com${pdfPagesSEO.pdfHub.path}`,
     type: pdfPagesSEO.pdfHub.ogType ?? "website",
   },
   twitter: {
+    images: [ogImageUrl({ title: pdfPagesSEO.pdfHub.title, subtitle: pdfPagesSEO.pdfHub.description })],
     card: "summary_large_image",
     title: pdfPagesSEO.pdfHub.title,
     description: pdfPagesSEO.pdfHub.description,
@@ -22,6 +27,8 @@ import Link from "next/link";
 import { FileText, File, Brain } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/layout/Layout";
+import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
+
 const logoImage = "/attached_assets/fdfdfd_1762818183304.png";
 
 export default function Page() {
@@ -39,7 +46,14 @@ export default function Page() {
 
   return (
     <Layout>
-      
+      <SpeakableJsonLd path="/pdf-hub" />
+      <RouteSchema
+        type="pillar"
+        path="/pdf-hub"
+        title="OARC Digital PDF Hub — Capabilities Decks & Methodology Briefs"
+        description="Download OARC Digital's capabilities deck, methodology briefs, AI workforce playbook, and case-study compendium. Free, no email gate."
+        faqs={SUPPORTING_PAGE_SCHEMAS["/pdf-hub"].faqs}
+      />
       <div className="min-h-screen bg-black">
       
       <div className="pt-32 pb-20 px-6">

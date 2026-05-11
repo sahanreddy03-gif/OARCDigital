@@ -3,18 +3,22 @@ import ServiceClient from "@/components/services/RevenueServiceClient";
 import DeepContent from "./PageContent";
 import RouteSchema from "@/components/RouteSchema";
 import { SERVICE_SCHEMA_EXTRAS } from "@/lib/seo/serviceSchemaExtras";
+import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
+
 
 export const metadata: Metadata = {
   title: "Idea Validation & Growth Hacker | Rapid Market Testing | OARC Digital",
   description: "Launch with confidence, not guesswork. Validate product-market fit in weeks with AI-driven testing frameworks used by top startups. 10x faster validation.",
   alternates: { canonical: "https://oarcdigital.com/services/idea-validation-engine" },
   openGraph: {
+    images: ogImageEntry({ title: "Idea Validation & Growth Hacker | Rapid Market Testing | OARC Digital", subtitle: "Launch with confidence, not guesswork. Validate product-market fit in weeks with AI-driven testing frameworks used by top startups. 10x faster validation." }),
     title: "Idea Validation & Growth Hacker | Rapid Market Testing | OARC Digital",
     description: "Launch with confidence, not guesswork. Validate product-market fit in weeks with AI-driven testing frameworks used by top startups. 10x faster validation.",
     url: "https://oarcdigital.com/services/idea-validation-engine",
     type: "article",
   },
   twitter: {
+    images: [ogImageUrl({ title: "Idea Validation & Growth Hacker | Rapid Market Testing | OARC Digital", subtitle: "Launch with confidence, not guesswork. Validate product-market fit in weeks with AI-driven testing frameworks used by top startups. 10x faster validation." })],
     card: "summary_large_image",
     title: "Idea Validation & Growth Hacker | Rapid Market Testing | OARC Digital",
     description: "Launch with confidence, not guesswork. Validate product-market fit in weeks with AI-driven testing frameworks used by top startups. 10x faster validation.",

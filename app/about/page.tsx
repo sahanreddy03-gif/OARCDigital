@@ -6,7 +6,12 @@
 // cleanly against the LinkedIn vanity URL `/in/sahanoarcdigital`.
 
 import type { Metadata } from "next";
+import RouteSchema from "@/components/RouteSchema";
+import { getHreflangAlternates, SpeakableJsonLd } from "@/lib/seo/discoveryTags";
+import { SUPPORTING_PAGE_SCHEMAS } from "@/lib/seo/supportingPagesSchema";
 import PageContent from "./PageContent";
+import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
+
 
 const TITLE = "About OARC Digital | Malta's AI-Native Creative & Automation Agency";
 const DESCRIPTION =
@@ -16,8 +21,9 @@ const URL = "https://oarcdigital.com/about";
 export const metadata: Metadata = {
   title: TITLE,
   description: DESCRIPTION,
-  alternates: { canonical: URL },
+  alternates: getHreflangAlternates("/about"),
   openGraph: {
+    images: ogImageEntry({ title: TITLE, subtitle: DESCRIPTION }),
     type: "website",
     url: URL,
     title: TITLE,
@@ -25,6 +31,7 @@ export const metadata: Metadata = {
     siteName: "OARC Digital",
   },
   twitter: {
+    images: [ogImageUrl({ title: TITLE, subtitle: DESCRIPTION })],
     card: "summary_large_image",
     title: TITLE,
     description: DESCRIPTION,
@@ -32,5 +39,17 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <PageContent />;
+  return (
+    <>
+      <SpeakableJsonLd path="/about" />
+        <RouteSchema
+          type="pillar"
+          path="/about"
+          title="About OARC Digital — Malta's AI-Native Creative & Automation Agency"
+          description="Founded in Birkirkara to bring creative, AI engineering, and revenue automation under one roof for Maltese businesses. Our team, story, and operating principles."
+          faqs={SUPPORTING_PAGE_SCHEMAS["/about"].faqs}
+        />
+      <PageContent />
+    </>
+  );
 }

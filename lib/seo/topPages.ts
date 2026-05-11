@@ -23,7 +23,7 @@
 // Audit script: `scripts/audit-discovery.ts` walks this list at HTTP-time.
 
 export type TopPageKind = "pillar" | "service";
-export type TopPageTier = "core" | "service" | "supporting";
+export type TopPageTier = "core" | "service" | "supporting" | "strategic";
 
 export type TopPage = {
   /** App-router path (leading slash). `/` for the home pillar. */
@@ -90,6 +90,36 @@ export const TOP_PAGES: readonly TopPage[] = [
   { path: "/blog",                                               kind: "pillar",  tier: "supporting" },
   { path: "/automation",                                         kind: "pillar",  tier: "supporting" },
   { path: "/tools",                                              kind: "pillar",  tier: "supporting" },
+
+  // ── Task #133 expansion: remaining canonical-60 service spokes ────────
+  // Treated as `service` tier so SpeakableJsonLd emits and audit-discovery
+  // walks them. Influencer-marketing replaces the legacy /influencer slug
+  // alignment with `.local/memory/core-url-rank.md` (canonical winner).
+  { path: "/services/influencer-marketing",                      kind: "service", tier: "service" },
+  { path: "/services/api-integration-services",                  kind: "service", tier: "service" },
+  { path: "/services/ecommerce-development",                     kind: "service", tier: "service" },
+  { path: "/services/mvp-development",                           kind: "service", tier: "service" },
+  { path: "/services/growth-strategy",                           kind: "service", tier: "service" },
+  { path: "/services/ad-creative",                               kind: "service", tier: "service" },
+  { path: "/services/email-creative",                            kind: "service", tier: "service" },
+  { path: "/services/print-packaging",                           kind: "service", tier: "service" },
+  { path: "/services/illustration",                              kind: "service", tier: "service" },
+  { path: "/services/design-systems",                            kind: "service", tier: "service" },
+  { path: "/services/immersive-3d-ar",                           kind: "service", tier: "service" },
+  { path: "/services/performance-analytics",                     kind: "service", tier: "service" },
+
+  // ── Task #133 expansion: tier-7 strategic supports (canonical 60) ─────
+  // `strategic` tier: schema completeness required, audit-discovery still
+  // walks them (Speakable + hreflang). Excluded from drip-batch fanouts so
+  // pillar/service surfaces stay highest priority.
+  { path: "/about",                                              kind: "pillar",  tier: "strategic" },
+  { path: "/case-studies",                                       kind: "pillar",  tier: "strategic" },
+  { path: "/industries",                                         kind: "pillar",  tier: "strategic" },
+  { path: "/intelligence",                                       kind: "pillar",  tier: "strategic" },
+  { path: "/diagnostics",                                        kind: "pillar",  tier: "strategic" },
+  { path: "/enterprise",                                         kind: "pillar",  tier: "strategic" },
+  { path: "/roadmap-2026",                                       kind: "pillar",  tier: "strategic" },
+  { path: "/pdf-hub",                                            kind: "pillar",  tier: "strategic" },
 ] as const;
 
 /** Top 4 super-priority pages — every gate change blocks on these. */

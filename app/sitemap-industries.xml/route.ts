@@ -1,4 +1,5 @@
 import { industryHubSlugs } from "@/shared/seoConfig";
+import { INDUSTRY_HUBS_PENDING_CONTENT } from "@/lib/seo/seoSets";
 import {
   SITE_BASE,
   lastmodForPath,
@@ -13,6 +14,12 @@ export const revalidate = false;
 
 // Exported so lib/seo/sitemapSources.ts derives the index lastmod from
 // the same entries the GET handler serves.
+//
+// Task #138 (Programmatic cluster cull): hubs in
+// `INDUSTRY_HUBS_PENDING_CONTENT` are excluded — they currently render
+// `notFound()` because the data record is not yet built, and middleware
+// 308s them to `/industries`. Advertising bouncing URLs is a sitemap
+// honesty violation.
 export function buildEntries(): UrlEntry[] {
   return [
     {
@@ -21,7 +28,9 @@ export function buildEntries(): UrlEntry[] {
       changefreq: "monthly" as const,
       priority: 0.8,
     },
-    ...industryHubSlugs.map((slug) => ({
+    ...industryHubSlugs
+      .filter((slug) => !INDUSTRY_HUBS_PENDING_CONTENT.has(slug))
+      .map((slug) => ({
       loc: `${SITE_BASE}/industries/${slug}`,
       // Honest per-slug intro date keeps the rollout cadence visible to
       // crawlers and survives shared-template edits without flagging.

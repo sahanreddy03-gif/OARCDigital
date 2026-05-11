@@ -34,6 +34,10 @@ tests/visual/test-results/
 # Must be tracked or Vercel build fails on missing import.
 !.local/seo/
 !.local/seo/restore.json
+# Task #137 — branded-SERP defence audit + GSC re-indexing playbook
+# live at lib/seo/branded-serp.md and lib/seo/reindex-playbook.md (NOT
+# under .local/) because the platform's auto-commit machinery removes
+# any newly-added file inside .local/ regardless of gitignore exceptions.
 
 # Repo root scratch only — production assets live in public/attached_assets/
 /attached_assets/

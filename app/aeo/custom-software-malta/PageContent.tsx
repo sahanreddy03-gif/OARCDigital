@@ -3,6 +3,7 @@ import RelatedLinks from '@/components/RelatedLinks';
 import { Button } from '@/components/ui/button';
 import { CheckCircle2, ArrowRight, MapPin, Phone, Mail, Clock } from 'lucide-react';
 import TrustBlock from "@/components/seo/TrustBlock";
+import MaltaContextBlock from "@/components/seo/MaltaContextBlock";
 import Link from 'next/link';
 import { NAP } from "@/lib/seo/nap";
 
@@ -50,6 +51,7 @@ export default function CustomSoftwareMalta({ faqs, offers }: Props) {
         </section>
 
         <article className="max-w-4xl mx-auto px-6 md:px-8 py-16">
+          <p className="text-xs uppercase tracking-wider text-muted-foreground mb-8" data-testid="text-last-updated">Last updated: 10 May 2026</p>
           <section className="mb-12">
             <h2 className="text-2xl md:text-3xl font-bold mb-4">When Off-the-Shelf Stops Working</h2>
             <p className="text-foreground leading-relaxed mb-4">
@@ -116,6 +118,21 @@ export default function CustomSoftwareMalta({ faqs, offers }: Props) {
             <h2 className="text-2xl md:text-3xl font-bold mb-6">Visit OARC Digital in {NAP.addressLocality}</h2>
             <TrustBlock variant="visit" />
           </section>
+
+          <section className="mb-12">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">What We Will Not Build For You</h2>
+            <p className="text-foreground leading-relaxed mb-4">
+              The most useful conversation in a custom-software discovery sprint is often the one where we recommend not building. Five categories of internal tool almost always pay back better as off-the-shelf SaaS than as custom code: accounts ledger work (Xero or QuickBooks), payroll (BrightPay, Sage, or PayrollMalta), email marketing (Mailchimp or Klaviyo), helpdesk ticketing (Intercom or HubSpot Service Hub), and basic CRM for teams under 20 people (HubSpot Free or Pipedrive). The maintenance overhead of building these from scratch is rarely justified by the marginal customisation a Malta SME actually needs.
+            </p>
+            <p className="text-foreground leading-relaxed mb-4">
+              Custom software earns its keep when the workflow is genuinely operationally specific — a hospitality group reconciling supplier deliveries against POS sales by venue, a marine charter business matching skipper certificates to charter contracts to insurance policies, an iGaming operator pulling MGA-compliant audit trails out of three transaction systems. In those cases an off-the-shelf product would either fit so badly the team would build a spreadsheet on top of it (defeating the purpose) or cost more in customisation fees than a clean-sheet build.
+            </p>
+            <p className="text-foreground leading-relaxed">
+              Our discovery sprint output is honest about which side of that line each requirement sits on. If the answer is buy, we tell you. If the answer is build, we ship a fixed-price proposal the same week. Several Malta clients have come back to us 12 months later for a build only after first taking our recommendation to extend the off-the-shelf option for one more year. The discovery sprint fee is credited against the build budget when the client does eventually return, so the honest recommendation does not cost them money for our integrity.
+            </p>
+          </section>
+
+          <MaltaContextBlock slug="custom-software-malta" />
 
           <section className="mb-12">
             <h2 className="text-2xl md:text-3xl font-bold mb-6">Frequently Asked Questions</h2>

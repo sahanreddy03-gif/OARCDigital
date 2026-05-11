@@ -3,6 +3,7 @@ import RelatedLinks from '@/components/RelatedLinks';
 import { Button } from '@/components/ui/button';
 import { CheckCircle2, ArrowRight, MapPin, Phone, Mail, Clock } from 'lucide-react';
 import TrustBlock from "@/components/seo/TrustBlock";
+import MaltaContextBlock from "@/components/seo/MaltaContextBlock";
 import Link from 'next/link';
 import { NAP } from "@/lib/seo/nap";
 
@@ -51,6 +52,7 @@ export default function MarketingAgencyGzira({ faqs, offers }: Props) {
         </section>
 
         <article className="max-w-4xl mx-auto px-6 md:px-8 py-16">
+          <p className="text-xs uppercase tracking-wider text-muted-foreground mb-8" data-testid="text-last-updated">Last updated: 10 May 2026</p>
           <section className="mb-12">
             <h2 className="text-2xl md:text-3xl font-bold mb-4">Marketing for the Gzira Mix</h2>
             <p className="text-foreground leading-relaxed mb-4">
@@ -113,6 +115,8 @@ export default function MarketingAgencyGzira({ faqs, offers }: Props) {
                 Gzira is one of the most demographically mixed localities in Malta — long-time Maltese residents, expatriate professionals working out of the seafront offices, and a heavy student population from the nearby campuses. A campaign that treats them as one audience underperforms a campaign that segments them properly. Our Gzira retainers run separate creative tracks per segment, with bilingual ad copy where it lifts conversion and English-only where it does not, and a measurement model that breaks performance down per audience rather than per channel.
               </p>
             </section>
+          <MaltaContextBlock slug="marketing-agency-gzira" />
+
                       <section className="mb-12">
             <h2 className="text-2xl md:text-3xl font-bold mb-6">Frequently Asked Questions</h2>
             <div className="space-y-4">
@@ -123,6 +127,19 @@ export default function MarketingAgencyGzira({ faqs, offers }: Props) {
                 </div>
               ))}
             </div>
+          </section>
+
+          <section className="mb-12">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">Gzira&apos;s Three Layered Audiences in Detail</h2>
+            <p className="text-foreground leading-relaxed mb-4">
+              The waterfront audience along Triq ix-Xatt and around Manoel Island is a working-resident plus office-worker mix. Lunchtime and early-evening footfall is the dominant revenue window for the cafes, bars, and casual restaurants in this strip. Marketing into this audience is hyper-local — a 1km Meta geo-radius, English-language creative, midday and 5pm dayparting, and a Google Business Profile with up-to-date opening hours and a working menu link. A Gzira waterfront client of ours lifted weekday lunch covers by 41% over a single quarter using nothing more than that combination.
+            </p>
+            <p className="text-foreground leading-relaxed mb-4">
+              The language-school audience is concentrated in late spring and summer, with a spike at the start of every two-week course cycle as new student cohorts arrive in the area. This audience is reachable on Instagram and TikTok almost exclusively, in Italian, German, and Polish far more effectively than English. The conversion event is rarely a same-day booking — it is a saved post, a shared story, or a follow that converts to a visit two or three days later when the cohort decides where to eat or where to spend the weekend together.
+            </p>
+            <p className="text-foreground leading-relaxed">
+              The marine and yacht-services audience around the Ta&apos; Xbiex marina and the broader Manoel Island moorings is a B2B audience reachable on LinkedIn and Google commercial-intent search, not paid social. This is a low-volume, high-value motion — a single charter agency or yacht-management contract justifies a quarter of marketing spend. We segment Gzira retainers across all three audiences explicitly rather than running a generic locality campaign. Reporting separates each segment so the client sees which audience is paying back and which is being subsidised, instead of a single Gzira-wide acquisition number that hides the real picture.
+            </p>
           </section>
 
           <RelatedLinks slug="/aeo/marketing-agency-gzira" />

@@ -454,13 +454,19 @@ async function audit() {
       });
     }
   }
-  // Surface stale entries (a maltaContext key without a matching service slug)
+  // Surface stale entries (a maltaContext key without a matching service slug
+  // or AEO page). AEO/Malta-location pages live at app/aeo/<slug>/ and
+  // legitimately consume MALTA_CONTEXT via <MaltaContextBlock slug="<slug>"/>.
   for (const slug of Object.keys(MALTA_CONTEXT)) {
-    if (!(slug in SERVICE_SCHEMAS)) {
+    const isService = slug in SERVICE_SCHEMAS;
+    const isAeo = fs.existsSync(
+      path.join(process.cwd(), "app", "aeo", slug, "PageContent.tsx"),
+    );
+    if (!isService && !isAeo) {
       issues.push({
         slug,
         layer: 2,
-        message: `MALTA_CONTEXT entry has no matching SERVICE_SCHEMAS slug — remove from lib/seo/maltaContext.ts`,
+        message: `MALTA_CONTEXT entry has no matching SERVICE_SCHEMAS slug or app/aeo/<slug>/ page — remove from lib/seo/maltaContext.ts`,
       });
     }
   }

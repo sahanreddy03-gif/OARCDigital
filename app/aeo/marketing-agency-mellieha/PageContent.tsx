@@ -3,6 +3,7 @@ import RelatedLinks from '@/components/RelatedLinks';
 import { Button } from '@/components/ui/button';
 import { CheckCircle2, ArrowRight, MapPin, Phone, Mail, Clock } from 'lucide-react';
 import TrustBlock from "@/components/seo/TrustBlock";
+import MaltaContextBlock from "@/components/seo/MaltaContextBlock";
 import Link from 'next/link';
 import { NAP } from "@/lib/seo/nap";
 
@@ -51,6 +52,7 @@ export default function MarketingAgencyMellieha({ faqs, offers }: Props) {
         </section>
 
         <article className="max-w-4xl mx-auto px-6 md:px-8 py-16">
+          <p className="text-xs uppercase tracking-wider text-muted-foreground mb-8" data-testid="text-last-updated">Last updated: 10 May 2026</p>
           <section className="mb-12">
             <h2 className="text-2xl md:text-3xl font-bold mb-4">Marketing for Mellieha&apos;s Seasonal Tourism Economy</h2>
             <p className="text-foreground leading-relaxed mb-4">
@@ -113,6 +115,8 @@ export default function MarketingAgencyMellieha({ faqs, offers }: Props) {
                 Mellieha's audience swings dramatically between off-season locals and summer tourists, and the marketing that works in March will under-deliver in July. Our Mellieha retainers run a dual calendar — local-resident creative through autumn and winter, tourist-targeted creative across spring and summer — with bid strategies and creative budgets that flex monthly rather than annually.
               </p>
             </section>
+          <MaltaContextBlock slug="marketing-agency-mellieha" />
+
                       <section className="mb-12">
             <h2 className="text-2xl md:text-3xl font-bold mb-6">Frequently Asked Questions</h2>
             <div className="space-y-4">
@@ -123,6 +127,19 @@ export default function MarketingAgencyMellieha({ faqs, offers }: Props) {
                 </div>
               ))}
             </div>
+          </section>
+
+          <section className="mb-12">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">The Mellieha Booking-Window Calendar</h2>
+            <p className="text-foreground leading-relaxed mb-4">
+              The Mellieha tourism year breaks into four distinct marketing windows that any successful retainer plans against from January 1st. The first runs from January through late March — the inspiration window. German and Scandinavian source-market audiences are researching summer holidays in the dark months at home. Paid spend here is brand-led, video-first, and aimed at organic-search recall rather than direct booking. The conversion lag is real and unavoidable: a saved Instagram post in February becomes a Booking.com inquiry in April.
+            </p>
+            <p className="text-foreground leading-relaxed mb-4">
+              The second window is April to late June — the booking window. Search-intent and OTA spend lift sharply. Google Hotel Ads, Booking.com paid placements, and high-intent Meta lead-gen become the dominant channels. The third window is the July-and-August peak, where the marketing job shifts from acquisition to ancillary-revenue lift — restaurant covers at the resort, dive-centre add-ons, sunset-cruise upsells. Cost-per-acquisition is at its highest, but the lifetime-value per booked guest is maximised.
+            </p>
+            <p className="text-foreground leading-relaxed">
+              The fourth window is September through Christmas — the recovery and content-build window. Production happens here for the next year. Drone footage of an empty Ghadira Bay at sunrise, an off-season shoot at Popeye Village, video assets for the next inspiration cycle. Off-season budget is materially lower but never zero — content built in October pays back across the next three booking cycles. The Cirkewwa-ferry corridor for Gozo day-trippers gets a separate micro-calendar inside that, calibrated to weekend ferry departure peaks and holiday crossings. Every Mellieha retainer is reviewed against this four-window calendar at the end of each quarter so the next cycle is briefed in time.
+            </p>
           </section>
 
           <RelatedLinks slug="/aeo/marketing-agency-mellieha" />

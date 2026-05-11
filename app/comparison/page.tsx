@@ -5,11 +5,13 @@ export const metadata: Metadata = {
   description: "Compare OARC Digital's AI-powered approach vs traditional marketing agencies. See why businesses choose our AI employees, faster delivery, and better results at lower costs.",
   alternates: { canonical: "https://oarcdigital.com/comparison" },
   openGraph: {
+    images: ogImageEntry({ title: "OARC Digital vs Traditional Agencies | Why Choose AI-Powered Marketing", subtitle: "Compare OARC Digital's AI-powered approach vs traditional marketing agencies. See why businesses choose our AI employees, faster delivery, and better results at lower costs." }),
     title: "OARC Digital vs Traditional Agencies | Why Choose AI-Powered Marketing",
     description: "Compare OARC Digital's AI-powered approach vs traditional marketing agencies. See why businesses choose our AI employees, faster delivery, and better results at lower costs.",
     url: "https://oarcdigital.com/comparison",
   },
   twitter: {
+    images: [ogImageUrl({ title: "OARC Digital vs Traditional Agencies | Why Choose AI-Powered Marketing", subtitle: "Compare OARC Digital's AI-powered approach vs traditional marketing agencies. See why businesses choose our AI employees, faster delivery, and better results at lower costs." })],
     card: "summary_large_image",
     title: "OARC Digital vs Traditional Agencies | Why Choose AI-Powered Marketing",
     description: "Compare OARC Digital's AI-powered approach vs traditional marketing agencies. See why businesses choose our AI employees, faster delivery, and better results at lower costs.",
@@ -25,6 +27,8 @@ import { Check, X, ArrowRight } from 'lucide-react';
 import Link from "next/link";
 import { createBreadcrumbSchema, createAggregateRatingSchema } from '@/utils/advancedSchema';
 import { createServiceSchema } from '@/utils/structuredData';
+import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
+
 
 export default function Page() {
   const breadcrumbSchema = createBreadcrumbSchema([

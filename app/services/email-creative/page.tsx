@@ -1,19 +1,24 @@
 import type { Metadata } from "next";
 import PageContent from "./PageContent";
 import RouteSchema from "@/components/RouteSchema";
+import { getHreflangAlternates, SpeakableJsonLd } from "@/lib/seo/discoveryTags";
 import { SERVICE_SCHEMA_EXTRAS } from "@/lib/seo/serviceSchemaExtras";
+import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
+
 
 export const metadata: Metadata = {
   title: "Email Creative Design | Email Marketing Design | OARC Digital",
   description: "Premium email design services that drive engagement and conversions. OARC Digital creates stunning email campaigns combining creative excellence with marketing strategy.",
-  alternates: { canonical: "https://oarcdigital.com/services/email-creative" },
+  alternates: getHreflangAlternates("/services/email-creative"),
   openGraph: {
+    images: ogImageEntry({ title: "Email Creative Design | Email Marketing Design | OARC Digital", subtitle: "Premium email design services that drive engagement and conversions. OARC Digital creates stunning email campaigns combining creative excellence with marketing strategy." }),
     title: "Email Creative Design | Email Marketing Design | OARC Digital",
     description: "Premium email design services that drive engagement and conversions. OARC Digital creates stunning email campaigns combining creative excellence with marketing strategy.",
     url: "https://oarcdigital.com/services/email-creative",
     type: "article",
   },
   twitter: {
+    images: [ogImageUrl({ title: "Email Creative Design | Email Marketing Design | OARC Digital", subtitle: "Premium email design services that drive engagement and conversions. OARC Digital creates stunning email campaigns combining creative excellence with marketing strategy." })],
     card: "summary_large_image",
     title: "Email Creative Design | Email Marketing Design | OARC Digital",
     description: "Premium email design services that drive engagement and conversions. OARC Digital creates stunning email campaigns combining creative excellence with marketing strategy.",
@@ -24,6 +29,7 @@ export default function Page() {
     const schema = SERVICE_SCHEMA_EXTRAS["email-creative"];
     return (
       <>
+        <SpeakableJsonLd path="/services/email-creative" />
         <RouteSchema
           type="service"
           path="/services/email-creative"

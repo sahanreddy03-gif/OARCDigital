@@ -3,13 +3,15 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "OARC Digital Blog | AI Marketing, Creative Services & Growth Strategies",
   description: "Expert insights on AI marketing, creative services, and revenue growth. Learn from real case studies, how-to guides, and industry best practices.",
-  alternates: { canonical: "https://oarcdigital.com/blog" },
+  alternates: getHreflangAlternates("/blog"),
   openGraph: {
+    images: ogImageEntry({ title: "OARC Digital Blog | AI Marketing, Creative Services & Growth Strategies", subtitle: "Expert insights on AI marketing, creative services, and revenue growth. Learn from real case studies, how-to guides, and industry best practices." }),
     title: "OARC Digital Blog | AI Marketing, Creative Services & Growth Strategies",
     description: "Expert insights on AI marketing, creative services, and revenue growth. Learn from real case studies, how-to guides, and industry best practices.",
     url: "https://oarcdigital.com/blog",
   },
   twitter: {
+    images: [ogImageUrl({ title: "OARC Digital Blog | AI Marketing, Creative Services & Growth Strategies", subtitle: "Expert insights on AI marketing, creative services, and revenue growth. Learn from real case studies, how-to guides, and industry best practices." })],
     card: "summary_large_image",
     title: "OARC Digital Blog | AI Marketing, Creative Services & Growth Strategies",
     description: "Expert insights on AI marketing, creative services, and revenue growth. Learn from real case studies, how-to guides, and industry best practices.",
@@ -21,9 +23,14 @@ export const metadata: Metadata = {
 
 import Layout from '@/components/layout/Layout';
 import { createBreadcrumbSchema, createArticleSchema } from '@/utils/advancedSchema';
+import RouteSchema from "@/components/RouteSchema";
+import { getHreflangAlternates, SpeakableJsonLd } from "@/lib/seo/discoveryTags";
+import { SUPPORTING_PAGE_SCHEMAS } from "@/lib/seo/supportingPagesSchema";
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Calendar, Clock } from 'lucide-react';
 import Link from "next/link";
+import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
+
 
 interface BlogPost {
   slug: string;
@@ -318,7 +325,15 @@ export default function Page() {
   
   return (
     <Layout>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(combinedSchema) }} />
+      <SpeakableJsonLd path="/blog" />
+        <RouteSchema
+          type="pillar"
+          path="/blog"
+          title="OARC Digital Blog — AI Marketing, Creative & Growth in Malta"
+          description="Long-form guides on AI marketing, creative production, paid media, SEO, and revenue automation in Malta. Written by the OARC Digital team."
+          faqs={SUPPORTING_PAGE_SCHEMAS["/blog"].faqs}
+        />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(combinedSchema) }} />
       
       <main className="min-h-screen">
         {/* Hero Section */}

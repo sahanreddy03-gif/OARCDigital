@@ -151,11 +151,16 @@ run_step "tsc --noEmit"               npx tsc --noEmit
 run_step "audit-framework"            npx tsx scripts/audit-framework.ts
 run_step "audit-no-foreign-nap"       npx tsx scripts/audit-no-foreign-nap.ts
 run_step "audit-schema (self-test)"   npx tsx scripts/audit-schema.ts --self-test
+run_step "validate-schema (60-core)"  npx tsx scripts/validate-schema.ts
 run_step "verify-redirects (static)"  npx tsx scripts/verify-redirects.ts --static
 run_step "AUTOGEN parity (llms.txt)"  npx tsx scripts/generate-llms-txt-facts.ts --check
 run_step "AUTOGEN parity (llms-full.txt)" npx tsx scripts/generate-llms-full-txt.ts --check
 run_step "audit-alts"                 npx tsx scripts/audit-alts.ts
 run_step "audit-banned-phrases"       npx tsx scripts/audit-banned-phrases.ts
+run_step "audit-internal-links"       npx tsx scripts/audit-internal-links.ts
+run_step "audit-og-images"            node scripts/audit-og-images.mjs
+run_step "audit-organization"         npx tsx scripts/audit-organization.ts
+run_step "audit-canonical"            npx tsx scripts/audit-canonical.ts
 
 if [ "$MODE" = "gate:fast" ]; then
   echo
@@ -235,8 +240,10 @@ run_step "audit-sitemap (HTTP)"     env BASE="$BASE" npx tsx scripts/audit-sitem
 run_step "audit-nap (HTTP)"         env BASE="$BASE" AUDIT_FULL=1 npx tsx scripts/audit-nap.ts
 run_step "audit-schema (HTTP)"      env BASE="$BASE" AUDIT_FULL=1 npx tsx scripts/audit-schema.ts
 run_step "audit-discovery (HTTP)"   env BASE="$BASE" npx tsx scripts/audit-discovery.ts
+run_step "audit-canonical (HTTP)"   env BASE="$BASE" npx tsx scripts/audit-canonical.ts --http
 run_step "audit-similarity (HTTP)"  env BASE="$BASE" AUDIT_FULL=1 npx tsx scripts/audit-similarity.ts
 run_step "audit-broken-links (HTTP)" env BASE="$BASE" npx tsx scripts/audit-broken-links.ts
+run_step "audit-org-sameas-live"     npx tsx scripts/audit-org-sameas-live.ts
 
 # --- Optional baselines (Task #93) -----------------------------------------
 # Three optional gates that ship as part of the audit set when their

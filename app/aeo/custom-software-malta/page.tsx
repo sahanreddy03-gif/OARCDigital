@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { NAP } from "@/lib/seo/nap";
 import PageContent from "./PageContent";
 import RouteSchema from "@/components/RouteSchema";
+import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
+
 
 const TITLE = "Custom Software Malta | OARC Digital";
 const DESCRIPTION =
@@ -12,8 +14,10 @@ export const metadata: Metadata = {
   title: TITLE,
   description: DESCRIPTION,
   alternates: { canonical: URL },
-  openGraph: { title: TITLE, description: DESCRIPTION, url: URL, type: "website" },
-  twitter: { card: "summary_large_image", title: TITLE, description: DESCRIPTION },
+  openGraph: { images: ogImageEntry({ title: TITLE, subtitle: DESCRIPTION }),
+ title: TITLE, description: DESCRIPTION, url: URL, type: "website" },
+  twitter: { images: [ogImageUrl({ title: TITLE, subtitle: DESCRIPTION })],
+ card: "summary_large_image", title: TITLE, description: DESCRIPTION },
 };
 
 const faqs = [
@@ -37,6 +41,7 @@ export default function Page() {
     <>
       <RouteSchema
         type="service"
+        dateModified="2026-05-10"
         path="/aeo/custom-software-malta"
         title={TITLE}
         description={DESCRIPTION}

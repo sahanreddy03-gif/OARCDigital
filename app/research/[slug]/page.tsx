@@ -10,6 +10,7 @@ import {
   combine,
 } from "@/lib/schema";
 import ResearchPageContent from "./PageContent";
+import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
 
 const BASE = "https://oarcdigital.com";
 
@@ -39,11 +40,13 @@ export async function generateMetadata({
       type: "article",
       publishedTime: r.publishedAt,
       modifiedTime: r.updatedAt ?? r.publishedAt,
+      images: ogImageEntry({ title: r.title, subtitle: r.description, eyebrow: "Research" }),
     },
     twitter: {
       card: "summary_large_image",
       title: r.title,
       description: r.description,
+      images: [ogImageUrl({ title: r.title, subtitle: r.description, eyebrow: "Research" })],
     },
   };
 }

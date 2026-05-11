@@ -1,5 +1,406 @@
 uploads = []
-generated = []
+
+[[generated]]
+id = "I_XyjKrGkYa1opeKPR5SF"
+uri = "file://public/images/services/wordpress-development-hero.png"
+type = "image"
+title = "wordpress dashboard hero"
+
+[[generated]]
+id = "2trON-XVihfQ_815lgN_-"
+uri = "file://public/images/services/shopify-development-hero.png"
+type = "image"
+title = "shopify checkout dashboard hero"
+
+[[generated]]
+id = "xxAesmiz-7OVRACSXtyAi"
+uri = "file://public/images/services/saas-development-hero.png"
+type = "image"
+title = "saas dashboard hero"
+
+[[generated]]
+id = "pqWJYvA71yHQD5F_GqT81"
+uri = "file://attached_assets/ai-gap-batch/marketing-automation-hero-malta.png"
+type = "image"
+title = "marketing-automation-hero-malta"
+
+[[generated]]
+id = "f-feqZdiuJx2QLt3e4je4"
+uri = "file://attached_assets/ai-gap-batch/revenue-automation-hero-malta.png"
+type = "image"
+title = "revenue-automation-hero-malta"
+
+[[generated]]
+id = "J9oibo30h0ttdPwgPDEMi"
+uri = "file://attached_assets/ai-gap-batch/funnel-automation-hero-malta.png"
+type = "image"
+title = "funnel-automation-hero-malta"
+
+[[generated]]
+id = "DHrNMUAM8yG3cgIYtjhLC"
+uri = "file://attached_assets/ai-gap-batch/customer-acquisition-hero-malta.png"
+type = "image"
+title = "customer-acquisition-hero-malta"
+
+[[generated]]
+id = "OT3g6-u1hZnpb1ukWuIdi"
+uri = "file://attached_assets/ai-gap-batch/lead-generation-hero-malta.png"
+type = "image"
+title = "lead-generation-hero-malta"
+
+[[generated]]
+id = "BfUAIo2khVGvmWUAzEr8o"
+uri = "file://attached_assets/ai-gap-batch/growth-strategy-hero-malta.png"
+type = "image"
+title = "growth-strategy-hero-malta"
+
+[[generated]]
+id = "1qGwfGWM1anh67Q0_Ej72"
+uri = "file://attached_assets/ai-gap-batch/performance-analytics-hero-malta.png"
+type = "image"
+title = "performance-analytics-hero-malta"
+
+[[generated]]
+id = "is8LKsPE8pJ-GzgwnsNfH"
+uri = "file://attached_assets/ai-gap-batch/saas-development-hero-malta.png"
+type = "image"
+title = "saas-development-hero-malta"
+
+[[generated]]
+id = "YEjU7FPUVIEvrTbpNuAnW"
+uri = "file://attached_assets/ai-gap-batch/mobile-apps-development-hero-malta.png"
+type = "image"
+title = "mobile-apps-development-hero-malta"
+
+[[generated]]
+id = "wu99uMd1jlTvnhBuCBKzT"
+uri = "file://attached_assets/ai-gap-batch/contact-hero-malta.png"
+type = "image"
+title = "contact-hero-malta"
+
+[[generated]]
+id = "yyCM9D_BjAuouYSWGUtGC"
+uri = "file://attached_assets/ai-gap-batch/web-apps-development-hero-malta.png"
+type = "image"
+title = "web-apps-development-hero-malta"
+
+[[generated]]
+id = "zS8k7xacRCaiEC2uVGvOi"
+uri = "file://attached_assets/ai-gap-batch/blog-hero-malta.png"
+type = "image"
+title = "blog-hero-malta"
+
+[[generated]]
+id = "Lf88AuBztb0nuS7nyxWSa"
+uri = "file://attached_assets/ai-gap-batch/tools-hero-malta.png"
+type = "image"
+title = "tools-hero-malta"
+
+[[generated]]
+id = "6_ltXFIgVsjGHc7etKqJm"
+uri = "file://attached_assets/ai-gap-batch/industries-hero-malta.png"
+type = "image"
+title = "industries-hero-malta"
+
+[[generated]]
+id = "jO6I1DhMOGK-cp6MMSYYb"
+uri = "file://attached_assets/ai-gap-batch/intelligence-hero-malta.png"
+type = "image"
+title = "intelligence-hero-malta"
+
+[[generated]]
+id = "9lnnYVx-5Padm6XUfSPVN"
+uri = "file://attached_assets/ai-gap-batch/ecommerce-development-hero-malta.png"
+type = "image"
+title = "ecommerce-development-hero-malta"
+
+[[generated]]
+id = "pZgEZfALJ7Pqyr3nZ8qO3"
+uri = "file://attached_assets/ai-gap-batch/diagnostics-hero-malta.png"
+type = "image"
+title = "diagnostics-hero-malta"
+
+[[generated]]
+id = "GX_s-2wIY8xfp2j33lsQm"
+uri = "file://attached_assets/ai-gap-batch/automation-hero-malta.png"
+type = "image"
+title = "automation-hero-malta"
+
+[[generated]]
+id = "lcx8C0HXjboB3Hq7ecskL"
+uri = "file://attached_assets/ai-gap-batch/enterprise-hero-malta.png"
+type = "image"
+title = "enterprise-hero-malta"
+
+[[generated]]
+id = "GqlBxJsdP4ige-6OkPeAN"
+uri = "file://attached_assets/ai-gap-batch/roadmap-2026-hero-malta.png"
+type = "image"
+title = "roadmap-2026-hero-malta"
+
+[[generated]]
+id = "BrfaMxkCuXZr88JCyzQe0"
+uri = "file://attached_assets/ai-gap-batch/api-integration-services-hero-malta.png"
+type = "image"
+title = "api-integration-services-hero-malta"
+
+[[generated]]
+id = "XTeVsjpQvPagF9cHb_Wn8"
+uri = "file://attached_assets/ai-gap-batch/ad-creative-hero-malta.png"
+type = "image"
+title = "ad-creative-hero-malta"
+
+[[generated]]
+id = "DmMYdkfib_LYDd2cWcmGe"
+uri = "file://attached_assets/ai-gap-batch/email-creative-hero-malta.png"
+type = "image"
+title = "email-creative-hero-malta"
+
+[[generated]]
+id = "YshBunXnd629SQynG8aEA"
+uri = "file://attached_assets/ai-gap-batch/print-packaging-hero-malta.png"
+type = "image"
+title = "print-packaging-hero-malta"
+
+[[generated]]
+id = "3UZqK7gOZdPLAGW8DA4sj"
+uri = "file://attached_assets/ai-gap-batch/illustration-hero-malta.png"
+type = "image"
+title = "illustration-hero-malta"
+
+[[generated]]
+id = "5LQCJERI13PY6XAAhPbzV"
+uri = "file://attached_assets/ai-gap-batch/design-systems-hero-malta.png"
+type = "image"
+title = "design-systems-hero-malta"
+
+[[generated]]
+id = "VsFLT0NwmhyuuK3GhljrX"
+uri = "file://attached_assets/ai-gap-batch/social-analytics-dashboard-malta.png"
+type = "image"
+title = "social-analytics-dashboard-malta"
+
+[[generated]]
+id = "Z7geaEkMF7mAVfK4dtILC"
+uri = "file://attached_assets/ai-gap-batch/creative-pillar-hero-malta.png"
+type = "image"
+title = "creative-pillar-hero-malta"
+
+[[generated]]
+id = "b0nPs-tjXSwVcH7o8fEnF"
+uri = "file://attached_assets/ai-gap-batch/ai-agents-pillar-hero-malta.png"
+type = "image"
+title = "ai-agents-pillar-hero-malta"
+
+[[generated]]
+id = "8LkR5qfnmsjOdcCp_KaNq"
+uri = "file://attached_assets/ai-gap-batch/presentation-pitch-hero-malta.png"
+type = "image"
+title = "presentation-pitch-hero-malta"
+
+[[generated]]
+id = "hlen8XisSpBLldmfXU1tg"
+uri = "file://attached_assets/ai-gap-batch/services-master-hero-malta.png"
+type = "image"
+title = "services-master-hero-malta"
+
+[[generated]]
+id = "ouRFgufHUE99waJdyMn96"
+uri = "file://attached_assets/ai-gap-batch/influencer-marketing-hero-malta.png"
+type = "image"
+title = "influencer-marketing-hero-malta"
+
+[[generated]]
+id = "beTI9d7HwoyRh0Ls6Bxr8"
+uri = "file://attached_assets/ai-gap-batch/our-work-hero-malta.png"
+type = "image"
+title = "our-work-hero-malta"
+
+[[generated]]
+id = "PbGeiDuH1xkiI-Omrm7pQ"
+uri = "file://attached_assets/ai-gap-batch/social-spoke-hero-malta.png"
+type = "image"
+title = "social-spoke-hero-malta"
+
+[[generated]]
+id = "W2odLV2KTZ76jiCL9TEaJ"
+uri = "file://attached_assets/ai-gap-batch/case-studies-hero-malta.png"
+type = "image"
+title = "case-studies-hero-malta"
+
+[[generated]]
+id = "S_zyx7Xj-0qRjfZHUcZl8"
+uri = "file://attached_assets/ai-gap-batch/pricing-hero-malta.png"
+type = "image"
+title = "pricing-hero-malta"
+
+[[generated]]
+id = "-8MSSSyNdWFKTZKHms2Jy"
+uri = "file://attached_assets/ai-gap-batch/ai-appointment-booker-hero-malta.png"
+type = "image"
+title = "ai-appointment-booker-hero-malta"
+
+[[generated]]
+id = "tKp5frgLyR4pogNIYsbrw"
+uri = "file://attached_assets/ai-gap-batch/why-us-hero-malta.png"
+type = "image"
+title = "why-us-hero-malta"
+
+[[generated]]
+id = "4XN-1yc5uibRy_CgXaXrx"
+uri = "file://attached_assets/ai-gap-batch/ai-data-analyst-hero-malta.png"
+type = "image"
+title = "ai-data-analyst-hero-malta"
+
+[[generated]]
+id = "XPNOxxzXrIP7Ks7kWoIKn"
+uri = "file://attached_assets/ai-gap-batch/about-hero-malta.png"
+type = "image"
+title = "about-hero-malta"
+
+[[generated]]
+id = "RMDE5qbY5iDuLlPDWzFMI"
+uri = "file://attached_assets/ai-gap-batch/ai-admin-agent-hero-malta.png"
+type = "image"
+title = "ai-admin-agent-hero-malta"
+
+[[generated]]
+id = "gT_oXTBV8btJr-e5DXjYm"
+uri = "file://attached_assets/ai-gap-batch/ai-sdr-dashboard-malta.png"
+type = "image"
+title = "ai-sdr-dashboard-malta"
+
+[[generated]]
+id = "P7pokMxgp4dayX7HT0Ea1"
+uri = "file://attached_assets/ai-gap-batch/ai-support-dashboard-malta.png"
+type = "image"
+title = "ai-support-dashboard-malta"
+
+[[generated]]
+id = "tvX7p8dV8NdQ6b2MH0dGd"
+uri = "file://attached_assets/ai-gap-batch/paid-advertising-hero-malta.png"
+type = "image"
+title = "paid-advertising-hero-malta"
+
+[[generated]]
+id = "pGDHJoAXNMQwleAhp5cgu"
+uri = "file://attached_assets/ai-gap-batch/ai-appointment-dashboard-malta.png"
+type = "image"
+title = "ai-appointment-dashboard-malta"
+
+[[generated]]
+id = "ARdD7z73vT1tAT138o_Ks"
+uri = "file://attached_assets/ai-gap-batch/content-marketing-hero-malta.png"
+type = "image"
+title = "content-marketing-hero-malta"
+
+[[generated]]
+id = "eBwyxzXRnEJfhUothKuEj"
+uri = "file://attached_assets/ai-gap-batch/ai-data-analyst-dashboard-malta.png"
+type = "image"
+title = "ai-data-analyst-dashboard-malta"
+
+[[generated]]
+id = "taSDjxBHzwNlE27f9rx00"
+uri = "file://attached_assets/ai-gap-batch/ai-admin-dashboard-malta.png"
+type = "image"
+title = "ai-admin-dashboard-malta"
+
+[[generated]]
+id = "yMNB4PCOaOZoVXxnCasS9"
+uri = "file://attached_assets/ai-gap-batch/social-media-management-hero-malta.png"
+type = "image"
+title = "social-media-management-hero-malta"
+
+[[generated]]
+id = "UNKG9Rf48Xtob7YnhqoQj"
+uri = "file://attached_assets/ai-gap-batch/shopify-checkout-malta.png"
+type = "image"
+title = "shopify-checkout-malta"
+
+[[generated]]
+id = "UPCac8F5iK59_GURJmu3I"
+uri = "file://attached_assets/ai-gap-batch/video-production-hero-malta.png"
+type = "image"
+title = "video-production-hero-malta"
+
+[[generated]]
+id = "CLBY2ebdKNDBCoTMGC2kP"
+uri = "file://attached_assets/ai-gap-batch/web-design-hero-malta.png"
+type = "image"
+title = "web-design-hero-malta"
+
+[[generated]]
+id = "Uf7Dn0-VrSzu2EaWr1jXO"
+uri = "file://attached_assets/ai-gap-batch/ai-consulting-hero-malta.png"
+type = "image"
+title = "ai-consulting-hero-malta"
+
+[[generated]]
+id = "i1qLsSkkCj01PW06ipnxF"
+uri = "file://attached_assets/ai-gap-batch/hire-ai-employees-hero-malta.png"
+type = "image"
+title = "hire-ai-employees-hero-malta"
+
+[[generated]]
+id = "BvjF34wnH5sw--LR0s0tx"
+uri = "file://attached_assets/ai-gap-batch/industry-legal-services-hero-malta.png"
+type = "image"
+title = "industry-legal-services-hero-malta"
+
+[[generated]]
+id = "EGI6grfgm5YiL2jDGhVz2"
+uri = "file://attached_assets/ai-gap-batch/industry-fintech-hero-malta.png"
+type = "image"
+title = "industry-fintech-hero-malta"
+
+[[generated]]
+id = "2YXrYcY3E6jiD_nX2wbsr"
+uri = "file://attached_assets/ai-gap-batch/industry-construction-hero-malta.png"
+type = "image"
+title = "industry-construction-hero-malta"
+
+[[generated]]
+id = "VWJ5r_MXXOwc1cSSh1HTT"
+uri = "file://attached_assets/ai-gap-batch/industry-retail-hero-malta.png"
+type = "image"
+title = "industry-retail-hero-malta"
+
+[[generated]]
+id = "aAugDLJAyd5Sfw27Dw9_b"
+uri = "file://attached_assets/ai-gap-batch/industry-logistics-hero-malta.png"
+type = "image"
+title = "industry-logistics-hero-malta"
+
+[[generated]]
+id = "u-mQAdc8USG7nO6B2dCdt"
+uri = "file://attached_assets/ai-gap-batch/industry-fitness-wellness-hero-malta.png"
+type = "image"
+title = "industry-fitness-wellness-hero-malta"
+
+[[generated]]
+id = "CMSf9smMWxOKAhQoVmRNE"
+uri = "file://attached_assets/ai-gap-batch/industry-beauty-spa-hero-malta.png"
+type = "image"
+title = "industry-beauty-spa-hero-malta"
+
+[[generated]]
+id = "56Z2ELUJ1qiq9fvGQ49VR"
+uri = "file://attached_assets/ai-gap-batch/industry-education-hero-malta.png"
+type = "image"
+title = "industry-education-hero-malta"
+
+[[generated]]
+id = "bosVIsJW9TItiXzl9zZhb"
+uri = "file://attached_assets/ai-gap-batch/industry-professional-services-hero-malta.png"
+type = "image"
+title = "industry-professional-services-hero-malt"
+
+[[generated]]
+id = "AVUB6MPsDJDhGp4iueFrn"
+uri = "file://attached_assets/ai-gap-batch/industry-b2b-saas-hero-malta.png"
+type = "image"
+title = "industry-b2b-saas-hero-malta"
 
 [[outputs]]
 id = "dBQslWAR-bdBtVmrkX_0n"

@@ -3,6 +3,8 @@ import PageContent from "./PageContent";
 import RouteSchema from "@/components/RouteSchema";
 import { SERVICE_SCHEMAS } from "@/lib/seo/serviceSchemaConfig";
 import { getHreflangAlternates, SpeakableJsonLd } from "@/lib/seo/discoveryTags";
+import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
+
 
 const SLUG = "seo-services";
 const SCHEMA = SERVICE_SCHEMAS[SLUG];
@@ -12,8 +14,10 @@ export const metadata: Metadata = {
   title: SCHEMA.title,
   description: SCHEMA.description,
   alternates: getHreflangAlternates(`/services/${SLUG}`),
-  openGraph: { title: SCHEMA.title, description: SCHEMA.description, url: URL, type: "article" },
-  twitter: { card: "summary_large_image", title: SCHEMA.title, description: SCHEMA.description },
+  openGraph: { images: ogImageEntry({ title: SCHEMA.title, subtitle: SCHEMA.description }),
+ title: SCHEMA.title, description: SCHEMA.description, url: URL, type: "article" },
+  twitter: { images: [ogImageUrl({ title: SCHEMA.title, subtitle: SCHEMA.description })],
+ card: "summary_large_image", title: SCHEMA.title, description: SCHEMA.description },
 };
 
 export default function Page() {

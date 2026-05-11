@@ -9,11 +9,13 @@ export const metadata: Metadata = {
   description: pillarMeta.description,
   alternates: getHreflangAlternates("/"),
   openGraph: {
+    images: ogImageEntry({ title: pillarMeta.title, subtitle: pillarMeta.description }),
     title: pillarMeta.title,
     description: pillarMeta.description,
     url: "https://oarcdigital.com/",
   },
   twitter: {
+    images: [ogImageUrl({ title: pillarMeta.title, subtitle: pillarMeta.description })],
     card: "summary_large_image",
     title: pillarMeta.title,
     description: pillarMeta.description,
@@ -45,6 +47,8 @@ import CTASections from "@/components/CTASections";
 import NeedHelpCTA from "@/components/NeedHelpCTA";
 import FAQ from "@/components/FAQ";
 import RouteSchema from "@/components/RouteSchema";
+import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
+
 
 export default function Page() {
   const pillar = pillarMeta;

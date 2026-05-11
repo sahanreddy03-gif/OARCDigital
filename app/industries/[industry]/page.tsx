@@ -1,3 +1,4 @@
+import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
 // Programmatic Industry Hub Pages
 // SEO: OARC Digital for [Industry] in Malta
 
@@ -240,6 +241,32 @@ const industries: Record<string, IndustryData> = {
       { q: 'Do you handle product photography?', a: 'We offer professional product video production. For photography, we work with trusted photographers in Malta and can coordinate shoots as part of a broader content package.' },
       { q: 'How do you approach seasonal retail campaigns?', a: "We build content calendars around Malta's retail calendar — Christmas, summer sales, Black Friday, Easter, and local events — ensuring you're ready with compelling content well in advance." },
       { q: 'Can you help with influencer partnerships for retail?', a: 'Yes — influencer marketing is one of our services. We identify and coordinate with relevant Malta-based creators who can showcase your products to engaged, relevant audiences.' },
+    ],
+  },
+  ecommerce: {
+    name: 'Ecommerce',
+    plural: 'Ecommerce & DTC Brands',
+    description: 'the ecommerce and DTC sector',
+    hero: "Ecommerce Marketing Agency in Malta",
+    intro: "Malta DTC brands compete in the same EU shop window as Berlin, Milan, and London — but with smaller media budgets and tighter logistics. We build the Shopify, Klaviyo, and paid-media stack that makes that competition winnable, from a single Birkirkara studio.",
+    pain: [
+      'Traffic but no conversions — checkout abandonment north of 70% on mobile and no diagnostic loop',
+      'Klaviyo set up but only sending broadcasts — no abandoned-cart, browse-abandon, or post-purchase flows live',
+      'Meta and Google ads scaling but ROAS dropping — server-side tracking missing or broken since iOS 14.5',
+    ],
+    services: [
+      { slug: 'shopify-development', title: 'Shopify Development', description: 'Custom Liquid themes, Shopify apps, Checkout Extensibility, and Plus migrations from WooCommerce or Magento' },
+      { slug: 'ecommerce-development', title: 'Ecommerce Development', description: 'Platform-agnostic builds — Shopify, WooCommerce, BigCommerce, or headless — chosen against your real GMV and catalogue size' },
+      { slug: 'paid-advertising', title: 'Paid Advertising', description: 'Meta, TikTok, and Google Shopping with server-side conversions API for accurate ROAS' },
+      { slug: 'email-marketing', title: 'Email & SMS', description: 'Klaviyo lifecycle flows, abandoned-cart sequences, and retention programmes that compound revenue' },
+      { slug: 'video-production', title: 'Product Video', description: 'UGC, lifestyle, and product-detail video for paid social and PDP conversion' },
+      { slug: 'seo-services', title: 'Ecommerce SEO', description: 'Collection-page architecture, schema for products and reviews, and content that ranks for buyer-intent queries' },
+    ],
+    faqs: [
+      { q: 'Should we use Shopify, WooCommerce, or build headless?', a: "For most Malta DTC brands under €80k/month GMV, standard Shopify is the right answer — managed PCI, fast checkout, and a deep app ecosystem. Above €80k or when wholesale catalogues, scripted checkout, or multi-storefront come into scope, Shopify Plus pays back. Headless (Hydrogen) is for brands where sub-one-second LCP measurably moves conversion at scale — usually six-figure monthly traffic." },
+      { q: 'Do you handle the full stack — store, ads, and email?', a: 'Yes. Most ecommerce retainers package Shopify maintenance, Klaviyo flow building, paid-media management, and creative production into a single monthly fee, with one weekly standup and one shared Slack channel. Splitting these across three agencies usually causes the conversion drag we get hired to fix.' },
+      { q: 'Can you migrate us from WooCommerce or Magento without losing rankings?', a: "Yes. Migration projects run 4-8 weeks: frozen catalogue export, parallel build on a Shopify development store, URL-preservation map for every legacy product and collection, redirects layered through Shopify's URL Redirects + middleware, and a coordinated DNS cut-over outside peak trading hours. Organic traffic typically holds within 3% of pre-migration levels by week 8." },
+      { q: 'How do you fix iOS 14.5 conversion-tracking problems?', a: 'Server-side conversion APIs — Meta CAPI, Google Enhanced Conversions, TikTok Events API — wired directly into Shopify webhooks at launch, not bolted on as an afterthought. Most clients recover 25-40% of "lost" attributed conversions within the first 30 days of going live.' },
     ],
   },
   fitness: {
@@ -578,8 +605,8 @@ export async function generateMetadata({ params }: { params: { industry: string 
     title,
     description,
     alternates: { canonical },
-    openGraph: { title, description, url: canonical, type: 'website' },
-    twitter: { card: 'summary_large_image', title, description },
+    openGraph: { title, description, url: canonical, type: 'website', images: ogImageEntry({ title, subtitle: description }) },
+    twitter: { card: 'summary_large_image', title, description, images: [ogImageUrl({ title, subtitle: description })] },
   };
 }
 

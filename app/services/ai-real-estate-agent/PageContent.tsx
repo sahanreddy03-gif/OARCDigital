@@ -1,7 +1,56 @@
+const CASE_IMAGES = [
+  {
+    src: "/images/registry/death-by-missed-leads-sliema-real-estate-malta.webp",
+    alt: "Sliema real estate agency dashboard showing missed portal leads recovered by AI",
+    caption: "Sliema brokerage — 38% of after-hours portal leads recovered in week one.",
+  },
+  {
+    src: "/images/registry/real-estate-ai-receptionist-malta-property-agency.webp",
+    alt: "AI receptionist handling Maltese and English property enquiries for a Malta agency",
+    caption: "AI receptionist triaging EN / MT / IT enquiries before agents log on.",
+  },
+  {
+    src: "/images/registry/real-estate-malta-conversion-dashboard.webp",
+    alt: "Malta real estate conversion dashboard tracking AI-qualified viewings and revenue",
+    caption: "Conversion dashboard — qualified viewings up 2.4x in 90 days.",
+  },
+];
+
 export default function PageContent() {
     return (
       <section className="py-16 md:py-24 bg-background border-t">
         <div className="max-w-4xl mx-auto px-6 md:px-8">
+          <div className="mb-12">
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">Recent Malta property work</h2>
+            <p className="text-base md:text-lg text-foreground/80 leading-relaxed mb-6">
+              Three production deployments across Sliema, St Julian's, and Gzira brokerages — portal triage, multilingual qualification, and the conversion dashboard the senior team checks every Monday.
+            </p>
+            <div
+              className="flex md:grid md:grid-cols-3 gap-4 overflow-x-auto snap-x snap-mandatory -mx-6 px-6 md:mx-0 md:px-0 md:overflow-visible"
+              data-testid="carousel-real-estate-cases"
+              role="region"
+              aria-label="AI real estate agent — Malta case examples"
+            >
+              {CASE_IMAGES.map((img, i) => (
+                <figure
+                  key={img.src}
+                  className="snap-center shrink-0 w-[80%] md:w-auto"
+                  data-testid={`figure-case-${i}`}
+                >
+                  <img
+                    src={img.src}
+                    alt={img.alt}
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-48 md:h-44 object-cover rounded-md border border-border"
+                  />
+                  <figcaption className="mt-2 text-sm text-foreground/70">
+                    {img.caption}
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+          </div>
           <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-8">
             A Maltese real-estate agent that never misses a portal lead
           </h1>

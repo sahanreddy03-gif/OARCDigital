@@ -3,6 +3,7 @@ import fs from "fs";
 import path from "path";
 import { notFound } from "next/navigation";
 import ServiceDetailClient from "./ServiceDetailClient";
+import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
 
 function readServiceContent(service: string): any | null {
   try {
@@ -28,11 +29,13 @@ export async function generateMetadata({ params }: { params: { serviceSlug: stri
       description,
       url: canonical,
       type: "article",
+      images: ogImageEntry({ title, subtitle: description }),
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
+      images: [ogImageUrl({ title, subtitle: description })],
     },
   };
 }

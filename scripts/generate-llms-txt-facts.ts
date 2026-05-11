@@ -16,6 +16,11 @@ import fs from "node:fs";
 import path from "node:path";
 import { SERVICE_SCHEMAS, type ServiceSchemaEntry } from "../lib/seo/serviceSchemaConfig";
 import { PILLAR_SCHEMAS, type PillarSchemaEntry } from "../lib/seo/pillarSchemaConfig";
+import {
+  buildCoreIndexSection,
+  CORE_INDEX_START,
+  CORE_INDEX_END,
+} from "../lib/seo/llmsTxtGenerator";
 
 const LLMS = path.join(process.cwd(), "public", "llms.txt");
 const START = "<!-- AUTOGEN:CITABLE-FACTS:START -->";
@@ -70,21 +75,45 @@ function applyTransform(txt: string): string {
   const endIdx = txt.indexOf(END);
   const section = buildSection();
 
+  let next: string;
   if (startIdx >= 0 && endIdx > startIdx) {
     // Replace existing autogen block (inclusive of markers)
     const before = txt.slice(0, startIdx);
     const after = txt.slice(endIdx + END.length);
-    return before + section + after;
+    next = before + section + after;
+  } else {
+    // First run: replace the legacy "## Cite-Able Service Facts" section in
+    // place. Find the heading and the next "---" delimiter that separates it
+    // from "## Search Surfaces" so we don't gobble unrelated content.
+    const headingPat = /## Cite-Able Service Facts[\s\S]*?(?=\n---\n)/;
+    if (headingPat.test(txt)) {
+      next = txt.replace(headingPat, section + "\n");
+    } else {
+      // Append at end as a last resort.
+      next = txt.trimEnd() + "\n\n" + section + "\n";
+    }
   }
-  // First run: replace the legacy "## Cite-Able Service Facts" section in
-  // place. Find the heading and the next "---" delimiter that separates it
-  // from "## Search Surfaces" so we don't gobble unrelated content.
-  const headingPat = /## Cite-Able Service Facts[\s\S]*?(?=\n---\n)/;
-  if (headingPat.test(txt)) {
-    return txt.replace(headingPat, section + "\n");
+
+  // Task #135 — also splice in / refresh the AUTOGEN CORE-60-INDEX block.
+  // Marker-scoped so it lives next to (not inside) CITABLE-FACTS.
+  const coreSection = buildCoreIndexSection();
+  const coreStart = next.indexOf(CORE_INDEX_START);
+  const coreEnd = next.indexOf(CORE_INDEX_END);
+  if (coreStart >= 0 && coreEnd > coreStart) {
+    const before = next.slice(0, coreStart);
+    const after = next.slice(coreEnd + CORE_INDEX_END.length);
+    next = before + coreSection + after;
+  } else {
+    // Insert just before the existing CITABLE-FACTS block so the core
+    // ranked index reads as the headline AEO surface in the document.
+    const insertAt = next.indexOf(START);
+    if (insertAt >= 0) {
+      next = next.slice(0, insertAt) + coreSection + "\n\n" + next.slice(insertAt);
+    } else {
+      next = next.trimEnd() + "\n\n" + coreSection + "\n";
+    }
   }
-  // Append at end as a last resort.
-  return txt.trimEnd() + "\n\n" + section + "\n";
+  return next;
 }
 
 function main() {

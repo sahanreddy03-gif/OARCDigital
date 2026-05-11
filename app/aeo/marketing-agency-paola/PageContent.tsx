@@ -3,6 +3,7 @@ import RelatedLinks from '@/components/RelatedLinks';
 import { Button } from '@/components/ui/button';
 import { CheckCircle2, ArrowRight, MapPin, Phone, Mail, Clock } from 'lucide-react';
 import TrustBlock from "@/components/seo/TrustBlock";
+import MaltaContextBlock from "@/components/seo/MaltaContextBlock";
 import Link from 'next/link';
 import { NAP } from "@/lib/seo/nap";
 
@@ -51,6 +52,7 @@ export default function MarketingAgencyPaola({ faqs, offers }: Props) {
         </section>
 
         <article className="max-w-4xl mx-auto px-6 md:px-8 py-16">
+          <p className="text-xs uppercase tracking-wider text-muted-foreground mb-8" data-testid="text-last-updated">Last updated: 10 May 2026</p>
           <section className="mb-12">
             <h2 className="text-2xl md:text-3xl font-bold mb-4">Marketing for Paola and the Three Cities</h2>
             <p className="text-foreground leading-relaxed mb-4">
@@ -113,6 +115,8 @@ export default function MarketingAgencyPaola({ faqs, offers }: Props) {
                 Paola anchors the southern harbour area and supports a dense network of independent retailers, family-run restaurants, and local services. Foot-traffic campaigns into Paola work best when they pair Google Business Profile optimisation with Meta geo-targeted offers and printed door-drop creative produced in our Birkirkara studio.
               </p>
             </section>
+          <MaltaContextBlock slug="marketing-agency-paola" />
+
                       <section className="mb-12">
             <h2 className="text-2xl md:text-3xl font-bold mb-6">Frequently Asked Questions</h2>
             <div className="space-y-4">
@@ -123,6 +127,19 @@ export default function MarketingAgencyPaola({ faqs, offers }: Props) {
                 </div>
               ))}
             </div>
+          </section>
+
+          <section className="mb-12">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">A Worked Paola Local-SEO Example</h2>
+            <p className="text-foreground leading-relaxed mb-4">
+              A Paola family restaurant near Pjazza Antoine de Paule joined our retainer book at the start of last year ranking outside the top 20 results for the obvious category-plus-locality term in Google Malta. The competitive set had two listings from large Sliema-based chains paying for paid placement, three older Paola incumbents with little active SEO, and a long tail of generic directory results. The opportunity was clear: low-active-competition, high-local-intent search with no incumbent doing serious technical SEO.
+            </p>
+            <p className="text-foreground leading-relaxed mb-4">
+              The first 30 days of the engagement focused on the foundation — Google Business Profile category cleanup, services-list completion, weekly post cadence, photo refresh. The second 30 days added on-page schema for LocalBusiness, Menu, and Review markup, plus internal-link cleanup on the existing site. The third 30 days kicked off review-acquisition: a printed thank-you card with a QR code on every bill, a follow-up SMS from the booking system 24 hours after each visit, and a monthly review-of-the-month feature on the Facebook page to reward contributors.
+            </p>
+            <p className="text-foreground leading-relaxed">
+              By month four the listing held position 2 in the local pack for the primary search term and position 5 for the broader Three Cities equivalent including Hal Tarxien and Fgura. Direct organic bookings doubled. Cost of acquisition dropped to a fraction of the equivalent paid-search spend. The same playbook is now running for two more independent Paola operators with comparable early-month results. Each engagement is benchmarked against the original case study at the 30-, 60-, and 90-day marks, with a written report shared with the client and the broader Paola retainer book so the local-SEO learnings compound across our entire southern-Malta footprint. The same Three Cities playbook now extends from Paola itself out to Cospicua, Senglea, Vittoriosa, Tarxien, and Fgura without any additional retainer cost for the locality coverage.
+            </p>
           </section>
 
           <RelatedLinks slug="/aeo/marketing-agency-paola" />

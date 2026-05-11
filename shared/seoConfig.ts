@@ -76,6 +76,7 @@ export const industryHubSlugs = [
   'fintech',
   'real-estate',
   'retail',
+  'ecommerce',
   'fitness',
   'wellness',
   'events',

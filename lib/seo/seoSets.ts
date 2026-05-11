@@ -26,7 +26,12 @@ export const HARD_410_PATHS: ReadonlySet<string> = new Set([
 // consolidates on a single URL.
 export const SERVICE_ALIASES: Record<string, string> = {
   "/services/customer-acquisition": "/services/customer-acquisition-accelerator",
-  "/services/lead-generation": "/services/lead-generation-engine",
+  // Task #134: canonical winner is /services/lead-generation per the locked
+  // ranked list (`.local/memory/core-url-rank.md` row 32). The legacy
+  // /services/lead-generation-engine 308s into it. Direction was reversed
+  // before #134 — that made the canonical itself a 308 source (a self-
+  // cannibalising HARD FAIL caught by `scripts/audit-canonical.ts`).
+  "/services/lead-generation-engine": "/services/lead-generation",
   "/services/api-integration": "/services/api-integration-services",
   "/services/mobile-applications-development": "/services/mobile-apps-development",
   "/services/web-application-development": "/services/web-apps-development",
@@ -114,3 +119,37 @@ export const REDIRECTING_SERVICE_SLUGS: ReadonlySet<string> = new Set(
 // funnel-automation and idea-validation-engine REMOVED from this set —
 // they are the canonical winners and must be indexed.
 export const NOINDEX_SERVICE_SLUGS: ReadonlySet<string> = new Set<string>([]);
+
+/**
+ * Task #138 (Programmatic cluster cull) — industry hub slugs that are
+ * declared in `industryHubSlugs` (shared/seoConfig.ts) but DO NOT yet have
+ * a content record in `app/industries/[industry]/page.tsx`'s `industries`
+ * Record. Without a record the hub renders `notFound()` (404), which is
+ * worse for SEO than a 308 to the master `/industries` index.
+ *
+ * Middleware uses this set to 308 these slugs to `/industries` before they
+ * hit the page renderer. `app/sitemap-industries.xml/route.ts` excludes
+ * these slugs so we don't advertise URLs that immediately bounce.
+ *
+ * Removing a slug here is the trigger to ship its content build:
+ * 1) add the entry to the `industries` Record in
+ *    `app/industries/[industry]/page.tsx`,
+ * 2) drop it from this set,
+ * 3) ship in the same commit (audit-framework walks both lists).
+ *
+ * Audit verdicts in `lib/seo/programmatic-audit.md` track the schedule.
+ *
+ * IMPORTANT: a slug only belongs here if it has NEITHER an entry in the
+ * `industries` Record of `app/industries/[industry]/page.tsx` NOR a
+ * dedicated static route at `app/industries/<slug>/page.tsx`. Static
+ * routes take precedence over the dynamic `[industry]` segment in
+ * Next.js, so a slug with its own page.tsx is fully live and must not
+ * be force-redirected here (real-estate is the worked example).
+ */
+export const INDUSTRY_HUBS_PENDING_CONTENT: ReadonlySet<string> = new Set([
+  "healthcare-clinics",
+  "legal-services",
+  "professional-services",
+  "beauty-wellness",
+  "nonprofits-ngos",
+]);

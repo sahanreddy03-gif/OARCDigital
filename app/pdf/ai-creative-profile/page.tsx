@@ -6,12 +6,14 @@ export const metadata: Metadata = {
   description: pdfPagesSEO.aiCreativeProfile.description,
   alternates: { canonical: `https://oarcdigital.com${pdfPagesSEO.aiCreativeProfile.path}` },
   openGraph: {
+    images: ogImageEntry({ title: pdfPagesSEO.aiCreativeProfile.title, subtitle: pdfPagesSEO.aiCreativeProfile.description }),
     title: pdfPagesSEO.aiCreativeProfile.title,
     description: pdfPagesSEO.aiCreativeProfile.description,
     url: `https://oarcdigital.com${pdfPagesSEO.aiCreativeProfile.path}`,
     type: pdfPagesSEO.aiCreativeProfile.ogType ?? "website",
   },
   twitter: {
+    images: [ogImageUrl({ title: pdfPagesSEO.aiCreativeProfile.title, subtitle: pdfPagesSEO.aiCreativeProfile.description })],
     card: "summary_large_image",
     title: pdfPagesSEO.aiCreativeProfile.title,
     description: pdfPagesSEO.aiCreativeProfile.description,
@@ -21,6 +23,8 @@ export const metadata: Metadata = {
 import { companyInfo, aboutText, coreServices, caseStudies, technologyStack, processSteps } from "@/data/companyProfile";
 import { Brain, Sparkles, BarChart3, Zap } from "lucide-react";
 import "@/styles/pdf.css";
+import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
+
 const logoImage = "/attached_assets/fdfdfd_1762818183304.png";
 
 export default function Page() {

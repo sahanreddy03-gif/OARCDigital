@@ -1,17 +1,21 @@
 import type { Metadata } from "next";
 import PageContent from "./PageContent";
+import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
+
 
 export const metadata: Metadata = {
   title: "GamingTech Elite Gaming Marketing Campaign | OARC Digital",
   description: "How OARC Digital created compelling gaming-focused marketing campaigns for GamingTech Elite, reaching gaming enthusiasts worldwide.",
   alternates: { canonical: "https://oarcdigital.com/case-studies/gamingtech-elite" },
   openGraph: {
+    images: ogImageEntry({ title: "GamingTech Elite Gaming Marketing Campaign | OARC Digital", subtitle: "How OARC Digital created compelling gaming-focused marketing campaigns for GamingTech Elite, reaching gaming enthusiasts worldwide." }),
     title: "GamingTech Elite Gaming Marketing Campaign | OARC Digital",
     description: "How OARC Digital created compelling gaming-focused marketing campaigns for GamingTech Elite, reaching gaming enthusiasts worldwide.",
     url: "https://oarcdigital.com/case-studies/gamingtech-elite",
     type: "article",
   },
   twitter: {
+    images: [ogImageUrl({ title: "GamingTech Elite Gaming Marketing Campaign | OARC Digital", subtitle: "How OARC Digital created compelling gaming-focused marketing campaigns for GamingTech Elite, reaching gaming enthusiasts worldwide." })],
     card: "summary_large_image",
     title: "GamingTech Elite Gaming Marketing Campaign | OARC Digital",
     description: "How OARC Digital created compelling gaming-focused marketing campaigns for GamingTech Elite, reaching gaming enthusiasts worldwide.",

@@ -4,6 +4,8 @@ import DeepContent from "./PageContent";
 import RouteSchema from "@/components/RouteSchema";
 import { SERVICE_SCHEMAS } from "@/lib/seo/serviceSchemaConfig";
 import { getHreflangAlternates, SpeakableJsonLd } from "@/lib/seo/discoveryTags";
+import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
+
 
 const SLUG = "marketing-automation-suite";
 const SCHEMA = SERVICE_SCHEMAS[SLUG];
@@ -14,12 +16,14 @@ export const metadata: Metadata = {
   description: SCHEMA.description,
   alternates: getHreflangAlternates(`/services/${SLUG}`),
   openGraph: {
+    images: ogImageEntry({ title: SCHEMA.title, subtitle: SCHEMA.description }),
     title: SCHEMA.title,
     description: SCHEMA.description,
     url: URL,
     type: "article",
   },
   twitter: {
+    images: [ogImageUrl({ title: SCHEMA.title, subtitle: SCHEMA.description })],
     card: "summary_large_image",
     title: SCHEMA.title,
     description: SCHEMA.description,

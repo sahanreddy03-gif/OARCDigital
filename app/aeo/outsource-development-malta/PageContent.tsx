@@ -3,6 +3,7 @@ import RelatedLinks from '@/components/RelatedLinks';
 import { Button } from '@/components/ui/button';
 import { CheckCircle2, ArrowRight, MapPin, Phone, Mail, Clock } from 'lucide-react';
 import TrustBlock from "@/components/seo/TrustBlock";
+import MaltaContextBlock from "@/components/seo/MaltaContextBlock";
 import Link from 'next/link';
 import { NAP } from "@/lib/seo/nap";
 
@@ -50,6 +51,7 @@ export default function OutsourceDevelopmentMalta({ faqs, offers }: Props) {
         </section>
 
         <article className="max-w-4xl mx-auto px-6 md:px-8 py-16">
+          <p className="text-xs uppercase tracking-wider text-muted-foreground mb-8" data-testid="text-last-updated">Last updated: 10 May 2026</p>
           <section className="mb-12">
             <h2 className="text-2xl md:text-3xl font-bold mb-4">Why Outsource Development to Malta?</h2>
             <p className="text-foreground leading-relaxed mb-4">
@@ -129,6 +131,21 @@ export default function OutsourceDevelopmentMalta({ faqs, offers }: Props) {
             <h2 className="text-2xl md:text-3xl font-bold mb-6">Visit OARC Digital in {NAP.addressLocality}</h2>
             <TrustBlock variant="visit" />
           </section>
+
+          <section className="mb-12">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">What Week One With OARC Actually Looks Like</h2>
+            <p className="text-foreground leading-relaxed mb-4">
+              The first week of an outsourced engineering engagement reveals more about the partnership than any sales pitch. Day one is a 90-minute kickoff with the engineering lead and the delivery PM, on Zoom or in person at our Birkirkara office. We walk through the spec line by line, capture the open questions on a shared Notion page, and confirm the GitHub organisation, infrastructure accounts, and credential-handover plan. By end of day one, code commits start landing in your repo from named OARC engineers using their own SSH keys, never a shared agency account.
+            </p>
+            <p className="text-foreground leading-relaxed mb-4">
+              Days two and three are the environment build — a working CI pipeline, a deployed eu-region staging environment, a Sentry project for crash reporting, a Linear board mirrored to your team if you use one. Day four is the first end-of-week demo, even if what we are demoing is just the auth flow and a placeholder dashboard. The point is to set the cadence: every Friday at 11:00 CET, a working Loom plus a 30-minute live walkthrough, no slides about future plans.
+            </p>
+            <p className="text-foreground leading-relaxed">
+              Day five is the first written sprint summary — what shipped, what is blocked, what is next, and any scope risks visible from the inside that the client cannot see from the outside. That document goes into a shared Drive folder and accumulates across the engagement so the eventual handover is a continuous trail rather than a single document written under deadline pressure at the end.
+            </p>
+          </section>
+
+          <MaltaContextBlock slug="outsource-development-malta" />
 
           <section className="mb-12">
             <h2 className="text-2xl md:text-3xl font-bold mb-6">Frequently Asked Questions</h2>

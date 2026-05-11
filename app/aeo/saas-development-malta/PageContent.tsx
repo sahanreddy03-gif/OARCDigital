@@ -3,6 +3,7 @@ import RelatedLinks from '@/components/RelatedLinks';
 import { Button } from '@/components/ui/button';
 import { CheckCircle2, ArrowRight, MapPin, Phone, Mail, Clock } from 'lucide-react';
 import TrustBlock from "@/components/seo/TrustBlock";
+import MaltaContextBlock from "@/components/seo/MaltaContextBlock";
 import Link from 'next/link';
 import { NAP } from "@/lib/seo/nap";
 
@@ -52,6 +53,7 @@ export default function SaasDevelopmentMalta({ faqs, offers }: Props) {
         </section>
 
         <article className="max-w-4xl mx-auto px-6 md:px-8 py-16">
+          <p className="text-xs uppercase tracking-wider text-muted-foreground mb-8" data-testid="text-last-updated">Last updated: 10 May 2026</p>
           <section className="mb-12">
             <h2 className="text-2xl md:text-3xl font-bold mb-4">Why Build SaaS in Malta?</h2>
             <p className="text-foreground leading-relaxed mb-4">
@@ -120,6 +122,21 @@ export default function SaasDevelopmentMalta({ faqs, offers }: Props) {
             <h2 className="text-2xl md:text-3xl font-bold mb-6">Visit OARC Digital in {NAP.addressLocality}</h2>
             <TrustBlock variant="visit" />
           </section>
+
+          <section className="mb-12">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">Founder Pitfalls We Watch For on Malta SaaS Builds</h2>
+            <p className="text-foreground leading-relaxed mb-4">
+              Three mistakes show up on almost every Malta SaaS engagement we audit before clients move to OARC Digital. The first is the EU-VAT-and-Stripe shortcut — Stripe Tax switched on without OSS registration, no IOSS handling for non-EU customers, and a Malta-registered company collecting VAT it cannot legally remit. We rewire billing to Stripe Tax plus the Maltese OSS scheme via the IRD on the fixed-price scope so the cap-table conversation in year two is not a tax-cleanup conversation.
+            </p>
+            <p className="text-foreground leading-relaxed mb-4">
+              The second is the over-engineered v1 — a multi-region Postgres set-up serving fourteen paying customers, an event-streaming bus designed for a thousand-tenant load nobody has, and a Kubernetes cluster the founder cannot operate alone. Our 10-week scope deliberately ships on a single eu-central-1 Postgres instance with a documented vertical-scaling path so the operational surface stays small until revenue justifies the next layer.
+            </p>
+            <p className="text-foreground leading-relaxed">
+              The third is the IDPC blind spot — Maltese founders assume GDPR enforcement is a Brussels problem, then meet the Information and Data Protection Commissioner the first time a customer files a subject-access request. We ship a documented data-flow diagram, ROPA-ready customer table, and a working DSAR-export endpoint in week 9 so the response time is hours, not the four-week panic that turns into the regulator letter.
+            </p>
+          </section>
+
+          <MaltaContextBlock slug="saas-development-malta" />
 
           <section className="mb-12">
             <h2 className="text-2xl md:text-3xl font-bold mb-6">Frequently Asked Questions</h2>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef } from 'react';
+import Link from "next/link";
 import { motion, useInView, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { GlassCard } from '@/components/ui/glass-card';
@@ -705,6 +706,144 @@ export default function PageContent() {
               ))}
             </div>
           </div>
+        </section>
+
+        {/* ========== EXPLORE THE STACK — 10 SPOKES + IMAGE GRID ========== */}
+        <section className="py-24 px-6 border-t border-white/5 bg-black" data-testid="section-solutions-spokes">
+          <div className="max-w-6xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-center mb-12"
+            >
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+                Explore the Revenue & Automation Stack
+              </h2>
+              <p className="text-white/60 text-lg max-w-3xl mx-auto">
+                Ten focused services make up the OARC revenue stack for Malta SMBs and EU operators.
+                Each one ships standalone, and they compound when run together — your AI workforce, your
+                marketing engine, and your funnel, on one balance sheet.
+              </p>
+            </motion.div>
+
+            {/* Image grid — hero + 4 supporting from the registry */}
+            <div className="grid grid-cols-12 gap-3 mb-12" data-testid="grid-solutions-images">
+              <picture className="col-span-12 md:col-span-8 rounded-2xl overflow-hidden border border-white/5 block">
+                <source srcSet="/images/registry/ai-product-solutions-malta-revenue-stack.avif" type="image/avif" />
+                <source srcSet="/images/registry/ai-product-solutions-malta-revenue-stack.webp" type="image/webp" />
+                <img
+                  src="/images/registry/ai-product-solutions-malta-revenue-stack.jpg"
+                  alt="OARC Digital Malta revenue stack — AI product solutions across sales, support and ops"
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-full object-cover aspect-[16/10]"
+                />
+              </picture>
+              <picture className="col-span-6 md:col-span-4 rounded-2xl overflow-hidden border border-white/5 block">
+                <source srcSet="/images/registry/workflow-automations-malta-revenue-operations.avif" type="image/avif" />
+                <source srcSet="/images/registry/workflow-automations-malta-revenue-operations.webp" type="image/webp" />
+                <img
+                  src="/images/registry/workflow-automations-malta-revenue-operations.jpg"
+                  alt="Workflow automation map — revenue operations for Malta SMBs"
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-full object-cover aspect-[16/10]"
+                />
+              </picture>
+              <picture className="col-span-6 md:col-span-4 rounded-2xl overflow-hidden border border-white/5 block">
+                <source srcSet="/images/registry/operations-360-from-chaos-to-control-malta.avif" type="image/avif" />
+                <source srcSet="/images/registry/operations-360-from-chaos-to-control-malta.webp" type="image/webp" />
+                <img
+                  src="/images/registry/operations-360-from-chaos-to-control-malta.jpg"
+                  alt="Operations 360 — from chaos to control framework for Malta operators"
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-full object-cover aspect-[16/10]"
+                />
+              </picture>
+              <picture className="col-span-6 md:col-span-4 rounded-2xl overflow-hidden border border-white/5 block">
+                <source srcSet="/images/registry/operations-360-time-money-savings-framework.avif" type="image/avif" />
+                <source srcSet="/images/registry/operations-360-time-money-savings-framework.webp" type="image/webp" />
+                <img
+                  src="/images/registry/operations-360-time-money-savings-framework.jpg"
+                  alt="Hours and Euros recovered every month across business functions"
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-full object-cover aspect-[16/10]"
+                />
+              </picture>
+              <picture className="col-span-12 md:col-span-4 rounded-2xl overflow-hidden border border-white/5 block">
+                <source srcSet="/images/registry/ai-agent-multichannel-orchestration.avif" type="image/avif" />
+                <source srcSet="/images/registry/ai-agent-multichannel-orchestration.webp" type="image/webp" />
+                <img
+                  src="/images/registry/ai-agent-multichannel-orchestration.jpg"
+                  alt="AI agent orchestrating WhatsApp, email and web chat from one inbox"
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-full object-cover aspect-[16/10]"
+                />
+              </picture>
+            </div>
+
+            {/* 10 spoke cards */}
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4" data-testid="grid-solutions-spokes">
+              {[
+                { slug: "hire-ai-employees", title: "Hire AI Employees", desc: "Bring on a full AI workforce — sales, support, ops and admin — billed per role, not per hour." },
+                { slug: "ai-consulting", title: "AI Consulting", desc: "Roadmap your AI rollout: opportunity audit, build-vs-buy calls, and a 90-day deployment plan." },
+                { slug: "ai-sdr-agent", title: "AI SDR Agent", desc: "Always-on outbound and inbound qualification — calls booked into your calendar overnight." },
+                { slug: "ai-support-specialist", title: "AI Support Specialist", desc: "Handle 80%+ of tier-1 customer queries on WhatsApp, email and chat with full handover to humans." },
+                { slug: "ai-appointment-booker", title: "AI Appointment Booker", desc: "Conversational booker for clinics, salons, restaurants and service businesses across Malta." },
+                { slug: "ai-data-analyst", title: "AI Data Analyst", desc: "Daily and weekly answers from your CRM, ads and finance data — written in plain English." },
+                { slug: "ai-admin-agent", title: "AI Admin Agent", desc: "Inboxes triaged, invoices chased, calendars defended — your back office on autopilot." },
+                { slug: "revenue-automation", title: "Revenue Automation", desc: "Pipeline plumbing: lead capture, routing, scoring, follow-up and reporting wired together." },
+                { slug: "marketing-automation-suite", title: "Marketing Automation Suite", desc: "Email, SMS, WhatsApp and ad-platform sync — one stack, one source of truth." },
+                { slug: "funnel-automation", title: "Funnel Automation", desc: "Build and instrument the funnel from first click to second purchase, then keep tuning it." },
+              ].map((spoke) => (
+                <Link
+                  key={spoke.slug}
+                  href={`/services/${spoke.slug}`}
+                  data-testid={`link-solutions-spoke-${spoke.slug}`}
+                  className="block"
+                >
+                  <GlassCard className="p-6 h-full hover-elevate active-elevate-2">
+                    <h3 className="text-white font-semibold mb-2 flex items-center justify-between gap-2">
+                      <span>{spoke.title}</span>
+                      <ArrowRight className="w-4 h-4 text-[#c4ff4d] flex-shrink-0" />
+                    </h3>
+                    <p className="text-white/60 text-sm leading-relaxed">{spoke.desc}</p>
+                  </GlassCard>
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* ItemList JSON-LD for the 10 revenue/automation services */}
+          <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            "name": "OARC Digital — Revenue & Automation Stack",
+            "description": "Ten revenue and automation services that compose the OARC Digital solutions pillar for Malta and EU operators.",
+            "numberOfItems": 10,
+            "itemListOrder": "https://schema.org/ItemListOrderAscending",
+            "itemListElement": [
+              { slug: "hire-ai-employees", name: "Hire AI Employees" },
+              { slug: "ai-consulting", name: "AI Consulting" },
+              { slug: "ai-sdr-agent", name: "AI SDR Agent" },
+              { slug: "ai-support-specialist", name: "AI Support Specialist" },
+              { slug: "ai-appointment-booker", name: "AI Appointment Booker" },
+              { slug: "ai-data-analyst", name: "AI Data Analyst" },
+              { slug: "ai-admin-agent", name: "AI Admin Agent" },
+              { slug: "revenue-automation", name: "Revenue Automation" },
+              { slug: "marketing-automation-suite", name: "Marketing Automation Suite" },
+              { slug: "funnel-automation", name: "Funnel Automation" },
+            ].map((s, i) => ({
+              "@type": "ListItem",
+              "position": i + 1,
+              "url": `https://oarcdigital.com/services/${s.slug}`,
+              "name": s.name,
+            })),
+          }) }} />
         </section>
 
         {/* ========== FAQ SECTION ========== */}

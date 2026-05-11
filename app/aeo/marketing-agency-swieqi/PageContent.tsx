@@ -3,6 +3,7 @@ import RelatedLinks from '@/components/RelatedLinks';
 import { Button } from '@/components/ui/button';
 import { CheckCircle2, ArrowRight, MapPin, Phone, Mail, Clock } from 'lucide-react';
 import TrustBlock from "@/components/seo/TrustBlock";
+import MaltaContextBlock from "@/components/seo/MaltaContextBlock";
 import Link from 'next/link';
 import { NAP } from "@/lib/seo/nap";
 
@@ -51,6 +52,7 @@ export default function MarketingAgencySwieqi({ faqs, offers }: Props) {
         </section>
 
         <article className="max-w-4xl mx-auto px-6 md:px-8 py-16">
+          <p className="text-xs uppercase tracking-wider text-muted-foreground mb-8" data-testid="text-last-updated">Last updated: 10 May 2026</p>
           <section className="mb-12">
             <h2 className="text-2xl md:text-3xl font-bold mb-4">Marketing for Malta&apos;s Most Aspirational Catchment</h2>
             <p className="text-foreground leading-relaxed mb-4">
@@ -113,6 +115,8 @@ export default function MarketingAgencySwieqi({ faqs, offers }: Props) {
                 Swieqi is one of the highest-spend residential pockets in Malta — younger professionals, expatriate families, and a steady flow of premium hospitality and wellness brands competing for their attention. Marketing into Swieqi rewards quality over volume: high-production Reels and TikToks shot on location, Google Business Profile listings with weekly fresh photography, and review-acquisition workflows wired into the customer journey. Our Swieqi retainers ship that production cadence from our in-house Birkirkara studio rather than outsourcing the creative chain — every shoot, edit, and post stays under one roof.
               </p>
             </section>
+          <MaltaContextBlock slug="marketing-agency-swieqi" />
+
                       <section className="mb-12">
             <h2 className="text-2xl md:text-3xl font-bold mb-6">Frequently Asked Questions</h2>
             <div className="space-y-4">
@@ -123,6 +127,19 @@ export default function MarketingAgencySwieqi({ faqs, offers }: Props) {
                 </div>
               ))}
             </div>
+          </section>
+
+          <section className="mb-12">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">What the Swieqi Creative Bar Actually Looks Like</h2>
+            <p className="text-foreground leading-relaxed mb-4">
+              The Swieqi resident audience compares every brand they see on Instagram to the international labels they follow — fitness studios in Notting Hill, aesthetic clinics in Dubai, pilates concepts from Sydney. That sets a creative bar that most Maltese agencies underprepare for. A static product photo on a white background, a promotion-heavy reel cut on a phone, or stock imagery sourced from Unsplash signals the wrong tier instantly. The audience does not engage, the algorithm de-prioritises the account, and the campaign quietly underperforms regardless of the spend behind it.
+            </p>
+            <p className="text-foreground leading-relaxed mb-4">
+              OARC Digital ships a creative cadence calibrated to that bar. Monthly on-location shoots at the client&apos;s premises along Triq is-Sirena or in the broader Madliena and St Andrews corridor, captured by a working photographer plus a videographer rather than a marketer with an iPhone. Vertical-first editing optimised for Reels and TikTok. A defined visual system — typography, palette, motion language — that holds across every asset for the quarter so the audience sees a coherent brand on the third impression rather than four disconnected posts.
+            </p>
+            <p className="text-foreground leading-relaxed">
+              The output is consistently above the local market median in saved-and-shared engagement, which is the only Instagram metric that correlates reliably with offline footfall in the Swieqi context. Several recent fitness and beauty clients have moved their previous in-house content function to OARC after seeing the gap in production value compounded month over month.
+            </p>
           </section>
 
           <RelatedLinks slug="/aeo/marketing-agency-swieqi" />

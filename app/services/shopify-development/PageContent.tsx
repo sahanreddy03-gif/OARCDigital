@@ -38,13 +38,24 @@ export default function ShopifyDevelopmentContent() {
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/10 border border-orange-500/20 mb-6">
               <span className="text-orange-400 text-xs font-semibold uppercase tracking-wider">Shopify Builds</span>
             </div>
-            <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">Shopify Development for Malta DTC Brands</h1>
+            <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">Shopify Store Development & Optimisation, Malta</h1>
             <p className="text-xl text-zinc-300 leading-relaxed mb-8">
-              Custom Shopify theme builds, app stack engineering, paid-media-ready instrumentation, and full migrations from WooCommerce or Magento — designed for Malta brands that intend to scale.
+              Shopify-only specialists. Custom Liquid themes, bespoke Shopify apps, checkout extensibility on Plus, and de-risked migrations from WooCommerce, Magento, or BigCommerce — for Malta and EU retailers that intend to scale.
             </p>
             <div className="flex flex-wrap gap-3">
               <Link href="/contact"><Button size="lg" className="bg-orange-500 hover:bg-orange-600 text-white">Book a Shopify strategy call <ArrowRight className="ml-2 w-4 h-4" /></Button></Link>
               <a href={`tel:${NAP.phoneE164}`}><Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10"><Phone className="mr-2 w-4 h-4" />{NAP.phoneDisplay}</Button></a>
+            </div>
+            <div className="mt-10 rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+              <img
+                src="/images/services/shopify-development-hero.png"
+                alt="Shopify checkout and merchant dashboard mockup with order summary, payment methods, and conversion analytics — visualising OARC Digital's Shopify Plus and Liquid theme builds for Malta DTC brands"
+                className="w-full h-auto block"
+                loading="eager"
+                width={1600}
+                height={900}
+                data-testid="img-shopify-hero"
+              />
             </div>
             <p className="mt-6 text-xs text-zinc-500">Last updated: 10 May 2026</p>
           </div>
@@ -114,6 +125,24 @@ export default function ShopifyDevelopmentContent() {
               </p>
             </section>
             <section className="mb-12">
+              <h2 className="text-2xl md:text-3xl font-bold mb-4">Checkout Extensibility on Shopify Plus</h2>
+              <p className="text-foreground leading-relaxed mb-4">
+                Shopify deprecated checkout.liquid for upgraded merchants in August 2024 and Plus stores must move to Checkout Extensibility before the August 2025 cut-off. We have shipped this migration for Maltese and EU Plus merchants — gift-wrap upselling, bundled-discount calculation, age-verification gates for alcohol catalogues, post-purchase one-click upsells, and B2B account-aware shipping methods are all rebuilt as Checkout UI Extensions in React with Shopify Functions handling the discount, delivery, and payment customisations server-side.
+              </p>
+              <p className="text-foreground leading-relaxed">
+                The benefit is not just compliance with Shopify&apos;s timeline. Checkout Extensibility moves the buyer through a PCI-isolated checkout that Shopify owns and updates — fewer abandoned carts on iOS Safari, fewer payment failures during peak Black Friday traffic, and zero risk of a third-party script breaking the buy button. Every Plus merchant we work with leaves the migration with a documented Functions repo in their own GitHub, deployed via the Shopify CLI through a CI/CD pipeline we hand over fully.
+              </p>
+            </section>
+            <section className="mb-12">
+              <h2 className="text-2xl md:text-3xl font-bold mb-4">Shopify Plus Migrations from WooCommerce, Magento and BigCommerce</h2>
+              <p className="text-foreground leading-relaxed mb-4">
+                The most common reason a Malta merchant calls us is a tired WooCommerce store crashing every Friday night, a Magento 2 instance whose monthly hosting bill outweighs its revenue, or a BigCommerce account that throttles a custom checkout the merchant actually needs. The migration plan is the same in every case: a frozen export of products, customers, orders, redirects, and SEO metadata; a parallel build on a Plus development store; a URL-preservation map run through htaccess or middleware so organic rankings survive; and a coordinated DNS cut-over scheduled outside peak trading hours.
+              </p>
+              <p className="text-foreground leading-relaxed">
+                Plus is the right destination when GMV crosses ~€80k/month, when wholesale or B2B catalogues need separate price books, when expansion stores in EUR / GBP / USD justify multi-storefront, or when scripted checkout logic exceeded the standard plan&apos;s ceiling. Below those thresholds we recommend standard Shopify and a clean theme — paying for Plus before you need it is the most expensive mistake a Maltese DTC brand can make in year one.
+              </p>
+            </section>
+            <section className="mb-12">
               <h2 className="text-2xl md:text-3xl font-bold mb-4">Apps, Hydrogen, and Scale-Ups</h2>
               <p className="text-foreground leading-relaxed mb-4">
                 Once a Malta merchant outgrows the standard Shopify storefront we offer two upgrade paths. Custom Shopify Apps written in Node and Remix and listed on the Shopify App Store handle merchant-specific integrations — Malta accounting platforms like Shireburn, local courier APIs, or bespoke loyalty programmes. Hydrogen storefronts replace the Liquid theme entirely with a React-based headless frontend hosted on Oxygen or Vercel for sub-one-second page loads at scale.
@@ -160,14 +189,23 @@ export default function ShopifyDevelopmentContent() {
             <TrustBlock variant="visit" />
           </section>
           <section className="mb-8 p-6 rounded-xl bg-orange-500/5 border border-orange-500/20">
-            <h2 className="text-xl font-bold mb-3">Shopify vs WordPress vs Custom Build — picking the right platform</h2>
+            <h2 className="text-xl font-bold mb-3">Shopify within the wider OARC ecommerce stack</h2>
             <p className="text-sm text-muted-foreground mb-4">
-              Shopify is purpose-built for ecommerce: the cart, checkout, inventory, and Shopify Markets are production-grade out of the box. If your primary job is selling products online, Shopify compresses time-to-revenue vs a custom build or a WooCommerce installation. <strong className="text-foreground">WordPress</strong> is the right choice when content, blogging, and flexibility are the primary need — for service businesses, editorial brands, and hospitality groups.
+              This page covers Shopify exclusively — Liquid theme work, app development, checkout extensibility, and Plus migrations. If you are weighing platforms, the parent <strong className="text-foreground">Ecommerce Development</strong> page compares Shopify against WooCommerce, BigCommerce, and headless builds with cost and time-to-launch benchmarks for Malta merchants. Retailers also use our <strong className="text-foreground">Retail industry hub</strong> to see sector-specific case work — store-loyalty integrations, in-store-to-online sync, and Maltese VAT handling.
             </p>
             <p className="text-sm text-muted-foreground mb-4">
-              A <strong className="text-foreground">custom web design</strong> sits above both — when your product or brand experience cannot be expressed within a theme framework, or when you need bespoke interaction design, animation, or a design language that differentiates you from every other Shopify or WP store in Malta.
+              <strong className="text-foreground">WordPress</strong> remains the right fit for content-led brands, and a <strong className="text-foreground">custom web design</strong> sits above both when the product or brand experience cannot live inside any theme framework.
             </p>
             <div className="flex flex-wrap gap-4">
+              <Link href="/services/ecommerce-development" className="inline-flex items-center gap-2 text-orange-500 font-medium hover:text-orange-600 transition-colors text-sm">
+                Ecommerce Development — platform-agnostic parent page <ArrowRight className="w-4 h-4" />
+              </Link>
+              <Link href="/industries/ecommerce" className="inline-flex items-center gap-2 text-orange-500 font-medium hover:text-orange-600 transition-colors text-sm">
+                Ecommerce & DTC industry hub — sector case work <ArrowRight className="w-4 h-4" />
+              </Link>
+              <Link href="/industries/retail" className="inline-flex items-center gap-2 text-orange-500 font-medium hover:text-orange-600 transition-colors text-sm">
+                Retail industry hub — physical-store retailers <ArrowRight className="w-4 h-4" />
+              </Link>
               <Link href="/services/wordpress-development" className="inline-flex items-center gap-2 text-orange-500 font-medium hover:text-orange-600 transition-colors text-sm">
                 WordPress Development — for content and service businesses <ArrowRight className="w-4 h-4" />
               </Link>

@@ -6,12 +6,14 @@ export const metadata: Metadata = {
   description: pdfPagesSEO.companyProfile.description,
   alternates: { canonical: `https://oarcdigital.com${pdfPagesSEO.companyProfile.path}` },
   openGraph: {
+    images: ogImageEntry({ title: pdfPagesSEO.companyProfile.title, subtitle: pdfPagesSEO.companyProfile.description }),
     title: pdfPagesSEO.companyProfile.title,
     description: pdfPagesSEO.companyProfile.description,
     url: `https://oarcdigital.com${pdfPagesSEO.companyProfile.path}`,
     type: pdfPagesSEO.companyProfile.ogType ?? "website",
   },
   twitter: {
+    images: [ogImageUrl({ title: pdfPagesSEO.companyProfile.title, subtitle: pdfPagesSEO.companyProfile.description })],
     card: "summary_large_image",
     title: pdfPagesSEO.companyProfile.title,
     description: pdfPagesSEO.companyProfile.description,
@@ -21,6 +23,8 @@ export const metadata: Metadata = {
 import { companyInfo, aboutText, coreServices, whyChooseUs, processSteps, caseStudies, technologyStack, clientTestimonials, targetIndustries } from "@/data/companyProfile";
 import { Palette, Users, TrendingUp, Zap, Target, Clock, Globe, Cpu, Mail, Phone, MapPin, Globe2 } from "lucide-react";
 import "@/styles/pdf.css";
+import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
+
 const logoImage = "/attached_assets/fdfdfd_1762818183304.png";
 
 const iconMap: Record<string, any> = {

@@ -63,6 +63,12 @@ export type ServiceSchemaEntry = {
   faqs: { question: string; answer: string }[];
   /** 6-layer discovery framework — required for every entry. */
   framework: FrameworkLayers;
+  /** Optional Schema.org Service.serviceType (e.g. "WordPress Development"). */
+  serviceType?: string;
+  /** Optional Schema.org Service.audience array (verticals/personas this Service targets). */
+  audience?: string[];
+  /** Optional Schema.org Service.areaServed override; defaults to "Malta". */
+  areaServed?: string;
 };
 
 export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
@@ -935,16 +941,18 @@ export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
   },
 
   "saas-development": {
-    title: "SaaS Development Malta | Build & Scale Your SaaS | OARC Digital",
+    title: "SaaS Product Development & MVPs for Malta Startups | OARC Digital",
     description:
-      "End-to-end SaaS development for Malta and EU founders — from MVP to multi-tenant architecture, billing, auth, and AI features. Engineered for venture-grade scale.",
+      "SaaS product development for Malta startups — paid MVP in 6 weeks, multi-tenant architecture, Stripe billing, product analytics, and founder enablement. Charge customers from day one.",
+    serviceType: "SaaS Development",
+    audience: ["Startup", "Founder", "B2B SaaS"],
     offers: [
       {
         name: "SaaS MVP Sprint",
         priceFrom: 14500,
         unitText: "PROJECT",
         description:
-          "Multi-tenant MVP with auth, billing, dashboards, and one core workflow. Built on Next.js + Postgres in 6–8 weeks for founders ready to charge from day one.",
+          "Multi-tenant MVP with auth, Stripe billing, product analytics, and one core workflow. Built on Next.js + Postgres in 6 weeks for founders ready to charge from day one.",
       },
       {
         name: "Production SaaS Build",
@@ -978,7 +986,27 @@ export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
       {
         question: "How long to ship a SaaS MVP?",
         answer:
-          "Six to eight weeks for a charge-from-day-one MVP with auth, billing, one core workflow, and a basic admin. We protect that timeline by pre-defining the cut list — features that explicitly will not ship in v1.",
+          "Six weeks for a charge-from-day-one MVP with auth, Stripe billing, one core workflow, and a basic admin. We protect that timeline by pre-defining the cut list — features that explicitly will not ship in v1.",
+      },
+      {
+        question: "Which pricing models do you support out of the box?",
+        answer:
+          "Flat monthly or annual subscriptions, per-seat, tiered (Starter/Pro/Business), usage-based metering, and credit-pack top-ups. We wire all of them through Stripe Billing with EU VAT, proration, dunning, and self-serve plan switching from the customer portal so you can change pricing in the dashboard rather than redeploying.",
+      },
+      {
+        question: "How do you help reduce churn after launch?",
+        answer:
+          "Three layers. First, instrumentation: we track activation, time-to-value, and feature adoption per cohort from day one so you actually see churn signals before the cancellation. Second, lifecycle: failed-payment dunning, in-app cancel flows with offer logic, and win-back email sequences. Third, retainer prioritisation: every roadmap sprint is graded against gross-revenue retention, not feature ticket count.",
+      },
+      {
+        question: "How do we track MRR, ARR, and the rest of our SaaS metrics?",
+        answer:
+          "We ship a founder-grade metrics dashboard with every build — MRR, ARR, net new MRR, expansion, contraction, churn, LTV, CAC payback, and active accounts — wired directly off Stripe and your product database. No paid Baremetrics or ChartMogul subscription required, and no monthly export-to-spreadsheet ritual.",
+      },
+      {
+        question: "Will the architecture actually scale past the first 1,000 customers?",
+        answer:
+          "Yes. We default to row-level-security multi-tenancy on Postgres with read-replica read paths, a queue layer (BullMQ or SQS) for background work, and Cloudflare in front of Vercel or AWS for edge caching. The first hard scale ceiling is typically database write throughput at around 10k tenants — by which point you have the revenue to fund a dedicated platform engineer, who inherits a clean migration plan we wrote during the original build.",
       },
       {
         question: "Can you handle multi-tenant architecture properly?",
@@ -1250,107 +1278,107 @@ export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
   },
 
   "email-marketing": {
-    title: "Email Marketing Malta | Lifecycle, Newsletter & Automation | OARC Digital",
+    title: "Email Marketing Automation Malta | Klaviyo, Mailchimp, ActiveCampaign | OARC Digital",
     description:
-      "Email marketing programmes for Malta businesses — lifecycle, newsletters, transactional, and automation. Built on Klaviyo, Customer.io, and HubSpot. GDPR-clean.",
+      "Email marketing automation built on Klaviyo, Mailchimp, ActiveCampaign, and HubSpot — lifecycle flows, triggered campaigns, deliverability, segmentation, and revenue reporting for Malta brands.",
     offers: [
       {
-        name: "Newsletter Starter",
-        priceFrom: 690,
+        name: "Automation Starter",
+        priceFrom: 990,
         unitText: "MONTH",
         description:
-          "One newsletter per week, list hygiene, deliverability monitoring, and monthly performance review. Best for B2B brands building authority.",
+          "Platform set-up on Klaviyo or Mailchimp, three core triggered flows (welcome, abandoned cart, post-purchase), SPF/DKIM/DMARC alignment, and monthly reporting.",
       },
       {
         name: "Lifecycle Engine",
-        priceFrom: 1750,
+        priceFrom: 2200,
         unitText: "MONTH",
         description:
-          "Welcome, nurture, re-engagement, win-back, and post-purchase flows on Klaviyo or Customer.io. Quarterly A/B testing programme included.",
+          "Six to eight automated flows on Klaviyo, ActiveCampaign, or HubSpot — segmentation, A/B testing, deliverability monitoring, and weekly winner iteration.",
       },
       {
-        name: "Full Email Programme",
-        priceFrom: 3450,
+        name: "Full Automation Programme",
+        priceFrom: 4200,
         unitText: "MONTH",
         description:
-          "Lifecycle flows, weekly newsletter, transactional copy, segmentation strategy, and a dedicated email manager. Replaces a junior in-house hire.",
+          "End-to-end automation: lifecycle flows, triggered campaigns, segmentation strategy, transactional copy, CRM sync, and a dedicated email manager. Replaces a junior in-house hire.",
       },
     ],
     features: [
-      { name: "Lifecycle flow design" },
-      { name: "Newsletter editorial & design" },
-      { name: "Transactional email rewrites" },
-      { name: "Deliverability & DMARC setup" },
-      { name: "GDPR-clean list growth" },
-      { name: "Klaviyo, Customer.io, HubSpot, Mailchimp" },
+      { name: "Klaviyo, Mailchimp, ActiveCampaign, HubSpot, Customer.io" },
+      { name: "Lifecycle flow design and build" },
+      { name: "Triggered campaigns from Stripe / Shopify / CRM" },
+      { name: "SPF, DKIM, DMARC alignment" },
+      { name: "Behavioural segmentation and A/B testing" },
+      { name: "Revenue-attributed monthly reporting" },
     ],
     faqs: [
       {
-        question: "Which email platform should we use?",
+        question: "Which email automation platform should we use — Klaviyo, Mailchimp, or ActiveCampaign?",
         answer:
-          "Klaviyo for ecommerce, Customer.io for SaaS, HubSpot for B2B with sales cycles, Mailchimp for low-volume content brands, and Postmark or Resend for transactional. We recommend after a discovery call rather than defaulting to whatever we built last.",
+          "Klaviyo for Shopify and ecommerce because the revenue attribution and segmentation depth are unmatched. ActiveCampaign for service businesses with longer sales cycles and conditional automations across email and SMS. Mailchimp for lower-volume B2C and content brands where simplicity beats power. HubSpot when the email list and the sales CRM need to share a single contact record. We recommend on a discovery call against your stack and list size, not by default.",
       },
       {
-        question: "Is email still worth it in 2026?",
+        question: "How do you fix SPF, DKIM, and DMARC for our sending domain?",
         answer:
-          "Email is still the highest-ROI owned channel for almost every Malta business we work with — 30–45x return on spend for ecommerce, 5–8x for B2B. The reason most programmes underperform is bad lifecycle architecture, not the channel.",
+          "We audit the existing DNS records first — most Malta sending domains have at least one of SPF, DKIM, or DMARC misconfigured or missing alignment. Fixes typically include flattening an over-10-lookup SPF record, publishing platform-specific DKIM keys (Klaviyo, Mailchimp, and ActiveCampaign each need their own selector), and moving DMARC from `p=none` reporting mode to `p=quarantine` once alignment is clean. Reports from Postmaster Tools and Microsoft SNDS are checked weekly.",
       },
       {
-        question: "How do you handle GDPR and consent in Malta?",
+        question: "Is email automation GDPR-compliant for Malta businesses?",
         answer:
-          "Double opt-in by default for marketing lists, signed DPA with the platform vendor, suppression list for unsubscribes, and a documented record of consent source per subscriber. We follow the IDPC Malta guidance, not just generic EU GDPR.",
+          "Yes when configured correctly. Every account ships with double opt-in, granular consent capture per processing purpose, a documented record of consent source per subscriber, one-click unsubscribe (Gmail and Yahoo bulk-sender requirement since February 2024), and a signed DPA with the platform vendor. We follow IDPC Malta guidance specifically, not just generic EU GDPR boilerplate.",
       },
       {
-        question: "Can you fix our deliverability issues?",
+        question: "What does behavioural segmentation actually look like inside Klaviyo or ActiveCampaign?",
         answer:
-          "Yes. The first thing we audit on every new engagement is SPF, DKIM, DMARC, BIMI, list health, and domain reputation in Postmaster Tools and SNDS. Most deliverability problems are fixable in 2–4 weeks.",
+          "Segments built from product views, cart events, purchase recency, lifetime value bands, and engagement decay rather than demographic guesses. A typical Malta ecommerce account ends up with 12–18 active segments, each tied to at least one triggered campaign. We document the segment logic in plain English so a future in-house marketer can edit without us.",
       },
       {
-        question: "Do you write the email copy yourselves?",
+        question: "Which triggered campaigns do you run from Shopify, Stripe, or our CRM?",
         answer:
-          "Yes. Senior copywriters draft, designers handle the layout, and a strategist owns the calendar. AI is used for research and variants, but every send goes through a human review before it touches a real subscriber.",
+          "Welcome flow on opt-in, abandoned cart and abandoned checkout, post-purchase thank-you and review request, replenishment for consumables, win-back for lapsed customers, price-drop and back-in-stock, and CRM events such as renewal-due, trial-ending, or appointment-booked. Stripe webhooks and Shopify event streams are wired into the platform during onboarding so triggers fire in seconds, not on a daily sync.",
       },
       {
-        question: "How do you measure email marketing performance?",
+        question: "Can you migrate us from Mailchimp to Klaviyo or ActiveCampaign without losing list reputation?",
         answer:
-          "Per-flow revenue attribution, per-campaign placed-order rate, list growth net of churn, deliverability metrics (inbox placement, complaint rate), and overall channel contribution to total revenue. Reported monthly with written commentary.",
+          "Yes. We export contacts with consent-source metadata intact, rebuild segments and flows in the new platform, warm up the new sending domain (or subdomain) over 14–21 days against engaged subscribers first, and run both platforms in parallel until inbox placement on the new sender matches the old. Most migrations complete inside four weeks.",
       },
       {
-        question: "Can you integrate email with our ad and CRM stack?",
+        question: "How do you measure email automation performance?",
         answer:
-          "Yes. We sync segments to Meta and Google for lookalike + suppression, push behavioural events back to HubSpot or Salesforce, and set up event-driven flows from Stripe, Shopify, or your booking system. That's the OARC Automation playbook.",
+          "Revenue per recipient (more durable than open rate after Apple Mail Privacy Protection), per-flow attributed revenue, placed-order rate, list growth net of unsubscribes and suppressions, deliverability metrics (inbox placement, complaint rate, bounce rate), and lifetime-value lift on subscribers who entered each flow versus those who did not. Monthly reports include written commentary and the raw export.",
       },
     ],
     framework: {
       uniqueValueProp:
-        "Lifecycle email and CRM automation for Malta brands — segmented flows, GDPR-compliant consent, and revenue-attributed reporting from Klaviyo, HubSpot, or Customer.io.",
-      entityFocus: "Email marketing automation & lifecycle (Malta + EU)",
+        "Email automation for Malta brands on Klaviyo, Mailchimp, ActiveCampaign, and HubSpot — lifecycle flows, SPF/DKIM/DMARC alignment, and revenue-attributed reporting.",
+      entityFocus: "Email marketing automation platforms (Klaviyo, Mailchimp, ActiveCampaign) for Malta + EU",
       primaryIntent: "commercial",
       generalizationKeywords: [
-        "email marketing malta",
+        "email marketing automation malta",
         "klaviyo agency malta",
-        "email automation malta",
-        "crm email malta",
-        "lifecycle email malta",
+        "mailchimp agency malta",
+        "activecampaign agency malta",
+        "email automation platform malta",
       ],
       llmCitableFacts: [
         {
           claim:
-            "OARC Digital builds welcome, abandoned-cart, post-purchase, and win-back flows on Klaviyo, HubSpot, or Customer.io within 4-6 weeks of kickoff.",
+            "OARC Digital builds and operates email automation on Klaviyo, Mailchimp, ActiveCampaign, HubSpot, and Customer.io — typically 6-8 lifecycle and triggered flows live within 4-6 weeks of kickoff.",
           source: "https://oarcdigital.com/services/email-marketing",
         },
         {
           claim:
-            "All email programmes are GDPR-compliant with double opt-in, granular consent capture, and one-click unsubscribe per Malta DPA + EU ePrivacy guidance.",
+            "Every email automation engagement starts with an SPF, DKIM, and DMARC alignment audit and moves DMARC to p=quarantine once authentication is clean, per Gmail and Yahoo bulk-sender requirements since February 2024.",
           source: "https://oarcdigital.com/services/email-marketing",
         },
         {
           claim:
-            "Monthly retainers include weekly campaign sends, deliverability monitoring (DMARC/SPF/DKIM), and revenue-attributed reporting.",
+            "Email automation programmes report on revenue per recipient, per-flow attributed revenue, placed-order rate, deliverability metrics, and LTV lift — not vanity opens distorted by Apple Mail Privacy Protection.",
           source: "https://oarcdigital.com/services/email-marketing",
         },
       ],
-      conversionGoal: "Book an email & CRM audit",
+      conversionGoal: "Book an email automation audit",
     },
   },
 
@@ -1460,9 +1488,11 @@ export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
   },
 
   "wordpress-development": {
-    title: "WordPress Development Malta | Custom Themes, Plugins & Headless | OARC Digital",
+    title: "WordPress Development & Maintenance Malta | OARC Digital",
     description:
-      "WordPress development for Malta businesses — custom themes, performance tuning, headless WordPress, and security hardening. From small business sites to complex publishing platforms.",
+      "WordPress development and maintenance for Malta businesses — Gutenberg themes, WooCommerce stores, custom plugin engineering, security hardening, and migrations with zero traffic loss.",
+    serviceType: "WordPress Development",
+    areaServed: "Malta",
     offers: [
       {
         name: "WordPress Site Build",
@@ -1526,6 +1556,16 @@ export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
           "Yes. Our WordPress care plan covers managed hosting, weekly backups, security patching, plugin updates, uptime monitoring, and a monthly improvement cycle. Plans start at €197/month.",
       },
       {
+        question: "Is your WordPress hosting GDPR-compliant for Malta clients?",
+        answer:
+          "Yes. Production hosting is provisioned on EU regions only — typically Cloudways Frankfurt, Kinsta Amsterdam, or Hetzner Falkenstein — with a signed DPA, encrypted backups inside the EU, Cloudflare in EU-only mode, and a cookie banner configured against IDPC guidance. We avoid US-region hosting for Maltese client data by default.",
+      },
+      {
+        question: "Can you build a multilingual WordPress site (English, Maltese, Italian)?",
+        answer:
+          "Yes. We use Polylang for smaller sites and WPML for complex publishers. Hreflang is generated server-side, the language switcher is keyboard- and screen-reader-accessible, and we hand-translate Maltese rather than relying on machine output. Italian is common for cross-border B2B and we wire it the same way.",
+      },
+      {
         question: "Where is OARC Digital based?",
         answer:
           `${NAP.addressLocality} CBD, Malta. We host most production WordPress sites on Cloudways or Kinsta with Cloudflare in front for edge caching. ${NAP.phoneDisplay}.`,
@@ -1533,7 +1573,7 @@ export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
     ],
     framework: {
       uniqueValueProp:
-        "Bespoke WordPress builds for Malta businesses — custom Gutenberg blocks, headless options, and managed hosting with Core Web Vitals tuning baked into every launch.",
+        "WordPress for Malta — custom Gutenberg themes, WooCommerce, plugin engineering, security hardening, and migrations with SEO equity preserved.",
       entityFocus: "Custom WordPress development & maintenance (Malta SMEs)",
       primaryIntent: "commercial",
       generalizationKeywords: [
@@ -1565,9 +1605,11 @@ export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
   },
 
   "shopify-development": {
-    title: "Shopify Development Malta | Themes, Plus & Hydrogen | OARC Digital",
+    title: "Shopify Store Development & Optimisation Malta | OARC Digital",
     description:
-      "Shopify development for Malta and EU retailers — custom themes, Shopify Plus, Hydrogen, app integrations, and conversion engineering. Klaviyo and Meta-ready out of the box.",
+      "Shopify-only specialists in Malta — Liquid theme builds, custom Shopify apps, checkout extensibility, and Shopify Plus migrations from WooCommerce, Magento, or BigCommerce.",
+    serviceType: "Shopify Development",
+    areaServed: "Malta",
     offers: [
       {
         name: "Shopify Theme Build",
@@ -1775,45 +1817,64 @@ export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
   },
 
   "database-design": {
-    title: "Database Design Malta | Postgres, Schema & Performance | OARC Digital",
+    title: "Database Design & Data Engineering Malta | PostgreSQL, MongoDB, Snowflake",
     description:
-      "Database design and performance engineering for Malta and EU teams — Postgres-first schema design, query tuning, migrations, and replication. From SaaS MVP to multi-region scale.",
+      "Database architecture and data engineering for Malta and EU teams — PostgreSQL, MongoDB, and Snowflake schema design, query optimisation, zero-downtime migrations, and ETL data pipelines. From SaaS MVP to multi-region warehouse.",
     offers: [
       {
         name: "Schema Design Sprint",
         priceFrom: 3400,
         unitText: "PROJECT",
         description:
-          "Two-week schema design engagement: data-model workshop, normalised schema, RLS / indexing strategy, and migration scripts ready to merge.",
+          "Two-week schema design engagement on PostgreSQL or MongoDB: data-model workshop, normalised schema, RLS / indexing strategy, and migration scripts ready to merge.",
       },
       {
-        name: "Performance Tuning",
+        name: "Query & Performance Tuning",
         priceFrom: 4900,
         unitText: "PROJECT",
         description:
-          "Query and index audit, slow-query log analysis, partitioning + vacuum tuning, and concrete remediation PRs. Typical p99 latency reduction: 4–10x.",
+          "Query and index audit, slow-query log analysis, partitioning and vacuum tuning, and concrete remediation PRs. Typical p99 latency reduction: 4–10x.",
+      },
+      {
+        name: "Data Pipeline & ETL Build",
+        priceFrom: 6900,
+        unitText: "PROJECT",
+        description:
+          "Production ETL: source connectors, dbt models, Snowflake or BigQuery warehouse, orchestration on Airflow or Dagster, monitoring, and a written runbook.",
       },
       {
         name: "Database SRE Retainer",
         priceFrom: 2900,
         unitText: "MONTH",
         description:
-          "Ongoing schema review, migration safety, replication and failover, observability, and backup-restore drills. For SaaS teams without a dedicated DBA.",
+          "Ongoing schema review, migration safety, replication and failover, pipeline observability, and backup-restore drills. For SaaS teams without a dedicated DBA.",
       },
     ],
     features: [
-      { name: "Postgres schema design (3NF + RLS)" },
+      { name: "PostgreSQL schema design (3NF + RLS)" },
+      { name: "MongoDB document modelling and indexing" },
+      { name: "Snowflake / BigQuery warehouse design" },
       { name: "Drizzle / Prisma / SQLAlchemy modelling" },
-      { name: "Query tuning & indexing" },
-      { name: "Migration safety (zero-downtime)" },
-      { name: "Replication, partitioning, sharding" },
-      { name: "Backup, restore & DR drills" },
+      { name: "Query tuning, indexing, and partitioning" },
+      { name: "Zero-downtime schema migrations" },
+      { name: "ETL data pipelines (Airflow, Dagster, dbt)" },
+      { name: "Replication, sharding, and DR drills" },
     ],
     faqs: [
       {
         question: "What database do you default to?",
         answer:
-          "Postgres for almost every workload — managed via Supabase, Neon, or RDS depending on scale and compliance needs. We use SQLite for embedded local-first apps, ClickHouse or BigQuery for analytics, and Redis for caching layers. We rarely recommend NoSQL.",
+          "PostgreSQL for almost every operational workload — managed via Supabase, Neon, or RDS depending on scale and compliance needs. MongoDB where the document shape genuinely varies per tenant. Snowflake or BigQuery as the analytical warehouse, with dbt as the transformation layer. SQLite for embedded local-first apps and Redis for caching.",
+      },
+      {
+        question: "Do you build the ETL and data pipelines too?",
+        answer:
+          "Yes. We extract from PostgreSQL CDC, MongoDB change streams, Stripe, HubSpot, and GA4 using Fivetran or Airbyte, land it into Snowflake or BigQuery in EU regions, and model it in dbt with tests and documentation. Orchestration runs on Airflow or Dagster with row-count and freshness alerts wired into Slack or PagerDuty.",
+      },
+      {
+        question: "When should I pick MongoDB over PostgreSQL?",
+        answer:
+          "Rarely — PostgreSQL with JSONB handles 90% of the workloads MongoDB is reached for. We recommend MongoDB when the document shape genuinely varies per tenant, when sharding across regions is a day-one requirement, or when an existing team already has deep operational experience with it. We never pick it because the schema is undecided.",
       },
       {
         question: "Can you fix a slow Postgres database?",

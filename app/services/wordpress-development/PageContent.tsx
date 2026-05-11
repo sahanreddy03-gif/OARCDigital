@@ -39,6 +39,17 @@ export default function WordPressDevelopmentContent() {
               <Link href="/contact"><Button size="lg" className="bg-orange-500 hover:bg-orange-600 text-white">Book a WordPress audit <ArrowRight className="ml-2 w-4 h-4" /></Button></Link>
               <a href={`tel:${NAP.phoneE164}`}><Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10"><Phone className="mr-2 w-4 h-4" />{NAP.phoneDisplay}</Button></a>
             </div>
+            <div className="mt-10 rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+              <img
+                src="/images/services/wordpress-development-hero.png"
+                alt="WordPress Gutenberg block editor admin dashboard mockup with a Malta harbour skyline visible through the office window — illustrating OARC Digital's custom WordPress builds for Malta businesses"
+                className="w-full h-auto block"
+                loading="eager"
+                width={1600}
+                height={900}
+                data-testid="img-wordpress-hero"
+              />
+            </div>
             <p className="mt-6 text-xs text-zinc-500">Last updated: 10 May 2026</p>
           </div>
         </section>
@@ -102,6 +113,33 @@ export default function WordPressDevelopmentContent() {
               </p>
             </section>
             <section className="mb-12">
+              <h2 className="text-2xl md:text-3xl font-bold mb-4">WooCommerce Stores Without the 40-Plugin Tax</h2>
+              <p className="text-foreground leading-relaxed mb-4">
+                WooCommerce is the right ecommerce engine for Malta retailers under roughly 1,500 SKUs who already have content investment in WordPress, run a small product team, or need deep editorial integration between blog content and product pages. We build WooCommerce stores the same way we build the rest of our WordPress work — bespoke theme on top of the block editor, fewer than ten production plugins, and the Maltese VAT matrix (18 / 7 / 5 percent) baked into the cart at checkout rather than bolted on after the first VAT return goes wrong.
+              </p>
+              <p className="text-foreground leading-relaxed">
+                Payments wire to Revolut Business, Stripe, or BOV Merchant Services with 3-D Secure 2 enforced; shipping integrates Maltese Post for domestic and DHL or FedEx for cross-border with live rate calls. Klaviyo handles the email loop because Mailchimp under-delivers in low-volume EU markets, and the Schema.org Product feed ships ready for Google Shopping and Bing Merchant Center on day one. For larger catalogues, a deeper feature set, or international Plus-grade scale we will tell you honestly when Shopify is the better engine before any code is written.
+              </p>
+            </section>
+            <section className="mb-12">
+              <h2 className="text-2xl md:text-3xl font-bold mb-4">Custom Plugin Engineering, Not Plugin Hoarding</h2>
+              <p className="text-foreground leading-relaxed mb-4">
+                Most performance and security incidents in Malta WordPress sites trace back to a stack of twenty-plus plugins that were installed once for a single feature and never reviewed again. Our policy is the opposite: every plugin earns its place against a documented business requirement, and where the requirement is unique we ship a small, audited custom plugin instead of grafting two third-party plugins together. Typical custom plugin work for our clients includes Maltese-VAT receipt generation, NIC.mt domain renewal reminders inside the admin, Salesforce / HubSpot lead sync, MFSA-style audit logs for regulated content workflows, and bespoke Gutenberg blocks tied to the brand's design system.
+              </p>
+              <p className="text-foreground leading-relaxed">
+                Every custom plugin we deliver ships with a README, a changelog, semantic versioning, PHPUnit tests for the critical paths, a GitHub repository in the client's organisation, and a CI pipeline that runs the test suite on every push. The plugin is yours — IP-assigned in the SOW — and a written handover document explains how to extend it without re-engaging us. Lock-in is a business model we have deliberately walked away from.
+              </p>
+            </section>
+            <section className="mb-12">
+              <h2 className="text-2xl md:text-3xl font-bold mb-4">Migrations With a One-to-One 301 Map and No Ranking Loss</h2>
+              <p className="text-foreground leading-relaxed mb-4">
+                Migrations are where most Malta WordPress projects quietly burn six months of organic traffic. Our process is built around preventing that. Week one is a full crawl of the existing site, an export of every indexed URL from Google Search Console, and a side-by-side mapping spreadsheet that pairs every legacy URL with its successor on the new site. Where a page is being retired, the redirect target is the closest topical match — never a blanket bounce to the homepage, which dilutes link equity and tanks rankings within the first two weeks.
+              </p>
+              <p className="text-foreground leading-relaxed">
+                Content moves block-by-block into the new theme's pattern library, media is re-encoded into AVIF and WebP at the correct breakpoints, internal links are rewritten to canonical URLs, and the redirect map is shipped as server-level 301s (Nginx or Apache .htaccess) rather than a plugin to keep the redirect overhead at zero milliseconds. Post-launch, we monitor Google Search Console daily for the first 30 days, fix any unexpected 404s within 24 hours, and publish a written ranking-stability report at day 30, day 60, and day 90 so the client can verify SEO equity has held — or know exactly which URL needs another look.
+              </p>
+            </section>
+            <section className="mb-12">
             <h2 className="text-2xl md:text-3xl font-bold mb-4">Working With Marketing and Editorial Teams</h2>
             <p className="text-foreground leading-relaxed">
               Most of our WordPress builds are handed over to a small marketing or editorial team rather than a dedicated developer. We design the back-of-house experience around that reality: every block has clear in-editor instructions, image fields enforce aspect ratios so layouts cannot break, and the dashboard is stripped of the eighty-plus default WordPress menu items down to the six the team actually uses. Two-hour onboarding sessions for content owners are included in every build — recorded, transcribed, and stored in the client's shared drive — so new hires can pick up the workflow without a second invoice from us. Where required we also wire WordPress to a headless front end on Next.js for a complete editor-friendly back office paired with a sub-second public site.
@@ -145,6 +183,9 @@ export default function WordPressDevelopmentContent() {
             <TrustBlock variant="visit" />
           </section>
           <section className="mb-8 p-6 rounded-xl bg-orange-500/5 border border-orange-500/20">
+            <p className="text-sm text-muted-foreground mb-3">
+              WordPress development sits inside our broader <Link href="/services/web-design" className="text-orange-500 font-medium hover:text-orange-600 transition-colors">web design and engineering practice</Link> — start there if you need a custom front-end stack outside the WordPress ecosystem (Next.js, Astro, headless CMS).
+            </p>
             <h2 className="text-xl font-bold mb-3">WordPress vs Shopify — choosing the right CMS for your Malta business</h2>
             <p className="text-sm text-muted-foreground mb-4">
               WordPress is the right choice when your business needs a flexible, content-led site — a service business, a hospitality group, a professional-services firm, or any brand where editorial publishing and SEO are central to growth. It scales to any content complexity and integrates with every marketing tool on the planet.

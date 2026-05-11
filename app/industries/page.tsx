@@ -1,18 +1,23 @@
 import type { Metadata } from "next";
+import RouteSchema from "@/components/RouteSchema";
+import { getHreflangAlternates, SpeakableJsonLd } from "@/lib/seo/discoveryTags";
+import { SUPPORTING_PAGE_SCHEMAS } from "@/lib/seo/supportingPagesSchema";
 
 export const metadata: Metadata = {
   title: "Industries We Serve in Malta | OARC Digital",
-  description: "OARC Digital serves restaurants, hotels, healthcare, legal, professional services, construction, beauty, automotive, education, NGOs, iGaming, fintech, real estate, retail, fitness, wellness, and events across Malta. Pick your industry to see how we package the offer.",
-  alternates: { canonical: "https://oarcdigital.com/industries" },
+  description: "OARC Digital serves restaurants, hotels, healthcare, legal, professional services, construction, beauty, automotive, education, NGOs, iGaming, fintech, real estate, retail, ecommerce, fitness, wellness, and events across Malta. Pick your industry to see how we package the offer.",
+  alternates: getHreflangAlternates("/industries"),
   openGraph: {
+    images: ogImageEntry({ title: "Industries We Serve in Malta | OARC Digital", subtitle: "OARC Digital serves restaurants, hotels, healthcare, legal, professional services, construction, beauty, automotive, education, NGOs, iGaming, fintech, real estate, retail, ecommerce, fitness, wellness, and events across Malta. Pick your industry to see how we package the offer." }),
     title: "Industries We Serve in Malta | OARC Digital",
-    description: "OARC Digital serves 19 industries across Malta with industry-specific marketing, video, and AI systems. Find your sector to see the packaged offer, common pain points, and the services that move the needle for businesses like yours.",
+    description: "OARC Digital serves 15 industries across Malta with industry-specific marketing, video, and AI systems. Find your sector to see the packaged offer, common pain points, and the services that move the needle for businesses like yours.",
     url: "https://oarcdigital.com/industries",
   },
   twitter: {
+    images: [ogImageUrl({ title: "Industries We Serve in Malta | OARC Digital", subtitle: "OARC Digital serves restaurants, hotels, healthcare, legal, professional services, construction, beauty, automotive, education, NGOs, iGaming, fintech, real estate, retail, ecommerce, fitness, wellness, and events across Malta. Pick your industry to see how we package the offer." })],
     card: "summary_large_image",
     title: "Industries We Serve in Malta | OARC Digital",
-    description: "OARC Digital serves 19 industries across Malta with industry-specific marketing, video, and AI systems. Find your sector below.",
+    description: "OARC Digital serves 15 industries across Malta with industry-specific marketing, video, and AI systems. Find your sector below.",
   },
 };
 
@@ -30,6 +35,7 @@ import {
   CreditCard,
   Home,
   ShoppingBag,
+  ShoppingCart,
   Dumbbell,
   Sparkles,
   PartyPopper,
@@ -45,6 +51,8 @@ import {
 } from 'lucide-react';
 import Layout from '@/components/layout/Layout';
 import { Button } from '@/components/ui/button';
+import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
+
 
 type Industry = { slug: string; name: string; description: string; icon: LucideIcon; caseStudyCount: number };
 
@@ -59,6 +67,7 @@ const industries: Industry[] = [
   { slug: 'fintech', name: 'Fintech', description: 'Trust-building branding, lead nurturing, and B2B automation', icon: CreditCard, caseStudyCount: 1 },
   { slug: 'real-estate', name: 'Real Estate', description: 'Property video, lead generation, and international buyer campaigns', icon: Home, caseStudyCount: 3 },
   { slug: 'retail', name: 'Retail', description: 'Product content, e-commerce strategy, and foot traffic campaigns', icon: ShoppingBag, caseStudyCount: 2 },
+  { slug: 'ecommerce', name: 'Ecommerce & DTC', description: 'Shopify builds, Klaviyo lifecycle, paid social, and Plus migrations for DTC brands', icon: ShoppingCart, caseStudyCount: 0 },
   { slug: 'fitness', name: 'Fitness', description: 'Member acquisition, transformation content, and retention automation', icon: Dumbbell, caseStudyCount: 2 },
   { slug: 'wellness', name: 'Wellness', description: 'Authentic brand storytelling, SEO, and online booking optimisation', icon: Sparkles, caseStudyCount: 1 },
   { slug: 'events', name: 'Events', description: 'Ticket sales campaigns, event content, and audience building', icon: PartyPopper, caseStudyCount: 0 },
@@ -72,6 +81,14 @@ const industries: Industry[] = [
   { slug: 'nonprofits-ngos', name: 'Non-Profits & NGOs', description: 'Donor acquisition, Google Ad Grants, and ethical impact storytelling', icon: HeartHandshake, caseStudyCount: 0 },
 ];
 
+// Task #138 (Programmatic cluster cull): hubs whose `/industries/<slug>`
+// page currently 308s back to /industries (because the data record isn't
+// built yet) MUST be excluded from both the visible grid AND the
+// CollectionPage ItemList — otherwise we'd serve a self-loop and emit a
+// schema URL that immediately bounces.
+import { INDUSTRY_HUBS_PENDING_CONTENT } from '@/lib/seo/seoSets';
+const liveIndustries = industries.filter((i) => !INDUSTRY_HUBS_PENDING_CONTENT.has(i.slug));
+
 // CollectionPage + ItemList JSON-LD for the master industries hub.
 const itemListJsonLd = {
   '@context': 'https://schema.org',
@@ -79,11 +96,11 @@ const itemListJsonLd = {
   '@id': 'https://oarcdigital.com/industries#collection',
   name: 'Industries We Serve in Malta',
   url: 'https://oarcdigital.com/industries',
-  description: 'OARC Digital serves 19 industries across Malta with industry-specific marketing, video, and AI systems.',
+  description: `OARC Digital serves ${liveIndustries.length} industries across Malta with industry-specific marketing, video, and AI systems.`,
   mainEntity: {
     '@type': 'ItemList',
-    numberOfItems: industries.length,
-    itemListElement: industries.map((ind, i) => ({
+    numberOfItems: liveIndustries.length,
+    itemListElement: liveIndustries.map((ind, i) => ({
       '@type': 'ListItem',
       position: i + 1,
       url: `https://oarcdigital.com/industries/${ind.slug}`,
@@ -95,6 +112,14 @@ const itemListJsonLd = {
 export default function Page() {
   return (
     <Layout>
+      <SpeakableJsonLd path="/industries" />
+      <RouteSchema
+        type="pillar"
+        path="/industries"
+        title="Industries — OARC Digital Serves Hospitality, iGaming, Fintech & More"
+        description="OARC Digital serves restaurants, hotels, healthcare, legal, professional services, construction, beauty, automotive, education, NGOs, iGaming, fintech, real estate, retail, ecommerce, fitness, and wellness across Malta."
+        faqs={SUPPORTING_PAGE_SCHEMAS["/industries"].faqs}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListJsonLd) }}
@@ -113,7 +138,7 @@ export default function Page() {
               Industry-Specific Marketing for Malta Businesses
             </h1>
             <p className="text-xl text-zinc-300 max-w-2xl mx-auto mb-8">
-              Generic marketing rarely lands. We build sector-specific systems for {industries.length} industries across Malta — each with its own buyer, its own regulator, and its own pain points.
+              Generic marketing rarely lands. We build sector-specific systems for {liveIndustries.length} industries across Malta — each with its own buyer, its own regulator, and its own pain points.
             </p>
             <a href="https://wa.me/35679711799" target="_blank" rel="noopener noreferrer" data-testid="link-hero-whatsapp">
               <Button size="lg" className="bg-orange-500 hover:bg-orange-600 text-white" data-testid="button-find-industry">
@@ -128,7 +153,7 @@ export default function Page() {
           <div className="max-w-7xl mx-auto px-6 md:px-8">
             <h2 className="text-3xl font-bold mb-12 text-center">Industries We Serve</h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {industries.map((ind) => {
+              {liveIndustries.map((ind) => {
                 const Icon = ind.icon;
                 return (
                   <Link key={ind.slug} href={`/industries/${ind.slug}`} data-testid={`link-industry-${ind.slug}`}>

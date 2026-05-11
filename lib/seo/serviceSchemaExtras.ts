@@ -6,6 +6,15 @@ export type ServiceSchemaExtra = {
   offers: OfferOpts[];
   features: ServiceFeature[];
   faqs: { question: string; answer: string }[];
+  /** Optional Schema.org Service.serviceType for vertical/industry-specific
+   *  Service nodes (e.g. /services/paid declares "Industry-Specific Paid
+   *  Advertising" to disambiguate from /services/paid-advertising). */
+  serviceType?: string;
+  /** Optional Schema.org Service.audience array (verticals targeted). */
+  audience?: string[];
+  /** Optional Schema.org Service.areaServed override. Defaults to "Malta"
+   *  inside buildService when not set. */
+  areaServed?: string;
 };
 
 export const SERVICE_SCHEMA_EXTRAS: Record<string, ServiceSchemaExtra> = {
@@ -1873,70 +1882,90 @@ export const SERVICE_SCHEMA_EXTRAS: Record<string, ServiceSchemaExtra> = {
   },
 
   "influencer": {
-    title: "Influencer Marketing Services Malta | Creator Partnerships at Scale | OARC Digital",
+    title:
+      "Malta Influencer Marketing | Local Creator Network for Hospitality, Lifestyle & iGaming",
     description:
-      "Influencer marketing for Malta and EU brands — Maltese creators, EU micro-influencers, and global macro talent. Briefed, contracted, and reported as cost-per-acquired-customer.",
+      "Malta-local creator partnerships for hospitality, lifestyle, sport, food and MGA-licensed iGaming brands. We source, brief and contract Maltese creators who actually move bookings, deposits and footfall.",
+    serviceType: "Local Influencer & Creator Marketing",
+    areaServed: "Malta",
+    audience: [
+      "Hospitality (hotels, restaurants, beach clubs)",
+      "Lifestyle (fashion, beauty, wellness, family)",
+      "Sport and fitness brands",
+      "Food and beverage operators",
+      "iGaming (MGA-licensed operators within marketing rules)",
+    ],
     offers: [
       {
-        name: "Single Campaign",
-        priceFrom: 4500,
+        name: "Local Launch Campaign",
+        priceFrom: 3900,
         unitText: "PROJECT",
         description:
-          "5 creators, briefed and contracted, 10 pieces of content delivered, performance report inclusive of paid amplification recommendations.",
+          "5 Malta-based creators, fully briefed and contracted, 10 pieces of content for one launch moment — opening week, new menu, product drop or summer season — with a performance report on bookings, footfall or sign-ups.",
       },
       {
-        name: "Always-On Creator Pod",
-        priceFrom: 4900,
+        name: "Always-On Maltese Creator Pod",
+        priceFrom: 4400,
         unitText: "MONTH",
         description:
-          "8-12 creators / month on rolling brief, content rights for paid ad usage, monthly performance reports.",
+          "8-12 Maltese creators per month on a rolling brief across hospitality, lifestyle and food verticals, with paid usage rights, weekly content cadence and a monthly review against booking and revenue data.",
       },
       {
-        name: "Brand Ambassador Program",
-        priceFrom: 14500,
+        name: "Hospitality Ambassador Programme",
+        priceFrom: 12500,
         unitText: "PROJECT",
         description:
-          "12-month ambassador program — 3-5 long-term creators, retainer contracts, exclusivity terms, monthly content cadence.",
+          "12-month ambassador programme for one hotel, restaurant group or destination brand — 3-5 long-term Maltese creators on retainer, exclusivity within category, monthly cadence and quarterly on-property shoot days.",
       },
     ],
     features: [
-      { name: "Maltese creator roster" },
-      { name: "EU micro-influencer network" },
-      { name: "Briefing and contract management" },
-      { name: "Content rights for paid amplification" },
-      { name: "ASA / EU disclosure compliance" },
-      { name: "Performance reporting (CPA, ROAS)" },
+      { name: "Maltese creator network across hospitality, lifestyle, sport and food" },
+      { name: "iGaming-aware briefs that respect MGA marketing rules" },
+      { name: "Briefing, contract and payment management in EUR" },
+      { name: "Content rights for paid amplification on Meta and TikTok" },
+      { name: "ASA Malta and EU disclosure compliance" },
+      { name: "Reporting tied to bookings, deposits or footfall — not just reach" },
     ],
     faqs: [
       {
-        question: "Do you have a Malta-specific creator roster?",
+        question: "Why work with Maltese creators instead of import influencers from London or Milan?",
         answer:
-          "Yes — we maintain working relationships with around 80 Malta-based creators across lifestyle, food, hospitality, tech, and family verticals, plus a wider EU bench. For Malta-only campaigns we usually shortlist 8-12 creators in the first 48 hours.",
+          "Local recognition. A creator who is genuinely known on the islands lands better with buyers in Sliema, St Julian's, Valletta and Gozo than a flown-in macro influencer. They already eat at the restaurants you compete with, drink at the same beach clubs, and their followers convert into actual table bookings or hotel stays — not vanity reach from an audience that will never visit Malta.",
       },
       {
-        question: "How do you measure influencer ROI?",
+        question: "Which creator categories does the network cover?",
         answer:
-          "Three layers: (1) creator-level — engagement, completion, audience overlap; (2) campaign-level — referral codes, UTMs, post-purchase surveys; (3) business-level — incremental cost-per-acquired-customer attributable to the campaign window.",
+          "Five working categories: hospitality (hotel, restaurant, beach club and venue creators), lifestyle (fashion, beauty, wellness, family), sport and fitness, food and beverage, and entertainment (DJ, music, nightlife). We deliberately avoid categories where we lack real Maltese depth — politics, hard news commentary and finance influencers are not on the roster.",
       },
       {
-        question: "Do you handle ASA Malta and EU disclosure compliance?",
+        question: "Will you name specific creators in the proposal?",
         answer:
-          "Yes — every brief includes the disclosure language for the relevant jurisdiction (#ad / #advertising / sponsored / paid partnership) and we audit posts at delivery. Non-compliance gets corrected before payout.",
+          "Not in the public proposal. The first conversation discusses category, audience size and budget. Once the brief is signed and an NDA is in place, you receive a shortlist of named Maltese creators with audience demographics, engagement history and past brand partnerships. This protects creator pricing and the brands they have worked with.",
       },
       {
-        question: "Can the content be re-used as paid ads?",
+        question: "Can you run an iGaming influencer campaign in Malta?",
         answer:
-          "Always-On Creator Pod and Ambassador Program contracts include 90-day or 12-month paid usage rights for the brand. Single-campaign contracts can extend usage rights for an additional fee.",
+          "Yes — for MGA-licensed operators only, and only for creators whose audience is 18+ and whose content is reviewable against MGA marketing rules and platform policy. We refuse work for unlicensed operators and never run player-acquisition creative that breaches responsible-gaming guidelines or hides the affiliate relationship.",
       },
       {
-        question: "What about macro / celebrity talent?",
+        question: "How do you measure whether a Malta creator campaign worked?",
         answer:
-          "We broker macro talent (>500k followers) and Malta celebrity talent on a per-deal basis, typically for launch moments. Pricing is bespoke.",
+          "Three reporting layers tied to your business, not just to the post. Creator-level — reach, completion, save and share rate per piece of content. Campaign-level — UTMs, discount codes, QR menu scans and form fills attributable to the campaign window. Business-level — bookings, table covers, hotel nights, deposits or sign-ups in the week after the post versus the prior baseline.",
       },
       {
         question: "How is this different from /services/influencer-marketing?",
         answer:
-          "/services/influencer is the lead gateway — many buyers search 'influencer agency' generically. /services/influencer-marketing goes deeper on the strategy + program side. Same team, slightly different content and offers.",
+          "/services/influencer-marketing is the generic strategy and programme offer for any market — Malta, EU or further afield. /services/influencer is specifically the Malta-local creator network: Maltese creators only, hospitality / lifestyle / iGaming focus, and reporting that ties back to revenue on the islands. Pick this page if your brand operates in Malta and wants local recognition.",
+      },
+      {
+        question: "What is the minimum campaign size?",
+        answer:
+          "The Local Launch Campaign at €3,900 is the floor. Below that, contract management, payments and reporting eat too much of the brief to leave anything meaningful for the creators themselves. Smaller pilots are usually better served as a single hospitality content shoot through /services/social-media-creative-management.",
+      },
+      {
+        question: "Who owns the content after the campaign ends?",
+        answer:
+          "Each contract spells it out. The default for the Always-On pod and Ambassador programmes is 90-day to 12-month paid usage rights for the brand on Meta and TikTok, plus permanent organic re-share rights with the original credit. Single-campaign contracts default to 30-day paid usage and can be extended for an additional fee per creator.",
       },
     ],
   },
@@ -2494,65 +2523,92 @@ export const SERVICE_SCHEMA_EXTRAS: Record<string, ServiceSchemaExtra> = {
   },
 
   "paid": {
-    title: "Paid Advertising Services Malta | Meta, Google, TikTok | OARC Digital",
+    title:
+      "Industry-Specific Paid Ads in Malta | Hospitality, iGaming, E-commerce, Real Estate, SaaS",
     description:
-      "Paid advertising services for Malta and EU brands — Meta, Google, TikTok, LinkedIn, YouTube. Daily account work, weekly creative iteration, monthly business reviews.",
+      "Vertical-first paid advertising for Malta hospitality, iGaming, e-commerce, real estate and SaaS brands. Industry buying psychology, channel mix and creative built for each sector.",
+    serviceType: "Industry-Specific Paid Advertising",
+    areaServed: "Malta",
+    audience: [
+      "Hospitality (hotels, restaurants, venues)",
+      "iGaming (MGA-licensed operators and affiliates)",
+      "E-commerce (DTC and marketplace brands)",
+      "Real estate (sales agencies and developers)",
+      "SaaS (B2B software, fintech, developer tools)",
+    ],
     offers: [
       {
-        name: "Paid Pilot",
-        priceFrom: 1900,
-        unitText: "MONTH",
+        name: "Industry Sprint",
+        priceFrom: 2400,
+        unitText: "PROJECT",
         description:
-          "Single platform (Meta or Google) under €25k/mo spend, daily optimisation and weekly reporting.",
+          "Two-week vertical-fit audit: industry research, competitor teardown, channel-mix recommendation, and a 30-day test plan tailored to your sector.",
       },
       {
-        name: "Paid Multi-Channel",
-        priceFrom: 3900,
+        name: "Vertical Retainer",
+        priceFrom: 3600,
         unitText: "MONTH",
         description:
-          "Meta + Google + one of (TikTok / LinkedIn / YouTube), under €100k/mo spend, dedicated buyer + analyst.",
+          "Single-vertical paid retainer (hospitality, iGaming, e-commerce, real estate, or SaaS). Industry creative, sector-specific tracking, weekly reporting against vertical benchmarks.",
       },
       {
-        name: "Paid Pod",
+        name: "Multi-Vertical Pod",
         priceFrom: 7900,
         unitText: "MONTH",
         description:
-          "€100k+/mo spend, embedded buyer team, paired creative pod, monthly executive briefing.",
+          "For multi-brand operators across two or more verticals — embedded buyer team, paired industry creative, and a monthly executive briefing per vertical.",
       },
     ],
     features: [
-      { name: "Meta, Google, TikTok, LinkedIn, YouTube" },
-      { name: "Daily account optimisation" },
-      { name: "Creative iteration cadence" },
-      { name: "Server-side tracking (CAPI / Enhanced Conversions)" },
-      { name: "Conversion-rate optimisation feedback" },
-      { name: "Weekly performance reporting" },
+      { name: "Hospitality paid ads (hotels, restaurants, venues)" },
+      { name: "iGaming-aware compliance and creative angles" },
+      { name: "E-commerce shopping, Performance Max, and feed work" },
+      { name: "Real estate listing and buyer-pipeline campaigns" },
+      { name: "SaaS demand-gen, MQL pipelines and LinkedIn ABM" },
+      { name: "Vertical benchmarks per sector, not generic CPL targets" },
     ],
     faqs: [
       {
-        question: "How is this different from /services/paid-advertising and /services/media-buying?",
+        question:
+          "How is /services/paid different from /services/paid-advertising?",
         answer:
-          "Same engineering team and pricing. We publish three pages because real-world Malta buyers search 'paid', 'paid advertising', and 'media buying' as distinct terms. Each page is differentiated in copy emphasis but the underlying offering is consistent.",
+          "/services/paid-advertising is the generic media-buying offer — Meta, Google, TikTok, LinkedIn, YouTube across any business. /services/paid is industry-specific: the playbook, channel mix, creative angles and benchmarks change for hospitality, iGaming, e-commerce, real estate and SaaS. Pick this page if your sector behaves differently from a generic e-commerce funnel — most do.",
       },
       {
-        question: "What's the minimum ad spend you work with?",
+        question: "Which industries do you actually have paid-ads experience in?",
         answer:
-          "€8k/mo for the Paid Pilot to be commercially sensible. Below that, our management fee becomes a disproportionate share of total cost.",
+          "Five core verticals in Malta and the wider EU: hospitality (hotels, restaurants, beach clubs, venues), iGaming (within MGA marketing rules), e-commerce (DTC and marketplace), real estate (sales and rentals — agencies and developers), and B2B SaaS. Each has its own buyer pod, benchmark library and creative back-catalogue.",
+      },
+      {
+        question: "Why does paid for hospitality look different to paid for SaaS?",
+        answer:
+          "Hospitality buyers decide in days, often on mobile, and convert through a booking engine — channel mix leans Meta + Google + metasearch, creative leans short-form video of the actual property. SaaS buyers decide over weeks with a buying committee — channel mix leans LinkedIn + Google + retargeting, creative leans demo loops, ROI calculators and case studies. Treating them the same is why most agency campaigns underperform.",
+      },
+      {
+        question: "Do you handle iGaming compliance?",
+        answer:
+          "Yes. Every iGaming campaign is run against MGA marketing rules and platform policy (Meta and Google's gambling certification, TikTok's restricted-industry list). We refuse work for unlicensed operators and never run player-acquisition creative that breaches responsible-gaming guidelines.",
+      },
+      {
+        question:
+          "We are an e-commerce brand selling outside Malta — does this still apply?",
+        answer:
+          "Yes. The e-commerce vertical playbook ships globally — feed engineering, Shopping/Performance Max, server-side conversions and Klaviyo retargeting are the same in Berlin, Dublin or Dubai. The Malta base means EU-time-zone account work and EUR billing, not a geographic restriction on where the campaigns run.",
+      },
+      {
+        question: "What's the minimum spend per vertical?",
+        answer:
+          "€8,000 monthly media spend for the Vertical Retainer to be commercially sensible. Below that, management fees become a disproportionate share of total cost — we'll usually point smaller spenders at the generic /services/paid-advertising starter offer or the Industry Sprint instead.",
+      },
+      {
+        question: "Will you also build the landing pages and creative?",
+        answer:
+          "Yes via /services/ad-creative for assets and /services/web-design or /services/ecommerce-development for landing pages. Most vertical retainers bundle creative — vertical performance lives or dies on creative iteration, and shipping a hotel ad with the wrong room photography is a guaranteed CPL tax.",
       },
       {
         question: "How is the monthly fee calculated?",
         answer:
-          "Flat retainer based on platform count, spend tier, and creative iteration cadence — not a percentage of spend. Percent-of-spend incentivises agencies to spend more, not better.",
-      },
-      {
-        question: "Do you handle creative production?",
-        answer:
-          "Yes via /services/ad-creative or /services/creative — most paid clients pair both because the performance loop relies on weekly creative iteration.",
-      },
-      {
-        question: "What attribution model do you use?",
-        answer:
-          "Multi-touch with platform-native attribution as the floor, server-side tracking as the spine, and a Hex / Looker dashboard combining first-party + paid data on top. We surface incrementality where statistically valid.",
+          "Flat retainer based on vertical complexity, platform count and creative cadence — never a percentage of spend. Percent-of-spend pricing rewards agencies for burning your budget; flat fees reward us for running tighter campaigns.",
       },
       {
         question: "Can you work with our in-house marketing team?",
@@ -2908,70 +2964,71 @@ export const SERVICE_SCHEMA_EXTRAS: Record<string, ServiceSchemaExtra> = {
   },
 
   "social": {
-    title: "Social Media Services Malta | Strategy, Content, Community | OARC Digital",
+    title: "Social Media Strategy & Audit | OARC Digital Malta",
     description:
-      "Social media services for Malta brands — strategy, content production, community management, paid amplification, and creator partnerships under one roof.",
+      "A one-time social media strategy and audit for Malta brands. Forensic teardown of your channels, competitor matrix, content pillars, and a 90-day execution plan you can run in-house or hand to any agency.",
+    serviceType: "Social Media Strategy & Audit",
     offers: [
       {
-        name: "Social Sprint",
-        priceFrom: 2900,
+        name: "Strategy Sprint",
+        priceFrom: 2400,
         unitText: "PROJECT",
         description:
-          "4-week social audit, content strategy, monthly editorial calendar, and 12-piece content pack.",
+          "Two-week audit of one channel (Instagram, TikTok, or LinkedIn), competitor matrix, content pillar framework, and a 90-day posting plan. One read-out call.",
       },
       {
-        name: "Social Pod Retainer",
+        name: "Strategy & Audit",
         priceFrom: 3900,
-        unitText: "MONTH",
+        unitText: "PROJECT",
         description:
-          "Monthly content production, scheduling, community management, and weekly performance reporting.",
+          "Three-week audit across up to three channels, full competitor benchmark, paid-vs-organic mix recommendation, content pillars, 90-day editorial calendar, and a board-ready slide deck.",
       },
       {
-        name: "Social + Creator Program",
-        priceFrom: 7900,
-        unitText: "MONTH",
+        name: "Audit + Implementation Handover",
+        priceFrom: 5800,
+        unitText: "PROJECT",
         description:
-          "Social Pod plus 5-8 creator partnerships per month, paid amplification budget, monthly executive briefing.",
+          "Strategy & Audit deliverables plus a four-week implementation handover — onboarding your in-house team or any external agency, SOPs, reporting templates, and a 30-day check-in.",
       },
     ],
     features: [
-      { name: "Channel strategy and ICP-fit" },
-      { name: "Content production (static, motion, UGC)" },
-      { name: "Editorial calendar management" },
-      { name: "Community management and DM response" },
-      { name: "Paid amplification" },
-      { name: "Creator partnerships (Maltese + EU)" },
+      { name: "Channel-by-channel performance audit" },
+      { name: "Competitor matrix (5-8 named competitors)" },
+      { name: "Content pillar and message hierarchy" },
+      { name: "90-day editorial calendar" },
+      { name: "Paid-vs-organic mix recommendation" },
+      { name: "Board-ready slide deck and read-out call" },
     ],
     faqs: [
       {
-        question: "Which channels do you cover?",
+        question: "What exactly do I get when the audit is finished?",
         answer:
-          "Instagram, TikTok, YouTube, Facebook, LinkedIn, X, Threads, Pinterest. Channel selection is per-client based on ICP and brand maturity — we don't believe in being everywhere.",
-      },
-      {
-        question: "Do you produce in-Malta content?",
-        answer:
-          "Yes — Birkirkara studio plus on-location across Malta and Gozo. Maltese-language and English-Malta variants both supported.",
+          "A board-ready slide deck (typically 35-50 slides), a competitor matrix in spreadsheet form, a 90-day editorial calendar with named content pillars, and a read-out call with the founder. Everything is yours to keep — no licensing, no lock-in.",
       },
       {
         question: "How is this different from /services/social-media-creative-management?",
         answer:
-          "/services/social-media-creative-management is the deeper management-platform offering with case studies. /services/social is the simpler intent-match for buyers searching 'social media agency'. Both share the same delivery team and pricing structure.",
+          "Different intent. /services/social-media-creative-management is an ongoing managed retainer where our pod runs your channels every day. This page is a one-time, project-based deliverable: you get the strategy and the plan, and you (or your in-house team, or another agency) execute. Buyers often start here, then graduate to the managed retainer once the plan is proven.",
       },
       {
-        question: "Do you handle community management and DMs?",
+        question: "Will you actually post for me?",
         answer:
-          "Yes — Social Pod tier and above include community management with a 4-hour weekday response SLA. Bilingual EN/MT response for Malta-based audiences.",
+          "Not under this engagement. The audit ends with a written plan and a handover. If you want us to execute, the natural next step is the managed retainer at /services/social-media-creative-management — we'll discount the audit fee against the first month if you continue with us.",
       },
       {
-        question: "Will you boost / run paid ads?",
+        question: "What channels do you audit?",
         answer:
-          "Always-On + Social + Creator Program tiers include paid amplification of high-performing organic posts. For dedicated paid social, see /services/paid-advertising or /services/media-buying.",
+          "Instagram, TikTok, LinkedIn, Facebook, YouTube, X, Threads, and Pinterest. Most Malta brands need a deep audit on two to three channels rather than a shallow audit on eight, so we scope per client during the kick-off call.",
       },
       {
-        question: "What's the typical contract?",
+        question: "How long does the audit take?",
         answer:
-          "30-day rolling, 90-day minimum on pod retainers — content strategy compounds, a 30-day judgment is too short.",
+          "Strategy Sprint is two weeks from kick-off to read-out. Strategy & Audit is three weeks. Audit + Implementation Handover is seven weeks total (three weeks of audit, four weeks of handover and SOP work). Calendar invites land on day one.",
+      },
+      {
+        question: "Do you work with brands outside Malta?",
+        answer:
+          "Yes. The methodology is the same. Malta clients get a competitor matrix weighted toward local players (and our knowledge of Birkirkara, Sliema, and Gozo media buying), while overseas clients get a benchmark against their primary geographic market.",
       },
     ],
   },

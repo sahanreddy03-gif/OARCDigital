@@ -211,11 +211,13 @@ export default function PageContent() {
               "@type": "OfferCatalog",
               "name": "AI Agent Services",
               "itemListElement": [
-                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "AI Sales Representative", "description": "Automated lead qualification, follow-up sequences, and demo booking for Malta businesses."}},
-                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "AI Customer Support Agent", "description": "90% auto-resolution of customer queries with human-like conversations, 24/7."}},
-                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "AI Booking & Reservation Assistant", "description": "Automated scheduling, reminders, and calendar management for restaurants, clinics, and service businesses."}},
-                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "AI Operations Manager", "description": "Workflow automation, task routing, and operational efficiency optimization."}},
-                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "AI Lead Follow-up Agent", "description": "Automated lead nurturing, re-engagement campaigns, and conversion optimization."}}
+                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "AI SDR Agent", "url": "https://oarcdigital.com/services/ai-sdr-agent", "description": "Automated lead qualification, follow-up sequences, and demo booking for Malta businesses."}},
+                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "AI Support Specialist", "url": "https://oarcdigital.com/services/ai-support-specialist", "description": "90% auto-resolution of customer queries with human-like conversations, 24/7."}},
+                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "AI Appointment Booker", "url": "https://oarcdigital.com/services/ai-appointment-booker", "description": "Automated scheduling, reminders, and calendar management for restaurants, clinics, and service businesses."}},
+                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "AI Admin Agent", "url": "https://oarcdigital.com/services/ai-admin-agent", "description": "Inboxes, invoices and calendars handled — back-office workflow automation."}},
+                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "AI Data Analyst", "url": "https://oarcdigital.com/services/ai-data-analyst", "description": "Plain-English answers from your CRM, ads and finance data — daily."}},
+                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "AI Compliance Auditor", "url": "https://oarcdigital.com/services/ai-compliance-auditor", "description": "Continuous policy and regulatory checks for Malta operators (MFSA, MGA, IDPC aware)."}},
+                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "AI Real Estate Agent", "url": "https://oarcdigital.com/services/ai-real-estate-agent", "description": "Lead capture, listing answers and viewing scheduling for Malta property agencies."}}
               ]
             },
           })}
@@ -736,6 +738,138 @@ export default function PageContent() {
           </div>
         </section>
         
+        {/* ========== EXPLORE THE 7 AI AGENTS — SPOKES + IMAGE GRID ========== */}
+        <section className="relative z-10 py-20 sm:py-24 px-4 sm:px-6 bg-black border-t border-white/5" data-testid="section-ai-agents-spokes">
+          <div className="max-w-6xl mx-auto">
+            <motion.div
+              className="text-center mb-12"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
+                Meet the <span className="text-[#c4ff4d]">7 AI Agents</span>
+              </h2>
+              <p className="text-white/60 text-base sm:text-lg max-w-3xl mx-auto">
+                Each agent is a specialist — trained on a single job, integrated with your stack, and
+                deployed in 7–14 days. Pick one to pilot, or stack them into a full AI workforce.
+              </p>
+            </motion.div>
+
+            {/* Image grid — hero + 4 supporting from registry */}
+            <div className="grid grid-cols-12 gap-3 mb-12" data-testid="grid-ai-agents-images">
+              <picture className="col-span-12 md:col-span-8 rounded-2xl overflow-hidden border border-white/5 block">
+                <source srcSet="/images/registry/hidden-ai-features-control-room-malta.avif" type="image/avif" />
+                <source srcSet="/images/registry/hidden-ai-features-control-room-malta.webp" type="image/webp" />
+                <img
+                  src="/images/registry/hidden-ai-features-control-room-malta.jpg"
+                  alt="Operator control room view of OARC's AI agent stack"
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-full object-cover aspect-[16/10]"
+                />
+              </picture>
+              <picture className="col-span-12 md:col-span-4 rounded-2xl overflow-hidden border border-white/5 block">
+                <source srcSet="/images/registry/ai-knowledge-base-grounding-malta.avif" type="image/avif" />
+                <source srcSet="/images/registry/ai-knowledge-base-grounding-malta.webp" type="image/webp" />
+                <img
+                  src="/images/registry/ai-knowledge-base-grounding-malta.jpg"
+                  alt="AI agent grounded on a private company knowledge base"
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-full object-cover aspect-[16/10]"
+                />
+              </picture>
+              <picture className="col-span-6 md:col-span-6 rounded-2xl overflow-hidden border border-white/5 block">
+                <source srcSet="/images/registry/agent-handover-to-human-malta.avif" type="image/avif" />
+                <source srcSet="/images/registry/agent-handover-to-human-malta.webp" type="image/webp" />
+                <img
+                  src="/images/registry/agent-handover-to-human-malta.jpg"
+                  alt="AI to human handover — escalation flow inside the OARC console"
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-full object-cover aspect-[16/10]"
+                />
+              </picture>
+              <picture className="col-span-6 md:col-span-6 rounded-2xl overflow-hidden border border-white/5 block">
+                <source srcSet="/images/registry/ai-agent-multichannel-orchestration.avif" type="image/avif" />
+                <source srcSet="/images/registry/ai-agent-multichannel-orchestration.webp" type="image/webp" />
+                <img
+                  src="/images/registry/ai-agent-multichannel-orchestration.jpg"
+                  alt="AI agent orchestrating WhatsApp, email and web chat from one inbox"
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-full object-cover aspect-[16/10]"
+                />
+              </picture>
+              <picture className="col-span-12 rounded-2xl overflow-hidden border border-white/5 block">
+                <source srcSet="/images/registry/ai-sales-pipeline-dashboard-malta.avif" type="image/avif" />
+                <source srcSet="/images/registry/ai-sales-pipeline-dashboard-malta.webp" type="image/webp" />
+                <img
+                  src="/images/registry/ai-sales-pipeline-dashboard-malta.jpg"
+                  alt="AI sales pipeline dashboard for a Malta SMB — agent activity and booked calls"
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-full object-cover aspect-[21/9]"
+                />
+              </picture>
+            </div>
+
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4" data-testid="grid-ai-agents-spokes">
+              {[
+                { slug: "ai-sdr-agent", title: "AI SDR Agent", desc: "Outbound and inbound qualification — booked calls land in your calendar overnight." },
+                { slug: "ai-support-specialist", title: "AI Support Specialist", desc: "Tier-1 customer support on WhatsApp, email and chat with full handover to humans." },
+                { slug: "ai-appointment-booker", title: "AI Appointment Booker", desc: "Conversational booker for clinics, salons and restaurants — calendar-aware and SMS-confirmed." },
+                { slug: "ai-data-analyst", title: "AI Data Analyst", desc: "Daily plain-English answers from your CRM, ads and finance data — no dashboards required." },
+                { slug: "ai-admin-agent", title: "AI Admin Agent", desc: "Inboxes triaged, invoices chased, and calendars defended on autopilot." },
+                { slug: "ai-compliance-auditor", title: "AI Compliance Auditor", desc: "Continuous policy and regulatory checks built for MFSA, MGA and IDPC contexts." },
+                { slug: "ai-real-estate-agent", title: "AI Real Estate Agent", desc: "Lead capture, listing answers and viewing scheduling for Malta property agencies." },
+                { slug: "hire-ai-employees", title: "Hire AI Employees", desc: "Bring on a complete AI workforce, billed per role rather than per hour." },
+                { slug: "ai-consulting", title: "AI Consulting", desc: "Roadmap your AI rollout — opportunity audit and 90-day deployment plan." },
+              ].map((spoke) => (
+                <Link
+                  key={spoke.slug}
+                  href={`/services/${spoke.slug}`}
+                  data-testid={`link-ai-agents-spoke-${spoke.slug}`}
+                  className="block"
+                >
+                  <GlassCard className="p-6 h-full hover-elevate active-elevate-2">
+                    <h3 className="text-white font-semibold mb-2 flex items-center justify-between gap-2">
+                      <span>{spoke.title}</span>
+                      <ArrowRight className="w-4 h-4 text-[#c4ff4d] flex-shrink-0" />
+                    </h3>
+                    <p className="text-white/60 text-sm leading-relaxed">{spoke.desc}</p>
+                  </GlassCard>
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* ItemList JSON-LD — the 7 OARC AI Agent service pages */}
+          <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            "name": "OARC Digital — AI Agent Service Pages",
+            "description": "The seven specialist AI agent services offered by OARC Digital from Malta.",
+            "numberOfItems": 7,
+            "itemListOrder": "https://schema.org/ItemListOrderAscending",
+            "itemListElement": [
+              { slug: "ai-sdr-agent", name: "AI SDR Agent" },
+              { slug: "ai-support-specialist", name: "AI Support Specialist" },
+              { slug: "ai-appointment-booker", name: "AI Appointment Booker" },
+              { slug: "ai-data-analyst", name: "AI Data Analyst" },
+              { slug: "ai-admin-agent", name: "AI Admin Agent" },
+              { slug: "ai-compliance-auditor", name: "AI Compliance Auditor" },
+              { slug: "ai-real-estate-agent", name: "AI Real Estate Agent" },
+            ].map((s, i) => ({
+              "@type": "ListItem",
+              "position": i + 1,
+              "url": `https://oarcdigital.com/services/${s.slug}`,
+              "name": s.name,
+            })),
+          }) }} />
+        </section>
+
         <Footer />
       </main>
     </>

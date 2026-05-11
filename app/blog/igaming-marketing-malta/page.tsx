@@ -1,18 +1,22 @@
 import type { Metadata } from "next";
 import PageContent from "./PageContent";
 import RouteSchema from "@/components/RouteSchema";
+import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
+
 
 export const metadata: Metadata = {
   title: "iGaming Marketing in Malta: What Works in 2026",
   description: "Malta is the iGaming capital of Europe. Over 300 licensed operators are based here, and the marketing landscape is unlike any other vertical — high budgets, strict regulation, and hyper-competitive acquisition.",
   alternates: { canonical: "https://oarcdigital.com/blog/igaming-marketing-malta" },
   openGraph: {
+    images: ogImageEntry({ title: "iGaming Marketing in Malta: What Works in 2026", subtitle: "Malta is the iGaming capital of Europe. Over 300 licensed operators are based here, and the marketing landscape is unlike any other vertical — high budgets, strict regulation, and hyper-competitive acquisition." }),
     title: "iGaming Marketing in Malta: What Works in 2026",
     description: "Malta is the iGaming capital of Europe. Over 300 licensed operators are based here, and the marketing landscape is unlike any other vertical — high budgets, strict regulation, and hyper-competitive acquisition.",
     url: "https://oarcdigital.com/blog/igaming-marketing-malta",
     type: "article",
   },
   twitter: {
+    images: [ogImageUrl({ title: "iGaming Marketing in Malta: What Works in 2026", subtitle: "Malta is the iGaming capital of Europe. Over 300 licensed operators are based here, and the marketing landscape is unlike any other vertical — high budgets, strict regulation, and hyper-competitive acquisition." })],
     card: "summary_large_image",
     title: "iGaming Marketing in Malta: What Works in 2026",
     description: "Malta is the iGaming capital of Europe. Over 300 licensed operators are based here, and the marketing landscape is unlike any other vertical — high budgets, strict regulation, and hyper-competitive acquisition.",

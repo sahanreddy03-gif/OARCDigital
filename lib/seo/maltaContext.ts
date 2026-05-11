@@ -142,6 +142,83 @@ export const MALTA_CONTEXT: Record<string, MaltaContextEntry> = {
     paragraph:
       "Database work for MFSA-licensed fintechs in Valletta and MDIA-licensed innovators in SmartCity Malta carries an EU data residency obligation that off-the-shelf US-tier services routinely violate. We design Postgres schemas on Neon or AWS RDS in Frankfurt or Dublin, separate PII from operational data so subject-access requests do not require a full-table dump, and add row-level security where multi-tenant isolation matters. Every schema review includes an explicit retention policy — IDPC will ask for it, and \"forever\" is not an answer.",
   },
+
+  "saas-development-malta": {
+    towns: ["SmartCity Malta", "Birkirkara"],
+    anchor: "MDIA",
+    paragraph:
+      "Malta SaaS founders ship from one of two clusters: the licensed-tech corridor inside SmartCity Malta and the central Birkirkara office strip where most of the early-stage operators run lean teams. Both clusters share the same regulatory gravity — MDIA technical-standards expectations, IDPC consent obligations, and EU data residency baked into the cloud architecture from the first commit. Our SaaS builds default to Postgres on Neon EU, Stripe with VAT-MOSS, and an export-my-data endpoint that means a subject-access request closes inside a working day, not a working week.",
+  },
+
+  "mobile-app-developers-malta": {
+    towns: ["Sliema", "Birkirkara"],
+    anchor: "GDPR",
+    paragraph:
+      "Mobile teams shipping out of Sliema consumer studios and our Birkirkara delivery base hit the same two walls every release cycle: App Store and Play Store reviewer policies that move quietly each quarter, and GDPR consent flows that have to satisfy IDPC under the same scrutiny a EU-resident publisher receives. Our React Native and native builds ship with privacy nutrition labels, IDFA/AAID consent prompts, and a Crashlytics + Sentry split so the support engineer in Malta sees the issue before the App Store review queue does.",
+  },
+
+  "web-development-agency-malta": {
+    towns: ["Valletta", "Birkirkara"],
+    anchor: "hospitality",
+    paragraph:
+      "Most Malta web builds we take on are commissioned out of Valletta hospitality groups or the Birkirkara office cluster, and the same Core Web Vitals discipline carries both. Maltese mobile networks dominate traffic, so a build that loads in under 1.2 seconds on a Vodafone Malta 4G connection wins the bounce-rate fight every time. We host inside the EU on Vercel Frankfurt or Hetzner with a CDN edge in Milan, ship pre-built fonts and pre-cropped images, and audit Lighthouse scores against the three closest local competitors before launch.",
+  },
+
+  "outsource-development-malta": {
+    towns: ["Birkirkara", "SmartCity Malta"],
+    anchor: "EU data residency",
+    paragraph:
+      "EU buyers asking Malta agencies to take on outsourced development pick between the SmartCity Malta cluster and the Birkirkara delivery base for the same reason: same time zone as Frankfurt and Dublin, EU data residency by default, and CET working hours that overlap a London or Milan client to the minute. Our engagements ship with named engineers using their own SSH keys in your repo, weekly Friday demos at 11:00 CET, and a written sprint summary every Friday so the trail back to any decision is intact for the eventual handover.",
+  },
+
+  "custom-software-malta": {
+    towns: ["Mrieħel", "Birkirkara"],
+    anchor: "MFSA",
+    paragraph:
+      "Custom internal tools built for Mrieħel iGaming operators and Birkirkara financial-services firms live one questionnaire away from an MFSA or MGA controls review. Our discovery sprint output is honest about which workflow earns its keep as custom code and which is better served by HubSpot, Xero, or BrightPay extended for another year. When the answer is build, the architecture defaults to a single multi-tenant Postgres on Neon EU, role-based access with audit logging, and an export-my-data button that holds up to an IDPC subject-access request.",
+  },
+
+  "marketing-agency-mosta": {
+    towns: ["Mosta", "Naxxar"],
+    anchor: "hospitality",
+    paragraph:
+      "Mosta sits at the centre of a resident-and-family catchment that bleeds into Naxxar, Lija, and Mgarr — the wider hospitality and trades audience that does not behave like the Sliema tourist economy. Maltese-language Facebook creative still outperforms English for most categories, the parish-feast calendar genuinely shifts footfall, and Google Local Services Ads work better than paid social for AC installers and plumbers. Our retainers separate the resident audience from the catchment audience explicitly so the Mosta budget is never wasted on a Sliema-style targeting plan.",
+  },
+
+  "marketing-agency-qormi": {
+    towns: ["Qormi", "Marsa"],
+    anchor: "trade",
+    paragraph:
+      "The Qormi local economy splits roughly evenly between the consumer audience around Pjazza San Gorg and the trade and industrial activity along the Marsa-Qormi corridor toward Hal Luqa. Building suppliers, automotive workshops, and trade distributors here win on Google Ads structured around long-tail product SKUs paired with a tight Google Business Profile, while the consumer side runs on the standard Maltese-language Facebook plus Google Reviews motion. We run both engines inside one retainer because the production and media-buying teams are already shared across the rest of the Qormi book.",
+  },
+
+  "marketing-agency-swieqi": {
+    towns: ["Swieqi", "Madliena"],
+    anchor: "iGaming",
+    paragraph:
+      "Swieqi and the adjacent Madliena strip carry one of Malta's highest-income resident profiles — young iGaming and fintech professionals plus established affluent locals who compare every brand they see on Instagram to international labels they follow. The creative bar is set by Notting Hill fitness studios and Dubai aesthetic clinics, not by other Malta agencies. Our Swieqi retainers include monthly on-location shoots with a working photographer plus videographer, a defined visual system that holds across the quarter, and Reels-first editing because the audience does not engage with phone-shot static posts at this tier.",
+  },
+
+  "marketing-agency-gzira": {
+    towns: ["Gżira", "Ta' Xbiex"],
+    anchor: "marine",
+    paragraph:
+      "The Gżira marketing audience splits three ways: working residents and office workers along the Triq ix-Xatt waterfront, language-school students from Italy, Germany, and Eastern Europe arriving on two-week cycles, and the marine and yacht-services industry around Manoel Island and the Ta' Xbiex marina moorings. Each segment is reachable on a different channel — hyper-local geo-radius Meta for the waterfront, multi-language Instagram and TikTok for the language-school cohort, LinkedIn and commercial-intent Google for marine. We segment Gżira retainers across all three explicitly rather than running a generic locality campaign.",
+  },
+
+  "marketing-agency-mellieha": {
+    towns: ["Mellieħa", "Ċirkewwa"],
+    anchor: "tourism",
+    paragraph:
+      "Mellieħa is overwhelmingly tourism-driven, with Malta's longest sandy beach at Ghadira Bay, the Popeye Village attraction, and the Gozo ferry terminal at Ċirkewwa concentrating roughly 80% of local business revenue into the May-to-October peak. Our Mellieħa retainers run a four-window calendar — January-March inspiration spend into German and Scandinavian source markets, April-June booking-intent on Google Hotel Ads and Booking.com, July-August ancillary-revenue lift, September-December production for the next cycle — instead of a flat monthly budget that wastes spend on the wrong window.",
+  },
+
+  "marketing-agency-paola": {
+    towns: ["Paola", "Tarxien"],
+    anchor: "Three Cities",
+    paragraph:
+      "Paola — Rahal Gdid in Maltese — anchors a high-density residential catchment that flows out to Tarxien, Fgura, Marsa, and the Three Cities of Cospicua, Senglea, and Vittoriosa. Total addressable population in that catchment runs to over 60,000 people, comparable to Sliema and St Julian's combined, but most marketing attention in Malta still concentrates on the central tourist corridor, leaving Paola visibly underserved. The local-SEO opportunity here is exceptional — incumbents are mostly under-optimised, paid-search competition is thin, and a properly run Google Business Profile holds the local pack inside a single quarter.",
+  },
 };
 
 /** Returns the entry for a slug or null if none defined. Pure helper for the component. */

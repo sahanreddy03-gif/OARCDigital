@@ -3,6 +3,7 @@ import RelatedLinks from '@/components/RelatedLinks';
 import { Button } from '@/components/ui/button';
 import { CheckCircle2, ArrowRight, MapPin, Phone, Mail, Clock } from 'lucide-react';
 import TrustBlock from "@/components/seo/TrustBlock";
+import MaltaContextBlock from "@/components/seo/MaltaContextBlock";
 import Link from 'next/link';
 import { NAP } from "@/lib/seo/nap";
 
@@ -51,6 +52,7 @@ export default function MarketingAgencyQormi({ faqs, offers }: Props) {
         </section>
 
         <article className="max-w-4xl mx-auto px-6 md:px-8 py-16">
+          <p className="text-xs uppercase tracking-wider text-muted-foreground mb-8" data-testid="text-last-updated">Last updated: 10 May 2026</p>
           <section className="mb-12">
             <h2 className="text-2xl md:text-3xl font-bold mb-4">Marketing for Qormi&apos;s B2B and Consumer Mix</h2>
             <p className="text-foreground leading-relaxed mb-4">
@@ -113,6 +115,8 @@ export default function MarketingAgencyQormi({ faqs, offers }: Props) {
                 Qormi is one of the densest residential and light-industrial pockets in central Malta, with a buying audience that mixes long-standing local families and a growing logistics and trades workforce. Generic Malta-wide ads waste 60% of their spend on impressions outside that audience. Our Qormi retainers tighten geo-targeting to the actual catchment, use Maltese-language ad creative where appropriate, and lean into Google Maps optimisation for the high-intent searches ("plumber near me", "car service Qormi", "bakery Qormi") that convert at 4-6x the rate of broad branded campaigns.
               </p>
             </section>
+          <MaltaContextBlock slug="marketing-agency-qormi" />
+
                       <section className="mb-12">
             <h2 className="text-2xl md:text-3xl font-bold mb-6">Frequently Asked Questions</h2>
             <div className="space-y-4">
@@ -123,6 +127,19 @@ export default function MarketingAgencyQormi({ faqs, offers }: Props) {
                 </div>
               ))}
             </div>
+          </section>
+
+          <section className="mb-12">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">The Qormi Industrial-Belt Advantage</h2>
+            <p className="text-foreground leading-relaxed mb-4">
+              The strip running from Triq il-Wied along the Marsa-Qormi corridor and out toward Hal Luqa hosts more building suppliers, automotive workshops, and trade distributors per square kilometre than any other part of Malta. That density is a marketing asset the average general agency does not know how to use. Buyers in this segment do not browse social feeds during the working day — they search Google for specific product or part terms in commercial-intent moments, click through to two or three suppliers in the local pack, and place a phone order before lunch.
+            </p>
+            <p className="text-foreground leading-relaxed mb-4">
+              The acquisition engine that wins here is technical and unfashionable. A Google Ads account structured around long-tail product SKUs rather than category brand terms. A Google Business Profile with the right opening hours, the right phone number, and weekly Q&amp;A activity. A WhatsApp Business catalog wired to the same product database the website uses. Our highest-performing Qormi B2B retainer doubled inbound phone-quote volume in the first 90 days using exactly that stack, with no spend on Meta and no investment in long-form content.
+            </p>
+            <p className="text-foreground leading-relaxed">
+              The consumer side of Qormi — the family bakeries on Triq il-Vitorja, the salons around Pjazza San Gorg, the hospitality clusters in the town centre — runs on the standard Maltese-language Facebook plus Google Reviews motion. Running both engines in parallel inside one retainer is what makes Qormi unusually rewarding for an agency that understands the difference. The same retainer fee buys both motions because the production team and the media buying team are already shared across the rest of the Qormi book.
+            </p>
           </section>
 
           <RelatedLinks slug="/aeo/marketing-agency-qormi" />

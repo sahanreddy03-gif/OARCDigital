@@ -1,3 +1,4 @@
+import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
 // /malta/[location]/[service] — kept services only.
 // Archived service slugs are 410'd by middleware before reaching this route.
 
@@ -25,8 +26,8 @@ export async function generateMetadata({ params }: { params: { location: string;
     title: c.title,
     description: c.description,
     alternates: { canonical: c.canonical },
-    openGraph: { title: c.title, description: c.description, url: c.canonical, type: 'website' },
-    twitter: { card: 'summary_large_image', title: c.title, description: c.description },
+    openGraph: { title: c.title, description: c.description, url: c.canonical, type: 'website', images: ogImageEntry({ title: c.title, subtitle: c.description }) },
+    twitter: { card: 'summary_large_image', title: c.title, description: c.description, images: [ogImageUrl({ title: c.title, subtitle: c.description })] },
   };
 }
 
