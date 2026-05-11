@@ -23,7 +23,6 @@ import Footer from '@/components/Footer';
 import { NAP } from "@/lib/seo/nap";
 import { ORG_SAMEAS } from "@/lib/schema";
 import AICreativeSection from '@/components/AICreativeSection';
-import { createFAQSchema } from '@/utils/structuredData';
 
 // Creative work categories for carousel pills
 const creativeCategories = [
@@ -1084,14 +1083,9 @@ export default function PageContent() {
     };
   }, [isDesktop]);
 
-  const faqSchema = createFAQSchema(
-    faqItems.map(item => ({ question: item.q, answer: item.a }))
-  );
-
   return (
     <>
       <>
-<script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "LocalBusiness",

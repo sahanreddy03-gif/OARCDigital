@@ -712,6 +712,7 @@ export default function PageContent() {
         {/* ========== FAQ SECTION ========== */}
         <div className="border-t border-white/5">
           <FAQSection 
+            emitJsonLd={false}
             faqs={faqItems}
             darkMode={true}
             schemaId="solutions-faq"
