@@ -33,35 +33,39 @@ function MobileCard({ item, index }: { item: typeof differentiators[0]; index: n
   return (
     <div
       ref={cardRef}
-      className={`w-full transition-all duration-700 ease-out ${
-        isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
-      }`}
-      style={{ transitionDelay: `${index * 150}ms` }}
+      className="w-full transition-transform duration-700 ease-out"
+      style={{
+        transform: isInView ? 'translateY(0)' : 'translateY(24px)',
+        transitionDelay: `${index * 150}ms`,
+      }}
       data-testid={`mobile-card-${index}`}
     >
       <div className="w-full">
-        <div 
-          className={`aspect-[4/3] relative overflow-hidden bg-zinc-100 rounded-xl mobile-image-container transition-transform duration-700 ${
-            isInView ? 'scale-100' : 'scale-95'
-          }`}
-          style={{ transitionDelay: `${index * 150 + 200}ms` }}
+        <div
+          className="aspect-[4/3] relative overflow-hidden bg-zinc-100 rounded-xl mobile-image-container transition-transform duration-700"
+          style={{
+            transform: isInView ? 'scale(1)' : 'scale(0.97)',
+            transitionDelay: `${index * 150 + 200}ms`,
+          }}
         >
           <img
             src={item.image}
             alt={item.title}
-            className={`w-full h-full object-cover transition-transform duration-1000 ${
-              isInView ? 'scale-100' : 'scale-110'
-            }`}
-            style={{ transitionDelay: `${index * 150 + 100}ms` }}
+            className="w-full h-full object-cover transition-transform duration-1000"
+            style={{
+              transform: isInView ? 'scale(1)' : 'scale(1.06)',
+              transitionDelay: `${index * 150 + 100}ms`,
+            }}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 transition-opacity duration-500" />
         </div>
 
-        <div 
-          className={`mt-6 pb-4 border-b border-zinc-200 relative transition-all duration-600 ${
-            isInView ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-5'
-          }`}
-          style={{ transitionDelay: `${index * 150 + 300}ms` }}
+        <div
+          className="mt-6 pb-4 border-b border-zinc-200 relative transition-transform duration-600"
+          style={{
+            transform: isInView ? 'translateX(0)' : 'translateX(-12px)',
+            transitionDelay: `${index * 150 + 300}ms`,
+          }}
         >
           <div className="absolute bottom-0 left-0 h-[2px] bg-gradient-to-r from-[#0A2818] via-[#0A2818]/50 to-transparent w-1/3" />
           <h3 className="text-2xl sm:text-3xl font-light text-zinc-900">
@@ -69,11 +73,12 @@ function MobileCard({ item, index }: { item: typeof differentiators[0]; index: n
           </h3>
         </div>
 
-        <div 
-          className={`mt-4 transition-all duration-500 ${
-            isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-          }`}
-          style={{ transitionDelay: `${index * 150 + 450}ms` }}
+        <div
+          className="mt-4 transition-transform duration-500"
+          style={{
+            transform: isInView ? 'translateY(0)' : 'translateY(8px)',
+            transitionDelay: `${index * 150 + 450}ms`,
+          }}
         >
           <p className="text-base sm:text-lg text-zinc-600 leading-relaxed">
             {item.description}
@@ -92,16 +97,17 @@ function DesktopCard({ item, index }: { item: typeof differentiators[0]; index: 
   return (
     <div
       ref={cardRef}
-      className={`relative cursor-pointer transition-all duration-600 ease-out ${
-        isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-      }`}
-      style={{ transitionDelay: `${index * 100}ms` }}
+      className="relative cursor-pointer transition-transform duration-600 ease-out"
+      style={{
+        transform: isInView ? 'translateY(0)' : 'translateY(20px)',
+        transitionDelay: `${index * 100}ms`,
+      }}
       data-testid={`desktop-card-${index}`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
       <div className="relative overflow-visible rounded-xl">
-        <div 
+        <div
           className={`aspect-[4/3] relative overflow-hidden bg-zinc-100 rounded-xl desktop-image-container transition-shadow duration-400 ${
             isHovered ? 'shadow-[0_0_40px_rgba(10,40,24,0.25),0_0_80px_rgba(10,40,24,0.1),0_25px_50px_rgba(0,0,0,0.15)]' : 'shadow-[0_10px_30px_rgba(0,0,0,0.1)]'
           }`}
@@ -113,7 +119,7 @@ function DesktopCard({ item, index }: { item: typeof differentiators[0]; index: 
               isHovered ? 'scale-[1.08] brightness-105' : 'scale-100 brightness-100'
             }`}
           />
-          <div 
+          <div
             className={`absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent transition-opacity duration-400 ${
               isHovered ? 'opacity-100' : 'opacity-0'
             }`}
@@ -128,7 +134,7 @@ function DesktopCard({ item, index }: { item: typeof differentiators[0]; index: 
           />
         </div>
 
-        <div 
+        <div
           className={`mt-6 pb-6 border-b relative overflow-hidden transition-colors duration-300 ${
             isHovered ? 'border-[rgba(10,40,24,0.4)]' : 'border-zinc-200'
           }`}
@@ -143,7 +149,7 @@ function DesktopCard({ item, index }: { item: typeof differentiators[0]; index: 
           </h3>
         </div>
 
-        <div 
+        <div
           className={`mt-4 overflow-hidden transition-all duration-400 ${
             isHovered ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'
           }`}
@@ -162,28 +168,24 @@ export default function Section5() {
   const headingInView = useInView(headingRef, { once: true, margin: "0px" });
 
   return (
-    <section 
-      className="relative py-16 md:py-24 lg:py-32 overflow-hidden bg-[#F5F5F0]" 
+    <section
+      className="relative py-16 md:py-24 lg:py-32 overflow-hidden bg-[#F5F5F0]"
       data-testid="section-5"
     >
       {/* Hover-activated soft dark green glow particles */}
       <AntigravityParticles />
-      
+
       {/* Subtle gradient overlay for depth */}
       <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-[#F5F5F0]/30 via-transparent to-[#F5F5F0]/30" />
-      
+
       <div className="relative container mx-auto px-4 md:px-6 lg:px-12">
-        <div 
+        <div
           ref={headingRef}
-          className={`text-center mb-12 md:mb-16 lg:mb-20 transition-all duration-700 ease-out ${
-            headingInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`}
+          className="text-center mb-12 md:mb-16 lg:mb-20 transition-transform duration-700 ease-out"
+          style={{ transform: headingInView ? 'translateY(0)' : 'translateY(16px)' }}
         >
           <h2 className="font-bold text-zinc-900" style={{ fontSize: 'clamp(2rem, 6vw, 4rem)', letterSpacing: '-0.03em', lineHeight: '1.15' }}>
-            Our <span 
-              className={`italic transition-opacity duration-500 ${headingInView ? 'opacity-100' : 'opacity-0'}`}
-              style={{ color: '#0A2818', transitionDelay: '300ms' }}
-            >Difference</span>
+            Our <span className="italic" style={{ color: '#0A2818' }}>Difference</span>
           </h2>
           <p className="text-zinc-500 mt-3 text-base md:text-lg">The perfect fit for fast moving brands</p>
         </div>
