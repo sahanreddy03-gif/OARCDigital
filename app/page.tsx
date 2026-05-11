@@ -66,9 +66,6 @@ export default function Page() {
       <div className="overflow-x-hidden">
         <HeroSection />
 
-        {/* Top-30 internal-link funnel: surfaces the highest-leverage AEO + service pages */}
-        <MostPopularServices />
-
         {/* SHIFT HAPPENS — editorial identity section that fills the gap */}
         <ShiftHappensSection />
 
@@ -113,6 +110,8 @@ export default function Page() {
         <BlogPreviewSection />
         <CTASections />
         <NeedHelpCTA />
+        {/* Top-30 internal-link funnel: surfaces the highest-leverage AEO + service pages */}
+        <MostPopularServices />
         <FAQ />
       </div>
     </Layout>

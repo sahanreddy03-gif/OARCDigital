@@ -311,13 +311,7 @@ export function ARCChat({ onClose, isMobile, initialPrompt }: ARCChatProps) {
 
     } catch (_error) {
       setIsTyping(false);
-      const fallback = checkInstantResponse(messageText) || { response: `Here's my honest take:
-
-• **Most businesses** have the same core issues — wrong audience, inconsistent content, no follow-up system
-• **The right fix** depends on your specific situation
-• **Fastest path forward** — call Sahan: ${MALTA_PHONE_DISPLAY}
-
-What industry are you in?`, showPricingCTA: false };
+      const fallback = checkInstantResponse(messageText) || { response: `Most businesses hit the same wall — wrong audience, no consistency, no follow-up system. The right fix depends on your specific situation, not a generic list. What industry are you in?`, showPricingCTA: false };
       addArcMessage(fallback.response);
     }
   };
