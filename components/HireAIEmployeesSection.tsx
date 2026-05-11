@@ -390,16 +390,16 @@ export default function HireAIEmployeesSection() {
       <div className="container mx-auto px-6 lg:px-12 max-w-7xl relative z-10">
         <motion.div 
           className="text-center mb-8 lg:mb-12"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ y: 20 }}
+          whileInView={{ y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
           {/* Premium Badge */}
           <motion.div 
             className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/[0.03] backdrop-blur-md rounded-full border border-[#c4ff4d]/20 mb-4"
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            initial={{ scale: 0.95 }}
+            whileInView={{ scale: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
           >
@@ -526,10 +526,10 @@ export default function HireAIEmployeesSection() {
 
         <motion.div 
           className="text-center mt-10"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ y: 20 }}
+          whileInView={{ y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.6 }}
+          transition={{ delay: 0.3 }}
         >
           <Link href="/services/hire-ai-employees">
             <button 
