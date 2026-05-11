@@ -23,7 +23,7 @@ export const HUB_INTRO_DATE: Record<string, string> = {
   wellness: "2025-10-03",
   events: "2025-10-10",
   // Phase E new 8 (Task #108 — staggered per W7/W8/W9 calendar).
-  "healthcare-clinics": "2026-04-15",
+  "healthcare-clinics": "2026-05-11",
   "legal-services": "2026-04-15",
   "professional-services": "2026-04-15",
   construction: "2026-04-22",
