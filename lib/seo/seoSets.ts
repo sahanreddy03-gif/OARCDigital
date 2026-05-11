@@ -147,7 +147,6 @@ export const NOINDEX_SERVICE_SLUGS: ReadonlySet<string> = new Set<string>([]);
  * be force-redirected here (real-estate is the worked example).
  */
 export const INDUSTRY_HUBS_PENDING_CONTENT: ReadonlySet<string> = new Set([
-  "healthcare-clinics",
   "legal-services",
   "professional-services",
   "beauty-wellness",
