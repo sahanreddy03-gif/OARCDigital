@@ -633,8 +633,17 @@
   .no-default-hover-elevate {}
 
   .no-default-active-elevate {}
+}
 
-
+/**
+ * Elevate utilities live OUTSIDE `@layer utilities` on purpose. Inside the
+ * Tailwind utilities layer, Tailwind/PostCSS will try to variant-generate
+ * any class selector it sees here (e.g. apply the `after:` variant to our
+ * `.border.toggle-elevate::before` rule), producing invalid double-pseudo
+ * selectors like `:where(.after\:border).toggle-elevate::after::before`
+ * that Lightning CSS (Turbopack's parser) hard-fails on. Keeping these rules
+ * at the top level avoids that variant pass entirely.
+ */
   /**
    * Toggleable backgrounds go behind the content. Hoverable/active goes on top.
    * This way they can stack/compound. Both will overlap the parent's borders!
@@ -657,8 +666,12 @@
     background-color: var(--elevate-2);
   }
 
-  /* If there's a 1px border, adjust the inset so that it covers that parent's border */
-  .border.toggle-elevate::before {
+  /* If there's a 1px border, adjust the inset so that it covers that parent's border.
+   * The `.border` class selector is wrapped in `:where()` so Lightning CSS (Turbopack's
+   * CSS parser) doesn't merge this rule with adjacent Tailwind utilities such as
+   * `.after\:border` — which would otherwise produce an invalid double-pseudo selector
+   * like `.after\:border.toggle-elevate::after::before`. */
+  :where(.border).toggle-elevate::before {
     inset: -1px;
   }
 
@@ -695,14 +708,18 @@
     background-color: var(--elevate-2);
   }
 
-  /* If there's a 1px border, adjust the inset so that it covers that parent's border */
-  .border.hover-elevate:not(.no-hover-interaction-elevate)::after,
-  .border.active-elevate:not(.no-active-interaction-elevate)::after,
-  .border.hover-elevate-2:not(.no-hover-interaction-elevate)::after,
-  .border.active-elevate-2:not(.no-active-interaction-elevate)::after,
-  .border.hover-elevate:not(.no-hover-interaction-elevate)::after {
+  /* If there's a 1px border, adjust the inset so that it covers that parent's border.
+   * `.border` is wrapped in `:where()` to keep Lightning CSS from merging this with
+   * Tailwind utilities like `.after\:border`, which would yield an invalid
+   * double-pseudo selector under Turbopack. */
+  :where(.border).hover-elevate:not(.no-hover-interaction-elevate)::after,
+  :where(.border).active-elevate:not(.no-active-interaction-elevate)::after,
+  :where(.border).hover-elevate-2:not(.no-hover-interaction-elevate)::after,
+  :where(.border).active-elevate-2:not(.no-active-interaction-elevate)::after {
     inset: -1px;
   }
+
+@layer utilities {
 
   /* Custom animations */
   @keyframes fadeInUp {
