@@ -241,6 +241,12 @@ export default function Section5() {
           }
         }
       ` }} />
+      {/* Micro-fade: cream → white, erases seam into Section2 */}
+      <div
+        aria-hidden="true"
+        className="absolute bottom-0 left-0 right-0 h-16 pointer-events-none"
+        style={{ background: 'linear-gradient(to bottom, transparent, #ffffff)' }}
+      />
     </section>
   );
 }

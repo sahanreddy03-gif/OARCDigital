@@ -205,6 +205,12 @@ export default function Section2() {
           animation-play-state: paused;
         }
       ` }} />
+      {/* Silk gradient: white → near-black, melts into HireAIEmployeesSection */}
+      <div
+        aria-hidden="true"
+        className="absolute bottom-0 left-0 right-0 h-40 pointer-events-none"
+        style={{ background: 'linear-gradient(to bottom, transparent, #030305)' }}
+      />
     </section>
   );
 }

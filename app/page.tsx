@@ -76,11 +76,11 @@ export default function Page() {
         <TrustedBrandsSection />
         <AICreativeSection />
 
-        {/* Services Showcase */}
-        <Section2 />
-
         {/* Our Difference */}
         <Section5 />
+
+        {/* Services Showcase */}
+        <Section2 />
 
         {/* AI Services Pillars - Dark Premium Zone */}
         <HireAIEmployeesSection />
