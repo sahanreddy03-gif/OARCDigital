@@ -28,7 +28,7 @@ const differentiators = [
 
 function MobileCard({ item, index }: { item: typeof differentiators[0]; index: number }) {
   const cardRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(cardRef, { once: true, margin: "-50px" });
+  const isInView = useInView(cardRef, { once: true, margin: "0px" });
 
   return (
     <div
@@ -87,7 +87,7 @@ function MobileCard({ item, index }: { item: typeof differentiators[0]; index: n
 function DesktopCard({ item, index }: { item: typeof differentiators[0]; index: number }) {
   const [isHovered, setIsHovered] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(cardRef, { once: true, margin: "-100px" });
+  const isInView = useInView(cardRef, { once: true, margin: "0px" });
 
   return (
     <div
@@ -159,7 +159,7 @@ function DesktopCard({ item, index }: { item: typeof differentiators[0]; index: 
 
 export default function Section5() {
   const headingRef = useRef<HTMLDivElement>(null);
-  const headingInView = useInView(headingRef, { once: true, margin: "-100px" });
+  const headingInView = useInView(headingRef, { once: true, margin: "0px" });
 
   return (
     <section 
