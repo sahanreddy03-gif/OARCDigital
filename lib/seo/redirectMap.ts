@@ -82,7 +82,6 @@ export const INDUSTRY_REDIRECTS: Readonly<Record<string, string>> = Object.freez
   healthcare: "healthcare-clinics",
   "law-firm": "legal-services",
   "car-dealership": "automotive",
-  ecommerce: "retail",
 });
 
 // Archived /services/* slugs whose page directory does not exist.

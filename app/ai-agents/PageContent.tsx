@@ -675,6 +675,7 @@ export default function PageContent() {
             </motion.div>
             
             <FAQSection 
+              emitJsonLd={false}
               faqs={aiAgentsFAQs}
               schemaId="ai-agents-landing"
               darkMode={true}

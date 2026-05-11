@@ -9,8 +9,7 @@ const SLUG = "ai-sdr-agent";
 const SCHEMA = SERVICE_SCHEMAS[SLUG];
 const URL = `https://oarcdigital.com/services/${SLUG}`;
 const TITLE = "AI SDR Agent Malta | Lead Qualification & Booking";
-const DESCRIPTION =
-  "3x lift in qualified meetings. AI SDR qualifies prospects across web, email, WhatsApp, books calls, and writes pre-call briefs for your closers.";
+const DESCRIPTION = SCHEMA.description;
 const HERO_OG = "https://oarcdigital.com/og/ai-sdr-agent-malta.png";
 const AUDIENCE = [
   "B2B SaaS",

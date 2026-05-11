@@ -38,7 +38,7 @@ const blogPosts = [
 ];
 
 export default function BlogPreviewSection() {
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
