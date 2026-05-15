@@ -169,7 +169,7 @@ export default function Section5() {
 
   return (
     <section
-      className="relative py-16 md:py-24 lg:py-32 overflow-hidden bg-[#F5F5F0]"
+      className="relative py-16 md:py-24 lg:py-32 overflow-hidden bg-white"
       data-testid="section-5"
     >
       {/* Hover-activated soft dark green glow particles */}
