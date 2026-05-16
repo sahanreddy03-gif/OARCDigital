@@ -225,42 +225,44 @@ export default function RootLayout({
         <ARCWidget />
         <Analytics />
 
-        {/* Partytown init — must run BEFORE any `type="text/partytown"`
-            tag below. Lives in <body> via next/script (afterInteractive)
-            because raw <script dangerouslySetInnerHTML> in <head> hydration-
-            mismatches in Next 14 App Router. */}
-        <Script
-          id="partytown-config"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `partytown = { forward: ["gtag", "dataLayer.push"] };`,
-          }}
-        />
-        <Script
-          id="partytown-snippet"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{ __html: partytownSnippet() }}
-        />
-        {/* Google Ads gtag.js — runs in a Web Worker via Partytown.
-            We use the canonical Partytown attributes (`type="text/partytown"`)
-            instead of next/script `strategy="worker"`, which is unstable in
-            Next 14 App Router. Partytown's snippet above rewrites these
-            tags to load inside its worker. */}
-        <script
-          type="text/partytown"
-          src="https://www.googletagmanager.com/gtag/js?id=AW-17812517147"
-        />
-        <script
-          type="text/partytown"
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'AW-17812517147');
-            `,
-          }}
-        />
+        {/* Partytown + Google Ads — production only.
+            In dev, Partytown spawns a sandboxed iframe that calls
+            dispatchEvent on its parent window; when the page is itself
+            inside a cross-origin iframe (Replit preview) this throws an
+            unhandled SecurityError that crashes the preview overlay even
+            though the site rendered correctly. Analytics doesn't send in
+            dev anyway, so we skip the whole block. */}
+        {process.env.NODE_ENV === 'production' && (
+          <>
+            <Script
+              id="partytown-config"
+              strategy="afterInteractive"
+              dangerouslySetInnerHTML={{
+                __html: `partytown = { forward: ["gtag", "dataLayer.push"] };`,
+              }}
+            />
+            <Script
+              id="partytown-snippet"
+              strategy="afterInteractive"
+              dangerouslySetInnerHTML={{ __html: partytownSnippet() }}
+            />
+            <script
+              type="text/partytown"
+              src="https://www.googletagmanager.com/gtag/js?id=AW-17812517147"
+            />
+            <script
+              type="text/partytown"
+              dangerouslySetInnerHTML={{
+                __html: `
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+                  gtag('config', 'AW-17812517147');
+                `,
+              }}
+            />
+          </>
+        )}
         <Script id="gtag-conversion-tracking" strategy="afterInteractive">
           {`
             document.addEventListener('click', function(e) {
