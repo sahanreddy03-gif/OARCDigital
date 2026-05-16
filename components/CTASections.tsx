@@ -89,6 +89,7 @@ export default function CTASections() {
                     onCheckedChange={(checked) => setFormData({ ...formData, consent: checked as boolean })}
                     className="mt-1 border-background/30 data-[state=checked]:bg-background data-[state=checked]:text-primary"
                     data-testid="checkbox-consent"
+                    suppressHydrationWarning
                   />
                   <Label htmlFor="consent" className="text-sm text-primary-foreground/90 leading-relaxed cursor-pointer">
                     I agree to be contacted about OARC AI early access and understand my data will be stored securely.
