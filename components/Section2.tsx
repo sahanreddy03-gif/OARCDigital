@@ -148,27 +148,40 @@ export default function Section2() {
           
         </div>
 
-        {/* Bottom: Brands Section */}
-        <div className="text-center">
-          <h3 
-            className="text-2xl md:text-3xl lg:text-4xl font-bold text-zinc-900 leading-[1.15] tracking-tight mb-3"
+      </div>
+
+      {/* Gradient bridge: white → dark, starts mid-section and covers logo strip */}
+      <div
+        aria-hidden="true"
+        className="absolute bottom-0 left-0 right-0 pointer-events-none"
+        style={{ height: '220px', background: 'linear-gradient(to bottom, transparent, #030305 80%)' }}
+      />
+
+      {/* Brands section — sits INSIDE the gradient zone, full-width */}
+      <div className="relative z-10 pt-8">
+        <div className="text-center mb-6 px-6">
+          <h3
+            className="text-2xl md:text-3xl lg:text-4xl font-bold leading-[1.15] tracking-tight"
+            style={{ color: 'rgba(255,255,255,0.92)' }}
             data-testid="ambitious-brands-heading"
           >
             We grow ambitious brands with{" "}
             <br className="hidden sm:block" />
-            <span className="text-zinc-800">Social, Paid, Creative</span>{" "}
-            <span className="text-zinc-500">and</span>{" "}
-            <span className="text-zinc-800">Influencer</span>
+            <span style={{ color: 'rgba(255,255,255,0.95)' }}>Social, Paid, Creative</span>{" "}
+            <span style={{ color: 'rgba(255,255,255,0.5)' }}>and</span>{" "}
+            <span style={{ color: 'rgba(255,255,255,0.95)' }}>Influencer</span>
           </h3>
         </div>
 
-        {/* Brand logos carousel - faster animation */}
+        {/* Logo marquee — full-width, no white box */}
         <div className="relative overflow-hidden">
-          <div className="absolute left-0 top-0 bottom-0 w-16 md:w-24 z-10 pointer-events-none bg-gradient-to-r from-white via-white/80 to-transparent" />
-          <div className="absolute right-0 top-0 bottom-0 w-16 md:w-24 z-10 pointer-events-none bg-gradient-to-l from-white via-white/80 to-transparent" />
-          
-          <div 
-            className="flex animate-fast-scroll gap-8 md:gap-12 lg:gap-14 whitespace-nowrap py-4"
+          <div className="absolute left-0 top-0 bottom-0 w-16 md:w-24 z-10 pointer-events-none"
+            style={{ background: 'linear-gradient(to right, #030305, transparent)' }} />
+          <div className="absolute right-0 top-0 bottom-0 w-16 md:w-24 z-10 pointer-events-none"
+            style={{ background: 'linear-gradient(to left, #030305, transparent)' }} />
+
+          <div
+            className="flex animate-fast-scroll gap-8 md:gap-12 lg:gap-14 whitespace-nowrap py-5"
             data-testid="ambitious-brands-carousel"
           >
             {duplicatedBrands.map((brand, index) => (
@@ -178,7 +191,8 @@ export default function Section2() {
                 data-testid={`ambitious-brand-${index}`}
               >
                 <brand.icon
-                  className="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 text-zinc-400 grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 group-hover:text-zinc-700 transition-all duration-300 group-hover:scale-110"
+                  className="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 transition-all duration-300 group-hover:scale-110"
+                  style={{ color: 'rgba(255,255,255,0.45)' }}
                   aria-label={brand.name}
                 />
               </div>
@@ -189,28 +203,16 @@ export default function Section2() {
 
       <style dangerouslySetInnerHTML={{ __html: `
         @keyframes fast-scroll {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(-50%);
-          }
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
         }
-        
         .animate-fast-scroll {
           animation: fast-scroll 15s linear infinite;
         }
-        
         .animate-fast-scroll:hover {
           animation-play-state: paused;
         }
       ` }} />
-      {/* Silk gradient: white → near-black, melts into HireAIEmployeesSection */}
-      <div
-        aria-hidden="true"
-        className="absolute bottom-0 left-0 right-0 h-40 pointer-events-none"
-        style={{ background: 'linear-gradient(to bottom, transparent, #030305)' }}
-      />
     </section>
   );
 }
