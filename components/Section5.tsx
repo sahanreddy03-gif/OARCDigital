@@ -8,6 +8,8 @@ const revenueCentered = "/attached_assets/07c35cf0cbddd33390e2f878e287f38703ae7b
 import dynamic from 'next/dynamic';
 const AntigravityParticles = dynamic(() => import('./AntigravityParticles'), { ssr: false });
 
+const BG = '#f0fff4';
+
 const differentiators = [
   {
     title: "AI Excellence",
@@ -57,7 +59,6 @@ function MobileCard({ item, index }: { item: typeof differentiators[0]; index: n
               transitionDelay: `${index * 150 + 100}ms`,
             }}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 transition-opacity duration-500" />
         </div>
 
         <div
@@ -109,7 +110,9 @@ function DesktopCard({ item, index }: { item: typeof differentiators[0]; index: 
       <div className="relative overflow-visible rounded-xl">
         <div
           className={`aspect-[4/3] relative overflow-hidden bg-zinc-100 rounded-xl desktop-image-container transition-shadow duration-400 ${
-            isHovered ? 'shadow-[0_0_40px_rgba(10,40,24,0.25),0_0_80px_rgba(10,40,24,0.1),0_25px_50px_rgba(0,0,0,0.15)]' : 'shadow-[0_10px_30px_rgba(0,0,0,0.1)]'
+            isHovered
+              ? 'shadow-[0_0_40px_rgba(10,40,24,0.25),0_0_80px_rgba(10,40,24,0.1),0_25px_50px_rgba(0,0,0,0.15)]'
+              : 'shadow-[0_10px_30px_rgba(0,0,0,0.1)]'
           }`}
         >
           <img
@@ -128,9 +131,7 @@ function DesktopCard({ item, index }: { item: typeof differentiators[0]; index: 
             className={`absolute inset-0 rounded-xl transition-opacity duration-400 ${
               isHovered ? 'opacity-100' : 'opacity-0'
             }`}
-            style={{
-              background: 'linear-gradient(135deg, rgba(10, 40, 24, 0.1) 0%, transparent 50%, rgba(10, 40, 24, 0.05) 100%)'
-            }}
+            style={{ background: 'linear-gradient(135deg, rgba(10,40,24,0.1) 0%, transparent 50%, rgba(10,40,24,0.05) 100%)' }}
           />
         </div>
 
@@ -169,14 +170,17 @@ export default function Section5() {
 
   return (
     <section
-      className="relative py-16 md:py-24 lg:py-32 overflow-hidden bg-white"
+      className="relative py-16 md:py-24 lg:py-32 overflow-hidden"
+      style={{ backgroundColor: BG }}
       data-testid="section-5"
     >
-      {/* Hover-activated soft dark green glow particles */}
       <AntigravityParticles />
 
-      {/* Subtle gradient overlay for depth */}
-      <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-[#F5F5F0]/30 via-transparent to-[#F5F5F0]/30" />
+      {/* Depth overlay using mint tones only */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{ background: `linear-gradient(to bottom, ${BG} 0%, transparent 8%, transparent 92%, ${BG} 100%)` }}
+      />
 
       <div className="relative container mx-auto px-4 md:px-6 lg:px-12">
         <div
@@ -184,7 +188,10 @@ export default function Section5() {
           className="text-center mb-12 md:mb-16 lg:mb-20 transition-transform duration-700 ease-out"
           style={{ transform: headingInView ? 'translateY(0)' : 'translateY(16px)' }}
         >
-          <h2 className="font-bold text-zinc-900" style={{ fontSize: 'clamp(2rem, 6vw, 4rem)', letterSpacing: '-0.03em', lineHeight: '1.15' }}>
+          <h2
+            className="font-bold text-zinc-900"
+            style={{ fontSize: 'clamp(2rem, 6vw, 4rem)', letterSpacing: '-0.03em', lineHeight: '1.15' }}
+          >
             Our <span className="italic" style={{ color: '#0A2818' }}>Difference</span>
           </h2>
           <p className="text-zinc-500 mt-3 text-base md:text-lg">The perfect fit for fast moving brands</p>
@@ -196,10 +203,7 @@ export default function Section5() {
           ))}
         </div>
 
-        <div
-          className="md:hidden flex flex-col gap-12"
-          data-testid="mobile-scroll-container"
-        >
+        <div className="md:hidden flex flex-col gap-12" data-testid="mobile-scroll-container">
           {differentiators.map((item, index) => (
             <MobileCard key={index} item={item} index={index} />
           ))}
@@ -213,7 +217,7 @@ export default function Section5() {
           inset: -2px;
           border-radius: inherit;
           padding: 2px;
-          background: linear-gradient(135deg, transparent 0%, rgba(10, 40, 24, 0) 100%);
+          background: linear-gradient(135deg, transparent 0%, rgba(10,40,24,0) 100%);
           -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
           -webkit-mask-composite: xor;
           mask-composite: exclude;
@@ -222,32 +226,30 @@ export default function Section5() {
           pointer-events: none;
           z-index: 10;
         }
-        
         .desktop-image-container:hover::before {
           opacity: 1;
-          background: linear-gradient(135deg, rgba(10, 40, 24, 0.5) 0%, rgba(10, 40, 24, 0.2) 50%, rgba(10, 40, 24, 0.5) 100%);
+          background: linear-gradient(135deg, rgba(10,40,24,0.5) 0%, rgba(10,40,24,0.2) 50%, rgba(10,40,24,0.5) 100%);
         }
-
         .mobile-image-container {
-          box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 10px 40px rgba(0,0,0,0.1);
         }
-        
         @media (max-width: 767px) {
           .mobile-image-container::after {
             content: '';
             position: absolute;
             inset: 0;
             border-radius: inherit;
-            box-shadow: inset 0 0 60px rgba(10, 40, 24, 0.05);
+            box-shadow: inset 0 0 60px rgba(10,40,24,0.05);
             pointer-events: none;
           }
         }
       ` }} />
-      {/* Micro-fade: cream → white, erases seam into Section2 */}
+
+      {/* Dark gradient bridge → flows into HireAIEmployeesSection (#030305) */}
       <div
         aria-hidden="true"
-        className="absolute bottom-0 left-0 right-0 h-16 pointer-events-none"
-        style={{ background: 'linear-gradient(to bottom, transparent, #ffffff)' }}
+        className="absolute bottom-0 left-0 right-0 pointer-events-none"
+        style={{ height: '220px', background: 'linear-gradient(to bottom, transparent, #030305 80%)' }}
       />
     </section>
   );
