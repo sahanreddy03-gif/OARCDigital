@@ -219,14 +219,12 @@ export default function HeroSection() {
               transform: 'scale(1.1)'
             }}
           />
-          {/* Real background - fades in over placeholder */}
+          {/* Real background - always visible */}
           <div 
-            className="absolute inset-0 bg-cover bg-no-repeat transition-opacity duration-700"
-            suppressHydrationWarning
+            className="absolute inset-0 bg-cover bg-no-repeat"
             style={{ 
               backgroundImage: `url(${heroBackground})`,
               backgroundPosition: '60% center',
-              opacity: imageLoaded ? 1 : 0
             }}
           />
           {/* Gradient overlay - always visible for text readability */}
@@ -245,14 +243,12 @@ export default function HeroSection() {
             transform: 'scale(1.1)'
           }}
         />
-        {/* Desktop real background - fades in over placeholder */}
+        {/* Desktop real background - always visible */}
         <div 
-          className="hidden md:block absolute inset-0 bg-cover bg-no-repeat bg-fixed transition-opacity duration-700"
-          suppressHydrationWarning
+          className="hidden md:block absolute inset-0 bg-cover bg-no-repeat"
           style={{ 
             backgroundImage: `url(${heroBackground})`,
             backgroundPosition: '35% center',
-            opacity: imageLoaded ? 1 : 0
           }}
         />
         {/* Desktop gradient overlays - always visible for text readability */}
