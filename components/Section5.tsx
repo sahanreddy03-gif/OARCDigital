@@ -8,7 +8,7 @@ const revenueCentered = "/attached_assets/07c35cf0cbddd33390e2f878e287f38703ae7b
 import dynamic from 'next/dynamic';
 const AntigravityParticles = dynamic(() => import('./AntigravityParticles'), { ssr: false });
 
-const BG = '#f0fff4';
+const BG = '#F5F5F0';
 
 const differentiators = [
   {
@@ -245,11 +245,11 @@ export default function Section5() {
         }
       ` }} />
 
-      {/* Dark gradient bridge → flows into HireAIEmployeesSection (#030305) */}
+      {/* Thin shadow edge — just enough to signal the section break */}
       <div
         aria-hidden="true"
         className="absolute bottom-0 left-0 right-0 pointer-events-none"
-        style={{ height: '220px', background: 'linear-gradient(to bottom, transparent, #030305 80%)' }}
+        style={{ height: '40px', background: 'linear-gradient(to bottom, transparent, rgba(0,0,0,0.18))' }}
       />
     </section>
   );
