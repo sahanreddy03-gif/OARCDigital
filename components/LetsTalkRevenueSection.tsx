@@ -372,16 +372,16 @@ export default function LetsTalkRevenueSection() {
       <div className="container mx-auto px-6 lg:px-12 max-w-7xl relative z-10">
         <motion.div 
           className="text-center mb-8 lg:mb-12"
-          initial={{ y: 20 }}
-          whileInView={{ y: 0 }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
           {/* Premium Badge */}
           <motion.div 
             className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/[0.03] backdrop-blur-md rounded-full border border-[#23AACA]/20 mb-4"
-            initial={{ scale: 0.95 }}
-            whileInView={{ scale: 1 }}
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
           >
@@ -398,9 +398,9 @@ export default function LetsTalkRevenueSection() {
             data-testid="text-custom-ai-heading" 
             style={{ fontSize: 'clamp(1.75rem, 4.5vw, 3rem)' }}
           >
-            <span className="text-white">Custom AI Products</span>
-            <span className="text-[#23AACA] ml-2">&amp;</span>
-            <span className="text-[#23AACA] ml-2">Development</span>
+            <span className="bg-gradient-to-r from-white via-white to-white/80 bg-clip-text text-transparent">Custom AI Products</span>
+            <span className="bg-gradient-to-r from-[#23AACA] to-[#4ade80] bg-clip-text text-transparent ml-2">&</span>
+            <span className="bg-gradient-to-r from-[#23AACA] to-[#4ade80] bg-clip-text text-transparent ml-2">Development</span>
           </h2>
           <p 
             className="font-medium text-white/80 mb-3" 
@@ -509,10 +509,10 @@ export default function LetsTalkRevenueSection() {
 
         <motion.div 
           className="text-center mt-10"
-          initial={{ y: 20 }}
-          whileInView={{ y: 0 }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.3 }}
+          transition={{ delay: 0.6 }}
         >
           <Link href="/services/custom-software-development">
             <button 

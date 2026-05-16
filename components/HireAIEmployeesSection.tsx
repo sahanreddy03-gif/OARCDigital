@@ -416,8 +416,8 @@ export default function HireAIEmployeesSection() {
             data-testid="text-workforce-agents-heading" 
             style={{ fontSize: 'clamp(1.75rem, 4.5vw, 3rem)' }}
           >
-            <span className="text-white">AI Workforce</span>
-            <span className="text-[#c4ff4d] ml-3">Agents</span>
+            <span className="bg-gradient-to-r from-white via-white to-white/80 bg-clip-text text-transparent">AI Workforce</span>
+            <span className="bg-gradient-to-r from-[#c4ff4d] to-[#4ade80] bg-clip-text text-transparent ml-3">Agents</span>
           </h2>
           <p 
             className="font-medium text-white/80 mb-3" 
