@@ -10,6 +10,32 @@ const withBundleAnalyzer =
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  experimental: {
+    // Prevent binary assets (images, video, fonts) from being bundled into
+    // serverless functions via Node File Tracing. Without this the
+    // image-sitemap.xml route — which uses fs.readdir on public/ — causes
+    // Next.js to trace every AVIF/PNG in the repo into the Lambda, hitting
+    // Vercel's 300 MB function size limit.
+    outputFileTracingExcludes: {
+      '*': [
+        './public/**/*.avif',
+        './public/**/*.png',
+        './public/**/*.jpg',
+        './public/**/*.jpeg',
+        './public/**/*.webp',
+        './public/**/*.gif',
+        './public/**/*.svg',
+        './public/**/*.mp4',
+        './public/**/*.webm',
+        './public/**/*.mov',
+        './public/**/*.woff',
+        './public/**/*.woff2',
+        './public/**/*.ttf',
+        './public/**/*.otf',
+        './attached_assets/**',
+      ],
+    },
+  },
   allowedDevOrigins: [
     '*.janeway.replit.dev',
     '*.janeway.repl.co',
