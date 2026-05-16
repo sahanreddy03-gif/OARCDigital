@@ -10,6 +10,12 @@ const withBundleAnalyzer =
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  allowedDevOrigins: [
+    '*.janeway.replit.dev',
+    '*.janeway.repl.co',
+    '*.replit.dev',
+    '*.repl.co',
+  ],
   reactStrictMode: true,
   turbopack: {
     resolveAlias: {
