@@ -178,7 +178,7 @@ export default function Section2() {
                 data-testid={`ambitious-brand-${index}`}
               >
                 <brand.icon
-                  className="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 text-zinc-400 grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 group-hover:text-zinc-700 transition-all duration-300 group-hover:scale-110"
+                  className="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 text-zinc-600 transition-all duration-300 group-hover:text-zinc-900 group-hover:scale-110"
                   aria-label={brand.name}
                 />
               </div>
