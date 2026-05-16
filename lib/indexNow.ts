@@ -15,14 +15,8 @@ const BOOTSTRAP_KEY = "oarcdigital7971179946174617";
 export function getIndexNowKey(): string {
   const fromEnv = process.env.INDEXNOW_KEY;
   if (fromEnv && fromEnv.trim()) return fromEnv.trim();
-  if (process.env.NODE_ENV === "production") {
-    throw new Error(
-      "INDEXNOW_KEY environment variable is required in production. " +
-        "Set it as a Replit secret. The bootstrap verification file at " +
-        "/oarcdigital7971179946174617.txt may be removed once the secret is configured.",
-    );
-  }
-  // Dev / preview only — uses the verification file already in public/.
+  // Fall back to the bootstrap key whose verification file is already
+  // deployed at /oarcdigital7971179946174617.txt — valid on all envs.
   return BOOTSTRAP_KEY;
 }
 
