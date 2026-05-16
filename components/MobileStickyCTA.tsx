@@ -15,7 +15,7 @@ export default function MobileStickyCTA() {
       rel="noopener noreferrer"
       aria-label="Chat on WhatsApp"
       data-testid="link-mobile-whatsapp"
-      className="fixed bottom-6 left-6 z-[9997] md:hidden"
+      className="fixed bottom-6 left-6 z-[9997]"
     >
       {/* Pulse ring */}
       <div
