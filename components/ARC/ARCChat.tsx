@@ -36,10 +36,12 @@ const MALTA_PHONE = NAP.phoneE164;
 
 const SUGGESTIONS = [
   "What services does OARC offer?",
+  "How do you integrate AI into my business?",
+  "Why OARC for growth — what makes you different?",
+  "How do you combine strategy with creative?",
   "How do you get more customers fast?",
   "Can you build an AI agent for my business?",
   "How does the 90-day guarantee work?",
-  "What's wrong with my social media?",
   "Talk to a human now",
 ];
 
