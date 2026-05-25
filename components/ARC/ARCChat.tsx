@@ -1,8 +1,8 @@
 "use client";
 
 import { useState, useRef, useEffect, useCallback } from 'react';
-import { X, ArrowLeft, Send, Phone, Flame, TrendingDown, Users, MousePointerClick, Swords } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { X, ArrowLeft, ArrowUpRight, Send, Phone, Flame, TrendingDown, Users, MousePointerClick, Swords, ChevronLeft } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { ARCMessage } from './ARCMessage';
 import { ARCTypingIndicator } from './ARCTypingIndicator';
 import { getRandomGreeting, checkInstantResponse } from '@/lib/instantResponses';
@@ -33,28 +33,38 @@ function extractContact(text: string): string | null {
 }
 
 const MALTA_PHONE = NAP.phoneE164;
-const MALTA_EMAIL = NAP.email;
+
+const SUGGESTIONS = [
+  "What services does OARC offer?",
+  "How do you get more customers fast?",
+  "Can you build an AI agent for my business?",
+  "How does the 90-day guarantee work?",
+  "What's wrong with my social media?",
+  "Talk to a human now",
+];
 
 const QUICK_ACTIONS = [
-  { id: 'solve-problem', label: 'Solve My Problem Today', icon: Flame, type: 'prompt' as const, prompt: 'I have a problem I need solved today' },
-  { id: 'more-customers', label: 'I Need More Customers', icon: Users, type: 'prompt' as const, prompt: 'I need more customers for my business' },
-  { id: 'social-not-working', label: "Social Media Isn't Working", icon: TrendingDown, type: 'prompt' as const, prompt: "My social media isn't working" },
-  { id: 'competitors', label: 'Competitors Are Beating Me', icon: Swords, type: 'prompt' as const, prompt: 'My competitors are doing better than me' },
-  { id: 'roast', label: 'Roast My Business', icon: MousePointerClick, type: 'prompt' as const, prompt: 'Give me an honest assessment of my business and what needs to change' },
-  { id: 'talk', label: 'Talk to a Human Now', icon: Phone, type: 'phone' as const },
+  { id: 'solve-problem',      label: 'Solve My Problem Today',      icon: Flame,            type: 'prompt' as const, prompt: 'I have a problem I need solved today' },
+  { id: 'more-customers',     label: 'I Need More Customers',       icon: Users,            type: 'prompt' as const, prompt: 'I need more customers for my business' },
+  { id: 'social-not-working', label: "Social Media Isn't Working",  icon: TrendingDown,     type: 'prompt' as const, prompt: "My social media isn't working" },
+  { id: 'competitors',        label: 'Competitors Are Beating Me',  icon: Swords,           type: 'prompt' as const, prompt: 'My competitors are doing better than me' },
+  { id: 'roast',              label: 'Roast My Business',           icon: MousePointerClick, type: 'prompt' as const, prompt: 'Give me an honest assessment of my business' },
+  { id: 'talk',               label: 'Talk to a Human Now',         icon: Phone,            type: 'phone' as const },
 ];
 
 export function ARCChat({ onClose, isMobile, initialPrompt }: ARCChatProps) {
-  const [messages, setMessages] = useState<Message[]>([]);
-  const [input, setInput] = useState('');
-  const [isTyping, setIsTyping] = useState(false);
-  const [isStreaming, setIsStreaming] = useState(false);
-  const [followups, setFollowups] = useState<string[]>([]);
-  const [showPrompts, setShowPrompts] = useState(true);
+  const [messages, setMessages]           = useState<Message[]>([]);
+  const [input, setInput]                 = useState('');
+  const [isTyping, setIsTyping]           = useState(false);
+  const [isStreaming, setIsStreaming]     = useState(false);
+  const [followups, setFollowups]         = useState<string[]>([]);
+  const [hasStarted, setHasStarted]       = useState(false);
   const [proactiveLeadSent, setProactiveLeadSent] = useState(false);
+
   const initialPromptSentRef = useRef(false);
-  const messagesEndRef = useRef<HTMLDivElement>(null);
-  const abortRef = useRef<AbortController | null>(null);
+  const messagesEndRef        = useRef<HTMLDivElement>(null);
+  const inputRef              = useRef<HTMLInputElement>(null);
+  const abortRef              = useRef<AbortController | null>(null);
 
   const scrollToBottom = useCallback(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -62,45 +72,46 @@ export function ARCChat({ onClose, isMobile, initialPrompt }: ARCChatProps) {
 
   useEffect(() => { scrollToBottom(); }, [messages, isTyping, isStreaming, scrollToBottom]);
 
-  // Initial greeting
+  // Initial greeting loads in background — shown once chat starts
+  const greetingRef = useRef<string | null>(null);
   useEffect(() => {
-    if (messages.length === 0) {
-      const t = setTimeout(() => {
-        setIsTyping(true);
-        setTimeout(() => {
-          setIsTyping(false);
-          setMessages([{ id: 'greeting', content: getRandomGreeting(), isUser: false }]);
-        }, 800);
-      }, 300);
-      return () => clearTimeout(t);
-    }
+    greetingRef.current = getRandomGreeting();
   }, []);
 
-  // Auto-send initialPrompt once greeting loads
+  // Auto-send initialPrompt once provided
   useEffect(() => {
     if (!initialPrompt || initialPromptSentRef.current) return;
-    if (messages.length === 0 || isTyping) return;
     initialPromptSentRef.current = true;
-    const t = setTimeout(() => sendMessage(initialPrompt), 400);
-    return () => clearTimeout(t);
+    startChat(initialPrompt);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [initialPrompt, messages.length, isTyping]);
+  }, [initialPrompt]);
 
-  const sendMessage = async (messageText: string, buttonId?: string) => {
+  const startChat = (text: string) => {
+    setHasStarted(true);
+    // Show greeting first, then send message
+    const greeting = greetingRef.current ?? "What's the problem you're trying to solve?";
+    setMessages([{ id: 'greeting', content: greeting, isUser: false }]);
+    setTimeout(() => sendMessage(text, undefined, [{ id: 'greeting', content: greeting, isUser: false }]), 300);
+  };
+
+  const sendMessage = async (
+    messageText: string,
+    buttonId?: string,
+    existingMessages?: Message[],
+  ) => {
     if (!messageText.trim() || isStreaming) return;
 
-    // Cancel any in-flight stream
     abortRef.current?.abort();
     abortRef.current = new AbortController();
 
+    const base = existingMessages ?? messages;
     const userMessage: Message = { id: Date.now().toString(), content: messageText, isUser: true };
-    const newMessages = [...messages, userMessage];
+    const newMessages = [...base, userMessage];
     setMessages(newMessages);
     setInput('');
-    setShowPrompts(false);
     setFollowups([]);
 
-    // Proactive contact capture — if user drops email/phone in any message
+    // Proactive contact capture
     const contact = extractContact(messageText);
     if (contact && !proactiveLeadSent) {
       setProactiveLeadSent(true);
@@ -117,7 +128,7 @@ export function ARCChat({ onClose, isMobile, initialPrompt }: ARCChatProps) {
       }).catch(() => {});
     }
 
-    // Fast path: local instant response (returns {response, showPricingCTA} or null)
+    // Fast path: local instant response
     const instant = checkInstantResponse(messageText);
     if (instant) {
       setTimeout(() => {
@@ -127,11 +138,11 @@ export function ARCChat({ onClose, isMobile, initialPrompt }: ARCChatProps) {
           isUser: false,
           showPricingCTA: instant.showPricingCTA,
         }]);
-      }, 400);
+      }, 350);
       return;
     }
 
-    // Create a placeholder streaming message
+    // Streaming placeholder
     const streamId = (Date.now() + 1).toString();
     setIsStreaming(true);
     setMessages(prev => [...prev, { id: streamId, content: '', isUser: false, isStreaming: true }]);
@@ -148,11 +159,9 @@ export function ARCChat({ onClose, isMobile, initialPrompt }: ARCChatProps) {
         }),
       });
 
-      if (!response.ok || !response.body) {
-        throw new Error(`HTTP ${response.status}`);
-      }
+      if (!response.ok || !response.body) throw new Error(`HTTP ${response.status}`);
 
-      const reader = response.body.getReader();
+      const reader  = response.body.getReader();
       const decoder = new TextDecoder();
       let buf = '';
       let accumulated = '';
@@ -167,54 +176,41 @@ export function ARCChat({ onClose, isMobile, initialPrompt }: ARCChatProps) {
 
         for (const part of parts) {
           if (!part.trim()) continue;
-
-          let eventType = '';
-          let eventData = '';
-
+          let eventType = '', eventData = '';
           for (const line of part.split('\n')) {
             if (line.startsWith('event: ')) eventType = line.slice(7).trim();
-            else if (line.startsWith('data: ')) eventData = line.slice(6).trim();
+            else if (line.startsWith('data: '))  eventData = line.slice(6).trim();
           }
-
           if (!eventData) continue;
-
           try {
             const parsed = JSON.parse(eventData);
-
             if (eventType === 'content' && parsed.content) {
               accumulated += parsed.content;
               setMessages(prev => prev.map(m =>
                 m.id === streamId ? { ...m, content: accumulated, isStreaming: true } : m
               ));
             }
-
             if (eventType === 'followups' && Array.isArray(parsed.followups)) {
               setFollowups(parsed.followups.slice(0, 3));
             }
-
             if (eventType === 'done') {
               setMessages(prev => prev.map(m =>
                 m.id === streamId ? { ...m, isStreaming: false } : m
               ));
             }
-          } catch {
-            // malformed chunk — skip
-          }
+          } catch { /* malformed chunk */ }
         }
       }
 
-      // Finalize
       setMessages(prev => prev.map(m =>
         m.id === streamId ? { ...m, isStreaming: false } : m
       ));
 
     } catch (err: unknown) {
       if (err instanceof Error && err.name === 'AbortError') return;
-
-      // Fallback message on error
       setMessages(prev => prev.map(m =>
         m.id === streamId
-          ? { ...m, content: `Connection dropped. Email ${MALTA_EMAIL} or call ${NAP.phoneDisplay}.`, isStreaming: false }
+          ? { ...m, content: `Connection dropped. Email ${NAP.email} or call ${NAP.phoneDisplay}.`, isStreaming: false }
           : m
       ));
     } finally {
@@ -224,15 +220,16 @@ export function ARCChat({ onClose, isMobile, initialPrompt }: ARCChatProps) {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    sendMessage(input);
+    if (!input.trim()) return;
+    if (!hasStarted) { startChat(input); } else { sendMessage(input); }
   };
 
-  const handleQuickAction = (action: typeof QUICK_ACTIONS[0]) => {
-    if (action.type === 'phone') {
+  const handleSuggestion = (text: string) => {
+    if (text === 'Talk to a human now') {
       window.open(`tel:${MALTA_PHONE}`, '_self');
-    } else if (action.type === 'prompt' && 'prompt' in action) {
-      sendMessage(action.prompt, action.id);
+      return;
     }
+    if (!hasStarted) { startChat(text); } else { sendMessage(text); }
   };
 
   const handleFollowup = (q: string) => {
@@ -242,179 +239,255 @@ export function ARCChat({ onClose, isMobile, initialPrompt }: ARCChatProps) {
 
   const isBusy = isTyping || isStreaming;
 
+  // ─── Panel wrapper ───────────────────────────────────────────────────────────
+  const panelClass = isMobile ? 'fixed inset-0 z-[9999]' : 'fixed bottom-6 right-6 z-[9999] w-[420px] h-[600px] rounded-[28px] overflow-hidden';
+
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.95 }}
-      animate={{ opacity: 1, scale: 1 }}
-      exit={{ opacity: 0, scale: 0.95 }}
-      transition={{ duration: 0.2 }}
-      className={`fixed z-[9999] flex flex-col ${isMobile ? 'inset-0' : 'bottom-6 right-6 w-[380px] h-[560px] rounded-2xl'}`}
-      style={{
-        backgroundColor: '#0a0a0f',
-        border: isMobile ? 'none' : '1px solid #1a1a24',
-        boxShadow: isMobile ? 'none' : '0 12px 50px rgba(0, 0, 0, 0.5)',
-      }}
+      initial={{ opacity: 0, scale: 0.96, y: 12 }}
+      animate={{ opacity: 1, scale: 1, y: 0 }}
+      exit={{ opacity: 0, scale: 0.96, y: 12 }}
+      transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
+      className={panelClass}
+      style={{ boxShadow: isMobile ? 'none' : '0 24px 80px rgba(0,0,0,0.35)' }}
       data-testid="arc-chat-window"
     >
-      {/* Header */}
-      <div
-        className="flex items-center justify-between px-4 h-[60px] shrink-0"
-        style={{
-          backgroundColor: '#0f0f14',
-          borderBottom: '1px solid #1a1a24',
-          borderRadius: isMobile ? '0' : '16px 16px 0 0',
-        }}
-      >
-        <div className="flex items-center gap-3">
-          {isMobile && (
-            <button onClick={onClose} className="text-gray-400 hover:text-white transition-colors" data-testid="button-back">
-              <ArrowLeft size={20} />
-            </button>
-          )}
-          <div
-            className="w-9 h-9 rounded-full flex items-center justify-center text-white font-bold text-sm"
-            style={{ background: 'linear-gradient(135deg, #22c55e, #16a34a)' }}
+      <AnimatePresence mode="wait">
+        {!hasStarted ? (
+          /* ──────────── IDLE SCREEN ──────────── */
+          <motion.div
+            key="idle"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0, scale: 0.98 }}
+            transition={{ duration: 0.18 }}
+            className="w-full h-full flex flex-col relative overflow-hidden"
+            style={{ backgroundColor: '#e8e8ec' }}
           >
-            A
-          </div>
-          <div>
-            <div className="text-white font-semibold text-[15px]">ARC</div>
-            <div className="flex items-center gap-1.5">
-              <span
-                className="inline-block w-1.5 h-1.5 rounded-full"
-                style={{ backgroundColor: isStreaming ? '#facc15' : '#22c55e' }}
-              />
-              <span className="text-[11px]" style={{ color: isStreaming ? '#facc15' : '#22c55e' }}>
-                {isStreaming ? 'Thinking...' : 'Online'}
-              </span>
+            {/* Decorative blobs */}
+            <div className="absolute inset-0 pointer-events-none select-none">
+              <div className="absolute top-[10%] left-[55%] w-72 h-72 rounded-full"
+                style={{ background: 'radial-gradient(circle, #d4d4dc 0%, transparent 70%)', transform: 'translate(-50%,-50%)' }} />
+              <div className="absolute top-[55%] left-[30%] w-56 h-56 rounded-full"
+                style={{ background: 'radial-gradient(circle, #c8c8d2 0%, transparent 70%)', transform: 'translate(-50%,-50%)' }} />
+              <div className="absolute bottom-[5%] right-[10%] w-64 h-64 rounded-full"
+                style={{ background: 'radial-gradient(circle, #d0d0d8 0%, transparent 70%)' }} />
             </div>
-          </div>
-        </div>
-        {!isMobile && (
-          <button onClick={onClose} className="text-gray-500 hover:text-white transition-colors" data-testid="button-close-chat">
-            <X size={20} />
-          </button>
-        )}
-      </div>
 
-      {/* Messages */}
-      <div className="flex-1 overflow-y-auto p-4" style={{ backgroundColor: '#0a0a0f' }}>
-        {messages.map(message => (
-          <div key={message.id}>
-            <ARCMessage
-              content={message.content}
-              isUser={message.isUser}
-              isStreaming={message.isStreaming}
-            />
-            {message.showPricingCTA && (
-              <div className="mt-3 mb-4">
-                <a
-                  href="/pricing"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-4 py-2.5 text-sm font-medium rounded-lg"
-                  style={{ background: 'linear-gradient(135deg, #22c55e, #16a34a)', color: 'white' }}
-                >
-                  Get Custom Pricing
-                </a>
-              </div>
-            )}
-          </div>
-        ))}
+            {/* Close button */}
+            <div className="relative z-10 flex justify-between items-center px-5 pt-5">
+              <span className="text-[13px] font-semibold tracking-widest text-zinc-400 uppercase">ARC</span>
+              <button
+                onClick={onClose}
+                className="w-8 h-8 rounded-full flex items-center justify-center transition-colors"
+                style={{ backgroundColor: 'rgba(0,0,0,0.08)' }}
+                data-testid="button-close-idle"
+              >
+                <X size={15} className="text-zinc-600" />
+              </button>
+            </div>
 
-        {isTyping && <ARCTypingIndicator />}
-
-        {/* Quick action chips — only after first greeting */}
-        {showPrompts && messages.length === 1 && !isTyping && (
-          <div className="grid grid-cols-2 gap-2 mt-4">
-            {QUICK_ACTIONS.map((action) => {
-              const Icon = action.icon;
-              return (
+            {/* Main input pill */}
+            <form onSubmit={handleSubmit} className="relative z-10 px-5 mt-6">
+              <div
+                className="flex items-center gap-3 pl-5 pr-2 py-2 rounded-full"
+                style={{ backgroundColor: '#111113' }}
+              >
+                <input
+                  ref={inputRef}
+                  type="text"
+                  value={input}
+                  onChange={e => setInput(e.target.value)}
+                  placeholder="What Can We Help You Achieve?"
+                  className="flex-1 bg-transparent text-white text-[15px] font-medium outline-none placeholder-zinc-400"
+                  data-testid="input-idle"
+                />
                 <button
-                  key={action.id}
-                  onClick={() => handleQuickAction(action)}
-                  className="flex items-center gap-2 px-3 py-2.5 text-[12px] font-medium rounded-lg border transition-all"
-                  style={{ borderColor: '#333', color: '#999', backgroundColor: 'transparent' }}
+                  type="submit"
+                  disabled={!input.trim()}
+                  className="w-10 h-10 rounded-full flex items-center justify-center shrink-0 transition-opacity"
+                  style={{
+                    backgroundColor: '#ffffff',
+                    opacity: input.trim() ? 1 : 0.6,
+                    cursor: input.trim() ? 'pointer' : 'default',
+                  }}
+                  data-testid="button-idle-submit"
+                >
+                  <ArrowUpRight size={18} className="text-zinc-900" strokeWidth={2.5} />
+                </button>
+              </div>
+            </form>
+
+            {/* Suggestion pills */}
+            <div className="relative z-10 flex flex-col gap-2.5 px-5 mt-6 overflow-y-auto pb-6">
+              {SUGGESTIONS.map((s, i) => (
+                <motion.button
+                  key={i}
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: i * 0.05 + 0.1, duration: 0.2 }}
+                  onClick={() => handleSuggestion(s)}
+                  className="w-full text-center px-5 py-3.5 rounded-full text-[14px] font-medium transition-all"
+                  style={{
+                    backgroundColor: 'rgba(255,255,255,0.65)',
+                    color: '#1a1a1a',
+                    backdropFilter: 'blur(8px)',
+                    border: '1px solid rgba(255,255,255,0.9)',
+                  }}
                   onMouseEnter={e => {
-                    e.currentTarget.style.borderColor = '#22c55e';
-                    e.currentTarget.style.color = '#22c55e';
-                    e.currentTarget.style.backgroundColor = 'rgba(34,197,94,0.1)';
+                    e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.9)';
                   }}
                   onMouseLeave={e => {
-                    e.currentTarget.style.borderColor = '#333';
-                    e.currentTarget.style.color = '#999';
-                    e.currentTarget.style.backgroundColor = 'transparent';
+                    e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.65)';
                   }}
-                  data-testid={`button-action-${action.id}`}
+                  data-testid={`button-suggestion-${i}`}
                 >
-                  <Icon size={14} />
-                  <span>{action.label}</span>
+                  {s}
+                </motion.button>
+              ))}
+            </div>
+          </motion.div>
+        ) : (
+          /* ──────────── CHAT SCREEN ──────────── */
+          <motion.div
+            key="chat"
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="w-full h-full flex flex-col"
+            style={{ backgroundColor: '#0a0a0f' }}
+          >
+            {/* Chat header */}
+            <div
+              className="flex items-center justify-between px-4 h-[60px] shrink-0"
+              style={{ backgroundColor: '#0f0f14', borderBottom: '1px solid #1a1a24', borderRadius: isMobile ? 0 : '28px 28px 0 0' }}
+            >
+              <div className="flex items-center gap-3">
+                <button
+                  onClick={() => { setHasStarted(false); setMessages([]); setFollowups([]); }}
+                  className="text-zinc-500 hover:text-white transition-colors mr-1"
+                  data-testid="button-back-to-idle"
+                >
+                  <ChevronLeft size={20} />
                 </button>
-              );
-            })}
-          </div>
-        )}
-
-        {/* Follow-up suggestions */}
-        {followups.length > 0 && !isBusy && (
-          <div className="mt-3 flex flex-col gap-1.5">
-            {followups.map((q, i) => (
+                <div
+                  className="w-8 h-8 rounded-full flex items-center justify-center text-white font-bold text-xs"
+                  style={{ background: 'linear-gradient(135deg, #22c55e, #16a34a)' }}
+                >
+                  A
+                </div>
+                <div>
+                  <div className="text-white font-semibold text-[14px]">ARC</div>
+                  <div className="flex items-center gap-1.5">
+                    <span
+                      className="inline-block w-1.5 h-1.5 rounded-full"
+                      style={{ backgroundColor: isStreaming ? '#facc15' : '#22c55e' }}
+                    />
+                    <span className="text-[10px]" style={{ color: isStreaming ? '#facc15' : '#22c55e' }}>
+                      {isStreaming ? 'Thinking...' : 'Online'}
+                    </span>
+                  </div>
+                </div>
+              </div>
               <button
-                key={i}
-                onClick={() => handleFollowup(q)}
-                className="w-full text-left px-3 py-2 text-[12px] rounded-lg border transition-all"
-                style={{ borderColor: '#1e2a1e', color: '#6ee7a0', backgroundColor: 'rgba(34,197,94,0.06)' }}
-                onMouseEnter={e => {
-                  e.currentTarget.style.borderColor = '#22c55e';
-                  e.currentTarget.style.backgroundColor = 'rgba(34,197,94,0.12)';
-                }}
-                onMouseLeave={e => {
-                  e.currentTarget.style.borderColor = '#1e2a1e';
-                  e.currentTarget.style.backgroundColor = 'rgba(34,197,94,0.06)';
-                }}
-                data-testid={`button-followup-${i}`}
+                onClick={onClose}
+                className="text-zinc-500 hover:text-white transition-colors"
+                data-testid="button-close-chat"
               >
-                {q}
+                <X size={18} />
               </button>
-            ))}
-          </div>
+            </div>
+
+            {/* Messages */}
+            <div className="flex-1 overflow-y-auto p-4" style={{ backgroundColor: '#0a0a0f' }}>
+              {messages.map(msg => (
+                <div key={msg.id}>
+                  <ARCMessage content={msg.content} isUser={msg.isUser} isStreaming={msg.isStreaming} />
+                  {msg.showPricingCTA && (
+                    <div className="mt-2 mb-4">
+                      <a
+                        href="/pricing"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 px-4 py-2.5 text-sm font-medium rounded-xl"
+                        style={{ background: 'linear-gradient(135deg, #22c55e, #16a34a)', color: 'white' }}
+                      >
+                        Get Custom Pricing
+                      </a>
+                    </div>
+                  )}
+                </div>
+              ))}
+
+              {isTyping && <ARCTypingIndicator />}
+
+              {/* Follow-up suggestions */}
+              {followups.length > 0 && !isBusy && (
+                <div className="mt-3 flex flex-col gap-1.5">
+                  {followups.map((q, i) => (
+                    <button
+                      key={i}
+                      onClick={() => handleFollowup(q)}
+                      className="w-full text-left px-3 py-2 text-[12px] rounded-xl border transition-all"
+                      style={{ borderColor: '#1e2a1e', color: '#6ee7a0', backgroundColor: 'rgba(34,197,94,0.06)' }}
+                      onMouseEnter={e => {
+                        e.currentTarget.style.borderColor = '#22c55e';
+                        e.currentTarget.style.backgroundColor = 'rgba(34,197,94,0.13)';
+                      }}
+                      onMouseLeave={e => {
+                        e.currentTarget.style.borderColor = '#1e2a1e';
+                        e.currentTarget.style.backgroundColor = 'rgba(34,197,94,0.06)';
+                      }}
+                      data-testid={`button-followup-${i}`}
+                    >
+                      {q}
+                    </button>
+                  ))}
+                </div>
+              )}
+
+              <div ref={messagesEndRef} />
+            </div>
+
+            {/* Input bar */}
+            <form
+              onSubmit={e => { e.preventDefault(); sendMessage(input); }}
+              className="shrink-0 px-3 pb-3 pt-2"
+              style={{ backgroundColor: '#0a0a0f', borderTop: '1px solid #1a1a24' }}
+            >
+              <div
+                className="flex items-center gap-2 px-4 py-2 rounded-full"
+                style={{ backgroundColor: '#111113', border: '1px solid #222228' }}
+              >
+                <input
+                  type="text"
+                  value={input}
+                  onChange={e => setInput(e.target.value)}
+                  placeholder={isBusy ? 'ARC is thinking...' : 'Ask anything...'}
+                  disabled={isBusy}
+                  className="flex-1 bg-transparent text-sm text-white placeholder-zinc-500 outline-none disabled:opacity-40"
+                  onFocus={e => { (e.currentTarget.parentElement as HTMLElement).style.borderColor = '#22c55e40'; }}
+                  onBlur={e => { (e.currentTarget.parentElement as HTMLElement).style.borderColor = '#222228'; }}
+                  data-testid="input-message"
+                />
+                <button
+                  type="submit"
+                  disabled={!input.trim() || isBusy}
+                  className="w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-opacity"
+                  style={{
+                    backgroundColor: input.trim() && !isBusy ? '#22c55e' : 'rgba(34,197,94,0.25)',
+                    cursor: input.trim() && !isBusy ? 'pointer' : 'not-allowed',
+                  }}
+                  data-testid="button-send"
+                >
+                  <Send size={14} className="text-black" strokeWidth={2.5} />
+                </button>
+              </div>
+            </form>
+          </motion.div>
         )}
-
-        <div ref={messagesEndRef} />
-      </div>
-
-      {/* Input */}
-      <form
-        onSubmit={handleSubmit}
-        className="flex items-center gap-2.5 px-4 h-[70px] shrink-0"
-        style={{ backgroundColor: '#0a0a0f', borderTop: '1px solid #1a1a24' }}
-      >
-        <input
-          type="text"
-          value={input}
-          onChange={e => setInput(e.target.value)}
-          placeholder={isBusy ? 'ARC is thinking...' : 'Type a message...'}
-          disabled={isBusy}
-          className="flex-1 px-4 py-3 text-sm text-white placeholder-gray-500 outline-none disabled:opacity-50"
-          style={{ backgroundColor: '#1a1a24', border: '1px solid #252530', borderRadius: '12px' }}
-          onFocus={e => { e.currentTarget.style.borderColor = '#22c55e'; }}
-          onBlur={e => { e.currentTarget.style.borderColor = '#252530'; }}
-          data-testid="input-message"
-        />
-        <button
-          type="submit"
-          disabled={!input.trim() || isBusy}
-          className="w-11 h-11 flex items-center justify-center text-black transition-all"
-          style={{
-            backgroundColor: input.trim() && !isBusy ? '#22c55e' : 'rgba(34,197,94,0.3)',
-            borderRadius: '12px',
-            cursor: input.trim() && !isBusy ? 'pointer' : 'not-allowed',
-          }}
-          data-testid="button-send"
-        >
-          <Send size={18} />
-        </button>
-      </form>
+      </AnimatePresence>
     </motion.div>
   );
 }
