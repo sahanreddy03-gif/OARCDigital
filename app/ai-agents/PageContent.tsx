@@ -887,11 +887,11 @@ export default function PageContent() {
                   metric: "Every listing enquiry answered and viewing booked within 60 seconds",
                 },
                 {
-                  slug: "ai-consulting",
-                  role: "AI Consulting",
-                  function: "Strategy & Roadmap",
-                  desc: "A structured audit of your current operations identifies where AI agents will deliver the fastest return. Outputs a 90-day deployment roadmap with build-vs-buy guidance, integration requirements and phased cost projections specific to your Malta business.",
-                  metric: "90-day AI deployment roadmap built around your revenue gaps",
+                  slug: "ai-compliance-auditor",
+                  role: "AI Compliance Auditor",
+                  function: "Regulatory Compliance",
+                  desc: "Runs continuous policy checks across your operations for MFSA, MGA and IDPC regulatory requirements. Flags non-compliant content, documents, and workflows before they become enforcement issues — designed specifically for Malta's regulated sectors.",
+                  metric: "Continuous compliance monitoring for MFSA, MGA and IDPC",
                 },
               ].map((agent, idx) => (
                 <motion.div
