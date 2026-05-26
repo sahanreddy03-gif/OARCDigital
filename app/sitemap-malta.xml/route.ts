@@ -1,4 +1,4 @@
-import { maltaLocations, maltaIndustries, locationServices } from "@/shared/seoConfig";
+import { maltaLocations, locationServices } from "@/shared/seoConfig";
 import restore from "@/lib/seo/restore.json";
 import {
   SITE_BASE,
@@ -12,7 +12,8 @@ export const dynamic = "force-static";
 export const revalidate = false;
 
 // Anchor lastmod to the data's actual regeneration date (restore.generatedAt),
-// NOT to file mtimes. The 210 Malta URLs come from restore.json content, so a
+// NOT to file mtimes. The 60 Malta URLs (10 hub + 50 loc×svc) come from
+// restore.json content, so a
 // renderer/import-path tweak in app/malta/**/*.tsx must NOT cascade into "every
 // URL was edited today" — that trips audit-sitemap's TODAY-regression check
 // (a documented Google spam-tell). Fallback chain only fires if the data file
@@ -50,16 +51,13 @@ export function buildEntries(): UrlEntry[] {
         changefreq: "monthly",
         priority: 0.7,
       });
-      for (const ind of maltaIndustries) {
-        entries.push({
-          loc: `${SITE_BASE}/malta/${loc}/${ind}/${svc}`,
-          lastmod,
-          changefreq: "monthly",
-          priority: 0.6,
-        });
-      }
     }
   }
+  // NOTE: /malta/{loc}/{ind}/{svc} pages (150 URLs) are intentionally
+  // excluded from the sitemap. They render noindex and are not advertised
+  // to crawlers. Verdict: thin (≈300–500 words at triple-combination level);
+  // domain-authority risk outweighs indexing value. See audit doc at
+  // .local/seo/programmatic-audit.md, section §4.
 
   return entries;
 }
