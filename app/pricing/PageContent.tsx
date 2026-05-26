@@ -789,6 +789,31 @@ export default function PageContent() {
         <FloatingWhatsApp />
       </div>
 
+      {/* Service quick-links */}
+      <section className="bg-zinc-950 border-t border-white/5 py-16" data-testid="section-services">
+        <div className="container mx-auto px-6 max-w-5xl">
+          <h2 className="text-2xl font-bold text-white mb-4 text-center">Explore specific services</h2>
+          <p className="text-white/60 text-center mb-8">Pricing above covers each of these areas — click through for detailed scope and deliverables.</p>
+          <div className="grid md:grid-cols-3 gap-6">
+            <Link href="/services/social-media-creative-management" className="group bg-white/5 border border-white/10 rounded-xl p-6 hover-elevate block" data-testid="link-pricing-social">
+              <div className="text-[#c4ff4d] font-bold text-xs tracking-widest uppercase mb-2">Creative</div>
+              <h3 className="text-base font-bold text-white mb-2 group-hover:text-[#c4ff4d] transition-colors">Social Media Creative</h3>
+              <p className="text-sm text-white/60">Strategy, content creation, and community management.</p>
+            </Link>
+            <Link href="/services/paid-advertising" className="group bg-white/5 border border-white/10 rounded-xl p-6 hover-elevate block" data-testid="link-pricing-paid">
+              <div className="text-[#c4ff4d] font-bold text-xs tracking-widest uppercase mb-2">Paid</div>
+              <h3 className="text-base font-bold text-white mb-2 group-hover:text-[#c4ff4d] transition-colors">Paid Advertising</h3>
+              <p className="text-sm text-white/60">Meta, Google, and programmatic campaigns with full reporting.</p>
+            </Link>
+            <Link href="/services/ai-consulting" className="group bg-white/5 border border-white/10 rounded-xl p-6 hover-elevate block" data-testid="link-pricing-ai">
+              <div className="text-[#c4ff4d] font-bold text-xs tracking-widest uppercase mb-2">AI</div>
+              <h3 className="text-base font-bold text-white mb-2 group-hover:text-[#c4ff4d] transition-colors">AI Consulting</h3>
+              <p className="text-sm text-white/60">Custom AI implementation scoped to your specific operations.</p>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       <AnimatePresence>
         {showQuoteForm && (
           <motion.div

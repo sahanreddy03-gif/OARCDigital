@@ -118,6 +118,29 @@ export default function PageContent() {
         </div>
       </section>
 
+      <section className="bg-zinc-950 border-t border-white/5 py-16 text-white" data-testid="section-services">
+        <div className="container mx-auto px-6 max-w-5xl">
+          <h2 className="text-xl font-bold text-white mb-6">Services we deliver</h2>
+          <div className="grid md:grid-cols-3 gap-4">
+            <Link href="/services/seo-services" className="group bg-white/5 border border-white/10 rounded-xl p-5 hover-elevate block" data-testid="link-about-seo">
+              <div className="text-[#c4ff4d] font-bold text-xs tracking-widest uppercase mb-2">Organic</div>
+              <h3 className="text-base font-bold text-white mb-1 group-hover:text-[#c4ff4d] transition-colors">SEO Services</h3>
+              <p className="text-sm text-white/60">Search visibility that compounds every month.</p>
+            </Link>
+            <Link href="/services/branding" className="group bg-white/5 border border-white/10 rounded-xl p-5 hover-elevate block" data-testid="link-about-branding">
+              <div className="text-[#c4ff4d] font-bold text-xs tracking-widest uppercase mb-2">Identity</div>
+              <h3 className="text-base font-bold text-white mb-1 group-hover:text-[#c4ff4d] transition-colors">Branding & Identity</h3>
+              <p className="text-sm text-white/60">Brand systems that position you as the clear choice.</p>
+            </Link>
+            <Link href="/services/ai-consulting" className="group bg-white/5 border border-white/10 rounded-xl p-5 hover-elevate block" data-testid="link-about-ai-consulting">
+              <div className="text-[#c4ff4d] font-bold text-xs tracking-widest uppercase mb-2">AI</div>
+              <h3 className="text-base font-bold text-white mb-1 group-hover:text-[#c4ff4d] transition-colors">AI Consulting</h3>
+              <p className="text-sm text-white/60">AI implementation designed around your business model.</p>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       <section className="bg-zinc-950 border-t border-white/5 py-12 text-white">
         <div className="container mx-auto px-6 max-w-3xl text-center">
           <p className="text-sm text-white/50 mb-4">Visit the studio or get in touch:</p>
