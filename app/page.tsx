@@ -133,9 +133,6 @@ export default function Page() {
         {/* SHIFT HAPPENS — editorial identity */}
         <ShiftHappensSection />
 
-        {/* SUCCESS IN NUMBERS — moved high so crawlers + visitors see proof early */}
-        <SuccessInNumbers />
-
         {/* OARC Brand Section - video background */}
         <OARCBrandSection videoSrc={oarcBgVideo} />
 
@@ -150,6 +147,9 @@ export default function Page() {
 
         {/* Our Difference */}
         <Section5 />
+
+        {/* SUCCESS IN NUMBERS — proof after the difference is established */}
+        <SuccessInNumbers />
 
         {/* AI Services Pillars - Dark Premium Zone */}
         <HireAIEmployeesSection />
