@@ -57,6 +57,11 @@ export default function robots(): MetadataRoute.Robots {
     sitemap: [
       "https://oarcdigital.com/sitemap.xml",
       "https://oarcdigital.com/image-sitemap.xml",
+      // AI answer-engine discovery — GPTBot, PerplexityBot, ClaudeBot, Gemini
+      // all parse Sitemap: directives and follow the URL. llms.txt is the
+      // standard AI-readable index and llms-full.txt is the detailed reference.
+      "https://oarcdigital.com/llms.txt",
+      "https://oarcdigital.com/llms-full.txt",
     ],
     host: "https://oarcdigital.com",
   };
