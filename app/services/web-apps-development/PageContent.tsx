@@ -1,5 +1,5 @@
 import Layout from "@/components/layout/Layout";
-import RelatedLinks from "@/components/RelatedLinks";
+import RelatedServices from "@/components/RelatedServices";
 import { Button } from "@/components/ui/button";
 import { CheckCircle2, ArrowRight, MapPin, Phone, Mail } from "lucide-react";
 import Link from "next/link";
@@ -197,7 +197,7 @@ export default function WebAppsDevelopmentContent() {
             <TrustBlock variant="visit" />
           </section>
 
-          <RelatedLinks slug="/services/web-apps-development" />
+          <RelatedServices slug="/services/web-apps-development" />
 
           <div className="bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl p-8 text-white text-center">
             <h2 className="text-2xl font-bold mb-3">Have a Web App Idea Sitting in a Doc?</h2>

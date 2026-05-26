@@ -14,7 +14,7 @@ import {
 import Layout from "@/components/layout/Layout";
 import FAQSection, { FAQItem } from "@/components/FAQSection";
 import ScrollReveal from "@/components/ScrollReveal";
-import RelatedLinks from "@/components/RelatedLinks";
+import RelatedServices from "@/components/RelatedServices";
 
 // Image set for /services/paid. Hero is the bespoke "Better systems"
 // composition; each vertical block uses a distinct stock image so no two
@@ -629,7 +629,7 @@ export default function Paid() {
 
       {/* Related links from internal link graph */}
       <div className="max-w-6xl mx-auto px-4">
-        <RelatedLinks slug="/services/paid" />
+        <RelatedServices slug="/services/paid" />
       </div>
 
       {/* FAQ */}

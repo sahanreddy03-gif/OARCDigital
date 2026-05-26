@@ -1,5 +1,5 @@
 import Layout from "@/components/layout/Layout";
-import RelatedLinks from "@/components/RelatedLinks";
+import RelatedServices from "@/components/RelatedServices";
 import { Button } from "@/components/ui/button";
 import { CheckCircle2, ArrowRight, MapPin, Phone, Mail } from "lucide-react";
 import Link from "next/link";
@@ -147,7 +147,7 @@ export default function DevopsServicesContent() {
             <h2 className="text-2xl md:text-3xl font-bold mb-6">Visit OARC Digital</h2>
             <TrustBlock variant="visit" />
           </section>
-          <RelatedLinks slug="/services/devops-services" />
+          <RelatedServices slug="/services/devops-services" />
           <div className="bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl p-8 text-white text-center">
             <h2 className="text-2xl font-bold mb-3">Want a Free Cloud Audit?</h2>
             <p className="text-white/90 mb-6 max-w-xl mx-auto">We will review your AWS, GCP, or Vercel account and send you a written savings + reliability plan within 10 working days.</p>

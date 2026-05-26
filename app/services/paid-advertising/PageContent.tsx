@@ -8,7 +8,7 @@ import { ScrollableCards } from "@/components/ui/scrollable-cards";
 import Layout from "@/components/layout/Layout";
 import { revenueServicesSEO } from "@/data/seoMetadata";
 import FAQSection, { type FAQItem } from "@/components/FAQSection";
-import RelatedLinks from "@/components/RelatedLinks";
+import RelatedServices from "@/components/RelatedServices";
 const heroImage = "/attached_assets/paid advertising_1763088406833.avif";
 
 import MaltaContextBlock from "@/components/seo/MaltaContextBlock";
@@ -445,7 +445,7 @@ export default function PaidAdvertising() {
         </div>
       </div>
 
-      <RelatedLinks slug="/services/paid-advertising" />
+      <RelatedServices slug="/services/paid-advertising" />
 
 
       {/* CTA */}

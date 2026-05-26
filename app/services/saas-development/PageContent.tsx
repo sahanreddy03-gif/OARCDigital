@@ -1,5 +1,5 @@
 import Layout from "@/components/layout/Layout";
-import RelatedLinks from "@/components/RelatedLinks";
+import RelatedServices from "@/components/RelatedServices";
 import { Button } from "@/components/ui/button";
 import { CheckCircle2, ArrowRight, Phone } from "lucide-react";
 import Link from "next/link";
@@ -321,7 +321,7 @@ export default function SaasDevelopmentContent() {
             </Link>
           </section>
 
-          <RelatedLinks slug="/services/saas-development" />
+          <RelatedServices slug="/services/saas-development" />
 
           <div className="bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl p-8 text-white text-center">
             <h2 className="text-2xl font-bold mb-3">Have a SaaS Idea Sitting in a Doc?</h2>

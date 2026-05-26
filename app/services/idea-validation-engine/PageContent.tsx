@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ArrowRight, CheckCircle2, Lightbulb, Users, BarChart3, FileText, Rocket } from "lucide-react";
-import RelatedLinks from "@/components/RelatedLinks";
+import RelatedServices from "@/components/RelatedServices";
 import MaltaContextBlock from "@/components/seo/MaltaContextBlock";
 import TrustBlock from "@/components/seo/TrustBlock";
 
@@ -194,7 +194,7 @@ export default function PageContent() {
           <h2 className="text-2xl md:text-3xl font-bold mb-6">Visit OARC Digital</h2>
           <TrustBlock variant="visit" />
         </section>
-        <RelatedLinks slug="/services/idea-validation-engine" />
+        <RelatedServices slug="/services/idea-validation-engine" />
       </div>
     </div>
   );
