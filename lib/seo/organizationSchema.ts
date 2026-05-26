@@ -171,6 +171,7 @@ export function buildOrganization() {
         availableLanguage: ["English"],
       },
     ],
+    slogan: "AI-Native Marketing That Drives Revenue",
     sameAs: [...ORG_SAMEAS],
   };
 }

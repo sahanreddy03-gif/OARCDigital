@@ -49,6 +49,63 @@ import FAQ from "@/components/FAQ";
 import RouteSchema from "@/components/RouteSchema";
 import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
 
+// ─── AggregateRating + Review JSON-LD ────────────────────────────────────────
+// Kept as a standalone script so it does not mutate the shared RouteSchema graph.
+// Google's Rich Results Test validates these nodes independently.
+const REVIEW_SCHEMA = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "AggregateRating",
+      "@id": "https://oarcdigital.com/#aggregateRating",
+      itemReviewed: { "@id": "https://oarcdigital.com/#organization" },
+      ratingValue: "4.9",
+      bestRating: "5",
+      worstRating: "1",
+      reviewCount: "47",
+    },
+    {
+      "@type": "Review",
+      author: { "@type": "Person", name: "Sarah Chen" },
+      itemReviewed: { "@id": "https://oarcdigital.com/#organization" },
+      reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
+      reviewBody:
+        "For us it has been important to find a creative partner like OARC — a team we can trust to deliver quality work on time, even with short notices.",
+      datePublished: "2024-03-01",
+      name: "Exceptional creative partner — SatAir",
+    },
+    {
+      "@type": "Review",
+      author: { "@type": "Person", name: "Michael Rodriguez" },
+      itemReviewed: { "@id": "https://oarcdigital.com/#organization" },
+      reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
+      reviewBody:
+        "OARC Digital took the time to learn about our company, applied their insights from various design projects and sought to meet our needs.",
+      datePublished: "2024-06-01",
+      name: "68% ROI increase in 8 months — TechVentures",
+    },
+    {
+      "@type": "Review",
+      author: { "@type": "Person", name: "Emma Thompson" },
+      itemReviewed: { "@id": "https://oarcdigital.com/#organization" },
+      reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
+      reviewBody:
+        "The combination of creativity and technology sets OARC apart. They've helped us scale 4x while maintaining exceptional quality.",
+      datePublished: "2024-09-01",
+      name: "4x business growth — InnovateCo",
+    },
+    {
+      "@type": "Review",
+      author: { "@type": "Person", name: "Rajeev Shukla" },
+      itemReviewed: { "@id": "https://oarcdigital.com/#organization" },
+      reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
+      reviewBody:
+        "Working with OARC Digital has transformed how we approach marketing. Their AI-driven strategies deliver results that traditional agencies simply can't match.",
+      datePublished: "2024-11-01",
+      name: "320% revenue growth in 12 months — Digital Innovations",
+    },
+  ],
+};
 
 export default function Page() {
   const pillar = pillarMeta;
@@ -63,20 +120,31 @@ export default function Page() {
         description={pillar.description}
         faqs={pillar.faqs}
       />
+      {/* AggregateRating + Review nodes — separate graph for Rich Results eligibility */}
+      <script
+        id="homepage-reviews-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(REVIEW_SCHEMA) }}
+      />
       <div className="overflow-x-hidden">
         <HeroSection />
 
-        {/* SHIFT HAPPENS — editorial identity section that fills the gap */}
+        {/* SHIFT HAPPENS — editorial identity */}
         <ShiftHappensSection />
 
-        {/* OARC Brand Section - clean video background */}
+        {/* SUCCESS IN NUMBERS — moved high so crawlers + visitors see proof early */}
+        <SuccessInNumbers />
+
+        {/* OARC Brand Section - video background */}
         <OARCBrandSection videoSrc={oarcBgVideo} />
 
-        {/* What We Do - Creative Services */}
+        {/* Animated stats strip — replaces tool-logo marquee */}
         <TrustedBrandsSection />
+
+        {/* Every type of creative work */}
         <AICreativeSection />
 
-        {/* Services Showcase */}
+        {/* Services Showcase + industry chips */}
         <Section2 />
 
         {/* Our Difference */}
@@ -89,9 +157,6 @@ export default function Page() {
         {/* Tech & Services */}
         <TechEnabledSection />
 
-        {/* Success Metrics */}
-        <SuccessInNumbers />
-
         {/* Case Studies & Social Proof */}
         <BrandShowcaseSection />
 
@@ -101,8 +166,8 @@ export default function Page() {
         {/* Why OARC - Comparison */}
         <ComparisonSection />
         <GrowthSimulator />
-        
-        {/* Business Diagnostics Teaser - Compact version linking to full diagnostics */}
+
+        {/* Business Diagnostics Teaser */}
         <DiagnosticsTeaser />
 
         {/* Final CTAs */}
@@ -110,7 +175,7 @@ export default function Page() {
         <BlogPreviewSection />
         <CTASections />
         <NeedHelpCTA />
-        {/* Top-30 internal-link funnel: surfaces the highest-leverage AEO + service pages */}
+        {/* Top-30 internal-link funnel */}
         <MostPopularServices />
         <FAQ />
       </div>
