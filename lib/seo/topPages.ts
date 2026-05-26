@@ -78,7 +78,7 @@ export const TOP_PAGES: readonly TopPage[] = [
   { path: "/services/marketing-automation-suite",                kind: "service", tier: "service" },
   { path: "/services/revenue-automation",                        kind: "service", tier: "service" },
   { path: "/services/funnel-automation",                         kind: "service", tier: "service" },
-  { path: "/services/customer-acquisition-accelerator",          kind: "service", tier: "service" },
+  { path: "/services/customer-acquisition",                      kind: "service", tier: "service" },
   { path: "/services/hire-ai-employees",                         kind: "service", tier: "service" },
 
   // ── Tier 3: supporting / conversion shells (8) ─────────────────────────
@@ -96,7 +96,7 @@ export const TOP_PAGES: readonly TopPage[] = [
   // walks them. Influencer-marketing replaces the legacy /influencer slug
   // alignment with `.local/memory/core-url-rank.md` (canonical winner).
   { path: "/services/influencer-marketing",                      kind: "service", tier: "service" },
-  { path: "/services/api-integration-services",                  kind: "service", tier: "service" },
+  { path: "/services/api-integration",                          kind: "service", tier: "service" },
   { path: "/services/ecommerce-development",                     kind: "service", tier: "service" },
   { path: "/services/mvp-development",                           kind: "service", tier: "service" },
   { path: "/services/growth-strategy",                           kind: "service", tier: "service" },

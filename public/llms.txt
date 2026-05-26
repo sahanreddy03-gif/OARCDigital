@@ -313,7 +313,7 @@ Auto-generated from lib/seo/topPages.ts + lib/seo/llmsTxtGenerator.ts. The singl
 28. [Marketing Automation Suite | Campaign Orchestration](https://oarcdigital.com/services/marketing-automation-suite) — tier service
 29. [Revenue Automation Malta | AI Revenue Engine](https://oarcdigital.com/services/revenue-automation) — tier service
 30. [Funnel Automation | Conversion Optimization](https://oarcdigital.com/services/funnel-automation) — tier service
-31. [Customer Acquisition Accelerator | Multi-Channel Growth](https://oarcdigital.com/services/customer-acquisition-accelerator) — tier service
+31. [Customer Acquisition Malta | Predictable CPA at Scale](https://oarcdigital.com/services/customer-acquisition) — tier service
 32. [AI Virtual Talent Hub | Autonomous AI Agents On-Demand](https://oarcdigital.com/services/hire-ai-employees) — tier service
 33. [Our Services | AI Creative, AI Employees & Revenue Automation](https://oarcdigital.com/services) — tier supporting
 34. [Our Work | Case Studies & Success Stories](https://oarcdigital.com/our-work) — tier supporting
@@ -324,7 +324,7 @@ Auto-generated from lib/seo/topPages.ts + lib/seo/llmsTxtGenerator.ts. The singl
 39. [Business Automation & Revenue Systems — Malta](https://oarcdigital.com/automation) — tier supporting
 40. [AI Tools & Tech Stack](https://oarcdigital.com/tools) — tier supporting
 41. [Influencer Marketing | Creator Partnerships](https://oarcdigital.com/services/influencer-marketing) — tier service
-42. [API Integration Services | Connect Any System](https://oarcdigital.com/services/api-integration-services) — tier service
+42. [API Integration Malta | Connect Any System](https://oarcdigital.com/services/api-integration) — tier service
 43. [Ecommerce Development Malta | Shopify, WooCommerce & Headless](https://oarcdigital.com/services/ecommerce-development) — tier service
 44. [MVP Development Services Malta | Launch Your Startup in 8-12 Weeks](https://oarcdigital.com/services/mvp-development) — tier service
 45. [Growth Strategy & Consulting | Strategic Planning](https://oarcdigital.com/services/growth-strategy) — tier service

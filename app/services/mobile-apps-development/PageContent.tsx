@@ -14,7 +14,7 @@ import { GlassCard } from '@/components/ui/glass-card';
 import FAQSection, { FAQItem } from '@/components/FAQSection';
 import RelatedServices from "@/components/RelatedServices";
 
-const heroImg = "/attached_assets/stock_images/mobile_app_design_us_2b0d5cbd.jpg";
+const heroImg = "/attached_assets/2_1763228440277.jpg";
 const appImg1 = "/attached_assets/stock_images/mobile_app_design_us_5eb8ced7.jpg";
 const appImg2 = "/attached_assets/stock_images/mobile_app_design_us_1ba5497a.jpg";
 const mobileDevImg1 = "/attached_assets/stock_images/mobile_app_developme_12e99cc2.jpg";
@@ -112,8 +112,37 @@ export default function MobileAppsDevelopment() {
 
   return (
     <Layout>
+      {/* Structured data — ImageObject for hero */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ImageObject",
+            "url": "https://oarcdigital.com/attached_assets/2_1763228440277.jpg",
+            "name": "Mobile app developer at work — iOS and Android development for Malta businesses | OARC Digital",
+            "description": "Mobile app development — OARC Digital builds native iOS, Android, and cross-platform apps for Malta and EU businesses using React Native and Flutter.",
+            "width": 683,
+            "height": 1024,
+            "representativeOfPage": true,
+          }),
+        }}
+      />
+
       {/* HERO: Elite Dark Theme */}
       <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-black">
+        {/* Hero photo as texture foundation layer */}
+        <div className="absolute inset-0">
+          <img
+            src={heroImg}
+            alt="Developer at keyboard — mobile app development for iOS and Android | OARC Digital Malta"
+            fetchPriority="high"
+            width={683}
+            height={1024}
+            className="w-full h-full object-cover opacity-20"
+          />
+          <div className="absolute inset-0 bg-black/70" />
+        </div>
         <AnimatedGridBackground 
           intensity="high" 
           showScanLine={true} 

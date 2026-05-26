@@ -20,19 +20,18 @@ export const HARD_410_PATHS: ReadonlySet<string> = new Set([
   "/automation-test",
 ]);
 
-// Legacy short slugs that duplicate canonical "-accelerator" / "-engine" pages.
-// Both directories still exist in app/services/ but the short versions are
-// permanently redirected to their canonical counterpart so SEO equity
-// consolidates on a single URL.
+// Canonical URL pair resolutions — loser slug 308s to winner slug so all
+// SEO equity consolidates on one URL. Targets must be real app/services/*
+// directories (verified by scripts/verify-redirects.ts at build time).
+//
+// Pair 2: lead-generation-engine → lead-generation (shorter URL wins)
+// Pair 3: customer-acquisition-accelerator → customer-acquisition (shorter URL wins)
+// Pair 4: api-integration-services → api-integration (shorter URL wins)
+// Pair 6: mobile-applications-development → mobile-apps-development (cleaner URL wins)
 export const SERVICE_ALIASES: Record<string, string> = {
-  "/services/customer-acquisition": "/services/customer-acquisition-accelerator",
-  // Task #134: canonical winner is /services/lead-generation per the locked
-  // ranked list (`.local/memory/core-url-rank.md` row 32). The legacy
-  // /services/lead-generation-engine 308s into it. Direction was reversed
-  // before #134 — that made the canonical itself a 308 source (a self-
-  // cannibalising HARD FAIL caught by `scripts/audit-canonical.ts`).
   "/services/lead-generation-engine": "/services/lead-generation",
-  "/services/api-integration": "/services/api-integration-services",
+  "/services/customer-acquisition-accelerator": "/services/customer-acquisition",
+  "/services/api-integration-services": "/services/api-integration",
   "/services/mobile-applications-development": "/services/mobile-apps-development",
   "/services/web-application-development": "/services/web-apps-development",
   "/services/web-app-development": "/services/web-apps-development",
