@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { m, AnimatePresence } from "framer-motion";
-import diagnosticsHeroImg from "@assets/AdobeStock_1528715526_1764597178109.png";
 import {
   ArrowRight,
   ChevronRight,
@@ -234,7 +233,7 @@ export default function PageContent() {
           {/* HERO IMAGE */}
           <div className="max-w-4xl mx-auto mb-12 rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
             <Image
-              src={diagnosticsHeroImg}
+              src="/assets/diagnostics-hub-hero.png"
               alt="Enterprise business diagnostics dashboard — OARC Digital free diagnostic tools for Malta SMEs including Revenue Leak Scanner, Growth Simulator, and AI Workforce Designer | OARC Digital"
               width={1200}
               height={800}
@@ -742,10 +741,24 @@ export default function PageContent() {
                     Workforce Designer, and the Cortex Business Intelligence Scan. Free, no login,
                     no card. Use them whether or not you ever hire OARC.
                   </p>
-                  <span className="inline-flex items-center gap-2 text-xs font-semibold text-[#c4ff4d]">
-                    <Sparkles className="h-3.5 w-3.5" />
-                    Diagnostic-first
-                  </span>
+                  <div className="flex flex-col gap-2">
+                    <Link
+                      href="/solutions"
+                      data-testid="link-solutions-page"
+                      className="inline-flex items-center gap-2 text-xs font-semibold text-zinc-300 hover:text-white"
+                    >
+                      See all OARC solutions
+                      <ArrowRight className="h-3.5 w-3.5" />
+                    </Link>
+                    <Link
+                      href="/services/hire-ai-employees"
+                      data-testid="link-hire-ai-employees"
+                      className="inline-flex items-center gap-2 text-xs font-semibold text-zinc-300 hover:text-white"
+                    >
+                      Hire AI employees for your business
+                      <ArrowRight className="h-3.5 w-3.5" />
+                    </Link>
+                  </div>
                 </div>
                 <div>
                   <p className="text-[10px] font-semibold uppercase tracking-wider text-zinc-500 mb-2">
