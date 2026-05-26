@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
+import { m, AnimatePresence } from "framer-motion";
 import { ArrowRight, ChevronRight, Clock, Lightbulb, Brain, Shield, TrendingUp, Zap, BarChart3 } from "lucide-react";
 import { verticals, calculateTotalImpact, type Problem } from "@/data/diagnosticsData";
 import Layout from "@/components/layout/Layout";
@@ -26,7 +26,7 @@ export default function PageContent() {
         <div className="fixed inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none" />
 
         <main className="relative z-10 container mx-auto px-6 py-8 md:py-12">
-          <motion.div 
+          <m.div 
             className="mb-8"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: mounted ? 1 : 0, y: mounted ? 0 : 20 }}
@@ -43,7 +43,7 @@ export default function PageContent() {
             
             <div className="flex flex-wrap justify-center gap-3">
               {verticals.map((v, i) => (
-                <motion.button
+                <m.button
                   key={v.id}
                   onClick={() => {
                     setSelectedVertical(v.id);
@@ -63,13 +63,13 @@ export default function PageContent() {
                 >
                   <span className="text-xl">{v.icon}</span>
                   <span>{v.name}</span>
-                </motion.button>
+                </m.button>
               ))}
             </div>
-          </motion.div>
+          </m.div>
 
           <div className="max-w-5xl mx-auto">
-            <motion.div 
+            <m.div 
               className="mb-8 bg-white/5 border border-white/10 backdrop-blur-sm rounded-2xl p-6"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -101,9 +101,9 @@ export default function PageContent() {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </m.div>
 
-            <motion.div 
+            <m.div 
               className="mb-6"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -111,11 +111,11 @@ export default function PageContent() {
             >
               <h2 className="text-2xl font-bold mb-2 text-white">Your Priority Actions</h2>
               <p className="text-zinc-400">Click any issue to see why it's happening and how to fix it</p>
-            </motion.div>
+            </m.div>
 
             <div className="space-y-4 mb-12">
               {vertical.problems.map((problem, index) => (
-                <motion.button
+                <m.button
                   key={problem.id}
                   onClick={() => setSelectedProblem(selectedProblem?.id === problem.id ? null : problem)}
                   initial={{ opacity: 0, y: 20 }}
@@ -159,7 +159,7 @@ export default function PageContent() {
 
                     <AnimatePresence>
                       {selectedProblem?.id === problem.id && (
-                        <motion.div 
+                        <m.div 
                           initial={{ opacity: 0, height: 0 }}
                           animate={{ opacity: 1, height: "auto" }}
                           exit={{ opacity: 0, height: 0 }}
@@ -203,15 +203,15 @@ export default function PageContent() {
                               ))}
                             </div>
                           </div>
-                        </motion.div>
+                        </m.div>
                       )}
                     </AnimatePresence>
                   </div>
-                </motion.button>
+                </m.button>
               ))}
             </div>
 
-            <motion.div 
+            <m.div 
               className="bg-white/5 border border-white/10 backdrop-blur-sm rounded-2xl p-8 text-center"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -231,7 +231,7 @@ export default function PageContent() {
                   <ArrowRight className="h-4 w-4" />
                 </button>
               </Link>
-            </motion.div>
+            </m.div>
           </div>
         </main>
 

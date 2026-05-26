@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState, useRef } from "react";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { AnalysisResult } from "./analysisEngine";
 
 interface StrategyTerminalProps {
@@ -65,7 +65,7 @@ export default function StrategyTerminal({ analysisResult, onComplete }: Strateg
           className="p-4 h-[400px] overflow-y-auto font-mono text-sm space-y-1 scrollbar-thin scrollbar-thumb-zinc-800"
         >
           {logs.map((log, i) => (
-            <motion.div
+            <m.div
               key={i}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -80,7 +80,7 @@ export default function StrategyTerminal({ analysisResult, onComplete }: Strateg
               }`}
             >
               {log || <span>&nbsp;</span>}
-            </motion.div>
+            </m.div>
           ))}
           <span className="inline-block w-2 h-4 bg-cyan-400 animate-pulse" />
         </div>

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { m, AnimatePresence } from 'framer-motion';
 import { commandExamples, CommandExample, aiTeamMembers } from './aiAgentsData';
 import { Terminal, Play, ChevronRight, ChevronDown, ChevronUp, Zap } from 'lucide-react';
 
@@ -81,7 +81,7 @@ export function CommandConsolePanel({ autoPlay = false, selectedAgentId }: Comma
   return (
     <div className="relative w-full overflow-hidden">
       <div className="text-center mb-8 sm:mb-12 px-2">
-        <motion.div 
+        <m.div 
           className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 bg-[#c4ff4d]/10 border border-[#c4ff4d]/20 rounded-full mb-4 sm:mb-6"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -89,7 +89,7 @@ export function CommandConsolePanel({ autoPlay = false, selectedAgentId }: Comma
         >
           <Terminal className="w-4 h-4 text-[#c4ff4d]" />
           <span className="text-xs sm:text-sm text-[#c4ff4d]">Command Console</span>
-        </motion.div>
+        </m.div>
         <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-white mb-3 sm:mb-4">
           <span className="block sm:inline">Natural Language</span>{' '}
           <span className="text-[#c4ff4d]">Control</span>
@@ -127,7 +127,7 @@ export function CommandConsolePanel({ autoPlay = false, selectedAgentId }: Comma
                 <p className="text-sm sm:text-lg text-white font-mono break-words">
                   {typedText}
                   {isTyping && (
-                    <motion.span
+                    <m.span
                       className="inline-block w-1.5 sm:w-2 h-4 sm:h-5 bg-[#c4ff4d] ml-1"
                       animate={{ opacity: [1, 0] }}
                       transition={{ duration: 0.5, repeat: Infinity }}
@@ -139,7 +139,7 @@ export function CommandConsolePanel({ autoPlay = false, selectedAgentId }: Comma
             
             <AnimatePresence>
               {showAction && (
-                <motion.div
+                <m.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0 }}
@@ -166,7 +166,7 @@ export function CommandConsolePanel({ autoPlay = false, selectedAgentId }: Comma
                       </span>
                     </div>
                   </div>
-                </motion.div>
+                </m.div>
               )}
             </AnimatePresence>
           </div>
@@ -179,7 +179,7 @@ export function CommandConsolePanel({ autoPlay = false, selectedAgentId }: Comma
             const isActive = idx === safeIndex;
             
             return (
-              <motion.button
+              <m.button
                 key={cmd.id}
                 onClick={() => handleCommandClick(idx)}
                 className={`w-full text-left p-3 sm:p-4 rounded-lg sm:rounded-xl border transition-all ${
@@ -204,7 +204,7 @@ export function CommandConsolePanel({ autoPlay = false, selectedAgentId }: Comma
                   </div>
                   <ChevronRight className={`w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0 mt-1 ${isActive ? 'text-[#c4ff4d]' : 'text-white/30'}`} />
                 </div>
-              </motion.button>
+              </m.button>
             );
           })}
           

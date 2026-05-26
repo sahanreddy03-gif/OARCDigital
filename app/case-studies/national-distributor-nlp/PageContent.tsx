@@ -7,7 +7,7 @@ import Layout from '@/components/layout/Layout';
 import { AnimatedGridBackground } from '@/components/ui/animated-grid-background';
 import { GlassCard } from '@/components/ui/glass-card';
 import { FlowDiagram } from '@/components/ui/flow-diagram';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 
 const aiDataCleansingDashboard = "/attached_assets/generated_images/ai_data_cleansing_dashboard.png";
 
@@ -98,7 +98,7 @@ export default function NationalDistributorNLPCaseStudy() {
         
         <div className="relative z-10 w-full px-6 py-20">
           <div className="max-w-7xl mx-auto">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
@@ -137,7 +137,7 @@ export default function NationalDistributorNLPCaseStudy() {
                   );
                 })}
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </div>
       </section>
@@ -145,7 +145,7 @@ export default function NationalDistributorNLPCaseStudy() {
       {/* Product Showcase - Hero Image */}
       <section className="relative bg-black py-0" data-testid="section-showcase">
         <div className="max-w-7xl mx-auto px-6">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -160,7 +160,7 @@ export default function NationalDistributorNLPCaseStudy() {
                 data-testid="img-hero-product"
               />
             </GlassCard>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
@@ -168,7 +168,7 @@ export default function NationalDistributorNLPCaseStudy() {
       <section className="bg-black py-24 px-6" data-testid="section-about">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -207,9 +207,9 @@ export default function NationalDistributorNLPCaseStudy() {
                   <div className="text-white font-bold">4 Weeks</div>
                 </div>
               </div>
-            </motion.div>
+            </m.div>
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -219,7 +219,7 @@ export default function NationalDistributorNLPCaseStudy() {
                 <div className="text-sm font-bold text-white/40 tracking-widest uppercase mb-6">Data Workflow</div>
                 <FlowDiagram steps={workflowSteps} />
               </GlassCard>
-            </motion.div>
+            </m.div>
           </div>
         </div>
       </section>
@@ -227,7 +227,7 @@ export default function NationalDistributorNLPCaseStudy() {
       {/* Challenge Section */}
       <section className="bg-black py-24 px-6" data-testid="section-challenge">
         <div className="max-w-7xl mx-auto">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -242,11 +242,11 @@ export default function NationalDistributorNLPCaseStudy() {
               Despite their scale, the client's data ecosystem was causing material business issues 
               that impacted operations daily.
             </p>
-          </motion.div>
+          </m.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {challenges.map((challenge, idx) => (
-              <motion.div
+              <m.div
                 key={idx}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -257,11 +257,11 @@ export default function NationalDistributorNLPCaseStudy() {
                   <h3 className="text-xl font-bold text-white mb-3">{challenge.title}</h3>
                   <p className="text-white/70">{challenge.description}</p>
                 </GlassCard>
-              </motion.div>
+              </m.div>
             ))}
           </div>
 
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -279,14 +279,14 @@ export default function NationalDistributorNLPCaseStudy() {
                 ))}
               </div>
             </GlassCard>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
       {/* Solution Section */}
       <section className="bg-black py-24 px-6" data-testid="section-solution">
         <div className="max-w-7xl mx-auto">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -301,11 +301,11 @@ export default function NationalDistributorNLPCaseStudy() {
               OARC deployed a custom AI-powered data cleansing framework designed to clean, 
               standardize, and strengthen the client's data architecture—without interrupting operations.
             </p>
-          </motion.div>
+          </m.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {solutions.map((solution, idx) => (
-              <motion.div
+              <m.div
                 key={idx}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -323,7 +323,7 @@ export default function NationalDistributorNLPCaseStudy() {
                     </div>
                   </div>
                 </GlassCard>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -332,7 +332,7 @@ export default function NationalDistributorNLPCaseStudy() {
       {/* Services Section */}
       <section className="bg-black py-24 px-6" data-testid="section-services">
         <div className="max-w-7xl mx-auto">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -343,13 +343,13 @@ export default function NationalDistributorNLPCaseStudy() {
             <h2 className="text-3xl md:text-4xl font-black text-white mb-6">
               Core Capabilities Delivered
             </h2>
-          </motion.div>
+          </m.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {services.map((service, idx) => {
               const Icon = service.icon;
               return (
-                <motion.div
+                <m.div
                   key={idx}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -367,7 +367,7 @@ export default function NationalDistributorNLPCaseStudy() {
                       </div>
                     </div>
                   </GlassCard>
-                </motion.div>
+                </m.div>
               );
             })}
           </div>
@@ -378,7 +378,7 @@ export default function NationalDistributorNLPCaseStudy() {
       <section className="bg-black py-16 px-6" data-testid="section-tech-stack">
         <div className="max-w-7xl mx-auto">
           <div className="overflow-hidden">
-            <motion.div
+            <m.div
               initial={{ x: 0 }}
               animate={{ x: '-50%' }}
               transition={{
@@ -394,7 +394,7 @@ export default function NationalDistributorNLPCaseStudy() {
                   <span className="text-white font-medium">{tech}</span>
                 </div>
               ))}
-            </motion.div>
+            </m.div>
           </div>
         </div>
       </section>
@@ -402,7 +402,7 @@ export default function NationalDistributorNLPCaseStudy() {
       {/* Outcome Section */}
       <section className="bg-black py-24 px-6" data-testid="section-outcome">
         <div className="max-w-7xl mx-auto">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -417,11 +417,11 @@ export default function NationalDistributorNLPCaseStudy() {
               In just weeks, OARC transformed a fractured data ecosystem into a structured, 
               intelligent foundation that enabled business growth.
             </p>
-          </motion.div>
+          </m.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {outcomes.map((outcome, idx) => (
-              <motion.div
+              <m.div
                 key={idx}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -437,11 +437,11 @@ export default function NationalDistributorNLPCaseStudy() {
                     </div>
                   </div>
                 </GlassCard>
-              </motion.div>
+              </m.div>
             ))}
           </div>
 
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -455,14 +455,14 @@ export default function NationalDistributorNLPCaseStudy() {
               </p>
               <p className="text-white/60">Operations Director, F&B Distribution Client</p>
             </GlassCard>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
       {/* CTA Section */}
       <section className="bg-black py-24 px-6" data-testid="section-cta">
         <div className="max-w-4xl mx-auto text-center">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -494,7 +494,7 @@ export default function NationalDistributorNLPCaseStudy() {
                 </button>
               </Link>
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </section>
     </Layout>

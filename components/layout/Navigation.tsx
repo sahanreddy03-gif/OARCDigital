@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X, ChevronDown, ArrowUpRight } from "lucide-react";
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { m, AnimatePresence } from "framer-motion";
 const greenLogo = "/attached_assets/image_1767660951950.png";
 const aiExcellence = "/attached_assets/739d30f2ecb844e9c1186e62ca63efbda518ff4a-1050x1200_1761257258076.avif";
 const creativeStrategy = "/attached_assets/db64abcfab31dccdde04f1fb8be45337dfb692e9-1392x1392_1761257777037.avif";
@@ -182,7 +182,7 @@ export default function Navigation() {
               {/* Superside-style Mega Menu */}
               <AnimatePresence>
                 {showServicesMenu && (
-                  <motion.div
+                  <m.div
                     initial={{ opacity: 0, y: -10, scaleY: 0.95 }}
                     animate={{ opacity: 1, y: 0, scaleY: 1 }}
                     exit={{ opacity: 0, y: -10, scaleY: 0.95 }}
@@ -231,7 +231,7 @@ export default function Navigation() {
                         </Link>
                       </div>
                     </div>
-                  </motion.div>
+                  </m.div>
                 )}
               </AnimatePresence>
             </div>
@@ -258,7 +258,7 @@ export default function Navigation() {
               {/* Why Us Mega Menu with Our Difference content */}
               <AnimatePresence>
                 {showWhyUsMenu && (
-                  <motion.div
+                  <m.div
                     initial={{ opacity: 0, y: -10, scaleY: 0.95 }}
                     animate={{ opacity: 1, y: 0, scaleY: 1 }}
                     exit={{ opacity: 0, y: -10, scaleY: 0.95 }}
@@ -304,7 +304,7 @@ export default function Navigation() {
                         </Link>
                       </div>
                     </div>
-                  </motion.div>
+                  </m.div>
                 )}
               </AnimatePresence>
             </div>
@@ -346,7 +346,7 @@ export default function Navigation() {
         {/* Mobile Menu - Dark Glassmorphic */}
         <AnimatePresence>
           {mobileMenuOpen && (
-            <motion.div
+            <m.div
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
@@ -438,7 +438,7 @@ export default function Navigation() {
                   Contact Us
                 </Link>
               </div>
-            </motion.div>
+            </m.div>
           )}
         </AnimatePresence>
       </div>

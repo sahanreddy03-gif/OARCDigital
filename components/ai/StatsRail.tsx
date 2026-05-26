@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useEffect, useState } from 'react';
-import { motion, useInView } from 'framer-motion';
+import { m, useInView } from 'framer-motion';
 import { statsRailData } from './aiAgentsData';
 import { Clock, Zap, CheckCircle2, Globe } from 'lucide-react';
 
@@ -75,7 +75,7 @@ export function StatsRail() {
             const Icon = iconMap[stat.label] || Clock;
             
             return (
-              <motion.div
+              <m.div
                 key={stat.label}
                 className="relative group"
                 initial={{ opacity: 0, y: 20 }}
@@ -100,7 +100,7 @@ export function StatsRail() {
                   <p className="text-xs sm:text-sm text-white/40 uppercase tracking-wider">{stat.label}</p>
                   <p className="text-[10px] sm:text-xs text-white/60 mt-1 hidden sm:block">{stat.sublabel}</p>
                 </div>
-              </motion.div>
+              </m.div>
             );
           })}
         </div>

@@ -2,6 +2,7 @@
 
 import { QueryClientProvider } from "@tanstack/react-query";
 import dynamic from "next/dynamic";
+import { LazyMotion, domAnimation } from "framer-motion";
 import { queryClient } from "@/lib/queryClient";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { Toaster } from "@/components/ui/toaster";
@@ -17,12 +18,14 @@ const CookieConsent = dynamic(() => import("@/components/CookieConsent"), {
 export function Providers({ children }: { children: React.ReactNode }) {
   return (
     <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        {children}
-        <ARCWidget />
-        <CookieConsent />
-        <Toaster />
-      </TooltipProvider>
+      <LazyMotion features={domAnimation}>
+        <TooltipProvider>
+          {children}
+          <ARCWidget />
+          <CookieConsent />
+          <Toaster />
+        </TooltipProvider>
+      </LazyMotion>
     </QueryClientProvider>
   );
 }

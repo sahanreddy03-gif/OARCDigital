@@ -1,7 +1,7 @@
 "use client";
 
 import PhoneMockup from "./PhoneMockup";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { useEffect, useRef } from "react";
 
 function NeonGreenGridBackground() {
@@ -143,7 +143,7 @@ function NeonGreenGridBackground() {
       />
 
       {/* Animated scan line */}
-      <motion.div
+      <m.div
         className="absolute left-0 right-0 h-[2px] motion-reduce:hidden"
         style={{
           background: 'linear-gradient(90deg, transparent, rgba(196, 255, 77, 0.5), transparent)'

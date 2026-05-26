@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import Link from "next/link";
-import { motion, useInView, useScroll, useTransform, AnimatePresence } from 'framer-motion';
+import { m, useInView, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import useEmblaCarousel from 'embla-carousel-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
@@ -412,7 +412,7 @@ function AnimatedSection({ children, className = '' }: { children: React.ReactNo
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   
   return (
-    <motion.div
+    <m.div
       ref={ref}
       initial={{ opacity: 0, y: 50 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
@@ -420,7 +420,7 @@ function AnimatedSection({ children, className = '' }: { children: React.ReactNo
       className={className}
     >
       {children}
-    </motion.div>
+    </m.div>
   );
 }
 
@@ -428,7 +428,7 @@ function PremiumPackageCard({ pkg, type }: { pkg: any; type: 'monthly' | 'oneTim
   const [isHovered, setIsHovered] = useState(false);
   
   return (
-    <motion.div
+    <m.div
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
       whileHover={{ y: -8 }}
@@ -508,7 +508,7 @@ function PremiumPackageCard({ pkg, type }: { pkg: any; type: 'monthly' | 'oneTim
           </Link>
         </div>
       </div>
-    </motion.div>
+    </m.div>
   );
 }
 
@@ -569,14 +569,14 @@ function PricingModal({
 
   return (
     <AnimatePresence>
-      <motion.div
+      <m.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm"
         onClick={onClose}
       >
-        <motion.div
+        <m.div
           initial={{ opacity: 0, scale: 0.9, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.9, y: 20 }}
@@ -657,8 +657,8 @@ function PricingModal({
               </Button>
             </div>
           )}
-        </motion.div>
-      </motion.div>
+        </m.div>
+      </m.div>
     </AnimatePresence>
   );
 }
@@ -697,7 +697,7 @@ function PricingCarousel({
         <div className="flex">
           {packages.map((pkg, i) => (
             <div key={i} className="flex-[0_0_100%] min-w-0 px-4 md:px-8">
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
@@ -765,7 +765,7 @@ function PricingCarousel({
                     Request a Quote <ArrowRight className="w-4 h-4 ml-2" />
                   </Button>
                 </div>
-              </motion.div>
+              </m.div>
             </div>
           ))}
         </div>
@@ -816,7 +816,7 @@ function PricingSection() {
       
       <div className="container mx-auto px-6 lg:px-12 relative">
         {/* Premium Header */}
-        <motion.div 
+        <m.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -840,7 +840,7 @@ function PricingSection() {
               Book Strategy Call
             </Button>
           </Link>
-        </motion.div>
+        </m.div>
 
         {/* Pricing Carousels - Clean Layout */}
         <div className="max-w-4xl mx-auto">
@@ -866,7 +866,7 @@ function PricingSection() {
         </div>
 
         {/* Included in All Plans - Lime Green Card */}
-        <motion.div 
+        <m.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -887,10 +887,10 @@ function PricingSection() {
               ))}
             </div>
           </div>
-        </motion.div>
+        </m.div>
 
         {/* Custom Package CTA - Highlighted */}
-        <motion.div 
+        <m.div 
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -915,7 +915,7 @@ function PricingSection() {
               </Button>
             </Link>
           </div>
-        </motion.div>
+        </m.div>
       </div>
 
       {/* Pricing Modal */}
@@ -958,7 +958,7 @@ function FAQItem({ item, index }: { item: { q: string; a: string }; index: numbe
   const [isOpen, setIsOpen] = useState(index === 0);
   
   return (
-    <motion.div 
+    <m.div 
       className="border-b border-zinc-200 last:border-0"
       initial={false}
     >
@@ -970,16 +970,16 @@ function FAQItem({ item, index }: { item: { q: string; a: string }; index: numbe
         <span className="font-semibold text-zinc-900 pr-4 group-hover:text-[#9ed919] transition-colors">
           {item.q}
         </span>
-        <motion.div
+        <m.div
           animate={{ rotate: isOpen ? 180 : 0 }}
           transition={{ duration: 0.3 }}
         >
           <ChevronDown className="w-5 h-5 text-zinc-400 flex-shrink-0" />
-        </motion.div>
+        </m.div>
       </button>
       <AnimatePresence>
         {isOpen && (
-          <motion.div
+          <m.div
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
@@ -987,10 +987,10 @@ function FAQItem({ item, index }: { item: { q: string; a: string }; index: numbe
             className="overflow-hidden"
           >
             <p className="pb-6 text-zinc-600 leading-relaxed">{item.a}</p>
-          </motion.div>
+          </m.div>
         )}
       </AnimatePresence>
-    </motion.div>
+    </m.div>
   );
 }
 
@@ -1189,7 +1189,7 @@ export default function PageContent() {
           
           {/* Hero Content */}
           <div className="relative z-10 h-full flex items-center justify-center pt-16 pb-20">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
@@ -1210,30 +1210,30 @@ export default function PageContent() {
                   CREATIVE AGENCY
                 </span>
               </h1>
-            </motion.div>
+            </m.div>
           </div>
           
           {/* Scroll indicator */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.5 }}
             className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
           >
-            <motion.div
+            <m.div
               animate={{ y: [0, 8, 0] }}
               transition={{ duration: 2, repeat: Infinity }}
               className="text-white/60"
             >
               <ChevronDown className="w-6 h-6" />
-            </motion.div>
-          </motion.div>
+            </m.div>
+          </m.div>
         </section>
 
         {/* ========== INFINITE SCROLLING MARQUEE ========== */}
         <section className="relative overflow-hidden" style={{ backgroundColor: '#c4ff4d' }}>
           <div className="py-4 md:py-5">
-            <motion.div
+            <m.div
               animate={{ x: ['0%', '-50%'] }}
               transition={{
                 x: {
@@ -1254,7 +1254,7 @@ export default function PageContent() {
                   WE PUT SOCIAL AT THE CENTER OF EVERYTHING WE DO.
                 </span>
               ))}
-            </motion.div>
+            </m.div>
           </div>
         </section>
 
@@ -1262,7 +1262,7 @@ export default function PageContent() {
         <section className="py-20 md:py-32 relative overflow-hidden" style={{ backgroundColor: '#F0FFF4' }}>
           <div className="container mx-auto px-6 lg:px-12">
             {/* Section Header - Superside Typography Style */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -1301,7 +1301,7 @@ export default function PageContent() {
                 and YouTube pre-roll ads, all with one creative team.
               </p>
               <Link href="/contact">
-                <motion.button
+                <m.button
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   className="px-8 py-4 rounded-full text-lg font-semibold transition-all"
@@ -1313,14 +1313,14 @@ export default function PageContent() {
                   data-testid="button-get-social-demo"
                 >
                   Get social—book a demo
-                </motion.button>
+                </m.button>
               </Link>
-            </motion.div>
+            </m.div>
 
             {/* Service Carousel - Mobile: 2-column vertical, Desktop: horizontal */}
             {/* Desktop: Horizontal Auto-Scrolling Carousel */}
               <div className="hidden lg:block relative w-full overflow-hidden">
-                <motion.div
+                <m.div
                   className="flex gap-4"
                   animate={{ x: [0, -2880] }}
                   transition={{
@@ -1350,7 +1350,7 @@ export default function PageContent() {
                       </Link>
                     ))
                   )}
-                </motion.div>
+                </m.div>
               </div>
               {/* Mobile: 2-Column Vertical Floating Animation */}
               <div className="lg:hidden relative w-full h-[500px] overflow-hidden">
@@ -1413,7 +1413,7 @@ export default function PageContent() {
         {/* ========== BLACK BRAND LOGO STRIP ========== */}
         <section className="py-6 overflow-hidden" style={{ backgroundColor: '#000000' }}>
           <div className="relative">
-            <motion.div
+            <m.div
               className="flex items-center gap-16"
               animate={{ x: [0, -1200] }}
               transition={{
@@ -1441,7 +1441,7 @@ export default function PageContent() {
                   <span className="text-white font-semibold text-sm opacity-80 whitespace-nowrap">{tool.name}</span>
                 </div>
               )))}
-            </motion.div>
+            </m.div>
           </div>
         </section>
 
@@ -1449,7 +1449,7 @@ export default function PageContent() {
         <section className="py-20 md:py-28 overflow-hidden" style={{ backgroundColor: '#FFFFFF' }}>
           <div className="container mx-auto px-6 lg:px-12">
             {/* Section Header */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -1474,7 +1474,7 @@ export default function PageContent() {
                 We're relentlessly focused on one thing: growing your brand through creativity & AI.
               </p>
               <Link href="/contact">
-                <motion.button
+                <m.button
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   className="px-8 py-4 rounded-full text-lg font-semibold transition-all"
@@ -1485,9 +1485,9 @@ export default function PageContent() {
                   data-testid="button-learn-more-help"
                 >
                   Learn More
-                </motion.button>
+                </m.button>
               </Link>
-            </motion.div>
+            </m.div>
 
             {/* Service Cards Carousel */}
             <div className="relative -mx-6 lg:-mx-12 group/carousel">
@@ -1567,7 +1567,7 @@ export default function PageContent() {
                   },
                 ].map((service, index) => (
                   <Link href="/services" key={index}>
-                    <motion.div
+                    <m.div
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
@@ -1592,7 +1592,7 @@ export default function PageContent() {
                       <p className="text-sm leading-relaxed" style={{ color: '#4A5568' }}>
                         {service.description}
                       </p>
-                    </motion.div>
+                    </m.div>
                   </Link>
                 ))}
               </div>
@@ -1605,7 +1605,7 @@ export default function PageContent() {
           <div className="container mx-auto px-6 lg:px-12">
             
             {/* Part 1: Checkmark Comparison Grid */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -1632,10 +1632,10 @@ export default function PageContent() {
                   Neither.
                 </span>
               </h2>
-            </motion.div>
+            </m.div>
 
             {/* Superside-style Checkmark Grid */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -1653,7 +1653,7 @@ export default function PageContent() {
                 </div>
                 
                 {/* OARC Row - Highlighted */}
-                <motion.div 
+                <m.div 
                   className="grid grid-cols-6 gap-2 items-center rounded-full py-4 px-4 mb-3"
                   style={{ backgroundColor: '#c4ff4d' }}
                   whileHover={{ scale: 1.01 }}
@@ -1664,7 +1664,7 @@ export default function PageContent() {
                       <Check className="w-5 h-5 md:w-6 md:h-6" style={{ color: '#0A2818' }} />
                     </div>
                   ))}
-                </motion.div>
+                </m.div>
                 
                 {/* Competitor Rows */}
                 {[
@@ -1691,7 +1691,7 @@ export default function PageContent() {
                   </div>
                 ))}
               </div>
-            </motion.div>
+            </m.div>
 
           </div>
         </section>
@@ -1699,7 +1699,7 @@ export default function PageContent() {
         {/* ========== SAME DELIVERABLES - WHITE/LIGHT SECTION (VAYNER STYLE) ========== */}
         <section className="py-16 md:py-20" style={{ backgroundColor: '#F8FAF9' }}>
           <div className="container mx-auto px-6 lg:px-12">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -1717,9 +1717,9 @@ export default function PageContent() {
               <p style={{ color: '#4A5568' }} className="text-lg">
                 Every service comes with AI enhancement at no extra cost.
               </p>
-            </motion.div>
+            </m.div>
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -1737,7 +1737,7 @@ export default function PageContent() {
                 </div>
                 {/* Table Rows */}
                 {comparisonData.map((row, index) => (
-                  <motion.div
+                  <m.div
                     key={index}
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
@@ -1753,10 +1753,10 @@ export default function PageContent() {
                       <Check className="w-4 h-4 mr-3 flex-shrink-0" style={{ color: '#22C55E' }} />
                       {row.oarc}
                     </div>
-                  </motion.div>
+                  </m.div>
                 ))}
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </section>
 
@@ -1765,7 +1765,7 @@ export default function PageContent() {
           <div className="container mx-auto px-6 lg:px-12">
 
             {/* Part 3: Value Cards with Stats */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -1786,11 +1786,11 @@ export default function PageContent() {
               >
                 4 pillars of strategic value
               </h3>
-            </motion.div>
+            </m.div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
               {valuePillars.map((pillar, index) => (
-                <motion.div
+                <m.div
                   key={index}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -1833,14 +1833,14 @@ export default function PageContent() {
                       </span>
                     </div>
                   </div>
-                </motion.div>
+                </m.div>
               ))}
             </div>
 
             {/* CTA Button */}
             <div className="text-center">
               <Link href="/contact">
-                <motion.button
+                <m.button
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   className="px-8 py-4 rounded-full text-lg font-semibold transition-all"
@@ -1852,7 +1852,7 @@ export default function PageContent() {
                   data-testid="button-book-intro-call"
                 >
                   Book intro call
-                </motion.button>
+                </m.button>
               </Link>
             </div>
           </div>
@@ -1872,7 +1872,7 @@ export default function PageContent() {
             
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 max-w-5xl mx-auto">
               {channels.map((channel, index) => (
-                <motion.div
+                <m.div
                   key={index}
                   initial={{ opacity: 0, scale: 0.9 }}
                   whileInView={{ opacity: 1, scale: 1 }}
@@ -1886,7 +1886,7 @@ export default function PageContent() {
                   </div>
                   <h3 className="font-semibold text-zinc-900 text-sm mb-1">{channel.name}</h3>
                   <p className="text-xs text-zinc-500">{channel.desc}</p>
-                </motion.div>
+                </m.div>
               ))}
             </div>
           </div>
@@ -2106,7 +2106,7 @@ export default function PageContent() {
         {/* ========== FINAL CTA - GET IN TOUCH STYLE ========== */}
         <section className="py-24 md:py-32" style={{ backgroundColor: '#0A0A0A' }}>
           <div className="container mx-auto px-6 text-center">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -2137,14 +2137,14 @@ export default function PageContent() {
               
               {/* CTA Button - Lime Green Pill */}
               <Link href="/contact">
-                <motion.button
+                <m.button
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   className="bg-[#c4ff4d] text-zinc-900 px-10 py-4 rounded-full text-lg font-bold inline-flex items-center gap-3 mb-10"
                   data-testid="button-final-cta"
                 >
                   GET PRICING <ArrowRight className="w-5 h-5" />
-                </motion.button>
+                </m.button>
               </Link>
               
               {/* Free Audit Line */}
@@ -2157,7 +2157,7 @@ export default function PageContent() {
                 <Clock className="w-4 h-4" />
                 <span><strong style={{ color: 'rgba(255,255,255,0.8)' }}>January onboarding is limited.</strong> Small number of new clients accepted monthly.</span>
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </section>
       </main>

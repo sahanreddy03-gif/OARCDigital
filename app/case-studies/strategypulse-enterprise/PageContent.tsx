@@ -7,7 +7,7 @@ import Layout from '@/components/layout/Layout';
 import { AnimatedGridBackground } from '@/components/ui/animated-grid-background';
 import { GlassCard } from '@/components/ui/glass-card';
 import { FlowDiagram } from '@/components/ui/flow-diagram';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 
 const strategicDashboard = "/attached_assets/generated_images/strategic_planning_dashboard_ui.png";
 const collaborationPlatform = "/attached_assets/generated_images/team_collaboration_platform_ui.png";
@@ -59,7 +59,7 @@ export default function StrategyPulseCaseStudy() {
         
         <div className="relative z-10 w-full px-6 py-20">
           <div className="max-w-7xl mx-auto">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
@@ -98,7 +98,7 @@ export default function StrategyPulseCaseStudy() {
                   );
                 })}
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </div>
       </section>
@@ -106,7 +106,7 @@ export default function StrategyPulseCaseStudy() {
       {/* Product Showcase - Hero Image */}
       <section className="relative bg-black py-0" data-testid="section-showcase">
         <div className="max-w-7xl mx-auto px-6">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -121,7 +121,7 @@ export default function StrategyPulseCaseStudy() {
                 data-testid="img-hero-product"
               />
             </GlassCard>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
@@ -129,7 +129,7 @@ export default function StrategyPulseCaseStudy() {
       <section className="bg-black py-24 px-6" data-testid="section-about">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -166,9 +166,9 @@ export default function StrategyPulseCaseStudy() {
                   <div className="text-white font-bold">12 Specialists</div>
                 </div>
               </div>
-            </motion.div>
+            </m.div>
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -184,7 +184,7 @@ export default function StrategyPulseCaseStudy() {
                   data-testid="img-collaboration"
                 />
               </GlassCard>
-            </motion.div>
+            </m.div>
           </div>
         </div>
       </section>
@@ -192,7 +192,7 @@ export default function StrategyPulseCaseStudy() {
       {/* Challenge Section */}
       <section className="bg-gradient-to-b from-black to-zinc-950 py-24 px-6" data-testid="section-challenge">
         <div className="max-w-7xl mx-auto">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -203,7 +203,7 @@ export default function StrategyPulseCaseStudy() {
             <h2 className="text-3xl md:text-4xl font-black text-white mb-8">
               The Problem with Modern Business Planning
             </h2>
-          </motion.div>
+          </m.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
@@ -220,7 +220,7 @@ export default function StrategyPulseCaseStudy() {
                 description: 'Annual plans become outdated within months, but rigid tools make adaptation slow and painful.'
               }
             ].map((challenge, idx) => (
-              <motion.div
+              <m.div
                 key={idx}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -232,7 +232,7 @@ export default function StrategyPulseCaseStudy() {
                   <h3 className="text-xl font-bold text-white mb-3">{challenge.title}</h3>
                   <p className="text-white/60">{challenge.description}</p>
                 </GlassCard>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -242,7 +242,7 @@ export default function StrategyPulseCaseStudy() {
       <section className="bg-zinc-950 py-24 px-6" data-testid="section-solution">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -258,9 +258,9 @@ export default function StrategyPulseCaseStudy() {
                   data-testid="img-analytics"
                 />
               </GlassCard>
-            </motion.div>
+            </m.div>
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -290,7 +290,7 @@ export default function StrategyPulseCaseStudy() {
                   </div>
                 ))}
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </div>
       </section>
@@ -298,7 +298,7 @@ export default function StrategyPulseCaseStudy() {
       {/* Workflow Section */}
       <section className="bg-black py-24 px-6" data-testid="section-workflow">
         <div className="max-w-7xl mx-auto">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -312,23 +312,23 @@ export default function StrategyPulseCaseStudy() {
             <p className="text-lg text-white/60 max-w-2xl mx-auto">
               The platform guides organizations through a proven strategic planning methodology
             </p>
-          </motion.div>
+          </m.div>
 
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <FlowDiagram steps={workflowSteps} />
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
       {/* Technologies Section */}
       <section className="bg-zinc-950 py-24 px-6" data-testid="section-technologies">
         <div className="max-w-7xl mx-auto">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -339,9 +339,9 @@ export default function StrategyPulseCaseStudy() {
             <h2 className="text-3xl md:text-4xl font-black text-white mb-4">
               Built with Modern Tech Stack
             </h2>
-          </motion.div>
+          </m.div>
 
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -356,14 +356,14 @@ export default function StrategyPulseCaseStudy() {
                 {tech}
               </div>
             ))}
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
       {/* Services Section */}
       <section className="bg-black py-24 px-6" data-testid="section-services">
         <div className="max-w-7xl mx-auto">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -374,13 +374,13 @@ export default function StrategyPulseCaseStudy() {
             <h2 className="text-3xl md:text-4xl font-black text-white mb-4">
               What We Built
             </h2>
-          </motion.div>
+          </m.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {services.map((service, idx) => {
               const Icon = service.icon;
               return (
-                <motion.div
+                <m.div
                   key={idx}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -394,7 +394,7 @@ export default function StrategyPulseCaseStudy() {
                     <h3 className="text-lg font-bold text-white mb-2">{service.title}</h3>
                     <p className="text-sm text-white/50">{service.description}</p>
                   </GlassCard>
-                </motion.div>
+                </m.div>
               );
             })}
           </div>
@@ -404,7 +404,7 @@ export default function StrategyPulseCaseStudy() {
       {/* Testimonial Section */}
       <section className="bg-zinc-950 py-24 px-6" data-testid="section-testimonial">
         <div className="max-w-4xl mx-auto">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -426,14 +426,14 @@ export default function StrategyPulseCaseStudy() {
                 </div>
               </div>
             </GlassCard>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
       {/* Related Services Section */}
       <section className="bg-black py-24 px-6" data-testid="section-related">
         <div className="max-w-7xl mx-auto">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -446,7 +446,7 @@ export default function StrategyPulseCaseStudy() {
             <p className="text-lg text-white/60">
               Explore how we can help your business achieve similar results
             </p>
-          </motion.div>
+          </m.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
@@ -454,7 +454,7 @@ export default function StrategyPulseCaseStudy() {
               { title: 'AI Consulting', href: '/services/ai-consulting', description: 'Strategic AI implementation for your organization' },
               { title: 'Revenue Automation', href: '/services/revenue-automation', description: 'Automate your revenue operations with AI' }
             ].map((service, idx) => (
-              <motion.div
+              <m.div
                 key={idx}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -473,7 +473,7 @@ export default function StrategyPulseCaseStudy() {
                     </div>
                   </GlassCard>
                 </Link>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -482,7 +482,7 @@ export default function StrategyPulseCaseStudy() {
       {/* CTA Section */}
       <section className="bg-gradient-to-t from-zinc-900 to-black py-24 px-6">
         <div className="max-w-4xl mx-auto text-center">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -506,7 +506,7 @@ export default function StrategyPulseCaseStudy() {
                 </div>
               </button>
             </Link>
-          </motion.div>
+          </m.div>
         </div>
       </section>
     </Layout>

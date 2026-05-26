@@ -6,7 +6,7 @@ import { supportingPagesSEO } from "@/data/seoMetadata";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Check, Star, Building2, Zap, Sparkles, Crown, MessageCircle, Lock, ArrowRight, Loader2, Rocket, Target, Clock, Briefcase, Gift, Shield, TrendingUp, Users, Palette, Video, Globe, Bot, Headphones, BarChart3, Smartphone, ShoppingCart, Mail, Calendar } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { m, AnimatePresence } from 'framer-motion';
 import Link from "next/link";
 import { SiWhatsapp } from 'react-icons/si';
 
@@ -326,7 +326,7 @@ const pricingData = {
 
 const AnimatedBackground = () => (
   <div className="absolute inset-0 overflow-hidden pointer-events-none">
-    <motion.div
+    <m.div
       animate={{
         scale: [1, 1.2, 1],
         opacity: [0.3, 0.5, 0.3],
@@ -336,7 +336,7 @@ const AnimatedBackground = () => (
       transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
       className="absolute top-[-10%] left-[-10%] w-[800px] h-[800px] bg-lime-200/40 rounded-full blur-[120px]"
     />
-    <motion.div
+    <m.div
       animate={{
         scale: [1, 1.3, 1],
         opacity: [0.2, 0.4, 0.2],
@@ -345,7 +345,7 @@ const AnimatedBackground = () => (
       transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 2 }}
       className="absolute top-[20%] right-[-10%] w-[600px] h-[600px] bg-blue-200/40 rounded-full blur-[100px]"
     />
-    <motion.div
+    <m.div
       animate={{
         scale: [1, 1.1, 1],
         opacity: [0.2, 0.4, 0.2],
@@ -399,7 +399,7 @@ function QuoteRequestForm() {
 
   if (isSubmitted) {
     return (
-      <motion.div 
+      <m.div 
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         className="bg-slate-900 rounded-2xl p-8 md:p-10 text-white max-w-lg mx-auto text-center"
@@ -421,12 +421,12 @@ function QuoteRequestForm() {
           <SiWhatsapp className="w-5 h-5" />
           Want a faster response? Chat now
         </a>
-      </motion.div>
+      </m.div>
     );
   }
 
   return (
-    <motion.div 
+    <m.div 
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
       className="bg-slate-900 rounded-2xl p-6 md:p-8 text-white max-w-lg mx-auto"
@@ -504,7 +504,7 @@ function QuoteRequestForm() {
           Or chat with us on WhatsApp
         </a>
       </div>
-    </motion.div>
+    </m.div>
   );
 }
 
@@ -551,7 +551,7 @@ export default function PageContent() {
         <div className="container mx-auto px-6 max-w-6xl mb-20 relative z-10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {valueProps.map((prop, i) => (
-              <motion.div
+              <m.div
                 key={i}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -563,7 +563,7 @@ export default function PageContent() {
                 </div>
                 <h3 className="font-bold text-slate-900 mb-1">{prop.title}</h3>
                 <p className="text-sm text-slate-500">{prop.desc}</p>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -597,7 +597,7 @@ export default function PageContent() {
                 const isPremium = plan.style === 'premium';
 
                 return (
-                  <motion.div
+                  <m.div
                     key={`${activeTab}-${plan.name}`}
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -726,14 +726,14 @@ export default function PageContent() {
                         </div>
                       </div>
                     </div>
-                  </motion.div>
+                  </m.div>
                 );
               })}
             </AnimatePresence>
           </div>
 
           <div className="mb-20 text-center">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               className="inline-flex flex-col items-center gap-4 bg-white rounded-2xl p-8 shadow-xl border border-slate-200"
@@ -752,7 +752,7 @@ export default function PageContent() {
               >
                 Request Pricing <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
-            </motion.div>
+            </m.div>
           </div>
 
           <div className="text-center mb-16">
@@ -816,22 +816,22 @@ export default function PageContent() {
 
       <AnimatePresence>
         {showQuoteForm && (
-          <motion.div
+          <m.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
             onClick={() => setShowQuoteForm(false)}
           >
-            <motion.div
+            <m.div
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               onClick={(e) => e.stopPropagation()}
             >
               <QuoteRequestForm />
-            </motion.div>
-          </motion.div>
+            </m.div>
+          </m.div>
         )}
       </AnimatePresence>
     </Layout>

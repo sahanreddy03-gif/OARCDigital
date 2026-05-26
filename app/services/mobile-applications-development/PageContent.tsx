@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { motion, useReducedMotion } from 'framer-motion';
+import { m, useReducedMotion } from 'framer-motion';
 import { ArrowRight, Smartphone, Download, Star, Users, TrendingUp, Code, Layers, Zap, Rocket, Bug, BarChart3, Shield, Bell, CheckCircle2, ChevronRight, Cpu, Globe, Target, Clock } from 'lucide-react';
 import { SiApple, SiGoogleplay, SiReact, SiFlutter, SiSwift, SiKotlin, SiFirebase, SiExpo } from 'react-icons/si';
 import Layout from '@/components/layout/Layout';
@@ -126,7 +126,7 @@ export default function MobileAppsDevelopment() {
         <div className="relative z-10 w-full max-w-7xl mx-auto px-4 py-20">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
@@ -139,9 +139,9 @@ export default function MobileAppsDevelopment() {
                     iOS & Android
                   </span>
                 </div>
-              </motion.div>
+              </m.div>
               
-              <motion.h1
+              <m.h1
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
@@ -152,18 +152,18 @@ export default function MobileAppsDevelopment() {
                 <span className="bg-gradient-to-r from-indigo-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
                   love to use
                 </span>
-              </motion.h1>
+              </m.h1>
               
-              <motion.p
+              <m.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
                 className="text-xl text-white/60 mb-8 leading-relaxed max-w-xl"
               >
                 Native. Cross-platform. From first prototype to first million users. We build apps that grow with your business.
-              </motion.p>
+              </m.p>
 
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.3 }}
@@ -174,10 +174,10 @@ export default function MobileAppsDevelopment() {
                     <ArrowRight className="w-5 h-5 ml-2" />
                   </Button>
                 </Link>
-              </motion.div>
+              </m.div>
 
               {/* Quick stats */}
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.4 }}
@@ -193,11 +193,11 @@ export default function MobileAppsDevelopment() {
                     <div className="text-xs text-white/50">{stat.label}</div>
                   </div>
                 ))}
-              </motion.div>
+              </m.div>
             </div>
 
             {/* App store card preview */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.3 }}
@@ -238,7 +238,7 @@ export default function MobileAppsDevelopment() {
                   GET
                 </Button>
               </GlassCard>
-            </motion.div>
+            </m.div>
           </div>
         </div>
       </section>
@@ -249,7 +249,7 @@ export default function MobileAppsDevelopment() {
           <AnimatedGridBackground intensity="subtle" showScanLine={false} showParticles={true} showConcentricRings={false} />
           <div className="relative max-w-6xl mx-auto">
             <div className="text-center mb-16">
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -257,7 +257,7 @@ export default function MobileAppsDevelopment() {
               >
                 <Rocket className="w-4 h-4 text-indigo-400" />
                 <span className="text-xs text-white/70 uppercase tracking-[0.2em]">Product Lifecycle</span>
-              </motion.div>
+              </m.div>
               <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
                 From Idea to <span className="text-indigo-400">App Store</span>
               </h2>
@@ -270,7 +270,7 @@ export default function MobileAppsDevelopment() {
             <div className="relative">
               {/* Progress line */}
               <div className="absolute top-8 left-0 right-0 h-1 bg-white/10 rounded-full hidden md:block">
-                <motion.div 
+                <m.div 
                   className="h-full bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full"
                   initial={{ width: 0 }}
                   animate={{ width: `${(activePhase / 3) * 100}%` }}
@@ -282,7 +282,7 @@ export default function MobileAppsDevelopment() {
                 {roadmapPhases.map((phase) => {
                   const PhaseIcon = phase.icon;
                   return (
-                    <motion.button
+                    <m.button
                       key={phase.id}
                       onClick={() => setActivePhase(phase.id)}
                       data-testid={`phase-${phase.id}`}
@@ -323,7 +323,7 @@ export default function MobileAppsDevelopment() {
                           ))}
                         </ul>
                       </GlassCard>
-                    </motion.button>
+                    </m.button>
                   );
                 })}
               </div>
@@ -347,7 +347,7 @@ export default function MobileAppsDevelopment() {
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {appFeatures.map((feature, i) => (
-                <motion.div
+                <m.div
                   key={i}
                   onHoverStart={() => setHoveredFeature(i)}
                   onHoverEnd={() => setHoveredFeature(null)}
@@ -368,7 +368,7 @@ export default function MobileAppsDevelopment() {
                       </div>
                     </div>
                   </GlassCard>
-                </motion.div>
+                </m.div>
               ))}
             </div>
           </div>
@@ -394,7 +394,7 @@ export default function MobileAppsDevelopment() {
 
             <div className="grid md:grid-cols-2 gap-8">
               {caseStudies.map((app, i) => (
-                <motion.div 
+                <m.div 
                   key={i}
                   whileHover={{ y: -8 }}
                   transition={{ duration: 0.3 }}
@@ -435,7 +435,7 @@ export default function MobileAppsDevelopment() {
                       </div>
                     </div>
                   </GlassCard>
-                </motion.div>
+                </m.div>
               ))}
             </div>
           </div>
@@ -560,15 +560,15 @@ export default function MobileAppsDevelopment() {
       <section className="py-24 px-4 bg-black text-white relative overflow-hidden border-t border-white/10">
         <AnimatedGridBackground intensity="subtle" showScanLine={false} showParticles={true} showConcentricRings={true} />
         <div className="relative max-w-4xl mx-auto text-center">
-          <motion.h2
+          <m.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="text-4xl md:text-5xl font-black mb-6"
           >
             Got an <span className="bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">app idea</span>?
-          </motion.h2>
-          <motion.p
+          </m.h2>
+          <m.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -576,8 +576,8 @@ export default function MobileAppsDevelopment() {
             className="text-white/60 text-lg mb-10 max-w-2xl mx-auto"
           >
             Let's talk about bringing it to life. Free consultation and project scoping.
-          </motion.p>
-          <motion.div
+          </m.p>
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -589,10 +589,10 @@ export default function MobileAppsDevelopment() {
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
             </Link>
-          </motion.div>
+          </m.div>
 
           {/* Trust badges */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -611,7 +611,7 @@ export default function MobileAppsDevelopment() {
               <Star className="w-5 h-5 text-white" />
               <span className="text-white text-sm font-medium">App Store ready</span>
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 

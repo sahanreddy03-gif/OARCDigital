@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { m, AnimatePresence } from 'framer-motion';
 import { Sparkles, Send, X, Cpu } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -75,7 +75,7 @@ export default function LivingAIInterface() {
             {/* Floating Trigger - "Living" Orb */}
             <AnimatePresence>
                 {!isOpen && (
-                    <motion.div
+                    <m.div
                         initial={{ scale: 0, opacity: 0 }}
                         animate={{ scale: 1, opacity: 1 }}
                         exit={{ scale: 0, opacity: 0 }}
@@ -100,14 +100,14 @@ export default function LivingAIInterface() {
                         <div className="absolute right-full mr-4 top-1/2 -translate-y-1/2 px-3 py-1 bg-black/80 backdrop-blur border border-white/10 rounded-lg text-xs font-mono text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
                             Initialize OARC Core
                         </div>
-                    </motion.div>
+                    </m.div>
                 )}
             </AnimatePresence>
 
             {/* Expanded Neural Interface */}
             <AnimatePresence>
                 {isOpen && (
-                    <motion.div
+                    <m.div
                         initial={{ opacity: 0, y: 20, scale: 0.95 }}
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 20, scale: 0.95 }}
@@ -130,7 +130,7 @@ export default function LivingAIInterface() {
                         {/* Chat Area */}
                         <div className="flex-1 overflow-y-auto p-4 space-y-4 scrollbar-thin scrollbar-thumb-zinc-800 scrollbar-track-transparent" ref={scrollRef}>
                             {messages.map((msg, idx) => (
-                                <motion.div
+                                <m.div
                                     key={idx}
                                     initial={{ opacity: 0, x: msg.role === 'ai' ? -10 : 10 }}
                                     animate={{ opacity: 1, x: 0 }}
@@ -144,7 +144,7 @@ export default function LivingAIInterface() {
                                     >
                                         {msg.text}
                                     </div>
-                                </motion.div>
+                                </m.div>
                             ))}
 
                             {isTyping && (
@@ -179,7 +179,7 @@ export default function LivingAIInterface() {
                         </form>
 
                         <div className="absolute inset-0 pointer-events-none border border-white/5 rounded-2xl ring-1 ring-inset ring-white/5"></div>
-                    </motion.div>
+                    </m.div>
                 )}
             </AnimatePresence>
         </>

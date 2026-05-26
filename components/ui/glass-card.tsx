@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, HTMLMotionProps } from 'framer-motion';
+import { m, HTMLMotionProps } from 'framer-motion';
 import { cn } from '@/lib/utils';
 
 interface GlassCardProps extends Omit<HTMLMotionProps<'div'>, 'children'> {
@@ -47,7 +47,7 @@ export function GlassCard({
   const v = variants[variant];
 
   return (
-    <motion.div
+    <m.div
       className={cn(
         'relative group rounded-xl overflow-visible',
         v.bg, 'backdrop-blur-md',
@@ -93,7 +93,7 @@ export function GlassCard({
       
       {/* Border Pulse Animation - More visible */}
       {borderPulse && (
-        <motion.div
+        <m.div
           className="absolute inset-0 rounded-xl border border-white/15 pointer-events-none motion-reduce:hidden"
           animate={{
             opacity: [0.3, 0.7, 0.3],
@@ -109,7 +109,7 @@ export function GlassCard({
 
       {/* Scan Line Effect on Hover */}
       {glowOnHover && (
-        <motion.div
+        <m.div
           className="absolute left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white/30 to-transparent opacity-0 group-hover:opacity-100 motion-reduce:hidden pointer-events-none"
           initial={{ top: '-10%' }}
           animate={{ top: '110%' }}
@@ -125,7 +125,7 @@ export function GlassCard({
       <div className="relative z-10">
         {children}
       </div>
-    </motion.div>
+    </m.div>
   );
 }
 

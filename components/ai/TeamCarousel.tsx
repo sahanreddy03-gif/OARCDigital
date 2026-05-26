@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import Link from "next/link";
 import { aiTeamMembers, agentRatings } from './aiAgentsData';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
@@ -71,7 +71,7 @@ export function TeamCarousel() {
             const Icon = agent.icon;
             
             return (
-              <motion.div
+              <m.div
                 key={agent.id}
                 className="flex-shrink-0 w-[280px] sm:w-[300px] md:w-[320px] snap-start"
                 initial={{ opacity: 0, y: 30 }}
@@ -137,7 +137,7 @@ export function TeamCarousel() {
                     )}
                   </div>
                 </Link>
-              </motion.div>
+              </m.div>
             );
           })}
         </div>

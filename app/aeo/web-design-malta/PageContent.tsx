@@ -13,7 +13,7 @@ interface Props { faqs: Faq[]; offers: Offer[]; }
 const phases = [
   { week: 'Week 1', title: 'Discovery + Audit', detail: 'Stakeholder workshop in Birkirkara, competitor teardown, brand audit, analytics review. We leave with a written design brief and content inventory.' },
   { week: 'Week 2', title: 'Wireframes + IA', detail: 'Information architecture, sitemap, low-fidelity wireframes, copy outline. First review checkpoint covers structure before any pixels are pushed.' },
-  { week: 'Week 3–4', title: 'Visual Direction + Components', detail: 'Two visual directions explored, one chosen, then expanded into a tokenised Figma component library covering typography, colour, spacing, and motion.' },
+  { week: 'Week 3–4', title: 'Visual Direction + Components', detail: 'Two visual directions explored, one chosen, then expanded into a tokenised Figma component library covering typography, colour, spacing, and m.' },
   { week: 'Week 5–6', title: 'Templates + Prototype', detail: 'Every page template designed at desktop, tablet, and mobile. Clickable Figma prototype for usability testing with three real Malta users.' },
   { week: 'Week 7', title: 'Handoff + Build Kickoff', detail: 'Design tokens exported to Tailwind config, components mapped to shadcn primitives, motion specs documented. Engineering team starts the build the following Monday.' },
 ];

@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X, ChevronDown, ArrowRight } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { m, AnimatePresence } from 'framer-motion';
 const greenLogo = "/attached_assets/image_1767660951950.png";
 
 export default function CreativeNavigation() {
@@ -47,7 +47,7 @@ export default function CreativeNavigation() {
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="flex items-center justify-between h-20">
           <Link href="/" className="flex items-center gap-0" data-testid="link-logo-home">
-            <motion.img 
+            <m.img 
               src={greenLogo} 
               alt="OARC Digital logo" 
               className="h-10 w-10 lg:h-11 lg:w-11 object-contain"
@@ -92,7 +92,7 @@ export default function CreativeNavigation() {
 
               <AnimatePresence>
                 {showServicesMenu && (
-                  <motion.div
+                  <m.div
                     initial={{ opacity: 0, y: 10, scale: 0.95 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 10, scale: 0.95 }}
@@ -129,20 +129,20 @@ export default function CreativeNavigation() {
                         View all services <ArrowRight className="w-4 h-4" />
                       </Link>
                     </div>
-                  </motion.div>
+                  </m.div>
                 )}
               </AnimatePresence>
             </div>
 
             <Link href="/contact">
-              <motion.button
+              <m.button
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 className="bg-[#c4ff4d] text-zinc-900 px-6 py-2.5 rounded-full text-sm font-semibold shadow-lg shadow-[#c4ff4d]/20 hover:shadow-xl hover:shadow-[#c4ff4d]/30 transition-all"
                 data-testid="button-contact"
               >
                 Get Started
-              </motion.button>
+              </m.button>
             </Link>
           </div>
 
@@ -157,7 +157,7 @@ export default function CreativeNavigation() {
 
         <AnimatePresence>
           {mobileMenuOpen && (
-            <motion.div
+            <m.div
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
@@ -198,7 +198,7 @@ export default function CreativeNavigation() {
                   </Link>
                 </div>
               </div>
-            </motion.div>
+            </m.div>
           )}
         </AnimatePresence>
       </div>

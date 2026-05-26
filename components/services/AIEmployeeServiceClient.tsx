@@ -7,7 +7,7 @@ import Layout from '@/components/layout/Layout';
 import FAQSection, { FAQItem } from '@/components/FAQSection';
 import RelatedLinks from '@/components/RelatedLinks';
 import ScrollReveal from '@/components/ScrollReveal';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import * as Icons from 'lucide-react';
 import { AnimatedGridBackground } from '@/components/ui/animated-grid-background';
 import { GlassCard } from '@/components/ui/glass-card';
@@ -278,7 +278,7 @@ export default function AIEmployeeService({
     return (
       <div className="min-h-screen bg-black flex items-center justify-center">
         <div className="flex flex-col items-center gap-4">
-          <motion.div
+          <m.div
             className="w-12 h-12 rounded-full border-2 border-white/20 border-t-white"
             animate={{ rotate: 360 }}
             transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
@@ -325,7 +325,7 @@ export default function AIEmployeeService({
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Left: Content */}
             <ScrollReveal className="space-y-8">
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
@@ -334,36 +334,36 @@ export default function AIEmployeeService({
                 <span className="px-4 py-2 bg-white/[0.05] backdrop-blur-md border border-white/15 text-[10px] font-medium text-white/70 uppercase tracking-[0.2em]">
                   AI Virtual Talent Hub
                 </span>
-              </motion.div>
+              </m.div>
               
-              <motion.h1
+              <m.h1
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
                 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.05] tracking-tight" data-speakable
               >
                 {content.title}
-              </motion.h1>
+              </m.h1>
               
-              <motion.p
+              <m.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
                 className="text-xl md:text-2xl text-white/60 font-light leading-relaxed" data-speakable
               >
                 {content.subtitle}
-              </motion.p>
+              </m.p>
               
-              <motion.p
+              <m.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.3 }}
                 className="text-base text-zinc-500 leading-relaxed max-w-xl"
               >
                 {content.description}
-              </motion.p>
+              </m.p>
 
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.4 }}
@@ -380,13 +380,13 @@ export default function AIEmployeeService({
                     All Services
                   </button>
                 </Link>
-              </motion.div>
+              </m.div>
             </ScrollReveal>
 
             {/* Right: Hero Image with Premium Glow */}
             {heroImage && (
               <ScrollReveal delay={0.2}>
-                <motion.div
+                <m.div
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.6, delay: 0.2 }}
@@ -415,7 +415,7 @@ export default function AIEmployeeService({
                     <div className="absolute bottom-0 left-0 w-8 h-8 border-l-2 border-b-2 border-white/30 rounded-bl-xl" />
                     <div className="absolute bottom-0 right-0 w-8 h-8 border-r-2 border-b-2 border-white/30 rounded-br-xl" />
                   </div>
-                </motion.div>
+                </m.div>
               </ScrollReveal>
             )}
           </div>
@@ -433,7 +433,7 @@ export default function AIEmployeeService({
                 { label: 'Response Speed', value: content.metrics.speed, Icon: ClockSpeed },
                 { label: 'Cost Impact', value: content.metrics.cost, Icon: BarChart },
               ].map((metric, index) => (
-                <motion.div
+                <m.div
                   key={index}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -455,7 +455,7 @@ export default function AIEmployeeService({
                     </div>
                     <div className="text-sm text-zinc-400 font-medium uppercase tracking-[0.2em]">{metric.label}</div>
                   </GlassCard>
-                </motion.div>
+                </m.div>
               ))}
             </div>
           </div>
@@ -474,7 +474,7 @@ export default function AIEmployeeService({
         <div className="relative max-w-6xl mx-auto">
           <ScrollReveal>
             <div className="text-center mb-20">
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -482,7 +482,7 @@ export default function AIEmployeeService({
               >
                 <div className="w-2 h-2 bg-white rounded-full animate-pulse" />
                 <span className="text-xs text-white/70 uppercase tracking-[0.2em]">How AI Works</span>
-              </motion.div>
+              </m.div>
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
                 See AI in Action
               </h2>
@@ -648,13 +648,13 @@ export default function AIEmployeeService({
                 >
                   {/* Number Badge with Glow */}
                   <div className="flex items-center gap-4 mb-6">
-                    <motion.div 
+                    <m.div 
                       className="relative w-14 h-14 bg-white flex items-center justify-center text-black font-bold text-xl"
                       whileHover={{ scale: 1.05 }}
                     >
                       <div className="absolute inset-0 bg-white/20 blur-xl" />
                       <span className="relative">{String(index + 1).padStart(2, '0')}</span>
-                    </motion.div>
+                    </m.div>
                     <h3 className="text-xl font-bold text-white">{useCase.title}</h3>
                   </div>
                   
@@ -708,7 +708,7 @@ export default function AIEmployeeService({
           <ScrollReveal delay={0.3}>
             <div className="flex flex-wrap justify-center gap-4 max-w-5xl mx-auto">
               {content.integrations.map((integration, index) => (
-                <motion.div
+                <m.div
                   key={index}
                   initial={{ opacity: 0, scale: 0.9 }}
                   whileInView={{ opacity: 1, scale: 1 }}
@@ -719,7 +719,7 @@ export default function AIEmployeeService({
                   data-testid={`integration-${index}`}
                 >
                   {integration}
-                </motion.div>
+                </m.div>
               ))}
             </div>
           </ScrollReveal>
@@ -756,12 +756,12 @@ export default function AIEmployeeService({
                     >
                       {/* Header with Icon */}
                       <div className="flex items-center gap-4 mb-6">
-                        <motion.div 
+                        <m.div 
                           className="w-14 h-14 bg-white/[0.08] border border-white/20 flex items-center justify-center rounded-lg"
                           whileHover={{ scale: 1.1, borderColor: 'rgba(255,255,255,0.4)' }}
                         >
                           <IconComponent className="w-6 h-6 text-white/80" />
-                        </motion.div>
+                        </m.div>
                         <h3 className="text-xl font-bold text-white">{audience.title}</h3>
                       </div>
                       
@@ -811,14 +811,14 @@ export default function AIEmployeeService({
         
         <ScrollReveal>
           <div className="relative max-w-4xl mx-auto text-center">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7 }}
             >
               <div className="inline-flex items-center gap-3 px-5 py-2.5 bg-white/[0.05] border border-white/15 rounded-full mb-8">
-                <motion.div 
+                <m.div 
                   className="w-2 h-2 bg-white rounded-full"
                   animate={{ scale: [1, 1.5, 1], opacity: [1, 0.5, 1] }}
                   transition={{ duration: 2, repeat: Infinity }}
@@ -834,7 +834,7 @@ export default function AIEmployeeService({
               
               <div className="flex flex-col sm:flex-row gap-5 justify-center">
                 <Link href="/contact">
-                  <motion.button 
+                  <m.button 
                     className="group px-14 py-6 bg-white text-black font-bold text-lg inline-flex items-center justify-center gap-3 hover:bg-white/90 transition-all duration-300"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
@@ -842,20 +842,20 @@ export default function AIEmployeeService({
                   >
                     Get Started
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
-                  </motion.button>
+                  </m.button>
                 </Link>
                 <Link href="/services">
-                  <motion.button 
+                  <m.button 
                     className="px-14 py-6 bg-white/[0.05] backdrop-blur-md border border-white/20 text-white font-semibold text-lg hover:bg-white/[0.1] hover:border-white/30 transition-all duration-300"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     data-testid="button-view-services-footer"
                   >
                     Explore All Services
-                  </motion.button>
+                  </m.button>
                 </Link>
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </ScrollReveal>
       </section>

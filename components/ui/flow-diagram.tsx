@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { cn } from '@/lib/utils';
 import { ArrowRight } from 'lucide-react';
 
@@ -19,7 +19,7 @@ export function FlowDiagram({ steps, className, compact = false }: FlowDiagramPr
   return (
     <div className={cn('flex items-center gap-1', compact ? 'flex-wrap' : '', className)}>
       {steps.map((step, index) => (
-        <motion.div
+        <m.div
           key={index}
           className="flex items-center gap-1"
           initial={{ opacity: 0, x: -10 }}
@@ -49,7 +49,7 @@ export function FlowDiagram({ steps, className, compact = false }: FlowDiagramPr
 
           {/* Arrow (not after last step) */}
           {index < steps.length - 1 && (
-            <motion.div
+            <m.div
               className="mx-1"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
@@ -60,9 +60,9 @@ export function FlowDiagram({ steps, className, compact = false }: FlowDiagramPr
                 'text-white/20',
                 compact ? 'w-3 h-3' : 'w-4 h-4'
               )} />
-            </motion.div>
+            </m.div>
           )}
-        </motion.div>
+        </m.div>
       ))}
     </div>
   );
@@ -88,7 +88,7 @@ export function IntegrationHub({ centerIcon, centerLabel, integrations, classNam
           const x = 140 + radius * Math.cos(angle);
           const y = 140 + radius * Math.sin(angle);
           return (
-            <motion.line
+            <m.line
               key={index}
               x1="140"
               y1="140"
@@ -107,7 +107,7 @@ export function IntegrationHub({ centerIcon, centerLabel, integrations, classNam
       </svg>
 
       {/* Center Hub */}
-      <motion.div
+      <m.div
         className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10"
         initial={{ scale: 0, opacity: 0 }}
         whileInView={{ scale: 1, opacity: 1 }}
@@ -121,7 +121,7 @@ export function IntegrationHub({ centerIcon, centerLabel, integrations, classNam
           <span className="text-[9px] text-white/50 mt-1">{centerLabel}</span>
         </div>
         {/* Pulse Ring */}
-        <motion.div
+        <m.div
           className="absolute inset-0 rounded-full border border-white/10 motion-reduce:hidden"
           animate={{
             scale: [1, 1.3, 1.3],
@@ -133,7 +133,7 @@ export function IntegrationHub({ centerIcon, centerLabel, integrations, classNam
             ease: 'easeOut'
           }}
         />
-      </motion.div>
+      </m.div>
 
       {/* Integration Nodes */}
       {integrations.map((integration, index) => {
@@ -142,7 +142,7 @@ export function IntegrationHub({ centerIcon, centerLabel, integrations, classNam
         const y = 140 + radius * Math.sin(angle);
         
         return (
-          <motion.div
+          <m.div
             key={index}
             className="absolute flex flex-col items-center gap-1"
             style={{
@@ -161,7 +161,7 @@ export function IntegrationHub({ centerIcon, centerLabel, integrations, classNam
               </div>
             </div>
             <span className="text-[9px] text-white/40">{integration.name}</span>
-          </motion.div>
+          </m.div>
         );
       })}
     </div>

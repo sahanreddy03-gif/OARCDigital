@@ -8,7 +8,7 @@ import Layout from '@/components/layout/Layout';
 import { AnimatedGridBackground } from '@/components/ui/animated-grid-background';
 import { GlassCard } from '@/components/ui/glass-card';
 import { FlowDiagram } from '@/components/ui/flow-diagram';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 
 const aiLeadEngineDashboard = "/attached_assets/generated_images/ai_lead_engine_dashboard.png";
 
@@ -37,7 +37,7 @@ export default function FanStakeCaseStudy() {
         <AnimatedGridBackground intensity="high" showParticles={true} showScanLine={true} />
         
         <div className="relative z-10 text-center px-4 py-20 max-w-5xl mx-auto">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -65,7 +65,7 @@ export default function FanStakeCaseStudy() {
                 <span className="text-sm text-white/70">Full-stack deployment</span>
               </div>
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from 'react';
-import { motion, useInView, useScroll, useTransform } from 'framer-motion';
+import { m, useInView, useScroll, useTransform } from 'framer-motion';
 
 interface AdvancedScrollRevealProps {
   children: React.ReactNode;
@@ -149,20 +149,20 @@ export default function AdvancedScrollReveal({
 
   if (variant === 'parallax') {
     return (
-      <motion.div
+      <m.div
         ref={ref}
         className={className}
         style={{ y, opacity: prefersReducedMotion ? 1 : opacity }}
       >
         {children}
-      </motion.div>
+      </m.div>
     );
   }
 
   const variants = getVariantAnimation();
 
   return (
-    <motion.div
+    <m.div
       ref={ref}
       className={className}
       initial="hidden"
@@ -170,7 +170,7 @@ export default function AdvancedScrollReveal({
       variants={variants}
     >
       {children}
-    </motion.div>
+    </m.div>
   );
 }
 
@@ -221,7 +221,7 @@ export function StaggerContainer({
   };
 
   return (
-    <motion.div
+    <m.div
       ref={ref}
       className={className}
       initial="hidden"
@@ -229,6 +229,6 @@ export function StaggerContainer({
       variants={container}
     >
       {children}
-    </motion.div>
+    </m.div>
   );
 }

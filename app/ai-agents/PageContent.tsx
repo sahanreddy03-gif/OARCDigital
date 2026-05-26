@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState, useCallback } from 'react';
 import Link from "next/link";
-import { motion, useInView, useReducedMotion } from 'framer-motion';
+import { m, useInView, useReducedMotion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { GlassCard } from '@/components/ui/glass-card';
 import { 
@@ -294,7 +294,7 @@ export default function PageContent() {
           {/* Content - Bottom positioned, leaving top clear for AI character */}
           <div className="relative z-10 h-full flex flex-col justify-end pb-8 sm:pb-12 md:pb-16">
             <div className="px-6 sm:px-8 md:px-12 lg:px-20 max-w-4xl">
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
@@ -336,7 +336,7 @@ export default function PageContent() {
                   <span className="text-white/40 text-sm">·</span>
                   <span className="text-white/50 text-sm" data-testid="text-review-count">{overallReviewCount} verified reviews</span>
                 </div>
-              </motion.div>
+              </m.div>
             </div>
           </div>
         </section>
@@ -344,7 +344,7 @@ export default function PageContent() {
         {/* AI Agents Carousel Section - 2nd Section */}
         <section className="relative z-10 py-12 sm:py-16 px-4 sm:px-6 bg-black overflow-hidden">
           <div className="max-w-7xl mx-auto">
-            <motion.div 
+            <m.div 
               className="text-center mb-10 sm:mb-14"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -356,7 +356,7 @@ export default function PageContent() {
               <p className="text-base sm:text-lg text-white/70">
                 Customised to your workflows
               </p>
-            </motion.div>
+            </m.div>
             
             <TeamCarousel />
           </div>
@@ -366,7 +366,7 @@ export default function PageContent() {
         <section className="relative z-10 py-20 sm:py-32 px-4 sm:px-6 bg-black border-t border-white/5">
           <div className="max-w-6xl mx-auto">
             <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -392,7 +392,7 @@ export default function PageContent() {
                     { title: 'Tool Integration', desc: 'Connects directly to your CRM, Calendar, DB, and custom APIs.' },
                     { title: 'Zero Onboarding', desc: 'Deploy a world-class agent in 7-14 days with zero management overhead.' }
                   ].map((item, idx) => (
-                    <motion.div 
+                    <m.div 
                       key={item.title}
                       className="flex gap-4"
                       initial={{ opacity: 0, y: 10 }}
@@ -409,12 +409,12 @@ export default function PageContent() {
                         <h4 className="text-white font-medium mb-1">{item.title}</h4>
                         <p className="text-white/40 text-sm leading-relaxed">{item.desc}</p>
                       </div>
-                    </motion.div>
+                    </m.div>
                   ))}
                 </div>
-              </motion.div>
+              </m.div>
               
-              <motion.div 
+              <m.div 
                 className="relative"
                 initial={{ opacity: 0, x: 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -423,7 +423,7 @@ export default function PageContent() {
                 {/* Visual Representation of Agent Workforce */}
                 <div className="grid grid-cols-2 gap-4">
                   <div className="space-y-4">
-                    <motion.div 
+                    <m.div 
                       className="p-6 sm:p-8 rounded-2xl bg-white/[0.02] border border-white/5"
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
@@ -431,9 +431,9 @@ export default function PageContent() {
                     >
                       <div className="text-3xl sm:text-4xl font-bold text-white mb-2">99.9%</div>
                       <div className="text-sm text-white/40">Task accuracy</div>
-                    </motion.div>
+                    </m.div>
                     
-                    <motion.div 
+                    <m.div 
                       className="p-6 sm:p-8 rounded-2xl bg-[#c4ff4d]/5 border border-[#c4ff4d]/10"
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
@@ -442,11 +442,11 @@ export default function PageContent() {
                     >
                       <div className="text-3xl sm:text-4xl font-bold text-[#c4ff4d] mb-2">&lt;2s</div>
                       <div className="text-sm text-[#c4ff4d]/40">Avg response time</div>
-                    </motion.div>
+                    </m.div>
                   </div>
                   
                   <div className="space-y-4 mt-8">
-                    <motion.div 
+                    <m.div 
                       className="p-6 sm:p-8 rounded-2xl bg-white/[0.02] border border-white/5"
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
@@ -455,9 +455,9 @@ export default function PageContent() {
                     >
                       <div className="text-3xl sm:text-4xl font-bold text-white mb-2">15+</div>
                       <div className="text-sm text-white/40">AI employees</div>
-                    </motion.div>
+                    </m.div>
                     
-                    <motion.div 
+                    <m.div 
                       className="p-6 sm:p-8 rounded-2xl bg-white/[0.02] border border-white/5"
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
@@ -466,10 +466,10 @@ export default function PageContent() {
                     >
                       <div className="text-3xl sm:text-4xl font-bold text-white mb-2">1</div>
                       <div className="text-sm text-white/40">Unified team</div>
-                    </motion.div>
+                    </m.div>
                   </div>
                 </div>
-              </motion.div>
+              </m.div>
             </div>
           </div>
         </section>
@@ -490,7 +490,7 @@ export default function PageContent() {
             
             {/* Content */}
             <div className="max-w-3xl mx-auto">
-              <motion.h2 
+              <m.h2 
                 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6 leading-tight"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -499,14 +499,14 @@ export default function PageContent() {
                 Multiple Workspaces.
                 <br />
                 One Unified AI Team.
-              </motion.h2>
+              </m.h2>
               
               <p className="text-white/60 text-lg mb-12">
                 Manage multiple workspaces supported by a single AI team composed of specialized AI employees.
               </p>
               
               {/* Feature 1 */}
-              <motion.div 
+              <m.div 
                 className="mb-8"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -519,10 +519,10 @@ export default function PageContent() {
                 <p className="text-white/50 text-base">
                   Create up to five distinct business profiles, each tailored to specific objectives, workflows, and operational requirements, powered by AI employees designed to deliver measurable results.
                 </p>
-              </motion.div>
+              </m.div>
               
               {/* Feature 2 */}
-              <motion.div 
+              <m.div 
                 className="mb-8"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -535,7 +535,7 @@ export default function PageContent() {
                 <p className="text-white/50 text-base">
                   Collaborate seamlessly with your team in real time by sharing a centralized workspace, ensuring business insights, data, and decisions are accessible to all stakeholders.
                 </p>
-              </motion.div>
+              </m.div>
             </div>
           </div>
         </section>
@@ -543,7 +543,7 @@ export default function PageContent() {
         {/* ========== BUSINESS CASE PROSE — AI Employees in Malta ========== */}
         <section className="relative z-10 py-20 sm:py-24 px-4 sm:px-6 bg-black border-t border-white/5" data-testid="section-ai-agents-business-case">
           <div className="max-w-3xl mx-auto">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -620,7 +620,7 @@ export default function PageContent() {
                   additional documentation on data handling and AI decision-making on request.
                 </p>
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </section>
 
@@ -628,14 +628,14 @@ export default function PageContent() {
         <section id="agents" className="relative z-10 py-16 sm:py-24 px-4 sm:px-6 bg-zinc-950">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
-              <motion.h2 
+              <m.h2 
                 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
               >
                 The Command <span className="text-[#c4ff4d]">Console</span>
-              </motion.h2>
+              </m.h2>
               <p className="text-white/60 text-lg max-w-2xl mx-auto">
                 Manage your entire AI workforce from a single, unified interface. Monitor performance, review actions, and deploy new agents instantly.
               </p>
@@ -655,7 +655,7 @@ export default function PageContent() {
         {/* Key Benefits */}
         <section className="relative z-10 py-16 sm:py-24 px-4 sm:px-6 bg-zinc-950">
           <div className="max-w-6xl mx-auto">
-            <motion.div 
+            <m.div 
               className="text-center mb-16"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -663,11 +663,11 @@ export default function PageContent() {
             >
               <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold tracking-tight mb-4">Why Businesses Choose AI Teams</h2>
               <p className="text-white/60 max-w-xl mx-auto">Measurable impact. Predictable costs. Zero management overhead.</p>
-            </motion.div>
+            </m.div>
             
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {keyBenefits.map((benefit, idx) => (
-                <motion.div
+                <m.div
                   key={benefit.title}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -686,7 +686,7 @@ export default function PageContent() {
                     <p className="text-sm text-white/80 mb-2">{benefit.headline}</p>
                     <p className="text-xs text-white/50">{benefit.description}</p>
                   </GlassCard>
-                </motion.div>
+                </m.div>
               ))}
             </div>
           </div>
@@ -695,7 +695,7 @@ export default function PageContent() {
         {/* Custom Pricing CTA - Pricing hidden, revealed via form */}
         <section className="relative z-10 py-20 sm:py-28 px-4 sm:px-6 bg-zinc-900/50 border-y border-white/5">
           <div className="max-w-4xl mx-auto text-center">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -717,7 +717,7 @@ export default function PageContent() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <motion.button
+                  <m.button
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     className="px-8 py-4 bg-[#c4ff4d] text-black font-bold rounded-full text-lg shadow-lg shadow-[#c4ff4d]/20 hover:shadow-xl hover:shadow-[#c4ff4d]/30 transition-all flex items-center gap-2"
@@ -725,30 +725,30 @@ export default function PageContent() {
                   >
                     <SiWhatsapp className="w-5 h-5" />
                     Get Prices Now
-                  </motion.button>
+                  </m.button>
                 </a>
                 <Link href="/contact">
-                  <motion.button
+                  <m.button
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     className="px-8 py-4 bg-transparent border-2 border-white/20 text-white font-bold rounded-full text-lg hover:border-white/40 transition-all"
                     data-testid="button-contact-pricing"
                   >
                     Book a Call
-                  </motion.button>
+                  </m.button>
                 </Link>
               </div>
               <p className="text-white/40 text-sm pt-2">
                 Typically respond within 2 hours during business hours
               </p>
-            </motion.div>
+            </m.div>
           </div>
         </section>
 
         {/* FAQ Section */}
         <section className="relative z-10 py-16 sm:py-24 px-4 sm:px-6 bg-zinc-950 border-t border-white/5">
           <div className="max-w-4xl mx-auto">
-            <motion.div 
+            <m.div 
               className="text-center mb-16"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -756,7 +756,7 @@ export default function PageContent() {
             >
               <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold tracking-tight mb-4">Common Questions</h2>
               <p className="text-white/60">Everything you need to know about OARC AI Agents.</p>
-            </motion.div>
+            </m.div>
             
             <FAQSection 
               emitJsonLd={false}
@@ -770,7 +770,7 @@ export default function PageContent() {
         {/* Contact CTA */}
         <section className="relative z-10 py-20 sm:py-32 px-4 sm:px-6 bg-[#c4ff4d]">
           <div className="max-w-4xl mx-auto text-center">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
@@ -819,14 +819,14 @@ export default function PageContent() {
               <p className="mt-8 text-black/60 text-sm font-medium">
                 No setup fees • SOC 2 Compliant • Integrated in 14 days
               </p>
-            </motion.div>
+            </m.div>
           </div>
         </section>
 
         {/* ========== MEET YOUR AI TEAM — PER-ROLE OUTCOME CARDS ========== */}
         <section className="relative z-10 py-20 sm:py-24 px-4 sm:px-6 bg-zinc-950 border-t border-white/5" data-testid="section-meet-ai-team">
           <div className="max-w-6xl mx-auto">
-            <motion.div
+            <m.div
               className="mb-14"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -840,7 +840,7 @@ export default function PageContent() {
                 measured against a concrete outcome. Deploy one as a pilot, or build the full workforce —
                 every agent integrates with your existing CRM, calendar and communications stack in 7–14 days.
               </p>
-            </motion.div>
+            </m.div>
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
@@ -894,7 +894,7 @@ export default function PageContent() {
                   metric: "Continuous compliance monitoring for MFSA, MGA and IDPC",
                 },
               ].map((agent, idx) => (
-                <motion.div
+                <m.div
                   key={agent.slug}
                   initial={{ opacity: 0, y: 24 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -920,7 +920,7 @@ export default function PageContent() {
                       </div>
                     </div>
                   </Link>
-                </motion.div>
+                </m.div>
               ))}
             </div>
           </div>
@@ -929,7 +929,7 @@ export default function PageContent() {
         {/* ========== EXPLORE THE 7 AI AGENTS — SPOKES + IMAGE GRID ========== */}
         <section className="relative z-10 py-20 sm:py-24 px-4 sm:px-6 bg-black border-t border-white/5" data-testid="section-ai-agents-spokes">
           <div className="max-w-6xl mx-auto">
-            <motion.div
+            <m.div
               className="text-center mb-12"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -942,7 +942,7 @@ export default function PageContent() {
                 Each agent is a specialist — trained on a single job, integrated with your stack, and
                 deployed in 7–14 days. Pick one to pilot, or stack them into a full AI workforce.
               </p>
-            </motion.div>
+            </m.div>
 
             {/* Image grid — hero + 4 supporting from registry */}
             <div className="grid grid-cols-12 gap-3 mb-12" data-testid="grid-ai-agents-images">

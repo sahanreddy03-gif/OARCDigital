@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { ArrowRight, Sparkles, Users, TrendingUp, ChevronDown, Bot, Code2, Palette } from 'lucide-react';
 import Link from "next/link";
-import { motion, useScroll, useTransform, useInView } from 'framer-motion';
+import { m, useScroll, useTransform, useInView } from 'framer-motion';
 import { getAllCategories } from '@/config/servicesConfig';
 import Layout from '@/components/layout/Layout';
 import { supportingPagesSEO } from '@/data/seoMetadata';
@@ -146,7 +146,7 @@ export default function PageContent() {
       <div className="min-h-screen bg-black text-white overflow-x-hidden">
 
       <section ref={heroRef} className="relative h-screen flex items-center justify-center overflow-hidden">
-        <motion.div 
+        <m.div 
           style={{ y: heroY }}
           className="absolute inset-0"
         >
@@ -157,7 +157,7 @@ export default function PageContent() {
           />
           <div className="absolute inset-0 bg-gradient-to-br from-black/90 via-zinc-900/70 to-black/95 z-10"></div>
           <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent z-10"></div>
-          <motion.div
+          <m.div
             animate={{
               scale: [1, 1.3, 1],
               opacity: [0.1, 0.3, 0.1],
@@ -168,8 +168,8 @@ export default function PageContent() {
               ease: "easeInOut"
             }}
             className="absolute top-1/4 left-1/4 w-[550px] h-[550px] bg-gradient-to-r from-[#c4ff4d]/20 to-lime-500/15 rounded-full blur-3xl"
-          ></motion.div>
-          <motion.div
+          ></m.div>
+          <m.div
             animate={{
               scale: [1.2, 1, 1.2],
               opacity: [0.15, 0.35, 0.15],
@@ -181,8 +181,8 @@ export default function PageContent() {
               delay: 1
             }}
             className="absolute bottom-1/4 right-1/4 w-[550px] h-[550px] bg-gradient-to-r from-orange-500/20 to-amber-500/15 rounded-full blur-3xl"
-          ></motion.div>
-          <motion.div
+          ></m.div>
+          <m.div
             animate={{
               scale: [1, 1.15, 1],
               opacity: [0.12, 0.3, 0.12],
@@ -194,14 +194,14 @@ export default function PageContent() {
               delay: 2
             }}
             className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-[#c4ff4d]/15 to-green-500/10 rounded-full blur-3xl"
-          ></motion.div>
-        </motion.div>
+          ></m.div>
+        </m.div>
 
-        <motion.div 
+        <m.div 
           style={{ opacity: heroOpacity }}
           className="relative z-20 text-center px-6 max-w-6xl mx-auto"
         >
-          <motion.h1 
+          <m.h1 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
@@ -214,25 +214,25 @@ export default function PageContent() {
             <span className="text-white">
               Creative Excellence
             </span>
-          </motion.h1>
+          </m.h1>
 
-          <motion.p 
+          <m.p 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
             className="text-lg md:text-xl text-zinc-400 max-w-2xl mx-auto mb-12 leading-relaxed"
           >
             We blend AI-powered innovation with world-class creative to deliver measurable results for ambitious brands.
-          </motion.p>
+          </m.p>
 
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
             <Link href="/contact">
-              <motion.button
+              <m.button
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.98 }}
                 className="group relative px-8 py-4 bg-white rounded-full font-semibold text-sm overflow-hidden text-zinc-900"
@@ -242,9 +242,9 @@ export default function PageContent() {
                   Start Your Project
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </span>
-              </motion.button>
+              </m.button>
             </Link>
-            <motion.button
+            <m.button
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.98 }}
               onClick={() => {
@@ -255,11 +255,11 @@ export default function PageContent() {
               data-testid="button-explore-services"
             >
               Explore Services
-            </motion.button>
-          </motion.div>
-        </motion.div>
+            </m.button>
+          </m.div>
+        </m.div>
 
-        <motion.div
+        <m.div
           animate={{
             y: [0, 10, 0],
           }}
@@ -271,7 +271,7 @@ export default function PageContent() {
           className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-20"
         >
           <ChevronDown className="w-8 h-8 text-white/50" />
-        </motion.div>
+        </m.div>
       </section>
 
       <section className="py-20 px-6 bg-zinc-950 relative overflow-hidden">
@@ -289,7 +289,7 @@ export default function PageContent() {
               const isInView = useInView(ref, { once: true });
               
               return (
-                <motion.div
+                <m.div
                   key={stat.label}
                   ref={ref}
                   initial={{ opacity: 0, y: 20 }}
@@ -309,7 +309,7 @@ export default function PageContent() {
                   {!stat.textOnly && (
                     <div className="text-sm text-zinc-500 font-medium uppercase tracking-wider">{stat.label}</div>
                   )}
-                </motion.div>
+                </m.div>
               );
             })}
           </div>
@@ -321,7 +321,7 @@ export default function PageContent() {
         <div className="absolute bottom-20 left-10 w-80 h-80 bg-white/5 rounded-full blur-3xl motion-reduce:hidden"></div>
         
         <div className="max-w-7xl mx-auto relative z-10">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -336,7 +336,7 @@ export default function PageContent() {
             <p className="text-lg text-zinc-400 max-w-2xl mx-auto">
               Four core competencies that drive measurable business results
             </p>
-          </motion.div>
+          </m.div>
 
           <div className="flex flex-wrap justify-center gap-4 mb-16">
             {categories.map((category) => {
@@ -344,7 +344,7 @@ export default function PageContent() {
               const isActive = activeCategory === category.id;
 
               return (
-                <motion.button
+                <m.button
                   key={category.id}
                   onClick={() => handleCategoryChange(category.id)}
                   whileHover={{ scale: 1.02 }}
@@ -360,13 +360,13 @@ export default function PageContent() {
                     <Icon className="w-5 h-5" />
                     {category.title}
                   </span>
-                </motion.button>
+                </m.button>
               );
             })}
           </div>
 
           {activeCategoryData && (
-            <motion.div
+            <m.div
               key={activeCategory}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -381,7 +381,7 @@ export default function PageContent() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent flex items-end">
                   <div className="p-8 md:p-12 w-full">
-                    <motion.div
+                    <m.div
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.2 }}
@@ -401,7 +401,7 @@ export default function PageContent() {
                           <ArrowRight className="w-4 h-4" />
                         </button>
                       </Link>
-                    </motion.div>
+                    </m.div>
                   </div>
                 </div>
               </div>
@@ -413,7 +413,7 @@ export default function PageContent() {
                   
                   return (
                     <Link key={service.slug} href={`/services/${service.route || service.slug}`}>
-                      <motion.div
+                      <m.div
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: index * 0.05 }}
@@ -459,12 +459,12 @@ export default function PageContent() {
                             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                           </div>
                         </div>
-                      </motion.div>
+                      </m.div>
                     </Link>
                   );
                 })}
               </div>
-            </motion.div>
+            </m.div>
           )}
         </div>
       </section>
@@ -474,7 +474,7 @@ export default function PageContent() {
         <div className="absolute bottom-10 right-1/3 w-64 h-64 bg-white/5 rounded-full blur-3xl motion-reduce:hidden"></div>
         
         <div className="max-w-4xl mx-auto text-center relative z-10">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -486,7 +486,7 @@ export default function PageContent() {
               Connect with our team to explore tailored strategies that drive measurable results.
             </p>
             <Link href="/contact">
-              <motion.button
+              <m.button
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.98 }}
                 className="px-8 py-4 bg-white rounded-full font-semibold text-sm text-zinc-900 inline-flex items-center gap-2"
@@ -494,9 +494,9 @@ export default function PageContent() {
               >
                 Begin Your Journey
                 <ArrowRight className="w-5 h-5" />
-              </motion.button>
+              </m.button>
             </Link>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 

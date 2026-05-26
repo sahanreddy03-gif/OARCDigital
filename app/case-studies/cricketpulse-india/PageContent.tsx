@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { ArrowLeft, ArrowRight, CheckCircle2, Smartphone, TrendingUp, Users, Zap, Globe, Clock, BarChart3, Target, Shield, LayoutGrid, Filter, Calendar, Award } from 'lucide-react';
 import Layout from '@/components/layout/Layout';
 import { Button } from '@/components/ui/button';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 
 const cricketBettingApp = "/attached_assets/generated_images/cricket_betting_mobile_app_mockup.png";
 const cricketStadium = "/attached_assets/generated_images/vibrant_ipl_cricket_stadium.png";
@@ -82,7 +82,7 @@ export default function CricketPulseIndiaCaseStudy() {
         
         <div className="relative z-10 w-full px-6 py-20">
           <div className="max-w-7xl mx-auto">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
@@ -145,7 +145,7 @@ export default function CricketPulseIndiaCaseStudy() {
                   );
                 })}
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </div>
       </section>
@@ -153,7 +153,7 @@ export default function CricketPulseIndiaCaseStudy() {
       {/* Product Showcase */}
       <section className="relative bg-black py-0" data-testid="section-showcase">
         <div className="max-w-7xl mx-auto px-6">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -169,7 +169,7 @@ export default function CricketPulseIndiaCaseStudy() {
                 data-testid="img-hero-product"
               />
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
@@ -177,7 +177,7 @@ export default function CricketPulseIndiaCaseStudy() {
       <section className="bg-gradient-to-b from-black to-zinc-900 py-24 px-6" data-testid="section-about">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -216,9 +216,9 @@ export default function CricketPulseIndiaCaseStudy() {
                   <div className="text-white font-bold">12 Weeks</div>
                 </div>
               </div>
-            </motion.div>
+            </m.div>
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -232,7 +232,7 @@ export default function CricketPulseIndiaCaseStudy() {
                 className="relative rounded-xl shadow-2xl border border-white/10"
                 loading="lazy"
               />
-            </motion.div>
+            </m.div>
           </div>
         </div>
       </section>
@@ -240,7 +240,7 @@ export default function CricketPulseIndiaCaseStudy() {
       {/* Challenge Section */}
       <section className="bg-zinc-900 py-24 px-6" data-testid="section-challenge">
         <div className="max-w-7xl mx-auto">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -254,7 +254,7 @@ export default function CricketPulseIndiaCaseStudy() {
             <p className="text-xl text-white/70 max-w-3xl mx-auto">
               CricketPulse faced declining engagement with an outdated website that failed its mobile-first audience.
             </p>
-          </motion.div>
+          </m.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
@@ -265,7 +265,7 @@ export default function CricketPulseIndiaCaseStudy() {
               { title: 'Single Market Focus', description: 'Platform served only Indian users, missing opportunities in Bangladesh, UK expat communities, and Australia' },
               { title: 'No Expert Credibility', description: 'Predictions lacked visible attribution to the expert analysts behind them' }
             ].map((challenge, idx) => (
-              <motion.div
+              <m.div
                 key={idx}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -275,7 +275,7 @@ export default function CricketPulseIndiaCaseStudy() {
               >
                 <h3 className="text-xl font-bold text-white mb-3">{challenge.title}</h3>
                 <p className="text-white/70">{challenge.description}</p>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -284,7 +284,7 @@ export default function CricketPulseIndiaCaseStudy() {
       {/* Solution Section */}
       <section className="bg-gradient-to-b from-zinc-900 to-black py-24 px-6" data-testid="section-solution">
         <div className="max-w-7xl mx-auto">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -299,13 +299,13 @@ export default function CricketPulseIndiaCaseStudy() {
               We designed a mobile-first web application with strategic elements to optimize 
               CricketPulse's conversion rates and user experience.
             </p>
-          </motion.div>
+          </m.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {features.map((feature, idx) => {
               const Icon = feature.icon;
               return (
-                <motion.div
+                <m.div
                   key={idx}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -318,7 +318,7 @@ export default function CricketPulseIndiaCaseStudy() {
                   </div>
                   <h3 className="text-xl font-bold text-white mb-3">{feature.title}</h3>
                   <p className="text-white/70">{feature.description}</p>
-                </motion.div>
+                </m.div>
               );
             })}
           </div>
@@ -328,7 +328,7 @@ export default function CricketPulseIndiaCaseStudy() {
       {/* Outcome Section */}
       <section className="bg-black py-24 px-6" data-testid="section-outcome">
         <div className="max-w-7xl mx-auto">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -343,11 +343,11 @@ export default function CricketPulseIndiaCaseStudy() {
               Through these strategic enhancements, CricketPulse enhanced user experience, increased conversion rates, 
               and strengthened its position as a leading platform for cricket enthusiasts globally.
             </p>
-          </motion.div>
+          </m.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
             {outcomes.map((outcome, idx) => (
-              <motion.div
+              <m.div
                 key={idx}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -362,11 +362,11 @@ export default function CricketPulseIndiaCaseStudy() {
                     <p className="text-white/70">{outcome.description}</p>
                   </div>
                 </div>
-              </motion.div>
+              </m.div>
             ))}
           </div>
 
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -380,14 +380,14 @@ export default function CricketPulseIndiaCaseStudy() {
               </p>
               <p className="text-white/60">Product Director, CricketPulse India</p>
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
       {/* CTA Section */}
       <section className="bg-gradient-to-b from-black to-zinc-900 py-24 px-6" data-testid="section-cta">
         <div className="max-w-4xl mx-auto text-center">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -422,7 +422,7 @@ export default function CricketPulseIndiaCaseStudy() {
                 </Button>
               </Link>
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </section>
     </Layout>

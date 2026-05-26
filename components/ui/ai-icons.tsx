@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { cn } from '@/lib/utils';
 
 interface AIIconProps {
@@ -12,7 +12,7 @@ interface AIIconProps {
 
 const iconWrapper = (Icon: React.FC<AIIconProps>) => {
   return ({ className, size = 96, glowColor = 'rgba(255,255,255,0.3)', animated = true }: AIIconProps) => (
-    <motion.div
+    <m.div
       className={cn('relative inline-flex items-center justify-center', className)}
       style={{ width: size, height: size }}
       whileHover={animated ? { scale: 1.1 } : undefined}
@@ -27,7 +27,7 @@ const iconWrapper = (Icon: React.FC<AIIconProps>) => {
         }}
       />
       <Icon size={size} className={className} glowColor={glowColor} animated={animated} />
-    </motion.div>
+    </m.div>
   );
 };
 
@@ -335,7 +335,7 @@ export const AIIconWithGlow = ({
   className?: string;
 }) => {
   return (
-    <motion.div
+    <m.div
       className={cn('relative inline-flex items-center justify-center', className)}
       style={{ width: size, height: size }}
       whileHover={{ scale: 1.1, rotate: 3 }}
@@ -356,7 +356,7 @@ export const AIIconWithGlow = ({
         }}
       />
       <Icon size={size} />
-    </motion.div>
+    </m.div>
   );
 };
 

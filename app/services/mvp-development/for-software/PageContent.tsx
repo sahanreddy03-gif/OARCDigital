@@ -12,7 +12,7 @@ import {
 } from 'lucide-react';
 import Layout from '@/components/layout/Layout';
 import FAQSection, { FAQItem } from '@/components/FAQSection';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { AnimatedGridBackground } from '@/components/ui/animated-grid-background';
 import { GlassCard } from '@/components/ui/glass-card';
 import { Button } from '@/components/ui/button';
@@ -275,7 +275,7 @@ export default function MVPSoftwareDevelopment() {
         <div className="relative z-10 w-full px-6 py-20">
           <div className="max-w-7xl mx-auto">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
@@ -334,9 +334,9 @@ export default function MVPSoftwareDevelopment() {
                     </Button>
                   </Link>
                 </div>
-              </motion.div>
+              </m.div>
 
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
@@ -351,11 +351,11 @@ export default function MVPSoftwareDevelopment() {
                     data-testid="img-hero-product"
                   />
                 </div>
-              </motion.div>
+              </m.div>
             </div>
 
             {/* Stats Grid */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
@@ -373,7 +373,7 @@ export default function MVPSoftwareDevelopment() {
                   </GlassCard>
                 );
               })}
-            </motion.div>
+            </m.div>
           </div>
         </div>
       </section>
@@ -381,7 +381,7 @@ export default function MVPSoftwareDevelopment() {
       {/* Tech Stack Section */}
       <section className="bg-zinc-950 py-16 px-6 border-y border-white/5" data-testid="section-tech-stack">
         <div className="max-w-7xl mx-auto">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -390,13 +390,13 @@ export default function MVPSoftwareDevelopment() {
           >
             <p className="text-sm uppercase tracking-widest text-white/40 mb-4">Built with production-grade technology</p>
             <h2 className="text-2xl font-bold text-white">Our Tech Stack</h2>
-          </motion.div>
+          </m.div>
 
           <div className="grid grid-cols-3 md:grid-cols-6 lg:grid-cols-12 gap-4">
             {techStack.map((tech, idx) => {
               const TechIcon = tech.icon;
               return (
-                <motion.div
+                <m.div
                   key={idx}
                   initial={{ opacity: 0, y: 10 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -407,7 +407,7 @@ export default function MVPSoftwareDevelopment() {
                 >
                   <TechIcon className="w-8 h-8 text-white/80" />
                   <span className="text-xs text-white/40">{tech.name}</span>
-                </motion.div>
+                </m.div>
               );
             })}
           </div>
@@ -417,7 +417,7 @@ export default function MVPSoftwareDevelopment() {
       {/* What You Get Section */}
       <section className="bg-black py-24 px-6" data-testid="section-what-you-get">
         <div className="max-w-7xl mx-auto">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -434,13 +434,13 @@ export default function MVPSoftwareDevelopment() {
             <p className="text-lg text-white/80 max-w-3xl mx-auto">
               Our MVP software development services help you create functional, market-ready software with minimal resources to validate your value prop.
             </p>
-          </motion.div>
+          </m.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {whatYouGet.map((item, idx) => {
               const ItemIcon = item.icon;
               return (
-                <motion.div
+                <m.div
                   key={idx}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -465,7 +465,7 @@ export default function MVPSoftwareDevelopment() {
                       </div>
                     </div>
                   </GlassCard>
-                </motion.div>
+                </m.div>
               );
             })}
           </div>
@@ -476,7 +476,7 @@ export default function MVPSoftwareDevelopment() {
       <section className="bg-zinc-950 py-24 px-6" data-testid="section-why-oarc">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -501,9 +501,9 @@ export default function MVPSoftwareDevelopment() {
                   );
                 })}
               </div>
-            </motion.div>
+            </m.div>
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -518,7 +518,7 @@ export default function MVPSoftwareDevelopment() {
                   data-testid="img-process"
                 />
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </div>
       </section>
@@ -526,7 +526,7 @@ export default function MVPSoftwareDevelopment() {
       {/* Challenges vs Solutions */}
       <section className="bg-black py-24 px-6" data-testid="section-challenges">
         <div className="max-w-7xl mx-auto">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -536,10 +536,10 @@ export default function MVPSoftwareDevelopment() {
             <h2 className="text-3xl md:text-4xl font-black text-white mb-4">
               MVP Software Development Challenges
             </h2>
-          </motion.div>
+          </m.div>
 
           <div className="grid md:grid-cols-2 gap-8">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -559,9 +559,9 @@ export default function MVPSoftwareDevelopment() {
                   ))}
                 </div>
               </GlassCard>
-            </motion.div>
+            </m.div>
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -581,7 +581,7 @@ export default function MVPSoftwareDevelopment() {
                   ))}
                 </div>
               </GlassCard>
-            </motion.div>
+            </m.div>
           </div>
         </div>
       </section>
@@ -589,7 +589,7 @@ export default function MVPSoftwareDevelopment() {
       {/* OARC vs In-House Comparison */}
       <section className="bg-zinc-950 py-24 px-6" data-testid="section-comparison">
         <div className="max-w-4xl mx-auto">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -602,9 +602,9 @@ export default function MVPSoftwareDevelopment() {
             <p className="text-lg text-white/80">
               Why outsourcing your MVP makes financial sense
             </p>
-          </motion.div>
+          </m.div>
 
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -628,14 +628,14 @@ export default function MVPSoftwareDevelopment() {
                 </div>
               ))}
             </GlassCard>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
       {/* Software Types Section */}
       <section className="bg-black py-24 px-6" data-testid="section-software-types">
         <div className="max-w-7xl mx-auto">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -648,13 +648,13 @@ export default function MVPSoftwareDevelopment() {
             <p className="text-lg text-white/80 max-w-2xl mx-auto">
               From SaaS platforms to enterprise tools—we've built them all
             </p>
-          </motion.div>
+          </m.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {softwareTypes.map((type, idx) => {
               const TypeIcon = type.icon;
               return (
-                <motion.div
+                <m.div
                   key={idx}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -669,7 +669,7 @@ export default function MVPSoftwareDevelopment() {
                     <h3 className="text-lg font-bold text-white mb-2">{type.name}</h3>
                     <p className="text-sm text-white/80">{type.description}</p>
                   </GlassCard>
-                </motion.div>
+                </m.div>
               );
             })}
           </div>
@@ -679,7 +679,7 @@ export default function MVPSoftwareDevelopment() {
       {/* Process Section */}
       <section className="bg-zinc-950 py-24 px-6" data-testid="section-process">
         <div className="max-w-7xl mx-auto">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -693,11 +693,11 @@ export default function MVPSoftwareDevelopment() {
             <h2 className="text-3xl md:text-4xl font-black text-white mb-4">
               From Idea to Launch in 8-12 Weeks
             </h2>
-          </motion.div>
+          </m.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {process.map((phase, idx) => (
-              <motion.div
+              <m.div
                 key={idx}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -726,7 +726,7 @@ export default function MVPSoftwareDevelopment() {
                     </div>
                   </div>
                 </GlassCard>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -735,7 +735,7 @@ export default function MVPSoftwareDevelopment() {
       {/* Case Studies */}
       <section className="bg-black py-24 px-6" data-testid="section-case-studies">
         <div className="max-w-7xl mx-auto">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -754,11 +754,11 @@ export default function MVPSoftwareDevelopment() {
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
             </Link>
-          </motion.div>
+          </m.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {caseStudies.map((study, idx) => (
-              <motion.div
+              <m.div
                 key={idx}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -792,7 +792,7 @@ export default function MVPSoftwareDevelopment() {
                     </div>
                   </div>
                 </GlassCard>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -801,7 +801,7 @@ export default function MVPSoftwareDevelopment() {
       {/* Deliverables Matrix */}
       <section className="bg-zinc-950 py-24 px-6" data-testid="section-deliverables">
         <div className="max-w-4xl mx-auto">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -814,9 +814,9 @@ export default function MVPSoftwareDevelopment() {
             <p className="text-lg text-white/80">
               Every software MVP project includes these deliverables—no hidden costs.
             </p>
-          </motion.div>
+          </m.div>
 
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -840,14 +840,14 @@ export default function MVPSoftwareDevelopment() {
                 <p className="text-white/50 text-sm">Fixed price available after Discovery Sprint</p>
               </div>
             </GlassCard>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
       {/* Testimonials */}
       <section className="bg-black py-24 px-6" data-testid="section-testimonials">
         <div className="max-w-7xl mx-auto">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -857,11 +857,11 @@ export default function MVPSoftwareDevelopment() {
             <h2 className="text-3xl md:text-4xl font-black text-white mb-4">
               What Our Clients Say
             </h2>
-          </motion.div>
+          </m.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {testimonials.map((testimonial, idx) => (
-              <motion.div
+              <m.div
                 key={idx}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -892,7 +892,7 @@ export default function MVPSoftwareDevelopment() {
                     </div>
                   </div>
                 </GlassCard>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -909,7 +909,7 @@ export default function MVPSoftwareDevelopment() {
       {/* Final CTA Section */}
       <section className="bg-black py-24 px-6" data-testid="section-cta">
         <div className="max-w-4xl mx-auto text-center">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -973,7 +973,7 @@ export default function MVPSoftwareDevelopment() {
                 <span>Fixed price available</span>
               </div>
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 

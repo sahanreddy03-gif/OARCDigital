@@ -2,7 +2,7 @@
 
 
 import Link from 'next/link';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 
 import { Button } from '@/components/ui/button';
 import { GlassCard } from '@/components/ui/glass-card';
@@ -53,7 +53,7 @@ export default function AIAgentDetailClient({ agentId }: { agentId: string }) {
 
           <div className="max-w-5xl mx-auto">
             {/* Back link */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.4 }}
@@ -64,11 +64,11 @@ export default function AIAgentDetailClient({ agentId }: { agentId: string }) {
                   <ArrowLeft className="w-4 h-4" /> All AI Agents
                 </span>
               </Link>
-            </motion.div>
+            </m.div>
 
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               {/* Avatar */}
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
@@ -93,10 +93,10 @@ export default function AIAgentDetailClient({ agentId }: { agentId: string }) {
                   {/* Lime accent border glow */}
                   <div className="absolute inset-0 rounded-2xl ring-1 ring-[#c4ff4d]/20 pointer-events-none" />
                 </div>
-              </motion.div>
+              </m.div>
 
               {/* Info */}
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
@@ -144,7 +144,7 @@ export default function AIAgentDetailClient({ agentId }: { agentId: string }) {
                     </Button>
                   </Link>
                 </div>
-              </motion.div>
+              </m.div>
             </div>
           </div>
         </section>
@@ -152,7 +152,7 @@ export default function AIAgentDetailClient({ agentId }: { agentId: string }) {
         {/* Capabilities */}
         <section className="py-16 px-4 sm:px-6 bg-zinc-950">
           <div className="max-w-5xl mx-auto">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -162,11 +162,11 @@ export default function AIAgentDetailClient({ agentId }: { agentId: string }) {
                 What <span className="text-[#c4ff4d]">{agent.name}</span> Does
               </h2>
               <p className="text-white/50">Core capabilities built into this agent</p>
-            </motion.div>
+            </m.div>
 
             <div className="grid sm:grid-cols-2 gap-4">
               {agent.capabilities.map((cap, i) => (
-                <motion.div
+                <m.div
                   key={cap}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -179,7 +179,7 @@ export default function AIAgentDetailClient({ agentId }: { agentId: string }) {
                     </div>
                     <span className="text-white font-medium">{cap}</span>
                   </GlassCard>
-                </motion.div>
+                </m.div>
               ))}
             </div>
           </div>
@@ -190,7 +190,7 @@ export default function AIAgentDetailClient({ agentId }: { agentId: string }) {
           <section className="py-16 px-4 sm:px-6 bg-zinc-950 border-t border-white/5">
             <div className="max-w-5xl mx-auto">
               {/* Star summary */}
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -212,12 +212,12 @@ export default function AIAgentDetailClient({ agentId }: { agentId: string }) {
                   {rating.ratingValue} <span className="text-white/40 font-normal text-lg">/ 5</span>
                 </p>
                 <p className="text-white/40 text-sm mt-1">Based on {rating.reviewCount} client reviews</p>
-              </motion.div>
+              </m.div>
 
               {/* Testimonial cards */}
               <div className="grid sm:grid-cols-2 gap-4">
                 {rating.testimonials.map((t, i) => (
-                  <motion.div
+                  <m.div
                     key={i}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -243,7 +243,7 @@ export default function AIAgentDetailClient({ agentId }: { agentId: string }) {
                         <p className="text-white/40 text-xs">{t.company}</p>
                       </div>
                     </GlassCard>
-                  </motion.div>
+                  </m.div>
                 ))}
               </div>
             </div>
@@ -272,7 +272,7 @@ export default function AIAgentDetailClient({ agentId }: { agentId: string }) {
                 .map((other, i) => {
                   const OtherIcon = other.icon;
                   return (
-                    <motion.div
+                    <m.div
                       key={other.id}
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
@@ -308,7 +308,7 @@ export default function AIAgentDetailClient({ agentId }: { agentId: string }) {
                           </div>
                         </div>
                       </Link>
-                    </motion.div>
+                    </m.div>
                   );
                 })}
             </div>
@@ -318,7 +318,7 @@ export default function AIAgentDetailClient({ agentId }: { agentId: string }) {
         {/* CTA */}
         <section className="py-20 px-4 sm:px-6 bg-zinc-950 border-t border-white/5">
           <div className="max-w-3xl mx-auto text-center">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -343,7 +343,7 @@ export default function AIAgentDetailClient({ agentId }: { agentId: string }) {
                   Get Started on WhatsApp
                 </Button>
               </a>
-            </motion.div>
+            </m.div>
           </div>
         </section>
 

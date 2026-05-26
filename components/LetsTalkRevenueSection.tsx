@@ -3,7 +3,7 @@
 import { useRef, useState, useCallback, useEffect } from 'react';
 import Link from "next/link";
 import { ArrowRight, ChevronLeft, ChevronRight, TrendingUp } from 'lucide-react';
-import { motion, useReducedMotion } from 'framer-motion';
+import { m, useReducedMotion } from 'framer-motion';
 
 const customerAcquisitionImage = "/attached_assets/stock_images/customer_acquisition_38bd9c1d.jpg";
 const webApplicationsImage = "/attached_assets/web-applications-optimized.webp";
@@ -71,7 +71,7 @@ function DataFlowLines() {
       
       {/* Flowing Data Lines */}
       {[...Array(6)].map((_, i) => (
-        <motion.path
+        <m.path
           key={i}
           d={`M 0 ${15 + i * 15} Q 25 ${10 + i * 15 + (i % 2 === 0 ? 5 : -5)} 50 ${15 + i * 15} T 100 ${15 + i * 15}`}
           fill="none"
@@ -105,14 +105,14 @@ function GrowthChart() {
             <stop offset="100%" stopColor="#23AACA" stopOpacity="0" />
           </linearGradient>
         </defs>
-        <motion.path
+        <m.path
           d="M0 50 L0 40 Q10 38 15 35 T30 28 T45 22 T60 15 T75 8 T90 5 T100 3 L100 50 Z"
           fill="url(#chartGradient)"
           initial={{ opacity: 0, pathLength: 0 }}
           animate={{ opacity: 1, pathLength: 1 }}
           transition={{ duration: 2, ease: 'easeOut' }}
         />
-        <motion.path
+        <m.path
           d="M0 40 Q10 38 15 35 T30 28 T45 22 T60 15 T75 8 T90 5 T100 3"
           fill="none"
           stroke="#23AACA"
@@ -137,7 +137,7 @@ function FloatingMetric({ value, label, top, left, delay }: {
   if (prefersReducedMotion) return null;
   
   return (
-    <motion.div
+    <m.div
       className="absolute hidden lg:flex flex-col items-center px-4 py-3 bg-white/[0.02] backdrop-blur-sm rounded-lg border border-white/5"
       style={{ top, left }}
       initial={{ opacity: 0, y: 20 }}
@@ -146,7 +146,7 @@ function FloatingMetric({ value, label, top, left, delay }: {
     >
       <span className="text-lg font-bold text-[#23AACA]">{value}</span>
       <span className="text-[8px] uppercase tracking-wider text-white/40">{label}</span>
-    </motion.div>
+    </m.div>
   );
 }
 
@@ -157,7 +157,7 @@ function PulsingRings() {
   return (
     <div className="absolute top-1/2 right-[10%] -translate-y-1/2 pointer-events-none hidden lg:block">
       {[1, 2, 3].map((ring) => (
-        <motion.div
+        <m.div
           key={ring}
           className="absolute rounded-full border border-[#23AACA]/15"
           style={{
@@ -178,7 +178,7 @@ function PulsingRings() {
           }}
         />
       ))}
-      <motion.div
+      <m.div
         className="absolute w-4 h-4 rounded-full bg-[#23AACA]"
         style={{ top: 'calc(50% - 8px)', left: 'calc(50% - 8px)' }}
         animate={{ scale: [1, 1.3, 1], opacity: [0.5, 1, 0.5] }}
@@ -200,7 +200,7 @@ function FloatingParticle({ delay, duration, size, left, top, color }: {
   if (prefersReducedMotion) return null;
   
   return (
-    <motion.div
+    <m.div
       className="absolute rounded-full pointer-events-none"
       style={{
         width: size,
@@ -344,13 +344,13 @@ export default function LetsTalkRevenueSection() {
       <FloatingMetric value="2.4x" label="ROAS" top="70%" left="88%" delay={1.5} />
       
       {/* Premium Gradient Orbs */}
-      <motion.div 
+      <m.div 
         className="absolute bottom-0 right-0 w-[700px] h-[700px] rounded-full blur-[180px] pointer-events-none"
         style={{ background: 'radial-gradient(circle, rgba(35,170,202,0.18) 0%, transparent 65%)' }}
         animate={prefersReducedMotion ? {} : { scale: [1, 1.1, 1], opacity: [0.5, 0.8, 0.5] }}
         transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
       />
-      <motion.div 
+      <m.div 
         className="absolute top-0 left-0 w-[500px] h-[500px] rounded-full blur-[140px] pointer-events-none"
         style={{ background: 'radial-gradient(circle, rgba(196,255,77,0.08) 0%, transparent 70%)' }}
         animate={prefersReducedMotion ? {} : { scale: [1, 1.15, 1], opacity: [0.3, 0.6, 0.3] }}
@@ -359,18 +359,18 @@ export default function LetsTalkRevenueSection() {
       
       {/* Subtle floating tech icon - only visible on desktop */}
       {!prefersReducedMotion && (
-        <motion.div 
+        <m.div 
           className="absolute top-[30%] right-[8%] text-[#23AACA]/10 hidden lg:block"
           animate={{ y: [-5, 5, -5] }}
           transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
         >
           <TrendingUp className="w-6 h-6" />
-        </motion.div>
+        </m.div>
       )}
       
       {/* Content */}
       <div className="container mx-auto px-6 lg:px-12 max-w-7xl relative z-10">
-        <motion.div 
+        <m.div 
           className="text-center mb-8 lg:mb-12"
           initial={{ y: 20 }}
           whileInView={{ y: 0 }}
@@ -378,20 +378,20 @@ export default function LetsTalkRevenueSection() {
           transition={{ duration: 0.6 }}
         >
           {/* Premium Badge */}
-          <motion.div 
+          <m.div 
             className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/[0.03] backdrop-blur-md rounded-full border border-[#23AACA]/20 mb-4"
             initial={{ scale: 0.95 }}
             whileInView={{ scale: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
           >
-            <motion.div 
+            <m.div 
               className="w-1.5 h-1.5 rounded-full bg-[#23AACA]"
               animate={prefersReducedMotion ? {} : { scale: [1, 1.3, 1], opacity: [1, 0.5, 1] }}
               transition={{ duration: 2, repeat: Infinity }}
             />
             <span className="text-[9px] uppercase tracking-[0.2em] text-white/60 font-medium">We Build It For You</span>
-          </motion.div>
+          </m.div>
           
           <h2 
             className="font-bold text-white mb-4 uppercase tracking-[0.08em]" 
@@ -411,7 +411,7 @@ export default function LetsTalkRevenueSection() {
           <p className="text-xs text-white/40 max-w-lg mx-auto leading-relaxed">
             Custom apps, automation systems, and AI consulting—tailored to your exact requirements.
           </p>
-        </motion.div>
+        </m.div>
 
         {/* Native scroll-snap carousel - smooth touch/swipe */}
         <div 
@@ -507,7 +507,7 @@ export default function LetsTalkRevenueSection() {
           </button>
         </div>
 
-        <motion.div 
+        <m.div 
           className="text-center mt-10"
           initial={{ y: 20 }}
           whileInView={{ y: 0 }}
@@ -523,7 +523,7 @@ export default function LetsTalkRevenueSection() {
               <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
             </button>
           </Link>
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from 'react';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 
 interface AnimatedGridBackgroundProps {
   className?: string;
@@ -193,7 +193,7 @@ export function AnimatedGridBackground({
       {showConcentricRings && (
         <div className="absolute inset-0 flex items-center justify-center motion-reduce:hidden">
           {[1, 2, 3, 4].map((ring) => (
-            <motion.div
+            <m.div
               key={ring}
               className="absolute rounded-full border border-white/[0.03]"
               style={{
@@ -218,7 +218,7 @@ export function AnimatedGridBackground({
       {/* Scan Line Effect - More visible */}
       {showScanLine && (
         <>
-          <motion.div
+          <m.div
             className="absolute left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-white/20 to-transparent motion-reduce:hidden"
             initial={{ top: '-10%' }}
             animate={{ top: '110%' }}
@@ -228,7 +228,7 @@ export function AnimatedGridBackground({
               ease: 'linear'
             }}
           />
-          <motion.div
+          <m.div
             className="absolute left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent motion-reduce:hidden"
             initial={{ top: '-10%' }}
             animate={{ top: '110%' }}

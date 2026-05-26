@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
+import { m, AnimatePresence } from "framer-motion";
 import {
   ArrowRight,
   ChevronRight,
@@ -197,7 +197,7 @@ export default function PageContent() {
 
         <main className="relative z-10 container mx-auto px-6 py-10 md:py-16">
           {/* HERO */}
-          <motion.section
+          <m.section
             className="max-w-4xl mx-auto text-center mb-14"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: mounted ? 1 : 0, y: mounted ? 0 : 20 }}
@@ -227,7 +227,7 @@ export default function PageContent() {
               an email. The full workbook — every issue, every fix, every euro figure — arrives in
               your inbox the moment you ask for it.
             </p>
-          </motion.section>
+          </m.section>
 
           {/* TOOL CARDS */}
           <section className="max-w-6xl mx-auto mb-12" data-testid="section-tool-cards">
@@ -236,7 +236,7 @@ export default function PageContent() {
                 const Icon = t.icon;
                 const isActive = activeTool === t.id;
                 return (
-                  <motion.button
+                  <m.button
                     key={t.id}
                     onClick={() => {
                       setActiveTool(t.id);
@@ -274,7 +274,7 @@ export default function PageContent() {
                       {isActive ? "Loaded below" : "Open this tool"}
                       <ArrowRight className="h-3.5 w-3.5" />
                     </div>
-                  </motion.button>
+                  </m.button>
                 );
               })}
             </div>
@@ -412,7 +412,7 @@ export default function PageContent() {
 
                       <AnimatePresence>
                         {selectedProblem?.id === problem.id && (
-                          <motion.div
+                          <m.div
                             initial={{ opacity: 0, height: 0 }}
                             animate={{ opacity: 1, height: "auto" }}
                             exit={{ opacity: 0, height: 0 }}
@@ -455,7 +455,7 @@ export default function PageContent() {
                                 </div>
                               ))}
                             </div>
-                          </motion.div>
+                          </m.div>
                         )}
                       </AnimatePresence>
                     </button>

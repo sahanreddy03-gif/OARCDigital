@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { m, AnimatePresence } from "framer-motion";
 import { Users, TrendingUp, Cpu, BarChart3, Rocket, Zap, Trash2, DollarSign } from "lucide-react";
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend, Filler } from "chart.js";
 import { Line } from "react-chartjs-2";
@@ -93,7 +93,7 @@ export default function GrowthSimulator() {
               </div>
               <div className="space-y-3">
                 {Object.entries(AGENT_TYPES).map(([key, agent]) => (
-                  <motion.button
+                  <m.button
                     key={key}
                     onClick={() => addAgent(key as AgentType)}
                     whileHover={{ scale: 1.02 }}
@@ -112,7 +112,7 @@ export default function GrowthSimulator() {
                       <span className="text-xs font-mono text-cyan-400">+${agent.revenue.toLocaleString()}</span>
                       <span className="text-[10px] text-zinc-600">-${agent.cost}/mo</span>
                     </div>
-                  </motion.button>
+                  </m.button>
                 ))}
               </div>
               {agents.length > 0 && (
@@ -124,7 +124,7 @@ export default function GrowthSimulator() {
                   <div className="h-[120px] overflow-y-auto scrollbar-thin scrollbar-thumb-zinc-700 pr-2 space-y-2">
                     <AnimatePresence mode="popLayout">
                       {agents.map((agent) => (
-                        <motion.div
+                        <m.div
                           key={agent.id}
                           layout
                           initial={{ opacity: 0, x: -20 }}
@@ -139,7 +139,7 @@ export default function GrowthSimulator() {
                           <button onClick={() => removeAgent(agent.id)} className="text-zinc-600 hover:text-red-400 p-1">
                             <Trash2 className="w-3 h-3" />
                           </button>
-                        </motion.div>
+                        </m.div>
                       ))}
                     </AnimatePresence>
                   </div>

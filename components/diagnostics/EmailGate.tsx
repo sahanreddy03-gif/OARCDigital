@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { Mail, Lock, CheckCircle2, ArrowRight } from "lucide-react";
 
 interface EmailGateProps {
@@ -63,7 +63,7 @@ export default function EmailGate({ toolName, rowsHidden, onUnlock }: EmailGateP
   }
 
   return (
-    <motion.div
+    <m.div
       initial={{ opacity: 0, y: 8 }}
       animate={{ opacity: 1, y: 0 }}
       className="rounded-2xl border border-white/10 bg-zinc-900/40 p-6"
@@ -123,6 +123,6 @@ export default function EmailGate({ toolName, rowsHidden, onUnlock }: EmailGateP
           click from the email itself.
         </p>
       </form>
-    </motion.div>
+    </m.div>
   );
 }

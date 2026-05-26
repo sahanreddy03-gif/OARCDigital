@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { motion, useReducedMotion } from "framer-motion";
+import { m, useReducedMotion } from "framer-motion";
 
 export default function ShiftHappensSection() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -45,7 +45,7 @@ export default function ShiftHappensSection() {
       >
 
         {/* SHIFT HAPPENS — Anton ultra-bold condensed, solid + stroke duo */}
-        <motion.div {...fadeUp(0)} className="w-full overflow-hidden" data-testid="shift-happens-headline">
+        <m.div {...fadeUp(0)} className="w-full overflow-hidden" data-testid="shift-happens-headline">
           <div
             className="w-full text-center leading-none whitespace-nowrap select-none"
             style={{
@@ -69,10 +69,10 @@ export default function ShiftHappensSection() {
               HAPPENS
             </span>
           </div>
-        </motion.div>
+        </m.div>
 
         {/* Full-width horizontal rule */}
-        <motion.div {...fadeUp(0.18)} className="w-full mt-5 sm:mt-6 md:mt-8">
+        <m.div {...fadeUp(0.18)} className="w-full mt-5 sm:mt-6 md:mt-8">
           <div
             style={{
               height: "2px",
@@ -80,10 +80,10 @@ export default function ShiftHappensSection() {
               background: "rgba(255,255,255,0.45)",
             }}
           />
-        </motion.div>
+        </m.div>
 
         {/* Tagline — EB Garamond, pure white, no colours */}
-        <motion.div
+        <m.div
           {...fadeUp(0.34)}
           className="w-full mt-5 sm:mt-6 md:mt-8 overflow-hidden"
           data-testid="shift-tagline"
@@ -102,7 +102,7 @@ export default function ShiftHappensSection() {
             <span style={{ fontWeight: 400 }}>Optimised AI Revenue&nbsp;</span>
             <span style={{ fontWeight: 700, fontStyle: "italic" }}>Creative</span>
           </p>
-        </motion.div>
+        </m.div>
 
       </div>
     </section>

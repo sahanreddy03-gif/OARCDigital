@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { motion, useReducedMotion } from 'framer-motion';
+import { m, useReducedMotion } from 'framer-motion';
 import { ArrowRight, Plug, Zap, Shield, BarChart3, CheckCircle2, Code2, Layers, Server, Database, Cloud, Lock, Users, ChevronRight, RefreshCw, GitBranch, Workflow, Globe, Clock, ArrowLeftRight, Box, Cpu } from 'lucide-react';
 import { SiStripe, SiTwilio, SiSalesforce, SiShopify, SiZapier, SiSlack, SiHubspot, SiMailchimp } from 'react-icons/si';
 import Layout from '@/components/layout/Layout';
@@ -135,14 +135,14 @@ export default function APIIntegrationServices() {
         <div className="relative z-10 w-full max-w-7xl mx-auto px-4 py-20">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
                 className="inline-flex items-center gap-3 mb-8"
               >
                 <div className="px-5 py-2.5 bg-white/[0.05] backdrop-blur-md border border-white/15 rounded-full flex items-center gap-3">
-                  <motion.div 
+                  <m.div 
                     className="w-2 h-2 bg-purple-400 rounded-full"
                     animate={prefersReducedMotion ? {} : { scale: [1, 1.5, 1], opacity: [1, 0.5, 1] }}
                     transition={{ duration: 2, repeat: Infinity }}
@@ -151,9 +151,9 @@ export default function APIIntegrationServices() {
                     Integration Services
                   </span>
                 </div>
-              </motion.div>
+              </m.div>
               
-              <motion.h1
+              <m.h1
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
@@ -164,18 +164,18 @@ export default function APIIntegrationServices() {
                 <span className="bg-gradient-to-r from-purple-400 via-indigo-400 to-amber-400 bg-clip-text text-transparent">
                   Everything
                 </span>
-              </motion.h1>
+              </m.h1>
               
-              <motion.p
+              <m.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
                 className="text-xl text-white/60 mb-8 leading-relaxed max-w-xl"
               >
                 Seamless API integrations that make your systems work together. Payment, CRM, marketing, and custom APIs—all connected.
-              </motion.p>
+              </m.p>
 
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.3 }}
@@ -187,10 +187,10 @@ export default function APIIntegrationServices() {
                     <ArrowRight className="w-5 h-5 ml-2" />
                   </Button>
                 </Link>
-              </motion.div>
+              </m.div>
 
               {/* Quick stats */}
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.4 }}
@@ -206,11 +206,11 @@ export default function APIIntegrationServices() {
                     <div className="text-xs text-white/50">{stat.label}</div>
                   </div>
                 ))}
-              </motion.div>
+              </m.div>
             </div>
 
             {/* Integration Hub Visualization */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.3 }}
@@ -238,7 +238,7 @@ export default function APIIntegrationServices() {
                     { Icon: SiZapier, name: "Zapier", color: "#FF4A00" },
                     { Icon: SiMailchimp, name: "Mailchimp", color: "#FFE01B" },
                   ].map((service, i) => (
-                    <motion.div
+                    <m.div
                       key={i}
                       initial={{ opacity: 0, scale: 0.8 }}
                       animate={{ opacity: 1, scale: 1 }}
@@ -247,14 +247,14 @@ export default function APIIntegrationServices() {
                     >
                       <service.Icon className="w-8 h-8 mx-auto mb-2" style={{ color: service.color }} />
                       <div className="text-xs text-white/60">{service.name}</div>
-                    </motion.div>
+                    </m.div>
                   ))}
                 </div>
 
                 {/* Connection lines animation */}
                 <div className="absolute inset-0 pointer-events-none overflow-hidden rounded-xl">
                   {[...Array(8)].map((_, i) => (
-                    <motion.div
+                    <m.div
                       key={i}
                       className="absolute w-px bg-gradient-to-b from-purple-500/50 to-transparent"
                       style={{
@@ -268,7 +268,7 @@ export default function APIIntegrationServices() {
                   ))}
                 </div>
               </GlassCard>
-            </motion.div>
+            </m.div>
           </div>
         </div>
       </section>
@@ -279,7 +279,7 @@ export default function APIIntegrationServices() {
         <div className="relative max-w-6xl mx-auto">
           <ScrollReveal>
             <div className="text-center mb-16">
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -287,7 +287,7 @@ export default function APIIntegrationServices() {
               >
                 <Workflow className="w-4 h-4 text-purple-400" />
                 <span className="text-xs text-white/70 uppercase tracking-[0.2em]">Integration Process</span>
-              </motion.div>
+              </m.div>
               <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
                 How We <span className="text-purple-400">Connect</span> Systems
               </h2>
@@ -300,7 +300,7 @@ export default function APIIntegrationServices() {
           <ScrollReveal delay={0.2}>
             <div className="flex flex-col md:flex-row items-center justify-center gap-4">
               {integrationFlow.map((step, i) => (
-                <motion.div
+                <m.div
                   key={i}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -318,7 +318,7 @@ export default function APIIntegrationServices() {
                   {i < integrationFlow.length - 1 && (
                     <ChevronRight className="w-6 h-6 text-white/30 hidden md:block" />
                   )}
-                </motion.div>
+                </m.div>
               ))}
             </div>
           </ScrollReveal>
@@ -340,7 +340,7 @@ export default function APIIntegrationServices() {
 
             <div className="grid md:grid-cols-2 gap-6">
               {integrationServices.map((service, i) => (
-                <motion.div
+                <m.div
                   key={i}
                   onHoverStart={() => setHoveredService(i)}
                   onHoverEnd={() => setHoveredService(null)}
@@ -371,7 +371,7 @@ export default function APIIntegrationServices() {
                       </div>
                     </div>
                   </GlassCard>
-                </motion.div>
+                </m.div>
               ))}
             </div>
           </div>
@@ -394,7 +394,7 @@ export default function APIIntegrationServices() {
 
             <div className="grid md:grid-cols-2 gap-6">
               {integrationCategories.map((category, i) => (
-                <motion.div
+                <m.div
                   key={i}
                   onClick={() => setActiveIntegration(activeIntegration === i ? null : i)}
                   data-testid={`category-${i}`}
@@ -429,7 +429,7 @@ export default function APIIntegrationServices() {
                         </div>
 
                         {activeIntegration === i && (
-                          <motion.div
+                          <m.div
                             initial={{ opacity: 0, height: 0 }}
                             animate={{ opacity: 1, height: 'auto' }}
                             exit={{ opacity: 0, height: 0 }}
@@ -443,12 +443,12 @@ export default function APIIntegrationServices() {
                                 </span>
                               ))}
                             </div>
-                          </motion.div>
+                          </m.div>
                         )}
                       </div>
                     </div>
                   </GlassCard>
-                </motion.div>
+                </m.div>
               ))}
             </div>
           </div>
@@ -531,15 +531,15 @@ export default function APIIntegrationServices() {
       <section className="py-24 px-4 bg-zinc-950 text-white relative overflow-hidden border-t border-white/10">
         <AnimatedGridBackground intensity="subtle" showScanLine={false} showParticles={true} showConcentricRings={true} />
         <div className="relative max-w-4xl mx-auto text-center">
-          <motion.h2
+          <m.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="text-4xl md:text-5xl font-black mb-6"
           >
             Need to <span className="bg-gradient-to-r from-purple-400 to-indigo-400 bg-clip-text text-transparent">connect</span> your systems?
-          </motion.h2>
-          <motion.p
+          </m.h2>
+          <m.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -547,8 +547,8 @@ export default function APIIntegrationServices() {
             className="text-white/60 text-lg mb-10 max-w-2xl mx-auto"
           >
             Free integration assessment. We'll map your systems and propose the optimal architecture.
-          </motion.p>
-          <motion.div
+          </m.p>
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -560,9 +560,9 @@ export default function APIIntegrationServices() {
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
             </Link>
-          </motion.div>
+          </m.div>
 
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -581,7 +581,7 @@ export default function APIIntegrationServices() {
               <Shield className="w-5 h-5 text-white" />
               <span className="text-white text-sm font-medium">99.9% uptime SLA</span>
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
