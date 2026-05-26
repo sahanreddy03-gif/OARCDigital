@@ -195,26 +195,28 @@ const industries: Record<string, IndustryData> = {
     name: 'Real Estate',
     plural: 'Real Estate Agencies',
     description: 'the real estate sector',
-    hero: "Real Estate Marketing Agency in Malta",
-    intro: "Malta's property market is one of Europe's most competitive. We help real estate agencies and developers generate qualified leads, showcase properties compellingly, and build the kind of brand that buyers remember.",
+    hero: "Malta Real Estate Marketing Agency — Social, Paid, SEO & Video for Estate Agents",
+    intro: "Malta's property market moves on search. Buyers in Sliema, St Julian's, Mellieha and Gozo start their search on Google and Instagram weeks before they call an agent. We help estate agencies and developers win that attention — with paid search campaigns targeting buying-intent keywords, cinematic property video that stands out on portal listings, social media that showcases properties to local and international buyers, and SEO that puts your agency at the top when someone types 'apartments for sale Malta'. This is the full marketing service for real estate companies — not an AI chatbot product.",
     pain: [
-      'Property listings not getting enough views — lost in portals with no differentiation',
-      'No professional video tours or virtual walkthroughs for international buyers',
-      'Weak brand identity compared to larger competitors with bigger marketing budgets',
+      'Portal listings getting lost in a sea of identical cards with no video, weak copy, and stock photography — buyers scroll past without enquiring',
+      'International buyer pipeline thin or entirely agent-dependent — no direct channel reaching UK, German, Scandinavian and Middle East buyers during their research phase',
+      'Agency brand indistinguishable from competitors — no owned social presence, no SEO rankings, no content that builds authority in the Malta property market',
     ],
     services: [
-      { slug: 'video-production', title: 'Video Production', description: 'Property tours, development showcases, and agent profile videos' },
-      { slug: 'paid-advertising', title: 'Paid Advertising', description: 'Targeted campaigns reaching buyers and investors in key source markets' },
-      { slug: 'social-media-creative-management', title: 'Social Media Management', description: 'Property showcases, market insights, and lead generation via Instagram and Facebook' },
-      { slug: 'branding-services', title: 'Brand Identity', description: 'Agency branding that commands premium positioning in the Malta market' },
-      { slug: 'ai-sdr-agent', title: 'AI Sales Agent', description: 'Automated follow-up for property enquiries and viewing request qualification' },
-      { slug: 'web-design', title: 'Website Design', description: 'Lead-generating property websites with search, listings, and valuation tools' },
+      { slug: 'video-production', title: 'Property Video Production', description: 'Cinematic walk-throughs, aerial drone footage, development showcase films, and agent profile videos that make listings stand out on every portal and social platform' },
+      { slug: 'paid-advertising', title: 'Paid Advertising', description: 'Google Search campaigns on buying-intent keywords, Meta lead-gen targeting buyers in source markets, and retargeting across the 3–6 month Malta property search cycle' },
+      { slug: 'social-media-creative-management', title: 'Social Media Management', description: 'Weekly property showcase content, Malta market insights, neighbourhood guides for Sliema and St Julian\'s, and lead-generation campaigns on Instagram and Facebook' },
+      { slug: 'seo-services', title: 'SEO for Real Estate', description: 'Agency website SEO targeting "apartments for sale Malta", "villas Malta", "Sliema properties" and similar high-intent queries — long-cycle content that builds organic enquiries' },
+      { slug: 'branding-services', title: 'Agency Branding', description: 'Identity and visual language that positions your agency as the premium choice in your market segment — boards, brochures, digital assets, and portal creative' },
+      { slug: 'web-design', title: 'Lead-Generating Property Website', description: 'Fast, mobile-first property websites with integrated search, listing management, valuation-request tools, and CRM connection for every enquiry' },
     ],
     faqs: [
-      { q: 'Can you target international property buyers?', a: 'Yes — we run campaigns targeting buyers in the UK, Germany, Scandinavia, and the Middle East who are actively searching for Malta properties, using language and creative tailored to each market.' },
-      { q: 'Do you produce property photography and video?', a: 'Video production is one of our core services. We create professional property walk-throughs, aerial footage, and development showcase videos that stand out from standard portal listings.' },
-      { q: 'How do you generate qualified leads for real estate?', a: 'Through a combination of paid search targeting buying-intent keywords, Facebook lead gen campaigns, and retargeting sequences that nurture prospects over the typical 3–6 month property search cycle.' },
-      { q: 'Can you help with new development marketing?', a: 'Yes — we build launch campaigns for new developments including branding, landing pages, paid campaigns, and social media strategies targeting both local and international buyers.' },
+      { q: 'How do Malta real estate buyers actually search online?', a: 'Most start with a Google search — "apartments for sale Malta", "Sliema sea view property", "2 bedroom Valletta" — then move to portals like Frank Salt and RE/MAX Malta, then to Instagram and Facebook for neighbourhood feel and agency reputation. The agencies that win organic enquiries own the Google rankings for their target property types and have consistent Instagram content showing both listings and local market knowledge. We build the presence that shows up at every stage of that journey.' },
+      { q: 'What kind of content actually works for Malta real estate on social media?', a: 'Three content types consistently outperform everything else for Malta agencies. Property walk-through Reels (30–60 seconds, no voiceover, good music, drone opener if available) generate strong save rates from buyers in research mode. Neighbourhood guides — "what it\'s like to live in Mellieha" or "the Gzira waterfront in 90 seconds" — build organic follower growth from relocating buyers. Market update posts (monthly median prices, new development announcements) establish the agency as a credible local authority. Stock content and listing-card graphics perform poorly across the board.' },
+      { q: 'Can you target international property buyers — UK, Germany, Scandinavia, Middle East?', a: 'Yes — we run geo-targeted Meta and Google campaigns in the source markets most relevant to your property type. British buyers are the largest single inbound group for Malta residential; German and Scandinavian buyers are significant in the northern coastal belt; Middle East buyers focus on premium St Julian\'s and Valletta. Each source market gets language-adjusted creative and messaging that speaks to their specific drivers — Malta\'s EU residency schemes, warm winters, Golden Visa proximity, and English-speaking environment.' },
+      { q: 'What is the difference between this and the AI Real Estate Agent service?', a: 'Completely different product and buyer. The AI Real Estate Agent at /services/ai-real-estate-agent is a software product — an AI employee that handles after-hours portal enquiries, qualifies viewing requests, and triages multilingual leads before your agents log on. This industry hub is about marketing services: how we get buyers to enquire in the first place. The two work well together — marketing generates the enquiry volume, the AI agent handles the triage — but they are sold and run separately.' },
+      { q: 'How do you generate qualified leads for a Malta estate agency?', a: 'A combination of paid search on buying-intent keywords (Google captures buyers who already know they want Malta), Facebook lead-gen campaigns targeting the correct demographics in source markets, retargeting sequences that nurture portal visitors and site visitors across the 3–6 month search cycle, and SEO-driven content that earns organic traffic to the agency\'s own website rather than sending all enquiries through portal commission.' },
+      { q: 'Can you handle a new development launch campaign?', a: 'Yes — we build end-to-end launch campaigns for new developments covering pre-launch teaser content, CGI and drone video production, a dedicated landing page, paid campaigns in both local and international markets, and a sequenced email nurture for off-plan reservations. We have run launches for residential developments across Sliema, Ta\' Xbiex, and Mellieha.' },
     ],
   },
   retail: {
@@ -903,6 +905,31 @@ export default function IndustryHubPage({ params }: { params: { industry: string
                     </div>
                   </Link>
                 ))}
+              </div>
+            </div>
+          </section>
+        )}
+        {dataKey === 'real-estate' && (
+          <section className="py-16 bg-background border-t">
+            <div className="max-w-4xl mx-auto px-6 md:px-8">
+              <h2 className="text-xl font-bold mb-6">Related Services</h2>
+              <div className="grid md:grid-cols-2 gap-4">
+                {[
+                  { href: "/blog/restaurant-marketing-malta", label: "Restaurant Marketing in Malta: What the Top Venues Do Differently", cat: "Strategy" },
+                  { href: "/blog/ai-marketing-malta", label: "AI Marketing in Malta: What's Actually Useful for Your Business Right Now", cat: "AI" },
+                ].map((a, i) => (
+                  <Link key={i} href={a.href}>
+                    <div className="p-4 rounded-xl border bg-card hover:border-orange-400 transition-colors cursor-pointer h-full">
+                      <span className="text-xs font-semibold text-orange-500 uppercase tracking-wider mb-2 block">{a.cat}</span>
+                      <p className="text-sm font-medium leading-snug">{a.label}</p>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+              <div className="mt-6 p-5 rounded-xl border bg-muted/40">
+                <p className="text-sm font-semibold mb-1">Looking for the AI Real Estate Agent?</p>
+                <p className="text-sm text-muted-foreground mb-3">This page is the marketing service for real estate companies — social media, paid ads, video, SEO, and branding. If you want an AI employee that handles portal enquiries, qualifies viewing requests, and triages multilingual leads around the clock, that is a separate product.</p>
+                <Link href="/services/ai-real-estate-agent" className="text-sm text-orange-500 font-medium hover:text-orange-600 transition-colors">AI Real Estate Agent — automated enquiry handling &amp; lead qualification →</Link>
               </div>
             </div>
           </section>
