@@ -104,9 +104,9 @@ export default function EmailMarketingContent() {
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/10 border border-orange-500/20 mb-6">
               <span className="text-orange-400 text-xs font-semibold uppercase tracking-wider">Automation &amp; Lifecycle</span>
             </div>
-            <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">Email Marketing Automation for Malta Businesses</h1>
-            <p className="text-xl text-zinc-300 leading-relaxed mb-8">
-              Klaviyo, Mailchimp, ActiveCampaign, HubSpot, and Customer.io — built, monitored, and reported on monthly by a Birkirkara team that owns deliverability, segmentation, and triggered revenue end-to-end.
+            <h1 data-speakable className="text-3xl md:text-5xl font-bold mb-6 leading-tight" data-testid="heading-email-marketing">Email Marketing Management for Malta Businesses — Strategy, Automation &amp; Reporting</h1>
+            <p data-speakable className="text-xl text-zinc-300 leading-relaxed mb-8">
+              The full email channel under management — Klaviyo, Mailchimp, ActiveCampaign, HubSpot, and Customer.io built, monitored, and reported on monthly by a Birkirkara team that owns deliverability, segmentation, and triggered revenue end-to-end. You focus on the business; we run the inbox.
             </p>
             <div className="flex flex-wrap gap-3">
               <Link href="/contact"><Button size="lg" className="bg-orange-500 hover:bg-orange-600 text-white" data-testid="button-book-audit">Book an automation audit <ArrowRight className="ml-2 w-4 h-4" /></Button></Link>
@@ -117,6 +117,20 @@ export default function EmailMarketingContent() {
         </section>
 
         <article className="max-w-4xl mx-auto px-6 md:px-8 py-16">
+          <section className="mb-10 p-6 rounded-xl border bg-zinc-50 dark:bg-zinc-900/50">
+            <h2 className="text-base font-bold mb-3 text-zinc-700 dark:text-zinc-300 uppercase tracking-wider text-xs">Who this service is for</h2>
+            <div className="grid md:grid-cols-2 gap-4 text-sm">
+              <div className="p-4 rounded-lg bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700">
+                <p className="font-semibold mb-1 text-foreground">Email Marketing Management (this page)</p>
+                <p className="text-muted-foreground">Business owners who want a team to run their entire email channel — platform setup, automation flows, list management, deliverability, segmentation, A/B testing, and monthly revenue reporting. You hand over the channel; we own the results.</p>
+              </div>
+              <div className="p-4 rounded-lg bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700">
+                <p className="font-semibold mb-1 text-foreground"><a href="/services/email-creative" className="text-orange-500 hover:text-orange-600">Email Creative →</a></p>
+                <p className="text-muted-foreground">Marketing teams who already have a platform and automation strategy but need a design partner — beautiful templates, modular content blocks, mobile-first layouts, and on-brand campaign visuals. Design-led, not strategy-led.</p>
+              </div>
+            </div>
+          </section>
+
           <section className="mb-12">
             <h2 className="text-2xl md:text-3xl font-bold mb-4">Automation, Not Broadcast</h2>
             <p className="text-foreground leading-relaxed mb-4">

@@ -688,6 +688,21 @@ export default function IndustryHubPage({ params }: { params: { industry: string
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaGraph) }}
         />
+        {/* Speakable JSON-LD — voice/AI discovery for all industry hub pages */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebPage",
+              url: canonical,
+              speakable: {
+                "@type": "SpeakableSpecification",
+                cssSelector: ["[data-speakable]"],
+              },
+            }),
+          }}
+        />
         {/* Hero */}
         <section className="relative bg-gradient-to-br from-zinc-900 via-neutral-900 to-zinc-950 text-white py-24 md:py-32">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,145,77,0.08),transparent_50%),radial-gradient(circle_at_70%_80%,rgba(59,130,246,0.06),transparent_50%)]" />
@@ -709,10 +724,10 @@ export default function IndustryHubPage({ params }: { params: { industry: string
                 <TrendingUp className="w-4 h-4 text-orange-400" />
                 <span className="text-orange-400 font-semibold uppercase tracking-wider text-xs">Malta Specialists</span>
               </div>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+              <h1 data-speakable className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight" data-testid={`heading-industry-${industry}`}>
                 {data.hero}
               </h1>
-              <p className="text-xl text-zinc-300 mb-8 leading-relaxed">{data.intro}</p>
+              <p data-speakable className="text-xl text-zinc-300 mb-8 leading-relaxed">{data.intro}</p>
               <div className="flex flex-wrap gap-4">
                 <a href={`https://wa.me/${NAP.whatsappNumber}`} target="_blank" rel="noopener noreferrer">
                   <Button size="lg" className="bg-orange-500 hover:bg-orange-600 text-white">
@@ -912,11 +927,13 @@ export default function IndustryHubPage({ params }: { params: { industry: string
         {dataKey === 'real-estate' && (
           <section className="py-16 bg-background border-t">
             <div className="max-w-4xl mx-auto px-6 md:px-8">
-              <h2 className="text-xl font-bold mb-6">Related Services</h2>
+              <h2 className="text-xl font-bold mb-6">Core Services for Malta Estate Agents</h2>
               <div className="grid md:grid-cols-2 gap-4">
                 {[
-                  { href: "/blog/restaurant-marketing-malta", label: "Restaurant Marketing in Malta: What the Top Venues Do Differently", cat: "Strategy" },
-                  { href: "/blog/ai-marketing-malta", label: "AI Marketing in Malta: What's Actually Useful for Your Business Right Now", cat: "AI" },
+                  { href: "/services/video-production", label: "Property Video Production — cinematic walk-throughs, drone footage, and listing videos for Malta real estate agencies", cat: "Video" },
+                  { href: "/services/paid-advertising", label: "International Buyer Targeting — Google and Meta campaigns reaching UK, German, and Scandinavian buyers searching for Malta property", cat: "Paid Ads" },
+                  { href: "/services/seo-services", label: "Real Estate SEO Malta — rank for 'apartments for sale Malta', 'villas Malta', and buyer-intent property queries", cat: "SEO" },
+                  { href: "/services/social-media-creative-management", label: "Property Social Media — weekly listing content, neighbourhood guides, and market updates on Instagram and Facebook", cat: "Social" },
                 ].map((a, i) => (
                   <Link key={i} href={a.href}>
                     <div className="p-4 rounded-xl border bg-card hover:border-orange-400 transition-colors cursor-pointer h-full">
