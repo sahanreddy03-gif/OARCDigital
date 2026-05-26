@@ -1,146 +1,178 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import { 
-  SiInstagram,
-  SiFacebook,
-  SiYoutube,
-  SiLinkedin,
-  SiTiktok,
-  SiSnapchat,
-  SiReddit,
-  SiX,
-  SiDiscord,
-  SiTwitch,
-  SiPinterest,
-  SiThreads,
-  SiWhatsapp,
-  SiTelegram,
-  SiSpotify,
-  SiOpenai,
-  SiAnthropic,
-  SiMeta,
-  SiGoogle,
-  SiFigma,
-  SiNotion,
-  SiSlack,
-  SiZoom,
-  SiCanva,
-  SiAdobe,
-  SiShopify,
-  SiHubspot,
-  SiMailchimp,
-  SiZapier,
-  SiAirtable,
-} from "react-icons/si";
+import { useEffect, useRef, useState } from "react";
+import { Star, Users, TrendingUp, ShieldCheck } from "lucide-react";
 
-const platforms = [
-  { name: "Instagram", icon: SiInstagram },
-  { name: "Facebook", icon: SiFacebook },
-  { name: "YouTube", icon: SiYoutube },
-  { name: "TikTok", icon: SiTiktok },
-  { name: "X", icon: SiX },
-  { name: "LinkedIn", icon: SiLinkedin },
-  { name: "Snapchat", icon: SiSnapchat },
-  { name: "Reddit", icon: SiReddit },
-  { name: "Discord", icon: SiDiscord },
-  { name: "Twitch", icon: SiTwitch },
-  { name: "Pinterest", icon: SiPinterest },
-  { name: "Threads", icon: SiThreads },
-  { name: "WhatsApp", icon: SiWhatsapp },
-  { name: "Telegram", icon: SiTelegram },
-  { name: "Spotify", icon: SiSpotify },
-  { name: "OpenAI", icon: SiOpenai },
-  { name: "Anthropic", icon: SiAnthropic },
-  { name: "Meta", icon: SiMeta },
-  { name: "Google", icon: SiGoogle },
-  { name: "Figma", icon: SiFigma },
-  { name: "Notion", icon: SiNotion },
-  { name: "Slack", icon: SiSlack },
-  { name: "Zoom", icon: SiZoom },
-  { name: "Canva", icon: SiCanva },
-  { name: "Adobe", icon: SiAdobe },
-  { name: "Shopify", icon: SiShopify },
-  { name: "HubSpot", icon: SiHubspot },
-  { name: "Mailchimp", icon: SiMailchimp },
-  { name: "Zapier", icon: SiZapier },
-  { name: "Airtable", icon: SiAirtable },
+const STATS = [
+  {
+    icon: Star,
+    value: 4.9,
+    suffix: "/5",
+    label: "Satisfaction Rating",
+    sub: "Across all client engagements",
+    decimals: 1,
+    testId: "stat-strip-rating",
+  },
+  {
+    icon: Users,
+    value: 47,
+    suffix: "+",
+    label: "Clients Served",
+    sub: "Startups to enterprise brands",
+    decimals: 0,
+    testId: "stat-strip-clients",
+  },
+  {
+    icon: TrendingUp,
+    value: 68,
+    suffix: "%",
+    label: "Avg ROI Lift",
+    sub: "Across active retainer clients",
+    decimals: 0,
+    testId: "stat-strip-roi",
+  },
+  {
+    icon: ShieldCheck,
+    value: 90,
+    suffix: " Days",
+    label: "Guarantee Period",
+    sub: "Results or we work for free",
+    decimals: 0,
+    testId: "stat-strip-guarantee",
+  },
 ];
 
-export default function TrustedBrandsSection() {
-  const scrollRef = useRef<HTMLDivElement>(null);
-  const animationRef = useRef<number | undefined>(undefined);
-  const positionRef = useRef(0);
-  const contentWidthRef = useRef(0);
-  
-  const triplePlatforms = [...platforms, ...platforms, ...platforms];
-  
+function useCountUp(target: number, decimals: number, active: boolean) {
+  const [count, setCount] = useState(0);
+  const rafRef = useRef<number | undefined>(undefined);
+
   useEffect(() => {
-    const scrollContainer = scrollRef.current;
-    if (!scrollContainer) return;
-    
-    const children = scrollContainer.children;
-    if (children.length > 0) {
-      let singleSetWidth = 0;
-      for (let i = 0; i < platforms.length; i++) {
-        const child = children[i] as HTMLElement;
-        singleSetWidth += child.offsetWidth + 40;
-      }
-      contentWidthRef.current = singleSetWidth;
-    }
-    
-    const speed = 0.5;
-    
-    const animate = () => {
-      positionRef.current += speed;
-      
-      if (positionRef.current >= contentWidthRef.current) {
-        positionRef.current = 0;
-      }
-      
-      scrollContainer.style.transform = `translateX(-${positionRef.current}px)`;
-      animationRef.current = requestAnimationFrame(animate);
+    if (!active) return;
+    const duration = 1500;
+    const start = performance.now();
+
+    const tick = (now: number) => {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      // easeOutQuart
+      const eased = 1 - Math.pow(1 - progress, 4);
+      setCount(parseFloat((eased * target).toFixed(decimals)));
+      if (progress < 1) rafRef.current = requestAnimationFrame(tick);
     };
-    
-    animationRef.current = requestAnimationFrame(animate);
-    
-    return () => {
-      if (animationRef.current) {
-        cancelAnimationFrame(animationRef.current);
-      }
-    };
+
+    rafRef.current = requestAnimationFrame(tick);
+    return () => { if (rafRef.current) cancelAnimationFrame(rafRef.current); };
+  }, [active, target, decimals]);
+
+  return count;
+}
+
+function StatBlock({
+  icon: Icon, value, suffix, label, sub, decimals, testId, active,
+}: (typeof STATS)[0] & { active: boolean }) {
+  const count = useCountUp(value, decimals, active);
+  const display = decimals > 0 ? count.toFixed(decimals) : Math.round(count).toString();
+
+  return (
+    <div
+      className="flex flex-col items-center text-center px-4 py-8 md:py-10 relative group"
+      data-testid={testId}
+    >
+      {/* Icon */}
+      <div
+        className="w-10 h-10 rounded-full flex items-center justify-center mb-4"
+        style={{ backgroundColor: "rgba(34,197,94,0.12)", border: "1px solid rgba(34,197,94,0.2)" }}
+      >
+        <Icon className="w-5 h-5" style={{ color: "#22c55e" }} />
+      </div>
+
+      {/* Number */}
+      <div
+        className="font-bold text-white mb-1 tabular-nums leading-none"
+        style={{ fontSize: "clamp(2.25rem,5vw,3.5rem)", letterSpacing: "-0.03em" }}
+        aria-label={`${display}${suffix} ${label}`}
+      >
+        {display}
+        <span style={{ color: "#22c55e" }}>{suffix}</span>
+      </div>
+
+      {/* Label */}
+      <p
+        className="text-xs uppercase tracking-[0.18em] font-semibold mt-2 mb-1"
+        style={{ color: "rgba(255,255,255,0.55)" }}
+      >
+        {label}
+      </p>
+
+      {/* Sub */}
+      <p className="text-[11px] leading-snug max-w-[130px]" style={{ color: "rgba(255,255,255,0.3)" }}>
+        {sub}
+      </p>
+
+      {/* Vertical divider (hidden on last item, only on md+) */}
+      <div
+        aria-hidden="true"
+        className="absolute right-0 top-1/2 -translate-y-1/2 h-16 w-px hidden md:block last:hidden"
+        style={{ backgroundColor: "rgba(255,255,255,0.07)" }}
+      />
+    </div>
+  );
+}
+
+export default function TrustedBrandsSection() {
+  const ref = useRef<HTMLElement>(null);
+  const [active, setActive] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) { setActive(true); obs.disconnect(); } },
+      { threshold: 0.25 }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
   }, []);
 
   return (
-    <section 
-      className="relative py-6 md:py-8 overflow-hidden" 
-      style={{ backgroundColor: '#f0fff4' }}
-      data-testid="platforms-section"
+    <section
+      ref={ref}
+      className="relative overflow-hidden"
+      style={{ backgroundColor: "#070709" }}
+      data-testid="section-trust-stats"
+      aria-label="OARC Digital — key performance metrics"
     >
-      <div className="w-full overflow-hidden relative">
-        <div className="absolute left-0 top-0 bottom-0 w-16 z-10 pointer-events-none" style={{ background: 'linear-gradient(to right, #f0fff4, transparent)' }} />
-        <div className="absolute right-0 top-0 bottom-0 w-16 z-10 pointer-events-none" style={{ background: 'linear-gradient(to left, #f0fff4, transparent)' }} />
-        
-        <div 
-          ref={scrollRef}
-          className="flex gap-10 whitespace-nowrap py-2"
-          style={{ willChange: 'transform' }}
-          data-testid="platforms-carousel"
-        >
-          {triplePlatforms.map((platform, index) => (
-            <div
-              key={`${platform.name}-${index}`}
-              className="inline-flex items-center justify-center flex-shrink-0 group"
-              data-testid={`platform-${index}`}
-            >
-              <platform.icon
-                className="w-5 h-5 md:w-6 md:h-6 text-zinc-300 group-hover:text-zinc-500 transition-colors duration-300"
-                aria-label={platform.name}
-              />
-            </div>
+      {/* Top gradient seam (blends from OARCBrandSection dark) */}
+      <div
+        aria-hidden="true"
+        className="absolute top-0 left-0 right-0 h-12 pointer-events-none"
+        style={{ background: "linear-gradient(to bottom, #030305, transparent)" }}
+      />
+
+      {/* Subtle green glow centre */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background: "radial-gradient(ellipse 70% 60% at 50% 50%, rgba(34,197,94,0.04) 0%, transparent 70%)",
+        }}
+      />
+
+      {/* 4-column grid */}
+      <div className="relative max-w-6xl mx-auto px-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 divide-x-0 md:divide-x divide-white/5">
+          {STATS.map((s) => (
+            <StatBlock key={s.testId} {...s} active={active} />
           ))}
         </div>
       </div>
+
+      {/* Bottom gradient seam */}
+      <div
+        aria-hidden="true"
+        className="absolute bottom-0 left-0 right-0 h-12 pointer-events-none"
+        style={{ background: "linear-gradient(to top, #f0fff4, transparent)" }}
+      />
     </section>
   );
 }
