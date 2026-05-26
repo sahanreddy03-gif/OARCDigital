@@ -738,6 +738,109 @@ export default function PageContent() {
             </motion.div>
           </div>
         </section>
+
+        {/* ========== MEET YOUR AI TEAM — PER-ROLE OUTCOME CARDS ========== */}
+        <section className="relative z-10 py-20 sm:py-24 px-4 sm:px-6 bg-zinc-950 border-t border-white/5" data-testid="section-meet-ai-team">
+          <div className="max-w-6xl mx-auto">
+            <motion.div
+              className="mb-14"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4" data-speakable>
+                Meet Your <span className="text-[#c4ff4d]">AI Team</span>
+              </h2>
+              <p className="text-white/60 text-base sm:text-lg max-w-3xl" data-speakable>
+                Seven specialised AI employees, each trained on a single high-value business function and
+                measured against a concrete outcome. Deploy one as a pilot, or build the full workforce —
+                every agent integrates with your existing CRM, calendar and communications stack in 7–14 days.
+              </p>
+            </motion.div>
+
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[
+                {
+                  slug: "ai-sdr-agent",
+                  role: "AI SDR Agent",
+                  function: "Sales Development",
+                  desc: "Qualifies inbound and outbound leads around the clock — researching prospects, sending personalised first-contact messages, following up across email and WhatsApp, and routing warm leads directly into your calendar without any manual input.",
+                  metric: "8–15 qualified demos booked per week",
+                },
+                {
+                  slug: "ai-support-specialist",
+                  role: "AI Support Specialist",
+                  function: "Customer Support",
+                  desc: "Handles tier-1 support queries on WhatsApp, live chat and email with contextual, human-like responses. Resolves common questions, processes returns, checks order status and escalates complex cases with full conversation context.",
+                  metric: "80%+ of queries resolved without human intervention",
+                },
+                {
+                  slug: "ai-appointment-booker",
+                  role: "AI Appointment Booker",
+                  function: "Scheduling & Bookings",
+                  desc: "Conversational booking agent for clinics, restaurants, salons and service businesses across Malta. Reads your live calendar, handles confirmations and reminders, and reschedules no-shows automatically via SMS or WhatsApp.",
+                  metric: "Zero missed bookings — 24/7 across every channel",
+                },
+                {
+                  slug: "ai-data-analyst",
+                  role: "AI Data Analyst",
+                  function: "Business Intelligence",
+                  desc: "Connects to your CRM, ad platforms and finance data, then delivers plain-English performance summaries every morning. Flags anomalies, answers ad-hoc questions in seconds, and surfaces the metrics that are actually moving revenue.",
+                  metric: "Daily revenue intelligence in your inbox by 8 am",
+                },
+                {
+                  slug: "ai-admin-agent",
+                  role: "AI Admin Agent",
+                  function: "Back-Office Operations",
+                  desc: "Triages your inbox, chases outstanding invoices, defends your calendar from low-priority requests and files documents into the right folders. Handles the recurring admin load that consumes four or more hours of your team's week.",
+                  metric: "4+ hours of back-office time returned to your team weekly",
+                },
+                {
+                  slug: "ai-real-estate-agent",
+                  role: "AI Real Estate Agent",
+                  function: "Property Lead Management",
+                  desc: "Captures and qualifies property enquiries from portals, social and web around the clock. Answers listing questions instantly, pre-qualifies buyers by budget and timeline, and schedules viewings directly with your agents.",
+                  metric: "Every listing enquiry answered and viewing booked within 60 seconds",
+                },
+                {
+                  slug: "ai-consulting",
+                  role: "AI Consulting",
+                  function: "Strategy & Roadmap",
+                  desc: "A structured audit of your current operations identifies where AI agents will deliver the fastest return. Outputs a 90-day deployment roadmap with build-vs-buy guidance, integration requirements and phased cost projections specific to your Malta business.",
+                  metric: "90-day AI deployment roadmap built around your revenue gaps",
+                },
+              ].map((agent, idx) => (
+                <motion.div
+                  key={agent.slug}
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: idx * 0.07 }}
+                >
+                  <Link
+                    href={`/services/${agent.slug}`}
+                    data-testid={`link-meet-ai-team-${agent.slug}`}
+                    className="block h-full"
+                  >
+                    <div className="h-full p-6 rounded-2xl bg-white/[0.03] border border-white/[0.08] hover-elevate flex flex-col gap-4">
+                      <div>
+                        <span className="text-xs font-semibold text-[#c4ff4d]/70 uppercase tracking-widest mb-2 block">
+                          {agent.function}
+                        </span>
+                        <h3 className="text-white font-bold text-lg mb-2">{agent.role}</h3>
+                        <p className="text-white/55 text-sm leading-relaxed">{agent.desc}</p>
+                      </div>
+                      <div className="mt-auto pt-3 border-t border-white/[0.08] flex items-center justify-between gap-2">
+                        <span className="text-[#c4ff4d] text-sm font-semibold">{agent.metric}</span>
+                        <ArrowRight className="w-4 h-4 text-white/30 flex-shrink-0" />
+                      </div>
+                    </div>
+                  </Link>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
         
         {/* ========== EXPLORE THE 7 AI AGENTS — SPOKES + IMAGE GRID ========== */}
         <section className="relative z-10 py-20 sm:py-24 px-4 sm:px-6 bg-black border-t border-white/5" data-testid="section-ai-agents-spokes">

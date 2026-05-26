@@ -708,6 +708,98 @@ export default function PageContent() {
           </div>
         </section>
 
+        {/* ========== 90 / 180 / 360 DAY REVENUE ROADMAP ========== */}
+        <section className="py-24 px-6 border-t border-white/5 bg-zinc-950" data-testid="section-solutions-roadmap">
+          <div className="max-w-6xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="mb-14"
+            >
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4" data-speakable>
+                What Results Look Like at 90, 180, and 360 Days
+              </h2>
+              <p className="text-white/60 text-lg max-w-3xl" data-speakable>
+                Most Malta businesses arrive with the same problem: manual tasks consuming the team, leads
+                falling through gaps in the follow-up process, and no clear view of which activities are
+                generating revenue. The OARC solutions stack addresses each layer in sequence — so results
+                compound as the engagement matures rather than flattening after the first sprint.
+              </p>
+            </motion.div>
+
+            <div className="grid md:grid-cols-3 gap-6">
+              {[
+                {
+                  period: "Day 1–90",
+                  period_no: "90",
+                  headline: "Foundation and Quick Wins",
+                  problem: "The business problem",
+                  problemDesc: "Leads fall through gaps between marketing and sales. The inbox is overloaded. Nobody knows which channel is generating real pipeline versus vanity clicks.",
+                  solution: "What we deploy",
+                  solutionDesc: "AI SDR agent for lead qualification and first contact. AI admin agent to triage the inbox and chase outstanding tasks. A revenue tracking dashboard connected to your CRM and ad accounts from day one.",
+                  outcome: "Measurable by day 90",
+                  outcomeDesc: "Lead response time drops from hours to under 2 minutes. Between 15 and 20 qualified sales conversations handled weekly without adding headcount. A clear picture of which campaigns are driving real pipeline rather than traffic.",
+                },
+                {
+                  period: "Day 90–180",
+                  period_no: "180",
+                  headline: "Compounding Systems",
+                  problem: "The next layer",
+                  problemDesc: "The early wins are holding but growth is still tied to individuals — customer support, bookings and follow-up all depend on someone picking up the phone or opening the inbox.",
+                  solution: "What we layer in",
+                  solutionDesc: "AI support specialist handling tier-1 customer queries on WhatsApp and email. Automated booking and reminder sequences for appointment-based businesses. Multi-step follow-up flows for leads that went cold after first contact.",
+                  outcome: "Measurable by day 180",
+                  outcomeDesc: "Support volume handled without human input reaches 70 to 80 percent. Booking no-shows reduce by half with automated reminders. The sales pipeline is consistently fed without manual outreach from your team each morning.",
+                },
+                {
+                  period: "Day 180–360",
+                  period_no: "360",
+                  headline: "Full Revenue Operations",
+                  problem: "The strategic shift",
+                  problemDesc: "The business has working systems but growth is capped because strategy and execution are still handled by the same small team — there is no leverage without proportional headcount.",
+                  solution: "What the full stack delivers",
+                  solutionDesc: "Marketing automation suite running multi-channel campaigns across email, SMS and WhatsApp. Funnel automation from first click through to second purchase. AI data analyst reporting weekly on the revenue levers that matter most.",
+                  outcome: "Measurable at year one",
+                  outcomeDesc: "Businesses running the full OARC revenue stack typically see a 40 to 60 percent reduction in cost per acquired customer and three to five times the qualified lead volume they had at day one — without proportional increases in headcount or spend.",
+                },
+              ].map((phase, idx) => (
+                <motion.div
+                  key={phase.period}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: idx * 0.1 }}
+                >
+                  <div className="h-full p-8 rounded-2xl bg-white/[0.03] border border-white/[0.08] flex flex-col gap-5">
+                    <div>
+                      <div className="text-6xl font-black text-white/[0.06] leading-none mb-2 select-none" aria-hidden="true">
+                        {phase.period_no}
+                      </div>
+                      <span className="text-xs font-semibold text-[#c4ff4d]/70 uppercase tracking-widest block mb-1">
+                        {phase.period}
+                      </span>
+                      <h3 className="text-white font-bold text-xl">{phase.headline}</h3>
+                    </div>
+                    <div>
+                      <p className="text-xs font-semibold text-white/40 uppercase tracking-widest mb-2">{phase.problem}</p>
+                      <p className="text-white/60 text-sm leading-relaxed">{phase.problemDesc}</p>
+                    </div>
+                    <div>
+                      <p className="text-xs font-semibold text-white/40 uppercase tracking-widest mb-2">{phase.solution}</p>
+                      <p className="text-white/60 text-sm leading-relaxed">{phase.solutionDesc}</p>
+                    </div>
+                    <div className="mt-auto pt-4 border-t border-white/[0.08]">
+                      <p className="text-xs font-semibold text-[#c4ff4d]/70 uppercase tracking-widest mb-2">{phase.outcome}</p>
+                      <p className="text-white/70 text-sm leading-relaxed">{phase.outcomeDesc}</p>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* ========== EXPLORE THE STACK — 10 SPOKES + IMAGE GRID ========== */}
         <section className="py-24 px-6 border-t border-white/5 bg-black" data-testid="section-solutions-spokes">
           <div className="max-w-6xl mx-auto">

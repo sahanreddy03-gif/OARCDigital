@@ -16,13 +16,13 @@ export const metadata: Metadata = {
     description: pillarMeta.description,
     url: "https://oarcdigital.com/ai-agents",
     type: "website",
-    images: [{ url: "https://oarcdigital.com/og-image.png" }],
+    images: [{ url: "https://oarcdigital.com/attached_assets/custom-ai-solutions-robots-optimized.webp", width: 1200, height: 630, alt: "OARC Digital AI agents — Malta AI workforce for sales, support, bookings and ops" }],
   },
   twitter: {
     card: "summary_large_image",
     title: pillarMeta.title,
     description: pillarMeta.description,
-    images: ["https://oarcdigital.com/og-image.png"],
+    images: ["https://oarcdigital.com/attached_assets/custom-ai-solutions-robots-optimized.webp"],
   },
 };
 
