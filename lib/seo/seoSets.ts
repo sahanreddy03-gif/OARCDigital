@@ -121,6 +121,37 @@ export const REDIRECTING_SERVICE_SLUGS: ReadonlySet<string> = new Set(
 export const NOINDEX_SERVICE_SLUGS: ReadonlySet<string> = new Set<string>([]);
 
 /**
+ * Task #221 (Programmatic cluster cull) — NOINDEX control for
+ * /malta/{loc}/{ind}/{svc} triple-combination pages.
+ *
+ * All 150 loc×ind×svc pages are thin (≈300–500 user-visible words).
+ * They are excluded from the sitemap and marked noindex to protect
+ * domain authority. Pages can be selectively promoted to indexed
+ * status — without a template rewrite — by adding their key here:
+ *
+ *   Format: "{location}/{industry}/{service}"
+ *   Example: "valletta/restaurant/social-media-creative-management"
+ *
+ * To promote ALL pages at once, set LOCATION_IND_SVC_GLOBAL_KEEP = true.
+ * To promote individual pages: add their key to KEEP_LOCATION_IND_SVC_COMBOS.
+ *
+ * Promotion checklist (per page):
+ *   1. Expand to ≥800 user-visible words with unique industry narrative.
+ *   2. Add the "{loc}/{ind}/{svc}" key to KEEP_LOCATION_IND_SVC_COMBOS.
+ *   3. Add its sitemap entry to app/sitemap-malta.xml/route.ts.
+ *   4. Ship in one commit; run gate:fast before deploy.
+ *
+ * Drip-feed rule: max 10 new pages per 7-day window.
+ * Rollout calendar: .local/seo-rollout-calendar.md
+ * Audit verdicts: .local/seo/programmatic-audit.md §4
+ */
+export const LOCATION_IND_SVC_GLOBAL_KEEP = false;
+export const KEEP_LOCATION_IND_SVC_COMBOS: ReadonlySet<string> = new Set<string>([
+  // Add promoted combos here, e.g.:
+  // "valletta/restaurant/social-media-creative-management",
+]);
+
+/**
  * Task #138 (Programmatic cluster cull) — industry hub slugs that are
  * declared in `industryHubSlugs` (shared/seoConfig.ts) but DO NOT yet have
  * a content record in `app/industries/[industry]/page.tsx`'s `industries`
