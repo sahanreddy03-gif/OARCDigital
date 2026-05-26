@@ -9,12 +9,12 @@ import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
 export const metadata: Metadata = {
   title: "Customer Acquisition | Growth Marketing | OARC Digital",
   description: "Scalable customer acquisition strategies from OARC Digital. Combine AI automation, creative excellence, and data-driven marketing to accelerate growth.",
-  alternates: { canonical: "https://oarcdigital.com/services/customer-acquisition" },
+  alternates: { canonical: "https://oarcdigital.com/services/customer-acquisition-accelerator" },
   openGraph: {
     images: ogImageEntry({ title: "Customer Acquisition | Growth Marketing | OARC Digital", subtitle: "Scalable customer acquisition strategies from OARC Digital. Combine AI automation, creative excellence, and data-driven marketing to accelerate growth." }),
     title: "Customer Acquisition | Growth Marketing | OARC Digital",
     description: "Scalable customer acquisition strategies from OARC Digital. Combine AI automation, creative excellence, and data-driven marketing to accelerate growth.",
-    url: "https://oarcdigital.com/services/customer-acquisition",
+    url: "https://oarcdigital.com/services/customer-acquisition-accelerator",
     type: "article",
   },
   twitter: {
