@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Phone } from 'lucide-react';
+import { X, Phone, Sparkles } from 'lucide-react';
 import { usePathname } from "next/navigation";
 import { ARCChat } from './ARCChat';
 import { NAP } from "@/lib/seo/nap";
@@ -179,17 +179,18 @@ export function ARCWidget() {
               )}
             </AnimatePresence>
 
-            {/* Apple-style clean orb — no glow, no pulsing */}
+            {/* Premium black orb — AI spark + ARC */}
             <motion.div
               whileHover={{ scale: 1.06 }}
-              className="relative w-14 h-14 rounded-full flex items-center justify-center"
+              className="relative w-16 h-16 rounded-full flex flex-col items-center justify-center gap-0.5"
               style={{
-                backgroundColor: '#1c1c1e',
-                border: '1px solid rgba(255,255,255,0.12)',
-                boxShadow: '0 4px 24px rgba(0,0,0,0.25)',
+                backgroundColor: '#000000',
+                border: '1px solid rgba(255,255,255,0.18)',
+                boxShadow: '0 6px 32px rgba(0,0,0,0.45), 0 1px 0 rgba(255,255,255,0.06) inset',
               }}
             >
-              <span className="text-[13px] font-semibold text-white tracking-[0.08em]">ARC</span>
+              <Sparkles size={13} className="text-white opacity-80" strokeWidth={1.5} />
+              <span className="text-[11px] font-bold text-white tracking-[0.14em] uppercase leading-none">ARC</span>
             </motion.div>
           </motion.div>
         )}
