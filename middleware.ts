@@ -10,6 +10,7 @@ import {
   CROSS_SECTION_ALIASES,
   LOCATION_SERVICE_ALIASES,
   INDUSTRY_HUBS_PENDING_CONTENT,
+  NOINDEX_AEO_SLUGS,
 } from "./lib/seo/seoSets";
 import {
   ARCHIVED_LOCATION_REDIRECTS,
@@ -44,10 +45,24 @@ function permanentRedirect(req: NextRequest, to: string): NextResponse {
   return NextResponse.redirect(url, 308);
 }
 
+function noindexResponse(): NextResponse {
+  const res = NextResponse.next();
+  res.headers.set("x-robots-tag", "noindex, follow");
+  return res;
+}
+
 export function middleware(req: NextRequest): NextResponse | undefined {
   const { pathname } = req.nextUrl;
 
   if (HARD_410_PATHS.has(pathname)) return gone();
+
+  // /aeo/{slug} — NOINDEX_AEO_SLUGS injects x-robots-tag for thin AEO pages.
+  // Currently empty (all 44 AEO pages score KEEP); mechanism ready for future use.
+  if (pathname.startsWith("/aeo/")) {
+    const slug = pathname.replace(/\/+$/, "").split("/")[2];
+    if (slug && NOINDEX_AEO_SLUGS.has(slug)) return noindexResponse();
+    return undefined;
+  }
 
   // /pdf has no page.tsx of its own — only sub-routes like /pdf/company-profile.
   // Bare /pdf used to be linked from the footer ("Client PDFs") and 404'd.
@@ -189,6 +204,7 @@ export function middleware(req: NextRequest): NextResponse | undefined {
 
 export const config = {
   matcher: [
+    "/aeo/:path*",
     "/malta",
     "/malta/:path*",
     "/services/:path*",
