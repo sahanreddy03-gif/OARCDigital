@@ -1,3 +1,5 @@
+"use client";
+
 import Layout from "@/components/layout/Layout";
 import RelatedServices from "@/components/RelatedServices";
 import { Button } from "@/components/ui/button";
@@ -9,6 +11,29 @@ import MaltaContextBlock from "@/components/seo/MaltaContextBlock";
 import TrustBlock from "@/components/seo/TrustBlock";
 import { NAP } from "@/lib/seo/nap";
 const SCHEMA = SERVICE_SCHEMAS["saas-development"];
+
+const saasHeroImage = "/attached_assets/stock_images/tech_startup_brand_s_500a2a04.jpg";
+
+const saasImageObjectSchema = {
+  "@context": "https://schema.org",
+  "@type": "ImageObject",
+  name: "Tech startup founders reviewing SaaS product architecture — OARC Digital SaaS MVP engineering for Malta-based software companies",
+  description: "A Malta SaaS founder team reviewing a multi-tenant product architecture built by OARC Digital — six-week MVP from kickoff to first paying customer.",
+  url: "https://oarcdigital.com/attached_assets/stock_images/tech_startup_brand_s_500a2a04.jpg",
+  width: 1200,
+  height: 800,
+  contentUrl: "https://oarcdigital.com/attached_assets/stock_images/tech_startup_brand_s_500a2a04.jpg",
+};
+
+const saasFaqPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: SCHEMA.faqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: { "@type": "Answer", text: faq.answer },
+  })),
+};
 
 const phases = [
   {
@@ -112,6 +137,14 @@ const founderEnablement = [
 export default function SaasDevelopmentContent() {
   return (
     <Layout>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(saasImageObjectSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(saasFaqPageSchema) }}
+      />
       <main className="min-h-screen bg-background">
         <section className="bg-gradient-to-br from-zinc-900 to-zinc-950 text-white py-16 md:py-24">
           <div className="max-w-4xl mx-auto px-6 md:px-8">
@@ -125,8 +158,8 @@ export default function SaasDevelopmentContent() {
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/10 border border-orange-500/20 mb-6">
               <span className="text-orange-400 text-xs font-semibold uppercase tracking-wider">SaaS Product Engineering</span>
             </div>
-            <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
-              SaaS Product Development &amp; MVPs for Malta Startups
+            <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight" data-testid="heading-hero">
+              Your SaaS Idea Deserves a Team That&apos;s Done This Before.
             </h1>
             <p className="text-xl text-zinc-300 leading-relaxed mb-8">
               A paid SaaS MVP in six weeks. Multi-tenant from day one, Stripe Billing wired end to end, product analytics in the box, and a founder dashboard that shows MRR — not a slide deck about it.
@@ -145,12 +178,12 @@ export default function SaasDevelopmentContent() {
             </div>
             <div className="mt-10 rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
               <img
-                src="/images/services/saas-development-hero.png"
-                alt="SaaS analytics dashboard mockup showing MRR growth, churn rate, and active users — illustrating the founder-grade metrics dashboard OARC Digital ships with every Malta SaaS MVP build"
-                className="w-full h-auto block"
+                src={saasHeroImage}
+                alt="Tech startup founders reviewing SaaS product architecture — OARC Digital builds Malta SaaS MVPs from idea to first paying customer in six weeks"
+                className="w-full h-auto block object-cover"
                 loading="eager"
-                width={1600}
-                height={900}
+                width={1200}
+                height={800}
                 data-testid="img-saas-hero"
               />
             </div>

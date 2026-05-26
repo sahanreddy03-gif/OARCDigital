@@ -1,7 +1,9 @@
+"use client";
+
 import Layout from "@/components/layout/Layout";
 import RelatedServices from "@/components/RelatedServices";
 import { Button } from "@/components/ui/button";
-import { CheckCircle2, ArrowRight, MapPin, Phone, Mail } from "lucide-react";
+import { CheckCircle2, ArrowRight, Phone } from "lucide-react";
 import Link from "next/link";
 import { SERVICE_SCHEMAS } from "@/lib/seo/serviceSchemaConfig";
 
@@ -9,6 +11,29 @@ import MaltaContextBlock from "@/components/seo/MaltaContextBlock";
 import TrustBlock from "@/components/seo/TrustBlock";
 import { NAP } from "@/lib/seo/nap";
 const SCHEMA = SERVICE_SCHEMAS["shopify-development"];
+
+const shopifyHeroImage = "/attached_assets/9_1763228440281.jpg";
+
+const shopifyImageObjectSchema = {
+  "@context": "https://schema.org",
+  "@type": "ImageObject",
+  name: "Shopify eCommerce store product page and checkout — built to convert browsers into buyers for Malta DTC brands",
+  description: "A high-converting Shopify storefront with optimised product pages, abandoned-cart recovery, and EU VAT compliance — built for Malta and EU retailers that intend to scale.",
+  url: "https://oarcdigital.com/attached_assets/9_1763228440281.jpg",
+  width: 1200,
+  height: 800,
+  contentUrl: "https://oarcdigital.com/attached_assets/9_1763228440281.jpg",
+};
+
+const shopifyFaqPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: SCHEMA.faqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: { "@type": "Answer", text: faq.answer },
+  })),
+};
 
 const phases = [
   { title: "Catalogue and brand workshop (week 1)", detail: "Map the catalogue, define the variant logic, plan the EU and Malta tax setup, and lock the brand system the new theme will express." },
@@ -27,6 +52,14 @@ const apps = [
 export default function ShopifyDevelopmentContent() {
   return (
     <Layout>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(shopifyImageObjectSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(shopifyFaqPageSchema) }}
+      />
       <main className="min-h-screen bg-background">
         <section className="bg-gradient-to-br from-zinc-900 to-zinc-950 text-white py-16 md:py-24">
           <div className="max-w-4xl mx-auto px-6 md:px-8">
@@ -38,26 +71,26 @@ export default function ShopifyDevelopmentContent() {
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/10 border border-orange-500/20 mb-6">
               <span className="text-orange-400 text-xs font-semibold uppercase tracking-wider">Shopify Builds</span>
             </div>
-            <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">Shopify Store Development & Optimisation, Malta</h1>
+            <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight" data-testid="heading-hero">Your Shopify Store Should Be Your Best Salesperson.</h1>
             <p className="text-xl text-zinc-300 leading-relaxed mb-8">
               Shopify-only specialists. Custom Liquid themes, bespoke Shopify apps, checkout extensibility on Plus, and de-risked migrations from WooCommerce, Magento, or BigCommerce — for Malta and EU retailers that intend to scale.
             </p>
             <div className="flex flex-wrap gap-3">
-              <Link href="/contact"><Button size="lg" className="bg-orange-500 hover:bg-orange-600 text-white">Book a Shopify strategy call <ArrowRight className="ml-2 w-4 h-4" /></Button></Link>
+              <Link href="/contact"><Button size="lg" className="bg-orange-500 hover:bg-orange-600 text-white" data-testid="button-hero-cta">Book a Shopify strategy call <ArrowRight className="ml-2 w-4 h-4" /></Button></Link>
               <a href={`tel:${NAP.phoneE164}`}><Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10"><Phone className="mr-2 w-4 h-4" />{NAP.phoneDisplay}</Button></a>
             </div>
             <div className="mt-10 rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
               <img
-                src="/images/services/shopify-development-hero.png"
-                alt="Shopify checkout and merchant dashboard mockup with order summary, payment methods, and conversion analytics — visualising OARC Digital's Shopify Plus and Liquid theme builds for Malta DTC brands"
-                className="w-full h-auto block"
+                src={shopifyHeroImage}
+                alt="High-converting Shopify product and collection page — built to turn Malta DTC store visitors into buyers with EU VAT compliance and fast page loads"
+                className="w-full h-auto block object-cover"
                 loading="eager"
-                width={1600}
-                height={900}
+                width={1200}
+                height={800}
                 data-testid="img-shopify-hero"
               />
             </div>
-            <p className="mt-6 text-xs text-zinc-500">Last updated: 10 May 2026</p>
+            <p className="mt-6 text-xs text-zinc-500" data-testid="text-last-updated">Last updated: 10 May 2026</p>
           </div>
         </section>
         <article className="max-w-4xl mx-auto px-6 md:px-8 py-16">
