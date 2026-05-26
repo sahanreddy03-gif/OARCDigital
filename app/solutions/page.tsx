@@ -16,13 +16,13 @@ export const metadata: Metadata = {
     description: "Automate your Malta business. Workflow automation, CRM integration, lead funnels, email sequences & custom software. Reduce costs by 60%.",
     url: "https://oarcdigital.com/automation",
     type: "website",
-    images: [{ url: "https://oarcdigital.com/attached_assets/AI%20product%20solutionssss_1764278639969.webp", width: 1200, height: 630, alt: "OARC Digital Malta revenue and automation solutions stack" }],
+    images: [{ url: "https://oarcdigital.com/attached_assets/marketing-automation-optimized.webp", width: 1200, height: 630, alt: "OARC Digital Malta — revenue automation and marketing solutions for SMBs" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Business Automation Malta | OARC Digital",
     description: "Workflow automation, CRM, lead funnels & custom software for Malta businesses. Reduce costs by 60%.",
-    images: ["https://oarcdigital.com/attached_assets/AI%20product%20solutionssss_1764278639969.webp"],
+    images: ["https://oarcdigital.com/attached_assets/marketing-automation-optimized.webp"],
   },
 };
 
