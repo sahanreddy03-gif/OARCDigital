@@ -1,4 +1,5 @@
 import Link from "next/link";
+import RelatedServices from "@/components/RelatedServices";
 
 const CASE_IMAGES = [
   {
@@ -147,6 +148,8 @@ export default function PageContent() {
             </div>
           </div>
         </div>
+
+      <RelatedServices slug="/services/ai-real-estate-agent" />
       </section>
     );
   }
