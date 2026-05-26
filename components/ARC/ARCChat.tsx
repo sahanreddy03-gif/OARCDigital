@@ -266,14 +266,14 @@ export function ARCChat({ onClose, isMobile, initialPrompt }: ARCChatProps) {
             className="w-full h-full flex flex-col relative overflow-hidden"
             style={{ backgroundColor: '#e8e8ec' }}
           >
-            {/* Decorative blobs */}
+            {/* Apple-style blobs — larger, softer, more organic */}
             <div className="absolute inset-0 pointer-events-none select-none">
-              <div className="absolute top-[10%] left-[55%] w-72 h-72 rounded-full"
-                style={{ background: 'radial-gradient(circle, #d4d4dc 0%, transparent 70%)', transform: 'translate(-50%,-50%)' }} />
-              <div className="absolute top-[55%] left-[30%] w-56 h-56 rounded-full"
-                style={{ background: 'radial-gradient(circle, #c8c8d2 0%, transparent 70%)', transform: 'translate(-50%,-50%)' }} />
-              <div className="absolute bottom-[5%] right-[10%] w-64 h-64 rounded-full"
-                style={{ background: 'radial-gradient(circle, #d0d0d8 0%, transparent 70%)' }} />
+              <div className="absolute top-[5%] left-[60%] w-96 h-96 rounded-full"
+                style={{ background: 'radial-gradient(circle, #d8d8de 0%, transparent 65%)', transform: 'translate(-50%,-50%)' }} />
+              <div className="absolute top-[50%] left-[20%] w-80 h-80 rounded-full"
+                style={{ background: 'radial-gradient(circle, #c8c8d4 0%, transparent 65%)', transform: 'translate(-50%,-50%)' }} />
+              <div className="absolute bottom-[0%] right-[-5%] w-80 h-80 rounded-full"
+                style={{ background: 'radial-gradient(circle, #d4d4dc 0%, transparent 65%)' }} />
             </div>
 
             {/* Close button */}
@@ -320,8 +320,8 @@ export function ARCChat({ onClose, isMobile, initialPrompt }: ARCChatProps) {
               </div>
             </form>
 
-            {/* Suggestion pills */}
-            <div className="relative z-10 flex flex-col gap-2.5 px-5 mt-6 overflow-y-auto pb-6">
+            {/* Suggestion pills — Apple style */}
+            <div className="relative z-10 flex flex-col gap-2 px-5 mt-6 overflow-y-auto pb-6">
               {SUGGESTIONS.map((s, i) => (
                 <motion.button
                   key={i}
@@ -329,19 +329,14 @@ export function ARCChat({ onClose, isMobile, initialPrompt }: ARCChatProps) {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: i * 0.05 + 0.1, duration: 0.2 }}
                   onClick={() => handleSuggestion(s)}
-                  className="w-full text-center px-5 py-3.5 rounded-full text-[14px] font-medium transition-all"
+                  className="w-full text-center px-5 py-3.5 rounded-full text-[14px] font-normal transition-colors"
                   style={{
-                    backgroundColor: 'rgba(255,255,255,0.65)',
-                    color: '#1a1a1a',
-                    backdropFilter: 'blur(8px)',
-                    border: '1px solid rgba(255,255,255,0.9)',
+                    backgroundColor: '#f0f0f3',
+                    color: '#1c1c1e',
+                    border: '1px solid #e0e0e8',
                   }}
-                  onMouseEnter={e => {
-                    e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.9)';
-                  }}
-                  onMouseLeave={e => {
-                    e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.65)';
-                  }}
+                  onMouseEnter={e => { e.currentTarget.style.backgroundColor = '#e8e8ef'; }}
+                  onMouseLeave={e => { e.currentTarget.style.backgroundColor = '#f0f0f3'; }}
                   data-testid={`button-suggestion-${i}`}
                 >
                   {s}
@@ -350,7 +345,7 @@ export function ARCChat({ onClose, isMobile, initialPrompt }: ARCChatProps) {
             </div>
           </motion.div>
         ) : (
-          /* ──────────── CHAT SCREEN ──────────── */
+          /* ──────────── CHAT SCREEN — Apple light theme ──────────── */
           <motion.div
             key="chat"
             initial={{ opacity: 0, x: 20 }}
@@ -358,35 +353,40 @@ export function ARCChat({ onClose, isMobile, initialPrompt }: ARCChatProps) {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
             className="w-full h-full flex flex-col"
-            style={{ backgroundColor: '#0a0a0f' }}
+            style={{ backgroundColor: '#f2f2f7' }}
           >
-            {/* Chat header */}
+            {/* Chat header — white, clean */}
             <div
               className="flex items-center justify-between px-4 h-[60px] shrink-0"
-              style={{ backgroundColor: '#0f0f14', borderBottom: '1px solid #1a1a24', borderRadius: isMobile ? 0 : '28px 28px 0 0' }}
+              style={{
+                backgroundColor: '#ffffff',
+                borderBottom: '1px solid #e5e5ea',
+                borderRadius: isMobile ? 0 : '28px 28px 0 0',
+              }}
             >
               <div className="flex items-center gap-3">
                 <button
                   onClick={() => { setHasStarted(false); setMessages([]); setFollowups([]); }}
-                  className="text-zinc-500 hover:text-white transition-colors mr-1"
+                  className="transition-colors mr-1"
+                  style={{ color: '#8e8e93' }}
                   data-testid="button-back-to-idle"
                 >
                   <ChevronLeft size={20} />
                 </button>
                 <div
-                  className="w-8 h-8 rounded-full flex items-center justify-center text-white font-bold text-xs"
-                  style={{ background: 'linear-gradient(135deg, #22c55e, #16a34a)' }}
+                  className="w-8 h-8 rounded-full flex items-center justify-center font-bold text-xs"
+                  style={{ backgroundColor: '#1c1c1e', color: '#ffffff' }}
                 >
                   A
                 </div>
                 <div>
-                  <div className="text-white font-semibold text-[14px]">ARC</div>
+                  <div className="font-semibold text-[14px]" style={{ color: '#1c1c1e' }}>ARC</div>
                   <div className="flex items-center gap-1.5">
                     <span
                       className="inline-block w-1.5 h-1.5 rounded-full"
-                      style={{ backgroundColor: isStreaming ? '#facc15' : '#22c55e' }}
+                      style={{ backgroundColor: isStreaming ? '#ff9500' : '#34c759' }}
                     />
-                    <span className="text-[10px]" style={{ color: isStreaming ? '#facc15' : '#22c55e' }}>
+                    <span className="text-[10px]" style={{ color: isStreaming ? '#ff9500' : '#34c759' }}>
                       {isStreaming ? 'Thinking...' : 'Online'}
                     </span>
                   </div>
@@ -394,7 +394,8 @@ export function ARCChat({ onClose, isMobile, initialPrompt }: ARCChatProps) {
               </div>
               <button
                 onClick={onClose}
-                className="text-zinc-500 hover:text-white transition-colors"
+                className="transition-colors"
+                style={{ color: '#8e8e93' }}
                 data-testid="button-close-chat"
               >
                 <X size={18} />
@@ -402,7 +403,7 @@ export function ARCChat({ onClose, isMobile, initialPrompt }: ARCChatProps) {
             </div>
 
             {/* Messages */}
-            <div className="flex-1 overflow-y-auto p-4" style={{ backgroundColor: '#0a0a0f' }}>
+            <div className="flex-1 overflow-y-auto p-4" style={{ backgroundColor: '#f2f2f7' }}>
               {messages.map(msg => (
                 <div key={msg.id}>
                   <ARCMessage content={msg.content} isUser={msg.isUser} isStreaming={msg.isStreaming} />
@@ -413,7 +414,7 @@ export function ARCChat({ onClose, isMobile, initialPrompt }: ARCChatProps) {
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-2 px-4 py-2.5 text-sm font-medium rounded-xl"
-                        style={{ background: 'linear-gradient(135deg, #22c55e, #16a34a)', color: 'white' }}
+                        style={{ backgroundColor: '#1c1c1e', color: '#ffffff' }}
                       >
                         Get Custom Pricing
                       </a>
@@ -424,23 +425,21 @@ export function ARCChat({ onClose, isMobile, initialPrompt }: ARCChatProps) {
 
               {isTyping && <ARCTypingIndicator />}
 
-              {/* Follow-up suggestions */}
+              {/* Follow-up suggestions — Apple blue links */}
               {followups.length > 0 && !isBusy && (
                 <div className="mt-3 flex flex-col gap-1.5">
                   {followups.map((q, i) => (
                     <button
                       key={i}
                       onClick={() => handleFollowup(q)}
-                      className="w-full text-left px-3 py-2 text-[12px] rounded-xl border transition-all"
-                      style={{ borderColor: '#1e2a1e', color: '#6ee7a0', backgroundColor: 'rgba(34,197,94,0.06)' }}
-                      onMouseEnter={e => {
-                        e.currentTarget.style.borderColor = '#22c55e';
-                        e.currentTarget.style.backgroundColor = 'rgba(34,197,94,0.13)';
+                      className="w-full text-left px-3 py-2.5 text-[13px] rounded-xl transition-colors"
+                      style={{
+                        backgroundColor: '#ffffff',
+                        border: '1px solid #e5e5ea',
+                        color: '#007aff',
                       }}
-                      onMouseLeave={e => {
-                        e.currentTarget.style.borderColor = '#1e2a1e';
-                        e.currentTarget.style.backgroundColor = 'rgba(34,197,94,0.06)';
-                      }}
+                      onMouseEnter={e => { e.currentTarget.style.backgroundColor = '#f2f2f7'; }}
+                      onMouseLeave={e => { e.currentTarget.style.backgroundColor = '#ffffff'; }}
                       data-testid={`button-followup-${i}`}
                     >
                       {q}
@@ -452,15 +451,15 @@ export function ARCChat({ onClose, isMobile, initialPrompt }: ARCChatProps) {
               <div ref={messagesEndRef} />
             </div>
 
-            {/* Input bar */}
+            {/* Input bar — white bar, light pill */}
             <form
               onSubmit={e => { e.preventDefault(); sendMessage(input); }}
               className="shrink-0 px-3 pb-3 pt-2"
-              style={{ backgroundColor: '#0a0a0f', borderTop: '1px solid #1a1a24' }}
+              style={{ backgroundColor: '#ffffff', borderTop: '1px solid #e5e5ea' }}
             >
               <div
                 className="flex items-center gap-2 px-4 py-2 rounded-full"
-                style={{ backgroundColor: '#111113', border: '1px solid #222228' }}
+                style={{ backgroundColor: '#f2f2f7', border: '1px solid #e5e5ea' }}
               >
                 <input
                   type="text"
@@ -468,9 +467,10 @@ export function ARCChat({ onClose, isMobile, initialPrompt }: ARCChatProps) {
                   onChange={e => setInput(e.target.value)}
                   placeholder={isBusy ? 'ARC is thinking...' : 'Ask anything...'}
                   disabled={isBusy}
-                  className="flex-1 bg-transparent text-sm text-white placeholder-zinc-500 outline-none disabled:opacity-40"
-                  onFocus={e => { (e.currentTarget.parentElement as HTMLElement).style.borderColor = '#22c55e40'; }}
-                  onBlur={e => { (e.currentTarget.parentElement as HTMLElement).style.borderColor = '#222228'; }}
+                  className="flex-1 bg-transparent text-sm outline-none disabled:opacity-40"
+                  style={{ color: '#1c1c1e' }}
+                  onFocus={e => { (e.currentTarget.parentElement as HTMLElement).style.borderColor = '#1c1c1e40'; }}
+                  onBlur={e => { (e.currentTarget.parentElement as HTMLElement).style.borderColor = '#e5e5ea'; }}
                   data-testid="input-message"
                 />
                 <button
@@ -478,12 +478,12 @@ export function ARCChat({ onClose, isMobile, initialPrompt }: ARCChatProps) {
                   disabled={!input.trim() || isBusy}
                   className="w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-opacity"
                   style={{
-                    backgroundColor: input.trim() && !isBusy ? '#22c55e' : 'rgba(34,197,94,0.25)',
+                    backgroundColor: input.trim() && !isBusy ? '#1c1c1e' : 'rgba(28,28,30,0.2)',
                     cursor: input.trim() && !isBusy ? 'pointer' : 'not-allowed',
                   }}
                   data-testid="button-send"
                 >
-                  <Send size={14} className="text-black" strokeWidth={2.5} />
+                  <Send size={14} className="text-white" strokeWidth={2.5} />
                 </button>
               </div>
             </form>
