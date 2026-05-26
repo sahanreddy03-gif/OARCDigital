@@ -179,20 +179,17 @@ export function ARCWidget() {
               )}
             </AnimatePresence>
 
-            {/* Pulsing Rings */}
-            <div className="absolute inset-0 bg-cyan-500 rounded-full animate-ping opacity-20" style={{ animationDuration: '2s' }} />
-            <div className="absolute inset-[-4px] bg-gradient-to-r from-cyan-400 to-purple-600 rounded-full opacity-75 blur-sm group-hover:opacity-100 transition-opacity" />
-
-            {/* Core Orb */}
-            <motion.div 
-              whileHover={{ scale: 1.1 }}
-              className="relative w-14 h-14 bg-black rounded-full flex items-center justify-center border border-white/20 shadow-2xl overflow-hidden"
+            {/* Apple-style clean orb — no glow, no pulsing */}
+            <motion.div
+              whileHover={{ scale: 1.06 }}
+              className="relative w-14 h-14 rounded-full flex items-center justify-center"
+              style={{
+                backgroundColor: '#1c1c1e',
+                border: '1px solid rgba(255,255,255,0.12)',
+                boxShadow: '0 4px 24px rgba(0,0,0,0.25)',
+              }}
             >
-              <div className="absolute inset-0 bg-gradient-to-tr from-cyan-900/40 to-purple-900/40" />
-              <span className="text-sm font-bold text-cyan-400 tracking-wider relative z-10">ARC</span>
-              
-              {/* Digital Noise Overlay */}
-              <div className="absolute inset-0 opacity-20 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] mix-blend-overlay" />
+              <span className="text-[13px] font-semibold text-white tracking-[0.08em]">ARC</span>
             </motion.div>
           </motion.div>
         )}
