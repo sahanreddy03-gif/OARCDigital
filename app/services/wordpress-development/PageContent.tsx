@@ -12,17 +12,17 @@ import TrustBlock from "@/components/seo/TrustBlock";
 import { NAP } from "@/lib/seo/nap";
 const SCHEMA = SERVICE_SCHEMAS["wordpress-development"];
 
-const wpHeroImage = "/attached_assets/stock_images/website_design_ui_ux_4ef0c7cd.jpg";
+const wpHeroImage = "/attached_assets/11_1763228440281.jpg";
 
 const wpImageObjectSchema = {
   "@context": "https://schema.org",
   "@type": "ImageObject",
-  name: "WordPress Gutenberg block editor interface — CMS a non-technical Malta business owner can manage independently",
-  description: "Modern WordPress block-based editor showing how Malta business owners can update pages, add blog posts, and manage content without needing a developer for every change.",
-  url: "https://oarcdigital.com/attached_assets/stock_images/website_design_ui_ux_4ef0c7cd.jpg",
+  name: "Custom WordPress build by OARC Digital for a Malta business — editable CMS for non-technical teams",
+  description: "WordPress built so Malta business owners can update pages, add blog posts, and manage content without needing a developer for every change.",
+  url: "https://oarcdigital.com/attached_assets/11_1763228440281.jpg",
   width: 1200,
   height: 800,
-  contentUrl: "https://oarcdigital.com/attached_assets/stock_images/website_design_ui_ux_4ef0c7cd.jpg",
+  contentUrl: "https://oarcdigital.com/attached_assets/11_1763228440281.jpg",
 };
 
 const wpFaqPageSchema = {

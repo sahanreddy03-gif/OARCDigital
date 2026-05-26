@@ -245,6 +245,9 @@ export default function ShopifyDevelopmentContent() {
               <Link href="/services/web-design" className="inline-flex items-center gap-2 text-orange-500 font-medium hover:text-orange-600 transition-colors text-sm">
                 Custom Web Design — bespoke design beyond any theme <ArrowRight className="w-4 h-4" />
               </Link>
+              <Link href="/services/paid-advertising" className="inline-flex items-center gap-2 text-orange-500 font-medium hover:text-orange-600 transition-colors text-sm" data-testid="link-paid-advertising">
+                Paid Advertising — traffic for your Shopify store <ArrowRight className="w-4 h-4" />
+              </Link>
             </div>
           </section>
           <RelatedServices slug="/services/shopify-development" />
