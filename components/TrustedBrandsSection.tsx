@@ -1,61 +1,44 @@
 "use client";
 
-// Luxury stat-ticker marquee — replaces the old 30-icon tool strip.
-// Pure CSS infinite scroll (same pattern as the original logo marquees).
-// Deep dark background, platinum/white monochrome — zero green.
+// Stat ticker — same visual style as the original platform logo strip:
+// light #f0fff4 background, compact, smooth CSS marquee, muted grey text.
+// 4 proof stats scroll in place of the old 30 brand icons.
 
 const STATS = [
-  { number: "4.9/5",    label: "Satisfaction Rating",  testId: "stat-rating"    },
-  { number: "47+",      label: "Clients Served",        testId: "stat-clients"   },
-  { number: "68%",      label: "Avg ROI Lift",          testId: "stat-roi"       },
-  { number: "90 Days",  label: "Guarantee Period",      testId: "stat-guarantee" },
+  { number: "4.9/5",   label: "Satisfaction Rating", testId: "stat-rating"    },
+  { number: "47+",     label: "Clients Served",       testId: "stat-clients"   },
+  { number: "68%",     label: "Avg ROI Lift",         testId: "stat-roi"       },
+  { number: "90 Days", label: "Guarantee Period",     testId: "stat-guarantee" },
 ];
 
-// Duplicate so the CSS -50% translateX loops seamlessly
 const TICKER = [...STATS, ...STATS];
-
-const BG = "#090909";
+const BG = "#f0fff4";
 
 export default function TrustedBrandsSection() {
   return (
     <section
-      className="relative overflow-hidden"
+      className="relative py-6 md:py-8 overflow-hidden"
       style={{ backgroundColor: BG }}
       data-testid="section-trust-stats"
       aria-label="OARC Digital — key performance metrics"
     >
-      {/* Top depth shadow — pure alpha, strictly monochrome */}
+      {/* Left edge fade */}
       <div
         aria-hidden="true"
-        className="absolute top-0 left-0 right-0 h-10 pointer-events-none z-10"
-        style={{ background: "linear-gradient(to bottom, rgba(0,0,0,0.35), transparent)" }}
-      />
-
-      {/* Bottom depth shadow — pure alpha, strictly monochrome */}
-      <div
-        aria-hidden="true"
-        className="absolute bottom-0 left-0 right-0 h-10 pointer-events-none z-10"
-        style={{ background: "linear-gradient(to top, rgba(0,0,0,0.35), transparent)" }}
-      />
-
-      {/* Left / right edge fades so items dissolve cleanly at viewport edges */}
-      <div
-        aria-hidden="true"
-        className="absolute left-0 top-0 bottom-0 w-24 md:w-40 pointer-events-none z-20"
+        className="absolute left-0 top-0 bottom-0 w-16 z-10 pointer-events-none"
         style={{ background: `linear-gradient(to right, ${BG}, transparent)` }}
       />
+      {/* Right edge fade */}
       <div
         aria-hidden="true"
-        className="absolute right-0 top-0 bottom-0 w-24 md:w-40 pointer-events-none z-20"
+        className="absolute right-0 top-0 bottom-0 w-16 z-10 pointer-events-none"
         style={{ background: `linear-gradient(to left, ${BG}, transparent)` }}
       />
 
-      {/* Marquee track */}
-      <div className="relative w-full overflow-hidden py-16 md:py-20">
+      <div className="w-full overflow-hidden">
         <div
-          className="flex whitespace-nowrap trust-stats-marquee"
+          className="flex whitespace-nowrap py-2 trust-stats-marquee"
           data-testid="stats-marquee"
-          aria-hidden="true"
         >
           {TICKER.map((stat, i) => (
             <div
@@ -63,41 +46,28 @@ export default function TrustedBrandsSection() {
               className="inline-flex items-center flex-shrink-0"
               data-testid={i < STATS.length ? stat.testId : undefined}
             >
-              {/* Stat item */}
-              <div className="inline-flex flex-col items-center px-12 md:px-16 lg:px-20">
-                {/* Number */}
+              {/* Stat block */}
+              <div className="inline-flex flex-col items-center justify-center px-10 md:px-14">
                 <span
-                  className="block font-bold text-white leading-none tracking-tight"
-                  style={{
-                    fontSize: "clamp(2.5rem, 6vw, 4.5rem)",
-                    letterSpacing: "-0.04em",
-                    fontVariantNumeric: "tabular-nums",
-                  }}
+                  className="block font-semibold text-zinc-500 leading-none"
+                  style={{ fontSize: "clamp(1.1rem, 2.5vw, 1.5rem)", letterSpacing: "-0.02em" }}
                 >
                   {stat.number}
                 </span>
-                {/* Label */}
                 <span
-                  className="block mt-2 text-[10px] md:text-[11px] font-medium uppercase"
-                  style={{
-                    letterSpacing: "0.25em",
-                    color: "rgba(255,255,255,0.38)",
-                  }}
+                  className="block mt-1 text-[10px] font-medium uppercase tracking-widest text-zinc-400"
                 >
                   {stat.label}
                 </span>
               </div>
 
-              {/* Separator — thin platinum vertical rule */}
-              <div
+              {/* Separator dot */}
+              <span
                 aria-hidden="true"
-                className="flex-shrink-0 self-stretch"
-                style={{
-                  width: "1px",
-                  background: "linear-gradient(to bottom, transparent 15%, rgba(255,255,255,0.14) 50%, transparent 85%)",
-                  marginInline: "0",
-                }}
-              />
+                className="flex-shrink-0 text-zinc-300 text-lg select-none"
+              >
+                ·
+              </span>
             </div>
           ))}
         </div>
@@ -109,7 +79,7 @@ export default function TrustedBrandsSection() {
           100% { transform: translateX(-50%); }
         }
         .trust-stats-marquee {
-          animation: trust-stats-scroll 36s linear infinite;
+          animation: trust-stats-scroll 30s linear infinite;
           will-change: transform;
         }
       ` }} />
