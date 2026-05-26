@@ -9,7 +9,6 @@ import { Providers } from "./providers";
 import ScrollToTop from "@/components/ScrollToTop";
 import SpeculationRules from "@/components/SpeculationRules";
 import MobileStickyCTA from "@/components/MobileStickyCTA";
-import { ARCWidget } from "@/components/ARC/ARCWidget";
 import Analytics from "@/components/Analytics";
 import { NAP, POSTAL_ADDRESS, GEO_COORDINATES } from "@/lib/seo/nap";
 import { ORG_SAMEAS } from "@/lib/schema";
@@ -236,7 +235,6 @@ export default function RootLayout({
         <SpeculationRules />
         <Providers>{children}</Providers>
         <MobileStickyCTA />
-        <ARCWidget />
         <Analytics />
 
         {/* Partytown + Google Ads — production only.
