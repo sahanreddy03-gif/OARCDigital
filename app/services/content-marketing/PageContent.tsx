@@ -1,5 +1,5 @@
 import Layout from "@/components/layout/Layout";
-import RelatedLinks from "@/components/RelatedLinks";
+import RelatedServices from "@/components/RelatedServices";
 import { Button } from "@/components/ui/button";
 import { CheckCircle2, ArrowRight, MapPin, Phone, Mail } from "lucide-react";
 import Link from "next/link";
@@ -174,7 +174,7 @@ export default function ContentMarketingContent() {
             </div>
           </section>
 
-          <RelatedLinks slug="/services/content-marketing" />
+          <RelatedServices slug="/services/content-marketing" />
           <div className="bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl p-8 text-white text-center">
             <h2 className="text-2xl font-bold mb-3">Want a Free Content Audit?</h2>
             <p className="text-white/90 mb-6 max-w-xl mx-auto">We will plot your topical authority gap against the top three Malta competitors and propose an editorial calendar.</p>

@@ -6,7 +6,7 @@ import { Play, Pause, ArrowRight, Volume2, VolumeX, Eye, Share2, TrendingUp, You
 import Layout from "@/components/layout/Layout";
 import ScrollReveal from "@/components/ScrollReveal";
 import FAQSection, { FAQItem } from "@/components/FAQSection";
-import RelatedLinks from "@/components/RelatedLinks";
+import RelatedServices from "@/components/RelatedServices";
 
 const showreelVideo = "/attached_assets/55555_1764634237326.mp4";
 const videoImg1 = "/attached_assets/stock_images/professional_video_p_57625a3b.jpg";
@@ -328,7 +328,7 @@ export default function VideoProduction() {
       <FAQSection faqs={videoProductionFAQs} title="Frequently Asked Questions" subtitle="Everything you need to know about our video production services" schemaId="faq-video-production"
         emitJsonLd={false} />
 
-      <RelatedLinks slug="/services/video-production" />
+      <RelatedServices slug="/services/video-production" />
 
 
       {/* FINAL CTA */}

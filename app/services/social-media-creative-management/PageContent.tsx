@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/layout/Layout";
 import FAQSection, { FAQItem } from "@/components/FAQSection";
-import RelatedLinks from "@/components/RelatedLinks";
+import RelatedServices from "@/components/RelatedServices";
 import { creativeServicesSEO } from "@/data/seoMetadata";
 import { useEffect, useState, useRef, useCallback } from "react";
 import Link from 'next/link';
@@ -1372,7 +1372,7 @@ export default function SocialMediaCreativeManagement() {
         emitJsonLd={false}
       />
 
-      <RelatedLinks slug="/services/social-media-creative-management" />
+      <RelatedServices slug="/services/social-media-creative-management" />
 
 
       {/* Final CTA - Vibrant Gradient */}

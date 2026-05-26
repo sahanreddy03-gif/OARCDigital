@@ -1,5 +1,5 @@
 import Layout from "@/components/layout/Layout";
-import RelatedLinks from "@/components/RelatedLinks";
+import RelatedServices from "@/components/RelatedServices";
 import { Button } from "@/components/ui/button";
 import { CheckCircle2, ArrowRight, MapPin, Phone, Mail, Search, TrendingUp, Globe2, BarChart3 } from "lucide-react";
 import Link from "next/link";
@@ -189,7 +189,7 @@ export default function SeoServicesContent() {
             </div>
           </section>
 
-          <RelatedLinks slug="/services/seo-services" />
+          <RelatedServices slug="/services/seo-services" />
 
           <div className="bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl p-8 text-white text-center">
             <h2 className="text-2xl font-bold mb-3">Want a Free Malta SEO Audit?</h2>

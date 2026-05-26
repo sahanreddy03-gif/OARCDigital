@@ -1,5 +1,5 @@
 import Layout from "@/components/layout/Layout";
-import RelatedLinks from "@/components/RelatedLinks";
+import RelatedServices from "@/components/RelatedServices";
 import { Button } from "@/components/ui/button";
 import { CheckCircle2, ArrowRight, MapPin, Phone, Mail } from "lucide-react";
 import Link from "next/link";
@@ -214,7 +214,7 @@ export default function ShopifyDevelopmentContent() {
               </Link>
             </div>
           </section>
-          <RelatedLinks slug="/services/shopify-development" />
+          <RelatedServices slug="/services/shopify-development" />
           <div className="bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl p-8 text-white text-center">
             <h2 className="text-2xl font-bold mb-3">Migrating Or Building From Scratch?</h2>
             <p className="text-white/90 mb-6 max-w-xl mx-auto">We will audit your existing platform free and send a phased Shopify migration plan in five working days.</p>

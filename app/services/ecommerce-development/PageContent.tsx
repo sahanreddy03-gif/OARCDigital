@@ -1,5 +1,5 @@
 import Layout from "@/components/layout/Layout";
-import RelatedLinks from "@/components/RelatedLinks";
+import RelatedServices from "@/components/RelatedServices";
 import { Button } from "@/components/ui/button";
 import { CheckCircle2, ArrowRight, MapPin, Phone, Mail } from "lucide-react";
 import Link from "next/link";
@@ -158,7 +158,7 @@ export default function EcommerceDevelopmentContent() {
             <h2 className="text-2xl md:text-3xl font-bold mb-6">Visit OARC Digital</h2>
             <TrustBlock variant="visit" />
           </section>
-          <RelatedLinks slug="/services/ecommerce-development" />
+          <RelatedServices slug="/services/ecommerce-development" />
           <div className="bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl p-8 text-white text-center">
             <h2 className="text-2xl font-bold mb-3">Launching or Replatforming?</h2>
             <p className="text-white/90 mb-6 max-w-xl mx-auto">Bring us your existing store — we will audit it free and tell you whether to refresh it or rebuild it.</p>

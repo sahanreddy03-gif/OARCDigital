@@ -14,7 +14,7 @@ import {
 import Layout from "@/components/layout/Layout";
 import FAQSection, { FAQItem } from "@/components/FAQSection";
 import ScrollReveal from "@/components/ScrollReveal";
-import RelatedLinks from "@/components/RelatedLinks";
+import RelatedServices from "@/components/RelatedServices";
 
 const heroImage = "/attached_assets/Biolage-influencer-marketing-agency-socially-powerful_1763243258630.jpg";
 const localCreatorImg =
@@ -608,7 +608,7 @@ export default function Influencer() {
 
       {/* Related links from internal link graph */}
       <div className="max-w-6xl mx-auto px-4">
-        <RelatedLinks slug="/services/influencer" />
+        <RelatedServices slug="/services/influencer" />
       </div>
 
       {/* FAQ */}

@@ -6,7 +6,7 @@ import { ArrowRight, Palette, Type, Layers, Sparkles, BookOpen, Mic2, Globe, Pac
 import Layout from '@/components/layout/Layout';
 import ScrollReveal from "@/components/ScrollReveal";
 import FAQSection, { FAQItem } from "@/components/FAQSection";
-import RelatedLinks from "@/components/RelatedLinks";
+import RelatedServices from "@/components/RelatedServices";
 
 const brandImg1 = "/attached_assets/stock_images/branding_design_logo_562a38a3.jpg";
 const brandImg2 = "/attached_assets/stock_images/branding_design_logo_ccf3aba4.jpg";
@@ -349,7 +349,7 @@ export default function Branding() {
       <FAQSection faqs={brandingFAQs} title="Frequently Asked Questions" subtitle="Everything you need to know about our branding services" schemaId="faq-branding"
         emitJsonLd={false} />
 
-      <RelatedLinks slug="/services/branding" />
+      <RelatedServices slug="/services/branding" />
 
 
       {/* FINAL CTA */}

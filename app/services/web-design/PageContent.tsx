@@ -6,7 +6,7 @@ import { ArrowRight, Gauge, MousePointer2, TrendingUp, Timer, Users, Zap, ArrowU
 import Layout from "@/components/layout/Layout";
 import ScrollReveal from "@/components/ScrollReveal";
 import FAQSection, { FAQItem } from "@/components/FAQSection";
-import RelatedLinks from "@/components/RelatedLinks";
+import RelatedServices from "@/components/RelatedServices";
 
 const heroImage = "/attached_assets/website-design-optimized.jpg";
 const webImg1 = "/attached_assets/stock_images/modern_web_design_ux_d23df466.jpg";
@@ -342,7 +342,7 @@ export default function WebDesign() {
         </div>
       </section>
 
-      <RelatedLinks slug="/services/web-design" />
+      <RelatedServices slug="/services/web-design" />
 
 
       {/* FINAL CTA */}
